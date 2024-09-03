@@ -55,7 +55,7 @@ When creating your user:
 - Make sure to create a system user.
 - Assign the **/MSFTSEN/SENTINEL_RESPONDER** role to the user.
 
-For more information, see the [SAP documentation](https://help.sap.com/docs/SAP_S4HANA_ON-PREMISE/2c158dc83732454cb8830b3010e2c322/6c25624a03114f48a4c7a60105752cd4.html). <!--we need a better link-->
+For more information, see the [SAP documentation](https://help.sap.com/docs/ABAP_PLATFORM_NEW/ad77b44570314f6d8c3a8a807273084c/4cb5f7ac9cb33c94e10000000a42189c.html?version=LATEST).
 
 ### Required ABAP authorizations
 
@@ -266,7 +266,6 @@ If needed, you can [Remove the user role and any optional CR installed on your A
 Some installations of SAP systems might not have audit logging enabled by default. For best results in evaluating the performance and efficacy of the Microsoft Sentinel solution for SAP applications, enable auditing of your SAP system and configure the audit parameters. If you want to ingest SAP HANA DB logs, make sure to also enable auditing for SAP HANA DB.
 
 For more information, see the [SAP documentation](https://community.sap.com/t5/application-development-blog-posts/analysis-and-recommended-settings-of-the-security-audit-log-sm19-rsau/ba-p/13297094).
-<!--this is where we'd redirect to from sap auditing-->
 
 ## Deploy optional CRs
 
@@ -279,7 +278,7 @@ The following table describes the optional CRs available to deploy:
 |**NPLK900271**  |Creates and configures a sample role with the basic authorizations required to allow the SAP data connector to connect to your SAP system. Alternatively, you can load authorizations directly from a file or manually define the role according to the logs you want to ingest. <br><br>For more information, see [Required ABAP authorizations](#required-abap-authorizations). |
 |**NPLK900201** or **NPLK900202**  |[Requirements for retrieving additional information from SAP (optional)](prerequisites-for-deploying-sap-continuous-threat-monitoring.md#requirements-for-retrieving-additional-information-from-sap-optional). Select one of these CRs according to your SAP version. |
 
-For more information, see the [SAP Community](https://community.sap.com/t5/application-development-blog-posts/analysis-and-recommended-settings-of-the-security-audit-log-sm19-rsau/ba-p/13297094) and the [SAP documentation](https://help.sap.com/doc/saphelp_nw73ehp1/7.31.19/en-US/e1/5d9acae75c11d2b451006094b9ea64/frameset.htm). <!--we want a better link here-->
+For more information, see the [SAP Community](https://community.sap.com/t5/application-development-blog-posts/analysis-and-recommended-settings-of-the-security-audit-log-sm19-rsau/ba-p/13297094) and the [SAP documentation](https://help.sap.com/docs/ABAP_PLATFORM_NEW/4a368c163b08418890a406d413933ba7/e15d9acae75c11d2b451006094b9ea64.html?locale=en-US&version=LATEST).
 
 ## Verify that the PAHI table is updated at regular intervals
 
@@ -309,7 +308,7 @@ When configuring SNC:
 
 If you're turning off the SAP data connector agent and stopping log ingestion from your SAP system, we recommend that you also remove the user role and optional CRs installed on your ABAP system.
 
-To do so, import the deletion CR *NPLK900259* into your ABAP system. For more information, see the [SAP documentation](https://help.sap.com/doc/saphelp_nw73ehp1/7.31.19/en-US/e1/5d9acae75c11d2b451006094b9ea64/frameset.htm). <!--we want a better link-->
+To do so, import the deletion CR *NPLK900259* into your ABAP system. For more information, see the [SAP documentation](https://help.sap.com/docs/ABAP_PLATFORM_NEW/4a368c163b08418890a406d413933ba7/e15d9acae75c11d2b451006094b9ea64.html?locale=en-US&version=LATEST).
 
 ## Next step
 
