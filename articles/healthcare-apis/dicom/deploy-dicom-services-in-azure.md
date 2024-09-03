@@ -1,11 +1,11 @@
 ---
 title: Deploy the DICOM service by using the Azure portal - Azure Health Data Services
 description: This article describes how to deploy the DICOM service in the Azure portal.
-author: mmitrik
+author: varunbms
 ms.service: azure-health-data-services
 ms.topic: how-to
 ms.date: 03/11/2024
-ms.author: mmitrik
+ms.author: buchvarun
 ms.custom: mode-api
 ---
 
