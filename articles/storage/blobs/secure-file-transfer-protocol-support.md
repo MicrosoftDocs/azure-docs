@@ -6,7 +6,7 @@ author: normesta
 
 ms.service: azure-blob-storage
 ms.topic: conceptual
-ms.date: 04/30/2023
+ms.date: 09/03/2024
 ms.custom: references_regions
 ms.author: normesta
 
@@ -44,7 +44,7 @@ Different protocols are supported by the hierarchical namespace. SFTP is one of 
 
 SFTP clients can't be authorized by using Microsoft Entra identities. Instead, SFTP utilizes a new form of identity management called _local users_.
 
-Local users must use either a password or a Secure Shell (SSH) private key credential for authentication. You can have a maximum of 2,000 local users for a storage account.
+Local users must use either a password or a Secure Shell (SSH) private key credential for authentication. You can have a maximum of 8,000 local users for a storage account.
 
 To set up access permissions, you create a local user, and choose authentication methods. Then, for each container in your account, you can specify the level of access you want to give that user.
 
