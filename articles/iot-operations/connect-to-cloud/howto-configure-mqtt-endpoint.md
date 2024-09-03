@@ -335,7 +335,7 @@ mqttSettings:
 
 #### Propagate setting
 
-CloudEvent properties are passed through for messages that contain the required properties. If the message does not contain the required properties, the message is passed through as is. If the target is Kafka and the required properties are present, a `ce_` prefix is added to the CloudEvent properties.
+CloudEvent properties are passed through for messages that contain the required properties. If the message does not contain the required properties, the message is passed through as is. 
 
 | Name              | Required | Sample value                                           | Output value                                                                                            |
 | ----------------- | -------- | ------------------------------------------------------ |-------------------------------------------------------------------------------------------------------- |
@@ -350,7 +350,7 @@ CloudEvent properties are passed through for messages that contain the required 
 
 #### CreateOrRemap setting
 
-CloudEvent properties are passed through for messages that contain the required properties. If the message does not contain the required properties, the properties are generated. If the target is Kafka, a `ce_` prefix is added to the CloudEvent properties.
+CloudEvent properties are passed through for messages that contain the required properties. If the message does not contain the required properties, the properties are generated.
 
 | Name              | Required | Generated value if missing                                                    |
 | ----------------- | -------- | ------------------------------------------------------------------------------|
