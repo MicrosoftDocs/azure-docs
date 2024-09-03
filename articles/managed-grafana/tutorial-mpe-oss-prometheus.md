@@ -154,27 +154,14 @@ spec:
 
 1. The private link service with name `promManagedPls` is created in the AKS managed resource group. This process takes a few minutes.
 
-    :::image type="content" source="media/tutorial-managed-private-endpoint/private-link-service-prometheus.png" alt-text="Screenshot of the Azure platform: showing the created Private Link Service resource.":::
-
 ## Connect with a managed private endpoint
 
 1. If you don't have an Azure Managed Grafana workspace yet, create one by following the [Azure Managed Grafana quickstart](./quickstart-managed-grafana-portal.md).
 1. Open your Azure Managed Grafana workspace and go to **Networking** > **Managed Private Endpoint** > **Create**.
-
-    :::image type="content" source="media/tutorial-managed-private-endpoint/create-managed-private-endpoint.png" alt-text="Screenshot of the Azure platform showing the managed private endpoints page within an Azure Managed Grafana resource.":::
-
 1. Enter a name for your managed private endpoint and select your Azure subscription.
 1. For **Resource type** select **Microsoft.Network/privateLinkServices (Private link services)**, and for **Target resource**, select the `promManagedPls` private link service created in the above step. Each managed private endpoint gets a private IP address. You can also provide a domain name for this managed private endpoint. The Azure Managed Grafana service ensures that this domain is resolved to the managed private endpoint's private IP inside the Azure Managed Grafana environment. For example, set the domain to `*.prom.my-own-domain.com`.
-
-    :::image type="content" source="media/tutorial-managed-private-endpoint/private-link-service-managed-private-endpoint-create-info.png" alt-text="Screenshot of the Azure platform showing Prometheus information entered for the new managed private endpoint.":::
-
 1. Approve the private endpoint connection by going to the promManagedPls resource. Under **Settings**, go **Private endpoint connections**, select your connection using the checkbox and **Approve**.
-
-    :::image type="content" source="media/tutorial-managed-private-endpoint/private-link-service-approve-connection.png" alt-text="Screenshot of the Azure platform showing the Approve connection action.":::
-
 1. After the private endpoint connection is approved, go back to your Azure Managed Grafana resource and select the **Refresh** button in the Managed Private Endpoint tab to synchronize the `Connection state`. It should now show as **Approved**.
-
-    :::image type="content" source="media/tutorial-managed-private-endpoint/managed-private-endpoint-sync.png" alt-text="Screenshot of the Azure platform showing the Refresh button.":::
 
 ## Display Prometheus data in a Grafana dashboard
 
