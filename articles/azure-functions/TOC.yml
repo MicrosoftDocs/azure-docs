@@ -31,6 +31,9 @@
           - name: Command line
             displayName: C#, quickstart, get started
             href: create-first-function-cli-csharp.md
+          - name: Azure Developer CLI
+            displayName: C#, quickstart, get started, Flex Consumption plan
+            href: create-first-function-azure-developer-cli.md?pivots=programming-language-csharp
         - name: Java
           items:
           - name: Eclipse
@@ -54,6 +57,9 @@
           - name: Visual Studio Code
             displayName: Java, quickstart, get started
             href: create-first-function-vs-code-java.md
+          - name: Azure Developer CLI
+            displayName: Java, quickstart, get started, Flex Consumption plan
+            href: create-first-function-azure-developer-cli.md?pivots=programming-language-java
         - name: JavaScript
           items:
           - name: Visual Studio Code
@@ -62,6 +68,9 @@
           - name: Command line
             displayName: JavaScript, quickstart, get started
             href: create-first-function-cli-node.md
+          - name: Azure Developer CLI
+            displayName: JavaScript, quickstart, get started, Flex Consumption plan
+            href: create-first-function-azure-developer-cli.md?pivots=programming-language-javascript
         - name: PowerShell
           items:
           - name: Visual Studio Code
@@ -70,6 +79,9 @@
           - name: Command line
             displayName: PowerShell, quickstart, get started
             href: create-first-function-cli-powershell.md
+          - name: Azure Developer CLI
+            displayName: PowerShell, quickstart, get started, Flex Consumption plan
+            href: create-first-function-azure-developer-cli.md?pivots=programming-language-powershell
         - name: Python
           items:
           - name: Visual Studio Code
@@ -78,6 +90,9 @@
           - name: Command line
             displayName: Python, quickstart, get started
             href: create-first-function-cli-python.md
+          - name: Azure Developer CLI
+            displayName: Python, quickstart, get started, Flex Consumption plan
+            href: create-first-function-azure-developer-cli.md?pivots=programming-language-python
         - name: TypeScript
           items:
           - name: Visual Studio Code
@@ -86,6 +101,9 @@
           - name: Command line
             displayName: TypeScript, quickstart, get started
             href: create-first-function-cli-typescript.md
+          - name: Azure Developer CLI
+            displayName: TypeScript, quickstart, get started, Flex Consumption plan
+            href: create-first-function-azure-developer-cli.md?pivots=programming-language-typescript
         - name: Other (Go/Rust)
           items:
           - name: Visual Studio Code
@@ -1097,6 +1115,8 @@
             href: errors-diagnostics/diagnostic-events/azfd0011.md
           - name: AZFD0012
             href: errors-diagnostics/diagnostic-events/azfd0012.md
+          - name: AZFD0013
+            href: errors-diagnostics/diagnostic-events/azfd0013.md
     - name: host.json 2.x reference
       href: functions-host-json.md
     - name: host.json 1.x reference
