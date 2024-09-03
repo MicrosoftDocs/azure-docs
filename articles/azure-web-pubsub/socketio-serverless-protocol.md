@@ -127,7 +127,7 @@ POST {endpoint}/api/hubs/{hub}/:addToGroups?api-version=2024-01-01
 }
 ```
 
-See [Add Connections to Groups](https://learn.microsoft.com/rest/api/webpubsub/dataplane/web-pub-sub/add-connections-to-groups?view=rest-webpubsub-dataplane-2024-01-01&tabs=HTTP) for REST details. See [OData filter syntax in the Azure Web PubSub service](./reference-odata-filter.md) for filter details.
+See [Add Connections to Groups](/rest/api/webpubsub/dataplane/web-pub-sub/add-connections-to-groups) for REST details. See [OData filter syntax in the Azure Web PubSub service](./reference-odata-filter.md) for filter details.
 
 #### Example
 
@@ -156,7 +156,7 @@ POST {endpoint}/api/hubs/{hub}/:removeFromGroups?api-version=2024-01-01
 }
 ```
 
-See [Remove Connections From Groups](https://learn.microsoft.com/rest/api/webpubsub/dataplane/web-pub-sub/remove-connections-from-groups?view=rest-webpubsub-dataplane-2024-01-01&tabs=HTTP) for REST details. See [OData filter syntax in the Azure Web PubSub service](./reference-odata-filter.md) for filter details.
+See [Remove Connections From Groups](/rest/api/webpubsub/dataplane/web-pub-sub/remove-connections-from-groups) for REST details. See [OData filter syntax in the Azure Web PubSub service](./reference-odata-filter.md) for filter details.
 
 #### Example
 
@@ -185,7 +185,7 @@ Content-Type: text/plain
 Engine.IO serialized payload
 ```
 
-See [Send To All](https://learn.microsoft.com/rest/api/webpubsub/dataplane/web-pub-sub/send-to-all?view=rest-webpubsub-dataplane-2024-01-01&tabs=HTTP) for REST details. See [Engine.IO Protocol](https://socket.io/docs/v4/engine-io-protocol/) for Engine.IO Protocol details.
+See [Send To All](/rest/api/webpubsub/dataplane/web-pub-sub/send-to-all) for REST details. See [Engine.IO Protocol](https://socket.io/docs/v4/engine-io-protocol/) for Engine.IO Protocol details.
 
 #### Example
 
@@ -219,7 +219,7 @@ Content-Type: text/plain
 Engine.IO serialized payload
 ```
 
-See [Send To All](https://learn.microsoft.com/rest/api/webpubsub/dataplane/web-pub-sub/send-to-all?view=rest-webpubsub-dataplane-2024-01-01&tabs=HTTP) for REST details. See [Engine.IO Protocol](https://socket.io/docs/v4/engine-io-protocol/) for Engine.IO Protocol details.
+See [Send To All](/rest/api/webpubsub/dataplane/web-pub-sub/send-to-all) for REST details. See [Engine.IO Protocol](https://socket.io/docs/v4/engine-io-protocol/) for Engine.IO Protocol details.
 
 #### Example
 
@@ -253,7 +253,7 @@ Content-Type: text/plain
 Engine.IO serialized payload
 ```
 
-See [Send To All](https://learn.microsoft.com/rest/api/webpubsub/dataplane/web-pub-sub/send-to-all?view=rest-webpubsub-dataplane-2024-01-01&tabs=HTTP) for REST details. See [Engine.IO Protocol](https://socket.io/docs/v4/engine-io-protocol/) for Engine.IO Protocol details.
+See [Send To All](/rest/api/webpubsub/dataplane/web-pub-sub/send-to-all) for REST details. See [Engine.IO Protocol](https://socket.io/docs/v4/engine-io-protocol/) for Engine.IO Protocol details.
 
 #### Example
 
@@ -287,7 +287,7 @@ Content-Type: text/plain
 Engine.IO serialized payload for socket disconnection
 ```
 
-See [Send To All](https://learn.microsoft.com/rest/api/webpubsub/dataplane/web-pub-sub/send-to-all?view=rest-webpubsub-dataplane-2024-01-01&tabs=HTTP) for REST details. See [Engine.IO Protocol](https://socket.io/docs/v4/engine-io-protocol/) for Engine.IO Protocol details. See [Disconnection from a namespace](https://socket.io/docs/v4/socket-io-protocol/#disconnection-from-a-namespace-1) for disconnection payload details.
+See [Send To All](/rest/api/webpubsub/dataplane/web-pub-sub/send-to-all) for REST details. See [Engine.IO Protocol](https://socket.io/docs/v4/engine-io-protocol/) for Engine.IO Protocol details. See [Disconnection from a namespace](https://socket.io/docs/v4/socket-io-protocol/#disconnection-from-a-namespace-1) for disconnection payload details.
 
 #### Example
 

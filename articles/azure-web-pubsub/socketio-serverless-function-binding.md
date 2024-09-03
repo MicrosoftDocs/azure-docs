@@ -21,7 +21,7 @@ This article explains how to use Socket.IO serverless integrate with Azure Funct
 
 [Source code](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/webpubsub/Microsoft.Azure.WebJobs.Extensions.WebPubSubForSocketIO) |
 [Package](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.WebPubSubForSocketIO) |
-[API reference documentation](https://learn.microsoft.com/dotnet/api/microsoft.azure.webjobs.extensions.webpubsubforsocketio) |
+[API reference documentation](/dotnet/api/microsoft.azure.webjobs.extensions.webpubsubforsocketio) |
 [Product documentation](./index.yml) |
 [Samples][samples_ref]
 
