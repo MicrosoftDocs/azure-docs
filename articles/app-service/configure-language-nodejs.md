@@ -133,7 +133,7 @@ If you deploy your app by using Git, or by using zip packages [with build automa
 
 `PRE_BUILD_COMMAND` and `POST_BUILD_COMMAND` are environment variables that are empty by default. To run pre-build commands, define `PRE_BUILD_COMMAND`. To run post-build commands, define `POST_BUILD_COMMAND`.
 
-The following example specifies the two variables to a series of commands, separated by commas.
+The following example uses the two variables to specify a series of commands, separated by commas.
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings PRE_BUILD_COMMAND="echo foo, scripts/prebuild.sh"
@@ -371,7 +371,7 @@ When a working Node.js app behaves differently in App Service or has errors, try
   - Depending on your *package.json*, different packages might be installed for production mode (`dependencies` vs. `devDependencies`).
   - Certain web frameworks might deploy static files differently in production mode.
   - Certain web frameworks might use custom startup scripts when running in production mode.
-- Run your app in App Service in development mode. For example, in [MEAN.js](https://meanjs.org/), you can set your app to development mode in runtime by [setting the `NODE_ENV` app setting](configure-common.md).
+- Run your app in App Service in development mode. For example, in [MEAN.js](https://meanjs.org/), you can set your app to development mode at runtime by [setting the `NODE_ENV` app setting](configure-common.md).
 
 ::: zone pivot="platform-windows"
 
