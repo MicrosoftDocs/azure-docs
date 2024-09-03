@@ -202,21 +202,21 @@ To deploy a virtual network gateway, follow these steps.
    $gwipconfig = New-AzVirtualNetworkGatewayIpConfig -Name gwipconfig -SubnetId $subnet.Id -PublicIpAddressId $gwpip.Id
    ```
 
-1. Run the following script to create the VPN gateway. Creating a gateway can take 45 minutes or more, depending on the gateway SKU you specify.
+1. Run the following script to create the VPN gateway. 
 
    Replace `<resource-group-name>` with the same resource group as your virtual network. Specify the [gateway SKU](../../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md#gwsku) that supports the features you want to use. The gateway SKU controls the number of allowed Site-to-Site tunnels and desired performance of the VPN. We recommend using a Generation 2 SKU. Don't use the Basic SKU if you want to use IKEv2 authentication (route-based VPN).
-
-   You can set the optional `-EnableActiveActiveFeature` flag if you're creating an active-active gateway configuration with multiple IP addresses. To learn more about active-active mode, see [Highly available cross-premises and VNet-to-VNet connectivity](../../vpn-gateway/vpn-gateway-highlyavailable.md).
 
    ```azurepowershell-interactive
    New-AzVirtualNetworkGateway -Name MyVnetGateway -ResourceGroupName <resource-group-name> -Location "East US" -IpConfigurations $gwipconfig -GatewayType "Vpn" -VpnType RouteBased -GatewaySku VpnGw2 -VpnGatewayGeneration Generation2
    ```
-   
-Deployment can take up to 45 minutes to complete. You can view the VPN gateway using the [Get-AzVirtualNetworkGateway](/powershell/module/az.network/Get-azVirtualNetworkGateway) cmdlet.
 
-```azurepowershell-interactive
-Get-AzVirtualNetworkGateway -Name MyVnetGateway -ResourceGroup <resource-group-name>
-```
+   You can set the optional `-EnableActiveActiveFeature` flag if you're creating an active-active gateway configuration with multiple IP addresses. To learn more about active-active mode, see [Highly available cross-premises and VNet-to-VNet connectivity](../../vpn-gateway/vpn-gateway-highlyavailable.md).
+
+1. Creating a gateway can take 45 minutes or more, depending on the gateway SKU you specified. You can view the VPN gateway using the [Get-AzVirtualNetworkGateway](/powershell/module/az.network/Get-azVirtualNetworkGateway) cmdlet.
+
+   ```azurepowershell-interactive
+   Get-AzVirtualNetworkGateway -Name MyVnetGateway -ResourceGroup <resource-group-name>
+   ```
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -230,23 +230,25 @@ Get-AzVirtualNetworkGateway -Name MyVnetGateway -ResourceGroup <resource-group-n
 
    Replace `<resource-group-name>` with the same resource group as your virtual network. Specify the [gateway SKU](../../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md#gwsku) that supports the features you want to use. The gateway SKU controls the number of allowed Site-to-Site tunnels and desired performance of the VPN. We recommend using a Generation 2 SKU. Don't use the Basic SKU if you want to use IKEv2 authentication (route-based VPN).
 
-   The `--no-wait` parameter allows the gateway to be created in the background. It doesn't mean that the VPN gateway is created immediately.
-
    ```azurecli-interactive
    az network vnet-gateway create -n MyVnetGateway -l eastus --public-ip-address mypublicip -g <resource-group-name> --vnet <virtual-network-name> --gateway-type Vpn --sku VpnGw2 --vpn-gateway-generation Generation2 --no-wait
    ```
    
-You can view the VPN gateway using the following command:
+   The `--no-wait` parameter allows the gateway to be created in the background. It doesn't mean that the VPN gateway is created immediately.
 
-```azurecli-interactive
-az network vnet-gateway show -n MyVnetGateway -g <resource-group>
-```
+1. You can view the VPN gateway using the following command.
+   
+   ```azurecli-interactive
+   az network vnet-gateway show -n MyVnetGateway -g <resource-group>
+   ```
 
 ---
 
 ### Create a local network gateway for your on-premises gateway
 
 A local network gateway is an Azure resource that represents your on-premises network appliance. It's deployed alongside your storage account, virtual network, and virtual network gateway, but doesn't need to be in the same resource group or subscription as the storage account. To create a local network gateway, follow these steps.
+
+# [Portal](#tab/azure-portal)
 
 1. In the search box at the top of the Azure portal, search for and select *local network gateways*.  The **Local network gateways** page should appear. At the top of the page, select **+ Create**.
 
@@ -265,6 +267,28 @@ A local network gateway is an Azure resource that represents your on-premises ne
 1. If your organization requires BGP, select the **Advanced** tab to configure BGP settings. To learn more, see [About BGP with Azure VPN Gateway](../../vpn-gateway/vpn-gateway-bgp-overview.md).
 
 1. Select **Review + create** to run validation. Once validation passes, select **Create** to create the local network gateway.
+
+# [Azure PowerShell](#tab/azure-powershell)
+
+Run the following command to create a new local network gateway. Replace `<resource-group-name>` with your own value.
+
+The `-AddressPrefix` parameter specifies the address range or ranges for the network this local network gateway represents. If you add multiple address space ranges, make sure that the ranges you specify don't overlap with ranges of other networks that you want to connect to.
+
+```azurepowershell-interactive
+New-AzLocalNetworkGateway -Name MyLocalGateway -Location "East US" -AddressPrefix @('10.101.0.0/24','10.101.1.0/24') -GatewayIpAddress "5.4.3.2" -ResourceGroupName <resource-group-name>
+```
+
+# [Azure CLI](#tab/azure-cli)
+
+Run the following command to create a new local network gateway. Replace `<resource-group-name>` with your own value.
+
+The `--local-address-prefixes` parameter specifies the address range or ranges for the network this local network gateway represents. If you add multiple address space ranges, make sure that the ranges you specify don't overlap with ranges of other networks that you want to connect to.
+
+```azurecli-interactive
+az network local-gateway create --gateway-ip-address 5.4.3.2 --name MyLocalGateway -g <resource-group-name> --local-address-prefixes 10.101.0.0/24 10.101.1.0/24
+```
+
+---
 
 ## Configure on-premises network appliance
 
