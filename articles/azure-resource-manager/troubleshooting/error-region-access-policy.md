@@ -11,7 +11,7 @@ This article provides information about the 'location ineligible' error that mig
 
 ## Symptom
 
-The following error message is returned when you attempt to create a new resource in Azure's West Europe region using an Azure Resource Manager (ARM) template, Azure CLI, or Azure PowerShell. Or, you might see this error in Azure Portal when you select West Europe in the region drop-down while attempting to create a new resource.
+The following error message is returned when you attempt to create a new resource in an Azure region using an Azure Resource Manager (ARM) template, Azure CLI, or Azure PowerShell. Or, you might see this error in Azure Portal when you select an Azure region in the region drop-down while attempting to create a new resource.
 
 ```Output
 The selected region is currently not accepting new customers: https://aka.ms/locationineligible
@@ -19,17 +19,21 @@ The selected region is currently not accepting new customers: https://aka.ms/loc
 
 ## Cause
 
-To maximize access for Azure customers already deployed in an Azure location, Microsoft will sometimes restrict access for customers not using that location. This policy is currently in effect for Azure's West Europe region. Thus, when you attempt to create resources in West Europe under a tenant that is new to this region, you will recieve the error message mentioned above.
+To prioritize resources for existing customers in an Azure region, Microsoft will sometimes restrict access to customers with no resources in that location.  When you attempt to create resources in an Azure region where this policy is in place and under a tenant that is new to the region, you will receive the error message above.
+
+This policy is currently in effect for the following region(s):
+
+- West Europe
 
 ## Solution
 
 If you recieve this message, there are two possible solutions:
 
-- Select an alternative region: Most users should choose a different Azure region to deploy resources.
-- Submit a remediation request: If one or more subscriptions in your tenant have resources already deployed to West Europe, or there is a clear business need for country-specific data sovereignty, then contact Microsoft support by following the steps outlined below.
+- Select an alternative region: Most users should select a different Azure region to deploy their resources into.
+- Submit a remediation request: If one or more subscriptions in your tenant have resources already deployed to the Azure region, or there is a clear business need for country-specific data sovereignty, then contact Microsoft support by following the steps outlined below.
 
 > [!NOTE]
-> Remember that a remediation request should only be submitted to Microsoft support if there is a clear requirement for deploying resources in the West Europe region. Otherwise, please choose a different Azure region for your deployment.
+> Remember that a remediation request should only be submitted to Microsoft support if there is a clear requirement for deploying resources to the Azure region. Otherwise, please choose a different Azure region for your deployment.
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 
