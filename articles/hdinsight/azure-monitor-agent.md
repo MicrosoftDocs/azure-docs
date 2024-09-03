@@ -3,7 +3,7 @@ title: Azure Monitor Agent (AMA) migration guide for Azure HDInsight clusters
 description: Learn how to migrate to Azure Monitor Agent (AMA) in Azure HDInsight clusters.
 ms.service: azure-hdinsight
 ms.topic: how-to
-ms.date: 08/29/2024
+ms.date: 09/03/2024
 ---
 
 # Azure Monitor Agent (AMA) migration guide for Azure HDInsight clusters
@@ -75,7 +75,7 @@ The following sections describe how customers can use the new Azure Monitor Agen
 >
 > For more information about how to create a Log Analytics workspace, see [Create a Log Analytics workspace in the Azure portal](/azure/azure-monitor/logs/quick-create-workspace).  
 
-### Enable Azure monitor agent using Portal 
+### Approach 1: Enable Azure monitor agent using Portal 
 
 Activate the new integration by going to your cluster's portal page and scrolling down the menu on the left until you reach the Monitoring section.  
 
@@ -91,6 +91,175 @@ Activate the new integration by going to your cluster's portal page and scrollin
     :::image type="content" source="./media/azure-monitor-agent/pre-condition.png" alt-text="Screenshot showing preconditions." border="true" lightbox="./media/azure-monitor-agent/pre-condition.png":::
 
 1. Select Save once precondition steps are complete.
+
+### Approach 2: Enable Azure monitor agent using Azure CLI
+
+1. Enable system-assigned MSI 
+
+   1. First get cluster information to check the MSI of cluster 
+
+    
+        ```
+        az hdinsight show –-resource-group $resourceGroup –name $cluster 
+        
+        #get access token if needed 
+        
+        accessToken=$(az account get-access-token --query accessToken -o tsv) 
+        
+        url="https://management.azure.com/subscriptions/${subscriptionId}/resourcegroups/${resourceGroupName}/providers/Microsoft.HDInsight/clusters/${clusterName}?api-version=2024-08-01-preview" 
+        ```
+        
+    1. If this cluster has no MSI, directly enable system assigned MSI via rest API 
+    
+       ```
+        body="{\"identity\": {\"type\": \"SystemAssigned\"}}" 
+         
+        az rest --method patch --url "$url" --body "$body" --headers "Authorization=Bearer $accessToken"
+        ``` 
+    1. If this cluster only has user assigned MSI, add system assigned MSI to identity. 
+        ```
+        body="{\"identity\": {\"type\": \"SystemAssigned,UserAssigned\", \"userAssignedIdentities\": {$userAssignedIdentityResourceId:{}}}}" 
+        
+        az rest --method patch --url "$url" --body "$body" --headers "Authorization=Bearer $accessToken" 
+        ```
+ 
+
+    1. If this cluster already system assigned MSI, no need to anything .
+    
+
+1. Creation of DCR 
+
+    For more insormation, see [Create and edit data collection rules (DCRs)](/azure/azure-monitor/essentials/data-collection-rule-create-edit?tabs=CLI#create-a-dcr) 
+    
+    ```
+    # The URL of the DCR template file, change {HDIClusterType} to your cluster type. 
+    
+    # The valid types are: hadoop, hbase, interactivehive, kafka, llap, spark 
+    
+    $dcrTemplatejsonUrl = "https://hdiconfigactions.blob.core.windows.net/azuremonitoriningagent/DCR/{HDIClusterType}_dcr_template.json?api-version=2020-08-01" 
+    
+      
+    
+    # Download dcr template to local 
+    
+    $dcrTemplateLocalFile = "dcrTemplateFileName.json" 
+    
+    azcopy copy $dcrTemplatejsonUrl $dcrTemplateLocalFile 
+    
+      
+    
+    # Set subscription 
+    
+    az account set --subscription "{yourSubscription}" 
+    
+      
+    
+    # Get details of your Log Analytics workspace 
+    
+    $workspaceResourceGroupName = "{yourWorkspaceResourceGroup}" 
+    
+    $workspaceName = "{yourWorkspaceName}" 
+    
+    $workspace = az monitor log-analytics workspace show --resource-group $workspaceResourceGroupName --workspace-name $workspaceName 
+    
+      
+    
+    # Customize the DCR content. Below script depends on jq, you need to install it if it’s not available in your environment. 
+    
+    $workspaceResourceId = $workspace | jq -r '.id' 
+    
+    $workspaceId = $workspace | jq -r '.customerId' 
+    
+    $location = $workspace | jq -r '.location' 
+    
+      
+    
+    # Read the JSON file 
+    
+    $templateJsonData=cat $dcrTemplateLocalFile 
+    
+      
+    
+    # Update the JSON fields using jq 
+    
+    $templateJsonData=echo $templateJsonData | jq --arg workspaceResourceId $workspaceResourceId '.properties.destinations.logAnalytics[0].workspaceResourceId = $workspaceResourceId' 
+    
+    $templateJsonData=echo $templateJsonData | jq --arg workspaceId $workspaceId '.properties.destinations.logAnalytics[0].workspaceId = $workspaceId' 
+    
+    $templateJsonData=echo $templateJsonData | jq --arg location $location '.location = $location' 
+    
+      
+    
+    # Save the updated JSON back to the file 
+    
+    echo $templateJsonData > $dcrTemplateLocalFile 
+    
+      
+    
+    # Print the updated JSON 
+    
+    cat $dcrTemplateLocalFile 
+    
+      
+    
+    # Create the DCR using the customized JSON (DCR needs to be in the same location as Log Analytics workspace) 
+    
+    # If your HDInsight cluster is in another subscription, you need to set subscription to your cluster’s subscription 
+    
+    $dcrName = "{yourDcrName}" 
+    
+    $resourceGroupName = "{YourDcrResourceGroup}" # Suggest to put DCR in the same resource group as your HDInsight cluster 
+    
+    $dcr = az monitor data-collection rule create --name $dcrName --location $location --resource-group $resourceGroupName --rule-file $dcrTemplateLocalFile 
+    ```
+     
+
+1. Association of DCR 
+
+    ```
+    # Associate DCR to HDInsight cluster 
+    
+    $hdinsightClusterResourceId = "{YourHDInsightClusterResourceId}" 
+    
+    $dcrAssociationName = "{yourDcrAssociation}" 
+    
+    $dcrId = $dcr | jq -r '.id' 
+    
+    az monitor data-collection rule association create --association-name $dcrAssociationName --resource $hdinsightClusterResourceId --data-collection-rule-id $dcrId 
+    ```
+    
+
+1. Enabling Azure Monitor Agent 
+
+    ```
+    # set variables 
+    
+    export resourceGroup=RESOURCEGROUPNAME 
+    
+    export cluster=CLUSTERNAME 
+    
+    export LAW=LOGANALYTICSWORKSPACENAME 
+
+      
+
+    # Enable the Azure Monitor Agent logs integration on an HDInsight cluster. 
+    
+    az hdinsight azure-monitor-agent enable --name $cluster --resource-group $resourceGroup --workspace $LAW 
+    
+      
+    
+    # Get the status of Azure Monitor Agent logs integration on an HDInsight cluster. 
+    
+    az hdinsight azure-monitor-agent show --name $cluster --resource-group $resourceGroup 
+    ```    
+     
+
+1. (Optional) disabling Azure Monitor Agent 
+
+    ```
+    az hdinsight azure-monitor-agent disable --name $cluster --resource-group $resourceGroup 
+    ```
+     
 
 ### Enable Azure Monitor Agent logging for Spark cluster  
 
