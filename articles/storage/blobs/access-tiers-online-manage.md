@@ -4,7 +4,7 @@ titleSuffix: Azure Storage
 description: Learn how to specify a blob's access tier when you upload it, or how to change the access tier for an existing blob.
 author: normesta
 ms.author: normesta
-ms.date: 05/01/2024
+ms.date: 09/03/2024
 ms.service: azure-blob-storage
 ms.topic: how-to
 ms.reviewer: fryu
