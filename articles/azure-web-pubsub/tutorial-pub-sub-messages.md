@@ -6,7 +6,7 @@ ms.author: lianwei
 ms.service: azure-web-pubsub
 ms.custom: devx-track-azurecli
 ms.topic: tutorial 
-ms.date: 07/24/2024
+ms.date: 09/03/2024
 ---
 
 # Tutorial: Publish and subscribe messages using WebSocket API and Azure Web PubSub service SDK
@@ -69,7 +69,7 @@ If you're creating the project on a local machine, you need to install the depen
 
 ### Create a Web PubSub instance
 
-To create a Web PubSub in the resource group you created, use the Azure CLI [az webpubsub create](/cli/azure/webpubsub#az-webpubsub-create) command. The following command creates a _Free_ Web PubSub resource under resource group `myResourceGroup` in `EastUS`:
+To create a Web PubSub instance in the resource group you created, use the Azure CLI [az webpubsub create](/cli/azure/webpubsub#az-webpubsub-create) command. The following command creates a _Free_ Web PubSub resource under resource group `myResourceGroup` in `EastUS`:
 
 Each Web PubSub resource must have a unique name. Replace &lt;your-unique-resource-name&gt; with the name of your Web PubSub instance in the following command.
 
@@ -77,7 +77,7 @@ Each Web PubSub resource must have a unique name. Replace &lt;your-unique-resour
 az webpubsub create --resource-group myResourceGroup --name <your-unique-resource-name> --location EastUS --sku Free_F1
 ```
 
-The output of this command shows properties of the newly created resource. Take note of the following two properties:
+The output of this command shows properties of the newly created resource. Take note of the following roperties:
 
 * **name**: The Web PubSub name you provided in the `--name` parameter above.
 * **hostName**: In the example, the host name is `<your-unique-resource-name>.webpubsub.azure.com/`.
@@ -472,7 +472,7 @@ Create a publisher using the Azure Web PubSub SDK to publish a message to the co
 
     The `service.sendToAll()` call simply sends a message to all connected clients in a hub.
 
-1. To send a message, run the following command replacing `<Web-PubSub-connection-string>` with the connection string you copied earlier. If you're using Windows command shell, you can use `set` instead of `export`.
+1. To send a message, run the following command replacing `<Web-PubSub-connection-string>` with the connection string you copied earlier. If you're using the Windows command shell, you can use `set` instead of `export`.
 
     ```bash
     export WebPubSubConnectionString=<Web-PubSub-connection-string>
