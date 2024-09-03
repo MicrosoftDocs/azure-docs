@@ -123,7 +123,7 @@ After installing the WebRTC Redirector Service and the Teams desktop app, follow
 
 ## Publish Teams as a RemoteApp
 
-New Teams is installed as an `MSIX` package, which is a format used for applications from the Microsoft Store. The directory path for an application installed from the Microsoft Store includes the version number, which changes each time an application is updated. To publish new Teams as a RemoteApp, follow the steps in [Publish Microsoft Store applications](publish-applications-stream-remoteapp.md#publish-microsoft-store-applications).
+New Teams is installed as an `MSIX` package, which is a format used for applications from the Microsoft Store. The directory path for an application installed from the Microsoft Store includes the version number, which changes each time an application is updated. To publish new Teams as a RemoteApp, follow the steps in [Publish Microsoft Store applications](publish-applications-stream-remoteapp.md#publish-microsoft-store-applications), and for the path enter `shell:appsFolder\MSTeams_8wekyb3d8bbwe!MSTeams`.
 
 ## Enable registry keys for optional features
 
