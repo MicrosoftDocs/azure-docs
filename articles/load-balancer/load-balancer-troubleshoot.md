@@ -65,9 +65,9 @@ To verify, you can conduct a network trace. The Fully Qualified Domain Name (FQD
 
 If you decide to open a support case, collect the following information for a quicker resolution. Choose a single backend VM to perform the following tests:
 
-- Use `ps ping` from one of the backend VMs within the virtual network to test the probe port response (example: ps ping 10.0.0.4:3389) and record results. 
+- Use `PsPing` from one of the backend VMs within the virtual network to test the probe port response (example: ps ping 10.0.0.4:3389) and record results. 
 - If no response is received in these ping tests, run a simultaneous Netsh trace on the backend VM and the virtual network test VM while you run PsPing then stop the Netsh trace.
-- 
+  
 ## Next steps
 
 If the preceding steps don't resolve the issue, open a [support ticket](https://azure.microsoft.com/support/options/).
