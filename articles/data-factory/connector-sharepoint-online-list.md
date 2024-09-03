@@ -76,7 +76,7 @@ The following properties are supported for a SharePoint Online List linked servi
 | ***For ServicePrincipalKey*** | | |
 | servicePrincipalKey | The application's key. Mark this field as a **SecureString** to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). Refer to this [section](#grant-permission-for-using-service-principal-key) for more details including the permission settings. | No          |
 | ***For ServicePrincipalCert*** | | |
-| servicePrincipalEmbeddedCert | Specify the base64 encoded certificate of your application registered in Microsoft Entra ID, and ensure the certificate content type is **PKCS #12**. Mark this field as a **SecureString** to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). Refer to this [article](https://learn.microsoft.com/en-us/sharepoint/dev/solution-guidance/security-apponly-azuread) for permission settings.| No |
+| servicePrincipalEmbeddedCert | Specify the base64 encoded certificate of your application registered in Microsoft Entra ID, and ensure the certificate content type is **PKCS #12**. Mark this field as a **SecureString** to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). Refer to this [article](https://learn.microsoft.com/sharepoint/dev/solution-guidance/security-apponly-azuread) for permission settings.| No |
 | servicePrincipalEmbeddedCertPassword | Specify the password of your certificate if your certificate is secured with a password. Mark this field as a **SecureString** to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | No |
 |  |  |  |
 | tenantId            | The tenant ID under which your application resides.          | Yes          |
@@ -273,7 +273,7 @@ You can copy file from SharePoint Online by using **Web activity** to authentica
 
 :::image type="content" source="media/connector-sharepoint-online-list/sharepoint-online-copy-file-flow.png" alt-text="sharepoint copy file flow":::
 
-1. Follow the [Prerequisites](#prerequisites) section to create Microsoft Entra application and grant permission to SharePoint Online. 
+1. Follow the [Grant permission for using service principal key](#grant-permission-for-using-service-principal-key) section to create Microsoft Entra application and grant permission to SharePoint Online. 
 
 2. Create a **Web Activity** to get the access token from SharePoint Online:
 
