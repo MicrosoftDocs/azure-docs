@@ -41,6 +41,11 @@ For the quality of the audio sending end, you can check the metrics `rttInMs`.
 
 For the quality of the receiving end, you can check the metrics `jitterInMs`, `jitterBufferDelayInMs`.
 
+The `rttInMs` has a directly impact on audio delay, as the metric indicates the round trip time of packets.
+In `jitterBufferDelayInMs` shows how long the audio samples stay in the jitter buffer.
+This value can be affected by various factors, such as late arrival of packets, out-of-order, packet loss, etc.
+Normally, it is less than 200ms. Users may experience audio delay if this value is very high.
+
 ## How to mitigate or resolve
 From the perspective of the ACS Calling SDK, network issues are considered external problems.
 To solve network issues, it's often necessary to understand the network topology and the nodes causing the problem.
