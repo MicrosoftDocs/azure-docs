@@ -15,7 +15,7 @@ This tutorial walks you through how to create a Web PubSub for Socket.IO service
 
 Find full code samples that is used in this tutorial:
 
-- [JavaScript Sample]()
+- [JavaScript Sample](https://github.com/Azure/azure-webpubsub/tree/main/sdk/webpubsub-socketio-extension/examples/chat-serverless-javascript)
 
 > [!IMPORTANT]
 > Default Mode needs a persistent server, you cannot integration Web PubSub for Socket.IO in default mode with Azure Function.
@@ -325,5 +325,5 @@ And visit the webpage at `http://localhost:7071/api/index`.
 Next, you can explore more samples in various languages:
 
 > [!div class="nextstepaction"]
-> [TypeScript Sample]()
-> [C# Sample]()
+> [TypeScript Sample](https://github.com/Azure/azure-webpubsub/tree/main/sdk/webpubsub-socketio-extension/examples/chat-serverless-typescript)
+> [C# Sample](https://github.com/Azure/azure-webpubsub/tree/main/sdk/webpubsub-socketio-extension/examples/chat-serverless-dotnet)
