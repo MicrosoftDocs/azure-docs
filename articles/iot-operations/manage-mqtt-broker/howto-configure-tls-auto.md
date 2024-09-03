@@ -183,7 +183,7 @@ metadata:
 spec:
   brokerRef: broker
   serviceType: loadBalancer
-  serviceName: my-new-tls-listener # Avoid conflicts with default service name 'aio-mq-dmqtt-frontend'
+  serviceName: my-new-tls-listener # Avoid conflicts with default service name 'aio-broker'
   port: 8884 # Avoid conflicts with default port 8883
   tls:
     mode: Automatic
@@ -230,7 +230,7 @@ san:
   dns:
   - iotmq.example.com
   # To connect to the broker from a different namespace, add the following DNS name:
-  - aio-mq-dmqtt-frontend.azure-iot-operations.svc.cluster.local
+  - aio-broker.azure-iot-operations.svc.cluster.local
   ip:
   - 192.168.1.1
 ```

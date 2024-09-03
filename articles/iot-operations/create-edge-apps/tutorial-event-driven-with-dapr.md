@@ -214,7 +214,7 @@ To verify the MQTT bridge is working, deploy an MQTT client to the cluster.
 1. Subscribe to the `sensor/window_data` topic to observe the published output from the Dapr application:
 
     ```bash
-    mosquitto_sub -L mqtt://aio-mq-dmqtt-frontend/sensor/window_data
+    mosquitto_sub -L mqtt://aio-broker/sensor/window_data
     ```
 
 1. Verify the application is outputting a sliding windows calculation for the various sensors every 10 seconds:

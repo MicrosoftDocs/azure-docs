@@ -253,7 +253,7 @@ kind: Pod
 metadata:
   name: mqtt-client
   # Namespace must match MQTT broker BrokerListener's namespace
-  # Otherwise use the long hostname: aio-mq-dmqtt-frontend.azure-iot-operations.svc.cluster.local
+  # Otherwise use the long hostname: aio-broker.azure-iot-operations.svc.cluster.local
   namespace: azure-iot-operations
 spec:
   # Use the "mqtt-client" service account which comes with default deployment
@@ -304,7 +304,7 @@ kubectl exec --stdin --tty mqtt-client -n azure-iot-operations -- sh
 Inside the shell, start a subscriber to the AIO broker on the `tutorial/#` topic space with `mosquitto_sub`.
 
 ```bash
-mosquitto_sub --host aio-mq-dmqtt-frontend --port 8883 \
+mosquitto_sub --host aio-broker --port 8883 \
   -t "tutorial/#" \
   --debug --cafile /var/run/certs/ca.crt \
   -D CONNECT authentication-method 'K8S-SAT' \
@@ -324,7 +324,7 @@ kubectl exec --stdin --tty mqtt-client -n azure-iot-operations -- sh
 Inside the shell, use mosquitto to publish five messages to the `tutorial/local` topic.
 
 ```bash
-mosquitto_pub -h aio-mq-dmqtt-frontend -p 8883 \
+mosquitto_pub -h aio-broker -p 8883 \
   -m "This message goes all the way to the cloud and back!" \
   -t "tutorial/local" \
   --repeat 5 --repeat-delay 1 -d \

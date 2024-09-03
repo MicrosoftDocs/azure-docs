@@ -51,7 +51,7 @@ metadata:
   namespace: azure-iot-operations
 spec:
   brokerRef: broker
-  serviceName: aio-mq-dmqtt-frontend
+  serviceName: aio-broker
   serviceType: ClusterIp
   ports:
   - authenticationRef: authn

@@ -111,7 +111,7 @@ spec:
       mountPath: /var/run/certs/aio-mq-ca-cert/
     env:
     - name: hostname
-      value: "aio-mq-dmqtt-frontend"
+      value: "aio-broker"
     - name: tcpPort
       value: "8883"
     - name: useTls

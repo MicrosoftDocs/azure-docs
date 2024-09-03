@@ -44,7 +44,7 @@ The first option is to connect from within the cluster. This option uses the def
     metadata:
       name: mqtt-client
       # Namespace must match MQTT broker BrokerListener's namespace
-      # Otherwise use the long hostname: aio-mq-dmqtt-frontend.azure-iot-operations.svc.cluster.local
+      # Otherwise use the long hostname: aio-broker.azure-iot-operations.svc.cluster.local
       namespace: azure-iot-operations
     spec:
       # Use the "mqtt-client" service account which comes with default deployment
@@ -87,7 +87,7 @@ The first option is to connect from within the cluster. This option uses the def
 1. Inside the pod's shell, run the following command to publish a message to the broker:
 
     ```console
-    mosquitto_pub --host aio-mq-dmqtt-frontend --port 8883 --message "hello" --topic "world" --debug --cafile /var/run/certs/ca.crt -D CONNECT authentication-method 'K8S-SAT' -D CONNECT authentication-data $(cat /var/run/secrets/tokens/mq-sat)
+    mosquitto_pub --host aio-broker --port 8883 --message "hello" --topic "world" --debug --cafile /var/run/certs/ca.crt -D CONNECT authentication-method 'K8S-SAT' -D CONNECT authentication-data $(cat /var/run/secrets/tokens/mq-sat)
     ```
 
     The output should look similar to the following:
@@ -104,7 +104,7 @@ The first option is to connect from within the cluster. This option uses the def
 1. To subscribe to the topic, run the following command:
 
     ```console
-    mosquitto_sub --host aio-mq-dmqtt-frontend --port 8883 --topic "world" --debug --cafile /var/run/certs/ca.crt -D CONNECT authentication-method 'K8S-SAT' -D CONNECT authentication-data $(cat /var/run/secrets/tokens/mq-sat)
+    mosquitto_sub --host aio-broker --port 8883 --topic "world" --debug --cafile /var/run/certs/ca.crt -D CONNECT authentication-method 'K8S-SAT' -D CONNECT authentication-data $(cat /var/run/secrets/tokens/mq-sat)
     ```
 
     The output should look similar to the following:
@@ -135,7 +135,7 @@ kubectl get configmap aio-ca-trust-bundle-test-only -n azure-iot-operations -o j
 
 Use the downloaded `ca.crt` file to configure your client to trust the broker's TLS certificate chain.
 
-If you are connecting to the broker from a different namespace, you must use the full service hostname `aio-mq-dmqtt-frontend.azure-iot-operations.svc.cluster.local`. You must also add the DNS name to the server certificate by including a subject alternative name (SAN) DNS field to the *BrokerListener* resource. For more information, see [Configure server certificate parameters](howto-configure-tls-auto.md#optional-configure-server-certificate-parameters).
+If you are connecting to the broker from a different namespace, you must use the full service hostname `aio-broker.azure-iot-operations.svc.cluster.local`. You must also add the DNS name to the server certificate by including a subject alternative name (SAN) DNS field to the *BrokerListener* resource. For more information, see [Configure server certificate parameters](howto-configure-tls-auto.md#optional-configure-server-certificate-parameters).
 
 ### Authenticate with the broker
 
@@ -204,14 +204,14 @@ But for this method to work with MQTT broker, you must configure it to use a loa
 1. Wait for the service to be updated.
 
     ```console
-    kubectl get service aio-mq-dmqtt-frontend --namespace azure-iot-operations
+    kubectl get service aio-broker --namespace azure-iot-operations
     ```
 
     Output should look similar to the following:
 
     ```Output
     NAME                    TYPE           CLUSTER-IP     EXTERNAL-IP   PORT(S)          AGE
-    aio-mq-dmqtt-frontend   LoadBalancer   10.43.107.11   XXX.XX.X.X    8883:30366/TCP   14h
+    aio-broker   LoadBalancer   10.43.107.11   XXX.XX.X.X    8883:30366/TCP   14h
     ```
 
 1. You can use the external IP address to connect to MQTT broker over the internet. Make sure to use the external IP address instead of `localhost`.
@@ -227,7 +227,7 @@ But for this method to work with MQTT broker, you must configure it to use a loa
 > mosquitto_pub --qos 1 --debug -h localhost --message hello --topic world --username client1 --pw password --cafile ca.crt --insecure
 > ```
 >
-> In this example, the mosquitto client uses username and password to authenticate with the broker along with the root CA cert to verify the broker's TLS certificate chain. Here, the `--insecure` flag is required because the default TLS certificate issued to the load balancer is only valid for the load balancer's default service name (aio-mq-dmqtt-frontend) and assigned IPs, not localhost. 
+> In this example, the mosquitto client uses username and password to authenticate with the broker along with the root CA cert to verify the broker's TLS certificate chain. Here, the `--insecure` flag is required because the default TLS certificate issued to the load balancer is only valid for the load balancer's default service name (aio-broker) and assigned IPs, not localhost. 
 > 
 > Never expose MQTT broker port to the internet without authentication and TLS. Doing so is dangerous and can lead to unauthorized access to your IoT devices and bring unsolicited traffic to your cluster.
 >
@@ -240,7 +240,7 @@ With [minikube](https://minikube.sigs.k8s.io/docs/), [kind](https://kind.sigs.k8
 1. To access the broker, forward the broker listening port 8883 to the host.
 
     ```bash
-    kubectl port-forward --namespace azure-iot-operations service/aio-mq-dmqtt-frontend 8883:mqtts-8883
+    kubectl port-forward --namespace azure-iot-operations service/aio-broker 8883:mqtts-8883
     ```
 
 1. Use 127.0.0.1 to connect to the broker at port 8883 with the same authentication and TLS configuration as the example without port forwarding.
@@ -250,19 +250,19 @@ For more information about minikube, see [Use Port Forwarding to Access Applicat
 
 #### Port forwarding on AKS Edge Essentials
 For Azure Kubernetes Services Edge Essentials, you need to perform a few additional steps. For more information about port forwarding, see [Expose Kubernetes services to external devices](/azure/aks/hybrid/aks-edge-howto-expose-service).
-1. Assume that the broker's service is exposed to an external IP using a load balancer. For example if you patched the default load balancer `aio-mq-dmqtt-frontend`, get the external IP address for the service.
+1. Assume that the broker's service is exposed to an external IP using a load balancer. For example if you patched the default load balancer `aio-broker`, get the external IP address for the service.
     ```bash
-    kubectl get service aio-mq-dmqtt-frontend --namespace azure-iot-operations
+    kubectl get service aio-broker --namespace azure-iot-operations
     ```
     
     Output should look similar to the following:
     
     ```Output
     NAME                    TYPE           CLUSTER-IP     EXTERNAL-IP   PORT(S)          AGE
-    aio-mq-dmqtt-frontend   LoadBalancer   10.43.107.11   192.168.0.4   8883:30366/TCP   14h
+    aio-broker   LoadBalancer   10.43.107.11   192.168.0.4   8883:30366/TCP   14h
     ```
     
-1. Set up port forwarding to the `aio-mq-dmqtt-frontend` service on the external IP address `192.168.0.4` and port `8883`:
+1. Set up port forwarding to the `aio-broker` service on the external IP address `192.168.0.4` and port `8883`:
     ```bash
     netsh interface portproxy add v4tov4 listenport=8883 connectport=8883 connectaddress=192.168.0.4
     ```
