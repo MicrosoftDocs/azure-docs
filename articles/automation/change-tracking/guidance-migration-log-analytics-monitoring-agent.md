@@ -5,7 +5,7 @@ author: snehasudhirG
 services: automation
 ms.subservice: change-inventory-management
 ms.topic: conceptual
-ms.date: 05/01/2024
+ms.date: 08/30/2024
 ms.author: sudhirsneha
 ms.custom:
 ms.service: azure-automation
