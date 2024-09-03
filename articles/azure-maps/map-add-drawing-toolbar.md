@@ -117,7 +117,7 @@ drawingManager.setOptions({
 
 For a complete working sample that demonstrates how to customize the rendering of the drawing shapes in the drawing manager by accessing the rendering layers, see [Change drawing rendering style] in the [Azure Maps Samples]. For the source code for this sample, see [Change drawing rendering style source code].
 
-:::image type="content" source="./media/map-add-drawing-toolbar/change-drawing-rendering-style.png" lightbox="./media/map-add-drawing-toolbar/change-drawing-rendering-style.png" alt-text="Screenshot showing different drawing shaped rendered on a map.":::
+:::image type="content" source="./media/map-add-drawing-toolbar/change-drawing-rendering-style.png" lightbox="./media/map-add-drawing-toolbar/change-drawing-rendering-style.png" alt-text="Screenshot showing different drawing shapes rendered on a map.":::
 
 <!------------------------------------------------------------------------
 > [!VIDEO //codepen.io/azuremaps/embed/OJLWpyj/?height=265&theme-id=0&default-tab=js,result&editable=true]
