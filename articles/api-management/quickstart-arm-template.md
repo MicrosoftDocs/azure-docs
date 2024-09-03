@@ -3,20 +3,22 @@ title: Quickstart - Create Azure API Management instance - ARM template
 description: Use this quickstart to create an Azure API Management instance in the Developer tier by using an Azure Resource Manager template (ARM template).
 services: azure-resource-manager
 author: dlepow
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: quickstart-arm
 ms.custom: subject-armqs, mode-arm, devx-track-arm-template
 ms.author: danlep
-ms.date: 12/12/2023
+ms.date: 03/25/2024
 ---
 
 # Quickstart: Create a new Azure API Management service instance using an ARM template
+
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 
 This quickstart describes how to use an Azure Resource Manager template (ARM template) to create an Azure API Management instance. You can also use ARM templates for common management tasks such as importing APIs in your API Management instance.
 
 [!INCLUDE [api-management-quickstart-intro](../../includes/api-management-quickstart-intro.md)]
 
-[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+[!INCLUDE [About Azure Resource Manager](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-introduction.md)]
 
 If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
 
@@ -52,7 +54,7 @@ More Azure API Management template samples can be found in [Azure Quickstart Tem
     - **Region**: select a location for the resource group. Example: **Central US**.
     - **Publisher Email**: enter an email address to receive notifications.
     - **Publisher Name**: enter a name you choose for the API publisher.
-    - **Sku**: accept the default value of **Developer**.
+    - **Sku**: accept the default value of **Developer**. Alternatively, choose another value.
     - **Sku Count**: accept the default value.
     - **Location**: accept the generated location for the API Management service.
 
@@ -61,7 +63,7 @@ More Azure API Management template samples can be found in [Azure Quickstart Tem
 1. Select **Review + Create**, then review the terms and conditions. If you agree, select **Create**.
 
     > [!TIP]
-    >  It can take between 30 and 40 minutes to create and activate an API Management service in the Developer tier.
+    >  It can take between 30 and 40 minutes to create and activate an API Management service in the Developer tier. Times vary by tier.
 
 1. After the instance has been created successfully, you get a notification:
 

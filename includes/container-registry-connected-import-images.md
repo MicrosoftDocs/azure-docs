@@ -1,6 +1,6 @@
 ---
 author: tejaswikolli-web
-ms.service: container-registry
+ms.service: azure-container-registry
 ms.custom: devx-track-azurecli
 ms.topic: include
 ms.date: 08/16/2022

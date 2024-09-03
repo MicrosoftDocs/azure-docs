@@ -1,6 +1,11 @@
 {
     "redirections": [
         {
+          "source_path_from_root": "/articles/synapse-analytics/quickstart-create-apache-gpu-pool-portal.md",
+          "redirect_url": "/azure/synapse-analytics/spark/apache-spark-overview",
+          "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/synapse-analytics/sql-data-warehouse/sql-data-warehouse-partner-browse-partners.md",
             "redirect_url": "/azure/synapse-analytics/partner/browse-partners",
             "redirect_document_id": false
@@ -723,6 +728,11 @@
           {
              "source_path_from_root": "/articles/synapse-analytics/synapse-link/troubleshoot/troubleshoot-sql-snapshot-primary-key-column-order.md",
              "redirect_url": "/azure/synapse-analytics/synapse-link/synapse-link-for-sql-known-issues",
+             "redirect_document_id": false
+           },
+           {
+             "source_path_from_root": "/articles/synapse-analytics/monitoring/how-to-monitor-using-azure-monitor.md",
+             "redirect_url": "/azure/synapse-analytics/monitor-synapse-analytics",
              "redirect_document_id": false
            }
     ]

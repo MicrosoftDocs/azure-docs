@@ -6,7 +6,7 @@ ms.custom: horz-monitor
 ms.topic: conceptual
 author: vicancy
 ms.author: lianwei
-ms.service: signalr
+ms.service: azure-signalr-service
 ---
 
 # Monitor Azure SignalR Service
@@ -127,7 +127,6 @@ For example Kusto queries for Azure SignalR Service, see [Queries for the Signal
 > [!NOTE]
 > Query field names for Storage destinations differ slightly from field names for Log Analytics. For details about the field name mappings between Storage and Log Analytics tables, see [Resource Log table mapping](monitor-signalr-reference.md#resource-log-table-mapping).
 
-<!-- ## Alerts. Required section. -->
 [!INCLUDE [horz-monitor-alerts](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-alerts.md)]
 
 ### Azure SignalR Service alert rules

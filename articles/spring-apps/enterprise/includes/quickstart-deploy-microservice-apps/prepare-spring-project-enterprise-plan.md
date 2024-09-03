@@ -1,7 +1,7 @@
 ---
 author: KarlErickson
 ms.author: v-shilichen
-ms.service: spring-apps
+ms.service: azure-spring-apps
 ms.topic: include
 ms.date: 02/01/2024
 ---
@@ -13,7 +13,7 @@ For clarity of structure, a separate markdown file is used to describe how to pr
 
 -->
 
-Use the following steps to prepare the project and run the sample locally:
+Use the following steps on your local machine when you want to verify the application before deploying it to the cloud:
 
 1. Use the following command to clone the [Pet Clinic application](https://github.com/Azure-Samples/spring-petclinic-microservices.git) from GitHub:
 

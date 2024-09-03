@@ -6,7 +6,7 @@ manager: amycolannino
 ms.service: role-based-access-control
 ms.subservice: conditions
 ms.topic: conceptual
-ms.date: 11/15/2023
+ms.date: 04/01/2024
 ms.author: rolyon
 #Customer intent: As a dev, devops, or it admin, I want to learn about the conditions so that I write more complex conditions.
 ---
@@ -247,7 +247,7 @@ Depending on the selected actions, the attribute might be found in different pla
 > [!div class="mx-tableFixed"]
 > | Attribute source | Description | Code |
 > | --- | --- | --- |
-> | [Environment](#environment-attributes) | Attribute is associated with the environment of the request, such as the network origin of the request or the current date and time.</br>***(Environment attributes are currently in preview.)*** | `@Environment` |
+> | [Environment](#environment-attributes) | Attribute is associated with the environment of the request, such as the network origin of the request or the current date and time.</br> | `@Environment` |
 > | [Principal](#principal-attributes) | Attribute is a custom security attribute assigned to the principal, such as a user or enterprise application (service principal). | `@Principal` |
 > | [Request](#request-attributes) | Attribute is part of the action request, such as setting the blob index tag. | `@Request` |
 > | [Resource](#resource-attributes) | Attribute is a property of the resource, such as a container name. | `@Resource` |
@@ -260,10 +260,6 @@ For a complete list of the storage attributes you can use in conditions, see:
 #### Environment attributes
 
 Environment attributes are associated with the circumstances under which the access request is made, such as the date and time of day or the network environment. The network environment might be whether access is over a specific private endpoint or a virtual network subnet, or perhaps over any private link.
-
-> [!IMPORTANT]
-> Environment attributes are currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 The following table lists the supported environment attributes for conditions.
 

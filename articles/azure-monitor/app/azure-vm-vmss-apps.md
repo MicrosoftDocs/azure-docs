@@ -2,7 +2,7 @@
 title: Monitor performance on Azure VMs - Azure Application Insights
 description: Application performance monitoring for Azure virtual machines and virtual machine scale sets.
 ms.topic: conceptual
-ms.date: 03/22/2023
+ms.date: 04/05/2024
 ms.devlang: csharp
 # ms.devlang: csharp, java, javascript, python
 ms.custom: devx-track-azurepowershell
@@ -11,7 +11,7 @@ ms.reviewer: abinetabate
 
 # Application Insights for Azure VMs and virtual machine scale sets
 
-Enabling monitoring for your ASP.NET and ASP.NET Core IIS-hosted applications running on [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/) or [Azure Virtual Machine Scale Sets](../../virtual-machine-scale-sets/index.yml) is now easier than ever. Get all the benefits of using Application Insights without modifying your code.
+Enabling monitoring for your ASP.NET and ASP.NET Core IIS-hosted applications running on [Azure Virtual Machines](https://azure.microsoft.com/services/virtual-machines/) or [Azure Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/) is now easier than ever. Get all the benefits of using Application Insights without modifying your code.
 
 This article walks you through enabling Application Insights monitoring by using the Application Insights Agent. It also provides preliminary guidance for automating the process for large-scale deployments.
 
@@ -38,11 +38,11 @@ We recommend the [Application Insights Java 3.0 agent](./opentelemetry-enable.md
 
 ### [Node.js](#tab/nodejs)
 
-To instrument your Node.js application, use the [SDK](./nodejs.md).
+To instrument your Node.js application, use the [OpenTelemetry Distro](./opentelemetry-enable.md).
 
 ### [Python](#tab/python)
 
-To monitor Python apps, use the [SDK](/previous-versions/azure/azure-monitor/app/opencensus-python).
+To monitor Python apps, use the [OpenTelemetry Distro](./opentelemetry-enable.md).
 
 ---
 
@@ -201,7 +201,7 @@ If your extension deployed successfully but you're unable to see telemetry, it c
 - Conflicting DLLs in an app's bin directory
 - Conflict with IIS shared configuration
 
-[!INCLUDE [azure-monitor-app-insights-test-connectivity](../../../includes/azure-monitor-app-insights-test-connectivity.md)]
+[!INCLUDE [azure-monitor-app-insights-test-connectivity](../includes/azure-monitor-app-insights-test-connectivity.md)]
 
 ## Release notes
 
@@ -220,5 +220,5 @@ Updated Application Insights .NET/.NET Core SDK to 2.18.1 - red field.
 Added the ASP.NET Core autoinstrumentation feature.
 
 ## Next steps
-* Learn how to [deploy an application to an Azure virtual machine scale set](../../virtual-machine-scale-sets/virtual-machine-scale-sets-deploy-app.md).
+* Learn how to [deploy an application to an Azure virtual machine scale set](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-deploy-app).
 * [Availability overview](availability-overview.md)

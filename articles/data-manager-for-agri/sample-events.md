@@ -3,7 +3,7 @@ title: Sample events for Microsoft Azure Data Manager for Agriculture Preview ba
 description: This article provides samples of Azure Data Manager for Agriculture Preview events. #Required; article description that is displayed in search results. 
 author: gourdsay #Required; your GitHub user alias, with correct capitalization.
 ms.author: angour #Required; microsoft alias of author; optional team alias.
-ms.service: data-manager-for-agri #Required; service per approved list. slug assigned by ACOM.
+ms.service: azure-data-manager-agriculture
 ms.topic: conceptual #Required; leave this attribute/value as-is.
 ms.date: 04/18/2023 #Required; mm/dd/yyyy format.
 ms.custom: template-concept #Required; leave this attribute/value as-is.

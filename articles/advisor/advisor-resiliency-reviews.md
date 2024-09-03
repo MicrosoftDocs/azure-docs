@@ -1,11 +1,9 @@
 ---
 title: Azure Advisor resiliency reviews
 description: Optimize resource resiliency with custom recommendation reviews.
-author: mabrahms
-ms.author: v-mabrahms
 ms.service: azure
 ms.topic: article
-ms.date: 03/8/2024
+ms.date: 08/22/2024
 
 ---
 
@@ -47,24 +45,7 @@ Your Microsoft account team works with you to collect information about the work
 
 To view or triage recommendations, or to manage recommendations' lifecycles, requires specific role permissions. For definitions, see [Terminology](#terminology).
 
-### Prerequisites to view and triage recommendations
-
-You can manage access to Advisor reviews using built-in roles. The [permissions](/azure/advisor/permissions) vary by role. These roles need to be configured for the subscription that was used to publish the review.
-
-| **Name** | **Description** | **Targeted Subscription** |
-|---|:---:|:---:|
-|Advisor Reviews Reader|View reviews for a workload and recommendations linked to them.| You need this role for the one subscription your account team used to publish review.|
-|Advisor Reviews Contributor|View reviews for a workload and triage recommendations linked to them.| You need this role for the one subscription your account team used to publish review.|
-
-You can manage access to Advisor personalized recommendations using the following roles. These roles need to be configured for the subscriptions included in the workload under a review.
-
-| **Name** | **Description** |
-|---|:---:|
-|Subscription Reader|View reviews for a workload and recommendations linked to them.|
-|Subscription Owner<br>Subscription Contributor|View reviews for a workload, triage recommendations linked to those reviews, manage review recommendation lifecycle.|
-|Advisor Recommendations Contributor (Assessments and Reviews)|View review recommendations, accept review recommendations, manage review recommendations' lifecycle.|
-
-You can find detailed instructions on how to assign a role using the Azure portal - [Assign Azure roles using the Azure portal - Azure RBAC](/azure/role-based-access-control/role-assignments-portal?tabs=delegate-condition). Additional information is available in [Steps to assign an Azure role - Azure RBAC](/azure/role-based-access-control/role-assignments-steps).
+[!INCLUDE [Reviews and personalized recommendations](./includes/advisor-permissions-review-recommendations.md)]
 
 ### Access reviews
 
@@ -72,7 +53,7 @@ You can find resiliency reviews created by your account team in the left navigat
 
 If there's a new review available to you, you see a notification banner on top of the Advisor pages. A **New** review is one with all recommendations in the *Pending* state.
 
-1. Open the Azure portal and navigate to [Advisor](https://aka.ms/Advisor_Reviews).
+1. Open the Azure portal and navigate to [Advisor](https://aka.ms/azureadvisordashboard).
 Select **Manage** > **Reviews (Preview)** in the left navigation pane. A list of reviews opens. At the top of the page, you see the number of **Total Reviews** and review **Recommendations**, and a graph of **Reviews by status**.
 1. Use search, filters, and sorting to find the review you need. You can filter reviews by one of the **Status equals** states shown next, or choose *All* (the default) to see all reviews. If you don’t see a review for your subscription, make sure the review subscription is included in the global portal filter. You might need to update the filter to see the reviews for a subscription.
 
@@ -86,7 +67,7 @@ Select **Manage** > **Reviews (Preview)** in the left navigation pane. A list of
 At the top of the reviews page, use **Feedback** to tell us about your experience. Use the **Refresh** button to refresh the page as needed.
 
 > [!NOTE]
-> If you have no reviews, the **Reviews** menu item in the left navigation is greyed out.
+> If you have no reviews, the **Reviews** menu item in the left navigation is hidden.
 
 ### Review recommendations
 

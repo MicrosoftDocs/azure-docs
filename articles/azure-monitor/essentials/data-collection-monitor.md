@@ -15,7 +15,7 @@ This article provides detailed metrics and logs that you can use to monitor perf
 > 
 > - Logs collected using [Azure Monitor Agent (AMA)](../agents/agents-overview.md)
 > - Logs ingested using [Log Ingestion API](../logs/logs-ingestion-api-overview.md)
-> - Logs collected by other methods that use a [workspace transformation DCR](./data-collection-transformations.md#workspace-transformation-dcr)
+> - Logs collected by other methods that use a [workspace transformation DCR](./data-collection-transformations-workspace.md)
 >
 > See the documentation for other scenarios for any monitoring and troubleshooting information that may be available.
 
@@ -58,7 +58,7 @@ DCRLogErrors
 ```kusto
 DCRLogErrors
 | where _ResourceId == "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/my-resource-group/providers/microsoft.insights/datacollectionrules/my-dcr"
-| where InputStream == "Custom-MyTable_CL"
+| where InputStreamId == "Custom-MyTable_CL"
 ```
 
 

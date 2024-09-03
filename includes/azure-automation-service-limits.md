@@ -3,7 +3,7 @@ title: "include file"
 description: "include file"
 services: automation
 author: mgoedtel
-ms.service: automation
+ms.service: azure-automation
 ms.topic: "include"
 ms.date: 02/23/2024
 ms.author: magoedte
@@ -16,6 +16,7 @@ ms.custom: "include file"
 | --- | --- |---|
 | Maximum number of new jobs that can be submitted every 30 seconds per Azure Automation account  |100 |When this limit is reached, the subsequent requests to create a job fail. The client receives an error response.|
 | Maximum number of concurrent running jobs at the same instance of time per Automation account  |200 |When this limit is reached, the subsequent requests to create a job fail. The client receives an error response. </br> </br> Free trial and Azure for Student subscriptions can run up to 10 concurrent jobs at the same instance of time per Automation account. <sup>2</sup>|
+|Maximum number of Automation accounts in a subscription in a region.| No limit </br> </br> </br> </br> 2 </br> </br> </br> </br> </br> 1 | Enterprise and MSDN subscriptions can create Automation accounts in any of the [regions supported by the service](https://azure.microsoft.com/pricing/details/automation/) </br> </br> Pay-as-you-go, MPN, Azure Pass subscriptions can create 2 Automation accounts per subscription in any of the [regions supported](https://azure.microsoft.com/pricing/details/automation/) by the service. </br> </br> Free trial and Azure for Student subscriptions can create only one Automation account per region per subscription. Allowed list of regions: EastUS, EastUS2, WestUS, NorthEurope, SoutheastAsia, and JapanWest2|
 | Maximum storage size of job metadata for a 30-day rolling period | 10 GB (approximately 4 million jobs)|When this limit is reached, the subsequent requests to create a job fail. |
 | Maximum job stream limit|1 MiB|A single stream cannot be larger than 1 MiB.|
 | Maximum job stream limit on Azure Automation portal | 200KB | Portal limit to show the job logs.|
@@ -27,7 +28,6 @@ ms.custom: "include file"
 | Maximum amount of memory given to a sandbox<sup>1</sup> |400 MB |Applies to Azure sandboxes only.|
 | Maximum number of network sockets allowed per sandbox<sup>1</sup> |1,000 |Applies to Azure sandboxes only.|
 | Maximum runtime allowed per runbook<sup>1</sup> |3 hours |Applies to Azure sandboxes only.|
-| Maximum number of Automation accounts in a subscription |No limit |Enterprise and Pay-as-you-go subscriptions can create Automation accounts in any of the [regions supported](https://azure.microsoft.com/pricing/details/automation/) by the service. </br> </br> Free trial and Azure for Student subscriptions can create only one Automation account per region per subscription. Allowed list of regions: EastUS, EastUS2, WestUS, NorthEurope, SoutheastAsia, and JapanWest <sup>2</sup> |
 | Maximum number of system hybrid runbook workers per Automation Account|4,000||
 | Maximum number of user hybrid runbook workers per Automation Account|4,000||
 |Maximum number of concurrent jobs that can be run on a single Hybrid Runbook Worker|50 ||

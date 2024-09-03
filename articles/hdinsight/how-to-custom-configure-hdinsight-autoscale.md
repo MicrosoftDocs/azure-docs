@@ -1,9 +1,9 @@
 ---
 title: How to custom configure Azure HDInsight Autoscale.
 description: Learn how to custom configure Autoscale in Azure HDInsight clusters
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: how-to
-ms.date: 05/09/2023
+ms.date: 05/06/2024
 ---
 
 # How to custom configure HDInsight Autoscale
@@ -22,8 +22,8 @@ Following are few configurations that can be tuned to custom configure HDInsight
 |yarn.max.scale.up.increment | Maximum number of nodes to scale up in one go|200 | Hadoop/Spark/Interactive Query|It has been tested with 200 nodes. We don't recommend setting this value to more than 200. It can be set to less than 200 if the customer wants less aggressive scale up |
 |yarn.max.scale.down.increment |Maximum number of nodes to scale up in one go | 50|Hadoop/Spark/Interactive Query|Can be set to up to 100 |
 |nodemanager.recommission.enabled |Feature to enabled recommissioning of decommissioning NMs before adding new nodes to the cluster|True |Hadoop/Spark load based autoscale |Disabling this feature can cause underutilization of cluster. There can be nodes in decommissioning state, which have no containers to run but are waiting for application to finish, even if there's more load in the cluster. **Note:** Applicable for images on **2304280205**  or later|
-|UnderProvisioningDiagnoser.time.ms |The cluster which is under provisioned for time in milliseconds would trigger scaling up |180000 |Hadoop/Spark load based autoscaling |-|
-|OverProvisioningDiagnoser.time.ms |The cluster which is over provisioned for time in milliseconds would trigger scaling down |180000 |Hadoop/Spark load based autoscaling |-|
+|UnderProvisioningDiagnoser.time.ms |Time in milliseconds for which cluster needs to under provisioned for a scale up to trigger |180000 |Hadoop/Spark load based autoscaling |-|
+|OverProvisioningDiagnoser.time.ms |Time in milliseconds for which cluster needs to be overprovisioned for a scale down to trigger |180000 |Hadoop/Spark load based autoscaling |-|
 |hdfs.decommission.enable |Decommission data nodes before triggering decommissioning node managers. HDFS doesn't support any graceful decommission timeout, it’s immediate |True | Hadoop/Spark load based autoscaling|Decommissioning datanodes before decommissioning nodemanagers so that particular datanode isn't used for storing shuffle data.|
 |scaling.recommission.cooldown.ms | Cooldown period after recommission during which no metrics are sampled|120000 |Hadoop/Spark load based autoscaling |This cooldown period ensures the cluster has some time to redistribute the load to the newly recommissioned `nodemanagers`.  **Note:** Applicable for images on **2304280205**  or later|
 |scale.down.nodes.with.ms | Scale down nodes where an AM is running|false | Hadoop/Spark|Can be turned on if there are enough reattempts configured for the AM. Useful for cases where there are long running applications (example spark streaming) which can be killed for scaling down cluster if load has reduced. **Note:** Applicable for images on **2304280205** or later|

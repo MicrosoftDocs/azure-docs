@@ -3,7 +3,7 @@ title: Azure Private 5G Core 2308 release notes
 description: Discover what's new in the Azure Private 5G Core 2308 release
 author: paulcarter
 ms.author: paulcarter
-ms.service: private-5g-core
+ms.service: azure-private-5g-core
 ms.topic: release-notes
 ms.date: 11/20/2023
 ---
@@ -30,7 +30,7 @@ The following table shows the support status for different Packet Core releases.
 
 | Release | Support Status |
 |---------|----------------|
-| AP5GC 2308 | Supported until AP5GC 2401 released |
+| AP5GC 2308 | Supported until AP5GC 2403 released |
 | AP5GC 2307 | Supported until AP5GC 2310 released |
 | AP5GC 2306 and earlier | Out of Support |
 

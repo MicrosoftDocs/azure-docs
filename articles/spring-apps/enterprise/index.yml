@@ -7,10 +7,9 @@ metadata:
   title: Azure Spring Apps Enterprise plan
   description: The Enterprise plan provides commercially supported Tanzu components, unlocking Spring's full potential while including feature parity with the Standard plan.
   services: spring-cloud
-  ms.service: spring-apps
+  ms.service: azure-spring-apps
   ms.custom: devx-track-java
   ms.topic: landing-page
-  ms.collection: collection
   author: KarlErickson
   ms.author: karler
   ms.date: 12/14/2023
@@ -59,6 +58,8 @@ landingContent:
             url: quickstart-deploy-web-app.md?pivots=sc-enterprise
           - text: Launch your first RESTful API app
             url: quickstart-deploy-restful-api-app.md?pivots=sc-enterprise
+          - text: Launch your first Spring Batch app
+            url: quickstart-deploy-spring-batch-app.md
           - text: Launch your first microservice apps
             url: quickstart-deploy-microservice-apps.md?pivots=sc-enterprise
           - text: Launch your first event-driven app
@@ -111,10 +112,6 @@ landingContent:
         url: structured-app-log.md
       - text: Analyze logs and metrics
         url: diagnostic-services.md
-    - linkListType: concept
-      links:
-      - text: Java memory management
-        url: concepts-for-java-memory-management.md
 
   # Card (optional)
   - title: Secure apps

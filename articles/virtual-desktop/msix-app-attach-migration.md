@@ -2,6 +2,7 @@
 title: Migrate MSIX packages from MSIX app attach to app attach - Azure Virtual Desktop
 description: Learn how to migrate MSIX packages from MSIX app attach to app attach in Azure Virtual Desktop using a PowerShell script.
 ms.topic: how-to
+ms.custom: devx-track-azurepowershell
 author: dknappettmsft
 ms.author: daknappe
 ms.date: 02/28/2024
@@ -9,11 +10,7 @@ ms.date: 02/28/2024
 
 # Migrate MSIX packages from MSIX app attach to app attach
 
-> [!IMPORTANT]
-> App attach is currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-
-App attach (preview) improves the administrative and user experiences over MSIX app attach. If you use MSIX app attach, you can migrate your MSIX packages to app attach using a PowerShell script.
+App attach improves the administrative and user experiences over MSIX app attach. If you use MSIX app attach, you can migrate your MSIX packages to app attach using a PowerShell script.
 
 The migration script can perform the following actions:
 

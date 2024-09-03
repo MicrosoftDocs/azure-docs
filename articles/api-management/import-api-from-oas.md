@@ -4,13 +4,15 @@ description: Learn how to import an OpenAPI specification to an API Management i
 services: api-management
 author: dlepow
 
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: how-to
 ms.date: 10/26/2022
 ms.author: danlep
 ms.custom: engagement-fy23, devx-track-azurepowershell, devx-track-azurecli
 ---
 # Import an OpenAPI specification
+
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 
 This article shows how to import an "OpenAPI specification" backend API residing at `https://conferenceapi.azurewebsites.net?format=json`. This backend API is provided by Microsoft and hosted on Azure. The article also shows how to test the APIM API. 
 
@@ -31,7 +33,7 @@ In this article, you learn how to:
 
 
 * Azure PowerShell
-    [!INCLUDE [azure-powershell-requirements-no-header](../../includes/azure-powershell-requirements-no-header.md)]
+    [!INCLUDE [azure-powershell-requirements-no-header](~/reusable-content/ce-skilling/azure/includes/azure-powershell-requirements-no-header.md)]
 
 ## <a name="create-api"> </a>Import a backend API
 
@@ -102,7 +104,7 @@ After importing the API, if needed, you can update the settings by using the [Se
 
 ## Validate against an OpenAPI specification
 
-You can configure API Management [validation policies](api-management-policies.md#validation-policies) to validate requests and responses (or elements of them) against the schema in an OpenAPI specification. For example, use the [validate-content](validate-content-policy.md) policy to validate the size or content of a request or response body.
+You can configure API Management [validation policies](api-management-policies.md#content-validation) to validate requests and responses (or elements of them) against the schema in an OpenAPI specification. For example, use the [validate-content](validate-content-policy.md) policy to validate the size or content of a request or response body.
 
 ## Next steps
 

@@ -60,7 +60,7 @@ For more information about the invitation process, see [Microsoft Entra B2B coll
 
 ## Assign a role to an external user
 
-In Azure RBAC, to grant access, you assign a role. To assign a role to an external user, you follow [same steps](role-assignments-portal.md) as you would for a member user, group, service principal, or managed identity. Follow these steps assign a role to an external user at different scopes.
+In Azure RBAC, to grant access, you assign a role. To assign a role to an external user, you follow [same steps](role-assignments-portal.yml) as you would for a member user, group, service principal, or managed identity. Follow these steps assign a role to an external user at different scopes.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -110,7 +110,7 @@ In Azure RBAC, to grant access, you assign a role. To assign a role to an extern
 
 ## Assign a role to an external user not yet in your directory
 
-To assign a role to an external user, you follow [same steps](role-assignments-portal.md) as you would for a member user, group, service principal, or managed identity.
+To assign a role to an external user, you follow [same steps](role-assignments-portal.yml) as you would for a member user, group, service principal, or managed identity.
 
 If the external user is not yet in your directory, you can invite the user directly from the Select members pane.
 

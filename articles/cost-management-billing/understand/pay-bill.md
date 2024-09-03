@@ -1,5 +1,5 @@
 ---
-title: Pay your Microsoft Customer Agreement or Microsoft Online Subscription Program Azure bill
+title: Pay your Microsoft Customer Agreement or Microsoft Online Subscription Program bill
 description: Learn how to pay your bill in the Azure portal. You must be a billing profile owner, contributor, or invoice manager to pay in the portal.
 keywords: billing, past due, balance, pay now,
 author: banders
@@ -7,127 +7,124 @@ ms.reviewer: lishepar
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 01/08/2024
+ms.date: 08/06/2024
 ms.author: banders
 ---
 
-# Pay your Microsoft Customer Agreement Azure or Microsoft Online Subscription Program Azure bill
+# Pay your Microsoft Customer Agreement or Microsoft Online Subscription Program bill
 
-This article applies to customers with a Microsoft Customer Agreement (MCA) and to customers who signed up for Azure through the Azure website, Azure.com (for a Microsoft Online Services Program (MOSP) account also called pay-as-you-go account).
+This article applies to:
 
-[Check your access to a Microsoft Customer Agreement](#check-access-to-a-microsoft-customer-agreement).
+- Customers who have a Microsoft Customer Agreement.
+- Customers who signed up for Azure through the Azure website to create a Microsoft Online Subscription Program account. This type of account is also called a *pay-as-you-go* account.
 
-There are two ways to pay for your bill for Azure. You can pay with the default payment method of your billing profile or you can make a one-time payment with **Pay now**.
+If you're unsure of your billing account type, see [Check the type of your account](#check-the-type-of-your-account) later in this article.
 
-If you signed up for Azure through a Microsoft representative, then your default payment method is always set to *wire transfer*. Automatic credit card payment isn't an option if you signed up for Azure through a Microsoft representative. Instead, you can [pay with a credit card for individual invoices](#pay-now-in-the-azure-portal).
+There are two ways to pay your bill for Azure. You can pay with the default payment method of your billing profile, or you can make a one-time payment with the **Pay now** option.
 
-If you have a Microsoft Online Services Program account, your default payment method is credit card. Payments are normally automatically deducted from your credit card, but you can also make one-time payments manually by credit card.
+If you signed up for Azure through a Microsoft representative, your default payment method is always set to wire transfer. Automatic credit card payment isn't an option if you signed up for Azure through a Microsoft representative. Instead, you can [pay with a credit card for individual invoices](#pay-now-in-the-azure-portal).
+
+If you have a Microsoft Online Subscription Program account, your default payment method is credit card. Normally, payments are automatically deducted from your credit card. But you can also make one-time payments manually by credit card.
 
 If you have Azure credits, they automatically apply to your invoice each billing period.
 
 > [!NOTE]
-> Regardless of the payment method selected to complete your payment, you must specify the invoice number in the payment details.
+> Regardless of the payment method that you select to complete your payment, you must specify the invoice number in the payment details.
 
-Here's a table summarizing payment methods for different agreement types
+Here's a table that summarizes payment methods for agreement types:
 
-|Agreement type| Credit card | Wire transfer¹ |
-| --- | ---- | --- | 
-| Microsoft Customer Agreement<br>purchased through a Microsoft representative | ✔ (with a $50,000.00 USD limit) | ✔ |
+|Agreement type| Credit card | Wire transfer<sup>1</sup> |
+| --- | ---- | --- |
+| Microsoft Customer Agreement<br>purchased through a Microsoft representative | ✔ (with a $50,000 USD limit) | ✔ |
 | Enterprise Agreement | ✘ | ✔ |
-| MOSP | ✔ | ✔ if approved to pay by invoice |
+| Microsoft Online Subscription Program | ✔ | ✔ (if you're approved to pay by invoice) |
 
-¹ If supported by your bank, an ACH credit transaction can be made automatically.
+<sup>1</sup> An ACH credit transaction can be made automatically, if your bank supports it.
 
-## Reserve Bank of India 
+## Reserve Bank of India
 
-**The Reserve Bank of India has issued new directives.**
+As of October 2021, automatic payments in India might block some credit card transactions, especially transactions that exceed 5,000 INR. Because of this situation, you might need to make payments manually in the Azure portal. This directive doesn't affect the total amount you're charged for your Azure usage.
 
-As of October 2021, automatic payments in India may block some credit card transactions, especially transactions exceeding 5,000 INR. Because of this situation, you may need to make payments manually in the Azure portal. This directive doesn't affect the total amount you're charged for your Azure usage.
+As of June 2022, the Reserve Bank of India increased the limit of e-mandates on cards for recurring payments from 5,000 to 15,000 INR. Learn more about this directive on the [Reserve Bank of India website](https://www.rbi.org.in/Scripts/NotificationUser.aspx?Id=11668&Mode=0).
 
-As of June 2022, The Reserve Bank of India (RBI) increased the limit of e-mandates on cards for recurring payments from INR 5,000 to INR 15,000.
-
-[Learn more about the Reserve Bank of India directive; Processing of e-mandate on cards for recurring transactions](https://www.rbi.org.in/Scripts/NotificationUser.aspx?Id=11668&Mode=0)
-
-As of September 2022, Microsoft and other online merchants no longer stores credit card information. To comply with this regulation, Microsoft removed all stored card details from Microsoft Azure. To avoid service interruption, you need to add and verify your payment method to make a payment in the Azure portal for all invoices.
-
-[Learn about the Reserve Bank of India directive; Restriction on storage of actual card data](https://rbidocs.rbi.org.in/rdocs/notification/PDFs/DPSSC09B09841EF3746A0A7DC4783AC90C8F3.PDF)
+As of September 2022, Microsoft and other online merchants no longer store credit card information. To comply with this regulation, Microsoft removed all stored card details from Azure. To avoid service interruption, you need to add and verify your payment method to make a payment in the Azure portal for all invoices. Learn more about this directive on the [Reserve Bank of India website](https://rbidocs.rbi.org.in/rdocs/notification/PDFs/DPSSC09B09841EF3746A0A7DC4783AC90C8F3.PDF).
 
 ### UPI and NetBanking payment options
 
 Azure supports two alternate payment options for customers in India:
 
-- UPI (Unified Payments Interface) payment is a real-time payment method.
-- NetBanking (Internet Banking) facilitates customers with access to banking services on an online platform.
+- Unified Payments Interface (UPI) is a real-time payment method.
+- NetBanking gives customers access to banking services through an online platform.
 
 #### How do I make a payment with UPI or NetBanking?
 
-UPI and NetBanking are only supported for one-time transactions.
+UPI and NetBanking are supported only for one-time transactions.
 
 To make a payment with UPI or NetBanking:
 
-1. Select Add a new payment method when you’re making a payment.
-2. Select UPI / NetBanking.
-3. You're redirected to a payment partner, like Billdesk, where you can choose your payment method.
-4. You’re redirected to your bank's website where you can process the payment.
+1. Select **Add a new payment method** when you're making a payment.
+2. Select **UPI** or **NetBanking**.
+3. You're redirected to a payment partner, like BillDesk, where you can choose your payment method.
+4. You're redirected to your bank's website, where you can process the payment.
+5. Wait until the payment finishes in your UPI or NetBanking app, and then return to the Azure portal and select **Complete**. Don't close your browser until the payment is complete.
 
 After you submit the payment, allow time for the payment to appear in the Azure portal.
 
 #### How am I refunded if I made a payment with UPI or NetBanking?
 
-Refunds are treated as a regular charge. They’re refunded to your bank account.
+Refunds are treated as a regular charge. They go to your bank account.
 
-## Partial payment for Azure global in China
+## Partial payments
 
-Partial payment is available for Azure global pay-as-you-go customers in China only. If you accrue usage higher than your credit card limit, you can use the following self-serve process to split the invoice amount across multiple credit cards using partial payment.
+Partial payment is available for Azure global pay-as-you-go customers in China and in Egypt. If you accrue usage higher than your credit card limit, you can use the following self-serve process to split the invoice amount across multiple credit cards.
 
->[!NOTE]
-> To avoid service interruption, pay the full invoice amount by the due date found on the invoice.
+A minimum payment has a minimum value that you can pay, which varies by country/region.
 
-To make a partial payment, use the following steps.
+> [!NOTE]
+> To avoid service interruption, pay the full invoice amount by the due date on the invoice.
 
-1. Sign into the [Azure portal](https://portal.azure.com).
-2. Search for **Cost Management + Billing**.
-3. In the left menu, select **Invoices** under **Billing**.
-4. If any of your eligible invoices are due or past due, a blue **Pay now** link for the invoice is available. Select **Pay now**.
-5. In the Pay now window, select or tap **Select a payment method** to choose an existing credit card or add a new one.
-6. After you select a payment method, select **Pay now**.
-7. If the payment fails, the partial payment feature appears in the Pay now experience. The minimum partial payment amount is 10,000 CNY. Enter an amount greater than 10,000 CNY.
-8. After you enter the amount, select the **Select a payment method** option to choose an existing credit card or add a new one. It's the card the first partial payment is applied to.
-9. After you select a payment method, select **Pay now**.
-10. Repeat steps 8 – 9 until you fully pay the invoice amount.
+To make a partial payment:
 
-## Pay by default payment method
+1. Sign in to the [Azure portal](https://portal.azure.com).
+2. Search for and select **Cost Management + Billing**.
+3. On the left menu, under **Billing**, select **Invoices**.
+4. If any of your eligible invoices are due or past due, a blue **Pay now** link for the invoice is available. Select the link.
+5. In the **Pay now** window, select **Select a payment method** to choose an existing credit card or add a new one.
+6. Select **Pay now**.
+7. If the payment fails, the partial payment feature appears in the **Pay now** experience. There's a minimum partial payment amount. You must enter an amount greater than the minimum.
+8. Select the **Select a payment method** option to choose an existing credit card or add a new one. It's the card that the first partial payment is applied to.
+9. Select **Pay now**.
+10. Repeat steps 8 to 9 until you fully pay the invoice amount.
 
-The default payment method of your billing profile can either be a credit card, debit card, or wire transfer.
-
-### Credit or debit card
+## Credit or debit card
 
 If the default payment method for your billing profile is a credit or debit card, it's automatically charged each billing period.
 
-If your automatic credit or debit card charge gets declined for any reason, you can make a one-time payment with a credit or debit card in the Azure portal using **Pay now**.
+If your automatic credit or debit card charge is declined for any reason, you can make a one-time payment with a credit or debit card in the Azure portal by using **Pay now**.
 
-If you have a Microsoft Online Services Program (pay-as-you-go) account and you have a bill due, the **Pay now** banner appears on your subscription property page.
+If you have a Microsoft Online Subscription Program (pay-as-you-go) account and you have a bill due, the **Pay now** banner appears on your subscription property page.
 
-If you want to learn how to change your default payment method to wire transfer, see [How to pay by invoice](../manage/pay-by-invoice.md).
+If you want to learn how to change your default payment method to wire transfer, see the [article about how to pay by invoice](../manage/pay-by-invoice.md).
 
-There are a few countries/regions that don't allow the use of debit cards, however in general, you can use them to pay your Azure bill. Virtual and prepaid debit cards can't be used to pay your Azure bill. 
+Although you can generally use debit cards to pay your Azure bill, consider these limitations:
 
-- Hong Kong Special Administrative Region and Brazil only support credit cards.
+- Hong Kong Special Administrative Region and Brazil don't allow the use of debit cards. They support only credit cards.
 - India supports debit and credit cards through Visa and Mastercard.
+- You can't use virtual and prepaid debit cards to pay your Azure bill.
 
-### Wire transfer
+## Wire transfer
 
-If the default payment method of your billing profile is wire transfer, follow the payment instructions shown on your invoice PDF file.
+If the default payment method of your billing profile is wire transfer, follow the payment instructions on your invoice PDF file.
 
-Alternatively, if your invoice is under the threshold amount for your currency, you can make a one-time payment in the Azure portal with a credit or debit card using **Pay now**. If your invoice amount exceeds the threshold, you can't pay your invoice with a credit or debit card. You'll find the threshold amount for your currency in the Azure portal after selecting **Pay now**.
+Alternatively, if your invoice is under the threshold amount for your currency, you can make a one-time payment in the Azure portal with a credit or debit card by using **Pay now**. If your invoice amount exceeds the threshold, you can't pay your invoice with a credit or debit card. You'll find the threshold amount for your currency in the Azure portal after you select **Pay now**.
 
 > [!NOTE]
 > When multiple invoices are remitted in a single wire transfer, you must specify the invoice numbers for all of the invoices.
 
-#### Bank details used to send wire transfer payments
+### Bank details used to send wire transfer payments
 <a name="wire-bank-details"></a>
 
-If your default payment method is wire transfer, check your invoice for payment instructions. Find payment instructions for your country or region in the following list.
+If your default payment method is wire transfer, check your invoice for payment instructions. Find payment instructions for your country/region in the following list:
 
 > [!div class="op_single_selector"]
 > - **Choose your country or region**
@@ -285,26 +282,28 @@ If your default payment method is wire transfer, check your invoice for payment 
 
 ## Pay now in the Azure portal
 
-To pay invoices in the Azure portal, you must have the correct [MCA permissions](../manage/understand-mca-roles.md) or be the Billing Account admin. The Billing Account admin is the user who originally signed up for the MCA account.
+To pay invoices in the Azure portal, you must have the correct [Microsoft Customer Agreement permissions](../manage/understand-mca-roles.md) or be the account administrator. The account administrator is the user who originally signed up for the Microsoft Customer Agreement account.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-1. Search on **Cost Management + Billing**.
-1. In the left menu, select **Invoices** under **Billing**.
-1. If any of your eligible invoices are due or past due, a blue **Pay now** link appears for the invoice. Select **Pay now**.
-1. In the Pay now window, select or tap **Select a payment method** to choose an existing credit card or add a new one.
-1. After you select a payment method, select **Pay now**.
+1. Search for and select **Cost Management + Billing**.
+1. On the left menu, under **Billing**, select **Invoices**.
+1. If any of your eligible invoices are due or past due, a blue **Pay now** link appears for the invoice. Select the link.
+1. In the **Pay now** window, select **Select a payment method** to choose an existing credit card or add a new one.
+1. Select **Pay now**.
 
-The invoice status shows *paid* within 24 hours.
+The invoice status shows **paid** within 24 hours.
 
-## Pay now might be unavailable
+The **Pay now** option might be unavailable if:
 
-If you have a Microsoft Online Services Program account (pay-as-you-go account), the **Pay now** option might be unavailable. Instead, you might see a **Settle balance** banner. If so, see [Resolve past due balance](../manage/resolve-past-due-balance.md#resolve-past-due-balance-in-the-azure-portal).
+- You have a Microsoft Online Subscription Program account (pay-as-you-go account). You might instead see a **Settle balance** banner. If so, see [Resolve a past-due balance](../manage/resolve-past-due-balance.md#resolve-a-past-due-balance-in-the-azure-portal).
+- Your default payment method and invoice amount don't support the **Pay now** option. Check your invoice for payment instructions.
 
-Based on the default payment method and invoice amount, the **Pay now** option might be unavailable. Check your invoice for payment instructions.
+For a complete list of all the counties/regions where the **Pay now** option is available, see [Regional considerations](../manage/resolve-past-due-balance.md#regional-considerations).
 
-## Check access to a Microsoft Customer Agreement
+## Check the type of your account
+
 [!INCLUDE [billing-check-mca](../../../includes/billing-check-mca.md)]
 
-## Next steps
+## Related content
 
-- To become eligible to pay by wire transfer, see [how to pay by invoice](../manage/pay-by-invoice.md)
+- To become eligible to pay by wire transfer, see the [article about how to pay by invoice](../manage/pay-by-invoice.md).

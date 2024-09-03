@@ -6,7 +6,7 @@ ms.author: mubatra
 ms.service: azure-app-configuration
 ms.custom:
 ms.topic: conceptual
-ms.date: 03/01/2022
+ms.date: 05/13/2024
 ---
 
 # Soft delete

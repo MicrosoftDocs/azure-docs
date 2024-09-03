@@ -1,10 +1,12 @@
 ---
 title: Troubleshoot Azure file share backup
 description: This article is troubleshooting information about issues occurring when protecting your Azure file shares.
-ms.date: 06/14/2023
+ms.service: azure-backup
+ms.date: 07/18/2024
 ms.topic: troubleshooting
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
+ms.custom: engagement-fy24
 ---
 
 # Troubleshoot problems while backing up Azure file shares
@@ -65,7 +67,7 @@ In the Azure portal, open your **Vault** > **Backup Infrastructure** > **Storage
 
 Error Code: FileShareNotFound
 
-Error Message: Operation failed as the file share is not found
+Error Message: Operation failed as the file share isn't found
 
 Ensure that the file share you're trying to protect hasn't been deleted.
 
@@ -79,11 +81,11 @@ Error Message: Storage account not found or not supported
 
 - Ensure that the Storage account is a supported Storage account for file share backup.
 
-### AFSMaxSnapshotReached- You have reached the max limit of snapshots for this file share; you will be able to take more once the older ones expire
+### AFSMaxSnapshotReached- You have reached the max limit of snapshots for this file share; you'll be able to take more once the older ones expire
 
 Error Code: AFSMaxSnapshotReached
 
-Error Message: You have reached the max limit of snapshots for this file share; you will be able to take more once the older ones expire.
+Error Message: You have reached the max limit of snapshots for this file share; you'll be able to take more once the older ones expire.
 
 - This error can occur when you create multiple on-demand backups for a file share.
 - There's a limit of 200 snapshots per file share including the ones taken by Azure Backup. Older scheduled backups (or snapshots) are cleaned up automatically. On-demand backups (or snapshots) must be deleted if the maximum limit is reached.
@@ -289,7 +291,7 @@ Recommended Actions: Ensure that the following configurations in the storage acc
   :::image type="content" source="./media/troubleshoot-azure-files/target-storage-account-configuration.png" alt-text="Screenshot shows the target storage account configuration." lightbox="./media/troubleshoot-azure-files/target-storage-account-configuration.png":::
 
 
-## Common modify policy errors
+## Common policy modification errors
 
 ### BMSUserErrorConflictingProtectionOperation- Another configure protection operation is in progress for this item
 

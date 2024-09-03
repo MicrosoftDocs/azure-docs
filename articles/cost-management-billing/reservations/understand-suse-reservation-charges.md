@@ -38,9 +38,7 @@ For example, if your usage has product **Red Hat Enterprise Linux - 1-4 vCPU VM 
 
 Get the product name from your usage data and buy the SUSE plan with the same type and size.
 
-For example, if your usage is for product **SUSE Linux Enterprise Server Priority - 2-4 vCPU VM Support**, you should purchase **SUSE Linux Enterprise Server Priority** for **2-4 vCPU**.
-
-:::image type="content" border="true" source="./media/understand-suse-reservation-charges/select-suse-linux-enterprise-server-priority-2-4-vcpu.png" alt-text="Screenshot that shows selecting the product to purchase.":::
+For example, if your usage is for product **SUSE for SAP Linux Enterprise Server** **- 2-4 vCPU VM Support**, you should purchase **SUSE for SAP Linux Enterprise Server** for **2-4 vCPU**.
 
 ## Discount applies to different VM sizes for SUSE plans
 
@@ -68,13 +66,13 @@ The following tables show the software plans you can buy a reservation for, thei
 |SUSE Linux Enterprise Server for HPC 3-4 vCPUs|4ed70d2d-e2bb-4dcd-b6fa-42da71861a1c|1.92308|D4s_v3|
 |SUSE Linux Enterprise Server for HPC 5+ vCPUs |907a85de-024f-4dd6-969c-347d47a1bdff|2.92308|D8s_v3|
 
-### SUSE Linux Enterprise Server for SAP applications
+### SUSE for SAP Linux Enterprise Server
 
 |SUSE VM | MeterId | Ratio|Example VM size|
 | ------- |------------------------| --- | --- |
-|SUSE Linux Enterprise Server for SAP applications 1-2 vCPUs|497fe0b6-fa3c-4e3d-a66b-836097244142|1|D2s_v3|
-|SUSE Linux Enterprise Server for SAP applications 3-4 vCPUs |847887de-68ce-4adc-8a33-7a3f4133312f|2|D4s_v3|
-|SUSE Linux Enterprise Server for SAP applications 5+ vCPUs |18ae79cd-dfce-48c9-897b-ebd3053c6058|2.41176|D8s_v3|
+|SUSE for SAP Linux Enterprise Server 1-2 vCPUs|797618eb-cecb-59e7-a10e-1ee1e4e62d32|1|D2s_v3|
+|SUSE for SAP Linux Enterprise Server 3-4 vCPUs |1c0fb48a-e518-53c2-ab56-6feddadbb9a3|2|D4s_v3|
+|SUSE for SAP Linux Enterprise Server 5+ vCPUs |3ce5649c-142b-5a59-9b2a-6889da9b56f5|2.41176|D8s_v3|
 
 ### SUSE Linux Enterprise Server
 
@@ -88,13 +86,13 @@ The following tables show the software plans you can buy a reservation for, thei
 
 If you have questions or need help,  [create a support request](https://go.microsoft.com/fwlink/?linkid=2083458).
 
-## Next steps
+## Related content
 
 To learn more about reservations, see the following articles:
 
 - [What are Azure Reservations?](save-compute-costs-reservations.md)
-- [Prepay for SUSE software plans with Azure Reservations](../../virtual-machines/linux/prepay-suse-software-charges.md)
-- [Prepay for Virtual Machines with Azure Reserved VM Instances](../../virtual-machines/prepay-reserved-vm-instances.md)
+- [Prepay for SUSE software plans with Azure Reservations](/azure/virtual-machines/linux/prepay-suse-software-charges)
+- [Prepay for Virtual Machines with Azure Reserved VM Instances](/azure/virtual-machines/prepay-reserved-vm-instances)
 - [Manage Azure Reservations](manage-reserved-vm-instance.md)
 - [Understand reservation usage for your Pay-As-You-Go subscription](understand-reserved-instance-usage.md)
 - [Understand reservation usage for your Enterprise enrollment](understand-reserved-instance-usage-ea.md)

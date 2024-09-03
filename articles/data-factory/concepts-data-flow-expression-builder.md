@@ -5,7 +5,6 @@ description: Build expressions by using Expression Builder in mapping data flows
 author: kromerm
 ms.author: makromer
 ms.reviewer: daperlov
-ms.service: data-factory
 ms.subservice: data-flows
 ms.custom: synapse
 ms.topic: conceptual

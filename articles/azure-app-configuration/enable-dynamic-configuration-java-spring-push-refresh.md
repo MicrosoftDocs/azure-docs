@@ -40,7 +40,7 @@ In this tutorial, you learn how to:
 - [Apache Maven](https://maven.apache.org/download.cgi) version 3.0 or above.
 - An existing Azure App Configuration Store.
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 ## Setup Push Refresh
 

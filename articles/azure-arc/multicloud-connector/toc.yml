@@ -1,0 +1,24 @@
+- name: Multicloud connector enabled by Azure Arc
+  href: index.yml
+- name: Overview
+  items:
+  - name: What is the multicloud connector?
+    href: overview.md
+- name: Concepts
+  items:
+  - name: Resource representation in Azure
+    href: resource-representation.md
+- name: How-to guides
+  items:
+  - name: Connect to AWS
+    href: connect-to-aws.md
+  - name: View multicloud inventory
+    href: view-multicloud-inventory.md
+  - name: Onboard VMs to Azure Arc
+    href: onboard-multicloud-vms-arc.md
+- name: Reference
+  items:
+  - name: Azure Arc
+    href: ../overview.md
+  - name: Azure Monitor
+    href: ../../azure-monitor/overview.md

@@ -224,12 +224,19 @@ You can use the `CreateReleaseAnnotation` PowerShell script to create annotation
     $annotation = ConvertTo-Json $annotation -Compress
     $annotation = Convert-UnicodeToEscapeHex -JsonString $annotation  
  
-    $body = $annotation -replace '(\\+)"', '$1$1"' -replace "`"", "`"`""
-
-    az rest --method put --uri "$($aiResourceId)/Annotations?api-version=2015-05-01" --body "$($body) "
-
-    # Use the following command for Linux Azure DevOps Hosts or other PowerShell scenarios
-    # Invoke-AzRestMethod -Path "$aiResourceId/Annotations?api-version=2015-05-01" -Method PUT -Payload $body
+    $accessToken = (az account get-access-token | ConvertFrom-Json).accessToken
+    $headers = @{
+        "Authorization" = "Bearer $accessToken"
+        "Accept"        = "application/json"
+        "Content-Type"  = "application/json"
+    }
+    $params = @{
+        Headers = $headers
+        Method  = "Put"
+        Uri     = "https://management.azure.com$($aiResourceId)/Annotations?api-version=2015-05-01"
+        Body    = $annotation
+    }
+    Invoke-RestMethod @params
     ```
 
     > [!NOTE]
@@ -381,6 +388,9 @@ The new work item integration offers the following features over [classic](#clas
     :::image type="content" source="./media/release-and-work-item-insights/create-workbook.png" alt-text=" Screenshot of create a new work item workbook template.":::
 
     You can set specific work item properties directly from the template itself. This includes the assignee, iteration path, projects, & more depending on your version control provider.
+
+   > [!NOTE]
+   > For on-premises Azure DevOps environments, a sample URL such as https://dev.azure.com/test/test can be used as a placeholder for the Azure DevOps Project URL. Once the work item template is created, you can modify the URL and its validation rule within the generated [Azure workbook](/azure/azure-monitor/visualize/workbooks-create-workbook).
 
 ## Create a work item
 

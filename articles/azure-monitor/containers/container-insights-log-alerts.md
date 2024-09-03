@@ -20,8 +20,11 @@ Container insights monitors the performance of container workloads that are depl
 To alert for high CPU or memory utilization, or low free disk space on cluster nodes, use the queries that are provided to create a metric alert or a metric measurement alert. Metric alerts have lower latency than log search alerts, but log search alerts provide advanced querying and greater sophistication. Log search alert queries compare a datetime to the present by using the `now` operator and going back one hour. (Container insights stores all dates in Coordinated Universal Time [UTC] format.)
 
 > [!IMPORTANT]
-> Most alert rules have a cost that's dependent on the type of rule, how many dimensions it includes, and how frequently it's run. Before you create alert rules, see the "Alert rules" section in [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/).
+> The queries in this article depend on data collected by Container insights and stored in a Log Analytics workspace. If you've modified the default data collection settings, the queries might not return the expected results. Most notably, if you've disabled collection of performance data since you've enabled Prometheus metrics for the cluster, any queries using the `Perf` table won't return results. 
+> 
+> See [Configure data collection in Container insights using data collection rule](./container-insights-data-collection-dcr.md) for preset configurations including disabling performance data collection. See [Configure data collection in Container insights using ConfigMap](./container-insights-data-collection-configmap.md) for further data collection options.
 
+ 
 If you aren't familiar with Azure Monitor alerts, see [Overview of alerts in Microsoft Azure](../alerts/alerts-overview.md) before you start. To learn more about alerts that use log queries, see [Log search alerts in Azure Monitor](../alerts/alerts-types.md#log-alerts). For more about metric alerts, see [Metric alerts in Azure Monitor](../alerts/alerts-metric-overview.md).
 
 ## Log query measurements

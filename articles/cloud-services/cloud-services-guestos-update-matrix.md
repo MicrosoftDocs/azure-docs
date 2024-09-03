@@ -2,17 +2,17 @@
 title: Learn about the latest Azure Guest OS Releases | Microsoft Docs
 description: The latest release news and SDK compatibility for Azure Cloud Services Guest OS.
 services: cloud-services
-ms.subservice: auto-os-updates
-author: gunnarc
+ms.subservice: guest-os-patching
+author: akyadav
 ms.assetid: 6306cafe-1153-44c7-8554-623b03d59a34
-ms.service: cloud-services
+ms.service: azure-cloud-services-classic
 ms.topic: article
-ms.date: 03/06/2024
-ms.author: jejackson
+ms.date: 07/31/2024
+ms.author: akyadav
 ms.custom: compute-evergreen
 ---
 # Azure Guest OS releases and SDK compatibility matrix
-Provides you with up-to-date information about the latest Azure Guest OS releases for Cloud Services. This information helps you plan your upgrade path before a Guest OS is disabled. If you configure your roles to use *automatic* Guest OS updates as described in [Azure Guest OS Update Settings][Azure Guest OS Update Settings], it is not vital that you read this page.
+Provides you with up-to-date information about the latest Azure Guest OS releases for Cloud Services. This information helps you plan your upgrade path before a Guest OS is disabled. If you configure your roles to use *automatic* Guest OS updates as described in [Azure Guest OS Update Settings][Azure Guest OS Update Settings], it isn't vital that you read this page.
 
 > [!IMPORTANT]
 > This page applies to Cloud Services web and worker roles, which run on top of a Guest OS. It does **not apply** to IaaS Virtual Machines.
@@ -34,206 +34,221 @@ Unsure about how to update your Guest OS? Check [this][cloud updates] out.
 
 ## News updates
 
-###### **February 24, 2023**
-The February Guest OS has released. 
+###### **July 31, 2024**
+The July Guest OS released. 
 
-###### **January 22, 2023**
-The January Guest OS has released. 
+###### **June 27, 2024**
+The June Guest OS released. 
+
+###### **June 1, 2024**
+The May Guest OS released. 
+
+###### **April 19, 2024**
+The April Guest OS released. 
+
+###### **April 9, 2024**
+The March Guest OS released. 
+
+###### **February 24, 2024**
+The February Guest OS released. 
+
+###### **January 22, 2024**
+The January Guest OS released. 
 
 ###### **January 16, 2023**
-The December Guest OS has released. 
+The December Guest OS released. 
 
 ###### **December 8, 2023**
-The November Guest OS has released. 
+The November Guest OS released. 
 
 ###### **October 23, 2023**
-The October Guest OS has released. 
+The October Guest OS released. 
 
 ###### **September 26, 2023**
-The September Guest OS has released. 
+The September Guest OS released. 
 
 ###### **August 21, 2023**
-The August Guest OS has released. 
+The August Guest OS released. 
 
 ###### **July 27, 2023**
-The July Guest OS has released. 
+The July Guest OS released. 
 
 ###### **July 8, 2023**
-The June Guest OS has released. 
+The June Guest OS released. 
 
 ###### **May 19, 2023**
-The May Guest OS has released. 
+The May Guest OS released. 
 
 ###### **April 27, 2023**
-The April Guest OS has released. 
+The April Guest OS released. 
 
 ###### **March 28, 2023**
-The March Guest OS has released. 
+The March Guest OS released. 
 
 ###### **March 1, 2023**
-The February Guest OS has released. 
+The February Guest OS released. 
 
 ###### **January 31, 2023**
-The January Guest OS has released. 
+The January Guest OS released. 
 
 ###### **January 19, 2023**
-The December Guest OS has released. 
+The December Guest OS released. 
 
 ###### **December 12, 2022**
-The November Guest OS has released. 
+The November Guest OS released. 
 
 ###### **November 4, 2022**
-The October Guest OS has released. 
+The October Guest OS released. 
 
 ###### **September 29, 2022**
-The September Guest OS has released. 
+The September Guest OS released. 
 
 ###### **September 2, 2022**
-The August Guest OS has released. 
+The August Guest OS released. 
 
 ###### **August 3, 2022**
-The July Guest OS has released. 
+The July Guest OS released. 
 
 ###### **July 11, 2022**
-The June Guest OS has released. 
+The June Guest OS released. 
 
 ###### **May 26, 2022**
-The May Guest OS has released. 
+The May Guest OS released. 
 
 ###### **April 30, 2022**
-The April Guest OS has released. 
+The April Guest OS released. 
 
 ###### **March 19, 2022**
-The March Guest OS has released. 
+The March Guest OS released. 
 
 ###### **March 2, 2022**
-The February Guest OS has released. 
+The February Guest OS released. 
 
 ###### **February 11, 2022**
-The January Guest OS has released. 
+The January Guest OS released. 
 
 ###### **January 10, 2022**
-The December Guest OS has released. 
+The December Guest OS released. 
 
 ###### **November 19, 2021**
-The November Guest OS has released. 
+The November Guest OS released. 
 
 ###### **November 1, 2021**
-The October Guest OS has released. 
+The October Guest OS released. 
 
 ###### **October 8, 2021**
-The September Guest OS has released. 
+The September Guest OS released. 
 
 ###### **August 27, 2021**
-The August Guest OS has released. 
+The August Guest OS released. 
 
 ###### **August 13, 2021**
-The July Guest OS has released. 
+The July Guest OS released. 
 
 ###### **July 1, 2021**
-The June Guest OS has released. 
+The June Guest OS released. 
 
 ###### **May 26, 2021**
-The May Guest OS has released. 
+The May Guest OS released. 
 
 ###### **April 30, 2021**
-The April Guest OS has released. 
+The April Guest OS released. 
 
 ###### **March 28, 2021**
-The March Guest OS has released. 
+The March Guest OS released. 
 
 ###### **February 19, 2021**
-The February Guest OS has released. 
+The February Guest OS released. 
 
 ###### **February 5, 2021**
-The January Guest OS has released. 
+The January Guest OS released. 
 
 ###### **January 15, 2021**
-The December Guest OS has released. 
+The December Guest OS released. 
 
 ###### **December 19, 2020**
-The November Guest OS has released. 
+The November Guest OS released. 
 
 ###### **November 17, 2020**
-The October Guest OS has released. 
+The October Guest OS released. 
 
 ###### **October 10, 2020**
-The September Guest OS has released. 
+The September Guest OS released. 
 
 ###### **September 5, 2020**
-The August Guest OS has released. 
+The August Guest OS released. 
 
 ###### **August 17, 2020**
-The July Guest OS has released. 
+The July Guest OS released. 
 
 ###### **August 10, 2020**
-The June Guest OS has released. 
+The June Guest OS released. 
 
 ###### **June 2, 2020**
-The May Guest OS has released. 
+The May Guest OS released. 
 
 ###### **May 4, 2020**
-The April Guest OS has released. 
+The April Guest OS released. 
 
 ###### **April 2, 2020**
-The March Guest OS has released. 
+The March Guest OS released. 
 
 ###### **March 5, 2020**
-The February Guest OS has released. 
+The February Guest OS released. 
 
 ###### **January 24, 2020**
-The January Guest OS has released. 
+The January Guest OS released. 
 
 ###### **January 8, 2020**
-The December Guest OS has released.
+The December Guest OS released.
 
 ###### **December 5, 2019**
-The November Guest OS has released.
+The November Guest OS released.
 
 ###### **November 1, 2019**
-The October Guest OS has released.
+The October Guest OS released.
 
 ###### **October 7, 2019**
-The September Guest OS has released.
+The September Guest OS released.
 
 ###### **September 4, 2019**
-The August Guest OS has released.
+The August Guest OS released.
 
 ###### **July 26, 2019**
-The July Guest OS has released.
+The July Guest OS released.
 
 ###### **July 8, 2019**
-The June Guest OS has released.
+The June Guest OS released.
 
 ###### **June 6, 2019**
-The May Guest OS has released.
+The May Guest OS released.
 
 ###### **May 7, 2019**
-The April Guest OS has released.
+The April Guest OS released.
 
 ###### **March 26, 2019**
-The March Guest OS has released.
+The March Guest OS released.
 
 ###### **March 12, 2019**
-The February Guest OS has released.
+The February Guest OS released.
 
 ###### **February 5, 2019**
-The January Guest OS has released.
+The January Guest OS released.
 
 ###### **January 24, 2019**
-Family 6 Guest OS (Windows Server 2019) has released.
+Family 6 Guest OS (Windows Server 2019) released.
 
 ###### **January 7, 2019**
-The December Guest OS has released.
+The December Guest OS released.
 
 ###### **December 14, 2018**
-The November Guest OS has released.
+The November Guest OS released.
 
 ###### **November 8, 2018**
-The October Guest OS has released.
+The October Guest OS released.
 
 ###### **October 12, 2018**
-The September Guest OS has released.
+The September Guest OS released.
 
 ## Releases
 
@@ -244,9 +259,14 @@ The September Guest OS has released.
 
 | Configuration string | Release date | Disable date |
 | --- | --- | --- |
-|  WA-GUEST-OS-7.38_202401-01 |  February 24, 2024  |  Post 7.41  |
-|  WA-GUEST-OS-7.37_202401-01 |  January 22, 2024  |  Post 7.40  |
-|  WA-GUEST-OS-7.36_202312-01 |  January 16, 2024  |  Post 7.39  |
+|  WA-GUEST-OS-7.43_202407-01 |  July 31, 2024  |  Post 7.46  |
+|  WA-GUEST-OS-7.42_202406-01 |  June 27, 2024  |  Post 7.45  |
+|  WA-GUEST-OS-7.41_202405-01 |  June 1, 2024  |  Post 7.44  |
+|~~WA-GUEST-OS-7.40_202404-01~~|  April 19, 2024  |  July 31, 2024  |
+|~~WA-GUEST-OS-7.39_202403-02~~|  April 9, 2024  |  June 27, 2024  |
+|~~WA-GUEST-OS-7.38_202402-01~~|  February 24, 2024  |  June 1, 2024  |
+|~~WA-GUEST-OS-7.37_202401-01~~|  January 22, 2024  |  April 19, 2024  |
+|~~WA-GUEST-OS-7.36_202312-01~~|  January 16, 2024  |  April 9, 2024  |
 |~~WA-GUEST-OS-7.35_202311-01~~|  December 8, 2023  |  January 22, 2024  |
 |~~WA-GUEST-OS-7.34_202310-01~~|  October 23, 2023  |  January 16, 2024  |
 |~~WA-GUEST-OS-7.32_202309-01~~|  September 25, 2023  |  December 8, 2023  |
@@ -287,9 +307,14 @@ The September Guest OS has released.
 
 | Configuration string | Release date | Disable date |
 | --- | --- | --- |
-|  WA-GUEST-OS-6.68_202402-01 |  February 24, 2024  |  Post 6.71  |
-|  WA-GUEST-OS-6.67_202401-01 |  January 22, 2024  |  Post 6.70  |
-|  WA-GUEST-OS-6.66_202312-01 |  January 16, 2024  |  Post 6.69  |
+|  WA-GUEST-OS-6.73_202407-01 |  July 31, 2024  |  Post 6.76  |
+|  WA-GUEST-OS-6.72_202406-01 |  June 27, 2024  |  Post 6.75  |
+|  WA-GUEST-OS-6.71_202405-01 |  June 1, 2024  |  Post 6.74  |
+|~~WA-GUEST-OS-6.70_202404-01~~|  April 19, 2024  |  July 31, 2024  |
+|~~WA-GUEST-OS-6.69_202403-02~~|  April 9, 2024  |  June 27, 2024  |
+|~~WA-GUEST-OS-6.68_202402-01~~|  February 24, 2024  |  June 1, 2024  |
+|~~WA-GUEST-OS-6.67_202401-01~~|  January 22, 2024  |  April 19, 2024  |
+|~~WA-GUEST-OS-6.66_202312-01~~|  January 16, 2024  |  April 9, 2024  |
 |~~WA-GUEST-OS-6.65_202311-01~~|  December 8, 2023  |  January 22, 2024  |
 |~~WA-GUEST-OS-6.64_202310-01~~|  October 23, 2023  |  January 16, 2024  |
 |~~WA-GUEST-OS-6.62_202309-01~~|  September 25, 2023  |  December 8, 2023  |
@@ -364,9 +389,14 @@ The September Guest OS has released.
 
 | Configuration string | Release date | Disable date |
 | --- | --- | --- |
-|  WA-GUEST-OS-5.92_202402-01 |  February 24, 2024  |  Post 5.95  |
-|  WA-GUEST-OS-5.91_202401-01 |  January 22, 2024  |  Post 5.94  |
-|  WA-GUEST-OS-5.90_202312-01 |  January 16, 2024  |  Post 5.93  |
+|  WA-GUEST-OS-5.97_202407-01 |  July 31, 2024  |  Post 5.100  |
+|  WA-GUEST-OS-5.96_202406-01 |  June 27, 2024  |  Post 5.99  |
+|  WA-GUEST-OS-5.95_202405-01 |  June 1, 2024  |  Post 5.98  |
+|~~WA-GUEST-OS-5.94_202404-01~~|  April 19, 2024  |  July 31, 2024  |
+|~~WA-GUEST-OS-5.93_202403-02~~|  April 9, 2024  |  June 27, 2024 |
+|~~WA-GUEST-OS-5.92_202402-01~~|  February 24, 2024  |  June 1, 2024  |
+|~~WA-GUEST-OS-5.91_202401-01~~|  January 22, 2024  |  April 19, 2024  |
+|~~WA-GUEST-OS-5.90_202312-01~~|  January 16, 2024  |  April 9, 2024  |
 |~~WA-GUEST-OS-5.89_202311-01~~|  December 8, 2023  |  January 22, 2024  |
 |~~WA-GUEST-OS-5.88_202310-01~~|  October 23, 2023  |  January 16, 2024  |
 |~~WA-GUEST-OS-5.86_202309-01~~|  September 25, 2023  |  December 8, 2023  |
@@ -438,9 +468,14 @@ The September Guest OS has released.
 
 | Configuration string | Release date | Disable date |
 | --- | --- | --- |
-|  WA-GUEST-OS-4.128_202402-01 |  February 24, 2024  |  Post 4.131  |
-|  WA-GUEST-OS-4.127_202401-01 |  January 22, 2024  |  Post 4.130  |
-|  WA-GUEST-OS-4.126_202312-01 |  January 16, 2024  |  Post 4.129  |
+|  WA-GUEST-OS-4.133_202407-01 |  July 31, 2024  |  Post 4.136  |
+|  WA-GUEST-OS-4.132_202406-01 |  June 27, 2024  |  Post 4.135  |
+|  WA-GUEST-OS-4.131_202405-01 |  June 1, 2024  |  Post 4.134  |
+|~~WA-GUEST-OS-4.130_202404-01~~|  April 19, 2024  |  July 31, 2024  |
+|~~WA-GUEST-OS-4.129_202403-02~~|  April 9, 2024  |  June 27, 2024  |
+|~~WA-GUEST-OS-4.128_202402-01~~|  February 24, 2024  |  June 1, 2024  |
+|~~WA-GUEST-OS-4.127_202401-01~~|  January 22, 2024  |  April 19, 2024  |
+|~~WA-GUEST-OS-4.126_202312-01~~|  January 16, 2024  |  April 9, 2024  |
 |~~WA-GUEST-OS-4.125_202311-01~~|  December 8, 2023  |  January 22, 2024  |
 |~~WA-GUEST-OS-4.124_202310-01~~|  October 23, 2023  |  January 16, 2024  |
 |~~WA-GUEST-OS-4.122_202309-01~~|  September 25, 2023  |  December 8, 2023  |
@@ -463,8 +498,8 @@ The September Guest OS has released.
 |~~WA-GUEST-OS-4.102_202204-01~~|  April 30, 2022  |  July 11, 2022  |
 |~~WA-GUEST-OS-4.101_202203-01~~|  March 19, 2022  |  May 26, 2022  |
 |~~WA-GUEST-OS-4.100_202202-01~~|  March 2, 2022  |  April 30, 2022  |
-|~~WA-GUEST-OS-4.99_202201-02~~|  February 11 , 2022  |  March 19, 2022  |
-|~~WA-GUEST-OS-4.97_202112-01~~|  January 10 , 2022  |  March 2, 2022 |
+|~~WA-GUEST-OS-4.99_202201-02~~|  February 11, 2022  |  March 19, 2022  |
+|~~WA-GUEST-OS-4.97_202112-01~~|  January 10, 2022  |  March 2, 2022 |
 |~~WA-GUEST-OS-4.96_202111-01~~|  November 19, 2021  |  February 11, 2022  |
 |~~WA-GUEST-OS-4.95_202110-01~~|  November 1, 2021  |  January 10, 2022  |
 |~~WA-GUEST-OS-4.94_202109-01~~|  October 8, 2021  |  November 19, 2021  |
@@ -512,9 +547,14 @@ The September Guest OS has released.
 
 | Configuration string | Release date | Disable date |
 | --- | --- | --- |
-|  WA-GUEST-OS-3.136_202402-01 |  February 24, 2024  |  Post 3.139  |
-|  WA-GUEST-OS-3.135_202401-01 |  January 22, 2024  |  Post 3.138  |
-|  WA-GUEST-OS-3.134_202312-01 |  January 16, 2024  |  Post 3.137  |
+|  WA-GUEST-OS-3.141_202407-01 |  July 31, 2024  |  Post 3.144  |
+|  WA-GUEST-OS-3.140_202406-01 |  June 27, 2024  |  Post 3.143  |
+|  WA-GUEST-OS-3.139_202405-01 |  June 1, 2024  |  Post 3.142  |
+|~~WA-GUEST-OS-3.138_202404-01~~|  April 19, 2024  |  Post 3.141  |
+|~~WA-GUEST-OS-3.137_202403-02~~|  April 9, 2024  |  June 27, 2024  |
+|~~WA-GUEST-OS-3.136_202402-01~~|  February 24, 2024  |  June 1, 2024  |
+|~~WA-GUEST-OS-3.135_202401-01~~|  January 22, 2024  |  April 19, 2024  |
+|~~WA-GUEST-OS-3.134_202312-01~~|  January 16, 2024  |  April 9, 2024  |
 |~~WA-GUEST-OS-3.133_202311-01~~|  December 8, 2023  |  January 22, 2024  |
 |~~WA-GUEST-OS-3.132_202310-01~~|  October 23, 2023  |  January 16, 2024  |
 |~~WA-GUEST-OS-3.130_202309-01~~|  September 25, 2023  |  December 8, 2023  |
@@ -586,9 +626,14 @@ The September Guest OS has released.
 
 | Configuration string | Release date | Disable date |
 | --- | --- | --- |
-|  WA-GUEST-OS-2.148_202402-01 |  February 24, 2024  |  Post 2.151  |
-|  WA-GUEST-OS-2.147_202401-01 |  January 22, 2024  |  Post 2.150  |
-|  WA-GUEST-OS-2.146_202312-01 |  January 16, 2024  |  Post 2.149  |
+|  WA-GUEST-OS-2.153_202407-01 |  July 31, 2024  |  Post 2.156  |
+|  WA-GUEST-OS-2.152_202406-01 |  June 27, 2024  |  Post 2.155  |
+|  WA-GUEST-OS-2.151_202405-01 |  June 1, 2024  |  Post 2.154  |
+|~~WA-GUEST-OS-2.150_202404-01~~|  April 19, 2024  |  July 31, 2024  |
+|~~WA-GUEST-OS-2.149_202403-02~~|  April 9, 2024  |  June 27, 2024  |
+|~~WA-GUEST-OS-2.148_202402-01~~|  February 24, 2024  |  June 1, 2024  |
+|~~WA-GUEST-OS-2.147_202401-01~~|  January 22, 2024  |  April 19, 2024  |
+|~~WA-GUEST-OS-2.146_202312-01~~|  January 16, 2024  |  April 9, 2024  |
 |~~WA-GUEST-OS-2.145_202311-01~~|  December 8, 2023  |  January 22, 2024  |
 |~~WA-GUEST-OS-2.144_202310-01~~|  October 23, 2023  |  January 16, 2024  |
 |~~WA-GUEST-OS-2.142_202309-01~~|  September 25, 2023  |  December 8, 2023  |
@@ -669,11 +714,11 @@ Even though the [retirement policy for the Azure SDK][retire policy sdk] indicat
 | 1 |Version 1.0+ |
 
 ## Guest OS release information
-There are three dates that are important to Guest OS releases: **release** date, **disabled** date, and **expiration** date. A Guest OS is considered available when it is in the Portal and can be selected as the target Guest OS. When a Guest OS reaches the **disabled** date, it is removed from Azure. However, any Cloud Service targeting that Guest OS will still operate as normal.
+There are three dates that are important to Guest OS releases: **release** date, **disabled** date, and **expiration** date. A Guest OS is considered available when it is in the Portal and can be selected as the target Guest OS. When a Guest OS reaches the **disabled** date, Microsoft removes it from Azure. However, any Cloud Service targeting that Guest OS still operate as normal.
 
-The window between the **disabled** date and the **expiration** date provides you with a buffer to easily transition from one Guest OS to one newer. If you're using *automatic* as your Guest OS, you'll always be on the latest version and you don't have to worry about it expiring.
+The window between the **disabled** date and the **expiration** date provides you with a buffer to easily transition from one Guest OS to one newer. If you're using *automatic* as your Guest OS, you're always on the latest version and you don't have to worry about it expiring.
 
-When the **expiration** date passes, any Cloud Service still using that Guest OS will be stopped, deleted, or forced to upgrade. You can read more about the retirement policy [here][retirepolicy].
+When the **expiration** date passes, any Cloud Service still using that Guest OS stops, deletes, or force upgrades. You can read more about the retirement policy [here][retirepolicy].
 
 ## Guest OS family-version explanation
 The Guest OS families are based on released versions of Microsoft Windows Server. The Guest OS is the underlying operating system that Azure Cloud Services runs on. Each Guest OS has a family, version, and release number.
@@ -685,26 +730,26 @@ The Guest OS families are based on released versions of Microsoft Windows Server
 
     Numbers start at 0 and increment by 1 each time a new set of updates is added. Trailing zeros are only shown if important. That is, version 2.10 is a different, much later version than version 2.1.
 * **Guest OS release**  
-  A rerelease of a Guest OS version. A rerelease occurs if Microsoft finds issues during testing; requiring changes. The latest release always supersedes any previous releases, public or not. The Azure portal will only allow users to pick the latest release for a given version. Deployments running on a previous release are usually not force upgraded depending on the severity of the bug.
+  A rerelease of a Guest OS version. A rerelease occurs if Microsoft finds issues during testing; requiring changes. The latest release always supersedes any previous releases, public or not. The Azure portal only allows users to pick the latest release for a given version. Deployments running on a previous release aren't force upgraded depending on the severity of the bug.
 
-In the example below, 2 is the family, 12 is the version and "rel2" is the release.
+In the following example, 2 is the family, 12 is the version, and "rel2" is the release.
 
 **Guest OS release** - 2.12 rel2
 
 **Configuration string for this release** - WA-GUEST-OS-2.12_201208-02
 
-The configuration string for a Guest OS has this same information embedded in it, along with a date showing which MSRC patches were considered for that release. In this example, MSRC patches produced for Windows Server 2008 R2 up to and including August 2012 were considered for inclusion. Only patches specifically applying to that version of Windows Server are included. For example, if an MSRC patch applies to Microsoft Office, it will not be included because that product is not part of the Windows Server base image.
+The configuration string for a Guest OS has this same information embedded in it, along with a date showing which MSRC patches were considered for that release. In this example, MSRC patches produced for Windows Server 2008 R2 up to and including August 2012 were considered for inclusion. Only patches specifically applying to that version of Windows Server are included. For example, if an MSRC patch applies to Microsoft Office, it isn't included because that product isn't part of the Windows Server base image.
 
 ## Guest OS system update process
-This page includes information on upcoming Guest OS Releases. Customers have indicated that they want to know when a release occurs because their cloud service roles will reboot if they are set to "Automatic" update. Guest OS releases typically occur 2-3 weeks after the MSRC update release that occurs on the second Tuesday of every month. New releases include all the relevant MSRC patches for each Guest OS family.
+This page includes information on upcoming Guest OS Releases. Some customers want to know when a release occurs because cloud service roles set to automatically update reboot on releases. Guest OS releases typically occur 2-3 weeks after the MSRC update release that occurs on the second Tuesday of every month. New releases include all the relevant MSRC patches for each Guest OS family.
 
-Microsoft Azure is constantly releasing updates. The Guest OS is only one such update in the pipeline. A release can be affected by many factors too numerous to list here. In addition, Azure runs on literally hundreds of thousands of machines. This means that it's impossible to give an exact date and time when your role(s) will reboot. We are working on a plan to limit or time reboots.
+Microsoft Azure is constantly releasing updates. The Guest OS is only one such update in the pipeline. Many factors affect a release, and they're too numerous to list here. In addition, Azure runs on literally hundreds of thousands of machines. This means that it's impossible to give an exact date and time to expect your role or roles to reboot. We're working on a plan to limit or time reboots.
 
-When a new release of the Guest OS is published, it can take time to fully propagate across Azure. As services are updated to the new Guest OS, they are rebooted honoring update domains. Services set to use "Automatic" updates will get a release first. After the update, you’ll see the new Guest OS version listed for your service in the Azure portal. Rereleases may occur during this period. Some versions may be deployed over longer periods of time and automatic upgrade reboots may not occur for many weeks after the official release date. Once a Guest OS is available, you can then explicitly choose that version from the portal or in your configuration file.
+When a new release of the Guest OS is published, it can take time to fully propagate across Azure. As services are updated to the new Guest OS, they reboot, honoring update domains. Services set to use "Automatic" updates get a release first. After the update, you’ll see the new Guest OS version listed for your service in the Azure portal. Rereleases may occur during this period. Some versions may be deployed over longer periods of time and automatic upgrade reboots may not occur for many weeks after the official release date. Once a Guest OS is available, you can then explicitly choose that version from the portal or in your configuration file.
 
-For a great deal of valuable information on restarts and pointers to more information technical details of Guest and Host OS updates, see the MSDN blog post titled [Role Instance Restarts Due to OS Upgrades][restarts].
+For a great deal of valuable information on restarts and pointers to more information on Guest and Host OS updates, see the Microsoft Developer Network (MSDN) blog post titled [Role Instance Restarts Due to OS Upgrades][restarts].
 
-If you manually update your Guest OS, see the [Guest OS retirement policy][retirepolicy] for additional information.
+For more information about manually updating your Guest OS, see the [Guest OS retirement policy][retirepolicy].
 
 ## Guest OS supportability and retirement policy
 The Guest OS supportability and retirement policy is explained [here][retirepolicy].

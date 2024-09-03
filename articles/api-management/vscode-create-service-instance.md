@@ -1,7 +1,7 @@
 ---
 title: Quickstart - Create Azure API Management instance - VS Code
 description: Use this quickstart to create an Azure API Management instance with the API Management extension for Visual Studio Code.
-ms.service: api-management
+ms.service: azure-api-management
 author: dlepow
 ms.author: danlep
 ms.topic: quickstart
@@ -11,13 +11,15 @@ ms.custom: mode-api, devdivchpfy22
 
 # Quickstart: Create a new Azure API Management instance using Visual Studio Code
 
+[!INCLUDE [api-management-availability-premium-dev-standard-basic-consumption](../../includes/api-management-availability-premium-dev-standard-basic-consumption.md)]
+
 This quickstart describes the steps to create a new API Management instance using the *Azure API Management Extension* for Visual Studio Code. After creating an instance, you can use the extension for common management tasks such as importing APIs in your API Management instance.
 
 [!INCLUDE [api-management-quickstart-intro](../../includes/api-management-quickstart-intro.md)]
 
 ## Prerequisites
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 Also, ensure you've installed the following:
 

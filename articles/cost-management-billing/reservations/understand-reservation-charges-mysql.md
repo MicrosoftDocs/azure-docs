@@ -39,6 +39,6 @@ For the rest of these examples, assume that the Azure Database for MySQL reserve
 
 To understand and view the application of your Azure Reservations in billing usage reports, see [Understand Azure reservation usage](./understand-reserved-instance-usage-ea.md).
 
-## Next steps
+## Related content
 
 If you have questions or need help, [create a support request](https://go.microsoft.com/fwlink/?linkid=2083458).

@@ -83,7 +83,7 @@ Here's how to list the details of a particular role.
 az role definition list --name "{roleName}"
 ```
 
-For more information, see [List Azure role definitions](role-definitions-list.md#azure-cli).
+For more information, see [List Azure role definitions](role-definitions-list.yml#azure-cli).
  
 ### Step 3: Identify the needed scope
 
@@ -316,5 +316,5 @@ az role assignment create --assignee "alain@example.com" \
 
 ## Next steps
 
-- [List Azure role assignments using Azure CLI](role-assignments-list-cli.md)
+- [List Azure role assignments using Azure CLI](role-assignments-list-cli.yml)
 - [Use the Azure CLI to manage Azure resources and resource groups](../azure-resource-manager/management/manage-resources-cli.md)

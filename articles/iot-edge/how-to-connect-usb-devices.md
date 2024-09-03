@@ -1,18 +1,19 @@
 ---
-title: How to connect a USB device to Azure IoT Edge for Linux on Windows | Microsoft Docs
+title: How to connect a USB device to Azure IoT Edge for Linux on Windows
 description: How to connect a USB device using USB over IP to the Azure IoT Edge for Linux on Windows (EFLOW) virtual machine.
 author: PatAltimore
 
 ms.service: iot-edge
+ms.custom: linux-related-content
 services: iot-edge
 ms.topic: conceptual
-ms.date: 07/25/2022
+ms.date: 05/31/2024
 ms.author: fcabrera
 ---
 
 # How to connect a USB device to Azure IoT Edge for Linux on Windows
 
-[!INCLUDE [iot-edge-version-1.4](includes/iot-edge-version-1.4.md)]
+[!INCLUDE [iot-edge-version-all-supported](includes/iot-edge-version-all-supported.md)]
 
 In some scenarios, your workloads need to get data or communicate with USB devices. Because Azure IoT Edge for Linux on Windows (EFLOW) runs as a virtual machine, you need to connect these devices to the virtual machine. This article guides you through the steps necessary to connect a USB device to the EFLOW virtual machine using the USB/IP open-source project named [usbipd-win](https://github.com/dorssel/usbipd-win).
 
@@ -27,18 +28,18 @@ Setting up the USB/IP project on your Windows machine enables common developer U
 - A machine with an x64/x86 processor is required, *usbipd-win* doesn't support ARM64.
 
 > [!NOTE]
->  To check your Azure IoT Edge for Linux on Windows version, go to _Add or Remove Programs_ and then search for _Azure IoT Edge_. The installed version is listed under _Azure IoT Edge_. If you need to update to the latest version, see [Azure IoT Edge for Linux on Windows updates](./iot-edge-for-linux-on-windows-updates.md).
+>  To check your Azure IoT Edge for Linux on Windows version, go to *Add or Remove Programs* and then search for *Azure IoT Edge*. The installed version is listed under *Azure IoT Edge*. If you need to update to the latest version, see [Azure IoT Edge for Linux on Windows updates](./iot-edge-for-linux-on-windows-updates.md).
 
 ## Install the UsbIp-Win project
 
 Support for connecting USB devices isn't natively available with EFLOW. You'll need to install the open-source [usbipd-win](https://github.com/dorssel/usbipd-win) project using the following steps:
 
 1. Go to the [latest release page for the usbipd-win](https://github.com/dorssel/usbipd-win/releases) project.
-1. Choose and download the _usbipd-win_x.y.z.msi_ file. (You may get a warning asking you to confirm that you trust the downloaded installer).
-1. Run the downloaded _usbipd-win_x.y.z.msi_ installer file.
+1. Choose and download the *usbipd-win_x.y.z.msi* file. (You may get a warning asking you to confirm that you trust the downloaded installer).
+1. Run the downloaded *usbipd-win_x.y.z.msi* installer file.
 
 > [!NOTE]
-> Alternatively, you can also install the usbipd-win project using [Windows Package Manager](/windows/package-manager/winget/) (_winget_). If you have already installed _winget_, use the command: `winget install --interactive --exact dorssel.usbipd-win` to install usbipd-win. If you don't use the `--interactive` parameter, _winget_ may immediately restart your computer if needed to install the drivers.
+> Alternatively, you can also install the usbipd-win project using [Windows Package Manager](/windows/package-manager/winget/) (*winget*). If you have already installed *winget*, use the command: `winget install --interactive --exact dorssel.usbipd-win` to install usbipd-win. If you don't use the `--interactive` parameter, *winget* may immediately restart your computer if needed to install the drivers.
 
 The UsbIp-Win installs:
 

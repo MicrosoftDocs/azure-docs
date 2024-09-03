@@ -3,7 +3,7 @@ title: Use Azure Active Directory B2C to grant access to the FHIR service in Azu
 description: Learn how to use Azure AD B2C with the FHIR service to enable access to healthcare applications and users.
 services: healthcare-apis
 author: namalu
-ms.service: healthcare-apis
+ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.topic: tutorial
 ms.date: 01/21/2024
@@ -301,7 +301,7 @@ The validation process involves creating a patient resource in the FHIR service,
 
 Run the [Postman](https://www.postman.com) application locally or in a web browser. For steps to obtain the proper access to the FHIR service, see [Access the FHIR service using Postman](use-postman.md).
 
-When you follow the steps to [GET FHIR resource](use-postman.md#get-fhir-resource) section, the request returns an empty response because the FHIR service is new and doesn't have any patient resources.
+When you follow the steps to [GET FHIR resource](use-postman.md#get-the-fhir-resource) section, the request returns an empty response because the FHIR service is new and doesn't have any patient resources.
 
 #### Create a patient resource in the FHIR service
 

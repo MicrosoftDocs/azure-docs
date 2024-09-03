@@ -1,9 +1,9 @@
 ---
 title: Incorporate Apache Flink® DataStream into Azure Databricks Delta Lake Table
-description: Learn about incorporate Apache Flink® DataStream into Azure Databricks Delta Lake Table
-ms.service: hdinsight-aks
+description: Learn about incorporate Apache Flink® DataStream into Azure Databricks Delta Lake Table.
+ms.service: azure-hdinsight-on-aks
 ms.topic: how-to
-ms.date: 10/27/2023
+ms.date: 04/10/2024
 ---
 
 # Incorporate Apache Flink® DataStream into Azure Databricks Delta Lake Tables
@@ -12,9 +12,9 @@ This example shows how to sink stream data in Azure ADLS Gen2 from Apache Flink 
 
 ## Prerequisites
 
-- [Apache Flink 1.16.0 on HDInsight on AKS](../flink/flink-create-cluster-portal.md)
+- [Apache Flink 1.17.0 on HDInsight on AKS](../flink/flink-create-cluster-portal.md)
 - [Apache Kafka 3.2 on HDInsight](../../hdinsight/kafka/apache-kafka-get-started.md)
-- [Azure Databricks](/azure/databricks/getting-started/) in the same VNET as HDInsight on AKS
+- [Azure Databricks](/azure/databricks/getting-started/) in the same virtual network as HDInsight on AKS
 - [ADLS Gen2](/azure/databricks/getting-started/connect-to-azure-storage/) and Service Principal
 
 ## Azure Databricks Auto Loader
@@ -25,9 +25,9 @@ Here are the steps how you can use data from Flink in Azure Databricks delta liv
 
 ### Create Apache Kafka® table on Apache Flink® SQL
 
-In this step, you can create Kafka table and ADLS Gen2 on Flink SQL. For the purpose of this document, we are using a airplanes_state_real_time table, you can use any topic of your choice. 
+In this step, you can create Kafka table and ADLS Gen2 on Flink SQL. In this document, we're using a `airplanes_state_real_time table`. You can use any article of your choice.
 
-You are required to update the broker IPs with your Kafka cluster in the code snippet.
+You  need to update the broker IPs with your Kafka cluster in the code snippet.
 
 ```SQL
 CREATE TABLE kafka_airplanes_state_real_time (
@@ -68,34 +68,34 @@ Update the container-name and storage-account-name in the code snippet with your
 
 ```SQL
 CREATE TABLE adlsgen2_airplanes_state_real_time (
-   `date` STRING,
-   `geo_altitude` FLOAT,
-   `icao24` STRING,
-   `latitude` FLOAT,
-   `true_track` FLOAT,
-   `velocity` FLOAT,
-   `spi` BOOLEAN,
-   `origin_country` STRING,
-   `minute` STRING,
-   `squawk` STRING,
-   `sensors` STRING,
-   `hour` STRING,
-   `baro_altitude` FLOAT,
-   `time_position` BIGINT,
-   `last_contact` BIGINT,
-   `callsign` STRING,
-   `event_time` STRING,
-   `on_ground` BOOLEAN,
-   `category` STRING,
-   `vertical_rate` FLOAT,
-   `position_source` INT,
-   `current_time` STRING,
-   `longitude` FLOAT
- ) WITH (
-     'connector' = 'filesystem',
-     'path' = 'abfs://<container-name>@<storage-account-name>/flink/airplanes_state_real_time/',
-     'format' = 'json'
- );
+  `date` STRING,
+  `geo_altitude` FLOAT,
+  `icao24` STRING,
+  `latitude` FLOAT,
+  `true_track` FLOAT,
+  `velocity` FLOAT,
+  `spi` BOOLEAN,
+  `origin_country` STRING,
+  `minute` STRING,
+  `squawk` STRING,
+  `sensors` STRING,
+  `hour` STRING,
+  `baro_altitude` FLOAT,
+  `time_position` BIGINT,
+  `last_contact` BIGINT,
+  `callsign` STRING,
+  `event_time` STRING,
+  `on_ground` BOOLEAN,
+  `category` STRING,
+  `vertical_rate` FLOAT,
+  `position_source` INT,
+  `current_time` STRING,
+  `longitude` FLOAT
+) WITH (
+    'connector' = 'filesystem',
+    'path' = 'abfs://<container-name>@<storage-account-name>.dfs.core.windows.net/data/airplanes_state_real_time/flink/airplanes_state_real_time/',
+    'format' = 'json'
+);
 ```
 
 Further, you can insert Kafka table into ADLSgen2 table on Flink SQL.
@@ -114,9 +114,9 @@ Further, you can insert Kafka table into ADLSgen2 table on Flink SQL.
 
 ADLS Gen2 provides OAuth 2.0 with your Microsoft Entra application service principal for authentication from an Azure Databricks notebook and then mount into Azure Databricks DBFS.
 
-**Let's get service principle appid, tenant id and secret key.**
+**Let's get service principle appid, tenant ID, and secret key.**
 
-:::image type="content" source="media/azure-databricks/service-id.png" alt-text="Screenshot shows get service principle appid, tenant ID and secret key." lightbox="media/azure-databricks/service-id.png":::
+:::image type="content" source="media/azure-databricks/service-id.png" alt-text="Screenshot shows get service principle appid, tenant ID, and secret key." lightbox="media/azure-databricks/service-id.png":::
 
 **Grant service principle the Storage Blob Data Owner on Azure portal**
 

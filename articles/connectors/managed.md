@@ -6,7 +6,7 @@ ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: conceptual
 ms.custom: engagement-fy23
-ms.date: 01/04/2024
+ms.date: 05/20/2024
 ---
 
 # Managed connectors in Azure Logic Apps
@@ -15,7 +15,7 @@ Managed connectors provide ways for you to access other services and systems whe
 
 For a smaller number of services, systems and protocols, Azure Logic Apps provides a built-in version alongside the managed version. The number and range of built-in connectors vary based on whether you create a Consumption logic app workflow that runs in multitenant Azure Logic Apps or a Standard logic app workflow that runs in single-tenant Azure Logic Apps. In most cases, the built-in version provides better performance, capabilities, pricing, and so on. In a few cases, some built-in connectors are available only in one logic app workflow type, and not the other.
 
-For example, a Standard workflow can use both managed connectors and built-in connectors for Azure Blob, Azure Cosmos DB, Azure Event Hubs, Azure Service Bus, DB2, FTP, MQ, SFTP, and SQL Server, while a Consumption workflow doesn't have the built-in versions. A Consumption workflow can use built-in connectors for Azure API Management, Azure App Services, and Batch, while a Standard workflow doesn't have these built-in connectors. For more information, review [Built-in connectors in Azure Logic Apps](built-in.md) and [Single-tenant versus multitenant and integration service environment (ISE)](../logic-apps/single-tenant-overview-compare.md).
+For example, a Standard workflow can use both managed connectors and built-in connectors for Azure Blob, Azure Cosmos DB, Azure Event Hubs, Azure Service Bus, DB2, FTP, MQ, SFTP, and SQL Server, while a Consumption workflow doesn't have the built-in versions. A Consumption workflow can use built-in connectors for Azure API Management, Azure App Services, and Batch, while a Standard workflow doesn't have these built-in connectors. For more information, review [Built-in connectors in Azure Logic Apps](built-in.md) and [Single-tenant versus multitenant in Azure Logic Apps](../logic-apps/single-tenant-overview-compare.md).
 
 This article provides a general overview about managed connectors and the way they're organized in the Consumption workflow designer versus the Standard workflow designer with examples. For technical reference information about each managed connector in Azure Logic Apps, review [Connectors reference for Azure Logic Apps](/connectors/connector-reference/connector-reference-logicapps-connectors).
 
@@ -37,8 +37,6 @@ Some managed connectors also fall into the following informal groups:
 
 * [Integration account connectors](#integration-account-connectors) help you transform and validate XML, encode and decode flat files, and process business-to-business (B2B) messages using AS2, EDIFACT, and X12 protocols.
 
-* [Integration service environment connectors](#ise-connectors) and are designed to run specifically in an ISE and provide benefits over their non-ISE versions.
-
 <a name="standard-connectors"></a>
 
 ## Standard connectors
@@ -50,115 +48,67 @@ In the Standard workflow designer, *all* managed connectors appear under the **A
 :::row:::
     :::column:::
         [![Azure Blob Storage icon][azure-blob-storage-icon]][azure-blob-storage-doc]
-        \
-        \
-        [**Azure Blob Storage**][azure-blob-storage-doc]
-        \
-        \
-        Connect to your Azure Storage account so that you can create and manage blob content.
+        <br><br>[**Azure Blob Storage**][azure-blob-storage-doc]
+        <br><br>Connect to your Azure Storage account so that you can create and manage blob content.
     :::column-end:::
     :::column:::
         [![Azure Event Hubs icon][azure-event-hubs-icon]][azure-event-hubs-doc]
-        \
-        \
-        [**Azure Event Hubs**][azure-event-hubs-doc]
-        \
-        \
-        Consume and publish events through an event hub. For example, get output from your workflow with Event Hubs, and then send that output to a real-time analytics provider.
+        <br><br>[**Azure Event Hubs**][azure-event-hubs-doc]
+        <br><br>Consume and publish events through an event hub. For example, get output from your workflow with Event Hubs, and then send that output to a real-time analytics provider.
     :::column-end:::
     :::column:::
         [![Azure Queues icon][azure-queues-icon]][azure-queues-doc]
-        \
-        \
-        [**Azure Queues**][azure-queues-doc]
-        \
-        \
-        Connect to your Azure Storage account so that you can create and manage queues and messages.
+        <br><br>[**Azure Queues**][azure-queues-doc]
+        <br><br>Connect to your Azure Storage account so that you can create and manage queues and messages.
     :::column-end:::
     :::column:::
         [![Azure Service Bus icon][azure-service-bus-icon]][azure-service-bus-doc]
-        \
-        \
-        [**Azure Service Bus**][azure-service-bus-doc]
-        \
-        \
-        Manage asynchronous messages, sessions, and topic subscriptions with the most commonly used connector in Logic Apps.
+        <br><br>[**Azure Service Bus**][azure-service-bus-doc]
+        <br><br>Manage asynchronous messages, sessions, and topic subscriptions with the most commonly used connector in Logic Apps.
     :::column-end:::
 :::row-end:::
 :::row:::
     :::column:::
         [![Azure Table Storage icon][azure-table-storage-icon]][azure-table-storage-doc]
-        \
-        \
-        [**Azure Table Storage**][azure-table-storage-doc]
-        \
-        \
-        Connect to your Azure Storage account so that you can create, update, query, and manage tables.
+        <br><br>[**Azure Table Storage**][azure-table-storage-doc]
+        <br><br>Connect to your Azure Storage account so that you can create, update, query, and manage tables.
     :::column-end:::
     :::column:::
         [![File System icon][file-system-icon]][file-system-doc]
-        \
-        \
-        [**File System**][file-system-doc]
-        \
-        \
-        Connect to your on-premises file share so that you can create and manage files.
+        <br><br>[**File System**][file-system-doc]
+        <br><br>Connect to your on-premises file share so that you can create and manage files.
     :::column-end:::
     :::column:::
         [![FTP icon][ftp-icon]][ftp-doc]
-        \
-        \
-        [**FTP**][ftp-doc]
-        \
-        \
-        Connect to FTP servers you can access from the internet so that you can work with your files and folders.
+        <br><br>[**FTP**][ftp-doc]
+        <br><br>Connect to FTP servers you can access from the internet so that you can work with your files and folders.
     :::column-end:::
     :::column:::
         [![Office 365 Outlook icon][office-365-outlook-icon]][office-365-outlook-doc]
-        \
-        \
-        [**Office 365 Outlook**][office-365-outlook-doc]
-        \
-        \
-        Connect to your work or school email account so that you can create and manage emails, tasks, calendar events and meetings, contacts, requests, and more.
+        <br><br>[**Office 365 Outlook**][office-365-outlook-doc]
+        <br><br>Connect to your work or school email account so that you can create and manage emails, tasks, calendar events and meetings, contacts, requests, and more.
     :::column-end:::
 :::row-end:::
 :::row:::
     :::column:::
         [![Salesforce icon][salesforce-icon]][salesforce-doc]
-        \
-        \
-        [**Salesforce**][salesforce-doc]
-        \
-        \
-        Connect to your Salesforce account so that you can create and manage items such as records, jobs, objects, and more.
+        <br><br>[**Salesforce**][salesforce-doc]
+        <br><br>Connect to your Salesforce account so that you can create and manage items such as records, jobs, objects, and more.
     :::column-end:::
     :::column:::
         [![SharePoint Online icon][sharepoint-online-icon]][sharepoint-online-doc]
-        \
-        \
-        [**SharePoint Online**][sharepoint-online-doc]
-        \
-        \
-        Connect to SharePoint Online so that you can manage files, attachments, folders, and more.
+        <br><br>[**SharePoint Online**][sharepoint-online-doc]
+        <br><br>Connect to SharePoint Online so that you can manage files, attachments, folders, and more.
     :::column-end:::
     :::column:::
         [![SFTP-SSH icon][sftp-ssh-icon]][sftp-ssh-doc]
-        \
-        \
-        [**SFTP-SSH**][sftp-ssh-doc]
-        \
-        \
-        Connect to SFTP servers that you can access from the internet by using SSH so that you can work with your files and folders.
+        <br><br>[**SFTP-SSH**][sftp-ssh-doc]
+        <br><br>Connect to SFTP servers that you can access from the internet by using SSH so that you can work with your files and folders.
     :::column-end:::
     :::column:::
         [![SQL Server icon][sql-server-icon]][sql-server-doc]
-        \
-        \
-        [**SQL Server**][sql-server-doc]
-        \
-        \
-        Connect to your SQL Server on premises or an Azure SQL Database in the cloud so that you can manage records, run stored procedures, or perform queries.
+        <br><br>[**SQL Server**][sql-server-doc]
+        <br><br>Connect to your SQL Server on premises or an Azure SQL Database in the cloud so that you can manage records, run stored procedures, or perform queries.
     :::column-end:::
 :::row-end:::
 
@@ -173,21 +123,15 @@ In the Standard workflow designer, *all* managed connectors appear under the **A
 :::row:::
     :::column:::
         [![IBM 3270 icon][ibm-3270-icon]][ibm-3270-doc]
-        \
-        \
-        [**IBM 3270**][ibm-3270-doc]
+        <br><br>[**IBM 3270**][ibm-3270-doc]
     :::column-end:::
     :::column:::
         [![IBM MQ icon][ibm-mq-icon]][ibm-mq-doc]
-        \
-        \
-        [**MQ**][ibm-mq-doc]
+        <br><br>[**MQ**][ibm-mq-doc]
     :::column-end:::
     :::column:::
         [![SAP icon][sap-icon]][sap-connector-doc]
-        \
-        \
-        [**SAP**][sap-connector-doc]
+        <br><br>[**SAP**][sap-connector-doc]
     :::column-end:::
     :::column:::
     :::column-end:::
@@ -204,77 +148,53 @@ For a Consumption workflow, this section lists example [Standard connectors](#st
 :::row:::
     :::column:::
         [![Apache Impala][apache-impala-icon]][apache-impala-doc]
-        \
-        \
-        [**Apache Impala**][apache-impala-doc]
+        <br><br>[**Apache Impala**][apache-impala-doc]
     :::column-end:::
     :::column:::
         [![Biztalk Server icon][biztalk-server-icon]][biztalk-server-doc]
-        \
-        \
-        [**Biztalk Server**][biztalk-server-doc]
+        <br><br>[**Biztalk Server**][biztalk-server-doc]
     :::column-end:::
     :::column:::
         [![File System icon][file-system-icon]][file-system-doc]
-        \
-        \
-        [**File System**][file-system-doc]
+        <br><br>[**File System**][file-system-doc]
     :::column-end:::
     :::column:::
         [![IBM DB2 icon][ibm-db2-icon]][ibm-db2-doc]
-        \
-        \
-        [**IBM DB2**][ibm-db2-doc]
+        <br><br>[**IBM DB2**][ibm-db2-doc]
     :::column-end:::
     :::column:::
         [![IBM Informix icon][ibm-informix-icon]][ibm-informix-doc]
-        \
-        \
-        [**IBM Informix**][ibm-informix-doc]
+        <br><br>[**IBM Informix**][ibm-informix-doc]
     :::column-end:::
     :::column:::
         [![MySQL icon][mysql-icon]][mysql-doc]
-        \
-        \
-        [**MySQL**][mysql-doc]
+        <br><br>[**MySQL**][mysql-doc]
     :::column-end:::
 :::row-end:::
 :::row:::
     :::column:::
         [![Oracle DB icon][oracle-db-icon]][oracle-db-doc]
-        \
-        \
-        [**Oracle DB**][oracle-db-doc]
+        <br><br>[**Oracle DB**][oracle-db-doc]
     :::column-end:::
     :::column:::
         [![PostgreSQL icon][postgre-sql-icon]][postgre-sql-doc]
-        \
-        \
-        [**PostgreSQL**][postgre-sql-doc]
+        <br><br>[**PostgreSQL**][postgre-sql-doc]
     :::column-end:::
     :::column:::
         [![SAP icon][sap-icon]][sap-connector-doc]
-        \
-        \
-        [**SAP**][sap-connector-doc]
+        <br><br>[**SAP**][sap-connector-doc]
     :::column-end:::
     :::column:::
         [![SharePoint Server icon][sharepoint-server-icon]][sharepoint-server-doc]
-        \
-        \
-        [**SharePoint Server**][sharepoint-server-doc]
+        <br><br>[**SharePoint Server**][sharepoint-server-doc]
     :::column-end:::
     :::column:::
         [![SQL Server icon][sql-server-icon]][sql-server-doc]
-        \
-        \
-        [**SQL Server**][sql-server-doc]
+        <br><br>[**SQL Server**][sql-server-doc]
     :::column-end:::
     :::column:::
         [![Teradata icon][teradata-icon]][teradata-doc]
-        \
-        \
-        [**Teradata**][teradata-doc]
+        <br><br>[**Teradata**][teradata-doc]
     :::column-end:::
 :::row-end:::
 
@@ -302,53 +222,37 @@ For more information, review the following documentation:
 :::row:::
     :::column:::
         [![AS2 Decode v2 icon][as2-v2-icon]][as2-doc]
-        \
-        \
-        [**AS2 Decode (v2)**][as2-doc]
+        <br><br>[**AS2 Decode (v2)**][as2-doc]
     :::column-end:::
     :::column:::
         [![AS2 Encode (v2) icon][as2-v2-icon]][as2-doc]
-        \
-        \
-        [**AS2 Encode (v2)**][as2-doc]
+        <br><br>[**AS2 Encode (v2)**][as2-doc]
     :::column-end:::
     :::column:::
         [![AS2 decoding icon][as2-icon]][as2-doc]
-        \
-        \
-        [**AS2 decoding**][as2-doc]
+        <br><br>[**AS2 decoding**][as2-doc]
     :::column-end:::
     :::column:::
         [![AS2 encoding icon][as2-icon]][as2-doc]
-        \
-        \
-        [**AS2 encoding**][as2-doc]
+        <br><br>[**AS2 encoding**][as2-doc]
     :::column-end:::
 :::row-end:::
 :::row:::
     :::column:::
         [![EDIFACT decoding icon][edifact-icon]][edifact-decode-doc]
-        \
-        \
-        [**EDIFACT decoding**][edifact-decode-doc]
+        <br><br>[**EDIFACT decoding**][edifact-decode-doc]
     :::column-end:::
     :::column:::
         [![EDIFACT encoding icon][edifact-icon]][edifact-encode-doc]
-        \
-        \
-        [**EDIFACT encoding**][edifact-encode-doc]
+        <br><br>[**EDIFACT encoding**][edifact-encode-doc]
     :::column-end:::
     :::column:::
         [![X12 decoding icon][x12-icon]][x12-decode-doc]
-        \
-        \
-        [**X12 decoding**][x12-decode-doc]
+        <br><br>[**X12 decoding**][x12-decode-doc]
     :::column-end:::
     :::column:::
         [![X12 encoding icon][x12-icon]][x12-encode-doc]
-        \
-        \
-        [**X12 encoding**][x12-encode-doc]
+        <br><br>[**X12 encoding**][x12-encode-doc]
     :::column-end:::
 :::row-end:::
 
@@ -363,157 +267,109 @@ In an integration service environment (ISE), these managed connectors also have 
 :::row:::
     :::column:::
         [![AS2 ISE icon][as2-icon]][as2-doc]
-        \
-        \
-        [**AS2** ISE][as2-doc]
+        <br><br>[**AS2** ISE][as2-doc]
     :::column-end:::
     :::column:::
         [![Azure Automation ISE icon][azure-automation-icon]][azure-automation-doc]
-        \
-        \
-        [**Azure Automation** ISE][azure-automation-doc]
+        <br><br>[**Azure Automation** ISE][azure-automation-doc]
     :::column-end:::
     :::column:::
         [![Azure Blob Storage ISE icon][azure-blob-storage-icon]][azure-blob-storage-doc]
-        \
-        \
-        [**Azure Blob Storage** ISE][azure-blob-storage-doc]
+        <br><br>[**Azure Blob Storage** ISE][azure-blob-storage-doc]
     :::column-end:::
     :::column:::
         [![Azure Cosmos DB ISE icon][azure-cosmos-db-icon]][azure-cosmos-db-doc]
-        \
-        \
-        [**Azure Cosmos DB** ISE][azure-cosmos-db-doc]
+        <br><br>[**Azure Cosmos DB** ISE][azure-cosmos-db-doc]
     :::column-end:::
 :::row-end:::
 :::row:::
     :::column:::
         [![Azure Event Hubs ISE icon][azure-event-hubs-icon]][azure-event-hubs-doc]
-        \
-        \
-        [**Azure Event Hubs** ISE][azure-event-hubs-doc]
+        <br><br>[**Azure Event Hubs** ISE][azure-event-hubs-doc]
     :::column-end:::
     :::column:::
         [![Azure Event Grid ISE icon][azure-event-grid-icon]][azure-event-grid-doc]
-        \
-        \
-        [**Azure Event Grid** ISE][azure-event-grid-doc]
+        <br><br>[**Azure Event Grid** ISE][azure-event-grid-doc]
     :::column-end:::
     :::column:::
         [![Azure Files ISE icon][azure-file-storage-icon]][azure-file-storage-doc]
-        \
-        \
-        [**Azure Files** ISE][azure-file-storage-doc]
+        <br><br>[**Azure Files** ISE][azure-file-storage-doc]
     :::column-end:::
     :::column:::
         [![Azure Key Vault ISE icon][azure-key-vault-icon]][azure-key-vault-doc]
-        \
-        \
-        [**Azure Key Vault** ISE][azure-key-vault-doc]
+        <br><br>[**Azure Key Vault** ISE][azure-key-vault-doc]
     :::column-end:::
 :::row-end:::
 :::row:::
     :::column:::
         [![Azure Monitor Logs ISE icon][azure-monitor-logs-icon]][azure-monitor-logs-doc]
-        \
-        \
-        [**Azure Monitor Logs** ISE][azure-monitor-logs-doc]
+        <br><br>[**Azure Monitor Logs** ISE][azure-monitor-logs-doc]
     :::column-end:::
     :::column:::
         [![Azure Service Bus ISE icon][azure-service-bus-icon]][azure-service-bus-doc]
-        \
-        \
-        [**Azure Service Bus** ISE][azure-service-bus-doc]
+        <br><br>[**Azure Service Bus** ISE][azure-service-bus-doc]
     :::column-end:::
     :::column:::
         [![Azure Synapse Analytics ISE icon][azure-sql-data-warehouse-icon]][azure-sql-data-warehouse-doc]
-        \
-        \
-        [**Azure Synapse Analytics** ISE][azure-sql-data-warehouse-doc]
+        <br><br>[**Azure Synapse Analytics** ISE][azure-sql-data-warehouse-doc]
     :::column-end:::
     :::column:::
         [![Azure Table Storage ISE icon][azure-table-storage-icon]][azure-table-storage-doc]
-        \
-        \
-        [**Azure Table Storage** ISE][azure-table-storage-doc]
+        <br><br>[**Azure Table Storage** ISE][azure-table-storage-doc]
     :::column-end:::
 :::row-end:::
 :::row:::
     :::column:::
         [![Azure Queues ISE icon][azure-queues-icon]][azure-queues-doc]
-        \
-        \
-        [**Azure Queues** ISE][azure-queues-doc]
+        <br><br>[**Azure Queues** ISE][azure-queues-doc]
     :::column-end:::
     :::column:::
         [![EDIFACT ISE icon][edifact-icon]][edifact-doc]
-        \
-        \
-        [**EDIFACT** ISE][edifact-doc]
+        <br><br>[**EDIFACT** ISE][edifact-doc]
     :::column-end:::
     :::column:::
         [![File System ISE icon][file-system-icon]][file-system-doc]
-        \
-        \
-        [**File System** ISE][file-system-doc]
+        <br><br>[**File System** ISE][file-system-doc]
     :::column-end:::
     :::column:::
         [![FTP ISE icon][ftp-icon]][ftp-doc]
-        \
-        \
-        [**FTP** ISE][ftp-doc]
+        <br><br>[**FTP** ISE][ftp-doc]
     :::column-end:::
 :::row-end:::
 :::row:::
     :::column:::
         [![IBM 3270 ISE icon][ibm-3270-icon]][ibm-3270-doc]
-        \
-        \
-        [**IBM 3270** ISE][ibm-3270-doc]
+        <br><br>[**IBM 3270** ISE][ibm-3270-doc]
     :::column-end:::
     :::column:::
         [![IBM DB2 ISE icon][ibm-db2-icon]][ibm-db2-doc]
-        \
-        \
-        [**IBM DB2** ISE][ibm-db2-doc]
+        <br><br>[**IBM DB2** ISE][ibm-db2-doc]
     :::column-end:::
     :::column:::
         [![IBM MQ ISE icon][ibm-mq-icon]][ibm-mq-doc]
-        \
-        \
-        [**IBM MQ** ISE][ibm-mq-doc]
+        <br><br>[**IBM MQ** ISE][ibm-mq-doc]
     :::column-end:::
     :::column:::
         [![SAP ISE icon][sap-icon]][sap-connector-doc]
-        \
-        \
-        [**SAP** ISE][sap-connector-doc]
+        <br><br>[**SAP** ISE][sap-connector-doc]
     :::column-end:::
 :::row-end:::
 :::row:::
     :::column:::
         [![SFTP-SSH ISE icon][sftp-ssh-icon]][sftp-ssh-doc]
-        \
-        \
-        [**SFTP-SSH** ISE][sftp-ssh-doc]
+        <br><br>[**SFTP-SSH** ISE][sftp-ssh-doc]
     :::column-end:::
     :::column:::
         [![SMTP ISE icon][smtp-icon]][smtp-doc]
-        \
-        \
-        [**SMTP** ISE][smtp-doc]
+        <br><br>[**SMTP** ISE][smtp-doc]
     :::column-end:::
     :::column:::
         [![SQL Server ISE icon][sql-server-icon]][sql-server-doc]
-        \
-        \
-        [**SQL Server** ISE][sql-server-doc]
+        <br><br>[**SQL Server** ISE][sql-server-doc]
     :::column-end:::
     :::column:::
         [![X12 ISE icon][x12-icon]][x12-doc]
-        \
-        \
-        [**X12** ISE][x12-doc]
+        <br><br>[**X12** ISE][x12-doc]
     :::column-end:::
 :::row-end:::
 
@@ -521,7 +377,6 @@ For more information, see these topics:
 
 * [Access to Azure virtual network resources from Azure Logic Apps](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)
 * [Azure Logic Apps pricing model](../logic-apps/logic-apps-pricing.md)
-* [Connect to Azure virtual networks from Azure Logic Apps](../logic-apps/connect-virtual-network-vnet-isolated-environment.md)
 
 ## Next steps
 

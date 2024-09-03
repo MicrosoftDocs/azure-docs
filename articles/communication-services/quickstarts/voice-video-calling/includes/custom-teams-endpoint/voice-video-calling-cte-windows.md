@@ -6,9 +6,7 @@ ms.date: 07/19/2023
 ms.author: jesseo
 ---
 
-Get started with Azure Communication Services by using the Communication Services calling SDK to add 1:1 voice & video calling to your app. You'll learn how to start and answer a call using the Azure Communication Services Calling SDK for Windows.
-
-[!INCLUDE [Public Preview](../../../../includes/public-preview-include-document.md)]
+Get started with Azure Communication Services by using the Communication Services calling SDK to add 1:1 voice & video calling to your app. You learn how to start and answer a call using the Azure Communication Services Calling SDK for Windows.
 
 ## [UWP](#tab/uwp)
 
@@ -309,11 +307,21 @@ Application has an opportunity to configure how the incoming call should be acce
         {
             var teamsIncomingCall = args.IncomingCall;
 
-            var acceptCallOptions = new AcceptCallOptions() { };
+            var acceptteamsCallOptions = new AcceptTeamsCallOptions() { };
 
-            teamsCall = await teamsIncomingCall.AcceptAsync(acceptCallOptions);
+            teamsCall = await teamsIncomingCall.AcceptAsync(acceptteamsCallOptions);
             teamsCall.StateChanged += OnStateChangedAsync;
         }
+```
+
+## Join a Teams Call
+
+User can also join an existing call by passing a link
+
+```c#
+TeamsMeetingLinkLocator link = new TeamsMeetingLinkLocator("meetingLink");
+JoinTeamsCallOptions options = new JoinTeamsCallOptions();
+TeamsCall call = await teamsCallAgent.JoinAsync(link, options);
 ```
 
 ### Monitor and respond to call state change event
@@ -732,4 +740,4 @@ You can build and run the code on Visual Studio. For solution platforms, we supp
 
 You can make an outbound call by providing a user ID in the text field and clicking the `Start Call` button. Calling `8:echo123` connects you with an echo bot, this feature is great for getting started and verifying your audio devices are working.
 
-:::image type="content" source="../../media/windows/run-the-winui-app.png" alt-text="Screenshot showing running the WinUI quickstart app":::
+:::image type="content" source="../../media/windows/run-the-winui-app.png" alt-text="Screenshot showing running the WinUI quickstart app.":::

@@ -6,7 +6,7 @@ author: normesta
 ms.service: azure-blob-storage
 ms.topic: conceptual
 ms.author: normesta
-ms.date: 07/30/2021
+ms.date: 05/10/2023
 ms.custom: "monitoring"
 ---
 
@@ -48,7 +48,7 @@ To examine the blobs associated with this used capacity, you can use Storage Exp
 
 ## Monitor the use of a container
 
-If you partition your customer's data by container, then can monitor how much capacity is used by each customer. You can use Azure Storage blob inventory to take an inventory of blobs with size information. Then, you can aggregate the size and count at the container level. For an example, see [Calculate blob count and total size per container using Azure Storage inventory](calculate-blob-count-size.md).
+If you partition your customer's data by container, then can monitor how much capacity is used by each customer. You can use Azure Storage blob inventory to take an inventory of blobs with size information. Then, you can aggregate the size and count at the container level. For an example, see [Calculate blob count and total size per container using Azure Storage inventory](calculate-blob-count-size.yml).
 
 You can also evaluate traffic at the container level by querying logs. To learn more about writing Log Analytic queries, see [Log Analytics](../../azure-monitor/logs/log-analytics-tutorial.md). To learn more about the storage logs schema, see [Azure Blob Storage monitoring data reference](monitor-blob-storage-reference.md#resource-logs-preview).
 
@@ -163,19 +163,23 @@ StorageBlobLogs
 | project TimeGenerated, AuthenticationType, AuthenticationHash, OperationName, Uri
 ```
 
-For security reasons, SAS tokens don't appear in logs. However, the SHA-256 hash of the SAS token will appear in the `AuthenticationHash` field that is returned by this query. 
+For security reasons, SAS tokens don't appear in logs. However, the SHA-256 hash of the SAS token signature will appear in the `AuthenticationHash` field that is returned by this query.
 
-If you've distributed several SAS tokens, and you want to know which SAS tokens are being used, you'll have to convert each of your SAS tokens to an SHA-256 hash, and then compare that hash to the hash value that appears in logs.
+If you've distributed several SAS tokens, and you want to know which SAS tokens are being used, you'll have to convert the signature portion of each of your SAS tokens to an SHA-256 hash, and then compare that hash to the hash value that appears in logs.
 
-First decode each SAS token string. The following example decodes a SAS token string by using PowerShell.
+First decode each SAS token string. The following example decodes the signature portion of the SAS token string by using PowerShell.
 
 ```powershell
-[uri]::UnescapeDataString("<SAS token goes here>")
+[uri]::UnescapeDataString("<SAS signature here>")
 ```
 
-Then, you can pass that string to the [Get-FileHash](/powershell/module/microsoft.powershell.utility/get-filehash) PowerShell cmdlet. For an example, see [Example 4: Compute the hash of a string](/powershell/module/microsoft.powershell.utility/get-filehash#example-4--compute-the-hash-of-a-string).
+You can use any tool or SDK to convert the decoded signature to the SHA-256 has of that signature. For example, on a Linux system, you could use the following command:
 
-Alternatively, you can pass the decoded string to the [hash_sha256()](/azure/data-explorer/kusto/query/sha256hashfunction) function as part of a query when you use Azure Data Explorer.
+```bash
+echo -n "<Decoded SAS signature>" | python3 -c "import sys; from urllib.parse import unquote; print(unquote(sys.stdin.read()), end='');"  | sha256sum
+```
+
+Another way to convert the decoded signature is to pass the decoded string to the [hash_sha256()](/azure/data-explorer/kusto/query/sha256hashfunction) function as part of a query when you use Azure Data Explorer.
 
 SAS tokens do not contain identity information. One way to track the activities of users or organizations, is to keep a mapping of users or organizations to various SAS token hashes.
 

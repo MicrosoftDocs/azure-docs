@@ -1,5 +1,5 @@
 ---
-title: RedisStreamTrigger for Azure Functions (preview)
+title: RedisStreamTrigger for Azure Functions
 description: Learn how to use RedisStreamTrigger Azure Function for Azure Cache for Redis.
 author: flang-msft
 zone_pivot_groups: programming-languages-set-functions-lang-workers
@@ -8,14 +8,12 @@ ms.author: franlanglois
 ms.service: azure-functions
 ms.custom: devx-track-dotnet, devx-track-extended-java, devx-track-js, devx-track-python
 ms.topic: reference
-ms.date: 02/27/2024
+ms.date: 07/12/2024
 ---
 
-# RedisStreamTrigger for Azure Functions (preview)
+# RedisStreamTrigger for Azure Functions
 
 The `RedisStreamTrigger` reads new entries from a stream and surfaces those elements to the function.
-
-For more information, see [RedisStreamTrigger](https://github.com/Azure/azure-functions-redis-extension/tree/mapalan/UpdateReadMe/samples/dotnet/RedisStreamTrigger).
 
 | Tier    | Basic | Standard, Premium | Enterprise, Enterprise Flash |
 |---------|:-----:|:-----------------:|:----------------------------:|
@@ -50,7 +48,6 @@ For more information, see [RedisStreamTrigger](https://github.com/Azure/azure-fu
 
 ### [Isolated worker model](#tab/isolated-process)
 
-
 ```csharp
 ﻿using Microsoft.Extensions.Logging;
 
@@ -76,6 +73,8 @@ namespace Microsoft.Azure.Functions.Worker.Extensions.Redis.Samples.RedisStreamT
 ```
 
 ### [In-process model](#tab/in-process)
+
+[!INCLUDE [functions-in-process-model-retirement-note](../../includes/functions-in-process-model-retirement-note.md)]
 
 ```csharp
 

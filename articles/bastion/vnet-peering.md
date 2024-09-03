@@ -2,16 +2,16 @@
 title: 'VNet peering and Azure Bastion architecture'
 description: Learn how VNet peering and Azure Bastion can be used together to connect to VMs.
 author: cherylmc
-ms.service: bastion
+ms.service: azure-bastion
 ms.topic: conceptual
-ms.date: 06/23/2023
+ms.date: 04/05/2024
 ms.author: cherylmc
 
 ---
 
-# VNet peering and Azure Bastion
+# Virtual network peering and Azure Bastion
 
-Azure Bastion and VNet peering can be used together. When VNet peering is configured, you don't have to deploy Azure Bastion in each peered VNet. This means if you have an Azure Bastion host configured in one virtual network (VNet), it can be used to connect to VMs deployed in a peered VNet without deploying an additional bastion host. For more information about VNet peering, see [About virtual network peering](../virtual-network/virtual-network-peering-overview.md).
+Azure Bastion and Virtual Network peering can be used together. When Virtual Network peering is configured, you don't have to deploy Azure Bastion in each peered VNet. This means if you have an Azure Bastion host configured in one virtual network (VNet), it can be used to connect to VMs deployed in a peered VNet without deploying an additional bastion host. For more information about VNet peering, see [About virtual network peering](../virtual-network/virtual-network-peering-overview.md).
 
 Azure Bastion works with the following types of peering:
 
@@ -38,7 +38,7 @@ The diagram shows the architecture of an Azure Bastion deployment in a hub-and-s
 
 ## <a name="deploy"></a>Deployment overview
 
-1. Verify that you have configured [VNets](../virtual-network/quick-create-portal.md), and [virtual machines](../virtual-machines/windows/quick-create-portal.md) within the VNets.
+1. Verify that you have configured [VNets](../virtual-network/quick-create-portal.md), and [virtual machines](/azure/virtual-machines/windows/quick-create-portal) within the VNets.
 1. [Configure VNet peering](../virtual-network/virtual-network-peering-overview.md).
 1. [Configure Bastion](tutorial-create-host-portal.md) in one of the VNets.
 1. [Verify permissions](#permissions).

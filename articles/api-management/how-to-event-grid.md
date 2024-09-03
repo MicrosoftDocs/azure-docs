@@ -3,13 +3,15 @@ title: Send events from Azure API Management to Event Grid
 description: In this quickstart, you enable Event Grid events for your Azure API Management instance, then send  events to a sample application.
 author: dlepow
 ms.topic: how-to
-ms.service: api-management
+ms.service: azure-api-management
 ms.author: danlep
 ms.date: 11/2/2021
 ms.custom: devx-track-azurecli
 ---
 
 # Send events from API Management to Event Grid
+
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 
 API Management integrates with [Azure Event Grid](../event-grid/overview.md) so that you can send event notifications to other services and trigger downstream processes. Event Grid is a fully managed event routing service that uses a publish-subscribe model. Event Grid has built-in support for Azure services like [Azure Functions](../azure-functions/functions-overview.md) and [Azure Logic Apps](../logic-apps/logic-apps-overview.md), and can deliver event alerts to non-Azure services using webhooks.
 

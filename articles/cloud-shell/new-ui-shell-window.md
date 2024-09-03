@@ -2,7 +2,7 @@
 description: Overview of how to use the new user interface for Azure Cloud Shell.
 ms.contributor: jahelmic
 ms.date: 01/23/2024
-ms.topic: article
+ms.topic: how-to
 tags: azure-resource-manager
 title: How to use the new user interface for Azure Cloud Shell
 ---

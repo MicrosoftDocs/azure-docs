@@ -3,7 +3,7 @@ title: Monitor Azure Static Web Apps
 description: Monitor requests, failures, and tracing information in Azure Static Web Apps
 services: static-web-apps
 author: craigshoemaker
-ms.service: static-web-apps
+ms.service: azure-static-web-apps
 ms.topic:  conceptual
 ms.date: 09/19/2022
 ms.author: cshoe
@@ -96,4 +96,4 @@ In some cases, you may want to limit logging while still capturing details on er
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Set up authentication and authorization](authentication-authorization.md)
+> [Set up authentication and authorization](authentication-authorization.yml)

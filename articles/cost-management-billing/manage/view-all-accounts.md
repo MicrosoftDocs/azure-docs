@@ -111,5 +111,6 @@ If you don't have access to view or manage billing accounts, you probably don't 
 
 If you have questions or need help,  [create a support request](https://go.microsoft.com/fwlink/?linkid=2083458).
 
-## Next steps
+## Related content
+
 - Learn how to start [analyzing your costs](../costs/quick-acm-cost-analysis.md).

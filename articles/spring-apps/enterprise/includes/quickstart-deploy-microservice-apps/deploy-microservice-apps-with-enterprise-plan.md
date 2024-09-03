@@ -1,7 +1,7 @@
 ---
 author: KarlErickson
 ms.author: v-shilichen
-ms.service: spring-apps
+ms.service: azure-spring-apps
 ms.custom: devx-track-azurecli
 ms.topic: include
 ms.date: 02/01/2024
@@ -18,7 +18,7 @@ For clarity of structure, a separate markdown file is used to describe how to de
 
 ### [Azure portal](#tab/Azure-portal-ent)
 
-The **Deploy to Azure** button in the next section launches an Azure portal experience that downloads a JAR package from the [ASA-Samples-Web-Application releases](https://github.com/Azure-Samples/ASA-Samples-Web-Application/releases) page on GitHub. No local preparation steps are needed.
+The **Deploy to Azure** button in the next section launches an Azure portal experience that deploys source code from the [Spring PetClinic](https://github.com/Azure-Samples/spring-petclinic-microservices) repository. No local preparation steps are needed.
 
 ### [Azure portal + Maven plugin](#tab/Azure-portal-maven-plugin-ent)
 
@@ -40,7 +40,7 @@ This section uses a **Deploy to Azure** button to launch a deployment experience
 
 ### 3.1. Sign in to the Azure portal
 
-Go to the [Azure portal](https://portal.azure.com/) and enter your credentials to sign in to the portal. The default view is your service dashboard.
+Go to the [Azure portal](https://portal.azure.com/), enter your credentials, and sign in to the portal. The default view is your service dashboard.
 
 ### 3.2. Create Azure resources
 

@@ -5,13 +5,15 @@ description: Set up and configure Azure API Management in an internal virtual ne
 services: api-management
 author: dlepow
 
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: how-to
 ms.author: danlep
 ms.date: 04/17/2023
 ms.custom: engagement-fy23, devx-track-azurepowershell
 ---
 # Integrate API Management in an internal virtual network with Application Gateway
+
+[!INCLUDE [premium-dev.md](../../includes/api-management-availability-premium-dev.md)]
 
 You can configure Azure API Management in a [virtual network in internal mode](api-management-using-with-internal-vnet.md), which makes it accessible only within the virtual network. [Azure Application Gateway](../application-gateway/overview.md) is a platform as a service (PaaS) that acts as a Layer-7 load balancer. It acts as a reverse-proxy service and provides among its offerings Azure Web Application Firewall (WAF).
 
@@ -28,17 +30,15 @@ For architectural guidance, see:
 > [!NOTE]
 > This article has been updated to use the [Application Gateway WAF_v2 SKU](../application-gateway/application-gateway-autoscaling-zone-redundant.md).
 
-[!INCLUDE [premium-dev.md](../../includes/api-management-availability-premium-dev.md)]
-
 ## Prerequisites
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 To follow the steps described in this article, you must have:
 
 * An active Azure subscription
 
-    [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+    [!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 * Certificates
      - Personal Information Exchange (PFX) files for API Management's custom host names: gateway, developer portal, and management endpoint.
@@ -68,7 +68,7 @@ In the first setup example, all your APIs are managed only from within your virt
 
 ### Expose the developer portal and management endpoint externally through Application Gateway
 
-In this article, we also expose the *developer portal* and the *management endpoint* to external audiences through the application gateway. Extra steps are needed to create a listener, probe, settings, and rules for each endpoint. All details are provided in their respective steps.
+In this article, we also expose the *developer portal* and the *management endpoint* to external audiences through the application gateway. Extra steps are needed to create a listener, probe, settings, and rules for each endpoint. All details are provided in their respective steps. If you need to expose the *v2 configuration endpoint* of the [self-hosted gateway](self-hosted-gateway-overview.md#fqdn-dependencies), follow similar steps (not shown).
 
 If you use Microsoft Entra ID or third-party authentication, enable the [cookie-based session affinity](../application-gateway/features.md#session-affinity) feature in Application Gateway.
 

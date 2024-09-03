@@ -7,7 +7,7 @@ ms.topic: sample
 # Azure Policy pattern: deploy resources
 
 The [deployIfNotExists](../concepts/effects.md#deployifnotexists) effect makes it possible to deploy
-an [Azure Resource Manager template](../../../azure-resource-manager/templates/overview.md) (ARM
+an [Azure Resource Manager template](/azure/azure-resource-manager/templates/overview) (ARM
 template) when creating or updating a resource that isn't compliant. This approach can be preferred
 to using the [deny](../concepts/effects.md#deny) effect as it lets resources continue to be created,
 but ensures the changes are made to make them compliant.
@@ -54,7 +54,7 @@ The **deployment** portion of the policy definition has a **properties** block t
 three core components:
 
 - **mode** - This property sets the
-  [deployment mode](../../../azure-resource-manager/templates/deployment-modes.md) of the template.
+  [deployment mode](/azure/azure-resource-manager/templates/deployment-modes) of the template.
 
 - **template** - This property includes the template itself. In this example, the **location**
   template parameter sets the location of the new network watcher resource.

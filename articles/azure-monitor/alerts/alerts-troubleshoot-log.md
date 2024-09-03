@@ -68,7 +68,7 @@ If your log search alert didn't fire when it should have, check the following it
         - [Custom logs tables](../agents/data-sources-custom-logs.md) haven't been created because the data flow hasn't started.
     - Changes in the [query language](/azure/kusto/query/) include a revised format for commands and functions, so the query provided earlier is no longer valid.
     
-    [Azure Advisor](../../advisor/advisor-overview.md) warns you about this behavior. It adds a recommendation about the affected log search alert rule. The category used is 'High Availability' with medium impact and a description of 'Repair your log alert rule to ensure monitoring'.
+   Azure Service Health monitors the health of your cloud resources, including log search alert rules. When a log search alert rule is healthy, the rule runs and the query executes successfully. You can use [resource health for log search alert rules](https://learn.microsoft.com/azure/azure-monitor/alerts/log-alert-rule-health) to learn about the issues affecting your log search alert rules.
 
 1. **Was the the log search alert rule disabled?**
 
@@ -177,7 +177,7 @@ This error message can be returned when creating or editing your alert rule quer
 - You're referencing a column that doesn't exist in the table schema.
 - You're referencing a column that wasn't used in a prior project clause of the query.
 
-To mitigate this, you can either add the column to the previous project clause or use the [columnifexists](https://learn.microsoft.com/azure/data-explorer/kusto/query/column-ifexists-function) operator.
+To mitigate this, you can either add the column to the previous project clause or use the [columnifexists](/azure/data-explorer/kusto/query/column-ifexists-function) operator.
 
 ### ScheduledQueryRules API isn't supported for read only OMS Alerts
 

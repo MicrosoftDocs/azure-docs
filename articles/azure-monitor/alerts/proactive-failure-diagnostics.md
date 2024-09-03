@@ -3,8 +3,8 @@ title: Smart Detection of Failure Anomalies in Application Insights | Microsoft 
 description: Alerts you to unusual changes in the rate of failed requests to your web app, and provides diagnostic analysis. No configuration is needed.
 ms.author: abbyweisberg
 ms.topic: conceptual
-ms.date: 12/18/2018
-ms.reviewer: yalavi
+ms.date: 04/01/2024
+ms.reviewer: yagil
 ---
 
 # Smart Detection - Failure Anomalies
@@ -19,6 +19,8 @@ Here's a sample alert:
 
 :::image type="content" source="./media/proactive-failure-diagnostics/013.png" alt-text="Sample smart detection alert showing cluster analysis around failure." lightbox="./media/proactive-failure-diagnostics/013.png":::
 
+> [!NOTE]
+> Smart Detector Failure Anomalies are calculated for the failure rates on the total requests in each App Insights. These notifications will not alert per API or application sending these requests.
 The alert details tell you:
 
 * The failure rate compared to normal app behavior.
@@ -385,7 +387,6 @@ Notice that if you delete an Application Insights resource, the associated Failu
 
 ## Triage and diagnose an alert
 
-An alert indicates that an abnormal rise in the failed request rate was detected. It's likely that there's some problem with your app or its environment.
 An alert indicates that an abnormal rise in the failed request rate was detected. It's likely that there's some problem with your app or its environment.
 
 To investigate further, click on 'View full details in Application Insights.' The links in this page take you straight to a [search page](../app/diagnostic-search.md) filtered to the relevant requests, exception, dependency, or traces. 

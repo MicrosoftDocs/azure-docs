@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: conceptual
-ms.date: 08/28/2023
+ms.date: 08/08/2024
 ms.author: anfdocs
 ms.custom: references_regions
 ---
@@ -19,7 +19,7 @@ When data is transported over networks, additional encryption such as Transport 
 
 Azure NetApp Files double encryption at rest provides two levels of encryption protection: both a hardware-based encryption layer (encrypted SSD drives) and a software-encryption layer. The hardware-based encryption layer resides at the physical storage level, using FIPS 140-2 certified drives. The software-based encryption layer is at the volume level completing the second level of encryption protection.
 
-If you are using this feature for the first time, you need to [register for the feature](azure-netapp-files-set-up-capacity-pool.md#encryption_type) and then create a double-encryption capacity pool. For details, see [Create a capacity pool for Azure NetApp Files](azure-netapp-files-set-up-capacity-pool.md).
+If you are using this feature for the first time, you need to create a double-encryption capacity pool. For details, see [Create a capacity pool for Azure NetApp Files](azure-netapp-files-set-up-capacity-pool.md).
 
 When you create a volume in a double-encryption capacity pool, the default key management (the **Encryption key source** field) is `Microsoft Managed Key`, and the other choice is `Customer Managed Key`. Using customer-managed keys requires additional preparation of an Azure Key Vault and other details.  For more information about using volume encryption with customer managed keys, see [Configure customer-managed keys for Azure NetApp Files volume encryption](configure-customer-managed-keys.md).
 
@@ -34,25 +34,36 @@ Azure NetApp Files double encryption at rest is supported for the following regi
 * Australia East  
 * Australia Southeast 
 * Brazil South  
+* Brazil Southeast 
 * Canada Central  
+* Canada East
+* Central India 
 * Central US  
 * East Asia
 * East US
 * East US 2
 * France Central  
 * Germany West Central 
+* Israel Central 
 * Japan East  
 * Korea Central 
+* Korea South 
 * North Central US
 * North Europe 
 * Norway East 
 * Qatar Central
 * South Africa North 
 * South Central US
+* Southeast Asia 
+* Sweden Central
 * Switzerland North 
+* Switzerland West 
 * UAE North
 * UK South 
 * UK West
+* US Gov Arizona
+* US Gov Texas
+* US Gov Virginia
 * West Europe
 * West US
 * West US 2

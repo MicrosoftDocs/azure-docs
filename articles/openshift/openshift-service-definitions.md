@@ -2,10 +2,10 @@
 title: Azure Red Hat OpenShift service definition 
 description: Azure Red Hat OpenShift service definition
 ms.service: azure-redhat-openshift
-ms.topic: article
+ms.topic: conceptual
 author: johnmarco
 ms.author: johnmarc
-ms.date: 08/24/2023
+ms.date: 04/15/2024
 keywords: azure, openshift, aro, red hat, service, definition
 #Customer intent: I need to understand Azure Red Hat OpenShift service definitions to manage my subscription.
 ---
@@ -37,6 +37,10 @@ You can perform all other Azure Red Hat OpenShift cluster actions, such as scali
 An Azure Red Hat OpenShift deployment requires two resource groups within an Azure subscription. The first resource group is created by the customer and contains the virtual networking components for the cluster. Keeping the networking elements separate allows the customer to configure Azure Red Hat OpenShift to meet requirements and to add any peering options.
 
 The second resource group is created by the Azure Red Hat OpenShift resource provider. It contains Azure Red Hat OpenShift cluster components, including virtual machines, network security groups, and load balancers. Azure Red Hat OpenShift cluster components located within this resource group aren't modifiable by the customer. Cluster configuration must be performed via interactions with the OpenShift API using the OpenShift web console or OpenShift CLI or similar tools.
+
+> [!NOTE]
+> The service principal for the ARO resource provider requires the Network Contributor role on the VNet of the ARO cluster. This is required for the ARO resource provider to create resources such as the ARO Private Link service and load balancers.
+> 
 
 ## Red Hat operators
 
@@ -193,7 +197,7 @@ Customers have permissions for creating more machine sets to better suit their r
 
 Persistent volumes (PVs), which can only be attached to a single node at a time, are specific to the availability zone in which they were provisioned. They can be attached to any node in the availability zone.
 
-Azure limits how many PVs of type block store can be attached to a single node. Azure limits depend on the type and size of the virtual machine the customer selects for worker nodes. For example, to see the max data disks for the Dasv4-series, see [Dasv4](../virtual-machines/dav4-dasv4-series.md#dasv4-series).
+Azure limits how many PVs of type block store can be attached to a single node. Azure limits depend on the type and size of the virtual machine the customer selects for worker nodes. For example, to see the max data disks for the Dasv4-series, see [Dasv4](/azure/virtual-machines/dav4-dasv4-series#dasv4-series).
 
 ### Shared storage (RWX)
 

@@ -4,13 +4,15 @@ description: This article gives definitions for the terms that are specific to A
 services: api-management
 author: dlepow
 manager: cfowler
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: article
 ms.date: 05/09/2022
 ms.author: danlep
 ---
 
 # Azure API Management terminology
+
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 
 This article gives definitions for the terms that are specific to Azure API Management.
 

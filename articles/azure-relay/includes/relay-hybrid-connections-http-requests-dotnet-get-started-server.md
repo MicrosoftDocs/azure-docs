@@ -1,14 +1,9 @@
 ---
-title: include file
-description: include file
-services: service-bus-relay
 author: clemensv
-ms.service: service-bus-relay
+ms.service: azure-relay
 ms.topic: include
-ms.date: 08/10/2023
-ms.author: clemensv
-ms.custom: include file
-
+ms.date: 01/04/2024
+ms.author: samurp
 ---
 
 ### Create a console application
@@ -162,4 +157,3 @@ In Visual Studio, create a new **Console App (.NET Framework)** project.
         }
     }
     ```
-

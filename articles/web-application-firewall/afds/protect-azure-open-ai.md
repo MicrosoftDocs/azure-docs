@@ -3,7 +3,7 @@ title: Protect Azure OpenAI using Azure Web Application Firewall on Azure Front 
 description: Learn how to Protect Azure OpenAI using Azure Web Application Firewall on Azure Front Door
 author: sowmyam2019
 ms.author: victorh
-ms.service: web-application-firewall
+ms.service: azure-web-application-firewall
 ms.topic: how-to
 ms.date: 08/28/2023
 ---
@@ -25,7 +25,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 First, create an OpenAI instance.
 
 
-1. Create an Azure OpenAI instance and deploy a gpt-35-turbo model using [Create and deploy an Azure OpenAI Service resource](../../ai-services/openai/how-to/create-resource.md).
+1. Create an Azure OpenAI instance and deploy a gpt-35-turbo model using [Create and deploy an Azure OpenAI Service resource](/azure/ai-services/openai/how-to/create-resource).
 1. Identify the Azure OpenAI endpoint and the API key.
 
    Open the Azure OpenAI studio and open the **Chat** option under **Playground**.

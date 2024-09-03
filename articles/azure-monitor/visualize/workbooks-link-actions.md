@@ -3,7 +3,7 @@ title: Azure Workbooks link actions
 description: This article explains how to use link actions in Azure Workbooks.
 ms.topic: conceptual
 ms.custom: devx-track-arm-template
-ms.date: 12/13/2023
+ms.date: 05/29/2024
 ms.author: abbyweisberg
 ms.reviewer: gardnerjr
 ---
@@ -50,7 +50,7 @@ When you use the link renderer, the following settings are available:
 
 | Setting | Description |
 |:------------- |:-------------|
-|View to open| Allows you to select one of the actions enumerated above. |
+|View to open| Allows you to select one of the actions. |
 |Menu item| If **Resource Overview** is selected, this menu item is in the resource's overview. You can use it to open alerts or activity logs instead of the "overview" for the resource. Menu item values are different for each Azure Resource type.|
 |Link label| If specified, this value appears in the grid column. If this value isn't specified, the value of the cell appears. If you want another value to appear, like a heatmap or icon, don't use the link renderer. Instead, use the appropriate renderer and select the **Make this item a link** option. |
 |Open link in Context pane| If specified, the link is opened as a pop-up "context" view on the right side of the window instead of opening as a full view. |
@@ -64,9 +64,50 @@ When you use the **Make this item a link** option, the following settings are av
 |Menu item| Same as above. |
 |Open link in Context pane| Same as above. |
 
+## ARM Action Settings
+
+Use this setting to invoke an ARM action by specifying the ARM API details. The documentation for ARM REST APIs can be found [here](https://aka.ms/armrestapi). In all of the UX fields, you can resolve parameters using `{paramName}`. You can also resolve columns using `["columnName"]`. In the example images below, we can reference the column `id` by writing `["id"]`. If the column is an Azure Resource ID, you can get a friendly name of the resource using the formatter `label`. This is similar to [parameter formatting](workbooks-parameters.md#parameter-formatting-options).
+
+### ARM Action Settings Tab
+
+This section defines the ARM action API.
+
+| Source | Explanation |
+|:------------- |:-------------|
+|ARM Action path| The ARM action path. For example: "/subscriptions/:subscription/resourceGroups/:resourceGroup/someAction?api-version=:apiversion".|
+|Http Method| Select an HTTP method. The available choices are: `POST`, `PUT`, `PATCH`, `DELETE`|
+|Long Operation| Long Operations poll the URI from the `Azure-AsyncOperation` or the `Location` response header from the original operation. Learn more about [tracking asynchronous Azure operations](../../azure-resource-manager/management/async-operations.md).
+|Parameters| URL parameters grid with the key and value.|
+|Headers| Headers grid with the key and value.|
+|Body| Editor for the request payload in JSON.|
+
+:::image type="content" source="media/workbooks-link-actions/azure-resource-manager-action-settings.png" alt-text="Screenshot that shows Azure Workbooks ARM action settings.":::
+
+### ARM Action UX Settings
+
+This section configures what the users see before they run the ARM action.
+
+| Source | Explanation |
+|:------------- |:-------------|
+|Title| Title used on the run view. |
+|Customize ARM Action name| Authors can customize the ARM action displayed on the notification after the action is triggered.|
+|Description of ARM Action| The markdown text used to provide a helpful description to users when they want to run the ARM action. |
+|Run button text from| Label used on the run (execute) button to trigger the ARM action.|
+
+:::image type="content" source="media/workbooks-link-actions/azure-resource-manager-action-interface-settings.png" alt-text="Screenshot that shows Azure Workbooks ARM action UX settings.":::
+
+After these configurations are set, when the user selects the link, the view opens with the UX described here. If the user selects the button specified by **Run button text from**, it runs the ARM action using the configured values. On the bottom of the context pane, you can select **View Request Details** to inspect the HTTP method and the ARM API endpoint used for the ARM action.
+
+:::image type="content" source="media/workbooks-link-actions/azure-resource-manager-action-pane.png" alt-text="Screenshot that shows Azure Workbooks ARM action pane.":::
+
+The progress and result of the ARM Action is shown as an Azure portal notification.
+
+:::image type="content" source="media/workbooks-link-actions/azure-resource-manager-action-custom-notifications.png" alt-text="Screenshot that shows Azure ARM custom notifications.":::
+
+
 ## Azure Resource Manager deployment link settings
 
-If the selected link type is **ARM Deployment**, you must specify more settings to open a Resource Manager deployment. There are two main tabs for configurations: **Template Settings** and **UX Settings**.
+If the link type is **ARM Deployment**, you must specify more settings to open a Resource Manager deployment. There are two main tabs for configurations: **Template Settings** and **UX Settings**.
 
 ### Template settings
 
@@ -76,7 +117,7 @@ This section defines where the template should come from and the parameters used
 |:------------- |:-------------|
 |Resource group ID comes from| The resource ID is used to manage deployed resources. The subscription is used to manage deployed resources and costs. The resource groups are used like folders to organize and manage all your resources. If this value isn't specified, the deployment fails. Select from **Cell**, **Column**, **Parameter**, and **Static Value** in [Link sources](#link-sources).|
 |ARM template URI from| The URI to the ARM template itself. The template URI needs to be accessible to the users who deploy the template. Select from **Cell**, **Column**, **Parameter**, and **Static Value** in [Link sources](#link-sources). For more information, see [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/).|
-|ARM Template Parameters|Defines the template parameters used for the template URI defined earlier. These parameters are used to deploy the template on the run page. The grid contains an **Expand** toolbar button to help fill the parameters by using the names defined in the template URI and set to static empty values. This option can only be used when there are no parameters in the grid and the template URI is set. The lower section is a preview of what the parameter output looks like. Select **Refresh** to update the preview with current changes. Parameters are typically values. References are something that could point to key vault secrets that the user has access to. <br/><br/> **Template Viewer pane limitation** doesn't render reference parameters correctly and will show up as null/value. As a result, users won't be able to correctly deploy reference parameters from the **Template Viewer** tab.|
+|ARM Template Parameters|Defines the template parameters used for the template URI defined earlier. These parameters are used to deploy the template on the run page. The grid contains an **Expand** toolbar button to help fill the parameters by using the names defined in the template URI and set to static empty values. This option can only be used when there are no parameters in the grid and the template URI is set. The lower section is a preview of what the parameter output looks like. Select **Refresh** to update the preview with current changes. Parameters are typically values. References are something that could point to key vault secrets that the user has access to. <br/><br/> **Template Viewer pane limitation** doesn't render reference parameters correctly and shows as a null/value. As a result, users won't be able to correctly deploy reference parameters from the **Template Viewer** tab.|
 <!-- convertborder later -->
 :::image type="content" source="./media/workbooks-link-actions/template-settings.png" lightbox="./media/workbooks-link-actions/template-settings.png" alt-text="Screenshot that shows the Template Settings tab." border="false":::
 
@@ -98,7 +139,10 @@ After these configurations are set, when you select the link, the view opens wit
 
 ## Custom view link settings
 
-Use this setting to open **Custom Views** in the Azure portal. Verify the configuration and settings. Incorrect values cause errors in the portal or fail to open the views correctly. There are two ways to configure the settings: via the form or URL.
+Use this setting to open **Custom Views** in the Azure portal. You can configure the settings using the form or URL.
+
+<!-- convertborder later -->
+:::image type="content" source="./media/workbooks-link-actions/custom-link-settings.png" lightbox="./media/workbooks-link-actions/custom-link-settings.png" alt-text="Screenshot that shows the Custom link settings." border="false":::
 
 > [!NOTE]
 > Views with a menu can't be opened in a context tab. If a view with a menu is configured to open in a context tab, no context tab is shown when the link is selected.
@@ -110,23 +154,26 @@ Use this setting to open **Custom Views** in the Azure portal. Verify the config
 |Extension name| The name of the extension that hosts the name of the view.|
 |View name| The name of the view to open.|
 
-#### View inputs
 
-There are two types of inputs: grids and JSON. Use a grid for simple key and value tab inputs. Select JSON to specify a nested JSON input.
+There are two types of inputs: grids and JSON. Use a grid for simple key and value tab inputs. Use JSON to specify a nested JSON input.
 
-- Grid
-    - **Parameter Name**: The name of the View input parameter.
-    - **Parameter Comes From**: Where the value of the View parameter should come from. Select from **Cell**, **Column**, **Parameter**, and **Static Value** in [Link sources](#link-sources).
+
+#### Grid
+
+- **Parameter Name**: The name of the View input parameter.
+- **Parameter Comes From**: Where the value of the View parameter should come from. Select from **Cell**, **Column**, **Parameter**, and **Static Value** in [Link sources](#link-sources).
     > [!NOTE]
     > If you select **Static Value**, the parameters can be resolved by using brackets to link `"{paramName}"` in the text box. Columns can be treated as parameters columns by appending `_column` after the column name like `"{columnName_column}"`.
+- **Parameter Value**: Depending on the value in **Parameter Comes From**, this dropdown contains available parameters, columns, or a static value.
 
-    - **Parameter Value**: Depending on the value in **Parameter Comes From**, this dropdown contains available parameters, columns, or a static value.
-    <!-- convertborder later -->
-    :::image type="content" source="./media/workbooks-link-actions/custom-tab-settings.png" lightbox="./media/workbooks-link-actions/custom-tab-settings.png" alt-text="Screenshot that shows the Edit column settings pane that shows the Get Custom View settings from form." border="false":::
-- JSON
-    - Specify your tab input in a JSON format on the editor. Like the **Grid** mode, parameters and columns can be referenced by using `{paramName}` for parameters and `{columnName_column}` for columns. Selecting **Show JSON Sample** shows the expected output of all resolved parameters and columns used for the view input.
-    <!-- convertborder later -->
-    :::image type="content" source="./media/workbooks-link-actions/custom-tab-json.png" lightbox="./media/workbooks-link-actions/custom-tab-json.png" alt-text="Screenshot that shows the Open Custom View settings pane with view input on JSON." border="false":::
+<!-- convertborder later -->
+:::image type="content" source="./media/workbooks-link-actions/custom-view-settings-grid.png" lightbox="./media/workbooks-link-actions/custom-view-settings-grid.png" alt-text="Screenshot that shows the Open Custom View settings pane." border="false":::
+
+#### JSON
+
+- Specify your tab input in a JSON format on the editor. Like the **Grid** mode, parameters and columns can be referenced by using `{paramName}` for parameters and `{columnName_column}` for columns. Selecting **Show JSON Sample** shows the expected output of all resolved parameters and columns used for the view input.
+
+
 
 ### URL
 

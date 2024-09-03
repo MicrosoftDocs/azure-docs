@@ -1,8 +1,8 @@
 ---
 description: This article provides step-by-step instructions to deploy Azure Cloud Shell in a private virtual network.
 ms.contributor: jahelmic
-ms.date: 11/01/2023
-ms.topic: article
+ms.date: 05/03/2024
+ms.topic: how-to
 ms.custom: devx-track-arm-template
 title: Deploy Azure Cloud Shell in a virtual network with quickstart templates
 ---
@@ -30,21 +30,21 @@ Cloud Shell needs access to certain Azure resources. You make that access availa
 resource providers. The following resource providers must be registered in your subscription:
 
 - **Microsoft.CloudShell**
-- **Microsoft.ContainerInstances**
+- **Microsoft.ContainerInstance**
 - **Microsoft.Relay**
 
 Depending on when your tenant was created, some of these providers might already be registered.
 
 To see all resource providers and the registration status for your subscription:
 
-1. Sign in to the [Azure portal][04].
+1. Sign in to the [Azure portal][11].
 1. On the Azure portal menu, search for **Subscriptions**. Select it from the available options.
 1. Select the subscription that you want to view.
 1. On the left menu, under **Settings**, select **Resource providers**.
 1. In the search box, enter `cloudshell` to search for the resource provider.
 1. Select the **Microsoft.CloudShell** resource provider from the provider list.
 1. Select **Register** to change the status from **unregistered** to **registered**.
-1. Repeat the previous steps for the **Microsoft.ContainerInstances** and **Microsoft.Relay**
+1. Repeat the previous steps for the **Microsoft.ContainerInstance** and **Microsoft.Relay**
    resource providers.
 
 [![Screenshot of selecting resource providers in the Azure portal.][98a]][98b]
@@ -103,10 +103,11 @@ For more information, see the following articles:
 
 ### Get the Azure container instance ID
 
-The Azure container instance ID is a unique value for every tenant. You use this identifier in
-the [quickstart templates][07] to configure a virtual network for Cloud Shell.
+The Azure container instance ID is a unique value for every tenant. You use this identifier in the
+[quickstart templates][08] to configure a virtual network for Cloud Shell. To get the Id from the
+command line, see [Alternate way to get the Azure Container Instance ID][12].
 
-1. Sign in to the [Azure portal][09]. From the home page, select **Microsoft Entra ID**. If the icon
+1. Sign in to the [Azure portal][11]. From the home page, select **Microsoft Entra ID**. If the icon
    isn't displayed, enter `Microsoft Entra ID` in the top search bar.
 1. On the left menu, select **Overview**. Then enter `azure container instance service` in the
    search bar.
@@ -161,7 +162,7 @@ Fill out the form with the following information:
 | **Nsg Name**                        | Enter the name of the NSG. The deployment creates this NSG and assigns an access rule to it.                          |
 | **Azure Container Instance OID**    | Fill in the value from the prerequisite information that you gathered.<br>The example in this article uses `8fe7fd25-33fe-4f89-ade3-0e705fcf4370`.     |
 | **Container Subnet Name**           | Defaults to `cloudshellsubnet`. Enter the name of the subnet for your container.                                                               |
-| **Container Subnet Address Prefix** | The example in this article uses `10.1.0.0/16`, which provides 65,543 IP addresses for Cloud Shell instances.                                          |
+| **Container Subnet Address Prefix** | The example in this article uses `10.0.1.0/24`, which provides 254 IP addresses for Cloud Shell instances.                                          |
 | **Relay Subnet Name**               | Defaults to `relaysubnet`. Enter the name of the subnet that contains your relay.                                                                 |
 | **Relay Subnet Address Prefix**     | The example in this article uses `10.0.2.0/24`.                                                                                                        |
 | **Storage Subnet Name**             | Defaults to `storagesubnet`. Enter the name of the subnet that contains your storage.                                                             |
@@ -245,6 +246,32 @@ Shell.
    template.
 1. Select **Create storage**.
 
+## Alternate way to get the Azure Container Instance ID
+
+If you have Azure PowerShell installed, you can use the following command to get the Azure Container
+Instance ID.
+
+```powershell
+(Get-AzADServicePrincipal -DisplayNameBeginsWith 'Azure Container Instance').Id
+```
+
+```Output
+d5f227bb-ffa6-4463-a696-7234626df63f
+```
+
+If you have the Azure CLI installed, you can use the following command to get the Azure Container
+Instance ID.
+
+```azurecli
+az ad sp list --display-name 'Azure Container Instance' --query "[].id"
+```
+
+```Output
+[
+  "d5f227bb-ffa6-4463-a696-7234626df63f"
+]
+```
+
 ## Next steps
 
 You must complete the Cloud Shell configuration steps for each user who needs to use the new private
@@ -261,6 +288,8 @@ Cloud Shell instance.
 [08]: https://aka.ms/cloudshell/docs/vnet/template
 [09]: https://azure.microsoft.com/resources/templates/cloud-shell-vnet-storage/
 [10]: /azure/role-based-access-control/role-assignments-list-portal#list-owners-of-a-subscription
+[11]: https://portal.azure.com
+[12]: #alternate-way-to-get-the-azure-container-instance-id
 [95a]: media/deployment/container-service-search.png
 [95b]: media/deployment/container-service-search.png#lightbox
 [96a]: media/deployment/container-service-details.png

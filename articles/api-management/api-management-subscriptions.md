@@ -4,13 +4,15 @@ description: Learn about the concept of subscriptions in Azure API Management. C
 services: api-management
 author: dlepow
  
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: conceptual
 ms.date: 08/02/2023
 ms.author: danlep
 ms.custom: engagement-fy23
 ---
 # Subscriptions in Azure API Management
+
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 
 In Azure API Management, *subscriptions* are the most common way for API consumers to access APIs published through an API Management instance. This article provides an overview of the concept.
 

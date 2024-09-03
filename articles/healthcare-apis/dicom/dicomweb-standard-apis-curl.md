@@ -1,12 +1,12 @@
 ---
 title:  Use cURL and DICOMweb Standard APIs in Azure Health Data Services
 description: Use cURL and DICOMweb Standard APIs to store, retrieve, search, and delete DICOM files in the DICOM service.  
-author: mmitrik
-ms.service: healthcare-apis
-ms.subservice: dicom
+author: varunbms
+ms.service: azure-health-data-services
+ms.subservice: dicom-service
 ms.topic: tutorial
 ms.date: 10/18/2023
-ms.author: mmitrik
+ms.author: buchvarun
 ---
 
 # Use DICOMweb Standard APIs with cURL
@@ -35,7 +35,7 @@ The filename, studyUID, seriesUID, and instanceUID of the sample DICOM files are
 
 To use the DICOM Standard APIs, you must have an instance of the DICOM service deployed. For more information, see [Deploy the DICOM service using the Azure portal](deploy-dicom-services-in-azure.md).
 
-After you deploy an instance of the DICOM service, retrieve the URL for your App service.
+After deploying an instance of the DICOM service, retrieve the URL for your App service.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 2. Search **Recent resources** and select your DICOM service instance.
@@ -49,16 +49,16 @@ For this code, we access a Public Preview Azure service. It's important that you
  
 The DICOMweb Standard makes heavy use of `multipart/related` HTTP requests combined with DICOM specific accept headers. Developers familiar with other REST-based APIs often find working with the DICOMweb Standard awkward. However, after you get it up and running, it's easy to use. It just takes a little familiarity to get started.
 
-The cURL commands each contain at least one, and sometimes two, variables that must be replaced. To simplify running the commands, search and replace the following variables by replacing them with your specific values:
+The cURL commands each contain at least one, and sometimes two, variables that must be replaced. To simplify running the commands, search and replace the following variables your specific values.
 
 * {Service URL} The service URL is the URL to access your DICOM service that you provisioned in the Azure portal, for example, ```https://<workspacename-dicomservicename>.dicom.azurehealthcareapis.com```. Make sure to specify the version as part of the url when making requests. More information can be found in the [API Versioning for DICOM service Documentation](api-versioning-dicom-service.md).
 * {path-to-dicoms} - The path to the directory that contains the red-triangle.dcm file, such as `C:/dicom-server/docs/dcms`
-    * Ensure to use forward slashes as separators and end the directory _without_ a trailing forward slash.
+    * Ensure using forward slashes as separators and end the directory _without_ a trailing forward slash.
 
 
 ## Upload DICOM instances (STOW)
 
-### Store-instances-using-multipart/related
+### Store instances using multipart/related
 
 This request intends to demonstrate how to upload DICOM files using multipart/related. 
 
@@ -76,7 +76,7 @@ _Details:_
 * Body:
     * Content-Type: application/dicom for each file uploaded, separated by a boundary value
 
-Some programming languages and tools behave differently. For instance, some require you to define your own boundary. For those tools, you might need to use a slightly modified Content-Type header. These tools can be used successfully.
+Some programming languages and tools behave differently. For instance, some require you to define your own boundary. For those tools, you might need to use a slightly modified Content-Type header. The following tools can be used successfully.
 * Content-Type: multipart/related; type="application/dicom"; boundary=ABCD1234
 * Content-Type: multipart/related; boundary=ABCD1234
 * Content-Type: multipart/related
@@ -104,7 +104,7 @@ _Details:_
 * Body:
     * Content-Type: application/dicom for each file uploaded, separated by a boundary value
 
-Some programming languages and tools behave differently. For instance, some require you to define your own boundary. For those languages and tools, you might need to use a slightly modified Content-Type header. These tools can be used successfully.
+Some programming languages and tools behave differently. For instance, some require you to define your own boundary. For those languages and tools, you might need to use a slightly modified Content-Type header. The following tools can be used successfully.
 
  * Content-Type: multipart/related; type="application/dicom"; boundary=ABCD1234
  * Content-Type: multipart/related; boundary=ABCD1234
@@ -137,6 +137,90 @@ _Details:_
 
 ```
 curl --location --request POST "{Service URL}/v{version}/studies"
+--header "Accept: application/dicom+json"
+--header "Content-Type: application/dicom"
+--header "Authorization: Bearer {token value}"
+--data-binary "@{path-to-dicoms}/green-square.dcm"
+```
+
+### Upsert instances using multipart/related
+
+> [!NOTE]
+> This is a non-standard API that allows the upsert of DICOM files using multipart/related. 
+
+_Details:_
+
+* Path: ../studies
+* Method: PUT
+* Headers:
+    * Accept: application/dicom+json
+    * Content-Type: multipart/related; type="application/dicom"
+    * Authorization: Bearer {token value}
+* Body:
+    * Content-Type: application/dicom for each file uploaded, separated by a boundary value
+
+Some programming languages and tools behave differently. For instance, some require you to define your own boundary. For those tools, you might need to use a slightly modified Content-Type header. The following tools can be used successfully.
+* Content-Type: multipart/related; type="application/dicom"; boundary=ABCD1234
+* Content-Type: multipart/related; boundary=ABCD1234
+* Content-Type: multipart/related
+
+```
+curl --location --request PUT "{Service URL}/v{version}/studies"
+--header "Accept: application/dicom+json"
+--header "Content-Type: multipart/related; type=\"application/dicom\""
+--header "Authorization: Bearer {token value}"
+--form "file1=@{path-to-dicoms}/red-triangle.dcm;type=application/dicom"
+--trace-ascii "trace.txt"
+```
+
+### Upsert instances for a specific study
+
+> [!NOTE]
+> This is a non-standard API that allows the upsert of DICOM files using multipart/related to a designated study. 
+
+_Details:_
+* Path: ../studies/{study}
+* Method: PUT
+* Headers:
+    * Accept: application/dicom+json
+    * Content-Type: multipart/related; type="application/dicom"
+    * Authorization: Bearer {token value}
+* Body:
+    * Content-Type: application/dicom for each file uploaded, separated by a boundary value
+
+Some programming languages and tools behave differently. For instance, some require you to define your own boundary. For those languages and tools, you might need to use a slightly modified Content-Type header. The following tools can be used successfully.
+
+ * Content-Type: multipart/related; type="application/dicom"; boundary=ABCD1234
+ * Content-Type: multipart/related; boundary=ABCD1234
+ * Content-Type: multipart/related
+
+```
+curl --request PUT "{Service URL}/v{version}/studies/1.2.826.0.1.3680043.8.498.13230779778012324449356534479549187420"
+--header "Accept: application/dicom+json"
+--header "Content-Type: multipart/related; type=\"application/dicom\""
+--header "Authorization: Bearer {token value}"
+--form "file1=@{path-to-dicoms}/blue-circle.dcm;type=application/dicom"
+```
+
+### Upsert single instance
+
+> [!NOTE]
+> This is a non-standard API that allows the upsert of a single DICOM file. 
+
+Use this method to upload a single DICOM file.
+
+_Details:_
+* Path: ../studies
+* Method: PUT
+* Headers:
+   * Accept: application/dicom+json
+   * Content-Type: application/dicom
+   * Authorization: Bearer {token value}
+* Body:
+    * Contains a single DICOM file as binary bytes.
+
+```
+curl --location --request PUT "{Service URL}/v{version}/studies"
 --header "Accept: application/dicom+json"
 --header "Content-Type: application/dicom"
 --header "Authorization: Bearer {token value}"
@@ -258,7 +342,7 @@ curl --request GET "{Service URL}/v{version}/studies/1.2.826.0.1.3680043.8.498.1
 
 ### Retrieve one or more frames from a single instance
 
-This request retrieves one or more frames from a single instance, and returns them as a collection of multipart/related bytes. Multiple frames can be retrieved by passing a comma-separated list of frame numbers.  All DICOM instances with images have at minimum one frame, which is often just the image associated with the instance itself.
+This request retrieves one or more frames from a single instance, and returns them as a collection of multipart/related bytes. Multiple frames can be retrieved by passing a comma-separated list of frame numbers.  All DICOM instances with images have at minimum one frame, which is often simply the image associated with the instance itself.
 
 _Details:_
 * Path: ../studies/{study}/series{series}/instances/{instance}/frames/1,2,3

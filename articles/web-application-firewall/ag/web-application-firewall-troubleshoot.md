@@ -3,7 +3,7 @@ title: Troubleshoot - Azure Web Application Firewall
 description: This article provides troubleshooting information for Web Application Firewall (WAF) for Azure Application Gateway
 services: web-application-firewall
 author: vhorne
-ms.service: web-application-firewall
+ms.service: azure-web-application-firewall
 ms.date: 03/05/2024
 ms.author: victorh
 ms.topic: conceptual

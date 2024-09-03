@@ -6,25 +6,23 @@ ms.reviewer: sapnakeshari
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 03/21/2024
+ms.date: 08/22/2024
 ms.author: banders
 ---
 
 # Understand your Azure external services charges
-External services are published by third-party software vendors in the Azure Marketplace. For example, SendGrid is an external service that you can purchase in Azure, but is not published by Microsoft. Some Microsoft products are sold through Azure marketplace, too.
+Third-party software vendors in the Azure Marketplace publish external services. For example, SendGrid is an external service that you can purchase in Azure, but Microsoft doesn't publish it. Some Microsoft products are sold through Azure Marketplace, too.
 
 ## How external services are billed
 
 - If you have a Microsoft Customer Agreement (MCA) or Microsoft Partner Agreement (MPA), your third-party services are billed with the rest of your Azure services. [Check your billing account type](#check-billing-account-type) to see if you have access to an MCA or MPA.
-- If you don't have an MCA or MPA, your external services are billed separately from your Azure services. You'll receive two invoices each billing period: one invoice for Azure services and another for Marketplaces purchases.
-- Each external service has a different billing model. Some services are billed in a pay-as-you-go fashion while others have fixed monthly charges.
-- You can't use monthly free credits for external services. If you're using an Azure subscription that includes [free credits](https://azure.microsoft.com/pricing/spending-limits/), they can't be applied to charges from external services. When you provision a new external service or resource, a warning is shown:
-
-    :::image type="content" border="true" source="./media/understand-azure-marketplace-charges/credit-warning.png" alt-text="Screenshot showing a warning that Marketplace charges are billed separately.":::
+- If you don't have an MCA or MPA, your external services are billed separately from your Azure services. You receive two invoices each billing period: one invoice for Azure services and another for Marketplaces purchases.
+- Each external service has a different billing model. Some services are billed in a pay-as-you-go fashion while others have monthly charges that are fixed.
+- You can't use monthly free credits for external services. If you're using an Azure subscription that includes [free credits](https://azure.microsoft.com/pricing/spending-limits/), they can't be applied to charges from external services. When you provision a new external service or resource, a warning is shown. You can choose to continue with the provisioning or cancel it.
 
 ## External spending for EA customers
 
-EA customers can see external service spending in the [Azure portal](https://portal.azure.com). Navigate to the Usage + charges menu to view and download Azure Marketplace charges.
+EA customers can see external service spending in the [Azure portal](https://portal.azure.com). To view and download Azure Marketplace charges, navigate to the **Usage + charges** menu.
 
 ## View and download invoices for external services
 
@@ -40,15 +38,15 @@ You can view and download your Azure Marketplace invoices from the Azure portal 
 1. Search for **Cost Management + Billing**.
 1. In the left menu, select **Invoices**.
 1. In the subscription drop-down, select the subscription associated with your Marketplace services.
-1. Review the **Type** column in the list of invoices. If an invoice is for a Marketplace service, the type will be **Azure Marketplace and Reservations**. 
+1. Review the **Type** column in the list of invoices. If an invoice is for a Marketplace service, the type is **Azure Marketplace and Reservations**. 
 
-    :::image type="content" border="true" source="./media/understand-azure-marketplace-charges/marketplace-type-twd.png" alt-text="Screenshot showing billing invoices with Azure Marketplace and Reservations hightlighted..":::
+    :::image type="content" border="true" source="./media/understand-azure-marketplace-charges/marketplace-type-twd.png" alt-text="Screenshot showing billing invoices with Azure Marketplace and Reservations highlighted.":::
 
-1. To filter by type so that you are only looking at invoices for Azure Marketplace and Reservations, select the **Type** filter. Then select **Azure Marketplace and Reservations** in the drop-down.
+1. To filter by type so that you're only looking at invoices for Azure Marketplace and Reservations, select the **Type** filter. Then select **Azure Marketplace and Reservations** in the drop-down.
 
     :::image type="content" border="true" source="./media/understand-azure-marketplace-charges/type-filter.png" alt-text="Screenshot showing the Azure Marketplace and Reservation selected in the drop-down.":::
 
-1. Select the download icon on the right for the invoice you want to download.
+1. Select the download symbol for the invoice that you want to download.
 
     :::image type="content" border="true" source="./media/understand-azure-marketplace-charges/download-icon-marketplace.png" alt-text="Screenshot showing the download symbol selected for invoice.":::
 
@@ -100,7 +98,7 @@ If you want to cancel your external service order, delete the resource in the [A
 1. Check the box next to the resource you want to delete.
 1. Select **Delete** in the command bar.
     :::image type="content" border="true" source="./media/understand-azure-marketplace-charges/delete-button.png" alt-text="Screenshot showing the All resources page where you select Delete.":::
-1. Type *'Yes'* in the confirmation blade.
+1. Type *'Yes'* in the confirmation windows.
     :::image type="content" border="true" source="./media/understand-azure-marketplace-charges/delete-resource.PNG" alt-text="Screenshot showing the Delete resources page where you type Yes to delete the resource.":::
 1. Select **Delete**.
 
@@ -111,5 +109,6 @@ If you want to cancel your external service order, delete the resource in the [A
 
 If you have questions or need help,  [create a support request](https://go.microsoft.com/fwlink/?linkid=2083458).
 
-## Next steps
+## Related content
+
 - [Start analyzing costs](../costs/quick-acm-cost-analysis.md)

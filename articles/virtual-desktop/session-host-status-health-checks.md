@@ -1,10 +1,11 @@
 ---
 title: Session host statuses and health checks in Azure Virtual Desktop
 description: Learn about the different statuses and health checks for session hosts in Azure Virtual Desktop.
-author: heidilohr
+author: dknappettmsft
 ms.topic: conceptual
-ms.date: 09/11/2023
-ms.author: helohr
+ms.date: 03/05/2024
+ms.author: daknappe
+ms.custom: docs_inherited
 ---
 # Session host statuses and health checks in Azure Virtual Desktop
 
@@ -35,7 +36,7 @@ The health check is a test run by the agent on the session host. The following t
 | Domain joined | Verifies that the session host is joined to a domain controller. | If this check fails, users won't be able to connect to the session host. To solve this issue, join your session host to a domain. | 
 | Geneva Monitoring Agent | Verifies that the session host has a healthy monitoring agent by checking if the monitoring agent is installed and running in the expected registry location. | If this check fails, it's semi-fatal. There may be successful connections, but they'll contain no logging information. To resolve this issue, make sure a monitoring agent is installed. If it's already installed, contact Microsoft support. | 
 | Side-by-side (SxS) Stack Listener | Verifies that the side-by-side stack is up and running, listening, and ready to receive connections. | If this check fails, it's fatal, and users won't be able to connect to the session host. Try restarting your virtual machine (VM). If restarting doesn't work, contact Microsoft support. |
-| App attach health check | Verifies that the [MSIX app attach](what-is-app-attach.md) service is working as intended during package staging or destaging. | If this check fails, it isn't fatal. However, certain apps stop working for end-users. |
+| App attach health check | Verifies that the [app attach or MSIX app attach](what-is-app-attach.md) service is working as intended during package staging or destaging. | If this check fails, it isn't fatal. However, certain apps stop working for end-users. |
 | Domain trust check | Verifies the session host isn't experiencing domain trust issues that could prevent authentication when a user connects to a session. | If this check fails, it's fatal. The service won't be able to connect if it can't reach the authentication domain for the session host. |
 | Metadata service check | Verifies the metadata service is accessible and returns compute properties. | If this check fails, it isn't fatal. |
 

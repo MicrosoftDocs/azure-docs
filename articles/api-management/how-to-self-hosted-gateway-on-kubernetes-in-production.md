@@ -3,7 +3,7 @@ title: Self-hosted gateway on Kubernetes in production | Azure API Management
 description: Learn about guidance to run an API Management self-hosted gateway on Kubernetes for production workloads
 author: tomkerkhove
 manager: mrcarlosdev
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: article
 ms.author: tomkerkhove
 ms.date: 01/17/2023
@@ -11,13 +11,13 @@ ms.date: 01/17/2023
 
 # Guidance for running self-hosted gateway on Kubernetes in production
 
+[!INCLUDE [api-management-availability-premium-dev](../../includes/api-management-availability-premium-dev.md)]
+
 In order to run the self-hosted gateway in production, there are various aspects to take in to mind. For example, it should be deployed in a highly available manner, use configuration backups to handle temporary disconnects and many more.
 
 This article provides guidance on how to run [self-hosted gateway](./self-hosted-gateway-overview.md) on Kubernetes for production workloads to ensure that it will run smoothly and reliably.
 
 [!INCLUDE [preview](./includes/preview/preview-callout-self-hosted-gateway-deprecation.md)]
-
-[!INCLUDE [api-management-availability-premium-dev](../../includes/api-management-availability-premium-dev.md)]
 
 ## Access token
 Without a valid access token, a self-hosted gateway can't access and download configuration data from the endpoint of the associated API Management service. The access token can be valid for a maximum of 30 days. It must be regenerated, and the cluster configured with a fresh token, either manually or via automation before it expires.
@@ -132,7 +132,7 @@ Availability zones allow you to schedule the self-hosted gateway's pod on nodes 
 - [Pod Anti-Affinity](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/)
 
 > [!Note]
-> If you are using Azure Kubernetes Service, learn how to use availability zones in [this article](./../aks/availability-zones.md).
+> If you are using Azure Kubernetes Service, learn how to use availability zones in [this article](/azure/aks/availability-zones).
 
 ### Protecting against pod disruption
 

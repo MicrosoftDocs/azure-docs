@@ -4,12 +4,15 @@ description: Learn how to set up remote write in Azure Monitor managed service f
 author: EdB-MSFT
 ms.topic: conceptual
 ms.custom: devx-track-azurecli
-ms.date: 2/28/2024
+ms.date: 4/18/2024
 ---
 
 # Send Prometheus data to Azure Monitor by using Microsoft Entra authentication
 
-This article describes how to set up [remote write](prometheus-remote-write.md) to send data from a self-managed Prometheus server running in your Azure Kubernetes Service (AKS) cluster or Azure Arc-enabled Kubernetes cluster by using Microsoft Entra authentication.
+This article describes how to set up [remote write](prometheus-remote-write.md) to send data from a self-managed Prometheus server running in your Azure Kubernetes Service (AKS) cluster or Azure Arc-enabled Kubernetes cluster by using Microsoft Entra authentication and a side car container that Azure Monitor provides. Note that you can also directly configure remote-write in the Prometheus configuration for the same.
+
+> [!NOTE]
+> We recommend that you directly configure Prometheus running on your Kubernetes cluster to remote-write into Azure Monitor Workspace. See [Send Prometheus data to Azure Monitor using Microsoft Entra Id authentication](../essentials/prometheus-remote-write-virtual-machines.md#set-up-authentication-for-remote-write) to learn more. The steps below use the Azure Monitor side car container.
 
 ## Cluster configurations
 
@@ -24,7 +27,16 @@ This article applies to the following cluster configurations:
 
 ## Prerequisites
 
-The prerequisites that are described in [Azure Monitor managed service for Prometheus remote write](prometheus-remote-write.md#prerequisites) apply to the processes that are described in this article.
+### Supported versions
+
+- Prometheus versions greater than v2.48 are required for Microsoft Entra ID application authentication. 
+
+### Azure Monitor workspace
+
+This article covers sending Prometheus metrics to an Azure Monitor workspace. To create an Azure monitor workspace, see [Manage an Azure Monitor workspace](/azure/azure-monitor/essentials/azure-monitor-workspace-manage#create-an-azure-monitor-workspace).
+
+## Permissions
+Administrator permissions for the cluster or resource are required to complete the steps in this article.
 
 ## Set up an application for Microsoft Entra ID
 
@@ -81,9 +93,9 @@ The application must be assigned the Monitoring Metrics Publisher role on the da
 
 ### Create an Azure key vault and generate a certificate
 
-1. If you don't already have an Azure key vault, [create a vault](../../key-vault/general/quick-create-portal.md#create-a-vault).
-1. Create a certificate by using the guidance in [Add a certificate to Key Vault](../../key-vault/certificates/quick-create-portal.md#add-a-certificate-to-key-vault).
-1. Download the certificate in CER format by using the guidance in [Export a certificate from Key Vault](../../key-vault/certificates/quick-create-portal.md#export-certificate-from-key-vault).
+1. If you don't already have an Azure key vault, [create a vault](/azure/key-vault/general/quick-create-portal#create-a-vault).
+1. Create a certificate by using the guidance in [Add a certificate to Key Vault](/azure/key-vault/certificates/quick-create-portal#add-a-certificate-to-key-vault).
+1. Download the certificate in CER format by using the guidance in [Export a certificate from Key Vault](/azure/key-vault/certificates/quick-create-portal#export-certificate-from-key-vault).
 
 <a name='add-certificate-to-the-azure-active-directory-application'></a>
 
@@ -126,7 +138,7 @@ This step is required only if you didn't turn on Azure Key Vault Provider for Se
     az keyvault set-policy -n <keyvault-name> --certificate-permissions get --spn <identity-client-id>
     ```
 
-1. Create `SecretProviderClass` by saving the following YAML to a file named *secretproviderclass.yml*. Replace the values for `userAssignedIdentityID`, `keyvaultName`, `tenantId`, and the objects to retrieve from your key vault. For information about what values to use, see [Provide an identity to access the Azure Key Vault Provider for Secrets Store CSI Driver](../../aks/csi-secrets-store-identity-access.md).
+1. Create `SecretProviderClass` by saving the following YAML to a file named *secretproviderclass.yml*. Replace the values for `userAssignedIdentityID`, `keyvaultName`, `tenantId`, and the objects to retrieve from your key vault. For information about what values to use, see [Provide an identity to access the Azure Key Vault Provider for Secrets Store CSI Driver](/azure/aks/csi-secrets-store-identity-access).
 
     [!INCLUDE [secret-provider-class-yaml](../includes/secret-procider-class-yaml.md)]
 
@@ -147,7 +159,7 @@ This step is required only if you didn't turn on Azure Key Vault Provider for Se
     | Value | Description |
     |:---|:---|
     | `<CLUSTER-NAME>` | The name of your AKS cluster. |
-    | `<CONTAINER-IMAGE-VERSION>` | `mcr.microsoft.com/azuremonitor/prometheus/promdev/prom-remotewrite:prom-remotewrite-20230906.1`<br>The remote write container image version.   |
+    | `<CONTAINER-IMAGE-VERSION>` | [!INCLUDE [version](../includes/prometheus-remotewrite-image-version.md)]<br>The remote write container image version.   |
     | `<INGESTION-URL>` | The value for **Metrics ingestion endpoint** from the **Overview** page for the Azure Monitor workspace. |
     | `<APP-REGISTRATION -CLIENT-ID>` | The client ID of your application. |
     | `<TENANT-ID>` | The tenant ID of the Microsoft Entra application. |
@@ -167,9 +179,9 @@ This step is required only if you didn't turn on Azure Key Vault Provider for Se
 
 ## Verification and troubleshooting
 
-For verification and troubleshooting information, see [Azure Monitor managed service for Prometheus remote write](prometheus-remote-write.md#verify-remote-write-is-working-correctly).
+For verification and troubleshooting information, see [Troubleshooting remote write](/azure/azure-monitor/containers/prometheus-remote-write-troubleshooting)  and [Azure Monitor managed service for Prometheus remote write](prometheus-remote-write.md#verify-remote-write-is-working-correctly).
 
-## Related content
+## Next steps
 
 - [Collect Prometheus metrics from an AKS cluster](../containers/kubernetes-monitoring-enable.md#enable-prometheus-and-grafana)
 - [Learn more about Azure Monitor managed service for Prometheus](../essentials/prometheus-metrics-overview.md)

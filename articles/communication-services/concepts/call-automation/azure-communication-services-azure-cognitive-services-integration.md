@@ -5,7 +5,7 @@ description: Provides a how-to guide for connecting Azure Communication Services
 author: kunaal
 ms.service: azure-communication-services
 ms.subservice: call-automation
-ms.topic: include
+ms.topic: conceptual
 ms.date: 11/27/2023
 ms.author: kpunjabi
 ms.custom: references_regions
@@ -40,7 +40,7 @@ You'll need to connect your Azure Communication Services resource with the Azure
 ## Prerequisites 
 - Azure account with an active subscription and access to Azure portal, for details see [Create an account for free](https://azure.microsoft.com/free/).
 - Azure Communication Services resource. See [Create an Azure Communication Services resource](../../quickstarts/create-communication-resource.md?tabs=windows&pivots=platform-azp). 
-- An [Azure AI Services resource](../../../../articles/ai-services/multi-service-resource.md) .
+- An [Azure AI Services resource](/azure/ai-services/multi-service-resource) .
 
 ### Connecting through the Azure portal
 
@@ -133,7 +133,7 @@ This integration between Azure Communication Services and Azure AI services is o
 ## Known limitations
 
 - Text-to-Speech text prompts support a maximum of 400 characters, if your prompt is longer than this we suggest using SSML for Text-to-Speech based play actions.
-- For scenarios where you exceed your Speech service quota limit, you can request to increase this limit by following the steps outlined [here](../../../ai-services/speech-service/speech-services-quotas-and-limits.md).
+- For scenarios where you exceed your Speech service quota limit, you can request to increase this limit by following the steps outlined [here](/azure/ai-services/speech-service/speech-services-quotas-and-limits).
 
 ## Next steps
 - Learn about [playing audio](../../concepts/call-automation/play-action.md) to callers using Text-to-Speech.

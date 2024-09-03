@@ -4,7 +4,7 @@ description: Learn how to move your Log Analytics workspace to another subscript
 ms.topic: conceptual
 ms.service:  azure-monitor
 ms.reviewer: yossiy
-ms.date: 10/30/2023
+ms.date: 08/12/2024
 ms.custom: devx-track-azurepowershell
 
 ---
@@ -185,7 +185,7 @@ Delete the following alert rules by running the [Remove-AzScheduledQueryRule](/p
 
 See [Delete a standalone Automation account linked to workspace](../../automation/delete-account.md#delete-a-standalone-automation-account-linked-to-workspace).
 
-### [ REST API](#tab/rest-api)
+### [REST API](#tab/rest-api)
 
 Call the [Linked Services - Delete API](/rest/api/loganalytics/linked-services/delete).
 
@@ -215,7 +215,7 @@ Not supported.
 
     :::image type="content" source="media/move-workspace/portal.png" lightbox="media/move-workspace/portal.png" alt-text="Screenshot that shows the Overview pane in the Log Analytics workspace with options to change the resource group and subscription name.":::
 
-### [ REST API](#tab/rest-api)
+### [REST API](#tab/rest-api)
 
 To move your workspace, call the [Resources - Move Resources API](/rest/api/resources/resources/move-resources).
 

@@ -1,14 +1,14 @@
 ---
 title: Linter rule - secure secrets in parameters
 description: Linter rule - secure secrets in parameters
-ms.topic: conceptual
+ms.topic: reference
 ms.custom: devx-track-bicep
 ms.date: 03/20/2024
 ---
 
 # Linter rule - secure secrets in parameters
 
-This rule finds parameters whose names look like secrets but without the [secure decorator](./parameters.md#decorators), for example: a parameter name contains the following keywords:
+This rule finds parameters whose names look like secrets but without the [secure decorator](./parameters.md#use-decorators), for example: a parameter name contains the following keywords:
 
 - password
 - pwd
@@ -24,7 +24,7 @@ Use the following value in the [Bicep configuration file](bicep-config-linter.md
 
 ## Solution
 
-Use the [secure decorator](./parameters.md#decorators) for the parameters that contain secrets. The secure decorator marks the parameter as secure. The value for a secure parameter isn't saved to the deployment history and isn't logged.
+Use the [secure decorator](./parameters.md#use-decorators) for the parameters that contain secrets. The secure decorator marks the parameter as secure. The value for a secure parameter isn't saved to the deployment history and isn't logged.
 
 The following example fails this test because the parameter name may contain secrets.
 

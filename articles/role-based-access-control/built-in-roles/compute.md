@@ -7,7 +7,7 @@ ms.workload: identity
 author: rolyon
 manager: amycolannino
 ms.author: rolyon
-ms.date: 03/01/2024
+ms.date: 04/25/2024
 ms.custom: generated
 ---
 
@@ -82,6 +82,108 @@ Lets you manage classic virtual machines, but not access to them, and not the vi
     }
   ],
   "roleName": "Classic Virtual Machine Contributor",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## Compute Gallery Artifacts Publisher
+
+This is the role for publishing gallery artifacts.
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.Compute](../permissions/compute.md#microsoftcompute)/galleries/* |  |
+> | [Microsoft.Compute](../permissions/compute.md#microsoftcompute)/locations/capsOperations/read | Gets the status of an asynchronous Caps operation |
+> | [Microsoft.Compute](../permissions/compute.md#microsoftcompute)/locations/communityGalleries/* |  |
+> | [Microsoft.Compute](../permissions/compute.md#microsoftcompute)/locations/sharedGalleries/* |  |
+> | [Microsoft.Compute](../permissions/compute.md#microsoftcompute)/images/* |  |
+> | [Microsoft.Compute](../permissions/compute.md#microsoftcompute)/virtualMachines/write | Creates a new virtual machine or updates an existing virtual machine |
+> | [Microsoft.Compute](../permissions/compute.md#microsoftcompute)/disks/write | Creates a new Disk or updates an existing one |
+> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/* | Create and manage a deployment |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
+> | **NotActions** |  |
+> | [Microsoft.Compute](../permissions/compute.md#microsoftcompute)/galleries/share/action | Shares a Gallery to different scopes |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "This is the role for publishing gallery artifacts.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/85a2d0d9-2eba-4c9c-b355-11c2cc0788ab",
+  "name": "85a2d0d9-2eba-4c9c-b355-11c2cc0788ab",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Compute/galleries/*",
+        "Microsoft.Compute/locations/capsOperations/read",
+        "Microsoft.Compute/locations/communityGalleries/*",
+        "Microsoft.Compute/locations/sharedGalleries/*",
+        "Microsoft.Compute/images/*",
+        "Microsoft.Compute/virtualMachines/write",
+        "Microsoft.Compute/disks/write",
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Insights/alertRules/*",
+        "Microsoft.Resources/deployments/*",
+        "Microsoft.Resources/subscriptions/resourceGroups/read"
+      ],
+      "notActions": [
+        "Microsoft.Compute/galleries/share/action"
+      ],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Compute Gallery Artifacts Publisher",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## Compute Gallery Sharing Admin
+
+This role allows user to share gallery to another subscription/tenant or share it to the public.
+
+[Learn more](/azure/virtual-machines/create-gallery)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.Compute](../permissions/compute.md#microsoftcompute)/galleries/share/action | Shares a Gallery to different scopes |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "This role allows user to share gallery to another subscription/tenant or share it to the public.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/1ef6a3be-d0ac-425d-8c01-acb62866290b",
+  "name": "1ef6a3be-d0ac-425d-8c01-acb62866290b",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Compute/galleries/share/action"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Compute Gallery Sharing Admin",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }

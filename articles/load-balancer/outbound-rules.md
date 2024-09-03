@@ -3,9 +3,9 @@ title: Outbound rules Azure Load Balancer
 description: This article explains how to configure outbound rules to control outbound internet traffic with Azure Load Balancer.
 services: load-balancer
 author: mbender-ms
-ms.service: load-balancer
+ms.service: azure-load-balancer
 ms.topic: conceptual
-ms.date: 05/08/2023
+ms.date: 04/11/2024
 ms.author: mbender
 ms.custom: template-how-to, engagement-fy23
 ---
@@ -54,7 +54,7 @@ The _parameters_ provide fine grained control over the outbound NAT algorithm.
 
 ## <a name="scale"></a> Scale outbound NAT with multiple IP addresses
 
-Each extra IP address provided by a frontend provides another 64,000 ephemeral ports for load balancer to use as SNAT ports. 
+Each extra IP address provided by a frontend provides another 64,000 ephemeral ports for load balancer to use as SNAT ports. Load balancer will use IPs as needed based on the available ports. The Load balancer will use the next IP once the connections can no longer be made with the current IP in use. 
 
 Use multiple IP addresses to plan for large-scale scenarios. Use outbound rules to mitigate [SNAT exhaustion](troubleshoot-outbound-connection.md#configure-load-balancer-outbound-rules-to-maximize-snat-ports-per-vm). 
 
@@ -62,7 +62,7 @@ You can also use a [public IP prefix](./load-balancer-outbound-connections.md#ou
 
 A public IP prefix increases scaling of your deployment. The prefix can be added to the allowlist of flows originating from your Azure resources. You can configure a frontend IP configuration within the load balancer to reference a public IP address prefix.  
 
-The load balancer has control over the public IP prefix. The outbound rule will automatically use all public IP addresses contained within the public IP prefix for outbound connections. 
+The load balancer has control over the public IP prefix. The outbound rule will automatically use other public IP addresses contained within the public IP prefix after no more outbound connections can be made with the current IP in use from the prefix. 
 
 Each of the IP addresses within public IP prefix provides an extra 64,000 ephemeral ports per IP address for load balancer to use as SNAT ports.
 
@@ -238,7 +238,8 @@ When only inbound NAT rules are used, no outbound NAT is provided.
 - The maximum number of usable ephemeral ports per frontend IP address is 64,000.
 - The range of the configurable outbound idle timeout is 4 to 120 minutes (240 to 7200 seconds).
 - Load balancer doesn't support ICMP for outbound NAT, the only supported protocols are TCP and UDP.
-- Outbound rules can only be applied to primary IP configuration of a NIC.  You can't create an outbound rule for the secondary IP of a VM or NVA. Multiple NICs are supported.
+- Outbound rules can only be applied to primary IPv4 configuration of a NIC.  You can't create an outbound rule for the secondary IPv4 configurations of a VM or NVA . Multiple NICs are supported.
+- Outbound rules for the secondary IP configuration are only supported for IPv6.
 - All virtual machines within an **availability set** must be added to the backend pool for outbound connectivity. 
 - All virtual machines within a **virtual machine scale set** must be added to the backend pool for outbound connectivity.
 

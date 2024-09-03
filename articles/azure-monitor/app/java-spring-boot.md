@@ -2,7 +2,7 @@
 title: Configure Azure Monitor Application Insights for Spring Boot
 description: How to configure Azure Monitor Application Insights for Spring Boot applications
 ms.topic: conceptual
-ms.date: 03/12/2024
+ms.date: 07/29/2024
 ms.devlang: java
 ms.custom: devx-track-java, devx-track-extended-java
 ---
@@ -16,10 +16,10 @@ There are two options for enabling Application Insights Java with Spring Boot: J
 
 ## Enabling with JVM argument 
 
-Add the JVM arg `-javaagent:"path/to/applicationinsights-agent-3.5.1.jar"` somewhere before `-jar`, for example:
+Add the JVM arg `-javaagent:"path/to/applicationinsights-agent-3.5.4.jar"` somewhere before `-jar`, for example:
 
-```
-java -javaagent:"path/to/applicationinsights-agent-3.5.1.jar" -jar <myapp.jar>
+```console
+java -javaagent:"path/to/applicationinsights-agent-3.5.4.jar" -jar <myapp.jar>
 ```
 
 ### Spring Boot via Docker entry point
@@ -38,7 +38,7 @@ To enable Application Insights Java programmatically, you must add the following
 <dependency>
     <groupId>com.microsoft.azure</groupId>
     <artifactId>applicationinsights-runtime-attach</artifactId>
-    <version>3.5.1</version>
+    <version>3.5.4</version>
 </dependency>
 ```
 
@@ -71,8 +71,7 @@ public class SpringBootApp {
 
 ### Configuration
 
-Programmatic enablement supports all the same [configuration options](./java-standalone-config.md)
-as the JVM argument enablement, with the differences that are described in the next sections.
+Programmatic enablement supports all the same [configuration options](./java-standalone-config.md) as the JVM argument enablement, with the differences that are described in the next sections.
 
 #### Configuration file location
 
@@ -114,7 +113,7 @@ First, add the `applicationinsights-core` dependency:
 <dependency>
     <groupId>com.microsoft.azure</groupId>
     <artifactId>applicationinsights-core</artifactId>
-    <version>3.5.1</version>
+    <version>3.5.4</version>
 </dependency>
 ```
 
@@ -139,7 +138,6 @@ Enable connection string configured at runtime:
 
 #### Self-diagnostic log file location
 
-By default, when enabling Application Insights Java programmatically, the `applicationinsights.log` file containing
-the agent logs are located in the directory from where the JVM is launched (user directory).
+By default, when enabling Application Insights Java programmatically, the `applicationinsights.log` file containing the agent logs are located in the directory from where the JVM is launched (user directory).
 
 To learn how to change this location, see your [self-diagnostic configuration options](./java-standalone-config.md#self-diagnostics).

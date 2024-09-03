@@ -10,7 +10,7 @@ ms.date: 09/30/2023
 
 # Move DevTest Labs and schedules to another region
 
-You can move DevTest Labs and their associated schedules to another reason. To move a lab, create a copy of an existing lab in another region. When you've moved your lab, and you have a virtual machine (VM) in the target region, you can move your lab schedules.
+You can move DevTest Labs and their associated schedules to another region. To move a lab, create a copy of an existing lab in another region. When you've moved your lab, and you have a virtual machine (VM) in the target region, you can move your lab schedules.
 
 In this article, you learn how to:
 > [!div class="checklist"]
@@ -264,7 +264,7 @@ Note the VMs under the new Lab have the same specs as the ones under the old Lab
 
      After that, you'll have a new disk under the new region.
 
-   1. Swap the OS disk of the Compute VM under the new lab with the new disk. To learn how, see the article, "[Change the OS disk used by an Azure VM using PowerShell](../virtual-machines/windows/os-disk-swap.md)".
+   1. Swap the OS disk of the Compute VM under the new lab with the new disk. To learn how, see the article, "[Change the OS disk used by an Azure VM using PowerShell](/azure/virtual-machines/windows/os-disk-swap)".
 
 ## Move a schedule
 

@@ -3,7 +3,7 @@ title: Configure Application Gateway with a frontend public IPv6 address using A
 description: Learn how to configure Application Gateway with a frontend public IPv6 address using Azure PowerShell.
 services: application-gateway
 author: greg-lindsay
-ms.service: application-gateway
+ms.service: azure-application-gateway
 ms.topic: how-to
 ms.date: 02/08/2024
 ms.author: greglin
@@ -27,7 +27,7 @@ You learn how to:
 * Create an application gateway with [IPv6 frontend](#create-application-gateway-frontend-public-ip-addresses)
 * Create a virtual machine scale set with the default [backend pool](#create-the-backend-pool-and-settings)
 
-Azure PowerShell is used to create an IPv6 Azure Application Gateway and perform testing to ensure it works correctly. Application gateway can manage and secure web traffic to servers that you maintain. A [virtual machine scale set](../virtual-machine-scale-sets/overview.md) is for backend servers to manage web traffic. The scale set contains two virtual machine instances that are added to the default backend pool of the application gateway. For more information about the components of an application gateway, see [Application gateway components](application-gateway-components.md). 
+Azure PowerShell is used to create an IPv6 Azure Application Gateway and perform testing to ensure it works correctly. Application gateway can manage and secure web traffic to servers that you maintain. A [virtual machine scale set](/azure/virtual-machine-scale-sets/overview) is for backend servers to manage web traffic. The scale set contains two virtual machine instances that are added to the default backend pool of the application gateway. For more information about the components of an application gateway, see [Application gateway components](application-gateway-components.md). 
 
 You can also complete this quickstart using the [Azure portal](ipv6-application-gateway-portal.md).
 
@@ -47,12 +47,10 @@ The IPv6 Application Gateway is available to all public cloud regions where Appl
 * IPv6 backends are currently not supported
 * IPv6 private Link is currently not supported
 * IPv6-only Application Gateway is currently not supported. Application Gateway must be dual stack (IPv6 and IPv4)
-* Deletion of frontend IP addresses isn't supported
 * Application Gateway Ingress Controller (AGIC) doesn't support IPv6 configuration
 * Existing IPv4 Application Gateways can't be upgraded to dual stack Application Gateways
+* WAF custom rules with an IPv6 match condition are not currently supported
 
-> [!NOTE]
-> If you use WAF v2 SKU for a frontend with both IPv4 and IPv6 addresses, WAF rules only apply to IPv4 traffic. IPv6 traffic bypasses WAF and may get blocked by some custom rule.
 
 
 

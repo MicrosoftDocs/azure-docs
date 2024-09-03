@@ -23,7 +23,7 @@ sections:
           See [Resolve past due balance for your Azure subscription](manage/resolve-past-due-balance.md).
       - question: How long does it take for my payment to be posted?
         answer: |
-          See [Wire transfer payment processing time](manage/pay-by-invoice.md#wire-transfer-payment-processing-time).
+          See [Wire transfer payment processing time](manage/pay-by-invoice.md#whats-the-processing-time-for-wire-transfer-payments).
       - question: How do I find my invoice?
         answer: |
           See [View and download your Microsoft Azure invoice](understand/download-azure-invoice.md).
@@ -41,18 +41,13 @@ sections:
           See [Analyze unexpected charges](understand/analyze-unexpected-charges.md).
       - question: How do I change my billing information?
         answer: |
-          See [Change billing information](manage/change-azure-account-profile.md).
+          See [Change billing information](manage/change-azure-account-profile.yml).
       - question: How do I cancel my Azure subscription?
         answer: |
           See [Cancel your Azure subscription](manage/cancel-azure-subscription.md).
       - question: When does Azure finalize or close the billing cycle of a closed month?
         answer: |
-          Azure finalizes or closes the current billing period up to 72 hours (three calendar days) after the billing period ends. The following examples illustrate how billing periods could end:
-          
-            - Enterprise Agreement (EA) subscriptions – If the billing month ends on March 31, estimated charges are updated up to 72 hours later. In this example, by midnight (UTC) April 4.
-            - Pay-as-you-go subscriptions – If the billing month ends on May 15, then the estimated charges might get updated up to 72 hours later. In this example, by midnight (UTC) May 19.
-          
-          For more information, see [Cost and usage data updates and retention](costs/understand-cost-mgt-data.md#cost-and-usage-data-updates-and-retention).
+          Azure finalizes or closes the current billing period up to the fifth day after a closed month. Changes might continue and change until the fifth day after a billing period ends as the billing system processes data.
 
   - name: Cost Management questions
     questions:
@@ -135,7 +130,7 @@ sections:
     questions:
       - question: When are the EA Reporting APIs going to be deprecated?
         answer: |
-          On May 1, 2024, Azure Enterprise Reporting APIs will be retired. We recommend that you migrate away from the APIs before their retirement. For more information, [Migrate from Azure Enterprise Reporting APIs to Microsoft Cost Management APIs](./automate/migrate-ea-reporting-arm-apis-overview.md).
+          All Azure Enterprise Reporting APIs are retired. You should [Migrate to Microsoft Cost Management APIs](./automate/migrate-ea-reporting-arm-apis-overview.md) as soon as possible.
       - question: How do I migrate off of the EA Reporting APIs and what new APIs should I call?
         answer: |
           See [Migrate from Azure Enterprise Reporting to Microsoft Cost Management APIs](automate/migrate-ea-reporting-arm-apis-overview.md).
@@ -285,7 +280,7 @@ sections:
           
           After you create departments and subscriptions, you can see data in the usage report. This information can help you track usage and manage cost and spend at the department level.
           
-          You can also access usage data via the reporting API. For detailed information and sample code, see [Azure Enterprise REST APIs](manage/enterprise-rest-apis.md).
+          You can also access usage data via the reporting API.
           
           Direct enterprise customers can view usage and spending at different department levels in the Azure portal. Navigate to the **Department** menu to view charges.
       - question: Can I set a spending quota and get alerts as I approach my limit?
@@ -297,7 +292,7 @@ sections:
         answer: |
           If you use _resource groups_ and _tags_, this information is tracked at service level, and you can access it in the detailed usage download (CSV) file.
           
-          You can also access usage via API. For detailed information and sample code, see [Azure Enterprise REST APIs](manage/enterprise-rest-apis.md).
+          You can also access usage via API.
           
           > [!NOTE]
           > You can only apply tags to resources that support Azure Resource Manager operations. If you created a virtual machine, virtual network, or storage through the classic deployment model (such as through the classic portal), you can't apply a tag to that resource. You must redeploy these resources through the Resource Manager to support tagging. All other resources support tagging.
@@ -351,9 +346,6 @@ sections:
       - question: Why doesn't the total amount on Azure Marketplace match the reports for usage summary and detail?
         answer: |
           The Azure Marketplace charges report shows only the usage-based charges. One-time fees aren't shown. See the usage summary page for the most up-to-date usage-based charges and one-time fees.
-      - question: Why is there no information on my API report?
-        answer: |
-          API keys expire every six months. If you're having an issue, an enterprise administrator should generate a new API key. For more information about API key generation, see [API key generation](manage/enterprise-rest-apis.md#api-key-generation).
       - question: Why isn't my Power BI report working?
         answer: |
           For issues with Power BI, log a ticket with the [Power BI support team](https://support.powerbi.com).

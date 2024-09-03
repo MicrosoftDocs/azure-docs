@@ -333,12 +333,12 @@
         },
         {
             "source_path_from_root": "/articles/load-balancer/protect-load-balancer-with-ddos-standard.md",
-            "redirect_URL": "/azure/load-balancer/tutorial-protect-load-balancer",
+            "redirect_url": "/azure/load-balancer/tutorial-protect-load-balancer",
             "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/load-balancer/tutorial-protect-load-balancer.md",
-            "redirect_URL": "/azure/load-balancer/tutorial-protect-load-balancer-ddos",
+            "redirect_url": "/azure/load-balancer/tutorial-protect-load-balancer-ddos",
             "redirect_document_id": false
         },
         {
@@ -354,6 +354,11 @@
         {
             "source_path_from_root": "/articles/load-balancer/azure-media-player/components-limitations.md",
             "redirect_url": "/azure/load-balancer/concepts",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/load-balancer/load-balancer-configure-sqlao.md",
+            "redirect_url": "/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-alwayson-int-listener",
             "redirect_document_id": false
         }
     ]

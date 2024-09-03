@@ -69,7 +69,7 @@ items:
   - name: Memory
     items:
     - name: Java memory management
-      href: ../enterprise/concepts-for-java-memory-management.md?toc=/azure/spring-apps/basic-standard/toc.json&bc=/azure/spring-apps/basic-standard/breadcrumb/toc.json
+      href: concepts-for-java-memory-management.md
     - name: Tools to troubleshoot memory issues
       href: ../enterprise/tools-to-troubleshoot-memory-issues.md?toc=/azure/spring-apps/basic-standard/toc.json&bc=/azure/spring-apps/basic-standard/breadcrumb/toc.json
     - name: Fix app restart issues caused by OOM
@@ -113,7 +113,7 @@ items:
     - name: Prepare a Java Spring app for deployment
       href: ../enterprise/how-to-prepare-app-deployment.md?tabs=basic-standard-plan&toc=/azure/spring-apps/basic-standard/toc.json&bc=/azure/spring-apps/basic-standard/breadcrumb/toc.json
     - name: Set up a Config Server
-      href: how-to-config-server.md
+      href: ../enterprise/how-to-config-server.md?pivots=sc-standard&toc=/azure/spring-apps/basic-standard/toc.json&bc=/azure/spring-apps/basic-standard/breadcrumb/toc.json
     - name: Enable Service Registration
       href: how-to-service-registration.md
   - name: Deploy

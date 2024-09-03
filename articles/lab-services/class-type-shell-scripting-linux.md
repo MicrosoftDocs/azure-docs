@@ -3,10 +3,12 @@ title: Set up a Linux shell scripting lab with Azure Lab Services | Microsoft Do
 description: Learn how to set up a lab to teach shell scripting on Linux. 
 ms.topic: how-to
 ms.date: 03/10/2022
-ms.custom: devdivchpfy22
+ms.custom: devdivchpfy22, linux-related-content
 ---
 
 # Set up a lab to teach shell scripting on Linux
+
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
 
 [!INCLUDE [preview note](./includes/lab-services-new-update-focused-article.md)]
 
@@ -42,7 +44,7 @@ For instructions on how to create a lab, see [Tutorial: Set up a lab](tutorial-s
 
 ### Install desktop and RDP
 
-The Ubuntu Server 18.04 LTS image doesn't have the RDP remote desktop server installed by default. To install the packages that are needed on the template machine to connect via remote desktop protocol (RDP), follow instructions in the [Install and configure Remote Desktop to connect to a Linux VM in Azure](../virtual-machines/linux/use-remote-desktop.md) article.
+The Ubuntu Server 18.04 LTS image doesn't have the RDP remote desktop server installed by default. To install the packages that are needed on the template machine to connect via remote desktop protocol (RDP), follow instructions in the [Install and configure Remote Desktop to connect to a Linux VM in Azure](/azure/virtual-machines/linux/use-remote-desktop) article.
 
 ### Install Ruby
 

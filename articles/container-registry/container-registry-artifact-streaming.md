@@ -1,8 +1,8 @@
 ---
 title: "Artifact streaming in Azure Container Registry (Preview)"
-description: "Artifact streaming is a feature in Azure Container Registry to enhance and supercharge managing, scaling, and deploying artifacts through containerized platforms."
+description: "Artifact streaming is a feature in Azure Container Registry to enhance managing, scaling, and deploying artifacts through containerized platforms."
 author: tejaswikolli-web
-ms.service: container-registry
+ms.service: azure-container-registry
 ms.custom: devx-track-azurecli
 zone_pivot_groups: container-registry-zones
 ms.topic: conceptual #Don't change
@@ -95,7 +95,7 @@ Start artifact streaming, by following these general steps:
 
     ```azurecli-interactive
     az configure --defaults acr="mystreamingtest"
-    az acr import -source docker.io/jupyter/all-spark-notebook:latest -t jupyter/all-spark-notebook:latest
+    az acr import --source docker.io/jupyter/all-spark-notebook:latest -t jupyter/all-spark-notebook:latest
     ```
 
 3. Create an artifact streaming from the Image
@@ -149,7 +149,16 @@ Start artifact streaming, by following these general steps:
     ```azurecli-interactive
     az acr artifact-streaming operation show --image jupyter/all-spark-notebook:newtag
     ```
+    
+8. Once you have verified conversion status, you can now connect to AKS. Refer to [AKS documentation](https://aka.ms/artifactstreaming).
 
+9. Turn-off the streaming artifact from the repository.
+
+    For example, run the [az acr artifact-streaming update][az-acr-artifact-streaming-update] command to delete the streaming artifact for the `jupyter/all-spark-notebook:latest` image in the `mystreamingtest` ACR.
+
+    ```azurecli-interactive
+    az acr artifact-streaming update --repository jupyter/all-spark-notebook --enable-streaming false
+    ```
 
 :::zone-end
 

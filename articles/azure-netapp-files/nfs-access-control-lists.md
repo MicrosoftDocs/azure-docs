@@ -11,9 +11,6 @@ ms.author: anfdocs
 
 # Understand NFSv4.x access control lists in Azure NetApp Files
 
-> [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
-
 The NFSv4.x protocol can provide access control in the form of [access control lists (ACLs)](/windows/win32/secauthz/access-control-lists), which conceptually similar to ACLs used in [SMB via Windows NTFS permissions](network-attached-file-permissions-smb.md). An NFSv4.x ACL consists of individual [Access Control Entries (ACEs)](/windows/win32/secauthz/access-control-entries), each of which provides an access control directive to the server. 
 
 :::image type="content" source="./media/nfs-access-control-lists/access-control-entity-to-client-diagram.png" alt-text="Diagram of access control entity to Azure NetApp Files." lightbox="./media/nfs-access-control-lists/access-control-entity-to-client-diagram.png":::
@@ -236,7 +233,7 @@ Azure NetApp Files defaults the NFSv4.x ID domain to the DNS domain settings for
 When a domain mismatch occurs between the NFS client and Azure NetApp Files, check the client logs for errors similar to:
  
 ```bash
-August 19 13:14:29 centos7 nfsidmap[17481]: nss_getpwnam: name 'root@microsoft.com' does not map into domain ‘CONTOSO.COM'
+August 19 13:14:29 nfsidmap[17481]: nss_getpwnam: name 'root@microsoft.com' does not map into domain ‘CONTOSO.COM'
 ```
 
 The NFS client’s ID domain can be overridden using the /etc/idmapd.conf file’s “Domain” setting. For example: `Domain = CONTOSO.COM`.

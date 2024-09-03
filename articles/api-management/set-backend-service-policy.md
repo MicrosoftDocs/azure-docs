@@ -4,19 +4,24 @@ description: Reference for the set-backend-service policy available for use in A
 services: api-management
 author: dlepow
 
-ms.service: api-management
+ms.service: azure-api-management
+ms.custom:
+  - build-2024
 ms.topic: article
-ms.date: 03/14/2024
+ms.date: 07/23/2024
 ms.author: danlep
 ---
 
 # Set backend service
+
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
+
 Use the `set-backend-service` policy to redirect an incoming request to a different backend than the one specified in the API settings for that operation. This policy changes the backend service base URL of the incoming request to a URL or [backend](backends.md) specified in the policy.
 
-Referencing a backend entity allows you to manage the backend service base URL and other settings in a single place and reuse them across multiple APIs and operations. Also implement [load balancing of traffic across a pool of backend services](backends.md#load-balanced-pool-preview) and [circuit breaker rules](backends.md#circuit-breaker-preview) to protect the backend from too many requests.
+Referencing a backend entity allows you to manage the backend service base URL and other settings in a single place and reuse them across multiple APIs and operations. Also implement [load balancing of traffic across a pool of backend services](backends.md#load-balanced-pool) and [circuit breaker rules](backends.md#circuit-breaker) to protect the backend from too many requests.
 
 > [!NOTE]
-> Backend entities can be managed via [Azure portal](how-to-configure-service-fabric-backend.md), management [API](/rest/api/apimanagement), and [PowerShell](https://www.powershellgallery.com/packages?q=apimanagement). 
+> Backend entities can be managed via [Azure portal](how-to-configure-service-fabric-backend.yml), management [API](/rest/api/apimanagement), and [PowerShell](https://www.powershellgallery.com/packages?q=apimanagement). 
 
 [!INCLUDE [api-management-policy-generic-alert](../../includes/api-management-policy-generic-alert.md)]
 
@@ -41,7 +46,7 @@ Referencing a backend entity allows you to manage the backend service base URL a
 
 - [**Policy sections:**](./api-management-howto-policies.md#sections) inbound, backend
 - [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, workspace, product, API, operation
--  [**Gateways:**](api-management-gateways-overview.md) dedicated, consumption, self-hosted
+-  [**Gateways:**](api-management-gateways-overview.md) classic, v2, consumption, self-hosted, workspace
 
 ### Usage notes
 
@@ -77,7 +82,7 @@ Initially the backend service base URL is derived from the API settings. So the 
 
 When the [<choose\>](choose-policy.md) policy statement is applied the backend service base URL may change again either to `http://contoso.com/api/8.2` or `http://contoso.com/api/9.1`, depending on the value of the version request query parameter. For example, if the value is `"2013-15"` the final request URL becomes `http://contoso.com/api/8.2/partners/15?version=2013-15&subscription-key=abcdef`.
 
-If further transformation of the request is desired, other [Transformation policies](api-management-transformation-policies.md) can be used. For example, to remove the version query parameter now that the request is being routed to a version specific backend, the [Set query string parameter](set-query-parameter-policy.md) policy can be used to remove the now redundant version attribute.
+If further transformation of the request is desired, other [Transformation policies](api-management-policies.md#transformation) can be used. For example, to remove the version query parameter now that the request is being routed to a version specific backend, the [Set query string parameter](set-query-parameter-policy.md) policy can be used to remove the now redundant version attribute.
 
 ### Route requests to a service fabric backend
 
@@ -98,6 +103,6 @@ In this example the policy routes the request to a service fabric backend, using
 
 ## Related policies
 
-* [API Management transformation policies](api-management-transformation-policies.md)
+* [Routing](api-management-policies.md#routing)
 
 [!INCLUDE [api-management-policy-ref-next-steps](../../includes/api-management-policy-ref-next-steps.md)]

@@ -6,7 +6,7 @@ summary: Learn how to use Azure Virtual Network. Quickstarts, tutorials, samples
 metadata:
   title: Azure Virtual Network Documentation - Tutorials, quickstarts, API references
   description: Learn how to use Azure Virtual Network. Quickstarts, tutorials, samples, and more, show you how to deploy a virtual network, control traffic filtering and routing, and connect a virtual network to other virtual networks.
-  ms.service: virtual-network
+  ms.service: azure-virtual-network
   ms.topic: landing-page
   author: asudbring
   ms.author: allensu
@@ -53,7 +53,7 @@ landingContent:
       - linkListType: how-to-guide
         links:
           - text: Create, change, or delete a virtual network
-            url: manage-virtual-network.md
+            url: manage-virtual-network.yml
           - text: Add, change, or delete a subnet
             url: virtual-network-manage-subnet.md
 

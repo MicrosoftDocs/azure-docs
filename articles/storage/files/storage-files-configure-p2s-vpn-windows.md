@@ -1,10 +1,10 @@
 ---
-title: Configure a point-to-site (P2S) VPN on Windows for use with Azure Files
-description: How to configure a point-to-site (P2S) VPN on Windows for use with SMB Azure file shares
+title: Configure a point-to-site VPN on Windows for Azure Files
+description: How to configure a point-to-site (P2S) VPN on Windows for use with SMB Azure file shares to mount your Azure file shares over SMB from outside of Azure without opening up port 445.
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 01/31/2024
+ms.date: 05/09/2024
 ms.author: kendownie
 ms.custom: devx-track-azurepowershell
 ---
@@ -193,7 +193,7 @@ To deploy a virtual network gateway using the Azure portal, follow these instruc
 
 1. When deployment is complete, select **Go to resource**.
 
-1. In the left pane, select **Settings > Point-to-site configuration** and then select **Configure now**. You should see the Point-to-site configuration page.
+1. In the service menu, under **Settings**, select **Point-to-site configuration** and then select **Configure now**. You should see the Point-to-site configuration page.
 
    :::image type="content" source="media/storage-files-configure-p2s-vpn-windows/point-to-site-configuration.png" alt-text="Screenshot showing how to configure a point-to-site VPN using the Azure portal." lightbox="media/storage-files-configure-p2s-vpn-windows/point-to-site-configuration.png":::
 

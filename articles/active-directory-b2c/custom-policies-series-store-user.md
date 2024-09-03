@@ -10,7 +10,7 @@ ms.service: active-directory
 
 ms.topic: how-to
 ms.custom: b2c-docs-improvements
-ms.date: 01/11/2024
+ms.date: 06/21/2024
 ms.author: kengaderdus
 ms.reviewer: yoelh
 ms.subservice: B2C
@@ -206,7 +206,7 @@ We use the `ClaimGenerator` technical profile to execute three claims transforma
                         </Precondition>
                     </Preconditions>
                 </ValidationTechnicalProfile>                        
-                <ValidationTechnicalProfile ReferenceId="DisplayNameClaimGenerator"/>
+                <ValidationTechnicalProfile ReferenceId="UserInputDisplayNameGenerator"/>
                 <ValidationTechnicalProfile ReferenceId="AAD-UserWrite"/>
             </ValidationTechnicalProfiles>
         <!--</TechnicalProfile>-->
@@ -263,7 +263,7 @@ Follow the steps in [Test the custom policy](custom-policies-series-validate-use
 
 After the policy finishes execution, and you receive your ID token, check that the user record has been created: 
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) with Global Administrator or Privileged Role Administrator permissions.
+1. Sign in to the [Azure portal](https://portal.azure.com/) as at least Privileged Role Administrator.
 
 1. If you have access to multiple tenants, select the **Settings** icon in the top menu to switch to your Azure AD B2C tenant from the **Directories + subscriptions** menu.
 
@@ -407,15 +407,14 @@ To configure a display control, use the following steps:
 
 1. Use the procedure in [step 6](#step-6---upload-policy) and [step 7](#step-7---test-policy) to upload your policy file, and test it. This time, you must verify your email address before a user account is created.  
 
-<a name='update-user-account-by-using-azure-ad-technical-profile'></a>
 
 ## Update user account by using Microsoft Entra ID technical profile
 
-You can configure a Microsoft Entra ID technical profile to update a user account instead of attempting to create a new one. To do so, set the Microsoft Entra ID technical profile to throw an error if the specified user account doesn't already exist in the `Metadata` collection by using the following code. The *Operation* needs to be set to *Write*:
+You can configure a Microsoft Entra ID technical profile to update a user account instead of attempting to create a new one. To do so, set the Microsoft Entra ID technical profile to throw an error if the specified user account doesn't already exist in the metadata collection by using the following code. Also, remove the `Key="UserMessageIfClaimsPrincipalAlreadyExists` metadata entry. The *Operation* needs to be set to *Write*:
 
 ```xml
     <Item Key="Operation">Write</Item>
-    <Item Key="RaiseErrorIfClaimsPrincipalDoesNotExist">true</Item>
+    <Item Key="RaiseErrorIfClaimsPrincipalDoesNotExist">false</Item>
 ``` 
 
 ## Use custom attributes 

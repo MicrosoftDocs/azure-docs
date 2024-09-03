@@ -38,18 +38,20 @@ Key features of Azure Communication Services SMS SDKs include:
 
 Sending SMS to any recipient requires getting a phone number. Choosing the right number type is critical to the success of your messaging campaign. Some factors to consider when choosing a number type include destination(s) of the message, throughput requirement of your messaging campaign, and the timeline when you want to start sending messages. Azure Communication Services enables you to send SMS using a variety of sender types - toll-free number (1-8XX), short codes (12345), and alphanumeric sender ID (CONTOSO). The following table walks you through the features of each number type:
 
-|Factors              | Toll-Free| Short Code | Dynamic Alphanumeric Sender ID| Preregistered Alphanumeric Sender ID|
-|---------------------|----------|------------|-----------------------|-----------------------|
+|Factors              | Toll-Free| Short Code | Dynamic Alphanumeric Sender ID| Preregistered Alphanumeric Sender ID| 
+|---------------------|----------|------------|-----------------------|-----------------------|-----------------------|
 |**Description**|Toll free numbers are telephone numbers with distinct three-digit codes that can be used for business to consumer communication without any charge to the consumer| Short codes are 5-6 digit numbers used for business to consumer messaging such as alerts, notifications, and marketing |  Alphanumeric Sender IDs are displayed as a custom alphanumeric phrase like the company’s name (CONTOSO, MyCompany) on the recipient handset. Alphanumeric sender IDs can be used for a variety of use cases like one-time passcodes, marketing alerts, and flight status notifications. Dynamic alphanumeric sender ID is supported in countries that do not require registration for use.| Alphanumeric Sender IDs are displayed as a custom alphanumeric phrase like the company’s name (CONTOSO, MyCompany) on the recipient handset. Alphanumeric sender IDs can be used for a variety of use cases like one-time passcodes, marketing alerts, and flight status notifications. Pre-registered alphanumeric sender ID is supported in countries that require registration for use. |
 |**Format**|+1 (8XX) XYZ PQRS| 12345  | CONTOSO*       |CONTOSO*       |
 |**SMS support**|Two-way SMS| Two-way SMS  | One-way outbound SMS  |One-way outbound SMS  |
 |**Calling support**|Yes| No | No |No |
-|**Provisioning time**| 5-6 weeks| 6-8 weeks  | Instant       | 4-5 weeks|
+|**Provisioning time**| 5-6 weeks| 6-8 weeks  | Instant       | 4-5 weeks| 
 |**Throughput**       | 200 messages/min (can be increased upon request)| 6000 messages/ min (can be increased upon request) | 600 messages/ min (can be increased upon request)|600 messages/ min (can be increased upon request)|
-|**Supported Destinations**| United States, Canada, Puerto Rico| United States, Canada, United Kingdom   |  Austria, Denmark, Estonia, France, Germany, Ireland, Latvia, Lithuania, Netherlands, Poland, Portugal, Spain, Sweden, Switzerland, United Kingdom| Australia, Czech Republic, Finland, Italy, Norway, Slovakia, Slovenia|
+|**Supported Destinations**| United States, Canada, Puerto Rico| United States, Canada, United Kingdom   |  Austria, Denmark, Estonia, France, Germany, Ireland, Latvia, Lithuania, Netherlands, Poland, Portugal, Spain, Sweden, Switzerland | Australia, Czech Republic, Finland, Italy, Norway, Slovakia, Slovenia, United Kingdom| 
 |**Get started**|[Get a toll-free number](../../quickstarts/telephony/get-phone-number.md)|[Get a short code](../../quickstarts/sms/apply-for-short-code.md) | [Enable dynamic alphanumeric sender ID](../../quickstarts/sms/enable-alphanumeric-sender-id.md#enable-dynamic-alphanumeric-sender-id) |[Enable preregistered alphanumeric sender ID](../../quickstarts/sms/enable-alphanumeric-sender-id.md#enable-preregistered-alphanumeric-sender-id) |
 
 \* See [Alphanumeric sender ID FAQ](./sms-faq.md#alphanumeric-sender-id) for detailed formatting requirements.
+> [!IMPORTANT]
+> Effective **April 19, 2024**, All UK alpha sender IDs now require a [registration application](../../quickstarts/sms/enable-alphanumeric-sender-id.md#enable-preregistered-alphanumeric-sender-id) approval.
 
 ## Next steps
 

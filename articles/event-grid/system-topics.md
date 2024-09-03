@@ -3,7 +3,7 @@ title: System topics in Azure Event Grid
 description: Describes system topics in Azure Event Grid. 
 ms.topic: conceptual
 ms.custom: build-2023
-ms.date: 04/27/2023
+ms.date: 06/14/2024
 ---
 
 # System topics in Azure Event Grid

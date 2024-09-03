@@ -4,9 +4,9 @@ titleSuffix: Azure Spring Apps Enterprise plan
 description: Shows you how to configure APM integration and CA certificates in the Azure Spring Apps Enterprise plan.
 author: KarlErickson
 ms.author: fenzho
-ms.service: spring-apps
+ms.service: azure-spring-apps
 ms.topic: how-to
-ms.date: 05/25/2023
+ms.date: 08/29/2024
 ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli
 ---
 
@@ -132,7 +132,7 @@ This section lists the supported languages and required environment variables fo
   - `controller_ssl_enabled`
   - `controller_port`
 
-  For other supported environment variables, see [AppDynamics](https://docs.appdynamics.com/appd/23.x/23.11/en/application-monitoring/install-app-server-agents/java-agent/monitor-azure-spring-cloud-with-java-agent#id-.MonitorAzureSpringCloudwithJavaAgentv23.1-ConfigureUsingtheEnvironmentVariablesorSystemProperties)
+  For other supported environment variables, see [AppDynamics](https://docs.appdynamics.com/appd/24.x/24.3/en/application-monitoring/install-app-server-agents/java-agent/monitor-azure-spring-cloud-with-java-agent#id-.MonitorAzureSpringCloudwithJavaAgentv24.3-ConfigureUsingtheEnvironmentVariablesorSystemProperties)
 
 ## Bindings in builder is deprecated
 

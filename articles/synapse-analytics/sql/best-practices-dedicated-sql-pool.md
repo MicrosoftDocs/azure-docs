@@ -4,7 +4,7 @@ description: Recommendations and best practices you should know as you work with
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.date: 09/22/2022
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.subservice: sql
 ms.topic: conceptual
 ---

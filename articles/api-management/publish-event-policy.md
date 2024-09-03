@@ -4,13 +4,15 @@ description: Reference for the publish-event policy available for use in Azure A
 services: api-management
 author: dlepow
 
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: article
-ms.date: 05/24/2023
+ms.date: 07/23/2024
 ms.author: danlep
 ---
 
 # Publish event to GraphQL subscription
+
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 
 The `publish-event` policy publishes an event to one or more subscriptions specified in a GraphQL API schema. Configure the policy in a [GraphQL resolver](configure-graphql-resolver.md) for a related field in the schema for another operation type such as a mutation. At runtime, the event is published to connected GraphQL clients. Learn more about [GraphQL APIs in API Management](graphql-apis-overview.md).
 
@@ -46,7 +48,7 @@ The `publish-event` policy publishes an event to one or more subscriptions speci
 
 - [**Policy sections:**](./api-management-howto-policies.md#sections) `http-response` element in `http-data-source` resolver
 - [**Policy scopes:**](./api-management-howto-policies.md#scopes) GraphQL resolver only
--  [**Gateways:**](api-management-gateways-overview.md) dedicated, consumption
+-  [**Gateways:**](api-management-gateways-overview.md) classic, v2, consumption
 
 ### Usage notes
 
@@ -95,6 +97,6 @@ type Subscription {
 
 ## Related policies
 
-* [GraphQL resolver policies](api-management-policies.md#graphql-resolver-policies)
+* [GraphQL resolvers](api-management-policies.md#graphql-resolvers)
 
 [!INCLUDE [api-management-policy-ref-next-steps](../../includes/api-management-policy-ref-next-steps.md)]

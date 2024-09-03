@@ -15,6 +15,9 @@
     - name: Microsoft Sentinel
       tocHref: /azure/defender-for-iot/organizations/
       topicHref: /azure/sentinel/index
+    - name: Microsoft Sentinel
+      tocHref: /azure/azure-monitor/
+      topicHref: /azure/sentinel/index
 
 ### Security baseline
 - name: Azure
@@ -29,15 +32,15 @@
       tocHref: /security/benchmark/azure/baselines/
       topicHref: /azure/sentinel/index
 
-### Microsoft 365
+### Defender
 - name: Azure
-  tocHref: /microsoft-365/
+  tocHref: /defender/
   topicHref: /azure/index
   items: 
   - name: Security
-    tocHref: /microsoft-365/security/
+    tocHref: /azure/security/
     topicHref: /azure/security/index
     items:
     - name: Microsoft Sentinel
-      tocHref: /microsoft-365/security/defender/
+      tocHref: /defender-xdr/
       topicHref: /azure/sentinel/index

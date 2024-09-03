@@ -1,6 +1,6 @@
 ---
-title: Create Apache Kafka for Confluent Cloud through Azure portal
-description: This article describes how to use the Azure portal to create an instance of Apache Kafka for Confluent Cloud.
+title: Create Apache Kafka & Apache Flink on Confluent Cloud through Azure portal
+description: This article describes how to use the Azure portal to create an instance of Apache Kafka & Apache Flink on Confluent Cloud.
 # customerIntent: As a developer I want create a new instance of Apache Kafka & Apache Flink on Confluent Cloud using the Azure portal.
 ms.topic: quickstart
 ms.date: 1/31/2024
@@ -18,7 +18,7 @@ In this quickstart, you'll use the Azure portal to create an instance of Apache 
 
 ## Find offer
 
-Use the Azure portal to find the Apache Kafka on Confluent Cloud application.
+Use the Azure portal to find the Apache Kafka & Apache Flink on Confluent Cloud application.
 
 1. In a web browser, go to the [Azure portal](https://portal.azure.com/) and sign in.
 
@@ -36,13 +36,13 @@ Use the Azure portal to find the Apache Kafka on Confluent Cloud application.
 
      :::image type="content" source="media/view-private-offers.png" alt-text="view private offers.":::
 
-     Look for _Apache Kafka on Confluent Cloud_.
+     Look for _Apache Kafka® & Apache Flink® on Confluent Cloud™_.
 
      :::image type="content" source="media/select-from-private-offers.png" alt-text="select private offer.":::
 
 ## Create resource
 
-After you've selected the offer for Apache Kafka on Confluent Cloud, you're ready to set up the application.
+After you've selected the offer for Apache Kafka & Apache Flink on Confluent Cloud, you're ready to set up the application.
 
 1. If you selected private offers in the previous section, you'll have two options for plan types:
 
@@ -85,10 +85,9 @@ After you've selected the offer for Apache Kafka on Confluent Cloud, you're read
 
 ## Next steps
 
-   > [!div class="nextstepaction"]
-   > [Manage the Confluent organization](manage.md)
+- [Manage the Confluent organization](manage.md)
 
-- Get started with Apache Kafka on Confluent Cloud - An Azure Native ISV Service on
+- Get started with Apache Kafka & Apache Flink on Confluent Cloud - An Azure Native ISV Service on
 
    > [!div class="nextstepaction"]
    > [Azure portal](https://portal.azure.com/#view/HubsExtension/BrowseResource/resourceType/Microsoft.Confluent%2Forganizations)

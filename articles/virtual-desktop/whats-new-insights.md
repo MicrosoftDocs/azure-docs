@@ -1,10 +1,10 @@
 ---
 title: What's new in Azure Virtual Desktop Insights?
 description: New features and product updates in Azure Virtual Desktop Insights.
-author: Heidilohr
+author: sipastak
 ms.topic: release-notes
-ms.date: 03/22/2024
-ms.author: helohr
+ms.date: 05/02/2024
+ms.author: sipastak
 ms.custom: references_regions
 ---
 # What's new in Azure Virtual Desktop Insights?
@@ -19,7 +19,7 @@ The following table shows the latest available version of Azure Virtual Desktop 
 
 | Release | Latest version | Setup instructions |
 |---------|----------------|----------|
-| Public | 3.2.2 | [Use Azure Virtual Desktop Insights to monitor your deployment](insights.md) |
+| Public | 3.5.0 | [Use Azure Virtual Desktop Insights to monitor your deployment](insights.md) |
 
 ## How to read version numbers
 
@@ -34,6 +34,31 @@ There are three numbers in each version of Azure Virtual Desktop Insights. Here'
 For example, a release with a version number of 1.2.31 is on the first major release, the second minor release, and patch number 31.
 
 When one of the numbers is increased, all numbers after it must change, too. One release has one version number. However, not all version numbers track releases. Patch numbers can be somewhat arbitrary, for example.
+
+## Version 3.5.0
+
+*Published: July 1, 2024*
+
+In this update, we made the following change:
+
+- Connection reliability is generally available.
+
+## Version 3.4.0
+
+*Published: May 13, 2024*
+
+In this update, we made the following changes:
+
+- Added Azure Stack HCI core count.
+- Updated the reliability of the calculation for users per core.
+
+## Version 3.3.1
+
+*Published: April 29, 2024*
+
+In this update, we made the following change:
+
+- Introduced previews for connection reliability and autoscale reporting.
 
 ## Version 3.2.2
 
@@ -94,7 +119,7 @@ In this update, we've made the following change:
 
 In this update, we've made the following change:
 
-- Added reporting support for Shutdown state.
+- Added reporting support for the shutdown state.
 
 ## Version 2.1.0
 
@@ -102,7 +127,7 @@ In this update, we've made the following change:
 
 In this update, we've made the following change:
 
-- Introduced Azure Monitor Agent support for public preview.
+- Introduced support for the Azure Monitor Agent in preview.
 
 ## Version 2.0.2
 
@@ -152,7 +177,7 @@ In this release, we've made the following change:
 
 In this release, we've made the following change:
 
-- Added FSLogix compaction information to the **Utilization** tab for reporting as well as a User search capability to the *at scale* public preview.
+- Added a preview of FSLogix compaction information to the **Utilization** tab for reporting as well as a User search capability to the *at scale*.
 
 ## Version 1.4.0
 
@@ -168,7 +193,7 @@ In this release, we've made the following change:
 
 In this release, we've made the following changes:
 
-- Introduced a public preview of *at scale* reporting for Azure Virtual Desktop Insights to allow the selection of multiple subscriptions, resource groups, and host pools.
+- Introduced a preview of *at scale* reporting for Azure Virtual Desktop Insights to allow the selection of multiple subscriptions, resource groups, and host pools.
 
 ## Version 1.2.2
 

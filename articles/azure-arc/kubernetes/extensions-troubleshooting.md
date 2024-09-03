@@ -70,7 +70,7 @@ The extension status also returns as `Failed`.
 "{\"status\":\"Failed\",\"error\":{\"code\":\"ResourceOperationFailure\",\"message\":\"The resource operation completed with terminal provisioning state 'Failed'.\",\"details\":[{\"code\":\"ExtensionCreationFailed\",\"message\":\" error: Unable to get the status from the local CRD with the error : {Error : Retry for given duration didn't get any results with err {status not populated}}\"}]}}",
 ```
 
-In this case, the extension-agent pod tries to get its token from IMDS on the cluster. but the token request is intercepted by the [pod identity](../../aks/use-azure-ad-pod-identity.md)). To fix this issue, [upgrade to the latest version](extensions.md#upgrade-extension-instance) of the `microsoft.flux` extension.
+In this case, the extension-agent pod tries to get its token from IMDS on the cluster. but the token request is intercepted by the [pod identity](/azure/aks/use-azure-ad-pod-identity)). To fix this issue, [upgrade to the latest version](extensions.md#upgrade-extension-instance) of the `microsoft.flux` extension.
 
 ### Issues with kubelet identity when installing the `microsoft.flux` extension in an AKS cluster
 
@@ -84,7 +84,7 @@ az k8s-extension create --resource-group <resource-group> --cluster-name <cluste
 
 ### Ensuring memory and CPU requirements for `microsoft.flux` extension installation are met
 
-The controllers installed in your Kubernetes cluster with the `microsoft.flux `extension require CPU and memory resources to properly schedule on Kubernetes cluster nodes. Be sure that your cluster is able to meet the minimum memory and CPU resources that may be requested. Note also the maximum limits for potential CPU and memory resource requirements shown here.
+The controllers installed in your Kubernetes cluster with the `microsoft.flux` extension require CPU and memory resources to properly schedule on Kubernetes cluster nodes. Be sure that your cluster is able to meet the minimum memory and CPU resources that may be requested. Note also the maximum limits for potential CPU and memory resource requirements shown here.
 
 | Container Name | Minimum CPU | Minimum memory | Maximum CPU | Maximum memory |
 | -------------- | ----------- | -------- |

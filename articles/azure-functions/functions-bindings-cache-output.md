@@ -1,5 +1,5 @@
 ---
-title: Using Redis Output bindings with Azure Functions for Azure Cache for Redis (preview)
+title: Using Redis Output bindings with Azure Functions for Azure Cache for Redis
 description: Learn how to use Redis output binding on an Azure Functions. 
 author: flang-msft
 zone_pivot_groups: programming-languages-set-functions-lang-workers
@@ -7,10 +7,10 @@ ms.author: franlanglois
 ms.service: azure-functions
 ms.custom: devx-track-extended-java, devx-track-js, devx-track-python
 ms.topic: reference
-ms.date: 02/27/2024
+ms.date: 07/12/2024
 ---
 
-# Azure Cache for Redis output binding for Azure Functions (preview)
+# Azure Cache for Redis output binding for Azure Functions
 
 The Azure Cache for Redis output bindings lets you change the keys in a cache based on a set of available trigger on the cache.
 
@@ -40,9 +40,34 @@ The following example shows a pub/sub trigger on the set event with an output bi
 >
 >For .NET functions, using the _isolated worker_ model is recommended over the _in-process_ model. For a comparison of the _in-process_ and _isolated worker_ models, see differences between the _isolated worker_ model and the _in-process_ model for .NET on Azure Functions.
 
-### [In-process](#tab/in-process)
+### [Isolated process](#tab/isolated-process)
 
 ```c#
+
+using Microsoft.Extensions.Logging;
+
+namespace Microsoft.Azure.Functions.Worker.Extensions.Redis.Samples.RedisOutputBinding
+{
+    internal class SetDeleter
+    {
+        [Function(nameof(SetDeleter))]
+        [RedisOutput(Common.connectionString, "DEL")]
+        public static string Run(
+            [RedisPubSubTrigger(Common.connectionString, "__keyevent@0__:set")] string key,
+            ILogger logger)
+        {
+            logger.LogInformation($"Deleting recently SET key '{key}'");
+            return key;
+        }
+    }
+}
+```
+
+---
+
+### [In-process](#tab/in-process)
+
+```csharp
 using Microsoft.Extensions.Logging;
 
 namespace Microsoft.Azure.WebJobs.Extensions.Redis.Samples.RedisOutputBinding
@@ -57,28 +82,6 @@ namespace Microsoft.Azure.WebJobs.Extensions.Redis.Samples.RedisOutputBinding
         {
             logger.LogInformation($"Deleting recently SET key '{key}'");
             arguments = new string[] { key };
-        }
-    }
-}
-```
-
-### [Isolated process](#tab/isolated-process)
-
-```csharp
-﻿using Microsoft.Extensions.Logging;
-
-namespace Microsoft.Azure.WebJobs.Extensions.Redis.Samples.RedisOutputBinding
-{
-    internal class SetDeleter
-    {
-        [FunctionName(nameof(SetDeleter))]
-        [return: Redis(Common.connectionStringSetting, "DEL")]
-        public static string Run(
-            [RedisPubSubTrigger(Common.connectionStringSetting, "__keyevent@0__:set")] string key,
-            ILogger logger)
-        {
-            logger.LogInformation($"Deleting recently SET key '{key}'");
-            return key;
         }
     }
 }

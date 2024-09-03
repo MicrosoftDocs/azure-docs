@@ -5,23 +5,32 @@ description: How to customize the managed API Management developer portal with c
 author: dlepow
 ms.author: danlep
 ms.date: 10/27/2023
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: how-to
 ms.custom: devx-track-extended-azdevcli
 ---
 
 # Extend the developer portal with custom widgets
 
+[!INCLUDE [api-management-availability-premium-dev-standard-basic](../../includes/api-management-availability-premium-dev-standard-basic.md)]
+
+
 The API Management [developer portal](api-management-howto-developer-portal.md) features a visual editor and built-in widgets so that you can customize and style the portal's appearance. However, you may need to customize the developer portal further with custom functionality. For example, you might want to integrate your developer portal with a support system that involves adding a custom interface. This article explains ways to add custom functionality such as custom widgets to your API Management developer portal.
 
-The following table summarizes three options, with links to more detail.
+The following table summarizes two options, with links to more detail.
 
 
 |Method   |Description  |
 |---------|---------|
 |[Custom HTML code widget](#use-custom-html-code-widget)     | - Lightweight solution for API publishers to add custom logic for basic use cases<br/><br/>- Copy and paste custom HTML code into a form, and developer portal renders it in an iframe |
 |[Create and upload custom widget](#create-and-upload-custom-widget)     | - Developer solution for more advanced widget use cases<br/><br/>- Requires local implementation in React, Vue, or plain TypeScript<br/><br/>- Widget scaffold and tools provided to help developers create widget and upload to developer portal<br/><br/>- Widget creation, testing, and deployment can be scripted through open source [React Component Toolkit](#create-custom-widgets-using-open-source-react-component-toolkit)<br/><br/>- Supports workflows for source control, versioning, and code reuse      |
-|[Self-host developer portal](developer-portal-self-host.md)     | - Legacy extensibility option for customers who need to customize source code of the entire portal core<br/><br/> - Gives complete flexibility for customizing portal experience<br/><br/>- Requires advanced configuration<br/><br/>- Customer responsible for managing complete code lifecycle: fork code base, develop, deploy, host, patch, and upgrade       |
+
+> [!NOTE]
+> [Self-hosting the developer portal](developer-portal-self-host.md) is an extensibility option for customers who need to customize the source code of the entire portal core. It gives complete flexibility for customizing portal experience, but requires advanced configuration. With self-hosting, you're responsible for managing complete code lifecycle: fork code base, develop, deploy, host, patch, and upgrade.
+
+[!INCLUDE [api-management-developer-portal-wordpress](../../includes/api-management-developer-portal-wordpress.md)]
+
+
 ## Use Custom HTML code widget
 
 The managed developer portal includes a **Custom HTML code** widget where you can insert HTML code for small portal customizations. For example, use custom HTML to embed a video or to add a form. The portal renders the custom widget in an inline frame (iframe). 
@@ -40,7 +49,7 @@ The managed developer portal includes a **Custom HTML code** widget where you ca
     :::image type="content" source="media/developer-portal-extend-custom-functionality/configure-html-custom-code.png" alt-text="Screenshot that shows how to configure HTML custom code in the developer portal.":::
 1. Replace the sample **HTML code** with your custom content.
 1. When configuration is complete, close the window.
-1. Save your changes, and [republish the portal](api-management-howto-developer-portal-customize.md#publish).
+1. Save your changes, and [republish the portal](developer-portal-overview.md#publish-the-portal).
 
 > [!NOTE]
 > Microsoft does not support the HTML code you add in the Custom HTML Code widget.
@@ -128,7 +137,7 @@ The custom widget is now deployed to your developer portal. Using the portal's a
 
 ### Publish the developer portal
 
-After you configure the widget in the administrative interface, [republish the portal](api-management-howto-developer-portal-customize.md#publish) to make the widget available in production.
+After you configure the widget in the administrative interface, [republish the portal](developer-portal-overview.md#publish-the-portal) to make the widget available in production.
 
 > [!NOTE]
 > *  If you deploy updated widget code at a later date, the widget used in production doesn't update until you republish the developer portal.

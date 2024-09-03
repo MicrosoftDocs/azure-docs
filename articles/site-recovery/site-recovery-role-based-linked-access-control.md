@@ -1,7 +1,7 @@
 ---
 title: Manage Azure role-based access control in Azure Site Recovery
 description: This article describes how to apply Azure role-based access control (Azure RBAC) to manage Azure Site Recovery access.
-ms.service: site-recovery
+ms.service: azure-site-recovery
 ms.date: 04/08/2019
 author: ankitaduttaMSFT
 ms.topic: conceptual
@@ -67,9 +67,10 @@ A user needs the following permissions to complete replication of a new virtual 
 Consider using the 'Virtual Machine Contributor' and 'Classic Virtual Machine Contributor' [built-in roles](../role-based-access-control/built-in-roles.md) for Resource Manager and Classic deployment models respectively.
 
 ## Next steps
-* [Azure role-based access control (Azure RBAC)](../role-based-access-control/role-assignments-portal.md): Get started with Azure RBAC in the Azure portal.
-* Learn how to manage access with:
-  * [PowerShell](../role-based-access-control/role-assignments-powershell.md)
-  * [Azure CLI](../role-based-access-control/role-assignments-cli.md)
-  * [REST API](../role-based-access-control/role-assignments-rest.md)
-* [Azure RBAC troubleshooting](../role-based-access-control/troubleshooting.md): Get suggestions for fixing common issues.
+
+- [Azure role-based access control (Azure RBAC)](../role-based-access-control/role-assignments-portal.yml): Get started with Azure RBAC in the Azure portal.
+- Learn how to manage access with:
+    - [PowerShell](../role-based-access-control/role-assignments-powershell.md)
+    - [Azure CLI](../role-based-access-control/role-assignments-cli.md)
+    - [REST API](../role-based-access-control/role-assignments-rest.md)
+- [Azure RBAC troubleshooting](../role-based-access-control/troubleshooting.md): Get suggestions for fixing common issues.

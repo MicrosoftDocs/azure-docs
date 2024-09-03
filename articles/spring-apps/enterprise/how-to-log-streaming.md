@@ -3,9 +3,9 @@ title:  Stream Azure Spring Apps application console logs in real time
 description: Describes how to use log streaming to view application logs in real time
 author: KarlErickson
 ms.author: karler
-ms.service: spring-apps
+ms.service: azure-spring-apps
 ms.topic: how-to
-ms.date: 08/10/2022
+ms.date: 04/23/2024
 ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli
 ---
 
@@ -18,9 +18,7 @@ ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli
 
 **This article applies to:** ✔️ Basic/Standard ✔️ Enterprise
 
-This article describes how to enable log streaming in the Azure CLI to get real-time application console logs for troubleshooting. You can also use diagnostics settings to analyze diagnostics data in Azure Spring Apps. For more information, see [Analyze logs and metrics with diagnostics settings](./diagnostic-services.md).
-
-For streaming logs of managed components in Azure Spring Apps, see [Stream Azure Spring Apps managed component logs in real time](./how-to-managed-component-log-streaming.md).
+This article describes how to enable log streaming in the Azure CLI to get real-time application console logs for troubleshooting. You can also use diagnostics settings to analyze diagnostics data in Azure Spring Apps. For more information, see [Analyze logs and metrics with diagnostics settings](./diagnostic-services.md). For more information on streaming logs, see [Stream Azure Spring Apps job logs in real time](./how-to-job-log-streaming.md) and [Stream Azure Spring Apps managed component logs in real time](./how-to-managed-component-log-streaming.md).
 
 ## Prerequisites
 
@@ -161,7 +159,7 @@ Use the following steps to enable a log streaming endpoint on the public network
 
    :::image type="content" source="media/how-to-log-streaming/dataplane-public-endpoint.png" alt-text="Screenshot of the Azure portal that shows the Networking page with the Vnet injection tab selected and the Troubleshooting section highlighted." lightbox="media/how-to-log-streaming/dataplane-public-endpoint.png":::
 
-#### [Azure CLI](#tab/azure-CLI)
+### [Azure CLI](#tab/azure-CLI)
 
 Use the following command to enable the log stream public endpoint:
 
@@ -196,4 +194,5 @@ The following table shows an example of a basic rule that we recommend. You can 
 
 - [Quickstart: Monitoring Azure Spring Apps apps with logs, metrics, and tracing](../basic-standard/quickstart-logs-metrics-tracing.md)
 - [Analyze logs and metrics with diagnostics settings](./diagnostic-services.md)
+- [Stream Azure Spring Apps job logs in real time](./how-to-job-log-streaming.md)
 - [Stream Azure Spring Apps managed component logs in real time](./how-to-managed-component-log-streaming.md)

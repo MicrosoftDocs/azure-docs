@@ -168,7 +168,7 @@ Languages supported by a culture code:
 
 You can configure budgets to start automated actions using Azure Action Groups. To learn more about automating actions using budgets, see [Automation with budgets](../manage/cost-management-budget-scenario.md).
 
-## Next steps
+## Related content
 
 - Learn more about Cost Management + Billing automation at [Cost Management automation overview](automation-overview.md).
 - [Assign permissions to Cost Management APIs](cost-management-api-permissions.md).

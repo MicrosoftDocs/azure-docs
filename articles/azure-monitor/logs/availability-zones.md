@@ -5,7 +5,7 @@ ms.subservice: logs
 ms.topic: conceptual
 author: guywi-ms
 ms.author: guywild
-ms.date: 06/05/2023
+ms.date: 07/23/2024
 ms.custom: references_regions
 
 # Customer intent: As an IT manager, I want to understand the data and service resilience benefits Azure Monitor availability zones provide to ensure my data and services are sufficiently protected in the event of datacenter failure.
@@ -47,6 +47,7 @@ A subset of the availability zones that support data resilience currently also s
 |	East US	|		|	:white_check_mark:	|		|
 |	East US 2	|		|	:white_check_mark:	|	:white_check_mark:	|
 |	South Central US	|	:white_check_mark:	|	:white_check_mark:	|		|
+|	Spain Central	|	:white_check_mark:	|	:white_check_mark:	|	:white_check_mark:	|
 |	West US 2	|		|	:white_check_mark:	|	:white_check_mark:	|
 |	West US 3	|	:white_check_mark:	|	:white_check_mark:	|		|
 |	**Asia Pacific**	|		|		|		|
@@ -60,7 +61,7 @@ A subset of the availability zones that support data resilience currently also s
 |	France Central	|	:white_check_mark:	|	:white_check_mark:	|		|
 |	Germany West Central	|		|	:white_check_mark:	|		|
 |	Italy North	|	:white_check_mark:	|	:white_check_mark:	|	:white_check_mark:	|
-|	North Europe	|	:white_check_mark:	|	:white_check_mark:	|		|
+|	North Europe	|	:white_check_mark:	|	:white_check_mark:	|	:white_check_mark:	|
 |	Norway East	|	:white_check_mark:	|	:white_check_mark:	|		|
 |	Poland Central	|		|	:white_check_mark:	|		|
 |	Sweden Central	|	:white_check_mark:	|	:white_check_mark:	|		|

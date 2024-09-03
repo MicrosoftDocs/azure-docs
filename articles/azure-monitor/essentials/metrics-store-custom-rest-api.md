@@ -44,30 +44,10 @@ To submit custom metrics to Azure Monitor, the entity that submits the metric ne
 
 ### Get an authorization token
 
-Once you have created your managed identity or service principal and assigned **Monitoring Metrics Publisher** permissions, you can get an authorization token by using the following request:
+Once you have created your managed identity or service principal and assigned **Monitoring Metrics Publisher** permissions, you can get an authorization token.
+When requesting a token specify `resource: https://monitoring.azure.com`.
 
-```console
-curl -X POST 'https://login.microsoftonline.com/<tennant ID>/oauth2/token' \
--H 'Content-Type: application/x-www-form-urlencoded' \
---data-urlencode 'grant_type=client_credentials' \
---data-urlencode 'client_id=<your apps client ID>' \
---data-urlencode 'client_secret=<your apps client secret' \
---data-urlencode 'resource=https://monitoring.azure.com'
-```
-
-The response body appears in the following format:
-
-```JSON
-{
-    "token_type": "Bearer",
-    "expires_in": "86399",
-    "ext_expires_in": "86399",
-    "expires_on": "1672826207",
-    "not_before": "1672739507",
-    "resource": "https://monitoring.azure.com",
-    "access_token": "eyJ0eXAiOiJKV1Qi....gpHWoRzeDdVQd2OE3dNsLIvUIxQ"
-}
-```
+[!INCLUDE [Get a token](../includes/get-authentication-token.md)]
 
 Save the access token from the response for use in the following HTTP requests.
 
@@ -119,7 +99,7 @@ Although dimensions are optional, if a metric post defines dimension keys, corre
 
 Azure Monitor stores all metrics at 1-minute granularity intervals. During a given minute, a metric might need to be sampled several times. An example is CPU utilization. Or a metric might need to be measured for many discrete events, such as sign-in transaction latencies.
 
-To limit the number of raw values that you have to emit and pay for in Azure Monitor, locally pre-aggregate and emit the aggregated values:
+To limit the number of raw values that you have to emit and pay for in Azure Monitor, locally preaggregate and emit the aggregated values:
 
 * **Min**: The minimum observed value from all the samples and measurements during the minute.
 * **Max**: The maximum observed value from all the samples and measurements during the minute.
@@ -144,7 +124,7 @@ Then the resulting metric publication to Azure Monitor would be:
 * Sum: 40
 * Count: 4
 
-If your application can't pre-aggregate locally and needs to emit each discrete sample or event immediately upon collection, you can emit the raw measure values. For example, each time a sign-in transaction occurs on your app, you publish a metric to Azure Monitor with only a single measurement. So, for a sign-in transaction that took 12 milliseconds, the metric publication would be:
+If your application can't preaggregate locally and needs to emit each discrete sample or event immediately upon collection, you can emit the raw measure values. For example, each time a sign-in transaction occurs on your app, you publish a metric to Azure Monitor with only a single measurement. So, for a sign-in transaction that took 12 milliseconds, the metric publication would be:
 
 * Min: 12
 * Max: 12
@@ -202,7 +182,7 @@ Submit the following HTTP POST request by using the following variables:
 + `accessToken`: The authorization token acquired from the *Get an authorization token* step.
     
     ```console
-    curl -X POST 'https://<location>/.monitoring.azure.com<resourceId>/metrics' \
+    curl -X POST 'https://<location>.monitoring.azure.com/<resourceId>/metrics' \
     -H 'Content-Type: application/json' \
     -H 'Authorization: Bearer <accessToken>' \
     -d @custommetric.json 

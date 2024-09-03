@@ -2,8 +2,8 @@
 title: Quickstart - Make an outbound call using Call Automation
 titleSuffix: An Azure Communication Services quickstart
 description: In this quickstart, you learn how to make an outbound PSTN call using Azure Communication Services Call Automation
-author: anujb-msft
-ms.author: anujb-msft
+author: jutik0
+ms.author: jutik0
 ms.date: 06/19/2023
 ms.topic: quickstart
 ms.service: azure-communication-services
@@ -18,12 +18,14 @@ ms.custom: mode-other
 - A [phone number](../../telephony/get-phone-number.md) in your Azure Communication Services resource that can make outbound calls. If you have a free subscription, you can [get a trial phone number](../../telephony/get-trial-phone-number.md).
 - Create and host an Azure Dev Tunnel. Instructions [here](/azure/developer/dev-tunnels/get-started).
 - Create and connect [a Multi-service Azure AI services to your Azure Communication Services resource](../../../concepts/call-automation/azure-communication-services-azure-cognitive-services-integration.md).
-- Create a [custom subdomain](../../../../ai-services/cognitive-services-custom-subdomains.md) for your Azure AI services resource. 
+- Create a [custom subdomain](/azure/ai-services/cognitive-services-custom-subdomains) for your Azure AI services resource. 
 - [Java Development Kit (JDK) version 11 or above](/azure/developer/java/fundamentals/java-jdk-install).
 - [Apache Maven](https://maven.apache.org/download.cgi).
+- (Optional) A Microsoft Teams user with a phone license that is `voice` enabled. Teams phone license is required to add Teams users to the call. Learn more about Teams licenses [here](https://www.microsoft.com/microsoft-teams/compare-microsoft-teams-bundle-options). For more information to enable `voice` on your phone system, see [setting up your phone system](/microsoftteams/setting-up-your-phone-system).
 
 ## Sample code
-Download or clone quickstart sample code from [GitHub](https://github.com/Azure-Samples/communication-services-java-quickstarts/tree/main/CallAutomation_OutboundCalling). 
+
+Download or clone quickstart sample code from [GitHub](https://github.com/Azure-Samples/communication-services-java-quickstarts/tree/main/CallAutomation_OutboundCalling).
 
 Navigate to `CallAutomation_OutboundCalling` folder and open the solution in a code editor.
 
@@ -46,6 +48,7 @@ Then open the `application.yml` file in the `/resources` folder to configure the
 - `callerphonenumber`: update this field with the Azure Communication Services phone number you have acquired. This phone number should use the [E164](https://en.wikipedia.org/wiki/E.164) phone number format (e.g +18881234567)
 - `targetphonenumber`: update field with the phone number you would like your application to call. This phone number should use the [E164](https://en.wikipedia.org/wiki/E.164) phone number format (e.g +18881234567)
 - `cognitiveServiceEndpoint`: update field with your Azure AI services endpoint.
+- `targetTeamsUserId`: (Optional) update field with the Microsoft Teams user Id you would like to add to the call. See [Use Graph API to get Teams user Id](../../../how-tos/call-automation/teams-interop-call-automation.md#step-2-use-the-graph-api-to-get-microsoft-entra-object-id-for-teams-users-and-optionally-check-their-presence).
 
 ```yaml
 acs:
@@ -53,7 +56,8 @@ acs:
   basecallbackuri: <YOUR DEV TUNNEL ENDPOINT> 
   callerphonenumber: <YOUR ACS PHONE NUMBER ex. "+1425XXXAAAA"> 
   targetphonenumber: <YOUR TARGET PHONE NUMBER ex. "+1425XXXAAAA"> 
-  cognitiveServiceEndpoint: <YOUR COGNITIVE SERVICE ENDPOINT> 
+  cognitiveServiceEndpoint: <YOUR COGNITIVE SERVICE ENDPOINT>
+  targetTeamsUserId: <(OPTIONAL) YOUR TARGET TEAMS USER ID ex. "ab01bc12-d457-4995-a27b-c405ecfe4870">
 ```
 
 
@@ -68,7 +72,17 @@ CallInvite callInvite = new CallInvite(target, caller);
 CreateCallOptions createCallOptions = new CreateCallOptions(callInvite, appConfig.getCallBackUri());
 CallIntelligenceOptions callIntelligenceOptions = new CallIntelligenceOptions().setCognitiveServicesEndpoint(appConfig.getCognitiveServiceEndpoint());
 createCallOptions = createCallOptions.setCallIntelligenceOptions(callIntelligenceOptions);
-Response < CreateCallResult > result = client.createCallWithResponse(createCallOptions, Context.NONE);
+Response<CreateCallResult> result = client.createCallWithResponse(createCallOptions, Context.NONE);
+```
+
+## (Optional) Add a Microsoft Teams user to the call
+
+You can add a Microsoft Teams user to the call using the `addParticipant` method with a `MicrosoftTeamsUserIdentifier` and the Teams user's Id.  You first need to complete the prerequisite step [Authorization for your Azure Communication Services Resource to enable calling to Microsoft Teams users](../../../how-tos/call-automation/teams-interop-call-automation.md#step-1-authorization-for-your-azure-communication-services-resource-to-enable-calling-to-microsoft-teams-users).  Optionally, you can also pass in a `SourceDisplayName` to control the text displayed in the toast notification for the Teams user.
+
+```java
+client.getCallConnection(callConnectionId).addParticipant(
+    new CallInvite(new MicrosoftTeamsUserIdentifier(targetTeamsUserId))
+        .setSourceDisplayName("Jack (Contoso Tech Support)"));
 ```
 
 ## Start recording a call
@@ -89,7 +103,6 @@ Response<RecordingStateResult> response = client.getCallRecording()
 
 recordingId = response.getValue().getRecordingId();
 ```
-
 
 ## Respond to calling events
 

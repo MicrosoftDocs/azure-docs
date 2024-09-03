@@ -17,9 +17,6 @@ ms.subservice: B2C
 
 # Tutorial to configure Azure Active Directory B2C with Strata
 
-> [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
-
 In this tutorial, learn how to integrate Azure Active Directory B2C (Azure AD B2C) with Strata [Maverics Identity Orchestrator](https://www.strata.io/), which helps protect on-premises applications. It connects to identity systems, migrates users and credentials, synchronizes policies and configurations, and abstracts authentication and session management. Use Strata to transition from legacy, to Azure AD B2C, without rewriting applications. 
 
 The solution has the following benefits:
@@ -98,7 +95,7 @@ Use the instructions in the following sections to configure an Orchestrator inst
 
 You can run your Orchestrator instance on any server, whether on-premises or in a public cloud infrastructure by provider such as Azure, AWS, or GCP.
 
-- **Operating System**: REHL 7.7 or higher, CentOS 7+
+- **Operating System**: RHEL 7.7 or higher
 - **Disk**: 10 GB (small)
 - **Memory**: 16 GB
 - **Ports**: 22 (SSH/SCP), 443, 80
@@ -247,7 +244,7 @@ appgateways:
 
 Secure the secrets your Orchestrator uses to connect to Azure AD B2C, and other identity systems. Maverics load secrets in plain text out of `maverics.yaml`, however, in this tutorial, use Azure Key Vault as the secrets provider.
 
-Follow the instructions in, [Quickstart: Set and retrieve a secret from Azure Key Vault using the Azure portal](../key-vault/secrets/quick-create-portal.md). Add your secrets to the vault and make a note of the `SECRET NAME` for each secret. For example, `AzureADB2CClientSecret`.
+Follow the instructions in, [Quickstart: Set and retrieve a secret from Azure Key Vault using the Azure portal](/azure/key-vault/secrets/quick-create-portal). Add your secrets to the vault and make a note of the `SECRET NAME` for each secret. For example, `AzureADB2CClientSecret`.
 
 To declare a value as a secret in a `maverics.yaml` config file, wrap the secret with angle brackets:
 

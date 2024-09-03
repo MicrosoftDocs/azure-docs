@@ -3,13 +3,15 @@ title: About Azure Front Door (classic) to Standard/Premium tier migration
 description: This article explains the migration process and changes expected when using the migration tool to Azure Front Door Standard/Premium tier.
 services: frontdoor
 author: duongau
-ms.service: frontdoor
+ms.service: azure-frontdoor
 ms.topic: conceptual
 ms.date: 03/04/2024
 ms.author: duau
 ---
 
 # About Azure Front Door (classic) to Standard/Premium tier migration
+
+[!INCLUDE [Azure Front Door (classic) retirement notice](../../includes/front-door-classic-retirement.md)]
 
 Azure Front Door Standard and Premium tier were released in March 2022 as the next generation content delivery network service. The newer tiers combine the capabilities of Azure Front Door (classic), Microsoft CDN (classic), and Web Application Firewall (WAF). With features such as Private Link integration, enhanced rules engine and advanced diagnostics you have the ability to secure and accelerate your web applications to bring a better experience to your customers.
 

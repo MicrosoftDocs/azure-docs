@@ -2,8 +2,8 @@
 title: Quickstart - Make an outbound call using Call Automation
 titleSuffix: An Azure Communication Services quickstart
 description: In this quickstart, we learn how to make an outbound PSTN call using Azure Communication Services Call Automation
-author: anujb-msft
-ms.author: anujb-msft
+author: jutik0
+ms.author: jutik0
 ms.date: 06/19/2023
 ms.topic: quickstart
 ms.service: azure-communication-services
@@ -18,10 +18,12 @@ ms.custom: mode-other
 - A [phone number](../../telephony/get-phone-number.md) in your Azure Communication Services resource that can make outbound calls. If you have a free subscription, you can [get a trial phone number](../../telephony/get-trial-phone-number.md).
 - Create and host an Azure Dev Tunnel. Instructions [here](/azure/developer/dev-tunnels/get-started).
 - Create and connect [a Multi-service Azure AI services to your Azure Communication Services resource](../../../concepts/call-automation/azure-communication-services-azure-cognitive-services-integration.md).
-- Create a [custom subdomain](../../../../ai-services/cognitive-services-custom-subdomains.md) for your Azure AI services resource. 
+- Create a [custom subdomain](/azure/ai-services/cognitive-services-custom-subdomains) for your Azure AI services resource. 
 - [Python](https://www.python.org/downloads/) 3.7+.
+- (Optional) A Microsoft Teams user with a phone license that is `voice` enabled. Teams phone license is required to add Teams users to the call. Learn more about Teams licenses [here](https://www.microsoft.com/microsoft-teams/compare-microsoft-teams-bundle-options).  For more information to enable `voice` on your phone system, see [setting up your phone system](/microsoftteams/setting-up-your-phone-system).
 
 ## Sample code
+
 Download or clone quickstart sample code from [GitHub](https://github.com/Azure-Samples/communication-services-python-quickstarts/tree/main/callautomation-outboundcalling).
 
 Navigate to `CallAutomation_OutboundCalling` folder and open the solution in a code editor.
@@ -53,7 +55,7 @@ Then update your `main.py` file with the following values:
 - `TARGET_PHONE_NUMBER`: update field with the phone number you would like your application to call. This phone number should use the [E164](https://en.wikipedia.org/wiki/E.164) phone number format (e.g +18881234567)
 - `ACS_PHONE_NUMBER`: update this field with the Azure Communication Services phone number you have acquired. This phone number should use the [E164](https://en.wikipedia.org/wiki/E.164) phone number format (e.g +18881234567)
 - `COGNITIVE_SERVICES_ENDPOINT`: update field with your Azure AI services endpoint.
-
+- `TARGET_TEAMS_USER_ID`: (Optional) update field with the Microsoft Teams user Id you would like to add to the call. See [Use Graph API to get Teams user Id](../../../how-tos/call-automation/teams-interop-call-automation.md#step-2-use-the-graph-api-to-get-microsoft-entra-object-id-for-teams-users-and-optionally-check-their-presence).
 
 ```python
 # Your ACS resource connection string 
@@ -71,6 +73,9 @@ CALLBACK_EVENTS_URI = CALLBACK_URI_HOST + "/api/callbacks"
 
 #Your Cognitive service endpoint 
 COGNITIVE_SERVICES_ENDPOINT = "<COGNITIVE_SERVICES_ENDPOINT>" 
+
+#(OPTIONAL) Your target Microsoft Teams user Id ex. "ab01bc12-d457-4995-a27b-c405ecfe4870"
+TARGET_TEAMS_USER_ID = "<TARGET_TEAMS_USER_ID>"
 ```
 
 ## Make an outbound call
@@ -88,6 +93,16 @@ cognitive_services_endpoint=COGNITIVE_SERVICES_ENDPOINT)
     app.logger.info("Created call with connection id: %s",
 call_connection_properties.call_connection_id) 
 return redirect("/") 
+```
+
+## (Optional) Add a Microsoft Teams user to the call
+
+You can add a Microsoft Teams user to the call using the `add_participant` method with a `MicrosoftTeamsUserIdentifier` and the Teams user's Id. You first need to complete the prerequisite step [Authorization for your Azure Communication Services Resource to enable calling to Microsoft Teams users](../../../how-tos/call-automation/teams-interop-call-automation.md#step-1-authorization-for-your-azure-communication-services-resource-to-enable-calling-to-microsoft-teams-users).  Optionally, you can also pass in a `source_display_name` to control the text displayed in the toast notification for the Teams user.
+
+```python
+call_connection_client.add_participant(target_participant = CallInvite(
+    target = MicrosoftTeamsUserIdentifier(user_id=TARGET_TEAMS_USER_ID),
+    source_display_name = "Jack (Contoso Tech Support)"))
 ```
 
 ## Start recording a call

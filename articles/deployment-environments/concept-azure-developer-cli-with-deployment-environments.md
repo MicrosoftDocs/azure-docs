@@ -3,7 +3,7 @@ title: Use Azure Developer CLI with Azure Deployment Environments
 description: Understand ADE and `azd` work together to provision application infrastructure and deploy application code to the new infrastructure.
 author: RoseHJM
 ms.author: rosemalcolm
-ms.service: dev-box
+ms.service: azure-deployment-environments
 ms.topic: concept-article
 ms.date: 02/24/2024
 
@@ -21,7 +21,7 @@ With ADE, you can create environments from an environment definition in a catalo
 
 ## How does `azd` work with ADE?
 
-`azd` works with ADE to enable you to create environments from where you’re working. 
+`azd` works with ADE to enable you to create environments from where you're working. 
 
 With ADE and `azd`, individual developers working with unique infrastructure and code that they want to upload to the cloud can create an environment from a local folder. They can use `azd` to provision an environment and deploy their code seamlessly.
 
@@ -31,7 +31,7 @@ At scale, using ADE and `azd` together enables you to provide a way for develope
 
 The Azure Developer CLI commands are designed to work with standardized templates. Each template is a code repository that adheres to specific file and folder conventions. The templates contain the assets `azd` needs to provision an Azure Deployment Environment environment. When you run a command like `azd up`, the tool uses the template assets to execute various workflow steps, such as provisioning or deploying resources to Azure.
 
-The following is a typical `azd` template structure:
+The following is a typical template structure:
 
 ```txt
 ├── infra                                        [ Contains infrastructure as code files ]
@@ -46,7 +46,7 @@ The following is a typical `azd` template structure:
 
 All `azd` templates include the following assets:
 
-- *infra folder* - Contains all of the Bicep or Terraform infrastructure as code files for the azd template. The infra folder is not used in `azd` with ADE. ADE provides the infrastructure as code files for the `azd` template. You don't need to include these files in your `azd` template.
+- *infra folder* - The infra folder is not used in `azd` with ADE. It contains all of the Bicep or Terraform infrastructure as code files for the azd template. ADE provides the infrastructure as code files for the `azd` template. You don't need to include these files in your `azd` template.
 
 - *azure.yaml file* - A configuration file that defines one or more services in your project and maps them to Azure resources for deployment. For example, you might define an API service and a web front-end service, each with attributes that map them to different Azure resources for deployment.
 

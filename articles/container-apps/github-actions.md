@@ -1,9 +1,9 @@
 ---
 title: Publish revisions with GitHub Actions in Azure Container Apps
-description: Learn to automatically create new revisions in Azure Container Apps using a GitHub Actions workflow
+description: Learn to automatically create new revisions in Azure Container Apps using a GitHub Actions workflow.
 services: container-apps
 author: craigshoemaker
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.custom: devx-track-azurecli, ignite-2023
 ms.topic: how-to
 ms.date: 11/09/2022
@@ -102,17 +102,17 @@ You take the following steps to configure a GitHub Actions workflow to deploy to
 
 ### Prerequisites
 
-| Requirement  | Instructions |
+| Requirement | Instructions |
 |--|--|
-| Azure account | If you don't have one, [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). You need the *Contributor* or *Owner* permission on the Azure subscription to proceed. Refer to [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md?tabs=current) for details. |
+| Azure account | If you don't have one, [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). You need the *Contributor* or *Owner* permission on the Azure subscription to proceed. Refer to [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml?tabs=current) for details. |
 | GitHub Account | Sign up for [free](https://github.com/join). |
 | Azure CLI | Install the [Azure CLI](/cli/azure/install-azure-cli).|
 
 ### Create a GitHub repository and clone source code
 
-Before creating a workflow, the source code for your app must be in a GitHub repository.
+Before you create the workflow, the source code for your app must be in a GitHub repository.
 
-1. Log in to Azure with the Azure CLI.
+1. Sign in to Azure with the Azure CLI.
 
     ```azurecli-interactive
     az login
@@ -124,7 +124,7 @@ Before creating a workflow, the source code for your app must be in a GitHub rep
     az extension add --name containerapp --upgrade
     ```
 
-1. If you do not have your own GitHub repository, create one from a sample.
+1. If you don't have your own GitHub repository, create one from a sample.
     1. Navigate to the following location to create a new repository:
         - [https://github.com/Azure-Samples/containerapps-albumapi-csharp/generate](https://github.com/login?return_to=%2FAzure-Samples%2Fcontainerapps-albumapi-csharp%2Fgenerate)
     1. Name your repository `my-container-app`.
@@ -137,7 +137,7 @@ Before creating a workflow, the source code for your app must be in a GitHub rep
 
 ### Create a container app with managed identity enabled
 
-Create your container app using the `az containerapp up` command in the following steps. This command will create Azure resources, build the container image, store the image in a registry, and deploy to a container app.
+Create your container app using the `az containerapp up` command in the following steps. This command creates Azure resources, builds the container image, stores the image in a registry, and deploys to a container app.
 
 After you create your app, you can add a managed identity to the app and assign the identity the `AcrPull` role to allow the identity to pull images from the registry.
 

@@ -3,7 +3,7 @@ title: Workload profiles in Azure Container Apps
 description: Learn how to select a workload profile for your container app
 services: container-apps
 author: craigshoemaker
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.topic: conceptual
 ms.date: 10/11/2023
 ms.author: cshoe
@@ -48,7 +48,7 @@ There are different types and sizes of workload profiles available by region. By
 
 | Display name | Name | vCPU | Memory (GiB) | GPU | Category | Allocation |
 |---|---|---|---|---|---|
-| Consumption | consumption |4 | 8 | - | Consumption | per replica |
+| Consumption | Consumption |4 | 8 | - | Consumption | per replica |
 | Dedicated-D4 | D4 | 4 | 16 | - | General purpose | per node |
 | Dedicated-D8 | D8 | 8 | 32 | - | General purpose | per node |
 | Dedicated-D16 | D16 | 16 | 64 | - | General purpose | per node |

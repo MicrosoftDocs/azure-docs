@@ -13,6 +13,8 @@ Before you get started, be sure to review the [prerequisites](prerequisites.md) 
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
+[!INCLUDE [sql-server-auto-onboard](includes/sql-server-auto-onboard.md)]
+
 ## How it works
 
 When the onboarding process is launched, an Active Directory [service principal](../../active-directory/fundamentals/service-accounts-principal.md) is created in the tenant.

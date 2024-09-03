@@ -4,9 +4,9 @@ titleSuffix: Azure Spring Apps
 description: Use Maven to deploy applications to Azure Spring Apps.
 ms.author: jialuogan
 author: KarlErickson
-ms.service: spring-apps
+ms.service: azure-spring-apps
 ms.topic: tutorial
-ms.date: 04/07/2022
+ms.date: 04/23/2024
 ms.custom: devx-track-java, devx-track-extended-java
 ---
 
@@ -41,7 +41,7 @@ To create a Spring project for use in this article, use the following steps:
 
    The following image shows the recommended Spring Initializr setup for this sample project.
 
-   :::image type="content" source="media/how-to-maven-deploy-apps/initializr-page.png" alt-text="Screenshot of Spring Initializr.":::
+   :::image type="content" source="media/how-to-maven-deploy-apps/initializr-page.png" alt-text="Screenshot of the Spring Initializr page that shows the recommended settings.":::
 
    This example uses Java version 8. If you want to use Java version 11, change the option under **Project Metadata**.
 
@@ -70,7 +70,7 @@ To create a Spring project for use in this article, use the following steps:
 To build the project by using Maven, run the following commands:
 
 ```azurecli
-cd hellospring 
+cd hellospring
 mvn clean package -DskipTests -Denv=cloud
 ```
 
@@ -86,11 +86,9 @@ The following procedure creates an instance of Azure Spring Apps using the Azure
 
 1. Select **Azure Spring Apps** from the results.
 
-    :::image type="content" source="media/how-to-maven-deploy-apps/spring-apps-start.png" alt-text="Screenshot of Azure portal showing Azure Spring Apps service in search results." lightbox="media/how-to-maven-deploy-apps/spring-apps-start.png":::
-
 1. On the Azure Spring Apps page, select **Create**.
 
-    :::image type="content" source="media/how-to-maven-deploy-apps/spring-apps-create.png" alt-text="Screenshot of Azure portal showing Azure Spring Apps resource with Create button highlighted." lightbox="media/how-to-maven-deploy-apps/spring-apps-start.png":::
+    :::image type="content" source="media/how-to-maven-deploy-apps/spring-apps-create.png" alt-text="Screenshot of the Azure portal that shows an Azure Spring Apps resource with the Create button highlighted." lightbox="media/how-to-maven-deploy-apps/spring-apps-create.png":::
 
 1. Fill out the form on the Azure Spring Apps **Create** page.  Consider the following guidelines:
 
@@ -99,7 +97,7 @@ The following procedure creates an instance of Azure Spring Apps using the Azure
     - **Service Details/Name**: Specify the **\<service instance name\>**.  The name must be between 4 and 32 characters long and can contain only lowercase letters, numbers, and hyphens.  The first character of the service name must be a letter and the last character must be either a letter or a number.
     - **Location**: Select the region for your service instance.
 
-    :::image type="content" source="media/how-to-maven-deploy-apps/portal-start.png" alt-text="Screenshot of Azure portal showing Azure Spring Apps Create page." lightbox="media/how-to-maven-deploy-apps/portal-start.png":::
+    :::image type="content" source="media/how-to-maven-deploy-apps/portal-start.png" alt-text="Screenshot of the Azure portal that shows the Azure Spring Apps Create page." lightbox="media/how-to-maven-deploy-apps/portal-start.png":::
 
 1. Select **Review and create**.
 
@@ -148,7 +146,7 @@ To generate configurations and deploy the app, follow these steps:
 
 After deployment has completed, you can access the app at `https://<service instance name>-hellospring.azuremicroservices.io/`.
 
-:::image type="content" source="media/how-to-maven-deploy-apps/access-app-browser.png" alt-text="Screenshot of app in browser.":::
+:::image type="content" source="media/how-to-maven-deploy-apps/access-app-browser.png" alt-text="Screenshot of the hello spring app as seen in the browser.":::
 
 ## Clean up resources
 

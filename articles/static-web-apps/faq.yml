@@ -5,8 +5,8 @@ metadata:
   keywords: azure static web apps, frequently asked questions
   author: craigshoemaker
   ms.topic: faq
-  ms.service: static-web-apps
-  ms.date: 10/23/2021
+  ms.service: azure-static-web-apps
+  ms.date: 06/25/2024
   ms.author: cshoe
 title: Azure Static Web Apps Frequently Asked Questions
   
@@ -26,7 +26,7 @@ sections:
       - question: |
           What happens during the build process?
         answer: |
-          Azure Static Web Apps' build engine is powered by [Oryx](https://github.com/microsoft/Oryx), which builds your app's frontend and API.
+          The Azure Static Web Apps build engine is powered by [Oryx](https://github.com/microsoft/Oryx), which builds your app's frontend and API.
 
           When your app is built, Oryx detects the build steps and executes them automatically. For example, if your app uses Node.js, it installs packages using npm or Yarn. Then,  it runs the `build` or `build:azure` script provided in your app's _package.json_ file.
 
@@ -35,13 +35,8 @@ sections:
         answer: |
           If you want complete control over how to build your app, you can configure your own build steps in your app's GitHub workflow or Azure DevOps pipeline. You can then use the Static Web Apps GitHub Actions or Azure Pipelines task to deploy your app. Ensure that you set `skip_app_build` to `true`. To learn more, see [Build configuration](build-configuration.md?skip-building-front-end-app).
 
-          The `skip_app_build` command is currently only supported for the frontend app. The API app must be built by the Azure Static Web Apps GitHub Actions or Azure Pipelines task.
-
-      - question: |
-          Can I deploy my app without using GitHub Actions or Azure DevOps?
-        answer: |
-          Currently, Azure Static Web Apps supports GitHub Actions and Azure DevOps. More deployment options will be added in the future.
-      
+          The `skip_app_build` command is only supported for frontend apps. The API app must be built by the Azure Static Web Apps GitHub Actions or Azure Pipelines task.
+     
       - question: |
           My React application fails to build with the message “Treating warnings as errors because process.env.CI = true”. How do I fix this error?
         answer: |
@@ -74,7 +69,7 @@ sections:
       - question: |
           Do I have to run the Static Web Apps action/task on a Linux GitHub Actions or Azure Pipelines build agent?
         answer: |
-          Azure Static Web Apps' build engine runs in a Linux Docker container, so it can only be run on a Linux build agent.
+          The Azure Static Web Apps build engine runs in a Linux Docker container, so it can only be run on a Linux build agent.
 
       - question: |
           How do I deploy an app that uses Git Large File Storage (LFS)?
@@ -143,7 +138,7 @@ sections:
       - question: |
           How do I configure environment variables for my app?
         answer: |
-          There are different types of environment variables that you can set for your app. Configure variables that affect your app's frontend build process in your app's [build configuration](build-configuration.md#environment-variables). To configurate variables that are used by your app's API, use [application settings](application-settings.md). To learn more, see [Configuration overview](configuration-overview.md).
+          There are different types of environment variables that you can set for your app. Configure variables that affect your app's frontend build process in your app's [build configuration](build-configuration.md#environment-variables). To configurate variables that are used by your app's API, use [application settings](application-settings.yml). To learn more, see [Configuration overview](configuration-overview.md).
 
       - question: |
           Does Static Web Apps support managed identity?
@@ -167,7 +162,7 @@ sections:
       - question: |
           Am I limited to using a single identity provider?
         answer: |
-          When using Static Web Apps' built-in authentication, users can log in with any of the supported identity providers. If you want to prevent users from logging in with a specific identity provider, you can [block it](authentication-authorization.md?#block-an-authentication-provider).
+          When using the Static Web Apps built-in authentication, users can log in with any of the supported identity providers. If you want to prevent users from logging in with a specific identity provider, you can [block it](authentication-authorization.yml?#block-an-authentication-provider).
 
           If you're using [custom authentication](authentication-custom.md), you can configure one or more identity providers.
 
@@ -176,7 +171,7 @@ sections:
       - question: |
           How do I write my APIs using a language or language version that Static Web Apps doesn’t support?
         answer: |
-          Static Web Apps' managed function apps don't support all languages or language versions that Azure Functions supports. You can use the  [bring your own Functions app](functions-bring-your-own.md)  feature to link a separate Functions app to your Static Web App.
+          The Static Web Apps managed function apps don't support all languages or language versions that Azure Functions supports. You can use the [bring your own Functions app](functions-bring-your-own.md) feature to link a separate Functions app to your Static Web App.
 
       - question: |
           How do I create serverless functions that respond to events other than HTTP?

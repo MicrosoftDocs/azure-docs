@@ -3,14 +3,14 @@ title: Azure Private 5G Core 2310 release notes
 description: Discover what's new in the Azure Private 5G Core 2310 release
 author: paulcarter
 ms.author: paulcarter
-ms.service: private-5g-core
+ms.service: azure-private-5g-core
 ms.topic: release-notes
 ms.date: 11/30/2023
 ---
 
 # Azure Private 5G Core 2310 release notes
 
-The following release notes identify the new features, critical open issues, and resolved issues for the 2308 release of Azure Private 5G Core (AP5GC). The release notes are continuously updated, with critical issues requiring a workaround added as they’re discovered. Before deploying this new version, review the information contained in these release notes.
+The following release notes identify the new features, critical open issues, and resolved issues for the 2310 release of Azure Private 5G Core (AP5GC). The release notes are continuously updated, with critical issues requiring a workaround added as they’re discovered. Before deploying this new version, review the information contained in these release notes.
 
 This article applies to the AP5GC 2310 release (2310.0-8). This release is compatible with the Azure Stack Edge Pro 1 GPU and Azure Stack Edge Pro 2 running the ASE 2309 release and supports the 2023-09-01, 2023-06-01 and 2022-11-01 [Microsoft.MobileNetwork](/rest/api/mobilenetwork) API versions. 
 
@@ -26,8 +26,8 @@ The following table shows the support status for different Packet Core releases 
 
 | Release | Support Status |
 |---------|----------------|
-| AP5GC 2310 | Supported until AP5GC 2403 is released |
-| AP5GC 2308 | Supported until AP5GC 2401 is released |
+| AP5GC 2310 | Supported until AP5GC 2404 is released |
+| AP5GC 2308 | Supported until AP5GC 2403 is released |
 | AP5GC 2307 and earlier | Out of Support |
 
 ## What's new

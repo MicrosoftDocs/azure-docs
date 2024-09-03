@@ -1,7 +1,7 @@
 ---
 title: Azure Quickstart - Create a Batch account - Azure Resource Manager template
 description: This quickstart shows how to create a Batch account by using an ARM template.
-ms.date: 05/25/2021
+ms.date: 06/13/2024
 ms.topic: quickstart
 ms.custom: subject-armqs, mode-arm, devx-track-arm-template
 ---
@@ -12,7 +12,7 @@ Get started with Azure Batch by using an Azure Resource Manager template (ARM te
 
 After completing this quickstart, you'll understand the key concepts of the Batch service and be ready to try Batch with more realistic workloads at larger scale.
 
-[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+[!INCLUDE [About Azure Resource Manager](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-introduction.md)]
 
 If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
 
@@ -22,7 +22,7 @@ If your environment meets the prerequisites and you're familiar with using ARM t
 
 You must have an active Azure subscription.
 
-- [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+- [!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 ## Review the template
 

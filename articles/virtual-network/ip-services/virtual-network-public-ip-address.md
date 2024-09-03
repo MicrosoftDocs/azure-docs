@@ -6,7 +6,7 @@ services: virtual-network
 ms.date: 08/24/2023
 ms.author: mbender
 author: mbender-ms
-ms.service: virtual-network
+ms.service: azure-virtual-network
 ms.subservice: ip-services
 ms.topic: conceptual
 ms.custom: FY23 content-maintenance
@@ -25,7 +25,7 @@ When you assign a public IP address to an Azure resource, you enable the followi
 
 - Outbound connectivity to the Internet using a predictable IP address.
 
-[!INCLUDE [ephemeral-ip-note.md](../../../includes/ephemeral-ip-note.md)]
+[!INCLUDE [ephemeral-ip-note.md](~/reusable-content/ce-skilling/azure/includes/ephemeral-ip-note.md)]
 
 ## Create a public IP address
 
@@ -90,15 +90,15 @@ There aren't separate public IP objects associated with the individual virtual m
 
 To list the Public IPs on a Virtual Machine Scale Set, you can use PowerShell ([Get-AzPublicIpAddress -VirtualMachineScaleSetName](/powershell/module/az.network/get-azpublicipaddress)) or CLI ([az Virtual Machine Scale Set list-instance-public-ips](/cli/azure/vmss#az-vmss-list-instance-public-ips)).
 
-For more information, see [Networking for Azure Virtual Machine Scale Sets](../../virtual-machine-scale-sets/virtual-machine-scale-sets-networking.md#public-ipv4-per-virtual-machine).
+For more information, see [Networking for Azure Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-networking#public-ipv4-per-virtual-machine).
 
 ## Assign a public IP address
 
 Learn how to assign a public IP address to the following resources:
 
-- A [Windows](../../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) or [Linux](../../virtual-machines/linux/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json) Virtual Machine on creation. Add IP to an [existing virtual machine](./virtual-network-network-interface-addresses.md#add-ip-addresses).
+- A [Windows](/azure/virtual-machines/windows/quick-create-portal?toc=%2fazure%2fvirtual-network%2ftoc.json) or [Linux](/azure/virtual-machines/linux/quick-create-portal?toc=%2fazure%2fvirtual-network%2ftoc.json) Virtual Machine on creation. Add IP to an [existing virtual machine](./virtual-network-network-interface-addresses.md#add-ip-addresses).
 
-- [Virtual Machine Scale Set](../../virtual-machine-scale-sets/quick-create-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
+- [Virtual Machine Scale Set](/azure/virtual-machine-scale-sets/quick-create-portal?toc=%2fazure%2fvirtual-network%2ftoc.json)
 
 - [Public load balancer](./configure-public-ip-load-balancer.md)
 

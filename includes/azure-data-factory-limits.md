@@ -2,7 +2,7 @@
 title: include file
 description: include file
 author: chez-charlie
-ms.service: data-factory
+ms.service: azure-data-factory
 ms.topic: include
 ms.date: 03/19/2024
 ms.author: chez
@@ -21,7 +21,7 @@ Azure Data Factory is a multitenant service that has the following default limit
 | Concurrent authoring operations per subscription per [Azure Integration Runtime region](../articles/data-factory/concepts-integration-runtime.md#azure-ir-location)<br>Including test connection, browse folder list and table list, preview data. This limit doesn't apply to Self-hosted IR. | 200 | 200                                                          |
 | Concurrent Data Integration Units<sup>1</sup> consumption per subscription per [Azure Integration Runtime region](../articles/data-factory/concepts-integration-runtime.md#integration-runtime-location)| Region group 1<sup>2</sup>: 6,000<br>Region group 2<sup>2</sup>: 3,000<br>Region group 3<sup>2</sup>: 1,500 | Region group 1<sup>2</sup>: 6,000<br/>Region group 2<sup>2</sup>: 3,000<br/>Region group 3<sup>2</sup>: 1,500 |
 | Concurrent Data Integration Units<sup>1</sup> consumption per subscription per [Azure Integration Runtime region](../articles/data-factory/concepts-integration-runtime.md#integration-runtime-location) in managed virtual network|  2,400 | [Find out how to request a quota increase from support](https://azure.microsoft.com/blog/azure-limits-quotas-increase-requests/). |
-| Maximum activities per pipeline, which includes inner activities for containers | 80 | 120 (soft limit) |
+| Maximum activities per pipeline, which includes inner activities for containers | 80 | 120 |
 | Maximum number of linked integration runtimes that can be created against a single self-hosted integration runtime | 100 | 100 |
 | Maximum number of nodes that can be created against a single self-hosted integration runtime | 4 | [Find out how to request a quota increase from support](https://azure.microsoft.com/blog/azure-limits-quotas-increase-requests/). |
 | Maximum parameters per pipeline | 50 | 50 |
