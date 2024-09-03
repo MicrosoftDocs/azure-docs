@@ -44,7 +44,7 @@ From the Azure portal, follow these steps:
 
     | Parameter    | Description                                                                             | Example |
     |--------------|-----------------------------------------------------------------------------------------|----------|
-    | File type    | Select the type of file you're importing between Yaml, Properties, and Json.             | *Json*   |
+    | File type    | Select the file type for import: YAML, Properties, or JSON. | *Json*   |
 
 1. Click the **Browse** button, and select the file to import.
 
@@ -53,10 +53,10 @@ From the Azure portal, follow these steps:
 
     | Parameter    | Description                                                                                                                                                                                                                             | Example                   |
     |--------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------|
-    | File content profile    | Conventional configuration file schema. | *Default*                       |
+    | File content profile    | Select a content profile: Default or KVSet. The *Default* file content profile refers to the conventional configuration file schema widely adopted by existing programming frameworks or systems, supports JSON, Yaml, or Properties file formats. The *KVSet* file content profile refers to a file schema that contains all properties of an App Configuration key-value, including key, value, label, content type, and tags. | *Default*                       |
     | Import mode    | The import mode is used to determine whether to ignore identical key-values. With the *Ignore match* option, any key-values in the store that are the same as those in the configuration file are ignored. With the *All* option, all key-values in the configuration file are updated.   | *Ignore match*                       |
-    | Exclude feature flag    | If selected, feature flags will not be imported. | *unchecked*                       |
-    | Strict    | If the box is checked, any key-values in the store with the specified prefix and label that are not included in the configuration file are deleted when the File content profile is set to Default. When the File content profile is set to KVSet, any key-values in the store that are not included in the configuration file are deleted. If the box is unchecked, no key-values in the store will be deleted.  | *false*                       |
+    | Exclude feature flag    | If checked, feature flags will not be imported. | *Unchecked*                       |
+    | Strict    | If the box is checked, any key-values in the store with the specified prefix and label that are not included in the configuration file are deleted when the File content profile is set to Default. When the File content profile is set to KVSet, any key-values in the store that are not included in the configuration file are deleted. If the box is unchecked, no key-values in the store will be deleted.  | *Unchecked*                       |
     | Separator    | The separator is the delimiter used for flattening JSON or YAML files into key-value. It will be ignored for property files and feature flags. Supported values include no-separator, period (.), comma (,), semicolon (\;), hyphen (-), underscore (_), double underscore (__), slash (/), and colon (\:).           | *:*                       |
     | Depth    | Optional. The depth for flattening JSON or YAML files into key-value pairs. By default, files are flattened to the deepest level if a separator is selected. This setting is not applicable for property files or feature flags.           |                      |
     | Add prefix       | Optional. If specified, a prefix will be added to the key names of all imported key-values.               | *TestApp:*                |
@@ -137,8 +137,8 @@ From the Azure portal, follow these steps:
     | Selection mode   | Select whether to import from regular key-values, which is the default option, or from a snapshot.   | *Default*                    |
     | Key filter | Used to filter key-values based on the key name for import. If no keys are specified, all keys are eligible.    |      Starts with *test*              |
     | At a specific time                      |Optional. Fill out this field to import key-values from a specific point in time in the selected configuration store. If left empty, it defaults to the current point in time of the key-values.| *07/28/2022 12:00:00 AM*  |
-    | From label                              | Select one or more labels to import key-values with the chosen labels. | *prod*                    |
-    | Exclude feature flag    | If selected, feature flags will not be imported.    | *unchecked*                       |
+    | From label                              | Select one or more labels to import key-values associated with those labels. If no label is selected, all labels are eligible. | *prod*                    |
+    | Exclude feature flag    | If checked, feature flags will not be imported.    | *Unchecked*                       |
     | Add prefix  | Optional. If specified, a prefix will be added to the key names of all imported key-values. | *TestApp:*                    |
     | Override labels       | Optional. By default, the original labels of the source key-values are preserved. To override them, check the box and enter a new label for imported key-values. | *new*                     |
     | Override content types |  Optional. By default, the original content types of the source key-values are preserved. To override them, check the box and enter a new content type for imported key-values. Note that the content type of feature flags cannot be overridden.  | *JSON (application/json)* |
@@ -212,7 +212,7 @@ From the Azure portal:
 
     | Parameter    | Description                                                                                                                                                                                                                                          | Example                   |
     |--------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------|
-    | Update settings to reference      |  If checked, the app settings in App Service will be updated to App Configuration references for the imported key-values. This allows you to manage your app settings in App Configuration going forward. Your App Service will automatically pull the current value from App Configuration. To learn more, see [Use App Configuration references for App Service and Azure Functions](/azure/app-service/app-service-configuration-references).    | *checked*                 |
+    | Update settings to reference      |  If checked, the app settings in App Service will be updated to App Configuration references for the imported key-values. This allows you to manage your app settings in App Configuration going forward. Your App Service will automatically pull the current value from App Configuration. To learn more, see [Use App Configuration references for App Service and Azure Functions](/azure/app-service/app-service-configuration-references).    | *Checked*                 |
     | Add prefix       | Optional. If specified, a prefix will be added to the key names of all imported key-values.             | *TestApp:*                 |
     | Add label        | Optional. If specified, the provided label will be assigned to all imported key-values.   | *prod*                    |
     | Add content type | Optional. If specified, the provided content type will be added to all imported key-values. | *JSON (application/json)* |
@@ -271,7 +271,7 @@ This guide shows how to export App Configuration data:
 
 ### Export data to a configuration file
 
-Follow the steps below to export configuration data from an app configuration store to a Json, Yaml, or Properties file.
+Follow these steps to export configuration data from an App Configuration store to a JSON, YAML, or Properties file.
 
 
 ### [Portal](#tab/azure-portal)
@@ -289,18 +289,18 @@ From the [Azure portal](https://portal.azure.com), follow these steps:
     | Parameter          | Description  | Example                  |
     |--------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------|
     | File type          | Select the file type for export: YAML, Properties, or JSON. | *JSON*                   | 
-    | File content profile   | Conventional configuration file schema. | *Default*                   |
+    | File content profile   | Select a content profile: Default or KVSet. The *Default* file content profile refers to the conventional configuration file schema widely adopted by existing programming frameworks or systems, supports JSON, Yaml, or Properties file formats. The *KVSet* file content profile refers to a file schema that contains all properties of an App Configuration key-value, including key, value, label, content type, and tags. | *Default*                   |
     | Selection mode          | Select whether to export from regular key-values, which is the default option, or from a snapshot.   | *Default*                   | 
-    | Key filter | Used to filter key-values based on the key name for export. If no keys are specified, all keys are eligible.    |      Starts with *test*              |
+    | Key filter | Used to filter key-values based on the key name for export. If no keys are specified, all keys are eligible.    |      Starts with *TestApp:*              |
     | At a specific time | Optional. Fill out this field to export key-values from a specific point in time in the selected configuration store. If left empty, it defaults to the current point in time of the key-values. | *07/28/2022 12:00:00 AM* |
-    | From label         | Select the label to export key-values with the chosen label. If no label is selected, key-values with no label will be exported. Note that you can only select one label when exporting with the Default File content profile. To export key-values with more than one label, use the KVSet File content profile. | *prod*                   |
+    | From label         | Select the label to export key-values associated with those labels. If no label is selected, all labels are eligible. Note that you can only select one label when exporting with the `Default` file content profile. To export key-values with more than one label, use the `KVSet` file content profile. | *prod*                   |
     | Remove prefix             | Optional. If specified, the prefix will be removed from the key names of all exported key-values that contain it. | *TestApp:*               |
-    | Separator          | The separator is the delimiter used for flattening JSON or YAML files into key-value. It will be ignored for property files and feature flags. Supported values include no-separator, period (.), comma (,), semicolon (\;), hyphen (-), underscore (_), double underscore (__), slash (/), and colon (\:). | *:*                      |
+    | Separator          | The separator is the delimiter used for segmenting key names and reconstructing hierarchical configurations for JSON or YAML files from key-values. It will be ignored for property files and feature flags. Supported values include no separator, period (.), comma (,), semicolon (\;), hyphen (-), underscore (_), double underscore (__), slash (/), and colon (\:). | *:*                      |
 
 
 1. Select **Export** to finish the export.
 
-You exported key-values from an App Configuration store as of July 28, 2021, at 12 AM, with key names starting with `test` and the label `prod`, to a JSON file. The prefix `TestApp:` was trimmed from key names, if present, and the separator `:` was used to segment the key names and reconstruct the hierarchical JSON format.
+You exported key-values from an App Configuration store as of July 28, 2021, at 12 AM, with key names starting with `TestApp:` and the label `prod`, to a JSON file. The prefix `TestApp:` was trimmed from key names, and the separator `:` was used to segment the key names and reconstruct the hierarchical JSON format.
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -363,10 +363,10 @@ From the Azure portal, follow these steps:
     | Parameter      | Description                                                                                     | Example               |
     |----------------|-------------------------------------------------------------------------------------------------|-----------------------|
     | Selection mode          | Select whether to export from regular key-values, which is the default option, or from a snapshot.    | *Default*                   | 
-    | Key filter | Used to filter key-values based on the key name for export. If no keys are specified, all keys are eligible.    |      Starts with *test*              |
+    | Key filter | Used to filter key-values based on the key name for export. If no keys are specified, all keys are eligible.    |      Starts with *TestApp:*               |
     | At a specific time | Optional. Fill out this field to export key-values from a specific point in time in the selected configuration store. If left empty, it defaults to the current point in time of the key-values. | *07/28/2022 12:00:00 AM* |
-    | From label         | Select the label to export key-values with the chosen label. If no label is selected, key-values with no label will be exported.  | *prod*                   |
-    | Exclude feature flag    | If selected, feature flags will not be exported.          | *unchecked*                       |
+    | From label         | Select one or more labels to export key-values associated with those labels. If no label is selected, all labels are eligible.  | *prod*                   |
+    | Exclude feature flag    | If checked, feature flags will not be exported.          | *Unchecked*                       |
 
 1. Select destination store, fill out the form with the following parameters:
 
@@ -381,13 +381,13 @@ From the Azure portal, follow these steps:
 
     | Parameter   | Description  | Example                   |
     |-----------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------|
-    | Remove prefix             | Optional. If specified, the prefix will be removed from the key names of all exported key-values that contain it.  | *TestApp*               |
+    | Remove prefix             | Optional. If specified, the prefix will be removed from the key names of all exported key-values that contain it.  | *TestApp:*               |
     | Override labels       | Optional. By default, the original labels of the source key-values are preserved. To override them, check the box and enter a new label for exported key-values. | *new*                     |
     | Override content types |  Optional. By default, the original content types of the source key-values are preserved. To override them, check the box and enter a new content type for exported key-values. Note that the content type of feature flags cannot be overridden.  | *JSON (application/json)* |
 
 1. Select **Apply** to proceed with the export.
 
-You exported key-values and feature flags with key names starting with `test` and the label `prod` from an App Configuration store, at their state from July 28, 2022, at 12 AM. The exported key-values were trimmed the prefix `TestApp`, then assigned them the label `new` and the content type `application/json`.
+You exported key-values from an App Configuration store as of July 28, 2022, at 12 AM, with key names starting with `TestApp:` and the label `prod`, to another App Configuration store. All exported key-values were trimmed the key prefix `TestApp:`, and assigned the label `new` and the content type `application/json`.
 
 #### [Azure CLI](#tab/azure-cli)
 
@@ -432,7 +432,7 @@ For more optional parameters and examples, go to [az appconfig kv import](/cli/a
 Follow the steps below to export key-values to Azure App Service.
 
 > [!NOTE]
-> Exporting feature flags to App Service is currently not supported.
+> Exporting feature flags to App Service is not supported.
 
 #### [Portal](#tab/azure-portal)
 
@@ -444,16 +444,16 @@ From the Azure portal, follow these steps:
 
 1. Select the **Export** radio button and under **Target type**, select **App Services**.
 
-1. The "Export as reference" option is checked by default. When it's checked, the exported key-values are indicated as App Configuration references in your App Service resource configuration settings. Since it's a reference, it will always get the latest value from App Configuration.
+1. The **Export as reference** option is checked by default. When the box is checked, the application settings in App Service will be added as App Configuration references for the exported key-values. This allows you to manage your settings in App Configuration, with your App Service automatically pulling the current values from App Configuration. To learn more, see [Use App Configuration references for App Service and Azure Functions](/azure/app-service/app-service-configuration-references). If the box is unchecked, the key and value will be directly exported to App Service. Remember to export your data again whenever you make changes in App Configuration to ensure your application picks up the updates.
 
 1. Fill out the form with the following parameters:
 
     | Parameter      | Description                                                                                     | Example               |
     |----------------|-------------------------------------------------------------------------------------------------|-----------------------|
     | Selection mode          | Select whether to export from regular key-values, which is the default option, or from a snapshot.    | *Default*                   | 
-    | Key filter | Used to filter key-values based on the key name for export. If no keys are specified, all keys are eligible.  |      Starts with *test*              |
+    | Key filter | Used to filter key-values based on the key name for export. If no keys are specified, all keys are eligible.  |      Starts with *TestApp:*              |
     | At a specific time | Optional. Fill out this field to export key-values from a specific point in time in the selected configuration store. If left empty, it defaults to the current point in time of the key-values.    | *07/28/2022 12:00:00 AM* |
-    | From label         | Select the label to export key-values with the chosen label. If no label is selected, key-values with no label will be exported. | *prod*                   |
+    | From label         | Select one label to export key-values associated with this label. | *prod*                   |
 
 1. Select a destination store and fill out the form with the following parameters:
 
@@ -472,7 +472,7 @@ From the Azure portal, follow these steps:
 
 1. Select **Apply** to proceed with the export.
 
-You've exported key-values that have the `prod` label from an App Service resource, at their state from July 28, 2021, at 12 AM, and have trimmed the prefix `TestApp:`. The key-values have been exported with a content type `application/json`.
+You exported key-values from an App Configuration store as of July 28, 2022, at 12 AM, with key names starting with `TestApp:` and the label `prod`, to the application settings of an App Service resource. The prefix `TestApp:` was trimmed from exported key names.
 
 If you checked the box to export key-values as references, the exported key-values are indicated as App Configuration references in the "Source" column of your App Service resource configuration settings.
 
@@ -539,7 +539,7 @@ For more optional parameters and examples, go to [az appconfig kv export](/cli/a
 
 You may encounter the following error messages when importing or exporting App Configuration key-values:
 
-- **Public access is disabled for your store or you are accessing from a private endpoint that is not in the store’s private endpoint configurations**. To import key-values from an App Configuration store, you need to have access to that store. If necessary, enable public access for the source store or access it from an approved private endpoint. If you just enabled public access, wait up to 5 minutes for the cache to refresh.
+- **Public access is disabled for your store or you are accessing from a private endpoint that is not in the store’s private endpoint configurations**. If your App Configuration store has private endpoints enabled, you can only access it from within the configured virtual network by default. Ensure that the machine running the Azure Portal or CLI is joined to the same virtual network as the private endpoint. If you have just enabled public network access to your App Configuration store, wait at least 5 minutes before retrying to allow the cache to refresh.
 
 ## Next steps
 
