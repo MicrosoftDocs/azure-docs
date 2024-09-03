@@ -11,7 +11,7 @@ ms.date: 09/02/2024
 
 You can choose whether the session is disconnected or the remote lock screen shown when a remote session is locked, either by the user or by policy. When the session lock behavior is set to disconnect, a dialog is shown to let users know they were disconnected. Users can choose the **Reconnect** option from the dialog when they're ready to connect again.
 
-When used with single sign-on using Microsoft Entra ID, disconnecting the session provides the following benefits 
+When used with single sign-on using Microsoft Entra ID, disconnecting the session provides the following benefits:
 
 - A consistent sign-in experience through Microsoft Entra ID when needed.
 
