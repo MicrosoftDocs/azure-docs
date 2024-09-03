@@ -33,38 +33,6 @@ Specifically, this SharePoint List Online connector uses service principal authe
 > [!TIP]
 > This connector supports copying data from SharePoint Online **List** but not file. Learn how to copy file from [Copy file from SharePoint Online](#copy-file-from-sharepoint-online) section.
 
-## Prerequisites
-
-The SharePoint List Online connector uses service principal authentication to connect to SharePoint. Follow these steps to set it up:
-
-1. Register an application with the Microsoft identity platform. To learn how, see [Quickstart: Register an application with the Microsoft identity platform](../active-directory/develop/quickstart-register-app.md). Make note of these values, which you use to define the linked service:
-
-    - Application ID
-    - Application key
-    - Tenant ID
-
-2. Grant SharePoint Online site permission to your registered application by following the steps below. To do this, you need a site admin role.
-
-    1. Open your SharePoint Online site link. For example, the URL in the format `https://<your-site-url>/_layouts/15/appinv.aspx` where the placeholder `<your-site-url>` is your site.
-    2. Search the application ID you registered, fill the empty fields, and click "Create".
-
-        - App Domain: `contoso.com`
-        - Redirect URL: `https://www.contoso.com`
-        - Permission Request XML:  
-
-            ```xml
-            <AppPermissionRequests AllowAppOnlyPolicy="true">
-                <AppPermissionRequest Scope="http://sharepoint/content/sitecollection/web" Right="Read"/>
-            </AppPermissionRequests>
-            ```
-
-            :::image type="content" source="media/connector-sharepoint-online-list/sharepoint-online-grant-permission-admin.png" alt-text="Grant SharePoint Online site permission to your registered application when you have site admin role.":::
-            
-        > [!NOTE]
-        > In the context of configuring the SharePoint connector, the "App Domain" and "Redirect URL" refer to the SharePoint app that you have registered in Microsoft Entra ID to allow access to your SharePoint data. The "App Domain" is the domain where your SharePoint site is hosted. For example, if your SharePoint site is located at "https://contoso.sharepoint.com", then the "App Domain" would be "contoso.sharepoint.com". The "Redirect URL" is the URL that the SharePoint app will redirect to after the user has authenticated and granted permissions to the app. This URL should be a page on your SharePoint site that the app has permission to access. For example, you could use the URL of a page that displays a list of files in a library, or a page that displays the contents of a document.
-
-    3. Click "Trust It" for this app.
-
 ## Get started
 
 [!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
@@ -103,12 +71,12 @@ The following properties are supported for a SharePoint Online List linked servi
 | ------------------- | ------------------------------------------------------------ | ------------ |
 | type                | The type property must be set to: **SharePointOnlineList**.  | Yes          |
 | siteUrl             | The SharePoint Online site url, e.g. `https://contoso.sharepoint.com/sites/siteName`. | Yes          |
-| servicePrincipalId  | The Application (client) ID of the application registered in Microsoft Entra ID. Refer to [Prerequisites](#prerequisites) for more details including the permission settings.| Yes          |
+| servicePrincipalId  | The Application (client) ID of the application registered in Microsoft Entra ID. | Yes          |
 | servicePrincipalCredentialType | Specify the credential type to use for service principal authentication. Allowed values are `ServicePrincipalKey` and `ServicePrincipalCert`. | No |
 | ***For ServicePrincipalKey*** | | |
-| servicePrincipalKey | The application's key. Mark this field as a **SecureString** to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | No          |
+| servicePrincipalKey | The application's key. Mark this field as a **SecureString** to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). Refer to this [section](#grant-permission-for-using-service-principal-key) for more details including the permission settings. | No          |
 | ***For ServicePrincipalCert*** | | |
-| servicePrincipalEmbeddedCert | Specify the base64 encoded certificate of your application registered in Microsoft Entra ID, and ensure the certificate content type is **PKCS #12**. Mark this field as a **SecureString** to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | No |
+| servicePrincipalEmbeddedCert | Specify the base64 encoded certificate of your application registered in Microsoft Entra ID, and ensure the certificate content type is **PKCS #12**. Mark this field as a **SecureString** to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). Refer to this [article](https://learn.microsoft.com/en-us/sharepoint/dev/solution-guidance/security-apponly-azuread) for permission settings.| No |
 | servicePrincipalEmbeddedCertPassword | Specify the password of your certificate if your certificate is secured with a password. Mark this field as a **SecureString** to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | No |
 |  |  |  |
 | tenantId            | The tenant ID under which your application resides.          | Yes          |
@@ -167,6 +135,37 @@ The following properties are supported for a SharePoint Online List linked servi
     }
 }
 ```
+### Grant permission for using service principal key
+
+The SharePoint List Online connector uses service principal authentication to connect to SharePoint. Follow these steps to set it up:
+
+1. Register an application with the Microsoft identity platform. To learn how, see [Quickstart: Register an application with the Microsoft identity platform](../active-directory/develop/quickstart-register-app.md). Make note of these values, which you use to define the linked service:
+
+    - Application ID
+    - Application key
+    - Tenant ID
+
+2. Grant SharePoint Online site permission to your registered application by following the steps below. To do this, you need a site admin role.
+
+    1. Open your SharePoint Online site link. For example, the URL in the format `https://<your-site-url>/_layouts/15/appinv.aspx` where the placeholder `<your-site-url>` is your site.
+    2. Search the application ID you registered, fill the empty fields, and click "Create".
+
+        - App Domain: `contoso.com`
+        - Redirect URL: `https://www.contoso.com`
+        - Permission Request XML:  
+
+            ```xml
+            <AppPermissionRequests AllowAppOnlyPolicy="true">
+                <AppPermissionRequest Scope="http://sharepoint/content/sitecollection/web" Right="Read"/>
+            </AppPermissionRequests>
+            ```
+
+            :::image type="content" source="media/connector-sharepoint-online-list/sharepoint-online-grant-permission-admin.png" alt-text="Grant SharePoint Online site permission to your registered application when you have site admin role.":::
+            
+        > [!NOTE]
+        > In the context of configuring the SharePoint connector, the "App Domain" and "Redirect URL" refer to the SharePoint app that you have registered in Microsoft Entra ID to allow access to your SharePoint data. The "App Domain" is the domain where your SharePoint site is hosted. For example, if your SharePoint site is located at "https://contoso.sharepoint.com", then the "App Domain" would be "contoso.sharepoint.com". The "Redirect URL" is the URL that the SharePoint app will redirect to after the user has authenticated and granted permissions to the app. This URL should be a page on your SharePoint site that the app has permission to access. For example, you could use the URL of a page that displays a list of files in a library, or a page that displays the contents of a document.
+
+    3. Click "Trust It" for this app.
 
 ## Dataset properties
 
