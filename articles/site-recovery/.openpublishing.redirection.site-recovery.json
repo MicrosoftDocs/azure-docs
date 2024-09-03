@@ -346,7 +346,7 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/site-recovery/physical-azure-set-up-source.md" ,
+            "source_path_from_root": "/articles/site-recovery/move-azure-VMs-cross-region.md" ,
             "redirect_url": "site-recovery-deployment-planner-history",
             "redirect_document_id": false
         },
