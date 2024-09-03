@@ -261,7 +261,7 @@ The software may collect information about you and your use of the software and 
 
 1. [Get the OIDC issuer URL](/azure/aks/workload-identity-deploy-cluster#retrieve-the-oidc-issuer-url) of the AKS cluster.
 
-1. [Create a user-assigned managed identity](/azure/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities#create-a-user-assigned-managed-identity) and note down its client ID after creation.
+1. [Create a user-assigned managed identity](/azure/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities#create-a-user-assigned-managed-identity) and note down its name and resource group.
   
 1. [Grant the user-assigned managed identity **App Configuration Data Reader** role](/azure/azure-app-configuration/concept-enable-rbac#assign-azure-roles-for-access-rights) in Azure App Configuration.
    
@@ -272,16 +272,15 @@ The software may collect information about you and your use of the software and 
     kind: ServiceAccount
     metadata:
       name: <your-service-account-name>
-      namespace: default
       annotations:
         azure.workload.identity/client-id: <your-managed-identity-client-id>
         azure.workload.identity/tenant-id: <your-tenant-id>
     ```
 
-1. Create federated identity credential for the user-assigned managed identity using the Azure CLI.
+1. Create federated identity credential for the user-assigned managed identity using the Azure CLI. Replace `<user-assigned-identity-name>` with name and `<resource-group>` with resource group of user-assigned managed identity just been created. Replace `<aks-oidc-issuer>` with the OIDC issuer URL of the AKS cluster. Replace `<your-service-account-name>` with the name of the service account just been created.
 
     ``` azurecli
-    az identity federated-credential create --name "${FEDERATED_IDENTITY_CREDENTIAL_NAME}" --identity-name "${USER_ASSIGNED_IDENTITY_NAME}" --resource-group "${RESOURCE_GROUP}" --issuer "${AKS_OIDC_ISSUER}" --subject system:serviceaccount:default:my-service-account --audience api://AzureADTokenExchange
+    az identity federated-credential create --name appconfigCredential --identity-name "<user-assigned-identity-name>" --resource-group "<resource-group>" --issuer "<aks-oidc-issuer>" --subject system:serviceaccount:default:<your-service-account-name> --audience api://AzureADTokenExchange
     ```
 
     The subject of the federated identity credential should be in the format `system:serviceaccount:<service-account-namespace>:<service-account-name>`.
@@ -293,7 +292,6 @@ The software may collect information about you and your use of the software and 
     kind: AzureAppConfigurationProvider
     metadata:
       name: appconfigurationprovider-sample
-      namespace: default
     spec:
       endpoint: <your-app-configuration-store-endpoint>
       target:
