@@ -185,7 +185,7 @@ For feature variations and limitations, including API endpoints, see [Speech ser
 
 ### [Azure AI services: OpenAI Service](/azure/ai-services/openai/overview)
 
-For feature variations and limitations see [Azure OpenAI in Azure Gov](/azure/ai-services/openai/azuregov).
+For feature variations and limitations see [Azure OpenAI in Azure Gov](/azure/ai-services/openai/azure-government).
 
 ### [Azure AI services: Translator](/azure/ai-services/translator/)
 
