@@ -2,14 +2,14 @@
 title: Socket.IO Azure Function trigger and binding
 description: This article explains the usage of Azure Function trigger and binding
 keywords: Socket.IO, Socket.IO on Azure, serverless, Azure Function, multi-node Socket.IO, scaling Socket.IO, socketio, azure socketio
-author: kevinguo-ed
-ms.author: kevinguo
-ms.date: 08/1/2023
+author: zackliu
+ms.author: chenyl
+ms.date: 9/1/2024
 ms.service: azure-web-pubsub
 ms.topic: conceptual
 ---
 
-# Socket.IO Azure Function trigger and binding
+# Socket.IO Azure Function trigger and binding (Preview)
 
 This artical explains how to use Socket.IO serverless integrate with Azure Functions.
 

@@ -9,7 +9,7 @@ ms.service: azure-web-pubsub
 ms.topic: how-to
 ---
 
-# Overview Socket.IO Serverless Mode
+# Overview Socket.IO Serverless Mode (Preview)
 
 Socket.IO is a library that enables real-time, bidirectional, and event-based communication between web clients and servers. Traditionally, Socket.IO operates in a server-client architecture, where the server handles all communication logic and maintains persistent connections.
 
@@ -19,6 +19,15 @@ With the increasing adoption of serverless computing, we're introducing a new mo
 | Feature | Default Mode | Serverless Mode |
 |------------|------------|------------|
 |Architecture|Use persistent connection for both servers and clients | Clients use persistent connections but servers use RESTful APIs and webhook event handlers in a stateless manner|
-|SDKs and Languages| Official JavaScript server SDKs together with []() is required; All compatible clients|No mandatery SDKs or languages. Use ()[] to simplified integrate with Azure Function; All compatible clients|
+|SDKs and Languages| Official JavaScript server SDKs together with [Extension library for Web PubSub for Socket.IO SDK](https://www.npmjs.com/package/@azure/web-pubsub-socket.io) is required; All compatible clients|No mandatery SDKs or languages. Use [Socket.IO Function binding](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.WebPubSubForSocketIO) to simplified integrate with Azure Function; All compatible clients|
 |Network Accessibility| The server doesn't need to expose network access as it proactively make connection to the service|The server needs to expose network access to the service|
-|Feature supports|Most features are supported except some unsupported features()[]|See list of supported features()[]|
+|Feature supports|Most features are supported except some unsupported features: [Unsupported server APIs of Socket.IO](./socketio-supported-server-apis.md)|See list of supported features: [Supported functionality and RESTful APIs](./socketio-serverless-protocol.md#supported-functionality-and-restful-apis)|
+
+## Next steps
+
+This artical provides you an overview of the Serverless Mode of Web PubSub for Socket.IO.
+
+> [!div class="nextstepaction"]
+> [Walk through a quickstart with Serverless Mode and Azure Function](./socketio-serverless-quickstart.md)
+> [Serverless Protocols](./socketio-serverless-protocol.md)
+> [Serverless Function Binding](./socketio-serverless-function-binding.md)

@@ -2,21 +2,20 @@
 title: 'Quickstart: Use Socket.IO with Azure Function in Serverless Mode'
 description: In this quickstart, you learn how to use Web PubSub for Socket.IO with Azure Function in Serverless Mode.
 keywords: Socket.IO, serverless, azure function, Socket.IO on Azure, multi-node Socket.IO, scaling Socket.IO, socketio, azure socketio
-author: xingsy97
-ms.author: siyuanxing
-ms.date: 08/01/2023
+author: zackliu
+ms.author: chenyl
+ms.date: 09/01/2024
 ms.service: azure-web-pubsub
 ms.topic: quickstart
 ---
 
-# Quickstart: Use Socket.IO with Azure Function in Serverless Mode
+# Quickstart: Use Socket.IO with Azure Function in Serverless Mode (Preview)
 
 This quickstart walk you through how to create a Web PubSub for Socket.IO service in Serverless Mode and build a chat app integrating with Azure Function.
 
-Belows are the find full code samples in various languages:
+Belows are the find full code samples used in this quickstart:
 
-- [In JavaScript]()
-- [In C#]()
+- [JavaScript Sample]()
 
 > [!IMPORTANT]
 > Default Mode needs a persistent server, you cannot integration Web PubSub for Socket.IO in default mode with Azure Function.
@@ -82,8 +81,7 @@ const socketIONegotiate = input.generic({
     type: 'socketionegotiation',
     direction: 'in',
     name: 'result',
-    hub: 'hub',
-    userId: '{query.userId}'
+    hub: 'hub'
 });
 
 async function negotiate(request, context) {
@@ -124,7 +122,7 @@ async function chat(request, context) {
       namespace: '/',
       eventName: 'new message',
       parameters: [
-        context.triggerMetadata.userId,
+        context.triggerMetadata.socketId,
         context.triggerMetadata.message
       ],
     });
@@ -153,53 +151,55 @@ This uses `SocketIOTrigger` to get triggered by a Socket.IO client message and u
 
     ```html
     <html>
+
     <body>
     <h1>Socket.IO Serverless Sample</h1>
     <div id="chatPage" class="chat-container">
-        <div id="chatMessages" class="chat-messages"></div>
         <div class="chat-input">
             <input type="text" id="chatInput" placeholder="Type your message here...">
             <button onclick="sendMessage()">Send</button>
         </div>
+        <div id="chatMessages" class="chat-messages"></div>
     </div>
     <script src="https://cdn.socket.io/4.7.5/socket.io.min.js"></script>
     <script>
         function appendMessage(message) {
-            const chatMessages = document.getElementById('chatMessages');
-            const messageElement = document.createElement('div');
-            messageElement.innerText = message;
-            chatMessages.appendChild(messageElement);
-            hatMessages.scrollTop = chatMessages.scrollHeight;
+        const chatMessages = document.getElementById('chatMessages');
+        const messageElement = document.createElement('div');
+        messageElement.innerText = message;
+        chatMessages.appendChild(messageElement);
+        hatMessages.scrollTop = chatMessages.scrollHeight;
         }
 
         function sendMessage() {
-            const message = document.getElementById('chatInput').value;
-            if (message) {
-                document.getElementById('chatInput').value = '';
-                socket.emit('chat', message);
-            }
+        const message = document.getElementById('chatInput').value;
+        if (message) {
+            document.getElementById('chatInput').value = '';
+            socket.emit('chat', message);
+        }
         }
 
         async function initializeSocket() {
-            const negotiateResponse = await fetch(`/api/negotiate`);
-            if (!negotiateResponse.ok) {
-                console.log("Failed to negotiate, status code =", negotiateResponse.status);
-                return;
-            }
-            const negotiateJson = await negotiateResponse.json();
-            socket = io(negotiateJson.endpoint, {
-                path: negotiateJson.path,
-                query: { access_token: negotiateJson.token }
-            });
+        const negotiateResponse = await fetch(`/api/negotiate`);
+        if (!negotiateResponse.ok) {
+            console.log("Failed to negotiate, status code =", negotiateResponse.status);
+            return;
+        }
+        const negotiateJson = await negotiateResponse.json();
+        socket = io(negotiateJson.endpoint, {
+            path: negotiateJson.path,
+            query: { access_token: negotiateJson.token }
+        });
 
-            socket.on('new message', (message) => {
-                appendMessage(false, message);
-            })
+        socket.on('new message', (socketId, message) => {
+            appendMessage(`${socketId.substring(0,5)}: ${message}`);
+        })
         }
 
         initializeSocket();
     </script>
     </body>
+
     </html>
     ```
 
@@ -246,20 +246,18 @@ This uses `SocketIOTrigger` to get triggered by a Socket.IO client message and u
 
     ```
 
-## How to run the App
+## How to run the App locally
 
 After code is prepared, following the instructions below to run the sample.
 
-### Run App Locally
-
-#### Setup Azure Storage for Azure Function
+### Setup Azure Storage for Azure Function
 
 Azure Functions requires a storage account to work. Choose either of the two following options:
 
 * Run the free [Azure Storage Emulator](../storage/common/storage-use-azurite.md).
 * Use the Azure Storage service. This may incur costs if you continue to use it.
 
-##### [Local emulation](#tab/storage-azurite) 
+#### [Local emulation](#tab/storage-azurite) 
 
 1. Start the Azurite storage emulator:
 
@@ -269,7 +267,7 @@ Azure Functions requires a storage account to work. Choose either of the two fol
 
 1. Make sure the `AzureWebJobsStorage` in *local.settings.json* set to `UseDevelopmentStorage=true`.
 
-##### [Azure Blob Storage](#tab/azure-blob-storage) 
+#### [Azure Blob Storage](#tab/azure-blob-storage) 
 
 Update the project to use the Azure Blob Storage connection string.
 
@@ -279,7 +277,7 @@ func settings add AzureWebJobsStorage "<storage-connection-string>"
 
 ---
 
-#### Setup configuration of Web PubSub for Socket.IO
+### Setup configuration of Web PubSub for Socket.IO
 
 1. Add connection string to the Function APP:
 
@@ -293,7 +291,7 @@ func settings add WebPubSubForSocketIOConnectionString "<connection string>"
 az webpubsub hub create -n <resource name> -g <resource group> --hub-name hub --event-handler url-template="tunnel:///runtime/webhooks/socketio" user-event-pattern="*"
 ```
 
-#### Setup tunnel 
+### Setup tunnel 
 
 In serverless mode, the service use webhooks to trigger the function. When running locally, a crucial problem is let the service be able to access your local function endpoint.
 
@@ -308,13 +306,24 @@ npm install -g @azure/web-pubsub-tunnel-tool
 1. Run the tunnel
 
 ```bash
-awps-tunnel run --hub chat --connection <connection-string>
+awps-tunnel run --hub hub --connection "<connection string>" --upstream http://127.0.0.1:7071
 ```
 
+### Run Sample App
 
+After tunnel tool is running, you can run the Function App locally:
 
-#### Setup configuration of Web PubSub for Socket.IO
+```bash
+func start
+```
 
-### Publish to Azure Function online
+And visit the webpage at `http://localhost:7071/api/index`. 
 
-#### Setup configuration of Web PubSub for Socket.IO
+:::image type="content" source="./media/socketio-serverless-quickstart/chatsample.png" alt-text="Screenshot of a the serverless chat app.":::
+
+## Next steps
+Next, you can explore more samples in various languages:
+
+> [!div class="nextstepaction"]
+> [TypeScript Sample]()
+> [C# Sample]()

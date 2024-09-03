@@ -9,7 +9,7 @@ ms.service: azure-web-pubsub
 ms.topic: how-to
 ---
 
-# Socket.IO Serverless Mode Specification
+# Socket.IO Serverless Mode Specification (Preview)
 
 This documents describe the details of serverless support. As the Socket.IO supports including the serverless supports highly depends on the Web PubSub service's existing interface, it introduces many complicated transforming and mapping. For most users, we s
 
