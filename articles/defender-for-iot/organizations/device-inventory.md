@@ -108,10 +108,9 @@ The following table lists the columns available in the Defender for IoT device i
 |**Description** * |The device's description.  |Editable in both Azure and the OT Sensor|
 | **Device Id** | The device's Azure-assigned ID number. |Not editable|
 |  **Firmware model** |  The device's firmware model. |Editable in Azure|
-| **Firmware vendor** |  The vendor of the device's firmware. |Not editable?|
+| **Firmware vendor** |  The vendor of the device's firmware. |Not editable|
 | **Firmware version** * |The device's firmware version. |Editable in Azure |
 |**First seen**  * | The date and time the device was first seen. Shown in `MM/DD/YYYY HH:MM:SS AM/PM` format. On the OT sensor, shown as **Discovered**.|Not editable|
-|  ADDED **Hardware model** | The device's hardware model. |Editable in Azure|
 |**Importance** | The device's important level: `Low`, `Medium`, or `High`.   |Editable in Azure|
 | **IPv4 Address** | The device's IPv4 address. |Not editable|
 |**IPv6 Address** | The device's IPv6 address.|Not editable|
