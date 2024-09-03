@@ -12,9 +12,9 @@ appliesto:
 
 # Update the Microsoft Sentinel for SAP applications data connector agent
 
-This article shows you how to update an already existing Microsoft Sentinel for SAP data connector to its latest version.
+This article shows you how to update an already existing Microsoft Sentinel for SAP data connector to its latest version so that you can use the latest features and improvements.
 
-To get the latest features, either [configure automatic updates](#configure-automatic-updates-for-the-sap-data-connector-agent-preview) for the SAP data connector agent, or [manually update the agent](#manually-update-sap-data-connector-agent).
+During the data connector agent update process, there's a brief downtime of approximately 10 seconds. To ensure data integrity, a database entry stores the timestamp of the last fetched log. After the update is complete, the data fetching process resumes from the last log fetched, preventing duplicates and ensuring a seameless data flow.
 
 The automatic or manual updates described in this article are relevant to the SAP connector agent only, and not to the Microsoft Sentinel solution for SAP applications. To successfully update the solution, your agent needs to be up to date. The solution is updated separately, as you would any other [Microsoft Sentinel solution](../sentinel-solutions-deploy.md#install-or-update-content).
 

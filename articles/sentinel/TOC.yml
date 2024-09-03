@@ -188,10 +188,12 @@
             href: sap/sap-audit-log-workbook.md
           - name: Monitor SAP audit controls
             href: sap/sap-audit-controls-workbook.md   
-        - name: SAP solution data reference
-          href: sap/sap-solution-log-reference.md
         - name: SAP security content reference
           href: sap/sap-solution-security-content.md
+        - name: SAP solution function reference
+          href: sap/sap-solution-function-reference.md
+        - name: SAP solution log and table reference
+          href: sap/sap-solution-log-reference.md
       - name: SAP BTP
         items:
         - name: Overview

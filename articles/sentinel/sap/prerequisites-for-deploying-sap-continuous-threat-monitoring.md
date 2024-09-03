@@ -86,7 +86,18 @@ If you choose to retrieve additional information with the [NPLK900202 optional C
 | - 750 SP04 to SP12<br>- 751 SP00 to SP06<br>- 752 SP00 to SP02 | [2641084 - Standardized read access to data of Security Audit Log](https://launchpad.support.sap.com/#/notes/2641084)* |
 
 For more information, see the [SAP documentation](https://help.sap.com/docs/ABAP_PLATFORM_NEW/4a368c163b08418890a406d413933ba7/e15d9acae75c11d2b451006094b9ea64.html?locale=en-US&version=LATEST).
- 
+
+## Plan your ingestion
+
+We recommend that you test your systems to determine the number of logs that each of your SAP systems will send to Microsoft Sentinel. Microsoft Sentinel billing depends on log ingestion size, which in turn depends on factors such as system usage, modules deployed, number of users, running use cases, network traffic, and log types.
+
+For more information, see:
+
+- [Solution pricing](solution-overview.md#solution-pricing)
+- [Plan costs and understand Microsoft Sentinel pricing and billing](../billing.md)
+- [Reduce costs for Microsoft Sentinel](../billing-reduce-costs.md)
+- [Manage and monitor costs for Microsoft Sentinel](../billing-monitor-costs.md)
+
 ## Next step
 
 > [!div class="nextstepaction"]

@@ -43,7 +43,7 @@ Watch a video demonstration of the deployment process described in this article.
 
 ## Create a virtual machine and configure access to your credentials
 
-Create a virtual machine to use for your data connecter agent container. For more information, see [System prerequisites](prerequisites-for-deploying-sap-continuous-threat-monitoring.md#system-prerequisites).
+We recommend creating a dedicated virtual machine for your data connector agent container to ensure optimal performance and avoid potential conflicts. For more information, see [System prerequisites](prerequisites-for-deploying-sap-continuous-threat-monitoring.md#system-prerequisites).
 
 We recommend that you store your SAP and authentication secrets in an [Azure key vault](/azure/key-vault/general/authentication). How you access your key vault depends on where your virtual machine (VM) is deployed:
 
@@ -220,6 +220,10 @@ This procedure describes how to create a key vault to store your agent configura
 ## Deploy the data connector agent
 
 Now that you've created a VM and a Key Vault, your next step is to create a new agent and connect to one of your SAP systems. We recommend that your **security** team perform the procedures in this section with help from the **SAP BASIS** team.
+
+While you can technically run multiple data connector agents on a single machine, we recommend that you start with one only, monitor the performance, and then increase the number of connectors slowly.
+
+**To deploy the data connector agent**:
 
 1. **Sign in to the newly created VM** on which you're installing the agent, as a user with sudo privileges.
 
