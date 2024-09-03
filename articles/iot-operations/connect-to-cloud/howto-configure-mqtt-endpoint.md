@@ -42,7 +42,8 @@ spec:
   mqttSettings:
     authentication:
       method: ServiceAccountToken
-      serviceAccountTokenSettings: {}
+      serviceAccountTokenSettings:
+        audience: aio-internal
 ```
 
 This creates a connection to the default MQTT broker with the following settings:
