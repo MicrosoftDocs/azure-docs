@@ -92,7 +92,7 @@ Activate the new integration by going to your cluster's portal page and scrollin
 
 1. Select Save once precondition steps are complete.
 
-### Approach 2: Enable Azure monitor agent using Azure Powershell 
+### Approach 2: Enable Azure monitor agent using Azure PowerShell 
 
 1. Enable system-assigned MSI 
 
