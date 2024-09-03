@@ -98,7 +98,7 @@ If the deployment succeeds, a few pieces of information are printed at the end o
               scrape_interval: 1m
               static_configs:
               - targets:
-                - aio-mq-diagnostics-service.azure-iot-operations.svc.cluster.local:9600
+                - aio-internal-diagnostics-service.azure-iot-operations.svc.cluster.local:9600
             - job_name: nats
               scrape_interval: 1m
               static_configs:

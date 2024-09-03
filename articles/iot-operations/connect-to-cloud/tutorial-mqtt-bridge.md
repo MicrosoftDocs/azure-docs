@@ -276,7 +276,7 @@ spec:
       sources:
       - serviceAccountToken:
           path: mq-sat
-          audience: aio-mq # Must match audience in BrokerAuthentication
+          audience: aio-internal # Must match audience in BrokerAuthentication
           expirationSeconds: 86400
   - name: trust-bundle
     configMap:

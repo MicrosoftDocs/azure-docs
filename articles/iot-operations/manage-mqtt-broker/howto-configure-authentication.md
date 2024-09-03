@@ -48,11 +48,11 @@ spec:
     - method: ServiceAccountToken
       serviceAccountTokenSettings:
         audiences:
-          - "aio-mq"
+          - "aio-internal"
 ```
 
 > [!IMPORTANT]
-> The service account token (SAT) authentication method in the default *BrokerAuthentication* resource is required for components in the Azure IoT Operations to function correctly. Avoid updating or deleting the default *BrokerAuthentication* resource. If you need to make changes, modify the `authenticationMethods` field in this resource while retaining the SAT authentication method with the `aio-mq` audience. Preferably, you can create a new *BrokerAuthentication* resource with a different name and deploy it using `kubectl apply`.
+> The service account token (SAT) authentication method in the default *BrokerAuthentication* resource is required for components in the Azure IoT Operations to function correctly. Avoid updating or deleting the default *BrokerAuthentication* resource. If you need to make changes, modify the `authenticationMethods` field in this resource while retaining the SAT authentication method with the `aio-internal` audience. Preferably, you can create a new *BrokerAuthentication* resource with a different name and deploy it using `kubectl apply`.
 
 To change the configuration, modify the `authenticationMethods` setting in this *BrokerAuthentication* resource or create new brand new *BrokerAuthentication* resource with a different name. Then, deploy it using `kubectl apply`.
 
@@ -259,7 +259,7 @@ spec:
     - method: ServiceAccountToken
       serviceAccountTokenSettings:
         audiences:
-        - "aio-mq"
+        - "aio-internal"
         - "my-audience"
 ```
 

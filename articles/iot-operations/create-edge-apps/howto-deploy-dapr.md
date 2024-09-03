@@ -69,7 +69,7 @@ To create the yaml file, use the following component definitions:
             "image": "ghcr.io/azure/iot-operations-dapr-components:latest",
             "volumeMounts": [
               { "name": "mqtt-client-token", "mountPath": "/var/run/secrets/tokens" },
-              { "name": "aio-ca-trust-bundle", "mountPath": "/var/run/certs/aio-mq-ca-cert" }
+              { "name": "aio-ca-trust-bundle", "mountPath": "/var/run/certs/aio-internal-ca-cert" }
             ],
             "env": [
                 { "name": "pubSubLogLevel", "value": "Information" },
@@ -88,7 +88,7 @@ To create the yaml file, use the following component definitions:
       - name: useTls
         value: true
       - name: caFile
-        value: /var/run/certs/aio-mq-ca-cert/ca.crt
+        value: /var/run/certs/aio-internal-ca-cert/ca.crt
       - name: satAuthFile
         value: /var/run/secrets/tokens/mqtt-client-token
     ---
@@ -108,7 +108,7 @@ To create the yaml file, use the following component definitions:
       - name: useTls
         value: true
       - name: caFile
-        value: /var/run/certs/aio-mq-ca-cert/ca.crt
+        value: /var/run/certs/aio-internal-ca-cert/ca.crt
       - name: satAuthFile
         value: /var/run/secrets/tokens/mqtt-client-token    
     ```

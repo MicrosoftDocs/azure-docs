@@ -41,7 +41,7 @@ To start, create a yaml file that uses the following definitions:
 | Component | Description |
 |-|-|
 | `volumes.mqtt-client-token` | The SAT used for authenticating the Dapr pluggable components with the MQTT broker and State Store |
-| `volumes.aio-mq-ca-cert-chain` | The chain of trust to validate the MQTT broker TLS cert |
+| `volumes.aio-internal-ca-cert-chain` | The chain of trust to validate the MQTT broker TLS cert |
 | `containers.mq-event-driven` | The prebuilt Dapr application container. | 
 
 1. Save the following deployment yaml to a file named `app.yaml`:
@@ -53,7 +53,7 @@ To start, create a yaml file that uses the following definitions:
       name: dapr-client
       namespace: azure-iot-operations
       annotations:
-        aio-mq-broker-auth/group: dapr-workload
+        aio-broker-auth/group: dapr-workload
     ---    
     apiVersion: apps/v1
     kind: Deployment
@@ -84,7 +84,7 @@ To start, create a yaml file that uses the following definitions:
               sources:
                 - serviceAccountToken:
                     path: mqtt-client-token
-                    audience: aio-mq
+                    audience: aio-internal
                     expirationSeconds: 86400
 
           # Certificate chain for Dapr to validate the MQTT broker
@@ -177,14 +177,14 @@ To verify the MQTT bridge is working, deploy an MQTT client to the cluster.
         - name: mqtt-client-token
           mountPath: /var/run/secrets/tokens
         - name: aio-ca-trust-bundle
-          mountPath: /var/run/certs/aio-mq-ca-cert/
+          mountPath: /var/run/certs/aio-internal-ca-cert/
       volumes:
       - name: mqtt-client-token
         projected:
           sources:
           - serviceAccountToken:
               path: mqtt-client-token
-              audience: aio-mq
+              audience: aio-internal
               expirationSeconds: 86400
       - name: aio-ca-trust-bundle
         configMap:

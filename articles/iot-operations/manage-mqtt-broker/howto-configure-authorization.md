@@ -139,10 +139,10 @@ For example, if a client has a certificate with subject `CN = smart-lock`, its u
 Authorization attributes for SATs are set as part of the Service Account annotations. For example, to add an authorization attribute named `group` with value `authz-sat`, run the command:
 
 ```bash
-kubectl annotate serviceaccount mqtt-client aio-mq-broker-auth/group=authz-sat
+kubectl annotate serviceaccount mqtt-client aio-broker-auth/group=authz-sat
 ```
 
-Attribute annotations must begin with `aio-mq-broker-auth/` to distinguish them from other annotations.
+Attribute annotations must begin with `aio-broker-auth/` to distinguish them from other annotations.
 
 As the application has an authorization attribute called `authz-sat`, there's no need to provide a `clientId` or `username`. The corresponding *BrokerAuthorization* resource uses this attribute as a principal, for example:
 
