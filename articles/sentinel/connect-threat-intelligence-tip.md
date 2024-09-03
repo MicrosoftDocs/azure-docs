@@ -19,7 +19,7 @@ ms.collection: usx-security
 > This data connector is on a path for deprecation. More information will be published on the precise timeline. Use the new Threat Intelligence Upload Indicators API data connector for new solutions going forward.
 > For more information, see [Connect your threat intelligence platform to Microsoft Sentinel with the Upload Indicators API](connect-threat-intelligence-upload-api.md).
 
-Many organizations use threat intelligence platform (TIP) solutions to aggregate threat indicator feeds from various sources. From the aggregated feed, the data is curated to apply to security solutions such as network devices, EDR/XDR solutions, or security information and event management (SIEM) solutions such as Microsoft Sentinel. The TIP data connector allows you to use these solutions to import threat indicators into Microsoft Sentinel. 
+Many organizations use threat intelligence platform (TIP) solutions to aggregate threat indicator feeds from various sources. From the aggregated feed, the data is curated to apply to security solutions such as network devices, EDR/XDR solutions, or security information and event management (SIEM) solutions such as Microsoft Sentinel. By using the TIP data connector, you can use these solutions to import threat indicators into Microsoft Sentinel. 
 
 Because the TIP data connector works with the [Microsoft Graph Security tiIndicators API](/graph/api/resources/tiindicator) to accomplish this process, you can use the connector to send indicators to Microsoft Sentinel (and to other Microsoft security solutions like Defender XDR) from any other custom TIP that can communicate with that API.
 
@@ -34,20 +34,20 @@ Learn more about [threat intelligence](understand-threat-intelligence.md) in Mic
 ## Prerequisites
 
 - To install, update, and delete standalone content or solutions in the **Content hub**, you need the Microsoft Sentinel Contributor role at the resource group level.
-- To grant permissions to your TIP product or any other custom application that uses direct integration with the Microsoft Graph TI Indicators API, you must have the Security administrator Microsoft Entra role or the equivalent permissions.
+- To grant permissions to your TIP product or any other custom application that uses direct integration with the Microsoft Graph TI Indicators API, you must have the Security Administrator Microsoft Entra role or the equivalent permissions.
 - To store your threat indicators, you must have read and write permissions to the Microsoft Sentinel workspace.
 
 ## Instructions
 
 To import threat indicators to Microsoft Sentinel from your integrated TIP or custom threat intelligence solution, follow these steps:
 
-1. Obtain an application ID and client secret from your Microsoft Entra ID.
+1. Obtain an application ID and client secret from Microsoft Entra ID.
 1. Input this information into your TIP solution or custom application.
 1. Enable the TIP data connector in Microsoft Sentinel.
 
 <a name='sign-up-for-an-application-id-and-client-secret-from-your-azure-active-directory'></a>
 
-## Sign up for an application ID and client secret from your Microsoft Entra ID
+## Sign up for an application ID and client secret from Microsoft Entra ID
 
 Whether you're working with a TIP or a custom solution, the tiIndicators API requires some basic information to allow you to connect your feed to it and send it threat indicators. The three pieces of information you need are:
 
@@ -55,7 +55,7 @@ Whether you're working with a TIP or a custom solution, the tiIndicators API req
 - Directory (tenant) ID
 - Client secret
 
-You can get this information from your Microsoft Entra ID through app registration, which includes the following three steps:
+You can get this information from Microsoft Entra ID through app registration, which includes the following three steps:
 
 - Register an app with Microsoft Entra ID.
 - Specify the permissions required by the app to connect to the Microsoft Graph tiIndicators API and send threat indicators.
@@ -85,7 +85,7 @@ You can get this information from your Microsoft Entra ID through app registrati
 
 1. At the prompt **What type of permissions does your application require?**, select **Application permissions**. This permission is the type used by applications that authenticate with app ID and app secrets (API keys).
 
-1. Select **ThreatIndicators.ReadWrite.OwnedBy** and then select **Add permissions** to add this permission to your app's list of permissions.
+1. Select **ThreatIndicators.ReadWrite.OwnedBy**, and then select **Add permissions** to add this permission to your app's list of permissions.
 
     :::image type="content" source="media/connect-threat-intelligence-tip/threat-intel-api-permissions-1.png" alt-text="Screenshot that shows specifying permissions.":::
 
@@ -101,7 +101,7 @@ After your app is registered and permissions are granted, you need to get a clie
 
 1. Go back to the main page of **Microsoft Entra ID**.
 
-1. On the menu, select **App Registrations** and then select your newly registered app.
+1. On the menu, select **App Registrations**, and then select your newly registered app.
 
 1. On the menu, select **Certificates & secrets**. Then select **New client secret** to receive a secret (API key) for your app.
 
@@ -120,7 +120,7 @@ You now have all three pieces of information you need to configure your TIP or c
 - Directory (tenant) ID
 - Client secret
 
-1. Enter these values in the configuration of your integrated TIP or custom solution where required.
+Enter these values in the configuration of your integrated TIP or custom solution where required.
 
 1. For the target product, specify **Azure Sentinel**. (Specifying **Microsoft Sentinel** results in an error.)
 
@@ -142,7 +142,7 @@ The last step in the integration process is to enable the TIP data connector in 
 
 1. To configure the TIP data connector, select **Configuration** > **Data connectors**.
 
-1. Find and select the **Threat Intelligence Platforms** data connector and then select **Open connector page**.
+1. Find and select the **Threat Intelligence Platforms** data connector, and then select **Open connector page**.
 
     :::image type="content" source="media/connect-threat-intelligence-tip/tip-data-connector-config.png" alt-text="Screenshot that shows the Data connectors page with the Threat Intelligence Platforms data connector listed." lightbox="media/connect-threat-intelligence-tip/tip-data-connector-config.png":::
 

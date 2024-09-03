@@ -13,7 +13,7 @@ ms.collection: usx-security
 
 # Threat intelligence integration in Microsoft Sentinel
 
-Microsoft Sentinel gives you a few different ways to [use threat intelligence feeds](work-with-threat-indicators.md) to enhance your security analysts' ability to detect and prioritize known threats:
+Microsoft Sentinel gives you a few ways to [use threat intelligence feeds](work-with-threat-indicators.md) to enhance your security analysts' ability to detect and prioritize known threats:
 
 - Use one of many available integrated [threat intelligence platform (TIP) products](connect-threat-intelligence-tip.md).
 - Connect to [TAXII servers](connect-threat-intelligence-taxii.md) to take advantage of any STIX-compatible threat intelligence source.
@@ -41,7 +41,7 @@ To connect to TAXII threat intelligence feeds, follow the instructions to [conne
 
 ### Cyware threat intelligence exchange (CTIX)
 
-One component of Cyware's TIP, CTIX, is actioning intel with a TAXII feed for your security information and event management. For Microsoft Sentinel, follow the instructions here:
+One component of Cyware's TIP, CTIX, is to make intel actionable with a TAXII feed for your security information and event management. For Microsoft Sentinel, follow the instructions here:
 
  - Learn how to [integrate with Microsoft Sentinel](https://techdocs.cyware.com/en/299670-419978-configure-subscribers-to-receive-ctix-threat-intel-over-taxii.html#299670-13832-integrate-with-microsoft-sentinel)
  
@@ -65,7 +65,7 @@ One component of Cyware's TIP, CTIX, is actioning intel with a TAXII feed for yo
 ### IntSights
 
 - Learn more about the [IntSights integration with Microsoft Sentinel @IntSights](https://intsights.com/resources/intsights-microsoft-azure-sentinel).
-- Connect Microsoft Sentinel to the IntSights TAXII server. Obtain the API root, collection ID, username, and password from the IntSights portal after you configure a policy of the data you want to send to Microsoft Sentinel.
+- Connect Microsoft Sentinel to the IntSights TAXII server. Obtain the API root, collection ID, username, and password from the IntSights portal after you configure a policy of the data that you want to send to Microsoft Sentinel.
 
 ### Kaspersky
 

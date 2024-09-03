@@ -15,7 +15,7 @@ ms.collection: usx-security
 
 # Connect your threat intelligence platform to Microsoft Sentinel with the Upload Indicators API
 
-Many organizations use threat intelligence platform (TIP) solutions to aggregate threat indicator feeds from various sources. From the aggregated feed, the data is curated to apply to security solutions such as network devices, EDR/XDR solutions, or security information and event management (SIEM) solutions such as Microsoft Sentinel. The Threat Intelligence Upload Indicators API allows you to use these solutions to import threat indicators into Microsoft Sentinel. The Upload Indicators API ingests threat intelligence indicators into Microsoft Sentinel without the need for the data connector. The data connector only mirrors the instructions for connecting to the API endpoint described in this article and the API reference document [Microsoft Sentinel Upload Indicators API](upload-indicators-api.md).
+Many organizations use threat intelligence platform (TIP) solutions to aggregate threat indicator feeds from various sources. From the aggregated feed, the data is curated to apply to security solutions such as network devices, EDR/XDR solutions, or security information and event management (SIEM) solutions such as Microsoft Sentinel. By using the Threat Intelligence Upload Indicators API, you can use these solutions to import threat indicators into Microsoft Sentinel. The Upload Indicators API ingests threat intelligence indicators into Microsoft Sentinel without the need for the data connector. The data connector only mirrors the instructions for connecting to the API endpoint described in this article and the API reference document [Microsoft Sentinel Upload Indicators API](upload-indicators-api.md).
 
 :::image type="content" source="media/connect-threat-intelligence-upload-api/threat-intel-upload-api.png" alt-text="Screenshot that shows the threat intelligence import path.":::
 
@@ -41,7 +41,7 @@ For more information, see [Connect Microsoft Sentinel to STIX/TAXII threat intel
 
 Follow these steps to import threat indicators to Microsoft Sentinel from your integrated TIP or custom threat intelligence solution:
 
-1. Register a Microsoft Entra application and record its application ID.
+1. Register a Microsoft Entra application, and then record its application ID.
 1. Generate and record a client secret for your Microsoft Entra application.
 1. Assign your Microsoft Entra application the Microsoft Sentinel Contributor role or the equivalent.
 1. Configure your TIP solution or custom application.
@@ -50,7 +50,7 @@ Follow these steps to import threat indicators to Microsoft Sentinel from your i
 
 ## Register a Microsoft Entra application
 
-The [default user role permissions](../active-directory/fundamentals/users-default-permissions.md#restrict-member-users-default-permissions) allow users to create application registrations. If this setting was switched to **No**, you need permission to manage applications in Microsoft Entra ID. Any of the following Microsoft Entra roles include the required permissions:
+The [default user role permissions](../active-directory/fundamentals/users-default-permissions.md#restrict-member-users-default-permissions) allow users to create application registrations. If this setting was switched to **No**, you need permission to manage applications in Microsoft Entra. Any of the following Microsoft Entra roles include the required permissions:
 
 - Application administrator
 - Application developer

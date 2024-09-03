@@ -33,7 +33,9 @@ For more information about the benefits of the standard and premium Defender Thr
 
 To import threat indicators into Microsoft Sentinel from standard and premium Defender Threat Intelligence, follow these steps:
 
-1. For Microsoft Sentinel in the [Azure portal](https://portal.azure.com), under **Content management**, select **Content hub**. <br>For Microsoft Sentinel in the [Defender portal](https://security.microsoft.com/), select **Microsoft Sentinel** > **Content management** > **Content hub**.
+1. For Microsoft Sentinel in the [Azure portal](https://portal.azure.com), under **Content management**, select **Content hub**.
+
+   For Microsoft Sentinel in the [Defender portal](https://security.microsoft.com/), select **Microsoft Sentinel** > **Content management** > **Content hub**.
 
 1. Find and select the **Threat Intelligence** solution.
 
@@ -43,7 +45,9 @@ For more information about how to manage the solution components, see [Discover 
 
 ## Enable the Defender Threat Intelligence data connector
 
-1. For Microsoft Sentinel in the [Azure portal](https://portal.azure.com), under **Configuration**, select **Data connectors**.<br> For Microsoft Sentinel in the [Defender portal](https://security.microsoft.com/), select **Microsoft Sentinel** > **Configuration** > **Data connectors**.
+1. For Microsoft Sentinel in the [Azure portal](https://portal.azure.com), under **Configuration**, select **Data connectors**.
+
+   For Microsoft Sentinel in the [Defender portal](https://security.microsoft.com/), select **Microsoft Sentinel** > **Configuration** > **Data connectors**.
 
 1. Find and select the Defender Threat Intelligence data connector **Open connector page** button.
 

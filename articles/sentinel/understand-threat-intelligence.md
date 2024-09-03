@@ -14,7 +14,7 @@ ms.collection: usx-security
 
 # Understand threat intelligence in Microsoft Sentinel
 
-Microsoft Sentinel is a cloud native security information and event management (SIEM) solution with the ability to quickly pull threat intelligence from numerous sources.
+Microsoft Sentinel is a cloud-native security information and event management (SIEM) solution with the ability to quickly pull threat intelligence from numerous sources.
 
 [!INCLUDE [unified-soc-preview](includes/unified-soc-preview.md)]
 
@@ -22,7 +22,7 @@ Microsoft Sentinel is a cloud native security information and event management (
 
 Cyber threat intelligence (CTI) is information that describes existing or potential threats to systems and users. This intelligence takes many forms like written reports that detail a particular threat actor's motivations, infrastructure, and techniques. It can also be specific observations of IP addresses, domains, file hashes, and other artifacts associated with known cyber threats.
 
-CTI is used by organizations to provide essential context to unusual activity so that security personnel can quickly take action to protect their people, information, and assets. CTI can be sourced from many places, such as:
+Organizations use CTI to provide essential context to unusual activity so that security personnel can quickly take action to protect their people, information, and assets. You can source CTI from many places, such as:
 
 - Open-source data feeds.
 - Threat intelligence-sharing communities.
@@ -58,7 +58,7 @@ Threat indicators are imported by using data connectors, just like all the other
 
 Use any of these data connectors in any combination together, depending on where your organization sources threat indicators. All three of these connectors are available in the **Content hub** as part of the Threat Intelligence solution. For more information about this solution, see the Azure Marketplace entry [Threat Intelligence](https://azuremarketplace.microsoft.com/marketplace/apps/azuresentinel.azure-sentinel-solution-threatintelligence-taxii?tab=Overview).
 
-Also, see this catalog of [threat intelligence integrations](threat-intelligence-integration.md) that are available with Microsoft Sentinel.
+Also, see [this catalog of threat intelligence integrations](threat-intelligence-integration.md) that are available with Microsoft Sentinel.
 
 ### Add threat indicators to Microsoft Sentinel with the Defender Threat Intelligence data connector
 
@@ -82,7 +82,7 @@ For more information, see the following articles:
 
 ### Add threat indicators to Microsoft Sentinel with the Threat Intelligence Upload Indicators API data connector
 
-Many organizations use threat intelligence platform (TIP) solutions to aggregate threat indicator feeds from various sources. From the aggregated feed, the data is curated to apply to security solutions such as network devices, EDR/XDR solutions, or SIEMs such as Microsoft Sentinel. The Threat Intelligence Upload Indicators API data connector allows you to use these solutions to import threat indicators into Microsoft Sentinel.
+Many organizations use threat intelligence platform (TIP) solutions to aggregate threat indicator feeds from various sources. From the aggregated feed, the data is curated to apply to security solutions such as network devices, EDR/XDR solutions, or SIEMs such as Microsoft Sentinel. By using the Threat Intelligence Upload Indicators API data connector, you can use these solutions to import threat indicators into Microsoft Sentinel.
 
 :::image type="content" source="media/understand-threat-intelligence/threat-intel-upload-api.png" alt-text="Diagram that shows the Upload Indicators API import path.":::
 
@@ -90,13 +90,13 @@ This data connector uses a new API and offers the following improvements:
 
 - The threat indicator fields are based off of the STIX standardized format.
 - The Microsoft Entra application only requires the Microsoft Sentinel Contributor role.
-- The API request endpoint is scoped at the workspace level. The Microsoft Entra application permissions required allow granular assignment at the workspace level.
+- The API request endpoint is scoped at the workspace level. The required Microsoft Entra application permissions allow granular assignment at the workspace level.
 
 For more information, see [Connect your threat intelligence platform using the Upload Indicators API](connect-threat-intelligence-upload-api.md).
 
 ### Add threat indicators to Microsoft Sentinel with the Threat Intelligence Platform data connector
 
-Much like the existing Upload Indicators API data connector, the Threat Intelligence Platform data connector uses an API that allows your TIP or custom solution to send indicators into Microsoft Sentinel. However, this data connector is now on a path for deprecation. We recommend that you take advantage of the optimizations that the Upload Indicators API has to offer.
+Much like the existing Upload Indicators API data connector, the Threat Intelligence Platform data connector uses an API that allows your TIP or custom solution to send indicators into Microsoft Sentinel. However, this data connector is now on a path for deprecation. We recommend that you take advantage of the optimizations that the Upload Indicators API offers.
 
 The TIP data connector works with the [Microsoft Graph Security tiIndicators API](/graph/api/resources/tiindicator). You can also use it with any custom TIP that communicates with the tiIndicators API to send indicators to Microsoft Sentinel (and to other Microsoft security solutions like Defender XDR).
 
@@ -150,7 +150,7 @@ For example, use `GeoLocation` data to find information like the organization or
 
 ## Detect threats with threat indicator analytics
 
-The most important use case for threat indicators in SIEM solutions like Microsoft Sentinel is to power analytics rules for threat detection. These indicator-based rules compare raw events from your data sources against your threat indicators to detect security threats in your organization. In Microsoft Sentinel Analytics, you create analytics rules that run on a schedule and generate security alerts. The rules are driven by queries, along with configurations that determine how often the rule should run, what kind of query results should generate security alerts and incidents, and, optionally, trigger an automated response.
+The most important use case for threat indicators in SIEM solutions like Microsoft Sentinel is to power analytics rules for threat detection. These indicator-based rules compare raw events from your data sources against your threat indicators to detect security threats in your organization. In Microsoft Sentinel Analytics, you create analytics rules that run on a schedule and generate security alerts. The rules are driven by queries. Along with configurations, they determine how often the rule should run, what kind of query results should generate security alerts and incidents, and, optionally, when to trigger an automated response.
 
 Although you can always create new analytics rules from scratch, Microsoft Sentinel provides a set of built-in rule templates, created by Microsoft security engineers, to take advantage of your threat indicators. These templates are based on the type of threat indicators (domain, email, file hash, IP address, or URL) and data source events that you want to match. Each template lists the required sources that are needed for the rule to function. This information makes it easy to determine if the necessary events are already imported in Microsoft Sentinel.
 
@@ -164,17 +164,17 @@ Microsoft provides access to its threat intelligence through the Defender Threat
 
 ## Workbooks provide insights about your threat intelligence
 
-Workbooks provide powerful interactive dashboards that give you insights into all aspects of Microsoft Sentinel, and threat intelligence is no exception. Use the built-in **Threat Intelligence** workbook to visualize key information about your threat intelligence. You can easily customize the workbook according to your business needs. Create new dashboards by combining many different data sources to help you visualize your data in unique ways.
+Workbooks provide powerful interactive dashboards that give you insights into all aspects of Microsoft Sentinel, and threat intelligence is no exception. Use the built-in **Threat Intelligence** workbook to visualize key information about your threat intelligence. You can easily customize the workbook according to your business needs. Create new dashboards by combining many data sources to help you visualize your data in unique ways.
 
 Because Microsoft Sentinel workbooks are based on Azure Monitor workbooks, extensive documentation and many more templates are already available. For more information, see [Create interactive reports with Azure Monitor workbooks](../azure-monitor/visualize/workbooks-overview.md).
 
-There's also a rich resource for [Azure Monitor workbooks on GitHub](https://github.com/microsoft/Application-Insights-Workbooks) where you can download more templates and contribute your own templates.
+There's also a rich resource for [Azure Monitor workbooks on GitHub](https://github.com/microsoft/Application-Insights-Workbooks), where you can download more templates and contribute your own templates.
 
 For more information on using and customizing the **Threat Intelligence** workbook, see [Work with threat indicators in Microsoft Sentinel](work-with-threat-indicators.md#workbooks-provide-insights-about-your-threat-intelligence).
 
 ## Related content
 
-In this article, you learned about the threat intelligence capabilities of Microsoft Sentinel, including the **Threat Intelligence** pane. For practical guidance on using Microsoft Sentinel's threat intelligence capabilities, see the following articles:
+In this article, you learned about the threat intelligence capabilities of Microsoft Sentinel, including the **Threat Intelligence** pane. For practical guidance on using Microsoft Sentinel threat intelligence capabilities, see the following articles:
 
 - Connect Microsoft Sentinel to [STIX/TAXII threat intelligence feeds](./connect-threat-intelligence-taxii.md).
 - [Connect threat intelligence platforms](./connect-threat-intelligence-tip.md) to Microsoft Sentinel.
