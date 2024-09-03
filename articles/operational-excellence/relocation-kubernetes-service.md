@@ -53,11 +53,11 @@ Before you begin the relocation planning stage, first review the following prere
     - [Virtual Network configuration](./relocation-virtual-network.md). Define sufficient subnet sizes to allow container IP growth if using the Azure advanced networking model
     - Public IP address
     - Virtual Network Gateway (VNG). If site-to-site communication is required to an on-premises environment in the target region, a VNG must be created in the target virtual network.
-    - Azure Private Endpoint. Azure PaaS resources utilizing private link endpoints will need to be reviewed, and new private link instances created in the target region. i.e., ACR, Azure SQL DB, KeyVault, etc.
+    - Azure Private Endpoint. Azure PaaS resources utilizing private link endpoints must be reviewed, and new private link instances created in the target region such as ACR, Azure SQL DB, KeyVault, etc.
     - [Azure Application Gateway](./relocation-app-gateway.md)
     - Azure DNS
     - [Azure Firewall](./relocation-firewall.md)
-    - [Azure Monitor (Container Insights)](./relocation-monitor.md)
+    - [Azure Monitor (Container Insights)](./relocation-log-analytics.md)
     - [Azure Container registry](relocation-container-registry.md) can replicate images between ACR instances. For optimal performance when pulling images, the registry should exist in the target region. 
         >[!NOTE]
         >If you use Azure Container Registry to authenticate to the container registry, the new AKS cluster’s managed identity can be the granted `AcrPull` RBAC role.
@@ -68,7 +68,7 @@ Before you begin the relocation planning stage, first review the following prere
 
 Before you begin the cluster relocation process, make sure to complete the following preparations:
 
-1. Deploy the virtual network with a number of subnets of sufficient size to accommodate the AKS cluster nodes and pods, if using Azure CNI networking.
+1. To accommodate the AKS cluster nodes and pods, if using Azure CNI networking, deploy the virtual network with many subnets of sufficient size. 
 
 1. If you're using Azure Key Vault, [Deploy the Key Vault](./relocation-key-vault.md).
 
@@ -90,7 +90,7 @@ Before you begin the cluster relocation process, make sure to complete the follo
 
 Deploy the AKS cluster without any data migration, by following these steps:
 
-1. Manually run the existing IaC artifacts on a local workstation to create the target environment in Azure.
+1. To create the target environment in Azure, manually run the existing IaC artifacts on a local workstation.
 
 1. If there are no existing IaC assets, the current cluster configuration [can be exported as an ARM template](/azure/azure-resource-manager/templates/export-template-portal) and executed against the target region. [IaC templates](/azure/templates/) are created from scratch or are modified versions of sample templates using Bicep, JSON, Terraform, or another solution. 
 
@@ -101,7 +101,7 @@ Deploy the AKS cluster without any data migration, by following these steps:
     - *Pull* Manifests are pulled from a repo and applied by a controller running within the cluster, known as a GitOps approach.
     - *Push.* Manifests are pushed to the cluster using the Kubernetes API service and kubectl command line tool, either from a CI/CD pipeline or local workstation.
 
-1. Perform testing and validation on the new cluster to ensure that it performs as anticipated.
+1. To ensure that the new cluster performs as anticipated, perform testing and validation.
 
 1.  Change your public DNS entries to point to the external ingress IP of the target cluster (Azure Public Load Balancer IP or Application Gateway Public IP).
 
@@ -132,9 +132,9 @@ The high-level steps are as follows:
 
 
 - [Use Azure portal to export a template](/azure/azure-resource-manager/templates/export-template-portal)
-- [Cluster creation - Bicep](h/azure/templates/microsoft.containerservice/managedclusters?tabs=bicep)
+- [Cluster creation - Bicep](/azure/templates/microsoft.containerservice/managedclusters?tabs=bicep)
 - [Cluster creation - JSON](/azure/templates/microsoft.containerservice/managedclusters?tabs=json)
 - [Cluster creation - Terraform](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/kubernetes_cluster)
-- [Baseline architecture for an Azure Kubernetes Service (AKS) cluster](azure/architecture/reference-architectures/containers/aks/secure-baseline-aks)
+- [Baseline architecture for an Azure Kubernetes Service (AKS) cluster](/azure/architecture/reference-architectures/containers/aks/secure-baseline-aks)
 - [Azure Kubernetes Services (AKS) day-2 operations guide](/azure/architecture/operator-guides/aks/day-2-operations-guide)
 - [Best practices for storage and backups in Azure Kubernetes Service (AKS)](/azure/aks/operator-best-practices-storage)
