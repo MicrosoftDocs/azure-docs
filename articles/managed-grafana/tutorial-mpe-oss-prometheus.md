@@ -157,7 +157,10 @@ spec:
 ## Connect with a managed private endpoint
 
 1. If you don't have an Azure Managed Grafana workspace yet, create one by following the [Azure Managed Grafana quickstart](./quickstart-managed-grafana-portal.md).
-1. Open your Azure Managed Grafana workspace and go to **Networking** > **Managed Private Endpoint** > **Create**.
+1. Open your Azure Managed Grafana workspace and go to **Networking** > **Managed Private Endpoint** > **Add**.
+
+    :::image type="content" source="media/tutorial-managed-private-endpoint/create-managed-private-endpoint.png" alt-text="Screenshot of the Azure platform showing the managed private endpoints page within an Azure Managed Grafana resource.":::
+
 1. Enter a name for your managed private endpoint and select your Azure subscription.
 1. For **Resource type** select **Microsoft.Network/privateLinkServices (Private link services)**, and for **Target resource**, select the `promManagedPls` private link service created in the above step. Each managed private endpoint gets a private IP address. You can also provide a domain name for this managed private endpoint. The Azure Managed Grafana service ensures that this domain is resolved to the managed private endpoint's private IP inside the Azure Managed Grafana environment. For example, set the domain to `*.prom.my-own-domain.com`.
 1. Approve the private endpoint connection by going to the promManagedPls resource. Under **Settings**, go **Private endpoint connections**, select your connection using the checkbox and **Approve**.

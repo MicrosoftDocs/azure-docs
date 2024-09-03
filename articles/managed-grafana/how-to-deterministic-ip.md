@@ -70,6 +70,9 @@ This example demonstrates how to disable public access to Azure Data Explorer an
 
 1. Open an Azure Data Explorer Cluster instance in the Azure portal, and under **Settings**, select **Networking**.
 1. In the **Public Access** tab, select **Disabled** to disable public access to the data source.
+
+   :::image type="content" source="media/deterministic-ips/add-ip-data-source-firewall.png" alt-text="Screenshot of the Azure platform. Add Disable public network access.":::
+
 1. Under **Firewall**, check the box  **Add your client IP address** and under **Address range**, enter the IP addresses found in your Azure Managed Grafana workspace.
 1. Select **Save** to finish adding the Azure Managed Grafana outbound IP addresses to the allowlist.
 
