@@ -41,9 +41,7 @@ To validate the private link connection, perform a DNS resolution of the Azure M
 
 1. The private endpoint details and private link resource FQDNs' information is available in the Discovery and Assessment and Migration and modernization properties pages. Select **Download DNS settings** to view the list. Note, only the private endpoints that were automatically created by Azure Migrate are listed below.
 
-      ![Azure Migrate: Discovery and Assessment Properties](./media/how-to-use-azure-migrate-with-private-endpoints/server-assessment-properties.png)
-
-      [![Migration and modernization tool Properties](./media/how-to-use-azure-migrate-with-private-endpoints/azure-migrate-server-migration-properties-inline.png)](./media/how-to-use-azure-migrate-with-private-endpoints/azure-migrate-server-migration-properties-expanded.png#lightbox)
+      [![Migration and modernization tool Properties](./media/how-to-use-azure-migrate-with-private-endpoints/azure-migrate-server-migration-properties.png)](./media/how-to-use-azure-migrate-with-private-endpoints/azure-migrate-server-migration-properties.png#lightbox)
 
 2. If you have created a private endpoint for the storage account(s) for replicating over a private network, you can obtain the private link FQDN and IP address as illustrated below.
 
