@@ -2,14 +2,14 @@
 title: include file
 description: include file
 services: azure-communication-services
-author: tophpalmer
+author: jrissam
 manager: chpalm
 ms.service: azure-communication-services
 ms.subservice: identity
-ms.date: 07/19/2021
+ms.date: 09/03/2024
 ms.topic: include
 ms.custom: include file
-ms.author: chpalm
+ms.author: jrissam
 ms.custom: mode-other
 ---
 
@@ -19,7 +19,7 @@ ms.custom: mode-other
 
 ## Create the access tokens
 
-In the [Azure portal](https://portal.azure.com), navigate to the **Identities & User Access Tokens** blade within your Communication Services resource. 
+In the [Azure portal](https://portal.azure.com), navigate to the **Identities & User Access Tokens** tab under the **Settings** option in the left side menu within your Communication Services resource. 
 
 Choose the scope of the access tokens. You can select none, one, or multiple. Click **Generate**.
 
