@@ -6,7 +6,7 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/sentinel/sap/configure-audit-.md",
+            "source_path": "articles/sentinel/sap/configure-audit.md",
             "redirect_url": "/azure/sentinel/sap/preparing-sap#configure-sap-auditing",
             "redirect_document_id": false
         },
