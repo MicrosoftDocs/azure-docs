@@ -1,6 +1,6 @@
 ---
 title: Relocate Azure Kubernetes cluster to another region
-description: Learn how to relocate a Azure Kubernetes cluster to another region
+description: Learn how to relocate an Azure Kubernetes cluster to another region
 author: anaharris-ms
 ms.author: anaharris
 ms.reviewer: anaharris
@@ -26,7 +26,7 @@ Before you begin the relocation planning stage, first review the following prere
 
 - Ensure that the target region has enough capacity (VM SKUs) to accommodate the new cluster nodes.
 
-- Validate that you have resource creation permissions to the target subscription and check that Azure policy isn’t restricting the regions to which AKS can be deployed.
+- Validate that you have resource creation permissions to the target subscription. Check that Azure policy isn’t restricting the regions to which AKS can be deployed.
 
 - (Optional) Collect the Infrastructure as code (IaC) templates or scripts with which you provisioned the source AKS cluster.
 
@@ -43,7 +43,7 @@ Before you begin the relocation planning stage, first review the following prere
 
 - Document public TLS certificate management and distribution.
 
-- Capture any IP addresses defined in the AKS API service whitelist.
+- Capture any IP addresses defined in the AKS API service allowlist.
 
 - Understand all dependent resources. Some of the resources could be:
 
@@ -58,7 +58,9 @@ Before you begin the relocation planning stage, first review the following prere
     - Azure DNS
     - [Azure Firewall](./relocation-firewall.md)
     - [Azure Monitor (Container Insights)](./relocation-monitor.md)
-    - [Azure Container registry](relocation-container-registry.md) For optimal performance when pulling images, the registry should exist in the target region. Azure Container Registry can replicate images between ACR instances. If you use Azure Container Registry to authenticate to the container registry, the new AKS cluster’s managed identity can be the granted ‘AcrPull’ RBAC role.
+    - [Azure Container registry](relocation-container-registry.md) can replicate images between ACR instances. For optimal performance when pulling images, the registry should exist in the target region. 
+        >[!NOTE]
+        >If you use Azure Container Registry to authenticate to the container registry, the new AKS cluster’s managed identity can be the granted `AcrPull` RBAC role.
     - Azure Managed Disks
     - Azure Files
 
@@ -66,13 +68,13 @@ Before you begin the relocation planning stage, first review the following prere
 
 Before you begin the cluster relocation process, make sure to complete the following preparations:
 
-1. Deploy Virtual Network with a number of subnets of sufficient size to accommodate the AKS cluster nodes, and, optionally, pods if using Azure CNI networking
+1. Deploy the virtual network with a number of subnets of sufficient size to accommodate the AKS cluster nodes and pods, if using Azure CNI networking.
 
-1. If you are using Azure Key Vault, [Deploy the Key Vault](./relocation-key-vault.md).
+1. If you're using Azure Key Vault, [Deploy the Key Vault](./relocation-key-vault.md).
 
-1.  Ensure that the relevant TLS ingress certificates are available for deployment, ideally in a secure store such as Azure Key Vault.
+1. Ensure that the relevant TLS ingress certificates are available for deployment, ideally in a secure store such as Azure Key Vault.
 
-1. Deploy a container registry. Either sync the source registry images automatically or re-build and push new images to the target registry using a CI/CD pipeline or script.
+1. Deploy a container registry. Either sync the source registry images automatically or rebuild and push new images to the target registry using a CI/CD pipeline or script.
 
 1. [Deploy an Azure Monitor workspace](./relocation-log-analytics.md).
 
@@ -86,11 +88,11 @@ Before you begin the cluster relocation process, make sure to complete the follo
 
 ## Redeploy
 
-Deploy the AKS cluster without any data migration, by following the steps below:
+Deploy the AKS cluster without any data migration, by following these steps:
 
 1. Manually run the existing IaC artifacts on a local workstation to create the target environment in Azure.
 
-1. If there are no existing IaC assets, the current cluster configuration [can be exported as an ARM template](/azure/azure-resource-manager/templates/export-template-portal) and executed against the target region. [IaC templates](/azure/templates/) are created from scratch or are modified versions of sample templates using Bicep, JSON, Terraform or another solution. 
+1. If there are no existing IaC assets, the current cluster configuration [can be exported as an ARM template](/azure/azure-resource-manager/templates/export-template-portal) and executed against the target region. [IaC templates](/azure/templates/) are created from scratch or are modified versions of sample templates using Bicep, JSON, Terraform, or another solution. 
 
     >[!NOTE]
     >- Private Link connections, ACR connected registries and Azure Monitor workspace data sources are not currently exported using this method and must therefore be removed from the generated template before execution.
@@ -99,7 +101,7 @@ Deploy the AKS cluster without any data migration, by following the steps below:
     - *Pull* Manifests are pulled from a repo and applied by a controller running within the cluster, known as a GitOps approach.
     - *Push.* Manifests are pushed to the cluster using the Kubernetes API service and kubectl command line tool, either from a CI/CD pipeline or local workstation.
 
-1. Perform testing and validation on the new cluster to ensure it performs as anticipated.
+1. Perform testing and validation on the new cluster to ensure that it performs as anticipated.
 
 1.  Change your public DNS entries to point to the external ingress IP of the target cluster (Azure Public Load Balancer IP or Application Gateway Public IP).
 
