@@ -29,8 +29,8 @@ This policy is currently in effect for the following region(s):
 
 If you recieve this message, there are two possible solutions:
 
-- Select an alternative region: Most users should select a different Azure region to deploy their resources into.
-- Submit a remediation request: If one or more subscriptions in your tenant have resources already deployed to the Azure region, or there is a clear business need for country-specific data sovereignty, then contact Microsoft support by following the steps outlined below.
+- **Select an alternative region:** Most users should select a different Azure region to deploy their resources into.
+- **Submit a remediation request:** If one or more subscriptions in your tenant have resources already deployed to the Azure region, or there is a clear business need for country-specific data sovereignty, then contact Microsoft support by following the steps outlined below.
 
 > [!NOTE]
 > Remember that a remediation request should only be submitted to Microsoft support if there is a clear requirement for deploying resources to the Azure region. Otherwise, please choose a different Azure region for your deployment.
