@@ -42,7 +42,7 @@
         displayName: users, user
     - name: Device inventories
       href: device-inventory.md
-    - name: Vulnerability-management
+    - name: Vulnerability management
       href: vulnerability-management.md
     - name: Alerts
       href: alerts.md
