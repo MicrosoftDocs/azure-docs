@@ -245,30 +245,6 @@ Add following key-values to the App Configuration store and leave **Label** and 
     > [!TIP]
     > The App Configuration Kubernetes Provider is also available as an AKS extension. This integration allows for seamless installation and management via the Azure CLI, ARM templates, or Bicep templates. Utilizing the AKS extension facilitates automatic minor/patch version updates, ensuring your system is always up-to-date. For detailed installation instructions, please refer to the [Azure App Configuration extension for Azure Kubernetes Service](/azure/aks/azure-app-configuration).
 
-1. Follow the step 1-4 in [using workload identity](./reference-kubernetes-provider.md#use-workload-identity) and note down the client ID, tenant ID, resource group and name of the managed identity, the OIDC issuer URL of the AKS cluster, you will use them in the following steps.
-
-1. Add a *serviceaccount.yaml* file to the *Deployment* directory with the following content to create a service account for the application.
-
-    ```yaml
-    apiVersion: v1
-    kind: ServiceAccount
-    metadata:
-      name: aspnetapp-demo-service-account
-      annotations:
-        azure.workload.identity/client-id: <your-managed-identity-client-id>
-        azure.workload.identity/tenant-id: <your-tenant-id>
-    ```
-
-    Replace the value of the `azure.workload.identity/client-id` and `azure.workload.identity/tenant-id` fields with the client ID and tenant ID of the managed identity you created in the previous step.
-
-1. Create federated credentials for the service account by running the following command:
-   
-    ```azurecli
-     az identity federated-credential create --name "federated-credential-demo" --identity-name <identity-name> --resource-group  <resource-group> --issuer <OIDC-issuer> --subject system:serviceaccount:default:aspnetapp-demo-service-account --audience api://AzureADTokenExchange
-    ```
-
-    Replace the value of the `identity-name`, `resource-group` fields with the name, resource group of your managed identity created in the previous step. Replace the value of the `OIDC-issuer` field with the OIDC issuer URL of your AKS cluster. 
-
 1. Add an *appConfigurationProvider.yaml* file to the *Deployment* directory with the following content to create an `AzureAppConfigurationProvider` resource. `AzureAppConfigurationProvider` is a custom resource that defines what data to download from an Azure App Configuration store and creates a ConfigMap.
    
     ```yaml
@@ -285,10 +261,10 @@ Add following key-values to the App Configuration store and leave **Label** and 
           key: mysettings.json
       auth:
         workloadIdentity:
-          serviceAccountName: aspnetapp-demo-service-account
+          serviceAccountName: <your-service-account-name>
     ```
 
-    Replace the value of the `endpoint` field with the endpoint of your Azure App Configuration store. 
+    Replace the value of the `endpoint` field with the endpoint of your Azure App Configuration store. Proceed to the next step to update the `auth` section with your authentication information.
     
     > [!NOTE]
     > `AzureAppConfigurationProvider` is a declarative API object. It defines the desired state of the ConfigMap created from the data in your App Configuration store with the following behavior:
@@ -296,6 +272,8 @@ Add following key-values to the App Configuration store and leave **Label** and 
     > - The ConfigMap will fail to be created if a ConfigMap with the same name already exists in the same namespace.
     > - The ConfigMap will be reset based on the present data in your App Configuration store if it's deleted or modified by any other means.
     > - The ConfigMap will be deleted if the App Configuration Kubernetes Provider is uninstalled.
+
+1. In this example, you use workload identity to authenticate with your App Configuration store. Follow these [instructions](./reference-kubernetes-provider.md#use-workload-identity) to set it up, and replace the serviceAccountName field with the name of the service account you created in the *appConfigurationProvider.yaml* file. For more information on other authentication methods, see the [Authentication](./reference-kubernetes-provider.md#authentication) section.
 
 1. Update the *deployment.yaml* file in the *Deployment* directory to use the ConfigMap `configmap-created-by-appconfig-provider` as a mounted data volume. It is important to ensure that the `volumeMounts.mountPath` matches the `WORKDIR` specified in your *Dockerfile* and the *config* directory created before.
    
@@ -330,13 +308,13 @@ Add following key-values to the App Configuration store and leave **Label** and 
               name: configmap-created-by-appconfig-provider
     ```
 
-1. Run the following command to deploy the changes. Replace the namespace if you are using your existing AKS application.
+4. Run the following command to deploy the changes. Replace the namespace if you are using your existing AKS application.
    
     ```console
     kubectl apply -f ./Deployment -n appconfig-demo
     ```
 
-1. Refresh the browser. The page shows updated content.
+5. Refresh the browser. The page shows updated content.
 
     ![Screenshot showing Kubernetes Provider after using configMap.](./media/quickstarts/kubernetes-provider-app-launch-after.png)
 
@@ -394,9 +372,9 @@ Ensure that you specify the correct key-value selectors to match the expected da
 
 You can customize the installation by providing additional Helm values when installing the Azure App Configuration Kubernetes Provider. For example, you can set the log level, configure the provider to run on a specific node, or disable the workload identity. Refer to the [installation guide](./reference-kubernetes-provider.md#installation) for more information.
 
-#### Why the workload identity does not work after I upgrade the Azure App Configuration Kubernetes Provider to v2.0.0?
+#### Why am I unable to authenticate with Azure App Configuration using workload identity after upgrading the provider to version 2.0.0?
 
-Start from v2.0.0, per namespace service account should be used for workload identity by default. See the [workload identity](./reference-kubernetes-provider.md#use-workload-identity) documentation for more details. If you still want to use the provider's service account, binding your managed identities to the global service account `az-appconfig-k8s-provider` that been created in `azappconfig-system` namespace, you can enable it by setting `workloadIdentity.globalServiceAccountEnabled=true` at installation time, refer to the [installation guide](./reference-kubernetes-provider.md#installation) for more information.
+Starting with version 2.0.0, a user-provided service account is required for authenticating with Azure App Configuration [using workload identity](./reference-kubernetes-provider.md#use-workload-identity). This change enhances security through namespace isolation. Previously, a Kubernetes provider’s service account was used for all namespaces. For updated instructions, see the documentation on using workload identity. If you need time to migrate when upgrading to version 2.0.0, you can temporarily set `workloadIdentity.globalServiceAccountEnabled=true` during provider installation. Please note that support for using the provider’s service account will be deprecated in a future release.
 
 ## Clean up resources
 

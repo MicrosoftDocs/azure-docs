@@ -182,19 +182,7 @@ helm install azureappconfiguration.kubernetesprovider \
     --set autoscaling.enabled=true
 ```
 
-### Global service account
-
-By default, the provider uses custom per namespace service account to access Azure App Configuration and Key Vaults. If you still want to use the provider's service account, binding your managed identities to the global service account `az-appconfig-k8s-provider` that been created in `azappconfig-system` namespace, you can enable it by setting `workloadIdentity.globalServiceAccountEnabled=true` at installation time.
-
-```bash
-helm install azureappconfiguration.kubernetesprovider \
-    oci://mcr.microsoft.com/azure-app-configuration/helmchart/kubernetes-provider \
-    --namespace azappconfig-system \
-    --create-namespace
-    --set workloadIdentity.globalServiceAccountEnabled=true
-```
-
-### Data collection
+## Data collection
 
 The software may collect information about you and your use of the software and send it to Microsoft. Microsoft may use this information to provide services and improve our products and services. You may turn off the telemetry by setting the `requestTracing.enabled=false` while installing the Azure App Configuration Kubernetes Provider. There are also some features in the software that may enable you and Microsoft to collect data from users of your applications. If you use these features, you must comply with applicable law, including providing appropriate notices to users of your applications together with a copy of Microsoft’s privacy statement. Our privacy statement is located at https://go.microsoft.com/fwlink/?LinkID=824704. You can learn more about data collection and use in the help documentation and our privacy statement. Your use of the software operates as your consent to these practices.
 
@@ -271,31 +259,26 @@ The software may collect information about you and your use of the software and 
 
 1. [Enable Workload Identity](/azure/aks/workload-identity-deploy-cluster#update-an-existing-aks-cluster) on the Azure Kubernetes Service (AKS) cluster.
 
-2. [Get the OIDC issuer URL](/azure/aks/workload-identity-deploy-cluster#retrieve-the-oidc-issuer-url) of the AKS cluster.
+1. [Get the OIDC issuer URL](/azure/aks/workload-identity-deploy-cluster#retrieve-the-oidc-issuer-url) of the AKS cluster.
 
-3. [Create a user-assigned managed identity](/azure/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities#create-a-user-assigned-managed-identity) and note down its client ID after creation.
+1. [Create a user-assigned managed identity](/azure/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities#create-a-user-assigned-managed-identity) and note down its client ID after creation.
   
-4. [Grant the user-assigned managed identity **App Configuration Data Reader** role](/azure/azure-app-configuration/concept-enable-rbac#assign-azure-roles-for-access-rights) in Azure App Configuration.
+1. [Grant the user-assigned managed identity **App Configuration Data Reader** role](/azure/azure-app-configuration/concept-enable-rbac#assign-azure-roles-for-access-rights) in Azure App Configuration.
+   
+1. Create a service account by applying the following sample yaml. Replace `<your-managed-identity-client-id>` with the client ID and `<your-tenant-id>` with the tenant ID of the user-assigned managed identity just been created. Replace `<your-service-account-name>` with your favorite name.
 
-5. Create federated identity credential between the managed identity, OIDC issuer, and subject using the Azure CLI. You can choose to bind the managed identity to the provider global service account or a custom service account.
-
-    ##### [Use custom service account](#tab/custom)
-
-    Create a custom service account in the same namespace as the `AzureAppConfigurationProvider` resource.
-
-    ``` bash
-    cat <<EOF | kubectl create -f -
+    ``` yaml
     apiVersion: v1
     kind: ServiceAccount
     metadata:
-      name: my-service-account
+      name: <your-service-account-name>
+      namespace: default
       annotations:
-        azure.workload.identity/client-id: <managed-identity-client-id>
-        azure.workload.identity/tenant-id: <tenant-id>
-    EOF
+        azure.workload.identity/client-id: <your-managed-identity-client-id>
+        azure.workload.identity/tenant-id: <your-tenant-id>
     ```
 
-    Create the federated identity credential to bind the managed identity to the custom service account.
+1. Create federated identity credential for the user-assigned managed identity using the Azure CLI.
 
     ``` azurecli
     az identity federated-credential create --name "${FEDERATED_IDENTITY_CREDENTIAL_NAME}" --identity-name "${USER_ASSIGNED_IDENTITY_NAME}" --resource-group "${RESOURCE_GROUP}" --issuer "${AKS_OIDC_ISSUER}" --subject system:serviceaccount:default:my-service-account --audience api://AzureADTokenExchange
@@ -303,59 +286,22 @@ The software may collect information about you and your use of the software and 
 
     The subject of the federated identity credential should be in the format `system:serviceaccount:<service-account-namespace>:<service-account-name>`.
 
-    ##### [Use service account of provider](#tab/global)
-
-    > [!NOTE]
-    > To use the service account of the provider, please ensure the `workloadIdentity.enableGlobalServiceAccount` property is set to `true` while installing the Azure App Configuration Kubernetes Provider.
-    > ```bash
-    > helm install azureappconfiguration.kubernetesprovider \
-    >     oci://mcr.microsoft.com/azure-app-configuration/helmchart/kubernetes-provider \
-    >     --namespace azappconfig-system \
-    >     --create-namespace \
-    >     --set workloadIdentity.enableGlobalServiceAccount=true
-    > ```
-
-    ``` azurecli
-    az identity federated-credential create --name "${FEDERATED_IDENTITY_CREDENTIAL_NAME}" --identity-name "${USER_ASSIGNED_IDENTITY_NAME}" --resource-group "${RESOURCE_GROUP}" --issuer "${AKS_OIDC_ISSUER}" --subject system:serviceaccount:azappconfig-system:az-appconfig-k8s-provider --audience api://AzureADTokenExchange
-    ```
-
-    ---
-
-6. Apply the following sample `AzureAppConfigurationProvider` resource to the Kubernetes cluster.
-   
-    ##### [Use custom service account](#tab/custom)
+1. Apply the following sample `AzureAppConfigurationProvider` resource to the Kubernetes cluster. Be sure it's in the same namespace as the service account. Replace `<your-app-configuration-store-endpoint>` with the endpoint of the Azure App Configuration store. Replace `<your-service-account-name>` with the name of the service account just been created.
 
     ``` yaml
     apiVersion: azconfig.io/v1
     kind: AzureAppConfigurationProvider
     metadata:
       name: appconfigurationprovider-sample
+      namespace: default
     spec:
       endpoint: <your-app-configuration-store-endpoint>
       target:
         configMapName: configmap-created-by-appconfig-provider
       auth:
         workloadIdentity:
-          serviceAccountName: my-service-account
+          serviceAccountName: <your-service-account-name>
     ```
-
-    ##### [Use service account of provider](#tab/global)
-
-    ``` yaml
-    apiVersion: azconfig.io/v1
-    kind: AzureAppConfigurationProvider
-    metadata:
-      name: appconfigurationprovider-sample
-    spec:
-      endpoint: <your-app-configuration-store-endpoint>
-      target:
-        configMapName: configmap-created-by-appconfig-provider
-      auth:
-        workloadIdentity:
-          managedIdentityClientId: <your-managed-identity-client-id>
-    ```
-
-    ---
 
 #### Use connection string
 
