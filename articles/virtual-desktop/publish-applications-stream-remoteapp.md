@@ -256,7 +256,7 @@ Applications aren't assigned individually to users unless you're using app attac
 
 ## Publish Microsoft Store applications
 
-Applications in the Microsoft Store are updated frequently and often install automatically. The directory path for an application installed from the Microsoft Store includes the version number, which changes each time an application is updated. If an update happens automatically, the path changes and the application is no longer available to users. You can publish applications using the Windows `shell:appsFolder` location in the format `shell:AppsFolder\<PackageFamilyName>!<AppId>`, which doesn't use the `.exe` file or the directory path with the version number. This method ensures that the application location is always correct.
+Applications in the Microsoft Store are updated frequently and often install automatically. The directory path for an application installed from the Microsoft Store includes the version number, which changes each time an application is updated. If an update happens automatically, the path changes and the application is no longer available to users. You can publish applications using the Windows `shell:appsFolder` location as the path in the format `shell:AppsFolder\<PackageFamilyName>!<AppId>`, which doesn't use the `.exe` file or the directory path with the version number. This method ensures that the application location is always correct.
 
 Using `shell:appsFolder` means the application icon isn't picked up automatically from the application. You should provide an icon file on a local drive on each session host in a path that doesn't change, unlike the application installation directory. 
 
