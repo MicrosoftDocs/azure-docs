@@ -292,12 +292,12 @@ az network local-gateway create --gateway-ip-address 5.4.3.2 --name MyLocalGatew
 
 ## Configure on-premises network appliance
 
-The specific steps to configure your on-premises network appliance depend on the network appliance your organization has selected. Depending on the device your organization has chosen, the [list of tested devices](../../vpn-gateway/vpn-gateway-about-vpn-devices.md) might have a link to your device vendor's instructions for configuring with Azure virtual network gateway.
+The specific steps to configure your on-premises network appliance depend on the network appliance your organization has selected.
 
-When configuring your network appliance, you need the following items:
+When configuring your network appliance, you'll need the following items:
 
-* A shared key. This is the same shared key that you specify when creating your site-to-site VPN connection. In our examples, we use a basic shared key such as 'abc123'. We recommend that you generate a more complex key to use that complies with your organization's security requirements.
-* The public IP address of your virtual network gateway. To find the public IP address of your virtual network gateway using PowerShell, use the following example. In this example, mypublicip is the name of the public IP address resource that you created in an earlier step.
+* **A shared key.** This is the same shared key that you specify when creating your site-to-site VPN connection. In our examples, we use a basic shared key such as 'abc123'. We recommend that you generate a more complex key to use that complies with your organization's security requirements.
+* **The public IP address of your virtual network gateway.** To find the public IP address of your virtual network gateway using PowerShell, run the following command. In this example, mypublicip is the name of the public IP address resource that you created in an earlier step.
 
   ```azurepowershell-interactive
   Get-AzPublicIpAddress -Name mypublicip -ResourceGroupName <resource-group-name>
@@ -368,25 +368,28 @@ Run the following commands to create the site-to-site VPN connection between you
    -ConnectionType IPsec -SharedKey 'abc123'
    ```
 
-After a short while, the connection will be established.
+1. After a short while, the connection will be established. You can verify your VPN connection by running the following command. If prompted, select 'A' in order to run 'All'.
 
-There are a few different ways to verify your VPN connection.
+   ```azurepowershell-interactive
+   Get-AzVirtualNetworkGatewayConnection -Name VNet1toSite1 -ResourceGroupName <resource-group-name>
+   ```
+   
+   The connection status should show as "Connected."
 
-[!INCLUDE [Verify connection](../../../includes/vpn-gateway-verify-connection-ps-rm-include.md)]
 
 # [Azure CLI](#tab/azure-cli)
 
-Run the following commands to create the site-to-site VPN connection between your virtual network gateway and your on-premises device. Be sure to replace the values with your own. The shared key must match the value you used for your VPN device configuration. The `-ConnectionType` for site-to-site VPN is **IPsec**.
+Run the following commands to create the site-to-site VPN connection between your virtual network gateway and your on-premises device. Be sure to replace the values with your own. The shared key must match the value you used for your VPN device configuration.
 
 ```azurecli-interactive
 az network vpn-connection create --name VNet1toSite1 --resource-group <resource-group-name> --vnet-gateway1 MyVnetGateway -l eastus --shared-key abc123 --local-gateway MyLocalGateway
 ```
 
-After a short while, the connection will be established.
+After a short while, the connection will be established. You can verify your VPN connection by running the following command. When the connection is in the process of being established, its connection status shows 'Connecting'. Once the connection is established, the status changes to 'Connected'.
 
-[!INCLUDE [verify connection](../../../includes/vpn-gateway-verify-connection-cli-rm-include.md)]
-
-If you want to use another method to verify your connection, see [Verify a VPN Gateway connection](../../vpn-gateway/vpn-gateway-verify-connection-resource-manager.md).
+```azurecli-interactive
+az network vpn-connection show --name VNet1toSite1 --resource-group <resource-group-name>
+```
 
 ---
 
