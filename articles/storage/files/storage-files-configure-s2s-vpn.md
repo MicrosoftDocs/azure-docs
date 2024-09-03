@@ -4,7 +4,7 @@ description: Learn how to configure a site-to-site (S2S) VPN for use with Azure 
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 08/30/2024
+ms.date: 09/03/2024
 ms.author: kendownie
 ---
 
@@ -63,16 +63,19 @@ To add a new or existing virtual network to your storage account, follow these s
    ```azurepowershell
    Connect-AzAccount
    ```
-   
-1. If you want to add a new virtual network and subnet, run the following script. If you have an existing virtual network that you want to use, then skip this step. Be sure to replace `<your-subscription-id>` and `<resource-group-name>` with your own values. If desired, provide your own values for `$location`, `$vnetName`, and `$subnetName`. The `-AddressPrefix` parameter defines the IP address blocks for the virtual network and the subnet, so replace those with your respective values.
+
+1. If you want to add a new virtual network and gateway subnet, run the following script. If you have an existing virtual network that you want to use, then skip this step. Be sure to replace `<your-subscription-id>`, `<resource-group-name>`, and `<storage-account-name>` with your own values. If desired, provide your own values for `$location`, `$vnetName`, and `$subnetName`. The `-AddressPrefix` parameter defines the IP address blocks for the virtual network and the subnet, so replace those with your respective values.
 
    ```azurepowershell
    # Select subscription  
-   $subscriptionId = 'your-subscription-id'  
+   $subscriptionId = '<your-subscription-id>'  
    Select-AzSubscription -SubscriptionId $subscriptionId  
-     
+   
+   # Set current storage account
+   Set-AzCurrentStorageAccount -ResourceGroupName '<resource-group-name>' -Name '<storage-account-name>'
+
    # Define parameters  
-   $resourceGroup = 'resource-group-name'  
+   $resourceGroup = '<resource-group-name>'  
    $location = 'East US'  
    $vnetName = 'myVNet'
    $subnetName = 'mySubnet'   
@@ -84,8 +87,26 @@ To add a new or existing virtual network to your storage account, follow these s
    New-AzVirtualNetwork -Name $vnetName -ResourceGroupName $resourceGroup -Location $location -AddressPrefix 10.0.0.0/16 -Subnet $subnetConfig  
    ```
 
-1. If you have an existing virtual network you want to use, make sure it has at least one gateway subnet. If it doesn't, you'll need to add a gateway subnet before proceeding.
+1. If you created a new virtual network and subnet in the previous step, you can skip this step. If you have an existing virtual network you want to use, you must first create a [gateway subnet](../../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md#gwsub) on the virtual network before you can deploy a virtual network gateway. If you haven't enabled public network access to the virtual network previously, the Microsoft.Storage service endpoint will need to be added to the virtual network subnet. This can take up to 15 minutes to complete, although in most cases it will complete much faster. Until this operation has completed, you won't be able to access the Azure file shares within that storage account, including via the VPN connection.
 
+   To add a gateway subnet to an existing virtual network, run the following script. Be sure to replace `<resource-group-name>` and `<virtual-network-name>` with your own values. The `$subnetAddressPrefix` parameter defines the IP address block for the subnet, so replace the IP address per your requirements.
+
+   ```azurepowershell
+   # Define parameters
+   $resourceGroup = '<resource-group-name>'
+   $vnetName = '<virtual-network-name>'
+   $subnetName = 'myGatewaySubnet'  
+   $subnetAddressPrefix = '10.0.0.0/24' # Update this address as per your requirements  
+     
+   # Get the virtual network  
+   $vnet = Get-AzVirtualNetwork -Name $vnetName -ResourceGroupName $resourceGroup
+     
+   # Add the gateway subnet  
+   Add-AzVirtualNetworkSubnetConfig -Name $subnetName -VirtualNetwork $vnet -AddressPrefix $subnetAddressPrefix  
+     
+   # Apply the configuration to the virtual network  
+   Set-AzVirtualNetwork -VirtualNetwork $vnet  
+   ```
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -95,17 +116,34 @@ To add a new or existing virtual network to your storage account, follow these s
    az login
    ```
 
-1. If you want to add a new virtual network and subnet, run the following script. If you have an existing virtual network that you want to use, then skip this step. Be sure to replace `<your-subscription-id>` and `<resource-group-name>` with your own values. Replace `<virtual-network-name>` with the name of the new virtual network you want to create. The `-AddressPrefix` parameter defines the IP address blocks for the virtual network and the subnet, so replace those with your respective values. The virtual network will be created in the same region as the resource group.
+1. If you want to add a new virtual network and subnet, run the following script. If you have an existing virtual network that you want to use, then skip this step. Be sure to replace `<your-subscription-id>`, `<resource-group-name>`, and `<storage-account-name>` with your own values. Replace `<virtual-network-name>` with the name of the new virtual network you want to create. The `-AddressPrefix` parameter defines the IP address blocks for the virtual network and the subnet, so replace those with your respective values. The virtual network will be created in the same region as the resource group.
 
    ```azurecli
    # Set your subscription  
-   az account set --subscription "your-subscription-id"  
+   az account set --subscription "<your-subscription-id>"  
      
    # Create a virtual network and subnet
-   az network vnet create --resource-group <resource-group-name> --name <virtual-network-name> --address-prefix 10.0.0.0/16 --subnet-name <subnet-name> --subnet-prefix 10.0.0.0/24  
+   az network vnet create --resource-group <resource-group-name> --account-name <storage-account-name> --name <virtual-network-name> --address-prefix 10.0.0.0/16 --subnet-name <subnet-name> --subnet-prefix 10.0.0.0/24  
    ```
 
-1. If you have an existing virtual network you want to use, make sure it has at least one gateway subnet. If it doesn't, you'll need to add a gateway subnet before proceeding.
+1. If you created a new virtual network and subnet in the previous step, you can skip this step. If you have an existing virtual network you want to use, you must first create a [gateway subnet](../../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md#gwsub) on the virtual network before you can deploy a virtual network gateway. If you haven't enabled public network access to the virtual network previously, the Microsoft.Storage service endpoint will need to be added to the virtual network subnet. This can take up to 15 minutes to complete, although in most cases it will complete much faster. Until this operation has completed, you won't be able to access the Azure file shares within that storage account, including via the VPN connection.
+
+   To add a gateway subnet to an existing virtual network, run the following script. Be sure to replace `<resource-group-name>` and `<virtual-network-name>` with your own values. The `$subnetAddressPrefix` parameter defines the IP address block for the subnet, so replace the IP address block as needed.
+
+   ```azurecli
+   # Define parameters
+   resourceGroup="<resource-group-name>"  
+   vnetName="<virtual-network-name>"  
+   subnetName="myGatewaySubnet"  
+   subnetAddressPrefix="10.0.0.0/24" # Update this address as per your requirements
+   
+   # Create the gateway subnet  
+   az network vnet subnet create \  
+     --resource-group $resourceGroup \  
+     --vnet-name $vnetName \  
+     --name $subnetName \  
+     --address-prefixes $subnetAddressPrefix  
+   ```
 
 ---
 
