@@ -26,7 +26,7 @@ To import your firewall logs into Log Analytics, see [Backend health, diagnostic
 
 ## Explore data with examples
 
-To view the raw data in the firewall log, you can run the following query:
+To view the raw data in the firewall log, run the following query:
 
 ```
 AzureDiagnostics 
@@ -35,11 +35,12 @@ AzureDiagnostics
 
 This looks similar to the following query:
 
-:::image type="content" source="media/log-analytics/log-query.png" alt-text="Screenshot of Log Analytics query." lightbox="media/log-analytics/log-query.png":::
+***** Image has public IPs | :::image type="content" source="media/log-analytics/log-query.png" alt-text="Screenshot of Log Analytics query." lightbox="media/log-analytics/log-query.png":::
+
 
 You can drill down into the data, and plot graphs or create visualizations from here. See the following queries as a starting point:
 
-### Matched/Blocked requests by IP
+***** | Tried the following query in my lab and got the error, "'summarize' operator: Failed to resolve scalar expression named 'clientIp_s'" | ### Matched/Blocked requests by IP
 
 ```
 AzureDiagnostics
@@ -57,7 +58,7 @@ AzureDiagnostics
 | render timechart
 ```
 
-### Top matched rules
+***** | Tried the following query in my lab and got the error, "'summarize' operator: Failed to resolve scalar expression named 'ruleId_s'" | ### Top matched rules
 
 ```
 AzureDiagnostics
@@ -67,7 +68,7 @@ AzureDiagnostics
 | render timechart
 ```
 
-### Top five matched rule groups
+***** | Tried the following query in my lab and got the error, "'summarize' operator: Failed to resolve scalar expression named 'details_file_s'" | ### Top five matched rule groups
 
 ```
 AzureDiagnostics
@@ -81,7 +82,7 @@ AzureDiagnostics
 
 Once you create a query, you can add it to your dashboard.  Select the **Pin to dashboard** in the top right of the log analytics workspace. With the previous four queries pinned to an example dashboard, this is the data you can see at a glance:
 
-:::image type="content" source="media/log-analytics/dashboard.png" alt-text="Screenshot shows an Azure dashboard where you can add your query.":::
+***** Image has public IPs | :::image type="content" source="media/log-analytics/dashboard.png" alt-text="Screenshot shows an Azure dashboard where you can add your query.":::
 
 ## Next steps
 
