@@ -70,7 +70,7 @@ metadata:
   name: my-dataflow
   namespace: azure-iot-operations
 spec:
-  profileRef: profile
+  profileRef: default
   mode: Enabled
   operations:
     - operationType: Source
@@ -316,7 +316,7 @@ metadata:
   name: my-dataflow
   namespace: azure-iot-operations
 spec:
-  profileRef: profile
+  profileRef: default
   mode: Enabled
   operations:
     - operationType: Source

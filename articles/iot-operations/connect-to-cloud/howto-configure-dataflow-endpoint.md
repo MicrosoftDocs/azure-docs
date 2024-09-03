@@ -59,7 +59,7 @@ metadata:
   name: mq-to-mq
   namespace: azure-iot-operations
 spec:
-  profileRef: profile
+  profileRef: default
   operations:
     - operationType: Source
       sourceSettings:
@@ -81,7 +81,7 @@ metadata:
   name: mq-to-kafka
   namespace: azure-iot-operations
 spec:
-  profileRef: profile
+  profileRef: default
   operations:
     - operationType: Source
       sourceSettings:
