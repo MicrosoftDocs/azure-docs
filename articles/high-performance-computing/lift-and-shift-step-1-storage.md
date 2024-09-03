@@ -24,7 +24,7 @@ In any Azure subscription, setting up basic storage is essential for managing da
 
 > **Note:**
 >
-> For information about HPC specific storage needs, visit the [Storage Overview](deployment-step-3-storage-overview.md) page.
+> For information about HPC specific storage needs, visit the [Storage Overview](lift-and-shift-step-3-overview.md) page.
 
 ### This Component Should
 

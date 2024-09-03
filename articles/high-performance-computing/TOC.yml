@@ -1,11 +1,6 @@
 - name: High-Performance Computing documentation
   href: index.yml
-- name: Overview
-- name: Quickstarts
-- name: Tutorials
-- name: Samples
-- name: Concepts
-- name: How-to guides
+- name: Get started
   items:
   - name: HPC on-premises to cloud lift and shift
     items:
@@ -61,6 +56,3 @@
           href: lift-and-shift-step-5-overview.md
         - name: End-user entry point
           href: lift-and-shift-step-5-end-user-entry-point.md
-- name: Reference
-- name: Resources
-- name: Support and troubleshooting
