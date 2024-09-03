@@ -11,11 +11,11 @@ ms.topic: conceptual
 
 # Socket.IO Azure Function trigger and binding (Preview)
 
-This artical explains how to use Socket.IO serverless integrate with Azure Functions.
+This article explains how to use Socket.IO serverless integrate with Azure Functions.
 
 | Action | Binding Type |
 |---------|---------|
-| Get client negotiate result incluing url and access token | [Input binding](#input-binding)
+| Get client negotiate result including url and access token | [Input binding](#input-binding)
 | Triggered by messages from the service | [Trigger binding](#trigger-binding) |
 | Invoke service to send messages or manage clients | [Output binding](#output-binding) |
 
@@ -30,7 +30,7 @@ This artical explains how to use Socket.IO serverless integrate with Azure Funct
 
 ### Authenticate and Connection String
 
-In order to let the extension work with Web PubSub for Socket.IO, you will need to provide either access keys or identity based configuration to authenticate with the service. 
+In order to let the extension work with Web PubSub for Socket.IO, you need to provide either access keys or identity based configuration to authenticate with the service. 
 
 #### Access key based configuration
 
@@ -39,7 +39,7 @@ In order to let the extension work with Web PubSub for Socket.IO, you will need 
 |WebPubSubForSocketIOConnectionString| Required. Key based connection string to the service|
 
 
-You can find the connection string in **Keys** blade in you Web PubSub for Socket.IO in the [Azure Portal](https://portal.azure.com/).
+You can find the connection string in **Keys** blade in you Web PubSub for Socket.IO in the [Azure portal](https://portal.azure.com/).
 
 For the local development, use the `local.settings.json` file to store the connection string. Set `WebPubSubForSocketIOConnectionString` to the connection string copied from the previous step:
 
@@ -58,7 +58,7 @@ When deployed use the [application settings](https://docs.microsoft.com/azure/az
 
 | Configuration Name | Description|
 |---------|----------|
-|WebPubSubForSocketIOConnectionString__endpoint| Required. The Endpoint of the service. E.g. https://mysocketio.webpubsub.azure.com|
+|WebPubSubForSocketIOConnectionString__endpoint| Required. The Endpoint of the service. E.g., https://mysocketio.webpubsub.azure.com|
 |WebPubSubForSocketIOConnectionString__credential |  Defines how a token should be obtained for the connection. This setting should be set to `managedidentity` if your deployed Azure Function intends to use managed identity authentication. This value is only valid when a managed identity is available in the hosting environment.|
 |WebPubSubForSocketIOConnectionString__clientId | When `credential` is set to `managedidentity`, this property can be set to specify the user-assigned identity to be used when obtaining a token. The property accepts a client ID corresponding to a user-assigned identity assigned to the application. If not specified, the system-assigned identity is used.|
 
@@ -76,11 +76,11 @@ For the local development, use the `local.settings.json` file to store the conne
 }
 ```
 
-For using idnentity based configuration and running online, the `AzureWebJobsStorage` should refer to [Connecting to host storage with an identity](https://learn.microsoft.com/azure/azure-functions/functions-reference?tabs=blob&pivots=programming-language-csharp#connecting-to-host-storage-with-an-identity)
+If you want to use identity based configuration and running online, the `AzureWebJobsStorage` should refer to [Connecting to host storage with an identity](https://learn.microsoft.com/azure/azure-functions/functions-reference?tabs=blob&pivots=programming-language-csharp#connecting-to-host-storage-with-an-identity)
 
 ## Input Binding
 
-Socket.IO Input binding generates a `SocketIONegotiationResult` to the client negotiation request. When a Socket.IO client tries to connect to the service, it needs to know the `endpoint`, `path` and `access token` for authentication. It's a common practice to have a server to generate these data, which is called negotiation.
+Socket.IO Input binding generates a `SocketIONegotiationResult` to the client negotiation request. When a Socket.IO client tries to connect to the service, it needs to know the `endpoint`, `path`, and `access token` for authentication. It's a common practice to have a server to generate these data, which is called negotiation.
 
 # [C#](#tab/csharp)
 
@@ -145,10 +145,11 @@ app.http('negotiate', {
 ## Trigger Binding
 
 Azure Function uses trigger binding to trigger a function to process the events from the Web PubSub for Socket.IO.
-Due to the The trigger endpoint pattern would be like below which should be set in the service side (Portal: settings -> event handler -> URL Template). In the endpoint pattern, the query part `code=<API_KEY>` is **REQUIRED** when you're using Azure Function App for [security](../azure-functions/function-keys-how-to.md#understand-keys) reasons. The key can be found in **Azure portal**. Find your function app resource and navigate to **Functions** -> **App keys** -> **System keys** -> **socketio_extension** after you deploy the function app to Azure. Though, this key isn't needed when you're working with local functions.
+
+Trigger binding exposes a specific path followed the Azure Function endpoint. The url should be set as the URL Template of the service (Portal: settings -> event handler -> URL Template). In the endpoint pattern, the query part `code=<API_KEY>` is **REQUIRED** when you're using Azure Function App for [security](../azure-functions/function-keys-how-to.md#understand-keys) reasons. The key can be found in **Azure portal**. Find your function app resource and navigate to **Functions** -> **App keys** -> **System keys** -> **socketio_extension** after you deploy the function app to Azure. Though, this key isn't needed when you're working with local functions.
 
 ```
-<Function_App_Url>/runtime/webhooks/socketio?code=<API_KEY>
+<Function_App_Endpoint>/runtime/webhooks/socketio?code=<API_KEY>
 ```
 
 # [C#](#tab/csharp)
@@ -203,8 +204,8 @@ The attribute for trigger binding is `[SocketIOTrigger]`.
 |---------|---------|
 | Hub | The hub name that a client needs to connect to. |
 | Namespace | The namespace of the socket. Default: "/" |
-| EventName | The event name that the function triggers for. Some event name are predefined: `connect` for socket connect event. `connected` for socket connected event. `disconnected` for socket disconnected event. And other events are feel to defined by user and it need to match the event name sent by client side. |
-| ParameterNames | The parameter name list of the event. The length of list should be consitent with event sent from client. And the name will use the [Binding expressions](https://learn.microsoft.com/azure/azure-functions/functions-bindings-expressions-patterns) and access by the same-name function parameter. |
+| EventName | The event name that the function triggers for. Some event names are predefined: `connect` for socket connect event. `connected` for socket connected event. `disconnected` for socket disconnected event. And other events are defined by user and it need to match the event name sent by client side. |
+| ParameterNames | The parameter name list of the event. The length of list should be consistent with event sent from client. And the name uses the [Binding expressions](https://learn.microsoft.com/azure/azure-functions/functions-bindings-expressions-patterns) and access by the same-name function parameter. |
 
 ### Binding Data
 
@@ -214,7 +215,7 @@ The attribute for trigger binding is `[SocketIOTrigger]`.
 
 #### SocketIOAttribute
 
-`SocketIOAttribute` is a alternative of `ParameterNames`, which simplify the function definition. For example, the following two definitions have the same effection:
+`SocketIOAttribute` is an alternative of `ParameterNames`, which simplify the function definition. For example, the following two definitions have the same effection:
 
 ```cs
 [FunctionName("SocketIOTriggerMessage")]
@@ -234,7 +235,7 @@ public static async Task NewMessage(
 }
 ```
 
-Note that `ParameterNames` and `[SocketIOParameter]` can not be used together.
+Note that `ParameterNames` and `[SocketIOParameter]` cannot be used together.
 
 # [JavaScript Model v4](#tab/javascript-v4)
 
@@ -323,8 +324,8 @@ app.generic('newMessage', {
 | type | Must be `socketiotrigger` |
 | hub | The hub name that a client needs to connect to. |
 | namespace | The namespace of the socket. Default: "/" |
-| eventName | The event name that the function triggers for. Some event name are predefined: `connect` for socket connect event. `connected` for socket connected event. `disconnected` for socket disconnected event. And other events are feel to defined by user and it need to match the event name sent by client side. |
-| ParameterNames | The parameter name list of the event. The length of list should be consitent with event sent from client. And the name will use the [Binding expressions](https://learn.microsoft.com/azure/azure-functions/functions-bindings-expressions-patterns) and access by `context.bindings.<name>`. |
+| eventName | The event name that the function triggers for. Some event names are predefined: `connect` for socket connect event. `connected` for socket connected event. `disconnected` for socket disconnected event. And other events are defined by user and it need to match the event name sent by client side. |
+| ParameterNames | The parameter name list of the event. The length of list should be consistent with event sent from client. And the name uses the [Binding expressions](https://learn.microsoft.com/azure/azure-functions/functions-bindings-expressions-patterns) and access by `context.bindings.<name>`. |
 
 ---
 
@@ -336,7 +337,7 @@ The output binding currently support the following functionality:
 - Remove a socket from room
 - Send messages to a socket
 - Send messages to a room
-- Send messages to a namepsace
+- Send messages to a namespace
 - Disconnect sockets
 
 # [C#](#tab/csharp)
