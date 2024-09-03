@@ -25,7 +25,6 @@ You can associate a [security principal](../../role-based-access-control/overvie
 
 > [!NOTE]
 > ACLs apply only to security principals in the same tenant, and they don't apply to users who use Shared Key or shared access signature (SAS) token authentication. That's because no identity is associated with the caller and therefore security principal permission-based authorization cannot be performed.
-> Azure Storage performs a POSIX ACL check against the object ID before it authorizes the operation only if the user delegation SAS token is used with an optional parameter `suoid` for HNS enabled storage accounts as documented [here](https://learn.microsoft.com/en-us/rest/api/storageservices/create-user-delegation-sas#:~:text=Specifies%20the%20object%20ID%20for%20a%20Microsoft%20Entra%20security%20principal%20when%20a%20hierarchical%20namespace%20is%20enabled.%20Azure%20Storage%20performs%20a%20POSIX%20ACL%20check%20against%20the%20object%20ID%20before%20it%20authorizes%20the%20operation).
 
 <a id="set-access-control-lists"></a>
 
