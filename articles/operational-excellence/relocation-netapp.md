@@ -5,7 +5,7 @@ author: anaharris-ms
 ms.author: anaharris
 ms.reviewer: anaharris
 ms.date: 08/14/2024
-ms.service: azure-automation
+ms.service: azure-netapp-files
 ms.topic: how-to
 ms.custom:
   - subject-relocation
