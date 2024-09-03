@@ -21,7 +21,7 @@ This article details the different methods to install, uninstall, update, and co
 
 See the following articles for prerequisites and other requirements for Azure Monitor Agent:
 
-* [Azure Monitor Agent supported operating systems and environments](./azure-monitor-agent-requirements.md)
+* [Azure Monitor Agent supported operating systems and environments](./azure-monitor-agent-supported-operating-systems.md)
 * [Azure Monitor Agent requirements](./azure-monitor-agent-requirements.md) 
 * [Azure Monitor Agent network configuration](./azure-monitor-agent-network-configuration.md)
 
