@@ -24,7 +24,7 @@ Find full code samples that are used in this tutorial:
 
 > [!div class="checklist"]
 > * An Azure account with an active subscription. If you don't have one, you can [create a free account](https://azure.microsoft.com/free/). 
-> * [Azure Function core tool](https://learn.microsoft.com/azure/azure-functions/functions-run-local)
+> * [Azure Function core tool](../azure-functions/functions-run-local.md)
 > * Some familiarity with the Socket.IO library.
 
 ## Create a Web PubSub for Socket.IO resource in Serverless Mode
@@ -39,7 +39,7 @@ az webpubsub create -g <resource-group> -n <resource-name>---kind socketio --ser
 
 You should follow the steps to initiate a local Azure Function project.
 
-1. Follow to step to install the latest [Azure Function core tool](https://learn.microsoft.com/azure/azure-functions/functions-run-local#install-the-azure-functions-core-tools)
+1. Follow to step to install the latest [Azure Function core tool](../azure-functions/functions-run-local.md#install-the-azure-functions-core-tools)
 
 1. In the terminal window or from a command prompt, run the following command to create a project in the `SocketIOProject` folder:
 
@@ -295,7 +295,7 @@ az webpubsub hub create -n <resource name> -g <resource group> --hub-name hub --
 
 In serverless mode, the service uses webhooks to trigger the function. When running the app locally, a crucial problem is let the service be able to access your local function endpoint.
 
-An easiest way to achieve it is to use [Tunnel Tool](https://learn.microsoft.com/azure/azure-web-pubsub/howto-web-pubsub-tunnel-tool)
+An easiest way to achieve it is to use [Tunnel Tool](../azure-web-pubsub/howto-web-pubsub-tunnel-tool.md)
 
 1. Install Tunnel Tool:
 

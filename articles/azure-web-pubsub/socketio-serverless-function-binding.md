@@ -62,7 +62,7 @@ When deployed use the [application settings](../azure-functions/functions-how-to
 |WebPubSubForSocketIOConnectionString__credential |  Defines how a token should be obtained for the connection. This setting should be set to `managedidentity` if your deployed Azure Function intends to use managed identity authentication. This value is only valid when a managed identity is available in the hosting environment.|
 |WebPubSubForSocketIOConnectionString__clientId | When `credential` is set to `managedidentity`, this property can be set to specify the user-assigned identity to be used when obtaining a token. The property accepts a client ID corresponding to a user-assigned identity assigned to the application. If not specified, the system-assigned identity is used.|
 
-The function binding follows the common properties for identity based configuration. See [Common properties for identity-based connections](../azure-functions/functions-reference?tabs=blob&pivots=programming-language-csharp.md#common-properties-for-identity-based-connections) for more unmentioned properties.
+The function binding follows the common properties for identity based configuration. See [Common properties for identity-based connections](../azure-functions/functions-reference.md?#common-properties-for-identity-based-connections) for more unmentioned properties.
 
 For the local development, use the `local.settings.json` file to store the connection string. Set `WebPubSubForSocketIOConnectionString` to the connection string copied from the previous step:
 
@@ -325,7 +325,7 @@ app.generic('newMessage', {
 | hub | The hub name that a client needs to connect to. |
 | namespace | The namespace of the socket. Default: "/" |
 | eventName | The event name that the function triggers for. Some event names are predefined: `connect` for socket connect event. `connected` for socket connected event. `disconnected` for socket disconnected event. And other events are defined by user and it need to match the event name sent by client side. |
-| ParameterNames | The parameter name list of the event. The length of list should be consistent with event sent from client. And the name uses the [Binding expressions](../azure/azure-functions/functions-bindings-expressions-patterns.md) and access by `context.bindings.<name>`. |
+| ParameterNames | The parameter name list of the event. The length of list should be consistent with event sent from client. And the name uses the [Binding expressions](../azure-functions/functions-bindings-expressions-patterns.md) and access by `context.bindings.<name>`. |
 
 ---
 
