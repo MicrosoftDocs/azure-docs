@@ -13,7 +13,7 @@ ms.topic: tutorial
 
 This tutorial walks you through how to create a Web PubSub for Socket.IO service in Serverless Mode and build a chat app integrating with Azure Function.
 
-Find full code samples that is used in this tutorial:
+Find full code samples that are used in this tutorial:
 
 - [JavaScript Sample](https://github.com/Azure/azure-webpubsub/tree/main/sdk/webpubsub-socketio-extension/examples/chat-serverless-javascript)
 
@@ -51,7 +51,7 @@ This command creates a JavaScript project. And enter the folder `SocketIOProject
 
 1. Currently, the Function Bundle doesn't include Socket.IO Function Binding, so you need to manually add the package.
 
-    1. To eliminate the function bundle reference, edit the host.json file and remove the following lines .
+    1. To eliminate the function bundle reference, edit the host.json file and remove the following lines.
 
     ```json
     "extensionBundle": {

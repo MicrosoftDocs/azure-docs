@@ -11,7 +11,7 @@ ms.topic: how-to
 
 # Socket.IO Serverless Mode Specification (Preview)
 
-This document describes the details of serverless support. As the Socket.IO supports including the serverless supports highly depends on the Web PubSub service's existing interface, it introduces many complicated transforming and mapping. For most users, we s
+This document describes the details of serverless support. As the Socket.IO supports including the serverless supports highly depends on the Web PubSub service's existing interface, it introduces many complicated transforming and mapping. For most users, we suggest using Azure Function bindings together with Serverless Mode. You can walk through a tutorial [Tutorial: Build chat app with Azure Function in Serverless Mode](./socketio-serverless-tutorial.md)
 
 ## Lifetime workflow
 
@@ -185,7 +185,7 @@ Content-Type: text/plain
 Engine.IO serialized payload
 ```
 
-See [Send To All](https://learn.microsoft.com/rest/api/webpubsub/dataplane/web-pub-sub/send-to-all?view=rest-webpubsub-dataplane-2024-01-01&tabs=HTTP) for REST details. See [Engine.IO Protocl](https://socket.io/docs/v4/engine-io-protocol/) for Engine.IO Protocoldetails.
+See [Send To All](https://learn.microsoft.com/rest/api/webpubsub/dataplane/web-pub-sub/send-to-all?view=rest-webpubsub-dataplane-2024-01-01&tabs=HTTP) for REST details. See [Engine.IO Protocol](https://socket.io/docs/v4/engine-io-protocol/) for Engine.IO Protocol details.
 
 #### Example
 
@@ -219,7 +219,7 @@ Content-Type: text/plain
 Engine.IO serialized payload
 ```
 
-See [Send To All](https://learn.microsoft.com/rest/api/webpubsub/dataplane/web-pub-sub/send-to-all?view=rest-webpubsub-dataplane-2024-01-01&tabs=HTTP) for REST details. See [Engine.IO Protocl](https://socket.io/docs/v4/engine-io-protocol/) for Engine.IO Protocoldetails.
+See [Send To All](https://learn.microsoft.com/rest/api/webpubsub/dataplane/web-pub-sub/send-to-all?view=rest-webpubsub-dataplane-2024-01-01&tabs=HTTP) for REST details. See [Engine.IO Protocol](https://socket.io/docs/v4/engine-io-protocol/) for Engine.IO Protocol details.
 
 #### Example
 
@@ -253,7 +253,7 @@ Content-Type: text/plain
 Engine.IO serialized payload
 ```
 
-See [Send To All](https://learn.microsoft.com/rest/api/webpubsub/dataplane/web-pub-sub/send-to-all?view=rest-webpubsub-dataplane-2024-01-01&tabs=HTTP) for REST details. See [Engine.IO Protocl](https://socket.io/docs/v4/engine-io-protocol/) for Engine.IO Protocoldetails.
+See [Send To All](https://learn.microsoft.com/rest/api/webpubsub/dataplane/web-pub-sub/send-to-all?view=rest-webpubsub-dataplane-2024-01-01&tabs=HTTP) for REST details. See [Engine.IO Protocol](https://socket.io/docs/v4/engine-io-protocol/) for Engine.IO Protocol details.
 
 #### Example
 
@@ -287,7 +287,7 @@ Content-Type: text/plain
 Engine.IO serialized payload for socket disconnection
 ```
 
-See [Send To All](https://learn.microsoft.com/rest/api/webpubsub/dataplane/web-pub-sub/send-to-all?view=rest-webpubsub-dataplane-2024-01-01&tabs=HTTP) for REST details. See [Engine.IO Protocl](https://socket.io/docs/v4/engine-io-protocol/) for Engine.IO Protocoldetails. See [Disconnection from a namespace](https://socket.io/docs/v4/socket-io-protocol/#disconnection-from-a-namespace-1) for disconnection payload details.
+See [Send To All](https://learn.microsoft.com/rest/api/webpubsub/dataplane/web-pub-sub/send-to-all?view=rest-webpubsub-dataplane-2024-01-01&tabs=HTTP) for REST details. See [Engine.IO Protocol](https://socket.io/docs/v4/engine-io-protocol/) for Engine.IO Protocol details. See [Disconnection from a namespace](https://socket.io/docs/v4/socket-io-protocol/#disconnection-from-a-namespace-1) for disconnection payload details.
 
 #### Example
 
@@ -376,7 +376,7 @@ ce-socketId: {socketId}
 
 Response:
 
-The "Connected" event is asynchronous, so the response does not matter.
+The "Connected" event is asynchronous, so the response doesn't matter.
 
 ```
 HTTP/1.1 200 OK
