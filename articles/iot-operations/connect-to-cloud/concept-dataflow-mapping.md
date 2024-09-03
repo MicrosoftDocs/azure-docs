@@ -6,6 +6,7 @@ ms.author: patricka
 ms.subservice: azure-data-flows
 ms.topic: concept-article
 ms.date: 08/03/2024
+ai-usage: ai-assisted
 
 #CustomerIntent: As an operator, I want to understand how to use the dataflow mapping language to transform data.
 ---
@@ -520,3 +521,16 @@ This configuration allows for a dynamic mapping where every field within the `po
 }
 ```
 
+## Last known value
+
+You can track the last known value of a property. Suffix the input field with `?last` to capture the last known value of the field. When a property is missing a value in a subsequent input payload, the last known value is mapped to the output payload.
+
+For example, consider the following mapping:
+
+```yaml
+- inputs:
+  - Temperature?last
+  output: Thermostat.Temperature
+```
+
+In this example, the last known value of `Temperature` is tracked. If a subsequent input payload doesn't contain a `Temperature` value, the last known value is used in the output.
