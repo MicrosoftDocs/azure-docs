@@ -13,14 +13,9 @@ Currently, the only supported data boundary configuration is for the European Un
 
 Azure Resource Manager is the deployment and management service for Azure. To provide maximum availability and performance, Azure Resource Manager was architected to distribute all data it stores and processes globally across the Azure cloud. As part of the EU Data Boundary and Microsoft's regional data residency commitments, Azure Resource Manager has been rearchitected to allow Customer Data and pseudonymized personal data to be stored and processed regionally. This documentation provides details on how customers can configure Azure Resource Manager for use in the EU Data Boundary.
 
-## Key concepts
+A data boundary can only be established in new tenants that have no existing subscriptions or deployed resources. Once in place, the data boundary configuration cannot be removed or modified, and existing subscriptions cannot be moved into or out of a tenant with a data boundary. Each tenant is limited to one data boundary, and after it is established, Azure Resource Manager will restrict resource deployments to regions within that boundary. Customers can opt their tenants into a data boundary by deploying a `Microsoft.Resources/dataBoundaries` resource at the tenant level. 
 
-- Customers can opt their tenants into a data boundary by deploying a `Microsoft.Resources/dataBoundaries` resource at the tenant level.
-- A data boundary can only be created in new tenants that have no existing subscriptions or deployed resources.
-- Existing subscriptions can't be moved to a tenant with an EU data boundary.
-- Only one data boundary is allowed per tenant.
-- Once applied, the data boundary configuration can't be removed or modified.
-- After a data boundary is in place, Resource Manager will limit resource deployments to regions within that boundary.
+The `DataBoundaryTenantAdministrator` built-in role is required to configure data boundary.
 
 To opt your tenant into an Azure EU Data Boundary:
 
