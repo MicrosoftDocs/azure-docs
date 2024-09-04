@@ -58,19 +58,54 @@ See [Estimate the cost of using AzCopy to transfer blobs](azcopy-cost-estimation
 
 When you upload data, your client divides that data into blocks and uploads each block individually. Each block that is upload is billed as a _write_ operation. A final write operation is needed to assemble blocks into a blob that is stored in the account. The number of write operations required to upload a blob depends on the size of each block. **8 MiB** is the default block size for uploads to the Blob Service endpoint (`blob.core.windows.net`) and that size is configurable. **4 MiB** is the block size for uploads to the Data Lake Storage endpoint (`dfs.core.windows.net`) and that size is not configurable. A smaller block size performs better because blocks can upload in parallel. However, the cost is higher because more write operations are required to upload a blob.
 
-See [Estimate the cost to upload](azcopy-cost-estimation.md#the-cost-to-upload). 
+Assuming an 8-MiB block size, the following table calculates the number of write operations required to upload 1000 blobs that are each 5 MiB in size.
+
+| Calculation                                         | Value       |
+|-----------------------------------------------------|-------------|
+| Number of MiB in 5 GiB                              | 5,120       |
+| Write operations per blob (5,120 MiB / 8 MiB block) | 640         |
+| Write operation to commit the blocks                | 1           |
+| **Total write operations (1,000 * 641)**            | **641,000** |
+
+Using the [Sample prices](#sample-prices) that appear in this article, the following table calculates the cost to upload these blobs to the hot tier.
+
+| Price factor                                             | Cost           |
+|----------------------------------------------------------|----------------|
+| Price of a single write operation (price / 10,000)       | $0.0000055     |
+| **Cost of write operations (641,000 * operation price)** | **$3.5255**    |
+| **Total cost (write + properties)**                      | **$3.5250055** |
+
+Depending on the tool that you use, other operation might be used to facilitate an upload. For an example, see [Estimate the cost to upload](azcopy-cost-estimation.md#the-cost-to-upload). 
 
 #### The cost to download
 
-The number of operations required to download a blob depends on which endpoint you use. If you download a blob from the Blob Service endpoint, you're billed the cost of a single _read_ operation. If you download a blob from the Data Lake Storage endpoint, you're billed for cost of multiple read operations because blobs must be downloaded in 4 MiB blocks.   
+The number of operations required to download a blob depends on which endpoint you use. If you download a blob from the Blob Service endpoint, you're billed the cost of a single _read_ operation. If you download a blob from the Data Lake Storage endpoint, you're billed for cost of multiple read operations because blobs must be downloaded in 4 MiB blocks. If you download blobs from the cool or cold tier, you're also charged a data retrieval per GiB downloaded.
 
-See [Estimate the cost to download](azcopy-cost-estimation.md#the-cost-to-download). 
+Using the [Sample prices](#sample-prices) that appear in this article, the following table calculates the cost to download 1000 blobs that are each 5 MiB in size from the cool tier by using the Blob Storage endpoint. 
+
+| Price factor                                         | Cool       |
+|------------------------------------------------------|------------|
+| Price of a single read operation (price / 10,000)    | $0.000001  |
+| **Cost of read operations (1000 * operation price)** | **$0.001** |
+| Price of data retrieval (per GiB)                    | $0.01      |
+| **Cost of data retrieval (5 * operation price)**     | **$0.05**  |
+| **Total cost (read + retrieval)**                    | **$0.051** |
+
+Depending on the tool that you use, other operation might be used to facilitate a download. For a complete example, see [Estimate the cost to download](azcopy-cost-estimation.md#the-cost-to-download). 
 
 #### The cost to copy between containers
 
 If you copy a blob to another container in the same account, then you're billed the cost of a single _write_ operation that is based on the destination tier. If the destination container is in another account, then you're also billed the cost of data retrieval and the cost of a read operation that is based on the source tier. If the destination account is in another region, then the cost of network egress is added to your bill. 
 
-See [Estimate the cost to copy between containers](azcopy-cost-estimation.md#the-cost-to-copy-between-containers). 
+| Price factor                                          | Hot          |
+|-------------------------------------------------------|--------------|
+| Price of a single write operation (price / 10,000)    | $0.0000055   |
+| **Cost to write (1000 * operation price)**            | **$0.0055**  |
+| Price of a single read operation (price / 10,000)     | $0.00000044  |
+| **Cost of read operations (1,000 * operation price)** | **$0.00044** |
+| **Total cost (previous section + retrieval + read)**  | **$0.0068**  |
+
+Depending on the tool that you use, other operation might be used to facilitate a download. For a complete example, see [Estimate the cost to copy between containers](azcopy-cost-estimation.md#the-cost-to-copy-between-containers). 
 
 ## The cost to rename a blob
 
