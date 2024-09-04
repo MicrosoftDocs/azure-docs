@@ -15,10 +15,10 @@ For a conceptual look at connecting clusters to Azure Arc, see [Azure Arc-enable
 
 ## Prerequisites
 
-In addition to these prerequisites, be sure to meet all [network requirements for Azure Arc-enabled Kubernetes](network-requirements.md).
-
 ### [Azure CLI](#tab/azure-cli)
 
+> [!IMPORTANT]
+> In addition to these prerequisites, be sure to meet all [network requirements for Azure Arc-enabled Kubernetes](network-requirements.md).
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * A basic understanding of [Kubernetes core concepts](/azure/aks/concepts-clusters-workloads).
 * An [identity (user or service principal)](system-requirements.md#azure-ad-identity-requirements) which can be used to [log in to Azure CLI](/cli/azure/authenticate-azure-cli) and connect your cluster to Azure Arc.
@@ -42,6 +42,8 @@ In addition to these prerequisites, be sure to meet all [network requirements fo
 
 ### [Azure PowerShell](#tab/azure-powershell)
 
+> [!IMPORTANT]
+> In addition to these prerequisites, be sure to meet all [network requirements for Azure Arc-enabled Kubernetes](network-requirements.md)
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * A basic understanding of [Kubernetes core concepts](/azure/aks/concepts-clusters-workloads).
 * An [identity (user or service principal)](system-requirements.md#azure-ad-identity-requirements) which can be used to [log in to Azure PowerShell](/powershell/azure/authenticate-azureps)  and connect your cluster to Azure Arc.
