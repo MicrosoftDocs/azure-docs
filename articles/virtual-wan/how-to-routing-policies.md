@@ -429,7 +429,7 @@ The following section describes common ways to troubleshoot when you configure r
 ### Effective Routes
 
 > [!NOTE]
-> Getting the effective routes applied on Virtual WAN routing intent next hop resources is only supported for the next hop resource specified in private routing policies. If you are using both private and internet routing policy, check the effective routes on the next hop resource specified in the private routing policy for the effective routes Virtual WAN programs on the internet routing policy next hop resource. If you are using internet routing policies only, check the effective routes of the defaultRouteTable to view the routes programmed on the internet routing policy next hop resource.   
+> Getting the effective routes applied on Virtual WAN routing intent next hop resources is only supported for the next hop resource specified in private routing policy. If you are using both private and internet routing policies, check the effective routes on the next hop resource specified in the private routing policy for the effective routes Virtual WAN programs on the internet routing policy next hop resource. If you are only using internet routing policies, check the effective routes on the defaultRouteTable to view the routes programmed on the internet routing policy next hop resource.
   
 When private routing policies are configured on the Virtual Hub, all traffic between on-premises and Virtual Networks are inspected by Azure Firewall, Network Virtual Appliance, or SaaS solution in the Virtual hub.
 
