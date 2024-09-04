@@ -10,7 +10,10 @@ ms.date: 08/29/2023
 
 This article addresses some common questions about Azure HDInsight on AKS.
 
+[!INCLUDE [retirement-notice](includes/retirement-notice.md)]
 [!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
+
+
 
 ## General
 

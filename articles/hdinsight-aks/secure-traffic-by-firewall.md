@@ -9,7 +9,10 @@ ms.date: 02/19/2024
 
 # Use firewall to restrict outbound traffic using Azure CLI
 
+[!INCLUDE [retirement-notice](includes/retirement-notice.md)]
 [!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
+
+
 
 
 When an enterprise wants to use their own virtual network for the cluster deployments, securing the traffic of the virtual network becomes important.
