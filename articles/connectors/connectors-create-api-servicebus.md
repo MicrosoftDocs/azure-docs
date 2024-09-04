@@ -593,7 +593,7 @@ Occasionally, operations such as completing a message or renewing a session prod
 }
 ```
 
-Occasionally, session-based trigger may fail with the following error:
+Occasionally, a session-based trigger might fail with the following error:
 
 ``` json
 {
