@@ -10,14 +10,14 @@ ms.author: v-abhmallick
 
 # Quickstart: Understand the protection estate
 
-This quickstart describes how to identify the resources with no protection and the ones which are protected in Azure Business Continuity Center.
+This quickstart describes how to identify the protected and unprotected resources in Azure Business Continuity Center.
 
 As a Business Continuity and Disaster Recovery (BCDR) administrator, safeguarding your critical resources is a crucial step in your business continuity journey. In the event of an outage, malicious attack, or operational failure, it's essential that these resources can be recovered in either the primary or secondary region to prevent data loss.
 
-Azure Business Continuity Center provides two key views to help you manage your protection details:
+Azure Business Continuity Center provides the following two key views to help you manage your protection details:
 
-- **Protectable resources**: This lists the resources that are currently not protected, allowing you to configure protection for them.
-- **Protected items**: This shows the data sources that are already protected, enabling you to perform actions such as recovery and failover.
+- **Protectable resources**: This lists the resources that are currently not protected. You can configure protection for them.
+- **Protected items**: This shows the resources that are already protected. Allows you to perform actions such as recovery and failover.
 
 
 ## Identify unprotected resources
@@ -28,12 +28,12 @@ To identify the resources that are currently not protected, follow these steps:
 
    :::image type="content" source="./media/quick-understand-protection-estate/select-protectable-resources.png" alt-text="Screenshot shows the selection of Protectable resources." lightbox="./media/quick-understand-protection-estate/select-protectable-resources.png":::
 
-   A list of resources appears that  aren't protected by any solution across subscription, resource groups, location, type, and more along with their properties. To view the details of each resource, select a *resource name*, *subscription*, or *resource group* from the list.
+   A list of resources that  aren't protected appears. This list includes the details by solution across subscription, resource groups, location, type, and more along with their properties. To view the details of each resource, select a *resource name*, *subscription*, or *resource group* from the list.
  
    > [!Note]
    >
    >- Currently, you can view the *unprotected Azure resources* under **Protectable resources** only.
-   >- You can also query information on your protectable Azure resources at no additional cost using Azure Resource Graph (ARG). ARG is an Azure service designed to extend Azure Resource Management. It aims to provide efficient resource exploration with the ability to query at scale across a given set of subscriptions.
+   >- You can also query information on your protectable Azure resources by  using Azure Resource Graph (ARG) at no additional cost. ARG is an Azure service designed to extend Azure Resource Management. It aims to provide efficient resource exploration with the ability to query at scale across a given set of subscriptions.
 
    Alternatively, you can check for the protectable Azure resources using Azure Resource Group (ARG). To do so, use the *sample query* provided in the Azure portal by selecting *Open query*.
  
@@ -50,4 +50,4 @@ The list of all the protected items across the supported solution, subscription,
 
 ## Next step
 
-[Configure protection for data sources](tutorial-configure-protection-datasource.md).
+[Configure protection for resources](tutorial-configure-protection-datasource.md).
