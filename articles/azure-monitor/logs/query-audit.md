@@ -62,7 +62,7 @@ An audit record is created each time a query is run. If you send the data to a L
 |:---|:---|
 |AAPBI|[Log Analytics integration with Power BI](../logs/log-powerbi.md).|
 |AppAnalytics|Experiences of Log Analytics in the Azure portal.|
-|AppInsightsPortalExtension|[Workbooks](../visualize/workbooks-data-sources.md#logs) or [Application insights](../app/app-insights-overview.md).|
+|AppInsightsPortalExtension|[Workbooks](../visualize/workbooks-data-sources.md#logs-analytics-tables-application-insights) or [Application insights](../app/app-insights-overview.md).|
 |ASC_Portal|Microsoft Defender for Cloud.|
 |ASI_Portal|Sentinel.|
 |AzureAutomation|[Azure Automation.](../../automation/overview.md)|
