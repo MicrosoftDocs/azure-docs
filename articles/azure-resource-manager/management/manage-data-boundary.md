@@ -2,7 +2,7 @@
 title: Configure data boundary
 description: Learn how to configure EUDB.
 ms.topic: how-to
-ms.date: 08/30/2024
+ms.date: 09/04/2024
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 # Customer intent: As an Azure user, I want to use preview features in my subscription so that I can expose a resource provider's preview functionality.
 ---
@@ -13,7 +13,7 @@ Currently, the only supported data boundary configuration is for the European Un
 
 Azure Resource Manager is the deployment and management service for Azure. To provide maximum availability and performance, Azure Resource Manager was architected to distribute all data it stores and processes globally across the Azure cloud. As part of the EU Data Boundary and Microsoft's regional data residency commitments, Azure Resource Manager has been rearchitected to allow Customer Data and pseudonymized personal data to be stored and processed regionally. This documentation provides details on how customers can configure Azure Resource Manager for use in the EU Data Boundary.
 
-A data boundary can only be established in new tenants that have no existing subscriptions or deployed resources. Once in place, the data boundary configuration cannot be removed or modified, and existing subscriptions cannot be moved into or out of a tenant with a data boundary. Each tenant is limited to one data boundary, and after it is established, Azure Resource Manager will restrict resource deployments to regions within that boundary. Customers can opt their tenants into a data boundary by deploying a `Microsoft.Resources/dataBoundaries` resource at the tenant level. 
+A data boundary can only be established in new tenants that have no existing subscriptions or deployed resources. Once in place, the data boundary configuration cannot be removed or modified, and existing subscriptions and resources cannot be moved into or out of a tenant with a data boundary. Each tenant is limited to one data boundary, and after it is established, Azure Resource Manager will restrict resource deployments to regions within that boundary. Customers can opt their tenants into a data boundary by deploying a `Microsoft.Resources/dataBoundaries` resource at the tenant level.
 
 The `DataBoundaryTenantAdministrator` built-in role is required to configure data boundary.
 
