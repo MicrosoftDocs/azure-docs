@@ -396,7 +396,7 @@ You can see the current version by printing `$PSVersionTable` from any function.
 To learn more about Azure Functions runtime support policy, please refer to this [article](./language-support-policy.md)
 
 > [!NOTE]
-> Support for PowerShell 7.2 in Azure Functions will end on 8 November 2024. Follow this [migration guide](https://github.com/Azure/azure-functions-powershell-worker/wiki/Upgrading-your-Azure-Function-Apps-to-run-on-PowerShell-7.4) to upgrade to PowerShell 7.4, which contains breaking changes. 
+> Support for PowerShell 7.2 in Azure Functions ends on November 8, 2024. You might have to resolve some breaking changes when upgrading your PowerShell 7.2 functions to run on PowerShell 7.4. Follow this [migration guide](https://github.com/Azure/azure-functions-powershell-worker/wiki/Upgrading-your-Azure-Function-Apps-to-run-on-PowerShell-7.4) to upgrade to PowerShell 7.4. 
 
 ### Running local on a specific version
 
