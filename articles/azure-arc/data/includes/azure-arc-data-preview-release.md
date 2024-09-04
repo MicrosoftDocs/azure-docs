@@ -12,11 +12,11 @@ ms.date: 06/11/2024
 At this time, a test or preview build is not available for the next release.
 -->
 
-Sept, 2024 test release is now available.
+Sept, 2024 preview release is now available.
 
 |Component|Value|
 |-----------|-----------|
-|Container images registry/repository |`mcr.microsoft.com/arcdata/test`|
+|Container images registry/repository |`mcr.microsoft.com/arcdata/preview`|
 |Container images tag |`v1.33.0_2024-09-10`|
 |**CRD names and version:**| |
 |`activedirectoryconnectors.arcdata.microsoft.com`| v1beta1, v1beta2, v1, v2|
@@ -39,7 +39,7 @@ Sept, 2024 test release is now available.
 |Azure Arc Extension for Azure Data Studio<br/>`arc`<br/>`azcli`|<br/>1.8.0 ([Download](https://aka.ms/ads-arcdata-ext))</br>1.8.0 ([Download](https://aka.ms/ads-azcli-ext))|
 |SQL Database version | 972 |
 
-Release Notes:
+Pre-release Notes:
 - Arc SQL Server | Allow the AG inventory feature for all license types | GA
   - Always On availability groups inventory feature is available for all license type
 - Arc SQL Server | Allow applying physical core license to physical machines | GA
