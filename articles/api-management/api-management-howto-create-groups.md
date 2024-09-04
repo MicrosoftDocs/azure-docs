@@ -1,5 +1,5 @@
 ---
-title: Manage developer accounts using groups in Azure API Management
+title: Manage developer accounts using groups - Azure API Management
 titleSuffix: Azure API Management
 description: Learn how to manage developer accounts using groups in Azure API Management. Create groups, and then associate them with products or developers.
 
@@ -18,7 +18,7 @@ In API Management, groups are used to manage the visibility of products to devel
 
 API Management has the following immutable groups:
 
-* **Administrators** - Contains a single user: the one who created the API Management instance - named **Administrator** - and receives notifications at the administrator email address. The administrator can approve subscription requests, manage user groups, and customize and publish the developer portal. In the developer portal, all published products are visible to the administrator.Users can't be added or removed from this group. 
+* **Administrators** - Contains a single user: the one who created the API Management instance - named **Administrator** - and receives notifications at the administrator email address. The administrator can approve subscription requests, manage user groups, and customize and publish the developer portal. In the developer portal, all published products are visible to the administrator. Users can't be added or removed from this group. 
 
     > [!NOTE]
     > The administrator's permissions are distinct from the Azure role-based access control (Azure RBAC) permissions needed to [manage resources in the API Management instance](api-management-howto-assign-roles.md). However, a user assigned at least the **Contributor** RBAC role or equivalent permissions on the API Management instance can impersonate the administrator in the developer portal.
@@ -54,7 +54,7 @@ This section shows how to add a new group to your API Management account.
 Once the group is created, it's added to the **Groups** list. 
     * To edit the **Name** or **Description** of the group, click the name of the group and select **Settings**
 
-    * To delete the group, click the name of the group and press **Delete**.
+    * To delete the group, select the name of the group and press **Delete**.
 
 Now that the group is created, it can be associated with products and developers.
 
