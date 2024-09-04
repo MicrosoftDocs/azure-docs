@@ -5,8 +5,8 @@ description: Learn how to manage developer accounts using groups in Azure API Ma
 
 author: dlepow
 ms.service: azure-api-management
-ms.topic: article
-ms.date: 03/17/2023
+ms.topic: concept-article
+ms.date: 09/03/2024
 ms.author: danlep
 ms.custom: engagement-fy23
 ---
@@ -14,19 +14,22 @@ ms.custom: engagement-fy23
 
 [!INCLUDE [api-management-availability-premium-dev-standard-basic-standardv2-basicv2](../../includes/api-management-availability-premium-dev-standard-basic-standardv2-basicv2.md)]
 
-In API Management, groups are used to manage the visibility of products to developers. Products are first made visible to groups, and then developers in those groups can view and subscribe to the products that are associated with the groups. 
+In API Management, groups are used to manage the visibility of products to developers in the developer portal. Products are first made visible to groups, and then developers in those groups can view and subscribe to the products that are associated with the groups. 
 
-API Management has the following immutable system groups:
+API Management has the following immutable groups:
 
-* **Administrators** - Azure subscription administrators are members of this group. Administrators manage API Management service instances, creating the APIs, operations, and products that are used by developers. You can't add users to this group.
+* **Administrators** - Contains a single user: the one who created the API Management instance - named **Administrator** - and receives notifications at the administrator email address. The administrator can approve subscription requests, manage user groups, and customize and publish the developer portal. In the developer portal, all published products are visible to the administrator.Users can't be added or removed from this group. 
 
     > [!NOTE]
-    > You can change the administrator [email settings](api-management-howto-configure-notifications.md#configure-email-settings) that are used in notifications sent to developers from your API Management instance.
+    > The administrator's permissions are distinct from the Azure role-based access control (Azure RBAC) permissions needed to [manage resources in the API Management instance](api-management-howto-assign-roles.md). However, a user assigned at least the **Contributor** RBAC role or equivalent permissions on the API Management instance can impersonate the administrator in the developer portal.
+
+    > [!NOTE]
+    > At any time, a service owner can change the administrator [email settings](api-management-howto-configure-notifications.md#configure-email-settings) that are used in notifications sent to developers from your API Management instance.
 
 * **Developers** - Authenticated developer portal users fall into this group. Developers are the customers that build applications using your APIs. Developers are granted access to the developer portal and build applications that call the operations of an API.
 * **Guests** - Unauthenticated developer portal users, such as prospective customers visiting the developer portal of an API Management instance fall into this group. They can be granted certain read-only access, such as the ability to view APIs but not call them.
 
-In addition to these system groups, administrators can create custom groups or [use external groups in associated Microsoft Entra tenants][leverage external groups in associated Azure Active Directory tenants]. Custom and external groups can be used alongside system groups in giving developers visibility and access to API products. For example, you could create one custom group for developers affiliated with a specific partner organization and allow them access to the APIs from a product containing relevant APIs only. A user can be a member of more than one group.
+In addition to these system-managed groups, administrators can create custom groups or [use external groups in associated Microsoft Entra tenants][leverage external groups in associated Azure Active Directory tenants]. Custom and external groups can be used alongside system groups in giving developers visibility and access to API products. For example, you could create one custom group for developers affiliated with a specific partner organization and allow them access to the APIs from a product containing relevant APIs only. A user can be a member of more than one group.
 
 This guide shows how administrators of an API Management instance can add new groups and associate them with products and developers.
 
@@ -89,7 +92,7 @@ This section shows how to associate groups with members.
 
 Once the association is added between the developer and the group, you can view it in the **Users** tab.
 
-## <a name="next-steps"> </a>Next steps
+## <a name="next-steps"> </a>Related content
 
 * Once a developer is added to a group, they can view and subscribe to the products associated with that group. For more information, see [How to create and publish a product in Azure API Management][How create and publish a product in Azure API Management].
 * You can control how the developer portal content appears to different users and groups you've configured. Learn more about [visibility and access controls in the developer portal](developer-portal-overview.md#content-visibility-and-access). 
