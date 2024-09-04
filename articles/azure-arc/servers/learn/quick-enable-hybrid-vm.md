@@ -96,7 +96,5 @@ After you install the agent and configure it to connect to Azure Arc-enabled ser
 
 Now that you've enabled your Linux or Windows hybrid machine and successfully connected to the service, you are ready to enable Azure Policy to understand compliance in Azure.
 
-To learn how to identify Azure Arc-enabled servers enabled machine that doesn't have the Log Analytics agent installed, continue to the tutorial:
-
 > [!div class="nextstepaction"]
 > [Create a policy assignment to identify non-compliant resources](tutorial-assign-policy-portal.md)

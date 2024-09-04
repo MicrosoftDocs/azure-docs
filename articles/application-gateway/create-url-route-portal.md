@@ -5,7 +5,7 @@ services: application-gateway
 author: greg-lindsay
 ms.service: azure-application-gateway
 ms.topic: tutorial
-ms.date: 07/08/2022
+ms.date: 09/03/2024
 ms.author: greglin
 ms.custom: template-tutorial
 #Customer intent: As an IT administrator, I want to use the Azure portal to set up an application gateway so I can route my app traffic based on path-based routing rules.
@@ -190,7 +190,7 @@ Review the settings on the **Review + create** tab, and then select **Create** t
 
     ![Record application gateway public IP address](./media/application-gateway-create-url-route-portal/application-gateway-record-ag-address.png)
 
-2. Copy the public IP address, and then paste it into the address bar of your browser. Such as, http:\//52.188.72.175:8080.
+2. Copy the public IP address, and then paste it into the address bar of your browser. Such as, http:\//203.0.113.10:8080.
 
     ![Test base URL in application gateway](./media/application-gateway-create-url-route-portal/application-gateway-iistest.png)
 

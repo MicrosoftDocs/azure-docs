@@ -40,7 +40,7 @@ Azure IoT Central is HIPAA-compliant and HITRUST&reg; certified. You can send pa
 
 ### Machine learning (4)
 
-Use machine learning models with your FHIR data to generate insights and support decision making by your care team. To learn more, see the [Azure Machine Learning documentation](../../machine-learning/index.yml).
+Use machine learning models with your FHIR data to generate insights and support decision making by your care team. To learn more, see the [Azure Machine Learning documentation](/azure/machine-learning/).
 
 ### Provider dashboard (5)
 

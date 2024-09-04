@@ -53,20 +53,18 @@
     href: /events/learntv/learnlive-iac-and-bicep/
   - name: Learn Live - Bicep and GitHub Actions
     href: /events/learn-events/learnlive-automate-azure-deployments-bicep-github-actions/
-  - name: Use deployment stacks
-    href: ./tutorial-use-deployment-stacks.md
 - name: Samples - Azure Services
   items:
   - name: AI + Machine Learning
     items:
     - name: Cognitive Search
-      href: ../../search/search-get-started-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
+      href: /azure/search/search-get-started-bicep?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: Azure AI services
-      href: ../../ai-services/create-account-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
+      href: /azure/ai-services/create-account-bicep?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: Data Science Virtual Machine
-      href: ../../machine-learning/data-science-virtual-machine/dsvm-tutorial-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
+      href: /azure/machine-learning/data-science-virtual-machine/dsvm-tutorial-bicep?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: Machine Learning secure workspace
-      href: ../../machine-learning/tutorial-create-secure-workspace-template.md?toc=/azure/azure-resource-manager/bicep/toc.json
+      href: /azure/machine-learning/tutorial-create-secure-workspace-template?toc=/azure/azure-resource-manager/bicep/toc.json
   - name: Analytics
     items:
     - name: Analysis Services

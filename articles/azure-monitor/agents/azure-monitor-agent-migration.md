@@ -25,7 +25,6 @@ Migration is a complex task. Start planning your migration to Azure Monitor Agen
 > - **Installation:** The ability to install the legacy agents will be removed from the Azure Portal and installation policies for legacy agents will be removed. You can still install the MMA agents extension as well as perform offline installations.
 > - **Customer Support:** You will not be able to get support for legacy agent issues.
 > - **OS Support:** Support for new Linux or Windows distros, including service packs, won't be added after the deprecation of the legacy agents.
-> - Log Analytics Agent will continue to function but not be able to connect Log Analytics workspaces.
 > - Log Analytics Agent can coexist with Azure Monitor Agent. Expect to see duplicate data if both agents are collecting the same data.
 
  
