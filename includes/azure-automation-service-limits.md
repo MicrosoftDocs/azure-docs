@@ -56,9 +56,9 @@ The following table shows the tracked item limits per machine for change trackin
 |Services|250||
 |Daemon|250||
 
-#### Update Management
+#### Azure Update Manager
 
-The following table shows the limits for Update Management.
+The following table shows the limits for Azure Update Manager.
 
 | **Resource** | **Limit**| **Notes** |
 |---|---|---|
