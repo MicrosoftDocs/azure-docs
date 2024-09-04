@@ -74,7 +74,7 @@ For more detailed examples, see [Estimate the cost to upload](azcopy-cost-estima
 
 #### The cost to download
 
-The number of operations required to download a blob depends on which endpoint you use. If you download a blob from the Blob Service endpoint, you're billed the cost of a single _read_ operation. If you download a blob from the Data Lake Storage endpoint, you're billed for cost of multiple read operations because blobs must be downloaded in 4 MiB blocks. If you download blobs from the cool or cold tier, you're also charged a data retrieval per GiB downloaded.
+The number of operations required to download a blob depends on which endpoint you use. If you download a blob from the Blob Service endpoint, you're billed the cost of a single _read_ operation. If you download a blob from the Data Lake Storage endpoint, you're billed for cost of multiple read operations because blobs must be downloaded in 4 MiB blocks. If you download blobs from the cool or cold tier, you're also charged a data retrieval per GiB downloaded from the cool, cold, or archive tier.
 
 Using the [Sample prices](#sample-prices) that appear in this article, the following table estimates the cost to download **1,000** blobs that are **5 GiB** each in size from the cool tier by using the Blob Storage endpoint. 
 
