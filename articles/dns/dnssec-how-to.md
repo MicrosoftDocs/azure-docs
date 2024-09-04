@@ -35,8 +35,8 @@ To sign your zone with DNSSEC using the Azure portal:
     ![Screenshot of selecting the DNSSEC checkbox.](./media/dnssec-how-to/sign-dnssec.png)
 
 4. When you are prompted to confirm that you wish to enable DNSSEC, select **OK**.
-
-    <br><img src="./media/dnssec-how-to/confirm-dnssec.png" alt="Screenshot of confirming DNSSEC signing." width="60%">
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+P+/HgAFhAJ/wlseKgAAAABJRU5ErkJggg==">
+    <img src="./media/dnssec-how-to/confirm-dnssec.png" alt="Screenshot of confirming DNSSEC signing." width="60%">
 
 5. Wait for zone signing to complete. After the zone is signed, review the **DNSSEC delegation information** that is displayed. Notice that the status is: **Signed but not delegated**.
 
