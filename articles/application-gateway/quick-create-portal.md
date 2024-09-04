@@ -5,7 +5,7 @@ description: In this quickstart, you learn how to use the Azure portal to create
 services: application-gateway
 author: greg-lindsay
 ms.author: greglin
-ms.date: 05/30/2024
+ms.date: 09/04/2024
 ms.topic: quickstart
 ms.service: azure-application-gateway
 ms.custom: mvc, mode-ui
@@ -57,8 +57,6 @@ Create the application gateway using the tabs on the **Create application gatewa
     - **Name**: Enter *myVNet* for the name of the virtual network.
 
     - **Subnet name** (Application Gateway subnet): The **Subnets** grid shows a subnet named *default*. Change the name of this subnet to *myAGSubnet*.<br>The application gateway subnet can contain only application gateways. No other resources are allowed. The default IP address range provided is 10.0.0.0/24.
-  
-    - **Subnet name** (backend server subnet): In the second row of the **Subnets** grid, enter *myBackendSubnet* in the **Subnet name** column.
 
          ![Screenshot of create new application gateway: virtual network.](./media/application-gateway-create-gateway-portal/application-gateway-create-vnet.png)
 
@@ -70,14 +68,13 @@ Create the application gateway using the tabs on the **Create application gatewa
 
 1. On the **Frontends** tab, verify **Frontend IP address type** is set to **Public**. <br>You can configure the Frontend IP to be Public or Private as per your use case. In this example, you'll choose a Public Frontend IP.
    > [!NOTE]
-   > For the Application Gateway v2 SKU, there must be a **Public** frontend IP configuration. You can still have both a Public and a Private frontend IP configuration, but Private only frontend IP configuration (Only ILB mode) is currently not enabled for the v2 SKU. 
+   > * The [Private-only deployment](application-gateway-private-deployment.md) (with only private IP) for the Application Gateway v2 SKU is currently in Public Preview.
+   > * Application Gateway frontend now supports dual-stack IP addresses in Public Preview. You can create up to four frontend IP addresses: Two IPv4 addresses (public and private) and two IPv6 addresses (public and private).
 
 2. Select **Add new** for the **Public IP address** and enter *myAGPublicIPAddress* for the public IP address name, and then select **OK**. 
 
      ![Screenshot of create new application gateway: frontends.](./media/application-gateway-create-gateway-portal/application-gateway-create-frontends.png)
 
-  > [!NOTE]
-  > Application Gateway frontend now supports dual-stack IP addresses (Public Preview). You can now create up to four frontend IP addresses: Two IPv4 addresses (public and private) and two IPv6 addresses (public and private).
 
 
 3. Select **Next: Backends**.
