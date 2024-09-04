@@ -5,7 +5,7 @@ services: dns
 author: greg-lindsay
 manager: kumudD
 ms.service: azure-dns
-ms.topic: article
+ms.topic: concept-article
 ms.date: 11/30/2023
 ms.author: greglin
 ---
