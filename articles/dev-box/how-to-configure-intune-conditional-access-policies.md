@@ -83,7 +83,7 @@ After creating your device group and validated your dev box devices are members,
 
 1. Enter a **Name** for your conditional access policy. 
 
-1. Under **Users**, select **all users**.
+1. Under **Users**, select **All users**.
  
 1. Under Devices**, select the device group you created in the previous section. 
 
