@@ -38,7 +38,7 @@ For a conceptual look at connecting clusters to Azure Arc, see [Azure Arc-enable
     > The cluster needs to have at least one node of operating system and architecture type `linux/amd64` and/or `linux/arm64`. See [Cluster requirements](system-requirements.md#cluster-requirements) for more about ARM64 scenarios.
 
 * At least 850 MB free for the Arc agents that will be deployed on the cluster, and capacity to use approximately 7% of a single CPU.
-* A [kubeconfig file](https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/) and context pointing to your cluster.
+* A [kubeconfig file](https://kubernetes.io/docs/concepts/configuration/organize-cluster-access-kubeconfig/) and context pointing to your cluster. To know more about what a kubeconfig file is and how to set context to point to your cluster, please refer to this [article](https://kubernetes.io/docs/tasks/access-application-cluster/configure-access-multiple-clusters/).
 
 ### [Azure PowerShell](#tab/azure-powershell)
 
