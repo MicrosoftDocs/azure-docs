@@ -11,27 +11,32 @@ ms.service: azure-operator-service-manager
 # Get started with private link
 
 ## Overview
-Document Version: 0.1 - Privatelink feature for edge artifact store
+This guide describes the Azure Operator Service Manager (AOSM) private link (PL) feature for artifact stores hosted on Azure Operator Nexus. As part of the AOSM edge registry initiative, PL uses Azure private endpoints, and Azure private link service, to securely backhaul Nexus on-premise artifact store traffic. This traffic is never exposed to the internet, instead it exclusively traverses Microsoft's private network.
 
 ## Introduction
-The purpose of this document is to provide a quick start guide to enable ATT ADO  development using AOSM Publisher APIs to enable private link feature for AOSM artifact store. The contents of this document will be updated into the azure public docs for AOSM service. We will notify ATT when the public documentation is ready for this feature. 
+This document provides a quick start guide to enable private link feature for AOSM artifact store using AOSM Publisher APIs. 
 
-## Permissions for linking AOSM Artifact Store resource to NFC
-In addition to the appropriate permissions on the AOSM resourcs, the role that is linking the AOSM artifact store to NFC should have the below permission. 
+### Required permissions 
+Linking the AOSM artifact store resource to a Nexus fabric controller (NFC) requires the common AOSM resource permissions in addition to the following role privilege. 
 
 ```
 Microsoft.ManagedNetworkFabric/networkFabricControllers/write
 ```
 
 > [!NOTE]
-> A more fine-grained permission for NFC is in the works and will be rolled out in the next two weeks that replaces the privileged permission above
+> As more fine-grained NFC permissions are introduced, the recommended role privilege will be updated.
 
-## AOSM APIs for setting up privatelink to artifact store
-Below is the sequence of operations to be done for Private Link enablement when uploading artifacts.
+## Use AOSM APIs to setup private link 
+Before resources can be uploaded securely, the following sequence of operations establshes a PL connection to the artifact store.
 
-### Create Publisher and AS with Public Access disabled. 
-* The publisher resource must be created with identity type set to 'SystemAssigned'. If the publisher was created without this property, the publisher can be updated by performing a reput on the publisher. 
-* To disable the public access on the ACR backed by the artifact store, the new property “backingResourcePublicNetworkAcccess” is used. The property is added in the 2024-04-15 version. 2024-04-15 API version is backwards compatible. Existing ArtifactResource can be used by doing a reput with the new property and API version.
+### Create publisher and artifact store
+* Create a new publisher resource with identity type set to 'SystemAssigned'.
+  - If the publisher was already created without this property, use a reput operation to update.
+* Use the new propery 'backingResourcePublicNetworkAcccess' to disable artifact store public access.
+  - The property is first added in the 2024-04-15 version.
+  - If the ArtifactResource was already created without this property, use a reput operation to update.
+
+#### Sample publisher bicep script
 
 ```
 param location string = resourceGroup().location
@@ -66,12 +71,18 @@ resource acrArtifactStore 'Microsoft.HybridNetwork/publishers/artifactStores@202
 }
 ```
 
-### Manual endpoint operations 
-The APIs below allow the user to upload the images to artifact store using a private link. In  the upload workflow, the vnet is managed by the customer. When the user creates the private endpoint to connect the ACR managed by Artifact Store to the vnet, the private endpoint will be in the pending state as the user doesn’t have permissions to the ACR. The APIs below expose a way by which the user can approve/reject and list these 
-connections.
+## Manual endpoint operations 
+The following operations enable manual management of an artifact store once the PL is established. 
 
+### Manage private endpoint access
+By default, when the artifact store is connected to the vnet, the user won't have permissions to the ACR, and the private endpoint will be in the pending state. The following Azure rest commands and payload enable a user to approve, reject and/or list these endpoint.
+
+> [!NOTE]
+> In this workflow, the vnet is managed by the customer.
+> 
+
+#### Sample JSON payload:
 ```
-Sample JSON body:
 {
  "manualPrivateEndPointConnections": [
  {
@@ -81,29 +92,33 @@ Sample JSON body:
  }
 ```
 
-Sample command using az rest:
-
+#### Sample private endpoint commands
 ```
 # approve private endpoints
 az rest --method post --url https://management.azure.com/subscriptions/<Subscription>/resourceGroups/<ResourceGroup>/providers/Microsoft.HybridNetwork/publishers/<Publisher>/artifactStores/<ArtifactStore>/approveprivateendpoints?api-version=2024-04-15 --body '{ \"manualPrivateEndPointConnections\" : [ { \"id\" : \"/subscriptions/<Subscription>/resourceGroups/<ResourceGroup>/providers/Microsoft.Network/privateEndpoints/peName\" } ] }'
-
+```
+```
 # remove private endpoints
 az rest --method post --url https://management.azure.com/subscriptions/<Subscription>/resourceGroups/<ResourceGroup>/providers/Microsoft.HybridNetwork/publishers/<Publisher>/artifactStores/<ArtifactStore>/removeprivateendpoints?api-version=2024-04-15 --body '{ \"manualPrivateEndPointConnections\" : [ { \"id\" : \"/subscriptions/<Subscription>/resourceGroups/<ReourceGroup>/providers/Microsoft.Network/privateEndpoints/peName\" } ] }'
-
+```
+```
 # list private endpoints
 az rest --method post --url https://management.azure.com/subscriptions/<Subscription>resourceGroups/<ResourceGroup>/providers/Microsoft.HybridNetwork/publishers/<Publisher>/artifactStores/<artifactStore>/listPrivateEndPoints?api-version=2024-04-15 --body '{}'
 ```
 
-### Add Private Link to NFC
-The APIs below allow the user to create/remove/list the private endpoint to ACR to the appropriate Nexus managed vnets. Depending on the NC version (provided offline at the subscription scope), the API will perform the actions on the correct Nexus vnet.
+### Add private endpoints to NFC
+The following Azure rest commands enable a user to create, remove, and/or list the association between private endpoint, ACR, and the Nexus managed vnets.
 
+#### Sample private endpoint commands
 ```
 # add nfc private endpoints
 az rest --method post --url https://management.azure.com/subscriptions/<Subscription>/resourceGroups/<ResourceGroup>/providers/Microsoft.HybridNetwork/publishers/<Publisher>/artifactStores/<artifactStore>/addnetworkfabriccontrollerendpoints?apiversion=2024-04-15 --body '{ \"networkFabricControllerIds\":[{\"id\": \"/subscriptions/<Subscription>/resourceGroups/op2lab-nfc-useop1/providers/Microsoft.ManagedNetworkFabric/networkFabricControllers/op2labnfc01\"}] }'
-
+```
+```
 # list nfc private endpoints
 az rest --method post --url https://management.azure.com/subscriptions/<Subscription>/resourceGroups/<ResourceGroup>/providers/Microsoft.HybridNetwork/publishers/<Publisher>/artifactStores/<artifactStore>/listnetworkfabriccontrollerprivateendpoints?apiversion=2024-04-15 --body '{}'
-
+```
+```
 # delete nfc private endpoints
 az rest --method post --url https://management.azure.com/subscriptions/<Subscription>/resourceGroups/<ResourceGroup>/providers/Microsoft.HybridNetwork/publishers/<publisher>/artifactStores/<artifactStore>/deletenetworkfabriccontrollerendpoints?api-version=2024-04-15 --body '{ \"networkFabricControllerIds\":[{\"id\": \"/subscriptions/<Subscription>/resourceGroups/op2lab-nfc-useop1/providers/Microsoft.ManagedNetworkFabric/networkFabricControllers/op2labnfc01\"}] }'
 ```
