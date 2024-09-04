@@ -213,7 +213,7 @@ To configure backups for AKS cluster:
 
 Azure Backup for AKS allows you to define the application boundary within AKS cluster that you want to back up. You can use the filters that are available within backup configurations to choose the resources to back up and also to run custom hooks. The defined backup configuration is referenced by the value for **Backup Instance Name**. The below filters are available to define your application boundary:
 
-1. **Select Namespaces to backup**, you can either select **All** to back up all existing and future namespaces in the cluster, or you can select **Choose from list** to select specific namespaces for backup.
+1. **Select Namespaces to backup**, you can either select **All** to back up all existing and future namespaces in the cluster, or you can select **Choose from list** to select specific namespaces for backup. The following namespaces are skipped from Backup Configuration and not cofigured for backups: kube-system, kube-node-lease, kube-public.
 
      :::image type="content" source="./media/azure-kubernetes-service-cluster-backup/backup-instance-name.png" alt-text="Screenshot that shows how to select namespaces to include in the backup." lightbox="./media/azure-kubernetes-service-cluster-backup/backup-instance-name.png":::
 
