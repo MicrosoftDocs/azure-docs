@@ -61,7 +61,7 @@ Create and manage API Management loggers by using the [API Management REST API](
 
 ### Logger with managed identity credentials (recommended)
 
-You can configure an API Management logger to an event hub using either a system-assigned or user-assigned managed identity credentials.
+You can configure an API Management logger to an event hub using either system-assigned or user-assigned managed identity credentials.
 
 ### Logger with system-assigned managed identity credentials
 
