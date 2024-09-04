@@ -101,38 +101,38 @@ In this step, you deploy your .NET Core application to App Service.
 
 [!INCLUDE [app-service-plan-no-h](../../includes/app-service-web-git-push-to-azure-no-h.md)]
 
-    <pre>
-    Enumerating objects: 83, done.
-    Counting objects: 100% (83/83), done.
-    Delta compression using up to 8 threads
-    Compressing objects: 100% (78/78), done.
-    Writing objects: 100% (83/83), 22.15 KiB | 3.69 MiB/s, done.
-    Total 83 (delta 26), reused 0 (delta 0)
-    remote: Updating branch 'master'.
-    remote: Updating submodules.
-    remote: Preparing deployment for commit id '509236e13d'.
-    remote: Generating deployment script.
-    remote: Project file path: .\TodoApi.csproj
-    remote: Generating deployment script for ASP.NET MSBuild16 App
-    remote: Generated deployment script files
-    remote: Running deployment command...
-    remote: Handling ASP.NET Core Web Application deployment with MSBuild16.
-    remote: .
-    remote: .
-    remote: .
-    remote: Finished successfully.
-    remote: Running post deployment command(s)...
-    remote: Triggering recycle (preview mode disabled).
-    remote: Deployment successful.
-    To https://&lt;app_name&gt;.scm.azurewebsites.net/&lt;app_name&gt;.git
-    * [new branch]      master -> master
-    </pre>
+   <pre>
+   Enumerating objects: 83, done.
+   Counting objects: 100% (83/83), done.
+   Delta compression using up to 8 threads
+   Compressing objects: 100% (78/78), done.
+   Writing objects: 100% (83/83), 22.15 KiB | 3.69 MiB/s, done.
+   Total 83 (delta 26), reused 0 (delta 0)
+   remote: Updating branch 'master'.
+   remote: Updating submodules.
+   remote: Preparing deployment for commit id '509236e13d'.
+   remote: Generating deployment script.
+   remote: Project file path: .\TodoApi.csproj
+   remote: Generating deployment script for ASP.NET MSBuild16 App
+   remote: Generated deployment script files
+   remote: Running deployment command...
+   remote: Handling ASP.NET Core Web Application deployment with MSBuild16.
+   remote: .
+   remote: .
+   remote: .
+   remote: Finished successfully.
+   remote: Running post deployment command(s)...
+   remote: Triggering recycle (preview mode disabled).
+   remote: Deployment successful.
+   To https://&lt;app_name&gt;.scm.azurewebsites.net/&lt;app_name&gt;.git
+   * [new branch]      master -> master
+   </pre>
 
 ### Browse to the Azure app
 
-1. Navigate to `http://<app_name>.azurewebsites.net/swagger` in a browser and play with the Swagger UI.
+1. Navigate to `http://<app_name>.azurewebsites.net/swagger` in a browser and view the Swagger UI.
 
-    ![ASP.NET Core API running in Azure App Service](./media/app-service-web-tutorial-rest-api/azure-app-service-browse-app.png)
+    ![Screenshot of an ASP.NET Core API running in Azure App Service.](./media/app-service-web-tutorial-rest-api/azure-app-service-browse-app.png)
 
 1. Navigate to `http://<app_name>.azurewebsites.net/swagger/v1/swagger.json` to see the _swagger.json_ for your deployed API.
 
@@ -142,11 +142,11 @@ In this step, you deploy your .NET Core application to App Service.
 
 Next, you enable the built-in CORS support in App Service for your API.
 
-### Test CORS in sample app
+### Test CORS in the sample app
 
 1. In your local repository, open _wwwroot/index.html_.
 
-1. In Line 51, set the `apiEndpoint` variable to the URL of your deployed API (`http://<app_name>.azurewebsites.net`). Replace _\<appname>_ with your app name in App Service.
+1. On line 51, set the `apiEndpoint` variable to the URL of your deployed API (`http://<app_name>.azurewebsites.net`). Replace _\<appname>_ with your app name in App Service.
 
 1. In your local terminal window, run the sample app again.
 
