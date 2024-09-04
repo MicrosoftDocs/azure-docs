@@ -52,20 +52,11 @@ The `spec.auth` property isn't required if the connection string of your App Con
 |workloadIdentity|The settings for using workload identity.|false|object|
 |managedIdentityClientId|The client ID of user-assigned managed identity of virtual machine scale set.|false|string|
 
-The `spec.auth.workloadIdentity` property has the following child properties. One of them must be specified.
+The `spec.auth.workloadIdentity` property has the following child property.
 
 |Name|Description|Required|Type|
 |---|---|---|---|
-|managedIdentityClientId|The client ID of the user-assigned managed identity associated with the workload identity.|alternative|string|
-|managedIdentityClientIdReference|The client ID of the user-assigned managed identity can be obtained from a ConfigMap. The ConfigMap must be in the same namespace as the Kubernetes provider.|alternative|object|
-|serviceAccountName|The name of the service account associated with the workload identity.|alternative|string|
-
-The `spec.auth.workloadIdentity.managedIdentityClientIdReference` property has the following child properties.
-
-|Name|Description|Required|Type|
-|---|---|---|---|
-|configMap|The name of the ConfigMap where the client ID of a user-assigned managed identity can be found.|true|string|
-|key|The key name that holds the value for the client ID of a user-assigned managed identity.|true|string|
+|serviceAccountName|The name of the service account associated with the workload identity.|true|string|
 
 The `spec.configuration` has the following child properties. 
   
@@ -117,7 +108,7 @@ If the `spec.secret.auth` property isn't set, the system-assigned managed identi
 |Name|Description|Required|Type|
 |---|---|---|---|
 |servicePrincipalReference|The name of the Kubernetes Secret that contains the credentials of a service principal used for authentication with Key Vaults that don't have individual authentication methods specified.|false|string|
-|workloadIdentity|The settings of the workload identity used for authentication with Key Vaults that don't have individual authentication methods specified. It has the same child properties as `spec.auth.workloadIdentity`.|false|object|
+|workloadIdentity|The settings of the workload identity used for authentication with Key Vaults that don't have individual authentication methods specified. It has the same child property as `spec.auth.workloadIdentity`.|false|object|
 |managedIdentityClientId|The client ID of a user-assigned managed identity of virtual machine scale set used for authentication with Key Vaults that don't have individual authentication methods specified.|false|string|
 |keyVaults|The authentication methods for individual Key Vaults.|false|object array|
 
@@ -127,7 +118,7 @@ The authentication method of each *Key Vault* can be specified with the followin
 |---|---|---|---|
 |uri|The URI of a Key Vault.|true|string|
 |servicePrincipalReference|The name of the Kubernetes Secret that contains the credentials of a service principal used for authentication with a Key Vault.|false|string|
-|workloadIdentity|The settings of the workload identity used for authentication with a Key Vault. It has the same child properties as `spec.auth.workloadIdentity`.|false|object|
+|workloadIdentity|The settings of the workload identity used for authentication with a Key Vault. It has the same child property as `spec.auth.workloadIdentity`.|false|object|
 |managedIdentityClientId|The client ID of a user-assigned managed identity of virtual machine scale set used for authentication with a Key Vault.|false|string|
 
 The `spec.secret.refresh` property has the following child properties.
@@ -261,11 +252,11 @@ The software may collect information about you and your use of the software and 
 
 1. [Get the OIDC issuer URL](/azure/aks/workload-identity-deploy-cluster#retrieve-the-oidc-issuer-url) of the AKS cluster.
 
-1. [Create a user-assigned managed identity](/azure/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities#create-a-user-assigned-managed-identity) and note down its name and resource group.
-  
+1. [Create a user-assigned managed identity](/azure/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities#create-a-user-assigned-managed-identity) and note down its client ID, tenant ID, name, and resource group.
+
 1. [Grant the user-assigned managed identity **App Configuration Data Reader** role](/azure/azure-app-configuration/concept-enable-rbac#assign-azure-roles-for-access-rights) in Azure App Configuration.
    
-1. Create a service account by applying the following sample yaml. Replace `<your-managed-identity-client-id>` with the client ID and `<your-tenant-id>` with the tenant ID of the user-assigned managed identity just been created. Replace `<your-service-account-name>` with your favorite name.
+1. Create a service account by applying the following sample yaml. Replace `<your-managed-identity-client-id>` with the client ID and `<your-tenant-id>` with the tenant ID of the user-assigned managed identity that has just been created. Replace `<your-service-account-name>` with your preferred name.
 
     ``` yaml
     apiVersion: v1
@@ -277,15 +268,15 @@ The software may collect information about you and your use of the software and 
         azure.workload.identity/tenant-id: <your-tenant-id>
     ```
 
-1. Create federated identity credential for the user-assigned managed identity using the Azure CLI. Replace `<user-assigned-identity-name>` with name and `<resource-group>` with resource group of user-assigned managed identity just been created. Replace `<aks-oidc-issuer>` with the OIDC issuer URL of the AKS cluster. Replace `<your-service-account-name>` with the name of the service account just been created.
+1. Create a federated identity credential for the user-assigned managed identity using the Azure CLI. Replace `<user-assigned-identity-name>` with the name and `<resource-group>` with the resource group of the newly created user-assigned managed identity. Replace `<aks-oidc-issuer>` with the OIDC issuer URL of the AKS cluster. Replace `<your-service-account-name>` with the name of the newly created service account.
 
     ``` azurecli
     az identity federated-credential create --name appconfigCredential --identity-name "<user-assigned-identity-name>" --resource-group "<resource-group>" --issuer "<aks-oidc-issuer>" --subject system:serviceaccount:default:<your-service-account-name> --audience api://AzureADTokenExchange
     ```
 
-    The subject of the federated identity credential should be in the format `system:serviceaccount:<service-account-namespace>:<service-account-name>`.
+    Note that the subject of the federated identity credential should follow this format: `system:serviceaccount:<service-account-namespace>:<service-account-name>`.
 
-1. Apply the following sample `AzureAppConfigurationProvider` resource to the Kubernetes cluster. Be sure it's in the same namespace as the service account. Replace `<your-app-configuration-store-endpoint>` with the endpoint of the Azure App Configuration store. Replace `<your-service-account-name>` with the name of the service account just been created.
+1. Apply the following sample `AzureAppConfigurationProvider` resource to the Kubernetes cluster. Be sure it's in the same namespace as the service account. Replace `<your-service-account-name>` with the name of the service account you just created.
 
     ``` yaml
     apiVersion: azconfig.io/v1
