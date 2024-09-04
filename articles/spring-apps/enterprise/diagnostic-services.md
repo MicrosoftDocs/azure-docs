@@ -296,21 +296,21 @@ AppPlatformSystemLogs 
 
 Azure Monitor provides extensive support for querying application logs by using Log Analytics. To learn more about this service, see [Get started with log queries in Azure Monitor](../../azure-monitor/logs/get-started-queries.md). For more information about building queries to analyze your application logs, see [Overview of log queries in Azure Monitor](../../azure-monitor/logs/log-query-overview.md).
 
-### Convenient entrypoints in Azure portal
+### Convenient entry points in Azure portal
 
 Use following steps to navigate to the **Log Analytics** pane with predefined queries:
 
-1. Go to the **Overview** page for your Azure Spring Apps service instance and select **Apps** in the left section.
+1. Go to the **Overview** page for your Azure Spring Apps service instance and then select **Apps** in the navigation pane.
 
-1. In the right side, find your target app and select the context menu.
+1. Find your target app and then select the context menu.
 
-1. In the pop-up context menu, select **View logs** button.
+1. In the pop-up context menu, select **View logs**.
 
-   :::image type="content" source="media/diagnostic-services/entrypoint-for-view-log-analytics-for-app-list-blade.png" alt-text="Screenshot of the Azure portal that shows the entry point button to view log analytics in the app list pane." lightbox="media/diagnostic-services/entrypoint-for-view-log-analytics-for-app-list-blade.png":::
+   :::image type="content" source="media/diagnostic-services/view-logs.png" alt-text="Screenshot of the Azure portal that shows the the Apps page with the View logs context menu item highlighted." lightbox="media/diagnostic-services/view-logs.png":::
 
-1. You navigate to the **Log Analytics** pane with predefined queries.
+   This action navigates you to the **Log Analytics** pane with predefined queries.
 
-1. There are other entry points to view logs. You can also find the **View logs** button for managed components such as Build Service and Service Registry.
+There are other entry points to view logs. You can also find the **View logs** button for managed components such as Build Service and Service Registry.
 
 ## Frequently asked questions (FAQ)
 

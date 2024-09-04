@@ -29,7 +29,7 @@ This article describes how to enable log streaming in the Azure CLI to get real-
 
 ### [Azure portal](#tab/azure-portal)
 
-[!INCLUDE [app-log-streaming-in-portal](../includes/logstreaming/app-log-streaming-in-portal.md)]
+[!INCLUDE [app-log-streaming-in-portal](../includes/log-streaming/app-log-streaming-in-portal.md)]
 
 ### [Azure CLI](#tab/azure-CLI)
 

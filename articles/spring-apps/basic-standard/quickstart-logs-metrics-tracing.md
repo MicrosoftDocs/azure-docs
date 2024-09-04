@@ -38,13 +38,13 @@ There are two ways to see logs on Azure Spring Apps: **Log Streaming** of real-t
 
 ### Log streaming
 
-#### [Azure portal](#tab/azure-portal)
+#### [Azure portal](#tab/azure-portal-1)
 
-[!INCLUDE [app-log-streaming-in-portal](../includes/logstreaming/app-log-streaming-in-portal.md)]
+[!INCLUDE [app-log-streaming-in-portal](../includes/log-streaming/app-log-streaming-in-portal.md)]
 
-#### [CLI](#tab/Azure-CLI)
+#### [Azure CLI](#tab/Azure-CLI-1)
 
-You can use log streaming in the Azure CLI with the following command.
+You can use log streaming in the Azure CLI with the following command:
 
 ```azurecli
 az spring app logs --name solar-system-weather --follow
@@ -140,11 +140,11 @@ There are two ways to see logs on Azure Spring Apps: **Log Streaming** of real-t
 
 #### [Azure portal](#tab/azure-portal)
 
-[!INCLUDE [app-log-streaming-in-portal](../includes/logstreaming/app-log-streaming-in-portal.md)]
+[!INCLUDE [app-log-streaming-in-portal](../includes/log-streaming/app-log-streaming-in-portal.md)]
 
-#### [CLI](#tab/Azure-CLI)
+#### [Azure CLI](#tab/Azure-CLI)
 
-You can use log streaming in the Azure CLI with the following command.
+You can use log streaming in the Azure CLI with the following command:
 
 ```azurecli
 az spring app logs \
@@ -165,7 +165,7 @@ To learn more about the query language that's used in Log Analytics, see [Azure 
 
 #### [IntelliJ](#tab/IntelliJ)
 
-To get the logs using Azure Toolkit for IntelliJ:
+Use the following steps to get the logs using the Azure Toolkit for IntelliJ:
 
 1. Select **Azure Explorer**, then **Spring Cloud**.
 

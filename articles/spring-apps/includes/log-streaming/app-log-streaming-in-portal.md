@@ -16,14 +16,14 @@ Use the following steps to stream logs in the Azure portal:
 
 1. In the pop up context menu, select **View log stream**.
 
-   :::image type="content" source="media/app-log-streaming-in-portal/entrypoint-for-view-log-stream-in-app-list-blade.png" alt-text="Screenshot of the Azure portal that shows the entrypoint button to view log stream in app list blade." lightbox="media/app-log-streaming-in-portal/entrypoint-for-view-log-stream-in-app-list-blade.png":::
+   :::image type="content" source="view-log-stream.png" alt-text="Screenshot of the Azure portal that shows the Apps page with the View log stream context menu item highlighted." lightbox="view-log-stream.png":::
 
-1. By default, logs start streaming for a randomly selected app instance. You can select yours afterwards.
+By default, logs start streaming for a randomly selected app instance. You can select yours afterwards.
 
-   :::image type="content" source="media/app-log-streaming-in-portal/log-stream-blade.png" alt-text="Screenshot of the Azure portal to stream logs." lightbox="media/app-log-streaming-in-portal/log-stream-blade.png":::
+:::image type="content" source="log-stream.png" alt-text="Screenshot of the Azure portal that shows the Log stream page." lightbox="log-stream.png":::
 
-1. For convenience, there are many entry points to stream logs. You can find them in the following panes:
+For convenience, there are many entry points to stream logs. You can find them in the following panes:
 
-   * The **App list** pane
-   * The **Deployment list** pane
-   * The **App instance list** pane
+* The **App list** pane
+* The **Deployment list** pane
+* The **App instance list** pane
