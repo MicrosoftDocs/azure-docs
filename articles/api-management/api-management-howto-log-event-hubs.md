@@ -59,9 +59,13 @@ The next step is to configure a [logger](/rest/api/apimanagement/current-ga/logg
 
 Create and manage API Management loggers by using the [API Management REST API](/rest/api/apimanagement/current-preview/logger/create-or-update) directly or by using tools including [Azure PowerShell](/powershell/module/az.apimanagement/new-azapimanagementlogger), a Bicep template, or an Azure Resource Management template.
 
+### Logger with managed identity credentials (recommended)
+
+You can configure an API Management logger to an event hub using either a system-assigned or user-assigned managed identity credentials.
+
 ### Logger with system-assigned managed identity credentials
 
-For prerequisites, see [Configure API Management managed identity](#option-2-configure-api-management-managed-identity).
+For prerequisites, see [Configure API Management managed identity](#option-1-configure-api-management-managed-identity).
 
 #### [REST API](#tab/PowerShell)
 
@@ -124,9 +128,9 @@ Include a JSON snippet similar to the following in your Azure Resource Manager t
 }
 ```
 ---
-### Logger with user-assigned managed identity credentials
+#### Logger with user-assigned managed identity credentials
 
-For prerequisites, see [Configure API Management managed identity](#option-2-configure-api-management-managed-identity).
+For prerequisites, see [Configure API Management managed identity](#option-1-configure-api-management-managed-identity).
 
 #### [REST API](#tab/PowerShell)
 
@@ -193,7 +197,10 @@ Include a JSON snippet similar to the following in your Azure Resource Manager t
 
 ### Logger with connection string credentials
 
-For prerequisites, see [Configure Event Hubs connection string](#option-1-configure-event-hubs-connection-string).
+For prerequisites, see [Configure Event Hubs connection string](#option-2-configure-event-hubs-connection-string).
+
+> [!NOTE]
+> Where possible, Microsoft recommends configuring the logger with managed identity credentials. See [Configure logger with managed identity credentials](#logger-with-managed-identity-credentials-recommended), earlier in this article
 
 #### [PowerShell](#tab/PowerShell)
 
