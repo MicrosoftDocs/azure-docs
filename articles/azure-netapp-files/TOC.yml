@@ -431,6 +431,10 @@
         href: manage-availability-zone-volume-placement.md
       - name: Create cross-zone replication 
         href: create-cross-zone-replication.md
+  - name: Relocate
+    items:
+    - name: Relocate volume to another region
+      href: ../operational-excellence/relocation-netapp.md?toc=/azure/azure-netapp-files/toc.json
   - name: Develop
     items:
     - name: REST API
