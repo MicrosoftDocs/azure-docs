@@ -184,13 +184,14 @@ spec:
   brokerRef: broker
   serviceType: loadBalancer
   serviceName: my-new-tls-listener # Avoid conflicts with default service name 'aio-broker'
-  port: 8884 # Avoid conflicts with default port 18883
-  tls:
-    mode: Automatic
-    certManagerCertificateSpec:
-      issuerRef:
-        name: my-issuer
-        kind: Issuer
+  ports:
+  - port: 8884 # Avoid conflicts with default port 18883
+    tls:
+      mode: Automatic
+      certManagerCertificateSpec:
+        issuerRef:
+          name: my-issuer
+          kind: Issuer
 ```
 
 Once the BrokerListener resource is configured, MQTT broker automatically creates a new service with the specified port and TLS enabled.

@@ -54,8 +54,8 @@ spec:
   serviceName: aio-broker
   serviceType: ClusterIp
   ports:
-  - authenticationRef: authn
-    port: 18883
+  - port: 18883
+    authenticationRef: authn
     protocol: Mqtt
     tls:
       certManagerCertificateSpec:
