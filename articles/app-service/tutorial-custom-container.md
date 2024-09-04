@@ -376,7 +376,7 @@ App Service can use either a default managed identity or a user-assigned managed
     :::column span="2":::
         **I.B.** In the create wizard:
         1. In **Subscription**, select the subscription you want to create your resources in.
-        1. In **Resource group**, select **Create new**, type the name *msdocs-custom-container-tutorial* for the resource group, then type **OK**.
+        1. In **Resource group**, select **Create new**, type the name *msdocs-custom-container-tutorial* for the resource group, then select **OK**.
         1. In **Region**, select **West Europe**, or a region near you.
         1. In **Name**, type **myID**.
     :::column-end:::
@@ -391,7 +391,7 @@ App Service can use either a default managed identity or a user-assigned managed
         1. Select **Create**.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-custom-container/azure-portal-create-managed-identity-3.png" alt-text="A screenshot showing how to complete managed identity create in the creation wizard." lightbox="./media/tutorial-custom-container/azure-portal-create-managed-identity-3.png":::
+        :::image type="content" source="./media/tutorial-custom-container/azure-portal-create-managed-identity-3.png" alt-text="A screenshot showing how to complete the managed identity." lightbox="./media/tutorial-custom-container/azure-portal-create-managed-identity-3.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -409,13 +409,13 @@ App Service can use either a default managed identity or a user-assigned managed
 
 ### [Azure CLI](#tab/azure-cli)
 
-1. Create a container registry with the [`az acr create`](/cli/azure/acr#az-acr-create) command and replace `<registry-name>` with a unique name for your registry. The name must contain only letters and numbers, and must be unique across all of Azure.
+1. Create a container registry by using the following [`az acr create`](/cli/azure/acr#az-acr-create) command. Replace `<registry-name>` with a unique name for your registry. The name must contain only letters and numbers, and must be unique across all of Azure.
 
     ```azurecli-interactive
     az acr create --name <registry-name> --resource-group msdocs-custom-container-tutorial --sku Basic --admin-enabled true
     ```
 
-    The `--admin-enabled` parameter lets you push images to the registry using a set of administrative credentials.
+    The `--admin-enabled` parameter lets you push images to the registry using administrative credentials.
 
 1. Retrieve the administrative credentials by running the [`az acr show`](/cli/azure/acr#az-acr-show) command:
 
@@ -441,7 +441,7 @@ App Service can use either a default managed identity or a user-assigned managed
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **II.B.** In the create wizard:
+        **II.B.** In the creation wizard:
         1. In **Subscription**, select the subscription you used earlier.
         1. In **Resource group**, select *msdocs-custom-container-tutorial*.
         1. In **Registry name**, type a unique name for your container registry.
@@ -475,7 +475,7 @@ App Service can use either a default managed identity or a user-assigned managed
         **II.E.** In the left navigation menu:
         1. Select **Access keys**.
         1. In **Admin user**, select **Enabled**.
-        1. Copy the values of **Login server**, **Username**, and **password**. You'll use them in the next step to sign into the registry and push a docker image.
+        1. Copy the values for **Login server**, **Username**, and **password**. You'll use them in the next step to sign into the registry and push a docker image.
     :::column-end:::
     :::column:::
         :::image type="content" source="./media/tutorial-custom-container/azure-portal-create-container-registry-5.png" alt-text="A screenshot showing how to enable administrative credentials for a container registry." lightbox="./media/tutorial-custom-container/azure-portal-create-container-registry-5.png":::
@@ -494,7 +494,7 @@ In this section, you push the image to Azure Container Registry, which will be u
     docker login <registry-name>.azurecr.io --username <registry-username>
     ```
 
-    Replace `<registry-name>` and `<registry-username>` with values from the previous steps. When prompted, type in one of the passwords from the previous step.
+    Replace `<registry-name>` and `<registry-username>` with values from the previous steps. When prompted, type in one of the passwords from the previous section.
 
     You use the same registry name in all the remaining steps of this section.
 
@@ -536,14 +536,14 @@ The managed identity you created doesn't have authorization to pull from the con
     az role assignment create --assignee $principalId --scope $registryId --role "AcrPull"
     ```
 
-    For more information about these permissions, see [What is Azure role-based access control](../role-based-access-control/overview.md).
+    For more information about these permissions, see [What is Azure role-based access control?](../role-based-access-control/overview.md).
 
 ### [Azure portal](#tab/azure-portal)
 
 :::row:::
     :::column span="2":::
         **IV.A.** Back in the management page for the container registry:
-        1. In the left navigation menu, select **Access control**.
+        1. In the left navigation menu, select **Access control (IAM)**.
         1. Select **Add role assignment**.
     :::column-end:::
     :::column:::
@@ -552,15 +552,15 @@ The managed identity you created doesn't have authorization to pull from the con
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **IV.B.** Select **AcrPull** in the list.
+        **IV.B.** Select **AcrPull** in the list of roles.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-custom-container/azure-portal-grant-identity-to-registry-2.png" alt-text="A screenshot showing how to enable pull permission on container registry." lightbox="./media/tutorial-custom-container/azure-portal-grant-identity-to-registry-2.png":::
+        :::image type="content" source="./media/tutorial-custom-container/azure-portal-grant-identity-to-registry-2.png" alt-text="A screenshot showing how to enable pull permission on the container registry." lightbox="./media/tutorial-custom-container/azure-portal-grant-identity-to-registry-2.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **IV.C.**:
+        **IV.C.**
         1. Select the **Members** tab.
         1. Under **Assign access to**, select **Managed identity**.
         1. Under **Members**, select **Select members**.
@@ -602,7 +602,7 @@ The managed identity you created doesn't have authorization to pull from the con
     az appservice plan create --name myAppServicePlan --resource-group msdocs-custom-container-tutorial --is-linux
     ```
 
-    An App Service plan corresponds to the virtual machine that hosts the web app. By default, the previous command uses an inexpensive [B1 pricing tier](https://azure.microsoft.com/pricing/details/app-service/linux/) that is free for the first month. You can control the tier with the `--sku` parameter.
+    An App Service plan corresponds to the virtual machine that hosts the web app. By default, the previous command uses an inexpensive [B1 pricing tier](https://azure.microsoft.com/pricing/details/app-service/linux/) that's free for the first month. You can specify the tier by using the `--sku` parameter.
 
 1. Create the web app with the [`az webapp create`](/cli/azure/webapp#az-webapp-create) command:
 
@@ -610,7 +610,7 @@ The managed identity you created doesn't have authorization to pull from the con
     az webapp create --resource-group msdocs-custom-container-tutorial --plan myAppServicePlan --name <app-name> --deployment-container-image-name <registry-name>.azurecr.io/appsvc-tutorial-custom-image:latest
     ```
 
-    Replace `<app-name>` with a name for the web app, which must be unique across all of Azure. Also replace `<registry-name>` with the name of your registry from the previous section.
+    Replace `<app-name>` with a name for the web app. The name must be unique across all of Azure. Also replace `<registry-name>` with the name of your registry from the previous section.
 
     > [!TIP]
     > You can retrieve the web app's container settings at any time with the command `az webapp config container show --name <app-name> --resource-group msdocs-custom-container-tutorial`. The image is specified in the property `DOCKER_CUSTOM_IMAGE_NAME`. When the web app is deployed through Azure DevOps or Azure Resource Manager templates, the image can also appear in a property named `LinuxFxVersion`. Both properties serve the same purpose. If both are present in the web app's configuration, `LinuxFxVersion` takes precedence.
@@ -658,7 +658,7 @@ The managed identity you created doesn't have authorization to pull from the con
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **V.D.** Back in the Create Web App wizard:
+        **V.D.** Back in the app creation wizard:
         1. Select the **Docker** tab.
         1. In **Image Source**, select **Azure Container Registry**.
         1. In **Registry**, select the container registry you created earlier.
@@ -666,7 +666,7 @@ The managed identity you created doesn't have authorization to pull from the con
         1. In **Tag**, select **latest**.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-custom-container/azure-portal-create-app-service-4.png" alt-text="A screenshot showing how to configure docker settings in the creation wizard." lightbox="./media/tutorial-custom-container/azure-portal-create-app-service-4.png":::
+        :::image type="content" source="./media/tutorial-custom-container/azure-portal-create-app-service-4.png" alt-text="A screenshot showing how to configure Docker settings in the creation wizard." lightbox="./media/tutorial-custom-container/azure-portal-create-app-service-4.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -694,7 +694,7 @@ The managed identity you created doesn't have authorization to pull from the con
 
 In this step, you configure the web app as follows:
 
-- The sample container is listening on port 8000 for web requests, and you configure the app to send requests to port 8000. 
+- Configure the app to send requests to port 8000. The sample container is listening on port 8000 for web requests. 
 - Tell your app to use the managed identity to pull images from your container registry.
 - Configure continuous deployment from the container registry (or, every image push to the registry will trigger your app to pull the new image). This part isn't needed for your web app to pull from your container registry, but it can let your web app know when a new image is pushed to the registry. Without it, you must manually trigger an image pull by restarting the web app.
 
@@ -749,7 +749,7 @@ In this step, you configure the web app as follows:
     az acr webhook create --name appserviceCD --registry <registry-name> --uri $cicdUrl --actions push --scope appsvc-tutorial-custom-image:latest
     ```
 
-1. To test if your webhook is configured properly, ping the webhook, and see if you get a 200 OK response.
+1. To test if your webhook is configured properly, ping the webhook and see if you get a 200 OK response.
 
     ```azurecli-interactive
     eventId=$(az acr webhook ping --name appserviceCD --registry <registry-name> --query id --output tsv)
@@ -759,13 +759,13 @@ In this step, you configure the web app as follows:
     > [!TIP]
     > To see all information about all webhook events, remove the `--query` parameter.
     >
-    > If you're streaming the container log, you should see the message after the webhook ping: `Starting container for site`, because the webhook triggers the app to restart.
+    > If you're streaming the container log, you should see a `Starting container for site` message after the webhook ping because the webhook triggers the app to restart.
 
 ### [Azure portal](#tab/azure-portal)
 
 :::row:::
     :::column span="2":::
-        **VI.A.** In your web app's management page, select **Configuration**.
+        **VI.A.** On your web app's management page, select **Configuration**.
     :::column-end:::
     :::column:::
         :::image type="content" source="./media/tutorial-custom-container/azure-portal-configure-app-service-1.png" alt-text="A screenshot showing how to open the Configuration page." lightbox="./media/tutorial-custom-container/azure-portal-configure-app-service-1.png":::
@@ -773,10 +773,10 @@ In this step, you configure the web app as follows:
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **VI.B.** In the Configuration page:
+        **VI.B.** On the Configuration page:
         1. Select **New application setting**.
-        1. In **Name**, type *WEBSITES_PORT*.
-        1. In **Value**, type *8000*.
+        1. In **Name**, type **WEBSITES_PORT**.
+        1. In **Value**, type **8000**.
         1. Select **OK**.
         1. Select **Save** in the top menu, then select **Continue**.
         The `WEBSITES_PORT` setting specifies the container port to forward web requests to. For more information, see [custom container app settings](reference-app-settings.md#custom-containers).
@@ -787,7 +787,7 @@ In this step, you configure the web app as follows:
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **VI.C.** In the left navigation menu, select **Identity**. Then do the following in the Identity page:
+        **VI.C.** In the left navigation menu, select **Identity**. Then do the following on the Identity page:
         1. Select the **User assigned** tab.
         1. Select **Add**.
     :::column-end:::
@@ -807,7 +807,7 @@ In this step, you configure the web app as follows:
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **VI.E.** In the left navigation menu, select **Deployment Center**. Then do the following in the Deployment Center page:
+        **VI.E.** In the left navigation menu, select **Deployment Center**. Then do the following on the Deployment Center page:
         1. In **Authentication**, select **Managed Identity**.
         1. In **Identity**, select **myID**.
         1. In **Continuous deployment**, select **On**.
@@ -815,12 +815,12 @@ In this step, you configure the web app as follows:
         When you turn on continuous deployment to a container registry, a webhook is automatically added to the registry for your web app.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-custom-container/azure-portal-configure-app-service-5.png" alt-text="A screenshot showing a user-assigned managed identity selected for registry authentication and continuous deployment enabled." lightbox="./media/tutorial-custom-container/azure-portal-configure-app-service-5.png":::
+        :::image type="content" source="./media/tutorial-custom-container/azure-portal-configure-app-service-5.png" alt-text="A screenshot showing a user-assigned managed identity selected for registry authentication. Continuous deployment is enabled." lightbox="./media/tutorial-custom-container/azure-portal-configure-app-service-5.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **VI.F.** In the Deployment Center page, select the **Logs** tab. Here, you can see log messages for pulling the image and starting the container. Later, you'll learn how to see console message generated from within the container.
+        **VI.F.** On the Deployment Center page, select the **Logs** tab. Here, you can see log messages for pulling the image and starting the container. Later, you'll learn how to see generated console messages  from within the container.
     :::column-end:::
     :::column:::
         :::image type="content" source="./media/tutorial-custom-container/azure-portal-configure-app-service-6.png" alt-text="A screenshot showing log messages for pulling an image and starting the container." lightbox="./media/tutorial-custom-container/azure-portal-configure-app-service-6.png":::
@@ -832,13 +832,13 @@ In this step, you configure the web app as follows:
 
 ### [Azure CLI](#tab/azure-cli)
 
-To test the app, browse to `https://<app-name>.azurewebsites.net`, replacing `<app-name>` with the name of your web app. 
+To test the app, browse to `https://<app-name>.azurewebsites.net`. Replace `<app-name>` with the name of your web app. 
 
 ### [Azure portal](#tab/azure-portal)
 
 :::row:::
     :::column span="2":::
-        **VII.A.** In the App Service page:
+        **VII.A.** On the App Service page:
         1. In the left navigation menu, select **Overview**.
         1. In **URL**, select the link.
     :::column-end:::
@@ -849,9 +849,9 @@ To test the app, browse to `https://<app-name>.azurewebsites.net`, replacing `<a
 
 -----
 
-On first access, it might take some time for the app to respond because App Service must pull the entire image from the registry. If the browser times out, just refresh the page. Once the initial image is pulled, subsequent tests will run much faster.
+The first time you attempt to access the app, it might take some time for the app to respond because App Service must pull the entire image from the registry. If the browser times out, just refresh the page. Once the initial image is pulled, subsequent tests will run much faster.
 
-:::image type="content" source="./media/app-service-linux-using-custom-docker-image/app-service-linux-browse-azure.png" alt-text="A screenshot of the browser showing web app running successfully in Azure.":::
+:::image type="content" source="./media/app-service-linux-using-custom-docker-image/app-service-linux-browse-azure.png" alt-text="A screenshot of web app running in a browser.":::
 
 ## VIII. Access diagnostic logs
 
@@ -875,21 +875,21 @@ While you're waiting for the App Service to pull in the image, it's helpful to s
 
     You can also inspect the log files from the browser at `https://<app-name>.scm.azurewebsites.net/api/logs/docker`.
 
-1. To stop log streaming at any time, type `Ctrl+C`.
+1. To stop log streaming at any time, select **Ctrl+C**.
 
 ### [Azure portal](#tab/azure-portal)
 
-In the Deployment Center page, you can already see the log messages for pulling and starting the container. In this step, you can enable logging of the console output from within the container.
+On the Deployment Center page, you can already see the log messages for pulling and starting the container. In this step, you enable logging of the console output from within the container.
 
 :::row:::
     :::column span="2":::
-        **VIII.A.** In the App Service page:
+        **VIII.A.** On the App Service page:
         1. In the left navigation menu, select **App Service logs**.
         1. In **Application logging**, select **File System**.
         1. Select **Save**.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-custom-container/azure-portal-stream-diagnostic-logs-1.png" alt-text="A screenshot showing how to enable diagnostic logging for custom container." lightbox="./media/tutorial-custom-container/azure-portal-stream-diagnostic-logs-1.png":::
+        :::image type="content" source="./media/tutorial-custom-container/azure-portal-stream-diagnostic-logs-1.png" alt-text="A screenshot showing how to enable diagnostic logging for the custom container." lightbox="./media/tutorial-custom-container/azure-portal-stream-diagnostic-logs-1.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -929,7 +929,7 @@ In this section, you make a change to the web app code, rebuild the image, and t
     docker build --tag appsvc-tutorial-custom-image .
     ```
 
-1. Update the image's tag to latest:
+1. Update the image's tag to `latest`:
 
     ```bash
     docker tag appsvc-tutorial-custom-image <registry-name>.azurecr.io/appsvc-tutorial-custom-image:latest
@@ -943,11 +943,11 @@ In this section, you make a change to the web app code, rebuild the image, and t
     docker push <registry-name>.azurecr.io/appsvc-tutorial-custom-image:latest
     ```
 
-1. When the image push is complete, the webhook notifies the App Service about the push, and App Service tries to pull in the updated image. Wait a few minutes, and then verify that the update has been deployed by browsing to `https://<app-name>.azurewebsites.net`.
+1. When the image push is complete, the webhook notifies App Service about the push, and App Service tries to pull in the updated image. Wait a few minutes, and then verify that the update has been deployed by browsing to `https://<app-name>.azurewebsites.net`.
 
 ## X. Connect to the container using SSH
 
-SSH enables secure communication between a container and a client. To enable SSH connection to your container, your custom image must be configured for it. When the container is running, you can open an SSH connection.
+SSH enables improved-security communication between a container and a client. To enable an SSH connection to your container, you must configure your custom image for it. When the container is running, you can open an SSH connection.
 
 ### Configure the container for SSH
 
@@ -964,7 +964,7 @@ RUN apt-get update \
 
 > [!NOTE]
 > This configuration doesn't allow external connections to the container. SSH is available only through the Kudu/SCM Site. The Kudu/SCM site is authenticated with your Azure account.
-> root:Docker! should not be altered SSH. SCM/KUDU will use your Azure Portal credentials. Changing this value will result in an error when using SSH.
+> `root:Docker!` should not be altered when you use SSH. SCM/KUDU will use your Azure portal credentials. Changing this value will result in an error when you use SSH.
 
 The *Dockerfile* also copies the *sshd_config* file to the */etc/ssh/* folder and exposes port 2222 on the container:
 
@@ -985,7 +985,7 @@ Finally, the entry script, *init.sh*, starts the SSH server.
 service ssh start
 ```
 
-### Open SSH connection to container
+### Open the SSH connection to the container
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -993,13 +993,13 @@ service ssh start
 
 1. When you sign in, you're redirected to an informational page for the web app. Select **SSH** at the top of the page to open the shell and use commands.
 
-    For example, you can examine the processes running within it using the `top` command.
+    For example, you can examine the processes running within the app by using the `top` command.
 
 ### [Azure portal](#tab/azure-portal)
 
 :::row:::
     :::column span="2":::
-        **X.A.** In the App Service page:
+        **X.A.** On the App Service page:
         1. In the left navigation menu, select **SSH**.
         1. Select **Go**.
     :::column-end:::
@@ -1009,7 +1009,7 @@ service ssh start
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **X.B.** The SSH session is opened in a new browser tab. Wait for the status bar at the bottom to show a green `SSH CONNECTION ESTABLISHED`. You can then run commands from within the container. Configuration changes made to your container aren't persisted across app restarts.
+        **X.B.** The SSH session is opened in a new browser tab. Wait for the status bar at the bottom to show a green `SSH CONNECTION ESTABLISHED message. You can then run commands from within the container. Configuration changes made to your container aren't persisted across app restarts.
     :::column-end:::
     :::column:::
         :::image type="content" source="./media/tutorial-custom-container/azure-portal-start-ssh-container-session-2.png" alt-text="A screenshot showing an SSH session with a custom container." lightbox="./media/tutorial-custom-container/azure-portal-start-ssh-container-session-2.png":::
@@ -1042,10 +1042,10 @@ az group delete --name msdocs-custom-container-tutorial
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **XI.B.** In the resource group page, select **Delete resource group**.
+        **XI.B.** On the resource group page, select **Delete resource group**.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-custom-container/azure-portal-delete-resource-group-2.png" alt-text="A screenshot showing the location of the Delete Resource Group button in the Azure portal." lightbox="./media/tutorial-custom-container/azure-portal-delete-resource-group-2.png":::
+        :::image type="content" source="./media/tutorial-custom-container/azure-portal-delete-resource-group-2.png" alt-text="A screenshot showing the location of the Delete resource group button in the Azure portal." lightbox="./media/tutorial-custom-container/azure-portal-delete-resource-group-2.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -1055,7 +1055,7 @@ az group delete --name msdocs-custom-container-tutorial
         1. Select **Delete**.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-custom-container/azure-portal-delete-resource-group-3.png" alt-text="A screenshot of the confirmation dialog for deleting a resource group in the Azure portal." lightbox="./media/tutorial-custom-container/azure-portal-delete-resource-group-3.png"::::
+        :::image type="content" source="./media/tutorial-custom-container/azure-portal-delete-resource-group-3.png" alt-text="A screenshot of the confirmation dialog for deleting a resource group in the Azure portal." lightbox="./media/tutorial-custom-container/azure-portal-delete-resource-group-3.png":::
     :::column-end:::
 :::row-end:::
 
@@ -1071,11 +1071,11 @@ What you learned:
 
 > [!div class="checklist"]
 >
-> - Deploy a custom image to a private container registry
-> - Deploy and the custom image in App Service
-> - Update and redeploy the image
-> - Access diagnostic logs
-> - Connect to the container using SSH
+> - Deploy a custom image to a private container registry.
+> - Deploy and the custom image in App Service.
+> - Update and redeploy the image.
+> - Access diagnostic logs.
+> - Connect to the container by using SSH.
 
 ::: zone-end
 
@@ -1083,28 +1083,25 @@ What you learned:
 
 > [!div class="checklist"]
 >
-> - Push a custom Docker image to Azure Container Registry
-> - Deploy the custom image to App Service
-> - Configure environment variables
-> - Pull image into App Service using a managed identity
-> - Access diagnostic logs
-> - Enable CI/CD from Azure Container Registry to App Service
-> - Connect to the container using SSH
+> - Push a custom Docker image to Azure Container Registry.
+> - Deploy the custom image to App Service.
+> - Configure environment variables.
+> - Pull the image into App Service by using a managed identity.
+> - Access diagnostic logs.
+> - Enable CI/CD from Azure Container Registry to App Service.
+> - Connect to the container by using SSH.
 
 ::: zone-end
 
-In the next tutorial, you learn how to secure your app with a custom domain and certificate.
+In the next tutorial, you learn how to provide security for your app with a custom domain and certificate.
 
 > [!div class="nextstepaction"]
-> [Secure with custom domain and certificate](tutorial-secure-domain-certificate.md)
+> [Provide security with custom domain and certificate](tutorial-secure-domain-certificate.md)
 
 Or, check out other resources:
 
 > [!div class="nextstepaction"]
-> [Configure custom container](configure-custom-container.md)
-
-> [!div class="nextstepaction"]
-> [Configure sidecar](configure-custom-container.md)
+> [Configure a custom container](configure-custom-container.md)
 
 ::: zone pivot="container-linux"
 > [!div class="nextstepaction"]
