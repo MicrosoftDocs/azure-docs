@@ -68,12 +68,8 @@ sections:
           
       - question: How much does App Configuration cost?
         answer: |
-          There are three pricing tiers: Free, Standard, and Premium. For detailed pricing information, please refer to the [App Configuration pricing](https://azure.microsoft.com/en-us/pricing/details/app-configuration/) page.
-          
-          If you created a store prior to the introduction of the Standard tier, it automatically moved to the Free tier upon general availability. If you have an existing store, you can upgrade it at any time, for example, from the Free tier to the Standard or Premium tier, or from the Standard tier to the Premium tier.
-          
-          You can’t downgrade an App Configuration store, for example, from the Premium tier to the Standard tier, or from the Standard tier to the Free tier. However, you can create a new store in the desired tier and then [import configuration data into that store](howto-import-export-data.md).
-          
+          There are three pricing tiers: Free, Standard, and Premium. For detailed pricing information, refer to the [App Configuration pricing](https://azure.microsoft.com/en-us/pricing/details/app-configuration/) page.
+
       - question: Which App Configuration tier should I use?
         answer: |
           All App Configuration tiers offer core functionality, including config settings, feature flags, Key Vault references, configuration snapshots, basic management operations, metrics, and logs.
@@ -88,7 +84,7 @@ sections:
           
               Standard tier stores are limited to 30,000 requests per hour. Once the hourly quota is exhausted, additional requests may return an HTTP status code 429, indicating too many requests, until the end of the hour. As more requests are sent which are above quota, a higher percentage of them may return status code 429. 
 
-              Premium tier stores have no hourly quota on requests.
+              Premium tier stores have no quota limit on requests.
           
           - **Service level agreement**: The Free tier doesn't have an SLA. The Standard tier has an SLA of 99.9% availability and 99.95% availability with geo-replication enabled. The Premium tier has an SLA of 99.9% availability and 99.99% availability with geo-replication enabled.
           - **Features**: All tiers include functionalities, including encryption with Microsoft-managed keys, authentication via access key or Microsoft Entra ID, Azure role-based access control (RBAC), managed identity, service tags, and availability zone redundancy. The Standard and Premium tiers offer more functionalities, including Private Link support, encryption with customer-managed keys, soft delete protection, and geo-replication capability.
@@ -118,7 +114,7 @@ sections:
 
       - question: Are there any limits on the number of requests made to App Configuration?
         answer: |
-          Configuration stores in the Free tier are limited to 1,000 requests per day. Configuration stores in the Standard tier may experience temporary throttling when the request rate exceeds 30,000 requests per hour. Configuration stores in the Premium tier have no hourly quota on requests.
+          Configuration stores in the Free tier are limited to 1,000 requests per day. Configuration stores in the Standard tier may experience temporary throttling when the request rate exceeds 30,000 requests per hour. Configuration stores in the Premium tier have no quota limit on requests.
           
           When a store reaches its limit in the Standard tier, it may return HTTP status code 429 for some requests made until the end of the hour. The `retry-after-ms` header in the response gives a suggested wait time (in milliseconds) before retrying the request.
           
