@@ -80,7 +80,7 @@ Here's an example showing the install of an individual solution.
 
     The tabs correspond with the content offered by the solution. Different solutions might have different types of content, so you might not see the same tabs in every solution.
 
-    You might also be prompted to enter credentials to a third party service so that Microsoft Sentinel can authenticate to your systems. For example, with playbooks, you might want to take response actions as prescribed in your system.
+    You might also be prompted to enter credentials to a non-Microsoft service so that Microsoft Sentinel can authenticate to your systems. For example, with playbooks, you might want to take response actions as prescribed in your system.
 
 1. In the **Review + create** tab, wait for the `Validation Passed` message.
 1. Select **Create** or **Update** to deploy the solution. You can also select the **Download a template for automation** link to deploy the solution as code.
@@ -91,9 +91,9 @@ Some solutions have dependencies to install, including many [domain solutions](s
 
 If one or more of your solutions is already installed but has updates, use the **Install/Update** button to both install and update all selected solutions in bulk. For example:
 
-:::image type="content" source="media/sentinel-solutions-deploy/install-update-dependencies.png" alt-text="Screenshot of installing multiple solution dependenices in bulk." lightbox="media/sentinel-solutions-deploy/install-update-dependencies.png":::
+:::image type="content" source="media/sentinel-solutions-deploy/install-update-dependencies.png" alt-text="Screenshot of installing multiple solution dependencies in bulk." lightbox="media/sentinel-solutions-deploy/install-update-dependencies.png":::
 
-After installing a solution, each content type within the solution might require more steps to configure. For more information, see [Enable content items in a solution](#enable-content-items-in-a-solution). 
+After you install a solution, each content type within the solution might require more steps to configure. For more information, see [Enable content items in a solution](#enable-content-items-in-a-solution). 
 
 ## Bulk install and update content
 
