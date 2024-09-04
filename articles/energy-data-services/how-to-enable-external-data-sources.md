@@ -18,7 +18,7 @@ External Data Sources (EDS) is a capability in [OSDU&reg;](https://osduforum.org
 For more information about External Data Sources (EDS), see [The OSDU Forum 2Q 2022 Newsletter - EDS](https://osduforum.org/wp-content/uploads/2022/06/The-OSDU-Forum-2Q-2022-Newsletter.pdf).  
 
 > [!NOTE]
-> OSDU community shipped EDS as a preview feature in M23 Release, and it is available as a preview feature on Azure Data Manager for Energy in Developer tier only.
+> EDS M23 preview is now available on Azure Data Manager for Energy in Developer tier only.
 
 > [!IMPORTANT]
 > Limit your Identity Provider (IdP) token to read operations only.
