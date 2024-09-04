@@ -421,7 +421,7 @@ When running your PowerShell functions locally, you need to add the setting `"FU
 Take these considerations into account before you migrate your PowerShell function app to PowerShell 7.4: 
 + Because the migration might introduce breaking changes in your app, review this [migration guide](https://github.com/Azure/azure-functions-powershell-worker/wiki/Upgrading-your-Azure-Function-Apps-to-run-on-PowerShell-7.4) before upgrading your app to PowerShell 7.4.
 
-To upgrade your Function App to PowerShell 7.4, ensure the value of FUNCTIONS_EXTENSION_VERSION is set to ~4. To learn how to do this, see [View and update the current runtime version](set-runtime-version.md#view-the-current-runtime-version).
++ Make sure that your function app is running on the latest version of the Functions runtime in Azure, which is version 4.x. For more information, see [View and update the current runtime version](set-runtime-version.md#view-the-current-runtime-version).
 
 Use the following steps to change the PowerShell version used by your function app. You can do this either in the Azure portal or by using PowerShell.
 
