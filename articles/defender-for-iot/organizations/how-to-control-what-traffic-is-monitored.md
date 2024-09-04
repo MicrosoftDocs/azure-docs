@@ -53,7 +53,7 @@ If the traffic shown on the **Deployment** page isn't what you expect, you might
 
 After having analyzed the traffic your sensor is monitoring and fine tuning the deployment, you may need to further fine tune your subnet list. Use this procedure to ensure that your subnets are configured correctly.
 
-While your OT sensor automatically learns your network subnets during the initial deployment, we recommend analyzing the detected traffic and updating them as needed to optimize your map views and device inventory. 
+While your OT sensor automatically learns your network subnets during the initial deployment, we recommend analyzing the detected traffic and updating them as needed to optimize your map views and device inventory.
 
 Also use this procedure to also define subnet settings, determining how devices are displayed in the sensor's [device map](how-to-work-with-the-sensor-device-map.md) and the [Azure device inventory](device-inventory.md).
 
@@ -84,7 +84,7 @@ While the OT network sensor automatically learns the subnets in your network, we
     | **Mask**| Define the subnet's IP mask. |
     | **Name**| We recommend that you enter a meaningful name that specifies the subnet's network role. Subnet names can have up to 60 characters.|
     |**Segregated**     |   Select to show this subnet separately when displaying the device map according to Purdue level.  |
-    | **Remove subnet** | Select to remove any subnets that aren't related to your IoT/OT network scope.| 
+    | **Remove subnet** | Select to remove any subnets that aren't related to your IoT/OT network scope.|
 
     In the subnet grid, subnets marked as **ICS subnet** are recognized as OT networks. This option is read-only in this grid, but you can [manually define a subnet as ICS](#manually-define-a-subnet-as-ics) if there's an OT subnet not being recognized correctly.
 
@@ -184,7 +184,7 @@ If you're working with dynamic networks, you need to handle IP addresses changes
 1. Select **Save** to save your changes.
 
 ## Configure traffic filters (advanced)
-**Belle remove this??** <!-- should this be removed if the alerts arent available? -->
+
 To reduce alert fatigue and focus your network monitoring on high priority traffic, you may decide to filter the traffic that streams into Defender for IoT at the source. Capture filters are configured via the OT sensor CLI, and allow you to block high-bandwidth traffic at the hardware layer, optimizing both appliance performance and resource usage.
 
 For more information, see:

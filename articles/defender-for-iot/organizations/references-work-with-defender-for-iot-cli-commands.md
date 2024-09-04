@@ -6,7 +6,7 @@ ms.topic: concept-article
 ---
 
 # Defender for IoT CLI users and access
-**Belle remove ??** what to remove from this page? -->
+
 This article provides an introduction to the Microsoft Defender for IoT command line interface (CLI). The CLI is a text-based user interface that allows you to access your OT sensors and the on-premises management console for advanced configuration, troubleshooting, and support.
 
 To access the Defender for IoT CLI, you'll need access to the sensor or on-premises management console.
@@ -25,7 +25,6 @@ If you're using a legacy software version, you may have one or more of the follo
 |Legacy scenario  |Description  |
 |---------|---------|
 |**Sensor versions earlier than 23.2.0**     |   In sensor versions earlier than [23.2.0](whats-new.md#default-privileged-user-is-now-admin-instead-of-support), the default *admin* user is named *support*. The *support* user is available and supported only on versions earlier than 23.2.0.<br><br>Documentation refers to the *admin* user to match the latest version of the software.    |
-<!--|**Sensor software versions earlier than 23.1.x**     |   In sensor software versions earlier than [23.1.x](whats-new.md#july-2023), the *cyberx* and *cyberx_host* privileged users are also in use. <br><br>In newly installed versions 23.1.x and higher, the *cyberx* and *cyberx_host* users are available, but not enabled by default. <br><br>To enable these extra privileged users, such as to use the [Defender for IoT CLI](references-work-with-defender-for-iot-cli-commands.md), change their passwords. For more information, see [Recover privileged access to a sensor](manage-users-sensor.md#recover-privileged-access-to-a-sensor).      |-->
 
 Other CLI users cannot be added.
 
@@ -90,8 +89,6 @@ Run:
 ```support bash
 system shell
 ```
-
-<!--OT sensor versions earlier than [23.2.0](whats-new.md#default-privileged-user-is-now-admin-instead-of-support) include the *support* privileged user instead of the *admin* user. If you're using an older version of the sensor software, any commands that are listed as supported for the *admin* user are also supported for the legacy *support* user.-->
 
 ## Sign out of the CLI
 
