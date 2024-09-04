@@ -2,7 +2,7 @@
 title: Plan for deployment
 description: Learn about the support matrix for Arc-enabled VMware vSphere including vCenter Server versions supported, network requirements, and more.
 ms.topic: how-to 
-ms.date: 08/16/2024
+ms.date: 09/04/2024
 ms.service: azure-arc
 ms.subservice: azure-arc-vmware-vsphere
 author: PriskeyJeronika-MS
