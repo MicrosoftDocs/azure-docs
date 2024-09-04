@@ -3,11 +3,11 @@ title: Connect VMware vCenter Server to Azure Arc by using the helper script
 description: In this quickstart, you learn how to use the helper script to connect your VMware vCenter Server instance to Azure Arc.
 ms.topic: quickstart 
 ms.custom: references_regions
-ms.date: 05/15/2024
+ms.date: 09/04/2024
 ms.service: azure-arc
 ms.subservice: azure-arc-vmware-vsphere
-author: Farha-Bano
-ms.author: v-farhabano
+author: PriskeyJeronika-MS
+ms.author: v-gjeronika
 manager: jsuri
 
 # Customer intent: As a VI admin, I want to connect my vCenter Server instance to Azure to enable self-service through Azure Arc.
@@ -42,9 +42,9 @@ First, the script deploys a virtual appliance called [Azure Arc resource bridge]
 
 - At least three free static IP addresses on the above network.
 
-- A resource pool or a cluster with a minimum capacity of 16 GB of RAM and four vCPUs.
+- A resource pool or a cluster with a minimum capacity of 8 GB of RAM and 4 vCPUs.
 
-- A datastore with a minimum of 200 GB of free disk space available through the resource pool or cluster.
+- A datastore with a minimum of 200 GB of free disk space or 400 GB for High Availability deployment, available through the resource pool or cluster.
 
 > [!NOTE]
 > Azure Arc-enabled VMware vSphere supports vCenter Server instances with a maximum of 9,500 virtual machines (VMs). If your vCenter Server instance has more than 9,500 VMs, we don't recommend that you use Azure Arc-enabled VMware vSphere with it at this point.
@@ -95,7 +95,7 @@ You need a Windows or Linux machine that can access both your vCenter Server ins
 
 11. Provide a name for your vCenter Server instance in Azure. For example: **contoso-nyc-vcenter**.
 
-12. You may choose to **Enable Kubernetes Service on VMware [Preview]**. If you choose to do so, please ensure you update the namespace of your custom location to "default" in the onboarding script: $customLocationNamespace = ("default".ToLower() -replace '[^a-z0-9-]', ''). For more details about this update, refer to the [known issues from AKS on VMware (preview)](/azure/aks/hybrid/aks-vmware-known-issues)
+12. You can choose to **Enable Kubernetes Service on VMware [Preview]**. If you choose to do so, please ensure you update the namespace of your custom location to "default" in the onboarding script: $customLocationNamespace = ("default".ToLower() -replace '[^a-z0-9-]', ''). For more details about this update, refer to the [known issues from AKS on VMware (preview)](/azure/aks/hybrid/aks-vmware-known-issues)
 
 13. Select **Next: Download and run script**.
 

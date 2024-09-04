@@ -3,11 +3,14 @@ title: Manage Change Tracking and Inventory in Azure Automation
 description: This article tells how to use Change Tracking and Inventory to track software and Microsoft service changes in your environment.
 services: automation
 ms.subservice: change-inventory-management
-ms.date: 12/10/2020
+ms.date: 07/22/2024
 ms.topic: conceptual
+ms.service: azure-automation
 ---
 
 # Manage Change Tracking and Inventory
+
+[!INCLUDE [./log-analytics-retirement-announcement.md](../includes/log-analytics-retirement-announcement.md)]
 
 When you add a new file or registry key to track, Azure Automation enables it for [Change Tracking and Inventory](overview.md). This article describes how to configure tracking, review tracking results, and handle alerts when changes are detected.
 

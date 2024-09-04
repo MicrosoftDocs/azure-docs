@@ -126,7 +126,7 @@ Each Azure subscription has default quota limits in place that could impact the 
 
 For more information about quota limits, see [Azure Subscription Service Limits](../azure-resource-manager/management/azure-subscription-service-limits.md).
 
-[!INCLUDE [azure-iotdps-limits](~/reusable-content/ce-skilling/azure/includes/iot-dps-limits.md)]
+[!INCLUDE [azure-iotdps-limits](../../includes/iot-dps-limits.md)]
 
 ## Billable service operations and pricing
 

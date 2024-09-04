@@ -7,7 +7,7 @@ author: baanders
 ms.author: baanders # Microsoft employees only
 ms.date: 05/31/2023
 ms.topic: conceptual
-ms.service: digital-twins
+ms.service: azure-digital-twins
 
 # Optional fields. Don't forget to remove # if you need a field.
 # ms.custom: can-be-multiple-comma-separated
@@ -21,7 +21,7 @@ Azure Digital Twins is typically used together with other services to create fle
 
 Azure Digital Twins can receive data from upstream services such as [IoT Hub](../iot-hub/about-iot-hub.md) or [Logic Apps](../logic-apps/logic-apps-overview.md), which are used to deliver telemetry and notifications. 
 
-Azure Digital Twins can also use [event routes](concepts-route-events.md) to send data to downstream services, such as [Azure Maps](../azure-maps/about-azure-maps.md) and [Time Series Insights](../time-series-insights/overview-what-is-tsi.md), for storage, workflow integration, analytics, and more. 
+Azure Digital Twins can also use [event routes](concepts-route-events.md) to send data to downstream services, such as [Azure Maps](../azure-maps/about-azure-maps.md), for storage, workflow integration, analytics, and more. 
 
 ## Data ingress
 
@@ -41,7 +41,7 @@ There are two main egress options in Azure Digital Twins. Digital twin data can 
 
 ### Endpoints
 
-To send Azure Digital Twins data to most Azure services, such as [Azure Maps](../azure-maps/about-azure-maps.md), [Time Series Insights](../time-series-insights/overview-what-is-tsi.md), or [Azure Storage](../storage/common/storage-introduction.md), start by attaching the destination service to an *endpoint*. 
+To send Azure Digital Twins data to most Azure services, such as [Azure Maps](../azure-maps/about-azure-maps.md) or [Azure Storage](../storage/common/storage-introduction.md), start by attaching the destination service to an *endpoint*. 
 
 Endpoints can be instances of any of these Azure services:
 * [Event Hubs](../event-hubs/event-hubs-about.md)
@@ -49,8 +49,6 @@ Endpoints can be instances of any of these Azure services:
 * [Service Bus](../service-bus-messaging/service-bus-messaging-overview.md)
 
 The endpoint is attached to an Azure Digital Twins instance using management APIs or the Azure portal, and can carry data along from the instance to other listening services. For more information about Azure Digital Twins endpoints, see [Endpoints and event routes](concepts-route-events.md).
-
-For detailed instructions on how to send Azure Digital Twins data to Azure Maps, see [Use Azure Digital Twins to update an Azure Maps indoor map](how-to-integrate-maps.md). For detailed instructions on how to send Azure Digital Twins data to Time Series Insights, see [Integrate with Time Series Insights](how-to-integrate-time-series-insights.md).
 
 ### Data history
 
@@ -60,7 +58,7 @@ Once the data has been historized, you can query this data in Azure Data Explore
 
 You can also use data history in combination with [Azure Synapse Analytics](../synapse-analytics/overview-what-is.md) to aggregate data from disparate sources. This can be useful in many scenarios. Here are two examples:
 * Combine information technology (IT) data from ERP or CRM systems (like Dynamics 365, SAP, or Salesforce) with operational technology (OT) data from IoT devices and production management systems. For an example that illustrates how a company might combine this data, see the following blog post: [Integrating IT and OT Data with Azure Digital Twins, Azure Data Explorer, and Azure Synapse](https://techcommunity.microsoft.com/t5/internet-of-things-blog/integrating-it-and-ot-data-with-azure-digital-twins-azure-data/ba-p/3401981).
-* Integrate with the Azure AI and Azure AI services [Multivariate Anomaly Detector](../ai-services/anomaly-detector/overview.md), to quickly connect your Azure Digital Twins data with a downstream AI/machine learning solution that specializes in anomaly detection. The [Azure Digital Twins Multivariate Anomaly Detection Toolkit](/samples/azure-samples/digital-twins-mvad-integration/adt-mvad-integration/) is a sample project that provides a workflow for training multiple Multivariate Anomaly Detector models for several scenario analyses, based on historical digital twin data. It then leverages the trained models to detect abnormal operations and anomalies in modeled Azure Digital Twins environments, in near real-time. 
+* Integrate with the Azure AI and Azure AI services [Multivariate Anomaly Detector](/azure/ai-services/anomaly-detector/overview), to quickly connect your Azure Digital Twins data with a downstream AI/machine learning solution that specializes in anomaly detection. The [Azure Digital Twins Multivariate Anomaly Detection Toolkit](/samples/azure-samples/digital-twins-mvad-integration/adt-mvad-integration/) is a sample project that provides a workflow for training multiple Multivariate Anomaly Detector models for several scenario analyses, based on historical digital twin data. It then leverages the trained models to detect abnormal operations and anomalies in modeled Azure Digital Twins environments, in near real-time. 
 
 ### Security and delivery details
 

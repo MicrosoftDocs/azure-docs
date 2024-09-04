@@ -1,7 +1,7 @@
 ---
 title: Synchronize Microsoft Entra users to HDInsight cluster 
 description: Synchronize authenticated users from Microsoft Entra ID to an HDInsight cluster.
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 03/15/2024

@@ -3,9 +3,9 @@ title: 'Reset a VPN gateway or connection to reestablish IPsec tunnels'
 titleSuffix: Azure VPN Gateway
 description: Learn how to reset a gateway or a gateway connection to reestablish IPsec tunnels.
 author: cherylmc
-ms.service: vpn-gateway
+ms.service: azure-vpn-gateway
 ms.topic: how-to
-ms.date: 04/17/2024
+ms.date: 08/07/2024
 ms.author: cherylmc 
 ---
 # Reset a VPN gateway or a connection
@@ -61,7 +61,9 @@ Note: If the VPN gateway is configured as active-active, you can reset the gatew
 
 ### <a name="ps"></a>PowerShell
 
-The cmdlet for resetting a gateway is **Reset-AzVirtualNetworkGateway**. The following example resets a virtual network gateway named VNet1GW in the TestRG1 resource group:
+The cmdlet for resetting a gateway is [Reset-AzVirtualNetworkGateway](/powershell/module/az.network/reset-azvirtualnetworkgateway). If the gateway is set up as **active-active**, use `-GatewayVip <string>` to reset both the instances one by one.
+
+The following example resets a virtual network gateway named VNet1GW in the TestRG1 resource group:
 
 ```azurepowershell-interactive
 $gw = Get-AzVirtualNetworkGateway -Name VNet1GW -ResourceGroupName TestRG1
@@ -70,42 +72,17 @@ Reset-AzVirtualNetworkGateway -VirtualNetworkGateway $gw
 
 You can view the reset history of the gateway from [Azure portal](https://portal.azure.com) by navigating to **'GatewayName' -> Resource Health**.
 
-Note: If the gateway is set up as active-active, use `-GatewayVip <string>` to reset both the instances one by one.
-
 ### <a name="cli"></a>Azure CLI
 
-To reset the gateway, use the [az network vnet-gateway reset](/cli/azure/network/vnet-gateway) command. The following example resets a virtual network gateway named VNet5GW in the TestRG5 resource group:
+To reset the gateway, use the [az network vnet-gateway reset](/cli/azure/network/vnet-gateway) command. If the gateway is set up as **active-active**, use `--gateway-vip <string>` to reset both the instances one by one.
+
+The following example resets a virtual network gateway named VNet5GW in the TestRG5 resource group:
 
 ```azurecli-interactive
 az network vnet-gateway reset -n VNet5GW -g TestRG5
 ```
 
 You can view the reset history of the gateway from [Azure portal](https://portal.azure.com) by navigating to **'GatewayName' -> Resource Health**.
-
-Note: If the gateway is set up as active-active, use `--gateway-vip <string>` to reset both the instances one by one.
-
-### <a name="resetclassic"></a>Reset a classic gateway
-
-The cmdlet for resetting a classic gateway is **Reset-AzureVNetGateway**. The Azure PowerShell cmdlets for Service Management must be installed locally on your desktop. You can't use Azure Cloud Shell. Before performing a reset, make sure you have the latest version of the [Service Management (SM) PowerShell cmdlets](/powershell/azure/servicemanagement/install-azure-ps#azure-service-management-cmdlets).
-
-When using this command, make sure you're using the full name of the virtual network. Classic VNets that were created using the portal have a long name that is required for PowerShell. You can view the long name by using `Get-AzureVNetConfig -ExportToFile C:\Myfoldername\NetworkConfig.xml`.
-
-The following example resets the gateway for a virtual network named "Group TestRG1 TestVNet1" (which shows as simply "TestVNet1" in the portal):
-
-```powershell
-Reset-AzureVNetGateway –VnetName 'Group TestRG1 TestVNet1'
-```
-
-Result:
-
-```powershell
-Error          :
-HttpStatusCode : OK
-Id             : f1600632-c819-4b2f-ac0e-f4126bec1ff8
-Status         : Successful
-RequestId      : 9ca273de2c4d01e986480ce1ffa4d6d9
-StatusCode     : OK
-```
 
 ## Next steps
 

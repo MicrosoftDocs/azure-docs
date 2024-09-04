@@ -3,7 +3,7 @@ title: Application Gateway Ingress Controller troubleshooting
 description: This article provides documentation on how to troubleshoot common questions and issues with the Application Gateway Ingress Controller.
 services: application-gateway
 author: greg-lindsay
-ms.service: application-gateway
+ms.service: azure-application-gateway
 ms.custom:
 ms.topic: troubleshooting
 ms.date: 01/31/2024
@@ -65,15 +65,17 @@ metadata:
   annotations:
     kubernetes.io/ingress.class: azure/application-gateway
 spec:
-  ingressClassName: azure-application-gateway
+  #ingressClassName: azure-application-gateway # according to the AGIC setup guide, annotations are the approach to set the class
   rules:
     - host: test.agic.contoso.com
       http:
         paths:
           - path: /
+            pathType: Prefix
             backend:
-              serviceName: test-agic-app-service
-              servicePort: 80
+              name: test-agic-app-service
+              port:
+                number: 80
 EOF
 ```
 

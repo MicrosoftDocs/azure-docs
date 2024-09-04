@@ -2,7 +2,7 @@
 title: Autoscale feature for Azure Health Data Services FHIR service
 description: Explore how autoscaling in the FHIR service in Azure Health Data Services boosts efficiency and helps ensure optimal performance by scaling resources based on load.
 author: expekesheth
-ms.service: healthcare-apis
+ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.topic: conceptual
 ms.date: 05/13/2024

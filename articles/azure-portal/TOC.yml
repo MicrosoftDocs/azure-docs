@@ -9,7 +9,7 @@
   - name: Quickstarts
     items:
     - name: Create a VM in the portal
-      href: ../virtual-machines/windows/quick-create-portal.md?context=/azure/azure-portal/context/context
+      href: /azure/virtual-machines/windows/quick-create-portal?context=/azure/azure-portal/context/context
     - name: Create a dashboard
       items:
       - name: Azure CLI
@@ -36,6 +36,8 @@
     href: azure-portal-video-series.md
 - name: Dashboards
   items:
+  - name: Create and manage dashboards in Dashboard hub
+    href: dashboard-hub.md
   - name: Create an Azure dashboard
     href: azure-portal-dashboards.md
   - name: Share an Azure dashboard
@@ -79,6 +81,8 @@
     displayName: mobile, app, training
   - name: Microsoft Copilot in Azure
     href: mobile-app/microsoft-copilot-in-azure.md
+  - name: Intune MAM
+    href: mobile-app/intune-management.md
 - name: Reference
   items:
   - name: Supported browsers and devices

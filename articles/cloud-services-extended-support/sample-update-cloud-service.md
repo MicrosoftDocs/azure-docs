@@ -2,11 +2,11 @@
 title: Azure PowerShell samples - Update an Azure Cloud Service (extended support)
 description: Sample scripts for updating Azure Cloud Service (extended support) deployments
 ms.topic: sample
-ms.service: cloud-services-extended-support
+ms.service: azure-cloud-services-extended-support
 author: gachandw
 ms.author: gachandw
 ms.reviewer: mimckitt
-ms.date: 10/13/2020
+ms.date: 07/24/2024
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -15,7 +15,7 @@ ms.custom: devx-track-azurepowershell
 These samples cover various ways to update an existing Azure Cloud Service (extended support) deployment.
 
 ## Add an extension to existing Cloud Service
-Below set of commands adds a RDP extension to already existing cloud service named ContosoCS that belongs to the resource group named ContosOrg.
+The following set of commands adds a Remote Desktop Protocol (RDP) extension to already existing cloud service named ContosoCS that belongs to the resource group named ContosOrg.
 ```powershell
 # Create RDP extension object
 $rdpExtension = New-AzCloudServiceRemoteDesktopExtensionObject -Name "RDPExtension" -Credential $credential -Expiration $expiration -TypeHandlerVersion "1.2.1"
@@ -28,7 +28,7 @@ $cloudService | Update-AzCloudService
 ```
 
 ## Remove all extensions from a Cloud Service
-Below set of commands removes all extensions from existing cloud service named ContosoCS that belongs to the resource group named ContosOrg.
+The following set of commands removes all extensions from existing cloud service named ContosoCS that belongs to the resource group named ContosOrg.
 ```powershell
 # Get existing cloud service
 $cloudService = Get-AzCloudService -ResourceGroup "ContosOrg" -CloudServiceName "ContosoCS"
@@ -39,7 +39,7 @@ $cloudService | Update-AzCloudService
 ```
 
 ## Remove the remote desktop extension from Cloud Service
-Below set of commands removes RDP extension from existing cloud service named ContosoCS that belongs to the resource group named ContosOrg.
+The following set of commands removes RDP extension from existing cloud service named ContosoCS that belongs to the resource group named ContosOrg.
 ```powershell
 # Get existing cloud service
 $cloudService = Get-AzCloudService -ResourceGroup "ContosOrg" -CloudServiceName "ContosoCS"
@@ -50,7 +50,7 @@ $cloudService | Update-AzCloudService
 ```
 
 ## Scale-out / scale-in role instances
-Below set of commands shows how to scale-out and scale-in role instance count for cloud service named ContosoCS that belongs to the resource group named ContosOrg.
+The following set of commands shows how to scale-out and scale-in role instance count for cloud service named ContosoCS that belongs to the resource group named ContosOrg.
 ```powershell
 # Get existing cloud service
 $cloudService = Get-AzCloudService -ResourceGroup "ContosOrg" -CloudServiceName "ContosoCS"

@@ -3,11 +3,11 @@ title: 'Generate and export certificates for User VPN P2S connections: PowerShel
 titleSuffix: Azure Virtual WAN
 description: Learn how to create a self-signed root certificate, export a public key, and generate client certificates for Virtual WAN User VPN (point-to-site) connections using PowerShell.
 author: cherylmc
-ms.service: virtual-wan
+ms.service: azure-virtual-wan
+ms.custom: linux-related-content
 ms.topic: how-to
 ms.date: 08/23/2023
 ms.author: cherylmc
-
 ---
 # Generate and export certificates for User VPN connections using PowerShell
 
@@ -17,7 +17,11 @@ The PowerShell cmdlets that you use to generate certificates are part of the ope
 
 If you don't have a computer that meets the operating system requirement, you can use [MakeCert](../vpn-gateway/vpn-gateway-certificates-point-to-site-makecert.md) to generate certificates. The certificates that you generate using either method can be installed on any supported client operating system.
 
-[!INCLUDE [Generate and export - this include is for both vpn-gateway and virtual-wan](~/reusable-content/ce-skilling/azure/includes/vpn-gateway-generate-export-certificates-include.md)]
+[!INCLUDE [Generate and export - this include is for both vpn-gateway and virtual-wan](../../includes/vpn-gateway-generate-export-certificates-include.md)]
+
+## Linux
+
+For Linux steps, see [Generate self-signed certificates - Linux - OpenSSL](../vpn-gateway/point-to-site-certificates-linux-openssl.md) or [Generate self-signed certificates - Linux - strongSwan](../vpn-gateway/vpn-gateway-certificates-point-to-site-linux.md).
 
 ## Install an exported client certificate
 

@@ -193,7 +193,7 @@ To deploy a virtual network gateway using the Azure portal, follow these instruc
 
 1. When deployment is complete, select **Go to resource**.
 
-1. In the left pane, select **Settings > Point-to-site configuration** and then select **Configure now**. You should see the Point-to-site configuration page.
+1. In the service menu, under **Settings**, select **Point-to-site configuration** and then select **Configure now**. You should see the Point-to-site configuration page.
 
    :::image type="content" source="media/storage-files-configure-p2s-vpn-windows/point-to-site-configuration.png" alt-text="Screenshot showing how to configure a point-to-site VPN using the Azure portal." lightbox="media/storage-files-configure-p2s-vpn-windows/point-to-site-configuration.png":::
 
@@ -376,7 +376,7 @@ You'll configure the VPN connection using the [Always On VPN](/windows-server/re
 
 To install the client certificate required for authentication against the virtual network gateway, follow these steps on the client computer.
 
-[!INCLUDE [Install on Windows](~/reusable-content/ce-skilling/azure/includes/vpn-gateway-certificates-install-client-cert-include.md)]
+[!INCLUDE [Install on Windows](../../../includes/vpn-gateway-certificates-install-client-cert-include.md)]
 
 ## Install the VPN client
 

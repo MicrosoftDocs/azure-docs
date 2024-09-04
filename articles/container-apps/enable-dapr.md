@@ -3,7 +3,7 @@ title: Enable Dapr on your container app
 description: Learn more about enabling Dapr on your Azure Container App service to develop applications.
 ms.author: hannahhunter
 author: hhunter-ms
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.custom: build-2023, devx-track-bicep
 ms.topic: conceptual
 ms.date: 12/18/2023

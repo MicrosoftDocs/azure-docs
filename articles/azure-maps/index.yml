@@ -1,7 +1,7 @@
 ### YamlMime:Landing
 
 title: Azure Maps Documentation
-summary: Azure Maps is a set of mapping and geospatial services that enable developers and organizations to build intelligent location-based experiences for applications across many different industries and use cases. Use the Azure Maps REST APIs and Web SDK to bring maps, geocoding, location search, routing, real-time traffic, geolocation, time zone information, weather data and custom indoor maps (Creator) into your web and mobile solutions. 
+summary: Azure Maps is a set of mapping and geospatial services that enable developers and organizations to build intelligent location-based experiences for applications across many different industries and use cases. Use the Azure Maps REST APIs and Web SDK to bring maps, geocoding, location search, routing, real-time traffic, geolocation, time zone information, and weather data into your web and mobile solutions. 
 
 metadata:
   title:  Azure Maps Documentation | Microsoft Docs
@@ -59,51 +59,7 @@ landingContent:
             url: how-to-manage-pricing-tier.md
           - text: View Azure Maps API usage metrics
             url: how-to-view-api-usage.md
-
-  # Card
-  - title: Indoor maps using Azure Maps Creator
-    linkLists:
-      - linkListType: overview
-        links:
-          - text: What is Azure Maps Creator?
-            url: about-creator.md
-      - linkListType: concept
-        links:
-          - text: Indoor map concepts
-            url: creator-indoor-maps.md
-      - linkListType: tutorial
-        links:
-          - text: Use Creator to create indoor maps data
-            url: tutorial-creator-indoor-maps.md
-      - linkListType: how-to-guide
-        links:
-          - text: Manage Creator
-            url: how-to-manage-creator.md
-          - text: Implement Dynamic styling for indoor maps
-            url: indoor-map-dynamic-styling.md
-          - text: Query datasets with WFS API
-            url: how-to-creator-wfs.md
-          - text: Custom styling for indoor maps
-            url: how-to-create-custom-styles.md
-          - text: Indoor maps wayfinding service
-            url: how-to-creator-wayfinding.md
-          - text: Edit indoor maps using the QGIS plugin
-            url: creator-qgis-plugin.md
-          - text: Create dataset using GeoJson package
-            url: how-to-dataset-geojson.md
-          - text: Create a feature stateset
-            url: how-to-creator-feature-stateset.md
-      - linkListType: reference
-        links:
-            - text: Drawing package requirements
-              url: drawing-requirements.md
-            - text: Facility Ontology
-              url: creator-facility-ontology.md
-            - text: Dynamic maps StylesObject
-              url: schema-stateset-stylesobject.md
-            - text: Drawing error visualizer
-              url: drawing-error-visualizer.md
-                    
+   
   # Card
   - title: Developing with Web SDK
     linkLists:

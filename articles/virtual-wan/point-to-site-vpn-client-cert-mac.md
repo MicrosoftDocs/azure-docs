@@ -3,7 +3,7 @@ title: 'Configure P2S User VPN clients -certificate authentication - macOS and i
 titleSuffix: Azure Virtual WAN
 description: Learn how to configure the VPN client for Virtual WAN User VPN configurations that use certificate authentication and IKEv2 or OpenVPN tunnel. This article applies to macOS and iOS.
 author: cherylmc
-ms.service: virtual-wan
+ms.service: azure-virtual-wan
 ms.topic: how-to
 ms.date: 04/28/2023
 ms.author: cherylmc
@@ -29,13 +29,13 @@ This article helps you connect to Azure Virtual WAN from a macOS or iOS operatin
 
 The following example uses **TunnelBlick**.
 
-[!INCLUDE [OpenVPN Mac](~/reusable-content/ce-skilling/azure/includes/vpn-gateway-vwan-config-openvpn-mac.md)]
+[!INCLUDE [OpenVPN Mac](../../includes/vpn-gateway-vwan-config-openvpn-mac.md)]
 
 ##  <a name="OpenVPN-iOS"></a>OpenVPN Client - iOS steps
 
 The following example uses **OpenVPN Connect** from the App store.
 
-[!INCLUDE [OpenVPN iOS](~/reusable-content/ce-skilling/azure/includes/vpn-gateway-vwan-config-openvpn-ios.md)]
+[!INCLUDE [OpenVPN iOS](../../includes/vpn-gateway-vwan-config-openvpn-ios.md)]
 
 ## Next steps
 

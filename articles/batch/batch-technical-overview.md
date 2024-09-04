@@ -2,8 +2,9 @@
 title: Azure Batch runs large parallel jobs in the cloud
 description: Learn about using the Azure Batch service for large-scale parallel and HPC workloads.
 ms.topic: overview
-ms.date: 12/13/2021
+ms.date: 06/12/2024
 ---
+
 
 # What is Azure Batch?
 
@@ -30,7 +31,7 @@ Some examples of intrinsically parallel workloads you can bring to Batch:
 - Data ingestion, processing, and ETL operations
 - Software test execution
 
-You can also use Batch to [run tightly coupled workloads](batch-mpi.md), where the applications you run need to communicate with each other, rather than running independently. Tightly coupled applications normally use the Message Passing Interface (MPI) API. You can run your tightly coupled workloads with Batch using [Microsoft MPI](/message-passing-interface/microsoft-mpi) or Intel MPI. Improve application performance with specialized [HPC](../virtual-machines/sizes-hpc.md) and [GPU-optimized](../virtual-machines/sizes-gpu.md) VM sizes.
+You can also use Batch to [run tightly coupled workloads](batch-mpi.md), where the applications you run need to communicate with each other, rather than running independently. Tightly coupled applications normally use the Message Passing Interface (MPI) API. You can run your tightly coupled workloads with Batch using [Microsoft MPI](/message-passing-interface/microsoft-mpi) or Intel MPI. Improve application performance with specialized [HPC](/azure/virtual-machines/sizes-hpc) and [GPU-optimized](/azure/virtual-machines/sizes-gpu) VM sizes.
 
 Some examples of tightly coupled workloads:
 

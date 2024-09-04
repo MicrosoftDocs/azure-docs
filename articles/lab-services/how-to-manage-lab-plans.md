@@ -3,14 +3,16 @@ title: Create and manage lab plans
 titleSuffix: Azure Lab Services
 description: Learn how to create an Azure Lab Services lab plan, view all lab plans, or delete a lab plan in the Azure portal.
 services: lab-services
-ms.service: lab-services
-author: ntrogh
-ms.author: nicktrog
+ms.service: azure-lab-services
+author: RoseHJM
+ms.author: rosemalcolm
 ms.topic: how-to
 ms.date: 03/14/2023
 ---
 
 # Create and manage lab plans in Azure Lab Services
+
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
 
 [!INCLUDE [preview note](./includes/lab-services-new-update-focused-article.md)]
 

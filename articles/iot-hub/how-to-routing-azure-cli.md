@@ -33,7 +33,7 @@ This article uses the Azure CLI to work with IoT Hub and other Azure services. Y
 
 ### IoT Hub
 
-You need an IoT hub in your [Azure subscription](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). If you don't have a hub yet, you can follow the steps to [create an IoT hub by using the Azure CLI](iot-hub-create-using-cli.md).
+Have an IoT hub in your Azure subscription. If you don't have a hub yet, you can follow the steps in [Create an IoT hub](create-hub.md).
 
 ### Endpoint service
 
@@ -80,7 +80,7 @@ Create a Service Bus namespace, topic, and subscription. For more information, s
 
 # [Cosmos DB](#tab/cosmosdb)
 
-Create a Cosmos DB account for SQL API and a Cosmos DB container. For more information, see [Create an Azure Cosmos DB for NoSQL](../cosmos-db/scripts/cli/nosql/create.md).
+Create a Cosmos DB account for SQL API and a Cosmos DB container. For more information, see [Create an Azure Cosmos DB for NoSQL](/azure/cosmos-db/scripts/cli/nosql/create).
 
 ---
 

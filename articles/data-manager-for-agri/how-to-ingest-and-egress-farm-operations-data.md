@@ -3,7 +3,7 @@ title: Working with Farm Activities and in-field activity data in Azure Data Man
 description: Learn how to manage Farm Activities data with manual and auto sync data ingestion jobs
 author: lbpudi
 ms.author: lbethapudi
-ms.service: data-manager-for-agri
+ms.service: azure-data-manager-agriculture
 ms.topic: how-to
 ms.date: 09/04/2023
 ms.custom: template-how-to

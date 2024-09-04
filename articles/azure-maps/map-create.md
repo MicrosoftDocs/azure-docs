@@ -7,6 +7,7 @@ ms.author: sipa
 ms.date: 06/13/2023
 ms.topic: how-to
 ms.service: azure-maps
+ms.subservice: web-sdk
 ---
 
 # Create a map

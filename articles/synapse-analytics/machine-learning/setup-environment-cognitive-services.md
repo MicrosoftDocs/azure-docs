@@ -1,9 +1,9 @@
 ---
 title: "Setup environment for Azure AI services for big data"
 description: Set up your SynapseML or MMLSpark pipeline with Azure AI services in Azure Databricks and run a sample.
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.subservice: machine-learning
-ms.reviewer: sngun, garye, negust, ruxu
+ms.reviewer: whhender, garye, negust, ruxu
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.topic: how-to
@@ -29,7 +29,7 @@ To work with big data in Azure AI services, first create an Azure AI services re
 
 ### Cloud services
 
-Cloud-based Azure AI services are intelligent algorithms hosted in Azure. These services are ready for use without training, you just need an internet connection. You can [create resources for Azure AI services in the Azure portal](../../ai-services/multi-service-resource.md?pivots=azportal) or with the [Azure CLI](../../ai-services/multi-service-resource.md?pivots=azcli).
+Cloud-based Azure AI services are intelligent algorithms hosted in Azure. These services are ready for use without training, you just need an internet connection. You can [create resources for Azure AI services in the Azure portal](/azure/ai-services/multi-service-resource?pivots=azportal) or with the [Azure CLI](/azure/ai-services/multi-service-resource?pivots=azcli).
 
 ### Containerized services (optional)
 
@@ -43,7 +43,7 @@ If your application or workload uses large datasets, requires private networking
 
 * **High Scalability**: Containerized services don't have "rate limits" and run on user-managed computers. So, you can scale Azure AI services without end to handle much larger workloads.
 
-Follow [this guide](../../ai-services/cognitive-services-container-support.md) to create a containerized Azure AI service.
+Follow [this guide](/azure/ai-services/cognitive-services-container-support) to create a containerized Azure AI service.
 
 ## Create an Apache Spark cluster
 
@@ -90,15 +90,15 @@ If you're using containerized Azure AI services, one popular option for deployin
 
 To get started on Azure Kubernetes Service, follow these steps:
 
-1. [Deploy an Azure Kubernetes Service (AKS) cluster using the Azure portal](../../aks/learn/quick-kubernetes-deploy-portal.md)
+1. [Deploy an Azure Kubernetes Service (AKS) cluster using the Azure portal](/azure/aks/learn/quick-kubernetes-deploy-portal)
 
 1. [Install the Apache Spark 2.4.0 helm chart](https://artifacthub.io/packages/helm/microsoft/spark) - warning: [Spark 2.4](../spark/apache-spark-24-runtime.md) is retired and out of the support.
 
-1. [Install an Azure AI container using Helm](../../ai-services/computer-vision/deploy-computer-vision-on-premises.md)
+1. [Install an Azure AI container using Helm](/azure/ai-services/computer-vision/deploy-computer-vision-on-premises)
 
 ## Try a sample
 
-After you set up your Spark cluster and environment, you can run a short sample. This sample assumes Azure Databricks and the `mmlspark.cognitive` package. For an example using `synapseml.cognitive`, see [Add search to AI-enriched data from Apache Spark using SynapseML](../../search/search-synapseml-cognitive-services.md).
+After you set up your Spark cluster and environment, you can run a short sample. This sample assumes Azure Databricks and the `mmlspark.cognitive` package. For an example using `synapseml.cognitive`, see [Add search to AI-enriched data from Apache Spark using SynapseML](/azure/search/search-synapseml-cognitive-services).
 
 First, you can create a notebook in Azure Databricks. For other Spark cluster providers, use their notebooks or Spark Submit.
 

@@ -2,12 +2,12 @@
 title: Azure Service Bus duplicate message detection | Microsoft Docs
 description: This article explains how you can detect duplicates in Azure Service Bus messages. The duplicate message can be ignored and dropped.
 ms.topic: article
-ms.date: 06/08/2023
+ms.date: 07/23/2024
 ---
 
 # Duplicate detection
 
-If an application fails due to a fatal error immediately after it sends a message, and the restarted application instance erroneously believes that the prior message delivery didn't occur, a subsequent send causes the same message to appear in the system twice.
+If an application fails due to a fatal error immediately after sending a message, and the restarted application instance erroneously believes that the prior message delivery didn't occur, a subsequent send causes the same message to appear in the system twice.
 
 It's also possible for an error at the client or network level to occur a moment earlier, and for a sent message to be committed into the queue, with the acknowledgment not successfully returned to the client. This scenario leaves the client in doubt about the outcome of the send operation.
 
@@ -21,7 +21,7 @@ Enabling duplicate detection helps keep track of the application-controlled `Mes
 
 Application control of the identifier is essential, because only that allows the application to tie the `MessageId` to a business process context from which it can be predictably reconstructed when a failure occurs.
 
-For a business process in which multiple messages are sent in the course of handling some application context, the `MessageId` may be a composite of the application-level context identifier, such as a purchase order number, and the subject of the message, for example, **12345.2017/payment**.
+For a business process in which multiple messages are sent in the course of handling some application context, the `MessageId` can be a composite of the application-level context identifier, such as a purchase order number, and the subject of the message, for example, **12345.2017/payment**.
 
 The `MessageId` can always be some GUID, but anchoring the identifier to the business process yields predictable repeatability, which is desired for using the duplicate detection feature effectively.
 
@@ -36,7 +36,7 @@ The `MessageId` can always be some GUID, but anchoring the identifier to the bus
 
 ## Duplicate detection window size
 
-Apart from just enabling duplicate detection, you can also configure the size of the duplicate detection history time window during which message-ids are retained. This value defaults to 10 minutes for queues and topics, with a minimum value of 20 seconds to maximum value of 7 days.
+Apart from just enabling duplicate detection, you can also configure the size of the duplicate detection history time window during which message IDs are retained. This value defaults to 10 minutes for queues and topics, with a minimum value of 20 seconds to maximum value of 7 days.
 
 Enabling duplicate detection and the size of the window directly impact the queue (and topic) throughput, since all recorded message IDs must be matched against the newly submitted message identifier.
 
@@ -59,4 +59,4 @@ See samples for the older .NET and Java client libraries here:
 - [Azure Service Bus client library samples for .NET (legacy)](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/)
 - [Azure Service Bus client library samples for Java (legacy)](https://github.com/Azure/azure-service-bus/tree/master/samples/Java/azure-servicebus)
 
-[!INCLUDE [service-bus-track-0-and-1-sdk-support-retirement](~/reusable-content/ce-skilling/azure/includes/service-bus-track-0-and-1-sdk-support-retirement.md)]
+[!INCLUDE [service-bus-track-0-and-1-sdk-support-retirement](../../includes/service-bus-track-0-and-1-sdk-support-retirement.md)]

@@ -51,7 +51,7 @@ To download and install SignTool:
 
 1. Download the latest version of SignTool and Windows Build Tools NuGet at [Microsoft.Windows.SDK.BuildTools](https://www.nuget.org/packages/Microsoft.Windows.SDK.BuildTools/).
 
-1. Install SignTool from the Windows SDK (minimum version: 10.0.2261.755).
+1. Install SignTool from the Windows SDK (minimum version: 10.0.2261.755, 20348 Windows SDK version is not supported with our dlib).
 
 Another option is to use the latest *nuget.exe* file to download and extract the latest Windows SDK Build Tools NuGet package by using PowerShell:
 
@@ -144,7 +144,7 @@ You can also use the following tools or platforms to set up signing integrations
 
 - **Azure DevOps task**: To use the Trusted Signing Azure DevOps task, see [Trusted Signing](https://marketplace.visualstudio.com/items?itemName=VisualStudioClient.TrustedSigning&ssr=false#overview) in Visual Studio Marketplace. Complete the instructions for setup.
 
-- **PowerShell for Authenticode**: To use PowerShell for Trusted Signing, see [Trusted Signing 0.3.8](https://www.powershellgallery.com/packages/TrustedSigning/0.3.8) in PowerShell Gallery to install the PowerShell module.
+- **PowerShell for Authenticode**: To use PowerShell for Trusted Signing, see [Trusted Signing](https://www.powershellgallery.com/packages/TrustedSigning/) in PowerShell Gallery to install the PowerShell module.
 
 - **Azure PowerShell - App Control for Business CI policy**: To use Trusted Signing for code integrity (CI) policy signing, follow the instructions in [Sign a new CI policy](./how-to-sign-ci-policy.md) and see [Az.CodeSigning PowerShell Module](/powershell/azure/install-azps-windows).
 

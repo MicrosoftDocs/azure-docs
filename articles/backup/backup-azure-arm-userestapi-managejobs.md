@@ -1,7 +1,7 @@
 ---
 title:  Manage the backup jobs using REST API in Azure Backup
 description: In this article, learn how to track and manage the backup and restore jobs of Azure Backup using REST API.
-ms.service: backup
+ms.service: azure-backup
 ms.topic: how-to
 ms.date: 04/09/2024
 ms.assetid: b234533e-ac51-4482-9452-d97444f98b38

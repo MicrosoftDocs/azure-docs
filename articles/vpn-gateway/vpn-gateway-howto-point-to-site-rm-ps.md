@@ -3,22 +3,22 @@ title: 'Configure P2S server configuration - certificate authentication: PowerSh
 description: Learn how to connect Windows and macOS clients securely to Azure virtual network using P2S and self-signed or CA issued certificates.
 titleSuffix: Azure VPN Gateway
 author: cherylmc
-ms.service: vpn-gateway
+ms.service: azure-vpn-gateway
 ms.topic: how-to
-ms.date: 08/07/2023
+ms.date: 05/15/2024
 ms.author: cherylmc 
 ms.custom: devx-track-azurepowershell
 
 ---
-# Configure server settings for P2S VPN certificate authentication - PowerShell
+# Configure server settings for P2S VPN Gateway certificate authentication - PowerShell
 
-This article helps you configure a point-to-site (P2S) VPN to securely connect individual clients running Windows, Linux, or macOS to an Azure virtual network (VNet). P2S VPN connections are useful when you want to connect to your VNet from a remote location, such when you're telecommuting from home or a conference.
+This article helps you configure a point-to-site (P2S) VPN to securely connect individual clients running Windows, Linux, or macOS to an Azure virtual network (VNet) using Azure PowerShell. This article contains basic PowerShell configuration steps. For more comprehensive information about creating this type of P2S VPN, see the Azure portal article [Configure a point-to-site VPN using the Azure portal](vpn-gateway-howto-point-to-site-resource-manager-portal.md).
 
-You can also use P2S instead of a Site-to-Site VPN when you have only a few clients that need to connect to a VNet. P2S connections don't require a VPN device or a public-facing IP address. P2S creates the VPN connection over either SSTP (Secure Socket Tunneling Protocol), or IKEv2.
+P2S VPN connections are useful when you want to connect to your VNet from a remote location, such when you're telecommuting from home or a conference. You can also use P2S instead of a Site-to-Site VPN when you have only a few clients that need to connect to a VNet. P2S connections don't require a VPN device or a public-facing IP address. P2S creates the VPN connection over either SSTP (Secure Socket Tunneling Protocol), or IKEv2.
 
 :::image type="content" source="./media/vpn-gateway-howto-point-to-site-rm-ps/point-to-site-diagram.png" alt-text="Diagram of point-to-site connection showing how to connect from a computer to an Azure VNet." lightbox="./media/vpn-gateway-howto-point-to-site-rm-ps/point-to-site-diagram.png":::
 
-For more information about P2S VPN, see [About P2S VPN](point-to-site-about.md). To create this configuration using the Azure portal, see [Configure a point-to-site VPN using the Azure portal](vpn-gateway-howto-point-to-site-resource-manager-portal.md).
+For more information about P2S VPN, see [About P2S VPN](point-to-site-about.md).
 
 [!INCLUDE [P2S basic architecture](../../includes/vpn-gateway-p2s-architecture.md)]
 
@@ -32,11 +32,11 @@ You can either use Azure Cloud Shell, or you can run PowerShell locally. For mor
 
 * Many of the steps in this article can use the Azure Cloud Shell. However, you can't use Cloud Shell to generate certificates. Additionally, to upload the root certificate public key, you must either use Azure PowerShell locally, or the Azure portal.
 
-* You may see warnings saying "The output object type of this cmdlet will be modified in a future release". This is expected behavior and you can safely ignore these warnings.
+* You might see warnings saying "The output object type of this cmdlet will be modified in a future release". This is expected behavior and you can safely ignore these warnings.
 
 ## <a name="signin"></a>Sign in
 
-[!INCLUDE [sign in](~/reusable-content/ce-skilling/azure/includes/vpn-gateway-cloud-shell-ps-login.md)]
+[!INCLUDE [sign in](../../includes/vpn-gateway-cloud-shell-ps-login.md)]
 
 ## <a name="ConfigureVNet"></a>Create a VNet
 
@@ -148,7 +148,7 @@ After the VPN gateway finishes creating, you can add the VPN client address pool
 > You can't generate certificates using Azure Cloud Shell. You must use one of the methods outlined in this section. If you want to use PowerShell, you must install it locally.
 >
 
-Certificates are used by Azure to authenticate VPN clients for P2S VPNs. You upload the public key information of the root certificate to Azure. The public key is then considered 'trusted'. Client certificates must be generated from the trusted root certificate, and then installed on each client computer in the Certificates-Current User/Personal certificate store. The certificate is used to authenticate the client when it initiates a connection to the VNet.
+Certificates are used by Azure to authenticate VPN clients for P2S VPNs. You upload the public key information of the root certificate to Azure. The public key is then considered trusted. Client certificates must be generated from the trusted root certificate, and then installed on each client computer in the Certificates-Current User/Personal certificate store. The certificate is used to authenticate the client when it initiates a connection to the VNet.
 
 If you use self-signed certificates, they must be created using specific parameters. You can create a self-signed certificate using the instructions for [PowerShell](vpn-gateway-certificates-point-to-site.md) for Windows computers running Windows 10 or later. If you aren't running Windows 10 or later, use [MakeCert](vpn-gateway-certificates-point-to-site-makecert.md) instead. 
 
@@ -198,26 +198,28 @@ Verify that your VPN gateway has finished creating. Once it has completed, you c
 
 The following steps help you install on a Windows client. For additional clients and more information, see [Install a client certificate](point-to-site-how-to-vpn-client-install-azure-cert.md).
 
-[!INCLUDE [Install on Windows](~/reusable-content/ce-skilling/azure/includes/vpn-gateway-certificates-install-client-cert-include.md)]
+[!INCLUDE [Install on Windows](../../includes/vpn-gateway-certificates-install-client-cert-include.md)]
 
 Make sure the client certificate was exported as a .pfx along with the entire certificate chain (which is the default). Otherwise, the root certificate information isn't present on the client computer and the client won't be able to authenticate properly.
 
-## <a name="connect"></a>Configure VPN clients and connect to Azure
+## <a name="generate"></a>Generate and download the VPN client profile configuration package
 
 Each VPN client is configured using the files in a VPN client profile configuration package that you generate and download. The configuration package contains settings that are specific to the VPN gateway that you created. If you make changes to the gateway, such as changing a tunnel type, certificate, or authentication type, you must generate another VPN client profile configuration package and install it on each client. Otherwise, your VPN clients may not be able to connect.
 
-For steps to generate a VPN client profile configuration package, configure your VPN clients, and connect to Azure, see the following articles:
+[!INCLUDE [Generate profile configuration files - PowerShell](../../includes/vpn-gateway-generate-profile-powershell.md)]
 
-* [Windows](point-to-site-vpn-client-cert-windows.md)
-* [macOS-iOS](point-to-site-vpn-client-cert-mac.md)
-* [Linux](point-to-site-vpn-client-cert-linux.md)
+## <a name="connect"></a>Configure VPN clients and connect to Azure
+
+For steps to configure your VPN clients and connect to Azure, see the following articles:
+
+[!INCLUDE [Azure VPN Client install link table](../../includes/vpn-gateway-vpn-client-install-articles.md)]
 
 ## <a name="verify"></a>To verify a connection
 
 These instructions apply to Windows clients.
 
 1. To verify that your VPN connection is active, open an elevated command prompt, and run *ipconfig/all*.
-2. View the results. Notice that the IP address you received is one of the addresses within the P2S VPN Client Address Pool that you specified in your configuration. The results are similar to this example:
+1. View the results. Notice that the IP address you received is one of the addresses within the P2S VPN Client Address Pool that you specified in your configuration. The results are similar to this example:
 
    ```
    PPP adapter VNet1:

@@ -254,10 +254,12 @@ To create an identity validation request:
 | :------------------- | :------------------- |
 | Onboarding           | Trusted Signing at this time can onboard only legal business entities that have verifiable tax history of three or more years. For a quicker onboarding process, ensure that public records for the legal business entity that you're validated are up to date. |
 | Accuracy             | Ensure that you provide the correct information for public identity validation. If you need to make any changes after it is created, you must complete a new identity validation request. This change affects the associated certificates that are being used for signing. |
-| More documentation            | If we need more documentation to process the identity validation request, you're notified through email. You can upload the documents in the Azure portal. The documentation request email contains information about file size requirements. Ensure that any documents you provide are the most current. |
 | Failed email verification            | If email verification fails, you must initiate a new identity validation request. |
 | Identity validation status            | You're notified through email when there's an update to the identity validation status. You can also check the status in the Azure portal at any time. |
 | Processing time            | Processing your identity validation request takes from 1 to 7 business days (possibly longer if we need to request more documentation from you). |
+| More documentation            | If we need more documentation to process the identity validation request, you're notified through email. You can upload the documents in the Azure portal. The documentation request email contains information about file size requirements. Ensure that any documents you provide are the most current. <br>- All documents submitted must be issued within the previous 12 months or where the expiration date is a future date that is at least two months away. <br>  - If it is not possible to provide additional documentation, please update your account information to match any legal documents already provided or your official Company registration details. <br>  - When providing official business document, such as business registration form, business charter, or articles of incorporation that list the company name and address as it is provided at the time of Identity Validation request creation. <br>  - Ensure the domain registration or domain invoice from registration or renewal that lists the entity/contact name and domain as it is state on the request.|                                                            
+
+
 
 ## Create a certificate profile  
 

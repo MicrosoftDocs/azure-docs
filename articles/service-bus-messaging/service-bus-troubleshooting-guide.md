@@ -239,7 +239,7 @@ You receive the following error message:
 
 `Microsoft.Azure.ServiceBus.ServiceBusException: Put token failed. status-code: 403, status-description: The maximum number of '1000' tokens per connection has been reached.` 
 
-[!INCLUDE [service-bus-track-0-and-1-sdk-support-retirement](~/reusable-content/ce-skilling/azure/includes/service-bus-track-0-and-1-sdk-support-retirement.md)]
+[!INCLUDE [service-bus-track-0-and-1-sdk-support-retirement](../../includes/service-bus-track-0-and-1-sdk-support-retirement.md)]
 
 ### Cause
 Number of authentication tokens for concurrent links in a single connection to a Service Bus namespace has exceeded the limit: 1000. 
@@ -271,7 +271,7 @@ You see an error that the entity is no longer available.
 The resource might have been deleted. Follow these steps to identify why the entity was deleted. 
 
 - Check the activity log to see if there's an Azure Resource Manager request for deletion. 
-- Check the operational log to see if there was a direct API call for deletion. To learn how to collect an operational log, see [Collection and routing](monitor-service-bus.md#collection-and-routing). For the schema and an example of an operation log, see [Operation logs](monitor-service-bus-reference.md#operational-logs)
+- Check the operational log to see if there was a direct API call for deletion. To learn how to collect an operational log, see [Monitor Azure Service Bus](monitor-service-bus.md#data-storage). For the schema and an example of an operation log, see [Operation logs](monitor-service-bus-reference.md#operational-logs)
 - Check the operation log to see if there was an `autodeleteonidle` related deletion. 
 
 

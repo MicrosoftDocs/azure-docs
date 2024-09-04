@@ -16,7 +16,7 @@ The Azure Cosmos DB input binding uses the SQL API to retrieve one or more Azure
 For information on setup and configuration details, see the [overview](./functions-bindings-cosmosdb-v2.md).
 
 > [!NOTE]
-> When the collection is [partitioned](../cosmos-db/partitioning-overview.md#logical-partitions), lookup operations must also specify the partition key value.
+> When the collection is [partitioned](/azure/cosmos-db/partitioning-overview#logical-partitions), lookup operations must also specify the partition key value.
 >
 
 ::: zone pivot="programming-language-javascript,programming-language-typescript"
@@ -35,7 +35,7 @@ Unless otherwise noted, examples in this article target version 3.x of the [Azur
 
 [!INCLUDE [functions-bindings-csharp-intro](../../includes/functions-bindings-csharp-intro.md)]
 
-[!INCLUDE [functions-in-process-model-retirement-note](~/reusable-content/ce-skilling/azure/includes/functions-in-process-model-retirement-note.md)]
+[!INCLUDE [functions-in-process-model-retirement-note](../../includes/functions-in-process-model-retirement-note.md)]
 
 # [Isolated worker model](#tab/isolated-process)
 
@@ -246,7 +246,7 @@ The following example shows a [C# function](functions-dotnet-class-library.md) t
 The example shows how to use a binding expression in the `SqlQuery` parameter. You can pass route data to the `SqlQuery` parameter as shown, but currently [you can't pass query string values](https://github.com/Azure/azure-functions-host/issues/2554#issuecomment-392084583).
 
 > [!NOTE]
-> If you need to query by just the ID, it is recommended to use a look up, like the [previous examples](#http-trigger-look-up-id-from-query-string-c), as it will consume less [request units](../cosmos-db/request-units.md). Point read operations (GET) are [more efficient](../cosmos-db/optimize-cost-reads-writes.md) than queries by ID.
+> If you need to query by just the ID, it is recommended to use a look up, like the [previous examples](#http-trigger-look-up-id-from-query-string-c), as it will consume less [request units](/azure/cosmos-db/request-units). Point read operations (GET) are [more efficient](/azure/cosmos-db/optimize-cost-reads-writes) than queries by ID.
 >
 
 ```cs
@@ -635,7 +635,7 @@ public class DocByIdFromRoute {
 The following example shows a Java function that retrieves a single document. The function is triggered by an HTTP request that uses a route parameter to specify the ID to look up. That ID is used to retrieve a document from the specified database and collection, converting the result set to a `ToDoItem[]`, since many documents may be returned, depending on the query criteria.
 
 > [!NOTE]
-> If you need to query by just the ID, it is recommended to use a look up, like the [previous examples](#http-trigger-look-up-id-from-query-string---pojo-parameter-java), as it will consume less [request units](../cosmos-db/request-units.md). Point read operations (GET) are [more efficient](../cosmos-db/optimize-cost-reads-writes.md) than queries by ID.
+> If you need to query by just the ID, it is recommended to use a look up, like the [previous examples](#http-trigger-look-up-id-from-query-string---pojo-parameter-java), as it will consume less [request units](/azure/cosmos-db/request-units). Point read operations (GET) are [more efficient](/azure/cosmos-db/optimize-cost-reads-writes) than queries by ID.
 >
 
 ```java

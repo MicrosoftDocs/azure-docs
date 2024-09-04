@@ -1,10 +1,10 @@
 ---
 title: 'Quickstart: Create Apache HBase cluster using Bicep - Azure HDInsight'
 description: This quickstart shows how to use Bicep to create an Apache HBase cluster in Azure HDInsight.
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: quickstart
 ms.custom: subject-armqs, mode-arm, devx-track-bicep
-ms.date: 05/24/2023
+ms.date: 06/15/2024
 #Customer intent: As a developer new to Apache HBase on Azure, I need to see how to create an HBase cluster.
 ---
 

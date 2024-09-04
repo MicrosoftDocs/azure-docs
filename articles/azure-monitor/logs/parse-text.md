@@ -4,7 +4,7 @@ description: This article describes options for parsing log data in Azure Monito
 ms.topic: conceptual
 author: guywi-ms
 ms.author: guywild
-ms.date: 10/20/2021
+ms.date: 08/12/2024
 
 ---
 

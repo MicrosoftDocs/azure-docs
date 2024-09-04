@@ -3,9 +3,9 @@ title: "Quickstart - Monitoring Azure Spring Apps apps with logs, metrics, and t
 description: Use log streaming, log analytics, metrics, and tracing to monitor PetClinic sample apps on Azure Spring Apps.
 author: KarlErickson
 ms.author: karler
-ms.service: spring-apps
+ms.service: azure-spring-apps
 ms.topic: quickstart
-ms.date: 10/12/2021
+ms.date: 06/27/2024
 ms.custom: devx-track-java, devx-track-extended-java, mode-other
 zone_pivot_groups: programming-languages-spring-apps
 ---

@@ -7,9 +7,9 @@ ms.date: 05/08/2024
 ms.author: robece
 ---
 
-# Authenticate Azure Event Grid clients using access keys or shared access signatures (Preview)
+# Authenticate Azure Event Grid clients using access keys or shared access signatures
 
-This article provides information on authenticating clients to Azure Event Namespace Topics, custom topics, domains, and partner namespaces using **access key** or **Shared Access Signature (SAS)** token.
+This article provides information on authenticating clients to Azure Event Grid namespace topics, custom topics, domains, and partner namespaces using **access key** or **Shared Access Signature (SAS)** token.
 
 > [!IMPORTANT]
 > - Authenticating and authorizing users or applications using Microsoft Entra identities provides superior security and ease of use over key-based and shared access signatures (SAS) authentication. With Microsoft Entra ID, there is no need to store secrets used for authentication in your code and risk potential security vulnerabilities. We strongly recommend using Microsoft Entra ID with your applications.
@@ -50,7 +50,7 @@ Shared Access Signatures (SAS) provides you with access control over resources w
 
 ## Shared Access Signature token
 
-You can generate a SAS token to be included when your client application communicates with Event Grid. SAS tokens for Event Grid resources are `Base64` encoded strings with the following format: `r={resource}&e={expiration_utc}&s={signature}`.
+You can generate a SAS token to be included when your client application communicates with Event Grid. SAS tokens for Event Grid resources are `URL` encoded strings with the following format: `r={resource}&e={expiration_utc}&s={signature}`.
 
 - `{resource}` is the URL that represents the Event Grid resource the client accesses.
   - The valid URL format for custom topics, domains, and partner namespaces is `https://<yourtopic>.<region>.eventgrid.azure.net/api/events`.

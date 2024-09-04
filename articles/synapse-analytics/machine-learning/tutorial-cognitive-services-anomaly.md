@@ -1,10 +1,10 @@
 ---
 title: 'Tutorial: Anomaly detection with Azure AI services'
 description: Learn how to use Azure AI Anomaly Detector for anomaly detection in Azure Synapse Analytics.
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.subservice: machine-learning
 ms.topic: tutorial
-ms.reviewer: sngun, garye
+ms.reviewer: whhender, garye
 ms.date: 07/01/2021
 author: nelgson
 ms.author: negust
@@ -12,7 +12,7 @@ ms.author: negust
 
 # Tutorial: Anomaly detection with Azure AI services
 
-In this tutorial, you'll learn how to easily enrich your data in Azure Synapse Analytics with [Azure AI services](../../ai-services/index.yml). You'll use [Azure AI Anomaly Detector](../../ai-services/anomaly-detector/index.yml) to find anomalies. A user in Azure Synapse can simply select a table to enrich for detection of anomalies.
+In this tutorial, you'll learn how to easily enrich your data in Azure Synapse Analytics with [Azure AI services](/azure/ai-services/). You'll use [Azure AI Anomaly Detector](/azure/ai-services/anomaly-detector/) to find anomalies. A user in Azure Synapse can simply select a table to enrich for detection of anomalies.
 
 This tutorial covers:
 
@@ -98,7 +98,7 @@ When you're done, select **Open notebook**. This will generate a notebook for yo
 
 The notebook that you just opened uses the [SynapseML library](https://github.com/microsoft/SynapseML) to connect to Azure AI services. The Azure AI services linked service that you provided allow you to securely reference your Azure AI service from this experience without revealing any secrets.
 
-You can now run all cells to perform anomaly detection. Select **Run All**. [Learn more about Anomaly Detector in Azure AI services](../../ai-services/anomaly-detector/index.yml).
+You can now run all cells to perform anomaly detection. Select **Run All**. [Learn more about Anomaly Detector in Azure AI services](/azure/ai-services/anomaly-detector/).
 
 ![Screenshot that shows anomaly detection.](media/tutorial-cognitive-services/tutorial-cognitive-services-anomaly-notebook.png)
 
@@ -106,5 +106,5 @@ You can now run all cells to perform anomaly detection. Select **Run All**. [Lea
 
 - [Tutorial: Sentiment analysis with Azure AI services](tutorial-cognitive-services-sentiment.md)
 - [Tutorial: Machine learning model scoring in Azure Synapse dedicated SQL pools](tutorial-sql-pool-model-scoring-wizard.md)
-- [Tutorial: Use Multivariate Anomaly Detector in Azure Synapse Analytics](../../ai-services/Anomaly-Detector/tutorials/multivariate-anomaly-detection-synapse.md)
+- [Tutorial: Use Multivariate Anomaly Detector in Azure Synapse Analytics](/azure/ai-services/anomaly-detector/tutorials/multivariate-anomaly-detection-synapse)
 - [Machine Learning capabilities in Azure Synapse Analytics](what-is-machine-learning.md)
