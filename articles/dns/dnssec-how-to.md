@@ -36,7 +36,7 @@ To sign your zone with DNSSEC using the Azure portal:
 
 4. When you are prompted to confirm that you wish to enable DNSSEC, select **OK**.
     
-    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+P+/HgAFhAJ/wlseKgAAAABJRU5ErkJggg==" alt="A transparent image to add a blank line." width="6">
+    <img src="./media/dnssec-how-to/transparent.png" alt="A transparent image to add a blank line." width="6">
 
     <img src="./media/dnssec-how-to/confirm-dnssec.png" alt="Screenshot of confirming DNSSEC signing." width="60%">
 
