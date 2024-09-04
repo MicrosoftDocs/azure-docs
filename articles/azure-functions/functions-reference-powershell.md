@@ -389,7 +389,8 @@ The following table shows the PowerShell versions available to each major versio
 
 | Functions version | PowerShell version                               | .NET version  | 
 |-------------------|--------------------------------------------------|---------------|
-| 4.x | PowerShell 7.4 | .NET 6 |
+| 4.x | PowerShell 7.4 | .NET 8 |
+| 4.x | PowerShell 7.2 (support ending) | .NET 6 |
 
 You can see the current version by printing `$PSVersionTable` from any function.
 
