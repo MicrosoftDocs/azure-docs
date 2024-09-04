@@ -92,9 +92,16 @@ To add a new or existing virtual network to your storage account, follow these s
 
    If you haven't enabled public network access to the virtual network previously, the Microsoft.Storage service endpoint will need to be added to the virtual network subnet. This can take up to 15 minutes to complete, although in most cases it will complete much faster. Until this operation has completed, you won't be able to access the Azure file shares within that storage account, including via the VPN connection.
 
-   To add a gateway subnet to an existing virtual network, run the following script. Be sure to replace `<resource-group>` and `<virtual-network-name>` with your own values. The `$subnetAddressPrefix` parameter defines the IP address block for the subnet, so replace the IP address per your requirements.
+   To add a gateway subnet to an existing virtual network, run the following script. Be sure to replace `<your-subscription-id>`, `<resource-group>`, and `<virtual-network-name>` with your own values. The `$subnetAddressPrefix` parameter defines the IP address block for the subnet, so replace the IP address per your requirements.
 
    ```azurepowershell-interactive
+   # Select subscription  
+   $subscriptionId = "<your-subscription-id>"
+   Select-AzSubscription -SubscriptionId $subscriptionId  
+   
+   # Set current storage account
+   Set-AzCurrentStorageAccount -ResourceGroupName "<resource-group>" -Name "<storage-account-name>"
+
    # Define parameters
    $resourceGroup = "<resource-group>"
    $vnetName = "<virtual-network-name>"
@@ -134,9 +141,12 @@ To add a new or existing virtual network to your storage account, follow these s
 
    If you haven't enabled public network access to the virtual network previously, the Microsoft.Storage service endpoint will need to be added to the virtual network subnet. This can take up to 15 minutes to complete, although in most cases it will complete much faster. Until this operation has completed, you won't be able to access the Azure file shares within that storage account, including via the VPN connection.
 
-   To add a gateway subnet to an existing virtual network, run the following script. Be sure to replace `<resource-group>` and `<virtual-network-name>` with your own values. The `$subnetAddressPrefix` parameter defines the IP address block for the subnet, so replace the IP address block as needed.
+   To add a gateway subnet to an existing virtual network, run the following script. Be sure to replace `<your-subscription-id>`, `<resource-group>` and `<virtual-network-name>` with your own values. The `$subnetAddressPrefix` parameter defines the IP address block for the subnet, so replace the IP address block as needed.
 
    ```azurecli-interactive
+   # Set your subscription  
+   az account set --subscription "<your-subscription-id>"
+
    # Define parameters
    resourceGroup="<resource-group>"
    vnetName="<virtual-network-name>"
@@ -213,7 +223,7 @@ To deploy a virtual network gateway, follow these steps.
    New-AzVirtualNetworkGateway -Name MyVnetGateway -ResourceGroupName <resource-group> -Location "East US" -IpConfigurations $gwipconfig -GatewayType "Vpn" -VpnType RouteBased -GatewaySku VpnGw2 -VpnGatewayGeneration Generation2
    ```
 
-   You can also choose to include other features like [Border Gateway Protocol (BGP)](../../.../vpn-gateway/vpn-gateway-bgp-overview.md) and [Active-Active](../../vpn-gateway/vpn-gateway-highlyavailable.md). See the documentation for the [New-AzVirtualNetworkGateway](/powershell/module/az.network/new-azvirtualnetworkgateway?view=azps-12.2.0) cmdlet. If you do require BGP, the default ASN is 65515, although this value can be changed.
+   You can also choose to include other features like [Border Gateway Protocol (BGP)](../../../vpn-gateway/vpn-gateway-bgp-overview.md) and [Active-Active](../../vpn-gateway/vpn-gateway-highlyavailable.md). See the documentation for the [New-AzVirtualNetworkGateway](/powershell/module/az.network/new-azvirtualnetworkgateway) cmdlet. If you do require BGP, the default ASN is 65515, although this value can be changed.
 
 1. Creating a gateway can take 45 minutes or more, depending on the gateway SKU you specified. You can view the VPN gateway using the [Get-AzVirtualNetworkGateway](/powershell/module/az.network/Get-azVirtualNetworkGateway) cmdlet.
 
