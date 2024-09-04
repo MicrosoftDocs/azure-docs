@@ -100,7 +100,7 @@ From the Azure CLI, follow the steps below. If you don't have the Azure CLI inst
 
     :::image type="content" source="./media/import-export/continue-import-file-prompt.png" alt-text="Screenshot of the CLI. Import from file confirmation prompt.":::
 
-You imported key-values from a JSON file, aand assigned them the label "prod" and the prefix "TestApp:". The separator ";" is used and all key-values that you imported have content type set as "JSON".
+You imported key-values from a JSON file, and assigned them the label "prod" and the prefix "TestApp:". The separator ";" is used and all key-values that you imported have content type set as "JSON".
 
 For more optional parameters and examples, go to [az appconfig kv import](/cli/azure/appconfig/kv?view=azure-cli-latest#az-appconfig-kv-import&preserve-view=true).
 
@@ -539,7 +539,7 @@ For more optional parameters and examples, go to [az appconfig kv export](/cli/a
 
 You may encounter the following error messages when importing or exporting App Configuration key-values:
 
-- **Public access is disabled for your store or you are accessing from a private endpoint that is not in the store’s private endpoint configurations**. If your App Configuration store has private endpoints enabled, you can only access it from within the configured virtual network by default. Ensure that the machine running the Azure Portal or CLI is joined to the same virtual network as the private endpoint. If you have just enabled public network access to your App Configuration store, wait at least 5 minutes before retrying to allow the cache to refresh.
+- **Public access is disabled for your store or you are accessing from a private endpoint that is not in the store’s private endpoint configurations**. If your App Configuration store has private endpoints enabled, you can only access it from within the configured virtual network by default. Ensure that the machine running the Azure portal or CLI is joined to the same virtual network as the private endpoint. If you have just enabled public network access to your App Configuration store, wait at least 5 minutes before retrying to allow the cache to refresh.
 
 ## Next steps
 
