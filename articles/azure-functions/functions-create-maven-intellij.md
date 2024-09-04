@@ -68,7 +68,7 @@ To run the project locally, follow these steps:
 > [!IMPORTANT]
 > You must have the JAVA_HOME environment variable set correctly to the JDK directory that is used during code compiling using Maven. Make sure that the version of the JDK is at least as high as the `Java.version` setting.
 
-1. Navigate to *src/main/java/org/example/functions/HttpTriggerFunction.java* to see the code generated. Beside line 24, you should see a green **Run** button. Select it and then select **Run 'Functions-azur...'**. You should see your function app running locally with a few logs.
+1. Navigate to *src/main/java/org/example/functions/HttpTriggerFunction.java* to see the code generated. Beside line 17, you should see a green **Run** button. Select it and then select **Run 'Functions-azur...'**. You should see your function app running locally with a few logs.
 
    :::image type="content" source="media/functions-create-first-java-intellij/local-run-functions-project.png" alt-text="Local run project." lightbox="media/functions-create-first-java-intellij/local-run-functions-project.png":::
 

@@ -58,8 +58,7 @@ root management group is built into the hierarchy to have all management groups 
 fold up to it.
 
 The root management group allows for the application of global policies and Azure role assignments
-at the directory level. Initially, the [Microsoft Entra Global Administrator needs to elevate
-themselves](../../role-based-access-control/elevate-access-global-admin.md) to the User Access
+at the directory level. Initially, the [Elevate access to manage all Azure subscriptions and management groups](../../role-based-access-control/elevate-access-global-admin.md) to the User Access
 Administrator role of this root group. After elevating access, the administrator can
 assign any Azure role to other directory users or groups to manage the hierarchy. As an administrator,
 you can assign your account as the owner of the root management group.
