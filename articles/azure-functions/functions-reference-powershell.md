@@ -418,7 +418,8 @@ To use PowerShell 7.4 when running locally, you need to add the setting `"FUNCTI
 
 ### Changing the PowerShell version
 
-Before upgrading your Function App to PowerShell 7.4, review this [migration guide](https://github.com/Azure/azure-functions-powershell-worker/wiki/Upgrading-your-Azure-Function-Apps-to-run-on-PowerShell-7.4) before proceeding as there are breaking changes. 
+Take these considerations into account before you migrate your PowerShell function app to PowerShell 7.4: 
++ Because the migration might introduce breaking changes in your app, review this [migration guide](https://github.com/Azure/azure-functions-powershell-worker/wiki/Upgrading-your-Azure-Function-Apps-to-run-on-PowerShell-7.4) before upgrading your app to PowerShell 7.4.
 
 To upgrade your Function App to PowerShell 7.4, ensure the value of FUNCTIONS_EXTENSION_VERSION is set to ~4. To learn how to do this, see [View and update the current runtime version](set-runtime-version.md#view-the-current-runtime-version).
 
