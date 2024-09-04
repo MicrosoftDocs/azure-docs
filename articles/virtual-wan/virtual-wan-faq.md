@@ -532,22 +532,23 @@ No, maintenance activities won't be paused on your resource during the period be
 
 ### Are there limits on the number of routes I can advertise?
 
-Yes, there are limits. ExpressRoute supports up to 4,000 prefixes for private peering and 200 prefixes for Microsoft peering. With ExpressRoute Premium, you can increase the limit to 10,000 routes for private peering. The maximum number of routes advertised from Azure private peering via an ExpressRoute Gateway over an ExpressRoute circuit is 1,000, which is the same for both standard and premium ExpressRoute circuits. For more details, you can review [the ExpressRoute circuits Route Limits on the Azure subscription limits and quotas page](https://learn.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#route-advertisement-limits) Please note that IPv6 route advertisements are currently not supported with Virtual WAN.
+Yes, there are limits. ExpressRoute supports up to 4,000 prefixes for private peering and 200 prefixes for Microsoft peering. With ExpressRoute Premium, you can increase the limit to 10,000 routes for private peering. The maximum number of routes advertised from Azure private peering via an ExpressRoute Gateway over an ExpressRoute circuit is 1,000, which is the same for both standard and premium ExpressRoute circuits. For more details, you can review [the ExpressRoute circuits Route Limits on the Azure subscription limits and quotas page](../azure-resource-manager/management/azure-subscription-service-limits.md#route-advertisement-limits) Please note that IPv6 route advertisements are currently not supported with Virtual WAN.
 
 ### Are there restrictions on IP ranges I can advertise over the BGP session?
 
 Yes, there are restrictions. Private prefixes (RFC1918) are not accepted for the Microsoft peering BGP session. However, any prefix size up to a /32 prefix is accepted on both the Microsoft and private peering.
-What happens if the BGP route limit gets exceeded?
-If the BGP route limit is exceeded, BGP sessions will disconnect. The sessions will be restored once the prefix count is reduced below the limit. For more information, see [the ExpressRoute circuits Route limits on the Azure subscription limits and quotas page](https://learn.microsoft.com/en-us/azure/azure-resource-manager/management/azure-subscription-service-limits#route-advertisement-limits).
+
+### What happens if the BGP route limit gets exceeded?
+If the BGP route limit is exceeded, BGP sessions will disconnect. The sessions will be restored once the prefix count is reduced below the limit. For more information, see [the ExpressRoute circuits Route limits on the Azure subscription limits and quotas page](../azure-resource-manager/management/azure-subscription-service-limits.md#route-advertisement-limits).
 
 ### Can I monitor the number of routes advertised or received over an ExpressRoute circuit?
 
-Yes, you can. For the best practices and configuration for metric-based alert monitoring, [refer to the Azure monitoring best practices](https://learn.microsoft.com/azure/virtual-wan/monitoring-best-practices#expressroute-gateway).
+Yes, you can. For the best practices and configuration for metric-based alert monitoring, [refer to the Azure monitoring best practices](../virtual-wan/monitoring-best-practices.md#expressroute-gateway).
 
 ### What is the recommendation to reduce the number of IP prefixes?
 
 We recommend aggregating the prefixes before advertising them over ExpressRoute or VPN gateway. Additionally, you can use
-[Route-Maps](https://learn.microsoft.com/azure/virtual-wan/route-maps-about) to summarize routes advertised from/to Virtual WAN.
+[Route-Maps](../virtual-wan/route-maps-about.md) to summarize routes advertised from/to Virtual WAN.
 
 
 ## Next steps
