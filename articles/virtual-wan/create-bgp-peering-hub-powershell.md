@@ -77,7 +77,7 @@ Update-AzVirtualHubBgpConnection -ResourceGroupName "[resource group name]" -Vir
 ```
 ## BGP learned route in HUB
 
-check BGP learned route in HUB
+Check BGP learned route in HUB.
 
 ```azurepowershell-interactive
 Get-AzRouteServerPeerLearnedRoute -ResourceGroupName "[resource group name]" -RouteServerName "[hub name]" -PeerName "[peer name]"
