@@ -257,7 +257,7 @@ To learn more about the Syslog and CEF connectors, see [Ingest Syslog and CEF lo
 
 ### Install domain solutions with dependencies
 
-Some Microsoft Sentinel content hub solutions, including many [domain solutions](sentinel-solutions-catalog.md#domain-solutions) and solutions that use the unified AMA connectors for [CEF, Syslog](cef-syslog-ama-overview.md), or [custom logs](connect-custom-logs-ama.md), don't neccesarily include a data connector of their own. Instead, they rely on data connectors from other solutions to provide visiblity in a specific area across data connectors. The data connectors they use are prerequisites for the domain solution to work properly.
+Some Microsoft Sentinel content hub solutions, including many [domain solutions](sentinel-solutions-catalog.md#domain-solutions) and solutions that use the unified AMA connectors for [CEF, Syslog](cef-syslog-ama-overview.md), or [custom logs](connect-custom-logs-ama.md), don't necessarily include a data connector of their own. Instead, they rely on data connectors from other solutions to provide visibility in a specific area across data connectors. The data connectors they use are prerequisites for the domain solution to work properly.
 
 When installing a domain solution, you can now select **Install with dependencies** to ensure that the data connectors required by the domain solution are also installed:
 
