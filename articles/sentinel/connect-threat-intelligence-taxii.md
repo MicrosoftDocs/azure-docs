@@ -31,7 +31,7 @@ For more information, see [Connect your threat intelligence platform (TIP) to Mi
 
 ## Prerequisites
 
-- To install, update and delete standalone content or solutions in the **Content hub**, you need the Microsoft Sentinel Contributor role at the resource group level.
+- To install, update, and delete standalone content or solutions in the **Content hub**, you need the Microsoft Sentinel Contributor role at the resource group level.
 - You must have read and write permissions to the Microsoft Sentinel workspace to store your threat indicators.
 - You must have a TAXII 2.0 or TAXII 2.1 API root URI and collection ID.
 
@@ -46,7 +46,9 @@ TAXII 2.x servers advertise API roots, which are URLs that host collections of t
 
 To import threat indicators into Microsoft Sentinel from a TAXII server, follow these steps:
 
-1. For Microsoft Sentinel in the [Azure portal](https://portal.azure.com), under **Content management**, select **Content hub**. <br>For Microsoft Sentinel in the [Defender portal](https://security.microsoft.com/), select **Microsoft Sentinel** > **Content management** > **Content hub**.
+1. For Microsoft Sentinel in the [Azure portal](https://portal.azure.com), under **Content management**, select **Content hub**.
+
+   For Microsoft Sentinel in the [Defender portal](https://security.microsoft.com/), select **Microsoft Sentinel** > **Content management** > **Content hub**.
 
 1. Find and select the **Threat Intelligence** solution.
 
@@ -58,7 +60,7 @@ For more information about how to manage the solution components, see [Discover 
 
 1. To configure the TAXII data connector, select the **Data connectors** menu.
 
-1. Find and select the **Threat intelligence - TAXII** data connector and then select **Open connector page**.
+1. Find and select the **Threat intelligence - TAXII** data connector, and then select **Open connector page**.
 
     :::image type="content" source="media/connect-threat-intelligence-taxii/taxii-data-connector-config.png" alt-text="Screenshot that shows the Data connectors page with the TAXII data connector listed." lightbox="media/connect-threat-intelligence-taxii/taxii-data-connector-config.png":::
 

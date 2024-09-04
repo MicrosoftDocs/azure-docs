@@ -31,7 +31,9 @@ In this how-to guide, you add indicators from a CSV or JSON file into Microsoft 
 
 Add multiple indicators to your threat intelligence with a specially crafted CSV or JSON file. Download the file templates to get familiar with the fields and how they map to the data you have. Review the required fields for each template type to validate your data before you import it.
 
-1. For Microsoft Sentinel in the [Azure portal](https://portal.azure.com), under **Threat management**, select **Threat intelligence**.<br> For Microsoft Sentinel in the [Defender portal](https://security.microsoft.com/), select **Microsoft Sentinel** > **Threat management** > **Threat intelligence**.
+1. For Microsoft Sentinel in the [Azure portal](https://portal.azure.com), under **Threat management**, select **Threat intelligence**.
+
+   For Microsoft Sentinel in the [Defender portal](https://security.microsoft.com/), select **Microsoft Sentinel** > **Threat management** > **Threat intelligence**.
 
 1. Select **Import** > **Import using a file**.
 
@@ -68,7 +70,7 @@ The templates provide all the fields you need to create a single valid indicator
 
     :::image type="content" source="media/indicators-bulk-file-import/upload-file-pane.png" alt-text="Screenshot that shows the dropdown menu to upload a CSV or JSON file, choose a template, and specify a source highlighting the Import button.":::
 
-1. Select the **Import** button.
+1. Select **Import**.
 
 ## Manage file imports
 
@@ -94,7 +96,7 @@ Review each template to ensure that your indicators are imported successfully. B
 
 ### CSV template structure
 
-1. Choose between the **File indicators** or **All other indicator types** option from the **Indicator type** dropdown menu when you select **CSV**. 
+1. On the **Indicator type** dropdown menu, select **CSV**. Then choose between the **File indicators** or **All other indicator types** options. 
 
     The CSV template needs multiple columns to accommodate the file indicator type because file indicators can have multiple hash types like MD5 and SHA256. All other indicator types like IP addresses only require the observable type and the observable value.
 
