@@ -64,23 +64,24 @@ To add a new or existing virtual network to your storage account, follow these s
    Connect-AzAccount
    ```
 
-1. If you want to add a new virtual network and gateway subnet, run the following script. If you have an existing virtual network that you want to use, then skip this step and proceed to step 3. Be sure to replace `<your-subscription-id>`, `<resource-group>`, and `<storage-account-name>` with your own values. If desired, provide your own values for `$location`, `$vnetName`, and `$subnetName`. The `-AddressPrefix` parameter defines the IP address blocks for the virtual network and the subnet, so replace those with your respective values.
+1. If you want to add a new virtual network and gateway subnet, run the following script. If you have an existing virtual network that you want to use, then skip this step and proceed to step 3. Be sure to replace `<your-subscription-id>`, `<resource-group>`, and `<storage-account-name>` with your own values. If desired, provide your own values for `$location` and `$vnetName`. The `-AddressPrefix` parameter defines the IP address blocks for the virtual network and the subnet, so replace those with your respective values.
 
    ```azurepowershell-interactive
    # Select subscription  
    $subscriptionId = "<your-subscription-id>"
-   Select-AzSubscription -SubscriptionId $subscriptionId  
-   
-   # Set current storage account
-   Set-AzCurrentStorageAccount -ResourceGroupName "<resource-group>" -Name "<storage-account-name>"
+   Select-AzSubscription -SubscriptionId $subscriptionId
 
-   # Define parameters  
+   # Define parameters
+   $storageAccount = "<storage-account-name>"
    $resourceGroup = "<resource-group>"
    $location = "East US"
    $vnetName = "myVNet"
    # Virtual network gateway can only be created in subnet with name 'GatewaySubnet'.
    $subnetName = "GatewaySubnet"
-     
+   
+   # Set current storage account
+   Set-AzCurrentStorageAccount -ResourceGroupName "<resource-group>" -Name $storageAccount
+
    # Define subnet configuration  
    $subnetConfig = New-AzVirtualNetworkSubnetConfig -Name $subnetName -AddressPrefix 10.0.0.0/24  
      
@@ -126,7 +127,7 @@ To add a new or existing virtual network to your storage account, follow these s
    Update-AzStorageAccountNetworkRuleSet -ResourceGroupName $resourceGroup -Name $storageAccount -DefaultAction Deny
    ```
    
-1. Enable a `Microsoft.Storage.Global` service endpoint on the virtual network and subnet.
+1. Enable a `Microsoft.Storage` service endpoint on the virtual network and subnet.
 
    ```azurepowershell-interactive
    Get-AzVirtualNetwork -ResourceGroupName $resourceGroup -Name $vnetName | Set-AzVirtualNetworkSubnetConfig -Name $subnetName -AddressPrefix $subnetAddressPrefix -ServiceEndpoint "Microsoft.Storage.Global" | Set-AzVirtualNetwork
@@ -189,7 +190,7 @@ To add a new or existing virtual network to your storage account, follow these s
    az storage account update --resource-group $resourceGroup --name $storageAccount --default-action Deny
    ```
    
-1. Enable a `Microsoft.Storage.Global` service endpoint on the virtual network and subnet.
+1. Enable a `Microsoft.Storage` service endpoint on the virtual network and subnet.
 
    ```azurecli-interactive
    az network vnet subnet update --resource-group $resourceGroup --vnet-name $vnetName --name $subnetName --service-endpoints "Microsoft.Storage.Global"
