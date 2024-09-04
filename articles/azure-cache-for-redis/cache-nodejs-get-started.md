@@ -119,7 +119,7 @@ npm install @azure/identity
 
 1. Example the output.
 
-    ```console
+    ```bash
     Cache command: PING
     Cache response : PONG
     
@@ -227,7 +227,7 @@ Microsoft Entra ID access tokens have a limited lifespan, [averaging 75 minutes]
 
 1. Example the output.
 
-    ```console
+    ```bash
     Cache command: PING
     Cache response : PONG
     
@@ -333,7 +333,7 @@ set AZURE_CACHE_FOR_REDIS_ACCESS_KEY=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
 1. Example the output.
 
-    ```console
+    ```bash
     Cache command: PING
     Cache response : PONG
     
