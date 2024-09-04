@@ -5,7 +5,7 @@ services: application-gateway
 author: greglin
 ms.service: azure-application-gateway
 ms.subservice: appgw-for-containers
-ms.topic: article
+ms.topic: concept-article
 ms.date: 06/03/2024
 ms.author: greglin
 ---
