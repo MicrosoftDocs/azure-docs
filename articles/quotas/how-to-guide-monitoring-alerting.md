@@ -42,7 +42,7 @@ The simplest way to create a quota alert is to use the Azure portal. Follow thes
     | [Dimensions](../azure-monitor/alerts/alerts-types.md#monitor-the-same-condition-on-multiple-resources-using-splitting-by-dimensions-1) | Here are the options for selecting **multiple Quotas** and **regions** within a single alert rule. Adding dimensions is a cost-effective approach compared to creating a new alert for each quota or region.|
     
     > [!TIP]
-    > Within the same subscription, we advise using the same  **Resource group** and **Managed identity** values for all alert rules.
+    > Within the same subscription, we advise using the same **Resource Group** and **Managed identity** values for all alert rules.
 
 1. After you've made your selections, select **Create Alert**. You'll see a confirmation if the rule was successfully created, or a message if any problems occurred.
 
