@@ -8,9 +8,6 @@ ms.date: 10/26/2023
 
 # Trademarks
 
-[!INCLUDE [retirement-notice](/includes/retirement-notice.md)]
-
-[!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
 
 
 Product names, logos and other material used on this Azure HDInsight on AKS learn pages are registered trademarks of various entities including, but not limited to, the following trademark owners and names:
