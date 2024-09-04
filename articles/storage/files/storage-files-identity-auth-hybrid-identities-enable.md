@@ -216,11 +216,11 @@ If you want to enable client machines to connect to storage accounts that are co
 
 Add an entry for each storage account that uses on-premises AD DS integration. Use one of the following three methods to configure Kerberos realm mappings. Changes aren't instant, and require a policy refresh or a reboot to take effect.
 
-# [Intune](#tab/Intune)
+# [Intune](#tab/intune)
 
 Configure this Intune [Policy CSP](/windows/client-management/mdm/policy-configuration-service-provider) and apply it to the client(s): [Kerberos/HostToRealm](/windows/client-management/mdm/policy-csp-admx-kerberos#hosttorealm)
 
-# [Group Policy](#tab/Group Policy)
+# [Group Policy](#tab/gpo)
 
 Configure this group policy on the client(s): `Administrative Template\System\Kerberos\Define host name-to-Kerberos realm mappings`
 
@@ -229,7 +229,7 @@ Configure this group policy on the client(s): `Administrative Template\System\Ke
   - `Value` is the AD DS-enabled storage account's host name, i.e. `<your storage account name>.file.core.windows.net`
   - `Value name` is the AD DS realm name
 
-# [Registry Key](#tab/Registry Key)
+# [Registry Key](#tab/regkey)
 
 Run the following `ksetup` Windows command on the client(s):
 
