@@ -580,7 +580,7 @@ In Standard workflows, to read a message from a dead-letter queue in a queue or 
 
 If a Service Bus trigger's polling interval is small, such as 10 seconds, updates to your workflow might not take effect for up to 10 minutes. To work around this problem, you can disable the logic app resource, make the changes, and then enable the logic app resource again.
 
-### No session available or it may be locked by another receiver
+### No session available or might be locked by another receiver
 
 Occasionally, operations such as completing a message or renewing a session produce the following error:
 
