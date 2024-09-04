@@ -216,10 +216,30 @@ If you want to enable client machines to connect to storage accounts that are co
 
 Add an entry for each storage account that uses on-premises AD DS integration. Use one of the following three methods to configure Kerberos realm mappings. Changes aren't instant, and require a policy refresh or a reboot to take effect.
 
-- Configure this Intune [Policy CSP](/windows/client-management/mdm/policy-configuration-service-provider) and apply it to the client(s): [Kerberos/HostToRealm](/windows/client-management/mdm/policy-csp-admx-kerberos#hosttorealm)
-- Configure this group policy on the client(s): `Administrative Template\System\Kerberos\Define host name-to-Kerberos realm mappings`
-- Run the `ksetup` Windows command on the client(s): `ksetup /addhosttorealmmap <hostname> <REALMNAME>`
-  - For example, `ksetup /addhosttorealmmap <your storage account name>.file.core.windows.net CONTOSO.LOCAL`
+# [Intune](#tab/Intune)
+
+Configure this Intune [Policy CSP](/windows/client-management/mdm/policy-configuration-service-provider) and apply it to the client(s): [Kerberos/HostToRealm](/windows/client-management/mdm/policy-csp-admx-kerberos#hosttorealm)
+
+# [Group Policy](#tab/Group Policy)
+
+Configure this group policy on the client(s): `Administrative Template\System\Kerberos\Define host name-to-Kerberos realm mappings`
+
+- Set the policy to `Enabled`
+- Then, click on the `Show...` button to define the list of host name-to-realm mappings. For each storage account configured for AD DS, add an entry where:
+  - `Value` is the AD DS-enabled storage account's host name, i.e. `<your storage account name>.file.core.windows.net`
+  - `Value name` is the AD DS realm name
+
+# [Registry Key](#tab/Registry Key)
+
+Run the following `ksetup` Windows command on the client(s):
+
+```
+ksetup /addhosttorealmmap <hostname> <REALMNAME>
+```
+
+For example, `ksetup /addhosttorealmmap <your storage account name>.file.core.windows.net CONTOSO.LOCAL`
+
+---
 
 > [!IMPORTANT]
 > In Kerberos, realm names are case sensitive and upper case. Your Kerberos realm name is usually the same as your domain name, in upper-case letters.
