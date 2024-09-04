@@ -16,7 +16,7 @@ ms.collection: usx-security
 
 # Add indicators in bulk to Microsoft Sentinel threat intelligence from a CSV or JSON file
 
-In this how-to guide, you add indicators from a CSV or JSON file into Microsoft Sentinel threat intelligence. Threat intelligence sharing still happens across emails and other informal channels during an ongoing investigation. The ability to import indicators directly into Microsoft Sentinel threat intelligence allows you to quickly socialize emerging threats for your team. You make the threats available to power other analytics, such as producing security alerts, incidents, and automated responses.
+In this article, you add indicators from a CSV or JSON file into Microsoft Sentinel threat intelligence. Threat intelligence sharing still happens across emails and other informal channels during an ongoing investigation. You have the ability to import indicators directly into Microsoft Sentinel threat intelligence so that you can quickly relay emerging threats to your team. You make the threats available to power other analytics, such as producing security alerts, incidents, and automated responses.
 
 > [!IMPORTANT]
 > This feature is currently in preview. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for more legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
@@ -25,7 +25,7 @@ In this how-to guide, you add indicators from a CSV or JSON file into Microsoft 
 
 ## Prerequisites
 
-- You must have read and write permissions to the Microsoft Sentinel workspace to store your threat indicators.
+You must have read and write permissions to the Microsoft Sentinel workspace to store your threat indicators.
 
 ## Select an import template for your indicators
 
@@ -45,7 +45,7 @@ Add multiple indicators to your threat intelligence with a specially crafted CSV
     :::image type="content" source="media/indicators-bulk-file-import/import-using-file-menu-defender-portal.png" alt-text="Screenshot that shows the menu options to import indicators by using a file menu from the Defender portal." lightbox="media/indicators-bulk-file-import/import-using-file-menu-defender-portal.png":::
     ---
 
-1. Choose **CSV** or **JSON** from the **File format** dropdown menu.
+1. On the **File format** dropdown menu, select **CSV** or **JSON**.
 
     :::image type="content" source="media/indicators-bulk-file-import/format-select-and-download.png" alt-text="Screenshot that shows the dropdown menu to upload a CSV or JSON file, choose a template to download, and specify a source.":::
 

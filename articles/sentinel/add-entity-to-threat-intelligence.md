@@ -128,7 +128,7 @@ Whichever of the two interfaces you choose, you end up here.
 
 1. When all the fields are filled in to your satisfaction, select **Apply**. A confirmation message appears in the upper-right corner stating that your indicator was created.
 
-1. The entity is added as a threat indicator in your workspace. You can find it [in the list of indicators on the Threat Intelligence page](work-with-threat-indicators.md#find-and-view-your-indicators-in-the-threat-intelligence-page). You can also find it [in the ThreatIntelligenceIndicators table in Logs](work-with-threat-indicators.md#find-and-view-your-indicators-in-logs).
+1. The entity is added as a threat indicator in your workspace. You can find it [in the list of indicators on the Threat Intelligence page](work-with-threat-indicators.md#find-and-view-your-indicators-on-the-threat-intelligence-page). You can also find it [in the ThreatIntelligenceIndicators table in Logs](work-with-threat-indicators.md#find-and-view-your-indicators-in-logs).
 
 ## Related content
 

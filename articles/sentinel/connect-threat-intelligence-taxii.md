@@ -15,11 +15,11 @@ ms.collection: usx-security
 
 # Connect Microsoft Sentinel to STIX/TAXII threat intelligence feeds
 
-The most widely adopted industry standard for the transmission of threat intelligence is a [combination of the STIX data format and the TAXII protocol](https://oasis-open.github.io/cti-documentation/). If your organization receives threat indicators from solutions that support the current STIX/TAXII version (2.0 or 2.1), you can use the Threat intelligence - TAXII data connector to bring your threat indicators into Microsoft Sentinel. This connector enables a built-in TAXII client in Microsoft Sentinel to import threat intelligence from TAXII 2.x servers.
+The most widely adopted industry standard for the transmission of threat intelligence is a [combination of the STIX data format and the TAXII protocol](https://oasis-open.github.io/cti-documentation/). If your organization receives threat indicators from solutions that support the current STIX/TAXII version (2.0 or 2.1), you can use the Threat Intelligence - TAXII data connector to bring your threat indicators into Microsoft Sentinel. This connector enables a built-in TAXII client in Microsoft Sentinel to import threat intelligence from TAXII 2.x servers.
 
 :::image type="content" source="media/connect-threat-intelligence-taxii/threat-intel-taxii-import-path.png" alt-text="Screenshot that shows a TAXII import path.":::
 
-To import STIX-formatted threat indicators to Microsoft Sentinel from a TAXII server, you must get the TAXII server API root and collection ID. Then you enable the Threat intelligence - TAXII data connector in Microsoft Sentinel.
+To import STIX-formatted threat indicators to Microsoft Sentinel from a TAXII server, you must get the TAXII server API root and collection ID. Then you enable the Threat Intelligence - TAXII data connector in Microsoft Sentinel.
 
 Learn more about [threat intelligence](understand-threat-intelligence.md) in Microsoft Sentinel, and specifically about the [TAXII threat intelligence feeds](threat-intelligence-integration.md#taxii-threat-intelligence-feeds) that you can integrate with Microsoft Sentinel.
 
@@ -56,11 +56,11 @@ To import threat indicators into Microsoft Sentinel from a TAXII server, follow 
 
 For more information about how to manage the solution components, see [Discover and deploy out-of-the-box content](sentinel-solutions-deploy.md).
 
-## Enable the Threat intelligence - TAXII data connector
+## Enable the Threat Intelligence - TAXII data connector
 
 1. To configure the TAXII data connector, select the **Data connectors** menu.
 
-1. Find and select the **Threat intelligence - TAXII** data connector, and then select **Open connector page**.
+1. Find and select the **Threat Intelligence - TAXII** data connector, and then select **Open connector page**.
 
     :::image type="content" source="media/connect-threat-intelligence-taxii/taxii-data-connector-config.png" alt-text="Screenshot that shows the Data connectors page with the TAXII data connector listed." lightbox="media/connect-threat-intelligence-taxii/taxii-data-connector-config.png":::
 

@@ -128,7 +128,7 @@ Here's how to find the threat intelligence workbook provided in Microsoft Sentin
     | summarize count() by ThreatType
     ```
 
-1. In the **Visualization** dropdown list, select **Bar chart**.
+1. On the **Visualization** dropdown menu, select **Bar chart**.
 
 1. Select **Done editing**, and view the new chart for your workbook.
 
