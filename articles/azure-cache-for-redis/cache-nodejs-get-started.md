@@ -47,70 +47,69 @@ npm install @azure/identity
 
 ### Create a new Node.js app using Microsoft Entra ID
 
-1.Add environment variables for your **Host name** and **Service Principal ID**, which is the object ID your Microsoft Entra ID service principal or user. In the Azure portal, this is shown as the _Username_.
+1. Add environment variables for your **Host name** and **Service Principal ID**, which is the object ID of your Microsoft Entra ID service principal or user. In the Azure portal, this is shown as the _Username_.
 
-```cmd
-set AZURE_CACHE_FOR_REDIS_HOST_NAME=contosoCache
-set REDIS_SERVICE_PRINCIPAL_ID=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-```
+    ```cmd
+    set AZURE_CACHE_FOR_REDIS_HOST_NAME=contosoCache
+    set REDIS_SERVICE_PRINCIPAL_ID=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+    ```
 
 1. Create a new script file named _redistest.js_.
-1. Add the following example JavaScript to the file.
 
-```javascript
-const { createClient } = require("redis");
-const { DefaultAzureCredential } = require("@azure/identity");
+1. Add the following example JavaScript to the file. This code shows you how to connect to an Azure Cache for Redis instance using the cache host name and key environment variables. The code also stores and retrieves a string value in the cache. The `PING` and `CLIENT LIST` commands are also executed. For more examples of using Redis with the [node-redis](https://github.com/redis/node-redis) client, see [https://redis.js.org/](https://redis.js.org/).
 
-async function main() {
-  // Construct a Token Credential from Identity library, e.g. ClientSecretCredential / ClientCertificateCredential / ManagedIdentityCredential, etc.
-  const credential = new DefaultAzureCredential();
-  const redisScope = "https://redis.azure.com/.default";
-
-  // Fetch a Microsoft Entra token to be used for authentication. This token will be used as the password.
-  let accessToken = await credential.getToken(redisScope);
-  console.log("access Token", accessToken);
-
-  // Create redis client and connect to the Azure Cache for Redis over the TLS port using the access token as password.
-  const cacheConnection = createClient({
-    username: process.env.REDIS_SERVICE_PRINCIPAL_ID,
-    password: accessToken.token,
-    url: `redis://${process.env.AZURE_CACHE_FOR_REDIS_HOST_NAME}:6380`,
-    pingInterval: 100000,
-    socket: { 
-      tls: true,
-      keepAlive: 0 
-    },
-  });
-
-  cacheConnection.on("error", (err) => console.log("Redis Client Error", err));
-  await cacheConnection.connect();
-
-  // PING command
-  console.log("\nCache command: PING");
-  console.log("Cache response : " + await cacheConnection.ping());
-
-  // SET
-  console.log("\nCache command: SET Message");
-  console.log("Cache response : " + await cacheConnection.set("Message",
-      "Hello! The cache is working from Node.js!"));
-
-  // GET
-  console.log("\nCache command: GET Message");
-  console.log("Cache response : " + await cacheConnection.get("Message"));
-
-  // Client list, useful to see if connection list is growing...
-  console.log("\nCache command: CLIENT LIST");
-  console.log("Cache response : " + await cacheConnection.sendCommand(["CLIENT", "LIST"]));
-
-  cacheConnection.disconnect();
-
-  return "Done"
-}
-
-main().then((result) => console.log(result)).catch(ex => console.log(ex));
-```
-
-This code shows you how to connect to an Azure Cache for Redis instance using the cache host name and key environment variables. The code also stores and retrieves a string value in the cache. The `PING` and `CLIENT LIST` commands are also executed. For more examples of using Redis with the [node-redis](https://github.com/redis/node-redis) client, see [https://redis.js.org/](https://redis.js.org/).
+    ```javascript
+    const { createClient } = require("redis");
+    const { DefaultAzureCredential } = require("@azure/identity");
+    
+    async function main() {
+      // Construct a Token Credential from Identity library, e.g. ClientSecretCredential / ClientCertificateCredential / ManagedIdentityCredential, etc.
+      const credential = new DefaultAzureCredential();
+      const redisScope = "https://redis.azure.com/.default";
+    
+      // Fetch a Microsoft Entra token to be used for authentication. This token will be used as the password.
+      let accessToken = await credential.getToken(redisScope);
+      console.log("access Token", accessToken);
+    
+      // Create redis client and connect to the Azure Cache for Redis over the TLS port using the access token as password.
+      const cacheConnection = createClient({
+        username: process.env.REDIS_SERVICE_PRINCIPAL_ID,
+        password: accessToken.token,
+        url: `redis://${process.env.AZURE_CACHE_FOR_REDIS_HOST_NAME}:6380`,
+        pingInterval: 100000,
+        socket: { 
+          tls: true,
+          keepAlive: 0 
+        },
+      });
+    
+      cacheConnection.on("error", (err) => console.log("Redis Client Error", err));
+      await cacheConnection.connect();
+    
+      // PING command
+      console.log("\nCache command: PING");
+      console.log("Cache response : " + await cacheConnection.ping());
+    
+      // SET
+      console.log("\nCache command: SET Message");
+      console.log("Cache response : " + await cacheConnection.set("Message",
+          "Hello! The cache is working from Node.js!"));
+    
+      // GET
+      console.log("\nCache command: GET Message");
+      console.log("Cache response : " + await cacheConnection.get("Message"));
+    
+      // Client list, useful to see if connection list is growing...
+      console.log("\nCache command: CLIENT LIST");
+      console.log("Cache response : " + await cacheConnection.sendCommand(["CLIENT", "LIST"]));
+    
+      cacheConnection.disconnect();
+    
+      return "Done"
+    }
+    
+    main().then((result) => console.log(result)).catch(ex => console.log(ex));
+    ```
 
 1. Run the script with Node.js.
 
@@ -141,83 +140,84 @@ This code shows you how to connect to an Azure Cache for Redis instance using th
 
 ## Create a sample JavaScript app with reauthentication
 
-Microsoft Entra ID access tokens have a limited lifespan, [averaging 75 minutes](../../entra/identity-platform/configurable-token-lifetimes#token-lifetime-policies-for-access-saml-and-id-tokens). In order to maintain a connection to your cache, you need to refresh the token. This example demonstrates how to do this using JavaScript.
+Microsoft Entra ID access tokens have a limited lifespan, [averaging 75 minutes](/entra/identity-platform/configurable-token-lifetimes#token-lifetime-policies-for-access-saml-and-id-tokens). In order to maintain a connection to your cache, you need to refresh the token. This example demonstrates how to do this using JavaScript.
 
 1. Create a new script file named _redistestreauth.js_.
+
 1. Add the following example JavaScript to the file.
 
-```javascript
-const { createClient } = require("redis");
-const { DefaultAzureCredential } = require("@azure/identity");
-
-async function returnPassword(credential) {
-    const redisScope = "https://redis.azure.com/.default";
-
-    // Fetch a Microsoft Entra token to be used for authentication. This token will be used as the password.
-    return credential.getToken(redisScope);
-}
-
-async function main() {
-  // Construct a Token Credential from Identity library, e.g. ClientSecretCredential / ClientCertificateCredential / ManagedIdentityCredential, etc.
-  const credential = new DefaultAzureCredential();
-  let accessToken = await returnPassword(credential);
-
-  // Create redis client and connect to the Azure Cache for Redis over the TLS port using the access token as password.
-  let cacheConnection = createClient({
-    username: process.env.REDIS_SERVICE_PRINCIPAL_ID,
-    password: accessToken.token,
-    url: `redis://${process.env.AZURE_CACHE_FOR_REDIS_HOST_NAME}:6380`,
-    pingInterval: 100000,
-    socket: { 
-      tls: true,
-      keepAlive: 0 
-    },
-  });
-
-  cacheConnection.on("error", (err) => console.log("Redis Client Error", err));
-  await cacheConnection.connect();
-
-  for (let i = 0; i < 3; i++) {
-    try {
-        // PING command
-        console.log("\nCache command: PING");
-        console.log("Cache response : " + await cacheConnection.ping());
-
-        // SET
-        console.log("\nCache command: SET Message");
-        console.log("Cache response : " + await cacheConnection.set("Message",
-            "Hello! The cache is working from Node.js!"));
-
-        // GET
-        console.log("\nCache command: GET Message");
-        console.log("Cache response : " + await cacheConnection.get("Message"));
-
-        // Client list, useful to see if connection list is growing...
-        console.log("\nCache command: CLIENT LIST");
-        console.log("Cache response : " + await cacheConnection.sendCommand(["CLIENT", "LIST"]));
-      break;
-    } catch (e) {
-      console.log("error during redis get", e.toString());
-      if ((accessToken.expiresOnTimestamp <= Date.now())|| (redis.status === "end" || "close") ) {
-        await redis.disconnect();
-        accessToken = await returnPassword(credential);
-        cacheConnection = createClient({
-          username: process.env.REDIS_SERVICE_PRINCIPAL_ID,
-          password: accessToken.token,
-          url: `redis://${process.env.AZURE_CACHE_FOR_REDIS_HOST_NAME}:6380`,
-          pingInterval: 100000,
-          socket: {
-            tls: true,
-            keepAlive: 0
-          },
-        });
+    ```javascript
+    const { createClient } = require("redis");
+    const { DefaultAzureCredential } = require("@azure/identity");
+    
+    async function returnPassword(credential) {
+        const redisScope = "https://redis.azure.com/.default";
+    
+        // Fetch a Microsoft Entra token to be used for authentication. This token will be used as the password.
+        return credential.getToken(redisScope);
+    }
+    
+    async function main() {
+      // Construct a Token Credential from Identity library, e.g. ClientSecretCredential / ClientCertificateCredential / ManagedIdentityCredential, etc.
+      const credential = new DefaultAzureCredential();
+      let accessToken = await returnPassword(credential);
+    
+      // Create redis client and connect to the Azure Cache for Redis over the TLS port using the access token as password.
+      let cacheConnection = createClient({
+        username: process.env.REDIS_SERVICE_PRINCIPAL_ID,
+        password: accessToken.token,
+        url: `redis://${process.env.AZURE_CACHE_FOR_REDIS_HOST_NAME}:6380`,
+        pingInterval: 100000,
+        socket: { 
+          tls: true,
+          keepAlive: 0 
+        },
+      });
+    
+      cacheConnection.on("error", (err) => console.log("Redis Client Error", err));
+      await cacheConnection.connect();
+    
+      for (let i = 0; i < 3; i++) {
+        try {
+            // PING command
+            console.log("\nCache command: PING");
+            console.log("Cache response : " + await cacheConnection.ping());
+    
+            // SET
+            console.log("\nCache command: SET Message");
+            console.log("Cache response : " + await cacheConnection.set("Message",
+                "Hello! The cache is working from Node.js!"));
+    
+            // GET
+            console.log("\nCache command: GET Message");
+            console.log("Cache response : " + await cacheConnection.get("Message"));
+    
+            // Client list, useful to see if connection list is growing...
+            console.log("\nCache command: CLIENT LIST");
+            console.log("Cache response : " + await cacheConnection.sendCommand(["CLIENT", "LIST"]));
+          break;
+        } catch (e) {
+          console.log("error during redis get", e.toString());
+          if ((accessToken.expiresOnTimestamp <= Date.now())|| (redis.status === "end" || "close") ) {
+            await redis.disconnect();
+            accessToken = await returnPassword(credential);
+            cacheConnection = createClient({
+              username: process.env.REDIS_SERVICE_PRINCIPAL_ID,
+              password: accessToken.token,
+              url: `redis://${process.env.AZURE_CACHE_FOR_REDIS_HOST_NAME}:6380`,
+              pingInterval: 100000,
+              socket: {
+                tls: true,
+                keepAlive: 0
+              },
+            });
+          }
+        }
       }
     }
-  }
-}
-
-main().then((result) => console.log(result)).catch(ex => console.log(ex));
-```
+    
+    main().then((result) => console.log(result)).catch(ex => console.log(ex));
+    ```
 
 1. Run the script with Node.js.
 
@@ -259,15 +259,16 @@ set AZURE_CACHE_FOR_REDIS_HOST_NAME=contosoCache
 set AZURE_CACHE_FOR_REDIS_ACCESS_KEY=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 ```
 
-## Connect to the cache
+### Connect to the cache
 
 >[!NOTE]
 > Don't create a new connection for each operation in your code. Instead, reuse connections as much as possible.
 >
 
-## Create a new Node.js app
+### Create a new Node.js app
 
 1. Create a new script file named _redistest.js_.
+
 1. Add the following example JavaScript to the file.
 
     ```javascript
@@ -353,23 +354,7 @@ set AZURE_CACHE_FOR_REDIS_ACCESS_KEY=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
 ---
 
-## Clean up resources
-
-If you continue to the next tutorial, can keep the resources created in this quickstart and reuse them. Otherwise, if you're finished with the quickstart sample application, you can delete the Azure resources created in this quickstart to avoid charges.
-
-> [!IMPORTANT]
-> Deleting a resource group is irreversible and that the resource group and all the resources in it are permanently deleted. Make sure that you do not accidentally delete the wrong resource group or resources. If you created the resources for hosting this sample inside an existing resource group that contains resources you want to keep, you can delete each resource individually instead of deleting the resource group.
->
-
-1. Sign in to the [Azure portal](https://portal.azure.com) and select **Resource groups**.
-
-1. In the **Filter by name** text box, enter the name of your resource group. The instructions for this article used a resource group named _TestResources_. On your resource group in the result list, select **...** then **Delete resource group**.
-
-    ![Delete Azure Resource group](./media/cache-nodejs-get-started/redis-cache-delete-resource-group.png)
-
-1. Confirm the deletion of the resource group. Enter the name of your resource group to confirm, and select **Delete**.
-
-1. After a few moments, the resource group and all of its contained resources are deleted.
+[!INCLUDE [cache-delete-resource-group](includes/cache-delete-resource-group.md)]
 
 ## Get the sample code
 
@@ -379,4 +364,4 @@ Get the [Node.js quickstart](https://github.com/Azure-Samples/azure-cache-redis-
 
 In this quickstart, you learned how to use Azure Cache for Redis from a Node.js application. Continue to the next quickstart to use Azure Cache for Redis with an ASP.NET web app.
 
-- [Create an ASP.NET web app that uses an Azure Cache for Redis.](./cache-web-app-howto.md)
+- [Create an ASP.NET web app that uses an Azure Cache for Redis.](cache-web-app-howto.md)
