@@ -28,8 +28,8 @@ When users enable the customer-managed key capability on their Azure App Configu
 
 The following components are required to successfully enable the customer-managed key capability for Azure App Configuration:
 
-- Standard or Premium tier Azure App Configuration instance.
-- Azure Key Vault with soft-delete and purge-protection features enabled.
+- A Standard or Premium tier Azure App Configuration instance.
+- An Azure Key Vault with soft-delete and purge-protection features enabled.
 - An RSA or RSA-HSM key within the Key Vault.
   - The key must not be expired, it must be enabled, and it must have both wrap and unwrap capabilities enabled.
 
