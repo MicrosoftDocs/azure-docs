@@ -157,7 +157,7 @@ In this section, you'll create the public load balancer.
 
 ## Create virtual machine
 
-You'll create a virtual machine in this section. During creation, you'll add it to the backend pool of the internal load balancer. After the virtual machine is created, you'll add the virtual machine to the backend pool of the public load balancer.
+Create a virtual machine in this section. During creation and add it to the backend pool of the internal load balancer. After the virtual machine is created, you can add the virtual machine to the backend pool of the public load balancer.
 
 1. In the search box at the top of the portal, enter **Virtual machine**. Select **Virtual machines** in the search results.
 
@@ -212,7 +212,7 @@ You'll create a virtual machine in this section. During creation, you'll add it 
 
 ## Add VM to backend pool of public load balancer
 
-In this section, you'll add the virtual machine you created previously to the backend pool of the public load balancer.
+In this section, add the virtual machine you created previously to the backend pool of the public load balancer.
 
 1. In the search box at the top of the portal, enter **Load balancer**. Select **Load balancers** in the search results.
 
