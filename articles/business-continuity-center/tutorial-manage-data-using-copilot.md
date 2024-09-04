@@ -22,7 +22,7 @@ The Azure Business Continuity Center Copilot feature assists you to protect and 
 - Monitoring and reporting 
 - Learn and get help on capabilities
 
-With Azure Business Continuity Center Copilot (preview), you can ask questions about the protection of your Azure resources in the Azure portal using natural language directly. The Copilot retrieves information about your resources and their protection status and guides you through the relevant processes.
+With Azure Business Continuity Center Copilot (preview), you can check for the protection status of your Azure resources in the Azure portal using natural language directly. The Copilot retrieves information about your resources and their protection status and guides you through the relevant processes.
 
 ## Sample prompts 
 
@@ -53,7 +53,7 @@ Copilot also helps you to improve resilience by enhancing the protection of exis
 
 To enhance protection of your resources, follow these steps:
 
-1. In the [Azure portal](https://portal.azure.com/), select **Copilot**, and then use the prompt to find the Virtual Machines that are running.
+1. In the [Azure portal](https://portal.azure.com/), select **Copilot**, and then use the prompt **Show the running Virtual Machines**.
 
 2. On **Select resources**, select your virtual machine.
 
