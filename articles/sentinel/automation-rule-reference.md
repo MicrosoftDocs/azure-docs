@@ -21,6 +21,10 @@ The following entities and entity properties can be used as conditions for autom
 
 ### [Property descriptions](#tab/descriptions)
 
+This table shows the entity properties supported in the automation rules API. These are the entity properties whose values you can set as conditions for triggering an automation rule.
+
+For the full list of supported properties, which includes incident properties, see [Automation rule property condition supported properties](/rest/api/securityinsights/automation-rules/get) in the [Automation rules API documentation](/rest/api/securityinsights/automation-rules).
+
 | Name (in API)                 | Type   | Description                                                 |
 |-------------------------------|--------|-------------------------------------------------------------|
 | AccountAadTenantId            | string | The account Microsoft Entra ID tenant ID                    |
@@ -71,6 +75,8 @@ The following entities and entity properties can be used as conditions for autom
 
 ### [Mapping to entities](#tab/mapping)
 
+This table shows how the supported entity properties in the [Automation rules API](/rest/api/securityinsights/automation-rules) are displayed in the condition drop-down in the automation rules creation wizard. It also shows how those properties map to [entities and their identifiers](entities-reference.md) as defined in Microsoft Sentinel security alerts.
+
 | Name in API                 | Name in UI drop-down           | Entity: Identifier in V3 alert schema |
 | --------------------------- | ------------------------------ | ------------------------------------- |
 | AccountAadTenantId          | Account tenant ID              | Account: AadTenantId                  |
@@ -83,7 +89,7 @@ The following entities and entity properties can be used as conditions for autom
 | AccountUPNSuffix            | Account UPN suffix             | Account: UPNSuffix                    |
 | AzureResourceResourceId     | Azure resource ID              | AzureResource: ResourceId             |
 | AzureResourceSubscriptionId | Azure resource subscription ID | AzureResource: SubscriptionId         |
-| CloudApplicationAppId       | Cloud application ID           | CloudApplication: AppId ***(SaasId?)*** |
+| CloudApplicationAppId       | Cloud application ID           | CloudApplication: AppId               |
 | CloudApplicationAppName     | Cloud application name         | CloudApplication: Name                |
 | DNSDomainName               | DNS domain name                | DNS: DomainName                       |
 | FileDirectory               | File directory                 | File: Directory                       |
@@ -91,13 +97,13 @@ The following entities and entity properties can be used as conditions for autom
 | FileHashValue               | File hash                      | FileHash: Value                       |
 | HostAzureID                 | Host Azure ID                  | Host: AzureID                         |
 | HostName                    | Host name                      | Host: HostName                        |
-| HostNetBiosName             | ***Host BIOS name!!!***        | Host: NetBiosName                     |
+| HostNetBiosName             | Host NetBIOS name              | Host: NetBiosName                     |
 | HostNTDomain                | Host NT domain                 | Host: NTDomain                        |
 | HostOSVersion               | Host operating system          | Host: OSVersion                       |
 | IoTDeviceId                 | IoT device ID                  | IoTDevice: DeviceId                   |
 | IoTDeviceName               | IoT device name                | IoTDevice: DeviceName                 |
 | IoTDeviceType               | IoT device type                | IoTDevice: DeviceType                 |
-| IoTDeviceVendor             | IoT device vendor              | IoTDevice: ***Source? Manufacturer?*** |
+| IoTDeviceVendor             | IoT device vendor              | IoTDevice: Manufacturer               |
 | IoTDeviceModel              | IoT device model               | IoTDevice: Model                      |
 | IoTDeviceOperatingSystem    | IoT device operating system    | IoTDevice: OperatingSystem            |
 | IPAddress                   | IP address                     | IP: Address                           |
