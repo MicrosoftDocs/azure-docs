@@ -263,7 +263,7 @@ When installing a domain solution, you can now select **Install with dependencie
 
 :::image type="content" source="media/whats-new/dependencies.png" alt-text="Screenshot of the new Install with dependencies button.":::
 
-For more information, see [Install or update content](sentinel-solutions-deploy.md#install-or-update-content) and [Domain solutions](sentinel-solutions-catalog.md#domain-solutions).
+For more information, see [Install with dependencies](sentinel-solutions-deploy.md#install-with-dependencies) and [Domain solutions](sentinel-solutions-catalog.md#domain-solutions).
 
 ### Microsoft Sentinel solution for Microsoft Power Platform preview available
 
