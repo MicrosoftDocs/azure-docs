@@ -696,7 +696,7 @@ In this step, you configure the web app as follows:
 
 - Configure the app to send requests to port 8000. The sample container is listening on port 8000 for web requests. 
 - Tell your app to use the managed identity to pull images from your container registry.
-- Configure continuous deployment from the container registry (or, every image push to the registry will trigger your app to pull the new image). This part isn't needed for your web app to pull from your container registry, but it can let your web app know when a new image is pushed to the registry. Without it, you must manually trigger an image pull by restarting the web app.
+- Configure continuous deployment from the container registry (every image push to the registry will trigger your app to pull the new image). This part isn't needed for your web app to pull from your container registry, but it can let your web app know when a new image is pushed to the registry. Without it, you must manually trigger an image pull by restarting the web app.
 
 ### [Azure CLI](#tab/azure-cli)
 
