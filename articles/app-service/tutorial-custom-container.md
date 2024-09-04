@@ -314,7 +314,7 @@ ENTRYPOINT ["init.sh"]
 ## Build and test the image locally
 
 > [!NOTE]
-> Docker Hub has [quotas on the number of anonymous pulls per IP and the number of authenticated pulls per free user. (See **Data transfer**.)](https://www.docker.com/pricing) If you notice your pulls from Docker Hub are being limited, try `docker login` if you're not already logged in.
+> Docker Hub has [quotas on the number of anonymous pulls per IP and the number of authenticated pulls per free user.](https://www.docker.com/pricing) If you notice your pulls from Docker Hub are being limited, try `docker login` if you're not already logged in.
 >
 
 1. Run the following command to build the image:
@@ -707,8 +707,6 @@ In this step, you configure the web app as follows:
     ```
 
     Replace `<app-name>` with the name you used in the previous step.
-
-    For more information on this environment variable, see the [readme in the sample's GitHub repository](https://github.com/Azure-Samples/docker-django-webapp-linux).
 
 1. Enable the user-assigned managed identity in the web app with the [`az webapp identity assign`](/cli/azure/webapp/identity#az-webapp-identity-assign) command:
 
