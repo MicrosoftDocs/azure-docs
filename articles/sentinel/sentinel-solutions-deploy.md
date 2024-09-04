@@ -89,7 +89,7 @@ Here's an example showing the install of an individual solution.
 
 Some solutions have dependencies to install, including many [domain solutions](sentinel-solutions-catalog.md#domain-solutions) and solutions that use the unified AMA connectors for [CEF, Syslog](cef-syslog-ama-overview.md), or [custom logs](connect-custom-logs-ama.md). 
 
-In such cases, select **Install with dependencies** to ensure that the required data connectors are also installed. From there, select one or more of the dependencies to install them along with the original solution. The original solution you chose to install is always selected by default. For example:
+In such cases, select **Install with dependencies** to ensure that the required data connectors are also installed. From there, select one or more of the dependencies to install them along with the original solution. The original solution you chose to install is always selected by default. 
 
 If one or more of your solutions is already installed but has updates, use the **Install/Update** button to both install and update all selected solutions in bulk. For example:
 
