@@ -8,6 +8,11 @@ ms.date: 10/26/2023
 
 # Trademarks
 
+[!INCLUDE [retirement-notice](/includes/retirement-notice.md)]
+
+[!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
+
+
 Product names, logos and other material used on this Azure HDInsight on AKS learn pages are registered trademarks of various entities including, but not limited to, the following trademark owners and names:
 
 - The [Trino Software Foundation](https://trino.io/foundation.html) owns and manages the Trino brand and trademarks. The use of these marks does not imply endorsement by The Trino Software Foundation.
