@@ -4,7 +4,7 @@ titleSuffix: Microsoft Azure Maps
 description: Find out how to add traffic data to maps. Learn about flow data, and see how to use the Azure Maps Web SDK to add incident data and flow data to maps.
 author: sinnypan
 ms.author: sipa
-ms.date: 10/26/2023
+ms.date: 08/29/2024
 ms.topic: how-to
 ms.service: azure-maps
 ms.subservice: web-sdk

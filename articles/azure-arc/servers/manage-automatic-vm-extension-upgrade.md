@@ -2,7 +2,7 @@
 title: Automatic extension upgrade for Azure Arc-enabled servers
 description: Learn how to enable automatic extension upgrades for your Azure Arc-enabled servers.
 ms.topic: conceptual
-ms.date: 11/03/2023
+ms.date: 09/03/2024
 ---
 
 # Automatic extension upgrade for Azure Arc-enabled servers
@@ -55,7 +55,6 @@ Extension versions fixing critical security vulnerabilities are rolled out much 
 Automatic extension upgrade supports the following extensions:
 
 - Azure Monitor agent - Linux and Windows
-- Log Analytics agent (OMS agent) - Linux only
 - Dependency agent – Linux and Windows
 - Azure Security agent - Linux and Windows
 - Key Vault Extension - Linux only
