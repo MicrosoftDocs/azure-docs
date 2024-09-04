@@ -400,7 +400,7 @@ To learn more about Azure Functions runtime support policy, please refer to this
 
 ### Running local on a specific version
 
-To use PowerShell 7.4 when running locally, you need to add the setting `"FUNCTIONS_WORKER_RUNTIME_VERSION" : "7.4"` to the `Values` array in the local.setting.json file in the project root. When running locally on PowerShell 7.4, your local.settings.json file looks like the following example: 
+When running your PowerShell functions locally, you need to add the setting `"FUNCTIONS_WORKER_RUNTIME_VERSION" : "7.4"` to the `Values` array in the local.setting.json file in the project root. When running locally on PowerShell 7.4, your local.settings.json file looks like the following example: 
 
 ```json
 {
