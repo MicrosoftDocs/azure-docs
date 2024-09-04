@@ -10,7 +10,7 @@ ms.author: greglin
 
 # How to sign your Azure Public DNS zone with DNSSEC (Preview)
 
-This article shows you how to sign your DNS zone with DNSSEC using the Azure portal.
+This article shows you how to sign your DNS zone with Domain Name System Security Extensions (DNSSEC).
 
 ## Prerequisites
 
@@ -30,7 +30,9 @@ To sign your zone with DNSSEC using the Azure portal:
 
     ![Screenshot of how to select DNSSEC.](media/dnssec-how-to/select-dnssec.png)
 
-3. Select the **Enable DNSSEC** checkbox and when you are prompted to confirm that you wish to enable DNSSEC, select **OK**.
+3. Select the **Enable DNSSEC** checkbox. When you are prompted to confirm that you wish to enable DNSSEC, select **OK**.
+
+    ![Screenshot of selecting the DNSSEC checkbox.](media/dnssec-how-to/sign-dnssec.png)
 
     ![Screenshot of confirmation to sign the zone.](media/dnssec-how-to/confirm-dnssec.png)
 
@@ -40,7 +42,7 @@ To sign your zone with DNSSEC using the Azure portal:
 
 5. Copy the delegation information and use it to create a DS record in the parent zone. 
 
-    1. If the parent zone is a top level domain or you don't own the parent zone, you must add the DS record at your registrar. Each registrar has its own process. The registrar might ask for values such as the Key Tag, Algorithm, Digest Type, and Key Digest. In the example shown here, these values are:
+    1. If the parent zone is a top level domain (for example: `.com`) or you don't own the parent zone, you must add the DS record at your registrar. Each registrar has its own process. The registrar might ask for values such as the Key Tag, Algorithm, Digest Type, and Key Digest. In the example shown here, these values are:
 
         **Key Tag**: 4535<br>
         **Algorithm**: 13<br>
@@ -49,12 +51,12 @@ To sign your zone with DNSSEC using the Azure portal:
 
     2. If you own the parent zone, you can add a DS record directly to the parent yourself. The following example shows how to add a DS record to the DNS zone **adatum.com** for the child zone **secure.adatum.com** when both zones are hosted using Azure Public DNS:
 
-        ![Screenshot of adding a DS record to the parent zone.](media/dnssec-how-to/ds-add.png)
-        ![Screenshot of a DS record in the parent zone.](media/dnssec-how-to/ds-added.png)
+        [ ![Screenshot of adding a DS record to the parent zone.](./media/dnssec-how-to/ds-add.png) ](./media/dnssec-how-to/ds-add.png#lightbox) 
+        [ ![Screenshot of a DS record in the parent zone.](./media/dnssec-how-to/ds-added.png) ](./media/dnssec-how-to/ds-added.png#lightbox)
 
-6. When the DS record has been uploaded to the parent zone, select the DNSSEC information page for your zone and verify that **Signed and delegation established** is displayed.
+6. When the DS record has been uploaded to the parent zone, select the DNSSEC information page for your zone and verify that **Signed and delegation established** is displayed. Your DNS zone is now fully DNSSEC signed.
 
-    ![Screenshot of a fully signed and delegated zone.](media/dnssec-how-to/delegated.png)
+    [ ![Screenshot of a fully signed and delegated zone.](./media/dnssec-how-to/delegated.png) ](./media/dnssec-how-to/delegated.png#lightbox)
 
 # [Azure CLI](#tab/sign-cli)
 
@@ -71,6 +73,10 @@ Sign a zone using PowerShell:
 ```PowerShell
 commands here
 ```
+
+## Unsign a zone
+
+
 
 ## Next steps
 
