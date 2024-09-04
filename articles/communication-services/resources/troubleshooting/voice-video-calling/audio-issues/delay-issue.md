@@ -42,7 +42,7 @@ If the round-trip time is larger than 500 ms, users may experience significant d
 
 In [jitterBufferDelayInMs](../../../../concepts/voice-video-calling/media-quality-sdk.md?pivots=platform-web#audio-receive-metrics) shows how long the audio samples stay in the jitter buffer.
 This value can be affected by various factors, such as late arrival of packets, out-of-order, packet loss, etc.
-Normally, it is less than 200ms. Users may notice audio delays in the call if this value is very high.
+Normally, it's less than 200 ms. Users may notice audio delays in the call if this value is high.
 
 ## How to mitigate or resolve
 From the perspective of the ACS Calling SDK, network issues are considered external problems.
