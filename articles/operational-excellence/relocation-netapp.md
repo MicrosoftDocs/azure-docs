@@ -4,7 +4,7 @@ description: Learn how to relocate an Azure NetApp Files volume to another regio
 author: anaharris-ms
 ms.author: anaharris
 ms.reviewer: anaharris
-ms.date: 08/14/2024
+ms.date: 09/04/2024
 ms.service: azure-netapp-files
 ms.topic: how-to
 ms.custom:
@@ -26,7 +26,7 @@ Before you begin the relocation planning stage, review the following prerequisit
 - Source and target regions must be paired regions. To see if they're paired, see [Supported cross-region replication pairs](../azure-netapp-files/cross-region-replication-introduction.md?#supported-region-pairs).
 
 - Understand all dependent resources. Some of the resources could be:
-    - [Microsoft Entra ID](../azure-netapp-files/understand-guidelines-active-directory-domain-service-site)
+    - [Microsoft Entra ID](../azure-netapp-files/understand-guidelines-active-directory-domain-service-site.md)
     - [Virtual Network](./relocation-virtual-network.md)
     - Azure DNS
     - [Storage services](./relocation-storage-account.md)

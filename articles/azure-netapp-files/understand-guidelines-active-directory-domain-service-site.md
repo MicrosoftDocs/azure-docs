@@ -161,7 +161,7 @@ Incorrect or incomplete AD DS site topology or configuration can result in volum
 >[!IMPORTANT]
 >The AD Site Name field is required to create an Azure NetApp Files AD connection. The AD DS site defined must exist and be properly configured.
 
-Azure NetApp Files uses the AD DS Site to discover the domain controllers and subnets assigned to the AD DS Site defined in the AD Site Name. All domain controllers assigned to the AD DS Site must have good network connectivity from the Azure virtual network interfaces used by ANF and be reachable. AD DS domain controller VMs assigned to the AD DS Site that are used by Azure NetApp Files must be excluded from cost management policies that shut down VMs.
+Azure NetApp Files uses the AD DS Site to discover the domain controllers and subnets assigned to the AD DS Site defined in the AD Site Name. All domain controllers assigned to the AD DS Site must have good network connectivity from the Azure virtual network interfaces used by ANF and be reachable. AD DS domain controller VMs assigned to the AD DS Site used by Azure NetApp Files must be excluded from cost management policies that shut down VMs.
 
 If Azure NetApp Files is not able to reach any domain controllers assigned to the AD DS site, the domain controller discovery process will query the AD DS domain for a list of all domain controllers. The list of domain controllers returned from this query is an unordered list. As a result, Azure NetApp Files may try to use domain controllers that are not reachable or well-connected, which can cause volume creation failures, problems with client queries, authentication failures, and failures to modify Azure NetApp Files AD connections.
 
