@@ -91,7 +91,7 @@ Some solutions have dependencies to install, including many [domain solutions](s
 
 In such cases, select **Install with dependencies** to ensure that the required data connectors are also installed. From there, select one or more of the dependencies to install them along with the original solution. The original solution you chose to install is always selected by default. 
 
-If one or more of your solutions is already installed but has updates, use the **Install/Update** button to both install and update all selected solutions in bulk. For example:
+If one or more of the dependency solutions is already installed, but has updates, use the **Install/Update** button to both install and update all selected solutions in bulk. For example:
 
 :::image type="content" source="media/sentinel-solutions-deploy/install-update-dependencies.png" alt-text="Screenshot of installing multiple solution dependencies in bulk." lightbox="media/sentinel-solutions-deploy/install-update-dependencies.png":::
 
