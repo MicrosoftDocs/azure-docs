@@ -61,7 +61,7 @@ In this section, you'll create the internal load balancer.
 
 1. Enter **lb-int-frontend** in **Name**.
 
-1. Select **backend-subnet** in **Subnet**.
+1. In Virtual network "lb-vnet", select **backend-subnet** in **Subnet**.
 
 1. Select **Dynamic** for **Assignment**.
 
