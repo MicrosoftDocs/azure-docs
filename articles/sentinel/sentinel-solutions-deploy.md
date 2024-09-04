@@ -85,7 +85,11 @@ Here's an example showing the install of an individual solution.
 1. In the **Review + create** tab, wait for the `Validation Passed` message.
 1. Select **Create** or **Update** to deploy the solution. You can also select the **Download a template for automation** link to deploy the solution as code.
 
-Some solutions have dependencies to install, including many [domain solutions](sentinel-solutions-catalog.md#domain-solutions) and solutions that use the unified AMA connectors for [CEF, Syslog](cef-syslog-ama-overview.md), or [custom logs](connect-custom-logs-ama.md). In such cases, select **Install with dependencies** to ensure that the required data connectors are also installed. From there, select one or more of the dependencies to install them along with the domain solution. If one or more of your solutions is already installed but has updates, use the **Install/Update** button to both install and update all selected solutions in bulk.
+### Install with dependencies
+
+Some solutions have dependencies to install, including many [domain solutions](sentinel-solutions-catalog.md#domain-solutions) and solutions that use the unified AMA connectors for [CEF, Syslog](cef-syslog-ama-overview.md), or [custom logs](connect-custom-logs-ama.md). In such cases, select **Install with dependencies** to ensure that the required data connectors are also installed. From there, select one or more of the dependencies to install them along with the domain solution.
+
+If one or more of your solutions is already installed but has updates, use the **Install/Update** button to both install and update all selected solutions in bulk. For example:
 
 :::image type="content" source="media/sentinel-solutions-deploy/install-update-dependencies.png" alt-text="Screenshot of installing multiple solution dependenices in bulk." lightbox="media/sentinel-solutions-deploy/install-update-dependencies.png":::
 
