@@ -11,13 +11,13 @@ ms.service: azure-operator-service-manager
 # Get started with private link
 
 ## Overview
-This guide describes the Azure Operator Service Manager (AOSM) private link (PL) feature for artifact stores hosted on Azure Operator Nexus. As part of the AOSM edge registry initiative, PL uses Azure private endpoints, and Azure private link service, to securely backhaul Nexus on-premise artifact store traffic. This traffic is never exposed to the internet, instead it exclusively traverses Microsoft's private network.
+This guide describes the Azure Operator Service Manager (AOSM) private link (PL) feature for artifact stores hosted on Azure Operator Nexus. As part of the AOSM edge registry initiative, PL uses Azure private endpoints, and Azure private link service, to securely backhaul Nexus on-premise artifact store traffic. This traffic is never exposed to the internet, instead exclusively traversing Microsoft's private network.
 
 ## Introduction
 This document provides a quick start guide to enable private link feature for AOSM artifact store using AOSM Publisher APIs. 
 
 ### Required permissions 
-The operations required to link and manage a private endpoint with a Nexus fabric controller (NFC) requires the following non-default role privileges. 
+The operations required to link and manage a private endpoint with a Nexus fabric controller (NFC) requires the following nondefault role privileges. 
 
 #### Remove private endpoint
 ```
@@ -45,13 +45,13 @@ The operations required to link and manage a private endpoint with a Nexus fabri
 > [!NOTE]
 > As new NFC permissions are introduced, the recommended role privileges will be updated.
 
-## Use AOSM APIs to setup private link 
-Before resources can be uploaded securely, the following sequence of operations establshes a PL connection to the artifact store.
+## Use AOSM APIs to set up private link 
+Before resources can be uploaded securely, the following sequence of operations establishes a PL connection to the artifact store.
 
 ### Create publisher and artifact store
-* Create a new publisher resource with identity type set to 'SystemAssigned'.
+* Create a new publisher resource with identity type set to 'SystemAssigned.'
   - If the publisher was already created without this property, use a reput operation to update.
-* Use the new propery 'backingResourcePublicNetworkAcccess' to disable artifact store public access.
+* Use the new property 'backingResourcePublicNetworkAcccess' to disable artifact store public access.
   - The property is first added in the 2024-04-15 version.
   - If the ArtifactResource was already created without this property, use a reput operation to update.
 
@@ -94,7 +94,7 @@ resource acrArtifactStore 'Microsoft.HybridNetwork/publishers/artifactStores@202
 The following operations enable manual management of an artifact store once the PL is established. 
 
 ### Manage private endpoint access
-By default, when the artifact store is connected to the vnet, the user won't have permissions to the ACR, and the private endpoint will be in the pending state. The following Azure rest commands and payload enable a user to approve, reject and/or list these endpoint.
+By default, when the artifact store is connected to the vnet, the user doesn't have permissions to the ACR, so the private endpoint winds up in a pending state. The following Azure rest commands and payload enable a user to approve, reject and/or list these endpoints.
 
 > [!NOTE]
 > In this workflow, the vnet is managed by the customer.
