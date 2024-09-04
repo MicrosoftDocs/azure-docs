@@ -270,11 +270,11 @@ cd docker-django-webapp-linux
 
 ### Download from GitHub
 
-Instead of using git clone, you can visit [https://github.com/Azure-Samples/docker-django-webapp-linux](https://github.com/Azure-Samples/docker-django-webapp-linux), select **Clone**, and then select **Download ZIP**.
+Instead of using git clone, you can visit [https://github.com/Azure-Samples/docker-django-webapp-linux](https://github.com/Azure-Samples/docker-django-webapp-linux) and select **Code** > **Local** > **Download ZIP**.
 
 Unpack the ZIP file into a folder named *docker-django-webapp-linux*.
 
-Then open a terminal window in the*docker-django-webapp-linux* folder.
+Then open a terminal window in the *docker-django-webapp-linux* folder.
 
 ## (Optional) Examine the Docker file
 
@@ -329,10 +329,10 @@ ENTRYPOINT ["init.sh"]
     docker run -it -p 8000:8000 appsvc-tutorial-custom-image
     ```
 
-    This [`docker run`](https://docs.docker.com/engine/reference/commandline/run/) command specifies the port with the `-p` argument followed by the name of the image. `-it` lets you stop it with **Ctrl+C**.
+    This [`docker run`](https://docs.docker.com/engine/reference/commandline/run/) command specifies the port with the `-p` argument and includes the name of the image. `-it` lets you stop it with **Ctrl+C**.
 
     > [!TIP]
-    > If you're running on Windows and see the error *standard_init_linux.go:211: exec user process caused "no such file or directory"*, the *init.sh* file contains CRLF line endings instead of the expected LF endings. This error happens if you used Git to clone the sample repository but omitted the `--config core.autocrlf=input` parameter. In this case, clone the repository again with the `--config`` argument. You might also see the error if you edited *init.sh* and saved it with CRLF endings. In this case, save the file again with LF endings only.
+    > If you're running on Windows and see the error *standard_init_linux.go:211: exec user process caused "no such file or directory"*, the *init.sh* file contains CRLF line endings instead of the expected LF endings. This error happens if you used Git to clone the sample repository but omitted the `--config core.autocrlf=input` parameter. In this case, clone the repository again with the `--config` argument. You might also see the error if you edited *init.sh* and saved it with CRLF endings. In this case, save the file again with LF endings only.
 
 1. Browse to `http://localhost:8000` to verify that the web app and container are functioning correctly.
 
@@ -417,7 +417,7 @@ App Service can use either a default managed identity or a user-assigned managed
 
     The `--admin-enabled` parameter lets you push images to the registry using administrative credentials.
 
-1. Retrieve the administrative credentials by running the [`az acr show`](/cli/azure/acr#az-acr-show) command:
+1. Retrieve the administrative credentials by running the [`az credential acr show`](/cli/azure/acr/credential#az-acr-credential-show) command:
 
     ```azurecli-interactive
     az acr credential show --resource-group msdocs-custom-container-tutorial --name <registry-name>
