@@ -1649,8 +1649,87 @@
             "source_path_from_root": "/articles/sentinel/data-connectors/hyas-protect.md",
             "redirect_url": "/azure/sentinel/data-connectors-reference",
             "redirect_document_id": false
-        }
-,
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/data-connectors/digital-guardian-data-loss-prevention.md",
+            "redirect_url": "/previous-versions/azure/sentinel/data-connectors/digital-guardian-data-loss-prevention",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/data-connectors/eset-protect.md",
+            "redirect_url": "/previous-versions/azure/sentinel/data-connectors/eset-protect",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/data-connectors/exabeam-advanced-analytics.md",
+            "redirect_url": "/previous-versions/azure/sentinel/data-connectors/exabeam-advanced-analytics",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/data-connectors/gitlab.md",
+            "redirect_url": "/previous-versions/azure/sentinel/data-connectors/gitlab",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/data-connectors/isc-bind.md",
+            "redirect_url": "/previous-versions/azure/sentinel/data-connectors/isc-bind",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/data-connectors/ivanti-unified-endpoint-management.md",
+            "redirect_url": "/previous-versions/azure/sentinel/data-connectors/ivanti-unified-endpoint-management",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/data-connectors/jboss-enterprise-application-platform.md",
+            "redirect_url": "/previous-versions/azure/sentinel/data-connectors/jboss-enterprise-application-platform",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/data-connectors/juniper-idp.md",
+            "redirect_url": "/previous-versions/azure/sentinel/data-connectors/juniper-idp",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/data-connectors/juniper-srx.md",
+            "redirect_url": "/previous-versions/azure/sentinel/data-connectors/juniper-srx",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/data-connectors/marklogic-audit.md",
+            "redirect_url": "/previous-versions/azure/sentinel/data-connectors/marklogic-audit",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/data-connectors/recommended-claroty-via-ama.md",
+            "redirect_url": "/previous-versions/azure/sentinel/data-connectors/claroty-via-ama",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/data-connectors/recommended-fireeye-network-security-nx-via-ama.md",
+            "redirect_url": "/previous-versions/azure/sentinel/data-connectors/fireeye-network-security-nx-via-ama",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/data-connectors/recommended-forcepoint-casb-via-ama.md",
+            "redirect_url": "/previous-versions/azure/sentinel/data-connectors/forcepoint-casb-via-ama",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/data-connectors/recommended-forcepoint-csg-via-ama.md",
+            "redirect_url": "/previous-versions/azure/sentinel/data-connectors/forcepoint-csg-via-ama",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/data-connectors/recommended-forcepoint-ngfw-via-ama.md",
+            "redirect_url": "/previous-versions/azure/sentinel/data-connectors/forcepoint-ngfw-via-ama",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/data-connectors/recommended-illumio-core-via-ama.md",
+            "redirect_url": "/previous-versions/azure/sentinel/data-connectors/illumio-core-via-ama",
+            "redirect_document_id": false
+        },
         {
             "source_path_from_root": "/articles/sentinel/data-connectors/tenable-io-vulnerability-management.md",
             "redirect_url": "/azure/sentinel/data-connectors/tenable-vulnerability-management",
