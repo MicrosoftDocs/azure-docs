@@ -1,7 +1,7 @@
 ---
 title: 'Upgrade public IP addresses attached to virtual machines in an Availability Set from Basic to Standard'
 titleSuffix: Azure Virtual Network
-description: This article shows you how to upgrade all public IP address attached to a VMs in an Availability Set to a standard public IP address
+description: This article shows you how to upgrade all public IP address attached to a VM in an Availability Set to a standard public IP address
 author: mbender-ms
 ms.author: mbratschun
 ms.date: 08/27/2024
@@ -66,7 +66,7 @@ Evaluate VMs in a single Availability Set, without making any changes
 Start-AzAvSetPublicIPUpgrade -availabilitySetName 'myAvSet' -resourceGroupName 'myRG' -WhatIf
 ```
 
-Attempt upgrade of VMs in a every Availability Set the user has access to. VMs without Public IPs, which are already upgraded, or which do not have NSGs are skipped.
+Attempt upgrade of VMs in every Availability Set the user has access to. VMs without Public IPs, which are already upgraded, or which do not have NSGs are skipped.
 ```powershell
 Get-AzAvailabilitySet -resourceGroupName 'myRG' | Start-AzAvSetPublicIPUpgrade -skipVMMissingNSG
 ```
