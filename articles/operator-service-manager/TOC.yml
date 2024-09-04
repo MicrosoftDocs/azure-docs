@@ -37,6 +37,11 @@
         href: safe-upgrade-practices.md
       - name: Control Upgrade Failure Behavior
         href: safe-upgrades-nf-level-rollback.md
+  - name: Edge Registry and Private Link
+    expanded: false
+    items:
+      - name: Get Started with Private Link
+        href: get-started-with-private-link.md        
 - name: Quickstarts
   expanded: false
   items:
