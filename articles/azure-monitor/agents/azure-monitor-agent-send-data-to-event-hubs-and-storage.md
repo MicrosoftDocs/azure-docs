@@ -57,7 +57,7 @@ A managed identity (either system or user) associated with the resources below. 
 
 - [Storage account](../../storage/common/storage-account-create.md)
 - [Event Hubs namespace and event hub](../../event-hubs/event-hubs-create.md)
-- [Virtual machine](../../virtual-machines/overview.md)
+- [Virtual machine](/azure/virtual-machines/overview)
 
 ## Create a data collection rule
 
@@ -739,4 +739,4 @@ WAD and LAD will only be getting security/patches going forward. Most engineerin
 
 ## See also
 
-- For more information on creating a data collection rule, see [Collect events and performance counters from virtual machines with Azure Monitor Agent](./data-collection-rule-azure-monitor-agent.md).
+- For more information on creating a data collection rule, see [Collect data from virtual machines using Azure Monitor Agent](./azure-monitor-agent-data-collection.md).

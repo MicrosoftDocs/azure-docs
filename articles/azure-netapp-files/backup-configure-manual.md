@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 06/13/2023
+ms.date: 07/03/2024
 ms.author: anfdocs
 ---
 # Configure manual backups for Azure NetApp Files 

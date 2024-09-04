@@ -14,7 +14,9 @@ Features released earlier than nine months ago are described in the [What's new 
 
 > [!NOTE]
 > Noted features listed below are in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include other legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
->
+
+[!INCLUDE [defender-iot-defender-reference](../includes/defender-for-iot-defender-reference.md)]
+
 ## July 2024
 
 |Service area  |Updates  |
@@ -254,7 +256,7 @@ Defender for IoT EIoT monitoring is now automatically supported as part of the M
 
 - **Customers with legacy Enterprise IoT plans and no ME5/E5 Security plans** can continue to use their existing plans until the plans expire.
 
-Trial licenses are available for Defender for Endpoint P2 customers as standalone licenses. Trial licenses support 100 number of devices for 90 days.
+Trial licenses are available for Defender for Endpoint P2 customers as standalone licenses. Trial licenses support 100 number of devices.
 
 For more information, see:
 
@@ -1247,7 +1249,7 @@ These features are now Generally Available (GA). Updates include the general loo
 
 - The **Data mining** page now includes reporting functionality. While the **Reports** page was removed, users with read-only access can view updates on the **Data mining page** without the ability to modify reports or settings.
 
-    For admin users creating new reports, you can now toggle on a **Send to CM** option to send the report to a central management console as well. For more information, see [Create a report](how-to-create-data-mining-queries.md#create-an-ot-sensor-custom-data-mining-report)
+    For admin users creating new reports, you can now toggle on a **Send to CM** option to send the report to a central management console as well. For more information, see [Create a report](how-to-create-data-mining-queries.md#create-an-ot-sensor-custom-data-mining-report) 
 
 - The **System settings** area has been reorganized in to sections for *Basic* settings, settings for *Network monitoring*, *Sensor management*, *Integrations*, and *Import settings*.
 

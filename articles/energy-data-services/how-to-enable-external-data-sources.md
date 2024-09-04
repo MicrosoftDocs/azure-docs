@@ -27,17 +27,17 @@ For more information about External Data Sources (EDS), see [The OSDU Forum 2Q 2
 
 ## Prerequisites
 
-1. Create a new or use an existing key vault to store secrets managed by [OSDU&reg;](https://osduforum.org/) secret service. To learn how to create a key vault with the Azure portal, see  [Quickstart: Create a key vault using the Azure portal](../key-vault/general/quick-create-portal.md).
+1. Create a new or use an existing key vault to store secrets managed by [OSDU&reg;](https://osduforum.org/) secret service. To learn how to create a key vault with the Azure portal, see  [Quickstart: Create a key vault using the Azure portal](/azure/key-vault/general/quick-create-portal).
   
     > [!IMPORTANT]
     > Your key vault must exist in the same tenant and subscription as your Azure Data Manager for Energy resource. 
 
     > [!TIP]
-    > When you create the key vault, select [Enable purge protection (enforce a mandatory retention period for deleted vaults and vault objects)](../key-vault/general/key-vault-recovery.md?tabs=azure-portal#what-are-soft-delete-and-purge-protection).
+    > When you create the key vault, select [Enable purge protection (enforce a mandatory retention period for deleted vaults and vault objects)](/azure/key-vault/general/key-vault-recovery?tabs=azure-portal#what-are-soft-delete-and-purge-protection).
   
 1. In the **Access configuration** tab, under **Permission model** select **Vault access policy**.
     [![Screenshot of create a key vault.](media/how-to-enable-external-data-sources/create-a-key-vault.jpg)](media/how-to-enable-external-data-sources/create-a-key-vault.jpg#lightbox)
-1. Give permission to Azure Data Manager for Energy Service Principal (SPN) on key vault (existing or new). How to give access to Azure Data Manager for Energy SPN - [Assign an Azure Key Vault access policy (CLI) | Microsoft Learn](../key-vault/general/assign-access-policy.md?tabs=azure-portal).
+1. Give permission to Azure Data Manager for Energy Service Principal (SPN) on key vault (existing or new). How to give access to Azure Data Manager for Energy SPN - [Assign an Azure Key Vault access policy (CLI) | Microsoft Learn](/azure/key-vault/general/assign-access-policy?tabs=azure-portal).
     1. Under **Access Policies**, select **Create** to create an access policy: 
         1. In the Permissions tab, select the permissions.
         [![Screenshot of select permissions.](media/how-to-enable-external-data-sources/select-permissions.jpg)](media/how-to-enable-external-data-sources/select-permissions.jpg#lightbox) 

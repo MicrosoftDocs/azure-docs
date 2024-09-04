@@ -4,8 +4,6 @@ metadata:
   description: Get answers to frequently asked questions about Azure Data Factory.
   author: ssabat
   ms.author: susabat
-  ms.service: data-factory
-  ms.subservice: 
   ms.topic: faq
   ms.date: 05/15/2024
 title: Azure Data Factory FAQ
@@ -200,6 +198,10 @@ sections:
       - question: |
           Technical deep dive
         answer: |
+          ### How many instances of Azure Data Factory should I have?
+
+          The answer to this question depends on the security model that your organization has adopted. Each instance of Data Factory should be scoped with Least Privileged access in mind. This could be a situation where one instance of Data Factory supports all HR workloads and another supports all Finance data. Each instance of Data Factory has access to different Linked Services, and each instance could be supported by different development teams. There is no additional cost because you're billed by compute increments, so the same 100 pipelines in 1 instance of Data Factory would cost the same as 10 pipelines across 10 instances of Data Factory.
+          
           ### How can I schedule a pipeline?
           
           You can use the scheduler trigger or time window trigger to schedule a pipeline. The trigger uses a wall-clock calendar schedule, which can schedule pipelines periodically or in calendar-based recurrent patterns (for example, on Mondays at 6:00 PM and Thursdays at 9:00 PM). For more information, see [Pipeline execution and triggers](concepts-pipeline-execution-triggers.md).

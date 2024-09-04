@@ -3,9 +3,9 @@ title: What's new?
 description: Learn about the new features and documentation improvements for Azure Synapse Analytics
 author: WilliamDAssafMSFT
 ms.author: wiassaf
-ms.reviewer: rymajidi, sngun
+ms.reviewer: rymajidi, whhender
 ms.date: 08/01/2023
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.subservice: overview
 ms.topic: conceptual
 ---
@@ -190,7 +190,7 @@ This section summarizes new guidance and sample project resources for Azure Syna
 | September 2022 | **What is the difference between Synapse dedicated SQL pool (formerly SQL DW) and Serverless SQL pool?** | Understand dedicated vs serverless pools and their concurrency. Read more at [basic concepts of dedicated SQL pools and serverless SQL pools](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/understand-synapse-dedicated-sql-pool-formerly-sql-dw-and/ba-p/3594628).|
 | September 2022 | **Reading Delta Lake in dedicated SQL Pool** | [Sample script](https://github.com/microsoft/Azure_Synapse_Toolbox/tree/master/TSQL_Queries/Delta%20Lake) to import Delta Lake files directly into the dedicated SQL Pool and support features like time-travel. For an explanation, see [Reading Delta Lake in dedicated SQL Pool](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/reading-delta-lake-in-dedicated-sql-pool/ba-p/3571053).|
 | September 2022 | **Azure Synapse Customer Success Engineering blog series** | The new [Azure Synapse Customer Success Engineering blog series](https://aka.ms/synapsecseblog) launches with a detailed introduction to [Building the Lakehouse - Implementing a Data Lake Strategy with Azure Synapse](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/building-the-lakehouse-implementing-a-data-lake-strategy-with/ba-p/3612291).|
-| June 2022 | **Azure Orbital analytics with Synapse Analytics** | We now offer an [Azure Orbital analytics sample solution](https://github.com/Azure/Azure-Orbital-Analytics-Samples) showing an end-to-end implementation of extracting, loading, transforming, and analyzing spaceborne data by using geospatial libraries and AI models with Azure Synapse Analytics. The sample solution also demonstrates how to integrate geospatial-specific [Azure AI services](../ai-services/index.yml) models, AI models from partners, and bring-your-own-data models. |
+| June 2022 | **Azure Orbital analytics with Synapse Analytics** | We now offer an [Azure Orbital analytics sample solution](https://github.com/Azure/Azure-Orbital-Analytics-Samples) showing an end-to-end implementation of extracting, loading, transforming, and analyzing spaceborne data by using geospatial libraries and AI models with Azure Synapse Analytics. The sample solution also demonstrates how to integrate geospatial-specific [Azure AI services](/azure/ai-services/) models, AI models from partners, and bring-your-own-data models. |
 | June 2022 | **Migration guides for Oracle** | A new Microsoft-authored migration guide for Oracle to Azure Synapse Analytics is now available. [Design and performance for Oracle migrations](migration-guides/oracle/1-design-performance-migration.md). |
 | June 2022 | **Azure Synapse success by design** | The [Azure Synapse proof of concept playbook](./guidance/proof-of-concept-playbook-overview.md) provides a guide to scope, design, execute, and evaluate a proof of concept for SQL or Spark workloads. |
 | June 2022 | **Migration guides for Teradata** | A new Microsoft-authored migration guide for Teradata to Azure Synapse Analytics is now available. [Design and performance for Teradata migrations](migration-guides/teradata/1-design-performance-migration.md). |
@@ -255,7 +255,7 @@ Azure Data Explorer (ADX) is a fast and highly scalable data exploration service
 
 ## Azure Synapse Link
 
-Azure Synapse Link is an automated system for replicating data from [SQL Server or Azure SQL Database](synapse-link/sql-synapse-link-overview.md), [Azure Cosmos DB](../cosmos-db/synapse-link.md?context=%2fazure%2fsynapse-analytics%2fcontext%2fcontext), or [Dataverse](/power-apps/maker/data-platform/export-to-data-lake?context=%2Fazure%2Fsynapse-analytics%2Fcontext%2Fcontext) into Azure Synapse Analytics. This section summarizes recent news about the Azure Synapse Link feature.
+Azure Synapse Link is an automated system for replicating data from [SQL Server or Azure SQL Database](synapse-link/sql-synapse-link-overview.md), [Azure Cosmos DB](/azure/cosmos-db/synapse-link?context=%2fazure%2fsynapse-analytics%2fcontext%2fcontext), or [Dataverse](/power-apps/maker/data-platform/export-to-data-lake?context=%2Fazure%2Fsynapse-analytics%2Fcontext%2Fcontext) into Azure Synapse Analytics. This section summarizes recent news about the Azure Synapse Link feature.
 
 |**Month** | **Feature** |  **Learn more**|
 |:-- |:-- | :-- |

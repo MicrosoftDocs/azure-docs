@@ -4,9 +4,9 @@ titleSuffix: Azure Spring Apps Enterprise plan
 description: Shows you how to migrate an Azure Spring Apps Basic or Standard plan instance to Enterprise plan.
 author: KarlErickson
 ms.author: xiading
-ms.service: spring-apps
+ms.service: azure-spring-apps
 ms.topic: how-to
-ms.date: 6/20/2023
+ms.date: 08/29/2024
 ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli
 ---
 

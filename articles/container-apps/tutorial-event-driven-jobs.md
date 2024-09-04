@@ -3,7 +3,7 @@ title: 'Tutorial: Deploy an event-driven job with Azure Container Apps'
 description: Learn to create a job that processes queue messages with Azure Container Apps
 services: container-apps
 author: craigshoemaker
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.custom: build-2023, devx-track-azurecli
 ms.topic: conceptual
 ms.date: 05/05/2023

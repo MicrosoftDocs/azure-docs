@@ -1,12 +1,14 @@
 ---
 title: One-click deployment for Azure HDInsight on AKS 
 description: How to create cluster pool and cluster with one-click deployment on Azure HDInsight on AKS.
-ms.service: hdinsight-aks
+ms.service: azure-hdinsight-on-aks
 ms.topic: quickstart
 ms.date: 08/29/2023
 ---
 
 # Get started with one-click deployment 
+
+[!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
 
 
 One-click deployments are designed for users to experience zero touch creation of HDInsight on AKS. It eliminates the need to manually perform certain steps. 

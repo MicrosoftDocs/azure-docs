@@ -4,7 +4,7 @@ description: Use Visual Studio to develop a custom IoT Edge module and deploy to
 services: iot-edge
 author: PatAltimore
 ms.author: patricka
-ms.date: 07/13/2023
+ms.date: 07/17/2024
 ms.topic: conceptual
 ms.service: iot-edge
 zone_pivot_groups: iotedge-dev
@@ -250,9 +250,6 @@ Typically, you want to test and debug each module before running it within an en
       IoT Hub module client initialized.
       Received message: 1, Body: [hello world]
       ```
-
-   > [!TIP]
-   > You can also use [PostMan](https://www.getpostman.com/) or other API tools to send messages instead of `curl`.
 
 1. Press **Ctrl + F5** or select the stop button to stop debugging.
 

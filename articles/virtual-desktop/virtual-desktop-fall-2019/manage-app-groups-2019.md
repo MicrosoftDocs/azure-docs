@@ -1,11 +1,11 @@
 ---
 title: Manage application groups for Azure Virtual Desktop (classic) - Azure
 description: Learn how to set up Azure Virtual Desktop (classic) tenants in Microsoft Entra ID.
-author: Heidilohr
+author: dknappettmsft
 ms.topic: tutorial
 ms.date: 08/16/2021
-ms.author: helohr
-manager: femila
+ms.author: daknappe
+ms.custom: docs_inherited
 ---
 # Tutorial: Manage application groups for Azure Virtual Desktop (classic)
 

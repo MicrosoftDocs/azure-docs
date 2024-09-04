@@ -6,7 +6,7 @@ services: storage
 author: pauljewellmsft
 
 ms.author: pauljewell
-ms.date: 05/22/2024
+ms.date: 08/05/2024
 ms.service: azure-blob-storage
 ms.topic: how-to
 ms.devlang: golang
@@ -103,3 +103,5 @@ The Azure SDK for Go contains libraries that build on top of the Azure REST API,
 
 - [Manage and find Azure Blob data with blob index tags](storage-manage-find-blobs.md)
 - [Use blob index tags to manage and find data on Azure Blob Storage](storage-blob-index-how-to.md)
+
+[!INCLUDE [storage-dev-guide-next-steps-go](../../../includes/storage-dev-guides/storage-dev-guide-next-steps-go.md)]

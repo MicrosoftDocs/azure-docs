@@ -4,7 +4,7 @@ description: This page describes how to move a classic circuit to the Resource M
 services: expressroute
 author: duongau
 
-ms.service: expressroute
+ms.service: azure-expressroute
 ms.topic: how-to
 ms.date: 02/25/2019
 ms.author: duau 

@@ -3,7 +3,7 @@ title: "Tutorial: Add an Azure Cosmos DB database connection in Azure Static Web
 description: Learn to add an  Azure Cosmos DB database connection to a web application in Azure Static Web Apps
 author: craigshoemaker
 ms.author: cshoe
-ms.service: static-web-apps
+ms.service: azure-static-web-apps
 ms.topic: tutorial
 ms.date: 03/07/2023
 ---

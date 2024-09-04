@@ -4,7 +4,7 @@ description: This page provides an overview of ExpressRoute circuits and routing
 services: expressroute
 author: duongau
 
-ms.service: expressroute
+ms.service: azure-expressroute
 ms.topic: conceptual
 ms.date: 09/06/2023
 ms.author: duau 
@@ -51,9 +51,9 @@ Default quotas and limits apply for every ExpressRoute circuit. Refer to the [Az
 
 ## <a name="routingdomains"></a>ExpressRoute peering
 
-An ExpressRoute circuit has multiple routing domains/peerings associated with it: Azure public, Azure private, and Microsoft. Each peering is configured identically on a pair of routers (in active-active or load sharing configuration) for high availability. Azure services are categorized as *Azure public* and *Azure private* to represent the IP addressing schemes.
+An ExpressRoute circuit has two routing domains/peerings associated with it: Azure Private and Microsoft. Each peering is configured identically on a pair of routers (in active-active or load sharing configuration) for high availability. Azure services are categorized as *Azure public* and *Azure private* to represent the IP addressing schemes.
 
-![Diagram showing how Azure public, Azure private, and Microsoft peerings are configured in an ExpressRoute circuit.](./media/expressroute-circuit-peerings/expressroute-peerings.png)
+![Diagram showing how Azure Private and Microsoft peerings are configured in an ExpressRoute circuit.](./media/expressroute-circuit-peerings/expressroute-peerings.png)
 
 ### <a name="privatepeering"></a>Azure private peering
 
@@ -74,7 +74,7 @@ For more information on services supported, costs, and configuration details, se
 
 ## <a name="peeringcompare"></a>Peering comparison
 
-The following table compares the three peerings:
+The following table compares the two peerings:
 
 [!INCLUDE [peering comparison](../../includes/expressroute-peering-comparison.md)]
 

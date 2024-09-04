@@ -2,14 +2,17 @@
   href: index.yml
 - name: Overview
   items:
-  - name: What is Azure DNS?
+  - name: Azure DNS overview
     href: dns-overview.md
+  - name: What is Azure Public DNS?
+    href: public-dns-overview.md
   - name: What is Azure Private DNS?
     href: private-dns-overview.md
   - name: What is Azure DNS Private Resolver?
     href: dns-private-resolver-overview.md
+  - name: What is Azure Traffic Manager?
+    href: /azure/traffic-manager/traffic-manager-overview
 - name: Quickstarts
-  expanded: true
   items:
   - name: Public DNS
     items:
@@ -45,6 +48,7 @@
       href: dns-private-resolver-get-started-bicep.md
     - name: Create a private resolver - ARM Template
       href: dns-private-resolver-get-started-template.md
+  expanded: true
 - name: Tutorials
   items:
   - name: Public DNS
@@ -52,7 +56,7 @@
     - name: Host your domain in Azure DNS
       href: dns-delegate-domain-azure-dns.md
     - name: Create child DNS zones
-      href: tutorial-public-dns-zones-child.md    
+      href: tutorial-public-dns-zones-child.md
     - name: Create custom DNS records for a web app
       href: dns-web-sites-custom-domain.md
     - name: Create alias records for zone records
@@ -113,7 +117,6 @@
       href: private-resolver-architecture.md
     - name: Resiliency in Azure DNS Private Resolver
       href: private-resolver-reliability.md
-
 - name: How-to guides
   items:
   - name: Public DNS
@@ -190,8 +193,6 @@
     items:
     - name: Code samples
       href: https://azure.microsoft.com/resources/samples/?service=dns
-    - name: CLI Samples
-      href: cli-samples.md
     - name: Azure PowerShell
       href: /powershell/module/az.dns
     - name: Azure CLI
@@ -248,7 +249,6 @@
         href: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/private_dns_resolver_outbound_endpoint
       - name: Manages a private DNS resolver DNS forwarding ruleset
         href: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/private_dns_resolver_dns_forwarding_ruleset
-
 - name: Resources
   items:
   - name: Azure Roadmap

@@ -4,7 +4,7 @@ titleSuffix: Azure Network Watcher
 description: Learn how to use a PowerShell script to parse flow logs that are created hourly and updated every few minutes in Azure Network Watcher.
 author: halkazwini
 ms.author: halkazwini
-ms.service: network-watcher
+ms.service: azure-network-watcher
 ms.topic: how-to
 ms.date: 04/24/2024
 ms.custom: devx-track-azurepowershell

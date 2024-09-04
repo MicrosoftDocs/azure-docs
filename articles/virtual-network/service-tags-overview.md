@@ -4,9 +4,9 @@ titlesuffix: Azure Virtual Network
 description: Learn about service tags. Service tags help minimize the complexity of security rule creation.
 services: virtual-network
 author: asudbring
-ms.service: virtual-network
-ms.topic: conceptual
-ms.date: 04/16/2024
+ms.service: azure-virtual-network
+ms.topic: concept-article
+ms.date: 07/10/2024
 ms.author: allensu
 ---
 
@@ -54,7 +54,7 @@ By default, service tags reflect the ranges for the entire cloud. Some service t
 | **[AzureBackup](/azure/backup/backup-sql-server-database-azure-vms#establish-network-connectivity)** |Azure Backup.<br/><br/>**Note**: This tag has a dependency on the **Storage** and **AzureActiveDirectory** tags. | Outbound | No | Yes |
 | **AzureBotService** | Azure Bot Service. | Both | No | Yes |
 | **AzureCloud** | All [datacenter public IP addresses](https://www.microsoft.com/download/details.aspx?id=56519). This tag doesn't include IPv6. | Both | Yes | Yes |
-| **[AzureCognitiveSearch](/azure/search/search-indexer-howto-access-ip-restricted#get-ip-addresses-for-azurecognitivesearch-service-tag)** | Azure AI Search. <br/><br/>This tag specifies the IP ranges of the [multitenant execution environments](../search/search-indexer-securing-resources.md#indexer-execution-environment) used by a search service for indexer-based indexing. <br/><br/> **Note**: The IP of the search service itself isn't covered by this service tag. In the firewall configuration of your Azure resource, you should specify the service tag and also the specific IP address of the search service itself. | Inbound | No | Yes |
+| **[AzureCognitiveSearch](/azure/search/search-indexer-howto-access-ip-restricted#get-ip-addresses-for-azurecognitivesearch-service-tag)** | Azure AI Search. <br/><br/>This tag specifies the IP ranges of the [multitenant execution environments](/azure/search/search-indexer-securing-resources#indexer-execution-environment) used by a search service for indexer-based indexing. <br/><br/> **Note**: The IP of the search service itself isn't covered by this service tag. In the firewall configuration of your Azure resource, you should specify the service tag and also the specific IP address of the search service itself. | Inbound | No | Yes |
 | **AzureConnectors** | This tag represents the IP addresses used for managed connectors that make inbound webhook callbacks to the Azure Logic Apps service and outbound calls to their respective services, for example, Azure Storage or Azure Event Hubs. | Both | Yes | Yes |
 | **AzureContainerAppsService** | Azure Container Apps Service | Both | Yes | No |
 | **AzureContainerRegistry** | Azure Container Registry. | Outbound | Yes | Yes |
@@ -119,7 +119,7 @@ By default, service tags reflect the ranges for the entire cloud. Some service t
 | **[SerialConsole](/troubleshoot/azure/virtual-machines/linux/serial-console-linux#use-serial-console-with-custom-boot-diagnostics-storage-account-firewall-enabled)** | Limit access to boot diagnostics storage accounts from only Serial Console service tag | Inbound | No | Yes |
 | **ServiceBus** | Azure Service Bus traffic that uses the Premium service tier. | Outbound | Yes | Yes |
 | **[ServiceFabric](/azure/service-fabric/how-to-managed-cluster-networking#bring-your-own-virtual-network)** | Azure Service Fabric.<br/><br/>**Note**: This tag represents the Service Fabric service endpoint for control plane per region. This enables customers to perform management operations for their Service Fabric clusters from their VNET endpoint. (For example, https:// westus.servicefabric.azure.com). | Both | No | Yes |
-| **Sql** | Azure SQL Database, Azure Database for MySQL, Azure Database for PostgreSQL, Azure Database for MariaDB, and Azure Synapse Analytics.<br/><br/>**Note**: This tag represents the service, but not specific instances of the service. For example, the tag represents the Azure SQL Database service, but not a specific SQL database or server. This tag doesn't apply to SQL managed instance. | Outbound | Yes | Yes |
+| **Sql** | Azure SQL Database, Azure Database for MySQL Single Server, Azure Database for PostgreSQL Single Server, Azure Database for MariaDB, and Azure Synapse Analytics.<br/><br/>**Note**: This tag represents the service, but not specific instances of the service. For example, the tag represents the Azure SQL Database service, but not a specific SQL database or server. This tag doesn't apply to SQL managed instance. | Outbound | Yes | Yes |
 | **SqlManagement** | Management traffic for SQL-dedicated deployments. | Both | No | Yes |
 | **[Storage](/azure/storage/file-sync/file-sync-networking-overview#configuring-firewalls-and-service-tags)** | Azure Storage. <br/><br/>**Note**: This tag represents the service, but not specific instances of the service. For example, the tag represents the Azure Storage service, but not a specific Azure Storage account. | Outbound | Yes | Yes |
 | **[StorageSyncService](/azure/storage/file-sync/file-sync-networking-overview#configuring-firewalls-and-service-tags)** | Storage Sync Service. | Both | No | Yes |

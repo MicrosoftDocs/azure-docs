@@ -3,9 +3,9 @@ title: Map DNS names to applications in multiple Azure Spring Apps service insta
 description: Learn how to map DNS names to applications in multiple Azure Spring Apps service instances in the same virtual network.
 author: KarlErickson
 ms.author: wenhaozhang
-ms.service: spring-apps
+ms.service: azure-spring-apps
 ms.topic: how-to
-ms.date: 6/29/2023
+ms.date: 08/29/2024
 ms.custom: devx-track-java, devx-track-azurecli, engagement-fy23
 ---
 

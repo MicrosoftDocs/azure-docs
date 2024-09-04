@@ -1,7 +1,7 @@
 ---
 title: Parse Protobuf
 description: This article describes how to use Azure Stream Analytics with Protobuf as data input.
-ms.service: stream-analytics
+ms.service: azure-stream-analytics
 author: AliciaLiMicrosoft 
 ms.author: ali 
 ms.topic: conceptual

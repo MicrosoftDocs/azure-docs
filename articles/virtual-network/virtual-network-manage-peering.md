@@ -2,7 +2,7 @@
 title: Create, change, or delete an Azure virtual network peering
 description: Learn how to create, change, or delete a virtual network peering. With virtual network peering, you connect virtual networks in the same region and across regions.
 author: asudbring
-ms.service: virtual-network
+ms.service: azure-virtual-network
 ms.topic: how-to
 ms.date: 06/27/2024
 ms.author: allensu
@@ -306,6 +306,8 @@ az network vnet peering delete \
 - <a name="cross-region"></a>You can peer virtual networks in the same region, or different regions. Peering virtual networks in different regions is also referred to as **Global Virtual Network Peering**.
 
 - When creating a global peering, the peered virtual networks can exist in any Azure public cloud region or China cloud regions or Government cloud regions. You can't peer across clouds. For example, a virtual network in Azure public cloud can't be peered to a virtual network in Microsoft Azure operated by 21Vianet cloud.
+  
+- When part of a peering, a virtual network cannot be moved. If you need to move a virtual network to a different resource group or subscription, you must delete the peering, move the virtual network, and then recreate the peering.
 
 - Resources in one virtual network can't communicate with the front-end IP address of a basic load balancer (internal or public) in a globally peered virtual network. Support for basic load balancer only exists within the same region. Support for standard load balancer exists for both, Virtual Network Peering and Global Virtual Network Peering. Some services that use a basic load balancer don't work over global virtual network peering. For more information, see [Constraints related to Global Virtual Network Peering and Load Balancers](virtual-networks-faq.md#what-are-the-constraints-related-to-global-virtual-network-peering-and-load-balancers).
 
@@ -335,7 +337,7 @@ az network vnet peering delete \
  
 - You can't resolve names in peered virtual networks using default Azure name resolution. To resolve names in other virtual networks, you must use [Azure Private DNS](../dns/private-dns-overview.md) or a custom DNS server. To learn how to set up your own DNS server, see [Name resolution using your own DNS server](virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server).
 
-- Resources in peered virtual networks in the same region can communicate with each other with the same latency as if they were within the same virtual network. The network throughput is based on the bandwidth that's allowed for the virtual machine, proportionate to its size. There isn't any extra restriction on bandwidth within the peering. Each virtual machine size has its own maximum network bandwidth. To learn more about maximum network bandwidth for different virtual machine sizes, see [Sizes for virtual machines in Azure](../virtual-machines/sizes.md).
+- Resources in peered virtual networks in the same region can communicate with each other with the same latency as if they were within the same virtual network. The network throughput is based on the bandwidth that's allowed for the virtual machine, proportionate to its size. There isn't any extra restriction on bandwidth within the peering. Each virtual machine size has its own maximum network bandwidth. To learn more about maximum network bandwidth for different virtual machine sizes, see [Sizes for virtual machines in Azure](/azure/virtual-machines/sizes).
 
 - A virtual network can be peered to another virtual network, and also be connected to another virtual network with an Azure virtual network gateway. When virtual networks are connected through both peering and a gateway, traffic between the virtual networks flows through the peering configuration, rather than the gateway.
 

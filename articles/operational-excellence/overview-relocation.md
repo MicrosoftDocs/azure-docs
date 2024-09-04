@@ -45,7 +45,10 @@ The following tables provide links to each Azure service relocation document. Th
 [Azure Event Hubs](relocation-event-hub.md)| ✅   | ❌| ❌ |
 [Azure Event Hubs Cluster](relocation-event-hub-cluster.md)| ✅ | ❌  | ❌ |
 [Azure Key Vault](./relocation-key-vault.md)| ✅ | ✅| ❌ |
+[Azure Load Balancer](../load-balancer/move-across-regions-external-load-balancer-portal.md)| ✅ | ✅| ❌ |
 [Azure Site Recovery (Recovery Services vaults)](relocation-site-recovery.md)| ✅ | ✅|  ❌  |
+[Azure Virtual Machines]( ../resource-mover/tutorial-move-region-virtual-machines.md?toc=/azure/operational-excellence/toc.json)| ❌ | ❌|  ✅  |
+[Azure Virtual Machine Scale Sets](./relocation-virtual-machine-scale-sets.md)|❌  |✅   | ❌ |
 [Azure Virtual Network](./relocation-virtual-network.md)|  ✅| ❌  | ✅ |
 [Azure Virtual Network - Network Security Groups](./relocation-virtual-network-nsg.md)|✅  |❌   | ✅ |
 
@@ -57,18 +60,19 @@ The following tables provide links to each Azure service relocation document. Th
 [Azure API Management](../api-management/api-management-howto-migrate.md?toc=/azure/operational-excellence/toc.json)| ✅ | ✅|  ❌  |
 [Azure Application Gateway and Web Application Firewall](relocation-app-gateway.md)| ✅ | ❌| ❌ |
 [Azure App Service](../app-service/manage-move-across-regions.md?toc=/azure/operational-excellence/toc.json)|✅  |  ❌| ❌ |
-[Azure Backup (Recovery Services vault)](../backup/azure-backup-move-vaults-across-regions.md?toc=/azure/operational-excellence/toc.json)| ✅ | ✅| ❌ |
+[Azure Backup](relocation-backup.md)| ✅ | ❌| ❌ |
 [Azure Batch](../batch/account-move.md?toc=/azure/operational-excellence/toc.json)|✅ | ✅|  ❌  |
 [Azure Cache for Redis](../azure-cache-for-redis/cache-moving-resources.md?toc=/azure/operational-excellence/toc.json)| ✅ |  ❌| ❌ |
-[Azure Container Registry](../container-registry/manual-regional-move.md)|✅ | ✅|  ❌  |
+[Azure Container Registry](relocation-container-registry.md)|✅ | ✅| ❌ |
 [Azure Cosmos DB](relocation-cosmos-db.md)|✅ | ✅|  ❌  |
-[Azure Database for MariaDB Server](../mariadb/howto-move-regions-portal.md?toc=/azure/operational-excellence/toc.json)|✅ | ✅|  ❌  |
-[Azure Database for MySQL Server](../mysql/howto-move-regions-portal.md?toc=/azure/operational-excellence/toc.json)✅ | ✅|  ❌  |
+[Azure Database for MariaDB Server](/azure/mariadb/howto-move-regions-portal?toc=/azure/operational-excellence/toc.json)|✅ | ✅|  ❌  |
+[Azure Database for MySQL Server](/azure/mysql/howto-move-regions-portal?toc=/azure/operational-excellence/toc.json)|✅ | ✅|  ❌  |
 [Azure Database for PostgreSQL](./relocation-postgresql-flexible-server.md)| ✅ | ✅| ❌ |
 [Azure Event Grid domains](relocation-event-grid-domains.md)| ✅ | ❌| ❌ |
 [Azure Event Grid custom topics](relocation-event-grid-custom-topics.md)| ✅ | ❌| ❌ |
 [Azure Event Grid system topics](relocation-event-grid-system-topics.md)| ✅ | ❌| ❌ |
-[Azure Functions](../azure-functions/functions-move-across-regions.md?toc=/azure/operational-excellence/toc.json)|✅  |❌  | ❌ |
+[Azure Firewall](./relocation-firewall.md)|❌ | ✅| ❌ |
+[Azure Functions](relocation-functions.md)|✅  |❌  | ❌ |
 [Azure Logic apps](../logic-apps/move-logic-app-resources.md?toc=/azure/operational-excellence/toc.json)|  ✅| ❌ | ❌ |
 [Azure Monitor - Log Analytics](./relocation-log-analytics.md)| ✅| ❌ | ❌ |
 [Azure Private Link Service](./relocation-private-link.md) | ✅| ❌ | ❌ |
@@ -84,6 +88,8 @@ The following tables provide links to each Azure service relocation document. Th
 | --- | --- | --- | ---|
 [Azure Automation](./relocation-automation.md)| ✅ | ✅| ❌ |
 [Azure IoT Hub](/azure/iot-hub/iot-hub-how-to-clone?toc=/azure/operational-excellence/toc.json)| ✅ | ✅|  ❌  |
+[Azure NetApp Files](./relocation-netapp.md)| ✅ | ✅|  ❌  |
+[Azure Static Web Apps](./relocation-static-web-apps.md) |  ✅ |❌ | ❌ |
 [Power BI](/power-bi/admin/service-admin-region-move?toc=/azure/operational-excellence/toc.json)| ✅ |❌ | ❌ |
 
 

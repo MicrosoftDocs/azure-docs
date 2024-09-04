@@ -2,12 +2,12 @@
 title: View Azure Maps API usage metrics
 titleSuffix: Microsoft Azure Maps
 description: Learn how to view Azure Maps API usage metrics, such as total requests, total errors, and availability. See how to filter data and split results.
-author: eriklindeman
-ms.author: eriklind
+author: sinnypan
+ms.author: sipa
 ms.date: 08/06/2018
 ms.topic: how-to
 ms.service: azure-maps
-services: azure-maps
+ms.subservice: general
 ---
 
 # View Azure Maps API usage metrics
@@ -26,9 +26,9 @@ Continue to the next section if you need to customize these graphs for your part
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-2. Click the **All resources** menu item on the left-hand side and navigate to your *Azure Maps Account*.
+2. Select the **All resources** menu item on the left-hand side and navigate to your *Azure Maps Account*.
 
-3. Once your Maps account is open, click on the **Metrics** menu on the left.
+3. Once your Maps account is open, select the **Metrics** menu on the left.
 
 4. On the **Metrics** pane, choose one of the following options:
 
@@ -37,7 +37,7 @@ Continue to the next section if you need to customize these graphs for your part
 
       ![Azure Maps usage metrics pane](media/how-to-view-api-usage/portal-metrics.png)
 
-5. Next, you may select the *Time range* by clicking **Last 24 hours (Automatic)**. By default, the time range is set to 24 hours. After clicking, you'll see all selectable time ranges. You can select the *Time granularity* and choose to show the time as *local* or *GMT* in the same drop-down. Click **Apply**.
+5. Next, you may select the *Time range* by selecting **Last 24 hours (Automatic)**. By default, the time range is set to 24 hours. After clicking, you'll see all selectable time ranges. You can select the *Time granularity* and choose to show the time as *local* or *GMT* in the same drop-down. Click **Apply**.
 
     ![Azure Maps metrics time range](media/how-to-view-api-usage/time-range.png)
 
@@ -49,7 +49,7 @@ Continue to the next section if you need to customize these graphs for your part
 
     ![Azure Maps usage metrics splitting](media/how-to-view-api-usage/splitting.png)
 
-8. You may also observe multiple metrics on the same graph, simply by clicking on the **Add metric** button on top.
+8. You may also observe multiple metrics on the same graph, by selecting the **Add metric** button.
 
 ## Next steps
 

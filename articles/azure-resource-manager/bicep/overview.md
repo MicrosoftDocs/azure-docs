@@ -27,7 +27,7 @@ Bicep provides the following advantages:
   param location string = resourceGroup().location
   param storageAccountName string = 'toylaunch${uniqueString(resourceGroup().id)}'
 
-  resource storageAccount 'Microsoft.Storage/storageAccounts@2021-06-01' = {
+  resource storageAccount 'Microsoft.Storage/storageAccounts@2023-04-01' = {
     name: storageAccountName
     location: location
     sku: {
@@ -59,7 +59,7 @@ Bicep provides the following advantages:
     "resources": [
       {
         "type": "Microsoft.Storage/storageAccounts",
-        "apiVersion": "2021-06-01",
+        "apiVersion": "2023-04-01",
         "name": "[parameters('storageAccountName')]",
         "location": "[parameters('location')]",
         "sku": {
@@ -82,7 +82,7 @@ Bicep provides the following advantages:
 
   You can also create Bicep files in Visual Studio with the [Bicep extension for Visual Studio](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.visualstudiobicep).
 
-- **Repeatable results**: Repeatedly deploy your infrastructure throughout the development lifecycle and have confidence your resources are deployed in a consistent manner. Bicep files are idempotent, which means you can deploy the same file many times and get the same resource types in the same state. You can develop one file that represents the desired state, rather than developing lots of separate files to represent updates. For example, the following file creates a storage account. If you deploy this template and the storage account with the specified properties already exists , no changes is made.
+- **Repeatable results**: Repeatedly deploy your infrastructure throughout the development lifecycle and have confidence your resources are deployed in a consistent manner. Bicep files are idempotent, which means you can deploy the same file many times and get the same resource types in the same state. You can develop one file that represents the desired state, rather than developing lots of separate files to represent updates. For example, the following file creates a storage account. If you deploy this template and the storage account with the specified properties already exists , no changes are made.
 
   # [Bicep](#tab/bicep)
 

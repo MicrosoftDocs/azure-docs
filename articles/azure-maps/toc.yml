@@ -5,8 +5,6 @@ items:
   items:
   - name: What is Azure Maps?
     href: about-azure-maps.md
-  - name: What is Azure Maps Creator?
-    href: about-creator.md
 - name: Quickstarts
   expanded: true
   items:
@@ -34,8 +32,6 @@ items:
       href: tutorial-load-geojson-file-android.md
   - name: REST API Tutorials
     items:
-    - name: Create indoor maps
-      href: tutorial-creator-indoor-maps.md
     - name: Spatial analytics
       href: tutorial-iot-hub-maps.md
     - name: EV routing using Azure Notebooks (Python)
@@ -191,8 +187,6 @@ items:
       href: creator-qgis-plugin.md
     - name: Create dataset using GeoJson package
       href: how-to-dataset-geojson.md
-    - name: Create a feature stateset
-      href: how-to-creator-feature-stateset.md
   - name: Get map data from REST APIs
     items:
     - name: Search for an address
@@ -299,8 +293,6 @@ items:
       items:
       - name: Indoor Maps module with custom styles
         href: how-to-use-indoor-module.md
-      - name: Dynamic styling for indoor maps
-        href: indoor-map-dynamic-styling.md
     - name: Spatial IO module 
       items:
       - name: Use the spatial IO module
@@ -449,8 +441,6 @@ items:
       href: drawing-requirements.md
     - name: Facility Ontology
       href: creator-facility-ontology.md
-    - name: Dynamic maps StylesObject
-      href: schema-stateset-stylesobject.md
     - name: Drawing error visualizer
       href: drawing-error-visualizer.md
     - name: Drawing conversion errors and warnings

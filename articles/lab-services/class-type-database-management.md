@@ -4,11 +4,13 @@ description: Learn how to set up a lab to teach the management of relational dat
 author: emaher
 ms.topic: how-to
 ms.date: 02/22/2022
-ms.service: lab-services
+ms.service: azure-lab-services
 ms.custom: devdivchpfy22
 ---
 
 # Set up a lab to teach database management for relational databases
+
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
 
 [!INCLUDE [preview note](./includes/lab-services-new-update-focused-article.md)]
 

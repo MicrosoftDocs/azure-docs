@@ -1,0 +1,175 @@
+### YamlMime:Hub 
+
+title: Azure network monitoring and management documentation 
+summary: Learn about the various Azure monitoring and management services that you can use to monitor your resources in Azure.
+brand: azure ## Used for color theming of icons and hero area 
+
+metadata: 
+  title: Azure network monitoring and management documentation
+  description: Learn about the various Azure network monitoring and management services that you can use to monitor your network resources in Azure. 
+  ms.service: azure-network-watcher
+  ms.topic: hub-page
+  author: halkazwini
+  ms.author: halkazwini
+  manager: kumudD
+  ms.date: 07/25/2024
+
+highlightedContent:
+# itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new 
+  items:
+    - title: Azure networking services
+      itemType: concept
+      url: ../index.yml
+    - title: Hub-spoke network topology in Azure
+      itemType: architecture
+      url: /azure/architecture/reference-architectures/hybrid-networking/hub-spoke
+    - title: Azure Networking blogs
+      itemType: concept
+      url: https://azure.microsoft.com/en-us/blog/category/networking/
+
+# productDirectory section (Optional; Remove if not applicable.)
+productDirectory:
+  title:  Get started
+  items:
+    # Card 1
+    - title: Network Watcher
+      # imageSrc should be square in ratio with no white space
+      imageSrc: ./media/network-watcher.svg
+      summary: Gain insight into your virtual network with diagnostic tools and monitor connections.
+      url: ../../network-watcher/index.yml
+    # Card 2
+    - title: Azure Monitor
+      # imageSrc should be square in ratio with no white space
+      imageSrc: ./media/monitor.svg
+      summary: Aggregate and analyze metrics, logs, and traces.
+      url: ../../azure-monitor/index.yml
+    # Card 3
+    - title: Azure Virtual Network Manager
+      # imageSrc should be square in ratio with no white space
+      imageSrc: ./media/network-manager.svg
+      summary: Group, configure, deploy, and manage virtual networks.
+      url: ../../virtual-network-manager/index.yml
+
+conceptualContent:
+# itemType: architecture | concept | deploy | download | get-started | how-to-guide | training | overview | quickstart | reference | sample | tutorial | video | whats-new
+  # Supports up to 3 subsections
+  sections:
+    # Section 1
+    - title: Use cases and scenarios
+      items:
+        # Card 1
+        - title: Network resource monitoring
+          summary: Resource health and inventory visualization
+          links:
+            - url: ../../network-watcher/network-insights-overview.md
+              itemType: concept
+              text: Network insights
+            - url: ../../network-watcher/network-insights-topology.md
+              itemType: how-to-guide
+              text: Network insights topology
+        # Card 2
+        - title: Connectivity and traffic monitoring
+          summary: End-to-end connectivity monitoring and traffic logging
+          links:
+            - url: ../../network-watcher/connection-monitor-overview.md
+              itemType: concept
+              text: Connection monitor
+            - url: ../../network-watcher/monitor-vm-communication.md
+              itemType: tutorial
+              text: Monitor network communication between two VMs
+            - url: ../../network-watcher/vnet-flow-logs-overview.md
+              itemType: concept
+              text: Virtual network flow logs
+            - url: ../../network-watcher/traffic-analytics.md
+              itemType: concept
+              text: Traffic analytics
+            - url: ../../network-watcher/nsg-flow-logs-overview.md
+              itemType: concept
+              text: Network security group flow logs
+        # Card 3
+        - title: Troubleshooting
+          summary: Troubleshoot connectivity, routing, security group issues with actionable insights
+          links:
+            - url: ../../network-watcher/connection-troubleshoot-overview.md
+              itemType: concept
+              text: Connection troubleshoot
+            - url: ../../network-watcher/packet-capture-overview.md
+              itemType: concept
+              text: Packet capture
+            - url: ../../network-watcher/ip-flow-verify-overview.md
+              itemType: concept
+              text: IP flow verify
+            - url: ../../network-watcher/next-hop-overview.md
+              itemType: concept
+              text: Next hop
+            - url: ../../network-watcher/network-watcher-network-configuration-diagnostics-overview.md
+              itemType: concept
+              text: NSG diagnostics
+            - url: ../../network-watcher/vpn-troubleshoot-overview.md
+              itemType: concept
+              text: VPN troubleshoot
+        # Card 4
+        - title: Network management
+          summary: Group, configure, deploy, and manage virtual networks
+          links:
+            - url: ../../virtual-network-manager/concept-network-groups.md
+              itemType: concept
+              text: Network groups
+            - url: ../../virtual-network-manager/concept-security-admins.md
+              itemType: concept
+              text: Security admin rules
+            - url: ../../virtual-network-manager/concept-user-defined-route.md
+              itemType: concept
+              text: Management of user-defined routes
+    # Section 2
+    - title: Learn more about monitoring networking services
+      items:
+        # Card 1
+        - title: Network foundation
+          links:
+            - url: ../../virtual-network/monitor-virtual-network.md
+              itemType: how-to-guide
+              text: Monitor Azure virtual network
+            - url: ../../route-server/monitor-route-server.md
+              itemType: how-to-guide
+              text: Monitor Azure Route Server
+        # Card 2
+        - title: Load balancing and content delivery
+          links:
+            - url: ../../load-balancer/monitor-load-balancer.md
+              itemType: how-to-guide
+              text: Monitor load balancer
+            - url: ../../application-gateway/monitor-application-gateway.md
+              itemType: how-to-guide
+              text: Monitor Azure Application Gateway
+        # Card 3
+        - title: Hybrid connectivity
+          links:
+            - url: ../../expressroute/monitor-expressroute.md
+              itemType: how-to-guide
+              text: Monitor Azure ExpressRoute
+            - url: ../../virtual-wan/monitor-virtual-wan.md
+              itemType: how-to-guide
+              text: Monitor Azure Virtual WAN
+        # Card 4
+        - title: Network security
+          links:
+            - url: ../../firewall/enable-top-ten-and-flow-trace.md
+              itemType: how-to-guide
+              text: Enable Top flows and Flow trace logs in Azure Firewall
+            - url: ../../ddos-protection/monitor-ddos-protection-reference.md
+              itemType: how-to-guide
+              text: Monitor Azure DDoS Protection
+# Card with summary style
+additionalContent:
+  sections:
+    - title: Networking services
+      items:
+        - title: Network foundation
+          url: ../foundations/index.yml
+        - title: Load balancing and content delivery
+          url: ../load-balancer-content-delivery/index.yml
+        - title: Hybrid connectivity
+          url: ../hybrid-connectivity/index.yml
+        - title: Network security
+          url: ../security/index.yml

@@ -13,8 +13,9 @@ metadata:
     - ignite-2023
     - ignite-2023-copilotinAzure
     - build-2024
+    - copilot-learning-hub
   ms.topic: hub-page
-  ms.date: 05/28/2024
+  ms.date: 08/29/2024
 highlightedContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | tutorial | overview | quickstart | reference | sample | tutorial | video | whats-new
   items:
@@ -60,6 +61,9 @@ conceptualContent:
         # Card
         - title: Work smarter with Azure services
           links:
+            - url: ./execute-commands.md
+              itemType: get-started
+              text: Execute commands
             - url: ./deploy-vms-effectively.md
               itemType: get-started
               text: Deploy VMs effectively
@@ -68,7 +72,7 @@ conceptualContent:
               text: Build infrastructure and deploy workloads
             - url: ./use-guided-deployments.md
               itemType: get-started
-              text: Create resources with guided deployments
+              text: Create resources with interactive deployments
             - url: ./work-aks-clusters.md
               itemType: get-started
               text: Work with AKS clusters efficiently
@@ -90,6 +94,9 @@ conceptualContent:
             - url: ./generate-powershell-scripts.md
               itemType: get-started
               text: Generate PowerShell scripts
+            - url: ./generate-terraform-configurations.md
+              itemType: get-started
+              text: Generate Terraform configurations
             - url: ./generate-kubernetes-yaml.md
               itemType: get-started
               text: Generate Kubernetes YAML files
@@ -102,3 +109,21 @@ conceptualContent:
             - url: ./optimize-code-application-insights.md
               itemType: get-started
               text: Discover recommendations with Code Optimizations
+
+# additionalContent section (Optional; Remove if not applicable.)
+# Card with summary style
+additionalContent:
+  # Supports up to 4 subsections
+  sections:
+    - title: Explore more
+      items:
+        # Card
+        - title: Copilot in Azure video series
+          summary: See how Microsoft Copilot integrates with various Azure services to help with hybrid management tasks. 
+          url: https://learn.microsoft.com/en-us/shows/microsoft-copilot-in-azure/
+        # Card
+        - title: Copilot learning hub
+          summary: Get started on your Copilot learning journey.
+          url: /copilot/
+
+

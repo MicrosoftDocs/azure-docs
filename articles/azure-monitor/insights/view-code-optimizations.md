@@ -12,7 +12,9 @@ ms.reviewer: ryankahng
 
 # View Code Optimizations results (Preview)
 
-Now that you set up and configured Code Optimizations on your app, access and view any insights you received via the Azure portal. You can access Code Optimizations through the **Performance** blade from the left navigation pane and select **Code Optimizations (preview)** from the top menu.
+Now that you set up and configured Code Optimizations on your app, [access and view any insights you received directly via the Azure portal.](https://aka.ms/codeoptimizations) 
+
+You can also access Code Optimizations through any of your Application Insights resources from **Performance** pane and select **Code Optimizations (preview)** button from the top menu.
 
 :::image type="content" source="./media/code-optimizations/code-optimizations-performance-blade.png" alt-text="Screenshot of Code Optimizations located in the Performance blade.":::
 
@@ -79,5 +81,5 @@ You can also view a graph depicting a specific performance issue's impact and th
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Troubleshoot Code Optimizations](./code-optimizations-troubleshoot.md)
+> [Review Code Optimizations in Azure portal](https://aka.ms/codeoptimizations)
 

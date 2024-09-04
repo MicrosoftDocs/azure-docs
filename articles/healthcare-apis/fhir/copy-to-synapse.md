@@ -2,7 +2,7 @@
 title: Copy data from FHIR service in Azure Health Data Services to Azure Synapse Analytics
 description: This article describes copying FHIR data into Synapse
 author: irenejoseph
-ms.service: healthcare-apis
+ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.topic: reference
 ms.date: 06/06/2022

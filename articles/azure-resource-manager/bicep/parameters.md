@@ -3,7 +3,7 @@ title: Parameters in Bicep files
 description: Describes how to define parameters in a Bicep file.
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 03/22/2024
+ms.date: 08/20/2024
 ---
 
 # Parameters in Bicep
@@ -14,7 +14,7 @@ Resource Manager resolves parameter values before starting the deployment operat
 
 Each parameter must be set to one of the [data types](data-types.md).
 
-You're limited to 256 parameters in a Bicep file. For more information, see [Template limits](../templates/best-practices.md#template-limits).
+Bicep allows a maximum of 256 parameters. For more information, see [Template limits](../templates/best-practices.md#template-limits).
 
 For parameter best practices, see [Parameters](./best-practices.md#parameters).
 
@@ -22,11 +22,12 @@ For parameter best practices, see [Parameters](./best-practices.md#parameters).
 
 If you would rather learn about parameters through step-by-step guidance, see [Build reusable Bicep templates by using parameters](/training/modules/build-reusable-bicep-templates-parameters).
 
-## Declaration
+## Define parameters
 
 Each parameter has a name and [data type](data-types.md). Optionally, you can provide a default value for the parameter.
 
 ```bicep
+@<decorator>(<argument>)
 param <parameter-name> <parameter-data-type> = <default-value>
 ```
 
@@ -59,9 +60,9 @@ param storageAccountConfig {
 }
 ```
 
-For more information, see [User-defined data types](./user-defined-data-types.md#user-defined-data-type-syntax).
+For more information, see [User-defined data types](./user-defined-data-types.md#define-types).
 
-## Default value
+## Set default values
 
 You can specify a default value for a parameter. The default value is used when a value isn't provided during deployment.
 
@@ -77,35 +78,31 @@ param location string = resourceGroup().location
 
 You can use another parameter value to build a default value. The following template constructs a host plan name from the site name.
 
-:::code language="bicep" source="~/azure-docs-bicep-samples/syntax-samples/parameters/parameterswithfunctions.bicep" highlight="2":::
+```bicep
+param siteName string = 'site${uniqueString(resourceGroup().id)}'
+param hostingPlanName string = '${siteName}-plan'
+
+output siteNameOutput string = siteName
+output hostingPlanOutput string = hostingPlanName
+```
 
 However, you can't reference a [variable](./variables.md) as the default value.
 
-## Decorators
+## Use decorators
 
-Parameters use decorators for constraints or metadata. The decorators are in the format `@expression` and are placed above the parameter's declaration. You can mark a parameter as secure, specify allowed values, set the minimum and maximum length for a string, set the minimum and maximum value for an integer, and provide a description of the parameter.
-
-The following example shows two common uses for decorators.
-
-```bicep
-@secure()
-param demoPassword string
-
-@description('Must be at least Standard_A3 to support 2 NICs.')
-param virtualMachineSize string = 'Standard_DS1_v2'
-```
-
-The following table describes the available decorators and how to use them.
+Parameters use decorators for constraints or metadata. The decorators are in the format `@expression` and are placed above the parameter's declaration. The following table shows the available decorators for parameters.
 
 | Decorator | Apply to | Argument | Description |
 | --------- | ---- | ----------- | ------- |
-| [allowed](#allowed-values) | all | array | Allowed values for the parameter. Use this decorator to make sure the user provides correct values. |
+| [allowed](#allowed-values) | all | array | Use this decorator to make sure the user provides correct values. This decorator is only permitted on `param` statements. To declare that a property must be one of a set of predefined values in a [`type`](./user-defined-data-types.md) or [`output`](./outputs.md) statement, use [union type syntax](./data-types.md#union-types). Union type syntax can also be used in `param` statements.|
 | [description](#description) | all | string | Text that explains how to use the parameter. The description is displayed to users through the portal. |
+| [discriminator](#discriminator) | object | string | Use this decorator to ensure the correct subclass is identified and managed. For more information, see [Custom-tagged union data type](./data-types.md#custom-tagged-union-data-type).|
 | [maxLength](#length-constraints) | array, string | int | The maximum length for string and array parameters. The value is inclusive. |
 | [maxValue](#integer-constraints) | int | int | The maximum value for the integer parameter. This value is inclusive. |
 | [metadata](#metadata) | all | object | Custom properties to apply to the parameter. Can include a description property that is equivalent to the description decorator. |
 | [minLength](#length-constraints) | array, string | int | The minimum length for string and array parameters. The value is inclusive. |
 | [minValue](#integer-constraints) | int | int | The minimum value for the integer parameter. This value is inclusive. |
+| [sealed](#sealed) | object | none | Elevate [BCP089](./diagnostics/bcp089.md) from a warning to an error when a property name of a use-define data type is likely a typo. For more information, see [Elevate error level](./user-defined-data-types.md#elevate-error-level). |
 | [secure](#secure-parameters) | string, object | none | Marks the parameter as secure. The value for a secure parameter isn't saved to the deployment history and isn't logged. For more information, see [Secure strings and objects](data-types.md#secure-strings-and-objects). |
 
 Decorators are in the [sys namespace](bicep-functions.md#namespaces-for-functions). If you need to differentiate a decorator from another item with the same name, preface the decorator with `sys`. For example, if your Bicep file includes a parameter named `description`, you must add the sys namespace when using the **description** decorator.
@@ -115,20 +112,6 @@ Decorators are in the [sys namespace](bicep-functions.md#namespaces-for-function
 param name string
 @sys.description('The description of the instance to display.')
 param description string
-```
-
-The available decorators are described in the following sections.
-
-### Secure parameters
-
-You can mark string or object parameters as secure. The value of a secure parameter isn't saved to the deployment history and isn't logged.
-
-```bicep
-@secure()
-param demoPassword string
-
-@secure()
-param demoSecretObject object
 ```
 
 ### Allowed values
@@ -144,32 +127,6 @@ param demoEnum string
 ```
 
 If you define allowed values for an array parameter, the actual value can be any subset of the allowed values.
-
-### Length constraints
-
-You can specify minimum and maximum lengths for string and array parameters. You can set one or both constraints. For strings, the length indicates the number of characters. For arrays, the length indicates the number of items in the array.
-
-The following example declares two parameters. One parameter is for a storage account name that must have 3-24 characters. The other parameter is an array that must have from 1-5 items.
-
-```bicep
-@minLength(3)
-@maxLength(24)
-param storageAccountName string
-
-@minLength(1)
-@maxLength(5)
-param appNames array
-```
-
-### Integer constraints
-
-You can set minimum and maximum values for integer parameters. You can set one or both constraints.
-
-```bicep
-@minValue(1)
-@maxValue(12)
-param month int
-```
 
 ### Description
 
@@ -197,7 +154,37 @@ When you hover your cursor over **storageAccountName** in VS Code, you see the f
 
 :::image type="content" source="./media/parameters/vscode-bicep-extension-description-decorator-markdown.png" alt-text="Use Markdown-formatted text in VSCode":::
 
-Make sure the text follows proper Markdown formatting; otherwise, it may not display correctly when rendered
+Make sure the text follows proper Markdown formatting; otherwise, it may not display correctly when rendered.
+
+### Discriminator
+
+See [Custom-tagged union data type](./data-types.md#custom-tagged-union-data-type).
+
+### Integer constraints
+
+You can set minimum and maximum values for integer parameters. You can set one or both constraints.
+
+```bicep
+@minValue(1)
+@maxValue(12)
+param month int
+```
+
+### Length constraints
+
+You can specify minimum and maximum lengths for string and array parameters. You can set one or both constraints. For strings, the length indicates the number of characters. For arrays, the length indicates the number of items in the array.
+
+The following example declares two parameters. One parameter is for a storage account name that must have 3-24 characters. The other parameter is an array that must have from 1-5 items.
+
+```bicep
+@minLength(3)
+@maxLength(24)
+param storageAccountName string
+
+@minLength(1)
+@maxLength(5)
+param appNames array
+```
 
 ### Metadata
 
@@ -214,9 +201,27 @@ You might use this decorator to track information about the parameter that doesn
 param settings object
 ```
 
-When you provide a `@metadata()` decorator with a property that conflicts with another decorator, that decorator always takes precedence over anything in the `@metadata()` decorator. So, the conflicting property within the @metadata() value is redundant and will be replaced. For more information, see [No conflicting metadata](./linter-rule-no-conflicting-metadata.md).
+When you provide a `@metadata()` decorator with a property that conflicts with another decorator, that decorator always takes precedence over anything in the `@metadata()` decorator. So, the conflicting property within the `@metadata()` value is redundant and will be replaced. For more information, see [No conflicting metadata](./linter-rule-no-conflicting-metadata.md).
 
-## Use parameter
+### Sealed
+
+See [Elevate error level](./user-defined-data-types.md#elevate-error-level).
+
+### Secure parameters
+
+You can mark string or object parameters as secure. The value of a secure parameter isn't saved to the deployment history and isn't logged.
+
+```bicep
+@secure()
+param demoPassword string
+
+@secure()
+param demoSecretObject object
+```
+
+There are several linter rules related to this decorator: [Secure parameter default](./linter-rule-secure-parameter-default.md), [Secure parameters in nested deployments](./linter-rule-secure-params-in-nested-deploy.md), [Secure secrets in parameters](./linter-rule-secure-secrets-in-parameters.md).
+
+## Use parameters
 
 To reference the value for a parameter, use the parameter name. The following example uses a parameter value for a key vault name.
 
@@ -229,13 +234,60 @@ resource keyvault 'Microsoft.KeyVault/vaults@2019-09-01' = {
 }
 ```
 
-## Objects as parameters
+## Use objects as parameters
 
 It can be easier to organize related values by passing them in as an object. This approach also reduces the number of parameters in the template.
 
 The following example shows a parameter that is an object. The default value shows the expected properties for the object. Those properties are used when defining the resource to deploy.
 
-:::code language="bicep" source="~/azure-docs-bicep-samples/syntax-samples/parameters/parameterobject.bicep":::
+```bicep
+param vNetSettings object = {
+  name: 'VNet1'
+  location: 'eastus'
+  addressPrefixes: [
+    {
+      name: 'firstPrefix'
+      addressPrefix: '10.0.0.0/22'
+    }
+  ]
+  subnets: [
+    {
+      name: 'firstSubnet'
+      addressPrefix: '10.0.0.0/24'
+    }
+    {
+      name: 'secondSubnet'
+      addressPrefix: '10.0.1.0/24'
+    }
+  ]
+}
+
+resource vnet 'Microsoft.Network/virtualNetworks@2023-11-01' = {
+  name: vNetSettings.name
+  location: vNetSettings.location
+  properties: {
+    addressSpace: {
+      addressPrefixes: [
+        vNetSettings.addressPrefixes[0].addressPrefix
+      ]
+    }
+    subnets: [
+      {
+        name: vNetSettings.subnets[0].name
+        properties: {
+          addressPrefix: vNetSettings.subnets[0].addressPrefix
+        }
+      }
+      {
+        name: vNetSettings.subnets[1].name
+        properties: {
+          addressPrefix: vNetSettings.subnets[1].addressPrefix
+        }
+      }
+    ]
+  }
+}
+```
 
 ## Next steps
 

@@ -4,7 +4,7 @@ titleSuffix: "Azure Container Apps"
 description: Learn how to use KEDA scalers to scale an Azure Container App and its Dapr sidecar. 
 author: hhunter-ms
 ms.author: hannahhunter
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.custom: devx-track-bicep
 ms.topic: conceptual 
 ms.date: 04/17/2023

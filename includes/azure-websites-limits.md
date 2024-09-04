@@ -1,14 +1,14 @@
 ---
-author: rothja
-ms.service: app-service
+author: msangapu-msft
+ms.service: azure-app-service
 ms.topic: include
-ms.date: 03/17/2020
+ms.date: 09/03/2024
 ms.author: msangapu
 ---
 | Resource | Free | Shared | Basic | Standard | Premium (v1-v3) | Isolated </th> |
 | --- | --- | --- | --- | --- | --- | --- |
 | [Web, mobile, or API apps](https://azure.microsoft.com/services/app-service/) per [Azure App Service plan](../articles/app-service/overview-hosting-plans.md)<sup>1</sup> |10 |100 |Unlimited<sup>2</sup> |Unlimited<sup>2</sup> |Unlimited<sup>2</sup> |Unlimited<sup>2</sup>|
-| [App Service plan](../articles/app-service/overview-hosting-plans.md) |10 per region<br><br>1 free Linux App Service plan per region |10 per resource group |100 per resource group |100 per resource group |100 per resource group |100 per resource group|
+| [App Service plan](../articles/app-service/overview-hosting-plans.md) |10 per region |10 per resource group |100 per resource group |100 per resource group |100 per resource group |100 per resource group|
 | Compute instance type |Shared |Shared |Dedicated<sup>3</sup> |Dedicated<sup>3</sup> |Dedicated<sup>3</sup></p> |Dedicated<sup>3</sup>|
 | [Scale out](../articles/app-service/manage-scale-up.md) (maximum instances) |1 shared |1 shared |3 dedicated<sup>3</sup> |10 dedicated<sup>3</sup> | 20 dedicated for v1; 30 dedicated for v2 and v3.<sup>3</sup>|100 dedicated<sup>4</sup>|
 | Storage<sup>5</sup> |1 GB<sup>5</sup> |1 GB<sup>5</sup> |10 GB<sup>5</sup> |50 GB<sup>5</sup> |250 GB<sup>5</sup> |1 TB<sup>12</sup> <br/><br/> The available storage quota is 999 GB. |
@@ -56,7 +56,7 @@ ms.author: msangapu
 
 <sup>7</sup>If you scale a Windows app in the Basic tier to two instances, you have 350 concurrent connections for each of the two instances. For Windows apps on Standard tier and above, there are no theoretical limits to WebSockets, but other factors can limit the number of WebSockets. For example, maximum concurrent requests allowed (defined by `maxConcurrentRequestsPerCpu`) are: 7,500 per small VM, 15,000 per medium VM (7,500 x 2 cores), and 75,000 per large VM (18,750 x 4 cores). Linux apps are limited 5 concurrent WebSocket connections on Free SKU and ~50k concurrent WebSocket connections per instance on all other SKUs.
 
-<sup>8</sup> The maximum IP connections are per instance and depend on the instance size: 1,920 per B1/S1/P1V3 instance, 3,968 per B2/S2/P2V3 instance, 8,064 per B3/S3/P3V3 instance.
+<sup>8</sup> The maximum IP connections are per instance and depend on the instance size: 1,920 per B1/S1/P0V3/P1V3 instance, 3,968 per B2/S2/P2V3 instance, 8,064 per B3/S3/P3V3 instance.
 
 <sup>9</sup> App Service Isolated SKUs can be internally load balanced (ILB) with Azure Load Balancer, so there's no public connectivity from the internet. As a result, some features of an ILB Isolated App Service must be used from machines that have direct access to the ILB network endpoint.
 

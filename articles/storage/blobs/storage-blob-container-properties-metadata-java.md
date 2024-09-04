@@ -7,7 +7,7 @@ author: pauljewellmsft
 
 ms.service: azure-blob-storage
 ms.topic: how-to
-ms.date: 08/02/2023
+ms.date: 08/05/2024
 ms.author: pauljewell
 ms.devlang: java
 ms.custom: devx-track-java, devguide-java, devx-track-extended-java
@@ -19,13 +19,23 @@ ms.custom: devx-track-java, devguide-java, devx-track-extended-java
 
 Blob containers support system properties and user-defined metadata, in addition to the data they contain. This article shows how to manage system properties and user-defined metadata with the [Azure Storage client library for Java](/java/api/overview/azure/storage-blob-readme).
 
-## Prerequisites
+[!INCLUDE [storage-dev-guide-prereqs-java](../../../includes/storage-dev-guides/storage-dev-guide-prereqs-java.md)]
 
-- This article assumes you already have a project set up to work with the Azure Blob Storage client library for Java. To learn about setting up your project, including package installation, adding `import` directives, and creating an authorized client object, see [Get Started with Azure Storage and Java](storage-blob-java-get-started.md).
-- The [authorization mechanism](../common/authorize-data-access.md) must have permissions to work with container properties or metadata. To learn more, see the authorization guidance for the following REST API operations:
-    - [Get Container Properties](/rest/api/storageservices/get-container-properties#authorization)
-    - [Set Container Metadata](/rest/api/storageservices/set-container-metadata#authorization)
-    - [Get Container Metadata](/rest/api/storageservices/get-container-metadata#authorization)
+## Set up your environment
+
+[!INCLUDE [storage-dev-guide-project-setup-java](../../../includes/storage-dev-guides/storage-dev-guide-project-setup-java.md)]
+
+#### Add import statements
+
+Add the following `import` statements:
+
+:::code language="java" source="~/azure-storage-snippets/blobs/howto/Java/blob-devguide/blob-devguide-containers/src/main/java/com/blobs/devguide/containers/ContainerPropertiesMetadata.java" id="Snippet_Imports":::
+
+#### Authorization
+
+The authorization mechanism must have the necessary permissions to work with container properties or metadata. For authorization with Microsoft Entra ID (recommended), you need Azure RBAC built-in role **Storage Blob Data Reader** or higher for the *get* operations, and **Storage Blob Data Contributor** or higher for the *set* operations. To learn more, see the authorization guidance for [Get Container Properties (REST API)](/rest/api/storageservices/get-container-properties#authorization), [Set Container Metadata (REST API)](/rest/api/storageservices/set-container-metadata#authorization), or [Get Container Metadata (REST API)](/rest/api/storageservices/get-container-metadata#authorization).
+
+[!INCLUDE [storage-dev-guide-create-client-java](../../../includes/storage-dev-guides/storage-dev-guide-create-client-java.md)]
 
 ## About properties and metadata
 
@@ -69,6 +79,10 @@ The following example reads in metadata values:
 
 To learn more about setting and retrieving container properties and metadata using the Azure Blob Storage client library for Java, see the following resources.
 
+### Code samples
+
+- [View code samples from this article (GitHub)](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/Java/blob-devguide/blob-devguide-containers/src/main/java/com/blobs/devguide/containers/ContainerPropertiesMetadata.java)
+
 ### REST API operations
 
 The Azure SDK for Java contains libraries that build on top of the Azure REST API, allowing you to interact with REST API operations through familiar Java paradigms. The client library methods for setting and retrieving properties and metadata use the following REST API operations:
@@ -79,8 +93,6 @@ The Azure SDK for Java contains libraries that build on top of the Azure REST AP
 
 The `getProperties` method retrieves container properties and metadata by calling both the [Get Blob Properties](/rest/api/storageservices/get-blob-properties) operation and the [Get Blob Metadata](/rest/api/storageservices/get-blob-metadata) operation.
 
-### Code samples
-
-- [View code samples from this article (GitHub)](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/Java/blob-devguide/blob-devguide-containers/src/main/java/com/blobs/devguide/containers/ContainerPropertiesMetadata.java)
-
 [!INCLUDE [storage-dev-guide-resources-java](../../../includes/storage-dev-guides/storage-dev-guide-resources-java.md)]
+
+[!INCLUDE [storage-dev-guide-next-steps-java](../../../includes/storage-dev-guides/storage-dev-guide-next-steps-java.md)]

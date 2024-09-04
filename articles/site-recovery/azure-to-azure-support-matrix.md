@@ -2,8 +2,8 @@
 title: Support matrix for Azure VM disaster recovery with Azure Site Recovery
 description: Summarizes support for Azure VMs disaster recovery to a secondary region with Azure Site Recovery.
 ms.topic: conceptual
-ms.date: 07/07/2024
-ms.service: site-recovery
+ms.date: 07/15/2024
+ms.service: azure-site-recovery
 author: ankitaduttaMSFT
 ms.author: ankitadutta
 ms.custom: engagement-fy23, references_regions, linux-related-content
@@ -12,7 +12,7 @@ ms.custom: engagement-fy23, references_regions, linux-related-content
 # Support matrix for Azure VM disaster recovery between Azure regions
 
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
+> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](/azure/virtual-machines/workloads/centos/centos-end-of-life).
 
 This article summarizes support and prerequisites for disaster recovery of Azure VMs from one Azure region to another, using the [Azure Site Recovery](site-recovery-overview.md) service.
 
@@ -54,7 +54,7 @@ Azure Site Recovery allows you to perform global disaster recovery. You can repl
 >
 > - If you can't see a region within a geographic cluster when you enable replication, make sure your subscription has permissions to create VMs in that region. 
 >
-> - New Zealand is not a supported region for Azure Site Recovery as a source or target region.
+> - New Zealand is only supported as a source or target region for Site Recovery Azure to Azure. However, creating recovery services vault is not supported in New Zealand.
 
 
 ## Cache storage
@@ -81,7 +81,12 @@ V2 storage account    |    750 disks    |    375 disks
 
 As average churn on the disks increases, the number of disks that a storage account can support decreases. The above table may be used as a guide for making decisions on number of storage accounts that need to be provisioned.
 
-Note that the above limits are specific to Azure-to-Azure and Zone-to-Zone DR scenarios.
+> [!NOTE]
+> The cache limits are specific to Azure-to-Azure and Zone-to-Zone DR scenarios.
+>
+> When you enable replication via the virtual machine workflow for cross subscription, the portal only lists the cache storage account from the source subscription, but doesn't list any storage account created in the target subscription. To set up this scenario, use [PowerShell](azure-to-azure-powershell.md).
+
+
 
 ## Replicated machine operating systems
 
@@ -171,20 +176,20 @@ RHEL 9.0 <br> RHEL 9.1 <br> RHEL 9.2 <br> RHEL 9.3  | 9.60 | 5.14.0-70.13.1.el9_
 16.04 LTS | [9.57](https://support.microsoft.com/topic/e94901f6-7624-4bb4-8d43-12483d2e1d50) | No new 16.04 LTS kernels supported in this release. |
 16.04 LTS | [9.56](https://support.microsoft.com/topic/update-rollup-69-for-azure-site-recovery-kb5033791-a41c2400-0079-4f93-b4a4-366660d0a30d) | No new 16.04 LTS kernels supported in this release. |
 |||
-18.04 LTS | 9.62| No new 18.04 LTS kernels supported in this release. |
+18.04 LTS | 9.62| 4.15.0-226-generic <br>5.4.0-1131-azure <br>5.4.0-186-generic <br>5.4.0-187-generic |
 18.04 LTS | [9.61](https://support.microsoft.com/topic/update-rollup-73-for-azure-site-recovery-d3845f1e-2454-4ae8-b058-c1fec6206698)| 5.4.0-173-generic <br> 4.15.0-1175-azure <br> 4.15.0-223-generic <br> 5.4.0-1126-azure <br> 5.4.0-174-generic <br> 4.15.0-1176-azure <br> 4.15.0-224-generic <br> 5.4.0-1127-azure <br> 5.4.0-1128-azure  <br> 5.4.0-175-generic <br> 5.4.0-177-generic <br> 4.15.0-1177-azure <br> 4.15.0-225-generic <br> 5.4.0-1129-azure <br> 5.4.0-1130-azure <br> 5.4.0-181-generic <br> 5.4.0-182-generic |
 18.04 LTS | [9.60]() | 4.15.0-1168-azure <br> 4.15.0-1169-azure <br> 4.15.0-1170-azure <br> 4.15.0-1171-azure <br> 4.15.0-1172-azure <br> 4.15.0-1173-azure <br> 4.15.0-214-generic <br> 4.15.0-216-generic <br> 4.15.0-218-generic <br> 4.15.0-219-generic <br> 4.15.0-220-generic <br> 4.15.0-221-generic <br> 5.4.0-1110-azure <br> 5.4.0-1111-azure <br> 5.4.0-1112-azure <br> 5.4.0-1113-azure <br> 5.4.0-1115-azure <br> 5.4.0-1116-azure <br> 5.4.0-1117-azure <br> 5.4.0-1118-azure <br> 5.4.0-1119-azure <br> 5.4.0-1120-azure <br> 5.4.0-1121-azure <br> 5.4.0-1122-azure <br> 5.4.0-152-generic <br> 5.4.0-153-generic <br> 5.4.0-155-generic <br> 5.4.0-156-generic <br> 5.4.0-159-generic <br> 5.4.0-162-generic <br> 5.4.0-163-generic <br> 5.4.0-164-generic <br> 5.4.0-165-generic <br> 5.4.0-166-generic <br> 5.4.0-167-generic <br> 5.4.0-169-generic <br> 5.4.0-170-generic <br> 5.4.0-1123-azure <br> 5.4.0-171-generic <br> 4.15.0-1174-azure <br> 4.15.0-222-generic <br> 5.4.0-1124-azure <br> 5.4.0-172-generic |
 18.04 LTS | [9.57](https://support.microsoft.com/topic/e94901f6-7624-4bb4-8d43-12483d2e1d50) | No new 18.04 LTS kernels supported in this release. |
 18.04 LTS | [9.56](https://support.microsoft.com/topic/update-rollup-69-for-azure-site-recovery-kb5033791-a41c2400-0079-4f93-b4a4-366660d0a30d) | No new 18.04 LTS kernels supported in this release. |
 |||
-20.04 LTS | 9.62| No new 20.04 LTS kernels supported in this release. |
-20.04 LTS | [9.61](https://support.microsoft.com/topic/update-rollup-73-for-azure-site-recovery-d3845f1e-2454-4ae8-b058-c1fec6206698) | 5.15.0-100-generic <br> 5.15.0-1058-azure <br> 5.4.0-173-generic <br> 5.4.0-1126-azure <br> 5.4.0-174-generic <br> 5.15.0-101-generic <br> 5.15.0-1059-azure <br> 5.15.0-102-generic <br> 5.15.0-105-generic <br> 5.15.0-1061-azure <br> 5.4.0-1127-azure <br> 5.4.0-1128-azure <br> 5.4.0-176-generic <br> 5.4.0-177-generic <br> 5.15.0-106-generic <br> 5.15.0-1063-azure <br> 5.15.0-1064-azure <br> 5.15.0-107-generic <br> 5.4.0-1129-azure <br> 5.4.0-1130-azure <br> 5.4.0-181-generic <br> 5.4.0-182-generic |
+20.04 LTS | 9.62| 5.15.0-1065-azure <br>5.15.0-1067-azure <br>5.15.0-113-generic <br>5.4.0-1131-azure <br>5.4.0-1132-azure <br>5.4.0-186-generic <br> 5.4.0-187-generic |
+20.04 LTS | [9.61](https://support.microsoft.com/topic/update-rollup-73-for-azure-site-recovery-d3845f1e-2454-4ae8-b058-c1fec6206698) | 5.15.0-100-generic <br> 5.15.0-1058-azure <br> 5.4.0-173-generic <br> 5.4.0-1126-azure <br> 5.4.0-174-generic <br> 5.15.0-101-generic <br> 5.15.0-1059-azure <br> 5.15.0-102-generic <br> 5.15.0-105-generic <br> 5.15.0-1061-azure <br> 5.4.0-1127-azure <br> 5.4.0-1128-azure <br> 5.4.0-176-generic <br> 5.4.0-177-generic <br> 5.15.0-106-generic <br> 5.15.0-1063-azure <br> 5.15.0-1064-azure <br> 5.15.0-107-generic <br> 5.4.0-1129-azure <br> 5.4.0-1130-azure <br> 5.4.0-181-generic <br> 5.4.0-182-generic|
 20.04 LTS | [9.60]() | 5.15.0-1054-azure <br> 5.15.0-92-generic <br> 5.4.0-1122-azure <br> 5.4.0-170-generic <br> 5.15.0-94-generic <br> 5.4.0-1123-azure <br> 5.4.0-171-generic <br> 5.15.0-1056-azure <br>5.15.0-1057-azure <br>5.15.0-97-generic <br>5.4.0-1124-azure <br> 5.4.0-172-generic  |
 20.04 LTS | [9.57](https://support.microsoft.com/topic/e94901f6-7624-4bb4-8d43-12483d2e1d50) | 5.15.0-1052-azure <br> 5.15.0-1053-azure <br> 5.15.0-89-generic <br> 5.15.0-91-generic <br> 5.4.0-1120-azure <br> 5.4.0-1121-azure <br> 5.4.0-167-generic <br> 5.4.0-169-generic |
 20.04 LTS | [9.56](https://support.microsoft.com/topic/update-rollup-69-for-azure-site-recovery-kb5033791-a41c2400-0079-4f93-b4a4-366660d0a30d) | 5.15.0-1049-azure <br> 5.15.0-1050-azure <br> 5.15.0-1051-azure <br> 5.15.0-86-generic <br> 5.15.0-87-generic <br> 5.15.0-88-generic <br> 5.4.0-1117-azure <br> 5.4.0-1118-azure <br> 5.4.0-1119-azure <br> 5.4.0-164-generic <br> 5.4.0-165-generic <br> 5.4.0-166-generic |
 |||
-22.04 LTS | 9.62| No new 22.04 LTS kernels supported in this release.|
-22.04 LTS | [9.61](https://support.microsoft.com/topic/update-rollup-73-for-azure-site-recovery-d3845f1e-2454-4ae8-b058-c1fec6206698)| 5.15.0-100-generic <br> 5.15.0-1058-azure <br> 6.5.0-1016-azure <br> 6.5.0-25-generic <br> 5.15.0-101-generic <br> 5.15.0-1059-azure <br> 6.5.0-1017-azure <br> 6.5.0-26-generic <br> 5.15.0-102-generic <br> 5.15.0-105-generic <br> 5.15.0-1060-azure <br> 5.15.0-1061-azure <br> 6.5.0-1018-azure <br> 6.5.0-1019-azure <br> 6.5.0-27-generic <br> 6.5.0-28-generic <br> 5.15.0-106-generic <br> 5.15.0-1063-azure <br> 5.15.0-1064-azure<br> 5.15.0-107-generic<br> 6.5.0-1021-azure<br> 6.5.0-35-generic |
+22.04 LTS | 9.62| 5.15.0-1066-azure <br> 5.15.0-1067-azure <br>5.15.0-112-generic <br>5.15.0-113-generic <br>6.5.0-1022-azure <br>6.5.0-1023-azure <br>6.5.0-41-generic |
+22.04 LTS | [9.61](https://support.microsoft.com/topic/update-rollup-73-for-azure-site-recovery-d3845f1e-2454-4ae8-b058-c1fec6206698)| 5.15.0-100-generic <br> 5.15.0-1058-azure <br> 6.5.0-1016-azure <br> 6.5.0-25-generic <br> 5.15.0-101-generic <br> 5.15.0-1059-azure <br> 6.5.0-1017-azure <br> 6.5.0-26-generic <br> 5.15.0-102-generic <br> 5.15.0-105-generic <br> 5.15.0-1060-azure <br> 5.15.0-1061-azure <br> 6.5.0-1018-azure <br> 6.5.0-1019-azure <br> 6.5.0-27-generic <br> 6.5.0-28-generic <br> 5.15.0-106-generic <br> 5.15.0-1063-azure <br> 5.15.0-1064-azure<br> 5.15.0-107-generic<br> 6.5.0-1021-azure<br> 6.5.0-35-generic|
 22.04 LTS |[9.60]()| 5.19.0-1025-azure <br> 5.19.0-1026-azure <br> 5.19.0-1027-azure <br> 5.19.0-41-generic <br> 5.19.0-42-generic <br> 5.19.0-43-generic <br> 5.19.0-45-generic <br> 5.19.0-46-generic <br> 5.19.0-50-generic <br> 6.2.0-1005-azure <br> 6.2.0-1006-azure <br> 6.2.0-1007-azure <br> 6.2.0-1008-azure <br> 6.2.0-1011-azure <br> 6.2.0-1012-azure <br> 6.2.0-1014-azure <br> 6.2.0-1015-azure <br> 6.2.0-1016-azure <br> 6.2.0-1017-azure <br> 6.2.0-1018-azure <br> 6.2.0-25-generic <br> 6.2.0-26-generic <br> 6.2.0-31-generic <br> 6.2.0-32-generic <br> 6.2.0-33-generic <br> 6.2.0-34-generic <br> 6.2.0-35-generic <br> 6.2.0-36-generic <br> 6.2.0-37-generic <br> 6.2.0-39-generic <br> 6.5.0-1007-azure <br> 6.5.0-1009-azure <br> 6.5.0-1010-azure <br> 6.5.0-14-generic <br> 5.15.0-1054-azure <br> 5.15.0-92-generic <br>6.2.0-1019-azure <br>6.5.0-1011-azure <br>6.5.0-15-generic <br> 5.15.0-94-generic <br>6.5.0-17-generic <br> 5.15.0-1056-azure <br> 5.15.0-1057-azure <br> 5.15.0-97-generic <br>6.5.0-1015-azure <br>6.5.0-18-generic <br>6.5.0-21-generic |
 22.04 LTS | [9.57](https://support.microsoft.com/topic/e94901f6-7624-4bb4-8d43-12483d2e1d50) | 5.15.0-1052-azure <br> 5.15.0-1053-azure <br> 5.15.0-76-generic <br> 5.15.0-89-generic <br> 5.15.0-91-generic |
 22.04 LTS | [9.56](https://support.microsoft.com/topic/update-rollup-69-for-azure-site-recovery-kb5033791-a41c2400-0079-4f93-b4a4-366660d0a30d) | 5.15.0-1049-azure <br> 5.15.0-1050-azure <br> 5.15.0-1051-azure <br> 5.15.0-86-generic <br> 5.15.0-87-generic <br> 5.15.0-88-generic |
@@ -219,7 +224,7 @@ Debian 9.1 | [9.60]| No new Debian 9.1 kernels supported in this release. |
 Debian 9.1 | [9.57](https://support.microsoft.com/topic/e94901f6-7624-4bb4-8d43-12483d2e1d50)| No new Debian 9.1 kernels supported in this release. |
 Debian 9.1 | [9.56](https://support.microsoft.com/topic/update-rollup-69-for-azure-site-recovery-kb5033791-a41c2400-0079-4f93-b4a4-366660d0a30d)| No new Debian 9.1 kernels supported in this release. |
 |||
-Debian 10 | 9.62| No new Debian 10 kernels supported in this release. |
+Debian 10 | 9.62| 4.19.0-27-amd64 <br>4.19.0-27-cloud-amd64 <br>5.10.0-0.deb10.30-amd64 <br>5.10.0-0.deb10.30-cloud-amd64 |
 Debian 10 | [9.61](https://support.microsoft.com/topic/update-rollup-73-for-azure-site-recovery-d3845f1e-2454-4ae8-b058-c1fec6206698) | 5.10.0-0.deb10.29-amd64 <br> 5.10.0-0.deb10.29-cloud-amd64 |
 Debian 10 | [9.60]| 4.19.0-26-amd64 <br> 4.19.0-26-cloud-amd64 <br> 5.10.0-0.deb10.27-amd64 <br> 5.10.0-0.deb10.27-cloud-amd64 <br> 5.10.0-0.deb10.28-amd64 <br> 5.10.0-0.deb10.28-cloud-amd64  |
 Debian 10 | [9.57](https://support.microsoft.com/topic/e94901f6-7624-4bb4-8d43-12483d2e1d50)| No new Debian 10 kernels supported in this release. |
@@ -231,7 +236,7 @@ Debian 11 | [9.60]()| 5.10.0-27-amd64 <br> 5.10.0-27-cloud-amd64 <br> 5.10.0-28-
 Debian 11 | [9.57](https://support.microsoft.com/topic/e94901f6-7624-4bb4-8d43-12483d2e1d50)| No new Debian 11 kernels supported in this release. |
 Debian 11 | [9.56](https://support.microsoft.com/topic/update-rollup-69-for-azure-site-recovery-kb5033791-a41c2400-0079-4f93-b4a4-366660d0a30d)| 5.10.0-26-amd64 <br> 5.10.0-26-cloud-amd64 |
 |||
-Debian 12 | 9.62| No new Debian 12 kernels supported in this release. |
+Debian 12 | 9.62| 6.1.0-22-amd64 <br> 6.1.0-22-cloud-amd64 |
 Debian 12 | [9.61](https://support.microsoft.com/topic/update-rollup-73-for-azure-site-recovery-d3845f1e-2454-4ae8-b058-c1fec6206698) | 5.17.0-1-amd64 <br> 5.17.0-1-cloud-amd64 <br> 6.1.-11-amd64 <br> 6.1.0-11-cloud-amd64 <br> 6.1.0-12-amd64 <br> 6.1.0-12-cloud-amd64 <br> 6.1.0-13-amd64 <br> 6.1.0-15-amd64 <br> 6.1.0-15-cloud-amd64 <br> 6.1.0-16-amd64 <br> 6.1.0-16-cloud-amd64 <br> 6.1.0-17-amd64 <br> 6.1.0-17-cloud-amd64 <br> 6.1.0-18-amd64 <br> 6.1.0-18-cloud-amd64 <br> 6.1.0-7-amd64 <br> 6.1.0-7-cloud-amd64 <br> 6.5.0-0.deb12.4-amd64 <br> 6.5.0-0.deb12.4-cloud-amd64 <br> 6.1.0-20-amd64 <br> 6.1.0-20-cloud-amd64 <br> 6.1.0-21-amd64 <br> 6.1.0-21-cloud-amd64 |
 
 > [!NOTE]
@@ -245,8 +250,8 @@ Debian 12 | [9.61](https://support.microsoft.com/topic/update-rollup-73-for-azur
 
 **Release** | **Mobility service version** | **Kernel version** |
 --- | --- | --- |
-SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4, SP5) | 9.62 | All [stock SUSE 12 SP1,SP2,SP3,SP4,SP5 kernels](https://www.suse.com/support/kb/doc/?id=000019587) are supported. </br></br> 4.12.14-16.185-azure:5 |
-SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4, SP5) | [9.61](https://support.microsoft.com/topic/update-rollup-73-for-azure-site-recovery-d3845f1e-2454-4ae8-b058-c1fec6206698) | All [stock SUSE 12 SP1,SP2,SP3,SP4,SP5 kernels](https://www.suse.com/support/kb/doc/?id=000019587) are supported. </br></br> 4.12.14-16.173-azure <br> 4.12.14-16.182-azure:5 |
+SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4, SP5) | 9.62 | All [stock SUSE 12 SP1,SP2,SP3,SP4,SP5 kernels](https://www.suse.com/support/kb/doc/?id=000019587) are supported. </br></br> 4.12.14-16.185-azure:5 <br> 4.12.14-16.188-azure:5 |
+SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4, SP5) | [9.61](https://support.microsoft.com/topic/update-rollup-73-for-azure-site-recovery-d3845f1e-2454-4ae8-b058-c1fec6206698) | All [stock SUSE 12 SP1,SP2,SP3,SP4,SP5 kernels](https://www.suse.com/support/kb/doc/?id=000019587) are supported. </br></br> 4.12.14-16.173-azure <br> 4.12.14-16.182-azure:5  |
 SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4, SP5) | [9.60]() | All [stock SUSE 12 SP1,SP2,SP3,SP4,SP5 kernels](https://www.suse.com/support/kb/doc/?id=000019587) are supported. </br></br> 4.12.14-16.163-azure:5  |
 SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4, SP5) | [9.57](https://support.microsoft.com/topic/e94901f6-7624-4bb4-8d43-12483d2e1d50) | All [stock SUSE 12 SP1,SP2,SP3,SP4,SP5 kernels](https://www.suse.com/support/kb/doc/?id=000019587) are supported. </br></br> 4.12.14-16.155-azure:5 |
 SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4, SP5) | [9.56](https://support.microsoft.com/topic/update-rollup-69-for-azure-site-recovery-kb5033791-a41c2400-0079-4f93-b4a4-366660d0a30d) | All [stock SUSE 12 SP1,SP2,SP3,SP4,SP5 kernels](https://www.suse.com/support/kb/doc/?id=000019587) are supported. </br></br> 4.12.14-16.152-azure:5 |
@@ -260,7 +265,7 @@ SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4, SP5) | [9.56](https://suppo
 
 **Release** | **Mobility service version** | **Kernel version** |
 --- | --- | --- |
-SUSE Linux Enterprise Server 15 (SP1, SP2, SP3, SP4, SP5) | 9.62 | All [stock SUSE 12 SP1,SP2,SP3,SP4,SP5 kernels](https://www.suse.com/support/kb/doc/?id=000019587) are supported. </br></br> 5.14.21-150500.33.54-azure:5 |
+SUSE Linux Enterprise Server 15 (SP1, SP2, SP3, SP4, SP5) | 9.62 | All [stock SUSE 12 SP1,SP2,SP3,SP4,SP5 kernels](https://www.suse.com/support/kb/doc/?id=000019587) are supported. </br></br> 5.14.21-150500.33.54-azure:5 <br> 5.14.21-150500.33.57-azure:5 |
 SUSE Linux Enterprise Server 15 (SP1, SP2, SP3, SP4, SP5) | [9.61](https://support.microsoft.com/topic/update-rollup-73-for-azure-site-recovery-d3845f1e-2454-4ae8-b058-c1fec6206698) | All [stock SUSE 12 SP1,SP2,SP3,SP4,SP5 kernels](https://www.suse.com/support/kb/doc/?id=000019587) are supported. </br></br> 5.14.21-150500.33.37-azure <br> 5.14.21-150500.33.42-azure <br> 5.14.21-150500.33.48-azure:5 <br> 5.14.21-150500.33.51-azure:5 |
 SUSE Linux Enterprise Server 15 (SP1, SP2, SP3, SP4, SP5) | [9.60]() | By default, all [stock SUSE 15, SP1, SP2, SP3, SP4, SP5 kernels](https://www.suse.com/support/kb/doc/?id=000019587) are supported. </br></br> 5.14.21-150500.33.29-azure <br> 5.14.21-150500.33.34-azure  |
 SUSE Linux Enterprise Server 15 (SP1, SP2, SP3, SP4, SP5) | [9.57](https://support.microsoft.com/topic/e94901f6-7624-4bb4-8d43-12483d2e1d50) | By default, all [stock SUSE 15, SP1, SP2, SP3, SP4, SP5 kernels](https://www.suse.com/support/kb/doc/?id=000019587) are supported. </br></br> 5.14.21-150400.14.72-azure:4 <br> 5.14.21-150500.33.23-azure:5 <br> 5.14.21-150500.33.26-azure:5 |
@@ -309,7 +314,7 @@ Rocky Linux  | [9.56](https://support.microsoft.com/topic/update-rollup-69-for-a
 
 **Setting** | **Support** | **Details**
 --- | --- | ---
-Size | Any Azure VM size with at least two CPU cores and 1-GB RAM | Verify [Azure virtual machine sizes](../virtual-machines/sizes.md).
+Size | Any Azure VM size with at least two CPU cores and 1-GB RAM | Verify [Azure virtual machine sizes](/azure/virtual-machines/sizes).
 RAM | Azure Site Recovery driver consumes 6% of RAM.
 Availability sets | Supported | If you enable replication for an Azure VM with the default options, an availability set is created automatically, based on the source region settings. You can modify these settings.
 Availability zones | Supported |
@@ -330,7 +335,7 @@ Tags  | Supported | User-generated tags applied on source virtual machines are c
 
 **Action** | **Details**
 -- | ---
-Resize disk on replicated VM | Resizing up on the source VM is supported. Resizing down on the source VM isn't supported. Resizing should be performed before failover. No need to disable/re-enable replication.<br/><br/> If you change the source VM after failover, the changes aren't captured.<br/><br/> If you change the disk size on the Azure VM after failover, changes aren't captured by Site Recovery, and failback will be to the original VM size.<br/><br/> If resizing to >=4 TB, note Azure guidance on disk caching [here](../virtual-machines/premium-storage-performance.md). 
+Resize disk on replicated VM | Resizing up on the source VM is supported. Resizing down on the source VM isn't supported. Resizing should be performed before failover. No need to disable/re-enable replication.<br/><br/> If you change the source VM after failover, the changes aren't captured.<br/><br/> If you change the disk size on the Azure VM after failover, changes aren't captured by Site Recovery, and failback will be to the original VM size.<br/><br/> If resizing to >=4 TB, note Azure guidance on disk caching [here](/azure/virtual-machines/premium-storage-performance). 
 Add a disk to a replicated VM | Supported
 Offline changes to protected disks | Disconnecting disks and making offline modifications to them require triggering a full resync.
 Disk caching | Disk Caching isn't supported for disks 4 TB and larger. If multiple disks are attached to your VM, each disk that is smaller than 4 TB will support caching. Changing the cache setting of an Azure disk detaches and re-attaches the target disk. If it's the operating system disk, the VM is restarted. Stop all applications/services that might be affected by this disruption before changing the disk cache setting. Not following those recommendations could lead to data corruption.
@@ -342,18 +347,18 @@ Disk caching | Disk Caching isn't supported for disks 4 TB and larger. If multip
 
 This table summarized support for the Azure VM OS disk, data disk, and temporary disk.
 
-- It's important to observe the VM disk limits and targets for [managed disks](../virtual-machines/disks-scalability-targets.md) to avoid any performance issues.
+- It's important to observe the VM disk limits and targets for [managed disks](/azure/virtual-machines/disks-scalability-targets) to avoid any performance issues.
 - If you deploy with the default settings, Site Recovery automatically creates disks and storage accounts based on the source settings.
 - If you customize, ensure you follow the guidelines.
 
 **Component** | **Support** | **Details**
 --- | --- | ---
 Disk renaming | Supported | 
-OS disk maximum size | 4096 GB | [Learn more](../virtual-machines/managed-disks-overview.md) about VM disks.
-Temporary disk | Not supported | The temporary disk is always excluded from replication.<br/><br/> Don't store any persistent data on the temporary disk. [Learn more](../virtual-machines/managed-disks-overview.md).
+OS disk maximum size | 4096 GB | [Learn more](/azure/virtual-machines/managed-disks-overview) about VM disks.
+Temporary disk | Not supported | The temporary disk is always excluded from replication.<br/><br/> Don't store any persistent data on the temporary disk. [Learn more](/azure/virtual-machines/managed-disks-overview).
 Data disk maximum size | 32 TB for managed disks<br></br>4     TB for unmanaged disks|
 Data disk minimum size | No restriction for unmanaged disks. 1 GB for managed disks |
-Data disk maximum number | Up to 64, in accordance with support for a specific Azure VM size | [Learn more](../virtual-machines/sizes.md) about VM sizes.
+Data disk maximum number | Up to 64, in accordance with support for a specific Azure VM size | [Learn more](/azure/virtual-machines/sizes) about VM sizes.
 Data disk maximum size per storage account (for unmanaged disks) | 35 TB | This is an upper limit for cumulative size of page blobs created in a premium Storage Account
 Data disk change rate | Maximum of 20 MBps per disk for premium storage. Maximum of 2 MBps per disk for Standard storage. | If the average data change rate on the disk is continuously higher than the maximum, replication won't catch up.<br/><br/>  However, if the maximum is exceeded sporadically, replication can catch up, but you might see slightly delayed recovery points.
 Data disk - standard storage account | Supported |
@@ -366,10 +371,10 @@ Redundancy | LRS, ZRS, and GRS are supported.
 Cool and hot storage | Not supported | VM disks aren't supported on cool and hot storage
 Storage Spaces | Supported |
 NVMe storage interface | Not supported
-Encryption at host | Not Supported | The VM will get protected, but the failed over VM won't have Encryption at host enabled. [See detailed information](../virtual-machines/disks-enable-host-based-encryption-portal.md) to create a VM with end-to-end encryption using Encryption at host.
+Encryption at host | Not Supported | The VM will get protected, but the failed over VM won't have Encryption at host enabled. [See detailed information](/azure/virtual-machines/disks-enable-host-based-encryption-portal) to create a VM with end-to-end encryption using Encryption at host.
 Encryption at rest (SSE) | Supported | SSE is the default setting on storage accounts.
 Encryption at rest (CMK) | Supported | Both Software and HSM keys are supported for managed disks
-Double Encryption at rest | Supported | Learn more on supported regions for [Windows](../virtual-machines/disk-encryption.md) and [Linux](../virtual-machines/disk-encryption.md)
+Double Encryption at rest | Supported | Learn more on supported regions for [Windows](/azure/virtual-machines/disk-encryption) and [Linux](/azure/virtual-machines/disk-encryption)
 FIPS encryption | Not supported
 Azure Disk Encryption (ADE) for Windows OS | Supported for VMs with managed disks. | VMs using unmanaged disks aren't supported. <br/><br/> HSM-protected keys aren't supported. <br/><br/> Encryption of individual volumes on a single disk isn't supported. |
 Azure Disk Encryption (ADE) for Linux OS | Supported for VMs with managed disks. | VMs using unmanaged disks aren't supported. <br/><br/> HSM-protected keys aren't supported. <br/><br/> Encryption of individual volumes on a single disk isn't supported. <br><br> Known issue with enabling replication. [Learn more.](./azure-to-azure-troubleshoot-errors.md#enable-protection-failed-as-the-installer-is-unable-to-find-the-root-disk-error-code-151137) |
@@ -399,7 +404,7 @@ Soft delete | Not supported | Soft delete isn't supported because once it's enab
 iSCSI disks | Not supported | Azure Site Recovery may be used to migrate or failover iSCSI disks into Azure. However, iSCSI disks aren't supported for Azure to Azure replication and failover/failback.
 
 >[!IMPORTANT]
-> To avoid performance issues, make sure that you follow VM disk scalability and performance targets for [managed disks](../virtual-machines/disks-scalability-targets.md). If you use default settings, Site Recovery creates the required disks and storage accounts, based on the source configuration. If you customize and select your own settings, follow the disk scalability and performance targets for your source VMs.
+> To avoid performance issues, make sure that you follow VM disk scalability and performance targets for [managed disks](/azure/virtual-machines/disks-scalability-targets). If you use default settings, Site Recovery creates the required disks and storage accounts, based on the source configuration. If you customize and select your own settings, follow the disk scalability and performance targets for your source VMs.
 
 ## Limits and data change rates
 

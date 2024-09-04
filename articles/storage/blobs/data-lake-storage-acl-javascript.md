@@ -1,5 +1,5 @@
 ---
-title: Use JavaScript (Node.js) to manage ACLs in Azure Data Lake Storage Gen2
+title: Use JavaScript (Node.js) to manage ACLs in Azure Data Lake Storage
 titleSuffix: Azure Storage
 description: Use Azure Storage Data Lake client library for JavaScript to manage access control lists (ACL) in storage accounts that has hierarchical namespace (HNS) enabled.
 author: pauljewellmsft
@@ -13,7 +13,7 @@ ms.devlang: javascript
 ms.custom: devx-track-js
 ---
 
-# Use JavaScript SDK in Node.js to manage ACLs in Azure Data Lake Storage Gen2
+# Use JavaScript SDK in Node.js to manage ACLs in Azure Data Lake Storage
 
 This article shows you how to use Node.js to get, set, and update the access control lists of directories and files.
 
@@ -62,7 +62,7 @@ To use the snippets in this article, you'll need to create a **DataLakeServiceCl
 ### Connect by using Microsoft Entra ID
 
 > [!NOTE]
-> If you're using Microsoft Entra ID to authorize access, then make sure that your security principal has been assigned the [Storage Blob Data Owner role](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner). To learn more about how ACL permissions are applied and the effects of changing them, see [Access control model in Azure Data Lake Storage Gen2](./data-lake-storage-access-control-model.md).
+> If you're using Microsoft Entra ID to authorize access, then make sure that your security principal has been assigned the [Storage Blob Data Owner role](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner). To learn more about how ACL permissions are applied and the effects of changing them, see [Access control model in Azure Data Lake Storage](./data-lake-storage-access-control-model.md).
 
 You can use the [Azure identity client library for JS](https://www.npmjs.com/package/@azure/identity) to authenticate your application with Microsoft Entra ID.
 
@@ -115,7 +115,7 @@ function GetDataLakeServiceClient(accountName, accountKey) {
 This example gets and then sets the ACL of a directory named `my-directory`. This example gives the owning user read, write, and execute permissions, gives the owning group only read and execute permissions, and gives all others read access.
 
 > [!NOTE]
-> If your application authorizes access by using Microsoft Entra ID, then make sure that the security principal that your application uses to authorize access has been assigned the [Storage Blob Data Owner role](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner). To learn more about how ACL permissions are applied and the effects of changing them, see [Access control in Azure Data Lake Storage Gen2](./data-lake-storage-access-control.md).
+> If your application authorizes access by using Microsoft Entra ID, then make sure that the security principal that your application uses to authorize access has been assigned the [Storage Blob Data Owner role](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner). To learn more about how ACL permissions are applied and the effects of changing them, see [Access control in Azure Data Lake Storage](./data-lake-storage-access-control.md).
 
 ```javascript
 async function ManageDirectoryACLs(fileSystemClient) {
@@ -171,7 +171,7 @@ You can also get and set the ACL of the root directory of a container. To get th
 This example gets and then sets the ACL of a file named `upload-file.txt`. This example gives the owning user read, write, and execute permissions, gives the owning group only read and execute permissions, and gives all others read access.
 
 > [!NOTE]
-> If your application authorizes access by using Microsoft Entra ID, then make sure that the security principal that your application uses to authorize access has been assigned the [Storage Blob Data Owner role](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner). To learn more about how ACL permissions are applied and the effects of changing them, see [Access control in Azure Data Lake Storage Gen2](./data-lake-storage-access-control.md).
+> If your application authorizes access by using Microsoft Entra ID, then make sure that the security principal that your application uses to authorize access has been assigned the [Storage Blob Data Owner role](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner). To learn more about how ACL permissions are applied and the effects of changing them, see [Access control in Azure Data Lake Storage](./data-lake-storage-access-control.md).
 
 ```javascript
 async function ManageFileACLs(fileSystemClient) {
@@ -225,5 +225,5 @@ await fileClient.setAccessControl(acl);
 - [Package (Node Package Manager)](https://www.npmjs.com/package/@azure/storage-file-datalake)
 - [Samples](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-file-datalake/samples)
 - [Give Feedback](https://github.com/Azure/azure-sdk-for-java/issues)
-- [Access control model in Azure Data Lake Storage Gen2](data-lake-storage-access-control.md)
-- [Access control lists (ACLs) in Azure Data Lake Storage Gen2](data-lake-storage-access-control.md)
+- [Access control model in Azure Data Lake Storage](data-lake-storage-access-control.md)
+- [Access control lists (ACLs) in Azure Data Lake Storage](data-lake-storage-access-control.md)

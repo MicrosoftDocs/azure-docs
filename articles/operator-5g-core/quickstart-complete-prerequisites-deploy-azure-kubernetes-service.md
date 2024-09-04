@@ -20,7 +20,7 @@ To deploy on the Azure Kubernetes Service, you need the following configurations
 
 - [Resource Group/Subscription](../cost-management-billing/manage/create-enterprise-subscription.md)
 - The [Azure Operator 5G Core release version and corresponding Kubernetes version](overview-product.md#compatibility)
-- [Azure Kubernetes Service (AKS) system and user node pool vm series and sizing](../virtual-machines/dv5-dsv5-series.md) 
+- [Azure Kubernetes Service (AKS) system and user node pool vm series and sizing](/azure/virtual-machines/dv5-dsv5-series) 
     - Recommended node series: system node - D8s_v5,  user node - D16s_v5
     - Recommended node count: system node-3, user node-8   
 - Appropriate [roles and permissions](../role-based-access-control/role-assignments-portal.yml) in your tenant to create the cluster and modify the Azure Virtual Machine Scale Sets.
@@ -60,11 +60,11 @@ The topology and quantity of vnets and subnets can differ based on your custom r
 
 ## Create the Azure Kubernetes Cluster
 
-To deploy an Azure Kubernetes Service (AKS) cluster, you should have a basic understanding of [Kubernetes concepts](../aks/concepts-clusters-workloads.md) and advanced knowledge of Azure networking, consistent with Azure Networking Certification. Additionally:
+To deploy an Azure Kubernetes Service (AKS) cluster, you should have a basic understanding of [Kubernetes concepts](/azure/aks/concepts-clusters-workloads) and advanced knowledge of Azure networking, consistent with Azure Networking Certification. Additionally:
 
 - If you don't have an [Azure subscription](../cost-management-billing/manage/create-enterprise-subscription.md), create an [Azure free account](https://azure.microsoft.com/pricing/purchase-options/azure-account?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
 - If you're unfamiliar with the Azure Cloud Shell, review [What is Azure Cloud Shell?](../cloud-shell/overview.md)
-- Make sure that the identity you use to create your cluster has the appropriate minimum permissions. For more information on access and identity for AKS, see [Access and identity options for Azure Kubernetes Service (AKS)](../aks/concepts-identity.md).
+- Make sure that the identity you use to create your cluster has the appropriate minimum permissions. For more information on access and identity for AKS, see [Access and identity options for Azure Kubernetes Service (AKS)](/azure/aks/concepts-identity).
  
 Once you complete these steps, you can create the AKS cluster:
 

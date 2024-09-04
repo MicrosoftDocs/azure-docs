@@ -2,7 +2,14 @@
 title: Azure OpenAI text completion input binding for Azure Functions
 description: Learn how to use the Azure OpenAI text completion input binding to access Azure OpenAI text completion APIs during function execution in Azure Functions.
 ms.topic: reference
-ms.custom: build-2024, devx-track-extended-java, devx-track-js, devx-track-python, devx-track-ts
+ms.custom: 
+  - build-2024
+  - devx-track-extended-java
+  - devx-track-js
+  - devx-track-python
+  - devx-track-ts
+ms.collection: 
+  - ce-skilling-ai-copilot
 ms.date: 07/08/2024
 zone_pivot_groups: programming-languages-set-functions
 ---
@@ -13,7 +20,7 @@ zone_pivot_groups: programming-languages-set-functions
 
 The Azure OpenAI text completion input binding allows you to bring the results text completion APIs into your code executions. You can define the binding to use both predefined prompts with parameters or pass through an entire prompt.
 
-For information on setup and configuration details of the Azure OpenAI extension, see [Azure OpenAI extensions for Azure Functions](./functions-bindings-openai.md). To learn more about Azure OpenAI completions, see [Learn how to generate or manipulate text](../ai-services/openai/how-to/completions.md).
+For information on setup and configuration details of the Azure OpenAI extension, see [Azure OpenAI extensions for Azure Functions](./functions-bindings-openai.md). To learn more about Azure OpenAI completions, see [Learn how to generate or manipulate text](/azure/ai-services/openai/how-to/completions).
 
 [!INCLUDE [functions-support-notes-samples-openai](../../includes/functions-support-notes-samples-openai.md)]
 
