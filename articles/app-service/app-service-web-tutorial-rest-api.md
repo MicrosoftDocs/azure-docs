@@ -154,29 +154,29 @@ Next, you enable the built-in CORS support in App Service for your API.
     dotnet run
     ```
 
-1. Navigate to the browser app at `http://localhost:5000`. Open the developer tools window in your browser (`Ctrl`+`Shift`+`i` in Chrome for Windows) and inspect the **Console** tab. You should now see the error message, `No 'Access-Control-Allow-Origin' header is present on the requested resource`.
+1. Navigate to the browser app at `http://localhost:5000`. Open the developer tools window in your browser (**Ctrl**+**Shift**+**i** in Chrome for Windows) and inspect the **Console** tab. You should now see the error message, `No 'Access-Control-Allow-Origin' header is present on the requested resource`.
 
-    ![CORS error in browser client](./media/app-service-web-tutorial-rest-api/azure-app-service-cors-error.png)
+    ![Screenshot of the CORS error in the browser client.](./media/app-service-web-tutorial-rest-api/azure-app-service-cors-error.png)
 
-    The domain mismatch between the browser app (`http://localhost:5000`) and remote resource (`http://<app_name>.azurewebsites.net`) is recognized by your browser as a cross-origin resource request. Also, the fact that your REST API the App Service app is not sending the `Access-Control-Allow-Origin` header, the browser has prevented cross-domain content from loading.
+    The domain mismatch between the browser app (`http://localhost:5000`) and remote resource (`http://<app_name>.azurewebsites.net`) is recognized by your browser as a cross-origin resource request. Also, because your REST API the App Service app isn't sending the `Access-Control-Allow-Origin` header, the browser has prevented cross-domain content from loading.
 
-    In production, your browser app would have a public URL instead of the localhost URL, but the way to enable CORS to a localhost URL is the same as a public URL.
+    In production, your browser app would have a public URL instead of the localhost URL, but the process for enabling CORS to a localhost URL is the same as the process for a public URL.
 
 ### Enable CORS 
 
-In the Cloud Shell, enable CORS to your client's URL by using the [`az webapp cors add`](/cli/azure/webapp/cors#az-webapp-cors-add) command. Replace the _&lt;app-name>_ placeholder.
+In Cloud Shell, enable CORS to your client's URL by using the [`az webapp cors add`](/cli/azure/webapp/cors#az-webapp-cors-add) command. Replace the _&lt;app-name>_ placeholder.
 
 ```azurecli-interactive
 az webapp cors add --resource-group myResourceGroup --name <app-name> --allowed-origins 'http://localhost:5000'
 ```
 
-You can add multiple allowed origins by running the command multiple times or by adding a comma-separate list in `--allowed-origins`. To allow all origins, use `--allowed-origins '*'`.
+You can add multiple allowed origins by running the command multiple times or by adding a comma-separated list in `--allowed-origins`. To allow all origins, use `--allowed-origins '*'`.
 
 ### Test CORS again
 
 Refresh the browser app at `http://localhost:5000`. The error message in the **Console** window is now gone, and you can see the data from the deployed API and interact with it. Your remote API now supports CORS to your browser app running locally. 
 
-![CORS success in browser client](./media/app-service-web-tutorial-rest-api/azure-app-service-cors-success.png)
+![Screenshot that shows CORS support in the browser client.](./media/app-service-web-tutorial-rest-api/azure-app-service-cors-success.png)
 
 Congratulations, you're running an API in Azure App Service with CORS support.
 
@@ -188,18 +188,18 @@ Congratulations, you're running an API in Azure App Service with CORS support.
 
 #### App Service CORS vs. your CORS
 
-You can use your own CORS utilities instead of App Service CORS for more flexibility. For example, you may want to specify different allowed origins for different routes or methods. Since App Service CORS lets you specify one set of accepted origins for all API routes and methods, you would want to use your own CORS code. See how ASP.NET Core does it at [Enabling Cross-Origin Requests (CORS)](/aspnet/core/security/cors).
+You can use your own CORS utilities instead of App Service CORS for more flexibility. For example, you might want to specify different allowed origins for different routes or methods. Since App Service CORS lets you specify only one set of accepted origins for all API routes and methods, you would want to use your own CORS code. See how CORS is enabled in ASP.NET Core at [Enable CORS](/aspnet/core/security/cors).
 
-The built-in App Service CORS feature does not have options to allow only specific HTTP methods or verbs for each origin that you specify. It will automatically allow all methods and headers for each origin defined. This behavior is similar to [ASP.NET Core CORS](/aspnet/core/security/cors) policies when you use the options `.AllowAnyHeader()` and `.AllowAnyMethod()` in the code.
+The built-in App Service CORS feature doesn't have options to allow only specific HTTP methods or verbs for each origin that you specify. It will automatically allow all methods and headers for each origin defined. This behavior is similar to [ASP.NET Core CORS](/aspnet/core/security/cors) policies when you use the options `.AllowAnyHeader()` and `.AllowAnyMethod()` in the code.
 
 > [!NOTE]
-> Don't try to use App Service CORS and your own CORS code together. When used together, App Service CORS takes precedence and your own CORS code has no effect.
+> Don't try to use App Service CORS and your own CORS code together. If you try to use them together, App Service CORS takes precedence and your own CORS code has no effect.
 >
 >
 
 #### How do I set allowed origins to a wildcard subdomain?
 
-A wildcard subdomain like `*.contoso.com` is more restrictive than the wildcard origin `*`. However, the app's CORS management page in the Azure portal doesn't let you set a wildcard subdomain as an allowed origin. However, you can do it using the Azure CLI, like so:
+A wildcard subdomain like `*.contoso.com` is more restrictive than the wildcard origin `*`. The app's CORS management page in the Azure portal doesn't let you set a wildcard subdomain as an allowed origin. However, you can do that by using Azure CLI, like so:
 
 ```azurecli-interactive
 az webapp cors add --resource-group <group-name> --name <app-name> --allowed-origins 'https://*.contoso.com'
@@ -207,7 +207,7 @@ az webapp cors add --resource-group <group-name> --name <app-name> --allowed-ori
 
 #### How do I enable the ACCESS-CONTROL-ALLOW-CREDENTIALS header on the response?
 
-If your app requires credentials such as cookies or authentication tokens to be sent, the browser may require the `ACCESS-CONTROL-ALLOW-CREDENTIALS` header on the response. To enable this in App Service, set `properties.cors.supportCredentials` to `true`.
+If your app requires credentials such as cookies or authentication tokens to be sent, the browser might require the `ACCESS-CONTROL-ALLOW-CREDENTIALS` header on the response. To enable this in App Service, set `properties.cors.supportCredentials` to `true`:
 
 ```azurecli-interactive
 az resource update --name web --resource-group <group-name> \
@@ -215,7 +215,7 @@ az resource update --name web --resource-group <group-name> \
   --parent sites/<app-name> --set properties.cors.supportCredentials=true
 ```
 
-This operation is not allowed when allowed origins include the wildcard origin `'*'`. Specifying `AllowAnyOrigin` and `AllowCredentials` is an insecure configuration and can result in cross-site request forgery. To allow credentials, try replacing the wildcard origin with [wildcard subdomains](#how-do-i-set-allowed-origins-to-a-wildcard-subdomain). 
+This operation isn't allowed when allowed origins include the wildcard origin `'*'`. Specifying `AllowAnyOrigin` and `AllowCredentials` isn't secure. Doing so can result in cross-site request forgery. To allow credentials, try replacing the wildcard origin with [wildcard subdomains](#how-do-i-set-allowed-origins-to-a-wildcard-subdomain). 
 
 [!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
 
@@ -225,11 +225,11 @@ This operation is not allowed when allowed origins include the wildcard origin `
 What you learned:
 
 > [!div class="checklist"]
-> * Create App Service resources using Azure CLI
-> * Deploy a RESTful API to Azure using Git
-> * Enable App Service CORS support
+> * Create App Service resources using Azure CLI.
+> * Deploy a RESTful API to Azure using Git.
+> * Enable App Service CORS support.
 
-Advance to the next tutorial to learn how to authenticate and authorize users.
+Go to the next tutorial to learn how to authenticate and authorize users.
 
 > [!div class="nextstepaction"]
 > [Tutorial: Authenticate and authorize users end-to-end](tutorial-auth-aad.md)
