@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic: conceptual
-ms.date: 08/30/2024
+ms.date: 09/04/2024
 ms.author: cshoe
 ---
 
@@ -15,7 +15,14 @@ In Azure Container Apps, the environment and plan type you use determines the fu
 
 This article explains the relationship between plans, workload profiles, and why to consider selecting one over another.
 
-For information about the **Consumption-only (v1)** environment type, see [Consumption-only environment type](environment-type-consumption-only.md).
+## Environment types
+
+Azure Container Apps features two different environment types.
+
+| Name | Identifier | Is default | Notes |
+|---|---|---|---|
+| Workload profiles | v2 | Yes | This article explains the details surrounding the default *Workload profiles (v2)* environment type. |
+| Consumption-only | v1 | No | For more detail on the *Consumption-only (v1)* environment type, see [Consumption-only environment type](environment-type-consumption-only.md). |
 
 ## Overview
 
