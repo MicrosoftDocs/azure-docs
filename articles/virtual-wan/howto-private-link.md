@@ -38,7 +38,6 @@ To mitigate the impact of maintenance and scale-out events on Private Link or Pr
 
 Lastly, if you are leveraging on-premises connectivity between Azure and on-premises using VPN or ExpressRoute, ensure your on-premises device is configured to use the same VPN tunnel or same Microsoft Enterprise Edge router as the next-hop for each 5-tuple corresponding to private endpoint traffic.
  
-
 ## <a name="endpoint"></a>Create a private link endpoint
 
 You can create a private link endpoint for many different services. In this example, we're using Azure SQL Database. You can find more information about how to create a private endpoint for an Azure SQL Database in [Quickstart: Create a Private Endpoint using the Azure portal](../private-link/create-private-endpoint-portal.md). The following image shows the network configuration of the Azure SQL Database:
