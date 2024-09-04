@@ -59,7 +59,7 @@ Major refresh release notes for:
 
 ### What's new
 
-- Stricter password restrictions
+- Stricter password restrictions.
 - Security improvements and bug fixes.
  
 ## 2024 July 10
