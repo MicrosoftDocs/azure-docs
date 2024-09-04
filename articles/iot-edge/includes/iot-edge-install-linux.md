@@ -21,6 +21,18 @@ Run the following commands to add the package repository and then add the Micros
 
 Installing can be done with a few commands.  Open a terminal and run the following commands:
 
+::: moniker range=">=iotedge-1.5"
+
+* **24.04**:
+
+   ```bash
+   wget https://packages.microsoft.com/config/ubuntu/24.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
+   sudo dpkg -i packages-microsoft-prod.deb
+   rm packages-microsoft-prod.deb
+   ```
+
+::: moniker-end
+
 * **22.04**:
 
    ```bash
@@ -40,6 +52,17 @@ Installing can be done with a few commands.  Open a terminal and run the followi
 # [Debian](#tab/debian)
 
 Installing with APT can be done with a few commands.  Open a terminal and run the following commands:
+
+::: moniker range=">=iotedge-1.5"
+
+* **12 - Bookworm (arm32v7)**:
+
+    ```bash
+    curl https://packages.microsoft.com/config/debian/12/packages-microsoft-prod.deb > ./packages-microsoft-prod.deb
+    sudo apt install ./packages-microsoft-prod.deb
+    ```
+
+::: moniker-end
 
 * **11 - Bullseye (arm32v7)**:
 
