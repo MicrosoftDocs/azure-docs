@@ -1,13 +1,13 @@
 ---
-title: Resolve region not aceepting new customers errors
-description: Learn how to resolve region not aceepting new customers errors.
+title: Resolve location ineligible errors
+description: Learn how to resolve location ineligible errors.
 ms.topic: troubleshooting
 ms.date: 09/04/2024
 ---
 
-# Resolve region not aceepting new customers errors
+# Resolve location ineligible errors
 
-This article provides information about the region not aceepting new customers error that might occur when you attempt to create new resources in an Azure region.
+This article provides information about the location ineligible error that might occur when you attempt to create new resources in an Azure region.
 
 ## Symptom
 
