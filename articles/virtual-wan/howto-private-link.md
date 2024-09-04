@@ -25,6 +25,20 @@ To create a new virtual WAN and a new hub, use the steps in the following articl
 * [Create a hub](virtual-wan-site-to-site-portal.md#hub)
 * [Connect a VNet to a hub](virtual-wan-site-to-site-portal.md#hub)
 
+## Routing Considerations with Private Link in Virtual WAN
+
+Private Endpoint connectivity in Azure is stateful. When a connection to a private endpoint gets established through Virtual WAN, traffic is routed through one or more traffic hops through different Virtual WAN components (e.g. Virtual Hub router, ExpressRoute Gatway, VPN Gateway, Azure Firewall or NVA). The exact hops traffic takes is based on your Virtual WAN routing configurations. Behind the scenes, Azure's software-defined networking layer sends all packets related to a single 5-tuple flow to one of the backend instances servicing different Virtual WAN components. Asymmetrically routed traffic (e.g. traffic corresponding to a single 5-tuple flow routed to different backend instances) is not supported and is dropped by the Azure platform.
+
+During maintenance events on Virtual WAN infrastructure, backend instances are rebooted one at a time, which can lead to intermittent connectivity issues to Private Endpoint as the instance servicing the flow is temporarily un-available. The similar problem can occur when Azure Firewall or Virtual hub router scales out. The same traffic flow can be load-balanced to a new backend instance that is different than the instance currently servicing the flow.
+
+To mitigate the impact of maintenance and scale-out events on Private Link or Private Endpoint traffic consider the following best practices:
+
+* Configure the TCP time-out value of your on-premises application to fall between 15-30 seconds. A smaller TCP time-out value will allow application traffic to recover more quickly from maintenance and scale-out events . Alternatively, test different appliation time-out values to determine a suitable time-out based on your requirements.
+* For Virtual WAN components that auto-scale, pre-scale the components to handle traffic bursts to prevent auto-scale events from occurring. For the Virtual Hub router, you can set the minimum routing infrastructure units on your hub router to prevent scaling during traffic bursts.
+
+Lastly, if you are leveraging on-premises connectivity between Azure and on-premises using VPN or ExpressRoute, ensure your on-premises device is configured to use the same VPN tunnel or same Microsoft Enterprise Edge router as the next-hop for each 5-tuple corresponding to private endpoint traffic.
+ 
+
 ## <a name="endpoint"></a>Create a private link endpoint
 
 You can create a private link endpoint for many different services. In this example, we're using Azure SQL Database. You can find more information about how to create a private endpoint for an Azure SQL Database in [Quickstart: Create a Private Endpoint using the Azure portal](../private-link/create-private-endpoint-portal.md). The following image shows the network configuration of the Azure SQL Database:
@@ -121,6 +135,7 @@ sqlcmd -S wantest.database.windows.net -U $username -P $password -Q "$query"
 ```
 
 With this example, we've seen how creating a private endpoint in one of the VNets attached to a Virtual WAN provides connectivity to the rest of VNets and branches in the Virtual WAN.
+
 
 ## Next steps
 
