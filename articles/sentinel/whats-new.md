@@ -31,7 +31,7 @@ The listed features were released in the last three months. For information abou
 
 ### Install domain solutions with dependencies
 
-Domain solutions, such as the *Web Sessions Essentials* or *Log4j Vulnerability Detection* solutions, don't neccesarily include a data connector of their own. Instead, they rely on data connectors from other solutions to provide visiblity in a specific area across data connectors. The data connectors they use are prerequisites for the domain solution to work properly.
+Some Microsoft Sentinel content hub solutions, including many [domain solutions](sentinel-solutions-catalog.md#domain-solutions) and solutions that use the unified AMA connectors for [CEF, Syslog](cef-syslog-ama-overview.md), or [custom logs](connect-custom-logs-ama.md), don't neccesarily include a data connector of their own. Instead, they rely on data connectors from other solutions to provide visiblity in a specific area across data connectors. The data connectors they use are prerequisites for the domain solution to work properly.
 
 When installing a domain solution, you can now select **Install with dependencies** to ensure that the data connectors required by the domain solution are also installed:
 
