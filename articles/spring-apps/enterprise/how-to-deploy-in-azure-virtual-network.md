@@ -142,7 +142,8 @@ If you already have a virtual network to host an Azure Spring Apps instance, ski
 
 ## Grant service permission to the virtual network
 
-This section shows you to grant Azure Spring Apps the [User Access Administrator](../../role-based-access-control/built-in-roles.md#user-access-administrator) and [Network Contributor](../../role-based-access-control/built-in-roles.md#network-contributor) permissions on your virtual network. This permission enables you to grant a dedicated and dynamic service principal on the virtual network for further deployment and maintenance.
+This section shows you how to grant Azure Spring Apps the [User Access Administrator](../../role-based-access-control/built-in-roles.md#user-access-administrator) and [Network Contributor](../../role-based-access-control/built-in-roles.md#network-contributor) permissions on your virtual network. This permission enables you to grant a dedicated and dynamic service principal on the virtual network for further deployment and maintenance.
+
 
 > [!NOTE]
 > If you're using your own route table or a user defined route feature, you also need to grant Azure Spring Apps the same role assignments to your route tables. For more information, see the [Bring your own route table](#bring-your-own-route-table) section and [Control egress traffic for an Azure Spring Apps instance](how-to-create-user-defined-route-instance.md).
