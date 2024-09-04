@@ -14,9 +14,11 @@ ms.author: anfdocs
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements.
 
-* [Reserved capacity](reserved-capacity.md)
+* [Reserved capacity](reserved-capacity.md) is now generally available (GA)
 
-    If you have a material storage footprint in a region and service level, you can optimize your TCO by committing to a one-year or three-year term of Azure NetApp Files reserved capacity. Like other [Azure reservations](../cost-management-billing/reservations/save-compute-costs-reservations.md), Azure NetApp Files reserved capacity are automatically applied to existing Azure NetApp Files capacity pools in the same region and service level. Reserved capacity is available in increments of 100 TiB and 1 PiB for a one-year or three-year term. Reserved capacity can be used in a single subscription (single subscription scope), or across multiple subscriptions (shared scope) in the same tenant. For more detail, see [Azure NetApp Files reserved capacity](reserved-capacity.md) or view purchasing options in the Azure portal.
+    Pay-as-you-go pricing is the most convenient way to purchase cloud storage when your workloads are dynamic or changing over time. However, some workloads are more predictable with stable capacity usage over an extended period and can benefit from savings in exchange for a longer-term commitment. By committing to a one-year or three-year of Azure NetApp Files reserved capacity, you can save up to 34% on sustained usage of Azure NetApp Files. Reserved capacity is available in stackable increments of 100TiB and 1PiB on Standard, Premium and Ultra service levels in a given region. Reserved capacity can be used in a single subscription (single subscription scope), or across multiple subscriptions (shared scope) in the same Azure tenant. Azure NetApp Files reserved capacity benefits are automatically applied to existing Azure NetApp Files capacity pools in matching region and service level. Azure NetApp Files reserved capacity not only provides cost savings but also improves the financial predictability and stability, allowing for more effective budgeting. Additional usage is conveniently billed at the regular pay-as-you-go rate.
+
+    For more detail, see the [Azure NetApp Files reserved capacity](reserved-capacity.md) or see reservations in the Azure portal.
         
 ## August 2024
 
