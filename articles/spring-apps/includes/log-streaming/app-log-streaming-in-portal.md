@@ -14,7 +14,7 @@ Use the following steps to stream logs in the Azure portal:
 
 1. Find your target app and select the context menu.
 
-1. In the pop up context menu, select **View log stream**.
+1. In the pop-up context menu, select **View log stream**.
 
    :::image type="content" source="view-log-stream.png" alt-text="Screenshot of the Azure portal that shows the Apps page with the View log stream context menu item highlighted." lightbox="view-log-stream.png":::
 

@@ -306,7 +306,7 @@ Use following steps to navigate to the **Log Analytics** pane with predefined qu
 
 1. In the pop-up context menu, select **View logs**.
 
-   :::image type="content" source="media/diagnostic-services/view-logs.png" alt-text="Screenshot of the Azure portal that shows the the Apps page with the View logs context menu item highlighted." lightbox="media/diagnostic-services/view-logs.png":::
+   :::image type="content" source="media/diagnostic-services/view-logs.png" alt-text="Screenshot of the Azure portal that shows the Apps page with the View logs context menu item highlighted." lightbox="media/diagnostic-services/view-logs.png":::
 
    This action navigates you to the **Log Analytics** pane with predefined queries.
 
