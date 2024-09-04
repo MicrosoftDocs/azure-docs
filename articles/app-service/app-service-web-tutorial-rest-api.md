@@ -1,6 +1,6 @@
 ---
-title: 'Tutorial: Host RESTful API with CORS'
-description: Learn how Azure App Service helps you host your RESTful APIs with CORS support. App Service can host both front-end web apps and back end APIs.
+title: 'Tutorial: Host a RESTful API with CORS'
+description: Learn how Azure App Service helps you host your RESTful APIs with CORS support. App Service can host both front-end web apps and back-end APIs.
 ms.assetid: a820e400-06af-4852-8627-12b3db4a8e70
 ms.devlang: csharp
 ms.topic: tutorial
@@ -12,42 +12,40 @@ author: msangapu-msft
 
 # Tutorial: Host a RESTful API with CORS in Azure App Service
 
-[Azure App Service](overview.md) provides a highly scalable, self-patching web hosting service. In addition, App Service has built-in support for [Cross-Origin Resource Sharing (CORS)](https://wikipedia.org/wiki/Cross-Origin_Resource_Sharing) for RESTful APIs. This tutorial shows how to deploy an ASP.NET Core API app to App Service with CORS support. You configure the app using command-line tools and deploy the app using Git. 
+[Azure App Service](overview.md) provides a highly scalable self-patching web hosting service. In addition, App Service has built-in support for [cross-origin resource sharing (CORS)](https://wikipedia.org/wiki/Cross-Origin_Resource_Sharing) for RESTful APIs. This tutorial shows how to deploy an ASP.NET Core API app to App Service with CORS support. You configure the app using command-line tools and deploy the app using Git. 
 
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Create App Service resources using Azure CLI
-> * Deploy a RESTful API to Azure using Git
-> * Enable App Service CORS support
+> * Create App Service resources using Azure CLI.
+> * Deploy a RESTful API to Azure using Git.
+> * Enable App Service CORS support.
 
-You can follow the steps in this tutorial on macOS, Linux, Windows.
+You can complete this tutorial on macOS, Linux, or Windows.
 
 [!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 ## Prerequisites
 
-To complete this tutorial:
+* <a href="https://git-scm.com/" target="_blank">Install Git.</a>
+ * <a href="https://dotnet.microsoft.com/download/dotnet-core/3.1" target="_blank">Install the latest .NET Core 3.1 SDK.</a>
 
-* <a href="https://git-scm.com/" target="_blank">Install Git</a>
- * <a href="https://dotnet.microsoft.com/download/dotnet-core/3.1" target="_blank">Install the latest .NET Core 3.1 SDK</a>
-
-## Create local ASP.NET Core app
+## Create a local ASP.NET Core app
 
 In this step, you set up the local ASP.NET Core project. App Service supports the same workflow for APIs written in other languages.
 
 ### Clone the sample application
 
-1. In the terminal window, `cd` to a working directory.  
+1. In the terminal window, use `cd` to go to a working directory.  
 
-1. Clone the sample repository and change to the repository root. 
+1. Clone the sample repository, and then go to the repository root. 
 
     ```bash
     git clone https://github.com/Azure-Samples/dotnet-core-api
     cd dotnet-core-api
     ```
 
-    This repository contains an app that's created based on the following tutorial: [ASP.NET Core Web API help pages using Swagger](/aspnet/core/tutorials/web-api-help-pages-using-swagger?tabs=visual-studio). It uses a Swagger generator to serve the [Swagger UI](https://swagger.io/swagger-ui/) and the Swagger JSON endpoint.
+    This repository contains an app that's created based on the tutorial [ASP.NET Core Web API help pages using Swagger](/aspnet/core/tutorials/web-api-help-pages-using-swagger?tabs=visual-studio). It uses a Swagger generator to serve the [Swagger UI](https://swagger.io/swagger-ui/) and the Swagger JSON endpoint.
 
 1. Make sure the default branch is `main`.
 
@@ -56,7 +54,7 @@ In this step, you set up the local ASP.NET Core project. App Service supports th
     ```
     
     > [!TIP]
-    > The branch name change isn't required by App Service. However, since many repositories are changing their default branch to `main` (see [Change deployment branch](deploy-local-git.md#change-deployment-branch)), this tutorial also shows you how to deploy a repository from `main`.
+    > The branch name change isn't required by App Service. However, since many repositories are changing their default branch to `main` (see [Change deployment branch](deploy-local-git.md#change-deployment-branch)), this tutorial shows you how to deploy a repository from `main`.
 
 ### Run the application
 
@@ -67,23 +65,23 @@ In this step, you set up the local ASP.NET Core project. App Service supports th
     dotnet run
     ```
 
-1. Navigate to `http://localhost:5000/swagger` in a browser to play with the Swagger UI.
+1. Navigate to `http://localhost:5000/swagger` in a browser to try the Swagger UI.
 
-    ![ASP.NET Core API running locally](./media/app-service-web-tutorial-rest-api/azure-app-service-local-swagger-ui.png)
+    ![Screenshot of an ASP.NET Core API running locally.](./media/app-service-web-tutorial-rest-api/azure-app-service-local-swagger-ui.png)
 
-1. Navigate to `http://localhost:5000/api/todo` and see a list of ToDo JSON items.
+1. Navigate to `http://localhost:5000/api/todo` to see a list of ToDo JSON items.
 
-1. Navigate to `http://localhost:5000` and play with the browser app. Later, you will point the browser app to a remote API in App Service to test CORS functionality. Code for the browser app is found in the repository's _wwwroot_ directory.
+1. Navigate to `http://localhost:5000` and experiment with the browser app. Later, you'll point the browser app to a remote API in App Service to test CORS functionality. Code for the browser app is found in the repository's _wwwroot_ directory.
 
-1. To stop ASP.NET Core at any time, press `Ctrl+C` in the terminal.
+1. To stop ASP.NET Core at any time, select **Ctrl+C** in the terminal.
 
 [!INCLUDE [cloud-shell-try-it.md](~/reusable-content/ce-skilling/azure/includes/cloud-shell-try-it.md)]
 
-## Deploy app to Azure
+## Deploy the app to Azure
 
 In this step, you deploy your .NET Core application to App Service.
 
-### Configure local git deployment
+### Configure local Git deployment
 
 [!INCLUDE [Configure a deployment user](../../includes/configure-deployment-user-no-h.md)]
 
@@ -103,32 +101,32 @@ In this step, you deploy your .NET Core application to App Service.
 
 [!INCLUDE [app-service-plan-no-h](../../includes/app-service-web-git-push-to-azure-no-h.md)]
 
-   <pre>
-   Enumerating objects: 83, done.
-   Counting objects: 100% (83/83), done.
-   Delta compression using up to 8 threads
-   Compressing objects: 100% (78/78), done.
-   Writing objects: 100% (83/83), 22.15 KiB | 3.69 MiB/s, done.
-   Total 83 (delta 26), reused 0 (delta 0)
-   remote: Updating branch 'master'.
-   remote: Updating submodules.
-   remote: Preparing deployment for commit id '509236e13d'.
-   remote: Generating deployment script.
-   remote: Project file path: .\TodoApi.csproj
-   remote: Generating deployment script for ASP.NET MSBuild16 App
-   remote: Generated deployment script files
-   remote: Running deployment command...
-   remote: Handling ASP.NET Core Web Application deployment with MSBuild16.
-   remote: .
-   remote: .
-   remote: .
-   remote: Finished successfully.
-   remote: Running post deployment command(s)...
-   remote: Triggering recycle (preview mode disabled).
-   remote: Deployment successful.
-   To https://&lt;app_name&gt;.scm.azurewebsites.net/&lt;app_name&gt;.git
-   * [new branch]      master -> master
-   </pre>
+    <pre>
+    Enumerating objects: 83, done.
+    Counting objects: 100% (83/83), done.
+    Delta compression using up to 8 threads
+    Compressing objects: 100% (78/78), done.
+    Writing objects: 100% (83/83), 22.15 KiB | 3.69 MiB/s, done.
+    Total 83 (delta 26), reused 0 (delta 0)
+    remote: Updating branch 'master'.
+    remote: Updating submodules.
+    remote: Preparing deployment for commit id '509236e13d'.
+    remote: Generating deployment script.
+    remote: Project file path: .\TodoApi.csproj
+    remote: Generating deployment script for ASP.NET MSBuild16 App
+    remote: Generated deployment script files
+    remote: Running deployment command...
+    remote: Handling ASP.NET Core Web Application deployment with MSBuild16.
+    remote: .
+    remote: .
+    remote: .
+    remote: Finished successfully.
+    remote: Running post deployment command(s)...
+    remote: Triggering recycle (preview mode disabled).
+    remote: Deployment successful.
+    To https://&lt;app_name&gt;.scm.azurewebsites.net/&lt;app_name&gt;.git
+    * [new branch]      master -> master
+    </pre>
 
 ### Browse to the Azure app
 
