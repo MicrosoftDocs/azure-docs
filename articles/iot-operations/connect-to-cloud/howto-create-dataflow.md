@@ -122,7 +122,7 @@ spec:
   - operationType: Source
     sourceSettings:
       serializationFormat: Json
-      schemaRef: aio-sr://exampleNamespace/exmapleAvroSchema:1.0.0
+      schemaRef: aio-sr://exampleNamespace/exampleAvroSchema:1.0.0
 ```
 
 > [!NOTE]
@@ -263,7 +263,7 @@ If you want to serialize the data before sending it to the destination, you need
 ```yaml
 builtInTransformationSettings:
   serializationFormat: Parquet
-  schemaRef: aio-sr://exampleNamespace/exmapleParquetSchema:1.0.0
+  schemaRef: aio-sr://exampleNamespace/exampleParquetSchema:1.0.0
 ```
 
 To specify the schema, you can create a Schema CR with the schema definition.
