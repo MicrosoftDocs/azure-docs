@@ -436,7 +436,7 @@ For more options, see the documentation for the [New-AzVirtualNetworkGatewayConn
 
 Run the following commands to create the site-to-site VPN connection between your virtual network gateway and your on-premises device. Be sure to replace the values with your own. The shared key must match the value you used for your VPN device configuration.
 
-For more options, see the documentation for the [az network vnet create](/cli/azure/network/vnet?view=azure-cli-latest#az-network-vnet-create) command.
+For more options, see the documentation for the [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create) command.
 
 ```azurecli-interactive
 az network vpn-connection create --name VNet1toSite1 --resource-group <resource-group> --vnet-gateway1 MyVnetGateway -l eastus --shared-key abc123 --local-gateway MyLocalGateway
