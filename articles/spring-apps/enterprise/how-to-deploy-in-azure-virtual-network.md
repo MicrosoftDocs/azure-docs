@@ -159,12 +159,10 @@ Use the following steps to grant permission:
 
    :::image type="content" source="media/how-to-deploy-in-azure-virtual-network/access-control.png" alt-text="Screenshot of the Azure portal Access Control (IAM) page showing the Check access tab with the Add role assignment button highlighted." lightbox="media/how-to-deploy-in-azure-virtual-network/access-control.png":::
 
-1. Assign the `Owner` role to the Azure Spring Apps Resource Provider. For more information, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.yml).
+1. Assign the `Owner` role to the Azure Spring Cloud Resource Provider. For more information, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.yml).
 
-   > [!NOTE]
-   > If you don't find Azure Spring Apps Resource Provider, search for *Azure Spring Cloud Resource Provider*.
 
-   :::image type="content" source="./media/how-to-deploy-in-azure-virtual-network/assign-owner-resource-provider.png" alt-text="Screenshot of the Azure portal Access Control page with Add role assignment pane and Select box with Azure Spring Apps Resource Provider highlighted." lightbox="./media/how-to-deploy-in-azure-virtual-network/assign-owner-resource-provider.png":::
+   :::image type="content" source="./media/how-to-deploy-in-azure-virtual-network/assign-owner-resource-provider.png" alt-text="Screenshot of the Azure portal Access Control page with Add role assignment pane and Select box with Azure Spring Cloud Resource Provider highlighted." lightbox="./media/how-to-deploy-in-azure-virtual-network/assign-owner-resource-provider.png":::
 
 
 ### [Azure CLI](#tab/azure-CLI)
@@ -294,7 +292,7 @@ The route tables to which your custom vnet is associated must meet the following
 
 * You can associate your Azure route tables with your vnet only when you create a new Azure Spring Apps service instance. You can't change to use another route table after Azure Spring Apps has been created.
 * Both the Spring application subnet and the service runtime subnet must associate with different route tables or neither of them.
-* Permissions must be assigned before instance creation. Be sure to grant Azure Spring Apps Resource Provider the `Owner` permission (or `User Access Administrator` and `Network Contributor` permissions) on your route tables.
+* Permissions must be assigned before instance creation. Be sure to grant Azure Spring Cloud Resource Provider the `Owner` permission (or `User Access Administrator` and `Network Contributor` permissions) on your route tables.
 * You can't update the associated route table resource after cluster creation. While you can't update the route table resource, you can modify custom rules on the route table.
 * You can't reuse a route table with multiple instances due to potential conflicting routing rules.
 
