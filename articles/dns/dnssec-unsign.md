@@ -44,16 +44,8 @@ Sign a zone using PowerShell:
 commands here
 ```
 
-## Unsign a zone
-
-
-
 ## Next steps
 
-To learn more about alias records, see the following articles:
-
-- [Tutorial: Configure an alias record to refer to an Azure public IP address](tutorial-alias-pip.md)
-- [Tutorial: Configure an alias record to support apex domain names with Traffic Manager](tutorial-alias-tm.md)
-- [DNS FAQ](./dns-faq.yml)
-
-To learn how to migrate an active DNS name, see [Migrate an active DNS name to Azure App Service](../app-service/manage-custom-dns-migrate-domain.md).
+- Learn how to [sign a DNS zone with DNSSEC](dnssec-how-to.md).
+- Learn how to [host the reverse lookup zone for your ISP-assigned IP range in Azure DNS](dns-reverse-dns-for-azure-services.md).
+- Learn how to [manage reverse DNS records for your Azure services](dns-reverse-dns-for-azure-services.md).

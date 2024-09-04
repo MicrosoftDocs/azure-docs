@@ -4,7 +4,7 @@ description: Learn how to sign your Azure public DNS zone with DNSSEC.
 author: greg-lindsay
 ms.service: azure-dns
 ms.topic: how-to
-ms.date: 08/30/2024
+ms.date: 09/04/2024
 ms.author: greglin
 ---
 
@@ -28,19 +28,21 @@ To sign your zone with DNSSEC using the Azure portal:
 1. On the Azure portal Home page, search for and select **DNS zones**.
 2. Select your DNS zone, and then from the zone's **Overview** page, select **DNSSEC**. You can select **DNSSEC** from the menu at the top, or under **DNS Management**.
 
-    ![Screenshot of how to select DNSSEC.](media/dnssec-how-to/select-dnssec.png)
+    ![Screenshot of how to select DNSSEC.](./media/dnssec-how-to/select-dnssec.png)
 
-3. Select the **Enable DNSSEC** checkbox. When you are prompted to confirm that you wish to enable DNSSEC, select **OK**.
+3. Select the **Enable DNSSEC** checkbox. 
 
-    ![Screenshot of selecting the DNSSEC checkbox.](media/dnssec-how-to/sign-dnssec.png)
+    ![Screenshot of selecting the DNSSEC checkbox.](./media/dnssec-how-to/sign-dnssec.png)
 
-    ![Screenshot of confirmation to sign the zone.](media/dnssec-how-to/confirm-dnssec.png)
+4. When you are prompted to confirm that you wish to enable DNSSEC, select **OK**.
 
-4. After the zone is signed, review the **DNSSEC delegation information** that is displayed. Notice that the status is: **Signed but not delegated**.
+    <img src="./media/dnssec-how-to/confirm-dnssec.png" alt="Screenshot of selecting the DNSSEC checkbox." width="60%">
 
-    ![Screenshot of a signed zone with DS record missing.](media/dnssec-how-to/ds-missing.png)
+5. Wait for zone signing to complete. After the zone is signed, review the **DNSSEC delegation information** that is displayed. Notice that the status is: **Signed but not delegated**.
 
-5. Copy the delegation information and use it to create a DS record in the parent zone. 
+    [ ![Screenshot of a signed zone with DS record missing.](./media/dnssec-how-to/ds-missing.png) ](./media/dnssec-how-to/ds-missing.png#lightbox)
+
+6. Copy the delegation information and use it to create a DS record in the parent zone. 
 
     1. If the parent zone is a top level domain (for example: `.com`) or you don't own the parent zone, you must add the DS record at your registrar. Each registrar has its own process. The registrar might ask for values such as the Key Tag, Algorithm, Digest Type, and Key Digest. In the example shown here, these values are:
 
@@ -54,7 +56,7 @@ To sign your zone with DNSSEC using the Azure portal:
         [ ![Screenshot of adding a DS record to the parent zone.](./media/dnssec-how-to/ds-add.png) ](./media/dnssec-how-to/ds-add.png#lightbox) 
         [ ![Screenshot of a DS record in the parent zone.](./media/dnssec-how-to/ds-added.png) ](./media/dnssec-how-to/ds-added.png#lightbox)
 
-6. When the DS record has been uploaded to the parent zone, select the DNSSEC information page for your zone and verify that **Signed and delegation established** is displayed. Your DNS zone is now fully DNSSEC signed.
+7. When the DS record has been uploaded to the parent zone, select the DNSSEC information page for your zone and verify that **Signed and delegation established** is displayed. Your DNS zone is now fully DNSSEC signed.
 
     [ ![Screenshot of a fully signed and delegated zone.](./media/dnssec-how-to/delegated.png) ](./media/dnssec-how-to/delegated.png#lightbox)
 
@@ -74,16 +76,8 @@ Sign a zone using PowerShell:
 commands here
 ```
 
-## Unsign a zone
-
-
-
 ## Next steps
 
-To learn more about alias records, see the following articles:
-
-- [Tutorial: Configure an alias record to refer to an Azure public IP address](tutorial-alias-pip.md)
-- [Tutorial: Configure an alias record to support apex domain names with Traffic Manager](tutorial-alias-tm.md)
-- [DNS FAQ](./dns-faq.yml)
-
-To learn how to migrate an active DNS name, see [Migrate an active DNS name to Azure App Service](../app-service/manage-custom-dns-migrate-domain.md).
+- Learn how to [unsign a DNS zone](dnssec-unsign.md).
+- Learn how to [host the reverse lookup zone for your ISP-assigned IP range in Azure DNS](dns-reverse-dns-for-azure-services.md).
+- Learn how to [manage reverse DNS records for your Azure services](dns-reverse-dns-for-azure-services.md).
