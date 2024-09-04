@@ -215,7 +215,7 @@ To deploy a virtual network gateway, follow these steps.
    $gwipconfig = New-AzVirtualNetworkGatewayIpConfig -Name gwipconfig -SubnetId $subnet.Id -PublicIpAddressId $gwpip.Id
    ```
 
-1. Run the following script to create the VPN gateway. 
+1. Run the following script to create the VPN gateway.
 
    Replace `<resource-group>` with the same resource group as your virtual network. Specify the [gateway SKU](../../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md#gwsku) that supports the features you want to use. The gateway SKU controls the number of allowed Site-to-Site tunnels and desired performance of the VPN. We recommend using a Generation 2 SKU. Don't use the Basic SKU if you want to use IKEv2 authentication (route-based VPN).
 
@@ -223,7 +223,7 @@ To deploy a virtual network gateway, follow these steps.
    New-AzVirtualNetworkGateway -Name MyVnetGateway -ResourceGroupName <resource-group> -Location "East US" -IpConfigurations $gwipconfig -GatewayType "Vpn" -VpnType RouteBased -GatewaySku VpnGw2 -VpnGatewayGeneration Generation2
    ```
 
-   You can also choose to include other features like [Border Gateway Protocol (BGP)](../../../vpn-gateway/vpn-gateway-bgp-overview.md) and [Active-Active](../../vpn-gateway/vpn-gateway-highlyavailable.md). See the documentation for the [New-AzVirtualNetworkGateway](/powershell/module/az.network/new-azvirtualnetworkgateway) cmdlet. If you do require BGP, the default ASN is 65515, although this value can be changed.
+   You can also choose to include other features like [Border Gateway Protocol (BGP)](../../vpn-gateway/vpn-gateway-bgp-overview.md) and [Active-Active](../../vpn-gateway/vpn-gateway-highlyavailable.md). See the documentation for the [New-AzVirtualNetworkGateway](/powershell/module/az.network/new-azvirtualnetworkgateway) cmdlet. If you do require BGP, the default ASN is 65515, although this value can be changed.
 
 1. Creating a gateway can take 45 minutes or more, depending on the gateway SKU you specified. You can view the VPN gateway using the [Get-AzVirtualNetworkGateway](/powershell/module/az.network/Get-azVirtualNetworkGateway) cmdlet.
 
@@ -310,7 +310,7 @@ The specific steps to configure your on-premises network appliance depend on the
 When configuring your network appliance, you'll need the following items:
 
 * **A shared key.** This is the same shared key that you specify when creating your site-to-site VPN connection. In our examples, we use a basic shared key such as 'abc123'. We recommend that you generate a more complex key to use that complies with your organization's security requirements.
-* **The public IP address of your virtual network gateway.** To find the public IP address of your virtual network gateway using PowerShell, run the following command. In this example, mypublicip is the name of the public IP address resource that you created in an earlier step.
+* **The public IP address of your virtual network gateway.** To find the public IP address of your virtual network gateway using PowerShell, run the following command. In this example, `mypublicip` is the name of the public IP address resource that you created in an earlier step.
 
   ```azurepowershell-interactive
   Get-AzPublicIpAddress -Name mypublicip -ResourceGroupName <resource-group>
