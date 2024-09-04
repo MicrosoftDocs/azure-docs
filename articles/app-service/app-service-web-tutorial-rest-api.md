@@ -4,7 +4,7 @@ description: Learn how Azure App Service helps you host your RESTful APIs with C
 ms.assetid: a820e400-06af-4852-8627-12b3db4a8e70
 ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 01/31/2023
+ms.date: 09/05/2024
 ms.custom: "UpdateFrequency3, devx-track-csharp, mvc, devcenter, devx-track-azurecli"
 ms.author: msangapu
 author: msangapu-msft
