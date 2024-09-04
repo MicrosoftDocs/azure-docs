@@ -8,7 +8,9 @@ ms.date: 10/19/2023
 
 # Trino UI
 
+[!INCLUDE [retirement-notice](../includes/retirement-notice.md)]
 [!INCLUDE [feature-in-preview](../includes/feature-in-preview.md)]
+
 
 This article covers the details around the Trino UI provided for monitoring the cluster nodes and queries submitted to Trino.
 

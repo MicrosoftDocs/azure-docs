@@ -8,7 +8,9 @@ ms.date: 08/29/2023
 
 # Configure Microsoft Entra ID OAuth2 login
 
+[!INCLUDE [retirement-notice](../includes/retirement-notice.md)]
 [!INCLUDE [feature-in-preview](../includes/feature-in-preview.md)]
+
 
 This article describes how to allow users to use their Microsoft Entra account ("Microsoft work or school account") to log in to Apache Superset. 
 

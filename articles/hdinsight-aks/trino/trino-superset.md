@@ -8,7 +8,9 @@ ms.date: 10/19/2023
 
 # Deploy Apache Superset™
 
+[!INCLUDE [retirement-notice](../includes/retirement-notice.md)]
 [!INCLUDE [feature-in-preview](../includes/feature-in-preview.md)]
+
 
 Visualization is essential to effectively explore, present, and share data. [Apache Superset](https://superset.apache.org/) allows you to run queries, visualize, and build dashboards over your data in a flexible Web UI. 
 

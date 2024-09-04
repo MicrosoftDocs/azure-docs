@@ -8,7 +8,9 @@ ms.date: 02/21/2024
 
 # Use external Hive metastore database
 
+[!INCLUDE [retirement-notice](../includes/retirement-notice.md)]
 [!INCLUDE [feature-in-preview](../includes/feature-in-preview.md)]
+
 
 Hive metastore is used as a central repository for storing metadata about the data. This article describes how you can add a Hive metastore database to your Trino cluster with HDInsight on AKS. There are two ways:
 

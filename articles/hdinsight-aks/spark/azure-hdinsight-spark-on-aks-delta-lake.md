@@ -8,7 +8,9 @@ ms.date: 10/27/2023
 
 # Use Delta Lake in Azure HDInsight on AKS with Apache Spark™ cluster (Preview)
 
+[!INCLUDE [retirement-notice](../includes/retirement-notice.md)]
 [!INCLUDE [feature-in-preview](../includes/feature-in-preview.md)]
+
 
 [Azure HDInsight on AKS](../overview.md) is a managed cloud-based service for big data analytics that helps organizations process large amounts data. This tutorial shows how to use Delta Lake in Azure HDInsight on AKS with Apache Spark™ cluster.
 

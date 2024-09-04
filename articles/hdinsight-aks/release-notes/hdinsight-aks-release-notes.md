@@ -10,7 +10,9 @@ ms.date: 08/05/2024
 
 [!INCLUDE [retirement-notice](../includes/retirement-notice.md)]
 
+[!INCLUDE [retirement-notice](../includes/retirement-notice.md)]
 [!INCLUDE [feature-in-preview](../includes/feature-in-preview.md)]
+
 
 
 This article provides information about the **most recent** Azure HDInsight on AKS release updates. For information on earlier releases, see [Azure HDInsight on AKS archived release notes](./hdinsight-aks-release-notes-archive.md). If you would like to subscribe on release notes, watch releases on this [GitHub repository](https://github.com/Azure/HDInsight-on-aks/releases).

@@ -8,7 +8,9 @@ ms.date: 10/19/2023
 
 # Using miscellaneous files
 
+[!INCLUDE [retirement-notice](../includes/retirement-notice.md)]
 [!INCLUDE [feature-in-preview](../includes/feature-in-preview.md)]
+
 
 This article provides details on how to specify and use miscellaneous files configuration.
 
