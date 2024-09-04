@@ -107,7 +107,7 @@ Along with high-fidelity alerts and incidents, some Microsoft Defender Threat In
 
 :::image type="content" source="media/use-matching-analytics-to-detect-threats/mdti-article-link.png" alt-text="Screenshot that shows an incident with a link to the Microsoft Defender Threat Intelligence reference article.":::
 
-For more information, see the [Microsoft Defender Threat Intelligence portal](https://ti.defender.microsoft.com) and [What is Microsoft Defender Threat Intelligence?](/defender/threat-intelligence/what-is-microsoft-defender-threat-intelligence-defender-ti).
+For more information, see [What is Microsoft Defender Threat Intelligence?](/defender/threat-intelligence/what-is-microsoft-defender-threat-intelligence-defender-ti).
 
 ## Related content
 

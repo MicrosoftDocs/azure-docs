@@ -22,15 +22,15 @@ With Microsoft Sentinel, you can flag these types of entities from within your i
 
 ## Add an entity to your threat intelligence
 
-The [new incident details page](investigate-incidents.md) and the investigation graph give you two ways to add entities to threat intelligence. Both ways are shown here.
+The [new Incident details page](investigate-incidents.md) and the investigation graph give you two ways to add entities to threat intelligence. Both ways are shown here.
 
 # [Incident details page](#tab/incidents)
 
 1. On the Microsoft Sentinel menu, select **Incidents**.
 
-1. Select an incident to investigate. On the incident details pane, select **View full details** to open the incident details page.
+1. Select an incident to investigate. On the **Incident details** pane, select **View full details** to open the **Incident details** page.
 
-    :::image type="content" source="media/add-entity-to-threat-intelligence/incident-details-overview.png" alt-text="Screenshot that shows the incident details page." lightbox="media/add-entity-to-threat-intelligence/incident-details-overview.png":::
+    :::image type="content" source="media/add-entity-to-threat-intelligence/incident-details-overview.png" alt-text="Screenshot that shows the Incident details page." lightbox="media/add-entity-to-threat-intelligence/incident-details-overview.png":::
 
 1. On the **Entities** pane, find the entity that you want to add as a threat indicator. (You can filter the list or enter a search string to help you locate it.)
 
@@ -51,7 +51,7 @@ The [investigation graph](investigate-cases.md) is a visual, intuitive tool that
 
 1. On the Microsoft Sentinel menu, select **Incidents**.
 
-1. Select an incident to investigate. On the incident details pane, select **Actions**, and choose **Investigate** from the pop-up menu to open the investigation graph.
+1. Select an incident to investigate. On the **Incident details** pane, select **Actions**, and choose **Investigate** from the pop-up menu to open the investigation graph.
 
     :::image type="content" source="media/add-entity-to-threat-intelligence/select-incident-to-investigate.png" alt-text="Screenshot that shows selecting an incident from the list to investigate.":::
 
@@ -128,7 +128,7 @@ Whichever of the two interfaces you choose, you end up here.
 
 1. When all the fields are filled in to your satisfaction, select **Apply**. A confirmation message appears in the upper-right corner stating that your indicator was created.
 
-1. The entity is added as a threat indicator in your workspace. You can find it [in the list of indicators on the Threat Intelligence page](work-with-threat-indicators.md#find-and-view-your-indicators-on-the-threat-intelligence-page). You can also find it [in the ThreatIntelligenceIndicators table in Logs](work-with-threat-indicators.md#find-and-view-your-indicators-in-logs).
+1. The entity is added as a threat indicator in your workspace. You can find it [in the list of indicators on the Threat intelligence page](work-with-threat-indicators.md#find-and-view-your-indicators-on-the-threat-intelligence-page). You can also find it [in the ThreatIntelligenceIndicators table in Logs](work-with-threat-indicators.md#find-and-view-your-indicators-in-logs).
 
 ## Related content
 

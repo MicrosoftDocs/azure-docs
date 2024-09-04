@@ -28,11 +28,11 @@ Integrate threat intelligence into Microsoft Sentinel through the following acti
 
 Learn how to work with threat intelligence indicators throughout Microsoft Sentinel.
 
-### Find and view your indicators on the Threat Intelligence page
+### Find and view your indicators on the Threat intelligence page
 
 This procedure describes how to view and manage your indicators on the **Threat intelligence** page, which you can access from the main Microsoft Sentinel menu. Use the **Threat intelligence** page to sort, filter, and search your imported threat indicators without writing a Log Analytics query.
 
-To view your threat intelligence indicators on the **Threat Intelligence** page:
+To view your threat intelligence indicators on the **Threat intelligence** page:
 
 1. For Microsoft Sentinel in the [Azure portal](https://portal.azure.com), under **Threat management**, select **Threat intelligence**.
 
