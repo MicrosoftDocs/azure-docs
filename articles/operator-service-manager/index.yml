@@ -86,11 +86,11 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
-          - text: Get started with safe upgrades
+          - text: Get Started with Safe Upgrades
             url: safe-upgrade-practices.md
       - linkListType: concept
         links:
-          - text: Control rollback behavior on upgrade failure
+          - text: Control Upgrade Behavior on Failure
             url: safe-upgrades-nf-level-rollback.md
             
   # Card
