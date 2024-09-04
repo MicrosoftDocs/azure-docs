@@ -17,14 +17,33 @@ This guide describes the Azure Operator Service Manager (AOSM) private link (PL)
 This document provides a quick start guide to enable private link feature for AOSM artifact store using AOSM Publisher APIs. 
 
 ### Required permissions 
-Linking the AOSM artifact store resource to a Nexus fabric controller (NFC) requires the common AOSM resource permissions in addition to the following role privilege. 
+The operations required to link and manage a private endpoint with a Nexus fabric controller (NFC) requires the following non-default role privileges. 
 
+#### Remove private endpoint
 ```
-Microsoft.ManagedNetworkFabric/networkFabricControllers/write
+"Microsoft.HybridNetwork/publishers/artifactStores/removePrivateEndPoints/action"
+```
+#### Approve private endpoints
+```
+"Microsoft.HybridNetwork/publishers/artifactStores/approvePrivateEndPoints/action"
+```
+#### Add nfc private endpoints
+```
+"Microsoft.HybridNetwork/publishers/artifactStores/addNetworkFabricControllerEndPoints/action"
+"Microsoft.ManagedNetworkFabric/networkFabricControllers/joinartifactstore/action"
+```
+#### List nfc private endpoints 
+```
+"Microsoft.HybridNetwork/publishers/artifactStores/listNetworkFabricControllerPrivateEndPoints/action"
+```
+#### Delete nfc private endpoints
+```
+"Microsoft.HybridNetwork/publishers/artifactStores/deleteNetworkFabricControllerEndPoints/action"
+"Microsoft.ManagedNetworkFabric/networkFabricControllers/disjoinartifactstore/action"
 ```
 
 > [!NOTE]
-> As more fine-grained NFC permissions are introduced, the recommended role privilege will be updated.
+> As new NFC permissions are introduced, the recommended role privileges will be updated.
 
 ## Use AOSM APIs to setup private link 
 Before resources can be uploaded securely, the following sequence of operations establshes a PL connection to the artifact store.
