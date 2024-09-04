@@ -19,7 +19,7 @@ The selected region is currently not accepting new customers: https://aka.ms/loc
 
 ## Cause
 
-To prioritize resources for existing customers in an Azure region, Microsoft may restrict access for customers without resources in that location. If you attempt to create resources in a region where this policy applies and your tenant is new to the area, you receive this error message. This policy is currently in effect for the following region(s):
+To prioritize resources for existing customers in an Azure region, Microsoft may restrict access for customers without resources in that location. If you attempt to create resources in a region where this policy applies and your tenant is new to that region, you receive this error message. This policy is currently in effect for the following region(s):
 
 - West Europe
 
