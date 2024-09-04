@@ -38,7 +38,7 @@ There are two metrics related to the audio delay: `rttInMs` and `jitterBufferDel
 
 The [rttInMs](../../../../concepts/voice-video-calling/media-quality-sdk.md?pivots=platform-web#audio-send-metrics) has a direct impact on the audio delay, as the metric indicates the round trip time of packets. High latency can result in perceptible delays in audio.
 We recommend a round-trip time of 200 ms or less.
-If the round-trip time is larger than 500 ms, users may experience significant delays that can lead to frustration and hinder effective communication. In such cases, the conversation flow can be disrupted, making it difficult to have a smooth and natural interaction 
+If the round-trip time is larger than 500 ms, users may experience significant delays that can lead to frustration and hinder effective communication. In such cases, the conversation flow can be disrupted, making it difficult to have a smooth and natural interaction.
 
 In [jitterBufferDelayInMs](../../../../concepts/voice-video-calling/media-quality-sdk.md?pivots=platform-web#audio-receive-metrics) shows how long the audio samples stay in the jitter buffer.
 This value can be affected by various factors, such as late arrival of packets, out-of-order, packet loss, etc.
