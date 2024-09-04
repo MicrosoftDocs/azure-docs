@@ -99,7 +99,7 @@ See the [prerequisites](#prerequisites) for using an API Management managed iden
 
 The Application Insights connection string appears in the **Overview** section of your Application Insights resource.
 
-### System-assigned managed identity and connection string 
+#### System-assigned managed identity and connection string 
 
 #### [REST API](#tab/rest)
 
@@ -159,9 +159,7 @@ Include a JSON snippet similar to the following in your Azure Resource Manager t
 }
 ```
 ---
-### User-assigned managed identity and connection string
-
-See the [prerequisites](#prerequisites) for using an API Management managed identity.
+#### User-assigned managed identity and connection string
 
 #### [REST API](#tab/rest)
 
