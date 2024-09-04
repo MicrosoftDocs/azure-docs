@@ -9,6 +9,7 @@ ms.author: memontic
 ms.date: 07/15/2024
 ms.topic: quickstart
 ms.service: azure-communication-services
+ms.subservice: advanced-messaging
 ms.custom: devx-track-extended-java, devx-track-js, devx-track-python
 zone_pivot_groups: acs-js-csharp-java-python
 ---

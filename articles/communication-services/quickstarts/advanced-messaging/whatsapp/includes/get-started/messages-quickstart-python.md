@@ -6,6 +6,7 @@ author: shamkh
 manager: camilo.ramirez
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
+ms.subservice: advanced-messaging
 ms.date: 02/20/2024
 ms.topic: include
 ms.custom: Include file

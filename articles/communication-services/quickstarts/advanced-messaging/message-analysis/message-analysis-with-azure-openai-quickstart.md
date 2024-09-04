@@ -4,8 +4,10 @@ titleSuffix: Azure Communication Services
 description: "In this quickstart, you learn how to enable Message Analysis with Azure OpenAI"
 author: gelli
 manager: camilo.ramirez
+services: azure-communication-services
 ms.author: gelli
 ms.service: azure-communication-services
+ms.subservice: advanced-messaging
 ms.topic: quickstart 
 ms.date: 07/05/2024
 ---
