@@ -79,8 +79,8 @@ Update-AzVirtualHubBgpConnection -ResourceGroupName "[resource group name]" -Vir
 
 check BGP learned route in HUB
 
-```
-Get-AzRouteServerPeerLearnedRoute -ResourceGroupName $resourceGroupName -RouteServerName $HubName -PeerName $peerName
+```azurepowershell-interactive
+Get-AzRouteServerPeerLearnedRoute -ResourceGroupName "[resource group name]" -RouteServerName "[hub name]" -PeerName "[peer name]"
 ```
 ## Delete a BGP peer
 
