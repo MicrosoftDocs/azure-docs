@@ -18,13 +18,13 @@ In API Management, groups are used to manage the visibility of products to devel
 
 API Management has the following immutable groups:
 
-* **Administrators** - Contains a single user: the creator of the API Management instance, named **Administrator**, who receives notifications at the administrator email address provided when the instance was created. The administrator can approve subscription requests, manage user groups, and customize and publish the developer portal. In the developer portal, all published products are visible to the administrator. Users can't be added or removed from this group. 
+* **Administrators** - Built-in group containing the administrator email account provided at the time of service creation. System notifications and other configured notifications are sent to this email account. The administrator can approve subscription requests and customize and publish the developer portal. In the developer portal, all published products are visible to the administrator. Users can't be added to or removed from this group. 
 
     > [!NOTE]
-    > The administrator's permissions are distinct from the Azure role-based access control (Azure RBAC) permissions needed to [manage resources in the API Management instance](api-management-howto-assign-roles.md). However, a user assigned at least the **Contributor** RBAC role or equivalent permissions on the API Management instance impersonates the administrator when accessing the developer portal by using the **Developer portal** link in the portal.
+    > The administrator's permissions are distinct from the Azure role-based access control (Azure RBAC) permissions needed to [manage resources in the API Management instance](api-management-role-based-access-control.md). However, a user assigned at least the **Contributor** RBAC role or equivalent permissions on the API Management instance impersonates the administrator when accessing the developer portal by using the **Developer portal** link in the portal.
 
     > [!NOTE]
-    > At any time, a service owner can change the administrator [email settings](api-management-howto-configure-notifications.md#configure-email-settings) that are used in notifications sent to developers from your API Management instance.
+    > At any time, a service owner can change the administrator [email settings](api-management-howto-configure-notifications.md#configure-email-settings) that are used in notifications from your API Management instance.
 
 * **Developers** - Authenticated developer portal users fall into this group. Developers are the customers that build applications using your APIs. Developers are granted access to the developer portal and build applications that call the operations of an API.
 * **Guests** - Unauthenticated developer portal users, such as prospective customers visiting the developer portal of an API Management instance fall into this group. They can be granted certain read-only access, such as the ability to view APIs but not call them.
