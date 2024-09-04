@@ -1,10 +1,10 @@
 ---
 title: Discover and deploy Microsoft Sentinel out-of-the-box content from Content hub
 description: Learn how to find and deploy Sentinel packaged solutions containing data connectors, analytics rules, hunting queries, workbooks, and other content.
-author: austinmccollum
+author: cwatson-cat
 ms.topic: how-to
 ms.date: 03/01/2024
-ms.author: austinmc
+ms.author: cwatson
 appliesto:
     - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal.
@@ -85,7 +85,11 @@ Here's an example showing the install of an individual solution.
 1. In the **Review + create** tab, wait for the `Validation Passed` message.
 1. Select **Create** or **Update** to deploy the solution. You can also select the **Download a template for automation** link to deploy the solution as code.
 
-Each content type within the solution might require more steps to configure. For more information, see [Enable content items in a solution](#enable-content-items-in-a-solution). 
+If the solution you want to install has dependencies, as is the case with many [domain solutions](sentinel-solutions-catalog.md#domain-solutions), select **Install with dependencies** to ensure that the required data connectors are also installed. From there, select one or more of the dependencies to install them along with the domain solution. If one or more of your solutions is already installed but has updates, use the **Install/Update** button to both install and update all selected solutions in bulk.
+
+:::image type="content" source="media/sentinel-solutions-deploy/install-update-dependencies.png" alt-text="Screenshot of installing multiple solution dependenices in bulk.":::
+
+After installing a solution, each content type within the solution might require more steps to configure. For more information, see [Enable content items in a solution](#enable-content-items-in-a-solution). 
 
 ## Bulk install and update content
 
@@ -100,6 +104,8 @@ Content hub supports a list view in addition to the default card view. Select th
    If a solution or standalone content you selected was already installed or updated, no action is taken on that item. It doesn't interfere with the update and install of the other items.
 
 1. Select **Manage** for each solution you installed. Content types within the solution might require more information for you to configure. For more information, see [Enable content items in a solution](#enable-content-items-in-a-solution). 
+
+
 
 ## Enable content items in a solution
 

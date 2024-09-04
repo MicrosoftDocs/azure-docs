@@ -4,7 +4,7 @@ description: Learn about the latest new features and announcement in Microsoft S
 author: yelevin
 ms.author: yelevin
 ms.topic: concept-article
-ms.date: 08/18/2024
+ms.date: 09/04/2024
 ---
 
 # What's new in Microsoft Sentinel
@@ -20,6 +20,7 @@ The listed features were released in the last three months. For information abou
 
 ## August 2024
 
+- [Install domain solutions with dependencies](#install-domain-solutions-with-dependencies)
 - [Export and import automation rules (Preview)](#export-and-import-automation-rules-preview)
 - [Microsoft Sentinel support in Microsoft Defender multitenant management (Preview)](#microsoft-sentinel-support-in-microsoft-defender-multitenant-management-preview)
 - [Premium Microsoft Defender Threat Intelligence data connector (Preview)](#premium-microsoft-defender-threat-intelligence-data-connector-preview)
@@ -27,6 +28,16 @@ The listed features were released in the last three months. For information abou
 - [Better visibility for Windows security events](#better-visibility-for-windows-security-events)
 - [New Auxiliary logs retention plan (Preview)](#new-auxiliary-logs-retention-plan-preview)
 - [Create summary rules for large sets of data (Preview)](#create-summary-rules-in-microsoft-sentinel-for-large-sets-of-data-preview)
+
+### Install domain solutions with dependencies
+
+Domain solutions, such as the *Web Sessions Essentials* or *Log4j Vulnerability Detection* solutions, don't neccesarily include a data connector of their own. Instead, they rely on data connectors from other solutions to provide visiblity in a specific area across data connectors. The data connectors they use are prerequisites for the domain solution to work properly.
+
+When installing a domain solution, you can now select **Install with dependencies** to ensure that the data connectors required by the domain solution are also installed:
+
+:::image type="content" source="media/whats-new/dependencies.png" alt-text="Screenshot of the new Install with dependencies button.":::
+
+For more information, see [Install or update content](sentinel-solutions-deploy.md#install-or-update-content) and [Domain solutions](sentinel-solutions-catalog.md#domain-solutions).
 
 ### Export and import automation rules (Preview)
 
