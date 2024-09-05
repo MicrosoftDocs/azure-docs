@@ -394,10 +394,6 @@ For more information about the codeless connector platform, see [Create a codele
 - [[Deprecated] Kaspersky Security Center via Legacy Agent](data-connectors/deprecated-kaspersky-security-center-via-legacy-agent.md)
 - [[Recommended] Kaspersky Security Center via AMA](data-connectors/recommended-kaspersky-security-center-via-ama.md)
 
-## Linux
-
-- [Microsoft Sysmon For Linux](data-connectors/microsoft-sysmon-for-linux.md)
-
 ## Lookout, Inc.
 
 - [Lookout (using Azure Function)](data-connectors/lookout.md)
@@ -410,11 +406,6 @@ For more information about the codeless connector platform, see [Create a codele
 ## MarkLogic
 
 - [MarkLogic Audit](data-connectors/marklogic-audit.md)
-
-## McAfee
-
-- [McAfee ePolicy Orchestrator (ePO)](data-connectors/mcafee-epolicy-orchestrator-epo.md)
-- [McAfee Network Security Platform](data-connectors/mcafee-network-security-platform.md)
 
 ## Microsoft
 
@@ -496,17 +487,9 @@ For more information about the codeless connector platform, see [Create a codele
 - [Mimecast Intelligence for Microsoft - Microsoft Sentinel (using Azure Functions)](data-connectors/mimecast-intelligence-for-microsoft-microsoft-sentinel.md)
 - [Mimecast Targeted Threat Protection (using Azure Functions)](data-connectors/mimecast-targeted-threat-protection.md)
 
-## MongoDB
-
-- [MongoDB Audit](data-connectors/mongodb-audit.md)
-
 ## MuleSoft
 
 - [MuleSoft Cloudhub (using Azure Functions)](data-connectors/mulesoft-cloudhub.md)
-
-## Nasuni Corporation
-
-- [Nasuni Edge Appliance](data-connectors/nasuni-edge-appliance.md)
 
 ## NetClean Technologies AB
 
@@ -518,23 +501,9 @@ For more information about the codeless connector platform, see [Create a codele
 - [Netskope Data Connector (using Azure Functions)](data-connectors/netskope-data-connector.md)
 - [Netskope Web Transactions Data Connector (using Azure Functions)](data-connectors/netskope-web-transactions-data-connector.md)
 
-## Netwrix
-
-- [[Deprecated] Netwrix Auditor via Legacy Agent](data-connectors/deprecated-netwrix-auditor-via-legacy-agent.md)
-- [[Recommended] Netwrix Auditor via AMA](data-connectors/recommended-netwrix-auditor-via-ama.md)
-
-## Nginx
-
-- [NGINX HTTP Server](data-connectors/nginx-http-server.md)
-
 ## Noname Gate, Inc.
 
 - [Noname Security for Microsoft Sentinel](data-connectors/noname-security-for-microsoft-sentinel.md)
-
-## Nozomi Networks
-
-- [[Deprecated] Nozomi Networks N2OS via Legacy Agent](data-connectors/deprecated-nozomi-networks-n2os-via-legacy-agent.md)
-- [[Recommended] Nozomi Networks N2OS via AMA](data-connectors/recommended-nozomi-networks-n2os-via-ama.md)
 
 ## NXLog Ltd.
 
@@ -552,43 +521,18 @@ For more information about the codeless connector platform, see [Create a codele
 
 - [OneLogin IAM Platform(using Azure Functions)](data-connectors/onelogin-iam-platform.md)
 
-## OpenVPN
-
-- [OpenVPN Server](data-connectors/openvpn-server.md)
-
-## Oracle
-
-- [Oracle Cloud Infrastructure (using Azure Functions)](data-connectors/oracle-cloud-infrastructure.md)
-- [Oracle Database Audit](data-connectors/oracle-database-audit.md)
-- [Oracle WebLogic Server (using Azure Functions)](data-connectors/oracle-weblogic-server.md)
-
 ## Orca Security, Inc.
 
 - [Orca Security Alerts](data-connectors/orca-security-alerts.md)
 
-## OSSEC
-
-- [[Deprecated] OSSEC via Legacy Agent](data-connectors/deprecated-ossec-via-legacy-agent.md)
-- [[Recommended] OSSEC via AMA](data-connectors/recommended-ossec-via-ama.md)
-
 ## Palo Alto Networks
 
 - [[Deprecated] Palo Alto Networks Cortex Data Lake (CDL) via Legacy Agent](data-connectors/deprecated-palo-alto-networks-cortex-data-lake-cdl-via-legacy-agent.md)
-- [[Recommended] Palo Alto Networks Cortex Data Lake (CDL) via AMA](data-connectors/recommended-palo-alto-networks-cortex-data-lake-cdl-via-ama.md)
 - [Palo Alto Prisma Cloud CSPM (using Azure Functions)](data-connectors/palo-alto-prisma-cloud-cspm.md)
 
 ## Perimeter 81
 
 - [Perimeter 81 Activity Logs](data-connectors/perimeter-81-activity-logs.md)
-
-## Ping Identity
-
-- [[Deprecated] PingFederate via Legacy Agent](data-connectors/deprecated-pingfederate-via-legacy-agent.md)
-- [[Recommended] PingFederate via AMA](data-connectors/recommended-pingfederate-via-ama.md)
-
-## PostgreSQL
-
-- [PostgreSQL Events](data-connectors/postgresql-events.md)
 
 ## Prancer Enterprise
 
@@ -599,10 +543,6 @@ For more information about the codeless connector platform, see [Create a codele
 - [Proofpoint TAP (using Azure Functions)](data-connectors/proofpoint-tap.md)
 - [Proofpoint On Demand Email Security (using Azure Functions)](data-connectors/proofpoint-on-demand-email-security.md)
 
-## Pulse Secure
-
-- [Pulse Connect Secure](data-connectors/pulse-connect-secure.md)
-
 ## Qualys
 
 - [Qualys Vulnerability Management (using Azure Functions)](data-connectors/qualys-vulnerability-management.md)
@@ -611,10 +551,6 @@ For more information about the codeless connector platform, see [Create a codele
 ## RedHat
 
 - [JBoss Enterprise Application Platform](data-connectors/jboss-enterprise-application-platform.md)
-
-## Ridge Security Technology Inc.
-
-- [RIDGEBOT - data connector for Microsoft Sentinel](data-connectors/ridgebot-data-connector-for-microsoft-sentinel.md)
 
 ## RSA
 
