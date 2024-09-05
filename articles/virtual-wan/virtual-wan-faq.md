@@ -484,7 +484,11 @@ Yes, this can be done automatically with no update or reset required on the peer
 
 You can find more information on how to change the VNet address space [here](../virtual-network/manage-virtual-network.yml).
 
+### What is the maximum number of spoke Virtual Network addresses supported for hubs configured with Routing Intent?
 
+The maximum number of address spaces across all Virtual Networks directly connected to a single Virtual WAN hub is 400. This limit is applied individually to each Virtual WAN hub in a Virtual WAN deployment. Virtual Network address spaces connected to remote (other Virtual WAN hubs in the same Virtual WAN) hubs are not counted towards this limit.
+
+This limit is adjustable. For more information on the limit, the procedure to request a limit increase and sample scripts to determine the number of address spaces across Virtual Networks connected to a Virtual WAN hub, see [routing intent virtual network address space limits](how-to-routing-policies.md#virtual-network-address-space-limits).
 
 ## <a name="vwan-customer-controlled-maintenance"></a>Virtual WAN customer-controlled gateway maintenance
 

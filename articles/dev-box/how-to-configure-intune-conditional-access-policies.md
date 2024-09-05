@@ -1,12 +1,12 @@
 ---
-title: Configuring Microsoft Intune conditional access policies for dev boxes
+title: Microsoft Intune conditional access policies for dev boxes
 titleSuffix: Microsoft Dev Box
 description: Learn how to configure Microsoft Intune dynamic device groups and conditional access policies to restrict access to dev boxes.
 services: dev-box
 ms.service: dev-box
 author: RoseHJM
 ms.author: rosemalcolm
-ms.date: 12/20/2023
+ms.date: 09/04/2024
 ms.topic: how-to
 
 # Customer intent: As a platform engineer, I want to configure conditional access policies in Microsoft Intune so that I can control access to dev boxes.
@@ -15,7 +15,7 @@ ms.topic: how-to
 
 # Restrict access to dev boxes by using conditional access policies in Microsoft Intune
 
-In this article, you learn how to configure conditional access policies in Microsoft Intune to control access to dev boxes. For Dev Box, it’s common to configure conditional access policies to restrict who can access dev box, what they can do, and where they can access from. To configure conditional access policies, you can use Microsoft Intune to create dynamic device groups and conditional access policies.
+In this article, you learn how to configure conditional access policies in Microsoft Intune to control access to dev boxes. For Dev Box, it's common to configure conditional access policies to restrict who can access dev box, what they can do, and where they can access from. To configure conditional access policies, you can use Microsoft Intune to create dynamic device groups and conditional access policies.
 
 Some usage scenarios for conditional access in Microsoft Dev Box include: 
 
@@ -23,7 +23,7 @@ Some usage scenarios for conditional access in Microsoft Dev Box include:
 - Restricting the ability to copy/paste from the dev box 
 - Restricting access to dev box from only certain geographies 
 
-Conditional access is the protection of regulated content in a system by requiring certain criteria to be met before granting access to the content. Conditional access policies at their simplest are if-then statements. If a user wants to access a resource, then they must complete an action. Conditional access policies are a powerful tool for being able to keep your organization’s devices secure and environments compliant. 
+Conditional access is the protection of regulated content in a system by requiring certain criteria to be met before granting access to the content. Conditional access policies at their simplest are if-then statements. If a user wants to access a resource, then they must complete an action. Conditional access policies are a powerful tool for being able to keep your organization's devices secure and environments compliant. 
 
 ## Prerequisites
 
@@ -83,7 +83,9 @@ After creating your device group and validated your dev box devices are members,
 
 1. Enter a **Name** for your conditional access policy. 
 
-1. Under **Users**, select the device group you created in the previous section. 
+1. Under **Users**, select **All users**.
+ 
+1. Under **Devices**, select the device group you created in the previous section. 
 
 1. Under **Cloud apps or actions**, select **No cloud apps, actions, or authentication contexts selected**. 
 
