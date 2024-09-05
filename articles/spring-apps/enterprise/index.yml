@@ -42,6 +42,8 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
+          - text: Azure Spring Apps to Azure Container Apps Migration Guide
+            url: overview-migration.md
           - text: What is Azure Spring Apps?
             url: overview.md
           - text: Version support for Java, Spring Boot, and more
