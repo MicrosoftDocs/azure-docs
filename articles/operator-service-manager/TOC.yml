@@ -35,8 +35,7 @@
     items:
       - name: Get Started with Safe Upgrade Practices
         href: safe-upgrade-practices.md
-      - name: Control rollback behavior on upgrade failure 
-
+      - name: Control Upgrade Failure Behavior
         href: safe-upgrades-nf-level-rollback.md
 - name: Quickstarts
   expanded: false

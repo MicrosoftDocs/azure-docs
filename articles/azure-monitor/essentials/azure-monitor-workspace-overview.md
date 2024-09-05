@@ -82,6 +82,7 @@ When you create a new Azure Monitor workspace, you provide a region which sets t
 |Australia|Australia Central, Australia East, Australia Southeast|
 |Brazil|Brazil South, Brazil Southeast|
 |Canada|Canada Central, Canada East|
+|China|China North 3 (Preview), China East 3 (Preview)|
 |Europe|North Europe, West Europe|
 |France|France Central, France South|
 |Germany|Germany West Central|
