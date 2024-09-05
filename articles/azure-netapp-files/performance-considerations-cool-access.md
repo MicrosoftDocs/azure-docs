@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
 ms.topic: conceptual
-ms.date: 08/23/2024
+ms.date: 09/05/2024
 ms.author: anfdocs
 ---
 # Performance considerations for Azure NetApp Files storage with cool access
