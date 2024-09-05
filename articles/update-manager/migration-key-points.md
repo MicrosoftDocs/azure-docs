@@ -50,6 +50,8 @@ This article lists the significant details that you must note when you're migrat
         - Remove the user-managed identity created for migration from the automation account.
         - Delete the assigned roles for the user-managed identity created for migration.
         - Delete the user-managed identity created for migration.
+    - To run the above script, you must have Microsoft.Authorization/roleAssignments/write permissions on all the subscriptions that contain Automation Update Management resources such as machines, schedules, log analytics workspace, and automation account. For more information, see [how to assign an Azure role](../role-based-access-control/role-assignments-rest.md).
+    - The script should be executed in the same manner as the [Prerequisite](migration-using-runbook-scripts.md#prerequisite-2-create-user-identity-and-role-assignments-by-running-powershell-script) script.
 
 Post-migration, a Software Update Configuration can have any one of the following four migration statuses: 
 
