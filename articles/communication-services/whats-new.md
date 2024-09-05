@@ -107,18 +107,18 @@ For more information, see [Call Automation workflow interoperability with Micros
 
 Microsoft Teams users can share images with Azure Communication Services users in the context of a Teams meeting. This feature is now generally available. Image sharing enhances collaboration in real time for meetings. Image overlay is also supported for users to look at it in detail.
 
-Image sharing is helpful in many scenarios, such as a business sharing photos showcasing their work or doctors sharing images with patients for after care instructions.
+Image sharing is helpful in many scenarios, such as a business sharing photos to showcase its work or doctors sharing images with patients for aftercare instructions.
 
-:::image type="content" source="media/whats-new-images/image-sharing-setup.png" alt-text="A screenshot showing image sharing setup and example in a Microsoft Teams meeting." lightbox="media/whats-new-images/image-sharing-setup.png":::
+:::image type="content" source="media/whats-new-images/image-sharing-setup.png" alt-text="Screenshot that shows image-sharing setup and an example in a Microsoft Teams meeting." lightbox="media/whats-new-images/image-sharing-setup.png":::
 
-Try out this feature using either our UI Library or the Chat SDK. The SDK is available in C# (.NET), JavaScript, Python, and Java:
+Try out this feature by using either the UI Library or the Chat SDK. The SDK is available in C# (.NET), JavaScript, Python, and Java. For more information, see:
 
-- [Enable inline image using UI Library in Teams Meetings](./tutorials/inline-image-tutorial-interop-chat.md)
-- [Sample: Image Sharing](https://azure.github.io/communication-ui-library/?path=/docs/composites-call-with-chat-jointeamsmeeting--join-teams-meeting#adding-image-sharing)
+- [Enable inline image using UI Library in Teams meetings](./tutorials/inline-image-tutorial-interop-chat.md)
+- [GitHub sample: Adding image sharing](https://azure.github.io/communication-ui-library/?path=/docs/composites-call-with-chat-jointeamsmeeting--join-teams-meeting#adding-image-sharing)
 
 ### Deep noise suppression for desktop
 
-Deep noise suppression is currently in public preview. Noise suppression improves VoIP and video calls by eliminating background noise, making it easier to talk and listen. For example, if you're taking an Azure Communication Services WebJS call in a coffee shop with considerable noise, turning on noise suppression can significantly improve the calling experience by eliminating the background noise from the shop.
+Deep noise suppression is currently in preview. Noise suppression improves VoIP and video calls by eliminating background noise, so it's easier to talk and listen. For example, if you're taking an Azure Communication Services WebJS call in a coffee shop, turning on noise suppression can significantly improve the calling experience by eliminating background noise.
 
 For more information, see [Add audio quality enhancements to your audio calling experience](./tutorials/audio-quality-enhancements/add-noise-supression.md).
 
@@ -130,21 +130,21 @@ We updated the Calling native SDKs to improve the customer experience. This rele
 - Proxy configuration
 - Android TelecomManager
 - Unidirectional Data Channel
-- Time To Live lifespan for push notifications
+- Time-to-live lifespan for push notifications
 
 #### Custom background for video calls
 
-Custom background for video calls is generally available. This feature enables customers to remove distractions behind them. The custom image backgrounds feature enables customers to upload their own personalized images for use as background.
+Custom background for video calls is generally available. This feature enables customers to remove distractions behind them. Customers can upload their own personalized images for use as background.
 
-:::image type="content" source="media/whats-new-images/custom-background-video-calls.jpeg" alt-text="A screenshot showing custom background for video calls." lightbox="media/whats-new-images/custom-background-video-calls.jpeg":::
+:::image type="content" source="media/whats-new-images/custom-background-video-calls.jpeg" alt-text="Screenshot that shows custom background for video calls." lightbox="media/whats-new-images/custom-background-video-calls.jpeg":::
 
-For example, business owners can use the Calling SDK to show custom backgrounds in place of the actual background. You can, for example, upload an image of a modern and spacious office and set it as its background for video calls. Anyone who joins the call sees the customized background, which looks realistic and natural. You can also use custom branding images as background to show a fresh image to your customers.
+For example, business owners can use the Calling SDK to show custom backgrounds in place of the actual background. You can, for example, upload an image of a modern and spacious office and set it as the background for video calls. Anyone who joins the call sees the customized background, which looks realistic and natural. You can also use custom branding images as background to show fresh images to your customers.
 
-For more information, see [QuickStart: Add video effects to your video calls](./quickstarts/voice-video-calling/get-started-video-effects.md).
+For more information, see [Quickstart: Add video effects to your video calls](./quickstarts/voice-video-calling/get-started-video-effects.md).
 
 #### Proxy configuration
 
-Proxy configuration is now generally available. Some environments such as highly regulated industries or those dealing with confidential information require proxies to secure and control network traffic. You can use the Calling SDK to configure the HTTP and media proxies for your Azure Communication Services calls. This way, you can ensure that your communications are compliant with the network policies and regulations. You can use the native SDK methods to set the proxy configuration for your app.
+Proxy configuration is now generally available. Some environments, such as industries that are highly regulated or that deal with confidential information, require proxies to secure and control network traffic. You can use the Calling SDK to configure the HTTP and media proxies for your Azure Communication Services calls. This way, you can ensure that your communications are compliant with the network policies and regulations. You can use the native SDK methods to set the proxy configuration for your app.
 
 For more information, see [Tutorial: Proxy your calling traffic](./tutorials/proxy-calling-support-tutorial.md?pivots=platform-android).
 
