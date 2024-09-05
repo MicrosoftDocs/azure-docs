@@ -2767,6 +2767,15 @@ groups:
     title: Current
   - id: expressroute-preview
     title: Preview
+# Owner: hmb
+- id: front-door-dev-exp-portal-cli
+  title: Front Door Developer experience
+  prompt: "Select the developer experience:"
+  pivots:
+  - id: front-door-portal
+    title: Azure Portal
+  - id: front-door-cli
+    title: Azure CLI
 # Owner: wiassaf
 - id: azure-sql-deployment-option-single-elastic
   title: Azure SQL deployment option, single or elastic

@@ -8,12 +8,12 @@ ms.service: azure-frontdoor
 ms.topic: how-to
 ms.date: 03/31/2024
 ms.author: duau
-zone_pivot_groups: identity-wif-apps-methods
+zone_pivot_groups: front-door-dev-exp-portal-cli
 ---
 
 # Connect Azure Front Door Premium to a storage static website with Private Link
 
-::: zone pivot="identity-wif-apps-methods-azp"
+::: zone pivot="front-door-portal"
 
 This article guides you through how to configure Azure Front Door Premium tier to connect to your storage static website privately using the Azure Private Link service.
 
@@ -81,26 +81,20 @@ Once the origin is added and the private endpoint connection is approved, you ca
 
 ::: zone-end
 
-::: zone pivot="identity-wif-apps-methods-azcli"
+::: zone pivot="front-door-cli"
 
 This article will guide you through how to configure Azure Front Door Premium tier to connect to your Storage Account privately using the Azure Private Link service with Azure CLI.
 
-## Prerequisites
+## Prerequisites - CLI
 
 [!INCLUDE [azure-cli-prepare-your-environment](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* Have a functioning Azure Front Door Premium profile, an endpoint and an origin group. For more information on how to create an Azure Front Door profile, see [Create a Front Door - CLI](../create-front-door-cli.md).
-* Have a functioning Web App that is also private. Refer this [doc](../../private-link/create-private-link-service-cli.md) to learn how to do the same.
-
-> [!NOTE]
-> Private endpoints requires your App Service plan or function hosting plan to meet some requirements. For more information, see [Using Private Endpoints for Azure Web App](https://learn.microsoft.com/en-us/azure/static-web-apps/private-endpoint).
-
+* Have a functioning Azure Front Door Premium profile, an endpoint and an origin group. For more information on how to create an Azure Front Door profile, see [Create a Front Door - CLI](create-front-door-cli.md).
 
 ## Enable Private Link to a Storage Static Website in Azure Front Door Premium
 
-1. Run the [az](https://learn.microsoft.com/en-us/cli/azure/reference-index?view=azure-cli-latest) command to start the Azure CLI.
-2. Run [az afd origin create](/cli/azure/afd/origin#az-afd-origin-create) to create a new Azure Front Door origin. Enter the following settings to configure the Storage Static Website you want Azure Front Door Premium to connect with privately. Notice the `private-link-location` must be in one of the [available regions](../private-link.md#region-availability) and the `private-link-sub-resource-type` must be **web**.
+1. Run [az afd origin create](/cli/azure/afd/origin#az-afd-origin-create) to create a new Azure Front Door origin. Enter the following settings to configure the Storage Static Website you want Azure Front Door Premium to connect with privately. Notice the `private-link-location` must be in one of the [available regions](private-link.md#region-availability) and the `private-link-sub-resource-type` must be **web**.
 
 ```azurecli-interactive
 az afd origin create --enabled-state Enabled \
