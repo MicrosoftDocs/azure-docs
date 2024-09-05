@@ -61,7 +61,7 @@ This command creates an app with the following settings:
 - Session affinity: Cookie
 - Session cookie max age: 1800 seconds
 - Backend protocol: Default
-- Client Auth: <cert-name>
+- Client Auth: cert-name
 
 ## Update the ingress settings for an existing app
 
