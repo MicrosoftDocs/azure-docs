@@ -41,7 +41,7 @@ The following connectors are scheduled for deprecation on December 31, 2024. You
 - [Hbase](connector-hbase.md)
 - [Magento (Preview)](connector-magento.md)
 - [Marketo (Preview)](connector-marketo.md)
-- [Oracle Responsys](connector-oracle-responsys)
+- [Oracle Responsys (Preview)](connector-oracle-responsys.md)
 - [Paypal (Preview)](connector-paypal.md)
 - [Phoenix](connector-phoenix.md)
 
