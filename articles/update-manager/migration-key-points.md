@@ -45,8 +45,8 @@ This article lists the significant details that you must note when you're migrat
 - In the end, you can resolve more machines from Azure Resource Graph as in Azure Update Manager. You can't check if Hybrid Runbook Worker is reporting or not, unlike in Automation Update Management where it was an intersection of Dynamic Queries and Hybrid Runbook Worker.
 - Machines that are unsupported in Azure Update Manager aren't migrated. The Schedules, which have such machines will be partially migrated and only supported machines of the software update configuration will be moved to Azure Update Manager. To prevent patching by both Automation Update Management and Azure Update Manager, remove migrated machines from deployment schedules in Automation Update Management.
 - **Post Deboarding**: 
-    - Ensure to execute the [script](https://github.com/azureautomation/Post-Migration-from-Azure-Automation-Update-Management-to-Azure-Update-Manager-Preqrequisite-Cleanup/blob/main/MigrationPrerequisitesCleanup.ps1) that will delete the following:
-        - Automation account variable AzureAutomationAccountEnvironment created for migration.
+    - Ensure to execute the [script](https://github.com/azureautomation/Post-Migration-from-Azure-Automation-Update-Management-to-Azure-Update-Manager-Preqrequisite-Cleanup/blob/main/MigrationPrerequisitesCleanup.ps1) that will do the following:
+        - Delete the automation account variable `AzureAutomationAccountEnvironment` created for migration.
         - Remove the user-managed identity created for migration from the automation account.
         - Delete the assigned roles for the user-managed identity created for migration.
         - Delete the user-managed identity created for migration.
