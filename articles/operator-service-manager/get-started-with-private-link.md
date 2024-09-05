@@ -19,24 +19,26 @@ This document provides a quick start guide to enable private link feature for AO
 ### Required permissions 
 The operations required to link and manage a private endpoint with a Nexus fabric controller (NFC) requires the following nondefault role privileges. 
 
-#### Remove private endpoint
+#### Permissions for linking and managing manual private endpoint
+Remove private endpoint
 ```
 "Microsoft.HybridNetwork/publishers/artifactStores/removePrivateEndPoints/action"
 ```
-#### Approve private endpoints
+Approve private endpoint
 ```
 "Microsoft.HybridNetwork/publishers/artifactStores/approvePrivateEndPoints/action"
 ```
-#### Add nfc private endpoints
+#### Permissions for linking and managing a private endpoint with NFC
+Add NFC private endpoints
 ```
 "Microsoft.HybridNetwork/publishers/artifactStores/addNetworkFabricControllerEndPoints/action"
 "Microsoft.ManagedNetworkFabric/networkFabricControllers/joinartifactstore/action"
 ```
-#### List nfc private endpoints 
+List NFC private endpoints
 ```
 "Microsoft.HybridNetwork/publishers/artifactStores/listNetworkFabricControllerPrivateEndPoints/action"
 ```
-#### Delete nfc private endpoints
+Delete NFC private endpoints
 ```
 "Microsoft.HybridNetwork/publishers/artifactStores/deleteNetworkFabricControllerEndPoints/action"
 "Microsoft.ManagedNetworkFabric/networkFabricControllers/disjoinartifactstore/action"
