@@ -158,7 +158,7 @@ Next, you enable the built-in CORS support in App Service for your API.
 
     ![Screenshot of the CORS error in the browser client.](./media/app-service-web-tutorial-rest-api/azure-app-service-cors-error.png)
 
-    The domain mismatch between the browser app (`http://localhost:5000`) and remote resource (`http://<app_name>.azurewebsites.net`) is recognized by your browser as a cross-origin resource request. Also, because your REST API the App Service app isn't sending the `Access-Control-Allow-Origin` header, the browser has prevented cross-domain content from loading.
+    The domain mismatch between the browser app (`http://localhost:5000`) and remote resource (`http://<app_name>.azurewebsites.net`) is recognized by your browser as a cross-origin resource request. Also, because the App Service app isn't sending the `Access-Control-Allow-Origin` header, the browser has prevented cross-domain content from loading.
 
     In production, your browser app would have a public URL instead of the localhost URL, but the process for enabling CORS to a localhost URL is the same as the process for a public URL.
 
