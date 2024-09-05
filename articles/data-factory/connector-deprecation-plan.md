@@ -7,7 +7,7 @@ ms.service: azure-data-factory
 ms.subservice: data-movement
 ms.topic: concept-article
 ms.custom: references_regions
-ms.date: 08/27/2024
+ms.date: 09/05/2024
 ---
 
 # Planned connector deprecations for Azure Data Factory
@@ -37,14 +37,16 @@ The following connectors are scheduled for deprecation on December 31, 2024. You
 
 - [Azure Database for MariaDB](connector-azure-database-for-mariadb.md)
 - [Concur (Preview)](connector-concur.md)
+- [Drill](connector-drill.md)
 - [Hbase](connector-hbase.md)
 - [Magento (Preview)](connector-magento.md)
 - [Marketo (Preview)](connector-marketo.md)
+- [Oracle Responsys (Preview)](connector-oracle-responsys.md)
 - [Paypal (Preview)](connector-paypal.md)
 - [Phoenix](connector-phoenix.md)
 
 
-## Connectors that is deprecated
+## Connectors that are deprecated
 
 The following connector was deprecated.
 
