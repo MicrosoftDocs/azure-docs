@@ -227,6 +227,8 @@ if (communicationIdentifier.communicationUser) {
     console.log(`Communication user: ${communicationIdentifier.communicationUser.id}`);
 } else if (communicationIdentifier.microsoftTeamsUser) {
     console.log(`Teams user: ${communicationIdentifier.microsoftTeamsUser.userId}`);
+} else if (communicationIdentifier.microsoftTeamsApp) {
+    console.log(`Teams app: ${communicationIdentifier.microsoftTeamsApp.appId}`);
 } else if (communicationIdentifier.phoneNumber) {
     console.log(`Phone number: ${communicationIdentifier.phoneNumber.value}`);
 } else {
