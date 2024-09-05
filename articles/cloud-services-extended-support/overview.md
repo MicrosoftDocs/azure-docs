@@ -53,7 +53,7 @@ Cloud Services (extended support) provides two paths for you to migrate from [Az
 
 ### Additional migration options
 
-When evaluating migration plans from Cloud Services (classic) to Cloud Services (extended support), you may want to investigate other Azure services such as: [Virtual Machine Scale Sets](../virtual-machine-scale-sets/overview.md), [App Service](../app-service/overview.md), [Azure Kubernetes Service](/azure/aks/intro-kubernetes), and [Azure Service Fabric](../service-fabric/service-fabric-overview.md). These services continue to feature additional capabilities, while Cloud Services (extended support) maintains feature parity with Cloud Services (classic.) 
+When evaluating migration plans from Cloud Services (classic) to Cloud Services (extended support), you may want to investigate other Azure services such as: [Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/overview), [App Service](../app-service/overview.md), [Azure Kubernetes Service](/azure/aks/intro-kubernetes), and [Azure Service Fabric](/azure/service-fabric/service-fabric-overview). These services continue to feature additional capabilities, while Cloud Services (extended support) maintains feature parity with Cloud Services (classic.) 
 
 Depending on the application, Cloud Services (extended support) may require substantially less effort to move to Azure Resource Manager compared to other options. If your application isn't evolving, Cloud Services (extended support) is a viable option to consider as it provides a quick migration path. Conversely, if your application is continuously evolving and needs a more modern feature set, do explore other Azure services to better address your current and future requirements. 
 

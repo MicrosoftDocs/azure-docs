@@ -107,7 +107,7 @@ sections:
       - question: |
           Can I copy restore points created by the Azure Backup service portal from one region to another?
         answer: |
-          No. Currently, Azure Backup supports only copying restore points from one vault to another. You can [move snapshots to a different region using the VM restore point APIs](../virtual-machines/manage-restore-points.md#copy-a-vm-restore-point-between-regions), but this isn't supported for Vault-tier recovery points.
+          No. Currently, Azure Backup supports only copying restore points from one vault to another. You can [move snapshots to a different region using the VM restore point APIs](/azure/virtual-machines/manage-restore-points#copy-a-vm-restore-point-between-regions), but this isn't supported for Vault-tier recovery points.
 
   - name: Azure Backup agent
     questions:
@@ -151,7 +151,7 @@ sections:
           
           Azure Backup doesn't support 32-bit operating systems.
           
-          For Azure VM Linux backups, Azure Backup supports [the list of distributions endorsed by Azure](../virtual-machines/linux/endorsed-distros.md), except Core OS Linux and 32-bit operating system. Other bring-your-own Linux distributions might work as long as the VM agent is available on the VM, and support for Python exists.
+          For Azure VM Linux backups, Azure Backup supports [the list of distributions endorsed by Azure](/azure/virtual-machines/linux/endorsed-distros), except Core OS Linux and 32-bit operating system. Other bring-your-own Linux distributions might work as long as the VM agent is available on the VM, and support for Python exists.
 
           Learn more about the latest workloads supported by [DPM](/system-center/dpm/dpm-protection-matrix?view=sc-dpm-2022) and [MABS Server](backup-mabs-protection-matrix.md).
           

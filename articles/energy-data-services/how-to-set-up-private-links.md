@@ -20,6 +20,9 @@ You can connect to an Azure Data Manager for Energy instance that's configured w
 This article describes how to set up a private endpoint for Azure Data Manager for Energy. 
 
 > [!NOTE]
+> To enable private endpoint, public access must be disabled for Azure Data Manager for Energy. If public access is enabled and private endpoint is created, the instance will only be accessed via private endpoint and not by public access.
+
+> [!NOTE]
 > Terraform currently does not support private endpoint creation for Azure Data Manager for Energy.
 
 ## Prerequisites

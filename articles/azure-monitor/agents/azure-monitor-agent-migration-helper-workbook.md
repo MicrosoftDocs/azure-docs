@@ -5,7 +5,7 @@ author: EdB-MSFT
 ms.author: edbaynash
 ms.reviewer: guywild
 ms.topic: conceptual 
-ms.date: 06/16/2024
+ms.date: 09/03/2024
 
 # Customer intent: As an azure administrator, I want to understand how the Azure Monitor Agent Migration Helper workbook can help me in migrating from the MMA agent to the AMA agent.
 
@@ -18,7 +18,7 @@ Azure Monitor Agent Migration Helper workbook is a workbook-based Azure Monitor 
 ## Using the AMA workbook
 
 To open the workbook:
-1. Navigate to the **Azure Monitor** page in the Azure portal, and select **Workbooks**. 
+1. Navigate to the **Monitor** page in the Azure portal, and select **Workbooks**. 
 1. In the **Workbooks** pane, scroll down to the **AMA Migration Helper** workbook, and select it.
 
 :::image type="content" source="./media/azure-monitor-agent-migration-helper-workbook/select-monitor-workbook.png" lightbox="./media/azure-monitor-agent-migration-helper-workbook/select-monitor-workbook.png" alt-text="A screenshot showing the AMA Migration helper tine in the list of workbooks.":::

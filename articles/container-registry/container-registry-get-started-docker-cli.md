@@ -161,8 +161,8 @@ Here you can find more information on the [authentication options](../container-
 Now that you know the basics, you're ready to start using your registry! For example, deploy container images from your registry to:
 
 * [Azure Kubernetes Service (AKS)](/azure/aks/tutorial-kubernetes-prepare-app)
-* [Azure Container Instances](../container-instances/container-instances-tutorial-prepare-app.md)
-* [Service Fabric](../service-fabric/service-fabric-tutorial-create-container-images.md)
+* [Azure Container Instances](/azure/container-instances/container-instances-tutorial-prepare-app)
+* [Service Fabric](/azure/service-fabric/service-fabric-tutorial-create-container-images)
 
 Optionally install the [Docker Extension for Visual Studio Code](https://code.visualstudio.com/docs/azure/docker) and the [Azure Account](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account) extension to work with your Azure container registries. Pull and push images to an Azure container registry, or run ACR Tasks, all within Visual Studio Code.
 

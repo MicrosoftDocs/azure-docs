@@ -32,7 +32,7 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 * An Azure Automation account with at least one user-assigned managed identity. For more information, see [Enable managed identity](../quickstarts/enable-managed-identity.md).
 * Az modules: `Az.Accounts` and `Az.Compute` imported into the Automation account. For more information, see [Import Az modules](../shared-resources/modules.md#import-az-modules).
-* Two or more [Azure virtual machines](../../virtual-machines/windows/quick-create-powershell.md). Since you stop and start these machines, they shouldn't be production VMs.
+* Two or more [Azure virtual machines](/azure/virtual-machines/windows/quick-create-powershell). Since you stop and start these machines, they shouldn't be production VMs.
 * The [Azure Az PowerShell module](/powershell/azure/new-azureps-module-az) installed on your machine. To install or upgrade, see [How to install the Azure Az PowerShell module](/powershell/azure/install-azure-powershell).
 
 ## Assign permissions to managed identities

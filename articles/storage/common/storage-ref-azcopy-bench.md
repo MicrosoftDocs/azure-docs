@@ -16,7 +16,7 @@ Runs a performance benchmark by uploading or downloading test data to or from a 
 
 The benchmark command runs the same process as 'copy', except that:
 
-- Instead of requiring both source and destination parameters, benchmark takes just one. This is the blob container, Azure Files Share, or Azure Data Lake Storage Gen2 file system that you want to upload to or download from.
+- Instead of requiring both source and destination parameters, benchmark takes just one. This is the blob container, Azure Files Share, or Azure Data Lake Storage file system that you want to upload to or download from.
 
 - The 'mode' parameter describes whether AzCopy should test uploads to or downloads from given target. Valid values ar`e 'Upload'
     and 'Download'. Default value is 'Upload'.

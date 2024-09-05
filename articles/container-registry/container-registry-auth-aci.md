@@ -19,7 +19,7 @@ In this article, you learn to create and configure a Microsoft Entra service pri
 
 You should use a service principal for authentication from ACI in **headless scenarios**, such as in applications or services that create container instances in an automated or otherwise unattended manner.
 
-For example, if you have an automated script that runs nightly and creates a [task-based container instance](../container-instances/container-instances-restart-policy.md) to process some data, it can use a service principal with pull-only permissions to authenticate to the registry. You can then rotate the service principal's credentials or revoke its access completely without affecting other services and applications.
+For example, if you have an automated script that runs nightly and creates a [task-based container instance](/azure/container-instances/container-instances-restart-policy) to process some data, it can use a service principal with pull-only permissions to authenticate to the registry. You can then rotate the service principal's credentials or revoke its access completely without affecting other services and applications.
 
 Service principals should also be used when the registry [admin user](container-registry-authentication.md#admin-account) is disabled.
 

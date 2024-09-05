@@ -54,7 +54,7 @@ Install the appropriate Microsoft Sentinel solution and make sure you have the p
 If you're collecting messages from a log forwarder, the following prerequisites apply:
 
 - You must have a designated Linux VM as a log forwarder to collect logs.
-    - [Create a Linux VM in the Azure portal](../virtual-machines/linux/quick-create-portal.md).
+    - [Create a Linux VM in the Azure portal](/azure/virtual-machines/linux/quick-create-portal).
     - [Supported Linux operating systems for Azure Monitor Agent](../azure-monitor/agents/agents-overview.md#linux).
 
 - If your log forwarder *isn't* an Azure virtual machine, it must have the Azure Arc [Connected Machine agent](../azure-arc/servers/overview.md) installed on it.
@@ -69,7 +69,7 @@ If you're collecting messages from a log forwarder, the following prerequisites 
 
 ### Machine security prerequisites
 
-Configure the machine's security according to your organization's security policy. For example, configure your network to align with your corporate network security policy and change the ports and protocols in the daemon to align with your requirements. To improve your machine security configuration, [secure your VM in Azure](../virtual-machines/security-policy.md), or review these [best practices for network security](../security/fundamentals/network-best-practices.md).
+Configure the machine's security according to your organization's security policy. For example, configure your network to align with your corporate network security policy and change the ports and protocols in the daemon to align with your requirements. To improve your machine security configuration, [secure your VM in Azure](/azure/virtual-machines/security-policy), or review these [best practices for network security](../security/fundamentals/network-best-practices.md).
 
 If your devices are sending syslog and CEF logs over TLS because, for example, your log forwarder is in the cloud, you need to configure the syslog daemon (`rsyslog` or `syslog-ng`) to communicate in TLS. For more information, see:
 

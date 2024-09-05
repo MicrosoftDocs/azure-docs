@@ -232,12 +232,18 @@ resource storageAccount 'Microsoft.Storage/storageAccounts@2023-04-01' = {
 
 Decorators are written in the format `@expression` and are placed above the declarations of the user-defined data type. The following table shows the available decorators for user-defined data types.
 
-| Decorator | Argument | Description |
+| Decorator | Apply to | Argument | Description |
 | --------- | ----------- | ------- |
-| [description](#description) | string | Provide descriptions for the user-defined data type. |
-| [discriminator](#discriminator) | string | Use this decorator to ensure the correct subclass is identified and managed. |
-| [export](#export) | none | Indicates that the user-defined data type is available for import by another Bicep file. |
-| [sealed](#sealed) | none | Elevate [BCP089](./diagnostics/bcp089.md) from a warning to an error when a property name of a use-define data type is likely a typo. For more information, see [Elevate error level](#elevate-error-level).|
+| [description](#description) | all |string | Provide descriptions for the user-defined data type. |
+| [discriminator](#discriminator) | object | string | Use this decorator to ensure the correct subclass is identified and managed. |
+| [export](#export) | all | none | Indicates that the user-defined data type is available for import by another Bicep file. |
+| [maxLength](#length-constraints) | array, string | int | The maximum length for string and array data types. The value is inclusive. |
+| [maxValue](#integer-constraints) | int | int | The maximum value for the integer data types. This value is inclusive. |
+| [metadata](#metadata) | all | object | Custom properties to apply to the data types. Can include a description property that is equivalent to the description decorator. |
+| [minLength](#length-constraints) | array, string | int | The minimum length for string and array data types. The value is inclusive. |
+| [minValue](#integer-constraints) | int | int | The minimum value for the integer data types. This value is inclusive. |
+| [sealed](#sealed) | object | none | Elevate [BCP089](./diagnostics/bcp089.md) from a warning to an error when a property name of a use-define data type is likely a typo. For more information, see [Elevate error level](#elevate-error-level).|
+| [secure](#secure-types) | string, object | none | Marks the types as secure. The value for a secure type isn't saved to the deployment history and isn't logged. For more information, see [Secure strings and objects](data-types.md#secure-strings-and-objects). |
 
 Decorators are in the [sys namespace](bicep-functions.md#namespaces-for-functions). If you need to differentiate a decorator from another item with the same name, preface the decorator with `sys`. For example, if your Bicep file includes a variable named `description`, you must add the sys namespace when using the **description** decorator.
 
@@ -267,9 +273,64 @@ Markdown-formatted text can be used for the description text.
 
 Use `@export()` to share the user-defined data type with other Bicep files. For more information, see [Export variables, types, and functions](./bicep-import.md#export-variables-types-and-functions).
 
+### Integer constraints
+
+You can set minimum and maximum values for integer type. You can set one or both constraints.
+
+```bicep
+@minValue(1)
+@maxValue(12)
+type month int
+```
+
+### Length constraints
+
+You can specify minimum and maximum lengths for string and array types. You can set one or both constraints. For strings, the length indicates the number of characters. For arrays, the length indicates the number of items in the array.
+
+The following example declares two type. One type is for a storage account name that must have 3-24 characters. The other type is an array that must have from 1-5 items.
+
+```bicep
+@minLength(3)
+@maxLength(24)
+type storageAccountName string
+
+@minLength(1)
+@maxLength(5)
+type appNames array
+```
+
+### Metadata
+
+If you have custom properties that you want to apply to a user-defined data type, add a metadata decorator. Within the metadata, define an object with the custom names and values. The object you define for the metadata can contain properties of any name and type.
+
+You might use this decorator to track information about the data type that doesn't make sense to add to the [description](#description).
+
+```bicep
+@description('Configuration values that are applied when the application starts.')
+@metadata({
+  source: 'database'
+  contact: 'Web team'
+})
+type settings object
+```
+
+When you provide a `@metadata()` decorator with a property that conflicts with another decorator, that decorator always takes precedence over anything in the `@metadata()` decorator. So, the conflicting property within the `@metadata()` value is redundant and will be replaced. For more information, see [No conflicting metadata](./linter-rule-no-conflicting-metadata.md).
+
 ### Sealed
 
 See [Elevate error level](#elevate-error-level).
+
+### Secure types
+
+You can mark string or object user-defined data type as secure. The value of a secure type isn't saved to the deployment history and isn't logged.
+
+```bicep
+@secure()
+type demoPassword string
+
+@secure()
+type demoSecretObject object
+```
 
 ## Elevate error level
 

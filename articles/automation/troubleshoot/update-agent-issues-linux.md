@@ -2,7 +2,7 @@
 title: Troubleshooting Linux update agent issues in Azure Automation
 description: This article tells how to troubleshoot and resolve issues with the Linux Windows update agent in Update Management.
 services: automation
-ms.date: 11/01/2021
+ms.date: 08/30/2024
 ms.topic: troubleshooting
 ms.subservice: update-management
 ms.custom: linux-related-content
@@ -10,6 +10,9 @@ ms.service: azure-automation
 ---
 
 # Troubleshoot Linux update agent issues
+
+[!INCLUDE [./log-analytics-retirement-announcement.md](../includes/log-analytics-retirement-announcement.md)]
+
 
 There can be many reasons why your machine isn't showing up as ready (healthy) in Update Management. You can check the health of a Linux Hybrid Runbook Worker agent to determine the underlying problem. The following are the three readiness states for a machine:
 
@@ -34,7 +37,7 @@ For Azure machines, select the **troubleshoot** link under the **Update Agent Re
 > [!NOTE]
 > The checks require the VM to be running. If the VM isn't running, **Start the VM** appears.
 
-On the Troubleshoot Update Agent page, select **Run Checks** to start the troubleshooter. The troubleshooter uses [Run command](../../virtual-machines/linux/run-command.md) to run a script on the machine to verify the dependencies. When the troubleshooter is finished, it returns the result of the checks.
+On the Troubleshoot Update Agent page, select **Run Checks** to start the troubleshooter. The troubleshooter uses [Run command](/azure/virtual-machines/linux/run-command) to run a script on the machine to verify the dependencies. When the troubleshooter is finished, it returns the result of the checks.
 
 :::image type="content" source="../media/update-agent-issues-linux/troubleshoot-page.png" alt-text="Screenshot of Troubleshoot page.":::
 
@@ -157,7 +160,7 @@ HTTP_PROXY
 
 ### IMDS connectivity check
 
-To fix this issue, allow access to IP **169.254.169.254**. For more information, see [Access Azure Instance Metadata Service](../../virtual-machines/windows/instance-metadata-service.md#azure-instance-metadata-service-windows)
+To fix this issue, allow access to IP **169.254.169.254**. For more information, see [Access Azure Instance Metadata Service](/azure/virtual-machines/windows/instance-metadata-service#azure-instance-metadata-service-windows)
 
 After the network changes, you can either rerun the Troubleshooter or run the below commands to validate:
 
@@ -208,7 +211,7 @@ Curl on provided OMS endpoint
 
 ### Software repositories
 
-Fix this issue by allowing the prerequisite Repo URL. For RHEL, see [here](../../virtual-machines/workloads/redhat/redhat-rhui.md#troubleshoot-connection-problems-to-azure-rhui).
+Fix this issue by allowing the prerequisite Repo URL. For RHEL, see [here](/azure/virtual-machines/workloads/redhat/redhat-rhui#troubleshoot-connection-problems-to-azure-rhui).
 
 Post making Network changes you can either rerun the Troubleshooter or
 

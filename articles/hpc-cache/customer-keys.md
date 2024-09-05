@@ -15,7 +15,7 @@ You can use Azure Key Vault to control ownership of the keys used to encrypt you
 > [!NOTE]
 > All data stored in Azure, including on the cache disks, is encrypted at rest using Microsoft-managed keys by default. You only need to follow the steps in this article if you want to manage the keys used to encrypt your data.
 
-Azure HPC Cache also is protected by [VM host encryption](../virtual-machines/disk-encryption.md#encryption-at-host---end-to-end-encryption-for-your-vm-data) on the managed disks that hold your cached data, even if you add a customer key for the cache disks. Adding a customer-managed key for double encryption gives an extra level of security for customers with high security needs. Read [Server-side encryption of Azure disk storage](../virtual-machines/disk-encryption.md) for details.
+Azure HPC Cache also is protected by [VM host encryption](/azure/virtual-machines/disk-encryption#encryption-at-host---end-to-end-encryption-for-your-vm-data) on the managed disks that hold your cached data, even if you add a customer key for the cache disks. Adding a customer-managed key for double encryption gives an extra level of security for customers with high security needs. Read [Server-side encryption of Azure disk storage](/azure/virtual-machines/disk-encryption) for details.
 
 There are three steps to enable customer-managed key encryption for Azure HPC Cache:
 
@@ -117,7 +117,7 @@ The user who creates the cache must have privileges equal to the [Key Vault cont
 
 These settings are optional:
 
-* Check the **Always use current key version** box if you want to use [automatic key rotation](../virtual-machines/disk-encryption.md#automatic-key-rotation-of-customer-managed-keys).
+* Check the **Always use current key version** box if you want to use [automatic key rotation](/azure/virtual-machines/disk-encryption#automatic-key-rotation-of-customer-managed-keys).
 
 * If you want to use a specific managed identity for this cache, select **User assigned** in the **Managed identities** section and select the identity to use. Read the [managed identities documentation](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) for help.
 
@@ -177,7 +177,7 @@ After you choose the new encryption key values, click **Select**. A confirmation
 These articles explain more about using Azure Key Vault and customer-managed keys to encrypt data in Azure:
 
 * [Azure storage encryption overview](../storage/common/storage-service-encryption.md)
-* [Disk encryption with customer-managed keys](../virtual-machines/disk-encryption.md#customer-managed-keys) - Documentation for using Azure Key Vault with managed disks, which is a similar scenario to Azure HPC Cache
+* [Disk encryption with customer-managed keys](/azure/virtual-machines/disk-encryption#customer-managed-keys) - Documentation for using Azure Key Vault with managed disks, which is a similar scenario to Azure HPC Cache
 
 ## Next steps
 

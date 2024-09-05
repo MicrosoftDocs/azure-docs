@@ -90,7 +90,7 @@ All systems eventually hit resource constraints, traditionally known as chokepoi
 
 ### Virtual machines 
 
-This section details the criteria to be considered in selecting [VMs](../virtual-machines/sizes.md) for best performance and the rationale behind selections made for testing. Azure NetApp Files is a Network Attached Storage (NAS) service, therefore appropriate network bandwidth sizing is critical for optimal performance. 
+This section details the criteria to be considered in selecting [VMs](/azure/virtual-machines/sizes) for best performance and the rationale behind selections made for testing. Azure NetApp Files is a Network Attached Storage (NAS) service, therefore appropriate network bandwidth sizing is critical for optimal performance. 
 
 #### Chipsets 
 
@@ -356,7 +356,7 @@ Microsoft Oracle subject matter experts have estimated that more than 80% of Ora
 
 * [Run Your Most Demanding Oracle Workloads in Azure without Sacrificing Performance or Scalability](https://techcommunity.microsoft.com/t5/azure-architecture-blog/run-your-most-demanding-oracle-workloads-in-azure-without/ba-p/3264545) 
 * [Solution architectures using Azure NetApp Files - Oracle](azure-netapp-files-solution-architectures.md#oracle)
-* [Design and implement an Oracle database in Azure](../virtual-machines/workloads/oracle/oracle-design.md)
+* [Design and implement an Oracle database in Azure](/azure/virtual-machines/workloads/oracle/oracle-design)
 * [Estimate Tool for Sizing Oracle Workloads to Azure IaaS VMs](https://techcommunity.microsoft.com/t5/data-architecture-blog/estimate-tool-for-sizing-oracle-workloads-to-azure-iaas-vms/ba-p/1427183) 
-* [Reference architectures for Oracle Database Enterprise Edition on Azure](../virtual-machines/workloads/oracle/oracle-reference-architecture.md) 
+* [Reference architectures for Oracle Database Enterprise Edition on Azure](/azure/virtual-machines/workloads/oracle/oracle-reference-architecture) 
 * [Understand Azure NetApp Files application volumes groups for SAP HANA](application-volume-group-introduction.md)

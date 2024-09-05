@@ -62,4 +62,4 @@ See [Set up direct connection between Azure and Oracle Cloud][ER-OCI] for connec
 
 <!--Link References-->
 [ER-FAQ]: ./expressroute-faqs.md
-[ER-OCI]: ../virtual-machines/workloads/oracle/configure-azure-oci-networking.md
+[ER-OCI]: /azure/virtual-machines/workloads/oracle/configure-azure-oci-networking

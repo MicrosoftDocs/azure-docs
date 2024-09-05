@@ -34,7 +34,7 @@ In this article, you learn how to:
 
 - This feature currently *doesn't support backup via the Microsoft Azure Recovery Services (MARS) agent*, and you might not be able to use a CMK-encrypted vault for backup via the MARS agent. The MARS agent uses passphrase-based encryption. This feature also doesn't support backup of virtual machines (VMs) that you created in the classic deployment model.
 
-- This feature isn't related to [Azure Disk Encryption](../virtual-machines/disk-encryption-overview.md), which uses guest-based encryption of a VM's disk by using BitLocker for Windows and DM-Crypt for Linux.
+- This feature isn't related to [Azure Disk Encryption](/azure/virtual-machines/disk-encryption-overview), which uses guest-based encryption of a VM's disk by using BitLocker for Windows and DM-Crypt for Linux.
 
 - You can encrypt the Recovery Services vault only by using keys that are stored in Azure Key Vault and located in the *same region*. Also, keys must be [supported](/azure/key-vault/keys/about-keys#key-types-and-protection-methods) RSA keys and must be in the enabled state.
 

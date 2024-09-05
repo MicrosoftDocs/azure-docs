@@ -465,6 +465,22 @@ The following example describes a sample Azure Arc-enabled Logic Apps resource d
 }
 ```
 
+> [!NOTE]
+> 
+> By default, **FUNCTIONS_WORKER_RUNTIME** app setting for your logic app is **`dotnet`**. 
+> Previously, **`node`** was the default value. However, **`dotnet`** is now the default 
+> value for all new and existing deployed Arc enabled logic apps, even for apps that had 
+> a different value. This change shouldn't affect your workflow's runtime, and everything 
+> should work the same way as before. For more information, see the 
+> [**FUNCTIONS_WORKER_RUNTIME** app setting](edit-app-settings-host-settings.md#reference-local-settings-json).
+>
+> The **APP_KIND** app setting for your logic app is set to **workflowapp**, but in some scenarios, 
+> this app setting is missing, for example, due to Azure Resource Manager templates or other scenarios 
+> where the setting might not be included. If certain actions don't work, such as the 
+> **Execute JavaScript Code** action or the workflow stops working, check that the 
+> **APP_KIND** app setting exists and is set to to **workflowapp**. For more information, see the 
+> [**APP_KIND** app setting](edit-app-settings-host-settings.md#reference-local-settings-json).
+
 ### Container deployment
 
 If you prefer to use container tools and deployment processes, you can containerize your logic apps and deploy them to Azure Arc-enabled Logic Apps. For this scenario, complete the following high-level tasks when you set up your infrastructure:
