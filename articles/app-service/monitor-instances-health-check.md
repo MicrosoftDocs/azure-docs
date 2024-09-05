@@ -65,7 +65,7 @@ In addition to configuring the Health check options, you can also configure the 
 
 Health check integrates with the App Service [authentication and authorization features](overview-authentication-authorization.md). No other settings are required if these security features are enabled.
 
-If you're using your own authentication system, the Health check path must allow anonymous access. To provide security for the Health check endpoint, you should first use features such as [IP restrictions](app-service-ip-restrictions.md#set-an-ip-address-based-rule), [client certificates](app-service-ip-restrictions.md#set-an-ip-address-based-rule), or a virtual network to restrict application access. Once you have those features in place, you can authenticate the Health check request by inspecting the header `x-ms-auth-internal-token` and validating that it matches the SHA256 hash of the environment variable `WEBSITE_AUTH_ENCRYPTION_KEY`. If they match, then the Health check request is valid and originating from App Service. 
+If you're using your own authentication system, the Health check path must allow anonymous access. To provide security for the Health check endpoint, you should first use features such as [IP restrictions](app-service-ip-restrictions.md#set-an-ip-address-based-rule), [client certificates](tutorial-secure-domain-certificate.md), or a virtual network to restrict application access. Once you have those features in place, you can authenticate the Health check request by inspecting the header `x-ms-auth-internal-token` and validating that it matches the SHA256 hash of the environment variable `WEBSITE_AUTH_ENCRYPTION_KEY`. If they match, then the Health check request is valid and originating from App Service. 
 
 > [!NOTE]
 > For [Azure Functions authentication](/azure/azure-functions/security-concepts?tabs=v4#function-access-keys), the function that serves as the Health check endpoint needs to allow anonymous access. 
@@ -137,7 +137,7 @@ function envVarMatchesHeader(headerValue) {
 ---
 
 > [!NOTE]
-> The `x-ms-auth-internal-token` header is only available on Windows App Service.
+> The `x-ms-auth-internal-token` header is only available on App Service for Windows.
 
 ## Instances
 
@@ -157,7 +157,7 @@ Once diagnostic collection is enabled, you can create a storage account or choos
 
 ## Monitoring
 
-After providing your application's Health check path, you can monitor the health of your site using Azure Monitor. From the **Health check** blade in the portal, select **Metrics** in the top toolbar. This opens a new blade where you can see the site's health status history and create a new alert rule. Health check metrics aggregate the successful pings and display failures only when the instance was deemed unhealthy based on the Health check configuration. For more information on monitoring your sites, [see the guide on Azure Monitor](web-sites-monitor.md).
+After providing your application's Health check path, you can monitor the health of your site using Azure Monitor. From the **Health check** blade in the portal, select **Metrics** in the top toolbar. This opens a new blade where you can see the site's health status history and create a new alert rule. Health check metrics aggregate the successful pings and display failures only when the instance was deemed unhealthy based on the Health check configuration. For more information on monitoring your sites, see [Azure App Service quotas and alerts](web-sites-monitor.md).
 
 ## Limitations
 
@@ -177,7 +177,7 @@ The Health check requests are sent to your site internally, so the request won't
 
 ### Are Health check requests sent over HTTP or HTTPS?
 
-On Windows and Linux App Service, the Health check requests are sent via HTTPS when [HTTPS Only](configure-ssl-bindings.md#enforce-https) is enabled on the site. Otherwise, they're sent over HTTP.
+On App Service for Windows and Linux, the Health check requests are sent via HTTPS when [HTTPS Only](configure-ssl-bindings.md#enforce-https) is enabled on the site. Otherwise, they're sent over HTTP.
 
 ### Does Health check follow the application-code configured redirects between the default domain and the custom domain?
 
