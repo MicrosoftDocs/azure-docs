@@ -191,5 +191,6 @@ Optional: You have two options for manually curated links in this pattern: Next 
 ## Related content
 
 - [What is Azure Policy?](../governance/policy/overview.md)
+- [Govern your Azure Firewall configuration with Azure Policies](https://techcommunity.microsoft.com/t5/azure-network-security-blog/govern-your-azure-firewall-configuration-with-azure-policies/ba-p/4189902)
 
 
