@@ -11,7 +11,7 @@ ms.custom:
   - subject-relocation
 ---
 
-# Relocate  anAzure NetApp Files volume to another region
+# Relocate an Azure NetApp Files volume to another region
 
 This article covers guidance for relocating [Azure NetApp Files](../azure-netapp-files/azure-netapp-files-introduction.md) volumes to another region.
 
