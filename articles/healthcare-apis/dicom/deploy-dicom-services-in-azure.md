@@ -40,10 +40,10 @@ To deploy the DICOM service, you need a workspace created in the Azure portal. F
 
 
 4. Enter a name for the DICOM service.  
-- Select Blob Storage (legacy) for the storage location.  
-- (Optional) Select **Enable data partitions** when you deploy a new DICOM service. After data partitioning is turned on, it can't be turned off. In addition, data partitions can't be turned on for any DICOM service that is already deployed.For more information, see : [Enable data partitioning](data-partitions.md)
+    - Select Blob Storage (legacy) for the storage location.  
+    - (Optional) Select **Enable data partitions** when you deploy a new DICOM service. After data partitioning is turned on, it can't be turned off. In addition, data partitions can't be turned on for any DICOM service that is already deployed. For more information, see [Enable data partitioning](data-partitions.md).
 
-- After the data partitions setting is turned on, the capability modifies the API surface of the DICOM server and makes any previous data accessible under the `Microsoft.Default` partition and then select **Review + create**
+    - After the data partitions setting is turned on, the capability modifies the API surface of the DICOM server and makes any previous data accessible under the `Microsoft.Default` partition. Select **Review + create**.
 
 ![Screenshot showing the DICOM service name and storage location option.](media/deploy-dicom-services-in-azure/enter-dicom-service-name.png)
 
