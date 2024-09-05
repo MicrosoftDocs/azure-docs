@@ -145,6 +145,28 @@ $vnet = New-AzVirtualNetwork @VnetArgs
 
 ---
 
+When using the Workload profiles environment, you need to do one more step to delegate the subnet to `Microsoft.App/environments`. This delegation is not applicable to the Consumption only environment.
+
+# [Bash](#tab/bash)
+
+```azurecli-interactive
+az network vnet subnet update \
+  --resource-group $RESOURCE_GROUP \
+  --vnet-name $VNET_NAME \
+  --name infrastructure-subnet \
+  --delegations Microsoft.App/environments
+```
+
+# [Azure PowerShell](#tab/azure-powershell)
+
+```azurepowershell-interactive
+$delegation = New-AzDelegation -Name 'containerApp' -ServiceName 'Microsoft.App/environments'
+$vnet = Set-AzVirtualNetworkSubnetConfig -Name $SubnetArgs.Name -VirtualNetwork $vnet -AddressPrefix $SubnetArgs.AddressPrefix -Delegation $delegation
+$vnet | Set-AzVirtualNetwork
+```
+
+---
+
 With the VNET established, you can now query for the infrastructure subnet ID.
 
 # [Bash](#tab/bash)
