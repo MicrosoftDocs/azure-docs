@@ -6,7 +6,7 @@ manager: amycolannino
 ms.service: role-based-access-control
 ms.subservice: conditions
 ms.topic: conceptual
-ms.date: 01/30/2024
+ms.date: 08/29/2024
 ms.author: rolyon
 #Customer intent: As a dev, devops, or it admin, I want to delegate Azure role assignment management to other users who are closer to the decision, but want to limit the scope of the role assignments.
 ---
@@ -264,7 +264,7 @@ If you want to further constrain the Key Vault Data Access Administrator role as
 
 Here are the known issues related to delegating role assignment management with conditions:
 
-- You can't delegate role assignment management with conditions using [Privileged Identity Management](../active-directory/privileged-identity-management/pim-resource-roles-assign-roles.md).
+- You can't delegate role assignment management for custom roles with conditions using [Privileged Identity Management](../active-directory/privileged-identity-management/pim-resource-roles-assign-roles.md).
 - You can't have a role assignment with a Microsoft.Storage data action and an ABAC condition that uses a GUID comparison operator. For more information, see [Troubleshoot Azure RBAC](troubleshooting.md#symptom---authorization-failed).
 
 ## License requirements

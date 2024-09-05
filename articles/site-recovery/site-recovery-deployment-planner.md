@@ -6,7 +6,7 @@ manager: gaggupta
 ms.service: azure-site-recovery
 ms.topic: conceptual
 ms.author: ankitadutta
-ms.date: 08/21/2024
+ms.date: 08/30/2024
 ---
 
 
@@ -117,7 +117,7 @@ If you have a previous version of Deployment Planner, do either of the following
 
 ## Version history
 
-The latest Site Recovery Deployment Planner tool version is 2.5.
+The latest Site Recovery Deployment Planner tool version is 3.0.
 See the [Site Recovery Deployment Planner version history](./site-recovery-deployment-planner-history.md) page for the fixes that are added in each update.
 
 ## Next steps

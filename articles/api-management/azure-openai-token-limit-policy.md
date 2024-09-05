@@ -63,7 +63,7 @@ By relying on token usage metrics returned from the OpenAI endpoint, the policy 
 * This policy can be used multiple times per policy definition.
 * This policy can optionally be configured when adding an API from the Azure OpenAI Service using the portal.
 * Where available when `estimate-prompt-tokens` is set to `false`, values in the usage section of the response from the Azure OpenAI Service API are used to determine token usage.
-* Certain Azure OpenAI endpoints support streaming of responses. When `stream` is set to `true` in the API request to enable streaming, prompt tokens are always estimated, regardless of the value of the `estimate-prompt-tokens` attribute.
+* Certain Azure OpenAI endpoints support streaming of responses. When `stream` is set to `true` in the API request to enable streaming, prompt tokens are always estimated, regardless of the value of the `estimate-prompt-tokens` attribute. Completion tokens are also estimated when responses are streamed.
 * [!INCLUDE [api-management-rate-limit-key-scope](../../includes/api-management-rate-limit-key-scope.md)]
 
 ## Example

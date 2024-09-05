@@ -172,9 +172,9 @@ View the JSON for inventory rules by selecting the **Code view** tab in the **Bl
 ### Custom schema fields supported for blob inventory
 
 > [!NOTE]
-> The **Data Lake Storage Gen2** column shows support in accounts that have the hierarchical namespace feature enabled.
+> The **Data Lake Storage** column shows support in accounts that have the hierarchical namespace feature enabled.
 
-| Field | Blob Storage (default support) | Data Lake Storage Gen2 |
+| Field | Blob Storage (default support) | Data Lake Storage |
 |---------------|-------------------|---|
 | Name (Required)  | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
 | Creation-Time  | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
@@ -232,9 +232,9 @@ View the JSON for inventory rules by selecting the **Code view** tab in the **Bl
 ### Custom schema fields supported for container inventory
 
 > [!NOTE]
-> The **Data Lake Storage Gen2** column shows support in accounts that have the hierarchical namespace feature enabled.
+> The **Data Lake Storage** column shows support in accounts that have the hierarchical namespace feature enabled.
 
-| Field | Blob Storage (default support) | Data Lake Storage Gen2 |
+| Field | Blob Storage (default support) | Data Lake Storage |
 |---------------|-------------------|---|
 | Name (Required)  | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
 | Last-Modified  | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |

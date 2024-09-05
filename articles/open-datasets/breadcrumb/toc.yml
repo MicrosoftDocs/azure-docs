@@ -1,7 +1,0 @@
-- name: Azure
-  tocHref: /azure/
-  topicHref: /azure/index
-  items:
-  - name: Open Datasets
-    tocHref: /azure/machine-learning
-    topicHref: /azure/open-datasets/index

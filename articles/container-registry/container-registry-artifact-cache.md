@@ -170,7 +170,7 @@ Before configuring the Credentials, you have to create and store secrets in the 
     ```azurecli-interactive
     az acr credential-set create 
     -r MyRegistry \
-    -n MyRule \
+    -n MyDockerHubCredSet \
     -l docker.io \ 
     -u https://MyKeyvault.vault.azure.net/secrets/usernamesecret \
     -p https://MyKeyvault.vault.azure.net/secrets/passwordsecret
@@ -181,15 +181,15 @@ Before configuring the Credentials, you have to create and store secrets in the 
     - For example, to update the username or password KV secret ID on the credentials for a given `MyRegistry` Azure Container Registry.
 
     ```azurecli-interactive
-    az acr credential-set update -r MyRegistry -n MyRule -p https://MyKeyvault.vault.azure.net/secrets/newsecretname
+    az acr credential-set update -r MyRegistry -n MyDockerHubCredSet -p https://MyKeyvault.vault.azure.net/secrets/newsecretname
     ```
 
-3. Run [az-acr-credential-set-show][az-acr-credential-set-show] to show the credentials. 
+3. Run [az acr credential-set show][az-acr-credential-set-show] to show the credentials. 
 
-    - For example, to show the credentials for a given `MyRegistry` Azure Container Registry.
+    - For example, to show a credential set in a given `MyRegistry` Azure Container Registry.
 
     ```azurecli-interactive
-    az acr credential-set show -r MyRegistry -n MyCredSet
+    az acr credential-set show -r MyRegistry -n MyDockerHubCredSet
     ```
 
 ### Configure and create a cache rule with the credentials 
@@ -199,7 +199,7 @@ Before configuring the Credentials, you have to create and store secrets in the 
     - For example, to create a cache rule with the credentials for a given `MyRegistry` Azure Container Registry.
 
     ```azurecli-interactive
-    az acr cache create -r MyRegistry -n MyRule -s docker.io/library/ubuntu -t ubuntu -c MyCredSet
+    az acr cache create -r MyRegistry -n MyRule -s docker.io/library/ubuntu -t ubuntu -c MyDockerHubCredSet
     ```
 
 2. Run [az acr cache update][az-acr-cache-update] command to update the credentials on a cache rule.
@@ -230,7 +230,7 @@ Before configuring the Credentials, you have to create and store secrets in the 
 
     ```azurecli-interactive
     PRINCIPAL_ID=$(az acr credential-set show 
-                    -n MyCredSet \ 
+                    -n MyDockerHubCredSet \ 
                     -r MyRegistry  \
                     --query 'identity.principalId' \ 
                     -o tsv) 
@@ -282,12 +282,12 @@ Before configuring the Credentials, you have to create and store secrets in the 
     az acr credential-set list -r MyRegistry
     ```
 
-4. Run [az-acr-credential-set-delete][az-acr-credential-set-delete] to delete the credentials. 
+4. Run [az acr credential-set delete][az-acr-credential-set-delete] to delete the credentials. 
 
     - For example, to delete the credentials for a given `MyRegistry` Azure Container Registry.
 
     ```azurecli-interactive
-    az acr credential-set delete -r MyRegistry -n MyCredSet
+    az acr credential-set delete -r MyRegistry -n MyDockerHubCredSet
     ```
 
 :::zone-end

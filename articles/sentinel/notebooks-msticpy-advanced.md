@@ -172,7 +172,7 @@ Use multiple configuration files, with multiple environment variables, if you wa
 
     However, if you also have secrets stored in the file, we recommend storing the configuration file on the compute local drive. The compute internal storage is accessible only to the person who created the compute, whereas the shared storage is accessible to anyone with access to your Azure ML workspace.
 
-    For more information, see [What is an Azure Machine Learning compute instance?](../machine-learning/concept-compute-instance.md).
+    For more information, see [What is an Azure Machine Learning compute instance?](/azure/machine-learning/concept-compute-instance).
 
 1. If needed, copy your **msticpyconfig.yaml** file to your selected location.
 

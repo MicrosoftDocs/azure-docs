@@ -2,7 +2,7 @@
 title: Collect logs from a text file with Azure Monitor Agent 
 description: Configure a data collection rule to collect log data from a text file on a virtual machine using Azure Monitor Agent.
 ms.topic: conceptual
-ms.date: 08/23/2024
+ms.date: 08/28/2024
 author: guywi-ms
 ms.author: guywild
 ms.reviewer: jeffwo
@@ -16,7 +16,7 @@ Many applications and services will log information to text files instead of sta
 ## Prerequisites
 
 - Log Analytics workspace where you have at least [contributor rights](../logs/manage-access.md#azure-rbac).
-- A data collection endpoint (DCE) if you plan to use Azure Monitor Private Links. The data collection endpoint must be in the same region as the Log Analytics workspace. See [How to set up data collection endpoints based on your deployment](../essentials/data-collection-endpoint-overview.md#how-to-set-up-data-collection-endpoints-based-on-your-deployment) for details.
+- A data collection endpoint (DCE) in the same region as the Log Analytics workspace. See [How to set up data collection endpoints based on your deployment](../essentials/data-collection-endpoint-overview.md#how-to-set-up-data-collection-endpoints-based-on-your-deployment) for details.
 - Either a new or existing DCR described in [Collect data with Azure Monitor Agent](./azure-monitor-agent-data-collection.md).
 
 ## Basic operation
@@ -143,6 +143,12 @@ Use the following ARM template to create or modify a DCR for collecting text log
               "description": "Unique name for the DCR. "
             }
         },
+        "dataCollectionEndpointResourceId": {
+            "type": "string",
+            "metadata": {
+              "description": "Resource ID of the data collection endpoint (DCE)."
+            }
+        },
         "location": {
             "type": "string",
             "metadata": {
@@ -178,6 +184,7 @@ Use the following ARM template to create or modify a DCR for collecting text log
             "location": "[parameters('location')]",
             "apiVersion": "2022-06-01",
             "properties": {
+                "dataCollectionEndpointId": "[parameters('dataCollectionEndpointResourceId')]",
                 "streamDeclarations": {
                     "Custom-Text-stream": {
                         "columns": [

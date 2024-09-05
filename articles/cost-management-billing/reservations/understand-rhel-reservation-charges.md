@@ -7,10 +7,15 @@ ms.service: cost-management-billing
 ms.subservice: reservations
 ms.custom: linux-related-content
 ms.topic: conceptual
-ms.date: 03/21/2024
+ms.date: 08/28/2024
 ms.author: banders
 ---
 # Understand how the Red Hat Linux Enterprise software reservation plan discount is applied for Azure
+
+> [!NOTE]
+> The Red Hat Linux Enterprise software reservation plan is temporarily unavailable.
+
+When you buy a Red Hat Linux Enterprise software plan, you get a discount on the cost of running Red Hat software on Azure virtual machines. This article explains how the discount is applied to your Red Hat software costs.
 
 After you buy a Red Hat Linux plan, the discount is automatically applied to deployed Red Hat virtual machines (VMs) that match the reservation. A Red Hat Linux plan covers the cost of running the Red Hat software on an Azure VM.
 

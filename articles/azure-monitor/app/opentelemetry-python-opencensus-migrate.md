@@ -7,6 +7,7 @@ ms.devlang: python
 ms.custom: devx-track-python
 ms.reviewer: mmcc
 ---
+
 # Migrating from OpenCensus Python SDK and Azure Monitor OpenCensus exporter for Python to Azure Monitor OpenTelemetry Python Distro
 
 > [!NOTE]
@@ -15,9 +16,9 @@ ms.reviewer: mmcc
 Follow these steps to migrate Python applications to the [Azure Monitor](../overview.md) [Application Insights](./app-insights-overview.md) [OpenTelemetry Distro](./opentelemetry-enable.md?tabs=python).
 
 > [!WARNING]
-> - The [OpenCensus "How to Migrate to OpenTelemetry" blog](https://opentelemetry.io/blog/2023/sunsetting-opencensus/#how-to-migrate-to-opentelemetry) is not applicable to Azure Monitor users.
-> - The [OpenTelemetry OpenCensus shim](https://pypi.org/project/opentelemetry-opencensus-shim/) is not recommended or supported by Microsoft.
-> - The following outlines the only migration plan for Azure Monitor customers.
+> * The [OpenCensus "How to Migrate to OpenTelemetry" blog](https://opentelemetry.io/blog/2023/sunsetting-opencensus/#how-to-migrate-to-opentelemetry) is not applicable to Azure Monitor users.
+> * The [OpenTelemetry OpenCensus shim](https://pypi.org/project/opentelemetry-opencensus-shim/) is not recommended or supported by Microsoft.
+> * The following outlines the only migration plan for Azure Monitor customers.
 
 ## Step 1: Uninstall OpenCensus libraries
 
@@ -51,15 +52,15 @@ from opencensus.ext.azure.log_exporter import AzureLogHandler
 
 The following documentation provides prerequisite knowledge of the OpenTelemetry Python APIs/SDKs.
 
- - OpenTelemetry Python [documentation](https://opentelemetry-python.readthedocs.io/en/stable/)
- - Azure Monitor Distro documentation on [configuration](./opentelemetry-configuration.md?tabs=python) and [telemetry](./opentelemetry-add-modify.md?tabs=python)
+* OpenTelemetry Python [documentation](https://opentelemetry-python.readthedocs.io/en/stable/)
+* Azure Monitor Distro documentation on [configuration](./opentelemetry-configuration.md?tabs=python) and [telemetry](./opentelemetry-add-modify.md?tabs=python)
 
 > [!NOTE]
 > OpenTelemetry Python and OpenCensus Python have different API surfaces, autocollection capabilities, and onboarding instructions.
 
 ## Step 4: Set up the Azure Monitor OpenTelemetry Distro
 
-Follow the [getting started](./opentelemetry-enable.md?tabs=python#get-started)
+Follow the [getting started](./opentelemetry-enable.md?tabs=python#enable-opentelemetry-with-application-insights)
 page to onboard onto the Azure Monitor OpenTelemetry Distro.
 
 ## Changes and limitations
@@ -74,11 +75,11 @@ OpenTelemetry's Python-based monitoring solutions only support Python 3.7 and gr
 
 OpenCensus Python provided some [configuration](https://github.com/census-instrumentation/opencensus-python#customization) options related to the collection and exporting of telemetry. You achieve the same configurations, and more, by using the [OpenTelemetry Python](https://opentelemetry-python.readthedocs.io/en/stable/) APIs and SDK. The OpenTelemetry Azure monitor Python Distro is more of a one-stop-shop for the most common monitoring needs for your Python applications. Since the Distro encapsulates the OpenTelemetry APIs/SDk, some configuration for more uncommon use cases may not currently be supported for the Distro. Instead, you can opt to onboard onto the [Azure monitor OpenTelemetry exporter](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/monitor/azure-monitor-opentelemetry-exporter), which, with the OpenTelemetry APIs/SDKs, should be able to fit your monitoring needs. Some of these configurations include:
 
-- Custom propagators
-- Custom samplers
-- Adding extra span/log processors/metrics readers
+* Custom propagators
+* Custom samplers
+* Adding extra span/log processors/metrics readers
 
-### Cohesion with Azure functions
+### Cohesion with Azure Functions
 
 In order to provide distributed tracing capabilities for Python applications that call other Python applications within an Azure function, the package [opencensus-extension-azure-functions](https://pypi.org/project/opencensus-extension-azure-functions/) was provided to allow for a connected distributed graph.
 
@@ -112,7 +113,7 @@ The OpenCensus SDK offered ways to collect and export telemetry through OpenCens
 
 As for the other OpenTelemetry Python [instrumentations](https://github.com/open-telemetry/opentelemetry-python-contrib/tree/main/instrumentation) that aren't included in this list, users may still manually instrument with them. However, it's important to note that stability and behavior aren't guaranteed or supported in those cases. Therefore, use them at your own discretion.
 
- If you would like to suggest a community instrumentation library us to include in our distro, post or up-vote an idea in our [feedback community](https://feedback.azure.com/d365community/forum/3887dc70-2025-ec11-b6e6-000d3a4f09d0). For exporters, the Azure Monitor OpenTelemetry distro comes bundled with the [Azure Monitor OpenTelemetry exporter](https://pypi.org/project/azure-monitor-opentelemetry-exporter/). If you would like to use other exporters as well, you can use them with the distro, like in this [example](./opentelemetry-configuration.md?tabs=python#enable-the-otlp-exporter).
+If you would like to suggest a community instrumentation library us to include in our distro, post or up-vote an idea in our [feedback community](https://feedback.azure.com/d365community/forum/3887dc70-2025-ec11-b6e6-000d3a4f09d0). For exporters, the Azure Monitor OpenTelemetry distro comes bundled with the [Azure Monitor OpenTelemetry exporter](https://pypi.org/project/azure-monitor-opentelemetry-exporter/). If you would like to use other exporters as well, you can use them with the distro, like in this [example](./opentelemetry-configuration.md?tabs=python#enable-the-otlp-exporter).
 
 ### TelemetryProcessors
 
