@@ -341,6 +341,9 @@
         - name: Configure single sign-on using AD FS
           displayName: identity, sso
           href: configure-adfs-sso.md
+        - name: Configure the session lock behavior
+          displayName: identity, sso, disconnect, lock screen
+          href: configure-session-lock-behavior.md
         - name: Assign RBAC roles to the service principals
           displayName: identity, role-based access control, role based access control
           href: service-principal-assign-roles.md

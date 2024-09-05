@@ -206,7 +206,7 @@ To have your schedule trigger kick off a pipeline run, include a pipeline refere
     "type": "ScheduleTrigger",
     "typeProperties": {
       "recurrence": {
-        "frequency": <<Minute, Hour, Day, Week, Year>>,
+        "frequency": <<Minute, Hour, Day, Week>>,
         "interval": <<int>>, // How often to fire
         "startTime": <<datetime>>,
         "endTime": <<datetime>>,

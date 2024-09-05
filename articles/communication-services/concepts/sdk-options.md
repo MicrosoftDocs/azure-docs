@@ -71,16 +71,11 @@ Publishing locations for individual SDK packages:
 
 ##### Android platform support
 
-The Android ecosystem is extensive, encompassing various versions and specialized platforms designed for diverse types of devices. The next table lists the Android platforms currently available:
+The Android ecosystem is extensive, encompassing various versions and specialized platforms designed for diverse types of devices. The next table lists the Android platforms currently supported:
 
 | Devices                | Description                                                                              | Support          |
 | -----------------------            | -----------------------------------------------------------------------------------------| ----------------- |
 | Phones and tablets                 | Standard devices running [Android Commercial](https://developer.android.com/get-started).          | Fully support with [the video resolution](./voice-video-calling/calling-sdk-features.md?#supported-video-resolutions).       |
-| TV apps or gaming    |  Apps running running [Android TV](https://developer.android.com/tv), optimized for the TV experience, focused on streaming services and gaming.               |Audio-only support        |
-| Smartwatches or wearables devices | Simple user interface and lower power consumption, designed to operate on small screens with limited hardware, using [Wear OS](https://wearos.google.com/). |Audio-only support        |
-| Automobile              | Car head units running [Android Automotive OS (AAOS)](https://source.android.com/docs/automotive/start/what_automotive).                     |Audio-only support        |
-| Mirror auto applications          | Apps that allow driver to mirror their phone to a car’s built-in screens, running [Android Auto](https://www.android.com/auto/).          | Audio-only support        |
-| Custom devices                     | Custom devices or applications using [Android Open Source Project (AOSP)](https://source.android.com/), running custom operating systems for specialized hardware, like ruggedized devices, kiosks, or smart glasses; devices where performance, security, or customization is critical.                     |Audio-only support        |
 
 > [!NOTE]
 > We **only support video calls on phones and tablets**. For use cases involving video on non-standard devices or platforms (such as smart glasses or custom devices), we suggest [contacting us](https://github.com/Azure/communication) early in your development process to help determine the most suitable integration approach.

@@ -53,8 +53,6 @@
     href: /events/learntv/learnlive-iac-and-bicep/
   - name: Learn Live - Bicep and GitHub Actions
     href: /events/learn-events/learnlive-automate-azure-deployments-bicep-github-actions/
-  - name: Use deployment stacks
-    href: ./tutorial-use-deployment-stacks.md
 - name: Samples - Azure Services
   items:
   - name: AI + Machine Learning
