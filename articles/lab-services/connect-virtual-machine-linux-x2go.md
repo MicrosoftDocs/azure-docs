@@ -5,8 +5,8 @@ description: Learn how to use X2Go for Linux virtual machines in a lab in Azure 
 services: lab-services
 ms.service: azure-lab-services
 ms.custom: linux-related-content
-author: ntrogh
-ms.author: nicktrog
+author: RoseHJM
+ms.author: rosemalcolm
 ms.topic: how-to
 ms.date: 04/24/2023
 ---

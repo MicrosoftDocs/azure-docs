@@ -136,7 +136,7 @@ For Azure services, use the recommended zone names as described in the following
 >| Azure Event Grid (Microsoft.EventGrid/namespaces) | topic | privatelink.eventgrid.azure.net | eventgrid.azure.net |
 >| Azure Event Grid (Microsoft.EventGrid/namespaces/topicSpace) | topicSpace | privatelink.ts.eventgrid.azure.net | eventgrid.azure.net |
 >| Azure Event Grid (Microsoft.EventGrid/partnerNamespaces) | partnernamespace | privatelink.eventgrid.azure.net | eventgrid.azure.net |
->| Azure API Management (Microsoft.ApiManagement/service) | gateway | privatelink.azure-api.net | azure-api.net |
+>| Azure API Management (Microsoft.ApiManagement/service) | Gateway | privatelink.azure-api.net | azure-api.net |
 >| Azure Health Data Services (Microsoft.HealthcareApis/workspaces) | healthcareworkspace | privatelink.workspace.azurehealthcareapis.com </br> privatelink.fhir.azurehealthcareapis.com </br> privatelink.dicom.azurehealthcareapis.com | workspace.azurehealthcareapis.com </br> fhir.azurehealthcareapis.com </br> dicom.azurehealthcareapis.com |
 
 ### Internet of Things (IoT)

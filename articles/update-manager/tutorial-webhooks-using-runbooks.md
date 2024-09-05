@@ -2,7 +2,7 @@
 title: Create pre and post events using a webhook with Automation runbooks.
 description: In this tutorial, you learn how to create the pre and post events using webhook with Automation runbooks.
 ms.service: azure-update-manager
-ms.date: 07/24/2024
+ms.date: 09/04/2024
 ms.topic: tutorial 
 author: SnehaSudhirG
 ms.author: sudhirsneha
@@ -53,7 +53,7 @@ In this tutorial, you learn how to:
         $notificationPayload = ConvertFrom-Json -InputObject $WebhookData.RequestBody  
         $eventType = $notificationPayload[0].eventType  
       
-        if ($eventType -ne “Microsoft.Maintenance.PreMaintenanceEvent” -or $eventType –ne “Microsoft.Maintenance.PostMaintenanceEvent” ) {  
+        if ($eventType -ne “Microsoft.Maintenance.PreMaintenanceEvent” -and $eventType –ne “Microsoft.Maintenance.PostMaintenanceEvent” ) {  
           Write-Output "Webhook not triggered as part of pre or post patching for maintenance run"  
         return  
         } 

@@ -36,7 +36,7 @@ The following regions currently support availability zones:
 | South Central US | UK South | | | East Asia |
 | US Gov Virginia | West Europe  | | | China North 3 |
 | West US 2 | Sweden Central | | |Korea Central  | 
-| West US 3 | Switzerland North | | | |
+| West US 3 | Switzerland North | | | New Zealand North |
 | Mexico Central | Poland Central ||||
 ||Spain Central ||||
 

@@ -2,12 +2,12 @@
 title: DICOM Service API v2 Changes - Azure Health Data Services
 description: This guide gives an overview of the changes in the v2 API for the DICOM service. 
 services: healthcare-apis
-author: mmitrik
+author: varunbms
 ms.service: azure-health-data-services
 ms.subservice: dicom-service
 ms.topic: reference
 ms.date: 10/13/2023
-ms.author: mmitrik
+ms.author: buchvarun
 ---
 
 # DICOM Service API v2 Changes
