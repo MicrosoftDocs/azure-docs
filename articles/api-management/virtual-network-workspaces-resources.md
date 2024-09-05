@@ -29,7 +29,6 @@ For information about networking options in API Management, see [Use a virtual n
 
 ## Subnet size
 
-* The subnet size must be `/24` (256 IP addresses).
 * The subnet can't be shared with another Azure resource, including another workspace gateway.
 
 ## Subnet delegation
