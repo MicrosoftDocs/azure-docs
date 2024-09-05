@@ -8,7 +8,10 @@ ms.date: 05/06/2024
 
 # Subscription prerequisites
 
+[!INCLUDE [retirement-notice](includes/retirement-notice.md)]
 [!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
+
+
 
 
 If you're using Azure subscription first time for HDInsight on AKS, the following features might need to be enabled.
