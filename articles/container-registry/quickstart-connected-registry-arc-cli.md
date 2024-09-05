@@ -89,7 +89,7 @@ By deploying the connected Registry Arc extension, you can synchronize container
 
    For secure deployment of the connected registry extension, generate the connection string, including a new password, transport protocol, and create the `protected-settings-extension.json` file required for the extension deployment with [az acr connected-registry get-settings][az-acr-connected-registry-get-settings] command:
 
-    ```Linux
+    ```[Linux][#tab/linux]
     cat << EOF > protected-settings-extension.json
     {
       "connectionString": "$(az acr connected-registry get-settings \
@@ -102,7 +102,30 @@ By deploying the connected Registry Arc extension, you can synchronize container
     EOF
     ```
 
-   ```Windows
+   ```[Windows][#tab/windows]
+    cat << EOF > protected-settings-extension.json
+    {
+      "connectionString": "$(az acr connected-registry get-settings \
+      --name myconnectedregistry \
+      --registry myacrregistry \
+      --parent-protocol https \
+      --generate-password 1 \
+      --query ACR_REGISTRY_CONNECTION_STRING --output tsv --yes)"
+    }
+    EOF
+    ```
+
+    ```[PowerShell][#tab/powershell]
+    echo "{\"connectionString\":\"$(az acr connected-registry get-settings \
+    --name myconnectedregistry \
+    --registry myacrregistry \
+    --parent-protocol https \
+    --generate-password 1 \
+    --query ACR_REGISTRY_CONNECTION_STRING \
+    --output tsv \
+    --yes | tr -d '\r')\" }" > settings.json
+    ```
+
    echo "{\"connectionString\":\"$(az acr connected-registry get-settings \
    --name myconnectedregistry \
    --registry myacrregistry \
