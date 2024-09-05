@@ -12,7 +12,7 @@ A [dashboard](azure-portal-dashboards.md) in the Azure portal is a focused and o
 
 In addition to the prerequisites below, you'll need an Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 - If you have multiple Azure subscriptions, choose the appropriate subscription in which to bill the resources.
 Select a subscription by using the [az account set](/cli/azure/account#az-account-set) command:
@@ -37,8 +37,8 @@ az vm create --resource-group myResourceGroup --name myVM1 --image win2016datace
 ```
 
 > [!NOTE]
-> This is a new username and password (not the account you use to sign in to Azure). The password must be complex. For more information, see [username requirements](../virtual-machines/windows/faq.yml#what-are-the-username-requirements-when-creating-a-vm-)
-and [password requirements](../virtual-machines/windows/faq.yml#what-are-the-password-requirements-when-creating-a-vm-).
+> This is a new username and password (not the account you use to sign in to Azure). The password must be complex. For more information, see [username requirements](/azure/virtual-machines/windows/faq#what-are-the-username-requirements-when-creating-a-vm-)
+and [password requirements](/azure/virtual-machines/windows/faq#what-are-the-password-requirements-when-creating-a-vm-).
 
 The deployment starts and typically takes a few minutes to complete.
 

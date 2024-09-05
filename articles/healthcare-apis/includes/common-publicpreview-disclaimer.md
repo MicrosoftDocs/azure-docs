@@ -1,7 +1,7 @@
 ---
 title: Public preview disclaimer 
 author: Expekesheth
-ms.service: healthcare-apis
+ms.service: azure-health-data-services
 ms.topic: include
 ms.date: 10/24/2023
 ms.author: kesheth

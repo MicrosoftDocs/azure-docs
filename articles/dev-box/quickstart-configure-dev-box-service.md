@@ -41,6 +41,7 @@ To complete this quickstart, you need:
   - Microsoft 365 Business Premium
   - Microsoft 365 Education Student Use Benefit
 - If your organization routes egress traffic through a firewall, open the appropriate ports. For more information, see [Network requirements](/windows-365/enterprise/requirements-network).
+- Register the *Microsoft.DevCenter* resource provider. For more information, see [Register resource provider](/azure/azure-resource-manager/management/resource-providers-and-types#register-resource-provider-1).
 
 ## Create a dev center
 
@@ -230,7 +231,7 @@ To assign roles:
 
 1. On the command bar, select **Add** > **Add role assignment**.
 
-1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
+1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml).
 
    | Setting | Value |
    |---|---|

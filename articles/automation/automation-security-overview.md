@@ -7,6 +7,7 @@ ms.subservice: process-automation
 ms.date: 10/04/2023
 ms.topic: conceptual 
 ms.custom:
+ms.service: azure-automation
 ---
 
 # Azure Automation account authentication overview
@@ -62,7 +63,7 @@ You need the `Microsoft.Authorization/*/Write` permission. This permission is ob
 - [Owner](../role-based-access-control/built-in-roles.md#owner)
 - [User Access Administrator](../role-based-access-control/built-in-roles.md#user-access-administrator)
 
-To learn more about classic subscription permissions, see [Azure classic subscription administrators](../role-based-access-control/classic-administrators.md#add-a-co-administrator).
+To learn more about classic subscription permissions, see [Azure classic subscription administrators](../role-based-access-control/classic-administrators.md).
 
 <a name='azure-ad-permissions'></a>
 

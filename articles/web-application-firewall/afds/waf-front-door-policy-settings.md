@@ -2,7 +2,7 @@
 title: Policy settings for Web Application Firewall in Azure Front Door
 description: Learn about policy settings for Azure Web Application Firewall in Azure Front Door.
 author: vhorne
-ms.service: web-application-firewall
+ms.service: azure-web-application-firewall
 ms.topic: article
 services: web-application-firewall
 ms.date: 10/12/2023

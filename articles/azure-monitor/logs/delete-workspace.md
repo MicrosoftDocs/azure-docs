@@ -5,8 +5,7 @@ ms.topic: conceptual
 author: guywi-ms
 ms.author: guywild
 ms.reviewer: yossi-y
-ms.date: 07/30/2023
-ms.custom:
+ms.date: 08/12/2024
 ---
 
 # Delete and recover an Azure Log Analytics workspace

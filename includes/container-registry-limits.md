@@ -2,7 +2,7 @@
 title: include file
 description: include file
 services: container-registry
-ms.service: container-registry
+ms.service: azure-container-registry
 ms.topic: include
 author: tejaswikolli-web
 ms.author: tejaswikolli
@@ -13,7 +13,7 @@ ms.custom: include file
 | Resource | Basic | Standard | Premium |
 |---|---|---|---|
 | Included storage<sup>1</sup> (GiB) | 10 | 100 | 500 |
-| Storage limit (TiB) | 20| 20 | 20 |
+| Storage limit (TiB) | 40| 40 | 40 |
 | Maximum image layer size (GiB) | 200 | 200 | 200 |
 | Maximum manifest size (MiB) | 4 | 4 | 4 |
 | ReadOps per minute<sup>2, 3</sup> | 1,000 | 3,000 | 10,000 |
@@ -52,11 +52,11 @@ ms.custom: include file
 [pricing]: https://azure.microsoft.com/pricing/details/container-registry/
 
 <!-- LINKS - Internal -->
-[geo-replication]: ../articles/container-registry/container-registry-geo-replication.md
-[content-trust]: ../articles/container-registry/container-registry-content-trust.md
-[vnet]: ../articles/container-registry/container-registry-vnet.md
-[plink]: ../articles/container-registry/container-registry-private-link.md
-[cmk]: ../articles/container-registry/tutorial-enable-customer-managed-keys.md
-[token]: ../articles/container-registry/container-registry-repository-scoped-permissions.md
-[zones]: ../articles/container-registry/zone-redundancy.md
-[anonymous-pull-access]: ../articles/container-registry/anonymous-pull-access.md
+[geo-replication]: /azure/container-registry/container-registry-geo-replication
+[content-trust]: /azure/container-registry/container-registry-content-trust
+[vnet]: /azure/container-registry/container-registry-vnet
+[plink]: /azure/container-registry/container-registry-private-link
+[cmk]: /azure/container-registry/tutorial-enable-customer-managed-keys
+[token]: /azure/container-registry/container-registry-repository-scoped-permissions
+[zones]: /azure/container-registry/zone-redundancy
+[anonymous-pull-access]: /azure/container-registry/anonymous-pull-access

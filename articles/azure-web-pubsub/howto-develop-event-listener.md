@@ -12,6 +12,7 @@ ms.date: 09/30/2022
 
 > [!NOTE]
 > Event listener feature is in preview.
+> Sending MQTT client events to event listener is not supported yet.
 
 ## Overview
 
@@ -76,7 +77,7 @@ Find your Azure Web PubSub service from **Azure portal**. Navigate to **Identity
 
 In this article, you learned how event listeners work and how to configure an event listener with an event hub endpoint. To learn the data format sent to Event Hubs, read the following specification.
 
-> [!div class="nextstepaction"] 
+> [!div class="nextstepaction"]
 > [Specification: CloudEvents AMQP extension for Azure Web PubSub](./reference-cloud-events-amqp.md)
 
 <!--TODO: Add demo-->

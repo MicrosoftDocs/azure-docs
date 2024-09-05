@@ -13,7 +13,7 @@ ms.date: 05/13/2023
 
 * Deploy an Azure Nexus Kubernetes cluster using Bicep.
 
-[!INCLUDE [About Bicep](../../includes/resource-manager-quickstart-bicep-introduction.md)]
+[!INCLUDE [About Bicep](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-bicep-introduction.md)]
 
 ## Prerequisites
 
@@ -41,6 +41,11 @@ Once you have reviewed and saved the template file named ```kubernetes-deploy.bi
       --template-file kubernetes-deploy.bicep \
       --parameters @kubernetes-deploy-parameters.json
 ```
+
+If there isn't enough capacity to deploy requested cluster nodes, an error message appears. However, this message doesn't provide any details about the available capacity. It states that the cluster creation can't proceed due to insufficient capacity.
+
+> [!NOTE]
+> The capacity calculation takes into account the entire platform cluster, rather than being limited to individual racks. Therefore, if an agent pool is created in a zone (where a rack equals a zone) with insufficient capacity, but another zone has enough capacity, the cluster creation continues but will eventually time out. This approach to capacity checking only makes sense if a specific zone isn't specified during the creation of the cluster or agent pool.
 
 ## Review deployed resources
 

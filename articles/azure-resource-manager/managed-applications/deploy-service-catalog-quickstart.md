@@ -2,7 +2,7 @@
 title: Deploy a service catalog managed application
 description: Describes how to deploy a service catalog's managed application for an Azure Managed Application using Azure PowerShell, Azure CLI, or Azure portal.
 ms.topic: quickstart
-ms.date: 05/12/2023
+ms.date: 06/24/2024
 ms.custom: engagement-fy23, devx-track-azurecli, devx-track-azurepowershell
 ---
 
@@ -15,7 +15,7 @@ In this quickstart, you use the managed application definition that you created 
 - A managed application definition created with [publish an application definition](publish-service-catalog-app.md) or [publish a definition with bring your own storage](publish-service-catalog-bring-your-own-storage.md).
 - An Azure account with an active subscription. If you don't have an account, [create a free account](https://azure.microsoft.com/free/) before you begin.
 - [Visual Studio Code](https://code.visualstudio.com/).
-- Install the latest version of [Azure PowerShell](/powershell/azure/install-azure-powershell) or [Azure CLI](/cli/azure/install-azure-cli).
+- The latest version of [Azure PowerShell](/powershell/azure/install-azure-powershell) or [Azure CLI](/cli/azure/install-azure-cli).
 
 ## Create service catalog managed application
 
@@ -109,10 +109,10 @@ To get the managed application's definition from the Azure portal, use the follo
 
 # [PowerShell](#tab/azure-powershell)
 
-Create a resource group for the managed application that's used during the deployment.
+Create a resource group for the managed application deployment.
 
 ```azurepowershell
-New-AzResourceGroup -Name applicationGroup -Location westus3
+New-AzResourceGroup -Name applicationGroup -Location westus
 ```
 
 You also need to create a name for the managed application resource group. The resource group is created when you deploy the managed application.
@@ -136,7 +136,7 @@ The JSON formatted string's syntax is as follows:
 "{ `"parameterName`": {`"value`":`"parameterValue`"}, `"parameterName`": {`"value`":`"parameterValue`"} }"
 ```
 
-For readability, the completed JSON string uses the backtick for line continuation. The values are stored in the `$params` variable that's used in the deployment command. The parameters in the JSON string are required to deploy the managed resources.
+For readability, the completed JSON string uses the backtick for line continuation. The values are stored in the `$params` variable and used in the deployment command. The parameters in the JSON string are required to deploy the managed resources.
 
 ```powershell
 $params="{ `"appServicePlanName`": {`"value`":`"demoAppServicePlan`"}, `
@@ -154,10 +154,10 @@ The parameters to create the managed resources:
 
 # [Azure CLI](#tab/azure-cli)
 
-Create a resource group for the managed application that's used during the deployment.
+Create a resource group for the managed application deployment.
 
 ```azurecli
-az group create --name applicationGroup --location westus3
+az group create --name applicationGroup --location westus
 ```
 
 You also need to create a name and path for the managed application resource group. The resource group is created when you deploy the managed application.
@@ -182,7 +182,7 @@ The JSON formatted string's syntax is as follows:
 "{ \"parameterName\": {\"value\":\"parameterValue\"}, \"parameterName\": {\"value\":\"parameterValue\"} }"
 ```
 
-For readability, the completed JSON string uses the backslash for line continuation. The values are stored in the `params` variable that's used in the deployment command. The parameters in the JSON string are required to deploy the managed resources.
+For readability, the completed JSON string uses the backslash for line continuation. The values are stored in the `params` variable and used in the deployment command. The parameters in the JSON string are required to deploy the managed resources.
 
 ```azurecli
 params="{ \"appServicePlanName\": {\"value\":\"demoAppServicePlan\"}, \
@@ -200,7 +200,7 @@ The parameters to create the managed resources:
 
 # [Portal](#tab/azure-portal)
 
-1. Provide values for the **Basics** tab and select **Next: Web App settings**.
+1. Provide values for the **Basics** tab and select **Next**.
 
    :::image type="content" source="./media/deploy-service-catalog-quickstart/basics-info.png" alt-text="Screenshot that highlights the required information on the basics tab.":::
 
@@ -210,19 +210,19 @@ The parameters to create the managed resources:
    - **Application Name**: Enter a name for your managed application. For this example, use _demoManagedApplication_.
    - **Managed Resource Group**: The name of the managed resource group that contains the resources that are deployed for the managed application. The default name is in the format `mrg-{definitionName}-{dateTime}` but you can change the name.
 
-1. Provide values for the **Web App settings** tab and select **Next: Storage settings**.
+1. Provide values for the **Web App settings** tab and select **Next**.
 
    :::image type="content" source="./media/deploy-service-catalog-quickstart/web-app-settings.png" alt-text="Screenshot that highlights the required information on the Web App settings tab.":::
 
    - **App Service plan name**: Create a plan name. Maximum of 40 alphanumeric characters and hyphens. For example, _demoAppServicePlan_. App Service plan names must be unique within a resource group in your subscription.
    - **App Service name prefix**: Create a prefix for the plan name. Maximum of 47 alphanumeric characters or hyphens. For example, _demoApp_. During deployment, the prefix is concatenated with a unique string to create a name that's globally unique across Azure.
 
-1. Enter a prefix for the storage account name and select the storage account type. Select **Next: Review + create**.
+1. Enter a prefix for the storage account name and select the storage account type. Select **Next**.
 
    :::image type="content" source="./media/deploy-service-catalog-quickstart/storage-settings.png" alt-text="Screenshot that shows the information needed to create a storage account.":::
 
    - **Storage account name prefix**: Use only lowercase letters and numbers and a maximum of 11 characters. For example, _demostg1234_. During deployment, the prefix is concatenated with a unique string to create a name globally unique across Azure. Although you're creating a prefix, the control checks for existing names in Azure and might post a validation message that the name already exists. If so, choose a different prefix.
-   - **Storage account type**: Select **Change type** to choose a storage account type. The default is Standard LRS. The other options are Premium_LRS, Standard_LRS, and Standard_GRS.
+   - **Storage account type**: Select **Change type** to choose a storage account type. The default is Standard_LRS. The other options are Premium_LRS, Standard_LRS, and Standard_GRS.
 
 ---
 
@@ -236,7 +236,7 @@ Run the following command to deploy the managed application.
 New-AzManagedApplication `
   -Name "demoManagedApplication" `
   -ResourceGroupName applicationGroup `
-  -Location westus3 `
+  -Location westus `
   -ManagedResourceGroupName $mrgname `
   -ManagedApplicationDefinitionId $definitionid `
   -Kind ServiceCatalog `
@@ -247,7 +247,7 @@ The parameters used in the deployment command:
 
 - `Name`: Specify a name for the managed application. For this example, use _demoManagedApplication_.
 - `ResourceGroupName`: Name of the resource group you created for the managed application.
-- `Location`: Specify the region to deploy the resources. For this example, use _westus3_.
+- `Location`: Specify the region for resource deployment. For this example, use _westus_.
 - `ManagedResourceGroupName`: Uses the `$mrgname` variable's value. The managed resource group is created when the managed application is deployed.
 - `ManagedApplicationDefinitionId`: Uses the `$definitionid` variable's value for the managed application definition's resource ID.
 - `Kind`: Specifies that type of managed application. This example uses _ServiceCatalog_.
@@ -261,7 +261,7 @@ Run the following command to deploy the managed application.
 az managedapp create \
   --name demoManagedApplication \
   --resource-group applicationGroup \
-  --location westus3 \
+  --location westus \
   --managed-rg-id $mrgpath \
   --managedapp-definition-id $definitionid \
   --kind ServiceCatalog \
@@ -272,7 +272,7 @@ The parameters used in the deployment command:
 
 - `name`: Specify a name for the managed application. For this example, use _demoManagedApplication_.
 - `resource-group`: Name of the resource group you created for the managed application.
-- `location`: Specify the region to deploy the resources. For this example, use _westus3_.
+- `location`: Specify the region for resource deployment. For this example, use _westus_.
 - `managed-rg-id`: Uses the `$mrgpath` variable's value. The managed resource group is created when the managed application is deployed.
 - `managedapp-definition-id`: Uses the `$definitionid` variable's value for the managed application definition's resource ID.
 - `kind`: Specifies that type of managed application. This example uses _ServiceCatalog_.
@@ -280,7 +280,7 @@ The parameters used in the deployment command:
 
 # [Portal](#tab/azure-portal)
 
-Review the summary of the values you selected and verify **Validation Passed** is displayed. Select **Create** to deploy the managed application.
+Review the summary of the values you selected and verify no errors are displayed. Select **Create** to deploy the managed application.
 
    :::image type="content" source="./media/deploy-service-catalog-quickstart/summary-validation.png" alt-text="Screenshot that summarizes the values you selected and shows the status of validation passed.":::
 
@@ -407,7 +407,7 @@ To see the role assignment from the Azure portal:
 
    You can also view the resource's **Deny assignments**.
 
-The role assignment gives the application's publisher access to manage the storage account. In this example, the publisher might be your IT department. The _Deny assignments_ prevents customers from making changes to a managed resource's configuration. Managed apps are designed so that customers don't need to maintain the resources. The _Deny assignment_ excludes the Microsoft Entra group that was assigned in **Role assignments**.
+The role assignment gives the application's publisher access to manage the storage account. In this example, the publisher might be your IT department. The _Deny assignments_ prevents customers from making changes to a managed resource's configuration. Managed apps are designed so that customers don't need to maintain the resources. The _Deny assignments_ excludes the Microsoft Entra group that was assigned in **Role assignments**.
 
 ---
 

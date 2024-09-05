@@ -5,7 +5,7 @@ titleSuffix: Azure Virtual WAN
 services: virtual-wan
 author: cherylmc
 
-ms.service: virtual-wan
+ms.service: azure-virtual-wan
 ms.custom: devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 06/15/2023

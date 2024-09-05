@@ -1,21 +1,21 @@
 ---
-
-title: Backend MTLS with Application Gateway for Containers - Gateway API (preview)
+title: Backend MTLS with Application Gateway for Containers - Gateway API
 description: Learn how to configure Application Gateway for Containers with support for backend MTLS authentication.
 services: application-gateway
 author: greglin
-ms.service: application-gateway
+ms.service: azure-application-gateway
 ms.subservice: appgw-for-containers
 ms.topic: how-to
-ms.date: 09/19/2023
+ms.date: 02/27/2024
 ms.author: greglin
 ---
 
-# Backend MTLS with Application Gateway for Containers - Gateway API (preview)
+# Backend MTLS with Application Gateway for Containers - Gateway API
 
 This document helps set up an example application that uses the following resources from Gateway API. Steps are provided to:
+
 - Create a [Gateway](https://gateway-api.sigs.k8s.io/concepts/api-overview/#gateway) resource with one HTTPS listener.
-- Create an [HTTPRoute](https://gateway-api.sigs.k8s.io/v1alpha2/api-types/httproute/) resource that references a backend service.
+- Create an [HTTPRoute](https://gateway-api.sigs.k8s.io/api-types/httproute/) resource that references a backend service.
 - Create a [BackendTLSPolicy](api-specification-kubernetes.md#alb.networking.azure.io/v1.BackendTLSPolicy) resource that has a client and CA certificate for the backend service referenced in the HTTPRoute.
 
 ## Background
@@ -24,38 +24,37 @@ Mutual Transport Layer Security (MTLS) is a process that relies on certificates 
 
 See the following figure:
 
-[ ![A diagram showing the Application Gateway for Containers backend MTLS process.](./media/how-to-backend-mtls-gateway-api/backend-mtls.png) ](./media/how-to-backend-mtls-gateway-api/backend-mtls.png#lightbox)
+[![A diagram showing the Application Gateway for Containers backend MTLS process.](./media/how-to-backend-mtls-gateway-api/backend-mtls.png)](./media/how-to-backend-mtls-gateway-api/backend-mtls.png#lightbox)
 
 ## Prerequisites
 
-> [!IMPORTANT]
-> Application Gateway for Containers is currently in PREVIEW.<br>
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+1. If following the BYO deployment strategy, ensure you set up your Application Gateway for Containers resources and [ALB Controller](quickstart-deploy-application-gateway-for-containers-alb-controller.md).
+2. If following the ALB managed deployment strategy, ensure you provision your [ALB Controller](quickstart-deploy-application-gateway-for-containers-alb-controller.md) and provision the Application Gateway for Containers resources via the  [ApplicationLoadBalancer custom resource](quickstart-create-application-gateway-for-containers-managed-by-alb-controller.md).
+3. Deploy sample HTTP application:
 
-1. If following the BYO deployment strategy, ensure you have set up your Application Gateway for Containers resources and [ALB Controller](quickstart-deploy-application-gateway-for-containers-alb-controller.md)
-2. If following the ALB managed deployment strategy, ensure you have provisioned your [ALB Controller](quickstart-deploy-application-gateway-for-containers-alb-controller.md) and provisioned the Application Gateway for Containers resources via the  [ApplicationLoadBalancer custom resource](quickstart-create-application-gateway-for-containers-managed-by-alb-controller.md).
-3. Deploy sample HTTP application
-  Apply the following deployment.yaml file on your cluster to create a sample web application and deploy sample secrets to demonstrate backend mutual authentication (mTLS).
-  ```bash
-  kubectl apply -f https://trafficcontrollerdocs.blob.core.windows.net/examples/https-scenario/end-to-end-ssl-with-backend-mtls/deployment.yaml
-  ```
+   Apply the following deployment.yaml file on your cluster to create a sample web application and deploy sample secrets to demonstrate backend mutual authentication (mTLS).
+
+   ```bash
+   kubectl apply -f https://trafficcontrollerdocs.blob.core.windows.net/examples/https-scenario/end-to-end-ssl-with-backend-mtls/deployment.yaml
+   ```
   
-  This command creates the following on your cluster:
-  - a namespace called `test-infra`
-  - one service called `mtls-app` in the `test-infra` namespace
-  - one deployment called `mtls-app` in the `test-infra` namespace
-  - one config map called `mtls-app-nginx-cm` in the `test-infra` namespace
-  - four secrets called `backend.com`, `frontend.com`, `gateway-client-cert`, and `ca.bundle` in the `test-infra` namespace
+   This command creates the following on your cluster:
+  
+   - A namespace called `test-infra`
+   - One service called `mtls-app` in the `test-infra` namespace
+   - One deployment called `mtls-app` in the `test-infra` namespace
+   - One config map called `mtls-app-nginx-cm` in the `test-infra` namespace
+   - Four secrets called `backend.com`, `frontend.com`, `gateway-client-cert`, and `ca.bundle` in the `test-infra` namespace
 
 ## Deploy the required Gateway API resources
 
 # [ALB managed deployment](#tab/alb-managed)
 
-Create a gateway:
+Create a gateway
 
 ```bash
 kubectl apply -f - <<EOF
-apiVersion: gateway.networking.k8s.io/v1beta1
+apiVersion: gateway.networking.k8s.io/v1
 kind: Gateway
 metadata:
   name: gateway-01
@@ -84,56 +83,60 @@ EOF
 [!INCLUDE [application-gateway-for-containers-frontend-naming](../../../includes/application-gateway-for-containers-frontend-naming.md)]
 
 # [Bring your own (BYO) deployment](#tab/byo)
+
 1. Set the following environment variables
 
-```bash
-RESOURCE_GROUP='<resource group name of the Application Gateway For Containers resource>'
-RESOURCE_NAME='alb-test'
+    ```bash
+    RESOURCE_GROUP='<resource group name of the Application Gateway For Containers resource>'
+    RESOURCE_NAME='alb-test'
 
-RESOURCE_ID=$(az network alb show --resource-group $RESOURCE_GROUP --name $RESOURCE_NAME --query id -o tsv)
-FRONTEND_NAME='frontend'
-az network alb frontend create -g $RESOURCE_GROUP -n $FRONTEND_NAME --alb-name $AGFC_NAME
-```
+    RESOURCE_ID=$(az network alb show --resource-group $RESOURCE_GROUP --name $RESOURCE_NAME --query id -o tsv)
+    FRONTEND_NAME='frontend'
+    az network alb frontend create -g $RESOURCE_GROUP -n $FRONTEND_NAME --alb-name $AGFC_NAME
+    ```
 
 2. Create a Gateway
-```bash
-kubectl apply -f - <<EOF
-apiVersion: gateway.networking.k8s.io/v1beta1
-kind: Gateway
-metadata:
-  name: gateway-01
-  namespace: test-infra
-  annotations:
-    alb.networking.azure.io/alb-id: $RESOURCE_ID
-spec:
-  gatewayClassName: azure-alb-external
-  listeners:
-  - name: https-listener
-    port: 443
-    protocol: HTTPS
-    allowedRoutes:
-      namespaces:
-        from: Same
-    tls:
-      mode: Terminate
-      certificateRefs:
-      - kind : Secret
-        group: ""
-        name: frontend.com
-  addresses:
-  - type: alb.networking.azure.io/alb-frontend
-    value: $FRONTEND_NAME
-EOF
-```
+
+    ```bash
+    kubectl apply -f - <<EOF
+    apiVersion: gateway.networking.k8s.io/v1
+    kind: Gateway
+    metadata:
+      name: gateway-01
+      namespace: test-infra
+      annotations:
+        alb.networking.azure.io/alb-id: $RESOURCE_ID
+    spec:
+      gatewayClassName: azure-alb-external
+      listeners:
+      - name: https-listener
+        port: 443
+        protocol: HTTPS
+        allowedRoutes:
+          namespaces:
+            from: Same
+        tls:
+          mode: Terminate
+          certificateRefs:
+          - kind : Secret
+            group: ""
+            name: frontend.com
+      addresses:
+      - type: alb.networking.azure.io/alb-frontend
+        value: $FRONTEND_NAME
+    EOF
+    ```
 
 ---
 
-Once the gateway resource has been created, ensure the status is valid, the listener is _Programmed_, and an address is assigned to the gateway.
+Once the gateway resource is created, ensure the status is valid, the listener is _Programmed_, and an address is assigned to the gateway.
+
 ```bash
 kubectl get gateway gateway-01 -n test-infra -o yaml
 ```
 
-Example output of successful gateway creation.
+Example output of successful gateway creation:
+
 ```yaml
 status:
   addresses:
@@ -179,10 +182,11 @@ status:
       kind: HTTPRoute
 ```
 
-Once the gateway has been created, create an HTTPRoute
+Once the gateway is created, create an HTTPRoute resource.
+
 ```bash
 kubectl apply -f - <<EOF
-apiVersion: gateway.networking.k8s.io/v1beta1
+apiVersion: gateway.networking.k8s.io/v1
 kind: HTTPRoute
 metadata:
   name: https-route
@@ -197,12 +201,13 @@ spec:
 EOF
 ```
 
-Once the HTTPRoute resource has been created, ensure the route has been _Accepted_ and the Application Gateway for Containers resource has been _Programmed_.
+Once the HTTPRoute resource is created, ensure the route is _Accepted_ and the Application Gateway for Containers resource is _Programmed_.
+
 ```bash
 kubectl get httproute https-route -n test-infra -o yaml
 ```
 
-Verify the status of the Application Gateway for Containers resource has been successfully updated.
+Verify the status of the Application Gateway for Containers resource is successfully updated.
 
 ```yaml
 status:
@@ -266,13 +271,13 @@ spec:
 EOF
 ```
 
-Once the BackendTLSPolicy object has been created check the status on the object to ensure that the policy is valid.
+Once the BackendTLSPolicy object is created, check the status on the object to ensure that the policy is valid:
 
 ```bash
 kubectl get backendtlspolicy -n test-infra mtls-app-tls-policy -o yaml
 ```
 
-Example output of valid BackendTLSPolicy object creation.
+Example output of valid BackendTLSPolicy object creation:
 
 ```yaml
 status:
@@ -287,7 +292,7 @@ status:
 
 ## Test access to the application
 
-Now we're ready to send some traffic to our sample application, via the FQDN assigned to the frontend. Use the following command to get the FQDN.
+Now we're ready to send some traffic to our sample application, via the FQDN assigned to the frontend. Use the following command to get the FQDN:
 
 ```bash
 fqdn=$(kubectl get gateway gateway-01 -n test-infra -o jsonpath='{.status.addresses[0].value}')

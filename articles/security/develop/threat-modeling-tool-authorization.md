@@ -225,7 +225,7 @@ Please note that RLS as an out-of-the-box database feature is applicable only to
 | **SDL Phase**               | Build |  
 | **Applicable Technologies** | Generic |
 | **Attributes**              | N/A  |
-| **References**              | [Assign Azure roles to manage access to your Azure subscription resources](../../role-based-access-control/role-assignments-portal.md)  |
+| **References**              | [Assign Azure roles to manage access to your Azure subscription resources](../../role-based-access-control/role-assignments-portal.yml)  |
 | **Steps** | Azure role-based access control (Azure RBAC) enables fine-grained access management for Azure. Using Azure RBAC, you can grant only the amount of access that users need to perform their jobs.|
 
 ## <a id="cluster-rbac"></a>Restrict client's access to cluster operations using Service Fabric RBAC
@@ -236,7 +236,7 @@ Please note that RLS as an out-of-the-box database feature is applicable only to
 | **SDL Phase**               | Deployment |  
 | **Applicable Technologies** | Generic |
 | **Attributes**              | Environment - Azure |
-| **References**              | [Service Fabric role-based access control for Service Fabric clients](../../service-fabric/service-fabric-cluster-security-roles.md) |
+| **References**              | [Service Fabric role-based access control for Service Fabric clients](/azure/service-fabric/service-fabric-cluster-security-roles) |
 | **Steps** | <p>Azure Service Fabric supports two different access control types for clients that are connected to a Service Fabric cluster: administrator and user. Access control allows the cluster administrator to limit access to certain cluster operations for different groups of users, making the cluster more secure.</p><p>Administrators have full access to management capabilities (including read/write capabilities). Users, by default, have only read access to management capabilities (for example, query capabilities), and the ability to resolve applications and services.</p><p>You specify the two client roles (administrator and client) at the time of cluster creation by providing separate certificates for each.</p>|
 
 ## <a id="modeling-field"></a>Perform security modeling and use Field Level Security where required

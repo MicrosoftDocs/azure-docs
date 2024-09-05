@@ -1,14 +1,16 @@
 ---
 title: Change Data Capture (CDC) of SQL Server using Apache Flink®
 description: Learn how to perform CDC of SQL Server using Apache Flink®
-ms.service: hdinsight-aks
+ms.service: azure-hdinsight-on-aks
 ms.topic: how-to
 ms.date: 10/27/2023
 ---
 
 # Change Data Capture (CDC) of SQL Server using Apache Flink®
 
+[!INCLUDE [retirement-notice](../includes/retirement-notice.md)]
 [!INCLUDE [feature-in-preview](../includes/feature-in-preview.md)]
+
 
 Change Data Capture (CDC) is a technique you can use to track row-level changes in database tables in response to create, update, and delete operations. In this article, we use [CDC Connectors for Apache Flink®](https://github.com/ververica/flink-cdc-connectors), which offer a set of source connectors for Apache Flink. The connectors integrate [Debezium®](https://nightlies.apache.org/flink/flink-docs-master/docs/connectors/table/formats/debezium/#debezium-format) as the engine to capture the data changes.  
 
@@ -170,5 +172,5 @@ Monitor the table on Flink SQL
 
 
 ###  Reference
-* [SQLServer CDC Connector](https://ververica.github.io/flink-cdc-connectors/master/content/connectors/sqlserver-cdc.html) is licensed under [Apache 2.0 License](https://github.com/ververica/flink-cdc-connectors/blob/master/LICENSE)
+* [SQLServer CDC Connector](https://github.com/apache/flink-cdc) is licensed under [Apache 2.0 License](https://github.com/ververica/flink-cdc-connectors/blob/master/LICENSE)
 * Apache, Apache Flink, Flink, and associated open source project names are [trademarks](../trademarks.md) of the [Apache Software Foundation](https://www.apache.org/) (ASF).

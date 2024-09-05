@@ -1,0 +1,19 @@
+items:
+- name: Azure Business Process Tracking documentation
+  href: index.yml
+- name: Overview
+  expanded: true
+  items:
+  - name: About Azure Business Process Tracking
+    href: overview.md
+- name: How-to guides
+  expanded: true
+  items:
+  - name: Create a business process
+    href: create-business-process.md
+  - name: Map business process to workflow
+    href: map-business-process-workflow.md
+  - name: Deploy business process and tracking
+    href: deploy-business-process.md
+  - name: Manage a business process
+    href: manage-business-process.md

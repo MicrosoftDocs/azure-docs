@@ -3,7 +3,7 @@ title: 'Connect VPN gateways to multiple on-premises policy-based VPN devices'
 titleSuffix: Azure VPN Gateway
 description: Learn how to configure an Azure route-based VPN gateway to multiple policy-based VPN devices using PowerShell.
 author: cherylmc
-ms.service: vpn-gateway
+ms.service: azure-vpn-gateway
 ms.custom: devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 11/20/2023
@@ -197,6 +197,6 @@ The following line shows whether the policy-based traffic selectors are used for
       ```
 
 ## Next steps
-Once your connection is complete, you can add virtual machines to your virtual networks. See [Create a Virtual Machine](../virtual-machines/windows/quick-create-portal.md) for steps.
+Once your connection is complete, you can add virtual machines to your virtual networks. See [Create a Virtual Machine](/azure/virtual-machines/windows/quick-create-portal) for steps.
 
 Also review [Configure IPsec/IKE policy for S2S VPN or VNet-to-VNet connections](vpn-gateway-ipsecikepolicy-rm-powershell.md) for more details on custom IPsec/IKE policies.

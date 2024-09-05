@@ -6,7 +6,7 @@ summary: Learn how to use Azure DNS. Quickstarts, tutorials, samples, and more, 
 metadata:
   title: Azure DNS documentation
   description: Learn how to use Azure DNS. Quickstarts, tutorials, samples, and more, show you how to set up and manage DNS zones and records for domain names.
-  ms.service: dns
+  ms.service: azure-dns
   ms.topic: landing-page
   author: greg-lindsay
   ms.author: greglin

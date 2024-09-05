@@ -4,7 +4,7 @@ description: This article lists and notifies the features that are deprecated or
 ms.topic: article
 ms.date: 10/31/2023
 ms.author: tejaswikolli
-ms.service: container-registry
+ms.service: azure-container-registry
 ---
 
 # API Deprecations in Azure Container Registry

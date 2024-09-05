@@ -2,7 +2,7 @@
 title: Use multi-instance tasks to run MPI applications
 description: Learn how to execute Message Passing Interface (MPI) applications using the multi-instance task type in Azure Batch.
 ms.topic: how-to
-ms.date: 04/13/2021
+ms.date: 06/13/2024
 ms.devlang: csharp
 ms.custom: devx-track-dotnet
 ---
@@ -88,9 +88,9 @@ await myCloudPool.CommitAsync();
 
 ### Remote direct memory access (RDMA)
 
-When you choose an [RDMA-capable size](../virtual-machines/sizes-hpc.md?toc=/azure/virtual-machines/windows/toc.json) such as A9 for the compute nodes in your Batch pool, your MPI application can take advantage of Azure's high-performance, low-latency remote direct memory access (RDMA) network.
+When you choose an [RDMA-capable size](/azure/virtual-machines/sizes-hpc?toc=/azure/virtual-machines/windows/toc.json) such as A9 for the compute nodes in your Batch pool, your MPI application can take advantage of Azure's high-performance, low-latency remote direct memory access (RDMA) network.
 
-Look for the sizes specified as "RDMA capable" in [Sizes for virtual machines in Azure](../virtual-machines/sizes.md) (for VirtualMachineConfiguration pools) or [Sizes for Cloud Services](../cloud-services/cloud-services-sizes-specs.md) (for CloudServicesConfiguration pools).
+Look for the sizes specified as "RDMA capable" in [Sizes for virtual machines in Azure](/azure/virtual-machines/sizes) (for VirtualMachineConfiguration pools) or [Sizes for Cloud Services](../cloud-services/cloud-services-sizes-specs.md) (for CloudServicesConfiguration pools).
 
 > [!NOTE]
 > To take advantage of RDMA on [Linux compute nodes](batch-linux-nodes.md), you must use **Intel MPI** on the nodes.

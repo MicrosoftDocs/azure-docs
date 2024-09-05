@@ -3,7 +3,7 @@ title: How to manage plugins in Azure Managed Grafana
 description: In this how-to guide, discover how you can add a Grafana plugin or remove a Grafana plugin you no longer need.
 author: maud-lv 
 ms.author: malev 
-ms.service: managed-grafana 
+ms.service: azure-managed-grafana
 ms.topic: how-to
 ms.date: 01/22/2024
 ---

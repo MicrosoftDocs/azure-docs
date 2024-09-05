@@ -44,7 +44,7 @@ The **Alert logic** is defined by the condition and the evaluation time. The ale
 
 :::image type="content" source="./media/tutorial-metric-alert/alert-logic.png" lightbox="./media/tutorial-metric-alert/alert-logic.png" alt-text="Alert rule alert logic":::
 
-You can accept the default time granularity or modify it to your requirements. **Check every** defines how often the alert rule will check if the condition is met. **Lookback period** defines the time interval over which the collected values are aggregated. For example, every 1 minute, you’ll be looking at the past 5 minutes.
+You can accept the default time granularity or modify it to your requirements. **Check every** defines how often the alert rule will check if the condition is met. **Lookback period** defines the time interval over which the collected values are aggregated. For example, every 5 minutes, you’ll be looking at the past 5 minutes.
 
 :::image type="content" source="./media/tutorial-metric-alert/when-to-evaluate.png" lightbox="./media/tutorial-metric-alert/when-to-evaluate.png" alt-text="Screenshot that shows the When to evaluate options for the alert rule.":::
 

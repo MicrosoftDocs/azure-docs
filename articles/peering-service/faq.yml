@@ -4,7 +4,7 @@ metadata:
   description: Answers to frequently asked questions about Microsoft Azure Peering Service.
   author: halkazwini
   ms.author: halkazwini
-  ms.service: peering-service
+  ms.service: azure-peering-service
   ms.topic: faq
   ms.date: 09/27/2023
 title: Azure Peering Service frequently asked questions (FAQ)

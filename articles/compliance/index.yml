@@ -12,7 +12,7 @@ metadata:
   author: TerryLanfear
   ms.author: terrylan
   manager: rkarlin
-  ms.date: 06/12/2022
+  ms.date: 03/26/2024
 
 conceptualContent:
 # itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
@@ -400,14 +400,13 @@ conceptualContent:
           itemType: concept
           text: UK PASF
 
-
 additionalContent:
 #  Maximum of 3 sections
   sections:
 
 #  Section 1
-    - title: Additional compliance resources
-      summary: To access a resource you may need to be signed into your cloud service 
+    - title: More compliance resources
+      summary: To access a resource, you may need to be signed into your cloud service. 
       items:
 
         - title: Privacy and GDPR

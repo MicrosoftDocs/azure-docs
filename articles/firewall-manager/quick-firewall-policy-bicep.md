@@ -6,7 +6,7 @@ author: vhorne
 ms.author: victorh
 ms.date: 09/28/2023
 ms.topic: quickstart
-ms.service: firewall-manager
+ms.service: azure-firewall-manager
 ms.custom: subject-armqs, mode-arm, devx-track-bicep
 ---
 
@@ -16,7 +16,7 @@ In this quickstart, you use Bicep to create an Azure Firewall and a firewall pol
 
 Also, IP Groups are used in the rules to define the **Source** IP addresses.
 
-[!INCLUDE [About Bicep](../../includes/resource-manager-quickstart-bicep-introduction.md)]
+[!INCLUDE [About Bicep](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-bicep-introduction.md)]
 
 For information about Azure Firewall Manager, see [What is Azure Firewall Manager?](overview.md).
 

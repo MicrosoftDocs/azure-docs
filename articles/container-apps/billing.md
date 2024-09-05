@@ -3,11 +3,11 @@ title: Billing in Azure Container Apps
 description: Learn how billing is calculated in Azure Container Apps
 services: container-apps
 author: craigshoemaker
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
-ms.date: 10/11/2023
+ms.date: 05/02/2024
 ms.author: cshoe
 ---
 
@@ -109,6 +109,18 @@ Billing for apps and jobs running in the Dedicated plan is based on workload pro
 | If you have one or more dedicated workload profiles in your environment, you're charged a Dedicated plan management fee. You aren't billed any plan management charges unless you use a Dedicated workload profile in your environment. | As profiles scale out, extra costs apply for the extra instances; as profiles scale in, billing is reduced. |
 
 Make sure to optimize the applications you deploy to a dedicated workload profile. Evaluate the needs of your applications so that they can use the most amount of resources available to the profile.
+
+## Dynamic sessions
+
+Dynamic sessions has two types of session pools: code interpreter and custom container. Each session type has its own billing model.
+
+### Code interpreter
+
+Code interpreter sessions are billed based on running duration for the number allocated sessions. For each allocated session, you're billed from the time it's allocated until it's deallocated in increments of one hour.
+
+### Custom container
+
+Custom container sessions are billed using the [Dedicated plan](#dedicated-plan), based on the amount of compute resources used to run the session pool and active sessions.
 
 ## General terms
 

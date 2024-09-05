@@ -2,12 +2,12 @@
 title: Events FAQ for Azure Health Data Services
 description: Get answers to common questions about the events capability in the FHIR and DICOM services in Azure Health Data Services. Find out how events work, what types of events are supported, and how to subscribe to events by using Azure Event Grid.
 services: healthcare-apis
-author: msjasteppe
-ms.service: healthcare-apis
+author: chachachachami
+ms.service: azure-health-data-services
 ms.subservice: events
 ms.topic: reference
 ms.date: 01/31/2024
-ms.author: jasteppe
+ms.author: chrupa
 ---
 
 # Events FAQ
@@ -28,7 +28,7 @@ Events are generated from these FHIR service types:
 
 - **FhirResourceDeleted**. The event emitted after a FHIR resource is soft deleted.
 
-For more information about delete types in the FHIR service, see [FHIR REST API capabilities for Azure Health Data Services](../../healthcare-apis/fhir/fhir-rest-api-capabilities.md).
+For more information about delete types in the FHIR service, see [REST API capabilities in the FHIR service in Azure Health Data Services](../fhir/rest-api-capabilities.md).
 
 **Does events support FHIR bundles?**
 

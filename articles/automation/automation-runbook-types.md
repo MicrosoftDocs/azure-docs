@@ -3,9 +3,10 @@ title: Azure Automation runbook types
 description: This article describes the types of runbooks that you can use in Azure Automation and considerations for determining which type to use.
 services: automation
 ms.subservice: process-automation
-ms.date: 02/22/2024
+ms.date: 07/19/2024
 ms.topic: conceptual
-ms.custom: references_regions, devx-track-python
+ms.custom: references_regions, devx-track-python, devx-track-azurepowershell
+ms.service: azure-automation
 ---
 
 # Azure Automation runbook types
@@ -21,7 +22,7 @@ The Azure Automation Process Automation feature supports several types of runboo
 | [Graphical PowerShell Workflow](#graphical-runbooks)|Graphical runbook based on Windows PowerShell Workflow and created and edited completely in the graphical editor in Azure portal. |
 
 > [!NOTE]
-> Azure Automation will follow the support lifecycle of PowerShell and Python language versions in accordance with the timelines published by parent products [PowerShell](https://learn.microsoft.com/powershell/scripting/install/powershell-support-lifecycle?view=powershell-7.3&preserve-view=true#powershell-end-of-support-dates) and [Python](https://devguide.python.org/versions/) respectively. We recommend you to use runbooks with supported language versions.
+> Azure Automation will follow the support lifecycle of PowerShell and Python language versions in accordance with the timelines published by parent products [PowerShell](/powershell/scripting/install/powershell-support-lifecycle?view=powershell-7.3&preserve-view=true#powershell-end-of-support-dates) and [Python](https://devguide.python.org/versions/) respectively. We recommend you to use runbooks with supported language versions.
 
 Take into account the following considerations when determining which type to use for a particular runbook.
 
@@ -38,7 +39,7 @@ The PowerShell version is determined by the **Runtime version** specified (that 
 The same Azure sandbox and Hybrid Runbook Worker can execute multiple **PowerShell** runbooks targeting different runtime versions side by side.
 
 > [!NOTE]
-> - Currently, PowerShell 7.2 runtime version is supported for both Cloud and Hybrid jobs in all Public regions except Central India, UAE Central, Israel Central, Italy North, Germany North and Gov clouds. 
+> - Currently, PowerShell 7.2 runtime version is supported for both Cloud and Hybrid jobs in all Public regions except Central India, UAE Central, Israel Central, Italy North, and Germany North. 
 > - At the time of runbook execution, if you select **Runtime Version** as **7.2**, PowerShell modules targeting 7.2 runtime version are used and if you select **Runtime Version** as **5.1**, PowerShell modules targeting 5.1 runtime version are used. This applies for PowerShell 7.1 (preview) modules and runbooks.
 
 Ensure that you select the right Runtime Version for modules.
@@ -65,7 +66,7 @@ The following are the current limitations and known issues with PowerShell runbo
 **Limitations**
 
 > [!NOTE]
-> Currently, PowerShell 7.2 runtime version is supported for both Cloud and Hybrid jobs in all Public regions except Central India, UAE Central, Israel  Central, Italy North, Germany North and Gov clouds.
+> Currently, PowerShell 7.2 runtime version is supported for both Cloud and Hybrid jobs in all Public regions except Central India, UAE Central, Israel  Central, Italy North, and Germany North.
 
 - For the PowerShell 7.2 runtime version, the module activities aren't extracted for the imported modules. Use [Azure Automation extension for VS code](automation-runbook-authoring.md) to simplify runbook authoring experience. 
 - PowerShell 7.x doesn't support workflows. For more information, see [PowerShell workflow](/powershell/scripting/whats-new/differences-from-windows-powershell#powershell-workflow) for more details.
@@ -82,6 +83,27 @@ The following are the current limitations and known issues with PowerShell runbo
 - Executing child scripts using `.\child-runbook.ps1` is not supported.</br>
   **Workaround**: Use `Start-AutomationRunbook` (internal cmdlet) or `Start-AzAutomationRunbook` (from *Az.Automation* module) to start another runbook from parent runbook.
 - When you use [ExchangeOnlineManagement](/powershell/exchange/exchange-online-powershell?view=exchange-ps&preserve-view=true) module version: 3.0.0 or higher, you can experience errors. To resolve the issue, ensure that you explicitly upload [PowerShellGet](/powershell/module/powershellget/) and [PackageManagement](/powershell/module/packagemanagement/) modules.
+- When you utilize the `New-AzAutomationVariable`  cmdlet within Az.Automation Module to upload a variable of type **object**, the operation doesn't function as expected.  
+
+  **Workaround**: Convert the object to a JSON string using the ConvertTo-Json cmdlet and then upload the variable with the JSON string as its value. This workaround ensures proper handling of the variable within the Azure Automation environment as a JSON string. 
+
+  **Example** - Create a PowerShell object that has stored information around Azure VMs 
+
+  ```azurepowershell
+    # Retrieve Azure virtual machines with status information for the 'northeurope' region 
+    $AzVM = Get-AzVM -Status | Where-Object {$_.Location -eq "northeurope"} 
+    
+    $VMstopatch = @($AzVM).Id 
+    # Create an Azure Automation variable (This cmdlet will not fail, but the variable may not work as intended when used in the runbook.) 
+    New-AzAutomationVariable -ResourceGroupName "mrg" -AutomationAccountName "mAutomationAccount2" -Name "complex1" -Encrypted $false -Value $VMstopatch 
+    
+    # Convert the object to a JSON string 
+    $jsonString = $VMstopatch | ConvertTo-Json 
+    
+    # Create an Azure Automation variable with a JSON string value (works effectively within the automation runbook) 
+    New-AzAutomationVariable -ResourceGroupName "mrg" -AutomationAccountName "mAutomationAccount2" -Name "complex1" -Encrypted $false -Value $jsonString 
+  ```
+ 
 
 # [PowerShell 5.1](#tab/lps51)
 
@@ -126,6 +148,26 @@ The following are the current limitations and known issues with PowerShell runbo
 * A PowerShell runbook can fail if it tries to write a large amount of data to the output stream at once. You can typically work around this issue by having the runbook output just the information needed  to work with large objects. For example, instead of using `Get-Process` with no limitations, you can have the cmdlet output just the required parameters as in `Get-Process | Select ProcessName, CPU`.
 * When you use [ExchangeOnlineManagement](/powershell/exchange/exchange-online-powershell?view=exchange-ps&preserve-view=true) module version: 3.0.0 or higher, you may experience errors. To resolve the issue, ensure that you explicitly upload [PowerShellGet](/powershell/module/powershellget/) and [PackageManagement](/powershell/module/packagemanagement/) modules as well.
 * If you import module Az.Accounts with version 2.12.3 or newer, ensure that you import the **Newtonsoft.Json** v10 module explicitly if PowerShell 5.1 runbooks have a dependency on this version of the module. The workaround for this issue is to use PowerShell 7.2 runbooks.
+* When you utilize the `New-AzAutomationVariable` cmdlet within Az.Automation Module to upload a variable of type **object**, the operation doesn't function as expected.  
+
+  **Workaround**: Convert the object to a JSON string using the ConvertTo-Json cmdlet and then upload the variable with the JSON string as its value. This workaround ensures proper handling of the variable within the Azure Automation environment as a JSON string. 
+
+  **Example** - Create a PowerShell object that has stored information around Azure VMs 
+
+  ```azurepowershell
+    # Retrieve Azure virtual machines with status information for the 'northeurope' region 
+    $AzVM = Get-AzVM -Status | Where-Object {$_.Location -eq "northeurope"} 
+    
+    $VMstopatch = @($AzVM).Id 
+    # Create an Azure Automation variable (This cmdlet will not fail, but the variable may not work as intended when used in the runbook.) 
+    New-AzAutomationVariable -ResourceGroupName "mrg" -AutomationAccountName "mAutomationAccount2" -Name "complex1" -Encrypted $false -Value $VMstopatch 
+    
+    # Convert the object to a JSON string 
+    $jsonString = $VMstopatch | ConvertTo-Json 
+    
+    # Create an Azure Automation variable with a JSON string value (works effectively within the automation runbook) 
+    New-AzAutomationVariable -ResourceGroupName "mrg" -AutomationAccountName "mAutomationAccount2" -Name "complex1" -Encrypted $false -Value $jsonString 
+  ```
 
 # [PowerShell 7.1](#tab/lps71)
 
@@ -183,6 +225,26 @@ The following are the current limitations and known issues with PowerShell runbo
 - When you start PowerShell 7 runbook using the webhook, it auto-converts the webhook input parameter to an invalid JSON.
 - We recommend that you use [ExchangeOnlineManagement](/powershell/exchange/exchange-online-powershell?view=exchange-ps&preserve-view=true) module version: 3.0.0 or lower because version: 3.0.0 or higher may lead to job failures.
 - If you import module Az.Accounts with version 2.12.3 or newer, ensure that you import the **Newtonsoft.Json** v10 module explicitly if PowerShell 7.1 runbooks have a dependency on this version of the module. The workaround for this issue is to use PowerShell 7.2 runbooks.
+- When you utilize the `New-AzAutomationVariable`  cmdlet within Az.Automation Module to upload a variable of type **object**, the operation doesn't function as expected.  
+
+  **Workaround**: Convert the object to a JSON string using the ConvertTo-Json cmdlet and then upload the variable with the JSON string as its value. This workaround ensures proper handling of the variable within the Azure Automation environment as a JSON string. 
+
+  **Example** - Create a PowerShell object that has stored information around Azure VMs 
+
+  ```azurepowershell
+    # Retrieve Azure virtual machines with status information for the 'northeurope' region 
+    $AzVM = Get-AzVM -Status | Where-Object {$_.Location -eq "northeurope"} 
+    
+    $VMstopatch = @($AzVM).Id 
+    # Create an Azure Automation variable (This cmdlet will not fail, but the variable may not work as intended when used in the runbook.) 
+    New-AzAutomationVariable -ResourceGroupName "mrg" -AutomationAccountName "mAutomationAccount2" -Name "complex1" -Encrypted $false -Value $VMstopatch 
+    
+    # Convert the object to a JSON string 
+    $jsonString = $VMstopatch | ConvertTo-Json 
+    
+    # Create an Azure Automation variable with a JSON string value (works effectively within the automation runbook) 
+    New-AzAutomationVariable -ResourceGroupName "mrg" -AutomationAccountName "mAutomationAccount2" -Name "complex1" -Encrypted $false -Value $jsonString 
+  ```
 ---
 
 ## PowerShell Workflow runbooks
@@ -201,7 +263,9 @@ PowerShell Workflow runbooks are text runbooks based on [Windows PowerShell Work
 
 ### Limitations
 
-* You must be familiar with PowerShell Workflow.
+* PowerShell workflow isn't supported in PowerShell 7+ versions. Hence, the outdated runbooks can't be upgraded.
+* Inefficient handling of parallel execution compared to newer PowerShell 7+ versions.
+* PowerShell Workflow internally works using multiple processes. Hence, modules available in one process may not be available in another and cause exceptions like *command not found*.
 * Runbooks must deal with the additional complexity of PowerShell Workflow, such as [deserialized objects](automation-powershell-workflow.md#deserialized-objects).
 * Runbooks take longer to start than PowerShell runbooks since they must be compiled before running.
 * You can only include PowerShell runbooks as child runbooks by using the `Start-AzAutomationRunbook` cmdlet.
@@ -220,7 +284,7 @@ Currently, Python 3.10 (preview) runtime version is supported for both Cloud and
 
 - Uses the robust Python libraries.
 - Can run in Azure or on Hybrid Runbook Workers.
-- For Python 2.7, Windows Hybrid Runbook Workers are supported with [python 2.7](https://www.python.org/downloads/release/latest/python2) installed.
+- For Python 2.7, Windows Hybrid Runbook Workers are supported with [python 2.7](https://www.python.org/downloads/release/python-2711/) installed.
 - For Python 3.8 Cloud Jobs, Python 3.8 version is supported. Scripts and packages from any 3.x version might work if the code is compatible across different versions.
 - For Python 3.8 Hybrid jobs on Windows machines, you can choose to install any 3.x version you may want to use.
 - For Python 3.8 Hybrid jobs on Linux machines, we depend on the Python 3 version installed on the machine to run DSC OMSConfig and the Linux Hybrid Worker. Different versions should work if there are no breaking changes in method signatures or contracts between versions of Python 3.

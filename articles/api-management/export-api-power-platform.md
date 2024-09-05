@@ -4,7 +4,7 @@ description: Learn how to export an API from API Management as a custom connecto
 services: api-management
 author: dlepow
 
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: how-to
 ms.date: 03/24/2023
 ms.author: danlep
@@ -12,6 +12,8 @@ ms.custom: engagement-fy23
 ---
 
 # Export APIs from Azure API Management to the Power Platform 
+
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 
 Citizen developers using the Microsoft [Power Platform](https://powerplatform.microsoft.com) often need to reach the business capabilities that are developed by professional developers and deployed in Azure. [Azure API Management](https://aka.ms/apimrocks) enables professional developers to publish their backend service as APIs, and easily export these APIs to the Power Platform ([Power Apps](/powerapps/powerapps-overview) and [Power Automate](/power-automate/getting-started)) as custom connectors for discovery and consumption by citizen developers. 
 

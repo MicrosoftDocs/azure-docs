@@ -38,7 +38,7 @@ When it comes to availability, there are two areas to consider:
 
 ## Deploy and Configure Operator Nexus for High Availability
 
-[Reliability in Azure Operator Nexus \| Microsoft Learn](https://learn.microsoft.com/azure/reliability/reliability-operator-nexus) provides details of how to deploy the Operator Nexus services that run in Azure so as to maximize availability.
+[Reliability in Azure Operator Nexus \| Microsoft Learn](../reliability/reliability-operator-nexus.md) provides details of how to deploy the Operator Nexus services that run in Azure so as to maximize availability.
 
 ### Capacity and Redundancy Planning
 
@@ -53,11 +53,11 @@ Go through the following steps to help plan an Operator Nexus deployment.
 3.  If your workloads support a split between control-plane and data-plane elements, consider whether to separately design control-plane sites that can control a larger number of more widely distributed data-plane sites. This option is only likely to be attractive for larger deployments. For smaller deployments, or deployments with workloads that don't support separating the control-plane and the data-plane, you're more likely to use a homogenous site architecture where all sites are identical.
 
 
-4.  Plan the distribution of workload instances to determine the number of racks needed in each site type, allowing for the fact that each rack is an Operator Nexus zone. The platform can enforce affinity/anti-affinity rules at the scope of these zones, to ensure workload instances are distributed in such a way as to be resilient to failures of individual servers or racks. See [this article](https://learn.microsoft.com/azure/operator-nexus/howto-virtual-machine-placement-hints) for more on affinity/anti-affinity rules. The Operator Nexus Azure Kubernetes Service (NAKS) controller automatically distributes nodes within a cluster across the available servers in a zone as uniformly as possible, within other constraints. As a result, failure of any single server has the minimum impact on the total capacity remaining.
+4.  Plan the distribution of workload instances to determine the number of racks needed in each site type, allowing for the fact that each rack is an Operator Nexus zone. The platform can enforce affinity/anti-affinity rules at the scope of these zones, to ensure workload instances are distributed in such a way as to be resilient to failures of individual servers or racks. See [this article](./howto-virtual-machine-placement-hints.md) for more on affinity/anti-affinity rules. The Operator Nexus Azure Kubernetes Service (NAKS) controller automatically distributes nodes within a cluster across the available servers in a zone as uniformly as possible, within other constraints. As a result, failure of any single server has the minimum impact on the total capacity remaining.
 
-5.  Factor in the [threshold redundancy](https://learn.microsoft.com/azure/operator-nexus/howto-cluster-runtime-upgrade#configure-compute-threshold-parameters-for-runtime-upgrade-using-cluster-updatestrategy) that is required within each site on upgrade. This configuration option indicates to the orchestration engine the minimum number of worker nodes that must be available in order for a platform upgrade to be considered successful and allowed to proceed. Reserving these nodes eats into any capacity headroom. Setting a higher bar decreases the overall deployment's resilience to failure of individual nodes, but improves efficiency of utilization of the available capacity.
+5.  Factor in the [threshold redundancy](./howto-cluster-runtime-upgrade.md#configure-compute-threshold-parameters-for-runtime-upgrade-using-cluster-updatestrategy) that is required within each site on upgrade. This configuration option indicates to the orchestration engine the minimum number of worker nodes that must be available in order for a platform upgrade to be considered successful and allowed to proceed. Reserving these nodes eats into any capacity headroom. Setting a higher bar decreases the overall deployment's resilience to failure of individual nodes, but improves efficiency of utilization of the available capacity.
 
-6.  Operator Nexus supports between 1 and 8 racks per site inclusive, with each rack containing 4, 8, 12 or 16 servers. All racks must be identical in terms of number of servers. See [here](https://learn.microsoft.com/azure/operator-nexus/reference-near-edge-compute) for specifics of the resource available for workloads. See the following diagram, and also [this article](https://learn.microsoft.com/azure/operator-nexus/reference-limits-and-quotas) for other limits and quotas that might have an impact.
+6.  Operator Nexus supports between 1 and 8 racks per site inclusive, with each rack containing 4, 8, 12 or 16 servers. All racks must be identical in terms of number of servers. See [here](./reference-near-edge-compute.md) for specifics of the resource available for workloads. See the following diagram, and also [this article](./reference-limits-and-quotas.md) for other limits and quotas that might have an impact.
 
 7.  Operator Nexus supports one or two storage appliances. Currently, these arrays are available to workload NFs running as Kubernetes nodes. Workloads running as VMs use local storage from the server they're instantiated on.
 
@@ -109,7 +109,7 @@ Ensure that the Operator Nexus routing tables have redundant routes preconfigure
 
 ### Identity and Authentication
 
-During a disconnection event, the on-premises infrastructure and workloads aren't able to reach Entra in order to perform user authentication. To prepare for a disconnection, you can ensure that all necessary identities and their associated permissions and user keys are preconfigured. Operator Nexus provides [an API](https://learn.microsoft.com/azure/operator-nexus/howto-baremetal-bmm-ssh) that the operator can use to automate this process. Preconfiguring this information ensures that authenticated management access to the infrastructure continues unimpeded by loss of connectivity to Entra.
+During a disconnection event, the on-premises infrastructure and workloads aren't able to reach Entra in order to perform user authentication. To prepare for a disconnection, you can ensure that all necessary identities and their associated permissions and user keys are preconfigured. Operator Nexus provides [an API](./howto-baremetal-bmm-ssh.md) that the operator can use to automate this process. Preconfiguring this information ensures that authenticated management access to the infrastructure continues unimpeded by loss of connectivity to Entra.
 
 ### Managing Platform Upgrade
 
@@ -119,20 +119,20 @@ Operator Nexus upgrade is initiated by the customer, but it's then managed by th
 
 -   The process is only active on one rack in the selected site at a time. Although upgrade is done in-place, there's still some impact to the worker nodes in the rack during the upgrade.
 
-For more information about the upgrade process, see [this article](https://learn.microsoft.com/azure/operator-nexus/howto-cluster-runtime-upgrade#upgrading-cluster-runtime-using-cli). For more information about ensuring control-plane resiliency, see [this one](https://learn.microsoft.com/azure/operator-nexus/concepts-rack-resiliency).
+For more information about the upgrade process, see [this article](./howto-cluster-runtime-upgrade.md#upgrading-cluster-runtime-using-cli). For more information about ensuring control-plane resiliency, see [this one](./concepts-rack-resiliency.md).
 
 ## Designing and Operating High Availability Workloads for Operator Nexus
 
 Workloads should ideally follow a cloud-native design, with N+k clusters that can be deployed across multiple nodes and racks within a site, using the Operator Nexus zone concept.
 
-The Well Architected Framework guidance on [mission critical](https://learn.microsoft.com/azure/well-architected/mission-critical/) and [carrier grade](https://learn.microsoft.com/azure/well-architected/carrier-grade/) workloads on Azure also applies to workloads on Operator Nexus.
+The Well Architected Framework guidance on [mission critical](/azure/well-architected/mission-critical/) and [carrier grade](/azure/well-architected/carrier-grade/) workloads on Azure also applies to workloads on Operator Nexus.
 
 Designing and implementing highly available workloads on any platform requires a top-down approach. Start with an understanding of the availability required from the solution as a whole. Consider the key elements of the solution and their predicted availability. Then determine how these attributes need to be combined in order to achieve the solution level goals.
 
 
 ### Workload Placement
 
-Operator Nexus has extensive support for providing hints to the Kubernetes orchestrator to control how workloads are deployed across the available worker nodes. See [this article](https://learn.microsoft.com/azure/operator-nexus/howto-virtual-machine-placement-hints) for full details.
+Operator Nexus has extensive support for providing hints to the Kubernetes orchestrator to control how workloads are deployed across the available worker nodes. See [this article](./howto-virtual-machine-placement-hints.md) for full details.
 
 
 ### Configuration Updates

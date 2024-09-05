@@ -5,10 +5,12 @@ author: dlepow
 ms.author: danlep
 ms.date: 02/10/2022
 ms.topic: article
-ms.service: api-management
+ms.service: azure-api-management
 ---
 
 # How API Management supports monetization
+
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 
 With [Azure API Management](./api-management-key-concepts.md) service platform, you can:
 * Publish APIs, to which your consumers subscribe.

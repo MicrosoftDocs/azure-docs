@@ -4,13 +4,15 @@ description: Reference for the rate-limit policy available for use in Azure API 
 services: api-management
 author: dlepow
 
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: article
-ms.date: 01/11/2023
+ms.date: 07/23/2024
 ms.author: danlep
 ---
 
 # Limit call rate by subscription
+
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 
 The `rate-limit` policy prevents API usage spikes on a per subscription basis by limiting the call rate to a specified number per a specified time period. When the call rate is exceeded, the caller receives a `429 Too Many Requests` response status code.
 
@@ -78,7 +80,7 @@ To understand the difference between rate limits and quotas, [see Rate limits an
 
 - [**Policy sections:**](./api-management-howto-policies.md#sections) inbound
 - [**Policy scopes:**](./api-management-howto-policies.md#scopes) product, API, operation
--  [**Gateways:**](api-management-gateways-overview.md) dedicated, consumption, self-hosted
+-  [**Gateways:**](api-management-gateways-overview.md) classic, v2, consumption, self-hosted, workspace
 
 ### Usage notes
 
@@ -106,6 +108,6 @@ In the following example, the per subscription rate limit is 20 calls per 90 sec
 
 ## Related policies
 
-* [API Management access restriction policies](api-management-access-restriction-policies.md)
+* [Rate limiting and quotas](api-management-policies.md#rate-limiting-and-quotas)
 
 [!INCLUDE [api-management-policy-ref-next-steps](../../includes/api-management-policy-ref-next-steps.md)]

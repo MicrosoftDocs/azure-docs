@@ -3,7 +3,7 @@ title: Choose a developer tool for building Stream Analytic jobs
 description: This article compares the features supported for Azure Stream Analytics cloud and IoT Edge jobs in the Azure portal, Visual Studio, and Visual Studio Code.
 author: alexlzx
 ms.author: zhenxilin
-ms.service: stream-analytics
+ms.service: azure-stream-analytics
 ms.topic: conceptual
 ms.date: 11/09/2022
 ---

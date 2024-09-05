@@ -1,9 +1,9 @@
 ---
 title: All files test cases for Azure Resource Manager test toolkit
 description: Describes the tests that are run for all files by the Azure Resource Manager template test toolkit.
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: devx-track-arm-template
-ms.date: 06/22/2023
+ms.date: 06/20/2024
 ---
 
 # Test cases for all files

@@ -4,7 +4,7 @@ titleSuffix: Microsoft Cost Management
 description: This article helps get the most value out of your cloud investments, reduce your costs, and evaluate where your money is being spent.
 author: bandersmsft
 ms.author: banders
-ms.date: 12/06/2022
+ms.date: 03/21/2024
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -62,7 +62,7 @@ Act to reduce your spending. Make the most of it based on the findings gathered 
 
 Everyone in your organization must engage in the cost management lifecycle. They need to stay involved on an ongoing basis to optimize costs. Be rigorous about this iterative process and make it a key tenet of responsible cloud governance in your organization.
 
-![Key principles diagram showing visibility, accountability, and optimization](./media/cost-mgt-best-practices/principles.png)
+:::image type="content" border="false" source="./media/cost-mgt-best-practices/principles.png" alt-text="The Key principles diagram showing visibility, accountability, and optimization.":::
 
 ## Plan with cost in mind
 
@@ -230,5 +230,6 @@ For more information, see [Azure Hybrid Benefit savings calculator](https://azur
 
 Azure also has a service that allows you to build services that take advantage of surplus capacity in Azure for reduced rates. For more information, see [Use low priority VMs with Batch](../../batch/batch-low-pri-vms.md).
 
-## Next steps
+## Related content
+
 - If you're new to Cost Management, read [What is Cost Management?](../cost-management-billing-overview.md) to learn how it helps monitor and control Azure spending and to optimize resource use.

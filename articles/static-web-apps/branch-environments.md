@@ -3,7 +3,7 @@ title: Create branch preview environments in Azure Static Web Apps
 description: Expose stable URLs for specific branches to evaluate changes in Azure Static Web Apps
 author: craigshoemaker
 ms.author: cshoe
-ms.service: static-web-apps
+ms.service: azure-static-web-apps
 ms.topic: conceptual
 ms.date: 09/19/2022
 ms.custom: template-how-to

@@ -49,7 +49,7 @@ Use the following procedures from the Log Analytics and Azure Monitor documentat
 - Walk through a tutorial for [ingesting logs using the Azure portal](../azure-monitor/logs/tutorial-logs-ingestion-portal.md).
 - Walk through a tutorial for [ingesting logs using Azure Resource Manager (ARM) templates and REST API](../azure-monitor/logs/tutorial-logs-ingestion-api.md).
 
-[Workspace transformations](../azure-monitor/essentials/data-collection-transformations.md#workspace-transformation-dcr):
+[Workspace transformations](../azure-monitor/essentials/data-collection-transformations-workspace.md):
 - Walk through a tutorial for [configuring workspace transformation using the Azure portal](../azure-monitor/logs/tutorial-workspace-transformations-portal.md).
 - Walk through a tutorial for [configuring workspace transformation using Azure Resource Manager (ARM) templates and REST API](../azure-monitor/logs/tutorial-workspace-transformations-api.md).- 
 
@@ -81,4 +81,4 @@ For more information about data transformation and DCRs, see:
 - [Data collection transformations in Azure Monitor Logs (preview)](../azure-monitor/essentials/data-collection-transformations.md)
 - [Logs ingestion API in Azure Monitor Logs (Preview)](../azure-monitor/logs/logs-ingestion-api-overview.md)
 - [Structure of a data collection rule in Azure Monitor (preview)](../azure-monitor/essentials/data-collection-rule-structure.md)
-- [Configure data collection for the Azure Monitor agent](../azure-monitor/agents/data-collection-rule-azure-monitor-agent.md)
+- [Configure data collection for the Azure Monitor agent](../azure-monitor/agents/azure-monitor-agent-data-collection.md)

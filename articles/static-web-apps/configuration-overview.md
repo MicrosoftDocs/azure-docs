@@ -3,9 +3,9 @@ title: Configuration overview for Azure Static Web Apps
 description: Learn about the different ways to configure Azure Static Web Apps.
 services: static-web-apps
 author: craigshoemaker
-ms.service: static-web-apps
+ms.service: azure-static-web-apps
 ms.topic: conceptual
-ms.date: 09/08/2021
+ms.date: 06/25/2024
 ms.author: cshoe
 ---
 
@@ -17,7 +17,7 @@ The following different concepts apply to configuring a static web app.
 
 - [Build configuration](./build-configuration.md): Define settings that control the build process.
 
-- [Application settings](./application-settings.md): Set application-level settings and environment variables that can be used by backend APIs.
+- [Application settings](./application-settings.yml): Set application-level settings and environment variables that can be used by backend APIs.
 
 ## Example scenarios
 
@@ -30,7 +30,7 @@ The following different concepts apply to configuring a static web app.
 | Set global headers for HTTP requests | [Define global headers in the staticwebapp.config.json file](./configuration.md#global-headers)|
 | Define a custom build command | [Set a custom build command value in the application configuration file](./build-configuration.md) |
 | Set an environment variable for a frontend build | [Define an environment variable in the build configuration file](./build-configuration.md#environment-variables) |
-| Set an environment variable for an API | [Set an application setting in the portal](./application-settings.md) |
+| Set an environment variable for an API | [Set an application setting in the portal](./application-settings.yml) |
 
 ## Next steps
 

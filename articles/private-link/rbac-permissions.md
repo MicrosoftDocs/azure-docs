@@ -3,7 +3,7 @@ title: Azure RBAC permissions for Azure Private Link
 description: Get started learning about the Azure RBAC permissions needed to deploy a private endpoint and private link service.
 author: abell
 ms.author: abell
-ms.service: private-link
+ms.service: azure-private-link
 ms.topic: conceptual
 ms.date: 5/25/2021
 ms.custom: template-concept

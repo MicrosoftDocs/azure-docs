@@ -5,7 +5,7 @@ description: Learn how to use P2S VPN to connect to your VNet using Microsoft En
 services: virtual-wan
 author: cherylmc
 
-ms.service: virtual-wan
+ms.service: azure-virtual-wan
 ms.topic: how-to
 ms.date: 07/28/2023
 ms.author: cherylmc

@@ -18,7 +18,7 @@ If you purchase an App Service certificate from Azure, Azure manages the followi
 
 - Handles the purchase process from GoDaddy.
 - Performs domain verification of the certificate.
-- Maintains the certificate in [Azure Key Vault](../key-vault/general/overview.md).
+- Maintains the certificate in [Azure Key Vault](/azure/key-vault/general/overview).
 - Manages [certificate renewal](#renew-an-app-service-certificate).
 - Synchronizes the certificate automatically with the imported copies in App Service apps.
 
@@ -58,7 +58,7 @@ If you purchase an App Service certificate from Azure, Azure manages the followi
 
 #### Store certificate in Azure Key Vault
 
-[Key Vault](../key-vault/general/overview.md) is an Azure service that helps safeguard cryptographic keys and secrets used by cloud applications and services. For App Service certificates, the storage of choice is Key Vault. After you finish the certificate purchase process, you must complete a few more steps before you start using this certificate.
+[Key Vault](/azure/key-vault/general/overview) is an Azure service that helps safeguard cryptographic keys and secrets used by cloud applications and services. For App Service certificates, the storage of choice is Key Vault. After you finish the certificate purchase process, you must complete a few more steps before you start using this certificate.
 
 1. On the [App Service Certificates page](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.CertificateRegistration%2FcertificateOrders), select the certificate. On the certificate menu, select **Certificate Configuration** > **Step 1: Store**.
 
@@ -74,7 +74,7 @@ If you purchase an App Service certificate from Azure, Azure manages the followi
    | **Key vault name** | A unique name that uses only alphanumeric characters and dashes. |
    | **Region** | The same location as your App Service app. |
    | **Pricing tier** | For information, see [Azure Key Vault pricing details](https://azure.microsoft.com/pricing/details/key-vault/). |
-   | **Days to retain deleted vaults** | The number of days after deletion, in which objects remain recoverable (see [Azure Key Vault soft-delete overview](../key-vault/general/soft-delete-overview.md)). Set a value between 7 and 90. |
+   | **Days to retain deleted vaults** | The number of days after deletion, in which objects remain recoverable (see [Azure Key Vault soft-delete overview](/azure/key-vault/general/soft-delete-overview)). Set a value between 7 and 90. |
    | **Purge protection** | Prevents objects soft-deleted st objects to be manually purged. Enabling this option forces all deleted objects to remain in soft-deleted state for the entire duration of the retention period. |
 
 1. Select **Next** and select **Vault access policy**. Currently, App Service certificates support only Key Vault access policies, not the RBAC model.
@@ -98,7 +98,7 @@ The following domain verification methods are supported:
 | **App Service Verification** | The most convenient option when the domain is already mapped to an App Service app in the same subscription because the App Service app has already verified the domain ownership. Review the last step in [Confirm domain ownership](#confirm-domain-ownership). |
 | **Domain Verification** | Confirm an [App Service domain that you purchased from Azure](manage-custom-dns-buy-domain.md). Azure automatically adds the verification TXT record for you and completes the process. |
 | **Mail Verification** | Confirm the domain by sending an email to the domain administrator. Instructions are provided when you select the option. |
-| **Manual Verification** | Confirm the domain by using either a DNS TXT record or an HTML page, which applies only to **Standard** certificates per the following note.  The steps are provided after you select the option. The HTML page option doesn't work for web apps with "HTTPS Only' enabled. For subdomain verification, the domain verification token needs to be added to the root domain. |
+| **Manual Verification** | Confirm the domain by using either a DNS TXT record or an HTML page, which applies only to **Standard** certificates per the following note.  The steps are provided after you select the option. The HTML page option doesn't work for web apps with "HTTPS Only' enabled. For domain verification via DNS TXT record for either root domain (ie. "contoso.com") or subdomain (ie. "www.contoso.com", "test.api.contoso.com") and regardless of certificate SKU, you need to add a TXT record at the root domain level using '@' for the name and the domain verification token for the value in your DNS record. |
 
 > [!IMPORTANT]
 > With the **Standard** certificate, you get a certificate for the requested top-level domain *and* the `www` subdomain, for example, `contoso.com` and `www.contoso.com`. However, **App Service Verification** and **Manual Verification** both use HTML page verification, which doesn't support the `www` subdomain when issuing, rekeying, or renewing a certificate. For the **Standard** certificate, use **Domain Verification** and **Mail Verification** to include the `www` subdomain with the requested top-level domain in the certificate.
@@ -158,7 +158,7 @@ If you think your certificate's private key is compromised, you can rekey your c
 
 ## Export an App Service certificate
 
-Because an App Service certificate is a [Key Vault secret](../key-vault/general/about-keys-secrets-certificates.md), you can export a copy as a PFX file, which you can use for other Azure services or outside of Azure.
+Because an App Service certificate is a [Key Vault secret](/azure/key-vault/general/about-keys-secrets-certificates), you can export a copy as a PFX file, which you can use for other Azure services or outside of Azure.
 
 > [!IMPORTANT]
 > The exported certificate is an unmanaged artifact. App Service doesn't sync such artifacts when the App Service Certificate is [renewed](#renew-an-app-service-certificate). You must export and install the renewed certificate where necessary.

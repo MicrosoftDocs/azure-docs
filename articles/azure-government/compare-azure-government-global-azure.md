@@ -1,13 +1,13 @@
 ---
 title: Compare Azure Government and global Azure
-description: Describe feature differences between Azure Government and global Azure.
+description: Describes the feature differences between Azure Government and the global (public) Azure.
 ms.service: azure-government
 ms.topic: article
 author: EliotSeattle
 ms.author: eliotgra
 ms.custom: references_regions
 recommendations: false
-ms.date: 06/08/2023
+ms.date: 07/12/2024
 ---
 
 # Compare Azure Government and global Azure
@@ -64,16 +64,17 @@ Table below lists API endpoints in Azure vs. Azure Government for accessing and 
 |-----------|-----------|-------|----------|----------------------|
 |**AI + machine learning**|Azure Bot Service|botframework.com|botframework.azure.us||
 ||Azure AI Document Intelligence|cognitiveservices.azure.com|cognitiveservices.azure.us||
+||Azure OpenAI Service|openai.azure.com|openai.azure.us||
 ||Computer Vision|cognitiveservices.azure.com|cognitiveservices.azure.us||
 ||Custom Vision|cognitiveservices.azure.com|cognitiveservices.azure.us </br>[Portal](https://www.customvision.azure.us/)||
 ||Content Moderator|cognitiveservices.azure.com|cognitiveservices.azure.us||
 ||Face API|cognitiveservices.azure.com|cognitiveservices.azure.us||
-||Language Understanding|cognitiveservices.azure.com|cognitiveservices.azure.us </br>[Portal](https://luis.azure.us/)|Part of [Azure AI Language](../ai-services/language-service/index.yml)|
+||Language Understanding|cognitiveservices.azure.com|cognitiveservices.azure.us </br>[Portal](https://luis.azure.us/)|Part of [Azure AI Language](/azure/ai-services/language-service/)|
 ||Personalizer|cognitiveservices.azure.com|cognitiveservices.azure.us||
-||QnA Maker|cognitiveservices.azure.com|cognitiveservices.azure.us|Part of [Azure AI Language](../ai-services/language-service/index.yml)|
-||Speech service|See [STT API docs](../ai-services/speech-service/rest-speech-to-text-short.md#regions-and-endpoints)|[Speech Studio](https://speech.azure.us/)</br></br>See [Speech service endpoints](../ai-services/Speech-Service/sovereign-clouds.md)</br></br>**Speech translation endpoints**</br>Virginia: `https://usgovvirginia.s2s.speech.azure.us`</br>Arizona: `https://usgovarizona.s2s.speech.azure.us`</br>||
-||Text Analytics|cognitiveservices.azure.com|cognitiveservices.azure.us|Part of [Azure AI Language](../ai-services/language-service/index.yml)|
-||Translator|See [Translator API docs](../ai-services/translator/reference/v3-0-reference.md#base-urls)|cognitiveservices.azure.us||
+||QnA Maker|cognitiveservices.azure.com|cognitiveservices.azure.us|Part of [Azure AI Language](/azure/ai-services/language-service/)|
+||Speech service|See [STT API docs](/azure/ai-services/speech-service/rest-speech-to-text-short#regions-and-endpoints)|[Speech Studio](https://speech.azure.us/)</br></br>See [Speech service endpoints](/azure/ai-services/speech-service/sovereign-clouds)</br></br>**Speech translation endpoints**</br>Virginia: `https://usgovvirginia.s2s.speech.azure.us`</br>Arizona: `https://usgovarizona.s2s.speech.azure.us`</br>||
+||Text Analytics|cognitiveservices.azure.com|cognitiveservices.azure.us|Part of [Azure AI Language](/azure/ai-services/language-service/)|
+||Translator|See [Translator API docs](/azure/ai-services/translator/reference/v3-0-reference#base-urls)|cognitiveservices.azure.us||
 |**Analytics**|Azure HDInsight|azurehdinsight.net|azurehdinsight.us||
 ||Event Hubs|servicebus.windows.net|servicebus.usgovcloudapi.net||
 ||Power BI|app.powerbi.com|app.powerbigov.us|[Power BI US Gov](https://powerbi.microsoft.com/documentation/powerbi-service-govus-overview/)|
@@ -103,7 +104,6 @@ Table below lists API endpoints in Azure vs. Azure Government for accessing and 
 |||docs.loganalytics.io|docs.loganalytics.us||
 |||adx.monitor.azure.com|adx.monitor.azure.us|[Data Explorer queries](/azure/data-explorer/query-monitor-data)|
 ||Azure Resource Manager|management.azure.com|management.usgovcloudapi.net||
-||Cost Management|consumption.azure.com|consumption.azure.us||
 ||Gallery URL|gallery.azure.com|gallery.azure.us||
 ||Microsoft Azure portal|portal.azure.com|portal.azure.us||
 ||Microsoft Intune|enterpriseregistration.windows.net|enterpriseregistration.microsoftonline.us|Enterprise registration|
@@ -113,6 +113,7 @@ Table below lists API endpoints in Azure vs. Azure Government for accessing and 
 |||blob.core.windows.net|blob.core.usgovcloudapi.net|Storing VM snapshots|
 |**Networking**|Traffic Manager|trafficmanager.net|usgovtrafficmanager.net||
 |**Security**|Key Vault|vault.azure.net|vault.usgovcloudapi.net||
+||Managed HSM|managedhsm.azure.net|managedhsm.usgovcloudapi.net||
 |**Storage**|Azure Backup|backup.windowsazure.com|backup.windowsazure.us||
 ||Blob|blob.core.windows.net|blob.core.usgovcloudapi.net||
 ||Queue|queue.core.windows.net|queue.core.usgovcloudapi.net||
@@ -151,13 +152,13 @@ The following Azure Bot Service **features aren't currently available** in Azure
 
 For information on how to deploy Bot Framework and Azure Bot Service bots to Azure Government, see [Configure Bot Framework bots for US Government customers](/azure/bot-service/how-to-deploy-gov-cloud-high).
 
-### [Azure Machine Learning](../machine-learning/index.yml)
+### [Azure Machine Learning](/azure/machine-learning/)
 
-For feature variations and limitations, see [Azure Machine Learning feature availability across cloud regions](../machine-learning/reference-machine-learning-cloud-parity.md).
+For feature variations and limitations, see [Azure Machine Learning feature availability across cloud regions](/azure/machine-learning/reference-machine-learning-cloud-parity).
 
 <a name='cognitive-services-content-moderator'></a>
 
-### [Azure AI services: Content Moderator](../ai-services/content-moderator/index.yml)
+### [Azure AI services: Content Moderator](/azure/ai-services/content-moderator/)
 
 The following Content Moderator **features aren't currently available** in Azure Government:
 
@@ -165,26 +166,30 @@ The following Content Moderator **features aren't currently available** in Azure
 
 <a name='cognitive-services-language-understanding-luis'></a>
 
-### [Azure AI Language Understanding (LUIS)](../ai-services/luis/index.yml)
+### [Azure AI Language Understanding (LUIS)](/azure/ai-services/luis/)
 
 The following Language Understanding **features aren't currently available** in Azure Government:
 
 - Speech Requests
 - Prebuilt Domains
 
-Azure AI Language Understanding (LUIS) is part of [Azure AI Language](../ai-services/language-service/index.yml).
+Azure AI Language Understanding (LUIS) is part of [Azure AI Language](/azure/ai-services/language-service/).
 
 <a name='cognitive-services-speech'></a>
 
-### [Azure AI Speech](../ai-services/speech-service/index.yml)
+### [Azure AI Speech](/azure/ai-services/speech-service/)
 
-For feature variations and limitations, including API endpoints, see [Speech service in sovereign clouds](../ai-services/speech-service/sovereign-clouds.md).
+For feature variations and limitations, including API endpoints, see [Speech service in sovereign clouds](/azure/ai-services/speech-service/sovereign-clouds).
 
 <a name='cognitive-services-translator'></a>
 
-### [Azure AI services: Translator](../ai-services/translator/index.yml)
+### [Azure AI services: OpenAI Service](/azure/ai-services/openai/overview)
 
-For feature variations and limitations, including API endpoints, see [Translator in sovereign clouds](../ai-services/translator/sovereign-clouds.md).
+For feature variations and limitations see [Azure OpenAI in Azure Gov](/azure/ai-services/openai/azure-government).
+
+### [Azure AI services: Translator](/azure/ai-services/translator/)
+
+For feature variations and limitations, including API endpoints, see [Translator in sovereign clouds](/azure/ai-services/translator/sovereign-clouds).
 
 ## Analytics
 
@@ -216,19 +221,19 @@ To learn how to embed analytical content within your business process applicatio
 
 This section outlines variations and considerations when using Databases services in the Azure Government environment.  For service availability, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=azure-api-for-fhir,data-factory,sql-server-stretch-database,redis-cache,database-migration,synapse-analytics,postgresql,mariadb,mysql,sql-database,cosmos-db&regions=usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-texas,usgov-virginia&rar=true).
 
-### [Azure Database for MySQL](../mysql/index.yml)
+### [Azure Database for MySQL](/azure/mysql/)
 
 The following Azure Database for MySQL **features aren't currently available** in Azure Government:
 
 - Advanced Threat Protection
 
-### [Azure Database for PostgreSQL](../postgresql/index.yml)
+### [Azure Database for PostgreSQL](/azure/postgresql/)
 
-For Flexible Server availability in Azure Government regions, see [Azure Database for PostgreSQL – Flexible Server](../postgresql/flexible-server/overview.md#azure-regions).
+For Flexible Server availability in Azure Government regions, see [Azure Database for PostgreSQL – Flexible Server](/azure/postgresql/flexible-server/overview#azure-regions).
 
 The following Azure Database for PostgreSQL **features aren't currently available** in Azure Government:
 
-- Azure Cosmos DB for PostgreSQL, formerly Azure Database for PostgreSQL – Hyperscale (Citus). For more information about supported regions, see [Regional availability for Azure Cosmos DB for PostgreSQL](../cosmos-db/postgresql/resources-regions.md).
+- Azure Cosmos DB for PostgreSQL, formerly Azure Database for PostgreSQL – Hyperscale (Citus). For more information about supported regions, see [Regional availability for Azure Cosmos DB for PostgreSQL](/azure/cosmos-db/postgresql/resources-regions).
 - The following features of the Single Server deployment option
   - Advanced Threat Protection
   - Backup with long-term retention
@@ -290,6 +295,10 @@ The following Azure Lighthouse **features aren't currently available** in Azure 
 - Managed Service offers published to Azure Marketplace
 - Delegation of subscriptions across a national cloud and the Azure public cloud, or across two separate national clouds, isn't supported
 - Privileged Identity Management (PIM) feature isn't enabled, for example, just-in-time (JIT) / eligible authorization capability
+
+### [Azure Managed Grafana](../managed-grafana/index.yml)
+
+The following document contains information about Azure Managed Grafana feature availability in Azure Government: [Azure Managed Grafana: Feature availability in sovereign clouds](../managed-grafana/known-limitations.md?#feature-availability-in-sovereign-clouds).
 
 ### [Azure Monitor](../azure-monitor/index.yml)
 
@@ -382,7 +391,7 @@ Azure Front Door (AFD) Standard and Premium tiers are available in general avail
 
 ### [Traffic Manager](../traffic-manager/index.yml)
 
-Traffic Manager health checks can originate from certain IP addresses for Azure Government. Review the [IP addresses in the JSON file](https://azuretrafficmanagerdata.blob.core.windows.net/probes/azure-gov/probe-ip-ranges.json) to ensure that incoming connections from these IP addresses are allowed at the endpoints to check its health status.
+Traffic Manager health checks can originate from certain IP addresses for Azure Government. Review the [IP addresses in the JSON file](https://www.microsoft.com/en-us/download/details.aspx?id=57063) to ensure that incoming connections from these IP addresses are allowed at the endpoints to check its health status.
 
 ## Security
 
@@ -400,7 +409,7 @@ For feature variations and limitations, see [Cloud feature availability for US G
 
 Azure Information Protection Premium is part of the [Enterprise Mobility + Security](/enterprise-mobility-security) suite. For details on this service and how to use it, see [Azure Information Protection Premium Government Service Description](/enterprise-mobility-security/solutions/ems-aip-premium-govt-service-description).
 
-### [Microsoft Defender for Cloud](../defender-for-cloud/index.yml)
+### [Microsoft Defender for Cloud](/azure/defender-for-cloud/)
 
 For feature variations and limitations, see [Cloud feature availability for US Government customers](../security/fundamentals/feature-availability.md#microsoft-defender-for-cloud).
 

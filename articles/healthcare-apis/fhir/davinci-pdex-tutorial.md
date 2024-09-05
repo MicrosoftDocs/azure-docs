@@ -2,7 +2,7 @@
 title: Tutorial - Da Vinci PDex - Azure Health Data Services
 description: This tutorial walks through setting up FHIR service to pass tests for the Da Vinci Payer Data Exchange Implementation Guide.
 services: healthcare-apis
-ms.service: healthcare-apis
+ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.topic: tutorial
 ms.author: kesheth

@@ -1,7 +1,8 @@
 ---
 author: cephalin
-ms.service: app-service
+ms.service: azure-app-service
 ms.devlang: java
+ms.custom: linux-related-content
 ms.topic: quickstart
 ms.date: 06/30/2022
 ms.author: cephalin
@@ -145,4 +146,4 @@ The App Service app pulls from the container registry every time it starts. If y
 > [Configure custom container](../../configure-custom-container.md)
 
 > [!div class="nextstepaction"]
-> [Multi-container app tutorial](../../tutorial-multi-container-app.md)
+> [Sidecar container tutorial](../../tutorial-custom-container-sidecar.md)

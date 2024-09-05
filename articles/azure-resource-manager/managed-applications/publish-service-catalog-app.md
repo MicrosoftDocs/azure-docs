@@ -3,7 +3,7 @@ title: Create and publish Azure Managed Application in service catalog
 description: Describes how to create and publish an Azure Managed Application in your service catalog using Azure PowerShell, Azure CLI, or Azure portal.
 ms.topic: quickstart
 ms.custom: subject-armqs, devx-track-azurecli, devx-track-azurepowershell, subject-rbac-steps, mode-api, mode-arm, devx-track-arm-template, engagement-fy23
-ms.date: 05/12/2023
+ms.date: 06/24/2024
 ---
 
 # Quickstart: Create and publish an Azure Managed Application definition
@@ -12,7 +12,7 @@ This quickstart provides an introduction to working with [Azure Managed Applicat
 
 To publish a managed application to your service catalog, do the following tasks:
 
-- Create an Azure Resource Manager template (ARM template) that defines the resources to deploy with the managed application.
+- Create an Azure Resource Manager template (ARM template) that defines the resources that deploy with the managed application.
 - Define the user interface elements for the portal when deploying the managed application.
 - Create a _.zip_ package that contains the required JSON files. The _.zip_ package file has a 120-MB limit for a service catalog's managed application definition.
 - Publish the managed application definition so it's available in your service catalog.
@@ -90,7 +90,7 @@ Add the following JSON and save the file. It defines the resources to deploy an 
   "resources": [
     {
       "type": "Microsoft.Web/serverfarms",
-      "apiVersion": "2022-03-01",
+      "apiVersion": "2022-09-01",
       "name": "[parameters('appServicePlanName')]",
       "location": "[parameters('location')]",
       "sku": {
@@ -100,7 +100,7 @@ Add the following JSON and save the file. It defines the resources to deploy an 
     },
     {
       "type": "Microsoft.Web/sites",
-      "apiVersion": "2022-03-01",
+      "apiVersion": "2022-09-01",
       "name": "[variables('appServiceName')]",
       "location": "[parameters('location')]",
       "properties": {
@@ -110,7 +110,7 @@ Add the following JSON and save the file. It defines the resources to deploy an 
           "appSettings": [
             {
               "name": "AppServiceStorageConnectionString",
-              "value": "[format('DefaultEndpointsProtocol=https;AccountName={0};EndpointSuffix={1};Key={2}', variables('storageAccountName'), environment().suffixes.storage, listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName')), '2022-09-01').keys[0].value)]"
+              "value": "[format('DefaultEndpointsProtocol=https;AccountName={0};EndpointSuffix={1};Key={2}', variables('storageAccountName'), environment().suffixes.storage, listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName')), '2023-01-01').keys[0].value)]"
             }
           ]
         }
@@ -122,7 +122,7 @@ Add the following JSON and save the file. It defines the resources to deploy an 
     },
     {
       "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2022-09-01",
+      "apiVersion": "2023-01-01",
       "name": "[variables('storageAccountName')]",
       "location": "[parameters('location')]",
       "sku": {
@@ -130,7 +130,9 @@ Add the following JSON and save the file. It defines the resources to deploy an 
       },
       "kind": "StorageV2",
       "properties": {
-        "accessTier": "Hot"
+        "accessTier": "Hot",
+        "allowSharedKeyAccess": false,
+        "minimumTlsVersion": "TLS1_2"
       }
     }
   ],
@@ -141,11 +143,11 @@ Add the following JSON and save the file. It defines the resources to deploy an 
     },
     "appServiceApp": {
       "type": "string",
-      "value": "[reference(resourceId('Microsoft.Web/sites', variables('appServiceName')), '2022-03-01').defaultHostName]"
+      "value": "[reference(resourceId('Microsoft.Web/sites', variables('appServiceName')), '2022-09-01').defaultHostName]"
     },
     "storageAccount": {
       "type": "string",
-      "value": "[reference(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName')), '2022-09-01').primaryEndpoints.blob]"
+      "value": "[reference(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName')), '2023-01-01').primaryEndpoints.blob]"
     }
   }
 }
@@ -260,7 +262,7 @@ To learn more, see [Get started with CreateUiDefinition](create-uidefinition-ove
 
 Add the two files to a package file named _app.zip_. The two files must be at the root level of the _.zip_ file. If the files are in a folder, when you create the managed application definition, you receive an error that states the required files aren't present.
 
-Upload _app.zip_ to an Azure storage account so you can use it when you deploy the managed application's definition. The storage account name must be globally unique across Azure and the length must be 3-24 characters with only lowercase letters and numbers. In the command, replace the placeholder `<demostorageaccount>` including the angle brackets (`<>`), with your unique storage account name.
+Upload _app.zip_ to an Azure storage account so you can use it when you deploy the managed application's definition. The storage account name must be globally unique across Azure and the length must be 3-24 characters with only lowercase letters and numbers. In the command, replace the placeholder `<pkgstorageaccountname>` including the angle brackets (`<>`), with your unique storage account name.
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -273,24 +275,41 @@ Connect-AzAccount
 The command opens your default browser and prompts you to sign in to Azure. For more information, go to [Sign in with Azure PowerShell](/powershell/azure/authenticate-azureps).
 
 ```azurepowershell
-New-AzResourceGroup -Name packageStorageGroup -Location westus3
+New-AzResourceGroup -Name packageStorageGroup -Location westus
 
-$storageAccount = New-AzStorageAccount `
-  -ResourceGroupName packageStorageGroup `
-  -Name "<demostorageaccount>" `
-  -Location westus3 `
-  -SkuName Standard_LRS `
-  -Kind StorageV2
+$pkgstorageparms = @{
+  ResourceGroupName = "packageStorageGroup"
+  Name = "<pkgstorageaccountname>"
+  Location = "westus"
+  SkuName = "Standard_LRS"
+  Kind = "StorageV2"
+  MinimumTlsVersion = "TLS1_2"
+  AllowBlobPublicAccess = $true
+  AllowSharedKeyAccess = $false
+}
 
-$ctx = $storageAccount.Context
+$pkgstorageaccount = New-AzStorageAccount @pkgstorageparms
+```
 
-New-AzStorageContainer -Name appcontainer -Context $ctx -Permission blob
+The `$pkgstorageparms` variable uses PowerShell [splatting](/powershell/module/microsoft.powershell.core/about/about_splatting) to improve readability for the parameter values used in the command to create the new storage account. Splatting is used in other PowerShell commands that use multiple parameter values.
 
-Set-AzStorageBlobContent `
-  -File "app.zip" `
-  -Container appcontainer `
-  -Blob "app.zip" `
-  -Context $ctx
+After you create the storage account, add the role assignment _Storage Blob Data Contributor_ to the storage account scope. Assign access to your Microsoft Entra user account. Depending on your access level in Azure, you might need other permissions assigned by your administrator. For more information, see [Assign an Azure role for access to blob data](../../storage/blobs/assign-azure-role-data-access.md).
+
+After you add the role to the storage account, it takes a few minutes to become active in Azure. You can then create the context needed to create the container and upload the file.
+
+```azurepowershell
+$pkgstoragecontext = New-AzStorageContext -StorageAccountName $pkgstorageaccount.StorageAccountName -UseConnectedAccount
+
+New-AzStorageContainer -Name appcontainer -Context $pkgstoragecontext -Permission blob
+
+$blobparms = @{
+  File = "app.zip"
+  Container = "appcontainer"
+  Blob = "app.zip"
+  Context = $pkgstoragecontext
+}
+
+Set-AzStorageBlobContent @blobparms
 ```
 
 # [Azure CLI](#tab/azure-cli)
@@ -304,15 +323,26 @@ az login
 The command opens your default browser and prompts you to sign in to Azure. For more information, go to [Sign in with Azure CLI](/cli/azure/authenticate-azure-cli).
 
 ```azurecli
-az group create --name packageStorageGroup --location westus3
+az group create --name packageStorageGroup --location westus
 
 az storage account create \
-    --name <demostorageaccount> \
-    --resource-group packageStorageGroup \
-    --location westus3 \
-    --sku Standard_LRS \
-    --kind StorageV2
+  --name <pkgstorageaccountname> \
+  --resource-group packageStorageGroup \
+  --location westus \
+  --sku Standard_LRS \
+  --kind StorageV2 \
+  --min-tls-version TLS1_2 \
+  --allow-blob-public-access true \
+  --allow-shared-key-access false
+
+pkgstgacct=$(az storage account show \
+  --resource-group packageStorageGroup \
+  --name <pkgstorageaccountname> \
+  --query name \
+  --output tsv)
 ```
+
+The backslash (`\`) is a line continuation character to improve readability of the command's parameters and is used in many of the Azure CLI commands. The `pkgstgacct` variable contains the storage account name for use in other commands.
 
 After you create the storage account, add the role assignment _Storage Blob Data Contributor_ to the storage account scope. Assign access to your Microsoft Entra user account. Depending on your access level in Azure, you might need other permissions assigned by your administrator. For more information, see [Assign an Azure role for access to blob data](../../storage/blobs/assign-azure-role-data-access.md).
 
@@ -320,17 +350,17 @@ After you add the role to the storage account, it takes a few minutes to become 
 
 ```azurecli
 az storage container create \
-    --account-name <demostorageaccount> \
-    --name appcontainer \
-    --auth-mode login \
-    --public-access blob
+  --account-name $pkgstgacct \
+  --name appcontainer \
+  --auth-mode login \
+  --public-access blob
 
 az storage blob upload \
-    --account-name <demostorageaccount> \
-    --container-name appcontainer \
-    --auth-mode login \
-    --name "app.zip" \
-    --file "app.zip"
+  --account-name $pkgstgacct \
+  --container-name appcontainer \
+  --auth-mode login \
+  --name "app.zip" \
+  --file "app.zip"
 ```
 
 For more information about storage authentication, see [Choose how to authorize access to blob data with Azure CLI](../../storage/blobs/authorize-data-operations-cli.md).
@@ -359,9 +389,18 @@ Create a storage account in a new resource group:
    - **Performance**: _Standard_
    - **Redundancy**: _Locally-redundant storage (LRS)_.
 
+1. On the **Advanced** tab, use the following settings.
+
+   - Select **Require secure transfer for REST API operations**.
+   - Select **Allow enabling anonymous access on individual containers**.
+   - Uncheck the box **Enable storage account key access**.
+   - Verify **Minimum TLS version** is _Version 1.2_.
+
 1. Accept the defaults on the other tabs.
-1. Select **Review** and then select **Create**.
+1. Select **Review + create** and then select **Create**.
 1. Select **Go to resource** to go to the storage account.
+
+After you create the storage account, add the role assignment _Storage Blob Data Contributor_ to the storage account scope. Assign access to your Microsoft Entra user account. Depending on your access level in Azure, you might need other permissions assigned by your administrator. For more information, see [Assign an Azure role for access to blob data](../../storage/blobs/assign-azure-role-data-access.md). After you add the role to the storage account, it takes a few minutes to become active in Azure.
 
 Create a container and upload the _app.zip_ file:
 
@@ -446,23 +485,26 @@ In the portal, the group ID and role ID are configured when you publish the mana
 Create a resource group for your managed application definition.
 
 ```azurepowershell
-New-AzResourceGroup -Name appDefinitionGroup -Location westus3
+New-AzResourceGroup -Name appDefinitionGroup -Location westus
 ```
 
 The `blob` command creates a variable to store the URL for the package _.zip_ file. That variable is used in the command that creates the managed application definition.
 
 ```azurepowershell
-$blob = Get-AzStorageBlob -Container appcontainer -Blob app.zip -Context $ctx
+$blob = Get-AzStorageBlob -Container appcontainer -Blob app.zip -Context $pkgstoragecontext
 
-New-AzManagedApplicationDefinition `
-  -Name "sampleManagedApplication" `
-  -Location "westus3" `
-  -ResourceGroupName appDefinitionGroup `
-  -LockLevel ReadOnly `
-  -DisplayName "Sample managed application" `
-  -Description "Sample managed application that deploys web resources" `
-  -Authorization "${principalid}:$roleid" `
-  -PackageFileUri $blob.ICloudBlob.StorageUri.PrimaryUri.AbsoluteUri
+$publishparms = @{
+  Name = "sampleManagedApplication"
+  Location = "westus"
+  ResourceGroupName = "appDefinitionGroup"
+  LockLevel = "ReadOnly"
+  DisplayName = "Sample managed application"
+  Description = "Sample managed application that deploys web resources"
+  Authorization = "${principalid}:$roleid"
+  PackageFileUri = $blob.ICloudBlob.StorageUri.PrimaryUri.AbsoluteUri
+}
+
+New-AzManagedApplicationDefinition @publishparms
 ```
 
 When the command completes, you have a managed application definition in your resource group.
@@ -481,21 +523,21 @@ Some of the parameters used in the preceding example are:
 Create a resource group for your managed application definition.
 
 ```azurecli
-az group create --name appDefinitionGroup --location westus3
+az group create --name appDefinitionGroup --location westus
 ```
 
-In the `blob` command's `account-name` parameter, replace the placeholder `<demostorageaccount>` including the angle brackets (`<>`), with your unique storage account name. The `blob` command creates a variable to store the URL for the package _.zip_ file. That variable is used in the command that creates the managed application definition.
+The `blob` command creates a variable to store the URL for the package _.zip_ file. That variable is used in the command that creates the managed application definition.
 
 ```azurecli
 blob=$(az storage blob url \
-  --account-name <demostorageaccount> \
+  --account-name $pkgstgacct \
   --container-name appcontainer \
   --auth-mode login \
   --name app.zip --output tsv)
 
 az managedapp definition create \
   --name "sampleManagedApplication" \
-  --location "westus3" \
+  --location "westus" \
   --resource-group appDefinitionGroup \
   --lock-level ReadOnly \
   --display-name "Sample managed application" \
@@ -525,7 +567,7 @@ To publish a managed application definition from the Azure portal, use the follo
 
    :::image type="content" source="./media/publish-service-catalog-app/create-service-catalog-definition.png" alt-text="Screenshot of the Service Catalog Managed Application Definition page with the create button highlighted.":::
 
-1. On the **Basics** tab, enter the following information and select **Next: Package**:
+1. On the **Basics** tab, enter the following information and select **Next**.
 
    :::image type="content" source="./media/publish-service-catalog-app/create-service-catalog-definition-basics.png" alt-text="Screenshot of the Basics tab on the form to create a service catalog definition. ":::
 
@@ -563,7 +605,7 @@ When the deployment is complete, you have a managed application definition in yo
 
 ## Make sure users can see your definition
 
-You have access to the managed application definition, but you want to make sure other users in your organization can access it. Grant them at least the Reader role on the definition. They may have inherited this level of access from the subscription or resource group. To check who has access to the definition and add users or groups, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
+You have access to the managed application definition, but you want to make sure other users in your organization can access it. Grant them at least the Reader role on the definition. They might have inherited this level of access from the subscription or resource group. To check who has access to the definition and add users or groups, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.yml).
 
 ## Clean up resources
 
@@ -595,7 +637,7 @@ az group delete --resource-group appDefinitionGroup --no-wait
 
 1. From Azure portal **Home**, in the search field, enter _resource groups_.
 1. Select **Resource groups**.
-1. Select **packageStorageGroup** and **Delete resource group**.
+1. Select _packageStorageGroup_ and **Delete resource group**.
 1. To confirm the deletion, enter the resource group name and select **Delete**.
 
 Use the same steps to delete _appDefinitionGroup_.
@@ -604,7 +646,7 @@ Use the same steps to delete _appDefinitionGroup_.
 
 ## Next steps
 
-You've published the managed application definition. The next step is to learn how to deploy an instance of that definition.
+You published the managed application definition. The next step is to learn how to deploy an instance of that definition.
 
 > [!div class="nextstepaction"]
 > [Quickstart: Deploy a service catalog managed application](deploy-service-catalog-quickstart.md)

@@ -5,7 +5,7 @@ author: sloanster
 services: azure-communication-services
  
 ms.author: micahvivion
-ms.date: 02/21/2024
+ms.date: 03/11/2024
 ms.topic: include
 ms.service: azure-communication-services
 ms.subservice: calling
@@ -15,23 +15,86 @@ ms.custom: template-how-to
 ## Safari Desktop
 ___
 
+### On macOS Safari 17 and up, audio could become broken if macOS users connects Bluetooth headphones for during a call
+
+**Browser version:** Safari 17 and up. <br>
+**Azure Communication Service calling SDK version:** All.<br>
+**Description:** When macOS users connect Bluetooth headphones to a MacBook during a call using Safari, they can experience issues with audio. In both use cases where users connect Bluetooth headphones before or during the call, the incoming and outgoing audio could become unavailable or broken. It is noted that waiting at least 30 seconds might resolve incoming audio issue, but outgoing audio often fails to recover automatically.<br>
+**Known issue reference:** This regression is a known issue introduced on [Safari](https://bugs.webkit.org/show_bug.cgi?id=259777).<br>
+**Recommended workaround:** As a temporary solution, users may need to reconnect their Bluetooth device or refresh the call to attempt audio recovery. Upgrading to the latest version of macOS and Safari might also help, as it could include potential fixes for such issues.<br>
+
 ### On macOS Safari 17 and up, video background effects might cause video flashing, both in local preview and on the remote side
 
 **Browser version:** Safari 17 and up. <br>
 **Azure Communication Service calling SDK version:** All.<br>
 **Description:** A bug was found in one of the updates of the macOS Safari 17 that is causing our background effects implementation frame capture to skip frames and hence might cause video flashing both in the local preview and the remote side.<br>
-**Recommended workaround:** Await a forthcoming update or patch from Apple.
+- A fix is available starting from Safari version 17.5 (macOS Sonoma 14.5).<br>
 
-### Screen sharing does not work on macOS Ventura with Safari versions up to 16.3.
+**Recommended workaround:** Users are advised to update to the latest macOS and Safari version (at least v17.5) where this issue has been resolved.<br>
+
+### Incoming and outgoing video blinking issue on macOS Sonoma with Safari versions up to 17.1
+
+**Browser version:** Safari v17.0, v17.1 (macOS Sonoma 14).<br>
+**Azure Communication Service calling SDK version:** All.<br>
+**Description:** Users on macOS Sonoma 14.0 experience a video blinking issue in Safari versions 17.0 and 17.1 when joining a call with video turned on. The incoming video blinks when a Safari user joins a call, affecting what is received from other call participants. Additionally, the outgoing video from the Safari user blinks for remote participants already in the call. This issue disrupts the visual quality of the call.
+- A fix is available starting from Safari version 17.2.<br>
+
+**Recommended workaround:** Users are advised to update to the latest macOS and Safari version (at least v17.2) where this issue has been resolved.
+
+
+### Other call participant unable to start screen share concurrently with macOS Safari user in Azure Communication Services 1:1 video calls
+**Browser version:** All.<br>
+**Azure Communication Service calling SDK version:** All.<br>
+**Description:** In Azure Communication Services 1:1 video calls, when a macOS Safari user shares their screen, another participant using a different browser cannot start screen sharing until the first participant stops their screen share. This limitation is observed across various combinations of browsers and operating systems but is specific to 1:1 calls. The issue does not occur in calls where both participants are using Safari on macOS.<br>
+**Known issue reference:** This regression is a known issue introduced on [Safari](https://bugs.webkit.org/show_bug.cgi?id=262791).<br>
+**Recommended workaround:** A temporary workaround is to ensure that only one participant shares their screen at a time in Azure Communication Services 1:1 video calls, when one of the participants is using macOS Safari.<br>
+
+### Screen sharing does not work on macOS Ventura with Safari versions up to 16.3
 **Browser version:** Safari v16.1, v16.2, v16.3 (macOS Ventura 13.0).<br>
 **Azure Communication Service calling SDK version:** All.<br>
 **Description:** The issue was introduced in macOS Ventura 13.0 when using the Safari browser (v16.1, v16.2, and v16.3), and a fix has been available starting from Safari version 16.4.<br>
 **Known issue reference:** This regression is a known issue introduced on [Safari](https://bugs.webkit.org/show_bug.cgi?id=247883).<br>
-**Recommended workaround:** Consider updating to the latest macOS/Safari version..<br>
+**Recommended workaround:** Users are advised to update to the latest macOS and Safari version (at least v16.4) where this issue has been resolved.<br>
+
+### Web calling participants hearing PSTN call audio when answered on macOS with iPhone integration
+**Browser version:** All.<br>
+**Azure Communication Service calling SDK version:** All.<br>
+**Description:** When a MacOS user, who is in an active ACS call using a browser, accepts an incoming PSTN call on their MacBook that is linked to their iPhone (using the same iCloud account), audio from the PSTN call is shared among web call participants. This results in participants of the call hearing the PSTN call audio.<br>
+**Known issue reference:** This is a known issue on [macOS](https://bugs.webkit.org/show_bug.cgi?id=256593).<br>
+**Recommended workaround:** Currently, no direct workaround is available. Users are advised to use separate devices for PSTN and web calls to prevent that audio shared with other call participants in a separate call.<br>
 
 
 ## Safari iOS Mobile
 ___
+
+### Video recovery issues on iOS 17+ when an iOS user receives incoming PSTN or Third-party app call or enables Siri during a ACS web based call
+**iOS version:** iOS versions 17 and up.<br>
+**Azure Communication Service calling SDK version:** All.<br>
+**Description:** When an iOS user in a web call and receives and either declines or accepts a PSTN/Third-party app call, the user will encounter video issues. The incoming video can appear frozen or no incoming video might be displayed.This will require a user re-enabling of the camera. The video preview and the outgoing video similarly fails to recover unless the user reactivates their camera.
+
+### Video issues on iOS 17+ when an iOS user tries to use Siri during a call
+**iOS version:** iOS versions 17 and up.<br>
+**Azure Communication Service calling SDK version:** All.<br>
+**Description:**  When an iOS user tries to enable Siri in the middle of the web mobile call can cause the the incoming video could become frozen and take a few seconds to recovers.<br>
+
+### Camera preview resolution issue in web calls when using iOS 16.3 to 17.3.1
+**iOS version:** iOS versions from 16.3 up to 17.3.1.<br>
+**Azure Communication Service calling SDK version:** All.<br>
+**Description:** Users may experience an issue where the camera preview is shown in an incorrect resolution and appears cropped when iOS user joins a call using iOS Safari mobile  with the camera enabled. The issue is not observed anymore if user re-enables camera during the call. The issue has been fixed with iOS 17.4+.<br>
+**Recommended workaround:** Users are advised to update to the latest iOS and Safari version (at least iOS 17.4) where this issue has been resolved.<br>
+
+### Telemetry data for *audioInputLevel* and *frameRateInput* missing in video calls on iOS 16 to iOS 17.4
+**iOS version:** iOS versions from 16.0 up to 17.4.<br>
+**Azure Communication Service calling SDK version:** All.<br>
+**Description:** `audioInputLevel` and `frameRateInput` telemetry data are not captured during video calls on iOS versions 16 to 17.4, affecting the ability to monitor and optimize audio and video settings in real-time. This issue has been fixed with iOS 17.5+.<br>
+**Recommended workaround:** Users are advised to update to the latest iOS and Safari version (at least iOS 17.5) where this issue has been resolved.<br>
+
+### Audio and video recovery issue on iOS 16 to 16.3.1 during web calls with incoming Third-party or PSTN calls
+**iOS version:** iOS versions 16 up to 16.3.1.<br>
+**Azure Communication Service calling SDK version:** All.<br>
+**Description:** When an iOS user in on a web call and receives a PSTN/Third-party app call,the incoming and outgoing audio and outgoing video do not automatically recover call after the phone call ends. The iOS User has to unmute the call on web again. The end usermust to disable and enable back the "Microphone" button to be able get audio and video.<br>
+**Known issue reference:** Related WebKit bug [here](https://bugs.webkit.org/show_bug.cgi?id=247818).<br>
+**Recommended workaround:** Users are advised to update to the latest iOS and Safari version (at least iOS 16.4) where this issue has been resolved.<br>
 
 ### iOS 16 introduced bugs when putting browser in the background during a call
 **iOS version:** iOS versions 16 to 16.1.<br>
@@ -49,6 +112,12 @@ Bug was fixed with iOS 16.2.<br>
 **Known issue reference:** Related WebKit bugs [here](https://bugs.webkit.org/show_bug.cgi?id=243982) and [here](https://bugs.webkit.org/show_bug.cgi?id=244505).<br>
 **Recommended workaround:** Consider updating to the latest iOS version.<br>
   
+### Video and audio issues on iPhone X, occurring to the user being in a call for more than 30 minutes with the camera turned on
+**Devices affected:** iPhone X (iOS 16.7.x).<br>
+**Browser version:** All.<br>
+**Azure Communication Service calling SDK version:** All.<br>
+**Description:** During Azure Communication Service calls on iPhone X with iOS 16.7.x, users experience the disappearance of both their local video preview and incoming video after more than 30 minutes of being in a call with video enabled, which may appear blank or empty to the user. For other users, the video from the iPhone X user appears frozen at the moment it is lost on the iPhone X device. Along with the disappearance of the video, a pronounced echo can occur. The video restores when the iPhone X user turns the camera off and then on again.
+- This issue has been observed only on the iPhone X device with iOS versions 16.7.5 and 16.7.7.<br>
 
 ### Bluetooth headset microphone isn't detected or audible during the call on Safari on iOS
 **iOS version:** All<br>
@@ -101,7 +170,7 @@ Occasionally, microphone or camera devices aren't released on time, and that can
 ### Safari freezing issue on iOS 15
 **Browser version:** iOS versions 15 to 15.1.<br>
 **Azure Communication Service calling SDK version:** All.<br>
-**Description:** Users may experience Safari freezing when navigating to YouTube, enabling Siri, receiving incoming PSTN calls, or during other interruption scenarios while in a WebRTC call. This is a known issue introduced with iOS 15 and observed in iOS versions 15.0, 15.0.2, and 15.1.
+**Description:** Users may experience Safari freezing when navigating to YouTube, enabling Siri, receiving incoming PSTN calls, or during other interruption scenarios while in a web call. This is a known issue introduced with iOS 15 and observed in iOS versions 15.0, 15.0.2, and 15.1.
 - It has been fixed with iOS 15.2+.<br>
 
 **Known issue reference:** Related WebKit bugs [here](https://bugs.webkit.org/show_bug.cgi?id=233707) and [here](https://bugs.webkit.org/show_bug.cgi?id=233708).<br>

@@ -32,7 +32,7 @@ landingContent:
           url: device-update-raspberry-pi.md
         - text: Device update on Ubuntu Server 18.04 x64 Package agent
           url: device-update-ubuntu-agent.md
-        - text: Device update for Azure RTOS
+        - text: Device update for Eclipse ThreadX
           url: device-update-azure-real-time-operating-system.md
   - title: Prep your devices with the agent
     linkLists:

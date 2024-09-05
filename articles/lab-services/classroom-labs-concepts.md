@@ -9,6 +9,8 @@ ms.custom: devdivchpfy22
 
 # Key concepts for Azure Lab Services
 
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
+
 This article describes key Azure Lab Services concepts and definitions.
 
 The following conceptual diagram shows how the different Azure Lab Services components are related.

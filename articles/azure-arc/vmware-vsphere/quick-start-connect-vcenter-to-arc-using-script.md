@@ -3,11 +3,11 @@ title: Connect VMware vCenter Server to Azure Arc by using the helper script
 description: In this quickstart, you learn how to use the helper script to connect your VMware vCenter Server instance to Azure Arc.
 ms.topic: quickstart 
 ms.custom: references_regions
-ms.date: 02/22/2024
+ms.date: 09/04/2024
 ms.service: azure-arc
 ms.subservice: azure-arc-vmware-vsphere
-author: Farha-Bano
-ms.author: v-farhabano
+author: PriskeyJeronika-MS
+ms.author: v-gjeronika
 manager: jsuri
 
 # Customer intent: As a VI admin, I want to connect my vCenter Server instance to Azure to enable self-service through Azure Arc.
@@ -20,7 +20,7 @@ To start using the Azure Arc-enabled VMware vSphere features, you need to connec
 First, the script deploys a virtual appliance called [Azure Arc resource bridge](../resource-bridge/overview.md) in your vCenter environment. Then, it installs a VMware cluster extension to provide a continuous connection between vCenter Server and Azure Arc.
 
 > [!IMPORTANT]
-> This article describes a way to connect a generic vCenter Server to Azure Arc. If you're trying to enable Arc for Azure VMware Solution (AVS) private cloud, please follow this guide instead - [Deploy Arc for Azure VMware Solution](../../azure-vmware/deploy-arc-for-azure-vmware-solution.md). With the Arc for AVS onboarding process you need to provide fewer inputs and Arc capabilities are better integrated into the AVS private cloud portal experience. 
+> This article describes a way to connect a generic vCenter Server to Azure Arc. If you're trying to enable Arc for Azure VMware Solution (AVS) private cloud, follow this guide instead - [Deploy Arc-enabled VMware vSphere for Azure VMware Solution private cloud](../../azure-vmware/deploy-arc-for-azure-vmware-solution.md). With the Arc for AVS onboarding process you need to provide fewer inputs and Arc capabilities are better integrated into the AVS private cloud portal experience. 
 
 ## Prerequisites
 
@@ -42,9 +42,9 @@ First, the script deploys a virtual appliance called [Azure Arc resource bridge]
 
 - At least three free static IP addresses on the above network.
 
-- A resource pool or a cluster with a minimum capacity of 16 GB of RAM and four vCPUs.
+- A resource pool or a cluster with a minimum capacity of 8 GB of RAM and 4 vCPUs.
 
-- A datastore with a minimum of 100 GB of free disk space available through the resource pool or cluster.
+- A datastore with a minimum of 200 GB of free disk space or 400 GB for High Availability deployment, available through the resource pool or cluster.
 
 > [!NOTE]
 > Azure Arc-enabled VMware vSphere supports vCenter Server instances with a maximum of 9,500 virtual machines (VMs). If your vCenter Server instance has more than 9,500 VMs, we don't recommend that you use Azure Arc-enabled VMware vSphere with it at this point.
@@ -55,7 +55,9 @@ You need a vSphere account that can:
 - Read all inventory. 
 - Deploy and update VMs to all the resource pools (or clusters), networks, and VM templates that you want to use with Azure Arc.
 
-This account is used for the ongoing operation of Azure Arc-enabled VMware vSphere and the deployment of the Azure Arc resource bridge VM.
+> [!IMPORTANT]
+> As part of the Azure Arc-enabled VMware onboarding script, you will be prompted to provide a vSphere account to deploy the Azure Arc resouce bridge VM on the ESXi host. This account will be stored locally within the Azure Arc resource bridge VM and encrypted as a Kubernetes secret at rest. The vSphere account allows Azure Arc-enabled VMware to interact with VMware vSphere. If your organization practices routine credential rotation, you must [update the credentials in Azure Arc-enabled VMware](administer-arc-vmware.md#updating-the-vsphere-account-credentials-using-a-new-password-or-a-new-vsphere-account-after-onboarding) to maintain the connection between Azure Arc-enabled VMware and VMware vSphere.
+
 
 ### Workstation
 
@@ -93,15 +95,17 @@ You need a Windows or Linux machine that can access both your vCenter Server ins
 
 11. Provide a name for your vCenter Server instance in Azure. For example: **contoso-nyc-vcenter**.
 
-12. Select **Next: Download and run script**.
+12. You can choose to **Enable Kubernetes Service on VMware [Preview]**. If you choose to do so, please ensure you update the namespace of your custom location to "default" in the onboarding script: $customLocationNamespace = ("default".ToLower() -replace '[^a-z0-9-]', ''). For more details about this update, refer to the [known issues from AKS on VMware (preview)](/azure/aks/hybrid/aks-vmware-known-issues)
 
-13. If your subscription isn't registered with all the required resource providers, a **Register** button will appear. Select the button before you proceed to the next step.
+13. Select **Next: Download and run script**.
+
+14. If your subscription isn't registered with all the required resource providers, a **Register** button will appear. Select the button before you proceed to the next step.
 
     :::image type="content" source="media/quick-start-connect-vcenter-to-arc-using-script/register-arc-vmware-providers.png" alt-text="Screenshot that shows the button to register required resource providers during vCenter onboarding to Azure Arc.":::
 
-14. Based on the operating system of your workstation, download the PowerShell or Bash script and copy it to the [workstation](#prerequisites).
+15. Based on the operating system of your workstation, download the PowerShell or Bash script and copy it to the [workstation](#prerequisites).
 
-15. If you want to see the status of your onboarding after you run the script on your workstation, select **Next: Verification**. Closing this page won't affect the onboarding.
+16. If you want to see the status of your onboarding after you run the script on your workstation, select **Next: Verification**. Closing this page won't affect the onboarding.
 
 ## Run the script
 
@@ -158,7 +162,7 @@ A typical onboarding that uses the script takes 30 to 60 minutes. During the pro
 After the command finishes running, your setup is complete. You can now use the capabilities of Azure Arc-enabled VMware vSphere.
 
 > [!IMPORTANT]
-> After the successful installation of Azure Arc resource bridge, it is recommended to retain a copy of the resource bridge config .yaml files and the kubeconfig file safe and secure in a place that facilitates easy retrieval. These files may be needed later to run a few commands to perform management operations on the resource bridge. You can find the 3 .yaml files (config files) and the kubeconfig file in the same folder where you ran the script. 
+> After the successful installation of Azure Arc Resource Bridge, it's recommended to retain a copy of the resource bridge config.yaml files in a place that facilitates easy retrieval. These files could be needed later to run commands to perform management operations (e.g. [az arcappliance upgrade](/cli/azure/arcappliance/upgrade#az-arcappliance-upgrade-vmware)) on the resource bridge. You can find the three .yaml files (config files) in the same folder where you ran the script. 
 
 ## Recovering from failed deployments
 

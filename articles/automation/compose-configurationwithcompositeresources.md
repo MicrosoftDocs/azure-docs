@@ -3,9 +3,10 @@ title: Compose DSC configurations
 description: This article tells how to compose configurations using composite resources in Azure Automation State Configuration.
 keywords: powershell dsc, desired state configuration, powershell dsc azure, composite resources
 services: automation
-ms.subservice: dsc
+ms.subservice: desired-state-config
 ms.date: 08/21/2018
 ms.topic: conceptual
+ms.service: azure-automation
 ---
 # Compose DSC configurations
 

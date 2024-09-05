@@ -7,9 +7,10 @@ metadata:
   title: ARM template documentation
   description: "Learn how to develop Azure Resource Manager templates and use them to deploy Azure resources"
   ms.service: azure-resource-manager
+  ms.author: jgao
   ms.subservice: templates
   ms.topic: landing-page
-  ms.date: 06/22/2023
+  ms.date: 06/20/2024
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 

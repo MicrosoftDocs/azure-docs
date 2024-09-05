@@ -1,7 +1,7 @@
 ---
 title: "Tools for Oracle data warehouse migration to Azure Synapse Analytics"
 description: Learn about Microsoft and third-party data and database migration tools that can help you migrate from Oracle to Azure Synapse Analytics. 
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.subservice: sql-dw
 ms.topic: conceptual
 author: ajagadish-24
@@ -36,7 +36,7 @@ Several tools from both Microsoft and [third-party partners](../../partner/data-
 
 Microsoft offers several tools to help you migrate your existing data warehouse to Azure Synapse, such as:
 
-- [SQL Server Migration Assistant](/sql/ssma/oracle/sql-server-migration-assistant-for-oracle-oracletosql) (SSMA)
+- [SQL Server Migration Assistant (SSMA)](/sql/ssma/oracle/sql-server-migration-assistant-for-oracle-oracletosql)
 
 - [Azure Data Factory](../../../data-factory/introduction.md).
 
@@ -48,7 +48,7 @@ The next sections discuss these tools in more detail.
 
 ### SQL Server Migration Assistant (SSMA)
 
-[SQL Server Migration Assistant](/sql/ssma/oracle/sql-server-migration-assistant-for-oracle-oracletosql) (SSMA) for Oracle can automate many parts of the migration process, including in some cases functions and procedural code. SSMA supports Azure Synapse as a target environment.
+[SQL Server Migration Assistant (SSMA)](/sql/ssma/oracle/sql-server-migration-assistant-for-oracle-oracletosql) for Oracle can automate many parts of the migration process, including in some cases functions and procedural code. SSMA supports Azure Synapse as a target environment.
 
 :::image type="content" source="../media/1-design-performance-migration/oracle-sql-server-migration-assistant-1.png" border="true" alt-text="Screenshot showing how SQL Server Migration Assistant for Oracle can automate many parts of the migration process." lightbox="../media/1-design-performance-migration/oracle-sql-server-migration-assistant-1-lrg.png":::
 	
@@ -136,7 +136,7 @@ PolyBase has some limitations, it requires data row length to be less than 1 meg
 
 ### Microsoft tools for Oracle migrations
 
-[SQL Server Migration Assistant](/sql/ssma/oracle/sql-server-migration-assistant-for-oracle-oracletosql) (SSMA) for Oracle can help you migrate your legacy on-premises data warehouse platform to Azure Synapse.
+[SQL Server Migration Assistant (SSMA)](/sql/ssma/oracle/sql-server-migration-assistant-for-oracle-oracletosql) for Oracle can help you migrate your legacy on-premises data warehouse platform to Azure Synapse.
 
 ### Microsoft partners for Oracle migrations
 

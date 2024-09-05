@@ -10,6 +10,8 @@ ms.subservice: change-analysis
 
 # Tutorial: Track a web app outage using Change Analysis
 
+[!INCLUDE [transition](../includes/change/change-analysis-is-moving.md)]
+
 When your application runs into an issue, you need configurations and resources to triage breaking changes and discover root-cause issues. Change Analysis provides a centralized view of the changes in your subscriptions for up to 14 days prior to provide the history of changes for troubleshooting issues.  
 
 To track an outage, we will: 
@@ -99,8 +101,6 @@ Visit the web app URL to view the following error:
 
 In the Azure portal, navigate to the Change Analysis overview page. Since you triggered a web app outage, you can see an entry of change for `AzureStorageConnection`:
 
-:::image type="content" source="./media/change-analysis/entry-of-outage.png" alt-text="Screenshot of outage entry on the Change Analysis pane.":::
-
 Since the connection string is a secret value, we hide it on the overview page for security purposes. With sufficient permission to read the web app, you can select the change to view details around the old and new values: 
 
 :::image type="content" source="./media/change-analysis/view-change-details.png" alt-text="Screenshot of viewing change details for troubleshooting.":::
@@ -119,9 +119,6 @@ Knowing what changed in your application's networking resources is critical due 
 - Virtual network changes
 
 The sample application includes a virtual network to make sure the application remains secure. Via the Azure portal, you can view and assess the network changes captured by Change Analysis. 
-
-:::image type="content" source="./media/change-analysis/networking-changes.png" alt-text="Screenshot of Change Analysis capturing networking changes.":::
-
 
 ## Next steps
 

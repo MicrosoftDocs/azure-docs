@@ -16,7 +16,7 @@ ms.date: 10/02/2020
 
 Azure Time Series Insights is a managed cloud service with storage, analytics, and visualization components that make it easy to ingest, store, explore, and analyze billions of events simultaneously.
 
-[!INCLUDE [gdpr-intro-sentence](../../includes/gdpr-intro-sentence.md)]
+[!INCLUDE [gdpr-intro-sentence](~/reusable-content/ce-skilling/azure/includes/gdpr-intro-sentence.md)]
 
 To view, export, and delete personal data that may be subject to a data subject request, an Azure Time Series Insights tenant administrator can use either the Azure portal or the REST APIs. Using the Azure portal to service data subject requests, provides a less complex method to perform these operations that most users prefer.
 
@@ -28,7 +28,7 @@ Azure Time Series Insights considers personal data to be data associated with ad
 
 A tenant administrator can delete customer data using the Azure portal.
 
-[!INCLUDE [gdpr-dsr-and-stp-note](../../includes/gdpr-dsr-and-stp-note.md)]
+[!INCLUDE [gdpr-dsr-and-stp-note](~/reusable-content/ce-skilling/azure/includes/gdpr-dsr-and-stp-note.md)]
 
 However, before you delete customer data through the portal, you should remove the user's access policies from the Time Series Insights environment within the Azure portal. For more information, read [Grant data access to a Time Series Insights environment using Azure portal](./concepts-access-policies.md).
 
@@ -40,7 +40,7 @@ Time Series Insights is integrated with the Policy blade in the Azure portal. Bo
 
 Similarly to deleting data, a tenant administrator can view and export data stored in Time Series Insights from the Policy blade in the Azure portal.
 
-[!INCLUDE [gdpr-dsr-and-stp-note](../../includes/gdpr-dsr-and-stp-note.md)]
+[!INCLUDE [gdpr-dsr-and-stp-note](~/reusable-content/ce-skilling/azure/includes/gdpr-dsr-and-stp-note.md)]
 
 If you are a tenant administrator, you can view data access policies within the Time Series Insights environment in the Azure portal. For more information, read [Grant data access to a Time Series Insights environment using Azure portal](./concepts-access-policies.md).
 

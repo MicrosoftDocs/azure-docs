@@ -4,7 +4,7 @@ description: Create an experiment that uses dynamic targeting with the Azure CLI
 author: prasha-microsoft
 ms.author: abbyweisberg
 ms.reviewer: prashabora
-ms.service: chaos-studio
+ms.service: azure-chaos-studio
 ms.topic: how-to
 ms.date: 12/12/2022
 ms.custom: template-how-to, devx-track-azurecli
@@ -19,7 +19,7 @@ You can use these same steps to set up and run an experiment for any fault that 
 
 ## Prerequisites
 
-- An Azure subscription. [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+- An Azure subscription. [!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 - An Azure Virtual Machine Scale Sets instance.
 
 ## Open Azure Cloud Shell
@@ -57,7 +57,7 @@ You've now successfully added your virtual machine scale set to Chaos Studio.
 
 Now you can create your experiment. A chaos experiment defines the actions you want to take against target resources. The actions are organized and run in sequential steps. The chaos experiment also defines the actions you want to take against branches, which run in parallel.
 
-1. Formulate your experiment JSON starting with the following [Virtual Machine Scale Sets Shutdown 2.0](chaos-studio-fault-library.md#version-20) JSON sample. Modify the JSON to correspond to the experiment you want to run by using the [Create Experiment API](/rest/api/chaosstudio/experiments/create-or-update) and the [fault library](chaos-studio-fault-library.md). At this time, dynamic targeting is only available with the Virtual Machine Scale Sets Shutdown 2.0 fault and can only filter on availability zones.
+1. Formulate your experiment JSON starting with the following [Virtual Machine Scale Sets Shutdown 2.0](chaos-studio-fault-library.md#vmss-shutdown-version-20) JSON sample. Modify the JSON to correspond to the experiment you want to run by using the [Create Experiment API](/rest/api/chaosstudio/experiments/create-or-update) and the [fault library](chaos-studio-fault-library.md). At this time, dynamic targeting is only available with the Virtual Machine Scale Sets Shutdown 2.0 fault and can only filter on availability zones.
 
     - Use the `filter` element to configure the list of Azure availability zones to filter targets by. If you don't provide a `filter`, the fault shuts down all instances in the virtual machine scale set.
     - The experiment targets all Virtual Machine Scale Sets instances in the specified zones.

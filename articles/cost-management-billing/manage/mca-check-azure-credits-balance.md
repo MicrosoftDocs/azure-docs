@@ -6,7 +6,7 @@ ms.reviewer: amberb
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 12/06/2022
+ms.date: 03/21/2024
 ms.author: banders
 ---
 
@@ -29,11 +29,11 @@ This article applies to a billing account for a Microsoft Customer Agreement. [C
 
 2. Search for **Cost Management + Billing**.
 
-    ![Screenshot that shows search in portal for cost management + billing.](./media/mca-check-azure-credits-balance/billing-search-cost-management-billing.png)
+    :::image type="content" border="true" source="./media/mca-check-azure-credits-balance/billing-search-cost-management-billing.png" alt-text="Screenshot that shows search in the Azure portal for Cost Management + Billing.":::
 
 3. In the billing scopes page, select the billing account for which you want to track the credit balance. The billing account should be of type **Microsoft Customer Agreement**.
 
-    ![Screenshot that shows Billing Scopes.](./media/mca-check-azure-credits-balance/list-of-scopes.png)
+    :::image type="content" border="true" source="./media/mca-check-azure-credits-balance/list-of-scopes.png" alt-text="Screenshot that shows Billing Scopes.":::
 
     > [!NOTE]
     >
@@ -41,7 +41,7 @@ This article applies to a billing account for a Microsoft Customer Agreement. [C
 
 3. Select **Payment methods** from the left-hand side and then select **Azure credits**.
 
-   ![Screenshot of estimated and current balances.](./media/mca-check-azure-credits-balance/mca-payment-methods.png)
+   :::image type="content" border="true" source="./media/mca-check-azure-credits-balance/mca-payment-methods.png" alt-text="Screenshot of estimated and current balances.":::
 
 4. The Azure credits page has the following sections:
 
@@ -49,7 +49,7 @@ This article applies to a billing account for a Microsoft Customer Agreement. [C
 
    The balance section displays the summary of your Azure credit balance.
 
-   ![Screenshot of credit balance for a billing profile](./media/mca-check-azure-credits-balance/mca-credit-balance.png)
+   :::image type="content" border="true" source="./media/mca-check-azure-credits-balance/mca-credit-balance.png" alt-text="Screenshot showing the credit balance for a billing profile.":::
 
    | Term               | Definition                           |
    |--------------------|--------------------------------------------------------|
@@ -62,7 +62,7 @@ This article applies to a billing account for a Microsoft Customer Agreement. [C
 
    The credits list section displays the list of Azure credits.
 
-   ![Screenshot of credits lists for a Billing profile](./media/mca-check-azure-credits-balance/mca-credits-list.png)
+   :::image type="content" border="true" source="./media/mca-check-azure-credits-balance/mca-credits-list.png" alt-text="Screenshot showing the credits lists for a billing profile.":::
 
    | Term | Definition |
    |---|---|
@@ -77,7 +77,7 @@ This article applies to a billing account for a Microsoft Customer Agreement. [C
 
    The transactions section displays all transactions that affected your credits balance.
 
-   ![Screenshot of credit transactions for a billing profile](./media/mca-check-azure-credits-balance/mca-credits-transactions.png)
+   :::image type="content" border="true" source="./media/mca-check-azure-credits-balance/mca-credits-transactions.png" alt-text="Screenshot showing credit transactions for a billing profile.":::
 
    | Term | Definition |
    |---|---|
@@ -92,7 +92,7 @@ This article applies to a billing account for a Microsoft Customer Agreement. [C
 
 5. If you are viewing Azure credits at the billing account scope and the billing account has more than one billing profiles, the Azure credits page will show a table with a summary of Azure credits for each billing profile. Select a billing profile from the list, select payment methods and then Azure credits to view details for a billing profile.
 
-    ![Screenshot of credit list for a billing account](./media/mca-check-azure-credits-balance/mca-account-credit-list.png)
+    :::image type="content" border="true" source="./media/mca-check-azure-credits-balance/mca-account-credit-list.png" alt-text="Screenshot showing the credit list for a billing account.":::
 
 ### [REST API](#tab/rest)
 

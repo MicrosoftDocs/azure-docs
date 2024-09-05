@@ -58,7 +58,7 @@ Classic storage accounts may contain classic (unmanaged) disks, virtual machine 
 > [!IMPORTANT]
 > If you do not delete classic disk artifacts first, the migration may fail.
 
-To learn about migrating unmanaged disks to managed disks, see [Migrating unmanaged disks to managed disks](../../virtual-machines/unmanaged-disks-deprecation.md).
+To learn about migrating unmanaged disks to managed disks, see [Migrating unmanaged disks to managed disks](/azure/virtual-machines/unmanaged-disks-deprecation).
 
 # [Portal](#tab/azure-portal)
 
@@ -75,7 +75,7 @@ For more information about errors that may occur when deleting disk artifacts an
 
 # [PowerShell](#tab/azure-powershell)
 
-To learn how to locate and delete disk artifacts in classic storage accounts with PowerShell, see [Migrate to Resource Manager with PowerShell](../../virtual-machines/migration-classic-resource-manager-ps.md#step-5b-migrate-a-storage-account).
+To learn how to locate and delete disk artifacts in classic storage accounts with PowerShell, see [Migrate to Resource Manager with PowerShell](/azure/virtual-machines/migration-classic-resource-manager-ps#step-5b-migrate-a-storage-account).
 
 ---
 
@@ -94,6 +94,9 @@ The process of migrating a classic storage account involves four steps:
     If there are any problems with the migration, then you can abort the migration at this point. If you choose to abort, the new resource group and new storage account are deleted. Your classic account remains available. You can address any problems and attempt the migration again.
 
 For more information about the migration process, see [Understand storage account migration from the classic deployment model to Azure Resource Manager](classic-account-migration-process.md)
+
+> [!NOTE]
+> Accounts left in a **Prepare** migration state more 30 days may have their migrations committed on your behalf. If you need more than 30 days to validate your migration to Azure Resource Manager, you can abort the current migration and restart it when you are ready.
 
 You can migrate a classic storage account to the Azure Resource Manager deployment model with the Azure portal or PowerShell.
 

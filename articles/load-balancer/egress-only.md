@@ -3,7 +3,7 @@ title: Outbound-only load balancer configuration
 titleSuffix: Azure Load Balancer
 description: This article provides a step-by-step guide on how to configure an "egress only" setup using Azure Load Balancer with outbound NAT and Azure Bastion. Deploy public and internal load balancers to create outbound connectivity for VMs behind an internal load balancer.
 author: mbender-ms
-ms.service: load-balancer
+ms.service: azure-load-balancer
 ms.topic: how-to
 ms.date: 10/24/2023
 ms.author: mbender
@@ -17,9 +17,9 @@ Use a combination of internal and external standard load balancers to create out
 This configuration provides outbound NAT for an internal load balancer scenario, producing an "egress only" setup for your backend pool.
 
 > [!NOTE]
-> **Azure Virtual Network NAT** is the recommended configuration for outbound connectivity in production deployments. For more information about **Virtual Network NAT** and the **NAT gateway** resource, see **[What is Azure Virtual Network NAT?](../virtual-network/nat-gateway/nat-overview.md)**.
+> **Azure NAT Gateway** is the recommended configuration for outbound connectivity in production deployments. For more information about **NAT Gateway**, see **[What is Azure NAT Gateway?](../virtual-network/nat-gateway/nat-overview.md)**.
 >
-> To deploy an outbound only load balancer configuration with Azure Virtual Network NAT and a NAT gateway, see [Tutorial: Integrate NAT gateway with an internal load balancer - Azure portal](../virtual-network/nat-gateway/tutorial-nat-gateway-load-balancer-internal-portal.md).
+> To deploy an outbound only load balancer configuration with Azure NAT Gateway, see [Tutorial: Integrate NAT gateway with an internal load balancer - Azure portal](../virtual-network/nat-gateway/tutorial-nat-gateway-load-balancer-internal-portal.md).
 >
 > For more information about outbound connections in Azure and default outbound access, see [Source Network Address Translation (SNAT) for outbound connections](load-balancer-outbound-connections.md) and [Default outbound access](../virtual-network/ip-services/default-outbound-access.md).
 

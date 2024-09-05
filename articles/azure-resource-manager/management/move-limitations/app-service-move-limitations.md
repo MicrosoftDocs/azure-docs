@@ -3,7 +3,7 @@ title: Move Azure App Service resources across resource groups or subscriptions
 description: Use Azure Resource Manager to move App Service resources to a new resource group or subscription.
 ms.topic: conceptual
 ms.custom: devx-track-arm-template
-ms.date: 10/17/2023
+ms.date: 06/20/2024
 ---
 
 # Move App Service resources to a new resource group or subscription
@@ -11,6 +11,8 @@ ms.date: 10/17/2023
 This article describes the steps to move App Service resources between resource groups or Azure subscriptions. There are specific requirements for moving App Service resources to a new subscription.
 
 If you want to move App Services to a new region, see [Move an App Service resource to another region](../../../app-service/manage-move-across-regions.md).
+
+You can move App Service resources to a new resource group or subscription but you need to delete and upload its TLS/SSL certificates to the new resource group or subscription. Also, you can't move a free App Service managed certificate. For that scenario, see [Move with free managed certificates](#move-with-free-managed-certificates).
 
 ## Move across subscriptions
 
@@ -26,10 +28,10 @@ When you move a Web App across subscriptions, the following guidance applies:
 - App Service Environments can't be moved to a new resource group or subscription.
     - You can move a Web App and App Service plan hosted on an App Service Environment to a new subscription without moving the App Service Environment. The Web App and App Service plan that you move will always be associated with your initial App Service Environment. You can't move a Web App/App Service plan to a different App Service Environment.
     - If you need to move a Web App and App Service plan to a new App Service Environment, you'll need to recreate these resources in your new App Service Environment. Consider using the [backup and restore feature](../../../app-service/manage-backup.md) as way of recreating your resources in a different App Service Environment.
-- You can move a certificate bound to a web without deleting the TLS bindings, as long as the certificate is moved with all other resources in the resource group. However, you can't move a free App Service managed certificate. For that scenario, see [Move with free managed certificates](#move-with-free-managed-certificates).
 - App Service apps with private endpoints cannot be moved. Delete the private endpoint(s) and recreate it after the move.
 - App Service apps with virtual network integration cannot be moved. Remove the virtual network integration and reconnect it after the move.
 - App Service resources can only be moved from the resource group in which they were originally created. If an App Service resource is no longer in its original resource group, move it back to its original resource group. Then, move the resource across subscriptions. For help with finding the original resource group, see the next section.
+- When you move a Web App to a different subscription, the location of the Web App remains the same, but its policy is changed. For example, if your Web App is in Subscription1 located in Central US and has Policy1, and Subscription2 is in the UK South and has Policy2. If you move the Web App to Subscription2, the location of the Web App remains the same (Central US); however, it will be under the new policy which is policy2.
 
 ## Find original resource group
 

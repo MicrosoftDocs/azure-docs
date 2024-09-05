@@ -4,17 +4,13 @@ description: Learn how to create a codeless connector in Microsoft Sentinel usin
 author: austinmccollum
 ms.author: austinmc
 ms.topic: how-to
-ms.date: 10/19/2023
+ms.date: 06/26/2024
 ---
-# Create a codeless connector for Microsoft Sentinel (Public preview)
+# Create a codeless connector for Microsoft Sentinel
 
 The Codeless Connector Platform (CCP) provides partners, advanced users, and developers the ability to create custom connectors for ingesting data to Microsoft Sentinel.
 
 Connectors created using the CCP are fully SaaS, with no requirements for service installations. They also include [health monitoring](monitor-data-connector-health.md) and full support from Microsoft Sentinel.
-
-> [!IMPORTANT]
-> The Codeless Connector Platform (CCP) is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
->
 
 **Use the following steps to create your CCP connector and connect your data source to Microsoft Sentinel**
 
@@ -56,7 +52,20 @@ Research the following components and verify support for them in the [Data Conne
 
 1. Pagination options to the data source
 
-We also recommend a tool like Postman to validate the data connector components. For more information, see [Use Postman with the Microsoft Graph API](/graph/use-postman).
+We also recommend testing your components with an API testing tool like one of the following:
+
+  - [Visual Studio Code](https://code.visualstudio.com/download) with an [extension from Visual Studio Marketplace](https://marketplace.visualstudio.com/vscode)
+  - [PowerShell Invoke-RestMethod](/powershell/module/microsoft.powershell.utility/invoke-restmethod)
+  - [Microsoft Edge - Network Console tool](/microsoft-edge/devtools-guide-chromium/network-console/network-console-tool)
+  - [Bruno](https://www.usebruno.com/)
+  - [curl](https://curl.se/)
+
+   > [!CAUTION]  
+   > For scenarios where you have sensitive data, such as credentials, secrets, access tokens, 
+   > API keys, and other similar information, make sure to use a tool that protects your data 
+   > with the necessary security features, works offline or locally, doesn't sync your data to 
+   > the cloud, and doesn't require that you sign in to an online account. This way, you reduce 
+   > the risk around exposing sensitive data to the public.
 
 ## Build the data connector
 
@@ -205,12 +214,16 @@ Finally, the CCP utilizes the credential objects in the data connector section.
 
 ## Create the deployment template
 
-Manually package an Azure Resource Management (ARM) template using the [example template](#example-arm-template) as your guide.
+Manually package an Azure Resource Management (ARM) template using the [example template code samples](#example-arm-template) as your guide. These code samples are divided by ARM template sections for you to splice together.
 
 In addition to the example template, published solutions available in the Microsoft Sentinel content hub use the CCP for their data connector. Review the following solutions as more examples of how to stitch the components together into an ARM template.
 
-- [Ermes Browser Security](https://github.com/Azure/Azure-Sentinel/blob/master/Solutions/Ermes%20Browser%20Security/Package/mainTemplate.json)
-- [Palo Alto Prisma Cloud CWPP](https://github.com/Azure/Azure-Sentinel/blob/master/Solutions/Ermes%20Browser%20Security/Package/mainTemplate.json)
+- [Ermes Browser Security](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/Ermes%20Browser%20Security/Data%20Connectors/ErmesBrowserSecurityEvents_ccp)
+- [Palo Alto Prisma Cloud CWPP](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/Palo%20Alto%20Prisma%20Cloud%20CWPP/Data%20Connectors/PaloAltoPrismaCloudCWPP_ccp)
+- [Sophos Endpoint Protection](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/Sophos%20Endpoint%20Protection/Data%20Connectors/SophosEP_ccp)
+- [Workday](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/Workday/Data%20Connectors/Workday_ccp)
+- [Atlassian Jira](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/AtlassianJiraAudit/Data%20Connectors/JiraAuditAPISentinelConnector_ccpv2)
+- [Okta Single Sign-On](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/Okta%20Single%20Sign-On/Data%20Connectors/OktaNativePollerConnectorV2)
 
 ## Deploy the connector
 
@@ -222,12 +235,21 @@ Deploy your codeless connector as a custom template.
 1. Copy the contents of the ARM [deployment template](#create-the-deployment-template).
 1. Follow the **Edit and deploy the template** instructions from the article, [Quickstart: Create and deploy ARM templates by using the Azure portal](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md#edit-and-deploy-the-template).
 
+### Maintain network isolation for logging source
+
+If your logging source requires network isolation, configure an allowlist of public IP addresses used by the CCP.
+
+Azure virtual networks use service tags to define network access controls. For the CCP, that service tag is [**Scuba**](/azure/virtual-network/service-tags-overview#available-service-tags).
+
+To find the current IP range associated with the **Scuba** service tag, see [Use the Service Tag Discovery API](/azure/virtual-network/service-tags-overview#use-the-service-tag-discovery-api).
+
 ## Verify the codeless connector
 
 View your codeless connector in the data connector gallery. Open the data connector and complete any authentication parameters required to connect. Once successfully connected, the DCR and custom tables are created. View the DCR resource in your resource group and any custom tables from the logs analytics workspace.
 
 >[!NOTE]
 >It may take up to 30 minutes to see data begin ingesting.
+
 
 ## Example
 

@@ -2,7 +2,7 @@
 title: Connect machines at scale using Ansible Playbooks
 description: In this article, you learn how to connect machines to Azure using Azure Arc-enabled servers using Ansible playbooks.
 ms.date: 05/09/2022
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: template-how-to, devx-track-ansible
 ---
 
@@ -13,6 +13,8 @@ You can onboard Ansible-managed nodes to Azure Arc-enabled servers at scale usin
 Before you get started, be sure to review the [prerequisites](prerequisites.md) and verify that your subscription and resources meet the requirements. For information about supported regions and other related considerations, see [supported Azure regions](overview.md#supported-regions). Also review our [at-scale planning guide](plan-at-scale-deployment.md) to understand the design and deployment criteria, as well as our management and monitoring recommendations.
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+
+[!INCLUDE [sql-server-auto-onboard](includes/sql-server-auto-onboard.md)]
 
 ## Generate a service principal and collect Azure details
 

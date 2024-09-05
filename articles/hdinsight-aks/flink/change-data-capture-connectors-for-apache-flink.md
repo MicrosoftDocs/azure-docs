@@ -1,14 +1,16 @@
 ---
 title: How to perform Change Data Capture of SQL Server with Apache Flink® DataStream API and DataStream Source.
 description: Learn how to perform Change Data Capture of SQL Server with Apache Flink® DataStream API and DataStream Source.
-ms.service: hdinsight-aks
+ms.service: azure-hdinsight-on-aks
 ms.topic: how-to
-ms.date: 08/29/2023
+ms.date: 04/02/2024
 ---
 
 # Change Data Capture of SQL Server with Apache Flink® DataStream API and DataStream Source on HDInsight on AKS
 
+[!INCLUDE [retirement-notice](../includes/retirement-notice.md)]
 [!INCLUDE [feature-in-preview](../includes/feature-in-preview.md)]
+
 
 Change Data Capture (CDC) is a technique you can use to track row-level changes in database tables in response to create, update, and delete operations. In this article, we use [CDC Connectors for Apache Flink®](https://github.com/ververica/flink-cdc-connectors), which offer a set of source connectors for Apache Flink. The connectors integrate [Debezium®](https://nightlies.apache.org/flink/flink-docs-master/docs/connectors/table/formats/debezium/#debezium-format) as the engine to capture the data changes. 
 
@@ -28,7 +30,7 @@ The SQLServer CDC connector is a Flink source connector, which reads database sn
 
 ### Single Thread Reading
 
-The SQLServer CDC source can’t work in parallel reading, because there's only one task, which can receive change events. For more information, refer [SQLServer CDC Connector](https://ververica.github.io/flink-cdc-connectors/master/content/connectors/sqlserver-cdc.html).
+The SQLServer CDC source can’t work in parallel reading, because there's only one task, which can receive change events. For more information, refer [SQLServer CDC Connector](https://github.com/apache/flink-cdc).
 
 ### DataStream Source
 
@@ -138,7 +140,7 @@ GO
 ```
 ##### Maven source code on IdeaJ
 
-In the below snippet, we use HDInsight Kafka 2.4.1. Based on your usage, update the version of Kafka on `<kafka.version>`. 
+Based on your usage, update the version of Kafka on `<kafka.version>`. 
 
 **maven pom.xml**
 
@@ -155,10 +157,10 @@ In the below snippet, we use HDInsight Kafka 2.4.1. Based on your usage, update 
      <properties>
          <maven.compiler.source>1.8</maven.compiler.source>
          <maven.compiler.target>1.8</maven.compiler.target>
-         <flink.version>1.16.0</flink.version>
+         <flink.version>1.17.0</flink.version>
          <java.version>1.8</java.version>
          <scala.binary.version>2.12</scala.binary.version>
-         <kafka.version>2.4.1</kafka.version> // Replace with 3.2 if you're using HDInsight Kafka 3.2
+         <kafka.version>3.2.0</kafka.version> //
      </properties>
      <dependencies>
          <dependency>
@@ -284,6 +286,19 @@ public class mssqlSinkToKafka {
 }
 ```
 
+### Submit job to Flink
+
+* On Webssh pod
+
+  ```
+  bin/flink run -c contoso.example.mssqlSinkToKafka -j FlinkSQLServerCDCDemo-1.0-SNAPSHOT.jar 
+  Job has been submitted with JobID abccf644ae13a8028d7e232b85bd507f
+  ```
+* On Flink UI make the following change.
+
+  :::image type="content" source="./media/change-data-capture-connectors-for-apache-flink/flink-ui.png" alt-text="Screenshot showing the Flink UI.":::
+
+
 ### Validation
 
 - Insert four rows into table order on sqlserver, then check on Kafka
@@ -306,7 +321,7 @@ public class mssqlSinkToKafka {
  
     :::image type="content" source="./media/change-data-capture-connectors-for-apache-flink/check-changes-on-kafka-for-id-107.png" alt-text="Screenshot showing changes in Kafka for updated ID 107.":::
   
-  -  Delete `product_id=107` on sqlserver
+  -  Delete `product_id=107` on 
 
      :::image type="content" source="./media/change-data-capture-connectors-for-apache-flink/delete-product-id-107-on-sql-server.png" alt-text="Screenshot showing how to delete product ID 107.":::
  
@@ -322,7 +337,7 @@ public class mssqlSinkToKafka {
    
 ### Reference
 
-* [SQLServer CDC Connector](https://github.com/ververica/flink-cdc-connectors/blob/master/docs/content/connectors/sqlserver-cdc.md) is licensed under [Apache 2.0 License](https://github.com/ververica/flink-cdc-connectors/blob/master/LICENSE)
+* [SQLServer CDC Connector](https://github.com/apache/flink-cdc/blob/master/docs/content.zh/docs/connectors/flink-sources/sqlserver-cdc.md) is licensed under [Apache 2.0 License](https://github.com/ververica/flink-cdc-connectors/blob/master/LICENSE)
 * [Apache Kafka in Azure HDInsight](../../hdinsight/kafka/apache-kafka-introduction.md)
 * [Kafka Connector](https://nightlies.apache.org/flink/flink-docs-release-1.16/docs/connectors/datastream/kafka/#behind-the-scene)
 * Apache, Apache Kafka, Kafka, Apache Flink, Flink, and associated open source project names are [trademarks](../trademarks.md) of the [Apache Software Foundation](https://www.apache.org/) (ASF).

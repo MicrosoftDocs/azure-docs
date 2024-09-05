@@ -1,7 +1,7 @@
 ---
 author: KarlErickson
 ms.author: v-shilichen
-ms.service: spring-apps
+ms.service: azure-spring-apps
 ms.topic: include
 ms.date: 05/24/2022
 ---

@@ -1,12 +1,13 @@
 ---
-title: 'Call Grafana APIs programmatically with Azure Managed Grafana'
+title: Call Grafana APIs programmatically
 titleSuffix: Azure Managed Grafana
 description: Learn how to call Grafana APIs programmatically with Microsoft Entra ID and an Azure service principal
+#customerintent: As a user of Azure Managed Grafana, I want to learn how I can get an access to token and call Grafana APIs.
 author: maud-lv 
 ms.author: malev 
-ms.service: managed-grafana 
+ms.service: azure-managed-grafana
 ms.topic: tutorial
-ms.date: 04/05/2023
+ms.date: 04/12/2024
 ms.custom: engagement-fy23
 ---
 

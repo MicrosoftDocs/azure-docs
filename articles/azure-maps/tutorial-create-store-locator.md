@@ -7,7 +7,7 @@ ms.author: sipa
 ms.date: 11/01/2023
 ms.topic: tutorial
 ms.service: azure-maps
-services: azure-maps
+ms.subservice: web-sdk
 ms.custom: mvc, devx-track-js
 ---
 
@@ -173,14 +173,7 @@ To create the HTML:
     <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/3/atlas.min.js"></script>
     ```
 
-3. Next, add a reference to the Azure Maps Services module. This module is a JavaScript library that wraps the Azure Maps REST services, making them easy to use in JavaScript. The Services module is useful for powering search functionality.
-
-    ```HTML
-    <!-- Add a reference to the Azure Maps Services Module JavaScript file. -->
-    <script src="https://atlas.microsoft.com/sdk/javascript/service/2/atlas-service.min.js"></script>
-    ```
-
-4. Add references to *index.js* and *index.css*.
+3. Add references to *index.js* and *index.css*.
 
     ```HTML
     <!-- Add references to the store locator JavaScript and CSS files. -->
@@ -188,7 +181,7 @@ To create the HTML:
     <script src="index.js"></script>
     ```
 
-5. In the body of the document, add a `header` tag. Inside the `header` tag, add the logo and company name.
+4. In the body of the document, add a `header` tag. Inside the `header` tag, add the logo and company name.
 
     ```HTML
     <header>
@@ -197,7 +190,7 @@ To create the HTML:
     </header>
     ```
 
-6. Add a `main` tag and create a search panel that has a text box and search button. Also, add `div` references for the map, the list panel, and the My Location GPS button.
+5. Add a `main` tag and create a search panel that has a text box and search button. Also, add `div` references for the map, the list panel, and the My Location GPS button.
 
     ```HTML
     <main>
@@ -461,7 +454,7 @@ To add the JavaScript:
     var countrySet = ['US', 'CA', 'GB', 'FR','DE','IT','ES','NL','DK'];      
     
     //
-    var map, popup, datasource, iconLayer, centerMarker, searchURL;
+    var map, popup, datasource, iconLayer, centerMarker;
 
     // Used in function updateListItems
     var listItemTemplate = '<div class="listItem" onclick="itemSelected(\'{id}\')"><div class="listItem-title">{title}</div>{city}<br />Open until {closes}<br />{distance} miles away</div>';
@@ -491,12 +484,6 @@ To add the JavaScript:
         //Create a pop-up window, but leave it closed so we can update it and display it later.
         popup = new atlas.Popup();
 
-        //Use MapControlCredential to share authentication between a map control and the service module.
-        var pipeline = atlas.service.MapsURL.newPipeline(new atlas.service.MapControlCredential(map));
-
-        //Create an instance of the SearchURL client.
-        searchURL = new atlas.service.SearchURL(pipeline);
-
         //If the user selects the search button, geocode the value the user passed in.
         document.getElementById('searchBtn').onclick = performSearch;
 
@@ -520,20 +507,28 @@ To add the JavaScript:
 
     function performSearch() {
         var query = document.getElementById('searchTbx').value;
+        //Pass in the array of country/region ISO2 for which we want to limit the search to.
+        var url = `https://atlas.microsoft.com/search/fuzzy/json?api-version=1.0&countrySet=${countrySet}&query=${query}&view=Auto`;
 
         //Perform a fuzzy search on the users query.
-        searchURL.searchFuzzy(atlas.service.Aborter.timeout(3000), query, {
-            //Pass in the array of country/region ISO2 for which we want to limit the search to.
-            countrySet: countrySet,
-            view: 'Auto'
-        }).then(results => {
-            //Parse the response into GeoJSON so that the map can understand.
-            var data = results.geojson.getFeatures();
-
-            if (data.features.length > 0) {
-                //Set the camera to the bounds of the results.
+        fetch(url, {
+            headers: {
+                "Subscription-Key": map.authentication.getToken()
+            }
+        })
+        .then((response) => response.json())
+        .then((response) => {
+            if (Array.isArray(response.results) && response.results.length > 0) {
+                var result = response.results[0];
+                var bbox = [
+                    result.viewport.topLeftPoint.lon,
+                    result.viewport.btmRightPoint.lat,
+                    result.viewport.btmRightPoint.lon,
+                    result.viewport.topLeftPoint.lat
+                ];
+                //Set the camera to the bounds of the first result.
                 map.setCamera({
-                    bounds: data.features[0].bbox,
+                    bounds: bbox,
                     padding: 40
                 });
             } else {

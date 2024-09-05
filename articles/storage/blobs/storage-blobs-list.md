@@ -8,7 +8,7 @@ ms.author: pauljewell
 
 ms.service: azure-blob-storage
 ms.topic: how-to
-ms.date: 08/16/2023
+ms.date: 08/05/2024
 ms.devlang: csharp
 ms.custom: devx-track-csharp, devguide-csharp, devx-track-dotnet
 ---
@@ -19,11 +19,15 @@ ms.custom: devx-track-csharp, devguide-csharp, devx-track-dotnet
 
 This article shows how to list blobs using the [Azure Storage client library for .NET](/dotnet/api/overview/azure/storage).
 
-## Prerequisites
+[!INCLUDE [storage-dev-guide-prereqs-dotnet](../../../includes/storage-dev-guides/storage-dev-guide-prereqs-dotnet.md)]
 
-- This article assumes you already have a project set up to work with the Azure Blob Storage client library for .NET. To learn about setting up your project, including package installation, adding `using` directives, and creating an authorized client object, see [Get started with Azure Blob Storage and .NET](storage-blob-dotnet-get-started.md).
-- The [authorization mechanism](../common/authorize-data-access.md) must have permissions to list blobs. To learn more, see the authorization guidance for the following REST API operation:
-    - [List Blobs](/rest/api/storageservices/list-blobs#authorization)
+## Set up your environment
+
+[!INCLUDE [storage-dev-guide-project-setup-dotnet](../../../includes/storage-dev-guides/storage-dev-guide-project-setup-dotnet.md)]
+
+#### Authorization
+
+The authorization mechanism must have the necessary permissions to list a blob. For authorization with Microsoft Entra ID (recommended), you need Azure RBAC built-in role **Storage Blob Data Reader** or higher. To learn more, see the authorization guidance for [List Blobs (REST API)](/rest/api/storageservices/list-blobs#authorization).
 
 ## About blob listing options
 
@@ -79,7 +83,7 @@ Blob name: FolderA/FolderB/FolderC/blob3.txt
 ```
 
 > [!NOTE]
-> The sample output shown assumes that you have a storage account with a flat namespace. If you've enabled the hierarchical namespace feature for your storage account, directories are not virtual. Instead, they are concrete, independent objects. As a result, directories appear in the list as zero-length blobs.</br></br>For an alternative listing option when working with a hierarchical namespace, see [List directory contents (Azure Data Lake Storage Gen2)](data-lake-storage-directory-file-acl-dotnet.md#list-directory-contents).
+> The sample output shown assumes that you have a storage account with a flat namespace. If you've enabled the hierarchical namespace feature for your storage account, directories are not virtual. Instead, they are concrete, independent objects. As a result, directories appear in the list as zero-length blobs.</br></br>For an alternative listing option when working with a hierarchical namespace, see [List directory contents (Azure Data Lake Storage)](data-lake-storage-directory-file-acl-dotnet.md#list-directory-contents).
 
 ## Use a hierarchical listing
 
@@ -137,3 +141,5 @@ The Azure SDK for .NET contains libraries that build on top of the Azure REST AP
 
 - [Enumerating Blob Resources](/rest/api/storageservices/enumerating-blob-resources)
 - [Blob versioning](versioning-overview.md)
+
+[!INCLUDE [storage-dev-guide-next-steps-dotnet](../../../includes/storage-dev-guides/storage-dev-guide-next-steps-dotnet.md)]

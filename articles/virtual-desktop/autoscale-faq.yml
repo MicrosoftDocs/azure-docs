@@ -2,10 +2,11 @@
 metadata:
   title: Azure Virtual Desktop autoscale FAQ - Azure
   description: Frequently asked questions and best practices for Azure Virtual Desktop.
-  author: Heidilohr
+  author: dknappettmsft
   ms.topic: faq
-  ms.date: 11/01/2023
-  ms.author: helohr 
+  ms.date: 02/28/2024
+  ms.author: daknappe
+  ms.custom: docs_inherited 
 title: Azure Virtual Desktop autoscale FAQ
 summary: This article answers frequently asked questions about how to use autoscale for Azure Virtual Desktop.
 
@@ -140,4 +141,4 @@ sections:
       - question: |
          What happens if I opt for personal desktops to get hibernated in my scaling plan, but my personal desktops don't have hibernate enabled?
         answer: |
-         If you opt to have personal desktops hibernated in your personal scaling plan schedule, but the personal desktops don't have hibernate enabled or hibernate is not enabled for your subscription, autoscale won't do anything to your session hosts (won't hibernate them and won't deallocate them).
+         If you opt to have personal desktops hibernated in your personal scaling plan schedule, but the personal desktops don't have hibernate enabled, autoscale won't do anything to your session hosts (won't hibernate them and won't deallocate them).

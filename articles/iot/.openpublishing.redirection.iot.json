@@ -89,6 +89,11 @@
       "source_path_from_root": "/articles/iot/iot-device-sdks-lifecycle-and-support.md",
       "redirect_url": "/azure/iot/iot-sdks",
       "redirect_document_id": false
+    }, 
+    {
+      "source_path_from_root": "/articles/iot/concepts-iot-industrial-solution-architecture.md",
+      "redirect_url": "/azure/iot/tutorial-iot-industrial-solution-architecture",
+      "redirect_document_id": false
     }
   ]
 }

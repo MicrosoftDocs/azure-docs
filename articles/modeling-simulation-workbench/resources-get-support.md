@@ -1,6 +1,6 @@
 ---
 title: Get support for Modeling and Simulation Workbench
-description: In this article, learn how to get support for Modeling and Simulation Workbench deployment.
+description: Learn how to get support for Modeling and Simulation Workbench deployment.
 author: lynnar
 ms.author: lynnar
 ms.reviewer: yochu

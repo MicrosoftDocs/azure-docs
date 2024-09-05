@@ -1,9 +1,9 @@
 ---
 title: Outputs from Azure Stream Analytics
 description: This article describes data output options available for Azure Stream Analytics.
-author: enkrumah
-ms.author: ebnkruma
-ms.service: stream-analytics
+author: AliciaLiMicrosoft 
+ms.author: ali 
+ms.service: azure-stream-analytics
 ms.topic: conceptual
 ms.date: 01/25/2024
 ---

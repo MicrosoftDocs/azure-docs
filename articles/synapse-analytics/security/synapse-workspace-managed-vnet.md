@@ -2,7 +2,7 @@
 title: Managed virtual network
 description: An article that explains Managed virtual network in Azure Synapse Analytics
 author: ashinMSFT
-ms.service: synapse-analytics 
+ms.service: azure-synapse-analytics
 ms.topic: overview
 ms.subservice: security
 ms.date: 08/16/2021

@@ -5,7 +5,7 @@ author: KarlErickson
 ms.author: karler
 ms.date: 10/31/2023
 ms.topic: quickstart
-ms.service: container-registry
+ms.service: azure-container-registry
 ms.custom: devx-track-java, devx-track-azurecli, mode-api, devx-track-extended-java
 ---
 
@@ -168,7 +168,7 @@ For more information, see the following resources:
 
 * [Azure for Java Developers](/azure/java)
 * [Working with Azure DevOps and Java](/azure/devops/pipelines/ecosystems/java)
-* [Spring Boot on Docker Getting Started](https://spring.io/guides/topicals/spring-boot-docker/)
+* [Spring Boot on Docker Getting Started](https://spring.io/guides/gs/spring-boot-docker/)
 * [Spring Initializr](https://start.spring.io)
 * [Deploy a Spring Boot Application to the Azure App Service](/azure/developer/java/spring-framework/deploy-spring-boot-java-app-on-linux#configure-maven-to-build-image-to-your-azure-container-registry)
 * [Using a custom Docker image for Azure Web App on Linux](../app-service/tutorial-custom-container.md)

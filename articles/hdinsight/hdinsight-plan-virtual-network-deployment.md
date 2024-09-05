@@ -1,7 +1,7 @@
 ---
 title: Plan a virtual network for Azure HDInsight
 description: Learn how to plan an Azure Virtual Network deployment to connect HDInsight to other cloud resources, or resources in your datacenter.
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 09/15/2023

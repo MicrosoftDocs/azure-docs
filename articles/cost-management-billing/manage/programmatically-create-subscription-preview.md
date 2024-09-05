@@ -31,7 +31,7 @@ Azure customers with a billing account for the following agreement types can cre
 
 When you create an Azure subscription programmatically, the subscription is governed by the agreement under which you obtained Azure services from Microsoft or an authorized reseller. For more information, see [Microsoft Azure Legal Information](https://azure.microsoft.com/support/legal/).
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 You can't create support plans programmatically. You can buy a new support plan or upgrade one in the Azure portal. Navigate to **Help + support** and then at the top of the page, select **Choose the right support plan**.
 

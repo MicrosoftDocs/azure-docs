@@ -3,7 +3,7 @@ title: What is Azure Data Share?
 description: Learn about sharing data simply and securely to multiple customers and partners using Azure Data Share.
 author:  sidontha
 ms.author: sidontha
-ms.service: data-share
+ms.service: azure-data-share
 ms.topic: overview
 ms.date: 12/19/2023
 ms.custom: references_regions

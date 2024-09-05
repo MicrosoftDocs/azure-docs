@@ -5,9 +5,9 @@ description: Include file
 services: api-management
 author: dlepow
 
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: include
-ms.date: 03/01/2022
+ms.date: 03/26/2024
 ms.author: danlep
 ms.custom: Include file
 ---

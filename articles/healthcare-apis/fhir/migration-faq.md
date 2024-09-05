@@ -2,7 +2,7 @@
 title: FAQ about migrations from Azure API for FHIR
 description: Find answers to your questions about migrating FHIR data from Azure API for FHIR to the Azure Health Data Services FHIR service.
 services: healthcare-apis
-ms.service: healthcare-apis
+ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.topic: tutorial
 ms.author: evach

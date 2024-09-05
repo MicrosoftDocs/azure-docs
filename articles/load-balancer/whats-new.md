@@ -3,7 +3,7 @@ title: What's new in Azure Load Balancer
 description: Learn what's new with Azure Load Balancer, such as the latest release notes, known issues, bug fixes, deprecated functionality, and upcoming changes.
 services: load-balancer
 author: mbender-ms
-ms.service: load-balancer
+ms.service: azure-load-balancer
 ms.topic: conceptual
 ms.date: 04/17/2023
 ms.author: mbender
@@ -25,7 +25,7 @@ You can also find the latest Azure Load Balancer updates and subscribe to the RS
 
 | Type |Name |Description  |Date added  |
 | ------ |---------|---------|---------|
-| Feature | [ Azure’s cross-region Load Balancer is now generally available ](https://azure.microsoft.com/updates/azure-s-crossregion-load-balancer-is-now-generally-available/) | Azure Load Balancer’s Global tier is a cloud-native global network load balancing solution. With cross-region Load Balancer, you can distribute traffic across multiple Azure regions with ultra-low latency and high performance. Azure cross-region Load Balancer provides customers a static globally anycast IP address. Through this global IP address, you can easily add or remove regional deployments without interruption. Learn more about [cross-region load balancer](cross-region-overview.md) | July 2023 | 
+| Feature | [Azure’s cross-region Load Balancer is now generally available](https://azure.microsoft.com/updates/azure-s-crossregion-load-balancer-is-now-generally-available/) | Azure Load Balancer’s Global tier is a cloud-native global network load balancing solution. With cross-region Load Balancer, you can distribute traffic across multiple Azure regions with ultra-low latency and high performance. Azure cross-region Load Balancer provides customers a static globally anycast IP address. Through this global IP address, you can easily add or remove regional deployments without interruption. Learn more about [cross-region load balancer](cross-region-overview.md) | July 2023 | 
 | Feature | [Inbound ICMPv6 pings and traceroute are now supported on Azure Load Balancer (General Availability)](https://azure.microsoft.com/updates/general-availability-inbound-icmpv6-pings-and-traceroute-are-now-supported-on-azure-load-balancer/) | Azure Load Balancer now supports ICMPv6 pings to its frontend and inbound traceroute support to both IPv4 and IPv6 frontends. Learn more about [how to test reachability of your load balancer](load-balancer-test-frontend-reachability.md). | June 2023 |
 | Feature | [Inbound ICMPv4 pings are now supported on Azure Load Balancer (General Availability)](https://azure.microsoft.com/updates/general-availability-inbound-icmpv4-pings-are-now-supported-on-azure-load-balancer/) | Azure Load Balancer now supports ICMPv4 pings to its frontend, enabling the ability to test reachability of your load balancer. Learn more about [how to test reachability of your load balancer](load-balancer-test-frontend-reachability.md). | May 2023 |
 | SKU | [Basic Load Balancer is retiring on September 30, 2025](https://azure.microsoft.com/updates/azure-basic-load-balancer-will-be-retired-on-30-september-2025-upgrade-to-standard-load-balancer/) | Basic Load Balancer will retire on 30 September 2025. Make sure to [migrate to Standard SKU](load-balancer-basic-upgrade-guidance.md) before this date. | September 2022 |
@@ -47,8 +47,8 @@ The product group is actively working on resolutions for the following known iss
 
 |Issue |Description  |Mitigation  |
 | ---------- |---------|---------|
-| IP based LB outbound IP | IP based LB uses Azure's Default Outbound Access IP for outbound | In order to prevent outbound access from this IP, use NAT Gateway for a predictable IP address and to prevent SNAT port exhaustion |
-| numberOfProbes, "Unhealthy threshold" | Health probe configuration property numberOfProbes, otherwise known as "Unhealthy threshold" in Portal, isn't respected. Load Balancer health probes will probe up/down immediately after one probe regardless of the property's configured value | To control the number of successful or failed consecutive probes necessary to mark backend instances as healthy or unhealthy, please leverage the property ["probeThreshold"](/azure/templates/microsoft.network/loadbalancers?pivots=deployment-language-arm-template#probepropertiesformat-1) instead |
+| IP-based Load Balancer outbound IP | IP-based Load Balancers are currently not secure-by-default and will use the backend instances' default outbound access IPs for outbound connections. If the Load Balancer is a public Load Balancer, either the default outbound access IPs or the Load Balancer's frontend IP may be used. | In order to prevent backend instances behind an IP-based Load Balancer from using default outbound access, use NAT Gateway for a predictable IP address and to prevent SNAT port exhaustion, or leverage the private subnet feature to secure your Load Balancer. |
+| numberOfProbes, "Unhealthy threshold" | Health probe configuration property numberOfProbes, otherwise known as "Unhealthy threshold" in Portal, isn't respected. Load Balancer health probes will probe up/down immediately after one probe regardless of the property's configured value. | To control the number of successful or failed consecutive probes necessary to mark backend instances as healthy or unhealthy, please leverage the property ["probeThreshold"](/azure/templates/microsoft.network/loadbalancers?pivots=deployment-language-arm-template#probepropertiesformat-1) instead. |
                                         
 
   

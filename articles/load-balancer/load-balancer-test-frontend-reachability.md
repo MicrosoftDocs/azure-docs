@@ -3,9 +3,9 @@ title: Test reachability of Azure Public Load Balancer frontends with ping and t
 description: Learn how to test Azure Public Load Balancer frontend IPv4 and IPv6 addresses for reachability from an Azure VM or an external device. Supports ping and traceroute.
 services: load-balancer
 author: mbender-ms
-ms.service: load-balancer
+ms.service: azure-load-balancer
 ms.topic: how-to
-ms.date: 05/06/2023
+ms.date: 06/26/2024
 ms.author: mbender
 ms.custom: template-how-to
 ---
@@ -215,7 +215,8 @@ Based on the current health probe state of your backend instances, you receive d
 ## Usage considerations
 
 - ICMP pings can't be disabled and are allowed by default on Standard Public Load Balancers.
-- ICMP pings with packet sizes larger than 64 bytes will be dropped, leading to timeouts. 
+- ICMP pings with packet sizes larger than 64 bytes will be dropped, leading to timeouts.
+- Outbound ICMP pings are not supported on a Load Balancer.  
 
 > [!NOTE]
 > ICMP ping requests are not sent to the backend instances; they are handled by the Load Balancer.

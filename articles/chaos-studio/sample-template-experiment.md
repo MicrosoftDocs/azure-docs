@@ -7,7 +7,7 @@ ms.topic: sample
 ms.date: 11/10/2021
 ms.author: abbyweisberg
 ms.reviewer: prashabora
-ms.service: chaos-studio
+ms.service: azure-chaos-studio
 ms.custom: devx-track-arm-template
 ---
 
@@ -18,6 +18,10 @@ This article includes sample [Azure Resource Manager templates (ARM templates)](
 ## Create an experiment (sample)
 
 In this sample, we create a chaos experiment with a single target resource and a single CPU pressure fault. You can modify the experiment by referencing our [REST API](/rest/api/chaosstudio/experiments/create-or-update) and [fault library](chaos-studio-fault-library.md).
+
+## Deploying templates
+
+Once you've reviewed the template and parameter files, learn how to deploy them into your Azure subscription with the [Deploy resources with ARM templates and Azure portal](../azure-resource-manager/templates/deploy-portal.md) article.
 
 ### Template file
 
@@ -43,7 +47,7 @@ In this sample, we create a chaos experiment with a single target resource and a
     "chaosTargetResourceId": {
       "type": "string",
       "metadata": {
-        "description": "Resource ID of the chaos target. This is the resource ID of the resource being targeted plus the target proxy resource."
+        "description": "Resource ID of the chaos target. This is the full resource ID of the resource being targeted plus the target proxy resource."
       }
     }
   },
@@ -52,7 +56,7 @@ In this sample, we create a chaos experiment with a single target resource and a
   "resources": [
     {
       "type": "Microsoft.Chaos/experiments",
-      "apiVersion": "2023-11-01",
+      "apiVersion": "2024-01-01",
       "name": "[parameters('experimentName')]",
       "location": "[parameters('location')]",
       "identity": {
@@ -71,7 +75,6 @@ In this sample, we create a chaos experiment with a single target resource and a
             ]
           }
         ],
-        "startOnCreation": "false",
         "steps": [
           {
             "name": "Step1",

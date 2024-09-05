@@ -1,12 +1,12 @@
 ---
 title: Export DICOM files by using the export API of the DICOM service
 description: This how-to guide explains how to export DICOM files to an Azure Blob Storage account.
-author: mmitrik
-ms.service: healthcare-apis
-ms.subservice: dicom
+author: varunbms
+ms.service: azure-health-data-services
+ms.subservice: dicom-service
 ms.topic: how-to
 ms.date: 10/30/2023
-ms.author: mmitrik
+ms.author: buchvarun
 ---
 
 # Export DICOM files
@@ -23,7 +23,7 @@ There are three steps to exporting data from the DICOM service:
 
 The first step to export data from the DICOM service is to enable a system-assigned managed identity. This managed identity is used to authenticate the DICOM service and give permission to the storage account used as the destination for export. For more information about managed identities in Azure, see [About managed identities for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md).
 
-1. In the Azure portal, browse to the DICOM service that you want to export from and select **Identity**.
+1. In the Azure portal, browse to the DICOM service that you want to export from, and select **Identity**.
 
    :::image type="content" source="media/dicom-export-identity.png" alt-text="Screenshot that shows selection of Identity view." lightbox="media/dicom-export-identity.png":::
 
@@ -63,9 +63,9 @@ The export API exposes one `POST` endpoint for exporting data.
 POST <dicom-service-url>/<version>/export
 ```
 
-Given a *source*, the set of data to be exported, and a *destination*, the location to which data is exported, the endpoint returns a reference to a new, long-running export operation. The duration of this operation depends on the volume of data to be exported. For more information about monitoring progress of export operations, see the [Operation status](#operation-status) section.
+Given a *source*, the set of data to be exported, and a *destination* (the location to which data is exported), the endpoint returns a reference to a new, long-running export operation. The duration of this operation depends on the volume of data to be exported. For more information about monitoring progress of export operations, see the [Operation status](#operation-status) section.
 
-Any errors encountered while you attempt to export are recorded in an error log. For more information, see the [Errors](#errors) section.
+Any errors encountered while attempting to export are recorded in an error log. For more information, see the [Errors](#errors) section.
 
 #### Request
 
@@ -95,7 +95,7 @@ The request body consists of the export source and destination.
 The only setting is the list of identifiers to export.
 
 | Property | Required | Default | Description |
-| :------- | :------- | :------ | :---------- |
+| -------- | -------- | ------- | ----------- |
 | `Values` | Yes      |         | A list of one or more DICOM studies, series, and/or SOP instance identifiers in the format of `"<StudyInstanceUID>[/<SeriesInstanceUID>[/<SOPInstanceUID>]]"` |
 
 #### Destination settings
@@ -103,7 +103,7 @@ The only setting is the list of identifiers to export.
 The connection to the Blob Storage account is specified with `BlobContainerUri`.
 
 | Property             | Required | Default | Description |
-| :------------------- | :------- | :------ | :---------- |
+| -------------------- | -------- | ------- | ----------- |
 | `BlobContainerUri`   | No       | `""`    | The complete URI for the blob container |
 | `UseManagedIdentity` | Yes      | `false` | A required flag that indicates whether managed identity should be used to authenticate to the blob container |
 
@@ -142,7 +142,7 @@ Content-Type: application/json
 
 #### Response
 
-The export API returns a `202` status code when an export operation is started successfully. The body of the response contains a reference to the operation, while the value of the `Location` header is the URL for the export operation's status (the same as `href` in the body).
+The export API returns a `202` status code when an export operation is started successfully. The body of the response contains a reference to the operation. The value of the `Location` header is the URL for the export operation's status (the same as `href` in the body).
 
 Inside the destination container, use the path format `<operation id>/results/<study>/<series>/<sop instance>.dcm` to find the DCM files.
 
@@ -178,11 +178,11 @@ Content-Type: application/json
 
 ## Errors
 
-If there are any user errors when you export a DICOM file, the file is skipped and its corresponding error is logged. This error log is also exported alongside the DICOM files and the caller can review it. You can find the error log at `<export blob container uri>/<operation ID>/errors.log`.
+If there are any user errors exporting a DICOM file, the file is skipped and its corresponding error is logged. This error log is also exported alongside the DICOM files, and the caller can review it. You can find the error log at `<export blob container uri>/<operation ID>/errors.log`.
 
 #### Format
 
-Each line of the error log is a JSON object with the following properties. A given error identifier might appear multiple times in the log as each update to the log is processed *at least once*.
+Each line of the error log is a JSON object with the following properties. A given error identifier might appear multiple times in the log, as each update to the log is processed *at least once*.
 
 | Property     | Description |
 | ------------ | ----------- |

@@ -1,35 +1,33 @@
 ---
 title: Azure Virtual Desktop diagnostics log analytics - Azure
 description: How to use log analytics with the Azure Virtual Desktop diagnostics feature.
-author: Heidilohr
+author: dknappettmsft
 ms.topic: how-to
 ms.date: 05/27/2020
-ms.author: helohr
+ms.author: daknappe
+ms.custom: docs_inherited
 ---
-# Use Log Analytics for the diagnostics feature
+
+# Send diagnostic data to Log Analytics for Azure Virtual Desktop
 
 >[!IMPORTANT]
 >This content applies to Azure Virtual Desktop with Azure Resource Manager Azure Virtual Desktop objects. If you're using Azure Virtual Desktop (classic) without Azure Resource Manager objects, see [this article](./virtual-desktop-fall-2019/diagnostics-log-analytics-2019.md).
 
 Azure Virtual Desktop uses [Azure Monitor](../azure-monitor/overview.md) for monitoring and alerts like many other Azure services. This lets admins identify issues through a single interface. The service creates activity logs for both user and administrative actions. Each activity log falls under the following categories:
 
-- Management Activities:
-    - Track whether attempts to change Azure Virtual Desktop objects using APIs or PowerShell are successful. For example, can someone successfully create a host pool using PowerShell?
-- Feed:
-    - Can users successfully subscribe to workspaces?
-    - Do users see all resources published in the Remote Desktop client?
-- Connections:
-    - When users initiate and complete connections to the service.
-- Host registration:
-    - Was the session host successfully registered with the service upon connecting?
-- Errors:
-    - Are users encountering any issues with specific activities? This feature can generate a table that tracks activity data for you as long as the information is joined with the activities.
-- Checkpoints:
-    - Specific steps in the lifetime of an activity that were reached. For example, during a session, a user was load balanced to a particular host, then the user was signed on during a connection, and so on.
-- Agent Health Status:
-    - Monitor the health and status of the Azure Virtual Desktop agent installed on each session host. For example, verify that the agents are up to date, or whether the agent is in a healthy state and ready to accept new user sessions. 
-- Connection Network Data:
-    - Track the average network data for user sessions to monitor for details including the estimated round trip time and available bandwidth throughout their connection.
+| Category | Description |
+|--|--|
+| Management Activities | Whether attempts to change Azure Virtual Desktop objects using APIs or PowerShell are successful. |
+| Feed | Whether users can successfully subscribe to workspaces. |
+| Connections | When users initiate and complete connections to the service. |
+| Host registration | Whether a session host successfully registered with the service upon connecting. |
+| Errors | Where users encounter issues with specific activities. |
+| Checkpoints | Specific steps in the lifetime of an activity that were reached. |
+| Agent Health Status | Monitor the health and status of the Azure Virtual Desktop agent installed on each session host. |
+| Network | The average network data for user sessions to monitor for details including the estimated round trip time. |
+| Connection Graphics | Performance data from the Azure Virtual Desktop graphics stream. |
+| Session Host Management Activity | Management activity of session hosts. |
+| Autoscale | Scaling operations. |
 
 Connections that don't reach Azure Virtual Desktop won't show up in diagnostics results because the diagnostics role service itself is part of Azure Virtual Desktop. Azure Virtual Desktop connection issues can happen when the user is experiencing network connectivity issues.
 
@@ -195,4 +193,5 @@ WVDErrors
 
 ## Next steps
 
-To review common error scenarios that the diagnostics feature can identify for you, see [Identify and diagnose issues](./troubleshoot-set-up-overview.md).
+- [Enable Insights to monitor Azure Virtual Desktop](insights.md).
+- To review common error scenarios that the diagnostics feature can identify for you, see [Identify and diagnose issues](./troubleshoot-set-up-overview.md).

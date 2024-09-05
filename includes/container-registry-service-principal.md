@@ -4,11 +4,11 @@ description: include file
 services: container-registry
 author: dlepow
 
-ms.service: container-registry
+ms.service: azure-container-registry
 ms.topic: include
 ms.date: 12/14/2018
 ms.author: danlep
-ms.custom: include file
+ms.custom: include file, devx-track-azurecli
 ---
 
 ## Create a service principal

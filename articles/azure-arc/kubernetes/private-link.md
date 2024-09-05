@@ -1,12 +1,12 @@
 ---
-title: Private connectivity for Azure Arc-enabled Kubernetes clusters using private link (preview)
+title: Use private connectivity for Azure Arc-enabled Kubernetes clusters with private link (preview)
 ms.date: 09/21/2022
-ms.topic: article
+ms.topic: how-to
 description: With Azure Arc, you can use a Private Link Scope model to allow multiple Kubernetes clusters to use a single private endpoint.
 ms.custom: references_regions
 ---
 
-# Private connectivity for Arc-enabled Kubernetes clusters using private link (preview)
+# Use private connectivity for Arc-enabled Kubernetes clusters with private link (preview)
 
 [Azure Private Link](../../private-link/private-link-overview.md) allows you to securely link Azure services to your virtual network using private endpoints. This means you can connect your on-premises Kubernetes clusters with Azure Arc and send all traffic over an Azure ExpressRoute or site-to-site VPN connection instead of using public networks. In Azure Arc, you can use a Private Link Scope model to allow multiple Kubernetes clusters to communicate with their Azure Arc resources using a single private endpoint.
 

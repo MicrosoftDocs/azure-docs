@@ -1,7 +1,7 @@
 ---
 title: Common questions about Azure Site Recovery monitoring 
 description: Get answers to common questions about Azure Site Recovery monitoring, using inbuilt monitoring and Azure Monitor (Log Analytics)
-ms.service: site-recovery
+ms.service: azure-site-recovery
 services: site-recovery
 ms.date: 10/13/2023
 ms.topic: conceptual
@@ -55,7 +55,9 @@ Only machines for which initial replication has completed are included in the co
 
 ### How long is data kept in Azure Monitor logs? 
 
-By default, retention is for 31 days. You can increase the period in the **Usage and Estimated Cost** section in the Log Analytics workspace. Click on **Data Retention**, and choose the range.
+For information on data retention, see [Data retention and archive in Azure Monitor logs](/azure/azure-monitor/logs/data-retention-archive).
+
+You can modify the default retention period in the **Usage and Estimated Cost** section in the Log Analytics workspace. Click on **Data Retention**, and choose the range.
 
 ### What's the size of the resource logs? 
 

@@ -46,7 +46,8 @@ items:
       href: how-to-configure-visual-comparisons.md   
     - name: Monitor Microsoft Playwright Testing
       href: monitor-playwright-testing.md
-
+    - name: Use Microsoft Playwright Testing with sharding
+      href: playwright-testing-reporting-with-sharding.md
 - name: Samples
   items:
     - name: Contoso Traders cloud testing demo

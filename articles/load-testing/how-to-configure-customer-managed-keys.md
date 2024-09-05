@@ -3,7 +3,7 @@ title: Configure customer-managed keys for encryption
 titleSuffix: Azure Load Testing
 description: Learn how to configure customer-managed keys for your Azure load testing resource with Azure Key Vault
 services: load-testing
-ms.service: load-testing
+ms.service: azure-load-testing
 ms.author: ninallam
 author: ninallam
 ms.date: 09/18/2023
@@ -14,7 +14,7 @@ ms.topic: how-to
 
 Azure Load Testing automatically encrypts all data stored in your load testing resource with keys that Microsoft provides (service-managed keys). Optionally, you can add a second layer of security by also providing your own (customer-managed) keys. Customer-managed keys offer greater flexibility for controlling access and using key-rotation policies.
 
-The keys you provide are stored securely using [Azure Key Vault](../key-vault/general/overview.md). You can create a separate key for each Azure load testing resource you enable with customer-managed keys.
+The keys you provide are stored securely using [Azure Key Vault](/azure/key-vault/general/overview). You can create a separate key for each Azure load testing resource you enable with customer-managed keys.
 
 When you use customer-managed encryption keys, you need to specify a user-assigned managed identity to retrieve the keys from Azure Key Vault.
 
@@ -50,6 +50,9 @@ Make sure to configure the following key vault settings when you use customer-ma
 ### Configure key vault networking settings
 
 If you restricted access to your Azure key vault by a firewall or virtual networking, you need to grant access to Azure Load Testing for retrieving your customer-managed keys. Follow these steps to [grant access to trusted Azure services](/azure/key-vault/general/overview-vnet-service-endpoints#grant-access-to-trusted-azure-services).
+
+> [!IMPORTANT]
+> Retrieving customer-managed keys from a private Azure key vault that has access restrictions is currently not supported in **US Gov Virginia** region.
 
 ### Configure soft delete and purge protection
 
@@ -116,7 +119,7 @@ Next, add a key to the key vault. Azure Load Testing encryption supports RSA key
 
 # [Azure portal](#tab/portal)
 
-To learn how to add a key with the Azure portal, see [Set and retrieve a key from Azure Key Vault using the Azure portal](../key-vault/keys/quick-create-portal.md).
+To learn how to add a key with the Azure portal, see [Set and retrieve a key from Azure Key Vault using the Azure portal](/azure/key-vault/keys/quick-create-portal).
 
 # [PowerShell](#tab/powershell)
 

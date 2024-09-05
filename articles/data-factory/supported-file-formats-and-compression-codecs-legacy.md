@@ -4,11 +4,10 @@ titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn about file formats and compression codecs supported by file-based connectors in Azure Data Factory and Synapse Analytics.
 author: jianleishen
 ms.author: jianleishen
-ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 08/10/2023
+ms.date: 05/15/2024
 ---
 
 # Supported file formats and compression codecs in Azure Data Factory and Synapse Analytics (legacy)

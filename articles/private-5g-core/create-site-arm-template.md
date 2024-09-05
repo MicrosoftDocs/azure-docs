@@ -4,7 +4,7 @@ titleSuffix: Azure Private 5G Core
 description: This how-to guide shows how to create a site in your private mobile network using an Azure Resource Manager (ARM) template. 
 author: robswain
 ms.author: robswain
-ms.service: private-5g-core
+ms.service: azure-private-5g-core
 ms.topic: how-to
 ms.date: 03/16/2022
 ms.custom: template-how-to, devx-track-arm-template
@@ -15,11 +15,11 @@ zone_pivot_groups: ase-pro-version
 
 Azure Private 5G Core private mobile networks include one or more *sites*. Each site represents a physical enterprise location (for example, Contoso Corporation's Chicago factory) containing an Azure Stack Edge device that hosts a packet core instance. In this how-to guide, you'll learn how to create a site in your private mobile network using an Azure Resource Manager template (ARM template).
 
-[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+[!INCLUDE [About Azure Resource Manager](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-introduction.md)]
 
 If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
 
-[![Deploy to Azure.](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.mobilenetwork%2Fmobilenetwork-create-new-site%2Fazuredeploy.json)
+:::image type="content" source="~/reusable-content/ce-skilling/azure/media/template-deployments/deploy-to-azure-button.svg" alt-text="Button to deploy the Resource Manager template to Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.mobilenetwork%2Fmobilenetwork-create-new-site%2Fazuredeploy.json":::
 
 ## Prerequisites
 
@@ -51,7 +51,7 @@ Four Azure resources are defined in the template.
 
 1. Select the following link to sign in to Azure and open a template.
 
-    [![Deploy to Azure.](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.mobilenetwork%2Fmobilenetwork-create-new-site%2Fazuredeploy.json)
+    :::image type="content" source="~/reusable-content/ce-skilling/azure/media/template-deployments/deploy-to-azure-button.svg" alt-text="Button to deploy the Resource Manager template to Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.mobilenetwork%2Fmobilenetwork-create-new-site%2Fazuredeploy.json":::
 
 :::zone pivot="ase-pro-gpu"
 2. Select or enter the following values, using the information you retrieved in [Prerequisites](#prerequisites).

@@ -18,7 +18,7 @@ ms.author: wchi
     using Azure.Identity;
     using Azure.Messaging.WebPubSub;
 
-    // Uncomment the following lines according to the authentication type.
+    // Uncomment the following lines corresponding to the authentication type you want to use.
     // For system-assigned identity.
     // var sqlServerTokenProvider = new DefaultAzureCredential();
     
@@ -59,7 +59,7 @@ ms.author: wchi
     ```
 1. Authenticate using `azure-identity` and get the endpoint URL from the environment variable added by Service Connector. When using the code below, uncomment the part of the code snippet for the authentication type you want to use.
     ```java
-    // Uncomment the following lines according to the authentication type.
+    // Uncomment the following lines corresponding to the authentication type you want to use.
     // For system-assigned managed identity.
     // DefaultAzureCredential credential = new DefaultAzureCredentialBuilder().build();
 
@@ -98,7 +98,7 @@ ms.author: wchi
     from azure.identity import ManagedIdentityCredential, ClientSecretCredential
     from azure.messaging.webpubsubservice import WebPubSubServiceClient
     
-    # Uncomment the following lines according to the authentication type.
+    # Uncomment the following lines corresponding to the authentication type you want to use.
     # For system-assigned managed identity.
     # cred = ManagedIdentityCredential()
 
@@ -130,7 +130,7 @@ ms.author: wchi
     const { DefaultAzureCredential,ClientSecretCredential } = require("@azure/identity");
     const { WebPubSubServiceClient } = require("@azure/web-pubsub");
 
-    // Uncomment the following lines according to the authentication type.  
+    // Uncomment the following lines corresponding to the authentication type you want to use.  
     // For system-assigned identity.
     // const credential = new DefaultAzureCredential();
     

@@ -1,0 +1,162 @@
+### YamlMime:Hub
+title: Azure load balancing and content delivery documentation
+summary: Learn about the various Azure load balancing and content delivery services available that provide security for your resources in Azure. Services include Azure Load Balancer, Azure Gateway Load Balancer, Azure Application Gateway, and Azure Front Door.
+brand: azure ## Used for color theming of icons and hero area 
+
+metadata: 
+  title: Azure load balancing and content delivery
+  summary: Learn about the various Azure load balancing and content delivery services available that provide security for your resources in Azure. Services include Azure Load Balancer, Azure Gateway Load Balancer, Azure Application Gateway, and Azure Front Door.
+  ms.service: azure-load-balancer
+  ms.topic: hub-page
+  author: mbender-ms
+  ms.author: mbender
+  manager: kumudD
+  ms.date: 07/15/2024
+
+highlightedContent:
+# itemType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new 
+  items: 
+    - title: Choose a load balancing solution 
+      itemType: concept
+      url: /azure/architecture/guide/technology-choices/load-balancing-overview
+    - title: Hub-spoke network topology in Azure
+      itemType: architecture
+      url: /azure/architecture/reference-architectures/hybrid-networking/hub-spoke
+    - title: Azure Networking blogs
+      itemType: concept
+      url: https://azure.microsoft.com/blog/topics/networking/
+    - title: Azure Networking services overview
+      itemType: concept 
+      url: /azure/networking/
+
+productDirectory:
+  title: Get started
+  items:
+    - title: Azure Load Balancer
+      imageSrc: ./media/load-balancer.svg
+      summary: "Manage distribution of load-balanced traffic for public and internal traffic with Azure Load Balancer."
+      url: /azure/load-balancer
+    - title: Azure Application Gateway
+      imageSrc: ./media/application-gateway.svg
+      summary: "Optimize app delivery with Azure Application Gateway for HTTP/HTTPS traffic."
+      url: /azure/application-gateway
+    - title: Azure Front Door
+      imageSrc: ./media/front-door-cdn.svg
+      summary: "Manage web application performance and global routing with Azure Front Door."
+      url: /azure/frontdoor/
+          
+conceptualContent:
+  sections:
+    - title: Use cases and scenarios
+      summary: Design and deploy a load balancing solution that meets your application requirements
+      items:
+
+        - title: 'Load balance your applications and workloads in Azure.'
+          links:
+            - text: 'Quickstart: Create a public load balancer to load balance VMs using the Azure portal'
+              itemType: learn
+              url: /azure/load-balancer/quickstart-load-balancer-standard-public-portal
+            - text: 'What is Azure Load Balancer?'
+              itemType: learn
+              url: /azure/load-balancer/load-balancer-overview
+            - text: 'Azure Load Balancer components'
+              itemType: learn
+              url: /azure/load-balancer/components
+            - text: 'Gateway Load Balancer'
+              itemType: learn
+              url: /azure/load-balancer/gateway-overview
+
+        - title: "Improve performance and globally scale your applications in Azure."
+          links:
+            - text: 'What is Azure Application Gateway?'
+              itemType: learn
+              url: /azure/application-gateway/overview
+            - text: 'Application Gateway infrastructure configuration'
+              itemType: learn
+              url: /azure/application-gateway/configuration-infrastructure
+            - text: 'Rewrite HTTP headers and URL with Application Gateway'
+              itemType: learn
+              url: /azure/application-gateway/rewrite-http-headers-url
+            - text: 'Generate an Azure Application Gateway self-signed certificate with a custom root CA'
+              itemType: learn
+              url: /azure/application-gateway/self-signed-certificates
+
+        - title: "Deploy global applications for high performance and availability."
+          links:
+            - text: 'What is Azure Front Door?'
+              itemType: learn
+              url: /azure/frontdoor/front-door-overview
+            - text: 'Configure HTTPS on an Azure Front Door custom domain by using the Azure portal'
+              itemType: learn
+              url: /azure/frontdoor/standard-premium/how-to-configure-https-custom-domain
+            - text: 'Comparison between Azure Front Door and Azure CDN services'
+              itemType: learn
+              url: /azure/frontdoor/front-door-cdn-comparison
+            - text: 'Web Application Firewall (WAF) on Azure Front Door'
+              itemType: learn
+              url: /azure/frontdoor/web-application-firewall
+
+    - title: Learn more about Azure load balancing and content delivery
+      summary: Explore additional resources to help you design and deploy a load balancing solution
+      items:
+        # Card
+        - title: "Training modules"
+          links:
+            - text: "Configure Azure Load Balancer"
+              itemType: training
+              url: /training/modules/configure-azure-load-balancer/
+            - text: "Improve application scalability and resiliency by using Azure Load Balancer"
+              url: /training/modules/improve-app-scalability-resiliency-with-load-balancer/
+              itemType: training
+            - text: "Configure Azure Application Gateway"
+              url: /training/modules/configure-azure-application-gateway/
+              itemType: training
+            - text: "Introduction to Azure Front Door"
+              url: /training/modules/intro-to-azure-front-door/
+              itemType: training
+              
+        - title: "Azure Well-Architected Framework"
+          links:
+          - text: "Operational excellence and Azure Load Balancer"
+            itemType: architecture
+            url: /azure/well-architected/service-guides/azure-load-balancer/operational-excellence
+          - text: "Azure Well-Architected Framework review - Azure Application Gateway v2"
+            itemType: architecture
+            url: /azure/well-architected/service-guides/azure-application-gateway
+          - text: "Azure Well-Architected Framework perspective on Azure Front Door"
+            itemType: architecture
+            url: /azure/well-architected/service-guides/azure-front-door
+        - title: "Azure Architecture Center"
+          links:
+          - text: "Load-balancing options"
+            itemType: architecture
+            url: /azure/architecture/guide/technology-choices/load-balancing-overview
+          - text: "Azure Front Door Architecture and Concepts"
+            itemType: architecture
+            url: /azure/frontdoor/
+          - text: "Zero-trust network for web applications with Azure Firewall and Application Gateway" 
+            url: /azure/well-architected/reliability/regions-availability-zones
+            itemType: architecture
+        - title: "Cloud Adoption Framework"
+          links:
+          - text: "Plan for application delivery"
+            itemType: concept
+            url: /azure/cloud-adoption-framework/ready/azure-best-practices/plan-for-app-delivery
+          - text: "Introduction to Azure application delivery services"
+            itemType: concept
+            url: /training/paths/intro-to-azure-application-delivery-services/
+
+# additionalContent section (optional)
+# Card with summary style
+additionalContent:
+  sections:
+    - title: Networking services
+      items:
+        - title: Network Foundations
+          url: /azure/networking/foundations/
+        - title: Network security
+          url: /azure/networking/security/
+        - title: Hybrid connectivity
+          url: /azure/networking/hybrid-connectivity/
+        - title: Network monitoring and management
+          url: ../monitoring-management/index.yml 

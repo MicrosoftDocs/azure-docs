@@ -8,7 +8,7 @@ manager: femila
 ms.reviewer: rebpen
 ms.date: 02/21/2024
 ms.topic: quickstart
-ms.service: notification-hubs
+ms.service: azure-notification-hubs
 ms.custom: mode-ui
 ---
 
@@ -22,7 +22,7 @@ In this quickstart, you create a notification hub in the Azure portal. The first
 
 In this section, you create a namespace and a hub in the namespace.
 
-[!INCLUDE [notification-hubs-portal-create-new-hub.](../../includes/notification-hubs-portal-create-new-hub.md)]
+[!INCLUDE [notification-hubs-portal-create-new-hub](../../includes/notification-hubs-portal-create-new-hub.md)]
 
 ## Create a notification hub in an existing namespace
 

@@ -3,8 +3,8 @@ title: Use private IP address for internal routing for an ingress endpoint
 description: This article provides information on how to use private IPs for internal routing and thus exposing the Ingress endpoint within a cluster to the rest of the VNet.
 services: application-gateway
 author: greg-lindsay
-ms.service: application-gateway
-ms.custom: linux-related-content
+ms.service: azure-application-gateway
+ms.custom:
 ms.topic: how-to
 ms.date: 07/23/2023
 ms.author: greglin
@@ -15,7 +15,7 @@ ms.author: greglin
 This feature exposes the ingress endpoint within the `Virtual Network` using a private IP.
 
 > [!TIP]
-> Also see [What is Application Gateway for Containers?](for-containers/overview.md) currently in public preview.
+> Also see [What is Application Gateway for Containers](for-containers/overview.md).
 
 ## Prerequisites
 Application Gateway with a [Private IP configuration](./configure-application-gateway-with-private-frontend-ip.md)

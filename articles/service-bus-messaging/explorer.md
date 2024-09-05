@@ -34,10 +34,10 @@ To use the Service Bus Explorer tool, you need to do the following tasks:
     - [Quickstart - Create topics](service-bus-quickstart-topics-subscriptions-portal.md)
 
     > [!NOTE]
-    > If it's not the namespace you created, ensure that you're a member of one of these roles on the namespace: 
-    > - [Service Bus Data Owner](../role-based-access-control/built-in-roles.md#azure-service-bus-data-owner) 
-    > - [Contributor](../role-based-access-control/built-in-roles.md#contributor) 
-    > - [Owner](../role-based-access-control/built-in-roles.md#owner)
+    > Ensure that you're a member of one of these roles on the namespace or the entities you want to execute send or receive (including peek and purge) operations on: 
+    > - [Service Bus Data Owner](../role-based-access-control/built-in-roles.md#azure-service-bus-data-owner); Allows both send and receive operations.
+    > - [Service Bus Data Sender](../role-based-access-control/built-in-roles.md#azure-service-bus-data-sender); Allows send operations.
+    > - [Service Bus Data Receiver](../role-based-access-control/built-in-roles.md#azure-service-bus-data-receiver); Allows receive operations.
 
 ## Use the Service Bus Explorer
 
@@ -217,7 +217,7 @@ After peeking or receiving a message, we can resend it, which will send a copy o
 
     :::image type="content" source="./media/service-bus-explorer/queue-resend-selected-messages.png" alt-text="Screenshot showing the resend messages experience." lightbox="./media/service-bus-explorer/queue-resend-selected-messages.png":::
     
-    > [!NOTE]
+    > [!NOTE] 
     > - The resend operation sends a copy of the original message. It doesn't remove the original message that you resubmit. 
     > - If you resend a message in a dead-letter queue of a subscription, a copy of the message is sent to the topic. Therefore, all subscriptions will receive a copy of the message. 
 

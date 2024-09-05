@@ -1,9 +1,9 @@
 ---
 title: 'Tutorial: Use Azure Cache for Redis as a semantic cache'
 description: In this tutorial, you learn how to use Azure Cache for Redis as a semantic cache.
-author: flang-msft
-ms.author: franlanglois
-ms.service: cache
+
+
+
 ms.topic: tutorial
 ms.date: 01/08/2024
 
@@ -42,7 +42,7 @@ In this tutorial, you learn how to:
 
 - [Jupyter Notebooks](https://jupyter.org/) (optional)
 
-- An Azure OpenAI resource with the **text-embedding-ada-002 (Version 2)** and **gpt-35-turbo-instruct** models deployed. These models are currently only available in [certain regions](../ai-services/openai/concepts/models.md#model-summary-table-and-region-availability). See the [resource deployment guide](../ai-services/openai/how-to/create-resource.md) for instructions on how to deploy the models.
+- An Azure OpenAI resource with the **text-embedding-ada-002 (Version 2)** and **gpt-35-turbo-instruct** models deployed. These models are currently only available in [certain regions](/azure/ai-services/openai/concepts/models#model-summary-table-and-region-availability). See the [resource deployment guide](/azure/ai-services/openai/how-to/create-resource) for instructions on how to deploy the models.
 
 ## Create an Azure Cache for Redis instance
 
@@ -266,9 +266,9 @@ Finally, query the LLM to get an AI generated response. If you're using a Jupyte
    ```python
    # Code cell 4
 
-    redis_url = "rediss://:" + REDIS_PASSWORD + "@"+ REDIS_ENDPOINT
-    set_llm_cache(RedisSemanticCache(redis_url = redis_url, embedding=embeddings, score_threshold=0.01))
-    ```
+   redis_url = "rediss://:" + REDIS_PASSWORD + "@"+ REDIS_ENDPOINT
+   set_llm_cache(RedisSemanticCache(redis_url = redis_url, embedding=embeddings, score_threshold=0.01))
+   ```
 
 1. Try the query `Please write a poem about cute puppies` again. You should receive a new output that's specific to puppies:
 

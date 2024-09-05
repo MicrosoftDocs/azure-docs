@@ -14,7 +14,7 @@ This article provides architectural best practices for Azure Monitor Logs. The g
 
 
 ## Reliability
-[Reliability](/azure/well-architected/resiliency/overview) refers to the ability of a system to recover from failures and continue to function. Instead of trying to prevent failures altogether in the cloud, the goal is to minimize the effects of a single failing component. Use the following information to minimize failure of your Log Analytics workspaces and to protect the data they collect.
+[Reliability](/azure/well-architected/resiliency/overview) refers to the ability of a system to recover from failures and continue to function. The goal is to minimize the effects of a single failing component. Use the following information to minimize failure of your Log Analytics workspaces and to protect the data they collect.
 
 [!INCLUDE [waf-logs-reliability](includes/waf-logs-reliability.md)]
 

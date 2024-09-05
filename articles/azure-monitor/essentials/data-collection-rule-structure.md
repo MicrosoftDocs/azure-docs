@@ -4,7 +4,7 @@ description: Details on the structure of different kinds of data collection rule
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 11/15/2023
+ms.date: 07/26/2024
 ms.reviwer: nikeist
 ---
 
@@ -14,6 +14,29 @@ ms.reviwer: nikeist
 - See [Create and edit data collection rules (DCRs) in Azure Monitor](data-collection-rule-create-edit.md) for details working with the JSON described here.
 - See [Sample data collection rules (DCRs) in Azure Monitor](../essentials/data-collection-rule-samples.md) for sample DCRs for different scenarios.
 
+## Properties
+Properties at the top level of the DCR.
+
+| Property | Description |
+|:---|:---|
+| `immutableId` | A unique identifier for the data collection rule. Property and value are automatically created when the DCR is created. |
+| `description` | A description of the data collection rule. |
+| `dataCollectionEndpointId` | Resource ID of the [data collection endpoint (DCE)](data-collection-endpoint-overview.md) used by the DCR if you provided one. Property not present in DCRs that don't use a DCE. |
+
+
+## `endpoints`
+Contains the URLs of the endpoints for the DCR. This section and its properties are automatically created when the DCR is created.
+
+> [!NOTE]
+> These properties weren't created for DCRs created before March 31, 2024. DCRs created before this date required a [data collection endpoint (DCE)](data-collection-endpoint-overview.md) and the `dataCollectionEndpointId` property to be specified. If you want to use these embedded DCEs then you must create a new DCR. 
+
+| Property | Description |
+|:---|:---|
+| `logsIngestion` | URL for ingestion endpoint for log data. |
+| `metricsIngestion` | URL for ingestion endpoint for metric data.  |
+
+**Scenarios**
+- Logs ingestion API
 
 ## `dataCollectionEndpointId` 
 Specifies the [data collection endpoint (DCE)](data-collection-endpoint-overview.md) used by the DCR.

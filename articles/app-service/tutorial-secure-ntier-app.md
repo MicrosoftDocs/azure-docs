@@ -53,11 +53,11 @@ What you'll learn:
 
 The tutorial uses two sample Node.js apps that are hosted on GitHub. If you don't already have a GitHub account, [create an account for free](https://github.com/).
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 To complete this tutorial:
 
-[!INCLUDE [Azure-CLI-prepare-your-environment-no-header.md](~/articles/reusable-content/Azure-CLI/Azure-CLI-prepare-your-environment-no-header.md)]
+[!INCLUDE [Azure-CLI-prepare-your-environment-no-header.md](~/reusable-content/Azure-CLI/Azure-CLI-prepare-your-environment-no-header.md)]
 
 ## 1. Create two instances of a web app
 

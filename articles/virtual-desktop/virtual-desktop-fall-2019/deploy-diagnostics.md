@@ -1,12 +1,11 @@
 ---
 title: Deploy the diagnostics tool for Azure Virtual Desktop (classic) - Azure
 description: How to deploy the diagnostics UX tool for Azure Virtual Desktop (classic).
-author: Heidilohr
+author: dknappettmsft
 ms.topic: how-to
-ms.custom: has-azure-ad-ps-ref
+ms.custom: has-azure-ad-ps-ref, docs_inherited
 ms.date: 12/15/2020
-ms.author: helohr
-manager: femila
+ms.author: daknappe
 ---
 
 # Deploy the Azure Virtual Desktop (classic) diagnostics tool
@@ -62,6 +61,7 @@ This section will show you how to use PowerShell to create the Microsoft Entra a
 4. Go to the [RDS-Templates GitHub repo](https://github.com/Azure/RDS-Templates/tree/master/wvd-templates/diagnostics-sample/deploy/scripts) and run the **CreateADAppRegistrationforDiagnostics.ps1** script in PowerShell.
 5.  When the script asks you to name your app, enter a unique app name.
 
+[!INCLUDE [Azure AD PowerShell deprecation note](~/reusable-content/msgraph-powershell/includes/aad-powershell-deprecation-note.md)]
 
 After the script successfully runs, it should show the following things in its output:
 

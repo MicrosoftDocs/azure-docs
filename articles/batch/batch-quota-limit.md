@@ -2,12 +2,12 @@
 title: Service quotas and limits
 description: Learn about default Azure Batch quotas, limits, and constraints. Also learn how to request quota increases.
 ms.topic: conceptual
-ms.date: 12/20/2021
+ms.date: 06/05/2024
 ---
 
 # Batch service quotas and limits
 
-As with other Azure services, there are limits on certain resources associated with Azure Batch. For example, if your pool doesn't reach your target number of compute nodes, you might have reached the core quota limit for your Batch account. Many limits are default quotas, which Azure applies at the subscription or account level. 
+As with other Azure services, there are limits on certain resources associated with Azure Batch. For example, if your pool doesn't reach your target number of compute nodes, you might have reached the core quota limit for your Batch account. Many limits are default quotas, which Azure applies at the subscription or account level.
 
 Keep these quotas in mind as you design and scale up your Batch workloads. You can run multiple Batch workloads in a single Batch account. Or, you can distribute your workloads among Batch accounts in the same subscription but different Azure regions. If you plan to run production workloads in Batch, you might need to increase one or more of the quotas above the default. To raise a quota, [request a quota increase](#increase-a-quota) at no charge.
 
@@ -23,9 +23,9 @@ Also note that quotas aren't guaranteed values. Quotas can vary based on changes
 
 ### Core quotas in Batch service mode
 
-Core quotas exist for each virtual machine (VM) series supported by Batch. These core quotas are displayed on the **Quotas** page in the Azure portal. To update VM series quota limits, [open a support request](#increase-a-quota). 
+Core quotas exist for each virtual machine (VM) series supported by Batch. These core quotas are displayed on the **Quotas** page in the Azure portal. To update VM series quota limits, [open a support request](#increase-a-quota).
 
-* For dedicated nodes, Batch enforces a core quota limit for each VM series, and a total core quota limit for the entire Batch account. 
+* For dedicated nodes, Batch enforces a core quota limit for each VM series, and a total core quota limit for the entire Batch account.
 * For Spot nodes, Batch enforces only a total core quota for the Batch account without any distinction between different VM series.
 
 ### Core quotas in user subscription mode
@@ -63,7 +63,7 @@ The Batch service sets the following other limits. Unlike [resource quotas](#res
 | [Mounts](virtual-file-mount.md) per compute node | 10 |
 | Certificates per pool | 12 |
 
-<sup>1</sup> The maximum lifetime of a task, from when it's added to the job to when it completes, is 180 days. Completed tasks persist for seven days; data for tasks not completed within the maximum lifetime isn't accessible.
+<sup>1</sup> The maximum lifetime of a task, from when it's added to the job to when it completes, is 180 days. By default, data is retained for completed tasks for seven days if the compute node where it ran is still available. Data for tasks not completed within the maximum lifetime isn't accessible. Completed task data retention times are configurable on a per task basis.
 
 ## View Batch quotas
 
@@ -101,13 +101,13 @@ To request a quota increase using the Azure portal, first open a support request
 
 1. Select or search for **Quotas**.
 
-1. On the **Quotas** page, select **Increase my quotas**. 
+1. On the **Quotas** page, select **Increase my quotas**.
 
-You can also open the support request as follows: 
+You can also open the support request as follows:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-1. Select or search for **Help + support** in the Azure portal. Or, select the question mark icon (**?**) in the portal menu. Then, in the **Support + troubleshooting** pane, select **Help + support**. 
+1. Select or search for **Help + support** in the Azure portal. Or, select the question mark icon (**?**) in the portal menu. Then, in the **Support + troubleshooting** pane, select **Help + support**.
 
 1. On the **New support request page**, select **Create a support request**.
 

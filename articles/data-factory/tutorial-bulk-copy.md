@@ -3,11 +3,9 @@ title: Copy data in bulk with PowerShell
 description: Use Azure Data Factory with Copy Activity to copy data from a source data store to a destination data store in bulk.
 author: jianleishen
 ms.author: jianleishen
-ms.service: data-factory
-ms.subservice: tutorials
 ms.topic: tutorial
 ms.custom: devx-track-azurepowershell
-ms.date: 08/10/2023
+ms.date: 05/15/2024
 ---
 
 # Copy multiple tables in bulk by using Azure Data Factory using PowerShell
@@ -40,7 +38,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 
 ## Prerequisites
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 * **Azure PowerShell**. Follow the instructions in [How to install and configure Azure PowerShell](/powershell/azure/install-azure-powershell).
 * **Azure Storage account**. The Azure Storage account is used as staging blob storage in the bulk copy operation. 
@@ -407,7 +405,7 @@ This pipeline performs two steps:
             "activities":[
                 { 
                     "name": "LookupTableList",
-                    "description": "Retrieve the table list from Azure SQL dataabse",
+                    "description": "Retrieve the table list from Azure SQL database",
                     "type": "Lookup",
                     "typeProperties": {
                         "source": {

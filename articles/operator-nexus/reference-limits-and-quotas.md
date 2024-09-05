@@ -73,6 +73,7 @@ There are several Azure resources that are required to build up Network Fabric C
 | Resource Type	              | # of vCPUs |
 | --------------------------- | -------------------------|
 | Virtual Machine             |	32 (D4_v2), 120 (DS4_v2), 4 (D2s_v3) |
+| Standard DSv2 Family vCPUs  | quota limit 200; distributed across zones 1, 2, and 3 |
 
 > [!NOTE]
 > The number of vCPUs and the family SKUs required are subject to change.

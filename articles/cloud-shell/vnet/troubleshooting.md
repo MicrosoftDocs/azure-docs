@@ -4,7 +4,7 @@ description: >
   Azure Cloud Shell.
 ms.contributor: jahelmic
 ms.date: 10/26/2023
-ms.topic: article
+ms.topic: troubleshooting
 title: Troubleshoot Azure Cloud Shell in a private virtual network
 ---
 # Troubleshoot Azure Cloud Shell in a private virtual network
@@ -31,7 +31,7 @@ Azure Cloud Shell needs access to certain Azure resources. That access is made a
 resource providers. The following resource providers must be registered in your subscription:
 
 - **Microsoft.CloudShell**
-- **Microsoft.ContainerInstances**
+- **Microsoft.ContainerInstance**
 - **Microsoft.Relay**
 
 To see all resource providers, and the registration status for your subscription:
@@ -41,7 +41,7 @@ To see all resource providers, and the registration status for your subscription
 1. In the search box, enter `cloudshell` to search for the resource provider.
 1. Select the **Microsoft.CloudShell** resource provider register from the provider list.
 1. Select **Register** to change the status from **unregistered** to **Registered**.
-1. Repeat the previous steps for the **Microsoft.ContainerInstances** and **Microsoft.Relay**
+1. Repeat the previous steps for the **Microsoft.ContainerInstance** and **Microsoft.Relay**
    resource providers.
 
    [![Screenshot of selecting resource providers in the Azure portal.][ss01a]][ss01x]

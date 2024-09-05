@@ -6,7 +6,7 @@ author: tejaswikolli-web
 ms.author: tejaswikolli
 ms.date: 10/31/2023
 ms.custom: references_regions, devx-track-azurecli
-ms.service: container-registry
+ms.service: azure-container-registry
 
 ---
 
@@ -24,7 +24,7 @@ Zone redundancy is a  feature of the Premium container registry service tier. Fo
   
     |Americas  |Europe  |Africa  |Asia Pacific  |
     |---------|---------|---------|---------|
-    |Brazil South<br/>Canada Central<br/>Central US<br/>East US<br/>East US 2<br/>East US 2 EUAP<br/>South Central US<br/>US Government Virginia<br/>West US 2<br/>West US 3     |France Central<br/>Germany West Central<br/>North Europe<br/>Norway East<br/>Sweden Central<br/>Switzerland North<br/>UK South<br/>West Europe    |South Africa North<br/>        |Australia East<br/>Central India<br/>China North 3<br/>East Asia<br/>Japan East<br/>Korea Central<br/>Qatar Central<br/>Southeast Asia<br/>UAE North     |
+    |Brazil South<br/>Canada Central<br/>Central US<br/>East US<br/>East US 2<br/>East US 2 EUAP<br/>South Central US<br/>US Government Virginia<br/>West US 2<br/>West US 3     |France Central<br/>Germany West Central<br/>Italy North<br/>North Europe<br/>Norway East<br/>Sweden Central<br/>Switzerland North<br/>UK South<br/>West Europe    |South Africa North<br/>        |Australia East<br/>Central India<br/>China North 3<br/>East Asia<br/>Japan East<br/>Korea Central<br/>Qatar Central<br/>Southeast Asia<br/>UAE North     |
 
 * Region conversions to availability zones aren't currently supported. 
 * To enable availability zone support in a region, create the registry in the desired region with availability zone support enabled, or add a replicated region with availability zone support enabled.

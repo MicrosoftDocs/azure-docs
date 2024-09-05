@@ -1,10 +1,10 @@
 ---
 title: What's new in the Azure Virtual Desktop Agent? - Azure
 description: New features and product updates for the Azure Virtual Desktop Agent.
-author: Heidilohr
+author: sipastak
 ms.topic: release-notes
-ms.date: 02/08/2024
-ms.author: helohr
+ms.date: 07/15/2024
+ms.author: sipastak
 ms.custom: references_regions
 ---
 # What's new in the Azure Virtual Desktop Agent?
@@ -22,23 +22,85 @@ Make sure to check back here often to keep up with new updates.
 
 New versions of the Azure Virtual Desktop Agent are installed automatically. When new versions are released, they're rolled out progressively to session hosts. This process is called *flighting* and it enables Microsoft to monitor the rollout in [validation environments](create-validation-host-pool.md) first.
 
-A rollout may take several weeks before the agent is available in all environments. Some agent versions may not reach non-validation environments, so you may see multiple versions of the agent deployed across your environments.
+A rollout might take several weeks before the agent is available in all environments. Some agent versions might not reach nonvalidation environments, so you may see multiple versions of the agent deployed across your environments.
 
 | Release | Latest version |
 |--|--|
-| Production | 1.0.8297.800 |
-| Validation | 1.0.8431.300  |
+| Production | 1.0.9103.3700 |
+| Validation | 1.0.9103.2900 |
 
 > [!TIP]
 > The Azure Virtual Desktop Agent is automatically installed when adding session hosts in most scenarios. If you need to install the agent manually, you can download it at [Register session hosts to a host pool](add-session-hosts-host-pool.md#register-session-hosts-to-a-host-pool), together with the steps to install it.
 
-## Version 1.0.8431.300 (validation)
+## Version 1.0.9103.3800 
 
-*Published: February 2024*
+*Published: June 2024* 
+
+In this update, we've made the following changes:
+
+- General improvements and bug fixes.
+
+## Version 1.0.9103.3700  
+
+*Published: June 2024* 
+
+In this update, we've made the following changes:
+
+- General improvements and bug fixes.
+
+## Version 1.0.9103.2900 (validation) 
+
+*Published: June 2024*
+
+In this update, we've made the following changes:
+
+- General improvements and bug fixes. 
+
+## Version 1.0.9103.2300 
+
+*Published: June 2024*  
+
+In this update, we've made the following changes:
+
+- General improvements and bug fixes.
+
+## Version 1.0.9103.1000 
+
+*Published: May 2024*
+
+In this update, we've made the following changes:
+
+- General improvements and bug fixes.
+
+## Version 1.0.8804.1400
+
+*Published: April 2024*
 
 In this update, we've made the following changes: 
 
+- Fixed the logic to display deprecated client message.  
+
+- Enable customers to change relative path while leaving image path the same. 
+
+- Update app attach packages to fetch and store timestamp info from certificate. 
+
+## Version 1.0.8431.2300
+
+*Published: April 2024*
+
+In this update, we've made the following changes:
+
+- Fixed an issue with App Attach diagnostics that caused the agent to always report timeout exceptions. Now the agent only reports timeout exceptions to diagnostics when app attach registration is unsuccessful.
+
 - General improvements and bug fixes. 
+
+## Version 1.0.8431.1500
+
+*Published: March 2024*
+
+In this update, we've made the following changes: 
+
+- General improvements and bug fixes.
 
 ## Version 1.0.8297.800
 
@@ -282,7 +344,7 @@ In this release, we've made the following changes:
 - Fixed broker URL cache to address Agent Telemetry calls.
 - Fixed some network-related issues. 
 - Created two new mechanisms to trigger health checks.
-- Additional general bug fixes and agent upgrades.
+- Other general bug fixes and agent upgrades.
 
 ## Version 1.0.4230.1600
 

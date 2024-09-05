@@ -15,7 +15,7 @@ ms.custom: mvc, subject-armqs, mode-arm, devx-track-arm-template
 
 In this quickstart, you use an Azure Resource Manager template (ARM template) to create an IoT hub, an Azure Storage account, and a route to send messages from the IoT hub to storage. The hub is configured so the messages sent to the hub are automatically routed to the storage account if they meet the routing condition. At the end of this quickstart, you can open the storage account and see the messages sent.
 
-[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+[!INCLUDE [About Azure Resource Manager](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-introduction.md)]
 
 If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template opens in the Azure portal.
 

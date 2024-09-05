@@ -13,6 +13,8 @@ author: msangapu-msft
 
 # Map an existing custom DNS name to Azure App Service
 
+[!INCLUDE [regionalization-note](./includes/regionalization-note.md)]
+
 [Azure App Service](overview.md) provides a highly scalable, self-patching web hosting service. This guide shows you how to map an existing custom Domain Name System (DNS) name to App Service. To migrate a live site and its DNS domain name to App Service with no downtime, see [Migrate an active DNS name to Azure](manage-custom-dns-migrate-domain.md).
 
 The DNS record type you need to add with your domain provider depends on the domain you want to add to App Service.
@@ -108,7 +110,7 @@ Create two records according to the following table:
 
 | Record type | Host | Value | Comments |
 | - | - | - |
-| CNAME | `<subdomain>` (for example, `www`) | `<app-name>.azurewebsites.net` | The domain mapping itself. |
+| CNAME | `<subdomain>` (for example, `www`) | `<app-name>.azurewebsites.net` (see [note at top](#dnl-note)) | The domain mapping itself. |
 | TXT | `asuid.<subdomain>` (for example, `asuid.www`) | The domain verification ID shown in the **Add custom domain** dialog. | App Service accesses the `asuid.<subdomain>` TXT record to verify your ownership of the custom domain. |
 
 ![Screenshot that shows the portal navigation to an Azure app.](./media/app-service-web-tutorial-custom-domain/cname-record.png)
@@ -119,7 +121,7 @@ For a wildcard name like `*` in `*.contoso.com`, create two records according to
 
 | Record type | Host | Value | Comments |
 | - | - | - | - |
-| CNAME | `*` | `<app-name>.azurewebsites.net` | The domain mapping itself. |
+| CNAME | `*` | `<app-name>.azurewebsites.net` (see [note at top](#dnl-note)) | The domain mapping itself. |
 | TXT | `asuid` | The domain verification ID shown in the **Add custom domain** dialog. | App Service accesses the `asuid` TXT record to verify your ownership of the custom domain. |
 
 ![Screenshot that shows the navigation to an Azure app.](./media/app-service-web-tutorial-custom-domain/cname-record-wildcard.png)

@@ -106,7 +106,7 @@ This procedure describes how to update the YS-FIT2 BIOS configuration for your O
 
 1. Press **Esc**.
 
-1. Go to **Boot** > **Boot mode** select, and select **Legacy**.
+1. Go to **Boot** > **Boot mode** select, and select **UEFI**.
 
 1. Select **Boot Option #1 – [USB CD/DVD]**.
 

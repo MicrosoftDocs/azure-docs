@@ -18,8 +18,26 @@ items:
   - name: Groups and roles for Oracle Database@Azure
     href: oracle-db/oracle-database-groups-roles.md
   - name: Provision and manage Oracle Database@Azure
-    href: oracle-db/provision-oracle-database.md
+    items:
+    - name: Overview of provisioning
+      href: oracle-db/provision-oracle-database.md
+    - name: Provision Exadata Infrastructure
+      href: oracle-db/provision-oracle-exadata-infrastructure.md
+    - name: Provision Exadata VM cluster
+      href: oracle-db/provision-oracle-exadata-vm-cluster.md
+    - name: Provision Autonomous Databases
+      href: oracle-db/provision-autonomous-oracle-databases.md
+    - name: Use HashiCorp Terraform to provision Oracle Database@Azure
+      href: oracle-db/provision-use-terraform-oracle-database.md
+    - name: Manage resources for Oracle Database@Azure
+      href: oracle-db/provision-manage-oracle-resources.md
+    - name: Troubleshoot provisioning issues
+      href: oracle-db/provision-troubleshoot-oracle-database.md
+  - name: Link Oracle Database@Azure to multiple Azure subscriptions
+    href: oracle-db/link-oracle-database-multiple-subscription.md
   - name: Support for Oracle Database@Azure
     href: oracle-db/oracle-database-support.md
+  - name: FAQs
+    href: oracle-db/faq-oracle-database-azure.md
   
  

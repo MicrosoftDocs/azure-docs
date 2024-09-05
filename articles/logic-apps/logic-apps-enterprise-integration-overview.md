@@ -80,4 +80,4 @@ To try this [sample](https://github.com/Azure/azure-quickstart-templates/tree/ma
 * [Create agreements](logic-apps-enterprise-integration-agreements.md)
 * [Add schemas](logic-apps-enterprise-integration-schemas.md)
 * [Add maps](logic-apps-enterprise-integration-maps.md)
-* [Migrate from BizTalk Services](logic-apps-move-from-mabs.md)
+* [Migrate from BizTalk Server](biztalk-server-to-azure-integration-services-overview.md)

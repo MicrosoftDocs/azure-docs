@@ -18,7 +18,7 @@ This article provides guidance on collecting the most common types of telemetry 
 - For more information about using telemetry collected from your virtual machines to create alerts in Azure Monitor, see [Monitor virtual machines with Azure Monitor: Alerts](monitor-virtual-machine-alerts.md).
 
 > [!NOTE]
-> This scenario describes how to implement complete monitoring of your Azure and hybrid virtual machine environment. To get started monitoring your first Azure virtual machine, see [Monitor Azure virtual machines](../../virtual-machines/monitor-vm.md).
+> This scenario describes how to implement complete monitoring of your Azure and hybrid virtual machine environment. To get started monitoring your first Azure virtual machine, see [Monitor Azure virtual machines](/azure/virtual-machines/monitor-vm).
 
 ## Data collection rules
 Data collection from Azure Monitor Agent is defined by one or more [data collection rules (DCRs)](../essentials/data-collection-rule-overview.md) that are stored in your Azure subscription and associated with your virtual machines.
@@ -68,7 +68,7 @@ Platform metrics for Azure virtual machines include important host metrics such 
 ### Activity log
 The [activity log](../essentials/activity-log.md) is collected automatically. It includes the recent activity of the machine, such as any configuration changes and when it was stopped and started. You can view the platform metrics and activity log collected for each virtual machine host in the Azure portal.
 
-You can [view the activity log](../essentials/activity-log.md#view-the-activity-log) for an individual machine or for all resources in a subscription. [Create a diagnostic setting](../essentials/diagnostic-settings.md) to send this data into the same Log Analytics workspace used by Azure Monitor Agent to analyze it with the other monitoring data collected for the virtual machine. There's no cost for ingestion or retention of activity log data.
+You can [view the activity log](../essentials/activity-log-insights.md#view-the-activity-log) for an individual machine or for all resources in a subscription. [Create a diagnostic setting](../essentials/diagnostic-settings.md) to send this data into the same Log Analytics workspace used by Azure Monitor Agent to analyze it with the other monitoring data collected for the virtual machine. There's no cost for ingestion or retention of activity log data.
 
 ### VM availability information in Azure Resource Graph
 With [Azure Resource Graph](../../governance/resource-graph/overview.md), you can use the same Kusto Query Language used in log queries to query your Azure resources at scale with complex filtering, grouping, and sorting by resource properties. You can use [VM health annotations](../../service-health/resource-health-vm-annotation.md) to Resource Graph for detailed failure attribution and downtime analysis.
@@ -91,9 +91,9 @@ By default, [VM insights](../vm/vminsights-overview.md) won't enable collection 
 ## Collect Windows and Syslog events
 The operating system and applications in virtual machines often write to the Windows event log or Syslog. You might create an alert as soon as a single event is found or wait for a series of matching events within a particular time window. You might also collect events for later analysis, such as identifying particular trends over time, or for performing troubleshooting after a problem occurs.
 
-For guidance on how to create a DCR to collect Windows and Syslog events, see [Collect events and performance counters from virtual machines with Azure Monitor Agent](../agents/data-collection-rule-azure-monitor-agent.md). You can quickly create a DCR by using the most common Windows event logs and Syslog facilities filtering by event level.
+For guidance on how to create a DCR to collect Windows and Syslog events, see [Collect data with Azure Monitor Agent](../agents/azure-monitor-agent-data-collection.md). You can quickly create a DCR by using the most common Windows event logs and Syslog facilities filtering by event level.
 
-For more granular filtering by criteria such as event ID, you can create a custom filter by using [XPath queries](../agents/data-collection-rule-azure-monitor-agent.md#filter-events-using-xpath-queries). You can further filter the collected data by [editing the DCR](../essentials/data-collection-rule-edit.md) to add a [transformation](../essentials/data-collection-transformations.md).
+For more granular filtering by criteria such as event ID, you can create a custom filter by using [XPath queries](../agents/data-collection-windows-events.md#filter-events-using-xpath-queries). You can further filter the collected data by [editing the DCR](../essentials/data-collection-rule-edit.md) to add a [transformation](../essentials/data-collection-transformations.md).
 
 Use the following guidance as a recommended starting point for event collection. Modify the DCR settings to filter unneeded events and add other events depending on your requirements.
 
@@ -130,7 +130,7 @@ There are multiple reasons why you would want to create a DCR to collect guest p
 - Collect performance counters from other workloads running on your client.
 - Send performance data to [Azure Monitor Metrics](../essentials/data-platform-metrics.md) where you can use them with metrics explorer and metrics alerts.
 
-For guidance on creating a DCR to collect performance counters, see [Collect events and performance counters from virtual machines with Azure Monitor Agent](../agents/data-collection-rule-azure-monitor-agent.md). You can quickly create a DCR by using the most common counters. For more granular filtering by criteria such as event ID, you can create a custom filter by using [XPath queries](../agents/data-collection-rule-azure-monitor-agent.md#filter-events-using-xpath-queries).
+For guidance on creating a DCR to collect performance counters, see [Collect events and performance counters from virtual machines with Azure Monitor Agent](../agents/azure-monitor-agent-data-collection.md). You can quickly create a DCR by using the most common counters. For more granular filtering by criteria such as event ID, you can create a custom filter by using [XPath queries](../agents/data-collection-windows-events.md#filter-events-using-xpath-queries).
 
 > [!NOTE]
 > You might choose to combine performance and event collection in the same DCR.

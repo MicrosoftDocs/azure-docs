@@ -1,7 +1,7 @@
 ---
 title: Increase networking quotas
 description: Learn how to request a networking quota increase in the Azure portal.
-ms.date: 07/22/2022
+ms.date: 03/13/2024
 ms.topic: how-to
 ---
 
@@ -30,7 +30,7 @@ Based on your subscription, you can typically request increases for these quotas
 
 ## Request networking quota increases
 
-Follow these steps to request a networking quota increase from Azure Home.
+Follow these steps to request a networking quota increase from Azure Home. You must have an Azure account with the Contributor role (or another role that includes Contributor access).
 
 1. From [Azure Home](https://portal.azure.com), select **Quotas** and then select **Microsoft.Network**.
 

@@ -4,7 +4,7 @@ description: Learn how to renew a certificate associated with an application gat
 services: application-gateway
 author: greg-lindsay
 
-ms.service: application-gateway
+ms.service: azure-application-gateway
 ms.topic: how-to
 ms.date: 01/25/2022
 ms.author: greglin 
@@ -41,7 +41,7 @@ Upload your new PFX certificate, give it a name, type the password, and then sel
 
 ### Azure PowerShell
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 To renew your certificate using Azure PowerShell, use the following script:
 

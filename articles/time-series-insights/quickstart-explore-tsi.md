@@ -28,7 +28,7 @@ In this quickstart, you learn how to use Azure Time Series Insights Gen2 to find
 
 The Azure Time Series Insights Gen2 Explorer demonstrates historical data and root cause analysis. To get started:
 
-1. Go to the [Contoso Wind Farm demo](https://insights.timeseries.azure.com/preview/samples) environment.
+1. Go to the Contoso Wind Farm demo environment.
 
 1. If you're prompted, sign in to the Azure Time Series Insights Gen2 Explorer by using your Azure account credentials.
 

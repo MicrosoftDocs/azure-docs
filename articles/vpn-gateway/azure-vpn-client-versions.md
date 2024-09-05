@@ -3,29 +3,28 @@ title: 'Azure VPN Client versions'
 description: This article shows the Azure VPN Client versions.
 titleSuffix: Azure VPN Gateway
 author: cherylmc
-ms.service: vpn-gateway
+ms.service: azure-vpn-gateway
+ms.custom: linux-related-content
 ms.topic: conceptual
-ms.date: 10/05/2023
+ms.date: 08/16/2024
 ms.author: cherylmc
-
 ---
 # Azure VPN Client versions
 
-This article helps you view each of the versions of the Azure VPN Client. As new client versions become available, they're added to this article.
+This article helps you view each of the versions of the Azure VPN Client. As new client versions become available, they're added to this article. To view the version number of an installed Azure VPN Client, launch the client and select **Help**.
 
-## Client versions
+## Azure VPN Client - Windows
 
-Each version is listed in the following sections.
+[!INCLUDE [windows client versions](../../includes/vpn-gateway-azure-vpn-client-windows-table.md)]
 
-### Version 3.2.0.0
+## Azure VPN Client - Linux
 
-New in this Release:
+[!INCLUDE [Linux client versions](../../includes/vpn-gateway-azure-vpn-client-linux-table.md)]
 
-* Microsoft Entra authentication is now available from the settings page.
-* Server High Availability(HA), releasing on a rolling basis until October 20.
-* Accessibility Improvements
-* Connection logs in UTC
-* Minor bug fixes
+## Azure VPN Client - macOS
+
+[!INCLUDE [macOS client versions](../../includes/vpn-gateway-azure-vpn-client-macos-table.md)]
+
 
 ## Next steps
 

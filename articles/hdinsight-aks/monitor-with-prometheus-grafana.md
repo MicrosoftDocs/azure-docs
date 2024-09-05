@@ -1,14 +1,17 @@
 ---
 title: Monitoring with Azure Managed Prometheus and Grafana
 description: Learn how to use monitor With Azure Managed Prometheus and Grafana
-ms.service: hdinsight-aks
+ms.service: azure-hdinsight-on-aks
 ms.topic: how-to
 ms.date: 11/07/2023
 ---
 
 # Monitoring with Azure Managed Prometheus and Grafana
 
+[!INCLUDE [retirement-notice](includes/retirement-notice.md)]
 [!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
+
+
 
 Cluster and service Monitoring is integral part of any organization. Azure HDInsight on AKS comes with integrated monitoring experience with Azure services. In this article, we use managed Prometheus service with Azure Grafana dashboards for monitoring.
 

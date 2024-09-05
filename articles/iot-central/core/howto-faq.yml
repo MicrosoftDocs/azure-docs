@@ -39,7 +39,7 @@ sections:
       - question: |
           How many IoT Central applications can I deploy in my subscription?
         answer: |
-          Each Azure subscription has default quotas that could impact the scope of your IoT solution. Currently, IoT Central limits the number of applications you can deploy in a subscription to 100. If you need to increase this limit, contact [Microsoft support](https://azure.microsoft.com/support/options/).
+          Each Azure subscription has default quotas that could impact the scope of your IoT solution. IoT Central limits the number of applications you can deploy in a subscription to 100.
                     
       - question: |
           How do I file a ticket with customer support?
@@ -65,7 +65,7 @@ sections:
           Azure IoT Central uses DPS to enable devices to connect to your application. To learn more about the role DPS plays in connecting devices to IoT Central, see [How devices connect](overview-iot-central-developer.md#how-devices-connect). To learn more about DPS, see [Provisioning devices with Azure IoT Hub Device Provisioning Service](../../iot-dps/about-iot-dps.md).
 
   - name: Pricing
-    questions:          
+    questions:
       - question: |
           How do I change my application pricing plan
         answer: |

@@ -7,7 +7,7 @@ ms.author: sipa
 ms.date: 12/29/2021
 ms.topic: tutorial
 ms.service: azure-maps
-services: azure-maps
+ms.subservice: web-sdk
 ms.custom: mvc
 ---
 
@@ -49,9 +49,6 @@ The following steps show you how to create and display the Map control in a web 
         <!-- Add references to the Azure Maps Map control JavaScript and CSS files. -->
         <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/javascript/mapcontrol/3/atlas.min.css" type="text/css">
         <script src="https://atlas.microsoft.com/sdk/javascript/mapcontrol/3/atlas.min.js"></script>
-
-        <!-- Add a reference to the Azure Maps Services Module JavaScript file. -->
-        <script src="https://atlas.microsoft.com/sdk/javascript/service/2/atlas-service.min.js"></script>
 
         <script>
             var map, datasource, client;
@@ -225,51 +222,49 @@ This section shows you how to use the Azure Maps Route service to get directions
 >[!TIP]
 >The Route service provides APIs to plan *fastest*, *shortest*, *eco*, or *thrilling* routes based on distance, traffic conditions, and mode of transport used. The service also lets users plan future routes based on historical traffic conditions. Users can see the prediction of route durations for any given time. For more information, see [Get Route directions API].
 
-1. In the `GetMap` function, inside the control's `ready` event handler, add the following to the JavaScript code.
+1. In the `GetMap` function, inside the control's `ready` event handler, add the following JavaScript code to construct a truck route from the start to end points. This route is created and displayed for a truck carrying `USHazmatClass2` classed cargo.
 
     ```JavaScript
-   //Use MapControlCredential to share authentication between a map control and the service module.
-    var pipeline = atlas.service.MapsURL.newPipeline(new atlas.service.MapControlCredential(map));
-    
-    //Construct the RouteURL object
-    var routeURL = new atlas.service.RouteURL(pipeline);
-    ```
-
-    * Use [MapControlCredential] to share authentication between a map control and the service module when creating a new [pipeline] object.
-
-    * The [routeURL] represents a URL to Azure Maps [Route service].
-
-2. After setting up credentials and the URL, add the following JavaScript code to construct a truck route from the start to end points. This route is created and displayed for a truck carrying `USHazmatClass2` classed cargo.
-
-    ```JavaScript
-    //Start and end point input to the routeURL
-    var coordinates= [[startPoint.geometry.coordinates[0], startPoint.geometry.coordinates[1]], [endPoint.geometry.coordinates[0], endPoint.geometry.coordinates[1]]];
-
+    //Start and end point input to the search route request
+    var query = startPoint.geometry.coordinates[1] + "," +
+                startPoint.geometry.coordinates[0] + ":" +
+                endPoint.geometry.coordinates[1] + "," +
+                endPoint.geometry.coordinates[0];
     //Make a search route request for a truck vehicle type
-    routeURL.calculateRouteDirections(atlas.service.Aborter.timeout(10000), coordinates,{
-        travelMode: 'truck',
-        vehicleWidth: 2,
-        vehicleHeight: 2,
-        vehicleLength: 5,
-        vehicleLoadType: 'USHazmatClass2'
-    }).then((directions) => {
-        //Get data features from response
-        var data = directions.geojson.getFeatures();
+    var truckRouteUrl = `https://atlas.microsoft.com/route/directions/json?api-version=1.0&travelMode=truck&vehicleWidth=2&vehicleHeight=2&vehicleLength=5&vehicleLoadType=USHazmatClass2&query=${query}`;
+    fetch(truckRouteUrl, {
+        headers: {
+            "Subscription-Key": map.authentication.getToken()
+        }
+    })
+    .then((response) => response.json())
+    .then((response) => {
+        var route = response.routes[0];
+        //Create an array to store the coordinates of each turn
+        var routeCoordinates = [];
+        route.legs.forEach((leg) => {
+            var legCoordinates = leg.points.map((point) => {
+                return [point.longitude, point.latitude];
+            });
+            //Add each turn to the array
+            routeCoordinates = routeCoordinates.concat(legCoordinates);
+        });
 
-        //Get the route line and add some style properties to it.  
-        var routeLine = data.features[0];
-        routeLine.properties.strokeColor = '#2272B9';
-        routeLine.properties.strokeWidth = 9;
-
-        //Add the route line to the data source. This should render below the car route which will likely be added to the data source faster, so insert it at index 0.
-        datasource.add(routeLine, 0);
+        //Add the route line to the data source. We want this to render below the car route which will likely be added to the data source faster, so insert it at index 0.
+        datasource.add(
+            new atlas.data.Feature(new atlas.data.LineString(routeCoordinates), {
+                strokeColor: "#2272B9",
+                strokeWidth: 9
+            }),
+            0
+        );
     });
     ```
 
    About the above JavaScript:
 
    * This code queries the Azure Maps Route service through the [Azure Maps Route Directions API].
-   * The route line is then extracted from the GeoJSON feature collection from the response that is extracted using the `geojson.getFeatures()` method.
+   * The route line is then created from the coordinates of each turn from the response.
    * The route line is then added to the data source.
    * Two properties are added to the truck route line: a blue stroke color `#2272B9`, and a stroke width of nine pixels.
    * The route line is given an index of 0 to ensure that the truck route is rendered before any other lines in the data source. The reason is the truck route calculation are often slower than a car route calculation. If the truck route line is added to the data source after the car route, it will render above it.
@@ -277,28 +272,42 @@ This section shows you how to use the Azure Maps Route service to get directions
     >[!TIP]
     > To see all possible options and values for the Azure Maps Route Directions API, see [URI Parameters for Post Route Directions].
 
-3. Next, append the following JavaScript code to create a route for a car.
+2. Next, append the following JavaScript code to create a route for a car.
 
     ```JavaScript
-    routeURL.calculateRouteDirections(atlas.service.Aborter.timeout(10000), coordinates).then((directions) => {
+    var carRouteUrl = `https://atlas.microsoft.com/route/directions/json?api-version=1.0&query=${query}`;
+    fetch(carRouteUrl, {
+        headers: {
+            "Subscription-Key": map.authentication.getToken()
+        }
+    })
+    .then((response) => response.json())
+    .then((response) => {
+        var route = response.routes[0];
+        //Create an array to store the coordinates of each turn
+        var routeCoordinates = [];
+        route.legs.forEach((leg) => {
+            var legCoordinates = leg.points.map((point) => {
+                return [point.longitude, point.latitude];
+            });
+            //Add each turn to the array
+            routeCoordinates = routeCoordinates.concat(legCoordinates);
+        });
 
-        //Get data features from response
-        var data = directions.geojson.getFeatures();
-
-        //Get the route line and add some style properties to it.  
-        var routeLine = data.features[0];
-        routeLine.properties.strokeColor = '#B76DAB';
-        routeLine.properties.strokeWidth = 5;
-
-        //Add the route line to the data source. This will add the car route after the truck route.  
-        datasource.add(routeLine);
+        //Add the route line to the data source. This will add the car route after the truck route.
+        datasource.add(
+            new atlas.data.Feature(new atlas.data.LineString(routeCoordinates), {
+                strokeColor: "#B76DAB",
+                strokeWidth: 5
+            })
+        );
     });
     ```
 
    About the above JavaScript:
 
    * This code queries the Azure Maps routing service through the [Azure Maps Route Directions API] method.
-   * The route line is then extracted from the GeoJSON feature collection from the response that is extracted using the `geojson.getFeatures()` method then is added to the data source.
+   * The route line is then created from the coordinates of each turn and added to the data source.
    * Two properties are added to the truck route line: a purple stroke color `#B76DAB`, and a stroke width of five pixels.
 
 4. Save the **TruckRoute.html** file and refresh your web browser. The map should now display both the truck and car routes.
@@ -325,8 +334,6 @@ The next tutorial demonstrates the process of creating a simple store locator us
 [Route service]: /rest/api/maps/route
 [Map control]: how-to-use-map-control.md
 [Get Route directions API]: /rest/api/maps/route/getroutedirections
-[routeURL]: /javascript/api/azure-maps-rest/atlas.service.routeurl
-[pipeline]: /javascript/api/azure-maps-rest/atlas.service.pipeline
 [TrafficOptions interface]: /javascript/api/azure-maps-control/atlas.trafficoptions
 [atlas]: /javascript/api/azure-maps-control/atlas
 [atlas.Map]: /javascript/api/azure-maps-control/atlas.map
@@ -336,8 +343,7 @@ The next tutorial demonstrates the process of creating a simple store locator us
 [Data-driven style expressions]: data-driven-style-expressions-web-sdk.md
 [GeoJSON Point objects]: https://en.wikipedia.org/wiki/GeoJSON
 [setCamera]: /javascript/api/azure-maps-control/atlas.map#setCamera_CameraOptions___CameraBoundsOptions___AnimationOptions_
-[MapControlCredential]: /javascript/api/azure-maps-rest/atlas.service.mapcontrolcredential
-[Azure Maps Route Directions API]: /javascript/api/azure-maps-rest/atlas.service.routeurl#calculateroutedirections-aborter--geojson-position----calculateroutedirectionsoptions-
+[Azure Maps Route Directions API]: /rest/api/maps/route/getroutedirections
 [Truck Route]: https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/main/Samples/Tutorials/Truck%20Route
 [Multiple routes by mode of travel]: https://samples.azuremaps.com/?sample=multiple-routes-by-mode-of-travel
 [URI Parameters for Post Route Directions]: /rest/api/maps/route/postroutedirections#uri-parameters

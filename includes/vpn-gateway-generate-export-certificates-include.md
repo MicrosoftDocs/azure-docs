@@ -1,7 +1,7 @@
 ---
  ms.topic: include
  author: cherylmc
- ms.service: vpn-gateway
+ ms.service: azure-vpn-gateway
  ms.date: 08/04/2023
  ms.author: cherylmc
 
@@ -121,7 +121,7 @@ If you're creating additional client certificates, or aren't using the same Powe
 
 ## <a name="cer"></a>Export the root certificate public key (.cer)
 
-[!INCLUDE [Export public key](vpn-gateway-certificates-export-public-key-include.md)]
+[!INCLUDE [Export public key](./vpn-gateway-certificates-export-public-key-include.md)]
 
 ### Export the self-signed root certificate and private key to store it (optional)
 
@@ -129,4 +129,4 @@ You may want to export the self-signed root certificate and store it safely as b
 
 ## <a name="clientexport"></a>Export the client certificate
 
-[!INCLUDE [Export client certificate](vpn-gateway-certificates-export-client-cert-include.md)]
+[!INCLUDE [Export client certificate](./vpn-gateway-certificates-export-client-cert-include.md)]

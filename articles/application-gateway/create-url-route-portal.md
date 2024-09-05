@@ -3,9 +3,9 @@ title: 'Tutorial: Create an application gateway with URL path-based routing rule
 description: In this tutorial, you learn how to create URL path-based routing rules for an application gateway and virtual machine scale set using the Azure portal.
 services: application-gateway
 author: greg-lindsay
-ms.service: application-gateway
+ms.service: azure-application-gateway
 ms.topic: tutorial
-ms.date: 07/08/2022
+ms.date: 09/03/2024
 ms.author: greglin
 ms.custom: template-tutorial
 #Customer intent: As an IT administrator, I want to use the Azure portal to set up an application gateway so I can route my app traffic based on path-based routing rules.
@@ -24,9 +24,9 @@ In this article, you learn how to:
 > * Create a backend listener
 > * Create a path-based routing rule
 
-:::image type="content" source="./media/application-gateway-create-url-route-portal/scenario.png" alt-text="Diagram of application gateway URL routing example.":::
+:::image type="content" source="./media/application-gateway-create-url-route-portal/scenario.png" alt-text="Diagram of application gateway URL routing example." lightbox="./media/application-gateway-create-url-route-portal/scenario.png":::
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -190,7 +190,7 @@ Review the settings on the **Review + create** tab, and then select **Create** t
 
     ![Record application gateway public IP address](./media/application-gateway-create-url-route-portal/application-gateway-record-ag-address.png)
 
-2. Copy the public IP address, and then paste it into the address bar of your browser. Such as, http:\//52.188.72.175:8080.
+2. Copy the public IP address, and then paste it into the address bar of your browser. Such as, http:\//203.0.113.10:8080.
 
     ![Test base URL in application gateway](./media/application-gateway-create-url-route-portal/application-gateway-iistest.png)
 

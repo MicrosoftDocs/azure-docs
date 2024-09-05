@@ -10,7 +10,7 @@ ms.date: 01/10/2024
 
 # Call logic app workflows from Power Apps
 
-[!INCLUDE [logic-apps-sku-consumption](../../includes/logic-apps-sku-consumption.md)]
+[!INCLUDE [logic-apps-sku-consumption](~/reusable-content/ce-skilling/azure/includes/logic-apps-sku-consumption.md)]
 
 To call your logic app workflow from a Power Apps flow, you can export your logic app resource and workflow as a custom connector. You can then call your workflow from a flow in a Power Apps environment.
 

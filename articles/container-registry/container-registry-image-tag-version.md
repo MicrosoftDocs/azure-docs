@@ -5,7 +5,7 @@ author: tejaswikolli-web
 ms.topic: article
 ms.date: 10/31/2023
 ms.author: tejaswikolli
-ms.service: container-registry
+ms.service: azure-container-registry
 ---
 
 # Recommendations for tagging and versioning container images

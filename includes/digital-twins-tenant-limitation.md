@@ -1,7 +1,7 @@
 ---
 author: baanders
 description: include file describing the cross-tenant limitation with Azure Digital Twins
-ms.service: digital-twins
+ms.service: azure-digital-twins
 ms.topic: include
 ms.date: 4/13/2021
 ms.author: baanders

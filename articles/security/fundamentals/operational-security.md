@@ -205,7 +205,7 @@ Azure Monitor enables you to consume telemetry to gain visibility into the perfo
 
 ### Azure Diagnostics
 
-It is the capability within Azure that enables the collection of diagnostic data on a deployed application. You can use the diagnostics extension from various different sources. Currently supported are [Azure Cloud Service Web and Worker Roles](/visualstudio/azure/vs-azure-tools-configure-roles-for-cloud-service), [Azure Virtual Machines](../../virtual-machines/windows/overview.md) running Microsoft Windows,and [Service Fabric](../../azure-monitor/agents/diagnostics-extension-overview.md). Other Azure services have their own separate diagnostics.
+It is the capability within Azure that enables the collection of diagnostic data on a deployed application. You can use the diagnostics extension from various different sources. Currently supported are [Azure Cloud Service Web and Worker Roles](/visualstudio/azure/vs-azure-tools-configure-roles-for-cloud-service), [Azure Virtual Machines](/azure/virtual-machines/windows/overview) running Microsoft Windows,and [Service Fabric](../../azure-monitor/agents/diagnostics-extension-overview.md). Other Azure services have their own separate diagnostics.
 
 ## Azure Network Watcher
 
@@ -335,5 +335,5 @@ Microsoft designs its services and software with security in mind to help ensure
 
 Use Microsoft security data and analysis to perform more intelligent and effective threat detection.
 
-- [Microsoft Defender for Cloud planning and operations](../../defender-for-cloud/defender-for-cloud-planning-and-operations-guide.md)
+- [Microsoft Defender for Cloud planning and operations](/azure/defender-for-cloud/defender-for-cloud-planning-and-operations-guide)
 A set of steps and tasks that you can follow to optimize your use of Defender for Cloud based on your organization’s security requirements and cloud management model.

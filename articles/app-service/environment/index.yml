@@ -7,7 +7,8 @@ metadata:
   title: Azure App Service Environment documentation
   description: Host fully isolated websites in a secure and scalable environment. Find quickstarts, tutorials, and read about concepts to help you succeed with App Service Environment.
   ms.topic: landing-page
-  ms.service: app-service
+  ms.author: mijacobs
+  ms.service: azure-app-service
   ms.date: 11/15/2021
 
 landingContent:

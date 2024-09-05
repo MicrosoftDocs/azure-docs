@@ -4,13 +4,15 @@ description: Reference for the get-authorization-context policy available for us
 services: api-management
 author: dlepow
 
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: article
-ms.date: 11/15/2023
+ms.date: 07/23/2024
 ms.author: danlep
 ---
 
 # Get authorization context
+
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 
 Use the `get-authorization-context` policy to get the authorization context of a specified [connection](credentials-overview.md) (formerly called an *authorization*) to a credential provider that is configured in the API Management instance. 
 
@@ -63,8 +65,8 @@ class Authorization
 ## Usage
 
 - [**Policy sections:**](./api-management-howto-policies.md#sections) inbound
-- [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, workspace, product, API, operation
--  [**Gateways:**](api-management-gateways-overview.md) dedicated, consumption
+- [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, product, API, operation
+-  [**Gateways:**](api-management-gateways-overview.md) classic, v2, consumption
 
 ### Usage notes
 
@@ -141,6 +143,6 @@ class Authorization
 
 ## Related policies
 
-* [API Management access restriction policies](api-management-access-restriction-policies.md)
+* [Authentication and authorization](api-management-policies.md#authentication-and-authorization)
 
 [!INCLUDE [api-management-policy-ref-next-steps](../../includes/api-management-policy-ref-next-steps.md)]

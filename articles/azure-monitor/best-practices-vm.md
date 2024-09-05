@@ -4,7 +4,7 @@ description: Best practices organized by the pillars of the Well-Architected Fra
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 06/08/2023
+ms.date: 07/26/2024
 ms.reviewer: bwren
 ---
 

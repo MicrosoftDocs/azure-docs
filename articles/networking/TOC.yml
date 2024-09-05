@@ -40,12 +40,12 @@
       href: ../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fnetworking%2ftoc.json
     - name: Cross-premises connectivity - dedicated private
       href: ../expressroute/expressroute-workflows.md?toc=%2fazure%2fnetworking%2ftoc.json
+    - name: Load balancing and content delivery
+      href: load-balancer-content-delivery/index.yml
     - name: Backend connectivity interoperability
       items:
       - name: Preface and Test Setup
         href: connectivity-interoperability-preface.md
-      - name: Test Setup Configuration
-        href: connectivity-interoperability-configuration.md
       - name: Control Plane Analysis
         href: connectivity-interoperability-control-plane.md
       - name: Data Plane Analysis
@@ -124,8 +124,8 @@
       href: network-monitoring-overview.md
     - name: Check resource usage against Azure limits
       href: check-usage-against-limits.md
-    - name: View network topology
-      href: ../network-watcher/view-network-topology.md?toc=%2fazure%2fnetworking%2ftoc.json
+    - name: View topology
+      href: ../network-watcher/network-insights-topology.md?toc=%2fazure%2fnetworking%2ftoc.json
   - name: Security
     items:
     - name: Create a Zero Trust network for web applications

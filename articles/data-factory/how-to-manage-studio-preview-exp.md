@@ -3,8 +3,6 @@ title: Managing Azure Data Factory studio preview experience
 description: Learn more about the Azure Data Factory studio preview experience.
 author: n0elleli
 ms.author: noelleli
-ms.service: data-factory
-ms.subservice: tutorials
 ms.topic: tutorial
 ms.date: 01/05/2024
 ---
@@ -60,7 +58,6 @@ There are two ways to enable preview experiences.
 
    [**Monitoring experimental view**](#monitoring-experimental-view)
    * [Error message relocation to Status column](#error-message-relocation-to-status-column)
-   * [Container view](#container-view)
    * [Simplified default monitoring view](#simplified-default-monitoring-view)
 
 ### Dataflow data-first experimental view
@@ -189,42 +186,6 @@ Find the error icon in the pipeline monitoring page and in the pipeline **Output
 :::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-experience-31.png" alt-text="Screenshot of the new error message location in pipeline debug output.":::
 
 :::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-experience-30.png" alt-text="Screenshot of the new error message location in pipeline monitoring details.":::
-
-#### Container view
-
-> [!NOTE]
-> This feature is now generally available in the ADF studio.  
-
-When monitoring your pipeline run, you have the option to enable the container view, which provides a consolidated view of the activities that ran.
-This view is available in the output of your pipeline debug run and in the detailed monitoring view found in the monitoring tab. 
-
-##### How to enable the container view in pipeline debug output
-
-In the **Output** tab in your pipeline, there's a new dropdown to select your monitoring view. 
-
-:::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-experience-35.png" alt-text="Screenshot of the drop-down menu to select the monitoring view.":::
-
-Select **Hierarchy** to see the new hierarchy view. If you have iteration or conditional activities, the nested activities are grouped under the parent activity.
-
-:::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-experience-36.png" alt-text="Screenshot of the container monitoring view.":::
-
-Click the button next to the iteration or conditional activity to collapse the nested activities for a more consolidated view. 
-
-:::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-experience-37.png" alt-text="Screenshot of the container monitoring  collapsed view.":::
-
-##### How to enable the container view in pipeline monitoring
-
-In the detailed view of your pipeline run, there's a new dropdown to select your monitoring view next to the Status filter. 
-
-:::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-experience-38.png" alt-text="Screenshot of the drop-down menu to select the monitoring view in pipeline monitoring view.":::
-
-Select **Container** to see the new container view. If you have iteration or conditional activities, the nested activities are grouped under the parent activity. 
-
-:::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-experience-39.png" alt-text="Screenshot of the container monitoring view in pipeline monitoring.":::
-
-Click the button next to the iteration or conditional activity to collapse the nested activities for a more consolidated view. 
-
-:::image type="content" source="media/how-to-manage-studio-preview-exp/data-factory-preview-experience-40.png" alt-text="Screenshot of the collapsed container monitoring view.":::
 
 #### Simplified default monitoring view 
 

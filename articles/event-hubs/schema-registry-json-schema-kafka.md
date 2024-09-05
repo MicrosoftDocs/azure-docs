@@ -8,14 +8,11 @@ author: spelluru
 ms.author: spelluru
 ---
 
-# Use JSON Schema with Apache Kafka applications (Preview)
+# Use JSON Schema with Apache Kafka applications 
 This tutorial walks you through a scenario where you use JSON Schemas to serialize and deserialize event using Azure Schema Registry in Event Hubs.
 
 In this use case a Kafka producer application uses JSON schema stored in Azure Schema Registry to, serialize the event and publish them to a Kafka topic/event hub in Azure Event Hubs. The Kafka consumer deserializes the events that it consumes from Event Hubs. For that it uses schema ID of the event and JSON schema, which is stored in Azure Schema Registry. 
 :::image type="content" source="./media/schema-registry-overview/kafka-json-schema.png" alt-text="Diagram showing the schema serialization/de-serialization for Kafka applications using JSON schema." border="false":::
-
-> [!NOTE]
-> This feature is currently in preview. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 
 ## Prerequisites
@@ -84,7 +81,7 @@ Add your user account to the **Schema Registry Reader** role at the namespace le
 1. On the **Event Hubs Namespace** page, select **Access control (IAM)** on the left menu.
 2. On the **Access control (IAM)** page, select **+ Add** -> **Add role assignment** on the menu. 
 3. On the **Assignment type** page, select **Next**.
-4. On the **Roles** page, select **Schema Registry Reader (Preview)**, and then select **Next** at the bottom of the page.
+4. On the **Roles** page, select **Schema Registry Reader**, and then select **Next** at the bottom of the page.
 5. Use the **+ Select members** link to add the `example-app` application that you created in the previous step to the role, and then select **Next**. 
 6. On the **Review + assign** page, select **Review + assign**.
 

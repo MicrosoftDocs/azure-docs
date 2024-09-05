@@ -4,7 +4,7 @@ description: This article describes how to author, debug, and create your Stream
 author: su-jie
 ms.author: sujie
 
-ms.service: stream-analytics
+ms.service: azure-stream-analytics
 ms.topic: how-to
 ms.date: 12/07/2018
 ---

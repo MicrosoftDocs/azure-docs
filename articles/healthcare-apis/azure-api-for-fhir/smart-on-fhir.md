@@ -2,7 +2,7 @@
 title: SMART on FHIR - Azure API for FHIR
 description: This tutorial describes how to enable SMART on FHIR applications with the Azure API for FHIR.
 services: healthcare-apis
-ms.service: healthcare-apis
+ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.topic: tutorial
 ms.author: kesheth
@@ -33,7 +33,7 @@ Below tutorials describe steps to enable SMART on FHIR applications with FHIR Se
 ## SMART on FHIR using Samples OSS (SMART on FHIR(Enhanced))
 
 ### Step 1: Set up FHIR SMART user role 
-Follow the steps listed under section [Manage Users: Assign Users to Role](../../role-based-access-control/role-assignments-portal.md). Any user added to role - "FHIR SMART User" will be able to access the FHIR Service if their requests comply with the SMART on FHIR implementation Guide, such as request having access token, which includes a fhirUser claim and a clinical scopes claim.  The access granted to the users in this role will then be limited by the resources associated to their fhirUser compartment and the restrictions in the clinical scopes.
+Follow the steps listed under section [Manage Users: Assign Users to Role](../../role-based-access-control/role-assignments-portal.yml). Any user added to role - "FHIR SMART User" will be able to access the FHIR Service if their requests comply with the SMART on FHIR implementation Guide, such as request having access token, which includes a fhirUser claim and a clinical scopes claim.  The access granted to the users in this role will then be limited by the resources associated to their fhirUser compartment and the restrictions in the clinical scopes.
 
 ### Step 2: FHIR server integration with samples 
 [Follow the steps](https://aka.ms/azure-health-data-services-smart-on-fhir-sample) under Azure Health Data and AI Samples OSS. This will enable integration of FHIR server with other Azure Services (such as APIM, Azure functions and more).

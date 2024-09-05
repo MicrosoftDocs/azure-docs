@@ -3,9 +3,9 @@ title: How to use VMware Spring Cloud Gateway with the Azure Spring Apps Enterpr
 description: Shows you how to use VMware Spring Cloud Gateway with the Azure Spring Apps Enterprise plan to route requests to your applications.
 author: KarlErickson
 ms.author: xiading
-ms.service: spring-apps
+ms.service: azure-spring-apps
 ms.topic: how-to
-ms.date: 11/04/2022
+ms.date: 04/23/2024
 ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli
 ---
 
@@ -95,17 +95,17 @@ The following example shows a JSON file that's passed to the `--routes-file` par
 
 The following table lists the route definitions. All the properties are optional.
 
-| Property    | Description                                                                                                                                                                            |
-|-------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| title       | A title to apply to methods in the generated OpenAPI documentation.                                                                                                                    |
-| description | A description to apply to methods in the generated OpenAPI documentation.                                                                                                              |
-| uri         | The full URI, which overrides the name of app that the requests route to.                                                                                                          |
-| ssoEnabled  | A value that indicates whether to enable SSO validation. See [Configure single sign-on](./how-to-configure-enterprise-spring-cloud-gateway.md#configure-single-sign-on).           |
-| tokenRelay  | Passes the currently authenticated user's identity token to the application.                                                                                                           |
-| predicates  | A list of predicates. See [Available Predicates](https://docs.vmware.com/en/VMware-Spring-Cloud-Gateway-for-Kubernetes/1.2/scg-k8s/GUID-configuring-routes.html#available-predicates). |
-| filters     | A list of filters. See [Available Filters](https://docs.vmware.com/en/VMware-Spring-Cloud-Gateway-for-Kubernetes/1.2/scg-k8s/GUID-configuring-routes.html#available-filters).          |
-| order       | The route processing order. A lower order is processed with higher precedence, as in [Spring Cloud Gateway](https://docs.spring.io/spring-cloud-gateway/docs/current/reference/html/). |
-| tags        | Classification tags that are applied to methods in the generated OpenAPI documentation.                                                                                            |
+| Property    | Description                                                                                                                                                                              |
+|-------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| title       | A title to apply to methods in the generated OpenAPI documentation.                                                                                                                      |
+| description | A description to apply to methods in the generated OpenAPI documentation.                                                                                                                |
+| uri         | The full URI, which overrides the name of app that the requests route to.                                                                                                                |
+| ssoEnabled  | A value that indicates whether to enable SSO validation. See [Configure single sign-on](./how-to-configure-enterprise-spring-cloud-gateway.md#configure-single-sign-on).                 |
+| tokenRelay  | Passes the currently authenticated user's identity token to the application.                                                                                                             |
+| predicates  | A list of predicates. See [Available Predicates](https://docs.vmware.com/en/VMware-Spring-Cloud-Gateway-for-Kubernetes/2.2/scg-k8s/GUID-developer-predicates.html#available-predicates). |
+| filters     | A list of filters. See [Available Filters](https://docs.vmware.com/en/VMware-Spring-Cloud-Gateway-for-Kubernetes/2.2/scg-k8s/GUID-developer-filters.html#available-filters).             |
+| order       | The route processing order. A lower order is processed with higher precedence, as in [Spring Cloud Gateway](https://docs.spring.io/spring-cloud-gateway/docs/current/reference/html/).   |
+| tags        | Classification tags that are applied to methods in the generated OpenAPI documentation.                                                                                                  |
 
 > [!NOTE]
 > Because of security or compatibility reasons, not all the filters/predicates are supported in Azure Spring Apps. The following aren't supported:
@@ -197,7 +197,7 @@ Use the following steps to create a sample application using Spring Cloud Gatewa
    az spring gateway route-config show \
        --name test-api-routes \
        --query '{appResourceId:properties.appResourceId, routes:properties.routes}'
-       
+
    az spring gateway route-config list \
        --query '[].{name:name, appResourceId:properties.appResourceId, routes:properties.routes}'
    ```

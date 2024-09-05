@@ -5,17 +5,20 @@ ms.topic: conceptual
 author: EdB-MSFT
 ms.author: edbaynash
 ms.subservice: autoscale
-ms.date: 10/12/2022
+ms.date: 04/15/2024
 ms.custom: references_regions, devx-track-arm-template
 ms.reviewer: akkumari
+
+# customer intent: As an azure andministarttor I want to learn how to use predictive autoscale to scale out before load demands in virtual machine scale sets.
+
 ---
 # Use predictive autoscale to scale out before load demands in virtual machine scale sets
 
 Predictive autoscale uses machine learning to help manage and scale Azure Virtual Machine Scale Sets with cyclical workload patterns. It forecasts the overall CPU load to your virtual machine scale set, based on your historical CPU usage patterns. It predicts the overall CPU load by observing and learning from historical usage. This process ensures that scale-out occurs in time to meet the demand.
 
-Predictive autoscale needs a minimum of 7 days of history to provide predictions. The most accurate results come from 15 days of historical data.
+Predictive autoscale needs a minimum of seven days of history to provide predictions. The most accurate results come from 15 days of historical data.
 
-Predictive autoscale adheres to the scaling boundaries you've set for your virtual machine scale set. When the system predicts that the percentage CPU load of your virtual machine scale set will cross your scale-out boundary, new instances are added according to your specifications. You can also configure how far in advance you want new instances to be provisioned, up to 1 hour before the predicted workload spike will occur.
+Predictive autoscale adheres to the scaling boundaries you've set for your virtual machine scale set. When the system predicts that the percentage CPU load of your virtual machine scale set will cross your scale-out boundary, new instances are added according to your specifications. You can also configure how far in advance you want new instances to be provisioned, up to 1 hour before the predicted workload spike occurs.
 
 *Forecast only* allows you to view your predicted CPU forecast without triggering the scaling action based on the prediction. You can then compare the forecast with your actual workload patterns to build confidence in the prediction models before you enable the predictive autoscale feature.
 
@@ -24,19 +27,19 @@ Predictive autoscale adheres to the scaling boundaries you've set for your virtu
 - Predictive autoscale is for workloads exhibiting cyclical CPU usage patterns.
 - Support is only available for virtual machine scale sets.
 - The *Percentage CPU* metric with the aggregation type *Average* is the only metric currently supported.
-- Predictive autoscale supports scale-out only. Configure standard autoscale to manage scaling in.
-- Predictive autoscale is only available for the Azure Commercial cloud. Azure Government clouds are not currently supported.
+- Predictive autoscale supports scale-out only. Configure standard autoscale to manage to scale in actions.
+- Predictive autoscale is only available for the Azure Commercial cloud. Azure Government clouds aren't currently supported.
 
 
 ## Enable predictive autoscale or forecast only with the Azure portal
 
 1. Go to the **Virtual machine scale set** screen and select **Scaling**.
 
-   :::image type="content" source="media/autoscale-predictive/main-scaling-screen-1.png" alt-text="Screenshot that shows selecting Scaling on the left menu in the Azure portal.":::
+   :::image type="content" source="media/autoscale-predictive/main-scaling-screen-1.png" lightbox="media/autoscale-predictive/main-scaling-screen-1.png" alt-text="Screenshot that shows selecting Scaling on the left menu in the Azure portal.":::
 
 1. Under the **Custom autoscale** section, **Predictive autoscale** appears.
   
-    :::image type="content" source="media/autoscale-predictive/custom-autoscale-2.png" alt-text="Screenshot that shows selecting Custom autoscale and the Predictive autoscale option in the Azure portal.":::
+    :::image type="content"source="media/autoscale-predictive/custom-autoscale-2.png" lightbox="media/autoscale-predictive/custom-autoscale-2.png" alt-text="Screenshot that shows selecting Custom autoscale and the Predictive autoscale option in the Azure portal.":::
 
     By using the dropdown selection, you can:
     - Disable predictive autoscale. Disable is the default selection when you first land on the page for predictive autoscale.
@@ -50,9 +53,9 @@ Predictive autoscale adheres to the scaling boundaries you've set for your virtu
 
    :::image type="content" source="media/autoscale-predictive/enable-forecast-only-mode-3.png" alt-text="Screenshot that shows enabling forecast-only mode.":::
 
-1. If desired, specify a pre-launch time so the instances are fully running before they're needed. You can pre-launch instances between 5 and 60 minutes before the needed prediction time.
+1. If desired, specify a prelaunch time so the instances are fully running before they're needed. You can prelaunch instances between 5 and 60 minutes before the needed prediction time.
 
-   :::image type="content" source="media/autoscale-predictive/pre-launch-4.png" alt-text="Screenshot that shows predictive autoscale pre-launch setup.":::
+   :::image type="content" source="media/autoscale-predictive/pre-launch-4.png" alt-text="Screenshot that shows predictive autoscale prelaunch setup.":::
   
 1. After you've enabled predictive autoscale or forecast-only mode and saved it, select **Predictive charts**.
   
@@ -62,13 +65,13 @@ Predictive autoscale adheres to the scaling boundaries you've set for your virtu
 
     :::image type="content" source="media/autoscale-predictive/predictive-charts-6.png" alt-text="Screenshot that shows three charts for predictive autoscale." lightbox="media/autoscale-predictive/predictive-charts-6.png":::
 
-   - The top chart shows an overlaid comparison of actual versus predicted total CPU percentage. The time span of the graph shown is from the last 7 days to the next 24 hours.
-   - The middle chart shows the maximum number of instances running over the last 7 days.
-   - The bottom chart shows the current Average CPU utilization over the last 7 days.
+   - The top chart shows an overlaid comparison of actual versus predicted total CPU percentage. The time span of the graph shown is from the last seven days to the next 24 hours.
+   - The middle chart shows the maximum number of instances running over the last seven days.
+   - The bottom chart shows the current Average CPU utilization over the last seven days.
 
 ## Enable using an Azure Resource Manager template
 
-1. Retrieve the virtual machine scale set resource ID and resource group of your virtual machine scale set.  For example: /subscriptions/e954e48d-abcd-abcd-abcd-3e0353cb45ae/resourceGroups/patest2/providers/Microsoft.Compute/virtualMachineScaleSets/patest2
+1. Retrieve the virtual machine scale set resource ID and resource group of your virtual machine scale set.  For example: /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/patest2/providers/Microsoft.Compute/virtualMachineScaleSets/patest2
 
 1. Update the *autoscale_only_parameters* file with the virtual machine scale set resource ID and any autoscale setting parameters.
 
@@ -78,7 +81,49 @@ Predictive autoscale adheres to the scaling boundaries you've set for your virtu
 PS G:\works\kusto_onboard\test_arm_template> new-azurermresourcegroupdeployment -name binzAutoScaleDeploy -resourcegroupname cpatest2 -templatefile autoscale_only.json -templateparameterfile autoscale_only_parameters.json
 ```
 
-:::image type="content" source="media/autoscale-predictive/powershell-template-7.png" alt-text="Screenshot that shows PowerShell command output from the preceding command when you run Azure Resource Manager templates to deploy predictive autoscale.":::
+
+```powershell
+PS C:\works\autoscale\predictive_autoscale\arm_template> new-azurermresourcegroupdeployment -name binzAutoScaleDeploy - resourcegroupname patest2 -templatefile autoscale_only_binz.json -templateparameterfile autoscale_only_parameters_binz.json
+
+        DeploymentName        : binzAutoScaleDeploy
+        ResourceGroupName     : patest2
+        ProvisioningState     : Succeeded
+        Timestamp             : 3/30/2021 10:11:02 PM
+        Mode                  : Incremental
+        TemplateLink
+        Parameters            :
+
+                                Name              Type                           Value
+                                ================  =============================  ====================
+                                targetVmssResourceld String	                        /subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/patest2/providers/Microsoft.Compute/virtualMachineScaleSets/patest2
+                                location	      String                         East US
+                                minimumCapacity   Int                            1
+                                maximumCapacity   Int                            4
+                                defaultCapacity   Int                            4
+                                metricThresholdToScaleOut  Int                             50
+                                metricTimeWindowForScaleOut  String                          PT5M
+                                metricThresholdToScaleln  Int                              30   
+                                metricTimeWindowForScaleln  String                           PT5M 
+                                changeCountScaleOut  Int                             1
+                                changeCountScaleln  Int                             1
+                                predictiveAutoscaleMode String                            Enabled
+                           
+Outputs                        :
+                                Name              Type                           Value
+                                ================  ============================== ====================
+                            
+                                targetVmssResourceld  String	/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/patest2/providers/Microsoft.Compute/virtualMachineScaleSets/patest2 
+                                settingLocation  String	                        East US
+                                predictiveAutoscaleMode  String	                    Enabled
+
+DeloymentDebugLoglevel         :
+
+PS C:\works\autoscale\predictive_autoscale\arm_template>
+
+```
+
+
+
 
 **autoscale_only.json**
 ```json
@@ -250,7 +295,7 @@ PS G:\works\kusto_onboard\test_arm_template> new-azurermresourcegroupdeployment 
     "contentVersion": "1.0.0.0",
 	"parameters": {
 		"targetVmssResourceId": {
-			"value": "/subscriptions/e954e48d-b252-b252-b252-3e0353cb45ae/resourceGroups/patest2/providers/Microsoft.Compute/virtualMachineScaleSets/patest2"
+			"value": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/patest2/providers/Microsoft.Compute/virtualMachineScaleSets/patest2"
 		},
 		"location": {
 			"value": "East US"
@@ -300,7 +345,7 @@ The predictive chart shows the cumulative load for all machines in the scale set
 
 ### What happens over time when you turn on predictive autoscale for a virtual machine scale set?
 
-Prediction autoscale uses the history of a running virtual machine scale set. If your scale set has been running less than 7 days, you'll receive a message that the model is being trained. For more information, see the [no predictive data message](#errors-and-warnings). Predictions improve as time goes by and achieve maximum accuracy 15 days after the virtual machine scale set is created.
+Prediction autoscale uses the history of a running virtual machine scale set. If your scale set has been running less than seven days, you'll receive a message that the model is being trained. For more information, see the [no predictive data message](#errors-and-warnings). Predictions improve as time goes by and achieve maximum accuracy 15 days after the virtual machine scale set is created.
 
 If changes to the workload pattern occur but remain periodic, the model recognizes the change and begins to adjust the forecast. The forecast improves as time goes by. Maximum accuracy is reached 15 days after the change in the traffic pattern happens. Remember that your standard autoscale rules still apply. If a new unpredicted increase in traffic occurs, your virtual machine scale set will still scale out to meet the demand.
 
@@ -312,10 +357,10 @@ The modeling works best with workloads that exhibit periodicity. We recommend th
 
 Standard autoscaling is a necessary fallback if the predictive model doesn't work well for your scenario. Standard autoscale will cover unexpected load spikes, which aren't part of your typical CPU load pattern. It also provides a fallback if an error occurs in retrieving the predictive data.
 
-### Which rule will take effect if both predictive and standard autoscale rules are set?
-Standard autoscale rules are used if there is an unexpected spike in the CPU load, or an error occurs when retrieving predictive data```
+### Which rule takes effect if both predictive and standard autoscale rules are set?
+Standard autoscale rules are used if there's an unexpected spike in the CPU load, or an error occurs when retrieving predictive data
 
-We use the threshold set in the standard autoscale rules to understand when you’d like to scale out and by how many instances. If you want your VM scale set to scale out when the CPU usage exceeds 70%, and actual or predicted data shows that CPU usage is or will be over 70%, then a scale out will occur.
+We use the threshold set in the standard autoscale rules to understand when you’d like to scale out and by how many instances. If you want your Virtual Machine Scale Set to scale out when the CPU usage exceeds 70% and actual or predicted data shows that CPU usage is or will be over 70%, then a scale out will occur.
 
 ## Errors and warnings
 

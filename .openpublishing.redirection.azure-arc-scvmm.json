@@ -1,0 +1,9 @@
+{
+  "redirections": [
+      {
+          "source_path_from_root": "/articles/azure-arc/system-center-virtual-machine-manager/enable-group-management.md",
+          "redirect_url": "enable-guest-management-at-scale",
+          "redirect_document_id": false
+      }
+    ]
+}

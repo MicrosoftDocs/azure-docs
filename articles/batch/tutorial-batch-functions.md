@@ -4,7 +4,7 @@ description: Learn how to apply OCR to scanned documents as they're added to a s
 ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 04/21/2023
-ms.custom: mvc, devx-track-csharp, linux-related-content
+ms.custom: mvc, devx-track-csharp
 ---
 
 # Tutorial: Trigger a Batch job using Azure Functions

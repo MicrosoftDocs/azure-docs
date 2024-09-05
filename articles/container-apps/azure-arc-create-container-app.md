@@ -3,7 +3,7 @@ title: 'Tutorial: Create a container app on Azure Arc'
 description: Get started with Azure Container Apps on Azure Arc-enabled Kubernetes deploying your first app.
 services: container-apps
 author: craigshoemaker
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.custom: devx-track-azurecli
 ms.topic: conceptual
 ms.date: 3/20/2023
@@ -35,8 +35,7 @@ Next, add the required Azure CLI extensions.
 
 ```azurecli-interactive
 az extension add --upgrade --yes --name customlocation
-az extension remove --name containerapp
-az extension add -s https://aka.ms/acaarccli/containerapp-latest-py2.py3-none-any.whl --yes
+az extension add --name containerapp  --upgrade --yes
 ```
 
 ## Create a resource group
@@ -93,7 +92,7 @@ The following example creates a Node.js app.
     --environment-type connected \
     --image mcr.microsoft.com/k8se/quickstart:latest \
     --target-port 80 \
-    --ingress 'external'
+    --ingress external
 
 az containerapp browse --resource-group $myResourceGroup --name $myContainerApp
 ```

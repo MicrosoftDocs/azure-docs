@@ -1,7 +1,7 @@
 ---
 title: Trino cluster configuration
 description: How to perform service configuration for Trino clusters for HDInsight on AKS.
-ms.service: hdinsight-aks
+ms.service: azure-hdinsight-on-aks
 ms.custom: devx-track-arm-template
 ms.topic: how-to
 ms.date: 10/19/2023
@@ -9,7 +9,9 @@ ms.date: 10/19/2023
 
 # Trino configuration management
 
+[!INCLUDE [retirement-notice](../includes/retirement-notice.md)]
 [!INCLUDE [feature-in-preview](../includes/feature-in-preview.md)]
+
 
 Trino cluster with HDInsight on AKS comes with most of the default configurations of open-source Trino. This article describes how to update config files, and adds your own supplemental config files to the cluster.
 

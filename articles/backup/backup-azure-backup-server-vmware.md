@@ -5,7 +5,7 @@ ms.topic: how-to
 ms.date: 11/07/2023
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
-ms.service: backup
+ms.service: azure-backup
 ---
 # Back up VMware VMs with Azure Backup Server
 

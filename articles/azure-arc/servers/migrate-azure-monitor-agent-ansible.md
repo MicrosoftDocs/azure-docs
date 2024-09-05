@@ -2,7 +2,7 @@
 title: How to migrate to Azure Monitor Agent using Red Hat Ansible Automation Platform
 description: Learn how to migrate to Azure Monitor Agent using Red Hat Ansible Automation Platform.
 ms.date: 10/17/2022
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: devx-track-ansible
 ---
 

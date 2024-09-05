@@ -2,7 +2,7 @@
 title: Executing the export by invoking $export command on Azure API for FHIR
 description: This article describes how to export FHIR data using $export for Azure API for FHIR
 author: expekesheth
-ms.service: healthcare-apis
+ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.topic: reference
 ms.date: 9/27/2023
@@ -16,6 +16,9 @@ ms.author: kesheth
 The Bulk Export feature allows data to be exported from the FHIR Server per the [FHIR specification](https://www.hl7.org/fhir/uv/bulkdata/). 
 
 Before using $export, you want to make sure that the Azure API for FHIR is configured to use it. For configuring export settings and creating Azure storage account, refer to [the configure export data page](configure-export-data.md).
+
+> [!NOTE]
+> Only storage accounts in the same subscription as that for Azure API for FHIR are allowed to be registered as the destination for $export operations.
 
 ## Using $export command
 
@@ -65,9 +68,10 @@ The Azure API for FHIR supports the following query parameters. All of these par
 | \_container | No |  Specifies the container within the configured storage account where the data should be exported. If a container is specified, the data will be exported into a folder into that container. If the container isn’t specified, the data will be exported to a new container. |
 | \_till | No |  Allows you to only export resources that have been modified till the time provided. This parameter is applicable to only System-Level export. In this case, if historical versions haven't been disabled or purged, export guarantees true snapshot view, or, in other words, enables time travel. |
 |includeAssociatedData | No | Allows you to export history and soft deleted resources. This filter doesn't work with '_typeFilter' query parameter. Include value as '_history' to export history/ non latest versioned resources. Include value as '_deleted' to export soft deleted resources. |
+|\_isparallel| No |The "_isparallel" query parameter can be added to the export operation to enhance its throughput. The value needs to be set to true to enable parallelization. It is important to note that using this parameter may result in an increase in the request units consumption over the life of export. |
 
 > [!NOTE]
-> Only storage accounts in the same subscription as that for Azure API for FHIR are allowed to be registered as the destination for $export operations.
+> There is a known issue with the $export operation that could result in incomplete exports with status success. Issue occurs when the is_parallel flag was used. Export jobs executed with _isparallel query parameter starting February 13th, 2024 are impacted with this issue. 
 
 ## Secure Export to Azure Storage
 

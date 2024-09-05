@@ -3,7 +3,7 @@ title: Enable multiple namespace support for Application Gateway Ingress Control
 description: This article provides information on how to enable multiple namespace support in a Kubernetes cluster with an Application Gateway Ingress Controller. 
 services: application-gateway
 author: greg-lindsay
-ms.service: application-gateway
+ms.service: azure-application-gateway
 ms.topic: how-to
 ms.date: 08/01/2023
 ms.author: greglin
@@ -20,7 +20,7 @@ As of version 0.7 [Azure Application Gateway Kubernetes IngressController](https
 Version 0.7 of AGIC continues to exclusively observe the `default` namespace, unless this is explicitly changed to one or more different namespaces in the Helm configuration. See the following section.
 
 > [!TIP]
-> Also see [What is Application Gateway for Containers?](for-containers/overview.md) currently in public preview.
+> Also see [What is Application Gateway for Containers](for-containers/overview.md).
 
 ## Enable multiple namespace support
 
@@ -102,7 +102,7 @@ For example, if you added `staging` first, AGIC configures Application Gateway t
 
 By default AGIC configures Application Gateway based on annotated Ingress within any namespace. Should you want to limit this behavior you have the following options:
   - limit the namespaces, by explicitly defining namespaces AGIC should observe via the `watchNamespace` YAML key in [helm-config.yaml](#sample-helm-config-file)
-  - use [Role/RoleBinding](../aks/azure-ad-rbac.md) to limit AGIC to specific namespaces
+  - use [Role/RoleBinding](/azure/aks/azure-ad-rbac) to limit AGIC to specific namespaces
 
 ## Sample Helm config file
 

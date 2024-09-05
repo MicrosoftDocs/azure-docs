@@ -7,6 +7,7 @@ ms.topic: conceptual
 ms.date: 07/25/2021
 ms.custom:
 #Customer intent: As an implementer, I want answers to various questions.
+ms.service: azure-automation
 ---
 
 #  FAQ for migrating from a Run As account to managed identities

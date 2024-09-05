@@ -8,7 +8,7 @@ ms.date: 10/31/2023
 zone_pivot_groups: programming-languages-set-fivedevlangs
 ms.custom: mode-api, devx-track-azurecli, devx-track-extended-java, devx-track-js, devx-track-python, devx-track-go
 ms.devlang: azurecli
-ms.service: container-registry
+ms.service: azure-container-registry
 ---
 
 # Quickstart: Use the Azure Container Registry client libraries
@@ -41,7 +41,7 @@ Azure Container Registry also has a management library for control-plane operati
 
 ## Key concepts
 
-* An Azure container registry stores *container images* and [OCI artifacts](container-registry-oci-artifacts.md). 
+* An Azure container registry stores *container images* and [OCI artifacts](container-registry-manage-artifact.md). 
 * An image or artifact consists of a *manifest* and *layers*. 
 * A manifest describes the layers that make up the image or artifact. It is uniquely identified by its *digest*. 
 * An image or artifact can also be *tagged* to give it a human-readable alias. An image or artifact can have zero or more tags associated with it, and each tag uniquely identifies the image. 

@@ -6,7 +6,7 @@ author: asudbring
 ms.author: allensu
 ms.service: nat-gateway
 ms.topic: tutorial 
-ms.date: 07/13/2023
+ms.date: 07/30/2024
 ms.custom: template-tutorial 
 ---
 
@@ -89,19 +89,19 @@ The hub virtual network is the central network of the solution. The hub network 
 
 1. Select **Next** to proceed to the **Security** tab.
 
-1. Select **Enable Bastion** in the **Azure Bastion** section of the **Security** tab.
+1. Select **Enable Azure Bastion** in the **Azure Bastion** section of the **Security** tab.
 
     Azure Bastion uses your browser to connect to VMs in your virtual network over secure shell (SSH) or remote desktop protocol (RDP) by using their private IP addresses. The VMs don't need public IP addresses, client software, or special configuration. For more information about Azure Bastion, see [Azure Bastion](/azure/bastion/bastion-overview)
 
     >[!NOTE]
-    >[!INCLUDE [Pricing](../../includes/bastion-pricing.md)]
+    >[!INCLUDE [Pricing](~/reusable-content/ce-skilling/azure/includes/bastion-pricing.md)]
 
 1. Enter or select the following information in **Azure Bastion**:
 
     | Setting | Value |
     |---|---|
     | Azure Bastion host name | Enter **bastion**. |
-    | Azure Bastion public IP address | Select **Create a public IP address**. </br> Enter **public-ip** in Name. </br> Select **OK**. |
+    | Azure Bastion public IP address | Select **Create a public IP address**. </br> Enter **public-ip-bastion** in Name. </br> Select **OK**. |
 
 1. Select **Next** to proceed to the **IP Addresses** tab.
 
@@ -111,25 +111,27 @@ The hub virtual network is the central network of the solution. The hub network 
 
     | Setting | Value |
     |---|---|
-    | **Subnet details** |  |
-    | Subnet template | Leave the default **Default**. |
+    | Subnet purpose | Leave the default **Default**. |
     | Name | Enter **subnet-private**. |
+    | **IPv4** |   |
+    | IPv4 address range | Leave the default of **10.0.0.0/16**. |
     | Starting address | Leave the default of **10.0.0.0**. |
-    | Subnet size | Leave the default of **/24(256 addresses)**. |
+    | Size | Leave the default of **/24(256 addresses)**. |
 
 1. Select **Save**.
 
-1. Select **+ Add subnet**.
+1. Select **+ Add a subnet**.
 
 1. In **Add subnet**, enter or select the following information:
 
     | Setting | Value |
     |---|---|
-    | **Subnet details** |  |
-    | Subnet template | Leave the default **Default**. |
+    | Subnet purpose | Leave the default **Default**. |
     | Name | Enter **subnet-public**. |
+    | **IPv4** |   |
+    | IPv4 address range | Leave the default of **10.0.0.0/16**. |
     | Starting address | Enter **10.0.253.0**. |
-    | Subnet size | Select **/28(16 addresses)**. |
+    | Size | Select **/28(16 addresses)**. |
     | **Security** |   |
     | NAT gateway | Select **nat-gateway**. |
 
@@ -161,7 +163,7 @@ The simulated NVA acts as a virtual appliance to route all traffic between the s
     | Region | Select **(US) East US 2**. |
     | Availability options | Select **No infrastructure redundancy required**. |
     | Security type | Select **Standard**. |
-    | Image | Select **Ubuntu Server 22.04 LTS - x64 Gen2**. |
+    | Image | Select **Ubuntu Server 24.04 LTS - x64 Gen2**. |
     | VM architecture | Leave the default of **x64**. |
     | Size | Select a size. |
     | **Administrator account** |   |
@@ -199,9 +201,9 @@ The IP configuration of the primary network interface of the virtual machine is 
 
 1. In the **Overview** select **Stop** if the virtual machine is running.
 
-1. Select **Networking** in **Settings**.
+1. Expand **Networking** then select **Network settings**.
 
-1. In **Networking** select the network interface name next to **Network Interface:**. The interface name is the virtual machine name and random numbers and letters. In this example, the interface name is **vm-nva271**. 
+1. In **Network settings** select the network interface name next to **Network Interface:**. The interface name is the virtual machine name and random numbers and letters. In this example, the interface name is **vm-nva271**. 
 
 1. In the network interface properties, select **IP configurations** in **Settings**.
 
@@ -211,7 +213,7 @@ The IP configuration of the primary network interface of the virtual machine is 
 
 1. When the apply action completes, select **ipconfig1**.
 
-1. In **Assignment** in **ipconfig1** select **Static**.
+1. In **Private IP address settings** in **ipconfig1** select **Static**.
 
 1. In **Private IP address** enter **10.0.253.10**.
 
@@ -219,7 +221,7 @@ The IP configuration of the primary network interface of the virtual machine is 
 
 1. When the save action completes, return to the networking configuration for **vm-nva**.
 
-1. In **Networking** of **vm-nva** select **Attach network interface**.
+1. In **Network settings** of **vm-nva** select **Attach network interface**.
 
 1. Select **Create and attach network interface**.
 
@@ -251,7 +253,7 @@ The routing for the simulated NVA uses IP tables and internal NAT in the Ubuntu 
 
 1. When the virtual machine is completed booting, continue with the next steps.
 
-1. In **Operations**, select **Bastion**.
+1. In the **Overview** section, select **Connect**, then select **Connect via Bastion**.
 
 1. Enter the username and password you entered when the virtual machine was created.
 
@@ -344,7 +346,7 @@ Route tables are used to overwrite Azure's default routing. Create a route table
 
 1. Select **route-table-nat-hub**.
 
-1. In **Settings** select **Routes**.
+1. Expand **Settings** then select **Routes**.
 
 1. Select **+ Add** in **Routes**.
 
@@ -396,7 +398,9 @@ Create another virtual network in a different region for the first spoke of the 
 
 1. Select **Next** to proceed to the **IP addresses** tab.
 
-1. In the **IP Addresses** tab in **IPv4 address space**, select the trash can to delete the address space that is auto populated.
+1. In the **IP Addresses** tab in **IPv4 address space**, select **Delete address space** to delete the address space that is auto populated.
+
+1. Select **Add IPv4 address space**.
 
 1. In **IPv4 address space** enter **10.1.0.0**. Leave the default of **/16 (65,536 addresses)** in the mask selection.
 
@@ -406,11 +410,12 @@ Create another virtual network in a different region for the first spoke of the 
 
     | Setting | Value |
     | ------- | ----- |
-    | **Subnet details** |  |
-    | Subnet template | Leave the default **Default**. |
+    | Subnet purpose | Leave the default **Default**. |
     | Name | Enter **subnet-private**. |
-    | Starting address | Enter **10.1.0.0**. |
-    | Subnet size | Leave the default of **/24(256 addresses)**. |
+    | **IPv4** |   |
+    | IPv4 address range| Leave the default of **10.1.0.0/16**. |
+    | Starting address | Leave the default of **10.1.0.0**. |
+    | Size | Leave the default of **/24(256 addresses)**. |
 
 1. Select **Add**.
 
@@ -433,22 +438,24 @@ A virtual network peering is used to connect the hub to spoke one and spoke one 
 1. Enter or select the following information in **Add peering**:
 
     | Setting | Value |
-    | ------- | ----- |
-    | **This virtual network** |   |
-    | Peering link name | Enter **vnet-hub-to-vnet-spoke-1**. |
-    | Allow 'vnet-hub' to access 'vnet-spoke-1' | Leave the default of **Selected**. |
-    | Allow 'vnet-hub' to receive forwarded traffic from 'vnet-spoke-1' | **Select** the checkbox. |
-    | Allow gateway in 'vnet-hub' to forward traffic to 'vnet-spoke-1' | Leave the default of **Unselected**. |
-    | Enable 'vnet-hub' to use 'vnet-spoke-1's' remote gateway | Leave the default of **Unselected**. |
-    | **Remote virtual network** |   |
+    | ------- | ----- 
+    | **Remote virtual network summary** |   |
     | Peering link name | Enter **vnet-spoke-1-to-vnet-hub**. |
     | Virtual network deployment model | Leave the default of **Resource manager**. |
     | Subscription | Select your subscription. |
-    | Virtual network | Select **vnet-spoke-1**. |
+    | Virtual network | Select **vnet-spoke-1 (test-rg)**. |
+    | **Remote virtual network peering settings** |   |
     | Allow 'vnet-spoke-1' to access 'vnet-hub' | Leave the default of **Selected**. |
-    | Allow 'vnet-spoke-1' to receive forwarded traffic from 'vnet-hub' | **Select** the checkbox. |
-    | Allow gateway in 'vnet-spoke-1' to forward traffic to 'vnet-hub' | Leave the default of **Unselected**. |
-    | Enable 'vnet-spoke-1' to use 'vnet-hub's' remote gateway | Leave the default of **Unselected**. |
+    | Allow 'vnet-spoke-1' to receive forwarded traffic from 'vnet-hub' | Select the checkbox. |
+    | Allow gateway or route server in 'vnet-spoke-1' to forward traffic to 'vnet-hub' | Leave the default of **Unselected**. |
+    | Enable 'vnet-spoke-1' to use 'vnet-hub's' remote gateway or route server | Leave the default of **Unselected**. |
+    | **Local virtual network summary** |   |
+    | Peering link name | Enter **vnet-hub-to-vnet-spoke-1**. |
+    | **Local virtual network peering settings** |   |
+    | Allow 'vnet-hub' to access 'vnet-spoke-1' | Leave the default of **Selected**. |
+    | Allow 'vnet-hub' to receive forwarded traffic from 'vnet-spoke-1' | Select the checkbox. |
+    | Allow gateway or route server in 'vnet-hub' to forward traffic to 'vnet-spoke-1' | Leave the default of **Unselected**. |
+    | Enable 'vnet-hub' to use 'vnet-spoke-1's' remote gateway or route server | Leave the default of **Unselected**. |
     
 1. Select **Add**.
 
@@ -562,6 +569,8 @@ A Windows Server 2022 virtual machine is used to test the outbound internet traf
 
 1. Select **Create**.
 
+Wait for the virtual machine to finishing deploying before continuing to the next steps.
+
 ## Install IIS on spoke one test virtual machine
 
 IIS is installed on the Windows Server 2022 virtual machine to test outbound internet traffic through the NAT gateway and inter-spoke traffic in the hub and spoke network.
@@ -570,7 +579,7 @@ IIS is installed on the Windows Server 2022 virtual machine to test outbound int
 
 1. Select **vm-spoke-1**.
 
-1. In **Operations**, select **Run command**.
+1. Expand **Operations** then select **Run command**.
 
 1. Select **RunPowerShellScript**.
 
@@ -591,7 +600,7 @@ IIS is installed on the Windows Server 2022 virtual machine to test outbound int
 
 1. Wait for the script to complete before continuing to the next step. It can take a few minutes for the script to complete.
 
-1. When the script completes, the **Output*** displays the following:
+1. When the script completes, the **Output** displays the following:
 
     ```output
     Success Restart Needed Exit Code      Feature Result                               
@@ -622,7 +631,9 @@ Create the second virtual network for the second spoke of the hub and spoke netw
 
 1. Select **Next** to proceed to the **IP addresses** tab.
 
-1. In the **IP Addresses** tab in **IPv4 address space**, select the trash can to delete the address space that is auto populated.
+1. In the **IP Addresses** tab in **IPv4 address space**, select **Delete address space** to delete the address space that is auto populated.
+
+1. Select **Add IPv4 address space**.
 
 1. In **IPv4 address space** enter **10.2.0.0**. Leave the default of **/16 (65,536 addresses)** in the mask selection.
 
@@ -632,11 +643,12 @@ Create the second virtual network for the second spoke of the hub and spoke netw
 
     | Setting | Value |
     | ------- | ----- |
-    | **Subnet details** |  |
-    | Subnet template | Leave the default **Default**. |
+    | Subnet purpose | Leave the default **Default**. |
     | Name | Enter **subnet-private**. |
-    | Starting address | Enter **10.2.0.0**. |
-    | Subnet size | Leave the default of **/24(256 addresses)**. |
+    | **IPv4** |   |
+    | IPv4 address range | Leave the default of **10.2.0.0/16**. |
+    | Starting address | Leave the default of **10.2.0.0**. |
+    | Size | Leave the default of **/24(256 addresses)**. |
 
 1. Select **Add**.
 
@@ -667,23 +679,25 @@ Create a two-way virtual network peer between the hub and spoke two.
 1. Enter or select the following information in **Add peering**:
 
     | Setting | Value |
-    | ------- | ----- |
-    | **This virtual network** |   |
-    | Peering link name | Enter **vnet-hub-to-vnet-spoke-2**. |
-    | Allow 'vnet-hub' to access 'vnet-spoke-2' | Leave the default of **Selected**. |
-    | Allow 'vnet-hub' to receive forwarded traffic from 'vnet-spoke-2' | **Select** the checkbox. |
-    | Allow gateway in 'vnet-hub' to forward traffic to 'vnet-spoke-2' | Leave the default of **Unselected**. |
-    | Enable 'vnet-hub' to use 'vnet-spoke-2's' remote gateway | Leave the default of **Unselected**. |
-    | **Remote virtual network** |   |
+    | ------- | ----- 
+    | **Remote virtual network summary** |   |
     | Peering link name | Enter **vnet-spoke-2-to-vnet-hub**. |
     | Virtual network deployment model | Leave the default of **Resource manager**. |
     | Subscription | Select your subscription. |
-    | Virtual network | Select **vnet-spoke-2**. |
-    | Allow 'vnet-spoke-1' to access 'vnet-hub' | Leave the default of **Selected**. |
-    | Allow 'vnet-spoke-1' to receive forwarded traffic from 'vnet-hub' | **Select** the checkbox. |
-    | Allow gateway in 'vnet-spoke-1' to forward traffic to 'vnet-hub' | Leave the default of **Unselected**. |
-    | Enable 'vnet-spoke-1' to use 'vnet-hub's' remote gateway | Leave the default of **Unselected**. |
-    
+    | Virtual network | Select **vnet-spoke-2 (test-rg)**. |
+    | **Remote virtual network peering settings** |   |
+    | Allow 'vnet-spoke-2' to access 'vnet-hub' | Leave the default of **Selected**. |
+    | Allow 'vnet-spoke-2' to receive forwarded traffic from 'vnet-hub' | Select the checkbox. |
+    | Allow gateway or route server in 'vnet-spoke-2' to forward traffic to 'vnet-hub' | Leave the default of **Unselected**. |
+    | Enable 'vnet-spoke-2' to use 'vnet-hub's' remote gateway or route server | Leave the default of **Unselected**. |
+    | **Local virtual network summary** |   |
+    | Peering link name | Enter **vnet-hub-to-vnet-spoke-2**. |
+    | **Local virtual network peering settings** |   |
+    | Allow 'vnet-hub' to access 'vnet-spoke-2' | Leave the default of **Selected**. |
+    | Allow 'vnet-hub' to receive forwarded traffic from 'vnet-spoke-2' | Select the checkbox. |
+    | Allow gateway or route server in 'vnet-hub' to forward traffic to 'vnet-spoke-2' | Leave the default of **Unselected**. |
+    | Enable 'vnet-hub' to use 'vnet-spoke-2's' remote gateway or route server | Leave the default of **Unselected**. |
+
 1. Select **Add**.
 
 1. Select **Refresh** and verify **Peering status** is **Connected**.
@@ -794,6 +808,8 @@ Create a Windows Server 2022 virtual machine for the test virtual machine in spo
 
 1. Select **Create**.
 
+Wait for the virtual machine to finish deploying before continuing to the next steps.
+
 ## Install IIS on spoke two test virtual machine
 
 IIS is installed on the Windows Server 2022 virtual machine to test outbound internet traffic through the NAT gateway and inter-spoke traffic in the hub and spoke network.
@@ -853,7 +869,7 @@ Use Microsoft Edge on the Windows Server 2022 virtual machine to connect to http
 
 1. Select **vm-spoke-1**.
 
-1. In **Operations**, select **Bastion**.
+1. In **Overview**, select **Connect** then **Connect via Bastion**.
 
 1. Enter the username and password you entered when the virtual machine was created.
 
@@ -877,7 +893,7 @@ Use Microsoft Edge on the Windows Server 2022 virtual machine to connect to http
 
 1. Select **vm-spoke-2**.
 
-1. In **Operations**, select **Bastion**.
+1. In **Overview**, select **Connect** then **Connect via Bastion**.
 
 1. Enter the username and password you entered when the virtual machine was created.
 
@@ -929,7 +945,7 @@ Use Microsoft Edge to connect to the web server on **vm-spoke-1** you installed 
 
 1. Close the bastion connection to **vm-spoke-1**.
 
-[!INCLUDE [portal-clean-up.md](../../includes/portal-clean-up.md)]
+[!INCLUDE [portal-clean-up.md](~/reusable-content/ce-skilling/azure/includes/portal-clean-up.md)]
 
 ## Next steps
 

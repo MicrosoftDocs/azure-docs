@@ -3,14 +3,14 @@ title: Restore Azure PostgreSQL databases via Azure data protection REST API
 description: Learn how to restore Azure PostGreSQL databases using Azure Data Protection REST API.
 ms.topic: conceptual
 ms.date: 01/24/2022
-ms.service: backup
+ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
 
 # Restore Azure PostgreSQL databases using Azure data protection REST API
 
-This article explains how to restore [Azure PostgreSQL databases](../postgresql/overview.md#azure-database-for-postgresql---single-server) to an Azure PostgreSQL server backed-up by Azure Backup.
+This article explains how to restore [Azure PostgreSQL databases](/azure/postgresql/overview#azure-database-for-postgresql---single-server) to an Azure PostgreSQL server backed-up by Azure Backup.
 
 Being a PaaS database, the Original-Location Recovery (OLR) option to restore by replacing the existing database (from where the backups were taken) isn't supported. You can restore from a recovery point to create a new database in the same Azure PostgreSQL server or in any other PostgreSQL server. This is called Alternate-Location Recovery (ALR) that helps to keep both - the source database and the restored (new) database.
 

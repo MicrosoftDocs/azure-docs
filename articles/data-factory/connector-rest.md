@@ -3,11 +3,10 @@ title: Copy and transform data from and to a REST endpoint
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to use Copy Activity to copy data and use Data Flow to transform data from a cloud or on-premises REST source to supported sink data stores, or from supported source data store to a REST sink in Azure Data Factory or Azure Synapse Analytics pipelines. 
 author: jianleishen
-ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 08/10/2023
+ms.date: 02/26/2024
 ms.author: makromer
 ---
 
@@ -43,7 +42,7 @@ Specifically, this generic REST connector supports:
 - For REST as source, copying the REST JSON response [as-is](#export-json-response-as-is) or parse it by using [schema mapping](copy-activity-schema-and-type-mapping.md#schema-mapping). Only response payload in **JSON** is supported.
 
 > [!TIP]
-> To test a request for data retrieval before you configure the REST connector in Data Factory, learn about the API specification for header and body requirements. You can use tools like Postman or a web browser to validate.
+> To test a request for data retrieval before you configure the REST connector in Data Factory, learn about the API specification for header and body requirements. You can use tools like Visual Studio, PowerShell's Invoke-RestMethod or a web browser to validate.
 
 ## Prerequisites
 
@@ -352,7 +351,8 @@ The following properties are supported in the copy activity **source** section:
 | requestInterval | The time to wait before sending the request for next page. The default value is **00:00:01** |  No |
 
 >[!NOTE]
->REST connector ignores any "Accept" header specified in `additionalHeaders`. As REST connector only support response in JSON, it will auto generate a header of `Accept: application/json`.
+>REST connector ignores any "Accept" header specified in `additionalHeaders`. As REST connector only support response in JSON, it will auto generate a header of `Accept: application/json`. <br>
+>The array of object as the response body is not supported in pagination.
 
 **Example 1: Using the Get method with pagination**
 
@@ -568,7 +568,7 @@ This generic REST connector supports the following pagination patterns:
 | Value | Description |
 |:--- |:--- |
 | Headers.*response_header* OR Headers['response_header'] | "response_header" is user-defined, which references one header name in the current HTTP response, the value of which will be used to issue next request. |
-| A JSONPath expression starting with "$" (representing the root of the response body) | The response body should contain only one JSON object. The JSONPath expression should return a single primitive value, which will be used to issue next request. |
+| A JSONPath expression starting with "$" (representing the root of the response body) | The response body should contain only one JSON object and the array of object as the response body is not supported. The JSONPath expression should return a single primitive value, which will be used to issue next request. |
 
 >[!NOTE]
 > The pagination rules in mapping data flows is different from it in copy activity in the following aspects:
@@ -648,7 +648,7 @@ Request 100: `Header(id->100)`<br/>
 
 *Step 1*: Input `{id}` in **Additional headers**.
     
-*Step 2*: Set **Pagination rules** as **"Headers.{id}" : "RARNGE:0:100:10"**.
+*Step 2*: Set **Pagination rules** as **"Headers.{id}" : "RANGE:0:100:10"**.
 
 :::image type="content" source="media/connector-rest/pagination-rule-example-3.png" alt-text="Screenshot showing the pagination rule to send multiple requests whose variables are in Headers."::: 
 

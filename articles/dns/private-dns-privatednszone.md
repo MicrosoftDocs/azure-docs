@@ -3,7 +3,7 @@ title: What is an Azure Private DNS zone?
 description: Overview of Private DNS zones
 services: dns
 author: greg-lindsay
-ms.service: dns
+ms.service: azure-dns
 ms.topic: article
 ms.date: 10/12/2023
 ms.author: greglin
@@ -20,7 +20,7 @@ You can also enable the [autoregistration](./private-dns-autoregistration.md) fe
 
 ## Private DNS zone resolution
 
-Private DNS zones linked to a VNet are queried first when using the default DNS settings of a VNet. Azure provided DNS servers are queried next. However, if a [custom DNS server](../virtual-network/manage-virtual-network.md#change-dns-servers) is defined in a VNet, then private DNS zones linked to that VNet are not automatically queried, because the custom settings override the name resolution order. 
+Private DNS zones linked to a VNet are queried first when using the default DNS settings of a VNet. Azure provided DNS servers are queried next. However, if a [custom DNS server](../virtual-network/manage-virtual-network.yml#change-dns-servers) is defined in a VNet, then private DNS zones linked to that VNet are not automatically queried, because the custom settings override the name resolution order. 
 
 To enable custom DNS to resolve the private zone, you can use an [Azure DNS Private Resolver](dns-private-resolver-overview.md) in a VNet linked to the private zone as described in [centralized DNS architecture](private-resolver-architecture.md#centralized-dns-architecture). If the custom DNS is a virtual machine, configure a conditional forwarder to Azure DNS (168.63.129.16) for the private zone.
 

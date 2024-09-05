@@ -4,13 +4,15 @@ description: Overview of all API observability and monitoring options in Azure A
 services: api-management
 author: dlepow
 
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: conceptual
-ms.date: 06/01/2020
+ms.date: 07/12/2024
 ms.author: danlep
 ---
 
 # Observability in Azure API Management
+
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 
 Observability is the ability to understand the internal state of a system from the data it produces and the ability to explore that data to answer questions about what happened and why. 
 
@@ -23,15 +25,15 @@ Azure API Management allows you to choose to use the managed gateway or [self-ho
 The table below summarizes all the observability capabilities supported by API Management to operate APIs and what deployment models they support. These capabilities can be used by API publishers and others who have permissions to operate or manage the API Management instance. 
 
 > [!NOTE]
-> For API consumers who use the developer portal, a built-in API report is available. It only provides information about their individual API usage during the preceding 90 days.
+> For API consumers who use the developer portal, a built-in API report is available. It only provides information about their individual API usage during the preceding 90 days. Currently, the built-in API report is not available in the developer portal for the v2 service tiers.
 >  
 | Tool        | Useful for    | Data lag | Retention | Sampling | Data kind | Supported Deployment Model(s) |
 |:------------- |:-------------|:---- |:----|:---- |:--- |:---- |
-| **[API Inspector](api-management-howto-api-inspector.md)** | Testing and debugging | Instant | Last 100 traces | Turned on per request | Request traces | Managed, Self-hosted, Azure Arc |
+| **[API Inspector](api-management-howto-api-inspector.md)** | Testing and debugging | Instant | Last 100 traces | Turned on per request | Request traces | Managed, Self-hosted, Azure Arc, Workspace |
 | **[Built-in Analytics](howto-use-analytics.md)** | Reporting and monitoring | Minutes | Lifetime | 100% | Reports and logs | Managed |
 | **[Azure Monitor Metrics](api-management-howto-use-azure-monitor.md)** | Reporting and monitoring | Minutes | 90 days (upgrade to extend) | 100% | Metrics | Managed, Self-hosted<sup>2</sup>, Azure Arc |
 | **[Azure Monitor Logs](api-management-howto-use-azure-monitor.md)** | Reporting, monitoring, and debugging | Minutes | 31 days/5GB (upgrade to extend) | 100% (adjustable) | Logs | Managed<sup>1</sup>, Self-hosted<sup>3</sup>, Azure Arc<sup>3</sup> |
-| **[Azure Application Insights](api-management-howto-app-insights.md)** | Reporting, monitoring, and debugging | Seconds | 90 days/5GB (upgrade to extend) | Custom | Logs, metrics | Managed<sup>1</sup>, Self-hosted<sup>1</sup>, Azure Arc<sup>1</sup> |
+| **[Azure Application Insights](api-management-howto-app-insights.md)** | Reporting, monitoring, and debugging | Seconds | 90 days/5GB (upgrade to extend) | Custom | Logs, metrics | Managed<sup>1</sup>, Self-hosted<sup>1</sup>, Azure Arc<sup>1</sup>, Workspace<sup>1</sup> |
 | **[Logging through Azure Event Hubs](api-management-howto-log-event-hubs.md)** | Custom scenarios | Seconds | User managed | Custom | Custom | Managed<sup>1</sup>, Self-hosted<sup>1</sup>, Azure Arc<sup>1</sup> |
 | **[OpenTelemetry](how-to-deploy-self-hosted-gateway-kubernetes-opentelemetry.md#introduction-to-opentelemetry)** | Monitoring | Minutes | User managed | 100% | Metrics | Self-hosted<sup>2</sup> |
 

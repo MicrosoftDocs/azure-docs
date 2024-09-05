@@ -2,12 +2,12 @@
 title: How to use the MedTech service monitoring and health check tabs - Azure Health Data Services
 description: Learn how to use the MedTech service monitoring and health check tabs.
 services: healthcare-apis
-author: msjasteppe
-ms.service: healthcare-apis
-ms.subservice: iomt
+author: chachachachami
+ms.service: azure-health-data-services
+ms.subservice: medtech-service
 ms.topic: how-to
 ms.date: 06/19/2023
-ms.author: jasteppe
+ms.author: chrupa
 ---
 
 # How to use the MedTech service monitoring and health checks tabs
@@ -24,7 +24,7 @@ In this article, learn how to use the MedTech service monitoring and health chec
 
    :::image type="content" source="media\how-to-use-monitoring-and-health-checks-tabs\select-medtech-service.png" alt-text="Screenshot of select the MedTech service you would like to display metrics for." lightbox="media\how-to-use-monitoring-and-health-checks-tabs\select-medtech-service.png":::
 
-3. The MedTech service monitoring tab will open displaying a subset of the supported MedTech service metrics. By default, the **Show data for last** option is set to **1 hour**. To adjust the time duration, select the **Show data for last option**, select the time period you would like to view, and select **Apply**. Select the down arrow in the **Traffic** MedTech service metrics tile to display the next set of MedTech service traffic metrics. 
+3. The MedTech service monitoring tab opens, displaying a subset of the supported MedTech service metrics. By default, the **Show data for last** option is set to **1 hour**. To adjust the time duration, select the **Show data for last option**, select the time period you would like to view, and select **Apply**. Select the down arrow in the **Traffic** MedTech service metrics tile to display the next set of MedTech service traffic metrics. 
 
    :::image type="content" source="media\how-to-use-monitoring-and-health-checks-tabs\display-monitoring-tab.png" alt-text="Screenshot the MedTech service monitoring tab with drop-down menus." lightbox="media\how-to-use-monitoring-and-health-checks-tabs\display-monitoring-tab.png":::
 

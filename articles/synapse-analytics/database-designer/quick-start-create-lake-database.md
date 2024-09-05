@@ -4,7 +4,7 @@ description: Quickstart how to create a new lake database leveraging database te
 author: gsaurer
 ms.author: gesaur
 ms.reviewer: wiassaf, jovanpop
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.subservice: database-editor
 ms.topic: conceptual
 ms.date: 08/16/2022

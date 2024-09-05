@@ -315,7 +315,7 @@ Run the changelog script (`./changelog-generator.sh`) to automatically generate 
 
 ## Usage for Azure Data Manager for Energy
 
-The Azure Data Manager for Energy instance uses the OSDU&trade; M12 version of sdutil. Complete the following steps if you want to use sdutil to take advantage of the Scientific Data Management System (SDMS) API of your Azure Data Manager for Energy instance:
+The Azure Data Manager for Energy instance uses the OSDU&reg; M12 version of sdutil. Complete the following steps if you want to use sdutil to take advantage of the Scientific Data Management System (SDMS) API of your Azure Data Manager for Energy instance:
 
 1. Ensure that you followed the earlier [installation](#prerequisites) and [configuration](#configuration) steps. These steps include downloading the sdutil source code, configuring your Python virtual environment, editing the `config.yaml` file, and setting your three environment variables.
 
@@ -363,7 +363,7 @@ The Azure Data Manager for Energy instance uses the OSDU&trade; M12 version of s
       > [!NOTE]
       > Don't use the `cp` command to download VDS files. The VDS conversion results in multiple files, so the `cp` command won't be able to download all of them in one command. Use either the [SEGYExport](https://osdu.pages.opengroup.org/platform/domain-data-mgmt-services/seismic/open-vds/tools/SEGYExport/README.html) or [VDSCopy](https://osdu.pages.opengroup.org/platform/domain-data-mgmt-services/seismic/open-vds/tools/VDSCopy/README.html) tool instead. These tools use a series of REST calls that access a [naming scheme](https://osdu.pages.opengroup.org/platform/domain-data-mgmt-services/seismic/open-vds/connection.html) to retrieve information about all the resulting VDS files.
 
-OSDU&trade; is a trademark of The Open Group.
+OSDU&reg; is a trademark of The Open Group.
 
 ## Next step
 

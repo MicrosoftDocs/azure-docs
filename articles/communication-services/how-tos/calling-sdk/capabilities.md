@@ -9,9 +9,10 @@ ms.subservice: calling
 ms.topic: how-to
 ms.date: 03/24/2023
 ms.custom: template-how-to
+zone_pivot_groups: acs-plat-web-ios-android-windows
 ---
 # Observe user's capabilities
-Do I have permission to turn video on, do I have permission to turn mic on, do I have permission to share screen? Those are some examples of participant capabilities that you can learn from the capabilities API. Learning the capabilities can help build a user interface that only shows the buttons related to the actions the local user has permissions to.
+Do I have permission to turn on video, do I have permission to turn on mic, do I have permission to share screen? Those are some examples of participant capabilities that you can learn from the capabilities API. Learning the capabilities can help build a user interface that only shows the buttons related to the actions the local user has permissions to.
 
 ## Prerequisites
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
@@ -19,8 +20,21 @@ Do I have permission to turn video on, do I have permission to turn mic on, do I
 - A user access token to enable the calling client. For more information, see [Create and manage access tokens](../../quickstarts/identity/access-tokens.md).
 - Optional: Complete the quick start to [add voice calling to your application](../../quickstarts/voice-video-calling/getting-started-with-calling.md)
 
-## Supported Platform - Web
+::: zone pivot="platform-web"
 [!INCLUDE [Capabilities JavaScript](./includes/capabilities/capabilities-web.md)]
+::: zone-end
+
+::: zone pivot="platform-android"
+[!INCLUDE [Capabilities Android](./includes/capabilities/capabilities-android.md)]
+::: zone-end
+
+::: zone pivot="platform-windows"
+[!INCLUDE [Capabilities Windows](./includes/capabilities/capabilities-windows.md)]
+::: zone-end
+
+::: zone pivot="platform-ios"
+[!INCLUDE [Capabilities iOS](./includes/capabilities/capabilities-ios.md)]
+::: zone-end
 
 ## Supported Calltype
 The feature is currently supported only for Azure Communication Services Rooms call type and teams meeting call type

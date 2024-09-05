@@ -3,9 +3,9 @@ title: "Quickstart: Set up Spring Cloud Config Server for Azure Spring Apps"
 description: Describes the setup of Azure Spring Apps Config Server for app deployment.
 author: KarlErickson
 ms.author: karler
-ms.service: spring-apps
+ms.service: azure-spring-apps
 ms.topic: quickstart
-ms.date: 7/19/2022
+ms.date: 06/27/2024
 ms.custom: devx-track-java, devx-track-extended-java, fasttrack-edit, mode-other
 zone_pivot_groups: programming-languages-spring-apps
 ---
@@ -28,10 +28,13 @@ Config Server is a centralized configuration service for distributed systems. It
 
 ## Config Server procedures
 
-Set up your Config Server with the location of the git repository for the project by running the following command. Replace *\<service instance name>* with the name of the service you created earlier. The default value for service instance name that you set in the preceding quickstart doesn't work with this command.
+Set up your Config Server with the location of the Git repository for the project by running the following command. Replace `<service-instance-name>` with the name of the service you created earlier. The default value for service instance name that you set in the preceding quickstart doesn't work with this command.
 
 ```azurecli
-az spring config-server git set -n <service instance name> --uri https://github.com/Azure-Samples/azure-spring-apps-samples --search-paths steeltoe-sample/config
+az spring config-server git set \
+    --name <service-instance-name> \
+    --uri https://github.com/Azure-Samples/azure-spring-apps-samples \
+    --search-paths steeltoe-sample/config
 ```
 
 This command tells Config Server to find the configuration data in the [steeltoe-sample/config](https://github.com/Azure-Samples/azure-spring-apps-samples/tree/main/steeltoe-sample/config) folder of the sample app repository. Since the name of the app that gets the configuration data is `planet-weather-provider`, the file that's used is [planet-weather-provider.yml](https://github.com/Azure-Samples/azure-spring-apps-samples/blob/main/steeltoe-sample/config/planet-weather-provider.yml).
@@ -74,13 +77,15 @@ The following procedure uses the Azure CLI to set up Config Server to deploy the
 Run the following command to set the Default repository.
 
 ```azurecli
-az spring config-server git set -n <service instance name> --uri https://github.com/azure-samples/spring-petclinic-microservices-config
+az spring config-server git set \
+    --name <service-instance-name> \
+    --uri https://github.com/azure-samples/spring-petclinic-microservices-config
 ```
 
 ::: zone-end
 
 > [!TIP]
-> For information on using a private repository for Config Server, see [Configure a managed Spring Cloud Config Server in Azure Spring Apps](./how-to-config-server.md).
+> For information on using a private repository for Config Server, see [Configure a managed Spring Cloud Config Server in Azure Spring Apps](../enterprise/how-to-config-server.md?pivots=sc-standard&toc=/azure/spring-apps/basic-standard/toc.json&bc=/azure/spring-apps/basic-standard/breadcrumb/toc.json).
 
 ## Troubleshooting of Azure Spring Apps Config Server
 

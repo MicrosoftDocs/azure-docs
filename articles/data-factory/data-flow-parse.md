@@ -3,10 +3,9 @@ title: Parse data transformations in mapping data flow
 description: Parse embedded column documents
 author: kromerm
 ms.author: makromer
-ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
-ms.date: 07/17/2023
+ms.date: 05/15/2024
 ---
 
 # Parse transformation in mapping data flow

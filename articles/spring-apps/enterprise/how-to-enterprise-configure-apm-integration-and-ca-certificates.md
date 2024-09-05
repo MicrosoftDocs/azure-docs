@@ -4,9 +4,9 @@ titleSuffix: Azure Spring Apps Enterprise plan
 description: Shows you how to configure APM integration and CA certificates in the Azure Spring Apps Enterprise plan.
 author: KarlErickson
 ms.author: fenzho
-ms.service: spring-apps
+ms.service: azure-spring-apps
 ms.topic: how-to
-ms.date: 05/25/2023
+ms.date: 08/29/2024
 ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli
 ---
 
@@ -132,7 +132,7 @@ This section lists the supported languages and required environment variables fo
   - `controller_ssl_enabled`
   - `controller_port`
 
-  For other supported environment variables, see [AppDynamics](https://docs.appdynamics.com/21.11/en/application-monitoring/install-app-server-agents/java-agent/monitor-azure-spring-cloud-with-java-agent#MonitorAzureSpringCloudwithJavaAgent-ConfigureUsingtheEnvironmentVariablesorSystemProperties)
+  For other supported environment variables, see [AppDynamics](https://docs.appdynamics.com/appd/24.x/24.3/en/application-monitoring/install-app-server-agents/java-agent/monitor-azure-spring-cloud-with-java-agent#id-.MonitorAzureSpringCloudwithJavaAgentv24.3-ConfigureUsingtheEnvironmentVariablesorSystemProperties)
 
 ## Bindings in builder is deprecated
 
@@ -504,7 +504,7 @@ You can unbind a buildpack binding by using the **Unbind binding** command, or b
 
 To use the **Unbind binding** command, select the **Bound** hyperlink, and then select **Unbind binding**.
 
-:::image type="content" source="media/how-to-enterprise-configure-apm-integration-and-ca-certificates/unbind-binding-command.png" alt-text="Screenshot of the Azure portal showing the Edit bindings for default builder page with the Unbind binding option highlighted for a selected binding type." lightbox="media/how-to-enterprise-configure-apm-integration-and-ca-certificates/unbind-binding-command.png":::
+:::image type="content" source="media/how-to-enterprise-configure-apm-integration-and-ca-certificates/unbind-binding-command.png" alt-text="Screenshot of the Azure portal Edit bindings for default builder page with the Unbind binding option highlighted for a selected binding type." lightbox="media/how-to-enterprise-configure-apm-integration-and-ca-certificates/unbind-binding-command.png":::
 
 To unbind a buildpack binding by editing binding properties, select **Edit Binding**, and then select **Unbind**.
 

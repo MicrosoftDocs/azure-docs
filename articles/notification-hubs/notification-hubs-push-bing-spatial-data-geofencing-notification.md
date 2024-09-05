@@ -8,7 +8,7 @@ manager: femila
 editor: jwargo
 
 ms.assetid: f41beea1-0d62-4418-9ffc-c9d70607a1b7
-ms.service: notification-hubs
+ms.service: azure-notification-hubs
 ms.tgt_pltfrm: mobile-windows-phone
 ms.devlang: csharp
 ms.topic: tutorial

@@ -2,8 +2,8 @@
 title: Subscribe to events in Job Router
 titleSuffix: An Azure Communication Services how-to guide
 description: Use Azure Communication Services SDKs to subscribe to Job Router events from Event Grid
-author: jasonshave
-ms.author: jassha
+author: sroons
+ms.author: serooney 
 ms.service: azure-communication-services
 ms.topic: how-to 
 ms.date: 10/14/2021
@@ -128,15 +128,14 @@ dotnet run
 | [`RouterJobUnassigned`](#microsoftcommunicationrouterjobunassigned)  | `Job` |  An already assigned job  has been unassigned from a worker |
 | [`RouterJobWaitingForActivation`](#microsoftcommunicationrouterjobwaitingforactivation)  | `Job` |  A scheduled job's requested scheduled time has arrived, Router is waiting on contoso to act on the job |
 | [`RouterJobSchedulingFailed`](#microsoftcommunicationrouterjobschedulingfailed)  | `Job` |  A scheduled job was requested however, Router failed to create one |
-| [`RouterJobDeleted`](#microsoftcommunicationrouterjobdeleted)  | `Job` |  A job has been deleted |
 | [`RouterWorkerOfferIssued`](#microsoftcommunicationrouterworkerofferissued) | `Worker` | A job was offered to a worker |
 | [`RouterWorkerOfferAccepted`](#microsoftcommunicationrouterworkerofferaccepted) | `Worker` | An offer to a worker was accepted |
 | [`RouterWorkerOfferDeclined`](#microsoftcommunicationrouterworkerofferdeclined) | `Worker` | An offer to a worker was declined |
 | [`RouterWorkerOfferRevoked`](#microsoftcommunicationrouterworkerofferrevoked)  | `Worker` | An offer to a worker was revoked |
 | [`RouterWorkerOfferExpired`](#microsoftcommunicationrouterworkerofferexpired)  | `Worker` | An offer to a worker has expired |
 | [`RouterWorkerRegistered`](#microsoftcommunicationrouterworkerregistered)  | `Worker` | A worker has been registered (status changed from inactive/draining to active) |
+| [`RouterWorkerUpdated`](#microsoftcommunicationrouterworkerupdated)  | `Worker` | One of the following worker properties has been updated: `AvailableForOffers`, `TotalCapacity`, `QueueAssignments`, `ChannelConfigurations`, `Labels`, `Tags` |
 | [`RouterWorkerDeregistered`](#microsoftcommunicationrouterworkerderegistered)  | `Worker` | A worker has been deregistered (status changed from active to inactive/draining) |
-| [`RouterWorkerDeleted`](#microsoftcommunicationrouterworkerdeleted)  | `Worker` | A worker has been deleted |
 
 ### Microsoft.Communication.RouterJobReceived
 
@@ -813,44 +812,6 @@ dotnet run
 | failureReason | `string` |✔️ | | System determined
 | priority| `int` |❌ | | Based on user input while creating a job
 
-### Microsoft.Communication.RouterJobDeleted
-
-[Back to Event Catalog](#events-catalog)
-
-```json
-{
-  "id": "acdf8fa5-8ab4-4a65-874a-c1d2a4a97f2e",
-  "topic": "/subscriptions/{subscription-id}/resourceGroups/{group-name}/providers/Microsoft.Communication/communicationServices/{communication-services-resource-name}",
-  "subject": "job/{job-id}/channel/{channel-id}",
-  "data": {
-    "jobId": "7f1df17b-570b-4ae5-9cf5-fe6ff64cc712",
-    "channelReference": "test-abc",
-    "channelId": "FooVoiceChannelId",
-    "labels": {
-      "Locale": "en-us",
-      "Segment": "Enterprise",
-      "Token": "FooToken"
-    },
-    "tags": {
-      "Locale": "en-us",
-      "Segment": "Enterprise",
-      "Token": "FooToken"
-    },
-    "queueId": ""
-  },
-  "eventType": "Microsoft.Communication.RouterJobDeleted",
-  "dataVersion": "1.0",
-  "metadataVersion": "1",
-  "eventTime": "2022-02-17T00:55:25.1736293Z"
-}
-```
-
-#### Attribute list
-
-| Attribute | Type | Nullable |Description | Notes |
-|:--------- |:-----:|:-------:|-------------|-------|
-| jobId| `string` | ❌ |
-
 ## Worker Events
 
 ### Microsoft.Communication.RouterWorkerOfferIssued
@@ -1120,32 +1081,7 @@ dotnet run
 | channelConfigurations| `List<ChannelConfiguration>` | ❌ |
 | tags | `Dictionary<string, object>` | ✔️ | | Based on user input
 
-### Microsoft.Communication.RouterWorkerDeregistered
-
-[Back to Event Catalog](#events-catalog)
-
-```json
-{
-  "id": "1027db4a-17fe-4a7f-ae67-276c3120a29f",
-  "topic": "/subscriptions/{subscription-id}/resourceGroups/{group-name}/providers/Microsoft.Communication/communicationServices/{communication-services-resource-name}",
-  "subject": "worker/{worker-id}",
-  "data": {
-    "workerId": "worker3"
-  },
-  "eventType": "Microsoft.Communication.RouterWorkerDeregistered",
-  "dataVersion": "1.0",
-  "metadataVersion": "1",
-  "eventTime": "2022-02-17T00:55:25.1736293Z"
-}
-```
-
-#### Attribute list
-
-| Attribute | Type | Nullable |Description | Notes |
-|:--------- |:-----:|:-------:|-------------|-------|
-| workerId | `string` | ❌ |
-
-### Microsoft.Communication.RouterWorkerDeleted
+### Microsoft.Communication.RouterWorkerUpdated
 
 [Back to Event Catalog](#events-catalog)
 
@@ -1156,6 +1092,7 @@ dotnet run
   "subject": "worker/{worker-id}",
   "data": {
     "workerId": "worker3",
+    "availableForOffers": true,
     "totalCapacity": 100,
     "queueAssignments": [
       {
@@ -1183,9 +1120,17 @@ dotnet run
       "Locale": "en-us",
       "Segment": "Enterprise",
       "Token": "FooToken"
-    }
+    },
+    "updatedWorkerProperties": [
+      "TotalCapacity",
+      "Labels",
+      "Tags",
+      "ChannelConfigurations",
+      "AvailableForOffers",
+      "QueueAssignments"
+    ]
   },
-  "eventType": "Microsoft.Communication.RouterWorkerDeleted",
+  "eventType": "Microsoft.Communication.RouterWorkerUpdated",
   "dataVersion": "1.0",
   "metadataVersion": "1",
   "eventTime": "2022-02-17T00:55:25.1736293Z"
@@ -1202,6 +1147,32 @@ dotnet run
 | labels | `Dictionary<string, object>` | ✔️ | | Based on user input
 | channelConfigurations| `List<ChannelConfiguration>` | ❌ |
 | tags | `Dictionary<string, object>` | ✔️ | | Based on user input
+| updatedWorkerProperties | `List<UpdateWorkerProperty>` | ❌ | Worker Properties updated including AvailableForOffers, QueueAssignments, ChannelConfigurations, TotalCapacity, Labels, and Tags
+
+### Microsoft.Communication.RouterWorkerDeregistered
+
+[Back to Event Catalog](#events-catalog)
+
+```json
+{
+  "id": "1027db4a-17fe-4a7f-ae67-276c3120a29f",
+  "topic": "/subscriptions/{subscription-id}/resourceGroups/{group-name}/providers/Microsoft.Communication/communicationServices/{communication-services-resource-name}",
+  "subject": "worker/{worker-id}",
+  "data": {
+    "workerId": "worker3"
+  },
+  "eventType": "Microsoft.Communication.RouterWorkerDeregistered",
+  "dataVersion": "1.0",
+  "metadataVersion": "1",
+  "eventTime": "2022-02-17T00:55:25.1736293Z"
+}
+```
+
+#### Attribute list
+
+| Attribute | Type | Nullable |Description | Notes |
+|:--------- |:-----:|:-------:|-------------|-------|
+| workerId | `string` | ❌ |
 
 ## Model Definitions
 
@@ -1237,6 +1208,20 @@ public class ChannelConfiguration
     public string ChannelId { get; set; }
     public int CapacityCostPerJob { get; set; }
     public int? MaxNumberOfJobs { get; set; }
+}
+```
+
+### UpdatedWorkerProperty
+
+```csharp
+public enum UpdatedWorkerProperty
+{
+    AvailableForOffers,
+    Capacity,
+    QueueAssignments,
+    Labels,
+    Tags,
+    ChannelConfigurations
 }
 ```
 

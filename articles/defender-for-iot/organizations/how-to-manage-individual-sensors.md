@@ -79,7 +79,7 @@ For more information, see [Update Defender for IoT OT monitoring software](updat
 
 Each OT sensor is onboarded as a cloud-connected or locally managed OT sensor and activated using a unique activation file. For cloud-connected sensors, the activation file is used to ensure the connection between the sensor and Azure.
 
-You need to upload a new activation file to your sensor if you want to switch sensor management modes, such as moving from a locally managed sensor to a cloud-connected sensor, or if you're [updating from a legacy software version](update-legacy-ot-software.md#update-legacy-ot-sensor-software). Uploading a new activation file to your sensor includes deleting your sensor from the Azure portal and onboarding it again.
+You need to upload a new activation file to your sensor if you want to switch sensor management modes, such as moving from a locally managed sensor to a cloud-connected sensor, or if you're [updating from a recent software version](update-ot-software.md?tabs=portal#update-ot-sensors). Uploading a new activation file to your sensor includes deleting your sensor from the Azure portal and onboarding it again.
 
 **To add a new activation file:**
 
@@ -244,7 +244,7 @@ This procedure describes how to turn off learning mode manually if you feel that
 
 ## Update a sensor's monitoring interfaces (configure ERSPAN)
 
-You may want to change the interfaces used by your sensor to monitor traffic. You'd originally configured these details as part of your [initial sensor setup](ot-deploy/activate-deploy-sensor.md#define-the-interfaces-you-want-to-monitor), but may need to modify the settings as part of system maintenance, such as configuring ERSPAN monitoring.
+You may want to change the interfaces used by your sensor to monitor traffic. You originally configured these details as part of your [initial sensor setup](ot-deploy/activate-deploy-sensor.md#define-the-interfaces-you-want-to-monitor), but may need to modify the settings as part of system maintenance, such as configuring ERSPAN monitoring.
 
 For more information, see [ERSPAN ports](best-practices/traffic-mirroring-methods.md#erspan-ports).
 

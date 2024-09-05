@@ -4,8 +4,9 @@ description: "Learn how to change a map's style and options. See how to add a st
 author: sinnypan
 ms.author: sipa
 ms.date: 04/26/2020
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: azure-maps
+ms.subservice: web-sdk
 ms.custom:
 ---
 

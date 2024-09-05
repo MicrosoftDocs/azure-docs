@@ -23,7 +23,7 @@ An easy way to explore Avro files is by using the [Avro Tools][Avro Tools] jar f
 
 - [HDInsight: Address files in Azure storage][HDInsight: Address files in Azure storage]
 - [Azure Databricks: Azure Blob storage][Azure Databricks: Azure Blob Storage]. See the following sample: [Streaming at Scale with Event Hubs Capture](https://github.com/Azure-Samples/streaming-at-scale/tree/main/eventhubs-capture-databricks-delta).
-- [Azure Kubernetes Service](../aks/spark-job.md) 
+- [Azure Kubernetes Service](/azure/aks/spark-job) 
 
 ## Use Avro Tools
 

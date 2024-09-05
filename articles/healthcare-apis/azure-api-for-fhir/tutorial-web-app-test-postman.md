@@ -2,7 +2,7 @@
 title: Web App Tutorial - Test connecting to Azure API for FHIR
 description: These tutorials walk through an example of deploying a simple web application. This section of the tutorial walks through testing connecting to the FHIR server with Postman
 services: healthcare-apis
-ms.service: healthcare-apis
+ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.topic: tutorial
 ms.author: kesheth

@@ -1,12 +1,10 @@
 ---
-title: Manage customer-managed keys for Elastic SAN
-titleSuffix: Azure Elastic SAN Storage
-description: Learn how to manage customer-managed keys for Azure Elastic SAN
+title: Manage customer-managed keys - Azure Elastic SAN
+description: Learn how to manage customer-managed keys for Azure Elastic SAN, allowing you to control all aspects of your encryption keys.
 author: roygara
-
 ms.service: azure-elastic-san-storage
 ms.topic: how-to
-ms.date: 02/13/2024
+ms.date: 05/31/2024
 ms.author: rogarana
 ms.reviewer: jaylansdaal
 ms.custom: references_regions
@@ -50,7 +48,7 @@ If the new key is in a different key vault, you must [grant the managed identity
 
 ## Update the key version
 
-Following cryptographic best practices means rotating the key that is protecting your Elastic SAN volume group on a regular schedule, typically at least every two years. Azure Elastic SAN never modifies the key in the key vault, but you can configure a key rotation policy to rotate the key according to your compliance requirements. For more information, see [Configure cryptographic key auto-rotation in Azure Key Vault](../../key-vault/keys/how-to-configure-key-rotation.md).
+Following cryptographic best practices means rotating the key that is protecting your Elastic SAN volume group on a regular schedule, typically at least every two years. Azure Elastic SAN never modifies the key in the key vault, but you can configure a key rotation policy to rotate the key according to your compliance requirements. For more information, see [Configure cryptographic key auto-rotation in Azure Key Vault](/azure/key-vault/keys/how-to-configure-key-rotation).
 
 After the key is rotated in the key vault, the customer-managed KEK configuration for your Elastic SAN volume group must be updated to use the new key version. Customer-managed keys support both automatic and manual updating of the KEK version. You can decide which approach you want to use when you initially configure customer-managed keys, or when you update your configuration.
 

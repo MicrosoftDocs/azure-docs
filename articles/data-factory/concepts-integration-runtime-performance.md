@@ -5,7 +5,6 @@ description: Learn about how to optimize and improve performance of the Azure In
 author: kromerm
 ms.topic: conceptual
 ms.author: makromer
-ms.service: data-factory
 ms.subservice: data-flows
 ms.custom: synapse
 ms.date: 01/05/2024
@@ -18,14 +17,6 @@ Data flows run on Spark clusters that are spun up at run-time. The configuration
 For more information how to create an Integration Runtime, see [Integration Runtime](concepts-integration-runtime.md).
 
 The easiest way to get started with data flow integration runtimes is to choose small, medium, or large from the compute size picker. See the mappings to cluster configurations for those sizes below.
-
-## Cluster type
-
-There are two available options for the type of Spark cluster to utilize: general purpose & memory optimized.
-
-**General purpose** clusters are the default selection and will be ideal for most data flow workloads. These tend to be the best balance of performance and cost.
-
-If your data flow has many joins and lookups, you may want to use a **memory optimized** cluster. Memory optimized clusters can store more data in memory and will minimize any out-of-memory errors you may get. Memory optimized have the highest price-point per core, but also tend to result in more successful pipelines. If you experience any out of memory errors when executing data flows, switch to a memory optimized Azure IR configuration. 
 
 ## Cluster size
 

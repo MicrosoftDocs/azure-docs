@@ -3,10 +3,8 @@ title: Copy on-premises data using the Azure Copy Data tool
 description: Create an Azure Data Factory and then use the Copy Data tool to copy data from a SQL Server database to Azure Blob storage.
 ms.author: abnarain
 author: nabhishek
-ms.service: data-factory
-ms.subservice: tutorials
 ms.topic: tutorial
-ms.date: 08/10/2023
+ms.date: 05/15/2024
 ---
 
 # Copy data from a SQL Server database to Azure Blob storage by using the Copy Data tool
@@ -32,7 +30,7 @@ Before you begin, if you don't already have an Azure subscription, [create a fre
 ### Azure roles
 To create data factory instances, the user account you use to log in to Azure must be assigned a *Contributor* or *Owner* role or must be an *administrator* of the Azure subscription.
 
-To view the permissions you have in the subscription, go to the Azure portal. Select your user name in the upper-right corner, and then select **Permissions**. If you have access to multiple subscriptions, select the appropriate subscription. For sample instructions on how to add a user to a role, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
+To view the permissions you have in the subscription, go to the Azure portal. Select your user name in the upper-right corner, and then select **Permissions**. If you have access to multiple subscriptions, select the appropriate subscription. For sample instructions on how to add a user to a role, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml).
 
 ### SQL Server 2014, 2016, and 2017
 In this tutorial, you use a SQL Server database as a *source* data store. The pipeline in the data factory you create in this tutorial copies data from this SQL Server database (source) to Blob storage (sink). You then create a table named **emp** in your SQL Server database and insert a couple of sample entries into the table.
@@ -105,7 +103,7 @@ You use the name and key of your storage account in this tutorial. To get the na
 
 1. After the creation is finished, you see the **Data Factory** page as shown in the image.
 
-    :::image type="content" source="./media/doc-common-process/data-factory-home-page.png" alt-text="Home page for the Azure Data Factory, with the Open Azure Data Factory Studio tile.":::
+    :::image type="content" source="~/reusable-content/ce-skilling/azure/media/data-factory/data-factory-home-page.png" alt-text="Home page for the Azure Data Factory, with the Open Azure Data Factory Studio tile.":::
 
 1. Select **Open** on the **Open Azure Data Factory Studio** tile to launch the Data Factory user interface in a separate tab.
 

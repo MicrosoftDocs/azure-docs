@@ -2,12 +2,12 @@
 title: Deploy events using the Azure portal - Azure Health Data Services
 description: Learn how to deploy the events feature using the Azure portal.
 services: healthcare-apis
-author: msjasteppe
-ms.service: healthcare-apis
+author: chachachachami
+ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.topic: quickstart
 ms.date: 06/23/2022
-ms.author: jasteppe
+ms.author: chrupa
 ---
 
 # Quickstart: Deploy events using the Azure portal

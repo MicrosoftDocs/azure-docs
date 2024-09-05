@@ -4,7 +4,7 @@ description: Learn how to use Azure Front Door to implement a blue/green deploym
 services: frontdoor
 author: duongau
 ms.author: duau
-ms.service: frontdoor
+ms.service: azure-frontdoor
 ms.reviewer: gamullen, hmb
 ms.topic: how-to
 ms.date: 01/29/2024

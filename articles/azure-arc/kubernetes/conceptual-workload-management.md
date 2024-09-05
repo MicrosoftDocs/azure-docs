@@ -31,6 +31,7 @@ The following capabilities are required to perform this type of workload managem
 - Promotion of the multi-cluster state through a chain of environments
 - Sophisticated, extensible and replaceable scheduler
 - Flexibility to use different reconcilers for different cluster types depending on their nature and connectivity
+- Platform configuration management at scale
 
 ## Scenario personas
 
@@ -70,11 +71,11 @@ This diagram shows how the platform and application team personas interact with 
 
 The primary concept of this whole process is separation of concerns. There are workloads, such as applications and platform services, and there is a platform where these workloads run. The application team takes care of the workloads (*what*), while the platform team is focused on the platform (*where*).
 
-The application team runs SDLC operations on their applications and promotes changes across environments. They don't know which clusters their application will be deployed on in each environment. Instead, the application team operates with the concept of *deployment target*, which is simply a named abstraction within an environment. For example, deployment targets could be integration on Dev, functional tests and performance tests on QA, early adopters, external users on Prod, and so on. 
+The application team runs SDLC operations on their applications and promotes changes across environments. They don't know which clusters their application is deployed on in each environment. Instead, the application team operates with the concept of *deployment target*, which is simply a named abstraction within an environment. For example, deployment targets could be integration on Dev, functional tests and performance tests on QA, early adopters, external users on Prod, and so on. 
 
-The application team defines deployment targets for each rollout environment, and they know how to configure their application and how to generate manifests for each deployment target. This process is automated and exists in the application repositories space. This results in generated manifests for each deployment target, stored in a manifests storage such as a Git repository, Helm Repository, or OCI storage.
+The application team defines deployment targets for each rollout environment, and they know how to configure their application and how to generate manifests for each deployment target. This process is automated and exists in the application repositories space. It results in generated manifests for each deployment target, stored in a manifests storage such as a Git repository, Helm Repository, or OCI storage.
 
-The platform team has limited knowledge about the applications, so they aren't involved in the application configuration and deployment process. The platform team is in charge of platform clusters, grouped in cluster types. They describe cluster types with configuration values such as DNS names, endpoints of external services, and so on. The platform team assigns or schedules application deployment targets to various cluster types. With that in place, application behavior on a physical cluster is determined by the combination of the deployment target configuration values (provided by the application team), and cluster type configuration values (provided by the platform team).
+The platform team has a limited knowledge about the applications, so they aren't involved in the application configuration and deployment process. The platform team is in charge of platform clusters, grouped in cluster types. They describe cluster types with configuration values such as DNS names, endpoints of external services, and so on. The platform team assigns or schedules application deployment targets to various cluster types. With that in place, application behavior on a physical cluster is determined by the combination of the deployment target configuration values, and cluster type configuration values.
 
 The platform team uses a separate platform repository that contains manifests for each cluster type. These manifests define the workloads that should run on each cluster type, and which platform configuration values should be applied. Clusters can fetch that information from the platform repository with their preferred reconciler and then apply the manifests.
 
@@ -92,7 +93,7 @@ The platform team models the multi-cluster environment in the control plane. It'
 
 The main requirement for the control plane storage is to provide a reliable and secure transaction processing functionality, rather than being hit with complex queries against a large amount of data. Various technologies may be used to store the control plane data.
 
-This architecture design suggests a Git repository with a set of pipelines to store and promote platform abstractions across environments. This design provides a number of benefits:
+This architecture design suggests a Git repository with a set of pipelines to store and promote platform abstractions across environments. This design provides a few benefits:
 
 * All advantages of GitOps principles, such as version control, change approvals, automation, pull-based reconciliation. 
 * Git repositories such as GitHub provide out of the box branching, security and PR review functionality.
@@ -135,7 +136,189 @@ Platform services are workloads (such as Prometheus, NGINX, Fluentbit, and so on
 
 Deployment Observability Hub is a central storage that is easy to query with complex queries against a large amount of data. It contains deployment data with historical information on workload versions and their deployment state across clusters. Clusters register themselves in the storage and update their compliance status with the GitOps repositories. Clusters operate at the level of Git commits only. High-level information, such as application versions, environments, and cluster type data, is transferred to the central storage from the GitOps repositories. This high-level information gets correlated in the central storage with the commit compliance data sent from the clusters. 
 
+## Platform configuration concepts
+
+### Separation of concerns
+
+Application behavior on a deployment target is determined by configuration values. However, configuration values are not all the same. These values are provided by different personas at different points in the application lifecycle and have different scopes. Generally, there are application and platform configurations.
+
+### Application configurations
+
+Application configurations provided by the application developers are abstracted away from deployment target details. Typically, application developers aren't aware of host-specific details, such as which hosts the application will be deployed to or how many hosts there are. But the application developers do know a chain of environments and rings that the application is promoted through on its way to production.
+
+Orthogonal to that, an application might be deployed multiple times in each environment to play different roles. For example, the same application can serve as a `dispatcher` and as an `exporter`. The application developers may want to configure the application differently for various use cases. For example, if the application is running as a `dispatcher` on a QA environment, it should be configured in this way regardless of the actual host. The configuration values of this type are provided at the development time, when the application developers create deployment descriptors/manifests for various environments/rings and application roles. 
+
+### Platform configurations
+
+Besides development time configurations, an application often needs platform-specific configuration values such as endpoints, tags, or secrets. These values may be different on every single host where the application is deployed. The deployment descriptors/manifests, created by the application developers, refer to the configuration objects containing these values, such as config maps or secrets. Application developers expect these configuration objects to be present on the host and available for the application to consume. Commonly, these objects and their values are provided by a platform team. Depending on the organization, the platform team persona may be backed up by different departments/people, for example IT Global, Site IT, Equipment owners and such.
+
+The concerns of the application developers and the platform team are totally separated. The application developers are focused on the application; they own and configure it. Similarly, the platform team owns and configures the platform. The key point is that the platform team doesn't configure applications, they configure environments for applications. Essentially, they provide environment variable values for the applications to use. 
+
+Platform configurations often consist of common configurations that are irrelevant to the applications consuming them, and application-specific configurations that may be unique for every application. 
+
+:::image type="content" source="media/concept-workload-management/app-platform-config.png" alt-text="Diagram showing application and platform configurations." lightbox="media/concept-workload-management/app-platform-config.png":::
+
+### Configuration schema
+
+Although the platform team may have limited knowledge about the applications and how they work, they know what platform configuration is required to be present on the target host. This information is provided by the application developers. They specify what configuration values their application needs, their types and constraints. One of the ways to define this contract is to use a JSON schema. For example:
+
+```json
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "patch-to-core Platform Config Schema",
+    "description": "Schema for platform config",
+    "type": "object",
+    "properties": {
+      "ENVIRONMENT": {
+      "type": "string",
+      "description": "Environment Name"
+      },
+      "TimeWindowShift": {
+      "type": "integer",
+      "description": "Time Window Shift"
+      },
+      "QueryIntervalSec": {
+      "type": "integer",
+      "description": "Query Interval Sec"
+      },
+      "module": {
+      "type": "object",
+      "description": "module",
+      "properties": {
+        "drop-threshold": { "type": "number" }
+      },
+      "required": ["drop-threshold"]      
+      }
+    },
+      "required": [
+        "ENVIRONMENT",
+        "module"
+      ]              
+    }	    
+```
+
+This approach is well known in the developer community, as the JSON schema is used by Helm to define the possible values to be provided for a Helm chart. 
+
+A formal contract also allows for automation. The platform team uses the control plane to provide the configuration values. The control plane analyzes what applications are supposed to be deployed on a host. It uses configuration schemas to advise what values should be provided by the platform team. The control plane composes configuration values for every application instance and validates them against the schema to see if all the values are in place. 
+
+The control plane may perform validation in multiple stages at different points in time. For example, the control plane validates a configuration value when it is provided by the platform team to check its type, format and basic constrains. The final and the most important validation is conducted when the control plane composes all available configuration values for the application in the configuration snapshot. Only at this point it is possible to check presence of required configuration values and check integrity constraints that involve multiple values, coming from different sources. 
+
+### Configuration graph model
+  
+The control plane composes configuration value snapshots for the application instances on deployment targets. It pulls the values from different configuration containers. The relationship of these containers may represent a hierarchy or a graph. The control plane follows some rules to identify what configuration values from what containers should be hydrated into the application configuration snapshot. It's the platform team's responsibility to define the configuration containers and establish the hydration rules. Application developers aren't aware of this structure. They are aware of configuration values to be provided, and it's not their concern where the values are coming from.  
+
+### Label matching approach 
+
+A simple and flexible way to implement configuration composition is the label matching approach.
+
+:::image type="content" source="media/concept-workload-management/label-matching-approach.png" alt-text="Diagram showing label matching configuration composition model." lightbox="media/concept-workload-management/label-matching-approach.png":::
+
+In this diagram, configuration containers group configuration values at different levels such as **Site**, **Line**, **Environment**, and **Region**. Depending on the organization, the values in these containers may be provided by different personas, such as IT Global, Site IT, Equipment owners, or just the Platform team. Each container is marked with a set of labels that define where values from this container are applicable. Besides the configuration containers, there are abstractions representing an application and a host where the application is to be deployed. Both of them are marked with the labels as well. The combination of the application's and host's labels composes the instance's labels set. This set determines the values of configuration containers that should be pulled into the application configuration snapshot. This snapshot is delivered to the host and fed to the application instance. The control plane iterates over the containers and evaluates if the container's labels match the instance's labels set. If so, the container's values are included in the final snapshot; if not, the container is skipped. The control plane can be configured with different strategies of overriding and merging for the complex objects and arrays.
+
+One of the biggest advantages of this approach is scalability. The structure of configuration containers is abstracted away from the application instance, which doesn't really know where the values are coming from. This lets the platform team easily manipulate the configuration containers, introduce new levels and configuration groups without reconfiguring hundreds of application instances.
+
+### Templating
+
+The control plane composes configuration snapshots for every application instance on every host. The variety of applications, hosts, the underlying technologies and the ways how applications are deployed can be very wide. Furthermore, the same application can be deployed completely differently on its way from dev to production environments. The concern of the control plane is to manage configurations, not to deploy. It should be agnostic from the underlying application/host technologies and generate configuration snapshots in a suitable format for each case (for example, a Kubernetes config map, properties file, Symphony catalog, or other format).
+
+One option is to assign different templates to different host types. These templates are used by the control plane when it generates configuration snapshots for the applications to be deployed on the host. It would be beneficial to apply a standard templating approach, which is well known in the developer community. For example, the following templates can be defined with the [Go Templates](https://pkg.go.dev/text/template), which are widely used across the industry:
+
+```yaml
+# Standard Kubernetes config map
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: platform-config
+  namespace: {{ .Namespace}}
+data:
+{{ toYaml .ConfigData | indent 2}}
+```
+
+```yaml
+# Symphony catalog object
+apiVersion: federation.symphony/v1
+kind: Catalog
+metadata:
+  name: platform-config
+  namespace: {{ .Namespace}}
+spec:  
+  type: config
+  name: platform-config
+  properties:
+{{ toYaml .ConfigData | indent 4}}
+```
+
+```yaml
+# JSON file
+{{ toJson .ConfigData}}
+```
+
+Then we assign these templates to host A, B and C respectively. Assuming an application with same configuration values is about to be deployed to all three hosts, the control plane generates three different configuration snapshots for each instance:
+
+```yaml
+# Standard Kubernetes config map
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: platform-config
+  namespace: line1
+data:
+  FACTORY_NAME: Atlantida
+  LINE_NAME_LOWER: line1
+  LINE_NAME_UPPER: LINE1
+  QueryIntervalSec: "911"
+```
+
+```yaml
+# Symphony catalog object
+apiVersion: federation.symphony/v1
+kind: Catalog
+metadata:
+  name: platform-config
+  namespace: line1
+spec:  
+  type: config
+  name: platform-config
+  properties:
+    FACTORY_NAME: Atlantida
+    LINE_NAME_LOWER: line1
+    LINE_NAME_UPPER: LINE1
+    QueryIntervalSec: "911"
+```
+
+```json
+{
+ "FACTORY_NAME" : "Atlantida",
+ "LINE_NAME_LOWER" : "line1",
+ "LINE_NAME_UPPER": "LINE1",
+ "QueryIntervalSec": "911"
+}
+```
+
+### Configuration storage
+
+The control plane operates with configuration containers that group configuration values at different levels in a hierarchy or a graph. These containers should be stored somewhere. The most obvious approach is to use a database. It could be [etcd](https://etcd.io/), relational, hierarchical or a graph database, providing the most flexible and robust experience. The database gives the ability to granularly track and handle configuration values at the level of each individual configuration container. 
+
+Besides the main features such as storage and the ability to query and manipulate the configuration objects effectively, there should be functionality related to change tracking, approvals, promotions, rollbacks, version compares and so on. The control plane can implement all that on top of a database and encapsulate everything in a monolithic managed service. 
+
+Alternatively, this functionality can be delegated to Git to follow the "configuration as code" concept. For example, [Kalypso](https://github.com/microsoft/kalypso), being a Kubernetes operator, treats configuration containers as custom Kubernetes resources, that are essentially stored in etcd database. Even though the control plane doesn't dictate that, it is a common practice to originate configuration values in a Git repository, applying all the benefits that it gives out of the box. Then, the configuration values are delivered a Kubernetes etcd storage with a GitOps operator where the control plane can work with them to do the compositions.
+
+### Git repositories hierarchy
+
+It's not necessary to have a single Git repository with configuration values for the entire organization. Such a repository might become a bottleneck at scale, given the variety of the "platform team" personas, their responsibilities, and their access levels. Instead, you can use GitOps operator references, such as Flux GitRepository and Flux Kustomization, to build a repository hierarchy and eliminate the friction points:
+
+:::image type="content" source="media/concept-workload-management/git-repo-hierarchy.png" alt-text="Diagram showing a Git repository hierarchy." lightbox="media/concept-workload-management/git-repo-hierarchy.png":::
+
+
+### Configuration versioning
+
+Whenever application developers introduce a change in the application, they produce a new application version. Similarly, a new platform configuration value leads to a new version of the configuration snapshot. Versioning allows for tracking changes, explicit rollouts and rollbacks.
+
+A key point is that application configuration snapshots are versioned independently from each other. A single configuration value change at the global or site level doesn't necessarily produce new versions of all application configuration snapshots; it impacts only those snapshots where this value is hydrated. A simple and effective way to track it would be to use a hash of the snapshot content as its version. In this way, if the snapshot content has changed because something has changed in the global configurations, there will be a new version. This new version is a subject to be applied either manually or automatically. In any case, this is a trackable event that can be rolled back if needed.
+
 ## Next steps
 
 * Walk through a sample implementation to explore [workload management in a multi-cluster environment with GitOps](workload-management.md).
 * Explore a [multi-cluster workload management sample repository](https://github.com/microsoft/kalypso).
+* [Concept: CD process with GitOps](https://github.com/microsoft/kalypso/blob/main/docs/cd-concept.md).
+* [Sample implementation: Explore CI/CD flow with GitOps](https://github.com/microsoft/kalypso/blob/main/cicd/tutorial/cicd-tutorial.md).

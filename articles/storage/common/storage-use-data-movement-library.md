@@ -7,7 +7,7 @@ author: pauljewellmsft
 
 ms.service: azure-storage
 ms.topic: how-to
-ms.date: 11/13/2023
+ms.date: 08/14/2024
 ms.author: pauljewell
 ms.subservice: storage-common-concepts
 ms.devlang: csharp
@@ -21,7 +21,7 @@ ms.custom: devx-track-csharp, devx-track-dotnet
 >
 > Beta versions of a modern Data Movement library are currently in development. For more information, see [Azure Storage Data Movement Common client library for .NET](https://github.com/Azure/azure-sdk-for-net/tree/main/sdk/storage/Azure.Storage.DataMovement) on GitHub.
 
-The Azure Storage Data Movement library is a cross-platform open source library that is designed for high performance uploading, downloading, and copying of blobs and files. The Data Movement library provides convenient methods that aren't available in the Azure Storage client library for .NET. These methods provide the ability to set the number of parallel operations, track transfer progress, easily resume a canceled transfer, and much more.
+The Azure Storage Data Movement library is a cross-platform open source library that is designed for high performance uploading, downloading, and copying of blobs and files. The Data Movement library provides convenient methods that aren't available in the Azure Storage client library for .NET. These methods allow you to set the number of parallel operations, track transfer progress, easily resume a canceled transfer, and much more.
 
 This library also uses .NET Core, which means you can use it when building .NET apps for Windows, Linux and macOS. To learn more about .NET Core, refer to the [.NET Core documentation](https://dotnet.github.io/). This library also works for traditional .NET Framework apps for Windows.
 
@@ -45,14 +45,14 @@ This document demonstrates how to create a .NET Core console application that ru
 2. From the command line, create a directory for your project. Navigate into this directory, then type `dotnet new console -o <sample-project-name>` to create a C# console project.
 3. Open this directory in Visual Studio Code. This step can be quickly done via the command line by typing `code .` in Windows.
 4. Install the [C# extension](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp) from the Visual Studio Code Marketplace. Restart Visual Studio Code.
-5. At this point, you should see two prompts. One is for adding "required assets to build and debug." Click "yes." Another prompt is for restoring unresolved dependencies. Click "restore."
+5. At this point, you should see two prompts. One is for adding "required assets to build and debug." Select "yes." Another prompt is for restoring unresolved dependencies. Select "restore."
 6. Modify `launch.json` under `.vscode` to use external terminal as a console. This setting should read as `"console": "externalTerminal"`
 7. Visual Studio Code allows you to debug .NET Core applications. Hit `F5` to run your application and verify that your setup is working. You should see "Hello World!" printed to the console.
 
 ## Add the Data Movement library to your project
 
 1. Add the latest version of the Data Movement library to the `dependencies` section of your `<project-name>.csproj` file. At the time of writing, this version would be `"Microsoft.Azure.Storage.DataMovement": "0.6.2"`
-2. A prompt should display to restore your project. Click the "restore" button. You can also restore your project from the command line by typing the command `dotnet restore` in the root of your project directory.
+2. A prompt should display to restore your project. Select the "restore" button. You can also restore your project from the command line by typing the command `dotnet restore` in the root of your project directory.
 
 Modify `<project-name>.csproj`:
 
@@ -68,9 +68,9 @@ Modify `<project-name>.csproj`:
     </Project>
 ```
 
-## Set up the skeleton of your application
+## Set up the application framework
 
-The first thing we do is set up the "skeleton" code of our application. This code prompts us for a Storage account name and account key and uses those credentials to create a `CloudStorageAccount` object. This object is used to interact with our Storage account in all transfer scenarios. The code also prompts us to choose the type of transfer operation we would like to execute.
+The first thing we do is set up the code framework for our application. This code prompts us for a storage account name and account key and uses those credentials to create a `CloudStorageAccount` object. This object is used to interact with our storage account in all transfer scenarios. The code also prompts us to choose the type of transfer operation we would like to execute.
 
 Modify `Program.cs`:
 
@@ -147,6 +147,9 @@ namespace DMLibSample
 }
 ```
 
+> [!IMPORTANT]
+> This code example uses a connection string to authorize access to your storage account. This configuration is for example purposes. Connection strings and account access keys should be used with caution in application code. If your account access key is lost or accidentally placed in an insecure location, your service may become vulnerable. Anyone who has the access key is able to authorize requests against the storage account, and effectively has access to all the data.
+
 ## Upload a local file to a blob
 
 Add the methods `GetSourcePath` and `GetBlob` to `Program.cs`:
@@ -197,11 +200,11 @@ Hit `F5` to run your application. You can verify that the upload occurred by vie
 
 ## Set the number of parallel operations
 
-One feature offered by the Data Movement library is the ability to set the number of parallel operations to increase the data transfer throughput. By default, the Data Movement library sets the number of parallel operations to 8 * the number of cores on your machine.
+The Data Movement library offers the ability to set the number of parallel operations to increase the data transfer throughput. By default, the Data Movement library sets the number of parallel operations to 8 * the number of cores on your machine.
 
-Keep in mind that many parallel operations in a low-bandwidth environment may overwhelm the network connection and actually prevent operations from fully completing. You'll need to experiment with this setting to determine what works best based on your available network bandwidth.
+Keep in mind that many parallel operations in a low-bandwidth environment might overwhelm the network connection and actually prevent operations from fully completing. You should experiment with this setting to determine what works best based on your available network bandwidth.
 
-Let's add some code that allows us to set the number of parallel operations. Let's also add code that times how long it takes for the transfer to complete.
+In this example, we add code that allows us to set the number of parallel operations. We also add code that times how long it takes for the transfer to complete.
 
 Add a `SetNumberOfParallelOperations` method to `Program.cs`:
 
@@ -261,7 +264,7 @@ public static async Task TransferLocalFileToAzureBlob(CloudStorageAccount accoun
 
 ## Track transfer progress
 
-Knowing how long it took for the data to transfer is helpful. However, being able to see the progress of the transfer *during* the transfer operation would be even better. To achieve this scenario, we need to create a `TransferContext` object. The `TransferContext` object comes in two forms: `SingleTransferContext` and `DirectoryTransferContext`. The former is for transferring a single file and the latter is for transferring a directory of files.
+You can track the progress of the transfer during the transfer operation by creating a `TransferContext` object. The `TransferContext` object comes in two forms: `SingleTransferContext` for single file transfers, and `DirectoryTransferContext` for directory transfers.
 
 Add the methods `GetSingleTransferContext` and `GetDirectoryTransferContext` to `Program.cs`:
 
@@ -311,9 +314,9 @@ public static async Task TransferLocalFileToAzureBlob(CloudStorageAccount accoun
 
 ## Resume a canceled transfer
 
-Another convenient feature offered by the Data Movement library is the ability to resume a canceled transfer. Let's add some code that allows us to temporarily cancel the transfer by typing `c`, and then resume the transfer 3 seconds later.
+Another feature offered by the Data Movement library is the ability to resume a canceled transfer. Next, we add some code that allows us to temporarily cancel the transfer by typing `c`, and then resume the transfer 3 seconds later.
 
-Modify `TransferLocalFileToAzureBlob`:
+Modify the method `TransferLocalFileToAzureBlob`:
 
 ```csharp
 public static async Task TransferLocalFileToAzureBlob(CloudStorageAccount account)
@@ -365,11 +368,11 @@ public static async Task TransferLocalFileToAzureBlob(CloudStorageAccount accoun
 }
 ```
 
-Up until now, our `checkpoint` value has always been set to `null`. Now, if we cancel the transfer, we retrieve the last checkpoint of our transfer, then use this new checkpoint in our transfer context.
+Up until now, our `checkpoint` value has been set to `null`. Now, if we cancel the transfer, we retrieve the last checkpoint of our transfer, then use this new checkpoint in our transfer context.
 
 ## Transfer a local directory to Blob storage
 
-It would be disappointing if the Data Movement library could only transfer one file at a time. Luckily, this is not the case. The Data Movement library provides the ability to transfer a directory of files and all of its subdirectories. Let's add some code that allows us to do just that.
+The Data Movement library allows you to transfer a directory of files and all of its subdirectories, as shown in the following example.
 
 First, add the method `GetBlobDirectory` to `Program.cs`:
 
@@ -504,7 +507,7 @@ public static async Task TransferUrlToAzureBlob(CloudStorageAccount account)
 }
 ```
 
-One important use case for this feature is when you need to move data from another cloud service (e.g. AWS) to Azure. As long as you have a URL that gives you access to the resource, you can easily move that resource into Azure Blobs by using the `TransferManager.CopyAsync` method. This method also introduces a **CopyMethod** parameter. The following table shows the available options for this parameter:
+One important use case for this feature is when you need to move data from another cloud service to Azure. If you have a URL that gives you access to the resource, you can easily move that resource into Azure Blobs by using the `TransferManager.CopyAsync` method. This method also introduces a **CopyMethod** parameter. The following table shows the available options for this parameter:
 
 | Member name | Value | Description |
 | --- | --- | --- |
@@ -514,9 +517,9 @@ One important use case for this feature is when you need to move data from anoth
 
 ## Copy a blob
 
-Another feature that's uniquely provided by the Data Movement library is the ability to copy from one Azure Storage resource to another.
+Another feature provided by the Data Movement library is the ability to copy from one Azure Storage resource to another.
 
-Modify `TransferAzureBlobToAzureBlob`:
+Modify the method `TransferAzureBlobToAzureBlob`:
 
 ```csharp
 public static async Task TransferAzureBlobToAzureBlob(CloudStorageAccount account)
@@ -568,7 +571,7 @@ public static async Task TransferAzureBlobToAzureBlob(CloudStorageAccount accoun
 }
 ```
 
-In this example, we set the boolean parameter in `TransferManager.CopyAsync` to `CopyMethod.SyncCopy` to indicate that we want to do a synchronous copy. This means that the resource is downloaded to our local machine first, then uploaded to Azure Blob. The synchronous copy option is a great way to ensure that your copy operation has a consistent speed. In contrast, the speed of an asynchronous server-side copy is dependent on the available network bandwidth on the server, which can fluctuate. However, synchronous copy may generate additional egress cost compared to asynchronous copy. The recommended approach is to use synchronous copy in an Azure VM that is in the same region as your source storage account to avoid egress cost.
+In this example, we set the boolean parameter in `TransferManager.CopyAsync` to `CopyMethod.SyncCopy` to indicate that we want to do a synchronous copy. This configuration means that the resource is downloaded to our local machine first, then uploaded to Azure Blob. The synchronous copy option is a great way to ensure that your copy operation has a consistent speed. In contrast, the speed of an asynchronous server-side copy is dependent on the available network bandwidth on the server, which can fluctuate. However, synchronous copy might generate additional egress cost compared to asynchronous copy. The recommended approach is to use synchronous copy in an Azure Virtual Machine that is in the same region as your source storage account to avoid egress cost.
 
 The data movement application is now complete. [The full code sample is available on GitHub](https://github.com/azure-samples/storage-dotnet-data-movement-library-app).
 

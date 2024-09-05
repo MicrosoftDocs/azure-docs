@@ -3,9 +3,10 @@ title: Forward Azure Automation job data to Azure Monitor logs
 description: This article tells how to send job status and runbook job streams to Azure Monitor logs.
 services: automation
 ms.subservice: process-automation
-ms.date: 08/28/2023
+ms.date: 05/01/2024
 ms.topic: conceptual
 ms.custom: engagement-fy24
+ms.service: azure-automation
 ---
 
 # Forward Azure Automation diagnostic logs to Azure Monitor
@@ -143,6 +144,9 @@ Azure Automation diagnostics create the following types of records in Azure Moni
 | ResourceGroup | Name of the resource group for the Automation account. |
 | ResourceProvider | Resource provider. The value is MICROSOFT.AUTOMATION. |
 | ResourceType | Resource type. The value is AUTOMATIONACCOUNTS. |
+
+> [!NOTE]
+> Ensure credentials are not sent to Job streams. Service removes credentials before displaying Job streams in diagnostic logs.
 
 ### Audit events
 | Property | Description |

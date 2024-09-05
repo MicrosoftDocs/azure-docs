@@ -1,22 +1,28 @@
 ---
-title: Managing personal data in Azure Monitor Log Analytics and Application Insights
+title: Managing personal data in Azure Monitor Logs and Application Insights
 description: This article describes how to manage personal data stored in Azure Monitor Log Analytics and the methods to identify and remove it.
 ms.topic: conceptual
 author: guywild
 ms.author: guywild
 ms.reviewer: meirm
 ms.date: 06/28/2022
-# Customer intent: As an Azure Monitor admin user, I want to understand how to manage personal data in logs Azure Monitor collects.
+# Customer intent: As an Azure Monitor admin user, I want to understand how to manage personal data in logs that Azure Monitor collects.
 
 ---
 
-# Managing personal data in Log Analytics and Application Insights
+# Managing personal data in Azure Monitor Logs and Application Insights
 
 Log Analytics is a data store where personal data is likely to be found. Application Insights stores its data in a Log Analytics partition. This article explains where Log Analytics and Application Insights store personal data and how to manage this data.
 
 In this article, _log data_ refers to data sent to a Log Analytics workspace, while _application data_ refers to data collected by Application Insights. If you're using a workspace-based Application Insights resource, the information on log data applies. If you're using a classic Application Insights resource, the application data applies.
 
-[!INCLUDE [gdpr-dsr-and-stp-note](../../../includes/gdpr-dsr-and-stp-note.md)]
+[!INCLUDE [gdpr-dsr-and-stp-note](~/reusable-content/ce-skilling/azure/includes/gdpr-dsr-and-stp-note.md)]
+
+## Permissions required
+
+| Action | Permissions required |
+|:-------|:---------------------|
+| Purge data from a Log Analytics workspace | `Microsoft.OperationalInsights/workspaces/purge/action` permissions to the Log Analytics workspace, as provided by the [Log Analytics Contributor built-in role](./manage-access.md#log-analytics-contributor), for example |
 
 
 ## Strategy for personal data handling
@@ -85,14 +91,18 @@ We __strongly__ recommend you restructure your data collection policy to stop co
 
 Use the [Log Analytics query API](/rest/api/loganalytics/dataaccess/query) or the [Application Insights query API](/rest/api/application-insights/query) for view and export data requests. 
 
+> [!NOTE]
+> You can't use the Log Analytics query API on that have the [Basic and Auxiliary table plans](data-platform-logs.md#table-plans). Instead, use the [Log Analytics /search API](basic-logs-query.md#run-a-query-on-a-basic-or-auxiliary-table).
+
 You need to implement the logic for converting the data to an appropriate format for delivery to your users. [Azure Functions](https://azure.microsoft.com/services/functions/) is a great place to host such logic.
+
 
 ### Delete
 
 > [!WARNING]
 > Deletes in Log Analytics are destructive and non-reversible! Please use extreme caution in their execution.
 
-Azure Monitor's Purge API lets you delete personal data. Use the purge operation sparingly to avoid potential risks, performance impact, and the potential to skew all-up aggregations, measurements, and other aspects of your Log Analytics data. See the [Strategy for personal data handling](#strategy-for-personal-data-handling) section for alternative approaches to handling personal data.
+Azure Monitor's [Purge API](/rest/api/loganalytics/workspacepurge/purge) lets you delete personal data. Use the purge operation sparingly to avoid potential risks, performance impact, and the potential to skew all-up aggregations, measurements, and other aspects of your Log Analytics data. See the [Strategy for personal data handling](#strategy-for-personal-data-handling) section for alternative approaches to handling personal data.
 
 Purge is a highly privileged operation. Grant the _Data Purger_ role in Azure Resource Manager cautiously due to the potential for data loss.
 
@@ -109,6 +119,9 @@ To manage system resources, we limit purge requests to 50 requests an hour. Batc
     ```
     x-ms-status-location: https://management.azure.com/subscriptions/[SubscriptionId]/resourceGroups/[ResourceGroupName]/providers/Microsoft.OperationalInsights/workspaces/[WorkspaceName]/operations/purge-[PurgeOperationId]?api-version=2015-03-20
     ```
+
+> [!NOTE]
+> You can't purge data from tables that have the [Basic and Auxiliary table plans](data-platform-logs.md#table-plans).
 
 #### Application data
 

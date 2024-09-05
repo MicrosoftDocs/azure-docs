@@ -2,8 +2,8 @@
 title: Tutorial to fail back Azure VMs to a primary region during disaster recovery with Azure Site Recovery.
 description: Tutorial to learn about failing back Azure VMs to a primary region with Azure Site Recovery.
 ms.topic: tutorial
-ms.service: site-recovery
-ms.date: 08/01/2023
+ms.service: azure-site-recovery
+ms.date: 03/29/2024
 ms.custom: mvc
 ms.author: ankitadutta
 author: ankitaduttaMSFT
@@ -94,6 +94,5 @@ If you completely disable replication after failing back, Site Recovery cleans u
 
 In this tutorial, you failed VMs back from the secondary region to the primary. This is the last step in the process that includes enabling replication for a VM, trying out a disaster recovery drill, failing over from the primary region to the secondary, and finally failing back.
 
-> [!div class="nextstepaction"]
-> Now, try out disaster recovery to Azure for an [on-premises VM](vmware-azure-tutorial-prepare-on-premises.md)
+Now, try out disaster recovery to Azure for an [on-premises VM](vmware-azure-tutorial-prepare-on-premises.md).
 

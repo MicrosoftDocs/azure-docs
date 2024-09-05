@@ -16,11 +16,11 @@ This quickstart describes how to set up an Azure Migrate project Recovery by usi
 
 This template creates an Azure Migrate project that will be used further for assessing and migrating your Azure on-premises servers, infrastructure, applications, and data.
 
-[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+[!INCLUDE [About Azure Resource Manager](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-introduction.md)]
 
 If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
 
-[![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.migrate%2Fmigrate-project-create%2Fazuredeploy.json)
+:::image type="content" source="~/reusable-content/ce-skilling/azure/media/template-deployments/deploy-to-azure-button.svg" alt-text="Button to deploy the Resource Manager template to Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.migrate%2Fmigrate-project-create%2Fazuredeploy.json":::
 
 ## Prerequisites
 
@@ -38,7 +38,7 @@ To deploy the template, the **Subscription**, **Resource group**, **Project name
 
 1. To sign in to Azure and open the template, select the **Deploy to Azure** image.
 
-   [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.migrate%2Fmigrate-project-create%2Fazuredeploy.json)
+   :::image type="content" source="~/reusable-content/ce-skilling/azure/media/template-deployments/deploy-to-azure-button.svg" alt-text="Button to deploy the Resource Manager template to Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.migrate%2Fmigrate-project-create%2Fazuredeploy.json":::
 
 2. Select or enter the following values:
 
@@ -65,8 +65,7 @@ To confirm that the Azure Migrate project was created, use the Azure portal.
 
 ## Next steps
 
-In this quickstart, you created an Azure Migrate project. To learn more about Azure Migrate and its capabilities,
-continue to the Azure Migrate overview.
+In this quickstart, you created an Azure Migrate project. To learn more about Azure Migrate and its capabilities, continue to the Azure Migrate overview.
 
 > [!div class="nextstepaction"]
 > [Azure Migrate overview](migrate-services-overview.md)

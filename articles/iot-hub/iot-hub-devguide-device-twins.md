@@ -129,7 +129,7 @@ In the previous example, the `telemetryConfig` device twin desired and reported 
    },
    ```
 
-2. The device app is notified of the change immediately if the device is connected. If it's not connected, the device app follows the [device reconnection flow](#device-reconnection-flow) when it connects. The device app then reports the updated configuration (or an error condition using the `status` property). Here is the portion of the reported properties:
+2. The device app is notified of the change immediately if the device is connected. If it's not connected, the device app follows the [device reconnection flow](#device-reconnection-flow) when it connects. The device app then reports the updated configuration (or an error condition using the `status` property). Here's the portion of the reported properties:
 
    ```json
    "reported": {
@@ -141,7 +141,7 @@ In the previous example, the `telemetryConfig` device twin desired and reported 
    }
    ```
 
-3. The solution back end can track the results of the configuration operation across many devices by [querying](iot-hub-devguide-query-language.md) device twins.
+3. The solution back end tracks the results of the configuration operation across many devices by [querying](iot-hub-devguide-query-language.md) device twins.
 
 > [!NOTE]
 > The preceding snippets are examples, optimized for readability, of one way to encode a device configuration and its status. IoT Hub does not impose a specific schema for the device twin desired and reported properties in the device twins.
@@ -323,9 +323,9 @@ This information is kept at every level (not just the leaves of the JSON structu
 
 ## Optimistic concurrency
 
-Tags, desired properties, and reported properties all support optimistic concurrency. If you need to guarantee order of twin property updates, consider implementing synchronization at the application level by waiting for reported properties callback before sending the next update. 
+Tags, desired properties, and reported properties all support optimistic concurrency. If you need to guarantee order of twin property updates, consider implementing synchronization at the application level by waiting for reported properties callback before sending the next update.
 
-Device twins have an ETag (`etag` property), as per [RFC7232](https://tools.ietf.org/html/rfc7232), that represents the twin's JSON representation. You can use the `etag` property in conditional update operations from the solution back end to ensure consistency. This is the only option for ensuring consistency in operations that involve the `tags` container.
+Device twins have an ETag property `etag`, as per [RFC7232](https://tools.ietf.org/html/rfc7232), that represents the twin's JSON representation. You can use the `etag` property in conditional update operations from the solution back end to ensure consistency. This property is the only option for ensuring consistency in operations that involve the `tags` container.
 
 Device twin desired and reported properties also have a `$version` value that is guaranteed to be incremental. Similarly to an ETag, the version can be used by the updating party to enforce consistency of updates. For example, a device app for a reported property or the solution back end for a desired property.
 
@@ -343,14 +343,7 @@ The device app can ignore all notifications with `$version` less or equal than t
 
 ## Next steps
 
-Now you have learned about device twins, you may be interested in the following IoT Hub developer guide topics:
+To try out some of the concepts described in this article, see the following IoT Hub articles:
 
-* [Understand and use module twins in IoT Hub](iot-hub-devguide-module-twins.md)
-* [Invoke a direct method on a device](iot-hub-devguide-direct-methods.md)
-* [Schedule jobs on multiple devices](iot-hub-devguide-jobs.md)
-
-To try out some of the concepts described in this article, see the following IoT Hub tutorials:
-
-* [How to use the device twin](device-twins-node.md)
-* [How to use device twin properties](tutorial-device-twins.md)
-* [Device management with the Azure IoT Hub extension for VS Code](iot-hub-device-management-iot-toolkit.md)
+* [Tutorial: Configure your devices with device twin properties](tutorial-device-twins.md)
+* [How to use device twins](device-twins-dotnet.md)

@@ -2,10 +2,10 @@
 title: Offline backup by using Azure Data Box
 description: Learn how you can use Azure Data Box to seed large initial backup data offline from the MARS Agent to a Recovery Services vault. 
 ms.topic: how-to
-ms.date: 10/25/2023
+ms.date: 05/24/2024
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
-ms.service: backup
+ms.service: azure-backup
 ms.custom: engagement-fy24
 ---
 
@@ -66,6 +66,7 @@ The process to seed data from the MARS Agent by using Azure Data Box is supporte
 - The process requires that the user designated to perform the offline backup policy is an owner of the Azure subscription.
 - The Data Box job and the Recovery Services vault (to which the data needs to be seeded) are required to be in the same subscriptions.
 - We recommend that the target storage account associated with the Azure Data Box job and the Recovery Services vault are in the same region. However, this isn't necessary.
+- Ensure that you have the [necessary permissions](/entra/identity/role-based-access-control/permissions-reference#application-administrator) to create the Microsoft Entra application. The Offline Backup workflow creates a Microsoft Entra application in the subscription associated with the **Azure Storage account**. This application allows the **Azure Backup Service** a *secure and scoped access* to the **Azure Import Service**, required for the Offline Backup workflow.
 
 ### Get Azure PowerShell 3.7.0
 

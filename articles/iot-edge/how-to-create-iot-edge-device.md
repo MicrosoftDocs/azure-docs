@@ -1,17 +1,17 @@
 ---
-title: Create an IoT Edge device - Azure IoT Edge | Microsoft Docs
+title: Create an IoT Edge device - Azure IoT Edge
 description: Learn about the platform and provisioning options for creating an IoT Edge device
 author: PatAltimore
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 10/01/2022
+ms.date: 06/03/2024
 ms.author: patricka
 ---
 
 # Create an IoT Edge device
 
-[!INCLUDE [iot-edge-version-1.4](includes/iot-edge-version-1.4.md)]
+[!INCLUDE [iot-edge-version-all-supported](includes/iot-edge-version-all-supported.md)]
 
 This article provides an overview of the options available to you for installing and provisioning IoT Edge on your devices.
 
@@ -29,8 +29,6 @@ If you know what type of platform, provisioning, and authentication options you 
 
 If you want more information about how to choose the right option for you, continue through this article to learn more.
 
->[!NOTE]
->The following table reflects the supported scenarios for IoT Edge version 1.4.
 
 |    | Linux containers on Linux hosts | Linux containers on Windows hosts |
 |--| ----- | ---------------- |
@@ -75,7 +73,7 @@ IoT Edge for Linux on Windows is the recommended way to run IoT Edge on Windows 
 
 ### Windows containers on Windows
 
-IoT Edge version 1.4 doesn't support Windows containers. Windows containers are not supported beyond version 1.1.
+IoT Edge version 1.2 or later doesn't support Windows containers. Windows containers are not supported beyond version 1.1.
 
 ## Choose how to provision your devices
 
@@ -109,7 +107,7 @@ Using X.509 certificates as an attestation mechanism is the recommended way to s
 
 You create two X.509 identity certificates and place them on the device. When you create a new device identity in IoT Hub, you provide thumbprints from both certificates. When the device authenticates to IoT Hub, it presents one certificate and IoT Hub verifies that the certificate matches its thumbprint. The X.509 keys on the device should be stored in a Hardware Security Module (HSM). For example, PKCS#11 modules, ATECC, dTPM, etc.
 
-This authentication method is more secure than symmetric keys and supports group enrollments which provides a simplified management experience for a high number of devices. This authentication method is recommended for production scenarios.
+This authentication method is more secure than symmetric keys and supports group enrollments that provide a simplified management experience for a high number of devices. This authentication method is recommended for production scenarios.
 
 ### Trusted platform module (TPM) attestation
 
@@ -133,7 +131,7 @@ This authentication method is faster to get started but not as secure. Device pr
 
 You can use the table of contents to navigate to the appropriate end-to-end guide for creating an IoT Edge device for your IoT Edge solution's platform, provisioning, and authentication requirements.
 
-You can also use the links below to go to the relevant article.
+You can also use the following links to go to the relevant article.
 
 ### Linux containers on Linux hosts
 

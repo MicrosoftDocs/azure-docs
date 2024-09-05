@@ -3,7 +3,7 @@ title: Get started with autoscale in Azure
 description: "Learn how to scale your resource web app, cloud service, virtual machine, or Virtual Machine Scale Set in Azure."
 ms.author: edbaynash
 ms.topic: conceptual
-ms.date: 11/29/2023
+ms.date: 08/26/2024
 ---
 # Get started with autoscale in Azure
 
@@ -21,7 +21,7 @@ To discover the resources that you can autoscale, follow these steps.
 
 1. Open the [Azure portal.](https://portal.azure.com)
 
-1. Using the search bar at the top of the page, search for and select *Azure Monitor*
+1. Search for and select *Azure Monitor* using the search bar at the top of the page.
 
 1. Select **Autoscale** to view all the resources for which autoscale is applicable, along with their current autoscale status.
 
@@ -30,9 +30,9 @@ To discover the resources that you can autoscale, follow these steps.
    :::image type="content" source="./media/autoscale-get-started/view-resources.png" lightbox="./media/autoscale-get-started/view-resources.png" alt-text="A screenshot showing resources that can use autoscale and their statuses.":::
 
    The page shows the instance count and the autoscale status for each resource. Autoscale statuses are:
-   - **Not configured**: You haven't enabled autoscale yet for this resource.
-   - **Enabled**: You've enabled autoscale for this resource.
-   - **Disabled**: You've disabled autoscale for this resource.
+   - **Not configured**: Autoscale isn't set up yet for this resource.
+   - **Enabled**: Autoscale is enabled for this resource.
+   - **Disabled**: Autoscale is disabled for this resource.
 
    You can also reach the scaling page by selecting **Scaling** from the **Settings** menu for each resource.
 
@@ -56,9 +56,11 @@ Follow the steps below to create your first autoscale setting.
 
    :::image type="content" source="./media/autoscale-get-started/custom-scale.png" lightbox="./media/autoscale-get-started/custom-scale.png" alt-text="A screenshot showing the Configure tab of the Autoscale Settings page.":::
 
-1. The default rule scales your resource by one instance if the CPU percentage is greater than 70 percent. Keep the default values and select **Add**.
+1. The default rule scales your resource by one instance if the `Percentage CPU` metric is greater than 70 percent.  
 
-1. You've now created your first scale-out rule. Best practice is to have at least one scale in rule. To add another rule, select **Add a rule**.
+    Keep the default values and select **Add**.
+
+1. You've created your first scale-out rule. Best practice is to have at least one scale-in rule. To add another rule, select **Add a rule**.
 
 1. Set **Operator** to *Less than*.
 1. Set **Metric threshold to trigger scale action** to *20*.
@@ -67,7 +69,7 @@ Follow the steps below to create your first autoscale setting.
 
     :::image type="content" source="./media/autoscale-get-started/scale-rule.png" lightbox="./media/autoscale-get-started/scale-rule.png"  alt-text="A screenshot showing a scale rule.":::
 
-   You now have a scale setting that scales out and scales in based on CPU usage, but you're still limited to a maximum of one instance.
+   You have configured a scale setting that scales out and scales in based on CPU usage, but you're still limited to a maximum of one instance. Change the instance limits to allow for more instances.
 
 1. Under **Instance limits** set **Maximum** to *3*
 
@@ -91,7 +93,7 @@ Set your resource to scale to a single instance on a Sunday.
 
 1. Select **Scale to a specific instance count**. You can also scale based on metrics and thresholds that are specific to this scale condition.
 1. Enter *1* in the **Instance count** field.
-
+1. Select **Repeat specific days**.
 1. Select **Sunday**
 1. Set the **Start time** and **End time** for when the scale condition should be applied. Outside of this time range, the default scale condition applies.
 1. Select **Save**
@@ -110,12 +112,13 @@ Set Autoscale to scale differently for specific dates, when you know that there 
 1. Select **Add a rule** to define your scale-out and scale-in rules. Set the rules to be same as the default condition.
 1. Set the **Maximum** instance limit to *10*
 1. Set the **Default** instance limit to *3*
+1. Select **Specify start/end dates**
 1. Enter the  **Start date** and **End date** for when the scale condition should be applied.
 1. Select **Save**
 
-:::image type="content" source="./media/autoscale-get-started/specific-date-schedule.png" alt-text="A screenshot showing an scale condition for a specific date.":::
+:::image type="content" source="./media/autoscale-get-started/specific-date-schedule.png" alt-text="A screenshot showing a scale condition for a specific date.":::
 
-You have now defined a scale condition for a specific day. When CPU usage is greater than 70%, an additional instance is added, up to a maximum of 10  instances to handle anticipated load. When CPU usage is below 20%, an instance is removed up to a minimum of 1 instance. By default, autoscale will scale to 3 instances when this scale condition becomes active.
+You have now defined a scale condition for a specific day. When CPU usage is greater than 70%, an additional instance is added, up to a maximum of 10  instances to handle anticipated load. When CPU usage is below 20%, an instance is removed up to a minimum of 1 instance. By default, autoscale scales to 3 instances when this scale condition becomes active.
 
 ## Additional settings
 
@@ -133,13 +136,30 @@ Autoscale is an Azure Resource Manager resource. Like other resources, you can s
 
 You can make changes in JSON directly, if necessary. These changes will be reflected after you save them.
 
+### Predictive autoscale
+
+Predictive autoscale uses machine learning to help manage and scale Azure Virtual Machine Scale Sets with cyclical workload patterns. It forecasts the overall CPU load to your virtual machine scale set, based on your historical CPU usage patterns. It predicts the overall CPU load by observing and learning from historical usage. This process ensures that scale-out occurs in time to meet the demand. For more information, see [Predictive autoscale](autoscale-predictive.md).
+
+
+### Scale-in policy
+
+When scaling a Virtual machine Scale Set, the scale-in policy determines which virtual machines are selected for removal when a scale-in event occurs. The scale-in policy can be set to either **Default**, **NewestVM**, or **OldestVM**. For more information, see [Use custom scale-in policies with Azure Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-scale-in-policy?WT.mc_id=Portal-Microsoft_Azure_Monitoring).
+
+:::image type="content" source="./media/autoscale-get-started/scale-in-policy.png" lightbox="./media/autoscale-get-started/scale-in-policy.png" alt-text="A screenshot showing the scale-in policy setting.":::
+
+
+### Notify
+
+You can configure notifications to be sent when a scale event occurs. Notifications can be sent to an email address or to a webhook. For more information, see [Autoscale notifications](autoscale-webhook-email.md).
+
+
 ### Cool-down period effects
 
 Autoscale uses a cool-down period. This period is the amount of time to wait after a scale operation before scaling again. The cool-down period allows the metrics to stabilize and avoids scaling more than once for the same condition. Cool-down applies to both scale-in and scale-out events.  For example, if the cooldown is set to 10 minutes and Autoscale has just scaled-in, Autoscale won't attempt to scale again for another 10 minutes in either direction.  For more information, see  [Autoscale evaluation steps](autoscale-understanding-settings.md#autoscale-evaluation).
 
 ### Flapping
 
-Flapping refers to a loop condition that causes a series of opposing scale events. Flapping happens when one scale event triggers an opposite scale event. For example, scaling in reduces the number of instances causing the CPU to rise in the remaining instances. This in turn triggers scale out event, which causes CPU usage to drop, repeating the process. For more information, see [Flapping in Autoscale](autoscale-flapping.md) and [Troubleshooting autoscale](autoscale-troubleshoot.md)
+Flapping refers to a loop condition that causes a series of opposing scale events. Flapping happens when one scale event triggers an opposite scale event. For example, scaling in reduces the number of instances causing the CPU to rise in the remaining instances. This in turn triggers a scale-out event, which causes CPU usage to drop, repeating the process. For more information, see [Flapping in Autoscale](autoscale-flapping.md) and [Troubleshooting autoscale](autoscale-troubleshoot.md)
 
 ## Move autoscale to a different region
 
@@ -152,7 +172,7 @@ This section describes how to move Azure autoscale to another region under the s
 
 ### Move
 
-Use [REST API](/rest/api/monitor/autoscalesettings/createorupdate) to create an autoscale setting in the new environment. The autoscale setting created in the destination region will be a copy of the autoscale setting in the source region.
+Use [REST API](/rest/api/monitor/autoscalesettings/createorupdate) to create an autoscale setting in the new environment. The autoscale setting created in the destination region is a copy of the autoscale setting in the source region.
 
 [Diagnostic settings](../essentials/diagnostic-settings.md) that were created in association with the autoscale setting in the source region can't be moved. You'll need to re-create diagnostic settings in the destination region, after the creation of autoscale settings is completed.
 
@@ -164,3 +184,4 @@ To learn more about moving resources between regions and disaster recovery in Az
 
 - [Create an activity log alert to monitor all autoscale engine operations on your subscription](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/monitor-autoscale-alert)
 - [Create an activity log alert to monitor all failed autoscale scale-in/scale-out operations on your subscription](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/monitor-autoscale-failed-alert)
+- [Use autoscale actions to send email and webhook alert notifications in Azure Monitor ](autoscale-webhook-email.md)

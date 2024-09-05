@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 01/22/2024
+ms.date: 04/08/2024
 ---
 
 # Call external HTTP or HTTPS endpoints from workflows in Azure Logic Apps
@@ -437,6 +437,12 @@ If an HTTP trigger or action includes these headers, Azure Logic Apps removes th
 * `Transfer-Encoding`
 
 Although Azure Logic Apps won't stop you from saving logic apps that use an HTTP trigger or action with these headers, Azure Logic Apps ignores these headers.
+
+<a name="mismatch-content-type"></a>
+
+### Response content doesn't match the expected content type
+
+The HTTP action throws a **BadRequest** error if the HTTP action calls the backend API with the `Content-Type` header set to **application/json**, but the response from the backend doesn't actually contain content in JSON format, which fails internal JSON format validation.
 
 ## Next steps
 

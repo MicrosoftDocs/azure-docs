@@ -2,7 +2,7 @@
 title: What is a connected registry
 description: Overview and scenarios of the connected registry feature of Azure Container Registry
 ms.author: jeburke
-ms.service: container-registry
+ms.service: azure-container-registry
 ms.topic: overview
 ms.date: 10/31/2023
 ms.custom: references_regions
@@ -65,11 +65,13 @@ It can also be configured to synchronize a subset of the repositories from the c
 
 A connected registry can work in one of two modes: *ReadWrite* or *ReadOnly*
 
-- **ReadWrite mode** - The default mode allows clients to pull and push artifacts (read and write) to the connected registry. Artifacts that are pushed to the connected registry will be synchronized with the cloud registry. 
+- **ReadWrite mode** - The mode allows clients to pull and push artifacts (read and write) to the connected registry. Artifacts that are pushed to the connected registry will be synchronized with the cloud registry. 
         
-  The ReadWrite mode is useful when a local development environment is in place. The images are pushed to the local connected registry and from there synchronized to the cloud.
+ The ReadWrite mode is useful when a local development environment is in place. The images are pushed to the local connected registry and from there synchronized to the cloud.
 
 - **ReadOnly mode** - When the connected registry is in ReadOnly mode, clients can only pull (read) artifacts. This configuration is used for nested IoT Edge scenarios, or other scenarios where clients need to pull a container image to operate.
+
+- **Default mode** - The ***ReadOnly mode*** is now the default mode for connected registries. This change aligns with our secure-by-default approach and is effective starting with CLI version 2.60.0.
 
 ### Registry hierarchy
 

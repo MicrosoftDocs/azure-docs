@@ -2,16 +2,11 @@
 title: Create an Azure confidential VM in the Azure portal
 description: Learn how to quickly create a confidential virtual machine (confidential VM) in the Azure portal using Azure Marketplace images.
 author: RunCai
-ms.service: virtual-machines
-ms.subservice: confidential-computing
+ms.service: azure-virtual-machines
 ms.topic: quickstart
 ms.date: 12/01/2023
 ms.author: RunCai
-ms.custom:
-  - mode-ui
-  - linux-related-content
-  - has-azure-ad-ps-ref
-  - ignite-2023
+ms.custom: mode-ui, has-azure-ad-ps-ref, ignite-2023
 ---
 
 # Quickstart: Create confidential VM on in the Azure portal
@@ -23,11 +18,11 @@ You can use the Azure portal to create a [confidential VM](confidential-vm-overv
 
 - An Azure subscription. Free trial accounts don't have access to the VMs used in this tutorial. One option is to use a [pay as you go subscription](https://azure.microsoft.com/pricing/purchase-options/pay-as-you-go/).
 - If you're using a Linux-based confidential VM, use a BASH shell for SSH or install an SSH client, such as [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/download.html).
-- If Confidential disk encryption with a customer-managed key is required, please run below command to opt in service principal `Confidential VM Orchestrator` to your tenant.
+- If Confidential disk encryption with a customer-managed key is required, please run below command to opt in service principal `Confidential VM Orchestrator` to your tenant. [Install Microsoft Graph SDK](/powershell/microsoftgraph/installation) to execute the commands below.
 
-    ```azurecli
-    Connect-AzureAD -Tenant "your tenant ID"
-    New-AzureADServicePrincipal -AppId bf7b6499-ff71-4aa2-97a4-f372087be7f0 -DisplayName "Confidential VM Orchestrator"
+    ```Powershell
+    Connect-Graph -Tenant "your tenant ID" Application.ReadWrite.All
+    New-MgServicePrincipal -AppId bf7b6499-ff71-4aa2-97a4-f372087be7f0 -DisplayName "Confidential VM Orchestrator"
     ```
 
 ## Create confidential VM
@@ -59,12 +54,15 @@ To create a confidential VM in the Azure portal using an Azure Marketplace image
 
     g. For **Image**, select the OS image to use for your VM. Select **See all images** to open Azure Marketplace. Select the filter **Security Type** &gt; **Confidential** to show all available confidential VM images.
 
-    h. Toggle [Generation 2](../virtual-machines/generation-2.md) images. Confidential VMs only run on Generation 2 images. To ensure, under **Image**, select **Configure VM generation**. In the pane **Configure VM generation**, for **VM generation**, select **Generation 2**. Then, select **Apply**.
+    h. Toggle [Generation 2](/azure/virtual-machines/generation-2) images. Confidential VMs only run on Generation 2 images. To ensure, under **Image**, select **Configure VM generation**. In the pane **Configure VM generation**, for **VM generation**, select **Generation 2**. Then, select **Apply**.
+
+    > [!NOTE]
+    > For NCCH100v5 series, only the **Ubuntu Server 22.04 LTS (Confidential VM)** image is currently supported. 
 
     i. For **Size**, select a VM size. For more information, see [supported confidential VM families](virtual-machine-options.md).
 
 
-    j. For **Authentication type**, if you're creating a Linux VM, select **SSH public key** . If you don't already have SSH keys, [create SSH keys for your Linux VMs](../virtual-machines/linux/mac-create-ssh-keys.md).
+    j. For **Authentication type**, if you're creating a Linux VM, select **SSH public key** . If you don't already have SSH keys, [create SSH keys for your Linux VMs](/azure/virtual-machines/linux/mac-create-ssh-keys).
 
     k. Under **Administrator account**, for **Username**, enter an administrator name for your VM.
 
@@ -90,7 +88,7 @@ To create a confidential VM in the Azure portal using an Azure Marketplace image
 
 1. (Optional) If necessary, you need to create a **Confidential disk encryption set** as follows.
 
-    1. [Create an Azure Key Vault](../key-vault/general/quick-create-portal.md) selecting the **Premium** pricing tier that includes support for HSM-backed keys and enable purge protection. Alternatively, you can create an [Azure Key Vault managed Hardware Security Module (HSM)](../key-vault/managed-hsm/quick-create-cli.md).
+    1. [Create an Azure Key Vault](/azure/key-vault/general/quick-create-portal) using the **Premium** pricing tier that includes support for HSM-backed keys. It's also important to enable purge protection for added security measures. Additionally, for the access configuration, use the "Vault access policy" under "Access configuration" tab. Alternatively, you can create an [Azure Key Vault managed Hardware Security Module (HSM)](/azure/key-vault/managed-hsm/quick-create-cli).
 
     1. In the Azure portal, search for and select **Disk Encryption Sets**.
 
@@ -127,7 +125,7 @@ To create a confidential VM in the Azure portal using an Azure Marketplace image
 
     q. Go to the disk encryption set resource in the Azure portal.
 
-    r. Select the pink banner to grant permissions to Azure Key Vault.
+    r. When you see a blue info banner, please follow the instructions provided to grant access. On encountering a pink banner, simply select it to grant the necessary permissions to Azure Key Vault.
 
    > [!IMPORTANT]
    > You must perform this step to successfully create the confidential VM.
@@ -146,7 +144,7 @@ There are different methods to connect to [Windows confidential VMs](#connect-to
 
 ### Connect to Windows VMs
 
-To connect to a confidential VM with a Windows OS, see [How to connect and sign on to an Azure virtual machine running Windows](../virtual-machines/windows/connect-logon.md).
+To connect to a confidential VM with a Windows OS, see [How to connect and sign on to an Azure virtual machine running Windows](/azure/virtual-machines/windows/connect-logon).
 
 ### Connect to Linux VMs
 
@@ -162,7 +160,7 @@ Before you begin, make sure you have your VM's public IP address. To find the IP
 
 1. On your confidential VM's overview page, copy the **Public IP address**.
 
-    For more information about connecting to Linux VMs, see [Quickstart: Create a Linux virtual machine in the Azure portal](../virtual-machines/linux/quick-create-portal.md).
+    For more information about connecting to Linux VMs, see [Quickstart: Create a Linux virtual machine in the Azure portal](/azure/virtual-machines/linux/quick-create-portal).
 
 1. Open your SSH client, such as PuTTY.
 

@@ -4,7 +4,7 @@ titleSuffix: Azure Programmable Connectivity
 description: Azure Programmable Connectivity (APC) abstracts away the intricacies of interacting with different network APIs
 author: anzaman
 ms.author: alzam
-ms.service: azure-operator-nexus
+ms.service: azure-programmable-connectivity
 ms.topic: overview 
 ms.date: 02/16/2024
 ms.custom: template-overview

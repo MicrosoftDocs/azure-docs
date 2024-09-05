@@ -3,13 +3,17 @@ title: What's new in Azure Managed Grafana
 description: Recent updates for Azure Managed Grafana
 author: maud-lv
 ms.author: malev
-ms.service: managed-grafana
+ms.service: azure-managed-grafana
 ms.topic: conceptual
-ms.date: 11/17/2023
+ms.date: 02/22/2024
 
 ---
 
 # What's new in Azure Managed Grafana
+
+## March 2024
+
+* We recommend that users with a workspace on Grafana 9 [upgrade to Grafana 10](how-to-upgrade-grafana-10.md).
 
 ## October 2023
 

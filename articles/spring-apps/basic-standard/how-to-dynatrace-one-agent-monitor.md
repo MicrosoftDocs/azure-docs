@@ -3,9 +3,9 @@ title:  How to monitor Spring Boot apps with Dynatrace Java OneAgent
 description: How to use Dynatrace Java OneAgent to monitor Spring Boot applications in Azure Spring Apps
 author:  KarlErickson
 ms.author: karler
-ms.service: spring-apps
+ms.service: azure-spring-apps
 ms.topic: how-to
-ms.date: 06/07/2022
+ms.date: 06/27/2024
 ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli
 ms.devlang: azurecli
 ---
@@ -147,37 +147,37 @@ After you add the environment variables to your application, Dynatrace starts co
 
 You can find the **Service flow** from **\<your-app-name>/Details/Service flow**:
 
-:::image type="content" source="media/how-to-dynatrace-one-agent-monitor/spring-cloud-dynatrace-app-flow.png" alt-text="Screenshot of the Dynatrace 'Service flow' report." lightbox="media/how-to-dynatrace-one-agent-monitor/spring-cloud-dynatrace-app-flow.png":::
+:::image type="content" source="media/how-to-dynatrace-one-agent-monitor/spring-cloud-dynatrace-app-flow.png" alt-text="Screenshot of the Dynatrace Service flow report." lightbox="media/how-to-dynatrace-one-agent-monitor/spring-cloud-dynatrace-app-flow.png":::
 
 You can find the **Method hotspots** from **\<your-app-name>/Details/Method hotspots**:
 
-:::image type="content" source="media/how-to-dynatrace-one-agent-monitor/spring-cloud-dynatrace-hotspots.png" alt-text="Screenshot of the 'Method hotspots' report." lightbox="media/how-to-dynatrace-one-agent-monitor/spring-cloud-dynatrace-hotspots.png":::
+:::image type="content" source="media/how-to-dynatrace-one-agent-monitor/spring-cloud-dynatrace-hotspots.png" alt-text="Screenshot of the Dynatrace Method hotspots report." lightbox="media/how-to-dynatrace-one-agent-monitor/spring-cloud-dynatrace-hotspots.png":::
 
 You can find the **Database statements** from **\<your-app-name>/Details/Response time analysis**:
 
-:::image type="content" source="media/how-to-dynatrace-one-agent-monitor/spring-cloud-dynatrace-database-contribution.png" alt-text="Screenshot of the 'Response time analysis' report and the 'Database statements' section." lightbox="media/how-to-dynatrace-one-agent-monitor/spring-cloud-dynatrace-database-contribution.png":::
+:::image type="content" source="media/how-to-dynatrace-one-agent-monitor/spring-cloud-dynatrace-database-contribution.png" alt-text="Screenshot of the Dynatrace Response time analysis report and the Database statements section." lightbox="media/how-to-dynatrace-one-agent-monitor/spring-cloud-dynatrace-database-contribution.png":::
 
 Next, go to the **Multidimensional analysis** section.
 
 You can find the **Top database statements** from **Multidimensional analysis/Top database statements**:
 
-:::image type="content" source="media/how-to-dynatrace-one-agent-monitor/spring-cloud-dynatrace-top-database.png" alt-text="Screenshot of the 'Top database statements' report." lightbox="media/how-to-dynatrace-one-agent-monitor/spring-cloud-dynatrace-top-database.png":::
+:::image type="content" source="media/how-to-dynatrace-one-agent-monitor/spring-cloud-dynatrace-top-database.png" alt-text="Screenshot of the Dynatrace Top database statements report." lightbox="media/how-to-dynatrace-one-agent-monitor/spring-cloud-dynatrace-top-database.png":::
 
 You can find the **Exceptions overview** from **Multidimensional analysis/Exceptions overview**:
 
-:::image type="content" source="media/how-to-dynatrace-one-agent-monitor/spring-cloud-dynatrace-exception-analysis.png" alt-text="Screenshot of the 'Exceptions overview' report." lightbox="media/how-to-dynatrace-one-agent-monitor/spring-cloud-dynatrace-exception-analysis.png":::
+:::image type="content" source="media/how-to-dynatrace-one-agent-monitor/spring-cloud-dynatrace-exception-analysis.png" alt-text="Screenshot of the Dynatrace Exceptions overview report." lightbox="media/how-to-dynatrace-one-agent-monitor/spring-cloud-dynatrace-exception-analysis.png":::
 
 Next, go to the **Profiling and optimization** section.
 
 You can find the **CPU analysis** from **Profiling and optimization/CPU analysis**:
 
-:::image type="content" source="media/how-to-dynatrace-one-agent-monitor/spring-cloud-dynatrace-cpu-analysis.png" alt-text="Screenshot of the 'CPU analysis' report." lightbox="media/how-to-dynatrace-one-agent-monitor/spring-cloud-dynatrace-cpu-analysis.png":::
+:::image type="content" source="media/how-to-dynatrace-one-agent-monitor/spring-cloud-dynatrace-cpu-analysis.png" alt-text="Screenshot of the Dynatrace CPU analysis report." lightbox="media/how-to-dynatrace-one-agent-monitor/spring-cloud-dynatrace-cpu-analysis.png":::
 
 Next, go to the **Databases** section.
 
 You can find **Backtrace** from **Databases/Details/Backtrace**:
 
-:::image type="content" source="media/how-to-dynatrace-one-agent-monitor/spring-cloud-dynatrace-database-backtrace.png" alt-text="Screenshot of the Backtrace report." lightbox="media/how-to-dynatrace-one-agent-monitor/spring-cloud-dynatrace-database-backtrace.png":::
+:::image type="content" source="media/how-to-dynatrace-one-agent-monitor/spring-cloud-dynatrace-database-backtrace.png" alt-text="Screenshot of the Dynatrace Backtrace report." lightbox="media/how-to-dynatrace-one-agent-monitor/spring-cloud-dynatrace-database-backtrace.png":::
 
 ## View Dynatrace OneAgent logs
 

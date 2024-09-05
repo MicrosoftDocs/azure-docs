@@ -2,7 +2,7 @@
 title: Use Azure Firewall to protect Office 365
 description: Learn how to use Azure Firewall to protect Office 365
 author: vhorne
-ms.service: firewall
+ms.service: azure-firewall
 services: firewall
 ms.topic: how-to
 ms.date: 11/27/2023

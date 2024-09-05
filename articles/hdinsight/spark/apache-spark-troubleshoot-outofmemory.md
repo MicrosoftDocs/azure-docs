@@ -1,10 +1,10 @@
 ---
 title: OutOfMemoryError exceptions for Apache Spark in Azure HDInsight
 description: Various OutOfMemoryError exceptions for Apache Spark cluster in Azure HDInsight
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.custom: devx-track-extended-java
 ms.topic: troubleshooting
-ms.date: 05/24/2023
+ms.date: 05/09/2024
 ---
 
 # OutOfMemoryError exceptions for Apache Spark in Azure HDInsight
@@ -55,7 +55,7 @@ The most likely cause of this exception is that not enough heap memory is alloca
 
 1. Make sure that the HDInsight cluster to be used has enough resources in terms of memory and also cores to accommodate the Spark application. This can be determined by viewing the Cluster Metrics section of the YARN UI of the cluster for the values of **Memory Used** vs. **Memory Total** and **VCores Used** vs. **VCores Total**.
 
-    :::image type="content" source="./media/apache-spark-ts-outofmemory/yarn-core-memory-view.png" alt-text="yarn core memory view" border="true":::
+    :::image type="content" source="./media/apache-spark-ts-outofmemory/yarn-core-memory-view.png" alt-text="yarn core memory view." border="true":::
 
 1. Set the following Spark configurations to appropriate values. Balance the application requirements with the available resources in the cluster. These values shouldn't exceed 90% of the available memory and cores as viewed by YARN, and should also meet the minimum memory requirement of the Spark application:
 
@@ -113,11 +113,11 @@ You can increase the Spark History Server memory by editing the `SPARK_DAEMON_ME
 
 You can do this from within the Ambari browser UI by selecting the Spark2/Config/Advanced spark2-env section.
 
-:::image type="content" source="./media/apache-spark-ts-outofmemory-heap-space/apache-spark-image01.png" alt-text="Advanced spark2-env section" border="true":::
+:::image type="content" source="./media/apache-spark-ts-outofmemory-heap-space/apache-spark-image01.png" alt-text="Advanced spark2-env section." border="true":::
 
 Add the following property to change the Spark History Server memory from 1g to 4g: `SPARK_DAEMON_MEMORY=4g`.
 
-:::image type="content" source="./media/apache-spark-ts-outofmemory-heap-space/apache-spark-image02.png" alt-text="Spark property" border="true":::
+:::image type="content" source="./media/apache-spark-ts-outofmemory-heap-space/apache-spark-image02.png" alt-text="Spark property." border="true":::
 
 Make sure to restart all affected services from Ambari.
 
@@ -246,6 +246,6 @@ If you didn't see your problem or are unable to solve your issue, visit one of t
 
 * Get answers from Azure experts through [Azure Community Support](https://azure.microsoft.com/support/community/).
 
-* Connect with [@AzureSupport](https://twitter.com/azuresupport) - the official Microsoft Azure account for improving customer experience. Connecting the Azure community to the right resources: answers, support, and experts.
+* Connect with [@AzureSupport](https://x.com/azuresupport) - the official Microsoft Azure account for improving customer experience. Connecting the Azure community to the right resources: answers, support, and experts.
 
 * If you need more help, you can submit a support request from the [Azure portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Select **Support** from the menu bar or open the **Help + support** hub. For more detailed information, review [How to create an Azure support request](../../azure-portal/supportability/how-to-create-azure-support-request.md). Access to Subscription Management and billing support is included with your Microsoft Azure subscription, and Technical Support is provided through one of the [Azure Support Plans](https://azure.microsoft.com/support/plans/).

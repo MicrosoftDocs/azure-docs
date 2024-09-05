@@ -9,6 +9,8 @@ ms.topic: conceptual
 
 You can enable Azure Arc-enabled servers for one or more Windows machines in your environment by performing a set of steps manually. Or you can use [Windows Admin Center](/windows-server/manage/windows-admin-center/understand/what-is) to deploy the Connected Machine agent and register your on-premises servers without having to perform any steps outside of this tool.
 
+[!INCLUDE [sql-server-auto-onboard](includes/sql-server-auto-onboard.md)]
+
 ## Prerequisites
 
 * Azure Arc-enabled servers - Review the [prerequisites](prerequisites.md) and verify that your subscription, your Azure account, and resources meet the requirements.

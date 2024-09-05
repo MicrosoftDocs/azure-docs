@@ -280,7 +280,7 @@ When you're done with the application, you can run the following command to dele
 oc delete project demoproject
 ```
 
-You can also delete the cluster by following the instructions in [Tutorial: Delete an Azure Red Hat OpenShift 4 cluster](./tutorial-delete-cluster.md).
+You can also delete the cluster by following the instructions in [Tutorial: Delete an Azure Red Hat OpenShift 4 cluster](./delete-cluster.md).
 
 ## Next steps
 

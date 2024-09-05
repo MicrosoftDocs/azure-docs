@@ -5,6 +5,7 @@ ms.topic: conceptual
 ms.custom: devx-track-arm-template
 ms.date: 01/27/2024
 ---
+
 # Migrating to TLS 1.2 for Azure Resource Manager
 
 Transport Layer Security (TLS) is a security protocol that establishes encryption channels over computer networks. TLS 1.2 is the current industry standard and is supported by Azure Resource Manager. For backwards compatibility, Azure Resource Manager also supports earlier versions, such as TLS 1.0 and 1.1, but that support is ending.

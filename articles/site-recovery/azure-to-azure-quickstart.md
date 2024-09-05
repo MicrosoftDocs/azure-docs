@@ -6,7 +6,7 @@ ms.date: 07/14/2023
 ms.custom: mvc, mode-other
 ms.author: ankitadutta
 author: ankitaduttaMSFT
-ms.service: site-recovery
+ms.service: azure-site-recovery
 ---
 
 # Quickstart: Set up disaster recovery to a secondary Azure region for an Azure VM
@@ -22,7 +22,7 @@ This quickstart describes how to set up disaster recovery for an Azure VM by rep
 To complete this tutorial, you need an Azure subscription and a VM.
 
 - If you don't have an Azure account with an active subscription, you can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- A VM with a minimum 1 GB of RAM is recommended. [Learn more](../virtual-machines/windows/quick-create-portal.md) about how to create a VM.
+- A VM with a minimum 1 GB of RAM is recommended. [Learn more](/azure/virtual-machines/windows/quick-create-portal) about how to create a VM.
 
 ## Sign in to Azure
 
@@ -72,7 +72,5 @@ To disable replication, perform these steps:
 
 ## Next steps
 
-In this quickstart, you replicated a single VM to a secondary region. Next, set up replication for multiple Azure VMs.
+In this quickstart, you replicated a single VM to a secondary region. Next, [set up replication for multiple Azure VMs](azure-to-azure-tutorial-enable-replication.md).
 
-> [!div class="nextstepaction"]
-> [Set up disaster recovery for Azure VMs](azure-to-azure-tutorial-enable-replication.md)

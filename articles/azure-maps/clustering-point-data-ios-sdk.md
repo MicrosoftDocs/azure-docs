@@ -7,10 +7,16 @@ ms.author: sipa
 ms.date: 11/18/2021
 ms.topic: how-to
 ms.service: azure-maps
-services: azure-maps
+ms.subservice: ios-sdk
 ---
 
 # Clustering point data in the iOS SDK (Preview)
+
+> [!NOTE]
+>
+> **Azure Maps iOS SDK retirement**
+>
+> The Azure Maps Native SDK for iOS is now deprecated and will be retired on 3/31/25. To avoid service disruptions, migrate to the Azure Maps Web SDK by 3/31/25. For more information, see [The Azure Maps iOS SDK migration guide](ios-sdk-migration-guide.md).
 
 When displaying many data points on the map, data points may overlap over each other. The overlap may cause the map may become unreadable and difficult to use. Clustering point data is the process of combining point data that are near each other and representing them on the map as a single clustered data point. As the user zooms into the map, the clusters break apart into their individual data points. When you work with large number of data points, use the clustering processes to improve your user experience.
 

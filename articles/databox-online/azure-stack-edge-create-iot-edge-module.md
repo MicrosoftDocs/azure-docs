@@ -7,12 +7,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 08/06/2019
+ms.date: 02/27/2024
 ms.author: alkohli
 ms.custom: devx-track-csharp
 ---
 
 # Develop a C# IoT Edge module to move files with Azure Stack Edge Pro FPGA
+
+[!INCLUDE [Azure Stack Edge Pro FPGA end-of-life](../../includes/azure-stack-edge-fpga-eol.md)]
 
 This article steps you through how to create an IoT Edge module for deployment with your Azure Stack Edge Pro FPGA device. Azure Stack Edge Pro FPGA is a storage solution that allows you to process data and send it over network to Azure.
 
@@ -236,7 +238,7 @@ Create a C# solution template that you can customize with your own code.
     ```
 
 7. Save this file.
-8. You can also [download an existing code sample](https://azure.microsoft.com/resources/samples/data-box-edge-csharp-modules/?cdn=disable) for this project. You can then validate the file that you saved against the **program.cs** file in this sample.
+8. You can also [download an existing code sample](https://github.com/Azure-Samples/data-box-edge-csharp-modules) for this project. You can then validate the file that you saved against the **program.cs** file in this sample.
 
 ## Build your IoT Edge solution
 

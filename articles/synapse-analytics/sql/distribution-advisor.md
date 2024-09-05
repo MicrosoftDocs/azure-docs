@@ -4,7 +4,7 @@ description: This article describes how a user can receive advice on the best di
 author: mariyaali
 ms.author: mariyaali
 ms.reviewer: wiassaf
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.topic: conceptual
 ms.date: 07/16/2023
 ---

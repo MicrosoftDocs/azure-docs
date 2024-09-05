@@ -33,9 +33,9 @@ After identifying which VM extensions are deployed, you can remove them using th
 
 ## Step 2: Review access rights
 
-List role assignments for the Azure Arc-enabled servers resource, using [Azure PowerShell](../../role-based-access-control/role-assignments-list-powershell.md#list-role-assignments-for-a-resource) and with other PowerShell code, you can export the results to CSV or another format.
+List role assignments for the Azure Arc-enabled servers resource, using [Azure PowerShell](../../role-based-access-control/role-assignments-list-powershell.yml#list-role-assignments-for-a-resource) and with other PowerShell code, you can export the results to CSV or another format.
 
-If you're using a managed identity for an application or process running on an Azure Arc-enabled server, you need to make sure the Azure VM has a managed identity assigned. To view the role assignment for a managed identity, you can use the Azure PowerShell `Get-AzADServicePrincipal` cmdlet. For more information, see [List role assignments for a managed identity](../../role-based-access-control/role-assignments-list-powershell.md#list-role-assignments-for-a-managed-identity).
+If you're using a managed identity for an application or process running on an Azure Arc-enabled server, you need to make sure the Azure VM has a managed identity assigned. To view the role assignment for a managed identity, you can use the Azure PowerShell `Get-AzADServicePrincipal` cmdlet. For more information, see [List role assignments for a managed identity](../../role-based-access-control/role-assignments-list-powershell.yml#list-role-assignments-for-a-managed-identity).
 
 A system-managed identity is also used when Azure Policy is used to audit or configure settings inside a machine or server. With Azure Arc-enabled servers, the guest configuration agent service is included, and performs validation of audit settings. After you migrate, see [Deploy requirements for Azure virtual machines](../../governance/machine-configuration/overview.md#deploy-requirements-for-azure-virtual-machines) for information on how to configure your Azure VM manually or with policy with the guest configuration extension.
 
@@ -47,7 +47,7 @@ Follow the guidance to [uninstall the agent](manage-agent.md#uninstall-the-agent
 
 ## Step 4: Install the Azure Guest Agent
 
-The VM that is migrated to Azure from on-premises doesn't have the Linux or Windows Azure Guest Agent installed. In these scenarios, you have to manually install the VM agent. For more information about how to install the VM Agent, see [Azure Virtual Machine Windows Agent Overview](../../virtual-machines/extensions/agent-windows.md) or [Azure Virtual Machine Linux Agent Overview](../../virtual-machines/extensions/agent-linux.md).
+The VM that is migrated to Azure from on-premises doesn't have the Linux or Windows Azure Guest Agent installed. In these scenarios, you have to manually install the VM agent. For more information about how to install the VM Agent, see [Azure Virtual Machine Windows Agent Overview](/azure/virtual-machines/extensions/agent-windows) or [Azure Virtual Machine Linux Agent Overview](/azure/virtual-machines/extensions/agent-linux).
 
 ## Step 5: Migrate server or machine to Azure
 
@@ -55,7 +55,7 @@ Before proceeding with the migration with Azure Migration, review the [Prepare o
 
 ## Step 6: Deploy Azure VM extensions
 
-After migration and completion of all post-migration configuration steps, you can now deploy the Azure VM extensions based on the VM extensions originally installed on your Azure Arc-enabled server. Review [Azure virtual machine extensions and features](../../virtual-machines/extensions/overview.md) to help plan your extension deployment.
+After migration and completion of all post-migration configuration steps, you can now deploy the Azure VM extensions based on the VM extensions originally installed on your Azure Arc-enabled server. Review [Azure virtual machine extensions and features](/azure/virtual-machines/extensions/overview) to help plan your extension deployment.
 
 To resume using audit settings inside a machine with guest configuration policy definitions, see [Enable guest configuration](../../governance/machine-configuration/overview.md).
 

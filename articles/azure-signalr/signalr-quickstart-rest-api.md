@@ -2,7 +2,7 @@
 title: Quickstart - Azure SignalR Service REST API
 description: Learn how to use REST API with Azure SignalR Service following samples. Find details of REST API specification.
 author: vicancy
-ms.service: signalr
+ms.service: azure-signalr-service
 ms.topic: quickstart
 ms.date: 11/13/2019
 ms.author: lianwei
@@ -21,7 +21,7 @@ This quickstart can be run on macOS, Windows, or Linux.
 * [.NET Core SDK](https://dotnet.microsoft.com/download)
 * A text editor or code editor of your choice.
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 Having issues? Try the [troubleshooting guide](signalr-howto-troubleshoot-guide.md) or [let us know](https://aka.ms/asrs/qsapi).
 

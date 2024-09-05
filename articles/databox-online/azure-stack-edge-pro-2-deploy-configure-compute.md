@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 08/04/2023
+ms.date: 04/01/2024
 ms.author: alkohli
 # Customer intent: As an IT admin, I need to understand how to configure compute on Azure Stack Edge Pro so I can use it to transform the data before sending it to Azure.
 ---
@@ -26,8 +26,6 @@ In this tutorial, you learn how to:
 > [!div class="checklist"]
 > * Configure compute
 > * Get Kubernetes endpoints
-
-[!INCLUDE [configure-compute](../../includes/azure-stack-edge-gateway-configure-compute.md)]
 
 ## Prerequisites
 

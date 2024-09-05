@@ -3,8 +3,8 @@ title: Overview of mutual authentication on Azure Application Gateway
 description: This article is an overview of mutual authentication on Application Gateway.
 services: application-gateway
 author: greg-lindsay
-ms.service: application-gateway
-ms.date: 07/29/2023
+ms.service: azure-application-gateway
+ms.date: 03/12/2024
 ms.topic: conceptual 
 ms.author: greglin
 
@@ -32,7 +32,8 @@ If you're uploading a certificate chain with root CA and intermediate CA certifi
 Each SSL profile can support up to 100 trusted client CA certificate chains.  A single Application Gateway can support a total of 200 trusted client CA certificate chains.
 
 > [!NOTE] 
-> Mutual authentication is only available on Standard_v2 and WAF_v2 SKUs. 
+> * Mutual authentication is only available on Standard_v2 and WAF_v2 SKUs.
+> * Configuration of Mutual authentication for [TLS protocol listeners (preview)](tcp-tls-proxy-overview.md) is currently available through REST API, PowerShell, and CLI. Azure Portal support is coming soon.
 
 ### Certificates supported for mutual authentication
 
@@ -113,7 +114,7 @@ Azure portal support is currently not available.
 
 ---
 
-To verify OCSP revocation status has been evaluated for the client request, [access logs](./application-gateway-diagnostics.md#access-log) will contain a property called "sslClientVerify", with the status of the OCSP response.
+To verify OCSP revocation status has been evaluated for the client request, [access logs](monitor-application-gateway-reference.md#access-log-category) will contain a property called "sslClientVerify", with the status of the OCSP response.
 
 It is critical that the OCSP responder is highly available and network connectivity between Application Gateway and the responder is possible. In the event Application Gateway is unable to resolve the fully qualified domain name (FQDN) of the defined responder or network connectivity is blocked to/from the responder, certificate revocation status will fail and Application Gateway will return a 400 HTTP response to the requesting client.
 

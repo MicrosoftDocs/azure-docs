@@ -3,12 +3,14 @@ title: Configure continuous deployment
 description: Learn how to enable CI/CD to Azure App Service from GitHub, Bitbucket, Azure Repos, or other repos. Select the build pipeline that fits your needs.
 ms.assetid: 6adb5c84-6cf3-424e-a336-c554f23b4000
 ms.topic: article
-ms.date: 01/26/2024
+ms.date: 02/29/2024
 author: cephalin
 ms.author: cephalin
 ---
 
 # Continuous deployment to Azure App Service
+
+[!INCLUDE [regionalization-note](./includes/regionalization-note.md)]
 
 [Azure App Service](overview.md) enables continuous deployment from [GitHub](https://help.github.com/articles/create-a-repo), [Bitbucket](https://confluence.atlassian.com/get-started-with-bitbucket/create-a-repository-861178559.html), and [Azure Repos](/azure/devops/repos/git/creatingrepo) repositories by pulling in the latest updates.
 
@@ -116,7 +118,7 @@ You can customize the GitHub Actions build provider in these ways:
 # [App Service Build Service](#tab/appservice)
 
 > [!NOTE]
-> App Service Build Service requires [basic authentication to be enabled](configure-basic-auth-disable.md) for the webhook to work. For more information, see [Deployment without basic authentication](configure-basic-auth-disable.md#deployment-without-basic-authentication).
+> App Service Build Service requires [SCM basic authentication to be enabled](configure-basic-auth-disable.md) for the webhook to work. For more information, see [Deployment without basic authentication](configure-basic-auth-disable.md#deployment-without-basic-authentication).
 
 App Service Build Service is the deployment and build engine native to App Service, otherwise known as Kudu. When this option is selected, App Service adds a webhook into the repository you authorized. Any code push to the repository triggers the webhook, and App Service pulls the changes into its repository and performs any deployment tasks. For more information, see [Deploying from GitHub (Kudu)](https://github.com/projectkudu/kudu/wiki/Deploying-from-GitHub).
 

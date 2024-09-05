@@ -7,6 +7,8 @@ ms.date: 01/06/2022
 
 # Tutorial: Track usage of a lab in Azure Lab Service
 
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
+
 This tutorial shows you how a lab creator/owner can track usage of a lab.
 
 In this tutorial, you do the following actions:

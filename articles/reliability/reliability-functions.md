@@ -146,7 +146,7 @@ To learn more about these templates, see [Automate resource deployment in Azure 
 
 After the zone-redundant plan is created and deployed, any function app hosted on your new plan is considered zone-redundant.
 
-### Migrate your function app to a zone-redundant plan
+### Availability zone migration
 
 Azure Function Apps currently doesn't support in-place migration of existing function apps instances. For information on how to migrate the public multitenant Premium plan from non-availability zone to availability zone support, see [Migrate App Service to availability zone support](../reliability/migrate-functions.md).
 
@@ -162,6 +162,8 @@ When Functions allocates instances to a zone redundant Premium plan, it uses bes
 [!INCLUDE [introduction to disaster recovery](includes/reliability-disaster-recovery-description-include.md)]
 
 This section explains some of the strategies that you can use to deploy Functions to allow for disaster recovery.
+
+For disaster recovery for Durable Functions, see [Disaster recovery and geo-distribution in Azure Durable Functions](../azure-functions/durable/durable-functions-disaster-recovery-geo-distribution.md).
 
 ### Multi-region disaster recovery
 
@@ -205,6 +207,7 @@ Read more on information and considerations for failover with [Service Bus](../s
 
 ## Next steps
 
+- [Disaster recovery and geo-distribution in Azure Durable Functions](../azure-functions/durable/durable-functions-disaster-recovery-geo-distribution.md)
 - [Create Azure Front Door](../frontdoor/quickstart-create-front-door.md)
 - [Event Hubs failover considerations](../event-hubs/event-hubs-geo-dr.md#considerations)
 - [Azure Architecture Center's guide on availability zones](/azure/architecture/high-availability/building-solutions-for-high-availability)

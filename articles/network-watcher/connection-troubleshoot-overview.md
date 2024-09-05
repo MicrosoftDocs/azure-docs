@@ -4,7 +4,7 @@ titleSuffix: Azure Network Watcher
 description: Learn about Azure Network Watcher connection troubleshoot tool, the issues it can detect, and the responses it gives.
 author: halkazwini
 ms.author: halkazwini
-ms.service: network-watcher
+ms.service: azure-network-watcher
 ms.topic: concept-article
 ms.date: 02/22/2024
 
@@ -37,9 +37,10 @@ Connection troubleshoot provides the capability to check TCP or ICMP connections
 - Application gateways (except v1)
 
 > [!IMPORTANT]
-> Connection troubleshoot requires that the virtual machine you troubleshoot from has the `AzureNetworkWatcherExtension` extension installed. The extension is not required on the destination virtual machine.
-> - To install the extension on a Windows VM, see [Azure Network Watcher Agent virtual machine extension for Windows](../virtual-machines/extensions/network-watcher-windows.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
-> - To install the extension on a Linux VM, see [Azure Network Watcher Agent virtual machine extension for Linux](../virtual-machines/extensions/network-watcher-linux.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json).
+> Connection troubleshoot requires that the virtual machine you troubleshoot from has the *Network Watcher agent VM extension* installed. The extension is not required on the destination virtual machine.
+> - To install the extension on a Windows virtual machine, see [Network Watcher agent VM extension for Windows](network-watcher-agent-windows.md).
+> - To install the extension on a Linux virtual machine, see [Network Watcher agent VM extension for Linux](network-watcher-agent-linux.md).
+> - To update an already installed extension, see [Update Network Watcher agent VM extension to the latest version](network-watcher-agent-update.md).
 
 Connection troubleshoot can test connections to any of these destinations:
 
@@ -151,4 +152,4 @@ Connection troubleshoot returns fault types about the connection. The following 
 
 To learn how to use connection troubleshoot to test and troubleshoot connections, continue to:
 > [!div class="nextstepaction"]
-> [Troubleshoot connections using the Azure portal](network-watcher-connectivity-portal.md)
+> [Troubleshoot connections using the Azure portal](connection-troubleshoot-portal.md)

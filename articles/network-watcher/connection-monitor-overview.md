@@ -4,19 +4,16 @@ titleSuffix: Azure Network Watcher
 description: Learn about Azure Network Watcher connection monitor and how to use it to monitor network communication in a distributed environment.
 author: halkazwini
 ms.author: halkazwini
-ms.service: network-watcher
+ms.service: azure-network-watcher
 ms.topic: concept-article
-ms.date: 02/23/2024
+ms.date: 07/05/2024
 
 #CustomerIntent: As an Azure administrator, I need to monitor communication between one VM and another. If the communication fails, I need to know why so that I can resolve the problem. 
 ---
 
 # Connection monitor overview
 
-> [!IMPORTANT]
-> As of July 1, 2021, you can no longer add new tests in an existing workspace or enable a new workspace in Network Performance Monitor (NPM). You're also no longer able to add new connection monitors in Connection monitor (Classic). You can continue to use the tests and connection monitors that you've created prior to July 1, 2021. 
-> 
-> To minimize service disruption to your current workloads, [migrate your tests from Network Performance Monitor](migrate-to-connection-monitor-from-network-performance-monitor.md), or  [migrate from Connection monitor (Classic)](migrate-to-connection-monitor-from-connection-monitor-classic.md) to the new Connection monitor in Azure Network Watcher before February 29, 2024.
+[!INCLUDE [Migrate connection monitor (classic)](../../includes/network-watcher-connection-monitor-classic.md)]
 
 Connection monitor provides unified, end-to-end connection monitoring in Network Watcher. The Connection monitor feature supports hybrid and Azure cloud deployments. Network Watcher provides tools to monitor, diagnose, and view connectivity-related metrics for your Azure deployments.
 
@@ -52,16 +49,16 @@ The following sections provide details for these steps.
 
 ## Install monitoring agents
 
- > [!NOTE]
- > Connection monitor now supports auto enablement of monitoring extensions for Azure & Non-Azure endpoints, thus eliminating the need for manual installation of monitoring solutions during the creation of Connection monitor. 
- 
 Connection monitor relies on lightweight executable files to run connectivity checks. It supports connectivity checks from both Azure environments and on-premises environments. The executable file that you use depends on whether your VM is hosted on Azure or on-premises.
+
+> [!NOTE]
+> Monitoring extensions for Azure and non-Azure endpoints are automatically enabled when you use the Azure portal to create a connection monitor.
 
 ### Agents for Azure virtual machines and virtual machine scale sets 
 
 To make Connection monitor recognize your Azure VMs or virtual machine scale sets as monitoring sources, install the Network Watcher Agent virtual machine extension on them. This extension is also known as the *Network Watcher extension*. Azure virtual machines and scale sets require the extension to trigger end-to-end monitoring and other advanced functionality. 
 
-You can install the Network Watcher extension when you create a virtual machine or a scale set. You can also separately install, configure, and troubleshoot the Network Watcher extension for [Linux](../virtual-machines/extensions/network-watcher-linux.md) and [Windows](../virtual-machines/extensions/network-watcher-windows.md).
+You can install the Network Watcher extension when you create a virtual machine or a scale set. You can also separately install, configure, and troubleshoot the Network Watcher extension for [Linux](network-watcher-agent-linux.md) and [Windows](network-watcher-agent-windows.md).
 
 Rules for a network security group (NSG) or firewall can block communication between the source and destination. Connection monitor detects this issue and shows it as a diagnostics message in the topology. To enable connection monitoring, ensure that the NSG and firewall rules allow packets over TCP or ICMP between the source and destination.
 
@@ -105,13 +102,14 @@ The Log Analytics Windows agent can be multi-homed to send data to multiple work
 To enable the Network Performance Monitor solution for on-premises machines, follow these steps: 
 
 1. In the Azure portal, go to **Network Watcher**.
-1. On the left pane, under **Monitoring**, select **Network Performance Monitor**. 
 
-   A list of workspaces with Network Performance Monitor solution enabled is displayed, filtered by **Subscriptions**. 
-1. To add the Network Performance Monitor solution in a new workspace, select **Add NPM** at the top left. 
-1. Select the subscription and workspace in which you want to enable the solution, and then select **Create**.
+1. Under **Monitoring**, select **Connection Monitor**.  
+
+1. Select **+ Enable Non-Azure**. 
+
+1. In **Enable Non-Azure**, select the subscription and workspace in which you want to enable the solution, and then select **Create**.
    
-   After you've enabled the solution, the workspace takes a couple of minutes to be displayed.
+   After you enable the solution, the workspace takes a few minutes to be displayed.
 
 Unlike Log Analytics agents, the Network Performance Monitor solution can be configured to send data only to a single Log Analytics workspace.
 
@@ -352,8 +350,6 @@ When you use metrics, set the resource type as **Microsoft.Network/networkWatche
 
 | Metric | Display name | Unit | Aggregation type | Description | Dimensions |
 | --- | --- | --- | --- | --- | --- |
-| ProbesFailedPercent (classic) | % Probes Failed (classic) | Percentage | Average | Percentage of connectivity monitoring probes failed.<br>This metric is available only for Connection monitor (Classic).  | No dimensions |
-| AverageRoundtripMs (classic) | Avg. round-trip time (ms) (classic) | Milliseconds | Average | Average network RTT for connectivity monitoring probes sent between source and destination.<br>This metric is available only for Connection monitor (Classic). |             No dimensions |
 | ChecksFailedPercent | % Checks Failed | Percentage | Average | Percentage of failed checks for a test. | ConnectionMonitorResourceId <br>SourceAddress <br>SourceName <br>SourceResourceId <br>SourceType <br>Protocol <br>DestinationAddress <br>DestinationName <br>DestinationResourceId <br>DestinationType <br>DestinationPort <br>TestGroupName <br>TestConfigurationName <br>Region <br>SourceIP <br>DestinationIP <br>SourceSubnet <br>DestinationSubnet |
 | RoundTripTimeMs | Round-trip time (ms) | Milliseconds | Average | RTT for checks sent between source and destination. This value isn't averaged. | ConnectionMonitorResourceId <br>SourceAddress <br>SourceName <br>SourceResourceId <br>SourceType <br>Protocol <br>DestinationAddress <br>DestinationName <br>DestinationResourceId <br>DestinationType <br>DestinationPort <br>TestGroupName <br>TestConfigurationName <br>Region <br>SourceIP <br>DestinationIP <br>SourceSubnet <br>DestinationSubnet |
 | TestResult | Test Result | Count | Average | Connection monitor test results. <br>Interpretation of result values: <br>0-&nbsp;Indeterminate <br>1- Pass <br>2- Warning <br>3- Fail| SourceAddress <br>SourceName <br>SourceResourceId <br>SourceType <br>Protocol <br>DestinationAddress <br>DestinationName <br>DestinationResourceId <br>DestinationType <br>DestinationPort <br>TestGroupName <br>TestConfigurationName <br>SourceIP <br>DestinationIP <br>SourceSubnet <br>DestinationSubnet |

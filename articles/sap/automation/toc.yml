@@ -55,6 +55,10 @@ items:
         href: devops-tutorial.md
       - name: Sample deployment configurations
         href: new-vs-existing.md
+    - name: Integration with other Microsoft Azure Services
+      items:
+      - name: SAP Monitoring with Azure Monitor for SAP
+        href: integration-azure-monitor-sap.md
     - name: SAP Bill of Materials
       items:
       - name: Download and prepare software media

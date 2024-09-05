@@ -129,7 +129,7 @@
   - name: Virtual machine security overview
     href: virtual-machines-overview.md
   - name: Automatic VM guest patching
-    href: ../../virtual-machines/automatic-vm-guest-patching.md?bc=%2fazure%2fsecurity%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsecurity%2ffundamentals%2ftoc.json
+    href: /azure/virtual-machines/automatic-vm-guest-patching?bc=%2fazure%2fsecurity%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsecurity%2ffundamentals%2ftoc.json
   - name: Best practices - IaaS workloads
     href: iaas.md
   - name: Azure Marketplace images
@@ -166,7 +166,7 @@
     - name: Data encryption models
       href: encryption-models.md
     - name: Managed disk encryption
-      href: ../../virtual-machines/disk-encryption-overview.md
+      href: /azure/virtual-machines/disk-encryption-overview
   - name: Database security
     items:
     - name: Overview
@@ -178,9 +178,15 @@
   - name: Storage security guide
     href: ../../storage/blobs/security-recommendations.md?toc=/azure/security/fundamentals/toc.json&bc=/azure/security/breadcrumb/toc.json
   - name: Customer Lockbox
-    href: customer-lockbox-overview.md
-  - name: Security baseline for Customer Lockbox
-    href: /security/benchmark/azure/baselines/lockbox-security-baseline?toc=/azure/security/fundamentals/TOC.json
+    items:
+    - name: Overview
+      href: customer-lockbox-overview.md
+    - name: Alternate email notifications
+      href: customer-lockbox-alternative-email.md
+    - name: FAQ
+      href: customer-lockbox-faq.yml
+    - name: Security baseline for Customer Lockbox
+      href: /security/benchmark/azure/baselines/lockbox-security-baseline?toc=/azure/security/fundamentals/TOC.json
   - name: Trusted Hardware Identity Management
     href: trusted-hardware-identity-management.md
 

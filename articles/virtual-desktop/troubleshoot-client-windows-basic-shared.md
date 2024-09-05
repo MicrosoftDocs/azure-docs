@@ -5,6 +5,7 @@ ms.topic: troubleshooting
 zone_pivot_groups: azure-virtual-desktop-windows-client-troubleshoot
 author: dknappettmsft
 ms.author: daknappe
+ms.custom: "se-defect-target"
 ms.date: 10/12/2023
 ---
 
@@ -40,7 +41,6 @@ There are a few basic troubleshooting steps you can try if you're having issues 
 
    :::image type="content" source="media/troubleshoot-client-windows-basic-shared/troubleshoot-windows-client-connection-information.png" alt-text="A screenshot showing the connection bar in the Remote Desktop client for Windows.":::
 
-1. Check the estimated connection round trip time (RTT) from your current location to the Azure Virtual Desktop service. For more information, see [Azure Virtual Desktop Experience Estimator](https://azure.microsoft.com/products/virtual-desktop/assessment/#estimation-tool)
 ::: zone-end
 
 ::: zone pivot="windows-365"

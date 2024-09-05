@@ -2,7 +2,7 @@
 title: Prepare an OT site deployment - Microsoft Defender for IoT
 description: Learn how to prepare for an OT site deployment, including understanding how many OT sensors you'll need, where they should be placed, and how they'll be managed. 
 ms.topic: install-set-up-deploy
-ms.date: 02/16/2023
+ms.date: 04/08/2024
 ---
 
 # Prepare an OT site deployment

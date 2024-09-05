@@ -4,7 +4,7 @@ description: Learn to deploy a JavaScript application to an Azure Managed CCF re
 author: msftsettiy
 ms.author: settiy
 ms.date: 09/08/2023
-ms.service: confidential-ledger
+ms.service: azure-confidential-ledger
 ms.topic: quickstart
 ms.custom: devx-track-js
 ---

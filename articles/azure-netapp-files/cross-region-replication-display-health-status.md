@@ -38,7 +38,7 @@ You can view replication status on the source volume or the destination volume. 
     ![Replication health status](./media/cross-region-replication-display-health-status/cross-region-replication-health-status.png)
 
 > [!NOTE] 
-> Replication relationship shows health status as *unhealthy* if previous replication jobs are not complete. This status is a result of large volumes being transferred with a lower transfer window (for example, a ten-minute transfer time for a large volume). In this case, the relationship status shows *transferring* and health status shows *unhealthy*.
+> Replication relationship shows health status as *unhealthy* if previous replication jobs are not complete. This status is a result of larger volumes being transferred with a lower transfer window (for example, a ten-minute transfer time for a larger volume). In this case, the relationship status shows *transferring* and health status shows *unhealthy*.
 
 ## Set alert rules to monitor replication
 

@@ -4,13 +4,15 @@ description: Reference for the authentication-managed-identity policy available 
 services: api-management
 author: dlepow
 
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: article
-ms.date: 12/06/2022
+ms.date: 07/23/2024
 ms.author: danlep
 ---
 
 # Authenticate with managed identity
+
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 
  Use the `authentication-managed-identity` policy to authenticate with a backend service using the managed identity. This policy essentially uses the managed identity to obtain an access token from Microsoft Entra ID for accessing the specified resource. After successfully obtaining the token, the policy will set the value of the token in the `Authorization` header using the `Bearer` scheme. API Management caches the token until it expires.
 
@@ -37,14 +39,17 @@ Both system-assigned identity and any of the multiple user-assigned identities c
 ## Usage
 
 - [**Policy sections:**](./api-management-howto-policies.md#sections) inbound
-- [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, workspace, product, API, operation
-- [**Gateways:**](api-management-gateways-overview.md) dedicated, consumption, self-hosted
+- [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, product, API, operation
+- [**Gateways:**](api-management-gateways-overview.md) classic, v2, consumption, self-hosted
 
 ## Examples
 
 ### Use managed identity to authenticate with a backend service
 ```xml  
 <authentication-managed-identity resource="https://graph.microsoft.com"/> 
+```
+```xml  
+<authentication-managed-identity resource="https://cognitiveservices.azure.com"/> <!--Azure OpenAI-->
 ```
 ```xml  
 <authentication-managed-identity resource="https://management.azure.com/"/> <!--Azure Resource Manager-->
@@ -63,6 +68,9 @@ Both system-assigned identity and any of the multiple user-assigned identities c
 ```
 ```xml  
 <authentication-managed-identity resource="https://database.windows.net/"/> <!--Azure SQL-->
+```
+```xml  
+<authentication-managed-identity resource="https://signalr.azure.com"/> <!--Azure SignalR-->
 ```
 
 ```xml
@@ -90,6 +98,6 @@ Both system-assigned identity and any of the multiple user-assigned identities c
 
 ## Related policies
 
-* [API Management authentication policies](api-management-authentication-policies.md)
+* [Authentication and authorization](api-management-policies.md#authentication-and-authorization)
 
 [!INCLUDE [api-management-policy-ref-next-steps](../../includes/api-management-policy-ref-next-steps.md)]

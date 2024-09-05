@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 01/10/2024
+ms.date: 05/10/2024
 ---
 
 # Connect to an SFTP file server from workflows in Azure Logic Apps
@@ -40,15 +40,14 @@ The SFTP connector has different versions, based on [logic app type and host env
 
 | Logic app type (plan) | Environment | Connector version |
 |------------------------|-------------|-------------------|
-| **Consumption** | Multi-tenant Azure Logic Apps | Managed connector, which appears in the designer under the **Standard** label. For more information, review the following documentation: <br><br>- [SFTP-SSH managed connector reference](/connectors/sftpwithssh/) <br>- [Managed connectors in Azure Logic Apps](managed.md) |
-| **Consumption** | Integration service environment (ISE) | Managed connector, which appears in the designer under the **Standard** label, and the ISE version, which appears in the designer with the **ISE** label and has different message limits than the managed connector. For more information, review the following documentation: <br><br>- [SFTP-SSH managed connector reference](/connectors/sftpwithssh/) <br>- [ISE message limits](../logic-apps/logic-apps-limits-and-config.md#message-size-limits) <br>- [Managed connectors in Azure Logic Apps](managed.md) |
-| **Standard** | Single-tenant Azure Logic Apps and App Service Environment v3 (Windows plans only) | Managed connector, which appears in the connector gallery under **Runtime** > **Shared**, and the built-in connector, which appears in the connector gallery under **Runtime** > **In-App** and is [service provider-based](../logic-apps/custom-connector-overview.md#service-provider-interface-implementation). The built-in connector can directly connect to an SFTP server and access Azure virtual networks by using a connection string without an on-premises data gateway. For more information, review the following documentation: <br><br>- [SFTP-SSH managed connector reference](/connectors/sftpwithssh/) <br>- [SFTP built-in connector reference](/azure/logic-apps/connectors/built-in/reference/sftp/) <br><br>- [Managed connectors in Azure Logic Apps](managed.md) <br>- [Built-in connectors in Azure Logic Apps](built-in.md) |
+| **Consumption** | Multitenant Azure Logic Apps | Managed connector, which appears in the connector gallery under **Runtime** > **Shared**. For more information, review the following documentation: <br><br>- [SFTP-SSH managed connector reference](/connectors/sftpwithssh/) <br>- [Managed connectors in Azure Logic Apps](managed.md) |
+| **Standard** | Single-tenant Azure Logic Apps and App Service Environment v3 (Windows plans only) | Managed connector, which appears in the connector gallery under **Runtime** > **Shared**, and built-in connector, which appears in the connector gallery under **Runtime** > **In-App** and is [service provider-based](../logic-apps/custom-connector-overview.md#service-provider-interface-implementation). The built-in connector can directly connect to an SFTP server and access Azure virtual networks by using a connection string without an on-premises data gateway. For more information, review the following documentation: <br><br>- [SFTP-SSH managed connector reference](/connectors/sftpwithssh/) <br>- [SFTP built-in connector reference](/azure/logic-apps/connectors/built-in/reference/sftp/) <br><br>- [Managed connectors in Azure Logic Apps](managed.md) <br>- [Built-in connectors in Azure Logic Apps](built-in.md) |
 
 ## General limitations
 
-* Before you use the SFTP-SSH managed connector, review the known issues and limitations in the [SFTP-SSH managed connector reference](/connectors/sftpwithssh/).
+* Before you use the SFTP-SSH managed connector, see [SFTP-SSH managed connector reference - known issues and limitations](/connectors/sftpwithssh/).
 
-* Before you use the SFTP built-in connector, review the known issues and limitations in the [SFTP built-in connector reference](/azure/logic-apps/connectors/built-in/reference/sftp/).
+* Before you use the SFTP built-in connector, see [SFTP built-in connector reference - known issues and limitations](/azure/logic-apps/connectors/built-in/reference/sftp/).
 
 <a name="known-issues"></a>
 

@@ -3,9 +3,9 @@ title: Insights for Azure Load Balancer
 description: Use the load balancer insights to achieve rapid fault localization and informed design decisions.
 services: load-balancer
 author: mbender-ms
-ms.service: load-balancer
+ms.service: azure-load-balancer
 ms.topic: conceptual
-ms.date: 05/08/2023
+ms.date: 06/26/2024
 ms.author: mbender
 ms.custom: template-concept, engagement-fy23
 ---
@@ -13,9 +13,6 @@ ms.custom: template-concept, engagement-fy23
 # Using Insights to monitor and configure your Azure Load Balancer
 
 Through Azure Monitor for networks, you're provided functional dependency visualizations and preconfigured metrics dashboard for your Load Balancers. These visuals help empower you to make informed design decisions and rapidly localize, diagnose, and resolve any faults.
-
->[!NOTE] 
->Please note this feature is in Preview and the functional dependency view and preconfigured dashboard may change to improve this experience
 
 >[!IMPORTANT]
 >The Standard Load Balancer is required to see metrics from the Load Balancer namespace in the pre-configured metrics dashboard. You will still be able to see metrics from the VM, virtual machine scale set, and Connection Monitor namespaces however, we recommend [upgrading to Standard](./upgrade-basic-standard.md) for any production workloads to take advantage of the robust set of Load Balancer metrics.
@@ -29,6 +26,8 @@ You can access this view by visiting the Insights page of your Load Balancer res
 :::image type="content" source="./media/load-balancer-insights/load-balancer-functional-dependency-visual.png" alt-text="Diagram of the functional dependency view showing connections." border="true":::
 
 For Standard Load Balancers, your backend pool resources are color-coded with Health Probe status indicating the current availability of your backend pool to serve traffic. Alongside the above topology you're presented with a time-wise graph of health status, giving a snapshot view of the health of your application.
+
+[!INCLUDE [Resource Graph](~/reusable-content/ce-skilling/azure/includes/network-watcher-resource-graph-topology.md)]
 
 ## Metrics dashboard
 
@@ -45,7 +44,8 @@ The dashboard tabs currently available are:
 * Connection Monitors
 * Metric Definitions 
 
-[!NOTE] Displays on the Flow Distribution tab are not supported for load balancer backend pools configured by IP addresses. These are virtual machine-level metrics and can be seen by from the virtual machines / VMSS resources associated with the IP addresses attached instead.
+>[!NOTE]
+>Displays on the Flow Distribution tab are not supported for load balancer backend pools configured by IP addresses. These are virtual machine-level metrics and can be seen by from the virtual machines / VMSS resources associated with the IP addresses attached instead.
 
 ### Overview tab
 

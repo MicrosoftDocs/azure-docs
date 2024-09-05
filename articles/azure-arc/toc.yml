@@ -4,6 +4,8 @@
   items:
   - name: About Azure Arc
     href: overview.md
+  - name: Choosing the right Azure Arc service
+    href: choose-service.md
 - name: Concepts
   items:
   - name: Custom locations
@@ -18,6 +20,9 @@
   - name: About Azure Arc resource bridge
     displayName: appliance
     href: ./resource-bridge/overview.md
+  - name: What's new with Arc resource bridge
+    displayName: release, notes
+    href: ./resource-bridge/release-notes.md
   - name: System requirements
     displayName: resource bridge
     href: ./resource-bridge/system-requirements.md
@@ -54,6 +59,10 @@
   displayName: stack, hci
 - name: SQL Server enabled by Azure Arc >
   href: /sql/sql-server/azure-arc/overview
+- name: Azure Arc site manager >
+  href: ./site-manager/overview.md
+- name: Multicloud connector enabled by Azure Arc >
+  href: ./multicloud-connector/overview.md
 - name: Arc validation program
   items:
    - name: Program overview

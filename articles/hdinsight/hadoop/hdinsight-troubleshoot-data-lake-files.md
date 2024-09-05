@@ -1,7 +1,7 @@
 ---
 title: Unable to access Data Lake storage files in Azure HDInsight
 description: Unable to access Data Lake storage files in Azure HDInsight
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: troubleshooting
 ms.date: 09/13/2023
 ---

@@ -3,9 +3,10 @@ title: Add an Image layer to a map | Microsoft Azure Maps
 description: Learn how to add images to a map. See how to use the Azure Maps Web SDK to customize image layers and overlay images on fixed sets of coordinates.
 author: sinnypan
 ms.author: sipa
-ms.date: 06/06/2023
+ms.date: 08/28/2024
 ms.topic: how-to
 ms.service: azure-maps
+ms.subservice: web-sdk
 ---
 
 # Add an image layer to a map
@@ -47,7 +48,7 @@ map.layers.add(new atlas.layer.ImageLayer({
 
 For a fully functional sample that shows how to overlay an image of a map of Newark New Jersey from 1922 as an Image layer, see [Simple Image Layer] in the [Azure Maps Samples]. For the source code for this sample, see [Simple Image Layer source code].
 
-:::image type="content" source="./media/map-add-image-layer/simple-image-layer.png" alt-text="A screenshot showing a map with an image of a map of Newark New Jersey from 1922 as an Image layer.":::
+:::image type="content" source="./media/map-add-image-layer/simple-image-layer.png" lightbox="./media/map-add-image-layer/simple-image-layer.png" alt-text="A screenshot showing a map with an image of a map of Newark New Jersey from 1922 as an Image layer.":::
 
 <!-----------------------------------------------------------------------------------------------
 > [!VIDEO //codepen.io/azuremaps/embed/eQodRo/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true]
@@ -61,7 +62,7 @@ The code uses the static `getCoordinatesFromEdges` function from the [ImageLayer
 
 For a fully functional sample that shows how to use a KML Ground Overlay as Image Layer, see [KML Ground Overlay as Image Layer] in the [Azure Maps Samples]. For the source code for this sample, see [KML Ground Overlay as Image Layer source code].
 
-:::image type="content" source="./media/map-add-image-layer/kml-ground-overlay-as-image-layer.png" alt-text="A screenshot showing a map with a KML Ground Overlay appearing as Image Layer.":::
+:::image type="content" source="./media/map-add-image-layer/kml-ground-overlay-as-image-layer.png" lightbox="./media/map-add-image-layer/kml-ground-overlay-as-image-layer.png" alt-text="A screenshot showing a map with a KML Ground Overlay appearing as Image Layer.":::
 
 <!-----------------------------------------------------------------------------------------------
 > [!VIDEO //codepen.io/azuremaps/embed/EOJgpj/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true]
@@ -74,7 +75,7 @@ For a fully functional sample that shows how to use a KML Ground Overlay as Imag
 
 The image layer has many styling options. For a fully functional sample that shows how the different options of the image layer affect rendering, see [Image Layer Options] in the [Azure Maps Samples]. For the source code for this sample, see [Image Layer Options source code].
 
-:::image type="content" source="./media/map-add-image-layer/image-layer-options.png" alt-text="A screenshot showing a map with a panel that has the different options of the image layer that affect rendering. In this sample, you can change styling options and see the effect it has on the map.":::
+:::image type="content" source="./media/map-add-image-layer/image-layer-options.png" lightbox="./media/map-add-image-layer/image-layer-options.png" alt-text="A screenshot showing a map with a panel that has the different options of the image layer that affect rendering. In this sample, you can change styling options and see the effect it has on the map.":::
 
 <!-----------------------------------------------------------------------------------------------
 > [!VIDEO //codepen.io/azuremaps/embed/RqOGzx/?height=700&theme-id=0&default-tab=result]

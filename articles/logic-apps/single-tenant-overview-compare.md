@@ -1,11 +1,11 @@
 ---
 title: Differences between Standard and Consumption logic apps
 description: Learn the differences between Standard workflows (single-tenant) and Consumption workflows (multitenant) in Azure Logic Apps.
-services: logic-apps
+services: azure-logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: conceptual
-ms.date: 02/15/2024
+ms.date: 08/11/2024
 ---
 
 # Differences between Standard single-tenant logic apps versus Consumption multitenant logic apps
@@ -71,7 +71,7 @@ When you use the new built-in connector operations, you create connections calle
 
 ### Direct access to resources in Azure virtual networks
 
-Workflows that run in either single-tenant Azure Logic Apps or in an *integration service environment* (ISE) can directly access secured resources such as virtual machines (VMs), other services, and systems that exist in an [Azure virtual network](../virtual-network/virtual-networks-overview.md).
+Workflows that run in either single-tenant Azure Logic Apps or in an *integration service environment (ISE)* can directly access secured resources such as virtual machines (VMs), other services, and systems that exist in an [Azure virtual network](../virtual-network/virtual-networks-overview.md).
 
 Both single-tenant Azure Logic Apps and an ISE are dedicated instances of the Azure Logic Apps service, use dedicated resources, and run separately from multitenant Azure Logic Apps. Running workflows in a dedicated instance helps reduce the impact that other Azure tenants might have on app performance, also known as the ["noisy neighbors" effect](https://en.wikipedia.org/wiki/Cloud_computing_issues#Performance_interference_and_noisy_neighbors).
 
@@ -252,6 +252,14 @@ For example, a Standard workflow has both managed connectors and built-in connec
 
 In single-tenant Azure Logic Apps, [built-in connectors with specific attributes are informally known as *service providers*](../connectors/built-in.md#service-provider-interface-implementation). Some built-in connectors support only a single way to authenticate a connection to the underlying service. Other built-in connectors can offer a choice, such as using a connection string, Microsoft Entra ID, or a managed identity. All built-in connectors run in the same process as the redesigned Azure Logic Apps runtime. For more information, review the [built-in connector list for Standard logic app workflows](../connectors/built-in.md#built-in-connectors).
 
+  > [!IMPORTANT]
+  >
+  > Make sure to correctly set up and test any service provider-based trigger to confirm successful operation. 
+  > A failed service provider-based trigger might create unnecessary scaling, which can dramatically increase your billing costs. 
+  > For example, a common mistake is setting a trigger without giving your logic app permission or access to the destination, 
+  > such as a Service Bus queue, Azure Storage blob container, and so on. Also, make sure 
+  > that you monitor such triggers at all times so you can promptly detect and fix any issues.
+
 <a name="limited-unavailable-unsupported"></a>
 
 ## Changed, limited, unavailable, or unsupported capabilities
@@ -305,9 +313,13 @@ For the **Standard** logic app workflow, these capabilities have changed, or the
 
 * **Backup and restore for workflow run history**: **Standard** logic apps currently don't support backup and restore for workflow run history.
 
-* **Deployment targets**: You can't deploy a **Standard** logic app resource to an [integration service environment (ISE)](connect-virtual-network-vnet-isolated-environment-overview.md) nor to Azure deployment slots.
+* **Deployment targets**: You can't deploy a **Standard** logic app resource to an [integration service environment (ISE)](connect-virtual-network-vnet-isolated-environment-overview.md).
+
+* **Terraform templates**: You can't use these templates with a **Standard** logic app resource for complete infrastructure deployment. For more information, see [What is Terraform on Azure](/azure/developer/terraform/overview)?
 
 * **Azure API Management**: You currently can't import a **Standard** logic app resource into Azure API Management. However, you can import a **Consumption** logic app resource.
+
+* **Authentication to backend storage**: Single-tenant Azure Logic Apps relies only on storage access keys to connect with the backend Azure Storage account. Alternative authentication methods, such as Microsoft Entra ID (Enterprise ID) and managed identity, currently aren't supported. So, when you deploy an Azure storage account alongside a **Standard** logic app, make sure that you enable storage access keys.
 
 <a name="firewall-permissions"></a>
 

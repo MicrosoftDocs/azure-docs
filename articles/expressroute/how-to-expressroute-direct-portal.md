@@ -3,9 +3,9 @@ title: 'Azure ExpressRoute: Configure ExpressRoute Direct using the Azure portal
 description: This article helps you configure ExpressRoute Direct using the Azure portal.
 services: expressroute
 author: duongau
-ms.service: expressroute
+ms.service: azure-expressroute
 ms.topic: how-to
-ms.date: 07/18/2023
+ms.date: 03/11/2024
 ms.author: duau
 
 ---
@@ -142,7 +142,6 @@ The following steps help you create an ExpressRoute circuit from the ExpressRout
 
 ### Enable ExpressRoute Direct and circuits in a different subscription
 
-1. To enroll in the preview, send an e-mail to ExpressRouteDirect@microsoft.com with the ExpressRoute Direct and target ExpressRoute circuit Azure subscription IDs. You'll receive an e-mail once the feature get enabled for your subscriptions.
 
 1. Go to the ExpressRoute Direct resource and select **Authorizations** under *Settings* in the left side menu. Then enter a name for a new authorization and select **Save**.
 

@@ -23,8 +23,8 @@ quality and ready to deploy today to assist you in meeting your various complian
 | [ISO 27001 App Service Environment/SQL Database workload](./iso27001-ase-sql-workload/index.md) | Provides more infrastructure to the [ISO 27001 Shared Services](./iso27001-shared/index.md) blueprint sample. |
 | [SWIFT CSP-CSCF v2020](./swift-2020/index.md) | Aides in SWIFT CSP-CSCF v2020 compliance. |
 | [UK OFFICIAL and UK NHS Governance](./ukofficial-uknhs.md) | Provides a set of compliant infrastructure patterns and policy guardrails that help toward UK OFFICIAL and UK NHS attestation. |
-| [CAF Foundation](./caf-foundation/index.md) | Provides a set of controls to help you manage your cloud estate in alignment with the [Microsoft Cloud Adoption Framework for Azure (CAF)](/azure/architecture/cloud-adoption/governance/journeys/index). |
-| [CAF Migrate landing zone](./caf-migrate-landing-zone/index.md) | Provides a set of controls to help you set up for migrating your first workload and manage your cloud estate in alignment with the [Microsoft Cloud Adoption Framework for Azure (CAF)](/azure/architecture/cloud-adoption/migrate/index). |
+| [CAF Foundation](./caf-foundation/index.md) | Provides a set of controls to help you manage your cloud estate in alignment with the [Microsoft Cloud Adoption Framework for Azure](/azure/architecture/cloud-adoption/governance/journeys/index). |
+| [CAF Migrate landing zone](./caf-migrate-landing-zone/index.md) | Provides a set of controls to help you set up for migrating your first workload and manage your cloud estate in alignment with the [Microsoft Cloud Adoption Framework for Azure](/azure/architecture/cloud-adoption/migrate/index). |
 
 ## Samples strategy
 

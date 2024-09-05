@@ -1,8 +1,8 @@
 ---
 ms.topic: include
-author: heidilohr
-ms.author: helohr
-ms.date: 02/14/2024
+author: sipastak
+ms.author: sipastak
+ms.date: 08/26/2024
 ---
 
 ## Supported client versions
@@ -11,15 +11,184 @@ The following table lists the current versions available for the public and Insi
 
 | Release | Latest version | Download |
 |--|--|--|
-| Public | 1.2.5112 | [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139369) *(most common)*<br />[Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139456)<br />[Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139370) |
-| Insider | 1.2.5248 | [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139233) *(most common)*<br />[Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139144)<br />[Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139368) |
+| Public | 1.2.5620 | [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139369) *(most common)*<br />[Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139456)<br />[Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139370) |
+| Insider | 1.2.5699  | [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139233) *(most common)*<br />[Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139144)<br />[Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139368) |
 
-## Updates for version 1.2.5248 (Insider)
+## Updates for version 1.2.5699 (Insider) 
 
-*Date published: February 13, 2024* 
+*Date published: August 27, 2024*   
 
 Download: [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139233), [Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139144), [Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139368)  
 
+- Made an improvement where new session windows will not become the focused windows.
+- Fixed a bug to ensure that the screen mode id setting in the RDP file is honored.
+- Fixed an issue where Teams rendered into the wrong window when multiple Remote Desktop session windows were open. 
+
+## Updates for version 1.2.5620
+
+*Date published: August 13, 2024* 
+
+Download: [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139369), [Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139456), [Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139370) 
+
+- Fixed an issue for [CVE-2024-38131](https://msrc.microsoft.com/update-guide/en-US/vulnerability/CVE-2024-38131).
+
+> [!NOTE]
+> This version replaced the Insider version 1.2.5617 and has the same release notes with the addition of the security release.  
+
+## Updates for version 1.2.5560
+
+*Date published: August 13, 2024* 
+
+Download: [Windows 64-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RW1nWz4), [Windows 32-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RW1nWz3), [Windows ARM64](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RW1nOOi) 
+
+- Fixed an issue for [CVE-2024-38131 ](https://msrc.microsoft.com/update-guide/en-US/vulnerability/CVE-2024-38131).
+
+
+## Updates for version 1.2.5617
+
+*Date published: July 23, 2024* 
+
+In this release, we made the following changes:
+
+- Stability and security improvements for printer redirections. 
+- Improved experience for SSO Lock Screen dialogs.   
+- Fixed an issue with SSO login failure. 
+- Fixed an issue causing the client to crash on disconnect. 
+
+## Updates for version 1.2.5559
+
+*Date published: July 17, 2024* 
+
+> [!NOTE]
+> This version replaced 1.2.5552 and has the same release notes. 
+
+## Updates for version 1.2.5552
+
+*Date published: July 2, 2024* 
+
+In this release, we made the following changes:
+
+- Fixed an issue where users who were connecting using [protocol launch](../uri-scheme.md) had to complete two MFA prompts.
+
+> [!NOTE]
+>- This Insider release was originally version 1.2.5550, but we made a change to fix an issue with double MFA prompts and re-released as version 1.2.5552. This version contains all the changes made in 1.2.5550. 
+>- This version was released as a public version on July 2, 2024, but was replaced by version 1.2.5559 on July 17, 2024.  
+
+
+## Updates for version 1.2.5550
+
+*Date published: June 25, 2024* 
+
+In this release, we made the following changes:
+
+- Fixed an issue where a minimized RemoteApp window will maximize when the lock screen timer runs out for a RemoteApp session.
+- Improved usability of the connection bar by reducing the amount of time it displays on the screen after the mouse moves away.
+
+## Updates for version 1.2.5454
+
+*Date published: June 11, 2024* 
+
+In this release, we made the following changes:
+
+- Fixed an issue where the client crashed when a session is disconnected. 
+
+> [!NOTE]
+> > This Insider release was originally version 1.2.5453, but we made this change and re-released it as version 1.2.5454. This version contains all the changes made in 1.2.5450, 1.2.5452, and 1.2.5453.
+
+## Updates for version 1.2.5453  
+
+*Date published: June 4, 2024* 
+
+In this release, we made the following changes:
+
+- Fixed an issue where the client crashed when responding to an incoming Microsoft Teams call.  
+
+> [!NOTE]
+> This Insider release was originally version 1.2.5452, but we made this change and re-released it as 1.2.5453. This version contains all of the changes made in 1.2.5450 and 1.2.5452. 
+
+## Updates for version 1.2.5452
+
+*Date published: May 29, 2024* 
+
+In this release, we made the following changes:
+
+- Improved the graphics presentation latency.
+
+> [!NOTE]
+> This Insider release was originally version 1.2.5450, but we made this change and re-released it as 1.2.5452. This version contains all of the changes made in 1.2.5450. 
+
+## Updates for version 1.2.5450  
+
+*Date published: May 21, 2024* 
+
+In this release, we made the following changes:
+
+- When subscribing to feeds via URL, all message states for the status message box can be announced by screen readers. 
+- When users search for workspaces via URL, they now see the searching status when entering URL-formatted input and receive an error if results are not found. 
+- Improved error messaging for end users when their saved credentials expire. 
+- Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues. 
+
+## Updates for version 1.2.5405
+
+*Date published: April 17, 2024*
+
+In this release, we made the following changes:
+
+- Fixed an issue that made the multifactor authentication (MFA) prompt appear twice when users tried to connect to a resource 
+- Fixed an issue that caused an extra string to appear next to a user's tenant URL.
+- Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues. 
+
+## Updates for version 1.2.5331
+
+*Date published: April 18, 2024*
+
+In this release, we've made the following changes:
+
+- Fixed an issue that caused the RemoteApp window to appear stretched.
+- When users enter text into the email or URL field to search for a workspace while subscribing to a feed, screen readers now announce whether the client can find the workspace.
+- Fixed an issue that made the MFA prompt appear twice when users tried to connect to a resource 
+- Fixed an issue that caused an extra string to appear next to a user's tenant URL.
+- Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues.
+
+> [!NOTE]
+> This release was originally version 1.2.5326, but we made a hotfix after receiving user reports about issues that affected the MFA prompt and tenant URLs. Version 1.2.5331, which fixes these issues, has replaced version 1.2.5326.
+
+## Updates for version 1.2.5255
+
+*Date published: March 11, 2024*
+
+> [!NOTE]
+> This version includes all the latest updates made in public build [1.2.5252](#updates-for-version-125252) and Insider builds [1.2.5248](#updates-for-version-125248) and [1.2.5126](#updates-for-version-125126). 
+
+In this release, we've made the following change:
+
+- Fixed an issue that caused connections to stop working when users tried to connect from a Private Network to Azure Virtual Desktop environment.
+
+## Updates for version 1.2.5254
+
+*Date published: March 6, 2024*
+
+>[!NOTE]
+>This version replaced [1.2.5252](#updates-for-version-125252) and has the same release notes as [version 1.2.5112](#updates-for-version-125112). 
+
+## Updates for version 1.2.5252
+
+*Date published: February 29, 2024*
+
+>[!NOTE]
+>This version was released as a Public version on March 5, 2024 but was replaced by [version 1.2.5254](#updates-for-version-125254) on March 6, 2024.
+
+In this release, we've made the following changes:
+
+- Devices no longer go into idle mode when video playback is active. 
+- Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues.
+
+## Updates for version 1.2.5248
+
+*Date published: February 13, 2024*
+
+>[!NOTE]
+>This version was an Insiders version that was replaced by version 1.2.5252 and never released to Public.
 In this release, we've made the following changes:
 
 - Fixed an issue that caused artifacts to appear on the screen during RemoteApp sessions.
@@ -33,7 +202,6 @@ In this release, we've made the following changes:
 
 >[!NOTE]
 >This version was an Insiders version that was replaced by version 1.2.5248 and never released to Public.
-
 In this release, we've made the following changes:
 
 - Fixed the regression that caused a display issue when a user selects monitors for their session. 
@@ -46,8 +214,6 @@ In this release, we've made the following changes:
 
 *Published: February 7, 2024*
 
-Download: [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139369), [Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139456), [Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139370)
-
 In this release, we've made the following changes:
 
 - Fixed the regression that caused a display issue when a user selects monitors for their session.
@@ -55,8 +221,6 @@ In this release, we've made the following changes:
 ## Updates for version 1.2.5105
 
 *Published: January 9, 2024*
-
-Download: [Windows 64-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RW1gq9I), [Windows 32-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RW1gxVu), [Windows ARM64](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RW1gnAc)
 
 In this release, we've made the following changes:
 
@@ -560,7 +724,7 @@ In this release, we've made the following changes:
 - Added updates to Teams on Azure Virtual Desktop, including:
   - Fixed an issue that caused the screen to turn black when Direct X wasn't available for hardware decoding.
   - Fixed a software decoding and camera preview issue that happened when falling back to software decode.
-- [Multimedia redirection for Azure Virtual Desktop](../multimedia-redirection.md) is now in public preview.
+- [Multimedia redirection for Azure Virtual Desktop](../multimedia-redirection.md) is now in preview.
 
 ## Updates for version 1.2.2223
 

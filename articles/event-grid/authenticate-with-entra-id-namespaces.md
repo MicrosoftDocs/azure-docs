@@ -56,7 +56,7 @@ Once you have an application security principal and followed above steps, [assig
 
 ## Assign permission to a security principal to publish events
 
-The identity used to publish events to Event Grid must have the permission ``Microsoft.EventGrid/events/send/action`` that allows it to send events to Event Grid. That permission is included in the built-in RBAC role [Event Grid Data Sender](../role-based-access-control/built-in-roles.md#eventgrid-data-sender). This role can be assigned to a [security principal](../role-based-access-control/overview.md#security-principal), for a given [scope](../role-based-access-control/overview.md#scope), which can be a management group, an Azure subscription, a resource group, or a specific Event Grid topic, domain, or partner namespace. Follow the steps in [Assign Azure roles](../role-based-access-control/role-assignments-portal.md?tabs=current) to assign a security principal the **EventGrid Data Sender** role and in that way grant an application using that security principal access to send events. Alternatively, you can define a [custom role](../role-based-access-control/custom-roles.md) that includes the ``Microsoft.EventGrid/events/send/action`` permission and assign that custom role to your security principal.
+The identity used to publish events to Event Grid must have the permission ``Microsoft.EventGrid/events/send/action`` that allows it to send events to Event Grid. That permission is included in the built-in RBAC role [Event Grid Data Sender](../role-based-access-control/built-in-roles.md#eventgrid-data-sender). This role can be assigned to a [security principal](../role-based-access-control/overview.md#security-principal), for a given [scope](../role-based-access-control/overview.md#scope), which can be a management group, an Azure subscription, a resource group, or a specific Event Grid topic, domain, or partner namespace. Follow the steps in [Assign Azure roles](../role-based-access-control/role-assignments-portal.yml?tabs=current) to assign a security principal the **EventGrid Data Sender** role and in that way grant an application using that security principal access to send events. Alternatively, you can define a [custom role](../role-based-access-control/custom-roles.md) that includes the ``Microsoft.EventGrid/events/send/action`` permission and assign that custom role to your security principal.
 
 With RBAC privileges taken care of, you can now [build your client application to send events](#publish-events-using-event-grids-client-sdks) to Event Grid.
 
@@ -85,7 +85,7 @@ EventGridEvent egEvent = new EventGridEvent(
 await client.SendEventAsync(egEvent);
 ```
 
-### Prerequisites
+### SDKs
 
 Following are the prerequisites to authenticate to Event Grid.
 
@@ -124,61 +124,6 @@ For more information, see the following articles:
 - [Azure Event Grid client library for JavaScript](/javascript/api/overview/azure/eventgrid-readme)
 - [Azure Event Grid client library for Python](/python/api/overview/azure/eventgrid-readme)
 
-## Disable key and shared access signature authentication
-
-Microsoft Entra authentication provides a superior authentication support than that's offered by access key or Shared Access Signature (SAS) token authentication. With Microsoft Entra authentication, the identity is validated against Microsoft Entra identity provider. As a developer, you won't have to handle keys in your code if you use Microsoft Entra authentication. You'll also benefit from all security features built into the Microsoft Identity platform, such as [Conditional Access](/entra/identity/conditional-access/overview) that can help you improve your application's security stance. 
-
-Once you decide to use Microsoft Entra authentication, you can disable authentication based on access keys or SAS tokens. 
-
-> [!NOTE]
-> Acess keys or SAS token authentication is a form of **local authentication**. you'll hear sometimes referring to "local auth" when discussing this category of authentication mechanisms that don't rely on Microsoft Entra ID. The API parameter used to disable local authentication is called, appropriately so, ``disableLocalAuth``.
-
-### Azure portal
-
-When creating a new topic, you can disable local authentication on the **Advanced** tab of the **Create Topic** page. 
-
-:::image type="content" source="./media/authenticate-with-microsoft-entra-id/create-topic-disable-local-auth.png" alt-text="Screenshot showing the Advanced tab of Create Topic page when you can disable local authentication.":::
-
-For an existing topic, following these steps to disable local authentication:
-
-1. Navigate to the **Event Grid Topic** page for the topic, and select **Enabled** under **Local Authentication**
-
-    :::image type="content" source="./media/authenticate-with-microsoft-entra-id/existing-topic-local-auth.png" alt-text="Screenshot showing the Overview page of an existing topic.":::
-2. In the **Local Authentication** popup window, select **Disabled**, and select **OK**.
-
-    :::image type="content" source="./media/authenticate-with-microsoft-entra-id/local-auth-popup.png" alt-text="Screenshot showing the Local Authentication window.":::
-
-
-### Azure CLI
-The following CLI command shows the way to create a custom topic with local authentication disabled. The disable local auth feature is currently available as a preview and you need to use API version ``2021-06-01-preview``.
-
-```cli
-az resource create --subscription <subscriptionId> --resource-group <resourceGroup> --resource-type Microsoft.EventGrid/topics --api-version 2021-06-01-preview --name <topicName> --location <location> --properties "{ \"disableLocalAuth\": true}"
-```
-
-For your reference, the following are the resource type values that you can use according to the topic you're creating or updating.
-
-| Topic type        | Resource type                        |
-| ------------------| :------------------------------------|
-| Domains           | Microsoft.EventGrid/domains          |
-| Partner Namespace | Microsoft.EventGrid/partnerNamespaces|
-| Custom Topic      | Microsoft.EventGrid/topics           |
-
-### Azure PowerShell
-
-If you're using PowerShell, use the following cmdlets to create a custom topic with local authentication disabled. 
-
-```PowerShell
-
-Set-AzContext -SubscriptionId <SubscriptionId>
-
-New-AzResource -ResourceGroupName <ResourceGroupName> -ResourceType Microsoft.EventGrid/topics -ApiVersion 2021-06-01-preview -ResourceName <TopicName> -Location <Location> -Properties @{disableLocalAuth=$true}
-```
-
-> [!NOTE]
-> - To learn about using the access key or shared access signature authentication, see [Authenticate publishing clients with keys or SAS tokens](security-authenticate-publishing-clients.md)
-> - This article deals with authentication when publishing events to Event Grid (event ingress). Authenticating Event Grid when delivering events (event egress) is the subject of article [Authenticate event delivery to event handlers](security-authentication.md). 
-
 ## Resources
 - Data plane SDKs
     - Java SDK: [GitHub](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/eventgrid/azure-messaging-eventgrid) | [samples](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/eventgrid/azure-messaging-eventgrid/src/samples/java/com/azure/messaging/eventgrid) | [migration guide from previous SDK version](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventgrid/azure-messaging-eventgrid/migration-guide.md)
@@ -197,7 +142,7 @@ New-AzResource -ResourceGroupName <ResourceGroupName> -ResourceType Microsoft.Ev
 - Learn about [registering an application with the Microsoft Identity platform](/entra/identity-platform/quickstart-register-app).
 - Learn about how [authorization](../role-based-access-control/overview.md) (RBAC access control) works.
 - Learn about Event Grid built-in RBAC roles including its [Event Grid Data Sender](../role-based-access-control/built-in-roles.md#eventgrid-data-sender) role. [Event Grid's roles list](security-authorization.md#built-in-roles).
-- Learn about [assigning RBAC roles](../role-based-access-control/role-assignments-portal.md?tabs=current) to identities.
+- Learn about [assigning RBAC roles](../role-based-access-control/role-assignments-portal.yml?tabs=current) to identities.
 - Learn about how to define [custom RBAC roles](../role-based-access-control/custom-roles.md).
 - Learn about [application and service principal objects in Microsoft Entra ID](/entra/identity-platform/app-objects-and-service-principals).
 - Learn about [Microsoft Identity Platform access tokens](/entra/identity-platform/access-tokens).

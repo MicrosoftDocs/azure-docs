@@ -3,7 +3,7 @@ title: 'Azure ExpressRoute: Add IPv6 support using the Azure portal'
 description: Learn how to add IPv6 support to connect to Azure deployments using the Azure portal.
 services: expressroute
 author: duongau
-ms.service: expressroute
+ms.service: azure-expressroute
 ms.topic: how-to
 ms.date: 12/11/2023
 ms.author: duau
@@ -80,7 +80,8 @@ Follow these steps if you plan to connect to a new set of Azure resources using 
 While IPv6 support is available for connections to deployments in global Azure regions, it doesn't support the following use cases:
 
 * Connections to *existing* ExpressRoute gateways that aren't zone-redundant. *Newly* created ExpressRoute gateways of any SKU (both zone-redundant and not) using  a Standard, Static IP address can be used for dual-stack ExpressRoute connections
-* Use of ExpressRoute with virtual WAN
+* Use of ExpressRoute with Virtual WAN
+* Use of ExpressRoute with [Route Server](../route-server/route-server-faq.md#does-azure-route-server-support-ipv6)
 * FastPath with non-ExpressRoute Direct circuits
 * FastPath with circuits in the following peering locations: Dubai
 * Coexistence with VPN Gateway for IPv6 traffic. You can still configure coexistence with VPN Gateway in a dual-stack virtual network, but VPN Gateway only supports IPv4 traffic.

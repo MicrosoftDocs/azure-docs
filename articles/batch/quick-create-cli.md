@@ -14,7 +14,7 @@ After you complete this quickstart, you understand the [key concepts of the Batc
 
 ## Prerequisites
 
-- [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+- [!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 - Azure Cloud Shell or Azure CLI.
 

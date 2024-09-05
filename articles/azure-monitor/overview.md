@@ -4,7 +4,7 @@ description: Overview of Microsoft services and functionalities that contribute 
 ms.topic: overview
 author: rboucher
 ms.author: robb
-ms.date: 02/05/2024
+ms.date: 07/15/2024
 ms.reviewer: robb
 ---
 # Azure Monitor overview
@@ -74,7 +74,7 @@ Azure Monitor collects these types of data:
 |Data Type|Description and subtypes|
 |---------|-----------|
 |App/Workloads |**App**- Application performance, health, and activity data. <br/><br/>**Workloads** - IaaS workloads such as SQL server, Oracle or SAP running on a hosted Virtual Machine.|
-|Infrastructure|**Container** - Data about containers, such as [Azure Kubernetes Service](../aks/intro-kubernetes.md), [Prometheus](./essentials/prometheus-metrics-overview.md), and the applications running inside containers.<br><br>**Operating system** - Data about the guest operating system on which your application is running.|
+|Infrastructure|**Container** - Data about containers, such as [Azure Kubernetes Service](/azure/aks/intro-kubernetes), [Prometheus](./essentials/prometheus-metrics-overview.md), and the applications running inside containers.<br><br>**Operating system** - Data about the guest operating system on which your application is running.|
 |Azure Platform|**Azure resource** - Data about the operation of an Azure resource from inside the resource, including changes. Resource Logs are one example. <br><br>**Azure subscription** - The operation and management of an Azure subscription, and data about the health and operation of Azure itself. The activity log is one example.<br><br>**Azure tenant** - Data about the operation of tenant-level Azure services, such as Microsoft Entra ID.<br> |
 |Custom Sources| Data that gets into the system using the <br/> - Azure Monitor REST API <br/> - Data Collection API |
 
@@ -225,7 +225,7 @@ You may need to integrate Azure Monitor with other systems or to build custom so
 |---------|---------|
 |[Event Hubs](../event-hubs/event-hubs-about.md)|Azure Event Hubs is a streaming platform and event ingestion service. It can transform and store data by using any real-time analytics provider or batching/storage adapters. Use Event Hubs to stream Azure Monitor data to partner SIEM and monitoring tools.|
 |[Azure Storage](../storage/common/storage-introduction.md)| Export data to Azure storage for less expensive, long-term archival of monitoring data for auditing or compliance purposes. 
-|Hosted and Managed Partners | Many external partners integrate with Azure Monitor. Azure Monitor has partnered with other monitoring providers to provide an [Azure-hosted version of their products](/azure/partner-solutions/partners) to make interoperability easier. Examples include Elastic, Datadog, Logz.io, and Dynatrace. 
+|[Hosted and Managed Partners](/azure/partner-solutions/partners##observability) | Many external partners integrate with Azure Monitor. Azure Monitor has also partnered with a few monitoring providers to provide an [Azure-hosted version of their products](/azure/partner-solutions/partners#observability) to make interoperability easier. Examples include Elastic, Datadog, Logz.io, and Dynatrace. 
 |[API](/rest/api/monitor/)|Multiple APIs are available to read and write metrics and logs to and from Azure Monitor in addition to accessing generated alerts. You can also configure and retrieve alerts. With APIs, you have unlimited possibilities to build custom solutions that integrate with Azure Monitor.|
 |[Azure Logic Apps](../logic-apps/logic-apps-overview.md)|Azure Logic Apps is a service you can use to automate tasks and business processes by using workflows that integrate with different systems and services with little or no code. Activities are available that read and write metrics and logs in Azure Monitor. You can use Logic Apps to [customize responses and perform other actions in response to Azure Monitor alerts](alerts/alerts-logic-apps.md).  You can also perform other [more complex actions](logs/logicapp-flow-connector.md) when the Azure Monitor infrastructure doesn't already supply a built-it method.|
 |[Azure Functions](../azure-functions/functions-overview.md)| Similar to Azure Logic Apps, Azure Functions give you the ability to preprocess and post process monitoring data and perform complex action beyond the scope of typical Azure Monitor alerts. Azure Functions uses code however providing additional flexibility over Logic Apps.
@@ -236,9 +236,9 @@ Additional integrations not shown in the diagram that may be of interest.
 
 | Integration | Description |
 |----|----|
-| [Defender for the Cloud](../defender-for-cloud/defender-for-cloud-introduction.md) | Collect and analyze security events and perform threat analysis. See [Data collection in Defender for the Cloud](../defender-for-cloud/monitoring-components.md). |
+| [Defender for the Cloud](/azure/defender-for-cloud/defender-for-cloud-introduction) | Collect and analyze security events and perform threat analysis. See [Data collection in Defender for the Cloud](/azure/defender-for-cloud/monitoring-components). |
 | [Microsoft Sentinel](../sentinel/index.yml) | Connect to different sources including Office 365 and Amazon Web Services Cloud Trail. See [Connect data sources](../sentinel/connect-data-sources.md). |
-| [Microsoft Intune](/intune/) | Create a diagnostic setting to send logs to Azure Monitor. See [Send log data to storage, Event Hubs, or log analytics in Intune (preview)](/mem/intune/fundamentals/review-logs-using-azure-monitor).  |
+| [Microsoft Intune](/mem/intune/fundamentals/what-is-intune) | Create a diagnostic setting to send logs to Azure Monitor. See [Send log data to storage, Event Hubs, or log analytics in Intune (preview)](/mem/intune/fundamentals/review-logs-using-azure-monitor).  |
 | [ITSM](alerts/itsmc-overview.md) | The [IT Service Management (ITSM) Connector](./alerts/itsmc-overview.md) allows you to connect Azure and a supported ITSM product/service.   |
 
 These are just a few options. There are many more third party companies that integrate with Azure and Azure Monitor at various levels. Use your favorite search engine to locate them. 

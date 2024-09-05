@@ -4,17 +4,17 @@ description: Learn how to delegate user registration and product subscription to
 author: dlepow
 services: api-management
 
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: article
-ms.date: 08/07/2023
+ms.date: 06/24/2024
 ms.author: danlep
 ---
 
 # How to delegate user registration and product subscription
 
-Delegation enables your website to own the user data and perform custom validation. With delegation, you can handle developer sign-in/sign-up (and related account management operations) and product subscription using your existing website, instead of the developer portal's built-in functionality. 
+[!INCLUDE [premium-dev-standard-basic-standardv2-basicv2.md](../../includes/api-management-availability-premium-dev-standard-basic-standardv2-basicv2.md)]
 
-[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
+Delegation enables your website to own the user data and perform custom validation. With delegation, you can handle developer sign-in/sign-up (and related account management operations) and product subscription using your existing website, instead of the developer portal's built-in functionality. 
 
 ## Delegating developer sign-in and sign-up
 
@@ -29,8 +29,8 @@ The final workflow will be:
 
 ### Set up API Management to route requests via delegation endpoint
 
-1. In the Azure portal, search for **Developer portal** in your API Management resource.
-1. Click the **Delegation** item. 
+1. In the [Azure portal](https://portal.azure.com), navigate to your API Management instance.
+1. In the left menu, under **Developer portal**, select **Delegation**. 
 1. Click the checkbox to enable **Delegate sign-in & sign-up**.
 
     :::image type="content" source="media/api-management-howto-setup-delegation/api-management-delegation-signin-up.png" alt-text="Screenshot showing delegation of sign-in and sign-up in the portal.":::
@@ -196,7 +196,7 @@ var signature = digest.toString('base64');
 ```
 
 > [!IMPORTANT]
-> You need to [republish the developer portal](api-management-howto-developer-portal-customize.md#publish) for the delegation changes to take effect.
+> You need to [republish the developer portal](developer-portal-overview.md#publish-the-portal) for the delegation changes to take effect.
 
 ## Next steps
 - [Learn more about the developer portal.](api-management-howto-developer-portal.md)

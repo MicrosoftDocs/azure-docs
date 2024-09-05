@@ -1,18 +1,21 @@
 ---
 title: Silent installation of Azure Backup Server V4
 description: Use a PowerShell script to silently install Azure Backup Server V4. This kind of installation is also called an unattended installation.
-ms.topic: conceptual
-ms.date: 11/13/2018
+ms.service: azure-backup
+ms.topic: how-to
+ms.date: 04/18/2024
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
 # Run an unattended installation of Azure Backup Server
 
-Learn how to run an unattended installation of Azure Backup Server.
+This article describes how to run an unattended installation of Azure Backup Server.
 
 These steps don't apply if you're installing older version of Azure Backup Server like MABS V1, V2 and V3.
 
 ## Install Backup Server
+
+To install the Backup Server, run the following command:
 
 1. Ensure that there's a directory under Program Files called "Microsoft Azure Recovery Services Agent" by running the following command in an elevated command prompt.
    ```cmd

@@ -1,7 +1,7 @@
 ---
 title: Broker fails to start due to a full disk in Azure HDInsight
 description: Troubleshooting steps for Apache Kafka broker process that can't start due to disk full error. 
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: troubleshooting
 author: yeturis
 ms.author: sairamyeturi 

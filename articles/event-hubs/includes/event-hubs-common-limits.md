@@ -2,7 +2,7 @@
 title: include file
 description: include file
 author: spelluru
-ms.service: event-hubs
+ms.service: azure-event-hubs
 ms.topic: include
 ms.date: 05/10/2021
 ms.author: spelluru

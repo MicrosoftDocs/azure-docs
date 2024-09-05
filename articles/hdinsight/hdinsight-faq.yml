@@ -5,7 +5,7 @@ metadata:
   keywords: frequently asked questions, faq
   author: reachnijel
   ms.author: nijelsf
-  ms.service: hdinsight
+  ms.service: azure-hdinsight
   ms.custom: hdinsightactive
   ms.topic: faq
   ms.date: 02/21/2024
@@ -83,18 +83,18 @@ sections:
           1. Open the Ambari Web UI at `https://CLUSTERNAME.azurehdinsight.net`, where CLUSTERNAME is the name of your cluster.
           2. In the upper-right corner, select admin | Settings. 
           
-             :::image type="content" source="media/hdinsight-faq/ambari-settings.png" alt-text="Ambari Settings":::
+             :::image type="content" source="media/hdinsight-faq/ambari-settings.png" alt-text="Ambari Settings.":::
           
           3. In the User Settings window, select the new timezone from the Timezone drop down, and then click Save.
           
-             :::image type="content" source="media/hdinsight-faq/ambari-user-settings.png" alt-text="Ambari User Settings":::
+             :::image type="content" source="media/hdinsight-faq/ambari-user-settings.png" alt-text="Ambari User Settings.":::
           
   - name: Metastore
     questions:
       - question: |
           How can I migrate from the existing metastore to Azure SQL Database? 
         answer: |
-          To migrate from SQL Server to Azure SQL Database, see [Tutorial: Migrate SQL Server to a single database or pooled database in Azure SQL Database offline using DMS](../dms/tutorial-sql-server-to-azure-sql.md).
+          To migrate from SQL Server to Azure SQL Database, see [Tutorial: Migrate SQL Server to a single database or pooled database in Azure SQL Database offline using DMS](/azure/dms/tutorial-sql-server-to-azure-sql).
           
       - question: |
           Is the Hive metastore deleted when the cluster is deleted?

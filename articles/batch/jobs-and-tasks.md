@@ -2,8 +2,7 @@
 title: Jobs and tasks in Azure Batch
 description: Learn about jobs and tasks and how they are used in an Azure Batch workflow from a development standpoint.
 ms.topic: conceptual
-ms.date: 06/11/2021
-
+ms.date: 06/13/2024
 ---
 # Jobs and tasks in Azure Batch
 
@@ -17,7 +16,7 @@ A job specifies the [pool](nodes-and-pools.md#pools) in which the work is to be 
 
 ### Job priority
 
-You can assign an optional job priority to jobs that you create. The Batch service uses the priority value of the job to determine the order of scheduling (for all tasks within the job) wtihin each pool.
+You can assign an optional job priority to jobs that you create. The Batch service uses the priority value of the job to determine the order of scheduling (for all tasks within the job) within each pool.
 
 To update the priority of a job, call the [Update the properties of a job](/rest/api/batchservice/job/update) operation (Batch REST), or modify the [CloudJob.Priority](/dotnet/api/microsoft.azure.batch.cloudjob.priority) (Batch .NET). Priority values range from -1000 (lowest priority) to +1000 (highest priority).
 
@@ -145,13 +144,13 @@ With task dependencies, you can configure scenarios like the following:
 - *taskC* depends on both *taskA* and *taskB*.
 - *taskD* depends on a range of tasks, such as tasks *1* through *10*, before it executes.
 
-For more details, see [Task dependencies in Azure Batch](batch-task-dependencies.md) and the [TaskDependencies](https://github.com/Azure-Samples/azure-batch-samples/tree/master/CSharp/ArticleProjects/TaskDependencies) code sample in the [azure-batch-samples](https://github.com/Azure-Samples/azure-batch-samples) GitHub repository.
+For more information, see [Task dependencies in Azure Batch](batch-task-dependencies.md) and the [TaskDependencies](https://github.com/Azure-Samples/azure-batch-samples/tree/master/CSharp/ArticleProjects/TaskDependencies) code sample in the [azure-batch-samples](https://github.com/Azure-Samples/azure-batch-samples) GitHub repository.
 
 ### Environment settings for tasks
 
 Each task executed by the Batch service has access to environment variables that it sets on compute nodes. This includes [environment variables defined by the Batch service](./batch-compute-node-environment-variables.md) and custom environment variables that you can define for your tasks. Applications and scripts that your tasks execute have access to these environment variables during execution.
 
-You can set custom environment variables at the task or job level by populating the *environment settings* property for these entities. For more details, see the [Add a task to a job](/rest/api/batchservice/task/add?) operation (Batch REST), or the [CloudTask.EnvironmentSettings](/dotnet/api/microsoft.azure.batch.cloudtask.environmentsettings) and [CloudJob.CommonEnvironmentSettings](/dotnet/api/microsoft.azure.batch.cloudjob.commonenvironmentsettings) properties in Batch .NET.
+You can set custom environment variables at the task or job level by populating the *environment settings* property for these entities. For more information, see the [Add a task to a job](/rest/api/batchservice/task/add?) operation (Batch REST), or the [CloudTask.EnvironmentSettings](/dotnet/api/microsoft.azure.batch.cloudtask.environmentsettings) and [CloudJob.CommonEnvironmentSettings](/dotnet/api/microsoft.azure.batch.cloudjob.commonenvironmentsettings) properties in Batch .NET.
 
 Your client application or service can obtain a task's environment variables, both service-defined and custom, by using the [Get information about a task](/rest/api/batchservice/task/get) operation (Batch REST) or by accessing the [CloudTask.EnvironmentSettings](/dotnet/api/microsoft.azure.batch.cloudtask.environmentsettings) property (Batch .NET). Processes executing on a compute node can access these and other environment variables on the node, for example, by using the familiar `%VARIABLE_NAME%` (Windows) or `$VARIABLE_NAME` (Linux) syntax.
 

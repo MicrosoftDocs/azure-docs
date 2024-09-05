@@ -3,7 +3,7 @@ title: 'Azure ExpressRoute: Reset circuit peering using Azure PowerShell'
 description: Learn how to enable and disable peerings for an Azure ExpressRoute circuit using Azure PowerShell.
 services: expressroute
 author:  duongau
-ms.service: expressroute
+ms.service: azure-expressroute
 ms.custom: devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 12/28/2023

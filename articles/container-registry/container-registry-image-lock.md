@@ -5,7 +5,7 @@ ms.topic: article
 ms.custom: devx-track-azurecli
 author: tejaswikolli-web
 ms.author: tejaswikolli
-ms.service: container-registry
+ms.service: azure-container-registry
 ms.date: 10/31/2023
 ---
 
@@ -181,12 +181,20 @@ az acr repository update \
     --delete-enabled true --write-enabled true
 ```
 
-To restore the default behavior of the *myrepo* repository and all images so that they can be deleted and updated, run the following command:
+To restore the default behavior of the *myrepo* repository, enabling individual images to be deleted and updated, run the following command:
 
 ```azurecli
 az acr repository update \
     --name myregistry --repository myrepo \
     --delete-enabled true --write-enabled true
+```
+
+However, if there is a lock on the manifest, you need to run an additional command to unlock the manifest.
+    
+```azurecli
+az acr repository update \
+   --name myregistry --image $repo@$digest \
+   --delete-enabled true --write-enabled true
 ```
 
 ## Next steps

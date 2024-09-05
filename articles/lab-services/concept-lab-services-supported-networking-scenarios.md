@@ -3,14 +3,16 @@ title: Supported networking scenarios
 titleSuffix: Azure Lab Services
 description: Learn about the supported networking scenarios and architectures for lab plans in Azure Lab Services.
 services: lab-services
-ms.service: lab-services
-author: ntrogh
-ms.author: nicktrog
+ms.service: azure-lab-services
+author: RoseHJM
+ms.author: rosemalcolm
 ms.topic: conceptual
 ms.date: 06/20/2023
 ---
 
 # Supported networking scenarios for lab plans in Azure Lab Services
+
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
 
 With Azure Lab Services advanced networking for lab plans you can implement various network architectures and topologies. This article lists  different networking scenarios and their support in Azure Lab Services.
 

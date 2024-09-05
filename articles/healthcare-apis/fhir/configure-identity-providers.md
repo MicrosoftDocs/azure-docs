@@ -3,7 +3,7 @@ title: Configure multiple service identity providers for the FHIR service in Azu
 description: Learn how to configure multiple identity providers for the FHIR service in Azure Health Data Services by using OpenID Connect and SMART on FHIR v1 Scopes.
 services: healthcare-apis
 author: namalu
-ms.service: healthcare-apis
+ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.custom: devx-track-arm-template
 ms.topic: tutorial
@@ -74,7 +74,7 @@ https://yourIdentityProvider.com/authority/v2.0/.well-known/openid-configuration
 
 #### Configure the `applications` array
 
-You must include at least one application configuration and at most two in the `applications` array. Each application configuration has values that validate access token claims and an array that defines the permissions for the application to access FHIR resources.
+You must include at least one application configuration and can add upto 25 applications in the `applications` array. Each application configuration has values that validate access token claims and an array that defines the permissions for the application to access FHIR resources.
 
 #### Identify the application with the `clientId` string
 

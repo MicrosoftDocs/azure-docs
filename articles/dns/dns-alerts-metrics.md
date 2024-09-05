@@ -4,7 +4,7 @@ description: With this learning path, get started with Azure DNS metrics and ale
 services: dns
 author: greg-lindsay
 manager: kumudD
-ms.service: dns
+ms.service: azure-dns
 ms.topic: article
 ms.date: 11/30/2023
 ms.author: greglin

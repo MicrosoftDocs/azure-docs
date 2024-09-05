@@ -3,7 +3,7 @@ title: Access a storage account using SFTP over an Azure Firewall static public 
 description: In this article, you use Azure PowerShell to deploy Azure Firewall to access a storage account container via SFTP.
 services: firewall
 author: vhorne
-ms.service: firewall
+ms.service: azure-firewall
 ms.topic: how-to
 ms.date: 04/27/2023
 ms.author: harjsing 
@@ -14,7 +14,7 @@ ms.custom: devx-track-azurepowershell
 
 You can use Azure Firewall to access a storage account container via SFTP. Azure PowerShell is used to deploy a firewall in a virtual network and configured with DNAT rules to translate the SFTP traffic to the storage account container. The storage account container is configured with a private endpoint to allow access from the firewall. To connect to the container, you use the firewall public IP address and the storage account container name.
 
-:::image type="content" source="media/firewall-sftp/accessing-storage-using-sftp.png" alt-text="Diagram showing SFTP to firewall to access a storage account container.":::
+:::image type="content" source="media/firewall-sftp/accessing-storage-using-sftp.png" alt-text="Diagram showing SFTP to firewall to access a storage account container." lightbox="media/firewall-sftp/accessing-storage-using-sftp.png":::
 
 In this article, you:
 
@@ -28,7 +28,7 @@ In this article, you:
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 This article requires the latest Azure PowerShell modules. Run `Get-Module -ListAvailable Az` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azure-powershell). If you're running PowerShell locally, you also need to run `Login-AzAccount` to create a connection with Azure.
 

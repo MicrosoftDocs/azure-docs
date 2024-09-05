@@ -1,8 +1,8 @@
 ---
  author: cherylmc
- ms.service: vpn-gateway
+ ms.service: azure-vpn-gateway
  ms.topic: include
- ms.date: 06/23/2023
+ ms.date: 04/16/2024
  ms.author: cherylmc
 
 # The numbers in this include are correct. They add on to sections in multiple articles that are already numbered.
@@ -11,11 +11,11 @@
 
    :::image type="content" source="./media/vpn-gateway-add-gw-pip-portal/pip-values.png" alt-text="Screenshot that shows the Public IP address field." lightbox="./media/vpn-gateway-add-gw-pip-portal/pip-values.png":::
 
-     * **Public IP address type**: For this exercise, if you have the option to choose the address type, select **Standard**.
+     * **Public IP address type**: If you are presented with this option, select **Standard**. The **Basic** public IP address SKU is only supported for **Basic** SKU VPN gateways.
      * **Public IP address**: Leave **Create new** selected.
      * **Public IP address name**: In the text box, enter a name for your public IP address instance.
      * **Public IP address SKU**: Setting is autoselected.
-     * **Assignment**: The assignment is typically autoselected and can be either **Dynamic** or **Static**.
+     * **Assignment**: The assignment is typically autoselected. For the Standard SKU, assignment is always Static.
      * **Enable active-active mode**: Select **Disabled**. Only enable this setting if you're creating an active-active gateway configuration.
      * **Configure BGP**: Select **Disabled**, unless your configuration specifically requires this setting. If you do require this setting, the default ASN is 65515, although this value can be changed.
 4. Select **Review + create** to run validation.

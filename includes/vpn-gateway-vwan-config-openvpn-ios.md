@@ -1,6 +1,6 @@
 ---
  author: cherylmc
- ms.service: vpn-gateway
+ ms.service: azure-vpn-gateway
  ms.topic: include
  ms.date: 04/28/2023
  ms.author: cherylmc
@@ -12,7 +12,7 @@
 > Only iOS 11.0 and above is supported with OpenVPN protocol.
 >
 
-[!INCLUDE [OpenVPN client version 2.6 not supported](vpn-gateway-vwan-open-vpn-client-version-unsupported.md)]
+[!INCLUDE [OpenVPN client version 2.6 not supported](./vpn-gateway-vwan-open-vpn-client-version-unsupported.md)]
 
 1. Install the OpenVPN client (version 2.4 or higher) from the App store. Version 2.6 is not yet supported.
 1. If you haven't already done so, download the VPN client profile package from the Azure portal.

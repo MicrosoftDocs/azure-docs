@@ -31,17 +31,16 @@ Azure Active Directory B2C [user flows and custom policies](user-flow-overview.m
 - Support requests for public preview features can be submitted through regular support channels.
 
 ## User flows
-
 |Feature  |User flow  |Custom policy  |Notes  |
 |---------|:---------:|:---------:|---------|
 | [Sign-up and sign-in](add-sign-up-and-sign-in-policy.md) with email and password. | GA | GA| |
 | [Sign-up and sign-in](add-sign-up-and-sign-in-policy.md) with username and password.| GA | GA | |
 | [Profile editing flow](add-profile-editing-policy.md) | GA | GA | |
-| [Self-Service password reset](add-password-reset-policy.md) | GA| GA| |
-| [Force password reset](force-password-reset.md) | GA | NA | |
-| [Phone sign-up and sign-in](phone-authentication-user-flows.md) | GA | GA | |
-| [Conditional Access and Identity Protection](conditional-access-user-flow.md) | GA | GA | Not available for SAML applications |
+| [Self-Service password reset](add-password-reset-policy.md) | GA| GA| Available in China cloud, but only for custom policies. |
+| [Force password reset](force-password-reset.md) | GA | GA | Available in China cloud, but only for custom policies. |
+| [Phone sign-up and sign-in](phone-authentication-user-flows.md) | GA | GA | Available in China cloud, but only for custom policies. |
 | [Smart lockout](threat-management.md) | GA | GA | |
+| [Conditional Access and Identity Protection](conditional-access-user-flow.md) | GA | GA | Not available for SAML applications. Limited CA features are available in China cloud. Identity Protection is not available in China cloud. |
 | [CAPTCHA](add-captcha.md) | Preview | Preview | You can enable it during sign-up or sign-in for Local accounts. |
 
 ## OAuth 2.0 application authorization flows
@@ -86,15 +85,15 @@ The following table summarizes the Security Assertion Markup Language (SAML) app
 
 |Feature  |User flow  |Custom policy  |Notes  |
 |---------|:---------:|:---------:|---------|
-| [Multi-language support](localization.md)| GA | GA | |
-| [Custom domains](custom-domain.md)| GA | GA | |
+| [Multi-language support](localization.md)| GA | GA | Available in China cloud, but only for custom policies. |
+| [Custom domains](custom-domain.md)| GA | GA | Available in China cloud, but only for custom policies. |
 | [Custom email verification](custom-email-mailjet.md) | NA | GA| |
 | [Customize the user interface with built-in templates](customize-ui.md) | GA| GA| |
 | [Customize the user interface with custom templates](customize-ui-with-html.md) | GA| GA| By using HTML templates. |
-| [Page layout version](page-layout.md) | GA | GA | |
-| [JavaScript](javascript-and-page-layout.md) | GA | GA | |
+| [Page layout version](page-layout.md) | GA | GA | Available in China cloud, but only for custom policies. |
+| [JavaScript](javascript-and-page-layout.md) | GA | GA | Available in China cloud, but only for custom policies. |
 | [Embedded sign-in experience](embedded-login.md) | NA |  Preview| By using the inline frame element `<iframe>`. |
-| [Password complexity](password-complexity.md) | GA | GA | |
+| [Password complexity](password-complexity.md) | GA | GA | Available in China cloud, but only for custom policies. |
 | [Disable email verification](disable-email-verification.md) | GA|  GA| Not recommended for production environments. Disabling email verification in the sign-up process may lead to spam. |
 
 
@@ -106,7 +105,7 @@ The following table summarizes the Security Assertion Markup Language (SAML) app
 |---------|:---------:|:---------:|---------|
 |[AD FS](identity-provider-adfs.md) | NA | GA | |
 |[Amazon](identity-provider-amazon.md) | GA | GA | |
-|[Apple](identity-provider-apple-id.md) | GA | GA | |
+|[Apple](identity-provider-apple-id.md) | GA | GA | Available in China cloud, but only for custom policies. |
 |[Microsoft Entra ID (Single-tenant)](identity-provider-azure-ad-single-tenant.md) | GA | GA | |
 |[Microsoft Entra ID (multitenant)](identity-provider-azure-ad-multi-tenant.md) | NA  | GA | |
 |[Azure AD B2C](identity-provider-azure-ad-b2c.md) | GA | GA | |
@@ -120,16 +119,16 @@ The following table summarizes the Security Assertion Markup Language (SAML) app
 |[QQ](identity-provider-qq.md) | Preview | GA | |
 |[Salesforce](identity-provider-salesforce.md) | GA | GA | |
 |[Salesforce (SAML protocol)](identity-provider-salesforce-saml.md) | NA | GA | |
-|[Twitter](identity-provider-twitter.md) | GA | GA | |
-|[WeChat](identity-provider-wechat.md) | Preview | GA | |
+|[WeChat](identity-provider-wechat.md) | Preview | GA | Available in China cloud, but only for custom policies. |
 |[Weibo](identity-provider-weibo.md) | Preview | GA | |
+|[X](identity-provider-twitter.md) | GA | GA | |
 
 ## Generic identity providers
 
 |Feature  |User flow  |Custom policy  |Notes  |
 |---------|:---------:|:---------:|---------|
 |[OAuth2](oauth2-technical-profile.md) | NA | GA | For example, [Google](identity-provider-google.md), [GitHub](identity-provider-github.md), and [Facebook](identity-provider-facebook.md).|
-|[OAuth1](oauth1-technical-profile.md) | NA | GA | For example, [Twitter](identity-provider-twitter.md). |
+|[OAuth1](oauth1-technical-profile.md) | NA | GA | For example, [X](identity-provider-twitter.md). |
 |[OpenID Connect](openid-connect-technical-profile.md) | GA | GA | For example, [Microsoft Entra ID](identity-provider-azure-ad-single-tenant.md).  |
 |[SAML2](identity-provider-generic-saml.md) | NA | GA | For example, [Salesforce](identity-provider-salesforce-saml.md) and [AD-FS](identity-provider-adfs.md). |
 | WSFED | NA | NA | |
@@ -153,10 +152,10 @@ The following table summarizes the Security Assertion Markup Language (SAML) app
 
 | Feature |  Custom policy | Notes |
 | ------- | :--: | ----- |
-| [Default SSO session provider](custom-policy-reference-sso.md#defaultssosessionprovider) | GA |  |
-| [External login session provider](custom-policy-reference-sso.md#externalloginssosessionprovider) | GA |  |
-| [SAML SSO session provider](custom-policy-reference-sso.md#samlssosessionprovider) | GA |  |
-| [OAuth SSO Session Provider](custom-policy-reference-sso.md#oauthssosessionprovider)  | GA|  |
+| [Default SSO session provider](custom-policy-reference-sso.md#defaultssosessionprovider) | GA | Available in China cloud, but only for custom policies. |
+| [External login session provider](custom-policy-reference-sso.md#externalloginssosessionprovider) | GA | Available in China cloud, but only for custom policies. |
+| [SAML SSO session provider](custom-policy-reference-sso.md#samlssosessionprovider) | GA | Available in China cloud, but only for custom policies. |
+| [OAuth SSO Session Provider](custom-policy-reference-sso.md#oauthssosessionprovider)  | GA| Available in China cloud, but only for custom policies. |
 
 
 ### Components
@@ -164,7 +163,7 @@ The following table summarizes the Security Assertion Markup Language (SAML) app
 | Feature | Custom policy | Notes |
 | ------- | :--: | ----- |
 | [MFA using time-based one-time password (TOTP) with authenticator apps](multi-factor-authentication.md#verification-methods) | GA |  Users can use any authenticator app that supports TOTP verification, such as the [Microsoft Authenticator app](https://www.microsoft.com/security/mobile-authenticator-app).|
-| [Phone factor authentication](phone-factor-technical-profile.md) | GA |  |
+| [Phone factor authentication](phone-factor-technical-profile.md) | GA |  Available in China cloud, but only for custom policies.  |
 | [Microsoft Entra multifactor authentication authentication](multi-factor-auth-technical-profile.md) | GA |  |
 | [One-time password](one-time-password-technical-profile.md) | GA |  |
 | [Microsoft Entra ID](active-directory-technical-profile.md) as local directory | GA |  |

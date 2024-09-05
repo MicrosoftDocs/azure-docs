@@ -3,9 +3,9 @@ title: Monitor apps using Application Live View with the Azure Spring Apps Enter
 description: Learn how to monitor apps using Application Live View with the Azure Spring Apps Enterprise plan.
 author: KarlErickson
 ms.author: yuwzho
-ms.service: spring-apps
+ms.service: azure-spring-apps
 ms.topic: how-to
-ms.date: 12/01/2022
+ms.date: 06/27/2024
 ms.custom: devx-track-java
 ---
 
@@ -44,7 +44,7 @@ The **Details** page is the default page loaded in the **Live View** section. Th
 
 You can navigate between information categories by selecting from the drop-down at the top right corner of the page.
 
-:::image type="content" source="media/monitor-apps-by-application-live-view/details.png" alt-text="Screenshot of the Details page." lightbox="media/monitor-apps-by-application-live-view/details.png":::
+:::image type="content" source="media/monitor-apps-by-application-live-view/details.png" alt-text="Screenshot of Application Live View that shows the Details page for a demo app." lightbox="media/monitor-apps-by-application-live-view/details.png":::
 
 ## Health page
 
@@ -55,7 +55,7 @@ The **Health** page includes the following features:
 - View a list of all the components that make up the health of the app, such as readiness, liveness, and disk space.
 - View a display of the status and details associated with each of the components.
 
-:::image type="content" source="media/monitor-apps-by-application-live-view/health.png" alt-text="Screenshot of the Health page." lightbox="media/monitor-apps-by-application-live-view/health.png":::
+:::image type="content" source="media/monitor-apps-by-application-live-view/health.png" alt-text="Screenshot of Application Live View that shows the Health page." lightbox="media/monitor-apps-by-application-live-view/health.png":::
 
 ## Environment page
 
@@ -70,7 +70,7 @@ The **Environment** page includes the following features:
 - Reset the environment property to the original state by selecting **Reset**.
 - Add new environment properties to the app, and edit or remove overridden environment variables in the **Applied Overrides** section.
 
-:::image type="content" source="media/monitor-apps-by-application-live-view/environment.png" alt-text="Screenshot of the Environment page." lightbox="media/monitor-apps-by-application-live-view/environment.png":::
+:::image type="content" source="media/monitor-apps-by-application-live-view/environment.png" alt-text="Screenshot of Application Live View that shows the Environment page." lightbox="media/monitor-apps-by-application-live-view/environment.png":::
 
 > [!NOTE]
 > You must set `management.endpoint.env.post.enabled=true` in the app config properties of the app, and a corresponding, editable environment must be present in the app.
@@ -90,7 +90,7 @@ The **Log Levels** page includes the following features:
 - Reset the log levels to the original state by selecting **Reset**.
 - Reset all the loggers to default state by selecting **Reset All** at the top right corner of the page.
 
-:::image type="content" source="media/monitor-apps-by-application-live-view/log-levels.png" alt-text="Screenshot of the Log Levels page." lightbox="media/monitor-apps-by-application-live-view/log-levels.png":::
+:::image type="content" source="media/monitor-apps-by-application-live-view/log-levels.png" alt-text="Screenshot of Application Live View that shows the Log Levels page." lightbox="media/monitor-apps-by-application-live-view/log-levels.png":::
 
 ## Threads page
 
@@ -104,9 +104,9 @@ The **Threads** page includes the following features:
 - View more thread details by selecting the thread ID.
 - Download a thread dump for analysis purposes.
 
-:::image type="content" source="media/monitor-apps-by-application-live-view/threads-live.png" alt-text="Screenshot of the Threads page in the Application Live View UI." lightbox="media/monitor-apps-by-application-live-view/threads-live.png":::
+:::image type="content" source="media/monitor-apps-by-application-live-view/threads-live.png" alt-text="Screenshot of Application Live View that shows the Threads page." lightbox="media/monitor-apps-by-application-live-view/threads-live.png":::
 
-:::image type="content" source="media/monitor-apps-by-application-live-view/threads-overlay.png" alt-text="Screenshot of the Threads page in the UI with an overlay providing more details for a specific thread." lightbox="media/monitor-apps-by-application-live-view/threads-overlay.png":::
+:::image type="content" source="media/monitor-apps-by-application-live-view/threads-overlay.png" alt-text="Screenshot of Application Live View that shows the Threads page with an overlay providing more details for a specific thread." lightbox="media/monitor-apps-by-application-live-view/threads-overlay.png":::
 
 ## Memory page
 
@@ -120,7 +120,7 @@ The **Memory** page includes the following features:
 - View graphs to display the GC pauses and GC events.
 - Download heap dump data using the **Heap Dump** button at the top right corner.
 
-:::image type="content" source="media/monitor-apps-by-application-live-view/memory.png" alt-text="Screenshot of the Memory page." lightbox="media/monitor-apps-by-application-live-view/memory.png":::
+:::image type="content" source="media/monitor-apps-by-application-live-view/memory.png" alt-text="Screenshot of Application Live View that shows the Memory page." lightbox="media/monitor-apps-by-application-live-view/memory.png":::
 
 > [!NOTE]
 > This graphical visualization happens in real-time and shows real-time data only. As mentioned previously, the Application Live View features do not store any information. That means the graphs visualize the data over time only for as long as you stay on that page.
@@ -138,9 +138,9 @@ The **Request Mappings** page includes the following features:
 > [!NOTE]
 > When the app actuator endpoint is exposed on `management.server.port`, the app does not return any actuator request mappings data in the context. In this case, a message is displayed when the actuator toggle is enabled.
 
-:::image type="content" source="media/monitor-apps-by-application-live-view/request-mappings-live.png" alt-text="Screenshot of the Request Mappings page in the Application Live View UI." lightbox="media/monitor-apps-by-application-live-view/request-mappings-live.png":::
+:::image type="content" source="media/monitor-apps-by-application-live-view/request-mappings-live.png" alt-text="Screenshot of Application Live View that shows the Request Mappings page." lightbox="media/monitor-apps-by-application-live-view/request-mappings-live.png":::
 
-:::image type="content" source="media/monitor-apps-by-application-live-view/request-mappings-overlay.png" alt-text="Screenshot of the Request Mappings page in the UI with an overlay pane providing more details about a specific request." lightbox="media/monitor-apps-by-application-live-view/request-mappings-overlay.png":::
+:::image type="content" source="media/monitor-apps-by-application-live-view/request-mappings-overlay.png" alt-text="Screenshot of Application Live View that shows the Request Mappings page with an overlay pane providing more details about a specific request." lightbox="media/monitor-apps-by-application-live-view/request-mappings-overlay.png":::
 
 ## HTTP Requests page
 
@@ -158,9 +158,9 @@ The **HTTP Requests** page includes the following features:
 > [!NOTE]
 > When the app actuator endpoint is exposed on `management.server.port`, no actuator HTTP Traces data is returned for the app. In this case, a message is displayed when the actuator toggle is enabled.
 
-:::image type="content" source="media/monitor-apps-by-application-live-view/http-requests-live.png" alt-text="Screenshot of the HTTP Requests page in the Application Live View UI." lightbox="media/monitor-apps-by-application-live-view/http-requests-live.png":::
+:::image type="content" source="media/monitor-apps-by-application-live-view/http-requests-live.png" alt-text="Screenshot of Application Live View that shows the HTTP Requests page." lightbox="media/monitor-apps-by-application-live-view/http-requests-live.png":::
 
-:::image type="content" source="media/monitor-apps-by-application-live-view/http-requests-overlay.png" alt-text="Screenshot of the HTTP Requests page in the UI with an overlay providing more details about a specific request." lightbox="media/monitor-apps-by-application-live-view/http-requests-overlay.png":::
+:::image type="content" source="media/monitor-apps-by-application-live-view/http-requests-overlay.png" alt-text="Screenshot of Application Live View that shows the HTTP Requests page with an overlay providing more details about a specific request." lightbox="media/monitor-apps-by-application-live-view/http-requests-overlay.png":::
 
 ## Caches page
 
@@ -172,7 +172,7 @@ The **Caches** page includes the following features:
 - Remove individual caches by selecting **Evict**, which causes the cache to be cleared.
 - Remove all the caches by selecting **Evict All**. If there are no cache managers for the app, a message is displayed `No cache managers available for the application`.
 
-:::image type="content" source="media/monitor-apps-by-application-live-view/caches.png" alt-text="Screenshot of the HTTP Caches page in the Application Live View UI." lightbox="media/monitor-apps-by-application-live-view/caches.png":::
+:::image type="content" source="media/monitor-apps-by-application-live-view/caches.png" alt-text="Screenshot of Application Live View that shows the HTTP Caches page." lightbox="media/monitor-apps-by-application-live-view/caches.png":::
 
 ## Configuration Properties page
 
@@ -182,7 +182,7 @@ The **Configuration Properties** page includes the following feature:
 
 - Look up a key-value for a property or bean name using the search feature.
 
-:::image type="content" source="media/monitor-apps-by-application-live-view/config-props.png" alt-text="Screenshot of the Configuration Properties page in the Application Live View UI." lightbox="media/monitor-apps-by-application-live-view/config-props.png":::
+:::image type="content" source="media/monitor-apps-by-application-live-view/config-props.png" alt-text="Screenshot of Application Live View that shows the Configuration Properties page." lightbox="media/monitor-apps-by-application-live-view/config-props.png":::
 
 ## Conditions page
 
@@ -193,7 +193,7 @@ The **Conditions** page includes the following features:
 - Select the bean name to view the conditions and the reason for the conditional match. If beans aren't configured, it shows both the matched and unmatched conditions of the bean, if any. In addition to conditions, it also displays names of unconditional auto configuration classes, if any.
 - Filter on the beans and the conditions using the search feature.
 
-:::image type="content" source="media/monitor-apps-by-application-live-view/conditions.png" alt-text="Screenshot of the Conditions page in the Application Live View UI." lightbox="media/monitor-apps-by-application-live-view/conditions.png":::
+:::image type="content" source="media/monitor-apps-by-application-live-view/conditions.png" alt-text="Screenshot of Application Live View that shows the Conditions page." lightbox="media/monitor-apps-by-application-live-view/conditions.png":::
 
 ## Scheduled Tasks page
 
@@ -203,7 +203,7 @@ The **Scheduled Tasks** page includes the following feature:
 
 - Search for a particular property or a task in the search bar to retrieve the task or property details.
 
-:::image type="content" source="media/monitor-apps-by-application-live-view/scheduled-tasks.png" alt-text="Screenshot of the Scheduled Tasks page in the Application Live View UI." lightbox="media/monitor-apps-by-application-live-view/scheduled-tasks.png":::
+:::image type="content" source="media/monitor-apps-by-application-live-view/scheduled-tasks.png" alt-text="Screenshot of Application Live View that shows the Scheduled Tasks page." lightbox="media/monitor-apps-by-application-live-view/scheduled-tasks.png":::
 
 ## Beans page
 
@@ -213,7 +213,7 @@ The **Beans** page includes the following feature:
 
 - Search by the bean name or its corresponding fields.
 
-:::image type="content" source="media/monitor-apps-by-application-live-view/beans.png" alt-text="Screenshot of the Beans page in the Application Live View UI." lightbox="media/monitor-apps-by-application-live-view/beans.png":::
+:::image type="content" source="media/monitor-apps-by-application-live-view/beans.png" alt-text="Screenshot of Application Live View that shows the Beans page." lightbox="media/monitor-apps-by-application-live-view/beans.png":::
 
 ## Metrics Page
 
@@ -229,7 +229,7 @@ The **Metrics** page includes the following features:
 - Change the format of the metric value according to your needs.
 - Delete a particular metric by selecting the minus symbol in the same row.
 
-:::image type="content" source="media/monitor-apps-by-application-live-view/metrics.png" alt-text="Screenshot of the Metrics page in the Application Live View UI." lightbox="media/monitor-apps-by-application-live-view/metrics.png":::
+:::image type="content" source="media/monitor-apps-by-application-live-view/metrics.png" alt-text="Screenshot of Application Live View that shows the Metrics page." lightbox="media/monitor-apps-by-application-live-view/metrics.png":::
 
 ## Actuator page
 
@@ -239,7 +239,7 @@ The **Actuator** page includes the following feature:
 
 - Choose from a list of actuator endpoints and parse through the raw actuator data.
 
-:::image type="content" source="media/monitor-apps-by-application-live-view/actuator.png" alt-text="Screenshot of the Actuator page in the Application Live View UI." lightbox="media/monitor-apps-by-application-live-view/actuator.png":::
+:::image type="content" source="media/monitor-apps-by-application-live-view/actuator.png" alt-text="Screenshot of Application Live View that shows the Actuator page." lightbox="media/monitor-apps-by-application-live-view/actuator.png":::
 
 ## Next steps
 

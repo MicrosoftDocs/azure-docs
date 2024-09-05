@@ -2,12 +2,12 @@
 title: Understand the roles required to perform common tasks in Azure Synapse
 description: Understand which Synapse RBAC (role-based access control) roles or Azure RBAC roles you need to get work done in Synapse Studio.
 author: meenalsri
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.topic: conceptual
 ms.subservice: security
 ms.date: 04/22/2022
 ms.author: mesrivas
-ms.reviewer: sngun, wiassaf
+ms.reviewer: whhender, wiassaf
 ---
 # Understand the roles required to perform common tasks in Azure Synapse
 

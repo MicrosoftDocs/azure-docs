@@ -1,6 +1,6 @@
 ---
  author: cherylmc
- ms.service: vpn-gateway
+ ms.service: azure-vpn-gateway
  ms.topic: include
  ms.date: 05/04/2023
  ms.author: cherylmc
@@ -11,7 +11,7 @@
 > [!IMPORTANT]
 > Only MacOS 10.13 and above is supported with OpenVPN protocol.
 
-[!INCLUDE [OpenVPN client version 2.6 not supported](vpn-gateway-vwan-open-vpn-client-version-unsupported.md)]
+[!INCLUDE [OpenVPN client version 2.6 not supported](./vpn-gateway-vwan-open-vpn-client-version-unsupported.md)]
 
 1. Download and install an OpenVPN client, such as [TunnelBlick](https://tunnelblick.net/downloads.html).
 

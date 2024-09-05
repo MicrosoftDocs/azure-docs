@@ -1,9 +1,9 @@
 ---
 title: Tutorial - Apache Kafka & Enterprise Security Package - Azure HDInsight
 description: Tutorial - Learn how to configure Apache Ranger policies for Kafka in Azure HDInsight with Enterprise Security Package.
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: tutorial
-ms.date: 05/25/2023
+ms.date: 06/15/2024
 ---
 
 # Tutorial: Configure Apache Kafka policies in HDInsight with Enterprise Security Package
@@ -46,7 +46,7 @@ Create a Ranger policy for **sales_user** and **marketing_user**.
 
    |Setting  |Suggested value  |
    |---------|---------|
-   |Policy Name  |  hdi sales* policy   |
+   |Policy Name  | HDInsight sales* policy   |
    |Topic   |  sales* |
    |Select User  |  sales_user1 |
    |Permissions  | publish, consume, create |
@@ -56,7 +56,7 @@ Create a Ranger policy for **sales_user** and **marketing_user**.
    * `*` indicates zero or more occurrences of characters.
    * `?` indicates single character.
 
-   :::image type="content" source="./media/apache-domain-joined-run-kafka/apache-ranger-admin-create-policy.png" alt-text="Screenshot that shows the Apache Ranger Admin UI Create Policy1." border="true":::
+   :::image type="content" source="./media/apache-domain-joined-run-kafka/apache-ranger-admin-create-policy.png" alt-text="Screenshot that shows the Apache Ranger Admin UI Create Policy 1." border="true":::
 
    Wait a few moments for Ranger to sync with Microsoft Entra ID if a domain user isn't automatically populated for **Select User**.
 
@@ -66,12 +66,12 @@ Create a Ranger policy for **sales_user** and **marketing_user**.
 
    |Setting  |Suggested value  |
    |---------|---------|
-   |Policy Name  |  hdi marketing policy   |
-   |Topic   |  marketingspend |
+   |Policy Name  |  HDInsight marketing policy   |
+   |Topic   |  `marketingspend` |
    |Select User  |  marketing_user1 |
    |Permissions  | publish, consume, create |
 
-   :::image type="content" source="./media/apache-domain-joined-run-kafka/apache-ranger-admin-create-policy-2.png" alt-text="Screenshot that shows the Apache Ranger Admin UI Create Policy2." border="true":::
+   :::image type="content" source="./media/apache-domain-joined-run-kafka/apache-ranger-admin-create-policy-2.png" alt-text="Screenshot that shows the Apache Ranger Admin UI Create Policy 2." border="true":::
 
 1. Select **Add** to save the policy.
 

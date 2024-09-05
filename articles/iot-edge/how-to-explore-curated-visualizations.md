@@ -1,17 +1,17 @@
 ---
-title: Explore curated visualizations - Azure IoT Edge
+title: Explore curated visualizations in Azure IoT Edge
 description: Use Azure workbooks to visualize and explore IoT Edge built-in metrics
-author: veyalla
+author: PatAltimore
 
-ms.author: veyalla
-ms.date: 01/29/2022
+ms.author: patricka
+ms.date: 04/08/2024
 ms.topic: conceptual
-ms.reviewer: kgremban
+ms.reviewer: veyalla
 ms.service: iot-edge 
 services: iot-edge
 ---
 
-# Explore curated visualizations
+# Explore curated visualizations in Azure IoT Edge
 
 [!INCLUDE [iot-edge-version-all-supported](includes/iot-edge-version-all-supported.md)]
 
@@ -53,7 +53,7 @@ By default, this view shows the health of devices associated with the current Io
 
 Use the **Settings** tab to adjust the various thresholds to categorize the device as Healthy or Unhealthy.
 
-Click the **Details** button to see the device list with a snapshot of aggregated, primary metrics. Click the link in the **Status** column to view the trend of an individual device's health metrics or the device name to view its detailed metrics.
+Select the **Details** button to see the device list with a snapshot of aggregated, primary metrics. Select the link in the **Status** column to view the trend of an individual device's health metrics or the device name to view its detailed metrics.
 
 ## Device details workbook
 
@@ -73,7 +73,7 @@ The device details workbook also integrates with the IoT Edge portal-based troub
 
 The **Messaging** view includes three subsections: routing details, a routing graph, and messaging health. Drag and let go on any time chart to adjust the global time range to the selected range.
 
-The **Routing** section shows message flow between sending modules and receiving modules. It presents information such as message count, rate, and number of connected clients. Click on a sender or receiver to drill in further. Clicking a sender shows the latency trend chart experienced by the sender and number of messages it sent. Clicking a receiver shows the queue length trend for the receiver and number of messages it received.
+The **Routing** section shows message flow between sending modules and receiving modules. It presents information such as message count, rate, and number of connected clients. Select a sender or receiver to drill in further. Clicking a sender shows the latency trend chart experienced by the sender and number of messages it sent. Clicking a receiver shows the queue length trend for the receiver and number of messages it received.
 
 The **Graph** section shows a visual representation of message flow between modules. Drag and zoom to adjust the graph.
 
@@ -114,7 +114,7 @@ See the generated alerts from [pre-created alert rules](how-to-create-alerts.md)
 
 :::image type="content" source="./media/how-to-explore-curated-visualizations/how-to-explore-alerts.gif" alt-text="The alerts section of the fleet view workbook." lightbox="./media/how-to-explore-curated-visualizations/how-to-explore-alerts.gif":::
 
-Click on a severity row to see alerts details. The **Alert rule** link takes you to the alert context and the **Device** link opens the detailed metrics workbook. When opened from this view, the device details workbook is automatically adjusted to the time range around when the alert fired.
+Select a severity row to see alerts details. The **Alert rule** link takes you to the alert context and the **Device** link opens the detailed metrics workbook. When opened from this view, the device details workbook is automatically adjusted to the time range around when the alert fired.
 
 ## Customize workbooks
 

@@ -62,10 +62,33 @@ The resource/scope value is the audience of the token. This API only accepts the
 
 
 ### Assemble the request message
+There are two versions of the upload indicators API. Depending on the endpoint, a different array name is required in the request body. This is also represented by two versions of the logic app connector action.
+
+:::image type="content" source="media/logic-app-sentinel-connector-action-names.png" alt-text="Screenshot of logic app connector action names for Microsoft Sentinel upload indicators API.":::
+
+- Connector action name: **Threat Intelligence - Upload Indicators of Compromise (Deprecated)**
+   - Endpoint: `https://sentinelus.azure-api.net/{workspaceId}/threatintelligence:upload-indicators`
+   - Array of indicators name: `value`
+     ```json
+    {
+       "sourcesystem":"TIsource-example",
+       "value":[]
+    }
+    ```
+
+- Connector action name: **Threat Intelligence - Upload Indicators of Compromise (V2) (Preview)**
+   - Endpoint: `https://sentinelus.azure-api.net/workspaces/{workspaceId}/threatintelligenceindicators:upload`
+   - Array of indicators name: `indicators`
+    ```json
+    {
+       "sourcesystem":"TIsource-example",
+       "indicators":[]
+    }
+    ```
 
 #### Request URI 
 API versioning: `api-version=2022-07-01`<br>
-Endpoint: `https://sentinelus.azure-api.net/{workspaceId}/threatintelligence:upload-indicators?api-version=2022-07-01`<br>
+Endpoint: `https://sentinelus.azure-api.net/workspaces/{workspaceId}/threatintelligenceindicators:upload?api-version=2022-07-01`<br>
 Method: `POST`<br>
 
 #### Request header
@@ -78,7 +101,7 @@ The JSON object for the body contains the following fields:
 |Field name	|Data Type	|Description|
 |---|---|---|
 |SourceSystem (required)| string | Identify your source system name. The value `Microsoft Sentinel` is restricted.|
-|Value (required) | array | An array of indicators in [STIX 2.0 or 2.1 format](https://docs.oasis-open.org/cti/stix/v2.1/cs01/stix-v2.1-cs01.html#_muftrcpnf89v) |
+|indicators (required) | array | An array of indicators in [STIX 2.0 or 2.1 format](https://docs.oasis-open.org/cti/stix/v2.1/cs01/stix-v2.1-cs01.html#_muftrcpnf89v) |
 
 Create the array of indicators using the STIX 2.1 indicator format specification, which has been condensed here for your convenience with links to important sections. Also note some properties, while valid for STIX 2.1, don't have corresponding indicator properties in Microsoft Sentinel.
 
@@ -155,7 +178,7 @@ Approximately 10,000 indicators per minute is the maximum throughput before a th
 ```json
 {
     "sourcesystem": "test", 
-    "value":[
+    "indicators":[
         {
             "type": "indicator",
             "spec_version": "2.1",

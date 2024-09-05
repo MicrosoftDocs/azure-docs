@@ -10,6 +10,7 @@ metadata:
   description: Learn how to deploy resources to complex and distributed environments across on-premises, edge, and multicloud. Azure Arc enables deployment of Azure services anywhere and extends Azure management to any infrastructure.
   ms.service: azure-arc
   ms.topic: hub-page
+  ms.author: jroth
   ms.date: 02/15/2024
   ms.custom:
     - e2e-hybrid
@@ -26,7 +27,7 @@ highlightedContent:
     # Card
     - title: Azure Arc Jumpstart
       itemType: sample
-      url: https://aka.ms/AzureArcJumpstart/overview/
+      url: https://aka.ms/ArcJumpstart/
       # Card
     - title: Azure Arc-enabled servers
       itemType: overview
@@ -158,14 +159,22 @@ additionalContent:
           summary: Establish patterns for building hybrid architectures.
           url: /azure/cloud-adoption-framework/scenarios/hybrid/enterprise-scale-landing-zone
         # Card
-        - title: App Service, Functions, and Logic Apps on Azure Arc (preview)
-          summary: Run App Service, Functions, and Logic Apps on Azure Arc-enabled Kubernetes clusters.
-          url: /azure/app-service/overview-arc-integration
-        # Card
         - title: Azure Kubernetes Service (AKS) enabled by Azure Arc 
           summary: Extend AKS to your on-premises environment.
           url: https://learn.microsoft.com/en-us/azure/aks/hybrid/aks-hybrid-options-overview
         # Card
+        - title: Multicloud connector enabled by Azure Arc (preview)
+          summary: Connect non-Azure public cloud resources to centralize management and governance in Azure.
+          url: ./multicloud-connector/overview.md
+        # Card
+        - title: App Service, Functions, and Logic Apps on Azure Arc (preview)
+          summary: Run App Service, Functions, and Logic Apps on Azure Arc-enabled Kubernetes clusters.
+          url: /azure/app-service/overview-arc-integration
+        # Card
         - title: Azure IoT Operations Preview – enabled by Azure Arc
           summary: Azure IoT Operations is a unified data plane for the edge that helps organizations deploy the industrial metaverse.
           url: /azure/iot-operations/
+        # Card
+        - title: Azure Arc site manager (preview)
+          summary: Use Arc sites to represent your on-premises environments and see centralized monitoring information across your edge infrastructure.
+          url: /azure/azure-arc/site-manager/

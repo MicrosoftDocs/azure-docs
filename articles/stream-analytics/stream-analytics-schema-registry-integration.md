@@ -3,7 +3,7 @@ title: Azure Stream Analytics - Schema Registry
 description: This article describes how to add Azure Event Hubs Schema Registry and connect with Event Hubs inputs
 author: an-emma
 ms.author: raan
-ms.service: stream-analytics
+ms.service: azure-stream-analytics
 ms.topic: conceptual
 ms.date: 05/08/2023
 ms.custom: build-2023

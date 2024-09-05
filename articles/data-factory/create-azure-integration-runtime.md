@@ -2,7 +2,6 @@
 title: Create Azure integration runtime
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to create Azure integration runtime in Azure Data Factory and Azure Synapse Analytics, which is used to copy data and dispatch transform activities. 
-ms.service: data-factory
 ms.subservice: integration-runtime
 ms.topic: conceptual
 ms.date: 10/20/2023
@@ -20,7 +19,7 @@ Azure IR provides a fully managed compute to natively perform data movement and 
 
 This document introduces how you can create and configure Azure Integration Runtime. 
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 ## Default Azure IR
 By default, each data factory or Synapse workspace has an Azure IR in the backend that supports  operations on cloud data stores and compute services in public network. The location of that Azure IR is autoresolve. If **connectVia** property isn't specified in the linked service definition, the default Azure IR is used. You only need to explicitly create an Azure IR when you would like to explicitly define the location of the IR, or if you would like to virtually group the activity executions on different IRs for management purpose. 

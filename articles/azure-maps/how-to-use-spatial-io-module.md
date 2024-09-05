@@ -2,14 +2,12 @@
 title: How to use the Azure Maps spatial IO module
 titleSuffix: Microsoft Azure Maps
 description: Learn how to use the Spatial IO module provided by the Azure Maps Web SDK. This module provides robust features to make it easy for developers to integrate spatial data with the Azure Maps web SDK.
-author: eriklindeman
-ms.author: eriklind
+author: sinnypan
+ms.author: sipa
 ms.date: 02/28/2020
 ms.topic: how-to
 ms.service: azure-maps
-services: azure-maps
-ms.custom:
-#Customer intent: As an Azure Maps web sdk user, I want to install and use the spatial io module so that I can integrate spatial data with the Azure Maps web sdk.
+ms.subservice: web-sdk
 ---
 
 # How to use the Azure Maps Spatial IO module
@@ -77,7 +75,7 @@ You can load the Azure Maps spatial IO module using one of the two options:
 
         <meta charset="utf-8">
 
-        <!-- Ensures that IE and Edge uses the latest version and doesn't emulate an older version -->
+        <!-- Ensures that Internet Explorer and Edge uses the latest version and doesn't emulate an older version -->
         <meta http-equiv="x-ua-compatible" content="IE=Edge">
 
         <!-- Ensures the web page looks good on all screen sizes. -->
@@ -157,7 +155,7 @@ You can load the Azure Maps spatial IO module using one of the two options:
 
         <meta charset="utf-8">
 
-        <!-- Ensures that IE and Edge uses the latest version and doesn't emulate an older version -->
+        <!-- Ensures that Internet Explorer and Edge uses the latest version and doesn't emulate an older version -->
         <meta http-equiv="x-ua-compatible" content="IE=Edge">
 
         <!-- Ensures the web page looks good on all screen sizes. -->

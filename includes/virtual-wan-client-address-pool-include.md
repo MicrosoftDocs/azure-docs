@@ -2,7 +2,7 @@
 ms.author: cherylmc
 author: cherylmc
 ms.date: 07/29/2021
-ms.service: virtual-wan
+ms.service: azure-virtual-wan
 ms.topic: include
 ---
 1. Navigate to your **Virtual HUB -> User VPN (Point to site)**.

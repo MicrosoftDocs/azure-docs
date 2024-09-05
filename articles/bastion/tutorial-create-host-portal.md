@@ -1,12 +1,11 @@
 ---
 title: 'Tutorial: Deploy Azure Bastion using specified settings: Azure portal'
-description: Learn how to deploy Azure Bastion by using settings that you specify in the Azure portal.
+description: Learn how to deploy Azure Bastion by using settings that you specify in the Azure portal. Use these steps when you want to specify features and settings. 
 author: cherylmc
-ms.service: bastion
+ms.service: azure-bastion
 ms.topic: tutorial
-ms.date: 10/13/2023
+ms.date: 03/29/2024
 ms.author: cherylmc
-
 ---
 
 # Tutorial: Deploy Azure Bastion by using specified settings
@@ -19,7 +18,7 @@ The following diagram shows the architecture of Bastion.
 
 :::image type="content" source="./media/create-host/host-architecture.png" alt-text="Diagram that shows the Azure Bastion architecture." lightbox="./media/create-host/host-architecture.png":::
 
-In this tutorial, you deploy Bastion by using the Standard SKU. You adjust host scaling (instance count), which the Standard SKU supports. If you use a lower SKU for the deployment, you can't adjust host scaling.
+In this tutorial, you deploy Bastion by using the Standard SKU. You adjust host scaling (instance count), which the Standard SKU supports. If you use a lower SKU for the deployment, you can't adjust host scaling. You can also select an availability zone, depending on the region to which you want to deploy.
 
 After the deployment is complete, you connect to your VM via private IP address. If your VM has a public IP address that you don't need for anything else, you can remove it.
 
@@ -36,7 +35,7 @@ To complete this tutorial, you need these resources:
 
 * An Azure subscription. If you don't have one, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 * A [virtual network](../virtual-network/quick-create-portal.md) where you'll deploy Bastion.
-* A virtual machine in the virtual network. This VM isn't a part of the Bastion configuration and doesn't become a bastion host. You connect to this VM later in this tutorial via Bastion. If you don't have a VM, create one by using [Quickstart: Create a Windows VM](../virtual-machines/windows/quick-create-portal.md) or [Quickstart: Create a Linux VM](../virtual-machines/linux/quick-create-portal.md).
+* A virtual machine in the virtual network. This VM isn't a part of the Bastion configuration and doesn't become a bastion host. You connect to this VM later in this tutorial via Bastion. If you don't have a VM, create one by using [Quickstart: Create a Windows VM](/azure/virtual-machines/windows/quick-create-portal) or [Quickstart: Create a Linux VM](/azure/virtual-machines/linux/quick-create-portal).
 * Required VM roles:
 
   * Reader role on the virtual machine
@@ -71,6 +70,7 @@ You can use the following example values when creating this configuration, or yo
 | **Name** | **VNet1-bastion** |
 | **+ Subnet Name** | **AzureBastionSubnet** |
 | **AzureBastionSubnet addresses** | A subnet within your virtual network address space with a subnet mask of /26 or larger; for example, **10.1.1.0/26**  |
+| **Availability zone** | Select value(s) from the dropdown list, if desired.|
 | **Tier/SKU** | **Standard** |
 | **Instance count (host scaling)**| **3** or greater |
 | **Public IP address** |  **Create new** |
@@ -83,7 +83,7 @@ You can use the following example values when creating this configuration, or yo
 This section helps you deploy Bastion to your virtual network. After Bastion is deployed, you can connect securely to any VM in the virtual network using its private IP address.
 
 > [!IMPORTANT]
-> [!INCLUDE [Pricing](../../includes/bastion-pricing.md)]
+> [!INCLUDE [Pricing](~/reusable-content/ce-skilling/azure/includes/bastion-pricing.md)]
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -101,6 +101,8 @@ This section helps you deploy Bastion to your virtual network. After Bastion is 
    * **Name**: The name that you want to use for your Bastion resource.
 
    * **Region**: The Azure public region in which the resource will be created. Choose the region where your virtual network resides.
+
+   * **Availability zone**: Select the zone(s) from the dropdown, if desired. Only certain regions are supported. For more information, see the [What are availability zones?](../reliability/availability-zones-overview.md?tabs=azure-cli) article.
 
    * **Tier**: The SKU. For this tutorial, select **Standard**. For information about the features available for each SKU, see [Configuration settings - SKU](configuration-settings.md#skus).
 

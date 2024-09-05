@@ -4,7 +4,7 @@ description: Enterprise-class Database DevOps experience for dedicated SQL pool 
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.date: 02/04/2020
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.subservice: sql-dw
 ms.topic: how-to
 ms.custom: azure-synapse

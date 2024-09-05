@@ -6,7 +6,7 @@ author: cshea-msft
 ms.author: chashea
 ms.date: 09/05/2023
 ms.topic: quickstart
-ms.service: firewall-manager
+ms.service: azure-firewall-manager
 ms.custom: devx-track-terraform
 content_well_notifications:
   - AI-Contribution

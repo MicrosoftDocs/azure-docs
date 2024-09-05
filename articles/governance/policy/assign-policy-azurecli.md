@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: Create policy assignment using Azure CLI"
 description: In this quickstart, you create an Azure Policy assignment to identify non-compliant resources using Azure CLI.
-ms.date: 02/23/2024
+ms.date: 02/26/2024
 ms.topic: quickstart
 ms.custom: devx-track-azurecli
 ---
@@ -11,6 +11,8 @@ ms.custom: devx-track-azurecli
 The first step in understanding compliance in Azure is to identify the status of your resources. In this quickstart, you create a policy assignment to identify non-compliant resources using Azure CLI. The policy is assigned to a resource group and audits virtual machines that don't use managed disks. After you create the policy assignment, you identify non-compliant virtual machines.
 
 Azure CLI is used to create and manage Azure resources from the command line or in scripts. This guide uses Azure CLI to create a policy assignment and to identify non-compliant resources in your Azure environment.
+
+[!INCLUDE [azure-policy-version-default](../includes/policy/policy-version-default.md)]
 
 ## Prerequisites
 
@@ -70,7 +72,7 @@ Run the following command to create the policy assignment:
 ```azurecli
 az policy assignment create \
   --name 'audit-vm-managed-disks' \
-  --display-name 'Audit VMs without managed disks Assignment' \
+  --display-name 'Audit VM managed disks' \
   --scope $rgid \
   --policy $definition \
   --description 'Azure CLI policy assignment to resource group'
@@ -86,7 +88,7 @@ The results of the policy assignment resemble the following example:
 
 ```output
 "description": "Azure CLI policy assignment to resource group",
-"displayName": "Audit VMs without managed disks Assignment",
+"displayName": "Audit VM managed disks",
 "enforcementMode": "Default",
 "id": "/subscriptions/{subscriptionID}/resourceGroups/{resourceGroupName}/providers/Microsoft.Authorization/policyAssignments/audit-vm-managed-disks",
 "identity": null,
@@ -154,11 +156,9 @@ az logout
 
 ## Next steps
 
-In this quickstart, you assigned a policy definition to identify non-compliant resources in your
-Azure environment.
+In this quickstart, you assigned a policy definition to identify non-compliant resources in your Azure environment.
 
-To learn more how to assign policies that validate if new resources are compliant, continue to the
-tutorial.
+To learn more about how to assign policies that validate resource compliance, continue to the tutorial.
 
 > [!div class="nextstepaction"]
 > [Tutorial: Create and manage policies to enforce compliance](./tutorials/create-and-manage.md)

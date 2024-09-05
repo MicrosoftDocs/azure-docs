@@ -1,14 +1,14 @@
 ---
 title: Enable Profiler for web apps on an Azure virtual machine
 description: Profile web apps running on an Azure virtual machine or a virtual machine scale set by using Application Insights Profiler
-ms.topic: conceptual
-ms.date: 09/22/2023
+ms.topic: how-to
+ms.date: 08/19/2024
 ms.reviewer: charles.weininger
 ---
 
 # Enable Profiler for web apps on an Azure virtual machine
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 In this article, you learn how to run Application Insights Profiler on your Azure virtual machine (VM) or Azure virtual machine scale set via three different methods:
 
@@ -16,12 +16,14 @@ In this article, you learn how to run Application Insights Profiler on your Azur
 - PowerShell
 - Azure Resource Explorer
 
-With any of these methods, you:
+Select your preferred method tab to:
 
-- Configure the Azure Diagnostics extension to run Profiler.
-- Install the Application Insights SDK on a VM.
-- Deploy your application.
-- View Profiler traces via the Application Insights instance in the Azure portal.
+In this guide, you learn how to:
+> [!div class="checklist"]
+> - Configure the Azure Diagnostics extension to run Profiler.
+> - Install the Application Insights SDK on a VM.
+> - Deploy your application.
+> - View Profiler traces via the Application Insights instance in the Azure portal.
 
 ## Prerequisites
 

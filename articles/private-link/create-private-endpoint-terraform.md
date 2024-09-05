@@ -4,7 +4,7 @@ description: In this quickstart, you learn how to create a private endpoint usin
 ms.topic: quickstart
 ms.date: 02/22/2024
 ms.custom: devx-track-terraform
-ms.service: virtual-network
+ms.service: azure-virtual-network
 author: asudbring
 ms.author: allensu
 content_well_notification: 
@@ -20,6 +20,8 @@ The script generates a random password for the SQL server and a random SSH key f
 
 [!INCLUDE [About Terraform](~/azure-dev-docs-pr/articles/terraform/includes/abstract.md)]
 
+:::image type="content" source="./media/create-private-endpoint-portal/private-endpoint-qs-resources-sql.png" alt-text="Diagram of resources created in private endpoint quickstart." lightbox="./media/create-private-endpoint-portal/private-endpoint-qs-resources-sql.png":::
+
 ## Prerequisites
 
 - You need an Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
@@ -29,7 +31,7 @@ The script generates a random password for the SQL server and a random SSH key f
 ## Implement the Terraform code
 
 > [!NOTE]
-> The sample code for this article is located in the [Azure Terraform GitHub repo](https://github.com/Azure/terraform/tree/master/quickstart/201-private-link-sql-database). You can view the log file containing the [test results from current and previous versions of Terraform](https://github.com/Azure/terraform/tree/master/quickstart/201-private-link-sql-database/TestRecord.md).
+> The sample code for this article is located in the [Azure Terraform GitHub repo](https://github.com/Azure/terraform/tree/master/quickstart/201-private-link-sql-database).
 > 
 > See more [articles and sample code showing how to use Terraform to manage Azure resources](/azure/terraform)
 

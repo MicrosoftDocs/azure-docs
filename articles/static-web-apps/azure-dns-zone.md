@@ -3,7 +3,7 @@ title: Delegate domain to Azure DNS
 description: Create an Azure DNS zone for a custom domain in Azure Static Web Apps
 services: static-web-apps
 author: craigshoemaker
-ms.service: static-web-apps
+ms.service: azure-static-web-apps
 ms.topic: how-to
 ms.date: 02/14/2021
 ms.author: cshoe
@@ -27,9 +27,9 @@ The following procedure requires you to copy settings from an Azure DNS zone you
 
 1. Select **DNS zones**.
 
-2. Select **Create**.
+1. Select **Create**.
 
-3. In the *Basics* tab, enter the following values.
+1. In the *Basics* tab, enter the following values.
 
     | Property | Value |
     |---|---|
@@ -37,15 +37,15 @@ The following procedure requires you to copy settings from an Azure DNS zone you
     | Resource group | Select to create a resource group. |
     | Name | Enter the domain name for this zone. |
 
-4. Select **Review + Create**.
+1. Select **Review + Create**.
 
-5. Select **Create** and wait for the zone to provision.
+1. Select **Create** and wait for the zone to provision.
 
-6. Select **Go to resource**.
+1. Select **Go to resource**.
 
     With the DNS zone created, you now have access to Azure's DNS name servers for your application.
 
-7. From the *Overview* window, copy the values for all four name servers listed as **Name server 1** to **Name server 4** and set them aside in a text editor for later use.
+1. From the *Overview* window, copy the values for all four name servers listed as **Name server 1** to **Name server 4** and set them aside in a text editor for later use.
 
 ## Update name server addresses
 

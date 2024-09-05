@@ -8,7 +8,9 @@ ms.topic: how-to
 author: delvissantos
 ms.author: delvissantos
 ms.custom: horz-monitor, subject-monitoring
-ms.date: 01/30/2023
+ms.date: 05/29/2024
+
+#Customer intent: As a Dev Box administrator, I want to monitor Dev Boxes so that I can ensure that my applications and business processes are running smoothly.
 ---
 
 # Monitoring Microsoft Dev Box
@@ -33,17 +35,18 @@ See [Create diagnostic setting to collect platform logs and metrics in Azure](/a
 
 ### Configure Azure diagnostic logs for a dev center 
 
-With Azure diagnostic logs for DevCenter, you can view audit logs for dataplane operations in your dev center. These logs can be routed to any of the following destinations:
+With Azure diagnostic logs for DevCenter, you can view audit logs for data plane operations in your dev center. These logs can be routed to any of the following destinations:
 
-* Azure Storage account
-* Log Analytics workspace
+- Azure Storage account
+- Log Analytics workspace
 
 This feature is available on all dev centers. 
 
-Diagnostics logs allow you to export basic usage information from your dev center to different kinds sources so that you can consume them in a customized way. The dataplane audit logs expose information around CRUD operations for dev boxes within your dev center. Including, for example, start and stop commands executed on dev boxes. Some sample ways you can choose to export this data:
+Diagnostics logs allow you to export basic usage information from your dev center to different kinds sources so that you can consume them in a customized way. The data plane audit logs expose information around CRUD operations for dev boxes within your dev center. Including, for example, start and stop commands executed on dev boxes. Some sample ways you can choose to export this data:
 
-* Export data to blob storage, export to CSV.
-* Export data to Azure Monitor logs and view and query data in your own Log Analytics workspace 
+- Export data to blob storage
+- Export data to CSV
+- Export data to Azure Monitor logs and view and query data in your own Log Analytics workspace 
 
 To learn more about the different types of logs available for dev centers, see [DevCenter Diagnostic Logs Reference](monitor-reference.md).
 
@@ -53,7 +56,7 @@ Follow these steps enable logging for your Azure DevCenter resource:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-2. In the Azure portal, navigate to **All resources** -> **your-devcenter**
+2. In the Azure portal, navigate to your dev center.
 
 3. In the **Monitoring** section, select **Diagnostics settings**.
 
@@ -66,16 +69,16 @@ To use a storage account to store the logs, follow these steps:
 
  >[!NOTE] 
  >A storage account in the same region as your dev center is required to complete these steps. Refer to: **[Create an Azure Storage account](../storage/common/storage-account-create.md?tabs=azure-portal&toc=%2fazure%2fstorage%2fblobs%2ftoc.json)** for more information.
-	
+    
 1. For **Diagnostic setting name**, enter a name for your diagnostic log settings.
  
-2. Select **Archive to a storage account**, then select **Dataplane audit logs**. 
+1. Under **Logs**, select **Dataplane audit logs**.
+ 
+1. Under **Destination details**, select **Archive to a storage account**.
 
-3. For **Retention (days)**, choose the number of retention days. A retention of zero days stores the logs indefinitely. 
+1. Select the subscription and storage account for the logs.
 
-4. Select the subscription and storage account for the logs.
-
-3. Select **Save**.
+1. Select **Save**.
 
 #### Send to Log Analytics
 
@@ -83,10 +86,12 @@ To use Log Analytics for the logs, follow these steps:
 
 >[!NOTE] 
 >A log analytics workspace is required to complete these steps. Refer to: **[Create a Log Analytics workspace in the Azure portal](../azure-monitor/logs/quick-create-workspace.md)** for more information.
-	
+    
 1. For **Diagnostic setting name**, enter a name for your diagnostic log settings.
 
-2. Select **Send to Log Analytics**, then select **Dataplane audit logs**. 
+1. Under **Logs**, select **Dataplane audit logs**.
+
+2. Under **Destination details**, select **Send to Log Analytics workspace**. 
 
 3. Select the subscription and Log Analytics workspace for the logs.
 
@@ -96,7 +101,7 @@ To use Log Analytics for the logs, follow these steps:
 
 The following example shows how to enable diagnostic logs via the Azure PowerShell Cmdlets.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 #### Enable diagnostic logs in a storage account
 
@@ -106,7 +111,7 @@ The following example shows how to enable diagnostic logs via the Azure PowerShe
     Connect-AzAccount 
     ```
 
-2. To enable Diagnostic Logs in a storage account, enter these commands. Replace the variables with your values:
+2. Enable Diagnostic Logs in a storage account using the following commands. Replace the variables with your values:
 
     ```azurepowershell-interactive
     $rg = <your-resource-group-name>
@@ -126,7 +131,7 @@ The following example shows how to enable diagnostic logs via the Azure PowerShe
     ```azurepowershell-interactive
     Connect-AzAccount 
     ```
-2. To enable Diagnostic Logs for a Log Analytics workspace, enter these commands. Replace the variables with your values:
+2. Enable Diagnostic Logs for a Log Analytics workspace using the following commands. Replace the variables with your values:
 
     ```azurepowershell-interactive
     $rg = <your-resource-group-name>
@@ -148,7 +153,7 @@ DevCenter stores data in the following tables.
 
 | Table | Description |
 |:---|:---|
-| DevCenterDiagnosticLogs | Table used to store dataplane request/response information on dev box or environments within the dev center.  |
+| DevCenterDiagnosticLogs | Table used to store data plane request/response information on dev box or environments within the dev center.  |
 | DevCenterResourceOperationLogs | Operation logs pertaining to DevCenter resources, including information around resource health status changes. |
 | DevCenterBillingEventLogs | Billing event related to DevCenter resources. This log contains information about the quantity and unit charged per meter. |
 
@@ -157,20 +162,20 @@ After enabling diagnostic settings on your dev center, you should be able to vie
 
 Here are some queries that you can enter into Log search to help your monitor your dev boxes.
 
-To query for all dataplane logs from DevCenter:
+To query for all data plane logs from DevCenter:
 
 ```kusto
 DevCenterDiagnosticLogs
 ```
 
-To query for a filtered list of dataplane logs, specific to a single devbox:
+To query for a filtered list of data plane logs, specific to a single devbox:
 
 ```kusto
 DevCenterDiagnosticLogs
 | where TargetResourceId contains "<devbox-name>"
 ```
 
-To generate a chart for dataplane logs, grouped by operation result status:
+To generate a chart for data plane logs, grouped by operation result status:
 
 ```kusto
 DevCenterDiagnosticLogs
@@ -185,4 +190,3 @@ These examples are just a small sample of the rich queries that can be performed
 - [Monitor Dev Box](monitor-dev-box.md)
 - [Azure Diagnostic logs](../azure-monitor/essentials/platform-logs-overview.md)
 - [Azure Monitor logs](../azure-monitor/logs/log-query-overview.md)
-- [Azure Log Analytics REST API](/rest/api/loganalytics)

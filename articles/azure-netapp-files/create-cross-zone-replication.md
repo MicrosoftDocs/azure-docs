@@ -5,40 +5,18 @@ services: azure-netapp-files
 author: b-ahibbard
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 01/04/2023
+ms.date: 07/30/2024
 ms.author: anfdocs
 ---
 # Create cross-zone replication relationships for Azure NetApp Files
 
 [Cross-zone replication](cross-zone-replication-introduction.md) enables you to replicate volumes across availability zones within the same region. It enables you to fail over your critical application if a region-wide outage or disaster happens. 
 
-For information about availability zones, see [Use availability zones for high availability in Azure NetApp Files](use-availability-zones.md) and [Manage availability zone volume placement for Azure NetApp Files](manage-availability-zone-volume-placement.md). 
+For information about availability zones, see [Use availability zones zonal placement for application high availability with Azure NetApp Files](use-availability-zones.md) and [Manage availability zone volume placement for Azure NetApp Files](manage-availability-zone-volume-placement.md). 
 
 ## Requirements
 
 Before you begin, you should review the [requirements and considerations for cross-zone replication](cross-zone-replication-requirements-considerations.md).
-
-[!INCLUDE [Azure NetApp Files cross-zone-replication supported regions](includes/cross-zone-regions.md)]
-
-## Register the feature 
-
-Cross-zone replication is currently in preview. You need to register the feature before using it for the first time. After registration, the feature is enabled and works in the background. No UI control is required. 
-
-1. Register the feature: 
-
-    ```azurepowershell-interactive
-    Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFCrossZoneReplication
-    ```
-
-2. Check the status of the feature registration: 
-
-    > [!NOTE]
-    > The **RegistrationState** may be in the `Registering` state for up to 60 minutes before changing to `Registered`. Wait until the status is **Registered** before continuing.
-
-    ```azurepowershell-interactive
-    Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFCrossZoneReplication
-    ```
-You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` and `az feature show` to register the feature and display the registration status. 
 
 ## Create the source volume with an availability zone  
 

@@ -12,7 +12,7 @@ ms.devlang: azurecli
 
 # Deploy Azure Resource Manager templates for Azure Logic Apps
 
-[!INCLUDE [logic-apps-sku-consumption](../../includes/logic-apps-sku-consumption.md)]
+[!INCLUDE [logic-apps-sku-consumption](~/reusable-content/ce-skilling/azure/includes/logic-apps-sku-consumption.md)]
 
 After you create an Azure Resource Manager template for your Consumption logic app, you can deploy your template in these ways:
 

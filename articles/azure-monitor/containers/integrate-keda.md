@@ -1,12 +1,12 @@
 ---
 title: Integrate KEDA with your Azure Kubernetes Service cluster
 description: How to integrate KEDA with your Azure Kubernetes Service cluster.
-author: EdB-MSFT
-ms.author: edbaynash
+author: bwren
+ms.author: bwren
 services: azure-monitor
 ms.topic: how-to
 ms.custom: devx-track-azurecli
-ms.date: 05/31/2023
+ms.date: 07/26/2024
 --- 
 
 

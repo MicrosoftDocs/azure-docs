@@ -5,11 +5,10 @@ description: Combine data from two data sources using the join transformation in
 author: kromerm
 ms.author: makromer
 ms.reviewer: daperlov
-ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 07/17/2023
+ms.date: 05/15/2024
 ---
 
 # Join transformation in mapping data flow

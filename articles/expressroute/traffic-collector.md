@@ -4,7 +4,7 @@ titleSuffix: Azure ExpressRoute
 description: Learn about ExpressRoute Traffic Collector and the different use cases where this feature is helpful.
 services: expressroute
 author: duongau
-ms.service: expressroute
+ms.service: azure-expressroute
 ms.topic: conceptual
 ms.date: 10/09/2023
 ms.author: duau
@@ -13,7 +13,7 @@ ms.custom: references_regions
 
 # Azure ExpressRoute Traffic Collector
 
-ExpressRoute Traffic Collector enables sampling of network flows sent over your ExpressRoute Direct circuits. Flow logs get sent to a [Log Analytics workspace](../azure-monitor/logs/log-analytics-overview.md) where you can create your own log queries for further analysis. You can also export the data to any visualization tool or SIEM (Security Information and Event Management) of your choice. Flow logs can be enabled for both private peering and Microsoft peering with ExpressRoute Traffic Collector.
+ExpressRoute Traffic Collector enables sampling of network flows sent over your ExpressRoute circuits. Flow logs get sent to a [Log Analytics workspace](../azure-monitor/logs/log-analytics-overview.md) where you can create your own log queries for further analysis. You can also export the data to any visualization tool or SIEM (Security Information and Event Management) of your choice. Flow logs can be enabled for both private peering and Microsoft peering with ExpressRoute Traffic Collector.
 
 :::image type="content" source="./media/traffic-collector/main-diagram.png" alt-text="Diagram of ExpressRoute traffic collector in an Azure environment.":::
 
@@ -42,6 +42,10 @@ Flow logs can help you look into various traffic insights. Some common use cases
 ## Flow log collection and sampling
 
 Flow logs are collected at an interval of every 1 minute. All packets collected for a given flow get aggregated and imported into a Log Analytics workspace for further analysis. During flow collection, not every packet is captured into its own flow record. ExpressRoute Traffic Collector uses a sampling rate of 1:4096, meaning 1 out of every 4096 packets gets captured. Therefore, sampling rate short flows (in total bytes) might not get collected. This sampling size doesn't affect network traffic analysis when sampled data is aggregated over a longer period of time. Flow collection time and sampling rate are fixed and can't be changed.
+
+## Supported ExpressRoute Circuits
+
+ExpressRoute Traffic Collector supports both Provider-managed circuits and ExpressRoute Direct circuits. At this time, ExpressRoute Traffic Collector only supports circuits with a bandwidth of 1Gbps or greater.
 
 ## Flow log schema
 

@@ -2,7 +2,7 @@
 title: Manage packages outside Synapse Analytics Studio UIs
 description: Learn how to manage packages using Azure PowerShell cmdlets or REST APIs
 author: shuaijunye
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.topic: conceptual
 ms.date: 02/23/2023
 ms.author: shuaijunye

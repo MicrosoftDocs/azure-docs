@@ -4,11 +4,10 @@ titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn about map functions in mapping data flow.
 author: kromerm
 ms.author: makromer
-ms.service: data-factory
 ms.subservice: data-flows
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 07/17/2023
+ms.date: 05/15/2024
 ---
 
 # Map functions in mapping data flow

@@ -73,7 +73,8 @@ The message-sending functionality of a queue maps directly to a topic and its me
 Creating a topic is similar to creating a queue, as described in the previous section. You can create topics and subscriptions using one of the following options:
 
 - [Azure portal](service-bus-quickstart-topics-subscriptions-portal.md)
-- [PowerShell](service-bus-quickstart-powershell.md)
+- [PowerShell](/powershell/module/az.servicebus/new-azservicebustopic)
+
 - [CLI](service-bus-tutorial-topics-subscriptions-cli.md)
 - [ARM templates](service-bus-resource-manager-namespace-topic.md). 
 
@@ -91,16 +92,25 @@ In many scenarios, messages that have specific characteristics must be processed
 For a full working example, see the [TopicFilters sample](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/servicebus/Azure.Messaging.ServiceBus/samples/TopicFilters) on GitHub. For more information about filters, see [Topic filters and actions](topic-filters.md).
 
 ## Java message service (JMS) 2.0 entities
+
 The following entities are accessible through the Java message service (JMS) 2.0 API.
 
-  * Temporary queues
-  * Temporary topics
-  * Shared durable subscriptions
-  * Unshared durable subscriptions
-  * Shared non-durable subscriptions
-  * Unshared non-durable subscriptions
+* Temporary queues
+* Temporary topics
+* Shared durable subscriptions
+* Unshared durable subscriptions
+* Shared non-durable subscriptions
+* Unshared non-durable subscriptions
 
 Learn more about the [JMS 2.0 entities](java-message-service-20-entities.md) and about how to [use them](how-to-use-java-message-service-20.md).
+
+## Express Entities 
+
+Express entities were created for high throughput and reduced latency scenarios. With express entities, if a message is sent to a queue or topic is, it is not immediately stored in the messaging store. Instead, the message is initially cached in memory. Messages that remain in the entity are written to the message store after a delay, at which point these are protected against loss due to an outage.
+ 
+In regular entities, any runtime operation (like Send, Complete, Abandon, Deadletter) is persisted to the store first, and only after this is acknowledged to the client as successful. In express entities, a runtime operation is acknowledged to the client as successful first, and only later lazily persisted to the store. As a result, in case of a machine reboot or when a hardware issue occurs, some acknowledged runtime operations may not be persisted at all. This means the client gets lower latency and higher throughput with express entities, at the expense of potential data loss and/or redelivery of messages.
+ 
+Additionally, over time many optimizations have been done within Service Bus, meaning that the throughput and latency advantages of express entities are currently minimal. Moreover, the Premium tier of Service Bus does not support [Express entities](service-bus-premium-messaging.md#express-entities). Due to this, it is currently not recommended to use this feature.
 
 ## Next steps
 

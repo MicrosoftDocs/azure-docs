@@ -7,7 +7,7 @@ manager: rkarlin
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
-ms.date: 01/20/2023
+ms.date: 06/27/2024
 ms.author: terrylan
 
 ---
@@ -72,7 +72,7 @@ PIM helps you:
 
 ### Holistic security and compliance posture
 
-[Microsoft Defender for Cloud](../../defender-for-cloud/defender-for-cloud-introduction.md) provides a comprehensive view into your organization's IT security posture, with built-in search queries for notable issues that require your attention. It provides high-level insight into the security state of your computers. You can also view all events from the past 24 hours, 7 days, or any other custom time-frame.
+[Microsoft Defender for Cloud](/azure/defender-for-cloud/defender-for-cloud-introduction) provides a comprehensive view into your organization's IT security posture, with built-in search queries for notable issues that require your attention. It provides high-level insight into the security state of your computers. You can also view all events from the past 24 hours, 7 days, or any other custom time-frame.
 
 Azure Monitor logs help you quickly and easily understand the overall security posture of any environment, all within the context of IT Operations, including software update assessment, antimalware assessment, and configuration baselines. Security log data is readily accessible to streamline the security and compliance audit processes.
 
@@ -104,24 +104,24 @@ You can create and manage DSC resources that are hosted in Azure and apply them 
 
 ## Microsoft Defender for Cloud
 
-[Microsoft Defender for Cloud](../../defender-for-cloud/defender-for-cloud-introduction.md) helps protect your hybrid cloud environment. By performing continuous security assessments of your connected resources, it's able to provide detailed security recommendations for the discovered vulnerabilities.
+[Microsoft Defender for Cloud](/azure/defender-for-cloud/defender-for-cloud-introduction) helps protect your hybrid cloud environment. By performing continuous security assessments of your connected resources, it's able to provide detailed security recommendations for the discovered vulnerabilities.
 
 Defender for Cloud's recommendations are based on the [Microsoft cloud security benchmark](/security/benchmark/azure/introduction) - the Microsoft-authored, Azure-specific set of guidelines for security and compliance best practices based on common compliance frameworks. This widely respected benchmark builds on the controls from the [Center for Internet Security (CIS)](https://www.cisecurity.org/benchmark/azure/) and the [National Institute of Standards and Technology (NIST)](https://www.nist.gov/) with a focus on cloud centric security.
 
-Enabling Defender for Cloud's enhanced security features brings advanced, intelligent, protection of your Azure, hybrid and multicloud resources and workloads. Learn more in [Microsoft Defender for Cloud's enhanced security features](../../defender-for-cloud/enhanced-security-features-overview.md). 
+Enabling Defender for Cloud's enhanced security features brings advanced, intelligent, protection of your Azure, hybrid and multicloud resources and workloads. Learn more in [Microsoft Defender for Cloud's enhanced security features](/azure/defender-for-cloud/enhanced-security-features-overview). 
 
 The workload protection dashboard in Defender for Cloud provides visibility and control of the integrated cloud workload protection features provided by a range of **Microsoft Defender** plans:
 
-:::image type="content" source="../../defender-for-cloud/media/workload-protections-dashboard/sample-defender-dashboard-numbered.png" alt-text="An example of Defender for Cloud's workload protections dashboard." lightbox="../../defender-for-cloud/media/workload-protections-dashboard/sample-defender-dashboard-numbered.png":::
+:::image type="content" source="~/reusable-content/ce-skilling/azure/media/defender-for-cloud/sample-defender-dashboard-numbered.png" alt-text="An example of Defender for Cloud's workload protections dashboard." lightbox="~/reusable-content/ce-skilling/azure/media/defender-for-cloud/sample-defender-dashboard-numbered.png":::
 
 > [!TIP]
-> Learn more about the numbered sections in [The workload protections dashboard](../../defender-for-cloud/workload-protections-dashboard.md).
+> Learn more about the numbered sections in [The workload protections dashboard](/azure/defender-for-cloud/workload-protections-dashboard).
 
 Microsoft security researchers are constantly on the lookout for threats. They have access to an expansive set of telemetry gained from Microsoft’s global presence in the cloud and on-premises. This wide-reaching and diverse collection of datasets enables Microsoft to discover new attack patterns and trends across its on-premises consumer and enterprise products, as well as its online services.
 
 Thus, Defender for Cloud can rapidly update its detection algorithms as attackers release new and increasingly sophisticated exploits. This approach helps you keep pace with a fast-moving threat environment.
 
-:::image type="content" source="../../defender-for-cloud/media/security-center-managing-and-responding-alerts/alerts-page.png" alt-text="Microsoft Defender for Cloud's security alerts list":::
+:::image type="content" source="../media/alerts-page.png" alt-text="Microsoft Defender for Cloud's security alerts list":::
 
 Microsoft Defender for Cloud automatically collects security information from your resources, the network, and connected partner solutions. It analyzes this information, correlating information from multiple sources, to identify threats.
 
@@ -328,4 +328,4 @@ For examples of web application firewalls that are available in the Azure Market
 
 ## Next step
 
-- [Responding to today's threats](../../defender-for-cloud/managing-and-responding-alerts.md): Helps identify active threats that target your Azure resources and provides the insights you need to respond quickly.
+- [Responding to today's threats](/azure/defender-for-cloud/managing-and-responding-alerts): Helps identify active threats that target your Azure resources and provides the insights you need to respond quickly.

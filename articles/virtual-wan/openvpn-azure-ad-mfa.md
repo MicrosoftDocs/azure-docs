@@ -4,7 +4,7 @@ description: Learn how to enable Microsoft Entra multifactor authentication (MFA
 services: virtual-wan
 author: cherylmc
 
-ms.service: virtual-wan
+ms.service: azure-virtual-wan
 ms.topic: how-to
 ms.date: 08/23/2023
 ms.author: alzam

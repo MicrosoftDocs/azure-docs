@@ -1,13 +1,13 @@
 ---
 title: What is Azure Synapse Analytics?
 description: An Overview of Azure Synapse Analytics
-author: saveenr
-ms.service: synapse-analytics
+author: whhender
+ms.service: azure-synapse-analytics
 ms.topic: overview
 ms.subservice: overview
-ms.date: 11/02/2021
-ms.author: saveenr
-ms.reviewer: sngun
+ms.date: 07/10/2024
+ms.author: whhender
+ms.reviewer: whhender
 ---
 
 # What is Azure Synapse Analytics?
@@ -28,7 +28,7 @@ ms.reviewer: sngun
 
 **Apache Spark for Azure Synapse** deeply and seamlessly integrates Apache Spark--the most popular open source big data engine used for data preparation, data engineering, ETL, and machine learning.
 
-* ML models with SparkML algorithms and AzureML integration for Apache Spark 3.1 with built-in support for Linux Foundation Delta Lake.
+* ML models with SparkML algorithms and Azure Machine Learning integration for Apache Spark 3.1 with built-in support for Linux Foundation Delta Lake.
 * Simplified resource model that frees you from having to worry about managing clusters.
 * Fast Spark start-up and aggressive autoscaling.
 * Built-in support for .NET for Spark allowing you to reuse your C# expertise and existing .NET code within a Spark application.
@@ -51,11 +51,11 @@ Azure Synapse contains the same Data Integration engine and experiences as Azure
 
 ## Data Explorer (Preview)
 
-Azure Synapse Data Explorer provides customers with an interactive query experience to unlock insights from log and telemetry data. To complement existing SQL and Apache Spark analytics runtime engines, Data Explorer analytics runtime is optimized for efficient log analytics using powerful indexing technology to automatically index free-text and semi-structured data commonly found in the telemetry data. 
+Azure Synapse Data Explorer provides customers with an interactive query experience to unlock insights from system-generated logs. To complement existing SQL and Apache Spark analytics runtime engines, Data Explorer analytics runtime is optimized for efficient log analytics using powerful indexing technology to automatically index free-text and semi-structured data commonly found in the system-generated logs. 
 
 Use Data Explorer as a data platform for building near real-time log analytics and IoT analytics solutions to:
 
-* Consolidate and correlate your logs and events data across on-premises, cloud, third-party data sources.
+* Consolidate and correlate your logs and events data across on-premises, cloud, and third-party data sources.
 * Accelerate your AI Ops journey (pattern recognition, anomaly detection, forecasting, and more)
 * Replace infrastructure-based log search solutions to save cost and increase productivity.
 * Build IoT Analytics solution for your IoT data.
@@ -68,7 +68,7 @@ Use Data Explorer as a data platform for building near real-time log analytics a
 * Perform key tasks: ingest, explore, prepare, orchestrate, visualize
 * Monitor resources, usage, and users across SQL, Spark, and Data Explorer
 * Use Role-based access control to simplify access to analytics resources
-* Write SQL, Spark or KQL code and integrate with enterprise CI/CD processes
+* Write SQL, Spark, or KQL code and integrate with enterprise CI/CD processes
 
 ## Engage with the Synapse community
 

@@ -43,11 +43,7 @@ covers the different services used at [Monitoring Azure applications and resourc
 
 ## Configure
 
-Configure refers to the initial deployment and configuration of resources and ongoing maintenance.
-Automation of these tasks allows you to eliminate redundancy, minimizing your time and effort and
-increasing your accuracy and efficiency. [Azure Automation](../../automation/overview.md)
-provides the bulk of services for automating configuration tasks. While runbooks handle process
-automation, configuration and update management help manage configuration.
+Configure refers to the initial deployment and configuration of resources and ongoing maintenance. Automation of these tasks allows you to eliminate redundancy, minimizing your time and effort and increasing your accuracy and efficiency. [Azure Automation](../../automation/overview.md) provides the bulk of services for automating configuration tasks. While runbooks handle process automation, configuration and update management help manage configuration.
 
 ## Govern
 
@@ -61,7 +57,7 @@ This feature keeps those resources in compliance with your corporate standards.
 
 Manage the security of your resources and data. A security program involves assessing threats,
 collecting and analyzing data, and compliance of your applications and resources. Security
-monitoring and threat analysis are provided by [Microsoft Defender for Cloud](../../defender-for-cloud/defender-for-cloud-introduction.md), which includes unified security
+monitoring and threat analysis are provided by [Microsoft Defender for Cloud](/azure/defender-for-cloud/defender-for-cloud-introduction), which includes unified security
 management and advanced threat protection across hybrid cloud workloads. See [Introduction to Azure Security](../../security/fundamentals/overview.md) for comprehensive information and guidance on
 securing Azure resources.
 
@@ -75,7 +71,7 @@ your control. Protection in Azure is provided by two services. [Azure Backup](..
 Migration refers to transitioning workloads currently running on-premises to the Azure cloud.
 [Azure Migrate](../../migrate/migrate-services-overview.md) is a service that helps you assess the
 migration suitability of on-premises virtual machines to Azure. Azure Site Recovery migrates virtual
-machines [from on-premises](../../site-recovery/migrate-tutorial-on-premises-azure.md) or [from Amazon Web Services](../../site-recovery/migrate-tutorial-aws-azure.md). [Azure Database Migration Service](../../dms/dms-overview.md) assists you in migrating database sources to Azure Data
+machines [from on-premises](../../site-recovery/migrate-tutorial-on-premises-azure.md) or [from Amazon Web Services](../../site-recovery/migrate-tutorial-aws-azure.md). [Azure Database Migration Service](/azure/dms/dms-overview) assists you in migrating database sources to Azure Data
 platforms.
 
 ## Next Steps

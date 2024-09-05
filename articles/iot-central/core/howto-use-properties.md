@@ -3,7 +3,7 @@ title: Use properties in an Azure IoT Central solution
 description: Learn how to use read-only and writable properties in an Azure IoT Central solution. Define properties in IoT Central and use properties programmatically.
 author: dominicbetts
 ms.author: dobett
-ms.date: 06/06/2023
+ms.date: 02/27/2024
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
@@ -24,6 +24,8 @@ To learn about the IoT Pug and Play property conventions, see [IoT Plug and Play
 To learn more about the property data that a device exchanges with IoT Central, see [Telemetry, property, and command payloads](../../iot/concepts-message-payloads.md).
 
 To learn how to manage properties by using the IoT Central REST API, see [How to use the IoT Central REST API to control devices.](../core/howto-control-devices-with-rest-api.md).
+
+To learn how to implement properties in a device without using the device SDKs, see [Communicate with an IoT hub using the MQTT protocol](../../iot/iot-mqtt-connect-to-iot-hub.md).
 
 ## Define your properties
 

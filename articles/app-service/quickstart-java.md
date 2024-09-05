@@ -7,7 +7,7 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 02/10/2024
 ms.custom: mvc, mode-other, devdivchpfy22, devx-track-java, devx-track-javaee-jbosseap-appsvc, devx-track-javaee-jbosseap, devx-track-javaee, devx-track-extended-java
-zone_pivot_groups: app-service-java-hosting
+zone_pivot_groups: app-service-java-deploy
 adobe-target: true
 adobe-target-activity: DocsExp–386541–A/B–Enhanced-Readability-Quickstarts–2.19.2021
 adobe-target-experience: Experience B
@@ -19,19 +19,19 @@ ms.author: cephalin
 # Quickstart: Create a Java app on Azure App Service
 
 
-::: zone pivot="java-maven-tomcat"
+::: zone pivot="java-tomcat"
 
 [!INCLUDE [quickstart-java-linux-maven-pivot.md](./includes/quickstart-java/quickstart-java-tomcat.md)]
 
 ::: zone-end
 
-::: zone pivot="java-maven-javase"
+::: zone pivot="java-javase"
 
 [!INCLUDE [quickstart-java-windows-maven-pivot.md](./includes/quickstart-java/quickstart-java-javase.md)]
 
 ::: zone-end
 
-::: zone pivot="java-maven-jboss"
+::: zone pivot="java-jboss"
 
 [!INCLUDE [quickstart-java-windows-maven-pivot.md](./includes/quickstart-java/quickstart-java-jboss.md)]
 
@@ -40,7 +40,7 @@ ms.author: cephalin
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Connect to Azure Database for PostgreSQL with Java](../postgresql/connect-java.md)
+> [Connect to Azure Database for PostgreSQL with Java](/azure/postgresql/connect-java)
 
 > [!div class="nextstepaction"]
 > [Set up CI/CD](deploy-continuous-deployment.md)
@@ -58,7 +58,7 @@ ms.author: cephalin
 > [Azure for Java Developers Resources](/java/azure/)
 
 > [!div class="nextstepaction"]
-> [Configure your Java app](configure-language-java.md)
+> [Configure your Java app](configure-language-java-deploy-run.md)
 
 > [!div class="nextstepaction"]
 > [Secure with custom domain and certificate](tutorial-secure-domain-certificate.md)

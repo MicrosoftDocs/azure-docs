@@ -11,7 +11,7 @@ ms.custom: template-how-to
 
 # How to convert a SEG-Y file to ZGY
 
-In this article, you learn how to convert SEG-Y formatted data to the ZGY format. Seismic data stored in industry standard SEG-Y format can be converted to ZGY for use in applications such as Petrel via the Seismic DMS. See here for [ZGY Conversion FAQ's](https://community.opengroup.org/osdu/platform/data-flow/ingestion/segy-to-zgy-conversion#faq) and more background can be found in the OSDU&trade; community here: [SEG-Y to ZGY conversation](https://community.opengroup.org/osdu/platform/data-flow/ingestion/segy-to-zgy-conversion). This tutorial is a step by step guideline how to perform the conversion. Note the actual production workflow may differ and use as a guide for the required set of steps to achieve the conversion. 
+In this article, you learn how to convert SEG-Y formatted data to the ZGY format. Seismic data stored in industry standard SEG-Y format can be converted to ZGY for use in applications such as Petrel via the Seismic DMS. See here for [ZGY Conversion FAQ's](https://community.opengroup.org/osdu/platform/data-flow/ingestion/segy-to-zgy-conversion#faq) and more background can be found in the OSDU&reg; community here: [SEG-Y to ZGY conversation](https://community.opengroup.org/osdu/platform/data-flow/ingestion/segy-to-zgy-conversion). This tutorial is a step by step guideline how to perform the conversion. Note the actual production workflow may differ and use as a guide for the required set of steps to achieve the conversion. 
 
 ## Prerequisites
 - An Azure subscription
@@ -251,7 +251,7 @@ python sdutil auth idtoken
     ```bash
     python sdutil cp sd://<data-partition-id>/<subproject>/<filename.zgy> <local/destination/path>
     ```
-OSDU&trade; is a trademark of The Open Group.
+OSDU&reg; is a trademark of The Open Group.
 
 ## Next steps
 <!-- Add a context sentence for the following links -->

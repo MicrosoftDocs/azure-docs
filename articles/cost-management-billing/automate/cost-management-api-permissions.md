@@ -41,6 +41,6 @@ If you have an Azure Enterprise Agreement or a Microsoft Customer Agreement, you
 
 Service principal support extends to Azure-specific scopes, like management groups, subscriptions, and resource groups. You can assign service principal permissions to thee scopes directly [in the Azure portal](../../active-directory/develop/howto-create-service-principal-portal.md#assign-a-role-to-the-application) or by using [Azure PowerShell](../../active-directory/develop/howto-authenticate-service-principal-powershell.md#assign-the-application-to-a-role).
 
-## Next steps
+## Related content
 
 - Learn more about Cost Management automation at [Cost Management automation overview](automation-overview.md).

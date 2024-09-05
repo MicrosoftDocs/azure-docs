@@ -49,7 +49,7 @@ In order to update DCR, we are going to retrieve its content and save it as a fi
     ```PowerShell
     $ResourceId = "<ResourceId>" # Resource ID of the DCR to edit
     $FilePath = "<FilePath>" # Store DCR content in this file
-    $DCR = Invoke-AzRestMethod -Path ("$ResourceId"+"?api-version=2021-09-01-preview") -Method GET
+    $DCR = Invoke-AzRestMethod -Path ("$ResourceId"+"?api-version=2022-06-01") -Method GET
     $DCR.Content | ConvertFrom-Json | ConvertTo-Json -Depth 20 | Out-File -FilePath $FilePath
     ```
 ## Edit DCR
@@ -80,7 +80,7 @@ Our final step is to update DCR back in the system. This is accomplished by “P
     $ResourceId = "<ResourceId>" # Resource ID of the DCR to edit
     $FilePath = "<FilePath>" # Store DCR content in this file
     $DCRContent = Get-Content $FilePath -Raw 
-    Invoke-AzRestMethod -Path ("$ResourceId"+"?api-version=2021-09-01-preview") -Method PUT -Payload $DCRContent 
+    Invoke-AzRestMethod -Path ("$ResourceId"+"?api-version=2022-06-01") -Method PUT -Payload $DCRContent 
     ```
 3.	Upon successful call, you should get the response with status code “200”, indicating that your DCR is now updated.
 4.	You can now navigate to your DCR and examine its content on the portal via “JSON View” function, or you could repeat the first part of the tutorial to retrieve DCR content into a file.
@@ -93,7 +93,7 @@ param ([Parameter(Mandatory=$true)] $ResourceId)
 
 # get DCR content and put into a file
 $FilePath = "temp.dcr"
-$DCR = Invoke-AzRestMethod -Path ("$ResourceId"+"?api-version=2021-09-01-preview") -Method GET
+$DCR = Invoke-AzRestMethod -Path ("$ResourceId"+"?api-version=2022-06-01") -Method GET
 $DCR.Content | ConvertFrom-Json | ConvertTo-Json -Depth 20 | Out-File $FilePath
 
 # Open DCR in code editor
@@ -105,7 +105,7 @@ if ("Y" -eq $Output.toupper())
 { 
 	#write DCR content back from the file
 	$DCRContent = Get-Content $FilePath -Raw
-	Invoke-AzRestMethod -Path ("$ResourceId"+"?api-version=2021-09-01-preview") -Method PUT -Payload $DCRContent		
+	Invoke-AzRestMethod -Path ("$ResourceId"+"?api-version=2022-06-01") -Method PUT -Payload $DCRContent		
 }
 
 #Delete temporary file

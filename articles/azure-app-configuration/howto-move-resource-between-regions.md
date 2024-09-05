@@ -5,7 +5,7 @@ ms.service: azure-app-configuration
 author: maud-lv
 ms.author: malev
 ms.topic: how-to
-ms.date: 03/27/2023
+ms.date: 04/12/2024
 
 #Customer intent: I want to move my App Configuration resource from one Azure region to another. 
 
@@ -54,7 +54,7 @@ Follow these steps to export your configuration to the target store using the Az
     az appconfig kv export -n SourceConfigurationStore -d appconfig --dest-name TargetConfigurationStore --key * --label * --preserve-labels
     ```
 
-1. To verify that your configurations have been successfully transferred from your source to your target store, list all of the key values in your target store.
+1. To verify that your configurations have been successfully transferred from your source to your target store, list all of the key-values in your target store.
 
     ```azurecli
     az appconfig kv list -n TargetAppConfiguration --all

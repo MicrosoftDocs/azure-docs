@@ -1,7 +1,7 @@
 ---
 author: baanders
 description: include file describing how to configure an Azure function to work with Azure Digital Twins - CLI instructions
-ms.service: digital-twins
+ms.service: azure-digital-twins
 ms.topic: include
 ms.date: 6/16/2022
 ms.author: baanders

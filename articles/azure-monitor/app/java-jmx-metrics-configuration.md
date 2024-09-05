@@ -1,6 +1,6 @@
 ---
 title: How to configure JMX metrics - Azure Monitor application insights for Java
-description: Configure extra JMX metrics collection for Azure Monitor Application Insights Java agent
+description: Configure extra Java Management Extensions (JMX) metrics collection for Azure Monitor Application Insights Java agent.
 ms.topic: conceptual
 ms.date: 12/15/2023
 ms.devlang: java
@@ -10,11 +10,11 @@ ms.reviewer: mmcc
 
 # Configuring JMX metrics
 
-Application Insights Java 3.x collects some of the JMX metrics by default, but in many cases it isn't enough. This document describes the JMX configuration option in details.
+Application Insights Java 3.x collects some of the Java Management Extensions (JMX) metrics by default, but in many cases it isn't enough. This document describes the JMX configuration option in details.
 
 ## How do I collect extra JMX metrics?
 
-JMX metrics collection can be configured by adding a ```"jmxMetrics"``` section to the applicationinsights.json file. You can specify the name of the metric the way you want it to appear in Azure portal in application insights resource. Object name and attribute are required for each of the metrics you want collected.
+JMX metrics collection can be configured by adding a ```"jmxMetrics"``` section to the applicationinsights.json file. Enter a name for the metric as you want it to appear in Azure portal in application insights resource. Object name and attribute are required for each of the metrics you want collected. You may use `*` in object names for glob-style wildcard ([details](/azure/azure-monitor/app/java-standalone-config#java-management-extensions-metrics)).
 
 ## How do I know what metrics are available to configure?
 

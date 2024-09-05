@@ -5,18 +5,18 @@ author: bandersmsft
 ms.service: cost-management-billing
 ms.subservice: microsoft-customer-agreement
 ms.topic: conceptual
-ms.date: 12/15/2023
+ms.date: 04/03/2024
 ms.author: banders
-ms.reviewer: michm
+ms.reviewer: clionabolger
 ---
 
 # Onboard to the Microsoft Customer Agreement (MCA)
 
-This playbook (guide) helps customers who buy Microsoft software and services through a Microsoft account manager set up an MCA. The guide was created to recommend best practices to onboard you to an MCA.
+This playbook (guide) helps customers who buy Microsoft software and services through a Microsoft account manager to set up an MCA. The guide was created to recommend best practices to onboard you to an MCA.
 
 The onboarding processes and important considerations vary, depending on whether you are:
 
-- New to MCA and have never signed an MCA contract but may have bought Azure and per-seat products using another method, such as licensing vehicle or contracting type.
+- New to MCA and didn't already sign an MCA contract but might have bought Azure and per device or user products using another method, such as licensing vehicle or contracting type.
 
 -Or-
 
@@ -32,7 +32,7 @@ This guide follows each path and provides information for each step of the proce
 
 - **[Enterprise Agreement (EA)](https://www.microsoft.com/en-us/licensing/licensing-programs/enterprise)** - A licensing agreement designed for large organizations with 500 or more users or devices. It's a volume licensing program that gives organizations the flexibility to buy Azure or seat-based cloud services and software licenses under one agreement.
 - **Microsoft Customer Agreement (MCA)** - A Microsoft licensing agreement designed for automated processing, dynamic updating of terms, transparent pricing, and enhanced billing management capabilities.
-- **Pay-as-you-go (PAYG)** – A utility computing billing method that's used in cloud computing and geared towards organizations and end users. PAYG is a pricing option where you pay for the resources you use on an hourly or monthly basis. You only pay for what you use and can scale up or down as needed.
+- **Pay-as-you-go (PAYG)** – A utility computing billing method used in cloud computing and geared towards organizations and end users. Pay-as-you-go is a pricing option where you pay for the resources you use on an hourly or monthly basis. You only pay for what you use and can scale up or down as needed.
 - **APIs** - A software intermediary that allows two applications to interact with each other. For example, it defines the kinds of calls or requests that can be made, how to make them, the data formats that should be used, and the conventions to follow.
 - **Power BI** - A suite of Microsoft data visualization tools used to deliver insights throughout organizations.
 
@@ -44,12 +44,12 @@ The [MCA](https://www.microsoft.com/Licensing/how-to-buy/microsoft-customer-agre
 
 The MCA has several benefits that can improve your invoice process, billing operations, and overall cost management including:
 
-Simplified purchasing with **fast and fully automated** access to Azure and per-seat licenses
+Simplified purchasing with **fast and fully automated** access to Azure and per device or user licenses
 - A single, short agreement that doesn't expire and can be digitally signed
 - Allows you to complete a purchase and start using Azure right away
 - No upfront costs required with pay-as-you-go billing for most services
 - Buy only what you need when you need it and negotiate commitments when desired
-- Per-seat subscriptions allow you to easily manage and track your organization's software usage
+- You to easily manage and track your organization's software usage with per device or per user subscriptions
 
 Improved billing experience with **intuitive invoices**
 - Intuitive invoice layout displays charges in an easy-to-read format, making expenditures easier to understand
@@ -60,14 +60,14 @@ Management, deployment, and optimization tools in a **single portal**
 - Manage all your Azure purchases through a single, unified portal at Azure.com
 - Centrally control user authorizations in a single place with a single set of roles
 - Integrated cost management capabilities provide enterprise-grade insights into usage with recommendations on how to save money
-- Easily manage your per-seat subscriptions for Microsoft licenses through the same portal, streamlining your software management process.
+- Easily manage your per device or user subscriptions for Microsoft licenses through the same portal, streamlining your software management process.
 
 ## New MCA Customer
 
 This section describes the steps you must take to enable and sign an MCA, which allows you to experience its benefits.
 
 >[!NOTE]
-> The following steps apply only to **new MCA customers** that have never signed an MCA or EA but who may have bought Azure or per seat products through another method, such as a licensing vehicle or contracting type. If you're a **customer migrating to MCA from an existing Microsoft EA**, see [Migrate from an EA to transition to an MCA](#migrate-from-an-ea-to-an-mca).
+> The following steps apply only to **new MCA customers** that have never signed an MCA or EA but who might have bought Azure or per device or user products through another method, such as a licensing vehicle or contracting type. If you're a **customer migrating to MCA from an existing Microsoft EA**, see [Migrate from an EA to transition to an MCA](#migrate-from-an-ea-to-an-mca).
 
 Start your journey to MCA by using the steps in the following diagram. More details and supporting links are in the sections that follow the diagram.
 
@@ -98,7 +98,7 @@ You can accelerate proposal creation and contract signature by gathering the fol
 - **Company's VAT or Tax ID**
 - **The primary contact's name, phone number, and email address**
 
-**The name and email address of the Billing Account Owner** who is the person in your organization that has authorization. They make the initial purchases and sign the MCA. They may or may not be the same person as the signer mentioned previously, depending on your organization's requirements.
+**The name and email address of the Billing Account Owner** who is the person in your organization that has authorization. They make the initial purchases and sign the MCA. They might or might not be the same person as the signer mentioned previously, depending on your organization's requirements.
 
 If your organization has specific requirements for signing contracts such as who can sign, purchasing limits or how many people need to sign, advise your Microsoft account manager in advance.
 
@@ -134,9 +134,18 @@ To become operational includes steps to manage billing accounts, fully understan
 
 Each billing account has at least one billing profile. Your first billing profile is set up when you sign up to use Azure. Users assigned to roles for a billing profile can view cost, set budgets, and can manage and pay invoices. Get an overview of how to [set up and manage your billing account](https://www.youtube.com/watch?v=gyvHl5VNWg4&ab_channel=MicrosoftAzure) and learn about the powerful [billing capabilities](../understand/mca-overview.md).
 
+For more information, see the following how-to videos:
+
+- [How to organize your Microsoft Customer Agreement Billing Account in the Azure portal](https://www.youtube.com/watch?v=6lmaovgWiZw&list=PLC6yPvO9Xb_fRexgBmBeILhzxdETFUZbv&index=7)
+- [How to find a copy of your Microsoft Customer Agreement in the Azure portal](https://www.youtube.com/watch?v=SQbKGo8JV74&list=PLC6yPvO9Xb_fRexgBmBeILhzxdETFUZbv&index=4)
+
+If you're looking for Microsoft 365 admin center video resources, see [Microsoft Customer Agreement Video Tutorials](https://www.microsoft.com/licensing/learn-more/microsoft-customer-agreement/video-tutorials).
+
 ### Step 6 – Understand your MCA invoice
 
 In the billing account for an MCA, an invoice is generated every month for each billing profile. The invoice includes all charges from the previous month organized by invoice sections that you can define. You can view your invoices in the Azure portal and compare the charges to the usage detail files. Learn how the [charges on your invoice](https://www.youtube.com/watch?v=e2LGZZ7GubA&feature) work and take a step-by-step [invoice tutorial](../understand/review-customer-agreement-bill.md).
+
+For more information, see the [How to find and read your Microsoft Customer Agreement invoices in the Azure portal](https://www.youtube.com/watch?v=xkUkIunP4l8&list=PLC6yPvO9Xb_fRexgBmBeILhzxdETFUZbv&index=5) video.
 
 ### Step 7 – Get to know MCA features
 
@@ -155,13 +164,17 @@ The following sections help you establish governance for your MCA.
 
 We recommend using billing account roles to manage your billing account on the MCA. These roles are in addition to the built-in Azure roles used to manage resource assignments. Billing account roles are used to manage your billing account, profiles, and invoice sections. Learn how to manage who has [access to your billing account](https://www.youtube.com/watch?v=9sqglBlKkho&ab_channel=AzureCostManagement) and get an overview of [how billing account roles work](../manage/understand-mca-roles.md) in Azure.
 
+For more information, see the [How to manage access to your Microsoft Customer Agreement in the Azure portal](https://www.youtube.com/watch?v=jh7PUKeAb0M&list=PLC6yPvO9Xb_fRexgBmBeILhzxdETFUZbv&index=6) video.
+
 ### Step 9 – Organize your costs and customize billing
 
 The MCA provides you with flexibility to organize your costs based on your needs, whether it's by department, project, or development environment. Understand how to [organize your costs](https://www.youtube.com/watch?v=7RxTfShGHwU) and to [customize your billing](../manage/mca-section-invoice.md) to meet your needs.
 
+For more information, see the [How to optimize your workloads and reduce costs under your Microsoft Customer Agreement](https://www.youtube.com/watch?v=UxO2cFyWn0w&list=PLC6yPvO9Xb_fRexgBmBeILhzxdETFUZbv&index=3) video.
+
 ### Step 10 – Evaluate your needs for more tenants
 
-The MCA allows you to create multi-tenant billing relationships. They let you securely share your billing account with other tenants, while maintaining control over your billing data. If your organization needs multiple tenants, see [Manage billing across multiple tenants](../manage/manage-billing-across-tenants.md).
+The MCA allows you to create multitenant billing relationships. They let you securely share your billing account with other tenants, while maintaining control over your billing data. If your organization needs multiple tenants, see [Manage billing across multiple tenants](../manage/manage-billing-across-tenants.md).
 
 ## Manage your new MCA
 
@@ -169,7 +182,7 @@ Use the following sections to manage your MCA.
 
 ### Step 11 – Configure your invoice
 
-It's important to ensure that your billing account information is accurate and up-to-date. Confirm your billing account address, sold-to address, PO number, tax ID, and sign-in details. For more information, see [Change contact information for an Azure billing account](../manage/change-azure-account-profile.md).
+It's important to ensure that your billing account information is accurate and up-to-date. Confirm your billing account address, sold-to address, PO number, tax ID, and sign-in details. For more information, see [Change contact information for an Azure billing account](../manage/change-azure-account-profile.yml).
 
 ### Step 12 – Manage payment methods
 
@@ -187,6 +200,10 @@ An Azure subscription is a logical container used to create resources in Azure. 
 
 To create a subscription, see Create a [Microsoft Customer Agreement subscription](../manage/create-subscription.md).
 
+For more information about creating a subscription, see the [How to create an Azure Subscription under your Microsoft Customer Agreement](https://www.youtube.com/watch?v=u5wf8KMD_M8&list=PLC6yPvO9Xb_fRexgBmBeILhzxdETFUZbv&index=8) video.
+
+If you're looking for Microsoft 365 admin center video resources, see [Microsoft Customer Agreement Video Tutorials](https://www.microsoft.com/licensing/learn-more/microsoft-customer-agreement/video-tutorials).
+
 ## Migrate from an EA to an MCA
 
 This section of the onboarding guide describes the steps you follow to migrate from an EA to an MCA. Although the steps in this section are like those in the previous [New MCA customer](#new-mca-customer) section, there are important differences called out throughout this section.
@@ -196,8 +213,9 @@ This section of the onboarding guide describes the steps you follow to migrate f
 The following points help you plan for your migration from EA to MCA:
 
 - Migrating from EA to MCA redirects your charges from your EA enrollment to your MCA billing account after you complete the subscription migration. The change goes into effect immediately. Any charges incurred up to the point of migration are invoiced to the EA and must be settled on that enrollment. There's no effect on your services and no downtime.
-- You can continue to see your historic charges in the Azure portal under your EA enrollment billing scope.
-- Depending on the timing of your migration, you may receive two invoices, one EA and one MCA, in the transition month. The MCA invoice covers usage for a calendar month and is generated from the fifth to the seventh day of the month following the usage.
+- You can continue to see your historic charges in the Azure portal under your EA enrollment billing scope. Historical charges are visible in cost analysis when migration completes if you are an Account Owner or Enterprise Administrator for the enrollment.
+- Subscription ownership does not provide access to historical data since there is no access to the EA Billing Scope. We recommend that you [download your cost and usage data and invoices](../understand/download-azure-daily-usage.md) before you transfer subscriptions.
+- Depending on the timing of your migration, you might receive two invoices, one EA and one MCA, in the transition month. The MCA invoice covers usage for a calendar month and is generated from the fifth to the seventh day of the month following the usage.
 - To ensure your MCA invoice gets received by the right person or group, you must add an accounts payable email address as an invoice recipient's contact to the MCA. For more information, see [share your billing profiles invoice](../understand/download-azure-invoice.md#share-your-billing-profiles-invoice).
 - If you use Cost Management APIs for reporting purposes, familiarize yourself with [Other actions to manage your MCA](#other-actions-to-manage-your-mca).
 - Be sure to alert your accounts payable team of the important change to your invoice. You get a final EA invoice and start receiving a new monthly MCA invoice.
@@ -232,7 +250,7 @@ You can accelerate proposal creation and contract signature by gathering the fol
 - **Company's VAT or Tax ID.**
 - **The primary contact's name, phone number and email address.**
 
-**The name and email address of the Billing Account Owner** who is the person in your organization that has authorization and signs the MCA and who makes the initial purchases. They may or may not be the same person as the signer mentioned previously, depending on your organization's requirements.
+**The name and email address of the Billing Account Owner** who is the person in your organization that has authorization and signs the MCA and who makes the initial purchases. They might or might not be the same person as the signer mentioned previously, depending on your organization's requirements.
 
 If your organization has specific requirements for signing contracts such as who can sign, purchasing limits or how many people need to sign, advise your Microsoft account manager in advance.
 
@@ -268,12 +286,21 @@ Becoming operational includes steps to manage billing accounts, fully understand
 
 Each billing account has at least one billing profile. Your first billing profile is set up when you sign up to use Azure. Users assigned to roles for a billing profile can view cost, set budgets, and manage and pay invoices. Get an overview of how to [set up and manage your billing account](https://www.youtube.com/watch?v=gyvHl5VNWg4&ab_channel=MicrosoftAzure) and learn about the powerful [billing capabilities](../understand/mca-overview.md).
 
+For more information, see the following how-to videos:
+
+- [How to organize your Microsoft Customer Agreement Billing Account in the Azure portal](https://www.youtube.com/watch?v=6lmaovgWiZw&list=PLC6yPvO9Xb_fRexgBmBeILhzxdETFUZbv&index=7)
+- [How to find a copy of your Microsoft Customer Agreement in the Azure portal](https://www.youtube.com/watch?v=SQbKGo8JV74&list=PLC6yPvO9Xb_fRexgBmBeILhzxdETFUZbv&index=4)
+
+If you're looking for Microsoft 365 admin center video resources, see [Microsoft Customer Agreement Video Tutorials](https://www.microsoft.com/licensing/learn-more/microsoft-customer-agreement/video-tutorials).
+
 ### Step 6 - Understand your MCA invoice
 
 In the billing account for an MCA, an invoice is generated every month for each billing profile. The invoice includes all charges from the previous month organized by invoice sections that you can define. You can view your invoices in the Azure portal and compare the charges to the usage detail files. Learn how the [charges on your invoice](https://www.youtube.com/watch?v=e2LGZZ7GubA&feature) work and take a step-by-step [invoice tutorial](../understand/review-customer-agreement-bill.md).
 
 >[!IMPORTANT]
 > Bank remittance details for your new MCA will differ from those for your old EA. Use the remittance information at the bottom of your MCA invoice. For more information, see [Bank details used to send wire transfers](../understand/pay-bill.md#bank-details-used-to-send-wire-transfer-payments).
+
+For more information, see the [How to find and read your Microsoft Customer Agreement invoices in the Azure portal](https://www.youtube.com/watch?v=xkUkIunP4l8&list=PLC6yPvO9Xb_fRexgBmBeILhzxdETFUZbv&index=5) video.
 
 ### Step 7 – Get to know MCA features
 
@@ -292,13 +319,17 @@ Use the following steps to establish governance for your MCA.
 
 We recommend using billing account roles to manage your billing account on the MCA. These roles are in addition to the built-in Azure roles used to manage resource assignments. Billing account roles are used to manage your billing account, profiles, and invoice sections. Learn how to manage who has [access to your billing account](https://www.youtube.com/watch?v=9sqglBlKkho&ab_channel=AzureCostManagement) and get an overview of [how billing account roles work](../manage/understand-mca-roles.md) in Azure.
 
+For more information, see the [How to manage access to your Microsoft Customer Agreement in the Azure portal](https://www.youtube.com/watch?v=jh7PUKeAb0M&list=PLC6yPvO9Xb_fRexgBmBeILhzxdETFUZbv&index=6) video.
+
 ### Step 9 - Organize your costs and customize billing
 
 The MCA provides you with flexibility to organize your costs based on your needs whether it's by department, project, or development environment. Understand how to [organize your costs](https://www.youtube.com/watch?v=7RxTfShGHwU) and to [customize your billing](../manage/mca-section-invoice.md) to meet your needs.
 
+For more information, see the [How to optimize your workloads and reduce costs under your Microsoft Customer Agreement](https://www.youtube.com/watch?v=UxO2cFyWn0w&list=PLC6yPvO9Xb_fRexgBmBeILhzxdETFUZbv&index=3) video.
+
 ### Step 10 - Evaluate your needs for more tenants
 
-The MCA allows you to create multi-tenant billing relationships. They let you securely share your billing account with other tenants, while maintaining control over your billing data. If your organization needs multiple tenants, see [Manage billing across multiple tenants](../manage/manage-billing-across-tenants.md).
+The MCA allows you to create multitenant billing relationships. They let you securely share your billing account with other tenants, while maintaining control over your billing data. If your organization needs multiple tenants, see [Manage billing across multiple tenants](../manage/manage-billing-across-tenants.md).
 
 ## Manage your MCA after migration
 
@@ -306,7 +337,7 @@ Use the following steps to manage your MCA.
 
 ### Step 11 - Configure your invoice
 
-It's important to ensure that your billing account information is accurate and up to date. Confirm your billing account address, sold-to address, PO number, tax ID, and sign-in details. For more information, see [Change contact information for an Azure billing account](../manage/change-azure-account-profile.md).
+It's important to ensure that your billing account information is accurate and up to date. Confirm your billing account address, sold-to address, PO number, tax ID, and sign-in details. For more information, see [Change contact information for an Azure billing account](../manage/change-azure-account-profile.yml).
 
 ### Step 12 - Manage payment methods
 
@@ -331,9 +362,13 @@ Transition the billing ownership from your old agreement to your new one.
 
 For more information, see [Cost Management + Billing frequently asked questions](../cost-management-billing-faq.yml).
 
+For more information about creating a subscription, see the [How to create an Azure Subscription under your Microsoft Customer Agreement](https://www.youtube.com/watch?v=u5wf8KMD_M8&list=PLC6yPvO9Xb_fRexgBmBeILhzxdETFUZbv&index=8) video.
+
+If you're looking for Microsoft 365 admin center video resources, see [Microsoft Customer Agreement Video Tutorials](https://www.microsoft.com/licensing/learn-more/microsoft-customer-agreement/video-tutorials).
+
 ## Other actions to manage your MCA
 
-The MCA provides more features for automation, reporting, and billing optimization for multiple tenants. These features may not be applicable to all customers; however, for those customers who need more reporting and automation, these features offer significant benefits. Review the following steps if necessary:
+The MCA provides more features for automation, reporting, and billing optimization for multiple tenants. These features might not be applicable to all customers; however, for those customers who need more reporting and automation, these features offer significant benefits. Review the following steps if necessary:
 
 ### Migrating APIs
 
@@ -357,7 +392,21 @@ If you need more support, use your standard support contacts, such as:
 - Your Microsoft account manager.
 - Access [Microsoft support](https://portal.azure.com/#view/Microsoft_Azure_Support/NewSupportRequestV3Blade) in the Azure portal.
 
-## Next steps
+## MCA how-to videos
+
+The following videos provide more information about how to manage your MCA:
+
+- [Faster, Simpler Purchasing with the Microsoft Customer Agreement](https://www.youtube.com/watch?v=nhpIbhqojWE&list=PLC6yPvO9Xb_fRexgBmBeILhzxdETFUZbv&index=2)
+- [How to optimize your workloads and reduce costs under your Microsoft Customer Agreement](https://www.youtube.com/watch?v=UxO2cFyWn0w&list=PLC6yPvO9Xb_fRexgBmBeILhzxdETFUZbv&index=3)
+- [How to find a copy of your Microsoft Customer Agreement in the Azure portal](https://www.youtube.com/watch?v=SQbKGo8JV74&list=PLC6yPvO9Xb_fRexgBmBeILhzxdETFUZbv&index=4)
+- [How to find and read your Microsoft Customer Agreement invoices in the Azure portal](https://www.youtube.com/watch?v=xkUkIunP4l8&list=PLC6yPvO9Xb_fRexgBmBeILhzxdETFUZbv&index=5)
+- [How to manage access to your Microsoft Customer Agreement in the Azure portal](https://www.youtube.com/watch?v=jh7PUKeAb0M&list=PLC6yPvO9Xb_fRexgBmBeILhzxdETFUZbv&index=6)
+- [How to organize your Microsoft Customer Agreement Billing Account in the Azure portal](https://www.youtube.com/watch?v=6lmaovgWiZw&list=PLC6yPvO9Xb_fRexgBmBeILhzxdETFUZbv&index=7)
+- [How to create an Azure Subscription under your Microsoft Customer Agreement](https://www.youtube.com/watch?v=u5wf8KMD_M8&list=PLC6yPvO9Xb_fRexgBmBeILhzxdETFUZbv&index=8)
+- [How to manage your subscriptions and organize your account in the Microsoft 365 admin center](https://www.youtube.com/watch?v=NO25_5QXoy8&list=PLC6yPvO9Xb_fRexgBmBeILhzxdETFUZbv&index=9)
+- [How to find a copy of your Microsoft Customer Agreement in the Microsoft 365 admin center (MAC)](https://www.youtube.com/watch?v=pIe5yHljdcM&list=PLC6yPvO9Xb_fRexgBmBeILhzxdETFUZbv&index=10)
+
+## Related content
 
 - [View and download your Azure invoice](../understand/download-azure-invoice.md)
 - [Why you might not see an invoice](../understand/download-azure-invoice.md#why-you-might-not-see-an-invoice)

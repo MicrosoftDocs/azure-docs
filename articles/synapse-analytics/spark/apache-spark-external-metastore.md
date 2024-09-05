@@ -2,7 +2,7 @@
 title: Use external Hive Metastore for Azure Synapse Spark Pool
 description: Learn how to set up external Hive Metastore for Azure Synapse Spark Pool.
 keywords: external Hive Metastore,share,Synapse
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.topic: conceptual
 ms.subservice: spark
 author: juluczni
@@ -11,6 +11,9 @@ ms.date: 02/15/2022
 ---
 
 # Use external Hive Metastore for Synapse Spark Pool
+
+> [!NOTE]
+> External Hive metastores will no longer be supported in [Azure Synapse Runtime for Apache Spark 3.4](./apache-spark-34-runtime.md) and subsequent versions in Synapse.
 
 Azure Synapse Analytics allows Apache Spark pools in the same workspace to share a managed HMS (Hive Metastore) compatible metastore as their catalog. When customers want to persist the Hive catalog metadata outside of the workspace, and share catalog objects with other computational engines outside of the workspace, such as HDInsight and Azure Databricks, they can connect to an external Hive Metastore. In this article, you can learn how to connect Synapse Spark to an external Apache Hive Metastore. 
 
@@ -22,6 +25,7 @@ The feature works with Spark 3.1. The following table shows the supported Hive M
 |--|--|--|--|--|--|
 |2.4|Yes|Yes|Yes|Yes|No|
 |3.1|Yes|Yes|Yes|Yes|Yes|
+
 
 ## Set up linked service to Hive Metastore 
 
@@ -84,7 +88,7 @@ try {
 ```
 
 ## Configure Spark to use the external Hive Metastore
-After creating the linked service to the external Hive Metastore successfully, you need to setup a few Spark configurations to use the external Hive Metastore. You can both set up the configuration at Spark pool level, or at Spark session level. 
+After creating the linked service to the external Hive Metastore successfully, you need to set up a few Spark configurations to use the external Hive Metastore. You can both set up the configuration at Spark pool level, or at Spark session level. 
 
 Here are the configurations and descriptions:
 

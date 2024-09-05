@@ -7,7 +7,7 @@ ms.author: aterceros
 ms.date: 6/14/2023
 ms.topic: how-to
 ms.service: azure-maps
-services: azure-maps
+ms.subservice: data-registry
 ---
 
 # How to create data registry
@@ -42,7 +42,7 @@ Use the following steps to create a managed identity, add it to your Azure Maps 
 Create a system assigned managed identity:
 
 1. Go to your Azure Maps account in the [Azure portal].
-1. Select **Identity** from the left menu.
+1. Select **Identity** from the **Settings** section in the left menu.
 1. Toggle the **Status** to **On**.
 
 # [user-assigned](#tab/User-assigned)

@@ -3,7 +3,7 @@ title: Configure Azure Front Door rules match conditions
 description: This article provides a list of the various match conditions available with Azure Front Door rules. 
 services: frontdoor
 author: duongau
-ms.service: frontdoor
+ms.service: azure-frontdoor
 ms.topic: conceptual
 ms.date: 12/28/2023
 ms.author: duau
@@ -19,6 +19,8 @@ In Azure Front Door [Rule sets](front-door-rules-engine.md), a rule consists of 
 ::: zone-end
 
 ::: zone pivot="front-door-classic"
+
+[!INCLUDE [Azure Front Door (classic) retirement notice](../../includes/front-door-classic-retirement.md)]
 
 In Azure Front Door (classic) [Rules engines](front-door-rules-engine.md), a rule consists of none or some match conditions and an action. This article provides detailed descriptions of match conditions you can use in Azure Front Door (classic) Rules engines.
 

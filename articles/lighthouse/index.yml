@@ -6,7 +6,7 @@ summary: Azure Lighthouse enables multitenant management with enhanced automatio
 metadata:
   title: Azure Lighthouse Documentation
   description: Azure Lighthouse lets service providers manage Azure resources in multiple customer tenants, with enhanced automation, scalability, and governance.
-  ms.service: lighthouse
+  ms.service: azure-lighthouse
   ms.topic: landing-page
   author: JnHs
   ms.author: jenhayes

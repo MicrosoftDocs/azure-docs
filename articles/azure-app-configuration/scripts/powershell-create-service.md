@@ -6,7 +6,7 @@ services: azure-app-configuration
 author: maud-lv
 ms.service: azure-app-configuration
 ms.topic: sample
-ms.date: 02/12/2023
+ms.date: 04/12/2024
 ms.author: malev 
 ms.custom: devx-track-azurepowershell
 ---
@@ -15,7 +15,7 @@ ms.custom: devx-track-azurepowershell
 
 This sample script creates a new instance of Azure App Configuration in a new resource group using PowerShell.
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 To execute the sample scripts, you need a functional setup of [Azure PowerShell](/powershell/azure/).
 

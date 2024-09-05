@@ -1,7 +1,7 @@
 ---
 title: Azure Stream Analytics on IoT Edge
 description: Create edge jobs in Azure Stream Analytics and deploy them to devices running Azure IoT Edge.
-ms.service: stream-analytics
+ms.service: azure-stream-analytics
 author: an-emma
 ms.author: raan
 ms.topic: conceptual
@@ -117,7 +117,7 @@ This version information was last updated on 2020-09-21:
       
       
 ## Get help
-For further assistance, try the [Microsoft Q&A question page for Azure Stream Analytics](/answers/topics/azure-stream-analytics.html).
+For further assistance, try the [Microsoft Q&A question page for Azure Stream Analytics](/answers/tags/179/azure-stream-analytics).
 
 ## Next steps
 

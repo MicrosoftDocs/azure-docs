@@ -9,7 +9,7 @@ ms.assetid: a5a7f60a-97e2-49b4-a8c5-7c010ff27ef8
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: conceptual
-ms.date: 01/29/2023
+ms.date: 06/28/2024
 ms.author: terrylan
 
 ---
@@ -36,8 +36,6 @@ The [Microsoft cloud security benchmark](/security/benchmark/azure/introduction)
 
 ## Secure and protect
 
-:::image type="content" source="media/end-to-end/secure-and-protect.svg" alt-text="Diagram showing Azure services that help you secure and protect your cloud resources." border="false":::
-
 | Service | Description |
 |------|--------|
 | [Microsoft Defender for Cloud](../../security-center/security-center-introduction.md)| A unified infrastructure security management system that strengthens the security posture of your data centers, and provides advanced threat protection across your hybrid workloads in the cloud - whether they're in Azure or not - as well as on premises. |
@@ -53,8 +51,8 @@ The [Microsoft cloud security benchmark](/security/benchmark/azure/introduction)
 | [Azure DDoS Protection](../../ddos-protection/ddos-protection-overview.md) | Provides enhanced DDoS mitigation features to defend against DDoS attacks. It is automatically tuned to help protect your specific Azure resources in a virtual network. |
 | [Azure Front Door](../../frontdoor/front-door-overview.md) | A global, scalable entry-point that uses the Microsoft global edge network to create fast, secure, and widely scalable web applications. |
 | [Azure Firewall](../../firewall/overview.md) | A cloud-native and intelligent network firewall security service that provides threat protection for your cloud workloads running in Azure. It's a fully stateful firewall as a service with built-in high availability and unrestricted cloud scalability. Azure Firewall is offered in three SKUs: [Standard](../../firewall/features.md), [Premium](../../firewall/premium-features.md), and [Basic](../../firewall/overview.md#azure-firewall-basic). |
-| [Azure Key Vault](../../key-vault/general/overview.md) | A secure secrets store for tokens, passwords, certificates, API keys, and other secrets. Key Vault can also be used to create and control the encryption keys used to encrypt your data. |
-| [Key Vault Managed HSM](../../key-vault/managed-hsm/overview.md) | A fully managed, highly available, single-tenant, standards-compliant cloud service that enables you to safeguard cryptographic keys for your cloud applications, using FIPS 140-2 Level 3 validated HSMs. |
+| [Azure Key Vault](/azure/key-vault/general/overview) | A secure secrets store for tokens, passwords, certificates, API keys, and other secrets. Key Vault can also be used to create and control the encryption keys used to encrypt your data. |
+| [Key Vault Managed HSM](/azure/key-vault/managed-hsm/overview) | A fully managed, highly available, single-tenant, standards-compliant cloud service that enables you to safeguard cryptographic keys for your cloud applications, using FIPS 140-2 Level 3 validated HSMs. |
 | [Azure Private Link](../../private-link/private-link-overview.md) | Enables you to access Azure PaaS Services (for example, Azure Storage and SQL Database) and Azure hosted customer-owned/partner services over a private endpoint in your virtual network. |
 | [Azure Application Gateway](../../application-gateway/overview.md) | An advanced web traffic load balancer that enables you to manage traffic to your web applications. Application Gateway can make routing decisions based on additional attributes of an HTTP request, for example URI path or host headers. |
 | [Azure Service Bus](../../service-bus-messaging/service-bus-messaging-overview.md) | A fully managed enterprise message broker with message queues and publish-subscribe topics. Service Bus is used to decouple applications and services from each other. |
@@ -74,8 +72,6 @@ The [Microsoft cloud security benchmark](/security/benchmark/azure/introduction)
 
 ## Detect threats
 
-:::image type="content" source="media/end-to-end/detect-threats.svg" alt-text="Diagram showing Azure services that detect threats." border="false":::
-
 | Service | Description |
 |------|--------|
 | [Microsoft Defender for Cloud](../../security-center/azure-defender.md) | Brings advanced, intelligent, protection of your Azure and hybrid resources and workloads. The workload protection dashboard in Defender for Cloud provides visibility and control of the cloud workload protection features for your environment. |
@@ -91,12 +87,10 @@ The [Microsoft cloud security benchmark](/security/benchmark/azure/introduction)
 | [Azure Network Watcher](../../network-watcher/network-watcher-monitoring-overview.md) | Provides tools to monitor, diagnose, view metrics, and enable or disable logs for resources in an Azure virtual network. Network Watcher is designed to monitor and repair the network health of IaaS products which includes virtual machines, virtual networks, application gateways, and load balancers. |
 | [Azure Policy](../../governance/policy/overview.md) | Helps to enforce organizational standards and to assess compliance at-scale. Azure Policy uses activity logs, which are automatically enabled to include event source, date, user, timestamp, source addresses, destination addresses, and other useful elements. |
 | **Data & Application** |  |
-| [Microsoft Defender for Containers](../../defender-for-cloud/defender-for-containers-introduction.md) | A cloud-native solution that is used to secure your containers so you can improve, monitor, and maintain the security of your clusters, containers, and their applications. |
+| [Microsoft Defender for Containers](/azure/defender-for-cloud/defender-for-containers-introduction) | A cloud-native solution that is used to secure your containers so you can improve, monitor, and maintain the security of your clusters, containers, and their applications. |
 | [Microsoft Defender for Cloud Apps](/cloud-app-security/what-is-cloud-app-security) | A cloud access security broker (CASB) that operates on multiple clouds. It provides rich visibility, control over data travel, and sophisticated analytics to identify and combat cyberthreats across all your cloud services. |
 
 ## Investigate and respond
-
-:::image type="content" source="media/end-to-end/investigate-and-respond.svg" alt-text="Diagram showing Azure services that help you investigate and respond to threats." border="false":::
 
 | Service | Description |
 |------|--------|

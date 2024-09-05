@@ -2,10 +2,7 @@
 title: Use Azure Policy to audit for compliance of minimum TLS version for an Azure Service Bus namespace
 titleSuffix: Service Bus
 description: Configure Azure Policy to audit compliance of Azure Service Bus for using a minimum version of Transport Layer Security (TLS).
-services: service-bus
 author: EldertGrootenboer
-
-ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 09/26/2022
 ms.author: egrootenboer

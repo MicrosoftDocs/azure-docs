@@ -1,6 +1,6 @@
 ---
 title: Transition from the Container Monitoring Solution to using Container Insights
-ms.date: 8/29/2022
+ms.date: 2/28/2024
 ms.topic: article
 description: "Learn how to migrate from using the legacy OMS solution to monitoring your containers using Container Insights"
 ms.reviewer: viviandiec
@@ -8,7 +8,7 @@ ms.reviewer: viviandiec
 
 # Transition from the Container Monitoring Solution to using Container Insights
 
-With both the underlying platform and agent deprecations, on March 31, 2025 the [Container Monitoring Solution](./containers.md) will be retired. If you use the Container Monitoring Solution to ingest data to your Log Analytics workspace, make sure to transition to using [Container Insights](./container-insights-overview.md) prior to that date.
+With both the underlying platform and agent deprecations, on August 31, 2024 the [Container Monitoring Solution](./containers.md) will be retired. If you use the Container Monitoring Solution to ingest data to your Log Analytics workspace, make sure to transition to using [Container Insights](./container-insights-overview.md) prior to that date.
 
 ## Steps to complete the transition
 
@@ -16,7 +16,7 @@ To transition to Container Insights, we recommend the following approach.
 
 1. Learn about the feature differences between the Container Monitoring Solution and Container Insights to determine which option suits your needs.
 
-2. To use Container Insights, you will need to migrate your workload to Kubernetes. You can find more information on the compatible Kubernetes platforms from [Azure Kubernetes Services (AKS)](../../aks/intro-kubernetes.md) or [Azure Arc enabled Kubernetes](../../azure-arc/kubernetes/overview.md). If using AKS, you can choose to [deploy Container Insights](./container-insights-enable-new-cluster.md) as a part of the process.
+2. To use Container Insights, you will need to migrate your workload to Kubernetes. You can find more information on the compatible Kubernetes platforms from [Azure Kubernetes Services (AKS)](/azure/aks/intro-kubernetes) or [Azure Arc enabled Kubernetes](../../azure-arc/kubernetes/overview.md). If using AKS, you can choose to [deploy Container Insights](./container-insights-enable-new-cluster.md) as a part of the process.
 
 3. Disable the existing monitoring of the Container Monitoring Solution using one of the following options: [Azure portal](/previous-versions/azure/azure-monitor/insights/solutions?tabs=portal#remove-a-monitoring-solution), [PowerShell](/powershell/module/az.monitoringsolutions/remove-azmonitorloganalyticssolution), or [Azure CLI](/cli/azure/monitor/log-analytics/solution#az-monitor-log-analytics-solution-delete)
 4. If you elected to not onboard to Container Insights earlier, you can then deploy Container Insights using Azure CLI, ARM, or Portal following the instructions for [AKS](./container-insights-enable-existing-clusters.md) or [Arc enabled Kubernetes](./container-insights-enable-arc-enabled-clusters.md)

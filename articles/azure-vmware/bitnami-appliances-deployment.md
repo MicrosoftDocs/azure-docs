@@ -64,7 +64,7 @@ In this article, learn how to install and configure the following virtual applia
 
 1. Copy the vCenter Server URL, username, and password. You'll use them to access your virtual machine (VM). 
 
-1. Select **Overview**, select the VM, and then connect to it through RDP. If you need help with connecting, see [connect to a virtual machine](../virtual-machines/windows/connect-logon.md#connect-to-the-virtual-machine) for details.
+1. Select **Overview**, select the VM, and then connect to it through RDP. If you need help with connecting, see [connect to a virtual machine](/azure/virtual-machines/windows/connect-logon#connect-to-the-virtual-machine) for details.
 
 1. In the VM, open a browser and navigate to the vCenter URL. 
 

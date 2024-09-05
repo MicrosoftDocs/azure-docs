@@ -4,11 +4,10 @@ titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to use the mapping data flow Window Transformation in Azure Data Factory and Synapse Analytics pipelines.
 author: kromerm
 ms.author: makromer
-ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 07/17/2023
+ms.date: 05/15/2024
 ---
 
 # Window transformation in mapping data flow

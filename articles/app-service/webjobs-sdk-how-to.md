@@ -40,9 +40,119 @@ The host is a runtime container for functions. The Host listens for triggers and
 
 This is a key difference between using the WebJobs SDK directly and using it indirectly through Azure Functions. In Azure Functions, the service controls the host, and you can't customize the host by writing code. Azure Functions lets you customize host behavior through settings in the host.json file. Those settings are strings, not code, and use of these strings limits the kinds of customizations you can do.
 
-### Host connection strings
+### Host connections
 
-The WebJobs SDK looks for Azure Storage and Azure Service Bus connection strings in the local.settings.json file when you run locally or in the environment of the WebJob when you run in Azure. By default, the WebJobs SDK requires a storage connection string setting with the name `AzureWebJobsStorage`.  
+The WebJobs SDK looks for Azure Storage and Azure Service Bus connections in the local.settings.json file when you run locally or in the environment of the WebJob when you run in Azure. By default, the WebJobs SDK requires a storage connection with the name `AzureWebJobsStorage`.
+
+When the connection name resolves to a single exact value, the runtime identifies the value as a _connection string_, which typically includes a secret. The details of a connection string depend on the service to which you connect. However, a connection name can also refer to a collection of multiple configuration items, useful for configuring identity-based connections. Environment variables can be treated as a collection by using a shared prefix that ends in double underscores `__`. The group can then be referenced by setting the connection name to this prefix.
+
+For example, the `connection` property for an Azure Blob trigger definition might be `Storage1`. As long as there's no single string value configured by an environment variable named `Storage1`,  an environment variable named `Storage1__blobServiceUri` could be used to inform the `blobServiceUri` property of the connection. The connection properties are different for each service. Refer to the documentation for the component that uses the connection.
+
+#### Identity-based connections
+
+To use identity-based connections in the WebJobs SDK, make sure you are using the latest versions of WebJobs packages in your project. You should also ensure you have a reference to [Microsoft.Azure.WebJobs.Host.Storage](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Host.Storage). The following is an example of what your project file might look like after making these updates:
+
+```xml
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net48</TargetFramework>
+    <IsWebJobProject>true</IsWebJobProject>
+    <WebJobName>$(AssemblyName)</WebJobName>
+    <WebJobType>Continuous</WebJobType>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Azure.WebJobs" Version="3.0.41" />
+    <PackageReference Include="Microsoft.Azure.WebJobs.Extensions.Storage.Queues" Version="5.3.1" />
+    <PackageReference Include="Microsoft.Azure.WebJobs.Host.Storage" Version="5.0.1" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="2.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="appsettings.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+</Project>
+```
+
+When setting up WebJobs within your HostBuilder, make sure to include a call to `AddAzureStorageCoreServices`, as this is what allows `AzureWebJobsStorage` and other Storage triggers and bindings to use identity:
+
+```csharp
+    builder.ConfigureWebJobs(b =>
+    {
+        b.AddAzureStorageCoreServices();
+        // other configurations...
+    });
+```
+
+Then, you can configure the `AzureWebJobsStorage` connection by setting environment variables (or Application Settings when hosted in App Service):
+
+| Environment variable                       | Description                                | Example value                                        |
+|-----------------------------------------------------|--------------------------------------------|------------------------------------------------|
+| `AzureWebJobsStorage__blobServiceUri` | The data plane URI of the blob service of the storage account, using the HTTPS scheme. | https://<storage_account_name>.blob.core.windows.net |
+| `AzureWebJobsStorage__queueServiceUri` | The data plane URI of the queue service of the storage account, using the HTTPS scheme. | https://<storage_account_name>.queue.core.windows.net |
+
+If you provide your configuration through any means other than environment variables, such as with an `appsettings.json`, you would instead need to provide structured configuration for the connection and its properties:
+
+```json
+{
+    "AzureWebJobsStorage": {
+        "blobServiceUri": "https://<storage_account_name>.blob.core.windows.net",
+        "queueServiceUri": "https://<storage_account_name>.queue.core.windows.net"
+    }
+}
+```
+
+You may omit the `queueServiceUri` property if you do not plan to use blob triggers.
+
+When your code is run locally, this will default to using your developer identity per the behavior described for [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential).
+
+When your code is hosted in Azure App Service, the configuration shown above will default to the [system-assigned managed identity](./overview-managed-identity.md#add-a-system-assigned-identity) for the resource. To instead use a [user-assigned identity](./overview-managed-identity.md#add-a-user-assigned-identity) which has been assigned to the app, you need to add additional properties for your connection that specify which identity should be used. The `credential` property (`AzureWebJobsStorage__credential` as an environment variable) should be set to the string "managedidentity". The `clientId` property (`AzureWebJobsStorage__clientId` as an environment variable) should be set to the client ID of the user-assigned managed identity to be used. As structured configuration, the complete object would be:
+
+```json
+{
+    "AzureWebJobsStorage": {
+        "blobServiceUri": "https://<storage_account_name>.blob.core.windows.net",
+        "queueServiceUri": "https://<storage_account_name>.queue.core.windows.net",
+        "credential": "managedidentity",
+        "clientId": "<user-assigned-identity-client-id>"
+    }
+}
+```
+
+The identity used for `AzureWebJobsStorage` should have role assignments granting it the [Storage Blob Data Owner], [Storage Queue Data Contributor], and [Storage Account Contributor] roles. You may omit both [Storage Queue Data Contributor] and [Storage Account Contributor] if you do not plan to use blob triggers.
+
+The following table shows built-in roles that are recommended when using triggers in bindings in normal operation. Your application may require further permissions based on the code you write.
+
+| Binding                         | Example built-in roles                                                                                                              |
+|---------------------------------|-------------------------------------------------------------------------------------------------------------------------------------|
+| Blob trigger                    | [Storage Blob Data Owner] **and** [Storage Queue Data Contributor]<br/>See above for requirements on `AzureWebJobsStorage` as well. |
+| Blob (input)                    | [Storage Blob Data Reader]                                                                                                          |
+| Blob (output)                   | [Storage Blob Data Owner]                                                                                                           |
+| Queue trigger                   | [Storage Queue Data Reader], [Storage Queue Data Message Processor]                                                                 |
+| Queue (output)                  | [Storage Queue Data Contributor], [Storage Queue Data Message Sender]                                                               |
+| Service Bus trigger<sup>1</sup> | [Azure Service Bus Data Receiver], [Azure Service Bus Data Owner]                                                                   |
+| Service Bus (output)            | [Azure Service Bus Data Sender]                                                                                                     |
+
+<sup>1</sup> For triggering from Service Bus topics, the role assignment needs to have effective scope over the Service Bus subscription resource. If only the topic is included, an error will occur. Some clients, such as the Azure portal, don't expose the Service Bus subscription resource as a scope for role assignment. In such cases, the Azure CLI may be used instead. To learn more, see [Azure built-in roles for Azure Service Bus][role-assignment-scope].
+
+[Storage Blob Data Reader]: ../role-based-access-control/built-in-roles.md#storage-blob-data-reader
+[Storage Blob Data Owner]: ../role-based-access-control/built-in-roles.md#storage-blob-data-owner
+[Storage Queue Data Contributor]: ../role-based-access-control/built-in-roles.md#storage-queue-data-contributor
+[Storage Account Contributor]: ../role-based-access-control/built-in-roles.md#storage-account-contributor
+[Storage Queue Data Reader]: ../role-based-access-control/built-in-roles.md#storage-queue-data-reader
+[Storage Queue Data Message Processor]: ../role-based-access-control/built-in-roles.md#storage-queue-data-message-processor
+[Storage Queue Data Message Sender]: ../role-based-access-control/built-in-roles.md#storage-queue-data-message-sender
+[Azure Service Bus Data Receiver]: ../role-based-access-control/built-in-roles.md#azure-service-bus-data-receiver
+[Azure Service Bus Data Sender]: ../role-based-access-control/built-in-roles.md#azure-service-bus-data-sender
+[Azure Service Bus Data Owner]: ../role-based-access-control/built-in-roles.md#azure-service-bus-data-owner
+[role-assignment-scope]: ../service-bus-messaging/service-bus-managed-service-identity.md#resource-scope
+
+
+#### Connection strings in version 2.x
 
 Version 2.*x* of the SDK doesn't require a specific name. Version 2.*x* lets you use your own names for these connection strings and allows you to store them elsewhere. You can set names in code using the [`JobHostConfiguration`], like this:
 

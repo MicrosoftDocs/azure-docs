@@ -5,7 +5,7 @@ author: vicancy
 ms.author: lianwei
 ms.date: 10/02/2020
 ms.topic: quickstart
-ms.service: signalr
+ms.service: azure-signalr-service
 ms.custom: subject-armqs, mode-arm, devx-track-arm-template
 ---
 
@@ -13,11 +13,11 @@ ms.custom: subject-armqs, mode-arm, devx-track-arm-template
 
 This quickstart walks you through the process of creating an Azure SignalR Service using an Azure Resource Manager (ARM) template. You can deploy the Azure SignalR Service through the Azure portal, PowerShell, or CLI.
 
-[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+[!INCLUDE [About Azure Resource Manager](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-introduction.md)]
 
 If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template opens in the Azure portal once you sign in.
 
-[:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Button to deploy Azure SignalR Service to Azure using an ARM template in the Azure portal.":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2fquickstarts%2fmicrosoft.signalrservice%2fsignalr%2fazuredeploy.json)
+:::image type="content" source="~/reusable-content/ce-skilling/azure/media/template-deployments/deploy-to-azure-button.svg" alt-text="Button to deploy the Resource Manager template to Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2fquickstarts%2fmicrosoft.signalrservice%2fsignalr%2fazuredeploy.json":::
 
 ## Prerequisites
 
@@ -55,7 +55,7 @@ The template defines one Azure resource:
 
 To deploy the Azure SignalR Service using the ARM template, Select the following link in the Azure portal:
 
-[:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Button to deploy Azure SignalR Service to Azure using the ARM template in the Azure portal.":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2fquickstarts%2fmicrosoft.signalrservice%2fsignalr%2fazuredeploy.json)
+:::image type="content" source="~/reusable-content/ce-skilling/azure/media/template-deployments/deploy-to-azure-button.svg" alt-text="Button to deploy the Resource Manager template to Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2fquickstarts%2fmicrosoft.signalrservice%2fsignalr%2fazuredeploy.json":::
 
 On the **Deploy an Azure SignalR Service** page:
 

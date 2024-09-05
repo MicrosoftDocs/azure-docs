@@ -4,8 +4,8 @@ description: Learn how to send results from a query in Log Analytics to Power BI
 ms.topic: how-to
 author: guywild
 ms.author: guywild
-ms.reviewer: roygal
-ms.date: 02/06/2023
+ms.reviewer: ilanawaitser
+ms.date: 05/26/2024
 
 ---
 # Integrate Log Analytics with Power BI

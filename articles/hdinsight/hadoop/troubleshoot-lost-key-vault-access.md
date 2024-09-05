@@ -1,9 +1,9 @@
 ---
 title: Azure HDInsight clusters with disk encryption lose Key Vault access
 description: Troubleshooting steps and possible resolutions for Key Vault access issues when interacting with Azure HDInsight clusters.
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: troubleshooting
-ms.date: 06/08/2023
+ms.date: 06/13/2024
 ---
 
 # Scenario: Azure HDInsight clusters with disk encryption lose Key Vault access
@@ -24,7 +24,7 @@ Navigate to Apache Ambari UI to find more information about the alert from **Dis
 
 ### KV/AAD outage
 
-Look at [Azure Key Vault availability and redundancy](../../key-vault/general/disaster-recovery-guidance.md) and Azure status page for more details https://azure.status.microsoft/
+Look at [Azure Key Vault availability and redundancy](/azure/key-vault/general/disaster-recovery-guidance) and Azure status page for more details https://azure.status.microsoft/
 
 ### KV accidental deletion
 
@@ -78,6 +78,6 @@ If you didn't see your problem or are unable to solve your issue, visit one of t
 
 * Get answers from Azure experts through [Azure Community Support](https://azure.microsoft.com/support/community/).
 
-* Connect with [@AzureSupport](https://twitter.com/azuresupport) - the official Microsoft Azure account for improving customer experience. Connecting the Azure community to the right resources: answers, support, and experts.
+* Connect with [@AzureSupport](https://x.com/azuresupport) - the official Microsoft Azure account for improving customer experience. Connecting the Azure community to the right resources: answers, support, and experts.
 
 * If you need more help, you can submit a support request from the [Azure portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Select **Support** from the menu bar or open the **Help + support** hub. For more detailed information, review [How to create an Azure support request](../../azure-portal/supportability/how-to-create-azure-support-request.md). Access to Subscription Management and billing support is included with your Microsoft Azure subscription, and Technical Support is provided through one of the [Azure Support Plans](https://azure.microsoft.com/support/plans/).

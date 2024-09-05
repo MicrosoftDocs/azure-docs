@@ -25,10 +25,10 @@ In Xcode, create a new iOS project and select the Single View App template. This
 :::image type="content" source="../../voice-video-calling/media/ios/xcode-new-ios-project.png" alt-text="Screenshot showing the New Project window within Xcode.":::
 
 ### Installing CocoaPods
-Please use this guide to [install CocoaPods](https://guides.cocoapods.org/using/getting-started.html) on your Mac. 
+Use this guide to [install CocoaPods](https://guides.cocoapods.org/using/getting-started.html) on your Mac. 
 
 ### Install the package and dependencies with CocoaPods
-1. To create a Podfile for your application open the terminal and navigate to the project folder and run pod init.
+1. To create a Podfile for your application, open the terminal and navigate to the project folder and run pod init.
 
 2. Add the following code to the Podfile and save:
 
@@ -43,11 +43,11 @@ end
 
 3. Run pod install.
 
-4. Open the .xcworkspace with Xcode.
+4. Open the `.xcworkspace` file with Xcode.
 
 
-### Request access to the Microphone and Camera
-To access the device's microphone and camera, you need to update your app's Information Property List with an `NSMicrophoneUsageDescription` and `NSCameraUsageDescription`. You set the associated value to a string that will be included in the dialog the system uses to request access from the user.
+### Request access to the microphone and camera
+To access the device's microphone and camera, you need to update your app's Information Property List with `NSMicrophoneUsageDescription` and `NSCameraUsageDescription`. Set the associated value to a string that will be included in the dialog the system uses to request access from the user.
 
 Right-click the `Info.plist` entry of the project tree and select Open As > Source Code. Add the following lines the top level `<dict>` section, and then save the file.
 
@@ -74,11 +74,11 @@ The following classes and interfaces handle some of the major features of the Az
 | CallClient                   | The CallClient is the main entry point to the Calling SDK.                                                                                                                         |
 | CallAgent                    | The CallAgent is used to start and manage calls.                                                                                                                                   |
 | CommunicationTokenCredential | The CommunicationTokenCredential is used as the token credential to instantiate the CallAgent.                                                                                     |
-| CommunicationIdentifier      | The CommunicationIdentifier is used to represent the identity of the user which can be one of the following: CommunicationUserIdentifier/PhoneNumberIdentifier/CallingApplication. |
+| CommunicationIdentifier      | The CommunicationIdentifier is used to represent the identity of the user, and can have one of the following values: CommunicationUserIdentifier/PhoneNumberIdentifier/CallingApplication. |
 | RoomCallLocator | The RoomCallLocator is used by CallAgent to join a Room call|
 
 ## Create the Call Agent
-Replace the implementation of the ContentView struct with some simple UI controls that enable a user to initiate and end a call. We will attach business logic to these controls in this quickstart.
+Replace the implementation of the ContentView struct with some simple UI controls that enable a user to initiate and end a call. We'll attach business logic to these controls in this quickstart.
 
 ```Swift
 struct ContentView: View {    
@@ -199,10 +199,10 @@ struct HomePageView_Previews: PreviewProvider {
 }
 ```
 
-### Authenticate the Client
-In order to initialize a CallAgent instance we need a User Access Token which will enable us to join Room calls. 
+### Authenticate the client
+In order to initialize a CallAgent instance, we need a User Access Token which will enable us to join Room calls. 
 
-Once you have a token, Add the following code to the `onAppear` callback in `ContentView.swift`. You will need to replace `<USER ACCESS TOKEN>` with a valid user access token for your resource:
+Once you have a token, add the following code to the `onAppear` callback in `ContentView.swift`. You need to replace `<USER ACCESS TOKEN>` with a valid user access token for your resource:
 
 ```Swift
 var userCredential: CommunicationTokenCredential?
@@ -325,7 +325,7 @@ private func leaveRoomCall() {
 ```
 
 ## Broadcasting video
-During a Room call we can use `startVideo` or `stopVideo` to start or stop sending `LocalVideoStream` to remote participants.
+During a Room call, we can use `startVideo` or `stopVideo` to start or stop sending `LocalVideoStream` to remote participants.
 
 ```Swift
 func toggleLocalVideo() {
@@ -422,7 +422,7 @@ self.callAgent!.delegate = callHandler
 ```
 
 ## Remote participant management
-All remote participants are represented by the `RemoteParticipant` type and are available through the `remoteParticipants` collection on a call instance. We can implement a `Participant` class to manage the updates on remote video streams of remote participants amongst other things.
+All remote participants are represented by the `RemoteParticipant` type and are available through the `remoteParticipants` collection on a call instance. We can implement a `Participant` class to manage the updates on remote video streams of remote participants among other things.
 
 ```swift
 class Participant: NSObject, RemoteParticipantDelegate, ObservableObject {

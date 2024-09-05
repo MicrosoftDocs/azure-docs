@@ -2,9 +2,9 @@
 title: Frequently asked questions about Azure Spring Apps | Microsoft Docs
 description: This article answers frequently asked questions about Azure Spring Apps.
 author: KarlErickson
-ms.service: spring-apps
+ms.service: azure-spring-apps
 ms.topic: conceptual
-ms.date: 09/08/2020
+ms.date: 04/23/2024
 ms.author: karler
 ms.custom: devx-track-java, devx-track-extended-java, devx-track-dotnet
 zone_pivot_groups: programming-languages-spring-apps
@@ -41,11 +41,9 @@ Each service instance in Azure Spring Apps is backed by Azure Kubernetes Service
 
 Azure Spring Apps intelligently schedules your applications on the underlying Kubernetes worker nodes. To provide high availability, Azure Spring Apps distributes applications with two or more instances on different nodes.
 
-### In which regions is the Azure Spring Apps Basic/Standard plan available?
+### In which regions is Azure Spring Apps available?
 
 See [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=spring-apps).
-
-### In which regions is the Azure Spring Apps Enterprise plan available?
 
 While the Azure Spring Apps Basic/Standard plan is available in regions of China, the Enterprise plan is not available in all regions on Azure China.
 
@@ -143,9 +141,9 @@ You can delete the Azure Spring Apps diagnostic settings by using Azure CLI:
 
 ### Which versions of Java runtime are supported in Azure Spring Apps?
 
-Azure Spring Apps supports Java LTS versions with the most recent builds, currently Java 8, Java 11, and Java 17 are supported. 
+Azure Spring Apps supports Java LTS versions with the most recent builds, currently Java 8, Java 11, Java 17, and Java 21 are supported. 
 
-### How long are Java 8, Java 11, and Java 17 LTS versions supported?
+### How long are Java 8, Java 11, Java 17, and Java 21 LTS versions supported?
 
 See [Java long-term support for Azure and Azure Stack](/azure/developer/java/fundamentals/java-support-on-azure).
 

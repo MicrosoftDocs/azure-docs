@@ -19,7 +19,7 @@ Setting up this kind of environment can be challenging. Onboarding your fleet of
 ## Azure Monitor logs
 Azure Monitor logs, now available in Azure Government, uses hyperscale log search to quickly analyze your data and expose threats in your environment. This article focuses on using Azure Monitor logs that uses hyperscale log search to quickly analyze your data and expose threats in your environment.
 
-[!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
+[!INCLUDE [azure-monitor-log-analytics-rebrand](~/reusable-content/ce-skilling/azure/includes/azure-monitor-log-analytics-rebrand.md)]
 
 Azure Monitor logs can:
 

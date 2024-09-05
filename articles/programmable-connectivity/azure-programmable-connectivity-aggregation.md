@@ -4,7 +4,7 @@ titleSuffix: Azure Programmable Connectivity
 description: Azure Programmable Connectivity simplifies the complexities associated with using Network APIs.
 author: anzaman
 ms.author: alzam
-ms.service: azure-operator-nexus
+ms.service: azure-programmable-connectivity
 ms.topic: overview 
 ms.date: 02/16/2024
 ms.custom: template-overview

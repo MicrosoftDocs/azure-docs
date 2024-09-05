@@ -1,9 +1,9 @@
 ---
 title: 'Quickstart: Use Azure Cache for Redis in .NET Framework'
 description: In this quickstart, learn how to access Azure Cache for Redis from your .NET apps
-author: flang-msft
-ms.author: franlanglois
-ms.service: cache
+
+
+
 ms.devlang: csharp
 ms.topic: quickstart
 ms.custom: devx-track-csharp, mvc, mode-other, devx-track-dotnet
@@ -25,7 +25,7 @@ Clone the repo from [(https://github.com/Azure-Samples/azure-cache-redis-samples
 
 ## Create a cache
 
-[!INCLUDE [redis-cache-create](includes/redis-cache-create.md)]
+[!INCLUDE [redis-cache-create](~/reusable-content/ce-skilling/azure/includes/azure-cache-for-redis/includes/redis-cache-create.md)]
 
 [!INCLUDE [redis-cache-access-keys](includes/redis-cache-access-keys.md)]
 

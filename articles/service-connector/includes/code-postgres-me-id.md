@@ -15,7 +15,7 @@ using Azure.Identity;
 using Azure.Core;
 using Npgsql;
 
-// Uncomment the following lines according to the authentication type.
+// Uncomment the following lines corresponding to the authentication type you want to use.
 // For system-assigned identity.
 // var sqlServerTokenProvider = new DefaultAzureCredential();
 
@@ -83,7 +83,7 @@ For more information, see the following resources:
 
 * [Tutorial: Connect to PostgreSQL Database from a Java Quarkus Container App without secrets using a managed identity](../../container-apps/tutorial-java-quarkus-connect-managed-identity-postgresql-database.md)
 * [Tutorial: Connect to a PostgreSQL Database from Java Tomcat App Service without secrets using a managed identity](../../app-service/tutorial-java-tomcat-connect-managed-identity-postgresql-database.md)
-* [Quickstart: Use Java and JDBC with Azure Database for PostgreSQL Flexible Server](../../postgresql/flexible-server/connect-java.md?tabs=passwordless#connect-to-the-database)
+* [Quickstart: Use Java and JDBC with Azure Database for PostgreSQL Flexible Server](/azure/postgresql/flexible-server/connect-java?tabs=passwordless#connect-to-the-database)
 * [Migrate an application to use passwordless connections with Azure Database for PostgreSQL](/azure/developer/java/spring-framework/migrate-postgresql-to-passwordless-connection?tabs=sign-in-azure-cli%2Cjava%2Cservice-connector%2Cassign-role-service-connector)
 
 #### [SpringBoot](#tab/springBoot)
@@ -100,6 +100,7 @@ For more tutorials, see [Use Spring Data JDBC with Azure Database for PostgreSQL
     ```bash
     pip install azure-identity
     pip install psycopg2-binary
+    pip freeze > requirements.txt # Save the dependencies to a file
     ```
 1. Get access token using `azure-identity` library and use the token as password. Get connection information from the environment variables added by Service Connector. When using the code below, uncomment the part of the code snippet for the authentication type you want to use.
     
@@ -107,7 +108,7 @@ For more tutorials, see [Use Spring Data JDBC with Azure Database for PostgreSQL
     from azure.identity import DefaultAzureCredential
     import psycopg2
      
-    # Uncomment the following lines according to the authentication type.
+    # Uncomment the following lines corresponding to the authentication type you want to use.
     # For system-assigned identity.
     # cred = DefaultAzureCredential()
 
@@ -141,7 +142,7 @@ For more tutorials, see [Use Spring Data JDBC with Azure Database for PostgreSQL
     from azure.identity import DefaultAzureCredential
     import psycopg2
 
-    # Uncomment the following lines according to the authentication type.
+    # Uncomment the following lines corresponding to the authentication type you want to use.
     # For system-assigned identity.
     # credential = DefaultAzureCredential()
 
@@ -204,7 +205,7 @@ For more tutorials, see [Use Spring Data JDBC with Azure Database for PostgreSQL
 	_ "github.com/lib/pq"
     )    
     
-    // Uncomment the following lines according to the authentication type.
+    // Uncomment the following lines corresponding to the authentication type you want to use.
     // For system-assigned identity.
     // cred, err := azidentity.NewDefaultAzureCredential(nil)
     
@@ -254,7 +255,7 @@ For more tutorials, see [Use Spring Data JDBC with Azure Database for PostgreSQL
     import { DefaultAzureCredential, ClientSecretCredential } from "@azure/identity";
     const { Client } = require('pg');
 
-    // Uncomment the following lines according to the authentication type.  
+    // Uncomment the following lines corresponding to the authentication type you want to use.  
     // For system-assigned identity.
     // const credential = new DefaultAzureCredential();
 
@@ -324,7 +325,7 @@ For Ruby, there's not a plugin or library for passwordless connections. You can 
     require 'net/http'
     require 'json'
     
-    # Uncomment the following lines according to the authentication type.
+    # Uncomment the following lines corresponding to the authentication type you want to use.
     # For system-assigned identity.
     # uri = URI(ENV['IDENTITY_ENDPOINT'] + '?resource=https://ossrdbms-aad.database.windows.net&api-version=2019-08-01')
     # res = Net::HTTP.get_response(uri, {'X-IDENTITY-HEADER' => ENV['IDENTITY_HEADER'], 'Metadata' => 'true'})  

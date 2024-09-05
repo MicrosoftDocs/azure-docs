@@ -1,65 +1,82 @@
 ---
 title: Release notes for Azure HDInsight on AKS  
 description: Latest release notes for Azure HDInsight on AKS. Get development tips and details for Trino, Flink, Spark, and more.
-ms.service: hdinsight-aks
+ms.service: azure-hdinsight-on-aks
 ms.topic: conceptual
-ms.date: 02/05/2024
+ms.date: 08/05/2024
 ---
 
 # Azure HDInsight on AKS release notes
 
-This article provides information about the **most recent** Azure HDInsight on AKS release updates. For information on earlier releases, see [Azure HDInsight on AKS archived release notes](./hdinsight-aks-release-notes-archive.md).
+[!INCLUDE [retirement-notice](../includes/retirement-notice.md)]
+[!INCLUDE [feature-in-preview](../includes/feature-in-preview.md)]
+
+
+
+This article provides information about the **most recent** Azure HDInsight on AKS release updates. For information on earlier releases, see [Azure HDInsight on AKS archived release notes](./hdinsight-aks-release-notes-archive.md). If you would like to subscribe on release notes, watch releases on this [GitHub repository](https://github.com/Azure/HDInsight-on-aks/releases).
 
 ## Summary
 
-Azure HDInsight on AKS is a new version of HDInsight, which runs on Kubernetes and brings in the best of the open source on Kubernetes. It's gaining popularity among enterprise customers for open-source analytics on Azure Kubernetes Services.
+HDInsight on AKS is a modern, reliable, secure, and fully managed Platform as a Service (PaaS) that runs on Azure Kubernetes Service (AKS). HDInsight on AKS allows you to deploy popular Open-Source Analytics workloads like Apache Spark™, Apache Flink®️, and Trino without the overhead of managing and monitoring containers.
+
+You can build end-to-end, petabyte-scale Big Data applications span streaming through Apache Flink, data engineering and machine learning using Apache Spark, and Trino's powerful query engine.
+
+All these capabilities combined with HDInsight on AKS’s strong developer focus enable enterprises and digital natives with deep technical expertise to build and operate applications that are right fit for their needs. HDInsight on AKS allows developers to access all the rich configurations provided by open-source software and the extensibility to seamlessly include other ecosystem offerings. This offering empowers developers to test and tune their applications to extract the best performance at optimal cost.
+
 
 > [!NOTE]
 > To understand about HDInsight on AKS versioning and support, refer to the **[versioning schema](../versions.md)**.
 
 You can refer to [What's new](../whats-new.md) page for all the details of the features currently in public preview for this release.
 
+> [!IMPORTANT]
+> HDInsight on AKS uses safe deployment practices, which involve gradual region deployment. It might take up to 10 business days for a new release or a new version to be available in all regions.
+
 ## Release Information
 
-### Release date: February 05, 2024
+### Release date: Aug 05, 2024
 
 **This release applies to the following**
 
-- Cluster Pool Version: 1.1
-- Cluster Version: 1.1.0
+- Cluster Pool Version: 1.2
+- Cluster Version: 1.2.1
 - AKS version: 1.27
-
-> [!TIP]
-> To create a new HDInsight on AKS cluster on 1.1.0, you are required to create a new cluster pool with version 1.1
 
 ### New Features
 
-- [Workload Identity](/azure/aks/workload-identity-overview) is supported by default for cluster pools on 1.1
-- Trino clusters support Trino 426 from 1.1.0 release
-  - HDInsight on AKS now includes all changes up to Trino 426 with several notable improvements provided by the community, learn more about Trino [here](https://trino.io/docs/current/release/release-426.html).
-- Trino cluster shape now supports load-based autoscale from 1.1.0 release
-  - Trino on HDInsight on AKS now supports load-based autoscale making cluster more cost efficient. Learn more about it [here](/azure/hdinsight-aks/hdinsight-on-aks-autoscale-clusters).
-- Trino cluster shape adds simplified hive metastore and catalogs configuration
-  - HDInsight on AKS has simplified external Hive metastore configuration for Trino cluster, you can now specify external metastore in config.properties and enable it for each catalog with single parameter, learn more about enhancements [here](/azure/hdinsight-aks/trino/trino-connect-to-metastore).
-- Trino cluster shape adds sharded sql connector
-- Flink clusters now support Flink 1.17.0 from HDInsight on AKS 1.1.0 release
-  -   HDInsight on AKS now supports Flink 1.17.0 release, with significant improvements on checkpoints, subtask level flame graph, watermark alignments. Learn more about the Flink 1.17 release [here](https://nightlies.apache.org/flink/flink-docs-release-1.17/release-notes/flink-1.17/)
-- Flink [SQL Gateway](https://flink.apache.org/2023/03/23/announcing-the-release-of-apache-flink-1.17/#sql-client--gateway) is now supported from HDInsight on AKS 1.1.0 release with Flink session clusters 
+**MSI based SQL authentication**
+Users can now authenticate external Azure SQL DB Metastore with MSI instead of User ID password authentication. This feature helps to further secure the cluster connection with Metastore.
 
-### Bug Fixes & CVEs
+**Configurable VM SKUs for Head node, SSH node** 
+This functionality allows users to choose specific SKUs for head nodes, worker nodes, and SSH nodes, offering the flexibility to select according to the use case and the potential to lower total cost of ownership (TCO).
 
-- This release includes several critical CVE fixes across the platform and open source components.
-- Trino cluster shape excludes system tables from caching automatically
-- Trino cluster shape improves Power BI timestamp timezones handling
+**Multiple MSI in cluster**
+Users can configure multiple MSI for cluster admins operations and for job related resource access. This feature allows users to demarcate and control the access to the cluster and data lying in the storage account.
+For example, one MSI for access to data in storage account and dedicated MSI for cluster operations.
+
+### Updated
+
+**Script action**
+Script Action now can be added with Sudo user permission. Users can now install multiple dependencies including custom jars to customize the clusters as required. 
+
+**Library Management**
+Maven repository shortcut feature added to the Library Management in this release. User can now install Maven dependencies directly from the open-source repositories.
+
+**Spark 3.4**
+Spark 3.4 update brings a range of new features includes 
+* API enhancements
+* Structured streaming improvements
+* Improved usability and developer experience
+
+> [!IMPORTANT]
+> To take benefit of all these **latest features**, you are required to create a new cluster pool with 1.2 and cluster version 1.2.1
 
 ### Known issues
 
 - **Workload identity limitation:**
-  - There is a known [limitation](/azure/aks/workload-identity-overview#limitations) when transitioning to workload identity. This is due to the permission-sensitive nature of FIC operations. Users cannot perform deletion of a cluster by deleting the resource group. Cluster deletion requests must be triggered by the application/user/principal with FIC/delete permissions. In case, the FIC deletion fails, the high-level cluster deletion will also fail.
-
-
-### New regions
-- East Asia
+  - There's a known [limitation](/azure/aks/workload-identity-overview#limitations) when transitioning to workload identity. This limitation is due to the permission-sensitive nature of FIC operations. Users can't perform deletion of a cluster by deleting the resource group. Cluster deletion requests must be triggered by the application/user/principal with FIC/delete permissions. In case, the FIC deletion fails, the high-level cluster deletion also fails.
+  - **User Assigned Managed Identities (UAMI)** support – There's a limit of 20 FICs per UAMI. You can only create 20 Federated Credentials on an identity. In HDInsight on AKS cluster, FIC (Federated Identity Credential) and SA have one-to-one mapping and only 20 SAs can be created against an MSI. If you want to create more clusters, then you are required to provide different MSIs to overcome the limitation.
+  - Creation of federated identity credentials is currently not supported on user-assigned managed identities created in [these regions](/entra/workload-id/workload-identity-federation-considerations#unsupported-regions-user-assigned-managed-identities) 
 
  
 ### Operating System version
@@ -70,15 +87,15 @@ You can refer to [What's new](../whats-new.md) page for all the details of the f
 
 |Workload|Version|
 | -------- | -------- |
-|Trino | 426 |
+|Trino | 440 |
 |Flink | 1.17.0 |
-|Apache Spark | 3.3.1 |
+|Apache Spark | 3.4 |
 
 **Supported Java and Scala versions**
 
 |Workload |Java|Scala|
 | ----------- | -------- | -------- |
-|Trino |Open JDK 17.0.7  |- |
+|Trino |Open JDK 21.0.2  |- |
 |Flink  |Open JDK 11.0.21 |2.12.7 |
 |Spark  |Open JDK 1.8.0_345  |2.12.15 |
 
@@ -88,5 +105,5 @@ If you have any more questions, contact [Azure Support](https://ms.portal.azure.
 
 ### Next steps
 
-- [Azure HDInsight on AKS : Frequently asked questions](../faq.md)
-- [Create a cluster pool and cluster](../quickstart-create-cluster.md)
+- [Azure HDInsight on AKS: Frequently asked questions](../faq.md)
+- [Create cluster pool and cluster](../quickstart-create-cluster.md)

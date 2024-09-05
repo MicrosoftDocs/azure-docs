@@ -2,7 +2,7 @@
 title: Troubleshoot AMQP errors in Azure Service Bus | Microsoft Docs
 description: Provides a list of AMQP errors you may receive when using Azure Service Bus, and cause of those errors.
 ms.topic: article
-ms.date: 08/16/2023
+ms.date: 05/06/2024
 ---
 
 
@@ -20,14 +20,14 @@ amqp:link:detach-forced:The link 'G2:7223832:user.tenant0.cud_00000000000-0000-0
 You see the following error on the AMQP connection when all links in the connection have been closed because there was no activity (idle) and a new link hasn't been created in 5 minutes.
 
 ```
-Error{condition=amqp:connection:forced, description='The connection was inactive for more than the allowed 300000 milliseconds and is closed by container 'LinkTracker'. TrackingId:00000000000000000000000000000000000_G21, SystemTracker:gateway5, Timestamp:2019-03-06T17:32:00', info=null}
+Error(condition:amqp:connection:forced, description:The connection was closed by container '7f9c2480b17647c0a5acc8aea6f8607c_G2' because it did not have any active links in the past 300000 milliseconds. TrackingId:7f9c2480b17647c0a5acc8aea6f8607c_G2, SystemTracker:gateway5, Timestamp:2024-05-06T22:26:00, info=null}
 ```
 
 ## Link isn't created 
 You see this error when a new AMQP connection is created but a link isn't created within 1 minute of the creation of the AMQP Connection.
 
 ```
-Error{condition=amqp:connection:forced, description='The connection was inactive for more than the allowed 60000 milliseconds and is closed by container 'LinkTracker'. TrackingId:0000000000000000000000000000000000000_G21, SystemTracker:gateway5, Timestamp:2019-03-06T18:41:51', info=null}
+Error(condition:amqp:connection:forced, description:The connection was closed by container '7f9c2480b17647c0a5acc8aea6f8607c_G2' because it did not have any active links in the past 60000 milliseconds. TrackingId:7f9c2480b17647c0a5acc8aea6f8607c_G2, SystemTracker:gateway5, Timestamp:2024-05-06T22:26:00, info=null}
 ```
 
 ## Next steps

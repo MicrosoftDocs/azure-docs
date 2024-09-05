@@ -3,9 +3,9 @@ title: How to use Application Insights Java In-Process Agent in Azure Spring App
 description: How to monitor apps using Application Insights Java In-Process Agent in Azure Spring Apps.
 author: KarlErickson
 ms.author: karler
-ms.service: spring-apps
+ms.service: azure-spring-apps
 ms.topic: how-to
-ms.date: 06/20/2022
+ms.date: 06/27/2024
 ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli
 zone_pivot_groups: spring-apps-tier-selection
 ---
@@ -90,7 +90,8 @@ Enable the Java In-Process Agent by using the following procedure.
 1. Select an existing instance of Application Insights or create a new one.
 1. When **Application Insights** is enabled, you can configure one optional sampling rate (default 10.0%).
 
-   :::image type="content" source="media/how-to-application-insights/insights-process-agent.png" alt-text="Screenshot of the Azure portal that shows the Azure Spring Apps instance with Application Insights page and Enable Application Insights checkbox highlighted." lightbox="media/how-to-application-insights/insights-process-agent.png":::
+   :::image type="content" source="media/how-to-application-insights/insights-process-agent.png" alt-text="Screenshot of the Azure portal that shows the Application Insights page for Azure Spring Apps with Enable Application Insights checkbox highlighted." lightbox="media/how-to-application-insights/insights-process-agent.png":::
+
 
 1. Select **Save** to save the change.
 
@@ -537,7 +538,5 @@ When data is stored in Application Insights, it contains the history of Azure Sp
 * [Stream logs in real time](./how-to-log-streaming.md)
 * [Application Map](../../azure-monitor/app/app-map.md)
 * [Live Metrics](../../azure-monitor/app/live-stream.md)
-* [Performance](../../azure-monitor/app/tutorial-performance.md)
-* [Failures](../../azure-monitor/app/tutorial-runtime-exceptions.md)
 * [Metrics](../../azure-monitor/essentials/tutorial-metrics.md)
 * [Logs](../../azure-monitor/logs/data-platform-logs.md)

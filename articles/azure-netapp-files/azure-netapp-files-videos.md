@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: conceptual
-ms.date: 12/07/2023
+ms.date: 02/01/2024
 ms.author: anfdocs
 ---
 # Azure NetApp Files videos

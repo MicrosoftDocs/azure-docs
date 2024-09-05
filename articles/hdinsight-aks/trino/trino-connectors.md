@@ -1,14 +1,16 @@
 ---
 title: Trino connectors
 description: Connectors available for Trino.
-ms.service: hdinsight-aks
+ms.service: azure-hdinsight-on-aks
 ms.topic: how-to
 ms.date: 08/29/2023
 ---
 
 # Trino connectors
 
+[!INCLUDE [retirement-notice](../includes/retirement-notice.md)]
 [!INCLUDE [feature-in-preview](../includes/feature-in-preview.md)]
+
 
 Trino in HDInsight on AKS enables seamless integration with data sources. You can refer to the following documentation for open-source connectors.
 
@@ -41,3 +43,4 @@ Trino in HDInsight on AKS enables seamless integration with data sources. You ca
 * [Thrift](https://trino.io/docs/410/connector/thrift.html)
 * [TPCDS](https://trino.io/docs/410/connector/tpcds.html)
 * [TPCH](https://trino.io/docs/410/connector/tpch.html)
+* [Sharded SQL server](trino-sharded-sql-connector.md)

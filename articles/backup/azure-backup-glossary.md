@@ -2,9 +2,9 @@
 title: Azure Backup glossary
 description: This article defines terms helpful for use with Azure Backup.
 ms.topic: conceptual
-ms.service: backup
+ms.service: azure-backup
 ms.custom: devx-track-azurepowershell, devx-track-arm-template, devx-track-azurecli, engagement-fy24
-ms.date: 01/22/2024
+ms.date: 03/21/2024
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
@@ -79,7 +79,7 @@ Refer to [Azure Resource Manager documentation](../azure-resource-manager/manage
 
 ## Azure Disk Encryption (ADE)
 
-Refer to [Azure Disk Encryption documentation](../virtual-machines/disk-encryption-overview.md).
+Refer to [Azure Disk Encryption documentation](/azure/virtual-machines/disk-encryption-overview).
 
 ## Backend storage / Cloud storage / Backup storage
 
@@ -163,7 +163,7 @@ A GFS (Grandfather-father-son) backup policy is one that enables you to define w
 
 ## IaaS VMs / Azure VMs
 
-Refer to the [Azure VM documentation](../virtual-machines/index.yml).
+Refer to the [Azure VM documentation](/azure/virtual-machines/).
 
 ## Incremental backup
 
@@ -195,7 +195,7 @@ With Azure Backup Server, you can protect application workloads such as Hyper-V 
 
 ## Managed disks
 
-Refer to the [Managed disks documentation](../virtual-machines/managed-disks-overview.md).
+Refer to the [Managed disks documentation](/azure/virtual-machines/managed-disks-overview).
 
 ## MARS Agent
 
@@ -257,13 +257,17 @@ Refer to the [Azure REST API documentation](/rest/api/azure/).
 
 A user-defined rule that specifies how long backups should be retained.
 
-## RPO (Recovery Point Objective)
+## Recovery Point Objective (RPO)
 
-RPO indicates the maximum data loss that is possible in a data-loss scenario. This is determined by backup frequency.
+RPO indicates the maximum acceptable amount of data loss measured in time. For example, if a disaster occurs at *12:00 PM* and the last backup was at *10:00 AM*, the RPO is *two hours*. This means that the organization is willing to accept losing two hours’ worth of data.
 
-## RTO (Recovery Time Objective)
+## Recovery Time Objective (RTO)
 
-RTO indicates the maximum possible time in which data can be restored to the last available point-in-time after a data loss scenario.
+RTO is the target time within which a business process must be restored after a disaster occurs to avoid unacceptable consequences. For instance, if a critical application goes down due to a server failure and the business can only tolerate a *maximum of four hours of downtime*, then the RTO is *four hours*.
+
+The following example scenario describes both the RPO and RTO concepts:
+
+Your organization has an RPO of *one hour* for your customer database, which means you perform backups every hour. If a data loss incident occurs, you'll lose not more than *one hour of data*. When you set RTO to *three hours*, then in the event of a system failure, you aim to restore access to the database within three hours to minimize the impact on operations.
 
 ## Scheduled backup
 
@@ -279,7 +283,7 @@ Soft delete is a feature that helps guard against accidental deletion of backup 
 
 ## Snapshot
 
-A snapshot is a full, read-only copy of a virtual hard drive (VHD) or an Azure File share. Learn more about [disk snapshots](../virtual-machines/windows/snapshot-copy-managed-disk.md) and [file snapshots](../storage/files/storage-snapshots-files.md).
+A snapshot is a full, read-only copy of a virtual hard drive (VHD) or an Azure File share. Learn more about [disk snapshots](/azure/virtual-machines/windows/snapshot-copy-managed-disk) and [file snapshots](../storage/files/storage-snapshots-files.md).
 
 ## Storage account
 

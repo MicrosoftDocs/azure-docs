@@ -6,7 +6,7 @@ ms.custom: devx-track-azurecli
 author: tejaswikolli-web
 ms.author: tejaswikolli
 ms.date: 10/31/2023
-ms.service: container-registry
+ms.service: azure-container-registry
 ---
 
 # External authentication in an ACR task using an Azure-managed identity 

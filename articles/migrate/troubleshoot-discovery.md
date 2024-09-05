@@ -6,8 +6,8 @@ ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: troubleshooting
 ms.service: azure-migrate
-ms.date: 04/20/2023
-ms.custom: engagement-fy23
+ms.date: 08/21/2024
+ms.custom: engagement-fy25
 ---
 
 # Troubleshoot ongoing server discovery, software inventory, and SQL and web apps discovery
@@ -24,7 +24,7 @@ If the servers don't appear in the portal, wait for a few minutes because it tak
 
 If the state still doesn't change:
 
-- Select **Refresh** on the **Servers** tab to see the count of the discovered servers in Azure Migrate: Discovery and assessment and Migration and modernization.
+- Select **Refresh** on the **Servers, databases and web apps** tab to see the count of the discovered servers in Azure Migrate: Discovery and assessment and Migration and modernization.
 
 If the preceding step doesn't work and you're discovering VMware servers:
 
@@ -180,9 +180,9 @@ The issue happens when the VMware discovery agent in the appliance tries to down
 The error usually appears for servers running Windows Server 2008 or lower.
 
 ### Remediation
-Install Windows PowerShell 5.1 at this location on the server. Following the instructios in [Install and Configure WMF 5.1](/previous-versions/powershell/scripting/windows-powershell/install/installing-windows-powershell) about how to install PowerShell in Windows Server.
+Install Windows PowerShell 5.1 at this location on the server. Follow the instructions in [Install and Configure WMF 5.1](/previous-versions/powershell/scripting/windows-powershell/install/installing-windows-powershell) to install PowerShell in Windows Server.
 
-After you install the required PowerShell version, verify if the error was resolved by following the steps on [this website](troubleshoot-discovery.md#mitigation-verification).
+After you install the required PowerShell version, verify if the error was resolved by following the steps [here](troubleshoot-discovery.md#mitigation-verification).
 
 ## Error 9022: GetWMIObjectAccessDenied
 

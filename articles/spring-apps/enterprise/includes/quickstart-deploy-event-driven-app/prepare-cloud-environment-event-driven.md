@@ -1,7 +1,7 @@
 ---
 author: karlerickson
 ms.author: v-shilichen
-ms.service: spring-apps
+ms.service: azure-spring-apps
 ms.topic: include
 ms.date: 07/19/2023
 ---
@@ -58,7 +58,7 @@ Use the following steps to create an Azure Spring Apps instance:
    | **Name**           | *myasa*                          | A unique name that identifies your Azure Spring Apps service. The name must be between 4 and 32 characters long and can contain only lowercase letters, numbers, and hyphens. The first character of the service name must be a letter and the last character must be either a letter or a number. |
    | **Plan**           | **Standard**                     | The plan determines the resource and cost associated with your instance.                                                                                                                                                                                                                           |
    | **Region**         | The region closest to your users | The location that is closest to your users.                                                                                                                                                                                                                                                        |
-   | **Zone Redundant** | Unchecked                        | Whether to create your Azure Spring Apps service in an Azure availability zone, it could only be supported in several regions at the moment.                                                                                                                                                       |
+   | **Zone Redundant** | Unselected                       | Whether to create your Azure Spring Apps service in an Azure availability zone, it could only be supported in several regions at the moment.                                                                                                                                                       |
 
 1. Select **Review and Create** to review your selections. Select **Create** to provision the Azure Spring Apps instance.
 

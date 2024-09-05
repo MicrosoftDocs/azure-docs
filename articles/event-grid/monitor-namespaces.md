@@ -135,7 +135,8 @@ To collect sample runtime audit logs in your Event Grid namespace, you can publi
 
 - MQTT
     - [Quickstart: Publish and subscribe to MQTT messages on Event Grid Namespace with Azure portal](mqtt-publish-and-subscribe-portal.md)
-    - [Tutorial: Route MQTT messages to Azure Event Hubs from Azure Event Grid with the Azure portal](mqtt-routing-to-event-hubs-portal.md)
+    - [Tutorial: Route MQTT messages to Azure Event Hubs using namespace topics](mqtt-routing-to-event-hubs-portal-namespace-topics.md)
+    - [Tutorial: Route MQTT messages to Azure Functions using custom topics](mqtt-routing-to-azure-functions-portal.md)
 - Pull model
     - [Publish events to namespace topics using Java](publish-events-to-namespace-topics-java.md)
     - [Receive events using pull delivery with Java](receive-events-from-namespace-topics-java.md)

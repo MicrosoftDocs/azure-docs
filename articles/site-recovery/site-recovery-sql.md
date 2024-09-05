@@ -4,7 +4,7 @@ description: This article describes how to set up disaster recovery for SQL Serv
 services: site-recovery
 author: ankitaduttaMSFT
 manager: rochakm
-ms.service: site-recovery
+ms.service: azure-site-recovery
 ms.topic: conceptual
 ms.date: 03/28/2023
 ms.author: ankitadutta
@@ -82,7 +82,7 @@ BCDR technologies Always On, active geo-replication, and auto-failover groups ha
 
 1. Import the scripts to fail over SQL Availability Group in both a [Resource Manager virtual machine](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/demos/asr-automation-recovery/scripts/ASR-SQL-FailoverAG.ps1) and a [classic virtual machine](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/demos/asr-automation-recovery/scripts/ASR-SQL-FailoverAGClassic.ps1). Import the scripts into your Azure Automation account.
 
-    [![Deploy to Azure logo](../media/template-deployments/deploy-to-azure.svg)](https://aka.ms/asr-automationrunbooks-deploy)
+    :::image type="content" source="~/reusable-content/ce-skilling/azure/media/template-deployments/deploy-to-azure-button.svg" alt-text="Button to deploy the Resource Manager template to Azure." border="false" link="https://aka.ms/asr-automationrunbooks-deploy":::
 
 1. Add the ASR-SQL-FailoverAG script as a pre-action of the first group of the recovery plan.
 

@@ -4,7 +4,6 @@ description: Learn how to copy data from SAP Cloud for Customer to supported sin
 titleSuffix: Azure Data Factory & Azure Synapse
 author: jianleishen
 ms.author: ulrichchrist
-ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse

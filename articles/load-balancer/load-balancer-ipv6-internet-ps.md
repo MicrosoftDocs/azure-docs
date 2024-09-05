@@ -5,9 +5,9 @@ description: Learn how to create an Internet facing load balancer with IPv6 usin
 services: load-balancer
 author: mbender-ms
 keywords: ipv6, azure load balancer, dual stack, public ip, native ipv6, mobile, iot
-ms.service: load-balancer
+ms.service: azure-load-balancer
 ms.topic: how-to
-ms.date: 05/30/2023
+ms.date: 06/26/2024
 ms.author: mbender
 ms.custom: template-how-to, devx-track-azurepowershell
 ---
@@ -25,7 +25,7 @@ See [IPv6 for Azure VNET PowerShell Deployment](./virtual-network-ipv4-ipv6-dual
 
 An Azure load balancer is a Layer-4 (TCP, UDP) load balancer. The load balancer provides high availability by distributing incoming traffic among healthy service instances in cloud services or virtual machines in a load balancer set. Azure Load Balancer can also present those services on multiple ports, multiple IP addresses, or both.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 ## Example deployment scenario
 
@@ -191,7 +191,7 @@ This example creates the following items:
 
 ## Create virtual machines and assign the newly created NICs
 
-For more information about creating a VM, see [Create and preconfigure a Windows Virtual Machine with Resource Manager and Azure PowerShell](../virtual-machines/windows/quick-create-powershell.md?toc=%2fazure%2fload-balancer%2ftoc.json)
+For more information about creating a VM, see [Create and preconfigure a Windows Virtual Machine with Resource Manager and Azure PowerShell](/azure/virtual-machines/windows/quick-create-powershell?toc=%2fazure%2fload-balancer%2ftoc.json)
 
 1. Create an Availability Set and Storage account
 

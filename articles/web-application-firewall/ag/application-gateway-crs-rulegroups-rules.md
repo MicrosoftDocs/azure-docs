@@ -4,8 +4,8 @@ titleSuffix: Azure Web Application Firewall
 description: This page provides information on web application firewall CRS rule groups and rules.
 services: web-application-firewall
 author: vhorne
-ms.service: web-application-firewall
-ms.date: 01/25/2024
+ms.service: azure-web-application-firewall
+ms.date: 05/30/2024
 ms.author: victorh
 ms.topic: conceptual
 ---
@@ -107,25 +107,25 @@ DRS 2.1 rules offer better protection than earlier versions of the DRS. It inclu
 
 DRS 2.1 includes 17 rule groups, as shown in the following table. Each group contains multiple rules, and you can customize behavior for individual rules, rule groups, or entire rule set.
 
-|Rule group|Description|
-|---|---|
-|**[General](#general-21)**|General group|
-|**[METHOD-ENFORCEMENT](#drs911-21)**|Lock-down methods (PUT, PATCH)|
-|**[PROTOCOL-ENFORCEMENT](#drs920-21)**|Protect against protocol and encoding issues|
-|**[PROTOCOL-ATTACK](#drs921-21)**|Protect against header injection, request smuggling, and response splitting|
-|**[APPLICATION-ATTACK-LFI](#drs930-21)**|Protect against file and path attacks|
-|**[APPLICATION-ATTACK-RFI](#drs931-21)**|Protect against remote file inclusion (RFI) attacks|
-|**[APPLICATION-ATTACK-RCE](#drs932-21)**|Protect again remote code execution attacks|
-|**[APPLICATION-ATTACK-PHP](#drs933-21)**|Protect against PHP-injection attacks|
-|**[APPLICATION-ATTACK-NodeJS](#drs934-21)**|Protect against Node JS attacks|
-|**[APPLICATION-ATTACK-XSS](#drs941-21)**|Protect against cross-site scripting attacks|
-|**[APPLICATION-ATTACK-SQLI](#drs942-21)**|Protect against SQL-injection attacks|
-|**[APPLICATION-ATTACK-SESSION-FIXATION](#drs943-21)**|Protect against session-fixation attacks|
-|**[APPLICATION-ATTACK-SESSION-JAVA](#drs944-21)**|Protect against JAVA attacks|
-|**[MS-ThreatIntel-WebShells](#drs9905-21)**|Protect against Web shell attacks|
-|**[MS-ThreatIntel-AppSec](#drs9903-21)**|Protect against AppSec attacks|
-|**[MS-ThreatIntel-SQLI](#drs99031-21)**|Protect against SQLI attacks|
-|**[MS-ThreatIntel-CVEs](#drs99001-21)**|Protect against CVE attacks|
+|Rule group|ruleGroupName|Description|
+|---|---|---|
+|**[General](#general-21)**|General|General group|
+|**[METHOD-ENFORCEMENT](#drs911-21)**|METHOD-ENFORCEMENT|Lock-down methods (PUT, PATCH)|
+|**[PROTOCOL-ENFORCEMENT](#drs920-21)**|PROTOCOL-ENFORCEMENT|Protect against protocol and encoding issues|
+|**[PROTOCOL-ATTACK](#drs921-21)**|PROTOCOL-ATTACK|Protect against header injection, request smuggling, and response splitting|
+|**[APPLICATION-ATTACK-LFI](#drs930-21)**|LFI|Protect against file and path attacks|
+|**[APPLICATION-ATTACK-RFI](#drs931-21)**|RFI|Protect against remote file inclusion (RFI) attacks|
+|**[APPLICATION-ATTACK-RCE](#drs932-21)**|RCE|Protect again remote code execution attacks|
+|**[APPLICATION-ATTACK-PHP](#drs933-21)**|PHP|Protect against PHP-injection attacks|
+|**[APPLICATION-ATTACK-NodeJS](#drs934-21)**|NODEJS|Protect against Node JS attacks|
+|**[APPLICATION-ATTACK-XSS](#drs941-21)**|XSS|Protect against cross-site scripting attacks|
+|**[APPLICATION-ATTACK-SQLI](#drs942-21)**|SQLI|Protect against SQL-injection attacks|
+|**[APPLICATION-ATTACK-SESSION-FIXATION](#drs943-21)**|FIX|Protect against session-fixation attacks|
+|**[APPLICATION-ATTACK-SESSION-JAVA](#drs944-21)**|JAVA|Protect against JAVA attacks|
+|**[MS-ThreatIntel-WebShells](#drs9905-21)**|MS-ThreatIntel-WebShells|Protect against Web shell attacks|
+|**[MS-ThreatIntel-AppSec](#drs9903-21)**|MS-ThreatIntel-AppSec|Protect against AppSec attacks|
+|**[MS-ThreatIntel-SQLI](#drs99031-21)**|MS-ThreatIntel-SQLI|Protect against SQLI attacks|
+|**[MS-ThreatIntel-CVEs](#drs99001-21)**|MS-ThreatIntel-CVEs|Protect against CVE attacks|
 
 
 ### OWASP CRS 3.2
@@ -135,7 +135,7 @@ CRS 3.2 includes 14 rule groups, as shown in the following table. Each group con
 > [!NOTE]
 > CRS 3.2 is only available on the WAF_v2 SKU. Because CRS 3.2 runs on the new Azure WAF engine, you can't downgrade to CRS 3.1 or earlier. If you need to downgrade, [contact Azure Support](https://aka.ms/azuresupportrequest).
 
-|Rule group|Description|
+|Rule group name|Description|
 |---|---|
 |**[General](#general-32)**|General group|
 |**[KNOWN-CVES](#crs800-32)**|Help detect new and known CVEs|
@@ -160,7 +160,7 @@ CRS 3.1 includes 14 rule groups, as shown in the following table. Each group con
 > [!NOTE]
 > CRS 3.1 is only available on the WAF_v2 SKU.
 
-|Rule group|Description|
+|Rule group name|Description|
 |---|---|
 |**[General](#general-31)**|General group|
 |**[KNOWN-CVES](#crs800-31)**|Help detect new and known CVEs|
@@ -181,7 +181,7 @@ CRS 3.1 includes 14 rule groups, as shown in the following table. Each group con
 
 CRS 3.0 includes 13 rule groups, as shown in the following table. Each group contains multiple rules, which can be disabled. The ruleset is based off OWASP CRS 3.0.0 version.
 
-|Rule group|Description|
+|Rule group name|Description|
 |---|---|
 |**[General](#general-30)**|General group|
 |**[KNOWN-CVES](#crs800-30)**|Help detect new and known CVEs|
@@ -204,7 +204,7 @@ CRS 2.2.9 includes 10 rule groups, as shown in the following table. Each group c
 > [!NOTE]
 > CRS 2.2.9 is no longer supported for new WAF policies. We recommend you upgrade to the latest CRS version. CRS 2.2.9 can't be used along with CRS 3.2/DRS 2.1 and greater versions. 
 
-|Rule group|Description|
+|Rule group name|Description|
 |---|---|
 |**[crs_20_protocol_violations](#crs20)**|Protect against protocol violations (such as invalid characters or a GET with a request body)|
 |**[crs_21_protocol_anomalies](#crs21)**|Protect against incorrect header information|
@@ -221,7 +221,7 @@ CRS 2.2.9 includes 10 rule groups, as shown in the following table. Each group c
 
 You can enable a managed bot protection rule set to take custom actions on requests from all bot categories.
 
-|Rule group|Description|
+|Rule group name|Description|
 |---|---|
 |**[BadBots](#bot100)**|Protect against bad bots|
 |**[GoodBots](#bot200)**|Identify good bots|
