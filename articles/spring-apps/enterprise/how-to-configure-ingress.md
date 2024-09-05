@@ -24,6 +24,7 @@ The Azure Spring Apps service uses an underlying ingress controller to handle ap
 | `session-affinity`     | `affinity`               | None          | Session, None     | The type of the affinity that will make the request come to the same pod replica that was responding to the previous request. Set `session-affinity` to Cookie to enable session affinity. In the portal only, you must choose the enable session affinity box.    |
 | `session-max-age`      | `session-cookie-max-age` | 0             | \[0, 604800\]      | The time in seconds until the cookie expires, corresponding to the `Max-Age` cookie directive. If you set `session-max-age` to 0, the expiration period is equal to the browser session period. |
 | `backend-protocol`     | `backend-protocol`       | Default       | Default, GRPC     | Sets the backend protocol to indicate how NGINX should communicate with the backend service. Default means HTTP/HTTPS/WebSocket. The `backend-protocol` setting only applies to client-to-app traffic. For app-to-app traffic within the same service instance, choose any protocol for app-to-app traffic without modifying the `backend-protocol` setting. The protocol doesn't restrict your choice of protocol for app-to-app traffic within the same service instance.  |
+| `client-auth`          | `client-auth`            | 0 selected    | -                 | Select the certificates with public key you uploaded in TLS/SSL settings, ingress will concat these certificates to one and use it for client authentication.|
 
 ## Prerequisites
 
@@ -50,6 +51,7 @@ az spring app create \
     --session-affinity Cookie \
     --session-max-age 1800 \
     --backend-protocol Default \
+    --client-auth-certs <cert-name> \
 ```
 
 This command creates an app with the following settings:
@@ -59,6 +61,7 @@ This command creates an app with the following settings:
 - Session affinity: Cookie
 - Session cookie max age: 1800 seconds
 - Backend protocol: Default
+- Client Auth: <cert-name>
 
 ## Update the ingress settings for an existing app
 
@@ -87,6 +90,7 @@ az spring app update \
     --session-affinity None \
     --session-max-age 0 \
     --backend-protocol GRPC \
+    --client-auth-certs " \
 ```
 
 This command updates the app with the following settings:
@@ -96,6 +100,7 @@ This command updates the app with the following settings:
 - Session affinity: None
 - Session cookie max age: 0
 - Backend protocol: GRPC
+- Client Auth: 0 selected
 
 ---
 
