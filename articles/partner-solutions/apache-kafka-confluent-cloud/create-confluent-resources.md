@@ -17,10 +17,10 @@ Creating multiple environments within a Confluent organization is a good practic
 > [!TIP]
 > In your Confluent organization, open **Confluent entity management** > **Environments (preview)** > **Manage environment in Confluent portal** to access advanced environment configuration in the Confluent UI.
 
-> [NOTE]
+> [!NOTE]
 > As of the time of writing this document, Azure doesn't support Confluent schema registry configuration. Access this option directly in the Confluent UI by selecting **Manage Schema Registry** on the top ribbon in your environment.
 
-### Create a new environment 
+### Create an environment 
 
 Create a new Confluent environments following the guidelines below:
 
