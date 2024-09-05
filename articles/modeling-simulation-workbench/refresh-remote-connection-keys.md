@@ -5,7 +5,7 @@ author: meaghanlewis
 ms.author: mosagie
 ms.service: modeling-simulation-workbench
 ms.topic: how-to
-ms.date: 08/29/2023
+ms.date: 09/05/2024
 # Customer intent: As a Chamber User in Azure Modeling and Simulation Workbench, I want to refresh remote connection keys.
 ---
 
@@ -15,7 +15,7 @@ The Modeling and Simulation Workbench offers provisioned users secure remote con
 
 ## Client secret lifetime
 
-The client secret lifetime is typically set to 12 months, per the QuickStart recommendation. If the workbench’s lifetime extends beyond the secret’s lifespan, the app secrets will expire resulting in users losing access to the chambers. Expired client secrets disrupt remote authentication, causing a blue screen.
+The client secret lifetime is typically set to 12 months. If the workbench’s lifetime extends beyond the secret’s lifespan, the app secrets will expire resulting in users losing access to the chambers. Expired client secrets disrupt remote authentication, causing a blue screen.
 
 To address an expired client secret, you need to create a new secret by following steps outlined in [Create an application in Microsoft Entra ID](/azure/modeling-simulation-workbench/quickstart-create-portal#create-an-application-in-microsoft-entra-id). After creating a new secret, you need to update the Modeling and Simulation Workbench with that new client secret URL. 
 
