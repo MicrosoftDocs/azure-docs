@@ -9,36 +9,36 @@ ms.date: 09/06/2024
 ms.author: msangapu
 ---
 
-# Monitor App Service instances using Health check
+# Monitor App Service instances by using Health check
 
 [!INCLUDE [regionalization-note](./includes/regionalization-note.md)]
 
-This article uses Health check in the Azure portal to monitor App Service instances. Health check increases your application's availability by rerouting requests away from unhealthy instances and replacing instances if they remain unhealthy. It does that by pinging every minute a path of your web application of your choice. 
+This article describes how to use Health check in the Azure portal to monitor App Service instances. Health check increases your application's availability by rerouting requests away from unhealthy instances and replacing instances if they remain unhealthy. It does that by pinging your web application every minute, via a path that you choose.
 
-![Health check failure][1]
+![Diagram that shows how Health check works.][1]
 
-Note that _/api/health_ is just an example added for illustration purposes. We don't create a Health Check path by default. You should make sure that the path you are selecting is a valid path that exists within your application
+Note that _/api/health_ is just an example. There is no default Health check path. You should make sure that the path you choose is a valid path that exists within your application.
 
-## What App Service does with Health checks
+## How Health check works
 
-- When given a path on your app, Health check pings this path on all instances of your App Service app at 1-minute intervals.
-- If a web app that's running on a given instance doesn't respond with a status code between 200-299 (inclusive) after 10 requests, App Service determines it's unhealthy and removes it from the load balancer for this Web App. The required number of failed requests for an instance to be deemed unhealthy is configurable to a minimum of two requests.
-- After removal, Health check continues to ping the unhealthy instance. If the instance begins to respond with a healthy status code (200-299), then the instance is returned to the load balancer.
+- When given a path on your app, Health check pings the path on all instances of your App Service app at 1-minute intervals.
+- If a web app that's running on a given instance doesn't respond with a status code between 200 and 299 (inclusive) after 10 requests, App Service determines the instance is unhealthy and removes it from the load balancer for the web app. The required number of failed requests for an instance to be deemed unhealthy is configurable to a minimum of two requests.
+- After the instance is removed, Health check continues to ping it. If the instance begins to respond with a healthy status code (200-299), then the instance is returned to the load balancer.
 - If the web app that's running on an instance remains unhealthy for one hour, the instance is replaced with a new one.
 - When scaling out, App Service pings the Health check path to ensure new instances are ready.
 
 > [!NOTE]
 >- Health check doesn't follow 302 redirects. 
->- At most one instance will be replaced per hour, with a maximum of three instances per day per App Service Plan.
->- If your health check is giving the status `Waiting for health check response` then the check is likely failing due to an HTTP status code of 307, which can happen if you have HTTPS redirect enabled but have `HTTPS Only` disabled.
+>- At most, one instance will be replaced per hour, with a maximum of three instances per day per App Service Plan.
+>- If Health check is sending the status `Waiting for health check response`, then the check is likely failing due to an HTTP status code of 307, which can happen if you have HTTPS redirect enabled but have `HTTPS Only` disabled.
 
 ## Enable Health check
 
-![Health check navigation in Azure portal][3]
+:::image type="content" source="./media/app-service-monitor-instances-health-check/azure-portal-navigation-health-check.png" alt-text="Screenshot that shows how to enable Health check in the Azure portal." lightbox="./media/app-service-monitor-instances-health-check/azure-portal-navigation-health-check.png":::
 
 1. To enable Health check, browse to the Azure portal and select your App Service app.
 2. Under **Monitoring**, select **Health check**.
-3. Select **Enable** and provide a valid URL path on your application, such as `/health` or `/api/health`.
+3. Select **Enable** and provide a valid URL path for your application, such as `/health` or `/api/health`.
 4. Select **Save**.
 
 > [!NOTE]
@@ -154,7 +154,6 @@ For Windows applications, you have the option to collect diagnostic information 
 
 Once diagnostic collection is enabled, you can create or choose an existing storage account for your files. You can only select storage accounts in the same region as your application. Keep in mind that saving restarts your application. After saving, if your site instances are found to be unhealthy after continuous pings, you can go to your storage account resource and view the memory dumps.
 
-
 ## Monitoring
 
 After providing your application's Health check path, you can monitor the health of your site using Azure Monitor. From the **Health check** blade in the Portal, select the **Metrics** in the top toolbar. This opens a new blade where you can see the site's historical health status and option to create a new alert rule. Health check metrics aggregate the successful pings & display failures only when the instance was deemed unhealthy based on the health check configuration. For more information on monitoring your sites, [see the guide on Azure Monitor](web-sites-monitor.md).
@@ -182,7 +181,6 @@ On Windows and Linux App Service, the Health check requests are sent via HTTPS w
 ### Is Health check following the application code configured redirects between the default domain and the custom domain?
 
 No, the Health check feature is pinging the path of the default domain of the web application. If there's a redirect from the default domain to a custom domain, then the status code that Health check is returning is not going to be a 200 but a redirect (301), which is going to mark the worker unhealthy.
-
 
 ### What if I have multiple apps on the same App Service Plan?
 
@@ -212,4 +210,4 @@ Yes, health check is available for the App Service Environment v3, but not for v
 
 [1]: ./media/app-service-monitor-instances-health-check/health-check-diagram.png
 [2]: ./media/app-service-monitor-instances-health-check/health-check-multi-app-diagram.png
-[3]: ./media/app-service-monitor-instances-health-check/azure-portal-navigation-health-check.png
+ 
