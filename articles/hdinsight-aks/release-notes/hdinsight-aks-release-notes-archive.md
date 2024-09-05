@@ -9,7 +9,6 @@ ms.date: 08/05/2024
 # Azure HDInsight on AKS archived release notes
 
 [!INCLUDE [retirement-notice](../includes/retirement-notice.md)]
-[!INCLUDE [retirement-notice](../includes/retirement-notice.md)]
 [!INCLUDE [feature-in-preview](../includes/feature-in-preview.md)]
 
 
