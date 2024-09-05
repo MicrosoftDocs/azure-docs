@@ -8,7 +8,9 @@ ms.date: 10/19/2023
 
 # Fault-tolerant execution
 
+[!INCLUDE [retirement-notice](../includes/retirement-notice.md)]
 [!INCLUDE [feature-in-preview](../includes/feature-in-preview.md)]
+
 
 Trino supports [fault-tolerant execution](https://trino.io/docs/current/admin/fault-tolerant-execution.html) to mitigate query failures and increase resilience.
 This article describes how you can enable fault tolerance for your Trino cluster with HDInsight on AKS.
