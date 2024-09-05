@@ -12,7 +12,7 @@ ms.date: 06/06/2022
 
 # Introduction: Centers for Medicare and Medicaid Services (CMS) Interoperability and Patient Access rule
 
-This series of tutorials covers a high-level summary of the Center for Medicare and Medicaid Services (CMS) Interoperability and Patient Access rule, and the technical requirements outlined in this rule. We'll walk through various implementation guides referenced for this rule. We'll also provide details on how to configure FHIR&reg; service in Azure Health Data Services to support these implementation guides.
+This series of tutorials covers a high-level summary of the Center for Medicare and Medicaid Services (CMS) Interoperability and Patient Access rule, and the technical requirements outlined in this rule. We walk through various implementation guides referenced for this rule. We also provide details on how to configure FHIR&reg; service in Azure Health Data Services to support these implementation guides.
 
 
 ## Rule overview
@@ -57,11 +57,11 @@ The Provider Directory API describes adherence to one implementation guide:
 
 ## Touchstone
 
-[Touchstone](https://touchstone.aegis.net/touchstone/) is a great resource for testing adherence to the various implementation guides. Throughout the upcoming tutorials, we'll focus on ensuring that the FHIR service is configured to successfully pass various Touchstone tests. The Touchstone site has a lot of great documentation to help you get up and running.
+[Touchstone](https://touchstone.aegis.net/touchstone/) is a great resource for testing adherence to the various implementation guides. Throughout the upcoming tutorials, we focus on ensuring that the FHIR service is configured to successfully pass various Touchstone tests. The Touchstone site has a lot of great documentation to help you get up and running.
 
 ## Next steps
 
-Now that you have a basic understanding of the Interoperability and Patient Access rule, implementation guides, and available testing tool (Touchstone), we'll walk through setting up FHIR service for the CARIN IG for Blue Button. 
+Now that you have a basic understanding of the Interoperability and Patient Access rule, implementation guides, and available testing tool (Touchstone), we next walk through setting up FHIR service for the CARIN IG for Blue Button. 
 
 >[!div class="nextstepaction"]
 >[CARIN Implementation Guide for Blue Button](carin-implementation-guide-blue-button-tutorial.md)
