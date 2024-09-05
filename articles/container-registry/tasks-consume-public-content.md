@@ -2,7 +2,7 @@
 title: Task workflow to manage public registry content
 description: Create an automated Azure Container Registry Tasks workflow to track, manage, and consume public image content in a private Azure container registry.
 author: tejaswikolli-web
-ms.topic: article
+ms.topic: how-to
 ms.author: tejaswikolli
 ms.date: 10/31/2023
 ms.custom: devx-track-azurecli
