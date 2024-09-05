@@ -46,7 +46,7 @@ The following connectors are scheduled for deprecation on December 31, 2024. You
 - [Phoenix](connector-phoenix.md)
 
 
-## Connectors that is deprecated
+## Connectors that are deprecated
 
 The following connector was deprecated.
 
