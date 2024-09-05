@@ -150,27 +150,29 @@ For more information, see [Tutorial: Proxy your calling traffic](./tutorials/pro
 
 #### Android TelecomManager
 
-Android TelecomManager manages audio and video calls on Android devices. Use Android TelecomManager to provide a consistent user experience across different Android apps and devices, such as showing incoming and outgoing calls in the system UI, routing audio to the device, and handling call interruptions. Now you can integrate your app with the Android TelecomManager to take advantage of its features for your custom calling scenarios.
+Android TelecomManager manages audio and video calls on Android devices. Use Android TelecomManager to provide a consistent user experience across various Android apps and devices, such as showing incoming and outgoing calls in the system UI, routing audio to devices, and handling call interruptions.
 
-For more information, see [Integrate with TelecomManager on Android](./how-tos/calling-sdk/telecommanager-integration.md).
+Now you can integrate your app with Android TelecomManager to take advantage of its features for your custom calling scenarios. For more information, see [Integrate with TelecomManager on Android](./how-tos/calling-sdk/telecommanager-integration.md).
 
 #### Unidirectional Data Channel API
 
-The Data Channel API is generally available. Data Channel includes unidirectional communication, which enables real-time messaging during audio and video calls. Using this API, you can integrate data exchange functions into the applications, providing a seamless communication experience for users. The Data Channel API enables users to instantly send and receive messages during an ongoing audio or video call, promoting smooth and efficient communication. In group call scenarios, a participant can send messages to a single participant, a specific set of participants, or all participants within the call. This flexibility enhances communication and collaboration among users during group interactions.
+The Data Channel API is generally available. Data Channel includes unidirectional communication, which enables real-time messaging during audio and video calls. By using this API, you can integrate data exchange functions into the applications, to help provide a seamless communication experience for users.
+
+The Data Channel API enables users to instantly send and receive messages during an ongoing audio or video call, promoting smooth and efficient communication. In group call scenarios, a participant can send messages to a single participant, a specific set of participants, or all participants within the call. This flexibility enhances communication and collaboration among users during group interactions.
 
 For more information, see [Data Channel](./concepts/voice-video-calling/data-channel.md).
 
 #### Time-to-live lifespan for push notifications
 
-The Time To Live (TTL) for push notifications is now generally available. TTL is the duration for which a push notification token is valid. Using a longer duration TTL can help your app reduce the number of new token requests from your users and improve the experience.
+The time to live (TTL) for push notifications is now generally available. TTL is the duration for which a push notification token is valid. Using a longer-duration TTL can help your app reduce the number of new token requests from your users and improve the experience.
 
 For example, suppose you created an app that enables patients to book virtual medical appointments. The app uses push notifications to display incoming call UI when the app isn't in the foreground. Previously, the app had to request a new push notification token from the user every 24 hours, which could be annoying and disruptive. With the extended TTL feature, you can now configure the push notification token to last for up to six months, depending on your business needs. This way, the app can avoid frequent token requests and provide a smoother calling experience for your customers.
 
-For more information, see [TTL token in Enable push notifications for calls](./how-tos/calling-sdk/push-notifications.md).
+For more information, see [Enable push notifications for calls](./how-tos/calling-sdk/push-notifications.md#ttl-token).
 
 ### Calling SDK native UI Library updates
 
-This update includes Troubleshooting on the native UI Library for Android and iOS, and Audio only mode in the UI Library.
+This update includes troubleshooting on the native UI Library for Android and iOS, and Audio only mode in the UI Library.
 
 Using the Azure Communication Services Calling SDK native UI Library, you can now generate encrypted logs for troubleshooting and provide your customers with an optional Audio only mode for joining calls.
 
@@ -180,81 +182,78 @@ Now in general availability, you can encrypt logs when troubleshooting on the Ca
 
 For more information, see [Troubleshoot the UI Library](./how-tos/ui-library-sdk/troubleshooting.md).
 
-#### Audio only mode in the UI Library
+#### Audio-only mode in the UI Library
 
-The Audio only mode in the Calling SDK UI Library is now generally available. It enables participants to join calls using only their audio, without sharing or receiving video. Participants can use this feature to conserve bandwidth and maximize privacy. When activated, the Audio only mode automatically disables the video function for both sending and receiving streams and adjusts the UI to reflect this change by removing video-related controls.
+The audio-only mode in the Calling SDK UI Library is now generally available. It enables participants to join calls using only their audio, without sharing or receiving video. Participants can use this feature to conserve bandwidth and maximize privacy. When audio-only mode is activated, it automatically disables the video function for both sending and receiving streams. It adjusts the UI to reflect this change by removing video-related controls.
 
-For more information, see [Enable audio only mode in the UI Library](./how-tos/ui-library-sdk/audio-only-mode.md).
+For more information, see [Enable audio-only mode in the UI Library](./how-tos/ui-library-sdk/audio-only-mode.md).
 
 ## March 2024
 
 ### Calling to Microsoft Teams call queues and auto attendants
 
-Azure Communication Services Calling to Teams call queues and auto attendants and click-to-call for Teams Phone are now generally available. Organizations can enable customers to easily reach their sales and support members on Microsoft Teams with just a single click. When you add a [click-to-call widget](./tutorials/calling-widget/calling-widget-tutorial.md) onto a website, such as a **Sales** button that points to a sales department, or a **Purchase** button that points to procurement, customers are just one click away from a direct connection into a Teams call queue or auto attendant.
+Calling to Teams call queues and auto attendants is now generally available in Azure Communication Services, along with click-to-call for Teams Phone. Organizations can enable customers to quickly reach their sales and support members on Microsoft Teams. When you add a [click-to-call widget](./tutorials/calling-widget/calling-widget-tutorial.md) onto a website, such as a **Sales** button that points to a sales department, or a **Purchase** button that points to procurement, customers are just one click away from a direct connection to a Teams call queue or auto attendant.
 
 Learn more about joining your calling app to a Teams [call queue](./quickstarts/voice-video-calling/get-started-teams-call-queue.md) or [auto attendant](./quickstarts/voice-video-calling/get-started-teams-auto-attendant.md), and about [building contact center applications](./tutorials/contact-center.md).
 
 ### Email updates
 
-Updates to Azure Communication Services Email service:
-
-- SMTP
-- Opt-out management
-- PowerShell cmdlets
-- CLI extension
+Updates to Azure Communication Services email service include SMTP support, opt-out management, Azure PowerShell cmdlets, and Azure CLI extensions.
 
 #### SMTP
 
-SMTP as a Service for Email is now generally available. Developers can use the SMTP support in Azure Communication Services to easily send emails, improve security features, and have more control over outgoing communications.
+SMTP support in Azure Communication Services email is now generally available. Developers can use it to easily send emails, improve security features, and have more control over outgoing communications.
 
-The SMTP Relay Service acts as a link between email clients and mail servers and helps deliver emails more effectively. It sets up a specialized relay infrastructure that not only handles higher throughput needs and successful email delivery, but also improves authentication to protect communication. This service also offers businesses a centralized platform that lets them manage outgoing emails for all B2C communications and get insights into email traffic.
+The SMTP relay service acts as a link between email clients and mail servers and helps deliver emails more effectively. It sets up a specialized relay infrastructure that not only handles higher throughput needs and successful email delivery, but also improves authentication to help protect communication. This service also offers businesses a centralized platform that lets them manage outgoing emails for all B2C communications and get insights into email traffic.
 
-With this capability, customers can switch from on-premises SMTP solutions or link their line of business applications to a cloud-based solution platform with Azure Communication Services Email. SMTP as a Service enables:
+With this capability, customers can switch from on-premises SMTP solutions or link their line-of-business applications to a cloud-based solution platform with Azure Communication Services email. SMTP support enables:
 
-- Secure and reliable SMTP endpoint with TLS 1.2 encryptions
-- Access with Microsoft Entra application ID to secure authentication for sending emails using SMTP.
-- High volume sending support for B2C communications using SMTP and REST APIs.
-- The security and compliance to honor and respect data handling and privacy requirements that Azure promises to our customers.
+- A reliable SMTP endpoint with TLS 1.2 encryption
+- Authentication with a Microsoft Entra application ID for sending emails via SMTP.
+- High-volume sending support for B2C communications via SMTP and REST APIs.
+- Compliance with data handling and privacy requirements for customers.
 
-:::image type="content" source="media/whats-new-images/email-smtp-flow.png" alt-text="A diagram showing the Email SMTP command flowchart." lightbox="media/whats-new-images/email-smtp-flow.png":::
+:::image type="content" source="media/whats-new-images/email-smtp-flow.png" alt-text="Diagram that shows an email SMTP command flowchart." lightbox="media/whats-new-images/email-smtp-flow.png":::
 
-Learn more about [SMTP as a Service](./concepts/email/email-smtp-overview.md).
+Learn more about [SMTP support](./concepts/email/email-smtp-overview.md).
 
 #### Opt-out management
 
-Email opt-out management, now in public preview, offers a powerful platform with a centralized managed unsubscribe list and opt-out preferences saved to our data store. This feature helps developers meet guidelines of email providers who often require one-click list-unsubscribe implementation in the emails sent from their platforms. Opt-out Management helps you identify and avoid significant delivery problems. You can maintain compliance by adding suppression list features to help improve reputation and enable customers to easily manage opt-outs.
+Email opt-out management, now in preview, offers a centralized managed unsubscribe list and opt-out preferences saved to a data store. This feature helps developers meet guidelines of email providers who often require one-click list-unsubscribe implementation in the emails sent from their platforms.
 
-:::image type="content" source="media/whats-new-images/email-suppression-list-flow.png" alt-text="A diagram showing the Email suppression list flowchart." lightbox="media/whats-new-images/email-suppression-list-flow.png":::
+Opt-out management helps you identify and avoid delivery problems. You can maintain compliance by adding suppression list features to help improve reputation and enable customers to easily manage opt-outs.
+
+:::image type="content" source="media/whats-new-images/email-suppression-list-flow.png" alt-text="Diagram that shows an email suppression list flowchart." lightbox="media/whats-new-images/email-suppression-list-flow.png":::
 
 Get started with [Manage email opt-out capabilities](./concepts/email/email-optout-management.md).
 
-#### PowerShell cmdlets and CLI extension
+#### Azure PowerShell cmdlets and Azure CLI extensions
 
-##### PowerShell cmdlets
+To enhance the developer experience, Azure Communication Services is introducing more Azure PowerShell cmdlets and Azure CLI extensions for working with email.
 
-To enhance the developer experience, Azure Communication Services is introducing more PowerShell cmdlets and Azure CLI extensions for working with Azure Communication Service Email.
+##### Azure PowerShell cmdlets
 
-With the addition of these new cmdlets developers can now use Azure PowerShell cmdlets for all CRUD operations for Email Service including:
+With the addition of the new cmdlets, developers can use Azure PowerShell cmdlets for all CRUD operations for the email service, including:
 
-- Create Communication Service Resource (existing)
-- Create Email Service Resource (new)
-- Create Domain (Azure Managed or Custom Domain) Resource (new)
-- Initiate/Cancel Custom Domain verification (new)
+- Create a communication service resource (existing)
+- Create an email service resource (new)
+- Create a resource for an Azure-managed or custom domain (new)
+- Initiate or cancel custom domain verification (new)
 - Add a sender username to a domain (new)
-- Link a Domain Resource to a Communication Service Resource (existing)
+- Link a domain resource to a communication service resource (existing)
 
-Learn more at [PowerShell cmdlets](/powershell/module/az.communication/).
+Learn more in [Azure PowerShell cmdlets](/powershell/module/az.communication/).
 
-##### Azure CLI extension for Email Service Resources management
+##### Azure CLI extensions
 
-Developers can use Azure CLI extensions for their end-to-end send email flow including:
+Developers can use Azure CLI extensions for their end-to-end flow for sending email, including:
 
-- Create Communication Service Resource (existing)
-- Create Email Service Resource (new)
-- Create Domain (Azure Managed or Custom Domain) Resource (new)
+- Create a communication service resource (existing)
+- Create an email service resource (new)
+- Create a resource for an Azure-managed or custom domain (new)
 - Add a sender username to a domain (new)
-- Link a Domain Resource to a Communication Service Resource (existing)
-- Send an Email (existing)
+- Link a domain resource to a communication service resource (existing)
+- Send an email (existing)
 
 Learn more in [Extensions](/cli/azure/communication/email).
 
@@ -262,71 +261,73 @@ Learn more in [Extensions](/cli/azure/communication/email).
 
 ### Limited-access user tokens
 
-New, limited access user tokens are now in general availability. Limited access user tokens enable customers to exercise finer grain control over user capabilities such as to start a new call/chat or participate in an ongoing call/chat.
+Limited-access user tokens are now in general availability. Limited-access user tokens enable customers to exercise finer control over user capabilities such as starting a new call/chat or participating in an ongoing call/chat.
 
-When a customer creates an Azure Communication Services user identity, the user is granted the capability to participate in chats or calls, using access tokens. For example, a user must have a chat-token to participate in chat threads. Similarly, a VoIP token is required to participate in VoIP call. A user can have multiple tokens simultaneously.
+When a customer creates an Azure Communication Services user identity, the user is granted the capability to participate in chats or calls through access tokens. For example, a user must have a chat token to participate in chat threads. Similarly, a VoIP token is required to participate in VoIP call. A user can have multiple tokens simultaneously.
 
-With the limited access tokens, Azure Communication Services supports controlling full access versus limited access within chat and calling. Customers can now control the user's ability to initiate a new call or chat as opposed to participating in existing calls or chats.
+With the limited-access tokens, Azure Communication Services supports controlling full access versus limited access within chat and calling. Customers can control the user's ability to initiate a new call or chat, as opposed to participating in existing calls or chats.
 
-These tokens solve the cold-call or cold-chat issue. For example, without limited access tokens if a user has VoIP token, they can initiate calls and participate in calls. So theoretically, a defendant could call a judge directly or a patient could call a doctor directly. This is undesirable for most businesses. With new limited access tokens, developers are able to give a limited access token to a patient so they can join a call but can't initiate a direct call to anyone.
+These tokens solve the cold-call or cold-chat issue. For example, without limited-access tokens, a user who has a VoIP token can initiate calls and participate in calls. So theoretically, a defendant could call a judge directly or a patient could call a doctor directly. This is undesirable for most businesses. With limited-access tokens, developers can give a limited-access token to a patient who then can join a call but can't initiate a direct call to anyone.
 
 For more information, see [Identity model](./concepts/identity-model.md).
 
 ### Try Phone Calling
 
-Try Phone Calling, now in public preview, is a tool in Azure portal that helps customers confirm the setup of a telephony connection by making a phone call. It applies to both Voice Calling (PSTN) and direct routing. Try Phone Calling enables developers to quickly test Azure Communication Services calling capabilities, without an existing app or code on their end.
+Try Phone Calling, now in preview, is a tool in Azure portal that helps customers confirm the setup of a telephony connection by making a phone call. It applies to both voice calling (PSTN) and direct routing. Try Phone Calling enables developers to quickly test Azure Communication Services calling capabilities, without an existing app or code on their end.
 
-:::image type="content" source="concepts/media/try-phone-calling.png" alt-text="A screenshot of the try phone calling tool being used in the Azure portal." lightbox="concepts/media/try-phone-calling.png":::
+:::image type="content" source="concepts/media/try-phone-calling.png" alt-text="Screenshot of the Try Phone Calling tool in the Azure portal." lightbox="concepts/media/try-phone-calling.png":::
 
 Learn more about [Try Phone Calling](./concepts/telephony/try-phone-calling.md).
 
 ### UI Native Library updates
 
-Updates to the UI Native Library including moving User facing diagnostics to general availability and releasing 1:1 Calling and an iOS CallKit integration.
+Updates to the UI Native Library including moving User Facing Diagnostics to general availability and releasing one-to-one calling and iOS CallKit integration.
 
-### User Facing Diagnostics
+#### User Facing Diagnostics
 
-User Facing Diagnostics (UFD) is now available in general availability. User Facing Diagnostics enhance the user experience by providing a set of events that can be triggered when some signal of the call is triggered, for example, when some participant is talking but the microphone is muted, or if the device isn't connected to a network. Developers can subscribe to triggers such as weak network signals or muted microphones, ensuring that you're always aware of any factors impacting your calls.
+User Facing Diagnostics is now available in general availability. This feature enhances the user experience by providing a set of events that can be triggered when some signal of the call is triggered. For example, an event can be triggered when a participant is talking but the microphone is muted, or if the device isn't connected to a network. Developers can subscribe to triggers such as weak network signals or muted microphones, so you're always aware of any factors that affect your calls.
 
-By bringing UFD into the UI Library, we help customers implement events. This provides a more fluid experience. Customers can use UFDs to notify end-users in real time if they face connectivity and quality issues during the call. Issues can include muted microphones, network issues, or other problems. Customers receive a toast notification during the call to indicate quality issues. This also helps by sending telemetry to help you track any event and review the call status.
+Bringing User Facing Diagnostics into the UI Library helps customers implement events for a more fluid experience. Customers can use User Facing Diagnostics to notify users in real time if they face connectivity and quality problems during the call, such as network problems. Users receive a pop-up notification about these problems during the call. This feature also sends telemetry to help you track any event and review the call status.
 
 For more information, see [User Facing Diagnostics](./concepts/voice-video-calling/user-facing-diagnostics.md).
 
-### 1:1 calling
+#### One-to-one calling
 
-One-on-one calling for Android and iOS is now available. With this latest public preview release, starting a call is as simple as a tap. Recipients are promptly alerted with a push notification to answer or decline the call. If the iOS native application requires direct calling between two entities, developers can use the 1:1 calling function to make it happen. For example, a client needing to make a call to their financial advisor to make account changes. This feature is currently in public preview version 1.6.0.
+One-to-one calling for Android and iOS is now available in preview version 1.6.0. With this latest preview release, starting a call is as simple as a tap. Recipients are promptly alerted with a push notification to answer or decline the call.
+
+If the iOS-native application requires direct calling between two entities, developers can use the one-to-one calling function to make it happen. An example scenario is a client who needs to call a financial advisor to make account changes.
 
 For more information, see [Set up one-to-one calling and push notifications in the UI Library](./how-tos/ui-library-sdk/one-to-one-calling.md).
 
-### iOS CallKit integrations
+#### iOS CallKit integration
 
-Azure Communication Services seamlessly integrates CallKit, in public preview, for a native iOS call experience. Now, calls made through the Native UI SDK have the same iOS calling features such as notification, call history, and call on hold. These iOS features blend perfectly with the existing native experience.
+Azure Communication Services integrates CallKit, in preview, for a native iOS call experience. Now, calls made through the Native UI SDK have the same iOS calling features, such as notification, call history, and call on hold. These iOS features blend seamlessly with the existing native experience.
 
-UI Library developers can use this integration to avoid spending time on integration. The iOS CallKit provides an out of the box experience, meaning that integrated apps use the same interfaces as regular cellular calls. For end-users, incoming VoIP calls display the familiar iOS call screen, providing a consistent and intuitive experience.
+UI Library developers can use this integration to avoid spending time on integration. CallKit provides an out-of-the-box experience, meaning that integrated apps use the same interfaces as regular cellular calls. For users, incoming VoIP calls display the familiar iOS call screen for a consistent and intuitive experience.
 
 For more information, see [Integrate CallKit into the UI Library](./how-tos/ui-library-sdk/callkit.md).
 
 ### PSTN Direct Offers
 
-Azure Communication Services has continued to expand Direct Offers to new geographies. We just launched PSTN Direct Offers in general availability for 42 countries.
+Azure Communication Services continues to expand Direct Offers to new geographies. PSTN Direct Offers is in general availability for 42 countries:
 
-The full list of countries where we offer PSTN Direct Offers:
+> Argentina, Australia, Austria, Belgium, Brazil, Canada, Chile, China, Colombia, Denmark, Finland, France, Germany, Hong Kong, Indonesia, Ireland, Israel, Italy, Japan, Luxembourg, Malaysia, Mexico, Netherlands, New Zealand, Norway, Philippines, Poland, Portugal, Puerto Rico, Saudi Arabia, Singapore, Slovakia, South Africa, South Korea, Spain, Sweden, Switzerland, Taiwan, Thailand, UAE (United Arab Emirates), United Kingdom, United States
 
-Argentina, Australia, Austria, Belgium, Brazil, Canada, Chile, China, Colombia, Denmark, Finland, France, Germany, Hong Kong, Indonesia, Ireland, Israel, Italy, Japan, Luxembourg, Malaysia, Mexico, Netherlands, New Zealand, Norway, Philippines, Poland, Portugal, Puerto Rico, Saudi Arabia, Singapore, Slovakia, South Africa, South Korea, Spain, Sweden, Switzerland, Taiwan, Thailand, UAE (United Arab Emirates), United Kingdom, and United States
-
-In addition to getting all current offers into general availability, we have introduced over 400 new cross-country offers.
+In addition to getting all current offers into general availability, we've introduced more than 400 new cross-country offers.
 
 Check all the new countries, phone number types, and capabilities at [Country/regional availability of telephone numbers and subscription eligibility](./concepts/numbers/sub-eligibility-number-capability.md).
 
 ## January 2024
 
-### Dial out to a PSTN number
+### Dial-out to a PSTN number
 
-Virtual Rooms support VoIP audio and video calling. Now you can also dial out PSTN numbers and include the PSTN participants in an ongoing call. Virtual Rooms empowers developers to exercise control over PSTN dial out capability in two ways. Developers can not only enable/disable PSTN dial-out capability for specific Virtual Rooms but can also control which users in Virtual Rooms can initiate PSTN dial-out. Only the users with Presenter role can initiate a PSTN Dial-out ensuring secure and structured communication.
+Virtual Rooms support VoIP audio and video calling. Now you can also dial out PSTN numbers and include the PSTN participants in an ongoing call.
+
+Virtual Rooms empower developers to exercise control over PSTN dial-out capability in two ways. Developers can not only enable/disable PSTN dial-out capability for specific Virtual Rooms but also control which users in Virtual Rooms can initiate PSTN dial-out. Only users who have the Presenter role can initiate a PSTN dial-out, to help ensure secure and structured communication.
 
 For more information, see [Quickstart: Create and manage a room resource](./quickstarts/rooms/get-started-rooms.md).
 
-### Remote mute call participants
+### Remote mute of call participants
 
 Participants can now mute other participants in Virtual Rooms calls. Previously, participants in Virtual Rooms calls could only mute/unmute themselves. There are times when you want to mute other participants due to background noise or if someone's microphone is left unmuted.
 
@@ -336,53 +337,53 @@ For more information, see [Mute other participants](./how-tos/calling-sdk/manage
 
 ### Call recording in virtual rooms
 
-Developers can now start, pause, and stop call recording in calls conducted in Virtual Rooms. Call recording is a service-side capability, and developers start, pause, stop recording using server-side API calls. This feature enables invited participants who might not make the original session to view the recording and stay up-to-date asynchronously.
+Developers can now start, pause, and stop call recording in calls conducted in Virtual Rooms. Call recording is a service-side capability. Developers start, pause, and stop recording by using server-side API calls. This feature enables invited participants who might not make the original session to view the recording and stay up to date asynchronously.
 
 For more information, see [Manage call recording on the client](./how-tos/calling-sdk/record-calls.md).
 
 ### Closed captions in virtual rooms
 
-Closed captions is the conversion of a voice or video call audio track into written words that appear in real time. Closed captions are also a useful tool for participants who prefer to read the audio text in order to engage more actively in conversations and meetings. Closed captions also help in scenarios where participants might be in noisy environments or have audio equipment problems.
+Closed captioning is the conversion of an audio track for a voice or video call into written words that appear in real time. Closed captions are a useful tool for participants who prefer to read the audio text in order to engage more actively in conversations and meetings. Closed captions also help in scenarios where participants might be in noisy environments or have audio equipment problems.
 
-Closed captions are never saved and are only visible to the user that enabled it.
+Closed captions are never saved and are visible only to the user who enabled them.
 
-:::image type="content" source="media/whats-new-images/closed-captions-virtual-rooms.png" alt-text="A screenshot of closed captions used in a virtual rooms example." lightbox="media/whats-new-images/closed-captions-virtual-rooms.png":::
+:::image type="content" source="media/whats-new-images/closed-captions-virtual-rooms.png" alt-text="Screenshot of closed captions used in a Virtual Rooms example." lightbox="media/whats-new-images/closed-captions-virtual-rooms.png":::
 
-For more information, see [Closed Captions overview](./concepts/voice-video-calling/closed-captions.md).
+For more information, see [Closed captions overview](./concepts/voice-video-calling/closed-captions.md).
 
 ## December 2023
 
 ### Call Diagnostics
 
-Azure Communication Services Call Diagnostics is available in Public Preview. Call Diagnostics help developers troubleshoot and improve their voice and video calling applications.
+Azure Communication Services Call Diagnostics is available in preview. Call Diagnostics helps developers troubleshoot and improve their applications for voice and video calling.
 
-:::image type="content" source="./media/whats-new-images/11-23/call-diagnostics.png" alt-text="A graphic showing icons that represent the ways that Call Diagnostics helps developers.":::
+:::image type="content" source="./media/whats-new-images/11-23/call-diagnostics.png" alt-text="Graphic that shows icons that represent the ways that Call Diagnostics helps developers.":::
 
-Call Diagnostics is an Azure Monitor experience that offers specialized telemetry and diagnostic pages in the Azure portal. With Call Diagnostics, you can access and analyze data, visualizations, and insights for each call. Then you can identify and resolve issues that affect the end-user experience.
+Call Diagnostics is an Azure Monitor experience that offers specialized telemetry and diagnostic pages in the Azure portal. With Call Diagnostics, you can access and analyze data, visualizations, and insights for each call. Then you can identify and resolve issues that affect the user experience.
 
-Call Diagnostics works with other ACS features, such as noise suppression and pre-call troubleshooting, to deliver beautiful, reliable video calling experiences that are easy to develop and operate. Call Diagnostics is now available in Public Preview. Try it today and see how Azure can help you make every call a success.
+Call Diagnostics works with other Azure Communication Services features, such as noise suppression and pre-call troubleshooting, to deliver reliable video calling experiences that are easy to develop and operate.
 
 For more information, see [Call Diagnostics](./concepts/voice-video-calling/call-diagnostics.md).
 
 ### WebJS Calling updates
 
-Several WebJS Calling features moved to general availability: Media Quality Statics, Video Constraints, and Data Channel.
+The following APIs for WebJS Calling features moved to general availability: Media Quality Statistics, Video Constraints, and Data Channel.
 
 #### Media Quality Statistics
 
-Developers can leverage the Media Quality Statistics API to better understand their video calling quality and reliability experience real time from within the calling SDK. By giving developers the ability to understand from the client side what their end customers are experiencing they can delve deeper into understanding and mitigating any issues that arise for their end users.
+Developers can use the Media Quality Statistics API to better understand their video calling quality and reliability experience in real time from within the Calling SDK. When developers understand from the client side what their customers are experiencing, they can delve deeper into understanding and mitigating any problems that arise for users.
 
-For more information, see [Media Quality Statistics](./concepts/voice-video-calling/media-quality-sdk.md).
+For more information, see [Media quality statistics](./concepts/voice-video-calling/media-quality-sdk.md).
 
-#### Video constraints
+#### Video Constraints
 
-Developers can use Video Constraints to better manage the overall quality of calls. For example, if a developer knows that a participant has a poor internet connection, the developer can limit video resolution size on the sender side to use less bandwidth. The result is an improved calling experience for the participant.
+Developers can use the Video Constraints API to better manage the overall quality of calls. For example, if a developer knows that a participant has a poor internet connection, the developer can limit video resolution size on the sender side to use less bandwidth. The result is an improved calling experience for the participant.
 
-Improve your calling experience as described in [Quickstart: Set video constraints in your calling app](./quickstarts/voice-video-calling/get-started-video-constraints.md).
+For more information about improving the calling experience by using the Video Constraints API, see [Quickstart: Set video constraints in your calling app](./quickstarts/voice-video-calling/get-started-video-constraints.md).
 
-#### Data channel
+#### Data Channel
 
-The Data Channel API enables real-time messaging during audio and video calls. This function enables developers to manage their own data pipeline and send their own unique messages to remote participants on a call. The data channel enhances communication capabilities by enabling local participants to connect directly to remote participants when the scenario requires.
+The Data Channel API enables real-time messaging during audio and video calls. This function enables developers to manage their own data pipeline and send their own unique messages to remote participants on a call. The data channel enhances communication capabilities by enabling local participants to connect directly to remote participants when the scenario requires it.
 
 Get started with [Quickstart: Add Data Channel messaging to your calling app](./quickstarts/voice-video-calling/get-started-data-channel.md).
 
