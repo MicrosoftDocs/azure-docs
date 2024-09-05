@@ -314,9 +314,13 @@ Update the NIC driver:
 1. If Windows doesn't find a new driver, you can try looking for one on the device manufacturer's website and follow their instructions.
 1. Restart the computer and try the connection again.
 
-## <a name="entra-expired"></a>VPN client error: Your authentication with Microsoft Entra has expired
+## <a name="entra-expired"></a>VPN client error: Your authentication with Microsoft Entra expired
 
-If you're using Microsoft Entra ID authentication, you might encounter the following error:
+If you're using Microsoft Entra ID authentication, you might encounter one of the following errors:
+
+**Your authentication with Microsoft Entra is expired. You need to re-authenticate in Entra to acquire a new token. Authentication timeout can be tuned by your administrator.**
+
+or
 
 **Your authentication with Microsoft Entra has expired so you need to re-authenticate to acquire a new token. Please try connecting again. Authentication policies and timeout are configured by your administrator in Entra tenant.**
 
