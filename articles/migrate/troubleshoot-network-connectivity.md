@@ -336,8 +336,6 @@ To set up the storage account for public endpoint connectivity,
 
 1. **Locate the storage account**: The storage account name is available on the Azure Migrate: Discovery and Assessment properties page. The storage account name will have the suffix _usa_.
 
-      :::image type="content" source="./media/how-to-use-azure-migrate-with-private-endpoints/server-assessment-properties.png" alt-text="Snapshot of download D N S settings.":::
-
 2. Navigate to the storage account and edit the storage account networking properties to allow access from all/other networks.
 
     :::image type="content" source="./media/how-to-use-azure-migrate-with-private-endpoints/networking-firewall-virtual-networks.png" alt-text="Snapshot of storage account networking properties.":::
