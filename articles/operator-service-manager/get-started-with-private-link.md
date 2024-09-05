@@ -1,6 +1,6 @@
 ---
 title: Get started with Azure Operator Service Manager Private Link
-description: Secure backhaul connectivity of on-premise artifact store hosted on Azure Operator Nexus
+description: Secure backhaul connectivity of on-premises artifact store hosted on Azure Operator Nexus
 author: msftadam
 ms.author: adamdor
 ms.date: 09/04/2024
@@ -11,7 +11,7 @@ ms.service: azure-operator-service-manager
 # Get started with private link
 
 ## Overview
-This guide describes the Azure Operator Service Manager (AOSM) private link (PL) feature for artifact stores hosted on Azure Operator Nexus. As part of the AOSM edge registry initiative, PL uses Azure private endpoints, and Azure private link service, to securely backhaul Nexus on-premise artifact store traffic. This traffic is never exposed to the internet, instead exclusively traversing Microsoft's private network.
+This guide describes the Azure Operator Service Manager (AOSM) private link (PL) feature for artifact stores hosted on Azure Operator Nexus. As part of the AOSM edge registry initiative, PL uses Azure private endpoints, and Azure private link service, to securely backhaul Nexus on-premises artifact store traffic. This traffic is never exposed to the internet, instead exclusively traversing Microsoft's private network.
 
 ## Introduction
 This document provides a quick start guide to enable private link feature for AOSM artifact store using AOSM Publisher APIs. 
