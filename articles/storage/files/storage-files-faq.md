@@ -102,6 +102,10 @@ ms.topic: conceptual
    3. The AV application then performs its own read to scan the file for viruses.
      
   This process may appear as if the AV software is recalling the tiered files, but it's actually triggered by the user's access attempt. To prevent this issue, ensure that your AV vendor configures their software to ignore scanning tiered files with the RECALL_ON_DATA_ACCESS attribute.
+
+* <a id="afs-networkconnect"></a>
+  **Can SSL inspection software block access to AFS Servers?**
+  Make sure your SSL inspection software (such as Zscaler or FortiGate) allows Azure File Sync (AFS) server endpoints to access Azure. These SSL inspection tools can override firewall settings and selectively allow traffic. Contact your network administrator to resolve this issue. Use the "testnet" command to determine if your AFS server is experiencing this problem.
   
 ## Security, authentication, and access control
 
