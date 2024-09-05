@@ -731,10 +731,11 @@ Your Application Gateway has been running on high utilization recently and under
 
 Learn more about [Application gateway - HotAppGateway (Make sure you have enough instances in your Application Gateway to support your traffic)](https://aka.ms/hotappgw).
 
+### Use HEAD health probes
 
+Health probes can use either the GET or HEAD HTTP method. It’s a good practice to use the HEAD method for health probes, which reduces the amount of traffic load on your origins.
 
-
-
+Learn more about [Front Door - Use HEAD health probes](https://aka.ms/afd-use-health-probes).
 
 ## SAP for Azure
 
