@@ -13,7 +13,7 @@ ms.service: azure-automation
 
 
 > [!Important]
-> Azure Automation Agent-based User Hybrid Runbook Worker (Windows and Linux) has retired on **31 August 2024** and is no longer supported. Follow the guidelines on how to [migrate from an existing Agent-based User Hybrid Runbook Workers to Extension-based Hybrid Workers](../migrate-existing-agent-based-hybrid-worker-to-extension-based-workers.md).
+> Azure Automation Agent-based User Hybrid Runbook Worker (Windows and Linux) has retired on **31 August 2024** and is no longer supported. Follow the guidelines on how to [migrate from an existing Agent-based User Hybrid Runbook Workers to Extension-based Hybrid Workers](migrate-existing-agent-based-hybrid-worker-to-extension-based-workers.md).
 
 > [!NOTE]
 > Azure Automation Run As Account has retired on September 30, 2023 and is replaced with Managed Identities. Follow the guidelines on [how to start migrating your runbooks to use managed identities](automation-security-overview.md#managed-identities). For more information, see [migrating from an existing Run As accounts to managed identity](migrate-run-as-accounts-managed-identity.md#sample-scripts).
