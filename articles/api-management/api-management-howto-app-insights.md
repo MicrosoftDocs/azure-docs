@@ -51,7 +51,7 @@ The following are high level steps for this scenario.
     You can create a connection between Application Insights and your API Management using the Azure portal, the REST API, or related Azure tools. API Management configures a *logger* resource for the connection.
 
     > [!IMPORTANT]
-    > Currently, in the portal, API Management only supports connections to Application Insights using an Application Insights instrumentation key. For enhanced security, we recommend using an Application Insights connection string with an API Management managed identity. To configure managed identity and connection string credentials, use the [REST API](#create-a-connection-using-the-rest-api-bicep-or-arm-template) or related tools as shown in a later section of this article. [Learn more](../azure-monitor/app/sdk-connection-string.md) about Application Insights connection strings.
+    > Currently, in the portal, API Management only supports connections to Application Insights using an Application Insights instrumentation key. For enhanced security, we recommend using an Application Insights connection string with an API Management managed identity. To configure connection string with managed identity credentials, use the [REST API](#create-a-connection-using-the-rest-api-bicep-or-arm-template) or related tools as shown in a later section of this article. [Learn more](../azure-monitor/app/sdk-connection-string.md) about Application Insights connection strings.
     > 
 
     > [!NOTE]
@@ -67,7 +67,7 @@ The following are high level steps for this scenario.
 Follow these steps to use the Azure portal to create a connection between Application Insights and API Management. 
 
 > [!NOTE]
-> Where possible, Microsoft recommends using managed identity and connection string credentials for enhanced security. To configure these credentials, use the [REST API](#create-a-connection-using-the-rest-api-bicep-or-arm-template) or related tools as shown in a later section of this article.
+> Where possible, Microsoft recommends using connection string with managed identity credentials for enhanced security. To configure these credentials, use the [REST API](#create-a-connection-using-the-rest-api-bicep-or-arm-template) or related tools as shown in a later section of this article.
 
 
 1. Navigate to your **Azure API Management service instance** in the **Azure portal**.
@@ -91,15 +91,15 @@ Follow these steps to use the Azure portal to create a connection between Applic
 
 ## Create a connection using the REST API, Bicep, or ARM template
 
-Follow these steps to use the REST API, Bicep, or ARM template to create an Application Insights logger for your API Management instance. You can configure a logger that uses managed identity with connection string credentials (recommended), or a logger that uses only a connection string.
+Follow these steps to use the REST API, Bicep, or ARM template to create an Application Insights logger for your API Management instance. You can configure a logger that uses connection string with managed identity credentials (recommended), or a logger that uses only a connection string.
 
-### Logger with managed identity and connection string credentials (recommended)
+### Logger with connection string with managed identity credentials (recommended)
 
 See the [prerequisites](#prerequisites) for using an API Management managed identity.
 
 The Application Insights connection string appears in the **Overview** section of your Application Insights resource.
 
-#### System-assigned managed identity and connection string 
+#### Connection string with system-assigned managed identity 
 
 #### [REST API](#tab/rest)
 
@@ -109,7 +109,7 @@ Use the API Management [Logger - Create or Update](/rest/api/apimanagement/curre
 {
   "properties": {
     "loggerType": "applicationInsights",
-    "description": "adding a new logger with system-assigned managed identity",
+    "description": "Application Insights logger with system-assigned managed identity",
     "credentials": {
          "connectionString":"InstrumentationKey=00000000-0000-0000-0000-000000000000;IngestionEndpoint=https://xxxx.applicationinsights.azure.com/;...",
          "identityClientId":"SystemAssigned"
@@ -159,7 +159,7 @@ Include a JSON snippet similar to the following in your Azure Resource Manager t
 }
 ```
 ---
-#### User-assigned managed identity and connection string
+#### Connection string with user-assigned managed identity
 
 #### [REST API](#tab/rest)
 
@@ -169,7 +169,7 @@ Use the API Management [Logger - Create or Update](/rest/api/apimanagement/curre
 {
   "properties": {
     "loggerType": "applicationInsights",
-    "description": "adding a new logger with user-assigned managed identity",
+    "description": "Application Insights logger with user-assigned managed identity",
     "credentials": {
          "connectionString":"InstrumentationKey=00000000-0000-0000-0000-000000000000;IngestionEndpoint=https://xxxx.applicationinsights.azure.com/;...",
          "identityClientId":"<ClientID>"
@@ -234,7 +234,7 @@ If you are configuring the logger for a workspace, use the [Workspace Logger - C
 {
   "properties": {
     "loggerType": "applicationInsights",
-    "description": "adding a new logger with connection string",
+    "description": "Application Insights logger with connection string",
     "credentials": {
          "connectionString":"InstrumentationKey=00000000-0000-0000-0000-000000000000;IngestionEndpoint=https://xxxx.applicationinsights.azure.com/;..."    
     }
@@ -245,6 +245,9 @@ If you are configuring the logger for a workspace, use the [Workspace Logger - C
 #### [Bicep](#tab/bicep)
 
 Include a snippet similar to the following in your Bicep template.
+
+If you are configuring the logger for a workspace, create a `Microsoft.ApiManagement/service.workspace/loggers@2023-09-01-preview` resource instead.
+
 
 ```Bicep
 resource aiLoggerWithSystemAssignedIdentity 'Microsoft.ApiManagement/service/loggers@2022-08-01' = {
@@ -263,6 +266,9 @@ resource aiLoggerWithSystemAssignedIdentity 'Microsoft.ApiManagement/service/log
 #### [ARM](#tab/arm)
 
 Include a JSON snippet similar to the following in your Azure Resource Manager template.
+
+If you are configuring the logger for a workspace, create a `Microsoft.ApiManagement/service.workspace/loggers` resource and set `apiVersion` to `2023-09-01-preview` instead.
+
 
 ```JSON
 {
@@ -335,7 +341,7 @@ Application Insights receives:
 > See [Application Insights limits](../azure-monitor/service-limits.md#application-insights) for information about the maximum size and number of metrics and events per Application Insights instance.
 
 ## Emit custom metrics
-You can emit [custom metrics](../azure-monitor/essentials/metrics-custom-overview.md) to Application Insights from your API Management instance. API Management emits custom metrics using the [emit-metric](emit-metric-policy.md) policy.
+You can emit [custom metrics](../azure-monitor/essentials/metrics-custom-overview.md) to Application Insights from your API Management instance. API Management emits custom metrics using policies such as [emit-metric](emit-metric-policy.md) and [azure-openai-emit-token-metric](azure-openai-emit-token-metric-policy.md). The following section uses the `emit-metric` policy as an example.
 
 > [!NOTE]
 > Custom metrics are a [preview feature](../azure-monitor/essentials/metrics-custom-overview.md) of Azure Monitor and subject to [limitations](../azure-monitor/essentials/metrics-custom-overview.md#design-limitations-and-considerations).
@@ -369,7 +375,7 @@ To emit custom metrics, perform the following configuration steps.
 
 ### Limits for custom metrics
 
-Azure Monitor imposes [usage limits](../azure-monitor/essentials/metrics-custom-overview.md#quotas-and-limits) for custom metrics that may affect your ability to emit metrics from API  Management. For example, Azure Monitor currently sets a limit of 10 dimension keys per metric, and a limit of 50,000 total active time series per region in a subscription (within a 12 hour period). 
+Azure Monitor imposes [usage limits](../azure-monitor/essentials/metrics-custom-overview.md#quotas-and-limits) for custom metrics that may affect your ability to emit metrics from API Management. For example, Azure Monitor currently sets a limit of 10 dimension keys per metric, and a limit of 50,000 total active time series per region in a subscription (within a 12 hour period). 
 
 These limits have the following implications for configuring custom metrics in API Management:
 
