@@ -28,6 +28,8 @@ Azure Operator Nexus provides the following built-in roles.
 
 [Operator Nexus Keyset Administrator Role (Preview)](#operator-nexus-keyset-administrator-role-preview)
 
+[Operator Nexus Owner Role (Preview)](#operator-nexus-owner-role-preview)
+
 > [!NOTE]
 > Preview roles are subject to change.
 
@@ -122,7 +124,7 @@ and updating baremetal machine (BMM) and baseboard management (BMC) keysets.    
 
 ### Operator Nexus Owner Role (Preview)
 
-The user with this role has access to perform all actions on any Microsoft.NetworkCloud resource.
+The user with this role has access to perform all actions on any Microsoft.NetworkCloud resource within the scope assignment.
 
 | Actions                  | Description                                             |
 |--------------------------|---------------------------------------------------------|
