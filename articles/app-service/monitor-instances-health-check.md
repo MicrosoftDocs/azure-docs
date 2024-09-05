@@ -5,7 +5,7 @@ keywords: azure app service, web app, health check, route traffic, healthy insta
 author: msangapu-msft
 
 ms.topic: article
-ms.date: 08/26/2022
+ms.date: 09/06/2024
 ms.author: msangapu
 ---
 
