@@ -81,11 +81,11 @@ The following image shows a typical deployment model for the connected registry 
 
 ### Deployment
 
-Each connected registry is a resource you manage to use a cloud-based Azure container registry. The top parent in the connected registry hierarchy is an Azure container registry in an Azure cloud.
+Each connected registry is a resource you manage within a cloud-based Azure container registry. The top parent in the connected registry hierarchy is an Azure container registry in the Azure cloud. The connected registry can be deployed either on Azure IoT Edge or Arc-enabled Kubernetes clusters.
 
-Use Azure tools to install the connected registry on a server or device on your premises, or an environment that supports container workloads on-premises such as [Azure IoT Edge](../iot-edge/tutorial-nested-iot-edge.md). 
+To install the connected registry, use Azure tools on a server or device on your premises, or in an environment that supports on-premises container workloads, such as [Azure IoT Edge](../iot-edge/tutorial-nested-iot-edge.md). 
 
-Deploy the connected registry Arc extension to the Arc-enabled Kubernetes cluster and secure the connection with TLS using default configurations for read-only access and continuous sync window. The connected registry can be deployed on the Arc-enabled Kubernetes cluster and synchronize the images from ACR to the connected registry on-premises, allowing images to be pulled from the connected registry.
+Deploy the connected registry Arc extension to the Arc-enabled Kubernetes cluster. Secure the connection with TLS using default configurations for read-only access and a continuous sync window. This setup allows the connected registry to synchronize images from the Azure container registry (ACR) to the connected registry on-premises, enabling image pulls from the connected registry.
 
 The connected registry's *activation status* indicates whether it's deployed on-premises.
 
@@ -102,9 +102,9 @@ It can also be configured to synchronize a subset of the repositories from the c
 
 A connected registry can work in one of two modes: *ReadWrite* or *ReadOnly*
 
-**ReadOnly mode** - The Default mode, when the connected registry is in ReadOnly mode, clients can only pull (read) artifacts. This configuration is used for nested IoT Edge scenarios, or other scenarios where clients need to pull a container image to operate. This default mode aligns with our secure-by-default approach and is effective starting with CLI version 2.60.0.
+**ReadOnly mode** - The default mode, when the connected registry is in ReadOnly mode, clients can only pull (read) artifacts. This configuration is used in scenarios where clients need to pull a container image to operate. This default mode aligns with our secure-by-default approach and is effective starting with CLI version 2.60.0.
 
-**ReadWrite mode** - The mode allows clients to pull and push artifacts (read and write) to the connected registry. Artifacts that are pushed to the connected registry will be synchronized with the cloud registry. The ReadWrite mode is useful when a local development environment is in place. The images are pushed to the local connected registry and from there synchronized to the cloud.
+**ReadWrite mode** - This mode allows clients to pull and push artifacts (read and write) to the connected registry. Artifacts that are pushed to the connected registry will be synchronized with the cloud registry. The ReadWrite mode is useful when a local development environment is in place. The images are pushed to the local connected registry and from there synchronized to the cloud.
 
 ### Registry hierarchy
 
