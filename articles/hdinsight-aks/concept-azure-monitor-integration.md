@@ -8,7 +8,10 @@ ms.date: 08/29/2023
 
 # Azure Monitor integration
 
+[!INCLUDE [retirement-notice](includes/retirement-notice.md)]
 [!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
+
+
 
 HDInsight on AKS offers an integration with Azure Monitor that can be used to monitor cluster pools and their clusters.
 

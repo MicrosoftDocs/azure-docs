@@ -251,13 +251,13 @@ Azure supports only [selected Windows OS versions](/troubleshoot/azure/virtual-m
 
 #### Fix
 
-Azure endorses only [selected Linux OS versions](../virtual-machines/linux/endorsed-distros.md). Consider upgrading the server before you migrate to Azure.
+Azure endorses only [selected Linux OS versions](/azure/virtual-machines/linux/endorsed-distros). Consider upgrading the server before you migrate to Azure.
 
 ### Issue: Unendorsed Linux OS
 
 #### Fix
 
-The server might start in Azure, but Azure provides no operating system support. Consider upgrading to an [endorsed Linux version](../virtual-machines/linux/endorsed-distros.md) before you migrate to Azure.
+The server might start in Azure, but Azure provides no operating system support. Consider upgrading to an [endorsed Linux version](/azure/virtual-machines/linux/endorsed-distros) before you migrate to Azure.
 
 ### Issue: Unknown operating system
 
@@ -299,7 +299,7 @@ Use a different target location before migration.
 
 #### Fix
 
-One or more disks attached to the VM don't meet Azure requirements.<br><br> Azure Migrate: Discovery and assessment assess the disks based on the disk limits for Ultra disks (64 TB).<br><br> For each disk attached to the VM, make sure that the size of the disk is < 64 TB (supported by Ultra SSD disks).<br><br> If it isn't, reduce the disk size before you migrate to Azure, or use multiple disks in Azure and [stripe them together](../virtual-machines/premium-storage-performance.md#disk-striping) to get higher storage limits. Make sure that the performance (IOPS and throughput) needed by each disk is supported by [Azure managed virtual machine disks](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-storage-limits).
+One or more disks attached to the VM don't meet Azure requirements.<br><br> Azure Migrate: Discovery and assessment assess the disks based on the disk limits for Ultra disks (64 TB).<br><br> For each disk attached to the VM, make sure that the size of the disk is < 64 TB (supported by Ultra SSD disks).<br><br> If it isn't, reduce the disk size before you migrate to Azure, or use multiple disks in Azure and [stripe them together](/azure/virtual-machines/premium-storage-performance#disk-striping) to get higher storage limits. Make sure that the performance (IOPS and throughput) needed by each disk is supported by [Azure managed virtual machine disks](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-storage-limits).
 
 ### Issue: One or more unsuitable network adapters
 
@@ -317,7 +317,7 @@ Remove unused disks from the server before migration.
 
 #### Fix
 
-Azure Migrate: Discovery and assessment support disks with up to 64 TB size (Ultra disks). Shrink disks to less than 64 TB before migration, or use multiple disks in Azure and [stripe them together](../virtual-machines/premium-storage-performance.md#disk-striping) to get higher storage limits.
+Azure Migrate: Discovery and assessment support disks with up to 64 TB size (Ultra disks). Shrink disks to less than 64 TB before migration, or use multiple disks in Azure and [stripe them together](/azure/virtual-machines/premium-storage-performance#disk-striping) to get higher storage limits.
 
 ### Issue: Disk unavailable in the specified location
 

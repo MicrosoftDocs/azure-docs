@@ -13,6 +13,12 @@ ms.custom: Include file
 ms.author: prakulka
 ---
 
+> [!IMPORTANT]
+>- For billing locations in the US and Puerto Rico – Azure Prepayment (previously called Monetary Commitment) funds and Azure prepaid credits are not eligible for purchasing the products. Additionally, customer spend on the products is not eligible for Microsoft Azure Consumption Commitment drawdown.
+>
+>
+>- For billing locations outside the US and Puerto Rico Azure Prepayment (previously called Monetary Commitment) funds and Azure prepaid credits are not eligible for purchasing the products.
+
 The Alphanumeric sender ID service requires enabling alphanumeric sender ID through the Azure portal. Once the alphanumeric sender ID service is enabled, pay-as-you-go pricing applies to the usage fee. The usage fee is determined by the destination of the message.
 
 ##  Alphanumeric sender ID  Pricing

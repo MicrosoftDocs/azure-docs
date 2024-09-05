@@ -5,14 +5,14 @@ ms.service: azure-update-manager
 ms.custom: linux-related-content
 author: SnehaSudhirG
 ms.author: sudhirsneha
-ms.date: 07/14/2024
+ms.date: 08/30/2024
 ms.topic: overview
 ---
 
 # About Azure Update Manager
 
 > [!Important]
-> On 31 August 2024, both Azure Automation Update Management and the Log Analytics agent it uses [will be retired](https://azure.microsoft.com/updates/were-retiring-the-log-analytics-agent-in-azure-monitor-on-31-august-2024/). Therefore, if you are using the Automation Update Management solution, we recommend that you move to Azure Update Manager for your software update needs. Follow the [guidance](guidance-migration-automation-update-management-azure-update-manager.md#migration-scripts) to move your machines and schedules from Automation Update Management to Azure Update Manager.
+> Both Azure Automation Update Management and the Log Analytics agent it uses [has been retired on 31st August 2024](https://azure.microsoft.com/updates/were-retiring-the-log-analytics-agent-in-azure-monitor-on-31-august-2024/). Therefore, if you are using the Automation Update Management solution, we recommend that you move to Azure Update Manager for your software update needs. Follow the [guidance](guidance-migration-automation-update-management-azure-update-manager.md#migration-scripts) to move your machines and schedules from Automation Update Management to Azure Update Manager.
 > For more information, see the [FAQs on retirement](update-manager-faq.md#impact-of-log-analytics-agent-retirement). You can [sign up](https://developer.microsoft.com/reactor/?search=Azure+Update+Manager&page=1) for monthly live sessions on migration including Q&A sessions.
 
 
@@ -24,7 +24,7 @@ You can use Update Manager in Azure to:
 - Enable [periodic assessment](https://aka.ms/umc-periodic-assessment-policy) to check for updates every 24 hours.
 - Use flexible patching options such as:
     - [Customer-defined maintenance schedules](https://aka.ms/umc-scheduled-patching) for both Azure and Arc-connected machines.
-    - [Automatic virtual machine (VM) guest patching](../virtual-machines/automatic-vm-guest-patching.md) and [hot patching](/azure/automanage/automanage-hotpatch) for Azure VMs.
+    - [Automatic virtual machine (VM) guest patching](/azure/virtual-machines/automatic-vm-guest-patching) and [hot patching](/azure/automanage/automanage-hotpatch) for Azure VMs.
 - Build custom reporting dashboards for reporting update status and [configure alerts](https://aka.ms/aum-alerts) on certain conditions.
 - Oversee update compliance for your entire fleet of machines in Azure and on-premises/in other cloud environments connected by [Azure Arc](/azure/azure-arc/) through a single pane. The different types of machines that can be managed are:
 - 
@@ -48,7 +48,7 @@ Update Manager offers many new features and provides enhanced and native functio
   - Offers enhanced flexibility
     - Take immediate action either by [installing updates immediately](https://aka.ms/on-demand-patching) or [scheduling them for a later date](https://aka.ms/umc-scheduled-patching).
     - [Check updates automatically](https://aka.ms/aum-policy-support) or [on demand](https://aka.ms/on-demand-assessment).
-    - Secure machines with new ways of patching such as [automatic VM guest patching](../virtual-machines/automatic-vm-guest-patching.md) in Azure, [hot patching](/azure/automanage/automanage-hotpatch) or  [custom maintenance schedules](https://aka.ms/umc-scheduled-patching).
+    - Secure machines with new ways of patching such as [automatic VM guest patching](/azure/virtual-machines/automatic-vm-guest-patching) in Azure, [hot patching](/azure/automanage/automanage-hotpatch) or  [custom maintenance schedules](https://aka.ms/umc-scheduled-patching).
     - Sync patch cycles in relation to **patch Tuesday** the unofficial term for Microsoft's scheduled security fix release on every second Tuesday of each month. 
 - Reporting and alerting
     - Build custom reporting dashboards through [Azure Workbooks](manage-workbooks.md) to monitor the update compliance of your infrastructure. 

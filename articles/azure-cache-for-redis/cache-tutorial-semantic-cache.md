@@ -42,7 +42,7 @@ In this tutorial, you learn how to:
 
 - [Jupyter Notebooks](https://jupyter.org/) (optional)
 
-- An Azure OpenAI resource with the **text-embedding-ada-002 (Version 2)** and **gpt-35-turbo-instruct** models deployed. These models are currently only available in [certain regions](../ai-services/openai/concepts/models.md#model-summary-table-and-region-availability). See the [resource deployment guide](../ai-services/openai/how-to/create-resource.md) for instructions on how to deploy the models.
+- An Azure OpenAI resource with the **text-embedding-ada-002 (Version 2)** and **gpt-35-turbo-instruct** models deployed. These models are currently only available in [certain regions](/azure/ai-services/openai/concepts/models#model-summary-table-and-region-availability). See the [resource deployment guide](/azure/ai-services/openai/how-to/create-resource) for instructions on how to deploy the models.
 
 ## Create an Azure Cache for Redis instance
 

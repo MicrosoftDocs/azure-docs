@@ -37,7 +37,7 @@ To prepare your network to support Update Manager, you might need to configure s
 
 For Windows machines, you must allow traffic to any endpoints required by the Windows Update agent. You can find an updated list of required endpoints in [issues related to HTTP Proxy](/troubleshoot/windows-client/installing-updates-features-roles/windows-update-issues-troubleshooting?toc=%2Fwindows%2Fdeployment%2Ftoc.json&bc=%2Fwindows%2Fdeployment%2Fbreadcrumb%2Ftoc.json#issues-related-to-httpproxy). If you have a local [WSUS](/windows-server/administration/windows-server-update-services/plan/plan-your-wsus-deployment) deployment, you must allow traffic to the server specified in your [WSUS key](/windows/deployment/update/waas-wu-settings#configuring-automatic-updates-by-editing-the-registry).
 
-For Red Hat Linux machines, see [IPs for the RHUI content delivery servers](../virtual-machines/workloads/redhat/redhat-rhui.md#the-ips-for-the-rhui-content-delivery-servers)for required endpoints. For other Linux distributions, see your provider documentation.
+For Red Hat Linux machines, see [IPs for the RHUI content delivery servers](/azure/virtual-machines/workloads/redhat/redhat-rhui#the-ips-for-the-rhui-content-delivery-servers)for required endpoints. For other Linux distributions, see your provider documentation.
 
 ### Configure Windows Update client
 

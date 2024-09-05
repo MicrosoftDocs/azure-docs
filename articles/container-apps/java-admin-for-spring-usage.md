@@ -1,5 +1,5 @@
 ---
-title: Configure settings for the Admin for Spring component in Azure Container Apps (preview)
+title: Configure settings for the Admin for Spring component in Azure Container Apps
 description: Learn to configure the Admin for Spring component in Azure Container Apps.
 services: container-apps
 author: craigshoemaker
@@ -28,7 +28,7 @@ az containerapp env java-component admin-for-spring show \
 
 ## Update
 
-You can update the configuration of an Admin for Spring component using the `update` command.
+You can update the replica count and configuration of an Admin for Spring component using the `update` command.
 
 Before you run the following command, replace placeholders surrounded by `<>` with your values. Supported configurations are listed in the [properties list table](#configurable-properties).
 
@@ -37,6 +37,8 @@ az containerapp env java-component admin-for-spring update \
   --environment <ENVIRONMENT_NAME> \
   --resource-group <RESOURCE_GROUP> \
   --name <JAVA_COMPONENT_NAME> \
+  --min-replicas <REPLICA_COUNT> \
+  --max-replicas <REPLICA_COUNT> \
   --configuration <CONFIGURATION_KEY>="<CONFIGURATION_VALUE>"
 ```
 

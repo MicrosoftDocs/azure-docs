@@ -103,7 +103,7 @@ For more information, see [Deploy an Azure API Management gateway on Azure Arc (
 
 The Azure Machine Learning extension lets you deploy and run Azure Machine Learning on Azure Arc-enabled Kubernetes clusters.
 
-For more information, see [Introduction to Kubernetes compute target in Azure Machine Learning](../../machine-learning/how-to-attach-kubernetes-anywhere.md) and [Deploy Azure Machine Learning extension on AKS or Arc Kubernetes cluster](../../machine-learning/how-to-deploy-kubernetes-extension.md).
+For more information, see [Introduction to Kubernetes compute target in Azure Machine Learning](/azure/machine-learning/how-to-attach-kubernetes-anywhere) and [Deploy Azure Machine Learning extension on AKS or Arc Kubernetes cluster](/azure/machine-learning/how-to-deploy-kubernetes-extension).
 
 ## Flux (GitOps)
 

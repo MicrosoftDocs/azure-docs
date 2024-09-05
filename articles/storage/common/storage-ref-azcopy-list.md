@@ -12,7 +12,7 @@ ms.reviewer: zezha-msft
 
 # azcopy list
 
-This command lists accounts, containers, and directories. Blob Storage, Azure Data Lake Storage Gen2, and File Storage are supported. OAuth for Files is currently not supported; please use SAS to authenticate for Files.
+This command lists accounts, containers, and directories. Blob Storage, Azure Data Lake Storage, and File Storage are supported. OAuth for Files is currently not supported; please use SAS to authenticate for Files.
 
 ## Synopsis
 

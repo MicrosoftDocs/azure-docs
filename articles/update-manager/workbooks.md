@@ -2,7 +2,7 @@
 title: An overview of workbooks
 description: This article provides information on how workbooks provide a flexible canvas for data analysis and the creation of rich visual reports.
 ms.service: azure-update-manager
-ms.date: 09/18/2023
+ms.date: 08/22/2024
 ms.topic: conceptual
 author: SnehaSudhir 
 ms.author: sudhirsneha
@@ -65,4 +65,4 @@ For information on how to use the workbooks for customized reporting, see [Edit 
 
 ## Next steps
 
- To learn how to deploy updates to your machines to maintain security compliance, see [Deploy updates](deploy-updates.md).
+- Learn on how to [create reports by using workbooks](manage-workbooks.md).

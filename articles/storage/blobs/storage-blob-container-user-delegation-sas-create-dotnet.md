@@ -58,3 +58,5 @@ The Azure SDK for .NET contains libraries that build on top of the Azure REST AP
 
 - [Grant limited access to Azure Storage resources using shared access signatures (SAS)](../common/storage-sas-overview.md)
 - [Create a user delegation SAS](/rest/api/storageservices/create-user-delegation-sas)
+
+[!INCLUDE [storage-dev-guide-next-steps-dotnet](../../../includes/storage-dev-guides/storage-dev-guide-next-steps-dotnet.md)]

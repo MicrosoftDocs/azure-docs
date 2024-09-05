@@ -21,7 +21,7 @@ Before you can use forensic evidence for Azure Virtual Desktop, you need:
 
 - A personal desktop host pool with direct assignment. Pooled host pools aren't supported.
 
-- Session hosts running Windows 11 Enterprise, version 23H2, and using a VM SKU with minimum of 8 vCPU and 16 GB memory, such as [Standard D8as v5](../virtual-machines/dasv5-dadsv5-series.md).
+- Session hosts running Windows 11 Enterprise, version 23H2, and using a VM SKU with minimum of 8 vCPU and 16 GB memory, such as [Standard D8as v5](/azure/virtual-machines/dasv5-dadsv5-series).
 
 - Session hosts must be Microsoft [Entra ID-joined](/entra/identity/devices/concept-directory-join) or [Entra ID hybrid-joined](/entra/identity/devices/concept-hybrid-join) and enrolled with Microsoft Intune.
 

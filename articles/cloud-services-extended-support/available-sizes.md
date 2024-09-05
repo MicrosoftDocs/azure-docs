@@ -15,15 +15,15 @@ This article describes the available virtual machine sizes for Cloud Services (e
 
 | SKU Family |  ACU/ Core | 
 |---|---|
-|[Av2](../virtual-machines/av2-series.md) | 100 | 
-|[D](../virtual-machines/sizes-previous-gen.md?bc=%2fazure%2fvirtual-machines%2flinux%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#d-series) | 160 | 
-|[Dv2](../virtual-machines/dv2-dsv2-series.md) | 210 - 250* |
-|[Dv3](../virtual-machines/dv3-dsv3-series.md) | 160 - 190* |
-|[Dav4](../virtual-machines/dav4-dasv4-series.md) | 230 - 260 |
-|[Eav4](../virtual-machines/eav4-easv4-series.md) | 230 - 260 |
-|[Ev3](../virtual-machines/ev3-esv3-series.md) | 160 - 190* |
-|[G](../virtual-machines/sizes-previous-gen.md?bc=%2fazure%2fvirtual-machines%2flinux%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#g-series) | 180-240* |
-|[H](../virtual-machines/h-series.md) | 290 - 300* | 
+|[Av2](/azure/virtual-machines/av2-series) | 100 | 
+|[D](/azure/virtual-machines/sizes-previous-gen?bc=%2fazure%2fvirtual-machines%2flinux%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#d-series) | 160 | 
+|[Dv2](/azure/virtual-machines/dv2-dsv2-series) | 210 - 250* |
+|[Dv3](/azure/virtual-machines/dv3-dsv3-series) | 160 - 190* |
+|[Dav4](/azure/virtual-machines/dav4-dasv4-series) | 230 - 260 |
+|[Eav4](/azure/virtual-machines/eav4-easv4-series) | 230 - 260 |
+|[Ev3](/azure/virtual-machines/ev3-esv3-series) | 160 - 190* |
+|[G](/azure/virtual-machines/sizes-previous-gen?bc=%2fazure%2fvirtual-machines%2flinux%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#g-series) | 180-240* |
+|[H](/azure/virtual-machines/h-series) | 290 - 300* | 
 
 
 >[!NOTE]
@@ -41,7 +41,7 @@ For example, setting the web role instance size to `Standard_D2`:
 </WorkerRole> 
 ```
 >[!IMPORTANT]
-> Microsoft Azure has introduced newer generations of high-performance computing (HPC), general purpose, and memory-optimized virtual machines (VMs). For this reason, we recommend that you migrate workloads from the original H-series and H-series Promo VMs to our newer offerings by August 31, 2022. Azure [HC](../virtual-machines/hc-series.md), [HBv2](../virtual-machines/hbv2-series.md), [HBv3](../virtual-machines/hbv3-series.md), [Dv4](../virtual-machines/dv4-dsv4-series.md), [Dav4](../virtual-machines/dav4-dasv4-series.md), [Ev4](../virtual-machines/ev4-esv4-series.md), and [Eav4](../virtual-machines/eav4-easv4-series.md) VMs have greater memory bandwidth, improved networking capabilities, and better cost and performance across various HPC workloads.
+> Microsoft Azure has introduced newer generations of high-performance computing (HPC), general purpose, and memory-optimized virtual machines (VMs). For this reason, we recommend that you migrate workloads from the original H-series and H-series Promo VMs to our newer offerings by August 31, 2022. Azure [HC](/azure/virtual-machines/hc-series), [HBv2](/azure/virtual-machines/hbv2-series), [HBv3](/azure/virtual-machines/hbv3-series), [Dv4](/azure/virtual-machines/dv4-dsv4-series), [Dav4](/azure/virtual-machines/dav4-dasv4-series), [Ev4](/azure/virtual-machines/ev4-esv4-series), and [Eav4](/azure/virtual-machines/eav4-easv4-series) VMs have greater memory bandwidth, improved networking capabilities, and better cost and performance across various HPC workloads.
 
 ## Change the size of an existing role
 

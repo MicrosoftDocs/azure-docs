@@ -129,7 +129,7 @@ Learn more about Linux Integration Services Version 4.3 for Hyper-V by viewing t
 
 ## Next steps
 
-- Deploy VMs close to each other for low latency with [proximity placement groups](../virtual-machines/co-location.md).
+- Deploy VMs close to each other for low latency with [proximity placement groups](/azure/virtual-machines/co-location).
 - See the optimized result with [Bandwidth/Throughput testing](virtual-network-bandwidth-testing.md) for your scenario.
 - Read about how [bandwidth is allocated to virtual machines](virtual-machine-network-throughput.md).
 - Learn more with [Azure Virtual Network frequently asked questions](virtual-networks-faq.md).

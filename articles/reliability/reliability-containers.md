@@ -30,7 +30,7 @@ Azure Container Instances supports *zonal* container group deployments, meaning 
 > [!IMPORTANT]
 > This feature is currently not available for Azure portal.
 
-- Zonal container group deployments are supported in most regions where ACI is available for Linux and Windows Server 2019 container groups. For details, see [Regions and resource availability](../container-instances/container-instances-region-availability.md).
+- Zonal container group deployments are supported in most regions where ACI is available for Linux and Windows Server 2019 container groups. For details, see [Regions and resource availability](/azure/container-instances/container-instances-region-availability).
 
 * If using Azure CLI, ensure version `2.30.0` or later is installed.
 * If using PowerShell, ensure version `2.1.1-preview` or later is installed.

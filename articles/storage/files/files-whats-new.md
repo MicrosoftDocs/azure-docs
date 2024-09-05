@@ -111,7 +111,7 @@ This [feature](storage-files-identity-auth-hybrid-identities-enable.md) builds o
 
 ### 2022 quarter 2 (April, May, June)
 #### SUSE Linux support for SAP HANA System Replication (HSR) and Pacemaker
-Azure customers can now [deploy a highly available SAP HANA system in a scale-out configuration](../../virtual-machines/workloads/sap/sap-hana-high-availability-scale-out-hsr-suse.md) with HSR and Pacemaker on Azure SUSE Linux Enterprise Server virtual machines (VMs), using NFS Azure file shares for a shared file system.
+Azure customers can now [deploy a highly available SAP HANA system in a scale-out configuration](/azure/virtual-machines/workloads/sap/sap-hana-high-availability-scale-out-hsr-suse) with HSR and Pacemaker on Azure SUSE Linux Enterprise Server virtual machines (VMs), using NFS Azure file shares for a shared file system.
 
 ### 2022 quarter 1 (January, February, March)
 #### Azure File Sync TCO improvements
@@ -144,7 +144,7 @@ Premium Azure file shares now support either the SMB or the NFSv4.1 protocols. N
 For more information, see:
 
 - [NFS file shares in Azure Files](files-nfs-protocol.md)
-- [High availability for SAP NetWeaver on Azure VMs with NFS on Azure Files](../../virtual-machines/workloads/sap/high-availability-guide-suse-nfs-azure-files.md)
+- [High availability for SAP NetWeaver on Azure VMs with NFS on Azure Files](/azure/virtual-machines/workloads/sap/high-availability-guide-suse-nfs-azure-files)
 - [Azure Files pricing](https://azure.microsoft.com/pricing/details/storage/files/)
 
 #### Symmetric throughput for premium file shares

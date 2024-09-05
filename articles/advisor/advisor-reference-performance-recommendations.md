@@ -221,7 +221,7 @@ Learn more about [Virtual machine - AccelNetDisengaged (Accelerated Networking m
 
 Ultra disk is available in the same region as your database workload. Ultra disk offers high throughput, high IOPS, and consistent low latency disk storage for your database workloads: For Oracle DBs, you can now use either 4k or 512E sector sizes with Ultra disk depending on your Oracle DB version. For SQL server, using Ultra disk for your log disk might offer more performance for your database. See instructions here for migrating your log disk to Ultra disk.
 
-Learn more about [Virtual machine - AzureStorageVmUltraDisk (Take advantage of Ultra Disk low latency for your log disks and improve your database workload performance.)](../virtual-machines/disks-enable-ultra-ssd.md?tabs=azure-portal).
+Learn more about [Virtual machine - AzureStorageVmUltraDisk (Take advantage of Ultra Disk low latency for your log disks and improve your database workload performance.)](/azure/virtual-machines/disks-enable-ultra-ssd?tabs=azure-portal).
 
 ### Upgrade the size of your most active virtual machines to prevent resource exhaustion and improve performance
 

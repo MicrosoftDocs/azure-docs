@@ -96,7 +96,7 @@ By default, each lab has its own virtual network. If you use [advanced networkin
 
 An Azure Compute Gallery is attached to a lab plan. It serves as a central repository for stored images. An image is saved in the gallery when an educator exports it from a lab's template VM. Each time an educator changes a template VM and exports it, new image definitions or versions are created in the gallery.
 
-Educators can publish an image version from the compute gallery when they create a new lab. Although the gallery stores multiple versions of an image, educators can select only the most recent version when they create a lab. The most recent version is chosen based on the highest value of MajorVersion, then MinorVersion, then Patch. For more information about versions, see [Image versions](../virtual-machines/shared-image-galleries.md#image-versions).
+Educators can publish an image version from the compute gallery when they create a new lab. Although the gallery stores multiple versions of an image, educators can select only the most recent version when they create a lab. The most recent version is chosen based on the highest value of MajorVersion, then MinorVersion, then Patch. For more information about versions, see [Image versions](/azure/virtual-machines/shared-image-galleries#image-versions).
 
 The compute gallery is an optional resource. If you start with only a few labs, you might not need it immediately. A compute gallery offers many benefits that are helpful as you scale up to more labs:
 
@@ -168,14 +168,14 @@ For information on VM sizes and their cost, see the [Azure Lab Services Pricing]
 
 | Size | Minimum vCPUs | Minimum memory: GiB | Series | Suggested use |
 | ---- | ----- |  ----- | ------ | ------------- |
-| Small| 2 | 4 | [Standard_F2s_v2](../virtual-machines/fsv2-series.md) | Best suited for command line, opening web browser, low-traffic web servers, small to medium databases. |
-| Medium | 4 | 8 | [Standard_F4s_v2](../virtual-machines/fsv2-series.md) | Best suited for relational databases, in-memory caching, and analytics. |
-| Medium (nested virtualization) | 4  | 16 | [Standard_D4s_v4](../virtual-machines/dv4-dsv4-series.md) | Best suited for relational databases, in-memory caching, and analytics. This size supports nested virtualization. |
-| Large | 8 | 16  |  [Standard_F8s_v2](../virtual-machines/fsv2-series.md) | Best suited for applications that need faster CPUs, better local disk performance, large databases, large memory caches. |
-| Large (nested virtualization) | 8 | 32 | [Standard_D8s_v4](../virtual-machines/dv4-dsv4-series.md) | Best suited for applications that need faster CPUs, better local disk performance, large databases, large memory caches. This size supports nested virtualization. |
-| Small GPU (Compute) | 8 | 56 | [Standard_NC8as_T4_v3](../virtual-machines/nct4-v3-series.md) | Best suited for computer-intensive applications such as AI and deep learning. |
-| Small GPU (visualization) | 8 | 28 | [Standard_NVas_v4](../virtual-machines/nvv4-series.md) | (Windows only) Best suited for remote visualization, streaming, gaming, and encoding using frameworks such as OpenGL and DirectX. |
-| Medium GPU (visualization) | 12 | 112 | [Standard_NV12s_v3](../virtual-machines/nvv3-series.md)  | (Windows only) Best suited for remote visualization, streaming, gaming, and encoding using frameworks such as OpenGL and DirectX. |
+| Small| 2 | 4 | [Standard_F2s_v2](/azure/virtual-machines/fsv2-series) | Best suited for command line, opening web browser, low-traffic web servers, small to medium databases. |
+| Medium | 4 | 8 | [Standard_F4s_v2](/azure/virtual-machines/fsv2-series) | Best suited for relational databases, in-memory caching, and analytics. |
+| Medium (nested virtualization) | 4  | 16 | [Standard_D4s_v4](/azure/virtual-machines/dv4-dsv4-series) | Best suited for relational databases, in-memory caching, and analytics. This size supports nested virtualization. |
+| Large | 8 | 16  |  [Standard_F8s_v2](/azure/virtual-machines/fsv2-series) | Best suited for applications that need faster CPUs, better local disk performance, large databases, large memory caches. |
+| Large (nested virtualization) | 8 | 32 | [Standard_D8s_v4](/azure/virtual-machines/dv4-dsv4-series) | Best suited for applications that need faster CPUs, better local disk performance, large databases, large memory caches. This size supports nested virtualization. |
+| Small GPU (Compute) | 8 | 56 | [Standard_NC8as_T4_v3](/azure/virtual-machines/nct4-v3-series) | Best suited for computer-intensive applications such as AI and deep learning. |
+| Small GPU (visualization) | 8 | 28 | [Standard_NVas_v4](/azure/virtual-machines/nvv4-series) | (Windows only) Best suited for remote visualization, streaming, gaming, and encoding using frameworks such as OpenGL and DirectX. |
+| Medium GPU (visualization) | 12 | 112 | [Standard_NV12s_v3](/azure/virtual-machines/nvv3-series)  | (Windows only) Best suited for remote visualization, streaming, gaming, and encoding using frameworks such as OpenGL and DirectX. |
 
 ### Alternative VM sizes
 
@@ -183,9 +183,9 @@ To better serve you in locations where there's high demand, you can select from 
 
 | Size | Minimum vCPUs | Minimum memory: GiB | Series | Suggested use |
 | ---- | ----- |  ----- | ------ | ------------- |
-| Alternative Small GPU (Compute) | 6 | 112 | [Standard_NC6s_v3](../virtual-machines/ncv3-series.md) | Best suited for computer-intensive applications such as AI and deep learning. |
-| Alternative Small GPU (Visualization) | 6 | 55 | [Standard_NV6ads_A10_v5](../virtual-machines/nva10v5-series.md) | (Windows only) Best suited for remote visualization, streaming, gaming, and encoding using frameworks such as OpenGL and DirectX. |
-| Alternative Medium GPU (Visualization) | 12 | 110 | [Standard_NV12ads_A10_v5](../virtual-machines/nva10v5-series.md) | (Windows only) Best suited for remote visualization, streaming, gaming, and encoding using frameworks such as OpenGL and DirectX. |
+| Alternative Small GPU (Compute) | 6 | 112 | [Standard_NC6s_v3](/azure/virtual-machines/ncv3-series) | Best suited for computer-intensive applications such as AI and deep learning. |
+| Alternative Small GPU (Visualization) | 6 | 55 | [Standard_NV6ads_A10_v5](/azure/virtual-machines/nva10v5-series) | (Windows only) Best suited for remote visualization, streaming, gaming, and encoding using frameworks such as OpenGL and DirectX. |
+| Alternative Medium GPU (Visualization) | 12 | 110 | [Standard_NV12ads_A10_v5](/azure/virtual-machines/nva10v5-series) | (Windows only) Best suited for remote visualization, streaming, gaming, and encoding using frameworks such as OpenGL and DirectX. |
 
 ### Classic VM sizes
 
@@ -193,14 +193,14 @@ If you create a lab plan and still have lab accounts in your Azure subscription,
 
 | Size | Minimum vCPUs | Minimum memory: GiB | Series | Suggested use |
 | ---- | ----- |  ----- | ------ | ------------- |
-| Classic Small | 2 | 4 | [Standard_A2_v2](../virtual-machines/av2-series.md) | Best suited for command line, opening web browser, low-traffic web servers, small to medium databases. |
-| Classic Medium | 4 | 8 | [Standard_A4_v2](../virtual-machines/av2-series.md) | Best suited for relational databases, in-memory caching, and analytics. |
-| Classic Large | 8 | 16  |  [Standard_A8_v2](../virtual-machines/av2-series.md) | Best suited for applications that need faster CPUs, better local disk performance, large databases, large memory caches. |
-| Classic Medium (Nested virtualization) | 4  | 16 | [Standard_D4s_v3](../virtual-machines/dv3-dsv3-series.md) | Best suited for relational databases, in-memory caching, and analytics. This size supports nested virtualization. |
-| Classic Large (Nested virtualization) | 8 | 32 | [Standard_D8s_v3](../virtual-machines/dv3-dsv3-series.md) | Best suited for applications that need faster CPUs, better local disk performance, large databases, large memory caches. This size supports nested virtualization. |
-| Classic Small GPU (Compute) | 6 | 56 | [Standard_NC6](../virtual-machines/nc-series.md) | Best suited for computer-intensive applications such as AI and deep learning. |
-| Classic Small GPU (Visualization) | 6 | 56 | [Standard_NV6](../virtual-machines/nv-series.md) | Best suited for remote visualization, streaming, gaming, and encoding using frameworks such as OpenGL and DirectX. |
-| Classic Medium GPU (Visualization) | 12 | 112 | [Standard_NV12s_v3](../virtual-machines/nvv3-series.md) | Best suited for remote visualization, streaming, gaming, and encoding using frameworks such as OpenGL and DirectX. |
+| Classic Small | 2 | 4 | [Standard_A2_v2](/azure/virtual-machines/av2-series) | Best suited for command line, opening web browser, low-traffic web servers, small to medium databases. |
+| Classic Medium | 4 | 8 | [Standard_A4_v2](/azure/virtual-machines/av2-series) | Best suited for relational databases, in-memory caching, and analytics. |
+| Classic Large | 8 | 16  |  [Standard_A8_v2](/azure/virtual-machines/av2-series) | Best suited for applications that need faster CPUs, better local disk performance, large databases, large memory caches. |
+| Classic Medium (Nested virtualization) | 4  | 16 | [Standard_D4s_v3](/azure/virtual-machines/dv3-dsv3-series) | Best suited for relational databases, in-memory caching, and analytics. This size supports nested virtualization. |
+| Classic Large (Nested virtualization) | 8 | 32 | [Standard_D8s_v3](/azure/virtual-machines/dv3-dsv3-series) | Best suited for applications that need faster CPUs, better local disk performance, large databases, large memory caches. This size supports nested virtualization. |
+| Classic Small GPU (Compute) | 6 | 56 | [Standard_NC6](/azure/virtual-machines/nc-series) | Best suited for computer-intensive applications such as AI and deep learning. |
+| Classic Small GPU (Visualization) | 6 | 56 | [Standard_NV6](/azure/virtual-machines/nv-series) | Best suited for remote visualization, streaming, gaming, and encoding using frameworks such as OpenGL and DirectX. |
+| Classic Medium GPU (Visualization) | 12 | 112 | [Standard_NV12s_v3](/azure/virtual-machines/nvv3-series) | Best suited for remote visualization, streaming, gaming, and encoding using frameworks such as OpenGL and DirectX. |
 
 ## RBAC roles
 
@@ -269,7 +269,7 @@ Egress charges might be waived for [Education Solutions](https://www.microsoft.c
 
 For more information, see "What data transfer programs exist for academic customers and how do I qualify?" in the FAQ section of the [Programs for educational institutions](https://azure.microsoft.com/pricing/details/bandwidth/) page.
 
-For information about costs to store images and their replications, see [billing in an Azure Compute Gallery](../virtual-machines/shared-image-galleries.md).
+For information about costs to store images and their replications, see [billing in an Azure Compute Gallery](/azure/virtual-machines/shared-image-galleries).
 
 #### Cost management
 

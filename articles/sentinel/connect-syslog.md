@@ -11,7 +11,7 @@ ms.date: 06/18/2024
 # Collect data from Linux-based sources using Syslog
 
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that has reached End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
+> This article references CentOS, a Linux distribution that has reached End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](/azure/virtual-machines/workloads/centos/centos-end-of-life).
 
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 

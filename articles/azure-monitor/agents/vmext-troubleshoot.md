@@ -30,14 +30,14 @@ If the Microsoft Monitoring Agent VM extension isn't installing or reporting, pe
 1. Check if the Azure VM agent is installed and working correctly by using the steps in [KB 2965986](https://support.microsoft.com/kb/2965986#mt1):
    * You can also review the VM agent log file `C:\WindowsAzure\logs\WaAppAgent.log`.
    * If the log doesn't exist, the VM agent isn't installed.
-   * [Install the Azure VM Agent](../../virtual-machines/extensions/agent-windows.md#install-the-azure-windows-vm-agent).
+   * [Install the Azure VM Agent](/azure/virtual-machines/extensions/agent-windows#install-the-azure-windows-vm-agent).
 1. Review the Microsoft Monitoring Agent VM extension log files in `C:\Packages\Plugins\Microsoft.EnterpriseCloud.Monitoring.MicrosoftMonitoringAgent`.
 1. Ensure the virtual machine can run PowerShell scripts.
 1. Ensure permissions on C:\Windows\temp haven't been changed.
 1. View the status of the Microsoft Monitoring Agent by entering `(New-Object -ComObject 'AgentConfigManager.MgmtSvcCfg').GetCloudWorkspaces() | Format-List` in an elevated PowerShell window on the virtual machine.
 1. Review the Microsoft Monitoring Agent setup log files in `C:\WindowsAzure\Logs\Plugins\Microsoft.EnterpriseCloud.Monitoring.MicrosoftMonitoringAgent\1.0.18053.0\`. This path changes based on the version number of the agent.
 
-For more information, see [Troubleshooting Windows extensions](../../virtual-machines/extensions/oms-windows.md).
+For more information, see [Troubleshooting Windows extensions](/azure/virtual-machines/extensions/oms-windows).
 
 ## Troubleshoot the Linux VM extension
 [!INCLUDE [log-analytics-agent-note](~/reusable-content/ce-skilling/azure/includes/log-analytics-agent-note.md)]
@@ -45,7 +45,7 @@ If the Log Analytics agent for Linux VM extension isn't installing or reporting,
 
 1. If the extension status is **Unknown**, check if the Azure VM agent is installed and working correctly by reviewing the VM agent log file `/var/log/waagent.log`.
    * If the log doesn't exist, the VM agent isn't installed.
-   * [Install the Azure VM Agent on Linux VMs](../../virtual-machines/extensions/agent-linux.md#installation).
+   * [Install the Azure VM Agent on Linux VMs](/azure/virtual-machines/extensions/agent-linux#installation).
 1. For other unhealthy statuses, review the Log Analytics agent for Linux VM extension logs files in `/var/log/azure/Microsoft.EnterpriseCloud.Monitoring.OmsAgentForLinux/*/extension.log` and `/var/log/azure/Microsoft.EnterpriseCloud.Monitoring.OmsAgentForLinux/*/CommandExecution.log`.
 1. If the extension status is healthy but data isn't being uploaded, review the Log Analytics agent for Linux log files in `/var/opt/microsoft/omsagent/log/omsagent.log`.
 

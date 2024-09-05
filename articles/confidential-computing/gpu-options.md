@@ -20,7 +20,7 @@ We offer the following VM sizes:
 
 | Size Family          | TEE | Description                                                                         |
 | ------------------ | ------------ | ----------------------------------------------------------------------------------- |
-| [**NCCadsH100v5-series**](../virtual-machines/sizes/gpu-accelerated/nccadsh100v5-series.md) | AMD SEV-SNP and NVIDIA H100 Tensor Core GPUs | CVM with Confidential GPU. | 
+| [**NCCadsH100v5-series**](/azure/virtual-machines/sizes/gpu-accelerated/nccadsh100v5-series) | AMD SEV-SNP and NVIDIA H100 Tensor Core GPUs | CVM with Confidential GPU. | 
 
 
 ## Azure CLI
@@ -79,7 +79,7 @@ OS images for confidential VMs have to meet certain security and compatibility r
 
 - Ubuntu 22.04 LTS
 
-For more information about supported and unsupported VM scenarios, see [support for generation 2 VMs on Azure](../virtual-machines/generation-2.md). 
+For more information about supported and unsupported VM scenarios, see [support for generation 2 VMs on Azure](/azure/virtual-machines/generation-2). 
 
 ### High availability and disaster recovery
 

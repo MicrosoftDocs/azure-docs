@@ -85,7 +85,7 @@ Export-Certificate -Type CERT -Cert $cert -FilePath .\my-cert-file.cer
 There are many pages on the internet that cover how to create certificates with IIS, such as [When to Use an IIS Self Signed Certificate](https://www.sslshopper.com/article-how-to-create-a-self-signed-certificate-in-iis-7.html).
 
 ### Linux
-[Quick steps: Create and use an SSH public-private key pair for Linux VMs in Azure](../virtual-machines/linux/mac-create-ssh-keys.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) describes how to create certificates with SSH.
+[Quick steps: Create and use an SSH public-private key pair for Linux VMs in Azure](/azure/virtual-machines/linux/mac-create-ssh-keys?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) describes how to create certificates with SSH.
 
 ## Next steps
 [Upload your service certificate to the Azure portal](cloud-services-configure-ssl-certificate-portal.md).

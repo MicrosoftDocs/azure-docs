@@ -136,7 +136,7 @@ The following table describes whether a feature is supported in a premium block 
 
 ## See also
 
-- [Known issues with Azure Data Lake Storage Gen2](data-lake-storage-known-issues.md)
+- [Known issues with Azure Data Lake Storage](data-lake-storage-known-issues.md)
 
 - [Known issues with Network File System (NFS) 3.0 protocol support in Azure Blob Storage](network-file-system-protocol-known-issues.md)
 
