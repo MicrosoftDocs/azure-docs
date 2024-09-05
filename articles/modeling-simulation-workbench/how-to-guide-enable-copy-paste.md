@@ -66,7 +66,7 @@ In the web client, the menu is accessed from the main screen.
 1. Select the blue box and white arrow in the left corner. The menu flies out and a menu icon is displayed.
 1. Select the menu icon to reveal copy/paste actions.
 
-:::image type="content" source="media/howtoguide-enable-copy-paste/etx-web-client-copy-paste.png" alt-text="Screenshot of ETX web client copy/paste menu.":::
+    :::image type="content" source="media/howtoguide-enable-copy-paste/etx-web-client-copy-paste.png" alt-text="Screenshot of ETX web client copy/paste menu.":::
 
 ---
 

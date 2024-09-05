@@ -26,7 +26,7 @@ For each deployed chamber within the workbench, we set up a license server and e
 
 For semiconductor Electronic Design Automation (EDA), our service automation deploys license servers for each of the four common software vendors (Synopsys, Cadence, Siemens, and Ansys) as part of resource creation to enable multi-vendor flows. The workbench also supports license service beyond these common EDA tool vendors with some manual configuration.
 
-This flow is extendible and can also include other software vendors across industry verticals."
+This flow is extendible and can also include other software vendors across industry verticals.
 
 ## Related content
 
