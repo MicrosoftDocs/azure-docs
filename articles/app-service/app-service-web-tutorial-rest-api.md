@@ -101,7 +101,7 @@ In this step, you deploy your .NET Core application to App Service.
 
 [!INCLUDE [app-service-plan-no-h](../../includes/app-service-web-git-push-to-azure-no-h.md)]
 
-   <pre>
+   ```
    Enumerating objects: 83, done.
    Counting objects: 100% (83/83), done.
    Delta compression using up to 8 threads
@@ -126,7 +126,7 @@ In this step, you deploy your .NET Core application to App Service.
    remote: Deployment successful.
    To https://&lt;app_name&gt;.scm.azurewebsites.net/&lt;app_name&gt;.git
    * [new branch]      master -> master
-   </pre>
+   ```
 
 ### Browse to the Azure app
 
