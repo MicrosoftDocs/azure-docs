@@ -145,7 +145,7 @@ $vnet = New-AzVirtualNetwork @VnetArgs
 
 ---
 
-When using the Workload Profiles environment, you need to do one more step to delegate the subnet to Microsoft.App/environments. Please do not do this delegation when using the Consumption only environment.
+When using the Workload profiles environment, you need to do one more step to delegate the subnet to `Microsoft.App/environments`. This delegation is not applicable to the Consumption-only environment.
 
 # [Bash](#tab/bash)
 
