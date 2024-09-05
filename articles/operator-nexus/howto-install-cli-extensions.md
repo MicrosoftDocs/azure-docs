@@ -76,13 +76,13 @@ Name                     Version
 -----------------------  -------------
 monitor-control-service  0.4.1
 connectedmachine         0.7.0
-connectedk8s             1.7.3
+connectedk8s             1.9.2
 k8s-extension            1.4.3
 networkcloud             1.1.0
 k8s-configuration        2.0.0
-managednetworkfabric     6.2.0
+managednetworkfabric     6.4.0
 customlocation           0.1.3
-ssh                      2.0.4
+ssh                      2.0.5
 ```
 
 <!-- LINKS - External -->
