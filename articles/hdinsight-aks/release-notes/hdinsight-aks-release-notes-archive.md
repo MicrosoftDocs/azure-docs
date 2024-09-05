@@ -8,6 +8,10 @@ ms.date: 08/05/2024
 
 # Azure HDInsight on AKS archived release notes
 
+[!INCLUDE [retirement-notice](../includes/retirement-notice.md)]
+[!INCLUDE [feature-in-preview](../includes/feature-in-preview.md)]
+
+
 Azure HDInsight on AKS is one of the most popular services among enterprise customers for open-source analytics on Azure. If you would like to subscribe on release notes, watch releases on this [GitHub repository](https://github.com/Azure/HDInsight-on-aks/releases).
 
 ### Release date: March 20, 2024

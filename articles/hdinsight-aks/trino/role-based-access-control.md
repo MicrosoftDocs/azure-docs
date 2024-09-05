@@ -8,7 +8,9 @@ ms.date: 08/29/2023
 
 # Configure Role Based Access Control
 
+[!INCLUDE [retirement-notice](../includes/retirement-notice.md)]
 [!INCLUDE [feature-in-preview](../includes/feature-in-preview.md)]
+
 
 This article describes how to provide Role Based Access Control and auto assign users to Apache Superset roles. This Role Based Access Control enables you to manage user groups in Microsoft Entra ID but configure access permissions in Superset. 
 For example, if you have a security group called `datateam`, you can propagate membership of this group to Superset, which means Superset can automatically deny access if a user is removed from this security group.
