@@ -5,10 +5,10 @@ author: sreeharir
 manager: nanooka
 ms.service: azure-notification-hubs
 ms.topic: article
-ms.date: 04/09/2024
+ms.date: 09/04/2024
 ms.author: sreeharir
 ms.reviewer: sethm
-ms.lastreviewed: 30/08/2024
+ms.lastreviewed: 09/04/2024
 ---
 
 # Updating Azure Notification Hub with FCMv1 Credentials
