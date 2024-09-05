@@ -58,9 +58,22 @@ The following table shows the tracked item limits per machine for change trackin
 
 #### Azure Update Manager
 
-The following table shows the limits for Azure Update Manager.
+The following are the Dynamic scope recommended limits for **each dynamic scope**.
 
-| **Resource** | **Limit**| **Notes** |
-|---|---|---|
-|Number of machines per update deployment|1000||
-|Number of dynamic groups per update deployment |500 ||
+| Resource    | Limit          |
+|----------|----------------------------|
+| Resource associations     | 1000  |
+| Number of tag filters | 50 |
+| Number of Resource Group filters    | 50 |
+
+
+The following are the limits for the schedule patching:
+
+| Indicator    | Limit          |
+|----------|----------------------------|
+| Number of schedules per subscription per region     | 250  |
+| Total number of resource associations to a schedule | 3,000 |
+| Resource associations on each dynamic scope    | 1,000 |
+| Number of dynamic scopes per resource group or subscription per region     | 250  |
+| Number of dynamic scopes per schedule   | 30  |
+| Total number of subscriptions attached to all dynamic scopes per schedule   | 30  |
