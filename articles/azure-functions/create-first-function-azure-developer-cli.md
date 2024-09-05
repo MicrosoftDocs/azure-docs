@@ -1,7 +1,7 @@
 ---
 title: Create functions in Azure using the Azure Developer CLI
 description: "Learn how to use the Azure Developer CLI (azd) to create resources and deploy the local project to a Flex Consumption plan on Azure."
-ms.date: 08/27/2024
+ms.date: 09/04/2024
 ms.topic: quickstart
 zone_pivot_groups: programming-languages-set-functions
 #Customer intent: As a developer, I need to know how to use the Azure Developer CLI to create and deploy my function code securely to a new function app in the Flex Consumption plan in Azure by using azd templates and the azd up command.
@@ -26,7 +26,9 @@ By default, the Flex Consumption plan follows a _pay-for-what-you-use_ billing m
 + [Azure Functions Core Tools](functions-run-local.md#install-the-azure-functions-core-tools).
 
 ::: zone pivot="programming-language-csharp"  
-+ [.NET 8.0 SDK](https://dotnet.microsoft.com/download).  
++ [.NET 8.0 SDK](https://dotnet.microsoft.com/download)
+
++ [Azurite storage emulator](../storage/common/storage-use-azurite.md?tabs=npm#install-azurite) 
 ::: zone-end  
 ::: zone pivot="programming-language-java"  
 + [Java 17 Developer Kit](/azure/developer/java/fundamentals/java-support-on-azure)
@@ -280,7 +282,7 @@ py -m venv .venv
 
 1. When you're done, press Ctrl+C in the terminal window to stop the `func.exe` host process.
 ::: zone pivot="programming-language-python"
-5.  Run `deactivate` to shut down the virtual environment.
+5. Run `deactivate` to shut down the virtual environment.
 ::: zone-end
 
 ## Review the code (optional)
