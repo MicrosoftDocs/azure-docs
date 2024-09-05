@@ -45,7 +45,7 @@ In this step, you set up the local ASP.NET Core project. App Service supports th
     cd dotnet-core-api
     ```
 
-    This repository contains an app that's created based on the tutorial ASP.NET Core web API documentation with Swagger / OpenAPI](/aspnet/core/tutorials/web-api-help-pages-using-swagger?tabs=visual-studio). It uses a Swagger generator to serve the [Swagger UI](https://swagger.io/swagger-ui/) and the Swagger JSON endpoint.
+    This repository contains an app that's created based on the tutorial [ASP.NET Core web API documentation with Swagger / OpenAPI](/aspnet/core/tutorials/web-api-help-pages-using-swagger?tabs=visual-studio). It uses a Swagger generator to serve the [Swagger UI](https://swagger.io/swagger-ui/) and the Swagger JSON endpoint.
 
 1. Make sure the default branch is `main`.
 
