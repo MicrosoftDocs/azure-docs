@@ -17,7 +17,7 @@ In this quickstart, you incorporate Azure Cache for Redis into a Node.js app to 
 ## Prerequisites
 
 - Azure subscription - [create one for free](https://azure.microsoft.com/free/)
-- Node.js installed, if you haven't done so already. See [Install Node.js on Windows](/windows/dev-environment/javascript/nodejs-on-windows) for instructions on how to install Node and Node Package Manager (NPM) on a Windows computer.
+- Node.js installed, if you haven't done so already. See [Install Node.js on Windows](/windows/dev-environment/javascript/nodejs-on-windows) for instructions on how to install Node and npm on a Windows computer.
 
 ## Create a cache instance
 
@@ -33,7 +33,6 @@ npm install redis
 
 ## [Microsoft Entra ID Authentication (recommended)](#tab/entraid)
 
-<!-- [!INCLUDE includes/cache-entra-access.md] -->
 [!INCLUDE [cache-entra-access](includes/cache-entra-access.md)]
 
 ### Install the JavaScript Azure Identity client library
@@ -250,8 +249,7 @@ Microsoft Entra ID access tokens have a limited lifespan, [averaging 75 minutes]
 
 ## [Access Key Authentication](#tab/accesskey)
 
-[!INCLUDE includes/redis-cache-access-keys.md]
-
+[!INCLUDE [redis-cache-access-keys](includes/redis-cache-access-keys.md)]
 
 Add environment variables for your **HOST NAME** and **Primary** access key. Use these variables from your code instead of including the sensitive information directly in your code.
 
