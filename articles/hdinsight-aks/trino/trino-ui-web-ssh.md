@@ -8,7 +8,9 @@ ms.date: 08/29/2023
 
 # Web SSH
 
+[!INCLUDE [retirement-notice](../includes/retirement-notice.md)]
 [!INCLUDE [feature-in-preview](../includes/feature-in-preview.md)]
+
 
 This article describes how you can run queries on your Trino cluster using web ssh.
 

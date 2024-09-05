@@ -20,8 +20,6 @@ This article provides information on how to troubleshoot and resolve the issues 
 
 ## Troubleshoot issues while enabling Guest Management
 
-**Troubleshoot issues while enabling Guest Management on:**
-
 # [Arc agent installation fails on a domain-joined Linux VM](#tab/linux)
 
 **Error message**: Enabling Guest Management on a domain-joined Linux VM fails with the error message **InvalidGuestLogin: Failed to authenticate to the system with the credentials**.

@@ -13,9 +13,9 @@ ms.reviewer: mmcc
 
 This article describes how to enable and configure OpenTelemetry-based data collection within [Application Insights](app-insights-overview.md#application-insights-overview). The Azure Monitor OpenTelemetry Distro:
 
-* Provides an [OpenTelemetry distribution](https://opentelemetry.io/docs/concepts/distributions/#what-is-a-distribution) which includes support for features specific to Azure Monitor,
-* Enables [automatic](opentelemetry-add-modify.md#automatic-data-collection) telemetry by including OpenTelemetry instrumentation libraries for collecting traces, metrics, logs, and exceptions,
-* Allows collecting [custom](opentelemetry-add-modify.md#collect-custom-telemetry) telemetry, and
+* Provides an [OpenTelemetry distribution](https://opentelemetry.io/docs/concepts/distributions/#what-is-a-distribution) which includes support for features specific to Azure Monitor.
+* Enables [automatic](opentelemetry-add-modify.md#automatic-data-collection) telemetry by including OpenTelemetry instrumentation libraries for collecting traces, metrics, logs, and exceptions.
+* Allows collecting [custom](opentelemetry-add-modify.md#collect-custom-telemetry) telemetry.
 * Supports [Live Metrics](live-stream.md) to monitor and collect more telemetry from live, in-production web applications.
 
 For more information about the advantages of using the Azure Monitor OpenTelemetry Distro, see [Why should I use the Azure Monitor OpenTelemetry Distro](#why-should-i-use-the-azure-monitor-opentelemetry-distro).

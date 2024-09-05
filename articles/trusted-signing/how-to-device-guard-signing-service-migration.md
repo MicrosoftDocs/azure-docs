@@ -1,7 +1,7 @@
 ---
 title: Device Guard Signing Service migration to Trusted Signing
 description: Learn how to migrate from Device Guard Signing Service (DGSSv2) to Trusted Signing for code integrity policy 
-author: mehasharma 
+author: meha 
 ms.author: mesharm 
 ms.service: trusted-signing
 ms.topic: how-to 

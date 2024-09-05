@@ -8,7 +8,10 @@ ms.date: 11/23/2023
 ---
 # Manage HDInsight on AKS clusters using .NET SDK
 
+[!INCLUDE [retirement-notice](includes/retirement-notice.md)]
 [!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
+
+
 
 This article describes how you can create and manage cluster in Azure HDInsight on AKS using .NET SDK.
  

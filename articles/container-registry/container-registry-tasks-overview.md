@@ -1,7 +1,7 @@
 ---
 title: Overview of Azure Container Registry tasks
 description: Learn about Azure Container Registry tasks, a suite of features that provide automated building, management, and patching of container images in the cloud.
-ms.topic: article
+ms.topic: overview
 author: tejaswikolli-web
 ms.author: tejaswikolli
 ms.date: 01/24/2024
@@ -23,8 +23,8 @@ For example, with triggers for updates to a base image, you can automate [OS and
 > [!IMPORTANT]
 > Azure Container Registry task runs are temporarily paused from Azure free credits. This pause might affect existing task runs. If you encounter problems, open a [support case](../azure-portal/supportability/how-to-create-azure-support-request.md) for our team to provide additional guidance.
 
->[! WARNING]
-Please be advised that any information provided on the command line or as part of a URI may be logged as part of Azure Container Registry (ACR) diagnostic tracing. This includes sensitive data such as credentials, GitHub personal access tokens, and other secure information. Exercise caution to prevent any potential security risks, it is crucial to avoid including sensitive details in command lines or URIs that are subject to diagnostic logging.
+> [!WARNING]
+> Please be advised that any information provided on the command line or as part of a URI may be logged as part of Azure Container Registry (ACR) diagnostic tracing. This includes sensitive data such as credentials, GitHub personal access tokens, and other secure information. Exercise caution to prevent any potential security risks, it is crucial to avoid including sensitive details in command lines or URIs that are subject to diagnostic logging.
 
 ## Task scenarios
 
