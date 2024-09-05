@@ -6,7 +6,7 @@ author: normesta
 
 ms.service: azure-data-lake-storage
 ms.topic: overview
-ms.date: 03/29/2023
+ms.date: 08/30/2024
 ms.author: normesta
 ms.reviewer: jamesbak
 ---
@@ -15,7 +15,7 @@ ms.reviewer: jamesbak
 
 Azure Data Lake Storage is a set of capabilities dedicated to big data analytics, built on [Azure Blob Storage](storage-blobs-introduction.md).
 
-Data Lake Storage converges the capabilities of [Azure Data Lake Storage Gen1](../../data-lake-store/index.yml) with Azure Blob Storage. For example, Data Lake Storage provides file system semantics, file-level security, and scale. Because these capabilities are built on Blob storage, you also get low-cost, tiered storage, with high availability/disaster recovery capabilities.
+Azure Data Lake Storage converges the capabilities of [Azure Data Lake Storage Gen1](../../data-lake-store/index.yml) with Azure Blob Storage. For example, Data Lake Storage provides file system semantics, file-level security, and scale. Because these capabilities are built on Blob storage, you also get low-cost, tiered storage, with high availability/disaster recovery capabilities.
 
 Data Lake Storage makes Azure Storage the foundation for building enterprise data lakes on Azure. Designed from the start to service multiple petabytes of information while sustaining hundreds of gigabits of throughput, Data Lake Storage allows you to easily manage massive amounts of data.
 
@@ -27,9 +27,7 @@ _Azure Data Lake Storage_ is a cloud-based, enterprise data lake solution. It's 
 
 ## Data Lake Storage
 
-_Azure Data Lake Storage_ refers to the current implementation of Azure's Data Lake Storage solution. The previous implementation, _Azure Data Lake Storage Gen1_ will be retired on February 29, 2024. 
-
-Unlike Data Lake Storage Gen1, Data Lake Storage isn't a dedicated service or account type. Instead, it's implemented as a set of capabilities that you use with the Blob Storage service of your Azure Storage account. You can unlock these capabilities by enabling the hierarchical namespace setting. 
+Azure Data Lake Storage isn't a dedicated service or account type. Instead, it's implemented as a set of capabilities that you use with the Blob Storage service of your Azure Storage account. You can unlock these capabilities by enabling the hierarchical namespace setting. 
 
 Data Lake Storage includes the following capabilities.
 

@@ -20,8 +20,6 @@
         href: ../load-balancer/move-across-regions-external-load-balancer-portal.md?toc=/azure/operational-excellence/toc.json
       - name: Azure Site Recovery (Recovery Services vaults)
         href: relocation-site-recovery.md
-      - name: Azure Virtual Machine Scale Sets
-        href: relocation-virtual-machine-scale-sets.md
       - name: Azure Virtual Network
         href: relocation-virtual-network.md 
       - name: Azure Virtual Machines
@@ -100,6 +98,8 @@
         href: relocation-automation.md
       - name: Azure IoT Hub
         href: ../iot-hub/iot-hub-how-to-clone.md?toc=/azure/operational-excellence/toc.json
+      - name: Azure NetApp Files
+        href: relocation-netapp.md
       - name: Azure Static Web Apps
         href: relocation-static-web-apps.md
       - name: Power BI

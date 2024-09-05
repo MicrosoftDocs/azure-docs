@@ -122,7 +122,7 @@ Use the following steps to create each of the resources necessary to create a co
 
   | Property | Value |
   |---|---|
-  | **Name** | Enter **my-config-client**. |
+  | **Name** | Enter **my-eureka-client**. |
   | **Image source** | Select **Docker Hub or other registries**. |
   | **Image type** | Select **Public**. |
   | **Registry login server** | Enter **mcr.microsoft.com**. |
@@ -174,8 +174,6 @@ Now that you have an existing environment, you can create your container app and
 
 Now that you have an existing environment and eureka client container app, you can create a Java component instance of Eureka Server for Spring.
 
-Now that you have an existing environment and config server client container app, you can create a Java component instance of Config Server for Spring.
-
 1. Go to your container app's environment in the portal.
 
 1. From the left menu, under *Services* category, select **Services**.
@@ -188,8 +186,6 @@ Now that you have an existing environment and config server client container app
   |---|---|
   | **Java component type** | Select **Eureka Server for Spring**. |
   | **Java component name** | Enter **eureka**. |
-
-1. In the *Bindings* section, select the *App name* drop-down and select **my-component-app**.
 
 1. Select **Next**.
 
@@ -255,7 +251,7 @@ The `eureka.client.register-with-eureka` property is set to `true` to enforce re
 
 The `eureka.instance.prefer-ip-address` is set to `true` due to the specific DNS resolution rule in the container app environment. Don't modify this value so you don't break the binding.
 
-## Unbind your container app from the Eureka Server for Spring Java component
+## (Optional) Unbind your container app from the Eureka Server for Spring Java component
 
 ### [Azure CLI](#tab/azure-cli)
 
