@@ -178,7 +178,7 @@ An AD DS site topology is a logical representation of the network where Azure Ne
 > For scenarios that involve complex AD DS or complex network topologies, you should have a Microsoft Azure cloud solutions architect CSA review the Azure NetApp Files networking and AD Site design.  
 
 The following diagram shows a sample network topology:
-sample-network-topology.png
+
 :::image type="content" source="./media/understand-guidelines-active-directory-domain-service-site/sample-network-topology.png" alt-text="Diagram illustrating network topology." lightbox="./media/understand-guidelines-active-directory-domain-service-site/sample-network-topology.png":::
 
 In the sample network topology, an on-premises AD DS domain (`anf.local`) is extended into an Azure virtual network. The on-premises network is connected to the Azure virtual network using an Azure ExpressRoute circuit. 
