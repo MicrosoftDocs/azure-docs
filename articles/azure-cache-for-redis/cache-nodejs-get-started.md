@@ -19,7 +19,7 @@ In this quickstart, you incorporate Azure Cache for Redis into a Node.js app to 
 - Azure subscription - [create one for free](https://azure.microsoft.com/free/)
 - Node.js installed, if you haven't done so already. See [Install Node.js on Windows](/windows/dev-environment/javascript/nodejs-on-windows) for instructions on how to install Node and Node Package Manager (NPM) on a Windows computer.
 
-## Create a cache
+## Create a cache instance
 
 [!INCLUDE [redis-cache-create](~/reusable-content/ce-skilling/azure/includes/azure-cache-for-redis/includes/redis-cache-create.md)]
 
@@ -33,9 +33,8 @@ npm install redis
 
 ## [Microsoft Entra ID Authentication (recommended)](#tab/entraid)
 
-### Enable Microsoft Entra ID and add a User or Service Principal
-
-[!INCLUDE cache-entra-access]
+<!-- [!INCLUDE includes/cache-entra-access.md] -->
+[!INCLUDE [cache-entra-access](includes/cache-entra-access.md)]
 
 ### Install the JavaScript Azure Identity client library
 
@@ -117,7 +116,7 @@ npm install @azure/identity
     node redistest.js
     ```
 
-1. Example the output.
+1. The output of your code looks like this.
 
     ```bash
     Cache command: PING
@@ -138,7 +137,7 @@ npm install @azure/identity
     Done
     ```
 
-## Create a sample JavaScript app with reauthentication
+### Create a sample JavaScript app with reauthentication
 
 Microsoft Entra ID access tokens have a limited lifespan, [averaging 75 minutes](/entra/identity-platform/configurable-token-lifetimes#token-lifetime-policies-for-access-saml-and-id-tokens). In order to maintain a connection to your cache, you need to refresh the token. This example demonstrates how to do this using JavaScript.
 
@@ -146,7 +145,7 @@ Microsoft Entra ID access tokens have a limited lifespan, [averaging 75 minutes]
 
 1. Add the following example JavaScript to the file.
 
-    ```javascript
+   ```javascript
     const { createClient } = require("redis");
     const { DefaultAzureCredential } = require("@azure/identity");
     
@@ -217,7 +216,7 @@ Microsoft Entra ID access tokens have a limited lifespan, [averaging 75 minutes]
     }
     
     main().then((result) => console.log(result)).catch(ex => console.log(ex));
-    ```
+   ```
 
 1. Run the script with Node.js.
 
@@ -225,9 +224,9 @@ Microsoft Entra ID access tokens have a limited lifespan, [averaging 75 minutes]
     node redistestreauth.js
     ```
 
-1. Example the output.
+1. The output of your code looks like this.
 
-    ```bash
+   ```bash
     Cache command: PING
     Cache response : PONG
     
@@ -242,6 +241,7 @@ Microsoft Entra ID access tokens have a limited lifespan, [averaging 75 minutes]
     
     Cache command: CLIENT LIST
     Cache response : id=10017364 addr=76.22.73.183:59380 fd=221 name= age=1 idle=0 flags=N db=0 sub=0 psub=0 multi=-1 qbuf=26 qbuf-free=32742 argv-mem=10 obl=0 oll=0 omem=0 tot-mem=61466 ow=0 owmem=0 events=r cmd=client user=default numops=6
+
    ```
 
 >[!NOTE]
@@ -250,7 +250,8 @@ Microsoft Entra ID access tokens have a limited lifespan, [averaging 75 minutes]
 
 ## [Access Key Authentication](#tab/accesskey)
 
-[!INCLUDE [redis-cache-access-keys](includes/redis-cache-access-keys.md)]
+[!INCLUDE includes/redis-cache-access-keys.md]
+
 
 Add environment variables for your **HOST NAME** and **Primary** access key. Use these variables from your code instead of including the sensitive information directly in your code.
 
