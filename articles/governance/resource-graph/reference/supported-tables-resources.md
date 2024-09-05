@@ -331,6 +331,8 @@ For sample queries for this table, see [Resource Graph sample queries for resour
 - microsoft.compute/virtualmachines/runcommands
 - Microsoft.Compute/virtualMachineScaleSets (Virtual machine scale sets)
   - Sample query: [Get virtual machine scale set capacity and size](../samples/samples-by-category.md#get-virtual-machine-scale-set-capacity-and-size)
+- microsoft.compute/virtualmachinescalesets/virtualmachines
+- microsoft.compute/virtualmachinescalesets/virtualmachines/networkinterfaces
 - microsoft.compute/virtualmachinescalesets/virtualmachines/networkinterfaces/ipconfigurations/publicipaddresses
 - Microsoft.ConfidentialLedger/ledgers (Confidential Ledgers)
 - Microsoft.Confluent/organizations (Confluent organizations)
