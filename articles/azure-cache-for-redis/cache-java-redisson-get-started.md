@@ -15,9 +15,9 @@ ms.custom: mvc, seo-java-january2024, seo-java-february2024, mode-api, devx-trac
 
 In this quickstart, you incorporate Azure Cache for Redis into a Java app using the [Redisson](https://redisson.org/) Redis client and JCP standard JCache API. These services give you  access to a secure, dedicated cache that is accessible from any application within Azure. This article provides two options for selecting the Azure identity to use for the Redis connection.
 
-## Skip to the code on GitHub
+## Skip to the code
 
-This quickstart uses the Maven archetype feature to generate the scaffolding for the app. The quickstart directs you to modify the generated code to arrive at the working sample app. If you want to skip straight to the completed code, see the [Java quickstart](https://github.com/Azure-Samples/azure-cache-redis-samples/tree/main/quickstart/java-redisson-jcache) on GitHub.
+This quickstart uses the Maven archetype feature to generate scaffolding for the app. The quickstart describes how to modify the generated code to end up with a working sample app. If you want to go straight to the completed code, clone the repository on GitHub: [Java quickstart](https://github.com/Azure-Samples/azure-cache-redis-samples/tree/main/quickstart/java-redisson-jcache)
 
 ## Prerequisites
 
@@ -25,7 +25,7 @@ This quickstart uses the Maven archetype feature to generate the scaffolding for
 - [Use Microsoft Entra ID for cache authentication](cache-azure-active-directory-for-authentication.md)
 - [Apache Maven](https://maven.apache.org/download.cgi)
 
-## Create an Azure Cache for Redis
+## Create a cache
 
 [!INCLUDE [redis-cache-create](~/reusable-content/ce-skilling/azure/includes/azure-cache-for-redis/includes/redis-cache-create.md)]
 

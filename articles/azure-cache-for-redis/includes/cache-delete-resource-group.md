@@ -12,10 +12,10 @@ ms.topic: include
 
 If you want to continue to use the resources you created in this article, keep the resource group.
 
-Otherwise, if you're finished with the resources, you can delete the Azure resource group that you created to avoid charges.
+Otherwise, to avoid charges, if you're finished with the resources, you can delete the Azure resource group that you created.
 
-> [!IMPORTANT]
-> Deleting a resource group is irreversible. When you delete a resource group, all the resources in it are permanently deleted. Make sure that you do not accidentally delete the wrong resource group or resources. If you created the resources inside an existing resource group that contains resources you want to keep, you can delete each resource individually instead of deleting the resource group.
+> [!WARNING]
+> Deleting a resource group is irreversible. When you delete a resource group, all the resources in the resource group are permanently deleted. Make sure that you do not accidentally delete the wrong resource group or resources. If you created the resources inside an existing resource group that has resources you want to keep, you can delete each resource individually instead of deleting the resource group.
 
 ### To delete a resource group
 
