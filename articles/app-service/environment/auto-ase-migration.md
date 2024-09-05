@@ -83,7 +83,7 @@ If you want to migrate yourself, open a support ticket using the option in the M
 
 ### Resume/unsuspend as App Service Environment v3
 
-If you want to expedite migration, you can resume/unsuspend your environment as an **App Service Environment v3**. To resume your App Service Environment as a v3, go to the [Azure portal](https://portal.azure.com) and visit the Migration page for your App Service Environment. Select the "Migrate now" button to resume your environment as an App Service Environment v3. This button initiates the same process that is used for auto-migrations. The limitations, downtime, and other considerations are the same as for auto-migrations. If you have more than one App Service Environment, you need to resume each of your environments that are suspended.
+If you want to expedite migration, you can resume/unsuspend your environment as an **App Service Environment v3**. To resume your App Service Environment as a v3, go to the [Azure portal](https://portal.azure.com) and visit the Migration page for your App Service Environment. To resume your environment as an App Service Environment v3, select the "Migrate now" button. This button initiates the same process that is used for auto-migrations. The limitations, downtime, and other considerations are the same as for auto-migrations. If you have more than one App Service Environment, you need to resume each of your environments that are suspended.
 
 :::image type="content" source="./media/migration/resume-as-asev3.png" alt-text="Screenshot that shows the button on the Migration page where you can resume as an App Service Environment v3.":::
 
@@ -101,7 +101,7 @@ For external load balancer (ELB) App Service Environment migrations, the inbound
 
 ### App Service Environment v2 custom domain suffix configuration compatibility
 
-[Custom domain suffix on App Service Environment v3](how-to-custom-domain-suffix.md) is implemented differently than on App Service Environment v2. On App Service Environment v2, the certificate is uploaded directly to the App Service Environment. Additionally, non-wildcard certificates are allowed. On App Service Environment v3, the certificate must be stored in Azure Key Vault and the App Service Environment must be able to access the key vault. Also, non-wildcard certificates aren't allowed.
+[Custom domain suffix on App Service Environment v3](how-to-custom-domain-suffix.md) is implemented differently than on App Service Environment v2. On App Service Environment v2, the certificate is uploaded directly to the App Service Environment. Additionally, nonwildcard certificates are allowed. On App Service Environment v3, the certificate must be stored in Azure Key Vault and the App Service Environment must be able to access the key vault. Also, nonwildcard certificates aren't allowed.
 
 To reduce the effect of auto-migrations, we implemented a limited compatibility mode for App Service Environment v2 custom domain suffix configurations on App Service Environment v3. If you have a custom domain suffix configuration on App Service Environment v2, the configuration is migrated to App Service Environment v3. The certificate is uploaded to the App Service Environment v3 and the configuration is updated to use the uploaded certificate. This process is done as a temporary measure and is only valid until the current certificate expires. You must [update the configuration to use Azure Key Vault](how-to-custom-domain-suffix.md) after the migration process is complete and before the certificate expires. If you don't update the configuration, once the certificate expires, the custom domain suffix doesn't work. For more information, see [Custom domain suffix on App Service Environment v3](how-to-custom-domain-suffix.md).
 
@@ -146,7 +146,7 @@ The following are notable changes in App Service Environment v3:
 - IP-based TLS/SSL bindings aren't supported.
 - Custom domain suffix configuration is different.
 - Default domain is always maintained even if you have a custom domain suffix.
-- Non-wildcard certificates for custom domain suffix aren't allowed.
+- Nonwildcard certificates for custom domain suffix aren't allowed.
 - App Service Environment v3 has two outbound IP addresses.
 - The [available SKUs](https://azure.microsoft.com/pricing/details/app-service/windows/) are different sizes.
 - The [pricing model](overview.md#pricing) is different.
@@ -176,21 +176,21 @@ This support policy expires at the end of any extension or grace-period that you
 
 The extended support policy includes the following items:
   
-- As of September 1, 2024, the [Service Level Agreement (SLA)](https://aka.ms/postEOL/ASE/SLA) is no longer applicable for App Service Environment v1 and v2. Through continued use of the product beyond the retirement date, you acknowledge that Azure does not commit to the SLA of 99.95% for the retired environment.
-- We are committed to maintaining the platform and allowing you to complete your migrations. Therefore, Customer Support Services (CSS) and Product Group (PG) support channels will continue to handle support cases and Critical Response Incidents (CRIs) in a commercially reasonable manner. No new security and compliance investments will be made in App Service Environment v1 and v2.
+- As of September 1, 2024, the [Service Level Agreement (SLA)](https://aka.ms/postEOL/ASE/SLA) is no longer applicable for App Service Environment v1 and v2. Through continued use of the product beyond the retirement date, you acknowledge that Azure doesn't commit to the SLA of 99.95% for the retired environment.
+- We're committed to maintaining the platform and allowing you to complete your migrations. Therefore, Customer Support Services (CSS) and Product Group (PG) support channels will continue to handle support cases and Critical Response Incidents (CRIs) in a commercially reasonable manner. No new security and compliance investments will be made in App Service Environment v1 and v2.
 - App Service will continue to patch the operating system and language runtimes in accordance with the platform’s update processes documented [here](../overview-patch-os-runtime.md).
-- App Service will continue to test and validate Azure App Service updates prior to rollout and will continue to follow safe deployment procedures for platform updates.
+- App Service will continue to test and validate Azure App Service updates prior to roll out and will continue to follow safe deployment procedures for platform updates.
 - App Service will continue to actively monitor the production footprint of Azure App Service Environment v1/v2 and will continue to respond to issues detected via this monitoring with the same urgency as today.
 - Microsoft will continue to accept Azure App Service support cases and drive resolution of Azure App Service issues in a timely manner.
 - App Service will continue to apply patches and hotfixes for critical Azure App Service platform bugs that might arise.
 - However, the ability to effectively mitigate issues that might arise from lower-level Azure dependencies may be impaired due to retirement affecting all Cloud Services and Azure Service Management (ASM)/RedDog Front End (RDFE) components.
 
-We encourage you to complete migration to Azure App Service Environment v3 as soon as possible to avoid disruption to your services. Our team is available to assist you with the migration process and to answer any questions you may have. For more information on the retirement and migration steps, available resources, and benefits of migrating, please refer to the [product documentation](upgrade-to-asev3.md).
+We encourage you to complete migration to Azure App Service Environment v3 as soon as possible to avoid disruption to your services. Our team is available to assist you with the migration process and to answer any questions you may have. For more information on the retirement and migration steps, available resources, and benefits of migrating, refer to the [product documentation](upgrade-to-asev3.md).
 
 ## Frequently asked questions
 
 - **Why am I experiencing temporary application outages on my App Service Environment v1/v2?**  
-  The Azure platform is preparing for the retirement of Cloud Services (Classic), which is the infrastructure that App Service Environment v1 and v2 run on. As part of this preparation, you should expect temporary outages and service disruptions. To minimize the impact of these disruptions, we recommend that you migrate to App Service Environment v3 as soon as possible.
+  The Azure platform is preparing for the retirement of Cloud Services (Classic), which is the infrastructure that App Service Environment v1 and v2 run on. As part of this preparation, you should expect temporary outages and service disruptions. To minimize the effect of these disruptions, we recommend that you migrate to App Service Environment v3 as soon as possible.
 - **Why was my App Service Environment auto-migrated?**  
   App Service Environment v1 and v2 are retired and no longer supported. The supporting infrastructure for App Service Environment v1 and v2 is being decommissioned. To ensure that your App Service Environment is running on a supported platform, Microsoft initiates auto-migrations to App Service Environment v3.
 - **Why are my apps not working after auto-migration?**  
