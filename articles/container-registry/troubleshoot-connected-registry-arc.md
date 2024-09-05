@@ -6,70 +6,53 @@ ms.author: tejaswikolli; gaking
 ms.service: azure-container-registry
 ms.topic: troubleshooting-known-issue #Don't change.
 ms.date: 05/09/2024
-
 #customer intent: As a customer, I want to understand the common issues with the connected registry Arc extension and how to troubleshoot them.
-
 ---
 
-#Troubleshoot connected registry extension 
+# Troubleshoot connected registry extension 
 
 This article discusses some common error messages that you may receive when you install or update the connected registry extension for Arc-enabled Kubernetes clusters. 
 
-##How is the connected registry extension installed 
+## How is the connected registry extension installed 
 
 The connected registry extension is released as a helm chart and installed by Helm V3. All components of the connected registry extension are installed in _connected-registry_ namespace. You can use the following commands to check the extension status. 
 
-Bash 
-
-```
+```bash
 # get the extension status 
-
 az k8s-extension show --name <extension-name>  
-
 # check status of all pods of connected registry extension 
-
 kubectl get pod -n connected-registry    
-
 # get events of the extension 
-
 kubectl get events -n connected-registry   --sort-by='.lastTimestamp'
 ```
 
+## Common errors 
 
-##Common Errors 
-
-###Error: can't reuse a name that is still in use 
+### Error: can't reuse a name that is still in use 
 
 This error means the extension name you specified already exists. If the name is already in use, you need to use another name.   
 
-###Error: unable to create new content in namespace _connected-registry_ because it's being terminated 
+### Error: unable to create new content in namespace _connected-registry_ because it's being terminated 
 
 This error happens when an uninstallation operation isn't finished, and another installation operation is triggered. You can run `az k8s-extension show` command to check the provisioning status of the extension and make sure the extension has been uninstalled before taking other actions. 
 
-###Error: failed in download the Chart path not found 
+### Error: failed in download the Chart path not found 
 
 This error happens when you specify the wrong extension version. You need to make sure the specified version exists. If you want to use the latest version, you don't need to specify `--version`. 
 
- 
+## Common Scenarios 
 
-##Common Scenarios 
-
-###Scenario 1: Installation fails but doesn't show an error message 
+### Scenario 1: Installation fails but doesn't show an error message 
 
 If the extension generates an error message when you create or update it, you can inspect where the creation failed by running the `az k8s-extension list` command: 
 
-
-```
+```bash
 az k8s-extension list \ 
-
 --resource-group <my-resource-group-name> \ 
-
 --cluster-name <my-cluster-name> \ 
-
 --cluster-type connectedClusters
 ```
  
-
 **Solution:** Restart the cluster, register the service provider, or delete and reinstall connected registry 
 
 To fix this issue, try the following methods: 
@@ -80,9 +63,7 @@ To fix this issue, try the following methods:
 
 - Force delete and reinstall the connected registry extension. 
 
- 
-
-**Scenario 2: Targeted connected registry version doesn't exist** 
+### Scenario 2: Targeted connected registry version doesn't exist 
 
 When you try to install the connected registry extension to target a specific version, you receive an error message that states that the connected registry version doesn't exist. 
 
@@ -90,96 +71,90 @@ When you try to install the connected registry extension to target a specific ve
 
 Try again to install the extension. Make sure that you use a supported version of connected registry. 
 
- 
+## Common Issues 
 
-##Common Issues 
-
-##
-**Issue: Extension creation stuck in Running state** 
+### Issue: Extension creation stuck in Running state
 
 **Possibility 1:** Issue with Persistent Volume Claim (PVC) 
 
 - Check status of connected registry PVC 
-
-`kubectl get pvc -n connected-registry -o yaml connected-registry-pvc` 
+```bash
+kubectl get pvc -n connected-registry -o yaml connected-registry-pvc
+``` 
 
 The value of _phase_ under _status_ should be _bound_. If it doesn’t change from _pending_, delete the extension. 
 
 - Check whether the desired storage class is in your list of storage classes: 
 
-`kubectl get storageclass --all-namespaces` 
+```bash
+kubectl get storageclass --all-namespaces
+``` 
 
-- If not, recreate the extension and add  
-
-`--config pvc.storageClassName=”standard”` 
+- If not, recreate the extension and add
+   
+```bash
+--config pvc.storageClassName=”standard”` 
+``` 
 
 - Alternatively, it could be an issue with not having enough space for the PVC. Recreate the extension with the parameter  
 
-`--config pvc.storageRequest=”250Gi”` 
+```bash
+--config pvc.storageRequest=”250Gi”` 
+``` 
 
 **Possibility 2:** Connection String is bad 
 
 - Check the logs for the connected registry Pod: 
 
-`kubectl get pod -n connected-registry` 
+```bash
+kubectl get pod -n connected-registry
+``` 
 
 - Copy the name of the connected registry pod (e.g.: “connected-registry-8d886cf7f-w4prp") and paste it into the following command: 
 
-`kubectl logs -n connected-registry connected-registry-8d886cf7f-w4prp` 
+```bash
+kubectl logs -n connected-registry connected-registry-8d886cf7f-w4prp
+```  
 
 - If you see the following error message, the connected registry's connection string is bad: 
 
-`Response: '{"errors":[{"code":"UNAUTHORIZED","message":"Incorrect Password","detail":"Please visit https://aka.ms/acr#UNAUTHORIZED for more information."}]}'` 
+```bash
+Response: '{"errors":[{"code":"UNAUTHORIZED","message":"Incorrect Password","detail":"Please visit https://aka.ms/acr#UNAUTHORIZED for more information."}]}' 
+``` 
 
 - Ensure that a _protected-settings-extension.json_ file has been created 
 
-`cat protected-settings-extension.json` 
+```bash
+cat protected-settings-extension.json
+``` 
 
 - If needed, regenerate _protected-settings-extension.json_ 
 
-
-```
+```bash
 cat << EOF > protected-settings-extension.json  
-
 { 
-
 "connectionString": "$(az acr connected-registry get-settings \ 
-
 --name myconnectedregistry \ 
-
 --registry myacrregistry \ 
-
 --parent-protocol https \ 
-
 --generate-password 1 \ 
-
 --query ACR_REGISTRY_CONNECTION_STRING --output tsv --yes)" 
-
 } 
-
 EOF
-```
- 
+``` 
 
 - Update the extension to include the new connection string 
 
-
-```
+```bash
 az k8s-extension update \ 
-
 --cluster-name <myarck8scluster> \ 
-
 --cluster-type connectedClusters \ 
-
 --name <myconnectedregistry> \ 
-
 -g <myresourcegroup> \ 
-
 --config-protected-file protected-settings-extension.json
 ```
- 
 
-**Issue: Extension created, but connected registry is not an “Online” state** 
+### Issue: Extension created, but connected registry is not an “Online” state** 
 
 **Possibility 1:** Previous connected registry has not been deactivated 
 
@@ -187,11 +162,15 @@ This scenario commonly happens when a previous connected registry extension has 
 
 - Check the logs for the connected registry Pod: 
 
-`kubectl get pod -n connected-registry` 
+```bash
+kubectl get pod -n connected-registry
+```
 
-- Copy the name of the connected registry pod (e.g.: “connected-registry-8d886cf7f-w4prp") and paste it into the following command: 
+- Copy the name of the connected registry pod (e.g.: “connected-registry-xxxxxxxxx-xxxxx") and paste it into the following command: 
 
-`kubectl logs -n connected-registry connected-registry-8d886cf7f-w4prp` 
+```bash
+kubectl logs -n connected-registry connected-registry-xxxxxxxxx-xxxxx
+```
 
 - If you see the following error message, the connected registry needs to be deactivated:  
 
@@ -199,16 +178,19 @@ This scenario commonly happens when a previous connected registry extension has 
 
 - Run the following command to deactivate:  
 
-`az acr connected-registry deactivate -n <myconnectedregistry> -r <mycontainerregistry>` 
+```azurecli
+az acr connected-registry deactivate -n <myconnectedregistry> -r <mycontainerregistry>
+```
 
 After a few minutes, the connected registry pod should be recreated, and the error should disappear. 
  
-
- ##Enable Logging
+## Enable Logging
 
 - Run the [az acr connected-registry update] command to update the connected registry extension with the debug log level:
 
-`az acr connected-registry update --registry mycloudregistry --name myacrregistry --log-level debug`
+```azurecli
+az acr connected-registry update --registry mycloudregistry --name myacrregistry --log-level debug
+```
 
 - The following log levels can be applied to aid in troubleshooting:
 
@@ -235,7 +217,6 @@ The az cli log level controls the verbosity of the output messages during the op
 **--verbose** increases the verbosity of the logs. It provides more detailed information than the default setting, which can be useful for identifying issues.
 
 **--debug** enables full debug logs. Debug logs provide the most detailed information, including all the information provided at the "verbose" level plus more details intended for diagnosing problems.
-
 
 ## Next steps
 
