@@ -58,7 +58,7 @@ The following table shows the tracked item limits per machine for change trackin
 
 #### Azure Update Manager
 
-The following are the Dynamic scope recommended limits for **each dynamic scope**.
+The following are the Dynamic scope recommended limits for **each dynamic scope**:
 
 | Resource    | Limit          |
 |----------|----------------------------|
@@ -67,7 +67,7 @@ The following are the Dynamic scope recommended limits for **each dynamic scope*
 | Number of Resource Group filters    | 50 |
 
 
-The following are the limits for the schedule patching:
+The following are the limits for schedule patching:
 
 | Indicator    | Limit          |
 |----------|----------------------------|
