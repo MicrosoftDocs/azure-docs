@@ -25,13 +25,13 @@ In a recent test performed using Standard storage with cool access for Azure Net
 In the following scenario, a single job on one D32_V5 virtual machine (VM) was used on a 50-TiB Azure NetApp Files volume using the Ultra performance tier. Different block sizes were used to test performance on hot and cool tiers.
 
 >[!NOTE]
->The maximum for the Ultra service level is 128 MiB/s per tebibyte of allocated capacity. An Azure NetApp Files regular volume can manage a throughput up to ~5,000 MiB/s.
+>The maximum for the Ultra service level is 128 MiB/s per tebibyte of allocated capacity. An Azure NetApp Files regular volume can manage a throughput up to approximately 5,000 MiB/s.
 
-The following graph shows the cool tier performance for this test using a variety of queue depths. The maximum throughput for a single VM was ~400MiB/s.
+The following graph shows the cool tier performance for this test using a variety of queue depths. The maximum throughput for a single VM was approximately 400 MiB/s.
 
 :::image type="content" source="./media/performance-considerations-cool-access/cool-tier-block-sizes.png" alt-text="Chart of cool tier throughput at varying block sizes." lightbox="./media/performance-considerations-cool-access/cool-tier-block-sizes.png":::
 
-Hot tier performance was around 2.75x better, capping out at ~1180MiB/s.
+Hot tier performance was around 2.75x better, capping out at approximately 11,180 MiB/s.
 
 :::image type="content" source="./media/performance-considerations-cool-access/hot-tier-block-sizes.png" alt-text="Chart of hot tier throughput at varying block sizes." lightbox="./media/performance-considerations-cool-access/hot-tier-block-sizes.png":::
 
@@ -41,15 +41,10 @@ This graph shows a side-by-side comparison of cool and hot tier performance with
 
 ## 100% sequential reads on hot/cool tier (multiple jobs)
 
-For this scenario, the test was conducted with 16 job using a 256 KB block size on a single D32_V5 VM on a 50-TiB Azure NetApp Files volume using the Ultra performance tier. 
+For this scenario, the test was conducted with 16 job using a 256=KB block size on a single D32_V5 VM on a 50-TiB Azure NetApp Files volume using the Ultra performance tier. 
 
 >[!NOTE]
->The maximum for the Ultra service level is 128 MiB/s per tebibyte of allocated capacity. An Azure NetApp Files regular volume can manage a throughput up to ~5,000 MiB/s.
-
-The following graph shows the side-by-side comparison of what was seen in hot and cool tiers with a single job at multiple queue depths.
-
-:::image type="content" source="./media/performance-considerations-cool-access/throughput-graph.png" alt-text="Chart of throughput at varying `iodepths` with one job." lightbox="./media/performance-considerations-cool-access/throughput-graph.png":::
-
+>The maximum for the Ultra service level is 128 MiB/s per tebibyte of allocated capacity. An Azure NetApp Files regular volume can manage a throughput of up to approximately 5,000 MiB/s.
 
 It's possible to push for more throughput for the hot and cool tiers using a single VM when running multiple jobs. The performance difference between hot and cool tiers is less drastic when running multiple jobs. The following graph displays results for hot and cool tiers when running 16 jobs with 16 threads at a 256-KB block size. 
 
@@ -57,12 +52,13 @@ It's possible to push for more throughput for the hot and cool tiers using a sin
 
 - Throughput improved by nearly three times for the hot tier.
 - Throughput improved by 6.5 times for the cool tier.
-- The performance difference for the hot and cool tier decreased from 2.9 to just 1.3. <!-- x what? -->
+- The performance difference for the hot and cool tier decreased from 2.9x to just 1.3x.
 
 ## Maximum viable job scale for cool tier – 100% sequential reads
+
 The cool tier has a limit of how many jobs can be pushed to a single Azure NetApp Files volume before latency starts to spike to levels that are generally unusable for most workloads.
 
-In the case of cool tiering, that limit is around 16 jobs with a queue depth of no more than 15. The following graph shows that latency spikes from ~23ms with 16 jobs/15 queue depth with slightly less throughput than with a queue depth of 14. Latency spikes as high as ~63ms when pushing 32 jobs and throughput drops by roughly ~14%.
+In the case of cool tiering, that limit is around 16 jobs with a queue depth of no more than 15. The following graph shows that latency spikes from approximately 23 milliseconds (ms) with 16 jobs/15 queue depth with slightly less throughput than with a queue depth of 14. Latency spikes as high as about 63 ms when pushing 32 jobs and throughput drops by roughly 14%.
 
 :::image type="content" source="./media/performance-considerations-cool-access/sixteen-jobs-line-graph.png" alt-text="Chart of throughput and latency for tests with 16 jobs." lightbox="./media/performance-considerations-cool-access/sixteen-jobs-line-graph.png":::
 
@@ -80,7 +76,7 @@ The following graph shows the results using 16 jobs on a single VM with a queue 
 
 :::image type="content" source="./media/performance-considerations-cool-access/mixed-workload-throughput.png" alt-text="Chart showing throughput for mixed workloads." lightbox="./media/performance-considerations-cool-access/mixed-workload-throughput.png":::
 
-The impact on performance when mixing workloads can also be observed when looking at the latency as the workload mix changes. The graphs show how latency impact for cool and hot tiers as the workload mix goes from 100% sequential to 100% random. Latency starts to spike for the cool tier at around a 60/40 sequential/random mix (greater than 12 ms), while latency remains the same (sub-2ms) for the hot tier.
+The impact on performance when mixing workloads can also be observed when looking at the latency as the workload mix changes. The graphs show how latency impact for cool and hot tiers as the workload mix goes from 100% sequential to 100% random. Latency starts to spike for the cool tier at around a 60/40 sequential/random mix (greater than 12 ms), while latency remains the same (under 2 ms) for the hot tier.
 
 :::image type="content" source="./media/performance-considerations-cool-access/mixed-workload-throughput-latency.png" alt-text="Chart showing throughput and latency for mixed workloads." lightbox="./media/performance-considerations-cool-access/mixed-workload-throughput-latency.png":::
 
@@ -88,9 +84,9 @@ The impact on performance when mixing workloads can also be observed when lookin
 ## Results summary
 
 - When a workload is 100% sequential, the cool tier's throughput decreases by roughly 47% versus the hot tier (3330 MiB/s compared to 1742 MiB/s).
-- When a workload is 100% random, the cool tier’s throughput decreases by roughly 88% versus the hot tier (2479 MiB/s compared to 280 MiB/s).
-- The performance drop for hot tier when doing 100% sequential (3330 MiB/s) and 100% random (2479 MiB/s) workloads was roughly 25%. The performance drop for the cool tier when doing 100% sequential (1742 MiB/s) and 100% random (280 MiB/s) workloads was roughly 88%.
-- Hot tier throughput maintains about 2300 MiB/s regardless of the workload mix.
+- When a workload is 100% random, the cool tier’s throughput decreases by roughly 88% versus the hot tier (2,479 MiB/s compared to 280 MiB/s).
+- The performance drop for hot tier when doing 100% sequential (3,330 MiB/s) and 100% random (2,479 MiB/s) workloads was roughly 25%. The performance drop for the cool tier when doing 100% sequential (1,742 MiB/s) and 100% random (280 MiB/s) workloads was roughly 88%.
+- Hot tier throughput maintains about 2,300 MiB/s regardless of the workload mix.
 - When a workload contains any percentage of random I/O, overall throughput for the cool tier is closer to 100% random than 100% sequential.
 - Reads from cool tier dropped by about 50% when moving from 100% sequential to an 80/20 sequential/random mix.
 - Sequential I/O can take advantage of a `readahead` cache in Azure NetApp Files that random I/O doesn't. This benefit to sequential I/O helps reduce the overall performance differences between the hot and cool tiers.
@@ -106,12 +102,3 @@ To avoid worst-case scenario performance with cool access in Azure NetApp Files,
 ## Next steps
 * [Azure NetApp Files storage with cool access](cool-access-introduction.md)
 * [Manage Azure NetApp Files storage with cool access](manage-cool-access.md)
-
-
-
-
-
-
-
-
-
