@@ -24,8 +24,8 @@ run simple actions on bare metal machines without using the Azure console or com
 
 ## Prerequisites
 
-1. A [BareMetalMachineKeySet](./howto-baremetal-bmm-ssh.md) must be available to allow ssh access to the bare metal machines. The user must have superuser privilege level.
-1. The platform Kubernetes must be up and running on site.
+- A [BareMetalMachineKeySet](./howto-baremetal-bmm-ssh.md) must be available to allow ssh access to the bare metal machines. The user must have superuser privilege level.
+- The platform Kubernetes must be up and running on site.
 
 ## Overview
 
