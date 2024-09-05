@@ -45,14 +45,17 @@ Use the following Azure CLI command to set the ingress configuration when you cr
 az spring app create \
     --resource-group <resource-group-name> \
     --service <service-name> \
-    --name <service-name> \
+    --name <app-name> \
     --ingress-read-timeout 300 \
     --ingress-send-timeout 60 \
     --session-affinity Cookie \
     --session-max-age 1800 \
     --backend-protocol Default \
-    --client-auth-certs <cert-name> \
+    --client-auth-certs <cert-id>
 ```
+
+> [!NOTE]
+> the **cert-id** is in the format of `/subscriptions/<your-sub-id>/resourceGroups/<resource-group-name>/providers/Microsoft.AppPlatform/Spring/<service-name>/certificates/<cert-name>`, you can use the command `az spring certificate show -s <service-name> -g <resource-group-name> -n <cert-name> --query id` to get cert id.
 
 This command creates an app with the following settings:
 
@@ -84,13 +87,13 @@ Use the following command to update the ingress settings for an existing app.
 az spring app update \
     --resource-group <resource-group-name> \
     --service <service-name> \
-    --name <service-name> \
+    --name <app-name> \
     --ingress-read-timeout 600 \
     --ingress-send-timeout 600 \
     --session-affinity None \
     --session-max-age 0 \
     --backend-protocol GRPC \
-    --client-auth-certs " \
+    --client-auth-certs ''
 ```
 
 This command updates the app with the following settings:
