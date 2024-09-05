@@ -21,19 +21,14 @@ For scenarios where you have to control and manage your own infrastructure, Azur
 
 ## Limitations
 
-- Visual Studio Code is supported for creating and deploying hybrid Standard workflows.
+The following capabilities currently aren't available in the preview release:
 
-- SAP access requires the SAP built-in connector.
-
-- Only XSLT 1.0 with custom code
-
-Custom code support with .NET Framework
-
-Managed identity authentication
-
-File system connector
-
-- Managed connector creation from Azure portal
+- SAP access through the SAP built-in connector
+- XSLT 1.0 for custom code
+- Custom code support with .NET Framework
+- Managed identity authentication
+- File System connector
+- Connection creation with managed connectors in the Azure portal
 
 ## Prerequisites
 
@@ -47,7 +42,7 @@ File system connector
   > basic Standard workflow before you try to deploy in a hybrid environment. This test 
   > run helps isolate any errors that might exist in your Standard workflow project.
 
-## Azure Kubernetes Service (AKS) cluster support
+## Set up an Azure Kubernetes Service (AKS) cluster
 
 To use [AKS](/azure/aks/what-is-aks) for deployment, you can create an AKS cluster or an [on-premises AKS *hyperconverged infrastructure* (HCI) cluster](/azure-stack/hci/overview). Your AKS cluster requires inbound and outbound connectivity with the [SQL Server that you use as the storage provider](#storage-provider).
 
@@ -80,24 +75,30 @@ For more information about AKS on-premises options, see [Overview of AKS on Wind
 
 ## Storage provider
 
-Hybrid workflows use SQL Server as the storage provider for Azure Logic Apps runtime storage and support the following SQL Server editions:
+Hybrid workflows use SQL Server as the storage provider for Azure Logic Apps runtime storage.
 
-- SQL Server on premises
-- [Azure SQL Database](/azure/azure-sql/database/sql-database-paas-overview)
-- [Azure SQL Managed Instance](/azure/azure-sql/managed-instance/sql-managed-instance-paas-overview)
-- [SQL Server enabled by Azure Arc](/sql/sql-server/azure-arc/overview)
+1. Set up any of the following SQL Server editions:
 
-For more informmation, see [Set up SQL storage for Standard logic app workflows](/azure/logic-apps/set-up-sql-db-storage-single-tenant-standard-workflows).
+   - SQL Server on premises
+   - [Azure SQL Database](/azure/azure-sql/database/sql-database-paas-overview)
+   - [Azure SQL Managed Instance](/azure/azure-sql/managed-instance/sql-managed-instance-paas-overview)
+   - [SQL Server enabled by Azure Arc](/sql/sql-server/azure-arc/overview)
 
-## File share for artifact storage
+   For more informmation, see [Set up SQL storage for Standard logic app workflows](/azure/logic-apps/set-up-sql-db-storage-single-tenant-standard-workflows).
 
-To store Azure Logic Apps artifacts, hybrid workflows require a file share that uses [Server Message Block (SMB) protocol](/windows/win32/fileio/microsoft-smb-protocol-and-cifs-protocol-overview). This file share requires inbound and outbound connectivity with your AKS cluster. If you have enabled Azure virtual network restrictions, make sure that your file share exists in the same virtual network as your AKS cluster or in a peered virtual network.
+1. Get the connection string for the SQL database that you chose to use.
+
+## Set up file share for artifacts storage
+
+To store artifacts such as maps, schemas, and assemblies for your hybrid logic app resource, you need to have a file share that uses the [Server Message Block (SMB) protocol](/windows/win32/fileio/microsoft-smb-protocol-and-cifs-protocol-overview). This file share requires inbound and outbound connectivity with your AKS cluster. If you have enabled Azure virtual network restrictions, make sure that your file share exists in the same virtual network as your AKS cluster or in a peered virtual network.
 
 To set up your file share, you must have administrator access. To deploy from Visual Studio Code, make sure that the local computer with Visual Studio Code can access the file share. 
 
 ### Set up SMB file share on Windows
 
-1. Go to the folder that you want to share, open the shortcut menu, select **Properties**.
+Make sure that your SMB file share exists in the same virtual network as the AKS cluster where you mount your file share. 
+
+1. In Windows, go to the folder that you want to share, open the shortcut menu, select **Properties**.
 
 1. On the **Sharing** tab, select **Share**.
 
@@ -107,20 +108,207 @@ To set up your file share, you must have administrator access. To deploy from Vi
 
    If your local computer isn't connected to a domain, replace the computer name in the network path with the IP address.
 
+1. Save the IP address for later use.
+
 ### Set up SMB file share on Azure Files
 
-Alternatively, for testing purposes, you can use [Azure Files as an SMB file share](/azure/storage/files/files-smb-protocol).
+Alternatively, for testing purposes, you can use [Azure Files as an SMB file share](/azure/storage/files/files-smb-protocol). Make sure that your SMB file share exists in the same virtual network as the AKS cluster where you mount your file share.
 
-1. In the [Azure portal](https://portal.azure.com), create an Azure Storage account resource.
+1. In the [Azure portal](https://portal.azure.com), [create an Azure storage account](/azure/storage/files/storage-how-to-create-file-share?tabs=azure-portal#create-a-storage-account).
 
-1. From the storage account menu, select **File shares**.
+1. From the storage account menu, under **Data storage**, select **File shares**.
 
-1. From the **File shares** page toolbar, select **+ File share**, and provide the required information about your file share.
+1. From the **File shares** page toolbar, select **+ File share**, and provide the required information for your SMB file share.
 
-Create Azure Storage Account resource, under Data Storage, choose “File shares” and create new file share. 
+1. After deployment completes, select **Go to resource**.
 
-For more information, see [SMB Azure file shares](/azure/storage/files/files-smb-protocol).
+1. On the file share menu, select **Overview**, if not selected.
 
-/azure/storage/files/storage-how-to-create-file-share?tabs=azure-portal
+1. On the **Overview** page toolbar, select **Connect**. On the **Connect** pane, select **Show script**.
+
+1. Copy the file share path, username without **`localhost\`**, and password. Save these values somewhere safe for later use.
+
+1. On the **Overview** page toolbar, select **+ Add directory**, and provide a name to use for the directory. Save this name for later use.
+
+You need these saved values to provide your SMB file share information when you deploy your logic app resource.
+
+For more information, see [Create an SMB Azure file share](/azure/storage/files/storage-how-to-create-file-share?tabs=azure-portal).
+
+### Confirm SMB file share connection
+
+The following list 
+
+- If your SMB file share isn't on the same AKS cluster, confirm that the ping operation works from your AKS cluster to the virtual machine that has your SMB file share. To check that the ping operation works, follow these steps:
+
+  1. In your AKS cluster, create a test [pod](/azure/aks/core-aks-concepts#pods) that runs any Linux image, such as BusyBox or Ubuntu.
+
+  1. Go to the container in your pod, and install the **iputils-ping** package by running the following Linux commands:
+
+     ```
+     apt-get update
+     apt-get install iputils-ping
+     ```
+
+- To confirm that your SMB file share is correctly set up, follow these steps:
+
+  1. In your test pod with the same Linux image, create a folder that has the path named **mnt/smb**.
+
+  1. Go to the root or home directory that contains the **mnt** folder.
+
+  1. Run the following command:
+
+     **`- mount -t cifs //{ip-address-smb-computer}/{file-share-name}/mnt/smb -o username={user-name}, password={password}`**
+
+- To confirm that artifacts correctly upload, connect to the SMB file share path, and check whether artifact files exist in the correct folder that you specify during deployment. 
+
+## Create a Log Analytics workspace (optional)
+
+To monitor and process the logs from the Azure Logic Apps runtime, you can create and connect a Log Analytics workspace to your logic app environment. The next section provides a script that you can run to create this workspace as one of the steps.
+
+## Create and deploy from Azure portal
+
+1. In the [Azure portal](https://portal.azure.com) search box, enter **logic apps**, and select **Logic apps**.
+
+1. On the **Logic apps** page toolbar, select **Add**.
+
+1. On the **Create Logic App** page, under **Standard**, select **Hybrid**.
+
+1. Provide the following information about your logic app resource:
+
+
+
+After deployment, the hybrid logic app resource appears under Logic App Hybrid resources. You can create, edit, and manage workflows as usual from the Azure portal.
+
+## Create and deploy from Visual Studio Code
+
+Before you create and deploy with Visual Studio Code, complete the following requirements:
+
+- Confirm that your SMB file share server is accessible.
+- Confirm that port 445 is open on the computer where you run Visual Studio Code.
+- Run Visual Studio Code as administrator.
+
+1. In Visual Studio Code, on the Activity Bar, select the Azure icon.
+
+1. In the **Workspace** section toolbar, select the Azure Logic Apps icon, and then select **Deploy to logic app**.
+
+1. Select your Azure subscription.
+
+1. Browse to the folder where you want to save your logic app project. Create a folder for your project, select that folder, and then select **Select**.
+
+1. From the list that appears, select **Create new Logic App (Standard) in Azure**. Provide a globally unique name in lowercase letters for your logic app.
+
+   This example uses **my-hybrid-logic-app**.
+
+1. From the region list that appears, select the same Azure region where you have your connected environment.
+
+1. From the hosting plan list, select **Hybrid**.
+
+1. From the resource group list, select **Create new resource group**. Provide a name for your resource group.
+
+   This example uses **Hybrid-RG**.
+
+1. From the connected environment list, select your environment.
+
+1. Provide your previously saved values for the host IP address, SMB file share path, username, and password for your artifacts storage.
+
+1. Provide the connection string for the SQL database that you set up for runtime storage.
+
+You can monitor the deployment status under Azure Activity logs.  
+
+## Known issues and troubleshooting
+
+### AKS clusters
+
+In rare scenarios, you might notice a high memory footprint in your cluster. To prevent this issue, either scale out or add autoscale for node pools.
+
+### Managed connectors
+
+You must create  connections for managed connectors through Visual Studio Code, not the Azure portal, for hybrid logic app workflows. In Visual Studio Code, connections are valid for seven days and requires reauthentication after that time.
+
+### Function-based triggers
+
+Some function-based triggers, such as Azure Blob, Cosmos DB, and Event Hubs require a connection to your Azure storage account. If you use any function-based triggers, in your project's **local.settings.json** file or logic app's environment variables in the Azure portal, add the following app setting and provide your storage account connection string:
+
+```json
+"Values": {
+    "name": "AzureWebJobsStorage",
+    "value": "{storage-account-connection-string}"
+}
+```
+
+### Function host isn't running
+
+After you deploy your hybrid logic app resource, confirm that your app is running correctly.
+
+1. In the Azure portal, go to your logic app resource.
+
+1. On the logic app menu, select **Overview**.
+
+1. On the **Overview** page, next to the **URL** field, select your logic app's URL.
+
+   If your hybrid logic app is running correctly, a browser window opens and shows the following message:
+
+   :::image type="content" source="media/create-single-tenant-hybrid-workflows/running-hybrid-logic-app.png" alt-text="Screenshot shows browser and hybrid logic app running as a website." lightbox="media/create-single-tenant-hybrid-workflows/running-hybrid-logic-app.png":::
+
+   Otherwise, if your logic app has any failures, check that your AKS pods are running correctly. From Windows PowerShell, run the following commands:
+
+   ```powershell
+   az aks get-credentials {resource-group-name} --name {aks-cluster-name} --admin
+   kubectl get ns
+   kubectl get pods -n logicapps-aca-ns
+   kubectl describe pod {logic-app-pod-name} -n logicapps-aca-ns 
+   ```
+
+   For more information, see the following documentation:
+
+   - [az aks get-credentials](/cli/azure/aks?view=azure-cli-latest#az-aks-get-credentials)
+   - [Command line tool (kubetctl)](https://kubernetes.io/docs/reference/kubectl/)
+
+### AKS cluster doesn't have enough nodes
+
+If you ran the previous command and get a warning similar to the following example, your cluster doesn't have enough nodes for processing:
+
+**`Warning: FailedScheduling  4m52s (x29 over 46m)  default-scheduler  0/2 nodes are available: 2 Too many pods. preemption: 0/2 nodes are available: 2 No preemption victims found for incoming pod.`**
+
+To increase the number of nodes, and set up autoscale, follow these steps:
+
+1. In the Azure portal, go to your Kubernetes service instance.
+
+1. On the instance menu, under **Settings**, select **Node pools**.
+
+1. On the **Node tools** page toolbar, select **+ Add node pool**.
+
+For more information, see the following documentation:
+
+- [Create node pools for a cluster in Azure Kubernetes Service (AKS)](/azure/aks/create-node-pools)
+- [Manage node pools for a cluster in Azure Kubernetes Service (AKS)](/azure/aks/manage-node-pools)
+- [Cluster autoscaling in Azure Kubernetes Service (AKS) overview](/azure/aks/cluster-autoscaler-overview)
+- [Use the cluster autoscaler in Azure Kubernetes Service (AKS)](/azure/aks/cluster-autoscaler?tabs=azure-cli)
+
+### SMB Container Storage Interface (CSI) driver not installed
+
+After you ran the earlier **`kubectl describe pod`** command, if the following warning appears, confirm whether the CSI driver for your SMB file share is installed correctly:
+
+**`Warning FailedScheduling 5m16s (x2 over 5m27s)  default-scheduler 0/14 nodes are available: pod has unbound immediate PersistentVolumeClaims. preemption: 0/14 nodes are available: 14 Preemption is not helpful for scheduling.`**
+
+**`Normal NotTriggerScaleUp 9m49s (x31 over 14m) cluster-autoscaler pod didn't trigger scale-up: 3 pod has unbound immediate PersistentVolumeClaims`**
+
+To confirm, from Windows PowerShell, run the following commands:
+
+```powershell
+kubectl get csidrivers
+```
+
+If the results list that appears doesn't include **smb.csi.k8s.io**, from a Windows command prompt, and run the following command:
+
+**`helm repo add csi-driver-smb`**<br>
+**`help repo update`**
+**`helm install csi-driver-smb csi-driver-smb/csi-driver-smb --namespace kube-system --version v1.15.0`**
+
+To check the CSI SMB Driver pods status, from the Windows command prompt, run the following command:
+
+**`kubectl --namespace=kube-system get pods --selector="app.kubernetes.io/name=csi-driver-smb" --watch`**
+
+For more information, see [Container Storage Interface (CSI) drivers on Azure Kubernetes Service (AKS)](/azure/aks/csi-storage-drivers).
 
 ## Related content
