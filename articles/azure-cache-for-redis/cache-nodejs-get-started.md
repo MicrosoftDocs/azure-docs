@@ -31,6 +31,10 @@ The [node-redis](https://github.com/redis/node-redis) library is the primary Nod
 npm install redis
 ```
 
+## Create a Node.js app to access a cache
+
+Create a Node.js app that uses either Microsoft Entra ID or access keys to connect to an Azure Cache for Redis. We recommend you use Microsoft Entra ID.
+
 ## [Microsoft Entra ID Authentication (recommended)](#tab/entraid)
 
 [!INCLUDE [cache-entra-access](includes/cache-entra-access.md)]
