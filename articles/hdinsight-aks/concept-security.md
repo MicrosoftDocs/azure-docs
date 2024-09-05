@@ -8,7 +8,10 @@ ms.date: 05/11/2024
 
 # Overview of enterprise security in Azure HDInsight on AKS
 
+[!INCLUDE [retirement-notice](includes/retirement-notice.md)]
 [!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
+
+
 
 Azure HDInsight on AKS offers security by default, and there are several methods to address your enterprise security needs.
 
