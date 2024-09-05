@@ -69,18 +69,6 @@ groups:
     title: Python
   - id: programming-language-embedded-c
     title: Embedded C
-# Service-specific groups
-- id: cogsvcs-text-analytics-features
-  title: Text Analytics features
-  prompt: Choose a Text Analytics feature offering
-  pivots:
-  - id: text-analytics-key-phrase-extraction
-    title: Key Phrase Extraction
-  - id: text-analytics-language-detection
-    title: Language Detection
-  - id: text-analytics-sentiment-analysis
-    title: Sentiment Analysis
-##### Begin azure-functions
 - id: programming-languages-set-functions-lang-workers
   title: Programming languages
   prompt: Choose a programming language
@@ -151,16 +139,14 @@ groups:
     title: TypeScript
   - id: programming-language-other
     title: Other
-- id: development-environment-functions
-  title: Development environment
-  prompt: Choose a development environment
+- id: programming-languages-set-functions-nodejs
+  title: Programming languages
+  prompt: Choose a programming language
   pivots:
-  - id: development-environment-vscode
-    title: Visual Studio Code
-  - id: development-environment-vs
-    title: Visual Studio
-  - id: development-environment-cli
-    title: Command line
+  - id: programming-language-javascript
+    title: JavaScript
+  - id: programming-language-typescript
+    title: TypeScript
 - id: python-mode-functions
   title: Python mode
   prompt: Choose a Python programming model
@@ -179,6 +165,8 @@ groups:
     title: Maven command
   - id: create-option-vscode
     title: Visual Studio Code
+# Service-specific groups
+##### Begin azure-functions    
 - id: functions-nodejs-model
   title: Node.js Programming model
   prompt: Choose a programming model
@@ -245,22 +233,6 @@ groups:
     title: Python
   - id: programming-language-java
     title: Java
-########### BEGIN MICROSOFT IDENTITY PLATFORM
-# Service:       Active Directory (active-directory)
-# Sub-service:   Microsoft identity platform (develop)
-# Referenced by: /articles/active-directory/develop/*
-# Owner(s):      marsma, dmwendia, celested, ryanwi, cchiedo, henrymbugua
-## SPA ##
-- id: single-page-app-quickstart
-  title: single-page-app-quickstart
-  prompt: Choose a language or framework
-  pivots:
-  - id: devlang-angular
-    title: Angular
-  - id: devlang-javascript
-    title: JavaScript
-  - id: devlang-react
-    title: React
 ## Web app ##
 - id: web-app-quickstart
   title: web-app-quickstart
@@ -297,59 +269,7 @@ groups:
     title: ASP.NET
   - id: devlang-aspnet-core
     title: ASP.NET Core
-## Mobile app ##
-- id: mobile-app-quickstart
-  title: desktop-app-quickstart
-  prompt: Choose a language or framework
-  pivots:
-  - id: devlang-android
-    title: Android
-  - id: devlang-ios
-    title: iOS and macOS
-## Desktop app##
-- id: desktop-app-quickstart
-  title: desktop-app-quickstart
-  prompt: Choose a language or framework
-  pivots:
-  - id: devlang-uwp
-    title: Universal Windows Platform
-  - id: devlang-windows-desktop
-    title: Windows Presentation Foundation
-  - id: devlang-nodejs-electron
-    title: Node.js Electron
-## Console app ##
-- id: console-app-quickstart
-  title: console-app-quickstart
-  prompt: Choose a language or framework
-  pivots:
-  - id: devlang-dotnet-core
-    title: .NET Core
-  - id: devlang-java
-    title: Java
-  - id: devlang-nodejs
-    title: Node.js
-  - id: devlang-python
-    title: Python
-############ END MICROSOFT IDENTITY PLATFORM
 #Owner: antchu
-- id: runtime-version-programming-functions
-  title: Azure Functions version
-  prompt: Choose a runtime version&#58;
-  pivots:
-  - id: programming-runtime-functions-v3
-    title: Version 3.x
-  - id: programming-runtime-functions-v4
-    title: Version 4.x
-- id: programming-languages-set-diberry-3core
-  title: Programming languages
-  prompt: Choose a programming language
-  pivots:
-  - id: programming-language-csharp
-    title: C#
-  - id: programming-language-javascript
-    title: JavaScript
-  - id: programming-language-python
-    title: Python
 - id: java-build-tools-set
   title: Build tools
   prompt: Choose a build tool
@@ -358,16 +278,6 @@ groups:
     title: Maven
   - id: java-build-tools-gradle
     title: Gradle
-- id: platforms-set-of-three
-  title: Platforms
-  prompt: Choose a platform
-  pivots:
-  - id: platform-windows
-    title: Windows
-  - id: platform-linux
-    title: Linux
-  - id: platform-android
-    title: Android
 - id: code-editors-set-one
   title: Code Editors
   prompt: Choose a code editor
@@ -400,22 +310,6 @@ groups:
     title: Scala
   - id: programming-language-csharp
     title: C#
-- id: video-analyzer-programming-languages
-  title: Azure video analyzer programming languages
-  prompt: Choose a programming language
-  pivots:
-  - id: programming-language-csharp
-    title: C#
-  - id: programming-language-python
-    title: Python
-- id: ams-lva-edge-programming-languages
-  title: Live Video Analytics on IoT Edge programming languages
-  prompt: Choose a programming language
-  pivots:
-  - id: programming-language-csharp
-    title: C#
-  - id: programming-language-python
-    title: Python
 # Owner: jordanselig
 - id: app-service-cli-portal
   title: Experience
@@ -460,14 +354,6 @@ groups:
     title: Azure portal
   - id: development-environment-azd
     title: Azure Developer CLI
-- id: app-service-ide-oss
-  title: Development environment
-  prompt: Choose a development environment
-  pivots:
-  - id: development-environment-vscode
-    title: Visual Studio Code
-  - id: development-environment-cli
-    title: Command-line interface
 - id: app-service-platform-windows-linux
   title: App Service platform
   prompt: Choose a hosting platform
@@ -659,20 +545,6 @@ groups:
     title: Java
   - id: programming-language-python
     title: Python
-- id: acs-js-csharp-java-python-swift
-  title: Programming languages
-  prompt: Choose a programming language
-  pivots:
-  - id: programming-language-csharp
-    title: C#
-  - id: programming-language-javascript
-    title: JavaScript
-  - id: programming-language-java
-    title: Java
-  - id: programming-language-python
-    title: Python
-  - id: programming-language-swift
-    title: Swift
 - id: acs-azcli-js-csharp-java-python-swift-android-power-platform
   title: Programming languages
   prompt: Choose a programming language
@@ -758,71 +630,7 @@ groups:
   - id: programming-language-python
     title: Python
   - id: platform-nocode
-    title: Power Platform
-- id: acs-web-ios-android
-  title: Platform
-  prompt: Choose a platform
-  pivots:
-  - id: platform-web
-    title: Web
-  - id: platform-ios
-    title: iOS
-  - id: platform-android
-    title: Android
-- id: acs-web-ios
-  title: Platform
-  prompt: Choose a platform
-  pivots:
-  - id: platform-web
-    title: Web
-  - id: platform-ios
-    title: iOS
-- id: acs-web-android
-  title: Platform
-  prompt: Choose a platform
-  pivots:
-  - id: platform-web
-    title: Web
-  - id: platform-android
-    title: Android
-- id: acs-js-csharp-ios-android-python
-  title: Programming languages
-  prompt: Choose a programming language
-  pivots:
-  - id: programming-language-csharp
-    title: C#
-  - id: programming-language-javascript
-    title: JavaScript
-  - id: programming-language-java-android
-    title: Java (Android)
-  - id: programming-language-ios
-    title: iOS
-  - id: programming-language-python
-    title: Python
-- id: acs-js-csharp-ios-android
-  title: Programming languages
-  prompt: Choose a programming language
-  pivots:
-  - id: programming-language-csharp
-    title: C#
-  - id: programming-language-javascript
-    title: JavaScript
-  - id: programming-language-java-android
-    title: Java (Android)
-  - id: programming-language-ios
-    title: iOS
-- id: acs-plat-web-net-ios-android
-  title: Platform
-  prompt: Choose a platform
-  pivots:
-  - id: platform-net
-    title: .NET
-  - id: platform-web
-    title: Web
-  - id: platform-android
-    title: Android
-  - id: platform-ios
-    title: iOS
+    title: Power Platform 
 - id: acs-plat-web-ios-android
   title: Platform
   prompt: Choose a platform
@@ -875,16 +683,6 @@ groups:
     title: Windows
   - id: platform-unity
     title: Unity
-- id: acs-plat-android-web-ios
-  title: Platform
-  prompt: Choose a platform
-  pivots:
-  - id: platform-android
-    title: Android
-  - id: platform-web
-    title: Web
-  - id: platform-ios
-    title: iOS
 - id: acs-plat-ios-android
   title: Platform
   prompt: Choose a platform
@@ -903,80 +701,6 @@ groups:
     title: iOS
   - id: platform-windows
     title: Windows
-- id: acs-plat-web-android-windows
-  title: Platform
-  prompt: Choose a platform
-  pivots:
-  - id: platform-web
-    title: Web
-  - id: platform-android
-    title: Android
-  - id: platform-windows
-    title: Windows
-- id: acs-plat-azp-js
-  title: Platform
-  prompt: Choose a platform
-  pivots:
-  - id: platform-azp
-    title: Azure portal
-  - id: platform-javascript
-    title: JavaScript
-- id: acs-plat-azp-net
-  title: Platform
-  prompt: Choose a platform
-  pivots:
-  - id: platform-azp
-    title: Azure portal
-  - id: platform-azcli
-    title: Azure CLI
-  - id: platform-net
-    title: .NET
-- id: acs-plat-azp-arm-net-python-go-powershell
-  title: Platform
-  prompt: Choose a platform
-  pivots:
-  - id: platform-azp
-    title: Azure portal
-  - id: platform-arm
-    title: Azure Resource Manager
-  - id: platform-net
-    title: .NET
-  - id: platform-python
-    title: Python
-  - id: platform-go
-    title: Go
-  - id: platform-powershell
-    title: PowerShell
-- id: acs-azp-java-net-python-csharp-js
-  title: Platform
-  prompt: Choose a platform
-  pivots:
-  - id: platform-azp
-    title: Azure portal
-  - id: programming-language-java
-    title: Java
-  - id: programming-language-csharp
-    title: C#
-  - id: programming-language-javascript
-    title: JavaScript
-  - id: programming-language-python
-    title: Python
-- id: acs-azcli-azp-java-net-python-csharp-js
-  title: Platform
-  prompt: Choose a platform
-  pivots:
-  - id: platform-azcli
-    title: Azure CLI
-  - id: platform-azp
-    title: Azure portal
-  - id: programming-language-java
-    title: Java
-  - id: programming-language-csharp
-    title: C#
-  - id: programming-language-javascript
-    title: JavaScript
-  - id: programming-language-python
-    title: Python
 - id: acs-azp-azpnew-azcli-java-csharp-js-python
   title: Platform
   prompt: Choose a platform
@@ -1027,14 +751,6 @@ groups:
     title: Android
   - id: programming-language-rest
     title: REST
-- id: acs-dev-environment-vs-vscode
-  title: Development environment
-  prompt: Choose a development environment
-  pivots:
-  - id: development-environment-vs
-    title: Visual Studio
-  - id: development-environment-vscode
-    title: Visual Studio Code
 - id: acs-smtp-sending-method
   title: SMTP Sending Method
   prompt: Choose a sending method
@@ -1043,51 +759,6 @@ groups:
     title: C# SmtpClient
   - id: smtp-method-powershell
     title: Windows PowerShell
-# Owner: memildin
-- id: non-azure-machines
-  title: Non-Azure machines
-  prompt: How will you connect the non-Azure machine?
-  pivots:
-  - id: azure-arc
-    title: Azure Arc
-  - id: azure-portal
-    title: Defender for Cloud's portal pages
-- id: connect-aws-accounts
-  title: Add an AWS account
-  prompt: How will you connect the AWS account?
-  pivots:
-  - id: env-settings
-    title: Native connector
-  - id: classic-connector
-    title: Classic connector
-- id: connect-gcp-accounts
-  title: Add a GCP account
-  prompt: How will you connect the GCP account?
-  pivots:
-  - id: env-settings
-    title: Native connector
-  - id: classic-connector
-    title: Classic connector
-- id: manage-asc-initiatives
-  title: Manage Defender for Cloud initiatives
-  prompt: How will you manage your Defender for Cloud initiatives?
-  pivots:
-  - id: azure-portal
-    title: In the Azure portal
-  - id: rest-api
-    title: With the REST APIs
-- id: keyword-quickstart
-  title: Programming languages
-  prompt: Choose a programming language
-  pivots:
-  - id: programming-language-csharp
-    title: C#
-  - id: programming-language-objectivec
-    title: Objective-C
-  - id: programming-language-swift
-    title: Swift
-  - id: programming-language-python
-    title: Python
 # Owner: mimart
 - id: b2c-policy-type
   title: Azure AD B2C policy type
@@ -1275,37 +946,6 @@ groups:
     title: Africa
   - id: australia
     title: Australia
-# Owner: timlt
-- id: iot-develop-toolset
-  title: IoT Devices
-  prompt: Choose a build environment
-  pivots:
-  - id: iot-toolset-cmake
-    title: CMake
-  - id: iot-toolset-iar-ewarm
-    title: IAR EWARM
-  - id: iot-toolset-mplab
-    title: MPLAB
-# Owner: timlt
-- id: iot-develop-stm-toolset
-  title: IoT Devices
-  prompt: Choose a build environment
-  pivots:
-  - id: iot-toolset-cmake
-    title: CMake
-  - id: iot-toolset-iar-ewarm
-    title: IAR EWAR
-# Owner: timlt
-- id: iot-develop-stm32-toolset
-  title: IoT Devices
-  prompt: Choose a build environment
-  pivots:
-  - id: iot-toolset-cmake
-    title: CMake
-  - id: iot-toolset-iar-ewarm
-    title: IAR EWARM
-  - id: iot-toolset-stm32cube
-    title: STM32Cube IDE
 # Owner: v-amallick
 - id: backup-client-portaltier-powershelltier-clitier
   title: Clients
@@ -1354,17 +994,6 @@ groups:
     title: Short Code
   - id: alphanumeric-senderid
     title: Alphanumeric Sender ID
-# Owner: timlt
-- id: iot-develop-nxp-toolset
-  title: IoT Devices
-  prompt: Choose a build environment
-  pivots:
-  - id: iot-toolset-cmake
-    title: CMake
-  - id: iot-toolset-iar-ewarm
-    title: IAR EWARM
-  - id: iot-toolset-mcuxpresso
-    title: MCUXpresso
 # Owner: cshoe
 - id: container-apps
   title: Template language
@@ -1400,15 +1029,6 @@ groups:
     title: Enterprise-grade edge (recommended)
   - id: swa-afd-manual-afd
     title: Manual Azure Front Door configuration
-# Owner: cshoe
-- id: container-apps-config-types
-  title: Configuration method
-  prompt: Select a configuration method
-  pivots:
-  - id: aca-cli
-    title: Azure CLI
-  - id: aca-arm
-    title: Azure Resource Manager (ARM) template
 # Owner: cshoe
 - id: container-apps-vnet-types
   title: Virtual network
@@ -1514,15 +1134,6 @@ groups:
     title: Azure portal
   - id: azure-resource-manager
     title: ARM template
-# Owner: cshoe
-- id: container-apps-interface-types
-  title: Interaction type
-  prompt: Select how you want to interact with Azure
-  pivots:
-  - id: azure-portal
-    title: Azure portal
-  - id: command-line
-    title: Command Line
 # Owner: duau
 - id: front-door-tiers
   title: Front Door tiers
@@ -1663,26 +1274,6 @@ groups:
     title: "2023-10-01"  
   - id: v23-11
     title: "2023-11-01"
-# Owner: nicktrog
-- id: load-testing-config
-  title: Experience
-  prompt: Choose an experience
-  pivots:
-  - id: experience-azp
-    title: Azure portal
-  - id: experience-pipelines
-    title: Azure Pipelines
-  - id: experience-ghactions
-    title: GitHub Actions
-# Owner: bagol
-- id: on-prem-exp-d4iot
-  title: OT consoles
-  prompt: Choose an on-premises console
-  pivots:
-  - id: experience-sensor
-    title: OT sensor console
-  - id: experience-cm
-    title: On-premises management console
 # Owner: v-yilinhu
 - id: programming-languages-batch-linux-nodes
   title: Programming languages
@@ -1763,14 +1354,6 @@ groups:
   - id: ase-pro-gpu
     title: ASE Pro
 # Owner: daknappe (Azure Virtual Desktop)
-- id: azure-virtual-desktop-host-pool-management-types
-  title: Azure Virtual Desktop host pool management type
-  prompt: "Choose a host pool management type:"
-  pivots:
-  - id: host-pool-standard
-    title: Standard
-  - id: host-pool-automated
-    title: Automated (preview)
 - id: azure-virtual-desktop-app-attach
   title: Azure Virtual Desktop app attach version
   prompt: "Choose an app attach version:"
@@ -1823,16 +1406,6 @@ groups:
     title: Windows 365
   - id: dev-box
     title: Microsoft Dev Box
-- id: avd-rds-pc
-  title: Azure Virtual Desktop, Remote Desktop Services, and Remote PC
-  prompt: "Choose what you want to connect to:"
-  pivots:
-  - id: azure-virtual-desktop
-    title: Azure Virtual Desktop
-  - id: remote-desktop-services
-    title: Remote Desktop Services
-  - id: remote-pc
-    title: Remote PC
 # Owner: kevinguo-ed
 - id: azure-web-pubsub-create-resource-methods
   title: Create a resource using any one of the methods
@@ -1890,17 +1463,6 @@ groups:
     title: Azure CLI
   - id: method-template
     title: GitHub Actions template
-# Owner: franlanglois
-- id: cache-redis-zone-pivot-group
-  title: Programming languages
-  prompt: Choose a programming language
-  pivots:
-  - id: programming-language-csharp
-    title: C#
-  - id: programming-language-java
-    title: Java
-  - id: programming-language-python
-    title: Python
 - id: azure-virtual-network-manager-quickstart-options
   title: Azure Virtual Network Manager Quickstart Scope Options
   prompt: Choose a scope option
@@ -2059,15 +1621,6 @@ groups:
     title: Python
   - id: programming-language-node
     title: Node
-# Owner: micahvivion
-- id: acs-errorcodes-client-server
-  title: Code and subcode errors
-  prompt: Choose a location where the error was generated
-  pivots:
-  - id: platform-javascript
-    title: JavaScript
-  - id: platform-server
-    title: Server
 # Owner: craigshoemaker
 - id: swa-web-framework
   title: Web Framework
