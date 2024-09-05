@@ -12,7 +12,8 @@ ms.service: azure-automation
 
 # Migrate the existing agent-based hybrid workers to extension-based hybrid workers
 
-[!INCLUDE [./agent-based-user-hybrid-runbook-worker-retirement.md](./includes/agent-based-user-hybrid-runbook-worker-retirement.md)]
+> [!Important]
+> Azure Automation Agent-based User Hybrid Runbook Worker (Windows and Linux) has retired on **31 August 2024** and is no longer supported. Follow the guidelines in this article on how to migrate from an existing Agent-based User Hybrid Runbook Workers to Extension-based Hybrid Workers.
 
 This article describes the benefits of Extension-based User Hybrid Runbook Worker and how to migrate existing Agent-based User Hybrid Runbook Workers to Extension-based Hybrid Workers.
 
