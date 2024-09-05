@@ -22,7 +22,7 @@ While managed private endpoints are free, there may be charges associated with p
 > Managed private endpoints are currently only available in Azure Global.
 
 > [!NOTE]
-> Due to a Kubernetes limitation, if you're running a private data source in an AKS cluster, when the service’s `externalTrafficPolicy` is set to local, Azure Private Link Service needs to use a different subnet than the Pod’s subnet. If the same subnet is required, the service should use Cluster `externalTrafficPolicy`. See [Cloud Provider Azure](https://cloud-provider-azure.sigs.k8s.io/topics/pls-integration/#restrictions).
+> If you're running a private data source in an AKS cluster, when the service’s `externalTrafficPolicy` is set to local, Azure Private Link Service needs to use a different subnet than the Pod’s subnet. If the same subnet is required, the service should use Cluster `externalTrafficPolicy`. See [Cloud Provider Azure](https://cloud-provider-azure.sigs.k8s.io/topics/pls-integration/#restrictions).
 
 ## Supported data sources
 
