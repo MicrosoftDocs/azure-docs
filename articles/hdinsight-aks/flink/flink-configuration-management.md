@@ -99,7 +99,7 @@ In HDInsight on AKS, Flink uses Kubernetes as backend. Even if the Job Manager f
 
 ### FAQ
 
-**Why does the Job failure in between.
+**Why does the Job failure in between?
 Even if the jobs fail abruptly, if the checkpoints are happening continuously, then the job is restarted by default from the latest checkpoint.** 
 
 Change the job strategy in between?

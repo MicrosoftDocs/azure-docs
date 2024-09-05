@@ -383,7 +383,7 @@ To authenticate  Flink ARM Rest API users, need to get the bearer token or acces
    
    `Invoke-RestMethod -Uri $restUri -Method POST -Headers @{ Authorization = "Bearer $tok" } -Body $jsonString -ContentType "application/json"`
 
-- **Savepoint:** Rest API to trigger savepoint for job.
+- **Savepoint:** Rest APIs to trigger savepoint for job.
    
    |  Option  |  Value  |
    | -------- | ------- |
