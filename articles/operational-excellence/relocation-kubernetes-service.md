@@ -30,7 +30,7 @@ Before you begin the relocation planning stage, first review the following prere
 
 - (Optional) Collect the Infrastructure as code (IaC) templates or scripts with which you provisioned the source AKS cluster.
 
-- Collect the Kubernetes manifests in order to re-create the application workload within the target cluster
+- Collect the Kubernetes manifests in order to re-create the application workload within the target cluster.
     
     >[!TIP]
     >Evaluate a GitOps approach to workload deployment where Kubernetes configuration manifests are stored in a git repo and automatically applied by a GitOps operator running within the cluster, such as [Flux](https://fluxcd.io/). A GitOps approach makes re-deploying workloads to different clusters as simple as installing the GitOps controller and pointing it at the repo.
@@ -103,9 +103,9 @@ Deploy the AKS cluster without any data migration, by following these steps:
 
 1. To ensure that the new cluster performs as anticipated, perform testing and validation.
 
-1.  Change your public DNS entries to point to the external ingress IP of the target cluster (Azure Public Load Balancer IP or Application Gateway Public IP).
+1. Change your public DNS entries to point to the external ingress IP of the target cluster (Azure Public Load Balancer IP or Application Gateway Public IP).
 
-1. A deployment using global load-balancing solution such as Azure DNS or Azure Traffic Manager needs to add the
+1. A deployment using global load-balancing solution such as Azure DNS or Azure Traffic Manager needs to add the region to the configuration.
 
 ## Redeploy with data migration
 
@@ -125,8 +125,6 @@ The high-level steps are as follows:
 
 1. Restore the backup to the target cluster.
 
-
-## Cleanup
 
 ## Related content
 
