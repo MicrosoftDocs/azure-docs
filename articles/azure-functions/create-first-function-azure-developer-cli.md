@@ -451,7 +451,7 @@ You can now invoke your function endpoints in Azure by making HTTP requests to t
 You can use the Core Tools to obtain the URL endpoints of your functions running in Azure.
 
 1. In your local terminal or command prompt, run these commands to get the URL endpoint values:
- 
+    ::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-java,programming-language-python" 
     ### [bash](#tab/bash)
 
     ```bash
@@ -464,12 +464,27 @@ You can use the Core Tools to obtain the URL endpoints of your functions running
     for /f "tokens=*" %i in ('azd env get-value AZURE_FUNCTION_NAME') do set APP_NAME=%i
     func azure functionapp list-functions %APP_NAME% --show-keys 
     ``` 
+    ---
+    
+    ::: zone-end  
+    ::: zone pivot="programming-language-powershell"  
+    ### [PowerShell](#tab/powershell)
+    ```powershell
+    $APP_NAME = azd env get-value AZURE_FUNCTION_NAME
+    func azure functionapp list-functions $APP_NAME --show-keys
+    ```
 
+    ### [Cmd](#tab/cmd)
+    ```cmd
+    for /f "tokens=*" %i in ('azd env get-value AZURE_FUNCTION_NAME') do set APP_NAME=%i
+    func azure functionapp list-functions %APP_NAME% --show-keys 
+    ``` 
     ---
 
+    ::: zone-end  
     The `azd env get-value` command gets your function app name from the local environment. Using the `--show-keys` option with `func azure functionapp list-functions` means that the returned **Invoke URL:** value for each endpoint includes a function-level access key.
 
-1. As before, use your HTTP test tool to validate these URLs in your function app running in Azure. 
+2. As before, use your HTTP test tool to validate these URLs in your function app running in Azure. 
 ::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python"  
 ## Redeploy your code
 
