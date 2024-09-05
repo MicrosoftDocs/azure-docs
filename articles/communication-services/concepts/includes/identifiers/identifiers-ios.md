@@ -113,7 +113,7 @@ switch (communicationIdentifier)
         print(#"Communication user: \(communicationUser.id)"#)
     case let teamsUser as MicrosoftTeamsUserIdentifier:
         print(#"Teams user: \(teamsUser.UserId)"#)
-    case let teamsApp as microsoftTeamsApp:
+    case let teamsApp as MicrosoftTeamsAppIdentifier:
         print(#"Teams app: \(teamsApp.appId)"#)
     case let phoneNumber as PhoneNumberIdentifier:
         print(#"Phone number: \(phoneNumber.PhoneNumber)"#)
