@@ -41,15 +41,15 @@ To validate the private link connection, perform a DNS resolution of the Azure M
 
 1. The private endpoint details and private link resource FQDNs' information is available in the Discovery and Assessment and Migration and modernization properties pages. Select **Download DNS settings** to view the list. Note, only the private endpoints that were automatically created by Azure Migrate are listed below.
 
-      [![Migration and modernization tool Properties](./media/how-to-use-azure-migrate-with-private-endpoints/azure-migrate-server-migration-properties.png)](./media/how-to-use-azure-migrate-with-private-endpoints/azure-migrate-server-migration-properties.png#lightbox)
+   [![Migration and modernization tool Properties](./media/how-to-use-azure-migrate-with-private-endpoints/azure-migrate-server-migration-properties.png)](./media/how-to-use-azure-migrate-with-private-endpoints/azure-migrate-server-migration-properties.png#lightbox)
 
 2. If you have created a private endpoint for the storage account(s) for replicating over a private network, you can obtain the private link FQDN and IP address as illustrated below.
 
-- Go to the **Storage account** > **Networking** > **Private endpoint connections** and select the private endpoint created.
+   - Go to the **Storage account** > **Networking** > **Private endpoint connections** and select the private endpoint created.
 
       :::image type="content" source="./media/troubleshoot-network-connectivity/private-endpoint.png" alt-text="Screenshot of the Private Endpoint connections.":::
 
-- Go to **Settings** > **DNS configuration** to obtain the storage account FQDN and private IP address.
+   - Go to **Settings** > **DNS configuration** to obtain the storage account FQDN and private IP address.
 
       :::image type="content" source="./media/troubleshoot-network-connectivity/private-link-info.png" alt-text="Screenshot showing the Private Link F Q D N information.":::
 
@@ -163,10 +163,9 @@ If you have enabled the appliance for private endpoint connectivity, use the fol
 - Ensure that the appliance has network connectivity to the Key Vault over a private link. To validate the private link connectivity, perform a DNS resolution of the Key Vault resource endpoint from the on-premises server hosting the appliance and ensure that it resolves to a private IP address.
 - Go to **Azure Migrate: Discovery and assessment> Properties** to find the details of private endpoints for resources like the Key Vault created during the key generation step.  
 
-      ![Azure Migrate server assessment properties](./media/how-to-use-azure-migrate-with-private-endpoints/azure-migrate-server-assessment-properties.png)  
 - Select **Download DNS settings** to download the DNS mappings.
 
-      ![Download DNS settings](./media/how-to-use-azure-migrate-with-private-endpoints/download-dns-settings.png)  
+   ![Download DNS settings](./media/how-to-use-azure-migrate-with-private-endpoints/download-dns-settings.png)  
 
 - Open the command line and run the following nslookup command to verify network connectivity to the Key Vault URL mentioned in the DNS settings file.
 
@@ -247,12 +246,10 @@ If you have enabled the appliance for private endpoint connectivity, use the fol
 
 - Ensure that the appliance is either hosted in the same virtual network or is connected to the target Azure virtual network (where the private endpoints have been created) over a private link. Private endpoints for the Azure Migrate services are created in the virtual network selected during the project creation experience. You can verify the virtual network details in the **Azure Migrate > Properties** page.
 
-      ![Azure Migrate properties](./media/how-to-use-azure-migrate-with-private-endpoints/azure-migrate-properties-page.png)
+![Azure Migrate properties](./media/how-to-use-azure-migrate-with-private-endpoints/azure-migrate-properties-page.png)
 
 - Ensure that the appliance has network connectivity to the service endpoint URLs and other URLs, mentioned in the error message, over a private link connection. To validate private link connectivity, perform a DNS resolution of the URLs from the on-premises server hosting the appliance and ensure that it resolves to private IP addresses.
 - Go to **Azure Migrate: Discovery and assessment> Properties** to find the details of private endpoints for the service endpoints created during the key generation step.
-
-      ![Azure Migrate server assessment properties](./media/how-to-use-azure-migrate-with-private-endpoints/azure-migrate-server-assessment-properties.png)  
 
 - Select **Download DNS settings** to download the DNS mappings.
 
