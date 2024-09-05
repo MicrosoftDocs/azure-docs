@@ -35,7 +35,7 @@ landingContent:
         links:
           - text: 'Configure Azure Deployment Environments'
             url: quickstart-create-and-configure-devcenter.md
-          - text: 'Create dev center & project (Azure Resource Manager)'
+          - text: 'Create dev center & project (ARM template)'
             url: quickstart-create-dev-center-project-azure-resource-manager.md
           - text: 'Create & access environments'
             url: quickstart-create-access-environments.md
