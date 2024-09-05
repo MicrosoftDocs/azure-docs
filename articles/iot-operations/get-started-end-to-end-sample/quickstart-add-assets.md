@@ -83,43 +83,6 @@ To add an asset endpoint:
     kubectl get assetendpointprofile -n azure-iot-operations
     ```
 
-## Configure the simulator
-
-These quickstarts use the **OPC PLC simulator** to generate sample data. To enable the quickstart scenario, you need to configure your asset endpoint to connect without mutual trust established. This configuration is not recommended for production or pre-production environments:
-
-1. To configure the asset endpoint for the quickstart scenario, run the following command:
-
-    ```console
-    kubectl patch AssetEndpointProfile opc-ua-connector-0 -n azure-iot-operations --type=merge -p '{"spec":{"additionalConfiguration":"{\"applicationName\":\"opc-ua-connector-0\",\"security\":{\"autoAcceptUntrustedServerCertificates\":true}}"}}'
-    ```
-
-    > [!CAUTION]
-    > Don't use this configuration in production or pre-production environments. Exposing your cluster to the internet without proper authentication might lead to unauthorized access and even DDOS attacks.
-
-    To learn more, see [Deploy the OPC PLC simulator](../discover-manage-assets/howto-configure-opc-plc-simulator.md) section.
-
-1. To enable the configuration changes to take effect immediately, first find the name of your `aio-opc-supervisor` pod by using the following command:
-
-    ```console
-    kubectl get pods -n azure-iot-operations
-    ```
-
-    The name of your pod looks like `aio-opc-supervisor-956fbb649-k9ppr`.
-
-1. Restart the `aio-opc-supervisor` pod by using a command that looks like the following example. Use the `aio-opc-supervisor` pod name from the previous step:
-
-    ```console
-    kubectl delete pod aio-opc-supervisor-956fbb649-k9ppr -n azure-iot-operations
-    ```
-
-After you define an asset, a connector for OPC UA pod discovers it. The pod uses the asset endpoint that you specify in the asset definition to connect to an OPC UA server. You can use `kubectl` to view the discovery pod that was created when you added the asset endpoint. The pod name looks like `aio-opc-opc.tcp-1-8f96f76-kvdbt`:
-
-```console
-kubectl get pods -n azure-iot-operations
-```
-
-When the OPC PLC simulator is running, dataflows from the simulator, to the connector for OPC UA, and finally to the MQTT broker.
-
 ## Manage your assets
 
 After you select your instance in operations experience, you see the available list of assets on the **Assets** page. If there are no assets yet, this list is empty:
