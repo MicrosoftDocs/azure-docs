@@ -1656,11 +1656,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/sentinel/data-connectors/deprecated-trend-micro-apex-one-via-legacy-agent.md",
-            "redirect_url": "/previous-versions/azure/sentinel/data-connectors/trend-micro-apex-one-via-legacy-agent",
-            "redirect_document_id": false
-        },
-        {
             "source_path_from_root": "/articles/sentinel/data-connectors/recommended-trend-micro-apex-one-via-ama.md",
             "redirect_url": "/previous-versions/azure/sentinel/data-connectors/trend-micro-apex-one-via-ama",
             "redirect_document_id": false
