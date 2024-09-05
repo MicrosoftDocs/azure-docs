@@ -22,7 +22,7 @@ To learn more about Docker and registry concepts, see the [Docker overview on Do
 Pull images from an Azure container registry to various deployment targets:
 
 * *Scalable orchestration systems* that manage containerized applications across clusters of hosts, including [Kubernetes](https://kubernetes.io/docs/), [DC/OS](https://dcos.io/), and [Docker Swarm](https://docs.docker.com/get-started/swarm-deploy/).
-* *Azure services* that support building and running applications at scale, such as [Azure Kubernetes Service (AKS)](/azure/aks/), [App Service](../app-service/index.yml), [Batch](../batch/index.yml), and [Service Fabric](../service-fabric/index.yml).
+* *Azure services* that support building and running applications at scale, such as [Azure Kubernetes Service (AKS)](/azure/aks/), [App Service](../app-service/index.yml), [Batch](../batch/index.yml), and [Service Fabric](/azure/service-fabric/).
 
 Developers can also push to a container registry as part of a container development workflow. For example, you can target a container registry from a continuous integration and continuous delivery (CI/CD) tool such as [Azure Pipelines](/azure/devops/pipelines/ecosystems/containers/acr-template) or [Jenkins](https://jenkins.io/).
 

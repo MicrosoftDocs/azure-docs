@@ -129,8 +129,6 @@
       href: how-to-create-routes.md
     - name: Create a data history connection
       href: how-to-create-data-history-connection.md
-    - name: Integrate with Azure Time Series Insights
-      href: how-to-integrate-time-series-insights.md
   - name: Monitor and troubleshoot
     items:
     - name: Monitor your instance

@@ -110,6 +110,8 @@ The Data Box Heavy device has the following features in this release.
 
 For information on region availability, go to [Azure products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all). Data Box Disk can also be deployed in the Azure Government Cloud. For more information, see [What is Azure Government?](../azure-government/documentation-government-welcome.md).
 
+Data Box Disk self-encrypting drives are generally available in the US, EU, and Japan. 
+
 ## Pricing
 
 For information on pricing, go to [Pricing page](https://azure.microsoft.com/pricing/details/databox/disk/).

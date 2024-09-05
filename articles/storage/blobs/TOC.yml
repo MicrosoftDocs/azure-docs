@@ -220,7 +220,7 @@ items:
       - name: Configure lifecycle management policies
         href: lifecycle-management-policy-configure.md
     - name: Full text search
-      href: ../../search/search-blob-storage-integration.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+      href: /azure/search/search-blob-storage-integration?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
     - name: Static websites
       items:
       - name: Static websites

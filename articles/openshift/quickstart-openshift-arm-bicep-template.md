@@ -6,7 +6,7 @@ ms.service: azure-redhat-openshift
 ms.topic: quickstart
 ms.custom: mode-arm, devx-track-azurecli, devx-track-azurepowershell, devx-track-arm-template, devx-track-bicep
 ms.author: johnmarc
-ms.date: 07/15/2024
+ms.date: 08/27/2024
 keywords: azure, openshift, aro, red hat, arm, bicep
 zone_pivot_groups: azure-red-hat-openshift
 #Customer intent: I need to use ARM templates or Bicep files to deploy my Azure Red Hat OpenShift cluster.
@@ -64,7 +64,7 @@ The template defines three Azure resources:
 
 More Azure Red Hat OpenShift template samples can be found on the [Red Hat OpenShift web site](https://docs.openshift.com/container-platform/4.9/installing/installing_azure/installing-azure-user-infra.html).
 
-Save the following example as *azuredeploy.bicep*:
+Save the following example as *azuredeploy.json*:
 
 ```json
 {
@@ -617,7 +617,7 @@ The template parameters below have default values. They can be specified, but th
 | `clusterVnetCidr` | The address space of the ARO virtual network, in [Classless Inter-Domain Routing](https://wikipedia.org/wiki/Classless_Inter-Domain_Routing) (CIDR) notation. | | 10.100.0.0/15
 | `workerSubnetCidr` | The address space of the worker node subnet, in CIDR notation. | | 10.100.70.0/23
 | `masterSubnetCidr` | The address space of the control plane node subnet, in CIDR notation. | | 10.100.76.0/24
-| `masterVmSize` | The [virtual machine type/size](../virtual-machines/sizes.md) of the control plane node. | | Standard_D8s_v3
+| `masterVmSize` | The [virtual machine type/size](/azure/virtual-machines/sizes) of the control plane node. | | Standard_D8s_v3
 | `workerVmSize` | The virtual machine type/size of the worker node. | | Standard_D4s_v3
 | `workerVmDiskSize` | The disk size of the worker node, in gigabytes. | |  128
 | `workerCount` | The number of worker nodes. | | 3
@@ -809,6 +809,27 @@ ARO_RP_SP_OBJECT_ID=$(az ad sp list --display-name "Azure Red Hat OpenShift RP" 
 
 ### Deploy the cluster - Azure CLI
 
+::: zone pivot="aro-arm"
+
+```azurecli-interactive
+az deployment group create \
+    --name aroDeployment \
+    --resource-group $RESOURCEGROUP \
+    --template-file azuredeploy.json \
+    --parameters location=$LOCATION \
+    --parameters domain=$DOMAIN \
+    --parameters pullSecret=$PULL_SECRET \
+    --parameters clusterName=$ARO_CLUSTER_NAME \
+    --parameters aadClientId=$SP_CLIENT_ID \
+    --parameters aadObjectId=$SP_OBJECT_ID \
+    --parameters aadClientSecret=$SP_CLIENT_SECRET \
+    --parameters rpObjectId=$ARO_RP_SP_OBJECT_ID
+```
+::: zone-end
+
+
+::: zone pivot="aro-bicep"
+
 ```azurecli-interactive
 az deployment group create \
     --name aroDeployment \
@@ -823,6 +844,7 @@ az deployment group create \
     --parameters aadClientSecret=$SP_CLIENT_SECRET \
     --parameters rpObjectId=$ARO_RP_SP_OBJECT_ID
 ```
+::: zone-end
 
 ### Connect to your cluster - Azure CLI
 

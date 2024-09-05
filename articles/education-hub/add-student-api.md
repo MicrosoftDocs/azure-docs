@@ -130,5 +130,5 @@ The API response includes information about the students in the lab:
 
 ## Related content
 
-- [Manage your academic grant by using the Overview page](hub-overview-page.md)
+- [Manage your academic sponsorship by using the Overview page](hub-overview-page.md)
 - [Learn about support options](educator-service-desk.md)

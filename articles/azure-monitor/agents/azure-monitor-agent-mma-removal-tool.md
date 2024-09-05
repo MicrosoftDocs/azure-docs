@@ -19,6 +19,10 @@ The utility works in two steps:
 
 2. *Removal*: The utility removes the legacy agent from machines listed in the CSV file. You should edit the list of machine in the CSV file to ensure that only machines you want the agent removed from are present.
 
+>!Note
+> The removal does not work on MMA agents that were installed using the MSI installer. It only works on the VM extensions.
+>
+
 ## Prerequisites  
 Do all the setup steps on an Internet connected machine. You need:
 

@@ -1,7 +1,7 @@
 ---
 title: Base image updates - Tasks
 description: Learn about base images for application container images, and about how a base image update can trigger an Azure Container Registry task.
-ms.topic: article
+ms.topic: how-to
 author: tejaswikolli-web
 ms.author: tejaswikolli
 ms.date: 10/31/2023
@@ -77,7 +77,6 @@ See the following tutorials for scenarios to automate application image builds a
 [base-alpine]: https://hub.docker.com/_/alpine/
 [base-dotnet]: https://hub.docker.com/_/microsoft-dotnet
 [base-node]: https://hub.docker.com/_/node/
-[base-windows]: https://hub.docker.com/r/microsoft/nanoserver/
 [sample-archive]: https://github.com/Azure-Samples/acr-build-helloworld-node/archive/master.zip
 [terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
 

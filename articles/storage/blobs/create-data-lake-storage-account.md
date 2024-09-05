@@ -1,7 +1,7 @@
 ---
-title: Create a storage account for Azure Data Lake Storage Gen2
+title: Create a storage account for Azure Data Lake Storage
 titleSuffix: Azure Storage
-description: Learn how to create a storage account for use with Azure Data Lake Storage Gen2.
+description: Learn how to create a storage account for use with Azure Data Lake Storage.
 author: normesta
 
 ms.topic: how-to
@@ -10,9 +10,9 @@ ms.date: 03/09/2023
 ms.service: azure-data-lake-storage
 ---
 
-# Create a storage account to use with Azure Data Lake Storage Gen2
+# Create a storage account to use with Azure Data Lake Storage
 
-To use Data Lake Storage Gen2 capabilities, create a storage account that has a hierarchical namespace.
+To use Data Lake Storage capabilities, create a storage account that has a hierarchical namespace.
 
 For step-by-step guidance, see [Create a storage account](../common/storage-account-create.md?toc=/azure/storage/blobs/toc.json).
 
@@ -45,10 +45,10 @@ The following image shows this setting in the **Create storage account** page.
 > [!div class="mx-imgBorder"]
 > ![Hierarchical namespace setting](./media/create-data-lake-storage-account/hierarchical-namespace-feature.png)
 
-To enable Data Lake Storage capabilities on an existing account, see [Upgrade Azure Blob Storage with Azure Data Lake Storage Gen2 capabilities](upgrade-to-data-lake-storage-gen2-how-to.md).
+To enable Data Lake Storage capabilities on an existing account, see [Upgrade Azure Blob Storage with Azure Data Lake Storage capabilities](upgrade-to-data-lake-storage-gen2-how-to.md).
 
 ## Next steps
 
 - [Storage account overview](../common/storage-account-overview.md)
-- [Upgrade Azure Blob Storage with Azure Data Lake Storage Gen2 capabilities](upgrade-to-data-lake-storage-gen2-how-to.md)
-- [Access control in Azure Data Lake Storage Gen2](data-lake-storage-access-control.md)
+- [Upgrade Azure Blob Storage with Azure Data Lake Storage capabilities](upgrade-to-data-lake-storage-gen2-how-to.md)
+- [Access control in Azure Data Lake Storage](data-lake-storage-access-control.md)

@@ -14,7 +14,7 @@ ms.date: 07/24/2024
 This article provides basic information about the Azure Key Vault VM extension for Windows and shows you how to enable it in Azure Cloud Services.
 
 ## What is the Key Vault VM extension?
-The Key Vault VM extension provides automatic refresh of certificates stored in an Azure key vault. Specifically, the extension monitors a list of observed certificates stored in key vaults. When the extension detects a change, it retrieves and installs the corresponding certificates. For more information, see [Key Vault VM extension for Windows](../virtual-machines/extensions/key-vault-windows.md).
+The Key Vault VM extension provides automatic refresh of certificates stored in an Azure key vault. Specifically, the extension monitors a list of observed certificates stored in key vaults. When the extension detects a change, it retrieves and installs the corresponding certificates. For more information, see [Key Vault VM extension for Windows](/azure/virtual-machines/extensions/key-vault-windows).
 
 ## What's new in the Key Vault VM extension?
 The Key Vault VM extension is now supported on the Azure Cloud Services (extended support) platform to enable the management of certificates end to end. The extension can now pull certificates from a configured key vault at a predefined polling interval and install them for the service to use. 

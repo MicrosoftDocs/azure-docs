@@ -39,7 +39,7 @@ You are able to manually trigger an upgrade to the latest version of Redis softw
 
 ### Enterprise tier E1 (preview) SKU
 
-The E1 SKU is intended primarily for dev/test scenarios. It runs on smaller [burstable virtual machines](../virtual-machines/b-series-cpu-credit-model/b-series-cpu-credit-model.md). As a result, E1 offers variable performance depending on how much CPU is consumed. Unlike other Enterprise offerings, it isn't possible to scale E1 out. However, it is still possible to scale up to a larger SKU. The E1 SKU also does not support [active geo-replication](cache-how-to-active-geo-replication.md).
+The E1 SKU is intended primarily for dev/test scenarios. It runs on smaller [burstable virtual machines](/azure/virtual-machines/b-series-cpu-credit-model/b-series-cpu-credit-model). As a result, E1 offers variable performance depending on how much CPU is consumed. Unlike other Enterprise offerings, it isn't possible to scale E1 out. However, it is still possible to scale up to a larger SKU. The E1 SKU also does not support [active geo-replication](cache-how-to-active-geo-replication.md).
 
 For more information, see 
 

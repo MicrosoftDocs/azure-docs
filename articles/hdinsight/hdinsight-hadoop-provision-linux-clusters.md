@@ -229,15 +229,15 @@ When you use the Azure portal to configure the cluster, the node size is availab
 
 When you deploy clusters, choose compute resources based on the solution you plan to deploy. The following VMs are used for HDInsight clusters:
 
-* A and D1-4 series VMs: [General-purpose Linux VM sizes](../virtual-machines/sizes-general.md)
-* D11-14 series VM: [Memory-optimized Linux VM sizes](../virtual-machines/sizes-memory.md)
+* A and D1-4 series VMs: [General-purpose Linux VM sizes](/azure/virtual-machines/sizes-general)
+* D11-14 series VM: [Memory-optimized Linux VM sizes](/azure/virtual-machines/sizes-memory)
 
 To find out what value you should use to specify a VM size while creating a cluster using the different SDKs or while using Azure PowerShell, see [VM sizes to use for HDInsight clusters](../cloud-services/cloud-services-sizes-specs.md#size-tables). From this linked article, use the value in the **Size** column of the tables.
 
 > [!IMPORTANT]
 > If you need more than 32 Worker nodes in a cluster, you must select a head node size with at least 8 cores and 14 GB of RAM.
 
-For more information, see [Sizes for virtual machines](../virtual-machines/sizes.md). For information about pricing of the various sizes, see [HDInsight pricing](https://azure.microsoft.com/pricing/details/hdinsight).
+For more information, see [Sizes for virtual machines](/azure/virtual-machines/sizes). For information about pricing of the various sizes, see [HDInsight pricing](https://azure.microsoft.com/pricing/details/hdinsight).
 
 ### Disk attachment
 

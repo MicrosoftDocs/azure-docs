@@ -41,8 +41,6 @@ After you've deployed your .NET App Services web app:
   
 1. Snapshot Debugger is now enabled.
 
-    :::image type="content" source="./media/snapshot-debugger/snapshot-debugger-app-setting.png" alt-text="Screenshot showing App Setting for Snapshot Debugger.":::
-
 ## Disable Snapshot Debugger
 
 To disable Snapshot Debugger for your App Services resource:

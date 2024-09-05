@@ -1,7 +1,7 @@
 ---
 title: Create alerts for quotas
 description: Learn how to create alerts for quotas
-ms.date: 05/09/2024
+ms.date: 09/04/2024
 ms.topic: how-to
 ---
 
@@ -36,15 +36,13 @@ The simplest way to create a quota alert is to use the Azure portal. Follow thes
     | Severity | Select the **severity** of the alert when the **rule’s condition** is met.|
     | [Frequency of evaluation](../azure-monitor/alerts/alerts-overview.md#stateful-alerts) | Choose how **often** the alert rule should **run**, by selecting 5, 10, or 15 minutes.  If the frequency is smaller than the aggregation granularity, frequency of evaluation results in sliding window evaluation. |
     | [Resource Group](../azure-resource-manager/management/manage-resource-groups-portal.md) | Resource Group is a collection of resources that share the same lifecycles, permissions, and policies. Select a resource group similar to other quotas in your subscription, or create a new resource group. |
-    | [Log Analytics workspace](../azure-monitor/logs/quick-create-workspace.md?tabs=azure-portal) | A workspace within the subscription that is being **monitored** and is used as the **scope for rule execution**. Select from the dropdown or create a new workspace. If you create a new workspace, use it for all alerts in your subscription. |
-    | [Managed identity](../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md?pivots=identity-mi-methods-azp) | Select from the dropdown, or **Create New**. Managed Identity should have **read permissions** to the Subscription (to read Usage data from ARG) and Log Analytics workspace that is chosen(to read the log alerts). |
+    | [Managed identity](../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md?pivots=identity-mi-methods-azp) | Select from the dropdown, or **Create New**. Managed Identity should have **read permissions** for the selected Subscription (to read Usage data from ARG). |
     | Notify me by | There are three notifications methods and you can check one or all three check boxes, depending on your notification preference. |
     | [Use an existing action group](../azure-monitor/alerts/action-groups.md) | Check the box to use an existing action group. An action group **invokes** a defined set of **notifications** and actions when an alert is triggered. You can create Action Group to automatically Increase the Quota whenever possible. |
     | [Dimensions](../azure-monitor/alerts/alerts-types.md#monitor-the-same-condition-on-multiple-resources-using-splitting-by-dimensions-1) | Here are the options for selecting **multiple Quotas** and **regions** within a single alert rule. Adding dimensions is a cost-effective approach compared to creating a new alert for each quota or region.|
-    | [Estimated cost](https://azure.microsoft.com/pricing/details/monitor/) |Estimated cost is automatically calculated cost associated with running this **new alert rule** against your quota. See [Azure Monitor cost and usage](../azure-monitor/cost-usage.md) for more information. |
     
     > [!TIP]
-    > Within the same subscription, we advise using the same  **Resource group**, **Log Analytics workspace,** and **Managed identity** values for all alert rules.
+    > Within the same subscription, we advise using the same **Resource Group** and **Managed identity** values for all alert rules.
 
 1. After you've made your selections, select **Create Alert**. You'll see a confirmation if the rule was successfully created, or a message if any problems occurred.
 
@@ -60,7 +58,7 @@ For a sample request body, see the [API documentation](/rest/api/monitor/schedul
 
 You can use the **Azure Monitor Alerts** pane to [create alerts using a query](../azure-monitor/alerts/alerts-create-new-alert-rule.md?tabs=log). Resource Graph Explorer lets you run and test queries before using them to create an alert. To learn more, see the [Configure Azure alerts](/training/modules/configure-azure-alerts/) training module.
 
-For quota alerts, make sure the **Scope** is your Log analytics workspace  and the **Signal type** is the customer query log. Add a sample query for quota usages. Follow the remaining steps as described in the [Create or edit an alert rule](../azure-monitor/alerts/alerts-create-new-alert-rule.md?tabs=log).
+For quota alerts, make sure the **Scope** is your Subscription and the **Signal type** is the customer query log. Add a sample query for quota usages. Follow the remaining steps as described in the [Create or edit an alert rule](../azure-monitor/alerts/alerts-create-new-alert-rule.md?tabs=log).
 
 The following example shows a query that creates quota alerts.
 
