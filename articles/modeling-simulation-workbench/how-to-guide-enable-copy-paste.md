@@ -20,9 +20,9 @@ The Workbench Owner can enable this copy/paste when the connector is first creat
 
 ## Prerequisites
 
-[!INCLUDE [prerequisite-user-chamber-admin](includes/prereq/prerequisite-user-chamber-admin.md)]
+[!INCLUDE [prerequisite-user-chamber-admin](includes/prerequisite-user-chamber-admin.md)]
 
-[!INCLUDE [prerequisite-mswb-chamber](includes/prereq/prerequisite-mswb-chamber.md)]
+[!INCLUDE [prerequisite-mswb-chamber](includes/prerequisite-chamber.md)]
 
 ## View the current setting of copy/paste
 
@@ -67,6 +67,8 @@ In the web client, the menu is accessed from the main screen.
 1. Select the menu icon to reveal copy/paste actions.
 
 :::image type="content" source="media/howtoguide-enable-copy-paste/etx-web-client-copy-paste.png" alt-text="Screenshot of ETX web client copy/paste menu.":::
+
+---
 
 ## Related content
 

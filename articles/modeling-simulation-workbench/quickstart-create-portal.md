@@ -45,7 +45,7 @@ Registering your application establishes a trust relationship between Modeling a
 
 Follow these steps to create the app registration:
 
-1. If you have access to multiple tenants, use the Directories + subscriptions** filter in the top menu to switch to the tenant in which you want to register the application.
+1. If you have access to multiple tenants, use the **Directories + subscriptions** filter in the top menu to switch to the tenant in which you want to register the application.
 
    :::image type="icon" source="/azure/active-directory/develop/media/common/portal-directory-subscription-filter.png" alt-text="":::
 

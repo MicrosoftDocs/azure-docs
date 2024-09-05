@@ -1,5 +1,5 @@
 ---
-title: "VM Offerings: Azure Modeling and Simulation Workbench"
+title: "VM offerings: Azure Modeling and Simulation Workbench"
 description: VM offerings available in the Azure Modeling and Simulation Workbench.
 author: yousefi-msft
 ms.author: yousefi

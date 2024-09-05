@@ -1,6 +1,6 @@
 ---
-title: "Manage Chamber Idle mode: Azure Modeling and Simulation Workbench"
-description: Place a chamber into Idle mode to optimize cost in Azure Modeling and Simulation Workbench.
+title: "Manage chamber idle mode: Azure Modeling and Simulation Workbench"
+description: Place a chamber into idle mode to optimize cost in Azure Modeling and Simulation Workbench.
 author: yousefi-msft
 ms.author: yousefi
 ms.service: modeling-simulation-workbench
@@ -30,7 +30,7 @@ To place a chamber into idle, the connector must be stopped before the chamber i
 1. Select the connector to be stopped.
 1. From the top action bar, select **Stop**. Connectors typically take about 8 minutes to shut down and dispose of resources.
 
-    :::image type="content" source="media/howtoguide-idle/connector-stop.png" alt-text="Stop button highlighted in red in the action menu bar of a connector.":::
+    :::image type="content" source="media/howtoguide-idle/connector-stop.png" alt-text="Screenshot of connector action bar with Stop button highlighted in red.":::
 
     Wait until the connector completely stops and the Power state shows **Stopped**.
 
@@ -39,7 +39,7 @@ To place a chamber into idle, the connector must be stopped before the chamber i
 1. Navigate back to the parent chamber.
 1. From the top action bar, select **Stop**. Chambers typically take about 8 minutes to shut down and dispose of resources.
 
-    :::image type="content" source="media/howtoguide-idle/chamber-stop.png" alt-text="Stop button highlighted in red in the action menu bar of a chamber.":::
+    :::image type="content" source="media/howtoguide-idle/chamber-stop.png" alt-text="Screenshot of chamber action bar with Stop button highlighted in red.":::
 
     Wait until the chamber completely stops and the Power state shows **Stopped**.
 

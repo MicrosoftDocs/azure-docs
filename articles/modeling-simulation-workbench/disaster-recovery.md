@@ -1,5 +1,5 @@
 ---
-title: Disaster recovery for Modeling and Simulation Workbench
+title: "Disaster recovery: Azure Modeling and Simulation Workbench"
 description: This article provides an overview of disaster recovery for Azure Modeling and Simulation Workbench.
 author: meaghanlewis
 ms.author: mosagie

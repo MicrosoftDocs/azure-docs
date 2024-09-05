@@ -1,5 +1,5 @@
 ---
-title: Shared storage for Modeling and Simulation Workbench
+title: "Shared storage: Azure Modeling and Simulation Workbench"
 description: This article provides an overview of shared storage for Azure Modeling and Simulation Workbench workbench component.
 author: meaghanlewis
 ms.author: mosagie

@@ -1,6 +1,6 @@
 ---
-title: "Create and Manage Chamber VMs: Azure Modeling and Simulation Workbench"
-description: How to create and manage a chamber VM in the Azure Modeling and Simulation Workbench.
+title: "Create and manage chamber VMs: Azure Modeling and Simulation Workbench"
+description: How to create and manage a chamber VMs in the Azure Modeling and Simulation Workbench.
 author: yousefi-msft
 ms.author: yousefi
 ms.service: modeling-simulation-workbench
@@ -10,7 +10,7 @@ ms.date: 08/16/2024
 ---
 # Chamber VMs
 
-Chamber Workload Virtual Machines (VM) are Azure VMs managed by the Workbench. Chamber VMs don't require expert users to select, deploy, configure, or manage. VMs are deployed quickly, preconfigured with drivers for the most common EDA (Electronic Design Automation) workloads, and with access to thousands of managed applications.
+Chamber workload virtual machines (VM) are Azure VMs managed by the Workbench. Chamber VMs don't require expert users to select, deploy, configure, or manage. VMs are deployed quickly, preconfigured with drivers for the most common EDA (Electronic Design Automation) workloads, and with access to thousands of managed applications.
 
 Chamber VMs deploy quickly and with little configuration in as little as 10 minutes.  Chamber VMs are automatically:
 
@@ -48,10 +48,10 @@ All VMs are created with Red Hat Enterprise Linux version 8.8.
 
     :::image type="content" source="media/howtoguide-create-chamber-vm/chamber-vm-create-dialog.png" alt-text="Screenshot of Create chamber VM dialog with textboxes and ReviewCreate button marked in red.":::\.
 
- Read about the [Chamber VM offerings] (./concept-vm-offerings.md) to help you select the correct VM for your workload.
+ Read about the [Chamber VM offerings](./concept-vm-offerings.md) to help you select the correct VM for your workload.
 
 1. Select **Review + create**.
-1. If prevalidation checks are successful, the **Create** button is enabled. Selecte **Create**. A chamber VM typically can take up to 10 minutes to deploy. Once deployed, the **Power state** status shows as "Running".
+1. If prevalidation checks are successful, the **Create** button is enabled. Select **Create**. A chamber VM typically can take up to 10 minutes to deploy. Once deployed, the **Power state** status shows as "Running".
 
 ## Manage a chamber VM
 

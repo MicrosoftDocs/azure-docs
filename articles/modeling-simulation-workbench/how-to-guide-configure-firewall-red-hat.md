@@ -22,7 +22,7 @@ All the operations referenced here require `sudo` privileges and thus need the C
 
 ## Prerequisites
 
-[!INCLUDE [prerequisite-user-chamber-admin](includes/prereq/prerequisite-user-chamber-admin.md)]
+[!INCLUDE [prerequisite-user-chamber-admin](includes/prerequisite-user-chamber-admin.md)]
 
 ## List all open ports
 
