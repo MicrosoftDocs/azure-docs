@@ -5,20 +5,21 @@ author: PatAltimore
 ms.author: patricka
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 08/29/2024
+ms.date: 09/05/2024
+ai-usage: ai-assisted
 
 #CustomerIntent: As an operator, I want to understand how to configure a local storage dataflow endpoint so that I can create a dataflow.
 ---
 
-# Configure local storage dataflow endpoint in Azure IoT Operations
+# Configure dataflow endpoints for local storage
 
-Azure Data Lake endpoints are used for Azure Data Lake destinations. You can configure the endpoint, authentication, table, and other settings.
+To send data to local storage in Azure IoT Operations Preview, you can configure a dataflow endpoint. This configuration allows you to to specify the endpoint, authentication, table, and other settings.
 
 ## Prerequisites
 
-- **Azure IoT Operations**. See [Deploy Azure IoT Operations Preview](../deploy-iot-ops/howto-deploy-iot-operations.md)
-- **Dataflow profile**. See [Configure dataflow profile](howto-configure-dataflow-profile.md)
-- **A PersistentVolumeClaim (PVC)**. See [Persistent Volumes](https://kubernetes.io/docs/concepts/storage/persistent-volumes/)
+- An instance of [Azure IoT Operations Preview](../deploy-iot-ops/howto-deploy-iot-operations.md)
+- A [configured dataflow profile](howto-configure-dataflow-profile.md)
+- A [PersistentVolumeClaim (PVC)](https://kubernetes.io/docs/concepts/storage/persistent-volumes/)
 
 ## How to configure a local storage dataflow endpoint
 
