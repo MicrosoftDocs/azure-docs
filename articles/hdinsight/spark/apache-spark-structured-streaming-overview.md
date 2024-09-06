@@ -4,7 +4,7 @@ description: How to use Spark Structured Streaming applications on HDInsight Spa
 ms.service: azure-hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 09/14/2023
+ms.date: 09/06/2024
 ---
 
 # Overview of Apache Spark Structured Streaming

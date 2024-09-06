@@ -4,7 +4,7 @@ description: Learn how to create an Azure Virtual Network to connect HDInsight t
 ms.service: azure-hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-azurecli, devx-track-azurepowershell
-ms.date: 09/19/2023
+ms.date: 09/06/2024
 ---
 
 # Create virtual networks for Azure HDInsight clusters

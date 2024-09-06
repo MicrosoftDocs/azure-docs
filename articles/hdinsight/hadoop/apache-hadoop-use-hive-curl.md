@@ -4,7 +4,7 @@ description: Learn how to remotely submit Apache Pig jobs to Azure HDInsight usi
 ms.service: azure-hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 09/14/2023
+ms.date: 09/06/2024
 ---
 
 # Run Apache Hive queries with Apache Hadoop in HDInsight using REST
