@@ -26,16 +26,6 @@ Statsbeat data is stored in a Microsoft data store. It doesn't affect customers'
 |-------------------------|-----------|-------------------------|-----------|-----------|
 | Currently not supported | Supported | Currently not supported | Supported | Supported |
 
-## What data does Statsbeat collect?
-
-Statsbeat collects [essential](#essential-statsbeat) and [nonessential](#nonessential-statsbeat) metrics:
-
-| Language | Essential metrics | Non-essential metrics |
-|----------|-------------------|-----------------------|
-| Java     | ✅                | ✅                     |
-| Node.js  | ✅                | ❌                     |
-| Python   | ✅                | ❌                     |
-
 ## Supported EU regions
 
 Statsbeat supports EU Data Boundary for Application Insights resources in the following regions:
@@ -64,9 +54,55 @@ Metrics are sent to the following locations, to which outgoing connections must 
 | Europe            | `westeurope-5.in.applicationinsights.azure.com` |
 | Outside of Europe | `westus-0.in.applicationinsights.azure.com`     |
 
-### Disable Statsbeat
+## Supported metrics
 
-#### [Java](#tab/java)
+Statsbeat collects [essential](#essential-statsbeat) and [nonessential](#nonessential-statsbeat) metrics:
+
+| Language | Essential metrics | Non-essential metrics |
+|----------|-------------------|-----------------------|
+| Java     | ✅                | ✅                     |
+| Node.js  | ✅                | ❌                     |
+| Python   | ✅                | ❌                     |
+
+### Essential Statsbeat
+
+#### Network Statsbeat
+
+| Metric name            | Unit  | Supported dimensions                                                                                                                                          |
+|------------------------|-------|---------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Request Success Count  | Count | `Resource Provider`, `Attach Type`, `Instrumentation Key`, `Runtime Version`, `Operating System`, `Language`, `Version`, `Endpoint`, `Host`                   |
+| Requests Failure Count | Count | `Resource Provider`, `Attach Type`, `Instrumentation Key`, `Runtime Version`, `Operating System`, `Language`, `Version`, `Endpoint`, `Host`, `Status Code`    |
+| Request Duration       | Count | `Resource Provider`, `Attach Type`, `Instrumentation Key`, `Runtime Version`, `Operating System`, `Language`, `Version`, `Endpoint`, `Host`                   |
+| Retry Count            | Count | `Resource Provider`, `Attach Type`, `Instrumentation Key`, `Runtime Version`, `Operating System`, `Language`, `Version`, `Endpoint`, `Host`, `Status Code`    |
+| Throttle Count         | Count | `Resource Provider`, `Attach Type`, `Instrumentation Key`, `Runtime Version`, `Operating System`, `Language`, `Version`, `Endpoint`, `Host`, `Status Code`    |
+| Exception Count        | Count | `Resource Provider`, `Attach Type`, `Instrumentation Key`, `Runtime Version`, `Operating System`, `Language`, `Version`, `Endpoint`, `Host`, `Exception Type` |
+
+[!INCLUDE [azure-monitor-log-analytics-rebrand](~/reusable-content/ce-skilling/azure/includes/azure-monitor-instrumentation-key-deprecation.md)]
+
+#### Attach Statsbeat
+
+| Metric name | Unit  | Supported dimensions                                                                                                                                    |
+|-------------|-------|---------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Attach      | Count | `Resource Provider`, `Resource Provider Identifier`, `Attach Type`, `Instrumentation Key`, `Runtime Version`, `Operating System`, `Language`, `Version` |
+
+#### Feature Statsbeat
+
+| Metric name | Unit  | Supported dimensions                                                                                                                       |
+|-------------|-------|--------------------------------------------------------------------------------------------------------------------------------------------|
+| Feature     | Count | `Resource Provider`, `Attach Type`, `Instrumentation Key`, `Runtime Version`, `Feature`, `Type`, `Operating System`, `Language`, `Version` |
+
+### Nonessential Statsbeat
+
+Track the Disk I/O failure when you use disk persistence for reliable telemetry.
+
+| Metric name         | Unit  | Supported dimensions                                                                                                    |
+|---------------------|-------|-------------------------------------------------------------------------------------------------------------------------|
+| Read Failure Count  | Count | `Resource Provider`, `Attach Type`, `Instrumentation Key`, `Runtime Version`, `Operating System`, `Language`, `Version` |
+| Write Failure Count | Count | `Resource Provider`, `Attach Type`, `Instrumentation Key`, `Runtime Version`, `Operating System`, `Language`, `Version` |
+
+## Disable Statsbeat
+
+### [Java](#tab/java)
 
 > [!NOTE]
 > Only nonessential Statsbeat can be disabled in Java.
@@ -85,48 +121,12 @@ To disable nonessential Statsbeat, add the following configuration to your confi
 
 You can also disable this feature by setting the environment variable `APPLICATIONINSIGHTS_STATSBEAT_DISABLED` to `true`. This setting then takes precedence over `disabled`, which is specified in the JSON configuration.
 
-#### [Node](#tab/node)
+### [Node](#tab/node)
 
 Statsbeat is enabled by default. It can be disabled by setting the environment variable `APPLICATION_INSIGHTS_NO_STATSBEAT` to `true`.
 
-#### [Python](#tab/python)
+### [Python](#tab/python)
 
 Statsbeat is enabled by default. It can be disabled by setting the environment variable `APPLICATIONINSIGHTS_STATSBEAT_DISABLED_ALL` to `true`.
 
 ---
-
-## Essential Statsbeat
-
-### Network Statsbeat
-
-| Metric name            | Unit  | Supported dimensions                                                                                                                                          |
-|------------------------|-------|---------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Request Success Count  | Count | `Resource Provider`, `Attach Type`, `Instrumentation Key`, `Runtime Version`, `Operating System`, `Language`, `Version`, `Endpoint`, `Host`                   |
-| Requests Failure Count | Count | `Resource Provider`, `Attach Type`, `Instrumentation Key`, `Runtime Version`, `Operating System`, `Language`, `Version`, `Endpoint`, `Host`, `Status Code`    |
-| Request Duration       | Count | `Resource Provider`, `Attach Type`, `Instrumentation Key`, `Runtime Version`, `Operating System`, `Language`, `Version`, `Endpoint`, `Host`                   |
-| Retry Count            | Count | `Resource Provider`, `Attach Type`, `Instrumentation Key`, `Runtime Version`, `Operating System`, `Language`, `Version`, `Endpoint`, `Host`, `Status Code`    |
-| Throttle Count         | Count | `Resource Provider`, `Attach Type`, `Instrumentation Key`, `Runtime Version`, `Operating System`, `Language`, `Version`, `Endpoint`, `Host`, `Status Code`    |
-| Exception Count        | Count | `Resource Provider`, `Attach Type`, `Instrumentation Key`, `Runtime Version`, `Operating System`, `Language`, `Version`, `Endpoint`, `Host`, `Exception Type` |
-
-[!INCLUDE [azure-monitor-log-analytics-rebrand](~/reusable-content/ce-skilling/azure/includes/azure-monitor-instrumentation-key-deprecation.md)]
-
-### Attach Statsbeat
-
-| Metric name | Unit  | Supported dimensions                                                                                                                                    |
-|-------------|-------|---------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Attach      | Count | `Resource Provider`, `Resource Provider Identifier`, `Attach Type`, `Instrumentation Key`, `Runtime Version`, `Operating System`, `Language`, `Version` |
-
-### Feature Statsbeat
-
-| Metric name | Unit  | Supported dimensions                                                                                                                       |
-|-------------|-------|--------------------------------------------------------------------------------------------------------------------------------------------|
-| Feature     | Count | `Resource Provider`, `Attach Type`, `Instrumentation Key`, `Runtime Version`, `Feature`, `Type`, `Operating System`, `Language`, `Version` |
-
-## Nonessential Statsbeat
-
-Track the Disk I/O failure when you use disk persistence for reliable telemetry.
-
-| Metric name         | Unit  | Supported dimensions                                                                                                    |
-|---------------------|-------|-------------------------------------------------------------------------------------------------------------------------|
-| Read Failure Count  | Count | `Resource Provider`, `Attach Type`, `Instrumentation Key`, `Runtime Version`, `Operating System`, `Language`, `Version` |
-| Write Failure Count | Count | `Resource Provider`, `Attach Type`, `Instrumentation Key`, `Runtime Version`, `Operating System`, `Language`, `Version` |
