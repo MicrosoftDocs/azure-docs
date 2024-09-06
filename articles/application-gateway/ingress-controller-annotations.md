@@ -4,7 +4,7 @@ description: This article provides documentation on the annotations specific to 
 services: application-gateway
 author: greg-lindsay
 ms.service: azure-application-gateway
-ms.topic: article
+ms.topic: conceptual
 ms.date: 5/13/2024
 ms.author: greglin
 ---
