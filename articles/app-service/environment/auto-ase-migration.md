@@ -34,7 +34,7 @@ To receive this grace period, go to [Azure portal](https://portal.azure.com) and
 
 :::image type="content" source="./media/migration/ack-grace-period.png" alt-text="Screenshot that shows the button on the Migration page where you can acknowledge the available one-time 30-day grace period.":::
 
-Once you receive the grace period, the banner at the top of the Migration page shows the grace period end date. You might need to refresh the page to see the updated banner.
+Once you receive the grace period, the banner at the top of the Migration page shows the grace period end date. You might need to refresh the page to see the updated banner. It can take up to five minutes for the banner to update with the date.
 
 :::image type="content" source="./media/migration/grace-period-end-date.png" alt-text="Screenshot that shows the banner on the Migration page where you see the end date for the 30-day grace period that was provided.":::
 
