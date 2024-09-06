@@ -1,6 +1,6 @@
 ---
 title: Migrate Azure Spring Apps to Azure Container Apps
-description: The complete overview guide of Azure Spring Apps to Azure Container Apps migration.
+description: The complete overview guide for Azure Spring Apps migration to Azure Container Apps.
 author: KarlErickson
 ms.service: azure-spring-apps
 ms.topic: overview
@@ -12,9 +12,9 @@ ms.custom: devx-track-java, devx-track-extended-java
 
 # Migrate Azure Spring Apps to Azure Container Apps
 
-This article describes how to migrate Azure Spring Apps to Azure Container Apps. To consolidate cloud-native benefits and streamline all features, Azure Spring Apps, including consumption and dedicated, basic standard, and enterprise plans, is retiring. On September 17, 2024, consumption and dedicated plan (preview) enters its six month sunset period and retires in March 2025.
+This article describes when and how to migrate Azure Spring Apps to Azure Container Apps. To consolidate cloud-native benefits and streamline all features, Azure Spring Apps, including consumption and dedicated, basic standard, and enterprise plans, is retiring. On September 17, 2024, consumption and dedicated plan (preview) enters its six month sunset period and retires in March 2025.
 
-Use Azure Container Apps as the main destination for your migration. Azure Container Apps is a fully managed, serverless container platform for polyglot apps and offers enhanced Java features previously available in Azure Spring Apps. 
+Use Azure Container Apps as the main destination for your migration. Azure Container Apps is a fully managed, serverless container platform for polyglot apps and offers enhanced Java features previously available in Azure Spring Apps.
 
 With one easy step, you can migrate from Azure Spring Apps consumption & dedicated plan to Azure Container Apps. Select the **Migrate** button in the Azure portal and confirm the action. 
 
@@ -83,10 +83,10 @@ The following table describes the differences:
 |--------------------------------------------|------------------------------------|---------------------------------------|
 | Eureka active CPU                          |                                    | No change.                            |
 | Eureka idle CPU                            |                                    | No change.                            |
-| Config server active CPU                   |                                    | No change.                            |
-| Config server idle CPU                     |                                    | No change.                            |
+| Config Server active CPU                   |                                    | No change.                            |
+| Config Server idle CPU                     |                                    | No change.                            |
 | One million requests made to Eureka        | No extra cost.                     | $0.4 USD (estimated price)            |
-| One million requests made to Config server | No extra cost.                     | $0.4 USD (estimated price)            |
+| One million requests made to Config Server | No extra cost.                     | $0.4 USD (estimated price)            |
 
 With Azure Container Apps, you can apply Azure savings plan and save upto 15% with one year commitment and upto 17% with three year commitment, as shown in the following table:
 
