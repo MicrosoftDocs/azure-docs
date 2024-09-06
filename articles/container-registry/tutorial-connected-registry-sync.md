@@ -1,5 +1,5 @@
 ---
-title: "Sync Connected registry with Azure arc"
+title: "Connected registry synchronization scheduling"
 description: "Sync the Connected registry extension with Azure Arc synchronization schedule and window."
 author: tejaswikolli-web
 ms.author: tejaswikolli
@@ -7,16 +7,16 @@ ms.service: azure-container-registry
 ms.topic: tutorial  #Don't change.
 ms.date: 06/17/2024
 
-#customer intent: Learn how to sync the Connected registry extension with with synchronization schedule and window.
+#customer intent: Learn how to sync the connected registry extension using a synchronization schedule and window.
 ---
 
-# Sync Connected registry with Azure Arc in Scheduled window
+# Configuring the connected registry sync schedule and window
 
-In this tutorial, you learn how to synchronize the Connected registry extension with Azure Arc. The synchronization process includes updating the Connected registry extension with synchronization schedule and window.
+In this tutorial, you’ll learn how to configure the synchronization for a connected registry. The process includes updating the connected registry extension with a synchronization schedule and window.
 
-The tutorial helps you to update the synchronization schedule for a Connected registry in Azure Container Registry using Azure CLI commands. It guides you on how to set up the Connected registry to sync continuously every minute or sync every day at midnight.
+You’ll be guided on how to update the synchronization schedule using Azure CLI commands. This tutorial covers setting up the connected registry to sync continuously every minute or to sync daily at midnight.
 
-The commands use CRON expressions to define the sync schedule and ISO 8601 duration format for the sync window. Remember to replace the placeholders with your actual registry names when executing the commands.
+The commands utilize CRON expressions to define the sync schedule and the ISO 8601 duration format for the sync window. Remember to replace the placeholders with your actual registry names when executing the commands.
 
 You learn how to:
 
@@ -28,11 +28,11 @@ You learn how to:
 
 To complete this tutorial, you need the following resources:
 
-* Follow the [quickstart][quickstart] to create an Azure Arc-enabled Kubernetes cluster. Deploying Secure-by-default settings imply the following configuration is being used: HTTPS, Read Only, Trust Distribution, Cert Manager service.
+* Follow the [quickstart][quickstart] as needed.
 
-## Update the Connected registry to sync every day at midnight
+## Update the connected registry to sync every day at midnight
 
-1. Run the [az acr connected-registry update][az-acr-connected-registry-update] command to update the Connected registry synchronization schedule to occasionally connect and sync every day at midnight with sync window for 4 hours duration.
+1. Run the [az acr connected-registry update][az-acr-connected-registry-update] command to update the connected registry synchronization schedule to occasionally connect and sync every day at midnight with sync window for 4 hours duration.
 
 For example, the following command configures the connected registry `myconnectedregistry` to schedule sync daily occur every day at 12:00 PM UTC at midnight and set the synchronization window to 4 hours (PT4H). The duration for which the connected registry will sync with the parent ACR `myacrregistry` after the sync initiates.
 
@@ -43,13 +43,13 @@ az acr connected-registry update --registry myacrregistry \
 --sync-window PT4H
 ```
 
-The configuration sync for the connected registry daily at noon UTC for 4 hours.
+The configuration syncs the connected registry daily at noon UTC for 4 hours.
 
-## Update the Connected registry and sync continuously every minute  
+## Update the connected registry to sync continuously every minute  
 
-1. Run the [az acr connected-registry update][az-acr-connected-registry-update] command to update the Connected registry synchronization to connect and sync continuously every minute.  
+1. Run the [az acr connected-registry update][az-acr-connected-registry-update] command to update the connected registry synchronization to connect and sync continuously every minute.  
 
-For example, the following command configures the connected registry `myconnectedregistry` to schedule sync every minute.
+For example, the following command configures the connected registry `myconnectedregistry` to schedule sync every minute with the cloud registry.
 
 ```azurecli 
 az acr connected-registry update --registry myacrregistry \ 
@@ -57,7 +57,7 @@ az acr connected-registry update --registry myacrregistry \
 --sync-schedule "* * * * *"    
 ```
 
-The configuration syncs every minute with the connected registry.
+The configuration syncs the connected registry with the cloud registry every minute.
 
 ## Next steps
 
