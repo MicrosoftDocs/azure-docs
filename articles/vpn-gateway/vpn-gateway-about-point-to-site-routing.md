@@ -4,7 +4,7 @@ titleSuffix: Azure VPN Gateway
 description: Learn about Azure Point-to-Site VPN routing for different operating systems, remote access protocols, and virtual network configurations.
 author: cherylmc
 ms.service: azure-vpn-gateway
-ms.topic: article
+ms.topic: concept-article
 ms.date: 07/28/2023
 ms.author: cherylmc
 
