@@ -44,8 +44,6 @@ Azure Logic Apps applies different pricing models, based on the resources that y
 
 * Logic app resources that you create and run in single-tenant Azure Logic Apps use a [hosting plan pricing model](../logic-apps/logic-apps-pricing.md#standard-pricing).
 
-* Logic app resources that you create and run in an [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) use the [ISE pricing model](../logic-apps/logic-apps-pricing.md#ise-pricing).
-
 Here are other resources that incur costs when you create them for use with logic apps:
 
 * An [integration account](../logic-apps/logic-apps-pricing.md#integration-accounts) is a separate resource that you create and link to logic apps for building B2B integrations. Integration accounts use a [fixed pricing model](../logic-apps/logic-apps-pricing.md#integration-accounts) where the rate is based on the integration account type or *tier* that you use.
@@ -77,10 +75,6 @@ If you have these resources after deleting a logic app, these resources continue
 * Azure resources that you create and manage independently from the logic app that connects to those resources, for example, Azure function apps, event hubs, event grids, and so on
 
 * Integration accounts
-
-* Integration service environments (ISEs)
-
-  If you [delete an ISE](ise-manage-integration-service-environment.md#delete-ise), the associated Azure virtual network, subnets, and other related resources continue to exist. After you delete the ISE, you might have to wait up to a specific number of hours before you can try deleting the virtual network or subnets.
 
 ### Using Monetary Credit with Azure Logic Apps
 

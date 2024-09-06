@@ -53,7 +53,6 @@ The SAP connector has different versions, based on [logic app type and host envi
 | Logic app | Environment | Connector version |
 |-----------|-------------|-------------------|
 | **Consumption** | Multitenant Azure Logic Apps | Managed connector, which appears in the designer under the **Enterprise** label. For more information, review the following documentation: <br><br>- [SAP managed connector reference](/connectors/sap/) <br>- [Managed connectors in Azure Logic Apps](../../connectors/managed.md) |
-| **Consumption** | Integration service environment (ISE) | Managed connector, which appears in the designer under the **Enterprise** label, and the ISE-native version, which appears in the designer with the **ISE** label and has different message limits than the managed connector. <br><br>**Note**: Make sure to use the ISE-native version, not the managed version. <br><br>For more information, review the following documentation: <br><br>- [SAP managed connector reference](/connectors/sap/) <br>- [ISE message limits](../logic-apps-limits-and-config.md#message-size-limits) <br>- [Managed connectors in Azure Logic Apps](../../connectors/managed.md) |
 | **Standard** | Single-tenant Azure Logic Apps and App Service Environment v3 (Windows plans only) | Managed connector, which appears in the connector gallery under **Runtime** > **Shared**, and the built-in connector, which appears in the connector gallery under **Runtime** > **In-App** and is [service provider-based](../custom-connector-overview.md#service-provider-interface-implementation). The built-in connector can directly access Azure virtual networks with a connection string without an on-premises data gateway. For more information, review the following documentation: <br><br>- [SAP managed connector reference](/connectors/sap/) <br>- [SAP built-in connector reference](/azure/logic-apps/connectors/built-in/reference/sap/) <br><br>- [Managed connectors in Azure Logic Apps](../../connectors/managed.md) <br>- [Built-in connectors in Azure Logic Apps](../../connectors/built-in.md) |
 
 ## Connector differences
@@ -167,13 +166,6 @@ SAP upgraded their .NET connector (NCo) to version 3.1, which changed the way th
   * For a Consumption workflow in multitenant Azure Logic Apps, see [Multitenant prerequisites](#multitenant-prerequisites).
 
   * For a Standard workflow in single-tenant Azure Logic Apps, see [Single-tenant prerequisites](#single-tenant-prerequisites).
-
-  * For a Consumption workflow in a Premium-level [integration service environment (ISE)](../connect-virtual-network-vnet-isolated-environment-overview.md), see [ISE prerequisites](#ise-prerequisites).
-
-    > [!NOTE]
-    >
-    > When you use a Premium-level ISE, use the ISE-native SAP connector, not the SAP managed connector, 
-    > which doesn't natively run in an ISE. For more information, review the [ISE prerequisites](#ise-prerequisites).
 
 * By default, the SAP built-in connector operations are *stateless*. To run these operations in stateful mode, see [Enable stateful mode for stateless built-in connectors](../../connectors/enable-stateful-affinity-built-in-connectors.md).
 
@@ -592,29 +584,6 @@ For a Standard workflow in single-tenant Azure Logic Apps, use the SAP *built-in
    1. Create the following folder and subfolders: **lib** > **builtinOperationSdks** > **net472**
 
    1. In the **net472** folder, upload the assembly files larger than 4 MB.
-
-### [ISE](#tab/ise)
-
-<a name="ise-prerequisites"></a>
-
-For a Consumption workflow in an ISE, the ISE provides access to resources that are protected by an Azure virtual network and offers other ISE-native connectors that let workflows directly access on-premises resources without having to use the on-premises data gateway.
-
-> [!IMPORTANT]
->
-> On August 31, 2024, the ISE resource will retire, due to its dependency on Azure Cloud Services (classic), 
-> which retires at the same time. Before the retirement date, export any logic apps from your ISE to Standard 
-> logic apps so that you can avoid service disruption. Standard logic app workflows run in single-tenant Azure 
-> Logic Apps and provide the same capabilities plus more.
->
-> Starting November 1, 2022, you can no longer create new ISE resources. However, ISE resources existing 
-> before this date are supported through August 31, 2024. For more information, see the following resources:
->
-> - [ISE Retirement - what you need to know](https://techcommunity.microsoft.com/t5/azure-integration-services-blog/ise-retirement-what-you-need-to-know/ba-p/3645220)
-> - [Single-tenant versus multitenant and integration service environment for Azure Logic Apps](../single-tenant-overview-compare.md)
-> - [Azure Logic Apps pricing](https://azure.microsoft.com/pricing/details/logic-apps/)
-> - [Export ISE workflows to a Standard logic app](../export-from-ise-to-standard-logic-app.md)
-> - [Integration Services Environment will be retired on 31 August 2024 - transition to Logic Apps Standard](https://azure.microsoft.com/updates/integration-services-environment-will-be-retired-on-31-august-2024-transition-to-logic-apps-standard/)
-> - [Cloud Services (classic) deployment model is retiring on 31 August 2024](https://azure.microsoft.com/updates/cloud-services-retirement-announcement/)
 
 1. If you don't already have an Azure Storage account with a blob container, create a container using either the [Azure portal](../../storage/blobs/storage-quickstart-blobs-portal.md) or [Azure Storage Explorer](../../storage/blobs/quickstart-storage-explorer.md).
 

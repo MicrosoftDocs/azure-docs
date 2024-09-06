@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: rohithah, laveeshb, rarayudu, azla
 ms.topic: reference
-ms.date: 05/20/2024
+ms.date: 09/06/2024
 ---
 
 # Limits and configuration reference for Azure Logic Apps
@@ -14,13 +14,13 @@ ms.date: 05/20/2024
 
 > For Power Automate, review [Limits and configuration in Power Automate](/power-automate/limits-and-config).
 
-This reference guide describes the limits and configuration information for Azure Logic Apps and related resources. Based on your scenario, solution requirements, the capabilities that you want, and the environment where you want to run your workflows, you choose whether to create a Consumption logic app workflow that runs in *multitenant* Azure Logic Apps or an integration service environment (ISE). Or, create a Standard logic app workflow that runs in *single-tenant* Azure Logic Apps or an App Service Environment (v3 - Windows plans only).
+This reference guide describes the limits and configuration information for Azure Logic Apps and related resources. Based on your scenario, solution requirements, the capabilities that you want, and the environment where you want to run your workflows, you choose whether to create a Consumption logic app workflow that runs in *multitenant* Azure Logic Apps or a Standard logic app workflow that runs in *single-tenant* Azure Logic Apps or an App Service Environment (v3 - Windows plans only).
 
 > [!NOTE]
 >
 > Many limits are the same across the available environments where Azure Logic Apps runs, but differences are noted where they exist.
 
-The following table briefly summarizes differences between a Consumption logic app and a Standard logic app. You'll also learn how single-tenant Azure Logic Apps compares to multitenant Azure Logic Apps and an ISE for deploying, hosting, and running your logic app workflows.
+The following table briefly summarizes differences between a Consumption logic app and a Standard logic app.
 
 [!INCLUDE [Logic app resource type and environment differences](../../includes/logic-apps-resource-environment-differences-table.md)]
 

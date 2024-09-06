@@ -1,6 +1,11 @@
 {
     "redirections": [
         {
+            "source_path_from_root": "/articles/logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md",
+            "redirect_url": "/azure/logic-apps/single-tenant-overview-compare",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/logic-apps/connect-virtual-network-vnet-set-up-single-ip-address.md",
             "redirect_url": "/azure/logic-apps/secure-single-tenant-workflow-virtual-network-private-endpoint",
             "redirect_document_id": false

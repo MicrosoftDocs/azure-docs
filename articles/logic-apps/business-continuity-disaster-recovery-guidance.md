@@ -54,12 +54,6 @@ This example shows primary and secondary logic app instances, which are deployed
 
 ![Primary and secondary logic app instances in separate locations](./media/business-continuity-disaster-recovery-guidance/primary-secondary-locations.png)
 
-#### Example: Integration service environment
-
-This example shows the previous primary and secondary logic app instances but deployed to separate ISEs. A single Resource Manager template defines both logic app instances, the dependent resources required by those logic apps, and the ISEs as the deployment locations. Separate parameter files define the configuration values to use for deployment in each location:
-
-![Primary and secondary logic apps in different locations](./media/business-continuity-disaster-recovery-guidance/primary-secondary-locations-ise.png)
-
 <a name="resource-connections"></a>
 
 ## Connections to resources
@@ -83,16 +77,6 @@ For your disaster recovery strategy, consider the locations where dependent reso
 If your logic app runs in multitenant Azure and needs access to on-premises resources such as SQL Server databases, you need to install the [on-premises data gateway](../logic-apps/logic-apps-gateway-install.md) on a local computer. You can then create a data gateway resource in the Azure portal so that your logic app can use the gateway when you create a connection to the resource.
 
 The data gateway resource is associated with a location or Azure region, just like your logic app resource. In your disaster recovery strategy, make sure that the data gateway remains available for your logic app to use. You can [enable high availability for your gateway](../logic-apps/logic-apps-gateway-install.md#high-availability) when you have multiple gateway installations.
-
-> [!NOTE]
-> If your logic app runs in an integration service environment (ISE) and uses only 
-> ISE-versioned connectors for on-premises data sources, you don't need the data 
-> gateway because ISE connectors provide direct access to the the on-premises resource.
->
-> If no ISE-versioned connector is available for the on-premises resource that you want, 
-> your logic app can still create the connection by using a non-ISE connector, 
-> which runs in the global multitenant Azure, not your ISE. However, this connection 
-> requires the on-premises data gateway.
 
 <a name="roles"></a>
 
