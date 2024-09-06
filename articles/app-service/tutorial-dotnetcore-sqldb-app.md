@@ -3,7 +3,7 @@
 title: Deploy ASP.NET Core and Azure SQL Database app
 description: Learn how to deploy an ASP.NET Core web app to Azure App Service and connect to an Azure SQL Database.
 ms.topic: tutorial
-ms.date: 09/30/2024
+ms.date: 09/06/2024
 author: cephalin
 ms.author: cephalin
 ms.devlang: csharp
@@ -31,12 +31,25 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
+::: zone pivot="azure-portal"
+
 * An Azure account with an active subscription. If you don't have an Azure account, you [can create one for free](https://azure.microsoft.com/free).
 * A GitHub account. you can also [get one for free](https://github.com/join).
 * Knowledge of ASP.NET Core development.
 * **(Optional)** To try GitHub Copilot, a [GitHub Copilot account](https://docs.github.com/copilot/using-github-copilot/using-github-copilot-code-suggestions-in-your-editor). A 30-day free trial is available.
 
-<!-- ## Skip to the end
+::: zone-end
+
+::: zone pivot="azure-developer-cli"
+
+* An Azure account with an active subscription. If you don't have an Azure account, you [can create one for free](https://azure.microsoft.com/free/java).
+* [Azure Developer CLI](/azure/developer/azure-developer-cli/install-azd) installed. You can follow the steps with the [Azure Cloud Shell](https://shell.azure.com) because it already has Azure Developer CLI installed.
+* Knowledge of ASP.NET Core development.
+* **(Optional)** To try GitHub Copilot, a [GitHub Copilot account](https://docs.github.com/copilot/using-github-copilot/using-github-copilot-code-suggestions-in-your-editor). A 30-day free trial is available.
+
+::: zone-end
+
+## Skip to the end
 
 You can quickly deploy the sample app in this tutorial and see it running in Azure. Just run the following commands in the [Azure Cloud Shell](https://shell.azure.com), and follow the prompt:
 
@@ -46,7 +59,6 @@ cd msdocs-app-service-sqldb-dotnetcore
 azd init --template msdocs-app-service-sqldb-dotnetcore
 azd up
 ```
- -->
 
 ## 1. Run the sample
 
@@ -259,7 +271,7 @@ The creation wizard generated the connectivity string for you already as [.NET c
         1. Select **Save**. Wait until the **Update succeeded** notification appears.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/azure-portal-secure-connection-secrets-7.png" alt-text="A screenshot showing how to edit the SQL Database service connector with a key vault connection." lightbox="./media/tutorial-dotnetcore-sqldb-app/azure-portal-secure-connection-secrets-7.png":::
+        :::image type="content" source="./media/tutorial-dotnetcore-sqldb-app/azure-portal-secure-connection-secrets-7.png" alt-text="A screenshot showing how to edit the Cache for Redis service connector with a key vault connection." lightbox="./media/tutorial-dotnetcore-sqldb-app/azure-portal-secure-connection-secrets-7.png":::
     :::column-end:::
 :::row-end:::
 :::row:::
@@ -641,7 +653,7 @@ With the SQL Database protected by the virtual network, the easiest way to run d
 1. In the azd output, find the URL for the SSH session and navigate to it in the browser. It looks like this in the output:
 
     <pre>
-    Open SSH session to App Service container at: https://&lt;app-name>-<hash>.scm.azurewebsites.net/webssh/host
+    Open SSH session to App Service container at: https://&lt;app-name>-&lt;hash>.scm.azurewebsites.net/webssh/host
     </pre>
 
 1. In the SSH terminal, run the following commands: 
@@ -759,7 +771,7 @@ Pricing for the created resources is as follows:
 
 ### How do I connect to the Azure SQL Database server that's secured behind the virtual network with other tools?
 
-- For basic access from a command-line tool, you can run `sqlcmd` from the app's SSH terminal. The app's container doesn't come with `sqlcmd`, so you must [install it manually](/sql/tools/sqlcmd/sqlcmd-utility?view=sql-server-ver16&tabs=go%2Clinux&pivots=cs1-bash#download-and-install-sqlcmd). Remember that the installed client doesn't persist across app restarts.
+- For basic access from a command-line tool, you can run `sqlcmd` from the app's SSH terminal. The app's container doesn't come with `sqlcmd`, so you must [install it manually](/sql/tools/sqlcmd/sqlcmd-utility?tabs=go%2Clinux&pivots=cs1-bash#download-and-install-sqlcmd). Remember that the installed client doesn't persist across app restarts.
 - To connect from a SQL Server Management Studio client or from Visual Studio, your machine must be within the virtual network. For example, it could be an Azure VM that's connected to one of the subnets, or a machine in an on-premises network that has a [site-to-site VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md) connection with the Azure virtual network.
 
 ### How does local app development work with GitHub Actions?
