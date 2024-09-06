@@ -1,7 +1,7 @@
 ---
-title: Azure Spring Apps to Azure Containe Apps Migration Guide
+title: Migrate Azure Spring Apps to Azure Container Apps
 description: The complete overview guide of Azure Spring Apps to Azure Containe Apps migration.
-author: Sean Li
+author: KarlErickson
 ms.service: azure-spring-apps
 ms.topic: overview
 ms.date: 09/05/2024
@@ -10,24 +10,23 @@ ms.custom: devx-track-java, devx-track-extended-java
 #Customer intent: As an Azure Cloud user, I want to deploy, run, and monitor Spring applications.
 ---
 
-# Azure Spring Apps to Azure Containe Apps Migration Guide
-To consolidate cloud-native benefits and streamline our offerings, Azure Spring Apps, including consumption and dedicated, basic, standard and enterprise plans, is going to be retired. On September 17<sup>th</sup>, 2024, consumption and dedicated plan (preview) will enter its 6-month sunset period and will retire in March 2025. 
+# Migrate Azure Spring Apps to Azure Container Apps
 
-We recommend Azure Container Apps as the hero destination for your migration. Azure Container Apps is a fully managed serverless container platform for polyglot apps and offers enhanced Java features that were previously available in Azure Spring Apps. 
+This article describes how to migrate Azure Spring Apps to Azure Container Apps. To consolidate cloud-native benefits and streamline all features, Azure Spring Apps, including consumption and dedicated, basic standard, and enterprise plans, is retiring. On September 17, 2024, consumption and dedicated plan (preview) enters its 6-month sunset period and retires in March 2025.
 
-We've introduced a 1-click migration feature to ease the transition from Azure Spring Apps consumption & dedicated plan to Azure Container Apps. Just click the migrate button in the Azure portal and confirm the action. 
+We recommend Azure Container Apps as the main destination for your migration. Azure Container Apps is a fully-managed, serverless container platform for polyglot apps and offers enhanced Java features previously available in Azure Spring Apps. 
 
-This feature will be available mid-October 2024, and we recommend starting the migration then to simplify the process.
+We've introduced a 1-click migration feature to ease the transition from Azure Spring Apps consumption & dedicated plan to Azure Container Apps. Just select the **Migrate** button in the Azure portal and confirm the action. 
 
-![A screenshot of a computer
+:::image type="content" source="/media/overview-migration-guide/consumption-plan-migration-button.png" alt-text="Screenshot of the Azure portal that shows the Migrate button." border="false" lightbox="/media/overview-migration-guide/consumption-plan-migration-button.png":::
 
-Description automatically generated](articles/spring-apps/enterprise/media/overview-migration-guide/snapshot1.png)
+:::image type="content" source="/media/overview-migration-guide/consumption-plan-migration-confirmation.png" alt-text="Screenshot of the Migrate to Azure Container Apps message with Yes option highlighted." border="false" lightbox="/media/overview-migration-guide/consumption-plan-migration-confirmation.png":::
 
-![A screenshot of a computer
+This feature is available mid-October 2024 and you can start the migration as soon as it's available to simplify the process.
 
-Description automatically generated](articles/spring-apps/enterprise/media/overview-migration-guide/snapshot2.png)
+Once the migration finishes, the app appears as a standard app inside Azure Container Apps application, with the Java development stack turned on. With this option enabled, you get access to Java specific [metrics](/azure/container-apps/java-metrics?tabs=create&pivots=azure-portal.md) and [logs](/azure/container-apps/java-dynamic-log-level.md) to monitor and troubleshoot your apps.
 
-Once the migration is finished, the app will appear as a standard app inside Azure Container Apps app, with the Java development stack turned on. With this option enabled, you get access to Java specific [metrics](https://learn.microsoft.com/en-us/azure/container-apps/java-metrics?tabs=create&pivots=azure-portal) and [logs](https://learn.microsoft.com/en-us/azure/container-apps/java-dynamic-log-level) to monitor and troubleshoot your apps. 
+## Frequently asked questions
 
 We put together an extensive FAQ to address any questions you might have about the migration.
 
