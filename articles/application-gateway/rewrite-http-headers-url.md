@@ -38,7 +38,7 @@ With URL rewrite capability in Application Gateway, you can:
 
 * Rewrite the host name, path and query string of the request URL 
 
-* Choose to rewrite the URL of all requests on a listener or only those requests which match one or more of the conditions you set. These conditions are based on the request properties (request header and server variables).
+* Choose to rewrite the URL of all requests on a listener or only those requests that match one or more of the conditions you set. These conditions are based on the request properties (request header and server variables).
 
 * Choose to route the request (select the backend pool) based on either the original URL or the rewritten URL
 
@@ -58,7 +58,7 @@ Rewrite actions are used to specify the URL. Request headers or response headers
 
 ## Rewrite Conditions
 
-You can use rewrite conditions to evaluate the content of HTTP(S) requests and responses. This is an optional configuration that enables you to perform a rewrite only when one or more conditions are met. The application gateway uses these types of variables to evaluate the content of requests and responses:
+You can use rewrite conditions to evaluate the content of HTTP(S) requests and responses. This optional configuration enables you to perform a rewrite only when one or more conditions are met. The application gateway uses these types of variables to evaluate the content of requests and responses:
 
 * HTTP headers in the request
 * HTTP headers in the response
@@ -104,7 +104,7 @@ Application gateway supports the following server variables:
 
 |   Variable name    |                   Description                                           |
 | ------------------------- | ------------------------------------------------------------ |
-| add_x_forwarded_for_proxy | The X-Forwarded-For client request header field with the `client_ip` variable   (see explanation later in this table) appended to it in the format IP1, IP2,   IP3, and so on. If the X-Forwarded-For field isn't in the client request header,   the `add_x_forwarded_for_proxy` variable   is equal to the `$client_ip` variable.   This variable is very useful when you want to rewrite the X-Forwarded-For header set by Application Gateway so that the header contains   only the IP address without the port information. |
+| add_x_forwarded_for_proxy | The X-Forwarded-For client request header field with the `client_ip` variable   (see explanation later in this table) appended to it in the format IP1, IP2,   IP3, and so on. If the X-Forwarded-For field isn't in the client request header,   the `add_x_forwarded_for_proxy` variable   is equal to the `$client_ip` variable.   This variable is useful when you want to rewrite the X-Forwarded-For header set by Application Gateway so that the header contains   only the IP address without the port information. |
 | ciphers_supported         | A list of the ciphers supported by the client.               |
 | ciphers_used              | The string of ciphers used for an established TLS   connection. |
 | client_ip                 | The IP address of the client from which the application   gateway received the request. If there's a reverse proxy before the   application gateway and the originating client, `client_ip` returns the IP address of the reverse proxy. |
@@ -150,7 +150,7 @@ A rewrite rule set contains:
 
 * **Request routing rule association:** The rewrite configuration is associated to the source listener via the routing rule. When you use a basic routing rule, the rewrite configuration is associated with a source listener and is a global header rewrite. When you use a path-based routing rule, the rewrite configuration is defined on the URL path map. In that case, it applies only to the specific path area of a site. You can create multiple rewrite sets and apply each rewrite set to multiple listeners. But you can apply only one rewrite set to a specific listener.
 
-* **Rewrite Condition**: It is an optional configuration. Rewrite conditions evaluate the content of the HTTP(S) requests and responses. The rewrite action occurs if the HTTP(S) request or response matches the rewrite condition. If you associate more than one condition with an action, the action occurs only when all the conditions are met. In other words, the operation is a logical AND operation.
+* **Rewrite Condition**: This configuration is optional. Rewrite conditions evaluate the content of the HTTP(S) requests and responses. The rewrite action occurs if the HTTP(S) request or response matches the rewrite condition. If you associate more than one condition with an action, the action occurs only when all the conditions are met. In other words, the operation is a logical AND operation.
 
 * **Rewrite type**: There are 3 types of rewrites available:
    * Rewriting request headers 
