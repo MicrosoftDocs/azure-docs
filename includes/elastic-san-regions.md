@@ -36,12 +36,12 @@ The following list contains the regions Elastic SAN is currently available in, a
 - UAE North - LRS
 - India Central - LRS
 
-Elastic SAN also supports the following regions without Availability Zonal support: 
+Elastic SAN is also available in the following regions, but without Availability Zone support: 
 - Canada East - LRS
 - North Central US - LRS
 - Japan West - LRS
 
-In order to enable these regions, the following feature flag will need to be registered: 
+To enable these regions, run the following command to register the necessary feature flag: 
 ```azurepowershell
 Register-AzProviderFeature -FeatureName "EnableElasticSANRegionalDeployment" -ProviderNamespace "Microsoft.ElasticSan"
 ```
