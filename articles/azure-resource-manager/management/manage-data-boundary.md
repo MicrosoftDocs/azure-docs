@@ -4,7 +4,7 @@ description: Learn how to configure EUDB.
 ms.topic: how-to
 ms.date: 09/04/2024
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-# Customer intent: As an Azure user, I want to use preview features in my subscription so that I can expose a resource provider's preview functionality.
+# Customer intent: As an Azure user, I want to create a new data boundary.
 ---
 
 # Configure data boundary
@@ -25,11 +25,19 @@ To opt your tenant into an Azure EU Data Boundary:
 
 ## Use the portal
 
+(Pending Joy Shah)
+
 ## Use Azure CLI
+
+(Pending Joy Shah)
 
 ## Use Azure PowerShell
 
+(Pending Joy Shah)
+
 ## Use ARM template/Bicep
+
+(Pending Joy Shah)
 
 ## Use REST API
 
@@ -85,4 +93,5 @@ Response body:
 
 ## Next steps
 
-- ...
+- To learn about creating Resource Manager templates, see [Authoring Azure Resource Manager templates](../templates/syntax.md).
+- To view the resource provider template schemas, see [Template reference](/azure/templates/).
