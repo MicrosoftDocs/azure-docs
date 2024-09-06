@@ -5,7 +5,7 @@ ms.service: azure-hdinsight
 ms.topic: how-to
 ms.author: sairamyeturi
 author: yeturis
-ms.date: 08/12/2024
+ms.date: 09/06/2024
 ---
 
 # Log Analytics migration guide for Azure HDInsight clusters
