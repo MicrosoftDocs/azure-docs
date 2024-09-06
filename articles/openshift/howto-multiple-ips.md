@@ -18,12 +18,6 @@ You can configure up to 20 IP addresses per cluster. The outbound rules and fron
 > Before deleting a large cluster, descale the cluster to 120 nodes or below.
 > 
 
-<!-->
-> [!NOTE]
-> The [API](/rest/api/openshift/open-shift-clusters/update?view=rest-openshift-2023-11-22&tabs=HTTP) method for using this feature is generally available. General availability for using the CLI for this feature is coming soon. The [preview version](#download-aro-extension-wheel-file-preview-only) of this feature can still be used through the CLI.
-> 
--->
-
 ## Requirements
 
 The multiple public IPs feature is only available on the current network architecture used by ARO; older clusters don't support this feature. If your cluster was created before OpenShift Container Platform (OCP) version 4.5, this feature isn't available even if you upgraded your OCP version since then.
