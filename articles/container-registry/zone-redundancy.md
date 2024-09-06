@@ -1,7 +1,7 @@
 ---
 title: Zone-redundant registry for high availability
 description: Learn about enabling zone redundancy in Azure Container Registry. Create a container registry or replication in an Azure availability zone. Zone redundancy is a feature of the Premium service tier.
-ms.topic: article
+ms.topic: conceptual
 author: tejaswikolli-web
 ms.author: tejaswikolli
 ms.date: 10/31/2023

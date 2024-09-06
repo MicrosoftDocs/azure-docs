@@ -6,7 +6,7 @@ ms.subservice: integration-runtime
 ms.topic: conceptual
 author: lrtoyou1223
 ms.author: lle
-ms.date: 01/05/2024
+ms.date: 09/03/2024
 ms.custom: synapse
 ---
 
@@ -56,11 +56,8 @@ Here's a high-level summary of the data-flow steps for copying with a self-hoste
 ## Prerequisites
 
 - The supported versions of Windows are:
-  - Windows 8.1
   - Windows 10
   - Windows 11
-  - Windows Server 2012
-  - Windows Server 2012 R2
   - Windows Server 2016
   - Windows Server 2019
   - Windows Server 2022
