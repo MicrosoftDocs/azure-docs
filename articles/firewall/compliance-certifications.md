@@ -4,7 +4,7 @@ description: A list of Azure Firewall certifications for PCI, SOC, and ISO.
 services: firewall
 author: vhorne
 ms.service: azure-firewall
-ms.topic: article
+ms.topic: concept-article
 ms.date: 04/28/2023
 ms.author: victorh
 ---
