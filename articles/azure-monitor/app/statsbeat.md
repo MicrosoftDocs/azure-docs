@@ -20,15 +20,21 @@ Statsbeat data is stored in a Microsoft data store. It doesn't affect customers'
 > [!NOTE]
 > Statsbeat doesn't support [Azure Private Link](../../automation/how-to/private-link-security.md).
 
-## What data does Statsbeat collect?
-
-Statsbeat collects essential and nonessential metrics.
-
 ## Supported languages
 
 | C#                      | Java      | JavaScript              | Node.js   | Python    |
 |-------------------------|-----------|-------------------------|-----------|-----------|
 | Currently not supported | Supported | Currently not supported | Supported | Supported |
+
+## What data does Statsbeat collect?
+
+Statsbeat collects [essential](#essential-statsbeat) and [nonessential](#nonessential-statsbeat) metrics:
+
+| Language | Essential metrics | Non-essential metrics |
+|----------|-------------------|-----------------------|
+| Java     | ✅                | ✅                     |
+| Node.js  | ✅                | ❌                     |
+| Python   | ✅                | ❌                     |
 
 ## Supported EU regions
 
@@ -48,6 +54,46 @@ Statsbeat supports EU Data Boundary for Application Insights resources in the fo
 | Switzerland    | Switzerland West     |
 | United Kingdom | United Kingdom South |
 | United Kingdom | United Kingdom West  |
+
+## Firewall configuration
+
+Metrics are sent to the following locations, to which outgoing connections must be opened in firewalls:
+
+| Location          | URL                                             |
+|-------------------|-------------------------------------------------|
+| Europe            | `westeurope-5.in.applicationinsights.azure.com` |
+| Outside of Europe | `westus-0.in.applicationinsights.azure.com`     |
+
+### Disable Statsbeat
+
+#### [Java](#tab/java)
+
+> [!NOTE]
+> Only nonessential Statsbeat can be disabled in Java.
+
+To disable nonessential Statsbeat, add the following configuration to your config file:
+
+```json
+{
+  "preview": {
+    "statsbeat": {
+        "disabled": "true"
+    }
+  }
+}
+```
+
+You can also disable this feature by setting the environment variable `APPLICATIONINSIGHTS_STATSBEAT_DISABLED` to `true`. This setting then takes precedence over `disabled`, which is specified in the JSON configuration.
+
+#### [Node](#tab/node)
+
+Statsbeat is enabled by default. It can be disabled by setting the environment variable `APPLICATION_INSIGHTS_NO_STATSBEAT` to `true`.
+
+#### [Python](#tab/python)
+
+Statsbeat is enabled by default. It can be disabled by setting the environment variable `APPLICATIONINSIGHTS_STATSBEAT_DISABLED_ALL` to `true`.
+
+---
 
 ## Essential Statsbeat
 
@@ -84,40 +130,3 @@ Track the Disk I/O failure when you use disk persistence for reliable telemetry.
 |---------------------|-------|-------------------------------------------------------------------------------------------------------------------------|
 | Read Failure Count  | Count | `Resource Provider`, `Attach Type`, `Instrumentation Key`, `Runtime Version`, `Operating System`, `Language`, `Version` |
 | Write Failure Count | Count | `Resource Provider`, `Attach Type`, `Instrumentation Key`, `Runtime Version`, `Operating System`, `Language`, `Version` |
-
-### Disable Statsbeat
-
-#### [Java](#tab/java)
-
-To disable nonessential Statsbeat, add the following configuration to your config file:
-
-```json
-{
-  "preview": {
-    "statsbeat": {
-        "disabled": "true"
-    }
-  }
-}
-```
-
-You can also disable this feature by setting the environment variable `APPLICATIONINSIGHTS_STATSBEAT_DISABLED` to `true`. This setting then takes precedence over `disabled`, which is specified in the JSON configuration.
-
-#### [Node](#tab/node)
-
-Statsbeat is enabled by default. It can be disabled by setting the environment variable `APPLICATION_INSIGHTS_NO_STATSBEAT` to `true`.
-
-#### [Python](#tab/python)
-
-Statsbeat is enabled by default. It can be disabled by setting the environment variable `APPLICATIONINSIGHTS_STATSBEAT_DISABLED_ALL` to `true`.
-
----
-
-### Configure firewall
-
-Metrics are sent to the following locations, to which outgoing connections must be opened in firewalls:
-
-| Location          | URL                                             |
-|-------------------|-------------------------------------------------|
-| Europe            | `westeurope-5.in.applicationinsights.azure.com` |
-| Outside of Europe | `westus-0.in.applicationinsights.azure.com`     |
