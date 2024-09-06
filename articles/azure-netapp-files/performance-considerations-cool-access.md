@@ -16,7 +16,7 @@ Data sets aren't always actively used. Up to 80% of data in a set can be conside
 
 Accessing data that has moved to the cool tiers incurs more latency, particularly for random I/O. In a worst-case scenario, all of the data being accessed might be on the cool tier, so every request would need to conduct a retrieval of the data. It's uncommon for all of the data in an actively used dataset to be in the cool tier, so it's unlikely to observe such latency. 
 
-When the default cool access retrieval policy is selected, sequential I/O is eads are served directly from the cool tier and doesn't repopulate into the hot tier. Randomly read data is repopulated into the hot tier, increasing the performance of subsequent reads. Optimizations for sequential workloads often reduce the latency incurred by cloud retrieval as compared to random reads and improves overall performance.  
+When the default cool access retrieval policy is selected, sequential I/O reads are served directly from the cool tier and doesn't repopulate into the hot tier. Randomly read data is repopulated into the hot tier, increasing the performance of subsequent reads. Optimizations for sequential workloads often reduce the latency incurred by cloud retrieval as compared to random reads and improves overall performance.  
 
 In a recent test performed using Standard storage with cool access for Azure NetApp Files, the following results were obtained.
 
