@@ -23,7 +23,7 @@ The feature works with Spark 3.1. The following table shows the supported Hive M
 
 |Spark Version|HMS 2.3.x|HMS 3.1.X|
 |--|--|--|
-|3.1|Yes|Yes|
+|3.3|Yes|Yes|
 
 
 ## Set up linked service to Hive Metastore 
