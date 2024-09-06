@@ -1,5 +1,5 @@
 ---
-title: Get started with Azure Operator Service Manager Cluster Registry
+title: Get started with Azure Operator Service Manager cluster registry
 description: Azure Operator Service Manager cluster registry feature provides a locally resilent edge registry service to host Nexus K8s container image artifacts.
 author: msftadam
 ms.author: adamdor
@@ -9,14 +9,11 @@ ms.service: azure-operator-service-manager
 ---
 
 # Get started with Cluster Registry
-AOSM CNF CLUSTER REGISTRY
 * Original Author: Tobias Weisserth
 * Original Publish Date: July 26, 2024
 
 ## Overview
-IMPROVING RESILIENCY FOR CLOUD NATIVE NETWORK FUNCTIONS WITH AZURE OPERATOR SERVICE MANAGER CLUSTER REGISTRY
-
-Applies to:
+Improving resiliency for cloud native network functions with Azure Operator Service Manager cluster registry.  Applies to:
 * AOSM ARM API Version: 2023-09-01
 * AOSM CNF Arc for Kubernetes Extension Build Number: 1.0.2711-7
 
@@ -49,5 +46,4 @@ If there's a CNF application already deployed without cluster registry, the cont
 AOSM cluster registry feature uses nexus-volume storage class to store the container images in the Nexus Kubernetes cluster. By default, a 100-GB persistent volume is created if the user doesn't specify the size of the cluster registry.
 
 ### Can I change the storage size after a deployment?
-It's important to plan for the persistent volume storage size before you install the cluster registry on the Nexus K8s cluster. It can't be modified after the initial deployment. We recommend configuring the size of the volume by 3x to 4x of the starting installation size of the network function that goes on that cluster.
-
+Storage size can't be modified after the initial deployment. We recommend configuring the volume size by 3x to 4x of the starting size.
