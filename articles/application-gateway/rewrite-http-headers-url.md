@@ -92,7 +92,7 @@ Once captured, you can reference them in the action set using the following form
 * For a server variable, you must use {var_serverVariableName_groupNumber}. For example, {var_uri_path_1} or {var_uri_path_2}
 
 > [!Note]
-> The case of the condition variable needs to match case of the capture variable.  For example, if my condition variable is User-Agent, my capture variable must be for User-Agent (i.e. {http_req_User-Agent_2}).  If my condition variable is defined as user-agent, my capture variable must be for user-agent (i.e. {http_req_user-agent_2}).
+> The case of the condition variable needs to match case of the capture variable.  For example, if the condition variable is defined as user-agent, the capture variable must be for user-agent ({http_req_user-agent_2}).
 
 If you want to use the whole value, you shouldn't mention the number. Simply use the format {http_req_headerName}, etc. without the groupNumber.
 
