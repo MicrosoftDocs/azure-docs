@@ -275,7 +275,7 @@ For samples, see:
 - [How do I restore to an app in a different subscription?](#how-do-i-restore-to-an-app-in-a-different-subscription)
 - [How do I restore to an app in the same subscription but in a different region?](#how-do-i-restore-to-an-app-in-the-same-subscription-but-in-a-different-region)
 - [Where are the automatic backups stored?](#where-are-the-automatic-backups-stored)
-- [How do I stop an automatic backup?](#how-do-i-stop-the-automatic-backup)
+- [How do I stop an automatic backup?](#how-do-i-stop-an-automatic-backup)
 
 #### Are the backups incremental updates or complete backups?
 
