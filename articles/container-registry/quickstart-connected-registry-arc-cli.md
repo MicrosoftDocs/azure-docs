@@ -163,7 +163,7 @@ To verify the deployment of the connected registry extension on the Arc-enabled 
     --cluster-type connectedClusters
   ```
 
-    **Example Output**
+  **Example Output**
 
   ```output
       {
@@ -242,7 +242,7 @@ To verify the deployment of the connected registry extension on the Arc-enabled 
     --output table
   ```
 
-    **Example Output**
+**Example Output**
 
 ```console
    | NAME                | MODE      | CONNECTION STATE | PARENT        | LOGIN SERVER             | LAST SYNC(UTC)      | SYNC SCHEDULE | SYNC WINDOW       |
