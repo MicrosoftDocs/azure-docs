@@ -101,15 +101,15 @@ There's no change to the virtual network experience. You can continue using your
 
 ### How do I migrate my apps to the consumption plan or the consumption and dedicated plan with workload profiles in Azure Container Apps?
 
-There's a direct mapping between the service plans in Azure Spring Apps and Azure Container Apps. If your app is currently running in the consumption plan, it moves to the consumption only plan in Azure Container Apps. If your app is currently running in a consumption and dedicated workload profile, it transitions to the corresponding workload profile in Azure Container Apps.
+There's a direct mapping between the service plans in Azure Spring Apps and Azure Container Apps. If your app is currently running on the consumption plan, it moves to the consumption only plan in Azure Container Apps. If your app is currently running on a consumption and dedicated workload profile, it transitions to the corresponding workload profile in Azure Container Apps.
 
 ### How can I continue to keep my deployment pipelines/workflow working?
 
-Your deployment pipelines/workflow must point to Azure Container Apps.
+Your deployment pipelines/workflow must point to Azure Container Apps to work properly.
 
 ### How do I continue to make my automation scripts work using Azure CLI? 
 
-Azure CLI scripts must change to make them work in Azure Container Apps. Refer to the `az containerapp` command group to make these changes. For more information, see [az containerapp](https://learn.microsoft.com/cli/azure/containerapp?view=azure-cli-latest&preserve-view=true). 
+Azure CLI scripts must change to make them work in Azure Container Apps. For more information, see [az containerapp](https://learn.microsoft.com/cli/azure/containerapp?view=azure-cli-latest&preserve-view=true). 
 
 ### Are there plans to retire any other Azure Spring Apps SKUs?
   
