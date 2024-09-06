@@ -1,0 +1,127 @@
+## Use options available in configuration file with Microsoft Playwright Testing preview
+
+In this article, you learn about the options available to you in the `playwright.service.config.ts` file and how you can use them. 
+
+> [!IMPORTANT]
+> Microsoft Playwright Testing is currently in preview. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+Here is the updated `playwright.service.config.ts` file with all the available options:
+
+```typescript
+import { getServiceConfig, ServiceOS } from "@azure/microsoft-playwright-testing";
+import { defineConfig } from "@playwright/test";
+import { AzureCliCredential } from "@azure/identity";
+import config from "./playwright.config";
+
+export default defineConfig(
+  config,
+  getServiceConfig(config, {
+    defaultAuth: 'TOKEN', // Use this option when you want to authenticate using access tokens. This mode of auth should be enabled for the workspace.
+    os: ServiceOS.WINDOWS, // Select the operating system where you want to run tests.
+    runId: new Date().toISOString(), // Set a unique ID for every test run to distinguish them in the service portal.
+    credential: new AzureCliCredential(), // Select the authentication method you want to use with Entra.
+    useCloudHostedBrowsers: true, // Select if you want to use cloud-hosted browsers to run your Playwright tests.
+    exposeNetwork: '<loopback>', // Use this option to connect to local resources from your Playwright test code without having to configure additional firewall settings.
+    timeout: 30000 // Set the timeout for your tests.
+  }),
+  {
+    reporter: [
+      ["list"],
+      [
+        "@azure/microsoft-playwright-testing/reporter",
+        {
+          enableGitHubSummary: true, // Enable/disable GitHub summary in GitHub Actions workflow.
+        },
+      ],
+    ],
+  },
+);
+
+```
+
+## Settings in `playwright.service.config.ts` file
+
+1. **`defaultAuth`**:
+    - **Description**: This setting allows you to choose the authentication method you want to use for your test run. 
+    - **Available Options**:
+        - `TOKEN` to use access tokens. You need to enable authtication using access tokens if you want to use this option, see [manage authentication](./how-to-manage-authentication.md).
+        - `ENTRA` to use Enrta ID for authentication. This is the default mode. 
+    - **Default Value**: `ENTRA`
+    - **Example**:
+      ```typescript
+      defaultAuth:'ENTRA'
+      ```
+
+
+1. **`os`**:
+    - **Description**: This setting allows you to choose the operating system where the browsers running Playwright tests will be hosted.
+    - **Available Options**:
+        - `ServiceOS.WINDOWS` for Windows OS.
+        - `ServiceOS.LINUX` for Linux OS.
+    - **Default Value**: `ServiceOS.LINUX`
+    - **Example**:
+      ```typescript
+      os: ServiceOS.WINDOWS
+      ```
+
+2. **`runId`**:
+    - **Description**: This setting allows you to set a unique ID for every test run to distinguish them in the service portal.
+    - **Example**:
+      ```typescript
+      runId: new Date().toISOString()
+      ```
+
+3. **`credential`**:
+    - **Description**: This setting allows you to select the authentication method you want to use with Entra.
+    - **Example**:
+      ```typescript
+      credential: new AzureCliCredential()
+      ```
+
+5. **`useCloudHostedBrowsers`**
+    - **Description**: This setting allows you to choose whether to use cloud-hosted browsers or the browsers on your client machine to run your Playwright tests. If you disable this option, your tests will run on the browsers of your client machine instead of cloud-hosted browsers, and you will not incur any charges.
+    - **Default Value**: true
+    - **Example**:
+      ```typescript
+      useCloudHostedBrowsers: true
+      ```
+
+5. **`exposeNetwork`**
+    - **Description**: This setting allows you to connect to local resources from your Playwright test code without having to configure additional firewall settings. To learn more, see [how to test local applications](./how-to-test-local-applications.md)
+    - **Example**:
+      ```typescript
+      exposeNetwork: '<loopback>'
+      ```
+
+5. **`timeout`**
+    - **Description**: This setting allows you to set timeout for your tests connecting to the cloud-hosted browsers. 
+    - **Example**:
+      ```typescript
+      timeout: 30000,
+      ```     
+
+5. **`reporter`**
+    - **Description**: The `playwright.service.config.ts` file extends the playwright config file of your setup. This option overrides the existing reporters and sets Microsoft Playwright Testing reporter. You can add or modify this list to include the reporters that you want to use. You will be billed for Microsoft Playwright Testing reporting if you add `@azure/microsoft-playwright-testing/reporter`. 
+    - **Default Value**: ["@azure/microsoft-playwright-testing/reporter"]
+    - **Example**:
+      ```typescript
+      reporter: [
+      ["list"],
+      ["@azure/microsoft-playwright-testing/reporter"],
+      ```
+4. **`enableGitHubSummary`**:
+    - **Description**: This setting allows you to configure the Microsoft Playwright Testing service reporter. You can choose whether to include the test run summary in the GitHub summary when running in GitHub Actions.
+    - **Default Value**: true
+    - **Example**:
+    ```typescript
+      reporter: [
+        ["list"],
+        [
+          "@azure/microsoft-playwright-testing/reporter",
+          {
+            enableGitHubSummary: true,
+          },
+        ],
+      ]
+      ```
+
