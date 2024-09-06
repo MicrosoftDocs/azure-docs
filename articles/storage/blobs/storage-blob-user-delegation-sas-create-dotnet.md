@@ -1,25 +1,25 @@
 ---
 title: Create a user delegation SAS for a blob with .NET
 titleSuffix: Azure Storage
-description: Learn how to create a user delegation SAS for a blob with Microsoft Entra credentials by using the .NET client library for Blob Storage.
+description: Learn how to create a user delegation SAS for a container or blob with Microsoft Entra credentials by using the .NET client library for Blob Storage.
 services: storage
 author: pauljewellmsft
 ms.author: pauljewell
 ms.service: azure-blob-storage
 ms.topic: how-to
-ms.date: 08/05/2024
+ms.date: 09/06/2024
 ms.reviewer: dineshm
 ms.devlang: csharp
 ms.custom: devx-track-csharp, devguide-csharp, devx-track-dotnet
 ---
 
-# Create a user delegation SAS for a blob with .NET
+# Create a user delegation SAS for a container or blob with .NET
 
 [!INCLUDE [storage-dev-guide-selector-user-delegation-sas](../../../includes/storage-dev-guides/storage-dev-guide-selector-user-delegation-sas.md)]
 
 [!INCLUDE [storage-auth-sas-intro-include](../../../includes/storage-auth-sas-intro-include.md)]
 
-This article shows how to use Microsoft Entra credentials to create a user delegation SAS for a blob using the [Azure Storage client library for .NET](/dotnet/api/overview/azure/storage).
+This article shows how to use Microsoft Entra credentials to create a user delegation SAS for a container or blob using the [Azure Storage client library for .NET](/dotnet/api/overview/azure/storage).
 
 [!INCLUDE [storage-auth-user-delegation-include](../../../includes/storage-auth-user-delegation-include.md)]
 
@@ -31,11 +31,31 @@ When a Microsoft Entra security principal attempts to access blob data, that sec
 
 ## Create a user delegation SAS for a blob
 
-Once you've obtained the user delegation key, you can create a user delegation SAS to delegate limited access to a blob resource. The following code example shows how to create a user delegation SAS for a blob:
+You can create a user delegation SAS for a container or blob, based on the needs of your app.
+
+### [Container](#tab/container)
+
+Once you've obtained the user delegation key, you can create a user delegation SAS to delegate limited access to a container. The following code example shows how to create a user delegation SAS for a container:
+
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/BlobDevGuideBlobs/CreateSas.cs" id="Snippet_CreateUserDelegationSASContainer":::
+
+### [Blob](#tab/blob)
+
+Once you've obtained the user delegation key, you can create a user delegation SAS to delegate limited access to a blob. The following code example shows how to create a user delegation SAS for a blob:
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/BlobDevGuideBlobs/CreateSas.cs" id="Snippet_CreateUserDelegationSASBlob":::
 
 ## Use a user delegation SAS to authorize a client object
+
+You can use a user delegation SAS to authorize a client object to perform operations on a container or blob based on the permissions granted by the SAS.
+
+### [Container](#tab/container)
+
+The following code example shows how to use the user delegation SAS to authorize a [BlobContainerClient](/dotnet/api/azure.storage.blobs.blobcontainerclient) object. This client object can be used to perform operations on the container resource based on the permissions granted by the SAS.
+
+:::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/BlobDevGuideBlobs/CreateSas.cs" id="Snippet_UseUserDelegationSASContainer":::
+
+### [Blob](#tab/blob)
 
 The following code example shows how to use the user delegation SAS to authorize a [BlobClient](/dotnet/api/azure.storage.blobs.blobclient) object. This client object can be used to perform operations on the blob resource based on the permissions granted by the SAS.
 
@@ -45,9 +65,13 @@ The following code example shows how to use the user delegation SAS to authorize
 
 To learn more about creating a user delegation SAS using the Azure Blob Storage client library for .NET, see the following resources.
 
+### Code samples
+
+- [View code samples from this article (GitHub)](https://github.com/Azure-Samples/AzureStorageSnippets/blob/master/blobs/howto/dotnet/BlobDevGuideBlobs/CreateSas.cs)
+
 ### REST API operations
 
-The Azure SDK for .NET contains libraries that build on top of the Azure REST API, allowing you to interact with REST API operations through familiar .NET paradigms. The client library method for getting a user delegation key uses the following REST API operations:
+The Azure SDK for .NET contains libraries that build on top of the Azure REST API, allowing you to interact with REST API operations through familiar .NET paradigms. The client library method for getting a user delegation key uses the following REST API operation:
 
 - [Get User Delegation Key](/rest/api/storageservices/get-user-delegation-key) (REST API)
 
