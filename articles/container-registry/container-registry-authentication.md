@@ -1,7 +1,7 @@
 ---
 title: Registry authentication options
 description: Authentication options for a private Azure container registry, including signing in with a Microsoft Entra identity, using service principals, and using optional admin credentials.
-ms.topic: article
+ms.topic: conceptual
 author: tejaswikolli-web
 ms.author: tejaswikolli
 ms.service: azure-container-registry

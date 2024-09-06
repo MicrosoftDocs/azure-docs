@@ -1,33 +1,32 @@
 ---
-title: Relocate Azure NetApp Files volume to another region
+title: Relocate an Azure NetApp Files volume to another region
 description: Learn how to relocate an Azure NetApp Files volume to another region
 author: anaharris-ms
 ms.author: anaharris
 ms.reviewer: anaharris
-ms.date: 08/14/2024
+ms.date: 09/04/2024
 ms.service: azure-netapp-files
 ms.topic: how-to
 ms.custom:
   - subject-relocation
 ---
 
-# Relocate Azure NetApp Files volume to another region
+# Relocate an Azure NetApp Files volume to another region
 
 This article covers guidance for relocating [Azure NetApp Files](../azure-netapp-files/azure-netapp-files-introduction.md) volumes to another region.
 
 [!INCLUDE [relocate-reasons](./includes/service-relocation-reason-include.md)]
 
-
 ## Prerequisites
 
-Before you begin the relocation planning stage, first review the following prerequisites:
+Before you begin the relocation planning stage, review the following prerequisites:
 
-- The target NetApp account instance should already be created.
+- The target NetApp account should already be created.
 
 - Source and target regions must be paired regions. To see if they're paired, see [Supported cross-region replication pairs](../azure-netapp-files/cross-region-replication-introduction.md?#supported-region-pairs).
 
 - Understand all dependent resources. Some of the resources could be:
-    - Microsoft Entra ID
+    - [Microsoft Entra ID](../azure-netapp-files/understand-guidelines-active-directory-domain-service-site.md)
     - [Virtual Network](./relocation-virtual-network.md)
     - Azure DNS
     - [Storage services](./relocation-storage-account.md)
@@ -36,13 +35,13 @@ Before you begin the relocation planning stage, first review the following prere
 
 ## Prepare
 
-Before you begin the relocation process, make sure to complete the following preparations:
+Before you begin the relocation process, complete the following preparations:
 
 - The target Microsoft Entra ID connection must have access to the DNS servers, AD DS Domain Controllers, or Microsoft Entra Domain Services Domain Controllers that are reachable from the delegated subnet in the target region.
 
-- The network configurations (including separate subnets if needed and IP ranges) should already be planned and prepared
+- The network configurations (including separate subnets if needed and IP ranges) should already be planned and prepared.
 
-- Turn off replication procedures to disaster recovery region. If you've established a disaster recovery (DR) solution using replication to a DR region, turn off replication to the DR site before initiating relocation procedures.
+- Disable replication to the disaster recovery region. If you've established a disaster recovery (DR) solution using replication to a DR region, turn off replication to the DR site before initiating relocation procedures.
 
 - Understand the following considerations in regards to replication:
     
@@ -71,13 +70,11 @@ Before you begin the relocation process, make sure to complete the following pre
 
 ## Cleanup
 
-Once the replication is complete, you can then safely delete the replication peering the source volume.
+Once the replication is complete, you can safely delete the replication peering the source volume.
 
 To learn how to clean up a replication, see [Delete volume replications or volumes](/azure/azure-netapp-files/cross-region-replication-delete).
 
-
 ## Related content
-
 
 - [Cross-region replication of Azure NetApp Files volumes](../azure-netapp-files/cross-region-replication-introduction.md)
 
