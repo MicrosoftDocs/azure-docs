@@ -4,7 +4,7 @@ description: Azure Firewall has NAT rules, network rules, and applications rules
 services: firewall
 author: vhorne
 ms.service: azure-firewall
-ms.topic: article
+ms.topic: concept-article
 ms.date: 07/02/2024
 ms.author: victorh
 ---
