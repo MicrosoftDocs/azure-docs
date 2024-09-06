@@ -569,7 +569,7 @@ This problem may be caused by the line endings in the Python file. Many Windows 
 
 You can use the following PowerShell statements to remove the CR characters before uploading the file to HDInsight:
 
-[!`Code-powershell`[main](../../../powershell_scripts/hdinsight/run-python-udf/run-python-udf.ps1?range=148-150)]
+[!code-powershell[main](../../../powershell_scripts/hdinsight/run-python-udf/run-python-udf.ps1?range=148-150)]
 
 ### PowerShell scripts
 
