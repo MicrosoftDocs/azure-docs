@@ -181,7 +181,8 @@
         "v-stsavell",
         "v-thepet",
         "v-thpra"
-      ]
+      ],
+      "zone_pivot_group_filename": "zone-pivot-groups.json"
     },
     "fileMetadata": {
       "adobe-target": {

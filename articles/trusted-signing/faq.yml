@@ -146,7 +146,7 @@ sections:
         answer: |
           | Error       | Details     |
           | :------------------- | :------------------- |
-          | 400          | An Azure authentication error. This error is due to caching of certificates. Add `"ExcludeCredentials": ["SharedTokenCacheCredential"]` to your JSON file. For more information, see [DefaultAzureCredential Class (Azure.Identity)](/dotnet/api/azure.identity.defaultazurecredential?view=azure-dotnet). |
+          | 400          | An Azure authentication error. This error is due to caching of certificates. Add `"ExcludeCredentials": ["<include list of credentials to be excluded>"]` to your JSON file. For more information, see [DefaultAzureCredential Class (Azure.Identity)](/dotnet/api/azure.identity.defaultazurecredential?view=azure-dotnet). |
           | 401          |  You aren't authenticated. Sign out and sign back in. |
           | 404          |  Ensure that no changes were made to your configuration or firewalls rules. |
           | "MsalUiRequiredException"           |  Typically occurs due to the local cache. The error resolves after the cache is refreshed from Azure. |

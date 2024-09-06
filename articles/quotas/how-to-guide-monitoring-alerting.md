@@ -1,7 +1,7 @@
 ---
 title: Create alerts for quotas
 description: Learn how to create alerts for quotas
-ms.date: 09/03/2024
+ms.date: 09/04/2024
 ms.topic: how-to
 ---
 
@@ -42,7 +42,7 @@ The simplest way to create a quota alert is to use the Azure portal. Follow thes
     | [Dimensions](../azure-monitor/alerts/alerts-types.md#monitor-the-same-condition-on-multiple-resources-using-splitting-by-dimensions-1) | Here are the options for selecting **multiple Quotas** and **regions** within a single alert rule. Adding dimensions is a cost-effective approach compared to creating a new alert for each quota or region.|
     
     > [!TIP]
-    > Within the same subscription, we advise using the same  **Resource group**, **Log Analytics workspace,** and **Managed identity** values for all alert rules.
+    > Within the same subscription, we advise using the same **Resource Group** and **Managed identity** values for all alert rules.
 
 1. After you've made your selections, select **Create Alert**. You'll see a confirmation if the rule was successfully created, or a message if any problems occurred.
 
@@ -58,7 +58,7 @@ For a sample request body, see the [API documentation](/rest/api/monitor/schedul
 
 You can use the **Azure Monitor Alerts** pane to [create alerts using a query](../azure-monitor/alerts/alerts-create-new-alert-rule.md?tabs=log). Resource Graph Explorer lets you run and test queries before using them to create an alert. To learn more, see the [Configure Azure alerts](/training/modules/configure-azure-alerts/) training module.
 
-For quota alerts, make sure the **Scope** is your Log analytics workspace  and the **Signal type** is the customer query log. Add a sample query for quota usages. Follow the remaining steps as described in the [Create or edit an alert rule](../azure-monitor/alerts/alerts-create-new-alert-rule.md?tabs=log).
+For quota alerts, make sure the **Scope** is your Subscription and the **Signal type** is the customer query log. Add a sample query for quota usages. Follow the remaining steps as described in the [Create or edit an alert rule](../azure-monitor/alerts/alerts-create-new-alert-rule.md?tabs=log).
 
 The following example shows a query that creates quota alerts.
 
