@@ -11,7 +11,7 @@ ms.author: askaur
 ---
 # Call Automation Overview
 
-Azure Communication Services Call Automation provides developers the ability to build server-based, intelligent call workflows, and call recording for voice and Public Switched Telephone Network(PSTN) channels. The SDKs, available in C#, Java, JavaScript, and Python, use an action-event model to help you build personalized customer interactions. Your communication applications can listen to real-time call events and perform control plane actions (like answer, transfer, play audio, start recording, etc.) to steer and control calls based on your business logic.
+Azure Communication Services Call Automation provides developers the ability to build server-based, intelligent call workflows, and call recording for voice and Public Switched Telephone Network (PSTN) channels. The SDKs, available in C#, Java, JavaScript, and Python, use an action-event model to help you build personalized customer interactions. Your communication applications can listen to real-time call events and perform control plane actions (such as answer, transfer, play audio, start recording, and so on) to steer and control calls based on your business logic.
 
 ## Common use cases
 
@@ -146,8 +146,8 @@ The Call Automation events are sent to the web hook callback URI specified when 
 | `CallConnected` | The call successfully started (when using `Answer` or `Create` action) or your application successfully connected to an ongoing call (when using `Connect` action). |
 | `CallDisconnected` | Your application has been disconnected from the call. |
 | `ConnectFailed` | Your application failed to connect to a call (for `Connect` call action only). |
-| `CallTransferAccepted` | Transfer action successfully completed and the transferee is connected to the target participant |.
-| `CallTransferFailed ` | The transfer action failed. |
+| `CallTransferAccepted` | Transfer action successfully completed and the transferee is connected to the target participant. |
+| `CallTransferFailed` | The transfer action failed. |
 | `AddParticipantSucceeded` | Your application successfully added a participant to the call. |
 | `AddParticipantFailed` | Your application was unable to add a participant to the call (due to an error or the participant didn't accept the invite) |
 | `CancelAddParticipantSucceeded` | Your application canceled an `AddParticipant` request successfully (the participant wasn't added to the call). |
@@ -160,7 +160,7 @@ The Call Automation events are sent to the web hook callback URI specified when 
 | `PlayCanceled` | The requested play action has been canceled. |
 | `RecognizeCompleted` | Recognition of user input successfully completed. |
 | `RecognizeCanceled` | The requested `Recognize` action has been canceled. |
-| `RecognizeFailed` | Recognition of user input was unsuccessful. <br/>*For more information about recognize action events, see the how-to guide for [gathering user input](../../how-tos/call-automation/recognize-action.md).*|
+| `RecognizeFailed` | Recognition of user input was unsuccessful. <br/>*For more information about recognize action events, see the how-to guide for [gathering user input](../../how-tos/call-automation/recognize-action.md).* |
 | `RecordingStateChanged` | Status of recording action has changed from active to inactive or vice versa. |
 | `ContinuousDtmfRecognitionToneReceived` | `StartContinuousDtmfRecognition` completed successfully and a DTMF tone was received from the participant. |
 | `ContinuousDtmfRecognitionToneFailed` | `StartContinuousDtmfRecognition` completed but an error occurred while handling a DTMF tone from the participant. |
@@ -176,7 +176,7 @@ To learn how to secure the callback event delivery, see [How to secure webhook e
 
 ### Operation Callback URI
 
-Operation Callback URI is an optional parameter in some mid-call APIs that use events as their async responses. By default, all events are sent to the default callback URI set by `CreateCall` / `AnswerCall` API events when the user establishes a call. Using the Operation Callback URI, the operation sends corresponding events for this individual (one-time only) request to the new URI.
+Operation Callback URI is an optional parameter in some mid-call APIs that use events as their async responses. By default, all events are sent to the default callback URI set by `CreateCall` / `AnswerCall` API events when the user establishes a call. Using the Operation Callback URI, the API sends corresponding events for this individual (one-time only) request to the new URI.
 
 | Supported API             | Corresponding event |
 | ----------------- | ------------ |
