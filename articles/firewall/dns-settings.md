@@ -92,7 +92,7 @@ DNS proxy configuration requires three steps:
 3. Configure the Azure Firewall private IP address as a custom DNS address in your virtual network DNS server settings to direct DNS traffic to the Azure Firewall.
    
 > [!NOTE]
->  If you choose to use a custom DNS server, select any IP address within the VNET, excluding those in the Azure Firewall subnet.
+>  If you choose to use a custom DNS server, select any IP address within the virtual network, excluding those in the Azure Firewall subnet.
 
 #### [Portal](#tab/browser)
 
