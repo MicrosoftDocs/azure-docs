@@ -4,7 +4,7 @@ description: Learn how to configure a site-to-site (S2S) VPN for use with Azure 
 author: khdownie
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 09/05/2024
+ms.date: 09/06/2024
 ms.author: kendownie
 ---
 
@@ -150,14 +150,28 @@ To add a new or existing virtual network to your storage account, follow these s
    az login
    ```
 
-1. If you want to add a new virtual network and gateway subnet, run the following script. If you have an existing virtual network that you want to use, then skip this step and proceed to step 3. Be sure to replace `<your-subscription-id>`, `<resource-group>`, and `<storage-account-name>` with your own values. Replace `<virtual-network-name>` with the name of the new virtual network you want to create. The `--address-prefix` and `--subnet-prefix` parameters define the IP address blocks for the virtual network and the subnet, so replace those with your respective values. The virtual network will be created in the same region as the resource group.
+1. If you want to add a new virtual network and gateway subnet, run the following script. If you have an existing virtual network that you want to use, then skip this step and proceed to step 3. Be sure to replace `<your-subscription-id>`, `<storage-account-name>`, and `<resource-group>` with your own values. Replace `<virtual-network-name>` with the name of the new virtual network you want to create. The `--address-prefix` and `--subnet-prefix` parameters define the IP address blocks for the virtual network and the subnet, so replace those with your respective values. The virtual network will be created in the same region as the resource group.
 
    ```azurecli-interactive
    # Set your subscription  
    az account set --subscription "<your-subscription-id>"  
      
-   # Create a virtual network and subnet. Virtual network gateway can only be created in subnet with name 'GatewaySubnet'.
-   az network vnet create --resource-group <resource-group> --name <virtual-network-name> --address-prefix 10.0.0.0/16 --subnet-name GatewaySubnet --subnet-prefix 10.0.0.0/24  
+   # Define parameters
+   storageAccount="<storage-account-name>"
+   resourceGroup="<resource-group>"
+   vnetName="<virtual-network-name>"
+   # Virtual network gateway can only be created in subnet with name 'GatewaySubnet'.
+   subnetName="GatewaySubnet"
+   vnetAddressPrefix = "10.0.0.0/16" # Update this address per your requirements
+   subnetAddressPrefix="10.0.0.0/24" # Update this address per your requirements
+
+   # Create a virtual network and subnet
+   az network vnet create \
+     --resource-group $resourceGroup \
+     --name $vnetName \
+     --address-prefix $vnetAddressPrefix \
+     --subnet-name $subnetName \
+     --subnet-prefix $subnetAddressPrefix  
    ```
 
 1. If you created a new virtual network and subnet in the previous step, then skip this step. If you have an existing virtual network you want to use, you must first create a [gateway subnet](../../vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md#gwsub) on the virtual network before you can deploy a virtual network gateway.
