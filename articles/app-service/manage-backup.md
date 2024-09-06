@@ -33,7 +33,7 @@ There are two types of backups in App Service. Automatic backups are created for
 | Pricing tiers | **Basic**, **Standard**, **Premium**, **Isolated**. | **Basic**, **Standard**, **Premium**, **Isolated**. |
 | Configuration required | No. | Yes. |
 | Backup size | 30 GB. | 10 GB, 4 GB of which can be the linked database. |
-| Linked database | Not backed up. | The following linked databases can be backed up: [SQL Database](/azure/azure-sql/database/), [Azure Database for MySQL](/azure/mysql/), [Azure Database for PostgreSQL](/azure/postgresql/), [MySQL in-app](https://azure.microsoft.com/blog/mysql-in-app-preview-app-service/). |
+| Linked database | Not backed up. | The following linked databases can be backed up: [SQL Database](/azure/azure-sql/database/), [Azure Database for MySQL](/azure/mysql/), [Azure Database for PostgreSQL](/azure/postgresql/), [MySQL in-app](https://azure.github.io/AppService/2016/08/18/Announcing-MySQL-in-app-for-Web-Apps-(Windows).html). |
 | [Storage account](../storage/index.yml) required | No. | Yes. |
 | Backup frequency | Hourly, not configurable. | Configurable. |
 | Retention | 30 days, not configurable. <br>- Days 1-3: hourly backups retained.<br>- Days 4-14: every third hourly backup retained.<br>- Days 15-30: every sixth hourly backup retained. | 0-30 days or indefinite. |
@@ -120,7 +120,7 @@ There are two types of backups in App Service. Automatic backups are created for
 
 ## Create a custom backup
 
-1. In your app management page in the [Azure portal](https://portal.azure.com), in the left menu, select **Backups**.
+1. On your app management page in the [Azure portal](https://portal.azure.com), in the left menu, select **Backups**.
 
     :::image type="content" source="./media/manage-backup/open-backups-page.png" alt-text="Screenshot that shows how to open the backups page.":::
 
@@ -349,7 +349,7 @@ You can back up to a firewall-protected storage account if it's part of the same
 
 #### How do I restore to an app in the same subscription but in a different region?
 
-The steps are the same as in [How do I restore to an app in a different subscription](#how-do-i-restore-to-an-app-in-a-different-subscription).
+The steps are the same as in [How do I restore to an app in a different subscription?](#how-do-i-restore-to-an-app-in-a-different-subscription).
 
 #### Where are the automatic backups stored?
 
