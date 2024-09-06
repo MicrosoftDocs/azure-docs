@@ -45,6 +45,8 @@ Once you've obtained the user delegation key, you can create a user delegation S
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/BlobDevGuideBlobs/CreateSas.cs" id="Snippet_CreateUserDelegationSASBlob":::
 
+---
+
 ## Use a user delegation SAS to authorize a client object
 
 You can use a user delegation SAS to authorize a client object to perform operations on a container or blob based on the permissions granted by the SAS.
@@ -60,6 +62,8 @@ The following code example shows how to use the user delegation SAS to authorize
 The following code example shows how to use the user delegation SAS to authorize a [BlobClient](/dotnet/api/azure.storage.blobs.blobclient) object. This client object can be used to perform operations on the blob resource based on the permissions granted by the SAS.
 
 :::code language="csharp" source="~/azure-storage-snippets/blobs/howto/dotnet/BlobDevGuideBlobs/CreateSas.cs" id="Snippet_UseUserDelegationSASBlob":::
+
+---
 
 ## Resources
 
