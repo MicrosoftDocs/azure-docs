@@ -372,8 +372,6 @@
       href: data-connectors/auth0-access-management.md
     - name: Automated Logic WebCTRL
       href: data-connectors/automated-logic-webctrl.md
-    - name: Awake Security
-      href: data-connectors/awake-security.md
     - name: Azure Activity
       href: data-connectors/azure-activity.md
     - name: Azure Batch Account
@@ -410,12 +408,8 @@
       href: data-connectors/bitglass.md
     - name: Bitsight data connector (using Azure Functions)
       href: data-connectors/bitsight-data-connector.md
-    - name: Blackberry CylancePROTECT
-      href: data-connectors/blackberry-cylanceprotect.md
     - name: Box (using Azure Functions)
       href: data-connectors/box.md
-    - name: Cisco Application Centric Infrastructure
-      href: data-connectors/cisco-application-centric-infrastructure.md
     - name: Cisco ASA/FTD via AMA (Preview)
       href: data-connectors/cisco-asa-ftd-via-ama.md
     - name: Cisco Duo Security (using Azure Functions)
