@@ -11,6 +11,8 @@ ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli
 
 # Deploy large CPU and memory applications in Azure Spring Apps in the Enterprise plan
 
+[!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
+
 **This article applies to:** ❌ Basic/Standard ✔️ Enterprise
 
 This article shows how to deploy large CPU and memory applications in Azure Spring Apps to support CPU intensive or memory intensive workloads. Support for large applications is currently available only in the Enterprise plan, which supports the CPU and memory combinations as shown in the following table.

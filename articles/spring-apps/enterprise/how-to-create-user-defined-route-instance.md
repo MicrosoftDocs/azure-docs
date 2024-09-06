@@ -11,6 +11,8 @@ ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli
 
 # Control egress traffic for an Azure Spring Apps instance
 
+[!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
+
 **This article applies to:** ✔️ Java ✔️ C#
 
 **This article applies to:** ✔️ Basic/Standard ✔️ Enterprise

@@ -11,6 +11,8 @@ ms.custom: devx-track-java, devx-track-extended-java
 
 # Quickstart: Enable and disable Spring Cloud Config Server in Azure Spring Apps
 
+[!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
+
 **This article applies to:** ✔️ Standard consumption and dedicated (Preview) ❌ Basic/Standard ❌ Enterprise
 
 This article describes how to enable and disable Spring Cloud Config Server for service registration and discovery in Azure Spring Apps.
