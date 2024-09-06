@@ -89,7 +89,7 @@ By deploying the connected Registry Arc extension, you can synchronize container
 
    For secure deployment of the connected registry extension, generate the connection string, including a new password, transport protocol, and create the `protected-settings-extension.json` file required for the extension deployment with [az acr connected-registry get-settings][az-acr-connected-registry-get-settings] command:
 
-    ```bash
+  ```bash
     cat << EOF > protected-settings-extension.json
     {
       "connectionString": "$(az acr connected-registry get-settings \
@@ -100,9 +100,9 @@ By deploying the connected Registry Arc extension, you can synchronize container
       --query ACR_REGISTRY_CONNECTION_STRING --output tsv --yes)"
     }
     EOF
-    ```
+  ```
 
-   ```bash
+  ```bash
     cat << EOF > protected-settings-extension.json
     {
       "connectionString": "$(az acr connected-registry get-settings \
@@ -113,9 +113,9 @@ By deploying the connected Registry Arc extension, you can synchronize container
       --query ACR_REGISTRY_CONNECTION_STRING --output tsv --yes)"
     }
     EOF
-    ```
+  ```
 
-  ```azurepowershell
+```azurepowershell
     echo "{\"connectionString\":\"$(az acr connected-registry get-settings \
     --name myconnectedregistry \
     --registry myacrregistry \
@@ -124,7 +124,7 @@ By deploying the connected Registry Arc extension, you can synchronize container
     --query ACR_REGISTRY_CONNECTION_STRING \
     --output tsv \
     --yes | tr -d '\r')\" }" > settings.json
-  ```
+```
 
 >[!NOTE] 
 > The cat and echo commands create the `protected-settings-extension.json` file with the connection string details, injecting the contents of the connection string into the `protected-settings-extension.json` file, a necessary step for the extension deployment. The [az acr connected-registry get-settings][az-acr-connected-registry-get-settings] command generates the connection string, including the creation of a new password and the specification of the transport protocol. 
@@ -133,7 +133,7 @@ By deploying the connected Registry Arc extension, you can synchronize container
 
    Deploy the connected registry extension with the specified configuration details using the [az k8s-extension create][az-k8s-extension-create] command:
 
-    ```azurecli
+  ```azurecli
     az k8s-extension create --cluster-name myarck8scluster \ 
     --cluster-type connectedClusters \
     --extension-type Microsoft.ContainerRegistry.ConnectedRegistry \
@@ -141,7 +141,7 @@ By deploying the connected Registry Arc extension, you can synchronize container
     --resource-group myresourcegroup \ 
     --config service.clusterIP=192.100.100.1 \ 
     --config-protected-file protected-settings-extension.json  
-    ```
+  ```
 
 - The [az k8s-extension create][az-k8s-extension-create] command deploys the connected registry extension on the Kubernetes cluster with the provided configuration parameters and protected settings file. 
 - It ensures secure trust distribution between the connected registry and all client nodes within the cluster, and installs the cert-manager service for Transport Layer Security (TLS) encryption.
@@ -156,15 +156,16 @@ To verify the deployment of the connected registry extension on the Arc-enabled 
 
     Run the [az k8s-extension show][az-k8s-extension-show] command to check the deployment status of the connected registry extension:
 
-    ```azurecli
+  ```azurecli
     az k8s-extension show --name myconnectedregistry \ 
     --cluster-name myarck8scluster \
     --resource-group myresourcegroup \
     --cluster-type connectedClusters
-    ```
+  ```
+
     **Example Output**
 
-    ```output
+  ```output
       {
       "aksAssignedIdentity": null,
       "autoUpgradeMinorVersion": true,
@@ -211,7 +212,7 @@ To verify the deployment of the connected registry extension on the Arc-enabled 
       "type": "Microsoft.KubernetesConfiguration/extensions",
       "version": null
     }
-    ```    
+  ```    
 
 2. Verify the connected registry status and state
 
@@ -235,11 +236,11 @@ To verify the deployment of the connected registry extension on the Arc-enabled 
 
     For details on a specific connected registry, use [az acr connected-registry show][az-acr-connected-registry-show] command:
 
-    ```azurecli
+  ```azurecli
     az acr connected-registry show --registry myacrregistry \
     --name myreadonlyacr \ 
     --output table
-    ```
+  ```
 
     **Example Output**
 

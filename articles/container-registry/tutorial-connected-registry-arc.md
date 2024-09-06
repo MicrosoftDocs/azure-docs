@@ -32,10 +32,10 @@ Connected registry trust distribution refers to the process of securely distribu
 In this tutorial, you:
 
 > [!div class="checklist"]
-> - [Deploy Connected registry extension using preinstalled cert-manager.](#deploy-connected-registry-extension-using-preinstalled-cert-manager)
+> - [Deploy Connected registry extension using preinstalled cert-manager.](#deploy-connected-registry-extension-using-your-preinstalled-cert-manager)
 > - [Deploy Connected registry extension using Bring Your Own Certificate (BYOC).](#deploy-connected-registry-extension-using-bring-your-own-certificate-byoc)
 > - [Deploy Connected registry with kubernetes secret management.](#deploy-connected-registry-with-kubernetes-secret-management)
-> - [Deploy the Connected registry Arc extension with inherent trust distribution or reject Connected registry trust distribution.](#deploy-the-connected-registry-arc-extension-with-inherent-trust-distribution-and-reject-connected-registry-trust-distribution)
+> - [Deploy the Connected registry Arc extension with inherent trust distribution or reject Connected registry trust distribution.](#deploy-the-connected-registry-using-your-own-trust-distribution-and-disable-the-connected-registrys-default-trust-distribution)
 
 ## Prerequisites
 
