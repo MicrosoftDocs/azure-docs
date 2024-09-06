@@ -78,7 +78,7 @@ After your Azure Synapse workspace is created, you have two ways to open Synapse
 
 We're going to use a small 100k row sample dataset of NYC Taxi Cab data for many examples in this getting started guide. We begin by placing it in the primary storage account you created for the workspace.
 
-1. Download the [NYC Taxi - green trip dataset](../open-datasets/dataset-taxi-green.md?tabs=azureml-opendatasets#additional-information) to your computer: 
+1. Download the [NYC Taxi - green trip dataset](/azure/open-datasets/dataset-taxi-green?tabs=azureml-opendatasets#additional-information) to your computer: 
     1. Navigate to the [original dataset location](https://www.nyc.gov/site/tlc/about/tlc-trip-record-data.page) from the link, choose a specific year and download the Green taxi trip records in Parquet format.
     1. Rename the downloaded file to *NYCTripSmall.parquet*.
 1. In Synapse Studio, navigate to the **Data** hub.

@@ -55,8 +55,8 @@ The schema for resource logs varies depending on the resource and log category. 
 | Azure Application Gateway |[Logging for Application Gateway](../../application-gateway/application-gateway-diagnostics.md) |
 | Azure Automation |[Log Analytics for Azure Automation](../../automation/automation-manage-send-joblogs-log-analytics.md) |
 | Azure Batch |[Azure Batch logging](../../batch/batch-diagnostics.md) |
-| Azure AI Search | [Cognitive Search monitoring data reference (schemas)](../../search/monitor-azure-cognitive-search-data-reference.md#schemas) |
-| Azure AI services | [Logging for Azure AI services](../../ai-services/diagnostic-logging.md) |
+| Azure AI Search | [Cognitive Search monitoring data reference (schemas)](/azure/search/monitor-azure-cognitive-search-data-reference#schemas) |
+| Azure AI services | [Logging for Azure AI services](/azure/ai-services/diagnostic-logging) |
 | Azure Container Instances | [Logging for Azure Container Instances](/azure/container-instances/container-instances-log-analytics#log-schema) |
 | Azure Container Registry | [Logging for Azure Container Registry](../../container-registry/monitor-service.md) |
 | Azure Content Delivery Network | [Diagnostic logs for Azure Content Delivery Network](../../cdn/cdn-azure-diagnostic-logs.md) |
@@ -83,7 +83,7 @@ The schema for resource logs varies depending on the resource and log category. 
 | Azure Load Balancer |[Log Analytics for Azure Load Balancer](../../load-balancer/monitor-load-balancer.md) |
 | Azure Load Testing |[Azure Load Testing logs](../../load-testing/monitor-load-testing-reference.md#resource-logs) |
 | Azure Logic Apps |[Logic Apps B2B custom tracking schema](../../logic-apps/tracking-schemas-as2-x12-custom.md) |
-| Azure Machine Learning | [Diagnostic logging in Azure Machine Learning](../../machine-learning/monitor-resource-reference.md) |
+| Azure Machine Learning | [Diagnostic logging in Azure Machine Learning](/azure/machine-learning/monitor-resource-reference) |
 | Azure Media Services | [Media Services monitoring schemas](/azure/media-services/latest/monitoring/monitor-media-services#schemas) |
 | Network security groups |[Log Analytics for network security groups (NSGs)](../../virtual-network/virtual-network-nsg-manage-log.md) |
 | Azure Operator Insights | [Monitoring Azure Operator Insights data reference](../../operator-insights/monitor-operator-insights-data-reference.md#schemas) |

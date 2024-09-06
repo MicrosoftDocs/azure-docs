@@ -1,8 +1,8 @@
 ---
-author: rothja
+author: msangapu-msft
 ms.service: azure-app-service
 ms.topic: include
-ms.date: 03/17/2020
+ms.date: 09/03/2024
 ms.author: msangapu
 ---
 | Resource | Free | Shared | Basic | Standard | Premium (v1-v3) | Isolated </th> |
@@ -56,7 +56,7 @@ ms.author: msangapu
 
 <sup>7</sup>If you scale a Windows app in the Basic tier to two instances, you have 350 concurrent connections for each of the two instances. For Windows apps on Standard tier and above, there are no theoretical limits to WebSockets, but other factors can limit the number of WebSockets. For example, maximum concurrent requests allowed (defined by `maxConcurrentRequestsPerCpu`) are: 7,500 per small VM, 15,000 per medium VM (7,500 x 2 cores), and 75,000 per large VM (18,750 x 4 cores). Linux apps are limited 5 concurrent WebSocket connections on Free SKU and ~50k concurrent WebSocket connections per instance on all other SKUs.
 
-<sup>8</sup> The maximum IP connections are per instance and depend on the instance size: 1,920 per B1/S1/P1V3 instance, 3,968 per B2/S2/P2V3 instance, 8,064 per B3/S3/P3V3 instance.
+<sup>8</sup> The maximum IP connections are per instance and depend on the instance size: 1,920 per B1/S1/P0V3/P1V3 instance, 3,968 per B2/S2/P2V3 instance, 8,064 per B3/S3/P3V3 instance.
 
 <sup>9</sup> App Service Isolated SKUs can be internally load balanced (ILB) with Azure Load Balancer, so there's no public connectivity from the internet. As a result, some features of an ILB Isolated App Service must be used from machines that have direct access to the ILB network endpoint.
 

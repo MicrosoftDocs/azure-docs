@@ -4,7 +4,7 @@ description: Reference documentation for match conditions and actions in the Sta
 services: cdn
 author: duongau
 ms.service: azure-cdn
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/20/2024
 ms.author: duau
 ---

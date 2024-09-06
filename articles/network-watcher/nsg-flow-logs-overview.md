@@ -6,7 +6,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-network-watcher
 ms.topic: concept-article
-ms.date: 02/15/2024
+ms.date: 08/29/2024
 
 #CustomerIntent: As an Azure administrator, I want to learn about NSG flow logs so that I can log my network traffic to analyze and optimize the network performance.
 ---
@@ -121,7 +121,7 @@ Here's an example format of a version 1 NSG flow log:
     "records": [
         {
             "time": "2017-02-16T22:00:32.8950000Z",
-            "systemId": "2c002c16-72f3-4dc5-b391-3444c3527434",
+            "systemId": "55ff55ff-aa66-bb77-cc88-99dd99dd99dd",
             "category": "NetworkSecurityGroupFlowEvent",
             "resourceId": "/SUBSCRIPTIONS/00000000-0000-0000-0000-000000000000/RESOURCEGROUPS/FABRIKAMRG/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/FABRIAKMVM1-NSG",
             "operationName": "NetworkSecurityGroupFlowEvents",
@@ -134,7 +134,7 @@ Here's an example format of a version 1 NSG flow log:
                             {
                                 "mac": "000D3AF8801A",
                                 "flowTuples": [
-                                    "1487282421,42.119.146.95,10.1.0.4,51529,5358,T,I,D"
+                                    "1487282421,192.0.2.95,10.1.0.4,51529,5358,T,I,D"
                                 ]
                             }
                         ]
@@ -145,10 +145,10 @@ Here's an example format of a version 1 NSG flow log:
                             {
                                 "mac": "000D3AF8801A",
                                 "flowTuples": [
-                                    "1487282370,163.28.66.17,10.1.0.4,61771,3389,T,I,A",
-                                    "1487282393,5.39.218.34,10.1.0.4,58596,3389,T,I,A",
-                                    "1487282393,91.224.160.154,10.1.0.4,61540,3389,T,I,A",
-                                    "1487282423,13.76.89.229,10.1.0.4,53163,3389,T,I,A"
+                                    "1487282370,192.0.2.17,10.1.0.4,61771,3389,T,I,A",
+                                    "1487282393,203.0.113.34,10.1.0.4,58596,3389,T,I,A",
+                                    "1487282393,192.0.2.154,10.1.0.4,61540,3389,T,I,A",
+                                    "1487282423,203.0.113.229,10.1.0.4,53163,3389,T,I,A"
                                 ]
                             }
                         ]
@@ -158,7 +158,7 @@ Here's an example format of a version 1 NSG flow log:
         },
         {
             "time": "2017-02-16T22:01:32.8960000Z",
-            "systemId": "2c002c16-72f3-4dc5-b391-3444c3527434",
+            "systemId": "55ff55ff-aa66-bb77-cc88-99dd99dd99dd",
             "category": "NetworkSecurityGroupFlowEvent",
             "resourceId": "/SUBSCRIPTIONS/00000000-0000-0000-0000-000000000000/RESOURCEGROUPS/FABRIKAMRG/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/FABRIAKMVM1-NSG",
             "operationName": "NetworkSecurityGroupFlowEvents",
@@ -171,7 +171,7 @@ Here's an example format of a version 1 NSG flow log:
                             {
                                 "mac": "000D3AF8801A",
                                 "flowTuples": [
-                                    "1487282481,195.78.210.194,10.1.0.4,53,1732,U,I,D"
+                                    "1487282481,198.51.100.194,10.1.0.4,53,1732,U,I,D"
                                 ]
                             }
                         ]
@@ -182,9 +182,9 @@ Here's an example format of a version 1 NSG flow log:
                             {
                                 "mac": "000D3AF8801A",
                                 "flowTuples": [
-                                    "1487282435,61.129.251.68,10.1.0.4,57776,3389,T,I,A",
-                                    "1487282454,84.25.174.170,10.1.0.4,59085,3389,T,I,A",
-                                    "1487282477,77.68.9.50,10.1.0.4,65078,3389,T,I,A"
+                                    "1487282435,198.51.100.68,10.1.0.4,57776,3389,T,I,A",
+                                    "1487282454,203.0.113.170,10.1.0.4,59085,3389,T,I,A",
+                                    "1487282477,192.0.2.50,10.1.0.4,65078,3389,T,I,A"
                                 ]
                             }
                         ]
@@ -196,7 +196,7 @@ Here's an example format of a version 1 NSG flow log:
             "records": [
                 {
                     "time": "2017-02-16T22:00:32.8950000Z",
-                    "systemId": "2c002c16-72f3-4dc5-b391-3444c3527434",
+                    "systemId": "55ff55ff-aa66-bb77-cc88-99dd99dd99dd",
                     "category": "NetworkSecurityGroupFlowEvent",
                     "resourceId": "/SUBSCRIPTIONS/00000000-0000-0000-0000-000000000000/RESOURCEGROUPS/FABRIKAMRG/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/FABRIAKMVM1-NSG",
                     "operationName": "NetworkSecurityGroupFlowEvents",
@@ -209,7 +209,7 @@ Here's an example format of a version 1 NSG flow log:
                                     {
                                         "mac": "000D3AF8801A",
                                         "flowTuples": [
-                                            "1487282421,42.119.146.95,10.1.0.4,51529,5358,T,I,D"
+                                            "1487282421,192.0.2.95,10.1.0.4,51529,5358,T,I,D"
                                         ]
                                     }
                                 ]
@@ -220,10 +220,10 @@ Here's an example format of a version 1 NSG flow log:
                                     {
                                         "mac": "000D3AF8801A",
                                         "flowTuples": [
-                                            "1487282370,163.28.66.17,10.1.0.4,61771,3389,T,I,A",
-                                            "1487282393,5.39.218.34,10.1.0.4,58596,3389,T,I,A",
-                                            "1487282393,91.224.160.154,10.1.0.4,61540,3389,T,I,A",
-                                            "1487282423,13.76.89.229,10.1.0.4,53163,3389,T,I,A"
+                                            "1487282370,192.0.2.17,10.1.0.4,61771,3389,T,I,A",
+                                            "1487282393,203.0.113.34,10.1.0.4,58596,3389,T,I,A",
+                                            "1487282393,192.0.2.154,10.1.0.4,61540,3389,T,I,A",
+                                            "1487282423,203.0.113.229,10.1.0.4,53163,3389,T,I,A"
                                         ]
                                     }
                                 ]
@@ -233,7 +233,7 @@ Here's an example format of a version 1 NSG flow log:
                 },
                 {
                     "time": "2017-02-16T22:01:32.8960000Z",
-                    "systemId": "2c002c16-72f3-4dc5-b391-3444c3527434",
+                    "systemId": "55ff55ff-aa66-bb77-cc88-99dd99dd99dd",
                     "category": "NetworkSecurityGroupFlowEvent",
                     "resourceId": "/SUBSCRIPTIONS/00000000-0000-0000-0000-000000000000/RESOURCEGROUPS/FABRIKAMRG/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/FABRIAKMVM1-NSG",
                     "operationName": "NetworkSecurityGroupFlowEvents",
@@ -246,7 +246,7 @@ Here's an example format of a version 1 NSG flow log:
                                     {
                                         "mac": "000D3AF8801A",
                                         "flowTuples": [
-                                            "1487282481,195.78.210.194,10.1.0.4,53,1732,U,I,D"
+                                            "1487282481,198.51.100.194,10.1.0.4,53,1732,U,I,D"
                                         ]
                                     }
                                 ]
@@ -257,9 +257,9 @@ Here's an example format of a version 1 NSG flow log:
                                     {
                                         "mac": "000D3AF8801A",
                                         "flowTuples": [
-                                            "1487282435,61.129.251.68,10.1.0.4,57776,3389,T,I,A",
-                                            "1487282454,84.25.174.170,10.1.0.4,59085,3389,T,I,A",
-                                            "1487282477,77.68.9.50,10.1.0.4,65078,3389,T,I,A"
+                                            "1487282435,198.51.100.68,10.1.0.4,57776,3389,T,I,A",
+                                            "1487282454,203.0.113.170,10.1.0.4,59085,3389,T,I,A",
+                                            "1487282477,192.0.2.50,10.1.0.4,65078,3389,T,I,A"
                                         ]
                                     }
                                 ]
@@ -269,7 +269,7 @@ Here's an example format of a version 1 NSG flow log:
                 },
                 {
                     "time": "2017-02-16T22:02:32.9040000Z",
-                    "systemId": "2c002c16-72f3-4dc5-b391-3444c3527434",
+                    "systemId": "55ff55ff-aa66-bb77-cc88-99dd99dd99dd",
                     "category": "NetworkSecurityGroupFlowEvent",
                     "resourceId": "/SUBSCRIPTIONS/00000000-0000-0000-0000-000000000000/RESOURCEGROUPS/FABRIKAMRG/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/FABRIAKMVM1-NSG",
                     "operationName": "NetworkSecurityGroupFlowEvents",
@@ -282,8 +282,8 @@ Here's an example format of a version 1 NSG flow log:
                                     {
                                         "mac": "000D3AF8801A",
                                         "flowTuples": [
-                                            "1487282492,175.182.69.29,10.1.0.4,28918,5358,T,I,D",
-                                            "1487282505,71.6.216.55,10.1.0.4,8080,8080,T,I,D"
+                                            "1487282492,203.0.113.29,10.1.0.4,28918,5358,T,I,D",
+                                            "1487282505,192.0.2.55,10.1.0.4,8080,8080,T,I,D"
                                         ]
                                     }
                                 ]
@@ -294,7 +294,7 @@ Here's an example format of a version 1 NSG flow log:
                                     {
                                         "mac": "000D3AF8801A",
                                         "flowTuples": [
-                                            "1487282512,91.224.160.154,10.1.0.4,59046,3389,T,I,A"
+                                            "1487282512,192.0.2.154,10.1.0.4,59046,3389,T,I,A"
                                         ]
                                     }
                                 ]
@@ -319,7 +319,7 @@ Here's an example format of a version 2 NSG flow log:
     "records": [
         {
             "time": "2018-11-13T12:00:35.3899262Z",
-            "systemId": "a0fca5ce-022c-47b1-9735-89943b42f2fa",
+            "systemId": "66aa66aa-bb77-cc88-dd99-00ee00ee00ee",
             "category": "NetworkSecurityGroupFlowEvent",
             "resourceId": "/SUBSCRIPTIONS/00000000-0000-0000-0000-000000000000/RESOURCEGROUPS/FABRIKAMRG/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/FABRIAKMVM1-NSG",
             "operationName": "NetworkSecurityGroupFlowEvents",
@@ -332,9 +332,9 @@ Here's an example format of a version 2 NSG flow log:
                             {
                                 "mac": "000D3AF87856",
                                 "flowTuples": [
-                                    "1542110402,94.102.49.190,10.5.16.4,28746,443,U,I,D,B,,,,",
-                                    "1542110424,176.119.4.10,10.5.16.4,56509,59336,T,I,D,B,,,,",
-                                    "1542110432,167.99.86.8,10.5.16.4,48495,8088,T,I,D,B,,,,"
+                                    "1542110402,192.0.2.190,10.5.16.4,28746,443,U,I,D,B,,,,",
+                                    "1542110424,203.0.113.10,10.5.16.4,56509,59336,T,I,D,B,,,,",
+                                    "1542110432,198.51.100.8,10.5.16.4,48495,8088,T,I,D,B,,,,"
                                 ]
                             }
                         ]
@@ -345,10 +345,10 @@ Here's an example format of a version 2 NSG flow log:
                             {
                                 "mac": "000D3AF87856",
                                 "flowTuples": [
-                                    "1542110377,10.5.16.4,13.67.143.118,59831,443,T,O,A,B,,,,",
-                                    "1542110379,10.5.16.4,13.67.143.117,59932,443,T,O,A,E,1,66,1,66",
-                                    "1542110379,10.5.16.4,13.67.143.115,44931,443,T,O,A,C,30,16978,24,14008",
-                                    "1542110406,10.5.16.4,40.71.12.225,59929,443,T,O,A,E,15,8489,12,7054"
+                                    "1542110377,10.5.16.4,203.0.113.118,59831,443,T,O,A,B,,,,",
+                                    "1542110379,10.5.16.4,203.0.113.117,59932,443,T,O,A,E,1,66,1,66",
+                                    "1542110379,10.5.16.4,203.0.113.115,44931,443,T,O,A,C,30,16978,24,14008",
+                                    "1542110406,10.5.16.4,198.51.100.225,59929,443,T,O,A,E,15,8489,12,7054"
                                 ]
                             }
                         ]
@@ -358,7 +358,7 @@ Here's an example format of a version 2 NSG flow log:
         },
         {
             "time": "2018-11-13T12:01:35.3918317Z",
-            "systemId": "a0fca5ce-022c-47b1-9735-89943b42f2fa",
+            "systemId": "66aa66aa-bb77-cc88-dd99-00ee00ee00ee",
             "category": "NetworkSecurityGroupFlowEvent",
             "resourceId": "/SUBSCRIPTIONS/00000000-0000-0000-0000-000000000000/RESOURCEGROUPS/FABRIKAMRG/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/FABRIAKMVM1-NSG",
             "operationName": "NetworkSecurityGroupFlowEvents",

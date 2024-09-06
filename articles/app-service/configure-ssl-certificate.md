@@ -82,12 +82,13 @@ The free certificate comes with the following limitations:
 
 ### [Apex domain](#tab/apex)
 - Must have an A record pointing to your web app's IP address.
-- Isn't supported on apps that aren't publicly accessible.
+- Must be on apps that are publicly accessible.
 - Isn't supported with root domains that are integrated with Traffic Manager.
 - Must meet all the above for successful certificate issuances and renewals.
 
 ### [Subdomain](#tab/subdomain)
 - Must have CNAME mapped _directly_ to `<app-name>.azurewebsites.net` or [trafficmanager.net](configure-domain-traffic-manager.md#enable-custom-domain). Mapping to an intermediate CNAME value blocks certificate issuance and renewal.
+- Must be on apps that are publicly accessible.
 - Must meet all the above for successful certificate issuance and renewals.
 
 ---
