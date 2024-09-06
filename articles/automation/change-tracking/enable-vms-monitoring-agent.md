@@ -40,6 +40,8 @@ This section provides detailed procedure on how you can enable change tracking o
    It will initiate the deployment and the notification appears on the top right corner of the screen.
    
    :::image type="content" source="media/enable-vms-monitoring-agent/deployment-success-inline.png" alt-text="Screenshot showing the notification of deployment." lightbox="media/enable-vms-monitoring-agent/deployment-success-expanded.png":::
+ >[!NOTE]
+   >- When enabling Change Tracking through the Azure portal with the Azure Monitoring Agent this process creates the data collection rule. This rule will show in the resource group as ct-dcr-xxxxxxxxxx. Once completed add Resources to the DCR rule.
 
 
 #### [Multiple Azure VMs - portal](#tab/multiplevms)
@@ -176,6 +178,12 @@ Using the Deploy if not exist (DINE) policy, you can enable Change tracking with
 1. After the deployment is complete, select **CtDcr-Deployment** to see the DCR Name. Use the **Resource ID** of the newly created Data Collection Rule for Change tracking and inventory deployment through policy.
  
    :::image type="content" source="media/enable-vms-monitoring-agent/deployment-confirmation.png" alt-text="Screenshot of deployment notification.":::
+
+ >[!NOTE]
+   >- Once the Data Collection Rule is created using the Azure Monitoring Agent change tracking schema, DO NOT add any Data sources to this data collection rule. This will cause the change tracking and inventory to fail showing a blank white screen. Only add in new Resources within this section.
+>
+![image](https://github.com/user-attachments/assets/d98630b2-8616-4bc1-b3e4-3ffa1282b6a0)
+
 
 ## Next steps
 
