@@ -6,7 +6,7 @@ author: vhorne
 ms.service: azure-web-application-firewall
 ms.date: 11/07/2022
 ms.author: victorh
-ms.topic: article
+ms.topic: how-to
 ms.custom: FY23-content-maintenance
 ---
 
