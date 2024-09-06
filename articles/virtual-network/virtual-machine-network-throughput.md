@@ -57,7 +57,7 @@ Once this limit is hit, other connections are dropped. Connection establishment 
 
 Metrics are available in [Azure Monitor](../azure-monitor/essentials/metrics-supported.md#microsoftcomputevirtualmachines) to track the number of network flows and the flow creation rate on your VM or Virtual Machine Scale Sets instances.
 
-:::image type="content" source="./media/virtual-machine-network-throughput/azure-monitor-flow-metrics.png" alt-text="A Screenshot shows the Metrics page of Azure Monitor with a line chart and totals for inbound and outbound flows.":::
+:::image type="content" source="./media/virtual-machine-network-throughput/azure-monitor-flow-metrics.png" alt-text="A screenshot shows the Metrics page of Azure Monitor with a line chart and totals for inbound and outbound flows.":::
 
 ## Next steps
 
