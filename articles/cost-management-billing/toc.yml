@@ -285,8 +285,10 @@
     href: /rest/api/cost-management/retail-prices/azure-retail-prices
 - name: Resources
   items:
-  - name: FAQ
+  - name: Cost Management + Billing FAQ
     href: cost-management-billing-faq.yml
+  - name: Discover cloud footprint FAQ
+    href: manage/discover-cloud-footprint.md
 - name: Samples
   items:
   - name: REST API
