@@ -2,8 +2,8 @@
 title: Configure Windows Update settings in Azure Update Manager
 description: This article tells how to configure Windows update settings to work with Azure Update Manager.
 ms.service: azure-update-manager
-ms.date: 01/19/2024
-ms.topic: conceptual
+ms.date: 09/06/2024
+ms.topic: how-to
 author: SnehaSudhirG
 ms.author: sudhirsneha
 ms.custom: engagement-fy24
