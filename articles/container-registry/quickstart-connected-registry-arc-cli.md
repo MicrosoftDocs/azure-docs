@@ -124,9 +124,10 @@ By deploying the connected Registry Arc extension, you can synchronize container
     --query ACR_REGISTRY_CONNECTION_STRING \
     --output tsv \
     --yes | tr -d '\r')\" }" > settings.json
-    ```
+  ```
 
-**Note:** The cat and echo commands create the `protected-settings-extension.json` file with the connection string details, injecting the contents of the connection string into the `protected-settings-extension.json` file, a necessary step for the extension deployment. The [az acr connected-registry get-settings][az-acr-connected-registry-get-settings] command generates the connection string, including the creation of a new password and the specification of the transport protocol. 
+>[!NOTE] 
+> The cat and echo commands create the `protected-settings-extension.json` file with the connection string details, injecting the contents of the connection string into the `protected-settings-extension.json` file, a necessary step for the extension deployment. The [az acr connected-registry get-settings][az-acr-connected-registry-get-settings] command generates the connection string, including the creation of a new password and the specification of the transport protocol. 
 
 2. Deploy the connected registry extension
 
