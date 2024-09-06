@@ -133,7 +133,7 @@ cd bindings-dapr-nodejs-cron-postgres
    | Parameter | Description |
    | --------- | ----------- |
    | Environment Name | Prefix for the resource group created to hold all Azure resources. |
-   | Azure Location  | The Azure location for your resources. [Make sure you select a location available for Azure PostgreSQL](../postgresql/flexible-server/overview.md#azure-regions). |
+   | Azure Location  | The Azure location for your resources. [Make sure you select a location available for Azure PostgreSQL](/azure/postgresql/flexible-server/overview#azure-regions). |
    | Azure Subscription | The Azure subscription for your resources. |
 
 1. Run `azd up` to provision the infrastructure and deploy the application to Azure Container Apps in a single command.
@@ -312,7 +312,7 @@ cd bindings-dapr-python-cron-postgres
    | Parameter | Description |
    | --------- | ----------- |
    | Environment Name | Prefix for the resource group created to hold all Azure resources. |
-   | Azure Location  | The Azure location for your resources. [Make sure you select a location available for Azure PostgreSQL](../postgresql/flexible-server/overview.md#azure-regions). |
+   | Azure Location  | The Azure location for your resources. [Make sure you select a location available for Azure PostgreSQL](/azure/postgresql/flexible-server/overview#azure-regions). |
    | Azure Subscription | The Azure subscription for your resources. |
 
 1. Run `azd up` to provision the infrastructure and deploy the application to Azure Container Apps in a single command.
@@ -489,7 +489,7 @@ cd bindings-dapr-csharp-cron-postgres
    | Parameter | Description |
    | --------- | ----------- |
    | Environment Name | Prefix for the resource group created to hold all Azure resources. |
-   | Azure Location  | The Azure location for your resources. [Make sure you select a location available for Azure PostgreSQL](../postgresql/flexible-server/overview.md#azure-regions). |
+   | Azure Location  | The Azure location for your resources. [Make sure you select a location available for Azure PostgreSQL](/azure/postgresql/flexible-server/overview#azure-regions). |
    | Azure Subscription | The Azure subscription for your resources. |
 
 1. Run `azd up` to provision the infrastructure and deploy the application to Azure Container Apps in a single command.

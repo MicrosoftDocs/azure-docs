@@ -221,7 +221,7 @@ Learn more about [Virtual machine - AccelNetDisengaged (Accelerated Networking m
 
 Ultra disk is available in the same region as your database workload. Ultra disk offers high throughput, high IOPS, and consistent low latency disk storage for your database workloads: For Oracle DBs, you can now use either 4k or 512E sector sizes with Ultra disk depending on your Oracle DB version. For SQL server, using Ultra disk for your log disk might offer more performance for your database. See instructions here for migrating your log disk to Ultra disk.
 
-Learn more about [Virtual machine - AzureStorageVmUltraDisk (Take advantage of Ultra Disk low latency for your log disks and improve your database workload performance.)](../virtual-machines/disks-enable-ultra-ssd.md?tabs=azure-portal).
+Learn more about [Virtual machine - AzureStorageVmUltraDisk (Take advantage of Ultra Disk low latency for your log disks and improve your database workload performance.)](/azure/virtual-machines/disks-enable-ultra-ssd?tabs=azure-portal).
 
 ### Upgrade the size of your most active virtual machines to prevent resource exhaustion and improve performance
 
@@ -273,13 +273,13 @@ Learn more about [Azure Cosmos DB account - CosmosDBQueryPageSize (Configure you
 
 Your Azure Cosmos DB containers are running ORDER BY queries incurring high Request Unit (RU) charges. It's recommended to add composite indexes to your containers' indexing policy to improve the RU consumption and decrease the latency of these queries.
 
-Learn more about [Azure Cosmos DB account - CosmosDBOrderByHighRUCharge (Add composite indexes to your Azure Cosmos DB container)](../cosmos-db/index-policy.md#composite-indexes).
+Learn more about [Azure Cosmos DB account - CosmosDBOrderByHighRUCharge (Add composite indexes to your Azure Cosmos DB container)](/azure/cosmos-db/index-policy#composite-indexes).
 
 ### Optimize your Azure Cosmos DB indexing policy to only index what's needed
 
 Your Azure Cosmos DB containers are using the default indexing policy, which indexes every property in your documents. Because you're storing large documents, a high number of properties get indexed, resulting in high Request Unit consumption and poor write latency. To optimize write performance, we recommend overriding the default indexing policy to only index the properties used in your queries.
 
-Learn more about [Azure Cosmos DB account - CosmosDBDefaultIndexingWithManyPaths (Optimize your Azure Cosmos DB indexing policy to only index what's needed)](../cosmos-db/index-policy.md).
+Learn more about [Azure Cosmos DB account - CosmosDBDefaultIndexingWithManyPaths (Optimize your Azure Cosmos DB indexing policy to only index what's needed)](/azure/cosmos-db/index-policy).
 
 ### Use hierarchical partition keys for optimal data distribution
 

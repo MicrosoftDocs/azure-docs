@@ -20,7 +20,7 @@ ms.author: wchi
     using Azure.Security.KeyVault.Secrets;
     using Azure.Core;
     
-    // Uncomment the following lines according to the authentication type.
+    // Uncomment the following lines corresponding to the authentication type you want to use.
     // system-assigned managed identity
     // var credential = new DefaultAzureCredential();
     
@@ -69,7 +69,7 @@ ms.author: wchi
     ```
 1. Authenticate using `azure-identity` and get the Azure Key Vault endpoint from the environment variables added by Service Connector. When using the code below, uncomment the part of the code snippet for the authentication type you want to use.
     ```java
-    // Uncomment the following lines according to the authentication type.
+    // Uncomment the following lines corresponding to the authentication type you want to use.
     // for system-managed identity
     // DefaultAzureCredential credential = new DefaultAzureCredentialBuilder().build();
 
@@ -108,7 +108,7 @@ Refer to [Tutorial: Connect Azure Spring Apps to Key Vault using managed identit
     from azure.identity import ManagedIdentityCredential, ClientSecretCredential
     from azure.keyvault.keys import KeyClient
 
-    # Uncomment the following lines according to the authentication type.
+    # Uncomment the following lines corresponding to the authentication type you want to use.
     # system-assigned managed identity
     # cred = ManagedIdentityCredential()
     
@@ -138,7 +138,7 @@ Refer to [Tutorial: Connect Azure Spring Apps to Key Vault using managed identit
     import { DefaultAzureCredential,ClientSecretCredential } from "@azure/identity";
     const { SecretClient } = require("@azure/keyvault-secrets");
     
-    // Uncomment the following lines according to the authentication type.
+    // Uncomment the following lines corresponding to the authentication type you want to use.
     // for system-assigned managed identity
     // const credential = new DefaultAzureCredential();
     

@@ -12,8 +12,8 @@ This article describes the **DELL XE4 SFF** appliance deployment and installatio
 | Appliance characteristic |Details |
 |---------|---------|
 |**Hardware profile** | L500 |
-|**Performance** | Max bandwidth: 25 Mbps <br> 1x RJ45 monitoring port |
-|**Physical specifications** | Mounting: Small Form Factor <br> Ports: 1x1Gbps (builtin) and optional expansion PCIe cards for copper and SFP connectors|
+|**Performance** | Max bandwidth: 25 Mbps <br> Max devices: 1,000 |
+|**Physical specifications** | Mounting: Small Form Factor <br> Ports: 1x1Gbps (builtin) and optional expansion PCIe cards for copper and SFP connectors <br> 1x RJ45 monitoring port|
 |**Status** | Supported, available preconfigured |
 
 The following image shows a sample of the DELL XE4 SFF front panel:

@@ -1,7 +1,7 @@
 ---
 title:  Manage access to Microsoft Copilot in Azure
 description: Learn how administrators can manage user access to Microsoft Copilot in Azure.
-ms.date: 08/13/2024
+ms.date: 08/21/2024
 ms.topic: how-to
 ms.service: copilot-for-azure
 ms.custom:
@@ -11,9 +11,6 @@ author: JnHs
 ---
 
 # Manage access to Microsoft Copilot in Azure
-
-> [!NOTE]
-> We're currently in the process of rolling out Microsoft Copilot in Azure (preview) to all Azure tenants. We'll remove this note once the functionality is available to all users.
 
 By default, Copilot in Azure is available to all users in a tenant. However, [Global Administrators](/entra/identity/role-based-access-control/permissions-reference#global-administrator) can manage access to Copilot in Azure for their organization. Access can also be optionally granted to specific Microsoft Entra users or groups.
 

@@ -280,7 +280,7 @@ We recommend that you call the APIs no more than once per day. Cost Management d
 
 ### Query API query processing units
 
-In addition to the existing rate limiting processes, the [Query API](/rest/api/cost-management/query) also limits processing based on the cost of API calls. The cost of an API call is expressed as query processing units (QPUs). QPU is a performance currency, like [Cosmos DB RUs](../../cosmos-db/request-units.md). They abstract system resources like CPU and memory.
+In addition to the existing rate limiting processes, the [Query API](/rest/api/cost-management/query) also limits processing based on the cost of API calls. The cost of an API call is expressed as query processing units (QPUs). QPU is a performance currency, like [Cosmos DB RUs](/azure/cosmos-db/request-units). They abstract system resources like CPU and memory.
 
 #### QPU calculation
 

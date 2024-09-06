@@ -29,6 +29,8 @@
     href: tutorial-restrict-network-access-to-resources.md
   - name: Connect virtual networks
     href: tutorial-connect-virtual-networks-portal.md
+  - name: Service endpoint policies
+    href: virtual-network-service-endpoint-policies.md
 - name: Concepts
   items:
   - name: Concepts and best practices
@@ -189,21 +191,7 @@
   - name: Security
     items:
     - name: Create virtual network with encryption
-      items:
-      - name: Azure portal
-        href: how-to-create-encryption-portal.md
-      - name: Azure PowerShell
-        href: how-to-create-encryption-powershell.md
-      - name: Azure CLI
-        href: how-to-create-encryption-cli.md
-    - name: Filter network traffic
-      items:
-      - name: Azure portal
-        href: tutorial-filter-network-traffic.md
-      - name: Azure PowerShell
-        href: tutorial-filter-network-traffic-powershell.md
-      - name: Azure CLI
-        href: tutorial-filter-network-traffic-cli.md
+      href: how-to-create-encryption.md
     - name: Network isolation
       items:
       - name: Using private endpoints
@@ -214,20 +202,6 @@
           href: ../private-link/create-private-endpoint-powershell.md?toc=/azure/virtual-network/toc.json
         - name: Azure CLI
           href: ../private-link/create-private-endpoint-cli.md?toc=/azure/virtual-network/toc.json
-      - name: Using service endpoints
-        items:
-        - name: Azure portal
-          href: tutorial-restrict-network-access-to-resources.md
-        - name: Azure PowerShell
-          href: tutorial-restrict-network-access-to-resources-powershell.md
-        - name: Azure CLI
-          href: tutorial-restrict-network-access-to-resources-cli.md
-      - name: Using service endpoint policies
-        items:
-        - name: Azure portal
-          href: virtual-network-service-endpoint-policies-portal.md
-        - name: Azure PowerShell
-          href: virtual-network-service-endpoint-policies-powershell.md
     - name: Manage DDoS protection
       href: ../ddos-protection/manage-ddos-protection.md
     - name: Onboard partners to DDoS Protection
@@ -249,9 +223,9 @@
     - name: Create VM - multiple NICs
       items:
       - name: Azure PowerShell
-        href: ../virtual-machines/windows/multiple-nics.md?toc=/azure/virtual-network/toc.json
+        href: /azure/virtual-machines/windows/multiple-nics?toc=/azure/virtual-network/toc.json
       - name: Azure CLI
-        href: ../virtual-machines/linux/multiple-nics.md?toc=/azure/virtual-network/toc.json
+        href: /azure/virtual-machines/linux/multiple-nics?toc=/azure/virtual-network/toc.json
     - name: Accelerated Networking (AccelNet)
       items:
       - name: Accelerated Networking overview

@@ -13,6 +13,9 @@ ms.custom: engagement-fy23, devx-track-azurecli
 
 # Authorize developer accounts by using Microsoft Entra ID in Azure API Management
 
+[!INCLUDE [premium-dev-standard-standardv2-basicv2.md](../../includes/api-management-availability-premium-dev-standard-standardv2-basicv2.md)]
+
+
 In this article, you'll learn how to:
 > [!div class="checklist"]
 > * Enable access to the developer portal for users from Microsoft Entra ID.
@@ -32,8 +35,6 @@ For an overview of options to secure the developer portal, see [Secure access to
 - [Import and publish](import-and-publish.md) an API in the Azure API Management instance.
 
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
-
-[!INCLUDE [premium-dev-standard.md](../../includes/api-management-availability-premium-dev-standard.md)]
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 

@@ -20,7 +20,7 @@ Whichever approach you choose, the configuration options are the same, and the p
 Other approaches, not described in this article include:
 
 - [Use the REST API to create and manage IoT Central applications.](../core/howto-manage-iot-central-with-rest-api.md).
-- [Create and manage an Azure IoT Central application from the Microsoft Cloud Solution Provider portal](howto-create-and-manage-applications-csp.md).
+- [Create and manage an Azure IoT Central application from the Microsoft Cloud Solution Provider portal](https://partner.microsoft.com/cloud-solution-provider).
 
 ## Parameters
 

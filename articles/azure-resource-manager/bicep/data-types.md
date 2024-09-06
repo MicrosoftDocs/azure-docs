@@ -3,7 +3,7 @@ title: Data types in Bicep
 description: Describes the data types that are available in Bicep
 ms.topic: reference
 ms.custom: devx-track-bicep
-ms.date: 07/16/2024
+ms.date: 08/20/2024
 ---
 
 # Data types in Bicep
@@ -83,7 +83,7 @@ param emptyArray array = []
 param numberArray array = [1, 2, 3]
 
 output foo bool = empty(emptyArray) || emptyArray[0] == 'bar'
-output bar bool = length(numberArray) >= 3 || numberArray[3] == 4
+output bar bool = length(numberArray) <= 3 || numberArray[3] == 4
 ```
 
 ## Booleans
@@ -319,7 +319,7 @@ is ${blocked}'''
 
 ## Union types
 
-In Bicep, a union type allows the creation of a combined type consisting of a set of sub-types. An assignment is valid if any of the individual sub-type assignments are permitted. The `|` character separates individual sub-types using an _or_ condition. For example, the syntax _'a' | 'b'_ means that a valid assignment could be either _'a'_ or _'b'_. Union types are translated into the [allowed-value](../templates/definitions.md#allowed-values) constraint in Bicep, so only literals are permitted as members. Unions can include any number of literal-typed expressions.
+In Bicep, a union type allows the creation of a combined type consisting of a set of subtypes. An assignment is valid if any of the individual subtype assignments are permitted. The `|` character separates individual subtypes using an _or_ condition. For example, the syntax _'a' | 'b'_ means that a valid assignment could be either _'a'_ or _'b'_. Union types are translated into the [allowed-value](../templates/definitions.md#allowed-values) constraint in Bicep, so only literals are permitted as members. Unions can include any number of literal-typed expressions.
 
 ```bicep
 type color = 'Red' | 'Blue' | 'White'
@@ -329,7 +329,13 @@ type oneOfSeveralObjects = {foo: 'bar'} | {fizz: 'buzz'} | {snap: 'crackle'}
 type mixedTypeArray = ('fizz' | 42 | {an: 'object'} | null)[]
 ```
 
-Any type expression can be used as a sub-type in a union type declaration (between `|` characters). For example, the following examples are all valid:
+Type unions must be reducible to a single ARM type, such as 'string', 'int', or 'bool'. Otherwise, you get the [BCP294](./diagnostics/bcp294.md) error code. For example:
+
+```bicep
+type foo = 'a' | 1
+```
+
+Any type expression can be used as a subtype in a union type declaration (between `|` characters). For example, the following examples are all valid:
 
 ```bicep
 type foo = 1 | 2
@@ -373,13 +379,13 @@ There are some limitations with union type.
   ```
 
 * Only literals are permitted as members.
-* All literals must be of the same primitive data type (e.g., all strings or all integers).
+* All literals must be of the same primitive data type (for example, all strings or all integers).
 
 The union type syntax can be used in [user-defined data types](./user-defined-data-types.md).
 
 ## Secure strings and objects
 
-Secure string uses the same format as string, and secure object uses the same format as object. With Bicep, you add the `@secure()` [decorator](./parameters.md#decorators) to a string or object.
+Secure string uses the same format as string, and secure object uses the same format as object. With Bicep, you add the `@secure()` [decorator](./parameters.md#use-decorators) to a string or object.
 
 When you set a parameter to a secure string or secure object, the value of the parameter isn't saved to the deployment history and isn't logged. However, if you set that secure value to a property that isn't expecting a secure value, the value isn't protected. For example, if you set a secure string to a tag, that value is stored as plain text. Use secure strings for passwords and secrets.
 

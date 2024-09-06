@@ -1,63 +1,75 @@
 items:
-- name: Azure Modeling and Simulation Workbench (preview) documentation
-  href: index.yml
-- name: Overview
-  items: 
-    - name: What is Azure Modeling and Simulation Workbench?
-      href: modeling-simulation-workbench-overview.md
-- name: Quickstart
-  items: 
-    - name: Create an Azure Modeling and Simulation Workbench
-      href: ./quickstart-create-portal.md
-#- name: Tutorials
-#  items: 
-#    - name: Create Azure Modeling and Simulation Workbench
-#      href: ./tutorial-create-Modeling and Simulation Workbench.md
-#    - name: Use Azure Modeling and Simulation Workbench
-#      href: ./tutorial-use-Modeling and Simulation Workbench.md
-- name: Concepts
-  items: 
-    - name: Workbench
-      href: ./concept-workbench.md
-    - name: User personas
-      href: ./concept-user-personas.md
-    - name: Chamber
-      href: ./concept-chamber.md
-    - name: Connector
-      href: ./concept-connector.md
-    - name: Data pipeline
-      href: ./concept-data-pipeline.md
-    - name: License service
-      href: ./concept-license-service.md      
-- name: How-to guides
-  items: 
-    - name: Manage users
-      href: ./how-to-guide-manage-users.md
-    - name: Set up networking
-      href: ./how-to-guide-set-up-networking.md
-    - name: Manage license service
-      href: ./how-to-guide-licenses.md
-    - name: Import data
-      href: ./how-to-guide-upload-data.md
-    - name: Export data
-      href: ./how-to-guide-download-data.md
-    - name: Manage chamber storage
-      href: ./how-to-guide-manage-storage.md          
-#        - name: Disaster Recovery
-#          href: ./how-to-guide-disaster-recovery.md
-- name: Resources
-  items: 
-    - name: Troubleshoot
-      href: ./resources-troubleshoot.md
-    - name: Get support
-      href: ./resources-get-support.md
-#- name: Reference
-#  items: 
-#    - name: Azure CLI
-#      href: /cli/azure/ModSimWorkbench
-#    - name: Azure PowerShell
-#      href: /powershell/module/az.ModSimWorkbench 
-#    - name: REST
-#      href: /rest/api/ModSimWorkbench
-#    - name: Resource Manager template
-#      href: /azure/templates/microsoft.ModSimWorkbench/allversions
+  - name: Azure Modeling and Simulation Workbench (preview) documentation
+    href: index.yml
+  - name: Overview
+    items:
+      - name: What is Azure Modeling and Simulation Workbench?
+        href: modeling-simulation-workbench-overview.md
+  - name: Concepts
+    items:
+      - name: Workbench
+        href: ./concept-workbench.md
+      - name: Chamber
+        href: ./concept-chamber.md
+      - name: Connector
+        href: ./concept-connector.md
+      - name: User personas
+        href: ./concept-user-personas.md
+      - name: Data pipeline
+        href: ./concept-data-pipeline.md
+      - name: License service
+        href: ./concept-license-service.md
+      - name: VM offerings
+        href: ./concept-vm-offerings.md
+      - name: Storage
+        href: ./concept-storage.md
+      - name: Business continuity
+        items:
+          - name: Disaster recovery
+            href: ./disaster-recovery.md
+  - name: Tutorials
+    items:
+      - name: Create an Azure Modeling and Simulation Workbench
+        href: ./quickstart-create-portal.md
+  - name: How-to guides
+    items:
+      - name: Manage users
+        href: ./how-to-guide-manage-users.md
+      - name: Set up networking
+        href: ./how-to-guide-set-up-networking.md
+      - name: Manage license service
+        href: ./how-to-guide-licenses.md
+      - name: Import data
+        href: ./how-to-guide-upload-data.md
+      - name: Export data
+        href: ./how-to-guide-download-data.md
+      - name: Manage chamber storage
+        href: ./how-to-guide-manage-chamber-storage.md
+      - name: Manage shared storage
+        href: ./how-to-guide-manage-shared-storage.md
+      - name: Manage Red Hat firewalls
+        href: ./how-to-guide-configure-firewall-red-hat.md
+      - name: Start and stop chambers, connectors, and VMs
+        href: ./how-to-guide-start-stop-restart.md
+      - name: Enable copy/paste
+        href: ./how-to-guide-enable-copy-paste.md
+      - name: Place a chamber into Idle mode
+        href: ./how-to-guide-chamber-idle.md
+      - name: Add redirect URIs
+        href: ./how-to-guide-add-redirect-uris.md
+      - name: Manage VMs
+        href: ./how-to-guide-chamber-vm.md
+      - name: Register a resource provider
+        href: ./how-to-guide-register-resource-provider.md
+      - name: Create a chamber
+        href: ./how-to-guide-chamber.md
+      - name: Refresh remote connection keys
+        href: ./refresh-remote-connection-keys.md
+  - name: Resources
+    items:
+      - name: Troubleshoot
+        href: ./resources-troubleshoot.md
+      - name: Get support
+        href: ./resources-get-support.md
+      - name: AzCopy
+        href: /azure/storage/common/storage-use-azcopy-v10?tabs=dnf

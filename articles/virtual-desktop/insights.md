@@ -184,7 +184,7 @@ To set up your remaining session hosts using the configuration workbook:
 1. Once the agent has installed, refresh the configuration workbook.
 
 >[!NOTE]
->For larger host pools (> 1000 session hosts), or if there are deployment issues, we recommend you install the Log Analytics agent [when you create the session host](../virtual-machines/extensions/oms-windows.md#extension-schema) using an Azure Resource Manager template.
+>For larger host pools (> 1000 session hosts), or if there are deployment issues, we recommend you install the Log Analytics agent [when you create the session host](/azure/virtual-machines/extensions/oms-windows#extension-schema) using an Azure Resource Manager template.
 
 #### Workspace performance counters
 

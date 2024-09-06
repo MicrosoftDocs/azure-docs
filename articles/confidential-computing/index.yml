@@ -47,7 +47,7 @@ landingContent:
           - text: Trusted Hardware Identity Management
             url: ../security/fundamentals/trusted-hardware-identity-management.md
           - text: Trusted launch
-            url: ../virtual-machines/trusted-launch.md
+            url: /azure/virtual-machines/trusted-launch
           - text: Azure Key Vault Managed HSM
             url: /azure/key-vault/managed-hsm/
           - text: Azure SQL Always Encrypted in secure enclaves
@@ -94,13 +94,13 @@ landingContent:
           - text: Confidential VMs FAQ 
             url: confidential-vm-faq.yml
           - text: DCasv5 and DCadsv5-series VM specs
-            url: ../virtual-machines/dcasv5-dcadsv5-series.md
+            url: /azure/virtual-machines/dcasv5-dcadsv5-series
           - text: ECasv5 and ECadsv5-series VM specs
-            url: ../virtual-machines/ecasv5-ecadsv5-series.md
+            url: /azure/virtual-machines/ecasv5-ecadsv5-series
           - text: DCesv5 and DCedsv5-series VM specs
-            url: ../virtual-machines/dcesv5-dcedsv5-series.md
+            url: /azure/virtual-machines/dcesv5-dcedsv5-series
           - text: ECesv5 and ECedsv5-series VM specs
-            url: ../virtual-machines/ecesv5-ecedsv5-series.md
+            url: /azure/virtual-machines/ecesv5-ecedsv5-series
           - text: Availability
             url: https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines
       - linkListType: whats-new
@@ -123,7 +123,7 @@ landingContent:
       - linkListType: quickstart
         links:
           - text: Hello world with Confidential containers with Azure Container Instances (ACI)
-            url: ..\container-instances\container-instances-tutorial-deploy-confidential-containers-cce-arm.md
+            url: /azure/container-instances/container-instances-tutorial-deploy-confidential-containers-cce-arm
           - text: CLI based provisioning with a hello from enclave container app on AKS
             url: confidential-enclave-nodes-aks-get-started.md
           - text: Confidential containers with Intel SGX quickstart
@@ -174,9 +174,9 @@ landingContent:
       - linkListType: reference
         links:
           - text: DCsv2-series virtual machines
-            url: ../virtual-machines/dcv2-series.md
+            url: /azure/virtual-machines/dcv2-series
           - text: DCsv3 and DCdsv3-series virtual machines
-            url: ../virtual-machines/dcv3-series.md
+            url: /azure/virtual-machines/dcv3-series
 ## Row 2
 # Card
   - title: Concepts

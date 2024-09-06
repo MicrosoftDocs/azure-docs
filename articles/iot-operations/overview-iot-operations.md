@@ -35,7 +35,7 @@ There are two core elements in the Azure IoT Operations Preview architecture:
 * **Azure IoT Operations Preview**. The set of data services that run on Azure Arc-enabled edge Kubernetes clusters. It includes the following services:
   * The _MQTT broker_ is an edge-native MQTT broker that powers event-driven architectures.
   * The _connector for OPC UA_ handles the complexities of OPC UA communication with OPC UA servers and other leaf devices.
-* The _operations experience_ is a web UI that provides a unified experience for operational technologists to manage assets and data processor pipelines in an Azure IoT Operations deployment. An IT administrator can use Azure Arc sites to control the resources that an operational technologist can access in the portal.
+* The _operations experience_ is a web UI that provides a unified experience for operational technologists to manage assets and data processor pipelines in an Azure IoT Operations deployment. An IT administrator can use [Azure Arc site manager (preview)](../azure-arc/site-manager/overview.md) to group Azure IoT Operations instances by physical location and make it easier for OT users to find instances.
 
 ## Deploy
 

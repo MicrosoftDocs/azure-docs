@@ -21,7 +21,7 @@ Azure Database for PostgreSQL server backup is available in all regions, except 
 
 |Scenarios  | Details  |
 |---------| ---------|
-|Deployments   |  [Azure Database for PostgreSQL - Single Server](../postgresql/overview.md#azure-database-for-postgresql---single-server)     |
+|Deployments   |  [Azure Database for PostgreSQL - Single Server](/azure/postgresql/overview#azure-database-for-postgresql---single-server)     |
 |Azure PostgreSQL versions    |   9.5, 9.6, 10, 11    |
 
 ## Feature considerations and limitations

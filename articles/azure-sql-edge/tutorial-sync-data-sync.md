@@ -4,7 +4,7 @@ description: Learn about syncing data from Azure SQL Edge by using Azure SQL Dat
 author: rwestMSFT
 ms.author: randolphwest
 ms.date: 09/14/2023
-ms.service: sql-edge
+ms.service: azure-sql-edge
 ms.topic: tutorial
 keywords:
   - SQL Edge

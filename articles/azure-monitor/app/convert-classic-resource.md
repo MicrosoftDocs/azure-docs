@@ -500,7 +500,7 @@ Legacy table: availabilityResults
 |:---|:---|:---|:---|
 |appId|string|ResourceGUID|string|
 |application_Version|string|AppVersion|string|
-|appName|string|\_ResourceId|string|
+|appName|string|\(removed)||
 |client_Browser|string|ClientBrowser|string|
 |client_City|string|ClientCity|string|
 |client_CountryOrRegion|string|ClientCountryOrRegion|string|
@@ -517,7 +517,7 @@ Legacy table: availabilityResults
 |`id`|string|`Id`|string|
 |`iKey`|string|`IKey`|string|
 |itemCount|int|ItemCount|int|
-|itemId|string|\_ItemId|string|
+|itemId|string|\(removed)||
 |itemType|string|Type|String|
 |location|string|Location|string|
 |message|string|Message|string|
@@ -544,7 +544,7 @@ Legacy table: browserTimings
 |:---|:---|:---|:---|
 |appId|string|ResourceGUID|string|
 |application_Version|string|AppVersion|string|
-|appName|string|\_ResourceId|string|
+|appName|string|\(removed)||
 |client_Browser|string|ClientBrowser|string|
 |client_City|string|ClientCity|string|
 |client_CountryOrRegion|string|ClientCountryOrRegion|string|
@@ -559,7 +559,7 @@ Legacy table: browserTimings
 |customMeasurements|dynamic|Measurements|Dynamic|
 |`iKey`|string|`IKey`|string|
 |itemCount|int|ItemCount|int|
-|itemId|string|\_ItemId|string|
+|itemId|string|\(removed)||
 |itemType|string|Type|string|
 |name|string|Name|datetime|
 |networkDuration|real|NetworkDurationMs|real|
@@ -588,7 +588,7 @@ Legacy table: dependencies
 |:---|:---|:---|:---|
 |appId|string|ResourceGUID|string|
 |application_Version|string|AppVersion|string|
-|appName|string|\_ResourceId|string|
+|appName|string|\(removed)||
 |client_Browser|string|ClientBrowser|string|
 |client_City|string|ClientCity|string|
 |client_CountryOrRegion|string|ClientCountryOrRegion|string|
@@ -606,7 +606,7 @@ Legacy table: dependencies
 |`id`|string|`Id`|string|
 |`iKey`|string|`IKey`|string|
 |itemCount|int|ItemCount|int|
-|itemId|string|\_ItemId|string|
+|itemId|string|\(removed)||
 |itemType|string|Type|String|
 |name|string|Name|string|
 |operation_Id|string|OperationId|string|
@@ -633,7 +633,7 @@ Legacy table: customEvents
 |:---|:---|:---|:---|
 |appId|string|ResourceGUID|string|
 |application_Version|string|AppVersion|string|
-|appName|string|\_ResourceId|string|
+|appName|string|\(removed)||
 |client_Browser|string|ClientBrowser|string|
 |client_City|string|ClientCity|string|
 |client_CountryOrRegion|string|ClientCountryOrRegion|string|
@@ -648,7 +648,7 @@ Legacy table: customEvents
 |customMeasurements|dynamic|Measurements|Dynamic|
 |`iKey`|string|`IKey`|string|
 |itemCount|int|ItemCount|int|
-|itemId|string|\_ItemId|string|
+|itemId|string|\(removed)||
 |itemType|string|Type|string|
 |name|string|Name|string|
 |operation_Id|string|OperationId|string|
@@ -670,7 +670,7 @@ Legacy table: customMetrics
 |:---|:---|:---|:---|
 |appId|string|ResourceGUID|string|
 |application_Version|string|AppVersion|string|
-|appName|string|\_ResourceId|string|
+|appName|string|\(removed)||
 |client_Browser|string|ClientBrowser|string|
 |client_City|string|ClientCity|string|
 |client_CountryOrRegion|string|ClientCountryOrRegion|string|
@@ -683,7 +683,7 @@ Legacy table: customMetrics
 |cloud_RoleName|string|AppRoleName|string|
 |customDimensions|dynamic|Properties|Dynamic|
 |`iKey`|string|`IKey`|string|
-|itemId|string|\_ItemId|string|
+|itemId|string|\(removed)||
 |itemType|string|Type|string|
 |name|string|Name|string|
 |operation_Id|string|OperationId|string|
@@ -698,9 +698,10 @@ Legacy table: customMetrics
 |user_Id|string|UserId|string|
 |value|real|(removed)||
 |valueCount|int|ItemCount|int|
-|valueMax|real|ValueMax|real|
-|valueMin|real|ValueMin|real|
-|valueSum|real|ValueSum|real|
+|valueMax|real|Max|real|
+|valueMin|real|Min|real|
+|valueSum|real|Sum|real|
+|valueStdDev|real|(removed)||
 
 > [!NOTE]
 > Older versions of Application Insights SDKs are used to report standard deviation (`valueStdDev`) in the metrics pre-aggregation. Because adoption in metrics analysis was light, the field was removed and is no longer aggregated by the SDKs. If the value is received by the Application Insights data collection endpoint, it's dropped during ingestion and isn't sent to the Log Analytics workspace. If you want to use standard deviation in your analysis, use queries against Application Insights raw events.
@@ -713,7 +714,7 @@ Legacy table: pageViews
 |:---|:---|:---|:---|
 |appId|string|ResourceGUID|string|
 |application_Version|string|AppVersion|string|
-|appName|string|\_ResourceId|string|
+|appName|string|\(removed)||
 |client_Browser|string|ClientBrowser|string|
 |client_City|string|ClientCity|string|
 |client_CountryOrRegion|string|ClientCountryOrRegion|string|
@@ -730,7 +731,7 @@ Legacy table: pageViews
 |`id`|string|`Id`|string|
 |`iKey`|string|`IKey`|string|
 |itemCount|int|ItemCount|int|
-|itemId|string|\_ItemId|string|
+|itemId|string|\(removed)||
 |itemType|string|Type|String|
 |name|string|Name|string|
 |operation_Id|string|OperationId|string|
@@ -754,7 +755,7 @@ Legacy table: performanceCounters
 |:---|:---|:---|:---|
 |appId|string|ResourceGUID|string|
 |application_Version|string|AppVersion|string|
-|appName|string|\_ResourceId|string|
+|appName|string|\(removed)||
 |category|string|Category|string|
 |client_Browser|string|ClientBrowser|string|
 |client_City|string|ClientCity|string|
@@ -770,7 +771,7 @@ Legacy table: performanceCounters
 |customDimensions|dynamic|Properties|Dynamic|
 |`iKey`|string|`IKey`|string|
 |instance|string|Instance|string|
-|itemId|string|\_ItemId|string|
+|itemId|string|\(removed)||
 |itemType|string|Type|string|
 |name|string|Name|string|
 |operation_Id|string|OperationId|string|
@@ -793,7 +794,7 @@ Legacy table: requests
 |:---|:---|:---|:---|
 |appId|string|ResourceGUID|string|
 |application_Version|string|AppVersion|string|
-|appName|string|\_ResourceId|string|
+|appName|string|\(removed)||
 |client_Browser|string|ClientBrowser|string|
 |client_City|string|ClientCity|string|
 |client_CountryOrRegion|string|ClientCountryOrRegion|string|
@@ -810,7 +811,7 @@ Legacy table: requests
 |`id`|string|`Id`|String|
 |`iKey`|string|`IKey`|string|
 |itemCount|int|ItemCount|int|
-|itemId|string|\_ItemId|string|
+|itemId|string|\(removed)||
 |itemType|string|Type|String|
 |name|string|Name|String|
 |operation_Id|string|OperationId|string|
@@ -837,7 +838,7 @@ Legacy table: exceptions
 |:---|:---|:---|:---|
 |appId|string|ResourceGUID|string|
 |application_Version|string|AppVersion|string|
-|appName|string|\_ResourceId|string|
+|appName|string|\(removed)||
 |assembly|string|Assembly|string|
 |client_Browser|string|ClientBrowser|string|
 |client_City|string|ClientCity|string|
@@ -859,7 +860,7 @@ Legacy table: exceptions
 |innermostMethod|string|InnermostMethod|string|
 |innermostType|string|InnermostType|string|
 |itemCount|int|ItemCount|int|
-|itemId|string|\_ItemId|string|
+|itemId|string|\(removed)||
 |itemType|string|Type|string|
 |message|string|Message|string|
 |method|string|Method|string|
@@ -889,7 +890,7 @@ Legacy table: traces
 |:---|:---|:---|:---|
 |appId|string|ResourceGUID|string|
 |application_Version|string|AppVersion|string|
-|appName|string|\_ResourceId|string|
+|appName|string|\(removed)||
 |client_Browser|string|ClientBrowser|string|
 |client_City|string|ClientCity|string|
 |client_CountryOrRegion|string|ClientCountryOrRegion|string|
@@ -904,7 +905,7 @@ Legacy table: traces
 |customMeasurements|dynamic|Measurements|dynamic|
 |`iKey`|string|`IKey`|string|
 |itemCount|int|ItemCount|int|
-|itemId|string|\_ItemId|string|
+|itemId|string|\(removed)||
 |itemType|string|Type|string|
 |message|string|Message|string|
 |operation_Id|string|OperationId|string|

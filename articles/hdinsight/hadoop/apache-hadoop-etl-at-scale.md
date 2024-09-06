@@ -99,8 +99,8 @@ HBase adaptability is dependent on the number of nodes in the HDInsight cluster.
 Azure offers three PaaS relational databases:
 
 * [Azure SQL Database](/azure/azure-sql/database/sql-database-paas-overview) is an implementation of Microsoft SQL Server. For more information on performance, see [Tuning Performance in Azure SQL Database](/azure/azure-sql/database/performance-guidance).
-* [Azure Database for MySQL](../../mysql/overview.md)  is an implementation of Oracle MySQL.
-* [Azure Database for PostgreSQL](../../postgresql/quickstart-create-server-database-portal.md) is an implementation of PostgreSQL.
+* [Azure Database for MySQL](/azure/mysql/overview)  is an implementation of Oracle MySQL.
+* [Azure Database for PostgreSQL](/azure/postgresql/quickstart-create-server-database-portal) is an implementation of PostgreSQL.
 
 Add more CPU and memory to scale up these products.  You can also choose to use premium disks with the products for better I/O performance.
 

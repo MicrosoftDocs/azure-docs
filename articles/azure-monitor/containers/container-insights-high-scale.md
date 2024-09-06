@@ -8,6 +8,9 @@ ms.date: 08/06/2024
 # High scale logs collection in Container Insights (Preview) 
 High scale mode is a feature in Container Insights that enables you to collect container console (stdout & stderr) logs with high throughput from your Azure Kubernetes Service (AKS) cluster nodes. This feature enables you to collect up to 50,000 logs/sec per node.
 
+> [!NOTE]
+> This feature is currently in public preview. For additional information, please read the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms).
+
 ## Overview
 When high scale mode is enabled, Container Insights performs multiple configuration changes resulting in a higher overall throughput. This includes using an upgraded agent and Azure Monitor data pipeline with scale improvements. These changes are all made in the background by Azure Monitor and don't require input or configuration after the feature is enabled.   
 

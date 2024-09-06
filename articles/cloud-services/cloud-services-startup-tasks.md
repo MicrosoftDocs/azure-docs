@@ -2,7 +2,7 @@
 title: Run Startup Tasks in Azure Cloud Services (classic) | Microsoft Docs
 description: Startup tasks help prepare your cloud service environment for your app. This article teaches you how startup tasks work and how to make them
 ms.topic: article
-ms.service: cloud-services
+ms.service: azure-cloud-services-classic
 ms.date: 07/23/2024
 author: hirenshah1
 ms.author: hirshah

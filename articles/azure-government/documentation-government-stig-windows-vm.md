@@ -50,7 +50,7 @@ Sign in at the [Azure portal](https://portal.azure.com/) or [Azure Government po
 
     a. Enter the *VM name*.
 
-    b. Select the *Availability options*. To learn about availability sets, see [Availability sets overview](../virtual-machines/availability-set-overview.md).
+    b. Select the *Availability options*. To learn about availability sets, see [Availability sets overview](/azure/virtual-machines/availability-set-overview).
 
     c. Select the *Windows OS version*.
 
@@ -126,7 +126,7 @@ Site Recovery can manage replication for:
 - Azure VMs replicating between Azure regions.
 - On-premises VMs, Azure Stack VMs, and physical servers.
  
-To learn more about backup and restore options for virtual machines in Azure, continue to [Overview of backup options for VMs](../virtual-machines/backup-recovery.md).
+To learn more about backup and restore options for virtual machines in Azure, continue to [Overview of backup options for VMs](/azure/virtual-machines/backup-recovery).
 
 ## Clean up resources
 
@@ -157,7 +157,7 @@ For more information, see [Deploy Azure Virtual Machine (Windows) and apply STIG
 
 This quickstart showed you how to deploy a STIG-compliant Windows virtual machine (Preview) on Azure or Azure Government. For more information about creating virtual machines in:
 
-- Azure, see [Quickstart: Create a Windows virtual machine in the Azure portal](../virtual-machines/windows/quick-create-portal.md).
+- Azure, see [Quickstart: Create a Windows virtual machine in the Azure portal](/azure/virtual-machines/windows/quick-create-portal).
 - Azure Government, see [Tutorial: Create virtual machines](./documentation-government-quickstarts-vm.md).
 
 To learn more about Azure services, continue to the Azure documentation.

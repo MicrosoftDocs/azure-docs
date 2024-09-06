@@ -126,7 +126,7 @@ The following table shows sample data from a multidimensional metric, network th
 ### Platform and custom metrics
 Platform and custom metrics are stored for **93 days** with the following exceptions:
 
-- **Classic guest OS metrics**: These performance counters are collected by the [Windows diagnostic extension](../agents/diagnostics-extension-overview.md) or the [Linux diagnostic extension](../../virtual-machines/extensions/diagnostics-linux.md) and routed to an Azure Storage account. Retention for these metrics is guaranteed to be at least 14 days, although no expiration date is written to the storage account.
+- **Classic guest OS metrics**: These performance counters are collected by the [Windows diagnostic extension](../agents/diagnostics-extension-overview.md) or the [Linux diagnostic extension](/azure/virtual-machines/extensions/diagnostics-linux) and routed to an Azure Storage account. Retention for these metrics is guaranteed to be at least 14 days, although no expiration date is written to the storage account.
   
   For performance reasons, the portal limits how much data it displays based on volume. So, the actual number of days that the portal retrieves can be longer than 14 days if the volume of data being written isn't large.
 

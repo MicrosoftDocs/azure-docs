@@ -1,7 +1,7 @@
 ---
 title: Trino CLI
 description: Using Trino via CLI
-ms.service: hdinsight-aks
+ms.service: azure-hdinsight-on-aks
 ms.custom: linux-related-content
 ms.topic: how-to
 ms.date: 10/19/2023
@@ -9,7 +9,9 @@ ms.date: 10/19/2023
 
 # Trino CLI
 
+[!INCLUDE [retirement-notice](../includes/retirement-notice.md)]
 [!INCLUDE [feature-in-preview](../includes/feature-in-preview.md)]
+
 
 The Trino CLI for HDInsight on AKS provides a terminal-based, interactive shell for running queries.
 

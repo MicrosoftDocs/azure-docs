@@ -1,7 +1,7 @@
 ---
 title: HDInsight on AKS FAQ
 description: HDInsight on AKS frequently asked questions.
-ms.service: hdinsight-aks
+ms.service: azure-hdinsight-on-aks
 ms.topic: faq
 ms.date: 08/29/2023
 ---
@@ -10,7 +10,10 @@ ms.date: 08/29/2023
 
 This article addresses some common questions about Azure HDInsight on AKS.
 
+[!INCLUDE [retirement-notice](includes/retirement-notice.md)]
 [!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
+
+
 
 ## General
 

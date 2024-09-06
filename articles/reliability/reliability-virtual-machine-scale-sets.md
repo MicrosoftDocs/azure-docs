@@ -44,7 +44,7 @@ For an architectural overview of reliability in Azure, see [Azure reliability](/
 
 #### :::image type="icon" source="../reliability/media/icon-recommendation-high.svg"::: **Enable automatic repair policy** 
 
-To achieve high availability for applications, [enable automatic instance repairs](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-instance-repairs.md#requirements-for-using-automatic-instance-repairs) to maintain a set of healthy VMs. When the [Application Health extension](../virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension.md) or [Load Balancer health probes](../load-balancer/load-balancer-custom-probe-overview.md) find that an instance is unhealthy, automatic instance repair deletes the unhealthy instance and creates a new one to replace it.
+To achieve high availability for applications, [enable automatic instance repairs](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-instance-repairs#requirements-for-using-automatic-instance-repairs) to maintain a set of healthy VMs. When the [Application Health extension](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension) or [Load Balancer health probes](../load-balancer/load-balancer-custom-probe-overview.md) find that an instance is unhealthy, automatic instance repair deletes the unhealthy instance and creates a new one to replace it.
 
 A grace period can be set using the property `automaticRepairsPolicy.gracePeriod`. The grace period, specified in minutes and in ISO 8601 format, can range between 10 to 90 minutes, and has a default value of 30 minutes.
 
@@ -70,9 +70,9 @@ When you create your Virtual Machine Scale Sets, use availability zones to prote
 
 #### :::image type="icon" source="../reliability/media/icon-recommendation-medium.svg"::: **Deploy VMs with flexible orchestration mode** 
 
-All VMs, including single instance VMs, should be deployed into a scale set using [flexible orchestration mode](../virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md#scale-sets-with-flexible-orchestration) to future-proof your application for scaling and availability. Flexible orchestration offers high availability guarantees (up to 1000 VMs) by spreading VMs across fault domains in a region or within an availability zone.
+All VMs, including single instance VMs, should be deployed into a scale set using [flexible orchestration mode](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes#scale-sets-with-flexible-orchestration) to future-proof your application for scaling and availability. Flexible orchestration offers high availability guarantees (up to 1000 VMs) by spreading VMs across fault domains in a region or within an availability zone.
 
-For more information on how to use scale sets appropriately, see [When to use Virtual Machine Scale Sets instead of VMs](../virtual-machine-scale-sets/virtual-machine-scale-sets-design-overview.md#when-to-use-scale-sets-instead-of-virtual-machines)
+For more information on how to use scale sets appropriately, see [When to use Virtual Machine Scale Sets instead of VMs](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-design-overview#when-to-use-scale-sets-instead-of-virtual-machines)
 
 # [Azure Resource Graph](#tab/graph-1)
 
@@ -84,7 +84,7 @@ For more information on how to use scale sets appropriately, see [When to use Vi
 
 [Autoscale is a built-in feature of Azure Monitor](../azure-monitor/autoscale/autoscale-overview.md) that helps the performance and cost-effectiveness of your resources by adding and removing scale set VMs based on demand. In addition, you can choose to scale your resources manually to a specific instance count or in accordance with metrics thresholds. You can also schedule instance counts that scale during designated time windows.
 
-To learn how to enable automatic OS image upgrades, see [Azure Virtual Machine Scale Set automatic OS image upgrades](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md).
+To learn how to enable automatic OS image upgrades, see [Azure Virtual Machine Scale Set automatic OS image upgrades](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade).
 
 # [Azure Resource Graph](#tab/graph-2)
 
@@ -96,11 +96,11 @@ To learn how to enable automatic OS image upgrades, see [Azure Virtual Machine S
 #### :::image type="icon" source="../reliability/media/icon-recommendation-low.svg"::: **Set Virtual Machine Scale Sets custom scale-in policies to default** 
 
 
-The [Virtual Machine Scale Sets custom scale-in policy feature](../virtual-machine-scale-sets/virtual-machine-scale-sets-scale-in-policy.md) gives you a way to configure the order in which virtual machines are scaled-in. There are three scale-in policy configurations:
+The [Virtual Machine Scale Sets custom scale-in policy feature](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-scale-in-policy) gives you a way to configure the order in which virtual machines are scaled-in. There are three scale-in policy configurations:
 
-- [Default](../virtual-machine-scale-sets/virtual-machine-scale-sets-scale-in-policy.md?WT.mc_id=Portal-Microsoft_Azure_Monitoring#default-scale-in-policy)
-- [NewestVM](../virtual-machine-scale-sets/virtual-machine-scale-sets-scale-in-policy.md?WT.mc_id=Portal-Microsoft_Azure_Monitoring#newestvm-scale-in-policy)
-- [OldestVM](../virtual-machine-scale-sets/virtual-machine-scale-sets-scale-in-policy.md?WT.mc_id=Portal-Microsoft_Azure_Monitoring#oldestvm-scale-in-policy)
+- [Default](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-scale-in-policy?WT.mc_id=Portal-Microsoft_Azure_Monitoring#default-scale-in-policy)
+- [NewestVM](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-scale-in-policy?WT.mc_id=Portal-Microsoft_Azure_Monitoring#newestvm-scale-in-policy)
+- [OldestVM](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-scale-in-policy?WT.mc_id=Portal-Microsoft_Azure_Monitoring#oldestvm-scale-in-policy)
 
 A Virtual Machine Scale Set deployment can be scaled-out or scaled-in based on an array of metrics, including platform and user-defined custom metrics. While a scale-out creates new virtual machines based on the scale set model, a scale-in affects running virtual machines that may have different configurations and/or functions as the scale set workload evolves.
 
@@ -129,7 +129,7 @@ Only use the *Newest* and *Oldest* policies when your workload requires that the
 
 #### :::image type="icon" source="../reliability/media/icon-recommendation-low.svg"::: **Enable Protection Policy for all Virtual Machine Scale Set VMs** 
 
-Use [Virtual Machine Scale Sets Protection Policy](../virtual-machine-scale-sets/virtual-machine-scale-sets-instance-protection.md) if you want specific VMs to be treated differently from the rest of the scale set instance.
+Use [Virtual Machine Scale Sets Protection Policy](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-instance-protection) if you want specific VMs to be treated differently from the rest of the scale set instance.
 
 As your application processes traffic, there can be situations where you want specific VMs to be treated differently from the rest of the scale set instance. For example, certain VMs in the scale set could be performing long-running operations, and you don’t want these VMs to be scaled-in until the operations complete. You might also have specialized a few VMs in the scale set to perform different tasks than other members of the scale set. You require these special VMs not to be modified with the other VMs in the scale set. Instance protection provides the extra controls to enable these and other scenarios for your application.
 
@@ -144,9 +144,9 @@ As your application processes traffic, there can be situations where you want sp
 
 Monitoring your application health is an important signal for managing and upgrading your deployment. Azure Virtual Machine Scale Sets provides support for rolling upgrades, including:
 
-- [Automatic OS-Image Upgrades](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md)
-- [Automatic VM Guest Patching](../virtual-machines/automatic-vm-guest-patching.md), which relies on health monitoring of individual VMs to upgrade your deployment. 
-- [Load Balancer health probes](../load-balancer/load-balancer-custom-probe-overview.md) *or* [Application Health extension](../virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension.md), which both monitors the application health of each VM in your scale set and [performs instance repairs using Automatic Instance Repairs](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-instance-repairs.md).
+- [Automatic OS-Image Upgrades](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade)
+- [Automatic VM Guest Patching](/azure/virtual-machines/automatic-vm-guest-patching), which relies on health monitoring of individual VMs to upgrade your deployment. 
+- [Load Balancer health probes](../load-balancer/load-balancer-custom-probe-overview.md) *or* [Application Health extension](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-health-extension), which both monitors the application health of each VM in your scale set and [performs instance repairs using Automatic Instance Repairs](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-instance-repairs).
 
 
 # [Azure Resource Graph](#tab/graph-6)
@@ -186,7 +186,7 @@ Enable automatic VM guest patching for your Azure VMs. Automatic VM guest patchi
 
 [!INCLUDE [Availability zone description](./includes/reliability-availability-zone-description-include.md)]
 
-With [Azure Virtual Machine Scale Sets](../virtual-machine-scale-sets/flexible-virtual-machine-scale-sets.md), you can create and manage a group of load balanced VMs. The number of VMs can automatically increase or decrease in response to demand or a defined schedule. Scale sets provide high availability to your applications, and allow you to centrally manage, configure, and update many VMs. There's no cost for the scale set itself. You only pay for each VM instance that you create.
+With [Azure Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/flexible-virtual-machine-scale-sets), you can create and manage a group of load balanced VMs. The number of VMs can automatically increase or decrease in response to demand or a defined schedule. Scale sets provide high availability to your applications, and allow you to centrally manage, configure, and update many VMs. There's no cost for the scale set itself. You only pay for each VM instance that you create.
 
 Virtual Machine Scale Sets supports both zonal and zone-redundant deployments within a region:
 
@@ -199,7 +199,7 @@ Virtual Machine Scale Sets supports both zonal and zone-redundant deployments wi
 
 1. To use availability zones, your scale set must be created in a [supported Azure region](./availability-zones-service-support.md).
 
-1. All VMs - even single instance VMs - should be deployed into a scale set using [flexible orchestration](../virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md#scale-sets-with-flexible-orchestration) mode to future-proof your application for scaling and availability. 
+1. All VMs - even single instance VMs - should be deployed into a scale set using [flexible orchestration](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes#scale-sets-with-flexible-orchestration) mode to future-proof your application for scaling and availability. 
 
 
 ### SLA
@@ -213,9 +213,9 @@ You can create a scale set that uses availability zones with one of the followin
 
 # [Azure portal](#tab/portal)
 
-The process to create a scale set that uses a zonal deployment is the same as detailed in the [getting started article](../virtual-machine-scale-sets/flexible-virtual-machine-scale-sets-portal.md). When you select a supported Azure region, you can create a scale set in one or more available zones, as shown in the following example:
+The process to create a scale set that uses a zonal deployment is the same as detailed in the [getting started article](/azure/virtual-machine-scale-sets/flexible-virtual-machine-scale-sets-portal). When you select a supported Azure region, you can create a scale set in one or more available zones, as shown in the following example:
 
-![Create a scale set in a single availability zone](../virtual-machine-scale-sets/media/virtual-machine-scale-sets-use-availability-zones/vmss-az-portal.png)
+![Create a scale set in a single availability zone](/azure/virtual-machine-scale-sets/media/virtual-machine-scale-sets-use-availability-zones/vmss-az-portal.png)
 
 The scale set and supporting resources, such as the Azure load balancer and public IP address, are created in the single zone that you specify.
 
@@ -239,7 +239,7 @@ az vmss create \
     --zones 1
 ```
 
-For a complete example of a single-zone scale set and network resources, see [our sample CLI script](../virtual-machine-scale-sets/scripts/cli-sample-single-availability-zone-scale-set.md#sample-script)
+For a complete example of a single-zone scale set and network resources, see [our sample CLI script](/azure/virtual-machine-scale-sets/scripts/cli-sample-single-availability-zone-scale-set#sample-script)
 
 ### Zone-redundant scale set
 
@@ -260,7 +260,7 @@ az vmss create \
 ```
 
 
-It may take a few minutes to create and configure all the scale set resources and VMs in the zone(s) that you specify. For a complete example of a zone-redundant scale set and network resources, see [our sample CLI script](../virtual-machine-scale-sets/scripts/cli-sample-zone-redundant-scale-set.md#sample-script).
+It may take a few minutes to create and configure all the scale set resources and VMs in the zone(s) that you specify. For a complete example of a zone-redundant scale set and network resources, see [our sample CLI script](/azure/virtual-machine-scale-sets/scripts/cli-sample-zone-redundant-scale-set#sample-script).
 
 # [Azure PowerShell](#tab/powershell)
 
@@ -304,7 +304,7 @@ New-AzVmss `
 
 # [Azure Resource Manager templates](#tab/resource)
 
-The process to create a scale set that uses an availability zone is the same as detailed in the getting started article for [Linux](../virtual-machine-scale-sets/quick-create-template-linux.md) or [Windows](../virtual-machine-scale-sets/quick-create-template-windows.md). To use availability zones, you must create your scale set in a supported Azure region. Add the `zones` property to the *Microsoft.Compute/virtualMachineScaleSets* resource type in your template and specify which zone to use (such as zone *1*, *2*, or *3*).
+The process to create a scale set that uses an availability zone is the same as detailed in the getting started article for [Linux](/azure/virtual-machine-scale-sets/quick-create-template-linux) or [Windows](/azure/virtual-machine-scale-sets/quick-create-template-windows). To use availability zones, you must create your scale set in a supported Azure region. Add the `zones` property to the *Microsoft.Compute/virtualMachineScaleSets* resource type in your template and specify which zone to use (such as zone *1*, *2*, or *3*).
 
 
 ### Single-zone scale set
@@ -437,14 +437,14 @@ To learn how to redeploy a regional scale set to availability zone support, see 
 > [!IMPORTANT]
 > Placement groups only apply to Virtual Machine Scale Sets running in Uniform orchestration mode.
 
-When you deploy a Virtual Machine Scale Set, you have the option to deploy with a single or multiple [placement groups](../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md) per availability zone. For regional scale sets, the choice is to have a single placement group in the region or to have multiple placement groups in the region. If the scale set property `singlePlacementGroup` is set to *false*, the scale set can be composed of multiple placement groups and has a range of 0-1000 VMs. When set to the default value of *true*, the scale set is composed of a single placement group and has a range of 0-100 VMs. For most workloads, we recommend multiple placement groups, which allows for greater scale. In API version *2017-12-01*, scale sets default to multiple placement groups for single-zone and cross-zone scale sets, but they default to single placement group for regional  scale sets.
+When you deploy a Virtual Machine Scale Set, you have the option to deploy with a single or multiple [placement groups](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups) per availability zone. For regional scale sets, the choice is to have a single placement group in the region or to have multiple placement groups in the region. If the scale set property `singlePlacementGroup` is set to *false*, the scale set can be composed of multiple placement groups and has a range of 0-1000 VMs. When set to the default value of *true*, the scale set is composed of a single placement group and has a range of 0-100 VMs. For most workloads, we recommend multiple placement groups, which allows for greater scale. In API version *2017-12-01*, scale sets default to multiple placement groups for single-zone and cross-zone scale sets, but they default to single placement group for regional  scale sets.
 
 ## Next steps
 > [!div class="nextstepaction"]
 > [Reliability in Azure](/azure/reliability/availability-zones-overview)
 
 > [!div class="nextstepaction"]
-> [Deploy applications on Virtual Machine Scale Sets](../virtual-machine-scale-sets/tutorial-install-apps-cli.md) 
+> [Deploy applications on Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/tutorial-install-apps-cli) 
 
 > [!div class="nextstepaction"]
-> [Use autoscale with Virtual Machine Scale Sets](../virtual-machine-scale-sets/tutorial-autoscale-cli.md).
+> [Use autoscale with Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/tutorial-autoscale-cli).

@@ -11,7 +11,7 @@ ms.custom: devx-track-azurepowershell
 This article shows you how to deploy, update, and uninstall Azure VM extensions, supported by Azure Arc-enabled servers, to a Linux or Windows hybrid machine using Azure PowerShell.
 
 > [!NOTE]
-> Azure Arc-enabled servers does not support deploying and managing VM extensions to Azure virtual machines. For Azure VMs, see the following [VM extension overview](../../virtual-machines/extensions/overview.md) article.
+> Azure Arc-enabled servers does not support deploying and managing VM extensions to Azure virtual machines. For Azure VMs, see the following [VM extension overview](/azure/virtual-machines/extensions/overview) article.
 
 ## Prerequisites
 

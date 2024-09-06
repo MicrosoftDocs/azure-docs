@@ -325,7 +325,7 @@ pod/metrics-agent-6588f97dc-455j8                 2/2     Running   0           
 
 ## Create sites
 
-To manage which clusters your OT users have access to, you can group your clusters into sites. To learn more, see [What is Azure Arc site manager (preview)?](../../azure-arc/site-manager/overview.md).
+A _site_ is a collection of Azure IoT Operations instances. Sites typically group instances by physical location and make it easier for OT users to locate and manage assets. An IT administrator creates sites and assigns Azure IoT Operations instances to them. To learn more, see [What is Azure Arc site manager (preview)?](../../azure-arc/site-manager/overview.md).
 
 ## Next steps
 

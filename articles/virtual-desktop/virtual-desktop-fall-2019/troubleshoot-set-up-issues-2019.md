@@ -370,7 +370,7 @@ New-RdsRoleAssignment -TenantName <Azure Virtual Desktop tenant name> -RoleDefin
 
 ### Error: User requires Microsoft Entra multifactor authentication (MFA)
 
-:::image type="content" source="../media/MFA-Required-Error-inline.png" alt-text="Screenshot of your deployment failed due to lack of multifactor authentication (MFA)." lightbox="../media/MFA-Required-Error-expanded.png":::
+:::image type="content" source="../media/MFA-Required-Error-expanded.png" alt-text="Screenshot of your deployment failed due to lack of multifactor authentication (MFA)." lightbox="../media/MFA-Required-Error-expanded.png":::
 
 Example of raw error:
 

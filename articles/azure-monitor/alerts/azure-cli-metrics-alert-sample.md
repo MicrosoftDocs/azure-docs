@@ -18,7 +18,7 @@ These samples create metric alert monitors in Azure Monitor by using Azure CLI c
 
 This alert monitors an existing virtual machine named `VM07` in the resource group named `ContosoVMRG`.
 
-You can create a resource group by using the [az group create](/cli/azure/group#az-group-create) command. For information about creating virtual machines, see [Create a Windows virtual machine with the Azure CLI](../../virtual-machines/windows/quick-create-cli.md),  [Create a Linux virtual machine with the Azure CLI](../../virtual-machines/linux/quick-create-cli.md), and the [az vm create](/cli/azure/vm#az-vm-create) command.
+You can create a resource group by using the [az group create](/cli/azure/group#az-group-create) command. For information about creating virtual machines, see [Create a Windows virtual machine with the Azure CLI](/azure/virtual-machines/windows/quick-create-cli),  [Create a Linux virtual machine with the Azure CLI](/azure/virtual-machines/linux/quick-create-cli), and the [az vm create](/cli/azure/vm#az-vm-create) command.
 
 ```azurecli
 # resource group name: ContosoVMRG

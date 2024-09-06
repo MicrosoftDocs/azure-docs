@@ -15,7 +15,7 @@ This article summarizes best practices for using Azure Front Door.
 
 ## General best practices
 
-### Avoid combining Traffic Manager and Front Door
+### Understanding when to combine Traffic Manager and Front Door
 
 For most solutions, we recommend the use *either* Front Door *or* [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md), but not both. Azure Traffic Manager is a DNS-based load balancer. It sends traffic directly to your origin's endpoints. In contrast, Azure Front Door terminates connections at points of presence (PoPs) near to the client and establishes separate long-lived connections to the origins. The products work differently and are intended for different use cases.
 

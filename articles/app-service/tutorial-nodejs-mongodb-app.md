@@ -13,7 +13,7 @@ ms.custom: scenarios:getting-started, languages:javascript, devx-track-js, devdi
 
 # Deploy a Node.js + MongoDB web app to Azure
 
-[Azure App Service](overview.md) provides a highly scalable, self-patching web hosting service using the Linux operating system. This tutorial shows how to create a secure Node.js app in Azure App Service that's connected to a [Azure Cosmos DB for MongoDB](../cosmos-db/mongodb/mongodb-introduction.md) database. When you're finished, you'll have an Express.js app running on Azure App Service on Linux.
+[Azure App Service](overview.md) provides a highly scalable, self-patching web hosting service using the Linux operating system. This tutorial shows how to create a secure Node.js app in Azure App Service that's connected to a [Azure Cosmos DB for MongoDB](/azure/cosmos-db/mongodb/mongodb-introduction) database. When you're finished, you'll have an Express.js app running on Azure App Service on Linux.
 
 :::image type="content" source="./media/tutorial-nodejs-mongodb-app/app-diagram.png" alt-text="A diagram showing how the Express.js app will be deployed to Azure App Service and the MongoDB data will be hosted inside of Azure Cosmos DB." lightbox="./media/tutorial-nodejs-mongodb-app/app-diagram-large.png":::
 

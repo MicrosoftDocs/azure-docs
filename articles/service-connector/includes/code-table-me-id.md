@@ -23,7 +23,7 @@ ms.author: wchi
     // get Table endpoint
     var tableEndpoint = Environment.GetEnvironmentVariable("AZURE_STORAGETABLE_RESOURCEENDPOINT");
     
-    // Uncomment the following lines according to the authentication type.
+    // Uncomment the following lines corresponding to the authentication type you want to use.
     // system-assigned managed identity
     // var credential = new DefaultAzureCredential();
     
@@ -67,7 +67,7 @@ ms.author: wchi
     ```java
     String url = System.getenv("AZURE_STORAGETABLE_RESOURCEENDPOINT");  
 
-    // Uncomment the following lines according to the authentication type.
+    // Uncomment the following lines corresponding to the authentication type you want to use.
     // for system-assigned managed identity
     // DefaultAzureCredential defaultCredential = new DefaultAzureCredentialBuilder().build();
 
@@ -105,7 +105,7 @@ ms.author: wchi
     
     account_url = os.getenv('AZURE_STORAGETABLE_RESOURCEENDPOINT')
     
-    # Uncomment the following lines according to the authentication type.
+    # Uncomment the following lines corresponding to the authentication type you want to use.
     # system assigned managed identity
     # cred = ManagedIdentityCredential()
     
@@ -137,7 +137,7 @@ ms.author: wchi
     
     const account_url = process.env.AZURE_STORAGETABLE_RESOURCEENDPOINT;
     
-    // Uncomment the following lines according to the authentication type.
+    // Uncomment the following lines corresponding to the authentication type you want to use.
     // for system assigned managed identity
     // const credential = new DefaultAzureCredential();
     

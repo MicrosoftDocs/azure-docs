@@ -19,7 +19,6 @@ This article describes how to move App Service resources to a different Azure re
 
 [!INCLUDE [relocate-reasons](./includes/service-relocation-reason-include.md)]
 
-
 App Service resources are region-specific and can't be moved across regions. You must create a copy of your existing App Service resources in the target region, then relocate your content over to the new app. If your source app uses a custom domain, you can [migrate it to the new app in the target region](../app-service/manage-custom-dns-migrate-domain.md) after completion of the relocation.
 
 To make copying your app easier, you can [backup and restore individual App Service app](../app-service/manage-backup.md?tabs=portal) into an App Service plan in another region.
@@ -48,7 +47,6 @@ Identify all the App Service resources that you're currently using. For example:
 
 Certain resources, such as imported certificates or hybrid connections, contain integration with other Azure services. For information on how to move those resources across regions, see the [documentation for the respective services](overview-relocation.md).
 
-
 ## Plan
 
 This section is a planning checklist in the following areas: 
@@ -59,8 +57,6 @@ This section is a planning checklist in the following areas:
 - VNet Connectivity / Custom Names / DNS
 - Identities
 - Service Endpoints
-
-
 
 ### State, storage, and downstream dependencies
 
@@ -83,18 +79,7 @@ This section is a planning checklist in the following areas:
 
 - **Analyze and plan for regional services.** Application Insights and Log Analytics data are regional services. Consider the creation of new Application Insights and Log Analytics storage in the target region. For App Insights, a new resource also impacts the connection string that must be updated as part of the change in App Configuration.
 
-
-### Certificates
-
-There a number of different types of certificates that need to be taken into consideration as you plan your App Service relocation:
-
-- A [Free Managed Certificate from App Service](../app-service/configure-ssl-certificate.md#import-an-app-service-certificate) isn't exportable.
-- An [App Service Certificate through Azure Key Vault](../app-service/configure-ssl-certificate.md?tabs=apex#import-an-app-service-certificate) can be exported using PS1/CLI.
-- A certificate that you manage outside of App Service.
-- An App Service Certificate, not managed through Azure Key Vault, can be exported.
-- App Service certificate resources can be moved to a new Resource Group or Subscription but not cross-region. Cross-region relocations are not supported by App Service Certificates.
-- Certificates Managed that you manage and store in Azure Key Vault would first need to be exported from the source Key Vault and re-imported to the Target Key Vault associated with the target app.
-
+[!INCLUDE [app-service-certificates](includes/app-service-certificates.md)]
 
 Some further points to consider:
 
@@ -102,21 +87,14 @@ Some further points to consider:
 
 - Consider any upstream Network Virtual Appliance (NVA) or Reverse Proxy. The NVA config may need to change if you're rewriting the host header or and/or SSL terminating.
 
-
 >[!NOTE]
 >App Service Environment is the only App Service offering allows downstream calls to downstream application dependencies over SSL, where the SSL relies on self-signed/PKI with built with [non-standard Root CA certificates](/azure/app-service/environment/overview-certificates#private-client-certificate). The multitenant service doesn't provide access for customers to upload to the trusted certificate store.
 >
 >App Service Environment today doesn't allow SSL certificate purchase, only Bring Your Own certificates. IP-SSL isn't possible (and doesn’t make sense), but SNI is. Internal App Service Environment would not be associated with a public domain and therefore the SSL certs used must be provided by the customer and are therefore transportable, for example certs for internal use generated using PKI. App Service Environment v3 in external mode shares the same features as the regular multitenant App Service.
 
+[!INCLUDE [app-service-configuration](includes/app-service-configuration.md)]
 
-### Configuration
-
-- Review App Configuration for Environment and region specific settings that may need modification. Make sure to check includes disk file configuration, which may or may not be overridden with App Settings.
-
-- Consider that configuration may also be managed from a central (downstream) database dependency or a service like [Azure Application Configuration](/azure/azure-app-configuration/overview).
-
-- Recreate [App Service Key Vault references](/azure/app-service/app-service-key-vault-references?tabs=azure-cli). Key Vault references are related to the unique MSI assigned to the resource (which has KV data plane access) and the Key Vault itself most likely needs to be in the same source region. Az Key Vault content can't be exported across an Azure geographical boundary.
-
+- Make sure to check any disk file configuration, which may or may not be overridden by application settings.
 
 ### VNet Connectivity / Custom Names / DNS
 
@@ -153,21 +131,15 @@ Some further points to consider:
 
     For App Service Environment,  the customer owns the routing and therefore the resources used for the cut-over. Wherever access is enabled to the App Service Environment externally - typically via a Layer 7 NVA or Reverse Proxy -  Traffic Manager, or Azure Front Door/Other L7 Global Load Balancing Service can be used.
 
-- For the public multitenant version of the service, a default name `{resourcename}.azurwwebsites.net` is provisioned for the data plane endpoints, along with a default name for the Kudu (SCM) endpoint.  As the service provides a public endpoint by default, the binding must be verified to prove domain ownership. However, once the binding is in place, re-verification isn't required, nor is it required for public DNS records to point at the App Service endpoint.
+- For the public multitenant version of the service, a default name `{resourcename}.azurewebsites.net` is provisioned for the data plane endpoints, along with a default name for the Kudu (SCM) endpoint.  As the service provides a public endpoint by default, the binding must be verified to prove domain ownership. However, once the binding is in place, re-verification isn't required, nor is it required for public DNS records to point at the App Service endpoint.
 
 - If you use a custom domain, [bind it preemptively to the target app](/azure/app-service/manage-custom-dns-migrate-domain#bind-the-domain-name-preemptively). Verify and [enable the domain in the target app](/azure/app-service/manage-custom-dns-migrate-domain#enable-the-domain-for-your-app).
 
-
-### Identities
-
-- **Recreate App Service Managed Service Identities** in the new target region. 
-
-- **Assign the new MSI credential downstream service access (RBAC)**. Typically, an automatically created Microsoft Entra ID App (one used by EasyAuth) defaults to the App resource name. Consideration may be required here for recreating a new resource in the target region. A user defined Service Principal would be useful - as it can be applied to both source and target with extra access permissions to target deployment resources.
+[!INCLUDE [app-service-identities](includes/app-service-identities.md)]
 
 - **Plan for relocating the Identity Provider (IDP) to the target region**. Although Microsoft Entra ID is a global service, some solutions rely on a local (or downstream on premises) IDP.
 
 - **Update any resources to the App Service that may rely on Kudu FTP credentials.** 
-
 
 ### Service endpoints
 

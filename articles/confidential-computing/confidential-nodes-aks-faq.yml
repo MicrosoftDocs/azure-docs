@@ -43,7 +43,7 @@ sections:
 
       - question: What is the VM SKU I should be choosing for confidential computing nodes?
         answer: |
-          DCSv2/DCsv3 SKUs. More about [DCSv2](../virtual-machines/dcv2-series.md) and [DCSv3](../virtual-machines/dcv3-series.md) are available in the [supported regions](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines&regions=all)      
+          DCSv2/DCsv3 SKUs. More about [DCSv2](/azure/virtual-machines/dcv2-series) and [DCSv3](/azure/virtual-machines/dcv3-series) are available in the [supported regions](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines&regions=all)      
       - question: Can I provision AKS with DCSv2 Node Pools through Azure portal? 
         answer: |
           Yes. Azure CLI could also be used as an alternative as documented [here](confidential-enclave-nodes-aks-get-started.md).

@@ -27,7 +27,7 @@ This article explains how to apply sound practices when you call data from Azure
 * An [Azure Maps account]
 * A [subscription key]
 
-This article uses the [Postman] application to build REST calls, but you can choose any API development environment.
+You can use any API development environment such as [Postman] or [bruno] to run the HTTP request samples shown in this article or to build REST calls.
 
 ## Best practices to geocode addresses
 
@@ -125,7 +125,6 @@ https://atlas.microsoft.com/search/address/reverse/json?api-version=1.0&subscrip
 Use the `language` parameter to set the language for the returned search results. If the request doesn't set the language, then by default Search service uses the most common language in the country or region. When no data is available in the specified language, the default language is used.
 
 For more information, see [Azure Maps supported languages].
-
 
 ### Use predictive mode (automatic suggestions)
 
@@ -396,8 +395,7 @@ https://atlas.microsoft.com/search/address/json?subscription-key={Your-Azure-Map
 }
 ```
 
-
-### Encode a URI to handle special characters 
+### Encode a URI to handle special characters
 
 To find cross street addresses, you must encode the URI to handle special characters in the address. Consider this address example: *1st Avenue & Union Street, Seattle*. Here, encode the ampersand character (`&`) before you send the request.
 
@@ -738,7 +736,6 @@ https://atlas.microsoft.com/search/poi/json?subscription-key={Your-Azure-Maps-Su
 }
 ```
 
-
 ### Airport search
 
 By using the Search POI API, you can look for airports by using their official code. For example, you can use *SEA* to find the Seattle-Tacoma International Airport:
@@ -973,19 +970,19 @@ To learn more, please see:
 > [!div class="nextstepaction"]
 > [Search service API documentation](/rest/api/maps/search?view=rest-maps-1.0&preserve-view=true)
 
-[Search service]: /rest/api/maps/search?view=rest-maps-1.0&preserve-view=true
-[Search Fuzzy]: /rest/api/maps/search/getsearchfuzzy?view=rest-maps-1.0&preserve-view=true
 [Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
-[subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account
-[Postman]: https://www.postman.com/downloads/
-[Geocoding coverage]: geocoding-coverage.md
-[Search Address Reverse]: /rest/api/maps/search/getsearchaddressreverse?view=rest-maps-1.0&preserve-view=true
-[POI category search]: /rest/api/maps/search/getsearchpoicategory?view=rest-maps-1.0&preserve-view=true
-[Search Nearby]: /rest/api/maps/search/getsearchnearby?view=rest-maps-1.0&preserve-view=true
-[Get Search Address]: /rest/api/maps/search/getsearchaddress?view=rest-maps-1.0&preserve-view=true
-
 [Azure Maps supported languages]: supported-languages.md
+[bruno]: https://www.usebruno.com/
+[Geocoding coverage]: geocoding-coverage.md
+[Get Search Address]: /rest/api/maps/search/getsearchaddress?view=rest-maps-1.0&preserve-view=true
+[POI category search]: /rest/api/maps/search/getsearchpoicategory?view=rest-maps-1.0&preserve-view=true
+[Postman]: https://www.postman.com/downloads/
+[Search Address Reverse]: /rest/api/maps/search/getsearchaddressreverse?view=rest-maps-1.0&preserve-view=true
 [Search Address]: /rest/api/maps/search/getsearchaddress?view=rest-maps-1.0&preserve-view=true
-[Search Polygon service]: /rest/api/maps/search/getsearchpolygon?view=rest-maps-1.0&preserve-view=true
-[Set up a geofence]: tutorial-geofence.md
+[Search Fuzzy]: /rest/api/maps/search/getsearchfuzzy?view=rest-maps-1.0&preserve-view=true
+[Search Nearby]: /rest/api/maps/search/getsearchnearby?view=rest-maps-1.0&preserve-view=true
 [Search POIs inside the geometry]: /rest/api/maps/search/postsearchinsidegeometry?view=rest-maps-1.0&preserve-view=true
+[Search Polygon service]: /rest/api/maps/search/getsearchpolygon?view=rest-maps-1.0&preserve-view=true
+[Search service]: /rest/api/maps/search?view=rest-maps-1.0&preserve-view=true
+[Set up a geofence]: tutorial-geofence.md
+[subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account

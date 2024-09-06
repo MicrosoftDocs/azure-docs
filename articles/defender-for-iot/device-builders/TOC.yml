@@ -115,13 +115,6 @@
     - name: Defender for IoT micro agent troubleshooting
       displayName: service status, review logs
       href: troubleshoot-defender-micro-agent.md
-- name: Legacy agent
-  items:
-  - name: Azure security baseline for Microsoft Defender for IoT
-    displayName: identity management, active directory, privileged access, data protection, incident response, posture, vulnerability, governance
-    href: /security/benchmark/azure/baselines/defender-for-iot-security-baseline?toc=/azure/defender-for-iot/TOC.json
-  - name: Which agent should I deploy?
-  - name: Troubleshoot a security agent
 - name: Reference
   items:
   - name: Defender-IoT-micro-agent for Eclipse ThreadX API (Preview)

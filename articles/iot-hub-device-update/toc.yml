@@ -64,7 +64,7 @@ items:
       href: device-update-proxy-updates.md
     - name: Multi-step updates
       href: device-update-multi-step-updates.md
-    - name: Region mapping for BCDR
+    - name: Region mapping for scan and failover
       href: device-update-region-mapping.md  
   - name: Updates for disconnected devices
     href: connected-cache-disconnected-device-update.md

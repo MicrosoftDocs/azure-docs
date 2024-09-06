@@ -24,6 +24,8 @@ landingContent:
         links:
           - text: What is VPN Gateway?
             url: vpn-gateway-about-vpngateways.md
+          - text: What's new in VPN Gateway?
+            url: whats-new.md
       - linkListType: concept
         links:
           - text: VPN Gateway FAQ

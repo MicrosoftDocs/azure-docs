@@ -40,7 +40,7 @@ ms.author: cephalin
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Connect to Azure Database for PostgreSQL with Java](../postgresql/connect-java.md)
+> [Connect to Azure Database for PostgreSQL with Java](/azure/postgresql/connect-java)
 
 > [!div class="nextstepaction"]
 > [Set up CI/CD](deploy-continuous-deployment.md)

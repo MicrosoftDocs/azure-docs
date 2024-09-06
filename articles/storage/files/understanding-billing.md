@@ -204,11 +204,12 @@ Because standard file shares only show transaction information at the storage ac
 
 To see previous transactions:
 
-1. Go to your storage account and select **Metrics** in the left navigation bar.
-2. Select **Scope** as your storage account name, **Metric Namespace** as "File", **Metric** as "Transactions", and **Aggregation** as "Sum".
-3. Select **Apply Splitting**.
-4. Select **Values** as "API Name". Select your desired **Limit** and **Sort**.
-5. Select your desired time period.
+1. Navigate to your storage account in the Azure portal.
+1. In the service menu, under **Monitoring**, select **Metrics**.
+1. Select **Scope** as your storage account name, **Metric Namespace** as "File", **Metric** as "Transactions", and **Aggregation** as "Sum".
+1. Select **Apply Splitting**.
+1. Select **Values** as "API Name". Select your desired **Limit** and **Sort**.
+1. Select your desired time period.
 
 > [!NOTE]
 > Make sure you view transactions over a period of time to get a better idea of average number of transactions. Ensure that the chosen time period doesn't overlap with initial provisioning. Multiply the average number of transactions during this time period to get the estimated transactions for an entire month.
