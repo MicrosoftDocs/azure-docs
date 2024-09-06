@@ -91,4 +91,3 @@ To learn more about creating a service SAS using the Azure Blob Storage client l
 
 - [Grant limited access to Azure Storage resources using shared access signatures (SAS)](../common/storage-sas-overview.md)
 - [Create a service SAS](/rest/api/storageservices/create-service-sas)
-- For related code samples using deprecated .NET version 11.x SDKs, see [Code samples using .NET version 11.x](blob-v11-samples-dotnet.md#create-a-service-sas-for-a-blob-container).
