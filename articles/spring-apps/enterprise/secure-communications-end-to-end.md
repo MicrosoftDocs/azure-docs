@@ -12,6 +12,8 @@ ms.custom: devx-track-java
 
 # Secure communications end-to-end for Spring Boot apps in a Zero Trust environment
 
+[!INCLUDE [deprecation-note](../includes/deprecation-note.md)]
+
 This article describes how to secure communications end-to-end for Spring Boot apps in a Zero Trust environment. You can secure communications end-to-end or terminate transport-level security at any communication point for Spring Boot apps. You can also automate the provisioning and configuration for all the Azure resources needed for securing communications.
 
 Implementing secure communications as part of your solution architecture can be challenging. Many customers manually rotate their certificates or create their own solutions to automate provisioning and configuration. Even then, there's still data exfiltration risk, such as unauthorized copying or transfer of data from server systems. With Azure Spring Apps, these details are handled for you. Azure Spring Apps abstracts away most of the complexity, leaving secure communications as configurable and automatable options in the service.
