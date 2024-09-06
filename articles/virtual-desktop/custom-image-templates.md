@@ -42,7 +42,7 @@ Here are some examples of the built-in scripts you can add to a custom image tem
 - Enable FSLogix with Kerberos.
 - Enable [RDP Shortpath for managed networks](rdp-shortpath.md?tabs=managed-networks).
 - Enable [screen capture protection](screen-capture-protection.md).
-- Configure [Teams optimizations](teams-on-avd.md).
+- Configure [Teams optimizations](teams-on-avd.md). Optimizations include WebRTC redirector service and Visual C++ Redistributable.
 - Configure session timeouts.
 - Disable automatic updates for [MSIX applications](app-attach-setup.md#disable-automatic-updates).
 - Add or remove Microsoft Office applications.
