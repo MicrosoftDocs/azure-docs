@@ -167,6 +167,7 @@ API Management service owners can also create custom groups or use external grou
 
 **More information**: 
 * [How to create and use groups][How to create and use groups]
+* [How to manage user accounts](api-management-howto-create-or-invite-developers.md)
 
 ### Developers
 
