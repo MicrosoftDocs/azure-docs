@@ -15,7 +15,7 @@ ms.date: 06/17/2024
 
 These tutorials cover various deployment scenarios for the connected registry extension in an Arc-enabled Kubernetes cluster. Once the connected registry extension is installed, you can synchronize images from your cloud registry to on-premises or remote locations.  
 
-Before you dive in, take a moment to learn how Arc-enabled Kubernetes works conceptually.
+Before you dive in, take a moment to learn how [Arc-enabled Kubernetes][Arc-enabled Kubernetes] works conceptually.
 
 The connected registry can be securely deployed using various encryption methods. To ensure a successful deployment, follow the quickstart guide to review prerequisites and other pertinent information. By default, the connected registry is configured with HTTPS, ReadOnly mode, Trust Distribution, and the Cert Manager service. You can add more customizations and dependencies as needed, depending on your scenario. 
 
@@ -23,11 +23,11 @@ The connected registry can be securely deployed using various encryption methods
 
 The connected registry cert manager is a service that manages TLS certificates for the connected registry extension in an Azure Arc-enabled Kubernetes cluster. It ensures secure communication between the connected registry and other components by handling the creation, renewal, and distribution of certificates. This service can be installed as part of the connected registry deployment, or you can use an existing cert manager if it's already installed on your cluster. 
 
-Cert-Manager is an open-source Kubernetes add-on that automates the management and issuance of TLS certificates from various sources. It manages the lifecycle of certificates issued by CA pools created using CA Service, ensuring they are valid and renewed before they expire.  
+[Cert-Manager][cert-manager] is an open-source Kubernetes add-on that automates the management and issuance of TLS certificates from various sources. It manages the lifecycle of certificates issued by CA pools created using CA Service, ensuring they are valid and renewed before they expire.  
 
 ### What is Trust Distribution? 
 
-Connected registry trust distribution refers to the process of securely distributing trust between the connected registry service and Kubernetes clients within a cluster. This is achieved by using a Certificate Authority (CA), such as cert-manager, to sign TLS certificates, which are then distributed to both the registry service and the clients. This ensures that all entities can securely authenticate each other, maintaining a secure and trusted environment within the Kubernetes cluster..
+Connected registry trust distribution refers to the process of securely distributing trust between the connected registry service and Kubernetes clients within a cluster. This is achieved by using a Certificate Authority (CA), such as cert-manager, to sign TLS certificates, which are then distributed to both the registry service and the clients. This ensures that all entities can securely authenticate each other, maintaining a secure and trusted environment within the Kubernetes cluster.
 
 In this tutorial, you:
 
@@ -118,7 +118,7 @@ export TLS_KEY=$(cat mycert.key | base64 -w0)
 
 ## Deploy connected registry with Kubernetes secret management
 
-In this tutorial, we demonstrate how to use a Kubernetes secret on your cluster. Kubernetes secret allows you to securely manage authorized access between pods within the cluster. This setup enables you to deploy the connected registry extension with encryption by following the provided steps:
+In this tutorial, we demonstrate how to use a [Kubernetes secret][Kubernetes secret] on your cluster. Kubernetes secret allows you to securely manage authorized access between pods within the cluster. This setup enables you to deploy the connected registry extension with encryption by following the provided steps:
 
 Follow the [quickstart][quickstart] and add the Kubernetes TLS secret string variable + value pair. 
 
@@ -245,7 +245,9 @@ By deleting the Connected registry extension and the Connected registry, you rem
 [quickstart-connect-cluster]: /azure/azure-arc/kubernetes/quickstart-connect-cluster
 [tutorial-aks-cluster]: /azure/aks/tutorial-kubernetes-deploy-cluster?tabs=azure-cli
 [quickstart]: quickstart-connected-registry-arc-cli.md
-
+[Arc-enabled Kubernetes]: /azure/azure-arc/kubernetes/overview
+[cert-manager]: https://cert-manager.io/
+[Kubernetes secret]: https://kubernetes.io/docs/concepts/configuration/secret/
 <!-- LINKS - external -->
 [az-k8s-extension-create]: /cli/azure/k8s-extension#az-k8s-extension-create
 [az-k8s-extension-delete]: /cli/azure/k8s-extension#az-k8s-extension-delete
