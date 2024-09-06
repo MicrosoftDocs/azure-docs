@@ -2,8 +2,8 @@
 title: Troubleshoot known issues with Azure Update Manager
 description: This article provides details on known issues and how to troubleshoot any problems with Azure Update Manager.
 ms.service: azure-update-manager
-ms.date: 07/04/2024
-ms.topic: conceptual
+ms.date: 09/06/2024
+ms.topic: troubleshooting
 ms.author: sudhirsneha
 author: SnehaSudhirG
 ---
