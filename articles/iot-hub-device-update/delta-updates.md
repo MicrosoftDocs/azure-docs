@@ -36,9 +36,9 @@ An update handler integrates with the Device Update agent to perform the actual 
 
 ### Delta processor
 
-The delta processor re-creates the original SWU image file on your device after the delta file is downloaded, so your update handler can install the SWU file. The delta processor code is available in the [Azure/iot-hub-device-update-delta](https://github.com/Azure/iot-hub-device-update-delta) GitHub repo.
+The delta processor re-creates the original SWU image file on your device after the delta file is downloaded, so your update handler can install the SWU file. The delta processor is available in the [Azure/iot-hub-device-update-delta](https://github.com/Azure/iot-hub-device-update-delta) GitHub repo.
 
-To add the delta processor component to your device image and configure it for use, follow the README.md instructions to use CMAKE to build the delta processor from source. From there, install the shared object (libadudiffapi.so) directly by copying it to the `/usr/lib` directory:  
+To add the delta processor component to your device image and configure it for use, you can [download ](https://github.com/Azure/iot-hub-device-update-delta/tree/main/preview/2.0.0)a .deb package that is supported on Ubuntu 20.04 and later. If you are using another distro, follow the README.md instructions to use CMAKE to build the delta processor from source instead. From there, install the shared object (libadudiffapi.so) directly by copying it to the `/usr/lib` directory:  
 
 ```bash
 sudo cp <path to libadudiffapi.so> /usr/lib/libadudiffapi.so
@@ -73,20 +73,8 @@ The following table provides a list of the content needed, where to retrieve the
 
 | Binary Name | Where to acquire | How to install |
 |--|--|--|
-| DiffGen | [Azure/iot-hub-device-update-delta](https://github.com/Azure/iot-hub-device-update-delta) GitHub repo | From the root folder, select the _Microsoft.Azure.DeviceUpdate.Diffs.[version].nupkg_ file. [Learn more about NuGet packages](/nuget/).|
-| .NETCore Runtime, version 6.0.0 | Via Terminal / Package Managers | [Instructions for Linux](/dotnet/core/install/linux). Only the Runtime is required. |
-
-### Dependencies
-
-The zstd_compression_tool is used for decompressing an archive's image files and recompressing them with zstd. This process ensures that all archive files used for diff generation have the same compression algorithm for the images inside the archives.
-
-Commands to install required packages/libraries:  
-
-```bash
-sudo apt update  
-sudo apt-get install -y python3 python3-pip  
-sudo pip3 install libconf zstandard
-```
+| DiffGen | [Azure/iot-hub-device-update-delta](https://github.com/Azure/iot-hub-device-update-delta/tree/main/preview/2.0.0) GitHub repo |Download the version matching the OS/distro on the machine that will be used to generate delta updates. |
+| .NETCore Runtime, version 8.0.0 | Via Terminal / Package Managers | [Instructions for Linux](/dotnet/core/install/linux). Only the Runtime is required. |
 
 ### Create a delta update using DiffGen
 
@@ -95,7 +83,7 @@ The DiffGen tool is run with several arguments. All arguments are required, and 
 `DiffGenTool [source_archive] [target_archive] [output_path] [log_folder] [working_folder] [recompressed_target_archive]`  
 
 - The script recompress_tool.py runs to create the file [recompressed_target_archive], which then is used instead of [target_archive] as the target file for creating the diff.
-- The image files within [recompressed_target_archive] are compressed with zstd.
+- The image files within [recompressed_target_archive] are compressed with gzip.
 
 If your SWU files are signed (likely), you need another argument as well:
 
