@@ -9,7 +9,7 @@ ms.reviwer: heya
 
 # Statsbeat in Application Insights
 
-Statsbeat collects essential and nonessential [custom metrics](../essentials/metrics-custom-overview.md) about Application Insights SDKs and autoinstrumentation. Statsbeat serves three benefits for Azure Monitor Application Insights customers:
+Statsbeat collects essential and nonessential [custom metrics](../essentials/metrics-custom-overview.md) about Application Insights SDKs and autoinstrumentation. Statsbeat serves three benefits for Application Insights customers:
 
 *	Service health and reliability (outside-in monitoring of connectivity to ingestion endpoint)
 *	Support diagnostics (self-help insights and CSS insights)
@@ -44,15 +44,6 @@ Statsbeat supports EU Data Boundary for Application Insights resources in the fo
 | Switzerland    | Switzerland West     |
 | United Kingdom | United Kingdom South |
 | United Kingdom | United Kingdom West  |
-
-## Firewall configuration
-
-Metrics are sent to the following locations, to which outgoing connections must be opened in firewalls:
-
-| Location          | URL                                             |
-|-------------------|-------------------------------------------------|
-| Europe            | `westeurope-5.in.applicationinsights.azure.com` |
-| Outside of Europe | `westus-0.in.applicationinsights.azure.com`     |
 
 ## Supported metrics
 
@@ -99,6 +90,15 @@ Track the Disk I/O failure when you use disk persistence for reliable telemetry.
 |---------------------|-------|-------------------------------------------------------------------------------------------------------------------------|
 | Read Failure Count  | Count | `Resource Provider`, `Attach Type`, `Instrumentation Key`, `Runtime Version`, `Operating System`, `Language`, `Version` |
 | Write Failure Count | Count | `Resource Provider`, `Attach Type`, `Instrumentation Key`, `Runtime Version`, `Operating System`, `Language`, `Version` |
+
+## Firewall configuration
+
+Metrics are sent to the following locations, to which outgoing connections must be opened in firewalls:
+
+| Location          | URL                                             |
+|-------------------|-------------------------------------------------|
+| Europe            | `westeurope-5.in.applicationinsights.azure.com` |
+| Outside of Europe | `westus-0.in.applicationinsights.azure.com`     |
 
 ## Disable Statsbeat
 
