@@ -85,7 +85,7 @@ Track the Disk I/O failure when you use disk persistence for reliable telemetry.
 | Read Failure Count  | Count | `Resource Provider`, `Attach Type`, `Instrumentation Key`, `Runtime Version`, `Operating System`, `Language`, `Version` |
 | Write Failure Count | Count | `Resource Provider`, `Attach Type`, `Instrumentation Key`, `Runtime Version`, `Operating System`, `Language`, `Version` |
 
-### Configure Statsbeat
+### Disable Statsbeat
 
 #### [Java](#tab/java)
 
@@ -113,7 +113,9 @@ Statsbeat is enabled by default. It can be disabled by setting the environment v
 
 ---
 
-Metrics are sent to the following locations, to which outgoing connections must be opened in firewalls.
+### Configure firewall
+
+Metrics are sent to the following locations, to which outgoing connections must be opened in firewalls:
 
 | Location          | URL                                             |
 |-------------------|-------------------------------------------------|
