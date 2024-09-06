@@ -43,7 +43,7 @@ When the cluster registry feature is enabled in the Network Function Operator Ar
 ## Frequently Asked Questions
 
 ### Can I use AOSM cluster registry with a CNF application previously deployed?
-If there's a CNF application already installed using AOSM on a Nexus Kubernetes cluster, and the AOSM cluster registry feature is turned on, the cluster registry doesn't not have the container images automatically. To use this feature, the cluster registry should be turned on before deploying the network function with AOSM.
+If there's a CNF application already deployed without cluster registry, the container images are not available automatically. The cluster registry must be enabled before deploying the network function with AOSM.
 
 ### Which Nexus K8s storage class is used?
 AOSM cluster registry feature uses nexus-volume storage class to store the container images in the Nexus Kubernetes cluster. By default, a 100-GB persistent volume is created if the user doesn't specify the size of the cluster registry.
