@@ -16,8 +16,6 @@ ms.custom: language-service-pii, build-2024
 
 Use this article to find the entity categories that can be returned by the [conversational PII detection feature](../how-to-call-for-conversations.md). This feature runs a predictive model to identify, categorize, and redact sensitive information from an input conversation.
 
-The PII preview feature includes the ability to detect personal (`PII`) information from conversations.
-
 ## Entity categories
 
 The following entity categories are returned when you're sending API requests PII feature.

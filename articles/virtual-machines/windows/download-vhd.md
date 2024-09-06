@@ -5,7 +5,7 @@ author: roygara
 ms.author: rogarana
 ms.service: azure-disk-storage
 ms.topic: how-to
-ms.date: 10/17/2023
+ms.date: 08/15/2024
 ---
 
 # Download a Windows VHD from Azure
@@ -65,6 +65,8 @@ Your snapshot will be created shortly, and can then be used to download or creat
 ## Generate download URL
 
 To download the VHD file, you need to generate a [shared access signature (SAS)](../../storage/common/storage-sas-overview.md?toc=/azure/virtual-machines/windows/toc.json) URL. When the URL is generated, an expiration time is assigned to the URL.
+
+[!INCLUDE [disks-sas-change](../includes/disks-sas-change.md)]
 
 # [Portal](#tab/azure-portal)
 

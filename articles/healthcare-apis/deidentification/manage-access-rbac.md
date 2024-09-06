@@ -11,13 +11,11 @@ ms.date: 07/16/2024
 
 # Use Azure role-based access control with the de-identification service (preview)
 
-Microsoft Entra ID authorizes access rights to secured resources through Azure role-based access control (RBAC). The de-identification service (preview) defines a set of
-built-in roles that encompass common sets of permissions used to access de-identification functionality.
+Microsoft Entra ID authorizes access rights to secured resources through Azure role-based access control (RBAC). The de-identification service (preview) defines a set of built-in roles that encompass common sets of permissions used to access de-identification functionality.
 
 Microsoft Entra ID uses the concept of a security principal, which can be a user, a group, an application service principal, or a [managed identity for Azure resources](/entra/identity/managed-identities-azure-resources/overview).
 
-When an Azure role is assigned to a Microsoft Entra ID security principal over a specific scope, Azure grants access to that scope for that security principal. For more information about scopes, see
-[Understand scope for Azure RBAC](/azure/role-based-access-control/scope-overview).
+When an Azure role is assigned to a Microsoft Entra ID security principal over a specific scope, Azure grants access to that scope for that security principal. For more information about scopes, see [Understand scope for Azure RBAC](/azure/role-based-access-control/scope-overview).
 
 ## Prerequisites
 
@@ -47,8 +45,7 @@ You can use different tools to assign built-in roles.
 
 # [Azure portal](#tab/azure-portal)
 
-To use the de-identification service (preview), with Microsoft Entra ID credentials, a security principal must be assigned one of the built-in roles. To learn how to assign these roles to a security
-principal, follow the steps in [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
+To use the de-identification service (preview), with Microsoft Entra ID credentials, a security principal must be assigned one of the built-in roles. To learn how to assign these roles to a security principal, follow the steps in [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal).
 
 # [Azure PowerShell](#tab/azure-powershell)
 
@@ -89,15 +86,13 @@ For more information, see [Assign Azure roles using Azure PowerShell](/azure/rol
 
 # [Azure CLI](#tab/azure-pcli)
 
-To assign an Azure role to a security principal with Azure CLI, use the [az role assignment create](/cli/azure/role/assignment) command. In order to run the command, you must have a role that includes
-**Microsoft.Authorization/roleAssignments/write** permissions assigned to you at the corresponding scope or higher.
+To assign an Azure role to a security principal with Azure CLI, use the [az role assignment create](/cli/azure/role/assignment) command. In order to run the command, you must have a role that includes **Microsoft.Authorization/roleAssignments/write** permissions assigned to you at the corresponding scope or higher.
 
 The format of the command can differ based on the type of security principal, but `role` and `scope` are required parameters.
 
 The scope for a de-identification service (preview) is in the form `/subscriptions/<Subscription ID>/resourceGroups/<Resource Group Name>/providers/Microsoft.HealthDataAIServices/deidServices/<Deidentification Service Name>`
 
-The following example assigns the **DeID Data Owner** built-in role to a user, scoped to a specific de-identification service. Make sure to replace the placeholder values 
-in angle brackets `<>` with your own values:
+The following example assigns the **DeID Data Owner** built-in role to a user, scoped to a specific de-identification service. Make sure to replace the placeholder values in angle brackets `<>` with your own values:
 
 ```azurecli
 az role assignment create \

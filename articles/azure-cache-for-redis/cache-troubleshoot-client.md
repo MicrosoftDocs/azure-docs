@@ -1,9 +1,9 @@
 ---
 title: Troubleshoot Azure Cache for Redis client issues
 description: Learn how to resolve common client issues, such as client memory pressure, traffic burst, high CPU, limited bandwidth, large requests, or large response size, when using Azure Cache for Redis.
-author: flang-msft
-ms.author: franlanglois
-ms.service: azure-cache-redis
+
+
+
 ms.topic: troubleshooting
 ms.date: 12/31/2021
 ---

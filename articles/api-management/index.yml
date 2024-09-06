@@ -113,7 +113,9 @@ landingContent:
       - linkListType: concept
         links:
           - text: Workspaces
-            url: workspaces-overview.md       
+            url: workspaces-overview.md
+          - text: GenAI gateway capabilities
+            url: genai-gateway-capabilities.md       
 # Card
   - title: Related services
     linkLists:

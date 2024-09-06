@@ -17,3 +17,5 @@ After you get a key from your trial subscription or resource, create two [enviro
 
 * `TRANSLATOR_TEXT_KEY` - The key for your Translator resource.
 * `TRANSLATOR_TEXT_ENDPOINT` - The global endpoint for Translator. Use `https://api.cognitive.microsofttranslator.com/`.
+
+[!INCLUDE [Azure key vault](~/reusable-content/ce-skilling/azure/includes/ai-services/security/azure-key-vault.md)]

@@ -49,6 +49,10 @@ Adhere to the following recommendations to ensure that you don't experience data
 
 
 ## Incoming stream
+
+> [!NOTE]
+> Multiline support that uses an [ISO 8601](https://wikipedia.org/wiki/ISO_8601) time stamp to delimited events is expected mid-October 2024
+
 The incoming stream of data includes the columns in the following table. 
 
 | Column | Type | Description |
@@ -132,35 +136,35 @@ Use the following ARM template to create or modify a DCR for collecting text log
             "type": "string",
             "metadata": {
               "description": "Unique name for the DCR. "
-            },
+            }
         },
         "location": {
             "type": "string",
             "metadata": {
               "description": "Region for the DCR. Must be the same location as the Log Analytics workspace. "
-            },
+            }
         },
         "filePatterns": {
             "type": "string",
             "metadata": {
               "description": "Path on the local disk for the log file to collect. May include wildcards.Enter multiple file patterns separated by commas (AMA version 1.26 or higher required for multiple file patterns on Linux)."
-            },
+            }
         },
         "tableName": {
             "type": "string",
             "metadata": {
               "description": "Name of destination table in your Log Analytics workspace. "
-            },
+            }
         },
         "workspaceResourceId": {
             "type": "string",
             "metadata": {
               "description": "Resource ID of the Log Analytics workspace with the target table."
-            },
+            }
         }
     },
     "variables": {
-      "tableOutputStream": "['Custom-',concat(parameters('tableName'))]"
+      "tableOutputStream": "[concat('Custom-', parameters('tableName'))]"
     },
     "resources": [
         {

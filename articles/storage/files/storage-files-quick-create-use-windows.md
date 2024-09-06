@@ -70,8 +70,8 @@ Next, create an SMB Azure file share.
 
 So far, you've created an Azure storage account and a file share with one file in it. Next, create an Azure VM to represent the on-premises server.
 
-1. Expand the menu on the left side of the portal and select **Create a resource** in the upper left-hand corner of the Azure portal.
-1. Under **Popular services** select **Virtual machine**.
+1. Select **Create a resource** in the upper left-hand corner of the Azure portal.
+1. Under **Popular services**, select **Virtual machine**.
 1. In the **Basics** tab, under **Project details**, select the resource group you created earlier.
 
    :::image type="content" source="media/storage-files-quick-create-use-windows/vm-resource-group-and-subscription.png" alt-text="Screenshot of the Basic tab with VM information filled out.":::

@@ -14,7 +14,7 @@ ms.author: mattmcinnes
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
 > [!NOTE]
-> 'DC' family VMs are specialized for confidential computing scenarios. If your workload doesn't require confidential compute and you're looking for general purpose VMs with similar specs, consider the [the standard D-family size series](./d-family.md).
+> 'DC' family VMs are for confidential computing scenarios. If your workload doesn't require confidential compute and you're looking for general purpose VMs with similar specs, consider the [the standard D-family size series](./d-family.md).
 
 [!INCLUDE [dc-family-summary](./includes/dc-family-summary.md)]
 
@@ -24,30 +24,6 @@ ms.author: mattmcinnes
 
 ## Series in family
 
-### DCsv2-series
-[!INCLUDE [dcsv2-series-summary](./includes/dcsv2-series-summary.md)]
-
-[View the full DCsv2-series page](./dcsv2-series.md).
-
-[!INCLUDE [dcsv2-series-specs](./includes/dcsv2-series-specs.md)]
-
-
-### DCsv3 and DCdsv3-series
-#### [DCsv3-series](#tab/dcsv3)
-[!INCLUDE [dcsv3-series-summary](./includes/dcsv3-series-summary.md)]
-
-[View the full DCsv3-series page](./dcsv3-series.md).
-
-[!INCLUDE [dcsv3-series-specs](./includes/dcsv3-series-specs.md)]
-
-#### [DCdsv3-series](#tab/dcdsv3)
-[!INCLUDE [dcdsv3-series-summary](./includes/dcdsv3-series-summary.md)]
-
-[View the full DCdsv3-series page](./dcdsv3-series.md).
-
-[!INCLUDE [dcdsv3-series-specs](./includes/dcdsv3-series-specs.md)]
-
----
 ### DCasv5 and DCadsv5-series
 #### [DCasv5-series](#tab/dcasv5)
 [!INCLUDE [dcasv5-series-summary](./includes/dcasv5-series-summary.md)]
@@ -94,6 +70,32 @@ ms.author: mattmcinnes
 [View the full DCedsv5-series page](./dcedsv5-series.md).
 
 [!INCLUDE [dcedsv5-series-specs](./includes/dcedsv5-series-specs.md)]
+
+---
+### DCsv3 and DCdsv3-series
+#### [DCsv3-series](#tab/dcsv3)
+[!INCLUDE [dcsv3-series-summary](./includes/dcsv3-series-summary.md)]
+
+[View the full DCsv3-series page](./dcsv3-series.md).
+
+[!INCLUDE [dcsv3-series-specs](./includes/dcsv3-series-specs.md)]
+
+#### [DCdsv3-series](#tab/dcdsv3)
+[!INCLUDE [dcdsv3-series-summary](./includes/dcdsv3-series-summary.md)]
+
+[View the full DCdsv3-series page](./dcdsv3-series.md).
+
+[!INCLUDE [dcdsv3-series-specs](./includes/dcdsv3-series-specs.md)]
+
+---
+### DCsv2-series
+[!INCLUDE [dcsv2-series-summary](./includes/dcsv2-series-summary.md)]
+
+[View the full DCsv2-series page](./dcsv2-series.md).
+
+[!INCLUDE [dcsv2-series-specs](./includes/dcsv2-series-specs.md)]
+
+
 
 ---
 ### Previous-generation DC family series

@@ -7,7 +7,7 @@ ms.service: azure-government
 ms.topic: article
 ms.custom: references_regions
 recommendations: false
-ms.date: 05/09/2023
+ms.date: 08/15/2024
 ---
 
 # Department of Defense (DoD) in Azure Government
@@ -92,7 +92,7 @@ The following services are in scope for DoD IL5 PA in US DoD regions (US DoD Cen
 - [Microsoft Stream](/stream/overview)
 - [Network Watcher](https://azure.microsoft.com/services/network-watcher/)
 - [Power Apps](/powerapps/powerapps-overview)
-- [Power Apps portal](https://powerapps.microsoft.com/portals/)
+- [Power Pages](https://powerapps.microsoft.com/portals/)
 - [Power Automate](/power-automate/getting-started) (formerly Microsoft Flow)
 - [Power BI](https://powerbi.microsoft.com/)
 - [Power BI Embedded](https://azure.microsoft.com/services/power-bi-embedded/)

@@ -289,5 +289,3 @@ If you build the list of facets dynamically based on untrusted user input, valid
 We recommend the following samples for faceted navigation. The samples also include filters, suggestions, and autocomplete. These samples use React for the presentation layer.
 
 * [C#: Add search to web apps](tutorial-csharp-overview.md)
-* [Python: Add search to web apps](tutorial-python-overview.md)
-* [JavaScript: Add search to web apps](tutorial-javascript-overview.md)

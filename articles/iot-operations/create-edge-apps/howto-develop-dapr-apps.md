@@ -60,7 +60,8 @@ The following definition components might require customization to your specific
 > | `template:metadata:annotations:dapr.io/app-port` | Tells Dapr which port your application is listening on. If your application us not using this feature (such as a pubsub subscription), then remove this line |
 > | `volumes:mqtt-client-token` | The System Authentication Token used for authenticating the Dapr pluggable components with the MQTT broker |
 > | `volumes:aio-ca-trust-bundle` | The chain of trust to validate the MQTT broker TLS cert. This defaults to the test certificate deployed with Azure IoT Operations |
-> | `containers:mq-dapr-app` | The Dapr application container you want to deploy |
+> | `containers:name` | A name given to your application container |
+> | `containers:image` | The application container you want to deploy |
 
 > [!CAUTION]
 > If your Dapr application is not listening for traffic from the Dapr sidecar, then remove the `dapr.io/app-port` and `dapr.io/app-protocol` [annotations](https://docs.dapr.io/reference/arguments-annotations-overview/) otherwise the Dapr sidecar will fail to initialize.

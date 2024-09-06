@@ -10,7 +10,7 @@ ms.service: cognitive-search
 ms.custom:
   - ignite-2023
 ms.topic: conceptual
-ms.date: 12/18/2023
+ms.date: 08/19/2024
 ---
 
 # Indexers in Azure AI Search

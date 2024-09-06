@@ -124,11 +124,11 @@
     - name: References
       items:
       - name: DCasv5 and DCadsv5-series
-        href: ../virtual-machines/dcasv5-dcadsv5-series.md
+        href: /azure/virtual-machines/dcasv5-dcadsv5-series
       - name: ECasv5 and ECadsv5-series
         href: ../virtual-machines/ecasv5-ecadsv5-series.md
       - name: DCesv5 and DCedsv5-series
-        href: ../virtual-machines/dcesv5-dcedsv5-series.md
+        href: /azure/virtual-machines/dcesv5-dcedsv5-series
       - name: ECesv5 and ECedsv5-series
         href: ../virtual-machines/ecesv5-ecedsv5-series.md
       - name: Pricing

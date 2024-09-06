@@ -3,9 +3,8 @@ title: Organize your resources with management groups - Azure Governance
 description: Learn about management groups, how their permissions work, and how to use them.
 ms.date: 07/18/2024
 ms.topic: overview
-author: davidsmatlak
-ms.author: davidsmatlak
 ---
+
 # What are Azure management groups?
 
 If your organization has many Azure subscriptions, you might need a way to efficiently manage access,
@@ -45,7 +44,7 @@ subscriptions.
 
 - A single directory can support 10,000 management groups.
 - A management group tree can support up to six levels of depth.
-  
+
   This limit doesn't include the root level or the subscription level.
 - Each management group and subscription can support only one parent.
 - Each management group can have many children.

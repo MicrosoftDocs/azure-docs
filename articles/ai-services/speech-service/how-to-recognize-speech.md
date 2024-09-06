@@ -6,7 +6,7 @@ author: eric-urban
 manager: nitinme
 ms.service: azure-ai-speech
 ms.topic: how-to
-ms.date: 1/21/2024
+ms.date: 08/13/2024
 ms.author: eur
 ms.devlang: cpp
 ms.custom: devx-track-extended-java, devx-track-go, devx-track-js, devx-track-python
@@ -56,7 +56,7 @@ keywords: speech to text, speech to text software
 [!INCLUDE [CLI include](includes/how-to/recognize-speech/cli.md)]
 ::: zone-end
 
-## Next steps
+## Related content
 
 * [Try the speech to text quickstart](get-started-speech-to-text.md)
 * [Improve recognition accuracy with custom speech](custom-speech-overview.md)

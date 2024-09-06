@@ -16,6 +16,8 @@ zone_pivot_groups: azure-ai-model-catalog-samples-chat
 
 # How to use Cohere Command chat models
 
+[!INCLUDE [Feature preview](~/reusable-content/ce-skilling/azure/includes/ai-studio/includes/feature-preview.md)]
+
 In this article, you learn about Cohere Command chat models and how to use them.
 The Cohere family of models includes various models optimized for different use cases, including chat completions, embeddings, and rerank. Cohere models are optimized for various use cases that include reasoning, summarization, and question answering.
 

@@ -17,6 +17,8 @@ When you configure a custom audience app ID, you can use any of the supported va
 
 This article provides high-level steps. The screenshots to register an application might be slightly different, depending on the way you access the user interface, but the settings are the same. For more information, see [Quickstart: Register an application](/entra/identity-platform/quickstart-register-app). For more information about Microsoft Entra ID authentication for P2S, see [Microsoft Entra ID authentication for P2S](point-to-site-about.md#entra-id).
 
+If you're configuring a custom audience app ID in order to configure or restrict access based on users and groups, see [Scenario: Configure P2S access based on users and groups - Microsoft Entra ID authentication](point-to-site-entra-users-access.md). The scenario article outlines the workflow and steps to assign permissions.
+
 ## Prerequisites
 
 * This article assumes that you already have a Microsoft Entra tenant and the permissions to create an Enterprise Application, typically the [Cloud Application Administrator role](/entra/identity/role-based-access-control/permissions-reference#cloud-application-administrator) or higher. For more information, see [Create a new tenant in Microsoft Entra ID](/entra/fundamentals/create-new-tenant) and [Assign user roles with Microsoft Entra ID](/entra/fundamentals/users-assign-role-azure-portal).

@@ -368,7 +368,7 @@ Now, continue building your workflow by adding another action as the next step. 
 > after this time expires, your workflow returns the **504 GATEWAY TIMEOUT** status to the caller. If your workflow 
 > doesn't include a Response action, your workflow immediately returns the **202 ACCEPTED** status to the caller.
 
-For information about security, authorization, and encryption for inbound calls to your workflow, such as [Transport Layer Security (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security), previously known as Secure Sockets Layer (SSL), [Microsoft Entra ID Open Authentication (Microsoft Entra ID OAuth)](../active-directory/develop/index.yml), exposing your logic app resource with Azure API Management, or restricting the IP addresses that originate inbound calls, see [Secure access and data - Access for inbound calls to request-based triggers](../logic-apps/logic-apps-securing-a-logic-app.md#secure-inbound-requests).
+For information about security, authentication, and encryption for inbound calls to your workflow, such as [Transport Layer Security (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security), previously known as Secure Sockets Layer (SSL), [OAuth with Microsoft Entra ID](/entra/architecture/auth-oauth2), [Shared Access Signatures (SAS)](../logic-apps/logic-apps-securing-a-logic-app.md#sas), exposing your logic app resource with Azure API Management, or restricting the IP addresses that originate inbound calls, see [Secure access and data - Access for inbound calls to request-based triggers](../logic-apps/logic-apps-securing-a-logic-app.md#secure-inbound-requests).
 
 ## Trigger outputs
 

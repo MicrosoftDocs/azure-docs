@@ -7,7 +7,7 @@ author: bevloh
 ms.author: beloh
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 06/06/2024
+ms.date: 08/19/2024
 ---
 
 # OData language overview for `$filter`, `$orderby`, and `$select` in Azure AI Search
@@ -26,6 +26,8 @@ Once you understand these common concepts, you can continue with the top-level s
 + [**$select**](search-query-odata-select.md) expressions determine which document fields are included in the result set. 
 
 The syntax of these expressions is distinct from the [simple](query-simple-syntax.md) or [full](query-lucene-syntax.md) query syntax used in the **search** parameter, although there's some overlap in the syntax for referencing fields.
+
+For examples in other languages such as Python or C#, see the examples in the [azure-search-vector-samples](https://github.com/Azure/azure-search-vector-samples) repository.
 
 > [!NOTE]
 > Terminology in Azure AI Search differs from the [OData standard](https://www.odata.org/documentation/) in a few ways. What we call a **field** in Azure AI Search is called a **property** in OData, and similarly for **field path** versus **property path**. An **index** containing **documents** in Azure AI Search is referred to more generally in OData as an **entity set** containing **entities**. The Azure AI Search terminology is used throughout this reference.

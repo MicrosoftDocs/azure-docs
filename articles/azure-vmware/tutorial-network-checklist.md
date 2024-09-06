@@ -41,10 +41,11 @@ The private cloud logical networking includes a pre-provisioned NSX configuratio
 
 The Azure VMware Solution private cloud connects to your Azure virtual network using an Azure ExpressRoute connection. This high bandwidth, low latency connection allows you to access services running in your Azure subscription from your private cloud environment. The routing uses Border Gateway Protocol (BGP), is automatically provisioned, and enabled by default for each private cloud deployment.
 
-Azure VMware Solution private clouds require a minimum `/22` CIDR network address block for subnets. This network complements your on-premises networks, so the address block shouldn't overlap with address blocks used in other virtual networks in your subscription and on-premises networks. Management, provisioning, and vMotion networks are provisioned automatically within this address block.
+Azure VMware Solution private clouds require a minimum `/22` CIDR network address block for subnets. This network complements your on-premises networks, so the address block shouldn't overlap with address blocks used in other virtual networks in your subscription and on-premises networks. Management, vMotion, and Replication networks are provisioned automatically within this address block.
 
 > [!NOTE]
 > Permitted ranges for your address block are the RFC 1918 private address spaces (10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16), except for 172.17.0.0/16.
+> Replication network is not applicable to AV64 nodes and is slated for general deprecation at a future date.
 
 > [!IMPORTANT]
 > Avoid using the following IP schemas reserved for NSX usage:

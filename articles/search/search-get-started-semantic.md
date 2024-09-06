@@ -66,4 +66,4 @@ You can find and manage resources in the portal, using the **All resources** or 
 In this quickstart, you learned how to invoke semantic ranking on an existing index. We recommend trying semantic ranking on your own indexes as a next step. However, if you want to continue with demos, visit the following link.
 
 > [!div class="nextstepaction"]
-> [Tutorial: Add search to web apps](tutorial-python-overview.md)
+> [Tutorial: Add search to web apps](tutorial-csharp-overview.md)

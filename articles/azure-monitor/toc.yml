@@ -294,8 +294,6 @@ items:
             href: snapshot-debugger/snapshot-debugger-function-app.md
           - name: Enable Snapshot Debugger for other environments
             href: snapshot-debugger/snapshot-debugger-vm.md
-        - name: Upgrade Snapshot Debugger
-          href: snapshot-debugger/snapshot-debugger-upgrade.md
         - name: Configure BYOS (Bring Your Own Storage)
           href: profiler/profiler-bring-your-own-storage.md
         - name: Snapshot Debugger troubleshooting

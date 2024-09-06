@@ -33,13 +33,13 @@ WAF log analytics are broken down into the following categories:
 
 The following WAF workbook examples show sample data:
 
-:::image type="content" source="media//waf-sentinel/waf-actions-filter.png" alt-text="WAF actions filter":::
+:::image type="content" source="media/waf-sentinel/waf-actions-filter.png" lightbox="media/waf-sentinel/waf-actions-filter.png" alt-text="Screenshot of WAF actions filter.":::
 
-:::image type="content" source="media//waf-sentinel/top-50-event-trigger.png" alt-text="Top 50 events":::
+:::image type="content" source="media/waf-sentinel/top-50-event-trigger.png" lightbox="media/waf-sentinel/top-50-event-trigger.png" alt-text="Screenshot of top 50 events.":::
 
-:::image type="content" source="media//waf-sentinel/attack-events.png" alt-text="Attack events":::
+:::image type="content" source="media/waf-sentinel/attack-events.png" lightbox="media/waf-sentinel/attack-events.png" alt-text="Screenshot of attack events.":::
 
-:::image type="content" source="media//waf-sentinel/top-10-attacking-ip-address.png" alt-text="Top 10 attacking IP addresses":::
+:::image type="content" source="media/waf-sentinel/top-10-attacking-ip-address.png" lightbox="media/waf-sentinel/top-10-attacking-ip-address.png" alt-text="Screenshot of top 10 attacking IP addresses.":::
 
 ## Launch a WAF workbook
 

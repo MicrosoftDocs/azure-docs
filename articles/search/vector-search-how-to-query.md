@@ -9,7 +9,7 @@ ms.service: cognitive-search
 ms.custom:
   - build-2024
 ms.topic: how-to
-ms.date: 08/05/2024
+ms.date: 08/19/2024
 ---
 
 # Create a vector query in Azure AI Search
@@ -18,7 +18,6 @@ In Azure AI Search, if you have a [vector index](vector-search-how-to-create-ind
 
 > [!div class="checklist"]
 > + [Query vector fields](#vector-query-request)
-> + [Filter a vector query](#vector-query-with-filter)
 > + [Query multiple vector fields at once](#multiple-vector-fields)
 > + [Set vector weights](#vector-weighting)
 > + [Query with integrated vectorization](#query-with-integrated-vectorization)
@@ -255,93 +254,6 @@ If you do want vector fields in the result, here's an example of the response st
 + The **`@search.score`** is determined by the [vector search algorithm](vector-search-ranking.md). 
 
 + Fields in search results are either all `retrievable` fields, or fields in a `select` clause. During vector query execution, the match is made on vector data alone. However, a response can include any `retrievable` field in an index. Because there's no facility for decoding a vector field result, the inclusion of nonvector text fields is helpful for their human readable values.
-
-## Vector query with filter
-
-A query request can include a vector query and a [filter expression](search-filters.md). Filters apply to `filterable` nonvector fields, either a string field or numeric, and are useful for including or excluding search documents based on filter criteria. Although a vector field isn't filterable itself, filters can be applied to other fields in the same index.
-
-You can apply filters as exclusion criteria before the query executes, or after query execution to filter search results. For a comparison of each mode and the expected performance based on index size, see [Filters in vector queries](vector-search-filters.md).
-
-> [!TIP]
-> If you don't have source fields with text or numeric values, check for document metadata, such as LastModified or CreatedBy properties, that might be useful in a metadata filter.
-
-### [**2024-07-01**](#tab/filter-2024-07-01)
-
-[**2024-07-01**](/rest/api/searchservice/search-service-api-versions#2024-07-01) is the stable version for this API. It has:
-
-+ `vectorFilterMode` for prefilter (default) or postfilter [filtering modes](vector-search-filters.md).
-+ `filter` provides the criteria.
-
-In the following example, the vector is a representation of this query string: "what Azure services support full text search". The query targets the `contentVector` field. The actual vector has 1536 embeddings, so it's trimmed in this example for readability.
-
-The filter criteria are applied to a filterable text field (`category` in this example) before the search engine executes the vector query.
-
-```http
-POST https://{{search-service-name}}.search.windows.net/indexes/{{index-name}}/docs/search?api-version=2024-07-01
-Content-Type: application/json
-api-key: {{admin-api-key}}
-{
-    "count": true,
-    "select": "title, content, category",
-    "filter": "category eq 'Databases'",
-    "vectorFilterMode": "preFilter",
-    "vectorQueries": [
-        {
-            "kind": "vector",
-            "vector": [
-                -0.009154141,
-                0.018708462,
-                . . . 
-                -0.02178128,
-                -0.00086512347
-            ],
-            "exhaustive": true,
-            "fields": "contentVector",
-            "k": 5
-        }
-    ]
-}
-```
-
-### [**2024-05-01-preview**](#tab/filter-2024-05-01-preview)
-
-[**2024-05-01-preview**](/rest/api/searchservice/search-service-api-versions#2024-05-01-preview) introduces filter options. This version adds:
-
-+ `vectorFilterMode` for prefilter (default) or postfilter [filtering modes](vector-search-filters.md).
-+ `filter` provides the criteria.
-
-In the following example, the vector is a representation of this query string: "what Azure services support full text search". The query targets the `contentVector` field. The actual vector has 1536 embeddings, so it's trimmed in this example for readability.
-
-The filter criteria are applied to a filterable text field (`category` in this example) before the search engine executes the vector query.
-
-```http
-POST https://{{search-service-name}}.search.windows.net/indexes/{{index-name}}/docs/search?api-version=2024-05-01-preview
-Content-Type: application/json
-api-key: {{admin-api-key}}
-{
-    "count": true,
-    "select": "title, content, category",
-    "filter": "category eq 'Databases'",
-    "vectorFilterMode": "preFilter",
-    "vectorQueries": [
-        {
-            "kind": "vector",
-            "vector": [
-                -0.009154141,
-                0.018708462,
-                . . . 
-                -0.02178128,
-                -0.00086512347
-            ],
-            "exhaustive": true,
-            "fields": "contentVector",
-            "k": 5
-        }
-    ]
-}
-```
-
----
 
 ## Multiple vector fields
 

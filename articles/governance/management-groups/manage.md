@@ -4,9 +4,8 @@ description: Learn how to view, maintain, update, and delete your management gro
 ms.date: 07/18/2024
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
-ms.author: davidsmatlak
-author: davidsmatlak
 ---
+
 # Manage your Azure subscriptions at scale with management groups
 
 If your organization has many subscriptions, you might need a way to efficiently manage access,

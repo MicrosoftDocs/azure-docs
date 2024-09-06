@@ -1,10 +1,10 @@
 ---
 title: Configure data persistence - Premium Azure Cache for Redis
 description: Learn how to configure and manage data persistence your Premium tier Azure Cache for Redis instances
-author: flang-msft
 
-ms.author: franlanglois
-ms.service: azure-cache-redis
+
+
+
 ms.custom: devx-track-azurecli
 ms.topic: conceptual
 ms.date: 04/10/2023

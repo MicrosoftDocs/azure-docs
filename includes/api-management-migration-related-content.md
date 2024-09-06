@@ -7,8 +7,7 @@ ms.author: danlep
 ---
 ## Video
 
-> [!VIDEO https://learn.microsoft.com/_themes/docs.theme/master/en-us/_themes/global/video-embed.html?id=0e082046-7a52-48b6-8818-6997eb422992]
->
+> [!VIDEO 0e082046-7a52-48b6-8818-6997eb422992]
 
 ## Related content
 

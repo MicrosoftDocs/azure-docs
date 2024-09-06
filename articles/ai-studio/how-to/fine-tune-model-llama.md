@@ -30,7 +30,7 @@ The [Meta Llama family of large language models (LLMs)](./deploy-models-llama.md
 
 The following models are available in Azure Marketplace for Llama 3.1 when fine-tuning as a service with pay-as-you-go billing:
 
-- `Meta-Llama-3.1-80B-Instruct` (preview)
+- `Meta-Llama-3.1-70B-Instruct` (preview)
 - `Meta-LLama-3.1-8b-Instruct` (preview)
   
 Fine-tuning of Llama 3.1 models is currently supported in projects located in West US 3.
@@ -134,7 +134,7 @@ Different model types require a different format of training data.
 
 # [Chat Completion](#tab/chatcompletion)
 
-The training and validation data you use **must** be formatted as a JSON Lines (JSONL) document. For `Llama-3-80B-chat` the fine-tuning dataset must be formatted in the conversational format that is used by the Chat completions API.
+The training and validation data you use **must** be formatted as a JSON Lines (JSONL) document. For `Meta-Llama-3.1-70B-Instruct` the fine-tuning dataset must be formatted in the conversational format that is used by the Chat completions API.
 
 ### Example file format
 
@@ -184,10 +184,10 @@ To fine-tune a LLama 3.1 model:
 
 1. Select the project in which you want to fine-tune your models. To use the pay-as-you-go model fine-tune offering, your workspace must belong to the **West US 3** region.
 1. On the fine-tune wizard, select the link to **Azure Marketplace Terms** to learn more about the terms of use. You can also select the **Marketplace offer details** tab to learn about pricing for the selected model.
-1. If this is your first time fine-tuning the model in the project, you have to subscribe your project for the particular offering (for example, Meta-Llama-3-70B) from Azure Marketplace. This step requires that your account has the Azure subscription permissions and resource group permissions listed in the prerequisites. Each project has its own subscription to the particular Azure Marketplace offering, which allows you to control and monitor spending. Select **Subscribe and fine-tune**.
+1. If this is your first time fine-tuning the model in the project, you have to subscribe your project for the particular offering (for example, Meta-Llama-3.1-70B-Instruct) from Azure Marketplace. This step requires that your account has the Azure subscription permissions and resource group permissions listed in the prerequisites. Each project has its own subscription to the particular Azure Marketplace offering, which allows you to control and monitor spending. Select **Subscribe and fine-tune**.
 
     > [!NOTE]
-    > Subscribing a project to a particular Azure Marketplace offering (in this case, Meta-Llama-3-70B) requires that your account has **Contributor** or **Owner** access at the subscription level where the project is created. Alternatively, your user account can be assigned a custom role that has the Azure subscription permissions and resource group permissions listed in the [prerequisites](#prerequisites).
+    > Subscribing a project to a particular Azure Marketplace offering (in this case, Meta-Llama-3.1-70B-Instruct) requires that your account has **Contributor** or **Owner** access at the subscription level where the project is created. Alternatively, your user account can be assigned a custom role that has the Azure subscription permissions and resource group permissions listed in the [prerequisites](#prerequisites).
 
 1. Once you sign up the project for the particular Azure Marketplace offering, subsequent fine-tuning of the _same_ offering in the _same_ project don't require subscribing again. Therefore, you don't need to have the subscription-level permissions for subsequent fine-tune jobs. If this scenario applies to you, select **Continue to fine-tune**.
 

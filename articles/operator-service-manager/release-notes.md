@@ -17,6 +17,7 @@ This pages hosts release notes for Azure Operator Service Manager (AOSM).
 The following release notes are generally available (GA):
 
 * Release Notes for Version 2.0.2763-119
+* Release Notes for Version 2.0.2777-132
 
 ### Release Attestation
 These releases are produced compliant with Microsoft’s Secure Development Lifecycle. This lifecycle includes processes for authorizing software changes, antimalware scanning, and scanning and mitigating security bugs and vulnerabilities.
@@ -72,3 +73,31 @@ Through Microsoft’s Secure Future Initiative (SFI), this release delivers the 
 * NFO	- A dedicated service account for the preupgrade job to safeguard against modifications to the existing network function extension service account.
 * RP - The service principles (SPs) used for deploying site & Network Function (NF) now require “Microsoft.ExtendedLocation/customLocations/read” permission. The SP's that deploy day N scenario now require "Microsoft.Kubernetes/connectedClusters/listClusterUserCredentials/action" permission. This change can result in failed SNS deployments if not properly reconciled
 * CVE	- A total of five CVEs are addressed in this release.
+
+
+## Release 2.0.2777-132
+
+Document Revision 1.1
+
+### Release Summary
+Azure Operator Service Manager is a cloud orchestration service that enables automation of operator network-intensive workloads, and mission critical applications hosted on Azure Operator Nexus. Azure Operator Service Manager unifies infrastructure, software, and configuration management with a common model into a single interface, both based on trusted Azure industry standards. This August 7, 2024 Azure Operator Service Manager release includes updating the NFO version to 2.0.2777-132, the details of which are further outlined in the remainder of this document.
+
+### Release Details
+* Release Version: 2.0.2777-132
+* Release Date: August 7, 2024
+* Is NFO update required: YES
+
+### Release Installation
+This release can be installed with as an update on top of release 2.0.2763-119.  
+
+### Issues Resolved in This Release 
+
+#### Bugfix Related Updates
+The following bug fixes, or other defect resolutions, are delivered with this release, for either Network Function Operator (NFO) or resource provider (RP) components.
+
+* NFO	- Adding taint tolerations to all NFO pods and scheduling them on system nodes. Daemonset pods will continue to run on all nodes of cluster).
+
+#### Security Related Updates
+
+* CVE	- A total of five CVEs are addressed in this release.
+  

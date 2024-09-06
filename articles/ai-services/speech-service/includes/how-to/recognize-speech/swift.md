@@ -2,7 +2,7 @@
 author: eric-urban
 ms.service: azure-ai-speech
 ms.topic: include
-ms.date: 9/01/2023
+ms.date: 08/13/2024
 ms.author: eur
 ---
 
@@ -17,7 +17,7 @@ The [Azure-Samples/cognitive-services-speech-sdk](https://github.com/Azure-Sampl
 * [Recognize speech in Swift on macOS](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/swift/macos/from-microphone)
 * [Recognize speech in Swift on iOS](https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/swift/ios/from-microphone)
 
-For more information, see the [Speech SDK for Swift reference](/objectivec/cognitive-services/speech/).
+For more information, see the [Speech SDK for Objective-C reference](/objectivec/cognitive-services/speech/).
 
 ## Use a custom endpoint
 
@@ -33,5 +33,4 @@ let speechRecognizer = SPXSpeechRecognizer(speechConfiguration: speechConfig);
 
 Speech containers provide websocket-based query endpoint APIs that are accessed through the Speech SDK and Speech CLI. By default, the Speech SDK and Speech CLI use the public Speech service. To use the container, you need to change the initialization method. Use a container host URL instead of key and region.
 
-For more information about containers, see [Host URLs](../../../speech-container-howto.md#host-urls) in Install and run Speech containers with Docker.
-
+For more information about containers, see Host URLs in [Install and run Speech containers with Docker](../../../speech-container-howto.md#host-urls).

@@ -95,7 +95,7 @@
     href: table-storage-design-modeling.md
   - name: Table design patterns
     href: table-storage-design-patterns.md
-  - name: Monitoring Table storage
+  - name: Monitor Table Storage
     href: monitor-table-storage.md
 - name: How-to
   items:
@@ -238,7 +238,7 @@
       href: /python/api/overview/azure/storage#management
     - name: JavaScript SDK
       href: /javascript/api/overview/azure/storage#management
-  - name: Monitoring Azure Table storage reference
+  - name: Monitoring Table Storage data reference
     href: monitor-table-storage-reference.md
   - name: Scalability and performance targets
     items:

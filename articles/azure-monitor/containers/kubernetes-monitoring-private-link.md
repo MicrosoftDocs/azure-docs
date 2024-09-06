@@ -17,7 +17,8 @@ ms.reviewer: aul
 
 
 ## Prerequisites
-This article describes how to connect your cluster to an existing Azure Monitor Private Link Scope (AMPLS). Create an AMPLS following the guidance in [Configure your private link](../logs/private-link-configure.md).
+- This article describes how to connect your cluster to an existing Azure Monitor Private Link Scope (AMPLS). Create an AMPLS following the guidance in [Configure your private link](../logs/private-link-configure.md).
+ - Azure CLI version 2.61.0 or higher.
 
 ## Managed Prometheus (Azure Monitor workspace)
 Data for Managed Prometheus is stored in an [Azure Monitor workspace](../essentials/azure-monitor-workspace-overview.md), so you must make this workspace accessible over a private link.

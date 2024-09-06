@@ -37,6 +37,10 @@ You can change the SKU for a Trusted Signing account at any time by upgrading to
 - SKU limitations for updated SKU are enforced after the update is successful.
 - Downgrade to Basic: 
     - The Basic SKU allows only one certificate profile of each type. For example, if you have two certificate profiles of type Public Trust, you need to delete any one profile to be eligible to downgrade. Same applies for other certificate profile types as well.
+    - In Azure portal on Certificate Profiles page, make sure **Status: All** to view all certificate profiles to help you delete all relevant certificate profiles to meet the criteria to downgrade.
+    
+    :::image type="content" source="media/trusted-signing-certificate-profile-deletion-changesku.png" alt-text="Screenshot that shows adding a diagnostic setting." lightbox="media/trusted-signing-certificate-profile-deletion-changesku.png":::
+
 - Upgrade to Premium:  
     - There are no limitations when you upgrade to the Premium SKU from Basic SKU. 
 - After changing the SKU, you're required to manually refresh the Account Overview section to see the updated SKU under SKU (Pricing tier). (This limitation is known, and being actively worked on to resolve). 
@@ -68,7 +72,7 @@ az trustedsigning update -n MyAccount -g MyResourceGroup --sku Premium
 View and estimate the cost of your Trusted Signing resource usage.  
 1. In the Azure portal, search **Subscriptions**.
 2. Select the **Subscription**, where you have created Trusted Signing resources.
-3. Select Cost Management from the menu on the left. Learn more about using [Cost Management](/azure/cost-management-billing/costs/).
+3. Select Cost Management from the menu on the left. Learn more about using [Cost Management](https://learn.microsoft.com/azure/cost-management-billing/costs/).
 4. For Trusted Signing, you can see costs associated to your Trusted Signing account.  
 
 **Billing**
@@ -76,4 +80,4 @@ View and estimate the cost of your Trusted Signing resource usage.
 View Invoice for Trusted Signing service. 
 1. In the Azure portal, search **Subscriptions**.
 2. Select the **Subscription**, where you have created Trusted Signing resources.
-3. Select Billing from the menu on the left. Learn more about [Billing](/azure/cost-management-billing/manage/).
+3. Select Billing from the menu on the left. Learn more about [Billing](https://learn.microsoft.com/azure/cost-management-billing/manage/).

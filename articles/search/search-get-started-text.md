@@ -10,6 +10,7 @@ ms.custom:
   - devx-track-dotnet
   - devx-track-extended-java
   - devx-track-js
+  - devx-track-ts
   - devx-track-python
   - ignite-2023
 ms.topic: quickstart
@@ -60,6 +61,10 @@ Choose a programming language for the next step. The **Azure.Search.Documents** 
 ## [**JavaScript**](#tab/javascript)
 
 [!INCLUDE [javascript-sdk-quickstart](includes/quickstarts/javascript.md)]
+
+## [**TypeScript**](#tab/typescript)
+
+[!INCLUDE [typescript-sdk-quickstart](includes/quickstarts/typescript.md)]
 
 ---
 

@@ -1,6 +1,6 @@
 ---
-title: Ingest syslog CEF messages to Microsoft Sentinel - AMA
-description: Ingest syslog messages from linux machines, devices, and appliances to Microsoft Sentinel using data connectors based on the Azure Monitor Agent (AMA).
+title: Ingest syslog and CEF messages to Microsoft Sentinel - AMA
+description: Ingest syslog messages from linux machines and from network and security devices and appliances to Microsoft Sentinel, using data connectors based on the Azure Monitor Agent (AMA).
 author: yelevin
 ms.author: yelevin
 ms.topic: how-to
@@ -22,21 +22,25 @@ This article describes how to use the **Syslog via AMA** and **Common Event Form
 
 ## Prerequisites
 
-Before you begin, you must have the resources configured and the appropriate permissions described in this section. 
+Before you begin, you must have the resources configured and the appropriate permissions assigned, as described in this section. 
 
 ### Microsoft Sentinel prerequisites
 
 Install the appropriate Microsoft Sentinel solution and make sure you have the permissions to complete the steps in this article.
 
 - Install the appropriate solution from the **Content hub** in Microsoft Sentinel. For more information, see [Discover and manage Microsoft Sentinel out-of-the-box content](sentinel-solutions-deploy.md).
+
 - Identify which data connector the Microsoft Sentinel solution requires &mdash; **Syslog via AMA** or **Common Event Format (CEF) via AMA** and whether you need to install the **Syslog** or **Common Event Format** solution. To fulfill this prerequisite, 
+
   - In the **Content hub**, select **Manage** on the installed solution and review the data connector listed. 
+
   - If either **Syslog via AMA** or **Common Event Format (CEF) via AMA** isn't installed with the solution, identify whether you need to install the **Syslog** or **Common Event Format** solution by finding your appliance or device from one of the following articles:
 
     - [CEF via AMA data connector - Configure specific appliance or device for Microsoft Sentinel data ingestion](unified-connector-cef-device.md)
     - [Syslog via AMA data connector - Configure specific appliance or device for Microsoft Sentinel data ingestion](unified-connector-syslog-device.md)
 
     Then install either the **Syslog** or **Common Event Format** solution from the content hub to get the related AMA data connector.
+
 - Have an Azure account with the following Azure role-based access control (Azure RBAC) roles:
 
   | Built-in role | Scope | Reason |
@@ -77,7 +81,7 @@ If your devices are sending syslog and CEF logs over TLS because, for example, y
 The setup process for the Syslog via AMA  or Common Event Format (CEF) via AMA data connectors includes the following steps:
 
 1. Install the Azure Monitor Agent and create a Data Collection Rule (DCR) by using either of the following methods:
-    - [Azure or Defender portal](?tabs=syslog%2Cportal#create-data-collection-rule)
+    - [Azure or Defender portal](?tabs=syslog%2Cportal#create-data-collection-rule-dcr)
     - [Azure Monitor Logs Ingestion API](?tabs=syslog%2Capi#install-the-azure-monitor-agent)
 1. If you're collecting logs from other machines using a log forwarder, [**run the "installation" script**](#run-the-installation-script) on the log forwarder to configure the syslog daemon to listen for messages from other machines, and to open the necessary local ports.
 
@@ -85,9 +89,9 @@ Select the appropriate tab for instructions.
 
 # [Azure or Defender portal](#tab/portal)
 
-### Create data collection rule
+### Create data collection rule (DCR)
 
-To get started, open either the **Syslog via AMA** or **Common Event Format (CEF) via AMA** data connector in Microsoft Sentinel and create a data connector rule.
+To get started, open either the **Syslog via AMA** or **Common Event Format (CEF) via AMA** data connector in Microsoft Sentinel and create a data collection rule (DCR).
 
 1. For Microsoft Sentinel in the [Azure portal](https://portal.azure.com), under **Configuration**, select **Data connectors**.<br> For Microsoft Sentinel in the [Defender portal](https://security.microsoft.com/), select **Microsoft Sentinel** > **Configuration** > **Data connectors**.
 

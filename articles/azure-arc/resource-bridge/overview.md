@@ -131,8 +131,6 @@ The following private cloud environments and their versions are officially suppo
 
 ### Supported versions
 
-The minimum supported version of Arc resource bridge is 1.0.15.
-
 Generally, the latest released version and the previous three versions (n-3) of Arc resource bridge are supported. For example, if the current version is 1.0.18, then the typical n-3 supported versions are:
 
 * Current version: 1.0.18
