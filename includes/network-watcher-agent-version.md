@@ -6,4 +6,4 @@ ms.topic: include
 ms.date: 09/06/2024    
 ms.custom: include file
 ---
-The latest version of the Network Watcher extension is `1.4.3422.1`.
+The latest version of the Network Watcher extension is `1.4.3422.1`
