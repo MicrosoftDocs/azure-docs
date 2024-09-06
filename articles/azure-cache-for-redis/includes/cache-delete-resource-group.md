@@ -17,13 +17,13 @@ Otherwise, to avoid charges, if you're finished with the resources, you can dele
 > [!WARNING]
 > Deleting a resource group is irreversible. When you delete a resource group, all the resources in the resource group are permanently deleted. Make sure that you do not accidentally delete the wrong resource group or resources. If you created the resources inside an existing resource group that has resources you want to keep, you can delete each resource individually instead of deleting the resource group.
 
-### To delete a resource group
+### Delete a resource group
 
 1. Sign in to the [Azure portal](https://portal.azure.com), and then select **Resource groups**.
 
 1. Select the resource group you want to delete.
 
-   If there are many resource groups, use the **Filter for any field...** box, type the name of your resource group you created for this article. Select the resource group in the results list.
+   If there are many resource groups, in **Filter for any field**, enter the name of the resource group you created for this article. Select the resource group in the list of search results.
 
    :::image type="content" source="media/cache-delete-resource-group/cache-delete-resource-group.png" alt-text="Screenshot showing a list of resource groups to delete in the working pane.":::
 
