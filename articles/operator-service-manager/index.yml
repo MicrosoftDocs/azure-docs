@@ -100,7 +100,6 @@ landingContent:
         links:
           - text: Get Started with Cluster Registry
             url: get-started-with-cluster-registry.md
-        links:
           - text: Get Started with Private Link
             url: get-started-with-private-link.md           
   # Card
