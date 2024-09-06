@@ -18,19 +18,19 @@ Azure IoT Operations Preview uses Azure resources called assets and asset endpoi
 
 Historically, in industrial edge environments the term *asset* refers to any item of value that you want to manage, monitor, and collect data from. An asset can be a machine, a software component, an entire system, or a physical object of value such as a field of crops or a building. These assets are examples that exist in manufacturing, retail, energy, healthcare, and other sectors.
 
-In Azure IoT Operations, you can create an *asset* in the cloud to represent a real asset in your environment. An Azure IoT Operations asset can emit telemetry and events. You use these logical asset instances to manage the real assets in your industrial edge environment.
+In Azure IoT Operations, you can create an *asset* in the cloud to represent an asset in your industrial edge environment. An Azure IoT Operations asset can emit data. Southbound connectors in your IoT Operations instance collect these data and publish them to an MQTT topic where they can be picked up and routed by dataflows.
 
 ## Cloud and edge resources
 
 Azure Device Registry Preview registers assets and asset endpoints as Azure resources, enabled by Azure Arc. Device registry also syncs these cloud resources to the edge as [Kubernetes custom resources](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/).
 
+You can create, edit, and delete asset endpoints and assets by using the Azure IoT Operations CLI extension or the operations experience web UI. For more information, see [Manage asset configurations remotely](./howto-manage-assets-remotely.md).
+
 ## Asset endpoints
 
-An *asset endpoints* is a profile that describes southbound edge connectivity information for one or more assets.
+Before you can create an asset, you need to define an asset endpoint profile. An *asset endpoint* is a profile that describes southbound edge connectivity information for one or more assets.
 
-Currently, an asset endpoint in Azure IoT Operations is an OPC UA server that provides the connection to one or more assets.
-
-When you define an asset endpoint using either the operations experience or Azure IoT Operations CLI, you configure the target address for the endpoint and connection information.
+Currently, the only southbound connector available in Azure IoT Operations is the connector for OPC UA. Asset endpoints are configurations for the connector for OPC UA that tell it how to connect to an OPC UA server. For more information, see [What is the connector for OPC UA?](./overview-opcua-broker.md)
 
 The following table highlights some important properties that are included in an asset endpoint definition.
 
@@ -42,9 +42,9 @@ The following table highlights some important properties that are included in an
 
 ## Assets
 
-An *asset* is a logical entity in the cloud that represents a real device or component. When you create an asset, you can define its metadata and the datapoints (also called tags) and events that it emits.
+An *asset* is a logical entity that represents a device or component in the cloud as an Azure Resource Manager resource and at the edge as a Kubernetes custom resource. When you create an asset, you can define its metadata and the datapoints (also called tags) and events that it emits.
 
-Currently, an asset in Azure IoT Operations is anything that connects to an OPC UA server.
+Currently, an asset in Azure IoT Operations can be anything that connects to an OPC UA server.
 
 When you define an asset using either the operations experience or Azure IoT Operations CLI, you can configure *tags* and *events* for each asset.
 
