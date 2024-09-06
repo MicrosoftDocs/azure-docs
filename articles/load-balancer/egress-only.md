@@ -244,7 +244,7 @@ In this section, you'll add the virtual machine you created previously to the ba
 
 1. Select **Connect**.
 
-1. Open Internet Explorer.
+1. Open Microsoft Edge browser.
 
 1.  Enter **https://whatsmyip.org** in the address bar.
 
@@ -290,7 +290,7 @@ In this section, you'll add the virtual machine you created previously to the ba
 
 1. Select **Connect**.
 
-1. Open Internet Explorer.
+1. Open Microsoft Edge browser.
 
 1. Enter **https://whatsmyip.org** in the address bar.
 
