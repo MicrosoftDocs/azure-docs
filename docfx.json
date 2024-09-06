@@ -14,7 +14,7 @@
           "**/_themes/**",
           "**/includes/**",
           "**/obj/**",
-          "**/*.graffle",
+          "**/*.graffle"
         ]
       },
       {
@@ -59,7 +59,7 @@
         "exclude": [
           "iot-edge/**",
           "**/_themes/**",
-          "**/obj/**",
+          "**/obj/**"
         ]
       },
       {
@@ -1003,7 +1003,7 @@
         "articles/partner-solutions/split-experimentation/**/*.yml": "split-experimentation"
       },
       "monikerRange": {
-        "articles/iot-edge/**/*.md": ">=iotedge-1.4",
+        "articles/iot-edge/**/*.md": ">=iotedge-1.4"
       },
       "recommendations": {
       },
