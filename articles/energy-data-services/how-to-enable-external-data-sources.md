@@ -66,7 +66,7 @@ We notify you once EDS preview is enabled in your Azure Data Manager for Energy 
         - When an application tries to get an invalid deleted secret. 
 
 ## Limitations
-The Naturalization DAG workflow won't be included in the M23 release but will be made available in future releases.
+The Naturalization DAG workflow won't be included in the M23 release.
  
 ## FAQ
 See [External data sources FAQ.](faq-energy-data-services.yml#external-data-sources)
