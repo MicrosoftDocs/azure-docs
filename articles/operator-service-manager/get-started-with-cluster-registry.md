@@ -1,6 +1,6 @@
 ---
 title: Get started with Azure Operator Service Manager cluster registry
-description: Azure Operator Service Manager cluster registry feature provides a locally resilent edge registry service to host Nexus K8s container image artifacts.
+description: Azure Operator Service Manager cluster registry provides a locally resilent edge registry service to host Nexus K8s container image artifacts.
 author: msftadam
 ms.author: adamdor
 ms.date: 09/06/2024
@@ -8,12 +8,12 @@ ms.topic: get-started
 ms.service: azure-operator-service-manager
 ---
 
-# Get started with Cluster Registry
+# Get started with cluster registry
 * Original Author: Tobias Weisserth
 * Original Publish Date: July 26, 2024
 
 ## Overview
-Improving resiliency for cloud native network functions with Azure Operator Service Manager cluster registry.  Applies to:
+Improve resiliency for cloud native network functions with Azure Operator Service Manager cluster registry. This feature requires the following minimum environment:
 * AOSM ARM API Version: 2023-09-01
 * AOSM CNF Arc for Kubernetes Extension Build Number: 1.0.2711-7
 
