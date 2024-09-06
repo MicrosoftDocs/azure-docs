@@ -89,7 +89,7 @@ The reporting solution that Azure Business Continuity Center provides also inclu
 - [Cross-tenant report](../backup/configure-reports.md?tabs=recovery-services-vaults#cross-tenant-reports)
 
 >[!Note]
->To learn about the expected behaviour of BCDR reports, see the [conventions used in BCDR reports](../backup/configure-reports?tabs=recovery-services-vaults.md).
+>To learn about the expected behaviour of BCDR reports, see the [conventions used in BCDR reports](../backup/configure-reports.md?tabs=recovery-services-vaults#conventions-used-in-backup-reports).
 
 ## Next steps
 
