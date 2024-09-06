@@ -40,8 +40,10 @@
   - name: Edge Registry and Private Link
     expanded: false
     items:
+      - name: Get Started with Cluster Registry
+        href: get-started-with-cluster-registry.md     
       - name: Get Started with Private Link
-        href: get-started-with-private-link.md        
+        href: get-started-with-private-link.md             
 - name: Quickstarts
   expanded: false
   items:
