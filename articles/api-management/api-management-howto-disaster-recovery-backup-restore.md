@@ -7,7 +7,7 @@ author: dlepow
 
 ms.service: azure-api-management
 ms.topic: how-to
-ms.date: 09/05/2024
+ms.date: 09/06/2024
 ms.author: danlep 
 ms.custom: devx-track-azurepowershell
 ---
@@ -18,7 +18,7 @@ ms.custom: devx-track-azurepowershell
 
 By publishing and managing your APIs via Azure API Management, you're taking advantage of fault tolerance and infrastructure capabilities that you'd otherwise design, implement, and manage manually. The Azure platform mitigates a large fraction of potential failures at a fraction of the cost.
 
-To recover from availability problems that affect  withyour API Management service, be ready to reconstitute your service in another region at any time. Depending on your recovery time objective, you might want to keep a standby service in one or more regions. You might also try to maintain their configuration and content in sync with the active service according to your recovery point objective. The API management backup and restore capabilities provide the necessary building blocks for implementing disaster recovery strategy.
+To recover from availability problems that affect your API Management service, be ready to reconstitute your service in another region at any time. Depending on your recovery time objective, you might want to keep a standby service in one or more regions. You might also try to maintain their configuration and content in sync with the active service according to your recovery point objective. The API management backup and restore capabilities provide the necessary building blocks for implementing disaster recovery strategy.
 
 Backup and restore operations can also be used for replicating API Management service configuration between operational environments, for example, development and staging. Beware that runtime data such as users and subscriptions will be copied as well, which might not always be desirable.
 
