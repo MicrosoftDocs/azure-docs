@@ -80,18 +80,16 @@ The following table describes the types of available reports:
 
 The reporting solution that Azure Business Continuity Center provides also includes the following capabilities:
 
-- **Customize report**: Allows you to seamlessly retrieve information of all your backup-related entities using simple queries. Learn more [about customize reports](../backup/configure-reports.md?tabs=recovery-services-vaults#customize-azure-backup-reports). 
+- [Customize report](../backup/configure-reports.md?tabs=recovery-services-vaults#customize-azure-backup-reports)
 
-- **Export to Excel**: Enables you to export the contents of the required widget as an Excel sheet with existing filters applied. [Learn how to export the reports](../backup/configure-reports.md?tabs=recovery-services-vaults#export-to-excel).
+- [Export to Excel](../backup/configure-reports.md?tabs=recovery-services-vaults#export-to-excel)
 
-- **Pin to dashboard**: Allows you to create customized dashboards tailored to display the most important information that you need. Learn how to [pin a widget to the Azure portal dashboard](../backup/configure-reports.md?tabs=recovery-services-vaults#pin-to-dashboard).
+- [Pin to dashboard](../backup/configure-reports.md?tabs=recovery-services-vaults#pin-to-dashboard)
 
-- **Cross-tenant report**: Allows you to select Log Analytics workspaces across your tenants to view multi-tenanted reports. Learn [how to view cross-tenant report](../backup/configure-reports.md?tabs=recovery-services-vaults#cross-tenant-reports).
+- [Cross-tenant report](../backup/configure-reports.md?tabs=recovery-services-vaults#cross-tenant-reports)
 
-
-[!INCLUDE [backup-conventions-for-reports.md](../../includes/backup-conventions-for-reports.md)]
-
-Learn about [the estimated time that different widgets can take to load; based on the number of Backup items and the time range for which the report is being viewed](../backup/configure-reports.md?tabs=recovery-services-vaults#query-load-times). To troubleshoot data discrepancy in backup reports, see [this article](../backup/configure-reports.md?tabs=recovery-services-vaults#how-to-troubleshoot).
+>[!Note]
+>To learn about the expected behaviour of BCDR reports, see the [conventions used in BCDR reports](../backup/configure-reports?tabs=recovery-services-vaults.md).
 
 ## Next steps
 
