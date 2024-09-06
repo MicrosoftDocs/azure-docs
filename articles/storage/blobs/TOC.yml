@@ -587,11 +587,11 @@ items:
               href: /dotnet/azure/sdk/authentication-on-premises-apps?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
           - name: Shared access signature (SAS)
             items:
-            - name: Auth using a user delegation SAS
+            - name: Authorize using a user delegation SAS
               href: storage-blob-user-delegation-sas-create-dotnet.md
-            - name: Auth using a service SAS
+            - name: Authorize using a service SAS
               href: sas-service-create-dotnet.md
-            - name: Auth using an account SAS
+            - name: Authorize using an account SAS
               href: ../common/storage-account-sas-create-dotnet.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
         - name: Container actions
           items:
