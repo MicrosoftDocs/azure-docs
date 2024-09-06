@@ -147,6 +147,7 @@ The resource providers for DevOps services are:
 | --------------------------- | ------------- |
 | microsoft.visualstudio | [Azure DevOps](/azure/devops/) |
 | Microsoft.VSOnline | [Azure DevOps](/azure/devops/) |
+| Microsoft.DevOpsInfrastructure | [Managed DevOps Pools](/azure/devops/managed-devops-pools/) |
 
 ## Hybrid resource providers
 

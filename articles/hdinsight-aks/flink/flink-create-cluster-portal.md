@@ -8,7 +8,9 @@ ms.date: 12/28/2023
 
 # Create an Apache Flink® cluster in HDInsight on AKS with Azure portal
 
+[!INCLUDE [retirement-notice](../includes/retirement-notice.md)]
 [!INCLUDE [feature-in-preview](../includes/feature-in-preview.md)]
+
 
 Complete the following steps to create an Apache Flink cluster on Azure portal.
 
@@ -38,7 +40,7 @@ Flink clusters can be created once cluster pool deployment has been completed, l
    |Subscription | This field is autopopulated with the Azure subscription that was registered for the Cluster Pool.|
    |Resource Group|This field is autopopulated and shows the resource group on the cluster pool.|
    |Region|This field is autopopulated and shows the region selected on the cluster pool.|
-   |Cluster Pool|This field is autopopulated and shows the cluster pool name on which the cluster is now getting created.To create a cluster in a different pool, find that cluster pool in the portal and click **+ New cluster**.|
+   |Cluster Pool|This field is autopopulated and shows the cluster pool name on which the cluster is now getting created. To create a cluster in a different pool, find that cluster pool in the portal and click **+ New cluster**.|
    |HDInsight on AKS Pool Version|This field is autopopulated and shows the cluster pool version on which the cluster is now getting created.|
    |HDInsight on AKS Version | Select the minor or patch version of the HDInsight on AKS of the new cluster.|
    |Cluster type | From the drop-down list, select Flink.|
