@@ -1,23 +1,33 @@
 ---
 title: "Secure and deploy Connected registry Arc extension"
-description: "Learn to secure the Connected registry Arc extension deployment with HTTPS, TLS, optional no TLS, BYO certificate, and inherent trust."
+description: "Learn to secure the connected registry Arc extension deployment with HTTPS, TLS, optional no TLS, BYOC certificate, and trust distribution."
 author: tejaswikolli-web
 ms.author: tejaswikolli
 ms.service: azure-container-registry
 ms.topic: tutorial  #Don't change.
 ms.date: 06/17/2024
 
-#customer intent: Learn how to secure and deploy the Connected registry extension with HTTPS, TLS encryption, and upgrades/rollbacks to secure the extension deployment. 
+#customer intent: Learn how to secure and deploy the connected registry extension with HTTPS, TLS encryption, and upgrades/rollbacks. 
 
 ---
 
-# Tutorial: Secure and deploy Connected registry Arc extension
+# Tutorial: Secure deployment methods for the connected registry extension 
 
-The Connected registry extension deployment can be secured with HTTPS, Transport Layer Security (TLS) encryption, and inherent trust distribution.
+These tutorials cover various deployment scenarios for the connected registry extension in an Arc-enabled Kubernetes cluster. Once the connected registry extension is installed, you can synchronize images from your cloud registry to on-premises or remote locations.  
 
-The Connected registry is a managed service that enables customers to securely manage and access containerized workloads across multiple locations, including on-premises and remote sites. The Connected registry integrates with Azure Arc, providing a unified lifecycle management experience for Kubernetes-based containerized workloads.
+Before you dive in, take a moment to learn how Arc-enabled Kubernetes works conceptually.
 
-Follow the [quickstart][quickstart] to create an Azure Arc-enabled Kubernetes cluster. Deploying Secure-by-default settings imply the following configuration is being used: HTTPS, Read Only, Trust Distribution, Cert Manager service.
+The connected registry can be securely deployed using various encryption methods. To ensure a successful deployment, follow the quickstart guide to review prerequisites and other pertinent information. By default, the connected registry is configured with HTTPS, ReadOnly mode, Trust Distribution, and the Cert Manager service. You can add more customizations and dependencies as needed, depending on your scenario. 
+
+### What is Cert Manager service? 
+
+The connected registry cert manager is a service that manages TLS certificates for the connected registry extension in an Azure Arc-enabled Kubernetes cluster. It ensures secure communication between the connected registry and other components by handling the creation, renewal, and distribution of certificates. This service can be installed as part of the connected registry deployment, or you can use an existing cert manager if it's already installed on your cluster. 
+
+Cert-Manager is an open-source Kubernetes add-on that automates the management and issuance of TLS certificates from various sources. It manages the lifecycle of certificates issued by CA pools created using CA Service, ensuring they are valid and renewed before they expire.  
+
+### What is Trust Distribution? 
+
+Connected registry trust distribution refers to the process of securely distributing trust between the connected registry service and Kubernetes clients within a cluster. This is achieved by using a Certificate Authority (CA), such as cert-manager, to sign TLS certificates, which are then distributed to both the registry service and the clients. This ensures that all entities can securely authenticate each other, maintaining a secure and trusted environment within the Kubernetes cluster..
 
 In this tutorial, you:
 
@@ -31,34 +41,11 @@ In this tutorial, you:
 
 To complete this tutorial, you need:
 
-* Create or use an existing Azure Container Registry (ACR) with [quickstart.][create-acr]
+* Follow the [quickstart][quickstart] to securely deploy the connected registry extension. 
 
-* Set up the firewall access and communication between the ACR registry and the Connected registry by enabling the [dedicated data endpoints.][dedicated data endpoints]
+## Deploy connected registry extension using your preinstalled cert-manager
 
-* Create or use an existing Azure Kubernetes Service (AKS) cluster with the [tutorial.][tutorial-aks-cluster]
-
-* Set up the connection between the Kubernetes cluster and Azure Arc by following the [quickstart.][quickstart-connect-cluster]
-
-* Set up the [Azure CLI][Install Azure CLI] to connect to Azure and Kubernetes.
-
-* Use the [k8s-extension][k8s-extension] command to manage Kubernetes extensions.
-
-    ```azurecli
-    az extension add --name k8s-extension
-    ```
-* Register the required [Azure resource providers][azure-resource-provider-requirements] in your subscription and use Azure Arc-enabled Kubernetes:
-
-    ```azurecli
-    az provider register --namespace Microsoft.Kubernetes
-    az provider register --namespace Microsoft.KubernetesConfiguration
-    ```
-    An Azure resource provider is a set of REST operations that enable functionality for a specific Azure service. 
-
-* Follow the [quickstart][quickstart] to create an Azure Arc-enabled Kubernetes cluster. Apply Secure-by-default settings imply the following configuration is being used: HTTPS, Read Only, Trust Distribution, Cert Manager service. 
-
-## Deploy Connected registry extension using preinstalled cert-manager
-
-While using a preinstalled cert-manager service on the cluster, you can deploy the Connected registry extension with HTTPS (TLS encryption) by following the steps:
+In this tutorial, we demonstrate how to use a preinstalled cert-manager service on the cluster. This setup gives you control over certificate management, enabling you to deploy the connected registry extension with encryption by following the steps provided:
 
 1. Run the [az-k8s-extension-create][az-k8s-extension-create] command in the [quickstart][quickstart] and set the `cert-manager.enabled=true` and `cert-manager.install=false` parameters to determine the cert-manager service is installed and enabled:
 
@@ -75,7 +62,7 @@ While using a preinstalled cert-manager service on the cluster, you can deploy t
 
 ## Deploy Connected registry extension using Bring Your Own Certificate (BYOC)
 
-Bring Your Own Certificate (BYOC) allows customers to use their own public certificate and private key pair for HTTPS (TLS encryption) when deploying the Connected registry extension.
+In this tutorial, we demonstrate how to use your own certificate (BYOC) on the cluster. BYOC allows you to use your own public certificate and private key pair, giving you control over certificate management. This setup enables you to deploy the connected registry extension with encryption by following the provided steps:
 
 >[!NOTE] 
 >BYOC is applicable for customers who bring their own certificate that is already trusted by their Kubernetes nodes. It is not recommended to manually update the nodes to trust the certificates.
@@ -129,7 +116,9 @@ export TLS_KEY=$(cat mycert.key | base64 -w0)
     --config-protected-file protected-settings-extension.json 
     ```
 
-## Deploy Connected registry with kubernetes secret management
+## Deploy connected registry with Kubernetes secret management
+
+In this tutorial, we demonstrate how to use a Kubernetes secret on your cluster. Kubernetes secret allows you to securely manage authorized access between pods within the cluster. This setup enables you to deploy the connected registry extension with encryption by following the provided steps:
 
 Follow the [quickstart][quickstart] and add the Kubernetes TLS secret string variable + value pair. 
 
@@ -191,9 +180,9 @@ Now, you can deploy the Connected registry extension with HTTPS (TLS encryption)
     --config-protected-file protected-settings-extension.json 
     ```
 
-## Deploy the Connected registry Arc extension with inherent trust distribution and reject Connected registry trust distribution
+## Deploy the connected registry using your own trust distribution and disable the connected registry's default trust distribution
 
-While using your own kubernetes secret or public certificate and private key pairs, you can deploy the Connected registry extension with HTTPS (TLS encryption), inherent trust distribution, and reject Connected registry trust distribution.
+In this tutorial, we demonstrate how to configure trust distribution on the cluster. While using your own Kubernetes secret or public certificate and private key pairs, you can deploy the connected registry extension with TLS encryption, your inherent trust distribution, and reject the connected registry’s default trust distribution. This setup enables you to deploy the connected registry extension with encryption by following the provided steps:
 
 1. Follow the [quickstart][quickstart] to add either the Kubernetes secret or public certificate, and private key variable + value pairs in the protected settings file in JSON format.
 
