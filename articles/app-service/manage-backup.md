@@ -78,7 +78,7 @@ There are two types of backups in App Service. Automatic backups are created for
     az webapp config snapshot list --name <app-name> --resource-group <group-name>
     ```
 
-2. To restore the automatic backup by overwriting the app's content and configuration:
+1. To restore the automatic backup by overwriting the app's content and configuration:
 
     ```azurecli-interactive
     az webapp config snapshot restore --name <app-name> --resource-group <group-name> --time <snapshot-timestamp>
@@ -174,7 +174,7 @@ For troubleshooting information, see [Why is my linked database not backed up?](
 
 With [custom backups](#create-a-custom-backup), you can back up your app's files and configuration data to a firewall-protected storage account if the following requirements are fulfilled:
 
-- The app is [integrated with a virtual network](overview-vnet-integration.md), or the app is in a v3 [App Service Environment](environment/app-service-app-service-environment-intro.md).
+- The app is [integrated with a virtual network](overview-vnet-integration.md), or the app is in a v3 [App Service Environment](environment/overview.md). 
 - The storage account [allows access from the virtual network](../storage/common/storage-network-security.md#grant-access-from-a-virtual-network) that the app is integrated with, or that the v3 App Service Environment is created with.
 
 To back up and restore over Azure Virtual Network:
@@ -213,7 +213,7 @@ Create a file called `_backup.filter` and put the preceding list in the file, bu
 \site\wwwroot\Images\2013
 ```
 
-Upload the `_backup.filter` file to the `D:\home\site\wwwroot\` directory of your site by using [ftp](deploy-ftp.md) or any other method. If you want, you can create the file directly by using Kudu `DebugConsole` and insert the content there.
+Upload the `_backup.filter` file to the `D:\home\site\wwwroot\` directory of your site by using [FTP](deploy-ftp.md) or any other method. If you want, you can create the file directly by using Kudu `DebugConsole` and insert the content there.
 
 Run backups the same way you would normally do it: [custom on-demand](#create-a-custom-backup) or [custom scheduled](#configure-custom-scheduled-backups). Any files and folders that are specified in `_backup.filter` are excluded from the future backups.
 
@@ -293,7 +293,7 @@ The following table shows which content is backed up in an automatic backup:
 |-|-|
 | **Windows apps**: All app content under the `%HOME%` directory.<br/>**Linux apps**: All app content under the `/home` directory.<br/>**Custom containers (Windows and Linux)**: Content in [persistent storage](configure-custom-container.md?pivots=container-linux#use-persistent-shared-storage).| Yes |
 | Content of the [run-from-ZIP package](deploy-run-package.md)| No |
-| Content from any [custom mounted Azure storage](configure-connect-to-azure-storage.md?pivots=container-windows), such as from an Azure Files share | No |
+| Content from any [custom-mounted Azure storage](configure-connect-to-azure-storage.md?pivots=container-windows), such as from an Azure Files share | No |
 
 The following table shows which app configurations are restored when you choose to restore app configurations:
 
@@ -310,7 +310,7 @@ The following table shows which app configurations are restored when you choose 
 |[Scale out](../azure-monitor/autoscale/autoscale-get-started.md?toc=/azure/app-service/toc.json)| No |
 |[Diagnostics with Azure Monitor](troubleshoot-diagnostic-logs.md#send-logs-to-azure-monitor)| No |
 |[Alerts and metrics](../azure-monitor/alerts/alerts-classic-portal.md)| No |
-|[Backup](manage-backup.md)| No |
+|Backup| No |
 |Associated [deployment slots](deploy-staging-slots.md)| No |
 |Any linked database that [custom backup](#whats-included-in-a-custom-backup) supports| No |
 
