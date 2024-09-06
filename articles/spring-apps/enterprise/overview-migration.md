@@ -109,7 +109,7 @@ Your deployment pipelines/workflow must point to Azure Container Apps to work pr
 
 ### How do I continue to make my automation scripts work using Azure CLI? 
 
-Azure CLI scripts must change to make them work in Azure Container Apps. For more information, see [az containerapp](cli/azure/containerapp?view=azure-cli-latest&preserve-view=true). 
+Azure CLI scripts must change to make them work in Azure Container Apps. For more information, see [az containerapp](/cli/azure/containerapp?view=azure-cli-latest&preserve-view=true). 
 
 ### Are there plans to retire any other Azure Spring Apps SKUs?
   
