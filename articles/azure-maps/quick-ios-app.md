@@ -6,8 +6,7 @@ ms.author: sipa
 ms.date: 11/23/2021
 ms.topic: quickstart
 ms.service: azure-maps
-services: azure-maps
-ms.custom: mode-other
+ms.subservice: ios-sdk
 ---
 
 # Create an iOS app (Preview)

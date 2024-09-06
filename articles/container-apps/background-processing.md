@@ -3,7 +3,7 @@ title: 'Tutorial: Deploy a background processing application with Azure Containe
 description: Learn to create an application that continuously runs in the background with Azure Container Apps
 services: container-apps
 author: jorgearteiro
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.topic: conceptual
 ms.date: 01/10/2024
 ms.author: joarteir

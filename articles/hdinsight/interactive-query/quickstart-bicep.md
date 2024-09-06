@@ -3,7 +3,7 @@ title: 'Quickstart: Create Interactive Query cluster using Bicep - Azure HDInsig
 description: This quickstart shows how to use Bicep to create an Interactive Query cluster in Azure HDInsight.
 author: reachnijel
 ms.author: nijelsf
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: quickstart
 ms.custom: subject-armqs, mode-arm, devx-track-bicep
 ms.date: 10/16/2023

@@ -17,7 +17,7 @@ ms.custom: mode-other
 - An Azure Email Communication Services Resource ready to provision domains. [Get started creating an Email Communication Resource](../create-email-communication-resource.md).
 - An [Azure Managed Domain](../add-azure-managed-domains.md) or [Custom Domain](../add-custom-verified-domains.md) provisioned and ready to send emails. This domain must be fully verified before attempting to link it to the Communication Service resource.
 - An Azure Communication Services Resource. [Create a Communication Services Resources.](../../create-communication-resource.md)
-- We're using a [service principal for authentication](/entra/identity-platform/howto-create-service-principal-portal). Set the values of the client ID, tenant ID and client secret of the Microsoft Entra application as the following environment variables: `AZURE_CLIENT_ID`, `AZURE_TENANT_ID`, and `AZURE_CLIENT_SECRET`.
+- We're using a [service principal for authentication](/entra/identity-platform/howto-create-service-principal-portal). Set the values of the client ID, tenant ID, and client secret of the Microsoft Entra application as the following environment variables: `AZURE_CLIENT_ID`, `AZURE_TENANT_ID`, and `AZURE_CLIENT_SECRET`.
 
 ## Install the required packages
 
@@ -51,7 +51,7 @@ The linked domain resource ID should be in the following format.
 /subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Communication/emailServices/<email-service-name>/domains/<domain-name>
 ```
 
-If you are using an Azure Managed Domain, the `domain-name` is "AzureManagedDomain". The `email-service-name` should be the same email service that you used to provision the domain.
+If you're using an Azure Managed Domain, the `domain-name` is "AzureManagedDomain." The `email-service-name` should be the same email service that you used to provision the domain.
 
 Once these values are populated, run the sample code.
 
@@ -73,12 +73,13 @@ CommunicationServiceResource result = await communicationServiceResource.UpdateA
 
 Replace the `<subscription-id>`, `<resource-group-name>`, and `<azure-communication-services-resource-name>` in the sample code. 
 
-Once these values are populated run the sample code.
+Once these values are populated, run the sample code.
 
 ```csharp
 ResourceIdentifier communicationServiceResourceId = CommunicationServiceResource.CreateResourceIdentifier("<subscription-id>", "<resource-group-name>", "<azure-communication-services-resource-name>");
 CommunicationServiceResource communicationServiceResource = client.GetCommunicationServiceResource(communicationServiceResourceId);
 
 CommunicationServiceResourcePatch patch = new CommunicationServiceResourcePatch();
+patch.LinkedDomains.Clear();
 CommunicationServiceResource result = await communicationServiceResource.UpdateAsync(patch);
 ```

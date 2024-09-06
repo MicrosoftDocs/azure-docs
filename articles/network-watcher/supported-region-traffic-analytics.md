@@ -4,11 +4,11 @@ titleSuffix: Azure Network Watcher
 description: Learn about the regions that support enabling traffic analytics on NSG flow logs and the Log Analytics workspaces that you can use.
 services: network-watcher
 author: halkazwini
-ms.service: network-watcher
+ms.service: azure-network-watcher
 ms.topic: conceptual
 ms.date: 06/15/2023
 ms.author: halkazwini
-ms.custom: references_regions, engagement-fy23
+ms.custom: references_regions
 ---
 
 # Traffic analytics supported regions

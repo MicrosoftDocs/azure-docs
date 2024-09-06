@@ -4,7 +4,7 @@ description: Learn how to connect to and query Azure SQL Edge.
 author: rwestMSFT
 ms.author: randolphwest
 ms.date: 09/14/2023
-ms.service: sql-edge
+ms.service: azure-sql-edge
 ms.topic: conceptual
 ---
 # Connect and query Azure SQL Edge
@@ -46,7 +46,7 @@ To connect to an Azure SQL Edge Database Engine from a network machine, you need
     }
     ```
 
-- **SA password for the Azure SQL Edge instance**: This is the value specified for the `SA_PASSWORD` environment variable during deployment of Azure SQL Edge.
+- **SA password for the Azure SQL Edge instance**: This is the value specified for the `MSSQL_SA_PASSWORD` environment variable during deployment of Azure SQL Edge.
 
 ## Connect to the Database Engine from within the container
 

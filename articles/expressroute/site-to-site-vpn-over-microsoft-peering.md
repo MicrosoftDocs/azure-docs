@@ -3,7 +3,7 @@ title: 'Azure ExpressRoute: Configure S2S VPN over Microsoft peering'
 description: Learn how to set up IPsec/IKE connectivity to Azure over an ExpressRoute Microsoft peering circuit using a site-to-site VPN gateway.
 services: expressroute
 author: duongau
-ms.service: expressroute
+ms.service: azure-expressroute
 ms.topic: how-to
 ms.date: 03/31/2024
 ms.author: duau
@@ -18,7 +18,7 @@ This article helps you configure secure encrypted connectivity between your on-p
 >When you set up site-to-site VPN over Microsoft peering, you are charged for the VPN gateway and VPN egress. For more information, see [VPN Gateway pricing](https://azure.microsoft.com/pricing/details/vpn-gateway).
 >
 
-[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/hybrid-az-ps.md)]
+[!INCLUDE [updated-for-az](../../includes/hybrid-az-ps.md)]
 
 ## <a name="architecture"></a>Architecture
 
@@ -212,7 +212,7 @@ Assign a public IP address for each instance of a VPN gateway.
     "name": "[variables('gatewayPublicIPName1')]",
     "location": "[resourceGroup().location]",
     "properties": {
-      "publicIPAllocationMethod": "Dynamic"
+      "publicIPAllocationMethod": "Static"
     },
     "comments": "Public IP for the first instance of the VPN gateway"
   },
@@ -222,7 +222,7 @@ Assign a public IP address for each instance of a VPN gateway.
     "name": "[variables('gatewayPublicIPName2')]",
     "location": "[resourceGroup().location]",
     "properties": {
-      "publicIPAllocationMethod": "Dynamic"
+      "publicIPAllocationMethod": "Static"
     },
     "comments": "Public IP for the second instance of the VPN gateway"
   },
@@ -276,7 +276,7 @@ This section of the template configures the VPN gateway with the required settin
   "ipConfigurations": [
     {
       "properties": {
-        "privateIPAllocationMethod": "Dynamic",
+        "privateIPAllocationMethod": "Static",
         "subnet": {
           "id": "[variables('gatewaySubnetRef')]"
         },
@@ -288,7 +288,7 @@ This section of the template configures the VPN gateway with the required settin
     },
     {
       "properties": {
-        "privateIPAllocationMethod": "Dynamic",
+        "privateIPAllocationMethod": "Static",
         "subnet": {
           "id": "[variables('gatewaySubnetRef')]"
         },

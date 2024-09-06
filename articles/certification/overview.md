@@ -6,7 +6,7 @@ ms.author: sufon
 ms.topic: overview 
 ms.date: 02/07/2024
 ms.custom: template-overview
-ms.service: certification
+ms.service: azure-certified-device
 ---
 
 # Edge Secured-core Program

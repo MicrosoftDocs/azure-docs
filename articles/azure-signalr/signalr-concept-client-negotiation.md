@@ -3,7 +3,7 @@ title: Client negotiation in Azure SignalR Service
 description: This article provides information about client negotiation in Azure SignalR Service.
 author: JialinXin
 ms.author: jixin
-ms.service: signalr
+ms.service: azure-signalr-service
 ms.topic: conceptual
 ms.date: 04/02/2024
 ---
@@ -113,7 +113,7 @@ services.AddSignalR().AddAzureSignalR(options =>
             new Claim(ClaimTypes.NameIdentifier, context.Request.Query["username"]),
             new Claim("<Custom Claim Name>", "<Custom Claim Value>")
         };
-        options.AccessTokenLifetime = TimeSapn.FromMinutes(5);
+        options.AccessTokenLifetime = TimeSpan.FromMinutes(5);
     });
 ```
 

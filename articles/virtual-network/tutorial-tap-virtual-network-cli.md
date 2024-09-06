@@ -4,7 +4,7 @@ description: Learn how to create, change, or delete a virtual network TAP using 
 services: virtual-network
 author: asudbring
 manager: ganesr
-ms.service: virtual-network
+ms.service: azure-virtual-network
 ms.topic: how-to
 ms.date: 03/18/2018
 ms.author: allensu

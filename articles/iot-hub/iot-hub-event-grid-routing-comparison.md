@@ -15,7 +15,7 @@ ms.custom: fasttrack-edit
 
 Azure IoT Hub provides the capability to stream data from your connected devices and integrate that data into your business applications. IoT Hub offers two methods for integrating IoT events into other Azure services or business applications. This article discusses the two features that provide this capability, so that you can choose which option is best for your scenario.
 
-[!INCLUDE [iot-hub-basic](~/reusable-content/ce-skilling/azure/includes/iot-hub-basic-partial.md)]
+[!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-partial.md)]
 
 **[IoT Hub message routing](iot-hub-devguide-messages-d2c.md)**: This IoT Hub feature enables users to route device-to-cloud messages to service endpoints like Azure Storage containers, Event Hubs, Service Bus queues, and Service Bus topics. Routing also provides a querying capability to filter the data before routing it to the endpoints. In addition to device telemetry data, you can also [route non-telemetry events](iot-hub-devguide-messages-d2c.md#non-telemetry-events) and use them to trigger actions.
 

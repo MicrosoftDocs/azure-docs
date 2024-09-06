@@ -2,7 +2,7 @@
 title: Search examples for FHIR service
 description: How to search using different search parameters, modifiers, and other search tools for FHIR
 author: expekesheth
-ms.service: healthcare-apis
+ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.topic: reference
 ms.date: 08/22/2022

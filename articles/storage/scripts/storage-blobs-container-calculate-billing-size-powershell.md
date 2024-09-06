@@ -19,7 +19,7 @@ This script calculates the size of a container in Azure Blob storage for the pur
 > [!IMPORTANT]
 > The sample script provided in this article may not accurately calculate the billing size for blob snapshots.
 
-[!INCLUDE [sample-powershell-install](~/reusable-content/ce-skilling/azure/includes/sample-powershell-install-no-ssh-az.md)]
+[!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh-az.md)]
 
 [!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 

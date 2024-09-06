@@ -4,7 +4,7 @@ titleSuffix: Azure Deployment Environments
 description: Learn how to create an environment in an Azure Deployment Environments project by using the Azure Developer CLI.
 author: RoseHJM
 ms.author: rosemalcolm
-ms.service: deployment-environments
+ms.service: azure-deployment-environments
 ms.custom: ignite-2023
 ms.topic: how-to
 ms.date: 05/30/2024

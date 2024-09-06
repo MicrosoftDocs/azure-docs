@@ -13,7 +13,7 @@ and **anyOf**. They're optional and can be nested to create complex scenarios.
 
 ## Sample 1: One logical operator
 
-This policy definition evaluates [Azure Cosmos DB](../../../cosmos-db/introduction.md) accounts to
+This policy definition evaluates [Azure Cosmos DB](/azure/cosmos-db/introduction) accounts to
 see whether automatic failovers and multiple write locations are configured. When they aren't, the
 [audit](../concepts/effects.md#audit) triggers and creates a log entry when the non-compliant
 resource is created or updated.

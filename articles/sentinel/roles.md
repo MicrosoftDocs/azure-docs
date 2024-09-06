@@ -122,7 +122,7 @@ After understanding how roles and permissions work in Microsoft Sentinel, you ca
 |     | [Logic Apps Contributor](../role-based-access-control/built-in-roles.md#logic-app-contributor)        | Microsoft Sentinel's resource group, or the resource group where your playbooks are stored        | Attach playbooks to analytics and automation rules. <br>Run and modify playbooks.         |
 |  **Service Principal**   | [Microsoft Sentinel Contributor](../role-based-access-control/built-in-roles.md#microsoft-sentinel-contributor)      |  Microsoft Sentinel's resource group       | Automated configuration for management tasks |
 
-More roles might be required depending on the data you ingest or monitor. For example, Microsoft Entra roles might be required, such as the Global Administrator or Security Administrator roles, to set up data connectors for services in other Microsoft portals.
+More roles might be required depending on the data you ingest or monitor. For example, Microsoft Entra roles might be required, such as the Security Administrator role, to set up data connectors for services in other Microsoft portals.
 
 ## Resource-based access control
 

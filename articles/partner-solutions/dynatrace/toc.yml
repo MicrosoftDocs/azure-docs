@@ -21,9 +21,15 @@ items:
   - name: Manage Dynatrace
     href: dynatrace-how-to-manage.md
   - name: Troubleshoot
-    href: dynatrace-troubleshoot.md
+    items:
+    - name: Get support
+      href: dynatrace-get-support.md
+    - name: Fix common errors
+      href: dynatrace-troubleshoot.md
 - name: Reference
   items:
+  - name: Azure CLI
+    href: /cli/azure/dynatrace
   - name: Python
     href: /python/api/overview/azure/dynatrace
   - name: JavaScript
@@ -34,5 +40,4 @@ items:
     href: /java/api/overview/azure/dynatrace
   - name: REST API
     href: /rest/api/dynatrace
-#  - name: Azure PowerShell
-#    href: 
+

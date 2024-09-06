@@ -3,8 +3,6 @@ title: Introduction to Azure Data Factory
 description: Learn about Azure Data Factory, a cloud data integration service that orchestrates and automates movement and transformation of data.
 author: dcstwh
 ms.author: weetok
-ms.service: data-factory
-ms.subservice: tutorials
 ms.topic: overview
 ms.date: 05/15/2024
 ---
@@ -29,7 +27,7 @@ Data Preview and Validation: During the Data Copy activity, tools are provided f
 
 Customizable Data Flows: Azure Data Factory allows you to create customizable data flows. This feature allows you to add custom actions or steps for data processing.
 
-Integrated Security: Azure Data Factory offers integrated security features such as Azure Active Directory integration and role-based access control to control access to dataflows. This feature increases security in data processing and protects your data.
+Integrated Security: Azure Data Factory offers integrated security features such as Entra ID integration and role-based access control to control access to dataflows. This feature increases security in data processing and protects your data.
 
 ## Usage scenarios 
 

@@ -12,7 +12,7 @@ ms.custom: passwordless-java, service-connector, devx-track-azurecli, devx-track
 
 # Tutorial: Connect to a MySQL Database from Java JBoss EAP App Service with passwordless connection
 
-[Azure App Service](../app-service/overview.md) provides a highly scalable, self-patching web hosting service in Azure. It also provides a [managed identity](../app-service/overview-managed-identity.md) for your app, which is a turn-key solution for securing access to [Azure Database for MySQL](../mysql/index.yml) and other Azure services. Managed identities in App Service make your app more secure by eliminating secrets from your app, such as credentials in the environment variables. In this tutorial, you learn how to:
+[Azure App Service](../app-service/overview.md) provides a highly scalable, self-patching web hosting service in Azure. It also provides a [managed identity](../app-service/overview-managed-identity.md) for your app, which is a turn-key solution for securing access to [Azure Database for MySQL](/azure/mysql/) and other Azure services. Managed identities in App Service make your app more secure by eliminating secrets from your app, such as credentials in the environment variables. In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Create a MySQL database.
@@ -272,11 +272,11 @@ curl https://${WEBAPP_URL}/checklist
 curl https://${WEBAPP_URL}/checklist/1
 ```
 
-[!INCLUDE [cli-samples-clean-up](~/reusable-content/ce-skilling/azure/includes/cli-samples-clean-up.md)]
+[!INCLUDE [cli-samples-clean-up](../../includes/cli-samples-clean-up.md)]
 
 ## Next steps
 
 Learn more about running Java apps on App Service on Linux in the developer guide.
 
 > [!div class="nextstepaction"]
-> [Java in App Service Linux dev guide](../app-service/configure-language-java.md?pivots=platform-linux)
+> [Java in App Service Linux dev guide](../app-service/configure-language-java-security.md?pivots=platform-linux)

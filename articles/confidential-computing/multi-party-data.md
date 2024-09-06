@@ -8,9 +8,9 @@ services: virtual-machines
 
 author: kapilv
 
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 
-ms.subservice: confidential-computing
+ms.subservice: azure-confidential-computing
 
 ms.topic: conceptual
 

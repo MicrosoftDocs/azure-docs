@@ -1,7 +1,7 @@
 ---
  title: include file
  author: cherylmc
- ms.service: vpn-gateway
+ ms.service: azure-vpn-gateway
  ms.date: 09/26/2023
  ms.author: cherylmc
 ---
@@ -27,7 +27,7 @@ No. Support is limited only to the listed Windows operating system versions.
 ### How many VPN client endpoints can exist in my point-to-site configuration?
 
 The number of VPN client endpoints depends on your gateway sku and protocol.
-[!INCLUDE [Aggregated throughput by SKU](~/reusable-content/ce-skilling/azure/includes/vpn-gateway-table-gwtype-aggtput-include.md)]
+[!INCLUDE [Aggregated throughput by SKU](./vpn-gateway-table-gwtype-aggtput-include.md)]
 
 ### Can I use my own internal PKI root CA for point-to-site connectivity?
 

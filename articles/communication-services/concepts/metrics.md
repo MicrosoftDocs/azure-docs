@@ -6,11 +6,12 @@ author: mkhribech
 services: azure-communication-services
 
 ms.author: mkhribech
-ms.date: 06/30/2023
+ms.date: 07/18/2024
 ms.topic: conceptual
 ms.service: azure-communication-services
 ms.subservice: data
 ---
+
 # Metrics overview
 
 Azure Communication Services currently provides metrics for all Azure communication services' primitives. [Azure Metrics Explorer](../../azure-monitor/essentials/metrics-getting-started.md) can be used to plot your own charts, investigate abnormalities in your metric values, and understand your API traffic by using the metrics data that email requests emit.
@@ -29,44 +30,19 @@ More information on supported aggregation types and time series aggregations can
 - **Status Code** - The status code response sent after the request.
 - **StatusSubClass** - The status code series sent after the response.
 
-### Chat API request metric operations
+### Advanced Messaging API requests
 
-The following operations are available on Chat API request metrics:
+The following operations are available on Advanced Messaging API request metrics:
 
-| Operation / Route    | Description                                                                                    |
-| -------------------- | ---------------------------------------------------------------------------------------------- |
-| GetChatMessage       | Gets a message by message ID. |
-| ListChatMessages     | Gets a list of chat messages from a thread. |
-| SendChatMessage      | Sends a chat message to a thread. |
-| UpdateChatMessage    | Updates a chat message. |
-| DeleteChatMessage    | Deletes a chat message. |
-| GetChatThread        | Gets a chat thread. |
-| ListChatThreads      | Gets the list of chat threads of a user. |
-| UpdateChatThread     | Updates a chat thread's properties. |
-| CreateChatThread     | Creates a chat thread. |
-| DeleteChatThread     | Deletes a thread. |
-| GetReadReceipts      | Gets read receipts for a thread. |
-| SendReadReceipt      | Sends a read receipt event to a thread, on behalf of a user. |
-| SendTypingIndicator           | Posts a typing event to a thread, on behalf of a user. |
-| ListChatThreadParticipants    | Gets the members of a thread. |
-| AddChatThreadParticipants     | Adds thread members to a thread. If members already exist, no change occurs. |
-| RemoveChatThreadParticipant   | Remove a member from a thread. |
+| Operation / Route         | Description                        | Scenario                                                                                  |
+|---------------------------|------------------------------------|-------------------------------------------------------------------------------------------|
+| DownloadMedia             | Download media payload request.    | Business requested to download media payload.                                             |
+| ListTemplates             | List templates request.            | Business requested to list templates for a given channel.                                 |
+| ReceiveMessage            | Message received.                  | User sent a message to the business.                                                      |
+| SendMessage               | Send message notification request. | Business requesting to send a message to the user.                                        |
+| SendMessageDeliveryStatus | Delivery status received.          | Business received response about a message that the business requested to send to a user. |
 
-:::image type="content" source="./media/chat-metric.png" alt-text="Screenshot of Chat API Request Metric." lightbox="./media/chat-metric.png":::
-
-If a request is made to an operation that isn't recognized, you receive a "Bad Route" value response.
-
-### SMS API requests
-
-The following operations are available on SMS API request metrics:
-
-| Operation / Route    | Description                                                                                    |
-| -------------------- | ---------------------------------------------------------------------------------------------- |
-| SMSMessageSent       | Sends an SMS message. |
-| SMSDeliveryReportsReceived     | Gets SMS Delivery Reports |
-| SMSMessagesReceived      | Gets SMS messages. |
-
-:::image type="content" source="./media/sms-metric.png" alt-text="Screenshot of SMS API Request Metric." lightbox="./media/sms-metric.png":::
+:::image type="content" source="./media/acs-advanced-messaging-metrics.png" alt-text="Screenshot of Advanced Messaging request metric."  lightbox="./media/acs-advanced-messaging-metrics.png":::
 
 ### Authentication API requests
 
@@ -105,6 +81,33 @@ The following operations are available on Call Automation API request metrics:
 | Get Participants      |  Get all participants in a call.   |
 | Delete Call           |  Delete a call.    |
 | Cancel All Media Operations | Cancel all ongoing or queued media operations in a call. |
+
+### Chat API request metric operations
+
+The following operations are available on Chat API request metrics:
+
+| Operation / Route    | Description                                                                                    |
+| -------------------- | ---------------------------------------------------------------------------------------------- |
+| GetChatMessage       | Gets a message by message ID. |
+| ListChatMessages     | Gets a list of chat messages from a thread. |
+| SendChatMessage      | Sends a chat message to a thread. |
+| UpdateChatMessage    | Updates a chat message. |
+| DeleteChatMessage    | Deletes a chat message. |
+| GetChatThread        | Gets a chat thread. |
+| ListChatThreads      | Gets the list of chat threads of a user. |
+| UpdateChatThread     | Updates a chat thread's properties. |
+| CreateChatThread     | Creates a chat thread. |
+| DeleteChatThread     | Deletes a thread. |
+| GetReadReceipts      | Gets read receipts for a thread. |
+| SendReadReceipt      | Sends a read receipt event to a thread, on behalf of a user. |
+| SendTypingIndicator           | Posts a typing event to a thread, on behalf of a user. |
+| ListChatThreadParticipants    | Gets the members of a thread. |
+| AddChatThreadParticipants     | Adds thread members to a thread. If members already exist, no change occurs. |
+| RemoveChatThreadParticipant   | Remove a member from a thread. |
+
+:::image type="content" source="./media/chat-metric.png" alt-text="Screenshot of Chat API Request Metric." lightbox="./media/chat-metric.png":::
+
+If a request is made to an operation that isn't recognized, you receive a "Bad Route" value response.
 
 ### Job Router API requests
 
@@ -171,6 +174,18 @@ The following operations are available on Rooms API request metrics:
 | UpdateParticipants            | Updates list of participants for a Room. |
 
 :::image type="content" source="./media/rooms/rooms-metrics.png" alt-text="Screenshot of Rooms Request Metric."  lightbox="./media/rooms/rooms-metrics.png":::
+
+### SMS API requests
+
+The following operations are available on SMS API request metrics:
+
+| Operation / Route    | Description                                                                                    |
+| -------------------- | ---------------------------------------------------------------------------------------------- |
+| SMSMessageSent       | Sends an SMS message. |
+| SMSDeliveryReportsReceived     | Gets SMS Delivery Reports |
+| SMSMessagesReceived      | Gets SMS messages. |
+
+:::image type="content" source="./media/sms-metric.png" alt-text="Screenshot of SMS API Request Metric." lightbox="./media/sms-metric.png":::
 
 ## Next steps
 

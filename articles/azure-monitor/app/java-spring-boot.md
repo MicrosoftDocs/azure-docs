@@ -2,7 +2,7 @@
 title: Configure Azure Monitor Application Insights for Spring Boot
 description: How to configure Azure Monitor Application Insights for Spring Boot applications
 ms.topic: conceptual
-ms.date: 06/04/2024
+ms.date: 07/29/2024
 ms.devlang: java
 ms.custom: devx-track-java, devx-track-extended-java
 ---
@@ -16,10 +16,10 @@ There are two options for enabling Application Insights Java with Spring Boot: J
 
 ## Enabling with JVM argument 
 
-Add the JVM arg `-javaagent:"path/to/applicationinsights-agent-3.5.3.jar"` somewhere before `-jar`, for example:
+Add the JVM arg `-javaagent:"path/to/applicationinsights-agent-3.5.4.jar"` somewhere before `-jar`, for example:
 
 ```console
-java -javaagent:"path/to/applicationinsights-agent-3.5.3.jar" -jar <myapp.jar>
+java -javaagent:"path/to/applicationinsights-agent-3.5.4.jar" -jar <myapp.jar>
 ```
 
 ### Spring Boot via Docker entry point
@@ -38,7 +38,7 @@ To enable Application Insights Java programmatically, you must add the following
 <dependency>
     <groupId>com.microsoft.azure</groupId>
     <artifactId>applicationinsights-runtime-attach</artifactId>
-    <version>3.5.3</version>
+    <version>3.5.4</version>
 </dependency>
 ```
 
@@ -113,7 +113,7 @@ First, add the `applicationinsights-core` dependency:
 <dependency>
     <groupId>com.microsoft.azure</groupId>
     <artifactId>applicationinsights-core</artifactId>
-    <version>3.5.3</version>
+    <version>3.5.4</version>
 </dependency>
 ```
 

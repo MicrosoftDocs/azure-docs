@@ -1,7 +1,6 @@
 ---
 title: Using a hotfix production environment 
 description: Learn how to use a hotfix production environment with continuous integration and delivery in Azure Data Factory pipelines.
-ms.service: data-factory
 ms.subservice: ci-cd
 author: nabhishek
 ms.author: abnarain

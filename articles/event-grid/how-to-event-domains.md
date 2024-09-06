@@ -193,7 +193,7 @@ And then use your favorite method of making an HTTP POST to publish your events 
 > [!NOTE]
 > For samples that use programming language SDKs to publish events to an Event Grid domain, use the following links: 
 > - [.NET](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/eventgrid/Azure.Messaging.EventGrid/samples/Sample2_PublishEventsToDomain.md#publishing-events-to-an-event-grid-domain)
-> - [Python](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/eventgrid/azure-eventgrid/samples/sync_samples/sample_publish_eg_events_to_a_domain.py)
+> - [Python](https://github.com/Azure/azure-sdk-for-python/blob/main/sdk/eventgrid/azure-eventgrid/samples/basic/sync_samples/sample_publish_eg_events_to_a_domain.py)
 > - [Java](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/eventgrid/azure-messaging-eventgrid-cloudnative-cloudevents/src/samples/java/com/azure/messaging/eventgrid/cloudnative/cloudevents/samples/PublishNativeCloudEventToDomainAsync.java)
 
 ## Search lists of topics or subscriptions

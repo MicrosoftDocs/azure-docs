@@ -2,12 +2,12 @@
 title: Use the Azure Maps Indoor Maps module with Microsoft Creator services with custom styles (preview)
 titleSuffix:  Microsoft Azure Maps Creator
 description: Learn how to use the Microsoft Azure Maps Indoor Maps module to render maps by embedding the module's JavaScript libraries.
-author: brendansco
-ms.author: brendanc
+author: faterceros
+ms.author: aterceros
 ms.date: 06/28/2023
 ms.topic: how-to
 ms.service: azure-maps
-services: azure-maps
+ms.subservice: creator
 ms.custom: devx-track-js
 ---
 
@@ -23,9 +23,6 @@ When you create an indoor map using Azure Maps Creator, default styles are appli
 - [Azure Maps Creator resource]
 - [Subscription key]
 - A map configuration alias or ID. For more information, see [map configuration API].
-
-> [!TIP]
-> If you have never used Azure Maps Creator to create an indoor map, you might find the [Use Creator to create indoor maps] tutorial helpful.
 
 The map configuration `alias` (or `mapConfigurationId`) is required to render indoor maps with custom styles via the Azure Maps Indoor Maps module.
 
@@ -120,28 +117,11 @@ const map = new atlas.Map("map-id", {
 
 ## Instantiate the Indoor Manager
 
-To load the indoor map style of the tiles, you must instantiate the *Indoor Manager*. Instantiate the *Indoor Manager* by providing the *Map object*. If you wish to support [dynamic map styling], you must pass the `statesetId`. The `statesetId` variable name is case-sensitive. Your code should look like the following JavaScript code snippet:
-
-```javascriptf
-const statesetId = "<statesetId>";
-
-const indoorManager = new atlas.indoor.IndoorManager(map, {
-  statesetId: statesetId // Optional
-});
-```
-
-To enable polling of state data you provide, you must provide the `statesetId` and call `indoorManager.setDynamicStyling(true)`. Polling state data lets you dynamically update the state of dynamic properties or *states*. For example, a feature such as room can have a dynamic property (*state*) called `occupancy`. Your application may wish to poll for any *state* changes to reflect the change inside the visual map. The following code shows you how to enable state polling:
+To load the indoor map style of the tiles, you must instantiate the *Indoor Manager*. Instantiate the *Indoor Manager* by providing the *Map object*. Your code should look like the following JavaScript code snippet:
 
 ```javascript
-const statesetId = "<statesetId>";
-
 const indoorManager = new atlas.indoor.IndoorManager(map, {
-  statesetId: statesetId // Optional
 });
-
-if (statesetId.length > 0) {
-    indoorManager.setDynamicStyling(true);
-}
 ```
 
 ## Indoor level picker control
@@ -196,7 +176,7 @@ When you create an indoor map using Azure Maps Creator, default styles are appli
     - `zoom` allows you to specify the min and max zoom levels for your map.
     - `styleAPIVersion`: pass **'2023-03-01-preview'** (which is required while Custom Styling is in public preview)
 
-7. Next, create the *Indoor Manager* module with *Indoor Level Picker* control instantiated as part of *Indoor Manager* options, optionally set the `statesetId` option.
+7. Next, create the *Indoor Manager* module with *Indoor Level Picker* control instantiated as part of *Indoor Manager* options.
 
 8. Add *Map object* event listeners.  
 
@@ -240,7 +220,6 @@ Your file should now look similar to the following HTML:
       <script>
         const subscriptionKey = "<Your Azure Maps Subscription Key>";
         const mapConfig = "<Your map configuration id or alias>";
-        const statesetId = "<Your statesetId>";
         const region = "<Your Creator resource region: us or eu>"    
         atlas.setDomain(`${region}.atlas.microsoft.com`);
 
@@ -264,12 +243,7 @@ Your file should now look similar to the following HTML:
 
         const indoorManager = new atlas.indoor.IndoorManager(map, {
           levelControl: levelControl, //level picker
-          statesetId: statesetId // Optional
         });
-
-        if (statesetId.length > 0) {
-          indoorManager.setDynamicStyling(true);
-        }
 
         map.events.add("levelchanged", indoorManager, (eventData) => {
           //put code that runs after a level has been changed
@@ -304,15 +278,11 @@ Read about the APIs that are related to the *Azure Maps Indoor* module:
 Learn more about how to add more data to your map:
 
 > [!div class="nextstepaction"]
-> [Indoor Maps dynamic styling]
-
-> [!div class="nextstepaction"]
 > [Code samples]
 
 [Azure Content Delivery Network]: #embed-the-indoor-maps-module
 [Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
 [Azure Maps Creator resource]: how-to-manage-creator.md
-[Indoor Maps]: https://www.npmjs.com/package/azure-maps-indoor
 [Azure Maps service geographic scope]: geographic-scope.md
 [azure-maps-indoor package]: https://www.npmjs.com/package/azure-maps-indoor
 [Code samples]: /samples/browse/?products=azure-maps
@@ -320,15 +290,13 @@ Learn more about how to add more data to your map:
 [Creator for indoor maps]: creator-indoor-maps.md
 [Creator Indoor Maps]: https://samples.azuremaps.com/?sample=creator-indoor-maps
 [Drawing package requirements]: drawing-requirements.md
-[dynamic map styling]: indoor-map-dynamic-styling.md
-[Indoor Maps dynamic styling]: indoor-map-dynamic-styling.md
+[How to use the Azure Maps map control npm package]: how-to-use-npm-package.md
+[Indoor Maps]: https://www.npmjs.com/package/azure-maps-indoor
 [map configuration API]: /rest/api/maps-creator/map-configuration?view=rest-maps-creator-2023-03-01-preview&preserve-view=true
 [map configuration]: creator-indoor-maps.md#map-configuration
 [Style Rest API]: /rest/api/maps-creator/style?view=rest-maps-creator-2023-03-01-preview&preserve-view=true
 [style-loader]: https://webpack.js.org/loaders/style-loader
 [Subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account
 [Tileset List API]: /rest/api/maps-creator/tileset/list
-[Use Creator to create indoor maps]: tutorial-creator-indoor-maps.md
 [visual style editor]: https://azure.github.io/Azure-Maps-Style-Editor
 [Webpack]: https://webpack.js.org
-[How to use the Azure Maps map control npm package]: how-to-use-npm-package.md

@@ -1,14 +1,16 @@
 ---
 title: Table API and SQL - Use Delta Catalog type with Hive with Apache Flink® on Azure HDInsight on AKS
 description: Learn about how to create Delta Catalog with Apache Flink® on Azure HDInsight on AKS
-ms.service: hdinsight-aks
+ms.service: azure-hdinsight-on-aks
 ms.topic: how-to
 ms.date: 03/29/2024
 ---
 
 # Create Delta Catalog with Apache Flink® on Azure HDInsight on AKS
 
+[!INCLUDE [retirement-notice](../includes/retirement-notice.md)]
 [!INCLUDE [feature-in-preview](../includes/feature-in-preview.md)]
+
 
 [Delta Lake](https://docs.delta.io/latest/delta-intro.html) is an open source project that enables building a Lakehouse architecture on top of data lakes. Delta Lake provides ACID transactions, scalable metadata handling, and unifies streaming and batch data processing on top of existing data lakes.
 

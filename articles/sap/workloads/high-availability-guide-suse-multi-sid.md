@@ -7,7 +7,7 @@ ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.custom: linux-related-content
 ms.topic: article
-ms.date: 01/17/2024
+ms.date: 07/25/2024
 ms.author: radeltch
 ---
 
@@ -92,9 +92,6 @@ The presented configuration for this multi-SID cluster example with three SAP sy
 * Frontend IP addresses for ERS:  10.3.1.15 (NW1), 10.3.1.17 (NW2) and 10.3.1.19 (NW3)
 * Probe port 62000 for NW1 ASCS, 62010 for NW2 ASCS and 62020 for NW3 ASCS
 * Probe port 62102 for NW1 ASCS, 62112 for NW2 ASCS and 62122 for NW3 ASCS
-
-> [!IMPORTANT]
-> Floating IP is not supported on a NIC secondary IP configuration in load-balancing scenarios. For details see [Azure Load balancer Limitations](../../load-balancer/load-balancer-multivip-overview.md#limitations). If you need additional IP address for the VM, deploy a second NIC.  
 
 > [!NOTE]
 > When VMs without public IP addresses are placed in the backend pool of internal (no public IP address) Standard Azure load balancer, there will be no outbound internet connectivity, unless additional configuration is performed to allow routing to public end points. For details on how to achieve outbound connectivity see [Public endpoint connectivity for Virtual Machines using Azure Standard Load Balancer in SAP high-availability scenarios](./high-availability-guide-standard-load-balancer-outbound-connections.md).  
@@ -375,7 +372,28 @@ This documentation assumes that:
     sudo ssh slesmsscl1 "cat /usr/sap/sapservices" | grep ERS22 | sudo tee -a /usr/sap/sapservices
     ```
 
-8. **[1]** Create the SAP cluster resources for the newly installed SAP system.
+8. **[A]** Disabling `systemd` services of the ASCS and ERS SAP instance. This step is only applicable, if SAP startup framework is managed by systemd as per SAP Note [3115048](https://me.sap.com/notes/3115048)
+
+   > [!NOTE]
+   > When managing SAP instances like SAP ASCS and SAP ERS using SLES cluster configuration, you would need to make additional modifications to integrate the cluster with the native systemd-based SAP start framework. This ensures that maintenance procedures do no compromise cluster stability. After installing or switching SAP startup framework to systemd-enabled setup as per SAP Note [3115048](https://me.sap.com/notes/3115048), you should disable the `systemd` services for the ASCS and ERS SAP instances.
+
+   ```bash
+   # Stop all ASCS and ERS instances using <sid>adm
+   sapcontrol -nr 10 -function Stop
+   sapcontrol -nr 10 -function StopService
+
+   sapcontrol -nr 12 -function Stop
+   sapcontrol -nr 12 -function StopService
+
+   # Execute below command on VM where you have performed ASCS instance installation for each SAP system (e.g. slesmsscl1)
+   sudo systemctl disable SAPNW2_10
+   sudo systemctl disable SAPNW3_20
+   # Execute below command on VM where you have performed ERS instance installation for each SAP system (e.g. slesmsscl2)
+   sudo systemctl disable SAPNW2_12
+   sudo systemctl disable SAPNW2_22
+   ```
+
+9. **[1]** Create the SAP cluster resources for the newly installed SAP system.
 
    Depending on whether you are running an ENSA1 or ENSA2 system, select respective tab to define the resources for **NW2** and **NW3** systems. SAP introduced support for [ENSA2](https://help.sap.com/docs/ABAP_PLATFORM_NEW/cff8531bc1d9416d91bb6781e628d4e0/6d655c383abf4c129b0e5c8683e7ecd8.html), including replication, in SAP NetWeaver 7.52. Starting with ABAP Platform 1809, ENSA2 is installed by default. For ENSA2 support, see SAP Note [2630416](https://launchpad.support.sap.com/#/notes/2630416).
 

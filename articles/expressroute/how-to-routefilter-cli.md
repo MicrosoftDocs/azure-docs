@@ -3,7 +3,7 @@ title: 'Configure Route filters for Microsoft peering - Azure CLI'
 description: This article describes how to configure route filters for Microsoft Peering using Azure CLI.
 services: expressroute
 author: duongau
-ms.service: expressroute
+ms.service: azure-expressroute
 ms.topic: how-to
 ms.date: 09/15/2023
 ms.author: duau
@@ -28,7 +28,7 @@ Connectivity to all Azure and Microsoft 365 services causes a large number of pr
 
 * Define route filters and apply them to your ExpressRoute circuit. A route filter is a new resource that lets you select the list of services you plan to consume through Microsoft peering. ExpressRoute routers only send the list of prefixes that belong to the services identified in the route filter.
 
-:::image type="content" source="./media/how-to-routefilter-portal/route-filter-diagram.png" alt-text="Diagram of a route filter applied to the ExpressRoute circuit to allow only certain prefixes to be broadcast to the on-premises network.":::
+:::image type="content" source="./media/how-to-routefilter-portal/route-filter-diagram.png" alt-text="Diagram of a route filter applied to the ExpressRoute circuit to allow only certain prefixes to be broadcast to the on-premises network." lightbox="./media/how-to-routefilter-portal/route-filter-diagram.png":::
 
 ### <a name="about"></a>About route filters
 

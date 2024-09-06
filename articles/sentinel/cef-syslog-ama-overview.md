@@ -5,7 +5,7 @@ author: yelevin
 ms.author: yelevin
 ms.topic: concept-article
 ms.custom: linux-related-content
-ms.date: 05/13/2024
+ms.date: 07/12/2024
 #Customer intent: As a security operator, I want to understand how Microsoft Sentinel collects Syslog and CEF messages with the Azure Monitor Agent so that I can determine if this solution fits my organization's needs.  
 ---
 
@@ -83,7 +83,11 @@ As part of the setup process, create a data collection rule and install the Azur
 
 After you create the DCR, and AMA is installed, run the "installation" script on the log forwarder. This script configures the Syslog daemon to listen for messages from other machines, and to open the necessary local ports. Then configure the security devices or appliances as needed.
 
-For more information, see [Ingest Syslog and CEF messages to Microsoft Sentinel with the Azure Monitor Agent](connect-cef-syslog-ama.md).
+For more information, see the following articles:
+
+- [Ingest Syslog and CEF messages to Microsoft Sentinel with the Azure Monitor Agent](connect-cef-syslog-ama.md)
+- [CEF via AMA data connector - Configure specific appliance or device for Microsoft Sentinel data ingestion](unified-connector-cef-device.md)
+- [Syslog via AMA data connector - Configure specific appliance or device for Microsoft Sentinel data ingestion](unified-connector-syslog-device.md)
 
 ## Data ingestion duplication avoidance
 
@@ -91,17 +95,16 @@ Using the same facility for both Syslog and CEF messages might result in data in
 
 To avoid this scenario, use one of these methods:
 
-- **If the source device enables configuration of the target facility**: On each source machine that sends logs to the log forwarder in CEF format, edit the Syslog configuration file to remove the facilities used to send CEF messages. This way, the facilities sent in CEF aren't also be sent in Syslog. Make sure that each DCR you configure in the next steps uses the relevant facility for CEF or Syslog respectively.
+- **If the source device enables configuration of the target facility**: On each source machine that sends logs to the log forwarder in CEF format, edit the Syslog configuration file to remove the facilities used to send CEF messages. This way, the facilities sent in CEF aren't also be sent in Syslog. Make sure that each DCR you configure uses the relevant facility for CEF or Syslog respectively.
 
     To see an example of how to arrange a DCR to ingest both Syslog and CEF messages from the same agent, go to [Syslog and CEF streams in the same DCR](connect-cef-syslog-ama.md?tabs=api#syslog-and-cef-streams-in-the-same-dcr).
 
-- **If changing the facility for the source appliance isn't applicable**: Use an ingest time transformation to filter out CEF messages from the Syslog stream to avoid duplication, as shown in the following query example.
+- **If changing the facility for the source appliance isn't applicable**: After you create the DCR, add ingestion time transformation to filter out CEF messages from the Syslog stream to avoid duplication. See [Tutorial: Edit a data collection rule (DCR)](../azure-monitor/essentials/data-collection-rule-edit.md). Add KQL transformation similar to the following example:
 
-    ```kusto
-    source |
-    where ProcessName !contains "CEF"
+    ```json
+    "transformKql": "  source\n    |  where ProcessName !contains \"CEF\"\n"
     ```
-
+ 
 ## Next steps
 
 > [!div class="nextstepaction"]

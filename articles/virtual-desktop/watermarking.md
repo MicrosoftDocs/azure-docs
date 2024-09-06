@@ -41,6 +41,7 @@ You'll need the following things before you can use watermarking:
    - Windows App for:
       - Windows
       - macOS
+      - iOS and iPadOS
       - Web browser
 
 - [Azure Virtual Desktop Insights](azure-monitor.md) configured for your environment.

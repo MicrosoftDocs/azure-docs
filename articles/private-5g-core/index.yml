@@ -6,7 +6,7 @@ summary: Learn how to securely deploy and manage private mobile networks for 5G 
 metadata:
   title: Azure Private 5G Core documentation
   description: Learn how to securely deploy and manage private mobile networks for 5G Internet of Things (IoT) devices using Azure Private 5G Core.
-  ms.service: private-5g-core
+  ms.service: azure-private-5g-core
   ms.topic: landing-page
   author: robswain
   ms.author: robswain

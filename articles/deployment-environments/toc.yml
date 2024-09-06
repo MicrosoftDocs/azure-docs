@@ -7,6 +7,9 @@ items:
     - name: What is Azure Deployment Environments?
       displayName: Azure Deployment Environments overview
       href: overview-what-is-azure-deployment-environments.md
+    - name: Roadmap for Azure Deployment Environments
+      displayName: roadmap, future, features, enhancements, coming soon, in development
+      href: ade-roadmap.md
 - name: Quickstarts
   displayName: Quickstarts
   expanded: true
@@ -31,7 +34,9 @@ items:
       displayName: AZD, setup AZD, template, AZD compatible, AZD admin
       href: concept-azure-developer-cli-with-deployment-environments.md  
     - name: Reliability in Azure Deployment Environments
-      href: ../reliability/reliability-deployment-environments.md?toc=/azure/deployment-environments/toc.json&bc=/azure/deployment-environments/breadcrumb/toc.json  
+      href: ../reliability/reliability-deployment-environments.md?toc=/azure/deployment-environments/toc.json&bc=/azure/deployment-environments/breadcrumb/toc.json
+    - name: Azure role-based access control
+      href: concept-deployment-environments-role-based-access-control.md
 - name: Configure resources
   expanded: false
   items:

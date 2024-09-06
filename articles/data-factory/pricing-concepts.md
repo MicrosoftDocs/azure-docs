@@ -4,7 +4,6 @@ description: This article explains and demonstrates the Azure Data Factory prici
 author: jianleishen
 ms.author: jianleishen
 ms.reviewer: jburchel
-ms.service: data-factory
 ms.subservice: pricing
 ms.topic: conceptual
 ms.date: 05/15/2024

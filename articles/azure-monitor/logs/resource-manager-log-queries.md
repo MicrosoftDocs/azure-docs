@@ -5,7 +5,7 @@ ms.topic: sample
 ms.custom: devx-track-arm-template
 author: guywi-ms
 ms.author: guywild
-ms.date: 06/13/2022
+ms.date: 08/12/2024
 ---
 
 # Resource Manager template samples for log queries in Azure Monitor

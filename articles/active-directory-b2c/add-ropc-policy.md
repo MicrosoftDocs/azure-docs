@@ -43,7 +43,7 @@ The following flows aren't supported:
 When using the ROPC flow, consider the following limitations:
 
 - ROPC doesn’t work when there's any interruption to the authentication flow that needs user interaction. For example, when a password expires or needs to be changed, [multifactor authentication](multi-factor-authentication.md) is required, or when more information needs to be collected during sign-in (for example, user consent).
-- ROPC supports local accounts only. Users can’t sign in with [federated identity providers](add-identity-provider.md) like Microsoft, Google+, Twitter, AD-FS, or Facebook.
+- ROPC supports local accounts only. Users can’t sign in with [federated identity providers](add-identity-provider.md) like Microsoft, Google+, X, AD-FS, or Facebook.
 - [Session Management](session-behavior.md), including [keep me signed-in (KMSI)](session-behavior.md#enable-keep-me-signed-in-kmsi), isn't applicable.
 
 

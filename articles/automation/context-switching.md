@@ -7,6 +7,7 @@ ms.custom: devx-track-azurepowershell
 ms.date: 08/18/2023
 ms.topic: conceptual 
 #Customer intent: As a developer, I want to understand Azure context so that I can avoid error when running multiple runbooks.
+ms.service: azure-automation
 ---
 
 # Context switching in Azure Automation

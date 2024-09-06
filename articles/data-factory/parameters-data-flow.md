@@ -5,7 +5,6 @@ description: Learn how to parameterize a mapping data flow from Azure Data Facto
 author: kromerm
 ms.author: makromer
 ms.reviewer: daperlov
-ms.service: data-factory
 ms.subservice: data-flows
 ms.custom: synapse
 ms.topic: conceptual

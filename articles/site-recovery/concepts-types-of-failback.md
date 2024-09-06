@@ -1,7 +1,7 @@
 ---
 title: Failback during disaster recovery with Azure Site Recovery | Microsoft Docs
 description: This article provides an overview of various types of failback and caveats to be considered while failing back to on-premises during disaster recovery with the Azure Site Recovery service.
-ms.service: site-recovery
+ms.service: azure-site-recovery
 ms.topic: conceptual
 ms.date: 08/07/2019
 ms.author: ankitadutta

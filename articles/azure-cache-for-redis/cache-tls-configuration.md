@@ -1,12 +1,12 @@
 ---
 title: What are the configuration settings for TLS?
 description: Learn about the TLS protocol configuration and how to use TLS to securely communicate with Azure Cache for Redis instances.
-author: flang-msft
 
-ms.service: cache
+
+
 ms.topic: overview
 ms.date: 01/23/2024
-ms.author: franlanglois
+
 
 # Customer intent: As a developer creating a service that uses a cache, I want to know the details about TLS connections so that I know my service is secure.
 ---

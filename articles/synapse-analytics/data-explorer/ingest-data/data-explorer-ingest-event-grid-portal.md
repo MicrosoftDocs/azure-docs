@@ -6,7 +6,7 @@ ms.date: 11/02/2021
 author: shsagir
 ms.author: shsagir
 ms.reviewer: tzgitlin
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.subservice: data-explorer
 
 # Customer intent: As a database administrator, I want Azure Synapse Data Explorer to track my blob storage and ingest new blobs.

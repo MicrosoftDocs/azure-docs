@@ -3,15 +3,17 @@ title: Example lab class types
 titleSuffix: Azure Lab Services
 description: Learn about different example class types for which you can set up labs using Azure Lab Services.
 services: lab-services
-ms.service: lab-services
+ms.service: azure-lab-services
 ms.custom: devx-track-python, linux-related-content
-author: ntrogh
-ms.author: nicktrog
+author: RoseHJM
+ms.author: rosemalcolm
 ms.topic: conceptual
 ms.date: 04/24/2023
 ---
 
 # Class types in Azure Lab Services
+
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
 
 Azure Lab Services enables you to quickly set up lab environments in the cloud. Learn about the different class types for you can use Azure Lab Services.
 

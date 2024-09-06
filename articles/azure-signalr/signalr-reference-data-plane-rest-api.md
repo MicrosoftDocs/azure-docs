@@ -3,9 +3,9 @@ title: Azure SignalR Service data-plane REST API reference
 description: Learn about the REST APIs that Azure SignalR Service supports to manage connections and send messages to connections.
 author: vicancy
 ms.author: lianwei
-ms.service: signalr
+ms.service: azure-signalr-service
 ms.topic: reference
-ms.date: 03/29/2023
+ms.date: 08/02/2024
 ---
 
 # Azure SignalR Service data-plane REST API reference
@@ -102,6 +102,8 @@ The following claims must be included in the JWT.
 Similar to authenticating via `AccessKey`, a [JWT](https://en.wikipedia.org/wiki/JSON_Web_Token) is required to authenticate an HTTP request by using a Microsoft Entra token.
 
 The difference is that in this scenario, Microsoft Entra ID generates the JWT. For more information, see [Learn how to generate Microsoft Entra tokens](../active-directory/develop/reference-v2-libraries.md).
+
+The credential scope used should be `https://signalr.azure.com/.default`.
 
 You can also use *role-based access control (RBAC)* to authorize the request from your client or server to Azure SignalR Service. For more information, see [Authorize access with Microsoft Entra ID for Azure SignalR Service](./signalr-concept-authorize-azure-active-directory.md).
 

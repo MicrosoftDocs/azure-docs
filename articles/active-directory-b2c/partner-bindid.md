@@ -7,7 +7,7 @@ manager: martinco
 ms.reviewer: kengaderdus
 ms.service: active-directory
 ms.topic: how-to
-ms.date: 01/26/2024
+ms.date: 06/21/2024
 ms.author: gasinh
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
@@ -96,7 +96,7 @@ From the [Transmit Admin Portal](https://portal.transmitsecurity.io/), configure
 
 To enable users to sign in with Transmit Security, configure Transmit Security as a new identity provider. In Azure AD B2C follow these steps:
 
-1. Sign in to the [Azure portal](https://portal.azure.com/#home) as Global Administrator. 
+1. Sign in to the [Azure portal](https://portal.azure.com/#home) as at least B2C IEF Policy Administrator.
 1. In the portal toolbar, select **Directories + subscriptions**.
 1. On the **Portal settings | Directories + subscriptions** page, in the **Directory name** list, find the Azure AD B2C directory and then select **Switch**.
 1. Under **Azure services**, select **Azure AD B2C** (or select **More services** and use the **All services** search box to search for Azure AD B2C).

@@ -35,7 +35,7 @@ For a 1:1 call to a PSTN number, use the following code:
 ```js
 const pstnCallee = { phoneNumber: '<ACS_USER_ID>' }
 const alternateCallerId = {phoneNumber: '<ALTERNATE_CALLER_ID>'};
-const oneToOneCall = callAgent.startCall([pstnCallee], {alternateCallerId});
+const oneToOneCall = callAgent.startCall([pstnCallee], { alternateCallerId });
 ```
 
 For a 1:n call to a user and a PSTN number, use the following code:
@@ -44,7 +44,7 @@ For a 1:n call to a user and a PSTN number, use the following code:
 const userCallee = { communicationUserId: '<ACS_USER_ID>' }
 const pstnCallee = { phoneNumber: '<PHONE_NUMBER>'};
 const alternateCallerId = {phoneNumber: '<ALTERNATE_CALLER_ID>'};
-const groupCall = callAgent.startCall([userCallee, pstnCallee], {alternateCallerId});
+const groupCall = callAgent.startCall([userCallee, pstnCallee], { alternateCallerId });
 ```
 
 ### Join a room call
@@ -162,11 +162,11 @@ When incoming audio is muted, the participant client SDK still receives the call
 
 ## Mute other participants
 > [!NOTE]
-> This API is provided as a preview for developers and may change based on feedback that we receive. To use this API please use 'beta' release of Azure Communication Services Calling Web SDK version 1.25.1 or higher. 
+> To use this API please use Azure Communication Services Calling Web SDK version 1.26.1 or higher. 
 
-To mute all other participants or mute a specific participant, you can use the asynchronous APIs `muteAllRemoteParticipants` on the call and `mute` on the remote participant. The `mutedByOthers` event from Call is raised when the local participant has been muted by others.
+To mute all other participants or mute a specific participant who are connected to a call, you can use the asynchronous APIs `muteAllRemoteParticipants` on the call and `mute` on the remote participant. The `mutedByOthers` event from Call is raised when the local participant has been muted by others.
 
- *Note: The scenario to mute PSTN (phone number) participants is not supported.* 
+ *Note: The scenarios to mute PSTN (phone number) participants or 1:1 call participants are not supported.* 
 
 ```js
 //mute all participants except yourself
@@ -196,7 +196,8 @@ To add a participant (either a user or a phone number) to a call, you can use th
 const userIdentifier = { communicationUserId: '<ACS_USER_ID>' };
 const pstnIdentifier = { phoneNumber: '<PHONE_NUMBER>' }
 const remoteParticipant = call.addParticipant(userIdentifier);
-const remoteParticipant = call.addParticipant(pstnIdentifier, {alternateCallerId: '<ALTERNATE_CALLER_ID>'});
+const alternateCallerId = {  phoneNumber: '<ALTERNATE_CALLER_ID>' };
+const remoteParticipant = call.addParticipant(pstnIdentifier, { alternateCallerId });
 ```
 
 ### Remove a participant from a call
@@ -335,6 +336,7 @@ Find out why a call ended by inspecting the `callEndReason` property:
 
 ```js
 const callEndReason = call.callEndReason;
+const callEndReasonMessage = callEndReason.message // (string) user friendly message
 const callEndReasonCode = callEndReason.code // (number) code associated with the reason
 const callEndReasonSubCode = callEndReason.subCode // (number) subCode associated with the reason
 ```

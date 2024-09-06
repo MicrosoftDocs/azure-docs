@@ -4,7 +4,7 @@ description: Learn about the best practices for getting optimal performance when
 author: roygara
 ms.service: azure-elastic-san-storage
 ms.topic: conceptual
-ms.date: 05/31/2024
+ms.date: 08/13/2024
 ms.author: rogarana
 ---
 

@@ -2,7 +2,7 @@
 title:  Selectable search parameters for the FHIR service in Azure Health Data Services
 description: Learn how to use selectable search parameters in the FHIR service of Azure Health Data Services to customize and optimize your searches on FHIR resources. Save storage space and improve performance by enabling only the search parameters you need.
 author: expekesheth
-ms.service: healthcare-apis
+ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.topic: reference
 ms.date: 01/24/2023

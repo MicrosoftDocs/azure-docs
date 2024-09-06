@@ -18,7 +18,7 @@ Defender EASM now offers data connections to help you seamlessly integrate your 
 
 The data connector sends Defender EASM asset data to two different platforms: Log Analytics and Azure Data Explorer. You need to export Defender EASM data to either tool. Data connections are subject to the pricing model for each respective platform.
 
-[Log Analytics](/azure/sentinel/overview) provides security information and event management and security orchestration, automation, and response capabilities. Defender EASM asset or insights information can be used in Log Analytics to enrich existing workflows with other security data. This information can supplement firewall and configuration information, threat intelligence, and compliance data to provide visibility into your external-facing infrastructure on the open internet.
+[Log Analytics](/azure/sentinel/overview) provides security information and event management and security orchestration, automation, and response capabilities. Defender EASM asset or insights information can be used in Log Analytics to enrich existing workflows with other security data. This information can supplement firewall and configuration information, threat intelligence, and compliance data to provide visibility into your external-facing infrastructure on the open internet. 
 
 You can:
 
@@ -54,6 +54,9 @@ On the leftmost pane in your Defender EASM resource pane, under **Manage**, sele
 
 ### Connection prerequisites
 To successfully create a data connection, you must first ensure that you've completed the required steps to grant Defender EASM permission to the tool of your choice. This process enables the application to ingest your exported data. It also provides the authentication credentials needed to configure the connection.
+
+> [!NOTE] 
+> Defender EASM data connections do not support private links or networks. 
 
 ## Configure Log Analytics permissions
 
@@ -106,6 +109,7 @@ A configuration pane opens on the right side of the **Data Connections** page. T
 - **Frequency**: Select the frequency that the Defender EASM connection uses to send updated data to the tool of your choice. Available options are daily, weekly, and monthly.
 
    ![Screenshot that shows the Add data connection screen for Log Analytics.](media/data-connections/data-connector-11.png)
+
 
 ### Azure Data Explorer
 

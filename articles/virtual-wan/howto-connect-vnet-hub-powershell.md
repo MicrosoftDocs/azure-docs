@@ -3,7 +3,7 @@ title: 'Connect a VNet to a Virtual WAN hub - PowerShell'
 titleSuffix: Azure Virtual WAN
 description: Learn how to connect a VNet to a Virtual WAN hub using PowerShell.
 author: cherylmc
-ms.service: virtual-wan
+ms.service: azure-virtual-wan
 ms.custom: devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 06/15/2023
@@ -30,11 +30,11 @@ Before you create a connection, be aware of the following:
 
 ### Azure PowerShell
 
-[!INCLUDE [PowerShell](~/reusable-content/ce-skilling/azure/includes/vpn-gateway-cloud-shell-powershell-about.md)]
+[!INCLUDE [PowerShell](../../includes/vpn-gateway-cloud-shell-powershell-about.md)]
 
 ## <a name="signin"></a>Sign in
 
-[!INCLUDE [sign in](~/reusable-content/ce-skilling/azure/includes/vpn-gateway-cloud-shell-ps-login.md)]
+[!INCLUDE [sign in](../../includes/vpn-gateway-cloud-shell-ps-login.md)]
 
 ## Add a connection
 

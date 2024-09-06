@@ -6,7 +6,7 @@ author: pauljewellmsft
 ms.author: pauljewell
 ms.service: azure-blob-storage
 ms.topic: how-to
-ms.date: 04/29/2024
+ms.date: 08/05/2024
 ms.custom: devx-track-dotnet, devguide-csharp
 ---
 
@@ -48,7 +48,8 @@ In this example, we set the [GeoRedundantSecondaryUri](/dotnet/api/azure.storage
 
 Apps that make use of geo-redundancy need to keep in mind some specific design considerations. To learn more, see [Use geo-redundancy to design highly available applications](../common/geo-redundant-design.md).
 
-## Related content
+## Next steps
 
+- This article is part of the Blob Storage developer guide for .NET. See the full list of developer guide articles at [Build your app](storage-blob-dotnet-get-started.md#build-your-app).
 - For architectural guidance and general best practices for retry policies, see [Transient fault handling](/azure/architecture/best-practices/transient-faults).
 - For guidance on implementing a retry pattern for transient failures, see [Retry pattern](/azure/architecture/patterns/retry).

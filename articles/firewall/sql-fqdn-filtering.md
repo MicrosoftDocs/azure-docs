@@ -3,7 +3,7 @@ title: Configure Azure Firewall application rules with SQL FQDNs
 description: In this article, you learn how to configure SQL FQDNs in Azure Firewall application rules.
 services: firewall
 author: vhorne
-ms.service: firewall
+ms.service: azure-firewall
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 10/31/2022

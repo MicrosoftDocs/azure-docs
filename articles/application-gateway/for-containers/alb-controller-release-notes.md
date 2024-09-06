@@ -3,9 +3,9 @@ title: Release notes for ALB Controller
 description: This article lists updates made to the Application Gateway for Containers ALB Controller.
 services: application-gateway
 author: greglin
-ms.service: application-gateway
+ms.service: azure-application-gateway
 ms.subservice: appgw-for-containers
-ms.topic: article
+ms.topic: release-notes
 ms.date: 5/9/2024
 ms.author: greglin
 ---

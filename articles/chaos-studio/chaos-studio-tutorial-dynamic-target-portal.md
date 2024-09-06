@@ -4,7 +4,7 @@ description: Use the Azure portal to create an experiment that uses dynamic targ
 author: rsgel
 ms.author: abbyweisberg
 ms.reviewer: carlsonr
-ms.service: chaos-studio
+ms.service: azure-chaos-studio
 ms.topic: how-to
 ms.date: 4/19/2023
 ms.custom: template-how-to

@@ -5,7 +5,7 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 11/02/2023
 ms.custom: mvc, mode-api
-ms.service: backup
+ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---

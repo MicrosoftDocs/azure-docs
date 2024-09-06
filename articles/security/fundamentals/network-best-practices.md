@@ -166,7 +166,7 @@ We recommend that you employ load balancing whenever you can, and as appropriate
 For example, if the user makes a request to your service from the EU, the connection is directed to your services located in an EU datacenter. This part of Traffic Manager global load balancing helps to improve performance because connecting to the nearest datacenter is faster than connecting to datacenters that are far away.
 
 ## Disable RDP/SSH Access to virtual machines
-It's possible to reach Azure virtual machines by using [Remote Desktop Protocol](https://en.wikipedia.org/wiki/Remote_Desktop_Protocol) (RDP) and the [Secure Shell](https://en.wikipedia.org/wiki/Secure_Shell) (SSH) protocol. These protocols enable the management VMs from remote locations and are standard in datacenter computing.
+It's possible to reach Azure virtual machines by using [Remote Desktop Protocol (RDP)](https://en.wikipedia.org/wiki/Remote_Desktop_Protocol) and the [Secure Shell](https://en.wikipedia.org/wiki/Secure_Shell) (SSH) protocol. These protocols enable the management VMs from remote locations and are standard in datacenter computing.
 
 The potential security problem with using these protocols over the internet is that attackers can use [brute force](https://en.wikipedia.org/wiki/Brute-force_attack) techniques to gain access to Azure virtual machines. After the attackers gain access, they can use your VM as a launch point for compromising other machines on your virtual network or even attack networked devices outside Azure.
 

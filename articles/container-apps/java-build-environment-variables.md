@@ -3,7 +3,7 @@ title: Build environment variables for Java in Azure Container Apps
 description: Learn about Java image build from source code via environment variables.
 services: container-apps
 author: craigshoemaker
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.custom: devx-track-extended-java
 ms.topic: conceptual
 ms.date: 02/27/2024
@@ -77,6 +77,9 @@ Here's a listing of the environment variables used to configure a Cloud Build Se
 | `ORYX_DISABLE_TELEMETRY` | Controls whether or not to disable telemetry collection. | `false` |
 
 ## How to configure Java build environment variables
+
+> [!NOTE]
+> To run the following CLI commands, use Container Apps extension version `0.3.47` or higher. Use the `az extension add --name containerapp --upgrade --allow-preview` command to install the latest version.
 
 You can configure Java build environment variables when you deploy Java application source code via CLI command `az containerapp up`, `az containerapp create`, or `az containerapp update`:
 

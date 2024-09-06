@@ -3,7 +3,7 @@ title: Azure Container Apps dynamic sessions overview
 description: Learn how when to use dynamic sessions in Azure Container Apps.
 services: container-apps
 author: craigshoemaker
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.topic: conceptual
 ms.date: 04/04/2024
 ms.author: cshoe
@@ -74,6 +74,20 @@ The identifier must be a string that is 4 to 128 characters long and can contain
 You pass the session identifier in a query parameter named `identifier` in the URL when you make a request to a session.
 
 For code interpreter sessions, you can also use an integration with an [LLM framework](./sessions-code-interpreter.md#llm-framework-integrations). The framework handles the token generation and management for you. Ensure that the application is configured with a managed identity that has the necessary role assignments on the session pool.
+
+##### Protecting session identifiers
+
+The session identifier is sensitive information which requires a secure process as you create and manage its value. To protect this value, your application must ensure each user or tenant only has access to their own sessions.
+
+The specific strategies that prevent misuse of session identifiers differ depending on the design and architecture of your app. However, your app must always have complete control over the creation and use of session identifiers so that a malicious user can't access another user's session.
+
+Example strategies include:
+
+* **One session per user**: If your app uses one session per user, each user must be securely authenticated, and your app must use a unique session identifier for each logged in user.
+* **One session per agent conversation**: If your app uses one session per AI agent conversation, ensure your app uses a unique session identifier for each conversation that can't be modified by the end user.
+
+> [!IMPORTANT]
+> Failure to secure access to sessions may result in misuse or unauthorized access to data stored in your users' sessions.
 
 ### Authentication
 
@@ -191,9 +205,12 @@ Azure Container Apps dynamic sessions is currently in preview. The following lim
     |--------|------------------|------------------|
     | East Asia | ✔ | ✔ |
     | East US | ✔ | ✔ |
-    | West US 2 | ✔ | ✔ |
+    | Germany West Central | ✔ | ✔ |
+    | Italy North | ✔ | ✔ |
+    | Poland Central | ✔ | ✔ |
     | North Central US | ✔ | - |
-    | North Europe | ✔ | - |
+    | North Europe | ✔ | ✔ |
+    | West US 2 | ✔ | ✔ |
     
 * Logging isn't supported. Your application can log requests to the session pool management API and its responses.
 

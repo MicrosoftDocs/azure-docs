@@ -183,7 +183,7 @@ This list doesn't include FQDNs and endpoints for other services such as Microso
 
 Direct connectivity to Azure Virtual Desktop RDP broker service endpoints is critical for remote performance to a dev box. These endpoints affect both connectivity and latency. To align with the Microsoft 365 network connectivity principles, you should categorize these endpoints as *Optimize* endpoints, and use a [Remote Desktop Protocol (RDP) Shortpath](/windows-365/enterprise/rdp-shortpath-public-networks) from your Azure virtual network to those endpoints. RDP Shortpath  can provide another connection path for improved dev box connectivity, especially in suboptimal network conditions.
 
-To make it easier to configure network security controls, use Azure Virtual Desktop service tags to identity those endpoints for direct routing using an Azure Networking User Defined Route (UDR). A UDR results in direct routing between your virtual network and the RDP broker for lowest latency. For more information about Azure Service Tags, see Azure service tags overview.
+To make it easier to configure network security controls, use Azure Virtual Desktop service tags to identify those endpoints for direct routing using an Azure Networking User Defined Route (UDR). A UDR results in direct routing between your virtual network and the RDP broker for lowest latency. For more information about Azure Service Tags, see Azure service tags overview.
 Changing the network routes of a dev box (at the network layer or at the dev box layer like VPN) might break the connection between the dev box and the Azure Virtual Desktop RDP broker. If so, the end user is disconnected from their dev box until a connection is re-established.
 
 ## DNS requirements
@@ -229,6 +229,8 @@ These FQDNs and endpoints only correspond to client sites and resources. This li
 
 ## Troubleshooting 
 
+This section covers some common connection and network issues.
+
 ### Connection issues
 
 - **Logon attempt failed**
@@ -243,13 +245,17 @@ These FQDNs and endpoints only correspond to client sites and resources. This li
 
   For more information about troubleshooting group policy issues, see [Applying Group Policy troubleshooting guidance](/troubleshoot/windows-server/group-policy/applying-group-policy-troubleshooting-guidance).
 
-
 ### IPv6 addressing issues
 
 If you're experiencing IPv6 issues, check that the *Microsoft.AzureActiveDirectory* service endpoint is not enabled on the virtual network or subnet. This service endpoint converts the IPv4 to IPv6.
 
 For more information, see [Virtual Network service endpoints](/azure/virtual-network/virtual-network-service-endpoints-overview).
 
+### Updating dev box definition image issues
+
+When you update the image used in a dev box definition, you must ensure that you have sufficient IP addresses available in your virtual network. Additional free IP addresses are necessary for the Azure Network connection health check. If the health check fails the dev box definition will not update. You need 1 additional IP address per dev box, and two IP addresses for the health check and Dev Box infrastructure.
+
+For more information about updating dev box definition images, see [Update a dev box definition](how-to-manage-dev-box-definitions.md#update-a-dev-box-definition).
 
 ## Related content
 

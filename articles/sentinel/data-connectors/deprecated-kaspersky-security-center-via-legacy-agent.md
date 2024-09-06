@@ -40,7 +40,7 @@ KasperskySCEvent
 
 
 > [!NOTE]
-   >  This data connector depends on a parser based on a Kusto Function to work as expected [**KasperskySCEvent**](https://aka.ms/sentinel-kasperskysc-parser) which is deployed with the Microsoft Sentinel Solution.
+   >  This data connector depends on a parser based on a Kusto Function to work as expected **KasperskySCEvent** which is deployed with the Microsoft Sentinel Solution.
 
 
 > [!NOTE]
@@ -96,9 +96,3 @@ Make sure to configure the machine's security according to your organization's s
 
 
 [Learn more >](https://aka.ms/SecureCEF)
-
-
-
-## Next steps
-
-For more information, go to the [related solution](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/azuresentinel.azure-sentinel-solution-kasperskysc?tab=Overview) in the Azure Marketplace.

@@ -92,7 +92,7 @@ To enable telemetry collection with Application Insights, only application setti
 |InstrumentationEngine_EXTENSION_VERSION | Controls if the binary-rewrite engine `InstrumentationEngine` will be turned on. This setting has performance implications and affects cold start/startup time. | `~1` |
 |XDT_MicrosoftApplicationInsights_BaseExtensions | Controls if SQL and Azure table text will be captured along with the dependency calls. Performance warning: Application cold startup time will be affected. This setting requires the `InstrumentationEngine`. | `~1` |
 
-[!INCLUDE [azure-web-apps-arm-automation](../../../includes/azure-monitor-app-insights-azure-web-apps-arm-automation.md)]
+[!INCLUDE [azure-web-apps-arm-automation](../includes/azure-monitor-app-insights-azure-web-apps-arm-automation.md)]
 
 ## Upgrade monitoring extension/agent: .NET
 
@@ -160,9 +160,9 @@ An error occurs because the `APPINSIGHTS_JAVASCRIPT_ENABLED` application setting
 
 For the latest information on the Application Insights agent/extension, see the [release notes](https://github.com/MohanGsk/ApplicationInsights-Home/blob/master/app-insights-web-app-extensions-releasenotes.md).
 
-[!INCLUDE [azure-web-apps-troubleshoot](../../../includes/azure-monitor-app-insights-azure-web-apps-troubleshoot.md)]
+[!INCLUDE [azure-web-apps-troubleshoot](../includes/azure-monitor-app-insights-azure-web-apps-troubleshoot.md)]
 
-[!INCLUDE [azure-monitor-app-insights-test-connectivity](../../../includes/azure-monitor-app-insights-test-connectivity.md)]
+[!INCLUDE [azure-monitor-app-insights-test-connectivity](../includes/azure-monitor-app-insights-test-connectivity.md)]
 
 ### PHP and WordPress aren't supported
 

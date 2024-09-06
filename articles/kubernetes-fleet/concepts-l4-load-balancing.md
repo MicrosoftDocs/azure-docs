@@ -16,7 +16,7 @@ Azure Kubernetes Fleet Manager (Fleet) can be used to set up layer 4 multi-clust
 
 [ ![Diagram that shows how multi-cluster load balancing works.](./media/conceptual-load-balancing.png) ](./media/conceptual-load-balancing.png#lightbox)
 
-For multi-cluster load balancing, Fleet requires target clusters to be using [Azure CNI networking](../aks/configure-azure-cni.md). Azure CNI networking enables pod IPs to be directly addressable on the Azure virtual network so that they can be routed to from the Azure Load Balancer.
+For multi-cluster load balancing, Fleet requires target clusters to be using [Azure CNI networking](/azure/aks/configure-azure-cni). Azure CNI networking enables pod IPs to be directly addressable on the Azure virtual network so that they can be routed to from the Azure Load Balancer.
 
 The `ServiceExport` itself can be propagated from the fleet cluster to a member cluster using the Kubernetes resource propagation feature, or it can be created directly on the member cluster. Once this `ServiceExport` resource is created, it results in a `ServiceImport` being created on the fleet cluster, and all other member clusters to build the awareness of the service.
 

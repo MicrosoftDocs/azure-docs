@@ -6,8 +6,8 @@ ms.author: sipa
 ms.date: 12/10/2021
 ms.topic: how-to
 ms.service: azure-maps
+ms.subservice: ios-sdk
 ms.custom: devx-track-js
-services: azure-maps
 ---
 
 # Indoor maps in the iOS SDK (Preview)
@@ -24,7 +24,7 @@ The Azure Maps iOS SDK allows you to render indoor maps created in Azure Maps Cr
 
 1. Complete the steps in the [Quickstart: Create an iOS app]. Code blocks in this article can be inserted into the `viewDidLoad` function of `ViewController`.
 1. A [Creator resource]
-1. Get a `tilesetId` by completing the [Tutorial: Use Creator to create indoor maps]. The tileset ID is used to render indoor maps with the Azure Maps iOS SDK.
+1. A `tilesetId`. The tileset ID is used to render indoor maps with the Azure Maps iOS SDK.
 
 ## Instantiate the indoor manager
 
@@ -89,6 +89,5 @@ The following screenshot shows the above code displaying an indoor map.
 
 [Quickstart: Create an iOS app]: quick-ios-app.md
 [Creator resource]: how-to-manage-creator.md
-[Tutorial: Use Creator to create indoor maps]: tutorial-creator-indoor-maps.md
 [Creator for indoor maps]: creator-indoor-maps.md
 [Drawing package requirements]: drawing-requirements.md

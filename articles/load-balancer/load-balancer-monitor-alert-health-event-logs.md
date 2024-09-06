@@ -3,7 +3,7 @@ title: Monitor and alert with LoadBalancerHealthEvent logs
 titleSuffix: Azure Load Balancer
 description: Learn how to monitor and alert with LoadBalancerHealthEvent logs for Azure Load Balancer.
 author: mbender-ms
-ms.service: load-balancer
+ms.service: azure-load-balancer
 ms.topic: how-to
 ms.date: 05/21/2024
 ms.author: mbender

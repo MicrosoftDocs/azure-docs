@@ -3,7 +3,7 @@ title: 'Configure active-active S2S VPN connections'
 titleSuffix: Azure VPN Gateway
 description: Learn how to configure active-active connections with VPN gateways using PowerShell.
 author: cherylmc
-ms.service: vpn-gateway
+ms.service: azure-vpn-gateway
 ms.topic: how-to
 ms.date: 07/19/2023
 ms.author: cherylmc
@@ -470,4 +470,4 @@ This update can take up to 30 to  45 minutes.
 
 ## Next steps
 
-Once your connection is complete, you can add virtual machines to your virtual networks. See [Create a Virtual Machine](../virtual-machines/windows/quick-create-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) for steps.
+Once your connection is complete, you can add virtual machines to your virtual networks. See [Create a Virtual Machine](/azure/virtual-machines/windows/quick-create-portal?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) for steps.

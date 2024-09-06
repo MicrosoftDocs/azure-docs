@@ -15,6 +15,10 @@ Noted features are in PREVIEW. The [Azure Preview Supplemental Terms](https://az
 
 For more information, see [Upgrade the Microsoft Defender for IoT micro agent](upgrade-micro-agent.md).
 
+## August 2024
+
+Defender for IoT plans to retire the micro agent on August 1, 2025.
+
 ## March 2024
 
 **Updates to Defender for IoT Firmware Analysis:**

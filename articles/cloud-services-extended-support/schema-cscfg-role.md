@@ -2,8 +2,8 @@
 title: Azure Cloud Services (extended support) Role Schema | Microsoft Docs
 description: Information related to the role schema for Cloud Services (extended support)
 ms.topic: article
-ms.service: cloud-services-extended-support
-ms.date: 10/14/2020
+ms.service: azure-cloud-services-extended-support
+ms.date: 07/24/2024
 author: gachandw
 ms.author: gachandw
 ms.reviewer: mimckitt
@@ -15,7 +15,7 @@ The `Role` element of the configuration file specifies the number of role instan
 
 For more information about the Azure Service Configuration Schema, see [Cloud Service (extended support) Configuration Schema](schema-cscfg-file.md). For more information about the Azure Service Definition Schema, see [Cloud Service (extended support) Definition Schema](schema-csdef-file.md).
 
-##  <a name="Role"></a> role element
+##  <a name="Role"></a> Role element
 The following example shows the `Role` element and its child elements.
 
 ```xml 

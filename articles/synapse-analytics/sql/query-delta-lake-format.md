@@ -2,13 +2,13 @@
 title: Query Delta Lake v1 format using serverless SQL pool
 description: In this article, you'll learn how to query files stored in Delta Lake format using serverless SQL pool.
 services: synapse analytics
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.topic: how-to
 ms.subservice: sql
 ms.date: 02/15/2023
 author: jovanpop-msft
 ms.author: jovanpop
-ms.reviewer: sngun, wiassaf
+ms.reviewer: whhender, wiassaf
 ---
 
 # Query Delta Lake (v1) files using serverless SQL pool in Azure Synapse Analytics

@@ -4,7 +4,7 @@ description: Learn about the concept of subscriptions in Azure API Management. C
 services: api-management
 author: dlepow
  
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: conceptual
 ms.date: 08/02/2023
 ms.author: danlep

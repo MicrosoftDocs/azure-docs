@@ -1,8 +1,8 @@
 ---
 title:  Overview of the Azure Connected Machine agent
 description: This article provides a detailed overview of the Azure Connected Machine agent, which supports monitoring virtual machines hosted in hybrid environments.
-ms.date: 06/03/2024
-ms.topic: conceptual
+ms.date: 08/07/2024
+ms.topic: overview
 ---
 
 # Overview of Azure Connected Machine agent
@@ -32,7 +32,11 @@ The Azure Connected Machine agent package contains several logical components bu
 * The Extension agent manages VM extensions, including install, uninstall, and upgrade. Azure downloads extensions and copies them to the `%SystemDrive%\%ProgramFiles%\AzureConnectedMachineAgent\ExtensionService\downloads` folder on Windows, and to `/opt/GC_Ext/downloads` on Linux. On Windows, the extension installs to the following path `%SystemDrive%\Packages\Plugins\<extension>`, and on Linux the extension installs to `/var/lib/waagent/<extension>`.
 
 >[!NOTE]
-> The [Azure Monitor agent](../../azure-monitor/agents/azure-monitor-agent-overview.md) (AMA) is a separate agent that collects monitoring data, and it does not replace the Connected Machine agent; the AMA only replaces the Log Analytics agent, Diagnostics extension, and Telegraf agent for both Windows and Linux machines.
+> The [Azure Monitor agent (AMA)](../../azure-monitor/agents/azure-monitor-agent-overview.md) is a separate agent that collects monitoring data, and it does not replace the Connected Machine agent; the AMA only replaces the Log Analytics agent, Diagnostics extension, and Telegraf agent for both Windows and Linux machines.
+
+### Azure Arc Proxy
+
+The Azure Arc Proxy service is responsible for aggregating network traffic from the Azure Connected Machine agent services and any extensions you’ve installed and deciding where to route that data. If you’re using the [Azure Arc gateway (Limited preview)](arc-gateway.md) to simplify your network endpoints, the Azure Arc Proxy service is the local component that forwards network requests via the Azure Arc gateway instead of the default route. The Azure Arc Proxy runs as a Network Service on Windows and a standard user account (arcproxy) on Linux. It's disabled by default until you configure the agent to use the Azure Arc gateway (Limited preview).
 
 ## Agent resources
 

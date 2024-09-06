@@ -12,12 +12,18 @@ Use the `CallComposite` and the `ChatComposite` in the Azure Communication Servi
 
 You can use the call composite in Communication Services to create these use cases:
 
-| Area                                                                                            | Use cases                                              |
-| ----------------------------------------------------------------------------------------------- | ------------------------------------------------------ |
-| Call types                                                                                | Join a Microsoft Teams meeting                                     |
-|                                                                                                 | Join a call by using a group ID   |
+| Area                                                                 | Use cases                                                       |
+| -------------------------------------------------------------------- | --------------------------------------------------------------- |
+| Call types                                                           | Join a Microsoft Teams meeting                                  |
+|                                                                      | Join a Microsoft Teams meeting using Meeting ID and Passcode    |
+|                                                                      | Join a call by using a group ID                                 |
+|                                                                      | Join a call by using a room  ID                                 |
+|                                                                      | Make and Receive 1:1 Calls                                      |
 | [Teams interoperability](../../teams-interop.md)                     | Join the call lobby                                             |
 |                                                                                                 | Display a transcription and recording alert banner               |
+|                                                                                                 | Admit/Reject lobby participants                                 |
+| Closed Captions                                                                                 | Teams interoperability                                      |
+|                                                                                                 | Group call, Rooms call, and 1:1 call                                       |
 | Participant gallery                                                                   | Show remote participants on a grid              |
 |                                                                                                 | Make video preview available throughout a call for a local user |
 |                                                                                                 | Make default avatars available when video is off            |
@@ -29,10 +35,14 @@ You can use the call composite in Communication Services to create these use cas
 |                                                                                                 | Manage the speaker device (wired or Bluetooth)                              |
 |                                                                                                 | Make local preview available for a user to check video       |
 |                                                                                                 | Enable end call confirmation dialogue                 |
+|                                                                                                 | Skip setup screen                 |
 | Call controls                                                                            | Mute and unmute a call                                       |
 |                                                                                                 | Turn video on or off during a call                                   |
 |                                                                                                 | End a call                                               |
 |                                                                                                 | Hold and resume a call after audio interruption                 |
+|                                                                                                 | CallKit and TelecomManager Support                 |
+| Customize the experience                                             | Button bar customization                                        |
+
 
 ### Teams interoperability
 
@@ -43,6 +53,36 @@ For [Teams interoperability](../../teams-interop.md) scenarios, you can use UI L
 The following figure shows an example of the user experience before a caller is added to a Teams meeting:
 
 :::image type="content" source="../../media/mobile-ui/teams-meet.png" alt-text="Screenshot that shows the user experience before a caller is added to a Teams meeting.":::
+
+### Rooms integration
+
+Azure Communication Services provides a concept of a room for developers who are building structured conversations such as virtual appointments or virtual events. Rooms currently allow voice and video calling.
+
+A Room is a container that manages activity between Azure Communication Services end-users. A Room offers application developers better control over *who* can join a call, *when* they meet and *how* they collaborate. To learn more about Rooms, see the [conceptual documentation](../../rooms/room-concept.md).
+
+A user is invited to a room using the Rooms API as 1 of 3 following roles:
+
+- Presenter(default)
+- Attendee
+- Consumer
+
+The distinction between each role lies in the capabilities they possess during a room call when utilizing the `CallComposite`. The specific capabilities associated with each role are detailed [here](../../rooms/room-concept.md#predefined-participant-roles-and-permissions).
+
+:::image type="content" source="../../media/rooms/rooms-join-call.png" alt-text="Diagram showing Rooms Management.":::
+
+> [!NOTE]
+> The Rooms API serves the purpose of creating rooms, managing users, and adjusting the lifetime of rooms. It is important to note that the Rooms API is a back-end service that is separate from the UI Library.
+
+### Closed captions
+
+Closed captions enable a wide range of scenarios, including interoperability with Teams, Azure Communication Services Group calls, Rooms calls, and one-on-one calls. This feature ensures that users can follow along with conversations in various calling environments, **enhancing accessibility** and user experience. However, it's important to note that users need to manually select the language for captions using the UI Library out of the box, as the system doesn't automatically detect the spoken language.
+
+:::image type="content" source="mobile-ui-closed-captions.png" alt-text="Screenshot that shows the experience of closed captions integration in the UI Library.":::
+
+> [!NOTE]
+>Closed Captions will not be billed at the beginning of its Public Preview. This is for a limited time only, usage of Captions will likely be billed starting from June.
+
+If you're looking more detailed information about closed captions, feel free to visit [the documentation](../../voice-video-calling/closed-captions.md) to review explanations and usage guidelines. Additionally, if you want to jump directly into the configuration of closed captions directly within the UI Library, you can follow our [tutorial](../../../how-tos/ui-library-sdk/closed-captions.md) for easy setup.
 
 ### View shared content
 
@@ -55,6 +95,37 @@ You can use the UI Library call composite for iOS and Android to create a custom
 | Android                            | iOS                                     |
 | -------------------------------------------------------- | --------------------------------------------------------------- |
 | :::image type="content" source="../../media/mobile-ui/android-color.png" alt-text="Screenshot that shows Android theming for a caller experience."::: | :::image type="content" source="../../media/mobile-ui/ios-dark.png" alt-text="Screenshot that shows iOS theming for a caller experience.":::  |
+
+### Button bar customization
+
+The functionality allows developers to add new actions into the contextual menu or remove current buttons in the button bar, providing the flexibility to introduce custom actions and tailor the user interface according to specific application needs.
+
+- Add Custom Buttons: Developers can introduce new buttons into the contextual button bar to trigger custom actions.
+- Remove Existing Buttons: Unnecessary default buttons can be removed to streamline the interface: camera, microphone o audio selection.
+
+Consider the following constraints during the implementation of this feature:
+
+- Icons and Labels: Icons are added only for new actions. The button bar icons keep the predefined icon, labels should be concise to fit the menu dimension.
+- Accessibility Considerations: Developers should ensure that all custom buttons are accessible, including appropriate labeling for screen readers.
+
+|Remove buttons | Add custom actions|
+|-------------  | ------------------|
+| :::image type="content" source="media/ui-library-remove-button.png" alt-text="Screenshot that demonstrates the remove button on the bottom bar."::: |  :::image type="content" source="media/ui-library-add-action-button.png" alt-text="Screenshot that demonstrates add custom action into the contextual menu."::: |
+
+#### Use cases
+
+- Custom In-Call Actions: A business application can add a custom "Report Issue" button, allowing users to directly report technical issues during a call.
+- Branding and User Experience: An enterprise app can remove buttons that are irrelevant to its use case and add branded buttons that enhance the user experience.
+
+To ensure a consistent call experience, , we recommend that you integrate Fluent UI icons into your project; available at [Fluent UI GitHub repository](https://github.com/microsoft/fluentui-system-icons/). By doing so, your custom icons will match the design of the Call Composite, creating a cohesive and professional appearance.
+
+#### Best practices
+
+- Minimalism: Avoid overcrowding the contextual menu bar. Only add buttons that are essential for the user experience.
+- User Testing: Conduct user testing to ensure the customizations meets user needs and don't confuse or overwhelm them.
+- Add a Feedback Mechanism: If adding buttons for actions like "Report Issue," ensure there's a robust backend system to handle the feedback collected, you can reuse the [mechanism that UI Library provides by default](../../../tutorials/collecting-user-feedback/collecting-user-feedback.md).
+
+For more information, see [How to customize the button bar](../../../how-tos/ui-library-sdk/button-injection.md).
 
 ### Screen size
 
@@ -97,6 +168,10 @@ UI Library supports picture in picture mode for call screen. While being in the 
 ### CallKit support
 
 UI Library supports CallKit Integration to handle interaction with CallKit for calls. To learn more about the integration for iOS platform and usage of the API, see [How to use CallKit.](../../../how-tos/ui-library-sdk/callkit.md)
+
+### TelecomManager support
+
+The UI Library now supports integration with the TelecomManager, allowing for handling of call hold and resume functions. To learn more about the integration for Android platform and usage of the API, see [How to use TelecomManager.](../../../how-tos/ui-library-sdk/telecommanager.md)
 
 ### One-to-one call and PUSH notification support
 

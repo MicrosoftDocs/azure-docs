@@ -3,8 +3,8 @@ title: Common Azure confidential computing scenarios and use cases
 description: Understand how to use confidential computing in your scenario.
 services: virtual-machines
 author: ju-shim
-ms.service: virtual-machines
-ms.subservice: confidential-computing
+ms.service: azure-virtual-machines
+ms.subservice: azure-confidential-computing
 ms.topic: overview
 ms.date: 11/04/2021
 ms.author: jushiman
@@ -140,7 +140,7 @@ Confidential computing can expand the number of workloads eligible for public cl
 
 ### BYOK (Bring Your Own Key) scenarios
 
-The adoption of hardware secure modules (HSM) enables secure transfer of keys and certificates to a protected cloud storage - [Azure Key Vault Managed HSM](../key-vault/managed-hsm/overview.md) – without allowing the cloud service provider to access such sensitive information. Secrets being transferred never exist outside an HSM in plaintext form, enabling scenarios for sovereignty of keys and certificates that are client generated and managed, but still using a cloud-based secure storage.
+The adoption of hardware secure modules (HSM) enables secure transfer of keys and certificates to a protected cloud storage - [Azure Key Vault Managed HSM](/azure/key-vault/managed-hsm/overview) – without allowing the cloud service provider to access such sensitive information. Secrets being transferred never exist outside an HSM in plaintext form, enabling scenarios for sovereignty of keys and certificates that are client generated and managed, but still using a cloud-based secure storage.
 
 ## Secure blockchain
 

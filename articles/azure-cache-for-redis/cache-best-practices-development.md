@@ -2,11 +2,11 @@
 title: Best practices for development
 titleSuffix: Azure Cache for Redis
 description: Learn how to develop code for Azure Cache for Redis.
-author: flang-msft
-ms.service: cache
+
+
 ms.topic: conceptual
 ms.date: 04/18/2024
-ms.author: franlanglois
+
 
 ---
 

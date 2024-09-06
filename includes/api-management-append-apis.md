@@ -1,6 +1,6 @@
 ---
 author: vladvino
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: include
 ms.date: 04/16/2021
 ms.author: vlvinogr

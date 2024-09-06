@@ -4,9 +4,9 @@ titleSuffix: Azure Spring Apps Enterprise plan
 description: Explains how to monitor apps running the Azure Spring Apps Enterprise plan by using Application Insights and Log Analytics.
 author: KarlErickson
 ms.author: asirveda # external contributor: paly@vmware.com
-ms.service: spring-apps
+ms.service: azure-spring-apps
 ms.topic: quickstart
-ms.date: 05/31/2022
+ms.date: 08/28/2024
 ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli
 ---
 

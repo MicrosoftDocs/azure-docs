@@ -21,7 +21,7 @@ Role permissions include:
 *  **Process** - Users can connect to and perform process operations on the database, and analyze model database data.
 *  **Read** -  Users can use a client application to connect to and analyze model database data.
 
-When creating a tabular model project, you create roles and add users or groups to those roles by using Role Manager in Visual Studio with Analysis Services projects. When deployed to a server, use SQL Server Management Studio (SSMS), [Analysis Services PowerShell cmdlets](/analysis-services/powershell/analysis-services-powershell-reference), or [Tabular Model Scripting Language](/analysis-services/tmsl/tabular-model-scripting-language-tmsl-reference) (TMSL) to add or remove roles and user members.
+When creating a tabular model project, you create roles and add users or groups to those roles by using Role Manager in Visual Studio with Analysis Services projects. When deployed to a server, use SQL Server Management Studio (SSMS), [Analysis Services PowerShell cmdlets](/analysis-services/powershell/analysis-services-powershell-reference), or [Tabular Model Scripting Language (TMSL)](/analysis-services/tmsl/tabular-model-scripting-language-tmsl-reference) to add or remove roles and user members.
 
 When adding a **security group**, use `obj:groupid@tenantid`.
 

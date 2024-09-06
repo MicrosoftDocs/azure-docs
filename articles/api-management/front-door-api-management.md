@@ -1,12 +1,13 @@
 ---
 title: Configure Azure Front Door in front of Azure API Management
-description: Learn how to front your API Management instance with Azure Front Door Standard/Premium to provide global HTTPS load balancing, TLS offloading, dynamic request acceleration, and other capabilities.
+description: Learn how to front your API Management instance with Azure Front Door for global HTTPS load balancing, TLS offloading, dynamic request acceleration, and more.
 services: api-management
 author: dlepow
 
-ms.service: api-management
+
+ms.service: azure-api-management
 ms.topic: how-to
-ms.date: 09/27/2022
+ms.date: 08/06/2024
 ms.author: danlep
 ---
 # Configure Front Door Standard/Premium in front of Azure API Management
@@ -15,7 +16,7 @@ ms.author: danlep
 
 Azure Front Door is a modern application delivery network platform providing a secure, scalable content delivery network (CDN), dynamic site acceleration, and global HTTP(s) load balancing for your global web applications. When used in front of API Management, Front Door can provide TLS offloading, end-to-end TLS, load balancing, response caching of GET requests, and a web application firewall, among other capabilities. For a full list of supported features, see [What is Azure Front Door?](../frontdoor/front-door-overview.md) 
 
-[!INCLUDE [ddos-waf-recommendation](~/reusable-content/ce-skilling/azure/includes/ddos-waf-recommendation.md)]
+[!INCLUDE [ddos-waf-recommendation](../../includes/ddos-waf-recommendation.md)]
 
 This article shows how to:
 
@@ -78,19 +79,17 @@ We recommend updating the default route that's associated with the API Managemen
 
 ### Test the configuration
 
-Test the Front Door profile configuration by calling an API hosted by API Management. First, call the API directly through the API Management gateway to ensure that the API is reachable. Then, call the API through Front Door. To test, you can use a command line client such as `curl` for the calls, or a tool such as [Postman](https://www.getpostman.com).
+Test the Front Door profile configuration by calling an API hosted by API Management, for example, the Demo Conference API. First, call the API directly through the API Management gateway to ensure that the API is reachable. Then, call the API through Front Door.
 
 ### Call an API directly through API Management
 
-In the following example, an operation in the Demo Conference API hosted by the API Management instance is called directly using Postman. In this example, the instance's hostname is in the default `azure-api.net` domain, and a valid subscription key is passed using a request header. A successful response shows `200 OK` and returns the expected data:
+To call an API directly through the API Management gateway, you can use a command line client such as `curl` or another HTTP client. A successful response returns a `200 OK` HTTP response and the expected data:
 
-:::image type="content" source="media/front-door-api-management/test-api-management-gateway.png" alt-text="Screenshot showing calling API Management endpoint directly using Postman.":::
+:::image type="content" source="media/front-door-api-management/test-api-management-gateway.png" alt-text="Screenshot showing calling API Management endpoint directly using an HTTP client.":::
 
 ### Call an API directly through Front Door
 
-In the following example, the same operation in the Demo Conference API is called using the Front Door endpoint configured for your instance. The endpoint's hostname in the `azurefd.net` domain is shown in the portal on the **Overview** page of your Front Door profile. A successful response shows `200 OK` and returns the same data as in the previous example:
-
-:::image type="content" source="media/front-door-api-management/test-front-door-gateway.png" alt-text="Screenshot showing calling Front Door endpoint using Postman.":::
+Call the same API operation using the Front Door endpoint configured for your instance. The endpoint's hostname in the `azurefd.net` domain is shown in the portal on the **Overview** page of your Front Door profile. A successful response shows `200 OK` and returns the same data as in the previous example.
 
 ## Restrict incoming traffic to API Management instance
 

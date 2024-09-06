@@ -3,9 +3,9 @@ title: Azure Synapse RBAC roles
 description: This article describes the built-in Synapse RBAC (role-based access control) roles, the permissions they grant, and the scopes at which they can be used.
 author: meenalsri
 ms.author: mesrivas
-ms.reviewer: sngun, wiassaf
+ms.reviewer: whhender, wiassaf
 ms.date: 06/16/2023
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.subservice: security
 ms.topic: conceptual
 ---

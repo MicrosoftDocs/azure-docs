@@ -5,6 +5,7 @@ services: automation
 ms.subservice: process-automation
 ms.date: 10/02/2023
 ms.topic: conceptual
+ms.service: azure-automation
 ---
 
 # Delete an Azure Automation Run As account

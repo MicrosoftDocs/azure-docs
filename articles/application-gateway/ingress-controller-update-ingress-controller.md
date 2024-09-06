@@ -3,7 +3,7 @@ title: Upgrade ingress controller with Helm
 description: This article provides information on how to upgrade an Application Gateway Ingress using Helm.
 services: application-gateway
 author: greg-lindsay
-ms.service: application-gateway
+ms.service: azure-application-gateway
 ms.custom:
 ms.topic: how-to
 ms.date: 07/23/2023

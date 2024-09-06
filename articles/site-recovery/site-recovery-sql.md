@@ -4,7 +4,7 @@ description: This article describes how to set up disaster recovery for SQL Serv
 services: site-recovery
 author: ankitaduttaMSFT
 manager: rochakm
-ms.service: site-recovery
+ms.service: azure-site-recovery
 ms.topic: conceptual
 ms.date: 03/28/2023
 ms.author: ankitadutta

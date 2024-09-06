@@ -2,7 +2,7 @@
 title: Enable diagnostic logging in Azure API for FHIR
 description: This article explains how to enable diagnostic logging in Azure API for FHIR®
 services: healthcare-apis
-ms.service: healthcare-apis
+ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.topic: conceptual
 ms.author: kesheth

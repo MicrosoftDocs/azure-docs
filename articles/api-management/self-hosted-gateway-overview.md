@@ -4,7 +4,7 @@ description: Learn how self-hosted gateway feature of Azure API Management helps
 services: api-management
 author: dlepow
 
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: conceptual
 ms.date: 05/15/2024
 ms.author: danlep

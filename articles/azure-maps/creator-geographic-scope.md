@@ -1,12 +1,12 @@
 ---
 title: Azure Maps Creator service geographic scope
 description: Learn about Azure Maps Creator service's geographic mappings in Azure Maps
-author: brendansco
-ms.author: Brendanc
+author: faterceros
+ms.author: aterceros
 ms.date: 05/18/2021
 ms.topic: conceptual
 ms.service: azure-maps
-services: azure-maps
+ms.subservice: creator
 ms.custom: mvc, references_regions
 ---
 
@@ -27,10 +27,4 @@ The following table describes the mapping between geography and supported Azure 
 | Europe| West Europe, North Europe | eu.atlas.microsoft.com |
 |United States | West US 2, East US 2 | us.atlas.microsoft.com |
 
-## Next steps
-
-> [!div class="nextstepaction"]
-> [What is Azure Maps Creator?]
-
 [Azure geographies]: https://azure.microsoft.com/global-infrastructure/geographies
-[What is Azure Maps Creator?]: about-creator.md

@@ -2,7 +2,7 @@
 title: "Artifact cache in Azure Container Registry"
 description: "Artifact cache is a feature that allows you to cache container images in Azure Container Registry, improving performance and efficiency."
 author: tejaswikolli-web
-ms.service: container-registry
+ms.service: azure-container-registry
 ms.topic: conceptual #Don't change
 ms.custom: devx-track-azurecli
 zone_pivot_groups: container-registry-zones
@@ -21,7 +21,7 @@ Artifact cache offers faster and more *reliable pull operations* through Azure C
 
 Artifact cache allows cached registries to be accessible over *private networks* for users to align with firewall configurations and compliance standards seamlessly.
 
-Artifact cache addresses the challenge of anonymous pull limits imposed by public registries like Docker Hub. By allowing users to pull images from the local ACR, it circumvents these limits, ensuring *uninterrupted content delivery* from upstream sources and eliminating the concern of hitting pull limits.
+Artifact cache addresses the challenge of pull limits imposed by public registries. We recommend users authenticate their cache rules with their upstream source credentials. Then pull images from the local ACR, to help mitigate rate limits.
 
 ## Terminology 
 
@@ -57,13 +57,15 @@ Artifact cache addresses the challenge of anonymous pull limits imposed by publi
 
 Artifact cache currently supports the following upstream registries:
 
+>[!WARNING]
+> Customers must generate [credential set](container-registry-artifact-cache.md#create-new-credentials) to source content from Docker hub.
+
 | Upstream Registries                          | Support                                                  | Availability             |
 |----------------------------------------------|----------------------------------------------------------|--------------------------|
-| Docker Hub                                   | Supports both authenticated and unauthenticated pulls.   | Azure CLI, Azure portal  |
+| Docker Hub                                   | Supports authenticated pulls only.                       | Azure CLI, Azure portal  |
 | Microsoft Artifact Registry                  | Supports unauthenticated pulls only.                     | Azure CLI, Azure portal  |
 | AWS Elastic Container Registry (ECR) Public Gallery | Supports unauthenticated pulls only.              | Azure CLI, Azure portal  |
 | GitHub Container Registry                    | Supports both authenticated and unauthenticated pulls.   | Azure CLI, Azure portal  |
-| Nvidia                                       | Supports both authenticated and unauthenticated pulls.   | Azure CLI                |
 | Quay                                         | Supports both authenticated and unauthenticated pulls.   | Azure CLI, Azure portal  |
 | registry.k8s.io                              | Supports both authenticated and unauthenticated pulls.   | Azure CLI                |
 | Google Container Registry                    | Supports both authenticated and unauthenticated pulls.   | Azure CLI                |
@@ -168,7 +170,7 @@ Before configuring the Credentials, you have to create and store secrets in the 
     ```azurecli-interactive
     az acr credential-set create 
     -r MyRegistry \
-    -n MyRule \
+    -n MyDockerHubCredSet \
     -l docker.io \ 
     -u https://MyKeyvault.vault.azure.net/secrets/usernamesecret \
     -p https://MyKeyvault.vault.azure.net/secrets/passwordsecret
@@ -179,15 +181,15 @@ Before configuring the Credentials, you have to create and store secrets in the 
     - For example, to update the username or password KV secret ID on the credentials for a given `MyRegistry` Azure Container Registry.
 
     ```azurecli-interactive
-    az acr credential-set update -r MyRegistry -n MyRule -p https://MyKeyvault.vault.azure.net/secrets/newsecretname
+    az acr credential-set update -r MyRegistry -n MyDockerHubCredSet -p https://MyKeyvault.vault.azure.net/secrets/newsecretname
     ```
 
-3. Run [az-acr-credential-set-show][az-acr-credential-set-show] to show the credentials. 
+3. Run [az acr credential-set show][az-acr-credential-set-show] to show the credentials. 
 
-    - For example, to show the credentials for a given `MyRegistry` Azure Container Registry.
+    - For example, to show a credential set in a given `MyRegistry` Azure Container Registry.
 
     ```azurecli-interactive
-    az acr credential-set show -r MyRegistry -n MyCredSet
+    az acr credential-set show -r MyRegistry -n MyDockerHubCredSet
     ```
 
 ### Configure and create a cache rule with the credentials 
@@ -197,7 +199,7 @@ Before configuring the Credentials, you have to create and store secrets in the 
     - For example, to create a cache rule with the credentials for a given `MyRegistry` Azure Container Registry.
 
     ```azurecli-interactive
-    az acr cache create -r MyRegistry -n MyRule -s docker.io/library/ubuntu -t ubuntu -c MyCredSet
+    az acr cache create -r MyRegistry -n MyRule -s docker.io/library/ubuntu -t ubuntu -c MyDockerHubCredSet
     ```
 
 2. Run [az acr cache update][az-acr-cache-update] command to update the credentials on a cache rule.
@@ -228,7 +230,7 @@ Before configuring the Credentials, you have to create and store secrets in the 
 
     ```azurecli-interactive
     PRINCIPAL_ID=$(az acr credential-set show 
-                    -n MyCredSet \ 
+                    -n MyDockerHubCredSet \ 
                     -r MyRegistry  \
                     --query 'identity.principalId' \ 
                     -o tsv) 
@@ -280,12 +282,12 @@ Before configuring the Credentials, you have to create and store secrets in the 
     az acr credential-set list -r MyRegistry
     ```
 
-4. Run [az-acr-credential-set-delete][az-acr-credential-set-delete] to delete the credentials. 
+4. Run [az acr credential-set delete][az-acr-credential-set-delete] to delete the credentials. 
 
     - For example, to delete the credentials for a given `MyRegistry` Azure Container Registry.
 
     ```azurecli-interactive
-    az acr credential-set delete -r MyRegistry -n MyCredSet
+    az acr credential-set delete -r MyRegistry -n MyDockerHubCredSet
     ```
 
 :::zone-end
@@ -432,9 +434,9 @@ Before configuring the Credentials, you require to create and store secrets in t
 * Advance to the [next article](troubleshoot-artifact-cache.md) to walk through the troubleshoot guide for Registry Cache.
 
 <!-- LINKS - External -->
-[create-and-store-keyvault-credentials]: ../key-vault/secrets/quick-create-cli.md#add-a-secret-to-key-vault
-[set-and-retrieve-a-secret]: ../key-vault/secrets/quick-create-cli.md#retrieve-a-secret-from-key-vault
-[az-keyvault-set-policy]: ../key-vault/general/assign-access-policy.md#assign-an-access-policy
+[create-and-store-keyvault-credentials]: /azure/key-vault/secrets/quick-create-cli#add-a-secret-to-key-vault
+[set-and-retrieve-a-secret]: /azure/key-vault/secrets/quick-create-cli#retrieve-a-secret-from-key-vault
+[az-keyvault-set-policy]: /azure/key-vault/general/assign-access-policy#assign-an-access-policy
 [Install Azure CLI]: /cli/azure/install-azure-cli
 [Azure Cloud Shell]: /azure/cloud-shell/quickstart
 [az-acr-cache-create]:/cli/azure/acr/cache#az-acr-cache-create

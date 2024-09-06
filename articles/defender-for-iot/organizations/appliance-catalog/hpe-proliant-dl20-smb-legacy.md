@@ -47,7 +47,7 @@ The following image shows a sample of the HPE ProLiant DL20 Gen10 back panel:
 |Power|Hot Plug Power Supply 290 W|
 |Rack support|HPE 1U Short Friction Rail Kit|
 
-## Appliance BOM
+## HPE ProLiant DL20 Gen10 (NHP 2LFF) - Bill of materials
 
 |PN|Description|Quantity|
 |:----|:----|:----|

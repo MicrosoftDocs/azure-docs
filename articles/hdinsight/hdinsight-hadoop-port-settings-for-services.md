@@ -1,10 +1,10 @@
 ---
 title: Ports used by Hadoop services on HDInsight - Azure
 description: This article provides a list of ports used by Apache Hadoop services running in Azure HDInsight
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 09/15/2023
+ms.date: 09/06/2024
 ---
 
 # Ports used by Apache Hadoop services on HDInsight

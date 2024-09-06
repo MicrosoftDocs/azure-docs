@@ -3,9 +3,9 @@ title: "Tutorial: Deploy a Dapr application to Azure Container Apps using the Az
 description: Deploy a Dapr application to Azure Container Apps using the Azure CLI.
 services: container-apps
 author: asw101
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.topic: conceptual
-ms.date: 09/29/2022
+ms.date: 08/21/2024
 ms.author: aawislan
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.devlang: azurecli
@@ -262,6 +262,8 @@ az containerapp create \
   --env-vars 'APP_PORT=3000'
 ```
 
+If you're using an Azure Container Registry, include the `--registry-server <REGISTRY_NAME>.azurecr.io` flag in the command.
+
 # [Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
@@ -295,6 +297,8 @@ $ServiceArgs = @{
 New-AzContainerApp @ServiceArgs
 ```
 
+If you're using an Azure Container Registry, include the `RegistryServer = '<REGISTRY_NAME>.azurecr.io'` flag in the command.
+
 ---
 
 By default, the image is pulled from [Docker Hub](https://hub.docker.com/r/dapriosamples/hello-k8s-node).
@@ -316,6 +320,8 @@ az containerapp create \
   --enable-dapr \
   --dapr-app-id pythonapp
 ```
+
+If you're using an Azure Container Registry, include the `--registry-server <REGISTRY_NAME>.azurecr.io` flag in the command.
 
 # [Azure PowerShell](#tab/azure-powershell)
 
@@ -342,6 +348,8 @@ $ClientArgs = @{
 }
 New-AzContainerApp @ClientArgs
 ```
+
+If you're using an Azure Container Registry, include the `RegistryServer = '<REGISTRY_NAME>.azurecr.io'` flag in the command.
 
 ---
 

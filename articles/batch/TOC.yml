@@ -145,6 +145,8 @@
       href: batch-customer-managed-key.md
     - name: Move between regions
       href: account-move.md
+    - name: Rotate Batch account keys
+      href: account-key-rotation.md
   - name: Authenticate with Microsoft Entra ID
     items:
     - name: Microsoft Entra ID with Batch service
@@ -251,7 +253,7 @@
       href: batch-task-output-files.md
     - name: Persist output with File Conventions library
       href: batch-task-output-file-conventions.md
-  - name: Monitor
+  - name: Monitor Azure Batch
     href: monitor-batch.md
     items:
     - name: Monitor with Application Insights

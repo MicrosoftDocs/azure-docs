@@ -3,7 +3,7 @@ title: Subscribe to Grafana Enterprise
 description:  Activate Grafana Enterprise to access Grafana Enterprise plugins within Azure Managed Grafana
 author: maud-lv
 ms.author: malev
-ms.service: managed-grafana
+ms.service: azure-managed-grafana
 ms.topic: how-to 
 ms.date: 03/22/2024
 ---
@@ -56,6 +56,8 @@ You can enable access to Grafana Enterprise plugins by selecting a Grafana Enter
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
+    > [!NOTE]
+    > Only Azure subscriptions billed directly through Microsoft are eligible for the purchase of Grafana Enterprise. CSP subscriptions, i.e., Azure subscriptions billed through Cloud Solution Providers (CSP), are ineligible.
 - This guide assumes that you already know the basics of [creating an Azure Managed Grafana instance](quickstart-managed-grafana-portal.md).
 
 ## Create a workspace with Grafana Enterprise enabled

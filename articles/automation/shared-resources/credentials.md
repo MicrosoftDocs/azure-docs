@@ -6,6 +6,7 @@ ms.subservice: shared-capabilities
 ms.custom: devx-track-python
 ms.date: 05/26/2023
 ms.topic: conceptual 
+ms.service: azure-automation
 ---
 
 # Manage credentials in Azure Automation

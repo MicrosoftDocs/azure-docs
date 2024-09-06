@@ -4,7 +4,7 @@ description: Learn about Synapse SQL recommendations and how they are generated
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.date: 06/26/2020
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.subservice: sql-dw
 ms.topic: conceptual
 ms.custom: azure-synapse

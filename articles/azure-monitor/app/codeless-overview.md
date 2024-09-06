@@ -3,7 +3,7 @@ title: Autoinstrumentation for Azure Monitor Application Insights
 description: Overview of autoinstrumentation for Azure Monitor Application Insights codeless application performance management.
 ms.topic: conceptual
 ms.custom: devx-track-js
-ms.date: 12/15/2023
+ms.date: 08/12/2024
 ms.reviewer: abinetabate
 ---
 
@@ -11,7 +11,14 @@ ms.reviewer: abinetabate
 
 Autoinstrumentation enables [Application Insights](app-insights-overview.md) to make [telemetry](data-model-complete.md) like metrics, requests, and dependencies available in your [Application Insights resource](create-workspace-resource.md). It provides easy access to experiences such as the [application dashboard](overview-dashboard.md) and [application map](app-map.md).
 
-If your language and platform are supported, select the corresponding link in the [Supported environments, languages, and resource providers table](#supported-environments-languages-and-resource-providers) for more detailed information. In many cases, autoinstrumentation is enabled by default.
+The term "autoinstrumentation" is a portmanteau, a linguistic blend where parts of multiple words combine into a new word. "Autoinstrumentation" combines "auto" and "instrumentation." It sees widespread use in software observability and describes the process of adding instrumentation code to applications without manual coding by developers.
+
+The autoinstrumentation process varies by language and platform, but often involves a toggle button in the Azure portal. The following example shows a toggle button for [Azure App Service](../../app-service/getting-started.md#getting-started-with-azure-app-service) autoinstrumentation.
+
+:::image type="content"source="./media/azure-web-apps/enable.png" alt-text=" Screenshot that shows the Application Insights tab with Enable selected." lightbox="./media/azure-web-apps/enable.png":::
+
+> [!TIP]
+> *We do not provide autoinstrumentation specifics for all languages and platforms in this article.* For detailed information, select the corresponding link in the [Supported environments, languages, and resource providers table](#supported-environments-languages-and-resource-providers). In many cases, autoinstrumentation is enabled by default.
 
 ## What are the autoinstrumentation advantages?
 
@@ -19,7 +26,7 @@ If your language and platform are supported, select the corresponding link in th
 > - Code changes aren't required.
 > - Access to source code isn't required.
 > - Configuration changes aren't required.
-> - Ongoing [SDK update maintenance](sdk-support-guidance.md) is eliminated.
+> - Instrumentation maintenance is eliminated.
 
 ## Supported environments, languages, and resource providers
 
@@ -28,13 +35,13 @@ The following table shows the current state of autoinstrumentation availability.
 Links are provided to more information for each supported scenario.
 
 > [!NOTE]
-> If your hosting environment or resource provider is not listed in the following table, autoinstrumentation is not supported. You can manually instrument your code using Application Insights SDKs or Azure Monitor OpenTelemetry Distros. For more information, see [Data Collection Basics of Azure Monitor Application Insights](opentelemetry-overview.md).
+> If your hosting environment or resource provider is not listed in the following table, then autoinstrumentation is not supported. In this case, we recommend manually instrumenting using the [Azure Monitor OpenTelemetry Distro](opentelemetry-enable.md). For more information, see [Data Collection Basics of Azure Monitor Application Insights](opentelemetry-overview.md).
 
 |Environment/Resource provider                    | .NET Framework                                                                                                                                        | .NET Core / .NET                                                                                                                                      | Java                                                                                                                                                      | Node.js                                                                                                                                                                                      | Python                                                                                           |
 |-------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------|
 |Azure App Service on Windows - Publish as Code   | [ :white_check_mark: :link: ](azure-web-apps-net.md) ¹                                                                                                | [ :white_check_mark: :link: ](azure-web-apps-net-core.md) ¹                                                                                           | [ :white_check_mark: :link: ](azure-web-apps-java.md) ¹                                                                                                   | [ :white_check_mark: :link: ](azure-web-apps-nodejs.md) ¹                                                                                                                                    | :x:                                                                                              |
 |Azure App Service on Windows - Publish as Docker | [ :white_check_mark: :link: ](https://azure.github.io/AppService/2022/04/11/windows-containers-app-insights-preview.html) ²                           | [ :white_check_mark: :link: ](https://azure.github.io/AppService/2022/04/11/windows-containers-app-insights-preview.html) ²                           | [ :white_check_mark: :link: ](https://azure.github.io/AppService/2022/04/11/windows-containers-app-insights-preview.html) ²                               | [ :white_check_mark: :link: ](https://techcommunity.microsoft.com/t5/apps-on-azure-blog/public-preview-application-insights-auto-instrumentation-for/ba-p/3947971) ²                         | :x:                                                                                              |
-|Azure App Service on Linux - Publish as Code     | :x:                                                                                                                                                   | [ :white_check_mark: :link: ](azure-web-apps-net-core.md?tabs=linux) ¹                                                                                | [ :white_check_mark: :link: ](azure-web-apps-java.md) ¹                                                                                                   | [ :white_check_mark: :link: ](azure-web-apps-nodejs.md?tabs=linux)                                                                                                                           | [ :white_check_mark: :link: ](azure-web-apps-python.md?tabs=linux) ²                                                                                         |
+|Azure App Service on Linux - Publish as Code     | :x:                                                                                                                                                   | [ :white_check_mark: :link: ](azure-web-apps-net-core.md?tabs=linux) ¹                                                                                | [ :white_check_mark: :link: ](azure-web-apps-java.md) ¹                                                                                                   | [ :white_check_mark: :link: ](azure-web-apps-nodejs.md?tabs=linux)¹                                                                                                                          | [ :white_check_mark: :link: ](azure-web-apps-python.md?tabs=linux) ²                                                                                         |
 |Azure App Service on Linux - Publish as Docker   | :x:                                                                                                                                                   | [ :white_check_mark: :link: ](azure-web-apps-net-core.md?tabs=linux)                                                                                  | [ :white_check_mark: :link: ](azure-web-apps-java.md)                                                                                                     | [ :white_check_mark: :link: ](azure-web-apps-nodejs.md?tabs=linux)                                                                                                                           | :x:                                                                                              |
 |Azure Functions - basic                          | [ :white_check_mark: :link: ](monitor-functions.md) ¹                                                                                                 | [ :white_check_mark: :link: ](monitor-functions.md) ¹                                                                                                 | [ :white_check_mark: :link: ](monitor-functions.md) ¹                                                                                                     | [ :white_check_mark: :link: ](monitor-functions.md) ¹                                                                                                                                        | [ :white_check_mark: :link: ](monitor-functions.md#distributed-tracing-for-python-function-apps) ¹                                            |
 |Azure Functions - dependencies                   | :x:                                                                                                                                                   | :x:                                                                                                                                                   | [ :white_check_mark: :link: ](monitor-functions.md)                                                                                                       | :x:                                                                                                                                                                                          | :x: |
@@ -52,18 +59,13 @@ Links are provided to more information for each supported scenario.
 > [!NOTE]
 > Autoinstrumentation was known as "codeless attach" before October 2021.
 
-## JavaScript (Web) SDK Loader Script injection by configuration
+## Frequently asked questions
 
-When using supported Software Development Kits (SDKs), you can enable SDK injection in configuration to automatically inject JavaScript (Web) SDK Loader Script onto each page.
+#### Should the term "autoinstrumentation" be hyphenated?
 
+We follow the [Microsoft Style Guide](/style-guide/punctuation/dashes-hyphens/hyphens#prefixes) for product documentation published to the [Microsoft Learn](/) platform.
 
-   | Language   
-   |	:---	|
-   | [ASP.NET Core](./asp-net-core.md?tabs=netcorenew%2Cnetcore6#enable-client-side-telemetry-for-web-applications) |
-   | [Node.js](./nodejs.md#browser-sdk-loader) |
-   | [Java](./java-standalone-config.md#browser-sdk-loader-preview) |
-
-For other methods to instrument your application with the Application Insights JavaScript SDK, see [Get started with the JavaScript SDK](./javascript-sdk.md).
+In general, we don’t include a hyphen after the "auto" prefix.
 
 ## Next steps
 

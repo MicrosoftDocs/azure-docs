@@ -4,7 +4,7 @@ description: Understand two different ways to select experiment targets and targ
 author: prasha-microsoft
 ms.author: abbyweisberg
 ms.reviewer: prashabora
-ms.service: chaos-studio
+ms.service: azure-chaos-studio
 ms.topic: conceptual
 ms.date: 09/25/2023
 ms.custom: template-concept

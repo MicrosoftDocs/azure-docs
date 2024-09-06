@@ -7,6 +7,7 @@ metadata:
   title: Azure Fluid Relay
   description: Azure Fluid Relay is a managed cloud service that supports Fluid Framework Clients
   ms.service: azure-fluid
+  ms.author: mahgarg
   ms.topic: landing-page
   ms.date: 08/19/2023
 

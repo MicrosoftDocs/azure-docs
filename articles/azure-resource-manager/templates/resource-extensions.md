@@ -8,7 +8,7 @@ ms.date: 06/23/2023
 
 # Post-deployment configurations by using extensions
 
-Azure Resource Manager template (ARM template) extensions are small applications that provide post-deployment configuration and automation tasks on Azure resources. The most popular one is virtual machine extensions. See [Virtual machine extensions and features for Windows](../../virtual-machines/extensions/features-windows.md), and [Virtual machine extensions and features for Linux](../../virtual-machines/extensions/features-linux.md).
+Azure Resource Manager template (ARM template) extensions are small applications that provide post-deployment configuration and automation tasks on Azure resources. The most popular one is virtual machine extensions. See [Virtual machine extensions and features for Windows](/azure/virtual-machines/extensions/features-windows), and [Virtual machine extensions and features for Linux](/azure/virtual-machines/extensions/features-linux).
 
 ## Extensions
 

@@ -3,19 +3,19 @@ title: "Access data in Azure Cosmos DB using Mongoose with Azure Static Web Apps
 description: Learn to access data in Azure Cosmos DB using Mongoose from an Azure Static Web Apps API function.
 author: GeekTrainer
 ms.author: chrhar
-ms.service: static-web-apps
+ms.service: azure-static-web-apps
 ms.topic: tutorial
 ms.date: 10/10/2022
 ---
 
 # Access data in Azure Cosmos DB using Mongoose with Azure Static Web Apps
 
-[Mongoose](https://mongoosejs.com/) is the most popular ODM (Object Document Mapping) client for Node.js. Mongoose allows you to design a data structure and enforce validation, and provides all the tooling necessary to interact with databases that support the MongoDB API. [Cosmos DB](../cosmos-db/mongodb-introduction.md) supports the necessary MongoDB APIs and is available as a back-end server option on Azure.
+[Mongoose](https://mongoosejs.com/) is the most popular ODM (Object Document Mapping) client for Node.js. Mongoose allows you to design a data structure and enforce validation, and provides all the tooling necessary to interact with databases that support the MongoDB API. [Cosmos DB](/azure/cosmos-db/mongodb-introduction) supports the necessary MongoDB APIs and is available as a back-end server option on Azure.
 ## Prerequisites
 
 - An [Azure account](https://azure.microsoft.com/free/). If you don’t have an Azure subscription, create a [free trial account](https://azure.microsoft.com/free/).
 - A [GitHub account](https://github.com/join).
-- A [Cosmos DB serverless](../cosmos-db/serverless.md) account. With a serverless account, you only pay for the resources as they're used and avoid needing to create a full infrastructure.
+- A [Cosmos DB serverless](/azure/cosmos-db/serverless) account. With a serverless account, you only pay for the resources as they're used and avoid needing to create a full infrastructure.
 ## 1. Create a Cosmos DB serverless database
 
 Complete the following steps to create a Cosmos serverless DB.

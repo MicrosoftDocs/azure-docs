@@ -5,7 +5,7 @@ ms.topic: tutorial
 ms.date: 05/23/2024
 ms.custom: MVC
 ms.author: ankitadutta
-ms.service: site-recovery
+ms.service: azure-site-recovery
 author: ankitaduttaMSFT
 ---
 

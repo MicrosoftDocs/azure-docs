@@ -84,6 +84,9 @@ Now that you have resources connected to your AMPLS, create a private endpoint t
 
     > [!NOTE]
     > If you select **No** and prefer to manage DNS records manually, first finish setting up your private link. Include this private endpoint and the AMPLS configuration. Then, configure your DNS according to the instructions in [Azure private endpoint DNS configuration](../../private-link/private-endpoint-dns.md). Make sure not to create empty records as preparation for your private link setup. The DNS records you create can override existing settings and affect your connectivity with Azure Monitor.
+    >
+    >  Additionally, if you select **Yes** or **No** and you're using your own custom DNS servers, you need to set up conditional forwarders for the Public DNS zone forwarders mentioned in [Azure private endpoint DNS configuration](../../private-link/private-endpoint-dns.md).
+    > The conditional forwarders need to forward the DNS queries to [Azure DNS](/azure/virtual-network/what-is-ip-address-168-63-129-16).
 
 1. Select **Next: Tags**, then select **Review + create**.
 

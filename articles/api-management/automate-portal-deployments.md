@@ -5,7 +5,7 @@ description: Learn how to automatically migrate self-hosted developer portal con
 author: dlepow
 ms.author: danlep
 ms.date: 04/15/2021
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: how-to
 ---
 

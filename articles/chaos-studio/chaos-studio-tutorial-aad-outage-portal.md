@@ -1,18 +1,18 @@
 ---
-title: Use a chaos experiment template to induce an outage on an Azure Active Directory instance
-description: Use the Azure portal to create an experiment from the AAD outage experiment template.
+title: Use a chaos experiment template to induce an outage on a Microsoft Entra ID instance
+description: Use the Azure portal to create an experiment from the Microsoft Entra ID outage experiment template.
 author: prasha-microsoft
 ms.author: abbyweisberg
 ms.reviewer: prashabora
-ms.service: chaos-studio
+ms.service: azure-chaos-studio
 ms.topic: how-to
 ms.date: 09/27/2023
 ms.custom: template-how-to
 ---
 
-# Use a chaos experiment template to induce an outage on an Azure Active Directory instance
+# Use a chaos experiment template to induce an outage on a Microsoft Entra ID instance
 
-You can use a chaos experiment to verify that your application is resilient to failures by causing those failures in a controlled environment. In this article, you induce an outage on an Azure Active Directory resource using a pre-populated experiment template and Azure Chaos Studio.
+You can use a chaos experiment to verify that your application is resilient to failures by causing those failures in a controlled environment. In this article, you induce an outage on a Microsoft Entra ID resource using a pre-populated experiment template and Azure Chaos Studio.
 
 ## Prerequisites
 
@@ -40,7 +40,7 @@ Now you can create your experiment from a pre-filled experiment template. A chao
 1. In Chaos Studio, go to **Experiments** > **Create** > **New from template**.
 
    [![Screenshot that shows the Experiments screen, with the New from template button highlighted.](images/tutorial-aad-outage-create.png)](images/tutorial-aad-outage-create.png#lightbox)
-1. Select **AAD Outage**.
+1. Select **Microsoft Entra ID Outage**.
 
    [![Screenshot that shows the experiment templates screen, with the AAD outage template button highlighted.](images/tutorial-aad-outage-select.png)](images/tutorial-aad-outage-select.png#lightbox)
 1. Add a name for your experiment that complies with resource naming guidelines. Select **Next: Permissions**.
@@ -67,6 +67,6 @@ You're now ready to run your experiment.
 1. When **Status** changes to *Running*, select **Details** for the latest run under **History** to see details for the running experiment.
 
 ## Next steps
-Now that you've run an AAD outage template experiment, you're ready to:
+Now that you've run a Microsoft Entra ID outage template experiment, you're ready to:
 - [Manage your experiment](chaos-studio-run-experiment.md)
 - [Create an experiment that shut down all targets in a zone](chaos-studio-tutorial-dynamic-target-portal.md)

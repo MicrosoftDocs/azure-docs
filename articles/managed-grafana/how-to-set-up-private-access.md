@@ -5,7 +5,7 @@ description: How to disable public access to your Azure Managed Grafana workspac
 #CustomerIntent: As a data professional or developer I want to configure private access to an Azure Managed Grafana workspace.
 author: maud-lv
 ms.author: malev
-ms.service: managed-grafana
+ms.service: azure-managed-grafana
 ms.topic: how-to 
 ms.date: 01/31/2024
 ms.custom: how-to, devx-track-azurecli

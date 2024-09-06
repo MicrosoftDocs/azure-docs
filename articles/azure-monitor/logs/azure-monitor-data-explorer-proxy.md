@@ -4,7 +4,7 @@ description: Run cross-service queries to correlated data in Azure Data Explorer
 author: guywi-ms
 ms.author: guywild
 ms.topic: conceptual
-ms.date: 08/22/2023
+ms.date: 08/12/2024
 ms.reviewer: osalzberg
 ---
 

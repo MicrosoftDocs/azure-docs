@@ -4,7 +4,7 @@ description: This article describes how to configure and view event logs for Azu
 author: mbender-ms
 ms.author: mbender
 ms.topic: how-to
-ms.service: virtual-network-manager
+ms.service: azure-virtual-network-manager
 ms.date: 05/07/2024
 ---
 

@@ -1,11 +1,12 @@
 ---
 title: Create your Azure Maps account using an Azure Resource Manager template in Azure Maps
 description: Learn how to create an Azure Maps account using an Azure Resource Manager template.
-author: eriklindeman
-ms.author: eriklind
+author: pbrasil
+ms.author: peterbr
 ms.date: 04/27/2021
 ms.topic: how-to
 ms.service: azure-maps
+ms.subservice: manage-account
 ms.custom: devx-track-arm-template
 ---
 # Create your Azure Maps account using an ARM template

@@ -25,7 +25,7 @@ using Azure.Storage.Blobs;
 // get Blob endpoint
 var blobEndpoint = Environment.GetEnvironmentVariable("AZURE_STORAGEBLOB_RESOURCEENDPOINT");
 
-// Uncomment the following lines according to the authentication type.
+// Uncomment the following lines corresponding to the authentication type you want to use.
 // system-assigned managed identity
 // var credential = new DefaultAzureCredential();
 
@@ -67,7 +67,7 @@ var blobServiceClient = new BlobServiceClient(
     ```java
     String url = System.getenv("AZURE_STORAGEBLOB_RESOURCEENDPOINT");  
 
-    // Uncomment the following lines according to the authentication type.
+    // Uncomment the following lines corresponding to the authentication type you want to use.
     // for system managed identity
     // DefaultAzureCredential defaultCredential = new DefaultAzureCredentialBuilder().build();
 
@@ -107,7 +107,7 @@ Authentication type is not supported for Spring Boot.
    
    account_url = os.getenv('AZURE_STORAGEBLOB_RESOURCEENDPOINT')
     
-   # Uncomment the following lines according to the authentication type.
+   # Uncomment the following lines corresponding to the authentication type you want to use.
    # system assigned managed identity
    # cred = ManagedIdentityCredential()
 
@@ -137,7 +137,7 @@ Authentication type is not supported for Spring Boot.
    from azure.identity import ManagedIdentityCredential, ClientSecretCredential
    import os
     
-   # Uncomment the following lines according to the authentication type.
+   # Uncomment the following lines corresponding to the authentication type you want to use.
    # system assigned managed identity
    # cred = ManagedIdentityCredential()
 
@@ -183,7 +183,7 @@ Authentication type is not supported for Spring Boot.
     
         account_endpoint = os.Getenv("AZURE_STORAGEBLOB_RESOURCEENDPOINT")
         
-        // Uncomment the following lines according to the authentication type.
+        // Uncomment the following lines corresponding to the authentication type you want to use.
         // for system-assigned managed identity
         // cred, err := azidentity.NewDefaultAzureCredential(nil)
     
@@ -222,7 +222,7 @@ Authentication type is not supported for Spring Boot.
    
    const account_url = process.env.AZURE_STORAGEBLOB_RESOURCEENDPOINT;
 
-   // Uncomment the following lines according to the authentication type.
+   // Uncomment the following lines corresponding to the authentication type you want to use.
    // for system assigned managed identity
    // const credential = new DefaultAzureCredential();
 

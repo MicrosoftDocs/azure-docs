@@ -23,7 +23,7 @@ sections:
           See [Resolve past due balance for your Azure subscription](manage/resolve-past-due-balance.md).
       - question: How long does it take for my payment to be posted?
         answer: |
-          See [Wire transfer payment processing time](manage/pay-by-invoice.md#wire-transfer-payment-processing-time).
+          See [Wire transfer payment processing time](manage/pay-by-invoice.md#whats-the-processing-time-for-wire-transfer-payments).
       - question: How do I find my invoice?
         answer: |
           See [View and download your Microsoft Azure invoice](understand/download-azure-invoice.md).

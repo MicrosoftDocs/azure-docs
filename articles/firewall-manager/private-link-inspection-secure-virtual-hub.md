@@ -3,7 +3,7 @@ title: Secure traffic destined to private endpoints in Azure Virtual WAN
 description: Learn how to use network rules and application rules to secure traffic destined to private endpoints in Azure Virtual WAN 
 services: firewall-manager
 author: vhorne
-ms.service: firewall-manager
+ms.service: azure-firewall-manager
 ms.topic: how-to
 ms.date: 06/19/2023
 ms.author: victorh
@@ -41,7 +41,7 @@ The following steps enable Azure Firewall to filter traffic using either network
 1. Deploy a [DNS forwarder](../private-link/private-endpoint-dns-integration.md#virtual-network-and-on-premises-workloads-using-a-dns-forwarder) virtual machine in a virtual network connected to the secured virtual hub and linked to the Private DNS Zones hosting the A record types for the private endpoints.
 
 2. Configure [custom DNS servers](../virtual-network/manage-virtual-network.yml#change-dns-servers) for the virtual networks connected to the secured virtual hub:
-   - **FQDN-based network rules** - configure [custom DNS settings](../firewall/dns-settings.md#configure-custom-dns-servers---azure-portal) to point to the DNS forwarder virtual machine IP address and enable DNS proxy in the firewall policy associated with the Azure Firewall. Enabling DNS proxy is required if you want to do FQDN filtering in network rules.
+   - **FQDN-based network rules** - configure [custom DNS settings](../firewall/dns-settings.md#configure-custom-dns-servers) to point to the DNS forwarder virtual machine IP address and enable DNS proxy in the firewall policy associated with the Azure Firewall. Enabling DNS proxy is required if you want to do FQDN filtering in network rules.
    - **IP address-based network rules** - the custom DNS settings described in the previous point are **optional**. You can configure the custom DNS servers to point to the private IP of the DNS forwarder virtual machine.
 
 3. Depending on the configuration chosen in step **2.**, configure on-premises DNS servers to forward DNS queries for the private endpoints **public DNS zones** to either the private IP address of the Azure Firewall, or of the DNS forwarder virtual machine.

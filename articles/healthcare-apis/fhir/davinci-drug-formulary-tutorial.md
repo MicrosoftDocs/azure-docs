@@ -2,7 +2,7 @@
 title: Da Vinci Drug Formulary Tutorial
 description: This tutorial walks through setting up FHIR service to pass the Touchstone tests against the DaVinci Drug Formulary implementation guide.
 services: healthcare-apis
-ms.service: healthcare-apis
+ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.topic: tutorial
 ms.author: kesheth

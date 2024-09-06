@@ -2,10 +2,10 @@
 title: Azure Firewall Manager deployment overview
 description: Learn the high-level deployment steps required for Azure Firewall Manager
 author: vhorne
-ms.service: firewall-manager
+ms.service: azure-firewall-manager
 services: firewall-manager
-ms.topic: conceptual
-ms.date: 05/02/2023
+ms.topic: concept-article
+ms.date: 06/21/2024
 ms.author: victorh
 ---
 
@@ -35,7 +35,7 @@ To review network architecture options, see [What are the Azure Firewall Manager
 
    - This is done while you create a Hub Virtual Network
 <br>*or*<br>
-    - Convert an existing virtual network to a Hub Virtual Network. It is also possible to convert multiple virtual networks.
+    - Convert an existing virtual network to a Hub Virtual Network. It's also possible to convert multiple virtual networks.
 
 4. Configure User Define Routes to route traffic to your Hub Virtual Network firewall.
 
@@ -53,7 +53,7 @@ To review network architecture options, see [What are the Azure Firewall Manager
 3. Create a firewall policy and associate it with your hub
 
    - Applicable only if using Azure Firewall.
-   - Third-party security as a service (SECaaS) policies are configured via partners management experience.
+   - Partner security as a service (SECaaS) policies are configured via partners management experience.
 4. Configure route settings to route traffic to your secured hub
 
    - Easily route traffic to your secured hub for filtering and logging without User Defined Routes (UDR) on spoke Virtual Networks using the Secured Virtual Hub Route Setting page.
@@ -66,7 +66,7 @@ To review network architecture options, see [What are the Azure Firewall Manager
 
 The following information applies if you convert an existing virtual network to a hub virtual network:
 
-- If the virtual network has an existing Azure Firewall, you select a Firewall Policy to associate with the existing firewall. The firewall provisioning status will be updating while the firewall policy replaces firewall rules. During the provisioning state, the firewall continues processing traffic and has no downtime. You can import existing rules to a Firewall Policy using Firewall Manager or Azure PowerShell.
+- If the virtual network has an existing Azure Firewall, you select a Firewall Policy to associate with the existing firewall. The firewall provisioning status is updated while the firewall policy replaces firewall rules. During the provisioning state, the firewall continues processing traffic and has no downtime. You can import existing rules to a Firewall Policy using Firewall Manager or Azure PowerShell.
 - If the virtual network doesn't have an associated Azure Firewall, a firewall is deployed and the Firewall Policy is associated with the new firewall.
 
 ## Next steps

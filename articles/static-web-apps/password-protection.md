@@ -3,7 +3,7 @@ title: Enable password protection for Azure Static Web Apps
 description: Prevent unauthorized access to your static web app with a password.
 services: static-web-apps
 author: craigshoemaker
-ms.service: static-web-apps
+ms.service: azure-static-web-apps
 ms.topic: how-to
 ms.date: 03/13/2022
 ms.author: cshoe

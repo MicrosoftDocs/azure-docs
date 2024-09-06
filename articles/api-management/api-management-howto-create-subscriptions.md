@@ -4,7 +4,7 @@ description: Learn how to create subscriptions in Azure API Management. A subscr
 services: api-management
 author: dlepow
  
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: how-to
 ms.date: 03/26/2024
 ms.author: danlep

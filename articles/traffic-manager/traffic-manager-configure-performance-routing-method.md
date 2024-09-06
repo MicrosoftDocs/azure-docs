@@ -4,7 +4,7 @@ description: This article explains how to configure Traffic Manager to route tra
 services: traffic-manager
 
 author: greg-lindsay
-ms.service: traffic-manager
+ms.service: azure-traffic-manager
 ms.topic: how-to
 ms.date: 05/30/2023
 ms.author: greglin

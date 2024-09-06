@@ -7,7 +7,7 @@ ms.service: iot-edge
 ms.custom: linux-related-content
 services: iot-edge
 ms.topic: how-to
-ms.date: 02/27/2024
+ms.date: 06/13/2024
 ms.author: patricka
 ---
 
@@ -115,7 +115,7 @@ After entering the provisioning information in the configuration file, apply you
 
 # [Ubuntu Core snaps](#tab/snaps)
 
-1. Copy your identity keyfile and certificate in the `/var/snap/azure-iot-identity/common/provisioning` directory. Create the directory if it doesn't exist.
+1. Copy your identity keyfile and certificate in the `/var/snap/azure-iot-identity/current/shared` directory. Create the directory if it doesn't exist.
 
 1. Create a **config.toml** file in your home directory and configure your IoT Edge device for manual provisioning using an X.509 identity certificate.
 
@@ -134,16 +134,16 @@ After entering the provisioning information in the configuration file, apply you
     [provisioning.authentication]
     
     method = "x509"
-    identity_cert = "file:///var/snap/azure-iot-identity/common/provisioning/IDENTITY_CERT_FILENAME"
-    identity_pk = "file:///var/snap/azure-iot-identity/common/provisioning/IDENTITY_PK_FILENAME"
+    identity_cert = "file:///var/snap/azure-iot-identity/current/shared/IDENTITY_CERT_FILENAME"
+    identity_pk = "file:///var/snap/azure-iot-identity/current/shared/IDENTITY_PK_FILENAME"
     ```
 
     Update the following fields:
 
     * **iothub_hostname**: Hostname of the IoT Hub where the device connects. For example, `example.azure-devices.net`.
     * **device_id**: The ID that you provided when you registered the device.
-    * **identity_cert**: URI to an identity certificate on the device, for example: `file:///var/snap/azure-iot-identity/common/provisioning/identity_certificate.pem`.
-    * **identity_pk**: URI to the private key file for the provided identity certificate, for example: `file:///var/snap/azure-iot-identity/common/provisioning/identity_key.pem`.
+    * **identity_cert**: URI to an identity certificate on the device, for example: `file:///var/snap/azure-iot-identity/current/shared/identity_certificate.pem`.
+    * **identity_pk**: URI to the private key file for the provided identity certificate, for example: `file:///var/snap/azure-iot-identity/current/shared/identity_key.pem`.
 
     For more information about provisioning configuration settings, see [Configure IoT Edge device settings](configure-device.md#provisioning).
 

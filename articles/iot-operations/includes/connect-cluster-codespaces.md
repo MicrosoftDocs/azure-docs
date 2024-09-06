@@ -3,7 +3,7 @@
  description: include file
  author: kgremban
  ms.topic: include
- ms.date: 05/02/2024
+ ms.date: 07/22/2024
  ms.author: kgremban
 ms.custom: include file, ignite-2023, devx-track-azurecli
 ---
@@ -32,15 +32,14 @@ To connect your cluster to Azure Arc:
 1. Register the required resource providers in your subscription:
 
    >[!NOTE]
-   >This step only needs to be run once per subscription.
+   >This step only needs to be run once per subscription. To register resource providers, you need permission to do the `/register/action` operation, which is included in subscription Contributor and Owner roles. For more information, see [Azure resource providers and types](../../azure-resource-manager/management/resource-providers-and-types.md).
 
    ```azurecli
    az provider register -n "Microsoft.ExtendedLocation"
    az provider register -n "Microsoft.Kubernetes"
    az provider register -n "Microsoft.KubernetesConfiguration"
    az provider register -n "Microsoft.IoTOperationsOrchestrator"
-   az provider register -n "Microsoft.IoTOperationsMQ"
-   az provider register -n "Microsoft.IoTOperationsDataProcessor"
+   az provider register -n "Microsoft.IoTOperations"
    az provider register -n "Microsoft.DeviceRegistry"
    ```
 

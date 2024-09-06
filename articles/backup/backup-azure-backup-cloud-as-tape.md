@@ -1,7 +1,7 @@
 ---
 title: Replace your tape infrastructure by using Azure Backup
 description: Learn how Azure Backup provides tape-like semantics that enable you to back up and restore data in Azure
-ms.service: backup
+ms.service: azure-backup
 ms.topic: how-to
 ms.date: 03/29/2024
 author: AbhishekMallick-MS

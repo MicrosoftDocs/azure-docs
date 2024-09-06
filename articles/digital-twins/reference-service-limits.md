@@ -7,7 +7,7 @@ author: baanders
 ms.author: baanders # Microsoft employees only
 ms.date: 02/14/2023
 ms.topic: article
-ms.service: digital-twins
+ms.service: azure-digital-twins
 
 # Optional fields. Don't forget to remove # if you need a field.
 # ms.custom: can-be-multiple-comma-separated
@@ -26,7 +26,7 @@ The following sections describe the service limits of Azure Digital Twins.
 
 ## Limits by type
 
-[!INCLUDE [Azure Digital Twins limits](~/reusable-content/ce-skilling/azure/includes/digital-twins-limits.md)]
+[!INCLUDE [Azure Digital Twins limits](../../includes/digital-twins-limits.md)]
 
 ## Working with limits
 

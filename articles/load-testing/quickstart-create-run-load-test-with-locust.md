@@ -3,7 +3,7 @@ title: 'Quickstart: Create a load test with Locust'
 titleSuffix: Azure Load Testing
 description: 'This quickstart shows how to create a load test by using a Locust test script and Azure Load Testing. Azure Load Testing is a managed, cloud-based load testing tool.'
 services: load-testing
-ms.service: load-testing
+ms.service: azure-load-testing
 ms.custom:
   - build-2024
 ms.topic: quickstart

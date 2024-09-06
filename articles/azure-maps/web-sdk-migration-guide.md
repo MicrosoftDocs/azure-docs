@@ -7,6 +7,7 @@ ms.author: sipa
 ms.date: 08/18/2023
 ms.topic: how-to
 ms.service: azure-maps
+ms.subservice: web-sdk
 ---
 
 # The Azure Maps Web SDK migration guide

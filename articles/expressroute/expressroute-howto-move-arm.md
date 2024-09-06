@@ -4,7 +4,7 @@ description: This page describes how to move a classic circuit to the Resource M
 services: expressroute
 author: duongau
 
-ms.service: expressroute
+ms.service: azure-expressroute
 ms.topic: how-to
 ms.date: 02/25/2019
 ms.author: duau 
@@ -17,7 +17,7 @@ To use an ExpressRoute circuit for both the classic and Resource Manager deploym
 
 ## Before you begin
 
-[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/hybrid-az-ps.md)]
+[!INCLUDE [updated-for-az](../../includes/hybrid-az-ps.md)]
 
 * Verify that you have installed both the classic and Az Azure PowerShell modules locally on your computer. For more information, see [How to install and configure Azure PowerShell](/powershell/azure/).
 * Make sure that you have reviewed the [prerequisites](expressroute-prerequisites.md), [routing requirements](expressroute-routing.md), and [workflows](expressroute-workflows.md) before you begin configuration.

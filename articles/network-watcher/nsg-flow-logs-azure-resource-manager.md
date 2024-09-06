@@ -4,7 +4,7 @@ titleSuffix: Azure Network Watcher
 description: Learn how to create or delete Azure Network Watcher NSG flow logs using an Azure Resource Manager template (ARM template).
 author: halkazwini
 ms.author: halkazwini
-ms.service: network-watcher
+ms.service: azure-network-watcher
 ms.topic: how-to
 ms.date: 06/01/2023
 ms.custom: devx-track-arm-template, fasttrack-edit

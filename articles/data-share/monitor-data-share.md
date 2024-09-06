@@ -6,7 +6,7 @@ ms.custom: horz-monitor
 ms.topic: conceptual
 author: sidontha
 ms.author: sidontha
-ms.service: data-share
+ms.service: azure-data-share
 ---
 
 # Monitor Azure Data Share

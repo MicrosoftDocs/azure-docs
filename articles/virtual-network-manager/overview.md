@@ -3,7 +3,7 @@ title: 'What is Azure Virtual Network Manager?'
 description: Learn how Azure Virtual Network Manager can simplify management and scalability of your virtual networks.
 services: virtual-network-manager
 author: mbender-ms
-ms.service: virtual-network-manager
+ms.service: azure-virtual-network-manager
 ms.topic: overview
 ms.date: 3/22/2024
 ms.author: mbender

@@ -3,7 +3,7 @@ title: Azure Managed Grafana service reliability
 description: Learn about service reliability and availability options provided by Azure Managed Grafana
 author: maud-lv 
 ms.author: malev 
-ms.service: managed-grafana 
+ms.service: azure-managed-grafana
 ms.topic: conceptual
 ms.date: 5/14/2024
 ms.custom: references_regions, engagement-fy23

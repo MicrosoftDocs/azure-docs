@@ -3,7 +3,7 @@ title: Restore Azure Blobs via Azure CLI
 description: Learn how to restore Azure Blobs to any point-in-time using Azure CLI.
 ms.topic: how-to
 ms.custom: devx-track-azurecli
-ms.date: 05/30/2024
+ms.date: 07/24/2024
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
@@ -12,14 +12,14 @@ ms.author: v-abhmallick
 
 This article describes how to restore [blobs](blob-backup-overview.md) using Azure Backup.
 
-You can restore Azure Blobs to point-in-time using *operational backups* and *vaulted backups (preview)* for Azure Blobs via Azure CLI. Here, let's use an existing Backup vault `TestBkpVault`, under the resource group `testBkpVaultRG` in the examples.
+You can restore Azure Blobs to point-in-time using *operational backups* and *vaulted backups* for Azure Blobs via Azure CLI. Here, let's use an existing Backup vault `TestBkpVault`, under the resource group `testBkpVaultRG` in the examples.
 
 > [!IMPORTANT]
 > Before you restore Azure Blobs using Azure Backup, see [important points](blob-restore.md#before-you-start).
 
 ## Fetch details to restore a blob backup
 
-To restore a blob backup, you need to *fetch the valid time range for *operational backup* and *fetch the list of recovery points* for *vaulted backup (preview)*.
+To restore a blob backup, you need to *fetch the valid time range for *operational backup* and *fetch the list of recovery points* for *vaulted backup*.
 
 **Choose a backup tier**:
 
@@ -120,9 +120,9 @@ az dataprotection restorable-time-range find --start-time 2021-05-30T00:00:00 --
 }
 ```
 
-# [Vaulted backup (preview)](#tab/vaulted-backup)
+# [Vaulted backup](#tab/vaulted-backup)
 
-To fetch the list of recovery points available to restore vaulted backup (preview), use the `az dataprotection recovery-point list` command.
+To fetch the list of recovery points available to restore vaulted backup, use the `az dataprotection recovery-point list` command.
 
 To fetch the name of the backup instance corresponding to your backed-up storage account, use the `az dataprotection backup-instance list` command.
 
@@ -535,9 +535,9 @@ az dataprotection backup-instance restore initialize-for-item-recovery --datasou
 az dataprotection backup-instance restore initialize-for-item-recovery --datasource-type AzureBlob --restore-location southeastasia --source-datastore OperationalStore --backup-instance-id "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxx/resourceGroups/testBkpVaultRG/providers/Microsoft.DataProtection/backupVaults/TestBkpVault/backupInstances/CLITestSA-CLITestSA-c3a2a98c-def8-44db-bd1d-ff6bc86ed036" --point-in-time 2021-06-02T18:53:44.4465407Z --from-prefix-pattern container1/text1 container2/text4 --to-prefix-pattern container1/text4 container2/text41 > restore.json
 ```
 
-# [Vaulted backup (preview)](#tab/vaulted-backup)
+# [Vaulted backup](#tab/vaulted-backup)
 
-Prepare the request body for the following restore scenarios supported by Azure Blobs vaulted backup (preview).
+Prepare the request body for the following restore scenarios supported by Azure Blobs vaulted backup.
 
 ### Restore all containers
 

@@ -4,7 +4,7 @@ titleSuffix: Azure Private 5G Core
 description: Learn about the key components of a private mobile network deployed through Azure Private 5G Core.
 author: robswain
 ms.author: robswain
-ms.service: private-5g-core
+ms.service: azure-private-5g-core
 ms.topic: conceptual 
 ms.date: 02/09/2022
 ms.custom: template-concept 

@@ -5,7 +5,7 @@ description: Learn how to configure Palo Alto Networks Cloud NGFW in a Virtual W
 services: virtual-wan
 author: wtnlee
 
-ms.service: virtual-wan
+ms.service: azure-virtual-wan
 ms.topic: how-to
 ms.date: 07/31/2023
 ms.author: wellee
@@ -23,7 +23,7 @@ Palo Alto Networks Cloud NGFW integration with Virtual WAN provides the followin
 
 * **Protect critical workloads** using a highly scalable SaaS security offering that can be injected as a bump-in-the-wire solution in Virtual WAN.
 * **Fully managed infrastructure and software lifecycle** under software-as-a-service model.
-* **Consumption-based pay-as-you-go** billing.
+* **Consumption-based pay-as-you-go** billing. Note that if you use Palo Alto Networks Cloud NGFW, you are not billed for Virtual WAN NVA infrastruture units. Instead, you are billed for pay-as-you-go SaaS consumption through Azure Marketplace as documented in [Palo Alto Networks Cloud NGFW pricing](https://docs.paloaltonetworks.com/cloud-ngfw/azure/cloud-ngfw-for-azure/getting-started-with-cngfw-for-azure/pricing).
 * **Cloud-native experience** that has a tight integration with Azure to provide end-to-end Firewall management using Azure portal or Azure APIs. Rule and policy management is also optionally configurable through Palo Alto Network management solution Panorama.
 * **Dedicated and streamlined support channel** between Azure and Palo Alto Networks to troubleshoot issues.
 * **One-click routing** to configure Virtual WAN to inspect on-premises, Virtual Network and Internet-outbound traffic using Palo Alto Networks Cloud NGFW.

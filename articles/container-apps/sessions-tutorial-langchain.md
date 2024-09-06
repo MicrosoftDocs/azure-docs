@@ -3,7 +3,7 @@ title: "Tutorial: Use code interpreter sessions in LangChain with Azure Containe
 description: Learn to use code interpreter sessions in LangChain on Azure Container Apps.
 services: container-apps
 author: anthonychu
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.custom: devx-track-azurecli
 ms.topic: tutorial
 ms.date: 05/08/2024

@@ -1,8 +1,8 @@
 ---
 author: greg-lindsay
-ms.service: application-gateway
+ms.service: azure-application-gateway
 ms.topic: include
-ms.date: 07/29/2023
+ms.date: 06/19/2024
 ms.author: greglin
 ---
 | Resource | Limit | Note |
@@ -38,19 +38,20 @@ ms.author: greglin
 | Maximum header size|32 KB| |
 | Maximum header field size for HTTP/2|8 KB| |
 | Maximum header size for HTTP/2|16 KB| |
+| Maximum requests per HTTP/2 connection| 1000 | The total number of requests that can share the same frontend HTTP/2 connection|
 | Maximum file upload size (Standard SKU) |V1 - 2 GB<br>V2 - 4 GB |This maximum size limit is shared with the request body|
-| Maximum file upload size (WAF SKU) |V1 Medium - 100 MB<br>V1 Large - 500 MB<br>V2 - 750 MB<br>V2 (with CRS 3.2 or newer) - 4 GB<sup>3</sup>|1 MB - Minimum Value<br>100 MB - Default value<br>V2 with CRS 3.2 or newer - can be turned On/Off|
+| Maximum file upload size (WAF SKU) |V1 Medium - 100 MB<br>V1 Large - 500 MB<br>V2 - 750 MB<br>V2 (with CRS 3.2 or DRS) - 4 GB<sup>3</sup>|1 MB - Minimum Value<br>100 MB - Default value<br>V2 with CRS 3.2 or DRS - can be turned On/Off|
 | Maximum request size limit Standard SKU (without files)|V1 - 2 GB<br>V2 - 4 GB | |
-| Maximum request size limit WAF SKU (without files)|V1 or V2 (with CRS 3.1 and older) - 128 KB<br>V2 (with CRS 3.2 or newer) - 2 MB<sup>3</sup>|8 KB - Minimum Value<br>128 KB - Default value<br>V2 with CRS 3.2 or newer - can be turned On/Off|
-| Maximum request inspection limit WAF SKU| V1 or V2 (with CRS 3.1 and older) - 128 KB<br>V2 (with CRS 3.2 or newer) - 2 MB<sup>3</sup>|8 KB - Minimum Value<br>128 KB - Default value<br>V2 with CRS 3.2 or newer - can be turned On/Off|
+| Maximum request size limit WAF SKU (without files)|V1 or V2 (with CRS 3.1 and older) - 128 KB<br>V2 (with CRS 3.2 or DRS) - 2 MB<sup>3</sup>|8 KB - Minimum Value<br>128 KB - Default value<br>V2 with CRS 3.2 or DRS - can be turned On/Off|
+| Maximum request inspection limit WAF SKU| V1 or V2 (with CRS 3.1 and older) - 128 KB<br>V2 (with CRS 3.2 or DRS) - 2 MB<sup>3</sup>|8 KB - Minimum Value<br>128 KB - Default value<br>V2 with CRS 3.2 or DRS - can be turned On/Off|
 | Maximum Private Link Configurations| 2 | 1 for public IP, 1 for private IP |
 | Maximum Private Link IP Configurations| 8 | |
 | Maximum WAF custom rules per WAF policy|100||
-| WAF IP address ranges per match condition|540<br>600 - with CRS 3.2 or newer|
-| Maximum WAF exclusions per Application Gateway|40<br>200 - with CRS 3.2 or newer|
+| WAF IP address ranges per match condition|540<br>600 - with CRS 3.2 or DRS|
+| Maximum WAF exclusions per Application Gateway|40<br>200 - with CRS 3.2 or DRS|
 | WAF string match values per match condition|10||
 
-<sup>1</sup> The number of resources listed in the table applies to standard Application Gateway SKUs and WAF-enabled SKUs running CRS 3.2 or higher. For WAF-enabled SKUs running CRS 3.1 or lower, the supported number is 40. For more information, see [WAF engine](../articles/web-application-firewall/ag/waf-engine.md).
+<sup>1</sup> The number of resources listed in the table applies to standard Application Gateway SKUs and WAF-enabled SKUs running CRS 3.2 or DRS. For WAF-enabled SKUs running CRS 3.1 or lower, the supported number is 40. For more information, see [WAF engine](../articles/web-application-firewall/ag/waf-engine.md).
 
 <sup>2</sup> Limit is per Application Gateway instance not per Application Gateway resource.
 

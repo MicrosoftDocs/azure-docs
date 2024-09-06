@@ -16,3 +16,5 @@ items:
     href: palo-alto-manage.md
   - name: Troubleshoot Cloud NGFW by Palo Alto Networks 
     href: palo-alto-troubleshoot.md
+  - name: Deploy Cloud NGFW by Palo Alto Networks with the Application Gateway
+    href: palo-alto-application-gateway.md

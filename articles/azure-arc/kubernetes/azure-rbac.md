@@ -33,8 +33,11 @@ For a conceptual overview of this feature, see [Azure RBAC on Azure Arc-enabled 
   - [Upgrade your agents](agent-upgrade.md#manually-upgrade-agents) to the latest version.
 
 > [!NOTE]
-> You can't set up this feature for Red Hat OpenShift, or for managed Kubernetes offerings of cloud providers like Elastic Kubernetes Service or Google Kubernetes Engine where the user doesn't have access to the API server of the cluster. For Azure Kubernetes Service (AKS) clusters, this [feature is available natively](../../aks/manage-azure-rbac.md) and doesn't require the AKS cluster to be connected to Azure Arc.
-
+> Azure RBAC is not available for Red Hat OpenShift or managed Kubernetes offerings where user access to the API server is restricted (ex: Amazon Elastic Kubernetes Service (EKS), Google Kubernetes Engine (GKE)).
+>
+> Azure RBAC does not currently support Kubernetes clusters operating on ARM64 architecture. Please use [Kubernetes RBAC](identity-access-overview.md#kubernetes-rbac-authorization) to manage access control for ARM64-based Kubernetes clusters. 
+> 
+> For Azure Kubernetes Service (AKS) clusters, this [feature is available natively](/azure/aks/manage-azure-rbac) and doesn't require the AKS cluster to be connected to Azure Arc.
 ## Enable Azure RBAC on the cluster
 
 1. Get the cluster MSI identity by running the following command:

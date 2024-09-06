@@ -2,10 +2,10 @@
 title: Understand how IoT Edge uses certificates for security
 titleSuffix: Azure IoT Edge
 description: How Azure IoT Edge uses certificate to validate devices, modules, and downstream devices enabling secure connections between them. 
-author: jlian
+author: PatAltimore
 
-ms.author: jlian
-ms.date: 07/05/2023
+ms.author: patricka
+ms.date: 08/07/2024
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -386,7 +386,7 @@ In a typical manufacturing process for creating secure devices, root CA certific
 * Multiple companies involved serially in the production of a device
 * A customer buying a root CA and deriving a signing certificate for the manufacturer to sign the devices they make on that customer's behalf
 
-In any case, the manufacturer uses an intermediate CA certificate at the end of this chain to sign the edge CA certificate placed on the end device. These intermediate certificates are closely guarded at the manufacturing plant. They undergo strict processes, both physical and electronic for their usage.
+In any case, the manufacturer uses an intermediate CA certificate at the end of this chain to sign the Edge CA certificate placed on the end device. These intermediate certificates are closely guarded at the manufacturing plant. They undergo strict processes, both physical and electronic for their usage.
 
 ## Next steps
 

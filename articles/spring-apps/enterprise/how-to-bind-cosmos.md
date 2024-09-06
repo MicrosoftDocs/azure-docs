@@ -2,7 +2,7 @@
 title: Connect an Azure Cosmos DB to your application in Azure Spring Apps
 description: Learn how to connect Azure Cosmos DB to your application in Azure Spring Apps
 author: KarlErickson
-ms.service: spring-apps
+ms.service: azure-spring-apps
 ms.topic: how-to
 ms.date: 04/18/2024
 ms.author: karler
@@ -117,7 +117,7 @@ Alternatively, you can use the Azure portal to configure this connection by comp
 
 1. Select **Create**.
 
-1. On the **Basics** tab, for service type, select Cosmos DB, then choose a subscription. For API type, select Core (SQL), choose a Cosmos DB account, and a database. For client type, select Java, then select **Next: Authentication**. If you haven't created your database yet, see [Quickstart: Create an Azure Cosmos DB account, database, container, and items from the Azure portal](../../cosmos-db/nosql/quickstart-portal.md).
+1. On the **Basics** tab, for service type, select Cosmos DB, then choose a subscription. For API type, select Core (SQL), choose a Cosmos DB account, and a database. For client type, select Java, then select **Next: Authentication**. If you haven't created your database yet, see [Quickstart: Create an Azure Cosmos DB account, database, container, and items from the Azure portal](/azure/cosmos-db/nosql/quickstart-portal).
 
 1. On the **Authentication** tab, choose **Connection string**. Service Connector automatically retrieves the access key from your Cosmos DB account. Select **Next: Networking**.
 

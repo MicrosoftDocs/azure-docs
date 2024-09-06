@@ -3,7 +3,7 @@ title: Azure Firewall forced tunneling
 description: You can configure forced tunneling to route Internet-bound traffic to another firewall or network virtual appliance for further processing.
 services: firewall
 author: vhorne
-ms.service: firewall
+ms.service: azure-firewall
 ms.topic: article
 ms.date: 03/22/2024
 ms.author: victorh

@@ -4,9 +4,9 @@ titleSuffix: Azure Spring Apps Enterprise plan
 description: How to enable system-assigned managed identity for applications.
 author: KarlErickson
 ms.author: xiading
-ms.service: spring-apps
+ms.service: azure-spring-apps
 ms.topic: how-to
-ms.date: 04/15/2022
+ms.date: 06/27/2024
 ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli
 zone_pivot_groups: spring-apps-tier-selection
 ---
@@ -54,8 +54,6 @@ To set up a managed identity in the portal, first create an app, and then enable
 2. Scroll down to the **Settings** group in the left navigation pane.
 3. Select **Identity**.
 4. Within the **System assigned** tab, switch **Status** to *On*. Select **Save**.
-
-:::image type="content" source="media/how-to-enable-system-assigned-managed-identity/msi-enable.png" alt-text="Screenshot of Azure portal showing the Identity screen for an application." lightbox="media/how-to-enable-system-assigned-managed-identity/msi-enable.png":::
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -106,8 +104,6 @@ Use the following steps to remove system-assigned managed identity from an app t
 1. Sign in to the portal using an account associated with the Azure subscription that contains the Azure Spring Apps instance.
 1. Navigate to the desired application and select **Identity**.
 1. Under **System assigned**/**Status**, select **Off** and then select **Save**:
-
-:::image type="content" source="media/how-to-enable-system-assigned-managed-identity/msi-disable.png" alt-text="Screenshot of Azure portal showing the Identity screen for an application, with the Status switch set to Off." lightbox="media/how-to-enable-system-assigned-managed-identity/msi-disable.png":::
 
 ### [Azure CLI](#tab/azure-cli)
 

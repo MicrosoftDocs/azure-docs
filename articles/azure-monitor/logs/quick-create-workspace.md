@@ -4,21 +4,16 @@ description: Learn how to create a Log Analytics workspace to enable management 
 ms.topic: conceptual
 author: guywi-ms
 ms.author: guywild
-ms.date: 07/02/2023
+ms.date: 08/12/2024
 ms.reviewer: yossiy
 
 # Customer intent: As a DevOps engineer or IT expert, I want to set up a workspace to collect logs from multiple data sources from Azure, on-premises, and third-party cloud deployments.
 ---
 # Create a Log Analytics workspace
 
-This article shows you how to create a Log Analytics workspace. When you collect logs and data, the information is stored in a workspace. A workspace has a unique workspace ID and resource ID. The workspace name must be unique for a given resource group. After you've created a workspace, configure data sources and solutions to store their data there.
+A Log Analytics workspace is a data store into which you can collect any type of log data from all of your Azure and non-Azure resources and applications. We recommend that you send all log data to one Log Analytics workspace, unless you have specific business needs that require you to create multiple workspaces, as described in [Design a Log Analytics workspace architecture](./workspace-design.md).  
 
-You need a Log Analytics workspace if you collect data from:
-
-* Azure resources in your subscription.
-* On-premises computers monitored by System Center Operations Manager.
-* Device collections from Configuration Manager.
-* Diagnostics or log data from Azure Storage.
+This article explains how to create a Log Analytics workspace. 
 
 ## Prerequisites
 
@@ -86,6 +81,80 @@ Run the [az group create](/cli/azure/group#az-group-create) command to create a 
 
 For more information about Azure Monitor Logs in Azure CLI, see [Managing Azure Monitor Logs in Azure CLI](./azure-cli-log-analytics-workspace-sample.md).
 
+## [Bicep](#tab/bicep)
+
+The following sample uses [Microsoft.OperationalInsights workspaces](/azure/templates/microsoft.operationalinsights/workspaces?tabs=bicep&pivots=deployment-language-bicep) to create a Log Analytics workspace in Azure Monitor. For more information about Bicep, see [Bicep overview](../../azure-resource-manager/bicep/overview.md).
+
+[!INCLUDE [azure-monitor-samples](../../../includes/azure-monitor-resource-manager-samples.md)]
+
+### Bicep file
+
+```bicep
+@description('Name of the workspace.')
+param workspaceName string
+
+@description('Pricing tier: PerGB2018 or legacy tiers (Free, Standalone, PerNode, Standard or Premium) which are not available to all customers.')
+@allowed([
+  'pergb2018'
+  'Free'
+  'Standalone'
+  'PerNode'
+  'Standard'
+  'Premium'
+])
+param sku string = 'pergb2018'
+
+@description('Specifies the location for the workspace.')
+param location string
+
+@description('Number of days to retain data.')
+param retentionInDays int = 120
+
+@description('true to use resource or workspace permissions. false to require workspace permissions.')
+param resourcePermissions bool
+
+@description('Number of days to retain data in Heartbeat table.')
+param heartbeatTableRetention int
+
+resource workspace 'Microsoft.OperationalInsights/workspaces@2023-09-01' = {
+  name: workspaceName
+  location: location
+  properties: {
+    sku: {
+      name: sku
+    }
+    retentionInDays: retentionInDays
+    features: {
+      enableLogAccessUsingOnlyResourcePermissions: resourcePermissions
+    }
+  }
+}
+
+resource workspaceName_Heartbeat 'Microsoft.OperationalInsights/workspaces/tables@2022-10-01' = {
+  parent: workspace
+  name: 'Heartbeat'
+  properties: {
+    retentionInDays: heartbeatTableRetention
+  }
+}
+```
+
+> [!NOTE]
+> If you specify a pricing tier of **Free**, then remove the **retentionInDays** element.
+
+### Parameter file
+
+```bicepparam
+using './main.bicep'
+
+param workspaceName = 'MyWorkspace'
+param sku = 'pergb2018'
+param location = 'eastus'
+param retentionInDays = 120
+param resourcePermissions = true
+param heartbeatTableRetention = 30
+```
+
 ## [Resource Manager template](#tab/azure-resource-manager)
 
 The following sample uses the [Microsoft.OperationalInsights workspaces](/azure/templates/microsoft.operationalinsights/workspaces?tabs=bicep) template to create a Log Analytics workspace in Azure Monitor.
@@ -97,85 +166,83 @@ For more information about Azure Resource Manager templates, see [Azure Resource
 
 ```json
 {
-  "$schema": "https://schema.management.azure.com/schemas/2019-08-01/deploymentTemplate.json#",
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
-      "workspaceName": {
-          "type": "string",
-          "metadata": {
-            "description": "Name of the workspace."
-          }
-      },
-      "sku": {
-          "type": "string",
-          "allowedValues": [
-            "pergb2018",
-            "Free",
-            "Standalone",
-            "PerNode",
-            "Standard",
-            "Premium"
-            ],
-          "defaultValue": "pergb2018",
-          "metadata": {
-          "description": "Pricing tier: PerGB2018 or legacy tiers (Free, Standalone, PerNode, Standard or Premium) which are not available to all customers."
-          }
-        },
-        "location": {
-          "type": "string",
-          "metadata": {
-              "description": "Specifies the location for the workspace."
-              }
-        },
-        "retentionInDays": {
-          "type": "int",
-          "defaultValue": 120,
-          "metadata": {
-            "description": "Number of days to retain data."
-          }
-        },
-        "resourcePermissions": {
-          "type": "bool",
-          "metadata": {
-            "description": "true to use resource or workspace permissions. false to require workspace permissions."
-          }
-        },
-        "heartbeatTableRetention": {
-          "type": "int",
-          "metadata": {
-            "description": "Number of days to retain data in Heartbeat table."
-          }
-        }  
-      },
-      "resources": [
-      {
-          "type": "Microsoft.OperationalInsights/workspaces",
-          "name": "[parameters('workspaceName')]",
-          "apiVersion": "2020-08-01",
-          "location": "[parameters('location')]",
-          "properties": {
-              "sku": {
-                  "name": "[parameters('sku')]"
-              },
-              "retentionInDays": "[parameters('retentionInDays')]",
-              "features": {
-                  "enableLogAccessUsingOnlyResourcePermissions": "[parameters('resourcePermissions')]"
-              }
-          },
-          "resources": [
-            {
-              "type": "Microsoft.OperationalInsights/workspaces/tables",
-              "apiVersion": "2020-08-01",
-              "name": "[concat(parameters('workspaceName'),'/','Heartbeat')]",
-              "dependsOn": [
-                "[parameters('workspaceName')]"
-              ],
-              "properties": {
-                "RetentionInDays": "[parameters('heartbeatTableRetention')]"
-              }
-            }
-          ]
+    "workspaceName": {
+      "type": "string",
+      "metadata": {
+        "description": "Name of the workspace."
       }
+    },
+    "sku": {
+      "type": "string",
+      "defaultValue": "pergb2018",
+      "allowedValues": [
+        "pergb2018",
+        "Free",
+        "Standalone",
+        "PerNode",
+        "Standard",
+        "Premium"
+      ],
+      "metadata": {
+        "description": "Pricing tier: PerGB2018 or legacy tiers (Free, Standalone, PerNode, Standard or Premium) which are not available to all customers."
+      }
+    },
+    "location": {
+      "type": "string",
+      "metadata": {
+        "description": "Specifies the location for the workspace."
+      }
+    },
+    "retentionInDays": {
+      "type": "int",
+      "defaultValue": 120,
+      "metadata": {
+        "description": "Number of days to retain data."
+      }
+    },
+    "resourcePermissions": {
+      "type": "bool",
+      "metadata": {
+        "description": "true to use resource or workspace permissions. false to require workspace permissions."
+      }
+    },
+    "heartbeatTableRetention": {
+      "type": "int",
+      "metadata": {
+        "description": "Number of days to retain data in Heartbeat table."
+      }
+    }
+  },
+  "resources": [
+    {
+      "type": "Microsoft.OperationalInsights/workspaces",
+      "apiVersion": "2023-09-01",
+      "name": "[parameters('workspaceName')]",
+      "location": "[parameters('location')]",
+      "properties": {
+        "sku": {
+          "name": "[parameters('sku')]"
+        },
+        "retentionInDays": "[parameters('retentionInDays')]",
+        "features": {
+          "enableLogAccessUsingOnlyResourcePermissions": "[parameters('resourcePermissions')]"
+        }
+      }
+    },
+    {
+      "type": "Microsoft.OperationalInsights/workspaces/tables",
+      "apiVersion": "2022-10-01",
+      "name": "[format('{0}/{1}', parameters('workspaceName'), 'Heartbeat')]",
+      "properties": {
+        "retentionInDays": "[parameters('heartbeatTableRetention')]"
+      },
+      "dependsOn": [
+        "workspace"
+      ]
+    }
   ]
 }
 ```
@@ -208,6 +275,7 @@ For more information about Azure Resource Manager templates, see [Azure Resource
   }
 }
 ```
+
 ---
 
 ## Troubleshooting

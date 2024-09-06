@@ -4,7 +4,7 @@ titleSuffix: Azure Network Watcher
 description: Learn how to create, change, disable, or delete Azure Network Watcher NSG flow logs using Azure PowerShell.
 author: halkazwini
 ms.author: halkazwini
-ms.service: network-watcher
+ms.service: azure-network-watcher
 ms.topic: how-to
 ms.date: 05/30/2024
 ms.custom: devx-track-azurepowershell

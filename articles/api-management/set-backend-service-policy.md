@@ -4,11 +4,11 @@ description: Reference for the set-backend-service policy available for use in A
 services: api-management
 author: dlepow
 
-ms.service: api-management
+ms.service: azure-api-management
 ms.custom:
   - build-2024
 ms.topic: article
-ms.date: 03/18/2024
+ms.date: 07/23/2024
 ms.author: danlep
 ---
 
@@ -46,7 +46,7 @@ Referencing a backend entity allows you to manage the backend service base URL a
 
 - [**Policy sections:**](./api-management-howto-policies.md#sections) inbound, backend
 - [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, workspace, product, API, operation
--  [**Gateways:**](api-management-gateways-overview.md) classic, v2, consumption, self-hosted
+-  [**Gateways:**](api-management-gateways-overview.md) classic, v2, consumption, self-hosted, workspace
 
 ### Usage notes
 

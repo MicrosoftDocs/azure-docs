@@ -44,7 +44,7 @@ You might have to wait up to 24 hours after enabling inventory reports for your 
    > [!NOTE]
    > As part of creating the workspace, you'll create a storage account that has a hierarchical namespace. Azure Synapse stores Spark tables and application logs to this account. Azure Synapse refers to this account as the _primary storage account_. To avoid confusion, this article uses the term _inventory report account_ to refer to the account which contains inventory reports.
 
-2. In the Synapse workspace, assign the **Contributor** role to your user identity. See [Azure RBAC: Owner role for the workspace](../../synapse-analytics/get-started-add-admin.md#azure-rbac-owner-role-for-the-workspace).
+2. In the Synapse workspace, assign the **Contributor** role to your user identity. See [Azure RBAC: Owner role for the workspace](../../synapse-analytics/get-started-add-admin.md#azure-role-based-access-control-owner-role-for-the-workspace).
 
 3. Give the Synapse workspace permission to access the inventory reports in your storage account by navigating to your inventory report account, and then assigning the **Storage Blob Data Contributor** role to the system managed identity of the workspace. See [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.yml).
 
@@ -54,7 +54,7 @@ You might have to wait up to 24 hours after enabling inventory reports for your 
 
 1. Open your Synapse workspace in Synapse Studio. See [Open Synapse Studio](../../synapse-analytics/get-started-create-workspace.md#open-synapse-studio).
 
-2. In Synapse Studio, Make sure that your identity is assigned the role of **Synapse Administrator**. See [Synapse RBAC: Synapse Administrator role for the workspace](../../synapse-analytics/get-started-add-admin.md#synapse-rbac-synapse-administrator-role-for-the-workspace).
+2. In Synapse Studio, Make sure that your identity is assigned the role of **Synapse Administrator**. See [Synapse RBAC: Synapse Administrator role for the workspace](../../synapse-analytics/get-started-add-admin.md#synapse-role-based-access-control-synapse-administrator-role-for-the-workspace).
 
 3. Create an Apache Spark pool. See [Create a serverless Apache Spark pool](../../synapse-analytics/get-started-analyze-spark.md#create-a-serverless-apache-spark-pool).
 

@@ -3,7 +3,7 @@ title: 'Connect to a VM using Bastion - Windows native client'
 titleSuffix: Azure Bastion
 description: Learn how to connect to a VM from a Windows computer by using Bastion and a native client.
 author: cherylmc
-ms.service: bastion
+ms.service: azure-bastion
 ms.custom: devx-track-azurecli
 ms.topic: how-to
 ms.date: 04/05/2024

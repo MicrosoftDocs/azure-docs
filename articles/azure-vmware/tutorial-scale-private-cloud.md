@@ -41,6 +41,9 @@ We do not allow the mixing of AV36, AV36P, or AV52 SKUs within the same cluster.
 
 ## Scale a cluster
 
+> [!NOTE]
+> Scaling down a cluster successfully requires all objects (VM/vmdk/iso/etc) on a vSAN datastore to be configured with a storage policy below or equal to [RAID level requirements](configure-storage-policy.md). 
+
 1. In your Azure VMware Solution private cloud, under **Manage**, select **Clusters**.
 
 2. Select the cluster you want to scale, select **More** (...), then select **Edit**.

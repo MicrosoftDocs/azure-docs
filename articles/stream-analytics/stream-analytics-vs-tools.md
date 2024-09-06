@@ -4,7 +4,7 @@ description: Learn how to view, start and stop, test connections, check results,
 author: su-jie
 ms.author: sujie
 
-ms.service: stream-analytics
+ms.service: azure-stream-analytics
 ms.topic: how-to
 ms.date: 07/10/2018
 ---

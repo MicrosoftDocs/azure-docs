@@ -3,7 +3,7 @@ title: 'Tutorial: Deploy & configure Azure Firewall and policy using the Azure p
 description: In this tutorial, you learn how to deploy and configure Azure Firewall and policy rules using the Azure portal. 
 services: firewall
 author: vhorne
-ms.service: firewall
+ms.service: azure-firewall
 ms.topic: tutorial
 ms.date: 06/06/2024
 ms.author: victorh
@@ -27,7 +27,7 @@ For this tutorial, you create a simplified single VNet with two subnets for easy
 * **AzureFirewallSubnet** - the firewall is in this subnet.
 * **Workload-SN** - the workload server is in this subnet. This subnet's network traffic goes through the firewall.
 
-![Tutorial network infrastructure](media/tutorial-firewall-deploy-portal/tutorial-network.png)
+:::image type="content" source="media/tutorial-firewall-deploy-portal/tutorial-network.png" alt-text="Diagram of Firewall network infrastructure." lightbox="media/tutorial-firewall-deploy-portal/tutorial-network.png":::
 
 For production deployments, a [hub and spoke model](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke) is recommended, where the firewall is in its own VNet. The workload servers are in peered VNets in the same region with one or more subnets.
 

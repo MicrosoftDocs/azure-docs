@@ -60,10 +60,10 @@ Set the target framework in the project file for your ASP.NET Core project. For 
 
 ::: zone pivot="platform-linux"
 
-Run the following command in the [Cloud Shell](https://shell.azure.com) to set the .NET Core version to 3.1:
+Run the following command in the [Cloud Shell](https://shell.azure.com) to set the .NET Core version to 8.0:
 
 ```azurecli-interactive
-az webapp config set --name <app-name> --resource-group <resource-group-name> --linux-fx-version "DOTNETCORE|3.1"
+az webapp config set --name <app-name> --resource-group <resource-group-name> --linux-fx-version "DOTNETCORE|8.0"
 ```
 
 ::: zone-end
@@ -79,7 +79,7 @@ If you deploy your app using Git, or zip packages [with build automation enabled
 1. Run `dotnet publish` to build a binary for production.
 1. Run custom script if specified by `POST_BUILD_SCRIPT_PATH`.
 
-`PRE_BUILD_COMMAND` and `POST_BUILD_COMMAND` are environment variables that are empty by default. To run pre-build commands, define `PRE_BUILD_COMMAND`. To run post-build commands, define `POST_BUILD_COMMAND`.
+`PRE_BUILD_COMMAND` and `POST_BUILD_COMMAND` are environment variables that are empty by default. To run prebuild commands, define `PRE_BUILD_COMMAND`. To run post-build commands, define `POST_BUILD_COMMAND`.
 
 The following example specifies the two variables to a series of commands, separated by commas.
 
@@ -124,6 +124,9 @@ namespace SomeNamespace
 ```
 
 If you configure an app setting with the same name in App Service and in *appsettings.json*, for example, the App Service value takes precedence over the *appsettings.json* value. The local *appsettings.json* value lets you debug the app locally, but the App Service value lets you run the app in production with production settings. Connection strings work in the same way. This way, you can keep your application secrets outside of your code repository and access the appropriate values without changing your code.
+
+> [!NOTE]
+> Consider more secure connectivity options that don't require connection secrets at all. For more information, see [Secure connectivity to Azure services and databases from Azure App Service](tutorial-connect-overview.md).
 
 ::: zone pivot="platform-linux"
 > [!NOTE]
@@ -176,7 +179,7 @@ For more information on troubleshooting ASP.NET Core apps in App Service, see [T
 
 ## Get detailed exceptions page
 
-When your ASP.NET Core app generates an exception in the Visual Studio debugger, the browser displays a detailed exception page, but in App Service that page is replaced by a generic **HTTP 500** error or **An error occurred while processing your request.** message. To display the detailed exception page in App Service, Add the `ASPNETCORE_ENVIRONMENT` app setting to your app by running the following command in the <a target="_blank" href="https://shell.azure.com" >Cloud Shell</a>.
+When your ASP.NET Core app generates an exception in the Visual Studio debugger, the browser displays a detailed exception page, but in App Service that page is replaced by a generic **HTTP 500** or **An error occurred while processing your request.** To display the detailed exception page in App Service, Add the `ASPNETCORE_ENVIRONMENT` app setting to your app by running the following command in the <a target="_blank" href="https://shell.azure.com" >Cloud Shell</a>.
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings ASPNETCORE_ENVIRONMENT="Development"
@@ -221,6 +224,10 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env)
 For more information, see [Configure ASP.NET Core to work with proxy servers and load balancers](/aspnet/core/host-and-deploy/proxy-load-balancer).
 
 ::: zone pivot="platform-linux"
+
+## Rewrite or redirect URL
+
+To rewrite or redirect URL, use the [URL rewriting middleware in ASP.NET Core](/aspnet/core/fundamentals/url-rewriting).
 
 ## Open SSH session in browser
 

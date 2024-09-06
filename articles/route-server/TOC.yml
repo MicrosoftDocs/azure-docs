@@ -18,7 +18,7 @@
 - name: Tutorials
   items:
   - name: Peer Route Server with NVA
-    href: tutorial-configure-route-server-with-quagga.md
+    href: peer-route-server-with-virtual-appliance.md
   - name: Deploy Route Server with DDoS protection
     href: tutorial-protect-route-server-ddos.md
 - name: Concepts

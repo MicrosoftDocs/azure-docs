@@ -4,7 +4,7 @@ description: Learn how to encrypt your Premium container registry by using a cus
 ms.topic: tutorial
 ms.date: 10/31/2023
 ms.author: tejaswikolli
-ms.service: container-registry
+ms.service: azure-container-registry
 ---
 
 # Overview of customer-managed keys
@@ -21,15 +21,15 @@ This article is part one in a four-part tutorial series. The tutorial covers:
 
 ## About customer-managed keys 
 
-A customer-managed key gives you the ownership to bring your own key in [Azure Key Vault](../key-vault/general/overview.md). When you enable a customer-managed key, you can manage its rotations, control the access and permissions to use it, and audit its use.
+A customer-managed key gives you the ownership to bring your own key in [Azure Key Vault](/azure/key-vault/general/overview). When you enable a customer-managed key, you can manage its rotations, control the access and permissions to use it, and audit its use.
 
 Key features include:
 
 * **Regulatory compliance**: Azure automatically encrypts registry content at rest with [service-managed keys](../security/fundamentals/encryption-models.md), but customer-managed key encryption helps you meet guidelines for regulatory compliance.
 
-* **Integration with Azure Key Vault**: Customer-managed keys support server-side encryption through integration with [Azure Key Vault](../key-vault/general/overview.md). With customer-managed keys, you can create your own encryption keys and store them in a key vault. Or you can use Azure Key Vault APIs to generate keys. 
+* **Integration with Azure Key Vault**: Customer-managed keys support server-side encryption through integration with [Azure Key Vault](/azure/key-vault/general/overview). With customer-managed keys, you can create your own encryption keys and store them in a key vault. Or you can use Azure Key Vault APIs to generate keys. 
 
-* **Key lifecycle management**: Integrating customer-managed keys with [Azure Key Vault](../key-vault/general/overview.md) gives you full control and responsibility for the key lifecycle, including rotation and management.
+* **Key lifecycle management**: Integrating customer-managed keys with [Azure Key Vault](/azure/key-vault/general/overview) gives you full control and responsibility for the key lifecycle, including rotation and management.
 
 ## Before you enable a customer-managed key  
 
@@ -48,7 +48,7 @@ Before you configure Azure Container Registry with a customer-managed key, consi
 Azure Container Registry supports both automatic and manual rotation of registry encryption keys when a new key version is available in Azure Key Vault.
 
 >[!IMPORTANT]
->It's an important security consideration for a registry with customer-managed key encryption to frequently update (rotate) the key versions. Follow your organization's compliance policies to regularly update [key versions](../key-vault/general/about-keys-secrets-certificates.md#objects-identifiers-and-versioning) while storing a customer-managed key in Azure Key Vault.  
+>It's an important security consideration for a registry with customer-managed key encryption to frequently update (rotate) the key versions. Follow your organization's compliance policies to regularly update [key versions](/azure/key-vault/general/about-keys-secrets-certificates#objects-identifiers-and-versioning) while storing a customer-managed key in Azure Key Vault.  
 
 * **Automatically update the key version**: When a registry is encrypted with a non-versioned key, Azure Container Registry regularly checks the key vault for a new key version and updates the customer-managed key within one hour. We suggest that you omit the key version when you enable registry encryption with a customer-managed key. Azure Container Registry will then automatically use and update the latest key version.
 
@@ -60,7 +60,7 @@ For details, see [Key rotation](tutorial-enable-customer-managed-keys.md#key-rot
 
 * To enable your container registry with a customer-managed key by using the Azure CLI, the Azure portal, or an Azure Resource Manager template, advance to the next article: [Enable a customer-managed key](tutorial-enable-customer-managed-keys.md).
 * Learn more about [encryption at rest in Azure](../security/fundamentals/encryption-atrest.md).
-* Learn more about access policies and how to [secure access to a key vault](../key-vault/general/security-features.md).
+* Learn more about access policies and how to [secure access to a key vault](/azure/key-vault/general/security-features).
 
 
 <!-- LINKS - external -->

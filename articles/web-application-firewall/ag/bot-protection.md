@@ -4,7 +4,7 @@ description: Learn how to configure bot protection for Web Application Firewall 
 services: web-application-firewall
 ms.topic: article
 author: vhorne
-ms.service: web-application-firewall
+ms.service: azure-web-application-firewall
 ms.date: 06/01/2023
 ms.author: victorh
 ---

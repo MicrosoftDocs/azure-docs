@@ -1,9 +1,9 @@
 ---
 title: Azure HDInsight business continuity architectures
 description: This article discusses the different possible business continuity architectures for HDInsight
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: conceptual
-ms.date: 06/08/2023
+ms.date: 06/13/2024
 ---
 
 # Azure HDInsight business continuity architectures
@@ -82,7 +82,7 @@ Applications read and write to Spark and Hive Clusters in the primary region whi
 
 Applications read and write to Spark and Hive clusters in the primary region while standby scaled-down Hive and Spark clusters in read-only mode run in secondary region during normal operations. During normal operations, you could choose to offload region specific Hive and Spark read operations to secondary.
 
-:::image type="content" source="./media/hdinsight-business-continuity-architecture/active-primary-standby-secondary-spark.png" alt-text="active primary standby secondary Apache Spark .":::
+:::image type="content" source="./media/hdinsight-business-continuity-architecture/active-primary-standby-secondary-spark.png" alt-text="active primary standby secondary Apache Spark.":::
 
 ## Apache HBase
 
@@ -120,15 +120,15 @@ HBase replication can be set up in three modes: Leader-Follower, Leader-Leader a
 
 In this cross-region set up, replication is unidirectional from the primary region to the secondary region. Either all tables or specific tables on the primary can be identified for unidirectional replication. During normal operations, the secondary cluster can be used to serve read requests in its own region.
 
-The secondary cluster operates as a normal HBase cluster that can host its own tables and can serve reads and writes from regional applications. However, writes on the replicated tables or tables native to secondary are not replicated back to the primary.
+The secondary cluster operates as a normal HBase cluster that can host its own tables and can serve reads and writes from regional applications. However, write on the replicated tables or tables native to secondary are not replicated back to the primary.
 
 :::image type="content" source="./media/hdinsight-business-continuity-architecture/hbase-leader-follower.png" alt-text="HBase leader follower model.":::
 
-#### HBase Replication:  Leader – Leader model
+#### HBase Replication: Leader model
 
-This cross-region set up is very similar to the unidirectional set up except that replication happens bidirectionally between the primary region and the secondary region. Applications can use both clusters in read–write modes and updates are exchanges asynchronously between them.
+This cross-region setup is very similar to the unidirectional setup except that replication happens bidirectionally between the primary region and the secondary region. Applications can use both clusters in read–write modes and updates are exchanges asynchronously between them.
 
-:::image type="content" source="./media/hdinsight-business-continuity-architecture/hbase-leader-leader.png" alt-text="HBase leader leader model.":::
+:::image type="content" source="./media/hdinsight-business-continuity-architecture/hbase-leader-leader.png" alt-text="HBase leader model.":::
 
 #### HBase Replication: Multi-Region or Cyclic
 
@@ -167,7 +167,7 @@ Disadvantages:
 
 #### Kafka Replication: Active – Active
 
-Active-Active set up involves two regionally separated, VNet peered HDInsight Kafka clusters with bidirectional asynchronous replication with MirrorMaker. In this design, messages consumed by the consumers in the primary are also made available to consumers in secondary and vice versa. Below are some advantages and disadvantages of Active-Active setup.
+Active-Active setup involves two regionally separated, VNet peered HDInsight Kafka clusters with bidirectional asynchronous replication with MirrorMaker. In this design, messages consumed by the consumers in the primary are also made available to consumers in secondary and vice versa. Below are some advantages and disadvantages of Active-Active setup.
 
 Advantages:
 
@@ -179,17 +179,17 @@ Disadvantages:
 * The problem of circular replication needs to addressed.  
 * Bidirectional replication leads to higher regional data egress costs.
 
-:::image type="content" source="./media/hdinsight-business-continuity-architecture/kafka-active-active.png" alt-text="Apache Kafka active active model.":::
+:::image type="content" source="./media/hdinsight-business-continuity-architecture/kafka-active-active.png" alt-text="Apache Kafka active model.":::
 
 ## HDInsight Enterprise Security Package
 
-This set up is used to enable multi-user functionality in both primary and secondary, as well as [Microsoft Entra Domain Services replica sets](../active-directory-domain-services/tutorial-create-replica-set.md) to ensure that users can authenticate to both clusters. During normal operations, Ranger policies need to be set up in the Secondary to ensure that users are restricted to Read operations. The below architecture explains how an ESP enabled Hive Active Primary – Standby Secondary set up might look.
+This set up is used to enable multi-user functionality in both primary and secondary, as well as [Microsoft Entra Domain Services replica sets](../active-directory-domain-services/tutorial-create-replica-set.md) to ensure that users can authenticate to both clusters. During normal operations, Ranger policies need to be set up in the Secondary to ensure that users are restricted to Read operations. The below architecture explains how an ESP enabled Hive Active Primary – Standby Secondary setup might look.
 
 Ranger Metastore replication:
 
 Ranger Metastore is used to persistently store and serve Ranger policies for controlling data authorization. We recommend that you maintain independent Ranger policies in primary and secondary and maintain the secondary as a read replica.
   
-If the requirement is to keep Ranger policies in sync between primary and secondary, use [Ranger Import/Export](https://cwiki.apache.org/confluence/display/RANGER/User+Guide+For+Import-Export) to periodically back-up and import Ranger policies from primary to secondary.
+If the requirement is to keep Ranger policies in sync between primary and secondary, use [Ranger Import/Export](https://cwiki.apache.org/confluence/display/RANGER/User+Guide+For+Import-Export) to periodically back up and import Ranger policies from primary to secondary.
 
 Replicating Ranger policies between primary and secondary can cause the secondary to become write-enabled, which can lead to inadvertent writes on the secondary leading to data inconsistencies.  
 

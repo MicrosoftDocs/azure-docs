@@ -119,16 +119,16 @@ The following table summarizes the Security Assertion Markup Language (SAML) app
 |[QQ](identity-provider-qq.md) | Preview | GA | |
 |[Salesforce](identity-provider-salesforce.md) | GA | GA | |
 |[Salesforce (SAML protocol)](identity-provider-salesforce-saml.md) | NA | GA | |
-|[Twitter](identity-provider-twitter.md) | GA | GA | |
 |[WeChat](identity-provider-wechat.md) | Preview | GA | Available in China cloud, but only for custom policies. |
 |[Weibo](identity-provider-weibo.md) | Preview | GA | |
+|[X](identity-provider-twitter.md) | GA | GA | |
 
 ## Generic identity providers
 
 |Feature  |User flow  |Custom policy  |Notes  |
 |---------|:---------:|:---------:|---------|
 |[OAuth2](oauth2-technical-profile.md) | NA | GA | For example, [Google](identity-provider-google.md), [GitHub](identity-provider-github.md), and [Facebook](identity-provider-facebook.md).|
-|[OAuth1](oauth1-technical-profile.md) | NA | GA | For example, [Twitter](identity-provider-twitter.md). |
+|[OAuth1](oauth1-technical-profile.md) | NA | GA | For example, [X](identity-provider-twitter.md). |
 |[OpenID Connect](openid-connect-technical-profile.md) | GA | GA | For example, [Microsoft Entra ID](identity-provider-azure-ad-single-tenant.md).  |
 |[SAML2](identity-provider-generic-saml.md) | NA | GA | For example, [Salesforce](identity-provider-salesforce-saml.md) and [AD-FS](identity-provider-adfs.md). |
 | WSFED | NA | NA | |

@@ -3,9 +3,9 @@ title: "Tutorial: Deploy hybrid Next.js websites on Azure Static Web Apps"
 description: "Generate and deploy Next.js hybrid sites with Azure Static Web Apps."
 services: static-web-apps
 author: aaronpowell
-ms.service: static-web-apps
+ms.service: azure-static-web-apps
 ms.topic:  tutorial
-ms.date: 10/12/2022
+ms.date: 04/25/2024
 ms.author: aapowell
 ms.custom: devx-track-js
 ---
@@ -20,10 +20,12 @@ In this tutorial, you learn to deploy a [Next.js](https://nextjs.org) website to
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/).
-- A GitHub account. [Create an account for free](https://github.com/join).
-- [Node.js](https://nodejs.org) installed.
-- [Next.js CLI](https://nextjs.org/docs/getting-started) installed. Refer to the [Next.js Getting Started guide](https://nextjs.org/docs/getting-started) for details.
+| Resource | Description |
+|---|---|
+| [Azure account](https://azure.microsoft.com/free/) | If you don't have an Azure account with an active subscription, you can [create one for free](https://azure.microsoft.com/free/). |
+| [GitHub account](https://github.com/join) | If you don't have a GitHub account, you can [create an account for free](https://github.com/join). |
+| [Node.js](https://nodejs.org) | Install the latest version of Node.js. |
+| [Next.js CLI](https://nextjs.org/docs/getting-started) | Install the latest version of the Next.js CLI. See the [Next.js Getting Started guide](https://nextjs.org/docs/getting-started) for details. |
 
 [!INCLUDE [Unsupported Next.js features](../../includes/static-web-apps-nextjs-unsupported.md)]
 
@@ -88,7 +90,7 @@ In the _Build Details_ section, add configuration details specific to your prefe
 
 1. Leave the _Api location_ box empty.
 
-1. Leave the _App artifact location_ box empty.
+1. Leave the _Output location_ box empty.
 
 Select **Review + create**.
 
@@ -110,19 +112,29 @@ Once GitHub Actions workflow is complete, you can select the URL link to open th
 
 ## Set up your Next.js project locally to make changes
 
-1. Clone the new repo to your machine. Make sure to replace <YOUR_GITHUB_ACCOUNT_NAME> with your account name.
+1. Clone the new repo to your machine. Make sure to replace <GITHUB_ACCOUNT_NAME> with your account name.
 
     ```bash
-    git clone http://github.com/<YOUR_GITHUB_ACCOUNT_NAME>/my-first-static-web-app
+    git clone http://github.com/<GITHUB_ACCOUNT_NAME>/my-first-static-web-app
     ```
 
 1. Open the project in Visual Studio Code or your preferred code editor.
 
+## Set up server side rendering
+
+A managed backed is automatically available for every hybrid Next.js deployment in all plans. However, you can fine- tune performance and take more control of the backend by assigning a custom backend to your site. If  you switch between a managed backend to a linked backend, your site experiences no downtime.
+
+### Bring your own backend
+
+You can improve performance and gain more control over the Next.js server side rendering when you bring your backend. Use the following steps to set up a custom backend for your site. 
+
+[!INCLUDE [Server side rendering](../../includes/static-web-apps/static-web-apps-nextjs-backends.md)]
+
 ## Add Server-Rendered data with a Server Component
 
-To add server-rendered data in your Next.js project using the App Router, edit a Next.js component to add a server-side operations to render data in the component. By default, Next.js components are [Server Components](https://nextjs.org/docs/app/building-your-application/data-fetching/fetching-caching-and-revalidating) that can be server-rendered.
+To add server-rendered data in your Next.js project using the App Router, edit a Next.js component to add a server-side operation to render data in the component. By default, Next.js components are [Server Components](https://nextjs.org/docs/app/building-your-application/data-fetching/fetching-caching-and-revalidating) that can be server-rendered.
 
-1. Open the `app/page.tsx` file and add an operation that sets the value of a variable, which is computed server-side. Examples include fetching data or other server operations.
+1. Open the `app/page.tsx` file and add an operation that sets the value of a server-side computed variable. Examples include fetching data or other server operations.
 
     ```ts
     export default function Home() {
@@ -134,7 +146,7 @@ To add server-rendered data in your Next.js project using the App Router, edit a
     ```
 
 1. Import `unstable_noStore` from `next/cache` and call it within the `Home` component to ensure the route is dynamically rendered.
-   
+
     ```ts
     import { unstable_noStore as noStore } from 'next/cache';
 
@@ -151,7 +163,7 @@ To add server-rendered data in your Next.js project using the App Router, edit a
     >[!NOTE]
     >This example forces dynamic rendering of this component to demonstrate server-rendering of the server's current time. The App Router model of Next.js recommends caching individual data requests to optimize the performance of your Next.js app. Read more on [data fetching and caching in Next.js](https://nextjs.org/docs/app/building-your-application/data-fetching/fetching-caching-and-revalidating).
 
-1. Update the `Home` component in _app/pages.tsx_ to render the server-side data. 
+1. Update the `Home` component in _app/pages.tsx_ to render the server-side data.
 
     ```ts
     import { unstable_noStore as noStore } from 'next/cache';
@@ -163,8 +175,7 @@ To add server-rendered data in your Next.js project using the App Router, edit a
         return(
             <main className="flex min-h-screen flex-col items-center justify-between p-24">
                 <div>
-                    This is a Next.js application hosted on Azure Static Web Apps with 
-                    hybrid rendering. The time on the server is <strong>{timeOnServer}</strong>.
+                    This is a Next.js application hosted on Azure Static Web Apps with hybrid rendering. The time on the server is <strong>{timeOnServer}</strong>.
                 </div>
             </main>
         );
@@ -173,11 +184,12 @@ To add server-rendered data in your Next.js project using the App Router, edit a
 
 ## Adding an API route
 
-In addition to Server Components, Next.js provides [Route Handlers](https://nextjs.org/docs/app/building-your-application/routing/route-handlers) you can use to create API routes to your Next.js application. These APIs can be fetched in [Client Components](https://nextjs.org/docs/app/building-your-application/rendering/client-components).
+In addition to Server Components, Next.js provides [Route Handlers](https://nextjs.org/docs/app/building-your-application/routing/route-handlers) you can use to create API routes to your Next.js application. You can fetch these APIs in [Client Components](https://nextjs.org/docs/app/building-your-application/rendering/client-components).
 
 Begin by adding an API route.
 
 1. Create a new file at `app/api/currentTime/route.tsx`. This file holds the Route Handler for the new API endpoint.
+
 1. Add a handler function to return data from the API.
 
     ```ts
@@ -195,6 +207,7 @@ Begin by adding an API route.
     ```
 
 1. Create a new file at `app/components/CurrentTimeFromAPI.tsx`. This component creates a container for the Client Component that fetches the API from the browser.
+
 1. Add a client component that fetches the API in this file.
 
     ```ts
@@ -239,22 +252,21 @@ This Client Component fetches the API with a `useEffect` React hook to render th
         return(
             <main className="flex min-h-screen flex-col items-center justify-between p-24">
                 <div>
-                    This is a Next.js application hosted on Azure Static Web Apps with 
-                    hybrid rendering. The time on the server is <strong>{timeOnServer}</strong>.
+                    This is a Next.js application hosted on Azure Static Web Apps with hybrid rendering. The time on the server is <strong>{timeOnServer}</strong>.
                 </div>
                 <CurrentTimeFromAPI />
             </main>
         );
     }
     ```
-   
+
 1. The result from the API route is displayed on the page.
 
 :::image type="content" source="media/deploy-nextjs/nextjs-13-home-display.png" alt-text="Screenshot showing the display the output from the API route.":::
 
 ## Configure the runtime version for Next.js
 
-Certain Next.js versions require specific Node.js versions. To configure a specific Node version, you can set the 'engines' property of your `package.json` file to designate a version.
+Certain Next.js versions require specific Node.js versions. To configure a specific Node version, you can set the `engines` property of your `package.json` file to designate a version.
 
 ```json
 {
@@ -267,7 +279,7 @@ Certain Next.js versions require specific Node.js versions. To configure a speci
 
 ## Set environment variables for Next.js
 
-Next.js uses environment variables at build time and at request time, to support both static page generation and dynamic page generation with server-side rendering. Therefore, set environment variables both within the build and deploy task, and in the _Environment variables_ of your Azure Static Web Apps resource. 
+Next.js uses environment variables at build time and at request time, to support both static page generation and dynamic page generation with server-side rendering. Therefore, set environment variables both within the build and deploy task, and in the _Environment variables_ of your Azure Static Web Apps resource.
 
 ```yml
 ...
@@ -276,7 +288,7 @@ Next.js uses environment variables at build time and at request time, to support
         uses: Azure/static-web-apps-deploy@v1
         with:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN }}
-          repo_token: ${{ secrets.GITHUB_TOKEN }} # Used for Github integrations (i.e. PR comments)
+          repo_token: ${{ secrets.GITHUB_TOKEN }} # Used for GitHub integrations (i.e. PR comments)
           action: "upload"
           app_location: "/" 
           api_location: ""
@@ -292,18 +304,20 @@ Next.js uses environment variables at build time and at request time, to support
 
 ## Enable standalone feature
 
-When your application size exceeds 250Mb, the Next.js [Output File Tracing](https://nextjs.org/docs/advanced-features/output-file-tracing) feature helps optimize the app size and enhance performance.
+When your application size exceeds 250 MB, the Next.js [Output File Tracing](https://nextjs.org/docs/advanced-features/output-file-tracing) feature helps optimize the app size and enhance performance.
 
-Output File Tracing creates a compressed version of the whole application with necessary package dependencies built into a folder named *.next/standalone*. This folder is meant to deploy on its own without additional *node_modules* dependencies.
+Output File Tracing creates a compressed version of the whole application with necessary package dependencies. This package is built into a folder named _.next/standalone_. With this package, your app can deploy on its own without _node_modules_ dependencies.
 
-In order to enable the `standalone` feature, add the following additional property to your `next.config.js`:
+In order to enable the `standalone` feature, add the following property to your `next.config.js`:
+
 ```js
 module.exports ={
     output:"standalone",
 }
 ```
 
-You will also need to configure the `build` command in the `package.json` file in order to copy static files to your standalone output. 
+Next, configure the `build` command in the `package.json` file in order to copy static files to your standalone output.
+
 ```json
 {
   ...
@@ -316,9 +330,9 @@ You will also need to configure the `build` command in the `package.json` file i
 }
 ```
 
-## Configure your Next.js routing and middleware for deployment to Azure Static Web Apps
+## Configure routing and middleware for deployment
 
-Your Next.js project can be configured to have custom handling of routes with redirects, rewrites, and middleware. These handlers are commonly used for authentication, personalization, routing, and internationalization.  Custom handling affects the default routing of your Next.js site and the configuration must be compatible with hosting on Static Web Apps.
+You can configure your Next.js project handle of routes with custom redirects, rewrites, and middleware. These handlers are commonly used for authentication, personalization, routing, and internationalization. Custom handling affects the default routing of your Next.js site and the configuration must be compatible with hosting on Static Web Apps.
 
 Static Web Apps validates that your Next.js site is successfully deployed by adding a page to your site at build time. The page is named `public/.swa/health.html`, and Static Web Apps verifies the successful startup and deployment of your site by navigating to `/.swa/health.html` and verifying a successful response. Middleware and custom routing, which includes redirects and rewrites, can affect the access of the `/.swa/health.html` path, which can prevent Static Web Apps' deployment validation. To configure middleware and routing for a successful deployment to Static Web Apps, follow these steps:
 
@@ -336,7 +350,7 @@ Static Web Apps validates that your Next.js site is successfully deployed by add
     }
     ```
 
-1. Configure your redirects in `next.config.js` to exclude routes starting with `.swa`
+1. Configure your redirects in `next.config.js` to exclude routes starting with `.swa`.
 
     ```js
     module.exports = {
@@ -352,7 +366,7 @@ Static Web Apps validates that your Next.js site is successfully deployed by add
     };
     ```
 
-1. Configure your rewrites in `next.config.js` to exclude routes starting with `.swa`
+1. Configure your rewrite rules in `next.config.js` to exclude routes starting with `.swa`.
 
     ```js
     module.exports = {
@@ -368,11 +382,12 @@ Static Web Apps validates that your Next.js site is successfully deployed by add
         },
     };
     ```
-These code snippets exclude paths that start with `.swa` from being handled by your custom routing or middleware. These rules ensure that the paths resolve as expected during deployment validation.
+
+These code snippets exclude paths that start with `.swa` to stop your custom routing or middleware from processing these requests. These rules ensure that the paths resolve as expected during deployment validation.
 
 ## Enable logging for Next.js
 
-Following best practices for Next.js server API troubleshooting, add logging to the API to catch these errors. Logging on Azure uses **Application Insights**. In order to preload this SDK, you need to create a custom start up script. To learn more:
+Following best practices for Next.js server API troubleshooting, add logging to the API to catch these errors. Logging on Azure uses **Application Insights**. In order to preload this SDK, you need to create a custom startup script. To learn more:
 
 * [Example preload script for Application Insights + Next.js](https://medium.com/microsoftazure/enabling-the-node-js-application-insights-sdk-in-next-js-746762d92507)
 * [GitHub issue](https://github.com/microsoft/ApplicationInsights-node.js/issues/808)

@@ -2,7 +2,7 @@
 title: Manage Azure Kubernetes Service (AKS) backups using Azure Backup
 description: This article explains how to manage Azure Kubernetes Service (AKS) backups using Azure Backup.
 ms.topic: how-to
-ms.service: backup
+ms.service: azure-backup
 ms.custom:
   - devx-track-azurecli
   - ignite-2023
@@ -137,7 +137,7 @@ To enable Trusted Access between Backup vault and AKS cluster, use the following
    --roles Microsoft.DataProtection/backupVaults/backup-operator   
    ```
 
-Learn more about [other commands related to Trusted Access](../aks/trusted-access-feature.md#trusted-access-feature-overview).
+Learn more about [other commands related to Trusted Access](/azure/aks/trusted-access-feature#trusted-access-feature-overview).
 
 ## Monitor AKS backup jobs completed with warnings
 

@@ -2,9 +2,9 @@
 title: 'Troubleshooting Azure VPN Gateway using diagnostic logs'
 description: Learn how to troubleshoot Azure VPN Gateway using diagnostic logs.
 author: stegag
-ms.service: vpn-gateway
+ms.service: azure-vpn-gateway
 ms.topic: how-to
-ms.date: 03/15/2021
+ms.date: 07/29/2024
 ms.author: stegag
 
 ---
@@ -15,40 +15,21 @@ This article helps understand the different logs available for VPN Gateway diagn
 
 [!INCLUDE [support-disclaimer](~/reusable-content/ce-skilling/azure/includes/support-disclaimer.md)]
 
-The following logs are available* in Azure:
+The following logs are available in Azure:
 
-|***Name*** | ***Description*** |
-|---		| ---				|
-|**GatewayDiagnosticLog** | Contains diagnostic logs for gateway configuration events, primary changes, and maintenance events. |
-|**TunnelDiagnosticLog** | Contains tunnel state change events. Tunnel connect/disconnect events have a summarized reason for the state change if applicable. |
-|**RouteDiagnosticLog** | Logs changes to static routes and BGP (Border Gateway Protocol) events that occur on the gateway. |
-|**IKEDiagnosticLog** | Logs IKE (Internet Key Exchange) control messages and events on the gateway. |
-|**P2SDiagnosticLog** | Logs point-to-site control messages and events on the gateway. |
+- GatewayDiagnosticLog
+- TunnelDiagnosticLog
+- RouteDiagnosticLog
+- IKEDiagnosticLog
+- P2SDiagnosticLog
 
-*for Policy Based gateways, only GatewayDiagnosticLog and RouteDiagnosticLog are available.
+For policy based gateways, only **GatewayDiagnosticLog** and **RouteDiagnosticLog** are available.
 
-Notice that there are several columns available in these tables. In this article, we're only presenting the most relevant ones for easier log consumption.
+For all VPN Gateway logs, see [Azure VPN Gateway monitoring data reference](monitor-vpn-gateway-reference.md#resource-logs)
 
-## <a name="setup"></a>Set up logging
+<a name="setup"></a>
 
-Follow this procedure to learn how set up diagnostic log events from Azure VPN Gateway using Azure Log Analytics:
-
-1. Create a new Log Analytics Workspace using the steps found in [create a Log Analytics Workspace](../azure-monitor/logs/quick-create-workspace.md).
-
-2. Locate your VPN gateway on the **Monitor > Diagnostics** settings page.
-
-:::image type="content" source="./media/troubleshoot-vpn-with-azure-diagnostics/setup_step2.png " alt-text="Screenshot of the Diagnostic settings page." lightbox="./media/troubleshoot-vpn-with-azure-diagnostics/setup_step2.png":::
-
-3. Select the VPN gateway and then select **Add Diagnostic Setting**.
-
-:::image type="content" source="./media/troubleshoot-vpn-with-azure-diagnostics/setup_step3.png " alt-text="Screenshot of the Add diagnostic setting interface." lightbox="./media/troubleshoot-vpn-with-azure-diagnostics/setup_step3.png":::
-
-4. Input the **Diagnostic setting name**, choose all the **Log categories** and select the appropriate **Log Analytics Workspace**.
-
-:::image type="content" source="./media/troubleshoot-vpn-with-azure-diagnostics/setup_step4.png " alt-text="Detailed screenshot of the Add diagnostic setting properties." lightbox="./media/troubleshoot-vpn-with-azure-diagnostics/setup_step4.png":::
-
-   > [!NOTE]
-   > It may take a few hours for the data to show up initially.
+To set up diagnostic log events from Azure VPN Gateway using Azure Log Analytics, see [Create diagnostic settings in Azure Monitor](../azure-monitor/essentials/create-diagnostic-settings.md).
 
 ## <a name="GatewayDiagnosticLog"></a>GatewayDiagnosticLog
 
@@ -117,7 +98,7 @@ Only after you identify the timestamp of a disconnection, you can switch to the 
 
 
 Some troubleshooting tips:
-- If you observe a disconnection event on one gateway instance, followed by a connection event on a different gateway instance within a few seconds, it indicates a gateway failover. Such a event typically arises due to maintenance on a gateway instance. To learn more about this behavior, see [About Azure VPN gateway redundancy](./vpn-gateway-highlyavailable.md#activestandby).
+- If you observe a disconnection event on one gateway instance, followed by a connection event on a different gateway instance within a few seconds, it indicates a gateway failover. Such an event typically arises due to maintenance on a gateway instance. To learn more about this behavior, see [About Azure VPN gateway redundancy](./vpn-gateway-highlyavailable.md#activestandby).
 - The same behavior is observed if you intentionally run a **Gateway Reset** on the Azure side - which causes a reboot of the active gateway instance. To learn more about this behavior, see [Reset a VPN Gateway](./reset-gateway.md).
 - If you see a disconnection event on one gateway instance, followed by a connection event on the **same** gateway instance in a few seconds, you might be looking at a network glitch causing a DPD timeout, or a disconnection erroneously sent by the on-premises device.
 

@@ -42,16 +42,20 @@
       href: work-remotely-support.md
   - name: Virtual WAN FAQ
     href: virtual-wan-faq.md
-  - name: NVA in a Virtual WAN hub
-    href: about-nva-hub.md
-  - name: Locations and Partners
+  - name: Virtual Hub third-party integrations
     items:
-    - name: Hub locations and partners
-      href: virtual-wan-locations-partners.md
-    - name: Automation guidelines for partners
-      href: virtual-wan-configure-automation-providers.md
-    - name: Software-as-a-service (SaaS)
+    - name: Overview of third-party integrations  
+      href: third-party-integrations.md
+    - name: Integrated NVAs in the Virtual Hub
+      href: about-nva-hub.md
+    - name: Software-as-a-service(SaaS)
       href: how-to-palo-alto-cloud-ngfw.md
+    - name: Branch IPSEC connectivity automation 
+      items:
+        - name: About branch IPSEC connectivity automation
+          href: virtual-wan-locations-partners.md
+        - name: Automation guidelines for partners
+          href: virtual-wan-configure-automation-providers.md
   - name: Architecture
     items: 
     - name: Migrate to Virtual WAN

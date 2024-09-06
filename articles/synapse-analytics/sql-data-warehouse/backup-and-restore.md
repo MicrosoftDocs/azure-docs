@@ -6,7 +6,7 @@ ms.author: stevehow
 manager: joannapea
 ms.reviewer: joanpo, wiassaf
 ms.date: 03/21/2024
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.subservice: sql-dw
 ms.topic: conceptual
 ---

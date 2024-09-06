@@ -60,7 +60,7 @@ An extra custom DNS needs to be set up in the local network to provide domain na
 ### Example of logical segmentation in Azure
 In this example, a test environment is created with a [virtual network](/azure/virtual-network/virtual-networks-overview) and a [Linux virtual machine](/azure/virtual-machines/linux/quick-create-portal) in Azure.
 > [!IMPORTANT]
-> Virtual environment is for exploration and evaluation only. For more information, see [validated environments](/azure/iot-operations/get-started/overview-iot-operations#validated-environments) for Azure IoT Operations Preview.
+> Virtual environment is for exploration and evaluation only. For more information, see [validated environments](../overview-iot-operations.md#validated-environments) for Azure IoT Operations Preview.
 
 1. Create a virtual network in your Azure subscription. Create subnets for at least two layers (level 4 and level 3).
 :::image type="content" source="./media/howto-configure-layered-network/vnet-subnet.png" alt-text="Screenshot for virtual network in Azure." lightbox="./media/howto-configure-layered-network/vnet-subnet.png":::
@@ -73,7 +73,7 @@ In this example, a test environment is created with a [virtual network](/azure/v
     - [Optional] If you create a *jumpbox* subnet, create inbound and outbound rules for allowing traffic to and from this subnet.
 :::image type="content" source="./media/howto-configure-layered-network/vnet-security-rule.png" alt-text="Screenshot for level 3 security group." lightbox="./media/howto-configure-layered-network/vnet-security-rule.png":::
 1. Create Linux VMs in level 3 and level 4. 
-    - Refer to [validated environments](/azure/iot-operations/get-started/overview-iot-operations#validated-environments) for specification of the VM.
+    - Refer to [validated environments](../overview-iot-operations.md#validated-environments) for specification of the VM.
     - When creating the VM, connect the machine to the subnet that is created in earlier steps.
     - Skip the security group creation for VM.
 

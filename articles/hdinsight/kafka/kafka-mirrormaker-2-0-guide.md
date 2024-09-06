@@ -1,7 +1,7 @@
 ---
 title: Apache Kafka MirrorMaker 2.0 guide - Azure HDInsight
 description: How to use Kafka MirrorMaker 2.0 in data migration/replication and the use-cases.
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 05/09/2024

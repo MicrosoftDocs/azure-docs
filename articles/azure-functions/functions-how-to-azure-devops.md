@@ -1,6 +1,6 @@
 ---
 title: Continuously update function app code using Azure Pipelines
-description: Learn how to set up an Azure DevOps pipeline that targets Azure Functions.
+description: Learn how to use Azure Pipelines to set up a pipeline that builds and deploys apps to Azure Functions.
 author: juliakm
 ms.topic: conceptual
 ms.date: 04/03/2024
@@ -16,7 +16,7 @@ Use [Azure Pipelines](/azure/devops/pipelines/) to automatically deploy to Azure
 
 YAML pipelines are defined using a YAML file in your repository. A step is the smallest building block of a pipeline and can be a script or task (prepackaged script). [Learn about the key concepts and components that make up a pipeline](/azure/devops/pipelines/get-started/key-pipelines-concepts).
 
-You'll use the AzureFunctionApp task to deploy to Azure Functions. There are now two versions of the AzureFunctionApp task ([AzureFunctionApp@1](/azure/devops/pipelines/tasks/reference/azure-function-app-v1), [AzureFunctionApp@2](/azure/devops/pipelines/tasks/reference/azure-function-app-v2)). AzureFunctionApp@2 includes enhanced validation support that makes pipelines less likely to fail because of errors. 
+You'll use the `AzureFunctionApp` task to deploy to Azure Functions. There are now two versions of the AzureFunctionApp task ([AzureFunctionApp@1](/azure/devops/pipelines/tasks/reference/azure-function-app-v1), [AzureFunctionApp@2](/azure/devops/pipelines/tasks/reference/azure-function-app-v2)). `AzureFunctionApp@2` includes enhanced validation support that makes pipelines less likely to fail because of errors. 
 
 Choose your task version at the top of the article. YAML pipelines aren't available for Azure DevOps 2019 and earlier.
 
@@ -47,29 +47,27 @@ Choose your task version at the top of the article. YAML pipelines aren't availa
 
     ---
     
-    Remember to upload the local code project to your GitHub or Azure Repos respository after you publish it to your function app. 
+    Remember to upload the local code project to your GitHub or Azure Repos repository after you publish it to your function app. 
 
 ::: zone pivot="v1"
 
 ## Build your app
 
-
 1. Sign in to your Azure DevOps organization and navigate to your project.
 1. In your project, navigate to the **Pipelines** page. Then select **New pipeline**.
 1. Select one of these options for **Where is your code?**:
-    + **GitHub**: You might be redirected to GitHub to sign in. If so, enter your GitHub credentials. When this is the first connection to GitHub, the wizard also walks you through the process of connecting DevOps to your GitHub accounts.
-    + **Azure Repos Git**: You are immediately able to choose a repository in your current DevOps project. 
+    + **GitHub**: You might be redirected to GitHub to sign in. If so, enter your GitHub credentials. When this connection is your first GitHub connection, the wizard also walks you through the process of connecting DevOps to your GitHub accounts.
+    + **Azure Repos Git**: You're immediately able to choose a repository in your current DevOps project. 
 1. When the list of repositories appears, select your sample app repository.
 1. Azure Pipelines analyzes your repository and in **Configure your pipeline** provides a list of potential templates. Choose the appropriate **function app** template for your language. If you don't see the correct template select **Show more**.  
 1. Select **Save and run**, then select **Commit directly to the main branch**, and then choose **Save and run** again.
 1. A new run is started. Wait for the run to finish.
 
-
 ### Example YAML build pipelines
 
 The following language-specific pipelines can be used for building apps. 
 
-# [C\#](#tab/csharp)
+#### [C\#](#tab/csharp)
 
 You can use the following sample to create a YAML file to build a .NET app. 
 
@@ -102,7 +100,7 @@ steps:
     artifactName: 'drop'
 ```
 
-# [JavaScript](#tab/javascript)
+#### [JavaScript](#tab/javascript)
 
 You can use the following sample to create a YAML file to build a JavaScript app:
 
@@ -130,7 +128,7 @@ steps:
     artifactName: 'drop'
 ```
 
-# [Python](#tab/python)
+#### [Python](#tab/python)
 
 Use one of the following samples to create a YAML file to build an app for a specific Python version. Python is only supported for function apps running on Linux.
 
@@ -163,9 +161,9 @@ steps:
 
 To learn about potential issues with these pipeline tasks, see [Functions not found after deployment](recover-python-functions.md#functions-not-found-after-deployment). 
 
-# [PowerShell](#tab/powershell)
+#### [PowerShell](#tab/powershell)
 
-You can use the following sample to create a YAML file to package a PowerShell app. PowerShell is supported only for Windows Azure Functions.
+You can use the following sample to create a YAML file to package a PowerShell app. 
 
 ```yaml
 pool:
@@ -216,12 +214,9 @@ variables:
 
 The snippet assumes that the build steps in your YAML file produce the zip archive in the `$(System.ArtifactsDirectory)` folder on your agent.
 
-
 ## Deploy a container
 
-You can automatically deploy your code to Azure Functions as a custom container after every successful build. To learn more about containers, see [Create a function on Linux using a custom container](functions-create-function-linux-custom-image.md). 
-### Deploy with the Azure Function App for Container task
-
+You can automatically deploy your code as a containerized function app after every successful build. To learn more about containers, see [Working with containers and Azure Functions](functions-how-to-custom-container.md#working-with-containers-and-azure-functions). 
 
 The simplest way to deploy to a container is to use the [Azure Function App on Container Deploy task](/azure/devops/pipelines/tasks/deploy/azure-rm-functionapp-containers).
 
@@ -251,6 +246,7 @@ variables:
 
 The snippet pushes the Docker image to your Azure Container Registry. The **Azure Function App on Container Deploy** task pulls the appropriate Docker image corresponding to the `BuildId` from the repository specified, and then deploys the image. 
 
+For a complete end-to-end pipeline example, including building the container and publishing to the container registry, see [this Azure Pipelines container deployment example](https://github.com/Azure/azure-functions-on-container-apps/blob/main/samples/AzurePipelineTasks/Func_on_ACA_DevOps_deployment.yml).
 
 ## Deploy to a slot
 
@@ -318,7 +314,7 @@ To create a build pipeline in Azure, use the `az functionapp devops-pipeline cre
 ### Example YAML build pipelines
 
 The following language-specific pipelines can be used for building apps. 
-# [C\#](#tab/csharp)
+#### [C\#](#tab/csharp)
 
 You can use the following sample to create a YAML file to build a .NET app:
 
@@ -349,7 +345,7 @@ steps:
     artifactName: 'drop'
 ```
 
-# [JavaScript](#tab/javascript)
+#### [JavaScript](#tab/javascript)
 
 You can use the following sample to create a YAML file to build a JavaScript app:
 
@@ -377,7 +373,7 @@ steps:
     artifactName: 'drop'
 ```
 
-# [Python](#tab/python)
+#### [Python](#tab/python)
 
 Use one of the following samples to create a YAML file to build an app for a specific Python version. Python is only supported for function apps running on Linux.
 
@@ -409,12 +405,12 @@ steps:
     artifactName: 'drop'
 ```
 
-Please check the generated archive to ensure that the deployed file has the right format. 
+Check the generated archive to ensure that the deployed file has the right format. 
 To learn about potential issues with these pipeline tasks, see [Functions not found after deployment](recover-python-functions.md#functions-not-found-after-deployment). 
 
-# [PowerShell](#tab/powershell)
+#### [PowerShell](#tab/powershell)
 
-You can use the following sample to create a YAML file to package a PowerShell app. PowerShell is supported only for Windows Azure Functions.
+You can use the following sample to create a YAML file to package a PowerShell app.
 
 ```yaml
 pool:
@@ -435,7 +431,7 @@ steps:
 
 ## Deploy your app
 
-You'll deploy with the [Azure Function App Deploy v2](/azure/devops/pipelines/tasks/reference/azure-function-app-v2) task. This task requires an [Azure service connection](/azure/devops/pipelines/library/service-endpoints) as an input. An Azure service connection stores the credentials to connect from Azure Pipelines to Azure.
+You'll deploy with the [Azure Function App Deploy v2](/azure/devops/pipelines/tasks/reference/azure-function-app-v2) task. This task requires an [Azure service connection](/azure/devops/pipelines/library/service-endpoints) as an input. An Azure service connection stores the credentials to connect from Azure Pipelines to Azure. You should create a connection that uses [workload identity federation](/azure/devops/pipelines/library/connect-to-azure#create-an-azure-resource-manager-service-connection-that-uses-workload-identity-federation).
 
 The v2 version of the task includes support for newer applications stacks for .NET, Python, and Node. The task includes networking predeployment checks. When there are predeployment issues, deployment stops. 
 

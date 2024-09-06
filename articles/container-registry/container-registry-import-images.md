@@ -1,11 +1,11 @@
 ---
 title: Import container images
 description: Import container images to an Azure container registry by using Azure APIs, without needing to run Docker commands.
-ms.topic: article
+ms.topic: how-to
 author: tejaswikolli-web
 ms.author: tejaswikolli
 ms.date: 10/31/2023
-ms.service: container-registry
+ms.service: azure-container-registry
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 

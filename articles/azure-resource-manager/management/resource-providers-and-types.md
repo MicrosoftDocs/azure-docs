@@ -62,14 +62,19 @@ To see all resource providers, and the registration status for your subscription
    :::image type="content" source="./media/resource-providers-and-types/search-subscriptions.png" alt-text="Screenshot of searching for subscriptions in the Azure portal.":::
 
 1. Select the subscription you want to view.
-
-   :::image type="content" source="./media/resource-providers-and-types/select-subscription.png" alt-text="Screenshot of selecting a subscription in the Azure portal.":::
-
 1. On the left menu, under **Settings**, select **Resource providers**.
 
    :::image type="content" source="./media/resource-providers-and-types/select-resource-providers.png" alt-text="Screenshot of selecting resource providers in the Azure portal.":::
 
-1. Find the resource provider you want to register, and select **Register**. To maintain least privileges in your subscription, only register those resource providers that you're ready to use.
+1. Find the resource provider you want to register.
+
+   :::image type="content" source="./media/resource-providers-and-types/find-resource-providers.png" alt-text="Screenshot of finding resource providers in the Azure portal.":::
+
+1. Select the resource provider to see the details of the resource provider.
+
+   :::image type="content" source="./media/resource-providers-and-types/show-resource-provider-details.png" alt-text="Screenshot of Resource provider details in the Azure portal.":::
+
+1. Select the resource provider, and select **Register**. To maintain least privileges in your subscription, only register those resource providers that you're ready to use.
 
    :::image type="content" source="./media/resource-providers-and-types/register-resource-provider.png" alt-text="Screenshot of registering a resource provider in the Azure portal.":::
 
@@ -95,9 +100,6 @@ To see information for a particular resource provider:
     :::image type="content" source="./media/resource-providers-and-types/select-providers.png" alt-text="Screenshot of expanding the Providers section in the Azure Resource Explorer.":::
 
 1. Expand a resource provider and resource type that you want to view.
-
-    :::image type="content" source="./media/resource-providers-and-types/select-resource-type.png" alt-text="Screenshot of expanding a resource provider and resource type in the Azure Resource Explorer.":::
-
 1. Resource Manager is supported in all regions, but the resources you deploy might not be supported in all regions. Also, there may be limitations on your subscription that prevent you from using some regions that support the resource. The resource explorer displays valid locations for the resource type.
 
     :::image type="content" source="./media/resource-providers-and-types/show-locations.png" alt-text="Screenshot of displaying valid locations for a resource type in the Azure Resource Explorer.":::
@@ -254,7 +256,7 @@ To maintain least privileges in your subscription, only register those resource 
 az provider register --namespace Microsoft.Batch
 ```
 
-The command returns a message that registration is on-going.
+The command returns a message that registration is ongoing.
 
 To see information for a particular resource provider, use:
 

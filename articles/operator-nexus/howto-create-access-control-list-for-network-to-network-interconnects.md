@@ -60,8 +60,10 @@ The table below provides guidance on the usage of parameters when creating ACLs:
 | matchConditions        | Conditions required to be matched                          |                                 |
 | ttlValues              | TTL [Time To Live]                                         | 0-255                           |
 | dscpMarking            | DSCP Markings that need to be matched                      | 0-63                            |
+| fargments              | Specify the IP fragment packets                        | Range: 1-8191<br> Example: [1, 5, 1250-1300, 8000-8191]          |
 | portCondition          | Port condition that needs to be matched                    |                                 |
 | portType               | Port type that needs to be matched                         | Example: SourcePort             |
+| ports                  | Port number that needs to be matched                       | Range: 0-65535<br> Example: [1, 10, 500, 1025-1050, 64000-65535]                       |
 | protocolTypes          | Protocols that need to be matched                          | [tcp, udp, range[1-2, 1, 2]]    |
 | vlanMatchCondition     | VLAN match condition that needs to be matched              |                                 |
 | layer4Protocol         | Layer 4 Protocol                                           | should be either TCP or UDP     |
@@ -76,6 +78,8 @@ The table below provides guidance on the usage of parameters when creating ACLs:
 > - IPGroupNames and IpPrefixValues cannot be combined.<br>
 > - Egress ACLs do not support certain options like IP options, IP length, fragment, ether-type, DSCP marking, and TTL values.<br>
 > - Ingress ACLs do not support the following options: etherType.<br>
+> - Ports inputs can be `port-number` or `range-of-ports`.<br>
+> - Fragments inputs can be `port-number` or `range-of-ports`.<br>
 
 ### Example payload for ACL creation
 

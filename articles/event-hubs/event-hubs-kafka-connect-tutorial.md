@@ -1,27 +1,18 @@
 ---
-title: Integrate with Apache Kafka Connect- Azure Event Hubs | Microsoft Docs
-description: This article provides information on how to use Kafka Connect with Azure Event Hubs for Kafka.
+title: Integrate with Apache Kafka Connect
+description: This article provides a walkthrough that shows you how to use Kafka Connect with Azure Event Hubs for Kafka.
 ms.topic: how-to
-ms.date: 05/18/2023
+ms.date: 07/31/2024
+# customer intent: As a developer, I want to know how to use Apache Kafka Connect with Azure Event Hubs for Kafka. 
 ---
 
 # Integrate Apache Kafka Connect support on Azure Event Hubs
-[Apache Kafka Connect](https://kafka.apache.org/documentation/#connect) is a framework to connect and import/export data from/to any external system such as MySQL, HDFS, and file system through a Kafka cluster. This tutorial walks you through using Kafka Connect framework with Event Hubs.
+[Apache Kafka Connect](https://kafka.apache.org/documentation/#connect) is a framework to connect and import/export data from/to any external system such as MySQL, HDFS, and file system through a Kafka cluster. This article walks you through using Kafka Connect framework with Event Hubs.
 
-
-This tutorial walks you through integrating Kafka Connect with an event hub and deploying basic FileStreamSource and FileStreamSink connectors. While these connectors aren't meant for production use, they demonstrate an end-to-end Kafka Connect scenario where Azure Event Hubs acts as a Kafka broker.
+This article walks you through integrating Kafka Connect with an event hub and deploying basic `FileStreamSource` and `FileStreamSink` connectors. While these connectors aren't meant for production use, they demonstrate an end-to-end Kafka Connect scenario where Azure Event Hubs acts as a Kafka broker.
 
 > [!NOTE]
 > This sample is available on [GitHub](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/connect).
-
-In this tutorial, you take the following steps:
-
-> [!div class="checklist"]
-> * Create an Event Hubs namespace
-> * Clone the example project
-> * Configure Kafka Connect for Event Hubs
-> * Run Kafka Connect
-> * Create connectors
 
 ## Prerequisites
 To complete this walkthrough, make sure you have the following prerequisites:
@@ -38,13 +29,13 @@ An Event Hubs namespace is required to send and receive from any Event Hubs serv
 ## Clone the example project
 Clone the Azure Event Hubs repository and navigate to the tutorials/connect subfolder: 
 
-```
+```bash
 git clone https://github.com/Azure/azure-event-hubs-for-kafka.git
 cd azure-event-hubs-for-kafka/tutorials/connect
 ```
 
 ## Configure Kafka Connect for Event Hubs
-Minimal reconfiguration is necessary when redirecting Kafka Connect throughput from Kafka to Event Hubs.  The following `connect-distributed.properties` sample illustrates how to configure Connect to authenticate and communicate with the Kafka endpoint on Event Hubs:
+Minimal reconfiguration is necessary when redirecting Kafka Connect throughput from Kafka to Event Hubs. The following `connect-distributed.properties` sample illustrates how to configure Connect to authenticate and communicate with the Kafka endpoint on Event Hubs:
 
 ```properties
 # e.g. namespace.servicebus.windows.net:9093
@@ -96,9 +87,9 @@ plugin.path={KAFKA.DIRECTORY}/libs # path to the libs directory within the Kafka
 
 In this step, a Kafka Connect worker is started locally in distributed mode, using Event Hubs to maintain cluster state.
 
-1. Save the above `connect-distributed.properties` file locally.  Be sure to replace all values in braces.
+1. Save the `connect-distributed.properties` file locally. Be sure to replace all values in braces.
 2. Navigate to the location of the Kafka release on your machine.
-4. Run `./bin/connect-distributed.sh /PATH/TO/connect-distributed.properties`.  The Connect worker REST API is ready for interaction when you see `'INFO Finished starting connectors and tasks'`. 
+4. Run `./bin/connect-distributed.sh /PATH/TO/connect-distributed.properties`. The Connect worker REST API is ready for interaction when you see `'INFO Finished starting connectors and tasks'`. 
 
 > [!NOTE]
 > Kafka Connect uses the Kafka AdminClient API to automatically create topics with recommended configurations, including compaction. A quick check of the namespace in the Azure portal reveals that the Connect worker's internal topics have been created automatically.
@@ -106,31 +97,31 @@ In this step, a Kafka Connect worker is started locally in distributed mode, usi
 >Kafka Connect internal topics **must use compaction**.  The Event Hubs team is not responsible for fixing improper configurations if internal Connect topics are incorrectly configured.
 
 ### Create connectors
-This section walks you through spinning up FileStreamSource and FileStreamSink connectors. 
+This section walks you through spinning up `FileStreamSource` and `FileStreamSink` connectors. 
 
 1. Create a directory for input and output data files.
     ```bash
     mkdir ~/connect-quickstart
     ```
 
-2. Create two files: one file with seed data from which the FileStreamSource connector reads, and another to which our FileStreamSink connector writes.
+2. Create two files: one file with seed data from which the `FileStreamSource` connector reads, and another to which our `FileStreamSink` connector writes.
     ```bash
     seq 1000 > ~/connect-quickstart/input.txt
     touch ~/connect-quickstart/output.txt
     ```
 
-3. Create a FileStreamSource connector.  Be sure to replace the curly braces with your home directory path.
+3. Create a `FileStreamSource` connector. Be sure to replace the curly braces with your home directory path.
     ```bash
     curl -s -X POST -H "Content-Type: application/json" --data '{"name": "file-source","config": {"connector.class":"org.apache.kafka.connect.file.FileStreamSourceConnector","tasks.max":"1","topic":"connect-quickstart","file": "{YOUR/HOME/PATH}/connect-quickstart/input.txt"}}' http://localhost:8083/connectors
     ```
-    You should see the event hub `connect-quickstart` on your Event Hubs instance after running the above command.
+    You should see the event hub `connect-quickstart` on your Event Hubs instance after running the command.
 4. Check status of source connector.
     ```bash
     curl -s http://localhost:8083/connectors/file-source/status
     ```
-    Optionally, you can use [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/releases) to verify that events have arrived in the `connect-quickstart` topic.
+    Optionally, you can use [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/releases) to verify that events arrived in the `connect-quickstart` topic.
 
-5. Create a FileStreamSink Connector.  Again, make sure you replace the curly braces with your home directory path.
+5. Create a FileStreamSink Connector. Again, make sure you replace the curly braces with your home directory path.
     ```bash
     curl -X POST -H "Content-Type: application/json" --data '{"name": "file-sink", "config": {"connector.class":"org.apache.kafka.connect.file.FileStreamSinkConnector", "tasks.max":"1", "topics":"connect-quickstart", "file": "{YOUR/HOME/PATH}/connect-quickstart/output.txt"}}' http://localhost:8083/connectors
     ```
@@ -149,15 +140,13 @@ This section walks you through spinning up FileStreamSource and FileStreamSink c
     ```
 
 ### Cleanup
-Kafka Connect creates Event Hubs topics to store configurations, offsets, and status that persist even after the Connect cluster has been taken down. Unless this persistence is desired, it's recommended that these topics are deleted. You may also want to delete the `connect-quickstart` Event Hubs that were created during this walkthrough.
+Kafka Connect creates Event Hubs topics to store configurations, offsets, and status that persist even after the Connect cluster has been taken down. Unless this persistence is desired, we recommend that you delete these topics. You might also want to delete the `connect-quickstart` Event Hubs that were created during this walkthrough.
 
-## Next steps
+## Related content
 
 To learn more about Event Hubs for Kafka, see the following articles:  
 
-- [Mirror a Kafka broker in an event hub](event-hubs-kafka-mirror-maker-tutorial.md)
-- [Connect Apache Spark to an event hub](event-hubs-kafka-spark-tutorial.md)
-- [Connect Apache Flink to an event hub](event-hubs-kafka-flink-tutorial.md)
-- [Explore samples on our GitHub](https://github.com/Azure/azure-event-hubs-for-kafka)
-- [Connect Akka Streams to an event hub](event-hubs-kafka-akka-streams-tutorial.md)
 - [Apache Kafka developer guide for Azure Event Hubs](apache-kafka-developer-guide.md)
+- [Explore samples on our GitHub](https://github.com/Azure/azure-event-hubs-for-kafka)
+
+

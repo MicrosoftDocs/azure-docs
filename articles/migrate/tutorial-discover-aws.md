@@ -5,9 +5,9 @@ author: Vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: tutorial
-ms.date: 04/05/2024
+ms.date: 08/08/2024
 ms.service: azure-migrate
-ms.custom: mvc, subject-rbac-steps, engagement-fy24
+ms.custom: mvc, subject-rbac-steps, engagement-fy25
 #Customer intent: As a server admin I want to discover my AWS instances.
 ---
 
@@ -157,13 +157,13 @@ Check that the zipped file is secure, before you deploy it.
 
         **Scenario** | **Download*** | **Hash value**
         --- | --- | ---
-        Physical (85 MB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2191847) | a551f3552fee62ca5c7ea11648960a09a89d226659febd26314e222a37c7d857
+        Physical (85 MB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2191847) | [!INCLUDE [security-hash-value.md](includes/security-hash-value.md)]
 
     - For Azure Government:
 
         **Scenario** | **Download*** | **Hash value**
         --- | --- | ---
-        Physical (85 MB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2191847) | a551f3552fee62ca5c7ea11648960a09a89d226659febd26314e222a37c7d857 
+        Physical (85 MB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2191847) | [!INCLUDE [security-hash-value.md](includes/security-hash-value.md)]
  
 
 ### 3. Run the Azure Migrate installer script
@@ -307,5 +307,5 @@ After discovery finishes, you can verify that the servers appear in the portal.
 
 ## Next steps
 
-- [Assess physical servers](tutorial-migrate-aws-virtual-machines.md) for migration to Azure VMs.
+- [Assess AWS VMs](tutorial-migrate-aws-virtual-machines.md) for migration to Azure.
 - [Review the data](discovered-metadata.md#collected-data-for-physical-servers) that the appliance collects during discovery.

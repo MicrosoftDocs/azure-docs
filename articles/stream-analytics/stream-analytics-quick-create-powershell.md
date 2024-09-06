@@ -5,7 +5,7 @@ author: AliciaLiMicrosoft
 ms.author: ali 
 ms.date: 06/07/2023
 ms.topic: quickstart
-ms.service: stream-analytics
+ms.service: azure-stream-analytics
 ms.custom: mvc, devx-track-azurepowershell, devx-track-azurecli, mode-api
 #Customer intent: As an IT admin/developer I want to create a Stream Analytics job, configure input and output, analyze data by using Azure PowerShell.
 ---

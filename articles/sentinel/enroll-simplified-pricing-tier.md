@@ -156,7 +156,7 @@ A Log Analytics workspace automatically configures its pricing tier to match the
 ### Will switching reduce my costs?
 Though the goal of the experience is to merely simplify the pricing and cost management experience without impacting actual costs, two primary scenarios exist for a cost reduction when switching to a simplified pricing tier.
 
-- The combined [Defender for Servers](../defender-for-cloud/faq-defender-for-servers.yml#is-the-500-mb-of-free-data-ingestion-allowance-applied-per-workspace-or-per-machine-) benefit results in a total cost savings if utilized by the workspace. 
+- The combined [Defender for Servers](/azure/defender-for-cloud/faq-defender-for-servers#is-the-500-mb-of-free-data-ingestion-allowance-applied-per-workspace-or-per-machine-) benefit results in a total cost savings if utilized by the workspace. 
 - If one of the separate pricing tiers for Log Analytics or Microsoft Sentinel was inappropriately mismatched, the simplified pricing tier could result in cost saving.
 
 ### Is there ever a reason NOT to switch?

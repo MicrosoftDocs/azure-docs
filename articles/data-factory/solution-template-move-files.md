@@ -4,8 +4,6 @@ description: Learn how to use a solution template to move files between file-bas
 author: dearandyxu
 ms.author: yexu
 ms.reviewer: jburchel
-ms.service: data-factory
-ms.subservice: tutorials
 ms.topic: conceptual
 ms.date: 05/15/2024
 ---

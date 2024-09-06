@@ -14,9 +14,7 @@ ms.author: malev
 
 Azure App Configuration supports data import and export operations. Use these operations to work with configuration data in bulk and exchange data between your App Configuration store and code project. For example, you can set up one App Configuration store for testing and another one for production. You can copy application settings between them so that you don't have to enter data twice.
 
-This article provides a guide for importing and exporting data with App Configuration. If you’d like to set up an ongoing sync with your GitHub repo, take a look at [GitHub Actions](./concept-github-action.md) and [Azure Pipelines tasks](./pull-key-value-devops-pipeline.md).
-
-You can import or export data using either the [Azure portal](https://portal.azure.com) or the [Azure CLI](./scripts/cli-import.md).
+This article provides a guide for importing and exporting data using either the [Azure portal](https://portal.azure.com) or the [Azure CLI](./scripts/cli-import.md). If you have adopted [Configuration as Code](./howto-best-practices.md#configuration-as-code) and manage your configurations in GitHub or Azure Devops, you can set up ongoing configuration file import using [GitHub Actions](./push-kv-github-action.md) or use the [Azure Pipeline Push Task](./push-kv-devops-pipeline.md).
 
 ## Import data
 

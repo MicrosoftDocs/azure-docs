@@ -5,7 +5,7 @@ services: api-management, automation
 author: dlepow
 manager: eamono
 ms.assetid: 2e53c9af-f738-47f8-b1b6-593050a7c51b
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: article
 ms.date: 02/13/2018
 ms.author: danlep

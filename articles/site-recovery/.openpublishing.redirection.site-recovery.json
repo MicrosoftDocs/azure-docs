@@ -336,6 +336,21 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/site-recovery/site-recovery-capacity-planner.md" ,
+            "redirect_url": "site-recovery-deployment-planner-history",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/site-recovery/physical-azure-set-up-target.md" ,
+            "redirect_url": "site-recovery-deployment-planner-history",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/site-recovery/move-azure-VMs-cross-region.md" ,
+            "redirect_url": "site-recovery-deployment-planner-history",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/site-recovery/hyper-v-site-walkthrough-replication.md",
             "redirect_url": "hyper-v-azure-tutorial",
             "redirect_document_id": false
@@ -943,6 +958,11 @@
         {
             "source_path_from_root": "/articles/site-recovery/vmware-walkthrough-prepare-vmware.md",
             "redirect_url": "vmware-azure-tutorial-prepare-on-premises",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/site-recovery/reporting-log-analytics.md",
+            "redirect_url": "/azure/site-recovery/monitor-site-recovery-reference#log-analytics-data-model",
             "redirect_document_id": false
         },
         {

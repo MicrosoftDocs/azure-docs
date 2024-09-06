@@ -4,7 +4,7 @@ titleSuffix: Azure Network Watcher
 description: Learn how to create a monitor in Azure Network Watcher connection monitor using the Azure portal.
 author: halkazwini
 ms.author: halkazwini
-ms.service: network-watcher
+ms.service: azure-network-watcher
 ms.topic: how-to
 ms.date: 11/30/2023
 
@@ -12,16 +12,13 @@ ms.date: 11/30/2023
 ---
 # Create a connection monitor using the Azure portal
 
-This article describes how to create a monitor in Connection Monitor by using the Azure portal. Connection Monitor supports hybrid and Azure cloud deployments.
+This article describes how to create a monitor in Connection monitor using the Azure portal. Connection monitor supports hybrid and Azure cloud deployments.
 
-> [!IMPORTANT]
-> As of July 1, 2021, you can no longer add new tests in an existing workspace or enable a new workspace in Network Performance Monitor. You also can no longer add new connection monitors in Connection Monitor (classic). You can continue to use the tests and connection monitors that were created prior to July 1, 2021.
->
-> To minimize service disruption to your current workloads, [migrate your tests from Network Performance Monitor ](migrate-to-connection-monitor-from-network-performance-monitor.md) or  [migrate from Connection Monitor (classic)](migrate-to-connection-monitor-from-connection-monitor-classic.md) to the new connection monitor in Azure Network Watcher before February 19, 2024.
+[!INCLUDE [Migrate connection monitor (classic)](../../includes/network-watcher-connection-monitor-classic.md)]
 
 ## Before you begin
 
-In monitors that you create by using Connection Monitor, you can add on-premises machines, Azure virtual machines (VMs), and Azure Virtual Machine Scale Sets as sources. These connection monitors can also monitor connectivity to endpoints. The endpoints can be on Azure or on any other URL or IP.
+In monitors that you create by using Connection monitor, you can add on-premises machines, Azure virtual machines (VMs), and Azure Virtual Machine Scale Sets as sources. These connection monitors can also monitor connectivity to endpoints. The endpoints can be on Azure or on any other URL or IP.
 
 Here are some definitions to get you started:
 
@@ -219,7 +216,7 @@ Connection monitors have these scale limits:
 * Maximum sources and destinations per connection monitor: 100
 * Maximum test configurations per connection monitor: 2 via the Azure portal
 
-## Next steps
+## Related content
 
 * [Learn how to analyze monitoring data and set alerts](./connection-monitor-overview.md#analyze-monitoring-data-and-set-alerts).
 * [Learn how to diagnose problems in your network](./connection-monitor-overview.md#diagnose-issues-in-your-network).

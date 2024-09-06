@@ -2,7 +2,7 @@
 title: Storage checkpoint recommendations
 description: Provides recommendations when using Azure Blob Storage as a checkpoint store.
 author: spelluru
-ms.service: event-hubs
+ms.service: azure-event-hubs
 ms.topic: include
 ms.date: 02/15/2024
 ms.author: spelluru

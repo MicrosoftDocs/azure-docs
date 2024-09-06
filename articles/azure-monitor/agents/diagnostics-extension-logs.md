@@ -39,7 +39,7 @@ The following data types aren't supported:
 
 ## Enable Azure Diagnostics extension
 
-For information on how to install and configure the diagnostics extension, see [Install and configure Azure Diagnostics extension for Windows (WAD)](../agents/diagnostics-extension-windows-install.md) or [Use Azure Diagnostics extension for Linux to monitor metrics and logs](../../virtual-machines/extensions/diagnostics-linux.md). You can specify the storage account and configure collection of the data that you want to forward to Azure Monitor Logs.
+For information on how to install and configure the diagnostics extension, see [Install and configure Azure Diagnostics extension for Windows (WAD)](../agents/diagnostics-extension-windows-install.md) or [Use Azure Diagnostics extension for Linux to monitor metrics and logs](/azure/virtual-machines/extensions/diagnostics-linux). You can specify the storage account and configure collection of the data that you want to forward to Azure Monitor Logs.
 
 ## Collect logs from Azure Storage
 

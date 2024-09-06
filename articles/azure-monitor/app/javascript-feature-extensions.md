@@ -60,42 +60,44 @@ Users can set up the Click Analytics Auto-Collection plug-in via JavaScript (Web
 
 #### [JavaScript (Web) SDK Loader Script](#tab/javascriptwebsdkloaderscript)
 
-1. Paste the JavaScript (Web) SDK Loader Script at the top of each page for which you want to enable Application Insights.
-   <!-- IMPORTANT: If you're updating this code example, please remember to also update it in: 1) articles\azure-monitor\app\javascript-sdk.md and 2) articles\azure-monitor\app\api-filtering-sampling.md -->
-	```html
-	<script type="text/javascript" src="https://js.monitor.azure.com/scripts/b/ext/ai.clck.2.min.js"></script>
-	<script type="text/javascript">
-			var clickPluginInstance = new Microsoft.ApplicationInsights.ClickAnalyticsPlugin();
-			// Click Analytics configuration
-			var clickPluginConfig = {
-					autoCapture : true,
-					dataTags: {
-							useDefaultContentNameOrId: true
-					}
-			}
-			// Application Insights configuration
-			var configObj = {
-					connectionString: "YOUR_CONNECTION_STRING",
-					// Alternatively, you can pass in the instrumentation key,
-					// but support for instrumentation key ingestion will end on March 31, 2025.
-					// instrumentationKey: "YOUR INSTRUMENTATION KEY",
-					extensions: [
-							clickPluginInstance
-					],
-					extensionConfig: {
-							[clickPluginInstance.identifier] : clickPluginConfig
-					},
-			};
-			// Application Insights JavaScript (Web) SDK Loader Script code
-			!(function (cfg){function e(){cfg.onInit&&cfg.onInit(i)}var S,u,D,t,n,i,C=window,x=document,w=C.location,I="script",b="ingestionendpoint",E="disableExceptionTracking",A="ai.device.";"instrumentationKey"[S="toLowerCase"](),u="crossOrigin",D="POST",t="appInsightsSDK",n=cfg.name||"appInsights",(cfg.name||C[t])&&(C[t]=n),i=C[n]||function(l){var d=!1,g=!1,f={initialize:!0,queue:[],sv:"7",version:2,config:l};function m(e,t){var n={},i="Browser";function a(e){e=""+e;return 1===e.length?"0"+e:e}return n[A+"id"]=i[S](),n[A+"type"]=i,n["ai.operation.name"]=w&&w.pathname||"_unknown_",n["ai.internal.sdkVersion"]="javascript:snippet_"+(f.sv||f.version),{time:(i=new Date).getUTCFullYear()+"-"+a(1+i.getUTCMonth())+"-"+a(i.getUTCDate())+"T"+a(i.getUTCHours())+":"+a(i.getUTCMinutes())+":"+a(i.getUTCSeconds())+"."+(i.getUTCMilliseconds()/1e3).toFixed(3).slice(2,5)+"Z",iKey:e,name:"Microsoft.ApplicationInsights."+e.replace(/-/g,"")+"."+t,sampleRate:100,tags:n,data:{baseData:{ver:2}},ver:4,seq:"1",aiDataContract:undefined}}var h=-1,v=0,y=["js.monitor.azure.com","js.cdn.applicationinsights.io","js.cdn.monitor.azure.com","js0.cdn.applicationinsights.io","js0.cdn.monitor.azure.com","js2.cdn.applicationinsights.io","js2.cdn.monitor.azure.com","az416426.vo.msecnd.net"],k=l.url||cfg.src;if(k){if((n=navigator)&&(~(n=(n.userAgent||"").toLowerCase()).indexOf("msie")||~n.indexOf("trident/"))&&~k.indexOf("ai.3")&&(k=k.replace(/(\/)(ai\.3\.)([^\d]*)$/,function(e,t,n){return t+"ai.2"+n})),!1!==cfg.cr)for(var e=0;e<y.length;e++)if(0<k.indexOf(y[e])){h=e;break}var i=function(e){var a,t,n,i,o,r,s,c,p,u;f.queue=[],g||(0<=h&&v+1<y.length?(a=(h+v+1)%y.length,T(k.replace(/^(.*\/\/)([\w\.]*)(\/.*)$/,function(e,t,n,i){return t+y[a]+i})),v+=1):(d=g=!0,o=k,c=(p=function(){var e,t={},n=l.connectionString;if(n)for(var i=n.split(";"),a=0;a<i.length;a++){var o=i[a].split("=");2===o.length&&(t[o[0][S]()]=o[1])}return t[b]||(e=(n=t.endpointsuffix)?t.location:null,t[b]="https://"+(e?e+".":"")+"dc."+(n||"services.visualstudio.com")),t}()).instrumentationkey||l.instrumentationKey||"",p=(p=p[b])?p+"/v2/track":l.endpointUrl,(u=[]).push((t="SDK LOAD Failure: Failed to load Application Insights SDK script (See stack for details)",n=o,r=p,(s=(i=m(c,"Exception")).data).baseType="ExceptionData",s.baseData.exceptions=[{typeName:"SDKLoadFailed",message:t.replace(/\./g,"-"),hasFullStack:!1,stack:t+"\nSnippet failed to load ["+n+"] -- Telemetry is disabled\nHelp Link: https://go.microsoft.com/fwlink/?linkid=2128109\nHost: "+(w&&w.pathname||"_unknown_")+"\nEndpoint: "+r,parsedStack:[]}],i)),u.push((s=o,t=p,(r=(n=m(c,"Message")).data).baseType="MessageData",(i=r.baseData).message='AI (Internal): 99 message:"'+("SDK LOAD Failure: Failed to load Application Insights SDK script (See stack for details) ("+s+")").replace(/\"/g,"")+'"',i.properties={endpoint:t},n)),o=u,c=p,JSON&&((r=C.fetch)&&!cfg.useXhr?r(c,{method:D,body:JSON.stringify(o),mode:"cors"}):XMLHttpRequest&&((s=new XMLHttpRequest).open(D,c),s.setRequestHeader("Content-type","application/json"),s.send(JSON.stringify(o))))))},a=function(e,t){g||setTimeout(function(){!t&&f.core||i()},500),d=!1},T=function(e){var n=x.createElement(I),e=(n.src=e,cfg[u]);return!e&&""!==e||"undefined"==n[u]||(n[u]=e),n.onload=a,n.onerror=i,n.onreadystatechange=function(e,t){"loaded"!==n.readyState&&"complete"!==n.readyState||a(0,t)},cfg.ld&&cfg.ld<0?x.getElementsByTagName("head")[0].appendChild(n):setTimeout(function(){x.getElementsByTagName(I)[0].parentNode.appendChild(n)},cfg.ld||0),n};T(k)}try{f.cookie=x.cookie}catch(p){}function t(e){for(;e.length;)!function(t){f[t]=function(){var e=arguments;d||f.queue.push(function(){f[t].apply(f,e)})}}(e.pop())}var r,s,n="track",o="TrackPage",c="TrackEvent",n=(t([n+"Event",n+"PageView",n+"Exception",n+"Trace",n+"DependencyData",n+"Metric",n+"PageViewPerformance","start"+o,"stop"+o,"start"+c,"stop"+c,"addTelemetryInitializer","setAuthenticatedUserContext","clearAuthenticatedUserContext","flush"]),f.SeverityLevel={Verbose:0,Information:1,Warning:2,Error:3,Critical:4},(l.extensionConfig||{}).ApplicationInsightsAnalytics||{});return!0!==l[E]&&!0!==n[E]&&(t(["_"+(r="onerror")]),s=C[r],C[r]=function(e,t,n,i,a){var o=s&&s(e,t,n,i,a);return!0!==o&&f["_"+r]({message:e,url:t,lineNumber:n,columnNumber:i,error:a,evt:C.event}),o},l.autoExceptionInstrumented=!0),f}(cfg.cfg),(C[n]=i).queue&&0===i.queue.length?(i.queue.push(e),i.trackPageView({})):e();})({
-					src: "https://js.monitor.azure.com/scripts/b/ai.3.gbl.min.js",
-					crossOrigin: "anonymous",
-					cfg: configObj // configObj is defined above.
-			});
-	</script>
-	```
+Paste the JavaScript (Web) SDK Loader Script at the top of each page for which you want to enable Application Insights.
+<!-- IMPORTANT: If you're updating this code example, please remember to also update it in: 1) articles\azure-monitor\app\javascript-sdk.md and 2) articles\azure-monitor\app\api-filtering-sampling.md -->
 
-1. To add or update JavaScript (Web) SDK Loader Script configuration, see [JavaScript (Web) SDK Loader Script configuration](./javascript-sdk.md?tabs=javascriptwebsdkloaderscript#javascript-web-sdk-loader-script-configuration).
+```html
+<script type="text/javascript" src="https://js.monitor.azure.com/scripts/b/ext/ai.clck.2.min.js"></script>
+<script type="text/javascript">
+var clickPluginInstance = new Microsoft.ApplicationInsights.ClickAnalyticsPlugin();
+  // Click Analytics configuration
+var clickPluginConfig = {
+    autoCapture : true,
+    dataTags: {
+        useDefaultContentNameOrId: true
+    }
+}
+// Application Insights configuration
+var configObj = {
+    connectionString: "YOUR_CONNECTION_STRING",
+    // Alternatively, you can pass in the instrumentation key,
+    // but support for instrumentation key ingestion will end on March 31, 2025.
+    // instrumentationKey: "YOUR INSTRUMENTATION KEY",
+    extensions: [
+        clickPluginInstance
+    ],
+    extensionConfig: {
+        [clickPluginInstance.identifier] : clickPluginConfig
+    },
+};
+// Application Insights JavaScript (Web) SDK Loader Script code
+!(function (cfg){function e(){cfg.onInit&&cfg.onInit(n)}var x,w,D,t,E,n,C=window,O=document,b=C.location,q="script",I="ingestionendpoint",L="disableExceptionTracking",j="ai.device.";"instrumentationKey"[x="toLowerCase"](),w="crossOrigin",D="POST",t="appInsightsSDK",E=cfg.name||"appInsights",(cfg.name||C[t])&&(C[t]=E),n=C[E]||function(g){var f=!1,m=!1,h={initialize:!0,queue:[],sv:"8",version:2,config:g};function v(e,t){var n={},i="Browser";function a(e){e=""+e;return 1===e.length?"0"+e:e}return n[j+"id"]=i[x](),n[j+"type"]=i,n["ai.operation.name"]=b&&b.pathname||"_unknown_",n["ai.internal.sdkVersion"]="javascript:snippet_"+(h.sv||h.version),{time:(i=new Date).getUTCFullYear()+"-"+a(1+i.getUTCMonth())+"-"+a(i.getUTCDate())+"T"+a(i.getUTCHours())+":"+a(i.getUTCMinutes())+":"+a(i.getUTCSeconds())+"."+(i.getUTCMilliseconds()/1e3).toFixed(3).slice(2,5)+"Z",iKey:e,name:"Microsoft.ApplicationInsights."+e.replace(/-/g,"")+"."+t,sampleRate:100,tags:n,data:{baseData:{ver:2}},ver:undefined,seq:"1",aiDataContract:undefined}}var n,i,t,a,y=-1,T=0,S=["js.monitor.azure.com","js.cdn.applicationinsights.io","js.cdn.monitor.azure.com","js0.cdn.applicationinsights.io","js0.cdn.monitor.azure.com","js2.cdn.applicationinsights.io","js2.cdn.monitor.azure.com","az416426.vo.msecnd.net"],o=g.url||cfg.src,r=function(){return s(o,null)};function s(d,t){if((n=navigator)&&(~(n=(n.userAgent||"").toLowerCase()).indexOf("msie")||~n.indexOf("trident/"))&&~d.indexOf("ai.3")&&(d=d.replace(/(\/)(ai\.3\.)([^\d]*)$/,function(e,t,n){return t+"ai.2"+n})),!1!==cfg.cr)for(var e=0;e<S.length;e++)if(0<d.indexOf(S[e])){y=e;break}var n,i=function(e){var a,t,n,i,o,r,s,c,u,l;h.queue=[],m||(0<=y&&T+1<S.length?(a=(y+T+1)%S.length,p(d.replace(/^(.*\/\/)([\w\.]*)(\/.*)$/,function(e,t,n,i){return t+S[a]+i})),T+=1):(f=m=!0,s=d,!0!==cfg.dle&&(c=(t=function(){var e,t={},n=g.connectionString;if(n)for(var i=n.split(";"),a=0;a<i.length;a++){var o=i[a].split("=");2===o.length&&(t[o[0][x]()]=o[1])}return t[I]||(e=(n=t.endpointsuffix)?t.location:null,t[I]="https://"+(e?e+".":"")+"dc."+(n||"services.visualstudio.com")),t}()).instrumentationkey||g.instrumentationKey||"",t=(t=(t=t[I])&&"/"===t.slice(-1)?t.slice(0,-1):t)?t+"/v2/track":g.endpointUrl,t=g.userOverrideEndpointUrl||t,(n=[]).push((i="SDK LOAD Failure: Failed to load Application Insights SDK script (See stack for details)",o=s,u=t,(l=(r=v(c,"Exception")).data).baseType="ExceptionData",l.baseData.exceptions=[{typeName:"SDKLoadFailed",message:i.replace(/\./g,"-"),hasFullStack:!1,stack:i+"\nSnippet failed to load ["+o+"] -- Telemetry is disabled\nHelp Link: https://go.microsoft.com/fwlink/?linkid=2128109\nHost: "+(b&&b.pathname||"_unknown_")+"\nEndpoint: "+u,parsedStack:[]}],r)),n.push((l=s,i=t,(u=(o=v(c,"Message")).data).baseType="MessageData",(r=u.baseData).message='AI (Internal): 99 message:"'+("SDK LOAD Failure: Failed to load Application Insights SDK script (See stack for details) ("+l+")").replace(/\"/g,"")+'"',r.properties={endpoint:i},o)),s=n,c=t,JSON&&((u=C.fetch)&&!cfg.useXhr?u(c,{method:D,body:JSON.stringify(s),mode:"cors"}):XMLHttpRequest&&((l=new XMLHttpRequest).open(D,c),l.setRequestHeader("Content-type","application/json"),l.send(JSON.stringify(s)))))))},a=function(e,t){m||setTimeout(function(){!t&&h.core||i()},500),f=!1},p=function(e){var n=O.createElement(q),e=(n.src=e,t&&(n.integrity=t),n.setAttribute("data-ai-name",E),cfg[w]);return!e&&""!==e||"undefined"==n[w]||(n[w]=e),n.onload=a,n.onerror=i,n.onreadystatechange=function(e,t){"loaded"!==n.readyState&&"complete"!==n.readyState||a(0,t)},cfg.ld&&cfg.ld<0?O.getElementsByTagName("head")[0].appendChild(n):setTimeout(function(){O.getElementsByTagName(q)[0].parentNode.appendChild(n)},cfg.ld||0),n};p(d)}cfg.sri&&(n=o.match(/^((http[s]?:\/\/.*\/)\w+(\.\d+){1,5})\.(([\w]+\.){0,2}js)$/))&&6===n.length?(d="".concat(n[1],".integrity.json"),i="@".concat(n[4]),l=window.fetch,t=function(e){if(!e.ext||!e.ext[i]||!e.ext[i].file)throw Error("Error Loading JSON response");var t=e.ext[i].integrity||null;s(o=n[2]+e.ext[i].file,t)},l&&!cfg.useXhr?l(d,{method:"GET",mode:"cors"}).then(function(e){return e.json()["catch"](function(){return{}})}).then(t)["catch"](r):XMLHttpRequest&&((a=new XMLHttpRequest).open("GET",d),a.onreadystatechange=function(){if(a.readyState===XMLHttpRequest.DONE)if(200===a.status)try{t(JSON.parse(a.responseText))}catch(e){r()}else r()},a.send())):o&&r();try{h.cookie=O.cookie}catch(k){}function e(e){for(;e.length;)!function(t){h[t]=function(){var e=arguments;f||h.queue.push(function(){h[t].apply(h,e)})}}(e.pop())}var c,u,l="track",d="TrackPage",p="TrackEvent",l=(e([l+"Event",l+"PageView",l+"Exception",l+"Trace",l+"DependencyData",l+"Metric",l+"PageViewPerformance","start"+d,"stop"+d,"start"+p,"stop"+p,"addTelemetryInitializer","setAuthenticatedUserContext","clearAuthenticatedUserContext","flush"]),h.SeverityLevel={Verbose:0,Information:1,Warning:2,Error:3,Critical:4},(g.extensionConfig||{}).ApplicationInsightsAnalytics||{});return!0!==g[L]&&!0!==l[L]&&(e(["_"+(c="onerror")]),u=C[c],C[c]=function(e,t,n,i,a){var o=u&&u(e,t,n,i,a);return!0!==o&&h["_"+c]({message:e,url:t,lineNumber:n,columnNumber:i,error:a,evt:C.event}),o},g.autoExceptionInstrumented=!0),h}(cfg.cfg),(C[E]=n).queue&&0===n.queue.length?(n.queue.push(e),n.trackPageView({})):e();})({                
+  src: "https://js.monitor.azure.com/scripts/b/ai.3.gbl.min.js",
+  crossOrigin: "anonymous",
+  // sri: false, // Custom optional value to specify whether fetching the snippet from integrity file and do integrity check
+  cfg: configObj // configObj is defined above.
+});
+</script>
+```
+
+To add or update JavaScript (Web) SDK Loader Script configuration, see [JavaScript (Web) SDK Loader Script configuration](./javascript-sdk.md?tabs=javascriptwebsdkloaderscript#javascript-web-sdk-loader-script-configuration).
 
 #### [npm package](#tab/npmpackage)
 
@@ -140,7 +142,7 @@ appInsights.loadAppInsights();
 
 If you want to set this optional setting, see [Set the authenticated user context](https://github.com/microsoft/ApplicationInsights-JS/blob/master/API-reference.md#setauthenticatedusercontext). 
 
-If you're using a HEART workbook with the Click Analytics plug-in, you don't need to set the authenticated user context to see telemetry data. For more information, see the [HEART workbook documentation](./usage-heart.md#confirm-that-data-is-flowing).
+If you're using a HEART workbook with the Click Analytics plug-in, you don't need to set the authenticated user context to see telemetry data. For more information, see the [HEART workbook documentation](./usage.md#confirm-that-data-is-flowing).
 
 ## Use the plug-in
 
@@ -166,11 +168,11 @@ If you have the [`contentName` callback function](#ivaluecallback) in advanced c
 - For a clicked HTML `<img>` or `<area>` element, the plugin collects the value of its `alt` attribute.
 - For all other clicked HTML elements, `contentName` is populated based on the following rules, which are listed in order of precedence:
 
-   1. The value of the `value` attribute for the element
-   1. The value of the `name` attribute for the element
-   1. The value of the `alt` attribute for the element
-   1. The value of the innerText attribute for the element
-   1. The value of the `id` attribute for the element
+  1. The value of the `value` attribute for the element
+  1. The value of the `name` attribute for the element
+  1. The value of the `alt` attribute for the element
+  1. The value of the innerText attribute for the element
+  1. The value of the `id` attribute for the element
 
 ### `parentId` key
 
@@ -263,7 +265,7 @@ Three different `behaviorValidator` callback functions are exposed as part of th
 
 #### Passing in string vs. numerical values
 
-To reduce the bytes you pass, pass in the number value instead of the full text string. If cost isn’t an issue, you can pass in the full text string (e.g. NAVIGATIONBACK).
+To reduce the bytes you pass, pass in the number value instead of the full text string. If cost isn’t an issue, you can pass in the full text string (for example, NAVIGATIONBACK).
 
 #### Sample usage with behaviorValidator
 
@@ -471,49 +473,49 @@ In example 1, the `parentDataTag` isn't declared and `data-parentid` or `data-*-
 
 ```javascript
 export const clickPluginConfigWithUseDefaultContentNameOrId = {
-    dataTags : {
-        customDataPrefix: "",
-        parentDataTag: "",
-        dntDataTag: "ai-dnt",
-        captureAllMetaDataContent:false,
-        useDefaultContentNameOrId: true,
-        autoCapture: true
-    },
+  dataTags : {
+    customDataPrefix: "",
+    parentDataTag: "",
+    dntDataTag: "ai-dnt",
+    captureAllMetaDataContent:false,
+    useDefaultContentNameOrId: true,
+    autoCapture: true
+  },
 }; 
 
 <div className="test1" data-id="test1parent">
-      <div>Test1</div>
-      <div>with id, data-id, parent data-id defined</div>
-      <Button id="id1" data-id="test1id" variant="info" onClick={trackEvent}>Test1</Button>
+  <div>Test1</div>
+  <div>with id, data-id, parent data-id defined</div>
+  <Button id="id1" data-id="test1id" variant="info" onClick={trackEvent}>Test1</Button>
 </div>
 ```
 
-For clicked element `<Button>` the value of `parentId` is `“not_specified”`, because no `parentDataTag` details are defined and no parent element id is provided within the current element.
+For clicked element `<Button>` the value of `parentId` is `“not_specified”`, because no `parentDataTag` details are defined and no parent element ID is provided within the current element.
 
 ### Example 2
 
-In example 2, `parentDataTag` is declared and `data-parentid` is defined. This example shows how parent id details are collected.
+In example 2, `parentDataTag` is declared and `data-parentid` is defined. This example shows how parent ID details are collected.
 
 ```javascript
 export const clickPluginConfigWithParentDataTag = {
-    dataTags : {
-        customDataPrefix: "",
-        parentDataTag: "group",
-        ntDataTag: "ai-dnt",
-        captureAllMetaDataContent:false,
-        useDefaultContentNameOrId: false,
-        autoCapture: true
-    },
+  dataTags : {
+    customDataPrefix: "",
+    parentDataTag: "group",
+    ntDataTag: "ai-dnt",
+    captureAllMetaDataContent:false,
+    useDefaultContentNameOrId: false,
+    autoCapture: true
+  },
 };
 
-  <div className="test2" data-group="buttongroup1" data-id="test2parent">
-       <div>Test2</div>
-       <div>with data-id, parentid, parent data-id defined</div>
-       <Button data-id="test2id" data-parentid = "parentid2" variant="info" onClick={trackEvent}>Test2</Button>
-   </div>
+<div className="test2" data-group="buttongroup1" data-id="test2parent">
+  <div>Test2</div>
+  <div>with data-id, parentid, parent data-id defined</div>
+  <Button data-id="test2id" data-parentid = "parentid2" variant="info" onClick={trackEvent}>Test2</Button>
+</div>
 ```
 
-For clicked element `<Button>`, the value of `parentId` is `parentid2`. Even though `parentDataTag` is declared, the `data-parentid` is directly defined within the element. Therefore, this value takes precedence over all other parent ids or id details defined in its parent elements.
+For clicked element `<Button>`, the value of `parentId` is `parentid2`. Even though `parentDataTag` is declared, the `data-parentid` is directly defined within the element. Therefore, this value takes precedence over all other parent IDs or ID details defined in its parent elements.
        
 ### Example 3
 
@@ -521,14 +523,14 @@ In example 3, `parentDataTag` is declared and the `data-parentid` or `data-*-par
 
 ```javascript
 export const clickPluginConfigWithParentDataTag = {
-    dataTags : {
-        customDataPrefix: "",
-        parentDataTag: "group",
-        dntDataTag: "ai-dnt",
-        captureAllMetaDataContent:false,
-        useDefaultContentNameOrId: false,
-        autoCapture: true
-    },
+  dataTags : {
+    customDataPrefix: "",
+    parentDataTag: "group",
+    dntDataTag: "ai-dnt",
+    captureAllMetaDataContent:false,
+    useDefaultContentNameOrId: false,
+    autoCapture: true
+  },
 };
 
 <div className="test6" data-group="buttongroup1" data-id="test6grandparent">
@@ -539,7 +541,8 @@ export const clickPluginConfigWithParentDataTag = {
   </div>
 </div>
 ```
-For clicked element `<Button>`, the value of `parentId` is `test6parent`, because `parentDataTag` is declared. This declaration allows the plugin to traverse the current element tree and therefore the id of its closest parent will be used when parent id details are not directly provided within the current element. With the `data-group="buttongroup1"` defined, the plug-in finds the `parentId` more efficiently.
+
+For clicked element `<Button>`, the value of `parentId` is `test6parent`, because `parentDataTag` is declared. This declaration allows the plugin to traverse the current element tree and therefore the ID of its closest parent will be used when parent ID details aren't directly provided within the current element. With the `data-group="buttongroup1"` defined, the plug-in finds the `parentId` more efficiently.
 
 If you remove the `data-group="buttongroup1"` attribute, the value of `parentId` is still `test6parent`, because `parentDataTag` is still declared.
 
@@ -549,9 +552,9 @@ See the dedicated [troubleshooting article](/troubleshoot/azure/azure-monitor/ap
 
 ## Next steps
 
-- [Confirm data is flowing](./javascript-sdk.md#confirm-data-is-flowing).
-- See the [documentation on utilizing HEART workbook](usage-heart.md) for expanded product analytics.
-- See the [GitHub repository](https://github.com/microsoft/ApplicationInsights-JS/tree/master/extensions/applicationinsights-clickanalytics-js) and [npm Package](https://www.npmjs.com/package/@microsoft/applicationinsights-clickanalytics-js) for the Click Analytics Autocollection Plug-in.
-- Use [Events Analysis in the Usage experience](usage-segmentation.md) to analyze top clicks and slice by available dimensions.
-- See [Log Analytics](../logs/log-analytics-tutorial.md#write-a-query) if you aren’t familiar with the process of writing a query. 
-- Build a [workbook](../visualize/workbooks-overview.md) or [export to Power BI](../logs/log-powerbi.md) to create custom visualizations of click data.
+* [Confirm data is flowing](./javascript-sdk.md#confirm-data-is-flowing).
+* See the [documentation on utilizing HEART workbook](usage.md#heart---five-dimensions-of-customer-experience) for expanded product analytics.
+* See the [GitHub repository](https://github.com/microsoft/ApplicationInsights-JS/tree/master/extensions/applicationinsights-clickanalytics-js) and [npm Package](https://www.npmjs.com/package/@microsoft/applicationinsights-clickanalytics-js) for the Click Analytics Autocollection Plug-in.
+* Use [Events Analysis in the Usage experience](usage.md#users-sessions-and-events---analyze-telemetry-from-three-perspectives) to analyze top clicks and slice by available dimensions.
+* See [Log Analytics](../logs/log-analytics-tutorial.md#write-a-query) if you aren’t familiar with the process of writing a query. 
+* Build a [workbook](../visualize/workbooks-overview.md) or [export to Power BI](../logs/log-powerbi.md) to create custom visualizations of click data.

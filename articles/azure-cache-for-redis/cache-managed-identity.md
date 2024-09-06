@@ -2,13 +2,13 @@
 title: Managed identity for storage accounts
 titleSuffix: Azure Cache for Redis
 description: Learn to Azure Cache for Redis
-author: flang-msft
 
-ms.service: cache
+
+
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ms.topic: conceptual
 ms.date: 08/29/2022
-ms.author: franlanglois
+
 ---
 
 # Managed identity for storage

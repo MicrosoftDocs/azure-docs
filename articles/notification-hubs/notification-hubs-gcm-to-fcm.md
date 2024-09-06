@@ -3,7 +3,7 @@ title: Azure Notification Hubs and the Google Firebase Cloud Messaging (FCM) mig
 description: Describes how Azure Notification Hubs addresses the Google GCM to FCM migration using either REST APIs or SDKs.
 author: sethmanheim
 manager: femila
-ms.service: notification-hubs
+ms.service: azure-notification-hubs
 ms.topic: article
 ms.date: 05/08/2024
 ms.author: sethm
@@ -61,7 +61,7 @@ Azure Notification Hubs is working on a solution that reduces the number of time
 
 ### How can Xamarin customers migrate to FCM v1?
 
-Xamarin is now deprecated. Xamarin customers should migrate to .NET MAUI, but MAUI is not currently supported by Azure Notification Hubs. MAUI apps can use the native Android Notification Hub SDK or [REST API](firebase-migration-rest.md#step-2-manage-registration-and-installation). It's recommended that Xamarin customers move away from Notification Hubs if they need FCM v1 sends.
+Xamarin is now deprecated and Xamarin customers should migrate to .NET Multi-platform App UI (.NET MAUI). While specific Azure Notification Hub SDKs aren't provided for .NET for Android, .NET for iOS, and .NET MAUI, the [.NET SDK](https://www.nuget.org/packages/Microsoft.Azure.NotificationHubs) can be used by apps built with .NET, including .NET MAUI. For more information, including sending push notifications to a .NET MAUI app via FCM v1, see [Send push notifications to .NET MAUI apps using Azure Notification Hubs via a backend service](/dotnet/maui/data-cloud/push-notifications).
 
 ## Next steps
 

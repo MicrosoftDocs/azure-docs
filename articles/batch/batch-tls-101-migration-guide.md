@@ -3,7 +3,7 @@ title: Migrate client code to TLS 1.2 in Azure Batch
 description: Learn how to migrate client code to TLS 1.2 in Azure Batch to plan for end of support for TLS 1.0 and TLS 1.1.
 author: harperche
 ms.author: harpercheng
-ms.service: batch
+ms.service: azure-batch
 ms.topic: how-to
 ms.date: 10/12/2022
 ---

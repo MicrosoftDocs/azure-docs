@@ -2,7 +2,7 @@
 title: Common questions about Azure Resource Mover?
 description: Get answers to common questions about  Azure Resource Mover.
 author: ankitaduttaMSFT
-ms.service: resource-mover
+ms.service: azure-resource-mover
 ms.custom: engagement-fy23, UpdateFrequency.5
 ms.topic: conceptual
 ms.date: 03/29/2024
@@ -67,7 +67,7 @@ No. Resource Mover service doesn't store customer data, it only stores metadata 
 
 ### Where is the metadata for moving across regions stored?
 
-It's stored in an [Azure Cosmos DB](../cosmos-db/database-encryption-at-rest.md) database, and in [Azure Blob storage](../storage/common/storage-service-encryption.md), in a Microsoft subscription. Currently, metadata is stored in East US 2 and North Europe. We plan to expand this coverage to other regions. This doesn't restrict you from moving resources across any public region.
+It's stored in an [Azure Cosmos DB](/azure/cosmos-db/database-encryption-at-rest) database, and in [Azure Blob storage](../storage/common/storage-service-encryption.md), in a Microsoft subscription. Currently, metadata is stored in East US 2 and North Europe. We plan to expand this coverage to other regions. This doesn't restrict you from moving resources across any public region.
 
 ### Is the collected metadata encrypted?
 

@@ -3,7 +3,7 @@ title: 'Azure ExpressRoute: Configure ExpressRoute Direct using the Azure portal
 description: This article helps you configure ExpressRoute Direct using the Azure portal.
 services: expressroute
 author: duongau
-ms.service: expressroute
+ms.service: azure-expressroute
 ms.topic: how-to
 ms.date: 03/11/2024
 ms.author: duau

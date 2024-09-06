@@ -75,7 +75,7 @@ Follow these steps to configure device related settings:
 
         ![Local web UI "Update Server" page](./media/azure-stack-edge-mini-r-deploy-set-up-device-update-time/update-server-1.png)
 
-        You can also choose to deploy updates from the **Windows Server Update services** (WSUS). Provide the path to the WSUS server.
+        You can also choose to deploy updates from the **Windows Server Update services (WSUS)**. Provide the path to the WSUS server.
         
         ![Local web UI "Update Server" page 2](./media/azure-stack-edge-mini-r-deploy-set-up-device-update-time/update-server-2.png)
 

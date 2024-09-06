@@ -82,8 +82,6 @@ items:
     href: concept-app-status.md
   - name: Memory
     items:
-    - name: Java memory management
-      href: concepts-for-java-memory-management.md
     - name: Tools to troubleshoot memory issues
       href: tools-to-troubleshoot-memory-issues.md
     - name: Fix app restart issues caused by OOM

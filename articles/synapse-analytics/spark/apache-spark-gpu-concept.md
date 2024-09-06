@@ -1,27 +1,27 @@
 ---
-title: GPU-accelerated pools
+title: GPU-accelerated pools (deprecated)
 description: Introduction to GPUs inside Synapse Analytics.
 author: midesa
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.topic: overview
 ms.subservice: spark
 ms.date: 05/02/2024
 ms.author: midesa
 ---
 
-# GPU-accelerated Apache Spark pools in Azure Synapse Analytics (Preview)
+# GPU-accelerated Apache Spark pools in Azure Synapse Analytics (deprecated)
 
 Azure Synapse Analytics now supports Apache Spark pools accelerated with graphics processing units (GPUs). 
 
 By using NVIDIA GPUs, data scientists and engineers can reduce the time necessary to run data integration pipelines, score machine learning models, and more. This article describes how GPU-accelerated pools can be created and used with Azure Synapse Analytics. This article also details the GPU drivers and libraries that are pre-installed as part of the GPU-accelerated runtime.
 
-> [!WARNING]
-> - The GPU accelerated preview is limited to the [Apache Spark 3.2 (End of Support announced)](../spark/apache-spark-32-runtime.md) runtime. End of Support announced for Azure Synapse Runtime for Apache Spark 3.2 has been announced July 8, 2023. End of Support announced runtimes will not have bug and feature fixes. Security fixes will be backported based on risk assessment. This runtime and the corresponding GPU accelerated preview on Spark 3.2 will be retired and disabled as of July 8, 2024.
-> - The GPU accelerated preview is now unsupported on the [Azure Synapse 3.1 (unsupported) runtime](../spark/apache-spark-3-runtime.md). Azure Synapse Runtime for Apache Spark 3.1 has reached its End of Support as of January 26, 2023, with official support discontinued effective January 26, 2024, and no further addressing of support tickets, bug fixes, or security updates beyond this date.
-
+> [!CAUTION]
+> Deprecation and disablement notification for GPUs on the Azure Synapse Runtime for Apache Spark 3.1 and 3.2
+> - The GPU accelerated preview is now deprecated on the [Apache Spark 3.2 (deprecated) runtime](../spark/apache-spark-32-runtime.md). Deprecated runtimes will not have bug and feature fixes. This runtime and the corresponding GPU accelerated preview on Spark 3.2 has been retired and disabled as of July 8, 2024.
+> - The GPU accelerated preview is now deprecated on the [Azure Synapse 3.1 (deprecated) runtime](../spark/apache-spark-3-runtime.md). Azure Synapse Runtime for Apache Spark 3.1 has reached its end of support as of January 26, 2023, with official support discontinued effective January 26, 2024, and no further addressing of support tickets, bug fixes, or security updates beyond this date.
 
 > [!NOTE]
-> Azure Synapse GPU-enabled pools are currently in Public Preview.
+> Azure Synapse GPU-enabled preview has now been deprecated.
 
 ## Create a GPU-accelerated pool
 
@@ -30,7 +30,6 @@ To simplify the process for creating and managing pools, Azure Synapse takes car
 > [!NOTE]
 >  - GPU-accelerated pools can be created in workspaces located in East US, Australia East, and North Europe.
 >  - GPU-accelerated pools are only availble with the Apache Spark 3 runtime.
->  - You might need to request a [limit increase](./apache-spark-rapids-gpu.md#quotas-and-resource-constraints-in-azure-synapse-gpu-enabled-pools) in order to create GPU-enabled clusters. 
  
 ## GPU-accelerated runtime
 

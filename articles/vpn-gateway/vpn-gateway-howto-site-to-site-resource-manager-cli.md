@@ -3,7 +3,7 @@ title: ' Connect an on-premises network and a virtual network: S2S VPN: CLI'
 description: Learn how to create a site-to-site VPN Gateway IPsec connection between your on-premises network to a VNet using Azure CLI.
 titleSuffix: Azure VPN Gateway
 author: cherylmc
-ms.service: vpn-gateway
+ms.service: azure-vpn-gateway
 ms.custom: devx-track-azurecli
 ms.topic: how-to
 ms.date: 05/07/2024
@@ -96,7 +96,7 @@ Use the [az network vnet subnet create](/cli/azure/network/vnet/subnet) command 
 az network vnet subnet create --address-prefix 10.1.255.0/27 --name GatewaySubnet --resource-group TestRG1 --vnet-name VNet1
 ```
 
-[!INCLUDE [vpn-gateway-no-nsg](~/reusable-content/ce-skilling/azure/includes/vpn-gateway-no-nsg-include.md)]
+[!INCLUDE [vpn-gateway-no-nsg](../../includes/vpn-gateway-no-nsg-include.md)]
 
 ## <a name="localnet"></a>5. Create the local network gateway
 

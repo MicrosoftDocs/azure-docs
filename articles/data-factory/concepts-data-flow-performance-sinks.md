@@ -5,7 +5,6 @@ description: Learn about optimizing sink performance and best practices in mappi
 author: kromerm
 ms.topic: conceptual
 ms.author: makromer
-ms.service: data-factory
 ms.subservice: data-flows
 ms.custom: synapse
 ms.date: 10/20/2023

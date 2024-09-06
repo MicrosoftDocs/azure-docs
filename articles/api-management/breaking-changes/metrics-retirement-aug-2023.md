@@ -3,7 +3,7 @@ title: Azure API Management - Metrics retirement (August 2023)
 description: Azure API Management is retiring five legacy metrics as of August 2023. If you monitor your API Management instance using these metrics, you must update your monitoring settings and alert rules to use the Requests metric.
 services: api-management
 author: dlepow
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: reference
 ms.date: 04/20/2023
 ms.author: danlep

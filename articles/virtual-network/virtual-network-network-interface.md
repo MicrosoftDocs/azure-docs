@@ -3,7 +3,7 @@ title: Create, change, or delete an Azure network interface
 titlesuffix: Azure Virtual Network
 description: Learn how to create, delete, and view and change settings for network interfaces by using the Azure portal, Azure PowerShell, or Azure CLI.
 author: asudbring
-ms.service: virtual-network
+ms.service: azure-virtual-network
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 03/20/2023

@@ -101,7 +101,7 @@
       href: ssl-certificate-management.md
   - name: Health monitoring
     items:
-    - name: Monitor Azure Application Gateway
+    - name: Monitor Application Gateway
       href: monitor-application-gateway.md
     - name: Health probe
       href: application-gateway-probe-overview.md
@@ -337,7 +337,7 @@
     href: private-link-configure.md
 - name: Reference
   items:
-  - name: Monitoring data
+  - name: Monitoring data reference
     href: monitor-application-gateway-reference.md
   - name: Ingress for AKS annotations
     href: ingress-controller-annotations.md

@@ -23,8 +23,8 @@ The following limit applies to analytics rules in Microsoft Sentinel.
 | [Entity mappings](map-data-fields-to-entities.md) | 10 mappings per rule | None |
 | [Entities](map-data-fields-to-entities.md) identified per alert<br>(Divided equally among the mapped entities) | 500 entities per alert | None |
 | [Entities](map-data-fields-to-entities.md) cumulative size limit | 64 KB | None |
-| [Custom details](surface-custom-details-in-alerts.md)    | 20 details per rule | None |
-| [Custom details](surface-custom-details-in-alerts.md) and [alert details](customize-alert-details.md)<br>combined cumulative size limit | 64 KB | None |
+| [Custom details](surface-custom-details-in-alerts.md) | 20 details per rule<br>50 values per detail<br>2 KB cumulative size | None |
+| [Alert details](customize-alert-details.md) | 50 values per overridden field<br>5 KB per field for `Description` and collections<br>256 bytes per field for `AlertName` and non-collections | None |
 | Alerts per rule<br>Applicable when *Event grouping* is set to *Trigger an alert for each event* | 150 alerts | None |
 | Alerts per rule for NRT rules | 30 alerts | None |
 
@@ -52,7 +52,7 @@ The following limits apply to incidents in Microsoft Sentinel.
 | Number of characters for description  | 5,000 characters | None |
 | Number of characters per comment   | 30,000 characters  | None |
 | Number of comments per incident   | 100 comments  | None |
-| Number of tasks  | 100 tasks | None |
+| Number of tasks  | 40 tasks | None |
 | Number of incidents returned by API to *list* request | 1,000 incidents maximum | None |
 | Number of incidents per day (per workspace) | See explanation after table | Database capacity |
 

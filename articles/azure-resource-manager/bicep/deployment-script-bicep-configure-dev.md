@@ -2,14 +2,14 @@
 title: Configure development environment for deployment scripts in Bicep | Microsoft Docs
 description: Configure development environment for deployment scripts in Bicep.
 ms.topic: how-to
-ms.date: 12/13/2023
+ms.date: 07/11/2024
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, devx-track-bicep
 ms.devlang: azurecli
 ---
 
 # Configure development environment for deployment scripts in Bicep files
 
-Learn how to create a development environment for developing and testing deployment scripts with a deployment script image. You can either create an [Azure container instance](../../container-instances/container-instances-overview.md) or use [Docker](https://docs.docker.com/get-docker/). Both options are covered in this article.
+Learn how to create a development environment for developing and testing deployment scripts with a deployment script image. You can either create an [Azure container instance](/azure/container-instances/container-instances-overview) or use [Docker](https://docs.docker.com/get-docker/). Both options are covered in this article.
 
 ## Prerequisites
 
@@ -237,7 +237,7 @@ var fileShareName = '${projectName}share'
 var containerGroupName = '${projectName}cg'
 var containerName = '${projectName}container'
 
-resource storageAccount 'Microsoft.Storage/storageAccounts@2023-01-01' = {
+resource storageAccount 'Microsoft.Storage/storageAccounts@2023-04-01' = {
   name: storageAccountName
   location: location
   sku: {
@@ -249,7 +249,7 @@ resource storageAccount 'Microsoft.Storage/storageAccounts@2023-01-01' = {
   }
 }
 
-resource fileshare 'Microsoft.Storage/storageAccounts/fileServices/shares@2023-01-01' = {
+resource fileshare 'Microsoft.Storage/storageAccounts/fileServices/shares@2023-04-01' = {
   name: '${storageAccountName}/default/${fileShareName}'
   dependsOn: [
     storageAccount

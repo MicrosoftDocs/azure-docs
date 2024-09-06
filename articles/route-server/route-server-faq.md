@@ -3,9 +3,9 @@ title: Azure Route Server frequently asked questions (FAQ)
 description: Find answers to frequently asked questions about Azure Route Server.
 author: halkazwini
 ms.author: halkazwini
-ms.service: route-server
+ms.service: azure-route-server
 ms.topic: faq
-ms.date: 08/18/2023
+ms.date: 08/27/2024
 ---
 
 # Azure Route Server frequently asked questions (FAQ)
@@ -105,7 +105,7 @@ No. By default, Azure Route Server doesn't propagate routes it receives from an 
 
 ### When the same route is learned over ExpressRoute, VPN or SDWAN, which network is preferred?
 
-By default, the route that's learned over ExpressRoute is preferred over the ones learned over VPN or SDWAN. You can configure routing preference to influence Route Server route selection. For more information, see [Routing preference (preview)](hub-routing-preference.md)
+By default, the route that's learned over ExpressRoute is preferred over the ones learned over VPN or SDWAN. You can configure routing preference to influence Route Server route selection. For more information, see [Routing preference](hub-routing-preference.md).
 
 ### What are the requirements for an Azure VPN gateway to work with Azure Route Server?
 
@@ -153,7 +153,7 @@ No, Azure Route Server doesn't support network security group association to the
 
 Azure Route Server has the following limits (per deployment).
 
-[!INCLUDE [route server limits](~/reusable-content/ce-skilling/azure/includes/route-server-limits.md)]
+[!INCLUDE [route server limits](../../includes/route-server-limits.md)]
 
 For information on troubleshooting routing problems in a virtual machine, see [Diagnose an Azure virtual machine routing problem](../virtual-network/diagnose-network-routing-problem.md).
 

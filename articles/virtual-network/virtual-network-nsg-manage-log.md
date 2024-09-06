@@ -5,7 +5,7 @@ description: Learn how to enable event and rule counter diagnostic resource logs
 services: virtual-network
 author: asudbring
 manager: mtillman
-ms.service: virtual-network
+ms.service: azure-virtual-network
 ms.topic: how-to
 ms.date: 03/22/2023
 ms.author: allensu

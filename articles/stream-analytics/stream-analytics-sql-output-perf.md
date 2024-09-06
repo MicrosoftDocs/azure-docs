@@ -4,7 +4,7 @@ description: Learn about outputting data to SQL Azure from Azure Stream Analytic
 author: chetanmsft
 ms.author: chetang
 
-ms.service: stream-analytics
+ms.service: azure-stream-analytics
 ms.topic: conceptual
 ms.date: 03/18/2019
 ---

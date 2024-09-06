@@ -7,7 +7,7 @@ ms.author: mbender
 ms.date: 03/12/2024
 ROBOTS: NOINDEX, NOFOLLOW
 ms.topic: quickstart
-ms.service: load-balancer
+ms.service: azure-load-balancer
 ms.custom: devx-track-azurepowershell, mode-api
 #Customer intent: I want to create a load balancer so that I can load balance internet traffic to VMs.
 ---

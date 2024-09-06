@@ -58,7 +58,7 @@ If you want to clean up and remove a Communication Services subscription, you ca
 
 ## Toll-free verification
 
-If you have a new toll-free number and want to send a [high volume of SMS messages](../../concepts/sms/sms-faq.md#what-happens-if-i-dont-verify-my-toll-free-numbers) or send SMS messages to Canadian phone numbers, see [SMS FAQ > How do I submit a toll-free verification](../../concepts/sms/sms-faq.md#how-do-i-submit-a-toll-free-verification) to learn how to verify your toll-free number. 
+To utilize a new toll-free number for sending SMS messages, it is mandatory to undergo a toll-free verification process. For guidance on how to complete the verification of your toll-free number, please refer to the [Quickstart for submitting a toll-free verification](./apply-for-toll-free-verification.md). Note that only toll-free numbers that have been fully verified are authorized to send out SMS traffic. Any SMS traffic from unverified toll-free numbers directed to US and CA phone numbers will be blocked.
 
 ## Next steps
 

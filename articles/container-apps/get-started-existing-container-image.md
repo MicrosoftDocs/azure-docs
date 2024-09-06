@@ -3,7 +3,7 @@ title: 'Quickstart: Deploy an existing container image with the command line'
 description: Deploy an existing container image to Azure Container Apps with the Azure CLI or PowerShell.
 services: container-apps
 author: craigshoemaker
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.topic: quickstart
 ms.date: 08/31/2022

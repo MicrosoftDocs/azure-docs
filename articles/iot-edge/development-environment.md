@@ -4,7 +4,7 @@ description: Learn about the supported systems and first-party development tools
 author: PatAltimore
 
 ms.author: patricka
-ms.date: 07/10/2023
+ms.date: 06/14/2024
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -30,7 +30,7 @@ The operating systems of the development machine and IoT Edge devices don't need
 
 The central concept of IoT Edge is that you can remotely deploy your business and cloud logic to devices by packaging it into containers. To build containers, you need a container engine on your development machine.
 
-The only supported container engine for IoT Edge devices in production is Moby. However, any container engine compatible with the Open Container Initiative, like Docker, is capable of building IoT Edge module images.
+Any container engine compatible with the Open Container Initiative, like Docker, is capable of building IoT Edge module images. Moby is the supported container engine for IoT Edge devices in production. If you are using Ubuntu Core snaps, the Docker snap is serviced by Canonical and supported for production scenarios.
 
 ## Development tools
 

@@ -2,7 +2,7 @@
 title: What are the Azure Firewall Manager architecture options?
 description: Compare and contrast using hub virtual network or secured virtual hub architectures with Azure Firewall Manager.
 author: vhorne
-ms.service: firewall-manager
+ms.service: azure-firewall-manager
 services: firewall-manager
 ms.topic: article
 ms.date: 03/08/2024

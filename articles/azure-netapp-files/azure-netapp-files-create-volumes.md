@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: b-hchen
 ms.service: azure-netapp-files
 ms.topic: how-to
-ms.date: 06/10/2024
+ms.date: 08/20/2024
 ms.author: anfdocs
 ---
 # Create an NFS volume for Azure NetApp Files
@@ -22,6 +22,8 @@ This article shows you how to create an NFS volume. For SMB volumes, see [Create
     See [Create a capacity pool](azure-netapp-files-set-up-capacity-pool.md).   
 * A subnet must be delegated to Azure NetApp Files.  
     See [Delegate a subnet to Azure NetApp Files](azure-netapp-files-delegate-subnet.md).
+
+* [!INCLUDE [50 GiB volume preview](./includes/50-gib-volume.md)]
 
 ## Considerations 
 
@@ -72,7 +74,7 @@ This article shows you how to create an NFS volume. For SMB volumes, see [Create
         If the volume is created in an auto QoS capacity pool, the value displayed in this field is (quota x service level throughput).   
 
     * **Enable Cool Access**, **Coolness Period**, and **Cool Access Retrieval Policy**      
-        These fields configure [standard storage with cool access in Azure NetApp Files](cool-access-introduction.md). For descriptions, see [Manage Azure NetApp Files standard storage with cool access](manage-cool-access.md). 
+        These fields configure [Azure NetApp Files storage with cool access](cool-access-introduction.md). For descriptions, see [Manage Azure NetApp Files storage with cool access](manage-cool-access.md). 
 
     * **Virtual network**  
         Specify the Microsoft Azure Virtual Network from which you want to access the volume.  

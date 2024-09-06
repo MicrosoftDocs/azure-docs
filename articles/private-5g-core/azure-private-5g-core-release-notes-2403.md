@@ -3,7 +3,7 @@ title: Azure Private 5G Core 2403 release notes
 description: Discover what's new in the Azure Private 5G Core 2403 release.
 author: paulcarter
 ms.author: paulcarter
-ms.service: private-5g-core
+ms.service: azure-private-5g-core
 ms.topic: release-notes
 ms.date: 04/04/2023
 ---

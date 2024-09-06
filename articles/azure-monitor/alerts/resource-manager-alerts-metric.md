@@ -19,7 +19,7 @@ This article provides samples of using [Azure Resource Manager templates](../../
 See [Supported resources for metric alerts in Azure Monitor](../alerts/alerts-metric-near-real-time.md) for a list of resources that can be used with metric alert rules. An explanation of the schema and properties for an alert rule is available at [Metric Alerts - Create Or Update](/rest/api/monitor/metricalerts/createorupdate).
 
 > [!NOTE]
-> Resource template for creating metric alerts for resource type: Azure Log Analytics Workspace (i.e.) `Microsoft.OperationalInsights/workspaces`, requires additional steps. For details, see [Metric Alert for Logs - Resource Template](../alerts/alerts-metric-logs.md#resource-template-for-metric-alerts-for-logs).
+> Resource template for creating metric alerts for resource type: Azure Log Analytics Workspace (i.e.) `Microsoft.OperationalInsights/workspaces`, requires additional steps. For details, see [Metric Alert for Logs - Resource Template](../alerts/alerts-metric-logs.md#resource-manager-templates).
 
 ## Template references
 
@@ -347,7 +347,7 @@ resource metricAlert 'Microsoft.Insights/metricAlerts@2018-03-01' = {
       "value": "GreaterThan"
     },
     "threshold": {
-      "value": "80"
+      "value": 80
     },
     "timeAggregation": {
       "value": "Average"
@@ -1014,7 +1014,7 @@ resource metricAlert 'Microsoft.Insights/metricAlerts@2018-03-01' = {
           }
         ],
         "operator": "GreaterThan",
-        "threshold": "5",
+        "threshold": 5,
         "timeAggregation": "Total"
       }
     },
@@ -1030,7 +1030,7 @@ resource metricAlert 'Microsoft.Insights/metricAlerts@2018-03-01' = {
           }
         ],
         "operator": "GreaterThan",
-        "threshold": "250",
+        "threshold": 250,
         "timeAggregation": "Average"
       }
     },
@@ -1307,7 +1307,7 @@ resource metricAlert 'Microsoft.Insights/metricAlerts@2018-03-01' = {
           }
         ],
         "operator": "GreaterThan",
-        "threshold": "5",
+        "threshold": 5,
         "timeAggregation": "Total"
       }
     },
@@ -1940,7 +1940,7 @@ resource metricAlert 'Microsoft.Insights/metricAlerts@2018-03-01' = {
       "value": "GreaterThan"
     },
     "threshold": {
-      "value": "80"
+      "value": 80
     },
     "timeAggregation": {
       "value": "Average"
@@ -2282,8 +2282,8 @@ resource metricAlert 'Microsoft.Insights/metricAlerts@2018-03-01' = {
       }
     },
     "threshold": {
-      "type": "string",
-      "defaultValue": "0",
+      "type": "int",
+      "defaultValue": 0,
       "metadata": {
         "description": "The threshold value at which the alert is activated."
       }
@@ -2420,7 +2420,7 @@ resource metricAlert 'Microsoft.Insights/metricAlerts@2018-03-01' = {
       "value": "GreaterThan"
     },
     "threshold": {
-      "value": "0"
+      "value": 0
     },
     "timeAggregation": {
       "value": "Average"
@@ -3231,8 +3231,8 @@ resource metricAlert 'Microsoft.Insights/metricAlerts@2018-03-01' = {
       }
     },
     "threshold": {
-      "type": "string",
-      "defaultValue": "0",
+      "type": "int",
+      "defaultValue": 0,
       "metadata": {
         "description": "The threshold value at which the alert is activated."
       }
@@ -3369,7 +3369,7 @@ resource metricAlert 'Microsoft.Insights/metricAlerts@2018-03-01' = {
       "value": "GreaterThan"
     },
     "threshold": {
-      "value": "0"
+      "value": 0
     },
     "timeAggregation": {
       "value": "Average"
@@ -4179,8 +4179,8 @@ resource metricAlert 'Microsoft.Insights/metricAlerts@2018-03-01' = {
       }
     },
     "threshold": {
-      "type": "string",
-      "defaultValue": "0",
+      "type": "int",
+      "defaultValue": 0,
       "metadata": {
         "description": "The threshold value at which the alert is activated."
       }
@@ -4318,7 +4318,7 @@ resource metricAlert 'Microsoft.Insights/metricAlerts@2018-03-01' = {
       "value": "GreaterThan"
     },
     "threshold": {
-      "value": "0"
+      "value": 0
     },
     "timeAggregation": {
       "value": "Average"
@@ -4911,22 +4911,23 @@ resource metricAlert 'Microsoft.Insights/metricAlerts@2018-03-01' = {
   "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "metadata": {
-  "parameters": {
-    "appName": {
-      "type": "string"
-    },
-    "pingURL": {
-      "type": "string"
-    },
-    "pingText": {
-      "type": "string",
-      "defaultValue": ""
-    },
-    "actionGroupId": {
-      "type": "string"
-    },
-    "location": {
-      "type": "string"
+    "parameters": {
+      "appName": {
+        "type": "string"
+      },
+      "pingURL": {
+        "type": "string"
+      },
+      "pingText": {
+        "type": "string",
+        "defaultValue": ""
+      },
+      "actionGroupId": {
+        "type": "string"
+      },
+      "location": {
+        "type": "string"
+      }
     }
   },
   "variables": {

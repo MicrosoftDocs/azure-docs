@@ -6,7 +6,7 @@ author: duongau
 manager: kumud
 ms.assetid: 669ef140-a6dd-4b62-9b9d-3f375a14215e
 ms.service: azure-cdn
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/20/2024
 ms.author: duau
 ms.custom: references_regions
@@ -31,7 +31,7 @@ This article lists current metros containing point of presence (POP) locations, 
 > [!NOTE]
 > A location might contain more than one POP, noted by the number in parentheses.
 
-[!INCLUDE [front-door-edge-location](~/reusable-content/ce-skilling/azure/includes/front-door-edge-locations.md)]
+[!INCLUDE [front-door-edge-location](../../includes/front-door-edge-locations.md)]
 
 ## Partners
 

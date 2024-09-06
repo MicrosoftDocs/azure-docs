@@ -3,7 +3,6 @@ title: Monitor self-hosted integration runtime (SHIR) virtual machines in Azure
 titleSuffix: Azure Data Factory & Azure Synapse
 description: This article describes how to monitor Azure virtual machines hosting the self-hosted integration runtime.
 author: jonburchel
-ms.service: data-factory
 ms.subservice: 
 ms.custom: synapse
 ms.topic: conceptual

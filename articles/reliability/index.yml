@@ -48,7 +48,9 @@ landingContent:
             url: disaster-recovery-overview.md
           - text: Business continuity management program
             url: business-continuity-management-program.md
-          - text: Cross-region pairs
+          - text: Cross-region replication
+            url: cross-region-replication-azure.md
+          - text: Cross-region replication for non-paired regions
             url: cross-region-replication-azure.md
   
   # Service availability

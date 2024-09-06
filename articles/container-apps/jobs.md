@@ -3,7 +3,7 @@ title: Jobs in Azure Container Apps
 description: Learn about jobs in Azure Container Apps
 services: container-apps
 author: craigshoemaker
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.custom: build-2023, devx-track-azurecli
 ms.topic: conceptual
 ms.date: 04/02/2024

@@ -97,7 +97,7 @@ Now you're ready to create an NFS file share and provide network-level security 
 
 1. Select the storage account you created.
 
-1. Select **Data storage > File shares** from the storage account pane.
+1. In the service menu, under **Data storage**, select **File shares**.
 
 1. Select **+ File Share**.
 
@@ -151,13 +151,13 @@ Azure Files doesn't currently support encryption-in-transit with the NFS protoco
 
 1. Select the storage account you created.
 
-1. Select **File shares** from the storage account pane.
+1. In the service menu, under **Data storage**, select **File shares**.
 
 1. Select the NFS file share that you created. Under **Secure transfer setting**, select **Change setting**.
 
     :::image type="content" source="media/storage-files-quick-create-use-linux/secure-transfer-setting.png" alt-text="Screenshot showing how to change the secure transfer setting." lightbox="media/storage-files-quick-create-use-linux/secure-transfer-setting.png" border="true":::
 
-1. Change the **Secure transfer required** setting to **Disabled**, and select **Save**. The setting change may take up to 30 seconds to take effect.
+1. Change the **Secure transfer required** setting to **Disabled**, and select **Save**. The setting change can take up to 30 seconds to take effect.
 
     :::image type="content" source="media/storage-files-quick-create-use-linux/disable-secure-transfer.png" alt-text="Screenshot showing how to disable the secure transfer setting." lightbox="media/storage-files-quick-create-use-linux/disable-secure-transfer.png" border="true":::
 
@@ -173,16 +173,16 @@ Create an SSH connection with the VM.
 
 1. If you are on a Mac or Linux machine, open a Bash prompt. If you are on a Windows machine, open a PowerShell prompt.
 
-1. At your prompt, open an SSH connection to your VM. Replace the IP address with the one from your VM, and replace the path to the `.pem` with the path to where the key file was downloaded.
+1. At your prompt, open an SSH connection to your VM. Replace `xx.xx.xx.xx` with the IP address of your VM, and replace the path to the `.pem` with the path to where the key file was downloaded.
 
 ```console
-ssh -i .\Downloads\myVM_key.pem azureuser@20.25.14.85
+ssh -i .\Downloads\myVM_key.pem azureuser@xx.xx.xx.xx
 ```
 
 If you encounter a warning that the authenticity of the host can't be established, type **yes** to continue connecting to the VM. Leave the ssh connection open for the next step.
 
 > [!TIP]
-> The SSH key you created can be used the next time your create a VM in Azure. Just select the **Use a key stored in Azure** for **SSH public key source** the next time you create a VM. You already have the private key on your computer, so you won't need to download anything.
+> You can use the SSH key you created the next time you create a VM in Azure. Just select the **Use a key stored in Azure** for **SSH public key source** the next time you create a VM. You already have the private key on your computer, so you won't need to download anything.
 
 ## Mount the NFS share
 
@@ -192,7 +192,7 @@ Now that you've created an NFS share, you have to mount it on your Linux client.
 
 1. Select the storage account you created.
 
-1. Select **File shares** from the storage account pane and select the NFS file share you created.
+1. In the service menu, under **Data storage**, select **File shares**, and then select the NFS file share you created.
 
 1. You should see **Connect to this NFS share from Linux** along with sample commands to use NFS on your Linux distribution and a mounting script that contains the required mount options. For other recommended mount options, see [Mount NFS Azure file share on Linux](storage-files-how-to-mount-nfs-shares.md#mount-options).
 

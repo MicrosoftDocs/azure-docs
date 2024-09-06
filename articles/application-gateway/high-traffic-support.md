@@ -3,7 +3,7 @@ title: Application Gateway high traffic volume support
 description: This article provides guidance to configure Azure Application Gateway in support of high network traffic volume scenarios. 
 services: application-gateway
 author: greg-lindsay
-ms.service: application-gateway
+ms.service: azure-application-gateway
 ms.topic: conceptual
 ms.date: 05/19/2023
 ms.author: greglin

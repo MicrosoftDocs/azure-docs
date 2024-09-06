@@ -3,7 +3,7 @@ title: Tune Azure Web Application Firewall for Azure Front Door
 description: In this article, you learn how to tune Azure Web Application Firewall for Azure Front Door.
 services: web-application-firewall
 author: mohitkusecurity
-ms.service: web-application-firewall
+ms.service: azure-web-application-firewall
 ms.topic: conceptual
 ms.date: 08/28/2022
 ms.author: mohitku
@@ -239,7 +239,7 @@ With this information, and the knowledge that rule 942110 is the one that matche
 
 ### Use exclusion lists
 
-One benefit of using an exclusion list is that only the match variable you select to exclude will be no longer inspected for that given request. That is, you can choose between specific request headers, request cookies, query string arguments, or request body post arguments to be excluded if a certain condition is met, as opposed to excluding the whole request from being inspected. The other nonspecified variables of the request are inspected normally.
+One benefit of using an exclusion list is that only the match variable you select to exclude will no longer be inspected for that given request. That is, you can choose between specific request headers, request cookies, query string arguments, or request body post arguments to be excluded if a certain condition is met, as opposed to excluding the whole request from being inspected. The other nonspecified variables of the request are inspected normally.
 
 Exclusions are a global setting. The configured exclusion applies to all traffic that passes through your WAF, not just a specific web app or URI. For example, this could be a concern if `1=1` is a valid request in the body for a certain web app, but not for others under the same WAF policy.
 

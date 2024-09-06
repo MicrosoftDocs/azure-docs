@@ -2,9 +2,9 @@
 metadata:
   title: Azure Cache for Redis planning FAQs
   description: Learn the answers to common questions that help you plan for Azure Cache for Redis
-  author: flang-msft
-  ms.author: franlanglois
-  ms.service: cache
+  
+  
+  
   ms.topic: faq
   ms.date: 02/02/2022
 title: Azure Cache for Redis planning FAQs

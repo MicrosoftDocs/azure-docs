@@ -3,7 +3,7 @@ title: Profile Azure containers with Application Insights Profiler
 description: Learn how to enable the Application Insights Profiler for your ASP.NET Core application running in Azure containers.
 ms.contributor: charles.weininger
 ms.topic: how-to
-ms.date: 09/22/2023
+ms.date: 08/19/2024
 ms.reviewer: ryankahng
 # Customer Intent: As a .NET developer, I'd like to learn how to enable Profiler on my ASP.NET Core application running in my container.
 ---
@@ -17,10 +17,10 @@ You can enable the Application Insights Profiler for ASP.NET Core application ru
 - Set up the Application Insights instrumentation key.
 
 In this article, you learn about the various ways that you can:
-
-- Install the NuGet package in the project.
-- Set the environment variable via the orchestrator (like Kubernetes).
-- Learn security considerations around production deployment, like protecting your Application Insights instrumentation key.
+> [!div class="checklist"]
+> - Install the NuGet package in the project.
+> - Set the environment variable via the orchestrator (like Kubernetes).
+> - Learn security considerations around production deployment, like protecting your Application Insights instrumentation key.
 
 ## Prerequisites
 

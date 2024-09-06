@@ -13,7 +13,7 @@ ms.custom: subject-rbac-steps, devx-track-arm-template
 
 # Authenticate access and connections to Azure resources with managed identities in Azure Logic Apps
 
-[!INCLUDE [logic-apps-sku-consumption-standard](~/reusable-content/ce-skilling/azure/includes/logic-apps-sku-consumption-standard.md)]
+[!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
 If you want to avoid providing, storing, and managing credentials, secrets, or Microsoft Entra tokens, you can use a managed identity to authenticate access or connections from your logic app workflow to Microsoft Entra protected resources. In Azure Logic Apps, some connector operations support using a managed identity when you must authenticate access to resources protected by Microsoft Entra ID. Azure manages this identity and helps keep authentication information secure so that you don't have to manage this sensitive information. For more information, see [What are managed identities for Azure resources](/entra/identity/managed-identities-azure-resources/overview)?
 
@@ -535,8 +535,8 @@ For an Azure key vault, you also have the option to create an access policy for 
 | Tool | Documentation |
 |------|---------------|
 | Azure Resource Manager template (ARM template) | [Key Vault access policy resource definition](/azure/templates/microsoft.keyvault/vaults) |
-| Azure PowerShell | [Assign a Key Vault access policy](../key-vault/general/assign-access-policy.md?tabs=azure-powershell) |
-| Azure CLI | [Assign a Key Vault access policy](../key-vault/general/assign-access-policy.md?tabs=azure-cli) |
+| Azure PowerShell | [Assign a Key Vault access policy](/azure/key-vault/general/assign-access-policy?tabs=azure-powershell) |
+| Azure CLI | [Assign a Key Vault access policy](/azure/key-vault/general/assign-access-policy?tabs=azure-cli) |
 
 <a name="azure-portal-assign-role"></a>
 
@@ -570,7 +570,7 @@ To use a managed identity for authentication, some Azure resources, such as Azur
 
 After you're done, you can use the identity to [authenticate access for triggers and actions that support managed identities](#authenticate-access-with-identity).
 
-For more general information about this task, see [Assign a managed identity access to another resource using Azure RBAC](/entra/identity/managed-identities-azure-resources/howto-assign-access-portal).
+For more general information about this task, see [Assign a managed identity access to an Azure resource or another resource](/entra/identity/managed-identities-azure-resources/how-to-assign-access-azure-resource).
 
 <a name="azure-portal-access-policy"></a>
 
@@ -849,7 +849,7 @@ To run the [Snapshot Blob operation](/rest/api/storageservices/snapshot-blob), t
 
 1. On some triggers and actions, the **Audience** property appears so that you can set the resource ID for the target Azure resource or service.
 
-   For example, to authenticate access to a [Key Vault resource in the global Azure cloud](../key-vault/general/authentication.md), you must set the **Audience** property to *exactly* the following resource ID: **`https://vault.azure.net`**
+   For example, to authenticate access to a [Key Vault resource in the global Azure cloud](/azure/key-vault/general/authentication), you must set the **Audience** property to *exactly* the following resource ID: **`https://vault.azure.net`**
 
    If you don't set the **Audience** property, by default, the **Audience** property uses the **`https://management.azure.com/`** resource ID, which is the resource ID for Azure Resource Manager.
 
@@ -913,7 +913,7 @@ To run the [Snapshot Blob operation](/rest/api/storageservices/snapshot-blob), t
 
 1. On some triggers and actions, the **Audience** property appears so that you can set the resource ID for the target Azure resource or service.
 
-   For example, to [authenticate access to a Key Vault resource in the global Azure cloud](../key-vault/general/authentication.md), you must set the **Audience** property to *exactly* the following resource ID: **`https://vault.azure.net`**
+   For example, to [authenticate access to a Key Vault resource in the global Azure cloud](/azure/key-vault/general/authentication), you must set the **Audience** property to *exactly* the following resource ID: **`https://vault.azure.net`**
 
    If you don't set the **Audience** property, by default, the **Audience** property uses the **`https://management.azure.com/`** resource ID, which is the resource ID for Azure Resource Manager.
 
@@ -1251,7 +1251,7 @@ This example shows the underlying connection resource definition for a connector
     "apiVersion": "[providers('Microsoft.Web','connections').apiVersions[0]]",
     "name": "[variables('connections_<connector-name>_name')]",
     "location": "[parameters('location')]",
-    "kind": "V1",
+    "kind": "V2",
     "properties": {
         "alternativeParameterValues":{},
         "api": {

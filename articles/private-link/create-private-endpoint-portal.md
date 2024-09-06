@@ -3,7 +3,7 @@ title: 'Quickstart: Create a private endpoint - Azure portal'
 titleSuffix: Azure Private Link
 description: In this quickstart, learn how to create a private endpoint using the Azure portal.
 author: abell
-ms.service: private-link
+ms.service: azure-private-link
 ms.topic: quickstart
 ms.date: 02/26/2024
 ms.author: abell

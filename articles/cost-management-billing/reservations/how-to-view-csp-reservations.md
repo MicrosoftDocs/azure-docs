@@ -6,7 +6,7 @@ ms.subservice: reservations
 author: bandersmsft
 ms.reviewer: primittal
 ms.topic: how-to
-ms.date: 03/21/2024
+ms.date: 06/28/2024
 ms.author: banders
 ---
 
@@ -14,7 +14,7 @@ ms.author: banders
 
 Cloud Solution Providers can access reservations that are purchased for their customers. Use the following information to view reservations in the Azure portal.
 
-Roles assigned with Azure Lighthouse aren't supported by reservations. To view reservations, you need to be a global admin or an admin agent in the customer's tenant.
+Reservations don't support roles assigned with Azure Lighthouse. To view reservations, you need to be a global admin or an admin agent in the customer's tenant.
 
 ## View reservations
 
@@ -25,12 +25,12 @@ Roles assigned with Azure Lighthouse aren't supported by reservations. To view r
 1. In the Azure portal, go to **Reservations**.
 
 > [!NOTE]
-> Being a guest in the customer's tenant prevents you from viewing reservations. If you have guest access, you need to remove it from the tenant. Admin agent privilege doesn't override guest access.
+> Being a guest in the customer's tenant allows you to view reservations. However, guest access prevents you from refunding or exchanging reservations. To make changes to reservations, you must remove guest access from the tenant. Admin agent privilege doesn't override guest access.
 
 - To remove your guest access in the Partner Center, navigate to **My Account** > **[Organizations](https://myaccount.microsoft.com/organizations)** and then select **Leave organization**.
 
 Alternately, ask another user who can access the reservation to add your guest account to the reservation order.
 
-## Next steps
+## Related content
 
 - [View Azure reservations](view-reservations.md)

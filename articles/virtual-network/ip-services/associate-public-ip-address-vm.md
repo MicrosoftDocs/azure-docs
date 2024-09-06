@@ -4,7 +4,7 @@ titlesuffix: Azure Virtual Network
 description: Learn how to associate a public IP address to a virtual machine (VM) by using the Azure portal, the Azure CLI, or Azure PowerShell.
 services: virtual-network
 author: mbender-ms
-ms.service: virtual-network
+ms.service: azure-virtual-network
 ms.subservice: ip-services
 ms.topic: how-to
 ms.date: 08/24/2023
@@ -218,6 +218,8 @@ Install [Azure PowerShell](/powershell/azure/install-azure-powershell) on your m
 1. Open the necessary ports in your security groups by adjusting the security rules in the network security groups. For information, see [Allow network traffic to the VM](#allow-network-traffic-to-the-vm).
 
 ---
+> [!NOTE]  
+> To share a VM with an external user, you must add a public IP address to the VM. Alternatively, external users can connect to VM's private IP address through Azure Bastion.
 
 ## Allow network traffic to the VM
 

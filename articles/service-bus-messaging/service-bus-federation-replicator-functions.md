@@ -13,4 +13,4 @@ As explained in the [message replication and cross-region federation](service-bu
 
 In this overview, you will learn about Azure Functions' built-in capabilities for such applications, about  code blocks that you can adapt and modify for transformation tasks, and about how to configure an Azure Functions application such that it integrates ideally with Service Bus and other Azure Messaging services. For many details, this article will point to the Azure Functions documentation.
 
-[!INCLUDE [messaging-replicator-functions](~/reusable-content/ce-skilling/azure/includes/messaging-replicator-functions.md)]
+[!INCLUDE [messaging-replicator-functions](../../includes/messaging-replicator-functions.md)]

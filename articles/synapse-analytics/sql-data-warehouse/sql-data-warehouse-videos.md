@@ -4,7 +4,7 @@ description: Links to various video playlists for Azure Synapse Analytics.
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.date: 07/18/2023
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.subservice: sql-dw
 ms.topic: conceptual
 ---

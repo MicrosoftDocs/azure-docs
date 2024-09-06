@@ -3,7 +3,7 @@ title: 'Tutorial: Add security headers with Rules Engine - Azure Front Door'
 description: This tutorial teaches you how to configure a security header via Rules Engine on Azure Front Door
 services: frontdoor
 author: duongau
-ms.service: frontdoor
+ms.service: azure-frontdoor
 ms.topic: tutorial
 ms.date: 10/05/2023
 ms.author: duau

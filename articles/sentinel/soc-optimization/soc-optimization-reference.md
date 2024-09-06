@@ -1,24 +1,20 @@
 ---
-title: SOC optimization reference (preview)
-description: Learn about the SOC optimization recommendations available to help you optimize your security operations.
-ms.service: defender-xdr
-ms.pagetype: security
+title: SOC optimization reference
+description: Learn about the Microsoft Sentinel SOC optimization recommendations available to help you optimize your security operations.
 ms.author: bagol
 author: batamig
 manager: raynew
 ms.collection:
-  - m365-security
-  - tier1
   - usx-security
 ms.topic: reference
-ms.date: 04/30/2024
+ms.date: 06/09/2024
 appliesto:
   - Microsoft Sentinel in the Microsoft Defender portal
   - Microsoft Sentinel in the Azure portal
 #customerIntent: As a SOC admin or SOC engineer, I want to learn about the SOC optimization recommendations available to help me optimize my security operations.
 ---
 
-# SOC optimization reference of recommendations (preview)
+# SOC optimization reference of recommendations
 
 Use SOC optimization recommendations to help you close coverage gaps against specific threats and tighten your ingestion rates against data that doesn't provide security value. SOC optimizations help you optimize your Microsoft Sentinel workspace, without having your SOC teams spend time on manual analysis and research.
 
@@ -55,7 +51,7 @@ If a table is chosen for [UEBA](/azure/sentinel/enable-entity-behavior-analytics
 
 To optimize data value, SOC optimization recommends adding security controls to your environment in the form of extra detections and data sources, using a threat-based approach.
 
-To provide threat-based recommendations, SOC optimization looks at your ingested logs and enabled analytics rules, and compares it to the logs and detections that are required to protect, detect, and respond to specific types of attacks. This optimization type is also known as *coverage optimization*, and is based on Microsoft's security research.
+To provide threat-based recommendations, SOC optimization looks at your ingested logs and enabled analytics rules, and compares it to the logs and detections that are required to protect, detect, and respond to specific types of attacks. This optimization type is also known as *coverage optimization*, and is based on Microsoft's security research. SOC optimization considers both user-defined and out-of-the-box detections.
 
 The following table lists the available threat-based SOC optimization recommendations:
 
@@ -65,6 +61,10 @@ The following table lists the available threat-based SOC optimization recommenda
 |Templates are turned on, but data sources are missing.     |    Connect new data sources.     |
 |There are no existing detections or data sources.     |   Connect detections and data sources or install a solution.      |
 
+## Related content
+
+- [Using SOC optimizations programmatically (Preview)](soc-optimization-api.md)
+- [Blog: SOC optimization: unlock the power of precision-driven security management](https://aka.ms/SOC_Optimization)
 
 ## Next step
 

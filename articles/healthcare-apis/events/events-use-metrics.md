@@ -3,7 +3,7 @@ title: Use events metrics -  Azure Health Data Services
 description: Learn how use events metrics.
 services: healthcare-apis
 author: chachachachami
-ms.service: healthcare-apis
+ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.topic: how-to
 ms.date: 07/11/2023

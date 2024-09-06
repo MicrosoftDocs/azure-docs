@@ -5,7 +5,7 @@ author: mcleblanc
 ms.author: markl
 ms.date: 05/18/2022
 ms.topic: quickstart
-ms.service: signalr
+ms.service: azure-signalr-service
 ms.custom: subject-armqs, mode-arm, devx-track-bicep
 ---
 

@@ -5,7 +5,7 @@ services: virtual-network
 author: asudbring
 manager: dcscontentpm
 ms.assetid: 1a3d1e84-f793-41b4-aa04-774a7e8f7719
-ms.service: virtual-network
+ms.service: azure-virtual-network
 ms.topic: troubleshooting
 ms.date: 08/28/2019
 ms.author: allensu

@@ -4,7 +4,7 @@ titleSuffix: Azure Private Link
 description: In this article, you learn how to use the Private Endpoint feature of Azure Private Link.
 services: private-link
 author: abell
-ms.service: private-link
+ms.service: azure-private-link
 ms.topic: conceptual
 ms.date: 10/13/2023
 ms.author: abell
@@ -69,9 +69,11 @@ A private-link resource is the destination target of a specified private endpoin
 | Application Gateway | Microsoft.Network/applicationgateways |Frontend IP Configuration name|
 | Azure AI services | Microsoft.CognitiveServices/accounts | account |
 | Azure API for FHIR (Fast Healthcare Interoperability Resources) | Microsoft.HealthcareApis/services | fhir |
+| Azure API Management | Microsoft.ApiManagement/service | Gateway |
 | Azure App Configuration | Microsoft.Appconfiguration/configurationStores | configurationStores |
 | Azure App Service | Microsoft.Web/hostingEnvironments | hosting environment |
 | Azure App Service | Microsoft.Web/sites | sites |
+| Azure Attestation Service | Microsoft.Attestation/attestationProviders | standard |
 | Azure Automation | Microsoft.Automation/automationAccounts | Webhook, DSCAndHybridWorker |
 | Azure Backup | Microsoft.RecoveryServices/vaults | AzureBackup, AzureSiteRecovery |
 | Azure Batch | Microsoft.Batch/batchAccounts | batchAccount, nodeManagement |
@@ -205,7 +207,7 @@ The following information lists the known limitations to the use of private endp
 
 - The following services may require all destination ports to be open when using a private endpoint and adding NSG security filters:
 
-    - Azure Cosmos DB - For more information, see [Service port ranges](../cosmos-db/sql/sql-sdk-connection-modes.md#service-port-ranges).
+    - Azure Cosmos DB - For more information, see [Service port ranges](/azure/cosmos-db/sql/sql-sdk-connection-modes#service-port-ranges).
 
 ### UDR
 

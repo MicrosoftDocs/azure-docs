@@ -5,7 +5,7 @@ author: vinnieangel
 ms.author: vangellotti
 ms.service: azure-education
 ms.topic: quickstart
-ms.date: 2/6/2023
+ms.date: 08/07/2024
 ms.custom: template-quickstart
 ---
 
@@ -15,7 +15,6 @@ In this quickstart, you allocate credits to educators in the Azure Education Hub
 
 ## Prerequisites
 
-- Sign up for the Azure Dev Tools for Teaching program.
 - Sign a Microsoft Customer Agreement.
 - Be in direct field-led motion.
 - Have a billing profile and a billing account.

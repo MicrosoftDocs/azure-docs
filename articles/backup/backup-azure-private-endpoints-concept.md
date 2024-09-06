@@ -1,9 +1,9 @@
 ---
 title: Private endpoints for Azure Backup - Overview
 description: This article explains about the concept of private endpoints for Azure Backup that helps to perform backups while maintaining the security of your resources.
-ms.topic: conceptual
-ms.service: backup
-ms.date: 03/04/2024
+ms.topic: overview
+ms.service: azure-backup
+ms.date: 07/30/2024
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
@@ -41,9 +41,9 @@ This article describes how the [enhanced capabilities of private endpoints](#key
 
 - You need to re-register the Recovery Services resource provider with the subscription, if you've registered it before *May 1, 2020*. To re-register the provider, go to *your subscription* in the Azure portal > **Resource provider**, and then select **Microsoft.RecoveryServices** > **Re-register**.
 
-- [Cross-region restore](backup-create-rs-vault.md#set-cross-region-restore) for SQL and SAP HANA database backups aren't supported, if the vault has private endpoints enabled.
-
 - You can create DNS across subscriptions.
+
+- You can create a secondary private endpoint before or after having protected items in the vault. Learn [how to do Cross Region Restore to a private endpoint enabled vault](backup-azure-private-endpoints-configure-manage.md#cross-region-restore-to-a-private-endpoint-enabled-vault).
 
 ## Recommended and supported scenarios
 
@@ -150,6 +150,10 @@ In addition to the Azure Backup cloud services, the workload extension and agent
 The following diagram shows how the name resolution works for storage accounts using a private DNS zone.
 
 :::image type="content" source="./media/private-endpoints-overview/name-resolution-works-for-storage-accounts-using-private-dns-zone-inline.png" alt-text="Diagram showing how the name resolution works for storage accounts using a private DNS zone." lightbox="./media/private-endpoints-overview/name-resolution-works-for-storage-accounts-using-private-dns-zone-expanded.png":::
+
+The following diagram shows how you can do Cross Region Restore over Private Endpoint by replicating the Private Endpoint in a secondary region. Learn [how to do Cross Region Restore to a private endpoint enabled vault](backup-azure-private-endpoints-configure-manage.md#cross-region-restore-to-a-private-endpoint-enabled-vault).
+
+:::image type="content" source="./media/backup-azure-private-endpoints-concept/cross-region-restore-over-private-endpoint.png" alt-text="Diagram shows how to perform Cross-region restore over Private Endpoint." lightbox="./media/backup-azure-private-endpoints-concept/cross-region-restore-over-private-endpoint.png":::
 
 ## Next steps
 

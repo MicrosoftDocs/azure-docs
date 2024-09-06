@@ -1,7 +1,7 @@
 ---
 title: Partnering with Azure DDoS Protection
 description: "Understand partnering opportunities enabled by Azure DDoS Protection."
-ms.service: ddos-protection
+ms.service: azure-ddos-protection
 author: AbdullahBell
 ms.topic: how-to
 ms.date: 11/06/2023

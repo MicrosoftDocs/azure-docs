@@ -3,7 +3,7 @@ title: Launch your first Java application in Azure Container Apps
 description: Learn how to deploy a java project in Azure Container Apps.
 services: container-apps
 author: craigshoemaker
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.custom: devx-track-extended-java
 ms.topic: quickstart
 ms.date: 05/07/2024
@@ -29,6 +29,7 @@ The following image is a screenshot of how your application looks once deployed 
 | GitHub Account | Get one for [free](https://github.com/join). |
 | git | [Install git](https://git-scm.com/downloads) |
 | Azure CLI | Install the [Azure CLI](/cli/azure/install-azure-cli).|
+| Container Apps CLI extension | Use version `0.3.47` or higher. Use the `az extension add --name containerapp --upgrade --allow-preview` command to install the latest version. |
 | Java | Install the [Java Development Kit](/java/openjdk/install). Use version 17 or later. |
 | Maven | Install the [Maven](https://maven.apache.org/download.cgi).|
 

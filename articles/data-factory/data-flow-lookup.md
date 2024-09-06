@@ -5,7 +5,6 @@ description: Reference data from another source using lookup transformations in 
 author: kromerm
 ms.reviewer: daperlov
 ms.author: makromer
-ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
 ms.custom: synapse

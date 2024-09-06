@@ -48,7 +48,7 @@ On your local computer:
 
 [!INCLUDE [functions-arc-create-environment](../../includes/functions-arc-create-environment.md)]
 
-[!INCLUDE [app-service-arc-cli-install-extensions](~/reusable-content/ce-skilling/azure/includes/app-service-arc-cli-install-extensions.md)]
+[!INCLUDE [app-service-arc-cli-install-extensions](../../includes/app-service-arc-cli-install-extensions.md)]
 
 ## Create the local function project
 

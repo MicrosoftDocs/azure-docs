@@ -4,7 +4,6 @@ description: Learn how to use Azure Monitor to monitor SSIS operations in Azure 
 author: nabhishek
 ms.author: abnarain
 ms.reviewer: jburchel
-ms.service: data-factory
 ms.subservice: monitoring
 ms.topic: conceptual
 ms.date: 1/11/2024
@@ -32,7 +31,7 @@ To send all metrics and logs generated from SSIS IR operations and SSIS package 
 
 ## SSIS operational metrics
 
-SSIS operational [metrics](../azure-monitor/essentials/data-platform-metrics.md) are performance counters or numerical values that describe the status of SSIS IR start and stop operations, as well as SSIS package executions at a particular point in time. They're part of [ADF metrics in Azure Monitor](monitor-metrics-alerts.md).
+SSIS operational [metrics](../azure-monitor/essentials/data-platform-metrics.md) are performance counters or numerical values that describe the status of SSIS IR start and stop operations, as well as SSIS package executions at a particular point in time. They're part of [Azure Monitor metrics](monitor-data-factory-reference.md#metrics).
 
 When you configure diagnostic settings and workspace for your ADF on Azure Monitor, selecting the _AllMetrics_ check box will make SSIS operational metrics available for [interactive analysis using Azure metrics explorer](../azure-monitor/essentials/analyze-metrics.md), [presentation on Azure dashboard](../azure-monitor/app/tutorial-app-dashboards.md), and [near-real time alerts](../azure-monitor/alerts/alerts-metric.md).
 
@@ -67,7 +66,7 @@ The schemas and content of SSIS package execution logs in Azure Monitor and Log 
 | `SSISPackageExecutionComponentPhases` | `ADFSSISPackageExecutionComponentPhases` | `[internal].[execution_component_phases]` |
 | `SSISPackageExecutionDataStatistics`  | `ADFSSISPackageExecutionDataStatistics`  | `[internal].[execution_data_statistics]`  |
 
-For more info on SSIS operational log attributes/properties, see [Azure Monitor and Log Analytics schemas for ADF](monitor-schema-logs-events.md).
+For more info on SSIS operational log attributes/properties, see [Resource logs](monitor-data-factory-reference.md#resource-logs).
 
 Your selected SSIS package execution logs are always sent to Log Analytics regardless of their invocation methods. For example, you can invoke package executions on Azure-enabled SSDT, via T-SQL on SSMS, SQL Server Agent, or other designated tools, and as triggered or debug runs of Execute SSIS Package activities in ADF pipelines.
 

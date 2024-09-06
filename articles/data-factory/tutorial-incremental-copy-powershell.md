@@ -3,8 +3,6 @@ title: Incrementally copy a table using PowerShell
 description: In this tutorial, you create an Azure Data Factory pipeline that incrementally copies data from an Azure SQL database to Azure Blob storage.'
 author: dearandyxu
 ms.author: yexu
-ms.service: data-factory
-ms.subservice: tutorials
 ms.custom: devx-track-azurepowershell
 ms.topic: tutorial
 ms.date: 05/15/2024
@@ -223,16 +221,18 @@ You create linked services in a data factory to link your data stores and comput
     ```
 
 ### Create a SQL Database linked service
-1. Create a JSON file named AzureSQLDatabaseLinkedService.json in the C:\ADF folder with the following content. (Create the folder ADF if it doesn't already exist.) Replace &lt;server&gt;, &lt;database&gt;, &lt;user id&gt;, and &lt;password&gt; with the name of your server, database, user ID, and password before you save the file.
+1. Create a JSON file named AzureSQLDatabaseLinkedService.json in the C:\ADF folder with the following content. (Create the folder ADF if it doesn't already exist.) Replace &lt;your-server-name&gt; and &lt;your-database-name&gt; with the name of your server and database before you save the file. You must also configure your Azure SQL Server to [grant access to your data factory's managed identity](connector-azure-sql-database.md#user-assigned-managed-identity-authentication).
 
     ```json
     {
-        "name": "AzureSQLDatabaseLinkedService",
-        "properties": {
+    "name": "AzureSqlDatabaseLinkedService",
+    "properties": {
             "type": "AzureSqlDatabase",
             "typeProperties": {
-                "connectionString": "Server = tcp:<server>.database.windows.net,1433;Initial Catalog=<database>; Persist Security Info=False; User ID=<user> ; Password=<password>; MultipleActiveResultSets = False; Encrypt = True; TrustServerCertificate = False; Connection Timeout = 30;"
-            }
+                "connectionString": "Server=tcp:<your-server-name>.database.windows.net,1433;Database=<your-database-name>;"
+            },
+            "authenticationType": "ManagedIdentity",
+            "annotations": []
         }
     }
     ```

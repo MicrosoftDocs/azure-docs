@@ -2,13 +2,31 @@
 title: Set subscriptions filters in Azure Service Bus | Microsoft Docs
 description: This article provides examples for defining filters and actions on Azure Service Bus topic subscriptions.
 ms.topic: how-to
-ms.date: 02/23/2024
+ms.date: 07/18/2024
 ms.devlang: csharp
 ms.custom: devx-track-dotnet
 ---
 
 # Set subscription filters (Azure Service Bus)
 This article provides a few examples on setting filters on subscriptions for Service Bus topics. For conceptual information about filters, see [Filters](topic-filters.md).
+
+## Use Azure portal
+
+To set subscription filters in the Azure portal, use the **Filters** section of the **Service Bus Subscription** page.
+
+:::image type="content" source="./media/service-bus-filter-examples/filters-section.png" alt-text="Screenshot that shows the Service Bus Subscription page with the Filters section highlighted." lightbox="./media/service-bus-filter-examples/filters-section.png":::
+
+## Use Azure CLI
+
+Use the [`az servicebus topic subscription rule create`](/cli/azure/servicebus/topic/subscription/rule) to create a rule or filter on a subscription. 
+
+## Use Azure PowerShell
+
+Use the [`Set-AzServiceBusRule`](/powershell/module/az.servicebus/set-azservicebusrule) to create a rule or filter on a subscription. 
+
+> [!NOTE]
+> A subscription rule consists of filters and actions. You can specify actions using CLI and PowerShell, but not using the Azure portal. 
+
 
 ## Filter on system properties
 To refer to a system property in a filter, use the following format: `sys.<system-property-name>`. 
@@ -32,7 +50,7 @@ MessageProperty = 'A'
 user.SuperHero like 'SuperMan%'
 ```
 
-[!INCLUDE [service-bus-track-0-and-1-sdk-support-retirement](~/reusable-content/ce-skilling/azure/includes/service-bus-track-0-and-1-sdk-support-retirement.md)]
+[!INCLUDE [service-bus-track-0-and-1-sdk-support-retirement](../../includes/service-bus-track-0-and-1-sdk-support-retirement.md)]
 
 ## Filter on message properties with special characters
 If the message property name has special characters, use double quotes (`"`) to enclose the property name. For example if the property name is `"http://schemas.microsoft.com/xrm/2011/Claims/EntityLogicalName"`, use the following syntax in the filter. 
@@ -111,7 +129,7 @@ Here's a .NET C# example that creates the following Service Bus entities:
 - Subscription named `ColorRed` with a SQL filter expression `color='red'` and an action 
 - Subscription named `HighPriorityRedOrders` with a correlation filter expression `Subject = "red", CorrelationId = "high"`
 
-See the inline code comments for more details. 
+For more information, see the inline code comments. 
 
 ```csharp
 namespace CreateTopicsAndSubscriptionsWithFilters
@@ -365,7 +383,7 @@ See the following samples:
 - [Azure Resource Manager template](/azure/templates/microsoft.servicebus/2017-04-01/namespaces/topics/subscriptions/rules)
 
 
-Try the samples in the language of your choice to explore Azure Service Bus features. 
+To explore Azure Service Bus features, try the samples in the language of your choice. 
 
 - [Azure Service Bus client library samples for .NET (latest)](/samples/azure/azure-sdk-for-net/azuremessagingservicebus-samples/)
 - [Azure Service Bus client library samples for Java (latest)](/samples/azure/azure-sdk-for-java/servicebus-samples/)

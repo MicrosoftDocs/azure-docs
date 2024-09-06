@@ -4,7 +4,7 @@ titleSuffix: Azure Virtual Network
 description: Learn how to peer virtual networks in different subscriptions using service principal names.
 author: asudbring
 ms.author: allensu
-ms.service: virtual-network
+ms.service: azure-virtual-network
 ms.custom: devx-track-azurecli
 ms.topic: how-to 
 ms.date: 04/18/2024

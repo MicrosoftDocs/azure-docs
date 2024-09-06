@@ -3,7 +3,7 @@ title: Database connection configuration in Azure Static Web Apps
 description: Configure your static web app to connect to a database.
 author: craigshoemaker
 ms.author: cshoe
-ms.service: static-web-apps
+ms.service: azure-static-web-apps
 ms.topic: how-to
 ms.date: 05/28/2024
 ---

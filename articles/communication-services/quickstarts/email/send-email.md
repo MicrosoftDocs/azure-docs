@@ -28,7 +28,7 @@ This quickstart describes how to send email using our Email SDKs.
 ::: zone-end
 
 ::: zone pivot="programming-language-csharp"
-[!INCLUDE [Send email with .NET SDK](./includes/send-email-net.md)]
+[!INCLUDE [Send email with .NET SDK](./includes/send-email-async-sync-net.md)]
 ::: zone-end
 
 ::: zone pivot="programming-language-javascript"

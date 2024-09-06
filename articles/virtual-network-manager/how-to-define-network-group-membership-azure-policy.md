@@ -3,7 +3,7 @@ title: 'Define dynamic network group membership in Azure Virtual Network Manager
 description: This article explains how to use Azure Policy to create network groups with dynamic membership in Azure Virtual Network Manager.
 author: mbender-ms
 ms.author: mbender
-ms.service: virtual-network-manager
+ms.service: azure-virtual-network-manager
 ms.topic: how-to
 ms.date: 07/18/2023
 ms.custom: template-concept, engagement-fy23

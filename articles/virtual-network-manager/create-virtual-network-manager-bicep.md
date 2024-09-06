@@ -3,7 +3,7 @@ title: 'Quickstart: Create a mesh network topology with Azure Virtual Network Ma
 description: Use this quickstart to learn how to create a mesh network topology with Virtual Network Manager by using Bicep.
 author: mbender-ms
 ms.author: mbender
-ms.service: virtual-network-manager
+ms.service: azure-virtual-network-manager
 ms.topic: quickstart
 ms.date: 06/13/2023
 ms.custom: template-quickstart, mode-ui, engagement-fy23, devx-track-azurepowershell, devx-track-bicep

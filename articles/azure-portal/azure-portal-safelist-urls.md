@@ -1,7 +1,7 @@
 ---
 title: Allow the Azure portal URLs on your firewall or proxy server
 description: To optimize connectivity between your network and the Azure portal and its services, we recommend you add these URLs to your allowlist.
-ms.date: 12/15/2023
+ms.date: 07/12/2024
 ms.topic: conceptual
 ---
 
@@ -136,11 +136,13 @@ ux.console.azure.com (Azure Cloud Shell)
 ```
 *.applicationinsights.us
 *.azure.us
+*.azureedge.net
 *.loganalytics.us
 *.microsoft.us
 *.microsoftonline.us
 *.msauth.net
 *.msidentity.us
+*.s-microsoft.com
 *.usgovcloudapi.net
 *.usgovtrafficmanager.net
 *.windowsazure.us

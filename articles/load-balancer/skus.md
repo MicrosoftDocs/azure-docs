@@ -3,9 +3,9 @@ title: Azure Load Balancer SKUs
 description: Overview of Azure Load Balancer SKUs.
 services: load-balancer
 author: mbender-ms
-ms.service: load-balancer
+ms.service: azure-load-balancer
 ms.topic: reference
-ms.date: 07/10/2023
+ms.date: 06/27/2024
 ms.author: mbender
 ms.custom: template-reference, engagement-fy23
 ---
@@ -15,10 +15,10 @@ ms.custom: template-reference, engagement-fy23
 >[!Important]
 >On September 30, 2025, Basic Load Balancer will be retired. For more information, see the [official announcement](https://azure.microsoft.com/updates/azure-basic-load-balancer-will-be-retired-on-30-september-2025-upgrade-to-standard-load-balancer/). If you are currently using Basic Load Balancer, make sure to upgrade to Standard Load Balancer prior to the retirement date. For guidance on upgrading, visit [Upgrading from Basic Load Balancer - Guidance](load-balancer-basic-upgrade-guidance.md).
 
-Azure Load Balancer has three SKUs.
+Azure Load Balancer has three stock-keeping units (SKUs).
 
 ## <a name="skus"></a> SKU comparison
-Azure Load Balancer has 3 SKUs - Basic, Standard, and Gateway. Each SKU is catered towards a specific scenario and has differences in scale, features, and pricing. 
+Azure Load Balancer has three stock-keeping units (SKUs) - Basic, Standard, and Gateway. Each SKU is catered towards a specific scenario and has differences in scale, features, and pricing. 
 
 To compare and understand the differences between Basic and Standard SKU, see the following table. 
 
@@ -30,7 +30,9 @@ To compare and understand the differences between Basic and Standard SKU, see th
 | **Backend pool endpoints** | Any virtual machines or virtual machine scale sets in a single virtual network | Virtual machines in a single availability set or virtual machine scale set |
 | **[Health probes](./load-balancer-custom-probe-overview.md#probe-protocol)** | TCP, HTTP, HTTPS | TCP, HTTP |
 | **[Health probe down behavior](./load-balancer-custom-probe-overview.md#probe-down-behavior)** | TCP connections stay alive on an instance probe down __and__ on all probes down. | TCP connections stay alive on an instance probe down. All TCP connections end when all probes are down. |
-| **Availability Zones** | Zone-redundant and zonal frontends for inbound and outbound traffic | Not available |
+| **Availability Zones** | Zone-redundant, zonal, or non-zonal frontend IP configurations can be used for inbound and outbound traffic | Not available |
+| **Type** | Internal, Public | Internal, Public | 
+| **Frontend IP configuration** | When using a Public Standard Load Balancer, the SKU of the public IP must be Standard. Basic Public IPs are not supported on Standard LB | When using a Public Basic Load Balancer, the SKU of the public IP must be Basic. Standard Public IPs are not supported on Basic LB | 
 | **Diagnostics** | [Azure Monitor multi-dimensional metrics](./load-balancer-standard-diagnostics.md) | Not supported |
 | **HA Ports** | [Available for Internal Load Balancer](./load-balancer-ha-ports-overview.md) | Not available |
 | **Secure by default** | Closed to inbound flows unless allowed by a network security group. Internal traffic from the virtual network to the internal load balancer is allowed. | Open by default. Network security group optional. |

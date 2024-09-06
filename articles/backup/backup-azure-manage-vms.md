@@ -3,7 +3,7 @@ title: Manage and monitor Azure VM backups
 description: Learn how to manage and monitor Azure VM backups by using the Azure Backup service.
 ms.topic: conceptual
 ms.date: 07/05/2022
-ms.service: backup
+ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---

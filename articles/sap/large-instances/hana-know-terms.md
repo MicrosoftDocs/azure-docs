@@ -37,7 +37,7 @@ Several common definitions are widely used in the Architecture and Technical Dep
 	- "Revision 3" (Rev 3) is the original design deployed from the middle of 2016.
 	- "Revision 4.2" (Rev 4.2) is a new design that provides closer proximity to Azure virtual machine hosts. Rev 4.2 offers ultra-low network latency between Azure VMs and HANA Large Instance units. Resources in the Azure portal are referred to as BareMetal Infrastructure. Customers can access their resources as BareMetal instances from the Azure portal. 
 
-A variety of additional resources are available on how to deploy an SAP workload in the cloud. If you plan to execute a deployment of SAP HANA in Azure, you need to be experienced with and aware of the principles of Azure IaaS and the deployment of SAP workloads on Azure IaaS. Before you continue, see [Use SAP solutions on Azure virtual machines](../../virtual-machines/workloads/sap/get-started.md) for more information. 
+A variety of additional resources are available on how to deploy an SAP workload in the cloud. If you plan to execute a deployment of SAP HANA in Azure, you need to be experienced with and aware of the principles of Azure IaaS and the deployment of SAP workloads on Azure IaaS. Before you continue, see [Use SAP solutions on Azure virtual machines](/azure/virtual-machines/workloads/sap/get-started) for more information. 
 
 ## Next steps
 - Refer to [HLI Certification](hana-certification.md).

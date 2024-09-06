@@ -201,6 +201,4 @@ In Azure Time Series Insights Gen2, you can add contextual data to incoming tele
 
 ## Next steps
 
-* [View your environment](https://insights.timeseries.azure.com) in the Azure Time Series Insights Explorer.
-
 * Read more about [IoT Hub device messages](../iot-hub/iot-hub-devguide-messages-construct.md)

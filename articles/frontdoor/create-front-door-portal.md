@@ -4,7 +4,7 @@ description: This quickstart shows how to use Azure Front Door service for your 
 services: frontdoor
 author: duongau
 manager: KumudD
-ms.service: frontdoor
+ms.service: azure-frontdoor
 ms.topic: quickstart
 ms.date: 10/02/2023
 ms.author: duau
@@ -20,7 +20,7 @@ In this quickstart, you use the Custom create option to create an Azure Front Do
 
 :::image type="content" source="media/quickstart-create-front-door/environment-diagram.png" alt-text="Diagram of Front Door deployment environment using the Azure portal." border="false":::
 
-[!INCLUDE [ddos-waf-recommendation](~/reusable-content/ce-skilling/azure/includes/ddos-waf-recommendation.md)]
+[!INCLUDE [ddos-waf-recommendation](../../includes/ddos-waf-recommendation.md)]
 
 ## Prerequisites
 

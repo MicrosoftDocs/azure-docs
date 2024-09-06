@@ -3,9 +3,9 @@ title: "Next.js support on Azure Static Web Apps"
 description: "An overview of the support of Next.js on Azure Static Web Apps"
 services: static-web-apps
 author: aaronpowell
-ms.service: static-web-apps
+ms.service: azure-static-web-apps
 ms.topic:  how-to
-ms.date: 10/12/2022
+ms.date: 04/25/2024
 ms.author: aapowell
 ms.custom: devx-track-js
 ---
@@ -14,12 +14,9 @@ ms.custom: devx-track-js
 
 Next.js support on Azure Static Web Apps can be categorized as two deployment models:
 
-- **Hybrid**: Hybrid Next.js sites, which includes support for all Next.js features such as the [App Router](https://nextjs.org/docs/app), the [Pages Router](https://nextjs.org/docs/pages) and [React Server Components](https://nextjs.org/docs/app/building-your-application/rendering/server-components)
-
+- **Hybrid**: Hybrid Next.js sites, which include support for all Next.js features such as the [App Router](https://nextjs.org/docs/app), the [Pages Router](https://nextjs.org/docs/pages) and [React Server Components](https://nextjs.org/docs/app/building-your-application/rendering/server-components)
 
 - **Static**: Static Next.js sites, which use the [Static HTML Export](https://nextjs.org/docs/advanced-features/static-html-export) option of Next.js.
-
-
 
 ## Hybrid Next.js applications (preview)
 
@@ -30,7 +27,6 @@ Hybrid Next.js applications are hosted using the Static Web Apps globally distri
 With hybrid Next.js applications, pages and components can be dynamically rendered, statically rendered or incrementally rendered. Next.js automatically determines the best rendering and caching model based on your data fetching for optimal performance.
 
 Key features that are available in the preview are:
-
 
 - [App Router](https://nextjs.org/docs/app) and [Pages Router](https://nextjs.org/docs/pages)
 - [React Server Components](https://nextjs.org/docs/app/building-your-application/rendering/server-components)
@@ -45,6 +41,9 @@ Follow the [deploy hybrid Next.js applications](deploy-nextjs-hybrid.md) tutoria
 
 [!INCLUDE [Unsupported Next.js features](../../includes/static-web-apps-nextjs-unsupported.md)]
 
+## Server side rendering
+
+[!INCLUDE [Server side rendering](../../includes/static-web-apps/static-web-apps-nextjs-backends.md)]
 
 ## Static HTML export
 

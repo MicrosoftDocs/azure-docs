@@ -3,11 +3,10 @@ title: Data-driven style expressions in the Azure Maps Web SDK | Microsoft Azure
 description: Learn about data-driven style expressions. See how to use these expressions in the Azure Maps Web SDK to adjust styles in maps.
 author: sinnypan
 ms.author: sipa
-ms.date: 4/4/2019
-ms.topic: conceptual
+ms.date: 08/29/2024
+ms.topic: how-to
 ms.service: azure-maps
-services: azure-maps
-ms.custom:
+ms.subservice: web-sdk
 ---
 
 # Data-driven style expressions (Web SDK)

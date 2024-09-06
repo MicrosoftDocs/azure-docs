@@ -4,7 +4,7 @@ description: Learn now to enable Dapr support in the self-hosted gateway of Azur
 services: api-management
 author: dlepow
 
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: article
 ms.date: 05/01/2023
 ms.author: danlep

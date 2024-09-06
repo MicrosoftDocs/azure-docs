@@ -4,34 +4,34 @@ description: This article describes how to use Stream Analytics for social media
 author: AliciaLiMicrosoft 
 ms.author: ali 
 ms.reviewer: jasonh
-ms.service: stream-analytics
+ms.service: azure-stream-analytics
 ms.topic: how-to
 ms.date: 10/03/2022
 ---
 
 # Social media analysis with Azure Stream Analytics
 
-This article teaches you how to build a social media sentiment analysis solution by bringing real-time Twitter events into Azure Event Hubs and then analyzing them using Stream Analytics. You write an Azure Stream Analytics query to analyze the data and store results for later use or create a [Power BI](https://powerbi.com/) dashboard to provide insights in real-time.
+This article teaches you how to build a social media sentiment analysis solution by bringing real-time X events into Azure Event Hubs and then analyzing them using Stream Analytics. You write an Azure Stream Analytics query to analyze the data and store results for later use or create a [Power BI](https://powerbi.com/) dashboard to provide insights in real-time.
 
 Social media analytics tools help organizations understand trending topics. Trending topics are subjects and attitudes that have a high volume of posts on social media. Sentiment analysis, which is also called *opinion mining*, uses social media analytics tools to determine attitudes toward a product or idea. 
 
-Real-time Twitter trend analysis is a great example of an analytics tool because the hashtag subscription model enables you to listen to specific keywords (hashtags) and develop sentiment analysis of the feed.
+Real-time X trend analysis is a great example of an analytics tool because the hashtag subscription model enables you to listen to specific keywords (hashtags) and develop sentiment analysis of the feed.
 
 ## Scenario: Social media sentiment analysis in real time
 
-A company that has a news media website is interested in gaining an advantage over its competitors by featuring site content that's immediately relevant to its readers. The company uses social media analysis on topics that are relevant to readers by doing real-time sentiment analysis of Twitter data.
+A company that has a news media website is interested in gaining an advantage over its competitors by featuring site content that's immediately relevant to its readers. The company uses social media analysis on topics that are relevant to readers by doing real-time sentiment analysis of X data.
 
-To identify trending topics in real time on Twitter, the company needs real-time analytics about the tweet volume and sentiment for key topics.
+To identify trending topics in real time on X, the company needs real-time analytics about the tweet volume and sentiment for key topics.
 
 ## Prerequisites
 
-In this how-to guide, you use a client application that connects to Twitter and looks for tweets that have certain hashtags (which you can set). The following list gives you prerequisites for running the application and analyzing the tweets using Azure Streaming Analytics.
+In this how-to guide, you use a client application that connects to X and looks for tweets that have certain hashtags (which you can set). The following list gives you prerequisites for running the application and analyzing the tweets using Azure Streaming Analytics.
 
 * If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/).
 
-* A [Twitter](https://twitter.com) account.
+* An [X](https://x.com) account.
 
-* The TwitterClientCore application, which reads the Twitter feed. To get this application, download [TwitterClientCore](https://github.com/Azure/azure-stream-analytics/tree/master/DataGenerators/TwitterClientCore).
+* The TwitterClientCore application, which reads the X feed. To get this application, download [TwitterClientCore](https://github.com/Azure/azure-stream-analytics/tree/master/DataGenerators/TwitterClientCore).
 
 * Install the [.NET Core CLI](/dotnet/core/tools/?tabs=netcore2x) version 2.1.0.
 
@@ -46,7 +46,7 @@ The sample application generates events and pushes them to an event hub. Azure E
 
 ### Create an Event Hubs namespace and event hub
 
-Follow instructions from [Quickstart: Create an event hub using Azure portal](../event-hubs/event-hubs-create.md) to create an Event Hubs namespace and an event hub named **socialtwitter-eh**. You can use a different name. If you do, make a note of it, because you need the name later. You don't need to set any other options for the event hub.
+Follow instructions from [Quickstart: Create an event hub using Azure portal](../event-hubs/event-hubs-create.md) to create an Event Hubs namespace and an event hub named **socialx-eh**. You can use a different name. If you do, make a note of it, because you need the name later. You don't need to set any other options for the event hub.
 
 
 ### Grant access to the event hub
@@ -60,7 +60,7 @@ Before a process can send data to an event hub, the event hub needs a policy tha
     >[!NOTE]
     >There is a **Shared access policies** option under for the namespace and for the event hub. Make sure you're working in the context of your event hub, not the namespace.
 
-3.	On the **Shared access policies** page, select **+ Add** on the commandbar. Then enter *socialtwitter-access* for the **Policy name** and check the **Manage** checkbox.
+3.	On the **Shared access policies** page, select **+ Add** on the commandbar. Then enter *socialx-access* for the **Policy name** and check the **Manage** checkbox.
  
 4.	Select **Create**.
 
@@ -73,7 +73,7 @@ Before a process can send data to an event hub, the event hub needs a policy tha
    The connection string looks like this:
    
    ```
-   Endpoint=sb://EVENTHUBS-NAMESPACE.servicebus.windows.net/;SharedAccessKeyName=socialtwitter-access;SharedAccessKey=XXXXXXXXXXXXXXX;EntityPath=socialtwitter-eh
+   Endpoint=sb://EVENTHUBS-NAMESPACE.servicebus.windows.net/;SharedAccessKeyName=socialx-access;SharedAccessKey=XXXXXXXXXXXXXXX;EntityPath=socialx-eh
    ```
 
    Notice that the connection string contains multiple key-value pairs, separated with semicolons: `Endpoint`, `SharedAccessKeyName`, `SharedAccessKey`, and `EntityPath`.  
@@ -81,34 +81,34 @@ Before a process can send data to an event hub, the event hub needs a policy tha
    > [!NOTE]
    > For security, parts of the connection string in the example have been removed.
 
-## Configure and start the Twitter client application
+## Configure and start the X client application
 
-The client application gets tweet events directly from Twitter. In order to do so, it needs permission to call the Twitter Streaming APIs. To configure that permission, you create an application in Twitter, which generates unique credentials (such as an OAuth token). You can then configure the client application to use these credentials when it makes API calls. 
+The client application gets tweet events directly from X. In order to do so, it needs permission to call the Twitter Streaming APIs. To configure that permission, you create an application in X, which generates unique credentials (such as an OAuth token). You can then configure the client application to use these credentials when it makes API calls. 
 
-### Create a Twitter application
-If you don't already have a Twitter application that you can use for this how-to guide, you can create one. You must already have a Twitter account.
+### Create an X application
+If you don't already have an X application that you can use for this how-to guide, you can create one. You must already have an X account.
 
 > [!NOTE]
-> The exact process in Twitter for creating an application and getting the keys, secrets, and token might change. If these instructions don't match what you see on the Twitter site, refer to the Twitter developer documentation.
+> The exact process in X for creating an application and getting the keys, secrets, and token might change. If these instructions don't match what you see on the X site, refer to the X developer documentation.
 
-1. From a web browser, go to [Twitter For Developers](https://developer.twitter.com/en/apps), create a developer account, and select **Create an app**. You might see a message saying that you need to apply for a Twitter developer account. Feel free to do so, and after your application has been approved, you should see a confirmation email. It could take several days to be approved for a developer account.
+1. From a web browser, go to [X Developers](https://developer.x.com/en/apps), create a developer account, and select **Create an app**. You might see a message saying that you need to apply for an X developer account. Feel free to do so, and after your application has been approved, you should see a confirmation email. It could take several days to be approved for a developer account.
 
-   ![Screenshot shows the Create an app button.](./media/stream-analytics-twitter-sentiment-analysis-trends/provide-twitter-app-details.png "Twitter application details")
+   ![Screenshot shows the Create an app button.](./media/stream-analytics-twitter-sentiment-analysis-trends/provide-twitter-app-details.png "X application details")
 
 2. In the **Create an application** page, provide the details for the new app, and then select **Create your Twitter application**.
 
-   ![Screenshot shows the App details pane where you can enter values for your app.](./media/stream-analytics-twitter-sentiment-analysis-trends/provide-twitter-app-details-create.png "Twitter application details")
+   ![Screenshot shows the App details pane where you can enter values for your app.](./media/stream-analytics-twitter-sentiment-analysis-trends/provide-twitter-app-details-create.png "X application details")
 
 3. In the application page, select the **Keys and Tokens** tab and copy the values for **Consumer API Key** and **Consumer API Secret Key**. Also, select **Create** under **Access Token and Access Token Secret** to generate the access tokens. Copy the values for **Access Token** and **Access Token Secret**.
 
-   Save the values that you retrieved for the Twitter application. You need the values later.
+   Save the values that you retrieved for the X application. You need the values later.
 
 > [!NOTE]
-> The keys and secrets for the Twitter application provide access to your Twitter account. Treat this information as sensitive, the same as you do your Twitter password. For example, don't embed this information in an application that you give to others. 
+> The keys and secrets for the X application provide access to your X account. Treat this information as sensitive, the same as you do your X password. For example, don't embed this information in an application that you give to others. 
 
 ### Configure the client application
 
-We've created a client application that connects to Twitter data using [Twitter Streaming APIs](https://dev.twitter.com/streaming/overview) to collect tweet events about a specific set of topics.
+We've created a client application that connects to X data using [Twitter Streaming APIs](https://dev.twitter.com/streaming/overview) to collect tweet events about a specific set of topics.
 
 Before the application runs, it requires certain information from you, like the Twitter keys and the event hub connection string.
 
@@ -127,11 +127,11 @@ Before the application runs, it requires certain information from you, like the 
 
 ## Create a Stream Analytics job
 
-Now that tweet events are streaming in real time from Twitter, you can set up a Stream Analytics job to analyze these events in real time.
+Now that tweet events are streaming in real time from X, you can set up a Stream Analytics job to analyze these events in real time.
 
 1. In the Azure portal, navigate to your resource group and select **+ Add**. Then search for **Stream Analytics job** and select **Create**.
 
-2. Name the job `socialtwitter-sa-job` and specify a subscription, resource group, and location.
+2. Name the job `socialx-sa-job` and specify a subscription, resource group, and location.
 
     It's a good idea to place the job and the event hub in the same region for best performance and so that you don't pay to transfer data between regions.
 
@@ -147,15 +147,15 @@ Now that tweet events are streaming in real time from Twitter, you can set up a 
    |---------|---------|---------|
    |Input alias| *TwitterStream* | Enter an alias for the input. |
    |Subscription  | \<Your subscription\> |  Select the Azure subscription that you want to use. |
-   |Event Hubs namespace | *asa-twitter-eventhub* |
-   |Event hub name | *socialtwitter-eh* | Choose *Use existing*. Then select the event hub you created.|
+   |Event Hubs namespace | *asa-x-eventhub* |
+   |Event hub name | *socialx-eh* | Choose *Use existing*. Then select the event hub you created.|
    |Event compression type| Gzip | The data compression type.|
 
    Leave the remaining default values and select **Save**.
 
 ## Specify the job query
 
-Stream Analytics supports a simple, declarative query model that describes transformations. To learn more about the language, see the [Azure Stream Analytics Query Language Reference](/stream-analytics-query/stream-analytics-query-language-reference). This how-to guide helps you author and test several queries over Twitter data.
+Stream Analytics supports a simple, declarative query model that describes transformations. To learn more about the language, see the [Azure Stream Analytics Query Language Reference](/stream-analytics-query/stream-analytics-query-language-reference). This how-to guide helps you author and test several queries over X data.
 
 To compare the number of mentions among topics, you can use a [Tumbling window](/stream-analytics-query/tumbling-window-azure-stream-analytics) to get the count of mentions by topic every five seconds.
 
@@ -197,7 +197,7 @@ In this how-to guide, you write the aggregated tweet events from the job query t
    * **Output alias**: Use the name `TwitterStream-Output`. 
    * **Import options**: Select **Select storage from your subscriptions**.
    * **Storage account**. Select your storage account.
-   * **Container**. Select **Create new** and enter `socialtwitter`.
+   * **Container**. Select **Create new** and enter `socialx`.
    
 4. Select **Save**.   
 

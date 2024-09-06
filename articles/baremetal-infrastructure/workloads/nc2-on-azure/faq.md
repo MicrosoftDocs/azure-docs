@@ -6,7 +6,8 @@ description: Questions frequently asked about NC2 on Azure
 ms.topic: conceptual
 ms.subservice: baremetal-nutanix
 ms.custom: engagement-fy23
-ms.date: 05/21/2024
+ms.date: 08/15/2024
+ms.service: azure-baremetal-infrastructure
 ---
 
 # Frequently asked questions about NC2 on Azure

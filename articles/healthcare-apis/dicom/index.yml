@@ -1,16 +1,16 @@
 ### YamlMime:Landing
 
 title: DICOM service documentation
-summary: The DICOM® service is a managed service in Azure Health Data Services that ingests and persists DICOM objects at multiple thousands of images per second. It facilitates communication and transmission of imaging data with any DICOMweb-enabled systems or applications via DICOMweb Standard APIs like Store (STOW-RS), Search (QIDO-RS), Retrieve (WADO-RS). It's backed by a managed Platform as a Service (PaaS) offering with complete PHI compliance. You can upload PHI data to the DICOM service and exchange it through secure networks.
+summary: The DICOM® service enables healthcare organizations to store, manage, and exchange medical imaging data securely and efficiently.
 metadata:
-  title: Azure Health Data Services DICOM service 
-  description: DICOM service is a managed service within Azure Health Data Services that ingests and persists DICOM objects at multiple thousands of images per second. It facilitates communication and transmission of imaging data with any DICOMweb™ enabled systems or applications via DICOMweb Standard APIs like Store (STOW-RS), Search (QIDO-RS), Retrieve (WADO-RS). It's backed by a managed Platform as a Service (PaaS) offering with complete PHI compliance. You can upload PHI data to the DICOM service and exchange it through secure networks.
-  ms.service: healthcare-apis
-  ms.subservice: fhir
+  title: Documentation for the DICOM service in Azure Health Data Services
+  description: Find documentation for the DICOM® service, which enables healthcare organizations to store, manage, and exchange medical imaging data securely and efficiently.
+  ms.service: azure-health-data-services
+  ms.subservice: dicom-service
   ms.topic: landing-page 
   author: mmitrik
   ms.author: mmitrik
-  ms.date: 09/01/2023
+  ms.date: 0
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -24,33 +24,59 @@ landingContent:
             url: dicom-services-overview.md
           - text: Deploy the DICOM service with Azure Data Lake Storage 
             url: deploy-dicom-services-in-azure-data-lake.md
-          - text: Deploy the DICOM service by using the Azure portal
+          - text: Deploy the DICOM service in the Azure portal
             url: deploy-dicom-services-in-azure.md            
   - title: Use cases
     linkLists:
       - linkListType: tutorial
         links:
-        - text: Use the DICOM service in analytics workloads
+        - text: Analytics workloads
           url: get-started-with-analytics-dicom.md
-        - text: Use the DICOM service for digital pathology
+        - text: Digital pathology
           url: dicom-digital-pathology.md
 
   - title: API reference
     linkLists:
-      - linkListType: tutorial
+      - linkListType: how-to-guide
         links:
-          - text: Using DICOMweb Standard APIs with C#
+          - text: Use DICOMweb Standard APIs with C#
             url: dicomweb-standard-apis-c-sharp.md
-          - text: Using DICOMweb Standard APIs with cURL
+          - text: Use DICOMweb Standard APIs with cURL
             url: dicomweb-standard-apis-curl.md
-          - text: Using DICOMweb Standard APIs with Python
+          - text: Use DICOMweb Standard APIs with Python
             url: dicomweb-standard-apis-python.md
-
+          - text: Change feed custom API
+            url: change-feed-overview.md
+          - text: Extended query tags API
+            url: dicom-extended-query-tags-overview.md
   - title: DICOM change feed 
     linkLists:
       - linkListType: how-to-guide
         links:
           - text: What is the DICOM change feed? 
             url: change-feed-overview.md
-          - text: Pull DICOM changes using the change feed
+          - text: Access the DICOM change feed
             url: pull-dicom-changes-from-change-feed.md
+
+  - title: Configuration 
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Configure customer-managed keys 
+            url: configure-customer-managed-keys.md
+          - text: Configure cross-origin resource sharing (CORS)
+            url: configure-cross-origin-resource-sharing.md
+          - text: Configure Azure RBAC
+            url: dicom-configure-azure-rbac.md
+          - text: Enable audit and diagnostic logging
+            url: enable-diagnostic-logging.md
+  - title: Operations 
+    linkLists:
+      - linkListType: how-to-guide
+        links:
+          - text: Import DICOM files 
+            url: import-files.md
+          - text: Export DICOM files
+            url: export-files.md
+          - text: Bulk update DICOM files
+            url: update-files.md            

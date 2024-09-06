@@ -4,7 +4,6 @@ titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn about nested activities in Azure Data Factory and Azure Synapse Analytics.
 author: kromerm
 ms.author: makromer
-ms.service: data-factory
 ms.subservice: orchestration
 ms.custom: synapse
 ms.topic: conceptual

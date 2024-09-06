@@ -3,7 +3,7 @@ title: Create a workload profiles environment with the Azure CLI
 description: Learn to create an environment with a specialized hardware profile using the Azure CLI.
 services: container-apps
 author: craigshoemaker
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.custom: devx-track-azurecli
 ms.topic:  how-to
 ms.date: 08/29/2023

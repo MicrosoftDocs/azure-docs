@@ -7,7 +7,7 @@ metadata:
   title: Azure Spring Apps Standard consumption and dedicated plan
   description: Azure Spring Apps is a fully managed service for building and running Spring Boot and Steeltoe apps without needing to manage infrastructure.
   services: spring-cloud
-  ms.service: spring-apps
+  ms.service: azure-spring-apps
   ms.custom: devx-track-java
   ms.topic: landing-page
   author: KarlErickson
@@ -95,7 +95,7 @@ landingContent:
       - linkListType: concept
         links:
           - text: Java memory management
-            url: ../enterprise/concepts-for-java-memory-management.md?toc=/azure/spring-apps/consumption-dedicated/toc.json&bc=/azure/spring-apps/consumption-dedicated/breadcrumb/toc.json
+            url: ../basic-standard/concepts-for-java-memory-management.md?toc=/azure/spring-apps/consumption-dedicated/toc.json&bc=/azure/spring-apps/consumption-dedicated/breadcrumb/toc.json
       - linkListType: quickstart
         links:
           - text: Analyze logs and metrics

@@ -22,6 +22,8 @@ Microsoft Defender for IoT provides lightweight security agents so that you can 
 
 ## Defender for IoT micro agent
 
+[!INCLUDE [device-agents-note](../includes/device-agents-note.md)]
+
 The Defender for IoT micro agent provides deep security protection, and visibility into device behavior.
 
 - The micro agent collects, aggregates, and analyzes raw security events from your devices. Events can include IP connections, process creation, user logons, and other security-relevant information.

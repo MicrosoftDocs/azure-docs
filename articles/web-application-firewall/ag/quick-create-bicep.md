@@ -4,7 +4,7 @@ titleSuffix: Azure Application Gateway
 description: Learn how to use Bicep to create a Web Application Firewall v2 on Azure Application Gateway.
 services: web-application-firewall
 author: vhorne
-ms.service: web-application-firewall
+ms.service: azure-web-application-firewall
 ms.topic: quickstart
 ms.date: 10/16/2023
 ms.author: victorh

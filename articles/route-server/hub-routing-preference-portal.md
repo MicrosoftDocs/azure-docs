@@ -4,7 +4,7 @@ titleSuffix: Azure Route Server
 description: Learn how to configure routing preference in Azure Route Server using the Azure portal to influence its route selection.
 author: halkazwini
 ms.author: halkazwini
-ms.service: route-server
+ms.service: azure-route-server
 ms.topic: how-to
 ms.date: 11/15/2023
 

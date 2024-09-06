@@ -13,12 +13,12 @@ ms.date: 01/04/2024
 
 [!INCLUDE [logic-apps-sku-consumption](~/reusable-content/ce-skilling/azure/includes/logic-apps-sku-consumption.md)]
 
-This quickstart shows how to create and manage automated workflows that run in Azure Logic Apps by using the [Azure CLI Logic Apps extension](/cli/azure/logic) (`az logic`). From the command line, you can create a [Consumption logic app](logic-apps-overview.md#resource-environment-differences) in multi-tenant Azure Logic Apps by using the JSON file for a logic app workflow definition. You can then manage your logic app by running operations such as `list`, `show` (`get`), `update`, and `delete` from the command line.
+This quickstart shows how to create and manage automated workflows that run in Azure Logic Apps by using the [Azure CLI Logic Apps extension](/cli/azure/logic) (`az logic`). From the command line, you can create a [Consumption logic app](logic-apps-overview.md#resource-environment-differences) in multitenant Azure Logic Apps by using the JSON file for a logic app workflow definition. You can then manage your logic app by running operations such as `list`, `show` (`get`), `update`, and `delete` from the command line.
 
 > [!WARNING]
 > The Azure CLI Logic Apps extension is currently *experimental* and *not covered by customer support*. Use this CLI extension with caution, especially if you choose to use the extension in production environments.
 
-This quickstart currently applies only to Consumption logic app workflows that run in multi-tenant Azure Logic Apps. Azure CLI is currently unavailable for Standard logic app workflows that run in single-tenant Azure Logic Apps. For more information, review [Resource type and host differences in Azure Logic Apps](logic-apps-overview.md#resource-environment-differences).
+This quickstart currently applies only to Consumption logic app workflows that run in multitenant Azure Logic Apps. Azure CLI is currently unavailable for Standard logic app workflows that run in single-tenant Azure Logic Apps. For more information, review [Resource type and host differences in Azure Logic Apps](logic-apps-overview.md#resource-environment-differences).
 
 If you're new to Azure Logic Apps, learn how to create your first Consumption logic app workflow [through the Azure portal](quickstart-create-example-consumption-workflow.md), [in Visual Studio](quickstart-create-logic-apps-with-visual-studio.md), and [in Visual Studio Code](quickstart-create-logic-apps-visual-studio-code.md).
 
@@ -79,7 +79,6 @@ az logic workflow create --definition
                          [--access-control]
                          [--endpoints-configuration]
                          [--integration-account]
-                         [--integration-service-environment]
                          [--state {Completed, Deleted, Disabled, Enabled, NotSpecified, Suspended}]
                          [--tags]
 ```
@@ -94,7 +93,7 @@ Your command must include the following [required parameters](/cli/azure/logic/w
 | Resource group name | `--resource-group -g` | The [Azure resource group](../azure-resource-manager/management/overview.md) in which you want to create your logic app. [Create a resource group](#example---create-resource-group) before you begin if you don't already have one for your logic app. |
 ||||
 
-You can also include additional [optional parameters](/cli/azure/logic/workflow#az-logic-workflow-create-optional-parameters) to configure your logic app's access controls, endpoints, integration account, integration service environment, state, and resource tags.
+You can also include additional [optional parameters](/cli/azure/logic/workflow#az-logic-workflow-create-optional-parameters) to configure your logic app's access controls, endpoints, integration account, state, and resource tags.
 
 ### Example - Create logic app
 

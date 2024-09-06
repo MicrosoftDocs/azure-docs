@@ -4,7 +4,7 @@ description: In this article, learn about selective disk backup and restore usin
 ms.topic: how-to
 ms.date: 10/16/2023
 ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell, engagement-fy24
-ms.service: backup
+ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---

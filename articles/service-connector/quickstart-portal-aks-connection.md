@@ -17,7 +17,7 @@ Get started with Service Connector by using the Azure portal to create a new ser
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
-- An AKS cluster in a [region supported by Service Connector](./concept-region-support.md). If you don't have one yet, [create an AKS cluster](../aks/learn/quick-kubernetes-deploy-cli.md).
+- An AKS cluster in a [region supported by Service Connector](./concept-region-support.md). If you don't have one yet, [create an AKS cluster](/azure/aks/learn/quick-kubernetes-deploy-cli).
 
 ## Sign in to Azure
 

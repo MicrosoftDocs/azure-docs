@@ -5,7 +5,7 @@ description: This article provides details of what's new in each version of Azur
 author: PriskeyJeronika-MS
 ms.author: v-gjeronika
 manager: jsuri
-ms.date: 05/22/2024
+ms.date: 08/12/2024
 ms.service: azure-monitor
 ms.subservice: operations-manager-managed-instance
 ms.topic: whats-new
@@ -14,6 +14,10 @@ ms.topic: whats-new
 # What’s new in Azure Monitor SCOM Managed Instance 
 
 This article provides details of what's new in each version of Azure Monitor SCOM Managed Instance.
+
+## Version 1.0.103
+
+- Bug fix in domain connectivity checks of validation to prevent timeouts.
 
 ## Version 1.0.100
 

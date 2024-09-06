@@ -1,11 +1,11 @@
 ---
 title: Azure SQL output binding for Functions
 description: Learn to use the Azure SQL output binding in Azure Functions.
-author: dzsquared
+author: JetterMcTedder
 ms.topic: reference
 ms.custom: build-2023, devx-track-extended-java, devx-track-js, devx-track-python, devx-track-ts
-ms.date: 4/17/2023
-ms.author: drskwier
+ms.date: 6/26/2024
+ms.author: bspendolini
 ms.reviewer: glenga
 zone_pivot_groups: programming-languages-set-functions
 ---
@@ -27,7 +27,7 @@ For information on setup and configuration details, see the [overview](./functio
 
 [!INCLUDE [functions-bindings-csharp-intro-with-csx](../../includes/functions-bindings-csharp-intro-with-csx.md)]
 
-[!INCLUDE [functions-in-process-model-retirement-note](~/reusable-content/ce-skilling/azure/includes/functions-in-process-model-retirement-note.md)]
+[!INCLUDE [functions-in-process-model-retirement-note](../../includes/functions-in-process-model-retirement-note.md)]
 
 # [Isolated worker model](#tab/isolated-process)
 
@@ -44,7 +44,7 @@ The examples refer to a `ToDoItem` class and a corresponding database table:
 
 :::code language="sql" source="~/functions-sql-todo-sample/sql/create.sql" range="1-7":::
 
-To return [multiple output bindings](./dotnet-isolated-process-guide.md#multiple-output-bindings) in our samples, we will create a custom return type:
+To return [multiple output bindings](./dotnet-isolated-process-guide.md#multiple-output-bindings) in our samples, we'll create a custom return type:
 
 ```cs
 public static class OutputType
@@ -539,7 +539,7 @@ The following example shows a SQL output binding that adds records to a table, u
 
 # [Model v3](#tab/nodejs-v3)
 
-TypeScript samples are not documented for model v3.
+TypeScript samples aren't documented for model v3.
 
 ---
 
@@ -621,7 +621,7 @@ CREATE TABLE dbo.RequestLog (
 
 # [Model v3](#tab/nodejs-v3)
 
-TypeScript samples are not documented for model v3.
+TypeScript samples aren't documented for model v3.
 
 ---
 
@@ -860,6 +860,37 @@ The examples refer to a database table:
 
 The following example shows a SQL output binding in a function.json file and a Python function that adds records to a table, using data provided in an HTTP POST request as a JSON body.
 
+# [v2](#tab/python-v2)
+
+The following is sample python code for the function_app.py file:
+
+```python
+import json
+import logging
+import azure.functions as func
+from azure.functions.decorators.core import DataType
+
+app = func.FunctionApp()
+
+@app.function_name(name="AddToDo")
+@app.route(route="addtodo")
+@app.sql_output(arg_name="todo",
+                        command_text="[dbo].[ToDo]",
+                        connection_string_setting="SqlConnectionString")
+def add_todo(req: func.HttpRequest, todo: func.Out[func.SqlRow]) -> func.HttpResponse:
+    body = json.loads(req.get_body())
+    row = func.SqlRow.from_dict(body)
+    todo.set(row)
+
+    return func.HttpResponse(
+        body=req.get_body(),
+        status_code=201,
+        mimetype="application/json"
+    )
+```
+
+# [v1](#tab/python-v1)
+
 The following is binding data in the function.json file:
 
 ```json
@@ -918,6 +949,8 @@ def main(req: func.HttpRequest, todoItems: func.Out[func.SqlRow]) -> func.HttpRe
         )
 ```
 
+---
+
 <a id="http-trigger-write-to-two-tables-python"></a>
 ### HTTP trigger, write to two tables
 
@@ -932,6 +965,55 @@ CREATE TABLE dbo.RequestLog (
     ItemCount int not null
 )
 ```
+
+# [v2](#tab/python-v2)
+
+The following is sample python code for the function_app.py file:
+
+```python
+from datetime import datetime
+import json
+import logging
+import azure.functions as func
+
+app = func.FunctionApp()
+
+@app.function_name(name="PostToDo")
+@app.route(route="posttodo")
+@app.sql_output(arg_name="todoItems",
+                        command_text="[dbo].[ToDo]",
+                        connection_string_setting="SqlConnectionString")
+@app.sql_output(arg_name="requestLog",
+                        command_text="[dbo].[RequestLog]",
+                        connection_string_setting="SqlConnectionString")
+def add_todo(req: func.HttpRequest, todoItems: func.Out[func.SqlRow], requestLog: func.Out[func.SqlRow]) -> func.HttpResponse:
+    logging.info('Python HTTP trigger and SQL output binding function processed a request.')
+    try:
+        req_body = req.get_json()
+        rows = func.SqlRowList(map(lambda r: func.SqlRow.from_dict(r), req_body))
+    except ValueError:
+        pass
+
+    requestLog.set(func.SqlRow({
+        "RequestTimeStamp": datetime.now().isoformat(),
+        "ItemCount": 1
+    }))
+
+    if req_body:
+        todoItems.set(rows)
+        return func.HttpResponse(
+            "OK",
+            status_code=201,
+            mimetype="application/json"
+        )
+    else:
+        return func.HttpResponse(
+            "Error accessing request body",
+            status_code=400
+        )
+```
+
+# [v1](#tab/python-v1)
 
 The following is binding data in the function.json file:
 
@@ -1004,6 +1086,7 @@ def main(req: func.HttpRequest, todoItems: func.Out[func.SqlRow], requestLog: fu
         )
 ```
 
+---
 
 ::: zone-end
 

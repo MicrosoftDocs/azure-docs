@@ -2,7 +2,7 @@
 title: Deploy a service catalog managed application
 description: Describes how to deploy a service catalog's managed application for an Azure Managed Application using Azure PowerShell, Azure CLI, or Azure portal.
 ms.topic: quickstart
-ms.date: 05/28/2024
+ms.date: 06/24/2024
 ms.custom: engagement-fy23, devx-track-azurecli, devx-track-azurepowershell
 ---
 

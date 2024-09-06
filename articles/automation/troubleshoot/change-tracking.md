@@ -4,11 +4,14 @@ description: This article tells how to troubleshoot and resolve issues with the 
 services: automation
 ms.subservice: change-inventory-management
 ms.custom: linux-related-content
-ms.date: 02/15/2021
+ms.date: 08/30/2024
 ms.topic: troubleshooting
+ms.service: azure-automation
 ---
 
 # Troubleshoot Change Tracking and Inventory issues
+
+[!INCLUDE [./log-analytics-retirement-announcement.md](../includes/log-analytics-retirement-announcement.md)]
 
 This article describes how to troubleshoot and resolve Azure Automation Change Tracking and Inventory issues. For general information about Change Tracking and Inventory, see [Change Tracking and Inventory overview](../change-tracking/overview.md).
 
@@ -157,5 +160,5 @@ Microsoft Defender for Cloud's FIM feature might be incorrectly validating the i
 If you don't see your problem here or you can't resolve your issue, try one of the following channels for additional support:
 
 * Get answers from Azure experts through [Azure Forums](https://azure.microsoft.com/support/forums/).
-* Connect with [@AzureSupport](https://twitter.com/azuresupport), the official Microsoft Azure account for improving customer experience. Azure Support connects the Azure community to answers, support, and experts.
+* Connect with [@AzureSupport](https://x.com/azuresupport), the official Microsoft Azure account for improving customer experience. Azure Support connects the Azure community to answers, support, and experts.
 * File an Azure support incident. Go to the [Azure Support site](https://azure.microsoft.com/support/options/), and select **Get Support**.

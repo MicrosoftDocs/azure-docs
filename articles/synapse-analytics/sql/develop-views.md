@@ -2,12 +2,12 @@
 title: T-SQL views using SQL pools
 description: Tips for using T-SQL views and developing solutions with dedicated SQL pool and serverless SQL pool in Azure Synapse Analytics..
 author: azaricstefan 
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql
 ms.date: 04/15/2020 
 ms.author: stefanazaric 
-ms.reviewer: sngun
+ms.reviewer: whhender
 ---
 
 # T-SQL views with dedicated SQL pool and serverless SQL pool in Azure Synapse Analytics
@@ -25,7 +25,7 @@ Views can be used in a number of different ways to improve the quality of your s
 
 ## Architectural abstraction
 
-A common application pattern is to re-create tables using [CREATE TABLE AS SELECT](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?view=azure-sqldw-latest&preserve-view=true) (CTAS), which is followed by an object renaming pattern while loading data.
+A common application pattern is to re-create tables using [CREATE TABLE AS SELECT (CTAS)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?view=azure-sqldw-latest&preserve-view=true), which is followed by an object renaming pattern while loading data.
 
 The following example adds new date records to a date dimension. Note how a new table, DimDate_New, is first created and then renamed to replace the original version of the table.
 
@@ -69,6 +69,3 @@ Views in Synapse SQL are only stored as metadata. Consequently, the following op
 ## Next steps
 
 For more development tips, see [Synapse SQL development overview](develop-overview.md).
-
-
-

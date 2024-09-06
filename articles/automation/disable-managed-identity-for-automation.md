@@ -5,6 +5,7 @@ services: automation
 ms.subservice: process-automation
 ms.date: 10/26/2021
 ms.topic: conceptual
+ms.service: azure-automation
 ---
 
 # Disable system-assigned managed identity for Azure Automation account

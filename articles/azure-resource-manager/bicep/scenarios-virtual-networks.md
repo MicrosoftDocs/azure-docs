@@ -27,7 +27,50 @@ It's best to define your subnets within the virtual network definition, as in th
 
 > The following example is part of a larger example. For a Bicep file that you can deploy, [see the complete file](https://raw.githubusercontent.com/Azure/azure-docs-bicep-samples/main/samples/scenarios-virtual-networks/vnet.bicep).
 
-::: code language="bicep" source="~/azure-docs-bicep-samples/samples/scenarios-virtual-networks/vnet.bicep" range="7-30, 39" :::
+```bicep
+param location string = resourceGroup().location
+
+var virtualNetworkName = 'my-vnet'
+var subnet1Name = 'Subnet-1'
+var subnet2Name = 'Subnet-2'
+
+resource virtualNetwork 'Microsoft.Network/virtualNetworks@2023-11-01' = {
+  name: virtualNetworkName
+  location: location
+  properties: {
+    addressSpace: {
+      addressPrefixes: [
+        '10.0.0.0/16'
+      ]
+    }
+    subnets: [
+      {
+        name: subnet1Name
+        properties: {
+          addressPrefix: '10.0.0.0/24'
+        }
+      }
+      {
+        name: subnet2Name
+        properties: {
+          addressPrefix: '10.0.1.0/24'
+        }
+      }
+    ]
+  }
+
+  resource subnet1 'subnets' existing = {
+    name: subnet1Name
+  }
+
+  resource subnet2 'subnets' existing = {
+    name: subnet2Name
+  }
+}
+
+output subnet1ResourceId string = virtualNetwork::subnet1.id
+output subnet2ResourceId string = virtualNetwork::subnet2.id
+```
 
 Although both approaches enable you to define and create your subnets, there is an important difference. When you define subnets by using child resources, the first time your Bicep file is deployed, the virtual network is deployed. Then, after the virtual network deployment is complete, each subnet is deployed. This sequencing occurs because Azure Resource Manager deploys each individual resource separately.
 
@@ -39,7 +82,50 @@ You often need to refer to a subnet's resource ID. When you use the `subnets` pr
 
 > The following example is part of a larger example. For a Bicep file that you can deploy, [see the complete file](https://raw.githubusercontent.com/Azure/azure-docs-bicep-samples/main/samples/scenarios-virtual-networks/vnet.bicep).
 
-::: code language="bicep" source="~/azure-docs-bicep-samples/samples/scenarios-virtual-networks/vnet.bicep" range="7-42" highlight="26-28, 30-32, 35-36" :::
+```bicep
+param location string = resourceGroup().location
+
+var virtualNetworkName = 'my-vnet'
+var subnet1Name = 'Subnet-1'
+var subnet2Name = 'Subnet-2'
+
+resource virtualNetwork 'Microsoft.Network/virtualNetworks@2023-11-01' = {
+  name: virtualNetworkName
+  location: location
+  properties: {
+    addressSpace: {
+      addressPrefixes: [
+        '10.0.0.0/16'
+      ]
+    }
+    subnets: [
+      {
+        name: subnet1Name
+        properties: {
+          addressPrefix: '10.0.0.0/24'
+        }
+      }
+      {
+        name: subnet2Name
+        properties: {
+          addressPrefix: '10.0.1.0/24'
+        }
+      }
+    ]
+  }
+
+  resource subnet1 'subnets' existing = {
+    name: subnet1Name
+  }
+
+  resource subnet2 'subnets' existing = {
+    name: subnet2Name
+  }
+}
+
+output subnet1ResourceId string = virtualNetwork::subnet1.id
+output subnet2ResourceId string = virtualNetwork::subnet2.id
+```
 
 Because this example uses the `existing` keyword to access the subnet resource, instead of defining the complete subnet resource, it doesn't have the risks outlined in the previous section.
 

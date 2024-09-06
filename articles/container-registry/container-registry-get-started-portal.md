@@ -5,7 +5,7 @@ author: tejaswikolli-web
 ms.author: tejaswikolli
 ms.date: 10/31/2023
 ms.topic: quickstart
-ms.service: container-registry
+ms.service: azure-container-registry
 ms.custom: mvc, mode-ui
 ---
 # Quickstart: Create an Azure container registry using the Azure portal

@@ -4,7 +4,7 @@ titleSuffix: Azure Private 5G Core
 description: Learn how to deploy a private mobile network and site using Azure PowerShell.
 author: James-Green-Microsoft
 ms.author: jagre
-ms.service: private-5g-core
+ms.service: azure-private-5g-core
 ms.topic: quickstart
 ms.custom: devx-track-azurepowershell
 ms.date: 03/15/2023
@@ -19,7 +19,7 @@ Azure Private 5G Core is an Azure cloud service for deploying and managing 5G co
 - The default service and allow-all SIM policy (as described in [Default service and allow-all SIM policy](default-service-sim-policy.md)).
 - Optionally, one or more SIMs, and a SIM group.
 
-[!INCLUDE [azure-ps-prerequisites-include.md](~/reusable-content/ce-skilling/azure/includes/azure-ps-prerequisites-include.md)]
+[!INCLUDE [azure-ps-prerequisites-include.md](../../includes/azure-ps-prerequisites-include.md)]
 
 ## Prerequisite: Prepare to deploy a private mobile network and site
 
@@ -42,7 +42,7 @@ Azure Private 5G Core is an Azure cloud service for deploying and managing 5G co
 
 ## Sign in to Azure
 
-[!INCLUDE [cli-launch-cloud-shell-sign-in.md](~/reusable-content/ce-skilling/azure/includes/sample-powershell-install-no-ssh-az.md)]
+[!INCLUDE [cli-launch-cloud-shell-sign-in.md](../../includes/sample-powershell-install-no-ssh-az.md)]
 
 ## Deploy a private mobile network, site and SIM
 

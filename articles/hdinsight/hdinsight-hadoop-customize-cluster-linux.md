@@ -1,10 +1,10 @@
 ---
 title: Customize Azure HDInsight clusters by using script actions
 description: Add custom components to HDInsight clusters by using script actions. Script actions are Bash scripts that can be used to customize the cluster configuration. Or add additional services and utilities like Hue, Solr, or R.
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.custom: devx-track-azurepowershell, linux-related-content
 ms.topic: how-to
-ms.date: 07/31/2023
+ms.date: 07/12/2024
 ---
 
 # Customize Azure HDInsight clusters by using script actions
@@ -201,7 +201,7 @@ In this section, you use the [Add-AzHDInsightScriptAction](/powershell/module/az
 
 The following script shows how to apply a script action when you create a cluster by using PowerShell:
 
-[!code-powershell[main](../../powershell_scripts/hdinsight/use-script-action/use-script-action.ps1?range=5-90)]
+[!Code-powershell[main](../../powershell_scripts/hdinsight/use-script-action/use-script-action.ps1?range=5-90)]
 
 It can take several minutes before the cluster is created.
 
@@ -245,7 +245,7 @@ This section explains how to apply script actions on a running cluster.
 
 To use these PowerShell commands, you need the [AZ Module](/powershell/azure/). The following example shows how to apply a script action to a running cluster:
 
-[!code-powershell[main](../../powershell_scripts/hdinsight/use-script-action/use-script-action.ps1?range=105-117)]
+[!Code-powershell[main](../../powershell_scripts/hdinsight/use-script-action/use-script-action.ps1?range=105-117)]
 
 After the operation finishes, you receive information similar to the following text:
 
@@ -317,7 +317,7 @@ For an example of using the .NET SDK to apply scripts to a cluster, see [Apply a
 
 The following example script demonstrates using the cmdlets to promote and then demote a script.
 
-[!code-powershell[main](../../powershell_scripts/hdinsight/use-script-action/use-script-action.ps1?range=123-140)]
+[!Code-powershell[main](../../powershell_scripts/hdinsight/use-script-action/use-script-action.ps1?range=123-140)]
 
 ### Azure CLI
 

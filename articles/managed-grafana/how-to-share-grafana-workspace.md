@@ -4,7 +4,7 @@ description: Learn how you can share access permissions to Azure Managed Grafana
 #customerintent: As a developer, I want to learn how I can share permissions to an Azure Managed Grafana instance so that I can control user access.
 author: maud-lv 
 ms.author: malev 
-ms.service: managed-grafana 
+ms.service: azure-managed-grafana
 ms.custom: engagement-fy23
 ms.topic: how-to 
 ms.date: 04/12/2024

@@ -3,7 +3,7 @@ title: "Include file"
 description: "Include file"
 services: load-testing
 author: ntrogh
-ms.service: load-testing
+ms.service: azure-load-testing
 ms.author: nicktrog
 ms.custom: "include file"
 ms.topic: "include"

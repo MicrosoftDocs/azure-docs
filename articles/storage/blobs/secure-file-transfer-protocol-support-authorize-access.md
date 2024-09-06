@@ -61,8 +61,8 @@ You can authenticate local users connecting from SFTP clients by using a passwor
    | Option | Guidance |
    |----|----|
    | Generate a new key pair | Use this option to create a new public / private key pair. The public key is stored in Azure with the key name that you provide. The private key can be downloaded after the local user has been successfully added. |
-   | Use existing key stored in Azure | Use this option if you want to use a public key that is already stored in Azure. To find existing keys in Azure, see [List keys](../../virtual-machines/ssh-keys-portal.md#list-keys). When SFTP clients connect to Azure Blob Storage, those clients need to provide the private key associated with this public key. |
-   | Use existing public key | Use this option if you want to upload a public key that is stored outside of Azure. If you don't have a public key, but would like to generate one outside of Azure, see [Generate keys with ssh-keygen](../../virtual-machines/linux/create-ssh-keys-detailed.md#generate-keys-with-ssh-keygen). |
+   | Use existing key stored in Azure | Use this option if you want to use a public key that is already stored in Azure. To find existing keys in Azure, see [List keys](/azure/virtual-machines/ssh-keys-portal#list-keys). When SFTP clients connect to Azure Blob Storage, those clients need to provide the private key associated with this public key. |
+   | Use existing public key | Use this option if you want to upload a public key that is stored outside of Azure. If you don't have a public key, but would like to generate one outside of Azure, see [Generate keys with ssh-keygen](/azure/virtual-machines/linux/create-ssh-keys-detailed#generate-keys-with-ssh-keygen). |
 
 4. Select **Next** to open the **Permissions** tab of the configuration pane.
 
@@ -76,11 +76,11 @@ This section shows you how to authenticate by using either an SSH key or a passw
 
    - Use existing key stored in Azure
 
-     Use this option if you want to use a public key that is already stored in Azure. To find existing keys in Azure, see [List keys](../../virtual-machines/ssh-keys-portal.md#list-keys). When SFTP clients connect to Azure Blob Storage, those clients need to provide the private key associated with this public key.
+     Use this option if you want to use a public key that is already stored in Azure. To find existing keys in Azure, see [List keys](/azure/virtual-machines/ssh-keys-portal#list-keys). When SFTP clients connect to Azure Blob Storage, those clients need to provide the private key associated with this public key.
 
    - Use existing public key that is stored outside of Azure.
 
-      If you don't yet have a public key, then see [Generate keys with ssh-keygen](../../virtual-machines/linux/create-ssh-keys-detailed.md#generate-keys-with-ssh-keygen) for guidance about how to create one. Only OpenSSH formatted public keys are supported. The key that you provide must use this format: `<key type> <key data>`. For example, RSA keys would look similar to this: `ssh-rsa AAAAB3N...`. If your key is in another format, then a tool such as `ssh-keygen` can be used to convert it to OpenSSH format.
+      If you don't yet have a public key, then see [Generate keys with ssh-keygen](/azure/virtual-machines/linux/create-ssh-keys-detailed#generate-keys-with-ssh-keygen) for guidance about how to create one. Only OpenSSH formatted public keys are supported. The key that you provide must use this format: `<key type> <key data>`. For example, RSA keys would look similar to this: `ssh-rsa AAAAB3N...`. If your key is in another format, then a tool such as `ssh-keygen` can be used to convert it to OpenSSH format.
 
 2. Create a public key object by using the [New-AzStorageLocalUserSshPublicKey](/powershell/module/az.storage/new-azstoragelocalusersshpublickey) command. Set the `-Key` parameter to a string that contains the key type and public key. In the following example, the key type is `ssh-rsa` and the key is `ssh-rsa a2V5...`.
 
@@ -137,11 +137,11 @@ This section shows you how to authenticate by using either an SSH key or a passw
 
    - Use existing key stored in Azure
 
-     Use this option if you want to use a public key that is already stored in Azure. To find existing keys in Azure, see [List keys](../../virtual-machines/ssh-keys-portal.md#list-keys). When SFTP clients connect to Azure Blob Storage, those clients need to provide the private key associated with this public key.
+     Use this option if you want to use a public key that is already stored in Azure. To find existing keys in Azure, see [List keys](/azure/virtual-machines/ssh-keys-portal#list-keys). When SFTP clients connect to Azure Blob Storage, those clients need to provide the private key associated with this public key.
 
    - Use existing public key that is stored outside of Azure.
 
-      If you don't yet have a public key, then see [Generate keys with ssh-keygen](../../virtual-machines/linux/create-ssh-keys-detailed.md#generate-keys-with-ssh-keygen) for guidance about how to create one. Only OpenSSH formatted public keys are supported. The key that you provide must use this format: `<key type> <key data>`. For example, RSA keys would look similar to this: `ssh-rsa AAAAB3N...`. If your key is in another format, then a tool such as `ssh-keygen` can be used to convert it to OpenSSH format.
+      If you don't yet have a public key, then see [Generate keys with ssh-keygen](/azure/virtual-machines/linux/create-ssh-keys-detailed#generate-keys-with-ssh-keygen) for guidance about how to create one. Only OpenSSH formatted public keys are supported. The key that you provide must use this format: `<key type> <key data>`. For example, RSA keys would look similar to this: `ssh-rsa AAAAB3N...`. If your key is in another format, then a tool such as `ssh-keygen` can be used to convert it to OpenSSH format.
 
 2. To create a local user that is authenticated by using an SSH key, use the [az storage account local-user create](/cli/azure/storage/account/local-user#az-storage-account-local-user-create) command, and then set the `--has-ssh-key` parameter to a string that contains the key type and public key.
 

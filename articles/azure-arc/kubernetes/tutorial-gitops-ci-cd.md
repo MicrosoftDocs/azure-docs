@@ -36,7 +36,7 @@ This tutorial assumes familiarity with Azure DevOps, Azure Repos and Pipelines, 
 * Understand the [benefits and architecture](./conceptual-configurations.md) of this feature.
 * Verify you have:
   * A [connected Azure Arc-enabled Kubernetes cluster](./quickstart-connect-cluster.md#connect-an-existing-kubernetes-cluster) named **arc-cicd-cluster**.
-  * A connected Azure Container Registry (ACR) with either [AKS integration](../../aks/cluster-container-registry-integration.md) or [non-AKS cluster authentication](../../container-registry/container-registry-auth-kubernetes.md).
+  * A connected Azure Container Registry (ACR) with either [AKS integration](/azure/aks/cluster-container-registry-integration) or [non-AKS cluster authentication](../../container-registry/container-registry-auth-kubernetes.md).
   * "Build Admin" and "Project Admin" permissions for [Azure Repos](/azure/devops/repos/get-started/what-is-repos) and [Azure Pipelines](/azure/devops/pipelines/get-started/pipelines-get-started).
 * Install the following Azure Arc-enabled Kubernetes CLI extensions of versions >= 1.0.0:
 

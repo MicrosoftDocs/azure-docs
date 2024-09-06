@@ -1,8 +1,6 @@
 ---
 title: Transform data using Hive in Azure Virtual Network using Azure portal
 description: This tutorial provides step-by-step instructions for transforming data by using Hive activity in Azure Data Factory.
-ms.service: data-factory
-ms.subservice: tutorials
 author: nabhishek
 ms.author: abnarain
 ms.topic: tutorial
@@ -66,7 +64,7 @@ If you don't have an Azure subscription, create a [free](https://azure.microsoft
 
 1. If you have not created your data factory yet, follow the steps in [Quickstart: Create a data factory by using the Azure portal and Azure Data Factory Studio](quickstart-create-data-factory-portal.md) to create one.  After creating it, browse to the data factory in the Azure portal.
 
-   :::image type="content" source="./media/doc-common-process/data-factory-home-page.png" alt-text="Screenshot of home page for the Azure Data Factory, with the Open Azure Data Factory Studio tile.":::
+   :::image type="content" source="~/reusable-content/ce-skilling/azure/media/data-factory/data-factory-home-page.png" alt-text="Screenshot of home page for the Azure Data Factory, with the Open Azure Data Factory Studio tile.":::
 
 1. Select **Open** on the **Open Azure Data Factory Studio** tile to launch the Data Integration application in a separate tab.
 

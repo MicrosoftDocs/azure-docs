@@ -52,7 +52,7 @@ You can configure projects for [Deployment Environments](../deployment-environme
 
 ## Dev box definition
 
-A dev box definition specifies a source image and size, including compute size and storage size. You can use a source image from Azure Marketplace or a custom image from your own [Azure Compute Gallery](./how-to-configure-azure-compute-gallery.md) instance. You can use dev box definitions across multiple projects in a dev center.
+A dev box definition specifies a source image and size, including compute size and storage size. Select a source image from Azure Marketplace or a custom image from your own [Azure Compute Gallery](./how-to-configure-azure-compute-gallery.md) instance. Dev Box supports client editions of Windows 10 and Windows 11. You can use dev box definitions across multiple projects in a dev center.
 
 ## Network connection
 

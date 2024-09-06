@@ -2,7 +2,7 @@
 title: include file
 description: include file
 author: spelluru
-ms.service: stream-analytics
+ms.service: azure-stream-analytics
 ms.topic: include
 ms.date: 02/14/2024
 ms.author: spelluru

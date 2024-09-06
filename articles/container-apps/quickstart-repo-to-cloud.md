@@ -3,7 +3,7 @@ title: "Quickstart: Build and deploy from a repository to Azure Container Apps"
 description: Build your container app from a code repository and deploy in Azure Container Apps using az containerapp up.
 services: container-apps
 author: craigshoemaker
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.custom:
   - devx-track-azurecli
   - ignite-2023

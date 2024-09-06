@@ -3,7 +3,7 @@ title: Distributed managed functions in Azure Static Web Apps (preview)
 description: Configure dynamic distribution of your Static Web Apps managed functions to high request load regions.
 services: static-web-apps
 author: craigshoemaker
-ms.service: static-web-apps
+ms.service: azure-static-web-apps
 ms.topic:  how-to
 ms.date: 03/12/2024
 ms.author: cshoe

@@ -1,17 +1,17 @@
 ---
 title: Troubleshooting Azure Linux Container Host for AKS package upgrade issues
 description: How to troubleshoot Azure Linux Container Host for AKS package upgrade issues.
-author: htaubenfeld
-ms.author: htaubenfeld
+author: suhuruli
+ms.author: suhuruli
 ms.service: microsoft-linux
 ms.custom: linux-related-content
 ms.topic: troubleshooting
-ms.date: 05/10/2023
+ms.date: 08/18/2024
 ---
 
 # Troubleshoot issues with package upgrades on the Azure Linux Container Host
 
-The Azure Linux Container Host for AKS has `dnf-automatic` enabled by default, a systemd service that runs daily and automatically installs any recently published updated packages. This ensures that packages in the Azure Linux Container Host should automatically update when a fix is published. Note, that for some settings of [Node OS Upgrade Channel](../../articles/aks/auto-upgrade-node-image.md), `dnf-automatic` will be disabled by default.
+The Azure Linux Container Host for AKS has `dnf-automatic` enabled by default, a systemd service that runs daily and automatically installs any recently published updated packages. This ensures that packages in the Azure Linux Container Host should automatically update when a fix is published. Note, that for some settings of [Node OS Upgrade Channel](/azure/aks/auto-upgrade-node-image), `dnf-automatic` will be disabled by default.
 
 ## Symptoms
 
@@ -22,11 +22,11 @@ However, sometimes the packages in the Azure Linux Container Host fail to receiv
 
 ## Cause
 
-Some packages, such as the Linux Kernel, require a reboot for the updates to take effect. To facilitate automatic reboots, the Azure Linux VM runs the check-restart service, which creates the /var/run/reboot-required file when a package update requires a reboot.
+Some packages, such as the Linux Kernel, require a reboot for the updates to take effect. To facilitate automatic reboots, the Azure Linux VM runs the check-restart service, which creates the `/var/run/reboot-required` file when a package update requires a reboot.
 
 ## Solution
 
-To ensure that Kubernetes acts on the request for a reboot, we recommend setting up the [kured daemonset](../../articles/aks/node-updates-kured.md). [Kured](https://github.com/kubereboot/kured) monitors your nodes for the /var/run/reboot-required file and, when it's found, drains the work off the node and reboots it.
+To ensure that Kubernetes acts on the request for a reboot, we recommend setting up the [kured daemonset](/azure/aks/node-updates-kured). [Kured](https://github.com/kubereboot/kured) monitors your nodes for the `/var/run/reboot-required` file and, when it's found, drains the work off the node and reboots it.
 
 ## Next steps
 

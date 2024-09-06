@@ -2,7 +2,7 @@
 title: Quickstart - Deploy microservice applications to Azure Spring Apps
 description: Learn how to deploy microservice applications to Azure Spring Apps.
 author: KarlErickson
-ms.service: spring-apps
+ms.service: azure-spring-apps
 ms.topic: quickstart
 ms.date: 01/19/2024
 ms.author: v-shilichen

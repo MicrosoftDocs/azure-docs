@@ -18,7 +18,7 @@ If you purchase an App Service certificate from Azure, Azure manages the followi
 
 - Handles the purchase process from GoDaddy.
 - Performs domain verification of the certificate.
-- Maintains the certificate in [Azure Key Vault](../key-vault/general/overview.md).
+- Maintains the certificate in [Azure Key Vault](/azure/key-vault/general/overview).
 - Manages [certificate renewal](#renew-an-app-service-certificate).
 - Synchronizes the certificate automatically with the imported copies in App Service apps.
 
@@ -58,7 +58,7 @@ If you purchase an App Service certificate from Azure, Azure manages the followi
 
 #### Store certificate in Azure Key Vault
 
-[Key Vault](../key-vault/general/overview.md) is an Azure service that helps safeguard cryptographic keys and secrets used by cloud applications and services. For App Service certificates, the storage of choice is Key Vault. After you finish the certificate purchase process, you must complete a few more steps before you start using this certificate.
+[Key Vault](/azure/key-vault/general/overview) is an Azure service that helps safeguard cryptographic keys and secrets used by cloud applications and services. For App Service certificates, the storage of choice is Key Vault. After you finish the certificate purchase process, you must complete a few more steps before you start using this certificate.
 
 1. On the [App Service Certificates page](https://portal.azure.com/#blade/HubsExtension/Resources/resourceType/Microsoft.CertificateRegistration%2FcertificateOrders), select the certificate. On the certificate menu, select **Certificate Configuration** > **Step 1: Store**.
 
@@ -74,7 +74,7 @@ If you purchase an App Service certificate from Azure, Azure manages the followi
    | **Key vault name** | A unique name that uses only alphanumeric characters and dashes. |
    | **Region** | The same location as your App Service app. |
    | **Pricing tier** | For information, see [Azure Key Vault pricing details](https://azure.microsoft.com/pricing/details/key-vault/). |
-   | **Days to retain deleted vaults** | The number of days after deletion, in which objects remain recoverable (see [Azure Key Vault soft-delete overview](../key-vault/general/soft-delete-overview.md)). Set a value between 7 and 90. |
+   | **Days to retain deleted vaults** | The number of days after deletion, in which objects remain recoverable (see [Azure Key Vault soft-delete overview](/azure/key-vault/general/soft-delete-overview)). Set a value between 7 and 90. |
    | **Purge protection** | Prevents objects soft-deleted st objects to be manually purged. Enabling this option forces all deleted objects to remain in soft-deleted state for the entire duration of the retention period. |
 
 1. Select **Next** and select **Vault access policy**. Currently, App Service certificates support only Key Vault access policies, not the RBAC model.
@@ -158,7 +158,7 @@ If you think your certificate's private key is compromised, you can rekey your c
 
 ## Export an App Service certificate
 
-Because an App Service certificate is a [Key Vault secret](../key-vault/general/about-keys-secrets-certificates.md), you can export a copy as a PFX file, which you can use for other Azure services or outside of Azure.
+Because an App Service certificate is a [Key Vault secret](/azure/key-vault/general/about-keys-secrets-certificates), you can export a copy as a PFX file, which you can use for other Azure services or outside of Azure.
 
 > [!IMPORTANT]
 > The exported certificate is an unmanaged artifact. App Service doesn't sync such artifacts when the App Service Certificate is [renewed](#renew-an-app-service-certificate). You must export and install the renewed certificate where necessary.

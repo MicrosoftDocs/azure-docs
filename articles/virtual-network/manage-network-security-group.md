@@ -4,7 +4,7 @@ titlesuffix: Azure Virtual Network
 description: Learn how to create, change, or delete a network security group (NSG).
 services: virtual-network
 author: asudbring
-ms.service: virtual-network
+ms.service: azure-virtual-network
 ms.topic: how-to
 ms.date: 04/24/2023
 ms.author: allensu

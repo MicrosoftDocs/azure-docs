@@ -13,7 +13,7 @@ ms.date: 11/17/2023
 
 After you purchase Azure disk reserved capacity, a reservation discount is automatically applied to disk resources that match the terms of your reservation. The reservation discount applies to disk SKUs only. Disk snapshots are charged at pay-as-you-go rates.
 
-For more information about Azure disk reservation, see [Save costs with Azure disk reservation](../../virtual-machines/disks-reserved-capacity.md). For information about pricing for Azure disk reservation, see [Azure Managed Disks pricing](https://azure.microsoft.com/pricing/details/managed-disks/).
+For more information about Azure disk reservation, see [Save costs with Azure disk reservation](/azure/virtual-machines/disks-reserved-capacity). For information about pricing for Azure disk reservation, see [Azure Managed Disks pricing](https://azure.microsoft.com/pricing/details/managed-disks/).
 
 ## How the reservation discount is applied
 
@@ -51,5 +51,5 @@ If you have questions or need help, [create a support request](https://go.micros
 
 ## Related content
 
-- [Reduce costs with Azure Disks Reservation](../../virtual-machines/disks-reserved-capacity.md)
+- [Reduce costs with Azure Disks Reservation](/azure/virtual-machines/disks-reserved-capacity)
 - [What are Azure Reservations?](save-compute-costs-reservations.md)

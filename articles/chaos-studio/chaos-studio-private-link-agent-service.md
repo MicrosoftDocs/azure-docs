@@ -7,7 +7,7 @@ ms.topic: how-to
 ms.date: 12/04/2023
 ms.author: abbyweisberg
 ms.reviewer: nikhilkaul
-ms.service: chaos-studio
+ms.service: azure-chaos-studio
 ms.custom: ignite-fall-2023
 ---
 
@@ -39,7 +39,7 @@ To use private endpoints for agent-based chaos experiments, you need to create a
 Currently, this resource can *only be created from the CLI*. See the following example code for how to create this resource type:
 
  ```AzCLI
-az rest --verbose --skip-authorization-header --header "Authorization=Bearer $accessToken" --uri-parameters api-version=2023-10-27-preview --method PUT --uri "https://centraluseuap.management.azure.com/subscriptions/<subscriptionID>/resourceGroups/<resourceGroupName>/providers/Microsoft.Chaos/privateAccesses/<CSPAResourceName>?api-version=2023-10-27-preview" --body ' 
+az rest --verbose --skip-authorization-header --header "Authorization=Bearer $accessToken" --method PUT --uri "https://centraluseuap.management.azure.com/subscriptions/<subscriptionID>/resourceGroups/<resourceGroupName>/providers/Microsoft.Chaos/privateAccesses/<CSPAResourceName>?api-version=2023-10-27-preview" --body ' 
 
 { 
 
@@ -111,7 +111,7 @@ Here's an example block for what the `PUT Target` command should look like and t
 
 ```AzCLI
 
-az rest --verbose --skip-authorization-header --header "Authorization=Bearer $accessToken" --uri-parameters api-version=2023-10-27-preview --method PUT --uri "https://management.azure.com/subscriptions/<subscriptionID>/resourceGroups/<resourceGroup>/providers/Microsoft.Compute/virtualMachines/<VMSSname>/providers/Microsoft.Chaos/targets/Microsoft-Agent?api-version=2023-10-27-preview " --body ' {
+az rest --verbose --skip-authorization-header --header "Authorization=Bearer $accessToken" --method PUT --uri "https://management.azure.com/subscriptions/<subscriptionID>/resourceGroups/<resourceGroup>/providers/Microsoft.Compute/virtualMachines/<VMSSname>/providers/Microsoft.Chaos/targets/Microsoft-Agent?api-version=2023-10-27-preview " --body ' {
     "id": "/subscriptions/<subscriptionID>/resourceGroups/<resourceGroupName>/providers/microsoft.compute/virtualmachines/<VMSSName>/providers/Microsoft.Chaos/targets/Microsoft-Agent",
     "type": "Microsoft.Chaos/targets",
     "name": "Microsoft-Agent",

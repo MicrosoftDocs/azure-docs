@@ -2,7 +2,7 @@
 title: 'Azure Virtual WAN: Configure Destination NAT for Network Virtual Appliance (NVA) in the hub'
 description: Learn how to use Destination NAT with a Network Virtual Appliance in the Virtual WAN hub.
 author: wellee
-ms.service: virtual-wan
+ms.service: azure-virtual-wan
 ms.topic: how-to
 ms.date: 01/04/2023
 ms.author: cherylmc
@@ -120,7 +120,8 @@ The following section contains NVA provider-specific instructions on configuring
 |Partner| Instructions|
 |--|--|
 |checkpoint|[Check Point documentation](https://aka.ms/ckptDNAT)|
-|fortinet| Contact azurevwan@fortinet.com for access to the preview and documentation|
+|fortinet-sdwan-and-ngfw| [Fortinet SD-WAN and NGFW documentation](https://aka.ms/fortinethybriddnat)|
+|fortinet-ngfw| [Fortinet NGFW documentation](https://aka.ms/fortinetngfwdnat) |
 
 ## Troubleshooting
 The following section describes some common troubleshooting scenarios.

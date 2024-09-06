@@ -3,7 +3,7 @@ title: Azure Firewall threat intelligence configuration
 description: Learn how to configure threat intelligence-based filtering for your Azure Firewall policy to alert and deny traffic from and to known malicious IP addresses and domains.
 services: firewall-manager
 author: vhorne
-ms.service: firewall-manager
+ms.service: azure-firewall-manager
 ms.topic: article
 ms.date: 10/17/2022
 ms.author: victorh

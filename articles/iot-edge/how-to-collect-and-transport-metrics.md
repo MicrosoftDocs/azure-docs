@@ -58,9 +58,7 @@ To configure monitoring on your IoT Edge device, follow the [Tutorial: Monitor I
 
 A Microsoft-supplied metrics-collector module can be added to an IoT Edge deployment to collect module metrics and send them to Azure Monitor. The module code is open-source and available in the [IoT Edge GitHub repo](https://github.com/Azure/iotedge/tree/main/edge-modules/metrics-collector).
 
-The metrics-collector module is provided as a multi-arch Docker container image that supports Linux X64, ARM32, ARM64, and Windows X64 (version 1809). It's publicly available at **[`mcr.microsoft.com/azureiotedge-metrics-collector`](https://aka.ms/edgemon-metrics-collector)**.
-
-It also available in the [IoT Edge Module Marketplace](https://aka.ms/edgemon-module-marketplace).
+The metrics-collector module is provided as a multi-arch Docker container image that supports Linux X64, ARM32, ARM64, and Windows X64 (version 1809). It's publicly available at [`mcr.microsoft.com/azureiotedge-metrics-collector`](https://mcr.microsoft.com/product/azureiotedge-metrics-collector/tags).
 
 ## Metrics collector configuration
 

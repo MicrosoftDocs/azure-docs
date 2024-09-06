@@ -6,7 +6,7 @@ summary: Learn how to deploy Azure Firewall Manager, a globally distributed secu
 metadata:
   title: Azure Firewall Manager documentation
   description: Learn how to deploy Azure Firewall Manager, a globally distributed security management service.
-  ms.service: firewall-manager
+  ms.service: azure-firewall-manager
   ms.topic: landing-page
   author: vhorne
   ms.author: victorh

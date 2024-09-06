@@ -29,17 +29,17 @@ Once your Kubernetes clusters are connected to Azure, at scale you can:
 
 * View and monitor your clusters using [Azure Monitor for containers](../../azure-monitor/containers/container-insights-enable-arc-enabled-clusters.md?toc=/azure/azure-arc/kubernetes/toc.json).
 
-* Enforce threat protection using [Microsoft Defender for Kubernetes](../../defender-for-cloud/defender-for-kubernetes-azure-arc.md?toc=/azure/azure-arc/kubernetes/toc.json).
+* Enforce threat protection using [Microsoft Defender for Kubernetes](/azure/defender-for-cloud/defender-for-kubernetes-azure-arc?toc=/azure/azure-arc/kubernetes/toc.json).
 
 * Ensure governance through applying policies with [Azure Policy for Kubernetes](../../governance/policy/concepts/policy-for-kubernetes.md?toc=/azure/azure-arc/kubernetes/toc.json).
 
 * Grant access and [connect](cluster-connect.md) to your Kubernetes clusters from anywhere, and manage access by using [Azure role-based access control (RBAC)](azure-rbac.md) on your cluster.
 
-* Deploy machine learning workloads using [Azure Machine Learning for Kubernetes clusters](../../machine-learning/how-to-attach-kubernetes-anywhere.md?toc=/azure/azure-arc/kubernetes/toc.json).
+* Deploy machine learning workloads using [Azure Machine Learning for Kubernetes clusters](/azure/machine-learning/how-to-attach-kubernetes-anywhere?toc=/azure/azure-arc/kubernetes/toc.json).
 
 * Deploy services that allow you to take advantage of specific hardware, comply with data residency requirements, or enable new scenarios. Examples of services include:
   * [Azure Arc-enabled data services](../data/overview.md)
-  * [Azure Machine Learning for Kubernetes clusters](../../machine-learning/how-to-attach-kubernetes-anywhere.md?toc=/azure/azure-arc/kubernetes/toc.json)
+  * [Azure Machine Learning for Kubernetes clusters](/azure/machine-learning/how-to-attach-kubernetes-anywhere?toc=/azure/azure-arc/kubernetes/toc.json)
   * [Event Grid on Kubernetes](../../event-grid/kubernetes/overview.md)
   * [App Services on Azure Arc](../../app-service/overview-arc-integration.md)
    - [Open Service Mesh](tutorial-arc-enabled-open-service-mesh.md)

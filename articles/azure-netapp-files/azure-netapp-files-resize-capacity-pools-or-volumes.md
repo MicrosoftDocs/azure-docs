@@ -6,7 +6,7 @@ author: b-hchen
 ms.service: azure-netapp-files
 ms.custom: devx-track-azurecli
 ms.topic: how-to
-ms.date: 02/21/2023
+ms.date: 05/20/2024
 ms.author: anfdocs
 ---
 # Resize a capacity pool or a volume
@@ -17,12 +17,13 @@ For information about monitoring a volume’s capacity, see [Monitor the capacit
 
 ## Considerations
 
-* Volume quotas are indexed against `maxfiles` limits. Once a volume has surpassed a `maxfiles` limit, you cannot reduce the volume size below the quota that corresponds to that `maxfiles` limit. For more information and specific limits, see [`maxfiles` limits](azure-netapp-files-resource-limits.md#maxfiles-limits-).
+* Resize operations on Azure NetApp Files volumes don't result in data loss.
+* Volume quotas are indexed against `maxfiles` limits. Once a volume has surpassed a `maxfiles` limit, you cannot reduce the volume size below the quota that corresponds to that `maxfiles` limit. For more information and specific limits, see [`maxfiles` limits](maxfiles-concept.md).
 * Capacity pools with Basic network features have a minimum size of 4 TiB. For capacity pools with Standard network features, the minimum size is 1 TiB. For more information, see [Resource limits](azure-netapp-files-resource-limits.md)
 * Volume resize operations are nearly instantaneous but not always immediate. There can be a short delay for the volume's updated size to appear in the portal. Verify the size from a host perspective before re-attempting the resize operation.
 
 >[!IMPORTANT]
->If you are using a capacity pool with a size of 2 TiB or smaller and have `ANFStdToBasicNetworkFeaturesRevert` and `ANFBasicToStdNetworkFeaturesUpgrade` AFECs enabled and want to change the capacity pool's QoS type from auto manual, you must [perform the operation with the REST API](#resizing-the-capacity-pool-or-a-volume-using-rest-api) using the `2023-07-01` API version or later.
+>If you are using a capacity pool with a size of 2 TiB or smaller and have `ANFStdToBasicNetworkFeaturesRevert` and `ANFBasicToStdNetworkFeaturesUpgrade` AFECs enabled and want to change the capacity pool's QoS type from auto to manual, you must [perform the operation with the REST API](#resizing-the-capacity-pool-or-a-volume-using-rest-api) using the `2023-07-01` API version or later.
 
 ## Resize the capacity pool using the Azure portal 
 

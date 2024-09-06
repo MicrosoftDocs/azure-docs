@@ -3,7 +3,6 @@ title: Getting started with wrangling data flow in Azure Data Factory
 description: A tutorial on how to prepare data in Azure Data Factory using wrangling data flow 
 author: kromerm
 ms.author: makromer
-ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
 ms.date: 05/15/2024

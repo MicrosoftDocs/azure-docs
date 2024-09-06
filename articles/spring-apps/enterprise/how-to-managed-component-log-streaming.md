@@ -3,7 +3,7 @@ title:  Stream Azure Spring Apps managed component logs in real time
 description: Learn how to use log streaming to view managed component logs in real time.
 author: KarlErickson
 ms.author: karler
-ms.service: spring-apps
+ms.service: azure-spring-apps
 ms.topic: how-to
 ms.date: 01/10/2024
 ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli

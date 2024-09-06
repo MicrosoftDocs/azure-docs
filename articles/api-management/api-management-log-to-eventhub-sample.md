@@ -6,7 +6,7 @@ services: api-management
 author: darrelmiller
 manager: erikre
 ms.assetid: c528cf6f-5f16-4a06-beea-fa1207541a47
-ms.service: api-management
+ms.service: azure-api-management
 ms.devlang: csharp
 ms.custom: devx-track-csharp
 ms.topic: article

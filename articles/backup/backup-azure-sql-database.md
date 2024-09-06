@@ -2,7 +2,7 @@
 title: Back up SQL Server databases to Azure 
 description: This article explains how to back up SQL Server to Azure. The article also explains SQL Server recovery.
 ms.topic: conceptual
-ms.date: 09/21/2023
+ms.date: 08/08/2024
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
@@ -10,13 +10,10 @@ ms.author: v-abhmallick
 
 [Azure Backup](backup-overview.md) offers a stream-based, specialized solution to back up SQL Server running in Azure VMs. This solution aligns with Azure Backup's benefits of zero-infrastructure backup, long-term retention, and central management. It additionally provides the following advantages specifically for SQL Server:
 
-1. Workload aware backups that support all backup types - full, differential, and log
-2. 15 minute RPO (recovery point objective) with frequent log backups
-3. Point-in-time recovery up to a second
-4. Individual database level back up and restore
-
->[!Note]
->Snapshot-based backup for SQL databases in Azure VM is now in preview. This unique offering combines the goodness of snapshots, leading to a better RTO and low impact on the server along with the benefits of frequent log backups for low RPO. For any queries/access, write to us at  [AskAzureBackupTeam@microsoft.com](mailto:AskAzureBackupTeam@microsoft.com).
+- Workload aware backups that support all backup types - full, differential, and log
+- 15 minute RPO (recovery point objective) with frequent log backups
+- Point-in-time recovery up to a second
+- Individual database level back up and restore
 
 To view the backup and restore scenarios that we support today, see the [support matrix](sql-support-matrix.md#scenario-support).
 

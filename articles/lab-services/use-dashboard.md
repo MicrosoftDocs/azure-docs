@@ -7,6 +7,8 @@ ms.date: 06/26/2020
 
 # Dashboard for labs
 
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
+
 This article describes the dashboard view of a lab in Azure Lab Services.
 
 ![Screen capture shows the dashboard view of a lab in Azure Lab Services](./media/use-dashboard/dashboard.png)

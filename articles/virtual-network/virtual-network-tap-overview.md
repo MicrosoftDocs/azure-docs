@@ -2,8 +2,8 @@
 title: Azure virtual network TAP overview
 description: Learn about virtual network TAP. Virtual network TAP provides you with a copy of virtual machine network traffic that can be streamed to a packet collector.
 author: asudbring
-ms.service: virtual-network
-ms.topic: conceptual
+ms.service: azure-virtual-network
+ms.topic: concept-article
 ms.date: 03/28/2023
 ms.author: allensu
 ---
@@ -72,6 +72,8 @@ The accounts you use to apply TAP configuration on network interfaces must be as
 - [RSA NetWitness&reg; Platform](https://community.netwitness.com/t5/netwitness-platform-integrations/ixia-cloudlens-rsa-netwitness-packets-implementation-guide/ta-p/564238)
 
 - [Vectra Cognito](https://www.vectra.ai/products/cognito-platform)
+
+- [Corelight, Inc.](https://corelight.com/)
 
 ## Next steps
 

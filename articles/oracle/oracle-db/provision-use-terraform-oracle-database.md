@@ -6,7 +6,7 @@ ms.service: oracle-on-azure
 ms.collection: linux
 ms.topic: article
 ms.date: 6/07/2024
-ms.custom: engagement-fy23
+ms.custom: engagement-fy23, devx-track-terraform
 ms.author: jacobjaygbay
 ---
 

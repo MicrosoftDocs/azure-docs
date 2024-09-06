@@ -134,6 +134,41 @@
             "source_path_from_root": "/articles/baremetal-infrastructure/workloads/sap/baremetal-overview-architecture.md",
             "redirect_url": "/azure/baremetal-infrastructure/concepts-baremetal-infrastructure-overview",
             "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/baremetal-infrastructure/workloads/nc2-on-azure/solution-design.md",
+            "redirect_url": "/azure/baremetal-infrastructure/workloads/nc2-on-azure/architecture",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/baremetal-infrastructure/workloads/nc2-on-azure/nc2-baremetal-overview.md",
+            "redirect_url": "/azure/baremetal-infrastructure/workloads/nc2-on-azure/about-nc2-on-azure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/baremetal-infrastructure/workloads/nc2-on-azure/skus.md",
+            "redirect_url": "/azure/baremetal-infrastructure/workloads/nc2-on-azure/about-nc2-on-azure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/baremetal-infrastructure/workloads/nc2-on-azure/nc2-on-azure-responsibility-matrix.md",
+            "redirect_url": "/azure/baremetal-infrastructure/workloads/nc2-on-azure/about-nc2-on-azure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/baremetal-infrastructure/workloads/nc2-on-azure/requirements.md",
+            "redirect_url": "/azure/baremetal-infrastructure/workloads/nc2-on-azure/architecture",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/baremetal-infrastructure/workloads/nc2-on-azure/use-cases-and-supported-scenarios.md",
+            "redirect_url": "/azure/baremetal-infrastructure/workloads/nc2-on-azure/architecture",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/baremetal-infrastructure/workloads/nc2-on-azure/supported-instances-and-regions.md",
+            "redirect_url": "/azure/baremetal-infrastructure/workloads/nc2-on-azure/architecture",
+            "redirect_document_id": false
         }
     ]
 }

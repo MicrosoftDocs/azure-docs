@@ -4,7 +4,7 @@ description: This article contains important reference material you need when yo
 ms.date: 03/28/2024
 ms.custom: horz-monitor
 ms.topic: reference
-ms.service: batch
+ms.service: azure-batch
 ---
 
 # Azure Batch monitoring data reference

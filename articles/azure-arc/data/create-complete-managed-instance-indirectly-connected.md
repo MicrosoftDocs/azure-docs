@@ -101,7 +101,7 @@ Follow the steps below to deploy the cluster from the Azure CLI.
 
    For command details, see [az aks create](/cli/azure/aks#az-aks-create).
 
-   For a complete demonstration, including an application on a single-node Kubernetes cluster, go to [Quickstart: Deploy an Azure Kubernetes Service cluster using the Azure CLI](../../aks/learn/quick-kubernetes-deploy-cli.md).
+   For a complete demonstration, including an application on a single-node Kubernetes cluster, go to [Quickstart: Deploy an Azure Kubernetes Service cluster using the Azure CLI](/azure/aks/learn/quick-kubernetes-deploy-cli).
 
 1. Get credentials
 

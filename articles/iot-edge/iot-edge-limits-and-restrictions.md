@@ -60,7 +60,7 @@ IoT Hub has the following restrictions for IoT Edge automatic deployments:
 IoT Edge certificates have the following restrictions:
 
 * The common name (CN) can't be the same as the *hostname* that is used in the configuration file on the IoT Edge device.
-* The name used by clients to connect to IoT Edge can't be the same as the common name used in the edge CA certificate.
+* The name used by clients to connect to IoT Edge can't be the same as the common name used in the Edge CA certificate.
 
 For more information, see [Certificates for device security](iot-edge-certs.md).
 

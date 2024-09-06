@@ -1,7 +1,7 @@
 ---
 author: cherylmc
 ms.date: 12/06/2019
-ms.service: expressroute
+ms.service: azure-expressroute
 ms.topic: include
 ms.author: cherylmc
 ---
