@@ -6,7 +6,7 @@ ms.service: dev-box
 author: RoseHJM
 ms.author: rosemalcolm
 ms.topic: concept-article
-ms.date: 06/20/2024
+ms.date: 09/06/2024
 ms.custom: template-concept
 #Customer intent: As a platform engineer, I want to understand the process, considerations, and configuration options so that I can successfully plan and implement a Microsoft Dev Box deployment.
 ---
@@ -263,12 +263,6 @@ Some usage scenarios for conditional access in Microsoft Dev Box include:
 - Restricting access to dev box from only certain geographies 
 
 Learn how you can [configure conditional access policies for Dev Box](./how-to-configure-intune-conditional-access-policies.md).
-
-#### Back up and restore a dev box
-
-Microsoft Intune provides backup functionality for dev boxes. It automatically sets regular restore points, and enables you to create a manual restore point, just as you would for a [Cloud PC](/windows-365/enterprise/create-manual-restore-point).
-
-Restore functionality for dev boxes is provided by sharing Cloud PC restore points to a storage account. For more information, see: [Share Cloud PC restore points to an Azure Storage Account](/windows-365/enterprise/share-restore-points-storage) 
 
 #### Privilege management
 
