@@ -98,7 +98,7 @@ An image template can be retrieved using the `altas.getImageTemplate` function a
 
 The [HTML Marker with built-in icon template] sample demonstrates this using the `marker-arrow` template with a red primary color, a pink secondary color, and a text value of "00", as shown in the following screenshot. For the source code for this sample, see [HTML Marker with built-in icon template sample code].
 
-:::image type="content" source="./media/how-to-use-image-templates-web-sdk/html-marker-with-built-in-icon-template.png" lightbox="./media/how-to-use-image-templates-web-sdk/html-marker-with-built-in-icon-template.png" alt-text="Screenshot showing a map displaying the marker-arrow template with a red primary color, a pink secondary color, and a text value of 00 inside the red arrow.":::
+:::image type="content" source="./media/how-to-use-image-templates-web-sdk/html-marker-with-built-in-icon-template.png" lightbox="./media/how-to-use-image-templates-web-sdk/html-marker-with-built-in-icon-template.png" alt-text="Screenshot of map displaying the marker-arrow template with red primary and pink secondary colors, and 00 inside the red arrow.":::
 
 <!-----------------------------------------------------
 <br/>
