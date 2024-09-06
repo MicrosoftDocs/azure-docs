@@ -111,6 +111,8 @@
       href: performance-large-volumes-linux.md
     - name: Performance impact of Kerberos on NFSv4.1
       href: performance-impact-kerberos.md
+    - name: Performance considerations for cool access 
+      href: performance-considerations-cool-access.md
     - name: Oracle database performance on Azure NetApp Files single volumes
       href: performance-oracle-single-volumes.md
     - name: Oracle database performance on Azure NetApp Files multiple volumes
