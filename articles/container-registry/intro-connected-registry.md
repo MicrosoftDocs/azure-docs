@@ -35,7 +35,7 @@ The connected registry is a preview feature of the **Premium** container registr
 
 Connected registry is available in the following continents and regions:
 
-```markdown
+```
 | Continent     | Available Regions |
 |---------------|-------------------|
 | Australia     | Australia East    |
