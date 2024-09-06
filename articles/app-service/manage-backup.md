@@ -11,7 +11,7 @@ ms.author: msangapu
 
 # Back up and restore your app in Azure App Service
 
-In [Azure App Service](overview.md), you can easily restore app backups. You can also make on-demand custom backups or configure scheduled custom backups. You can restore a backup by overwriting an existing app by restoring to a new app or slot. This article shows you how to restore a backup and make custom backups.
+In [Azure App Service](overview.md), you can easily restore app backups. You can also make on-demand custom backups or configure scheduled custom backups. You can restore a backup by overwriting an existing app or by restoring to a new app or slot. This article shows you how to restore a backup and make custom backups.
 
 Back up and restore is supported in the **Basic**, **Standard**, **Premium**, and **Isolated** tiers. For the **Basic** tier, only the production slot can be backed up and restored. For more information about scaling your App Service plan to use a higher tier, see [Scale up an app in Azure](manage-scale-up.md).
 
@@ -20,7 +20,7 @@ Back up and restore is supported in the **Basic**, **Standard**, **Premium**, an
 > 
 > - Automatic backups can be restored to a target app within the App Service Environment itself, not in another App Service Environment.
 > - Custom backups can be restored to a target app in another App Service Environment, such as from App Service Environment v2 to App Service Environment v3.
-> - Backups can be restored to target app of the same OS platform as the source app.
+> - Backups can be restored to a target app of the same OS platform as the source app.
 
 [!INCLUDE [backup-restore-vs-disaster-recovery](./includes/backup-restore-disaster-recovery.md)]
 
