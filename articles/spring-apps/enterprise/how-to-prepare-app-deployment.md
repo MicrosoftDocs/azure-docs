@@ -148,6 +148,15 @@ Azure Spring Apps supports the latest Spring Boot or Spring Cloud major version 
 
 The following table lists the supported Spring Boot and Spring Cloud combinations:
 
+### [Basic/Standard plan](#tab/basic-standard-plan)
+
+| Spring Boot version | Spring Cloud version            | End of support |
+|---------------------|---------------------------------|----------------|
+| 3.2.x               | 2023.0.x also known as Leyton   | 2024-11-23     |
+| 3.1.x               | 2022.0.3+ also known as Kilburn | 2024-05-18     |
+| 3.0.x               | 2022.0.3+ also known as Kilburn | 2023-11-24     |
+| 2.7.x               | 2021.0.3+ also known as Jubilee | 2023-11-24     |
+
 ### [Enterprise plan](#tab/enterprise-plan)
 
 | Spring Boot version | Spring Cloud version            | End of commercial support |
@@ -157,15 +166,6 @@ The following table lists the supported Spring Boot and Spring Cloud combination
 | 3.0.x               | 2022.0.3+ also known as Kilburn | 2025-02-24                |
 | 2.7.x               | 2021.0.3+ also known as Jubilee | 2025-08-24                |
 | 2.6.x               | 2021.0.3+ also known as Jubilee | 2024-02-24                |
-
-### [Basic/Standard plan](#tab/basic-standard-plan)
-
-| Spring Boot version | Spring Cloud version            | End of support |
-|---------------------|---------------------------------|----------------|
-| 3.2.x               | 2023.0.x also known as Leyton   | 2024-11-23     |
-| 3.1.x               | 2022.0.3+ also known as Kilburn | 2024-05-18     |
-| 3.0.x               | 2022.0.3+ also known as Kilburn | 2023-11-24     |
-| 2.7.x               | 2021.0.3+ also known as Jubilee | 2023-11-24     |
 
 ---
 
@@ -225,6 +225,24 @@ public class GatewayApplication {
 
 ### Distributed configuration
 
+#### [Basic/Standard plan](#tab/basic-standard-plan)
+
+To enable distributed configuration, include the following `spring-cloud-config-client` dependency in the dependencies section of your *pom.xml* file:
+
+```xml
+<dependency>
+    <groupId>org.springframework.cloud</groupId>
+    <artifactId>spring-cloud-config-client</artifactId>
+</dependency>
+<dependency>
+    <groupId>org.springframework.cloud</groupId>
+    <artifactId>spring-cloud-starter-bootstrap</artifactId>
+</dependency>
+```
+
+> [!WARNING]
+> Don't specify `spring.cloud.config.enabled=false` in your bootstrap configuration. Otherwise, your application stops working with Config Server.
+
 #### [Enterprise plan](#tab/enterprise-plan)
 
 To enable distributed configuration in the Enterprise plan, use [Application Configuration Service for VMware Tanzu](https://docs.vmware.com/en/Application-Configuration-Service-for-VMware-Tanzu/2.3/acs/GUID-overview.html), which is one of the proprietary VMware Tanzu components. Application Configuration Service for Tanzu is Kubernetes-native, and different from Spring Cloud Config Server. Application Configuration Service for Tanzu enables the management of Kubernetes-native ConfigMap resources that are populated from properties defined in one or more Git repositories.
@@ -248,24 +266,6 @@ To use Application Configuration Service for Tanzu, do the following steps for e
           --artifact-path <path-to-your-JAR-file> \
           --config-file-pattern <config-file-pattern>
    ```
-
-#### [Basic/Standard plan](#tab/basic-standard-plan)
-
-To enable distributed configuration, include the following `spring-cloud-config-client` dependency in the dependencies section of your *pom.xml* file:
-
-```xml
-<dependency>
-    <groupId>org.springframework.cloud</groupId>
-    <artifactId>spring-cloud-config-client</artifactId>
-</dependency>
-<dependency>
-    <groupId>org.springframework.cloud</groupId>
-    <artifactId>spring-cloud-starter-bootstrap</artifactId>
-</dependency>
-```
-
-> [!WARNING]
-> Don't specify `spring.cloud.config.enabled=false` in your bootstrap configuration. Otherwise, your application stops working with Config Server.
 
 ---
 
