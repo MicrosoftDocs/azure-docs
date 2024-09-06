@@ -24,52 +24,52 @@ We've introduced a 1-click migration feature to ease the transition from Azure S
 
 This feature is available mid-October 2024 and you can start the migration as soon as it's available to simplify the process.
 
-Once the migration finishes, the app appears as a standard app inside Azure Container Apps application, with the Java development stack turned on. With this option enabled, you get access to Java specific [metrics](/azure/container-apps/java-metrics?tabs=create&pivots=azure-portal.md) and [logs](/azure/container-apps/java-dynamic-log-level.md) to monitor and troubleshoot your apps.
+Once the migration finishes, the app appears as a standard app inside Azure Container Apps application, with the Java development stack turned on. With this option enabled, you get access to Java specific [metrics](/container-apps/java-metrics.md) and [logs](/container-apps/java-dynamic-log-level.md) to monitor and troubleshoot your apps.
 
 ## Frequently asked questions
 
-We put together an extensive FAQ to address any questions you might have about the migration.
+The following extensive FAQ addresses several questions you might have about the migration process.
 
 ### What happens if I do not take any actions by March 30, 2025?
 
-We will automatically migrate your apps to Azure Container Apps.
+Your Azure Spring Apps is automatically migrated to Azure Container Apps.
 
 ### May I continue to use Azure Container Apps consumption & dedicated plan?
 
-You may continue to run existing apps until March 30, 2025. New apps and services instances can no longer be created after September 17, 2024.
+You may continue to run existing apps until March 30, 2025, but you won't be able to create new apps and service instances after September 17, 2024.
 
-### The migration process failed. How can I get help?
+### How can I get help if the migration process fails?
 
-You can create a support request from the Azure portal and select:
+Fill out the form on the Azure portal. Use the following list to create a support request:
 
-- For Issue type, select “Technical”.
+- For Issue type, select **Technical**.
 - For Subscription, select your subscription.
-- For Service, select “Azure Spring Apps”.
+- For Service, select **Azure Spring Apps**.
 - For Resource, select your Azure Spring Apps resource.
 - For Summary, type a description of your issue.
-- For Problem type, select “My issue is not listed”.
+- For Problem type, select **My issue is not listed**.
 
 ### Do I need to manually create Spring Cloud Config and Spring Cloud Eureka in Azure Container Apps?
 
-Yes, Spring Cloud Config and Spring Cloud Eureka need to be recreated in Azure Container Apps. Both Spring Cloud Config and Spring Cloud Eureka are also managed components in Azure Container Apps. There are some experiential differences. For more information, see [Tutorial: Connect to a managed Eureka Server for Spring in Azure Container Apps](azure/container-apps/java-eureka-server.md) and [Tutorial: Connect to a managed Config Server for Spring in Azure Container Apps](azure/container-apps/java-config-server.md).
+Yes, you must recreate Spring Cloud Config and Spring Cloud Eureka in Azure Container Apps. Both Spring Cloud Config and Spring Cloud Eureka are also managed components in Azure Container Apps, but there are some experiential differences. For more information, see [Tutorial: Connect to a managed Eureka Server for Spring in Azure Container Apps](/container-apps/java-eureka-server.md) and [Tutorial: Connect to a managed Config Server for Spring in Azure Container Apps](/container-apps/java-config-server.md).
 
-If you need additional assistance creating and migrating Spring Cloud Config and Spring Cloud Eureka to Azure Container Apps, please create a ticket and we are here to help.
+If you need additional assistance creating and migrating Spring Cloud Config and Spring Cloud Eureka to Azure Container Apps, create a support request.
 
-### Will there be downtime during the migration process?
+### Any downtime during the migration process?
 
-No, there will be no downtime unless you are using Spring Cloud Config and Spring Cloud Eureka, which need to be manually recreated in Azure Container Apps.
+No, there's no downtime unless you're using Spring Cloud Config and Spring Cloud Eureka, which you must to manually recreated in Azure Container Apps.
 
-### What will happen to apps that have in-flight transactions during the migration?
+### What happens to apps that have in-flight transactions during the migration?
 
-All in-flight transactions will continue to be executed without any interruptions, unless you are using Spring Cloud Config and Spring Cloud Eureka, which need to be manually recreated in Azure Container Apps.
+All in-flight transactions execute without any interruptions, unless you're using Spring Cloud Config and Spring Cloud Eureka, which you must manually recreated in Azure Container Apps.
 
-### Will my app change IP address/FQDN after the migration?
+### Any change in IP address/FQDN after the migration?
 
-No, it will remain the same.
+No, IP address/FQDN remains the same after the migration.
 
 ### I’m using persistent storage, how do I recreate them in Azure Container Apps?
 
-No, persistent storage will be auto migrated.
+Persistent storage migrates automatically to Azure Container Apps.
 
 ### What are pricing implications with moving to Azure Container Apps?
 
@@ -103,22 +103,22 @@ Lastly with Azure Container Apps you can apply Azure savings plan for compute an
    <tr><td valign="top">Resources used in dedicated workload profile</td></tr>
 </table>
 
-### I’m using my own VNet, how do I continue to use my own VNet in Azure Container Apps?
+### How do I continue to use my own virtual network in Azure Container Apps?
 
-VNet is already managed by Azure Container Apps  environment today. There will be no changes to the VNet experiences. If you are using your own VNet today, the same VNet will continue to be used.
+There's no change to the virtual network experience. You can continue using your own virtual network.
 
-### Will my app be migrated to the consumption plan or the consumption and dedicated plan with workload profiles in Azure Container Apps?
+### How do I migrate my apps to the consumption plan or the consumption and dedicated plan with workload profiles in Azure Container Apps?
 
-There is a direct mapping between the service plans in Azure Spring Apps and Azure Container Apps. If your app is currently running in the consumption plan, it will be moved to the consumption only plan in Azure Container Apps. If your app is currently running in a consumption and dedicated workload profile, it will be transitioned to the corresponding workload profile in Azure Container Apps.
+There's a direct mapping between the service plans in Azure Spring Apps and Azure Container Apps. If your app is currently running in the consumption plan, it moves to the consumption only plan in Azure Container Apps. If your app is currently running in a consumption and dedicated workload profile, it transitions to the corresponding workload profile in Azure Container Apps.
 
-### What about my deployment pipelines/workflow? Will they keep working? 
+### How can I continue to keep my deployment pipelines/workflow working?
 
-Your deployment pipeline will need to be pointed to Azure Container Apps.
+Your deployment pipelines/workflow must point to Azure Container Apps.
 
-### I am managing my applications through AZ CLI, will my current automation scripts continue to work? 
+### How do I continue to make my automation scripts work using Azure CLI? 
 
-No, AZ CLI scripts will need to be changed. Please refer to az container app command group to make these changes. For more information, see [az container app](/cli/azure/containerapp.md) 
+Azure CLI scripts must change to make them work in Azure Container Apps. Refer to the `az containerapp` command group to make these changes. For more information, see [az containerapp](https://learn.microsoft.com/cli/azure/containerapp?view=azure-cli-latest&preserve-view=true). 
 
 ### Are there plans to retire any other Azure Spring Apps SKU’s?
   
-Yes, we are also retiring other Azure Spring Apps plans. Click this link to learn more. <https://aka.ms/asaretirement>
+Yes, other Azure Spring Apps plans are also retiring. For more information, see [Placeholder](https://aka.ms/asaretirement).
