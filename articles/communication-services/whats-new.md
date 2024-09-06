@@ -1,6 +1,6 @@
 ---
 title: What's new in Azure Communication Services
-description: Learn about all of the latest additions to Azure Communication Services.
+description: Learn about the latest additions to Azure Communication Services.
 author: sroons
 ms.author: serooney
 ms.service: azure-communication-services
@@ -11,7 +11,7 @@ ms.custom: template-concept, references_regions
 
 # What's new in Azure Communication Services
 
-Use this article to stay updated on new features, blog posts, and other useful information related to Azure Communication Services.
+Use this article to stay updated on new features and other useful information related to Azure Communication Services.
 
 [!INCLUDE [Survey Request](./includes/survey-request.md)]
 
@@ -19,9 +19,9 @@ Use this article to stay updated on new features, blog posts, and other useful i
 
 ### Data retention with chat threads
 
-Developers can now create chat threads with a retention policy of 30 to 90 days. This feature is in public preview.
+Developers can now create chat threads with a retention policy of 30 to 90 days. This feature is in preview.
 
-This policy is optional. Developers can choose to create a chat thread with infinite retention (as always) or set a retention policy of 30 to 90 days. If you need to keep the thread for longer than 90 days, you can extend the time by using the Update Chat Thread Properties API. The policy is geared for data management in organizations that need to move data into their archives for historical purposes or delete the data within a period.
+Setting a retention policy is optional. Developers can choose to create a chat thread with infinite retention (the default) or set a retention policy of 30 to 90 days. If you need to keep the thread for longer than 90 days, you can extend the time by using the Update Chat Thread Properties API. The policy is geared toward data management in organizations that need to move data into their archives for historical purposes or delete the data within a particular period.
 
 The policy doesn't affect existing chat threads.
 
@@ -33,13 +33,13 @@ For more information, see:
 
 ### PowerPoint Live
 
-Now in general availability, PowerPoint Live gives both the presenter and audience an inclusive and engaging experience. PowerPoint Live combines the best parts of presenting in PowerPoint with the connection and collaboration of a Microsoft Teams meeting.
+Now in general availability, PowerPoint Live gives both the presenter and the audience an engaging experience. PowerPoint Live combines presenting in PowerPoint with the connection and collaboration of a Microsoft Teams meeting.
 
 :::image type="content" source="media/whats-new-images/powerpoint-live.png" alt-text="Screenshot of PowerPoint Live presentation and collaboration in a Microsoft Teams meeting." lightbox="media/whats-new-images/powerpoint-live.png":::
 
-Meeting participants can now view PowerPoint Live sessions initiated by a Teams client by using the Azure Communication Services Web UI Library. Participants can follow along with a presentation and view presenter annotations. Developers can use this function via composites such as `CallComposite` and `CallWithChatComposite`, and through components such as `VideoGallery`.
+Meeting participants can now view PowerPoint Live sessions initiated by a Teams client by using the Azure Communication Services Web UI Library. Participants can follow along with a presentation and view presenter annotations. Developers can use this function through composites such as `CallComposite` and `CallWithChatComposite`, and through components such as `VideoGallery`.
 
-For more information, see [Introducing PowerPoint Live in Microsoft Teams](https://techcommunity.microsoft.com/t5/microsoft-365-blog/introducing-powerpoint-live-in-microsoft-teams/ba-p/2140980) and [Present from PowerPoint Live in Microsoft Teams](https://support.microsoft.com/en-us/office/present-from-powerpoint-live-in-microsoft-teams-28b20e74-7165-499c-9bd4-0ad975d448ad).
+For more information, see [Introducing PowerPoint Live in Microsoft Teams (blog post)](https://techcommunity.microsoft.com/t5/microsoft-365-blog/introducing-powerpoint-live-in-microsoft-teams/ba-p/2140980) and [Present from PowerPoint Live in Microsoft Teams](https://support.microsoft.com/en-us/office/present-from-powerpoint-live-in-microsoft-teams-28b20e74-7165-499c-9bd4-0ad975d448ad).
 
 ### Live reactions
 
@@ -62,7 +62,7 @@ Promote accessibility by displaying text of the audio in video calls. Already av
 
 :::image type="content" source="media/whats-new-images/closed-caption-teams-interop.png" alt-text="Screenshot of closed captions for app-to-app calls and Teams interoperability." lightbox="media/whats-new-images/closed-caption-teams-interop.png":::
 
-For more information, see the [overview of closed captions](./concepts/voice-video-calling/closed-captions.md).
+For more information, see [Closed captions overview](./concepts/voice-video-calling/closed-captions.md).
 
 You can also learn more about [Azure Communication Services interoperability with Teams](./concepts/teams-interop.md).
 
@@ -77,7 +77,7 @@ AI can help app developers across every step of the development lifecycle: desig
 
 :::image type="content" source="media/whats-new-images/copilot-call-diagnostics.png" alt-text="Screenshot of Call Diagnostics within Microsoft Copilot in Azure." lightbox="media/whats-new-images/copilot-call-diagnostics.png":::
 
-Call Diagnostics can help developers understand call quality and reliability, so they can deliver a great customer calling experience. Many issues can affect the quality of your calls, such as poor internet connectivity, software compatibility issues, and technical difficulties with devices.
+Call Diagnostics can help developers understand call quality and reliability, so they can deliver a great calling experience to customers. Many issues can affect the quality of your calls, such as poor internet connectivity, software incompatibilities, and technical difficulties with devices.
 
 Getting to the root cause of these issues can alleviate potentially frustrating situations for all call participants, whether they're patients checking in for a doctor's call or students taking a lesson with a teacher. Call Diagnostics enables developers to drill down into the data to identify root problems and find a solution. You can use the built-in visualizations in the Azure portal or connect underlying usage and quality data to your own systems.
 
@@ -87,15 +87,15 @@ For more information, see [Call Diagnostics](./concepts/voice-video-calling/call
 
 ### Business-to-consumer extensibility with Microsoft Teams for calling
 
-Now in general availability, developers can take advantage of calling interoperability for Microsoft Teams users in Azure Communication Services Calling workflows.
+Developers can take advantage of calling interoperability for Microsoft Teams users in Azure Communication Services calling workflows. This feature is now in general availability.
 
 Developers can use [Call Automation APIs](./concepts/call-automation/call-automation.md) to bring Teams users into business-to-consumer (B2C) calling workflows and interactions, which helps you deliver advanced customer service solutions. This interoperability is offered over VoIP to reduce telephony infrastructure overhead. Developers can add Teams users to Azure Communication Services calls by using the participants' Microsoft Entra object IDs (OIDs).
 
 #### Use cases
 
-- **Teams as an extension of an agent desktop**: Connect your contact center as a service (CCaaS) solution to Teams and enable your agents to handle customer calls on Teams. Having Teams as the single-pane-of-glass solution for both internal and B2C communication can increase agent productivity and empower them to deliver first-class service to customers.
+- **Teams as an extension of an agent desktop**: Connect your contact center as a service (CCaaS) solution to Teams and enable your agents to handle customer calls on Teams. Having Teams as the single-pane-of-glass solution for both internal and B2C communication can increase agents' productivity and empower them to deliver first-class service to customers.
 
-- **Expert consultation**: Businesses can use Teams to invite subject matter experts into their customer service workflows for expedient issue resolution and to improve the rate of first call resolution.
+- **Expert consultation**: Businesses can use Teams to invite subject matter experts into their customer service workflows for expedient issue resolution and to improve the rate of first-call resolution.
 
 :::image type="content" source="media/whats-new-images/b2c-extensibility.png" alt-text="Diagram that shows business-to-consumer extensibility with Microsoft Teams for calling." lightbox="media/whats-new-images/b2c-extensibility.png":::
 
@@ -107,18 +107,18 @@ For more information, see [Call Automation workflow interoperability with Micros
 
 Microsoft Teams users can share images with Azure Communication Services users in the context of a Teams meeting. This feature is now generally available. Image sharing enhances collaboration in real time for meetings. Image overlay is also supported for users to look at it in detail.
 
-Image sharing is helpful in many scenarios, such as a business sharing photos to showcase its work or doctors sharing images with patients for aftercare instructions.
+Image sharing is helpful in many scenarios, such as a business that shares photos to showcase its work or doctors who share images with patients for aftercare instructions.
 
 :::image type="content" source="media/whats-new-images/image-sharing-setup.png" alt-text="Screenshot that shows image-sharing setup and an example in a Microsoft Teams meeting." lightbox="media/whats-new-images/image-sharing-setup.png":::
 
 Try out this feature by using either the UI Library or the Chat SDK. The SDK is available in C# (.NET), JavaScript, Python, and Java. For more information, see:
 
-- [Enable inline image using UI Library in Teams meetings](./tutorials/inline-image-tutorial-interop-chat.md)
+- [Enable an inline image by using the UI Library in Teams meetings](./tutorials/inline-image-tutorial-interop-chat.md)
 - [GitHub sample: Adding image sharing](https://azure.github.io/communication-ui-library/?path=/docs/composites-call-with-chat-jointeamsmeeting--join-teams-meeting#adding-image-sharing)
 
 ### Deep noise suppression for desktop
 
-Deep noise suppression is currently in preview. Noise suppression improves VoIP and video calls by eliminating background noise, so it's easier to talk and listen. For example, if you're taking an Azure Communication Services WebJS call in a coffee shop, turning on noise suppression can significantly improve the calling experience by eliminating background noise.
+Deep noise suppression is currently in preview. Noise suppression improves VoIP and video calls by eliminating background noise, so it's easier to talk and listen. For example, if you're taking an Azure Communication Services WebJS call in a coffee shop, turning on noise suppression can improve the calling experience by eliminating background noise.
 
 For more information, see [Add audio quality enhancements to your audio calling experience](./tutorials/audio-quality-enhancements/add-noise-supression.md).
 
@@ -174,7 +174,7 @@ For more information, see [Enable push notifications for calls](./how-tos/callin
 
 This update includes troubleshooting on the native UI Library for Android and iOS, and Audio only mode in the UI Library.
 
-Using the Azure Communication Services Calling SDK native UI Library, you can now generate encrypted logs for troubleshooting and provide your customers with an optional Audio only mode for joining calls.
+By using the Azure Communication Services Calling SDK native UI Library, you can now generate encrypted logs for troubleshooting and provide your customers with an optional Audio only mode for joining calls.
 
 #### Troubleshooting on the native UI Library for Android and iOS
 
