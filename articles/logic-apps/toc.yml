@@ -229,10 +229,6 @@ items:
       href: support-non-unicode-character-encoding.md
     - name: Troubleshoot errors
       href: logic-apps-diagnosing-failures.md
-  - name: Access Azure virtual networks
-    items:
-    - name: Access to Azure virtual networks
-      href: connect-virtual-network-vnet-isolated-environment-overview.md
   - name: Access on-premises data sources
     items:
     - name: Install on-premises data gateway
