@@ -51,7 +51,7 @@ Today, the Azure networking stack supports 1M total flows (500k inbound and 500k
 
 - VMs that belong to a virtual network can handle 500k ***active connections*** for all VM sizes with 500k ***active flows in each direction***.  
 
-- VMs with network virtual appliances (NVAs) such as gateway, proxy, firewall can handle 250k ***active connections*** with 500k ***active flows in each direction*** due to the forwarding and more new flow creation on new connection setup to the next hop as shown in the above diagram. 
+- VMs with NVAs such as gateway, proxy, firewall can handle 250k ***active connections*** with 500k ***active flows in each direction*** due to the forwarding and more new flow creation on new connection setup to the next hop as shown in the above diagram. 
 
 Once this limit is hit, other connections are dropped. Connection establishment and termination rates can also affect network performance as connection establishment and termination shares CPU with packet processing routines. We recommend that you benchmark workloads against expected traffic patterns and scale out workloads appropriately to match your performance needs.
 
