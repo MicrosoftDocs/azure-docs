@@ -12,7 +12,7 @@ ms.author: kpunjabi
 ---
 
 ## Prerequisites
-- Azure account with an active subscription, for details see [Create an account for free.](https://azure.microsoft.com/free/)
+- Azure account with an active subscription, for details see [Create an account for free.](https://azure.microsoft.com/free/).
 - Azure Communication Services resource. See [Create an Azure Communication Services resource](../../../quickstarts/create-communication-resource.md?tabs=windows&pivots=platform-azp). Note the connection string for this resource. 
 - Create a new web service application using the [Call Automation SDK](../../../quickstarts/call-automation/callflows-for-customer-interactions.md).
 - Have Node.js installed, you can install it from their [official website](https://nodejs.org).
@@ -27,17 +27,17 @@ The following parameters are available to customize the Recognize function:
 
 | Parameter | Type|Default (if not specified) | Description | Required or Optional |
 | ------- |--| ------------------------ | --------- | ------------------ |
-| Prompt <br/><br/> *(for details on Play action, refer to [this how-to guide](../play-ai-action.md))* | FileSource, TextSource | Not set |This is the message you wish to play before recognizing input. | Optional |
+| Prompt <br/><br/> *(For details, see [Customize voice prompts to users with Play action](../play-ai-action.md))* | FileSource, TextSource | Not set |This is the message you wish to play before recognizing input. | Optional |
 | InterToneTimeout | TimeSpan | 2 seconds <br/><br/>**Min:** 1 second <br/>**Max:** 60 seconds | Limit in seconds that Azure Communication Services waits for the caller to press another digit (inter-digit timeout). | Optional |
 | InitialSegmentationSilenceTimeoutInSeconds | Integer | 0.5 second | How long recognize action waits for input before considering it a timeout. [Read more here](../../../../../articles/cognitive-services/Speech-Service/how-to-recognize-speech.md). | Optional |
-| RecognizeInputsType | Enum | dtmf | Type of input that is recognized. Options are dtmf, choices, speech and speechordtmf. | Required |
+| RecognizeInputsType | Enum | dtmf | Type of input that is recognized. Options are `dtmf`, `choices`, `speech`, and `speechordtmf`. | Required |
 | InitialSilenceTimeout | TimeSpan | 5 seconds<br/><br/>**Min:** 0 seconds <br/>**Max:** 300 seconds (DTMF) <br/>**Max:** 20 seconds (Choices) <br/>**Max:** 20 seconds (Speech)| Initial silence timeout adjusts how much nonspeech audio is allowed before a phrase before the recognition attempt ends in a "no match" result. [Read more here](../../../../../articles/cognitive-services/Speech-Service/how-to-recognize-speech.md). | Optional |
 | MaxTonesToCollect | Integer | No default<br/><br/>**Min:** 1|Number of digits a developer expects as input from the participant.| Required |
 | StopTones |IEnumeration\<DtmfTone\> | Not set | The digit participants can press to escape out of a batch DTMF event. | Optional |
 | InterruptPrompt | Bool | True | If the participant has the ability to interrupt the playMessage by pressing a digit. | Optional |
 | InterruptCallMediaOperation | Bool | True | If this flag is set it interrupts the current call media operation. For example if any audio is being played it interrupts that operation and initiates recognize. | Optional |
 | OperationContext | String | Not set | String that developers can pass mid action, useful for allowing developers to store context about the events they receive. | Optional |
-| Phrases | String | Not set | List of phrases that associate to the label, if any of these are heard it is considered a successful recognition. | Required | 
+| Phrases | String | Not set | List of phrases that associate to the label, if any of these are heard it's considered a successful recognition. | Required | 
 | Tone | String | Not set | The tone to recognize if user decides to press a number instead of using speech. | Optional |
 | Label | String | Not set | The key value for recognition. | Required |
 | Language | String | En-us | The language that is used for recognizing speech. | Optional |
@@ -70,7 +70,7 @@ By this point you should be familiar with starting calls, if you need to learn m
 
 ## Call the recognize action
 
-When your application answers the call, you can provide information about recognizing participant input and playing a prompt. The recognize action also supports playing multiple prompts within the same request. 
+When your application answers the call, you can provide information about recognizing participant input and playing a prompt.
 
 ### DTMF
 ``` javascript
@@ -91,7 +91,7 @@ await callAutomationClient.getCallConnection(callConnectionId)
     .getCallMedia() 
     .startRecognizing(targetParticipant, recognizeOptions); 
 ```
-For speech-to-text flows, Call Automation recognize action also supports the use of custom speech models. Features like custom speech models can be useful when you're building an application that needs to listen for complex words which the default speech-to-text models may not be capable of understanding, a good example of this can be when you're building an application for the telemedical industry and your virtual agent needs to be able to recognize medical terms. You can learn more about creating and deploying custom speech models [here](../../../../ai-services/speech-service/how-to-custom-speech-create-project.md).
+For speech-to-text flows, Call Automation Recognize action also supports the use of [custom speech models](/azure/machine-learning/tutorial-train-model.md?view=azureml-api-2). Features like custom speech models can be useful when you're building an application that needs to listen for complex words that the default speech-to-text models may not understand. One example is when you're building an application for the telemedical industry and your virtual agent needs to be able to recognize medical terms. You can learn more in [Create a custom speech project](../../../../ai-services/speech-service/how-to-custom-speech-create-project.md).
 
 ### Speech-to-Text Choices 
 ``` javascript
