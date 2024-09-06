@@ -32,6 +32,7 @@ To learn how to rewrite request and response headers with Application Gateway us
 
 You can rewrite all headers in requests and responses, except for the Connection, and Upgrade headers. You can also use the application gateway to create custom headers and add them to the requests and responses being routed through it.
 
+
 ### URL path and query string
 
 With URL rewrite capability in Application Gateway, you can:
@@ -216,6 +217,8 @@ You can fix several security vulnerabilities by implementing necessary headers i
 You might want to remove headers that reveal sensitive information from an HTTP response. For example, you might want to remove information like the backend server name, operating system, or library details. You can use the application gateway to remove these headers:
 
 ![Deleting header](./media/rewrite-http-headers-url/remove-headers.png)
+
+It is not possible to create a rewrite rule to delete the host header. If you attempt to create a rewrite rule with the action type set to delete and the header set to host, it will result in an error.
 
 #### Check for the presence of a header
 

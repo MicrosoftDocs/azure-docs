@@ -9,6 +9,11 @@ ms.custom: references_regions
 ---
 # What's new in the Azure Virtual Desktop Agent?
 
+The Azure Virtual Desktop agent links your session hosts with the Azure Virtual Desktop service. It acts as the intermediate communicator between the service and the virtual machines, enabling connectivity. 
+
+The Azure Virtual Desktop Agent is updated regularly. New versions of the Azure Virtual Desktop Agent are installed automatically. When new versions are released, they're rolled out progressively to session hosts. This process is called *flighting* and it enables Microsoft to monitor the rollout in [validation environments](create-validation-host-pool.md) first.
+
+A rollout might take several weeks before the agent is available in all environments. Some agent versions might not reach nonvalidation environments, so you might see multiple versions of the agent deployed across your environments.
 The Azure Virtual Desktop Agent updates regularly. This article is where you'll find out about:
 
 - The latest updates
@@ -20,9 +25,7 @@ Make sure to check back here often to keep up with new updates.
 
 ## Latest available versions
 
-New versions of the Azure Virtual Desktop Agent are installed automatically. When new versions are released, they're rolled out progressively to session hosts. This process is called *flighting* and it enables Microsoft to monitor the rollout in [validation environments](create-validation-host-pool.md) first.
-
-A rollout might take several weeks before the agent is available in all environments. Some agent versions might not reach nonvalidation environments, so you may see multiple versions of the agent deployed across your environments.
+Here's information about the Azure Virtual Desktop Agent.
 
 | Release | Latest version |
 |--|--|
