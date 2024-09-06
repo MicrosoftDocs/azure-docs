@@ -293,7 +293,10 @@ Delete publisher resources in the following order to make sure no orphaned resou
 
 ## Considerations if your NF runs cert-manager
 
-With release 1.0.2728-50 and later , AOSM now uses cert-manager to store and rotate certificates. As part of this change, AOSM deploys a cert-manager operator, and associate CRDs, in the azurehybridnetwork namespace. Since having multiple cert-manager operators, even deployed in separate namespaces, will watch across all namespaces, only one cert-manager can be effectively run on the cluster.
+> [!IMPORTANT]
+> This guidance applies only to certain releases. Check your version for proper behavior.
+
+From release 1.0.2728-50 to release Version 2.0.2777-132, AOSM uses cert-manager to store and rotate certificates. As part of this change, AOSM deploys a cert-manager operator, and associate CRDs, in the azurehybridnetwork namespace. Since having multiple cert-manager operators, even deployed in separate namespaces, will watch across all namespaces, only one cert-manager can be effectively run on the cluster.
 
 Any user trying to install cert-manager on the cluster, as part of a workload deployment, will get a deployment failure with an error that the CRD “exists and cannot be imported into the current release.”  To avoid this error, the recommendation is to skip installing cert-manager, instead take dependency on cert-manager operator and CRD already installed by AOSM.
 

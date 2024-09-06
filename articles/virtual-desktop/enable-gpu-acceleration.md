@@ -30,10 +30,10 @@ This article shows you which Azure VM sizes you can use as a session host with G
 
 The following Azure VM sizes are optimized for GPU acceleration and are supported as session hosts in Azure Virtual Desktop:
 
-- [NVv3-series](../virtual-machines/nvv3-series.md)
-- [NVv4-series](../virtual-machines/nvv4-series.md). GPU-accelerated frame encoding isn't available with NVv4-series VMs.
-- [NVadsA10 v5-series](../virtual-machines/nva10v5-series.md)
-- [NCasT4_v3-series](../virtual-machines/nct4-v3-series.md)
+- [NVv3-series](/azure/virtual-machines/nvv3-series)
+- [NVv4-series](/azure/virtual-machines/nvv4-series). GPU-accelerated frame encoding isn't available with NVv4-series VMs.
+- [NVadsA10 v5-series](/azure/virtual-machines/nva10v5-series)
+- [NCasT4_v3-series](/azure/virtual-machines/nct4-v3-series)
 
 The right choice of VM size depends on many factors, including your particular application workloads, desired quality of user experience, and cost. In general, larger and more capable GPUs offer a better user experience at a given user density. Smaller and fractional GPU sizes allow more fine-grained control over cost and quality.
 
@@ -62,16 +62,16 @@ Before you can enable GPU acceleration, you need:
 
 ## Install supported graphics drivers in your virtual machine
 
-To take advantage of the GPU capabilities of Azure N-series VMs in Azure Virtual Desktop, you must install the appropriate graphics drivers. Follow the instructions at [Supported operating systems and drivers](../virtual-machines/sizes-gpu.md#supported-operating-systems-and-drivers) to install drivers.
+To take advantage of the GPU capabilities of Azure N-series VMs in Azure Virtual Desktop, you must install the appropriate graphics drivers. Follow the instructions at [Supported operating systems and drivers](/azure/virtual-machines/sizes-gpu#supported-operating-systems-and-drivers) to install drivers.
 
 > [!IMPORTANT]
 > Only Azure-distributed drivers are supported.
 
 When installing drivers, here are some important guidelines:
 
-- For VMs sizes with an NVIDIA GPU, only NVIDIA *GRID* drivers support GPU acceleration for most applications and the Windows user interface. NVIDIA *CUDA* drivers don't support GPU acceleration for these VM sizes. To download and learn how to install the driver, see [Install NVIDIA GPU drivers on N-series VMs running Windows](../virtual-machines/windows/n-series-driver-setup.md) and be sure to install the GRID driver. If you install the driver by using the [NVIDIA GPU Driver Extension](../virtual-machines/extensions/hpccompute-gpu-windows.md), the GRID driver is automatically installed for these VM sizes.
+- For VMs sizes with an NVIDIA GPU, only NVIDIA *GRID* drivers support GPU acceleration for most applications and the Windows user interface. NVIDIA *CUDA* drivers don't support GPU acceleration for these VM sizes. To download and learn how to install the driver, see [Install NVIDIA GPU drivers on N-series VMs running Windows](/azure/virtual-machines/windows/n-series-driver-setup) and be sure to install the GRID driver. If you install the driver by using the [NVIDIA GPU Driver Extension](/azure/virtual-machines/extensions/hpccompute-gpu-windows), the GRID driver is automatically installed for these VM sizes.
 
-- For VMs sizes with an AMD GPU, install the AMD drivers that Azure provides. To download and learn how to install the driver, see [Install AMD GPU drivers on N-series VMs running Windows](../virtual-machines/windows/n-series-amd-driver-setup.md). 
+- For VMs sizes with an AMD GPU, install the AMD drivers that Azure provides. To download and learn how to install the driver, see [Install AMD GPU drivers on N-series VMs running Windows](/azure/virtual-machines/windows/n-series-amd-driver-setup). 
 
 ## Enable GPU-accelerated application rendering, frame encoding, and full-screen video encoding
 
@@ -157,7 +157,7 @@ To verify that a remote session is using GPU acceleration, GPU-accelerated appli
    :::image type="content" source="media/enable-gpu-acceleration/task-manager-rdp-gpu.png" alt-text="A screenshot showing the GPU usage in Task Manager when in a Remote Desktop session." lightbox="media/enable-gpu-acceleration/task-manager-rdp-gpu.png":::
 
    > [!TIP]
-   > For NVIDIA GPUs, you can also use the `nvidia-smi` utility to check for GPU utilization when running your application. For more information, see [Verify driver installation](../virtual-machines/windows/n-series-driver-setup.md#verify-driver-installation).
+   > For NVIDIA GPUs, you can also use the `nvidia-smi` utility to check for GPU utilization when running your application. For more information, see [Verify driver installation](/azure/virtual-machines/windows/n-series-driver-setup#verify-driver-installation).
 
 1. Open Event Viewer from the start menu, or run `eventvwr.msc` from the command line.
 

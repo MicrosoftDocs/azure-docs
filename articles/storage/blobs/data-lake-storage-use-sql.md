@@ -1,7 +1,7 @@
 ---
-title: 'Tutorial: Azure Data Lake Storage Gen2, Azure Synapse'
+title: 'Tutorial: Azure Data Lake Storage, Azure Synapse'
 titleSuffix: Azure Storage
-description: This tutorial shows how to run SQL queries on an Azure Synapse serverless SQL endpoint to access data in an Azure Data Lake Storage Gen2 enabled storage account.
+description: This tutorial shows how to run SQL queries on an Azure Synapse serverless SQL endpoint to access data in an Azure Data Lake Storage enabled storage account.
 author: jovanpop-msft
 
 ms.service: azure-data-lake-storage
@@ -12,9 +12,9 @@ ms.custom: devx-track-sql
 #Customer intent: As an data engineer, I want to connect my data in Azure Storage so that I can easily run analytics on it.
 ---
 
-# Tutorial: Query Azure Data Lake Storage Gen2 using SQL language in Synapse Analytics
+# Tutorial: Query Azure Data Lake Storage using SQL language in Synapse Analytics
 
-This tutorial shows you how to connect your Azure Synapse serverless SQL pool to data stored in an Azure Storage account that has Azure Data Lake Storage Gen2 enabled.
+This tutorial shows you how to connect your Azure Synapse serverless SQL pool to data stored in an Azure Storage account that has Azure Data Lake Storage enabled.
 This connection enables you to natively run SQL queries and analytics using SQL language on your data in Azure Storage.
 
 In this tutorial, you will:
@@ -28,9 +28,9 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 ## Prerequisites
 
-- Create a storage account that has a hierarchical namespace (Azure Data Lake Storage Gen2)
+- Create a storage account that has a hierarchical namespace (Azure Data Lake Storage)
 
-  See [Create a storage account to use with Azure Data Lake Storage Gen2](create-data-lake-storage-account.md).
+  See [Create a storage account to use with Azure Data Lake Storage](create-data-lake-storage-account.md).
 
 - Make sure that your user account has the [Storage Blob Data Contributor role](assign-azure-role-data-access.md) assigned to it.
 
@@ -109,4 +109,4 @@ When they're no longer needed, delete the resource group and all related resourc
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Azure Data Lake Storage Gen2, Azure Databricks & Spark](data-lake-storage-use-databricks-spark.md)
+> [Azure Data Lake Storage, Azure Databricks & Spark](data-lake-storage-use-databricks-spark.md)

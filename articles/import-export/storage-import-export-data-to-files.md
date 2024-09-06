@@ -1,12 +1,12 @@
 ---
 title: Tutorial to transfer data to Azure Files with Azure Import/Export | Microsoft Docs
 description: Learn how to create import jobs in the Azure portal to transfer data to Azure Files.
-author: alkohli
+author: stevenmatthew
 services: storage
 ms.service: azure-import-export
 ms.topic: tutorial
 ms.date: 02/13/2023
-ms.author: alkohli
+ms.author: shaas
 ms.custom: tutorial, devx-track-azurepowershell, devx-track-azurecli
 ---
 # Tutorial: Transfer data to Azure Files with Azure Import/Export

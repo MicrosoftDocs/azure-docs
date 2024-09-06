@@ -16,7 +16,7 @@ ms.service: azure-communication-services
 Integrate ACS Job Router with Azure OpenAI. Use Azure OpenAI to pair your jobs to agents.
 
 ### Prerequisites
-- Create an Azure OpenAI resource. [Setup Guide](../../../ai-services/openai/how-to/create-resource.md)
+- Create an Azure OpenAI resource. [Setup Guide](/azure/ai-services/openai/how-to/create-resource)
 - Create an Azure Communication Services resource. [Setup Guide](../create-communication-resource.md)
 - Clone the GitHub solution. [Integrating Azure OpenAI with ACS Job Router](https://github.com/Azure-Samples/communication-services-dotnet-quickstarts/tree/main/JobRouterOpenAIIntegration)
 - Visual Studio Code Installed. [Visual Studio Code](https://code.visualstudio.com/)
@@ -72,7 +72,7 @@ Workers are evaluated based on:
 - Learn about Azure Function Deployments. [Azure Function Deployments](../../../azure-functions/functions-deployment-technologies.md)
 
 ## Understanding Azure OpenAI prompts
-- Learn about Azure OpenAI prompt Engineering Techniques. [Prompt Engineering Techniques](../../../ai-services/openai/concepts/advanced-prompt-engineering.md)
+- Learn about Azure OpenAI prompt Engineering Techniques. [Prompt Engineering Techniques](/azure/ai-services/openai/concepts/advanced-prompt-engineering)
 
 ## Deployment and execution
 
@@ -88,7 +88,7 @@ Workers are evaluated based on:
 4. Open the Azure portal and go to your Azure OpenAI resource, then go to Azure AI Studio. From here, navigate to the Deployments tab and select "+ Create new deployment"
    1. Select a model that can perform completions
 
-       [Azure OpenAI Service models](../../../ai-services/openai/concepts/models.md)
+       [Azure OpenAI Service models](/azure/ai-services/openai/concepts/models)
    1. b. Give your model a Deployment name and select “Create”
 
       :::image type="content" source="./media/azure-openai-model-creation.png" alt-text="Screenshot of creating Azure OpenAI model.":::

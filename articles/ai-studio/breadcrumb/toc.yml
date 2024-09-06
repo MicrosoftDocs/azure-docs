@@ -1,7 +1,0 @@
-- name: Azure
-  tocHref: /azure/
-  topicHref: /azure/index
-  items:
-  - name: Azure AI Studio
-    tocHref: /azure/ai-studio/
-    topicHref: /azure/ai-studio/index

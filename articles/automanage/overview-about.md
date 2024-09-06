@@ -41,7 +41,7 @@ There are several prerequisites to consider before trying to enable Azure Automa
 - Machines must be in a [supported region](#supported-regions)
 - User must have correct [permissions](#required-rbac-permissions)
 - Automanage does not support Sandbox subscriptions at this time
-- Automanage does not support [Trusted Launch VMs](../virtual-machines/trusted-launch.md)
+- Automanage does not support [Trusted Launch VMs](/azure/virtual-machines/trusted-launch)
 
 ### Supported regions
 

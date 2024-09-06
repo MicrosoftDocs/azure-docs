@@ -3,7 +3,7 @@ title: Configure Azure Developer CLI templates for use with ADE
 description: Understand how ADE and AZD work together to provision application infrastructure and deploy application code to the new infrastructure.
 author: RoseHJM
 ms.author: rosemalcolm
-ms.service: dev-box
+ms.service: azure-deployment-environments
 ms.topic: how-to
 ms.date: 03/26/2024
 
@@ -113,7 +113,7 @@ Sign in to Azure at the CLI using the following command:
 
 #### Enable AZD support for ADE
 
-When `platform.type` is set to `devcenter`, all AZD remote environment state and provisioning uses dev center components. AZD uses one of the infrastructure templates defined in your dev center catalog for resource provisioning. In this configuration, the *infra* folder in your local templates isn’t used. 
+When `platform.type` is set to `devcenter`, all AZD remote environment state and provisioning uses dev center components. AZD uses one of the infrastructure templates defined in your dev center catalog for resource provisioning. In this configuration, the *infra* folder in your local templates isn't used. 
 
 # [Visual Studio Code](#tab/visual-studio-code)
 

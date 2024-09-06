@@ -54,7 +54,7 @@ For more information, see [Use tags to organize your Azure resources](/azure/azu
 In the **Managed Identity** tab, you can assign a managed identity to your de-identification service (preview). For more information, see [managed identities](managed-identities.md).
 
 1. To create a system-assigned managed identity, select **On** under **Status**.
-1. To add a user-assigned managed identity, select **Add** to use the selection pane to choose an existing identity to assign.
+1. To add a user-assigned managed identity, select **Add** to use the selection pane to assign an existing identity.
 
 ## Review and create
 

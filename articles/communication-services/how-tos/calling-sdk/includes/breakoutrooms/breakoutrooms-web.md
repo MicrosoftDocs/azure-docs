@@ -203,7 +203,7 @@ const state : BreakoutRoomState = breakoutRoom.state;
 ```js
 const autoMoveParticipantToBreakoutRoom : boolean = breakoutRoom.autoMoveParticipantToBreakoutRoom; 
 ```
-- `autoMoveParticipantToBreakoutRoom` : Boolean value, which indicates whether the users are moved to breakout rooms automatically when the `state` of `assignedBreakoutRoom` is set to `open`. This property is read-only.
+- `autoMoveParticipantToBreakoutRoom` : Boolean value, which indicates whether the users are moved to breakout rooms automatically when the `state` of `assignedBreakoutRoom` is set to `open`. This property is read-only. In the Teams UI settings for breakout rooms, the organizer, co-organizer, or breakout room manager can adjust this specific setting. By setting this option to `true`, participants will be automatically transferred to their designated breakout room. Conversely, if it's set to `false`, the `join` method must be manually invoked to move participants into the breakout room.
 
 ```js
 const call : Call | TeamsCall = breakoutRoom.call;
@@ -220,7 +220,7 @@ Breakout rooms share setting that has the following properties:
 ```js
 const disableReturnToMainMeeting : boolean = breakoutRoomsSettings.disableReturnToMainMeeting;
 ```
-- `disableReturnToMainMeeting` : Disable participants to return to the main meeting from the breakout room call. This property is read-only.
+- `disableReturnToMainMeeting` : Disable participants to return to the main meeting from the breakout room call. This property is read-only. In the Teams UI settings for breakout rooms, the organizer, co-organizer, or breakout room manager can adjust this specific setting to control when the participant of breakout rooms can return to the main meeting.
 
 ```js
 const roomEndTime : TimestampInfo = breakoutRoomsSettings.roomEndTime;

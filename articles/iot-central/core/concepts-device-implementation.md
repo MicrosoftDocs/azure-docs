@@ -105,7 +105,7 @@ A device can set the `iothub-creation-time-utc` property when it creates a messa
 
 You can export both the enqueued time and the `iothub-creation-time-utc` property when you export telemetry from your IoT Central application.
 
-To learn more about message properties, see [System Properties of device-to-cloud IoT Hub messages](../../iot-hub/iot-hub-devguide-messages-construct.md#system-properties-of-d2c-iot-hub-messages).
+To learn more about message properties, see [System Properties of device-to-cloud IoT Hub messages](../../iot-hub/iot-hub-devguide-messages-construct.md#system-properties-of-device-to-cloud-messages).
 
 ## Best practices
 

@@ -19,7 +19,7 @@ Learn how to create a [contact profile](concepts-contact-profile.md) with Azure 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Contributor permissions at the subscription level.
 - A delegated subnet that is created in the relevant VNET and resource group. See [prepare network for Azure Orbital Ground Station integration](prepare-network.md).
-- An IP address (private or public) for data retrieval/delivery. Learn how to [create a VM and use its private IP](../virtual-machines/windows/quick-create-portal.md).
+- An IP address (private or public) for data retrieval/delivery. Learn how to [create a VM and use its private IP](/azure/virtual-machines/windows/quick-create-portal).
 - To collect telemetry during the contact, [create an event hub](receive-real-time-telemetry.md). [Learn more about Azure Event Hubs](../event-hubs/event-hubs-about.md).
 
 ## Azure portal method

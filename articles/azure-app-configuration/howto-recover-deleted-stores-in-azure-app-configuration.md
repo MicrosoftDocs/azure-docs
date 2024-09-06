@@ -41,7 +41,7 @@ To create a new App Configuration store in the  Azure portal, follow these steps
     | **Resource group** | Your resource group | Select the Azure resource group for your store |
     | **Resource name** | Globally unique name | Enter a unique resource name to use for the App Configuration store. This name can't be the same name as the previous configuration store. |
     | **Location** | Your desired Location | Select the region you want to create your configuration store in. |
-    | **Pricing tier** | *Standard* | Select the standard pricing tier. For more information, see the [App Configuration pricing page](https://azure.microsoft.com/pricing/details/app-configuration). |
+    | **Pricing tier** | *Standard* or *Premium* | Select the Standard or Premium pricing tier. For more information, see the [App Configuration pricing page](https://azure.microsoft.com/pricing/details/app-configuration). |
     | **Days to retain deleted stores** | Retention period for soft deleted stores | Select the number of days for which you would want the soft deleted stores and their content to be retained. |
     | **Enable Purge protection** | Purge protection status | Check to enable Purge protection on the store so no one can purge it before the retention period expires. |
 

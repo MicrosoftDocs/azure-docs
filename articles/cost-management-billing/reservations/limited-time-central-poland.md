@@ -16,7 +16,7 @@ ms.custom: references_regions, linux-related-content
 > [!NOTE]
 > This limited-time offer expired on April 1, 2024. You can still purchase Azure Reserved VM Instances at regular discounted prices. For more information about reservation discount, see [How the Azure reservation discount is applied to virtual machines](../manage/understand-vm-reservation-charges.md).
 
-Save up to 66 percent compared to pay-as-you-go pricing when you purchase one or three-year [Azure Reserved Virtual Machine (VM) Instances](../../virtual-machines/prepay-reserved-vm-instances.md?toc=/azure/cost-management-billing/reservations/toc.json) for select VMs Poland Central for a limited time. This offer is available between October 1, 2023 – March 31, 2024.
+Save up to 66 percent compared to pay-as-you-go pricing when you purchase one or three-year [Azure Reserved Virtual Machine (VM) Instances](/azure/virtual-machines/prepay-reserved-vm-instances?toc=/azure/cost-management-billing/reservations/toc.json) for select VMs Poland Central for a limited time. This offer is available between October 1, 2023 – March 31, 2024.
 
 ## Purchase the limited time offer
 
@@ -158,7 +158,7 @@ The 66 percent saving is based on one DS1 v2 Azure VM for Linux in the Poland Ce
 - Cloud solution providers can use the Azure portal or [Partner Center](/partner-center/azure-reservations) to purchase Azure Reservations. You can't purchase a reservation if you have a custom role that mimics the owner role or reservation purchaser role on an Azure subscription. You must use the built-in owner or built-in reservation purchaser role.
 - For more information about who can purchase a reservation, see [Buy an Azure reservation](prepare-buy-reservation.md).
 
-**Offer details** - Upon successful purchase and payment for the one or three-year Azure Reserved VM Instance in Poland Central for one or more of the qualified VMs during the specified period, the discount applies automatically to the number of running virtual machines in Poland Central that match the reservation scope and attributes. You don't need to assign a reservation to a virtual machine to get the discounts. A reserved instance purchase covers only the compute part of your VM usage. For more information about how to pay and save with an Azure Reserved VM Instance, see [Prepay for Azure virtual machines to save money](../../virtual-machines/prepay-reserved-vm-instances.md?toc=/azure/cost-management-billing/reservations/toc.json).
+**Offer details** - Upon successful purchase and payment for the one or three-year Azure Reserved VM Instance in Poland Central for one or more of the qualified VMs during the specified period, the discount applies automatically to the number of running virtual machines in Poland Central that match the reservation scope and attributes. You don't need to assign a reservation to a virtual machine to get the discounts. A reserved instance purchase covers only the compute part of your VM usage. For more information about how to pay and save with an Azure Reserved VM Instance, see [Prepay for Azure virtual machines to save money](/azure/virtual-machines/prepay-reserved-vm-instances?toc=/azure/cost-management-billing/reservations/toc.json).
 
 - Additional taxes might apply.
 - Payment will be processed using the payment method on file for the selected subscriptions.
@@ -283,7 +283,7 @@ The 66 percent saving is based on one DS1 v2 Azure VM for Linux in the Poland Ce
 |`F8s`|`F8s v2`|`Fsv2 Type2`|`Fsv2 Type3`|
 |`Fsv2 Type4`|`SQLG7_AMD_IaaS`|`SQLG7_AMD_NVME`| |
 
-Instance size flexibility is available for these VMs. For more information about Instance Size Flexibility, see [Virtual machine size flexibility](../../virtual-machines/reserved-vm-instance-size-flexibility.md).
+Instance size flexibility is available for these VMs. For more information about Instance Size Flexibility, see [Virtual machine size flexibility](/azure/virtual-machines/reserved-vm-instance-size-flexibility).
 
 **Discount limitations**
 

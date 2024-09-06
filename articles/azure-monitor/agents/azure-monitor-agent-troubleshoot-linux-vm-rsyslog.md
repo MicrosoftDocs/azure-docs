@@ -11,7 +11,7 @@ ms.reviewer: shseth
 # Syslog troubleshooting guide for Azure Monitor Agent for Linux
 
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
+> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](/azure/virtual-machines/workloads/centos/centos-end-of-life).
 
 Overview of Azure Monitor Agent for Linux Syslog collection and supported RFC standards:
 

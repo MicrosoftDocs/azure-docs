@@ -5,7 +5,7 @@ author: kendalvandyke
 ms.author: kendalv
 ms.reviewer: randolphwest
 ms.date: 09/14/2023
-ms.service: sql-edge
+ms.service: azure-sql-edge
 ms.topic: tutorial
 ---
 # Use Azure SQL Edge to build smarter renewable resources

@@ -2,7 +2,7 @@
 title: Migrate Azure SQL Managed Instance to availability zone support 
 description: Learn how to migrate your Azure SQL Managed Instance to availability zone support.
 author: vladai78
-ms.service: sql-database
+ms.service: azure-sql-database
 ms.topic: conceptual
 ms.date: 05/25/2023
 ms.author: anaharris 

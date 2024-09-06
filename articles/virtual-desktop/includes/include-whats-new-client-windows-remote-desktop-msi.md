@@ -2,7 +2,7 @@
 ms.topic: include
 author: sipastak
 ms.author: sipastak
-ms.date: 08/14/2024
+ms.date: 08/26/2024
 ---
 
 ## Supported client versions
@@ -11,29 +11,38 @@ The following table lists the current versions available for the public and Insi
 
 | Release | Latest version | Download |
 |--|--|--|
-| Public | 1.2.5560 | [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139369) *(most common)*<br />[Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139456)<br />[Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139370) |
-| Insider | 1.2.5620 | [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139233) *(most common)*<br />[Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139144)<br />[Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139368) |
+| Public | 1.2.5620 | [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139369) *(most common)*<br />[Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139456)<br />[Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139370) |
+| Insider | 1.2.5699  | [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139233) *(most common)*<br />[Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139144)<br />[Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139368) |
 
+## Updates for version 1.2.5699 (Insider) 
 
-## Updates for version 1.2.5560
+*Date published: August 27, 2024*   
 
-*Date published: August 13, 2024* 
+Download: [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139233), [Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139144), [Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139368)  
 
-Download: [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139456), [Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139144), [Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139370) 
-
-- Fixed an issue for [CVE-2024-38131 ](https://msrc.microsoft.com/update-guide/en-US/vulnerability/CVE-2024-38131).
-
+- Made an improvement where new session windows will not become the focused windows.
+- Fixed a bug to ensure that the screen mode id setting in the RDP file is honored.
+- Fixed an issue where Teams rendered into the wrong window when multiple Remote Desktop session windows were open. 
 
 ## Updates for version 1.2.5620
 
 *Date published: August 13, 2024* 
 
-Download: [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139233), [Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139144), [Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139368) 
+Download: [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139369), [Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139456), [Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139370) 
 
-- Fixed an issue for [CVE-2024-38131 ](https://msrc.microsoft.com/update-guide/en-US/vulnerability/CVE-2024-38131).
+- Fixed an issue for [CVE-2024-38131](https://msrc.microsoft.com/update-guide/en-US/vulnerability/CVE-2024-38131).
 
 > [!NOTE]
 > This version replaced the Insider version 1.2.5617 and has the same release notes with the addition of the security release.  
+
+## Updates for version 1.2.5560
+
+*Date published: August 13, 2024* 
+
+Download: [Windows 64-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RW1nWz4), [Windows 32-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RW1nWz3), [Windows ARM64](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RW1nOOi) 
+
+- Fixed an issue for [CVE-2024-38131 ](https://msrc.microsoft.com/update-guide/en-US/vulnerability/CVE-2024-38131).
+
 
 ## Updates for version 1.2.5617
 
@@ -79,8 +88,6 @@ In this release, we made the following changes:
 
 *Date published: June 11, 2024* 
 
-Download: [Windows 64-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RW1m3bh), [Windows 32-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RW1m3bi), [Windows ARM64](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RW1m0Bd) 
-
 In this release, we made the following changes:
 
 - Fixed an issue where the client crashed when a session is disconnected. 
@@ -102,8 +109,6 @@ In this release, we made the following changes:
 ## Updates for version 1.2.5452
 
 *Date published: May 29, 2024* 
-
-Download: [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139233), [Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139144), [Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139368) 
 
 In this release, we made the following changes:
 
@@ -127,8 +132,6 @@ In this release, we made the following changes:
 
 *Date published: April 17, 2024*
 
-Download: [Windows 64-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RW1kB76), [Windows 32-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RW1kGol), [Windows ARM64](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RW1kB75)
-
 In this release, we made the following changes:
 
 - Fixed an issue that made the multifactor authentication (MFA) prompt appear twice when users tried to connect to a resource 
@@ -136,8 +139,6 @@ In this release, we made the following changes:
 - Improved client logging, diagnostics, and error classification to help admins troubleshoot connection and feed issues. 
 
 ## Updates for version 1.2.5331
-
-Download: [Windows 64-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RW1kHro), [Windows 32-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RW1kK2T), [Windows ARM64](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RW1kHrn)
 
 *Date published: April 18, 2024*
 

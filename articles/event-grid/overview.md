@@ -43,7 +43,7 @@ Event Grid offers a rich mixture of features. These features include:
 - **Publish-subscribe messaging model** - Communicate efficiently using one-to-many, many-to-one, and one-to-one messaging patterns.
 - **[Built-in cloud integration](mqtt-routing.md)** - Route your MQTT messages to Azure services or custom webhooks for further processing.
 - **Flexible and fine-grained [access control model](mqtt-access-control.md)** - Group clients and topic to simplify access control management, and use the variable support in topic templates for a fine-grained access control.
-- **MQTT broker authentication methods** - [X.509 certificate authentication](mqtt-client-authentication.md) is the industry authentication standard in IoT devices ,[Microsoft Entra IDauthentication](mqtt-client-microsoft-entra-token-and-rbac.md) is Azure's authentication standard for applications and [OAuth 2.0 (JSON Web Token) authentication](oauth-json-web-token-authentication.md) provides a lightweight, secure, and flexible option for MQTT clients that are not provisioned in Azure.
+- **MQTT broker authentication methods** - [X.509 certificate authentication](mqtt-client-authentication.md) is the industry authentication standard in IoT devices, [Microsoft Entra IDauthentication](mqtt-client-microsoft-entra-token-and-rbac.md) is Azure's authentication standard for applications and [OAuth 2.0 (JSON Web Token) authentication](oauth-json-web-token-authentication.md) provides a lightweight, secure, and flexible option for MQTT clients that are not provisioned in Azure.
 - **TLS 1.2 and TLS 1.3 support** - Secure your client communication using robust encryption protocols.
 - **Multi-session support** - Connect your applications with multiple active sessions to ensure reliability and scalability.
 - **MQTT over WebSockets** - Enable connectivity for clients in firewall-restricted environments.
@@ -61,6 +61,9 @@ Event Grid offers a rich mixture of features. These features include:
 - **Reliability** – Push delivery features a 24-hour retry mechanism with exponential backoff to make sure events are delivered. If you use pull delivery, your application has full control over event consumption.
 - **High throughput** - Build high-volume integrated solutions with Event Grid.
 - **Custom domain names** - Allows users to assign their own domain names to Event Grid namespace's HTTP endpoints, enhancing security and simplifying client configuration.
+
+> [!NOTE]
+> **Regarding TLS 1.0 / 1.1 deprecation**: For system topics, you need to take action only for the event delivery to webhook destinations. If the destination supports TLS 1.2, the event delivery happens using 1.2. If the destination doesn't support TLS 1.2, the event delivery automatically falls back to 1.0 and 1.1. Post Oct 31st 2024, event delivery using 1.0 and 1.1 won't be supported. Ensure that your webhook destinations support TLS 1.2. One easy way to check for TLS 1.2 support is to use [Qualys SSL Labs](https://www.ssllabs.com/ssltest/). If the report shows that TLS 1.2 is supported, no action is required. For more information, see the following blog post: [Retirement: Upcoming TLS changes for Azure Event Grid](https://azure.microsoft.com/updates/v2/TLS-changes-for-Azure-Event-Grid)
 
 ## Use cases
 

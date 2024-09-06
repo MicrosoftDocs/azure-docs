@@ -99,7 +99,7 @@ GuestAndHybridManagement tag | Use if you want to automatically upgrade the Site
 
 #### Azure Instance Metadata Service (IMDS) connectivity
 
-Azure Site Recovery mobility agent uses [Azure Instance Metadata Service (IMDS)](../virtual-machines/instance-metadata-service.md) to get virtual machine security type. Communications between VM and IMDS never leaves the host. Ensure that you bypass the IP  `169.254.169.254` when using any proxies.    
+Azure Site Recovery mobility agent uses [Azure Instance Metadata Service (IMDS)](/azure/virtual-machines/instance-metadata-service) to get virtual machine security type. Communications between VM and IMDS never leaves the host. Ensure that you bypass the IP  `169.254.169.254` when using any proxies.    
 
 
 ### Verify VM certificates

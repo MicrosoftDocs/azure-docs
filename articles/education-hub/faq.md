@@ -140,11 +140,11 @@ Your Azure for Students Starter subscription gives you access to certain softwar
 
 [Microsoft Learn training](/training/) is a free online learning platform that helps you learn Azure technologies at your own pace. Learning paths contain modules that start with the basics and then move to advanced methods that address real-world challenges.
 
-## Azure Academic Grant
+## Azure Classroom
 
 ### How do I start using my Azure course credits?
 
-You can access your Azure course credits by creating a new Azure Academic Grant subscription. Select the **Activate** button in the sponsorship approval email.
+You can access your Azure course credits by creating a new Azure Academic Sponsorship subscription. Select the **Activate** button in the sponsorship approval email.
 
 You can also convert an existing subscription to the Azure Sponsorship offer to access your credits. To convert your subscription, contact [Azure support](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
 

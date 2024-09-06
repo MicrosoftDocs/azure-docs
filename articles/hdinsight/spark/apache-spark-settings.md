@@ -15,7 +15,7 @@ The default HDInsight Apache Spark cluster includes the following nodes: three A
 
 :::image type="content" source="./media/apache-spark-settings/spark-hdinsight-arch.png" alt-text="Spark HDInsight Architecture." border="false":::
 
-The number of VMs, and VM sizes, for the nodes in your HDInsight cluster can affect your Spark configuration. Non-default HDInsight configuration values often require non-default Spark configuration values. When you create an HDInsight Spark cluster, you're shown suggested VM sizes for each of the components. Currently the [Memory-optimized Linux VM sizes](../../virtual-machines/sizes-memory.md) for Azure are D12 v2 or greater.
+The number of VMs, and VM sizes, for the nodes in your HDInsight cluster can affect your Spark configuration. Non-default HDInsight configuration values often require non-default Spark configuration values. When you create an HDInsight Spark cluster, you're shown suggested VM sizes for each of the components. Currently the [Memory-optimized Linux VM sizes](/azure/virtual-machines/sizes-memory) for Azure are D12 v2 or greater.
 
 ## Apache Spark versions
 

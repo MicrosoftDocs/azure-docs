@@ -20,6 +20,8 @@
   items:
   - name: Get resource information
     href: get-information-resource-graph.md
+  - name: Execute commands
+    href: execute-commands.md
   - name: Deploy VMs effectively
     href: deploy-vms-effectively.md
   - name: Build infrastructure and deploy workloads
