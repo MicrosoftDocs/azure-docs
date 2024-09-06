@@ -277,6 +277,18 @@ ANF_service_level         = "Ultra"
 > | `use_custom_dns_a_registration`	    | Use an existing private DNS zone.                                        | Optional |
 
 
+### NAT support
+
+> [!div class="mx-tdCol2BreakAll "]
+> | Variable                            | Description                                                              | Type     |
+> | ----------------------------------- | ------------------------------------------------------------------------ | -------- |
+> | `deploy_nat_gateway`                | DIf set, deploys a NAT gateway.                                          | Optional |
+> | `management_dns_resourcegroup_name`	| Resource group that contains the private DNS zone.                       | Optional |
+> | `management_dns_subscription_id`    | Subscription ID for the subscription that contains the private DNS zone. | Optional |
+> | `use_custom_dns_a_registration`	    | Use an existing private DNS zone.                                        | Optional |
+
+
+
 ## Other parameters
 
 > [!div class="mx-tdCol2BreakAll "]
