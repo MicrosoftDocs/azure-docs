@@ -145,7 +145,7 @@ Another cause for this `InvalidNetworkConfigurationErrorCode` error code could b
 
 ### Resolution
 
-Use the valid parameters for `Get-AzVirtualNetwork` as documented in the [Az PowerShell module PowerShell SDK](/powershell/module/az.network/get-azvirtualnetwork)
+Use the valid parameters for `Get-AzVirtualNetwork` as documented in the [Az PowerShell SDK](/powershell/module/az.network/get-azvirtualnetwork)
 
 ---
 

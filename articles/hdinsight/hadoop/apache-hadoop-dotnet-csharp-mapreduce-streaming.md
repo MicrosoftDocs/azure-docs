@@ -157,7 +157,7 @@ Next, you need to upload the *mapper* and *reducer* applications to HDInsight st
 
         :::image type="content" source="./media/apache-hadoop-dotnet-csharp-mapreduce-streaming/hdinsight-upload-icon.png" alt-text="HDInsight upload icon for mapper, Visual Studio." border="true":::
 
-        In the **Upload New File** dialog box, under **File name**, select **Browse**. In the **Upload Blob** dialog box, go to the `bin\debug` folder for the *mapper* project, and then choose the *mapper.exe* file. Finally, select **Open** and then **OK** to complete the upload.
+        In the **Upload New File** dialog box, under **File name**, select **Browse**. In the **Upload Blob** dialog box, go to the *bin\debug* folder for the *mapper* project, and then choose the *mapper.exe* file. Finally, select **Open** and then **OK** to complete the upload.
 
     * For **Azure Data Lake Storage**, right-click an empty area in the file listing, and then select **Upload**. Finally, select the *mapper.exe* file and then select **Open**.
 

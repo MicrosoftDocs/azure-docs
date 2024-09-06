@@ -49,7 +49,7 @@ Bring regions online by running:
 hbase hbck -ignorePreCheckPermission –fixAssignment
 ```
 
-Alternatively, run `assign <region-hash>` on hbase-shell to force and assign this region
+Alternatively, run `assign <region-hash>` on hbase-shell to force assign this region
 
 ---
 

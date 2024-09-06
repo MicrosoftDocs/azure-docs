@@ -23,7 +23,7 @@ Other prerequisites for the samples in this article include the following items:
 * If you want to use Azure CLI and haven't yet installed it, see [Install the Azure CLI](/cli/azure/install-azure-cli).
 
 > [!IMPORTANT]  
-> If you are looking for step by step guidance on connecting HDInsight to your on-premises network using an Azure Virtual Network, see [How to connect HDInsight to your on-premises network](connect-on-premises-network.md) document.
+> If you are looking for step by step guidance on connecting HDInsight to your on-premises network using an Azure Virtual Network, see [How to connect HDInsight to your on-premises network](connect-on-premises-network.md).
 
 ## <a id="hdinsight-nsg"></a>Example: network security groups with HDInsight
 

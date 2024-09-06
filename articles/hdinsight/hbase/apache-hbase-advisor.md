@@ -41,7 +41,7 @@ To optimize the recent data in cache, consider the following configuration setti
 
 ## Optimize the flush queue
 
-This advisory indicates that HBase flushes may need to tune. The current configuration for flush handlers may not be high enough to handle with write traffic that may lead to slow down of flushes.
+This advisory indicates that HBase flushes may need tuning. The current configuration for flush handlers may not be high enough to handle with write traffic that may lead to slow down of flushes.
 
 In the region server UI, notice if the flush queue grows beyond 100. This threshold indicates the flushes are slow and you may have to tune the   `hbase.hstore.flusher.count` configuration. By default, the value is 2. Ensure that the max flusher threads don't increase beyond 6.
 

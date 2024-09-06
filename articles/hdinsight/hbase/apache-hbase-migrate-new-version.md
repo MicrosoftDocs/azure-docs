@@ -43,7 +43,7 @@ To upgrade your Apache HBase cluster on Azure HDInsight, complete the following 
 
 Prepare the source cluster:
 1. Stop data ingestion.
-1. Flush `memstore` data.
+1. Flush memstore data.
 1. Stop HBase from Ambari.
 1. For clusters with accelerated writes, back up the Write Ahead Log (WAL) directory.
 
@@ -71,11 +71,11 @@ Use these detailed steps and commands to migrate your Apache HBase cluster.
    
 1. Flush the source HBase cluster you're upgrading.
    
-   HBase writes incoming data to an in-memory store called a *`memstore`*. After the `memstore` reaches a certain size, HBase flushes it to disk for long-term storage in the cluster's storage account. Deleting the source cluster after an upgrade also deletes any data in the `memstore`s. To retain the data, manually flush each table's `memstore` to disk before upgrading.
+   HBase writes incoming data to an in-memory store called a *memstore*. After the memstore reaches a certain size, HBase flushes it to disk for long-term storage in the cluster's storage account. Deleting the source cluster after an upgrade also deletes any data in the memstores. To retain the data, manually flush each table's memstore to disk before upgrading.
    
-   You can flush the `memstore` data by running the [flush_all_tables.sh](https://github.com/Azure/hbase-utils/blob/master/scripts/flush_all_tables.sh) script from the [Azure hbase-utils GitHub repository](https://github.com/Azure/hbase-utils/).
+   You can flush the memstore data by running the [flush_all_tables.sh](https://github.com/Azure/hbase-utils/blob/master/scripts/flush_all_tables.sh) script from the [Azure hbase-utils GitHub repository](https://github.com/Azure/hbase-utils/).
    
-   You can also flush `memstore` data by running the following HBase shell command from the HDInsight cluster:
+   You can also flush memstore data by running the following HBase shell command from the HDInsight cluster:
    
    ```bash
    hbase shell
