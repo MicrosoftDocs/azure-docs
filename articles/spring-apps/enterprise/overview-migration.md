@@ -18,29 +18,29 @@ We recommend Azure Container Apps as the main destination for your migration. Az
 
 A 1-click migration feature is available to ease the transition from Azure Spring Apps consumption & dedicated plan to Azure Container Apps. Just select the **Migrate** button in the Azure portal and confirm the action. 
 
-:::image type="content" source="../media/overview-migration-guide/consumption-plan-migration-button.png" alt-text="Screenshot of the Azure portal that shows the Migrate button." border="false" lightbox="../media/overview-migration-guide/consumption-plan-migration-button.png":::
+:::image type="content" source="../../media/overview-migration-guide/consumption-plan-migration-button.png" alt-text="Screenshot of the Azure portal that shows the Migrate button." border="false" lightbox="../../media/overview-migration-guide/consumption-plan-migration-button.png":::
 
-:::image type="content" source="../media/overview-migration-guide/consumption-plan-migration-confirmation.png" alt-text="Screenshot of the Migrate to Azure Container Apps message with Yes option highlighted." border="false" lightbox="../media/overview-migration-guide/consumption-plan-migration-confirmation.png":::
+:::image type="content" source="../../media/overview-migration-guide/consumption-plan-migration-confirmation.png" alt-text="Screenshot of the Migrate to Azure Container Apps message with Yes option highlighted." border="false" lightbox="../../media/overview-migration-guide/consumption-plan-migration-confirmation.png":::
 
 This feature is available mid-October 2024 and you can start the migration as soon as it's available to simplify the process.
 
-Once the migration finishes, the app appears as a standard app inside Azure Container Apps application, with the Java development stack turned on. With this option enabled, you get access to Java specific [metrics](../container-apps/java-metrics.md) and [logs](../container-apps/java-dynamic-log-level.md) to monitor and troubleshoot your apps.
+Once the migration finishes, the app appears as a standard app inside Azure Container Apps application, with the Java development stack turned on. With this option enabled, you get access to Java specific [metrics](../../container-apps/java-metrics.md) and [logs](../../container-apps/java-dynamic-log-level.md) to monitor and troubleshoot your apps.
 
 ## Frequently asked questions
 
-The following extensive FAQ addresses several questions you might have about the migration process.
+The following section addresses several questions you might have about the migration process.
 
 ### What happens if I don't take any actions by March 30, 2025?
 
 Your Azure Spring Apps is automatically migrated to Azure Container Apps.
 
-### May I continue to use Azure Container Apps consumption & dedicated plan?
+### How do I continue to use Azure Container Apps consumption & dedicated plan?
 
-You may continue to run existing apps until March 30, 2025, but you won't be able to create new apps and service instances after September 17, 2024.
+You can continue to run existing apps until March 30, 2025, but you won't be able to create new apps and service instances after September 17, 2024.
 
 ### How can I get help if the migration process fails?
 
-Fill out the form on the Azure portal. Use the following list to create a support request:
+To create a support request, use the following list to fill out the form on the Azure portal:
 
 - For Issue type, select **Technical**.
 - For Subscription, select your subscription.
@@ -51,7 +51,7 @@ Fill out the form on the Azure portal. Use the following list to create a suppor
 
 ### Do I need to manually create Spring Cloud Config and Spring Cloud Eureka in Azure Container Apps?
 
-Yes, you must recreate Spring Cloud Config and Spring Cloud Eureka in Azure Container Apps. Both Spring Cloud Config and Spring Cloud Eureka are also managed components in Azure Container Apps, but there are some experiential differences. For more information, see [Tutorial: Connect to a managed Eureka Server for Spring in Azure Container Apps](../container-apps/java-eureka-server.md) and [Tutorial: Connect to a managed Config Server for Spring in Azure Container Apps](../container-apps/java-config-server.md).
+Yes, you must recreate Spring Cloud Config and Spring Cloud Eureka in Azure Container Apps. Both Spring Cloud Config and Spring Cloud Eureka are also managed components in Azure Container Apps, but there are some experiential differences. For more information, see [Tutorial: Connect to a managed Eureka Server for Spring in Azure Container Apps](../../container-apps/java-eureka-server.md) and [Tutorial: Connect to a managed Config Server for Spring in Azure Container Apps](../../container-apps/java-config-server.md).
 
 If you need assistance creating and migrating Spring Cloud Config and Spring Cloud Eureka to Azure Container Apps, create a support request.
 
@@ -65,43 +65,35 @@ All in-flight transactions execute without any interruptions, unless you're usin
 
 ### Any change in IP address/FQDN after the migration?
 
-No, IP address/FQDN remains the same after the migration.
+No, all IP addresses/FQDN remains the same after the migration.
 
-### I’m using persistent storage, how do I recreate them in Azure Container Apps?
+### I’m using persistent storage. How do I recreate them in Azure Container Apps?
 
 Persistent storage migrates automatically to Azure Container Apps.
 
-### What are pricing implications with moving to Azure Container Apps?
+### What are the pricing implications when moving to Azure Container Apps?
 
-Azure Container Apps has the same pricing structure as Azure Spring Apps for both consumption and dedicated plans. Charges for active and idle CPU/memory use, along with VM SKUs in dedicated workloads, are identical in Azure Spring Apps and Azure Container Apps. The monthly free grant also applies directly to Azure Container Apps.
+Azure Container Apps has the same pricing structure as Azure Spring Apps for the consumption and dedicated plan. Charges for active and idle CPU/memory use, along with VM SKUs in dedicated workloads, are identical in Azure Spring Apps and Azure Container Apps. The monthly free grant also applies directly to Azure Container Apps.
 
 The only exception to the rule is number of requests for managed Java components are billed in Azure Container Apps consumption plan. 
 
-Lastly with Azure Container Apps you can apply Azure savings plan for compute and save up to 15% with 1 year commitment and 17% with three year commitment. Let’s take one example to illustrate these differences.
+The following table describes the differences:
 
-<table>   <tr><th valign="top"><b>Resource used for user apps</b> </th><th valign="top"><b>Azure Spring Apps consumption plan</b></th><th valign="top"><b>Azure Container Apps consumption plan</b></th></tr>
-   <tr><td valign="top">CPU active usage</td><td colspan="2" rowspan="4" valign="top">No change </td></tr>
-   <tr><td valign="top">GB memory active usage</td></tr>
-   <tr><td valign="top">CPU idle usage</td></tr>
-   <tr><td valign="top">GB memory idle usage</td></tr>
-</table>
- 
+| Resources used for managed Java components | Azure Spring Apps consumption plan | Azure Container Apps consumption plan |
+|--------------------------------------------|------------------------------------|---------------------------------------|
+| Eureka active CPU                          |                                    | No change.                            |
+| Eureka idle CPU                            |                                    | No change.                            |
+| Config server active CPU                   |                                    | No change.                            |
+| Config server idle CPU                     |                                    | No change.                            |
+| 1 million requests made to Eureka          | No extra cost.                     | $0.4 USD (estimated price)            |
+| 1 million requests made to Config server   | No extra cost.                     | $0.4 USD (estimated price)            |
 
-<table>   <tr><th valign="top"><b>Resource used for managed Java components</b></th><th valign="top"><b>Azure Spring Apps consumption plan</b></th><th colspan="2" valign="top"><b>Azure Container Apps consumption plan</b></th></tr>
-   <tr><td valign="top">Eureka active CPU</td><td colspan="3" rowspan="4" valign="top">No change</td></tr>
-   <tr><td valign="top">Eureka idle CPU</td></tr>
-   <tr><td valign="top">Config server active CPU</td></tr>
-   <tr><td valign="top">Config server idle CPU</td></tr>
-   <tr><td valign="top">1M Requests made to Eureka</td><td colspan="2" valign="top">No extra costs</td><td valign="top">*$0.4 </td></tr>
-   <tr><td valign="top">1M Requests made to Config server</td><td colspan="2" valign="top">No extra costs</td><td valign="top">*$0.4 </td></tr>
-</table>
+With Azure Container Apps you can apply Azure savings plan and save upto 15% with 1 year commitment and upto 17% with three year commitment, as shown in the following table:
 
-   \*estimated price based on central U.S.
-
-<table>   <tr><th valign="top"><b>Resource used for user apps</b> </th><th valign="top"><b>Azure Spring Apps</b> </th><th valign="top"><b>Azure Container Apps dedicated workload profile with 1-year Saving plan</b></th></tr>
-   <tr><td valign="top">Resources used in consumption plan</td><td rowspan="2" valign="top">Advertised price</td><td rowspan="2" valign="top">15% off advertised price</td></tr>
-   <tr><td valign="top">Resources used in dedicated workload profile</td></tr>
-</table>
+| Resources used for user apps                 | Azure Spring Apps | Azure Container Apps dedicated workload profile with 1 year savings plan |
+|----------------------------------------------|-------------------|--------------------------------------------------------------------------|
+| Resources used in consumption plan           | Advertised price. | 15% off advertised price.                                                |
+| Resources used in dedicated workload profile | Advertised price. | 15% off advertised price.                                                |
 
 ### How do I continue to use my own virtual network in Azure Container Apps?
 
@@ -117,7 +109,7 @@ Your deployment pipelines/workflow must point to Azure Container Apps.
 
 ### How do I continue to make my automation scripts work using Azure CLI? 
 
-Azure CLI scripts must change to make them work in Azure Container Apps. Refer to the `az containerapp` command group to make these changes. For more information, see [az containerapp](../cli/azure/containerapp.md). 
+Azure CLI scripts must change to make them work in Azure Container Apps. Refer to the `az containerapp` command group to make these changes. For more information, see [az containerapp](../../cli/azure/containerapp.md). 
 
 ### Are there plans to retire any other Azure Spring Apps SKU’s?
   
