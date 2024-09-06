@@ -21,12 +21,14 @@ The connected registry is a preview feature of the **Premium** container registr
 > Please note that there are **Important upcoming changes** to the connected registry Deployment Model Support and Billing starting from January 1st, 2025. For any inquiries or assistance with the transition, please reach out to the customer support team.
 
 ### Billing
+
 - The connected registry incurs no charges until it reaches general availability (GA).
 - Post-GA, a monthly price of $10 will apply for each connected registry deployed.
 - This price represents Microsoft's commitment to deliver high-quality services and product support.
 - The price is applied to the Azure subscription associated with the parent registry.
 
 ### Support
+
 - Microsoft will end support for the connected registry deployment on IoT Edge devices on January 1st, 2025.
 - After January 1st, 2025 connected registry will solely support Arc-enabled Kubernetes clusters as the deployment model.
 - Microsoft advises users to begin planning their transition to Arc-enabled Kubernetes clusters as the deployment model.
