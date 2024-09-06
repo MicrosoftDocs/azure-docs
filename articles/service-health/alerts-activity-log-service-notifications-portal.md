@@ -25,6 +25,8 @@ You also can configure who the alert should be sent to:
 
 - Select an existing action group.
 - Create a new action group (that can be used for future alerts).
+> [!NOTE]
+> Service Health Alerts are only supported in public clouds within the global region. For Action Groups to properly function in response to a Service Health Alert the region of the action group must be set as "Global".
 
 To learn more about action groups, see [Create and manage action groups](../azure-monitor/alerts/action-groups.md).
 

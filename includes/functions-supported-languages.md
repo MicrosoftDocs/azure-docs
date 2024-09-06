@@ -98,6 +98,7 @@ The following table shows the language version supported for PowerShell function
 
 | Supported version | Support level | Expected community EOL date |
 | ---- | ---- |--- |
+| [PowerShell 7.4](/powershell/scripting/install/powershell-support-lifecycle#powershell-end-of-support-dates) | GA | November 8, 2024 |
 | [PowerShell 7.2](/powershell/scripting/install/powershell-support-lifecycle#powershell-end-of-support-dates) | GA | November 8, 2024 |
 
 For more information, see [Azure Functions PowerShell developer guide](../articles/azure-functions/functions-reference-powershell.md).
