@@ -202,7 +202,7 @@ Include a JSON snippet similar to the following in your Azure Resource Manager t
 For prerequisites, see [Configure Event Hubs connection string](#option-2-configure-event-hubs-connection-string).
 
 > [!NOTE]
-> Where possible, Microsoft recommends configuring the logger with managed identity credentials. See [Configure logger with managed identity credentials](#logger-with-managed-identity-credentials-recommended), earlier in this article
+> Where possible, Microsoft recommends configuring the logger with managed identity credentials. See [Configure logger with managed identity credentials](#option-1-logger-with-managed-identity-credentials-recommended), earlier in this article.
 
 #### [PowerShell](#tab/PowerShell)
 
