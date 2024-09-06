@@ -10,7 +10,7 @@ ms.custom:
   - ignite-2023
 ---
 
-Azure Iot Operations ships as a set of Azure Arc-enabled Kubernetes services and is intended for use with [CNCF](https://www.cncf.io/) conformant [Arc validated partner products](../../azure-arc/kubernetes/validation-program.md). Currently, Microsoft has validated Azure IoT Operations against the following fixed-set of infrastructures and environments:
+Azure IoT Operations ships as a set of Azure Arc-enabled Kubernetes services and is intended for use with [CNCF](https://www.cncf.io/) conformant [Arc validated partner products](../../azure-arc/kubernetes/validation-program.md). Currently, Microsoft has validated Azure IoT Operations against the following fixed-set of infrastructures and environments:
 
 | Environment | Version |
 | ----------- | ------- |

@@ -16,7 +16,7 @@ ms.date: 01/05/2024
 
 This article outlines how to use Copy Activity in Azure Data Factory and Synapse Analytics pipelines to copy data from and to Azure Database for PostgreSQL, and use Data Flow to transform data in Azure Database for PostgreSQL. To learn more, read the introductory articles for [Azure Data Factory](introduction.md) and [Synapse Analytics](../synapse-analytics/overview-what-is.md).
 
-This connector is specialized for the [Azure Database for PostgreSQL service](../postgresql/overview.md). To copy data from a generic PostgreSQL database located on-premises or in the cloud, use the [PostgreSQL connector](connector-postgresql.md).
+This connector is specialized for the [Azure Database for PostgreSQL service](/azure/postgresql/overview). To copy data from a generic PostgreSQL database located on-premises or in the cloud, use the [PostgreSQL connector](connector-postgresql.md).
 
 ## Supported capabilities
 
@@ -32,9 +32,9 @@ This Azure Database for PostgreSQL connector is supported for the following capa
 
 The three activities work on all Azure Database for PostgreSQL deployment options:
 
-* [Single Server](../postgresql/single-server/index.yml)
-* [Flexible Server](../postgresql/flexible-server/index.yml)
-* [Hyperscale (Citus)](../postgresql/hyperscale/index.yml)
+* [Single Server](/azure/postgresql/single-server/)
+* [Flexible Server](/azure/postgresql/flexible-server/)
+* [Hyperscale (Citus)](/azure/postgresql/hyperscale/)
 
 ## Getting started
 

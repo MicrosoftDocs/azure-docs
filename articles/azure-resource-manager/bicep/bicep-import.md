@@ -3,16 +3,16 @@ title: Imports in Bicep
 description: Describes how to import shared functionality and namespaces in Bicep.
 ms.topic: conceptual
 ms.custom: devx-track-bicep
-ms.date: 08/07/2024
+ms.date: 08/20/2024
 ---
 
 # Imports in Bicep
 
-This article describes the syntax you use to export and import shared functionality, as well as namespaces for Bicep extensions.
+This article describes the syntax you use to export and import shared functionality, and namespaces for Bicep extensions.
 
-## Exporting types, variables and functions
+## Export variables, types, and functions
 
-The `@export()` decorator indicates that a given statement can be imported by another file. This decorator is only valid on type, variable, and function statements. Variable statements marked with `@export()` must be compile-time constants.
+The `@export()` decorator indicates that a given statement can be imported by another file. This decorator is only valid on [`type`](./user-defined-data-types.md), [`var`](./variables.md), and [`func`](./user-defined-functions.md) statements. Variable statements marked with `@export()` must be compile-time constants.
 
 The syntax for exporting functionality for use in other Bicep files is:
 
@@ -21,7 +21,7 @@ The syntax for exporting functionality for use in other Bicep files is:
 <statement_to_export>
 ```
 
-## Import types, variables, and functions
+## Import variables, types, and functions
 
 The syntax for importing functionality from another Bicep file is:
 
@@ -43,7 +43,7 @@ import * as <alias_name> from '<bicep_file_name>'
 
 You can mix and match the preceding syntaxes. To access imported symbols using the wildcard syntax, you must use the `.` operator: `<alias_name>.<exported_symbol>`.
 
-Only statements that have been [exported](#exporting-types-variables-and-functions) in the file being referenced are available to be imported.
+Only statements that have been [exported](#export-variables-types-and-functions) in the file being referenced are available to be imported.
 
 Functionality that has been imported from another file can be used without restrictions. For example, imported variables can be used anywhere a variable declared in-file would normally be valid.
 

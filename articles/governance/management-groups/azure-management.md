@@ -71,7 +71,7 @@ your control. Protection in Azure is provided by two services. [Azure Backup](..
 Migration refers to transitioning workloads currently running on-premises to the Azure cloud.
 [Azure Migrate](../../migrate/migrate-services-overview.md) is a service that helps you assess the
 migration suitability of on-premises virtual machines to Azure. Azure Site Recovery migrates virtual
-machines [from on-premises](../../site-recovery/migrate-tutorial-on-premises-azure.md) or [from Amazon Web Services](../../site-recovery/migrate-tutorial-aws-azure.md). [Azure Database Migration Service](../../dms/dms-overview.md) assists you in migrating database sources to Azure Data
+machines [from on-premises](../../site-recovery/migrate-tutorial-on-premises-azure.md) or [from Amazon Web Services](../../site-recovery/migrate-tutorial-aws-azure.md). [Azure Database Migration Service](/azure/dms/dms-overview) assists you in migrating database sources to Azure Data
 platforms.
 
 ## Next Steps

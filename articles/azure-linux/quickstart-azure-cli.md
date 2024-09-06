@@ -38,7 +38,7 @@ To create a resource group named *testAzureLinuxResourceGroup* in the *eastus* r
 Create a resource group using the `az group create` command.
 
 ```azurecli-interactive
-az group create --name testAzureLinuxReourceGroup --location eastus
+az group create --name testAzureLinuxResourceGroup --location eastus
 ```
 The following output resembles that your resource group was successfully created: 
 

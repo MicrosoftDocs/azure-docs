@@ -5,17 +5,23 @@ services: azure-monitor
 ms.reviewer: shijain
 ms.topic: conceptual
 ms.custom: devx-track-arm-template
-ms.date: 07/30/2023
+ms.date: 08/26/2024
 ---
 # Send guest OS metrics to the Azure Monitor metric store by using an Azure Resource Manager template for a Windows virtual machine scale set
 
-[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
+> [!NOTE]    
+> Azure Monitor Agent (AMA) collects monitoring data from the guest operating system of Azure and hybrid virtual machines and Virtual Machine Scale Sets and delivers it to Azure Monitor for use by features, insights, and other services such as [Microsoft Sentinel](../../sentintel/../sentinel/overview.md) and [Microsoft Defender for Cloud](/azure/defender-for-cloud/defender-for-cloud-introduction).
+>
+>We recommend using the Azure Monitor Agent to collet logs and metrics from  Virtual Machine Scale Sets. For more information, see [Azure Monitor Agent overview](../agents/azure-monitor-agent-overview.md).
+
 
 By using the Azure Monitor [Azure Diagnostics extension for Windows (WAD)](../agents/diagnostics-extension-overview.md), you can collect metrics and logs from the guest operating system (guest OS) that runs as part of a virtual machine, cloud service, or Azure Service Fabric cluster. The extension can send telemetry to many different locations listed in the previously linked article.  
 
 This article describes the process to send guest OS performance metrics for a Windows virtual machine scale set to the Azure Monitor data store. Starting with Microsoft Azure Diagnostics version 1.11, you can write metrics directly to the Azure Monitor metrics store, where standard platform metrics are already collected. By storing them in this location, you can access the same actions that are available for platform metrics. Actions include near real-time alerting, charting, routing, access from the REST API, and more. In the past, the Microsoft Azure Diagnostics extension wrote to Azure Storage but not the Azure Monitor data store.  
 
 If you're new to Resource Manager templates, learn about [template deployments](../../azure-resource-manager/management/overview.md) and their structure and syntax.  
+
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 ## Prerequisites
 

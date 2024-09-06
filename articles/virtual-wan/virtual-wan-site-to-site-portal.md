@@ -143,8 +143,8 @@ The device configuration file contains the settings to use when configuring your
             },
             "gatewayConfiguration":{ 
                "IpAddresses":{ 
-                  "Instance0":"104.45.18.186",
-                  "Instance1":"104.45.13.195"
+                  "Instance0":"203.0.113.186",
+                  "Instance1":"203.0.113.195"
                }
             },
             "connectionConfiguration":{ 
@@ -165,7 +165,7 @@ The device configuration file contains the settings to use when configuring your
       },
       "vpnSiteConfiguration":{ 
          "Name":" testsite2",
-         "IPAddress":"66.193.205.122"
+         "IPAddress":"198.51.100.122"
       },
       "vpnSiteConnections":[ 
          { 
@@ -175,8 +175,8 @@ The device configuration file contains the settings to use when configuring your
             },
             "gatewayConfiguration":{ 
                "IpAddresses":{ 
-                  "Instance0":"104.45.18.187",
-                  "Instance1":"104.45.13.195"
+                  "Instance0":"203.0.113.186",
+                  "Instance1":"203.0.113.195"
                }
             },
             "connectionConfiguration":{ 
@@ -197,7 +197,7 @@ The device configuration file contains the settings to use when configuring your
       },
       "vpnSiteConfiguration":{ 
          "Name":" testsite3",
-         "IPAddress":"182.71.123.228"
+         "IPAddress":"192.0.2.228"
       },
       "vpnSiteConnections":[ 
          { 
@@ -207,8 +207,8 @@ The device configuration file contains the settings to use when configuring your
             },
             "gatewayConfiguration":{ 
                "IpAddresses":{ 
-                  "Instance0":"104.45.18.187",
-                  "Instance1":"104.45.13.195"
+                  "Instance0":"203.0.113.186",
+                  "Instance1":"203.0.113.195"
                }
             },
             "connectionConfiguration":{ 

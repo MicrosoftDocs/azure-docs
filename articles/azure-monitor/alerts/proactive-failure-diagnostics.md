@@ -19,6 +19,8 @@ Here's a sample alert:
 
 :::image type="content" source="./media/proactive-failure-diagnostics/013.png" alt-text="Sample smart detection alert showing cluster analysis around failure." lightbox="./media/proactive-failure-diagnostics/013.png":::
 
+> [!NOTE]
+> Smart Detector Failure Anomalies are calculated for the failure rates on the total requests in each App Insights. These notifications will not alert per API or application sending these requests.
 The alert details tell you:
 
 * The failure rate compared to normal app behavior.

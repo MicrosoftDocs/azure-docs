@@ -163,6 +163,8 @@ When Functions allocates instances to a zone redundant Premium plan, it uses bes
 
 This section explains some of the strategies that you can use to deploy Functions to allow for disaster recovery.
 
+For disaster recovery for Durable Functions, see [Disaster recovery and geo-distribution in Azure Durable Functions](../azure-functions/durable/durable-functions-disaster-recovery-geo-distribution.md).
+
 ### Multi-region disaster recovery
 
 Because there is no built-in redundancy available, functions run in a function app in a specific Azure region. To avoid loss of execution during outages, you can redundantly deploy the same functions to function apps in multiple regions.  To learn more about multi-region deployments, see the guidance in [Highly available multi-region web application](/azure/architecture/reference-architectures/app-service-web-app/multi-region).
@@ -205,6 +207,7 @@ Read more on information and considerations for failover with [Service Bus](../s
 
 ## Next steps
 
+- [Disaster recovery and geo-distribution in Azure Durable Functions](../azure-functions/durable/durable-functions-disaster-recovery-geo-distribution.md)
 - [Create Azure Front Door](../frontdoor/quickstart-create-front-door.md)
 - [Event Hubs failover considerations](../event-hubs/event-hubs-geo-dr.md#considerations)
 - [Azure Architecture Center's guide on availability zones](/azure/architecture/high-availability/building-solutions-for-high-availability)

@@ -11,7 +11,7 @@ zone_pivot_groups: programming-languages-set-functions
 
 # Azure Tables output bindings for Azure Functions
 
-Use an Azure Tables output binding to write entities to a table in [Azure Cosmos DB for Table](../cosmos-db/table/introduction.md) or [Azure Table Storage](../storage/tables/table-storage-overview.md).
+Use an Azure Tables output binding to write entities to a table in [Azure Cosmos DB for Table](/azure/cosmos-db/table/introduction) or [Azure Table Storage](../storage/tables/table-storage-overview.md).
 
 For information on setup and configuration details, see the [overview](./functions-bindings-storage-table.md)
 

@@ -38,13 +38,13 @@ The following example shows the `NetworkConfiguration` element and its child ele
         <DnsServer name="<server-name>" IPAddress="<server-address>" />
       </DnsServers>
     </Dns>
-    <VirtualNetworkSite name="Group <RG-VNet> <VNet-name>"/>
-    <AddressAssignments>
-      <InstanceAddress roleName="<role-name>">
-        <Subnets>
-          <Subnet name="<subnet-name>"/>
-        </Subnets>
-      </InstanceAddress>
+    <VirtualNetworkSite name="<vnet-name>"/> <!-- Or, if the virtual network is in a different resource group: <VirtualNetworkSite name="/subscriptions/<sub-id>/resourceGroups/<rg-name>/providers/Microsoft.Network/virtualNetworks/<vnet-name>"/> -->
+      <AddressAssignments>
+        <InstanceAddress roleName="<role-name>">
+          <Subnets>
+            <Subnet name="<subnet-name>"/>
+          </Subnets>
+        </InstanceAddress>
       <ReservedIPs>
         <ReservedIP name="<reserved-ip-name>"/>
       </ReservedIPs>

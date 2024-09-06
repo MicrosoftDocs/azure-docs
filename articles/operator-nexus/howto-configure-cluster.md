@@ -34,11 +34,11 @@ The Infrastructure Cluster resource represents an on-premises deployment of the 
 within the Cluster Manager. All other platform-specific resources are
 dependent upon it for their lifecycle.
 
-You should create the Network Fabric prior to this on-premises deployment.
+You should create the Network Fabric before this on-premises deployment.
 Each Operator Nexus on-premises instance has a one-to-one association
 with a Network Fabric.
 
-### Create the Cluster using AZ CLI:
+### Create the Cluster using Azure CLI:
 
 ```azurecli
 az networkcloud cluster create --name "$CLUSTER_NAME" --location "$LOCATION" \
@@ -61,9 +61,7 @@ az networkcloud cluster create --name "$CLUSTER_NAME" --location "$LOCATION" \
   --secret-archive "{key-vault-id:$KVRESOURCE_ID, use-key-vault:true}" \
   --cluster-type "$CLUSTER_TYPE" --cluster-version "$CLUSTER_VERSION" \
   --tags $TAG_KEY1="$TAG_VALUE1" $TAG_KEY2="$TAG_VALUE2"
-
 ```
-
 
 ### Parameters for cluster operations
 
@@ -88,11 +86,11 @@ az networkcloud cluster create --name "$CLUSTER_NAME" --location "$LOCATION" \
 | COMPX_RACK_SKU            | Rack SKU for CompX Rack; repeat for each rack in compute-rack-definitions                                             |
 | COMPX_RACK_SN             | Rack Serial Number for CompX Rack; repeat for each rack in compute-rack-definitions                                   |
 | COMPX_RACK_LOCATION       | Rack physical location for CompX Rack; repeat for each rack in compute-rack-definitions                               |
-| COMPX_SVRY_BMC_PASS       | CompX Rack ServerY BMC password, repeat for each rack in compute-rack-definitions and for each server in rack         |
-| COMPX_SVRY_BMC_USER       | CompX Rack ServerY BMC user, repeat for each rack in compute-rack-definitions and for each server in rack             |
-| COMPX_SVRY_BMC_MAC        | CompX Rack ServerY BMC MAC address, repeat for each rack in compute-rack-definitions and for each server in rack      |
-| COMPX_SVRY_BOOT_MAC       | CompX Rack ServerY boot NIC MAC address, repeat for each rack in compute-rack-definitions and for each server in rack |
-| COMPX_SVRY_SERVER_DETAILS | CompX Rack ServerY details, repeat for each rack in compute-rack-definitions and for each server in rack              |
+| COMPX_SVRY_BMC_PASS       | CompX Rack ServerY BMC password; repeat for each rack in compute-rack-definitions and for each server in rack         |
+| COMPX_SVRY_BMC_USER       | CompX Rack ServerY BMC user; repeat for each rack in compute-rack-definitions and for each server in rack             |
+| COMPX_SVRY_BMC_MAC        | CompX Rack ServerY BMC MAC address; repeat for each rack in compute-rack-definitions and for each server in rack      |
+| COMPX_SVRY_BOOT_MAC       | CompX Rack ServerY boot NIC MAC address; repeat for each rack in compute-rack-definitions and for each server in rack |
+| COMPX_SVRY_SERVER_DETAILS | CompX Rack ServerY details; repeat for each rack in compute-rack-definitions and for each server in rack              |
 | COMPX_SVRY_SERVER_NAME    | CompX Rack ServerY name, repeat for each rack in compute-rack-definitions and for each server in rack                 |
 | MRG_NAME                  | Cluster managed resource group name                                                                                   |
 | MRG_LOCATION              | Cluster Azure region                                                                                                  |
@@ -111,6 +109,14 @@ az networkcloud cluster create --name "$CLUSTER_NAME" --location "$LOCATION" \
 | TAG_VALUE2                | Optional tag2 value to pass to Cluster Create                                                                         |
 
 
+## Cluster Identity
+
+Starting with the 2024-06-01-preview API version, a customer can assign managed identity to a Cluster. Both System-assigned and User-Assigned managed identities are supported.
+
+Managed Identity can be assigned to the Cluster during creation or update operations by providing the following parameters:
+
+- **--mi-system-assigned** - Enable System-assigned managed identity. Once added, the Identity can only be removed via the API call at this time.
+- **--mi-user-assigned** - Space-separated resource IDs of the User-assigned managed identities to be added. Once added, the Identity can only be removed via the API call at this time.
 
 ### Create the Cluster using Azure Resource Manager template editor
 
@@ -298,9 +304,75 @@ Cluster create Logs can be viewed in the following locations:
 
 :::image type="content" source="./media/nexus-deploy-activity-log.png" lightbox="./media/nexus-deploy-activity-log.png" alt-text="Screenshot of Azure portal showing cluster deploy progress activity log.":::
 
+
+## Update Cluster Identities via APIs
+
+Cluster managed identities can be assigned via CLI. The unassignment of the identities can be done via API calls.
+Note, `<APIVersion>` is the API version 2024-06-01-preview or newer.
+
+- To remove all managed identities, execute:
+
+  ```azurecli
+  az rest --method PATCH --url /subscriptions/$SUB_ID/resourceGroups/$CLUSTER_RG/providers/Microsoft.NetworkCloud/clusters/$CLUSTER_NAME?api-version=<APIVersion> --body "{\"identity\":{\"type\":\"None\"}}"
+  ```
+
+- If both User-assigned and System-assigned managed identities were added, the User-assigned can be removed by updating the `type` to `SystemAssigned`:
+
+  ```azurecli
+  az rest --method PATCH --url /subscriptions/$SUB_ID/resourceGroups/$CLUSTER_RG/providers/Microsoft.NetworkCloud/clusters/$CLUSTER_NAME?api-version=<APIVersion> --body @~/uai-body.json
+  ```
+
+  The request body (uai-body.json) example:
+  
+  ```azurecli
+  {
+	"identity": {
+        "type": "SystemAssigned"
+	}
+  }
+  ```
+
+- If both User-assigned and System-assigned managed identities were added, the System-assigned can be removed by updating the `type` to `UserAssigned`:
+
+  ```azurecli
+  az rest --method PATCH --url /subscriptions/$SUB_ID/resourceGroups/$CLUSTER_RG/providers/Microsoft.NetworkCloud/clusters/$CLUSTER_NAME?api-version=<APIVersion> --body @~/uai-body.json
+  ```
+
+  The request body (uai-body.json) example:
+  
+  ```azurecli
+  {
+	"identity": {
+        "type": "UserAssigned",
+		"userAssignedIdentities": {
+			"/subscriptions/$SUB_ID/resourceGroups/$UAI_RESOURCE_GROUP/providers/Microsoft.ManagedIdentity/userAssignedIdentities/$UAI_NAME": {}
+		}
+	}
+  }
+  ```
+
+- If multiple User-assigned managed identities were added, one of them can be removed by executing:
+
+  ```azurecli
+  az rest --method PATCH --url /subscriptions/$SUB_ID/resourceGroups/$CLUSTER_RG/providers/Microsoft.NetworkCloud/clusters/$CLUSTER_NAME?api-version=<APIVersion> --body @~/uai-body.json
+  ```
+  
+  The request body (uai-body.json) example:
+  
+  ```azurecli
+  {
+	"identity": {
+        "type": "UserAssigned",
+		"userAssignedIdentities": {
+			"/subscriptions/$SUB_ID/resourceGroups/$UAI_RESOURCE_GROUP/providers/Microsoft.ManagedIdentity/userAssignedIdentities/$UAI_NAME": null
+		}
+	}
+  }
+  ```
+
 ## Delete a cluster
 
-When deleting a cluster, it will delete the resources in Azure and the cluster that resides in the on-premises environment.
+When deleting a cluster, it deletes the resources in Azure and the cluster that resides in the on-premises environment.
 
 >[!NOTE]
 >If there are any tenant resources that exist in the cluster, it will not be deleted until those resources are deleted.

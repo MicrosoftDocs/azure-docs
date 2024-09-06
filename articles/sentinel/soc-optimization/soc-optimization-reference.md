@@ -51,7 +51,7 @@ If a table is chosen for [UEBA](/azure/sentinel/enable-entity-behavior-analytics
 
 To optimize data value, SOC optimization recommends adding security controls to your environment in the form of extra detections and data sources, using a threat-based approach.
 
-To provide threat-based recommendations, SOC optimization looks at your ingested logs and enabled analytics rules, and compares it to the logs and detections that are required to protect, detect, and respond to specific types of attacks. This optimization type is also known as *coverage optimization*, and is based on Microsoft's security research.
+To provide threat-based recommendations, SOC optimization looks at your ingested logs and enabled analytics rules, and compares it to the logs and detections that are required to protect, detect, and respond to specific types of attacks. This optimization type is also known as *coverage optimization*, and is based on Microsoft's security research. SOC optimization considers both user-defined and out-of-the-box detections.
 
 The following table lists the available threat-based SOC optimization recommendations:
 
@@ -60,7 +60,6 @@ The following table lists the available threat-based SOC optimization recommenda
 |There are data sources, but detections are missing.     |   Turn on analytics rule templates based on the threat.      |
 |Templates are turned on, but data sources are missing.     |    Connect new data sources.     |
 |There are no existing detections or data sources.     |   Connect detections and data sources or install a solution.      |
-
 
 ## Related content
 

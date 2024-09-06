@@ -15,13 +15,14 @@ ms.date: 08/07/2024
 
 [!INCLUDE [logic-apps-sku-consumption](~/reusable-content/ce-skilling/azure/includes/logic-apps-sku-consumption.md)]
 
-To create an automated workflow that performs tasks with multiple cloud services, this quickstart shows how to create an example workflow that integrates the following services, an RSS feed for a website and an email account, by using Azure Logic Apps.
+This quickstart show how to create an example workflow that runs in multitenant Azure Logic Apps and performs tasks with multiple cloud services. The workflow checks an RSS feed for new articles, based on a specific schedule, and sends an email for each new RSS item. Specifically, you create a Consumption logic app resource and workflow that uses the following items: 
 
-This example specifically creates a Consumption logic app resource and workflow that runs in multitenant Azure Logic Apps. The example uses the **RSS** connector and the **Office 365 Outlook** connector. The **RSS** connector provides a trigger that you can use to check an RSS feed, based on a specific schedule. The **Office 365 Outlook** connector provides an action that sends an email for each new RSS item.
+- The **RSS** connector, which provides a trigger to check an RSS feed.
+- The **Office 365 Outlook** connector, which provides an action to send email.
 
 When you finish, your workflow looks like the following high level example:
 
-:::image type="content" source="media/quickstart-create-example-consumption-workflow/quickstart-workflow-overview.png" alt-text="Screenshot shows example Consumption workflow with RSS trigger named When a feed item is published plus the Outlook action named Send an email." lightbox="media/quickstart-create-example-consumption-workflow/quickstart-workflow-overview.png":::
+:::image type="content" source="media/quickstart-create-example-consumption-workflow/quickstart-workflow-overview.png" alt-text="Screenshot shows Azure portal, and example Consumption workflow with RSS trigger named When a feed item is published plus the Office 365 Outlook action named Send an email." lightbox="media/quickstart-create-example-consumption-workflow/quickstart-workflow-overview.png":::
 
 > [!TIP]
 >
@@ -34,7 +35,7 @@ When you finish, your workflow looks like the following high level example:
 >
 > To find Azure Copilot, on the [Azure portal](https://portal.azure.com) toolbar, select **Copilot**.
 
-The connectors in this example are only two connectors among [1000+ connectors](/connectors/connector-reference/connector-reference-logicapps-connectors) that you can use in a workflow. While this example is cloud-based, Azure Logic Apps supports workflows that connect apps, data, services, and systems across cloud, on-premises, and hybrid environments.
+The operations in this example are from two connectors among [1000+ connectors](/connectors/connector-reference/connector-reference-logicapps-connectors) that you can use in a workflow. While this example is cloud-based, Azure Logic Apps supports workflows that connect apps, data, services, and systems across cloud, on-premises, and hybrid environments.
 
 To create and manage a Consumption logic app workflow using other tools, see the following quickstarts:
 
@@ -42,10 +43,7 @@ To create and manage a Consumption logic app workflow using other tools, see the
 * [Create and manage logic app workflows in Visual Studio](quickstart-create-logic-apps-with-visual-studio.md)
 * [Create and manage logic apps workflows using the Azure CLI](quickstart-logic-apps-azure-cli.md)
 
-> [!NOTE]
->
-> To create a Standard logic app workflow that runs in single-tenant Azure Logic Apps instead, see 
-> [Create an example Standard logic app workflow using Azure portal](create-single-tenant-workflows-azure-portal.md). 
+To create a Standard logic app workflow that runs in single-tenant Azure Logic Apps instead, see [Create an example Standard logic app workflow using Azure portal](create-single-tenant-workflows-azure-portal.md).
 
 <a name="prerequisites"></a>
 
@@ -55,7 +53,7 @@ To create and manage a Consumption logic app workflow using other tools, see the
 
 * An email account from a service that works with Azure Logic Apps, such as Office 365 Outlook or Outlook.com. For other supported email providers, see [Connectors for Azure Logic Apps](/connectors/connector-reference/connector-reference-logicapps-connectors).
 
-  This quickstart uses Office 365 Outlook with a work or school account. If you use a different email account, the general steps stay the same, but your UI might slightly differ.
+  This quickstart uses Office 365 Outlook with a work or school account. If you use a different email account, the general steps stay the same, but your UI might slightly differ. If you use Outlook.com, use your personal Microsoft account instead to sign in.
 
   > [!NOTE]
   >
@@ -77,7 +75,7 @@ To create and manage a Consumption logic app workflow using other tools, see the
 
 1. In the Azure portal search box, enter **logic app**, and select **Logic apps**.
 
-   :::image type="content" source="media/quickstart-create-example-consumption-workflow/find-select-logic-apps.png" alt-text="Screenshot shows Azure portal search box with the words, logic apps, and shows the selection, Logic apps." lightbox="media/quickstart-create-example-consumption-workflow/find-select-logic-apps.png":::
+   :::image type="content" source="media/quickstart-create-example-consumption-workflow/find-select-logic-apps.png" alt-text="Screenshot shows Azure portal search box with the words, logic app, and shows the selection, Logic apps." lightbox="media/quickstart-create-example-consumption-workflow/find-select-logic-apps.png":::
 
 1. On the **Logic apps** page toolbar, select **Add**.
 
@@ -93,7 +91,7 @@ To create and manage a Consumption logic app workflow using other tools, see the
    |----------|----------|-------|-------------|
    | **Subscription** | Yes | <*Azure-subscription-name*> | Your Azure subscription name. <br><br>This example uses **Pay-As-You-Go**. |
    | **Resource Group** | Yes | <*Azure-resource-group-name*> | The [Azure resource group](../azure-resource-manager/management/overview.md#terminology) where you create your logic app and related resources. This name must be unique across regions and can contain only letters, numbers, hyphens (**-**), underscores (**_**), parentheses (**()**), and periods (**.**). <br><br>This example creates a resource group named **Consumption-RG**. |
-   | **Logic App name** | Yes | <*logic-app-resource-name*> | Your logic app resource name, which must be unique across regions and can contain only letters, numbers, hyphens (**-**), underscores (**_**), parentheses (**()**), and periods (**.**). <br><br>This example creates a logic app resource named **My-Consumption-Logic-App**. |
+   | **Logic App name** | Yes | <*logic-app-name*> | Your logic app resource name, which must be unique across regions and can contain only letters, numbers, hyphens (**-**), underscores (**_**), parentheses (**()**), and periods (**.**). <br><br>This example creates a logic app resource named **My-Consumption-Logic-App**. |
    | **Region** | Yes | <*Azure-region*> | The Azure datacenter region for your logic app. <br><br>This example uses **West US**. |
    | **Enable log analytics** | Yes | **No** | Change this option only when you want to enable diagnostic logging. For this quickstart, keep the default selection. <br><br>**Note**: This option is available only with Consumption logic apps. |
 
@@ -130,7 +128,7 @@ This example uses an RSS trigger that checks an RSS feed, based on the specified
    |----------|----------|-------|-------------|
    | **The RSS feed URL** | Yes | <*RSS-feed-URL*> | The RSS feed URL to monitor. <br><br>This example uses the Wall Street Journal's RSS feed at **https://feeds.a.dj.com/rss/RSSMarketsMain.xml**. However, you can use any RSS feed that doesn't require HTTP authorization. Choose an RSS feed that publishes frequently, so you can easily test your workflow. |
    | **Chosen Property Will Be Used To Determine Which Items are New** | No | **PublishDate** | The property that determines which items are new. |
-   | **Interval** | Yes | **1** | The number of intervals to wait between feed checks. <br><br>This example uses **1** as the interval. |
+   | **Interval** | Yes | **30** | The number of intervals to wait between feed checks. <br><br>This example uses **30** as the interval because this value is the [minimum interval for the **RSS** trigger](/connectors/rss/#general-limits). |
    | **Frequency** | Yes | **Minute** | The unit of frequency to use for every interval. <br><br>This example uses **Minute** as the frequency. |
    | **Time Zone** | No | <*time-zone*> | The time zone to use for checking the RSS feed |
    | **Start Time** | No | <*start-time*> | The start time to use for checking the RSS feed | 
@@ -183,7 +181,7 @@ This example uses an Office 365 Outlook action that sends an email each time tha
 
       1. With the cursor still in the **Subject** box, select the dynamic content list (lightning icon).
 
-         :::image type="content" source="media/quickstart-create-example-consumption-workflow/send-email-open-dynamic-content.png" alt-text="Screenshot shows action named Send an email, cursor in box named Subject, and selected option for dynamic content list." lightbox="media/quickstart-create-example-consumption-workflow/send-email-open-dynamic-content.png":::
+         :::image type="content" source="media/quickstart-create-example-consumption-workflow/send-email-open-dynamic-content.png" alt-text="Screenshot shows the action named Send an email, cursor in box named Subject, and selected option for dynamic content list." lightbox="media/quickstart-create-example-consumption-workflow/send-email-open-dynamic-content.png":::
 
       1. From the dynamic content list that opens, under **When a feed item is published**, select **Feed title**, which is a trigger output that references the title for the RSS item.
 
@@ -195,7 +193,7 @@ This example uses an Office 365 Outlook action that sends an email each time tha
 
          After you finish, the email subject looks like the following example:
 
-         :::image type="content" source="media/quickstart-create-example-consumption-workflow/send-email-feed-title.png" alt-text="Screenshot shows action named Send an email, with example email subject and included property named Feed title." lightbox="media/quickstart-create-example-consumption-workflow/send-email-feed-title.png":::
+         :::image type="content" source="media/quickstart-create-example-consumption-workflow/send-email-feed-title.png" alt-text="Screenshot shows the action named Send an email, with example email subject and included property named Feed title." lightbox="media/quickstart-create-example-consumption-workflow/send-email-feed-title.png":::
 
          > [!NOTE]
          > 
@@ -215,7 +213,7 @@ This example uses an Office 365 Outlook action that sends an email each time tha
       | `Date published:` | **Feed published on** | The item's publishing date and time |
       | `Link:` | **Primary feed link** | The URL for the item |
 
-      :::image type="content" source="media/quickstart-create-example-consumption-workflow/send-email-body.png" alt-text="Screenshot shows action named Send an email, with descriptive text and properties in the box named Body." lightbox="media/quickstart-create-example-consumption-workflow/send-email-body.png":::
+      :::image type="content" source="media/quickstart-create-example-consumption-workflow/send-email-body.png" alt-text="Screenshot shows the action named Send an email, with descriptive text and properties in the box named Body." lightbox="media/quickstart-create-example-consumption-workflow/send-email-body.png":::
 
 1. Save your workflow. On the designer toolbar, select **Save**.
 

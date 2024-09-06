@@ -19,7 +19,7 @@ The Azure Maps Python SDK can be integrated with Python applications and librari
 
 - [Azure Maps account].
 - [Subscription key] or other form of [Authentication with Azure Maps].
-- Python on 3.7 or later. It's recommended to use the [latest release]. For more information, see [Azure SDK for Python version support policy].
+- Python on 3.8 or later. It's recommended to use the [latest release]. For more information, see [Azure SDK for Python version support policy].
 
 > [!TIP]
 > You can create an Azure Maps account programmatically, Here's an example using the Azure CLI:
@@ -50,7 +50,7 @@ pip install azure-maps-search --pre
 
 ### Azure Maps services
 
-Azure Maps Python SDK supports Python version 3.7 or later. For more information on future Python versions, see [Azure SDK for Python version support policy].
+Azure Maps Python SDK supports Python version 3.8 or later. For more information on future Python versions, see [Azure SDK for Python version support policy].
 
 | Service name               | PyPi package            |  Samples     |
 |----------------------------|-------------------------|--------------|
@@ -143,209 +143,221 @@ maps_search_client = MapsSearchClient(
 )
 ```
 
-## Fuzzy Search an Entity
+## Geocode an address
 
-The following code snippet demonstrates how, in a simple console application, to import the `Azure.Maps.Search` package and perform a fuzzy search on “Starbucks” near Seattle.  This example uses subscription key credentials to authenticate MapsSearchClient. In `demo.py`:
-
-```Python
-import os 
-from azure.core.credentials import AzureKeyCredential 
-from azure.maps.search import MapsSearchClient 
-
-def fuzzy_search(): 
-    # Use Azure Maps subscription key authentication 
-    subscription_key = os.getenv("SUBSCRIPTION_KEY")
-    maps_search_client = MapsSearchClient(
-        credential=AzureKeyCredential(subscription_key)
-    )
-    result = maps_search_client.fuzzy_search(
-        query="Starbucks",
-        coordinates=(47.61010, -122.34255)
-    )
-    
-    # Print the search results
-    if len(result.results) > 0:
-        print("Starbucks search result nearby Seattle:")
-        for result_item in result.results:
-            print(f"* {result_item.address.street_number }   {result_item.address.street_name }")
-            print(f"  {result_item.address.municipality } {result_item.address.country_code } {result_item.address.postal_code }")
-            print(f"  Coordinate: {result_item.position.lat}, {result_item.position.lon}") 
-
-if __name__ == '__main__': 
-    fuzzy_search() 
-```
-
-This sample code instantiates `AzureKeyCredential` with the Azure Maps subscription key, then uses it to instantiate the `MapsSearchClient` object. The methods provided by `MapsSearchClient` forward the request to the Azure Maps REST endpoints. In the end, the program iterates through the results and prints the address and coordinates for each result.
-
-After finishing the program, run `python demo.py` from the project folder in PowerShell:
-
-```powershell
-python demo.py  
-```
-
-You should see a list of Starbucks address and coordinate results:
-
-```text
-* 1912 Pike Place 
-  Seattle US 98101 
-  Coordinate: 47.61016, -122.34248 
-* 2118 Westlake Avenue 
-  Seattle US 98121 
-  Coordinate: 47.61731, -122.33782 
-* 2601 Elliott Avenue 
-  Seattle US 98121 
-  Coordinate: 47.61426, -122.35261 
-* 1730 Howell Street 
-  Seattle US 98101 
-  Coordinate: 47.61716, -122.3298 
-* 220 1st Avenue South 
-  Seattle US 98104 
-  Coordinate: 47.60027, -122.3338 
-* 400 Occidental Avenue South 
-  Seattle US 98104 
-  Coordinate: 47.5991, -122.33278 
-* 1600 East Olive Way 
-  Seattle US 98102 
-  Coordinate: 47.61948, -122.32505 
-* 500 Mercer Street 
-  Seattle US 98109 
-  Coordinate: 47.62501, -122.34687 
-* 505 5Th Ave S 
-  Seattle US 98104 
-  Coordinate: 47.59768, -122.32849 
-* 425 Queen Anne Avenue North 
-  Seattle US 98109 
-  Coordinate: 47.62301, -122.3571 
-```
-
-## Search an Address
-
-Call the `SearchAddress` method to get the coordinate of an address. Modify the Main program from the sample as follows:
+The following code snippet demonstrates how, in a simple console application, to obtain longitude and latitude coordinates for a given address. This example uses subscription key credentials to authenticate MapsSearchClient. In `demo.py`:
 
 ```Python
 import os
-from azure.core.credentials import AzureKeyCredential
-from azure.maps.search import MapsSearchClient
 
-def search_address():
-    subscription_key = os.getenv("SUBSCRIPTION_KEY")
+from azure.core.exceptions import HttpResponseError
 
-    maps_search_client = MapsSearchClient(
-       credential=AzureKeyCredential(subscription_key)
-    )
+subscription_key = os.getenv("AZURE_SUBSCRIPTION_KEY", "your subscription key")
 
-    result = maps_search_client.search_address( 
-        query="1301 Alaskan Way, Seattle, WA 98101, US" 
-    )
-    
-    # Print reuslts if any
-    if len(result.results) > 0:
-        print(f"Coordinate: {result.results[0].position.lat}, {result.results[0].position.lon}")
-    else:
-        print("No address found")
+def geocode():
+    from azure.core.credentials import AzureKeyCredential
+    from azure.maps.search import MapsSearchClient
+
+    maps_search_client = MapsSearchClient(credential=AzureKeyCredential(subscription_key))
+    try:
+        result = maps_search_client.get_geocoding(query="15127 NE 24th Street, Redmond, WA 98052")
+        if result.get('features', False):
+            coordinates = result['features'][0]['geometry']['coordinates']
+            longitude = coordinates[0]
+            latitude = coordinates[1]
+
+            print(longitude, latitude)
+        else:
+            print("No results")
+
+    except HttpResponseError as exception:
+        if exception.error is not None:
+            print(f"Error Code: {exception.error.code}")
+            print(f"Message: {exception.error.message}")
 
 if __name__ == '__main__':
-    search_address()
+    geocode()
 ```
 
-The `SearchAddress` method returns results ordered by confidence score and prints the coordinates of the first result.
+This sample code instantiates `AzureKeyCredential` with the Azure Maps subscription key, then uses it to instantiate the `MapsSearchClient` object. The methods provided by `MapsSearchClient` forward the request to the Azure Maps REST endpoints. In the end, the program iterates through the results and prints the coordinates for each result.
 
-## Batch reverse search
 
-Azure Maps Search also provides some batch query methods. These methods return long-running operations (LRO) objects. The requests might not return all the results immediately, so users can choose to wait until completion or query the result periodically. The following examples demonstrate how to call the batched reverse search method.
+## Batch geocode addresses
 
-Since these return LRO objects, you need the `asyncio` method included in the `aiohttp` package:
-
-```powershell
-pip install aiohttp
-```
+This sample demonstrates how to perform batch search address:
 
 ```Python
-import asyncio
 import os
-from azure.core.credentials import AzureKeyCredential
-from azure.maps.search.aio import MapsSearchClient
 
-async def begin_reverse_search_address_batch(): 
-    subscription_key = os.getenv("SUBSCRIPTION_KEY")
+from azure.core.exceptions import HttpResponseError
 
-    maps_search_client = MapsSearchClient(AzureKeyCredential(subscription_key))
+subscription_key = os.getenv("AZURE_SUBSCRIPTION_KEY", "your subscription key")
 
-    async with maps_search_client:
-        result = await maps_search_client.begin_reverse_search_address_batch(
-            search_queries = [
-                "148.858561,2.294911",
-                "47.639765,-122.127896&radius=5000",
-                "47.61559,-122.33817&radius=5000",
-            ]
-        )
-    print(f"Batch_id: {result.batch_id}")
+def geocode_batch():
+    from azure.core.credentials import AzureKeyCredential
+    from azure.maps.search import MapsSearchClient
+
+    maps_search_client = MapsSearchClient(credential=AzureKeyCredential(subscription_key))
+    try:
+        result = maps_search_client.get_geocoding_batch({
+          "batchItems": [
+            {"query": "400 Broad St, Seattle, WA 98109"},
+            {"query": "15127 NE 24th Street, Redmond, WA 98052"},
+          ],
+        },)
+
+        if not result.get('batchItems', False):
+            print("No batchItems in geocoding")
+            return
+
+        for item in result['batchItems']:
+            if not item.get('features', False):
+                print(f"No features in item: {item}")
+                continue
+
+            coordinates = item['features'][0]['geometry']['coordinates']
+            longitude, latitude = coordinates
+            print(longitude, latitude)
+
+    except HttpResponseError as exception:
+        if exception.error is not None:
+            print(f"Error Code: {exception.error.code}")
+            print(f"Message: {exception.error.message}")
 
 if __name__ == '__main__':
-    # Special handle for Windows platform
-    if os.name == 'nt':
-        asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
-    asyncio.run(begin_reverse_search_address_batch())
+    geocode_batch()
 ```
 
-In the above example, three queries are passed to the batched reverse search request. To get the LRO results, the request creates a batch request with a batch ID as result that can be used to fetch batch response later. The LRO results are cached on the server side for 14 days.
 
-The following example demonstrates the process of calling the batch ID and retrieving the operation results of the batch request:
+## Make a Reverse Address Search to translate coordinate location to street address
+
+You can translate coordinates into human-readable street addresses. This process is also called reverse geocoding. This is often used for applications that consume GPS feeds and want to discover addresses at specific coordinate points.
 
 ```python
-import asyncio
+import os
+
+from azure.core.exceptions import HttpResponseError
+
+subscription_key = os.getenv("AZURE_SUBSCRIPTION_KEY", "your subscription key")
+
+def reverse_geocode():
+    from azure.core.credentials import AzureKeyCredential
+    from azure.maps.search import MapsSearchClient
+
+    maps_search_client = MapsSearchClient(credential=AzureKeyCredential(subscription_key))
+    try:
+        result = maps_search_client.get_reverse_geocoding(coordinates=[-122.138679, 47.630356])
+        if result.get('features', False):
+            props = result['features'][0].get('properties', {})
+            if props and props.get('address', False):
+                print(props['address'].get('formattedAddress', 'No formatted address found'))
+            else:
+                print("Address is None")
+        else:
+            print("No features available")
+    except HttpResponseError as exception:
+        if exception.error is not None:
+            print(f"Error Code: {exception.error.code}")
+            print(f"Message: {exception.error.message}")
+
+
+if __name__ == '__main__':
+   reverse_geocode()
+```
+
+
+## Batch request for reverse geocoding
+
+This sample demonstrates how to perform reverse search by given coordinates in batch.
+
+```python
 import os
 from azure.core.credentials import AzureKeyCredential
-from azure.maps.search.aio import MapsSearchClient
+from azure.core.exceptions import HttpResponseError
+from azure.maps.search import MapsSearchClient
 
-async def begin_reverse_search_address_batch():
-    subscription_key = os.getenv("SUBSCRIPTION_KEY")
+subscription_key = os.getenv("AZURE_SUBSCRIPTION_KEY", "your subscription key")
 
-    maps_search_client = MapsSearchClient(credential=AzureKeyCredential(subscription_key))
+def reverse_geocode_batch():
+    maps_search_client = MapsSearchClient(credential=AzureKeyCredential(subscription_key))
+    try:
+        result = maps_search_client.get_reverse_geocoding_batch({
+              "batchItems": [
+                {"coordinates": [-122.349309, 47.620498]},
+                {"coordinates": [-122.138679, 47.630356]},
+              ],
+            },)
 
-    async with maps_search_client:
-        result = await maps_search_client.begin_reverse_search_address_batch(
-            search_queries = [
-                "148.858561,2.294911",
-                "47.639765,-122.127896&radius=5000",
-                "47.61559,-122.33817&radius=5000",
-            ]
-        )
-    return result
-
-async def begin_reverse_search_address_batch_with_id(batch_id):
-    subscription_key = os.getenv("SUBSCRIPTION_KEY")
-    maps_search_client = MapsSearchClient(credential=AzureKeyCredential(subscription_key))
-    async with maps_search_client:
-        result = await maps_search_client.begin_reverse_search_address_batch(
-            batch_id=batch_id,
-        )
-
-    responses = result._polling_method._initial_response.context.get('deserialized_data')
-    summary = responses['summary']
-
-    # Print Batch results
-    idx = 1
-    print(f"Total Batch Requests: {summary['totalRequests']}, Total Successful Results: {summary['successfulRequests']}")
-    for items in responses.get('batchItems'):
-        if items['statusCode'] == 200:
-            print(f"Request {idx} result:")
-            for address in items['response']['addresses']:
-                print(f"  {address['address']['freeformAddress']}")
+        if result.get('batchItems', False):
+            for idx, item in enumerate(result['batchItems']):
+                features = item['features']
+                if features:
+                    props = features[0].get('properties', {})
+                    if props and props.get('address', False):
+                        print(
+                            props['address'].get('formattedAddress', f'No formatted address for item {idx + 1} found'))
+                    else:
+                        print(f"Address {idx + 1} is None")
+                else:
+                    print(f"No features available for item {idx + 1}")
         else:
-            print(f"Error in request {idx}: {items['response']['error']['message']}")
-        idx += 1
+            print("No batch items found")
+    except HttpResponseError as exception:
+        if exception.error is not None:
+            print(f"Error Code: {exception.error.code}")
+            print(f"Message: {exception.error.message}")
 
-async def main():
-    result = await begin_reverse_search_address_batch()
-    await begin_reverse_search_address_batch_with_id(result.batch_id)
 
-if __name__ == '__main__': 
-    # Special handle for Windows platform 
-    if os.name == 'nt':
-        asyncio.set_event_loop_policy(asyncio.WindowsSelectorEventLoopPolicy())
-    asyncio.run(main())
+if __name__ == '__main__':
+   reverse_geocode_batch()
 ```
+
+
+## Get polygons for a given location
+
+This sample demonstrates how to search polygons.
+
+```python
+import os
+
+from azure.core.exceptions import HttpResponseError
+from azure.maps.search import Resolution
+from azure.maps.search import BoundaryResultType
+
+
+subscription_key = os.getenv("AZURE_SUBSCRIPTION_KEY", "your subscription key")
+
+def get_polygon():
+    from azure.core.credentials import AzureKeyCredential
+    from azure.maps.search import MapsSearchClient
+
+    maps_search_client = MapsSearchClient(credential=AzureKeyCredential(subscription_key))
+    try:
+        result = maps_search_client.get_polygon(
+          coordinates=[-122.204141, 47.61256],
+          result_type=BoundaryResultType.LOCALITY,
+          resolution=Resolution.SMALL,
+        )
+
+        if not result.get('geometry', False):
+            print("No geometry found")
+            return
+
+        print(result["geometry"])
+    except HttpResponseError as exception:
+        if exception.error is not None:
+            print(f"Error Code: {exception.error.code}")
+            print(f"Message: {exception.error.message}")
+
+if __name__ == '__main__':
+    get_polygon()
+```
+
+
+## Using V1 SDKs for Search and Render
+
+To use Search V1 and Render V1 SDK, please refer to Search V1 SDK [package](https://pypi.org/project/azure-maps-search/1.0.0b2/) page and Render V1 SDK [package](https://pypi.org/project/azure-maps-render/1.0.0b2/) for more information.
+
 
 ## Additional information
 

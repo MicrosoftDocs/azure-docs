@@ -8,7 +8,7 @@ ms.reviewer: viviandiec
 
 # Deployment and HPA metrics with Container insights
 
-The Container insights integrated agent now collects metrics for deployments and horizontal pod autoscalers (HPAs) starting with agent version *ciprod08072020*.
+The Container insights integrated agent automatically collects metrics for deployments and horizontal pod autoscalers (HPAs).
 
 ## Deployment metrics
 

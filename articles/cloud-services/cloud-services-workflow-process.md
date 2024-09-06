@@ -2,7 +2,7 @@
 title: Workflow of Microsoft Azure Virtual Machine (VM) Architecture | Microsoft Docs
 description: This article provides overview of the workflow processes when you deploy a service.
 ms.topic: article
-ms.service: cloud-services
+ms.service: azure-cloud-services-classic
 ms.date: 07/24/2024
 author: hirenshah1
 ms.author: hirshah

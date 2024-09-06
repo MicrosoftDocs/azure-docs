@@ -75,6 +75,8 @@ items:
         href: migration-using-runbook-scripts.md
       - name: Key points to note for automated migration
         href: migration-key-points.md
+      - name: Troubleshoot automated migration
+        href: migration-troubleshoot.md
       - name: Using manual migration
         href: migration-manual.md
     - name: Check update compliance 

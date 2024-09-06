@@ -26,7 +26,7 @@ Below are the qualities of confidential containers:
 - Helps isolate your containers from other container groups/pods, as well as VM node OS kernel
 
 ## VM Isolated Confidential containers on Azure Container Instances (ACI)
-[Confidential containers on ACI](../container-instances/container-instances-confidential-overview.md) enables fast and easy deployment of containers natively in Azure and with the ability to protect data and code in use thanks to AMD EPYC™ processors with confidential computing capabilities. This is because your container(s) runs in a hardware-based and attested Trusted Execution Environment (TEE) without the need to adopt a specialized programming model and without infrastructure management overhead.  With this launch you get: 
+[Confidential containers on ACI](/azure/container-instances/container-instances-confidential-overview) enables fast and easy deployment of containers natively in Azure and with the ability to protect data and code in use thanks to AMD EPYC™ processors with confidential computing capabilities. This is because your container(s) runs in a hardware-based and attested Trusted Execution Environment (TEE) without the need to adopt a specialized programming model and without infrastructure management overhead.  With this launch you get: 
 1.	Full guest attestation, which reflects the cryptographic measurement of all hardware and software components running within your Trusted Computing Base (TCB). 
 2.	Tooling to generate policies that will be enforced in the Trusted Execution Environment.
 3.	Open-source sidecar containers for secure key release and encrypted file systems. 
@@ -45,7 +45,7 @@ If you have questions about container offerings, please reach out to <acconaks@m
 ## Next steps
 
 - [Deploy AKS cluster with Intel SGX Confidential VM Nodes](./confidential-enclave-nodes-aks-get-started.md)
-- [Deploy Confidential container group with Azure Container Instances](../container-instances/container-instances-tutorial-deploy-confidential-containers-cce-arm.md)
+- [Deploy Confidential container group with Azure Container Instances](/azure/container-instances/container-instances-tutorial-deploy-confidential-containers-cce-arm)
 - [Microsoft Azure Attestation](/azure/attestation/overview)
 - [Intel SGX Confidential Virtual Machines](virtual-machine-solutions-sgx.md)
 - [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes)

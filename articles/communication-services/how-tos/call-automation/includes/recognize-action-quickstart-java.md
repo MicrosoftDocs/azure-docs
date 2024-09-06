@@ -19,7 +19,7 @@ ms.author: kpunjabi
 
 ### For AI features
 - Create and connect [Azure AI services to your Azure Communication Services resource](../../../concepts/call-automation/azure-communication-services-azure-cognitive-services-integration.md).
-- Create a [custom subdomain](../../../../ai-services/cognitive-services-custom-subdomains.md) for your Azure AI services resource. 
+- Create a [custom subdomain](/azure/ai-services/cognitive-services-custom-subdomains) for your Azure AI services resource. 
 
 
 ## Technical specifications
@@ -121,6 +121,7 @@ var recognizeResponse = callAutomationClient.getCallConnectionAsync(callConnecti
 
 log.info("Start recognizing result: " + recognizeResponse.getStatusCode()); 
 ```
+
 For speech-to-text flows, Call Automation Recognize action also supports the use of [custom speech models](/azure/machine-learning/tutorial-train-model.md?view=azureml-api-2). Features like custom speech models can be useful when you're building an application that needs to listen for complex words that the default speech-to-text models may not understand. One example is when you're building an application for the telemedical industry and your virtual agent needs to be able to recognize medical terms. You can learn more in [Create a custom speech project](../../../../ai-services/speech-service/how-to-custom-speech-create-project.md).
 
 ### Speech-to-Text Choices 

@@ -62,7 +62,7 @@ Review the components and factors that determine the speed of your migration.
 
 The data source is typically a local file system or cloud storage, for example, S3. A server's storage performance depends on multiple factors, such as disk technology (SSD vs HDD), the nature of the IO requests, and the size of each request.
 
-For example, Azure virtual machine performance ranges from 30 MB per second on smaller VM SKUs, to 20 GB per second for some of the storage-optimized SKUs using NVM Express (NVMe) disks. Learn how to [design your Azure VM for high storage performance](../virtual-machines/premium-storage-performance.md). You can also apply most concepts to on-premises servers. 
+For example, Azure virtual machine performance ranges from 30 MB per second on smaller VM SKUs, to 20 GB per second for some of the storage-optimized SKUs using NVM Express (NVMe) disks. Learn how to [design your Azure VM for high storage performance](/azure/virtual-machines/premium-storage-performance). You can also apply most concepts to on-premises servers. 
 
 #### Compute power 
 

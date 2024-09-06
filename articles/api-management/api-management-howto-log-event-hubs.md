@@ -50,7 +50,7 @@ To create an Event Hubs connection string, see [Get an Event Hubs connection str
 
     * If you enable a user-assigned managed identity, take note of the identity's **Client ID**.
 
-1. Assign the identity the **Azure Event Hubs Data sender** role, scoped to the Event Hubs namespace or to the event hub used for logging. To assign the role, use the [Azure portal](../active-directory/managed-identities-azure-resources/howto-assign-access-portal.md) or other Azure tools.
+1. Assign the identity the **Azure Event Hubs Data sender** role, scoped to the Event Hubs namespace or to the event hub used for logging. To assign the role, use the [Azure portal](../role-based-access-control/role-assignments-portal.yml) or other Azure tools.
 
 ## Create an API Management logger
 The next step is to configure a [logger](/rest/api/apimanagement/current-ga/logger) in your API Management service so that it can log events to the event hub.

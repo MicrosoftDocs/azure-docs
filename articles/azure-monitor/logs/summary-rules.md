@@ -24,6 +24,10 @@ A summary rule lets you aggregate log data at a regular cadence and send the agg
 
 This article describes how summary rules work and how to define and view summary rules, and provides some examples of the use and benefits of summary rules.
 
+Here's a video that provides an overview of some of the benefits of summary rules:
+
+> [!VIDEO https://www.youtube.com/embed/uuZlOps42LE?cc_load_policy=1&cc_lang_pref=auto]
+
 ## How summary rules work
 
 Summary rules perform batch processing directly in your Log Analytics workspace. The summary rule aggregates chunks of data, defined by bin size, based on a KQL query, and reingests the summarized results into a custom table with an [Analytics log plan](logs-table-plans.md) in your Log Analytics workspace. 

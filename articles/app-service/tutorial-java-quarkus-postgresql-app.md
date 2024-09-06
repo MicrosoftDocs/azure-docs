@@ -13,7 +13,7 @@ zone_pivot_groups: app-service-portal-azd
 
 # Tutorial: Build a Quarkus web app with Azure App Service on Linux and PostgreSQL
 
-This tutorial shows how to build, configure, and deploy a secure [Quarkus](https://quarkus.io) application in Azure App Service that's connected to a PostgreSQL database (using [Azure Database for PostgreSQL](../postgresql/index.yml)). Azure App Service is a highly scalable, self-patching, web-hosting service that can easily deploy apps on Windows or Linux. When you're finished, you'll have a Quarkus app running on [Azure App Service on Linux](overview.md).
+This tutorial shows how to build, configure, and deploy a secure [Quarkus](https://quarkus.io) application in Azure App Service that's connected to a PostgreSQL database (using [Azure Database for PostgreSQL](/azure/postgresql/)). Azure App Service is a highly scalable, self-patching, web-hosting service that can easily deploy apps on Windows or Linux. When you're finished, you'll have a Quarkus app running on [Azure App Service on Linux](overview.md).
 
 :::image type="content" source="./media/tutorial-java-quarkus-postgresql-app/azure-portal-browse-app-2.png" alt-text="Screenshot of Quarkus application storing data in PostgreSQL.":::
 

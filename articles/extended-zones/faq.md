@@ -5,7 +5,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-extended-zones
 ms.topic: concept-article
-ms.date: 08/02/2024
+ms.date: 08/16/2024
 ---
 
 # Azure Extended Zones frequently asked questions (FAQ)
@@ -19,6 +19,14 @@ An Azure Extended Zone might be associated with a parent region in the same or a
 ## Are all Azure services offered at the Azure Extended Zone?
 
 No, given the size, hardware, and targeted use cases for the Azure Extended Zone, only a small subset of the Azure services can be offered at the Azure Extended Zone. Access to the complete set of Azure services is available in the parent region.
+
+## What are the available Azure Extended Zones?
+
+Currently, Los Angeles is the only available Azure Extended Zone.
+
+## How will I be charged for resources I create in an Azure Extended Zone?
+
+Currently, you won't be billed for any resources that you create in Los Angles Extended Zone. However, any resources you create in the parent region are subject to charges. For example, if you create a virtual machine in Los Angeles with a network security group in West US, you'll only be billed for the network security group.
 
 ## Will there be SKUs specific to the Azure Extended Zones?
 

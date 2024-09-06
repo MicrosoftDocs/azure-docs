@@ -9,7 +9,7 @@ metadata:
   ms.service: azure-arc
   ms.author: jroth
   ms.topic: landing-page
-  ms.date: 06/11/2024
+  ms.date: 08/19/2024
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
 
@@ -30,6 +30,8 @@ landingContent:
         links:
           - text: Connect a public cloud to Azure
             url: connect-to-aws.md
+          - text: Resource representation in Azure
+            url: resource-representation.md
 
   - title: Solutions
     linkLists:
@@ -37,7 +39,5 @@ landingContent:
         links:
           - text: View and manage multicloud inventory
             url: view-multicloud-inventory.md
-      - linkListType: how-to-guide
-        links:
           - text: Onboard VMs to Azure Arc
             url: onboard-multicloud-vms-arc.md

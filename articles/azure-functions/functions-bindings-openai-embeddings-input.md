@@ -20,7 +20,7 @@ zone_pivot_groups: programming-languages-set-functions
 
 The Azure OpenAI embeddings input binding allows you to generate embeddings for inputs. The binding can generate embeddings from files or raw text inputs.
 
-For information on setup and configuration details of the Azure OpenAI extension, see [Azure OpenAI extensions for Azure Functions](./functions-bindings-openai.md). To learn more about embeddings in Azure OpenAI Service, see [Understand embeddings in Azure OpenAI Service](../ai-services/openai/concepts/understand-embeddings.md).
+For information on setup and configuration details of the Azure OpenAI extension, see [Azure OpenAI extensions for Azure Functions](./functions-bindings-openai.md). To learn more about embeddings in Azure OpenAI Service, see [Understand embeddings in Azure OpenAI Service](/azure/ai-services/openai/concepts/understand-embeddings).
 
 [!INCLUDE [functions-support-notes-samples-openai](../../includes/functions-support-notes-samples-openai.md)]
 
@@ -59,11 +59,11 @@ This example shows how to retrieve embeddings stored at a specified file that is
 ::: zone pivot="programming-language-typescript"
 This example shows how to generate embeddings for a raw text string.
 
-:::code language="typescript" source="~/functions-openai-extension/samples/embeddings/nodejs/src/app.ts" range="7-31":::
+:::code language="typescript" source="~/functions-openai-extension/samples/embeddings/typescript/src/app.ts" range="7-31":::
 
 This example shows how to retrieve embeddings stored at a specified file that is accessible to the function.
 
-:::code language="typescript" source="~/functions-openai-extension/samples/embeddings/nodejs/src/app.ts" range="37-61":::
+:::code language="typescript" source="~/functions-openai-extension/samples/embeddings/typescript/src/app.ts" range="37-61":::
 
 ::: zone-end  
 ::: zone pivot="programming-language-powershell"  

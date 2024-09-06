@@ -25,7 +25,7 @@ Azure Arc resource bridge follows data residency regulations specific to each re
 
 ## Data encryption at rest
 
-Azure Arc resource bridge stores resource information in Azure Cosmos DB. As described in  [Encryption at rest in Azure Cosmos DB](../../cosmos-db/database-encryption-at-rest.md), all the data is encrypted at rest.
+Azure Arc resource bridge stores resource information in Azure Cosmos DB. As described in  [Encryption at rest in Azure Cosmos DB](/azure/cosmos-db/database-encryption-at-rest), all the data is encrypted at rest.
 
 ## Security audit logs
 

@@ -5,7 +5,7 @@ ms.service: azure-hdinsight
 ms.topic: how-to
 ms.author: sairamyeturi
 author: yeturis
-ms.date: 04/11/2024
+ms.date: 08/12/2024
 ---
 
 # Log Analytics migration guide for Azure HDInsight clusters
@@ -29,10 +29,6 @@ Considering customer feedback, the Azure HDInsight team invested in integration 
 - Higher reliability
 - Faster log delivery
 - Resource-based table grouping and default queries
-
-> [!NOTE]  
-> New Azure Montitor integration is in Public Preview across all regions where HDInsight is available.
-
 
 ## Benefits of the new Azure Monitor integration
 
@@ -166,7 +162,7 @@ Creating new clusters with classic Azure Monitor integration is not available af
 
 ## Release and support timeline
 
-* Classic Azure Monitoring integration isn't unavailable after October 15, 2021. You can't enable classic Azure Monitoring integration after that date.
+* Classic Azure Monitoring integration isn't available after October 15, 2021. You can't enable classic Azure Monitoring integration after that date.
 * Classic Azure Monitoring integration ingestion will not be working after August 31, 2024.
 * HDInsight clusters with Azure Monitor integration (preview) will not be supported beyond February 1, 2025.
 * Existing Azure Monitor integration(preview) will continue to work, until January 31, 2025. There will be limited support for the Azure Monitor integration(preview).

@@ -68,7 +68,7 @@ To begin working with your new HBase cluster, you can use the procedures found i
 
 ### Create a virtual machine
 
-Create an infrastructure as a service (IaaS) virtual machine into the same Azure virtual network and the same subnet. For instructions on creating a new IaaS virtual machine, see [Create a Virtual Machine Running Windows Server](../../virtual-machines/windows/quick-create-portal.md). When following the steps in this document, you must use the following values for the Network configuration:
+Create an infrastructure as a service (IaaS) virtual machine into the same Azure virtual network and the same subnet. For instructions on creating a new IaaS virtual machine, see [Create a Virtual Machine Running Windows Server](/azure/virtual-machines/windows/quick-create-portal). When following the steps in this document, you must use the following values for the Network configuration:
 
 * **Virtual network**: CLUSTERNAME-vnet
 * **Subnet**: subnet1

@@ -6,7 +6,7 @@ ms.topic: tutorial
 author: guywi-ms
 ms.author: guywild
 ms.reviewer: ilanawaitser
-ms.date: 02/28/2023
+ms.date: 08/12/2024
 
 # Customer intent: As a data scientist, I want to run custom code on data in Azure Monitor Logs to gain insights without having to export data outside of Azure Monitor.
 
@@ -37,9 +37,9 @@ For an example of how to build a machine learning pipeline to analyze data in Az
 ## Prerequisites 
 For this tutorial, you need:
 
-- An [Azure Machine Learning workspace with a CPU compute instance](../../machine-learning/quickstart-create-resources.md) with:
+- An [Azure Machine Learning workspace with a CPU compute instance](/azure/machine-learning/quickstart-create-resources) with:
 
-    - [A notebook](../../machine-learning/quickstart-run-notebooks.md#start-with-notebooks). 
+    - [A notebook](/azure/machine-learning/quickstart-run-notebooks#start-with-notebooks). 
     - A kernel set to Python 3.8 or higher.
 
 - The following roles and permissions: 
@@ -49,7 +49,7 @@ For this tutorial, you need:
         - A resource group-level **Owner** or **Contributor** role, to create a new Azure Machine Learning workspace if needed. 
         - A **Contributor** role on the Azure Machine Learning workspace where you run your notebook.
         
-        For more information, see [Manage access to an Azure Machine Learning workspace](../../machine-learning/how-to-assign-roles.md). 
+        For more information, see [Manage access to an Azure Machine Learning workspace](/azure/machine-learning/how-to-assign-roles). 
 ## Tools and notebooks 
 
 In this tutorial, you use these tools:
@@ -262,5 +262,5 @@ Send your analysis results to a custom table in your Log Analytics workspace to 
 
 Learn more about how to: 
 
-- [Schedule a machine learning pipeline](../../machine-learning/how-to-schedule-pipeline-job.md).
+- [Schedule a machine learning pipeline](/azure/machine-learning/how-to-schedule-pipeline-job).
 - [Detect and analyze anomalies using KQL](../logs/kql-machine-learning-azure-monitor.md).

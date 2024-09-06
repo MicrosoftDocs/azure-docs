@@ -211,7 +211,7 @@ Here's an example procedure for checking DNS resolution:
 1. Run the [kubectl exec](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#exec) command to connect to the pod by using PowerShell:
 
    ```bash
-   kubectl exec -it dnsutil-win powershell
+   kubectl exec -it dnsutil-win -- powershell
    ```
 
 1. Run the [Resolve-DnsName](/powershell/module/dnsclient/resolve-dnsname) cmdlet in PowerShell to check whether the DNS resolution is working for the endpoint:

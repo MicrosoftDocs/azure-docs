@@ -5,7 +5,7 @@ author: maud-lv
 ms.author: malev
 ms.service: azure-managed-grafana
 ms.topic: how-to 
-ms.date: 03/01/2023
+ms.date: 08/09/2024
 ---
 
 # Share a Grafana dashboard or panel
@@ -72,9 +72,12 @@ The **Snapshot** tab lets you share an interactive dashboard or panel publicly. 
 > - Snapshots published on snapshots.raintank.io can be viewed by anyone who has the link.
 > - Users must have a Grafana Viewer permission to view snapshots shared locally.
 
+> [!TIP]
+> To disable public sharing of snapshots, open your Azure Managed Grafana instance within the Azure portal, then go to **Settings** > **Configuration**, open the **Grafana Settings (Preview)** tab, and turn off the **External Enabled** option.
+
 ### Create a library panel
 
-The **Library panel** tab lets you create a library panel that can be reused in other Grafana dashboards. Do this in a single step by selecting The **Create library panel** at the bottom of the tab. Optionally update the panel library name and select another folder to save it in.
+The **Library panel** tab lets you create a library panel that can be reused in other Grafana dashboards. Do this in a single step by selecting the **Create library panel** at the bottom of the tab. Optionally update the panel library name and select another folder to save it in.
 
 Once you've created a library panel, reuse it in other dashboards of the same Grafana instance by going to **Dashboards > New dashboard > Add panel from panel library**.
 

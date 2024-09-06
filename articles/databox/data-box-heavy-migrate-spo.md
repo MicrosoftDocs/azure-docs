@@ -75,7 +75,7 @@ After you receive confirmation from the Azure data team that your data copy has 
 
 For best performance and connectivity, we recommend that you create an Azure Virtual Machine (VM).
 
-1. Sign into the Azure portal, and then [Create a virtual machine](../virtual-machines/windows/quick-create-portal.md).
+1. Sign into the Azure portal, and then [Create a virtual machine](/azure/virtual-machines/windows/quick-create-portal).
 2. [Mount the Azure file share onto the VM](../storage/files/storage-how-to-use-files-windows.md#mount-the-azure-file-share-with-file-explorer).
 3. [Download the SharePoint Migration tool](https://spmtreleasescus.blob.core.windows.net/install/default.htm) and install it on your Azure VM.
 4. Start the SharePoint Migration Tool. Click **Sign in** and enter the username and password for your work or school account.

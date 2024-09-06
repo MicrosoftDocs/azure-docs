@@ -22,7 +22,7 @@ ms.author: wchi
     sing Azure.Identity;
     using Azure.Messaging.EventHubs;
 
-    // Uncomment the following lines according to the authentication type.
+    // Uncomment the following lines corresponding to the authentication type you want to use.
     // system-assigned managed identity
     // var credential = new DefaultAzureCredential();
     
@@ -64,7 +64,7 @@ ms.author: wchi
 1. Authenticate using `azure-identity` and get the Azure Event Hubs namespace from the environment variables added by Service Connector. When using the code below, uncomment the part of the code snippet for the authentication type you want to use.
 
     ```java
-    // Uncomment the following lines according to the authentication type.
+    // Uncomment the following lines corresponding to the authentication type you want to use.
     // for system-managed identity
     // DefaultAzureCredential credential = new DefaultAzureCredentialBuilder().build();
 
@@ -110,7 +110,7 @@ Refer to [Use Spring Kafka with Azure Event Hubs for Kafka API](/azure/developer
     from azure.eventhub import EventData
     from azure.eventhub.aio import EventHubProducerClient
 
-    # Uncomment the following lines according to the authentication type.
+    # Uncomment the following lines corresponding to the authentication type you want to use.
     # system-assigned managed identity
     # cred = ManagedIdentityCredential()
     
@@ -149,7 +149,7 @@ Refer to [Use Spring Kafka with Azure Event Hubs for Kafka API](/azure/developer
         "github.com/Azure/azure-sdk-for-go/sdk/azidentity"
         "github.com/Azure/azure-sdk-for-go/sdk/messaging/azeventhubs"
     )
-    // Uncomment the following lines according to the authentication type.
+    // Uncomment the following lines corresponding to the authentication type you want to use.
     // for system-assigned managed identity
     // cred, err := azidentity.NewDefaultAzureCredential(nil)
 
@@ -188,7 +188,7 @@ Refer to [Use Spring Kafka with Azure Event Hubs for Kafka API](/azure/developer
     const { EventHubProducerClient } = require("@azure/event-hubs");
     import { DefaultAzureCredential,ClientSecretCredential } from "@azure/identity";
 
-    // Uncomment the following lines according to the authentication type.
+    // Uncomment the following lines corresponding to the authentication type you want to use.
     // for system-assigned managed identity
     // const credential = new DefaultAzureCredential();
 

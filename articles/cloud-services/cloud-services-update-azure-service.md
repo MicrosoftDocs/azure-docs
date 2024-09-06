@@ -2,7 +2,7 @@
 title: How to update a cloud service (classic) | Microsoft Docs
 description: Learn how to update cloud services in Azure. Learn how an update on a cloud service proceeds to ensure availability.
 ms.topic: article
-ms.service: cloud-services
+ms.service: azure-cloud-services-classic
 ms.date: 07/24/2024
 author: hirenshah1
 ms.author: hirshah

@@ -70,7 +70,7 @@ The following tables list the data that can be collected by the Windows and Linu
 
 ## Data destinations
 
-The Azure Diagnostics extension for both Windows and Linux always collects data into an Azure Storage account. For a list of specific tables and blobs where this data is collected, see [Install and configure Azure Diagnostics extension for Windows](diagnostics-extension-windows-install.md) and [Use Azure Diagnostics extension for Linux to monitor metrics and logs](../../virtual-machines/extensions/diagnostics-linux.md).
+The Azure Diagnostics extension for both Windows and Linux always collects data into an Azure Storage account. For a list of specific tables and blobs where this data is collected, see [Install and configure Azure Diagnostics extension for Windows](diagnostics-extension-windows-install.md) and [Use Azure Diagnostics extension for Linux to monitor metrics and logs](/azure/virtual-machines/extensions/diagnostics-linux).
 
 Configure one or more *data sinks* to send data to other destinations. The following sections list the sinks available for the Windows and Linux diagnostics extension.
 
@@ -97,14 +97,14 @@ LAD writes data to tables in Azure Storage. It supports the sinks in the followi
 
 ## Installation and configuration
 
-The diagnostics extension is implemented as a [virtual machine extension](../../virtual-machines/extensions/overview.md) in Azure, so it supports the same installation options using Azure Resource Manager templates, PowerShell, and the Azure CLI. For information on installing and maintaining virtual machine extensions, see [Virtual machine extensions and features for Windows](../../virtual-machines/extensions/features-windows.md) and [Virtual machine extensions and features for Linux](../../virtual-machines/extensions/features-linux.md).
+The diagnostics extension is implemented as a [virtual machine extension](/azure/virtual-machines/extensions/overview) in Azure, so it supports the same installation options using Azure Resource Manager templates, PowerShell, and the Azure CLI. For information on installing and maintaining virtual machine extensions, see [Virtual machine extensions and features for Windows](/azure/virtual-machines/extensions/features-windows) and [Virtual machine extensions and features for Linux](/azure/virtual-machines/extensions/features-linux).
 
 You can also install and configure both the Windows and Linux diagnostics extension in the Azure portal under **Diagnostic settings** in the **Monitoring** section of the virtual machine's menu.
 
 See the following articles for information on installing and configuring the diagnostics extension for Windows and Linux:
 
 * [Install and configure Azure Diagnostics extension for Windows](diagnostics-extension-windows-install.md)
-* [Use Linux diagnostics extension to monitor metrics and logs](../../virtual-machines/extensions/diagnostics-linux.md)
+* [Use Linux diagnostics extension to monitor metrics and logs](/azure/virtual-machines/extensions/diagnostics-linux)
 
 ## Supported operating systems
 
@@ -169,7 +169,7 @@ See the following articles for more information.
 
 ### Azure Service Fabric
 
-[Monitor and diagnose services in a local machine development setup](../../service-fabric/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
+[Monitor and diagnose services in a local machine development setup](/azure/service-fabric/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally)
 
 ## Next steps
 

@@ -172,18 +172,20 @@ additionalContent:
       #card
       - title: Integrations - How-to-guide
         links:
-           - text: How to configure Microsoft 365 Exchange Online for SAP
-             url: ./workloads/exchange-online-integration-sap-email-outbound.md
-           - text: How to expose SAP Process Orchestration on Azure securely
-             url: ./workloads/expose-sap-process-orchestration-on-azure.md
-           - text: How to configure SAP printing with Microsoft Universal Print
-             url: ./workloads/universal-print-sap-frontend.md
+          - text: Enable SAP Principal Propagation and SSO for Power Platform
+            url: ./workloads/expose-sap-odata-to-power-platform.md
+          - text: How to configure M365 Exchange Online for SAP
+            url: ./workloads/exchange-online-integration-sap-email-outbound.md
+          - text: How to expose SAP Process Orchestration on Azure securely
+            url: ./workloads/expose-sap-process-orchestration-on-azure.md
+          - text: How to configure SAP printing with Microsoft Universal Print
+            url: ./workloads/universal-print-sap-frontend.md
       #card
       - title: Integrations - Quickstart
         links:
-           - text: Deploy an ERP extension using SAP's Cloud SDK on Azure in one click
-             url: https://github.com/Azure-Samples/app-service-javascript-sap-cloud-sdk-quickstart
-           - text: Use free developer accounts for SAP BTP, Microsoft 365 and Azure
-             url: ./workloads/integration-get-started.md#free-developer-accounts
-           - text: Use SAP ABAP platform and SAP BTP, ABAP environment to integrate with Microsoft
-             url: https://blogs.sap.com/2023/06/06/kick-start-your-sap-abap-platform-integration-journey-with-microsoft
+          - text: Deploy an ERP extension using SAP's Cloud SDK on Azure in one click
+            url: https://github.com/Azure-Samples/app-service-javascript-sap-cloud-sdk-quickstart
+          - text: Use free developer accounts for SAP BTP, M365 and Azure
+            url: ./workloads/integration-get-started.md#free-developer-accounts
+          - text: Use SAP ABAP platform and SAP BTP, ABAP environment to integrate with Microsoft
+            url: https://blogs.sap.com/2023/06/06/kick-start-your-sap-abap-platform-integration-journey-with-microsoft

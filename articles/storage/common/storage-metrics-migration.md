@@ -30,9 +30,7 @@ To transition to metrics in Azure Monitor, we recommend the following approach.
    > [!NOTE]
    > Metrics in Azure Monitor are enabled by default, so there is nothing you need to do to begin capturing metrics. You must however, create charts or dashboards to view those metrics.
 
-5. If you've created alert rules that are based on classic storage metrics, then [create alert rules](../../azure-monitor/alerts/alerts-overview.md) that are based on metrics in Azure Monitor.
-
-6. After you're able to see all of your metrics in Azure Monitor, you can turn off classic logging.
+1. If you've created alert rules that are based on classic storage metrics, then [create alert rules](../../azure-monitor/alerts/alerts-overview.md) that are based on metrics in Azure Monitor.
 
 <a id="key-differences-between-classic-metrics-and-metrics-in-azure-monitor"></a>
 

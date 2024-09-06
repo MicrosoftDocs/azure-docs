@@ -909,6 +909,18 @@ Starting from version 3.0.2, you can also set the self-diagnostics `level` by us
 
 Starting from version 3.0.3, you can also set the self-diagnostics file location by using the environment variable `APPLICATIONINSIGHTS_SELF_DIAGNOSTICS_FILE_PATH`. It then takes precedence over the self-diagnostics file path specified in the JSON configuration.
 
+## Telemetry correlation
+
+Telemetry correlation is enabled by default, but you may disable it in configuration.
+
+```json
+{
+  "preview": {
+    "disablePropagation": true
+  }
+}
+```
+
 ## An example
 
 This example shows what a configuration file looks like with multiple components. Configure specific options based on your needs.

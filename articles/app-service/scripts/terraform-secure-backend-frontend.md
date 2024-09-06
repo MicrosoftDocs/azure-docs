@@ -6,7 +6,7 @@ ms.assetid: 3e5d1bbd-5581-40cc-8f65-bc74f1802156
 ms.topic: sample
 ms.date: 12/06/2022
 ms.author: ericg
-ms.service: app-service
+ms.service: azure-app-service
 ms.custom: devx-track-terraform
 ---
 

@@ -6,7 +6,7 @@ ms.author: guywild
 ms.reviewer: ivankh
 ms.topic: tutorial
 ms.custom: devx-track-azurepowershell
-ms.date: 06/12/2023
+ms.date: 08/12/2024
 ---
 
 # Set up resources required to send data to Azure Monitor Logs using the Logs Ingestion API

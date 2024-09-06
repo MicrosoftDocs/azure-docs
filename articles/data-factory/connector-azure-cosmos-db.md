@@ -7,7 +7,7 @@ author: jianleishen
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 07/23/2024
+ms.date: 08/13/2024
 ---
 
 # Copy and transform data in Azure Cosmos DB for NoSQL by using Azure Data Factory
@@ -33,7 +33,7 @@ This Azure Cosmos DB for NoSQL connector is supported for the following capabili
 
 For Copy activity, this Azure Cosmos DB for NoSQL connector supports:
 
-- Copy data from and to the [Azure Cosmos DB for NoSQL](../cosmos-db/introduction.md) using key, service principal, or managed identities for Azure resources authentications.
+- Copy data from and to the [Azure Cosmos DB for NoSQL](/azure/cosmos-db/introduction) using key, service principal, or managed identities for Azure resources authentications.
 - Write to Azure Cosmos DB as **insert** or **upsert**.
 - Import and export JSON documents as-is, or copy data from or to a tabular dataset. Examples include a SQL database and a CSV file. To copy documents as-is to or from JSON files or to or from another Azure Cosmos DB collection, see [Import and export JSON documents](#import-and-export-json-documents).
 
@@ -146,7 +146,7 @@ To use service principal authentication, follow these steps.
     - Application key
     - Tenant ID
 
-2. Grant the service principal proper permission. See examples on how permission works in Azure Cosmos DB from [Access control lists on files and directories](../cosmos-db/how-to-setup-rbac.md). More specifically, create a role definition, and assign the role to the service principal via service principal object ID. 
+2. Grant the service principal proper permission. See examples on how permission works in Azure Cosmos DB from [Access control lists on files and directories](/azure/cosmos-db/how-to-setup-rbac). More specifically, create a role definition, and assign the role to the service principal via service principal object ID. 
 
 These properties are supported for the linked service:
 
@@ -230,7 +230,7 @@ To use system-assigned managed identities for Azure resource authentication, fol
 
 1. [Retrieve the system-assigned managed identity information](data-factory-service-identity.md#retrieve-managed-identity) by copying the value of the **managed identity object ID** generated along with your service.
 
-2. Grant the system-assigned managed identity proper permission. See examples on how permission works in Azure Cosmos DB from [Access control lists on files and directories](../cosmos-db/how-to-setup-rbac.md). More specifically, create a role definition, and assign the role to the system-assigned managed identity.
+2. Grant the system-assigned managed identity proper permission. See examples on how permission works in Azure Cosmos DB from [Access control lists on files and directories](/azure/cosmos-db/how-to-setup-rbac). More specifically, create a role definition, and assign the role to the system-assigned managed identity.
 
 These properties are supported for the linked service:
 
@@ -261,11 +261,14 @@ These properties are supported for the linked service:
 ```
 ### User-assigned managed identity authentication
 
+>[!NOTE]
+>Currently, user-assigned managed identity authentication is supported in data flows through the use of advanced properties in JSON format.
+
 A data factory or Synapse pipeline can be associated with a [user-assigned managed identities](data-factory-service-identity.md#user-assigned-managed-identity), which represents this specific service instance. You can directly use this managed identity for Azure Cosmos DB authentication, similar to using your own service principal. It allows this designated resource to access and copy data to or from your Azure Cosmos DB instance.
 
 To use user-assigned managed identities for Azure resource authentication, follow these steps.
 
-1. [Create one or multiple user-assigned managed identities](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md) and grant the user-assigned managed identity proper permission. See examples on how permission works in Azure Cosmos DB from [Access control lists on files and directories](../cosmos-db/how-to-setup-rbac.md). More specifically, create a role definition, and assign the role to the user-assigned managed identity.
+1. [Create one or multiple user-assigned managed identities](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md) and grant the user-assigned managed identity proper permission. See examples on how permission works in Azure Cosmos DB from [Access control lists on files and directories](/azure/cosmos-db/how-to-setup-rbac). More specifically, create a role definition, and assign the role to the user-assigned managed identity.
 
 2. Assign one or multiple user-assigned managed identities to your data factory and [create credentials](credentials.md) for each user-assigned managed identity.
 
@@ -475,7 +478,7 @@ Settings specific to Azure Cosmos DB are available in the **Source Options** tab
 
 **Preferred regions:** Choose the preferred read regions for this process.
 
-**Change feed:** If true, you will get data from [Azure Cosmos DB change feed](../cosmos-db/change-feed.md) which is a persistent record of changes to a container in the order they occur from last run automatically. When you set it true, do not set both **Infer drifted column types** and **Allow schema drift** as true at the same time. For more details, see [Azure Cosmos DB change feed)](#azure-cosmos-db-change-feed).
+**Change feed:** If true, you will get data from [Azure Cosmos DB change feed](/azure/cosmos-db/change-feed) which is a persistent record of changes to a container in the order they occur from last run automatically. When you set it true, do not set both **Infer drifted column types** and **Allow schema drift** as true at the same time. For more details, see [Azure Cosmos DB change feed)](#azure-cosmos-db-change-feed).
 
 **Start from beginning:** If true, you will get initial load of full snapshot data in the first run, followed by capturing changed data in next runs. If false, the initial load will be skipped in the first run, followed by capturing changed data in next runs. The setting is aligned with the same setting name in [Azure Cosmos DB reference](https://github.com/Azure/azure-cosmosdb-spark/wiki/Configuration-references#reading-cosmosdb-collection-change-feed). For more details, see [Azure Cosmos DB change feed](#azure-cosmos-db-change-feed).
 
@@ -522,11 +525,11 @@ To achieve schema-agnostic copy:
 
 ## Migrate from relational database to Azure Cosmos DB
 
-When migrating from a relational database e.g. SQL Server to Azure Cosmos DB, copy activity can easily map tabular data from source to flatten JSON documents in Azure Cosmos DB. In some cases, you may want to redesign the data model to optimize it for the NoSQL use-cases according to [Data modeling in Azure Cosmos DB](../cosmos-db/modeling-data.md), for example, to de-normalize the data by embedding all of the related sub-items within one JSON document. For such case, refer to [this article](../cosmos-db/migrate-relational-to-cosmos-db-sql-api.md) with a walk-through on how to achieve it using the copy activity.
+When migrating from a relational database e.g. SQL Server to Azure Cosmos DB, copy activity can easily map tabular data from source to flatten JSON documents in Azure Cosmos DB. In some cases, you may want to redesign the data model to optimize it for the NoSQL use-cases according to [Data modeling in Azure Cosmos DB](/azure/cosmos-db/modeling-data), for example, to de-normalize the data by embedding all of the related sub-items within one JSON document. For such case, refer to [this article](/azure/cosmos-db/migrate-relational-to-cosmos-db-sql-api) with a walk-through on how to achieve it using the copy activity.
 
 ## Azure Cosmos DB change feed 
 
-Azure Data Factory can get data from [Azure Cosmos DB change feed](../cosmos-db/change-feed.md) by enabling it in the mapping data flow source transformation. With this connector option, you can read change feeds and apply transformations before loading transformed data into destination datasets of your choice. You do not have to use Azure functions to read the change feed and then write custom transformations. You can use this option to move data from one container to another, prepare change feed driven material views for fit purpose or automate container backup or recovery based on change feed, and enable many more such use cases using visual drag and drop capability of Azure Data Factory.
+Azure Data Factory can get data from [Azure Cosmos DB change feed](/azure/cosmos-db/change-feed) by enabling it in the mapping data flow source transformation. With this connector option, you can read change feeds and apply transformations before loading transformed data into destination datasets of your choice. You do not have to use Azure functions to read the change feed and then write custom transformations. You can use this option to move data from one container to another, prepare change feed driven material views for fit purpose or automate container backup or recovery based on change feed, and enable many more such use cases using visual drag and drop capability of Azure Data Factory.
 
 Make sure you keep the pipeline and activity name unchanged, so that the checkpoint can be recorded by ADF for you to get changed data from the last run automatically. If you change your pipeline name or activity name, the checkpoint will be reset, which leads you to start from beginning or get changes from now in the next run.
 

@@ -14,7 +14,7 @@ ms.author: midesa
 
 Azure Machine Learning is a cloud-based environment that allows you to train, deploy, automate, manage, and track machine learning models. 
 
-In this tutorial, you use [automated machine learning](../../machine-learning/concept-automated-ml.md) in Azure Machine Learning to create a regression model to predict taxi fare prices. This process arrives at the best model by accepting training data and configuration settings, and automatically iterating through combinations of different methods, models, and hyperparameter settings.
+In this tutorial, you use [automated machine learning](/azure/machine-learning/concept-automated-ml) in Azure Machine Learning to create a regression model to predict taxi fare prices. This process arrives at the best model by accepting training data and configuration settings, and automatically iterating through combinations of different methods, models, and hyperparameter settings.
 
 In this tutorial, you learn how to:
 - Download the data by using Apache Spark and Azure Open Datasets.
@@ -25,7 +25,7 @@ In this tutorial, you learn how to:
 ## Before you begin
 
 - Create a serverless Apache Spark 2.4 pool by following the [Create a serverless Apache Spark pool](../quickstart-create-apache-spark-pool-studio.md) quickstart.
-- Complete the [Azure Machine Learning workspace setup](../../machine-learning/quickstart-create-resources.md) tutorial if you don't have an existing Azure Machine Learning workspace. 
+- Complete the [Azure Machine Learning workspace setup](/azure/machine-learning/quickstart-create-resources) tutorial if you don't have an existing Azure Machine Learning workspace. 
 
 > [!WARNING]
 > - Effective September 29, 2023, Azure Synapse will discontinue official support for [Spark 2.4 Runtimes](../spark/apache-spark-24-runtime.md). Post September 29, 2023, we will not be addressing any support tickets related to Spark 2.4. There will be no release pipeline in place for bug or security fixes for Spark 2.4. Utilizing Spark 2.4 post the support cutoff date is undertaken at one's own risk. We strongly discourage its continued use due to potential security and functionality concerns.
@@ -168,7 +168,7 @@ dataset_training = Dataset.Tabular.from_delimited_files(path = [(datastore, 'tra
 The following sections walk you through the process of submitting an automated machine learning experiment.
 
 ### Define training settings
-1. To submit an experiment, you need to define the experiment parameter and model settings for training. For the full list of settings, see [Configure automated machine learning experiments in Python](../../machine-learning/how-to-configure-auto-train.md).
+1. To submit an experiment, you need to define the experiment parameter and model settings for training. For the full list of settings, see [Configure automated machine learning experiments in Python](/azure/machine-learning/how-to-configure-auto-train).
 
    ```python
    import logging

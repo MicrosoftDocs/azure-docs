@@ -15,16 +15,14 @@ This article covers configuration settings for the Azure Monitor OpenTelemetry d
 
 ## Connection string
 
-A connection string in Application Insights defines the target location for sending telemetry data, ensuring it reaches the appropriate resource for monitoring and analysis.
-
+A connection string in Application Insights defines the target location for sending telemetry data.
 ### [ASP.NET Core](#tab/aspnetcore)
 
 Use one of the following three ways to configure the connection string:
 
-- Add `UseAzureMonitor()` to your application startup, in your `program.cs` class.
+- Add `UseAzureMonitor()` to your `program.cs` file:
 
     ```csharp
-    // Create a new ASP.NET Core web application builder.    
     var builder = WebApplication.CreateBuilder(args);
 
     // Add the OpenTelemetry telemetry service to the application.
@@ -33,10 +31,8 @@ Use one of the following three ways to configure the connection string:
         options.ConnectionString = "<Your Connection String>";
     });
 
-    // Build the ASP.NET Core web application.
     var app = builder.Build();
 
-    // Start the ASP.NET Core web application.    
     app.Run();
     ```
 

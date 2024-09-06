@@ -285,6 +285,9 @@
   - name: Safe deployment of Azure Policy assignments
     displayName: policy, assignments, sdp
     href: ./how-to/policy-safe-deployment-practices.md
+  - name: Migrate from Automanage
+    displayName: migration, automanage best practices
+    href: ./how-to/migrate-from-automanage-best-practices.md
   - name: Azure Policy extension for VS Code
     displayName: visual studio code
     href: ./how-to/extension-for-vscode.md

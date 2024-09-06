@@ -19,7 +19,7 @@ In this article, you learn to create a custom API for HTTP [health probes](load-
 
 -  An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) and access to the Azure portal.
 - An existing standard SKU Azure Load Balancer. For more information on creating a load balancer, see [Create a public load balancer using the Azure portal](quickstart-load-balancer-standard-public-portal.md).
-- An Azure Virtual Machine running linux in the backend pool of the Azure Load Balancer, see [Create a virtual machine using the Azure portal](../virtual-machines/linux/quick-create-portal.md).
+- An Azure Virtual Machine running linux in the backend pool of the Azure Load Balancer, see [Create a virtual machine using the Azure portal](/azure/virtual-machines/linux/quick-create-portal).
 - Linux virtual machine has *python3*, *pip* and the following packages installed:
     - *flask*
     - *flask_restful*

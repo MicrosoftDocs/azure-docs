@@ -451,17 +451,8 @@ Use the Azure portal, PowerShell, or the Azure CLI to delete the resource group.
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Storage hierarchy of Azure NetApp Files](azure-netapp-files-understand-storage-hierarchy.md)
-
-> [!div class="nextstepaction"]
-> [Service levels for Azure NetApp Files](azure-netapp-files-service-levels.md)
-
-> [!div class="nextstepaction"]
-> [Create an NFS volume](azure-netapp-files-create-volumes.md)
-
-> [!div class="nextstepaction"]
-> [Solution architectures using Azure NetApp Files](azure-netapp-files-solution-architectures.md)
-
-> [!div class="nextstepaction"]
-> [Application resilience FAQs for Azure NetApp Files](faq-application-resilience.md)
+- [Storage hierarchy of Azure NetApp Files](azure-netapp-files-understand-storage-hierarchy.md)
+- [Service levels for Azure NetApp Files](azure-netapp-files-service-levels.md)
+- [Create an NFS volume](azure-netapp-files-create-volumes.md)
+- [Solution architectures using Azure NetApp Files](azure-netapp-files-solution-architectures.md)
+- [Application resilience FAQs for Azure NetApp Files](faq-application-resilience.md)

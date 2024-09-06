@@ -3,7 +3,7 @@ title: Deploy blob storage on module to your device
 description: Deploy and configure an Azure Blob Storage module to your IoT Edge device and store data at the edge.
 author: PatAltimore
 ms.author: patricka
-ms.date: 03/18/2024
+ms.date: 08/12/2024
 ms.topic: conceptual
 ms.service: iot-edge
 ms.reviewer: arduppal
@@ -251,7 +251,7 @@ Azure IoT Edge provides templates in Visual Studio Code to help you develop edge
 
 1. Right-click **deployment.template.json** and select **Generate IoT Edge deployment manifest**.
 
-1. Visual Studio Code takes the information that you provided in *deployment.template.json* and uses it to create a new deployment manifest file. The deployment manifest is created in a new **config** folder in your solution workspace. Once you have that file, you can follow the steps in [Deploy Azure IoT Edge modules from Visual Studio Code](how-to-deploy-modules-vscode.md) or [Deploy Azure IoT Edge modules with Azure CLI 2.0](how-to-deploy-modules-cli.md).
+1. Visual Studio Code takes the information that you provided in *deployment.template.json* and uses it to create a new deployment manifest file. The deployment manifest is created in a new **config** folder in your solution workspace. Once you have that file, you can follow the steps in [Deploy Azure IoT Edge modules with Azure CLI 2.0](how-to-deploy-modules-cli.md).
 
 ## Deploy multiple module instances
 

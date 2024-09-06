@@ -12,7 +12,7 @@ ms.custom: mvc, devx-track-azurepowershell
 ---
 # Route web traffic based on the URL using Azure PowerShell
 
-You can use Azure PowerShell to configure web traffic routing to specific scalable server pools based on the URL that is used to access your application. In this article, you create an [Azure Application Gateway](./overview.md) with three backend pools using [Virtual Machine Scale Sets](../virtual-machine-scale-sets/overview.md). Each of the backend pools serves a specific purpose such as, common data, images, and video.  Routing traffic to separate pools ensures that your customers get the information that they need when they need it.
+You can use Azure PowerShell to configure web traffic routing to specific scalable server pools based on the URL that is used to access your application. In this article, you create an [Azure Application Gateway](./overview.md) with three backend pools using [Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/overview). Each of the backend pools serves a specific purpose such as, common data, images, and video.  Routing traffic to separate pools ensures that your customers get the information that they need when they need it.
 
 To enable traffic routing, you create [routing rules](./url-route-overview.md) assigned to listeners that listen on specific ports to ensure web traffic arrives at the appropriate servers in the pools.
 

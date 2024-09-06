@@ -1,11 +1,11 @@
 ---
 title: Azure Virtual Desktop (classic) tenant host pool creation - Azure
 description: How to troubleshoot and resolve tenant and host pool issues during setup of an Azure Virtual Desktop (classic) tenant environment.
-author: Heidilohr
+author: dknappettmsft
 ms.topic: troubleshooting
-ms.custom: devx-track-arm-template
+ms.custom: devx-track-arm-template, docs_inherited
 ms.date: 03/30/2020
-ms.author: helohr
+ms.author: daknappe
 ---
 # Tenant and host pool creation in Azure Virtual Desktop (classic)
 
@@ -370,7 +370,7 @@ New-RdsRoleAssignment -TenantName <Azure Virtual Desktop tenant name> -RoleDefin
 
 ### Error: User requires Microsoft Entra multifactor authentication (MFA)
 
-:::image type="content" source="../media/MFA-Required-Error-inline.png" alt-text="Screenshot of your deployment failed due to lack of multifactor authentication (MFA)." lightbox="../media/MFA-Required-Error-expanded.png":::
+:::image type="content" source="../media/MFA-Required-Error-expanded.png" alt-text="Screenshot of your deployment failed due to lack of multifactor authentication (MFA)." lightbox="../media/MFA-Required-Error-expanded.png":::
 
 Example of raw error:
 

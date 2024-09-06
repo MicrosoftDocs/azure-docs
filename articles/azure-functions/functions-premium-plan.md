@@ -249,11 +249,12 @@ These are the currently supported maximum scale-out values for a single plan in 
 |Canada Central| 100 | 100 |
 |Central India| 100 | 20 |
 |Central US| 100 | 100 |
-|China East 2| 100 | 20 |
-|China North 2| 100 | 20 |
+|China East 2| 20 | 20 |
+|China North 2| 20 | 20 |
+|China North 3| 20 | 20 |
 |East Asia| 100 | 20 |
 |East US | 100 | 100 |
-|East US 2| 100 | 100 |
+|East US 2| 80 | 100 |
 |France Central| 100 | 60 |
 |Germany West Central| 100 | 20 |
 |Israel Central| 100 | 20 |
@@ -278,9 +279,9 @@ These are the currently supported maximum scale-out values for a single plan in 
 |UAE North| 100 | 20 |
 |UK South| 100 | 100 |
 |UK West| 100 | 20 |
-|USGov Arizona| 100 | 20 |
-|USGov Texas| 100 | Not Available |
-|USGov Virginia| 100 | 20 |
+|USGov Arizona| 20 | 20 |
+|USGov Texas| 20 | Not Available |
+|USGov Virginia| 80 | 20 |
 |West Central US| 100 | 20 |
 |West Europe| 100 | 100 |
 |West India| 100 | 20 |

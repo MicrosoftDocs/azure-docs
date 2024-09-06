@@ -51,4 +51,4 @@ You can enhance the performance of Oracle dNFS with the Azure NetApp Files servi
 ## Next steps
 
 - [Solution architectures using Azure NetApp Files](azure-netapp-files-solution-architectures.md)
-- [Overview of Oracle Applications and solutions on Azure](../virtual-machines/workloads/oracle/oracle-overview.md)
+- [Overview of Oracle Applications and solutions on Azure](/azure/virtual-machines/workloads/oracle/oracle-overview)

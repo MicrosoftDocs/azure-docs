@@ -7,7 +7,7 @@ ms.date: 06/30/2024
 author: cephalin
 ms.author: cephalin
 ms.devlang: csharp
-ms.service: app-service
+ms.service: azure-app-service
 ms.custom: devx-track-csharp, mvc, cli-validate, devdivchpfy22, service-connector, devx-track-dotnet, AppServiceConnectivity
 zone_pivot_groups: app-service-portal-azd
 ms.collection: ce-skilling-ai-copilot

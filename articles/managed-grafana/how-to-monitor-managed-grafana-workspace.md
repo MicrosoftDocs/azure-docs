@@ -37,10 +37,10 @@ You can create up to five different diagnostic settings to send different logs t
 1. For **Diagnostic setting name**, enter a unique name.
 
 1. Select **allLogs** from the following options:
-   - **audit** streams all audit logs
+   - **audit** streams all audit logs (Currently not supported. Please see the following link for additional information about the types of logs available for the Microsoft.Dashboard/grafana resource type: [Supported logs for Microsoft.Dashboard/grafana](/azure/azure-monitor/reference/supported-logs/microsoft-dashboard-grafana-logs)).
    - **allLogs** streams all logs
    - **Grafana Login Events** streams all Grafana login events
-   - **AllMetrics** streams all metrics
+   - **AllMetrics** streams all metrics (Currently not supported. Please see the following link for additional information about metrics available for the Microsoft.Dashboard/grafana resource type: [Supported metrics for Microsoft.Dashboard/grafana](/azure/azure-monitor/reference/supported-metrics/microsoft-dashboard-grafana-metrics)).
 
 1. Under **Destination details**, select one or more destinations, fill out details and select **Save**.
 

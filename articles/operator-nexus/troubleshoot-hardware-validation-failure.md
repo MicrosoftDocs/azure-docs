@@ -47,7 +47,7 @@ Expanding `result_detail` for a given category shows detailed results.
 
 ### System info category
 
-* Memory/RAM Related Failure (memory_capacity_GB)
+* Memory/RAM Related Failure (memory_capacity_GB) (measured in GiB)
     * Memory specs are defined in the SKU. Memory below threshold value indicates missing or failed Dual In-Line Memory Module (DIMM). A failed DIMM would also be reflected in the `health_info` category. The following example shows a failed memory check.
 
     ```json

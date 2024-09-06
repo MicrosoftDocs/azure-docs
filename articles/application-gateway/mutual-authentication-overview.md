@@ -114,7 +114,7 @@ Azure portal support is currently not available.
 
 ---
 
-To verify OCSP revocation status has been evaluated for the client request, [access logs](./application-gateway-diagnostics.md#access-log) will contain a property called "sslClientVerify", with the status of the OCSP response.
+To verify OCSP revocation status has been evaluated for the client request, [access logs](monitor-application-gateway-reference.md#access-log-category) will contain a property called "sslClientVerify", with the status of the OCSP response.
 
 It is critical that the OCSP responder is highly available and network connectivity between Application Gateway and the responder is possible. In the event Application Gateway is unable to resolve the fully qualified domain name (FQDN) of the defined responder or network connectivity is blocked to/from the responder, certificate revocation status will fail and Application Gateway will return a 400 HTTP response to the requesting client.
 

@@ -854,6 +854,10 @@ When you add Application Insights Telemetry to a Visual Studio ASP.NET Core temp
             }
     ```
 
+### How can I disable telemetry correlation?
+
+To disable telemetry correlation in code, see `<ExcludeComponentCorrelationHttpHeadersOnDomains>` in [Application Insights for console applications](/previous-versions/azure/azure-monitor/app/console).
+
 ## Troubleshooting
 
 See the dedicated [troubleshooting article](/troubleshoot/azure/azure-monitor/app-insights/asp-net-troubleshoot-no-data).

@@ -68,6 +68,8 @@ landingContent:
             url: tutorial-mpe-oss-prometheus.md
           - text: Call Grafana APIs programmatically
             url: how-to-api-calls.md
+          - text: Grafana settings
+            url: grafana-settings.md
 
   - title: Set up Grafana monitoring
     linkLists:
