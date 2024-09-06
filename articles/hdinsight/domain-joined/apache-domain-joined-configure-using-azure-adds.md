@@ -9,9 +9,9 @@ ms.date: 09/06/2024
 
 # Configure HDInsight clusters for Microsoft Entra integration with Enterprise Security Package
 
-This article provides a summary and overview of the process of creating and configuring an HDInsight cluster integrated with Microsoft Entra ID. This integration relies on a HDInsight feature called Enterprise Security Package (ESP), Microsoft Entra Domain Services and your pre-existing on-premises Active Directory.
+This article provides a summary and overview of the process of creating and configuring an HDInsight cluster integrated with Microsoft Entra ID. This integration relies on a HDInsight feature called Enterprise Security Package (ESP), Microsoft Entra Domain Services and your preexisting on-premises Active Directory.
 
-For a detailed, step-by-step tutorial on setting up and configuring a domain in Azure and creating an ESP enabled cluster and then syncing on-premises users, see [Create and configure Enterprise Security Package clusters in Azure HDInsight](apache-domain-joined-create-configure-enterprise-security-cluster.md).
+For a detailed, step-by-step tutorial on setting up and configuring a domain in Azure and creating an ESP enabled cluster and then syncing on-premises users, see [Create, and configure Enterprise Security Package clusters in Azure HDInsight](apache-domain-joined-create-configure-enterprise-security-cluster.md).
 
 ## Background
 
@@ -30,7 +30,7 @@ There are a few prerequisites to complete before you can create an ESP-enabled H
 - Create and authorize a managed identity.
 - Complete Networking setup for DNS and related issues.
 
-Each of these items are discussed in details. For a walkthrough of completing all of these steps, see [Create and configure Enterprise Security Package clusters in Azure HDInsight](apache-domain-joined-create-configure-enterprise-security-cluster.md).
+Each of this item is discussed in details. For a walkthrough of completing all of these steps, see [Create and configure Enterprise Security Package clusters in Azure HDInsight](apache-domain-joined-create-configure-enterprise-security-cluster.md).
 
 <a name='enable-azure-ad-ds'></a>
 
@@ -66,7 +66,7 @@ New-SelfSignedCertificate -Subject contoso100.onmicrosoft.com `
 
 ### Check Microsoft Entra Domain Services health status
 
-View the health status of Microsoft Entra Domain Services by selecting **Health** in the **Manage** category. Make sure the status of Microsoft Entra Domain Services is green (running) and the synchronization is complete.
+View the health status of Microsoft Entra Domain Services by selecting `Health` in the `Manage` category. Make sure the status of Microsoft Entra Domain Services is green (running) and the synchronization is complete.
 
 :::image type="content" source="./media/apache-domain-joined-configure-using-azure-adds/hdinsight-aadds-health.png" alt-text="Microsoft Entra Domain Services health." border="true":::
 
@@ -95,7 +95,7 @@ For example, the Microsoft Entra Domain Services admin can assign this role to t
 > [!NOTE]  
 > Microsoft Entra Domain Services must be deployed in an Azure Resource Manager-based virtual network. Classic virtual networks are not supported for Microsoft Entra Domain Services. For more information, see [Enable Microsoft Entra Domain Services by using the Azure portal](../../active-directory-domain-services/tutorial-create-instance-advanced.md#create-and-configure-the-virtual-network).
 
-Enable Microsoft Entra Domain Services. Then a local Domain Name System (DNS) server runs on the Active Directory virtual machines (VMs). Configure your Microsoft Entra Domain Services virtual network to use these custom DNS servers. To locate the right IP addresses, select **Properties** in the **Manage** category and look under **IP ADDRESS ON VIRTUAL NETWORK**.
+Enable Microsoft Entra Domain Services. Then a local Domain Name System (DNS) server runs on the Active Directory virtual machines (VMs). Configure your Microsoft Entra Domain Services virtual network to use these custom DNS servers. To locate the right IP addresses, select `Properties` in the `Manage` category and look under **IP ADDRESS ON VIRTUAL NETWORK**.
 
 :::image type="content" source="./media/apache-domain-joined-configure-using-azure-adds/hdinsight-aadds-dns1.png" alt-text="Locate IP addresses for local DNS servers." border="true":::
 
@@ -105,7 +105,7 @@ Change the configuration of the DNS servers in the Microsoft Entra Domain Servic
 
 It's easier to place both the Microsoft Entra Domain Services instance and the HDInsight cluster in the same Azure virtual network. If you plan to use different virtual networks, you must peer those virtual networks so that the domain controller is visible to HDInsight VMs. For more information, see [Virtual network peering](../../virtual-network/virtual-network-peering-overview.md).
 
-After the virtual networks are peered, configure the HDInsight virtual network to use a custom DNS server. And enter the Microsoft Entra Domain Services private IPs as the DNS server addresses. When both virtual networks use the same DNS servers, your custom domain name resolves to the right IP and it is reachable from HDInsight. For example, if your domain name is `contoso.com`, then after this step, `ping contoso.com` should resolve to the right Microsoft Entra Domain Services IP.
+After the virtual networks are peered, configure the HDInsight virtual network to use a custom DNS server. And enter the Microsoft Entra Domain Services private IPs as the DNS server addresses. When both virtual networks use the same DNS servers, your custom domain name resolves to the right IP and it's reachable from HDInsight. For example, if your domain name is `contoso.com`, then after this step, `ping contoso.com` should resolve to the right Microsoft Entra Domain Services IP.
 
 :::image type="content" source="./media/apache-domain-joined-configure-using-azure-adds/hdinsight-aadds-peered-vnet-configuration.png" alt-text="Configuring custom DNS servers for a peered virtual network." border="true":::
 

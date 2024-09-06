@@ -80,7 +80,7 @@ namespace mapper
 }
 ```
 
-After you create the application, build it to produce the */bin/Debug/mapper.exe* file in the project directory.
+After you create the application, build it to produce the `/bin/Debug/mapper.exe` file in the project directory.
 
 ## Create the reducer
 
@@ -133,7 +133,7 @@ namespace reducer
 }
 ```
 
-After you create the application, build it to produce the */bin/Debug/reducer.exe* file in the project directory.
+After you create the application, build it to produce the `/bin/Debug/reducer.exe` file in the project directory.
 
 ## Upload to storage
 
@@ -157,7 +157,7 @@ Next, you need to upload the *mapper* and *reducer* applications to HDInsight st
 
         :::image type="content" source="./media/apache-hadoop-dotnet-csharp-mapreduce-streaming/hdinsight-upload-icon.png" alt-text="HDInsight upload icon for mapper, Visual Studio." border="true":::
 
-        In the **Upload New File** dialog box, under **File name**, select **Browse**. In the **Upload Blob** dialog box, go to the *bin\debug* folder for the *mapper* project, and then choose the *mapper.exe* file. Finally, select **Open** and then **OK** to complete the upload.
+        In the **Upload New File** dialog box, under **File name**, select **Browse**. In the **Upload Blob** dialog box, go to the `bin\debug` folder for the *mapper* project, and then choose the *mapper.exe* file. Finally, select **Open** and then **OK** to complete the upload.
 
     * For **Azure Data Lake Storage**, right-click an empty area in the file listing, and then select **Upload**. Finally, select the *mapper.exe* file and then select **Open**.
 
@@ -243,7 +243,7 @@ The following procedure describes how to run a MapReduce job using an SSH sessio
 
 Use the following PowerShell script to run a MapReduce job and download the results.
 
-[!code-powershell[main](../../../powershell_scripts/hdinsight/use-csharp-mapreduce/use-csharp-mapreduce.ps1?range=5-87)]
+[!Code-powershell[main](../../../powershell_scripts/hdinsight/use-csharp-mapreduce/use-csharp-mapreduce.ps1?range=5-87)]
 
 This script prompts you for the cluster login account name and password, along with the HDInsight cluster name. Once the job completes, the output is downloaded to a file named *output.txt*. The following text is an example of the data in the `output.txt` file:
 
