@@ -4,7 +4,7 @@ description: This article provides an overview of rewriting HTTP headers and URL
 author: greg-lindsay
 ms.service: azure-application-gateway
 ms.topic: conceptual
-ms.date: 09/13/2022
+ms.date: 09/06/2024
 ms.author: greglin
 ---
 
@@ -25,8 +25,7 @@ Application Gateway allows you to add, remove, or update HTTP request and respon
 
 To learn how to rewrite request and response headers with Application Gateway using Azure portal, see [here](rewrite-http-headers-portal.md).
 
-![img](./media/rewrite-http-headers-url/header-rewrite-overview.png)
-
+![A diagram showing headers in request and response packets.](./media/rewrite-http-headers-url/header-rewrite-overview.png)
 
 **Supported headers**
 
@@ -49,7 +48,7 @@ To learn how to rewrite URL with Application Gateway using Azure portal, see [he
 
 ## Rewrite actions
 
-You use rewrite actions to specify the URL, request headers or response headers that you want to rewrite and the new value to which you intend to rewrite them to. The value of a URL or a new or existing header can be set to these types of values:
+Rewrite actions are used to specify the URL. Request headers or response headers that you want to rewrite and the new URL destination value. The value of a URL or a new or existing header can be set to the following types of values:
 
 * Text
 * Request header. To specify a request header, you need to use the syntax {http_req_*headerName*}
@@ -70,7 +69,7 @@ You can use a condition to evaluate whether a specified variable is present, whe
 
 ### Pattern Matching 
 
-Application Gateway uses regular expressions for pattern matching in the condition. You should use Regular Expression 2 (RE2) compatible expressions when writing your conditions. If you are running an Application Gateway Web Application Firewall (WAF) with Core Rule Set 3.1 or earlier, you may run into issues when using [Perl Compatible Regular Expressions (PCRE)](https://www.pcre.org/) while doing lookahead and lookbehind (negative or positive) assertions.
+Application Gateway uses regular expressions for pattern matching in the condition. You should use Regular Expression 2 (RE2) compatible expressions when writing your conditions. If you're running an Application Gateway Web Application Firewall (WAF) with Core Rule Set 3.1 or earlier, you may run into issues when using [Perl Compatible Regular Expressions (PCRE)](https://www.pcre.org/) while doing lookahead and lookbehind (negative or positive) assertions.
 
 
 ### Capturing
@@ -84,7 +83,7 @@ To capture a substring for later use, put parentheses around the subpattern that
 * (\d)+ # Match a digit one or more times, capturing the last into group 1
 
 > [!Note]
-> Use of */* to prefix and suffix the pattern should not be specified in the pattern to match value. For example, (\d)(\d) will match two digits. /(\d)(\d)/ won't match two digits.
+> Use of */* to prefix and suffix the pattern shouldn't be specified in the pattern to match value. For example, (\d)(\d) will match two digits. /(\d)(\d)/ won't match two digits.
 
 Once captured, you can reference them in the action set using the following format:
 
@@ -95,7 +94,7 @@ Once captured, you can reference them in the action set using the following form
 > [!Note]
 > The case of the condition variable needs to match case of the capture variable.  For example, if my condition variable is User-Agent, my capture variable must be for User-Agent (i.e. {http_req_User-Agent_2}).  If my condition variable is defined as user-agent, my capture variable must be for user-agent (i.e. {http_req_user-agent_2}).
 
-If you want to use the whole value, you should not mention the number. Simply use the format {http_req_headerName}, etc. without the groupNumber.
+If you want to use the whole value, you shouldn't mention the number. Simply use the format {http_req_headerName}, etc. without the groupNumber.
 
 ## Server variables
 
@@ -157,15 +156,15 @@ A rewrite rule set contains:
    * Rewriting request headers 
    * Rewriting response headers
    * Rewriting URL components
-      * **URL path**: The value to which the path is to be rewritten to. 
-      * **URL Query String**: The value to which the query string is to be rewritten to. 
-      * **Re-evaluate path map**: Used to determine whether the URL path map is to be reevaluated or not. If kept unchecked, the original URL path will be used to match the path-pattern in the URL path map. If set to true, the URL path map will be reevaluated to check the match with the rewritten path. Enabling this switch helps in routing the request to a different backend pool post rewrite.
+      * **URL path**: The value to which the path is to be rewritten. 
+      * **URL Query String**: The value to which the query string is to be rewritten. 
+      * **Reevaluate path map**: Used to determine whether the URL path map is to be reevaluated or not. If kept unchecked, the original URL path will be used to match the path-pattern in the URL path map. If set to true, the URL path map will be reevaluated to check the match with the rewritten path. Enabling this switch helps in routing the request to a different backend pool post rewrite.
 
 ## Rewrite configuration common pitfalls
 
-* Enabling 'Re-evaluate path map' isn't allowed for basic request routing rules. This is to prevent infinite evaluation loop for a basic routing rule.
+* Enabling 'Reevaluate path map' isn't allowed for basic request routing rules. This is to prevent infinite evaluation loop for a basic routing rule.
 
-* There needs to be at least 1 conditional rewrite rule or 1 rewrite rule which doesn't have 'Re-evaluate path map' enabled for path-based routing rules to prevent infinite evaluation loop for a path-based routing rule.
+* There needs to be at least 1 conditional rewrite rule or 1 rewrite rule which doesn't have 'Reevaluate path map' enabled for path-based routing rules to prevent infinite evaluation loop for a path-based routing rule.
 
 * Incoming requests would be terminated with a 500 error code in case a loop is created dynamically based on client inputs. The Application Gateway will continue to serve other requests without any degradation in such a scenario.
 
@@ -183,7 +182,7 @@ Here, with only header rewrite configured, the WAF evaluation will be done on `"
 
 Application Gateway inserts an X-Forwarded-For header into all requests before it forwards the requests to the backend. This header is a comma-separated list of IP ports. There might be scenarios in which the backend servers only need the headers to contain IP addresses. You can use header rewrite to remove the port information from the X-Forwarded-For header. One way to do this is to set the header to the add_x_forwarded_for_proxy server variable. Alternatively, you can also use the variable client_ip:
 
-![Remove port](./media/rewrite-http-headers-url/remove-port.png)
+![A screenshot showing a remove port action.](./media/rewrite-http-headers-url/remove-port.png)
 
 
 #### Modify a redirection URL
@@ -204,27 +203,27 @@ Here are the steps for replacing the hostname:
 1. Create a rewrite rule with a condition that evaluates if the location header in the response contains azurewebsites.net. Enter the pattern `(https?):\/\/.*azurewebsites\.net(.*)$`.
 2. Perform an action to rewrite the location header so that it has the application gateway's hostname. Do this by entering `{http_resp_Location_1}://contoso.com{http_resp_Location_2}` as the header value. Alternatively, you can also use the server variable `host` to set the hostname to match the original request.
 
-![Modify location header](./media/rewrite-http-headers-url/app-service-redirection.png)
+![A screenshow of the modify location header action.](./media/rewrite-http-headers-url/app-service-redirection.png)
 
 #### Implement security HTTP headers to prevent vulnerabilities
 
 You can fix several security vulnerabilities by implementing necessary headers in the application response. These security headers include X-XSS-Protection, Strict-Transport-Security, and Content-Security-Policy. You can use Application Gateway to set these headers for all responses.
 
-![Security header](./media/rewrite-http-headers-url/security-header.png)
+![A screenshow of a security header.](./media/rewrite-http-headers-url/security-header.png)
 
 ### Delete unwanted headers
 
 You might want to remove headers that reveal sensitive information from an HTTP response. For example, you might want to remove information like the backend server name, operating system, or library details. You can use the application gateway to remove these headers:
 
-![Deleting header](./media/rewrite-http-headers-url/remove-headers.png)
+![A screenshot showing the delete header action.](./media/rewrite-http-headers-url/remove-headers.png)
 
-It is not possible to create a rewrite rule to delete the host header. If you attempt to create a rewrite rule with the action type set to delete and the header set to host, it will result in an error.
+It isn't possible to create a rewrite rule to delete the host header. If you attempt to create a rewrite rule with the action type set to delete and the header set to host, it results in an error.
 
 #### Check for the presence of a header
 
 You can evaluate an HTTP request or response header for the presence of a header or server variable. This evaluation is useful when you want to perform a header rewrite only when a certain header is present.
 
-![Checking presence of a header](./media/rewrite-http-headers-url/check-presence.png)
+![A screenshow showing the check presence of a header action.](./media/rewrite-http-headers-url/check-presence.png)
 
 ### Common scenarios for URL rewrite
 
@@ -238,11 +237,11 @@ To accomplish scenarios where you want to choose the backend pool based on the v
 
 **Step 2 (a):** Create a rewrite set which has 3 rewrite rules: 
 
-* The first rule has a condition that checks the *query_string* variable for *category=shoes* and has an action that rewrites the URL path to /*listing1* and has **Re-evaluate path map** enabled
+* The first rule has a condition that checks the *query_string* variable for *category=shoes* and has an action that rewrites the URL path to /*listing1* and has **Reevaluate path map** enabled
 
-* The second rule has a condition that checks the *query_string* variable for *category=bags* and has an action that rewrites the URL path to /*listing2*  and has **Re-evaluate path map** enabled
+* The second rule has a condition that checks the *query_string* variable for *category=bags* and has an action that rewrites the URL path to /*listing2*  and has **Reevaluate path map** enabled
 
-* The third rule has a condition that checks the *query_string* variable for *category=accessories* and has an action that rewrites the URL path to /*listing3* and has **Re-evaluate path map** enabled
+* The third rule has a condition that checks the *query_string* variable for *category=accessories* and has an action that rewrites the URL path to /*listing3* and has **Reevaluate path map** enabled
 
 :::image type="content" source="./media/rewrite-http-headers-url/url-scenario1-2.png" alt-text="URL rewrite scenario 1-2.":::
 
