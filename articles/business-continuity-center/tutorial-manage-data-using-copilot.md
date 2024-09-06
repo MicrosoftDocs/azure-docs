@@ -59,7 +59,9 @@ To enhance protection of your resources, follow these steps:
 
    :::image type="content" source="./media/tutorial-manage-data-using-copilot/enhance-protection-select-item.png" alt-text="Screenshot shows how to enhance protection using the Copilot." lightbox="./media/tutorial-manage-data-using-copilot/enhance-protection-select-item.png":::
 
-3. On the VM blade, review the current protection details, and then select **Enhance Protection** to proceed with protection enhancement.
+3. On the selected *VM* blade, Copilot shows the current solution with which the VM is protected. Select **Enhance Protection** to proceed with protection enhancement. 
+
+    Copilot redirects to the blade from where you can configure protection with other solutions.
 
    :::image type="content" source="./media/tutorial-manage-data-using-copilot/enhance-protection-select-solution.png" alt-text="Screenshot shows the current protection details." lightbox="./media/tutorial-manage-data-using-copilot/enhance-protection-select-solution.png":::
 
@@ -89,7 +91,7 @@ To increase the security configuration, follow these steps:
 
    :::image type="content" source="./media/tutorial-manage-data-using-copilot/change-security-level-select-vault.png" alt-text="Screenshot shows how to select a vault." lightbox="./media/tutorial-manage-data-using-copilot/change-security-level-select-vault.png":::
 
-3. Review the current security level and choose the required target level.
+3. Review the current security level, and then use Copilot to choose the required target level.
 
    :::image type="content" source="./media/tutorial-manage-data-using-copilot/change-security-level-view-vault-security-level.png" alt-text="Screenshot shows the vault security level." lightbox="./media/tutorial-manage-data-using-copilot/change-security-level-view-vault-security-level.png":::
 
@@ -115,7 +117,7 @@ To trigger a query to check for datasources that don't have Recovery Point in **
 
 :::image type="content" source="./media/tutorial-manage-data-using-copilot/view-recovery-point.png" alt-text="Screenshot shows the items with no recovery points." lightbox="./media/tutorial-manage-data-using-copilot/view-recovery-point.png":::
 
-Azure Business Continuity Center also provides a PowerShell script in the Azure portal to trigger backups on all such resources. To do so, select **Yes** on the further prompt.
+Azure Business Continuity Center Copilot (preview) also provides a PowerShell script for download from the Azure portal to trigger backups on all such resources. To trigger an on-demand backup, select **Yes** on the further prompt.
 
 :::image type="content" source="./media/tutorial-manage-data-using-copilot/trigger-backup-for-recovery-point.png" alt-text="Screenshot shows the Copilot prompts to trigger backup." lightbox="./media/tutorial-manage-data-using-copilot/trigger-backup-for-recovery-point.png":::
 
