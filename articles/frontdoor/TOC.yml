@@ -336,7 +336,7 @@
           href: integrate-storage-account.md
         - name: Azure API Management
           href: ../api-management/front-door-api-management.md?toc=/azure/frontdoor/toc.json
-        - name: Azure Open AI
+        - name: Azure OpenAI
           href: ../web-application-firewall/afds/protect-azure-open-ai.md?toc=/azure/frontdoor/toc.json
         - name: Azure Static Web Apps
           href: ../static-web-apps/front-door-manual.md?toc=/azure/frontdoor/toc.json

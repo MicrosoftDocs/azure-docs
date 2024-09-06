@@ -6,8 +6,8 @@ services: automation
 ms.subservice: process-automation
 author: SnehaSudhirG
 ms.author: sudhirsneha
-ms.date: 10/17/2022
-ms.topic: conceptual 
+ms.date: 08/20/2024
+ms.topic: how-to 
 ms.service: azure-automation
 ---
 

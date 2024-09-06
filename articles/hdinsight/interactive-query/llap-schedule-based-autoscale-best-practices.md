@@ -64,8 +64,8 @@ If there are running jobs while scale-down is triggered, then we can expect one 
 - Query completes successfully without any impact. 
  
 
-> [!NOTE]  
-> It is recommended to plan approprite down time with the users during the scale down schedules. 
+> [!NOTE]
+> It is recommended to plan appropriate down time with the users during the scale down schedules.
 
 
 <b>2. What happens to the running Spark jobs when using Hive Warehouse Connector to execute queries in the LLAP Cluster with Auto scale enabled?</b>

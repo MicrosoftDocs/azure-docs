@@ -12,11 +12,12 @@ ms.topic: how-to
 
 Microsoft Defender External Attack Surface Management (Defender EASM) offers a series of four dashboards designed to help users quickly surface valuable insights derived from their Approved inventory. These dashboards help organizations prioritize the vulnerabilities, risks and compliance issues that pose the greatest threat to their Attack Surface, making it easy to quickly mitigate key issues.
 
-Defender EASM provides seven dashboards:
+Defender EASM provides eight dashboards:
 
-- **Overview**: this dashboard is the default landing page when you access Defender EASM. It provides the key context that can help you familiarize yourself with your attack surface. 
+- **Overview**: this dashboard is the default landing page when you access Defender EASM. It provides the key context that can help you familiarize yourself with your attack surface.
+- **Inventory changes**: this dashboard displays any changes to your asset counts, separately listing additions and removals from your inventory. This dashboard also displays assets that have been automatically removed from inventory because the system determined that the asset is no longer live or owned by your organization. 
 - **Attack surface summary**: this dashboard summarizes the key observations derived from your inventory. It provides a high-level overview of your Attack Surface and the asset types that comprise it, and surfaces potential vulnerabilities by severity (high, medium, low). This dashboard also provides key context on the infrastructure that comprises your Attack Surface. This context includes insight into cloud hosting, sensitive services, SSL certificate and domain expiry, and IP reputation.
-- **Security posture**: this dashboard helps organizations understand the maturity and complexity of their security program based on the metadata derived from assets in your Approved inventory. It is comprised of technical and nontechnical policies, processes and controls that mitigate risk of external threats. This dashboard provides insight on CVE exposure, domain administration and configuration, hosting and networking, open ports, and SSL certificate configuration.
+- **Security posture**: this dashboard helps organizations understand the maturity and complexity of their security program based on the metadata derived from assets in your Approved inventory. It is composed of technical and nontechnical policies, processes and controls that mitigate risk of external threats. This dashboard provides insight on CVE exposure, domain administration and configuration, hosting and networking, open ports, and SSL certificate configuration.
 - **GDPR compliance**: this dashboard surfaces key areas of compliance risk based on the General Data Protection Regulation (GDPR) requirements for online infrastructure that’s accessible to European nations. This dashboard provides insight on the status of your websites, SSL certificate issues, exposed personal identifiable information (PII), login protocols, and cookie compliance.
 - **OWASP Top 10**: this dashboard surfaces any assets that are vulnerable according to OWASP’s list of the most critical web application security risks. On this dashboard, organizations can quickly identify assets with broken access control, cryptographic failures, injections, insecure designs, security misconfigurations and other critical risks as defined by OWASP.
 - **CWE top 25 software weaknesses**: this dashboard is based on the Top 25 Common Weakness Enumeration (CWE) list provided annually by MITRE. These CWEs represent the most common and impactful software weaknesses that are easy to find and exploit. 
@@ -33,11 +34,20 @@ To access your Defender EASM dashboards, first navigate to your Defender EASM in
 
 The data underlying any dashboard chart can be exported to a CSV file.  This export is useful for users who wish to import Defender EASM data into third party tools, or work off a CSV file when remediating any issues.  To download chart data, first select the specific chart segment that contains the data you wish to download. Chart exports currently support individual chart segments; to download multiple segments from the same chart, you need to export each individual segment. 
 
-Selecting an individual chart segment opens a drilldown view of the data, listing any assets that comprise the segment count. At the top of this page, select **Download CSV report** to begin your export. If you are exporting a small number of assets, this action directly downloads the CSV file to your machine. If you are exporting a large number of assets, this action creates a task manager notification where you can track the status of your export. 
+Selecting an individual chart segment opens a drilldown view of the data, listing any assets that comprise the segment count. At the top of this page, select **Download CSV report** to begin your export. This action creates a task manager notification where you can track the status of your export. 
 
 Microsoft Excel enforces a character limit of 32,767 characters per cell. Some fields, like the "Last banner" column, might be improperly displayed due to this limitation. If you encounter an issue, try opening the file in another program that supports CSV files. 
 
 ![Screenshot of dashboard chart drilldown view with export button visible.](media/export-1.png)
+
+
+## Inventory changes 
+
+Your attack surface is constantly changing, which is why Defender EASM continuously analyzes and updates your inventory to ensure accuracy. Assets are frequently added and removed from inventory, so it's important to track these changes to understand your attack surface and identify key trends. The inventory changes dashboard provides an overview of these changes, displaying the "added" and "removed" counts for each asset type. You can filter the dashboard by two date ranges: either the last 7 or 30 days. 
+
+The "Changes by date" section provides more granular context on how your attack surface has changed on a daily basis. This section categorizes removals as "removed by user" or "removed by system."  User removals include all manual removals, including individual, bulk or cascading asset state changes, as well as removals triggered by user-configured asset policies. System removals occur automatically. The system removes assets that are no longer relevant to your attack surface because recent scans no longer observed their connection to your inventory. Assets are eligible for pruning if they haven't been observed in a scan for 30-60 days, depending on the asset type. Assets that are manually added to inventory are not eligible for removal. From the "Changes by date" section, you can click on any listed value to see a full list of the assets that were added or removed. 
+
+![Screenshot of Inventory changes dashboard with addition and removal counts.](media/inventory-changes-2.png)
 
 
 ## Attack surface summary
@@ -115,7 +125,7 @@ This chart is organized by the detection policy that triggered a negative reputa
 
 ## Security posture dashboard
 
-The Security Posture dashboard helps organizations measure the maturity of their security program based on the status of assets in your Confirmed Inventory. It is comprised of technical and non-technical policies, processes and controls that mitigate the risk of external threats. This dashboard provides insight on CVE exposure, domain administration and configuration, hosting and networking, open ports, and SSL certificate configuration.
+The Security Posture dashboard helps organizations measure the maturity of their security program based on the status of assets in your Confirmed Inventory. It is composed of technical and non-technical policies, processes and controls that mitigate the risk of external threats. This dashboard provides insight on CVE exposure, domain administration and configuration, hosting and networking, open ports, and SSL certificate configuration.
 
 ![Screenshot of security posture chart.](media/Dashboards-10.png)
 

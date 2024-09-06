@@ -96,17 +96,17 @@ For more information, see [Configure client device redirection settings for Wind
 
 ### Hibernate support for session hosts in a personal host pool is generally available
 
-Deploying session hosts in a personal host pool with hibernate support is now generally available. With hibernate support, you can pause session hosts you aren't using. For more information, see [Hibernating Windows virtual machines](../virtual-machines/windows/hibernate-resume-windows.md).
+Deploying session hosts in a personal host pool with hibernate support is now generally available. With hibernate support, you can pause session hosts you aren't using. For more information, see [Hibernating Windows virtual machines](/azure/virtual-machines/windows/hibernate-resume-windows).
 
 ### Hibernate support for autoscale is generally available
 
-Autoscale support for virtual machines that use hibernate is generally available, enabling session hosts to be scaled automatically while preserving their state. For more information, see [Autoscale scaling plans and example scenarios in Azure Virtual Desktop](autoscale-scenarios.md) and [Hibernating virtual machines](../virtual-machines/hibernate-resume.md).
+Autoscale support for virtual machines that use hibernate is generally available, enabling session hosts to be scaled automatically while preserving their state. For more information, see [Autoscale scaling plans and example scenarios in Azure Virtual Desktop](autoscale-scenarios.md) and [Hibernating virtual machines](/azure/virtual-machines/hibernate-resume).
 
 ### Support for Trusted Launch virtual machines support in Azure Government and Azure operated by 21Vianet 
 
 Trusted Launch virtual machines are now available in Azure Government and Azure operated by 21Vianet. Deploying Trusted Launch virtual machines in your Azure Virtual Desktop environment improves the security posture of your session hosts by helping protect against advanced and persistent attack techniques. You can select Trusted Launch when you create a new host pool with machines or add a new virtual machine to an existing host pool.
 
-For more information about the benefits of Trusted Launch, see our [Trusted Launch documentation](../virtual-machines/trusted-launch.md).
+For more information about the benefits of Trusted Launch, see our [Trusted Launch documentation](/azure/virtual-machines/trusted-launch).
 
 ## April 2024 
 
@@ -200,7 +200,7 @@ You can now select community images and directed shared images to use for your s
 
 Community images and associated publisher information aren't verified or tested by Microsoft, so make sure to verify any custom images you deploy using this method. 
 
-For more information on preparing, storing and sharing images to be used to create virtual machines, see [Store and share VM images in a compute gallery](../virtual-machines/shared-image-galleries.md).
+For more information on preparing, storing and sharing images to be used to create virtual machines, see [Store and share VM images in a compute gallery](/azure/virtual-machines/shared-image-galleries).
 
 ### Windows 11 version 23H2 and 22H2 images added to the Azure Marketplace 
 
@@ -214,7 +214,7 @@ For more information, see [Autoscale scaling plans and example scenarios in Azur
 
 ### Hibernate support for autoscale is in preview
 
-Autoscale can now use the hibernate feature in preview, which can pause session hosts you aren't using. For more information, see [Autoscale scaling plans and example scenarios in Azure Virtual Desktop](autoscale-scenarios.md) and [Hibernating virtual machines](../virtual-machines/hibernate-resume.md).
+Autoscale can now use the hibernate feature in preview, which can pause session hosts you aren't using. For more information, see [Autoscale scaling plans and example scenarios in Azure Virtual Desktop](autoscale-scenarios.md) and [Hibernating virtual machines](/azure/virtual-machines/hibernate-resume).
 
 ### Updated preview of Azure Virtual Desktop on Azure Stack HCI
 
@@ -300,7 +300,7 @@ For more information about FSLogix Group Policy Template Files, see [How to Use 
 
 We've updated the text, tooltips, and links for custom image templates in the Azure portal to make them easier to use. You can also now go to the built-in customization settings and remove Clipchamp in the Remove AppX package list.
 
-We built the custom image templates feature using [Azure Image Builder](../virtual-machines/image-builder-overview.md) for you to use with Azure Virtual Desktop. For more information, see [Custom image templates](custom-image-templates.md).
+We built the custom image templates feature using [Azure Image Builder](/azure/virtual-machines/image-builder-overview) for you to use with Azure Virtual Desktop. For more information, see [Custom image templates](custom-image-templates.md).
 
 ## July 2023
 
@@ -328,7 +328,7 @@ Confidential virtual machines and Trusted Launch virtual machines for Azure Virt
 
 Azure confidential virtual machines (VMs) offer VM memory encryption with integrity protection, which strengthens guest protections to deny the hypervisor and other host management components code access to the VM memory and state. For more information about the security benefits of confidential VMs, see our [confidential computing documentation](../confidential-computing/confidential-vm-overview.md).  
 
-Trusted Launch protects against advanced and persistent attack techniques. This feature allows you to securely deploy your VMs with verified boot loaders, OS kernels, and drivers. Trusted Launch also protects keys, certificates, and secrets in VMs. For more information about the benefits of Trusted Launch, see our [Trusted Launch documentation](../virtual-machines/trusted-launch.md). Trusted Launch is now enabled by default for all Windows images used with Azure Virtual Desktop.
+Trusted Launch protects against advanced and persistent attack techniques. This feature allows you to securely deploy your VMs with verified boot loaders, OS kernels, and drivers. Trusted Launch also protects keys, certificates, and secrets in VMs. For more information about the benefits of Trusted Launch, see our [Trusted Launch documentation](/azure/virtual-machines/trusted-launch). Trusted Launch is now enabled by default for all Windows images used with Azure Virtual Desktop.
 
 For more information about this announcement, see [Announcing General Availability of confidential VMs in Azure Virtual Desktop](https://techcommunity.microsoft.com/t5/azure-virtual-desktop-blog/announcing-general-availability-of-confidential-vms-in-azure/ba-p/3857974). 
 
@@ -360,7 +360,7 @@ Here's what changed in May 2023:
 
 ### Custom image templates is now in preview 
 
-Custom image templates is now in preview. Custom image templates help you easily create a custom image that you can use when deploying session host VMs. With custom images, you can standardize the configuration of your session host VMs for your organization. Custom image templates is built on [Azure Image Builder](../virtual-machines/image-builder-overview.md) and tailored for Azure Virtual Desktop. For more information about the preview, check out [Custom image templates](custom-image-templates.md) or read [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop-blog/announcing-the-public-preview-of-azure-virtual-desktop-custom/ba-p/3784361).
+Custom image templates is now in preview. Custom image templates help you easily create a custom image that you can use when deploying session host VMs. With custom images, you can standardize the configuration of your session host VMs for your organization. Custom image templates is built on [Azure Image Builder](/azure/virtual-machines/image-builder-overview) and tailored for Azure Virtual Desktop. For more information about the preview, check out [Custom image templates](custom-image-templates.md) or read [our blog post](https://techcommunity.microsoft.com/t5/azure-virtual-desktop-blog/announcing-the-public-preview-of-azure-virtual-desktop-custom/ba-p/3784361).
 
 ## April 2023
 
@@ -714,7 +714,7 @@ Here's what changed in December 2021:
 
 ### Azure portal updates
 
-You can now automatically create Trusted Launch virtual machines through the host pool creation process instead of having to manually create and add them to a host pool after deployment. To access this feature, select the **Virtual machines** tab while creating a host pool. Learn more at [Trusted Launch for Azure virtual machines](../virtual-machines/trusted-launch.md).
+You can now automatically create Trusted Launch virtual machines through the host pool creation process instead of having to manually create and add them to a host pool after deployment. To access this feature, select the **Virtual machines** tab while creating a host pool. Learn more at [Trusted Launch for Azure virtual machines](/azure/virtual-machines/trusted-launch).
  
 ### Azure Active Directory Join VMs with FSLogix profiles on Azure Files
 
@@ -1014,7 +1014,7 @@ We've made the following updates to Azure Virtual Desktop for the Azure portal:
 
 ### Generation 2 images and Trusted Launch
 
-The Azure Marketplace now has Generation 2 images for Windows 10 Enterprise and Windows 10 Enterprise multi-session. These images enable you to use Trusted Launch VMs. Learn more about Generation 2 VMs at [Should I create a generation 1 or 2 virtual machine](../virtual-machines/generation-2.md). To learn how to provision Azure Virtual Desktop Trusted Launch VMs, see [our TechCommunity post](https://techcommunity.microsoft.com/t5/windows-virtual-desktop/windows-virtual-desktop-support-for-trusted-launch/m-p/2206170).
+The Azure Marketplace now has Generation 2 images for Windows 10 Enterprise and Windows 10 Enterprise multi-session. These images enable you to use Trusted Launch VMs. Learn more about Generation 2 VMs at [Should I create a generation 1 or 2 virtual machine](/azure/virtual-machines/generation-2). To learn how to provision Azure Virtual Desktop Trusted Launch VMs, see [our TechCommunity post](https://techcommunity.microsoft.com/t5/windows-virtual-desktop/windows-virtual-desktop-support-for-trusted-launch/m-p/2206170).
 
 ### FSLogix is now preinstalled on Windows 10 Enterprise multi-session images
 
@@ -1286,7 +1286,7 @@ Here's what this change does for you:
 
 - In this update, you no longer need to run Azure Marketplace or the GitHub template repeatedly to expand a host pool. All you need to expand a host pool is to go to your host pool in the Azure portal and select **+ Add** to deploy additional session hosts.
 
-- Host pool deployment is now fully integrated with the [Azure Shared Image Gallery](../virtual-machines/shared-image-galleries.md). Shared Image Gallery is a separate Azure service that stores VM image definitions, including image versioning. You can also use global replication to copy and send your images to other Azure regions for local deployment.
+- Host pool deployment is now fully integrated with the [Azure Shared Image Gallery](/azure/virtual-machines/shared-image-galleries). Shared Image Gallery is a separate Azure service that stores VM image definitions, including image versioning. You can also use global replication to copy and send your images to other Azure regions for local deployment.
 
 - Monitoring functions that used to be done through PowerShell or the Diagnostics Service web app have now moved to Log Analytics in the Azure portal. You also now have two options to visualize your reports. You can run Kusto queries and use Workbooks to create visual reports.
 

@@ -261,7 +261,7 @@ Wait a few minutes and check if the problem persists.
 
 ***Not allowed to mix protocol types CIFS and NFS***
 
-This error occurs when you're trying to create a volume that has both the CIFS (SMB) and NFS protocol types in the volume properties.
+This error occurs when you're trying to create a volume that has both the CIFS ([Common Internet File System] SMB) and NFS protocol types in the volume properties.
 
 * Cause:   
 Both the CIFS (SMB) and NFS protocol types are used in the volume properties.
@@ -674,7 +674,7 @@ You try to create a volume from a snapshot and volume ends in an error state.
 * Solution:   
 Delete the volume, then retry the volume creation operation from the snapshot.
 
-***Deletion of resource group fails during the NIC clearing process*** 
+***Deletion of resource group fails during the network interface card (NIC) clearing process*** 
 
 * Cause:   
  The resource group you try to delete might have volumes associated with it.

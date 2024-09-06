@@ -4,7 +4,7 @@ titleSuffix: Azure VPN Gateway
 description: Learn about highly available configuration options for VPN Gateway.
 author: cherylmc
 ms.service: azure-vpn-gateway
-ms.topic: article
+ms.topic: concept-article
 ms.date: 07/24/2024
 ms.author: cherylmc
 
@@ -62,7 +62,7 @@ Here you create and set up the Azure VPN gateway in an active-active configurati
 
 All gateways and tunnels are active from the Azure side, so the traffic is spread among all 4 tunnels simultaneously, although each TCP or UDP flow will again follow the same tunnel or path from the Azure side. Even though by spreading the traffic, you may see slightly better throughput over the IPsec tunnels, the primary goal of this configuration is for high availability. And due to the statistical nature of the spreading, it's difficult to provide the measurement on how different application traffic conditions will affect the aggregate throughput.
 
-This topology requires two local network gateways and two connections to support the pair of on-premises VPN devices, and BGP is required to allow the two connections to the same on-premises network. These requirements are the same as the [above](#activeactiveonprem). 
+This topology requires two local network gateways and two connections to support the pair of on-premises VPN devices, and BGP is required to allow simultaneous connectivity on the two connections to the same on-premises network. These requirements are the same as the [above](#activeactiveonprem). 
 
 ## Highly Available VNet-to-VNet
 

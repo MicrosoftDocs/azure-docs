@@ -114,18 +114,22 @@ Let's look at an example. Assume that a customer enters an Azure Savings Plan co
 
 ### How to add a price markup
 
-You can add price markup on Azure portal with the following steps:
+You can add price markup in the Azure portal with the following steps:
  
 1. In the Azure portal, sign in as a partner administrator.
 1. Search for **Cost Management + Billing** and select it.
 1. In the left navigation menu, select **Billing scopes** and then select the billing account that you want to work with.
-1. In the left navigation menu, select **Billing Profile** and then select the billing profile that you want to work with.
+1. In the left navigation menu, select **Billing profiles** and then select the billing profile that you want to work with.
 1. In the left navigation menu, expand **Settings** and then select **Markup**.
 1. To add markup, select **+ Add** under **Markup** **Percentage**.
 1. Enter the markup percentage and select **Preview**.
 1. Review the credit and usage charges before and after markup update.
-1. Accept the disclaimer and select **Publish** to publish the markup.
+1. Read the disclaimer and agree to prompt and then select **Publish** to publish the markup.
 1. The customer can now view credits and charges details.
+
+Here's an example showing price markup in the Azure portal:
+
+:::image type="content" source="./media/ea-portal-agreements/billing-profile-markup.png" border="true" alt-text="Screenshot showing price markup in the Azure portal." lightbox="./media/ea-portal-agreements/billing-profile-markup.png" :::
 
 ### Which enrollments have a markup enabled?
 

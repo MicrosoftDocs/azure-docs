@@ -27,7 +27,7 @@ In this tutorial, you learn how to:
     - For the purposes of this tutorial, the standard load balancer is named **myLoadBalancer** and is located in a resource group called **myResourceGroup**.
 - An existing Gateway SKU Azure Load Balancer. For more information on creating a gateway load balancer, see [Create a gateway load balancer using the Azure portal](tutorial-gateway-portal.md).
     - For the purposes of this tutorial, the gateway load balancer in the examples is name **myGatewayLoadBalancer**.
-- A virtual machine or network virtual appliance deployed in the same region and resource group as the load balancers. For more information on deploying a virtual machine, see [Create a Windows VM in the Azure portal](../virtual-machines/windows/quick-create-portal.md).
+- A virtual machine or network virtual appliance deployed in the same region and resource group as the load balancers. For more information on deploying a virtual machine, see [Create a Windows VM in the Azure portal](/azure/virtual-machines/windows/quick-create-portal).
     - For the purposes of this tutorial, the virtual machine is named **myVM1**.
 
 ## Chain a virtual machine to a gateway load balancer

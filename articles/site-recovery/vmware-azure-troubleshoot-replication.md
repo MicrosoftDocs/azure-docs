@@ -1,14 +1,14 @@
 ---
-title: Troubleshoot replication issues for disaster recovery of VMware VMs and physical servers to Azure by using Azure Site Recovery
-description: This article provides troubleshooting information for common replication issues during disaster recovery of VMware VMs and physical servers to Azure by using Azure Site Recovery.
+title: Troubleshoot replication issues for disaster recovery of VMware virtual machines and physical servers to Azure by using Azure Site Recovery
+description: This article provides troubleshooting information for common replication issues during disaster recovery of VMware virtual machines and physical servers to Azure by using Azure Site Recovery.
 author: ankitaduttaMSFT
-manager: rochakm
 ms.service: azure-site-recovery
 ms.topic: troubleshooting
-ms.date: 04/26/2023
+ms.date: 08/21/2024
 ms.author: ankitadutta
 
 ---
+
 # Troubleshoot replication issues for VMware VMs and physical servers
 
 This article describes some common issues and specific errors you might encounter when you replicate on-premises VMware VMs and physical servers to Azure using [Site Recovery](site-recovery-overview.md).
@@ -33,15 +33,15 @@ To solve these issues, [troubleshoot connectivity and replication](vmware-physic
 
 When you try to select the source machine to enable replication by using Site Recovery, the machine might not be available for one of the following reasons:
 
-* **Two virtual machines with the same instance UUID**: If two virtual machines under the vCenter have the same instance UUID, the first virtual machine discovered by the configuration server is displayed in the Azure portal. To resolve this issue, ensure that no two virtual machines have the same instance UUID. This scenario is commonly seen in instances where a backup VM becomes active and is logged into our discovery records. Refer to [Azure Site Recovery VMware-to-Azure: How to clean up duplicate or stale entries](https://social.technet.microsoft.com/wiki/contents/articles/32026.asr-vmware-to-azure-how-to-cleanup-duplicatestale-entries.aspx) to resolve.
-* **Incorrect vCenter user credentials**: Ensure that you added the correct vCenter credentials when you set up the configuration server by using the OVF template or unified setup. To verify the credentials that you added during setup, see [Modify credentials for automatic discovery](vmware-azure-manage-configuration-server.md#modify-credentials-for-automatic-discovery).
-* **vCenter insufficient privileges**: If the permissions provided to access vCenter don't have the required permissions, failure to discover virtual machines might occur. Ensure that the permissions described in [Prepare an account for automatic discovery](vmware-azure-tutorial-prepare-on-premises.md#prepare-an-account-for-automatic-discovery) are added to the vCenter user account.
-* **Azure Site Recovery management servers**: If the virtual machine is used as a management server under one or more of the following roles - Configuration server /scale-out process server / Master target server, then you won't be able to choose the virtual machine from the portal. Management servers cannot be replicated.
-* **Already protected/failed over through Azure Site Recovery services**: If the virtual machine is already protected or failed over through Site Recovery, the virtual machine isn't available to select for protection in the portal. Ensure that the virtual machine you're looking for in the portal isn't already protected by any other user or under a different subscription.
-* **vCenter not connected**: Check if vCenter is in a connected state. To verify, go to Recovery Services vault > Site Recovery Infrastructure > Configuration Servers > Click on respective configuration server > a blade opens on your right with details of associated servers. Check if vCenter is connected. If it's in a "Not Connected" state, resolve the issue, and then [refresh the configuration server](vmware-azure-manage-configuration-server.md#refresh-configuration-server) on the portal. After this, virtual machine isn't listed on the portal.
-* **ESXi powered off**: If the ESXi host under which the virtual machine resides is in a powered-off state, then the virtual machine isn't listed or isn't selectable on the Azure portal. Power on the ESXi host, and [refresh the configuration server](vmware-azure-manage-configuration-server.md#refresh-configuration-server) on the portal. After this, virtual machine is listed on the portal.
-* **Pending reboot**: If there is a pending reboot on the virtual machine, then you won't be able to select the machine on the Azure portal. Ensure to complete the pending reboot activities and [refresh the configuration server](vmware-azure-manage-configuration-server.md#refresh-configuration-server). After this, virtual machine is listed on the portal.
-* **IP not found or Machine does not have an IP address**: If the virtual machine doesn't have a valid IP address associated with it, then you are not able to select the machine on the Azure portal. Ensure to assign a valid IP address to the virtual machine, and [refresh the configuration server](vmware-azure-manage-configuration-server.md#refresh-configuration-server). It could also be caused if the machine does not have a valid IP address associated with one of its NICs. Either assign a valid IP address to all NICs or remove the NIC that's missing the IP. After this, the virtual machine is listed on the portal.
+- **Two virtual machines with the same instance UUID**: If two virtual machines under the vCenter have the same instance UUID, the first virtual machine discovered by the configuration server is displayed in the Azure portal. To resolve this issue, ensure that no two virtual machines have the same instance UUID. This scenario is commonly seen in instances where a backup VM becomes active and is logged into our discovery records. Refer to [Azure Site Recovery VMware-to-Azure: How to clean up duplicate or stale entries](https://social.technet.microsoft.com/wiki/contents/articles/32026.asr-vmware-to-azure-how-to-cleanup-duplicatestale-entries.aspx) to resolve.
+-  **Incorrect vCenter user credentials**: Ensure that you added the correct vCenter credentials when you set up the configuration server by using the OVF template or unified setup. To verify the credentials that you added during setup, see [Modify credentials for automatic discovery](vmware-azure-manage-configuration-server.md#modify-credentials-for-automatic-discovery).
+-  **vCenter insufficient privileges**: If the permissions provided to access vCenter don't have the required permissions, failure to discover virtual machines might occur. Ensure that the permissions described in [Prepare an account for automatic discovery](vmware-azure-tutorial-prepare-on-premises.md#prepare-an-account-for-automatic-discovery) are added to the vCenter user account.
+-  **Azure Site Recovery management servers**: If the virtual machine is used as a management server under one or more of the following roles - Configuration server /scale-out process server / Master target server, then you won't be able to choose the virtual machine from the portal. Management servers cannot be replicated.
+-  **Already protected/failed over through Azure Site Recovery services**: If the virtual machine is already protected or failed over through Site Recovery, the virtual machine isn't available to select for protection in the portal. Ensure that the virtual machine you're looking for in the portal isn't already protected by any other user or under a different subscription.
+-  **vCenter not connected**: Check if vCenter is in a connected state. To verify, go to Recovery Services vault > Site Recovery Infrastructure > Configuration Servers > Click on respective configuration server > a blade opens on your right with details of associated servers. Check if vCenter is connected. If it's in a "Not Connected" state, resolve the issue, and then [refresh the configuration server](vmware-azure-manage-configuration-server.md#refresh-configuration-server) on the portal. After this, virtual machine isn't listed on the portal.
+-  **ESXi powered off**: If the ESXi host under which the virtual machine resides is in a powered-off state, then the virtual machine isn't listed or isn't selectable on the Azure portal. Power on the ESXi host, and [refresh the configuration server](vmware-azure-manage-configuration-server.md#refresh-configuration-server) on the portal. After this, virtual machine is listed on the portal.
+-  **Pending reboot**: If there is a pending reboot on the virtual machine, then you won't be able to select the machine on the Azure portal. Ensure to complete the pending reboot activities and [refresh the configuration server](vmware-azure-manage-configuration-server.md#refresh-configuration-server). After this, virtual machine is listed on the portal.
+- **IP not found or Machine does not have an IP address**: If the virtual machine doesn't have a valid IP address associated with it, then you are not able to select the machine on the Azure portal. Ensure to assign a valid IP address to the virtual machine, and [refresh the configuration server](vmware-azure-manage-configuration-server.md#refresh-configuration-server). It could also be caused if the machine does not have a valid IP address associated with one of its NICs. Either assign a valid IP address to all NICs or remove the NIC that's missing the IP. After this, the virtual machine is listed on the portal.
 
 ### Troubleshoot protected virtual machines greyed out in the portal
 
@@ -54,6 +54,7 @@ Another reason could be that the machine was cloned. When machines move between 
 
 
 Following is a list of some of the most common issues:
+
 ### Initial replication issues [error 78169]
 
 Over and above ensuring that there are no connectivity, bandwidth, or time sync-related issues, ensure that:
@@ -119,6 +120,7 @@ To resolve the issue, use the following steps to verify the service status:
 
         *C:\Program Files (X86)\Microsoft Azure Site Recovery\agent\svagents\*.log*
 3. To register the master target with the configuration server, navigate to folder **%PROGRAMDATA%\ASR\Agent**, and run the following on command prompt:
+
    ```
    cmd
    cdpcli.exe --registermt
@@ -140,7 +142,7 @@ To resolve the issue, you can associate the policy with the configuration server
 
 ## Error ID 78144 - No app-consistent recovery point available for the VM in the last 'XXX' minutes
 
-Enhancements have been made in mobility agent [9.23](vmware-physical-mobility-service-overview.md#mobility-service-agent-version-923-and-higher) & [9.27](site-recovery-whats-new-archive.md#update-rollup-39) versions to handle VSS installation failure behaviors. Ensure that you're on the latest versions for best guidance on troubleshooting VSS failures.
+Enhancements have been made in mobility agent [9.23](vmware-physical-mobility-service-overview.md#mobility-service-agent-version-923-and-later) & [9.27](site-recovery-whats-new-archive.md#update-rollup-39) versions to handle VSS installation failure behaviors. Ensure that you're on the latest versions for best guidance on troubleshooting VSS failures.
 
 Some of the most common issues are listed:
 
@@ -171,7 +173,7 @@ Search for the string "vacpError"  by opening the vacp.log file in an editor
 
 `Ex: `**`vacpError`**`:220#Following disks are in FilteringStopped state [\\.\PHYSICALDRIVE1=5, ]#220|^|224#FAILED: CheckWriterStatus().#2147754994|^|226#FAILED to revoke tags.FAILED: CheckWriterStatus().#2147754994|^|`
 
-In the preceeding  example **2147754994** is the error code that tells you about the failure as shown:
+In the preceding  example **2147754994** is the error code that tells you about the failure as shown:
 
 #### VSS writer is not installed - Error 2147221164
 

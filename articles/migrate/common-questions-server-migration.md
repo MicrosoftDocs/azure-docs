@@ -13,7 +13,7 @@ ms.custom: engagement-fy25
 # Migration and modernization: Common questions
 
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
+> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](/azure/virtual-machines/workloads/centos/centos-end-of-life).
 
 This article answers common questions about the Migration and modernization tool. If you've other questions, check these resources:
 
@@ -132,7 +132,7 @@ Migration and modernization tool migrates all the UEFI-based machines to Azure a
 | SUSE Linux Enterprise Server 12 SP4                     | Y                                                                                                                                         | Y                              | Y                                                          |
 | Ubuntu Server 16.04, 18.04, 19.04, 19.10                | Y                                                                                                                                         | Y                              | Y                                                          |
 | RHEL 8.1, 8.0, 7.8, 7.7, 7.6, 7.5, 7.4, 7.0, 6.x        | Y      | Y                              | Y                                                          |
-| Cent OS 8.1, 8.0, 7.7, 7.6, 7.5, 7.4, 6.x               | Y | Y                              | Y                                                          |
+| CentOS Stream               | Y | Y                              | Y                                                          |
 | Oracle Linux 7.7, 7.7-CI                                |  Y                                                                                                                                        | Y                              | Y                                                          |
 
 ### Can I migrate Active Directory domain-controllers using Azure Migrate?

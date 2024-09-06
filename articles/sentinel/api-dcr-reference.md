@@ -29,13 +29,15 @@ PUT https://management.azure.com/subscriptions/aaaaaaaa-bbbb-cccc-dddd-eeeeeeeee
 
 #### Syslog/CEF DCR creation request body
 
-The following is an example of a DCR creation request. For each stream&mdash;you can have several in one DCR&mdash;change the value of the `"Streams"` field according to the source of the messages you want to ingest:
+The following is an example of a DCR creation request. For each data source stream&mdash;you can have several in one DCR&mdash;add a new subsection under `"syslog"` in the `"dataSources"` section and set the value of the `"streams"` field according to the source of the messages you want to ingest:
 
-| Log source | `"Streams"` field value |
+| Log source | `"streams"` field value |
 | --- | --- |
 | **Syslog** | `"Microsoft-Syslog"` |
 | **CEF** | `"Microsoft-CommonSecurityLog"` |
 | **Cisco ASA** | `"Microsoft-CiscoAsa"` |
+
+See the example of multiple streams sections in the following code sample:
 
 ```json
 {

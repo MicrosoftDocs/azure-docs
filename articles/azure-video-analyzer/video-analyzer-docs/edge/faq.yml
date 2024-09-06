@@ -38,7 +38,7 @@ sections:
 
           **I am using a virtual machine as simulated edge device. Can I resize the VM config after deployment?**
 
-          Yes, you can [scale a VM up or down to a different size](../../../virtual-machines/resize-vm.md) after edge modules such as Video Analyzer have been deployed to it. You may need to restart the IoT Edge runtime on your virtual machine. For a Linux VM, use command `sudo systemctl restart iotedge`. If live pipelines had been running, they should resume after the restart completes. You would see interruptions in the output from the pipeline (example: inference events, video recording) during the restart.
+          Yes, you can [scale a VM up or down to a different size](/azure/virtual-machines/resize-vm) after edge modules such as Video Analyzer have been deployed to it. You may need to restart the IoT Edge runtime on your virtual machine. For a Linux VM, use command `sudo systemctl restart iotedge`. If live pipelines had been running, they should resume after the restart completes. You would see interruptions in the output from the pipeline (example: inference events, video recording) during the restart.
 
           **How can I add sample video files to the RTSP camera simulator module on my IoT Edge device?**
 

@@ -42,3 +42,5 @@ For page blobs, you can use the [Put Page From URL](/rest/api/storageservices/pu
 - [Client library reference documentation](/python/api/azure-storage-blob)
 - [Client library source code](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-blob)
 - [Package (PyPi)](https://pypi.org/project/azure-storage-blob/)
+
+[!INCLUDE [storage-dev-guide-next-steps-python](../../../includes/storage-dev-guides/storage-dev-guide-next-steps-python.md)]

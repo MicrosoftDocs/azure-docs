@@ -159,7 +159,7 @@ Learn more on how to perform [software inventory](how-to-discover-applications.m
 ## Update (August 2021)
 
 - At-scale discovery and assessment of ASP.NET web apps running on IIS servers in your VMware environment, is now in preview. [Learn More](concepts-azure-webapps-assessment-calculation.md). Refer to the [Discovery](tutorial-discover-vmware.md) and [assessment](tutorial-assess-webapps.md) tutorials to get started.
-- Support for Azure [ultra disks](../virtual-machines/disks-types.md#ultra-disks) in Azure VM assessment recommendation.
+- Support for Azure [ultra disks](/azure/virtual-machines/disks-types#ultra-disks) in Azure VM assessment recommendation.
 - General Availability of at-scale, software inventory, and agentless dependency analysis for VMware virtual machines.
 - Azure Migrate appliance updates:
     - "Diagnose and solve" on appliance to help users identify and self-assess any issues with the appliance.

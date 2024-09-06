@@ -30,7 +30,7 @@ Azure confidential VMs offer strong security and confidentiality for tenants. Th
 - VM encryption keys that the platform or the customer (optionally) owns and manages.
 - Secure key release with cryptographic binding between the platform's successful attestation and the VM's encryption keys.
 - Dedicated virtual [Trusted Platform Module (TPM)](/windows/security/information-protection/tpm/trusted-platform-module-overview) instance for attestation and protection of keys and secrets in the virtual machine.
-- Secure boot capability similar to [Trusted launch for Azure VMs](../virtual-machines/trusted-launch.md)
+- Secure boot capability similar to [Trusted launch for Azure VMs](/azure/virtual-machines/trusted-launch)
 
 ## Confidential OS disk encryption
 

@@ -51,7 +51,7 @@ For all other `ParticipantEndSubCode` responses that don't start with **560**, t
 
 ## Detailed information on individual error codes
 
-For more information about common error codes and suggested actions, see [Troubleshooting call end response codes for Calling SDK, Call Automation SDK, and PSTN calls](../troubleshooting-codes.md).
+For more information about common error codes and suggested actions, see [Troubleshooting call end response codes for Calling SDK, Call Automation SDK, and PSTN calls](../../resources/troubleshooting/voice-video-calling/troubleshooting-codes.md).
 
 ## Related articles
 

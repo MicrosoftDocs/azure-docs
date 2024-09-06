@@ -16,7 +16,7 @@ This article is part of the guide [Monitor virtual machines and their workloads 
 
 This scenario describes how to implement complete monitoring of your Azure and hybrid virtual machine environment:
 
-- To get started monitoring your first Azure virtual machine, see [Monitor Azure virtual machines](../../virtual-machines/monitor-vm.md). 
+- To get started monitoring your first Azure virtual machine, see [Monitor Azure virtual machines](/azure/virtual-machines/monitor-vm). 
 
 - To quickly enable a recommended set of alerts, see [Enable recommended alert rules for an Azure virtual machine](tutorial-monitor-vm-alert-recommended.md).
 

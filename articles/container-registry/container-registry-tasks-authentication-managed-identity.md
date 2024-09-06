@@ -4,7 +4,7 @@ description: Enable a managed identity for Azure Resources in an Azure Container
 services: container-registry
 ms.service: azure-container-registry
 ms.custom: devx-track-azurecli
-ms.topic: article
+ms.topic: how-to
 author: tejaswikolli-web
 ms.author: tejaswikolli
 ms.date: 10/31/2023

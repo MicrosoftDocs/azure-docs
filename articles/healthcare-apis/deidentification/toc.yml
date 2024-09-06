@@ -6,6 +6,8 @@ items:
     items:
       - name: What is the de-identification service?
         href: overview.md
+      - name: Transparency Note
+        href: transparency-note.md
   - name: Quickstarts
     expanded: true
     items:

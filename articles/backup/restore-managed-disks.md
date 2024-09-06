@@ -9,7 +9,7 @@ ms.author: v-abhmallick
 
 # Restore Azure Managed Disks
 
-This article explains how to restore [Azure Managed Disks](../virtual-machines/managed-disks-overview.md) from a restore point created by Azure Backup.
+This article explains how to restore [Azure Managed Disks](/azure/virtual-machines/managed-disks-overview) from a restore point created by Azure Backup.
 
 Currently, the Original-Location Recovery (OLR) option of restoring by replacing existing the source disk from where the backups were taken isn't supported. You can restore from a recovery point to create a new disk either in the same resource group as that of the source disk from where the backups were taken or in any other resource group. This is known as Alternate-Location Recovery (ALR) and this helps to keep both the source disk and the restored (new) disk.
 
@@ -58,7 +58,7 @@ The following pre-requisites are required to perform a restore operation:
     >
     >During scheduled backups or an on-demand backup operation, Azure Backup stores the disk incremental snapshots in the Snapshot Resource Group provided during configuring backup of the disk. Azure Backup uses these incremental snapshots during the restore operation. If the snapshots are deleted or moved from the Snapshot Resource Group or if the Backup vault role assignments are revoked on the Snapshot Resource Group, the restore operation will fail.
 
-1. If the disk to be restored is encrypted with [customer-managed keys (CMK)](../virtual-machines/disks-enable-customer-managed-keys-portal.yml) or using [double encryption using platform-managed keys and customer-managed keys](../virtual-machines/disks-enable-double-encryption-at-rest-portal.md), then assign the **Reader** role permission to the Backup Vault’s managed identity on the **Disk Encryption Set** resource.
+1. If the disk to be restored is encrypted with [customer-managed keys (CMK)](/azure/virtual-machines/disks-enable-customer-managed-keys-portal) or using [double encryption using platform-managed keys and customer-managed keys](/azure/virtual-machines/disks-enable-double-encryption-at-rest-portal), then assign the **Reader** role permission to the Backup Vault’s managed identity on the **Disk Encryption Set** resource.
 
 Once the prerequisites are met, follow these steps to perform the restore operation.
 
@@ -101,9 +101,9 @@ Restore will create a new disk from the selected recovery point in the target re
 
     ![Swap OS disks](./media/restore-managed-disks/swap-os-disks.png)
 
-- For Windows virtual machines, if the restored disk is a data disk, follow the instructions to [detach the original data disk](../virtual-machines/windows/detach-disk.yml#detach-a-data-disk-using-the-portal) from the virtual machine. Then [attach the restored disk](../virtual-machines/windows/attach-managed-disk-portal.yml) to the virtual machine. Follow the instructions to [swap the OS disk](../virtual-machines/windows/os-disk-swap.md) of the virtual machine with the restored disk.
+- For Windows virtual machines, if the restored disk is a data disk, follow the instructions to [detach the original data disk](/azure/virtual-machines/windows/detach-disk#detach-a-data-disk-using-the-portal) from the virtual machine. Then [attach the restored disk](/azure/virtual-machines/windows/attach-managed-disk-portal) to the virtual machine. Follow the instructions to [swap the OS disk](/azure/virtual-machines/windows/os-disk-swap) of the virtual machine with the restored disk.
 
-- For Linux virtual machines, if the restored disk is a data disk, follow the instructions to [detach the original data disk](../virtual-machines/linux/detach-disk.md#detach-a-data-disk-using-the-portal) from the virtual machine. Then [attach the restored disk](../virtual-machines/linux/attach-disk-portal.yml#attach-an-existing-disk) to the virtual machine. Follow the instructions to [swap the OS disk](../virtual-machines/linux/os-disk-swap.md) of  the virtual machine with the restored disk.
+- For Linux virtual machines, if the restored disk is a data disk, follow the instructions to [detach the original data disk](/azure/virtual-machines/linux/detach-disk#detach-a-data-disk-using-the-portal) from the virtual machine. Then [attach the restored disk](/azure/virtual-machines/linux/attach-disk-portal#attach-an-existing-disk) to the virtual machine. Follow the instructions to [swap the OS disk](/azure/virtual-machines/linux/os-disk-swap) of  the virtual machine with the restored disk.
 
 It's recommended that you revoke the **Disk Restore Operator** role assignment from the Backup vault's managed identity on the **Target resource group** after the successful completion of restore operation.
 

@@ -271,7 +271,7 @@ Make sure the virtual network gateway has been successfully deployed before depl
 
 ### Verify from a VM
 
-1. [Deploy a test virtual machine](../virtual-machines/linux/quick-create-portal.md) into **vnet-learn-prod-eastus-001**.
+1. [Deploy a test virtual machine](/azure/virtual-machines/linux/quick-create-portal) into **vnet-learn-prod-eastus-001**.
 
 1. Go to the test VM created in *vnet-learn-prod-eastus-001* and select **Networking** under *Settings*. Select **Outbound port rules** and verify the **DENY_INTERNET** rule is applied.
 

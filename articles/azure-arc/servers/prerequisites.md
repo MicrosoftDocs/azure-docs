@@ -9,7 +9,7 @@ ms.custom: devx-track-azurepowershell
 # Connected Machine agent prerequisites
 
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
+> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](/azure/virtual-machines/workloads/centos/centos-end-of-life).
 
 This article describes the basic requirements for installing the Connected Machine agent to onboard a physical server or virtual machine to Azure Arc-enabled servers. Some [onboarding methods](deployment-options.md) may have more requirements.
 
@@ -40,7 +40,7 @@ Azure Arc supports the following Windows and Linux operating systems. Only x86-6
 
 * AlmaLinux 9
 * Amazon Linux 2 and 2023
-* Azure Linux (CBL-Mariner) 2.0
+* Azure Linux (CBL-Mariner) 2.0 and 3.0
 * Azure Stack HCI
 * Debian 11, and 12
 * Oracle Linux 7, 8, and 9
@@ -68,7 +68,7 @@ The listed version is supported until the **End of Arc Support Date**. If critic
 | Operating system | Last supported agent version | End of Arc Support Date | Notes |
 | -- | -- | -- | -- | 
 | Windows Server 2008 R2 SP1 | 1.39 [Download](https://aka.ms/AzureConnectedMachineAgent-1.39)  | 03/31/2025 | Windows Server 2008 and 2008 R2 reached End of Support in January 2020. See [End of support for Windows Server 2008 and Windows Server 2008 R2](/troubleshoot/windows-server/windows-server-eos-faq/end-of-support-windows-server-2008-2008r2). | 
-| CentOS 7 and 8 | 1.42  | 05/31/2025 | See the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md). | 
+| CentOS 7 and 8 | 1.42  | 05/31/2025 | See the [CentOS End Of Life guidance](/azure/virtual-machines/workloads/centos/centos-end-of-life). | 
 | Debian 10 | 1.44  | 07/15/2025 |  | 
 | Ubuntu 16.04 | 1.44  | 07/15/2025 |  | 
 | Azure Linux (CBL-Mariner) 1.0 | 1.44  | 07/15/2025 |  | 

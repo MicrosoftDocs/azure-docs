@@ -32,6 +32,8 @@ items:
     items:
     - name: Portal
       href: create-single-tenant-workflows-azure-portal.md
+    - name: Portal - Templates gallery
+      href: create-single-tenant-workflows-templates.md
     - name: Visual Studio Code
       href: create-single-tenant-workflows-visual-studio-code.md
 - name: Tutorials
@@ -97,6 +99,8 @@ items:
       href: set-up-sql-db-storage-single-tenant-standard-workflows.md
     - name: Create Standard workflows - Portal
       href: create-single-tenant-workflows-azure-portal.md
+    - name: Create Standard workflows from templates - Portal
+      href: create-single-tenant-workflows-templates.md
     - name: Get AI-powered help from the workflow assistant
       href: workflow-assistant-standard.md
     - name: Create Standard workflows - Visual Studio Code
@@ -109,14 +113,16 @@ items:
       href: add-run-powershell-scripts.md
     - name: Parse or chunk content
       href: parse-document-chunk-text.md
-    - name: Secure traffic between Standard workflows and virtual networks
-      href: secure-single-tenant-workflow-virtual-network-private-endpoint.md
     - name: Edit app and host settings
       href: edit-app-settings-host-settings.md
     - name: Enable stateful mode for stateless built-in connectors
       href: ../connectors/enable-stateful-affinity-built-in-connectors.md
     - name: Create custom built-in connectors
       href: create-custom-built-in-connector-standard.md
+    - name: Create and publish workflow templates
+      href: create-publish-workflow-templates.md
+    - name: Secure traffic between Standard workflows and virtual networks
+      href: secure-single-tenant-workflow-virtual-network-private-endpoint.md
     - name: Develop for rules engine integration
       items:
       - name: Overview for rules engine integration
