@@ -18,9 +18,9 @@ Use Azure Container Apps as the main destination for your migration. Azure Conta
 
 With one easy step, you can migrate from Azure Spring Apps consumption & dedicated plan to Azure Container Apps. Select the **Migrate** button in the Azure portal and confirm the action. 
 
-:::image type="content" source="/media/overview-migration-guide/consumption-plan-migration-button.png" alt-text="Screenshot of the Azure portal that shows the Migrate button." border="false" lightbox="/media/overview-migration-guide/consumption-plan-migration-button.png":::
+:::image type="content" source="media/overview-migration-guide/consumption-plan-migration-button.png" alt-text="Screenshot of the Azure portal that shows the Migrate button." border="false" lightbox="media/overview-migration-guide/consumption-plan-migration-button.png":::
 
-:::image type="content" source="/media/overview-migration-guide/consumption-plan-migration-confirmation.png" alt-text="Screenshot of the Migrate to Azure Container Apps message with Yes option highlighted." border="false" lightbox="/media/overview-migration-guide/consumption-plan-migration-confirmation.png":::
+:::image type="content" source="media/overview-migration-guide/consumption-plan-migration-confirmation.png" alt-text="Screenshot of the Migrate to Azure Container Apps message with Yes option highlighted." border="false" lightbox="media/overview-migration-guide/consumption-plan-migration-confirmation.png":::
 
 This feature is available mid-October 2024 and you can start the migration process as soon as it's available.
 
@@ -109,7 +109,7 @@ Your deployment pipelines/workflow must point to Azure Container Apps to work pr
 
 ### How do I continue to make my automation scripts work using Azure CLI? 
 
-Azure CLI scripts must change to make them work in Azure Container Apps. For more information, see [az containerapp](https://learn.microsoft.com/cli/azure/containerapp?view=azure-cli-latest&preserve-view=true). 
+Azure CLI scripts must change to make them work in Azure Container Apps. For more information, see [az containerapp](cli/azure/containerapp?view=azure-cli-latest&preserve-view=true). 
 
 ### Are there plans to retire any other Azure Spring Apps SKUs?
   
