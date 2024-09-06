@@ -1,4 +1,11 @@
-## Use options available in configuration file with Microsoft Playwright Testing preview
+---
+title: Microsoft Playwright Testing service configuration file options
+description: Learn how to use options available in configuration file with Microsoft Playwright Testing preview
+ms.topic: how-to
+ms.date: 09/07/2024
+ms.custom: playwright-testing-preview
+---
+# Use options available in configuration file with Microsoft Playwright Testing preview
 
 In this article, you learn about the options available to you in the `playwright.service.config.ts` file and how you can use them. 
 

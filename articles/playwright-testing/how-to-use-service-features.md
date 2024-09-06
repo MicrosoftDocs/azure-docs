@@ -1,3 +1,11 @@
+---
+title: Microsoft Playwright Testing features
+description: Learn how to use different features offered by Microaoft Playwright Testing service
+ms.topic: how-to
+ms.date: 09/07/2024
+ms.custom: playwright-testing-preview
+---
+
 # Use features of Microsoft Playwright Testing preview
 
 In this article, you learn how to use the features provided by Mocrosoft Playwright Testing preview. 
