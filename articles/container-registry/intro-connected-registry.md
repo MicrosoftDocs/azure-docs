@@ -75,11 +75,11 @@ The connected registry is deployed on a server or device on-premises, or an envi
 
 The following image shows a typical deployment model for the connected registry using IoT Edge. 
 
-:::image type="content" source="media/intro-connected-registry/connected-registry-edge.png" alt-text="Diagram of connected registry overview using IoT Edge":::
+:::image type="content" source="media/intro-connected-registry/connected-registry-edge.png" alt-text="Diagram of connected registry overview using IoT Edge.":::
 
 The following image shows a typical deployment model for the connected registry using Azure Arc-enabled Kubernetes. 
 
-:::image type="content" source="media/intro-connected-registry/connected-registry-azure-arc.png" alt-text="Diagram of connected registry overview using Arc-enabled Kubernetes":::
+:::image type="content" source="media/intro-connected-registry/connected-registry-azure-arc.png" alt-text="Diagram of connected registry overview using Arc-enabled Kubernetes.":::
 
 ### Deployment
 
