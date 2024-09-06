@@ -325,8 +325,8 @@
         href: vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md
       - name: macOS - native VPN client connection problems
         href: vpn-gateway-troubleshoot-point-to-site-osx-ikev2.md
-      - name: Troubleshoot the Azure VPN Client - Microsoft Entra ID
-        href: troubleshoot-ad-vpn-client.md
+      - name: Troubleshoot the Azure VPN Client
+        href: troubleshoot-azure-vpn-client.md
       - name: Report Azure VPN Client problems - Feedback Hub
         href: feedback-hub-azure-vpn-client.md
     - name: Troubleshoot site-to-site connection issues
