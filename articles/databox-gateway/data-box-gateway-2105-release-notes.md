@@ -6,7 +6,7 @@ author: stevenmatthew
  
 ms.service: databox
 ms.subservice: gateway
-ms.topic: article
+ms.topic: release-notes
 ms.date: 01/07/2022
 ms.author: shaas
 ---

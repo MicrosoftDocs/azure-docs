@@ -6,7 +6,7 @@ author: stevenmatthew
 
 ms.service: databox
 ms.subservice: heavy
-ms.topic: article
+ms.topic: cenceptual
 ms.date: 07/08/2019
 ms.author: shaas
 
