@@ -2,7 +2,7 @@
 title: Triggers and bindings in Azure Functions
 description: Learn to use triggers and bindings to connect your Azure Function to online events and cloud-based services.
 ms.topic: conceptual
-ms.date: 08/14/2023
+ms.date: 09/06/2024
 ms.custom: devdivchpfy22, devx-track-extended-java, devx-track-js, devx-track-python, devx-track-ts
 zone_pivot_groups: programming-languages-set-functions
 ---
@@ -11,11 +11,11 @@ zone_pivot_groups: programming-languages-set-functions
 
 In this article, you learn the high-level concepts surrounding functions triggers and bindings.
 
-Triggers cause a function to run. A trigger defines how a function is invoked and a function must have exactly one trigger. Triggers have associated data, which is often provided as the payload of the function.
+Triggers cause a function to run. A trigger defines how a function is invoked and a function must have exactly one trigger. Triggers usually also pass data into your function, as you would with method calls.
 
-Binding to a function is a way of declaratively connecting another resource to the function; bindings may be connected as *input bindings*, *output bindings*, or both. Data from bindings is provided to the function as parameters.
+Binding to a function is a way of declaratively connecting another resource to the function; bindings either pass data into your function (an *input binding*) or enable you to write data out from your function (an *output binding*) using *binding parameters*. Your function trigger is essentially a special kind of input binding.
 
-You can mix and match different bindings to suit your needs. Bindings are optional and a function might have one or multiple input and/or output bindings.
+You can mix and match different bindings to suit your function's specific scenario. Bindings are optional and a function might have one or multiple input and/or output bindings.
 
 Triggers and bindings let you avoid hardcoding access to other services. Your function receives data (for example, the content of a queue message) in function parameters. You send data (for example, to create a queue message) by using the return value of the function. 
 
@@ -24,53 +24,166 @@ Consider the following examples of how you could implement different functions.
 | Example scenario | Trigger | Input binding | Output binding |
 |-------------|---------|---------------|----------------|
 | A new queue message arrives which runs a function to write to another queue. | Queue<sup>*</sup> | *None* | Queue<sup>*</sup> |
-|A scheduled job reads Blob Storage contents and creates a new Azure Cosmos DB document. | Timer | Blob Storage | Azure Cosmos DB |
-|The Event Grid is used to read an image from Blob Storage and a document from Azure Cosmos DB to send an email. | Event Grid | Blob Storage and Azure Cosmos DB | SendGrid |
+| A scheduled job reads Blob Storage contents and creates a new Azure Cosmos DB document. | Timer | Blob Storage | Azure Cosmos DB |
+| The Event Grid is used to read an image from Blob Storage and a document from Azure Cosmos DB to send an email. | Event Grid | Blob Storage and Azure Cosmos DB | SendGrid |
 | A webhook that uses Microsoft Graph to update an Excel sheet. | HTTP | *None* | Microsoft Graph |
 
 <sup>\*</sup> Represents different queues
 
 These examples aren't meant to be exhaustive, but are provided to illustrate how you can use triggers and bindings together.
 
-###  Trigger and binding definitions
+>[!TIP]
+>Functions doesn't require you to use input and output bindings to connect to Azure services. You can always create an Azure SDK client in your code and use it instead for your data transfers. For more information, see [Connect to services](functions-reference.md#connect-to-services).
 
-Triggers and bindings are defined differently depending on the development language.
+##  Trigger and binding definitions
 
-| Language | Triggers and bindings are configured by... |
-|-------------|--------------------------------------------|
-| C# class library | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;decorating methods and parameters with C# attributes |
-| Java | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;decorating methods and parameters with Java annotations  | 
-| JavaScript/PowerShell/Python/TypeScript | &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;updating [function.json](./functions-reference.md) ([schema](http://json.schemastore.org/function)) |
+Triggers and bindings are defined differently depending on the development language. Make sure to select your language at the [top](#top) of the article.
 
-For languages that rely on function.json, the portal provides a UI for adding bindings in the **Integration** tab. You can also edit the file directly in the portal in the **Code + test** tab of your function. Visual Studio Code lets you easily [add a binding to a function.json file](functions-develop-vs-code.md?tabs=nodejs#add-a-function-to-your-project) by following a convenient set of prompts. 
+Bindings can be either input or output bindings. Not all services support both input and output bindings. See your specific binding extension for [specific bindings code examples](#bindings-code-examples).
 
-In .NET and Java, the parameter type defines the data type for input data. For instance, use `string` to bind to the text of a queue trigger, a byte array to read as binary, and a custom type to de-serialize to an object. Since .NET class library functions and Java functions don't rely on *function.json* for binding definitions, they can't be created and edited in the portal. C# portal editing is based on C# script, which uses *function.json* instead of attributes.
+::: zone pivot="programming-language-csharp"
+For C# class library functions, triggers and bindings are configured by decorating methods and parameters with C# attributes, where the specific attribute applied might depend on the C# runtime model, as you can see in this Queue storage trigger example:
 
-To learn more about how to add bindings to existing functions, see [Connect functions to Azure services using bindings](add-bindings-existing-function.md).
+### [Isolated worker model](#tab/isolated-process)
 
-For languages that are dynamically typed such as JavaScript, use the `dataType` property in the *function.json* file. For example, to read the content of an HTTP request in binary format, set `dataType` to `binary`:
+This example shows the HTTP trigger definition (`HttpTrigger`) on the `Run` method for a function named `HttpExample` that returns a `MultiResponse` object:
+
+:::code language="csharp" source="~/functions-docs-csharp/functions-add-output-binding-storage-queue-isolated/HttpExample.cs" range="11-14":::
+
+This example shows the `MultiResponse` object definition which both returns an `HttpResponse` to the HTTP request and writes messages to a storage queue using a `QueueOutput` binding: 
+
+:::code language="csharp" source="~/functions-docs-csharp/functions-add-output-binding-storage-queue-isolated/HttpExample.cs" range="33-38":::
+
+For more information, see the [C# isolated worker model guide](dotnet-isolated-process-guide.md#methods-recognized-as-functions).
+
+### [In-process model](#tab/in-process)
+
+This example shows the HTTP trigger definition (`HttpTrigger`) on the `Run` method for a function named `HttpExample` that writes to a storage queue defined by the `Queue` and `StorageAccount` attributes on the `msg` parameter:
+
+:::code language="csharp" source="~/functions-docs-csharp/functions-add-output-binding-storage-queue-cli/HttpExample.cs" range="14-19":::
+
+For more information, see the [C# in-process model guide](functions-dotnet-class-library.md#methods-recognized-as-functions).
+
+---
+
+Legacy C# Script functions use a function.json definition file. For more information, see the [Azure Functions C# script (.csx) developer reference](functions-reference-csharp.md).
+::: zone-end
+::: zone pivot="programming-language-java"
+For Java functions, triggers and bindings are configured by annotating specific methods and parameters. This example shows the HTTP trigger definition on the `run` method for a function named `HttpTriggerQueueOutput` where the trigger is defined in the `@HttpTrigger` annotation that writes to a storage queue defined by the `@QueueOutput` annocation on the `message` parameter:
+
+:::code language="java" source="~/functions-docs-java/src/main/java/com/function/HttpTriggerQueueOutput.java" range="6-11":::
+
+For more information, see the [Java developer guide](functions-reference-java.md#triggers-and-annotations).
+::: zone-end
+::: zone pivot="programming-language-javascript,programming-language-typescript"
+The way that triggers and binding are defined for Node.js functions depends on the specific version of Node.js for Functions:
+
+### [v4](#tab/node-v4)
+
+In Node.js for Functions version 4, you configure triggers and bindings using objects exported from the `@azure/functions` module. For more information, see the [Node.js developer guide](functions-reference-node.md?pivots=nodejs-model-v4#inputs-and-outputs).
+
+### [v3](#tab/node-v3)
+
+In Node.js for Functions version 3, you configure triggers and bindings in a function-specific `function.json` file in the same folder as your code. For more information, see the [Node.js developer guide](functions-reference-node.md?pivots=nodejs-model-v3#inputs-and-outputs).
+
+---
+
+This example is an HTTP triggered function that creates a queue item for each HTTP request received:
+
+### [JavaScript](#tab/javascript/node-v4)
+
+:::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/functions/storageQueueOutput1.js" :::
+
+### [TypeScript](#tab/typescript/node-v4)
+
+:::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/functions/storageQueueOutput1.ts" :::
+
+### [JavaScript](#tab/javascript/node-v3)
+
+This example `function.json` file defines the function.
 
 ```json
 {
-    "dataType": "binary",
-    "type": "httpTrigger",
-    "name": "req",
-    "direction": "in"
+  "bindings": [
+    {
+      "type": "httpTrigger",
+      "direction": "in",
+      "authLevel": "function",
+      "name": "input"
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "$return"
+    },
+    {
+      "type": "queue",
+      "direction": "out",
+      "name": "myQueueItem",
+      "queueName": "outqueue",
+      "connection": "MyStorageConnectionAppSetting"
+    }
+  ]
 }
 ```
 
-Other options for `dataType` are `stream` and `string`.
+### [TypeScript](#tab/typescript/node-v3)
 
-## Binding direction
+This example `function.json` file defines the function.
 
-All triggers and bindings have a `direction` property in the [function.json](./functions-reference.md) file:
+```json
+{
+  "bindings": [
+    {
+      "type": "httpTrigger",
+      "direction": "in",
+      "authLevel": "function",
+      "name": "input"
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "$return"
+    },
+    {
+      "type": "queue",
+      "direction": "out",
+      "name": "myQueueItem",
+      "queueName": "outqueue",
+      "connection": "MyStorageConnectionAppSetting"
+    }
+  ]
+}
+```
 
-- For triggers, the direction is always `in`
-- Input and output bindings use `in` and `out`
-- Some bindings support a special direction `inout`. If you use `inout`, only the **Advanced editor** is available via the **Integrate** tab in the portal.
+---
 
-When you use [attributes in a class library](functions-dotnet-class-library.md) to configure triggers and bindings, the direction is provided in an attribute constructor or inferred from the parameter type.
+::: zone pivot="programming-language-powershell"  
+This example `function.json` file defines the function:
 
+:::code language="json" source="~/functions-docs-powershell/functions-add-output-binding-storage-queue-cli/HttpExample/function.json" range="3-26":::
+
+For more information, see the [PowerShell developer guide](functions-reference-powershell.md#bindings).
+::: zone-end  
+::: zone pivot="programming-language-python"  
+The way that the function is defined depends on the version of Python for Functions:
+
+### [v2](#tab/python-v2)
+
+In Python v2, you define the function directly in code using decorators:
+
+:::code language="python" source="~/functions-docs-python-v2/function_app.py" range="4-9" :::
+
+
+### [v1](#tab/python-v1)
+
+In Python v1, this example `function.json` file defines the function:
+
+:::code language="json" source="~/functions-docs-powershell/functions-add-output-binding-storage-queue-cli/HttpExample/function.json" range="3-26":::
+
+---
+
+::: zone-end  
 ## Add bindings to a function
 
 You can connect your function to other services by using input or output bindings. Add a binding by adding its specific definitions to your function. To learn how, see [Add bindings to an existing function in Azure Functions](add-bindings-existing-function.md).  
@@ -85,7 +198,7 @@ Specific binding extension versions are only supported while the underlying serv
 
 ## Bindings code examples
 
-Use the following table to find examples of specific binding types that show you how to work with bindings in your functions. First, choose the language tab that corresponds to your project. 
+Use the following table to find more examples of specific binding types that show you how to work with bindings in your functions. First, choose the language tab that corresponds to your project. 
 
 [!INCLUDE [functions-bindings-code-example-chooser](../../includes/functions-bindings-code-example-chooser.md)]
 
