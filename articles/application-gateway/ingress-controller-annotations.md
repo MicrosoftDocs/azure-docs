@@ -11,13 +11,13 @@ ms.author: greglin
 
 # Annotations for Application Gateway Ingress Controller
 
-The Kubernetes Ingress resource can be annotated with arbitrary key/value pairs. AGIC relies on annotations to program Application Gateway features, which aren't configurable using the Ingress YAML. Ingress annotations are applied to all HTTP settings, backend pools, and listeners derived from an ingress resource.
+The Kubernetes Ingress resource can be annotated with arbitrary key/value pairs. Application Gateway Ingress Controller (AGIC) relies on annotations to program Azure Application Gateway features, which aren't configurable via the Ingress YAML. Ingress annotations are applied to all HTTP settings, backend pools, and listeners derived from an ingress resource.
 
 ## List of supported annotations
 
-For an Ingress resource to be observed by AGIC, it **must be annotated** with `kubernetes.io/ingress.class: azure/application-gateway`. Only then AGIC works with the Ingress resource in question.
+For AGIC to observe an Ingress resource, the resource *must be annotated* with `kubernetes.io/ingress.class: azure/application-gateway`.
 
-| Annotation Key | Value Type | Default Value | Allowed Values |
+| Annotation key | Value type | Default value | Allowed values |
 | -- | -- | -- | -- |
 | [appgw.ingress.kubernetes.io/backend-path-prefix](#backend-path-prefix) | `string` | `nil` ||
 | [appgw.ingress.kubernetes.io/backend-hostname](#backend-hostname) | `string` | `nil` ||
@@ -48,7 +48,7 @@ For an Ingress resource to be observed by AGIC, it **must be annotated** with `k
 
 ## Backend Path Prefix
 
-The following annotation allows the backend path specified in an ingress resource to be rewritten with prefix specified in this annotation. It allows users to expose services whose endpoints are different than endpoint names used to expose a service in an ingress resource.
+The following annotation allows the backend path specified in an ingress resource to be rewritten with the specified prefix. It allows users to expose services whose endpoints are different from the endpoint names that you use to expose a service in an ingress resource.
 
 ### Usage
 
@@ -80,14 +80,14 @@ spec:
               number: 80
 ```
 
-In the previous example, you've defined an ingress resource named `go-server-ingress-bkprefix` with an annotation `appgw.ingress.kubernetes.io/backend-path-prefix: "/test/"`. The annotation tells application gateway to create an HTTP setting, which has a path prefix override for the path `/hello` to `/test/`.
+In the preceding example, you defined an ingress resource named `go-server-ingress-bkprefix` with an annotation named `appgw.ingress.kubernetes.io/backend-path-prefix: "/test/"`. The annotation tells Application Gateway to create an HTTP setting that has a path prefix override for the path `/hello` to `/test/`.
 
 > [!NOTE]
-> In the above example, only one rule is defined. However, the annotations are applicable to the entire ingress resource, so if a user defined multiple rules, the backend path prefix would be set up for each of the paths specified. If a user wants different rules with different path prefixes (even for the same service), they would need to define different ingress resources.
+> The preceding example defines only one rule. However, the annotations apply to the entire ingress resource. So if you define multiple rules, you set up the backend path prefix for each of the specified paths. If you want different rules with different path prefixes (even for the same service), you need to define different ingress resources.
 
 ## Backend Hostname
 
-This annotation allows us to specify the host name that Application Gateway should use while talking to the Pods.
+Use the following annotation to specify the host name that Application Gateway should use while talking to the pods.
 
 ### Usage
 
@@ -320,7 +320,7 @@ spec:
 The following annotation allows you to specify whether to expose this endpoint on Private IP of Application Gateway.
 
 > [!NOTE]
-> * For Application Gateway that doesn't have a private IP, Ingresses with `appgw.ingress.kubernetes.io/use-private-ip: "true"` is ignored. This is reflected in the controller logs and ingress events for those ingresses with `NoPrivateIP` warning.
+> For Application Gateway that doesn't have a private IP, Ingresses with `appgw.ingress.kubernetes.io/use-private-ip: "true"` is ignored. This is reflected in the controller logs and ingress events for those ingresses with `NoPrivateIP` warning.
 
 ### Usage
 
@@ -390,7 +390,7 @@ spec:
 ```
 
 > [!NOTE]
->External request will need to target http://somehost:8080 instead of http://somehost.
+> External request will need to target `http://somehost:8080` instead of `http://somehost`.
 
 ## Backend Protocol
 
@@ -467,7 +467,7 @@ spec:
 ```
 
 > [!NOTE]
-> In the above example the listener would be configured to accept traffic for the hostnames "hostname1.contoso.com" and "hostname2.contoso.com"
+> In the preceding example, the listener would be configured to accept traffic for the hostnames "hostname1.contoso.com" and "hostname2.contoso.com"
 
 ## WAF Policy for Path
 
@@ -521,7 +521,7 @@ The SSL certificate [can be configured to Application Gateway](/cli/azure/networ
 Please refer to appgw-ssl-certificate feature for more details.
 
 > [!NOTE]
->  Annotation "appgw-ssl-certificate" will be ignored when TLS Spec is defined in ingress at the same time. If a user wants different certs with different hosts(multi tls certificate termination), they would need to define different ingress resources.
+> Annotation "appgw-ssl-certificate" will be ignored when TLS Spec is defined in ingress at the same time. If a user wants different certs with different hosts(multi tls certificate termination), they would need to define different ingress resources.
 
 ### Usage
 
@@ -659,12 +659,12 @@ spec:
 
 ## Rewrite Rule Set Custom Resource
 
-> [!Note] 
+> [!NOTE]
 > [Application Gateway for Containers](https://aka.ms/agc) has been released, which introduces numerous performance, resilience, and feature changes. Please consider leveraging Application Gateway for Containers for your next deployment.
 > URL Rewrite rules for Application Gateway for Containers may be found [here for Gateway API](./for-containers/how-to-url-rewrite-gateway-api.md) and [here for Ingress API](for-containers/how-to-url-rewrite-ingress-api.md).
 > Header Rewrite rules for Application Gateway for Containers may be found [here for Gateway API](./for-containers/how-to-header-rewrite-gateway-api.md).
 
-> [!Note] 
+> [!NOTE]
 > This feature is supported since 1.6.0-rc1. Use [`appgw.ingress.kubernetes.io/rewrite-rule-set`](#rewrite-rule-set), which allows using an existing rewrite rule set on Application Gateway.
 
 Application Gateway allows you to rewrite selected content of requests and responses. With this feature, you can translate URLs, query string parameters as well as modify request and response headers. It also allows you to add conditions to ensure that the URL or the specified headers are rewritten only when certain conditions are met. These conditions are based on the request and response information. Rewrite Rule Set Custom Resource brings this feature to AGIC.
@@ -744,4 +744,4 @@ spec:
               number: 8080
 ```
 
-In the above example the request routing rule would have a priority of 10 set.
+In the preceding example, the request routing rule would have a priority of 10 set.
