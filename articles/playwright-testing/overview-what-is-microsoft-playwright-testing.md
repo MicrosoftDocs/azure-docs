@@ -43,7 +43,7 @@ Modern web apps need to work flawlessly across numerous browsers, operating syst
 
 ## Troubleshoot tests easily using reporting and artifacts 
 
-As applications grow, maintaining quality becomes crucial. Use the reporting feature of the service to troubleshoot test results easily using rich artifacts. 
+As applications grow, maintaining quality is crucial. Use the reporting feature of the service to troubleshoot test results with rich artifacts. 
 
 - Publish test results and artifacts to the service and view them in the service portal for faster troubleshooting. 
 - Integrate reporting with CI pipelines to get rich, consolidated reports. 
