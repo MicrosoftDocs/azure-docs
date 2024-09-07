@@ -71,7 +71,7 @@ Legacy C# Script functions use a function.json definition file. For more informa
 ::: zone pivot="programming-language-java"
 For Java functions, triggers and bindings are configured by annotating specific methods and parameters. This example shows the HTTP trigger definition on the `run` method for a function named `HttpTriggerQueueOutput` where the trigger is defined in the `@HttpTrigger` annotation that writes to a storage queue defined by the `@QueueOutput` annocation on the `message` parameter:
 
-:::code language="java" source="~/functions-docs-java/src/main/java/com/function/HttpTriggerQueueOutput.java" range="6-11":::
+:::code language="java" source="~/functions-quickstart-java/functions-add-output-binding-storage-queue/src/main/java/com/function/Function.java" range="16-23":::
 
 For more information, see the [Java developer guide](functions-reference-java.md#triggers-and-annotations).
 ::: zone-end
