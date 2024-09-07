@@ -48,9 +48,9 @@ Here are other resources that incur costs when you create them for use with logi
 
 * An [integration account](../logic-apps/logic-apps-pricing.md#integration-accounts) is a separate resource that you create and link to logic apps for building B2B integrations. Integration accounts use a [fixed pricing model](../logic-apps/logic-apps-pricing.md#integration-accounts) where the rate is based on the integration account type or *tier* that you use.
 
-* An [ISE](../logic-apps/logic-apps-pricing.md#ise-pricing) is a separate resource that you create as a deployment location for logic apps that need direct access to resources in a virtual network. ISEs use the [ISE pricing model](../logic-apps/logic-apps-pricing.md#ise-pricing) where the rate is based on the ISE SKU that you create and other settings. However, data retention and storage consumption don't incur costs.
+* An [ISE](../logic-apps/logic-apps-pricing.md#ise-pricing) is a separate resource that you create as a deployment location for logic apps that need direct access to resources in a virtual network.
 
-* A [custom connector](../logic-apps/logic-apps-pricing.md#consumption-pricing) is a separate resource that you create for a REST API that has no prebuilt connector for you to use in your logic apps. Custom connector executions use a [consumption pricing model](../logic-apps/logic-apps-pricing.md#consumption-pricing) except when you use them in an ISE.
+* A [custom connector](../logic-apps/logic-apps-pricing.md#consumption-pricing) is a separate resource that you create for a REST API that has no prebuilt connector for you to use in your logic apps. Custom connector executions use the [Consumption pricing model](../logic-apps/logic-apps-pricing.md#consumption-pricing).
 
 <a name="storage-operations-costs"></a>
 

@@ -73,11 +73,11 @@ When you use the new built-in connector operations, you create connections calle
 
 Workflows that run in either single-tenant Azure Logic Apps can directly access secured resources such as virtual machines (VMs), other services, and systems that exist in an [Azure virtual network](../virtual-network/virtual-networks-overview.md).
 
-Both single-tenant Azure Logic Apps and an ISE are dedicated instances of the Azure Logic Apps service, use dedicated resources, and run separately from multitenant Azure Logic Apps. Running workflows in a dedicated instance helps reduce the impact that other Azure tenants might have on app performance, also known as the ["noisy neighbors" effect](https://en.wikipedia.org/wiki/Cloud_computing_issues#Performance_interference_and_noisy_neighbors).
+Single-tenant Azure Logic Apps is a dedicated instance of the Azure Logic Apps service, uses dedicated resources, and runs separately from multitenant Azure Logic Apps. Running workflows in a dedicated instance helps reduce the impact that other Azure tenants might have on app performance, also known as the ["noisy neighbors" effect](https://en.wikipedia.org/wiki/Cloud_computing_issues#Performance_interference_and_noisy_neighbors).
 
-Single-tenant Azure Logic Apps and an ISE also provide the following benefits:
+Single-tenant Azure Logic Apps also provide the following benefits:
 
-* Your own static IP addresses, which are separate from the static IP addresses that are shared by the logic apps in the multitenant Azure Logic Apps. You can also set up a single public, static, and predictable outbound IP address to communicate with destination systems. That way, you don't have to set up extra firewall openings at those destination systems for each ISE.
+* Your own static IP addresses, which are separate from the static IP addresses that are shared by the logic apps in the multitenant Azure Logic Apps. You can also set up a single public, static, and predictable outbound IP address to communicate with destination systems. That way, you don't have to set up extra firewall openings at those destination systems.
 
 * Increased limits on run duration, storage retention, throughput, HTTP request and response timeouts, message sizes, and custom connector requests. For more information, review [Limits and configuration for Azure Logic Apps](logic-apps-limits-and-config.md).
 
