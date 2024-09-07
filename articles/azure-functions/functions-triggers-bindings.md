@@ -158,6 +158,7 @@ This example `function.json` file defines the function.
 
 ---
 
+::: zone-end  
 ::: zone pivot="programming-language-powershell"  
 This example `function.json` file defines the function:
 
