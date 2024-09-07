@@ -20,7 +20,7 @@ By default, [Microsoft Entra ID](https://learn.microsoft.com/entra/identity/) is
 
 Microsoft Playwright Testing Preview is built on the Playwright open-source framework. It runs Playwright tests on cloud-hosted browsers and publishes reports and artifacts back to the service. 
 
-To use the service, client must authenticate with the service to access the browsers. Similarly, publishing results and artifacts requires authenticated API interactions. The service offers two authentication methods: Microsoft Entra ID and Access Tokens.
+To use the service, the client must authenticate with the service to access the browsers. Similarly, publishing results and artifacts requires authenticated API interactions. The service offers two authentication methods: Microsoft Entra ID and access tokens.
 
 Microsoft Entra ID uses your Azure credentials, requiring a sign-in to your Azure account for secure access. Alternatively, you can generate an access token from your Playwright workspace and use it in your setup. However, we strongly recommend Microsoft Entra ID for authentication due to its enhanced security. Access tokens, while convenient, function like long-lived passwords and are more susceptible to being compromised.
 

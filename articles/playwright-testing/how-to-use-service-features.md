@@ -8,7 +8,7 @@ ms.custom: playwright-testing-preview
 
 # Use features of Microsoft Playwright Testing preview
 
-In this article, you learn how to use the features provided by Mocrosoft Playwright Testing preview. 
+In this article, you learn how to use the features provided by Microsoft Playwright Testing preview. 
 
 > [!IMPORTANT]
 > Microsoft Playwright Testing is currently in preview. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
