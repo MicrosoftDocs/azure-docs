@@ -16,6 +16,8 @@ Every Azure Synapse Analytics workspace comes with serverless SQL pool endpoints
 
 Serverless SQL pool is a query service over the data in your data lake. It enables you to access your data through the following functionalities:
 
+- The serverless SQL pool is a distributed data processing system designed to handle large-scale data and computational workloads. It allows you to analyze big data within seconds or minutes, depending on the workload. With built-in fault tolerance in query execution, the system ensures high reliability and success rates, even for long-running queries involving massive datasets.
+
 - A familiar [T-SQL syntax](overview-features.md) to query data in place without the need to copy or load data into a specialized store. To learn more, see the [T-SQL support](#t-sql-support) section.
 - Integrated connectivity via the T-SQL interface that offers a wide range of business intelligence and ad-hoc querying tools, including the most popular drivers. To learn more, see the [Client tools](#client-tools) section. You can learn more from the [Introduction into Synapse Serverless SQL Pools video](https://www.youtube.com/watch?v=rDl58M5PyVw).
 
@@ -33,7 +35,7 @@ If you need to explore data in the data lake, gain insights from it or optimize 
 
 - Basic discovery and exploration - Quickly reason about the data in various formats (Parquet, CSV, JSON) in your data lake, so you can plan how to extract insights from it.
 - Logical data warehouse – Provide a relational abstraction on top of raw or disparate data without relocating and transforming data, allowing always up-to-date view of your data. Learn more about [creating logical data warehouse](tutorial-logical-data-warehouse.md).
-- Data transformation - Simple, scalable, and performant way to transform data in the lake using T-SQL, so it can be fed to BI and other tools, or loaded into a relational data store (Synapse SQL databases, Azure SQL Database, etc.).
+- Data transformation - Simple, scalable, and performant way to transform data in the lake using T-SQL, so it can be fed to BI and other tools, or loaded into a relational data store (Synapse SQL databases, Azure SQL Database, etc.). BI tools like Power BI or Azure Analysis Service can connect programmatically to integration tools like Synapse Pipelines or Azure Data Factory and popular languages ​​like C# or Python.
 
 Different professional roles can benefit from serverless SQL pool:
 
