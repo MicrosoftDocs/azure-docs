@@ -7,7 +7,9 @@ ms.date: 03/23/2024
 ---
 # Connect to OneLake in Microsoft Fabric with HDInsight on AKS cluster for Apache Flink®
 
+[!INCLUDE [retirement-notice](../includes/retirement-notice.md)]
 [!INCLUDE [feature-in-preview](../includes/feature-in-preview.md)]
+
 
 This example demonstrates on how to use HDInsight on AKS cluster for Apache Flink® with [Microsoft Fabric](/fabric/get-started/microsoft-fabric-overview).
 

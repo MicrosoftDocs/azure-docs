@@ -5,7 +5,7 @@ ms.service: azure-update-manager
 author: SnehaSudhirG
 ms.author: sudhirsneha
 ms.date: 05/13/2024
-ms.topic: conceptual
+ms.topic: overview
 ---
 
 # How to programmatically manage updates for Azure VMs

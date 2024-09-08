@@ -157,20 +157,17 @@ When a product is ready for use by developers, it can be published. Once publish
 
 ### Groups
 
-Groups are used to manage the visibility of products to developers. API Management has the following built-in groups:
-
-* **Administrators** -  Manage API Management service instances and create the APIs, operations, and products that are used by developers.
-
-    Azure subscription administrators are members of this group. 
+Groups are used to manage the visibility of products to developers. API Management has the following built-in groups for developers: 
 
 * **Developers** - Authenticated developer portal users that build applications using your APIs. Developers are granted access to the developer portal and build applications that call the operations of an API. 
 
 * **Guests** - Unauthenticated developer portal users, such as prospective customers visiting the developer portal. They can be granted certain read-only access, such as the ability to view APIs but not call them.
 
-Administrators can also create custom groups or use external groups in an [associated Microsoft Entra tenant](api-management-howto-aad.md) to give developers visibility and access to API products. For example, create a custom group for developers in a partner organization to access a specific subset of APIs in a product. A user can belong to more than one group.
+API Management service owners can also create custom groups or use external groups in an [associated Microsoft Entra tenant](api-management-howto-aad.md) to give developers visibility and access to API products. For example, create a custom group for developers in a partner organization to access a specific subset of APIs in a product. A user can belong to more than one group.
 
 **More information**: 
 * [How to create and use groups][How to create and use groups]
+* [How to manage user accounts](api-management-howto-create-or-invite-developers.md)
 
 ### Developers
 
@@ -184,7 +181,7 @@ When developers subscribe to a product, they're granted the primary and secondar
 
 ### Workspaces
 
-Workspaces allow decentralized API development teams to manage and productize their own APIs, while a central API platform team maintains the API Management infrastructure. Each workspace contains APIs, products, subscriptions, and related entities that are accessible only to the workspace collaborators. Access is controlled through Azure role-based access control (RBAC).
+Workspaces allow decentralized API development teams to manage and productize their own APIs, while a central API platform team maintains the API Management infrastructure. Each workspace contains APIs, products, subscriptions, and related entities that are accessible only to the workspace collaborators. Access is controlled through Azure role-based access control (RBAC). Each workspace is associated with a workspace gateway that routes API traffic to its backend services.
 
 **More information**:
 

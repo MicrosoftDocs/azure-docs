@@ -236,6 +236,13 @@ Multi-VM consistency is CPU intensive, and enabling it can affect workload perfo
 
 When you enable replication for a virtual machine, you can add it to a new replication group, or to an existing group. You can't add a virtual machine that's already replicating to a group.
 
+### What conditions must be met to create a recovery plan for multi-VM consistency?
+
+Creating a recovery plan for multi-VM consistency virtual machine works only if the following conditions are met:
+
+- Virtual machine must be in the same subscription and region.
+- Virtual machine must communicate over the network using host names.
+
 ## Failover
 
 ### How do we ensure capacity in the target region?

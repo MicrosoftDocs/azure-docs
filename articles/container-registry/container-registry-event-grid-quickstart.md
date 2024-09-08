@@ -1,7 +1,7 @@
 ---
 title: Quickstart - Send events to Event Grid
 description: In this quickstart, you enable Event Grid events for your container registry, then send container image push and delete events to a sample application.
-ms.topic: article
+ms.topic: quickstart
 author: tejaswikolli-web
 ms.author: tejaswikolli
 ms.service: azure-container-registry
