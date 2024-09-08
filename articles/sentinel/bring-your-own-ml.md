@@ -8,7 +8,7 @@ ms.author: yelevin
 ms.custom: devx-track-azurecli
 
 
-#Customer intent: [AI]As a security professional, I want to build and integrate custom machine learning models into my security operations platform so that I can detect and respond to threats specific to my organization's environment.
+#Customer intent: [AI]As a security engineer, I want to build and integrate custom machine learning models into my security operations platform so that we can detect and respond to threats specific to our organization's environment.
 
 ---
 

@@ -7,7 +7,7 @@ ms.date: 07/18/2023
 ms.author: yelevin
 
 
-#Customer intent: [AI]As a security operations analyst, I want to connect Microsoft Sentinel to various data sources using Windows agent-based connectors so that I can efficiently ingest and manage security event data for comprehensive threat detection and response.
+#Customer intent: [AI]As a security engineer, I want to connect Microsoft Sentinel to various data sources using Windows agent-based connectors so that I can efficiently ingest and manage security event data for comprehensive threat detection and response.
 
 ---
 

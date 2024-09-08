@@ -7,7 +7,7 @@ ms.topic: how-to
 ms.date: 05/19/2024
 
 
-#Customer intent: [AI]As a security analyst, I want to create and share Power BI reports from Microsoft Sentinel data so that I can provide insights to stakeholders without granting them direct access to Sentinel.
+#Customer intent: [AI]As a security analyst, I want to create and share Power BI reports from Microsoft Sentinel data so that I can provide insights to stakeholders without granting them direct access to Microsoft Sentinel.
 
 ---
 

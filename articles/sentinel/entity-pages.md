@@ -11,7 +11,7 @@ appliesto:
 ms.collection: usx-security
 
 
-#Customer intent: [AI]As a security analyst, I want to access detailed entity pages in my SIEM tool so that I can efficiently investigate and respond to security incidents.
+#Customer intent: [AI]As a security analyst, I want to access detailed entity pages in Microsoft Sentinel so that I can efficiently investigate and respond to security incidents.
 
 ---
 

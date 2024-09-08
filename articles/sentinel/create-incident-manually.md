@@ -7,7 +7,7 @@ ms.topic: how-to
 ms.date: 08/17/2022
 
 
-#Customer intent: [AI]As a security analyst, I want to manually create incidents in my SIEM solution so that I can investigate and respond to threats not automatically detected or ingested from external systems.
+#Customer intent: [AI]As a security analyst, I want to manually create incidents in Microsoft Sentinel so that I can investigate and respond to threats not automatically detected or ingested from external systems.
 
 ---
 

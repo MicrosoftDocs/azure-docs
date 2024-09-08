@@ -7,7 +7,7 @@ ms.topic: how-to
 ms.date: 01/17/2023
 
 
-#Customer intent: [AI]As a security analyst, I want to relate alerts to incidents in my SIEM system so that I can refine and expand the scope of my investigations efficiently.
+#Customer intent: [AI]As a security analyst, I want to relate alerts to incidents in Microsoft Sentinel so that I can refine and expand the scope of my investigations efficiently.
 
 ---
 

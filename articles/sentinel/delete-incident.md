@@ -7,7 +7,7 @@ ms.topic: how-to
 ms.date: 08/22/2022
 
 
-#Customer intent: [AI]As a security operations center (SOC) analyst, I want to delete duplicate or erroneous incidents in my incident management system so that I can maintain an accurate and efficient incident queue.
+#Customer intent: [AI]As a security analyst, I want to delete duplicate or erroneous incidents in my incident management system so that I can maintain an accurate and efficient incident queue.
 
 ---
 

@@ -7,7 +7,7 @@ ms.date: 11/09/2021
 ms.author: yelevin
 
 
-#Customer intent: [AI]As a security operations analyst, I want to integrate and synchronize alerts from cloud security tools into a centralized SIEM platform so that I can efficiently monitor, analyze, and respond to security incidents across my organization's hybrid and multicloud environments.
+#Customer intent: [AI]As a security analyst, I want to integrate and synchronize alerts from cloud security tools into Microsoft Sentinel so that I can efficiently monitor, analyze, and respond to security incidents across my organization's hybrid and multicloud environments.
 
 ---
 

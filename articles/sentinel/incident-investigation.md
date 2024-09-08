@@ -7,7 +7,7 @@ ms.topic: conceptual
 ms.date: 01/01/2023
 
 
-#Customer intent: [AI]As a SOC analyst, I want to utilize a comprehensive case management platform for incident investigation so that I can efficiently manage and resolve security threats.
+#Customer intent: [AI]As a security analyst, I want to use Microsoft Sentinel for incident investigation so that I can efficiently manage and resolve security threats.
 
 ---
 

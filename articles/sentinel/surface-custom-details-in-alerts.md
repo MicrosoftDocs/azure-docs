@@ -11,7 +11,7 @@ appliesto:
 ms.collection: usx-security
 
 
-#Customer intent: [AI]As a SOC analyst, I want to surface custom event details in alerts so that I can triage, investigate, and respond to incidents more efficiently.
+#Customer intent: [AI]As a security analyst, I want to surface custom event details in alerts so that I can triage, investigate, and respond to incidents more efficiently.
 
 ---
 

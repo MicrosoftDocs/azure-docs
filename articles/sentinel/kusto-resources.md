@@ -7,7 +7,7 @@ ms.date: 01/10/2022
 ms.author: yelevin
 
 
-#Customer intent: [AI]As a security engineer or analyst, I want to access resources for learning Kusto Query Language (KQL) so that I can effectively utilize Microsoft Sentinel for analytics, workbooks, and hunting.
+#Customer intent: [AI]As a security engineer or analyst, I want to access resources for learning Kusto Query Language (KQL) so that I can effectively use Microsoft Sentinel for analytics, workbooks, and hunting.
 
 ---
 

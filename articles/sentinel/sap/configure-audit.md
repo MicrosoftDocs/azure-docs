@@ -7,7 +7,6 @@ ms.topic: how-to
 ms.date: 04/27/2022
 
 
-#Customer intent: [AI]As a security administrator, I want to enable and configure SAP auditing in Microsoft Sentinel so that I can ensure comprehensive monitoring and security compliance for my SAP environment.
 
 ---
 

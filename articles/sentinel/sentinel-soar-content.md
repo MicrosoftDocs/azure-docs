@@ -7,7 +7,7 @@ ms.date: 10/18/2021
 ms.author: yelevin
 
 
-#Customer intent: [AI]As a security operations analyst, I want to integrate various security tools and automate threat responses using SOAR capabilities, so that I can enhance incident management and streamline security operations.
+#Customer intent: [AI]As a security analyst, I want to integrate various security tools and automate threat responses using SOAR capabilities, so that I can enhance incident management and streamline security operations.
 
 ---
 # Microsoft Sentinel SOAR content catalog

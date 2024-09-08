@@ -7,7 +7,7 @@ ms.date: 02/24/2023
 ms.author: yelevin
 
 
-#Customer intent: [AI]As a security analyst, I want to connect various Microsoft services to Microsoft Sentinel using API-based data connectors so that I can centralize and streamline security event monitoring and incident management.
+#Customer intent: [AI]As a security engineer, I want to connect various Microsoft services to Microsoft Sentinel using API-based data connectors so that I can centralize and streamline security event monitoring and incident management.
 
 ---
 

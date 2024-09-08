@@ -10,7 +10,7 @@ ms.author: yelevin
 
 
 
-#Customer intent: [AI]As a security analyst, I want to understand the schema of the security alert table in my Log Analytics workspace so that I can effectively analyze and respond to security incidents.
+#Customer intent: [AI]As a security analyst, I want to understand the SecurityAlerts table schema in my Log Analytics workspace so that I can effectively analyze and respond to security incidents.
 
 ---
 

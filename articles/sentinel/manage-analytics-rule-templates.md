@@ -7,7 +7,7 @@ ms.date: 11/09/2021
 ms.author: yelevin
 
 
-#Customer intent: [AI]As a security operations analyst, I want to manage and update analytics rule templates so that I can ensure my threat detection rules are current and effective.
+#Customer intent: [AI]As a security analyst, I want to manage and update analytics rule templates so that I can ensure my threat detection rules are current and effective.
 
 ---
 

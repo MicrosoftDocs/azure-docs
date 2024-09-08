@@ -7,7 +7,7 @@ ms.topic: conceptual
 ms.date: 06/28/2023
 
 
-#Customer intent: [AI]As a security operations analyst, I want to automate incident response for SAP systems using SOAR capabilities so that I can improve the efficiency and effectiveness of our security operations.
+#Customer intent: [AI]As a security analyst, I want to automate incident response for SAP systems using Microsoft Sentinel so that I can improve the efficiency and effectiveness of our security operations.
 
 ---
 

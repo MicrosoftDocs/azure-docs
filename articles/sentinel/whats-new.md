@@ -7,7 +7,7 @@ ms.topic: concept-article
 ms.date: 09/09/2024
 
 
-#Customer intent: [AI]As a security operations analyst, I want to stay updated on the latest features and enhancements in Microsoft Sentinel so that I can effectively manage and optimize my organization's security posture.
+#Customer intent: [AI]As a security analyst, I want to stay updated on the latest features and enhancements in Microsoft Sentinel so that I can effectively manage and optimize my organization's security posture.
 
 ---
 

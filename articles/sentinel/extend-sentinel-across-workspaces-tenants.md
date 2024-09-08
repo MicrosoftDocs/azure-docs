@@ -5,10 +5,9 @@ author: yelevin
 ms.topic: how-to
 ms.date: 06/28/2023
 ms.author: yelevin
-#Customer intent: As a security operator, I want to extend my workspace so I can query and analyze data across workspaces and tenants.
 
 
-#Customer intent: [AI]As a security operations center (SOC) analyst, I want to manage and query data across multiple workspaces and tenants so that I can centralize incident management and enhance threat detection capabilities.
+#Customer intent: [AI]As a security analyst, I want to query data across multiple workspaces and tenants so that I can centralize incident management and enhance threat detection capabilities.
 
 ---
 
