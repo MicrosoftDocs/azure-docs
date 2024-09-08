@@ -12,7 +12,7 @@ ms.collection: usx-security
 #customer intent: As a security architect or SOC analyst, I want to understand what data connectors are in Microsoft Sentinel.
 
 
-#Customer intent: [AI]As a security analyst, I want to use data connectors to integrate various data sources into my SIEM platform so that I can enhance threat detection and response capabilities.
+#Customer intent: [AI]As a security analyst, I want to use data connectors to integrate various data sources into Microsoft Sentinel so that I can enhance threat detection and response capabilities.
 
 ---
 

@@ -7,7 +7,7 @@ ms.topic: conceptual
 ms.date: 01/06/2022
 
 
-#Customer intent: [AI]As a security analyst, I want to learn and use Kusto Query Language so that I can effectively analyze and manipulate data in my SIEM for threat detection and incident response.
+#Customer intent: [AI]As a security analyst, I want to learn and use Kusto Query Language so that I can effectively analyze and manipulate data in Microsoft Sentinel for threat detection and incident response.
 
 ---
 

@@ -7,7 +7,7 @@ ms.date: 06/05/2023
 ms.author: yelevin
 
 
-#Customer intent: [AI]As a security analyst, I want to collect and analyze custom log data from various sources so that I can monitor and detect potential threats using a centralized SIEM solution.
+#Customer intent: [AI]As a security analyst, I want to collect and analyze custom log data from various sources so that I can monitor and detect potential threats using Microsoft Sentinel.
 
 ---
 

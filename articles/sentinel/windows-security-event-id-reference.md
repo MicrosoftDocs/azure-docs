@@ -7,7 +7,7 @@ ms.date: 11/09/2021
 ms.author: yelevin
 
 
-#Customer intent: [AI]As a security analyst, I want to select specific sets of Windows security events to ingest into my SIEM, so that I can efficiently monitor and detect potential threats while managing data volume.
+#Customer intent: [AI]As a security analyst, I want to select specific sets of Windows security events to ingest into Microsoft Sentinel, so that I can efficiently monitor and detect potential threats while managing data volume.
 
 ---
 

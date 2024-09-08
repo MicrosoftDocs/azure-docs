@@ -8,7 +8,7 @@ ms.date: 02/11/2024
 ms.service: microsoft-sentinel
 
 
-#Customer intent: [AI]As a security operations analyst, I want to monitor the health and performance of my data connectors so that I can ensure uninterrupted data ingestion and quickly address any issues.
+#Customer intent: [AI]As a security analyst, I want to monitor the health and performance of my data connectors so that I can ensure uninterrupted data ingestion and quickly address any issues.
 
 ---
 

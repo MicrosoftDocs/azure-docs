@@ -7,7 +7,7 @@ ms.date: 03/30/2022
 ms.author: yelevin
 
 
-#Customer intent: [AI]As a security operations analyst, I want to investigate and manage security incidents using advanced analytics and visualization tools so that I can effectively identify, understand, and respond to potential threats.
+#Customer intent: [AI]As a security analyst, I want to investigate and manage security incidents using advanced analytics and visualization tools so that I can effectively identify, understand, and respond to potential threats.
 
 ---
 

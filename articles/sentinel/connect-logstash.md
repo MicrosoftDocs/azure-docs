@@ -8,7 +8,7 @@ ms.date: 11/09/2021
 ms.author: yelevin
 
 
-#Customer intent: [AI]As a security engineer, I want to use Logstash to stream logs to a cloud-based SIEM platform so that I can centralize and analyze log data for threat detection and response.
+#Customer intent: [AI]As a security engineer, I want to use Logstash to stream logs to Microsoft Sentinel so that I can centralize and analyze log data for threat detection and response.
 
 ---
 

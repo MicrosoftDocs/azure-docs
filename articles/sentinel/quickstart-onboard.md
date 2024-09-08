@@ -9,7 +9,7 @@ ms.custom: references_regions, mode-other
 #Customer intent: As a security operator, set up data connectors in one place so I can monitor and protect my environment.
 
 
-#Customer intent: [AI]As a security operations analyst, I want to onboard and configure a cloud-based SIEM solution so that I can ingest and monitor security data from various sources for threat detection and response.
+#Customer intent: [AI]As a security analyst, I want to onboard to Microsoft Sentinel so that I can ingest and monitor security data from various sources for threat detection and response.
 
 ---
 

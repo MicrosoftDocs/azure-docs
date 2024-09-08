@@ -8,7 +8,7 @@ ms.custom: linux-related-content
 ms.date: 06/18/2024
 
 
-#Customer intent: [AI]As a security operations analyst, I want to configure Syslog data collection from Linux-based sources so that I can monitor and analyze security events in a centralized platform.
+#Customer intent: [AI]As a security engineer, I want to configure Syslog data collection from Linux-based sources so that I can monitor and analyze security events in a centralized platform.
 
 ---
 

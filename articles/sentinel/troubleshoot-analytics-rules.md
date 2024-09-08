@@ -8,7 +8,7 @@ ms.custom: devx-track-arm-template
 ms.date: 03/26/2024
 
 
-#Customer intent: [AI]As a SOC manager, I want to troubleshoot and resolve issues with scheduled analytics rules in my SIEM platform so that I can ensure continuous and accurate monitoring of security events.
+#Customer intent: [AI]As a security operations manager, I want to troubleshoot and resolve issues with scheduled analytics rules in Microsoft Sentinel so that I can ensure continuous and accurate monitoring of security events.
 
 ---
 

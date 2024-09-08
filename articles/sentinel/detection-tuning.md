@@ -7,7 +7,7 @@ ms.topic: how-to
 ms.date: 11/09/2021
 
 
-#Customer intent: [AI]As a security analyst, I want to receive fine-tuning recommendations for my SIEM analytics rules so that I can optimize threat detection and reduce false positives.
+#Customer intent: [AI]As a security analyst, I want to receive fine-tuning recommendations for my Microsoft Sentinel analytics rules so that I can optimize threat detection and reduce false positives.
 
 ---
 
