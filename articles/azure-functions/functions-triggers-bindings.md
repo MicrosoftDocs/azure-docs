@@ -171,14 +171,14 @@ The way that the function is defined depends on the version of Python for Functi
 
 ### [v2](#tab/python-v2)
 
-In Python v2, you define the function directly in code using decorators:
+In Python for Functions version 2, you define the function directly in code using decorators:
 
 :::code language="python" source="~/functions-docs-python-v2/function_app.py" range="4-9" :::
 
 
 ### [v1](#tab/python-v1)
 
-In Python v1, this example `function.json` file defines the function:
+In Python for Functions version 1, this example `function.json` file defines the function:
 
 :::code language="json" source="~/functions-docs-powershell/functions-add-output-binding-storage-queue-cli/HttpExample/function.json" range="3-26":::
 
@@ -207,15 +207,12 @@ Use the following table to find more examples of specific binding types that sho
 
 You can create custom input and output bindings. Bindings must be authored in .NET, but can be consumed from any supported language. For more information about creating custom bindings, see [Creating custom input and output bindings](https://github.com/Azure/azure-webjobs-sdk/wiki/Creating-custom-input-and-output-bindings).
 
-## Resources
+## Related content
+
 - [Binding expressions and patterns](./functions-bindings-expressions-patterns.md)
-- [Using the Azure Function return value](./functions-bindings-return-value.md)
 - [How to register a binding expression](./functions-bindings-register.md)
 - Testing:
   - [Strategies for testing your code in Azure Functions](functions-test-a-function.md)
   - [Manually run a non HTTP-triggered function](functions-manually-run-non-http.md)
 - [Handling binding errors](./functions-bindings-errors.md)
-
-## Next steps
-> [!div class="nextstepaction"]
-> [Register Azure Functions binding extensions](./functions-bindings-register.md)
+- 
