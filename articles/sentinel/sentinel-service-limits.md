@@ -8,7 +8,7 @@ ms.author: yelevin
 ms.service: microsoft-sentinel
 
 
-#Customer intent: [AI]As a security operations analyst, I want to understand the service limits of Microsoft Sentinel so that I can effectively manage and optimize my security monitoring and incident response activities.
+#Customer intent: [AI]As a security analyst, I want to understand the service limits of Microsoft Sentinel so that I can effectively manage and optimize my security monitoring and incident response activities.
 
 ---
 

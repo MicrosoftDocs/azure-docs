@@ -12,7 +12,7 @@ appliesto:
 ms.collection: usx-security
 
 
-#Customer intent: [AI]As a security analyst, I want to utilize and customize analytics rule templates in a cloud-based SIEM platform so that I can efficiently detect and respond to security threats across my organization.
+#Customer intent: [AI]As a security analyst, I want to customize analytics rule templates in Microsoft Sentinel so that I can efficiently detect and respond to security threats across my organization.
 
 ---
 
