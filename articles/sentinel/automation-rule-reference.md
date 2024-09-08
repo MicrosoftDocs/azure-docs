@@ -115,8 +115,8 @@ This table shows how the supported entity properties in the [Automation rules AP
 | MailMessageRecipient        | Mail message recipient         | MailMessage: Recipient                |
 | MailMessageSenderIP         | Mail message sender IP         | MailMessage: SenderIP                 |
 | MailMessageSubject          | Mail message subject           | MailMessage: Subject                  |
-| MailMessageP1Sender         | Mail message P1 sender         | MailMessage: ***???***                |
-| MailMessageP2Sender         | Mail message P2 sender         | MailMessage: ***???***                |
+| MailMessageP1Sender         | Mail message P1 sender         | MailMessage: P1Sender                 |
+| MailMessageP2Sender         | Mail message P2 sender         | MailMessage: P2Sender                 |
 | MalwareCategory             | Malware category               | Malware: Category                     |
 | MalwareName                 | Malware name                   | Malware: Name                         |
 | ProcessCommandLine          | Process command line           | Process: CommandLine                  |
