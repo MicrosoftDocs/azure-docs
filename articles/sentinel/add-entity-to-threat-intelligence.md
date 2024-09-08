@@ -9,7 +9,6 @@ ms.date: 3/14/2024
 appliesto: 
     - Microsoft Sentinel in the Azure portal
 ms.collection: usx-security
-#Customer intent: As a security analyst, I want to quickly add relevant threat intelligence from my investigation for myself and others so I don't lose important information.
 
 
 #Customer intent: [AI]As a security analyst, I want to add entities to threat intelligence so that I can track and manage indicators of compromise effectively during incident investigations.

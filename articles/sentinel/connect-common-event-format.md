@@ -8,7 +8,7 @@ ms.date: 11/09/2021
 ms.author: yelevin
 
 
-#Customer intent: [AI]As a security analyst, I want to integrate CEF-formatted logs from my devices into a SIEM platform so that I can enhance threat detection and incident response capabilities.
+#Customer intent: [AI]As a security analyst, I want to integrate CEF-formatted logs from my devices into Microsoft Sentinel so that I can enhance threat detection and incident response capabilities.
 
 ---
 

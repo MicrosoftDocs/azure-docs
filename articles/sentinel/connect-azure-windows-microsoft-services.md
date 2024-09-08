@@ -7,7 +7,7 @@ ms.date: 02/24/2023
 ms.author: yelevin
 
 
-#Customer intent: [AI]As a security analyst, I want to connect various cloud and on-premises services to Microsoft Sentinel so that I can centralize and streamline threat detection and response.
+#Customer intent: [AI]As a security analyst, I want to connect Azure, Windows, Microsoft, and Amazon services to Microsoft Sentinel so that I can centralize and streamline threat detection and response.
 
 ---
 

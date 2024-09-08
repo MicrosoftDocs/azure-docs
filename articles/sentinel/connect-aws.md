@@ -7,7 +7,7 @@ ms.topic: how-to
 ms.date: 01/31/2024
 
 
-#Customer intent: [AI]As a security analyst, I want to connect AWS service logs to my SIEM platform so that I can centralize log management and enhance threat detection capabilities.
+#Customer intent: [AI]As a security analyst, I want to connect AWS service logs to Microsoft Sentinel so that I can centralize log management and enhance threat detection capabilities.
 
 ---
 
