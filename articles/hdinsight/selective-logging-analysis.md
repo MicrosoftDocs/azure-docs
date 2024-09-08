@@ -4,7 +4,7 @@ description: Learn how to use the selective logging feature with a script action
 ms.service: azure-hdinsight
 ms.topic: how-to
 ms.custom: references-regions
-ms.date: 08/05/2024
+ms.date: 09/06/2024
 ---
 
 # Use selective logging with a script action  for Azure Monitor Agent (AMA) in Azure HDInsight

@@ -8,7 +8,9 @@ ms.date: 08/29/2023
 
 # What is Trino? (Preview)
 
+[!INCLUDE [retirement-notice](../includes/retirement-notice.md)]
 [!INCLUDE [feature-in-preview](../includes/feature-in-preview.md)]
+
 
 [Trino](https://trino.io/docs/current/overview.html) (formerly PrestoSQL) is an open-source distributed SQL query engine for federated and interactive analytics against heterogeneous data sources. It can query data at scale (gigabytes to petabytes) from multiple sources to enable enterprise-wide analytics.
 

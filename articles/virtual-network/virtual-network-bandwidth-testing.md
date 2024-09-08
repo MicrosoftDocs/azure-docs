@@ -25,7 +25,7 @@ This article describes how to use the free NTTTCP tool from Microsoft to test ne
     - Note the number of VM cores and the receiver VM IP address to use in the commands. Both the sender and receiver commands use the receiver's IP address.
 
 >[!NOTE]
->Testing by using a virtual IP (VIP) is possible, but is beyond the scope of this article.
+>Testing by using a virtual IP is possible, but is beyond the scope of this article.
 
 **Examples used in this article**
 

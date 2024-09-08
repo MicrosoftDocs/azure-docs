@@ -69,7 +69,7 @@ To configure a specialized VM size for your Batch pool, you have several options
 
 * For pools in the virtual machine configuration, choose a preconfigured [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/) VM image that has drivers and software preinstalled. Examples:
 
-* [Data Science Virtual Machine](../machine-learning/data-science-virtual-machine/overview.md) for Linux or Windows - includes NVIDIA CUDA drivers
+* [Data Science Virtual Machine](/azure/machine-learning/data-science-virtual-machine/overview) for Linux or Windows - includes NVIDIA CUDA drivers
 
 * Linux images for Batch container workloads that also include GPU and RDMA drivers:
 

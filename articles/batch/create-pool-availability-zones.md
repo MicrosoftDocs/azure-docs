@@ -2,7 +2,7 @@
 title: Create a pool across availability zones
 description: Learn how to create a Batch pool with zonal policy to help protect against failures.
 ms.topic: how-to
-ms.date: 05/25/2023
+ms.date: 08/12/2024
 ms.devlang: csharp
 ms.custom:
 ---
@@ -33,10 +33,47 @@ The following examples show how to create a Batch pool across Availability Zones
 ### Batch Management Client .NET SDK
 
 ```csharp
-pool.DeploymentConfiguration.VirtualMachineConfiguration.NodePlacementConfiguration = new NodePlacementConfiguration()
+var credential = new DefaultAzureCredential();
+ArmClient _armClient = new ArmClient(credential);
+
+var batchAccountIdentifier = ResourceIdentifier.Parse("your-batch-account-resource-id");
+
+BatchAccountResource batchAccount = _armClient.GetBatchAccountResource(batchAccountIdentifier);
+
+var poolName = "pool2";
+var imageReference = new BatchImageReference()
+{
+    Publisher = "canonical",
+    Offer = "0001-com-ubuntu-server-jammy",
+    Sku = "22_04-lts",
+    Version = "latest"
+};
+string nodeAgentSku = "batch.node.ubuntu 22.04";
+
+var batchAccountPoolData = new BatchAccountPoolData()
+{
+    VmSize = "Standard_DS1_v2",
+    DeploymentConfiguration = new BatchDeploymentConfiguration()
     {
-        Policy = NodePlacementPolicyType.Zonal
-    };
+        VmConfiguration = new BatchVmConfiguration(imageReference, nodeAgentSku)
+        {
+            NodePlacementPolicy = BatchNodePlacementPolicyType.Zonal,
+        },
+    },
+    ScaleSettings = new BatchAccountPoolScaleSettings()
+    {
+        FixedScale = new BatchAccountFixedScaleSettings()
+        {
+            TargetDedicatedNodes = 5,
+            ResizeTimeout = TimeSpan.FromMinutes(15),
+        }
+    },
+    
+};
+
+ArmOperation<BatchAccountPoolResource> armOperation = batchAccount.GetBatchAccountPools().CreateOrUpdate(
+    WaitUntil.Completed, poolName, batchAccountPoolData);
+BatchAccountPoolResource pool = armOperation.Value;
 
 ```
 

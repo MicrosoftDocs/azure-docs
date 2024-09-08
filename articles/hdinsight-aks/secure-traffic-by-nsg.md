@@ -8,7 +8,10 @@ ms.date: 08/3/2023
 
 # Use NSG to restrict traffic to HDInsight on AKS
 
+[!INCLUDE [retirement-notice](includes/retirement-notice.md)]
 [!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
+
+
 
 HDInsight on AKS relies on AKS outbound dependencies and they're entirely defined with FQDNs, which don't have static addresses behind them. The lack of static IP addresses means one can't use Network Security Groups (NSGs) to lock down the outbound traffic from the cluster using IPs. 
 

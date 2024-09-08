@@ -1,6 +1,6 @@
 ---
 title: Best practices for Microsoft Sentinel
-description: Learn about best practices to employ when managing your Microsoft Sentinel workspace.
+description: Learn about best practices to employ when managing your Log Analytics workspace for Microsoft Sentinel.
 author: cwatson-cat
 ms.author: cwatson
 ms.topic: conceptual

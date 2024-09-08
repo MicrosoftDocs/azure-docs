@@ -62,7 +62,7 @@ Workflow Orchestration Manager in Azure Data Factory offers a range of powerful 
 * SouthEast Asia
 
 > [!NOTE]
-> By GA, all ADF regions will be supported. The Airflow environment region is defaulted to the Data Factory region and is not configurable, so ensure you use a Data Factory in the above supported region to be able to access the Workflow Orchestration Manager preview.
+> The Airflow environment region is defaulted to the Data Factory region and is not configurable, so ensure you use a Data Factory in the above supported region to be able to access the Workflow Orchestration Manager preview.
 
 ## Supported Apache Airflow versions
 

@@ -19,10 +19,8 @@
     href: prerequisites.md
   - name: Workspace architecture
     items:
-    - name: Review best practices
-      href: best-practices-workspace-architecture.md 
     - name: Design workspace architecture
-      href: design-your-workspace-architecture.md      
+      href: /azure/azure-monitor/logs/workspace-design?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json        
     - name: Review sample workspace designs
       href: sample-workspace-designs.md
     - name: Prepare for multiple workspaces

@@ -2,12 +2,12 @@
 title: Digital pathology in the DICOM service in Azure Health Data Services
 description: Explore digital pathology with the DICOM service in Azure Health Data Services. Share slide images, train AI models, and store digitized slides securely.
 services: healthcare-apis
-author: smithasa
+author: varunbms
 ms.service: azure-health-data-services
 ms.subservice: dicom-service
 ms.topic: reference
 ms.date: 10/9/2023
-ms.author: smithasa
+ms.author: buchvarun
 ---
 
 # Digital pathology using the DICOM service

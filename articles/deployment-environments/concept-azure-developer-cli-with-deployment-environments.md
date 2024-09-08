@@ -3,7 +3,7 @@ title: Use Azure Developer CLI with Azure Deployment Environments
 description: Understand ADE and `azd` work together to provision application infrastructure and deploy application code to the new infrastructure.
 author: RoseHJM
 ms.author: rosemalcolm
-ms.service: dev-box
+ms.service: azure-deployment-environments
 ms.topic: concept-article
 ms.date: 02/24/2024
 
@@ -21,7 +21,7 @@ With ADE, you can create environments from an environment definition in a catalo
 
 ## How does `azd` work with ADE?
 
-`azd` works with ADE to enable you to create environments from where you’re working. 
+`azd` works with ADE to enable you to create environments from where you're working. 
 
 With ADE and `azd`, individual developers working with unique infrastructure and code that they want to upload to the cloud can create an environment from a local folder. They can use `azd` to provision an environment and deploy their code seamlessly.
 
