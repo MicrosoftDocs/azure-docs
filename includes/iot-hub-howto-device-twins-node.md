@@ -13,9 +13,7 @@ ms.custom: mqtt, devx-track-js
 
 ## Overview
 
-This unit describes how to use the Azure SDK for Python to create device and backend service application code for device twins.
-
-Node.js version 10.0.x or later is required to use the SDK.
+This article describes how to use the [Azure IoT SDK for JavaScript](https://github.com/Azure/azure-iot-sdk-node) to create device and backend service application code for device twins.
 
 ## Create a device application
 
@@ -32,7 +30,7 @@ This section describes how to use the [azure-iot-device](/javascript/api/azure-i
 Run this command to install the **azure-iot-device** device SDK on your development machine:
 
 ```cmd/sh
-npm init --yes
+npm install azure-iot-device --save
 ```
 
 The [azure-iot-device](/javascript/api/azure-iot-device) package contains objects that interface with IoT devices. The [Twin](/javascript/api/azure-iot-device/twin) class includes twin-specific objects. This section describes `Client` class code that is used to read and write device twin data.
@@ -52,22 +50,24 @@ Install needed transport protocols on your development machine.
 For example, this command installs the `Mqtt` protocol:
 
 ```cmd/sh
-npm install azure-iot-device azure-iot-device-mqtt --save
+npm install azure-iot-device-mqtt --save
 ```
 
 For more information about the differences between MQTT, AMQP, and HTTPS support, see [Cloud-to-device communications guidance](../articles/iot-hub/iot-hub-devguide-c2d-guidance.md) and [Choose a communication protocol](../articles/iot-hub/iot-hub-devguide-protocols.md).
 
-### Create Client and Protocol modules
+### Create a Client module
 
-Create a Client module using the installed package.
+Create a `Client` module using the installed package.
 
-For example,
+For example:
 
 ```javascript
 const Client = require('azure-iot-device').Client;
 ```
 
-Create a Protocol module using an installed transport package.
+### Create a Protocol module
+
+Create a `Protocol` module using an installed transport package.
 
 This example assigns the MQTT protocol:
 
@@ -75,11 +75,11 @@ This example assigns the MQTT protocol:
 const Protocol = require('azure-iot-device-mqtt').Mqtt;
 ```
 
-### Add the IoT Hub string and transport protocol
+### Add the device connection string and transport protocol
 
 Call [fromConnectionString](/javascript/api/azure-iot-device/client?#azure-iot-device-client-fromconnectionstring) to supply device connection parameters:
 
-* **connStr** - A connection string that encapsulates "device connect" permissions for an IoT hub. The connection string contains Hostname, Device ID & Shared Access Key in this format:
+* **connStr** - A connection string that encapsulates "device connect" permissions for an IoT hub. The connection string contains hostname, device ID & shared access key in this format:
 "HostName=<iothub_host_name>;DeviceId=<device_id>;SharedAccessKey=<device_key>".
 * **transportCtor** - The transport protocol.
 
@@ -127,21 +127,29 @@ var patch = {
         type: 'cellular'
     }
 }
-twin.properties.reported.update(patch, function(err) {
-    if (err) {
+twin.properties.reported.update(patch, function(err)
+  {
+    if (err)
+      {
         console.error('could not update twin');
-    } else {
+      } 
+    else
+      {
         console.log('twin state reported');
         process.exit();
-    }
-});
+      }
+  });
 ```
 
 ### Receive notice of desired property changes
 
-You can create a desired property update event listener that executes when a desired property is changed in the device by passing the callback handler method name to [twin.on](/javascript/api/azure-iot-device/twin?#azure-iot-device-twin-on).
+Create a desired property update event listener that executes when a desired property is changed in the device by passing the callback handler method name to [twin.on](/javascript/api/azure-iot-device/twin?#azure-iot-device-twin-on).
 
 The desired property event listener can take one of the following forms:
+
+* Receive all patches with a single event handler
+* Receive an event if anything changes under a properties grouping
+* Receive an event for a single property change
 
 #### Receive all patches with a single event handler
 
@@ -194,31 +202,31 @@ You can set up a listener for a single property change. In this example, the cod
 
 1. A backend application applies this desired property patch:
 
-```javascript
- const twinPatch2 = {
-  properties: {
-    desired: {
-      climate: {
-        hvac: {
-          systemControl: { fanOn: true, },
+  ```javascript
+   const twinPatch2 = {
+    properties: {
+      desired: {
+        climate: {
+          hvac: {
+            systemControl: { fanOn: true, },
+          },
         },
       },
     },
-  },
-};
-```
+  };
+  ```
 
 1. The listener triggers only when the `fanOn` property changes:
 
-```javascript
-twin.on('properties.desired.climate.hvac.systemControl', function (fanOn) {
-    console.log('setting fan state to ' + fanOn);
-});
+  ```javascript
+   twin.on('properties.desired.climate.hvac.systemControl', function (fanOn) {
+       console.log('setting fan state to ' + fanOn);
+    });
 ```
 
 ### SDK samples
 
-The SDK contains two device twin samples:
+The Azure IoT SDK for Node.js contains two device twin samples:
 
 * [Simple sample device twin](https://github.com/Azure/azure-iot-sdk-node/blob/main/device/samples/javascript/simple_sample_device_twin.js)
 
@@ -246,7 +254,7 @@ The [Registry](/javascript/api/azure-iothub/registry?#azure-iothub-registry-gett
 
 ### Connect to IoT hub
 
-Use [fromConnectionString](/javascript/api/azure-iothub/registry?#azure-iothub-registry-fromconnectionstring) to connect to IoT hub. As a parameter, supply the **IoT hub service connection string** that you created in the Prerequisites section.
+Use [fromConnectionString](/javascript/api/azure-iothub/registry?#azure-iothub-registry-fromconnectionstring) to connect to IoT hub. As a parameter, supply the **IoT hub service connection string** that you created in the prerequisites section.
 
 ```javascript
 'use strict';

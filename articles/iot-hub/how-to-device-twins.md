@@ -33,9 +33,9 @@ This article shows you how to develop two types of applications. Device apps can
 
 ## Prerequisites
 
-* **An IoT hub**. Create one using the [Azure portal, CLI, or PowerShell](create-hub.md).
+* **An IoT hub**. Some SDK calls require the IoT Hub primary connection string, so make a note of the connection string.
 
-* **A registered device**. Register one in the [Azure portal](create-connect-device.md).
+* **A registered device**. Some SDK calls require the device primary connection string, so make a note of the connection string.
 
 * Make sure that **port 8883** is open in your firewall. The device sample in this article uses MQTT protocol, which communicates over port 8883. This port may be blocked in some corporate and educational network environments. For more information and ways to work around this issue, see [Connecting to IoT Hub (MQTT)](../iot/iot-mqtt-connect-to-iot-hub.md#connecting-to-iot-hub).
 
@@ -58,6 +58,12 @@ This article shows you how to develop two types of applications. Device apps can
   1. Select the copy icon for the **Primary connection string** and save the value.
 
   For more information about IoT Hub shared access policies and permissions, see [Access control and permissions](/azure/iot-hub/authenticate-authorize-sas).
+
+* Language SDK requirements:
+  * **.NET SDK** - Requres Visual Studio.
+  * **Python SDK** - [Python version 3.7 or later](https://www.python.org/downloads/) is recommended. Make sure to use the 32-bit or 64-bit installation as required by your setup. When prompted during the installation, make sure to add Python to your platform-specific environment variable.
+  * **Java** - [Java SE Development Kit 8](/azure/developer/java/fundamentals/) is required to use the SDK. Make sure you select **Java 8** under **Long-term support** to navigate to downloads for JDK 8.
+  * **Node.js** - Node.js version 10.0.x or later is required to use the SDK.
 
 :::zone pivot="programming-language-csharp"
 

@@ -13,9 +13,7 @@ ms.custom: mqtt, devx-track-java, devx-track-extended-java
 
 ## Overview
 
-This unit describes how to use the Azure SDK for Java to create device and backend service application code for device twins.
-
-[Java SE Development Kit 8](/azure/developer/java/fundamentals/) is required to use the SDK. Make sure you select **Java 8** under **Long-term support** to navigate to downloads for JDK 8.
+This article describes how to use the [Azure IoT SDK for Java](https://github.com/Azure/azure-iot-sdk-java) to create device and backend service application code for device twins.
 
 ## Create a device application
 
@@ -29,9 +27,9 @@ This section describes how to create device application code to:
 
 The [DeviceClient](/java/api/com.microsoft.azure.sdk.iot.device.deviceclient) class exposes all the methods you require to interact with device twins from the device.
 
-### Import statements
+### Device import statements
 
-Use the following import statements to access the IoT Hub device SDK.
+Use the following device import statements to access the Azure IoT SDK for Java.
 
 ```java
 import com.microsoft.azure.sdk.iot.device.*;
@@ -75,7 +73,7 @@ System.out.println("Received current twin:");
 System.out.println(twin);
 ```
 
-### Update reported device twin properties
+### Update device twin reported properties
 
 After retrieving the current twin, you can begin making reported property updates. You can also make reported property updates without getting the current twin as long as you have the correct reported properties version. If you send reported properties and receive a "precondition failed" error, then your reported properties version is out of date. In that case, get the latest version by calling `getTwin` again.
 
@@ -102,7 +100,7 @@ System.out.println("Successfully set property \"HomeTemp(F)\" to value " + newTe
 
 ### Subscribe to desired property changes
 
-Call [subscribeToDesiredProperties](/java/api/com.microsoft.azure.sdk.iot.device.internalclient?#com-microsoft-azure-sdk-iot-device-internalclient-subscribetodesiredproperties(java-util-map(com-microsoft-azure-sdk-iot-device-devicetwin-property-com-microsoft-azure-sdk-iot-device-devicetwin-pair(com-microsoft-azure-sdk-iot-device-devicetwin-propertycallback(java-lang-string-java-lang-object)-java-lang-object)))) to subscribe to desired properties. This client receives a callback with a `Twin` object each time a desired property is updated. That callback either contains the full desired properties set, or only the updated desired property depending on how the desired property was changed.
+Call [subscribeToDesiredProperties](/java/api/com.microsoft.azure.sdk.iot.device.internalclient?#com-microsoft-azure-sdk-iot-device-internalclient-subscribetodesiredproperties(java-util-map(com-microsoft-azure-sdk-iot-device-devicetwin-property-com-microsoft-azure-sdk-iot-device-devicetwin-pair(com-microsoft-azure-sdk-iot-device-devicetwin-propertycallback(java-lang-string-java-lang-object)-java-lang-object)))) to subscribe to desired property changes. This client receives a callback with a `Twin` object each time a desired property is updated. That callback either contains the full desired properties set, or only the updated desired property depending on how the desired property was changed.
 
 This example subscribes to desired property changes. Any desired property changes are passed to a handler named `DesiredPropertiesUpdatedHandler`.
 
@@ -136,14 +134,9 @@ In this example, the `DesiredPropertiesUpdatedHandler` desired property change c
 
 ### SDK sample
 
-The SDK includes this [Device Twin Sample](https://github.com/Azure/azure-iot-sdk-java/tree/main/iothub/device/iot-device-samples/device-twin-sample).
+The Azure IoT SDK for Java includes a working sample to test the device app concepts described in this article. For more information, see  [Device Twin Sample](https://github.com/Azure/azure-iot-sdk-java/tree/main/iothub/device/iot-device-samples/device-twin-sample).
 
 ## Create a backend application
-
-A backend application:
-
-* Connects to a device through IoT Hub
-* Can read device reported and desired properties, write device desired properties, and run device queries
 
 This section describes how to create a backend application that:
 
@@ -151,6 +144,15 @@ This section describes how to create a backend application that:
 * Queries devices using filters on the tags and properties
 
 The `ServiceClient` [DeviceTwin](/java/api/com.microsoft.azure.sdk.iot.service.devicetwin.devicetwin) class contains methods that services can use to access device twins.
+
+### Service import statements
+
+Use the following service import statements to access the Azure IoT SDK for Java.
+
+```java
+import com.microsoft.azure.sdk.iot.service.devicetwin.*;
+import com.microsoft.azure.sdk.iot.service.exceptions.IotHubException;
+```
 
 ### Connect to the IoT hub service client
 
@@ -163,13 +165,6 @@ To connect to IoT Hub to view and update device twin information:
 For example:
 
 ```java
-import com.microsoft.azure.sdk.iot.service.devicetwin.*;
-import com.microsoft.azure.sdk.iot.service.exceptions.IotHubException;
-
-import java.io.IOException;
-import java.util.HashSet;
-import java.util.Set;
-
 public static final String iotHubConnectionString = "{IoT hub service connection string}";
 public static final String deviceId = "myDeviceId";
 public static final String region = "US";

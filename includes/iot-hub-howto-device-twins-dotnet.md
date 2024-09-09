@@ -13,9 +13,7 @@ ms.custom: mqtt, devx-track-csharp, devx-track-dotnet
 
 ## Overview
 
-This unit describes how to use the Azure SDK for .NET to create device and backend service application code for device twins.
-
-Visual Studio is required to use the SDK.
+This article describes how to use the [Azure IoT SDK for .NET](https://github.com/Azure/azure-iot-sdk-csharp/blob/main/readme.md) to create device and backend service application code for device twins.
 
 ## Create a device application
 
@@ -29,21 +27,24 @@ This section describes how to use device application code to:
 
 ### Add device NuGet Package
 
-Device client applications require the **Microsoft.Azure.Devices.Client** NuGet package.
-
-To install the **Microsoft.Azure.Devices.Client** NuGet package:
-
-1. In your application **Solution Explorer**, right-click your project, and then select **Manage NuGet Packages**.
-1. Select **Browse** and search for and choose **Microsoft.Azure.Devices.Client**.
-1. Select **Install**. This downloads, installs, and adds a reference to the Azure IoT device SDK NuGet package and its dependencies.
+Device client applications written in C# require the **Microsoft.Azure.Devices.Client** NuGet package.
 
 ### Connect to a device
 
-The [DeviceClient](/dotnet/api/microsoft.azure.devices.client.deviceclient) class exposes all the methods you require to interact with device twins from the device.
+The [DeviceClient](/dotnet/api/microsoft.azure.devices.client.deviceclient) class exposes all the methods required to interact with device twins from the device.
 
 Connect to the device using the [CreateFromConnectionString](/dotnet/api/microsoft.azure.devices.client.deviceclient.createfromconnectionstring?#microsoft-azure-devices-client-deviceclient-createfromconnectionstring(system-string)) method along with device connection string and the connection transport protocol.
 
-The `CreateFromConnectionString` [TransportType](/dotnet/api/microsoft.azure.devices.client.transporttype) transport protocol parameter supports `Mqtt`, `Mqtt_WebSocket_Only`, `Mqtt_Tcp_Only`, `Amqp`, `Amqp_WebSocket_Only`, and `Amqp_Tcp_Only`. `Http1` is not supported for device twin updates.
+The `CreateFromConnectionString` [TransportType](/dotnet/api/microsoft.azure.devices.client.transporttype) transport protocol parameter supports the following transport protocols:
+
+* `Mqtt`
+* `Mqtt_WebSocket_Only`
+* `Mqtt_Tcp_Only`
+* `Amqp`
+* `Amqp_WebSocket_Only`
+* `Amqp_Tcp_Only`
+
+The `Http1` protocol is not supported for device twin updates.
 
 This example connects to a device using the `Mqtt` transport protocol.
 
@@ -58,11 +59,11 @@ _deviceClient = DeviceClient.CreateFromConnectionString(DeviceConnectionString,
    TransportType.Mqtt);
 ```
 
-### Retrieve a device twin and examine reported properties
+### Retrieve a device twin and examine properties
 
- Call [GetTwinAsync](/dotnet/api/microsoft.azure.devices.client.deviceclient.gettwinasync?#microsoft-azure-devices-client-deviceclient-gettwinasync) to retrieve the current device twin properties. The result [Twin](/dotnet/api/microsoft.azure.devices.shared.twin?) object includes the device twin reported properties. There are many `Twin` object [properties](/dotnet/api/microsoft.azure.devices.shared.twin?&branch=main#properties) that you can use to access specific areas of the Twin JSON data including Twin `Properties`, `Status`, `Tags`, and `Version`.
+Call [GetTwinAsync](/dotnet/api/microsoft.azure.devices.client.deviceclient.gettwinasync?#microsoft-azure-devices-client-deviceclient-gettwinasync) to retrieve the current device twin properties. There are many [Twin](/dotnet/api/microsoft.azure.devices.shared.twin?) object [properties](/dotnet/api/microsoft.azure.devices.shared.twin?&branch=main#properties) that you can use to access specific areas of the Twin JSON data including Twin `Properties`, `Status`, `Tags`, and `Version`.
 
- This example retrieves device twin reported properties and prints the twin values in JSON format.
+ This example retrieves device twin properties and prints the twin values in JSON format.
 
 ```csharp
 Console.WriteLine("Retrieving twin...");
@@ -98,7 +99,7 @@ catch (Exception ex)
 
 ### Create a desired property update callback handler
 
-You can create a desired property update callback handler that executes when a desired property is changed in the device by passing the callback handler method name to [SetDesiredPropertyUpdateCallbackAsync](/dotnet/api/microsoft.azure.devices.client.deviceclient.setdesiredpropertyupdatecallbackasync?#microsoft-azure-devices-client-deviceclient-setdesiredpropertyupdatecallbackasync(microsoft-azure-devices-client-desiredpropertyupdatecallback-system-object)).
+Create a desired property update callback handler that executes when a desired property is changed in the device twin by passing the callback handler method name to [SetDesiredPropertyUpdateCallbackAsync](/dotnet/api/microsoft.azure.devices.client.deviceclient.setdesiredpropertyupdatecallbackasync?#microsoft-azure-devices-client-deviceclient-setdesiredpropertyupdatecallbackasync(microsoft-azure-devices-client-desiredpropertyupdatecallback-system-object)).
 
 For example, this call sets up the system to notify a method named`OnDesiredPropertyChangedAsync` whenever a desired property is changed.
 
@@ -134,7 +135,7 @@ private async Task OnDesiredPropertyChangedAsync(TwinCollection desiredPropertie
 
 ### SDK sample
 
-The SDK includes this [TwinSample](https://github.com/Azure/azure-iot-sdk-csharp/tree/main/iothub/device/samples/getting%20started/TwinSample).
+The Azure IoT SDK for .NET provides a working sample of a device app that handles device twin tasks. For more information, see [TwinSample](https://github.com/Azure/azure-iot-sdk-csharp/tree/main/iothub/device/samples/getting%20started/TwinSample).
 
 ## Create a backend application
 
@@ -154,15 +155,9 @@ This section describes how to create backend application code to:
 
 Backend service applications require the **Microsoft.Azure.Devices** NuGet package.
 
-To install the **Microsoft.Azure.Devices** NuGet package:
-
-1. In your application **Solution Explorer**, right-click your project, and then select **Manage NuGet Packages**.
-1. Select **Browse** and search for and choose **Microsoft.Azure.Devices**.
-1. Select **Install**. This downloads, installs, and adds a reference to the Azure IoT device SDK NuGet package and its dependencies.
-
 ### Connect to IoT hub
 
-Connect a backend application to a device using [CreateFromConnectionString](/dotnet/api/microsoft.azure.devices.client.deviceclient.createfromconnectionstring?#microsoft-azure-devices-client-deviceclient-createfromconnectionstring(system-string-microsoft-azure-devices-client-transporttype)). As a parameter, supply the **IoT Hub service connection string** that you created in the Prerequisites section.
+Connect a backend application to a device using [CreateFromConnectionString](/dotnet/api/microsoft.azure.devices.registrymanager.createfromconnectionstring). As a parameter, supply the **IoT Hub service connection string** that you created in the prerequisites section.
 
 ```csharp
 using Microsoft.Azure.Devices;
@@ -216,7 +211,7 @@ catch (Exception e)
 }
 ```
 
-##### Update using a JSON string
+##### Update tags using a JSON string
 
 You can create and apply a JSON-formatted device twin information update patch. IoT Hub parses and applies the patch if it is correctly formatted.
 
