@@ -224,4 +224,3 @@ You can create custom input and output bindings. Bindings must be authored in .N
   - [Strategies for testing your code in Azure Functions](functions-test-a-function.md)
   - [Manually run a non HTTP-triggered function](functions-manually-run-non-http.md)
 - [Handling binding errors](./functions-bindings-errors.md)
-- 
