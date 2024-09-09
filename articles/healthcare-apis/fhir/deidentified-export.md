@@ -8,7 +8,7 @@ ms.topic: reference
 ms.date: 05/06/2024
 ms.author: kesheth
 ---
-# Export deidentified data
+# Export de-identified data
 
 > [!NOTE] 
 > Results when using the FHIR&reg; service's deidentified (de-ID) export vary based on the nature of the data being exported, and what de-ID functions are in use. Microsoft is unable to evaluate deidentified export outputs or determine the acceptability for your use cases and compliance needs. The FHIR service's deidentified export is not guaranteed to meet any specific legal, regulatory, or compliance requirements.
