@@ -1666,16 +1666,6 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/sentinel/data-connectors/blackberry-cylanceprotect.md",
-            "redirect_url": "/previous-versions/azure/sentinel/data-connectors/blackberry-cylanceprotect",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/sentinel/data-connectors/cisco-application-centric-infrastructure.md",
-            "redirect_url": "/previous-versions/azure/sentinel/data-connectors/cisco-application-centric-infrastructure",
-            "redirect_document_id": false
-        },
-        {
             "source_path_from_root": "/articles/sentinel/data-connectors/cisco-identity-services-engine.md",
             "redirect_url": "/previous-versions/azure/sentinel/data-connectors/cisco-identity-services-engine",
             "redirect_document_id": false
