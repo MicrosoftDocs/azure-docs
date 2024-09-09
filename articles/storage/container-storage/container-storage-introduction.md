@@ -65,13 +65,13 @@ Feature support depends on which backing storage option you select. The followin
 
 ## What's new in Azure Container Storage
 
-Our latest updates enhance the resiliency and performance of stateful containers. We now offer multi-zone storage pools and volume replication for local NVMe storage pools, ensuring availability during single node failures. Snapshot support is available across all storage options for backup and disaster recovery. Additionally, the Ephemeral Disk portfolio has been expanded to include temp SSD support, providing cost-efficient solutions for use cases leveraging directly attached local storage: 
+Our latest updates enhance the resiliency and performance of stateful containers. We now offer multi-zone storage pools and volume replication for local NVMe storage pools, ensuring availability during single node failures. Snapshot support is available across all storage options for backup and disaster recovery. Additionally, the Ephemeral Disk portfolio now includes temp SSD support, providing cost-efficient solutions for use cases leveraging directly attached local storage: 
 
 - Enhance the resiliency of your persistent volumes hosted on local NVMe storage (L-series ephemeral disks) with replication support.
 - Improved persistent volume recovery after a restart of an Azure Kubernetes Service (AKS) cluster.
 - Customize the performance of your local NVMe storage with new performance tier options.
 
-For more information on these features, email the Azure Container Storage team at azcontainerstorage@microsoft.com.
+For more information on these features, email the Azure Container Storage team at containerstoragepm@microsoft.com.
 
 ## Why Azure Container Storage is useful
 

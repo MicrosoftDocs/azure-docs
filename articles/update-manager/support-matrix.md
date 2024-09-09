@@ -20,7 +20,6 @@ This article details the Windows and Linux operating systems supported and syste
 
 >[!NOTE]
 > - All operating systems are assumed to be x64. For this reason, x86 isn't supported for any operating system.
-> - Update Manager doesn't support virtual machines created from CIS-hardened images.
 
 
 ### Support for automatic VM Guest patching

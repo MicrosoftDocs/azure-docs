@@ -3,8 +3,8 @@ title: Enable Azure Automation Change Tracking and Inventory from the Azure port
 description: This article tells how to enable the Change Tracking and Inventory feature from the Azure portal.
 services: automation
 ms.subservice: change-inventory-management
-ms.date: 08/30/2024
-ms.topic: conceptual
+ms.date: 09/09/2024
+ms.topic: how-to
 ms.service: azure-automation
 ---
 
