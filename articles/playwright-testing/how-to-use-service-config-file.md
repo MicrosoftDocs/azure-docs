@@ -13,7 +13,7 @@ If you do not have this file in your code, follow the QuickStart guide, see [Qui
 > [!IMPORTANT]
 > Microsoft Playwright Testing is currently in preview. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-Here is the updated `playwright.service.config.ts` file with all the available options:
+Here is version of the `playwright.service.config.ts` file with all the available options:
 
 ```typescript
 import { getServiceConfig, ServiceOS } from "@azure/microsoft-playwright-testing";
