@@ -66,7 +66,12 @@ At the date and time specified in the update deployment, the target machines exe
 
 ## Limits
 
-For limits that apply to Update Management, see [Azure Automation service limits](../../azure-resource-manager/management/azure-subscription-service-limits.md#update-management).
+Following are limits that apply to Update Management:
+
+| **Resource** | **Limit**| **Notes** |
+|---|---|---|
+|Number of machines per update deployment|1000||
+|Number of dynamic groups per update deployment |500 ||
 
 ## Permissions
 

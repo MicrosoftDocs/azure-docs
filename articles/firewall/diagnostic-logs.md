@@ -4,7 +4,7 @@ description: Diagnostic logs are the original Azure Firewall log queries that ou
 services: firewall
 author: vhorne
 ms.service: azure-firewall
-ms.topic: article
+ms.topic: concept-article
 ms.date: 12/04/2023
 ms.author: victorh
 ---

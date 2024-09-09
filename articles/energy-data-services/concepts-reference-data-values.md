@@ -24,9 +24,9 @@ Within the OSDU Data Platform framework, reference data values play a crucial ro
 In addition to enabling data interpretation and collaboration, reference data is required for data ingestion via the OSDU manifest ingestion workflow. Manifests provide a specific container for reference data values, which are then used to validate the ingested data and generate metadata for later discovery and use. To learn more about manifest-based ingestion, see [Manifest-based ingestion concepts](concepts-manifest-ingestion.md). 
 
 The OSDU Data Platform categorizes Reference data values into the following three buckets:
-* **FIXED** values, which are universally recognized and used across OSDU deployments and the energy sector. These values can't be extended or changed except by OSDU community governance updates
-* **OPEN** values. The OSDU community provides an initial list of OPEN values upon which you can extend but not otherwise change
-* **LOCAL** values. The OSDU community provides an initial list of LOCAL values that you can freely change, extend, or entirely replace
+* **FIXED** values: This set of reference values is universally recognized and used across OSDU deployments and the energy sector. These values can't be extended or changed except by OSDU community governance updates
+* **OPEN** values: The OSDU community provides an initial list of OPEN values upon which you can extend but not otherwise change
+* **LOCAL** values: The OSDU community provides an initial list of LOCAL values that you can freely change, extend, or entirely replace
 
 For more information about OSDU reference data values and their different types, see [OSDU Data Definitions / Data Definitions / Reference Data](https://community.opengroup.org/osdu/data/data-definitions/-/blob/master/Guides/Chapters/02-GroupType.md#22-reference-data).
 
@@ -60,7 +60,7 @@ If you extend OPEN values after instance creation, we recommend creating and usi
 **NameAlias updates** don't require a separate entitlement. Updates to the `NameAlias` field are governed by the same access control mechanisms as updates to any other part of a storage record. In effect, OWNER access confers the entitlement to update the `NameAlias` field.
 
 ## Current scope of Azure Data Manager for Energy reference data value syncing
-Currently, Azure Data Manager for Energy syncs reference data values at instance creation and at new partition creation. Reference values are synced to those from the OSDU community, corresponding to the OSDU milestone supported by Azure Data Manager for Energy at the time of instance or partition creation. For information on the current milestone supported by and available OSDU service in Azure Data Manager for Energy, refer [OSDU services available in Azure Data Manager for Energy](osdu-services-on-adme.md).
+Currently, Azure Data Manager for Energy syncs reference data values at instance creation and at new partition creation for newly created instances after feature enablement. Reference values are synced to those from the OSDU community, corresponding to the OSDU milestone supported by Azure Data Manager for Energy at the time of instance or partition creation. For information on the current milestone supported by and available OSDU service in Azure Data Manager for Energy, refer [OSDU services available in Azure Data Manager for Energy](osdu-services-on-adme.md).
 
 ## Next steps
 - [Quickstart: Create Azure Data Manager for Energy instance](quickstart-create-microsoft-energy-data-services-instance.md)

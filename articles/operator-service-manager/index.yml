@@ -86,13 +86,22 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
-          - text: Get started with safe upgrades
+          - text: Get Started with Safe Upgrades
             url: safe-upgrade-practices.md
       - linkListType: concept
         links:
-          - text: Control rollback behavior on upgrade failure
+          - text: Control Upgrade Behavior on Failure
             url: safe-upgrades-nf-level-rollback.md
-            
+
+ # Card
+  - title: Edge Registry and Private Link
+    linkLists:
+      - linkListType: overview
+        links:
+          - text: Get Started with Cluster Registry
+            url: get-started-with-cluster-registry.md
+          - text: Get Started with Private Link
+            url: get-started-with-private-link.md           
   # Card
   - title: Additional Resources
     linkLists:

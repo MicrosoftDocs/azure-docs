@@ -1,7 +1,7 @@
 ---
 title: Registry webhook schema reference
 description: Reference for JSON payload for webhook requests in an Azure container registry, which are generated when webhooks are enabled for artifact push or delete events
-ms.topic: article
+ms.topic: reference
 author: tejaswikolli-web
 ms.author: tejaswikolli
 ms.date: 10/31/2023

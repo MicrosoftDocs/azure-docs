@@ -6,7 +6,7 @@ author: normesta
 
 ms.service: azure-blob-storage
 ms.topic: conceptual
-ms.date: 07/22/2024
+ms.date: 09/03/2024
 ms.author: normesta
 
 ---
@@ -24,7 +24,6 @@ The following clients are known to be incompatible with SFTP for Azure Blob Stor
 
 - Five9
 - Kemp
-- Mule
 - paramiko 1.16.0
 - SSH.NET 2016.1.0
 

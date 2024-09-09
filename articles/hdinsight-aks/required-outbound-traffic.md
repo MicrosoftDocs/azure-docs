@@ -8,7 +8,10 @@ ms.date: 03/26/2024
 
 # Required outbound traffic for HDInsight on AKS
 
+[!INCLUDE [retirement-notice](includes/retirement-notice.md)]
 [!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
+
+
 
 > [!NOTE]
 > HDInsight on AKS uses Azure CNI Overlay network model by default. For more information, see [Azure CNI Overlay networking](/azure/aks/concepts-network-azure-cni-overlay).
