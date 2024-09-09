@@ -27,11 +27,12 @@ You can use either Azure OpenAI or OpenAI for this project. Make sure to update 
 To build this application, you need the following:
 * ASP.NET Core: To create the web application and host the SignalR hub
 * [SignalR](https://www.nuget.org/packages/Microsoft.AspNetCore.SignalR.Client): For real-time communication between clients and the server
+* [Azure SignalR](./signalr-overview.md): For managing SignalR connections at scale
 * [OpenAI Client](https://www.nuget.org/packages/OpenAI/2.0.0-beta.10): To interact with OpenAI's API for generating AI responses
 
 # [Azure OpenAI](#tab/azure-open-ai)
 To build this application, you need the following:
-* ASP.NET Core: To create the web application and host the SignalR hub.
+* ASP.NET Core: To create the web application and host the SignalR hub
 * [SignalR](https://www.nuget.org/packages/Microsoft.AspNetCore.SignalR.Client): For real-time communication between clients and the server
 * [Azure SignalR](./signalr-overview.md): For managing SignalR connections at scale
 * [Azure OpenAI](https://www.nuget.org/packages/Azure.AI.OpenAI/2.0.0-beta.3): Azure.AI.OpenAI
