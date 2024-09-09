@@ -1,5 +1,5 @@
 ---
-title: "Secure and deploy Connected registry Arc extension"
+title: "Secure and deploy connected registry Arc extension"
 description: "Learn to secure the connected registry Arc extension deployment with HTTPS, TLS, optional no TLS, BYOC certificate, and trust distribution."
 author: tejaswikolli-web
 ms.author: tejaswikolli
@@ -11,7 +11,7 @@ ms.date: 06/17/2024
 
 ---
 
-# Tutorial: Secure deployment methods for the connected registry extension 
+# Tutorial: Secure deployment methods for the connected registry extension
 
 These tutorials cover various deployment scenarios for the connected registry extension in an Arc-enabled Kubernetes cluster. Once the connected registry extension is installed, you can synchronize images from your cloud registry to on-premises or remote locations.  
 
@@ -25,7 +25,7 @@ The connected registry cert manager is a service that manages TLS certificates f
 
 [Cert-Manager][cert-manager] is an open-source Kubernetes add-on that automates the management and issuance of TLS certificates from various sources. It manages the lifecycle of certificates issued by CA pools created using CA Service, ensuring they are valid and renewed before they expire.  
 
-### What is Trust Distribution? 
+### What is trust distribution?
 
 Connected registry trust distribution refers to the process of securely distributing trust between the connected registry service and Kubernetes clients within a cluster. This is achieved by using a Certificate Authority (CA), such as cert-manager, to sign TLS certificates, which are then distributed to both the registry service and the clients. This ensures that all entities can securely authenticate each other, maintaining a secure and trusted environment within the Kubernetes cluster.
 
@@ -34,7 +34,7 @@ In this tutorial, you:
 > [!div class="checklist"]
 > - [Deploy Connected registry extension using preinstalled cert-manager.](#deploy-connected-registry-extension-using-your-preinstalled-cert-manager)
 > - [Deploy Connected registry extension using Bring Your Own Certificate (BYOC).](#deploy-connected-registry-extension-using-bring-your-own-certificate-byoc)
-> - [Deploy Connected registry with kubernetes secret management.](#deploy-connected-registry-with-kubernetes-secret-management)
+> - [Deploy Connected registry with Kubernetes secret management.](#deploy-connected-registry-with-Kubernetes-secret-management)
 > - [Deploy the Connected registry Arc extension with inherent trust distribution or reject Connected registry trust distribution.](#deploy-the-connected-registry-using-your-own-trust-distribution-and-disable-the-connected-registrys-default-trust-distribution)
 
 ## Prerequisites
@@ -47,7 +47,7 @@ To complete this tutorial, you need:
 
 In this tutorial, we demonstrate how to use a preinstalled cert-manager service on the cluster. This setup gives you control over certificate management, enabling you to deploy the connected registry extension with encryption by following the steps provided:
 
-1. Run the [az-k8s-extension-create][az-k8s-extension-create] command in the [quickstart][quickstart] and set the `cert-manager.enabled=true` and `cert-manager.install=false` parameters to determine the cert-manager service is installed and enabled:
+Run the [az-k8s-extension-create][az-k8s-extension-create] command in the [quickstart][quickstart] and set the `cert-manager.enabled=true` and `cert-manager.install=false` parameters to determine the cert-manager service is installed and enabled:
 
     ```azurecli
     az k8s-extension create --cluster-name myarck8scluster \ 
@@ -60,7 +60,7 @@ In this tutorial, we demonstrate how to use a preinstalled cert-manager service 
     --config-protected-file protected-settings-extension.json
     ```
 
-## Deploy Connected registry extension using Bring Your Own Certificate (BYOC)
+## Deploy connected registry extension using bring your own certificate (BYOC)
 
 In this tutorial, we demonstrate how to use your own certificate (BYOC) on the cluster. BYOC allows you to use your own public certificate and private key pair, giving you control over certificate management. This setup enables you to deploy the connected registry extension with encryption by following the provided steps:
 
@@ -100,9 +100,9 @@ export TLS_KEY=$(cat mycert.key | base64 -w0)
     } 
 ```
 
-2. Now, you can deploy the Connected registry extension with HTTPS (TLS encryption) using the public certificate and private key pair management by configuring variables set to `cert-manager.enabled=false` and `cert-manager.install=false`. With these parameters, the cert-manager isn't installed or enabled since the public certificate and private key pair is used instead for encryption.  
+4. Now, you can deploy the Connected registry extension with HTTPS (TLS encryption) using the public certificate and private key pair management by configuring variables set to `cert-manager.enabled=false` and `cert-manager.install=false`. With these parameters, the cert-manager isn't installed or enabled since the public certificate and private key pair is used instead for encryption.  
 
-3. Run the [az-k8s-extension-create][az-k8s-extension-create] command for deployment after protected settings file is edited:
+5. Run the [az-k8s-extension-create][az-k8s-extension-create] command for deployment after protected settings file is edited:
 
     ```azurecli
     az k8s-extension create --cluster-name myarck8scluster \
@@ -164,7 +164,7 @@ EOF
         } 
     ```
 
-Now, you can deploy the Connected registry extension with HTTPS (TLS encryption) using the kubernetes secret management by configuring variables set to `cert-manager.enabled=false` and `cert-manager.install=false`. With these parameters, the cert-manager isn't installed or enabled since the kubernetes secret is used instead for encryption.  
+Now, you can deploy the Connected registry extension with HTTPS (TLS encryption) using the Kubernetes secret management by configuring variables set to `cert-manager.enabled=false` and `cert-manager.install=false`. With these parameters, the cert-manager isn't installed or enabled since the Kubernetes secret is used instead for encryption.  
 
 5. Run the [az-k8s-extension-create][az-k8s-extension-create] command for deployment after protected settings file is edited:
 
@@ -226,15 +226,13 @@ By deleting the deployed Connected registry extension, you remove the correspond
 
 By deleting the Connected registry extension and the Connected registry, you remove all the associated resources and configurations.
 
-## Next steps -or- Related content
+## Next steps
 
-> [!div class="nextstepaction"]
-
-> [Enable Connected registry with Azure arc CLI][quickstart]
-> [Upgrade Connected registry with Azure arc](tutorial-connected-registry-upgrade.md)
-> [Sync Connected registry with Azure arc in Scheduled window](tutorial-connected-registry-sync.md)
-> [Troubleshoot Connected registry with Azure arc](troubleshoot-connected-registry-arc.md)
-> [Glossary of terms](connected-registry-glossary.md)
+-[Enable Connected registry with Azure arc CLI][quickstart]
+-[Upgrade Connected registry with Azure arc](tutorial-connected-registry-upgrade.md)
+-[Sync Connected registry with Azure arc in Scheduled window](tutorial-connected-registry-sync.md)
+-[Troubleshoot Connected registry with Azure arc](troubleshoot-connected-registry-arc.md)
+-[Glossary of terms](connected-registry-glossary.md)
 
 <!-- LINKS - internal -->
 [create-acr]: container-registry-get-started-azure-cli.md

@@ -32,7 +32,7 @@ To complete this tutorial, you need the following resources:
 
 ## Update the connected registry to sync every day at midnight
 
-1. Run the [az acr connected-registry update][az-acr-connected-registry-update] command to update the connected registry synchronization schedule to occasionally connect and sync every day at midnight with sync window for 4 hours duration.
+Run the [az acr connected-registry update][az-acr-connected-registry-update] command to update the connected registry synchronization schedule to occasionally connect and sync every day at midnight with sync window for 4 hours duration.
 
 For example, the following command configures the connected registry `myconnectedregistry` to schedule sync daily occur every day at 12:00 PM UTC at midnight and set the synchronization window to 4 hours (PT4H). The duration for which the connected registry will sync with the parent ACR `myacrregistry` after the sync initiates.
 
@@ -47,7 +47,7 @@ The configuration syncs the connected registry daily at noon UTC for 4 hours.
 
 ## Update the connected registry to sync continuously every minute  
 
-1. Run the [az acr connected-registry update][az-acr-connected-registry-update] command to update the connected registry synchronization to connect and sync continuously every minute.  
+Run the [az acr connected-registry update][az-acr-connected-registry-update] command to update the connected registry synchronization to connect and sync continuously every minute.  
 
 For example, the following command configures the connected registry `myconnectedregistry` to schedule sync every minute with the cloud registry.
 
@@ -61,12 +61,11 @@ The configuration syncs the connected registry with the cloud registry every min
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Enable Connected registry with Azure arc CLI][quickstart]
-> [Deploy the Connected registry Arc extension](tutorial-connected-registry-arc.md)
-> [Upgrade Connected registry with Azure arc](tutorial-connected-registry-upgrade.md)
-> [Troubleshoot Connected registry with Azure arc](troubleshoot-connected-registry-arc.md)
-> [Glossary of terms](connected-registry-glossary.md)
+-[Enable Connected registry with Azure arc CLI][quickstart]
+-[Deploy the Connected registry Arc extension](tutorial-connected-registry-arc.md)
+-[Upgrade Connected registry with Azure arc](tutorial-connected-registry-upgrade.md)
+-[Troubleshoot Connected registry with Azure arc](troubleshoot-connected-registry-arc.md)
+-[Glossary of terms](connected-registry-glossary.md)
 
 <!-- LINKS - internal -->
 [az-acr-connected-registry-update]: /cli/azure/acr/connected-registry#az-acr-connected-registry-update

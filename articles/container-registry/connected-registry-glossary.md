@@ -116,11 +116,11 @@ This glossary provides terms and definitions for the connected registry extensio
 
 ### Parent Registry
 
-- **Description:** The primary registry that synchronizes with its child connected registries. A single parent registry can have multiple child registries connected to it. In a nested scenarios, there can be multiple layers of registries within the hierarchy.
+- **Description:** The primary registry that synchronizes with its child connected registries. A single parent registry can have multiple child registries connected to it. In a nested scenario, there can be multiple layers of registries within the hierarchy.
 
 ### Protected Settings File (--config-protected-file)
 
-- **Definition:** The file containing the connection string for deploying the connected registry extension on the Kubernetes cluster. This file would also includes the Kubernetes Secret or Public Cert + Private Key values pair for BYOC scenarios.
+- **Definition:** The file containing the connection string for deploying the connected registry extension on the Kubernetes cluster. This file would also include the Kubernetes Secret or Public Cert + Private Key values pair for BYOC scenarios.
 - **Accepted Values:** Alphanumerical value
 - **Note:** Customer must specify.
 
@@ -128,7 +128,7 @@ This glossary provides terms and definitions for the connected registry extensio
 
 - **Value Type:** Alphanumerical base64-encoded
 - **Customer Action:** Must specify
-- **Description:** The public key certificate comprises of a pair of keys: a public key available to anyone for identity verification of the certificate holder, and a private key, a unique secret key.
+- **Description:** The public key certificate comprises a pair of keys: a public key available to anyone for identity verification of the certificate holder, and a private key, a unique secret key.
 
 ### Pvc.storageClassName
 

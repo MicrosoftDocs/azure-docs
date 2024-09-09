@@ -154,7 +154,7 @@ az k8s-extension update \
 --config-protected-file protected-settings-extension.json
 ```
 
-### Issue: Extension created, but connected registry is not an “Online” state** 
+### Issue: Extension created, but connected registry is not an “Online” state 
 
 **Possibility 1:** Previous connected registry has not been deactivated 
 
@@ -184,7 +184,7 @@ az acr connected-registry deactivate -n <myconnectedregistry> -r <mycontainerreg
 
 After a few minutes, the connected registry pod should be recreated, and the error should disappear. 
  
-## Enable Logging
+## Enable logging
 
 - Run the [az acr connected-registry update] command to update the connected registry extension with the debug log level:
 

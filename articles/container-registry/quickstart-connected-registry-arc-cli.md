@@ -1,5 +1,5 @@
 ---
-title: "Quickstart: Deploying the Connected Registry Arc Extension"
+title: "Quickstart: Deploying the connected registry Arc extension"
 description: "Learn how to deploy the Connected Registry Arc Extension CLI UX with secure-by-default settings for efficient and secure container workload operations."
 author: tejaswikolli-web
 ms.author: tejaswikolli
@@ -11,7 +11,7 @@ ai-usage: ai-assisted
 #customer intent: As a user, I want to learn how to deploy the connected registry Arc extension using the CLI UX with secure-by-default settings, such as using HTTPS, Read Only, Trust Distribution, and Cert Manager service, so that I can ensure the secure and efficient operation of my container workloads."
 ---
 
-# Quickstart: Deploy the connected registry Arc extension (Preview)
+# Quickstart: Deploy the connected registry Arc extension (preview)
 
 In this quickstart, you learn how to deploy the Connected registry Arc extension using the CLI UX with secure-by-default settings to ensure robust security and operational integrity. 
  
@@ -25,11 +25,11 @@ The connected registry is a pivotal tool for edge customers, enabling efficient 
 
 * Set up the firewall access and communication between the ACR and the connected registry by enabling the [dedicated data endpoints.][dedicated data endpoints]
 
-* Create or use an existing Azure Kubernetes Service (AKS) cluster with the [tutorial.][tutorial-aks-cluster]
+* Create or use an existing Azure KubernetesService (AKS) cluster with the [tutorial.][tutorial-aks-cluster]
 
-* Set up the connection between the Kubernetes cluster and Azure Arc by following the [quickstart.][quickstart-connect-cluster]
+* Set up the connection between the Kubernetescluster and Azure Arc by following the [quickstart.][quickstart-connect-cluster]
 
-* Use the [k8s-extension][k8s-extension] command to manage Kubernetes extensions.
+* Use the [k8s-extension][k8s-extension] command to manage Kubernetesextensions.
 
     ```azurecli
     az extension add --name k8s-extension
@@ -52,9 +52,9 @@ The connected registry is a pivotal tool for edge customers, enabling efficient 
     The `hello-world` repository is created in the ACR registry `myacrregistry` to synchronize with the Connected registry.
 
 
-## Deploy the Connected registry Arc extension with secure-by-default settings
+## Deploy the connected registry Arc extension with secure-by-default settings
 
-Once the prerequisites and necessary conditions and components are in place, follow the streamlined approach to securely deploy a connected registry extension on an Arc-enabled Kubernetes cluster using the following settings. These settings define the following configuration with HTTPS, Read Only, Trust Distribution, and Cert Manager service. Follow the steps for a successful deployment: 
+Once the prerequisites and necessary conditions and components are in place, follow the streamlined approach to securely deploy a connected registry extension on an Arc-enabled Kubernetescluster using the following settings. These settings define the following configuration with HTTPS, Read Only, Trust Distribution, and Cert Manager service. Follow the steps for a successful deployment: 
 
 1.	[Create the connected registry.](#create-the-connected-registry-and-synchronize-with-acr)
 2.	[Deploy the connected registry Arc extension.](#deploy-the-connected-registry-arc-extension-on-the-arc-enabled-kubernetes-cluster)
@@ -81,7 +81,7 @@ Creating the connected registry to synchronize with ACR is the foundational step
 - The [az acr connected-registry create][az-acr-connected-registry-create] command overwrites actions if the sync scope map named `myscopemap` exists and overwrites properties if the sync token named `mysynctoken` exists. 
 - The [az acr connected-registry create][az-acr-connected-registry-create] command validates a dedicated data endpoint during the creation of the connected registry and provides a command to enable the dedicated data endpoint on the ACR registry.
 
-### Deploy the connected registry Arc extension on the Arc-enabled kubernetes cluster
+### Deploy the connected registry Arc extension on the Arc-enabled Kubernetes cluster
 
 By deploying the connected Registry Arc extension, you can synchronize container images and other Open Container Initiative (OCI) artifacts with your ACR registry. The deployment helps speed-up access to registry artifacts and enables the building of advanced scenarios. The extension deployment ensures secure trust distribution between the connected registry and all client nodes within the cluster, and installs the cert-manager service for Transport Layer Security (TLS) encryption. 
 
@@ -89,7 +89,7 @@ By deploying the connected Registry Arc extension, you can synchronize container
 
    For secure deployment of the connected registry extension, generate the connection string, including a new password, transport protocol, and create the `protected-settings-extension.json` file required for the extension deployment with [az acr connected-registry get-settings][az-acr-connected-registry-get-settings] command:
 
-  ```bash
+```bash
     cat << EOF > protected-settings-extension.json
     {
       "connectionString": "$(az acr connected-registry get-settings \
@@ -100,9 +100,9 @@ By deploying the connected Registry Arc extension, you can synchronize container
       --query ACR_REGISTRY_CONNECTION_STRING --output tsv --yes)"
     }
     EOF
-  ```
+```
 
-  ```bash
+```bash
     cat << EOF > protected-settings-extension.json
     {
       "connectionString": "$(az acr connected-registry get-settings \
@@ -113,7 +113,7 @@ By deploying the connected Registry Arc extension, you can synchronize container
       --query ACR_REGISTRY_CONNECTION_STRING --output tsv --yes)"
     }
     EOF
-  ```
+```
 
 ```azurepowershell
     echo "{\"connectionString\":\"$(az acr connected-registry get-settings \
@@ -143,14 +143,14 @@ By deploying the connected Registry Arc extension, you can synchronize container
     --config-protected-file protected-settings-extension.json  
   ```
 
-- The [az k8s-extension create][az-k8s-extension-create] command deploys the connected registry extension on the Kubernetes cluster with the provided configuration parameters and protected settings file. 
+- The [az k8s-extension create][az-k8s-extension-create] command deploys the connected registry extension on the Kubernetescluster with the provided configuration parameters and protected settings file. 
 - It ensures secure trust distribution between the connected registry and all client nodes within the cluster, and installs the cert-manager service for Transport Layer Security (TLS) encryption.
-- The clusterIP must be from the AKS cluster subnet IP range. The `service.clusterIP` parameter specifies the IP address of the connected registry service within the cluster. It is essential to set the `service.clusterIP` within the range of valid service IPs for the Kubernetes cluster. Ensure that the IP address specified for `service.clusterIP` falls within the designated service IP range defined during the cluster's initial configuration, typically found in the cluster's networking settings. If the `service.clusterIP` is not within this range, it must be updated to an IP address that is both within the valid range and not currently in use by another service.
+- The clusterIP must be from the AKS cluster subnet IP range. The `service.clusterIP` parameter specifies the IP address of the connected registry service within the cluster. It is essential to set the `service.clusterIP` within the range of valid service IPs for the Kubernetescluster. Ensure that the IP address specified for `service.clusterIP` falls within the designated service IP range defined during the cluster's initial configuration, typically found in the cluster's networking settings. If the `service.clusterIP` is not within this range, it must be updated to an IP address that is both within the valid range and not currently in use by another service.
 
 
 ### Verify the connected registry extension deployment
 
-To verify the deployment of the connected registry extension on the Arc-enabled Kubernetes cluster, follow the steps:
+To verify the deployment of the connected registry extension on the Arc-enabled Kubernetescluster, follow the steps:
 
 1. Verify the deployment status
 
