@@ -29,13 +29,13 @@ ms.author: glenga
 Notes on service limits:
 
 1. By default, the timeout for the Functions 1.x runtime in an App Service plan is unbounded.  
-2. Requires the App Service plan be set to [Always On](/azure/azure-functions/dedicated-plan#always-on). Pay at standard [rates](https://azure.microsoft.com/pricing/details/app-service/). A grace period of 10 minutes is given during platform updates. Ensure to [write robust functions](../articles/azure-functions/functions-best-practices.md#write-robust-functions).
+2. Requires the App Service plan be set to [Always On](/azure/azure-functions/dedicated-plan#always-on). Pay at standard [rates](https://azure.microsoft.com/pricing/details/app-service/). A grace period of 10 minutes is given during platform updates.
 3. These limits are [set in the host](https://github.com/Azure/azure-functions-host/blob/dev/src/WebJobs.Script.WebHost/web.config).  
 4. The actual number of function apps that you can host depends on the activity of the apps, the size of the machine instances, and the corresponding resource utilization.  
 5. The storage limit is the total content size in temporary storage across all apps in the same App Service plan. For Consumption plans on Linux, the storage is currently 1.5 GB.
 6. Consumption plan uses an Azure Files share for persisted storage. When you provide your own Azure Files share, the specific share size limits depend on the storage account you set for [WEBSITE_CONTENTAZUREFILECONNECTIONSTRING](/azure/azure-functions/functions-app-settings#website_contentazurefileconnectionstring). On Linux, you must [explicitly mount your own Azure Files share](/azure/azure-functions/storage-considerations#mount-file-shares) for both Flex Consumption and Consumption plans.
 7. When your function app is hosted in a [Consumption plan](/azure/azure-functions/consumption-plan), only the CNAME option is supported. For function apps in a [Premium plan](/azure/azure-functions/functions-premium-plan) or an [App Service plan](/azure/azure-functions/dedicated-plan), you can map a custom domain using either a CNAME or an A record.  
-8. There is no maximum execution timeout duration enforced. However, the grace period given to a function execution is 60 minutes [during scale in](../articles/azure-functions/event-driven-scaling.md#scale-in-behaviors) and 10 minutes during platform updates. Ensure to [write robust functions](../articles/azure-functions/functions-best-practices.md#write-robust-functions).
+8. There is no maximum execution timeout duration enforced. However, the grace period given to a function execution is 60 minutes [during scale in](../articles/azure-functions/event-driven-scaling.md#scale-in-behaviors) and 10 minutes during platform updates.
 9. Workers are roles that host customer apps. Workers are available in three fixed sizes: One vCPU/3.5 GB RAM; Two vCPU/7 GB RAM; Four vCPU/14 GB RAM.   
 10. See [App Service limits](/azure/azure-resource-manager/management/azure-subscription-service-limits#app-service-limits) for details.  
 11. Including the production slot.  
