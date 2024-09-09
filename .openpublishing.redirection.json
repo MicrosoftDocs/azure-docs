@@ -3126,6 +3126,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/openshift/howto-deploy-java-jboss-enterprise-application-platform-with-auto-redeploy.md",
+      "redirect_url": "/azure/openshift/index",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/openshift/quickstart-portal.md",
       "redirect_url": "/azure/openshift/create-cluster",
       "redirect_document_id": false
