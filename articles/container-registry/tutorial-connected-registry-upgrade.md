@@ -17,9 +17,9 @@ In this tutorial, you learn how to upgrade and rollback the connected registry e
 You learn how to:
 
 > [!div class="checklist"]
-> - [Deploy the Connected registry Arc extension with auto upgrade](#deploy-the-connected-registry-arc-extension-with-auto-upgrade).
-> - [Deploy the Connected registry Arc extension with auto rollback](#deploy-the-connected-registry-arc-extension-with-auto-rollback).
-> - [Deploy the Connected registry Arc extension with manual upgrade](#deploy-the-connected-registry-arc-extension-with-manual-upgrade).
+> - [Deploy the Connected registry Arc extension with auto upgrade](#deploy-the-connected-registry-extension-with-auto-upgrade-enabled).
+> - [Deploy the Connected registry Arc extension with auto rollback](#deploy-the-connected-registry-extension-with-auto-rollback-enabled).
+> - [Deploy the Connected registry Arc extension with manual upgrade](#deploy-the-connected-registry-extension-using-manual-upgrade-steps).
 
 ## Prerequisites
 
