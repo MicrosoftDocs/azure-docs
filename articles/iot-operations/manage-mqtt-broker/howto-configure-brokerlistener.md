@@ -29,7 +29,7 @@ Listeners have the following characteristics:
 - Service names must be unique
 - Ports cannot conflict over different listeners
 
-For a list of the available settings, see the [Broker Listener]() API reference.
+For a list of the available settings, see the [Broker Listener](/rest/api/iotoperationsmq/broker-listener) API reference.
 
 ## Default BrokerListener
 

@@ -7,7 +7,7 @@ ms.topic: how-to
 ms.subservice: azure-mqtt-broker
 ms.custom:
   - ignite-2023
-ms.date: 08/29/2024
+ms.date: 09/09/2024
 
 #CustomerIntent: As an operator, I want to understand the settings for the MQTT broker so that I can configure it for high availability and scale.
 ---
@@ -19,6 +19,8 @@ ms.date: 08/29/2024
 The *Broker* resource is the main resource that defines the overall settings for MQTT broker. It also determines the number and type of pods that run the *Broker* configuration, such as the frontends and the backends. You can also use the *Broker* resource to configure its memory profile. Self-healing mechanisms are built in to the broker and it can often automatically recover from component failures. For example, a node fails in a Kubernetes cluster configured for high availability. 
 
 You can horizontally scale the MQTT broker by adding more frontend replicas and backend chains. The frontend replicas are responsible for accepting MQTT connections from clients and forwarding them to the backend chains. The backend chains are responsible for storing and delivering messages to the clients. The frontend pods distribute message traffic across the backend pods, and the backend redundancy factor determines the number of data copies to provide resiliency against node failures in the cluster.
+
+For a list of the available settings, see the [Broker](/rest/api/iotoperationsmq/broker) API reference.
 
 ## Configure scaling settings
 
@@ -171,7 +173,7 @@ Diagnostic settings allow you to enable metrics and tracing for MQTT broker.
 
 To override default diagnostic settings for MQTT broker, update the `spec.diagnostics` section in  the *Broker* resource. Adjust the log level to control the amount and detail of information that is logged. The log level can be set for different components of MQTT broker. The default log level is `info`.
 
-You can configure diagnostics using the *Broker* custom resource definition (CRD). For more information on the diagnostics settings, see the [Broker]() API reference.
+You can configure diagnostics using the *Broker* custom resource definition (CRD). For more information on the diagnostics settings, see the [Broker](/rest/api/iotoperationsmq/broker) API reference.
 
 Here's an example of a *Broker* custom resource with metrics and tracing enabled and self-check disabled:
 

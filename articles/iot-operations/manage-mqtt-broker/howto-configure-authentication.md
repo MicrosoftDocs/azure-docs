@@ -16,7 +16,7 @@ ms.date: 08/29/2024
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-MQTT broker supports multiple authentication methods for clients, and you can configure each listener to have its own authentication system with *BrokerAuthentication* resources. For a list of the available settings, see the [Broker Authentication]() API reference.
+MQTT broker supports multiple authentication methods for clients, and you can configure each listener to have its own authentication system with *BrokerAuthentication* resources. For a list of the available settings, see the [Broker Authentication](/rest/api/iotoperationsmq/broker-authentication) API reference.
 
 ## Link BrokerListener and BrokerAuthentication
 

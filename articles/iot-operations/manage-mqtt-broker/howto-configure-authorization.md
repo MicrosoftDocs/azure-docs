@@ -7,7 +7,7 @@ ms.subservice: azure-mqtt-broker
 ms.topic: how-to
 ms.custom:
   - ignite-2023
-ms.date: 08/29/2024
+ms.date: 09/09/2024
 
 #CustomerIntent: As an operator, I want to configure authorization so that I have secure MQTT broker communications.
 ---
@@ -29,24 +29,7 @@ To learn more about *BrokerListener*, see [BrokerListener resource](howto-config
 
 ## Authorization rules
 
-To configure authorization, create a *BrokerAuthorization* resource in your Kubernetes cluster. The following sections provide examples of how to configure authorization for clients that use usernames, attributes, X.509 certificates, and Kubernetes Service Account Tokens (SATs).
-
-The specification of a *BrokerAuthorization* resource has the following fields:
-
-| Field Name | Required | Description |
-| --- | --- | --- |
-| authorizationPolicies | Yes | This field defines the settings for the authorization policies, such as *enableCache* and *rules*.|
-| cache | No | Whether to enable caching for the authorization policies.  If set to `Enabled`, the broker caches the authorization results for each client and topic combination to improve performance and reduce latency. If set to `false`, the broker evaluates the authorization policies for each client and topic request, to ensure consistency and accuracy. This field is optional and defaults to `Disabled`. |
-| rules | No | A list of rules that specify the principals and resources for the authorization policies. Each rule has these subfields: *principals* and *brokerResources*. |
-| principals | Yes | This subfield defines the identities that represent the clients, such as *usernames*, *clientids*, and *attributes*.|
-| usernames | No | A list of usernames that match the clients. The usernames are case-sensitive and must match the usernames provided by the clients during authentication. |
-| clientids | No | A list of client IDs that match the clients. The client IDs are case-sensitive and must match the client IDs provided by the clients during connection. |
-| attributes | No | A list of key-value pairs that match the attributes of the clients. The attributes are case-sensitive and must match the attributes provided by the clients during authentication. |
-| brokerResources | Yes | This subfield defines the objects that represent the actions or topics, such as *method* and *topics*. |
-| method | Yes | The type of action that the clients can perform on the broker. This subfield is required and can be one of these values: **Connect**: This value indicates that the clients can connect to the broker. **Publish**: This value indicates that the clients can publish messages to topics on the broker. **Subscribe**: This value indicates that the clients can subscribe to topics on the broker. |
-| topics | No | A list of topics or topic patterns that match the topics that the clients can publish or subscribe to. This subfield is required if the method is *Subscribe* or *Publish*. |
-
-<!-- TODO: replace above table with link to API reference docs instead -->
+To configure authorization, create a *BrokerAuthorization* resource in your Kubernetes cluster. The following sections provide examples of how to configure authorization for clients that use usernames, attributes, X.509 certificates, and Kubernetes Service Account Tokens (SATs). For a list of the available settings, see the [Broker Authorization](/rest/api/iotoperationsmq/broker-authorization) API reference.
 
 The following example shows how to create a *BrokerAuthorization* resource using both usernames and attributes:
 
