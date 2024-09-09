@@ -22,7 +22,7 @@ In Azure IoT Operations Preview, a key task is to manage the assets that are par
 
 ## Understand assets
 
-Assets are a core element of an Azure IoT Operations solution. In Azure IoT Operations, an *asset* is a logical entity that you create to represent a real asset. An Azure IoT Operations asset can emit telemetry and events. You use these logical asset instances to manage the real assets in your industrial edge environment.
+Assets are a core element of an Azure IoT Operations solution. In Azure IoT Operations, an *asset* is a logical entity that you create to represent a real asset. An Azure IoT Operations asset can emit telemetry and events. You use these logical asset instances to reference the real assets in your industrial edge environment.
 
 Assets connect to Azure IoT Operations instances through *asset endpoints*, which are the OPC UA servers that have southbound connections to one or more assets.
 
