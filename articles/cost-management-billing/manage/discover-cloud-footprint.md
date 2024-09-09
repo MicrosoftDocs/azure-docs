@@ -23,10 +23,10 @@ The following table shows some common identifiers that Microsoft customers have.
 
 | Identifier | Related documentation |
 | --- | --- |
-| **Tenant ID** | [What is Microsoft Entra ID?](/entra/fundamentals/whatis)   <br> <br><br>[How to find your tenant ID](/entra/fundamentals/how-to-find-tenant)   <br>   <br>[Change your organization's address and technical contact in the Microsoft 365 admin center](/microsoft-365/admin/manage/change-address-contact-and-more#what-do-the-organization-information-fields-mean) |
-| **Billing Account ID** | [View your billing accounts in Azure portal](view-all-accounts.md)  <br><br>&nbsp;<br><br>[Understand your Microsoft business billing account](/microsoft-365/commerce/manage-billing-accounts) |
-| **Subscription ID** | [Get subscription and tenant IDs in the Azure portal](../../azure-portal/get-subscription-tenant-id.md) <br><br>&nbsp;<br><br>[What Microsoft business subscriptions do I have?](/microsoft-365/admin/admin-overview/what-subscription-do-i-have) |
-| **Agreement ID** | **Microsoft Customer Agreement:**    <br>[Microsoft Customer Agreement documentation](../microsoft-customer-agreement/index.yml) <br><br>&nbsp;<br><br>**Microsoft Partner Agreement:**   <br>[The Microsoft Partner Agreement (MPA) for CSP - Partner Center](/partner-center/enroll/microsoft-partner-agreement) <br><br>&nbsp;<br><br>**Enterprise Agreement:** <br><br>[EA Billing administration on the Azure portal](direct-ea-administration.md) |
+| **Tenant ID** | • [What is Microsoft Entra ID?](/entra/fundamentals/whatis) <br>  • [How to find your tenant ID](/entra/fundamentals/how-to-find-tenant) <br>  • [Change your organization's address and technical contact in the Microsoft 365 admin center](/microsoft-365/admin/manage/change-address-contact-and-more#what-do-the-organization-information-fields-mean) |
+| **Billing Account ID** |  • [View your billing accounts in Azure portal](view-all-accounts.md)  <br> • [Understand your Microsoft business billing account](/microsoft-365/commerce/manage-billing-accounts) |
+| **Subscription ID** |  • [Get subscription and tenant IDs in the Azure portal](../../azure-portal/get-subscription-tenant-id.md) <br> • [What Microsoft business subscriptions do I have?](/microsoft-365/admin/admin-overview/what-subscription-do-i-have) |
+| **Agreement ID** | **Microsoft Customer Agreement:** <br> • [Microsoft Customer Agreement documentation](../microsoft-customer-agreement/index.yml) <br><br>**Microsoft Partner Agreement:**   <br> • [The Microsoft Partner Agreement (MPA) for CSP - Partner Center](/partner-center/enroll/microsoft-partner-agreement) <br><br>**Enterprise Agreement:** <br> • [EA Billing administration on the Azure portal](direct-ea-administration.md) |
 | **Legal Entity** | It’s your company name, address, phone number, and so on. |
 | **Microsoft Partner Network (MPN) ID** | [Add, change, or delete a Microsoft 365 subscription advisor partner](/microsoft-365/admin/misc/add-partner) |
 | **Domain name** | [Add and replace your onmicrosoft.com fallback domain in Microsoft 365](/microsoft-365/admin/setup/add-or-replace-your-onmicrosoftcom-domain) |
@@ -132,10 +132,10 @@ You can organize your invoice for each of your billing accounts using the inform
 
 When you add an associated billing tenant, you can enable two access settings:
 
-- - **Billing Management**: This allows billing account owners to assign roles to users in the associated billing tenant. Essentially, it gives them permission to access billing information and make purchasing decisions.
-    - **Provisioning:** This allows the invited tenant’s subscriptions to be billed to the inviting billing account.
-      - If you want to understand the differences between tenant types in Azure, see [Manage billing across multiple tenants using associated billing tenants](manage-billing-across-tenants.md).
-      - If you want to understand the differences between tenant types in Microsoft 365, see [Manage billing across multiple tenants in the Microsoft 365 admin center](/microsoft-365/commerce/billing-and-payments/manage-multi-tenant-billing).
+- **Billing Management**: This allows billing account owners to assign roles to users in the associated billing tenant. Essentially, it gives them permission to access billing information and make purchasing decisions.
+- **Provisioning:** This allows the invited tenant’s subscriptions to be billed to the inviting billing account.
+  - If you want to understand the differences between tenant types in Azure, see [Manage billing across multiple tenants using associated billing tenants](manage-billing-across-tenants.md).
+  - If you want to understand the differences between tenant types in Microsoft 365, see [Manage billing across multiple tenants in the Microsoft 365 admin center](/microsoft-365/commerce/billing-and-payments/manage-multi-tenant-billing).
 
 ## How do I add an associated billing tenant?
 
