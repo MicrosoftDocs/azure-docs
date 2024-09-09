@@ -9,7 +9,7 @@ ms.date: 04/01/2024
 ms.author: kesheth
 ---
 
-# Bulk delete in the FHIR service
+# Bulk delete in the FHIR&reg; service
 
 [!INCLUDE [bulk-delete operation common content](../includes/fhir-bulk-delete-operation.md)]
 
