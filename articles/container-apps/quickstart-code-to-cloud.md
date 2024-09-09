@@ -8,7 +8,7 @@ ms.custom:
   - devx-track-azurecli
   - ignite-2023
 ms.topic: quickstart
-ms.date: 00/09/2024
+ms.date: 09/09/2024
 ms.author: cshoe
 zone_pivot_groups: container-apps-code-to-cloud-segmemts
 ---
