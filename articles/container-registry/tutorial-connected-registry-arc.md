@@ -29,14 +29,6 @@ The connected registry cert manager is a service that manages TLS certificates f
 
 Connected registry trust distribution refers to the process of securely distributing trust between the connected registry service and Kubernetes clients within a cluster. This is achieved by using a Certificate Authority (CA), such as cert-manager, to sign TLS certificates, which are then distributed to both the registry service and the clients. This ensures that all entities can securely authenticate each other, maintaining a secure and trusted environment within the Kubernetes cluster.
 
-In this tutorial, you:
-
-> [!div class="checklist"]
-> - [Deploy Connected registry extension using preinstalled cert-manager.](#deploy-connected-registry-extension-using-your-preinstalled-cert-manager)
-> - [Deploy Connected registry extension using Bring Your Own Certificate (BYOC).](#deploy-connected-registry-extension-using-bring-your-own-certificate-byoc)
-> - [Deploy Connected registry with Kubernetes secret management.](#deploy-connected-registry-with-kubernetes-secret-management)
-> - [Deploy the Connected registry Arc extension with inherent trust distribution or reject Connected registry trust distribution.](#deploy-the-connected-registry-using-your-own-trust-distribution-and-disable-the-connected-registrys-default-trust-distribution)
-
 ## Prerequisites
 
 To complete this tutorial, you need:
@@ -228,11 +220,11 @@ By deleting the Connected registry extension and the Connected registry, you rem
 
 ## Next steps
 
--[Enable Connected registry with Azure arc CLI][quickstart]
--[Upgrade Connected registry with Azure arc](tutorial-connected-registry-upgrade.md)
--[Sync Connected registry with Azure arc in Scheduled window](tutorial-connected-registry-sync.md)
--[Troubleshoot Connected registry with Azure arc](troubleshoot-connected-registry-arc.md)
--[Glossary of terms](connected-registry-glossary.md)
+- [Enable Connected registry with Azure arc CLI][quickstart]
+- [Upgrade Connected registry with Azure arc](tutorial-connected-registry-upgrade.md)
+- [Sync Connected registry with Azure arc in Scheduled window](tutorial-connected-registry-sync.md)
+- [Troubleshoot Connected registry with Azure arc](troubleshoot-connected-registry-arc.md)
+- [Glossary of terms](connected-registry-glossary.md)
 
 <!-- LINKS - internal -->
 [create-acr]: container-registry-get-started-azure-cli.md

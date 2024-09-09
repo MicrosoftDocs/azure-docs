@@ -176,7 +176,7 @@ This glossary provides terms and definitions for the connected registry extensio
 - **Definition:** By default, the trust distribution daemonsets, which are responsible for configuring the container runtime environment (containerd), will run on all nodes in the cluster. However, with this setting enabled, trust distribution is limited to only those nodes that have been specifically labeled with `containerd-configured-by: connected-registry`.
 - **Accepted Values:** `true`, `false`
 - **Label:** `containerd-configured-by=connected-registry`
-- **Command to specifiy nodes for trust distribution:** `kubectl label node/[node name] containerd-configured-by=connected-registry`
+- **Command to specify nodes for trust distribution:** `kubectl label node/[node name] containerd-configured-by=connected-registry`
 
 
 ### Registry Hierarchy

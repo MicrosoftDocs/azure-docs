@@ -71,9 +71,9 @@ When you try to install the connected registry extension to target a specific ve
 
 Try again to install the extension. Make sure that you use a supported version of connected registry. 
 
-## Common Issues 
+## Common issues 
 
-### Issue: Extension creation stuck in Running state
+### Issue: Extension creation stuck in running state
 
 **Possibility 1:** Issue with Persistent Volume Claim (PVC) 
 
@@ -154,7 +154,7 @@ az k8s-extension update \
 --config-protected-file protected-settings-extension.json
 ```
 
-### Issue: Extension created, but connected registry is not an “Online” state 
+### Issue: Extension created, but connected registry is not an 'Online' state 
 
 **Possibility 1:** Previous connected registry has not been deactivated 
 

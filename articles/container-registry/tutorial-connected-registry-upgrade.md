@@ -14,13 +14,6 @@ ms.date: 06/17/2024
 
 In this tutorial, you learn how to upgrade and roll back the connected registry extension version. 
 
-You learn how to:
-
-> [!div class="checklist"]
-> - [Deploy the Connected registry Arc extension with auto upgrade](#deploy-the-connected-registry-extension-with-auto-upgrade-enabled).
-> - [Deploy the Connected registry Arc extension with auto rollback](#deploy-the-connected-registry-extension-with-auto-roll-back-enabled).
-> - [Deploy the Connected registry Arc extension with manual upgrade](#deploy-the-connected-registry-extension-using-manual-upgrade-steps).
-
 ## Prerequisites
 
 To complete this tutorial, you need the following resources:
@@ -79,11 +72,11 @@ Follow the [quickstart][quickstart] to edit the [az-k8s-extension-update][az-k8s
 
 In this tutorial, you learned how to upgrade the Connected registry extension with Azure Arc. 
 
--[Enable Connected registry with Azure arc CLI][quickstart]
--[Deploy the Connected registry Arc extension](tutorial-connected-registry-arc.md)
--[Sync Connected registry with Azure arc](tutorial-connected-registry-sync.md)
--[Troubleshoot Connected registry with Azure arc](troubleshoot-connected-registry-arc.md)
--[Glossary of terms](connected-registry-glossary.md)
+- [Enable Connected registry with Azure arc CLI][quickstart]
+- [Deploy the Connected registry Arc extension](tutorial-connected-registry-arc.md)
+- [Sync Connected registry with Azure arc](tutorial-connected-registry-sync.md)
+- [Troubleshoot Connected registry with Azure arc](troubleshoot-connected-registry-arc.md)
+- [Glossary of terms](connected-registry-glossary.md)
 
 [quickstart]: quickstart-connected-registry-arc-cli.md
 [az-k8s-extension-create]: /cli/azure/k8s-extension#az-k8s-extension-create

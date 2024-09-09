@@ -18,12 +18,6 @@ You’ll be guided on how to update the synchronization schedule using Azure CLI
 
 The commands utilize CRON expressions to define the sync schedule and the ISO 8601 duration format for the sync window. Remember to replace the placeholders with your actual registry names when executing the commands.
 
-You learn how to:
-
-> [!div class="checklist"]
-> - [Update the Connected registry to sync every day at midnight](#update-the-connected-registry-to-sync-every-day-at-midnight).
-> - [Update the Connected registry to sync continuously every minute](#update-the-connected-registry-to-sync-continuously-every-minute).
-
 ## Prerequisites
 
 To complete this tutorial, you need the following resources:
@@ -61,11 +55,11 @@ The configuration syncs the connected registry with the cloud registry every min
 
 ## Next steps
 
--[Enable Connected registry with Azure arc CLI][quickstart]
--[Deploy the Connected registry Arc extension](tutorial-connected-registry-arc.md)
--[Upgrade Connected registry with Azure arc](tutorial-connected-registry-upgrade.md)
--[Troubleshoot Connected registry with Azure arc](troubleshoot-connected-registry-arc.md)
--[Glossary of terms](connected-registry-glossary.md)
+- [Enable Connected registry with Azure arc CLI][quickstart]
+- [Deploy the Connected registry Arc extension](tutorial-connected-registry-arc.md)
+- [Upgrade Connected registry with Azure arc](tutorial-connected-registry-upgrade.md)
+- [Troubleshoot Connected registry with Azure arc](troubleshoot-connected-registry-arc.md)
+- [Glossary of terms](connected-registry-glossary.md)
 
 <!-- LINKS - internal -->
 [az-acr-connected-registry-update]: /cli/azure/acr/connected-registry#az-acr-connected-registry-update
