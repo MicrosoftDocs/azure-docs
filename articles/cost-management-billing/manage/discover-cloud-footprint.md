@@ -192,6 +192,6 @@ To learn about notifications for audit log events, follow the tutorial in [Enabl
 
 - For Azure:
   - [Billing accounts and scopes in the Azure portal](view-all-accounts.md)
-- For Microsoft 365
+- For Microsoft 365:
   -  [Understand your Microsoft business billing account](/microsoft-365/commerce/manage-billing-accounts)
   - [Manage your Microsoft business billing profiles](/microsoft-365/commerce/billing-and-payments/manage-billing-profiles)
