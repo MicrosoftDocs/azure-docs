@@ -10,19 +10,19 @@ ms.service: azure-communication-services
 
 ## Customize title and subtitle
 
-To set and update call screen header `title` and `subtitle`, utilize `CallCompositeCallScreenOptions` to configure `CallCompositeCallScreenHeaderOptions`. Default UI library title is displayed if `title` value isn't configured.
+To set and update call screen header `title` and `subtitle`, utilize `CallCompositeCallScreenOptions` to configure `CallCompositeCallScreenHeaderViewData`. Default UI library title is displayed if `title` value isn't configured.
 
 #### [Kotlin](#tab/kotlin)
 
 ```kotlin
-// create call screen header options to set title and subtitle
-val callScreenHeaderOptions = CallCompositeCallScreenHeaderOptions()
-callScreenHeaderOptions.title = "title"
-callScreenHeaderOptions.subtitle = "subtitle"
+// create call screen header view data to set title and subtitle
+val callScreenHeaderViewData = CallCompositeCallScreenHeaderViewData()
+callScreenHeaderViewData.title = "title"
+callScreenHeaderViewData.subtitle = "subtitle"
 
 // create call screen options
 val callScreenOptions = CallCompositeCallScreenOptions()
-callScreenOptions.setHeaderOptions(callScreenHeaderOptions)
+callScreenOptions.setHeaderViewData(callScreenHeaderViewData)
 
 // create call composite
 val callComposite = CallCompositeBuilder().build()
@@ -34,20 +34,20 @@ localOptions.setCallScreenOptions(callScreenOptions)
 callComposite.launch(applicationContext, locator, localOptions)
 
 // use any event from call composite to update title subtitle when call is in progress
-// callScreenHeaderOptions.title = "updated title"
-// callScreenHeaderOptions.subtitle = "updated subtitle"
+// callScreenHeaderViewData.title = "updated title"
+// callScreenHeaderViewData.subtitle = "updated subtitle"
 ```
 
 #### [Java](#tab/java)
 ```java
-// Create call screen header options to set title and subtitle
-CallCompositeCallScreenHeaderOptions callScreenHeaderOptions = new CallCompositeCallScreenHeaderOptions();
-callScreenHeaderOptions.setTitle("title");
-callScreenHeaderOptions.setSubtitle("subtitle");
+// Create call screen header view data to set title and subtitle
+CallCompositeCallScreenHeaderViewData callScreenHeaderViewData = new CallCompositeCallScreenHeaderViewData();
+callScreenHeaderViewData.setTitle("title");
+callScreenHeaderViewData.setSubtitle("subtitle");
 
 // Create call screen options
 CallCompositeCallScreenOptions callScreenOptions = new CallCompositeCallScreenOptions();
-callScreenOptions.setHeaderOptions(callScreenHeaderOptions);
+callScreenOptions.setHeaderOptions(callScreenHeaderViewData);
 
 // Create call composite
 CallComposite callComposite = new CallCompositeBuilder().build();
@@ -59,8 +59,8 @@ localOptions.setCallScreenOptions(callScreenOptions);
 callComposite.launch(getApplicationContext(), locator, localOptions);
 
 // Use any event from call composite to update title and subtitle when the call is in progress
-// callScreenHeaderOptions.setTitle("updated title");
-// callScreenHeaderOptions.setSubtitle("updated subtitle");
+// callScreenHeaderViewData.setTitle("updated title");
+// callScreenHeaderViewData.setSubtitle("updated subtitle");
 ```
 
 -----
