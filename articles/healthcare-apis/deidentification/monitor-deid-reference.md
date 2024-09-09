@@ -14,12 +14,12 @@ ms.subservice: deidentification-service
 
 [!INCLUDE [horz-monitor-ref-intro](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-intro.md)]
 
-See [Monitor the de-identification service (preview)](monitor-[TODO-replace-with-service-filename].md) for details on the data you can collect for the de-identification service and how to use it.
+See [Monitor the de-identification service (preview)](monitor-deid.md) for details on the data you can collect for the de-identification service and how to use it.
 
 [!INCLUDE [horz-monitor-ref-resource-logs](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-resource-logs.md)]
 
 ### Supported resource logs for Microsoft.HealthDataAIServices/deidServices
-[!INCLUDE [Microsoft.HealthDataAIServices/deidServices](~/azure-reference-other-repo/azure-monitor-ref/supported-logs/includes/healthdataaiservices-deidservices-logs-include.md)]
+[!INCLUDE [Microsoft.HealthDataAIServices/deidServices](~/reusable-content/ce-skilling/azure/includes/azure-monitor/reference/logs/healthdataaiservices-deidservices-logs-include.md)]
 
 [!INCLUDE [horz-monitor-ref-logs-tables](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-logs-tables.md)]
 

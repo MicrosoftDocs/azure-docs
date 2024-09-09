@@ -50,5 +50,5 @@ The following table lists some suggested alert rules for [TODO-replace-with-serv
 
 ## Related content
 
-- See [the de-identification service monitoring data reference](monitor-[TODO-replace-with-service-filename]-reference.md) for a reference of the metrics, logs, and other important values created for the de-identification service.
+- See [the de-identification service monitoring data reference](monitor-deid-reference.md) for a reference of the metrics, logs, and other important values created for the de-identification service.
 - See [Monitoring Azure resources with Azure Monitor](/azure/azure-monitor/essentials/monitor-azure-resource) for general details on monitoring Azure resources.
