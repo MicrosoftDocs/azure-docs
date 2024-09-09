@@ -29,7 +29,7 @@ The following table lists the limits for the Microsoft Playwright Testing free t
 | Total test results¹ | 1000 results |
 | Number of workspaces²³ | 1 |
 
-¹ If you run a test that exceeds the free trial test minute limit, only the overage test minutes account towards the pay-as-you-go billing model. Or, if your publish a test result that exceeds the free trial test result limit, only the overage test result account towards the pay-as-you-go billing model. The two features are billed seperately, see [Microsoft Playwright Testing preview pricing](https://aka.ms/mpt/pricing)
+¹ If your usage exceeds either the free test minute limit or the free test result limit, only the overage counts toward the pay-as-you-go billing model. The two features are billed separately, see [Microsoft Playwright Testing preview pricing](https://aka.ms/mpt/pricing)
 
 ² These limits only apply to the *first* workspace you create in your Azure subscription. Any subsequent workspaces you create in the subscription automatically uses the pay-as-you-go billing model.
 
