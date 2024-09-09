@@ -1,22 +1,20 @@
 ---
-title: Build an AI-Powered Group Chat with SignalR and OpenAI
+title: Build an AI-powered Group Chat with Azure SignalR and OpenAI Completion API
 author: kevinguo-ed
-description: A tutorial explaining how SignalR and OpenAI are used together to build an AI-powered group chat
+description: A tutorial explaining how Azure SignalR and OpenAI Completion API are used together to build an AI-powered group chat
 ms.author: kevinguo
 ms.topic: tutorial
 ms.date: 09/09/2024
 uid: tutorials/ai-powered-group-chat
 ---
 
-# Build an AI-powered group chat with SignalR and OpenAI
-
-## Overview
+# Build an AI-powered group chat with Azure SignalR and OpenAI Completion API
 
 The integration of AI into applications is rapidly becoming a must-have for developers looking to help their users be more creative, productive, and achieve their health goals. AI-powered features, such as intelligent chatbots, personalized recommendations, and contextual responses, add significant value to modern apps. The AI-powered apps that came out since ChatGPT captured our imagination are primarily between one user and one AI assistant. As developers get more comfortable with the capabilities of AI, they're exploring AI-powered apps in a team's context. They ask "what value can AI add to a team of collaborators?"
 
 This tutorial guides you through building a real-time group chat application. Among a group of human collaborators in a chat, there's an AI assistant, which has access to the chat history and can be invited to help out by any collaborator when they start the message with `@gpt`. The finished app looks like this. 
 
-:::image type="content" source="./media/signalr-tutorial-group-chat-with-open-ai/ai-powered-group-chat.jpg" alt-text="user interface for the AI-powered group chat":::
+:::image type="content" source="./media/signalr-tutorial-group-chat-with-open-ai/ai-powered-group-chat.png" alt-text="Screenshot of user interface for the AI-powered group chat":::
 
 We use OpenAI for generating intelligent, context-aware responses and SignalR for delivering the response to users in a group. You can find the complete code [in this repo](https://github.com/aspnet/AzureSignalR-samples/tree/main/samples/AIStreaming).
 
@@ -44,7 +42,7 @@ In this section, we walk through the key parts of the code that integrate Signal
 
 ### Data flow 
 
-:::image type="content" source="./media/signalr-tutorial-group-chat-with-open-ai/sequence-diagram-ai-powered-group-chat.png" alt-text="sequence diagram for the AI-powered group chat":::
+:::image type="content" source="./media/signalr-tutorial-group-chat-with-open-ai/sequence-diagram-ai-powered-group-chat.png" alt-text="Sequence diagram of the AI-powered group chat":::
 
 ### SignalR Hub integration
 
@@ -97,6 +95,6 @@ if (totalCompletion.Length - lastSentTokenLength > 20)
 ## Explore further
 
 This project opens up exciting possibilities for further enhancement:
-1. **Advanced AI features**: Use other OpenAI capabilities like sentiment analysis, translation, or summarization. 
-2. **Incorporating multiple AI agents**: You can introduce multiple AI agents with distinct roles or expertise areas within the same chat. For example, one agent might focus on text generation and the other provides image or audio generation. This interaction can create a richer and more dynamic user experience where different AI agents interact seamlessly with users and each other.
-3. **Share chat history between server instances**: Implement a database layer to persist chat history across sessions, allowing conversations to resume even after a disconnect. Beyond SQL or NO SQL based solutions, you can also explore using a caching service like Redis. It can significantly improve performance by storing frequently accessed data, such as chat history or AI responses, in memory. This reduces latency and offloads database operations, leading to faster response times, particularly in high-traffic scenarios. 
+- **Advanced AI features**: Use other OpenAI capabilities like sentiment analysis, translation, or summarization. 
+- **Incorporating multiple AI agents**: You can introduce multiple AI agents with distinct roles or expertise areas within the same chat. For example, one agent might focus on text generation and the other provides image or audio generation. This interaction can create a richer and more dynamic user experience where different AI agents interact seamlessly with users and each other.
+- **Share chat history between server instances**: Implement a database layer to persist chat history across sessions, allowing conversations to resume even after a disconnect. Beyond SQL or NO SQL based solutions, you can also explore using a caching service like Redis. It can significantly improve performance by storing frequently accessed data, such as chat history or AI responses, in memory. This reduces latency and offloads database operations, leading to faster response times, particularly in high-traffic scenarios. 
