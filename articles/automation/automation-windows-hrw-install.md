@@ -3,8 +3,8 @@ title: Deploy an agent-based Windows Hybrid Runbook Worker in Automation
 description: This article tells how to deploy an agent-based Hybrid Runbook Worker that you can use to run runbooks on Windows-based machines in your local datacenter or cloud environment.
 services: automation
 ms.subservice: process-automation
-ms.date: 09/04/2024
-ms.topic: conceptual 
+ms.date: 09/09/2024
+ms.topic: how-to
 ms.service: azure-automation
 ---
 
