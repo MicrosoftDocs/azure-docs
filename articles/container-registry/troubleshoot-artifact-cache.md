@@ -1,7 +1,7 @@
 ---
 title: Troubleshoot Artifact cache
 description: Learn how to troubleshoot the most common problems for a registry enabled with the Artifact cache feature.
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 10/31/2023
 ms.author: tejaswikolli
 ms.service: azure-container-registry

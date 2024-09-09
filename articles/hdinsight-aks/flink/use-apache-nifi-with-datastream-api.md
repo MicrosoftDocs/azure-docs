@@ -8,7 +8,9 @@ ms.date: 03/25/2024
 
 # Use Apache NiFi to consume processed Apache Kafka® topics from Apache Flink® and publish into ADLS Gen2
 
+[!INCLUDE [retirement-notice](../includes/retirement-notice.md)]
 [!INCLUDE [feature-in-preview](../includes/feature-in-preview.md)]
+
 
 Apache NiFi is a software project from the Apache Software Foundation designed to automate the flow of data between software systems. It supports powerful and scalable directed graphs of data routing, transformation, and system mediation logic.
 

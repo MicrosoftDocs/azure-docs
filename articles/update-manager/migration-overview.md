@@ -3,7 +3,7 @@ title: An overview on how to move virtual machines from Automation Update Manage
 description: A guidance overview on migration from Automation Update Management to Azure Update Manager
 author: snehasudhirG
 ms.service: azure-update-manager
-ms.topic: conceptual
+ms.topic: overview
 ms.date: 08/01/2024
 ms.author: sudhirsneha
 ---

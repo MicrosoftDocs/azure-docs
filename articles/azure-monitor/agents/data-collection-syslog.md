@@ -39,7 +39,7 @@ The following facilities are supported with the Syslog collector:
 | 6	 | lpr      |
 | 7  	 | news     |
 | 8	 | uucp     |
-| 9      | corn     |
+| 9      | cron     |
 | 10     | authpriv |
 | 11	 | ftp      |
 | 12     | ntp      |

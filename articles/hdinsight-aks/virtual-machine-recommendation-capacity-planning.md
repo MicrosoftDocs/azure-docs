@@ -8,7 +8,10 @@ ms.date: 10/05/2023
 
 # Default and minimum virtual machine size recommendations and capacity planning for HDInsight on AKS
 
+[!INCLUDE [retirement-notice](includes/retirement-notice.md)]
 [!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
+
+
 
 This article discusses default and recommended node configurations for Azure HDInsight on AKS clusters.
 
