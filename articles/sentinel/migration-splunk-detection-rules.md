@@ -4,16 +4,16 @@ titleSuffix: Microsoft Sentinel
 description: Learn how to identify, compare, and migrate your Splunk detection rules to Microsoft Sentinel built-in rules.
 author: austinmccollum
 ms.author: austinmc
-ms.topic: how-to
+ms.topic: conceptual
 ms.date: 09/01/2024
 #customer intent: As a SOC administrator, I want to migrate Splunk detection rules to KQL so I can migrate to Microsoft Sentinel.
 ---
 
 # Migrate Splunk detection rules to Microsoft Sentinel
 
-The best way to migrate Splunk detection rules to Microsoft Sentinel is with the [SIEM migration experience](siem-migration.md). This article describes in more granular detail how to identify, compare, and migrate your Splunk detection rules to Microsoft Sentinel built-in rules.
+The best way to migrate Splunk detection rules to Microsoft Sentinel is with the [SIEM migration experience](siem-migration.md). This article describes the strategies involved to identify, compare, and migrate your Splunk detection rules to Microsoft Sentinel built-in rules.
 
-If you want to migrate your Splunk Observability deployment, learn more about how to [migrate from Splunk to Azure Monitor Logs](../azure-monitor/logs/migrate-splunk-to-azure-monitor-logs.md).
+For more information about Splunk Observability migration, see [migrate from Splunk to Azure Monitor Logs](../azure-monitor/logs/migrate-splunk-to-azure-monitor-logs.md).
 
 ## Identify and migrate rules
 
