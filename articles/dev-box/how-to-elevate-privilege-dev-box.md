@@ -5,7 +5,7 @@ author: RoseHJM
 ms.author: rosemalcolm
 ms.service: dev-box
 ms.topic: how-to
-ms.date: 02/27/2024
+ms.date: 08/27/2024
 
 #customer intent: As a platform engineer, I want to configure elevated privilege management for dev boxes so that dev box users do not need local administrative privileges.
 ---
@@ -14,7 +14,7 @@ ms.date: 02/27/2024
 
 In this article, you learn how to configure Microsoft Intune Endpoint Privilege Management (EPM) for dev boxes so that dev box users don't need local administrative privileges.
 
-Microsoft Intune Endpoint Privilege Management allows your organization’s users to run as a standard user (without administrator rights) and complete tasks that require elevated privileges. Tasks that commonly require administrative privileges are application installs (like Microsoft 365 Applications), updating device drivers, and running certain Windows diagnostics.
+Microsoft Intune Endpoint Privilege Management allows your organization's users to run as a standard user (without administrator rights) and complete tasks that require elevated privileges. Tasks that commonly require administrative privileges are application installs (like Microsoft 365 Applications), updating device drivers, and running certain Windows diagnostics.
 
 Endpoint Privilege Management is built into Microsoft Intune, which means that all configuration is completed within the Microsoft Intune Admin Center. To get started with EPM, use the high-level process outlined as follows:
 
@@ -41,7 +41,7 @@ In this section, you configure EPM licensing and assign the EPM license to a use
 1. Configure Intune admin role for EPM administration: 
 
     1. In the Intune admin center, go to **Users**, and select the user you want to assign the role to. 
-    1. Select **Add assignments** and assign the **Global Administrator** role, and the **Intune Administrator** role.
+    1. Select **Add assignments** the **Intune Administrator** role.
      
        :::image type="content" source="media/how-to-elevate-privilege-dev-box/tenant-admin.png" alt-text="Screenshot of the Microsoft Intune admin center, showing the available tenant admin roles." lightbox="media/how-to-elevate-privilege-dev-box/tenant-admin.png":::
  

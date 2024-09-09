@@ -1,7 +1,7 @@
 ---
 title: Programmatically deploy and manage Azure Arc Extended Security Updates licenses
 description: Learn how to programmatically deploy and manage Azure Arc Extended Security Updates licenses for Windows Server 2012.
-ms.date: 10/23/2023
+ms.date: 08/28/2024
 ms.topic: conceptual
 ---
 
@@ -34,6 +34,26 @@ https://management.azure.com/subscriptions/SUBSCRIPTION_ID/resourceGroups/RESOUR
         }  
     }  
 }
+```
+
+### Transitioning from volume licensing
+
+Programmatically, you can use Azure CLI to generate new licenses, specifying the `Volume License Details` parameter in your Year 1 Volume Licensing entitlements by entering the respective invoice numbers. You must explicitly specify the Invoice Id (Number) in your license provisioning for Azure Arc:
+
+```azurecli
+az connectedmachine license create --license-name
+                                   --resource-group
+                                   [--edition {Datacenter, Standard}]
+                                   [--license-type {ESU}]
+                                   [--location]
+                                   [--no-wait {0, 1, f, false, n, no, t, true, y, yes}]
+                                   [--processors]
+                                   [--state {Activated, Deactivated}]
+                                   [--tags]
+                                   [--target {Windows Server 2012, Windows Server 2012 R2}]
+                                   [--tenant-id]
+                                   [--type {pCore, vCore}]
+                                   [--volume-license-details]
 ```
 
 ## Link a license

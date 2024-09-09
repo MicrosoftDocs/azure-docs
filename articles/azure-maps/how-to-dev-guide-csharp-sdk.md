@@ -4,7 +4,7 @@ titleSuffix: Azure Maps
 description: How to develop applications that incorporate Azure Maps using the C# SDK Developers Guide.
 author: sinnypan
 ms.author: sipa
-ms.date: 11/11/2021
+ms.date: 08/27/2024
 ms.topic: how-to
 ms.service: azure-maps
 ms.subservice: rest-sdk
@@ -139,6 +139,11 @@ var client = new MapsSearchClient(credential);
 Call the `GetGeocoding` method to get the coordinate of an address.
 
 ```csharp
+using System;
+using Azure; 
+using Azure.Maps.Search; 
+using Azure.Maps.Search.Models;
+
 // Use Azure Maps subscription key authentication 
 var subscriptionKey = Environment.GetEnvironmentVariable("SUBSCRIPTION_KEY") ?? string.Empty;
 var credential = new AzureKeyCredential(subscriptionKey);
@@ -147,7 +152,76 @@ var client = new MapsSearchClient(credential);
 Response<GeocodingResponse> searchResult = client.GetGeocoding(
     "1 Microsoft Way, Redmond, WA 98052");
 
-Console.WriteLine($"The Coordinate: ({searchResult.Value.Features[0].Geometry.Coordinates})"); 
+for (int i = 0; i < searchResult.Value.Features.Count; i++)
+{
+    Console.WriteLine("Coordinate:" + string.Join(",", searchResult.Value.Features[i].Geometry.Coordinates));
+}
+```
+
+## Batch geocode addresses
+
+This sample demonstrates how to perform batch search address.
+
+```csharp
+using System;
+using Azure; 
+using Azure.Maps.Search; 
+using System.Collections.Generic;
+using Azure.Maps.Search.Models;
+using Azure.Maps.Search.Models.Queries;
+
+// Use Azure Maps subscription key authentication 
+var subscriptionKey = Environment.GetEnvironmentVariable("SUBSCRIPTION_KEY") ?? string.Empty;
+var credential = new AzureKeyCredential(subscriptionKey);
+var client = new MapsSearchClient(credential); 
+
+List<GeocodingQuery> queries = new List<GeocodingQuery>
+{
+    new GeocodingQuery()
+    {
+        Query ="15171 NE 24th St, Redmond, WA 98052, United States"
+    },
+    new GeocodingQuery()
+    {
+        AddressLine = "400 Broad St"
+    },
+};
+Response<GeocodingBatchResponse> results = client.GetGeocodingBatch(queries);
+
+//Print coordinates
+for (var i = 0; i < results.Value.BatchItems.Count; i++)
+{
+    for (var j = 0; j < results.Value.BatchItems[i].Features.Count; j++)
+    {
+        Console.WriteLine("Coordinates: " + string.Join(",", results.Value.BatchItems[i].Features[j].Geometry.Coordinates));
+    }
+}
+```
+
+## Reverse geocode a coordinates
+
+You can translate coordinates into human-readable street addresses. This process is also called reverse geocoding. 
+
+```csharp
+using System;
+using Azure; 
+using Azure.Maps.Search; 
+using Azure.Core.GeoJson;
+using Azure.Maps.Search.Models;
+
+// Use Azure Maps subscription key authentication 
+var subscriptionKey = Environment.GetEnvironmentVariable("SUBSCRIPTION_KEY") ?? string.Empty;
+var credential = new AzureKeyCredential(subscriptionKey);
+var client = new MapsSearchClient(credential); 
+
+GeoPosition coordinates = new GeoPosition(-122.138685, 47.6305637);
+Response<GeocodingResponse> result = client.GetReverseGeocoding(coordinates);
+
+//Print addresses
+for (int i = 0; i < result.Value.Features.Count; i++)
+{
+    Console.WriteLine(result.Value.Features[i].Properties.Address.FormattedAddress);
+}
 ```
 
 ## Batch reverse geocode a set of coordinates
@@ -155,11 +229,13 @@ Console.WriteLine($"The Coordinate: ({searchResult.Value.Features[0].Geometry.Co
 Azure Maps Search also provides some batch query APIs. The Reverse Geocoding Batch API sends batches of queries to [Reverse Geocoding API](/rest/api/maps/search/get-reverse-geocoding) using just a single API call. The API allows caller to batch up to **100** queries.
 
 ```csharp
-using system;
-using Azure;
+using System;
+using Azure; 
+using Azure.Maps.Search; 
+using System.Collections.Generic;
 using Azure.Core.GeoJson;
-using Azure.Maps.Search;
 using Azure.Maps.Search.Models;
+using Azure.Maps.Search.Models.Queries;
 
 // Use Azure Maps subscription key authentication 
 var subscriptionKey = Environment.GetEnvironmentVariable("SUBSCRIPTION_KEY") ?? string.Empty;
@@ -170,16 +246,62 @@ List<ReverseGeocodingQuery> items = new List<ReverseGeocodingQuery>
 {
     new ReverseGeocodingQuery()
     {
-        Coordinates = new GeoPosition(-122.34255, 47.0)
+        Coordinates = new GeoPosition(-122.349309, 47.620498)
     },
     new ReverseGeocodingQuery()
     {
-        Coordinates = new GeoPosition(-122.34255, 47.0)
+        Coordinates = new GeoPosition(-122.138679, 47.630356),
+        ResultTypes = new List<ReverseGeocodingResultTypeEnum>(){ ReverseGeocodingResultTypeEnum.Address, ReverseGeocodingResultTypeEnum.Neighborhood }
     },
 };
-Response<GeocodingBatchResponse> = client.GetReverseGeocodingBatch(items);
+Response<GeocodingBatchResponse> result = client.GetReverseGeocodingBatch(items);
+//Print addresses
+for (var i = 0; i < result.Value.BatchItems.Count; i++)
+{
+    Console.WriteLine(result.Value.BatchItems[i].Features[0].Properties.Address.AddressLine);
+    Console.WriteLine(result.Value.BatchItems[i].Features[0].Properties.Address.Neighborhood);
+}
 ```
 
+## Get polygons for a given location
+
+This sample demonstrates how to search polygons.
+
+```csharp
+using System;
+using Azure; 
+using Azure.Maps.Search; 
+using Azure.Core.GeoJson;
+using Azure.Maps.Search.Models;
+using Azure.Maps.Search.Models.Options;
+
+// Use Azure Maps subscription key authentication 
+var subscriptionKey = Environment.GetEnvironmentVariable("SUBSCRIPTION_KEY") ?? string.Empty;
+var credential = new AzureKeyCredential(subscriptionKey);
+var client = new MapsSearchClient(credential);
+
+GetPolygonOptions options = new GetPolygonOptions()
+{
+    Coordinates = new GeoPosition(-122.204141, 47.61256),
+    ResultType = BoundaryResultTypeEnum.Locality,
+    Resolution = ResolutionEnum.Small,
+};
+Response<Boundary> result = client.GetPolygon(options);
+
+var count = ((GeoJsonPolygon)((GeoJsonGeometryCollection)result.Value.Geometry).Geometries[0]).Coordinates.Count;
+for (var i = 0; i < count; i++)
+{
+    var coorCount = ((GeoJsonPolygon)((GeoJsonGeometryCollection)result.Value.Geometry).Geometries[0]).Coordinates[i].Count;
+    for (var j = 0; j < coorCount; j++)
+    {
+        Console.WriteLine(string.Join(",",((GeoJsonPolygon)((GeoJsonGeometryCollection)result.Value.Geometry).Geometries[0]).Coordinates[i][j]));
+    }
+}
+```
+
+## Using V1 SDKs for Search and Render
+
+For more information on using Search v1, see [Azure Maps Search client library for .NET](https://www.nuget.org/packages/Azure.Maps.Search/1.0.0-beta.5). For more information on using Render v1, see [Azure Maps Render client library for .NET](https://www.nuget.org/packages/Azure.Maps.Rendering/1.0.0-beta.3).
 
 ## Additional information
 

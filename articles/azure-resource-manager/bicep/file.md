@@ -19,6 +19,7 @@ Bicep is a declarative language, which means the elements can appear in any orde
 A Bicep file has the following elements.
 
 ```bicep
+@<decorator>(<argument>)
 metadata <metadata-name> = ANY
 
 targetScope = '<scope>'
@@ -48,6 +49,7 @@ module <module-symbolic-name> '<path-to-file>' = {
   }
 }
 
+@<decorator>(<argument>)
 output <output-name> <output-data-type> = <output-value>
 ```
 
@@ -116,20 +118,22 @@ You can add one or more decorators for each of the following elements:
 * [func](#functions)
 * [type](#types)
 
+The decorators include:
+
 | Decorator | Apply to element | Apply to data type | Argument | Description |
 | --------- | ---- | ----------- | ------- |
 | allowed | [param](./parameters.md#allowed-values) | all | array | Use this decorator to make sure the user provides correct values. This decorator is only permitted on `param` statements. To declare that a property must be one of a set of predefined values in a [`type`](./user-defined-data-types.md) or [`output`](./outputs.md) statement, use [union type syntax](./data-types.md#union-types). Union type syntax can also be used in `param` statements.|
-| batchSize |[resource](./resource-declaration.md#batchsize), [module](./modules.md#batchsize)| N/A | integer | Set up instances to deploy sequentially. |
-| description | [param](./parameters.md#description), [var](./variables.md#description), [resource](./resource-declaration.md#description), [module](./modules.md#description), [output](./outputs.md#description), [type](./user-defined-data-types.md#description), [func](./user-defined-functions.md#description) | all | string | Provide descriptions for the elements. Markdown-formatted text can be used for the description text. |
+| batchSize |[module](./modules.md#batchsize), [resource](./resource-declaration.md#batchsize) | N/A | integer | Set up instances to deploy sequentially. |
+| description | [func](./user-defined-functions.md#description), [param](./parameters.md#description), [module](./modules.md#description), [output](./outputs.md#description), [resource](./resource-declaration.md#description), [type](./user-defined-data-types.md#description), [var](./variables.md#description) | all | string | Provide descriptions for the elements. Markdown-formatted text can be used for the description text. |
 | discriminator | [param](./parameters.md#discriminator), [type](./user-defined-data-types.md#discriminator), [output](./outputs.md#discriminator) | object | string | Use this decorator to ensure the correct subclass is identified and managed. For more information, see [Custom-tagged union data type](./data-types.md#custom-tagged-union-data-type).|
-| export | [var](./variables.md#export), [type](./user-defined-data-types.md#export), [func](./user-defined-functions.md#export) | all | none| Indicates that the element can be imported by another Bicep file. |
-| maxLength | [param](./parameters.md#length-constraints), [output](./outputs.md#length-constraints) | array, string | int | The maximum length for string and array elements. The value is inclusive. |
-| maxValue | [param](./parameters.md#integer-constraints), [output](./outputs.md#integer-constraints) | int | int | The maximum value for the integer elements. This value is inclusive. |
-| metadata | [param](./parameters.md#metadata), [output](./outputs.md#metadata) | all | object | Custom properties to apply to the elements. Can include a description property that is equivalent to the description decorator. |
-| minLength | [param](./parameters.md#length-constraints), [output](./outputs.md#length-constraints) | array, string | int | The minimum length for string and array elements. The value is inclusive. |
-| minValue | [param](./parameters.md#integer-constraints), [output](./outputs.md#integer-constraints) | int | int | The minimum value for the integer elements. This value is inclusive. |
+| export | [func](./user-defined-functions.md#export), [type](./user-defined-data-types.md#export), [var](./variables.md#export) | all | none| Indicates that the element can be imported by another Bicep file. |
+| maxLength | [param](./parameters.md#length-constraints), [output](./outputs.md#length-constraints), [type](./user-defined-data-types.md#length-constraints) | array, string | int | The maximum length for string and array elements. The value is inclusive. |
+| maxValue | [param](./parameters.md#integer-constraints), [output](./outputs.md#integer-constraints), [type](./user-defined-data-types.md#integer-constraints) | int | int | The maximum value for the integer elements. This value is inclusive. |
+| metadata | [func](./user-defined-functions.md#metadata), [output](./outputs.md#metadata), [param](./parameters.md#metadata), [type](./user-defined-data-types.md#metadata) | all | object | Custom properties to apply to the elements. Can include a description property that is equivalent to the description decorator. |
+| minLength | [param](./parameters.md#length-constraints), [output](./outputs.md#length-constraints), [type](./user-defined-data-types.md#length-constraints) | array, string | int | The minimum length for string and array elements. The value is inclusive. |
+| minValue | [param](./parameters.md#integer-constraints), [output](./outputs.md#integer-constraints), [type](./user-defined-data-types.md#integer-constraints) | int | int | The minimum value for the integer elements. This value is inclusive. |
 | sealed | [param](./parameters.md#sealed), [type](./user-defined-data-types.md#sealed), [output](./outputs.md#sealed) | object | none | Elevate [BCP089](./diagnostics/bcp089.md) from a warning to an error when a property name of a use-define data type is likely a typo. For more information, see [Elevate error level](./user-defined-data-types.md#elevate-error-level). |
-| secure | [param](./parameters.md#secure-parameters) | string, object | none | Marks the parameter as secure. The value for a secure parameter isn't saved to the deployment history and isn't logged. For more information, see [Secure strings and objects](data-types.md#secure-strings-and-objects). |
+| secure | [param](./parameters.md#secure-parameters), [type](./user-defined-data-types.md#secure-types) | string, object | none | Marks the parameter as secure. The value for a secure parameter isn't saved to the deployment history and isn't logged. For more information, see [Secure strings and objects](data-types.md#secure-strings-and-objects). |
 
 ## Parameters
 

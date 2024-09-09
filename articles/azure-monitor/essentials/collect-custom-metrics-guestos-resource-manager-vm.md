@@ -6,10 +6,15 @@ services: azure-monitor
 ms.reviewer: shijain
 ms.topic: conceptual
 ms.custom: devx-track-arm-template
-ms.date: 09/28/2023
+ms.date: 08/26/2024
 ms.author: bwren
 ---
 # Send guest OS metrics to the Azure Monitor metrics store by using an ARM template for a Windows VM
+
+> [!NOTE]    
+> Azure Monitor Agent (AMA) collects monitoring data from the guest operating system of Azure and hybrid virtual machines and delivers it to Azure Monitor for use by features, insights, and other services such as [Microsoft Sentinel](../../sentintel/../sentinel/overview.md) and [Microsoft Defender for Cloud](/azure/defender-for-cloud/defender-for-cloud-introduction).
+>
+>We recommend using the Azure Monitor Agent to collet logs and metrics from Virtual Machines. For more information, see [Azure Monitor Agent overview](../agents/azure-monitor-agent-overview.md).
 
 Performance data from the guest OS of Azure virtual machines (VMs) isn't collected automatically like other [platform metrics](./monitor-azure-resource.md#monitoring-data). Install the Azure Monitor [Diagnostics extension](../agents/diagnostics-extension-overview.md) to collect guest OS metrics into the metrics database so that it can be used with all features of Azure Monitor Metrics. These features include near real time alerting, charting, routing, and access from a REST API. This article describes the process for sending guest OS performance metrics for a Windows VM to the metrics database by using an Azure Resource Manager template (ARM template).
 

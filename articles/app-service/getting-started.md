@@ -1,11 +1,11 @@
 ---
 title: Getting started with Azure App Service
-description: Take the first steps toward working with Azure App Service. This is a longer description that meets the length requirement.
+description: Take the first steps toward working with Azure App Service. Decide on a stack and choose from various actions to get your app running.
 ms.author: msangapu
 author: msangapu-msft
 ms.topic: overview
 ms.custom: devx-track-extended-java, devx-track-python, devx-track-js
-ms.date: 8/26/2024
+ms.date: 8/27/2024
 zone_pivot_groups: app-service-getting-started-stacks
 ---
 
@@ -94,8 +94,8 @@ Use the following resources to get started with PHP.
 | **Monitor your app**|- [Troubleshoot with Azure Monitor](./tutorial-troubleshoot-monitor.md)<br>- [Log stream](./troubleshoot-diagnostic-logs.md#stream-logs)<br>- [Diagnose and solve tool](./overview-diagnostics.md)|
 | **Add domains & certificates** |- [Map a custom domain](./app-service-web-tutorial-custom-domain.md?tabs=root%2Cazurecli)<br>- [Add an SSL certificate](./configure-ssl-certificate.md)|
 | **Connect to a database** | - [MySQL with PHP](./tutorial-php-mysql-app.md)|
-| **Custom containers** |- [Multi-container](./quickstart-multi-container.md)<br>- [Sidecar containers](tutorial-custom-container-sidecar.md)|
-| **Review best practices** | - [Scale your app](./manage-scale-up.md)<br>- [Deployment](./deploy-best-practices.md)<br>- [Security](/security/benchmark/azure/baselines/app-service-security-baseline?toc=/azure/app-service/toc.json)<br>- [Virtual networks](./configure-vnet-integration-enable.md)|
+| **Custom containers** |- [Sidecar containers](tutorial-custom-container-sidecar.md)|
+| **Review best practices** | - [Scale your app]()<br>- [Deployment](./deploy-best-practices.md)<br>- [Security](/security/benchmark/azure/baselines/app-service-security-baseline?toc=/azure/app-service/toc.json)<br>- [Virtual Network](./configure-vnet-integration-enable.md)|
 
 ::: zone-end
 

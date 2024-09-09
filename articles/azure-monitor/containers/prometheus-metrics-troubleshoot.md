@@ -12,15 +12,13 @@ Follow the steps in this article to determine the cause of Prometheus metrics no
 
 Replica pod scrapes metrics from `kube-state-metrics`, custom scrape targets in the `ama-metrics-prometheus-config` configmap and custom scrape targets defined in the [Custom Resources](prometheus-metrics-scrape-crd.md). DaemonSet pods scrape metrics from the following targets on their respective node: `kubelet`, `cAdvisor`, `node-exporter`, and custom scrape targets in the `ama-metrics-prometheus-config-node` configmap. The pod that you want to view the logs and the Prometheus UI for it depends on which scrape target you're investigating.
 
-## Troubleshoot using powershell script
+## Troubleshoot using PowerShell script
 
-If you encounter an error while you attempt to enable monitoring for your AKS cluster, please follow the instructions mentioned [here](https://github.com/Azure/prometheus-collector/tree/main/internal/scripts/troubleshoot) to run the troubleshooting script. This script is designed to do a basic diagnosis of for any configuration issues on your cluster and you can ch the generated files while creating a support request for faster resolution for your support case.
-
-## Missing metrics
+If you encounter an error while you attempt to enable monitoring for your AKS cluster, follow [these instructions](https://github.com/Azure/prometheus-collector/tree/main/internal/scripts/troubleshoot) to run the troubleshooting script. This script is designed to do a basic diagnosis for any configuration issues on your cluster and you can attach the generated files while creating a support request for faster resolution for your support case.
 
 ## Metrics Throttling
 
-In the Azure portal, navigate to your Azure Monitor Workspace. Go to `Metrics` and verify that the metrics `Active Time Series % Utilization` and `Events Per Minute Ingested % Utilization` are below 100%.
+In the Azure portal, navigate to your Azure Monitor Workspace. Go to `Metrics`, click on the `Add Metric` dropdown and then click on the `Add with builder` option to verify that the metrics `Active Time Series % Utilization` and `Events Per Minute Ingested % Utilization` are below 100%.
 
 :::image type="content" source="media/prometheus-metrics-troubleshoot/throttling.png" alt-text="Screenshot showing how to navigate to the throttling metrics." lightbox="media/prometheus-metrics-troubleshoot/throttling.png":::
 
@@ -192,7 +190,7 @@ Refer to [service quotas and limits](../service-limits.md#prometheus-metrics) fo
 
 ## Creation of Azure Monitor Workspace failed due to Azure Policy evaluation
 
-If creation of Azure Monitor Workspace fails with an error saying "*Resource 'resource-name-xyz' was disallowed by policy*", there might an Azure policy that is preventing the resource to be created. If there is a policy that enforces a naming convention for your Azure resources or resource groups, you will need to create an exemption for the naming convention for creation of an Azure Monitor Workspace.
+If creation of Azure Monitor Workspace fails with an error saying "*Resource 'resource-name-xyz' was disallowed by policy*", there might be an Azure policy that is preventing the resource to be created. If there is a policy that enforces a naming convention for your Azure resources or resource groups, you will need to create an exemption for the naming convention for creation of an Azure Monitor Workspace.
 
 When you create an Azure Monitor workspace, by default a data collection rule and a data collection endpoint in the form "*azure-monitor-workspace-name*" will automatically be created in a resource group in the form "*MA_azure-monitor-workspace-name_location_managed*". Currently there is no way to change the names of these resources, and you will need to set an exemption on the Azure Policy to exempt the above resources from policy evaluation. See [Azure Policy exemption structure](../../governance/policy/concepts/exemption-structure.md).
 

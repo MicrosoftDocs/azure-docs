@@ -5,7 +5,7 @@ services: azure-monitor
 ms.topic: conceptual
 author: EdB-MSFT
 ms.author: edbaynash
-ms.date: 08/01/2023
+ms.date: 08/26/2024
 ms.reviewer: vitalyg
 ---
 
@@ -27,26 +27,26 @@ This chart shows if the CPU usage for an App Service Plan was within the accepta
 
 ## Application availability by region
 
-View your application's availability by region to identify which geographic locations are having problems. This chart shows the Application Insights availability metric. You can see that the monitored application has no problem with availability from the East US datacenter, but it's experiencing a partial availability problem from West US, and East Asia.
+View your application's availability by region to identify which geographic locations are having problems. This chart shows the Application Insights availability metric. The chart shows that the monitored application has no problem with availability from the East US data center, but it's experiencing a partial availability problem from West US, and East Asia.
 
 :::image type="content" source="./media/metrics-charts/availability-by-location.png" alt-text="A screenshot showing a line chart of average availability by location." lightbox="./media/metrics-charts/availability-by-location.png":::
 
 ### How to configure this chart
 
-1. You must turn on [Application Insights availability](/previous-versions/azure/azure-monitor/app/monitor-web-app-availability) monitoring for your website.
+1. Turn on [Application Insights availability](/previous-versions/azure/azure-monitor/app/monitor-web-app-availability) monitoring for your website.
 1. Select your Application Insights resource.
 1. Select the **Availability** metric. 
 1. Apply splitting on the **Run location** dimension.
 
 ## Volume of failed storage account transactions by API name
 
-Your storage account resource is experiencing an excess volume of failed transactions. You can use the transactions metric to identify which API is responsible for the excess failure. Notice that the following chart is configured with the same dimension (API name) in splitting and filtered by failed response type:
+Your storage account resource is experiencing an excess volume of failed transactions. Use the transactions metric to identify which API is responsible for the excess failure. Notice that the following chart is configured with the same dimension (API name) in splitting and filtered by failed response type:
 
 :::image type="content" source="./media/metrics-charts/split-and-filter-example.png" alt-text="A screenshot showing a chart of transactions by API name." lightbox="./media/metrics-charts/split-and-filter-example.png":::
 
 ### How to configure this chart
 
-1. In the Scope dropdown, select your Storage Account
+1. In the scope dropdown, select your Storage Account
 1. In the metric dropdown, select the **Transactions** metric.
 1. Select **Add filter** and select **Response type** from the **Property** dropdown.
 1. Select **CLientOtherError** from the **Values** dropdown.
