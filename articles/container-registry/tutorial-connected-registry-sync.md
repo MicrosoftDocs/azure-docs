@@ -22,7 +22,7 @@ You learn how to:
 
 > [!div class="checklist"]
 > - [Update the Connected registry to sync every day at midnight](#update-the-connected-registry-to-sync-every-day-at-midnight).
-> - [Update the Connected registry to sync continuously every minute](#update-the-connected-registry-and-sync-continuously-every-minute).
+> - [Update the Connected registry to sync continuously every minute](#update-the-connected-registry-to-sync-continuously-every-minute).
 
 ## Prerequisites
 
