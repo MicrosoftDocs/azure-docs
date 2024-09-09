@@ -63,8 +63,8 @@ For the full list of supported properties, which includes incident properties, s
 | MailMessageRecipient          | string | The mail message recipient                                  |
 | MailMessageSenderIP           | string | The mail message sender IP address                          |
 | MailMessageSubject            | string | The mail message subject                                    |
-| MailMessageP1Sender           | string | The mail message P1 sender                                  |
-| MailMessageP2Sender           | string | The mail message P2 sender                                  |
+| MailMessageP1Sender           | string | The mail message P1 sender (delegated sender)               |
+| MailMessageP2Sender           | string | The mail message P2 sender (original sender)                |
 | MalwareCategory               | string | The malware category                                        |
 | MalwareName                   | string | The malware name                                            |
 | ProcessCommandLine            | string | The process execution command line                          |
