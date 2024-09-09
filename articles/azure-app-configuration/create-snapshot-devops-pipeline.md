@@ -6,7 +6,7 @@ author: MaryanneNjeri
 ms.service: azure-app-configuration
 ms.topic: how-to
 ms.date: 09/09/2024
-ms.author: maryanne
+ms.author: mgichohi
 ---
 
 # Create Snapshots in App Configuration with Azure Pipelines
