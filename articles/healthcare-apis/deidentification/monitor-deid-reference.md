@@ -19,7 +19,7 @@ See [Monitor the de-identification service (preview)](monitor-deid.md) for detai
 [!INCLUDE [horz-monitor-ref-resource-logs](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-resource-logs.md)]
 
 ### Supported resource logs for Microsoft.HealthDataAIServices/deidServices
-[!INCLUDE [Microsoft.HealthDataAIServices/deidServices](~/reusable-content/ce-skilling/azure/includes/azure-monitor/reference/logs/healthdataaiservices-deidservices-logs-include.md)]
+[!INCLUDE [Microsoft.HealthDataAIServices/deidServices](~/reusable-content/ce-skilling/azure/includes/azure-monitor/reference/logs/microsoft-healthdataaiservices-deidservices-logs-include.md)]
 
 [!INCLUDE [horz-monitor-ref-logs-tables](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-logs-tables.md)]
 

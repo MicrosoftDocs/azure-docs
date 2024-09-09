@@ -70,7 +70,7 @@ The schema for resource logs varies depending on the resource and log category. 
 | Azure Databricks | [Diagnostic logging in Azure Databricks](/azure/databricks/administration-guide/account-settings/azure-diagnostic-logs) |
 | Azure DDoS Protection | [Logging for Azure DDoS Protection](../../ddos-protection/ddos-view-diagnostic-logs.md#example-log-queries) |
 | Azure Digital Twins | [Set up Azure Digital Twins diagnostics](../../digital-twins/troubleshoot-diagnostics.md#log-schemas)
-| Azure Health Data Services de-identification service | [Azure Health Data Services de-identification service (preview) monitoring data reference](../../healthcare-apis/deidentification/monitor-deid-rererence.md#resource-logs)  |
+| Azure Health Data Services de-identification service | [Azure Health Data Services de-identification service (preview) monitoring data reference](../../healthcare-apis/deidentification/monitor-deid-reference.md#resource-logs)  |
 | Azure Event Hubs |[Azure Event Hubs logs](../../event-hubs/event-hubs-diagnostic-logs.md) |
 | Azure ExpressRoute | [Monitoring Azure ExpressRoute](../../expressroute/monitor-expressroute.md#collection-and-routing) |
 | Azure Firewall | [Logging for Azure Firewall](../../firewall/diagnostic-logs.md) |
