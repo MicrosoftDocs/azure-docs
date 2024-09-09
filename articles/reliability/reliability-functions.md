@@ -76,6 +76,21 @@ There are currently two ways to deploy a zone-redundant Premium plan and functio
 
 # [Azure portal](#tab/azure-portal)
 
+1. In the Azure portal, go to the **Create Function App** page. For more information about creating a function app in the portal, see [Create a function app](../azure-functions/functions-create-function-app-portal.md#create-a-function-app).
+1. Select **Functions Premium** and then select the **Select** button. This article details how to create a zone redundant app in a Premium plan. Zone redundancy isn't currently available in Consumption plans. For information on zone redundancy on app service plans, see [Reliability in Azure App Service](../reliability/migrate-app-service.md).
+1. On the **Create Function App (Functions Premium)** page, on the **Basics** tab, enter the settings for your function app. Pay special attention to the settings in the followin table (also highlighted in the following screenshot), which have specific requirements for zone redundancy.
+
+    | Setting      | Suggested value  | Notes for zone redundancy |
+    | ------------ | ---------------- | ----------- |
+    | **Region** | Preferred region | The subscription under which the new function app is created. You must pick a region that is availability zone enabled from the [list above](#prerequisites). |
+
+<!-- old section 
+### Create a zone-redundant Premium plan and function app
+
+There are currently two ways to deploy a zone-redundant Premium plan and function app. You can use either the [Azure portal](https://portal.azure.com) or an ARM template.
+
+# [Azure portal](#tab/azure-portal)
+
 1. Open the Azure portal and navigate to the **Create Function App** page. Information on creating a function app in the portal can be found [here](../azure-functions/functions-create-function-app-portal.md#create-a-function-app).
 
 1. In the **Basics** page, fill out the fields for your function app. Pay special attention to the fields in the table below (also highlighted in the screenshot below), which have specific requirements for zone redundancy.
@@ -145,6 +160,7 @@ To learn more about these templates, see [Automate resource deployment in Azure 
 ---
 
 After the zone-redundant plan is created and deployed, any function app hosted on your new plan is considered zone-redundant.
+-->
 
 ### Availability zone migration
 
