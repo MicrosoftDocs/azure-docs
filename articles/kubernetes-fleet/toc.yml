@@ -53,7 +53,7 @@
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/kubernetes-fleet-manager/#pricing
   - name: Fleet manager roadmap
-    href: https://github.com/Azure/AKS/projects/3
+    href: https://aka.ms/fleet/roadmap
 - name: Reference
   items:
   - name: Azure CLI
