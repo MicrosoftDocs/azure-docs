@@ -1,5 +1,5 @@
 ---
-title: Build an AI-powered Group Chat with Azure SignalR and OpenAI Completion API
+title: Build an AI-powered group chat with Azure SignalR and OpenAI Completion API
 author: kevinguo-ed
 description: A tutorial explaining how Azure SignalR and OpenAI Completion API are used together to build an AI-powered group chat
 ms.author: kevinguo
@@ -14,7 +14,7 @@ The integration of AI into applications is rapidly becoming a must-have for deve
 
 This tutorial guides you through building a real-time group chat application. Among a group of human collaborators in a chat, there's an AI assistant, which has access to the chat history and can be invited to help out by any collaborator when they start the message with `@gpt`. The finished app looks like this. 
 
-:::image type="content" source="./media/signalr-tutorial-group-chat-with-openai/ai-powered-group-chat.png" alt-text="Screenshot of user interface for the AI-powered group chat":::
+:::image type="content" source="./media/signalr-tutorial-group-chat-with-openai/ai-powered-group-chat.png" alt-text="Screenshot of user interface for the AI-powered group chat.":::
 
 We use OpenAI for generating intelligent, context-aware responses and SignalR for delivering the response to users in a group. You can find the complete code [in this repo](https://github.com/aspnet/AzureSignalR-samples/tree/main/samples/AIStreaming).
 
@@ -42,7 +42,7 @@ In this section, we walk through the key parts of the code that integrate Signal
 
 ### Data flow 
 
-:::image type="content" source="./media/signalr-tutorial-group-chat-with-openai/sequence-diagram-ai-powered-group-chat.png" alt-text="Sequence diagram of the AI-powered group chat":::
+:::image type="content" source="./media/signalr-tutorial-group-chat-with-openai/sequence-diagram-ai-powered-group-chat.png" alt-text="Sequence diagram of the AI-powered group chat.":::
 
 ### SignalR Hub integration
 
