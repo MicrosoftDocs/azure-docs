@@ -5,9 +5,10 @@ author: PatAltimore
 ms.author: patricka
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 08/20/2024
+ms.date: 09/09/2024
+ai-usage: ai-assisted
 
-#CustomerIntent: As an operator, I want to understand how to
+#CustomerIntent: As an operator, I want to understand how to understand how to configure dataflow endpoints for MQTT sources and destinations in Azure IoT Operations so that I can send data to and from MQTT brokers.
 ---
 
 # Configure MQTT dataflow endpoints
@@ -18,8 +19,8 @@ MQTT endpoints are used for MQTT sources and destinations. You can configure the
 
 ## Prerequisites
 
-- **Azure IoT Operations**. See [Deploy Azure IoT Operations Preview](../deploy-iot-ops/howto-deploy-iot-operations.md)
-- **Dataflow profile**. See [Configure dataflow profile](howto-configure-dataflow-profile.md)
+- An instance of [Azure IoT Operations Preview](../deploy-iot-ops/howto-deploy-iot-operations.md)
+- A [configured dataflow profile](howto-configure-dataflow-profile.md)
 
 ## How to configure a dataflow endpoint for MQTT brokers
 
@@ -46,7 +47,7 @@ spec:
         audience: aio-internal
 ```
 
-This creates a connection to the default MQTT broker with the following settings:
+This configuration creates a connection to the default MQTT broker with the following settings:
 
 - Host: `aio-broker:18883` through the [default MQTT broker listener](../manage-mqtt-broker/howto-configure-brokerlistener.md#default-brokerlistener)
 - Authentication: service account token (SAT) through the [default BrokerAuthentication resource](../manage-mqtt-broker/howto-configure-authentication.md#default-brokerauthentication-resource)
@@ -88,11 +89,11 @@ spec:
       mode: Enabled
 ```
 
-Now that you've configured the endpoint, you can use it in a dataflow to connect to the Event Grid MQTT broker as a source or destination. The MQTT topics are configured in the dataflow.
+Once the endpoint is created, you can use it in a dataflow to connect to the Event Grid MQTT broker as a source or destination. The MQTT topics are configured in the dataflow.
 
 #### Use X.509 certificate authentication with Event Grid
 
-While it's recommended to use managed identity for authentication, you can also use X.509 certificate authentication with the Event Grid MQTT broker.
+We recommended to use managed identity for authentication. You can also use X.509 certificate authentication with the Event Grid MQTT broker.
 
 When you use X.509 authentication with an Event Grid MQTT broker, go to the Event Grid namespace > **Configuration** and check these settings:
 
@@ -105,7 +106,7 @@ The alternative client authentication and maximum client sessions options allow 
 
 #### Event Grid shared subscription limitation
 
-Azure Event Grid MQTT broker doesn't support shared subscriptions, which means that you can't set the `instanceCount` to more than 1 in the dataflow profile. If you set `instanceCount` to more than 1, the dataflow will fail to start.
+Azure Event Grid MQTT broker doesn't support shared subscriptions, which means that you can't set the `instanceCount` to more than `1` in the dataflow profile. If you set `instanceCount` greater than `1`, the dataflow fails to start.
 
 ### Other MQTT brokers
 
@@ -183,7 +184,7 @@ mqttSettings:
 
 ### User-assigned managed identity
 
-TBD
+To use a user-assigned managed identity, specify the `UserAssignedManagedIdentity` authentication method.
 
 ```yaml
 mqttSettings:
