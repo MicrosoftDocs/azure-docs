@@ -7,7 +7,7 @@ ms.service: azure-expressroute
 ms.topic: conceptual
 ms.date: 08/19/2024
 ms.author: duau
-ms.custom: ignite-2023
+ms.custom: references_regions
 ---
 
 # About ExpressRoute virtual network gateways
@@ -155,7 +155,7 @@ ErGwScale is free of charge during public preview. For information about Express
 | 20 | 20 | 2,000,000 | 140,000 | 30,000 | 2,000,000 |
 | 40 | 40 | 4,000,000 | 280,000 | 50,000 | 4,000,000 |
 
-<sup>1</sup> Maximum VM connections scale differently beyond 10 scale units. The first 10 scale units provide capacity for 2,000 VMs per scale unit. Scale units 11 and above provides 1,000 additional VM capacity per scale unit.
+<sup>1</sup> Maximum VM connections scale differently beyond 10 scale units. The first 10 scale units provide capacity for 2,000 VMs per scale unit. Scale units 11 and above provides 1,000 more VM capacity per scale unit.
 
 ## VNet to VNet and VNet to Virtual WAN connectivity
 
@@ -172,9 +172,9 @@ For more information about FastPath, including limitations, and requirements, se
 The ExpressRoute virtual network gateway facilitates connectivity to private endpoints deployed in the same virtual network as the virtual network gateway and across virtual network peers. 
 
 > [!IMPORTANT]
-> * Throughput and control plane capacity may be half compared to connectivity to non-private-endpoint resources.
+> * The throughput and control plane capacity for connectivity to private endpoint resources may be reduced by half compared to connectivity to non-private-endpoint resources.
 > * During a maintenance period, you may experience intermittent connectivity issues to private endpoint resources.
-> * Customers need to ensure their on-premises configuration, including router & firewall settings are correctly setup to ensure that packets for the IP 5-tuple transits via a single next hop (Microsoft Enterprise Edge router - MSEE) unless there is a maintenance event. If a customer's on-premises firewall or router configuration is causing the same IP 5-tuple to frequently switch next hops, then the customer will experience connectivity issues.
+> * You need to ensure their on-premises configuration, including router & firewall settings, are correctly set up to ensure that packets for the IP 5-tuple transits uses a single next hop (Microsoft Enterprise Edge router - MSEE) unless there is a maintenance event. If your on-premises firewall or router configuration is causing the same IP 5-tuple to frequently switch next hops, then you will experience connectivity issues.
 
 ### Private endpoint connectivity and planned maintenance events
 
