@@ -30,7 +30,7 @@ After you complete this quickstart, you have a CI workflow that runs your Playwr
 # [Azure Pipelines](#tab/pipelines)
 - An Azure DevOps organization and project. If you don't have an Azure DevOps organization, you can [create one for free](/azure/devops/organizations/projects/create-project).
 - A pipeline definition. If you need help with getting started with Azure Pipelines, see [create your first pipeline](/azure/devops/pipelines/create-first-pipeline).
-- Azure Resource Manager Service connection to securely authenticate to the service from Azure Dev Ops pipelines, see [Azure Resource Manager service connection](https://learn.microsoft.com/azure/devops/pipelines/library/connect-to-azure)
+- Azure Resource Manager Service connection to securely authenticate to the service from Azure Dev Ops pipelines, see [Azure Resource Manager service connection](/azure/devops/pipelines/library/connect-to-azure)
 
 ---
 

@@ -10,7 +10,7 @@ ms.custom: playwright-testing-preview
 
 In this article, you learn how to manage authentication and authorization for Microsoft Playwright Testing preview to run Playwright tests on cloud-hosted browsers and to publish test results and artifacts to the service.
 
-By default, [Microsoft Entra ID](https://learn.microsoft.com/entra/identity/) is used for authentication. This method is more secure and is the recommended authentication method. You cannot disable authentication using Microsoft Entra ID. However, you can also use access tokens to authenticate and authorize.
+By default, [Microsoft Entra ID](/entra/identity/) is used for authentication. This method is more secure and is the recommended authentication method. You cannot disable authentication using Microsoft Entra ID. However, you can also use access tokens to authenticate and authorize.
 
 
 > [!IMPORTANT]
