@@ -11,7 +11,7 @@ ms.date: 09/01/2024
 
 # Migrate Splunk detection rules to Microsoft Sentinel
 
-This article describes how to identify, compare, and migrate your Splunk detection rules to Microsoft Sentinel built-in rules.
+The best way to migrate Splunk detection rules to Microsoft Sentinel is with the [SIEM migration experience](siem-migration.md). This article describes in more granular detail how to identify, compare, and migrate your Splunk detection rules to Microsoft Sentinel built-in rules.
 
 If you want to migrate your Splunk Observability deployment, learn more about how to [migrate from Splunk to Azure Monitor Logs](../azure-monitor/logs/migrate-splunk-to-azure-monitor-logs.md).
 
@@ -24,6 +24,7 @@ Microsoft Sentinel uses machine learning analytics to create high-fidelity and a
 - Check that you understand the [rule terminology](#compare-rule-terminology).
 - Review any rules that haven't triggered any alerts in the past 6-12 months, and determine whether they're still relevant.
 - Eliminate low-level threats or alerts that you routinely ignore.
+
 - Use existing functionality, and check whether Microsoft Sentinel's [built-in analytics rules](https://github.com/Azure/Azure-Sentinel/tree/master/Detections) might address your current use cases. Because Microsoft Sentinel uses machine learning analytics to produce high-fidelity and actionable incidents, it's likely that some of your existing detections won't be required anymore.
 - Confirm connected data sources and review your data connection methods. Revisit data collection conversations to ensure data depth and breadth across the use cases you plan to detect.
 - Test the capabilities of the [SIEM migration experience](siem-migration.md) to determine if the automated translation is suitable.

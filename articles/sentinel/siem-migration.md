@@ -47,14 +47,10 @@ Current capabilities:
 - Translate simple queries with a single data source
 - Direct translations listed in the article, [Splunk to Kusto cheat sheet](/azure/data-explorer/kusto/query/splunk-cheat-sheet)
 - Review translated query error feedback with edit capability to save time in the detection rule translation process
-- Translated queries feature a completeness status with translation states 
-
-Here are some of the priorities that are important to us as we continue to develop the translation technology:
-
-- Splunk Common Information Model (CIM) to Microsoft Sentinel's Advanced Security Information Model (ASIM) translation support
+- Translated queries feature a completeness status with translation states
 - Support for Splunk macros
 - Support for Splunk lookups
-- Translation of complex correlation logic that queries and correlates events across multiple data sources
+- Splunk Common Information Model (CIM) to Microsoft Sentinel's Advanced Security Information Model (ASIM) translation support
 
 ## Start the SIEM migration experience
 
