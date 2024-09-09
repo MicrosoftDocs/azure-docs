@@ -128,7 +128,7 @@
     href: instance-metadata-service-load-balancer.md
   - name: Health monitoring
     items:
-    - name: Monitor load balancer
+    - name: Monitor Load Balancer
       href: monitor-load-balancer.md
     - name: Monitoring data reference
       href: monitor-load-balancer-reference.md

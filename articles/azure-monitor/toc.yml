@@ -540,8 +540,6 @@ items:
         href: containers/container-insights-syslog.md  
       - name: Reports tab
         href: containers/container-insights-reports.md
-      - name: Custom metrics
-        href: containers/container-insights-custom-metrics.md
       - name: Log queries
         href: containers/container-insights-log-query.md
     - name: View live data
@@ -1002,13 +1000,6 @@ items:
                 href: logs/delete-workspace.md
           - name: Replicate workspace across regions
             href: logs/workspace-replication.md          
-          - name: Manage access
-            displayName: Manage access to a Log Analytics workspace
-            href: logs/manage-access.md
-          - name: Change pricing tier
-            href: logs/change-pricing-tier.md
-          - name: Set a daily cap
-            href: logs/daily-cap.md
         - name: Manage tables
           displayName: Azure Monitor Logs tables
           items:

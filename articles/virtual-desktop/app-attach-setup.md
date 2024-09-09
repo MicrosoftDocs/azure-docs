@@ -63,7 +63,7 @@ In order to use MSIX app attach in Azure Virtual Desktop, you need to meet the p
 ::: zone pivot="app-attach"
 - An SMB file share in the same Azure region as your session hosts. All session hosts in the host pool must have *read* access with their computer account. This file share is used to store your application images. For more information on the requirements for the file share, see [File share](app-attach-overview.md#file-share).
 
-   To use Azure Files when your session hosts joined to Microsoft Entra ID, you need to assign the [Reader and Data Access](../role-based-access-control/built-in-roles.md#reader-and-data-access) Azure role-based access control (RBAC) role to both the **Azure Virtual Desktop** and **Azure Virtual Desktop ARM Provider** service principals. To learn how to assign an Azure RBAC role to the Azure Virtual Desktop service principals, see [Assign RBAC roles to the Azure Virtual Desktop service principals](service-principal-assign-roles.md). In a future update of the preview, you won't need to assign the **Azure Virtual Desktop ARM Provider** service principal.
+   To use Azure Files when your session hosts joined to Microsoft Entra ID, you need to assign the [Reader and Data Access](../role-based-access-control/built-in-roles.md#reader-and-data-access) Azure role-based access control (RBAC) role to both the **Azure Virtual Desktop** and **Azure Virtual Desktop ARM Provider** service principals. To learn how to assign an Azure RBAC role to the Azure Virtual Desktop service principals, see [Assign RBAC roles to the Azure Virtual Desktop service principals](service-principal-assign-roles.md). 
 ::: zone-end
 
 ::: zone pivot="msix-app-attach"

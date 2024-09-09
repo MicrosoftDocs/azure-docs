@@ -82,7 +82,7 @@ get-help New-AzExpressRouteCircuit -detailed
 To get a list of all the ExpressRoute circuits that you created, run the **Get-AzExpressRouteCircuit** command:
 
 ```azurepowershell-interactive
-Get-AzExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "ExpressRouteResourceGroup"
+Get-AzExpressRouteCircuit
 ```
 
 The response looks similar to the following example:

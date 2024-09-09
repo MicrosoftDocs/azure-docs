@@ -56,7 +56,8 @@ If you need to configure one, the following are brief steps to send gateway logs
 1. Enter a descriptive name for the diagnostic setting.
 1. In **Logs**, select **Logs related to ApiManagement Gateway**.
 1. In **Destination details**, select **Send to Log Analytics** and select a Log Analytics workspace in the same or a different subscription. If you need to create a workspace, see [Create a Log Analytics workspace](../azure-monitor/logs/quick-create-workspace.md).
-1. Accept defaults for other settings, or customize as needed. Select **Save**.
+1. Make sure **Resource specific** is selected as the destination table.
+1. Select **Save**.
 
 ### Access the dashboard
 
