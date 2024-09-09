@@ -7,4 +7,4 @@ ms.date: 08/28/2024
 ---
 
 >[!IMPORTANT]
->This article includes steps to connect to a service using a shared access signature. This authentication method is convenient for testing and evaluation, but isn't recommended for production scenarios. Connecting to a service with Microsoft Entra ID and managed identities is a more secure approach.
+>This article includes steps to connect to a service using a shared access signature. This authentication method is convenient for testing and evaluation, but authenticating to a service with Microsoft Entra ID or managed identities is a more secure approach. To learn more, see [Security best practices > Connection security](../articles/articles/iot/iot-overview-security.md#connection-security).
