@@ -19,6 +19,7 @@ All custom tables created with or migrated to the [Logs ingestion API](logs-inge
 | Service | Table |
 |:---|:---|
 | Azure Active Directory | [AADDomainServicesDNSAuditsGeneral](/azure/azure-monitor/reference/tables/AADDomainServicesDNSAuditsGeneral)<br> [AADDomainServicesDNSAuditsDynamicUpdates](/azure/azure-monitor/reference/tables/AADDomainServicesDNSAuditsDynamicUpdates)<br>[AADManagedIdentitySignInLogs](/azure/azure-monitor/reference/tables/AADManagedIdentitySignInLogs)<br>[AADNonInteractiveUserSignInLogs](/azure/azure-monitor/reference/tables/AADNonInteractiveUserSignInLogs)<br>[AADServicePrincipalSignInLogs](/azure/azure-monitor/reference/tables/AADServicePrincipalSignInLogs) <br>[ADFSSignInLogs](/azure/azure-monitor/reference/tables/ADFSSignInLogs) |
+| Azure Cache for Redis | [ACREntraAuthenticationAuditLog](/azure/azure-monitor/reference/tables/ACREntraAuthenticationAuditLog) |
 | Azure Load Balancing | [ALBHealthEvent](/azure/azure-monitor/reference/tables/ALBHealthEvent) |
 | Azure Databricks | [DatabricksBrickStoreHttpGateway](/azure/azure-monitor/reference/tables/databricksbrickstorehttpgateway)<br>[DatabricksDataMonitoring](/azure/azure-monitor/reference/tables/databricksdatamonitoring)<br>[DatabricksFilesystem](/azure/azure-monitor/reference/tables/databricksfilesystem)<br>[DatabricksDashboards](/azure/azure-monitor/reference/tables/databricksdashboards)<br>[DatabricksCloudStorageMetadata](/azure/azure-monitor/reference/tables/databrickscloudstoragemetadata)<br>[DatabricksPredictiveOptimization](/azure/azure-monitor/reference/tables/databrickspredictiveoptimization)<br>[DatabricksIngestion](/azure/azure-monitor/reference/tables/databricksingestion)<br>[DatabricksMarketplaceConsumer](/azure/azure-monitor/reference/tables/databricksmarketplaceconsumer)<br>[DatabricksLineageTracking](/azure/azure-monitor/reference/tables/databrickslineagetracking)
 | API Management | [ApiManagementGatewayLogs](/azure/azure-monitor/reference/tables/ApiManagementGatewayLogs)<br>[ApiManagementWebSocketConnectionLogs](/azure/azure-monitor/reference/tables/ApiManagementWebSocketConnectionLogs) |
@@ -28,7 +29,7 @@ All custom tables created with or migrated to the [Logs ingestion API](logs-inge
 | Application Insights | [AppTraces](/azure/azure-monitor/reference/tables/apptraces) |
 | Bare Metal Machines | [NCBMSecurityDefenderLogs](/azure/azure-monitor/reference/tables/ncbmsecuritydefenderlogs)<br>[NCBMSystemLogs](/azure/azure-monitor/reference/tables/NCBMSystemLogs)<br>[NCBMSecurityLogs](/azure/azure-monitor/reference/tables/NCBMSecurityLogs) <br>[NCBMBreakGlassAuditLogs](/azure/azure-monitor/reference/tables/ncbmbreakglassauditlogs)|
 | Chaos Experiments | [ChaosStudioExperimentEventLogs](/azure/azure-monitor/reference/tables/ChaosStudioExperimentEventLogs) |
-| Cloud HSM | [CHSMManagementAuditLogs](/azure/azure-monitor/reference/tables/CHSMManagementAuditLogs) |
+| Cloud HSM | [CHSMManagementAuditLogs](/azure/azure-monitor/reference/tables/CHSMManagementAuditLogs)<br>[CHSMServiceOperationAuditLogs](/azure/azure-monitor/reference/tables/chsmserviceoperationauditlogs)|
 | Container Apps | [ContainerAppConsoleLogs](/azure/azure-monitor/reference/tables/containerappconsoleLogs) |
 | Container Insights | [ContainerLogV2](/azure/azure-monitor/reference/tables/containerlogv2) |
 | Container Apps Environments | [AppEnvSpringAppConsoleLogs](/azure/azure-monitor/reference/tables/AppEnvSpringAppConsoleLogs) |
@@ -42,6 +43,7 @@ All custom tables created with or migrated to the [Logs ingestion API](logs-inge
 | DNS Security Policies | [DNSQueryLogs](/azure/azure-monitor/reference/tables/DNSQueryLogs) |
 | Dev Centers | [DevCenterDiagnosticLogs](/azure/azure-monitor/reference/tables/DevCenterDiagnosticLogs)<br>[DevCenterResourceOperationLogs](/azure/azure-monitor/reference/tables/DevCenterResourceOperationLogs)<br>[DevCenterBillingEventLogs](/azure/azure-monitor/reference/tables/DevCenterBillingEventLogs) |
 | Data Transfer | [DataTransferOperations](/azure/azure-monitor/reference/tables/DataTransferOperations) |
+| Event Grid Namespaces | [EGNSuccessfulHttpDataPlaneOperations](/azure/azure-monitor/reference/tables/EGNSuccessfulHttpDataPlaneOperations)<br>[EGNFailedHttpDataPlaneOperations](/azure/azure-monitor/reference/tables/EGNFailedHttpDataPlaneOperations)|
 | Event Hubs | [AZMSArchiveLogs](/azure/azure-monitor/reference/tables/AZMSArchiveLogs)<br>[AZMSAutoscaleLogs](/azure/azure-monitor/reference/tables/AZMSAutoscaleLogs)<br>[AZMSCustomerManagedKeyUserLogs](/azure/azure-monitor/reference/tables/AZMSCustomerManagedKeyUserLogs)<br>[AZMSKafkaCoordinatorLogs](/azure/azure-monitor/reference/tables/AZMSKafkaCoordinatorLogs)<br>[AZMSKafkaUserErrorLogs](/azure/azure-monitor/reference/tables/AZMSKafkaUserErrorLogs) |
 | Firewalls | [AZFWFlowTrace](/azure/azure-monitor/reference/tables/AZFWFlowTrace) |
 | Health Care APIs | [AHDSMedTechDiagnosticLogs](/azure/azure-monitor/reference/tables/AHDSMedTechDiagnosticLogs)<br>[AHDSDicomDiagnosticLogs](/azure/azure-monitor/reference/tables/AHDSDicomDiagnosticLogs)<br>[AHDSDicomAuditLogs](/azure/azure-monitor/reference/tables/AHDSDicomAuditLogs) |
@@ -50,6 +52,7 @@ All custom tables created with or migrated to the [Logs ingestion API](logs-inge
 | Log Analytics | [LASummaryLogs](/azure/azure-monitor/reference/tables/LASummaryLogs) |
 | Managed Lustre | [AFSAuditLogs](/azure/azure-monitor/reference/tables/AFSAuditLogs) |
 | Managed NGINX | [NGXOperationLogs](/azure/azure-monitor/reference/tables/ngxoperationlogs) <br>[NGXSecurityLogs](/azure/azure-monitor/reference/tables/ngxsecuritylogs)|
+| MDC | [MDCDetectionFimEvents](/azure/azure-monitor/reference/tables/mdcdetectionfimevents) <br>[MDCDetectionDNSEvents](/azure/azure-monitor/reference/tables/mdcdetectiondnsevents)
 | Media Services | [AMSLiveEventOperations](/azure/azure-monitor/reference/tables/AMSLiveEventOperations)<br>[AMSKeyDeliveryRequests](/azure/azure-monitor/reference/tables/AMSKeyDeliveryRequests)<br>[AMSMediaAccountHealth](/azure/azure-monitor/reference/tables/AMSMediaAccountHealth)<br>[AMSStreamingEndpointRequests](/azure/azure-monitor/reference/tables/AMSStreamingEndpointRequests) |
 | Microsoft Graph | [MicrosoftGraphActivityLogs](/azure/azure-monitor/reference/tables/microsoftgraphactivitylogs) |
 | Monitor | [AzureMetricsV2](/azure/azure-monitor/reference/tables/AzureMetricsV2) |

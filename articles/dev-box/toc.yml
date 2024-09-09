@@ -7,6 +7,9 @@ items:
     - name: What is Microsoft Dev Box?
       displayName: DevBox, VDI
       href: overview-what-is-microsoft-dev-box.md
+    - name: Roadmap for Microsoft Dev Box
+      displayName: roadmap, future, features, enhancements, coming soon, in development
+      href: dev-box-roadmap.md
 - name: Quickstarts
   expanded: true
   items:

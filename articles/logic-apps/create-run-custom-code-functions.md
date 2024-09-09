@@ -6,7 +6,7 @@ ms.suite: integration
 ms.reviewer: estfan, kewear, azla
 ms.topic: how-to
 ms.custom: devx-track-dotnet
-ms.date: 06/17/2024
+ms.date: 09/06/2024
 # Customer intent: As a logic app workflow developer, I want to write and run my own .NET code to perform custom integration tasks.
 ---
 
@@ -52,7 +52,9 @@ For more information about limitations in Azure Logic Apps, see [Limits and conf
 
 ## Limitations
 
-Custom functions authoring currently isn't available in the Azure portal. However, after you deploy your functions from Visual Studio Code to Azure, follow the steps in [Call your code from a workflow](#call-code-from-workflow) for the Azure portal. You can use the built-in action named **Call a local function in this logic app** to select from your deployed custom functions and run your code. Subsequent actions in your workflow can reference the outputs from these functions, as in any other workflow. You can view the built-in action's run history, inputs, and outputs.
+- Custom functions authoring currently isn't available in the Azure portal. However, after you deploy your functions from Visual Studio Code to Azure, follow the steps in [Call your code from a workflow](#call-code-from-workflow) for the Azure portal. You can use the built-in action named **Call a local function in this logic app** to select from your deployed custom functions and run your code. Subsequent actions in your workflow can reference the outputs from these functions, as in any other workflow. You can view the built-in action's run history, inputs, and outputs.
+
+- Custom functions use an isolated worker to invoke the code in your logic app workflow. To avoid package references conflicts between your own function code and the worker, use the same package versions referenced by the worker. For the full package list and versions referenced by the worker, see [Worker and package dependencies](https://github.com/Azure/logicapps/blob/master/articles/worker-packages-dependencies-custom-code.pdf).
 
 ## Create a code project
 

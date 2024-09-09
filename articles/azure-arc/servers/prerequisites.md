@@ -40,7 +40,7 @@ Azure Arc supports the following Windows and Linux operating systems. Only x86-6
 
 * AlmaLinux 9
 * Amazon Linux 2 and 2023
-* Azure Linux (CBL-Mariner) 2.0
+* Azure Linux (CBL-Mariner) 2.0 and 3.0
 * Azure Stack HCI
 * Debian 11, and 12
 * Oracle Linux 7, 8, and 9

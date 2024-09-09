@@ -61,7 +61,7 @@ Azure Storage accounts support three types of failover:
 <sup>1</sup> Microsoft-managed failover can't be initiated for individual storage accounts, subscriptions, or tenants. For more information, see [Microsoft-managed failover](#microsoft-managed-failover).<br/>
 <sup>2</sup> Use customer-managed failover options to develop, test, and implement your disaster recovery plans. **Do not** rely on Microsoft-managed failover, which would only be used in extreme circumstances.
 
-Each type of failover has a unique set of use cases, corresponding expectations for data loss, and support for accounts with a hierarchical namespace enabled (Azure Data Lake Storage Gen2). This table summarizes those aspects of each type of failover:
+Each type of failover has a unique set of use cases, corresponding expectations for data loss, and support for accounts with a hierarchical namespace enabled (Azure Data Lake Storage). This table summarizes those aspects of each type of failover:
 
 | Type                                   | Failover Scope  | Use case | Expected data loss | Hierarchical Namespace (HNS) supported |
 |----------------------------------------|-----------------|----------|--------------------|----------------------------------------|
@@ -132,7 +132,7 @@ The new primary region is configured to be locally redundant (LRS) after the fai
 
 You also might experience file or data inconsistencies if your storage accounts have one or more of the following enabled:
 
-- [Hierarchical namespace (Azure Data Lake Storage Gen2)](#file-consistency-for-azure-data-lake-storage-gen2)
+- [Hierarchical namespace (Azure Data Lake Storage)](#file-consistency-for-azure-data-lake-storage)
 - [Change feed](#change-feed-and-blob-data-inconsistencies)
 - [Point-in-time restore for block blobs](#point-in-time-restore-inconsistencies)
 
@@ -144,9 +144,9 @@ As a best practice, design your application so that you can use **Last Sync Time
 
 For more information about checking the **Last Sync Time** property, see [Check the Last Sync Time property for a storage account](last-sync-time-get.md).
 
-#### File consistency for Azure Data Lake Storage Gen2
+#### File consistency for Azure Data Lake Storage
 
-Replication for storage accounts with a [hierarchical namespace enabled (Azure Data Lake Storage Gen2)](../blobs/data-lake-storage-introduction.md) occurs at the file level. Because replication occurs at this level, an outage in the primary region might prevent some of the files within a container or directory from successfully replicating to the secondary region. Consistency for all files within a container or directory after a storage account failover isn't guaranteed.
+Replication for storage accounts with a [hierarchical namespace enabled (Azure Data Lake Storage)](../blobs/data-lake-storage-introduction.md) occurs at the file level. Because replication occurs at this level, an outage in the primary region might prevent some of the files within a container or directory from successfully replicating to the secondary region. Consistency for all files within a container or directory after a storage account failover isn't guaranteed.
 
 #### Change feed and blob data inconsistencies
 
@@ -217,7 +217,7 @@ The following table can be used to reference feature support.
 
 |                                  | Planned failover    | Unplanned failover  |
 |----------------------------------|---------------------|---------------------|
-| **ADLS Gen2**                    | Supported (preview) | Supported (preview) |
+| **Azure Data Lake Storage**                    | Supported (preview) | Supported (preview) |
 | **Change Feed**                  | Unsupported         | Supported           |
 | **Object Replication**           | Unsupported         | Unsupported         |
 | **SFTP**                         | Supported (preview) | Supported (preview) |

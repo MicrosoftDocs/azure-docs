@@ -4,7 +4,7 @@ description: Shows you how to use VMware Spring Cloud Gateway route filters with
 author: KarlErickson
 ms.author: karler
 ms.topic: how-to
-ms.date: 07/12/2023
+ms.date: 08/28/2024
 ms.service: azure-spring-apps
 ms.custom: devx-track-java
 ---

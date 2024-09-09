@@ -3,7 +3,7 @@ title: Authentication issues in Azure HDInsight
 description: Authentication issues in Azure HDInsight
 ms.service: azure-hdinsight
 ms.topic: troubleshooting
-ms.date: 08/22/2024
+ms.date: 09/06/2024
 ---
 
 # Authentication issues in Azure HDInsight

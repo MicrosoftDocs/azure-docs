@@ -12,7 +12,17 @@ The following table lists the current versions available for the public and Insi
 | Release | Latest version | Download |
 |--|--|--|
 | Public | 1.2.5620 | [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139369) *(most common)*<br />[Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139456)<br />[Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139370) |
-| Insider | 1.2.5620 | [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139233) *(most common)*<br />[Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139144)<br />[Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139368) |
+| Insider | 1.2.5699  | [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139233) *(most common)*<br />[Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139144)<br />[Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139368) |
+
+## Updates for version 1.2.5699 (Insider) 
+
+*Date published: August 27, 2024*   
+
+Download: [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139233), [Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139144), [Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139368)  
+
+- Made an improvement where new session windows will not become the focused windows.
+- Fixed a bug to ensure that the screen mode id setting in the RDP file is honored.
+- Fixed an issue where Teams rendered into the wrong window when multiple Remote Desktop session windows were open. 
 
 ## Updates for version 1.2.5620
 
@@ -20,7 +30,7 @@ The following table lists the current versions available for the public and Insi
 
 Download: [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139369), [Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139456), [Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139370) 
 
-- Fixed an issue for [CVE-2024-38131 ](https://msrc.microsoft.com/update-guide/en-US/vulnerability/CVE-2024-38131).
+- Fixed an issue for [CVE-2024-38131](https://msrc.microsoft.com/update-guide/en-US/vulnerability/CVE-2024-38131).
 
 > [!NOTE]
 > This version replaced the Insider version 1.2.5617 and has the same release notes with the addition of the security release.  

@@ -1,7 +1,7 @@
 ---
 title: Registry best practices
 description: Learn how to use your Azure container registry effectively by following these best practices.
-ms.topic: article
+ms.topic: best-practice
 ms.service: azure-container-registry
 author: tejaswikolli-web
 ms.author: tejaswikolli
@@ -18,7 +18,7 @@ For background on registry concepts, see [About registries, repositories, and im
 
 Create your container registry in the same Azure region in which you deploy containers. Placing your registry in a region that is network-close to your container hosts can help lower both latency and cost.
 
-Network-close deployment is one of the primary reasons for using a private container registry. Docker images have an efficient [layering construct](https://docs.docker.com/engine/userguide/storagedriver/imagesandcontainers/) that allows for incremental deployments. However, new nodes need to pull all layers required for a given image. This initial `docker pull` can quickly add up to multiple gigabytes. Having a private registry close to your deployment minimizes the network latency.
+Network-close deployment is one of the primary reasons for using a private container registry. Docker images have an efficient [layering construct](https://docs.docker.com/get-started/docker-concepts/building-images/understanding-image-layers/) that allows for incremental deployments. However, new nodes need to pull all layers required for a given image. This initial `docker pull` can quickly add up to multiple gigabytes. Having a private registry close to your deployment minimizes the network latency.
 Additionally, all public clouds, Azure included, implement network egress fees. Pulling images from one datacenter to another adds network egress fees, in addition to the latency.
 
 ## Geo-replicate multi-region deployments

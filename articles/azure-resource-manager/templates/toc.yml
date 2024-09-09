@@ -90,13 +90,13 @@
   - name: AI+Machine Learning
     items:
     - name: Cognitive Search
-      href: ../../search/search-get-started-arm.md?toc=/azure/azure-resource-manager/templates/toc.json
+      href: /azure/search/search-get-started-arm?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Azure AI services
-      href: ../../ai-services/create-account-resource-manager-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+      href: /azure/ai-services/create-account-resource-manager-template?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Data Science Virtual Machine
-      href: ../../machine-learning/data-science-virtual-machine/dsvm-tutorial-resource-manager.md?toc=/azure/azure-resource-manager/templates/toc.json
+      href: /azure/machine-learning/data-science-virtual-machine/dsvm-tutorial-resource-manager?toc=/azure/azure-resource-manager/templates/toc.json
     - name: Machine Learning
-      href: ../../machine-learning/how-to-create-workspace-template.md?toc=/azure/azure-resource-manager/templates/toc.json
+      href: /azure/machine-learning/how-to-create-workspace-template?toc=/azure/azure-resource-manager/templates/toc.json
   - name: Analytics
     items:
     - name: Analysis Services
