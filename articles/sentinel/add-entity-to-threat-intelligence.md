@@ -14,19 +14,19 @@ ms.collection: usx-security
 
 # Add entities to threat intelligence in Microsoft Sentinel
 
-During an investigation, you examine entities and their context as an important part of understanding the scope and nature of an incident. When you discover an entity as a malicious domain name, URL, file, or IP address in the incident, it should be labeled and tracked as an indicator of compromise in your threat intelligence.
+During an investigation, you examine entities and their context as an important part of understanding the scope and nature of an incident. When you discover an entity as a malicious domain name, URL, file, or IP address in the incident, it should be labeled and tracked as an indicator of compromise (IOC) in your threat intelligence.
 
-For example, you might discover an IP address that performs port scans across your network or functions as a command and control node by sending and receiving transmissions from large numbers of nodes in your network.
+For example, you might discover an IP address that performs port scans across your network or functions as a command and control node by sending and/or receiving transmissions from large numbers of nodes in your network.
 
 With Microsoft Sentinel, you can flag these types of entities from within your incident investigation and add them to your threat intelligence. You can view the added indicators in **Logs** and **Threat Intelligence** and use them across your Microsoft Sentinel workspace.
 
 ## Add an entity to your threat intelligence
 
-The [new Incident details page](investigate-incidents.md) and the investigation graph give you two ways to add entities to threat intelligence. Both ways are shown here.
+The [Incident details page](investigate-incidents.md) and the investigation graph give you two ways to add entities to threat intelligence. Both ways are shown here.
 
 # [Incident details page](#tab/incidents)
 
-1. On the Microsoft Sentinel menu, select **Incidents**.
+1. On the Microsoft Sentinel menu, select **Incidents** from the **Threat management** section.
 
 1. Select an incident to investigate. On the **Incident details** pane, select **View full details** to open the **Incident details** page.
 
@@ -49,7 +49,7 @@ The [new Incident details page](investigate-incidents.md) and the investigation 
 
 The [investigation graph](investigate-cases.md) is a visual, intuitive tool that presents connections and patterns and enables your analysts to ask the right questions and follow leads. Use it to add entities to your threat intelligence indicator lists by making them available across your workspace.
 
-1. On the Microsoft Sentinel menu, select **Incidents**.
+1. On the Microsoft Sentinel menu, select **Incidents** from the **Threat management** section.
 
 1. Select an incident to investigate. On the **Incident details** pane, select **Actions**, and choose **Investigate** from the pop-up menu to open the investigation graph.
 
