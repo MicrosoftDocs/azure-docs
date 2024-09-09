@@ -273,7 +273,7 @@ Add following key-values to the App Configuration store and leave **Label** and 
     > - The ConfigMap will be reset based on the present data in your App Configuration store if it's deleted or modified by any other means.
     > - The ConfigMap will be deleted if the App Configuration Kubernetes Provider is uninstalled.
 
-1. In this example, you use workload identity to authenticate with your App Configuration store. Follow these [instructions](./reference-kubernetes-provider.md#use-workload-identity) to set it up, and replace the `serviceAccountName` field with the name of the service account you created in the *appConfigurationProvider.yaml* file. For more information on other authentication methods, see the [Authentication](./reference-kubernetes-provider.md#authentication) section.
+1. Follow the [instructions to use the workload identity](./reference-kubernetes-provider.md#use-workload-identity) to authenticate with your App Configuration store. Update the *appConfigurationProvider.yaml* file by replacing the `serviceAccountName` field with the name of the service account you created. For more information on other authentication methods, refer to the examples in the [Authentication](./reference-kubernetes-provider.md#authentication) section.
 
 1. Update the *deployment.yaml* file in the *Deployment* directory to use the ConfigMap `configmap-created-by-appconfig-provider` as a mounted data volume. It is important to ensure that the `volumeMounts.mountPath` matches the `WORKDIR` specified in your *Dockerfile* and the *config* directory created before.
    
