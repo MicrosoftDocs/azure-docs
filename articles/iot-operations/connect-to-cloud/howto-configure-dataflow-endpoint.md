@@ -327,5 +327,5 @@ metadata:
 spec:
   endpointType: localStorage
   localStorageSettings:
-    persistentVolumeClaimName: <your PVC name>
+    persistentVolumeClaimRef: <your PVC name>
 ```

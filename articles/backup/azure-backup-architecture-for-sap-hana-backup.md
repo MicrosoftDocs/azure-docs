@@ -1,8 +1,8 @@
 ---
 title: Azure Backup architecture for SAP HANA Backup
 description: Learn about Azure Backup architecture for SAP HANA backup.
-ms.topic: conceptual
-ms.date: 11/02/2023
+ms.topic: overview
+ms.date: 09/09/2024
 ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
