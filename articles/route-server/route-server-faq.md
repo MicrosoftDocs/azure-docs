@@ -135,6 +135,13 @@ No, Azure Route Server provides transit only between ExpressRoute and Site-to-Si
 
 No. The spoke VNet can't have a Route Server if it's connected to the virtual WAN hub.
 
+
+### If Network Virtual Appliance has AS path prepend configured towards the route server, will the ExpressRoute circuit pass the AS path prepend information to the on-premises router?
+
+No. When ExpressRoute advertises routes to on-premises, it removes the private BGP ASN, and you will only see the ExpressRoute circuit ASN
+
+
+
 ## Limitations
 
 ### How many Azure Route Servers can I create in a virtual network?
