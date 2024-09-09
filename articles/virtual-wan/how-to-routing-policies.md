@@ -428,6 +428,9 @@ The following section describes common ways to troubleshoot when you configure r
 
 ### Effective Routes
 
+> [!NOTE]
+> Getting the effective routes applied on Virtual WAN routing intent next hop resources is only supported for the next hop resource specified in private routing policy. If you are using both private and internet routing policies, check the effective routes on the next hop resource specified in the private routing policy for the effective routes Virtual WAN programs on the internet routing policy next hop resource. If you are only using internet routing policies, check the effective routes on the defaultRouteTable to view the routes programmed on the internet routing policy next hop resource.
+  
 When private routing policies are configured on the Virtual Hub, all traffic between on-premises and Virtual Networks are inspected by Azure Firewall, Network Virtual Appliance, or SaaS solution in the Virtual hub.
 
 Therefore, the effective routes of the defaultRouteTable show the RFC1918 aggregate prefixes (10.0.0.0/8, 192.168.0.0/16, 172.16.0.0/12) with next hop Azure Firewall or Network Virtual Appliance. This reflects that all traffic between Virtual Networks and branches is routed to  Azure Firewall, NVA or SaaS solution in the hub for inspection.

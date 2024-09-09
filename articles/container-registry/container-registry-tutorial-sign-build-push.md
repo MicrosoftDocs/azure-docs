@@ -6,7 +6,7 @@ ms.author: yizha1
 ms.service: azure-container-registry
 ms.custom: devx-track-azurecli
 ms.topic: how-to
-ms.date: 4/23/2023
+ms.date: 9/3/2024
 ---
 
 # Sign container images with Notation and Azure Key Vault using a self-signed certificate
@@ -21,6 +21,7 @@ In this tutorial:
 > * Build and push a container image with [ACR Tasks](container-registry-tasks-overview.md)
 > * Sign a container image with Notation CLI and AKV plugin
 > * Validate a container image against the signature with Notation CLI
+> * Timestamping
 
 ## Prerequisites
 
@@ -30,11 +31,11 @@ In this tutorial:
 
 ## Install Notation CLI and AKV plugin
 
-1. Install Notation v1.1.0 on a Linux amd64 environment. Follow the [Notation installation guide](https://notaryproject.dev/docs/user-guides/installation/cli/) to download the package for other environments.
+1. Install Notation v1.2.0 on a Linux amd64 environment. Follow the [Notation installation guide](https://notaryproject.dev/docs/user-guides/installation/cli/) to download the package for other environments.
 
     ```bash
     # Download, extract and install
-    curl -Lo notation.tar.gz https://github.com/notaryproject/notation/releases/download/v1.1.0/notation_1.1.0_linux_amd64.tar.gz
+    curl -Lo notation.tar.gz https://github.com/notaryproject/notation/releases/download/v1.2.0/notation_1.2.0_linux_amd64.tar.gz
     tar xvzf notation.tar.gz
             
     # Copy the Notation binary to the desired bin directory in your $PATH, for example
@@ -342,6 +343,10 @@ To verify the container image, add the root certificate that signs the leaf cert
     ```
 
    Upon successful verification of the image using the trust policy, the sha256 digest of the verified image is returned in a successful output message.
+
+## Timestamping
+
+Since Notation v1.2.0 release, Notation supports [RFC 3161](https://www.rfc-editor.org/rfc/rfc3161) compliant timestamping. This enhancement extends the trust of signatures created within certificates validity, enabling successful signature verification even after certificates have expired. Timestamping reduces costs by eliminating the need to periodically re-sign images due to certificate expiry, which is especially critical when using short-lived certificates. For detailed instructions on how to sign and verify using timestamping, please refer to the [Notary Project timestamping guide](https://v1-2.notaryproject.dev/docs/user-guides/how-to/timestamping/).
 
 ## Next steps
 

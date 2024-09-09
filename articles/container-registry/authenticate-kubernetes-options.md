@@ -1,7 +1,7 @@
 ---
 title: Scenarios to authenticate with Azure Container Registry from Kubernetes 
 description: Overview of options and scenarios to authenticate to an Azure container registry from a Kubernetes cluster to pull container images
-ms.topic: article
+ms.topic: conceptual
 author: tejaswikolli-web
 ms.author: tejaswikolli
 ms.service: azure-container-registry

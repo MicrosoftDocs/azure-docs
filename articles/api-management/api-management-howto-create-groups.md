@@ -1,12 +1,12 @@
 ---
-title: Manage developer accounts using groups in Azure API Management
+title: Manage developer accounts using groups - Azure API Management
 titleSuffix: Azure API Management
 description: Learn how to manage developer accounts using groups in Azure API Management. Create groups, and then associate them with products or developers.
 
 author: dlepow
 ms.service: azure-api-management
-ms.topic: article
-ms.date: 03/17/2023
+ms.topic: concept-article
+ms.date: 09/03/2024
 ms.author: danlep
 ms.custom: engagement-fy23
 ---
@@ -14,14 +14,14 @@ ms.custom: engagement-fy23
 
 [!INCLUDE [api-management-availability-premium-dev-standard-basic-standardv2-basicv2](../../includes/api-management-availability-premium-dev-standard-basic-standardv2-basicv2.md)]
 
-In API Management, groups are used to manage the visibility of products to developers. Products are first made visible to groups, and then developers in those groups can view and subscribe to the products that are associated with the groups. 
+In API Management, groups are used to manage the visibility of products to developers in the developer portal. Products are first made visible to groups, and then developers in those groups can view and subscribe to the products that are associated with the groups. 
 
-API Management has the following immutable system groups:
+API Management has the following immutable groups:
 
-* **Administrators** - Azure subscription administrators are members of this group. Administrators manage API Management service instances, creating the APIs, operations, and products that are used by developers. You can't add users to this group.
+* **Administrators** - Built-in group containing only the administrator email account provided at the time of service creation. Its membership is managed by the system; users can't be added to or removed from the group. The primary purpose of the administrator account is to access the developer portal's administrative interface to [customize and publish](api-management-howto-developer-portal-customize.md) the portal content. Any user that has [Azure RBAC permissions](/azure/api-management/developer-portal-faq#what-permissions-do-i-need-to-edit-the-developer-portal) to customize the developer portal can authenticate as the administrator to customize the portal.
 
     > [!NOTE]
-    > You can change the administrator [email settings](api-management-howto-configure-notifications.md#configure-email-settings) that are used in notifications sent to developers from your API Management instance.
+    > At any time, a service owner can update the administrator [email settings](api-management-howto-configure-notifications.md#configure-email-settings) that are used in notifications from your API Management instance.
 
 * **Developers** - Authenticated developer portal users fall into this group. Developers are the customers that build applications using your APIs. Developers are granted access to the developer portal and build applications that call the operations of an API.
 * **Guests** - Unauthenticated developer portal users, such as prospective customers visiting the developer portal of an API Management instance fall into this group. They can be granted certain read-only access, such as the ability to view APIs but not call them.
@@ -51,7 +51,7 @@ This section shows how to add a new group to your API Management account.
 Once the group is created, it's added to the **Groups** list. 
     * To edit the **Name** or **Description** of the group, click the name of the group and select **Settings**
 
-    * To delete the group, click the name of the group and press **Delete**.
+    * To delete the group, select the name of the group and press **Delete**.
 
 Now that the group is created, it can be associated with products and developers.
 
@@ -89,7 +89,7 @@ This section shows how to associate groups with members.
 
 Once the association is added between the developer and the group, you can view it in the **Users** tab.
 
-## <a name="next-steps"> </a>Next steps
+## <a name="next-steps"> </a>Related content
 
 * Once a developer is added to a group, they can view and subscribe to the products associated with that group. For more information, see [How to create and publish a product in Azure API Management][How create and publish a product in Azure API Management].
 * You can control how the developer portal content appears to different users and groups you've configured. Learn more about [visibility and access controls in the developer portal](developer-portal-overview.md#content-visibility-and-access). 
