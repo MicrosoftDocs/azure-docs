@@ -21,6 +21,7 @@ In this tutorial:
 > * Build and push a container image with [ACR Tasks](container-registry-tasks-overview.md)
 > * Sign a container image with Notation CLI and AKV plugin
 > * Validate a container image against the signature with Notation CLI
+> * Timestamping
 
 ## Prerequisites
 
@@ -342,6 +343,10 @@ To verify the container image, add the root certificate that signs the leaf cert
     ```
 
    Upon successful verification of the image using the trust policy, the sha256 digest of the verified image is returned in a successful output message.
+
+## Timestamping
+
+Since Notation v1.2.0 release, Notation supports [RFC 3161](https://www.rfc-editor.org/rfc/rfc3161) compliant timestamping. This enhancement extends the trust of signatures created within certificates validity, enabling successful signature verification even after certificates have expired. Timestamping reduces costs by eliminating the need to periodically re-sign images due to certificate expiry, which is especially critical when using short-lived certificates. For detailed instructions on how to sign and verify using timestamping, please refer to the [Notary Project timestamping guide](https://v1-2.notaryproject.dev/docs/user-guides/how-to/timestamping/).
 
 ## Next steps
 
