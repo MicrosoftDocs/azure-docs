@@ -293,7 +293,7 @@ Single-tenant Azure Logic Apps dynamically scales to effectively handle increasi
 > For a Standard logic app in an App Service Environment v3, dynamic scaling isn't available. 
 > You must set scaling rules on the associated App Service Plan. As a commonly used scaling rule, 
 > you can use the CPU metric, and scale your App Service Plan to keep the virtual CPU between 50-70%. 
-> For more information, see [Get started with autoscale in Azure](../azure-monitor/autoscale/autoscale-get-started.md).
+> For more information, see [Get started with autoscale in Azure](/azure/azure-monitor/autoscale/autoscale-get-started).
 
 - Trigger
 

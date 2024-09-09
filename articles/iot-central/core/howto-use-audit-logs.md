@@ -87,7 +87,7 @@ The built-in **App Administrator** role has access to the audit logs by default.
 
 You can export the audit log records to various destinations for long-term storage, detailed analysis, or integration with other logs. For more information, see [Export IoT data](howto-export-to-event-hubs.md).
 
-To send audit logs to [Log Analytics in Azure Monitor](../../azure-monitor/logs/log-analytics-overview.md), use IoT Central data export to send the audit logs to Event Hubs, and then use an Azure Function to add the audit log data to Log Analytics.
+To send audit logs to [Log Analytics in Azure Monitor](/azure/azure-monitor/logs/log-analytics-overview), use IoT Central data export to send the audit logs to Event Hubs, and then use an Azure Function to add the audit log data to Log Analytics.
 
 ## Next steps
 

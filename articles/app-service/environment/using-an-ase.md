@@ -174,7 +174,7 @@ As a customer, you should monitor the App Service plans and the individual apps 
 
 Through Azure portal and CLI, you can configure the scale ratio of your frontend servers between 5 and 15 (default 15) App Service plan instances per frontend server. An App Service Environment will always have a minimum of two frontend servers. You can also increase the size of the frontend servers.
 
-The [metrics scope](../../azure-monitor/essentials/metrics-supported.md#microsoftwebhostingenvironmentsmultirolepools) used to monitor the platform infrastructure is called `Microsoft.Web/hostingEnvironments/multiRolePools`.
+The [metrics scope](/azure/azure-monitor/essentials/metrics-supported#microsoftwebhostingenvironmentsmultirolepools) used to monitor the platform infrastructure is called `Microsoft.Web/hostingEnvironments/multiRolePools`.
 
 You'll see a scope called `Microsoft.Web/hostingEnvironments/workerPools`. The metrics here are only applicable to App Service Environment v1.
 
@@ -209,7 +209,7 @@ If you integrate with Log Analytics, you can see the logs by selecting **Logs** 
 
 **Creating an alert**
 
-To create an alert against your logs, follow the instructions in [Create, view, and manage log alerts using Azure Monitor](../../azure-monitor/alerts/alerts-log.md). In brief:
+To create an alert against your logs, follow the instructions in [Create, view, and manage log alerts using Azure Monitor](/azure/azure-monitor/alerts/alerts-log). In brief:
 
 * Open the Alerts page in your ASE portal
 * Select **New alert rule**
@@ -308,4 +308,4 @@ For more specific examples, use: az find "az appservice ase"
 [AppDeploy]: ../deploy-local-git.md
 [ASEWAF]: ./integrate-with-application-gateway.md
 [AppGW]: ../../web-application-firewall/ag/ag-overview.md
-[logalerts]: ../../azure-monitor/alerts/alerts-log.md
+[logalerts]: /azure/azure-monitor/alerts/alerts-log

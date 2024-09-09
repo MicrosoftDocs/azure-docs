@@ -226,7 +226,7 @@ The single-tenant model and **Standard** logic app include many current and new 
 
 * Directly publish or deploy logic apps and their workflows from Visual Studio Code to various hosting environments such as Azure and Azure Arc enabled Logic Apps.
 
-* Enable diagnostics logging and tracing capabilities for your logic app by using [Application Insights](../azure-monitor/app/app-insights-overview.md) when supported by your Azure subscription and logic app settings.
+* Enable diagnostics logging and tracing capabilities for your logic app by using [Application Insights](/azure/azure-monitor/app/app-insights-overview) when supported by your Azure subscription and logic app settings.
 
 * Access networking capabilities, such as connect and integrate privately with Azure virtual networks, similar to Azure Functions when you create and deploy your logic apps using the [Azure Functions Premium plan](../azure-functions/functions-premium-plan.md). For more information, review the following documentation:
 

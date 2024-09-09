@@ -383,7 +383,7 @@ For top secret data, you can deploy Azure Stack Hub, which can operate disconnec
 
 Listed below are key enabling technologies and services that you may find helpful when deploying confidential data and workloads on Azure:
 
-- All recommended technologies used for Unclassified data, especially services such as [Virtual Network](../virtual-network/virtual-networks-overview.md) (VNet), [Microsoft Defender for Cloud](/azure/defender-for-cloud/), and [Azure Monitor](../azure-monitor/index.yml).
+- All recommended technologies used for Unclassified data, especially services such as [Virtual Network](../virtual-network/virtual-networks-overview.md) (VNet), [Microsoft Defender for Cloud](/azure/defender-for-cloud/), and [Azure Monitor](/azure/azure-monitor/).
 - Public IP addresses are disabled allowing only traffic through private connections, including [ExpressRoute](../expressroute/index.yml) and [Virtual Private Network (VPN)](../vpn-gateway/index.yml) gateway.
 - Data encryption is recommended with customer-managed keys (CMK) in [Azure Key Vault](/azure/key-vault/) backed by multi-tenant hardware security modules (HSMs) that have [FIPS 140 validation](/azure/key-vault/keys/about-keys#compliance).
 - Only services that support [VNet integration](../virtual-network/virtual-network-for-azure-services.md) options are enabled. Azure VNet enables you to place Azure resources in a non-internet routable network, which can then be connected to your on-premises network using VPN technologies. VNet integration gives web apps access to resources in the virtual network.

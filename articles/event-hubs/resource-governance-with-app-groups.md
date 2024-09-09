@@ -330,7 +330,7 @@ The following ARM template shows how to update an existing namespace (`contosona
 
 Azure Event Hubs supports [Application Metric Logs](monitor-event-hubs-reference.md#application-metrics-logs) functionality to observe usual throughput within your system and accordingly decide on the threshold value for application group. You can follow these steps to decide on a threshold value:
 
-1. Turn on [diagnostic settings](../azure-monitor/essentials/diagnostic-settings.md) in Event Hubs with **Application Metric logs** as selected category and choose **Log Analytics** as destination.  
+1. Turn on [diagnostic settings](/azure/azure-monitor/essentials/diagnostic-settings) in Event Hubs with **Application Metric logs** as selected category and choose **Log Analytics** as destination.  
 2. Create an empty application group without any throttling policy.  
 3. Continue sending messages/events to event hub at usual throughput. 
 4. Go to **Log Analytics workspace** and query for the right activity name (based on the (resource-governance-overview.md#throttling-policy---threshold-limits)) in **AzureDiagnostics** table. The following sample query is set to track threshold value for incoming messages:  

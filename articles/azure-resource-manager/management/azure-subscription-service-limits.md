@@ -137,7 +137,7 @@ To learn more about limits on a more granular level, such as document size, quer
 
 ## Azure Chaos Studio limits
 
-For Azure Chaos Studio limits, see [Azure Chaos Studio service limits](../../chaos-studio/chaos-studio-service-limits.md).
+For Azure Chaos Studio limits, see [Azure Chaos Studio service limits](/azure/chaos-studio/chaos-studio-service-limits).
 
 ## Azure Communications Gateway limits
 
@@ -225,7 +225,7 @@ The latest values for Azure Machine Learning Compute quotas can be found in the 
 
 ## Azure Monitor limits
 
-For Azure Monitor limits, see [Azure Monitor service limits](../../azure-monitor/service-limits.md).
+For Azure Monitor limits, see [Azure Monitor service limits](/azure/azure-monitor/service-limits).
 
 ## Azure Data Factory limits
 

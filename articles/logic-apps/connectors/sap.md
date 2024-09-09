@@ -829,7 +829,7 @@ You can [export all of your gateway's configuration and service logs](/data-inte
 
 ### Capture ETW events
 
-As an optional advanced logging task, you can directly capture ETW events, and then [consume the data in Azure Diagnostics in Event Hubs](../../azure-monitor/agents/diagnostics-extension-stream-event-hubs.md) or [collect your data to Azure Monitor Logs](../../azure-monitor/agents/diagnostics-extension-logs.md). For more information, review the [best practices for collecting and storing data](/azure/architecture/best-practices/monitoring#collecting-and-storing-data).
+As an optional advanced logging task, you can directly capture ETW events, and then [consume the data in Azure Diagnostics in Event Hubs](/azure/azure-monitor/agents/diagnostics-extension-stream-event-hubs) or [collect your data to Azure Monitor Logs](/azure/azure-monitor/agents/diagnostics-extension-logs). For more information, review the [best practices for collecting and storing data](/azure/architecture/best-practices/monitoring#collecting-and-storing-data).
 
 To work with the resulting ETL files, you can use [PerfView](https://github.com/Microsoft/perfview/blob/main/README.md), or you can write your own program. The following walkthrough uses PerfView:
 
@@ -1026,7 +1026,7 @@ You can control this tracing capability at the application level by adding the f
 
 ## Send SAP telemetry for on-premises data gateway to Azure Application Insights
 
-With the August 2021 update for the on-premises data gateway, SAP connector operations can send telemetry data from the SAP NCo client library and traces from the Microsoft SAP Adapter to [Application Insights](../../azure-monitor/app/app-insights-overview.md), which is a capability in Azure Monitor. This telemetry primarily includes the following data:
+With the August 2021 update for the on-premises data gateway, SAP connector operations can send telemetry data from the SAP NCo client library and traces from the Microsoft SAP Adapter to [Application Insights](/azure/azure-monitor/app/app-insights-overview), which is a capability in Azure Monitor. This telemetry primarily includes the following data:
 
 * Metrics and traces based on SAP NCo metrics and monitors.
 
@@ -1059,7 +1059,7 @@ Before you can send SAP telemetry for your gateway installation to Application I
 
 * [Create an Application Insights resource (classic)](/previous-versions/azure/azure-monitor/app/create-new-resource)
 
-* [Workspace-based Application Insights resources](../../azure-monitor/app/create-workspace-resource.md)
+* [Workspace-based Application Insights resources](/azure/azure-monitor/app/create-workspace-resource)
 
 To enable sending SAP telemetry to Application insights, follow these steps:
 
@@ -1069,7 +1069,7 @@ To enable sending SAP telemetry to Application insights, follow these steps:
 
 1. In your on-premises data gateway installation directory, check that the **Microsoft.ApplicationInsights.dll** file has the same version number as the **Microsoft.ApplicationInsights.EventSourceListener.dll** file that you added. The gateway currently uses version 2.14.0.
 
-1. In the **ApplicationInsights.config** file, add your [Application Insights instrumentation key](../../azure-monitor/app/sdk-connection-string.md) by uncommenting the line with the `<InstrumentationKey></InstrumentationKey>` element. Replace the placeholder, *your-Application-Insights-instrumentation-key*, with your key, for example:
+1. In the **ApplicationInsights.config** file, add your [Application Insights instrumentation key](/azure/azure-monitor/app/sdk-connection-string) by uncommenting the line with the `<InstrumentationKey></InstrumentationKey>` element. Replace the placeholder, *your-Application-Insights-instrumentation-key*, with your key, for example:
 
       ```xml
       <?xml version="1.0" encoding="utf-8"?>
@@ -1102,9 +1102,9 @@ To enable sending SAP telemetry to Application insights, follow these steps:
 
    * `Level` values: [EventLevel Enum](/dotnet/api/system.diagnostics.tracing.eventlevel)
 
-   * [EventSource tracking](../../azure-monitor/app/configuration-with-applicationinsights-config.md#eventsource-tracking)
+   * [EventSource tracking](/azure/azure-monitor/app/configuration-with-applicationinsights-config#eventsource-tracking)
 
-   * [EventSource events](../../azure-monitor/app/asp-net-trace-logs.md#use-eventsource-events)
+   * [EventSource events](/azure/azure-monitor/app/asp-net-trace-logs#use-eventsource-events)
 
 1. After you apply your changes, restart the on-premises data gateway service.
 

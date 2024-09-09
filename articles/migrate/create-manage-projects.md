@@ -128,7 +128,7 @@ Note that:
        
     - If you've already deleted the project, select **Resource Groups** in the left pane of the Azure portal and find the workspace.
        
-2. [Follow the instructions](../azure-monitor/logs/delete-workspace.md) to delete the workspace.
+2. [Follow the instructions](/azure/azure-monitor/logs/delete-workspace) to delete the workspace.
 
 ## Next steps
 

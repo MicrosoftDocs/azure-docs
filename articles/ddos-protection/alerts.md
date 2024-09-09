@@ -95,7 +95,7 @@ You can select any of the available Azure DDoS Protection metrics to alert you w
 1. Select **Review + create** and then select **Create**.
 
 > [!NOTE]
-> Review the [Action groups](../azure-monitor/alerts/action-groups.md) documentation for more information on creating action groups. 
+> Review the [Action groups](/azure/azure-monitor/alerts/action-groups) documentation for more information on creating action groups. 
 
 ### Continue configuring alerts through portal
 
@@ -116,7 +116,7 @@ Within a few minutes of attack detection, you should receive an email from Azure
 
 :::image type="content" source="./media/ddos-alerts/ddos-alert.png" alt-text="Screenshot of a DDoS attack Alert after a DDoS attack." lightbox="./media/ddos-alerts/ddos-alert.png":::
 
-You can also learn more about [configuring webhooks](../azure-monitor/alerts/alerts-webhooks.md?toc=%2fazure%2fvirtual-network%2ftoc.json) and [logic apps](../logic-apps/logic-apps-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) for creating alerts.
+You can also learn more about [configuring webhooks](/azure/azure-monitor/alerts/alerts-webhooks?toc=%2fazure%2fvirtual-network%2ftoc.json) and [logic apps](../logic-apps/logic-apps-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json) for creating alerts.
 
 ## Clean up resources
 You can keep your resources for the next tutorial. If no longer needed, delete the alerts.

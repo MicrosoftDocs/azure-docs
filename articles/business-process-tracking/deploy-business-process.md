@@ -79,7 +79,7 @@ After the mapped Standard logic app workflows run and emit the data that you spe
 
    :::image type="content" source="media/deploy-business-process/transaction-details.png" alt-text="Screenshot shows transactions page and transaction details for a specific stage." lightbox="media/deploy-business-process/transaction-details.png":::
 
-1. To create custom experiences for the data provided here, check out [Azure Workbooks](../azure-monitor/visualize/workbooks-overview.md) or [Azure Data Explorer with Power BI](/azure/data-explorer/power-bi-data-connector?tabs=web-ui).
+1. To create custom experiences for the data provided here, check out [Azure Workbooks](/azure/azure-monitor/visualize/workbooks-overview) or [Azure Data Explorer with Power BI](/azure/data-explorer/power-bi-data-connector?tabs=web-ui).
 
 ## Next step
 

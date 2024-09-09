@@ -58,7 +58,7 @@ Don't use both `APPINSIGHTS_INSTRUMENTATIONKEY` and `APPLICATIONINSIGHTS_CONNECT
 
 ## APPLICATIONINSIGHTS_AUTHENTICATION_STRING
 
-Enables access to Application Insights by using Microsoft Entra authentication. Use this setting when you must connect to your Application Insights workspace by using Microsoft Entra authentication. For more information, see [Microsoft Entra authentication for Application Insights](../azure-monitor/app/azure-ad-authentication.md).
+Enables access to Application Insights by using Microsoft Entra authentication. Use this setting when you must connect to your Application Insights workspace by using Microsoft Entra authentication. For more information, see [Microsoft Entra authentication for Application Insights](/azure/azure-monitor/app/azure-ad-authentication).
 
 When you use `APPLICATIONINSIGHTS_AUTHENTICATION_STRING`, the specific value that you set depends on the type of managed identity:
 
@@ -78,7 +78,7 @@ The connection string for Application Insights. Don't use both `APPINSIGHTS_INST
 + When your function app requires the added customizations supported by using the connection string.  
 + When your Application Insights instance runs in a sovereign cloud, which requires a custom endpoint.
 
-For more information, see [Connection strings](../azure-monitor/app/sdk-connection-string.md).
+For more information, see [Connection strings](/azure/azure-monitor/app/sdk-connection-string).
 
 |Key|Sample value|
 |---|------------|

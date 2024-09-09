@@ -54,7 +54,7 @@ Creating separate workspaces for the SAP and SOC data has these benefits:
 - Microsoft Sentinel can trigger alerts that include both SOC and SAP data, and it can run those alerts on the SOC workspace.
 
    > [!NOTE]
-   > For larger SAP landscapes, running queries that are made by the SOC on data from the SAP workspace can affect performance. The SAP data must travel to the SOC workspace when it's being queried. For improved performance and cost optimizations, consider having both the SOC and SAP workspaces on the same [dedicated cluster](../../azure-monitor/logs/logs-dedicated-clusters.md?tabs=cli#cluster-pricing-model).
+   > For larger SAP landscapes, running queries that are made by the SOC on data from the SAP workspace can affect performance. The SAP data must travel to the SOC workspace when it's being queried. For improved performance and cost optimizations, consider having both the SOC and SAP workspaces on the same [dedicated cluster](/azure/azure-monitor/logs/logs-dedicated-clusters?tabs=cli#cluster-pricing-model).
 
 - The SAP team has its own Log Analytics workspace enabled for Microsoft Sentinel that includes all features except detections that include both SOC and SAP data.
 - Flexibility. The SAP team can focus on the control of internal threats in its landscape, and the SOC can focus on external threats.

@@ -231,5 +231,5 @@ The *Open Room* concept is now deprecated. Going forward, *Invite Only* rooms ar
 - Learn how to [manage a room call](../../quickstarts/rooms/manage-rooms-call.md).
 - Review the [Network requirements for media and signaling](../voice-video-calling/network-requirements.md).
 - Analyze your Rooms data, see: [Rooms Logs](../Analytics/logs/rooms-logs.md).
-- Learn how to use the Log Analytics workspace, see: [Log Analytics Tutorial](../../../azure-monitor/logs/log-analytics-tutorial.md).
-- Create your own queries in Log Analytics, see: [Get Started Queries](../../../azure-monitor/logs/get-started-queries.md).
+- Learn how to use the Log Analytics workspace, see: [Log Analytics Tutorial](/azure/azure-monitor/logs/log-analytics-tutorial).
+- Create your own queries in Log Analytics, see: [Get Started Queries](/azure/azure-monitor/logs/get-started-queries).

@@ -451,7 +451,7 @@ Install-Package Microsoft.Azure.WebJobs.Logging.ApplicationInsights -Version <VE
 
 In this command, replace `<VERSION>` with a version of this package that supports your installed version of [Microsoft.Azure.WebJobs](https://www.nuget.org/packages/Microsoft.Azure.WebJobs/). 
 
-The following C# examples uses the [custom telemetry API](../azure-monitor/app/api-custom-events-metrics.md). The example is for a .NET class library, but the Application Insights code is the same for C# script.
+The following C# examples uses the [custom telemetry API](/azure/azure-monitor/app/api-custom-events-metrics). The example is for a .NET class library, but the Application Insights code is the same for C# script.
 
 # [v4.x](#tab/v4)
 
@@ -523,7 +523,7 @@ namespace functionapp0915
 }
 ```
 
-In this example, the custom metric data gets aggregated by the host before being sent to the customMetrics table. To learn more, see the [GetMetric](../azure-monitor/app/api-custom-events-metrics.md#getmetric) documentation in Application Insights. 
+In this example, the custom metric data gets aggregated by the host before being sent to the customMetrics table. To learn more, see the [GetMetric](/azure/azure-monitor/app/api-custom-events-metrics#getmetric) documentation in Application Insights. 
 
 When running locally, you must add the `APPINSIGHTS_INSTRUMENTATIONKEY` setting, with the Application Insights key, to the [local.settings.json](functions-develop-local.md#local-settings-file) file.
 

@@ -10,21 +10,21 @@ ms.custom:
 
 As a service provider, you may have onboarded multiple customer tenants to [Azure Lighthouse](../overview.md). Azure Lighthouse allows service providers to perform operations at scale across several tenants at once, making management tasks more efficient.
 
-This topic shows you how to use [Azure Monitor Logs](../../azure-monitor/logs/data-platform-logs.md) in a scalable way across the customer tenants you're managing. Though we refer to service providers and customers in this topic, this guidance also applies to [enterprises using Azure Lighthouse to manage multiple tenants](../concepts/enterprise.md).
+This topic shows you how to use [Azure Monitor Logs](/azure/azure-monitor/logs/data-platform-logs) in a scalable way across the customer tenants you're managing. Though we refer to service providers and customers in this topic, this guidance also applies to [enterprises using Azure Lighthouse to manage multiple tenants](../concepts/enterprise.md).
 
 > [!NOTE]
-> Be sure that users in your managing tenants have been granted the [necessary roles for managing Log Analytics workspaces](../../azure-monitor/logs/manage-access.md#azure-rbac) on your delegated customer subscriptions.
+> Be sure that users in your managing tenants have been granted the [necessary roles for managing Log Analytics workspaces](/azure/azure-monitor/logs/manage-access#azure-rbac) on your delegated customer subscriptions.
 
 ## Create Log Analytics workspaces
 
 In order to collect data, you'll need to create Log Analytics workspaces. These Log Analytics workspaces are unique environments for data collected by Azure Monitor. Each workspace has its own data repository and configuration, and data sources and solutions are configured to store their data in a particular workspace.
 
-We recommend creating these workspaces directly in the customer tenants. This way their data remains in their tenants rather than being exported into yours. Creating the workspaces in the customer tenants allows centralized monitoring of any resources or services supported by Log Analytics, giving you more flexibility on what types of data you monitor. Workspaces created in customer tenants are required in order to collect information from [diagnostic settings](../..//azure-monitor/essentials/diagnostic-settings.md).
+We recommend creating these workspaces directly in the customer tenants. This way their data remains in their tenants rather than being exported into yours. Creating the workspaces in the customer tenants allows centralized monitoring of any resources or services supported by Log Analytics, giving you more flexibility on what types of data you monitor. Workspaces created in customer tenants are required in order to collect information from [diagnostic settings](/azure/azure-monitor/essentials/diagnostic-settings).
 
 > [!TIP]
 > Any automation account used to access data from a Log Analytics workspace must be created in the same tenant as the workspace.
 
-You can create a Log Analytics workspace by using the [Azure portal](../../azure-monitor/logs/quick-create-workspace.md), by using [Azure Resource Manager templates](../../azure-monitor/logs/resource-manager-workspace.md), or by using [Azure PowerShell](../../azure-monitor/logs/powershell-workspace-configuration.md).
+You can create a Log Analytics workspace by using the [Azure portal](/azure/azure-monitor/logs/quick-create-workspace), by using [Azure Resource Manager templates](/azure/azure-monitor/logs/resource-manager-workspace), or by using [Azure PowerShell](/azure/azure-monitor/logs/powershell-workspace-configuration).
 
 > [!IMPORTANT]
 > If all workspaces are created in customer tenants, the Microsoft.Insights resource providers must also be [registered](../../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider) on a subscription in the managing tenant. If your managing tenant doesn't have an existing Azure subscription, you can register the resource provider manually by using the following PowerShell commands:
@@ -51,11 +51,11 @@ When you've determined which policies to deploy, you can [deploy them to your de
 
 ## Analyze the gathered data
 
-After you've deployed your policies, data will be logged in the Log Analytics workspaces you've created in each customer tenant. To gain insights across all managed customers, you can use tools such as [Azure Monitor Workbooks](../../azure-monitor/visualize/workbooks-overview.md) to gather and analyze information from multiple data sources.
+After you've deployed your policies, data will be logged in the Log Analytics workspaces you've created in each customer tenant. To gain insights across all managed customers, you can use tools such as [Azure Monitor Workbooks](/azure/azure-monitor/visualize/workbooks-overview) to gather and analyze information from multiple data sources.
 
 ## Query data across customer workspaces
 
-You can run [log queries](../../azure-monitor/logs/log-query-overview.md) to retrieve data across Log Analytics workspaces in different customer tenants by creating a union that includes multiple workspaces. By including the TenantID column, you can see which results belong to which tenants.
+You can run [log queries](/azure/azure-monitor/logs/log-query-overview) to retrieve data across Log Analytics workspaces in different customer tenants by creating a union that includes multiple workspaces. By including the TenantID column, you can see which results belong to which tenants.
 
 The following example query creates a union on the AzureDiagnostics table across workspaces in two separate customer tenants. The results show the Category, ResourceGroup, and TenantID columns.
 
@@ -66,16 +66,16 @@ workspace("WS-customer-tenant-2").AzureDiagnostics
 | project Category, ResourceGroup, TenantId
 ```
 
-For more examples of queries across multiple Log Analytics workspaces, see [Create a log query across multiple workspaces and apps in Azure Monitor](../../azure-monitor/logs/cross-workspace-query.md).
+For more examples of queries across multiple Log Analytics workspaces, see [Create a log query across multiple workspaces and apps in Azure Monitor](/azure/azure-monitor/logs/cross-workspace-query).
 
 > [!IMPORTANT]
 > If you use an automation account used to query data from a Log Analytics workspace, that automation account must be created in the same tenant as the workspace.
 
 ## View alerts across customers
 
-You can view [alerts](../../azure-monitor/alerts/alerts-overview.md) for delegated subscriptions in the customer tenants that you manage.
+You can view [alerts](/azure/azure-monitor/alerts/alerts-overview) for delegated subscriptions in the customer tenants that you manage.
 
-From your managing tenant, you can [create, view, and manage activity log alerts](../../azure-monitor/alerts/alerts-activity-log.md) in the Azure portal or through APIs and management tools.
+From your managing tenant, you can [create, view, and manage activity log alerts](/azure/azure-monitor/alerts/alerts-activity-log) in the Azure portal or through APIs and management tools.
 
 To refresh alerts automatically across multiple customers, use an [Azure Resource Graph](../../governance/resource-graph/overview.md) query to filter for alerts. You can pin the query to your dashboard and select all of the appropriate customers and subscriptions. For example, the query below will display severity 0 and 1 alerts, refreshing every 60 minutes.
 

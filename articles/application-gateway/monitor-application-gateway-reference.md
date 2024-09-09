@@ -497,7 +497,7 @@ Application Gateway's Layer 4 proxy provides log data through access logs. These
 
 You can use Azure activity logs to view all operations that are submitted to your Azure subscription, and their status. Activity log entries are collected by default. You can view them in the Azure portal. Azure activity logs were formerly known as *operational logs* and *audit logs*.
 
-Azure generates activity logs by default. The logs are preserved for 90 days in the Azure event logs store. Learn more about these logs by reading the [View events and activity log](../azure-monitor/essentials/activity-log.md) article.
+Azure generates activity logs by default. The logs are preserved for 90 days in the Azure event logs store. Learn more about these logs by reading the [View events and activity log](/azure/azure-monitor/essentials/activity-log) article.
 
 ## Related content
 

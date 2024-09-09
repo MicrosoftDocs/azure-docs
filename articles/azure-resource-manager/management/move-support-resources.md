@@ -991,7 +991,7 @@ Before starting your move operation, review the [checklist](./move-resource-grou
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
-> | accounts | **Yes** | **Yes** | No. [Learn more](../../azure-monitor/app/create-workspace-resource.md#how-do-i-move-an-application-insights-resource-to-a-new-region). |
+> | accounts | **Yes** | **Yes** | No. [Learn more](/azure/azure-monitor/app/create-workspace-resource#how-do-i-move-an-application-insights-resource-to-a-new-region). |
 > | actiongroups | No | No | No |
 > | activitylogalerts | No | No | No |
 > | alertrules | **Yes** | **Yes** | No |

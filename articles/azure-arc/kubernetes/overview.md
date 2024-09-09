@@ -27,7 +27,7 @@ Once your Kubernetes clusters are connected to Azure, at scale you can:
 
 * Configure clusters and deploy applications using [GitOps-based configuration management](tutorial-use-gitops-connected-cluster.md).
 
-* View and monitor your clusters using [Azure Monitor for containers](../../azure-monitor/containers/container-insights-enable-arc-enabled-clusters.md?toc=/azure/azure-arc/kubernetes/toc.json).
+* View and monitor your clusters using [Azure Monitor for containers](/azure/azure-monitor/containers/container-insights-enable-arc-enabled-clusters?toc=/azure/azure-arc/kubernetes/toc.json).
 
 * Enforce threat protection using [Microsoft Defender for Kubernetes](/azure/defender-for-cloud/defender-for-kubernetes-azure-arc?toc=/azure/azure-arc/kubernetes/toc.json).
 

@@ -703,7 +703,7 @@ In the AZD output, find the link to stream App Service logs and navigate to it i
 Stream App Service logs at: https://portal.azure.com/#@/resource/subscriptions/&lt;subscription-guid>/resourceGroups/&lt;group-name>/providers/Microsoft.Web/sites/&lt;app-name>/logStream
 </pre>
 
-Learn more about logging in .NET apps in the series on [Enable Azure Monitor OpenTelemetry for .NET, Node.js, Python and Java applications](../azure-monitor/app/opentelemetry-enable.md?tabs=aspnetcore).
+Learn more about logging in .NET apps in the series on [Enable Azure Monitor OpenTelemetry for .NET, Node.js, Python and Java applications](/azure/azure-monitor/app/opentelemetry-enable?tabs=aspnetcore).
 
 Having issues? Check the [Troubleshooting section](#troubleshooting).
 

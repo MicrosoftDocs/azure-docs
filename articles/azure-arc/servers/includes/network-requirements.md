@@ -13,7 +13,7 @@ The Azure Connected Machine agent for Linux and Windows communicates outbound se
 To further secure your network connectivity to Azure Arc, instead of using public networks and proxy servers, you can implement an [Azure Arc Private Link Scope](../private-link-security.md) .
 
 > [!NOTE]
-> Azure Arc-enabled servers does not support using a [Log Analytics gateway](../../../azure-monitor/agents/gateway.md) as a proxy for the Connected Machine agent. At the same time, Azure Monitor Agent supports Log Analytics gateway.
+> Azure Arc-enabled servers does not support using a [Log Analytics gateway](/azure/azure-monitor/agents/gateway) as a proxy for the Connected Machine agent. At the same time, Azure Monitor Agent supports Log Analytics gateway.
 
 If outbound connectivity is restricted by your firewall or proxy server, make sure the URLs and Service Tags listed below are not blocked.
 

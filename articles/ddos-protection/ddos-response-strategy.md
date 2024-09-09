@@ -37,7 +37,7 @@ It’s imperative to understand the scope of your risk from a DDoS attack on an 
 
 It's essential that you understand the normal behavior of an application and prepare to act if the application isn't behaving as expected during a DDoS attack. Have monitors configured for your business-critical applications that mimic client behavior, and notify you when relevant anomalies are detected. Refer to [monitoring and diagnostics best practices](/azure/architecture/best-practices/monitoring#monitoring-and-diagnostics-scenarios) to gain insights on the health of your application.
 
-[Azure Application Insights](../azure-monitor/app/app-insights-overview.md) is an extensible application performance management (APM) service for web developers on multiple platforms. Use Application Insights to monitor your live web application. It automatically detects performance anomalies. It includes analytics tools to help you diagnose issues and to understand what users do with your app. It's designed to help you continuously improve performance and usability.
+[Azure Application Insights](/azure/azure-monitor/app/app-insights-overview) is an extensible application performance management (APM) service for web developers on multiple platforms. Use Application Insights to monitor your live web application. It automatically detects performance anomalies. It includes analytics tools to help you diagnose issues and to understand what users do with your app. It's designed to help you continuously improve performance and usability.
 
 ## Customer DDoS response team
 

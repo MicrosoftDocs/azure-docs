@@ -77,7 +77,7 @@ The following limit applies to multiple workspaces in Microsoft Sentinel. Limits
 |Description                   | Limit        |Dependency|
 -------------------------|--------------------|--------------------|
 | Incident view | 100 concurrently displayed workspaces | |
-| Log query | 100 Sentinel workspaces | [Log Analytics](../azure-monitor/logs/cross-workspace-query.md#limitations) |
+| Log query | 100 Sentinel workspaces | [Log Analytics](/azure/azure-monitor/logs/cross-workspace-query#limitations) |
 | Analytics rules | 20 Sentinel workspaces per query | |
 
 ## Notebook limits
@@ -147,7 +147,7 @@ The following limits apply to watchlists in Microsoft Sentinel. The limits are r
 
 ## Workbook limits
 
-Workbook limits for Sentinel are the same result limits found in Azure Monitor. For more information, see [Workbooks result limits](../azure-monitor/visualize/workbooks-limits.md).
+Workbook limits for Sentinel are the same result limits found in Azure Monitor. For more information, see [Workbooks result limits](/azure/azure-monitor/visualize/workbooks-limits).
 
 ## Workspace manager limits
 
@@ -160,4 +160,4 @@ The following limits apply to workspace manager in Microsoft Sentinel.
 ## Next steps
 
 - [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md)
-- [Azure Monitor service limits](../azure-monitor/service-limits.md)
+- [Azure Monitor service limits](/azure/azure-monitor/service-limits)

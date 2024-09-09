@@ -294,7 +294,7 @@ The Custom Script extension configuration specifies things like script location 
 
 ## Deploy the Dependency agent extension
 
-To use the Azure Monitor Dependency agent extension, the following sample is provided to run on Windows and Linux. If you are unfamiliar with the Dependency agent, see [Overview of Azure Monitor agents](../../azure-monitor/vm/vminsights-dependency-agent-maintenance.md).
+To use the Azure Monitor Dependency agent extension, the following sample is provided to run on Windows and Linux. If you are unfamiliar with the Dependency agent, see [Overview of Azure Monitor agents](/azure/azure-monitor/vm/vminsights-dependency-agent-maintenance).
 
 ### Template file for Linux
 

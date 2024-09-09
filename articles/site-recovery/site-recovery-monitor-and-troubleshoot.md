@@ -301,7 +301,7 @@ To configure email notifications for built-in Azure Monitor alerts for Azure Sit
 
 ### Configure notifications to non-email channels
 
-With Azure Monitor action groups, you can route alerts to other notification channels like webhooks, logic apps, functions, etc. [Learn more about supported action groups in Azure Monitor](../azure-monitor/alerts/action-groups.md).
+With Azure Monitor action groups, you can route alerts to other notification channels like webhooks, logic apps, functions, etc. [Learn more about supported action groups in Azure Monitor](/azure/azure-monitor/alerts/action-groups).
 
 
 ### Configure notifications through programmatic interfaces

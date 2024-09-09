@@ -358,7 +358,7 @@ Azure App Service captures all messages output to the console to help you diagno
     :::column-end:::
 :::row-end:::
 
-Learn more about logging in Java apps in the series on [Enable Azure Monitor OpenTelemetry for .NET, Node.js, Python and Java applications](../azure-monitor/app/opentelemetry-enable.md?tabs=java).
+Learn more about logging in Java apps in the series on [Enable Azure Monitor OpenTelemetry for .NET, Node.js, Python and Java applications](/azure/azure-monitor/app/opentelemetry-enable?tabs=java).
 
 Having issues? Check the [Troubleshooting section](#troubleshooting).
 
@@ -573,7 +573,7 @@ In the AZD output, find the link to stream App Service logs and navigate to it i
 Stream App Service logs at: https://portal.azure.com/#@/resource/subscriptions/&lt;subscription-guid>/resourceGroups/&lt;group-name>/providers/Microsoft.Web/sites/&lt;app-name>/logStream
 </pre>
 
-Learn more about logging in Java apps in the series on [Enable Azure Monitor OpenTelemetry for .NET, Node.js, Python and Java applications](../azure-monitor/app/opentelemetry-enable.md?tabs=java).
+Learn more about logging in Java apps in the series on [Enable Azure Monitor OpenTelemetry for .NET, Node.js, Python and Java applications](/azure/azure-monitor/app/opentelemetry-enable?tabs=java).
 
 Having issues? Check the [Troubleshooting section](#troubleshooting).
 

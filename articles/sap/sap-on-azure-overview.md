@@ -48,7 +48,7 @@ For more information, see the [SAP on Azure deployment automation framework](aut
 
 ## Azure Monitor for SAP solutions
 
-Azure Monitor for SAP solutions is an Azure-native monitoring product for SAP landscapes that run on Azure, which uses specific parts of the [Azure Monitor](../azure-monitor/overview.md) infrastructure.
+Azure Monitor for SAP solutions is an Azure-native monitoring product for SAP landscapes that run on Azure, which uses specific parts of the [Azure Monitor](/azure/azure-monitor/overview) infrastructure.
 
 For more information, see the [Azure Monitor for SAP solutions](monitor/about-azure-monitor-sap-solutions.md) documentation.
 

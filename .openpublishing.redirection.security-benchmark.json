@@ -166,11 +166,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/advisor/security-baseline.md",
-      "redirect_url": "/security/benchmark/azure/baselines/advisor-security-baseline",
-      "redirect_document_id": false
-    },
-    {
       "source_path_from_root": "/articles/azure-app-configuration/security-baseline.md",
       "redirect_url": "/security/benchmark/azure/baselines/app-config-security-baseline",
       "redirect_document_id": false
@@ -263,11 +258,6 @@
     {
       "source_path_from_root": "/articles/azure-resource-manager/managed-applications/security-baseline.md",
       "redirect_url": "/security/benchmark/azure/baselines/managed-applications-security-baseline",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/azure-monitor/security-baseline.md",
-      "redirect_url": "/security/benchmark/azure/baselines/monitor-security-baseline",
       "redirect_document_id": false
     },
     {

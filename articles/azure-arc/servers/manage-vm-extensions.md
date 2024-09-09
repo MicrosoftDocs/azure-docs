@@ -29,9 +29,9 @@ Azure Arc-enabled servers enables you to deploy, remove, and update Azure VM ext
 
 Azure Arc-enabled servers VM extension support provides the following key benefits:
 
-- Collect log data for analysis with [Logs in Azure Monitor](../../azure-monitor/logs/data-platform-logs.md) by enabling the Azure Monitor agent VM extension. Log data analysis makes it useful for doing complex analysis across log data from different kinds of sources.
+- Collect log data for analysis with [Logs in Azure Monitor](/azure/azure-monitor/logs/data-platform-logs) by enabling the Azure Monitor agent VM extension. Log data analysis makes it useful for doing complex analysis across log data from different kinds of sources.
 
-- With [VM insights](../../azure-monitor/vm/vminsights-overview.md), it analyzes the performance of your Windows and Linux VMs, and monitors their processes and dependencies on other resources and external processes. This is achieved through enabling both the Azure Monitor agent and Dependency agent VM extensions.
+- With [VM insights](/azure/azure-monitor/vm/vminsights-overview), it analyzes the performance of your Windows and Linux VMs, and monitors their processes and dependencies on other resources and external processes. This is achieved through enabling both the Azure Monitor agent and Dependency agent VM extensions.
 
 - Download and execute scripts on hybrid connected machines using the Custom Script Extension. This extension is useful for post deployment configuration, software installation, or any other configuration or management tasks.
 
@@ -63,7 +63,7 @@ Arc-enabled servers support moving machines with one or more VM extensions insta
 |Custom Script extension |Microsoft.Compute | CustomScriptExtension |[Windows Custom Script Extension](/azure/virtual-machines/extensions/custom-script-windows)|
 |Azure Monitor for VMs (insights) |Microsoft.Azure.Monitoring.DependencyAgent |DependencyAgentWindows | [Dependency agent virtual machine extension for Windows](/azure/virtual-machines/extensions/agent-dependency-windows)|
 |Azure Key Vault Certificate Sync | Microsoft.Azure.Key.Vault |KeyVaultForWindows | [Key Vault virtual machine extension for Windows](/azure/virtual-machines/extensions/key-vault-windows) |
-|Azure Monitor Agent |Microsoft.Azure.Monitor |AzureMonitorWindowsAgent |[Install the Azure Monitor agent](../../azure-monitor/agents/azure-monitor-agent-manage.md) |
+|Azure Monitor Agent |Microsoft.Azure.Monitor |AzureMonitorWindowsAgent |[Install the Azure Monitor agent](/azure/azure-monitor/agents/azure-monitor-agent-manage) |
 |Azure Automation Hybrid Runbook Worker extension |Microsoft.Compute |HybridWorkerForWindows |[Deploy an extension-based User Hybrid Runbook Worker](../../automation/extension-based-hybrid-runbook-worker-install.md) to execute runbooks locally |
 |Azure Extension for SQL Server |Microsoft.AzureData |WindowsAgent.SqlServer |[Install Azure extension for SQL Server](/sql/sql-server/azure-arc/connect#initiate-the-connection-from-azure) to initiate SQL Server connection to Azure |
 |Windows Admin Center (preview) |Microsoft.AdminCenter |AdminCenter |[Manage Azure Arc-enabled Servers using Windows Admin Center in Azure](/windows-server/manage/windows-admin-center/azure/manage-arc-hybrid-machines) |
@@ -78,7 +78,7 @@ Arc-enabled servers support moving machines with one or more VM extensions insta
 |Custom Script extension |Microsoft.Azure.Extensions |CustomScript |[Linux Custom Script Extension Version 2](/azure/virtual-machines/extensions/custom-script-linux) |
 |Azure Monitor for VMs (insights) |Microsoft.Azure.Monitoring.DependencyAgent |DependencyAgentLinux |[Dependency agent virtual machine extension for Linux](/azure/virtual-machines/extensions/agent-dependency-linux) |
 |Azure Key Vault Certificate Sync | Microsoft.Azure.Key.Vault |KeyVaultForLinux | [Key Vault virtual machine extension for Linux](/azure/virtual-machines/extensions/key-vault-linux) |
-|Azure Monitor Agent |Microsoft.Azure.Monitor |AzureMonitorLinuxAgent |[Install the Azure Monitor agent](../../azure-monitor/agents/azure-monitor-agent-manage.md) |
+|Azure Monitor Agent |Microsoft.Azure.Monitor |AzureMonitorLinuxAgent |[Install the Azure Monitor agent](/azure/azure-monitor/agents/azure-monitor-agent-manage) |
 |Azure Automation Hybrid Runbook Worker extension  |Microsoft.Compute |HybridWorkerForLinux |[Deploy an extension-based User Hybrid Runbook Worker](../../automation/extension-based-hybrid-runbook-worker-install.md) to execute runbooks locally|
 |Linux OS Update Extension  |Microsoft.SoftwareUpdateManagement |LinuxOsUpdateExtension |[Overview of Azure Update Manager](/azure/update-manager/overview?tabs=azure-vms)|
 |Linux Patch Extension  |Microsoft.CPlat.Core |LinuxPatchExtension |[Automatic Guest Patching for Azure Virtual Machines and Scale Sets](/azure/virtual-machines/automatic-vm-guest-patching)|

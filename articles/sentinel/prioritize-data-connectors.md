@@ -22,7 +22,7 @@ Check which data connectors are relevant to your environment, in the following o
 
 For the custom and partner connectors, we recommend that you start by setting up [CEF/Syslog](connect-cef-syslog-options.md) connectors, with the highest priority first, as well as any Linux-based devices.
 
-If your data ingestion becomes too expensive, too quickly, stop or filter the logs forwarded using the [Azure Monitor Agent](../azure-monitor/agents/azure-monitor-agent-overview.md).
+If your data ingestion becomes too expensive, too quickly, stop or filter the logs forwarded using the [Azure Monitor Agent](/azure/azure-monitor/agents/azure-monitor-agent-overview).
 
 > [!TIP]
 > Custom data connectors enable you to ingest data into Microsoft Sentinel from data sources not currently supported by built-in functionality, such as via agent, Logstash, or API. For more information, see [Resources for creating Microsoft Sentinel custom connectors](create-custom-connector.md).

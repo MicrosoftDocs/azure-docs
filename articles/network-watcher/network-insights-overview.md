@@ -14,7 +14,7 @@ ms.custom: subject-monitoring
 
 # Network insights
 
-Azure Monitor Network Insights provides a comprehensive and visual representation through [topology](network-insights-topology.md), [health](../service-health/resource-health-checks-resource-types.md) and [metrics](/azure/azure-monitor/reference/supported-metrics/metrics-index) for all deployed network resources, without requiring any configuration. It also provides access to network monitoring capabilities like [Connection monitor](../network-watcher/connection-monitor-overview.md), [NSG flow logs](../network-watcher/nsg-flow-logs-overview.md), [VNet flow logs](vnet-flow-logs-overview.md), and [Traffic analytics](../network-watcher/traffic-analytics.md). Additionally, it provides access to Network Watcher [diagnostic tools](../network-watcher/network-watcher-overview.md#network-diagnostic-tools).
+Azure Monitor Network Insights provides a comprehensive and visual representation through [topology](network-insights-topology.md), [health](/azure/service-health/resource-health-checks-resource-types) and [metrics](/azure/azure-monitor/reference/supported-metrics/metrics-index) for all deployed network resources, without requiring any configuration. It also provides access to network monitoring capabilities like [Connection monitor](../network-watcher/connection-monitor-overview.md), [NSG flow logs](../network-watcher/nsg-flow-logs-overview.md), [VNet flow logs](vnet-flow-logs-overview.md), and [Traffic analytics](../network-watcher/traffic-analytics.md). Additionally, it provides access to Network Watcher [diagnostic tools](../network-watcher/network-watcher-overview.md#network-diagnostic-tools).
 
 Azure Monitor Network Insights is structured around these key components of monitoring:
 
@@ -135,4 +135,4 @@ Resources that have been onboarded are:
 ## Related content
 
 - To learn more about network monitoring, see [What is Azure Network Watcher?](../network-watcher/network-watcher-overview.md)
-- To learn about the scenarios workbooks are designed to support and how to create reports and customize existing reports, see [Create interactive reports with Azure Monitor workbooks](../azure-monitor/visualize/workbooks-overview.md).
+- To learn about the scenarios workbooks are designed to support and how to create reports and customize existing reports, see [Create interactive reports with Azure Monitor workbooks](/azure/azure-monitor/visualize/workbooks-overview).

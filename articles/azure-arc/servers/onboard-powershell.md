@@ -105,4 +105,4 @@ After you install and configure the agent to register with Azure Arc-enabled ser
 
 * Review the [Planning and deployment guide](plan-at-scale-deployment.md) to plan for deploying Azure Arc-enabled servers at any scale and implement centralized management and monitoring.
 
-* Learn how to manage your machine by using [Azure Policy](../../governance/policy/overview.md). You can use VM [guest configuration](../../governance/machine-configuration/overview.md), verify that the machine is reporting to the expected Log Analytics workspace, and enable monitoring with [VM insights](../../azure-monitor/vm/vminsights-enable-policy.md).
+* Learn how to manage your machine by using [Azure Policy](../../governance/policy/overview.md). You can use VM [guest configuration](../../governance/machine-configuration/overview.md), verify that the machine is reporting to the expected Log Analytics workspace, and enable monitoring with [VM insights](/azure/azure-monitor/vm/vminsights-enable-policy).

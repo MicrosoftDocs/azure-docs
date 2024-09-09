@@ -35,8 +35,8 @@ The following extensions can currently be installed when creating a Batch pool:
 - [HPC GPU driver extension for Windows on NVIDIA](/azure/virtual-machines/extensions/hpccompute-gpu-windows)
 - [HPC GPU driver extension for Linux on NVIDIA](/azure/virtual-machines/extensions/hpccompute-gpu-linux)
 - [Microsoft Antimalware extension for Windows](/azure/virtual-machines/extensions/iaas-antimalware-windows)
-- [Azure Monitor agent for Linux](../azure-monitor/agents/azure-monitor-agent-manage.md)
-- [Azure Monitor agent for Windows](../azure-monitor/agents/azure-monitor-agent-manage.md)
+- [Azure Monitor agent for Linux](/azure/azure-monitor/agents/azure-monitor-agent-manage)
+- [Azure Monitor agent for Windows](/azure/azure-monitor/agents/azure-monitor-agent-manage)
 
 You can request support for other publishers and/or extension types by opening a support request.
 

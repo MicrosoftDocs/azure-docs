@@ -28,7 +28,7 @@ A *technical profile* provides a framework with a built-in mechanism to communic
 
 A technical profile enables these types of scenarios:
 
-- [Application Insights](analytics-with-application-insights.md): Sends event data to [Application Insights](../azure-monitor/app/app-insights-overview.md).
+- [Application Insights](analytics-with-application-insights.md): Sends event data to [Application Insights](/azure/azure-monitor/app/app-insights-overview).
 - [Microsoft Entra ID](active-directory-technical-profile.md): Provides support for the Azure AD B2C user management.
 - [Microsoft Entra multifactor authentication](multi-factor-auth-technical-profile.md): Provides support for verifying a phone number by using Microsoft Entra multifactor authentication.
 - [Claims transformation](claims-transformation-technical-profile.md): Calls output claims transformations to manipulate claims values, validate claims, or set default values for a set of output claims.

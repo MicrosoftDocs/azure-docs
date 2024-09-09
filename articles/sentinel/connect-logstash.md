@@ -43,7 +43,7 @@ The Logstash engine is comprised of three components:
 The Microsoft Sentinel output plugin for Logstash sends JSON-formatted data to your Log Analytics workspace, using the Log Analytics HTTP Data Collector REST API. The data is ingested into custom logs.
 
 - Learn more about the [Log Analytics REST API](/rest/api/loganalytics/create-request).
-- Learn more about [custom logs](../azure-monitor/agents/data-sources-custom-logs.md).
+- Learn more about [custom logs](/azure/azure-monitor/agents/data-sources-custom-logs).
 
 ## Deploy the Microsoft Sentinel output plugin in Logstash
 

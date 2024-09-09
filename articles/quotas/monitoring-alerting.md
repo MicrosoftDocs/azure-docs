@@ -25,11 +25,11 @@ Quota alerts in Azure are notifications triggered when the usage of a specific A
 For more information, see [Create alerts for quotas](how-to-guide-monitoring-alerting.md).
 
 > [!NOTE]
-> [General Role based access control](../azure-monitor/alerts/alerts-overview.md#azure-role-based-access-control-for-alerts) applies while creating alerts.  
+> [General Role based access control](/azure/azure-monitor/alerts/alerts-overview#azure-role-based-access-control-for-alerts) applies while creating alerts.  
 
 ## Next steps
 
 - Learn [how to create quota alerts](how-to-guide-monitoring-alerting.md).
-- Learn more about [alerts](../azure-monitor/alerts/alerts-overview.md)
+- Learn more about [alerts](/azure/azure-monitor/alerts/alerts-overview)
 - Learn about [Azure Resource Graph](../governance/resource-graph/overview.md)
 

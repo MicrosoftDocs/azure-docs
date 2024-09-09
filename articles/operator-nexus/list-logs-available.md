@@ -11,7 +11,7 @@ ms.custom: template-reference
 
 # List of logs available for streaming in Azure Operator Nexus
 
-Logs emitted by Nexus Resources provide insight in the detailed operations of Nexus Resources and are useful for monitoring their health and availability. The logs are categorized into different categories based on the type of resource emitting the logs. These logs can be streamed to specific targets by creating [Diagnostic Settings](../azure-monitor/essentials/diagnostic-settings.md) in Azure Monitor.
+Logs emitted by Nexus Resources provide insight in the detailed operations of Nexus Resources and are useful for monitoring their health and availability. The logs are categorized into different categories based on the type of resource emitting the logs. These logs can be streamed to specific targets by creating [Diagnostic Settings](/azure/azure-monitor/essentials/diagnostic-settings) in Azure Monitor.
 
 ## Nexus Cluster
 

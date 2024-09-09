@@ -13,7 +13,7 @@ ms.custom: compute-evergreen, devx-track-dotnet
 
 [!INCLUDE [Cloud Services (classic) deprecation announcement](includes/deprecation-announcement.md)]
 
-See [Azure Diagnostics Overview](../azure-monitor/agents/diagnostics-extension-overview.md) for a background on Azure Diagnostics.
+See [Azure Diagnostics Overview](/azure/azure-monitor/agents/diagnostics-extension-overview) for a background on Azure Diagnostics.
 
 ## How to Enable Diagnostics in a Worker Role
 This walkthrough describes how to implement an Azure worker role that emits telemetry data using the .NET EventSource class. Azure Diagnostics is used to collect the telemetry data and store it in an Azure storage account. When you create a worker role, Visual Studio automatically enables Diagnostics 1.0 as part of the solution in Azure Software Development Kits (SDKs) for .NET 2.4 and earlier. The following instructions describe the process for creating the worker role, disabling Diagnostics 1.0 from the solution, and deploying Diagnostics 1.2 or 1.3 to your worker role.
@@ -182,13 +182,13 @@ In the Visual Studio **Server Explorer**, navigate to the wadexample storage acc
 ![CloudServices_diag_tables](./media/cloud-services-dotnet-diagnostics/WadExampleTables.png)
 
 ## Configuration File Schema
-The Diagnostics configuration file defines values that are used to initialize diagnostic configuration settings when the diagnostics agent starts. See the [latest schema reference](../azure-monitor/agents/diagnostics-extension-versions.md) for valid values and examples.
+The Diagnostics configuration file defines values that are used to initialize diagnostic configuration settings when the diagnostics agent starts. See the [latest schema reference](/azure/azure-monitor/agents/diagnostics-extension-versions) for valid values and examples.
 
 ## Troubleshooting
-If you have trouble, see [Troubleshooting Azure Diagnostics](../azure-monitor/agents/diagnostics-extension-troubleshooting.md) for help with common problems.
+If you have trouble, see [Troubleshooting Azure Diagnostics](/azure/azure-monitor/agents/diagnostics-extension-troubleshooting) for help with common problems.
 
 ## Next Steps
-[See a list of related Azure virtual-machine diagnostic articles](../azure-monitor/agents/diagnostics-extension-overview.md) to change the data you collect, troubleshoot problems, or learn more about diagnostics in general.
+[See a list of related Azure virtual-machine diagnostic articles](/azure/azure-monitor/agents/diagnostics-extension-overview) to change the data you collect, troubleshoot problems, or learn more about diagnostics in general.
 
 [EventSource Class]: /dotnet/api/system.diagnostics.tracing.eventsource
 

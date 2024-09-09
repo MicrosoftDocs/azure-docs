@@ -24,7 +24,7 @@ Use [summary rules](/azure/azure-monitor/logs/summary-rules) in Microsoft Sentin
 
 Access summary rule results via Kusto Query Language (KQL) across detection, investigation, hunting, and reporting activities. Use summary rule results for longer in historical investigations, hunting, and compliance activities.
 
-Summary rule results are stored in separate tables under the **Analytics** data plan, and charged accordingly. For more information on data plans and storage costs, see [Select a table plan based on usage patterns in a Log Analytics workspace](../azure-monitor/logs/basic-logs-configure.md)
+Summary rule results are stored in separate tables under the **Analytics** data plan, and charged accordingly. For more information on data plans and storage costs, see [Select a table plan based on usage patterns in a Log Analytics workspace](/azure/azure-monitor/logs/basic-logs-configure)
 
 > [!IMPORTANT]
 > Summary rules are currently in PREVIEW. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.

@@ -54,5 +54,5 @@ After you edit the YAML, select **Review + save**, confirm the changes, and then
 
 ## Next steps
 
-- Learn how to [deploy Azure Monitor for containers](../../azure-monitor/containers/container-insights-enable-arc-enabled-clusters.md?toc=/azure/azure-arc/kubernetes/toc.json) for more in-depth information about nodes and containers on your clusters.
+- Learn how to [deploy Azure Monitor for containers](/azure/azure-monitor/containers/container-insights-enable-arc-enabled-clusters?toc=/azure/azure-arc/kubernetes/toc.json) for more in-depth information about nodes and containers on your clusters.
 - Learn about [identity and access options for Azure Arc-enabled Kubernetes](identity-access-overview.md).

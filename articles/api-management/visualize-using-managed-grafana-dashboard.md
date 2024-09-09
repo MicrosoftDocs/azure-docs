@@ -60,4 +60,4 @@ Review the default visualizations on the dashboard, which will appear similar to
 ## Next steps
 
 * For more information about managing your Grafana dashboard, see the [Grafana docs](https://grafana.com/docs/grafana/v9.0/dashboards/).
-* Easily pin log queries and charts from the Azure portal to your Managed Grafana dashboard. For more information, see [Monitor your Azure services in Grafana](../azure-monitor/visualize/grafana-plugin.md#pin-charts-from-the-azure-portal-to-azure-managed-grafana).
+* Easily pin log queries and charts from the Azure portal to your Managed Grafana dashboard. For more information, see [Monitor your Azure services in Grafana](/azure/azure-monitor/visualize/grafana-plugin#pin-charts-from-the-azure-portal-to-azure-managed-grafana).

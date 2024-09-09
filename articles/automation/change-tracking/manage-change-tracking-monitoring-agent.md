@@ -32,7 +32,7 @@ To manage tracking and inventory, ensure that you enable Change tracking with AM
    1. Use the filter to view all the DCRs that are configured to the specific LA workspace level.
 
    >[!NOTE]
-   >The settings that you configure are applicable to all the VMs that are attached to a specific DCR. For more information about DCR, see [Data collection rules in Azure Monitor](../../azure-monitor/essentials/data-collection-rule-overview.md).
+   >The settings that you configure are applicable to all the VMs that are attached to a specific DCR. For more information about DCR, see [Data collection rules in Azure Monitor](/azure/azure-monitor/essentials/data-collection-rule-overview).
 
 1. Select **Add** to configure new file settings
    

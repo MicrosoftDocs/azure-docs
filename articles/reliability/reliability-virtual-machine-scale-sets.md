@@ -82,7 +82,7 @@ For more information on how to use scale sets appropriately, see [When to use Vi
 
 #### :::image type="icon" source="../reliability/media/icon-recommendation-high.svg"::: **Configure Virtual Machine Scale Sets Autoscale to Automatic** 
 
-[Autoscale is a built-in feature of Azure Monitor](../azure-monitor/autoscale/autoscale-overview.md) that helps the performance and cost-effectiveness of your resources by adding and removing scale set VMs based on demand. In addition, you can choose to scale your resources manually to a specific instance count or in accordance with metrics thresholds. You can also schedule instance counts that scale during designated time windows.
+[Autoscale is a built-in feature of Azure Monitor](/azure/azure-monitor/autoscale/autoscale-overview) that helps the performance and cost-effectiveness of your resources by adding and removing scale set VMs based on demand. In addition, you can choose to scale your resources manually to a specific instance count or in accordance with metrics thresholds. You can also schedule instance counts that scale during designated time windows.
 
 To learn how to enable automatic OS image upgrades, see [Azure Virtual Machine Scale Set automatic OS image upgrades](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade).
 

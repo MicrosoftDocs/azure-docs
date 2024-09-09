@@ -90,14 +90,14 @@ Most Azure tasks and services can be used with delegated resources across manage
 
 - Create migration projects in the customer tenant and migrate VMs
 
-[Azure Monitor](../../azure-monitor/index.yml):
+[Azure Monitor](/azure/azure-monitor/):
 
 - View alerts for delegated subscriptions, with the ability to view and refresh alerts across all subscriptions
 - View activity log details for delegated subscriptions
-- [Log analytics](../../azure-monitor/logs/workspace-design.md#multiple-tenant-strategies): Query data from remote workspaces in multiple tenants (note that automation accounts used to access data from workspaces in customer tenants must be created in the same tenant)
-- Create, view, and manage [alerts](../../azure-monitor/alerts/alerts-create-new-alert-rule.md) in customer tenants
+- [Log analytics](/azure/azure-monitor/logs/workspace-design#multiple-tenant-strategies): Query data from remote workspaces in multiple tenants (note that automation accounts used to access data from workspaces in customer tenants must be created in the same tenant)
+- Create, view, and manage [alerts](/azure/azure-monitor/alerts/alerts-create-new-alert-rule) in customer tenants
 - Create alerts in customer tenants that trigger automation, such as Azure Automation runbooks or Azure Functions, in the managing tenant through webhooks
-- Create [diagnostic settings](../..//azure-monitor/essentials/diagnostic-settings.md) in workspaces created in customer tenants, to send resource logs to workspaces in the managing tenant
+- Create [diagnostic settings](/azure/azure-monitor/essentials/diagnostic-settings) in workspaces created in customer tenants, to send resource logs to workspaces in the managing tenant
 - For SAP workloads, [monitor SAP Solutions metrics with an aggregated view across customer tenants](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/using-azure-lighthouse-and-azure-monitor-for-sap-solutions-to/ba-p/1537293)
 - For Azure AD B2C, [route sign-in and auditing logs](../../active-directory-b2c/azure-monitor.md) to different monitoring solutions
 
@@ -121,7 +121,7 @@ Most Azure tasks and services can be used with delegated resources across manage
 
 - See the tenant ID in returned query results, allowing you to identify whether a subscription belongs to a managed tenant
 
-[Azure Service Health](../../service-health/index.yml):
+[Azure Service Health](/azure/service-health/):
 
 - Monitor the health of customer resources with Azure Resource Health
 - Track the health of the Azure services used by your customers

@@ -60,7 +60,7 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 
 | Service | FedRAMP High | DoD IL2 |
 | ------- |:------------:|:-------:|
-| [Advisor](../../advisor/index.yml) | &#x2705; | &#x2705; |
+| [Advisor](/azure/advisor/) | &#x2705; | &#x2705; |
 | [AI Builder](/ai-builder/) | &#x2705; | &#x2705; |
 | [Analysis Services](../../analysis-services/index.yml) | &#x2705; | &#x2705; |
 | [API Management](../../api-management/index.yml) | &#x2705; | &#x2705; |
@@ -91,7 +91,7 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Azure Managed Grafana](../../managed-grafana/index.yml) | &#x2705; | &#x2705; |
 | [Azure Marketplace portal](https://azuremarketplace.microsoft.com/) | &#x2705; | &#x2705; |
 | [Azure Maps](../../azure-maps/index.yml) | &#x2705; | &#x2705; |
-| [Azure Monitor](../../azure-monitor/index.yml) (incl. [Application Insights](../../azure-monitor/app/app-insights-overview.md), [Log Analytics](../../azure-monitor/logs/data-platform-logs.md), and [Application Change Analysis](../../azure-monitor/app/change-analysis.md)) | &#x2705; | &#x2705; |
+| [Azure Monitor](/azure/azure-monitor/) (incl. [Application Insights](/azure/azure-monitor/app/app-insights-overview), [Log Analytics](/azure/azure-monitor/logs/data-platform-logs), and [Application Change Analysis](/azure/azure-monitor/app/change-analysis)) | &#x2705; | &#x2705; |
 | [Azure NetApp Files](../../azure-netapp-files/index.yml) | &#x2705; | &#x2705; |
 | **Service** | **FedRAMP High** | **DoD IL2** |
 | [Azure OpenAI](/azure/ai-services/openai/) | &#x2705; | &#x2705; |
@@ -222,7 +222,7 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Scheduler](../../scheduler/index.yml) (replaced by [Logic Apps](../../logic-apps/index.yml)) | &#x2705; | &#x2705; |
 | [Service Bus](../../service-bus-messaging/index.yml) | &#x2705; | &#x2705; |
 | [Service Fabric](/azure/service-fabric/) | &#x2705; | &#x2705; |
-| [Service Health](../../service-health/index.yml) | &#x2705; | &#x2705; |
+| [Service Health](/azure/service-health/) | &#x2705; | &#x2705; |
 | [SignalR Service](../../azure-signalr/index.yml) | &#x2705; | &#x2705; |
 | **Service** | **FedRAMP High** | **DoD IL2** |
 | [Site Recovery](../../site-recovery/index.yml) | &#x2705; | &#x2705; |
@@ -276,7 +276,7 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 
 | Service | FedRAMP High | DoD IL2 | DoD IL4 | DoD IL5 | DoD IL6 |
 | ------- |:------------:|:-------:|:-------:|:-------:|:-------:|
-| [Advisor](../../advisor/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
+| [Advisor](/azure/advisor/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [AI Builder](/ai-builder/) | &#x2705; | &#x2705; | &#x2705; | &#x2705;| |
 | [Analysis Services](../../analysis-services/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [API Management](../../api-management/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
@@ -303,7 +303,7 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Azure Kubernetes Service (AKS)](/azure/aks/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Azure Managed Grafana](../../managed-grafana/index.yml) | &#x2705; | &#x2705; | |  |  |
 | [Azure Maps](../../azure-maps/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
-| [Azure Monitor](../../azure-monitor/index.yml) (incl. [Application Insights](../../azure-monitor/app/app-insights-overview.md) and [Log Analytics](../../azure-monitor/logs/data-platform-logs.md)) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
+| [Azure Monitor](/azure/azure-monitor/) (incl. [Application Insights](/azure/azure-monitor/app/app-insights-overview) and [Log Analytics](/azure/azure-monitor/logs/data-platform-logs)) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Azure NetApp Files](../../azure-netapp-files/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Azure OpenAI](/azure/ai-services/openai/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [Azure Policy](../../governance/policy/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
@@ -423,7 +423,7 @@ This article provides a detailed list of Azure, Dynamics 365, Microsoft 365, and
 | [Service Bus](../../service-bus-messaging/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Service Fabric](/azure/service-fabric/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | **Service** | **FedRAMP High** | **DoD IL2** | **DoD IL4** | **DoD IL5** | **DoD IL6** |
-| [Service Health](../../service-health/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
+| [Service Health](/azure/service-health/) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [SignalR Service](../../azure-signalr/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |
 | [Site Recovery](../../site-recovery/index.yml) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | |
 | [SQL Database](/azure/azure-sql/database/sql-database-paas-overview) | &#x2705; | &#x2705; | &#x2705; | &#x2705; | &#x2705; |

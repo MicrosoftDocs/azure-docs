@@ -257,7 +257,7 @@ You can delete the Hybrid Runbook Worker from the portal.
 
 1. Select **Delete**.
 
-   You'll be presented with a warning in a dialog box **Delete Hybrid worker** that the selected hybrid worker would be deleted permanently. Select **Delete**. This operation will delete the extension for the **Extension based (V2)** worker or remove the **Agent based (V1)** entry from the portal. However, it leaves the stale hybrid worker on the VM. To manually uninstall the agent, see [Uninstall agent](../azure-monitor/agents/agent-manage.md#uninstall-agent).
+   You'll be presented with a warning in a dialog box **Delete Hybrid worker** that the selected hybrid worker would be deleted permanently. Select **Delete**. This operation will delete the extension for the **Extension based (V2)** worker or remove the **Agent based (V1)** entry from the portal. However, it leaves the stale hybrid worker on the VM. To manually uninstall the agent, see [Uninstall agent](/azure/azure-monitor/agents/agent-manage#uninstall-agent).
 
    :::image type="content" source="./media/extension-based-hybrid-runbook-worker-install/delete-machine-from-group.png" alt-text="Screenshot showing to delete virtual machine from existing group.":::
 
@@ -1125,8 +1125,8 @@ To check the version of the extension-based Hybrid Runbook Worker:
 
 ## Monitor performance of Hybrid Workers using VM insights
 
-Using [VM insights](../azure-monitor/vm/vminsights-overview.md), you can monitor the performance of Azure VMs and Arc-enabled Servers deployed as Hybrid Runbook workers. Among multiple elements that are considered during performances, the VM insights monitors the key operating system performance indicators related to processor, memory, network adapter, and disk utilization.
-- For Azure VMs, see [How to chart performance with VM insights](../azure-monitor/vm/vminsights-performance.md).
+Using [VM insights](/azure/azure-monitor/vm/vminsights-overview), you can monitor the performance of Azure VMs and Arc-enabled Servers deployed as Hybrid Runbook workers. Among multiple elements that are considered during performances, the VM insights monitors the key operating system performance indicators related to processor, memory, network adapter, and disk utilization.
+- For Azure VMs, see [How to chart performance with VM insights](/azure/azure-monitor/vm/vminsights-performance).
 - For Arc-enabled servers, see [Tutorial: Monitor a hybrid machine with VM insights](../azure-arc/servers/learn/tutorial-enable-vm-insights.md).
 
 ## Next steps

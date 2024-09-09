@@ -30,8 +30,8 @@ sections:
         answer: | 
           To get your own "roll-up" report, you can create your own workbook in the **Log Analytics** workspace.
   
-          - [Log Analytics workspace overview](../../azure-monitor/logs/log-analytics-workspace-overview.md)
-          - [Integrate Log Analytics and Excel](../../azure-monitor/logs/log-excel.md)
+          - [Log Analytics workspace overview](/azure/azure-monitor/logs/log-analytics-workspace-overview)
+          - [Integrate Log Analytics and Excel](/azure/azure-monitor/logs/log-excel)
       
 additionalContent: |
 

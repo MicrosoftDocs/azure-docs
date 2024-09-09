@@ -225,8 +225,8 @@ to ensure you collecting available logs and metrics. These call data aren't stor
 Review this documentation to start collecting call logs: [Enable logs via Diagnostic Settings in Azure Monitor.](../analytics/enable-logging.md)
 
 - We recommend you choose the category group "allLogs" and choose the destination detail of “Send to Log Analytics workspace" in order to view and analyze the data in Azure Monitor.
-- If you don't have a Log Analytics workspace to send your data to, you'll need to [create one.](../../../azure-monitor/logs/quick-create-workspace.md)
-- We recommend you monitor your data usage and retention policies for cost considerations as needed. See: [Controlling costs.](../../../azure-monitor/essentials/diagnostic-settings.md#controlling-costs)
+- If you don't have a Log Analytics workspace to send your data to, you'll need to [create one.](/azure/azure-monitor/logs/quick-create-workspace)
+- We recommend you monitor your data usage and retention policies for cost considerations as needed. See: [Controlling costs.](/azure/azure-monitor/essentials/diagnostic-settings#controlling-costs)
 
 
 ### Diagnose calls with Call Diagnostics
@@ -266,7 +266,7 @@ Once you begin storing log data in your log analytics workspace, you can visuali
 
 Once you have enabled logs, you can view call insights in your Azure Resource using visualization examples: [Voice and video Insights](../analytics/insights/voice-and-video-insights.md)
 
-- You can modify the existing workbooks or even create your own: [Azure Workbooks](../../../azure-monitor/visualize/workbooks-overview.md)
+- You can modify the existing workbooks or even create your own: [Azure Workbooks](/azure/azure-monitor/visualize/workbooks-overview)
 
 - For examples of deeper suggested analysis see our [Query call logs](../analytics/query-call-logs.md)
 
@@ -308,7 +308,7 @@ New Issue · Azure/Communication (github.com) or New Issue · Azure/azure-sdk-fo
 
 
 - If you don't have access to your customer’s Azure portal to view data tied to their Azure Resource ID you can request to query their workspaces to improve quality on their behalf. 
-    - [Create a log query across multiple workspaces and apps in Azure Monitor](../../../azure-monitor/logs/cross-workspace-query.md)
+    - [Create a log query across multiple workspaces and apps in Azure Monitor](/azure/azure-monitor/logs/cross-workspace-query)
 
 
 ## Next steps
@@ -316,8 +316,8 @@ New Issue · Azure/Communication (github.com) or New Issue · Azure/azure-sdk-fo
 - Continue to learn other best practices: [Best practices: Azure Communication Services calling SDKs](../best-practices.md)
 - Explore known issues: [Known issues in the SDKs and APIs](../known-issues.md)
 - Learn how to debug calls: [Call Diagnostics](call-diagnostics.md)
-- Learn how to use the Log Analytics workspace: [Log Analytics Tutorial](../../../../articles/azure-monitor/logs/log-analytics-tutorial.md)
-- Create your own queries in Log Analytics: [Get Started Queries](../../../../articles/azure-monitor/logs/get-started-queries.md)
+- Learn how to use the Log Analytics workspace: [Log Analytics Tutorial](/azure/azure-monitor/logs/log-analytics-tutorial)
+- Create your own queries in Log Analytics: [Get Started Queries](/azure/azure-monitor/logs/get-started-queries)
 
 
 <!-- Comment this out - add to the toc.yml file at row 583.

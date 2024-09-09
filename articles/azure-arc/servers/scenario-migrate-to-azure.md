@@ -29,7 +29,7 @@ With Azure PowerShell, use the [Get-AzConnectedMachineExtension](/powershell/mod
 
 With the Azure CLI, use the [az connectedmachine extension list](/cli/azure/connectedmachine/extension#az-connectedmachine-extension-list) command with the `--machine-name` and `--resource-group` parameters. By default, the output of Azure CLI commands is in JSON (JavaScript Object Notation). To change the default output to a list or table, for example, use [az configure --output](/cli/azure/reference-index). You can also add `--output` to any command for a one time change in output format.
 
-After identifying which VM extensions are deployed, you can remove them using the [Azure portal](manage-vm-extensions-portal.md), using the [Azure PowerShell](manage-vm-extensions-powershell.md), or using the [Azure CLI](manage-vm-extensions-cli.md). If the Log Analytics VM extension or Dependency agent VM extension was deployed using Azure Policy and the [VM insights initiative](../../azure-monitor/vm/vminsights-enable-policy.md), it is necessary to [create an exclusion](../../governance/policy/tutorials/create-and-manage.md#remove-a-non-compliant-or-denied-resource-from-the-scope-with-an-exclusion) to prevent re-evaluation and deployment of the extensions on the Azure Arc-enabled server before the migration is complete.
+After identifying which VM extensions are deployed, you can remove them using the [Azure portal](manage-vm-extensions-portal.md), using the [Azure PowerShell](manage-vm-extensions-powershell.md), or using the [Azure CLI](manage-vm-extensions-cli.md). If the Log Analytics VM extension or Dependency agent VM extension was deployed using Azure Policy and the [VM insights initiative](/azure/azure-monitor/vm/vminsights-enable-policy), it is necessary to [create an exclusion](../../governance/policy/tutorials/create-and-manage.md#remove-a-non-compliant-or-denied-resource-from-the-scope-with-an-exclusion) to prevent re-evaluation and deployment of the extensions on the Azure Arc-enabled server before the migration is complete.
 
 ## Step 2: Review access rights
 
@@ -59,7 +59,7 @@ After migration and completion of all post-migration configuration steps, you ca
 
 To resume using audit settings inside a machine with guest configuration policy definitions, see [Enable guest configuration](../../governance/machine-configuration/overview.md).
 
-If the Log Analytics VM extension or Dependency agent VM extension was deployed using Azure Policy and the [VM insights initiative](../../azure-monitor/vm/vminsights-enable-policy.md), remove the [exclusion](../../governance/policy/tutorials/create-and-manage.md#remove-a-non-compliant-or-denied-resource-from-the-scope-with-an-exclusion) you created earlier. To use Azure Policy to enable Azure virtual machines, see [Deploy Azure Monitor at scale using Azure Policy](../../azure-monitor/best-practices.md).
+If the Log Analytics VM extension or Dependency agent VM extension was deployed using Azure Policy and the [VM insights initiative](/azure/azure-monitor/vm/vminsights-enable-policy), remove the [exclusion](../../governance/policy/tutorials/create-and-manage.md#remove-a-non-compliant-or-denied-resource-from-the-scope-with-an-exclusion) you created earlier. To use Azure Policy to enable Azure virtual machines, see [Deploy Azure Monitor at scale using Azure Policy](/azure/azure-monitor/best-practices).
 
 ## Next steps
 

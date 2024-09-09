@@ -26,7 +26,7 @@ For more information about the resource types for Container Registry, see [Azure
 
 ## Monitoring data
 
-Azure Container Registry collects the same kinds of monitoring data as other Azure resources that are described in [Monitoring data from Azure resources](../azure-monitor/essentials/monitor-azure-resource.md#monitoring-data).
+Azure Container Registry collects the same kinds of monitoring data as other Azure resources that are described in [Monitoring data from Azure resources](/azure/azure-monitor/essentials/monitor-azure-resource#monitoring-data).
 
 See [Monitoring Azure Container Registry data reference](monitor-service-reference.md) for detailed information on the metrics and logs created by Azure Container Registry.
 
@@ -36,7 +36,7 @@ Platform metrics and the Activity log are collected and stored automatically, bu
 
 Resource Logs aren't collected and stored until you create a diagnostic setting and route them to one or more locations.
 
-See [Create diagnostic setting to collect platform logs and metrics in Azure](../azure-monitor/essentials/diagnostic-settings.md) for the detailed process for creating a diagnostic setting using the Azure portal, CLI, or PowerShell. When you create a diagnostic setting, you specify which categories of logs to collect. The categories for Azure Container Registry are listed in [Azure Container Registry monitoring data reference](monitor-service-reference.md#resource-logs).
+See [Create diagnostic setting to collect platform logs and metrics in Azure](/azure/azure-monitor/essentials/diagnostic-settings) for the detailed process for creating a diagnostic setting using the Azure portal, CLI, or PowerShell. When you create a diagnostic setting, you specify which categories of logs to collect. The categories for Azure Container Registry are listed in [Azure Container Registry monitoring data reference](monitor-service-reference.md#resource-logs).
 
 > [!TIP]
 > You can also create registry diagnostic settings by navigating to your registry in the portal. In the menu, select **Diagnostic settings** under **Monitoring**.
@@ -51,7 +51,7 @@ For a list of available metrics for Container Registry, see [Azure Container Reg
 
 ## Analyzing metrics
 
-You can analyze metrics for an Azure container registry with metrics from other Azure services using metrics explorer by opening **Metrics** from the **Azure Monitor** menu. See [Analyze metrics with Azure Monitor metrics explorer](../azure-monitor/essentials/analyze-metrics.md) for details on using this tool.
+You can analyze metrics for an Azure container registry with metrics from other Azure services using metrics explorer by opening **Metrics** from the **Azure Monitor** menu. See [Analyze metrics with Azure Monitor metrics explorer](/azure/azure-monitor/essentials/analyze-metrics) for details on using this tool.
 
 > [!TIP]
 > You can also go to the metrics explorer by navigating to your registry in the portal. In the menu, select **Metrics** under **Monitoring**.
@@ -78,9 +78,9 @@ You can use the Azure Monitor REST API to get information programmatically about
 
 Data in Azure Monitor Logs is stored in tables where each table has its own set of unique properties.  
 
-All resource logs in Azure Monitor have the same fields followed by service-specific fields. The common schema is outlined in [Azure Monitor resource log schema](../azure-monitor/essentials/resource-logs-schema.md#top-level-common-schema). The schema for Azure Container Registry resource logs is found in the [Azure Container Registry Data Reference](monitor-service-reference.md#schemas).
+All resource logs in Azure Monitor have the same fields followed by service-specific fields. The common schema is outlined in [Azure Monitor resource log schema](/azure/azure-monitor/essentials/resource-logs-schema#top-level-common-schema). The schema for Azure Container Registry resource logs is found in the [Azure Container Registry Data Reference](monitor-service-reference.md#schemas).
 
-The [Activity log](../azure-monitor/essentials/activity-log.md) is a platform log in Azure that provides insight into subscription-level events. You can view it independently or route it to Azure Monitor Logs, where you can do much more complex queries using Log Analytics.  
+The [Activity log](/azure/azure-monitor/essentials/activity-log) is a platform log in Azure that provides insight into subscription-level events. You can view it independently or route it to Azure Monitor Logs, where you can do much more complex queries using Log Analytics.  
 
 For a list of the types of resource logs collected for Azure Container Registry, see [Monitoring Azure Container Registry data reference](monitor-service-reference.md#resource-logs).  
 

@@ -16,7 +16,7 @@ ms.date: 04/18/2024
 
 Azure Arc sites provide a centralized view to monitor  groups of resources, but don't provide monitoring capabilities for the site overall. Instead, customers can set up alerts and monitoring for supported resources within a site. Once alerts are set up and triggered depending on the alert criteria, Azure Arc site manager (preview) makes the resource alert status visible within the site pages.
 
-If you aren't familiar with Azure Monitor, learn more about how to [monitor Azure resources with Azure Monitor](../../azure-monitor/essentials/monitor-azure-resource.md).
+If you aren't familiar with Azure Monitor, learn more about how to [monitor Azure resources with Azure Monitor](/azure/azure-monitor/essentials/monitor-azure-resource).
 
 ## Prerequisites
 
@@ -27,7 +27,7 @@ If you aren't familiar with Azure Monitor, learn more about how to [monitor Azur
 
 ## Configure alerts for sites in Azure Arc
 
-This section provides basic steps for configuring alerts for sites in Azure Arc. For more detailed information about Azure Monitor, see [Create or edit an alert rule](../../azure-monitor/alerts/alerts-create-metric-alert-rule.yml).
+This section provides basic steps for configuring alerts for sites in Azure Arc. For more detailed information about Azure Monitor, see [Create or edit an alert rule](/azure/azure-monitor/alerts/alerts-create-metric-alert-rule).
 
 To configure alerts for sites in Azure Arc, follow the below steps.
 

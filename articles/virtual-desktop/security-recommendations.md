@@ -110,10 +110,10 @@ Enabling [Conditional Access](../active-directory/conditional-access/overview.md
 
 Enabling audit log collection lets you view user and admin activity related to Azure Virtual Desktop. Some examples of key audit logs are:
 
--   [Azure Activity Log](../azure-monitor/essentials/activity-log.md)
+-   [Azure Activity Log](/azure/azure-monitor/essentials/activity-log)
 -   [Microsoft Entra Activity Log](../active-directory/reports-monitoring/concept-activity-logs-azure-monitor.md)
 -   [Microsoft Entra ID](../active-directory/fundamentals/active-directory-whatis.md)
--   [Session hosts](../azure-monitor/agents/agent-windows.md)
+-   [Session hosts](/azure/azure-monitor/agents/agent-windows)
 -   [Key Vault logs](/azure/key-vault/general/logging)
 
 ### Use RemoteApp
@@ -122,7 +122,7 @@ When choosing a deployment model, you can either provide remote users access to 
 
 ### Monitor usage with Azure Monitor
 
-Monitor your Azure Virtual Desktop service's usage and availability with [Azure Monitor](https://azure.microsoft.com/services/monitor/). Consider creating [service health alerts](../service-health/alerts-activity-log-service-notifications-portal.md) for the Azure Virtual Desktop service to receive notifications whenever there's a service impacting event.
+Monitor your Azure Virtual Desktop service's usage and availability with [Azure Monitor](https://azure.microsoft.com/services/monitor/). Consider creating [service health alerts](/azure/service-health/alerts-activity-log-service-notifications-portal) for the Azure Virtual Desktop service to receive notifications whenever there's a service impacting event.
 
 ### Encrypt your session hosts
 

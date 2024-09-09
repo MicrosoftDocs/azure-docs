@@ -409,4 +409,4 @@ resource fluxRuleGroup 'Microsoft.AlertsManagement/prometheusRuleGroups@2023-03-
 ## Next steps
 
 - Review our tutorial on [using GitOps with Flux v2 to manage configuration and application deployment](tutorial-use-gitops-flux2.md).
-- Learn about [Azure Monitor Container Insights](../../azure-monitor/containers/container-insights-enable-arc-enabled-clusters.md?toc=/azure/azure-arc/kubernetes/toc.json&bc=/azure/azure-arc/kubernetes/breadcrumb/toc.json).
+- Learn about [Azure Monitor Container Insights](/azure/azure-monitor/containers/container-insights-enable-arc-enabled-clusters?toc=/azure/azure-arc/kubernetes/toc.json&bc=/azure/azure-arc/kubernetes/breadcrumb/toc.json).

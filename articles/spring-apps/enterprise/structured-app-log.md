@@ -286,4 +286,4 @@ AppPlatformLogsforSpring
 
 ## Next steps
 
-* To learn more about the Log Query, see [Get started with log queries in Azure Monitor](../../azure-monitor/logs/get-started-queries.md)
+* To learn more about the Log Query, see [Get started with log queries in Azure Monitor](/azure/azure-monitor/logs/get-started-queries)

@@ -160,7 +160,7 @@ Azure Application Gateway doesn't just poll for the renewed certificate version 
 4. You find a recommendation titled **Resolve Azure Key Vault issue for your Application Gateway**, if your gateway is experiencing this issue. Ensure the correct subscription is selected from the drop-down options above.
 5. Select it to view the error details, the associated key vault resource and the  [troubleshooting guide](../application-gateway/application-gateway-key-vault-common-errors.md) to fix your exact issue.
 
-By identifying such an event through Azure Advisor or Resource Health, you can quickly resolve any configuration problems with your Key Vault. We strongly recommend you take advantage of [Azure Advisor](../advisor/advisor-alerts-portal.md) and [Resource Health](../service-health/resource-health-alert-monitor-guide.md) alerts to stay informed when a problem is detected.
+By identifying such an event through Azure Advisor or Resource Health, you can quickly resolve any configuration problems with your Key Vault. We strongly recommend you take advantage of [Azure Advisor](/azure/advisor/advisor-alerts-portal) and [Resource Health](/azure/service-health/resource-health-alert-monitor-guide) alerts to stay informed when a problem is detected.
  
 For Advisor alert, use "Resolve Azure Key Vault issue for your Application Gateway" in the recommendation type shown:</br>
 ![Diagram that shows steps for Advisor alert.](media/key-vault-certs/advisor-alert.png)

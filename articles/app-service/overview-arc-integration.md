@@ -113,7 +113,7 @@ All applications deployed with Azure App Service on Kubernetes with Azure Arc ar
 
 ### What logs are collected?
 
-Logs for both system components and your applications are written to standard output. Both log types can be collected for analysis using standard Kubernetes tools. You can also configure the App Service cluster extension with a [Log Analytics workspace](../azure-monitor/logs/log-analytics-overview.md), and it sends all logs to that workspace.
+Logs for both system components and your applications are written to standard output. Both log types can be collected for analysis using standard Kubernetes tools. You can also configure the App Service cluster extension with a [Log Analytics workspace](/azure/azure-monitor/logs/log-analytics-overview), and it sends all logs to that workspace.
 
 By default, logs from system components are sent to the Azure team. Application logs aren't sent. You can prevent these logs from being transferred by setting `logProcessor.enabled=false` as an extension configuration setting. This configuration setting will also disable forwarding of application to your Log Analytics workspace. Disabling the log processor might impact time needed for any support cases, and you will be asked to collect logs from standard output through some other means.
 

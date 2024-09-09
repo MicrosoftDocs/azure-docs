@@ -39,7 +39,7 @@ To enable audit logs in diagnostic logging, select your Azure Data Manager for E
  
 > [!NOTE]
 > It might take up to 15 minutes for the first Logs to show in Log Analytics. 
-For information on how to work with diagnostic logs, see [Azure Resource Log documentation.](../azure-monitor/essentials/platform-logs-overview.md)
+For information on how to work with diagnostic logs, see [Azure Resource Log documentation.](/azure/azure-monitor/essentials/platform-logs-overview)
 
 ## Audit log details
 The audit logs for Azure Data Manager for Energy service returns the following fields.

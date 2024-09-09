@@ -187,7 +187,7 @@ The following steps help you get started understanding the service, but for prod
 
 ## Create a Log Analytics workspace
 
-A [Log Analytics workspace](../azure-monitor/logs/quick-create-workspace.md) provides access to logs for Container Apps applications running in the Azure Arc-enabled Kubernetes cluster.  A Log Analytics workspace is optional, but recommended.
+A [Log Analytics workspace](/azure/azure-monitor/logs/quick-create-workspace) provides access to logs for Container Apps applications running in the Azure Arc-enabled Kubernetes cluster.  A Log Analytics workspace is optional, but recommended.
 
 1. Create a Log Analytics workspace.
 

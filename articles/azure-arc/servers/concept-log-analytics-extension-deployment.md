@@ -12,8 +12,8 @@ Azure Monitor supports multiple methods to install the Azure Monitor agent and c
 
 The Azure Monitor agent is required if you want to:
 
-* Monitor the operating system and any workloads running on the machine or server using [VM insights](../../azure-monitor/vm/vminsights-overview.md)
-* Analyze and alert using [Azure Monitor](../../azure-monitor/overview.md)
+* Monitor the operating system and any workloads running on the machine or server using [VM insights](/azure/azure-monitor/vm/vminsights-overview)
+* Analyze and alert using [Azure Monitor](/azure/azure-monitor/overview)
 * Perform security monitoring in Azure by using [Microsoft Defender for Cloud](/azure/defender-for-cloud/defender-for-cloud-introduction) or [Microsoft Sentinel](../../sentinel/overview.md)
 * Collect inventory and track changes by using [Azure Automation Change Tracking and Inventory](../../automation/change-tracking/overview.md)
 
@@ -21,7 +21,7 @@ The Azure Monitor agent is required if you want to:
 > Azure Monitor agent logs are stored locally and are updated after temporary disconnection of an Arc-enabled machine.
 > 
 
-This article reviews the deployment methods for the Azure Monitor agent VM extension, across multiple production physical servers or virtual machines in your environment, to help you determine which works best for your organization. If you are interested in the new Azure Monitor agent and want to see a detailed comparison, see [Azure Monitor agents overview](../../azure-monitor/agents/agents-overview.md).  
+This article reviews the deployment methods for the Azure Monitor agent VM extension, across multiple production physical servers or virtual machines in your environment, to help you determine which works best for your organization. If you are interested in the new Azure Monitor agent and want to see a detailed comparison, see [Azure Monitor agents overview](/azure/azure-monitor/agents/agents-overview).  
 
 ## Installation options
 
@@ -47,7 +47,7 @@ This method supports managing the installation, management, and removal of VM ex
 
 You can use Azure Policy to deploy the Azure Monitor agent VM extension at-scale to machines in your environment, and maintain configuration compliance. This is accomplished by using either the [**Configure Linux Arc-enabled machines to run Azure Monitor Agent**](https://portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F845857af-0333-4c5d-bbbc-6076697da122) or the [**Configure Windows Arc-enabled machines to run Azure Monitor Agent**](https://portal.azure.com/#view/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F94f686d6-9a24-4e19-91f1-de937dc171a4) policy definition.
 
-Azure Policy includes several prebuilt definitions related to Azure Monitor. For a complete list of the built-in policies in the  **Monitoring** category, see [Azure Policy built-in definitions for Azure Monitor](../../azure-monitor/policy-reference.md).
+Azure Policy includes several prebuilt definitions related to Azure Monitor. For a complete list of the built-in policies in the  **Monitoring** category, see [Azure Policy built-in definitions for Azure Monitor](/azure/azure-monitor/policy-reference).
 
 #### Advantages
 
@@ -94,4 +94,4 @@ The Azure Monitor agent VM extension can be installed using the Azure portal. Se
 
 * To start collecting security-related events with Microsoft Sentinel, see [onboard to Microsoft Sentinel](scenario-onboard-azure-sentinel.md), or to collect with Microsoft Defender for Cloud, see [onboard to Microsoft Defender for Cloud](../../security-center/quickstart-onboard-machines.md).
 
-* Read the VM insights [Monitor performance](../../azure-monitor/vm/vminsights-performance.md) and [Map dependencies](../../azure-monitor/vm/vminsights-maps.md) articles to see how well your machine is performing and view discovered application components.
+* Read the VM insights [Monitor performance](/azure/azure-monitor/vm/vminsights-performance) and [Map dependencies](/azure/azure-monitor/vm/vminsights-maps) articles to see how well your machine is performing and view discovered application components.

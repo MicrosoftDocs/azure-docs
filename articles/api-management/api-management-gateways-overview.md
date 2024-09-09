@@ -152,7 +152,7 @@ For details about monitoring options, see [Observability in Azure API Management
 | [Request tracing](api-management-howto-api-inspector.md) | ✔️ | ❌<sup>4</sup> | ✔️ | ✔️ | ❌ |
 
 <sup>1</sup> The v2 tiers support Azure Monitor-based analytics.<br/>
-<sup>2</sup> Gateway uses [Azure Application Insight's built-in memory buffer](./../azure-monitor/app/telemetry-channels.md#built-in-telemetry-channels) and does not provide delivery guarantees.<br/>
+<sup>2</sup> Gateway uses [Azure Application Insight's built-in memory buffer](/azure/azure-monitor/app/telemetry-channels#built-in-telemetry-channels) and does not provide delivery guarantees.<br/>
 <sup>3</sup> The self-hosted gateway currently doesn't send resource logs (diagnostic logs) to Azure Monitor. Optionally [send metrics](how-to-configure-cloud-metrics-logs.md) to Azure Monitor, or [configure and persist logs locally](how-to-configure-local-metrics-logs.md) where the self-hosted gateway is deployed.<br/>
 <sup>4</sup> Tracing is currently unavailable in the v2 tiers.
 

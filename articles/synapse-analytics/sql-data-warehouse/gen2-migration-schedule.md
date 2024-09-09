@@ -116,7 +116,7 @@ For more information, see [Upgrade to Gen2](upgrade-to-latest-generation.md).
 
 - [Upgrade steps](upgrade-to-latest-generation.md)
 - [Maintenance windows](maintenance-scheduling.md)
-- [Resource health monitor](../../service-health/resource-health-overview.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)
+- [Resource health monitor](/azure/service-health/resource-health-overview?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json)
 - [Review Before you begin a migration](upgrade-to-latest-generation.md#before-you-begin)
 - [Upgrade in-place and upgrade from a restore point](upgrade-to-latest-generation.md)
 - [Create a user-defined restore point](sql-data-warehouse-restore-points.md)

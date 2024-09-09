@@ -83,7 +83,7 @@ sections:
 
           **Can I use Azure Monitor to view the health, metrics, and performance of my pipelines in the cloud?**
 
-          Yes, we support this approach. To learn more, see [Azure Monitor Metrics overview](../../../azure-monitor/essentials/data-platform-metrics.md)
+          Yes, we support this approach. To learn more, see [Azure Monitor Metrics overview](/azure/azure-monitor/essentials/data-platform-metrics)
           and [Monitor and log](/previous-versions/azure/azure-video-analyzer/video-analyzer-docs/articles/azure-video-analyzer/video-analyzer-docs/cloud/monitor-log-cloud) article.
 
       - question: Billing and availability

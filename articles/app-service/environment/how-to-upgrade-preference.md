@@ -48,7 +48,7 @@ When an upgrade is available, Azure adds a planned maintenance event in the Serv
 
 You can configure alerts to send a message to your email address and/or SMS phone number when an event is generated in Azure Monitor. You can also set up a trigger for your custom Azure Function or Logic App, which allows you to automatically take action on your resources. This action could be to automatically divert the traffic from your App Service Environment in one region that is upgraded to an App Service Environment in another region. Then, you can automatically change the traffic back to normal when an upgrade completes.
 
-To configure alerts for upgrade notifications, select the **Add service health alert** at the top of the dashboard. Learn more about [Azure Monitor Alerts](../../azure-monitor/alerts/alerts-overview.md). This how-to article guides you through [configuring alerts for service health events](../../service-health/alerts-activity-log-service-notifications-portal.md). Finally, you can follow this how-to guide to learn [how to create actions groups](../../azure-monitor/alerts/action-groups.md) that trigger based on the alert.
+To configure alerts for upgrade notifications, select the **Add service health alert** at the top of the dashboard. Learn more about [Azure Monitor Alerts](/azure/azure-monitor/alerts/alerts-overview). This how-to article guides you through [configuring alerts for service health events](/azure/service-health/alerts-activity-log-service-notifications-portal). Finally, you can follow this how-to guide to learn [how to create actions groups](/azure/azure-monitor/alerts/action-groups) that trigger based on the alert.
 
 ### Send test notifications
 

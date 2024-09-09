@@ -291,26 +291,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/advisor/advisor-alerts.md",
-      "redirect_url": "/azure/advisor/advisor-alerts-portal",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/advisor/advisor-high-availability-recommendations.md",
-      "redirect_url": "/azure/advisor/advisor-reference-reliability-recommendations",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/advisor/advisor-operational-excellence-recommendations.md",
-      "redirect_url": "/azure/advisor/advisor-reference-operational-excellence-recommendations",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/advisor/advisor-performance-recommendations.md",
-      "redirect_url": "/azure/advisor/advisor-reference-performance-recommendations",
-      "redirect_document_id": false
-    },
-    {
       "source_path_from_root": "/articles/app-service/manage-move-across-regions.md",
       "redirect_url": "/azure/operational-excellence/relocation-app-service",
       "redirect_document_id": false
@@ -589,11 +569,6 @@
       "source_path_from_root": "/articles/azure-maps/tutorial-geofence.md",
       "redirect_url": "/azure/azure-maps/",
       "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/azure-monitor/logs/move-workspace-region.md",
-      "redirect_url": "/azure/operational-excellence/relocation-log-analytics",
-      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/azure-portal-overview.md",
@@ -1309,21 +1284,6 @@
       "source_path_from_root": "/articles/cdn/enable-raw-logs.md",
       "redirect_url": "/azure/cdn/monitoring-and-access-log",
       "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/chaos-studio/chaos-studio-tutorial-agent-based.md",
-      "redirect_url": "/azure/chaos-studio/chaos-studio-tutorial-agent-based-portal",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/chaos-studio/chaos-studio-tutorial-aks.md",
-      "redirect_url": "/azure/chaos-studio/chaos-studio-tutorial-aks-portal",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/chaos-studio/chaos-studio-tutorial-service-direct.md",
-      "redirect_url": "/azure/chaos-studio/chaos-studio-tutorial-service-direct-portal",
-      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/chef/chef-automation.md",
@@ -3888,16 +3848,6 @@
     {
       "source_path_from_root": "/articles/sentinel/tutorial-monitor-your-data.md",
       "redirect_url": "/azure/sentinel/monitor-your-data",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/service-health/alerts-activity-log-service-notifications.md",
-      "redirect_url": "/azure/service-health/alerts-activity-log-service-notifications-portal",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/service-health/service-health-rest.md",
-      "redirect_url": "/azure/service-health/index",
       "redirect_document_id": false
     },
     {

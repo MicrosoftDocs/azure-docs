@@ -35,7 +35,7 @@ The metrics are available for up to three months (93 days) and only track synchr
 
 ### Accessing Azure Resource Manager metrics
 
-You can access control plane metrics by using the Azure Monitor REST APIs, SDKs, and the Azure portal by selecting the **Azure Resource Manager** metric. For an overview on Azure Monitor, see [Azure Monitor Metrics](../../azure-monitor/data-platform.md).
+You can access control plane metrics by using the Azure Monitor REST APIs, SDKs, and the Azure portal by selecting the **Azure Resource Manager** metric. For an overview on Azure Monitor, see [Azure Monitor Metrics](/azure/azure-monitor/data-platform).
 
 There's no opt-in or sign-up process to access control plane metrics.
 

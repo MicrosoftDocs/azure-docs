@@ -334,7 +334,7 @@
     items:
     - name: Enable VM insights
       displayName: monitor, monitor agent, vm, insights, log analytics, builtin
-      href: ../../azure-monitor/vm/vminsights-enable-policy.md?bc=/azure/governance/policy/breadcrumb/toc.json&toc=/azure/governance/policy/toc.json
+      href: /azure/azure-monitor/vm/vminsights-enable-policy?bc=/azure/governance/policy/breadcrumb/toc.json&toc=/azure/governance/policy/toc.json
   - name: Azure Storage integration
     items:
     - name: Audit TLS with Azure Policy

@@ -52,7 +52,7 @@ To run an experiment, you first need to connect a workspace-based Application In
 
     :::image type="content" source="./media/run-experiments-aspnet-core/select-application-insights.png" alt-text="Screenshot of the Azure portal, adding an Application Insights to a store." lightbox="./media/run-experiments-aspnet-core/select-application-insights.png":::
 
-1. Select the Application Insights resource you want to use as the telemetry provider for your variant feature flags and application, and select **Save**. If you don't have an Application Insights resource, create one by selecting **Create new**. For more information about how to proceed, go to [Create a worskpace-based resource](../azure-monitor/app/create-workspace-resource.md#create-a-workspace-based-resource). Then, back in **Application Insights (preview)**, reload the list of available Application Insights resources and select your new Application Insights resource.
+1. Select the Application Insights resource you want to use as the telemetry provider for your variant feature flags and application, and select **Save**. If you don't have an Application Insights resource, create one by selecting **Create new**. For more information about how to proceed, go to [Create a worskpace-based resource](/azure/azure-monitor/app/create-workspace-resource#create-a-workspace-based-resource). Then, back in **Application Insights (preview)**, reload the list of available Application Insights resources and select your new Application Insights resource.
 1. A notification indicates that the Application Insights resource was updated successfully for the App Configuration store.
 
 ## Connect a Split Experimentation Workspace (preview) to your store
@@ -493,7 +493,7 @@ Any edit to a variant feature flag generates a new version of the experimentatio
 > To get experimentation results, you need at least 30 events per variant, but we suggest you have more that the minimum sampling size to make sure that your experimentation is producing reliable results.
 
 > [!NOTE]
-> Application Insights sampling is enabled by default and it may impact your experimentation results. For this tutorial, you are recommended to turn off sampling in Application Insights. Learn more about [Sampling in Application Insights](../azure-monitor/app/sampling-classic-api.md).
+> Application Insights sampling is enabled by default and it may impact your experimentation results. For this tutorial, you are recommended to turn off sampling in Application Insights. Learn more about [Sampling in Application Insights](/azure/azure-monitor/app/sampling-classic-api).
 
 ## Next step
 

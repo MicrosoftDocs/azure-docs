@@ -95,10 +95,10 @@ When Analysis Ready Datasets are made available through APIs that enable search 
 
 Although not shown in the diagrams above, Azure Monitor, Log Analytics and Key Vault would also be part of a broader solution.
 
-- [Azure Monitor](../azure-monitor/overview.md) collects data on environments and Azure resources. This diagnostic information is helpful for maintaining availability and performance. Two data platforms make up Monitor:
-  - [Azure Monitor Logs](../azure-monitor/logs/log-analytics-overview.md) records and stores log and performance data.
-  - [Azure Monitor Metrics](../azure-monitor/essentials/metrics-getting-started.md) collects numerical values at regular intervals.
-- [Azure Log Analytics](../azure-monitor/logs/log-analytics-overview.md) is an Azure portal tool that runs queries on Monitor log data. Log Analytics also provides features for charting and statistically analyzing query results.
+- [Azure Monitor](/azure/azure-monitor/overview) collects data on environments and Azure resources. This diagnostic information is helpful for maintaining availability and performance. Two data platforms make up Monitor:
+  - [Azure Monitor Logs](/azure/azure-monitor/logs/log-analytics-overview) records and stores log and performance data.
+  - [Azure Monitor Metrics](/azure/azure-monitor/essentials/metrics-getting-started) collects numerical values at regular intervals.
+- [Azure Log Analytics](/azure/azure-monitor/logs/log-analytics-overview) is an Azure portal tool that runs queries on Monitor log data. Log Analytics also provides features for charting and statistically analyzing query results.
 - [Key Vault](/azure/key-vault/general/basic-concepts) stores and controls access to secrets such as tokens, passwords, and API keys. Key Vault also creates and controls encryption keys and manages security certificates.
 
 ## Alternatives

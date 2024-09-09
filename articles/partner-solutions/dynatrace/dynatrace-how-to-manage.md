@@ -60,7 +60,7 @@ You can filter the list of resources by resource type, resource group name, regi
 
 The column **Logs to Dynatrace** indicates whether the resource is sending logs to Dynatrace. If the resource isn't sending logs, this field indicates why logs aren't being sent. The reasons could be:
 
-- _Resource doesn't support sending logs_ - Only resource types with monitoring log categories can be configured to send logs. See [supported categories](../../azure-monitor/essentials/resource-logs-categories.md).
+- _Resource doesn't support sending logs_ - Only resource types with monitoring log categories can be configured to send logs. See [supported categories](/azure/azure-monitor/essentials/resource-logs-categories).
 - _Limit of five diagnostic settings reached_ - Each Azure resource can have a maximum of five diagnostic settings. For more information, see [diagnostic settings](/cli/azure/monitor/diagnostic-settings).
 - _Error_ - The resource is configured to send logs to Dynatrace, but is blocked by an error.
 - _Logs not configured_ - Only Azure resources that have the appropriate resource tags are configured to send logs to Dynatrace.

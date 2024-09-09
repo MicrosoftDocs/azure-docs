@@ -171,7 +171,7 @@ additionalContent:
           - text: What is Azure Monitor Network Insights?
             url: ../network-watcher/network-insights-overview.md
           - text: See more
-            url: ../azure-monitor/index.yml
+            url: /azure/azure-monitor/
 
     - title: Load balancing and content delivery # < 60 chars (optional)
       items:

@@ -29,7 +29,7 @@ For all VPN Gateway logs, see [Azure VPN Gateway monitoring data reference](moni
 
 <a name="setup"></a>
 
-To set up diagnostic log events from Azure VPN Gateway using Azure Log Analytics, see [Create diagnostic settings in Azure Monitor](../azure-monitor/essentials/create-diagnostic-settings.md).
+To set up diagnostic log events from Azure VPN Gateway using Azure Log Analytics, see [Create diagnostic settings in Azure Monitor](/azure/azure-monitor/essentials/create-diagnostic-settings).
 
 ## <a name="GatewayDiagnosticLog"></a>GatewayDiagnosticLog
 

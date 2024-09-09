@@ -20,9 +20,9 @@ Currently, the following diagnostic log categories are available for Azure Firew
 - Network rule log
 - DNS proxy log
 
-These log categories use [Azure diagnostics mode](../azure-monitor/essentials/resource-logs.md#azure-diagnostics-mode). In this mode, all data from any diagnostic setting is collected in the [AzureDiagnostics](/azure/azure-monitor/reference/tables/azurediagnostics) table.
+These log categories use [Azure diagnostics mode](/azure/azure-monitor/essentials/resource-logs#azure-diagnostics-mode). In this mode, all data from any diagnostic setting is collected in the [AzureDiagnostics](/azure/azure-monitor/reference/tables/azurediagnostics) table.
 
-With structured logs, you're able to choose to use [Resource Specific Tables](../azure-monitor/essentials/resource-logs.md#resource-specific) instead of the existing [AzureDiagnostics](/azure/azure-monitor/reference/tables/azurediagnostics) table. In case both sets of logs are required, at least two diagnostic settings need to be created per firewall.
+With structured logs, you're able to choose to use [Resource Specific Tables](/azure/azure-monitor/essentials/resource-logs#resource-specific) instead of the existing [AzureDiagnostics](/azure/azure-monitor/reference/tables/azurediagnostics) table. In case both sets of logs are required, at least two diagnostic settings need to be created per firewall.
 
 ## Resource specific mode
 

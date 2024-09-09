@@ -80,7 +80,7 @@ Azure HDInsight on AKS currently doesn't support cross-region failover. Improvin
 
 - Use Azure monitoring tools on HDInsight on AKS to detect abnormal behavior in the cluster and set corresponding alert notifications. You can enable Log Analytics in various ways and use managed Prometheus service with Azure Grafana dashboards for monitoring. For more information, see [Azure Monitor integration](../hdinsight-aks/concept-azure-monitor-integration.md).  
 
-- Subscribe to Azure health alerts to be notified about service issues, planned maintenance, health and security advisories for a subscription, service, or region. Health notifications that include the issue cause and resolute ETA help you to better execute failover and failbacks. For more information, see [Manage service health](../hdinsight-aks/service-health.md) and [Azure Service Health documentation](../service-health/index.yml).
+- Subscribe to Azure health alerts to be notified about service issues, planned maintenance, health and security advisories for a subscription, service, or region. Health notifications that include the issue cause and resolute ETA help you to better execute failover and failbacks. For more information, see [Manage service health](../hdinsight-aks/service-health.md) and [Azure Service Health documentation](/azure/service-health/).
 
 ### Single-region disaster recovery
 

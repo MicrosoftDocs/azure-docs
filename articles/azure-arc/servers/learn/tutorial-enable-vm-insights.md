@@ -7,7 +7,7 @@ ms.date: 04/25/2022
 
 # Tutorial: Monitor a hybrid machine with VM insights
 
-[Azure Monitor](../../../azure-monitor/overview.md) can collect data directly from your hybrid machines into a Log Analytics workspace for detailed analysis and correlation. Typically, this would require installing the [Log Analytics agent](../../../azure-monitor/agents/log-analytics-agent.md) on the machine using a script, manually, or an automated method following your configuration management standards. Now, Azure Arc-enabled servers can install the Log Analytics and Dependency agent [VM extension](../manage-vm-extensions.md) for Windows and Linux, enabling [VM insights](../../../azure-monitor/vm/vminsights-overview.md) to collect data from your non-Azure VMs.
+[Azure Monitor](/azure/azure-monitor/overview) can collect data directly from your hybrid machines into a Log Analytics workspace for detailed analysis and correlation. Typically, this would require installing the [Log Analytics agent](/azure/azure-monitor/agents/log-analytics-agent) on the machine using a script, manually, or an automated method following your configuration management standards. Now, Azure Arc-enabled servers can install the Log Analytics and Dependency agent [VM extension](../manage-vm-extensions.md) for Windows and Linux, enabling [VM insights](/azure/azure-monitor/vm/vminsights-overview) to collect data from your non-Azure VMs.
 
 <!---This tutorial shows you how to configure and collect data from your Linux or Windows machines by enabling VM insights following a simplified set of steps, which streamlines the experience and takes a shorter amount of time.--->
 
@@ -23,9 +23,9 @@ In this tutorial, you will learn how to:
 
 * VM extension functionality is available only in the list of [supported regions](../overview.md#supported-regions).
 
-* See [Supported operating systems](../../../azure-monitor/vm/vminsights-enable-overview.md#supported-operating-systems) to ensure that the servers operating system you're enabling is supported by VM insights.
+* See [Supported operating systems](/azure/azure-monitor/vm/vminsights-enable-overview#supported-operating-systems) to ensure that the servers operating system you're enabling is supported by VM insights.
 
-* Review firewall requirements for the Log Analytics agent provided in the [Log Analytics agent overview](../../../azure-monitor/agents/log-analytics-agent.md#network-requirements). The VM insights Map Dependency agent doesn't transmit any data itself, and it doesn't require any changes to firewalls or ports.
+* Review firewall requirements for the Log Analytics agent provided in the [Log Analytics agent overview](/azure/azure-monitor/agents/log-analytics-agent#network-requirements). The VM insights Map Dependency agent doesn't transmit any data itself, and it doesn't require any changes to firewalls or ports.
 
 <!---## Sign in to Azure portal
 
@@ -74,4 +74,4 @@ Sign in to the [Azure portal](https://portal.azure.com).--->
 To learn more about Azure Monitor, see the following article:
 
 > [!div class="nextstepaction"]
-> [Azure Monitor overview](../../../azure-monitor/overview.md)
+> [Azure Monitor overview](/azure/azure-monitor/overview)
