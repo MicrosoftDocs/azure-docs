@@ -19,7 +19,7 @@ Azure Database for PostgreSQL server backup (preview) is now available in all pu
 
 ## Support scenarios
 
-PostgreSQL Flexible Server backup data can be recovered in user specified storage containers that can be used to re-build the PostgreSQL flexible server. Customers can restore this data as a new PostgreSQL flexible server with DB native tools. 
+PostgreSQL Flexible Server backup data can be recovered in user specified storage containers that can be used to re-build the PostgreSQL flexible server. You can restore this data as a new PostgreSQL - flexible server with the database native tools.
 
 ## Limitation
 
