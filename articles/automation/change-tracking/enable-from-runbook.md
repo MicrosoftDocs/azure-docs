@@ -3,8 +3,8 @@ title: Enable Azure Automation Change Tracking and Inventory from a runbook
 description: This article tells how to enable Change Tracking and Inventory from a runbook.
 services: automation
 ms.subservice: change-inventory-management
-ms.topic: conceptual
-ms.date: 08/30/2024
+ms.topic: how-to
+ms.date: 09/09/2024
 ms.service: azure-automation
 ---
 
