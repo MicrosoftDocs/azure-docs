@@ -14,7 +14,7 @@ metadata:
 
   ms.author: rosemalcolm
   author: RoseHJM
-  ms.date: 10/28/2023
+  ms.date: 09/05/2024
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | sample | tutorial | video | whats-new
 
 landingContent:
@@ -27,7 +27,9 @@ landingContent:
             url: overview-what-is-azure-deployment-environments.md
           - text: Key concepts
             url: concept-environments-key-concepts.md
-
+          - text: Azure Deployment Environments roadmap 
+            url: ade-roadmap.md
+            
   # Card
   - title: Get started
     linkLists:
@@ -35,7 +37,7 @@ landingContent:
         links:
           - text: 'Configure Azure Deployment Environments'
             url: quickstart-create-and-configure-devcenter.md
-          - text: 'Create dev center & project (Azure Resource Manager)'
+          - text: 'Create dev center & project (ARM template)'
             url: quickstart-create-dev-center-project-azure-resource-manager.md
           - text: 'Create & access environments'
             url: quickstart-create-access-environments.md
