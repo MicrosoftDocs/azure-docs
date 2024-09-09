@@ -43,7 +43,7 @@ spec:
   - image: "mcr.microsoft.com/dotnet/samples:aspnetapp"
     name: aspnetapp-image
     ports:
-    - containerPort: 80
+    - containerPort: 8080
       protocol: TCP
 ---
 apiVersion: v1
@@ -56,16 +56,16 @@ spec:
   ports:
   - protocol: TCP
     port: 80
-    targetPort: 80
+    targetPort: 8080
 ---
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: test-agic-app-ingress
-  annotations:
-    kubernetes.io/ingress.class: azure/application-gateway
+  #annotations:
+    #kubernetes.io/ingress.class: azure/application-gateway
 spec:
-  #ingressClassName: azure-application-gateway # according to the AGIC setup guide, annotations are the approach to set the class
+  ingressClassName: azure-application-gateway
   rules:
     - host: test.agic.contoso.com
       http:
@@ -73,9 +73,10 @@ spec:
           - path: /
             pathType: Prefix
             backend:
-              name: test-agic-app-service
-              port:
-                number: 80
+              service:
+                name: test-agic-app-service
+                port:
+                  number: 80
 EOF
 ```
 
@@ -155,7 +156,7 @@ The following conditions must be in place for AGIC to function as expected:
      aspnetapp           ClusterIP   10.2.63.254    <none>        80/TCP    17h   app=aspnetapp   <none>
      ```
 
-  3. **Ingress**, annotated with `kubernetes.io/ingress.class: azure/application-gateway`, referencing the previous service.
+  3. **Ingress**, with `ingressClassName: azure-application-gateway`, referencing the previous service.
      Verify this configuration from [Cloud Shell](https://shell.azure.com/) with `kubectl get ingress -o wide --show-labels`
      ```output
      delyan@Azure:~$ kubectl get ingress -o wide --show-labels
@@ -164,23 +165,25 @@ The following conditions must be in place for AGIC to function as expected:
      aspnetapp   *                 80      17h   <none>
      ```
 
-  4. View annotations of the previous ingress: `kubectl get ingress aspnetapp -o yaml` (substitute `aspnetapp` with the name of your ingress)
+  4. View ingressClassName of the previous ingress: `kubectl get ingress aspnetapp -o yaml` (substitute `aspnetapp` with the name of your ingress)
      ```output
      delyan@Azure:~$ kubectl get ingress aspnetapp -o yaml
 
      apiVersion: networking.k8s.io/v1
      kind: Ingress
      metadata:
-       annotations:
-         kubernetes.io/ingress.class: azure/application-gateway
        name: aspnetapp
      spec:
+       ingressClassName: azure-application-gateway
+     ...
        backend:
-         serviceName: aspnetapp
-         servicePort: 80
+         service:
+           name: aspnetapp
+           port:
+             number: 80
      ```
 
-     The ingress resource must be annotated with `kubernetes.io/ingress.class: azure/application-gateway`.
+     The ingress resource must use `ingressClassName: azure-application-gateway`.
 
 
 ### Verify Observed Namespace
@@ -223,7 +226,7 @@ The following conditions must be in place for AGIC to function as expected:
     ```
 
 
-* Is your [Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/) annotated with: `kubernetes.io/ingress.class: azure/application-gateway`? AGIC only watches for Kubernetes Ingress resources that have this annotation.
+* Is your [Ingress](https://kubernetes.io/docs/concepts/services-networking/ingress/) with: `ingressClassName: azure-application-gateway`? AGIC only watches for Kubernetes Ingress resources that have this annotation.
 
     ```bash
     # Get the YAML definition of a particular ingress resource
