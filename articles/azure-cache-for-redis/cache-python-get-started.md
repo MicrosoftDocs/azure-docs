@@ -17,7 +17,7 @@ ms.custom: mvc, devx-track-python, mode-api, py-fresh-zinc
 
 In this Quickstart, you incorporate Azure Cache for Redis into a Python script to have access to a secure, dedicated cache that is accessible from any application within Azure.
 
-## Skip to the code on GitHub
+## Skip to the code
 
 If you want to skip straight to the code, see the [Python quickstart](https://github.com/Azure-Samples/azure-cache-redis-samples/tree/main/quickstart/python) on GitHub.
 
@@ -28,7 +28,8 @@ If you want to skip straight to the code, see the [Python quickstart](https://gi
   - For macOS or Linux, download from [python.org](https://www.python.org/downloads/).
   - For Windows 11, use the [Windows Store](https://apps.microsoft.com/search/publisher?name=Python+Software+Foundation&hl=en-us&gl=US).
 
-## Create an Azure Cache for Redis instance
+## Create a cache
+
 [!INCLUDE [redis-cache-create](~/reusable-content/ce-skilling/azure/includes/azure-cache-for-redis/includes/redis-cache-create.md)]
 
 ## Install redis-py library
@@ -116,7 +117,7 @@ Microsoft Entra ID access tokens have limited lifespans, [averaging 75 minutes](
 
 1. Create a new text file, add the following script. Then, save the file as `PythonApplication2.py`.
 
-1. Replace `<Your Host Name>` with the value from your Azure Cache for Redis instance. Your host name is of the form `<DNS name>.redis.cache.windows.net`. 
+1. Replace `<Your Host Name>` with the value from your Azure Cache for Redis instance. Your host name is of the form `<DNS name>.redis.cache.windows.net`.
 
 1. Replace `<Your Username>` with the values from your Microsoft Entra ID user.
 

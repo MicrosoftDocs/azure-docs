@@ -21,11 +21,13 @@ There are also caching providers in .NET core. To quickly start using Redis with
 - [ASP.NET core Distributed Caching provider](/aspnet/core/performance/caching/distributed#distributed-redis-cache)
 - [ASP.NET core Redis session provider](/aspnet/core/fundamentals/app-state#configure-session-state)
 
-## Skip to the code on GitHub
+## Skip to the code
 
-Clone the [https://github.com/Azure-Samples/azure-cache-redis-samples](https://github.com/Azure-Samples/azure-cache-redis-samples) GitHub repo and navigate to the `quickstart/aspnet-core` directory to view the completed source code for the steps ahead.
+If you want to go straight to the code, see the [ASP.NET Core quickstart](https://github.com/Azure-Samples/azure-cache-redis-samples/tree/main/quickstart/aspnet-core) on GitHub.
 
-The `quickstart/aspnet-core` directory is also configured as an [Azure Developer CLI (`azd`)](/azure/developer/azure-developer-cli/overview) template. Use the open-source `azd` tool to streamline the provisioning and deployment from a local environment to Azure. Optionally, run the `azd up` command to automatically provision an Azure Cache for Redis instance, and to configure the local sample app to connect to it:
+Clone the [Azure Cache for Redis samples](https://github.com/Azure-Samples/azure-cache-redis-samples) GitHub repository, and then go to the `quickstart/aspnet-core` directory to view the completed source code for the steps ahead.
+
+The `quickstart/aspnet-core` directory is also configured as an [Azure Developer CLI](/azure/developer/azure-developer-cli/overview) template. Use the open-source `azd` tool to streamline the provisioning and deployment from a local environment to Azure. Optionally, run the `azd up` command to automatically provision an Azure Cache for Redis instance, and to configure the local sample app to connect to it:
 
 ```azdeveloper
 azd up
@@ -142,25 +144,26 @@ From the home page, you select **Azure Cache for Redis Test** to see the sample 
 
 ## Run the app locally
 
-1. Execute the following command in your command window to build the app:
+1. In your command window, build the app by using the following command:
 
     ```dos
     dotnet build
     ```
 
-1. Then run the app with the following command:
+1. Run the app by using this command:
 
     ```dos
     dotnet run
     ```
 
-1. Browse to `https://localhost:5001` in your web browser.
+1. In a web browser, go to `https://localhost:5001`.
 
-1. Select **Azure Cache for Redis Test** in the navigation bar of the web page to test cache access.
+1. In the navigation bar of the webpage, select **Azure Cache for Redis Test** to test cache access.
 
 :::image type="content" source="./media/cache-web-app-aspnet-core-howto/cache-simple-test-complete-local.png" alt-text="Screenshot of simple test completed local":::
 
 <!-- Clean up include -->
+
 [!INCLUDE [cache-delete-resource-group](includes/cache-delete-resource-group.md)]
 
 ## Related content

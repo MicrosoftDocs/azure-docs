@@ -16,14 +16,16 @@ In this quickstart, you incorporate Azure Cache for Redis into a Java app by usi
 
 ## Skip to the code
 
-Clone the repo on GitHub: [Java quickstart](https://github.com/Azure-Samples/azure-cache-redis-samples/tree/main/quickstart/java)
+This article describes how to create an app by using the Azure portal and then modify the code to end up with a working sample app.
+
+If you want to go straight to the code, see the [Java quickstart sample](https://github.com/Azure-Samples/azure-cache-redis-samples/tree/main/quickstart/java) on GitHub.
 
 ## Prerequisites
 
 - Azure subscription - [create one for free](https://azure.microsoft.com/free/)
 - [Apache Maven](https://maven.apache.org/download.cgi)
 
-## Create an Azure Cache for Redis
+## Create a cache
 
 [!INCLUDE [redis-cache-create](~/reusable-content/ce-skilling/azure/includes/azure-cache-for-redis/includes/redis-cache-create.md)]
 
@@ -188,27 +190,11 @@ Cache Command  : CLIENT LIST
 Cache Response : id=777430 addr=             :58989 fd=22 name= age=1 idle=0 flags=N db=0 sub=0 psub=0 multi=-1 qbuf=0 qbuf-free=32768 obl=0 oll=0 omem=0 ow=0 owmem=0 events=r cmd=client numops=6
 ```
 
-## Clean up resources
+<!-- Clean up include -->
 
-If you continue to use the quickstart code, you can keep the resources created in this quickstart and reuse them.
+[!INCLUDE [cache-delete-resource-group](includes/cache-delete-resource-group.md)]
 
-Otherwise, if you're finished with the quickstart sample application, you can delete the Azure resources created in this quickstart to avoid charges.
-
-> [!IMPORTANT]
-> Deleting a resource group is irreversible and that the resource group and all the resources in it are permanently deleted. Make sure that you do not accidentally delete the wrong resource group or resources. If you created the resources for hosting this sample inside an existing resource group that contains resources you want to keep, you can delete each resource individually instead of deleting the resource group.
->
-
-1. Sign in to the [Azure portal](https://portal.azure.com) and select **Resource groups**.
-
-1. In the **Filter by name** textbox, type the name of your resource group. The instructions for this article used a resource group named *TestResources*. On your resource group in the result list, select **...** then **Delete resource group**.
-
-   :::image type="content" source="media/cache-java-get-started/azure-cache-redis-delete-resource-group.png" alt-text="Screenshot of the Azure portal that shows the Resource groups page with the Delete resource group button highlighted." lightbox="media/cache-java-get-started/azure-cache-redis-delete-resource-group.png":::
-
-1. Type the name of your resource group to confirm deletion and then select **Delete**.
-
-After a few moments, the resource group and all of its contained resources are deleted.
-
-## Next steps
+## Related content
 
 In this quickstart, you learned how to use Azure Cache for Redis from a Java application. Continue to the next quickstart to use Azure Cache for Redis with an ASP.NET web app.
 

@@ -19,7 +19,7 @@ In this quickstart, you incorporate Azure Cache for Redis into a Node.js app to 
 - Azure subscription - [create one for free](https://azure.microsoft.com/free/)
 - Node.js installed, if you haven't done so already. See [Install Node.js on Windows](/windows/dev-environment/javascript/nodejs-on-windows) for instructions on how to install Node and npm on a Windows computer.
 
-## Create a cache instance
+## Create a cache
 
 [!INCLUDE [redis-cache-create](~/reusable-content/ce-skilling/azure/includes/azure-cache-for-redis/includes/redis-cache-create.md)]
 

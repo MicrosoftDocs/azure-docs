@@ -9,13 +9,16 @@ ms.custom: devx-track-csharp, mvc, mode-other, devx-track-dotnet
 ms.topic: quickstart
 ms.date: 03/25/2022
 ---
+
 # Quickstart: Use Azure Cache for Redis in .NET Core
 
 In this quickstart, you incorporate Azure Cache for Redis into a .NET Core app to have access to a secure, dedicated cache that is accessible from any application within Azure. You specifically use the [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) client with C# code in a .NET Core console app.
 
-## Skip to the code on GitHub
+## Skip to the code
 
-Clone the repo [https://github.com/Azure-Samples/azure-cache-redis-samples/tree/main/quickstart/dotnet-core](https://github.com/Azure-Samples/azure-cache-redis-samples/tree/main/quickstart/dotnet-core) on GitHub.
+This article describes how to create an app by using the Azure portal and then modify the code to end up with a working sample app.
+
+If you want to go straight to the code, see the [.NET Core sample](https://github.com/Azure-Samples/azure-cache-redis-samples/tree/main/quickstart/dotnet-core) on GitHub.
 
 ## Prerequisites
 
@@ -28,33 +31,33 @@ Clone the repo [https://github.com/Azure-Samples/azure-cache-redis-samples/tree/
 
 [!INCLUDE [redis-cache-access-keys](includes/redis-cache-access-keys.md)]
 
-Make a note of the **HOST NAME** and the **Primary** access key. You'll use these values later to construct the *CacheConnection* secret.
+Make a note of the values for **HOST NAME** and the **Primary** access key. You'll use these values later to construct the `CacheConnection` secret.
 
 ## Add a local secret for the connection string
 
-In your command window, execute the following command to store a new secret named *CacheConnection*, after replacing the placeholders (including angle brackets) for your cache name and primary access key:
+In your command window, execute the following command to store a new secret named *CacheConnection* after you replac the placeholders (including angle brackets) with your cache name (`<cache name>`) and primary access key (`<primary-access-key>`):
 
 ```dos
 dotnet user-secrets set CacheConnection "<cache name>.redis.cache.windows.net,abortConnect=false,ssl=true,allowAdmin=true,password=<primary-access-key>"
 ```
 
-## Connect to the cache with RedisConnection
+## Connect to the cache by using RedisConnection
 
-The connection to your cache is managed by the `RedisConnection` class. The connection is first made in this statement from `Program.cs`:
+The connection to your cache is managed by the `RedisConnection` class. First, you make the connection in this statement from *Program.cs*:
 
 ```csharp
       _redisConnection = await RedisConnection.InitializeAsync(connectionString: configuration["CacheConnection"].ToString());
 
 ```
 
-In `RedisConnection.cs`, you see the `StackExchange.Redis` namespace has been added to the code. This is needed for the `RedisConnection` class.
+In *RedisConnection.cs*, the `StackExchange.Redis` namespace has been added to the code. The namespace is required for the `RedisConnection` class.
 
 ```csharp
 using StackExchange.Redis;
 
 ```
-<!-- Is this right Philo -->
-The `RedisConnection` code ensures that there is always a healthy connection to the cache by managing the `ConnectionMultiplexer` instance from `StackExchange.Redis`. The `RedisConnection` class recreates the connection when a connection is lost and unable to reconnect automatically.
+
+The `RedisConnection` code ensures that there is always a healthy connection to the cache by managing the `ConnectionMultiplexer` instance from `StackExchange.Redis`. The `RedisConnection` class re-creates the connection when a connection is lost and unable to reconnect automatically.
 
 For more information, see [StackExchange.Redis](https://stackexchange.github.io/StackExchange.Redis/) and the code in a [GitHub repo](https://github.com/StackExchange/StackExchange.Redis).
 
@@ -63,7 +66,9 @@ For more information, see [StackExchange.Redis](https://stackexchange.github.io/
 ## Executing cache commands
 
 In `program.cs`, you can see the following code for the `RunRedisCommandsAsync` method in the `Program` class for the console application:
+
 <!-- Replaced this code with lines 57-81 from dotnet-core/Program.cs -->
+
 ```csharp
 private static async Task RunRedisCommandsAsync(string prefix)
     {
@@ -104,19 +109,19 @@ private static async Task RunRedisCommandsAsync(string prefix)
 
 ```
 
-Cache items can be stored and retrieved by using the `StringSetAsync` and `StringGetAsync` methods.
+You can store and retrieve cache items by using the `StringSetAsync` and `StringGetAsync` methods.
 
-In the example, you can see the `Message` key is set to value. The app updated that cached value. The app also executed the `PING` and command.
+In the example, you can see the `Message` key is set to a value. The app updated that cached value. The app also executed the `PING` and command.
 
 ### Work with .NET objects in the cache
 
-The Redis server stores most data as strings, but these strings can contain many types of data, including serialized binary data, which can be used when storing .NET objects in the cache.
+The Redis server stores most data in string format. The strings can contain many types of data, including serialized binary data. You can use serialized binary data when you store .NET objects in the cache.
 
-Azure Cache for Redis can cache both .NET objects and primitive data types, but before a .NET object can be cached it must be serialized.
+Azure Cache for Redis can cache both .NET objects and primitive data types, but before a .NET object can be cached, it must be serialized.
 
-This .NET object serialization is the responsibility of the application developer, and gives the developer flexibility in the choice of the serializer.
+The .NET object serialization is the responsibility of the application developer. The object serialization gives the developer flexibility in their choice of the serializer.
 
-The following `Employee` class was defined in *Program.cs*  so that the sample could also show how to get and set a serialized object :
+The following `Employee` class was defined in *Program.cs*  so that the sample could also show how to get and set a serialized object:
 
 ```csharp
 class Employee
@@ -136,7 +141,7 @@ class Employee
 
 ## Run the sample
 
-If you have opened any files, save them and build the app with the following command:
+If you opened any files, save the files. Then, build the app by using the following command:
 
 ```dos
 dotnet build
@@ -150,28 +155,11 @@ dotnet run
 
 :::image type="content" source="media/cache-dotnet-core-quickstart/cache-console-app-complete.png" alt-text="Console app completed":::
 
-## Clean up resources
+<!-- Clean up include -->
 
-If you continue to use this quickstart, you can keep the resources you created and reuse them.
+[!INCLUDE [cache-delete-resource-group](includes/cache-delete-resource-group.md)]
 
-Otherwise, if you're finished with the quickstart sample application, you can delete the Azure resources created in this quickstart to avoid charges.
-
-> [!IMPORTANT]
-> Deleting a resource group is irreversible and that the resource group and all the resources in it are permanently deleted. Make sure that you do not accidentally delete the wrong resource group or resources. If you created the resources for hosting this sample inside an existing resource group that contains resources you want to keep, you can delete each resource individually on the left instead of deleting the resource group.
->
-### To delete a resource group
-
-1. Sign in to the [Azure portal](https://portal.azure.com) and select **Resource groups**.
-
-1. In the **Filter by name...** textbox, type the name of your resource group. The instructions for this article used a resource group named *TestResources*. On your resource group in the result list, select **...** then **Delete resource group**.
-
-    :::image type="content" source="media/cache-dotnet-core-quickstart/cache-delete-resource-group.png" alt-text="Delete":::
-
-1. You'll be asked to confirm the deletion of the resource group. Type the name of your resource group to confirm, and select **Delete**.
-
-After a few moments, the resource group and all of its contained resources are deleted.
-
-## Next steps
+## Related content
 
 - [Connection resilience](cache-best-practices-connection.md)
 - [Best Practices Development](cache-best-practices-development.md)

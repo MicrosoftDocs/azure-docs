@@ -19,7 +19,7 @@ To connect to your Azure Cache for Redis server, the cache client needs the cach
    1. On the **Authentication** pane, select the **Access keys** tab.
    1. To copy the value for an access key, select the **Copy** icon in the key field.
   
-  ![Screenshot that shows how to go to and copy an access key for an instance of Azure Cache for Redis.](media/redis-cache-access-keys/redis-cache-keys.png)
+  ![Screenshot that shows how to find and copy an access key for an instance of Azure Cache for Redis.](media/redis-cache-access-keys/redis-cache-keys.png)
 
 - To get the host name and ports for your cache:
 
@@ -28,4 +28,4 @@ To connect to your Azure Cache for Redis server, the cache client needs the cach
    1. Under **Essentials**, for **Host name**, select the **Copy** icon to copy the host name value. The host name value has the form `<DNS name>.redis.cache.windows.net`.
    1. For **Ports**, select the **Copy** icon to copy the port values.
 
-  ![Screenshot that shows how to go to and copy the host name and ports for an instance of Azure Cache for Redis.](media/redis-cache-access-keys/redis-cache-hostname-ports.png)
+  ![Screenshot that shows how to find and copy the host name and ports for an instance of Azure Cache for Redis.](media/redis-cache-access-keys/redis-cache-hostname-ports.png)
