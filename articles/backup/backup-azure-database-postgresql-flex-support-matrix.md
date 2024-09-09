@@ -1,8 +1,8 @@
 ---
 title: Azure Database for PostgreSQL- Flexible server support matrix (preview)
 description: Provides a summary of support settings and limitations of Azure Database for PostgreSQL- Flexible server backup.
-ms.topic: conceptual
-ms.date: 11/06/2023
+ms.topic: reference
+ms.date: 09/09/2024
 ms.custom: references_regions
 ms.service: azure-backup
 author: AbhishekMallick-MS
