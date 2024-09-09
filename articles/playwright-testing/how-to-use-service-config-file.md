@@ -7,7 +7,7 @@ ms.custom: playwright-testing-preview
 ---
 # Use options available in configuration file with Microsoft Playwright Testing preview
 
-In this article, you learn about the options available to you in the `playwright.service.config.ts` file and how you can use them. 
+This article shows you how to use the options available in the `playwright.service.config.ts` file. 
 
 > [!IMPORTANT]
 > Microsoft Playwright Testing is currently in preview. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
