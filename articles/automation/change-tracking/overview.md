@@ -3,9 +3,9 @@ title: Azure Automation Change Tracking and Inventory overview
 description: This article describes the Change Tracking and Inventory feature, which helps you identify software and Microsoft service changes in your environment.
 services: automation
 ms.subservice: change-inventory-management
-ms.date: 08/30/2024
+ms.date: 09/09/2024
 ms.custom: linux-related-content
-ms.topic: conceptual
+ms.topic: overview
 ms.service: azure-automation
 ---
 
