@@ -41,7 +41,7 @@ landingContent:
     linkLists:            
       - linkListType: whats-new
         links:
-          - text: CycleCloud 8.6.3 is now available
+          - text: CycleCloud 8.6.4 is now available
             url: release-notes.md
           - text: Node Health Checks are now supported
             url: how-to/healthcheck.md

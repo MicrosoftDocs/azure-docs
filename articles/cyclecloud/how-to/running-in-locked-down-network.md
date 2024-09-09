@@ -98,38 +98,52 @@ access is not possible then the necessary files can be downloaded
 from another machine and copied to CycleCloud. 
 
 First determine which project and
-version your cluster will need, e.g. Slurm 2.5.0. It's normally the highest version
+version your cluster will need, e.g. Slurm 3.0.8. It's normally the highest version
 number in the database for a given project.
+You can determine the latest version either by visiting the github project page or by
+querying CycleCloud for the latest version.
+
+To query CycleCloud (note that there will often be multiple versions listed):
 
 ```shell
-/opt/cycle_server/cycle_server execute 'select * from cloud.project where name == "slurm"'
+/opt/cycle_server/cycle_server execute 'select Name, Version, Url from cloud.project where name == "slurm" order by Version'
 
-AdType = "Cloud.Project"
-Version = "2.5.0"
-ProjectType = "scheduler"
-Url = "https://github.com/Azure/cyclecloud-slurm/releases/2.5.0"
-AutoUpgrade = false
 Name = "slurm"
+Version = "3.0.8"
+Url = "https://github.com/Azure/cyclecloud-slurm/releases/3.0.8"
 ```
 
 This project version and all dependencies are found in the [release tag]
-(https://github.com/Azure/cyclecloud-slurm/releases/tag/2.5.0).
-All artifacts for a release must be downloaded. First download the code artifact
-and create a blobs directory for the additional dependencies.
+(https://github.com/Azure/cyclecloud-slurm/releases/tag/3.0.8).
+
+You can download all release artifacts manually, but the CycleCloud CLI provides
+a helper for this operation.
+
+First, use the CycleCloud CLI to fetch and prepare the repository from github 
+(this is the same operation CycleCloud performs during the "Staging Resources" phase):
 
 ```bash
-wget https://github.com/Azure/cyclecloud-slurm/archive/refs/tags/2.5.0.tar.gz
-tar -xf 2.5.0.tar.gz 
-cd cyclecloud-slurm-2.5.0 && mkdir blobs 
-#... download all other release artifacts to the /blobs directory with wget ...
-wget -P "blobs/" https://github.com/Azure/cyclecloud-slurm/releases/download/2.6.1/cyclecloud_api-8.1.0-py2.py3-none-any.whl
-#... copy all the files to the Cyclecloud server
-#... then on the Cyclecloud server:
+RELEASE_URL="https://github.com/Azure/cyclecloud-slurm/releases/3.0.8"
+RELEASE_VERSION="3.0.8"
+mkdir "${RELEASE_VERSION}"
+cd "${RELEASE_VERSION}"
+# Download release artifacts from githug (on a machine with github access)
+cyclecloud project fetch "${RELEASE_URL}" .
+
+# Create a tarbal with the project files pre-staged
 cyclecloud project build
-mkdir -p /opt/cycle_server/work/staging/projects/slurm/2.5.0
-mkdir -p /opt/cycle_server/work/staging/projects/slurm/blobs
-cp build/slurm/* /opt/cycle_server/work/staging/projects/slurm/2.5.0/
-cp blobs/* /opt/cycle_server/work/staging/projects/slurm/blobs/
+mv ./build/slurm "./${RELEASE_VERSION}"
+tar czf "slurm-${RELEASE_VERSION}.tgz" ./blobs "./${RELEASE_VERSION}"
+```
+
+Next, copy the packaged project tarball to the CycleCloud server and extract:
+
+```bash
+#... copy the "slurm-${RELEASE_VERSION}.tgz" file to the Cyclecloud server in /tmp
+sudo -i
+mkdir -p /opt/cycle_server/work/staging/projects/slurm
+cd /opt/cycle_server/work/staging/projects/slurm
+tar xzf "/tmp/slurm-${RELEASE_VERSION}.tgz"
 chown -R cycle_server:cycle_server /opt/cycle_server/work/staging
 ```
 

@@ -92,28 +92,10 @@ Finally, if you make changes to the keystore outside of these commands, you can 
 ./cycle_server keystore reconfig
 ```
 
-## Configuring CycleCloud to use Native HTTPS
-
-By default, Azure CycleCloud is configured to use the standard Java IO HTTPS
-implementation. This default works well on all supported platforms.
-
-To improve performance when running on Linux platforms, CycleCloud may
-optionally be configured to use the Tomcat Native HTTPS implementation.
-
-To enable Native HTTPS on Linux, add the `webServerEnableHttps` and `webServerUseNativeHttps` attributes to your _cycle_server.properties_ file. Open _cycle_server.properties_ with a text editor and set the following values:
-
-``` properties
-# Turn on HTTPS
-webServerEnableHttps = true
-
-# Use Native HTTPS connector
-webServerUseNativeHttps = true
-```
-
 ::: moniker range="=cyclecloud-7"
 ## Backwards compatibility for TLS 1.0 and 1.1
 
-By default, the Java and Native HTTPS connectors will be configured to use only the
+By default, CycleServer will be configured to use only the
 TLS 1.2 protocol. If you need to offer TLS 1.0 or 1.1 protocols for older web clients, you may
 opt-in for backwards compatibility.
 
