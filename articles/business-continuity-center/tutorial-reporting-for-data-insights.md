@@ -37,7 +37,7 @@ The data in a Log Analytics workspace is kept for *30 days* by default. If you w
 
 Azure Resource Manager resources, like Recovery Services vaults, record information about backup and site recovery jobs as diagnostics data.
 
-To learn how to configure diagnostics settings, see [this article](../azure-monitor/essentials/diagnostic-settings.md). You can also configure diagnostics settings for your BCDR estate using the steps for [Azure Backup](../azure/backup/backup-azure-diagnostic-events.md?tabs=recovery-services-vaults) and [Azure Site Recovery](../site-recovery/report-site-recovery.md?branch=release-abcc#configure-diagnostics-settings-for-your-vaults).
+To learn how to configure diagnostics settings, see [this article](../azure-monitor/essentials/diagnostic-settings.md). You can also configure diagnostics settings for your BCDR estate using the steps for [Azure Backup](../backup/backup-azure-diagnostic-events.md?tabs=recovery-services-vaults) and [Azure Site Recovery](../site-recovery/report-site-recovery.md?branch=release-abcc#configure-diagnostics-settings-for-your-vaults).
 
 >[!Note]
 >After diagnostics configuration, it takes up to *24 hours* for the initial data push to complete. Once the data migrates to the Log Analytics workspace, the data in the reports might take some time to appear because the data for the current day isn't available in the reports.
