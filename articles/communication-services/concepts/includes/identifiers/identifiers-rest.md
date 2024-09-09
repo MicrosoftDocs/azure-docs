@@ -207,6 +207,9 @@ switch (communicationIdentifier.kind)
     case "microsoftTeamsUser":
         console.log(`Teams user: ${communicationIdentifier.microsoftTeamsUser.userId}`);
         break;
+    case "microsoftTeamsApp":
+        console.log(`Teams user: ${communicationIdentifier.microsoftTeamsApp.appId}`);
+        break;
     case "phoneNumber":
         console.log(`Phone number: ${communicationIdentifier.phoneNumber.value}`);
         break;
@@ -227,6 +230,8 @@ if (communicationIdentifier.communicationUser) {
     console.log(`Communication user: ${communicationIdentifier.communicationUser.id}`);
 } else if (communicationIdentifier.microsoftTeamsUser) {
     console.log(`Teams user: ${communicationIdentifier.microsoftTeamsUser.userId}`);
+} else if (communicationIdentifier.microsoftTeamsApp) {
+    console.log(`Teams app: ${communicationIdentifier.microsoftTeamsApp.appId}`);
 } else if (communicationIdentifier.phoneNumber) {
     console.log(`Phone number: ${communicationIdentifier.phoneNumber.value}`);
 } else {
@@ -264,13 +269,13 @@ The raw ID is the same as `communicationUser.id`.
 ```json
 {
     "microsoftTeamsUser": {
-        "userId": "[aadUserId]"
+        "userId": "[entraUserId]"
     }
 }
 ```
 *Raw ID:*
 
-`8:orgid:[aadUserId]`
+`8:orgid:[entraUserId]`
 
 The raw ID is the Microsoft Entra user object ID prefixed with `8:orgid:`.
 
@@ -278,14 +283,14 @@ The raw ID is the Microsoft Entra user object ID prefixed with `8:orgid:`.
 ```json
 {
     "microsoftTeamsUser": {
-        "userId": "[aadUserId]",
+        "userId": "[entraUserId]",
         "cloud": "gcch"
     }
 }
 ```
 *Raw ID:*
 
-`8:gcch:[aadUserId]`
+`8:gcch:[entraUserId]`
 
 The raw ID is the Microsoft Entra user object ID prefixed with `8:gcch:` or `8:dod:` depending on the cloud environment.
 
@@ -319,6 +324,37 @@ The raw ID is the Teams visitor ID prefixed with `8:teamsvisitor:`. The Teams vi
 `4:+1123455567`
 
 The raw ID is the E.164 formatted phone number prefixed with `4:`.
+
+### Microsoft Teams app
+
+*Identifier:*
+```json
+{
+    "microsoftTeamsApp": {
+        "appId": "[entraUserId]"
+    }
+}
+```
+*Raw ID:*
+
+`28:orgid:[entraUserId]`
+
+The raw ID is the application's Entra user object ID prefixed with `28:orgid:`.
+
+*Identifier:*
+```json
+{
+    "microsoftTeamsUser": {
+        "userId": "[entraUserId]",
+        "cloud": "gcch"
+    }
+}
+```
+*Raw ID:*
+
+`28:gcch:[entraUserId]`
+
+The raw ID is the application's Entra user object ID prefixed with `28:gcch:` or `28:dod:` depending on the cloud environment.
 
 ### Unknown
 

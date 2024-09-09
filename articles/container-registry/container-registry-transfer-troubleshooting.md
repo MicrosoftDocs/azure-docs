@@ -4,7 +4,7 @@ description: Troubleshoot ACR Transfer
 author: tejaswikolli-web
 ms.author: tejaswikolli
 ms.date: 10/31/2023
-ms.topic: article
+ms.topic: troubleshooting
 ms.service: azure-container-registry
 ---
 
