@@ -7,7 +7,7 @@ author: maud-lv
 ms.author: malev
 ms.service: service-connector
 ms.topic: tutorial
-ms.date: 05/13/2024
+ms.date: 09/10/2024
 ---
 # Tutorial: Using Service Connector to build a Django app with Postgres on Azure App Service
 
@@ -28,31 +28,26 @@ In this tutorial, you use the Azure CLI to complete the following tasks:
 
 ## Set up your initial environment
 
-1. Install [Python 3.8 or higher](https://www.python.org/downloads/). To check if your Python version is 3.8 or higher, run the following code in a terminal window:
+### [CloudShell](#tab/cloudshell)
+Lauch from CloudShell from the Azure Portal and install the service connector passwordless extension for Azure CLI
 
-    ### [Bash](#tab/bash)
+```terminal
+az extension add --name serviceconnector-passwordless --upgrade
+```
 
-    ```bash
-    python3 --version
-    ```
-
-    ### [PowerShell](#tab/powershell)
-
-    ```cmd
-    py -3 --version
-    ```
-
-    ### [Cmd](#tab/cmd)
-
-    ```cmd
-    py -3 --version
-    ```
-
-    ---
+### [Local shell](#tab/localshell)
 
 1. Install the [Azure CLI](/cli/azure/install-azure-cli) 2.30.0 or higher. To check if your Azure CLI version is 2.30.0 or higher, run the `az --version` command. If you need to upgrade, run `az upgrade` (requires version 2.30.0+).
 
 1. Sign in to Azure using the CLI with `az login`. This command opens a browser to gather your credentials. When the command finishes, it shows JSON output containing information about your subscriptions. Once signed in, you can run Azure commands with the Azure CLI to work with resources in your subscription.
+
+1. Install the service connector passwordless extension for Azure CLI
+
+```terminal
+az extension add --name serviceconnector-passwordless --upgrade
+```
+
+---
 
 ## Clone or download the sample app
 
@@ -61,7 +56,7 @@ In this tutorial, you use the Azure CLI to complete the following tasks:
 Clone the sample repository:
 
 ```terminal
-git clone https://github.com/Azure-Samples/serviceconnector-webapp-postgresql-django.git
+git clone https://github.com/brycechen1849/msdocs-django-web-app-managed-identity.git
 ```
 
 Navigate into the following folder:
@@ -70,27 +65,28 @@ Navigate into the following folder:
 cd serviceconnector-webapp-postgresql-django
 ```
 
-Use the flexible-server branch of the sample, which contains a few necessary changes, such as how the database server URL is set and adding `'OPTIONS': {'sslmode': 'require'}` to the Django database configuration as required by Azure PostgreSQL Flexible server.
+Use the django-passwordless branch of the sample, which contains a few necessary changes, such as how the database server URL is set and adding `'OPTIONS': {'sslmode': 'require'}` to the Django database configuration as required by Azure PostgreSQL Flexible server.
 
 ```terminal
-git checkout flexible-server
+git checkout django-passwordless
 ```
 
 ### [Download](#tab/download)
 
-Visit [https://github.com/Azure-Samples/djangoapp](https://github.com/Azure-Samples/djangoapp).
+Visit [https://github.com/brycechen1849/msdocs-django-web-app-managed-identity](https://github.com/brycechen1849/msdocs-django-web-app-managed-identity).
 
-For Flexible server, select the branches control that says "master" and then select the **flexible-server** branch.
+For Flexible server, select the branches control that says "master" and then select the **django-passwordless** branch.
 
 Select **Code**, and then select **Download ZIP**.
 
-Unpack the ZIP file into a folder named *djangoapp*.
+Unpack the ZIP file into a folder named *msdocs-django-web-app-managed-identity*.
 
-Open a terminal window in that *djangoapp* folder.
+Open a terminal window in that *msdocs-django-web-app-managed-identity* folder.
 
 ---
 
-The djangoapp sample contains the data-driven Django polls app you get by following [Writing your first Django app](https://docs.djangoproject.com/en/5.0/intro/tutorial01/) in the Django documentation. The completed app is provided here for your convenience.
+In this tutorial, you deploy a **[Django](https://www.djangoproject.com/)** web app to Azure App Service. The web app uses a system-assigned **[managed identity](/azure/active-directory/managed-identities-azure-resources/overview)** (passwordless connections) with Azure role-based access control to access [Azure Storage](/azure/storage/common/storage-introduction) and [Azure Database for PostgreSQL - Flexible Server](/azure/postgresql/flexible-server) resources. The code uses the [DefaultAzureCredential](/azure/developer/intro/passwordless-overview#introducing-defaultazurecredential) class of the [Azure Identity client library](/python/api/overview/azure/identity-readme) for Python. The `DefaultAzureCredential` class automatically detects that a managed identity exists for the App Service and uses it to access other Azure resources.
+
 
 The sample is also modified to run in a production environment like App Service:
 
@@ -103,22 +99,39 @@ Having issues? [Let us know](https://aka.ms/DjangoCLITutorialHelp).
 
 ## Create Postgres database in Azure
 
-1. Enable parameters caching with the Azure CLI so you don't need to provide those parameters with every command. (Cached values are saved in the *.azure* folder.)
+1. Set up the environment variables needed for the tutorial.
 
-    ```azurecli
-    az config param-persist on 
+    ```bash
+    LOCATION="eastus"
+    RAND_ID=$RANDOM
+    RESOURCE_GROUP_NAME="msdocs-mi-web-app"
+    APP_SERVICE_NAME="msdocs-mi-web-$RAND_ID"
+    DB_SERVER_NAME="msdocs-mi-postgres-$RAND_ID"
+    ADMIN_USER="demoadmin"
+    ADMIN_PW="ChAnG33#ThsPssWD$RAND_ID"
     ```
+
+    > [!IMPORTANT]
+    >The `ADMIN_PW` must contain 8 to 128 characters from three of the following categories: English uppercase letters, English lowercase letters, numbers, and nonalphanumeric characters. When creating usernames or passwords **do not** use the `$` character. Later you create environment variables with these values where the `$` character has special meaning within the Linux container used to run Python apps.
 
 1. Create a [resource group](../azure-resource-manager/management/overview.md#terminology) (you can change the name, if desired). The resource group name is cached and automatically applied to subsequent commands.
 
     ```azurecli
-    az group create --name ServiceConnector-tutorial-rg --location eastus
+    az group create --name $RESOURCE_GROUP_NAME --location $LOCATION
     ```
 
 1. Create the database server (the process takes a few minutes):
 
     ```azurecli
-    az postgres flexible-server create --sku-name Standard_B1ms --public-access all
+    az postgres flexible-server create \
+      --resource-group $RESOURCE_GROUP_NAME \
+      --name $DB_SERVER_NAME \
+      --location $LOCATION \
+      --admin-user $ADMIN_USER \
+      --admin-password $ADMIN_PW \
+      --sku-name Standard_D2ds_v4
+      --active-directory-auth Enabled \
+      --public-access 0.0.0.0
     ```
 
     If the `az` command isn't recognized, be sure you have the Azure CLI installed as described in [Set up your initial environment](#set-up-your-initial-environment).
@@ -127,16 +140,36 @@ Having issues? [Let us know](https://aka.ms/DjangoCLITutorialHelp).
 
     * Create a default resource group if there's not a cached name already.
     * Create a PostgreSQL Flexible server:
-        * By default, the command uses a generated name like `server383813186`. You can specify your own name with the `--name` parameter. The name must be unique across all of Azure.
-        * The command uses the lowest-cost `Standard_B1ms` pricing tier. Omit the `--sku-name` argument to use the default `Standard_D2s_v3` tier.
-        * The command uses the resource group and location cached from the previous `az group create` command, which in this example is the resource group `ServiceConnector-tutorial-rg` in the `eastus` region.
-    * Create an administrator account with a username and password. You can specify these values directly with the `--admin-user` and `--admin-password` parameters.
-    * Create a database named `flexibleserverdb` by default. You can specify a database name with the `--database-name` parameter.
+        * With the server name specified with the `--name` parameter. The name must be unique across all of Azure.
+        * With the sku specified with the `--sku-name` parameter.
+    * Create an administrator account with a username and password specified with the `--admin-user` and `--admin-password` parameters.
+    * Create a database which name is specified with the `--database-name` parameter.
     * Enables complete public access, which you can control using the `--public-access` parameter.
 
-1. When the command completes, **copy the command's JSON output to a file** as you need values from the output later in this tutorial, specifically the host, username, and password, along with the database name.
+1. Configure a firewall rule on your server with the [az postgres flexible-server firewall-rule create](/cli/azure/postgres/flexible-server/firewall-rule) command. This rule allows your local environment access to connect to the server. (If you're using the Azure Cloud Shell, you can skip this step.)
 
-Having issues? [Let us know](https://aka.ms/DjangoCLITutorialHelp).
+    ```azurecli
+    IP_ADDRESS=<your IP>
+    az postgres flexible-server firewall-rule create \
+       --resource-group $RESOURCE_GROUP_NAME \
+       --name $DB_SERVER_NAME \
+       --rule-name AllowMyIP \
+       --start-ip-address $IP_ADDRESS \
+       --end-ip-address $IP_ADDRESS
+    ```
+
+    Use any tool or website that shows your IP address to substitute `<your IP>` in the command. For example, you can use the [What's My IP Address?](https://www.whatismyip.com/) website.
+
+1. Create a database named `restaurant` using the [az postgres flexible-server execute](/cli/azure/postgres/flexible-server#az-postgres-flexible-server-execute) command.
+
+    ```azurecli
+    az postgres flexible-server execute \
+      --name $DB_SERVER_NAME \
+      --admin-user $ADMIN_USER \
+      --admin-password $ADMIN_PW \
+      --database-name postgres \
+      --querytext 'create database restaurant;'
+    ```
 
 ## Deploy the code to Azure App Service
 
@@ -144,22 +177,30 @@ In this section, you create app host in App Service app, connect this app to the
 
 ### Create the App Service app
 
-1. In the terminal, make sure you're in the *djangoapp* repository folder that contains the app code.
+1. In the terminal, make sure you're in the *msdocs-django-web-app-managed-identity* repository folder that contains the app code.
 
-1. Switch to the sample app's `flexible-server` branch. This branch contains specific configuration needed for PostgreSQL Flexible server:
+1. Switch to the sample app's `django-passwordless` branch. This branch contains specific configuration needed for PostgreSQL Flexible server:
 
     ```cmd
-    git checkout flexible-server
+    git checkout django-passwordless
     ```
 
 1. Run the following [`az webapp up`](/cli/azure/webapp#az-webapp-up) command to create the App Service host for the app:
 
     ```azurecli
-    az webapp up --name <app-name> --sku B1 
+    az webapp up \
+      --resource-group $RESOURCE_GROUP_NAME \
+      --location $LOCATION \
+      --name $APP_SERVICE_NAME \
+      --runtime PYTHON:3.9 \
+      --sku B1
     ```
+
+    The *sku* defines the size (CPU, memory) and cost of the App Service plan. The B1 (Basic) service plan incurs a small cost in your Azure subscription. For a full list of App Service plans, view the [App Service pricing](https://azure.microsoft.com/pricing/details/app-service/linux/) page.
+
     <!-- without --sku creates PremiumV2 plan -->
 
-    This command performs the following actions, which may take a few minutes, using resource group and location cached from the previous `az group create` command (the group `Python-Django-PGFlex-rg` in the `eastus` region in this example).
+    This command performs the following actions, which may take a few minutes, using resource group and location cached from the previous `az group create` command (the group `$RESOURCE_GROUP_NAME` in the `eastus` region in this example).
 
     <!-- - Create the resource group if it doesn't exist. `--resource-group` is optional. -->
     <!-- No it doesn't. az webapp up doesn't respect --resource-group -->
@@ -168,28 +209,31 @@ In this section, you create app host in App Service app, connect this app to the
     * Enable default logging for the app.
     * Upload the repository using ZIP deployment with build automation enabled.
 
-Upon successful deployment, the command generates JSON output like the following example:
+1. Configure App Service to use the *start.sh* in the repo with the [az webapp config set](/cli/azure/webapp/config#az-webapp-config-set) command.
+    ```azurecli
+    az webapp config set \
+      --resource-group $RESOURCE_GROUP_NAME \
+      --name $APP_SERVICE_NAME \
+      --startup-file "start.sh"
+    ```
 
-:::image type="content" source="../app-service/media/tutorial-python-postgresql-app/az-webapp-up-output.png" alt-text="Screenshot of the terminal, showing an example output for the az webapp up command." :::
+### Create a passwordless connector to Postgres database
 
-Having issues? Refer first to the [Troubleshooting guide](../app-service/configure-language-python.md#troubleshooting), otherwise, [let us know](https://aka.ms/DjangoCLITutorialHelp).
+With the code now deployed to App Service, the next step is to connect the app to the Postgres database in Azure. The app code expects to find database information in an environment variable named `AZURE_POSTGRESQL_CONNECTIONSTRING` for PostgresSQL flexible server and an environment variable named `AZURE_STORAGEBLOB_RESOURCEENDPOINT` for Azure Storage account.
 
-### Configure environment variables to connect the database
+The Service Connector commands configure Azure Storage and Azure Database for PostgreSQL resources to use managed identity and Azure role-based access control. The commands create app settings in the App Service that connect your web app to these resources. The output from the commands lists the service connector actions taken to enable passwordless capability.
 
-With the code now deployed to App Service, the next step is to connect the app to the Postgres database in Azure.
-
-The app code expects to find database information in four environment variables named `AZURE_POSTGRESQL_HOST`, `AZURE_POSTGRESQL_NAME`, `AZURE_POSTGRESQL_USER`, and `AZURE_POSTGRESQL_PASS`.
-
-To set environment variables in App Service, create "app settings" with the following `az connection create` command.
-
-```azurecli
-az webapp connection create postgres-flexible --client-type django
-```
-
-The resource group, app name, db name are drawn from the cached values. You need to provide admin password of your postgres database during the execution of this command.
-
-* The command creates settings named "AZURE_POSTGRESQL_HOST", "AZURE_POSTGRESQL_NAME", "AZURE_POSTGRESQL_USER", "AZURE_POSTGRESQL_PASS" as expected by the app code.
-* If you forgot your admin credentials, the command would guide you to reset it.
+1. Add a PostgreSQL service connector with the [az webapp connection create postgres-flexible](/cli/azure/webapp/connection/create#az-webapp-connection-create-postgres-flexible) command. The system-assigned managed identity is used to authenticate the web app to the target resource, PostgreSQL in this case.
+    ```azurecli
+    az webapp connection create postgres-flexible \
+      --resource-group $RESOURCE_GROUP_NAME \
+      --name $APP_SERVICE_NAME \
+      --target-resource-group $RESOURCE_GROUP_NAME \
+      --server $DB_SERVER_NAME \
+      --database restaurant \
+      --client-type python \
+      --system-identity
+    ```
 
 > [!NOTE]
 > If you see the error message "The subscription is not registered to use Microsoft.ServiceLinker", please run `az provider register -n Microsoft.ServiceLinker` to register the Service Connector resource provider and run the connection command again.
@@ -198,61 +242,56 @@ In your Python code, you access these settings as environment variables with sta
 
 Having issues? Refer first to the [Troubleshooting guide](../app-service/configure-language-python.md#troubleshooting), otherwise, [let us know](https://aka.ms/DjangoCLITutorialHelp).
 
-### Run Django database migrations
+### Create a connector to Azure Storage account
 
-Django database migrations ensure that the schema in the PostgreSQL on Azure database matches with your code.
+1. Add a storage service connector with the [az webapp connection create storage-blob](/cli/azure/webapp/connection/create#az-webapp-connection-create-storage-blob) command.
+    This command also adds a storage account and adds the web app with role *Storage Blob Data Contributor* to the storage account.
+    ```azurecli
+    STORAGE_ACCOUNT_URL=$(az webapp connection create storage-blob \
+      --new true \
+      --resource-group $RESOURCE_GROUP_NAME \
+      --name $APP_SERVICE_NAME \
+      --target-resource-group $RESOURCE_GROUP_NAME \
+      --client-type python \
+      --system-identity \
+      --query configurations[].value \
+      --output tsv)
+    STORAGE_ACCOUNT_NAME=$(cut -d . -f1 <<< $(cut -d / -f3 <<< $STORAGE_ACCOUNT_URL))
+    ```
 
-1. Run `az webapp ssh` to open an SSH session for the web app in the browser:
+1. Create a container called *photos* in the storage account with the [az storage container create](/cli/azure/storage/container#az-storage-container-create) command. Allow anonymous read (public) access to blobs in the newly created container.
 
     ```azurecli
-    az webapp ssh
+    az storage container create \
+      --account-name $STORAGE_ACCOUNT_NAME \
+      --name photos \
+      --public-access blob \
+      --account-key $(az storage account keys list --account-name $STORAGE_ACCOUNT_NAME \
+          --query [0].value --output tsv) 
     ```
 
-1. In the SSH session, run the following commands:
+    > [!NOTE]
+    > For brevity, this command uses the storage account key to authorize with the storage account. For most scenarios, Microsoft's recommended approach is to use Microsoft Entra ID and Azure (RBAC) roles. For a quick set of instructions, see [Quickstart: Create, download, and list blobs with Azure CLI](/azure/storage/blobs/storage-quickstart-blobs-cli#create-a-container). Note that several Azure roles permit you to create containers in a storage account, including "Owner", "Contributor", "Storage Blob Data Owner", and "Storage Blob Data Contributor".
+To learn more about anonymous read access to blob data, see [Configure anonymous read access for containers and blobs](/azure/storage/blobs/anonymous-read-access-configure).
 
-    ```bash
-    # Run database migrations
-    python manage.py migrate
+## Test the Python web app in Azure
 
-    # Create the super user (follow prompts)
-    python manage.py createsuperuser
-    ```
+The sample Python app uses the [azure.identity](https://pypi.org/project/azure-identity/) package and its `DefaultAzureCredential` class. When the app is running in Azure, `DefaultAzureCredential` automatically detects if a managed identity exists for the App Service and, if so, uses it to access other Azure resources (storage and PostgreSQL in this case). There's no need to provide storage keys, certificates, or credentials to the App Service to access these resources.
 
-    If you encounter any errors related to connecting to the database, check the values of the application settings created in the previous section.
+1. Browse to the deployed application at the URL `http://$APP_SERVICE_NAME.azurewebsites.net`.
 
-1. The `createsuperuser` command prompts you for superuser credentials. For the purposes of this tutorial, use the default username `root`, press **Enter** for the email address to leave it blank, and enter `Pollsdb1` for the password.
+    It can take a minute or two for the app to start. If you see a default app page that isn't the default sample app page, wait a minute and refresh the browser.
+2. Test the functionality of the sample app by adding a restaurant and some reviews with photos for the restaurant.
+    The restaurant and review information is stored in Azure Database for PostgreSQL and the photos are stored in Azure Storage. Here's an example screenshot:
 
-1. If you see an error that the database is locked, make sure that you ran the `az webapp settings` command in the previous section. Without those settings, the migrate command can't communicate with the database, resulting in the error.
-
-Having issues? Refer first to the [Troubleshooting guide](../app-service/configure-language-python.md#troubleshooting), otherwise, [let us know](https://aka.ms/DjangoCLITutorialHelp).
-
-### Create a poll question in the app
-
-1. Open the app website. The app should display the message "Polls app" and "No polls are available" because there are no specific polls yet in the database.
-
-    ```azurecli
-    az webapp browse
-    ```
-
-    If you see "Application Error", then it's likely that you either didn't create the required settings in the previous step "[Configure environment variables to connect the database](#configure-environment-variables-to-connect-the-database)", or that these values contain errors. Run the command `az webapp config appsettings list` to check the settings.
-
-    After updating the settings to correct any errors, give the app a minute to restart, then refresh the browser.
-
-1. Browse to the web app's admin page by appending `/admin` to the URL, for example, `http://<app-name>.azurewebsites.net/admin`. Sign in using Django superuser credentials from the previous section (`root` and `Pollsdb1`). Under **Polls**, select **Add** next to **Questions** and create a poll question with some choices.
-
-1. Return to the main website (`http://<app-name>.azurewebsites.net`) to confirm that the questions are now presented to the user. Answer questions however you like to generate some data in the database.
-
-**Congratulations!** You're running a Python Django web app in Azure App Service for Linux, with an active Postgres database.
-
-> [!NOTE]
-> App Service detects a Django project by looking for a *wsgi.py* file in each subfolder, which `manage.py startproject` creates by default. When App Service finds that file, it loads the Django web app. For more information, see [Configure built-in Python image](../app-service/configure-language-python.md).
+    :::image type="content" source="media/tutorial-django-webapp-postgres-cli/example-of-review-sample-app-production-deployed-small.png" lightbox="media/tutorial-django-webapp-postgres-cli/example-of-review-sample-app-production-deployed.png" alt-text="Screenshot of the sample app showing restaurant review functionality using Azure App Service, Azure PostgreSQL Database, and Azure Storage." :::
 
 ## Clean up resources
 
 If you'd like to keep the app or continue to more tutorials, skip ahead to [Next steps](#next-step). Otherwise, to avoid incurring ongoing charges, delete the resource group created for this tutorial:
 
 ```azurecli
-az group delete --name ServiceConnector-tutorial-rg --no-wait
+az group delete --name $RESOURCE_GROUP_NAME --no-wait
 ```
 
 By deleting the resource group, you also deallocate and delete all the resources contained within it. Be sure you no longer need the resources in the group before using the command.
