@@ -34,7 +34,7 @@ In this tutorial, you:
 > [!div class="checklist"]
 > - [Deploy Connected registry extension using preinstalled cert-manager.](#deploy-connected-registry-extension-using-your-preinstalled-cert-manager)
 > - [Deploy Connected registry extension using Bring Your Own Certificate (BYOC).](#deploy-connected-registry-extension-using-bring-your-own-certificate-byoc)
-> - [Deploy Connected registry with Kubernetes secret management.](#deploy-connected-registry-with-Kubernetes-secret-management)
+> - [Deploy Connected registry with Kubernetes secret management.](#deploy-connected-registry-with-kubernetes-secret-management)
 > - [Deploy the Connected registry Arc extension with inherent trust distribution or reject Connected registry trust distribution.](#deploy-the-connected-registry-using-your-own-trust-distribution-and-disable-the-connected-registrys-default-trust-distribution)
 
 ## Prerequisites
@@ -49,7 +49,7 @@ In this tutorial, we demonstrate how to use a preinstalled cert-manager service 
 
 Run the [az-k8s-extension-create][az-k8s-extension-create] command in the [quickstart][quickstart] and set the `cert-manager.enabled=true` and `cert-manager.install=false` parameters to determine the cert-manager service is installed and enabled:
 
-    ```azurecli
+```azurecli
     az k8s-extension create --cluster-name myarck8scluster \ 
     --cluster-type connectedClusters \ 
     --extension-type Microsoft.ContainerRegistry.ConnectedRegistry \ 
@@ -58,7 +58,7 @@ Run the [az-k8s-extension-create][az-k8s-extension-create] command in the [quick
     --config service.clusterIP=192.100.100.1 \ 
     --config cert-manager.install=false \ 
     --config-protected-file protected-settings-extension.json
-    ```
+```
 
 ## Deploy connected registry extension using bring your own certificate (BYOC)
 

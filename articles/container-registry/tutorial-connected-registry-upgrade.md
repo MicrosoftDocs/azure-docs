@@ -31,7 +31,7 @@ To complete this tutorial, you need the following resources:
 
 Follow the [quickstart][quickstart] to edit the [az-k8s-extension-create][az-k8s-extension-create] command and include the `--auto-upgrade-minor-version true` parameter. This parameter automatically upgrades the extension to the latest version whenever a new version is available. 
 
-    ```azurecli
+```azurecli
     az k8s-extension create --cluster-name myarck8scluster \ 
     --cluster-type connectedClusters \
     --extension-type Microsoft.ContainerRegistry.ConnectedRegistry \
@@ -40,7 +40,7 @@ Follow the [quickstart][quickstart] to edit the [az-k8s-extension-create][az-k8s
     --config service.clusterIP=192.100.100.1 \ 
     --config-protected-file protected-settings-extension.json \  
     --auto-upgrade-minor-version true
-    ```
+```
 
 ## Deploy the connected registry extension with auto roll back enabled
 
@@ -49,7 +49,7 @@ Follow the [quickstart][quickstart] to edit the [az-k8s-extension-create][az-k8s
 
 Follow the [quickstart][quickstart] to edit the [az k8s-extension update] command and add --version with your desired version. This example uses version 0.6.0. This parameter updates the extension version to the desired pinned version. 
 
-    ```azurecli
+```azurecli
     az k8s-extension update --cluster-name myarck8scluster \ 
     --cluster-type connectedClusters \ 
     --extension-type  Microsoft.ContainerRegistry.ConnectedRegistry \ 
@@ -59,13 +59,13 @@ Follow the [quickstart][quickstart] to edit the [az k8s-extension update] comman
     --config-protected-file <JSON file path> \
     --auto-upgrade-minor-version true \
     --version 0.6.0 
-    ```
+```
 
 ## Deploy the connected registry extension using manual upgrade steps
 
 Follow the [quickstart][quickstart] to edit the [az-k8s-extension-update][az-k8s-extension-update] command and add--version with your desired version. This example uses version 0.6.1. This parameter upgrades the extension version to 0.6.1. 
 
-    ```azurecli
+```azurecli
     az k8s-extension update --cluster-name myarck8scluster \ 
     --cluster-type connectedClusters \ 
     --name myconnectedregistry \ 
@@ -73,7 +73,7 @@ Follow the [quickstart][quickstart] to edit the [az-k8s-extension-update][az-k8s
     --config service.clusterIP=192.100.100.1 \
     --auto-upgrade-minor-version false \
     --version 0.6.1 
-    ```
+```
 
 ## Next steps
 
