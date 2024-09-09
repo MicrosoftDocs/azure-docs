@@ -101,64 +101,53 @@ The following table lists the columns available in the Defender for IoT device i
 
 |Name  |Description | Editable|
 |---------|---------|----|
-|**Authorization** *   |Determines whether or not the device is marked as *authorized*. This value might need to change as the device security changes. Toggle **Authorized device**. | Editable in OT Sensor|
+|**Authorization** *   |Determines whether or not the device is marked as *authorized*. This value might need to change as the device security changes. Toggle **Authorized device**. | Editable in Azure and OT Sensor|
 |**Business Function**     | Describes the device's business function. |Editable in Azure|
 | **Class** | The device's class. <br>Default: `IoT` |Editable in Azure|
 |**Data source** | The source of the data, such as a micro agent, OT sensor, or Microsoft Defender for Endpoint. <br>Default: `MicroAgent` | Not editable|
 |**Description** * |The device's description.  |Editable in both Azure and the OT Sensor|
 | **Device Id** | The device's Azure-assigned ID number. |Not editable|
-|  **Firmware model** |  The device's firmware model. |Editable in Azure|
+| **Firmware model** |  The device's firmware model. |Editable in Azure|
 | **Firmware vendor** |  The vendor of the device's firmware. |Not editable|
 | **Firmware version** * |The device's firmware version. |Editable in Azure |
 |**First seen**  * | The date and time the device was first seen. Shown in `MM/DD/YYYY HH:MM:SS AM/PM` format. On the OT sensor, shown as **Discovered**.|Not editable|
 |**Importance** | The device's important level: `Low`, `Medium`, or `High`.   |Editable in Azure|
-| **IPv4 Address** | The device's IPv4 address. |Not editable|
+| **IPv4 Address** *| The device's IPv4 address. |Not editable|
 |**IPv6 Address** | The device's IPv6 address.|Not editable|
 |**Last activity** * | The date and time the device last sent an event through to Azure or to the OT sensor, depending on where you're viewing the device inventory. Shown in `MM/DD/YYYY HH:MM:SS AM/PM` format. |Not editable|
 |**Location** | The device's physical location.  |Editable in Azure|
 | **MAC Address** * | The device's MAC address.  |Not editable|
-|**Model**  *| The device's hardware model. |Editable in Azure |
-|**Name** * | Mandatory, and editable. The device's name as the sensor discovered it, or as entered by the user. |Editable in Azure |
-|**Network location** (Public preview) | The device's network location. Displays whether the device is defined as *local* or *routed*, according to the configured subnets. |Not editable|
+|**Model** *| The device's hardware model. |Editable in Azure |
+|**Name** * | Mandatory. The device's name as the sensor discovered it, or as entered by the user. |Editable in Azure and OT sensor|
+|**Network location** (Public preview) * | The device's network location. Displays whether the device is defined as *local* or *routed*, according to the configured subnets. |Not editable|
 |**OS architecture** |The device's operating system architecture.  |Not editable|
 |**OS distribution** | The device's operating system distribution, such as Android, Linux, and Haiku.   |Not editable|
 |**OS platform** * | The device's operating system, if detected.  On the OT sensor, shown as **Operating System**. |Editable in OT Sensor|
 |**OS version** | The device's operating system version, such as Windows 10 or Ubuntu 20.04.1. |Not editable|
-|**PLC mode**  * | The device's PLC operating mode, including both the *Key* state (physical / logical) and the *Run* state (logical). If both states are the same, then only one state is listed.<br><br>- Possible *Key* states include: `Run`, `Program`, `Remote`, `Stop`, `Invalid`, and `Programming Disabled`. <br><br>- Possible *Run* states are `Run`, `Program`, `Stop`, `Paused`, `Exception`, `Halted`, `Trapped`, `Idle`, or `Offline`.   |Editable in OT Sensor|
-|**Programming device**  *   | Defines whether the device is defined as a *Programming Device*, performing programming activities for PLCs, RTUs, and controllers, which are relevant to engineering stations. |Editable in Azure |
+|**PLC mode**  * | The device's PLC operating mode, including both the *Key* state (physical / logical) and the *Run* state (logical). If both states are the same, then only one state is listed.<br><br>- Possible *Key* states include: `Run`, `Program`, `Remote`, `Stop`, `Invalid`, and `Programming Disabled`. <br><br>- Possible *Run* states are `Run`, `Program`, `Stop`, `Paused`, `Exception`, `Halted`, `Trapped`, `Idle`, or `Offline`.   | Editable in OT Sensor|
+|**Programming device**  *   | Defines whether the device is defined as a *Programming Device*, performing programming activities for PLCs, RTUs, and controllers, which are relevant to engineering stations. |Editable in Azure and OT sensor |
 |**Protocols**  *| The protocols that the device uses.  |Not editable|
-| **Purdue level** | The Purdue level in which the device exists.|Editable in Azure|
+| **Purdue level** | The Purdue level in which the device exists.| Editable in OT sensor |
 |**Scanner device**  * |Defines whether the device performs scanning-like activities in the network. |Editable in OT Sensor|
 |**Sensor**| The sensor the device is connected to. |Not editable|
 |**Serial number**  *| The device's serial number.  |Not editable|
 | **Site** | The device's site. <br><br>All Enterprise IoT sensors are automatically added to the **Enterprise network** site.  |Not editable|
-| **Slots** | The number of slots the device has.  |Not editable|
+| **Slots** * | The number of slots the device has.  |Not editable|
 | **Subtype** | The device's subtype, such as *Speaker* or *Smart TV*. <br>**Default**: `Managed Device` |Editable in Azure|
 | **Tags** | The device's tags.  |Editable in Azure|
-|**Type** * | The device type, such as *Communication* or *Industrial*. <br>**Default**: `Miscellaneous`  |Editable in Azure |
+|**Type** * | The device type, such as *Communication* or *Industrial*. <br>**Default**: `Miscellaneous`  |Editable in Azure and OT sensor |
 |**Vendor** *| The name of the device's vendor, as defined in the MAC address.  < Also inconsistent - in inventory called vendor, in pane called hardware vendor>|Editable in Azure |
 | **VLAN**  * | The device's VLAN.  |Not editable|
 |**Zone** | The device's zone.  |Not editable|
 
-The following table lists the columns available in the OT sensors only, a description of each column and whether it is editible.
+The following columns are available in the OT sensors only, and aren't editible.
 
-|Name  |Description | Editable|
-|---------|---------|----|
-|**DHCP Address**| | |
-|**FQDN**| | |
-|**FQDN Last Lookup Time**| | |
-|**Groups**| | |
-|**Module address**| | |
-|**Rack**| The number of racks the device has.| |
-|**Slot**| The number of slots the device has.| |
-| **Unacknowledged Alerts**| The number of **Unacknowledged Alerts** alerts associated with the device| |
-
-- The device's **DHCP Address**
-- The device's **FQDN** address and **FQDN Last Lookup Time**
-- The device **Groups** that include the device, as [defined on the OT sensor's device map](how-to-work-with-the-sensor-device-map.md#create-a-custom-device-group)
-- The device's **Module address**
-- The device's **Rack** and **Slot**
-- The number of **Unacknowledged Alerts** alerts associated with the device
+- The device's **DHCP Address**.
+- The device's **FQDN** address and **FQDN Last Lookup Time**.
+- The device **Groups** that include the device, as [defined on the OT sensor's device map](how-to-work-with-the-sensor-device-map.md#create-a-custom-device-group).
+- The device's **Module address**.
+- The device's **Rack**.
+- The number of **Unacknowledged Alerts** alerts associated with the device.
 
 > [!NOTE]
 > The additional **Agent type** and **Agent version** columns are used for by device builders. For more information, see [Microsoft Defender for IoT for device builders documentation](../device-builders/index.yml).
