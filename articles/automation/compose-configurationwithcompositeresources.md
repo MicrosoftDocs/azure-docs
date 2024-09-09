@@ -4,8 +4,8 @@ description: This article tells how to compose configurations using composite re
 keywords: powershell dsc, desired state configuration, powershell dsc azure, composite resources
 services: automation
 ms.subservice: desired-state-config
-ms.date: 08/21/2018
-ms.topic: conceptual
+ms.date: 09/09/2024
+ms.topic: how-to
 ms.service: azure-automation
 ---
 # Compose DSC configurations
