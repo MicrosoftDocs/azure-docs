@@ -25,9 +25,12 @@ To buy a prepurchase plan, you must have one of the following Azure subscription
    - [Buy Azure reservations on behalf of a customer](/partner-center/customers/azure-reservations-buying)
    - [Allow the customer to buy their own reservations](/partner-center/customers/give-customers-permission)
 
+[NOTE!]
+> Microsoft Sentinel Commit Units are different from Security Compute Units in Copilot for Security. Customers cannot use Sentinel Commit Units to run Copilot workloads and vice versa
+
 ## Determine the right size to buy
 
-Prepurchase plans pair nicely with Microsoft Sentinel commitment tiers. Once you plan your Microsoft Sentinel ingestion volume and reduce complexity with a simplified pricing tier, choose an appropriate commitment tier. Then it's easier to decide on the size of a prepurchase plan to buy. Microsoft Sentinel commitment tiers are monthly commitments and considered a retail cost. Microsoft Sentinel prepurchase plans have a term agreement of one year.
+Prepurchase plans pair nicely with Microsoft Sentinel commitment tiers. Once you plan your Microsoft Sentinel ingestion volume, choose an appropriate commitment tier. Then it's easier to decide on the size of a prepurchase plan to buy. Microsoft Sentinel prepurchase plans have a term agreement of one year.
 
 Here's an example of the decision making and cost savings for a prepurchase plan. If you have a commitment tier of 200 GB/day, there's an associated monthly estimated cost for both the ingestion to the workspace and the analysis for Microsoft Sentinel. For example purposes, let's say that monthly cost is $20,000 USD with simplified pricing and provides a 39% savings over the pay-as-you-go tier with the same 200 GB/day.
 
@@ -42,7 +45,7 @@ For more information, see the following articles:
 >[!IMPORTANT]
 > The prices mentioned are for example purposes only. To determine the latest commitment tier prices, see [Microsoft Sentinel pricing](https://azure.microsoft.com/pricing/details/microsoft-sentinel/).
 
-Microsoft Sentinel classic pricing tier usage and all simplified pricing is eligible for Microsoft Sentinel prepurchase plans. From your Microsoft Sentinel bill, these costs are the entries with the **Sentinel** service name in the invoice details. 
+All Microsoft Sentinel pricing tiers qualify for Microsoft Sentinel prepurchase plans. From your Microsoft Sentinel bill, these costs are the entries with the **Sentinel** service name in the invoice details. These costs don't include Azure Monitor tiers, retention, restore and search costs. Eligible Microsoft Sentinel usages is deducted from the pre-purchased Microsoft Sentinel CUs automatically. 
 
 For more information on how to view Microsoft Sentinel simplified or classic pricing tiers in your invoice details, see [Understand your Microsoft Sentinel bill](billing.md#understand-your-microsoft-sentinel-bill).
 
@@ -66,7 +69,7 @@ Purchase Microsoft Sentinel prepurchase plans in the [Azure portal reservations]
    `Need Sentinel screenshot here`
    :::image type="content" source="media/billing-prepurchase-plan/sentinel-prepurchase-plan.png" alt-text="Screenshot showing Microsoft Sentinel prepurchase plan discount tiers and their term lengths." lightbox="media/billing-prepurchase-plan/sentinel-prepurchase-plan.png":::
 
-1. Choose to automatically renew the prepurchase reservation. *The renewal setting is turned by default*. For more information, see [Renew a reservation](../cost-management-billing/reservations/reservation-renew.md).
+1. Choose to automatically renew the prepurchase reservation. *The setting is configured to renew automatically by default*. For more information, see [Renew a reservation](../cost-management-billing/reservations/reservation-renew.md).
 
 ## Change scope and ownership
 
