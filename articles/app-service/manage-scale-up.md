@@ -2,7 +2,7 @@
 title: Scale up features and capacities
 description: Learn how to scale up an app in Azure App Service. Get more CPU, memory, disk space, and extra features.
 ms.assetid: f7091b25-b2b6-48da-8d4a-dcf9b7baccab
-ms.topic: article
+ms.topic: how-to
 ms.date: 08/26/2024
 ms.author: msangapu
 author: msangapu-msft
