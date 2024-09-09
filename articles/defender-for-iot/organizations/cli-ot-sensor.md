@@ -60,7 +60,6 @@ Use the following commands to restart the OT sensor appliance.
 |User  |Command  |Full command syntax   |
 |---------|---------|---------|
 |**admin**     |   `system reboot`      |   No attributes     |
-|**cyberx**  , or **admin** with [root access](references-work-with-defender-for-iot-cli-commands.md#access-the-system-root-as-an-admin-user)    |   `sudo reboot`      |   No attributes      |
 |**cyberx_host**  , or **admin** with [root access](references-work-with-defender-for-iot-cli-commands.md#access-the-system-root-as-an-admin-user)    |   `sudo reboot`      |   No attributes      |
 
 For example, for the *admin* user:
@@ -76,7 +75,6 @@ Use the following commands to shut down the OT sensor appliance.
 |User  |Command  |Full command syntax   |
 |---------|---------|---------|
 |**admin**     |   `system shutdown`      |   No attributes      |
-|**cyberx**  , or **admin** with [root access](references-work-with-defender-for-iot-cli-commands.md#access-the-system-root-as-an-admin-user)    |   `sudo shutdown -r now`      |   No attributes      |
 |**cyberx_host**, or **admin** with [root access](references-work-with-defender-for-iot-cli-commands.md#access-the-system-root-as-an-admin-user)     |   `sudo shutdown -r now`      |   No attributes      |
 
 For example, for the *admin* user:
