@@ -338,6 +338,24 @@ This `run.ps1` file implements the function code:
 
 ---
 
+::: zone pivot="programming-language-csharp"  
+You can review the complete template project [here](https://github.com/Azure-Samples/functions-quickstart-dotnet-azd).
+::: zone-end  
+::: zone pivot="programming-language-java" 
+You can review the complete template project [here](https://github.com/Azure-Samples/azure-functions-java-flex-consumption-azd).
+::: zone-end  
+::: zone pivot="programming-language-javascript" 
+You can review the complete template project [here](https://github.com/Azure-Samples/functions-quickstart-javascript-azd).
+::: zone-end  
+::: zone pivot="programming-language-typescript" 
+You can review the complete template project [here](https://github.com/Azure-Samples/functions-quickstart-typescript-azd).
+::: zone-end  
+::: zone pivot="programming-language-powershell" 
+You can review the complete template project [here](https://github.com/Azure-Samples/functions-quickstart-powershell-azd).
+::: zone-end  
+::: zone pivot="programming-language-python" 
+You can review the complete template project [here](https://github.com/Azure-Samples/functions-quickstart-python-http-azd).
+::: zone-end  
 After you verify your functions locally, it's time to publish them to Azure. 
 ::: zone pivot="programming-language-java" 
 ## Create Azure resources
@@ -476,7 +494,7 @@ You can use the Core Tools to obtain the URL endpoints of your functions running
     func azure functionapp list-functions $APP_NAME --show-keys
     ```
 
-    ### [Cmd](#tab/cmd)
+    ### [Cmd](#tab/cmd2)
     ```cmd
     for /f "tokens=*" %i in ('azd env get-value AZURE_FUNCTION_NAME') do set APP_NAME=%i
     func azure functionapp list-functions %APP_NAME% --show-keys 
