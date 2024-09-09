@@ -28,15 +28,6 @@ To monitor and review the workflow run status for Standard workflows, see the fo
 
 For real-time event monitoring and richer debugging, you can set up diagnostics logging for your logic app workflow by using [Azure Monitor logs](../azure-monitor/overview.md). This Azure service helps you monitor your cloud and on-premises environments so that you can more easily maintain their availability and performance. You can then find and view events, such as trigger events, run events, and action events. By storing this information in [Azure Monitor logs](../azure-monitor/logs/data-platform-logs.md), you can create [log queries](../azure-monitor/logs/log-query-overview.md) that help you find and analyze this information. You can also use this diagnostic data with other Azure services, such as Azure Storage and Azure Event Hubs. For more information, see [Monitor logic apps by using Azure Monitor](monitor-workflows-collect-diagnostic-data.md).
 
-> [!NOTE]
->
-> If your workflow runs in an [integration service environment (ISE)](connect-virtual-network-vnet-isolated-environment-overview.md)
-> that was created to use an [internal access endpoint](connect-virtual-network-vnet-isolated-environment-overview.md#endpoint-access),
-> you can view and access inputs and outputs from a workflow run history *only from inside your virtual network*. Make sure that you have network
-> connectivity between the private endpoints and the computer from where you want to access run history. For example, your client computer can exist
-> inside the ISE's virtual network or inside a virtual network that's connected to the ISE's virtual network, for example, through peering or a virtual
-> private network. For more information, see [ISE endpoint access](connect-virtual-network-vnet-isolated-environment-overview.md#endpoint-access).
-
 <a name="review-trigger-history"></a>
 
 ## Review trigger history

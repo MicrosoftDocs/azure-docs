@@ -3,7 +3,7 @@ title: Network Monitoring in Azure Monitor logs
 description: Overview of network monitoring solutions, including network performance monitor, to manage networks across cloud, on-premises, and hybrid environments.
 author: asudbring
 ms.service: azure-virtual-network
-ms.topic: article
+ms.topic: conceptual
 ms.date: 10/30/2023
 ms.author: allensu
 ---
