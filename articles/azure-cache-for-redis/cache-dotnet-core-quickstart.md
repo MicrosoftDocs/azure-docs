@@ -31,11 +31,11 @@ If you want to go straight to the code, see the [.NET Core sample](https://githu
 
 [!INCLUDE [redis-cache-access-keys](includes/redis-cache-access-keys.md)]
 
-Make a note of the values for **HOST NAME** and the **Primary** access key. You'll use these values later to construct the `CacheConnection` secret.
+Make a note of the values for **HOST NAME** and the **Primary** access key. You ise these values later to construct the `CacheConnection` secret.
 
 ## Add a local secret for the connection string
 
-In your command window, execute the following command to store a new secret named *CacheConnection* after you replac the placeholders (including angle brackets) with your cache name (`<cache name>`) and primary access key (`<primary-access-key>`):
+In your command window, execute the following command to store a new secret named *CacheConnection* after you replace the placeholders (including angle brackets) with your cache name (`<cache name>`) and primary access key (`<primary-access-key>`):
 
 ```dos
 dotnet user-secrets set CacheConnection "<cache name>.redis.cache.windows.net,abortConnect=false,ssl=true,allowAdmin=true,password=<primary-access-key>"
@@ -50,14 +50,14 @@ The connection to your cache is managed by the `RedisConnection` class. First, y
 
 ```
 
-In *RedisConnection.cs*, the `StackExchange.Redis` namespace has been added to the code. The namespace is required for the `RedisConnection` class.
+In *RedisConnection.cs*, the `StackExchange.Redis` namespace was added to the code. The namespace is required for the `RedisConnection` class.
 
 ```csharp
 using StackExchange.Redis;
 
 ```
 
-The `RedisConnection` code ensures that there is always a healthy connection to the cache by managing the `ConnectionMultiplexer` instance from `StackExchange.Redis`. The `RedisConnection` class re-creates the connection when a connection is lost and unable to reconnect automatically.
+The `RedisConnection` code ensures that there's always a healthy connection to the cache by managing the `ConnectionMultiplexer` instance from `StackExchange.Redis`. The `RedisConnection` class re-creates the connection when a connection is lost and unable to reconnect automatically.
 
 For more information, see [StackExchange.Redis](https://stackexchange.github.io/StackExchange.Redis/) and the code in a [GitHub repo](https://github.com/StackExchange/StackExchange.Redis).
 
@@ -147,7 +147,7 @@ If you opened any files, save the files. Then, build the app by using the follow
 dotnet build
 ```
 
-Run the app with the following command to test serialization of .NET objects:
+To test serialization of .NET objects, run this command:
 
 ```dos
 dotnet run

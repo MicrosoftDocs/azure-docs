@@ -24,13 +24,13 @@ You'll use the [redis-rs](https://github.com/mitsuhiko/redis-rs) library for Red
 
 This article describes how to create an app by using the Azure portal and then modify the code to end up with a working sample app.
 
-If you want to skip straight to the code, see the [Rust quickstart](https://github.com/Azure-Samples/azure-redis-cache-rust-quickstart/) on GitHub.
+If you want to skip straight to the code, see the [Rust sample quickstart](https://github.com/Azure-Samples/azure-redis-cache-rust-quickstart/) on GitHub.
 
 ## Prerequisites
 
-- Azure subscription - [create one for free](https://azure.microsoft.com/free/)
-- [Rust](https://www.rust-lang.org/tools/install) (version 1.39 or above)
-- [Git](https://git-scm.com/downloads)
+* Azure subscription - [create one for free](https://azure.microsoft.com/free/)
+* [Rust](https://www.rust-lang.org/tools/install) (version 1.39 or above)
+* [Git](https://git-scm.com/downloads)
 
 ## Create a cache
 
@@ -92,7 +92,7 @@ fn basics() {
 }
 ```
 
-The below code snippet demonstrates the functionality of a Redis `HASH` data structure. [HSET](https://redis.io/commands/hset) is invoked by using the low-level API to store information (`name`, `version`, `repo`) about Redis drivers (clients). For example, details for the Rust driver (one being used in this sample code!) is captured in form of a [BTreeMap](https://doc.rust-lang.org/std/collections/struct.BTreeMap.html) and then passed on to the low-level API. It's then retrieved by using [HGETALL](https://redis.io/commands/hgetall).
+The following code snippet demonstrates the functionality of a Redis `HASH` data structure. [HSET](https://redis.io/commands/hset) is invoked by using the low-level API to store information (`name`, `version`, `repo`) about Redis drivers (clients). For example, details for the Rust driver (one being used in this sample code!) is captured in the form of a [BTreeMap](https://doc.rust-lang.org/std/collections/struct.BTreeMap.html). Then, it's passed on to the low-level API. Finally, you retrieve it by using [HGETALL](https://redis.io/commands/hgetall).
 
 `HSET` can also be executed by using a high-level API. [hset_multiple](https://docs.rs/redis/0.19.0/redis/trait.Commands.html#method.hset_multiple) accepts an array of tuples. [hget](https://docs.rs/redis/0.19.0/redis/trait.Commands.html#method.hget) is then executed to fetch the value for a single attribute (the value for `repo`, in this case).
 

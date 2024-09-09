@@ -167,7 +167,7 @@ The HTTP server starts on port `8080`.
     curl -i localhost:8080/users/1
     ```
 
-    You should get a JSON response that is similar to this example:
+    The output is JSON response that is similar to this example:
 
     ```json
     {
@@ -178,7 +178,7 @@ The HTTP server starts on port `8080`.
     ```
 
 1. If you try to fetch a user who doesn't exist, you get an HTTP `404`.
- 
+
    For example:
 
     ```bash
