@@ -3,7 +3,7 @@ title: Manage an App Service plan
 description: Learn how to perform different tasks to manage an App Service plan, such as create, move, scale, and delete.
 keywords: app service, azure app service, scale, app service plan, change, create, manage, management
 ms.assetid: 4859d0d5-3e3c-40cc-96eb-f318b2c51a3d
-ms.topic: article
+ms.topic: how-to
 ms.author: msangapu
 author: msangapu-msft
 ms.date: 08/26/2024
@@ -90,7 +90,7 @@ You can find **Clone App** in the **Development Tools** section of the menu.
 
 To scale up an App Service plan's pricing tier, see [Scale up an app in Azure](manage-scale-up.md).
 
-To scale out an app's instance count, see [Scale instance count automatically](../azure-monitor/autoscale/autoscale-get-started.md) or [Scale instance count manually](manage-automatic-scaling.md#disable-automatic-scaling).
+To scale out an app's instance count, see [Scale instance count manually or automatically](../azure-monitor/autoscale/autoscale-get-started.md).
 
 <a name="delete"></a>
 
