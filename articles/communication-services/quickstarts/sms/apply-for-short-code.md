@@ -19,7 +19,7 @@ ms.custom: mode-other
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- [An active Communication Services resource.](../create-communication-resource.md)
+- [An active Communication Services resource](../create-communication-resource.md).
 
 ## Get a short code
 To begin provisioning a short code, go to your Communication Services resource on the [Azure portal](https://portal.azure.com).

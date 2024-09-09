@@ -4,8 +4,8 @@ description: This article tells how to install an agent-based  Hybrid Runbook Wo
 services: automation
 ms.subservice: process-automation
 ms.custom: linux-related-content
-ms.date: 09/04/2024
-ms.topic: conceptual
+ms.date: 09/09/2024
+ms.topic: how-to
 ms.service: azure-automation
 ---
 
