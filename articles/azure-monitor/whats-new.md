@@ -3,7 +3,7 @@ title: "What's new in Azure Monitor documentation"
 description: "What's new in Azure Monitor documentation"
 author: EdB-MSFT
 ms.topic: conceptual
-ms.date: 08/21/2024
+ms.date: 09/06/2024
 ms.author: edbaynash
 ---
 
@@ -18,6 +18,42 @@ This article lists significant changes to Azure Monitor documentation.
 
 
 ## [2024](#tab/2024)
+
+## August 2024
+
+|Subservice | Article | Description |
+|---|---|---|
+|Agents|[MMA/OMS Discovery and Removal Utility](agents/azure-monitor-agent-mma-removal-tool.md)|New Removal Tool|
+|Application-Insights|[Migrate to workspace-based Application Insights resources](app/convert-classic-resource.md)|We've updated the table that converts values used in Classic AI resources to Workspace-based resources.|
+|Application-Insights|[Application Insights for ASP.NET Core applications](app/asp-net-core.md)|The option to disable telemetry correlation has been documented for ASP.NET Core.|
+|Application-Insights|[Configure Application Insights for your ASP.NET website](app/asp-net.md)|The option to disable telemetry correlation has been documented for ASP.NET.|
+|Application-Insights|[Configuration options: Azure Monitor Application Insights for Java](app/java-standalone-config.md)|The option to disable telemetry correlation has been documented for Java.|
+|Application-Insights|[Monitor your Node.js services and apps with Application Insights](app/nodejs.md)|The option to disable telemetry correlation has been documented for Node.js.|
+|Application-Insights|[What is autoinstrumentation for Azure Monitor Application Insights?](app/codeless-overview.md)|Further "autoinstrumentation" explanation has been added, alongside an example, to better convey the meaning of this term.|
+|Application-Insights|[Microsoft Entra authentication for Application Insights](app/azure-ad-authentication.md)|Options to enable Entra authentication for .NET and Node.js autoinstrumentation are documented.|
+|Application-Insights|[Application Insights availability tests](app/availability.md)|We clarified information about using a "availability test string identifier", which previously caused some confusion when referred to as a "GUID".|
+|Containers|[Optimize monitoring costs for Container insights](containers/container-insights-cost.md)|Rewritten to consolidate cost saving options and analysis.|
+|Containers|[Configure log collection in Container insights](containers/container-insights-data-collection-configure.md)|New article to consolidate all guidance for container location.|
+|Containers|[Filter log collection in Container insights](containers/container-insights-data-collection-filter.md)|New article to describe all options to filter container logs.|
+|Containers|[Container insights log schema](containers/container-insights-logs-schema.md)|Rewritten to focus on definition and configuration of log schema, including metadata option.|
+|Containers|[Access Syslog data in Container Insights](containers/container-insights-syslog.md)|Removed duplicate information on configuration.|
+|Containers|[Data transformations in Container insights](containers/container-insights-transformations.md)|Added details to filtering example and added a new example to send data to multiple tables.|
+|Containers|[Enable private link for Kubernetes monitoring in Azure Monitor](containers/container-insights-private-link.md)|New article to consolidate private link guidance for Container insights.|
+|Containers|[High scale logs collection in Container Insights (Preview)](containers/container-insights-high-scale.md)|New feature.|
+|Containers|[Monitor your Kubernetes cluster performance with Container insights](containers/container-insights-analyze.md)|Added explanation of "Other processes" column.|
+|Essentials |[Manage data collection rules (DCRs) and associations in Azure Monitor](essentials/data-collection-rule-view.md)|Added guidance for new UI feature to manage DCR associations.|
+|Essentials|[Use Azure Policy to install and manage the Azure Monitor agent](agents/azure-monitor-agent-policy.md)|Added information on new UI feature to create associations.|
+|Essentials|[Create and edit data collection rules (DCRs) and associations in Azure Monitor](essentials/data-collection-rule-create-edit.md)|Removed duplicate information.|
+|Essentials|[Data collection rules (DCRs) in Azure Monitor](essentials/data-collection-rule-overview.md)|Added diagram.|
+|Essentials|[Monitor and troubleshoot DCR data collection in Azure Monitor](essentials/data-collection-monitor.md)|Corrected error in KQL using InputStreamId.|
+|General|[Analyze and visualize monitoring data](best-practices-analysis.md)|We've updated our visualization recommendations to better guide customers when to use Azure Managed Grafana and when to use Azure Workbooks.|
+|Logs|[Best practices for Azure Monitor Logs](best-practices-logs.md)|Updated overview of features that enhance resilience of your Log Analytics workspace, including a new video. |
+|Logs|[Set up a table with the Auxiliary plan in your Log Analytics workspace (Preview)](logs/create-custom-table-auxiliary.md)|New article that explains how to set up a table with the Auxiliary plan. |
+|Logs|[Azure Monitor Logs overview](logs/data-platform-logs.md)|Updated Azure Monitor Logs overview provides a high-level overview of data collection, management, retrieval, and consumption for a range of use cases.|
+|Logs|[Run search jobs in Azure Monitor](logs/search-jobs.md)|New video that explains how to use search jobs in Azure Monitor Logs.|
+|Logs|[Aggregate data in a Log Analytics workspace by using summary rules (Preview)](logs/summary-rules.md)|New video that explains how to use summary rules to optimize data in your Log Analytics workspace.|
+
+
 
 ## July 2024
 
@@ -665,7 +701,7 @@ Application-insights|[Share Azure dashboards by using Azure role-based access co
 Application-insights|[Application monitoring for Azure App Service and ASP.NET](./app/azure-web-apps-net.md)|Added important notes about System.IO.FileNotFoundException after an 2.8.44 auto-instrumentation upgrade.|
 Application-insights|[Geolocation and IP address handling](./app/ip-collection.md)| Updated geolocation lookup information.|
 Containers|[Metric alert rules in Container insights (preview)](./containers/container-insights-metric-alerts.md)|Updated to include Container insights metric alerts.|
-Containers|[Custom metrics collected by Container insights](containers/container-insights-custom-metrics.md?tabs=portal)|New article.|
+Containers|[Custom metrics collected by Container insights](/previous-versions/azure/azure-monitor/containers/container-insights-custom-metrics)|New article.|
 Containers|[Overview of Container insights in Azure Monitor](containers/container-insights-overview.md)|Rewritten to simplify onboarding options.|
 Containers|[Enable Container insights for Azure Kubernetes Service cluster](containers/container-insights-enable-aks.md?tabs=azure-cli)|Updated to combine new and existing clusters.|
 Containers Prometheus|[Query logs from Container insights](containers/container-insights-log-query.md)|Updated to include log queries for Prometheus data.|
@@ -690,7 +726,7 @@ Visualizations|[Azure Workbooks](./visualize/workbooks-overview.md)|New video to
 
 | Article | Description |
 |---|---|
-|[Azure Monitor Agent overview](./agents/agents-overview.md)|Added Azure Monitor Agent support for ARM64-based virtual machines for a number of distributions. <br><br>Azure Monitor Agent and legacy agents don't support machines and appliances that run heavily customized or stripped-down versions of operating system distributions. <br><br>Azure Monitor Agent versions 1.15.2 and higher now support Syslog RFC formats, including Cisco Meraki, Cisco ASA, Cisco FTD, Sophos XG, Juniper Networks, Corelight Zeek, CipherTrust, NXLog, McAfee, and Common Event Format (CEF).|
+|[Azure Monitor Agent overview](./agents/agents-overview.md)|Added Azure Monitor Agent support for Arm64-based virtual machines for a number of distributions. <br><br>Azure Monitor Agent and legacy agents don't support machines and appliances that run heavily customized or stripped-down versions of operating system distributions. <br><br>Azure Monitor Agent versions 1.15.2 and higher now support Syslog RFC formats, including Cisco Meraki, Cisco ASA, Cisco FTD, Sophos XG, Juniper Networks, Corelight Zeek, CipherTrust, NXLog, McAfee, and Common Event Format (CEF).|
 
 ### Alerts
 

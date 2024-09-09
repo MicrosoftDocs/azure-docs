@@ -191,11 +191,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/search/security-baseline.md",
-      "redirect_url": "/security/benchmark/azure/baselines/cognitive-search-security-baseline",
-      "redirect_document_id": false
-    },
-    {
       "source_path_from_root": "/articles/databox/security-baseline.md",
       "redirect_url": "/security/benchmark/azure/baselines/databox-security-baseline",
       "redirect_document_id": false
@@ -263,11 +258,6 @@
     {
       "source_path_from_root": "/articles/load-balancer/security-baseline.md",
       "redirect_url": "/security/benchmark/azure/baselines/load-balancer-security-baseline",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/machine-learning/security-baseline.md",
-      "redirect_url": "/security/benchmark/azure/baselines/machine-learning-security-baseline",
       "redirect_document_id": false
     },
     {

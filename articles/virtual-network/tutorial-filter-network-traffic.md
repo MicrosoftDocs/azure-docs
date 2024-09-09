@@ -471,7 +471,7 @@ az network nsg rule create \
 ```
 
 > [!CAUTION]
-> In this article, SSJ (port 22) is exposed to the internet for the VM that is assigned to the **asg-mgmt** application security group.
+> In this article, SSH (port 22) is exposed to the internet for the VM that is assigned to the **asg-mgmt** application security group.
 >
 > For production environments, instead of exposing port 22 to the internet, it's recommended that you connect to Azure resources that you want to manage using a VPN, private network connection, or Azure Bastion.
 >

@@ -36,7 +36,7 @@ The following regions currently support availability zones:
 | South Central US | UK South | | | East Asia |
 | US Gov Virginia | West Europe  | | | China North 3 |
 | West US 2 | Sweden Central | | |Korea Central  | 
-| West US 3 | Switzerland North | | | |
+| West US 3 | Switzerland North | | | *New Zealand North |
 | Mexico Central | Poland Central ||||
 ||Spain Central ||||
 
@@ -134,7 +134,7 @@ Azure offerings are grouped into three categories that reflect their _regional_ 
 | [Azure Bastion](../bastion/bastion-overview.md) | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) |
 | [Azure Batch](./reliability-batch.md) | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) |
 | [Azure Cache for Redis](./migrate-cache-redis.md) | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) ![An icon that signifies this service is zonal](media/icon-zonal.svg) |
-| [Azure AI Search](../search/search-reliability.md#availability-zones) | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) |
+| [Azure AI Search](/azure/search/search-reliability#availability-zones) | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) |
 | [Azure Container Apps](reliability-azure-container-apps.md#availability-zone-support) | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) |
 | [Azure Container Instances](migrate-container-instances.md) | ![An icon that signifies this service is zonal](media/icon-zonal.svg) |
 | [Azure Container Registry](../container-registry/zone-redundancy.md) | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) |

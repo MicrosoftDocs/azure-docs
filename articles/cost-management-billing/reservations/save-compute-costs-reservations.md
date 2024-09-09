@@ -6,7 +6,7 @@ ms.reviewer: bshy
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: overview
-ms.date: 11/17/2023
+ms.date: 08/28/2023
 ms.author: banders
 ---
 
@@ -104,7 +104,7 @@ For more information, see [Self-service exchanges and refunds for Azure Reservat
 Software plans:
 
 - **SUSE Linux** - A reservation covers the software plan costs. The discounts apply only to SUSE meters and not to the virtual machine usage.
-- **Red Hat Plans** - A reservation covers the software plan costs. The discounts apply only to RedHat meters and not to the virtual machine usage.
+- **Red Hat Plans** (***plans and renewal are temporarily unavailable***) - A reservation covers the software plan costs. The discounts apply only to RedHat meters and not to the virtual machine usage.
 - **Azure Red Hat OpenShift** - A reservation applies to the OpenShift costs, not to Azure infrastructure costs.
 
 For Windows virtual machines and SQL Database, the reservation discount doesn't apply to the software costs. You can cover the licensing costs with [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/).

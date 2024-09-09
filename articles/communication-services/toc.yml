@@ -421,7 +421,10 @@ items:
           href: concepts/migrate-to-azure-communication-services.md
         - name: How to migrate from Twilio Video to Azure Communication Services
           href: tutorials/migrating-to-azure-communication-services-calling.md
-          displayName: migration, migrate, Twilio, move, shift
+          displayName: migration, migrate, Twilio, Twilio Video, move, shift
+        - name: How to migrate from Twilio Conversations Chat to Azure Communication Services
+          href: tutorials/migrating-to-azure-communication-services-chat.md
+          displayName: migration, migrate, Twilio, Twilio Conversations, move, shift
     - name: Mobile integrations
       items:
       - name: Integrate with CallKit in iOS
@@ -438,6 +441,8 @@ items:
           href: how-tos/ui-library-sdk/closed-captions.md
         - name: Configure theming
           href: how-tos/ui-library-sdk/theming.md
+        - name: Customize the button bar
+          href: how-tos/ui-library-sdk/button-injection.md
         - name: Disable end call confirmation
           href: how-tos/ui-library-sdk/leave-call-confirmation.md
         - name: Enable audio only mode

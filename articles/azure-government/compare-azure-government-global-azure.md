@@ -69,12 +69,12 @@ Table below lists API endpoints in Azure vs. Azure Government for accessing and 
 ||Custom Vision|cognitiveservices.azure.com|cognitiveservices.azure.us </br>[Portal](https://www.customvision.azure.us/)||
 ||Content Moderator|cognitiveservices.azure.com|cognitiveservices.azure.us||
 ||Face API|cognitiveservices.azure.com|cognitiveservices.azure.us||
-||Language Understanding|cognitiveservices.azure.com|cognitiveservices.azure.us </br>[Portal](https://luis.azure.us/)|Part of [Azure AI Language](../ai-services/language-service/index.yml)|
+||Language Understanding|cognitiveservices.azure.com|cognitiveservices.azure.us </br>[Portal](https://luis.azure.us/)|Part of [Azure AI Language](/azure/ai-services/language-service/)|
 ||Personalizer|cognitiveservices.azure.com|cognitiveservices.azure.us||
-||QnA Maker|cognitiveservices.azure.com|cognitiveservices.azure.us|Part of [Azure AI Language](../ai-services/language-service/index.yml)|
-||Speech service|See [STT API docs](../ai-services/speech-service/rest-speech-to-text-short.md#regions-and-endpoints)|[Speech Studio](https://speech.azure.us/)</br></br>See [Speech service endpoints](../ai-services/Speech-Service/sovereign-clouds.md)</br></br>**Speech translation endpoints**</br>Virginia: `https://usgovvirginia.s2s.speech.azure.us`</br>Arizona: `https://usgovarizona.s2s.speech.azure.us`</br>||
-||Text Analytics|cognitiveservices.azure.com|cognitiveservices.azure.us|Part of [Azure AI Language](../ai-services/language-service/index.yml)|
-||Translator|See [Translator API docs](../ai-services/translator/reference/v3-0-reference.md#base-urls)|cognitiveservices.azure.us||
+||QnA Maker|cognitiveservices.azure.com|cognitiveservices.azure.us|Part of [Azure AI Language](/azure/ai-services/language-service/)|
+||Speech service|See [STT API docs](/azure/ai-services/speech-service/rest-speech-to-text-short#regions-and-endpoints)|[Speech Studio](https://speech.azure.us/)</br></br>See [Speech service endpoints](/azure/ai-services/speech-service/sovereign-clouds)</br></br>**Speech translation endpoints**</br>Virginia: `https://usgovvirginia.s2s.speech.azure.us`</br>Arizona: `https://usgovarizona.s2s.speech.azure.us`</br>||
+||Text Analytics|cognitiveservices.azure.com|cognitiveservices.azure.us|Part of [Azure AI Language](/azure/ai-services/language-service/)|
+||Translator|See [Translator API docs](/azure/ai-services/translator/reference/v3-0-reference#base-urls)|cognitiveservices.azure.us||
 |**Analytics**|Azure HDInsight|azurehdinsight.net|azurehdinsight.us||
 ||Event Hubs|servicebus.windows.net|servicebus.usgovcloudapi.net||
 ||Power BI|app.powerbi.com|app.powerbigov.us|[Power BI US Gov](https://powerbi.microsoft.com/documentation/powerbi-service-govus-overview/)|
@@ -152,13 +152,13 @@ The following Azure Bot Service **features aren't currently available** in Azure
 
 For information on how to deploy Bot Framework and Azure Bot Service bots to Azure Government, see [Configure Bot Framework bots for US Government customers](/azure/bot-service/how-to-deploy-gov-cloud-high).
 
-### [Azure Machine Learning](../machine-learning/index.yml)
+### [Azure Machine Learning](/azure/machine-learning/)
 
-For feature variations and limitations, see [Azure Machine Learning feature availability across cloud regions](../machine-learning/reference-machine-learning-cloud-parity.md).
+For feature variations and limitations, see [Azure Machine Learning feature availability across cloud regions](/azure/machine-learning/reference-machine-learning-cloud-parity).
 
 <a name='cognitive-services-content-moderator'></a>
 
-### [Azure AI services: Content Moderator](../ai-services/content-moderator/index.yml)
+### [Azure AI services: Content Moderator](/azure/ai-services/content-moderator/)
 
 The following Content Moderator **features aren't currently available** in Azure Government:
 
@@ -166,45 +166,30 @@ The following Content Moderator **features aren't currently available** in Azure
 
 <a name='cognitive-services-language-understanding-luis'></a>
 
-### [Azure AI Language Understanding (LUIS)](../ai-services/luis/index.yml)
+### [Azure AI Language Understanding (LUIS)](/azure/ai-services/luis/)
 
 The following Language Understanding **features aren't currently available** in Azure Government:
 
 - Speech Requests
 - Prebuilt Domains
 
-Azure AI Language Understanding (LUIS) is part of [Azure AI Language](../ai-services/language-service/index.yml).
+Azure AI Language Understanding (LUIS) is part of [Azure AI Language](/azure/ai-services/language-service/).
 
 <a name='cognitive-services-speech'></a>
 
-### [Azure AI Speech](../ai-services/speech-service/index.yml)
+### [Azure AI Speech](/azure/ai-services/speech-service/)
 
-For feature variations and limitations, including API endpoints, see [Speech service in sovereign clouds](../ai-services/speech-service/sovereign-clouds.md).
+For feature variations and limitations, including API endpoints, see [Speech service in sovereign clouds](/azure/ai-services/speech-service/sovereign-clouds).
 
 <a name='cognitive-services-translator'></a>
 
-### [Azure AI services: OpenAI Service](../ai-services/openai/overview.md)
+### [Azure AI services: OpenAI Service](/azure/ai-services/openai/overview)
 
-The following features of Azure OpenAI are available in Azure Government:
+For feature variations and limitations see [Azure OpenAI in Azure Gov](/azure/ai-services/openai/azure-government).
 
-|Feature|Azure OpenAI|
-|--------|--------|
-|Models available|US Gov Arizona:<br>&nbsp;&nbsp;&nbsp;GPT-4o (2024-05-13)&nbsp;&nbsp;&nbsp;GPT-4 (1106-Preview)<br>&nbsp;&nbsp;&nbsp;GPT-3.5-Turbo (0125)&nbsp;&nbsp;&nbsp;GPT-3.5-Turbo (1106)<br>&nbsp;&nbsp;&nbsp;text-embedding-ada-002 (version 2)<br><br>US Gov Virginia:<br>&nbsp;&nbsp;&nbsp;GPT-4o (2024-05-13)&nbsp;&nbsp;&nbsp;GPT-4 (1106-Preview)<br>&nbsp;&nbsp;&nbsp;GPT-3.5-Turbo (0125)<br>&nbsp;&nbsp;&nbsp;text-embedding-ada-002 (version 2)<br><br>Learn more about the different capabilities of each model in [Azure OpenAI Service models](../ai-services/openai/concepts/models.md)|
-|Virtual network support & private link support| Yes. |
-| Connect your data | Available in US Gov Virginia and Arizona. Virtual network and private links are supported. Deployment to a web app or a copilot in Copilot Studio is not supported. |
-|Managed Identity|Yes, via Microsoft Entra ID|
-|UI experience|**Azure portal** for account & resource management<br>**Azure OpenAI Studio** for model exploration|
-|Abuse Monitoring|Not all features of Abuse Monitoring are enabled for AOAI in Azure Government. You will be responsible for implementing reasonable technical and operational measures to detect and mitigate any use of the service in violation of the Product Terms. [Automated Content Classification and Filtering](../ai-services/openai/concepts/content-filter.md) remains enabled by default for Azure Government.|
-|Data Storage|In AOAI, customer data is only stored at rest as part of our Finetuning solution. Since Finetuning is not enabled within Azure Gov, there is no customer data stored at rest in Azure Gov associated with AOAI. However, Customer Managed Keys (CMK) can still be enabled in Azure Gov to support use of the same policies in Azure Gov as in Public cloud. Note also that if Finetuning is enabled in Azure Gov in the future, any existing CMK deployment would be applied to that data at that time.|
+### [Azure AI services: Translator](/azure/ai-services/translator/)
 
-**Next steps**
-* To request quota increases for the pay-as-you-go consumption model, apply at [https://aka.ms/AOAIGovQuota](https://aka.ms/AOAIGovQuota)
-* If modified content filters are required, apply at [https://aka.ms/AOAIGovModifyContentFilter](https://aka.ms/AOAIGovModifyContentFilter)
-
-
-### [Azure AI services: Translator](../ai-services/translator/index.yml)
-
-For feature variations and limitations, including API endpoints, see [Translator in sovereign clouds](../ai-services/translator/sovereign-clouds.md).
+For feature variations and limitations, including API endpoints, see [Translator in sovereign clouds](/azure/ai-services/translator/sovereign-clouds).
 
 ## Analytics
 

@@ -1,11 +1,11 @@
 ---
 title: Prepare your Kubernetes cluster
 description: Prepare an Azure Arc-enabled Kubernetes cluster before you deploy Azure IoT Operations. This article includes guidance for both Ubuntu and Windows machines.
-author: dominicbetts
-ms.author: dobett
+author: kgremban
+ms.author: kgremban
 ms.topic: how-to
 ms.custom: ignite-2023, devx-track-azurecli
-ms.date: 07/22/2024
+ms.date: 08/26/2024
 
 #CustomerIntent: As an IT professional, I want prepare an Azure-Arc enabled Kubernetes cluster so that I can deploy Azure IoT Operations to it.
 ---
@@ -138,6 +138,12 @@ The [AksEdgeQuickStartForAio.ps1](https://github.com/Azure/AKS-Edge/blob/main/to
 
    In the output of the `Get-AksEdgeDeploymentInfo` command, you should see that the cluster's Arc status is `Connected`.
 
+### Configure multi-node clusters for Edge Storage Accelerator
+
+On multi-node clusters with at least three nodes, you have the option of enabling fault tolerance for storage with [Edge Storage Accelerator (preview)](../../azure-arc/edge-storage-accelerator/overview.md) when you deploy Azure IoT Operations.
+
+By default, Azure Kubernetes Service Edge Essentials clusters support Edge Storage Accelerator. There are no additional steps to configure AKS Edge Essential clusters for fault tolerance.
+
 ### [Ubuntu](#tab/ubuntu)
 
 Azure IoT Operations should work on any CNCF-conformant kubernetes cluster. For Ubuntu Linux, Microsoft currently supports K3s clusters.
@@ -184,12 +190,56 @@ To prepare a K3s Kubernetes cluster on Ubuntu:
    sudo sysctl -p
    ```
 
+### Configure multi-node clusters for Edge Storage Accelerator
+
+On multi-node clusters with at least three nodes, you have the option of enabling fault tolerance for storage with [Edge Storage Accelerator (preview)](../../azure-arc/edge-storage-accelerator/overview.md) when you deploy Azure IoT Operations. If you want to enable that option, prepare your multi-node cluster with the following steps:
+
+1. Install the required NVME over TCP module for your kernel using the following command:
+
+   ```bash
+   sudo apt install linux-modules-extra-`uname -r`
+   ```
+
+   > [!NOTE]
+   > The minimum supported Linux kernel version is 5.1. At this time, there are known issues with 6.4 and 6.2. For the latest information, refer to [Edge Storage Accelerator release notes](../../azure-arc/edge-storage-accelerator/release-notes.md)
+
+1. On each node in your cluster, set the number of **HugePages** to 512 using the following command:
+
+   ```bash
+   HUGEPAGES_NR=512
+   echo $HUGEPAGES_NR | sudo tee /sys/devices/system/node/node0/hugepages/hugepages-2048kB/nr_hugepages
+   echo "vm.nr_hugepages=$HUGEPAGES_NR" | sudo tee /etc/sysctl.d/99-hugepages.conf
+   ```
+
 ### [Codespaces](#tab/codespaces)
 
 > [!IMPORTANT]
 > Codespaces are easy to set up quickly and tear down later, but they're not suitable for performance evaluation or scale testing. Use GitHub Codespaces for exploration only.
 
 [!INCLUDE [prepare-codespaces](../includes/prepare-codespaces.md)]
+
+### Configure multi-node clusters for Edge Storage Accelerator
+
+On multi-node clusters with at least three nodes, you have the option of enabling fault tolerance for storage with [Edge Storage Accelerator (preview)](../../azure-arc/edge-storage-accelerator/overview.md) when you deploy Azure IoT Operations.
+
+This feature isn't recommended for Codespaces because Codespaces aren't persistent. If you want to enable fault tolerance anyways, prepare your multi-node cluster with the following steps:
+
+1. Install the required NVME over TCP module for your kernel using the following command:
+
+   ```bash
+   sudo apt install linux-modules-extra-`uname -r`
+   ```
+
+   > [!NOTE]
+   > The minimum supported Linux kernel version is 5.1. At this time, there are known issues with 6.4 and 6.2. For the latest information, refer to [Edge Storage Accelerator release notes](../../azure-arc/edge-storage-accelerator/release-notes.md)
+
+1. On each node in your cluster, set the number of **HugePages** to 512 using the following command:
+
+   ```bash
+   HUGEPAGES_NR=512
+   echo $HUGEPAGES_NR | sudo tee /sys/devices/system/node/node0/hugepages/hugepages-2048kB/nr_hugepages
+   echo "vm.nr_hugepages=$HUGEPAGES_NR" | sudo tee /etc/sysctl.d/99-hugepages.conf
+   ```
 
 ---
 
@@ -258,7 +308,7 @@ To connect your cluster to Azure Arc:
 1. Use the [az connectedk8s connect](/cli/azure/connectedk8s#az-connectedk8s-connect) command to Arc-enable your Kubernetes cluster and manage it as part of your Azure resource group:
 
    ```azurecli
-   az connectedk8s connect -n $CLUSTER_NAME -l $LOCATION -g $RESOURCE_GROUP --subscription $SUBSCRIPTION_ID
+   az connectedk8s connect -n $CLUSTER_NAME -l $LOCATION -g $RESOURCE_GROUP --subscription $SUBSCRIPTION_ID --enable-oidc-issuer --enable-workload-identity
    ```
 
 1. Get the `objectId` of the Microsoft Entra ID application that the Azure Arc service uses and save it as an environment variable.

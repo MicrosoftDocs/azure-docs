@@ -3,7 +3,7 @@ title: Manage multiple machines in Azure Update Manager
 description: This article explains how to use Azure Update Manager in Azure to manage multiple supported machines and view their compliance state in the Azure portal.
 ms.service: azure-update-manager
 ms.date: 08/22/2024
-ms.topic: conceptual
+ms.topic: overview
 author: SnehaSudhirG
 ms.author: sudhirsneha
 ---
