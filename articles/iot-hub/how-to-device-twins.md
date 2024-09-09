@@ -15,19 +15,19 @@ ms.custom: mqtt, devx-track-csharp, devx-track-dotnet
 
 # Get started with device twins
 
-Device twins are JSON documents that store device state information, including metadata, configurations, and conditions. IoT Hub persists a device twin for each device that connects to it.
+Use the IoT Hub device and service SDKs to develop applications that handle common device twin tasks. Device twins are JSON documents that store device state information, including metadata, configurations, and conditions. IoT Hub persists a device twin for each device that connects to it.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
 Use device twins to:
 
-* Store device metadata from your solution back end.
+* Store device metadata from your solution back end
 
-* Report current state information such as available capabilities and conditions, for example, the connectivity method used, from your device app.
+* Report current state information such as available capabilities and conditions, for example, the connectivity method used, from your device app
 
-* Synchronize the state of long-running workflows, such as firmware and configuration updates, between a device app and a back-end app.
+* Synchronize the state of long-running workflows, such as firmware and configuration updates, between a device app and a back-end app
 
-* Query your device metadata, configuration, or state.
+* Query your device metadata, configuration, or state
 
 Device twins are designed for synchronization and for querying device configurations and conditions. For more information about device twins, including when to use device twins, see [Understand device twins](iot-hub-devguide-device-twins.md).
 
@@ -62,9 +62,9 @@ This article shows you how to:
 
 ## Prerequisites
 
-* **An IoT hub**. Create one using the [Azure portal, CLI, or PowerShell](create-hub.md).
+* **An IoT hub**. Some SDK calls require the IoT Hub primary connection string, so make a note of the connection string.
 
-* **A registered device**. Register one in the [Azure portal](create-connect-device.md).
+* **A registered device**. Some SDK calls require the device primary connection string, so make a note of the connection string.
 
 * Make sure that **port 8883** is open in your firewall. The device sample in this article uses MQTT protocol, which communicates over port 8883. This port may be blocked in some corporate and educational network environments. For more information and ways to work around this issue, see [Connecting to IoT Hub (MQTT)](../iot/iot-mqtt-connect-to-iot-hub.md#connecting-to-iot-hub).
 
@@ -87,6 +87,12 @@ This article shows you how to:
   1. Select the copy icon for the **Primary connection string** and save the value.
 
   For more information about IoT Hub shared access policies and permissions, see [Access control and permissions](/azure/iot-hub/authenticate-authorize-sas).
+
+* Language SDK requirements:
+  * **.NET SDK** - Requres Visual Studio.
+  * **Python SDK** - [Python version 3.7 or later](https://www.python.org/downloads/) is recommended. Make sure to use the 32-bit or 64-bit installation as required by your setup. When prompted during the installation, make sure to add Python to your platform-specific environment variable.
+  * **Java** - [Java SE Development Kit 8](/azure/developer/java/fundamentals/) is required to use the SDK. Make sure you select **Java 8** under **Long-term support** to navigate to downloads for JDK 8.
+  * **Node.js** - Node.js version 10.0.x or later is required to use the SDK.
 
 :::zone pivot="programming-language-csharp"
 
