@@ -1322,7 +1322,22 @@
         },
         {
             "source_path_from_root": "/articles/app-service/containers/quickstart-multi-container.md",
-            "redirect_url": "/azure/app-service/quickstart-multi-container",
+            "redirect_url": "/azure/app-service/tutorial-custom-container-sidecar",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/app-service/containers/tutorial-multi-container-app.md",
+            "redirect_url": "/azure/app-service/tutorial-custom-container-sidecar",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/app-service/quickstart-multi-container.md",
+            "redirect_url": "/azure/app-service/tutorial-custom-container-sidecar",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/app-service/tutorial-multi-container-app.md",
+            "redirect_url": "/azure/app-service/tutorial-custom-container-sidecar",
             "redirect_document_id": false
         },
         {
@@ -1973,11 +1988,6 @@
         {
             "source_path_from_root": "/articles/app-service-web/app-service-web-tutorial-java-mysql.md",
             "redirect_url": "/azure/app-service/tutorial-java-spring-cosmosdb",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/app-service/containers/tutorial-multi-container-app.md",
-            "redirect_url": "/azure/app-service/tutorial-multi-container-app",
             "redirect_document_id": false
         },
         {

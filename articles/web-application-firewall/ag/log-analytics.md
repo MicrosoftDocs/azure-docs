@@ -4,7 +4,7 @@ description: This article shows you how you can use Azure Log Analytics to exami
 services: web-application-firewall
 author: vhorne
 ms.service: azure-web-application-firewall
-ms.topic: article
+ms.topic: how-to
 ms.date: 08/14/2024
 ms.author: victorh
 ---

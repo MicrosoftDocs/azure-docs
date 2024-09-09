@@ -16,12 +16,12 @@ This new version of Start/Stop VMs v2 provides a decentralized low-cost automati
 
 ## Important Start/Stop VMs v2 Updates
 
-> + We've updated our Start/Stop VMs v2 function app resource to use [Azure Functions version 4.x](../functions-versions.md), and you'll get this version by default when you install Start/Stop VMs v2 from the marketplace. Existing customers should migrate from Functions version 3.x to version 4.x using our auto-update functionality. This functionality gets the latest version either by running the TriggerAutoUpdate timer function once manually or waiting for the schedule to run, if you've enabled it. 
+> + No further development, enhancements, or updates will be available for Start/Stop v2 except when required to remain on supported versions of components and Azure services.
 >
-> + We've added a plan (**AZ - Availability Zone**) to our Start/Stop VMs v2 solution to enable a more reliable offering. You can now choose between Consumption and Availability Zone plans before you start your deployment. In most cases, the monthly cost of the Availability Zone plan is higher when compared to the Consumption plan. 
->
-> + Automatic updating functionality was introduced on April 28th, 2022. This new auto update feature helps you stay on the latest version of the solution. This feature is enabled by default when you perform a new installation.  
->   If you deployed your solution before this date, you can reinstall to the latest version from our [GitHub repository](https://github.com/microsoft/startstopv2-deployments)
+> + The TriggerAutoUpdate and UpdateStartStopV2 functions are now deprecated and will be removed in the future. To update Start/Stop v2, we recommend that you stop the site, install to the latest version from our [GitHub repository](https://github.com/microsoft/startstopv2-deployments), and then start the site. To disable the automatic update functionality, set the Function App's **AzureClientOptions:EnableAutoUpdate** [application setting](../functions-how-to-use-azure-function-app-settings.md?tabs=azure-portal%2Cto-premium#get-started-in-the-azure-portal) to **false**. No built-in notification system is available for updates. After an update to Start/Stop v2 becomes available, we will update the [readme.md](https://github.com/microsoft/startstopv2-deployments/blob/main/README.md) in the GitHub repository. Third-party GitHub file watchers might be available to notify you of changes.
+> 
+> + As of August 19, 2024, Start/Stop v2 has been updated to the [.NET 8 isolated worker model](../functions-versions.md?tabs=isolated-process%2Cv4&pivots=programming-language-csharp#languages).  
+
     
 ## Overview
 
@@ -43,8 +43,8 @@ An HTTP trigger function endpoint is created to support the schedule and sequenc
 |CostAnalyticsFunction |Timer |This function is used by Microsoft to estimate aggregate cost of Start/Stop V2 across customers. This function does not impact the functionality of Start/Stop V2.|
 |SavingsAnalyticsFunction |Timer |This function is used by Microsoft to estimate aggregate savings of Start/Stop V2 across customers. This function does not impact the functionality of Start/Stop V2.|
 |VirtualMachineSavingsFunction |Queue |This function performs the actual savings calculation on a VM achieved by the Start/Stop V2 solution.|
-|TriggerAutoUpdate |Timer |This function starts the auto update process based on the application setting "**EnableAutoUpdate=true**".|
-|UpdateStartStopV2 |Queue |This function performs the actual auto update execution, which validates your current version with the available version and decides the final action.|
+|TriggerAutoUpdate |Timer |Deprecated. This function starts the auto update process based on the application setting "**AzureClientOptions:EnableAutoUpdate=true**".|
+|UpdateStartStopV2 |Queue |Deprecated. This function performs the actual auto update execution, which validates your current version with the available version and decides the final action.|
 
 For example, **Scheduled** HTTP trigger function is used to handle schedule and sequence scenarios. Similarly, **AutoStop** HTTP trigger function handles the auto stop scenario.
 
