@@ -26,7 +26,7 @@ After the proof-of-concept phase, planning is required to get ready for creating
 
 Due to component dependencies, the deployment of this HPC cloud environment is based on a sequence of deployments, which consists of:
 
-1. Landing zone, which includes creation of a resource group, network access and
+1. Basic infrastructure, which includes creation of a resource group, network access and
    network security rules;
 1. Base services, which include identity management, job scheduler and resource;
    provisioner, along with their respective configurations;

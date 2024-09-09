@@ -1,5 +1,5 @@
 ---
-title: "Deployment step 1: Landing zone - Storage component"
+title: "Deployment step 1: Basic infrastructure - Storage component"
 description: Learn about the configuration of basic storage during migration deployment step one.
 author: tomvcassidy
 ms.author: tomcassidy
@@ -9,7 +9,7 @@ ms.service:
 services: 
 ---
 
-# Deployment step 1: Landing zone - Storage component
+# Deployment step 1: Basic infrastructure - Storage component
 
 In any Azure subscription, setting up basic storage is essential for managing data, applications, and resources effectively. While more advanced and HPC-specific storage configurations will be addressed separately, a solid foundation of basic storage is crucial for general resource management and initial deployment needs.
 

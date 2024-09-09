@@ -12,7 +12,7 @@
       items:
       - name: Overview
         href: lift-and-shift-production-level-overview.md
-      - name: Deployment step 1 - Landing zone
+      - name: Deployment step 1 - Basic infrastructure
         items:
         - name: Overview
           href: lift-and-shift-step-1-overview.md

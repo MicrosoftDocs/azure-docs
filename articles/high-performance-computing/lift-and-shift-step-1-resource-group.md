@@ -1,5 +1,5 @@
 ---
-title: "Deployment step 1: Landing zone - Resource group component"
+title: "Deployment step 1: Basic infrastructure - Resource group component"
 description: Learn about the configuration of resource groups during migration deployment step one.
 author: tomvcassidy
 ms.author: tomcassidy
@@ -9,7 +9,7 @@ ms.service:
 services: 
 ---
 
-# Deployment step 1: Landing zone - Resource group component
+# Deployment step 1: Basic infrastructure - Resource group component
 
 Resource groups in Azure serve as containers that hold related resources for an Azure solution. In an HPC environment, organizing resources into appropriate resource groups is essential for effective management, access control, and cost tracking.
 
