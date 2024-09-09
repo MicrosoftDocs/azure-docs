@@ -33,13 +33,13 @@ These features have their own pricing plans and are billed separately. You can c
 
 1. Select the workspace settings icon, and then go to the **General** page to view the workspace settings.
 
-    :::image type="content" source="./media/how-to-optimize-regional-latency/playwright-testing-general-settings.png" alt-text="Screenshot that shows the workspace settings page in the Playwright Testing portal." lightbox="./media/how-to-optimize-regional-latency/playwright-testing-general-settings.png":::
+    :::image type="content" source="./media/how-to-use-service-features/playwright-testing-enable-reporting-for-workspace.png" alt-text="Screenshot that shows the workspace settings page in the Playwright Testing portal for Feature Management." lightbox="./media/how-to-use-service-features/playwright-testing-enable-reporting-for-workspace.png":::
 
 1. Navigate to **Feature management** section.
 
 1. Choose the features you want to enable for your workspace.
 
-    By default, both cloud-hosted browsers and reporting are enabled for the workspace.
+    Currently, you can choose to enable or disable only reporting feature of the service. By default, reporting is enabled for the workspace. 
 
 ## Manage features while running tests
 
