@@ -24,7 +24,7 @@ The Azure Spring Apps service uses an underlying ingress controller to handle ap
 | `session-affinity`     | `affinity`               | None          | Session, None     | The type of the affinity that makes the request come to the same pod replica that was responding to the previous request. Set `session-affinity` to Cookie to enable session affinity. In the portal only, you must choose the enable session affinity box.    |
 | `session-max-age`      | `session-cookie-max-age` | 0             | \[0, 604800\]      | The time in seconds until the cookie expires, corresponding to the `Max-Age` cookie directive. If you set `session-max-age` to 0, the expiration period is equal to the browser session period. |
 | `backend-protocol`     | `backend-protocol`       | Default       | Default, GRPC(short for Remote Procedure Call) | Sets the backend protocol to indicate how NGINX should communicate with the backend service. Default means HTTP/HTTPS/WebSocket. The `backend-protocol` setting only applies to client-to-app traffic. For app-to-app traffic within the same service instance, choose any protocol for app-to-app traffic without modifying the `backend-protocol` setting. The protocol doesn't restrict your choice of protocol for app-to-app traffic within the same service instance.  |
-| `client-auth`          | `client-auth`            | 0 selected    | -                 | Select the certificates with public key you uploaded in TLS/SSL settings, and ingress will concat these certificates to one and use it for client authentication.|
+| `client-auth`          | `client-auth`            | 0 selected    | -                 | Select the certificates with public key you uploaded in TLS/SSL settings, and ingress concats these certificates to one and use it for client authentication.|
 
 ## Prerequisites
 
@@ -121,7 +121,7 @@ This command updates the app with the following settings:
 
 - What is the difference between ingress config and ingress settings?
 
-  Ingress config can still be used in the Azure CLI and SDK, and that setting applies to all apps within the service instance. Once an app has been configured by ingress settings, the Ingress config cannot affect it. We don't recommend that new scripts use ingress config since we plan to stop supporting it in the future.
+  Ingress config can still be used in the Azure CLI and SDK, and that setting applies to all apps within the service instance. Once ingress settings configured an app, the Ingress config can't affect it. We don't recommend that new scripts use ingress config since we plan to stop supporting it in the future.
 
 - When ingress settings are used together with App Gateway/APIM, what happens when you set the timeout in both Azure Spring Apps ingress and the App Gateway/APIM?
 
