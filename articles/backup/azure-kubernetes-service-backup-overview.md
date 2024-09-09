@@ -1,11 +1,11 @@
 ---
 title: What is Azure Kubernetes Service (AKS) backup?
 description: Understand Azure Kubernetes Service (AKS) backup, the cloud-native process to back up and restore the containerized applications and data running in an AKS cluster.
-ms.topic: conceptual
+ms.topic: overview
 ms.service: azure-backup
 ms.custom:
   - ignite-2023
-ms.date: 05/14/2024
+ms.date: 09/09/2024
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
