@@ -199,10 +199,10 @@ Kafka stores streams of data in *topics*. You can use the `kafka-topics.sh` util
 * **To create a topic**, use the following command in the SSH connection:
 
     ```bash
-    /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 3 --partitions 8 --topic test --zookeeper $KAFKAZKHOSTS
+    /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --create --replication-factor 3 --partitions 8 --topic test --bootstrap-server $KAFKABROKERS
     ```
 
-    This command connects to Zookeeper using the host information stored in `$KAFKAZKHOSTS`. It then creates an Apache  Kafka topic named **test**.
+    This command connects to Broker using the host information stored in `$KAFKABROKERS`. It then creates an Apache  Kafka topic named **test**.
 
     * Data stored in this topic is partitioned across eight partitions.
 
@@ -227,7 +227,7 @@ Kafka stores streams of data in *topics*. You can use the `kafka-topics.sh` util
 * **To list topics**, use the following command:
 
     ```bash
-    /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --list --zookeeper $KAFKAZKHOSTS
+    /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --list --bootstrap-server $KAFKABROKERS
     ```
 
     This command lists the topics available on the Apache Kafka cluster.
@@ -235,7 +235,7 @@ Kafka stores streams of data in *topics*. You can use the `kafka-topics.sh` util
 * **To delete a topic**, use the following command:
 
     ```bash
-    /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --delete --topic topicname --zookeeper $KAFKAZKHOSTS
+    /usr/hdp/current/kafka-broker/bin/kafka-topics.sh --delete --topic topicname --bootstrap-server $KAFKABROKERS
     ```
 
     This command deletes the topic named `topicname`.
