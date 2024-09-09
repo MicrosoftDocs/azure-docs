@@ -93,7 +93,7 @@ You can use these scripts for migration of Automation account assets from the ac
 1. Ensure that both the source and destination Automation accounts should belong to the same Microsoft Entra tenant.
 
 ### Create and execute the runbook
-You can use the[PowerShell script](https://github.com/azureautomation/Migrate-automation-account-assets-from-one-region-to-another) or [PowerShell workflow](https://github.com/azureautomation/Migrate-automation-account-assets-from-one-region-to-another-PwshWorkflow/tree/main) runbook or import from the Runbook gallery and execute it to enable migration of assets from one Automation account to another. 
+You can use the [PowerShell script](https://github.com/azureautomation/Migrate-automation-account-assets-from-one-region-to-another) or [PowerShell workflow](https://github.com/azureautomation/Migrate-automation-account-assets-from-one-region-to-another-PwshWorkflow/tree/main) runbook or import from the Runbook gallery and execute it to enable migration of assets from one Automation account to another. 
 
 Follow the steps to import and execute the runbook:
 
