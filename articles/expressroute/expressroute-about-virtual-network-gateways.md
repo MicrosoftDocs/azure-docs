@@ -108,6 +108,7 @@ ErGwScale supports both zonal and zonal-redundant deployments in Azure availabil
 ErGwScale is available in preview in the following regions:
 
 * Australia East
+* Brazil South
 * Canada Central
 * East US
 * East Asia
@@ -120,6 +121,7 @@ ErGwScale is available in preview in the following regions:
 * Sweden Central
 * UAE North
 * UK South
+* West US 2
 * West US 3
 
 ### Autoscaling vs. fixed scale unit
