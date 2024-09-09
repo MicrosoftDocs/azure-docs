@@ -11,7 +11,7 @@ ms.author: greglin
 
 # Annotations for Application Gateway Ingress Controller
 
-You can annotate the Kubernetes ingress resource with arbitrary key/value pairs. Application Gateway Ingress Controller (AGIC) relies on annotations to program Azure Application Gateway features that aren't configurable via the ingress YAML. Ingress annotations are applied to all HTTP settings, backend pools, and listeners derived from an ingress resource.
+You can annotate the Kubernetes ingress resource with arbitrary key/value pairs. Application Gateway Ingress Controller (AGIC) relies on annotations to program Azure Application Gateway features that aren't configurable via the ingress YAML. Ingress annotations are applied to all HTTP settings, back-end pools, and listeners derived from an ingress resource.
 
 ## List of supported annotations
 
@@ -48,7 +48,7 @@ For AGIC to observe an ingress resource, the resource *must be annotated* with `
 
 ## Backend Path Prefix
 
-The following annotation allows the backend path specified in an ingress resource to be rewritten with the specified prefix. Use it to expose services whose endpoints are different from the endpoint names that you use to expose a service in an ingress resource.
+The following annotation allows the back-end path specified in an ingress resource to be rewritten with the specified prefix. Use it to expose services whose endpoints are different from the endpoint names that you use to expose a service in an ingress resource.
 
 ### Usage
 
@@ -82,7 +82,7 @@ spec:
 
 The preceding example defines an ingress resource named `go-server-ingress-bkprefix` with an annotation named `appgw.ingress.kubernetes.io/backend-path-prefix: "/test/"`. The annotation tells Application Gateway to create an HTTP setting that has a path prefix override for the path `/hello` to `/test/`.
 
-The example defines only one rule. However, the annotations apply to the entire ingress resource. So if you define multiple rules, you set up the backend path prefix for each of the specified paths. If you want different rules with different path prefixes (even for the same service), you need to define different ingress resources.
+The example defines only one rule. However, the annotations apply to the entire ingress resource. So if you define multiple rules, you set up the back-end path prefix for each of the specified paths. If you want different rules with different path prefixes (even for the same service), you need to define different ingress resources.
 
 ## Backend Hostname
 
@@ -120,15 +120,15 @@ spec:
 
 ## Custom Health Probe
 
-You can [configure Application Gateway](./application-gateway-probe-overview.md) to send custom health probes to the backend address pool. When the following annotations are present, the Kubernetes ingress controller [creates a custom probe](./application-gateway-create-probe-portal.md) to monitor the backend application. The controller then applies the changes to Application Gateway.
+You can [configure Application Gateway](./application-gateway-probe-overview.md) to send custom health probes to the backend address pool. When the following annotations are present, the Kubernetes ingress controller [creates a custom probe](./application-gateway-create-probe-portal.md) to monitor the back-end application. The controller then applies the changes to Application Gateway.
 
-- `health-probe-hostname`: This annotation allows a custom hostname on the health probe.
+- `health-probe-hostname`: This annotation allows a custom host name on the health probe.
 - `health-probe-port`: This annotation configures a custom port for the health probe.
 - `health-probe-path`: This annotation defines a path for the health probe.
 - `health-probe-status-code`: This annotation allows the health probe to accept different HTTP status codes.
 - `health-probe-interval`: This annotation defines the interval at which the health probe runs.
 - `health-probe-timeout`: This annotation defines how long the health probe waits for a response before failing the probe.
-- `health-probe-unhealthy-threshold`: This annotation defines how many health probes must fail for the backend to be marked as unhealthy.
+- `health-probe-unhealthy-threshold`: This annotation defines how many health probes must fail for the back end to be marked as unhealthy.
 
 ### Usage
 
@@ -214,7 +214,7 @@ spec:
 Use the following annotations if you want to use connection draining:
 
 - `connection-draining`: This annotation specifies whether to enable connection draining.
-- `connection-draining-timeout`: This annotation specifies a timeout, after which Application Gateway terminates the requests to the draining backend endpoint.
+- `connection-draining-timeout`: This annotation specifies a timeout, after which Application Gateway terminates the requests to the draining back-end endpoint.
 
 ### Usage
 
@@ -354,7 +354,7 @@ spec:
 
 ## Override Frontend Port
 
-Use the following annotation to configure a frontend listener to use ports other than 80/443 for HTTP/HTTPS.
+Use the following annotation to configure a front-end listener to use ports other than 80 for HTTP and 443 for HTTPS.
 
 If the port is within the Application Gateway authorized range (1 to 64999), the listener is created on this specific port. If you set an invalid port or no port in the annotation, the configuration uses the default of 80 or 443.
 
@@ -396,7 +396,7 @@ spec:
 
 Use the following to specify the protocol that Application Gateway should use when it communicates with the pods. Supported protocols are HTTP and HTTPS.
 
-Although self-signed certificates are supported on Application Gateway, AGIC currently supports only HTTPS when pods use a certificate signed by a well-known certificate authority.
+Although self-signed certificates are supported on Application Gateway, AGIC currently supports HTTPS only when pods use a certificate signed by a well-known certificate authority.
 
 Don't use port 80 with HTTPS and port 443 with HTTP on the pods.
 
@@ -432,7 +432,7 @@ spec:
 
 ## Hostname Extension
 
-You can configure Application Gateway to accept multiple hostnames. Use the `hostname-extension` annotation to define multiple hostnames, including wildcard hostnames. This action appends the hostnames onto the FQDN that's defined in the ingress `spec.rules.host` information on the frontend listener, so it's [configured as a multisite listener](./multiple-site-overview.md).
+You can configure Application Gateway to accept multiple host names. Use the `hostname-extension` annotation to define multiple host names, including wildcard host names. This action appends the host names onto the FQDN that's defined in the ingress `spec.rules.host` information on the front-end listener, so it's [configured as a multisite listener](./multiple-site-overview.md).
 
 ### Usage
 
@@ -465,7 +465,7 @@ spec:
               number: 443
 ```
 
-The preceding example configures the listener to accept traffic for the hostnames `hostname1.contoso.com` and `hostname2.contoso.com`.
+The preceding example configures the listener to accept traffic for the host names `hostname1.contoso.com` and `hostname2.contoso.com`.
 
 ## WAF Policy for Path
 
@@ -511,7 +511,7 @@ spec:
 
 ## Application Gateway SSL Certificate
 
-You can [configure the SSL certificate to Application Gateway](/cli/azure/network/application-gateway/ssl-cert#az-network-application-gateway-ssl-cert-create) from either a local PFX certificate file or a reference to an Azure Key Vault unversioned secret ID. When the annotation is present with a certificate name and the certificate is pre-installed in Application Gateway, the Kubernetes ingress controller creates a routing rule with an HTTPS listener and applies the changes to your Application Gateway instance. You can also use the `appgw-ssl-certificate` annotation together with an `ssl-redirect` annotation in the case of an SSL redirect.
+You can [configure the SSL certificate to Application Gateway](/cli/azure/network/application-gateway/ssl-cert#az-network-application-gateway-ssl-cert-create) from either a local PFX certificate file or a reference to an Azure Key Vault unversioned secret ID. When the annotation is present with a certificate name and the certificate is preinstalled in Application Gateway, the Kubernetes ingress controller creates a routing rule with an HTTPS listener and applies the changes to your Application Gateway instance. You can also use the `appgw-ssl-certificate` annotation together with an `ssl-redirect` annotation in the case of an SSL redirect.
 
 > [!NOTE]
 > The `appgw-ssl-certificate` annotation is ignored when the TLS specification is defined in ingress at the same time. If you want different certificates with different hosts (termination of multiple TLS certificates), you need to define different ingress resources.
@@ -548,7 +548,7 @@ spec:
 
 ## Application Gateway SSL Profile
 
-You can configure an SSL profile on the Application Gateway instance per listener. When the annotation is present with a profile name and the profile is pre-installed in Application Gateway, the Kubernetes ingress controller creates a routing rule with an HTTPS listener and applies the changes to your Application Gateway instance.
+You can configure an SSL profile on the Application Gateway instance per listener. When the annotation is present with a profile name and the profile is preinstalled in Application Gateway, the Kubernetes ingress controller creates a routing rule with an HTTPS listener and applies the changes to your Application Gateway instance.
 
 ### Usage
 
@@ -657,7 +657,7 @@ spec:
 >
 > You can find URL rewrite rules for Application Gateway for Containers in [this article about the Gateway API](./for-containers/how-to-url-rewrite-gateway-api.md) and [this article about the Ingress API](for-containers/how-to-url-rewrite-ingress-api.md). You can find header rewrite rules for Application Gateway for Containers in [this article about the Gateway API](./for-containers/how-to-header-rewrite-gateway-api.md).
 
-Application Gateway allows you to rewrite selected contents of requests and responses. With this feature, you can translate URLs, query string parameters, and modify request and response headers. You can also use this feature to add conditions to ensure that the URL or the specified headers are rewritten only when certain conditions are met. Rewrite Rule Set Custom Resource brings this feature to AGIC.
+Application Gateway allows you to rewrite selected contents of requests and responses. With this feature, you can translate URLs, change query string parameters, and modify request and response headers. You can also use this feature to add conditions to ensure that the URL or the specified headers are rewritten only when certain conditions are met. Rewrite Rule Set Custom Resource brings this feature to AGIC.
 
 HTTP headers allow a client and server to pass additional information with a request or response. By rewriting these headers, you can accomplish important tasks like adding security-related header fields (for example, `HSTS` or `X-XSS-Protection`), removing response header fields that might reveal sensitive information, and removing port information from `X-Forwarded-For` headers.
 
