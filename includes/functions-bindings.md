@@ -2,7 +2,7 @@
 author: ggailey777
 ms.service: azure-functions
 ms.topic: include
-ms.date: 09/19/2023
+ms.date: 09/08/2024
 ms.author: glenga
 ms.custom: fasttrack-edit
 ---
@@ -33,10 +33,9 @@ This table shows the bindings that are supported in the major versions of the Az
 | [Timer](../articles/azure-functions/functions-bindings-timer.md)                         |✔|✔|✔| | |
 | [Twilio](../articles/azure-functions/functions-bindings-twilio.md)                       |✔|✔| | |✔|
 
-<sup>1</sup> [Support will end for version 1.x of the Azure Functions runtime on September 14, 2026](https://aka.ms/azure-functions-retirements/hostv1). We highly recommend that you [migrate your apps to version 4.x](../articles/azure-functions/migrate-version-1-version-4.md) for full support.
+Notes:
 
-<sup>2</sup> Starting with the version 2.x runtime, all bindings except HTTP and Timer must be registered. See [Register binding extensions](../articles/azure-functions/functions-bindings-register.md).
-
-<sup>3</sup> Triggers aren't supported in the Consumption plan. Requires [runtime-driven triggers](../articles/azure-functions/functions-networking-options.md#elastic-premium-plan-with-virtual-network-triggers).
-
-<sup>4</sup> Supported only in Kubernetes, IoT Edge, and other self-hosted modes only.
+1. [Support will end for version 1.x of the Azure Functions runtime on September 14, 2026](https://aka.ms/azure-functions-retirements/hostv1). We highly recommend that you [migrate your apps to version 4.x](../articles/azure-functions/migrate-version-1-version-4.md) for full support.
+2. Starting with the version 2.x runtime, all bindings except HTTP and Timer must be registered. See [Register binding extensions](../articles/azure-functions/functions-bindings-register.md).
+3. Triggers aren't supported in the Consumption plan. Requires [runtime-driven triggers](../articles/azure-functions/functions-networking-options.md#elastic-premium-plan-with-virtual-network-triggers).
+4. Supported in Kubernetes, IoT Edge, and other self-hosted modes only.
