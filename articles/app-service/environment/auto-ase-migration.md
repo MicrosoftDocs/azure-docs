@@ -3,7 +3,7 @@ title: Prevent and recover from an auto-migration of an App Service Environment
 description: Learn how to prevent and address issues related to an auto-migration to App Service Environment v3.
 author: seligj95
 ms.topic: tutorial
-ms.date: 9/5/2024
+ms.date: 9/10/2024
 ms.author: jordanselig
 ---
 # Prevent and resolve issues caused by an auto-migration of an App Service Environment
