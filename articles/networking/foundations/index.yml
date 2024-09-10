@@ -202,6 +202,15 @@ conceptualContent:
             - url: ../../traffic-manager/index.yml
               text: Traffic Manager
               itemType: reference
+            - url: ../../private-link/private-endpoint-overview.md
+              text: Private Endpoint
+              itemType: reference
+            - url: ../../virtual-network/virtual-network-peering-overview.md
+              text: Virtual network peering
+              itemType: reference
+            - url: ../../network-watcher/index.yml
+              text: Network Watcher
+              itemType: reference
 
 # additionalContent section (optional)
 # Card with summary style
