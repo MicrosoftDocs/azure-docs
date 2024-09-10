@@ -175,7 +175,7 @@ twin = iothub_registry_manager.update_twin(DEVICE_ID, twin_patch, twin.etag)
 
 ### Create a device twin query
 
-You can query device twin information using device twin queries. Device twin queries are SQL-like queries that return a result set of device twins.
+Query device twin information using device twin queries. Device twin queries are SQL-like queries that return a result set of device twins.
 
 To use a device twin query:
 
