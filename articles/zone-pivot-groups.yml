@@ -1669,8 +1669,8 @@ groups:
     title: Java
 # Owner: xiaofanzhou
 - id: tutorial-type
-  title: Choose the tutorial type
-  prompt: Choose the tutorial type
+  title: Choose a tutorial type
+  prompt: Choose a tutorial type
   pivots:
   - id: serviceconnector
     title: Service Connector
