@@ -990,7 +990,7 @@ Currently, a maximum of 4 process names can be listed in the processNames parame
 
 | Property | Value |
 | --- | --- |
-| Capability name | DisaleAutoscale |
+| Capability name | DisableAutoscale |
 | Target type | Microsoft-AutoscaleSettings |
 | Description | Disables the [autoscale service](/azure/azure-monitor/autoscale/autoscale-overview). When autoscale is disabled, resources such as virtual machine scale sets, web apps, service bus, and [more](/azure/azure-monitor/autoscale/autoscale-overview#supported-services-for-autoscale) aren't automatically added or removed based on the load of the application. |
 | Prerequisites | The autoScalesetting resource that's enabled on the resource must be onboarded to Chaos Studio. |

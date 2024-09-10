@@ -8,7 +8,9 @@ ms.date: 10/19/2023
 
 # Connect and query with DBeaver
 
+[!INCLUDE [retirement-notice](../includes/retirement-notice.md)]
 [!INCLUDE [feature-in-preview](../includes/feature-in-preview.md)]
+
 
 It's possible to use JDBC driver with many available database tools. This article demonstrates how to configure one of the most popular tool **DBeaver** to connect to Trino cluster with HDInsight on AKS in few simple steps.
 

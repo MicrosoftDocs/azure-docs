@@ -4,7 +4,7 @@ description: Learn about the latest new features and announcement in Microsoft S
 author: yelevin
 ms.author: yelevin
 ms.topic: concept-article
-ms.date: 08/18/2024
+ms.date: 09/09/2024
 ---
 
 # What's new in Microsoft Sentinel
@@ -17,6 +17,16 @@ The listed features were released in the last three months. For information abou
 `https://aka.ms/sentinel/rss`
 
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
+
+## September 2024 
+
+- [Microsoft Sentinel now generally available (GA) in Azure Israel Central](#microsoft-sentinel-now-generally-available-ga-in-azure-israel-central)
+
+### Microsoft Sentinel now generally available (GA) in Azure Israel Central
+
+Microsoft Sentinel is now available in the *Israel Central* Azure region, with the same feature set as all other Azure Commercial regions.
+
+For more information, see as [Microsoft Sentinel feature support for Azure commercial/other clouds](feature-availability.md) and [Geographical availability and data residency in Microsoft Sentinel](geographical-availability-data-residency.md).
 
 ## August 2024
 
@@ -248,11 +258,22 @@ To learn more about the Syslog and CEF connectors, see [Ingest Syslog and CEF lo
 
 ## February 2024
 
+- [Install domain solutions with dependencies](#install-domain-solutions-with-dependencies)
 - [Microsoft Sentinel solution for Microsoft Power Platform preview available](#microsoft-sentinel-solution-for-microsoft-power-platform-preview-available)
 - [New Google Pub/Sub-based connector for ingesting Security Command Center findings (Preview)](#new-google-pubsub-based-connector-for-ingesting-security-command-center-findings-preview)
 - [Incident tasks now generally available (GA)](#incident-tasks-now-generally-available-ga)
 - [AWS and GCP data connectors now support Azure Government clouds](#aws-and-gcp-data-connectors-now-support-azure-government-clouds)
 - [Windows DNS Events via AMA connector now generally available (GA)](#windows-dns-events-via-ama-connector-now-generally-available-ga)
+
+### Install domain solutions with dependencies
+
+Some Microsoft Sentinel content hub solutions, including many [domain solutions](sentinel-solutions-catalog.md#domain-solutions) and solutions that use the unified AMA connectors for [CEF, Syslog](cef-syslog-ama-overview.md), or [custom logs](connect-custom-logs-ama.md), don't necessarily include a data connector of their own. Instead, they rely on data connectors from other solutions to provide visibility in a specific area across data connectors. The data connectors they use are prerequisites for the domain solution to work properly.
+
+When installing a domain solution, you can now select **Install with dependencies** to ensure that the data connectors required by the domain solution are also installed:
+
+:::image type="content" source="media/whats-new/dependencies.png" alt-text="Screenshot of the new Install with dependencies button.":::
+
+For more information, see [Install with dependencies](sentinel-solutions-deploy.md#install-with-dependencies) and [Domain solutions](sentinel-solutions-catalog.md#domain-solutions).
 
 ### Microsoft Sentinel solution for Microsoft Power Platform preview available
 

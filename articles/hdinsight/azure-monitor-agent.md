@@ -3,7 +3,7 @@ title: Azure Monitor Agent (AMA) migration guide for Azure HDInsight clusters
 description: Learn how to migrate to Azure Monitor Agent (AMA) in Azure HDInsight clusters.
 ms.service: azure-hdinsight
 ms.topic: how-to
-ms.date: 09/03/2024
+ms.date: 09/06/2024
 ---
 
 # Azure Monitor Agent (AMA) migration guide for Azure HDInsight clusters

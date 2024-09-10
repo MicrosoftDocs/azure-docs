@@ -6,7 +6,7 @@ ms.custom: linux-related-content
 author: SnehaSudhirG
 ms.author: sudhirsneha
 ms.date: 07/29/2024
-ms.topic: conceptual
+ms.topic: overview
 ---
 
 # Sample Azure Resource Graph queries to access Azure Update Manager operations data
