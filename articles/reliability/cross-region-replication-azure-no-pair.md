@@ -36,8 +36,7 @@ Geo-replication enables an Azure container registry to function as a single regi
 
 
 ## Azure Cosmos DB
-If your solution requires continuous uptime during region outages, you can configure Azure Cosmos DB to replicate your data across multiple regions and to transparently fail over to operating regions when required. Azure Cosmos DB supports [multi-region writes](/azure/cosmos-db/multi-region-writes) and [multi-region reads](/azure/cosmos-db/multi-region-reads) to provide low-latency access to your data from any region. You can also use [manual failover](/azure/cosmos-db/tutorial-global-distribution-sql-api) to fail over to a secondary region in the event of a regional outage.
-There is no dependency on region pairs for this feature.
+If your solution requires continuous uptime during region outages, you can configure Azure Cosmos DB to replicate your data across [multiple regions](/azure/cosmos-db/how-to-manage-database-account#add-remove-regions-from-your-database-account) and to transparently fail over to operating regions when required. Azure Cosmos DB supports [multi-region writes](/azure/cosmos-db/multi-region-writes) and can distribute your data globally to provide low-latency access to your data from any region without any pairing restriction.
 
 
 ## Azure Database for MySQL 
