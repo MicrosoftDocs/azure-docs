@@ -21,7 +21,7 @@ Deploying Azure Monitor Agent as an extension with Azure Arc-enabled servers pro
 
 - Azure Arc offers extension management capabilities including auto-extension upgrade, reducing typical maintenance overhead.   
 
-- Azure Arc enables access to the breadth of server management capabilities beyond monitoring, such as Cloud Security Posture Management with [Microsoft Defender](../../defender-for-cloud/defender-for-cloud-introduction.md) or scripting with [Run Command](run-command.md). As you centralize operations in Azure, Azure Arc provides a robust foundation for these other capabilities.  
+- Azure Arc enables access to the breadth of server management capabilities beyond monitoring, such as Cloud Security Posture Management with [Microsoft Defender](/azure/defender-for-cloud/defender-for-cloud-introduction) or scripting with [Run Command](run-command.md). As you centralize operations in Azure, Azure Arc provides a robust foundation for these other capabilities.  
 
 Azure Arc is the foundation for a cloud-based inventory bringing together Azure and on-premises, multicloud, and edge infrastructure that can be queried and organized through Azure Resource Manager (ARM). 
 

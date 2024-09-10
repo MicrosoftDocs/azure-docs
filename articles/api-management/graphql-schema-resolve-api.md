@@ -14,6 +14,8 @@ ms.date: 05/31/2023
 
 [!INCLUDE [api-management-graphql-intro.md](../../includes/api-management-graphql-intro.md)]
 
+[!INCLUDE [api-management-workspace-availability](../../includes/api-management-workspace-availability.md)]
+
 In this article, you'll:
 > [!div class="checklist"]
 > * Import a GraphQL schema to your API Management instance

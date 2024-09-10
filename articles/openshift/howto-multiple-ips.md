@@ -1,5 +1,5 @@
 ---
-title: Configure multiple IP addresses for ARO cluster load balancers (Preview)
+title: Configure multiple IP addresses for ARO cluster load balancers
 description: Discover how to configure multiple IP addresses for ARO cluster load balancers.
 author: johnmarco
 ms.author: johnmarc
@@ -8,11 +8,19 @@ ms.topic: how-to
 ms.date: 03/05/2024
 #Customer intent: As an ARO SRE, I need to configure multiple outbound IP addresses per ARO cluster load balancers
 ---
-# Configure multiple IP addresses per ARO cluster load balancer (Preview)
+# Configure multiple IP addresses per ARO cluster load balancer
 
-ARO public clusters are created with a public load balancer that's used for outbound connectivity from inside the cluster. By default, one public IP address is configured on that public load balancer, and that limits the maximum node count of your cluster to 62. To be able to scale your cluster to the maximum supported number of nodes, you need to assign multiple additional public IP addresses to the load balancer.
+ARO public clusters are created with a public load balancer that's used for outbound connectivity from inside the cluster. By default, one public IP address is configured on that public load balancer, and that limits the maximum node count of your cluster to 65. To be able to scale your cluster to the maximum supported number of 250 nodes, you need to assign multiple additional public IP addresses to the load balancer.
 
 You can configure up to 20 IP addresses per cluster. The outbound rules and frontend IP configurations are adjusted to accommodate the number of IP addresses.
+
+> [!CAUTION]
+> Before deleting a large cluster, descale the cluster to 120 nodes or below.
+> 
+
+> [!NOTE]
+> The [API](/rest/api/openshift/open-shift-clusters/update?view=rest-openshift-2023-11-22&tabs=HTTP) method for using this feature is generally available. General availability for using the CLI for this feature is coming soon. The [preview version](#download-aro-extension-wheel-file-preview-only) of this feature can still be used through the CLI.
+> 
 
 ## Requirements
 

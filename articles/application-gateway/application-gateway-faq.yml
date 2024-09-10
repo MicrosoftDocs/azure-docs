@@ -121,7 +121,7 @@ sections:
           
       - question: How does Application Gateway handle routine maintenance?
         answer: |
-          Updates initiated to Application Gateway are applied one [update domain](../../articles/virtual-machines/availability-set-overview.md#how-do-availability-sets-work) at a time. As each update domain's instances are being updated, the remaining instances in other update domains continue to serve traffic<sup>1</sup>. Active connections are gracefully drained from the instances being updated for up to 5 minutes to help establish connectivity to instances in a different update domain before the update begins. During update, Application Gateway temporarily runs at reduced maximum capacity, which is determined by the number of instances configured. The update process proceeds to the next set of instances only if the current set of instances were upgraded successfully.
+          Updates initiated to Application Gateway are applied one [update domain](/azure/virtual-machines/availability-set-overview#how-do-availability-sets-work) at a time. As each update domain's instances are being updated, the remaining instances in other update domains continue to serve traffic<sup>1</sup>. Active connections are gracefully drained from the instances being updated for up to 5 minutes to help establish connectivity to instances in a different update domain before the update begins. During update, Application Gateway temporarily runs at reduced maximum capacity, which is determined by the number of instances configured. The update process proceeds to the next set of instances only if the current set of instances were upgraded successfully.
           
           <sup>1</sup> We recommend a minimum instance count of 2 to be configured for Application Gateway v1 SKU deployments to ensure at least one instance can serve traffic while updates are applied.
           
@@ -485,7 +485,7 @@ sections:
           If you're referencing certificates from Key Vault in your Application Gateway listener, we recommend the following steps for a quick change:
           
           1. In the [Azure portal](https://portal.azure.com/), go to your Key Vault settings that are associated with the application gateway.
-          1. Add or import the reissued certificate in your store. For more information, see [Quickstart: Create a key vault using the Azure portal](../key-vault/certificates/quick-create-portal.md).
+          1. Add or import the reissued certificate in your store. For more information, see [Quickstart: Create a key vault using the Azure portal](/azure/key-vault/certificates/quick-create-portal).
           1. After the certificate has been imported, go to your Application Gateway listener settings and under **Choose a certificate from Key Vault**, select the **Certificate** dropdown and select the recently added certificate.
           1. Select **Save**.
           For more information on TLS termination on Application Gateway with Key Vault certificates, see [TLS termination with Key Vault certificates](./key-vault-certs.md).
@@ -570,6 +570,12 @@ sections:
           To satisfy this `Ingress` resource, an ingress controller is required, which listens for any changes to `Ingress` resources and configures the load balancer policies.
           
           The Application Gateway Ingress Controller (AGIC) allows [Application Gateway](https://azure.microsoft.com/services/application-gateway/) to be used as the ingress for an [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service/), also known as an AKS cluster.
+
+      - question: Can I configure Application Gateway directly instead of using ingress controller?
+        answer: |
+          Direct configuration of Application Gateway isn't supported.
+          
+          If there is a need to change settings on Application Gateway, make the change by using the exposed configuration on the ingress controller or other Kubernetes objects, such as by using supported annotations. After an Application Gateway is linked to Application Gateway Ingress Controller (AGIC), nearly all configuration of that gateway will be synced and controlled by the ingress controller. If you're trying to directly configure Application Gateway imperatively or through infrastructure as code, those changes will eventually be overwritten by the ingress controller. 
           
       - question: Can a single ingress controller instance manage multiple application gateways?
         answer: Currently, one instance of an ingress controller can only be associated to one application gateway.

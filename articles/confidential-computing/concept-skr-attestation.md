@@ -16,7 +16,7 @@ Secure Key Release (SKR) is a functionality of Azure Key Vault (AKV) Managed HSM
 ## SKR support with AKV offerings
 
 - [Azure Key Vault Premium](../security/fundamentals/key-management.md)
-- [Azure Key Vault Managed HSM](../key-vault/managed-hsm/overview.md)
+- [Azure Key Vault Managed HSM](/azure/key-vault/managed-hsm/overview)
 
 ## Overall Secure Key Release Flow with TEE
 
@@ -28,7 +28,7 @@ The below steps are for AKV Premium.
 
 ### Step 1: Create a Key Vault Premium HSM Backed
 
-[Follow the details here for Az CLI based AKV creation](../key-vault/general/quick-create-cli.md)
+[Follow the details here for Az CLI based AKV creation](/azure/key-vault/general/quick-create-cli)
 
 Make sure to set the value of [--sku] to "premium".
 
@@ -36,7 +36,7 @@ Make sure to set the value of [--sku] to "premium".
 
 A Secure Key Release Policy is a json format release policy as defined [here](/rest/api/keyvault/keys/create-key/create-key?tabs=HTTP#keyreleasepolicy) that specifies a set of claims required in addition to authorization to release the key. The claims here are MAA based claims as referenced [here for SGX](/azure/attestation/attestation-token-examples#sample-jwt-generated-for-sgx-attestation) and here for [AMD SEV-SNP CVM](/azure/attestation/attestation-token-examples#sample-jwt-generated-for-sev-snp-attestation).
 
-Visit the TEE specific [examples page for more details](skr-policy-examples.md). For more information on the SKR policy grammar, see [Azure Key Vault secure key release policy grammar](../key-vault/keys/policy-grammar.md).
+Visit the TEE specific [examples page for more details](skr-policy-examples.md). For more information on the SKR policy grammar, see [Azure Key Vault secure key release policy grammar](/azure/key-vault/keys/policy-grammar).
 
 Before you set an SKR policy make sure to run your TEE application through the remote attestation flow. Remote attestation isn't covered as part of this tutorial.
 
@@ -67,7 +67,7 @@ Example
 
 ### Step 3: Create an exportable key in AKV with attached SKR policy
 
-Exact details of the type of key and other attributes associated can be found [here](../key-vault/general/quick-create-cli.md).
+Exact details of the type of key and other attributes associated can be found [here](/azure/key-vault/general/quick-create-cli).
 
 ```azurecli
 az keyvault key create --exportable true --vault-name "vault name from step 1" --kty RSA-HSM --name "keyname" --policy "jsonpolicyfromstep3 -can be a path to JSON"
@@ -115,6 +115,6 @@ No. Not at this time.
 
 [AKV REST API With SKR Details](/rest/api/keyvault/keys/create-key/create-key?tabs=HTTP)
 
-[Azure Key Vault secure key release policy grammar](../key-vault/keys/policy-grammar.md)
+[Azure Key Vault secure key release policy grammar](/azure/key-vault/keys/policy-grammar)
 
-[AKV SDKs](../key-vault/general/client-libraries.md)
+[AKV SDKs](/azure/key-vault/general/client-libraries)

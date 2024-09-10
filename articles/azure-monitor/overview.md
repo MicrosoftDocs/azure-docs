@@ -177,6 +177,8 @@ Visualizations such as charts and tables are effective tools for summarizing mon
 |[Power BI](logs/log-powerbi.md)|Power BI is a business analytics service that provides interactive visualizations across various data sources. It's an effective means of making data available to others within and outside your organization. You can configure Power BI to automatically import log data from Azure Monitor to take advantage of these visualizations. |
 |[Grafana](visualize/grafana-plugin.md)|Grafana is an open platform that excels in operational dashboards. All versions of Grafana include the Azure Monitor data source plug-in to visualize your Azure Monitor metrics and logs. Azure Managed Grafana also optimizes this experience for Azure-native data stores such as Azure Monitor and Azure Data Explorer. In this way, you can easily connect to any resource in your subscription and view all resulting monitoring data in a familiar Grafana dashboard. It also supports pinning charts from Azure Monitor metrics and logs to Grafana dashboards. <br/><br/> Grafana has popular plug-ins and dashboard templates for non-Microsoft APM tools such as Dynatrace, New Relic, and AppDynamics as well. You can use these resources to visualize Azure platform data alongside other metrics from higher in the stack collected by these other tools. It also has AWS CloudWatch and GCP BigQuery plug-ins for multicloud monitoring in a single pane of glass.|
 
+For a more extensive discussion of the recommended visualization tools and when to use them, see [Analyze and visualize monitoring data](best-practices-analysis.md)
+
 ### Analyze
 
 The Azure portal contains built-in tools that allow you to analyze monitoring data.
@@ -236,9 +238,9 @@ Additional integrations not shown in the diagram that may be of interest.
 
 | Integration | Description |
 |----|----|
-| [Defender for the Cloud](../defender-for-cloud/defender-for-cloud-introduction.md) | Collect and analyze security events and perform threat analysis. See [Data collection in Defender for the Cloud](../defender-for-cloud/monitoring-components.md). |
+| [Defender for the Cloud](/azure/defender-for-cloud/defender-for-cloud-introduction) | Collect and analyze security events and perform threat analysis. See [Data collection in Defender for the Cloud](/azure/defender-for-cloud/monitoring-components). |
 | [Microsoft Sentinel](../sentinel/index.yml) | Connect to different sources including Office 365 and Amazon Web Services Cloud Trail. See [Connect data sources](../sentinel/connect-data-sources.md). |
-| [Microsoft Intune](/intune/) | Create a diagnostic setting to send logs to Azure Monitor. See [Send log data to storage, Event Hubs, or log analytics in Intune (preview)](/mem/intune/fundamentals/review-logs-using-azure-monitor).  |
+| [Microsoft Intune](/mem/intune/fundamentals/what-is-intune) | Create a diagnostic setting to send logs to Azure Monitor. See [Send log data to storage, Event Hubs, or log analytics in Intune (preview)](/mem/intune/fundamentals/review-logs-using-azure-monitor).  |
 | [ITSM](alerts/itsmc-overview.md) | The [IT Service Management (ITSM) Connector](./alerts/itsmc-overview.md) allows you to connect Azure and a supported ITSM product/service.   |
 
 These are just a few options. There are many more third party companies that integrate with Azure and Azure Monitor at various levels. Use your favorite search engine to locate them. 

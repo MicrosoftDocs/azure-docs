@@ -18,7 +18,7 @@ Real-time transcriptions are a crucial component in any major business for drivi
 
 Using the Azure Communication Services real-time transcription, you can easily integrate your Azure AI Services resource with Azure Communication Services to generate transcripts directly during the call. This eliminates the need for developers to extract audio content and deal with the overhead of converting audio into text on your side. You can store the contents of this transcript to use later on for creating a history of the call, summarizing the call to save an agent's time, and even feeding it into your training/learning modules to help improve your contact center agents' customer interactions.
 
-Out of the box Microsoft utilizes a Universal Language Model as a base model that is trained with Microsoft-owned data and reflects commonly used spoken language. This model is pretrained with dialects and phonetics representing various common domains. For more information about supported languages, see [Languages and voice support for the Speech service](../../../../articles/ai-services/speech-service/language-support.md).
+Out of the box Microsoft utilizes a Universal Language Model as a base model that is trained with Microsoft-owned data and reflects commonly used spoken language. This model is pretrained with dialects and phonetics representing various common domains. For more information about supported languages, see [Languages and voice support for the Speech service](/azure/ai-services/speech-service/language-support).
 
 ## Common use cases
 
@@ -36,6 +36,9 @@ Using the transcript generated throughout the call, you can leverage other AI to
 
 ## Sample flow of real-time transcription using Call Automation
 ![Diagram of real-time transcription flow.](./media/transcription.png)
+
+## Billing
+See the [Azure Communication Services pricing page](https://azure.microsoft.com/pricing/details/communication-services/?msockid=3b3359f3828f6cfe30994a9483c76d50) for information on how real-time transcription is billed.  Prices can be found in the calling category under audio streaming -> unmixed audio insights streaming.
 
 ## Next Steps
 - Check out our how-to guide to learn [how-to use our Real-time Transcription](../../how-tos/call-automation/real-time-transcription-tutorial.md) to users.

@@ -740,6 +740,15 @@ aligns with how the add-on was installed:
  - Component-level [exemptions](./exemption-structure.md) aren't supported for [Resource Provider modes](./definition-structure.md#resource-provider-modes). Parameters support is available  in Azure Policy definitions to exclude and include particular namespaces.
  - Using the `metadata.gatekeeper.sh/requires-sync-data` annotation in a constraint template to configure the [replication of data](https://open-policy-agent.github.io/gatekeeper/website/docs/sync) from your cluster into the OPA cache is currently only allowed for built-in policies. The reason is because it can dramatically increase the Gatekeeper pods resource usage if not used carefully.
 
+### Configuring the Gatekeeper Config
+Changing the Gatekeeper config is unsupported, as it contains critical security settings. Edits to the config will be reconciled.
+
+### Using data.inventory in constraint templates
+Currently, several built-in policies make use of [data replication](https://open-policy-agent.github.io/gatekeeper/website/docs/sync), which enables users to sync existing on-cluster resources to the OPA cache and reference them during evaluation of an AdmissionReview request. Data replication policies can be differentiated by the presence of `data.inventory` in the Rego, as well as the presence of the `metadata.gatekeeper.sh/requires-sync-data` annotation, which informs the Azure Policy addon what resources need to be cached for policy evaluation to work properly. (Note that this differs from standalone Gatekeeper, where this annotation is descriptive, not prescriptive.) 
+
+Data replication is currently blocked for use in custom policy definitions, because replicating resources with high instance counts can dramatically increase the Gatekeeper pods\' resource usage if not used carefully. You will see a `ConstraintTemplateInstallFailed` error when attempting to create a custom policy definition containing a constraint template with this annotation.
+> Removing the annotation may appear to mitigate the error you see, but then the policy addon will not sync any required resources for that constraint template into the cache. Thus, your policies will be evaluated against an empty `data.inventory` (assuming that no built-in is assigned that replicates the requisite resources). This will lead to misleading compliance results. As noted [previously](#configuring-the-gatekeeper-config), manually editing the config to cache the required resources is also not permitted.
+
 The following limitations apply only to the Azure Policy Add-on for AKS:
 -  [AKS Pod security policy](/azure/aks/use-pod-security-policies) and the Azure Policy Add-on for AKS can't both be enabled. For more information, see [AKS pod security limitation](/azure/aks/use-azure-policy).
 -  Namespaces automatically excluded by Azure Policy Add-on for evaluation: kube-system and gatekeeper-system.

@@ -7,7 +7,7 @@ ms.author: sipa
 ms.date: 12/28/2021
 ms.topic: tutorial
 ms.service: azure-maps
-services: azure-maps
+ms.subservice: web-sdk
 ms.custom: mvc
 ---
 

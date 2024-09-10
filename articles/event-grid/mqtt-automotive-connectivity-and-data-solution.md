@@ -160,7 +160,7 @@ Each *vehicle messaging scale unit* supports a defined vehicle population (for e
 * [Azure Event Grid](overview.md) allows for device onboarding, AuthN/Z, and pub-sub via MQTT v5.
 * [Azure Functions](../azure-functions/functions-overview.md) processes the vehicle messages. It can also be used to implement management APIs that require short-lived execution.
 * [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes) is an alternative when the functionality behind the Managed APIs consists of complex workloads deployed as containerized applications.
-* [Azure Cosmos DB](../cosmos-db/introduction.md) stores the vehicle, device, and user consent settings.
+* [Azure Cosmos DB](/azure/cosmos-db/introduction) stores the vehicle, device, and user consent settings.
 * [Azure API Management](../api-management/api-management-key-concepts.md) provides a managed API gateway to existing back-end services such as vehicle lifecycle management (including OTA) and user consent management.
 * [Azure Batch](../batch/batch-technical-overview.md) runs large compute-intensive tasks efficiently, such as vehicle communication trace ingestion.
 

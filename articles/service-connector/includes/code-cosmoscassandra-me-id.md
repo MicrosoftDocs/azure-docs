@@ -39,7 +39,7 @@ ms.author: wchi
             var listKeyUrl = Environment.GetEnvironmentVariable("AZURE_COSMOS_LISTKEYURL");
             var scope = Environment.GetEnvironmentVariable("AZURE_COSMOS_SCOPE");
     
-            // Uncomment the following lines according to the authentication type.
+            // Uncomment the following lines corresponding to the authentication type you want to use.
             // For system-assigned identity.
             // var tokenProvider = new DefaultAzureCredential();
             
@@ -143,7 +143,7 @@ ms.author: wchi
     String listKeyUrl = System.getenv("AZURE_COSMOS_LISTKEYURL");
     String scope = System.getenv("AZURE_COSMOS_SCOPE");
     
-    // Uncomment the following lines according to the authentication type.
+    // Uncomment the following lines corresponding to the authentication type you want to use.
     // For system managed identity.
     // DefaultAzureCredential defaultCredential = new DefaultAzureCredentialBuilder().build();
 
@@ -208,7 +208,7 @@ Authentication type is not supported for Spring Boot.
     listKeyUrl = os.getenv('AZURE_COSMOS_LISTKEYURL')
     scope = os.getenv('AZURE_COSMOS_SCOPE')
     
-    # Uncomment the following lines according to the authentication type.
+    # Uncomment the following lines corresponding to the authentication type you want to use.
     # For system-assigned managed identity
     # cred = ManagedIdentityCredential()
 
@@ -267,7 +267,7 @@ Authentication type is not supported for Spring Boot.
         listKeyUrl = os.Getenv("AZURE_COSMOS_LISTKEYURL")
         scope = os.Getenv("AZUE_COSMOS_SCOPE")
 
-        // Uncomment the following lines according to the authentication type.
+        // Uncomment the following lines corresponding to the authentication type you want to use.
         // For system-assigned identity.
         // cred, err := azidentity.NewDefaultAzureCredential(nil)
         
@@ -338,7 +338,7 @@ Authentication type is not supported for Spring Boot.
     let listKeyUrl = process.env.AZURE_COSMOS_LISTKEYURL;
     let scope = process.env.AZURE_COSMOS_SCOPE;
     
-    // Uncomment the following lines according to the authentication type.  
+    // Uncomment the following lines corresponding to the authentication type you want to use.  
     // For system-assigned identity.
     // const credential = new DefaultAzureCredential();
     

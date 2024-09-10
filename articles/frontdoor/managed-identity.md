@@ -79,7 +79,7 @@ Before you can set up managed identity for Azure Front Door, you must have an Az
 * [Role-based access control](#role-based-access-control-rbac) - Grant Azure Front Door access to your Azure Key Vault with fine-grained access control with Azure Resource Manager.
 * [Access policy](#access-policy) - Native Azure Key Vault access control to grant Azure Front Door access to your Azure Key Vault.
 
-For more information, see [Azure role-based access control (Azure RBAC) vs. access policy](../key-vault/general/rbac-access-policy.md).
+For more information, see [Azure role-based access control (Azure RBAC) vs. access policy](/azure/key-vault/general/rbac-access-policy).
 
 ### Role-based access control (RBAC)
 

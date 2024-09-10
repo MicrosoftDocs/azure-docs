@@ -153,7 +153,7 @@ For session hosts, UDP is enabled by default in Windows. To check the RDP transp
    }
    ```
 
-   The output should be similar to the following output:
+   The output should be similar to the following example:
 
    ```output
    The RDP transport protocols setting hasn't been changed from its default value.
@@ -199,7 +199,7 @@ Here's how to configure RDP Shortpath in the host pool networking settings using
 
 # [Azure PowerShell](#tab/powershell)
 
-Here's how to configure RDP Shortpath in the host pool networking settings using the [Az.DesktopVirtualization](/powershell/module/az.desktopvirtualization) PowerShell module. In the following examples, you need to change the `<placeholder>` values for your own.
+Here's how to configure RDP Shortpath in the host pool networking settings using the [Az.DesktopVirtualization](/powershell/module/az.desktopvirtualization) PowerShell module. Be sure to change the `<placeholder>` values for your own.
 
 > [!TIP]
 > Be sure to use version 5.2.1 preview of the Az.DesktopVirtualization module.
@@ -217,7 +217,7 @@ Here's how to configure RDP Shortpath in the host pool networking settings using
    Get-AzWvdHostPool @parameters | FL ManagedPrivateUdp, DirectUdp, PublicUdp, RelayUdp
    ```
 
-   The output should be similar to the following output:
+   The output should be similar to the following example:
 
    ```output
    ManagedPrivateUdp : Default
@@ -310,7 +310,7 @@ Here's how to configure RDP Shortpath in the host pool networking settings using
    }
    ```
 
-   The output should be similar to the following output:
+   The output should be similar to the following example:
 
    ```output
    The default setting hasn't been changed from its default value. UDP is enabled.

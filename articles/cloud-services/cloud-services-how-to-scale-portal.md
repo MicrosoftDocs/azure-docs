@@ -2,7 +2,7 @@
 title: Auto scale a cloud service (classic) in the portal | Microsoft Docs
 description: Learn how to use the portal to configure auto scale rules for a cloud service (classic) roles in Azure.
 ms.topic: article
-ms.service: cloud-services
+ms.service: azure-cloud-services-classic
 ms.subservice: autoscale
 ms.date: 07/23/2024
 author: hirenshah1

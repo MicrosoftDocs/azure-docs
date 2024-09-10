@@ -22,6 +22,7 @@ Endpoints cannot be added to an existing DCR, but you can keep using any existin
 The following scenarios can currently use DCR endpoints.  A DCE required if private link is used.
 
 - [Logs ingestion API](../logs/logs-ingestion-api-overview.md)
+- [Container Insights](../containers/container-insights-overview.md)
 
 The following data types still require creating a DCE:
 

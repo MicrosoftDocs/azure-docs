@@ -6,7 +6,7 @@ description: Learn how to sign up, set up, and use Nutanix Cloud Clusters on Azu
 ms.topic: conceptual
 ms.subservice: baremetal-nutanix
 ms.custom: engagement-fy23
-ms.date: 7/19/2024
+ms.date: 8/15/2024
 ms.service: azure-baremetal-infrastructure
 ---
 

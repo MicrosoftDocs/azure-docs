@@ -130,7 +130,7 @@ All configuration items are set before creating the application gateway. The fol
 3. Configure the backend IP address pool with the IP addresses of the backend web servers. These IP addresses are the IP addresses that receive the network traffic that comes from the frontend IP endpoint. Replace the IP addresses in the sample with your own application IP address endpoints.
 
    ```powershell
-   $pool = New-AzApplicationGatewayBackendAddressPool -Name 'pool01' -BackendIPAddresses 1.1.1.1, 2.2.2.2, 3.3.3.3
+   $pool = New-AzApplicationGatewayBackendAddressPool -Name 'pool01' -BackendIPAddresses 203.0.113.1, 203.0.113.2, 203.0.113.3
    ```
 
    > [!NOTE]

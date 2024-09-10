@@ -1,10 +1,11 @@
 ---
 title: Azure Virtual Desktop terminology - Azure
 description: Learn about the basic elements of Azure Virtual Desktop, like host pools, application groups, and workspaces.
-author: Heidilohr
+author: dknappettmsft
 ms.topic: conceptual
 ms.date: 11/01/2023
-ms.author: helohr
+ms.author: daknappe
+ms.custom: docs_inherited
 ---
 # Azure Virtual Desktop terminology
 
@@ -32,7 +33,7 @@ The following table goes into more detail about the differences between each typ
 |User assignment process| Users can either be directly assigned to session hosts or be automatically assigned to the first available session host. Users always have sessions on the session hosts they are assigned to. | Users aren't assigned to session hosts. After a user signs out and signs back in, their user session might get load balanced to a different session host. To learn more, see [Configure personal desktop assignment](configure-host-pool-personal-desktop-assignment-type.md). |
 |Scaling| [Autoscale](autoscale-scaling-plan.md) for personal host pools starts session host virtual machines according to schedule or using Start VM on Connect and then deallocates/hibernates session host virtual machines based on the user session state (log off/disconnect). | [Autoscale](autoscale-scaling-plan.md) for pooled host pools turns VMs on and off based on the capacity thresholds and schedules the customer defines. |
 |Windows Updates|Updated with Windows Updates, [Microsoft Configuration Manager (ConfigMgr)](configure-automatic-updates.md), or other software distribution configuration tools.|Updated by redeploying session hosts from updated images instead of traditional updates.|
-|User data| Each user only ever uses one session host, so they can store their user profile data on the operating system (OS) disk of the VM. | Users can connect to different session hosts every time they connect, so they should store their user profile data in [FSLogix](/fslogix/configure-profile-container-tutorial). |
+|User data| Each user only ever uses one session host, so they can store their user profile data on the operating system (OS) disk of the VM. | Users can connect to different session hosts every time they connect, so they should store their user profile data in [FSLogix](/fslogix/overview-what-is-fslogix). |
 
 ### Validation environment
 

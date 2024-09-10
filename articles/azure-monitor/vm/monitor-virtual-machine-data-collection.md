@@ -18,7 +18,7 @@ This article provides guidance on collecting the most common types of telemetry 
 - For more information about using telemetry collected from your virtual machines to create alerts in Azure Monitor, see [Monitor virtual machines with Azure Monitor: Alerts](monitor-virtual-machine-alerts.md).
 
 > [!NOTE]
-> This scenario describes how to implement complete monitoring of your Azure and hybrid virtual machine environment. To get started monitoring your first Azure virtual machine, see [Monitor Azure virtual machines](../../virtual-machines/monitor-vm.md).
+> This scenario describes how to implement complete monitoring of your Azure and hybrid virtual machine environment. To get started monitoring your first Azure virtual machine, see [Monitor Azure virtual machines](/azure/virtual-machines/monitor-vm).
 
 ## Data collection rules
 Data collection from Azure Monitor Agent is defined by one or more [data collection rules (DCRs)](../essentials/data-collection-rule-overview.md) that are stored in your Azure subscription and associated with your virtual machines.

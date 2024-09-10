@@ -58,7 +58,7 @@ Learn how to connect to Azure Key Vault using CSI driver in an Azure Kubernetes 
         --name MyAKSCluster
     ```
 
-1. Create an Azure Key Vault with the following command, or referring to the [tutorial](../key-vault/general/quick-create-cli.md). This is the target service that is connected to the AKS cluster and the CSI driver synchronize secrets from.
+1. Create an Azure Key Vault with the following command, or referring to the [tutorial](/azure/key-vault/general/quick-create-cli). This is the target service that is connected to the AKS cluster and the CSI driver synchronize secrets from.
 
     ```azurecli
     az keyvault create \

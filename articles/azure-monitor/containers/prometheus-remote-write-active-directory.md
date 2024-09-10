@@ -93,9 +93,9 @@ The application must be assigned the Monitoring Metrics Publisher role on the da
 
 ### Create an Azure key vault and generate a certificate
 
-1. If you don't already have an Azure key vault, [create a vault](../../key-vault/general/quick-create-portal.md#create-a-vault).
-1. Create a certificate by using the guidance in [Add a certificate to Key Vault](../../key-vault/certificates/quick-create-portal.md#add-a-certificate-to-key-vault).
-1. Download the certificate in CER format by using the guidance in [Export a certificate from Key Vault](../../key-vault/certificates/quick-create-portal.md#export-certificate-from-key-vault).
+1. If you don't already have an Azure key vault, [create a vault](/azure/key-vault/general/quick-create-portal#create-a-vault).
+1. Create a certificate by using the guidance in [Add a certificate to Key Vault](/azure/key-vault/certificates/quick-create-portal#add-a-certificate-to-key-vault).
+1. Download the certificate in CER format by using the guidance in [Export a certificate from Key Vault](/azure/key-vault/certificates/quick-create-portal#export-certificate-from-key-vault).
 
 <a name='add-certificate-to-the-azure-active-directory-application'></a>
 

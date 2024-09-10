@@ -111,7 +111,7 @@ Observe the below fields in access logs to verify if the URL rewrite happened as
 * **originalRequestUriWithArgs**: This field contains the original request URL
 * **requestUri**: This field contains the URL after the rewrite operation on Application Gateway
 
-For more information on all the fields in the access logs, see [here](application-gateway-diagnostics.md#for-application-gateway-and-waf-v2-sku).
+For more information on all the fields in the access logs, see [Access log](monitor-application-gateway-reference.md#access-log-category).
 
 ##  Next steps
 

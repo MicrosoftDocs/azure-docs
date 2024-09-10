@@ -13,7 +13,7 @@ ms.custom: engagement-fy23, linux-related-content
 # Support matrix for physical server discovery and assessment
 
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that's nearing end-of-life status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
+> This article references CentOS, a Linux distribution that's nearing end-of-life status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](/azure/virtual-machines/workloads/centos/centos-end-of-life).
 
 This article summarizes prerequisites and support requirements when you assess physical servers for migration to Azure by using the [Azure Migrate: Discovery and assessment](migrate-services-overview.md#azure-migrate-discovery-and-assessment-tool) tool. If you want to migrate physical servers to Azure, see the [migration support matrix](migrate-support-matrix-physical-migration.md).
 
@@ -87,7 +87,7 @@ For Linux servers, based on the features you want to perform, you can create a u
     Operating system | Versions
     --- | ---
     Red Hat Enterprise Linux | 5.1, 5.3, 5.11, 6.x, 7.x, 8.x, 9.x
-    Ubuntu | 12.04, 14.04, 16.04, 18.04, 20.04
+    Ubuntu | 12.04, 14.04, 16.04, 18.04, 20.04, 22.04
     Oracle Linux | 6.1, 6.7, 6.8, 6.9, 7.2, 7.3, 7.4, 7.5, 7.6, 7.7, 7.8, 7.9, 8, 8.1, 8.3, 8.5
     SUSE Linux | 10, 11 SP4, 12 SP1, 12 SP2, 12 SP3, 12 SP4, 15 SP2, 15 SP3
     Debian | 7, 8, 9, 10, 11
@@ -398,4 +398,4 @@ Azure Government | Agent-based dependency analysis isn't supported.
 
 ## Next steps
 
-Prepare for [physical discovery and assessment](./tutorial-discover-physical.md).
+Prepare for [discovery](./tutorial-discover-physical.md) of physical servers.

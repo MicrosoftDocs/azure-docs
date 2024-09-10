@@ -58,7 +58,7 @@ Classic storage accounts may contain classic (unmanaged) disks, virtual machine 
 > [!IMPORTANT]
 > If you do not delete classic disk artifacts first, the migration may fail.
 
-To learn about migrating unmanaged disks to managed disks, see [Migrating unmanaged disks to managed disks](../../virtual-machines/unmanaged-disks-deprecation.md).
+To learn about migrating unmanaged disks to managed disks, see [Migrating unmanaged disks to managed disks](/azure/virtual-machines/unmanaged-disks-deprecation).
 
 # [Portal](#tab/azure-portal)
 
@@ -75,7 +75,7 @@ For more information about errors that may occur when deleting disk artifacts an
 
 # [PowerShell](#tab/azure-powershell)
 
-To learn how to locate and delete disk artifacts in classic storage accounts with PowerShell, see [Migrate to Resource Manager with PowerShell](../../virtual-machines/migration-classic-resource-manager-ps.md#step-5b-migrate-a-storage-account).
+To learn how to locate and delete disk artifacts in classic storage accounts with PowerShell, see [Migrate to Resource Manager with PowerShell](/azure/virtual-machines/migration-classic-resource-manager-ps#step-5b-migrate-a-storage-account).
 
 ---
 

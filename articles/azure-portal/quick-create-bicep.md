@@ -25,8 +25,8 @@ The Bicep file defines one Azure resource, a [Microsoft.Portal dashboards resour
 
 The dashboard created by deploying this Bicep file requires an existing virtual machine. Before deploying the Bicep file, the script deploys an ARM template called [prereq.azuredeploy.json](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.portal/azure-portal-dashboard/prereqs/prereq.azuredeploy.json) that creates a virtual machine.
 
-The virtual machine name is hard-coded as **SimpleWinVM** in the ARM template, to match what's used in the `main.bicep` file that creates the dashboard. You'll need to create your own administration username and password for this VM. This is a new username and password (not the account you use to sign in to Azure). The password must be complex. For more information, see [username requirements](../virtual-machines/windows/faq.yml#what-are-the-username-requirements-when-creating-a-vm-)
-and [password requirements](../virtual-machines/windows/faq.yml#what-are-the-password-requirements-when-creating-a-vm-).
+The virtual machine name is hard-coded as **SimpleWinVM** in the ARM template, to match what's used in the `main.bicep` file that creates the dashboard. You'll need to create your own administration username and password for this VM. This is a new username and password (not the account you use to sign in to Azure). The password must be complex. For more information, see [username requirements](/azure/virtual-machines/windows/faq#what-are-the-username-requirements-when-creating-a-vm-)
+and [password requirements](/azure/virtual-machines/windows/faq#what-are-the-password-requirements-when-creating-a-vm-).
 
 
 ## Deploy the Bicep file

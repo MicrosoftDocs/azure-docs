@@ -9,6 +9,10 @@ ms.custom: subject-moving-resources
 ---
 
 # Move an Azure Automanage virtual machine to a different region
+
+> [!CAUTION]
+> On 31 August 2024, both Automation Update Management and the Log Analytics agent it uses will be retired. Migrate to Azure Update Manager before that. Refer to guidance on migrating to Azure Update Manager [here](https://learn.microsoft.com/azure/update-manager/guidance-migration-automation-update-management-azure-update-manager?WT.mc_id=Portal-Microsoft_Azure_Automation). [Migrate Now](https://ms.portal.azure.com/).
+
 This article describes how to keep Automanage enabled on a virtual machine (VM) when you move it to a different region. You might want to move your virtual machines to another region for a number of reasons. For example, to take advantage of a new Azure region, to meet internal policy and governance requirements, or in response to capacity planning requirements. Those VMs that you move may be currently Automanaged, and you may want them to remain Automanaged after your move.
 
 ## Prerequisites

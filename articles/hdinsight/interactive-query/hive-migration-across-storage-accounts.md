@@ -5,7 +5,7 @@ author: reachnijel
 ms.author: nijelsf
 ms.service: azure-hdinsight
 ms.topic: how-to
-ms.date: 09/19/2023
+ms.date: 09/06/2024
 ---
 
 # Hive workload migration to new account in Azure Storage

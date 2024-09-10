@@ -6,7 +6,7 @@ services: container-apps
 author: hhunter-ms
 ms.service: azure-container-apps
 ms.topic: conceptual
-ms.date: 11/06/2023
+ms.date: 08/02/2024
 ms.author: hannahhunter
 ms.custom: ignite-fall-2023, ignite-2023, devx-track-azurecli
 # Customer Intent: As a developer, I'd like to learn how to make my container apps resilient using Azure Container Apps.
@@ -106,7 +106,7 @@ resource myPolicyDoc 'Microsoft.App/containerApps/resiliencyPolicies@2023-11-02-
 
 ### Before you begin
 
-Log-in to the Azure CLI:
+Log in to the Azure CLI:
 
 ```azurecli
 az login

@@ -529,7 +529,7 @@ The samples in this section install the legacy Log Analytics agent on Windows an
 
 ###  Windows
 
-The following sample installs the Log Analytics agent on an Azure virtual machine. This is done by enabling the [Log Analytics virtual machine extension for Windows](../../virtual-machines/extensions/oms-windows.md).
+The following sample installs the Log Analytics agent on an Azure virtual machine. This is done by enabling the [Log Analytics virtual machine extension for Windows](/azure/virtual-machines/extensions/oms-windows).
 
 #### Template file
 
@@ -666,7 +666,7 @@ resource logAnalyticsAgent 'Microsoft.Compute/virtualMachines/extensions@2021-11
 
 ### Linux
 
-The following sample installs the Log Analytics agent on a Linux Azure virtual machine. This is done by enabling the [Log Analytics virtual machine extension for Linux](../../virtual-machines/extensions/oms-linux.md).
+The following sample installs the Log Analytics agent on a Linux Azure virtual machine. This is done by enabling the [Log Analytics virtual machine extension for Linux](/azure/virtual-machines/extensions/oms-linux).
 
 #### Template file
 
@@ -1075,7 +1075,7 @@ resource managedIdentity 'Microsoft.Compute/virtualMachines/extensions@2021-11-0
 
 ### Linux
 
-The following sample enables and configures the diagnostic extension on a Linux Azure virtual machine. For details on the configuration, see [Windows diagnostics extension schema](../../virtual-machines/extensions/diagnostics-linux.md).
+The following sample enables and configures the diagnostic extension on a Linux Azure virtual machine. For details on the configuration, see [Windows diagnostics extension schema](/azure/virtual-machines/extensions/diagnostics-linux).
 
 #### Template file
 
