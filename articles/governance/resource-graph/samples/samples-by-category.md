@@ -15,7 +15,7 @@ Otherwise, use <kbd>Ctrl</kbd>-<kbd>F</kbd> to use your browser's search feature
 
 ## Azure Advisor
 
-[!INCLUDE [azure-resource-graph-samples-cat-azure-advisor](../includes/samples-by-category/bycat/azure-advisor.md)]
+[!INCLUDE [azure-resource-graph-samples-cat-azure-advisor](../includes/samples-by-category/azure-advisor.md)]
 
 ## Azure App Service
 
@@ -23,15 +23,15 @@ Otherwise, use <kbd>Ctrl</kbd>-<kbd>F</kbd> to use your browser's search feature
 
 ## Azure Arc
 
-[!INCLUDE [azure-resource-graph-samples-cat-azure-arc](../includes/samples-by-category/bycat/azure-arc.md)]
+[!INCLUDE [azure-resource-graph-samples-cat-azure-arc](../includes/samples-by-category/azure-arc.md)]
 
 ## Azure Arc-enabled Kubernetes
 
-[!INCLUDE [azure-resource-graph-samples-cat-azure-arc-enabled-kubernetes](../includes/samples-by-category/bycat/azure-arc-enabled-kubernetes.md)]
+[!INCLUDE [azure-resource-graph-samples-cat-azure-arc-enabled-kubernetes](../includes/samples-by-category/azure-arc-enabled-kubernetes.md)]
 
 ## Azure Arc-enabled servers
 
-[!INCLUDE [azure-resource-graph-samples-cat-azure-arc-enabled-servers](../includes/samples-by-category/bycat/azure-arc-enabled-servers.md)]
+[!INCLUDE [azure-resource-graph-samples-cat-azure-arc-enabled-servers](../includes/samples-by-category/azure-arc-enabled-servers.md)]
 
 ## Azure Center for SAP solutions
 
@@ -41,19 +41,19 @@ Otherwise, use <kbd>Ctrl</kbd>-<kbd>F</kbd> to use your browser's search feature
 
 ## Azure Container Registry
 
-[!INCLUDE [azure-resource-graph-samples-cat-azure-container-registry](../includes/samples-by-category/bycat/azure-container-registry.md)]
+[!INCLUDE [azure-resource-graph-samples-cat-azure-container-registry](../includes/samples-by-category/azure-container-registry.md)]
 
 ## Azure Cosmos DB
 
-[!INCLUDE [azure-resource-graph-samples-cat-azure-cosmos-db](../includes/samples-by-category/bycat/azure-cosmos-db.md)]
+[!INCLUDE [azure-resource-graph-samples-cat-azure-cosmos-db](../includes/samples-by-category/azure-cosmos-db.md)]
 
 ## Azure Key Vault
 
-[!INCLUDE [azure-resource-graph-samples-cat-azure-key-vault](../includes/samples-by-category/bycat/azure-key-vault.md)]
+[!INCLUDE [azure-resource-graph-samples-cat-azure-key-vault](../includes/samples-by-category/azure-key-vault.md)]
 
 ## Azure Monitor
 
-[!INCLUDE [azure-resource-graph-samples-cat-azure-monitor](../includes/samples-by-category/bycat/azure-monitor.md)]
+[!INCLUDE [azure-resource-graph-samples-cat-azure-monitor](../includes/samples-by-category/azure-monitor.md)]
 
 [!INCLUDE [azure-monitor-data-collection-rules-resources-table](../includes/samples-by-category/query/resources-monitor-data-collection-rules.md)]
 
@@ -66,13 +66,13 @@ Otherwise, use <kbd>Ctrl</kbd>-<kbd>F</kbd> to use your browser's search feature
 
 ## Azure Policy
 
-[!INCLUDE [azure-resource-graph-samples-cat-azure-policy](../includes/samples-by-category/bycat/azure-policy.md)]
+[!INCLUDE [azure-resource-graph-samples-cat-azure-policy](../includes/samples-by-category/azure-policy.md)]
 
 [!INCLUDE [policy-resources-exemption-query](../includes/samples-by-category/query/policy-resources-exemption-query.md)]
 
 ## Azure Policy guest configuration
 
-[!INCLUDE [azure-resource-graph-samples-cat-azure-policy-guest-configuration](../includes/samples-by-category/bycat/azure-policy-guest-configuration.md)]
+[!INCLUDE [azure-resource-graph-samples-cat-azure-policy-guest-configuration](../includes/samples-by-category/azure-policy-guest-configuration.md)]
 
 ## Azure RBAC
 
@@ -90,49 +90,49 @@ Otherwise, use <kbd>Ctrl</kbd>-<kbd>F</kbd> to use your browser's search feature
 
 ## Azure Service Health
 
-[!INCLUDE [azure-resource-graph-samples-cat-azure-service-health](../includes/samples-by-category/bycat/azure-service-health.md)]
+[!INCLUDE [azure-resource-graph-samples-cat-azure-service-health](../includes/samples-by-category/azure-service-health.md)]
 
 ## Azure SQL
 
-[!INCLUDE [azure-resource-graph-samples-cat-azure-sql](../includes/samples-by-category/bycat/azure-sql.md)]
+[!INCLUDE [azure-resource-graph-samples-cat-azure-sql](../includes/samples-by-category/azure-sql.md)]
 
 ## Azure Storage
 
-[!INCLUDE [azure-resource-graph-samples-cat-azure-storage](../includes/samples-by-category/bycat/azure-storage.md)]
+[!INCLUDE [azure-resource-graph-samples-cat-azure-storage](../includes/samples-by-category/azure-storage.md)]
 
 ## Azure Virtual Machines
 
-[!INCLUDE [azure-resource-graph-samples-cat-azure-virtual-machines](../includes/samples-by-category/bycat/azure-virtual-machines.md)]
+[!INCLUDE [azure-resource-graph-samples-cat-azure-virtual-machines](../includes/samples-by-category/azure-virtual-machines.md)]
 
 ## General
 
-[!INCLUDE [azure-resource-graph-samples-cat-general](../includes/samples-by-category/bycat/general.md)]
+[!INCLUDE [azure-resource-graph-samples-cat-general](../includes/samples-by-category/general.md)]
 
 ## IoT Defender
 
-[!INCLUDE [azure-resource-graph-samples-cat-iot-defender](../includes/samples-by-category/bycat/iot-defender.md)]
+[!INCLUDE [azure-resource-graph-samples-cat-iot-defender](../includes/samples-by-category/iot-defender.md)]
 
 ## Management groups
 
-[!INCLUDE [azure-resource-graph-samples-cat-management-groups](../includes/samples-by-category/bycat/management-groups.md)]
+[!INCLUDE [azure-resource-graph-samples-cat-management-groups](../includes/samples-by-category/management-groups.md)]
 
 ## Microsoft Defender
 
-[!INCLUDE [azure-resource-graph-samples-cat-microsoft-defender](../includes/samples-by-category/bycat/microsoft-defender.md)]
+[!INCLUDE [azure-resource-graph-samples-cat-microsoft-defender](../includes/samples-by-category/microsoft-defender.md)]
 
 ## Networking
 
-[!INCLUDE [azure-resource-graph-samples-cat-networking](../includes/samples-by-category/bycat/networking.md)]
+[!INCLUDE [azure-resource-graph-samples-cat-networking](../includes/samples-by-category/networking.md)]
 
 [!INCLUDE [virtual-machine-basic-sku-public-ip](../includes/samples-by-category/query/virtual-machine-basic-sku-public-ip.md)]
 
 ## Resource health
 
-[!INCLUDE [azure-resource-graph-samples-cat-resource-health](../includes/samples-by-category/bycat/resource-health.md)]
+[!INCLUDE [azure-resource-graph-samples-cat-resource-health](../includes/samples-by-category/resource-health.md)]
 
 ## Tags
 
-[!INCLUDE [azure-resource-graph-samples-cat-tags](../includes/samples-by-category/bycat/tags.md)]
+[!INCLUDE [azure-resource-graph-samples-cat-tags](../includes/samples-by-category/tags.md)]
 
 ## Virtual Machine Scale Sets
 
