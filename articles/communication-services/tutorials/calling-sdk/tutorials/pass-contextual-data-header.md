@@ -1,7 +1,7 @@
 ---
 title: Tutorial on how to pass call contextual data information using your Azure Communication Services WebJS SDK
 titleSuffix: An Azure Communication Services tutorial document
-description: Provides a tutorial guide for passing contextual information using 
+description: Provide a tutorial on how to pass contextual information using calling SDK
 author: sloanster
 ms.topic: tutorial
 ms.service: azure-communication-services
@@ -12,15 +12,13 @@ services: azure-communication-services
 
 # Using the ACS calling SDK to pass contextual data between calls
 
-The Azure Communication Services (ACS) WebJS SDK provides the ability to allow developers to include custom contextual data (included as a header on the calllin object) when directing and routing calls from one person to another. This functionality allows for the inclusion of metadata related to the call, the recipient, or any other pertinent information that aligns with the application’s needs or the company’s operational logic.
+The Azure Communication Services (ACS) WebJS SDK provide the ability to allow developers to include custom contextual data (included as a header on the calllin object) when directing and routing calls from one person to another. This functionality allows for the inclusion of metadata related to the call, the recipient, or any other pertinent information that aligns with the application’s needs or the company’s operational logic.
 
-To pass this context, developers can utilize custom headers, which are a set of optional key-value pairs. These pairs can be incorporated into the 'AddParticipant' or 'Transfer' actions within the calling SDK. After this Content has been added you can. access this. payload. through Apis to inspect his context can be accessed as part of the payload for the IncomingCall event. By using the ability to look up metadata quickly and have it be associated with a call developers can eliminate additional external database lookups and instead have content information be available within the call object.
+Developers can pass this context by using custom headers, which consist of optional key-value pairs. These pairs can be included in the 'AddParticipant' or 'Transfer' actions within the calling SDK. Once added, you can read the data payload as the call moves between endpoints. By efficiently looking up this metadata and associating it with the call, developers can avoid external database lookups and have the content information readily available within the call object.
 
-Moreover, the custom call context is also transmitted to the SIP protocol. This transmission includes both the custom headers and the standard User-to-User Information (UUI) SIP header. When an inbound call is routed from your telephony network, the data from your Session Border Controller (SBC) in the custom headers and UUI is also included in the IncomingCall event payload.
+Moreover, the custom call context can also also transmitted to to SIP endpoings using SIP protocol. This transmission includes both the custom headers and the standard User-to-User Information (UUI) SIP header. When an inbound call is routed from your telephony network, the data from your Session Border Controller (SBC) in the custom headers and UUI is also included in the IncomingCall event payload.
 
-It’s important to note that all custom context data remains transparent to the calling SDK and is not related to any of the SDK’s fundamental functions when used in SIP protocols.
-Below are tutorials to assist you in implementing custom context headers with the WebJS SDK.
-
+It’s important to note that all custom context data remains transparent to the calling SDK and is not related to any of the SDK’s fundamental functions when used in SIP protocols. Here is a tutorial to assist you in implementing custom context headers using the WebJS SDK.
 
 ## Technical parameters
 The calling SDK  support adding up to 5 custom SIP headers and 1000 custom VOIP headers. Additionally, developers can include a dedicated User-To-User header as part of SIP headers list.
@@ -31,10 +29,10 @@ The maximum length of a VOIP header key is 64 chars. These headers can be sent w
 
 ## Adding custom context when inviting a participant
 
-### Setting custom context headings using the WebJS calling SDK
+### Adding custom context headings using the WebJS calling SDK
 
 ```js
- 
+
     const callOptions = {
         customContext: {
             voipHeaders: [
@@ -85,4 +83,4 @@ The maximum length of a VOIP header key is 64 chars. These headers can be sent w
 
 - For more details on how to pass contextual data using ACS Call automation see this [guide](../../../how-tos/call-automation/custom-context.md).
 
-- Learn more about [SIP protocol details for direct routing](../../concepts/telephony/direct-routing-sip-specification.md).
+- Learn more about [SIP protocol details for direct routing](../../../concepts/telephony/direct-routing-sip-specification.md).
