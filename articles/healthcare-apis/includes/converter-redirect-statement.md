@@ -1,7 +1,7 @@
 ---
 title: Converter redirect statement
 author: msjasteppe
-ms.service: healthcare-apis
+ms.service: azure-health-data-services
 ms.topic: include
 ms.date: 05/06/2024
 ms.author: jasteppe

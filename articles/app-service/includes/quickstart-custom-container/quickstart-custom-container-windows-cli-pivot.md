@@ -1,6 +1,6 @@
 ---
 author: msangapu-msft
-ms.service: app-service
+ms.service: azure-app-service
 ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 06/30/2022

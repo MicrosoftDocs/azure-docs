@@ -1,5 +1,5 @@
 ---
-title: 'Storage Explorer: Set ACLs in Azure Data Lake Storage Gen2'
+title: 'Storage Explorer: Set ACLs in Azure Data Lake Storage'
 titleSuffix: Azure Storage
 description: Use the Azure Storage Explorer to manage access control lists (ACLs) in storage accounts that have hierarchical namespace (HNS) enabled.
 author: normesta
@@ -10,7 +10,7 @@ ms.date: 03/09/2023
 ms.author: normesta
 ---
 
-# Use Azure Storage Explorer to manage ACLs in Azure Data Lake Storage Gen2
+# Use Azure Storage Explorer to manage ACLs in Azure Data Lake Storage
 
 This article shows you how to use [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) to manage access control lists (ACLs) in storage accounts that has hierarchical namespace (HNS) enabled.
 
@@ -33,7 +33,7 @@ This article shows you how to modify the ACL of file or directory and how to app
   - You're the owning user of the target container, directory, or blob to which you plan to apply ACL settings.
 
 > [!NOTE]
-> Storage Explorer makes use of both the Blob (blob) & Data Lake Storage Gen2 (dfs) [endpoints](../common/storage-private-endpoints.md#private-endpoints-for-azure-storage) when working with Azure Data Lake Storage Gen2. If access to Azure Data Lake Storage Gen2 is configured using private endpoints, ensure that two private endpoints are created for the storage account: one with the target sub-resource `blob` and the other with the target sub-resource `dfs`.
+> Storage Explorer makes use of both the Blob (blob) & Data Lake Storage (dfs) [endpoints](../common/storage-private-endpoints.md#private-endpoints-for-azure-storage) when working with Azure Data Lake Storage. If access to Azure Data Lake Storage is configured using private endpoints, ensure that two private endpoints are created for the storage account: one with the target sub-resource `blob` and the other with the target sub-resource `dfs`.
 
 ## Sign in to Storage Explorer
 
@@ -72,7 +72,7 @@ The **Manage Access** dialog box allows you to manage permissions for owner and 
 To add a new user or group to the access control list, select the **Add** button. Then, enter the corresponding Microsoft Entra entry you wish to add to the list and then select **Add**.  The user or group will now appear in the **Users and groups:** field, allowing you to begin managing their permissions.
 
 > [!NOTE]
-> It is a best practice, and recommended, to create a security group in Microsoft Entra ID and maintain permissions on the group rather than individual users. For details on this recommendation, as well as other best practices, see [Access control model in Azure Data Lake Storage Gen2](data-lake-storage-explorer-acl.md).
+> It is a best practice, and recommended, to create a security group in Microsoft Entra ID and maintain permissions on the group rather than individual users. For details on this recommendation, as well as other best practices, see [Access control model in Azure Data Lake Storage](data-lake-storage-explorer-acl.md).
 
 Use the check box controls to set access and default ACLs. To learn more about the difference between these types of ACLs, see [Types of ACLs](data-lake-storage-access-control.md#types-of-acls).
 
@@ -90,7 +90,7 @@ To apply ACL entries recursively, Right-click the container or a directory, and 
 
 ## Next steps
 
-Learn about the Data Lake Storage Gen2 permission model.
+Learn about the Data Lake Storage permission model.
 
 > [!div class="nextstepaction"]
-> [Access control model in Azure Data Lake Storage Gen2](./data-lake-storage-access-control-model.md)
+> [Access control model in Azure Data Lake Storage](./data-lake-storage-access-control-model.md)

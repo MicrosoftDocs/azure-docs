@@ -2,7 +2,7 @@
 title: Install .NET on Azure Cloud Services (classic) roles
 description: This article describes how to manually install the .NET Framework on your cloud service web and worker roles.
 ms.topic: article
-ms.service: cloud-services
+ms.service: azure-cloud-services-classic
 ms.date: 07/23/2024
 author: hirenshah1
 ms.author: hirshah

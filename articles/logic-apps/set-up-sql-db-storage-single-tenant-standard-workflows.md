@@ -22,7 +22,7 @@ This article provides an overview for why you might want to use SQL storage as t
 If you're new to logic apps, review the following documentation:
 
 - [What is Azure Logic Apps](logic-apps-overview.md)
-- [Single-tenant versus multi-tenant and integration service environment for Azure Logic Apps](single-tenant-overview-compare.md)
+- [Single-tenant versus multitenant in Azure Logic Apps](single-tenant-overview-compare.md)
 
 <a name="why-sql"></a>
 

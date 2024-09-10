@@ -4,7 +4,7 @@ description: Learn how to troubleshoot common issues
 author: vicancy
 ms.service: azure-signalr-service
 ms.topic: how-to
-ms.date: 07/02/2024
+ms.date: 08/29/2024
 ms.author: lianwei
 ms.devlang: csharp
 ---
@@ -23,11 +23,11 @@ This article provides troubleshooting guidance for some of the common issues tha
 
 ### Root cause
 
-For HTTP/2, the max length for a single header is **4 K**, so if using browser to access Azure service, there will be an error `ERR_CONNECTION_` for this limitation.
+For HTTP/2, the max length for a single header is **4 K**, so if using browser to access Azure service, there's an error `ERR_CONNECTION_` for this limitation.
 
-For HTTP/1.1, or C# clients, the max URI length is **12 K**, the max header length is **16 K**.
+For HTTP/1.1, or C# clients, the max URI length is **12 K** and the max header length is **16 K**.
 
-With SDK version **1.0.6** or higher, `/negotiate` will throw `413 Payload Too Large` when the generated access token is larger than **4 K**.
+With SDK version **1.0.6** or higher, `/negotiate` throws `413 Payload Too Large` when the generated access token is larger than **4 K**.
 
 ### Solution
 
@@ -67,8 +67,8 @@ services.MapAzureSignalR(GetType().FullName, options =>
 ### Possible errors
 
 * ASP.NET "No server available" error [#279](https://github.com/Azure/azure-signalr/issues/279)
-* ASP.NET "The connection isn't active, data cannot be sent to the service." error [#324](https://github.com/Azure/azure-signalr/issues/324)
-* "An error occurred while making the HTTP request to `https://<API endpoint>`. This error could be because the server certificate is not configured properly with HTTP.SYS in the HTTPS case. This error could also be caused by a mismatch of the security binding between the client and the server."
+* ASP.NET "The connection isn't active, data can't be sent to the service." error [#324](https://github.com/Azure/azure-signalr/issues/324)
+* "An error occurred while making the HTTP request to `https://<API endpoint>`. This error might occur if the server certificate isn't properly configured with HTTP.SYS in the HTTPS case. The possible cause of this error is a mismatch of the security binding between the client and server."
 
 ### Root cause
 
@@ -111,7 +111,7 @@ ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
 
 ### Root cause
 
-Check if your client request has multiple `hub` query strings. `hub` is a preserved query parameter and 400 will throw if the service detects more than one `hub` in the query.
+Check if your client request has multiple `hub` query strings. The `hub` is preserved query parameter, and if the service detects more than one `hub` in the query, it returns a 400 error.
 
 [Having issues or feedback about the troubleshooting? Let us know.](https://aka.ms/asrs/survey/troubleshooting)
 
@@ -129,7 +129,7 @@ For ASP.NET SignalR, the client sends a `/ping` "keep alive" request to the serv
 
 ### Solution
 
-For security concerns, extend TTL isn't encouraged. We suggest adding reconnect logic from the client to restart the connection when such 401 occurs. When the client restarts the connection, it will negotiate with app server to get the JWT token again and get a renewed token.
+For security concerns, extend TTL isn't encouraged. We suggest adding reconnect logic from the client to restart the connection when such 401 occurs. When the client restarts the connection, it negotiates with app server to get the JWT token again and get a renewed token.
 
 Check [here](#restart_connection) for how to restart client connections.
 
@@ -149,7 +149,7 @@ For a SignalR persistent connection, it first `/negotiate` to Azure SignalR serv
 
 ## 404 returned for ASP.NET SignalR's reconnect request
 
-For ASP.NET SignalR, when the [client connection drops](#client_connection_drop), it reconnects using the same `connectionId` for three times before stopping the connection. `/reconnect` can help if the connection is dropped due to network intermittent issues that `/reconnect` can reestablish the persistent connection successfully. Under other circumstances, for example, the client connection is dropped due to the routed server connection is dropped, or SignalR Service has some internal errors like instance restart/failover/deployment, the connection no longer exists, thus `/reconnect` returns `404`. It's the expected behavior for `/reconnect` and after three times retry the connection stops. We suggest having [connection restart](#restart_connection) logic when connection stops.
+For ASP.NET SignalR, when the [client connection drops](#client_connection_drop), it reconnects using the same `connectionId` for three times before stopping the connection. `/reconnect` can help if the connection is dropped due to network intermittent issues that `/reconnect` can reestablish the persistent connection successfully. Under other circumstances, for example, the client connection is dropped due to the routed server connection is dropped, or SignalR Service has some internal errors like instance restart/failover/deployment. The connection no longer exists, thus `/reconnect` returns `404`. It's the expected behavior for `/reconnect` and after three times retry the connection stops. We suggest having [connection restart](#restart_connection) logic when connection stops.
 
 [Having issues or feedback about the troubleshooting? Let us know.](https://aka.ms/asrs/survey/troubleshooting)
 
@@ -162,11 +162,11 @@ There are two cases.
 For **Free** instances, **Concurrent** connection count limit is 20
 For **Standard** instances, **concurrent** connection count limit **per unit** is 1 K, which means Unit100 allows 100-K concurrent connections.
 
-The connections include both client and server connections. check [here](./signalr-concept-messages-and-connections.md#how-connections-are-counted) for how connections are counted.
+The connections include both client and server connections. Check [here](./signalr-concept-messages-and-connections.md#how-connections-are-counted) for how connections are counted.
 
 ### NegotiateThrottled
 
-When there are too many client negotiate requests at the **same** time, it may get throttled. The limit relates to the unit counts that more units has a higher limit. Besides, we suggest having a random delay before reconnecting, check [here](#restart_connection) for retry samples.
+When there are too many clients negotiate requests at the **same** time, it might get throttled. The limit relates to the unit counts that more units have a higher limit. Besides, we suggest having a random delay before reconnecting, check [here](#restart_connection) for retry samples.
 
 [Having issues or feedback about the troubleshooting? Let us know.](https://aka.ms/asrs/survey/troubleshooting)
 
@@ -192,7 +192,7 @@ Server-side logging for ASP.NET Core SignalR integrates with the `ILogger` based
         })
 ```
 
-Logger categories for Azure SignalR always start with `Microsoft.Azure.SignalR`. To enable detailed logs from Azure SignalR, configure the preceding prefixes to `Debug` level in your **appsettings.json** file like below:
+Logger categories for Azure SignalR always start with `Microsoft.Azure.SignalR`. To enable detailed logs from Azure SignalR, configure the preceding prefixes to `Debug` level in your **appsettings.json** file, see the following example:
 
 ```json
 {
@@ -250,7 +250,7 @@ When the client is connected to the Azure SignalR, the persistent connection bet
 
 Client connections can drop under various circumstances:
 * When `Hub` throws exceptions with the incoming request
-* When the server connection, which the client routed to, drops, see below section for details on [server connection drops](#server_connection_drop)
+* When the server connection, which the client routed to, drops, see the following section for details on [server connection drops](#server_connection_drop)
 * When a network connectivity issue happens between client and SignalR Service
 * When SignalR Service has some internal errors like instance restart, failover, deployment, and so on
 
@@ -264,9 +264,9 @@ Client connections can drop under various circumstances:
 
 ## Client connection increases constantly
 
-It might be caused by improper usage of client connection. If someone forgets to stop/dispose SignalR client, the connection remains open.
+Improper usage of the client connection might cause it. If someone forgets to stop/dispose SignalR client, the connection remains open.
 
-### Possible errors seen from the SignalR's metrics that is in Monitoring section of Azure portal resource menu
+### Possible errors seen from the SignalR's metrics that are in Monitoring section of Azure portal resource menu
 
 Client connections rise constantly for a long time in Azure SignalR's Metrics.
 
@@ -274,7 +274,7 @@ Client connections rise constantly for a long time in Azure SignalR's Metrics.
 
 ### Root cause
 
-SignalR client connection's `DisposeAsync` never be called, the connection keeps open.
+SignalR client connection's `DisposeAsync` never be called and the connection keeps open.
 
 ### Troubleshooting guide
 
@@ -306,7 +306,7 @@ finally
 
 #### Azure Function example
 
-This issue often occurs when someone establishes a SignalR client connection in an Azure Function method instead of making it a static member in the function class. You might expect only one client connection to be established, but instead you see client connection count increase constantly in metrics. All these connections drop only after the Azure Function or Azure SignalR service restarts. This behavior is because for **each** request, Azure Function creates **one** client connection, and if you don't stop client connection in the function method, the client keeps the connections alive to Azure SignalR service.
+This issue often occurs when someone establishes a SignalR client connection in an Azure Function method instead of making it a static member in the function class. You might expect only one client connection to be established, but instead you see the client connection count increase constantly in metrics. All these connections drop only after the Azure Function or Azure SignalR service restarts. This behavior occurs because Azure Function establishes **one** client connection for **each** request and if you don't stop the client connection in the function method, the client keeps the connections alive to Azure SignalR service.
 
 #### Solution
 
@@ -320,11 +320,11 @@ This issue often occurs when someone establishes a SignalR client connection in 
 
 ## Server connection drops
 
-When the app server starts, in the background, the Azure SDK starts to initiate server connections to the remote Azure SignalR. As described in [Internals of Azure SignalR Service](https://github.com/Azure/azure-signalr/blob/dev/docs/internal.md), Azure SignalR routes incoming client traffics to these server connections. Once a server connection is dropped, all the client connections it serves will be closed too.
+When the app server starts, in the background, the Azure SDK starts to initiate server connections to the remote Azure SignalR. As described in [Internals of Azure SignalR Service](https://github.com/Azure/azure-signalr/blob/dev/docs/internal.md), Azure SignalR routes incoming client traffics to these server connections. When a server connection is dropped, it closes all the client connections it was serving.
 
-As the connections between the app server and SignalR Service are persistent connections, they may experience network connectivity issues. In the Server SDK, we have an **Always Reconnect** strategy to server connections. As a best practice, we also encourage users to add continuous reconnection logic to the clients with a random delay time to avoid massive simultaneous requests to the server.
+As the connections between the app server and SignalR Service are persistent connections, they might experience network connectivity issues. In the Server SDK, we have an **Always Reconnect** strategy to server connections. As a best practice, we also encourage users to add continuous reconnection logic to the clients with a random delay time to avoid massive simultaneous requests to the server.
 
-Regularly, there are new version releases for the Azure SignalR Service, and sometimes the Azure-wide patching or upgrades or occasionally interruption from our dependent services. These events may bring in a short period of service disruption, but as long as client-side has a disconnect/reconnect mechanism, the effect is minimal like any client-side caused disconnect-reconnect.
+Regularly, there are new version releases for the Azure SignalR Service, and sometimes the Azure-wide patching or upgrades or occasionally interruption from our dependent services. These events might bring in a short period of service disruption, but as long as client-side has a disconnect/reconnect mechanism, the effect is minimal like any client-side caused disconnect-reconnect.
 
 This section describes several possibilities leading to server connection drop, and provides some guidance on how to identify the root cause.
 
@@ -338,7 +338,7 @@ This section describes several possibilities leading to server connection drop, 
 
 Server-service connection is closed by **ASRS**(**A**zure **S**ignal**R** **S**ervice).
 
-For ping timeout, it might be caused by high CPU usage or thread pool starvation on the server side.
+High CPU usage or thread pool starvation on the server side might cause a ping timeout.
 
 For ASP.NET SignalR, a known issue was fixed in SDK 1.6.0. Upgrade your SDK to newest version.
 
@@ -346,7 +346,7 @@ For ASP.NET SignalR, a known issue was fixed in SDK 1.6.0. Upgrade your SDK to n
 
 If your server is starving, that means no threads are working on message processing. All threads aren't responding in a certain method.
 
-Normally, this scenario is caused by async over sync or by `Task.Result`/`Task.Wait()` in async methods.
+Normally, in async methods, async over sync or by `Task.Result`/`Task.Wait()` causes this scenario.
 
 See [ASP.NET Core performance best practices](/aspnet/core/performance/performance-best-practices#avoid-blocking-calls).
 
@@ -403,7 +403,7 @@ Add it to your service:
 service.AddSingleton<ThreadPoolStarvationDetector>();
 ```
 
-Then, check your log when the server connection is disconnected by ping timeout.
+Then, check your log when the server disconnected due to ping timeout.
 
 ### How to find the root cause of thread pool starvation
 

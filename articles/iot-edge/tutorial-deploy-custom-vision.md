@@ -15,7 +15,7 @@ ms.custom: mvc
 
 [!INCLUDE [iot-edge-version-all-supported](includes/iot-edge-version-all-supported.md)]
 
-Azure IoT Edge can make your IoT solution more efficient by moving workloads out of the cloud and to the edge. This capability lends itself well to services that process large amounts of data, like computer vision models. [Azure AI Custom Vision](../ai-services/custom-vision-service/overview.md) lets you build custom image classifiers and deploy them to devices as containers. Together, these two services enable you to find insights from images or video streams without having to transfer all of the data off site first. Custom Vision provides a classifier that compares an image against a trained model to generate insights.
+Azure IoT Edge can make your IoT solution more efficient by moving workloads out of the cloud and to the edge. This capability lends itself well to services that process large amounts of data, like computer vision models. [Azure AI Custom Vision](/azure/ai-services/custom-vision-service/overview) lets you build custom image classifiers and deploy them to devices as containers. Together, these two services enable you to find insights from images or video streams without having to transfer all of the data off site first. Custom Vision provides a classifier that compares an image against a trained model to generate insights.
 
 For example, Custom Vision on an IoT Edge device could determine whether a highway is experiencing higher or lower traffic than normal, or whether a parking garage has available parking spots in a row. These insights can be shared with another service to take action.
 
@@ -55,7 +55,7 @@ In this tutorial, you learn how to:
 
 ## Build an image classifier with Custom Vision
 
-To build an image classifier, you need to create a Custom Vision project and provide training images. For more information about the steps that you take in this section, see [How to build a classifier with Custom Vision](../ai-services/custom-vision-service/getting-started-build-a-classifier.md).
+To build an image classifier, you need to create a Custom Vision project and provide training images. For more information about the steps that you take in this section, see [How to build a classifier with Custom Vision](/azure/ai-services/custom-vision-service/getting-started-build-a-classifier).
 
 Once your image classifier is built and trained, you can export it as a Docker container and deploy it to an IoT Edge device.
 

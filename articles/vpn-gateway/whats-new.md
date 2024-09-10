@@ -4,7 +4,7 @@ description: Learn what's new with Azure VPN Gateway such as the latest release 
 author: cherylmc
 ms.service: azure-vpn-gateway
 ms.topic: conceptual
-ms.date: 06/07/2024
+ms.date: 08/16/2024
 ms.author: cherylmc
 ---
 
@@ -16,6 +16,7 @@ Azure VPN Gateway is updated regularly. Stay up to date with the latest announce
 * Previews underway with known limitations (if applicable)
 * Known issues
 * Deprecated functionality (if applicable)
+* Azure VPN Client versions
 
 You can also find the latest VPN Gateway updates and subscribe to the RSS feed [here](https://azure.microsoft.com/updates/?category=networking&query=azure%20vpn%20gateway).
 
@@ -23,13 +24,25 @@ You can also find the latest VPN Gateway updates and subscribe to the RSS feed [
 
 | Type | Area | Name | Description | Date added | Limitations |
 |---|---|---|---|---|---|
-| P2S VPN | P2S | [Azure VPN Client for Linux](azure-vpn-client-versions.md)| [Certificate](point-to-site-certificate-client-linux-azure-vpn-client.md) authentication, [Microsoft Entra ID ](point-to-site-entra-vpn-client-linux.md) authentication.| May 2024 | N/A|
-| P2S VPN | P2S | [Azure VPN Client for macOS](azure-vpn-client-versions.md) | Microsoft Entra ID authentication updates, additional features.  | May 2024 | N/A|
-| P2S VPN | P2S | [Azure VPN Client for Windows](azure-vpn-client-versions.md) | Microsoft Entra ID authentication updates, additional features.  | May 2024 | N/A|
+| P2S VPN | P2S | [Azure VPN Client for Linux](#linux)| [Certificate](point-to-site-certificate-client-linux-azure-vpn-client.md) authentication, [Microsoft Entra ID ](point-to-site-entra-vpn-client-linux.md) authentication.| May 2024 | N/A|
+| P2S VPN | P2S | [Azure VPN Client for macOS](#macos) | Microsoft Entra ID authentication updates, additional features.  | May 2024 | N/A|
+| P2S VPN | P2S | [Azure VPN Client for Windows](#windows) | Microsoft Entra ID authentication updates, additional features.  | May 2024 | N/A|
 |SKU deprecation  | N/A | [Standard/High performance VPN gateway SKU](vpn-gateway-about-skus-legacy.md#sku-deprecation) | Legacy SKUs (Standard and HighPerformance) will be deprecated on 30 Sep 2025. View the announcement [here](https://go.microsoft.com/fwlink/?linkid=2255127).  | Nov 2023 | N/A |
 |Feature  | All | [Customer-controlled gateway maintenance](customer-controlled-gateway-maintenance.md) |Customers can schedule maintenance (Guest OS and Service updates) during a time of the day that best suits their business needs.  | Nov 2023 (Public preview)| See the [FAQ](vpn-gateway-vpn-faq.md#customer-controlled).
 | Feature | All | [APIPA for VPN Gateway (General availability)](bgp-howto.md#2-create-testvnet1-gateway-with-bgp) | All SKUs of active-active VPN gateways now support multiple custom BGP APIPA addresses for each instance.  | Jan 2022 | N/A |
-|P2S VPN| P2S| Feedback Hub support for Azure VPN Client connections | Customers can use Feedback Hub to file a bug/allow feedback triage for Azure VPN Client connections. | May 2024| Windows 11 only|
+|P2S VPN| P2S| [Feedback Hub support for Azure VPN Client connections](feedback-hub-azure-vpn-client.md)  | Customers can use Feedback Hub to file a bug/allow feedback triage for Azure VPN Client connections. | May 2024| Windows 10, Windows 11 only|
+
+### <a name="windows"></a>Azure VPN Client - Windows
+
+[!INCLUDE [Windows client versions](../../includes/vpn-gateway-azure-vpn-client-windows-table.md)]
+
+### <a name="linux"></a>Azure VPN Client - Linux
+
+[!INCLUDE [Linux client versions](../../includes/vpn-gateway-azure-vpn-client-linux-table.md)]
+
+### <a name="macos"></a>Azure VPN Client - macOS
+
+[!INCLUDE [macOS client versions](../../includes/vpn-gateway-azure-vpn-client-macos-table.md)]
 
 ## Next steps
 

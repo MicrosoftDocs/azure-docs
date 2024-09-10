@@ -41,10 +41,11 @@ sections:
 
       - question: How can I obtain logs for my NAT gateway resource?
         answer: |
-          Network security group (NSG) flow logs can be used to monitor traffic flow from a resource in a subnet/virtual network by using a NAT gateway to go outbound.
-          
-          Use Azure Security Center and follow the network protection recommendations to help secure your Azure network resources. Enable NSG flow logs and send the logs to an Azure Storage account for auditing. You can also send the flow logs to a Log Analytics workspace and then use Traffic Analytics to provide insights into traffic patterns in your Azure cloud. Some advantages of Traffic Analytics are the ability to visualize network activity, identify hot spots and security threats, understand traffic flow patterns, and pinpoint network misconfigurations.
+          [Virtual network (VNet) flow logs](../network-watcher/vnet-flow-logs-overview.md) are a feature of Azure Network Watcher that logs information about IP traffic flowing through a virtual network. Flow data from virtual network flow logs is sent to Azure Storage. From there, you can access the data and export it to any visualization tool, security information and event management (SIEM) solution, or intrusion detection system (IDS).
 
+          VNet flow logs provide connection information for your virtual machines. The connection information contains the source IP and port and the destination IP and port and the state of the connection. The traffic flow direction and the size of the traffic in number of packets and bytes sent is also logged. The source IP and port specified in the VNet flow log is for the virtual machine and not the NAT gateway.
+          
+          For general guidance to create and manage virtual network flow logs, see [Manage virtual network flow logs](../network-watcher/vnet-flow-logs-portal.md).
       - question: How do I delete a NAT gateway resource?
         answer: |
           To delete a NAT gateway resource, the resource must first be disassociated from the subnet. After the NAT gateway resource is disassociated from all subnets, it can be deleted. For guidance, see [Remove a NAT gateway resource from an existing subnet and delete the resource](./manage-nat-gateway.md?tabs=manage-nat-portal#remove-a-nat-gateway-from-an-existing-subnet-and-delete-the-resource).

@@ -250,13 +250,13 @@ Learn more about [SQL virtual machine - SqlAssessmentAdvisorRec (Install SQL bes
 
 We noticed that your Azure Cosmos DB collection is using the legacy attachments feature. We recommend migrating attachments to Azure Blob Storage to improve the resiliency and scalability of your blob data.
 
-Learn more about [Azure Cosmos DB account - CosmosDBAttachments (Migrate Azure Cosmos DB attachments to Azure Blob Storage)](../cosmos-db/attachments.md#migrating-attachments-to-azure-blob-storage).
+Learn more about [Azure Cosmos DB account - CosmosDBAttachments (Migrate Azure Cosmos DB attachments to Azure Blob Storage)](/azure/cosmos-db/attachments#migrating-attachments-to-azure-blob-storage).
 
 ### Improve resiliency by migrating your Azure Cosmos DB accounts to continuous backup
 
 Your Azure Cosmos DB accounts are configured with periodic backup. Continuous backup with point-in-time restore is now available on these accounts. With continuous backup, you can restore your data to any point in time within the past 30 days. Continuous backup might also be more cost-effective as a single copy of your data is retained.
 
-Learn more about [Azure Cosmos DB account - CosmosDBMigrateToContinuousBackup (Improve resiliency by migrating your Azure Cosmos DB accounts to continuous backup)](../cosmos-db/continuous-backup-restore-introduction.md).
+Learn more about [Azure Cosmos DB account - CosmosDBMigrateToContinuousBackup (Improve resiliency by migrating your Azure Cosmos DB accounts to continuous backup)](/azure/cosmos-db/continuous-backup-restore-introduction).
 
 ### Enable partition merge to configure an optimal database partition layout
 

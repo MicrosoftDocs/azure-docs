@@ -20,7 +20,7 @@ For an overview of using a connected registry with IoT Edge, see [Using connecte
 [!INCLUDE [Prepare Azure CLI environment](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 * Azure IoT Hub and IoT Edge device. For deployment steps, see [Quickstart: Deploy your first IoT Edge module to a virtual Linux device](../iot-edge/quickstart-linux.md).
   > [!IMPORTANT]
-  > For later access to the modules deployed on the IoT Edge device, make sure that you open the ports 8000, 5671, and 8883 on the device. For configuration steps, see [How to open ports to a virtual machine with the Azure portal](../virtual-machines/windows/nsg-quickstart-portal.md). 
+  > For later access to the modules deployed on the IoT Edge device, make sure that you open the ports 8000, 5671, and 8883 on the device. For configuration steps, see [How to open ports to a virtual machine with the Azure portal](/azure/virtual-machines/windows/nsg-quickstart-portal). 
 
 * Connected registry resource in Azure. For deployment steps, see quickstarts using the [Azure CLI][quickstart-connected-registry-cli] or [Azure portal][quickstart-connected-registry-portal]. 
 

@@ -3,7 +3,7 @@ title: What is Azure Health Data Services?
 description: This article is an overview of Azure Health Data Services. 
 services: healthcare-apis
 author: mmitrik
-ms.service: healthcare-apis
+ms.service: azure-health-data-services
 ms.topic: overview
 ms.date: 10/13/2023
 ms.author: mikaelw

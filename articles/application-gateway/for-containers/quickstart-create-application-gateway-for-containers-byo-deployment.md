@@ -7,7 +7,7 @@ ms.service: azure-application-gateway
 ms.subservice: appgw-for-containers
 ms.custom: devx-track-azurecli
 ms.topic: quickstart
-ms.date: 02/27/2024
+ms.date: 08/12/2024
 ms.author: greglin
 ---
 
@@ -86,9 +86,6 @@ az network vnet subnet update \
 ALB_SUBNET_ID=$(az network vnet subnet list --resource-group $VNET_RESOURCE_GROUP --vnet-name $VNET_NAME --query "[?name=='$ALB_SUBNET_NAME'].id" --output tsv)
 echo $ALB_SUBNET_ID
 ```
-
-> [!NOTE]
-> The NSG for the delegated subnet can only use the default rules for incoming traffic. For example: AllowVNetInBound, AllowAzureLoadBalancerInBound, and DenyAllInbound. No other incoming NSG rule is supported.
    
 ### Delegate permissions to managed identity
 

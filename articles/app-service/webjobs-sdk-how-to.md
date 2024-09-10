@@ -50,7 +50,35 @@ For example, the `connection` property for an Azure Blob trigger definition migh
 
 #### Identity-based connections
 
-To use identity-based connections in the WebJobs SDK, make sure you are using the latest versions of WebJobs packages in your project. You should also ensure you have a reference to [Microsoft.Azure.WebJobs.Host.Storage](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Host.Storage). When setting up WebJobs within your HostBuilder, make sure to include a call to `AddAzureStorageCoreServices`, as this is what allows `AzureWebJobsStorage` and other Storage triggers and bindings to use identity:
+To use identity-based connections in the WebJobs SDK, make sure you are using the latest versions of WebJobs packages in your project. You should also ensure you have a reference to [Microsoft.Azure.WebJobs.Host.Storage](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Host.Storage). The following is an example of what your project file might look like after making these updates:
+
+```xml
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net48</TargetFramework>
+    <IsWebJobProject>true</IsWebJobProject>
+    <WebJobName>$(AssemblyName)</WebJobName>
+    <WebJobType>Continuous</WebJobType>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Azure.WebJobs" Version="3.0.41" />
+    <PackageReference Include="Microsoft.Azure.WebJobs.Extensions.Storage.Queues" Version="5.3.1" />
+    <PackageReference Include="Microsoft.Azure.WebJobs.Host.Storage" Version="5.0.1" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Console" Version="2.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="appsettings.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+</Project>
+```
+
+When setting up WebJobs within your HostBuilder, make sure to include a call to `AddAzureStorageCoreServices`, as this is what allows `AzureWebJobsStorage` and other Storage triggers and bindings to use identity:
 
 ```csharp
     builder.ConfigureWebJobs(b =>
@@ -80,7 +108,7 @@ If you provide your configuration through any means other than environment varia
 
 You may omit the `queueServiceUri` property if you do not plan to use blob triggers.
 
-When your code is run locally, this will default to using your developer identity per the behavior described for DefaultAzureCredential.
+When your code is run locally, this will default to using your developer identity per the behavior described for [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential).
 
 When your code is hosted in Azure App Service, the configuration shown above will default to the [system-assigned managed identity](./overview-managed-identity.md#add-a-system-assigned-identity) for the resource. To instead use a [user-assigned identity](./overview-managed-identity.md#add-a-user-assigned-identity) which has been assigned to the app, you need to add additional properties for your connection that specify which identity should be used. The `credential` property (`AzureWebJobsStorage__credential` as an environment variable) should be set to the string "managedidentity". The `clientId` property (`AzureWebJobsStorage__clientId` as an environment variable) should be set to the client ID of the user-assigned managed identity to be used. As structured configuration, the complete object would be:
 

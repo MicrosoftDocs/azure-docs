@@ -15,7 +15,7 @@ This tutorial describes how to back up SAP HANA database instance and SAP HANA S
 
 Azure CLI is used to create and manage Azure resources from the Command Line or through scripts. This documentation details how to back up an SAP HANA database and trigger on-demand backups - all using Azure CLI. You can also perform these steps using the [Azure portal](./backup-azure-sap-hana-database.md).
 
-This document assumes that you already have an SAP HANA database installed on an Azure VM. (You can also [create a VM using Azure CLI](../virtual-machines/linux/quick-create-cli.md)).
+This document assumes that you already have an SAP HANA database installed on an Azure VM. (You can also [create a VM using Azure CLI](/azure/virtual-machines/linux/quick-create-cli)).
 
 For more information on the supported scenarios, see the [support matrix](./sap-hana-backup-support-matrix.md#scenario-support) for SAP HANA.
 
@@ -27,7 +27,7 @@ For more information on the supported scenarios, see the [support matrix](./sap-
 
 A Recovery Services vault is a logical container that stores the backup data for each protected resource, such as Azure VMs or workloads running on Azure VMs - like SQL or HANA databases. When the backup job for a protected resource runs, it creates a recovery point inside the Recovery Services vault. You can then use one of these recovery points to restore data to a given point in time.
 
-Create a Recovery Services vault with [az backup vault create](/cli/azure/backup/vault#az-backup-vault-create). Specify the same resource group and location as the VM you wish to protect. Learn how to create a VM using Azure CLI with this [VM quickstart](../virtual-machines/linux/quick-create-cli.md).
+Create a Recovery Services vault with [az backup vault create](/cli/azure/backup/vault#az-backup-vault-create). Specify the same resource group and location as the VM you wish to protect. Learn how to create a VM using Azure CLI with this [VM quickstart](/azure/virtual-machines/linux/quick-create-cli).
 
 **Choose a database type**:
 # [HANA database](#tab/hana-database)

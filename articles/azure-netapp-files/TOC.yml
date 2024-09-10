@@ -67,6 +67,12 @@
       href: azure-netapp-files-network-topologies.md
     - name: Resource limits for Azure NetApp Files
       href: azure-netapp-files-resource-limits.md
+    - name: High file counts 
+      items: 
+        - name: Understand maxfiles 
+          href: maxfiles-concept.md
+        - name: Understand maximum directory sizes 
+          href: directory-sizes-concept.md
     - name: Ways to monitor Azure NetApp Files
       href: monitor-azure-netapp-files.md
     - name: Metrics for Azure NetApp Files
@@ -79,7 +85,7 @@
     items:
     - name: Cost model for Azure NetApp Files
       href: azure-netapp-files-cost-model.md
-    - name: Standard storage with cool access
+    - name: Azure NetApp Files storage with cool access
       href: cool-access-introduction.md
   - name: Quotas 
     items:
@@ -105,6 +111,8 @@
       href: performance-large-volumes-linux.md
     - name: Performance impact of Kerberos on NFSv4.1
       href: performance-impact-kerberos.md
+    - name: Performance considerations for cool access 
+      href: performance-considerations-cool-access.md
     - name: Oracle database performance on Azure NetApp Files single volumes
       href: performance-oracle-single-volumes.md
     - name: Oracle database performance on Azure NetApp Files multiple volumes
@@ -335,7 +343,7 @@
         href: dynamic-change-volume-service-level.md
       - name: Manage default and individual user and group quotas for a volume
         href: manage-default-individual-user-group-quotas.md
-      - name: Manage standard storage with cool access 
+      - name: Manage storage with cool access 
         href: manage-cool-access.md
     - name: Update Terraform-managed volume
       href: terraform-manage-volume.md
@@ -425,6 +433,10 @@
         href: manage-availability-zone-volume-placement.md
       - name: Create cross-zone replication 
         href: create-cross-zone-replication.md
+  - name: Relocate
+    items:
+    - name: Relocate volume to another region
+      href: ../operational-excellence/relocation-netapp.md?toc=/azure/azure-netapp-files/toc.json
   - name: Develop
     items:
     - name: REST API

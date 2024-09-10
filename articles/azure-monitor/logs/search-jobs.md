@@ -24,6 +24,9 @@ This video explains when and how to use search jobs:
 |:-------|:---------------------|
 | Run a search job | `Microsoft.OperationalInsights/workspaces/tables/write` and `Microsoft.OperationalInsights/workspaces/searchJobs/write` permissions to the Log Analytics workspace, for example, as provided by the [Log Analytics Contributor built-in role](../logs/manage-access.md#built-in-roles). |
 
+> [!NOTE]
+> Cross-tenant search jobs are not currently supported, even when Entra ID tenants are managed through Azure Lighthouse.
+
 ## When to use search jobs
 
 Use a search job when the log query timeout of 10 minutes isn't sufficient to search through large volumes of data or if you're running a slow query.

@@ -57,8 +57,8 @@ See the documentation for different services and solutions for any unique billin
 In addition to the pay-as-you-go model, Log Analytics has *commitment tiers*, which can save you as much as 30 percent compared to the pay-as-you-go price. With commitment tier pricing, you can commit to buy data ingestion for a workspace, starting at 100 GB per day, at a lower price than pay-as-you-go pricing. Any usage above the commitment level (overage) is billed at that same price per GB as provided by the current commitment tier. (Overage is billed using the same commitment tier billing meter. For example if a workspace is in the 200 GB/day commitment tier and ingests 300 GB in a day, that usage is billed as 1.5 units of the 200 GB/day commitment tier.) The commitment tiers have a 31-day commitment period from the time a commitment tier is selected or changed.
 
 - During the commitment period, you can change to a higher commitment tier, which restarts the 31-day commitment period. You can't move back to pay-as-you-go or to a lower commitment tier until after you finish the commitment period.
-- At the end of the commitment period, the workspace retains the selected commitment tier, and the workspace can be moved to Pay-As-You-Go or to a lower commitment tier at any time.
-- If a workspace is inadvertently moved into a commitment tier, contact Microsoft Support to reset the commitment period so you can move back to the Pay-As-You-Go pricing tier.
+- At the end of the commitment period, the workspace retains the selected commitment tier, and the workspace can be moved to pay-as-you-go or to a lower commitment tier at any time.
+- If a workspace is inadvertently moved into a commitment tier, contact Microsoft Support to reset the commitment period so you can move back to the pay-as-you-go pricing tier.
 
 Billing for the commitment tiers is done per workspace on a daily basis. If the workspace is part of a [dedicated cluster](#dedicated-clusters), the billing is done for the cluster. See the following "Dedicated clusters" section. For a list of the commitment tiers and their prices, see [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/).
 
@@ -141,7 +141,10 @@ For more information about legacy tiers that are available to early adopters of 
 
 When Microsoft Sentinel is enabled in a Log Analytics workspace, all data collected in that workspace is subject to Microsoft Sentinel charges along with Log Analytics charges. For this reason, you'll often separate your security and operational data in different workspaces so that you don't incur [Microsoft Sentinel charges](../../sentinel/billing.md) for operational data.
 
-In some scenarios, combining this data can result in cost savings. Typically, this situation occurs when you aren't collecting enough security and operational data for each to reach a commitment tier on their own, but the combined data is enough to reach a commitment tier. For more information and a sample cost calculation, see the section "Combining your SOC and non-SOC data" in [Design your Microsoft Sentinel workspace architecture](../../sentinel/design-your-workspace-architecture.md#decision-tree).
+In some scenarios, combining this data can result in cost savings. Typically, this situation occurs when you aren't collecting enough security and operational data for each to reach a commitment tier on their own, but the combined data is enough to reach a commitment tier. For more information, see:
+
+- [Design a Log Analytics workspace architecture](workspace-design.md)
+- [Sample Log Analytics workspace designs for Microsoft Sentinel](../../sentinel/sample-workspace-designs.md)
 
 ## Workspaces with Microsoft Defender for Cloud
 

@@ -127,7 +127,7 @@ Pricing tiers determine the capacity and limits of your search service. Tiers in
 
 [!INCLUDE [azure-search-limits-per-service](~/reusable-content/ce-skilling/azure/includes/azure-search-limits-per-service.md)]
 
-To learn more about limits on a more granular level, such as document size, queries per second, keys, requests, and responses, see [Service limits in Azure AI Search](../../search/search-limits-quotas-capacity.md).
+To learn more about limits on a more granular level, such as document size, queries per second, keys, requests, and responses, see [Service limits in Azure AI Search](/azure/search/search-limits-quotas-capacity).
 
 <a name='azure-cognitive-services-limits'></a>
 
@@ -161,7 +161,7 @@ For Azure Container Apps limits, see [Quotas in Azure Container Apps](../../cont
 
 ## Azure Cosmos DB limits
 
-For Azure Cosmos DB limits, see [Limits in Azure Cosmos DB](../../cosmos-db/concepts-limits.md).
+For Azure Cosmos DB limits, see [Limits in Azure Cosmos DB](/azure/cosmos-db/concepts-limits).
 
 ## Azure Data Explorer limits
 
@@ -169,11 +169,11 @@ For Azure Cosmos DB limits, see [Limits in Azure Cosmos DB](../../cosmos-db/conc
 
 ## Azure Database for MySQL
 
-For Azure Database for MySQL limits, see [Limitations in Azure Database for MySQL](../../mysql/concepts-limits.md).
+For Azure Database for MySQL limits, see [Limitations in Azure Database for MySQL](/azure/mysql/concepts-limits).
 
 ## Azure Database for PostgreSQL
 
-For Azure Database for PostgreSQL limits, see [Limitations in Azure Database for PostgreSQL](../../postgresql/concepts-limits.md).
+For Azure Database for PostgreSQL limits, see [Limitations in Azure Database for PostgreSQL](/azure/postgresql/concepts-limits).
 
 ## Azure Deployment Environments limits
 
@@ -213,7 +213,7 @@ For Azure Load Testing limits, see [Service limits in Azure Load Testing](../../
 
 ## Azure Machine Learning limits
 
-The latest values for Azure Machine Learning Compute quotas can be found in the [Azure Machine Learning quota page](../../machine-learning/how-to-manage-quotas.md)
+The latest values for Azure Machine Learning Compute quotas can be found in the [Azure Machine Learning quota page](/azure/machine-learning/how-to-manage-quotas)
 
 ## Azure Maps limits
 
@@ -509,18 +509,18 @@ The maximum number of private endpoints per Azure SQL Database logical server is
 
 [!INCLUDE [azure-storage-limits-vm-disks](~/reusable-content/ce-skilling/azure/includes/azure-storage-limits-vm-disks.md)]
 
-For more information, see [Virtual machine sizes](../../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+For more information, see [Virtual machine sizes](/azure/virtual-machines/sizes?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 [!INCLUDE [azure-storage-limits-vm-apps](../../../includes/azure-storage-limits-vm-apps.md)]
 
-For more information, see [VM Applications](../../virtual-machines/vm-applications.md).
+For more information, see [VM Applications](/azure/virtual-machines/vm-applications).
 
 #### Disk encryption sets
 
 There's a limitation of 1000 disk encryption sets per region, per subscription. For more
 information, see the encryption documentation for
-[Linux](../../virtual-machines/disk-encryption.md#restrictions) or
-[Windows](../../virtual-machines/disk-encryption.md#restrictions) virtual machines. If you
+[Linux](/azure/virtual-machines/disk-encryption#restrictions) or
+[Windows](/azure/virtual-machines/disk-encryption#restrictions) virtual machines. If you
 need to increase the quota, contact Azure support.
 
 ### Managed virtual machine disks
@@ -580,6 +580,6 @@ The maximum number of allowed Managed Run Commands is currently limited to 25.
 ## See also
 
 * [Understand Azure limits and increases](https://azure.microsoft.com/blog/azure-limits-quotas-increase-requests/)
-* [Virtual machine and cloud service sizes for Azure](../../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+* [Virtual machine and cloud service sizes for Azure](/azure/virtual-machines/sizes?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Sizes for Azure Cloud Services](../../cloud-services/cloud-services-sizes-specs.md)
 * [Naming rules and restrictions for Azure resources](resource-name-rules.md)

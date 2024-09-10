@@ -197,6 +197,6 @@ The following line shows whether the policy-based traffic selectors are used for
       ```
 
 ## Next steps
-Once your connection is complete, you can add virtual machines to your virtual networks. See [Create a Virtual Machine](../virtual-machines/windows/quick-create-portal.md) for steps.
+Once your connection is complete, you can add virtual machines to your virtual networks. See [Create a Virtual Machine](/azure/virtual-machines/windows/quick-create-portal) for steps.
 
 Also review [Configure IPsec/IKE policy for S2S VPN or VNet-to-VNet connections](vpn-gateway-ipsecikepolicy-rm-powershell.md) for more details on custom IPsec/IKE policies.

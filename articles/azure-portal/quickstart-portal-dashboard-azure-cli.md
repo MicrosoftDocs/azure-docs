@@ -37,8 +37,8 @@ az vm create --resource-group myResourceGroup --name myVM1 --image win2016datace
 ```
 
 > [!NOTE]
-> This is a new username and password (not the account you use to sign in to Azure). The password must be complex. For more information, see [username requirements](../virtual-machines/windows/faq.yml#what-are-the-username-requirements-when-creating-a-vm-)
-and [password requirements](../virtual-machines/windows/faq.yml#what-are-the-password-requirements-when-creating-a-vm-).
+> This is a new username and password (not the account you use to sign in to Azure). The password must be complex. For more information, see [username requirements](/azure/virtual-machines/windows/faq#what-are-the-username-requirements-when-creating-a-vm-)
+and [password requirements](/azure/virtual-machines/windows/faq#what-are-the-password-requirements-when-creating-a-vm-).
 
 The deployment starts and typically takes a few minutes to complete.
 

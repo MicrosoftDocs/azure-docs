@@ -86,7 +86,7 @@ The following list presents the set of features that are currently available in 
 | Video Rendering   | Render single video in many places (local camera or remote stream)                                                  | ✔️        | ✔️ | ✔️ | ✔️ |
 |                   | Set / update scaling mode                                                                                           | ✔️        | ✔️ | ✔️ | ✔️ |
 |                   | Render remote video stream                                                                                          | ✔️        | ✔️ | ✔️ | ✔️ |
-|                   | See together mode video stream                                                                                      | ❌ | ❌ | ❌ | ❌ |
+|                   | See together mode video stream                                                                                      | ✔️ | ❌ | ❌ | ❌ |
 |                   | See Large gallery view                                                                                              | ❌ | ❌ | ❌ | ❌ |
 |                   | Receive video stream from Teams media bot                                                                           | ❌ | ❌ | ❌ | ❌ |
 |                   | Receive adjusted stream for "content from Camera"                                                                   | ❌ | ❌ | ❌ | ❌ |

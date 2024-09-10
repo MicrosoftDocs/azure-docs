@@ -533,6 +533,10 @@ The following pieces of code are automatically added:
             }
     ```
 
+### How can I disable telemetry correlation?
+
+To disable telemetry correlation in configuration, see `<ExcludeComponentCorrelationHttpHeadersOnDomains>` in [Application Insights for console applications](/previous-versions/azure/azure-monitor/app/console).
+
 ## Troubleshooting
 
 See the dedicated [troubleshooting article](/troubleshoot/azure/azure-monitor/app-insights/asp-net-troubleshoot-no-data).

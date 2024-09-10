@@ -7,7 +7,7 @@ ms.author: zhiyongli
 ms.service: azure-spring-apps
 ms.custom: devx-track-extended-java
 ms.topic: conceptual
-ms.date: 08/10/2023
+ms.date: 08/28/2024
 ---
 
 # Version support for Java, Spring Boot, and more

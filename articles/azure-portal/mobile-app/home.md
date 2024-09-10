@@ -1,7 +1,7 @@
 ---
 title: Azure mobile app Home
 description: Azure mobile app Home surfaces the most essential information and the resources you use most often.
-ms.date: 05/29/2024
+ms.date: 08/28/2024
 ms.topic: conceptual
 ---
 
@@ -24,6 +24,7 @@ Current card options include:
 - **Cloud Shell**: Quick access to the [Cloud Shell terminal](cloud-shell.md).
 - **Recent resources**: A list of your four most recently viewed resources, with the option to see all.
 - **Favorites**: A list of the resources you have added to your favorites, and the option to see all.
+- **Dashboards (preview)**: Access to [shared dashboards](../dashboard-hub.md).
 
 :::image type="content" source="media/azure-mobile-app-home-layout.png" alt-text="Screenshot of the Azure mobile app Home screen with several display cards.":::
 

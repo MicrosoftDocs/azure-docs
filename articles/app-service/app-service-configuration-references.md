@@ -19,9 +19,6 @@ To get started with using App Configuration references in App Service, you'll fi
 
 1. Create an App Configuration store by following the [App Configuration quickstart](../azure-app-configuration/quickstart-azure-app-configuration-create.md).
 
-    > [!NOTE]
-    > App Configuration references do not yet support network-restricted configuration stores.
-
 1. Create a [managed identity](overview-managed-identity.md) for your application.
 
     App Configuration references will use the app's system assigned identity by default, but you can [specify a user-assigned identity](#access-app-configuration-store-with-a-user-assigned-identity).

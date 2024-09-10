@@ -2,8 +2,8 @@
 title: Troubleshoot known issues with Azure Update Manager
 description: This article provides details on known issues and how to troubleshoot any problems with Azure Update Manager.
 ms.service: azure-update-manager
-ms.date: 07/04/2024
-ms.topic: conceptual
+ms.date: 09/06/2024
+ms.topic: troubleshooting
 ms.author: sudhirsneha
 author: SnehaSudhirG
 ---
@@ -210,7 +210,7 @@ The machines are in a shutdown state.
 
 #### Resolution
 
-Keep your machines turned on at least 15 minutes before the scheduled update. For more information, see [Shut down machines](../virtual-machines/maintenance-configurations.md#shut-down-machines).
+Keep your machines turned on at least 15 minutes before the scheduled update. For more information, see [Shut down machines](/azure/virtual-machines/maintenance-configurations#shut-down-machines).
 
 ### Patch run failed with Maintenance window exceeded property showing true even if time remained
 

@@ -6,8 +6,8 @@ ms.author: rajosh
 ms.manager: abhemraj
 ms.topic: how-to
 ms.service: azure-migrate
-ms.date: 12/07/2023
-ms.custom: engagement-fy24
+ms.date: 08/21/2024
+ms.custom: engagement-fy25
 ---
 
 # Set up dependency visualization
@@ -37,7 +37,7 @@ This article describes how to set up agent-based dependency analysis in Azure Mi
 
 ## Associate a workspace
 
-1. After you've discovered servers for assessment, in **Servers** > **Azure Migrate: Discovery and assessment**, click **Overview**.  
+1. After you've discovered servers for assessment, in **Servers, databases and web apps** > **Azure Migrate: Discovery and assessment**, select **Overview**.  
 2. In **Azure Migrate: Discovery and assessment**, click **Essentials**.
 3. In **OMS Workspace**, click **Requires configuration**.
 

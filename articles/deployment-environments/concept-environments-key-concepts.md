@@ -43,7 +43,7 @@ You can configure projects for Deployment Environments and projects for [Microso
 
 ## Environments
 
-An environment is a collection of Azure resources on which your application is deployed. For example, to deploy a web application, you might create an environment that consists of [Azure App Service](../app-service/overview.md), [Azure Key Vault](/azure/key-vault/general/basic-concepts), [Azure Cosmos DB](../cosmos-db/introduction.md), and a [storage account](../storage/common/storage-account-overview.md). An environment could consist of both Azure platform as a service (PaaS) and infrastructure as a service (IaaS) resources such as an Azure Kubernetes Service (AKS) cluster, virtual machines, and databases.
+An environment is a collection of Azure resources on which your application is deployed. For example, to deploy a web application, you might create an environment that consists of [Azure App Service](../app-service/overview.md), [Azure Key Vault](/azure/key-vault/general/basic-concepts), [Azure Cosmos DB](/azure/cosmos-db/introduction), and a [storage account](../storage/common/storage-account-overview.md). An environment could consist of both Azure platform as a service (PaaS) and infrastructure as a service (IaaS) resources such as an Azure Kubernetes Service (AKS) cluster, virtual machines, and databases.
 
 ## Identities
 

@@ -6,7 +6,7 @@ author: stevenmatthew
 
 ms.service: databox
 ms.subservice: pod
-ms.topic: conceptual
+ms.topic: overview
 ms.date: 04/13/2022
 ms.author: shaas
 ---

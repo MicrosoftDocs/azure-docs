@@ -21,7 +21,7 @@ This article details the different methods to install, uninstall, update, and co
 
 See the following articles for prerequisites and other requirements for Azure Monitor Agent:
 
-* [Azure Monitor Agent supported operating systems and environments](./azure-monitor-agent-requirements.md)
+* [Azure Monitor Agent supported operating systems and environments](./azure-monitor-agent-supported-operating-systems.md)
 * [Azure Monitor Agent requirements](./azure-monitor-agent-requirements.md) 
 * [Azure Monitor Agent network configuration](./azure-monitor-agent-network-configuration.md)
 
@@ -252,13 +252,13 @@ N/A
 ## Update
 
 > [!NOTE]
-> The recommendation is to enable [Automatic Extension Upgrade](../../virtual-machines/automatic-extension-upgrade.md) which may take **up to 5 weeks** after a new extension version is released for it to update installed extensions to the released (latest) version across all regions. Upgrades are issued in batches, so you may see some of your virtual machines, scale-sets or Arc-enabled servers get upgraded before others. If you need to upgrade an extension immediately, you may use the manual instructions below.
+> The recommendation is to enable [Automatic Extension Upgrade](/azure/virtual-machines/automatic-extension-upgrade) to update installed extensions to the stable version across all regions. A version is not automatically rolled out until it meets a high quality bar which can take as long as 5 weeks after the initial release. Upgrades are issued in batches, so you may see some of your virtual machines, scale-sets or Arc-enabled servers get upgraded before others. If you need to upgrade an extension immediately, you may use the manual instructions below.
 
 #### [Portal](#tab/azure-portal)
 
 To perform a one-time update of the agent, you must first uninstall the existing agent version. Then install the new version as described.
 
-We recommend that you enable automatic update of the agent by enabling the [Automatic Extension Upgrade](../../virtual-machines/automatic-extension-upgrade.md) feature. Go to your virtual machine or scale set, select the **Extensions** tab and select **AzureMonitorWindowsAgent** or **AzureMonitorLinuxAgent**. In the dialog that opens, select **Enable automatic upgrade**.
+We recommend that you enable automatic update of the agent by enabling the [Automatic Extension Upgrade](/azure/virtual-machines/automatic-extension-upgrade) feature. Go to your virtual machine or scale set, select the **Extensions** tab and select **AzureMonitorWindowsAgent** or **AzureMonitorLinuxAgent**. In the dialog that opens, select **Enable automatic upgrade**.
 
 #### [PowerShell](#tab/azure-powershell)
 
@@ -266,7 +266,7 @@ We recommend that you enable automatic update of the agent by enabling the [Auto
 
 To perform a one-time update of the agent, you must first uninstall the existing agent version, then install the new version as described.
 
-We recommend that you enable automatic update of the agent by enabling the [Automatic Extension Upgrade](../../virtual-machines/automatic-extension-upgrade.md) feature by using the following PowerShell commands.
+We recommend that you enable automatic update of the agent by enabling the [Automatic Extension Upgrade](/azure/virtual-machines/automatic-extension-upgrade) feature by using the following PowerShell commands.
 
 * Windows 
     ```powershell
@@ -312,7 +312,7 @@ We recommend that you enable automatic update of the agent by enabling the [Auto
 
 To perform a one-time update of the agent, you must first uninstall the existing agent version, then install the new version as described.
   
-We recommend that you enable automatic update of the agent by enabling the [Automatic Extension Upgrade](../../virtual-machines/automatic-extension-upgrade.md) feature by using the following CLI commands.
+We recommend that you enable automatic update of the agent by enabling the [Automatic Extension Upgrade](/azure/virtual-machines/automatic-extension-upgrade) feature by using the following CLI commands.
 
 * Windows
     ```azurecli

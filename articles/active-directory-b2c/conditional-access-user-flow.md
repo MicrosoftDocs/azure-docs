@@ -5,7 +5,7 @@ description: Learn how to add Conditional Access to your Azure AD B2C user flows
 ms.service: active-directory
 ms.subservice: B2C
 ms.topic: overview
-ms.date: 01/11/2024
+ms.date: 09/11/2024
 ms.author: kengaderdus
 author: kengaderdus
 manager: CelesteDG
