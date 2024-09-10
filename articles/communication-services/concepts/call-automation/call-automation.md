@@ -148,7 +148,6 @@ The Call Automation events are sent to the web hook callback URI specified when 
 | CallConnected      | The call has successfully started (when using Answer or Create action) or your application has successfully connected to an ongoing call (when using Connect action)|
 | CallDisconnected       | Your application has been disconnected from the call |
 | CreateCallFailed (in preview)| Your application failed to create a call |
-| AnswerCallFailed (in preview) | Your application failed to answer an incoming call |
 | ConnectFailed       | Your application failed to connect to a call (for connect call action only)|
 | CallTransferAccepted         | Transfer action has successfully completed and the transferee is connected to the target participant |
 | CallTransferFailed  | The transfer action has failed  |
