@@ -9,7 +9,7 @@ ms.date: 02/05/2024
 ms.author: cshoe
 ---
 
-# Install the Static Web Apps CLI (SWA CLI)
+# Install the Static Web Apps CLI (SWA CLI) TEST
 
 You have different options available to install the Azure Static Web Apps CLI. The Azure Static Web Apps CLI requires that you have [Node.js](https://nodejs.org/) installed locally. By default, Node.js comes with the Node Package Manager (npm), though you may opt to use other package managers such as [Yarn](https://yarnpkg.com/) or [pnpm](https://pnpm.io/).
 
