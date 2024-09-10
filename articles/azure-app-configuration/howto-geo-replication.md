@@ -147,6 +147,18 @@ spec:
 > [!NOTE]
 > The automatic replica discovery and failover support is available if you use version **1.3.0** or later of [Azure App Configuration Kubernetes Provider](./quickstart-azure-kubernetes-service.md).
 
+### [Python](#tab/python)
+
+Specify the `replica_discovery_enabled` property when loading the configuration store and set it to `False`.
+
+
+```python
+config = load(endpoint, credential, replica_discovery_enabled=False)
+```
+
+> [!NOTE]
+> The automatic replica discovery support is available if you use version **1.3.0** or later.
+
 ---
 
 ## Scale and failover with replicas
@@ -229,6 +241,10 @@ spring.cloud.azure.appconfiguration.stores[0].connection-strings[1]="${SECOND_RE
 
 The Azure App Configuration Kubernetes Provider supports failover with automatically discovered replicas by default, as long as automatic replica discovery is not disabled. It does not support or require user-provided replicas.
 
+### [Python](#tab/python)
+
+The Azure App Configuration Python Provider supports failover with automatically discovered replicas by default, as long as automatic replica discovery is not disabled. It does not support or require user-provided replicas.
+
 ---
 
 The failover may occur if the App Configuration provider observes the following conditions.
@@ -271,6 +287,10 @@ This feature is not yet supported in the Azure App Configuration Java Spring Pro
 ### [Kubernetes](#tab/kubernetes)
 
 This feature is not yet supported in the Azure App Configuration Kubernetes Provider.
+
+### [Python](#tab/python)
+
+This feature is not yet supported in the Azure App Configuration Python Provider.
 
 ---
 
