@@ -7,7 +7,7 @@ ms.author: hannahhunter
 ms.service: azure-container-apps
 ms.custom: devx-track-bicep
 ms.topic: conceptual 
-ms.date: 09/05/2024
+ms.date: 09/10/2024
 ---
 
 # Scale Dapr applications with KEDA scalers
@@ -95,6 +95,7 @@ resource orders 'Microsoft.App/containerApps@2022-03-01' = {
             name: 'topic-based-scaling'
             custom: {
               type: 'azure-servicebus'
+              identity: 'identity-resource'
               metadata: {
                 topicName: 'orders'
                 subscriptionName: 'membership-orders'
