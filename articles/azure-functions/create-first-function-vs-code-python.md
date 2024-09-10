@@ -2,7 +2,7 @@
 title: Create a Python function using Visual Studio Code - Azure Functions
 description: Learn how to create a Python function, then publish the local project to serverless hosting in Azure Functions using the Azure Functions extension in Visual Studio Code.
 ms.topic: quickstart
-ms.date: 08/15/2024
+ms.date: 09/10/2024
 ms.devlang: python
 ms.custom: devx-track-python, mode-api, devdivchpfy22, vscode-azure-extension-update-complete, ai-video-demo
 ai-usage: ai-assisted
@@ -47,9 +47,9 @@ In this section, you use Visual Studio Code to create a local Azure Functions pr
 
 1. In Visual Studio Code, press <kbd>F1</kbd> to open the command palette and search for and run the command `Azure Functions: Create New Project...`.
 
-2. Choose the directory location for your project workspace and choose **Select**. You should either create a new folder or choose an empty folder for the project workspace. Don't choose a project folder that is already part of a workspace.
+1. Choose the directory location for your project workspace and choose **Select**. You should either create a new folder or choose an empty folder for the project workspace. Don't choose a project folder that is already part of a workspace.
  
-3. Provide the following information at the prompts:
+1. Provide the following information at the prompts:
 
     |Prompt|Selection|
     |--|--|
@@ -60,7 +60,21 @@ In this section, you use Visual Studio Code to create a local Azure Functions pr
     |**Authorization level**| Choose `ANONYMOUS`, which lets anyone call your function endpoint. For more information, see [Authorization level](functions-bindings-http-webhook-trigger.md#http-auth).|
     |**Select how you would like to open your project** | Choose `Open in current window`.|
 
-4. Visual Studio Code uses the provided information and generates an Azure Functions project with an HTTP trigger. You can view the local project files in the Explorer. The generated `function_app.py` project file contains your functions.   
+1. Visual Studio Code uses the provided information and generates an Azure Functions project with an HTTP trigger. You can view the local project files in the Explorer. The generated `function_app.py` project file contains your functions.
+
+1. In the local.settings.json file, update the `AzureWebJobsStorage` setting as in the following example:
+
+    ```json
+    "AzureWebJobsStorage": "UseDevelopmentStorage=true",
+    ```
+    
+    This tells the local Functions host to use the storage emulator for the storage connection required by the Python v2 model. When you publish your project to Azure, this setting uses the default storage account instead. If you're using an Azure Storage account during local development, set your storage account connection string here.
+
+## Start the emulator
+
+1. In Visual Studio Code, press <kbd>F1</kbd> to open the command palette. In the command palette, search for and select `Azurite: Start`.
+
+1. Check the bottom bar and verify that Azurite emulation services are running. If so, you can now run your function locally.  
 
 [!INCLUDE [functions-run-function-test-local-vs-code](../../includes/functions-run-function-test-local-vs-code.md)]
 
