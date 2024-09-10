@@ -37,19 +37,12 @@ The data in a Log Analytics workspace is kept for *30 days* by default. If you w
 
 Azure Resource Manager resources, like Recovery Services vaults, record information about backup and site recovery jobs as diagnostics data.
 
-To learn how to configure diagnostics settings, see [this article](../azure-monitor/essentials/diagnostic-settings.md). You can also configure diagnostics settings for your vaults using the Azure portal by following these steps:
-
-1. In the [Azure portal](https://portal.azure.com/), go to the required **Recovery Services vault** > **Monitoring** > **Diagnostic settings**.
-
-2. Specify the target for the Recovery Services Vault's diagnostic data to Log Analytics workspace. Learn [how to use diagnostic events for Recovery Services vaults](../backup/backup-azure-diagnostic-events.md?tabs=recovery-services-vaults).
-
-3. To configure the reports, choose one of the following solutions:
-
-   - For Azure Site Recovery reports, select [**Azure Site Recovery Jobs**](/azure/azure-monitor/reference/tables/asrjobs) and **Azure Site Recovery Replicated Item Details** options to show the reports.
-   - For Azure Backup reports, select [**Core Azure Backup**](../backup/backup-azure-reports-data-model.md?tabs=recovery-services-vaults#coreazurebackup) data, [**Addon Azure Backup Job**](../backup/backup-azure-reports-data-model.md?tabs=recovery-services-vaults#addonazurebackupjobs) data, [**Addon Azure Backup Policy**](../backup/backup-azure-reports-data-model.md?tabs=recovery-services-vaults#addonazurebackuppolicy) data, [**Addon Azure Backup Storage**](../backup/backup-azure-reports-data-model.md?tabs=recovery-services-vaults#addonazurebackupstorage) data, [**Addon Azure Backup Protected Instance**](../backup/backup-azure-reports-data-model.md?tabs=recovery-services-vaults#addonazurebackupprotectedinstance) data, and [**Azure Backup Operations**](../backup/backup-azure-reports-data-model.md?tabs=recovery-services-vaults#azurebackupoperations). Learn more [about data model for Azure Backup Diagnostics Events](../backup/backup-azure-reports-data-model.md?tabs=recovery-services-vaults).
+To learn how to configure diagnostics settings, see [this article](../azure-monitor/essentials/diagnostic-settings.md). You can also configure diagnostics settings for your BCDR estate using the steps for [Azure Backup](../backup/backup-azure-diagnostic-events.md?tabs=recovery-services-vaults) and [Azure Site Recovery](../site-recovery/report-site-recovery.md?branch=release-abcc#configure-diagnostics-settings-for-your-vaults).
 
 >[!Note]
->After diagnostics configuration, it takes up to *24 hours* for the initial data push to complete. Once the data migrates to the Log Analytics workspace, the data in the reports might take some time to appear because the data for the current day isn't available in the reports. Learn more about the [conventions](../site-recovery/report-site-recovery.md#conventions-used-in-site-recovery-reports).
+>After diagnostics configuration, it takes up to *24 hours* for the initial data push to complete. Once the data migrates to the Log Analytics workspace, the data in the reports might take some time to appear because the data for the current day isn't available in the reports.
+>
+> Learn more about the [conventions](../site-recovery/report-site-recovery.md#conventions-used-in-site-recovery-reports).
 
 ## View reports in Azure Business Continuity Center
 
@@ -59,39 +52,25 @@ To view your reports after setting up your vault (to transfer data to Log Analyt
 
 :::image type="content" source="./media/tutorial-reporting-for-data-insights/view-report-dashboard.png" alt-text="Screenshot shows the Reports dashboard in Azure Business Continuity Center." lightbox="./media/tutorial-reporting-for-data-insights/view-report-dashboard.png":::
 
-Azure Business Continuity Center provides various reports for Azure Backup and Azure Site Recovery to help fetch historical data for audit and executive purposes. To view the appropriate report with the required information, select the required report, and then select one or more workspace subscriptions, Log Analytics workspaces, and other fields in the report.
+Azure Business Continuity Center provides various reports for Azure Backup and Azure Site Recovery to help fetch historical data for audit and executive purposes. 
 
-The following table describes the types of available reports:
 
-| Report | Solution | Description | Scope | Type |
-| --- | --- | --- | --- | --- |
-| **Backup Reports** | Azure Backup | Gain visibility into backup jobs, instances, usage, policies, policy adherence, and optimization. | - Virtual Machine (VM) <br> - SQL in Azure VMs <br> - SAP HANA in Azure VMs <br> - Backup Agent <br> - Backup Server <br> - Data Protection Manager (DPM) <br> - Azure Files <br> SQL database in Azure VM <br> - SAP HANA in Azure VM <br> - Disk<br> - Blob (operational tier) <br> - PostgreSQLSingle Server | Consolidated |
-| **Backup Configuration Status** | Azure Backup | Information on whether all your VMs have been configured for backup. | VM | Out-of-Box |
-| **Backup Job History** | Azure Backup | Information on your successful and failed backup jobs over a specified duration. | - VM <br> - Backup Agent (MARS) <br> - Backup Server (MABS) <br> - DPM <br> - Azure Database for PostgreSQL Server <br> - Azure Blobs <br> - Azure Disks | Out-of-Box |
-| **Backup Schedule and Retention** | Azure Backup | Information on schedule and retention of all your backup items so that you can verify if they meet the business requirements. | - VM <br>- Azure Files | Out-of-Box |
-| **User Triggered Operations** | Azure Backup | Information on user triggered operations on Recovery Services vaults over a specified period.  | Recovery Services vault | Out-of-Box |
-| **Azure Site Recovery Job History** | Azure Site Recovery | Information on your successful and failed Azure Site Recovery jobs over a specified duration. <br> Currently, only jobs triggered on replicated items and recovery plans are shown in this report. | - VM <br> - VMware to Azure Disaster Recovery <br> - Hyper-V to Azure Disaster Recovery | Out-of-Box |
-| **Azure Site Recovery Replication History** | Azure Site Recovery | Information on your replicated items over a specified duration. | - VM <br> - VMware to Azure Disaster Recovery <br> - Hyper-V to Azure Disaster Recovery | Out-of-Box |
-
->[!Note]
->The email capability is available for Backup Reports (consolidated) only. [Learn more](../backup/backup-reports-email.md).
+Choose the required report type for [Azure Backup](../backup/configure-reports.md?tabs=recovery-services-vaults#3-view-reports-in-the-azure-portal) and [Azure Site Recovery](../site-recovery/report-site-recovery.md#view-reports-in-business-continuity-center). 
 
 ### Additional reporting features
 
 The reporting solution that Azure Business Continuity Center provides also includes the following capabilities:
 
-- **Customize report**: Allows you to seamlessly retrieve information of all your backup-related entities using simple queries. Learn more [about customize reports](../backup/configure-reports.md?tabs=recovery-services-vaults#customize-azure-backup-reports). 
+- [Customize report](../backup/configure-reports.md?tabs=recovery-services-vaults#customize-azure-backup-reports)
 
-- **Export to Excel**: Enables you to export the contents of the required widget as an Excel sheet with existing filters applied. [Learn how to export the reports](../backup/configure-reports.md?tabs=recovery-services-vaults#export-to-excel).
+- [Export to Excel](../backup/configure-reports.md?tabs=recovery-services-vaults#export-to-excel)
 
-- **Pin to dashboard**: Allows you to create customized dashboards tailored to display the most important information that you need. Learn how to [pin a widget to the Azure portal dashboard](../backup/configure-reports.md?tabs=recovery-services-vaults#pin-to-dashboard).
+- [Pin to dashboard](../backup/configure-reports.md?tabs=recovery-services-vaults#pin-to-dashboard)
 
-- **Cross-tenant report**: Allows you to select Log Analytics workspaces across your tenants to view multi-tenanted reports. Learn [how to view cross-tenant report](../backup/configure-reports.md?tabs=recovery-services-vaults#cross-tenant-reports).
+- [Cross-tenant report](../backup/configure-reports.md?tabs=recovery-services-vaults#cross-tenant-reports)
 
-
-[!INCLUDE [backup-conventions-for-reports.md](../../includes/backup-conventions-for-reports.md)]
-
-Learn about [the estimated time that different widgets can take to load; based on the number of Backup items and the time range for which the report is being viewed](../backup/configure-reports.md?tabs=recovery-services-vaults#query-load-times). To troubleshoot data discrepancy in backup reports, see [this article](../backup/configure-reports.md?tabs=recovery-services-vaults#how-to-troubleshoot).
+>[!Note]
+>To learn about the expected behaviour of BCDR reports, see the [conventions used in BCDR reports](../backup/configure-reports.md?tabs=recovery-services-vaults#conventions-used-in-backup-reports).
 
 ## Next steps
 

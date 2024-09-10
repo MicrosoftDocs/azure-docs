@@ -71,7 +71,7 @@ This table lists the solutions and scenarios that are unsupported in Azure Busin
 | --- | --- |
 | Monitor | Azure Site Recovery replication and failover health aren't yet available in Azure Business Continuity Center. You can continue to access these views via the individual vault pane. |
 | Monitor | Metrics view isn't yet supported for Azure Database for Azure Backup protected items of Azure Disks, Azure Database for PostgreSQL and for Azure Site Recovery protected items. |
-| Reporting | Azure Backup: <br><br> - Azure Kubernetes Service <br> - Azure Database for PostgreSQL Flexible Server <br> - Azure Database for MySQL Flexible Server <br><br> Azure Site Recovery: <br><br> - Physical to Azure disaster recovery <br> - Hyper-V to Azure disaster recovery <br> - Azure Stack VM disaster recovery <br> - Disaster recovery for apps |
+| Reporting | Azure Backup: <br><br> - Azure Kubernetes Service <br> - Azure Database for PostgreSQL Flexible Server <br> - Azure Database for MySQL Flexible Server  |
 | Govern | Protectable resources view currently only shows Azure resources. It doesn't show hosted items in Azure resources like SQL databases in Azure Virtual machines, SAP HANA databases in Azure Virtual machines, Blobs, and files in Azure Storage accounts. |
 | Actions | Undelete action isn't available for Azure Backup protected items of Azure Virtual machine, SQL in Azure Virtual machine, SAP in Azure Virtual machine, and Files (Azure Storage account). |
 | Actions | Backup Now, change policy, and resume backup actions aren't available for Azure Backup protected items of Blobs (Azure Storage account), Azure Disks, Kubernetes Services, and Azure Database for PostgreSQL. |
