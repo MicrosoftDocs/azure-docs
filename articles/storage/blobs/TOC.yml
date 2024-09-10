@@ -597,6 +597,14 @@ items:
               href: /dotnet/azure/sdk/authentication-azure-hosted-apps?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
             - name: Auth from on-premises apps
               href: /dotnet/azure/sdk/authentication-on-premises-apps?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+          - name: Shared access signature (SAS)
+            items:
+            - name: Authorize using a user delegation SAS
+              href: storage-blob-user-delegation-sas-create-dotnet.md
+            - name: Authorize using a service SAS
+              href: sas-service-create-dotnet.md
+            - name: Authorize using an account SAS
+              href: ../common/storage-account-sas-create-dotnet.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
         - name: Container actions
           items:
           - name: Create a container
@@ -609,14 +617,6 @@ items:
             href: storage-blob-container-lease.md
           - name: Manage properties and metadata
             href: storage-blob-container-properties-metadata.md
-          - name: Generate a shared access signature (SAS)
-            items:
-            - name: Create a user delegation SAS for a container
-              href: storage-blob-container-user-delegation-sas-create-dotnet.md
-            - name: Create a service SAS for a container
-              href: sas-service-create-dotnet-container.md
-            - name: Create an account SAS
-              href: ../common/storage-account-sas-create-dotnet.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
         - name: Blob actions
           items:
           - name: Upload blobs
@@ -647,14 +647,6 @@ items:
             href: versions-manage-dotnet.md
           - name: Set or change a blob's access tier
             href: storage-blob-use-access-tier-dotnet.md
-          - name: Generate a shared access signature (SAS)
-            items:
-            - name: Create a user delegation SAS for a blob
-              href: storage-blob-user-delegation-sas-create-dotnet.md
-            - name: Create a service SAS for a blob
-              href: sas-service-create-dotnet.md
-            - name: Create an account SAS
-              href: ../common/storage-account-sas-create-dotnet.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
         - name: Append blob actions
           items:
           - name: Append data to an append blob
@@ -691,6 +683,14 @@ items:
               href: /azure/developer/java/sdk/identity-service-principal-auth?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
             - name: Auth in Azure hosted applications
               href: /azure/developer/java/sdk/identity-azure-hosted-auth?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+          - name: Shared access signature (SAS)
+            items:
+            - name: Authorize using a user delegation SAS
+              href: storage-blob-user-delegation-sas-create-java.md
+            - name: Authorize using a service SAS
+              href: sas-service-create-java.md
+            - name: Authorize using an account SAS
+              href: ../common/storage-account-sas-create-java.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
         - name: Container actions
           items:
           - name: Create a container
@@ -703,14 +703,6 @@ items:
             href: storage-blob-container-lease-java.md
           - name: Manage properties and metadata
             href: storage-blob-container-properties-metadata-java.md
-          - name: Generate a shared access signature (SAS)
-            items:
-            - name: Create a user delegation SAS for a container
-              href: storage-blob-container-user-delegation-sas-create-java.md
-            - name: Create a service SAS for a container
-              href: sas-service-create-java-container.md
-            - name: Create an account SAS
-              href: ../common/storage-account-sas-create-java.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
         - name: Blob actions
           items:
           - name: Upload blobs
@@ -737,14 +729,6 @@ items:
             href: storage-blob-properties-metadata-java.md
           - name: Set or change a blob's access tier
             href: storage-blob-use-access-tier-java.md
-          - name: Generate a shared access signature (SAS)
-            items:
-            - name: Create a user delegation SAS for a blob
-              href: storage-blob-user-delegation-sas-create-java.md
-            - name: Create a service SAS for a blob
-              href: sas-service-create-java.md
-            - name: Create an account SAS
-              href: ../common/storage-account-sas-create-java.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
         - name: Client library configuration options
           items:
           - name: Performance tuning for uploads and downloads
@@ -919,6 +903,14 @@ items:
               href: /azure/developer/python/sdk/authentication-azure-hosted-apps?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
             - name: Auth from on-premises apps
               href: /azure/developer/python/sdk/authentication-on-premises-apps?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+          - name: Shared access signature (SAS)
+            items:
+            - name: Authorize using a user delegation SAS
+              href: storage-blob-user-delegation-sas-create-python.md
+            - name: Authorize using a service SAS
+              href: sas-service-create-python.md
+            - name: Authorize using an account SAS
+              href: ../common/storage-account-sas-create-python.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
         - name: Container actions
           items:
           - name: Create a container
@@ -931,14 +923,6 @@ items:
             href: storage-blob-container-lease-python.md
           - name: Manage properties and metadata
             href: storage-blob-container-properties-metadata-python.md
-          - name: Generate a shared access signature (SAS)
-            items:
-            - name: Create a user delegation SAS for a container
-              href: storage-blob-container-user-delegation-sas-create-python.md
-            - name: Create a service SAS for a container
-              href: sas-service-create-python-container.md
-            - name: Create an account SAS
-              href: ../common/storage-account-sas-create-python.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
         - name: Blob actions
           items:
           - name: Upload blobs
@@ -965,14 +949,6 @@ items:
             href: storage-blob-properties-metadata-python.md
           - name: Set or change a blob's access tier
             href: storage-blob-use-access-tier-python.md
-          - name: Generate a shared access signature (SAS)
-            items:
-            - name: Create a user delegation SAS for a blob
-              href: storage-blob-user-delegation-sas-create-python.md
-            - name: Create a service SAS for a blob
-              href: sas-service-create-python.md
-            - name: Create an account SAS
-              href: ../common/storage-account-sas-create-python.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
         - name: Client library configuration options
           items:
           - name: Performance tuning for uploads and downloads

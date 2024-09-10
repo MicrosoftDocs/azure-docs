@@ -96,6 +96,12 @@ For AI and machine learning services availability in Azure Government, see [Prod
 
 Azure AI Language Understanding (LUIS) is part of [Azure AI Language](/azure/ai-services/language-service/).
 
+<a name='cognitive-services-azure-openai'></a>
+
+### [Azure AI services: Azure OpenAI](/azure/ai-services/openai/azure-government/)
+
+- Configure encryption at rest of content in Azure OpenAI [using customer-managed keys in Azure Key Vault](/azure/ai-services/openai/encrypt-data-at-rest#use-customer-managed-keys-with-azure-key-vault).
+
 <a name='cognitive-services-personalizer'></a>
 
 ### [Azure AI services: Personalizer](/azure/ai-services/personalizer/)

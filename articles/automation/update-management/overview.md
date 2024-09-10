@@ -4,8 +4,8 @@ description: This article provides an overview of the Update Management feature 
 services: automation
 ms.subservice: update-management
 ms.custom: linux-related-content
-ms.date: 08/30/2024
-ms.topic: conceptual
+ms.date: 09/10/2024
+ms.topic: overview
 ms.service: azure-automation
 ---
 
@@ -66,7 +66,12 @@ At the date and time specified in the update deployment, the target machines exe
 
 ## Limits
 
-For limits that apply to Update Management, see [Azure Automation service limits](../../azure-resource-manager/management/azure-subscription-service-limits.md#update-management).
+Following are limits that apply to Update Management:
+
+| **Resource** | **Limit**| **Notes** |
+|---|---|---|
+|Number of machines per update deployment|1000||
+|Number of dynamic groups per update deployment |500 ||
 
 ## Permissions
 
