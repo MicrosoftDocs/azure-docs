@@ -56,6 +56,8 @@
         href: find-nonproduction-api-requests-dev-proxy.md
 - name: API discovery and consumption
   items:
+      - name: Discover APIs in data view - VS Code extension
+        href: enable-data-view-vscode-extension.md
       - name: Self-host Azure API Center portal
         href: enable-api-center-portal.md
       - name: Check API calls use minimal permissions with Dev Proxy
