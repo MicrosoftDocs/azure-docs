@@ -3,9 +3,8 @@ title: List of sample Azure Resource Graph queries by category
 description: List sample queries for Azure Resource-Graph. Categories include Tags, Azure Advisor, Key Vault, Kubernetes, Guest Configuration, and more.
 ms.date: 06/05/2024
 ms.topic: sample
-author: davidsmatlak
-ms.author: davidsmatlak
-ms.custom: generated
+author: jaspkaur28
+ms.author: jaspkaur
 ---
 
 # Azure Resource Graph sample queries by category
