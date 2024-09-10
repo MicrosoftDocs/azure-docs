@@ -36,7 +36,7 @@ Assign the proper App Configuration role assignment to the credentials being use
 1. For the **Role**, select **App Configuration Data Owner**. This role allows the task to read from and write to the App Configuration store.
 1. Select the service principal associated with the service connection that you created in the previous section.
 
-    :::image type="content"  border="true" source="./media/azure-app-configuration-role-assignment/add-role-assignment-data-owner.png" alt-text="Screenshot shows the Add role assignment dialog."::: alt-text="Screenshot shows the Add role assignments button.":::
+    :::image type="content"  border="true" source="./media/azure-app-configuration-role-assignment/add-role-assignment-data-owner.png" alt-text="Screenshot shows the Add role assignment dialog.":::
 1. Select **Review + assign**.
 
 ## Use in builds
@@ -55,7 +55,7 @@ This section will cover how to use the Azure App Configuration Snapshot task in 
     > ![Screenshot shows the to Add Task dialog with Azure App Configuration Snapshot in search box.](./media/add-azure-app-configuration-snapshot-task.png)
 1. Configure the necessary parameters for the task to create a snapshot in an App Configuration store. Explanation of the parameters are available in the **Parameters** section below and in tooltips next to each parameter.
     > [!div class="mx-imgBorder"]
-    > [!Screenshot show the app configuration snapshot task parameters](./media/azure-app-configuration-snapshot-parameters.png)
+    > ![Screenshot shows the app configuration snapshot task parameters](./media/azure-app-configuration-snapshot-parameters.png)
 1. Save and queue a build. The build log will display any failures that occured during the execution of the task.
 
 ## Use in releases
