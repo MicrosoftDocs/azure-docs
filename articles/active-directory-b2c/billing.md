@@ -29,7 +29,7 @@ A monthly active user (MAU) is a unique user that performs an authentication wit
 
 If Azure AD B2C [Go-Local add-on](data-residency.md#go-local-add-on) is available in your country/region, and you enable it, you'll be charged per MAU, which is an added charge to your Azure AD B2C [Premium P1 or P2 pricing](https://azure.microsoft.com/pricing/details/active-directory-b2c/) license. Learn more [About Local Data Residency add-on](#about-go-local-add-on)  
 
-Also, if you choose to provide higher levels of assurance by using Multi-factor Authentication (MFA) for Voice and SMS, you'll be charged a worldwide flat fee for each MFA attempt that month, whether the sign in is successful or unsuccessful. 
+Also, if you choose to provide higher levels of assurance by using multifactor authentication (MFA) for Voice and SMS, you'll be charged a worldwide flat fee for each MFA attempt that month, whether the sign in is successful or unsuccessful. 
  
 
 > [!IMPORTANT]
