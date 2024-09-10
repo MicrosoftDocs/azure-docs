@@ -32,6 +32,9 @@ Azure Data Manager for Energy has now been upgraded with the supported set of se
 ### Syncing Reference Values
 We are releasing a Limited Preview for syncing Reference Values with your Azure Data Manager for Energy data partitions. Note that this feature is currently only available for newly created Azure Data Manager for Energy after feature enablement for your Azure subscription. Learn more about [Reference Values on Azure Data Manager for Energy](concepts-reference-data-values.md).
 
+### CNAME DNS Record Fix
+Earlier, for each ADME resource, by default, a <resourceName>.privatelink.energy.azure.com DNS record in our DNS zone was created incorrectly leading to inaccessibility issues for SLB apps in some cases. With this release, this issue has been fixed for all the new and existing instances creating correct and secure configuration of private end points. For more details, see [How to setup private links](https://learn.microsoft.com/en-us/azure/energy-data-services/how-to-set-up-private-links).
+
 ## June 2024
 
 ### Azure Data Manager for Energy Developer Tier Price Update
