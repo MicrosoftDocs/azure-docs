@@ -4,7 +4,7 @@ description: Learn about the latest new features and announcement in Microsoft S
 author: yelevin
 ms.author: yelevin
 ms.topic: concept-article
-ms.date: 09/04/2024
+ms.date: 09/09/2024
 ---
 
 # What's new in Microsoft Sentinel
@@ -17,6 +17,27 @@ The listed features were released in the last three months. For information abou
 `https://aka.ms/sentinel/rss`
 
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
+
+## September 2024 
+
+- [Google Cloud Platform data connectors are now generally available (GA)](#google-cloud-platform-data-connectors-are-now-generally-available-ga)
+- [Microsoft Sentinel now generally available (GA) in Azure Israel Central](#microsoft-sentinel-now-generally-available-ga-in-azure-israel-central)
+
+### Google Cloud Platform data connectors are now generally available (GA)
+
+Microsoft Sentinel's [Google Cloud Platform (GCP) data connectors](connect-google-cloud-platform.md), based on our [Codeless Connector Platform (CCP)](create-codeless-connector.md), are now **generally available**. WIth these connectors, you can ingest logs from your GCP environment using the GCP [Pub/Sub capability](https://cloud.google.com/pubsub/docs/overview):
+
+- The **Google Cloud Platform (GCP) Pub/Sub Audit Logs connector** collects audit trails of access to GCP resources. Analysts can monitor these logs to track resource access attempts and detect potential threats across the GCP environment.
+
+- The **Google Cloud Platform (GCP) Security Command Center connector** collects findings from Google Security Command Center, a robust security and risk management platform for Google Cloud. Analysts can view these findings to gain insights into the organization's security posture, including asset inventory and discovery, detections of vulnerabilities and threats, and risk mitigation and remediation.
+
+For more information on these connectors, see [Ingest Google Cloud Platform log data into Microsoft Sentinel](connect-google-cloud-platform.md).
+
+### Microsoft Sentinel now generally available (GA) in Azure Israel Central
+
+Microsoft Sentinel is now available in the *Israel Central* Azure region, with the same feature set as all other Azure Commercial regions.
+
+For more information, see as [Microsoft Sentinel feature support for Azure commercial/other clouds](feature-availability.md) and [Geographical availability and data residency in Microsoft Sentinel](geographical-availability-data-residency.md).
 
 ## August 2024
 

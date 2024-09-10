@@ -130,7 +130,6 @@ Autoscale supports the following services.
 | Azure Spring Apps                                 | [Set up autoscale for applications](../../spring-apps/enterprise/how-to-setup-autoscale.md)                                                      |
 | Azure Media Services                              | [Autoscaling in Media Services](/azure/media-services/latest/release-notes#autoscaling)                                                          |
 | Azure Service Bus                                 | [Automatically update messaging units of an Azure Service Bus namespace](../../service-bus-messaging/automate-update-messaging-units.md)         |
-| Azure Logic Apps - Integration service environment (ISE) | [Add ISE capacity](../../logic-apps/ise-manage-integration-service-environment.md#add-ise-capacity)                                       |
 
 ## Next steps
 

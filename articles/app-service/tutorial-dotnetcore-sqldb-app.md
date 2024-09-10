@@ -54,6 +54,7 @@ In this tutorial, you learn how to:
 You can quickly deploy the sample app in this tutorial and see it running in Azure. Just run the following commands in the [Azure Cloud Shell](https://shell.azure.com), and follow the prompt:
 
 ```bash
+dotnet tool install --global dotnet-ef
 mkdir msdocs-app-service-sqldb-dotnetcore
 cd msdocs-app-service-sqldb-dotnetcore
 azd init --template msdocs-app-service-sqldb-dotnetcore
@@ -80,7 +81,7 @@ First, you set up a sample data-driven app as a starting point. For your conveni
     :::column span="2":::
         **Step 2:** In the GitHub fork:
         1. Select **main** > **starter-no-infra** for the starter branch. This branch contains just the sample project and no Azure-related files or configuration.
-        1. Select **Code** > **Create codespace on main**.
+        1. Select **Code** > **Create codespace on starter-no-infra**.
         The codespace takes a few minutes to set up.
     :::column-end:::
     :::column:::
@@ -141,9 +142,9 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps 
         1. *Region*: Any Azure region near you.
         1. *Name*: **msdocs-core-sql-XYZ** where *XYZ* is any three random characters. This name must be unique across Azure.
         1. *Runtime stack*: **.NET 8 (LTS)**.
+        1. *Engine*: **SQLAzure**. Azure SQL Database is a fully managed platform as a service (PaaS) database engine that's always running on the latest stable version of the SQL Server.
         1. *Add Azure Cache for Redis?*: **Yes**.
         1. *Hosting plan*: **Basic**. When you're ready, you can [scale up](manage-scale-up.md) to a production pricing tier later.
-        1. Select **SQLAzure** as the database engine. Azure SQL Database is a fully managed platform as a service (PaaS) database engine that's always running on the latest stable version of the SQL Server.
         1. Select **Review + create**.
         1. After validation completes, select **Create**.
     :::column-end:::
@@ -276,7 +277,7 @@ The creation wizard generated the connectivity string for you already as [.NET c
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 8:** To verify that you secured the secrets: 
+        **Step 8:** To verify that your changes: 
         1. From the left menu, select **Environment variables > Connection strings** again.
         1. Next to **AZURE_SQL_CONNECTIONSTRING**, select **Show value**. The value should be `@Microsoft.KeyValut(...)`, which means that it's a [key vault reference](app-service-key-vault-references.md) because the secret is now managed in the key vault.
         1. To verify the Redis connection string, select the **App setting** tab. Next to **AZURE_REDIS_CONNECTIONSTRING**, select **Show value**. The value should be `@Microsoft.KeyValut(...)` too.
@@ -389,7 +390,7 @@ In this step, you configure GitHub deployment using GitHub Actions. It's just on
     :::column span="2":::
         **Step 7:**
         Back in the Deployment Center page in the Azure portal:
-        1. Select **Logs**. A new deployment run is already started from your committed changes. You might need to select **Refresh** to see it.
+        1. Select the **Logs** tab, then select **Refresh** to see the new deployment run.
         1. In the log item for the deployment run, select the **Build/Deploy Logs** entry with the latest timestamp.
     :::column-end:::
     :::column:::
