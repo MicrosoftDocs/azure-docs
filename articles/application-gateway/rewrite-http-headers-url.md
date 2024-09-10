@@ -203,7 +203,7 @@ Here are the steps for replacing the hostname:
 1. Create a rewrite rule with a condition that evaluates if the location header in the response contains azurewebsites.net. Enter the pattern `(https?):\/\/.*azurewebsites\.net(.*)$`.
 2. Perform an action to rewrite the location header so that it has the application gateway's hostname. Do this by entering `{http_resp_Location_1}://contoso.com{http_resp_Location_2}` as the header value. Alternatively, you can also use the server variable `host` to set the hostname to match the original request.
 
-![A screenshow of the modify location header action.](./media/rewrite-http-headers-url/app-service-redirection.png)
+   ![A screenshow of the modify location header action.](./media/rewrite-http-headers-url/app-service-redirection.png)
 
 #### Implement security HTTP headers to prevent vulnerabilities
 
@@ -231,11 +231,11 @@ You can evaluate an HTTP request or response header for the presence of a header
 
 To accomplish scenarios where you want to choose the backend pool based on the value of a header, part of the URL, or query string in the request, you can use a combination of URL Rewrite capability and path-based routing. 
 
-To do this, you have to create a rewrite set with a condition that checks for a specific parameter (query string, header, etc.) and then performs an action where it changes the URL path (ensure **Reevaluate path map** is enabled). The rewrite set must then be associated to a path based rule. The path based rule must contain the same URL paths specified in the rewrite set and their corresponding backend pool. 
+To do this, create a rewrite set with a condition that checks for a specific parameter (query string, header, etc.) and then performs an action where it changes the URL path (ensure **Reevaluate path map** is enabled). The rewrite set must then be associated to a path based rule. The path based rule must contain the same URL paths specified in the rewrite set and their corresponding backend pool. 
 
 Thus, the rewrite set allows users to check for a specific parameter and assign it a new path, and the path based rule allows users to assign backend pools to those paths. As long as "Reevaluate path map" is enabled, traffic routs based on the path specified in the rewrite set. 
 
-For a use case example using query strings, please see [Route traffic using parameter based path selection in portal](parameter-based-path-selection-portal.md).
+For a use case example using query strings, see [Route traffic using parameter based path selection in portal](parameter-based-path-selection-portal.md).
 
 
 #### Rewrite query string parameters based on the URL
