@@ -4,7 +4,7 @@ titleSuffix: Microsoft Cost Management
 description: This article helps you better understand data included in Cost Management. It also explains how frequently data is processed, collected, shown, and closed.
 author: bandersmsft
 ms.author: banders
-ms.date: 08/12/2024
+ms.date: 09/10/2024
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -166,7 +166,7 @@ Historical data for credit-based and pay-in-advance offers might not match your 
 For example, you get invoiced on January 5 for a service consumed in the month of December. It has a price of $86 per unit. On January 1, the unit price changed to $100. When you view your estimated charges in Cost Management, you see that your cost is the result of your consumed quantity * $100 (not $86, as shown in your  invoice).
 
 >[!NOTE]
->The price change might result in a a price decrease, not only an increase, as explained in this example.
+>The price change might result in a price decrease, not only an increase, as explained in this example.
 
 Historical data shown for the following offers might not match exactly with your invoice.
 
