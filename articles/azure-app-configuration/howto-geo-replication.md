@@ -7,7 +7,7 @@ ms.service: azure-app-configuration
 ms.devlang: csharp
 # ms.devlang: csharp, java
 ms.topic: how-to
-ms.date: 05/24/2024
+ms.date: 09/09/2024
 ms.author: mametcal
 ms.custom: devx-track-azurecli
 
@@ -153,7 +153,7 @@ Specify the `replica_discovery_enabled` property when loading the configuration 
 
 
 ```python
-config = load(endpoint, credential, replica_discovery_enabled=False)
+config = load(endpoint=endpoint, credential=credential, replica_discovery_enabled=False)
 ```
 
 > [!NOTE]
