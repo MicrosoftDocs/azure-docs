@@ -5,7 +5,7 @@ author: PatAltimore
 ms.subservice: azure-mqtt-broker
 ms.author: patricka
 ms.topic: how-to
-ms.date: 11/15/2023
+ms.date: 09/10/2024
 
 #CustomerIntent: As an operator, I want to learn how to build a real-time dashboard in Microsoft Fabric using MQTT data from the MQTT broker.
 ---
