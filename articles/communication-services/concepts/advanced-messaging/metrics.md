@@ -8,6 +8,7 @@ ms.author: memontic
 ms.date: 07/18/2024
 ms.topic: conceptual
 ms.service: azure-communication-services
+ms.subservice: advanced-messaging
 ---
 
 # Advanced Messaging metrics overview

@@ -168,8 +168,6 @@
           href: tutorial-java-tomcat-mysql-app.md            
         - name: Spring Boot with MongoDB
           href: tutorial-java-spring-cosmosdb.md
-        - name: Quarkus with Postgres
-          href: tutorial-java-quarkus-postgresql-app.md            
     - name: Connect by using secrets
       items:
         - name: Use secrets in app settings

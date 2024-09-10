@@ -11,7 +11,7 @@ ms.service: active-directory
 ms.topic: how-to
 ms.author: kengaderdus
 ms.subservice: B2C
-ms.date: 01/11/2024
+ms.date: 09/11/2024
 ms.custom: "b2c-support"
 
 
@@ -56,13 +56,13 @@ The following diagram depicts the components you'll configure in your Microsoft 
 
 ![Resource group projection](./media/azure-monitor/resource-group-projection.png)
 
-During this deployment, you'll configure your Azure AD B2C tenant where logs are generated. You'll also configure Microsoft Entra tenant where the Log Analytics workspace will be hosted. The Azure AD B2C accounts used (such as your admin account) should be assigned the [Global Administrator](../active-directory/roles/permissions-reference.md#global-administrator) role on the Azure AD B2C tenant. The Microsoft Entra account you'll use to run the deployment must be assigned the [Owner](../role-based-access-control/built-in-roles.md#owner) role in the Microsoft Entra subscription. It's also important to make sure you're signed in to the correct directory as you complete each step as described.
+During this deployment, you'll configure your Azure AD B2C tenant where logs are generated. You'll also configure Microsoft Entra tenant where the Log Analytics workspace will be hosted. The Azure AD B2C accounts used (such as your admin account) should be assigned the [Global Administrator](/entra/identity/role-based-access-control/permissions-reference#global-administrator) role on the Azure AD B2C tenant. The Microsoft Entra account you'll use to run the deployment must be assigned the [Owner](../role-based-access-control/built-in-roles.md#owner) role in the Microsoft Entra subscription. It's also important to make sure you're signed in to the correct directory as you complete each step as described.
 
 In summary, you'll use Azure Lighthouse to allow a user or group in your Azure AD B2C tenant to manage a resource group in a subscription associated with a different tenant (the Microsoft Entra tenant). After this authorization is completed, the subscription and log analytics workspace can be selected as a target in the Diagnostic settings in Azure AD B2C.
 
 ## Prerequisites 
 
-- An Azure AD B2C account with [Global Administrator](../active-directory/roles/permissions-reference.md#global-administrator) role on the Azure AD B2C tenant.
+- An Azure AD B2C account with [Global Administrator](/entra/identity/role-based-access-control/permissions-reference#global-administrator) role on the Azure AD B2C tenant.
 
 -  A Microsoft Entra account with the [Owner](../role-based-access-control/built-in-roles.md#owner) role in the Microsoft Entra subscription. See how to [Assign a user as an administrator of an Azure subscription](../role-based-access-control/role-assignments-portal-subscription-admin.yml). 
 

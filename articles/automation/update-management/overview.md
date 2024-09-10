@@ -4,8 +4,8 @@ description: This article provides an overview of the Update Management feature 
 services: automation
 ms.subservice: update-management
 ms.custom: linux-related-content
-ms.date: 08/30/2024
-ms.topic: conceptual
+ms.date: 09/10/2024
+ms.topic: overview
 ms.service: azure-automation
 ---
 

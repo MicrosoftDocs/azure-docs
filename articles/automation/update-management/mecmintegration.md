@@ -3,8 +3,8 @@ title: Integrate Azure Automation Update Management with Microsoft Configuration
 description: This article tells how to configure Microsoft Configuration Manager with Update Management to deploy software updates to manager clients.
 services: automation
 ms.subservice: update-management
-ms.date: 08/30/2024
-ms.topic: conceptual
+ms.date: 09/10/2024
+ms.topic: overview
 ms.service: azure-automation
 ---
 
