@@ -271,6 +271,10 @@
       items:
         - name: Azure portal
           href: rewrite-url-portal.md
+    - name: Parameter based routing
+      items:
+        - name: Azure portal
+          href: parameter-based-path-selection-portal.md
   - name: Configure custom probes
     items:
       - name: Portal
