@@ -97,7 +97,7 @@ When creating metrics, creating experiments, or getting experiment results, data
 - Example error message:
   - An unknown error occurred.
 
-- There is an unknown server error. [Contact support](#getting-support).
+- There is an unknown server error. [Open a support ticket](https://azure.microsoft.com/support/create-ticket/).
 
 ## Related content
 
