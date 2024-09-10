@@ -53,7 +53,7 @@ Here's an example.
 
 ### Find and view your indicators in Logs
 
-This procedure describes how to view your imported threat indicators in the Microsoft Sentinel **Logs** area, together with other Microsoft Sentinel event data, regardless of the source feed or the connector used.
+This procedure describes how to view your imported threat indicators in the Microsoft Sentinel **Logs** area, together with other Microsoft Sentinel event data, regardless of the source feed or the connector that you used.
 
 Imported threat indicators are listed in the Microsoft Sentinel `ThreatIntelligenceIndicator` table. This table is the basis for threat intelligence queries run elsewhere in Microsoft Sentinel, such as in **Analytics** or **Workbooks**.
 
@@ -97,7 +97,7 @@ Tagging threat indicators is an easy way to group them together to make them eas
 
 With Microsoft Sentinel, you can also edit indicators, whether they were created directly in Microsoft Sentinel or come from partner sources, like TIP and TAXII servers. For indicators created in Microsoft Sentinel, all fields are editable. For indicators that come from partner sources, only specific fields are editable, including tags, **Expiration date**, **Confidence**, and **Revoked**. Either way, only the latest version of the indicator appears on the **Threat Intelligence** page. For more information on how indicators are updated, see [Understand threat intelligence](understand-threat-intelligence.md#view-and-manage-your-threat-indicators).
 
-## Workbooks provide insights about your threat intelligence
+## Gain insights about your threat intelligence with workbooks
 
 Use a purpose-built Microsoft Sentinel workbook to visualize key information about your threat intelligence in Microsoft Sentinel, and customize the workbook according to your business needs.
 

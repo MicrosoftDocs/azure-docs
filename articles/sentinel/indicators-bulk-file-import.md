@@ -106,7 +106,7 @@ Review each template to ensure that your indicators are imported successfully. B
 
 1. Delete the entire first row from the template to remove the comments before upload. 
  
-   - The maximum file size for a CSV file import is 50 MB. 
+   The maximum file size for a CSV file import is 50 MB. 
 
 Here's an example domain-name indicator that uses the CSV template:
 
@@ -125,7 +125,7 @@ Phishing,"demo, csv",MDTI article - Franken-Phish domainname,Entity appears in M
 
 1. Close the last indicator in the array by using the `}` without a comma.
 
-   - The maximum file size for a JSON file import is 250 MB. 
+   The maximum file size for a JSON file import is 250 MB. 
 
 Here's an example `ipv4-addr` indicator that uses the JSON template:
 

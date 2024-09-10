@@ -22,7 +22,7 @@ With Microsoft Sentinel, you can flag these types of entities from within your i
 
 ## Add an entity to your threat intelligence
 
-The [Incident details page](investigate-incidents.md) and the investigation graph give you two ways to add entities to threat intelligence. Both ways are shown here.
+The [Incident details page](investigate-incidents.md) and the investigation graph give you two ways to add entities to threat intelligence.
 
 # [Incident details page](#tab/incidents)
 
@@ -30,13 +30,13 @@ The [Incident details page](investigate-incidents.md) and the investigation grap
 
 1. Select an incident to investigate. On the **Incident details** pane, select **View full details** to open the **Incident details** page.
 
-    :::image type="content" source="media/add-entity-to-threat-intelligence/incident-details-overview.png" alt-text="Screenshot that shows the Incident details page." lightbox="media/add-entity-to-threat-intelligence/incident-details-overview.png":::
-
 1. On the **Entities** pane, find the entity that you want to add as a threat indicator. (You can filter the list or enter a search string to help you locate it.)
+
+    :::image type="content" source="media/add-entity-to-threat-intelligence/incident-details-overview.png" alt-text="Screenshot that shows the Incident details page." lightbox="media/add-entity-to-threat-intelligence/incident-details-overview.png":::
 
 1. Select the three dots to the right of the entity, and select **Add to TI** from the pop-up menu.
 
-    Only add the following types of entities as threat indicators:
+    Add only the following types of entities as threat indicators:
 
     - Domain name
     - IP address (IPv4 and IPv6)
@@ -75,20 +75,20 @@ Whichever of the two interfaces you choose, you end up here.
     - **Types**
         - The type of indicator represented by the entity you're adding.
             - Dropdown list with possible values: `ipv4-addr`, `ipv6-addr`, `URL`, `file`, and `domain-name`.
-        - Required. Automatically populated based on the **entity type**.
+        - Required. Automatically populated based on the *entity type*.
 
     - **Value**
         - The name of this field changes dynamically to the selected indicator type.
         - The value of the indicator itself.
-        - Required. Automatically populated by the **entity value**.
+        - Required. Automatically populated by the *entity value*.
 
     - **Tags**
         - Free-text tags you can add to the indicator.
-        - Optional. Automatically populated by the **incident ID**. You can add others.
+        - Optional. Automatically populated by the *incident ID*. You can add others.
     
     - **Name**
         - Name of the indicator. This name is what appears in your list of indicators.
-        - Optional. Automatically populated by the **incident name.**
+        - Optional. Automatically populated by the *incident name*.
     
     - **Created by**
         - Creator of the indicator.
@@ -126,7 +126,7 @@ Whichever of the two interfaces you choose, you end up here.
 
     :::image type="content" source="media/add-entity-to-threat-intelligence/new-indicator-panel.png" alt-text="Screenshot that shows entering information in the new threat indicator pane.":::
 
-1. When all the fields are filled in to your satisfaction, select **Apply**. A confirmation message appears in the upper-right corner stating that your indicator was created.
+1. When all the fields are filled in to your satisfaction, select **Apply**. A message appears in the upper-right corner to confirm that your indicator was created.
 
 1. The entity is added as a threat indicator in your workspace. You can find it [in the list of indicators on the Threat intelligence page](work-with-threat-indicators.md#find-and-view-your-indicators-on-the-threat-intelligence-page). You can also find it [in the ThreatIntelligenceIndicators table in Logs](work-with-threat-indicators.md#find-and-view-your-indicators-in-logs).
 
