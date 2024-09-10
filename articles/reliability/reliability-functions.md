@@ -1,6 +1,6 @@
 ---
 title: Reliability in Azure Functions
-description: Find out about reliability in Azure Functions
+description: Find out about reliability support in Azure Functions, including intra-regional resiliency and cross-region recovery and business continuity.
 author: anaharris-ms
 ms.author: anaharris
 ms.topic: reliability-article
@@ -85,7 +85,7 @@ There are currently two ways to deploy a zone-redundant Premium plan and functio
     | Setting      | Suggested value  | Notes for zone redundancy |
     | ------------ | ---------------- | ----------- |
     | **Region** | Your preferred supported region | The region under which the new function app is created. You must pick a region that supports availability zones. See the [region availability list](#regional-availability). |  
-    | **Pricing plan** | One of the Elastic Premium plans. For more information, see [Available instance SKUs](../azure-functions/functions-premium-plan.md#available-instance-skus). | This article details how to create a zone redundant app in a Premium plan. Zone redundancy isn't currently available in Consumption plans. For information on zone redundancy on app service plans, see [Reliability in Azure App Service](../reliability/migrate-app-service.md). |
+    | **Pricing plan** | One of the Elastic Premium plans. For more information, see [Available instance SKUs](../azure-functions/functions-premium-plan.md#available-instance-skus). | This article describes how to create a zone redundant app in a Premium plan. Zone redundancy isn't currently available in Consumption plans. For information on zone redundancy on App Service plans, see [Reliability in Azure App Service](../reliability/migrate-app-service.md). |
     | **Zone redundancy** | Enabled | This setting specifies whether your app is zone redundant. You won't be able to select `Enabled` unless you have chosen a region that supports zone redundancy, as described previously. |
     
     :::image type="content" source="../azure-functions/media/functions-az-redundancy\azure-functions-basics-az.png" alt-text="Screenshot of the Basics tab of the function app create page.":::
@@ -106,7 +106,7 @@ You can use an [ARM template](../azure-resource-manager/templates/quickstart-cre
 The only properties to be aware of while creating a zone-redundant hosting plan are the `zoneRedundant` property and the plan's instance count (`capacity`) fields. The `zoneRedundant` property must be set to `true` and the `capacity` property should be set based on the workload requirement, but not less than `3`. Choosing the right capacity varies based on several factors and high availability / fault tolerance strategies. A good rule of thumb is to specify sufficient instances for the application to ensure that losing one zone instance leaves sufficient capacity to handle expected load.
 
 > [!IMPORTANT]
-> Azure Functions apps hosted on an elastic premium, zone-redundant plan must have a minimum [always ready instance](../azure-functions/functions-premium-plan.md#always-ready-instances) count of 3. This minimum ensures that a zone-redundant function app always has enough instances to satisfy at least one worker per zone.
+> Azure Functions apps hosted on an Elastic Premium, zone-redundant plan must have a minimum [always ready instance](../azure-functions/functions-premium-plan.md#always-ready-instances) count of 3. This minimum ensures that a zone-redundant function app always has enough instances to satisfy at least one worker per zone.
 
 Following is an ARM template snippet for a zone-redundant, Premium plan. It shows the `zoneRedundant` field and the `capacity` specification.
 
