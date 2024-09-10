@@ -89,7 +89,7 @@ To see the caching in action, call the operation from the developer portal.
 
 ## <a name="clear-cache"> </a>Clear internal cache
 To remove cached items in the internal cache, 
-1. Use the [cache-remove-value policy](https://learn.microsoft.com/en-us/azure/api-management/cache-remove-value-policy). This policy requires the specific cache key. Note that this cache removal process is asynchronous, meaning there may be a delay before the cached item is fully cleared.
+1. Use the [cache-remove-value policy](https://learn.microsoft.com/azure/api-management/cache-remove-value-policy). This policy requires the specific cache key. Note that this cache removal process is asynchronous, meaning there may be a delay before the cached item is fully cleared.
 2. Alternatively, the internal cache can be cleared by modifying and saving the policy or by performing an update or reboot of the API Management instance, as the internal cache is volatile and will reset during these operations.
 
 ## <a name="next-steps"> </a>Next steps
