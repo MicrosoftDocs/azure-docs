@@ -1102,6 +1102,178 @@ Lets you manage BizTalk services, but not access to them.
 }
 ```
 
+## DeID Batch Data Owner
+
+Create and manage DeID batch jobs. This role is in preview and subject to change.
+
+[Learn more](/azure/healthcare-apis/deidentification/manage-access-rbac)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | *none* |  |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | [Microsoft.HealthDataAIServices](../permissions/integration.md#microsofthealthdataaiservices)/DeidServices/Batch/write | Creates batches |
+> | [Microsoft.HealthDataAIServices](../permissions/integration.md#microsofthealthdataaiservices)/DeidServices/Batch/delete | Deletes a batch |
+> | [Microsoft.HealthDataAIServices](../permissions/integration.md#microsofthealthdataaiservices)/DeidServices/Batch/read | Reads a batch |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Create and manage DeID batch jobs. This role is in preview and subject to change.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/8a90fa6b-6997-4a07-8a95-30633a7c97b9",
+  "name": "8a90fa6b-6997-4a07-8a95-30633a7c97b9",
+  "permissions": [
+    {
+      "actions": [],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.HealthDataAIServices/DeidServices/Batch/write",
+        "Microsoft.HealthDataAIServices/DeidServices/Batch/delete",
+        "Microsoft.HealthDataAIServices/DeidServices/Batch/read"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "DeID Batch Data Owner",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## DeID Batch Data Reader
+
+Read DeID batch jobs. This role is in preview and subject to change.
+
+[Learn more](/azure/healthcare-apis/deidentification/manage-access-rbac)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | *none* |  |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | [Microsoft.HealthDataAIServices](../permissions/integration.md#microsofthealthdataaiservices)/DeidServices/Batch/read | Reads a batch |
+> | **NotDataActions** |  |
+> | [Microsoft.HealthDataAIServices](../permissions/integration.md#microsofthealthdataaiservices)/DeidServices/Batch/write | Creates batches |
+> | [Microsoft.HealthDataAIServices](../permissions/integration.md#microsofthealthdataaiservices)/DeidServices/Batch/delete | Deletes a batch |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Read DeID batch jobs. This role is in preview and subject to change.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/b73a14ee-91f5-41b7-bd81-920e12466be9",
+  "name": "b73a14ee-91f5-41b7-bd81-920e12466be9",
+  "permissions": [
+    {
+      "actions": [],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.HealthDataAIServices/DeidServices/Batch/read"
+      ],
+      "notDataActions": [
+        "Microsoft.HealthDataAIServices/DeidServices/Batch/write",
+        "Microsoft.HealthDataAIServices/DeidServices/Batch/delete"
+      ]
+    }
+  ],
+  "roleName": "DeID Batch Data Reader",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## DeID Data Owner
+
+Full access to DeID data. This role is in preview and subject to change
+
+[Learn more](/azure/healthcare-apis/deidentification/manage-access-rbac)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | *none* |  |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | [Microsoft.HealthDataAIServices](../permissions/integration.md#microsofthealthdataaiservices)/DeidServices/* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Full access to DeID data. This role is in preview and subject to change",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/78e4b983-1a0b-472e-8b7d-8d770f7c5890",
+  "name": "78e4b983-1a0b-472e-8b7d-8d770f7c5890",
+  "permissions": [
+    {
+      "actions": [],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.HealthDataAIServices/DeidServices/*"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "DeID Data Owner",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## DeID Realtime Data User
+
+Execute requests against DeID realtime endpoint. This role is in preview and subject to change.
+
+[Learn more](/azure/healthcare-apis/deidentification/manage-access-rbac)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | *none* |  |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | [Microsoft.HealthDataAIServices](../permissions/integration.md#microsofthealthdataaiservices)/DeidServices/Realtime/action | Allows access to realtime the endpoint |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Execute requests against DeID realtime endpoint. This role is in preview and subject to change.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/bb6577c4-ea0a-40b2-8962-ea18cb8ecd4e",
+  "name": "bb6577c4-ea0a-40b2-8962-ea18cb8ecd4e",
+  "permissions": [
+    {
+      "actions": [],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.HealthDataAIServices/DeidServices/Realtime/action"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "DeID Realtime Data User",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
 ## EventGrid Contributor
 
 Lets you manage EventGrid operations.
