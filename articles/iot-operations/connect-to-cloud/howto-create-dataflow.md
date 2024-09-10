@@ -158,7 +158,7 @@ sourceSettings:
 > [!NOTE]
 > If the instance count in the [dataflow profile](howto-configure-dataflow-profile.md) is greater than 1, then the shared subscription topic must be used.
 
-Details TBD.
+<!-- TODO: Details -->
 
 ## Configure transformation to process data
 

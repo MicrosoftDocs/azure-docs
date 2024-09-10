@@ -13,7 +13,7 @@ ai-usage: ai-assisted
 
 # Configure dataflow endpoints for local storage
 
-To send data to local storage in Azure IoT Operations Preview, you can configure a dataflow endpoint. This configuration allows you to to specify the endpoint, authentication, table, and other settings.
+To send data to local storage in Azure IoT Operations Preview, you can configure a dataflow endpoint. This configuration allows you to specify the endpoint, authentication, table, and other settings.
 
 ## Prerequisites
 

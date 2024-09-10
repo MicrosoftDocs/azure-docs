@@ -78,7 +78,7 @@ fabricOneLakeSettings:
 
 However, if this host value doesn't work and you're not getting data, try checking for the URL from the Properties of one of the precreated lakehouse folders.
 
-![Screenshot of properties shortcut menu to get lakehouse URL](media/howto-fabric-endpoint/lakehouse-name.png)
+![Screenshot of properties shortcut menu to get lakehouse URL.](media/howto-fabric-endpoint/lakehouse-name.png)
 
 The host value should look like `https://xyz.dfs.fabric.microsoft.com`.
 
