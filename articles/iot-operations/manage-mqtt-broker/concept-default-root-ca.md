@@ -5,12 +5,14 @@ author: PatAltimore
 ms.author: patricka
 ms.subservice: azure-mqtt-broker
 ms.topic: concept-article
-ms.date: 09/09/2024
+ms.date: 09/10/2024
 
 #CustomerIntent: As an operator, I want to configure MQTT broker to use TLS so that I have secure communication between the MQTT broker and client.
 ---
 
 # Default root CA and issuer for TLS server certificates
+
+[!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
 To help you get started, Azure IoT Operations Preview is deployed with a default *quickstart* root CA and issuer for TLS server certificates. You can use this issuer for development and testing. 
 
