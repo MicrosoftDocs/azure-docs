@@ -2,7 +2,7 @@
 ms.topic: include
 author: sipastak
 ms.author: sipastak
-ms.date: 08/27/2024 
+ms.date: 09/09/2024 
 ---
 
 ## Supported client versions
@@ -11,10 +11,30 @@ The following table lists the current versions available for the public and Insi
 
 | Release | Latest version | Download |
 |--|--|--|
-| Public | 1.2.5620 | [Microsoft Store](https://aka.ms/AVDStoreClient) |
-| Insider | 1.2.5699 | Download the public release, then [Enable Insider releases](../users/client-features-windows.md#enable-insider-releases) and check for updates. |
+| Public | 1.2.5623 | [Microsoft Store](https://aka.ms/AVDStoreClient) |
+| Insider | 1.2.5701 | Download the public release, then [Enable Insider releases](../users/client-features-windows.md#enable-insider-releases) and check for updates. |
 
-## Updates for version 1.2.5699 (Insider) 
+## Updates for version 1.2.5701 (Insider) 
+
+*Date published: September 6, 2024*   
+
+- Fixed an issue where the client crashed for users who have Windows N SKUs without the media framework.
+- Addressed an issue that reduces the chance of encountering a “low virtual memory” error on reconnect attempts. 
+
+> [!NOTE]
+> This version replaced the Insider version 1.2.5617 and has the same release notes with the addition of the security release. 
+
+## Updates for version 1.2.5623 
+
+*Date published: September 4, 2024*   
+
+- Fixed an issue where the client crashed for users who have Windows N SKUs without the media framework.
+- Addressed an issue that reduces the chance of encountering a “low virtual memory” error on reconnect attempts.
+
+> [!NOTE]
+> This hotfix version replaced the public version 1.2.5620 and has the same release notes with the addition of the the above fixes. 
+
+## Updates for version 1.2.5699 
 
 *Date published: August 27, 2024*   
 
