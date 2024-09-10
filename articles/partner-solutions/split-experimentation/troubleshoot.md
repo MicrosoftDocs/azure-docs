@@ -6,16 +6,15 @@ author: maud-lv
 ms.topic: how-to
 ms.custom:
   - build-2024
-ms.date: 05/08/2024
+ms.date: 10/09/2024
 ---
 
 # Troubleshoot Split Experimentation Workspace
 
 This document contains information about troubleshooting your Split Experimentation Workspace by initiating a new support request, and includes troubleshooting information for issues you might experience in creating and using a Split Experimentation Workspace.
 
-## Getting support
-
-To log a support request about a Split Experimentation Workspace, send an email to <exp_preview@microsoft.com>.
+> [!NOTE]
+> To log an issue about a Split Experimentation Workspace resource on Azure App Configuration, [open a support ticket](https://azure.microsoft.com/support/create-ticket/). Support for this capability is managed by Microsoft.
 
 ## Known issues
 
