@@ -5,7 +5,7 @@ ms.topic: release-notes
 ms.custom: references_regions
 author: sipastak
 ms.author: sipastak
-ms.date: 07/31/2024
+ms.date: 09/09/2024
 ---
 
 # What's new in Azure Virtual Desktop?
@@ -21,6 +21,46 @@ Make sure to check back here often to keep up with new updates.
 
 > [!TIP]
 > See [What's new in documentation](whats-new-documentation.md), where we highlight new and updated articles for Azure Virtual Desktop.
+
+## August 2024
+
+Here's what changed in August 2024:
+
+### Configure single sign-on for Azure Virtual Desktop using Microsoft Entra ID is now available 
+
+Single sign-on (SSO) for Azure Virtual Desktop using Microsoft Entra ID provides a seamless sign-in experience for users connecting to session hosts. Single sign-on using Microsoft Entra ID also provides a seamless experience for Microsoft Entra ID-based resources within the session. For more information on using passwordless authentication within a session, see In-session passwordless authentication.  
+
+For more information, see [Configure single sign-on for Azure Virtual Desktop using Microsoft Entra ID](configure-single-sign-on.md). 
+
+### Configuring the clipboard transfer direction in Azure Virtual Desktop is now available 
+
+Clipboard redirection in Azure Virtual Desktop allows users to copy and paste content between the user's local device and the remote session in either direction. You might want to limit the direction of the clipboard for users, to help prevent data exfiltration or malicious files being copied to a session host. You can configure whether users can use the clipboard from session host to client, or client to session host, and the types of data that can be copied. 
+
+For more information see [Configure the clipboard transfer direction in Azure Virtual Desktop](clipboard-transfer-direction-data-types.md). 
+
+### Apple Vision Pro compatibility mode is now in public preview 
+
+You can use Windows App on Apple Vision Pro in compatibility mode in preview, where you access desktops and applications in a 2D window. It doesn't support multi-window currently. 
+
+For more information see [Configure display settings in Windows App - Windows App](/windows-app/display-settings?tabs=macos). 
+
+### Microsoft Purview Insider Risk Management is now compatible with Azure Virtual Desktop 
+
+Forensic evidence is an opt-in add-on feature in Insider Risk Management that gives security teams visual insights into potential insider data security incidents, with user privacy built in. Microsoft Purview Insider Risk Management correlates various signals to identify potential malicious or inadvertent insider risks, such as IP theft, data leakage and security violations. Insider risk management enables customers to create policies to manage security and compliance.  
+
+For more information see [Learn about insider risk management forensic evidence](purview-forensic-evidence.md). 
+
+### Azure Virtual Desktops support for FIDO devices and passkeys on macOS and iOS is now available 
+
+Windows App and Azure Virtual Desktops now support FIDO devices and passkeys for Microsoft Entra ID sign in on macOS and iOS. 
+
+For more information see [Azure Virtual Desktop identities and authentication](authentication.md). 
+
+### New Teams can be installed by using custom image templates on supported OS 
+
+Teams (Classic) has been removed. When updating an existing template, Teams (classic), will be replaced by new Teams. No action is required. Reusing an existing template which references Teams (classic), new Teams will be rolled out by Microsoft. 
+
+For more information see [End of availability for classic Teams client](/microsoftteams/teams-classic-client-end-of-availability). 
 
 ## July 2024 
 
