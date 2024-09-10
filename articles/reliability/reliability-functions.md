@@ -84,11 +84,12 @@ There are currently two ways to deploy a zone-redundant Premium plan and functio
 
     | Setting      | Suggested value  | Notes for zone redundancy |
     | ------------ | ---------------- | ----------- |
-    | **Region** | Preferred region | The region under which the new function app is created. You must pick a region that supports availability zones, as described in the [prerequisites](#prerequisites). |  
-    | **Pricing plan** | Elastic Premium | This article details how to create a zone redundant app in a Premium plan. Zone redundancy isn't currently available in Consumption plans. For information on zone redundancy on app service plans, see [Reliability in Azure App Service](../reliability/migrate-app-service.md). |
+    | **Region** | Your preferred supported region | The region under which the new function app is created. You must pick a region that supports availability zones. See the [region availability list](#regional-availability). |  
+    | **Pricing plan** | One of the Elastic Premium plans. For more information, see [Available instance SKUs](../azure-functions/functions-premium-plan.md#available-instance-skus). | This article details how to create a zone redundant app in a Premium plan. Zone redundancy isn't currently available in Consumption plans. For information on zone redundancy on app service plans, see [Reliability in Azure App Service](../reliability/migrate-app-service.md). |
     | **Zone redundancy** | Enabled | This setting specifies whether your app is zone redundant. You won't be able to select `Enabled` unless you have chosen a region that supports zone redundancy, as described previously. |
-
-    ![Screenshot of the Basics tab of the function app create page.](../azure-functions/media/functions-az-redundancy\azure-functions-basics-az.png)
+    
+    :::image type="content" source="../azure-functions/media/functions-az-redundancy\azure-functions-basics-az.png" alt-text="Screenshot of the Basics tab of the function app create page.":::
+    
 
 1. On the **Storage** tab, enter the settings for your function app storage account. Pay special attention to the setting in the following table, which has specific requirements for zone redundancy.
 
