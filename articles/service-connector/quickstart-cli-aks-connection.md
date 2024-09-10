@@ -33,7 +33,7 @@ This quickstart shows you how to connect Azure Kubernetes Service (AKS) to other
    ```
 
    > [!TIP]
-   > You can check if these resource providers have already been registered by running the commands  `az provider show -n "Microsoft.ServiceLinker" --query registrationState` and `az provider show -n "Microsoft.KubernetesConfiguration" --query registrationState`.
+   > You can check if these resource providers have already been registered by running the commands `az provider show -n "Microsoft.ServiceLinker" --query registrationState` and `az provider show -n "Microsoft.KubernetesConfiguration" --query registrationState`.
 
 1. Optionally, use the Azure CLI command to get a list of supported target services for AKS cluster.
 
