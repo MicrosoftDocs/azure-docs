@@ -69,7 +69,7 @@ The schema for resource logs varies depending on the resource and log category. 
 | Azure Database for PostgreSQL | [Azure Database for PostgreSQL logs](/azure/postgresql/concepts-server-logs#resource-logs) |
 | Azure Databricks | [Diagnostic logging in Azure Databricks](/azure/databricks/administration-guide/account-settings/azure-diagnostic-logs) |
 | Azure DDoS Protection | [Logging for Azure DDoS Protection](../../ddos-protection/ddos-view-diagnostic-logs.md#example-log-queries) |
-| Azure Digital Twins | [Set up Azure Digital Twins diagnostics](../../digital-twins/troubleshoot-diagnostics.md#log-schemas) |
+| Azure Digital Twins | [Set up Azure Digital Twins diagnostics](../../digital-twins/troubleshoot-diagnostics.md#log-schemas)
 | Azure Event Hubs |[Azure Event Hubs logs](../../event-hubs/event-hubs-diagnostic-logs.md) |
 | Azure ExpressRoute | [Monitoring Azure ExpressRoute](../../expressroute/monitor-expressroute.md#collection-and-routing) |
 | Azure Firewall | [Logging for Azure Firewall](../../firewall/diagnostic-logs.md) |
