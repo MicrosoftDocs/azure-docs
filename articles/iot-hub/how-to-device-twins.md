@@ -15,47 +15,18 @@ ms.custom: mqtt, devx-track-csharp, devx-track-dotnet
 
 # Get started with device twins
 
-Use the IoT Hub device and service SDKs to develop applications that handle common device twin tasks. Device twins are JSON documents that store device state information, including metadata, configurations, and conditions. IoT Hub persists a device twin for each device that connects to it.
+Use the Azure IoT Hub device SDK and service SDK to develop applications that handle common device twin tasks. Device twins are JSON documents that store device state information including metadata, configurations, and conditions. IoT Hub persists a device twin for each device that connects to it. You can use device twins to:
+
+* Store device metadata from your solution back end.
+* Report current state information such as available capabilities and conditions, for example, the connectivity method used, from your device app.
+* Synchronize the state of long-running workflows, such as firmware and configuration updates, between a device app and a back-end app.
+* Query your device metadata, configuration, or state.
+
+For more information about device twins, including when to use device twins, see [Understand device twins](iot-hub-devguide-device-twins.md).
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
-Use device twins to:
-
-* Store device metadata from your solution back end
-
-* Report current state information such as available capabilities and conditions, for example, the connectivity method used, from your device app
-
-* Synchronize the state of long-running workflows, such as firmware and configuration updates, between a device app and a back-end app
-
-* Query your device metadata, configuration, or state
-
-Device twins are designed for synchronization and for querying device configurations and conditions. For more information about device twins, including when to use device twins, see [Understand device twins](iot-hub-devguide-device-twins.md).
-
-IoT Hubs store device twins, which contain the following elements:
-
-* **Tags**. Device metadata accessible only by the solution back end.
-
-* **Desired properties**. JSON objects modifiable by the solution back end and observable by the device app.
-
-* **Reported properties**. JSON objects modifiable by the device app and readable by the solution back end.
-
-Tags and properties can't contain arrays, but can contain nested objects.
-
-The following illustration shows device twin organization:
-
-:::image type="content" source="../../includes/media/iot-hub-selector-twin-get-started/twin.png" alt-text="Screenshot of a device twin concept diagram.":::
-
-It is useful to review the various device twin fields that are available using the Azure portal. To learn how, see [How to view and update devices based on device twin properties](/azure/iot-hub/manage-device-twins).
-
-Additionally, the solution back end can query device twins based on all the above data. For more information about querying, see [IoT Hub query language](iot-hub-devguide-query-language.md).
-
-This article shows you how to:
-
-* View device twin and update reported properties
-* Update device twin tags
-* Create a device desired property update notificaton callback
-* Use a backend application to update tags and desired properties
-* Query devices from your back-end app using filters on the tags and properties previously created
+This article shows you how to develop two types of applications. Device apps can handle requests to update desired properties and respond with changes to reported properties. Service apps can update device twin tags, set new desired properties, and query devices based on device twin values.
 
 > [!NOTE]
 > This article is meant to complement [Azure IoT SDKs](iot-hub-devguide-sdks.md) samples that are referenced from within this article. You can use SDK tools to build both device and back-end applications.
