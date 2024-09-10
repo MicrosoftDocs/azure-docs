@@ -31,7 +31,7 @@ See the [currently supported scenarios](sql-support-matrix.md) for SQL in Azure 
 
 A Recovery Services vault is a logical container that stores the backup data for each protected resource, such as Azure VMs or workloads running on Azure VMs - for example, SQL or HANA databases. When the backup job for a protected resource runs, it creates a recovery point inside the Recovery Services vault. You can then use one of these recovery points to restore data to a given point in time.
 
-Create a Recovery Services vault with the [az backup vault create](/cli/azure/backup/vault#az-backup-vault-create) command. Use the resource group and location as that of the VM you want to protect. Learn how to create a VM using Azure CLI with [this VM quickstart](/azure/virtual-machines/linux/quick-create-cli).
+Create a Recovery Services vault with the [az backup vault create](/cli/azure/backup/vault#az-backup-vault-create) command. Use the resource group and location as that of the VM you want to protect. Learn how to create a [Windows VM](../virtual-machines/windows/quick-create-cli.md) and a [Linux VM](../virtual-machines/linux/quick-create-cli.md) using Azure CLI.  
 
 For this article, we'll use:
 
