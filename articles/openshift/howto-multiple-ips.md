@@ -15,7 +15,7 @@ ARO public clusters are created with a public load balancer that's used for outb
 You can configure up to 20 IP addresses per cluster. The outbound rules and frontend IP configurations are adjusted to accommodate the number of IP addresses.
 
 > [!CAUTION]
-> Before deleting a large cluster, descale the cluster to 120 nodes or below.
+> Before deleting a cluster with more than 120 nodes, scale down the cluster to 120 nodes or less.
 > 
 
 ## Requirements
