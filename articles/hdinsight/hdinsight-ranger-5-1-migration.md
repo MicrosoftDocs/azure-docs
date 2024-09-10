@@ -26,7 +26,7 @@ Ranger User Interface in HDInsight 4.0 and earlier versions:
 
 Ranger User Interface in HDInsight 5.1:
 
-:::image type="content" source="./media/hdinsight-ranger-5-1-migration/ranger-user-interface-new.png" alt-text="Screenshot showing Ranger User Interface in HDInsight 5.1 ." border="true" lightbox="./media/hdinsight-ranger-5-1-migration/ranger-user-interface-new.png":::
+:::image type="content" source="./media/hdinsight-ranger-5-1-migration/ranger-user-interface-new.png" alt-text="Screenshot showing Ranger User Interface in HDInsight 5.1." border="true" lightbox="./media/hdinsight-ranger-5-1-migration/ranger-user-interface-new.png":::
 
 > [!NOTE]
 > The default policy **all databases** have public group access enabled by default from HDInsight 5.1.
