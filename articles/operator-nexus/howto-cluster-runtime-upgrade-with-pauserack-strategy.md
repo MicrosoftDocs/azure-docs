@@ -18,22 +18,21 @@ This how-to guide explains the steps to execute a cluster runtime upgrade with p
 Please follow the steps mentioned in prerequistie section of [Upgrading cluster runtime from Azure CLI](./howto-cluster-runtime-upgrade.md)
 
 > **Note:**
-> Upgrades with the Rack Pause strategy will only work after the management bundle (CMBU) has been upgraded to 3.8 or greater.
+> Upgrades with the PauseRack strategy is available starting  API version 2024-06-01-preview.
 
 ## Procedure
 
 1. Enable Rack Pause upgrade strategy on a Nexus cluster
 
     > **Note:**
-    > choose threshold value as desired.
+    > Below is just a reference command, please choose threshold values as desired.
 
     Example:
 
     ```azurecli
     az networkcloud cluster update --name "clusterName" --resource-group "resourceGroupName" --update-strategy \
         strategy-type="PauseRack" \
-        wait-time-minutes=0 \
-        <threshold values as desired>
+        wait-time-minutes=0
     ```
 
 2. Confirm that the cluster resource JSON in the JSON View reflects the rack pause upgrade strategy.
