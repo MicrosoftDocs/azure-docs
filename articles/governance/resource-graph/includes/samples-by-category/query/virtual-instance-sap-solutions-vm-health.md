@@ -8,7 +8,7 @@ ms.author: davidsmatlak
 
 ### Current health of virtual machines in Virtual Instance for SAP
 
-This query fetches the current availability health of all virtual machines of an SAP system given the SID of a [Virtual Instance for SAP](../../../../../sap/center-sap-solutions/overview.md). Replace `mySubscriptionId` with your subscription ID, and replace `myResourceId` with the resource ID of your Virtual Instance for SAP.
+This query fetches the current availability health of all virtual machines of an SAP system given the SID of a [Virtual Instance for SAP](/azure/sap/center-sap-solutions/overview.md). Replace `mySubscriptionId` with your subscription ID, and replace `myResourceId` with the resource ID of your Virtual Instance for SAP.
 
 ```kusto
 Resources
@@ -53,7 +53,7 @@ Search-AzGraph -Query "Resources | where subscriptionId == 'mySubscriptionId' | 
 
 ### Currently unhealthy virtual machines and annotations in Virtual Instance for SAP
 
-This query fetches list of virtual machines of an SAP system that are unhealthy and corresponding annotations given the SID of a [Virtual Instance for SAP](../../../../../sap/center-sap-solutions/overview.md). Replace `mySubscriptionId` with your subscription ID, and replace `myResourceId` with the resource ID of your Virtual Instance for SAP.
+This query fetches list of virtual machines of an SAP system that are unhealthy and corresponding annotations given the SID of a [Virtual Instance for SAP](/azure/sap/center-sap-solutions/overview.md). Replace `mySubscriptionId` with your subscription ID, and replace `myResourceId` with the resource ID of your Virtual Instance for SAP.
 
 ```kusto
 HealthResources
