@@ -17,6 +17,8 @@ items:
         href: get-started-end-to-end-sample/quickstart-get-insights.md
     - name: Deploy Azure IoT Operations to your cluster
       items:
+      - name: Deployment overview
+        href: deploy-iot-ops/overview-deploy.md
       - name: Prepare a cluster
         href: deploy-iot-ops/howto-prepare-cluster.md
       - name: Deploy to a cluster
