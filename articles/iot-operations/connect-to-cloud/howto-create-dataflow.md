@@ -5,7 +5,7 @@ author: PatAltimore
 ms.author: patricka
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 08/29/2024
+ms.date: 09/10/2024
 
 #CustomerIntent: As an operator, I want to understand how to create a dataflow to connect data sources.
 ---
@@ -16,6 +16,7 @@ ms.date: 08/29/2024
 
 A dataflow is the path that data takes from the source to the destination with optional transformations. You can configure the dataflow by creating a *Dataflow* custom resource. A dataflow is made up of three parts: the **source**, the **transformation**, and the **destination**. 
 
+<!--
 ```mermaid
 flowchart LR
   subgraph Source
@@ -23,15 +24,18 @@ flowchart LR
   end
   subgraph BuiltInTransformation
   direction LR
-  Datasets --> Filter
-  Filter --> Map
+  Datasets - -> Filter
+  Filter - -> Map
   end
   subgraph Destination
   B[DataflowEndpoint]
   end
-  Source --> BuiltInTransformation
-  BuiltInTransformation --> Destination
+  Source - -> BuiltInTransformation
+  BuiltInTransformation - -> Destination
 ```
+-->
+
+:::image type="content" source="media/howto-create-dataflow/dataflow.svg" alt-text="Diagram of a dataflow showing flow from source to transform then destination.":::
 
 To define the source and destination, you need to configure the dataflow endpoints. The transformation is optional and can include operations like enriching the data, filtering the data, and mapping the data to another field. 
 
@@ -263,7 +267,7 @@ If you want to serialize the data before sending it to the destination, you need
 ```yaml
 builtInTransformationSettings:
   serializationFormat: Parquet
-  schemaRef: aio-sr://exampleNamespace/exampleParquetSchema:1.0.0
+  schemaRef: aio-sr://<NAMESPACE>/<SCHEMA>:<VERSION>
 ```
 
 To specify the schema, you can create a Schema CR with the schema definition.

@@ -54,8 +54,8 @@ To configure a dataflow endpoint for Microsoft Fabric OneLake, we suggest using 
           method: SystemAssignedManagedIdentity
           systemAssignedManagedIdentitySettings: {}
         names:
-          workspaceName: <example-workspace-name>
-          lakehouseName: <example-lakehouse-name>
+          workspaceName: <EXAMPLE-WORKSPACE-NAME>
+          lakehouseName: <EXAMPLE-LAKEHOUSE-NAME>
     ```
 
 ## Configure dataflow destination
@@ -137,8 +137,8 @@ fabricOneLakeSettings:
   authentication:
     method: UserAssignedManagedIdentity
     userAssignedManagedIdentitySettings:
-      clientId: <id>
-      tenantId: <id>
+      clientId: <ID>
+      tenantId: <ID>
 ```
 
 ### Batching

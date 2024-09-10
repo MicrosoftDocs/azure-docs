@@ -71,7 +71,7 @@ spec:
       method: Sasl
       saslSettings:
         saslType: Plain
-        secretRef: <your token secret name>
+        secretRef: <YOUR TOKEN SECRET NAME>
     tls:
       mode: Enabled
 ```
@@ -81,7 +81,7 @@ In the example, the `secretRef` is the name of the secret that contains the conn
 ```bash
 kubectl create secret generic cs-secret -n azure-iot-operations \
   --from-literal=username='$ConnectionString' \
-  --from-literal=password='Endpoint=sb://<NAMESPACE>.servicebus.windows.net/;SharedAccessKeyName=<KEY_NAME>;SharedAccessKey=<KEY>'
+  --from-literal=password='Endpoint=sb://<NAMESPACE>.servicebus.windows.net/;SharedAccessKeyName=<KEY-NAME>;SharedAccessKey=<KEY>'
 ```
 > [!TIP]
 > Scoping the connection string to the namespace (as opposed to individual event hubs) allows a dataflow to send and receive messages from multiple different event hubs and Kafka topics.
@@ -103,12 +103,12 @@ metadata:
 spec:
   endpointType: Kafka
   kafkaSettings:
-    host: example.kafka.com:9093
+    host: <KAFKA HOST>:9093
     authentication:
       method: Sasl
       saslSettings:
         saslType: ScramSha256
-        secretRef: <your token secret name>
+        secretRef: <YOUR-TOKEN-SECRET-NAME>
     tls:
       mode: Enabled
     consumerGroupId: mqConnector
@@ -126,28 +126,28 @@ Under `kafkaSettings.authentication`, you can configure the authentication metho
 
 ```yaml
 kafkaSettings:
-  host: example.kafka.com:9093
+  host: <KAFKA-HOST>:9093
   authentication:
     method: Sasl
     saslSettings:
       saslType: Plain
-      secretRef: <your token secret name>
+      secretRef: <YOUR-TOKEN-SECRET-NAME>
   # OR
   authentication:
     method: X509Certificate
     x509CertificateSettings:
-      secretRef: <your x509 secret name>
+      secretRef: <YOUR-X509-SECRET-NAME>
   # OR
   authentication:
     method: SystemAssignedManagedIdentity
     systemAssignedManagedIdentitySettings:
-      audience: https://<your Event Hubs namespace>.servicebus.windows.net
+      audience: https://<YOUR-EVENT-HUBS-NAMESPACE>.servicebus.windows.net
   # OR
   authentication:
     method: UserAssignedManagedIdentity
     userAssignedManagedIdentitySettings:
-      clientId: <id>
-      tenantId: <id>
+      clientId: <ID>
+      tenantId: <ID>
   # OR
   authentication:
     method: Anonymous
@@ -165,7 +165,7 @@ kafkaSettings:
     method: Sasl
     saslSettings:
       saslType: Plain
-      secretRef: <your token secret name>
+      secretRef: <YOUR-TOKEN-SECRET-NAME>
 ```
 
 The supported SASL types are:
@@ -190,7 +190,7 @@ kafkaSettings:
   authentication:
     method: X509Certificate
     x509CertificateSettings:
-      secretRef: <your x509 secret name>
+      secretRef: <YOUR-TOKEN-SECRET-NAME>
 ```
 
 The secret must be in the same namespace as the Kafka dataflow resource. Use Kubernetes TLS secret containing the public certificate and private key. For example:
@@ -222,7 +222,7 @@ kafkaSettings:
   authentication:
     method: SystemAssignedManagedIdentity
     systemAssignedManagedIdentitySettings:
-      audience: <your audience override value>
+      audience: <YOUR-AUDIENCE-OVERRIDE-VALUE>
 ```
 
 #### User-assigned managed identity
@@ -275,7 +275,7 @@ To configure the trusted CA certificate for the Kafka endpoint, update the `trus
 ```yaml
 kafkaSettings:
   tls:
-    trustedCaCertificateConfigMapRef: <your CA certificate>
+    trustedCaCertificateConfigMapRef: <YOUR-CA-CERTIFICATe>
 ```
 
 This ConfigMap should contain the CA certificate in PEM format. The ConfigMap must be in the same namespace as the Kafka dataflow resource. For example:

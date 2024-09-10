@@ -80,7 +80,7 @@ metadata:
 spec:
   endpointType: Mqtt
   mqttSettings:
-    host: <namespace>.<region>-1.ts.eventgrid.azure.net:8883
+    host: <NAMESPACE>.<REGION>-1.ts.eventgrid.azure.net:8883
     authentication:
       method: SystemAssignedManagedIdentity
       systemAssignedManagedIdentitySettings:
@@ -116,12 +116,12 @@ For other MQTT brokers, you can configure the endpoint, TLS, authentication, and
 spec:
   endpointType: Mqtt
   mqttSettings:
-    host: example.mqttbroker.com:8883
+    host: <MQTT-BROKER-HOST>:8883
     authentication:
       ...
     tls:
       mode: Enabled
-      trustedCaCertificateConfigMapRef: <your CA certificate config map>
+      trustedCaCertificateConfigMapRef: <YOUR CA CERTIFICATE CONFIG MAP>
 ```
 
 ### Use the endpoint in a dataflow source or destination
@@ -153,7 +153,7 @@ mqttSettings:
   authentication:
     method: X509Certificate
     x509CertificateSettings:
-      secretRef: <your x509 secret name>
+      secretRef: <YOUR-X509-SECRET-NAME>
 ```
 
 ### System-assigned managed identity
@@ -179,7 +179,7 @@ mqttSettings:
   authentication:
     method: SystemAssignedManagedIdentity
     systemAssignedManagedIdentitySettings:
-      audience: https://example.com
+      audience: https://<AUDIENCE>
 ```
 
 ### User-assigned managed identity
@@ -191,8 +191,8 @@ mqttSettings:
   authentication:
     method: UserAssignedManagedIdentity
     userAssignedManagedIdentitySettings:
-      clientId: <id>
-      tenantId: <id>
+      clientId: <ID>
+      tenantId: <ID>
 ```
 
 ### Kubernetes service account token (SAT)
@@ -204,7 +204,7 @@ mqttSettings:
   authentication:
     method: ServiceAccountToken
     serviceAccountTokenSettings:
-      audience: <your service account audience>
+      audience: <YOUR-SERVICE-ACCOUNT-AUDIENCE>
 ```
 
 If the audience is not specified, the default audience for the Azure IoT Operations MQTT broker is used.

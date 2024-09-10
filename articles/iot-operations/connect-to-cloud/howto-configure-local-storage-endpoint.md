@@ -5,7 +5,7 @@ author: PatAltimore
 ms.author: patricka
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 09/05/2024
+ms.date: 09/10/2024
 ai-usage: ai-assisted
 
 #CustomerIntent: As an operator, I want to understand how to configure a local storage dataflow endpoint so that I can create a dataflow.
@@ -34,7 +34,7 @@ metadata:
 spec:
   endpointType: localStorage
   localStorageSettings:
-    persistentVolumeClaimRef: <your PVC name>
+    persistentVolumeClaimRef: <YOUR-PVC-NAME>
 ```
 
 Here, the PersistentVolumeClaim (PVC) must be in the same namespace as the DataflowEndpoint.

@@ -174,8 +174,8 @@ datalakeStorageSettings:
   authentication:
     method: UserAssignedManagedIdentity
     userAssignedManagedIdentitySettings:
-      clientId: <id>
-      tenantId: <id>
+      clientId: <ID>
+      tenantId: <ID>
 ```
 
 ### Batching

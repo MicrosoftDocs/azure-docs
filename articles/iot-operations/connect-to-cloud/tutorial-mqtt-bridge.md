@@ -88,8 +88,8 @@ Using Azure CLI, find the principal ID for the AIO Arc extension. The command st
 
 ```azurecli
 export PRINCIPAL_ID=$(az k8s-extension list \
-  --resource-group jlian-bash-7-30 \
-  --cluster-name friendly-couscous-p74x5x57qp2xgg \
+  --resource-group $RESOURCE_GROUP \
+  --cluster-name <CLUSTER-NAME> \
   --cluster-type connectedClusters \
   --query "[?extensionType=='microsoft.iotoperations'].identity.principalId | [0]" -o tsv)
 echo $PRINCIPAL_ID
@@ -164,7 +164,7 @@ This is the default configuration for the AIO MQTT broker endpoint. The authenti
 
 ## Create an Azure Event Grid dataflow endpoint
 
-Create dataflow endpoint for the Azure Event Grid. This endpoint is the destination for the dataflow that sends messages to Azure Event Grid. Replace `example.region-1.ts.eventgrid.azure.net` with the hostname you got from the previous step, include the port number `8883`.
+Create dataflow endpoint for the Azure Event Grid. This endpoint is the destination for the dataflow that sends messages to Azure Event Grid. Replace `<EVENT-GRID-HOSTNAME>` with the hostname you got from the previous step, include the port number `8883`.
 
 ```yaml
 apiVersion: connectivity.iotoperations.azure.com/v1beta1
@@ -175,7 +175,7 @@ metadata:
 spec:
   endpointType: Mqtt
   mqttSettings:
-    host: example.region-1.ts.eventgrid.azure.net:8883
+    host: <EVENT-GRID-HOSTNAME>:8883
     authentication:
       method: SystemAssignedManagedIdentity
       systemAssignedManagedIdentitySettings: {}
