@@ -1119,7 +1119,7 @@ Azure service: [Azure Health Data Services](/azure/healthcare-apis/healthcare-ap
 > | Microsoft.HealthDataAIServices/locations/operationStatuses/write | write operationStatuses |
 > | Microsoft.HealthDataAIServices/Operations/read | read Operations |
 > | **DataAction** | **Description** |
-> | Microsoft.HealthDataAIServices/DeidServices/Realtime/action | Allows access to realtime the endpoint |
+> | Microsoft.HealthDataAIServices/DeidServices/Realtime/action | Allows access to the realtime endpoint |
 > | Microsoft.HealthDataAIServices/DeidServices/Batch/write | Creates batches |
 > | Microsoft.HealthDataAIServices/DeidServices/Batch/delete | Deletes a batch |
 > | Microsoft.HealthDataAIServices/DeidServices/Batch/read | Reads a batch |

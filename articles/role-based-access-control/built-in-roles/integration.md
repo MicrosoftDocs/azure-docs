@@ -1246,7 +1246,7 @@ Execute requests against DeID realtime endpoint. This role is in preview and sub
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
-> | [Microsoft.HealthDataAIServices](../permissions/integration.md#microsofthealthdataaiservices)/DeidServices/Realtime/action | Allows access to realtime the endpoint |
+> | [Microsoft.HealthDataAIServices](../permissions/integration.md#microsofthealthdataaiservices)/DeidServices/Realtime/action | Allows access to the realtime endpoint |
 > | **NotDataActions** |  |
 > | *none* |  |
 
