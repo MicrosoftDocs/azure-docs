@@ -14,10 +14,11 @@ HDInsight 5.1 has Apache Ranger version 2.3.0, which is major version upgrade fr
 
 Hive Ranger permissions - In 5.1 stack for hive, default hive ranger policies have been added which allow all users to
 
-1. Create a database.
-1. All privileges on default database tables and columns.  
+* Create a database.
+* Provide all privileges on default database tables and columns.  
 
-This is different from 4.0 stack where these default policies aren't present.  
+This is different from 4.0 stack where these default policies aren't present. 
+ 
 This change has been introduced in OSS (open-source software) ranger: [Create Default Policies for Hive Databases - default, Information_schema](https://issues.apache.org/jira/browse/RANGER-2539).
 
 Ranger User Interface in HDInsight 4.0 and earlier versions:
@@ -37,33 +38,33 @@ They'll start seeing that new users added to the cluster via LDAP sync via AADS 
 
 This behavior Is different from 4.0 clusters. Hence if they need to disallow this behavior and have the default permissions same as 4.0, it's required to:
 
-1. Disable the **all-databases** policy on ranger UI or edit **all-database** policy to remove **public** group from policy.
-1. Remove **public** group from **default database tables columns** policy on ranger UI.  
+* Disable the **all-databases** policy on ranger UI or edit **all-database** policy to remove **public** group from policy.
+* Remove **public** group from **default database tables columns** policy on ranger UI.  
 
 
 Ranger UI is available by clicking on navigating to ranger component and clicking on ranger UI on right side.
 
 ### User Interface differences
 
-* Ranger admin URL has new UI and looks & feel. There's option to switch to the classic Ranger 1.2.0 UI as well:
+* Ranger admin URL has new UI and looks & feel. There's option to switch to the classic Ranger 1.2.0 UI as well.
 
-* Root Service of Hive renamed to Hadoop SQL:
+* Root Service of Hive renamed to Hadoop SQL.
 
-* Hive/Hadoop SQL also has new capabilities of adding roles under Ranger:
+* Hive/Hadoop SQL also has new capabilities of adding roles under Ranger.
 
 ## Migration method recommendations
 
-As migration path to HDInsight 5.1, the Ranger policies migration between the clusters is recommended only through Ranger import/export options. 
+As migration path to HDInsight 5.1, the Ranger policies migration between the clusters is recommended only through Ranger import/export options.
 
 > [!NOTE]
-> Reuse of HDInsight 4.1 Ranger database in HDInsight 5.1 Ranger service configurations isn't recommended. Ranger service would fail to restart with following exception due to differences in db schema:
+> Reuse of HDInsight 4.1 Ranger database in HDInsight 5.1 Ranger service configurations isn't recommended. Ranger service would fail to restart with following exception due to differences in db schema.
 
 ```
 2023-11-01 12:47:20,295  [JISQL] /usr/lib/jvm/lib/mssql-jdbc-7.4.1.jre8.jar:/usr/hdp/current/ranger-admin/jisql/lib/\* org.apache.util.sql.Jisql -user ranger -p '\*\*\*\*\*\*\*\*' -driver mssql -cstring jdbc:sqlserver://xxx\;databaseName=ranger -noheader -trim -c \;  -query "delete from x\_db\_version\_h where version = '040' and active = 'N' and updated\_by=xxx.com';"
 2023-11-01 12:47:21,095  [E] 040-modify-unique-constraint-on-policy-table.sql import failed!
 ```
 
-## Migration Steps
+## Migration steps
 
 Steps to import/export.
 
