@@ -19,7 +19,7 @@ Observability provides visibility into every layer of your Azure IoT Operations 
 
 ## Prerequisites
 
-- Azure IoT Operations Preview installed. For more information, see [Quickstart: Run Azure IoT Operations Preview in Github Codespaces with K3s](../get-started-end-to-end-sample/quickstart-deploy.md).
+- Azure IoT Operations Preview installed. For more information, see [Quickstart: Run Azure IoT Operations Preview in GitHub Codespaces with K3s](../get-started-end-to-end-sample/quickstart-deploy.md).
 - [Git](https://git-scm.com/downloads) for cloning the repository.
 
 ## Configure your subscription
@@ -98,7 +98,7 @@ If the deployment succeeds, a few pieces of information are printed at the end o
               scrape_interval: 1m
               static_configs:
               - targets:
-                - aio-mq-diagnostics-service.azure-iot-operations.svc.cluster.local:9600
+                - aio-internal-diagnostics-service.azure-iot-operations.svc.cluster.local:9600
             - job_name: nats
               scrape_interval: 1m
               static_configs:

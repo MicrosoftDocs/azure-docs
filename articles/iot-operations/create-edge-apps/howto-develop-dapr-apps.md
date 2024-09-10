@@ -75,7 +75,7 @@ The following definition components might require customization to your specific
       name: dapr-client
       namespace: azure-iot-operations
       annotations:
-        aio-mq-broker-auth/group: dapr-workload
+        aio-broker-auth/group: dapr-workload
     ---
     apiVersion: apps/v1
     kind: Deployment
@@ -106,7 +106,7 @@ The following definition components might require customization to your specific
               sources:
                 - serviceAccountToken:
                     path: mqtt-client-token
-                    audience: aio-mq
+                    audience: aio-internal
                     expirationSeconds: 86400
 
           # Certificate chain for Dapr to validate the MQTT broker

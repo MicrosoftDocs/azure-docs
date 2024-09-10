@@ -88,11 +88,11 @@ spec:
   serviceType: loadBalancer # Optional, defaults to clusterIP
   serviceName: mqtts-endpoint # Match the SAN in the server certificate
   ports:
-    port: 8885 # Avoid port conflict with default listener at 8883
+  - port: 8885 # Avoid port conflict with default listener at 18883
     tls:
-      manual:
       mode: Manual
-        secretName: server-cert-secret
+      manual:
+        secretRef: server-cert-secret
 ```
 
 Once the BrokerListener resource is created, the operator automatically creates a Kubernetes service and deploys the listener. You can check the status of the service by running `kubectl get svc`.

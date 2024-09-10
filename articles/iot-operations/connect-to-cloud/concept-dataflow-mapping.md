@@ -6,6 +6,7 @@ ms.author: patricka
 ms.subservice: azure-data-flows
 ms.topic: concept-article
 ms.date: 08/03/2024
+ai-usage: ai-assisted
 
 #CustomerIntent: As an operator, I want to understand how to use the dataflow mapping language to transform data.
 ---
@@ -86,6 +87,26 @@ The example maps:
 ## Field references
 
 Field references show how to specify paths in the input and output by using dot notation like `Employee.DateOfBirth` or accessing data from a contextual dataset via `$context(position)`.
+
+### MQTT user properties
+
+When you use MQTT as a source or destination, you can access MQTT user properties in the mapping language. User properties can be mapped in the input or output. 
+
+In the following example, the MQTT `topic` property is mapped to the `origin_topic` field in the output. 
+
+```yaml
+    inputs:
+       - $metadata.topic
+    output: origin_topic
+```
+
+You can also map MQTT properties to an output header. In the following example, the MQTT `topic` is mapped to the `origin_topic` field in the output's user property:
+
+```yaml
+    inputs:
+       - $metadata.topic
+    output: $metadata.user_property.origin_topic
+```
 
 ## Contextualization dataset selectors
 
@@ -500,3 +521,16 @@ This configuration allows for a dynamic mapping where every field within the `po
 }
 ```
 
+## Last known value
+
+You can track the last known value of a property. Suffix the input field with `?last` to capture the last known value of the field. When a property is missing a value in a subsequent input payload, the last known value is mapped to the output payload.
+
+For example, consider the following mapping:
+
+```yaml
+- inputs:
+  - Temperature?last
+  output: Thermostat.Temperature
+```
+
+In this example, the last known value of `Temperature` is tracked. If a subsequent input payload doesn't contain a `Temperature` value, the last known value is used in the output.
