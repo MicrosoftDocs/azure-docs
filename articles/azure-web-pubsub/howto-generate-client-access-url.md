@@ -231,8 +231,10 @@ In real-world code, we usually have a server side to host the logic generating t
 You can enable Microsoft Entra ID in your service and use the Microsoft Entra token to invoke [Generate Client Token rest API](/rest/api/webpubsub/dataplane/web-pub-sub/generate-client-token) to get the token for the client to use.
 
 1. Follow [Authorize from application](./howto-authorize-from-application.md) to enable Microsoft Entra ID.
-2. Follow [Get Microsoft Entra token](./howto-authorize-from-application.md#use-postman-to-get-the-microsoft-entra-token) to get the Microsoft Entra token with Postman.
-3. Use the Microsoft Entra token to invoke `:generateToken` with Postman:
+
+1. Get the Microsoft Entra token.
+
+1. Use the Microsoft Entra token to invoke `:generateToken` with Postman:
 
    > [!NOTE]
    > Please use the latest version of Postman. Old versions of Postman have [some issue](https://github.com/postmanlabs/postman-app-support/issues/3994#issuecomment-893453089) supporting colon `:` in path.
