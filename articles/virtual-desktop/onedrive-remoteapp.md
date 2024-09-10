@@ -28,7 +28,7 @@ When a user closes or disconnects from the last RemoteApp they're using on the s
 
 Before you can use OneDrive with a RemoteApp in Azure Virtual Desktop, you need:
 
-- Session hosts in the host pool that:
+- Session hosts in a host pool that:
 
     - Are running Windows 11 23H2 OS version.  
     
@@ -50,7 +50,7 @@ To configure OneDrive to launch with a RemoteApp in Azure Virtual Desktop, follo
 
     2. Set the following policy: 
     
-      Local Computer Policy\Computer Configuration\Administrative Templates\Windows Components\Remote Desktop Services\Remote Desktop Session Host\Remote Session Environment\Enable enhanced shell experience for RemoteApp 
+          Local Computer Policy\Computer Configuration\Administrative Templates\Windows Components\Remote Desktop Services\Remote Desktop Session Host\Remote Session Environment\Enable enhanced shell experience for RemoteApp 
 
     3. Set the following registry value:
 
