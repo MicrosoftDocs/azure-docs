@@ -56,8 +56,8 @@ Enabling Dynamic logger level is currently only available on CLI, please refer t
 To turn on Dynamic logger level on CLI, refer to [Enable JVM diagnostics for your Java applications](java-dynamic-log-level.md?enable-jvm-diagnostics-for-your-java-applications).  
 ::: zone-end
 
-## Spring Components
-Azure Container Apps supports various Spring Components as managed services, allowing you to leverage these components without deploying additional code.
+## Java Components
+Azure Container Apps supports various Java Components as managed services, allowing you to leverage these components without deploying additional code.
 
 ### Eureka Server for Spring
 Eureka Server for Spring is a service registry that allows microservices to register themselves and discover other services. Available as an Azure Container Apps component, you can bind your container app to a Eureka Server for Spring for automatic registration with the Eureka server.
