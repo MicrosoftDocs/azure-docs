@@ -10,17 +10,17 @@ ms.author: micahvivion
 services: azure-communication-services
 ---
 
-# How to pass contextual data between calls
+# Using the ACS calling SDK to pass contextual data between calls
 
-The ACS WebJS SDK allows developers to pass along custom contextual information when routing calls. Developers can pass metadata about the call, callee or any other information that is relevant to their application or business logic. This allows businesses to manage, and route calls across networks without having to worry about losing context.
+The Azure Communication Services (ACS) WebJS SDK provides the ability to allow developers to include custom contextual data (included as a header on the calllin object) when directing and routing calls from one person to another. This functionality allows for the inclusion of metadata related to the call, the recipient, or any other pertinent information that aligns with the application’s needs or the company’s operational logic.
 
-Passing context is supported by specifying custom headers. These are an optional list of key-value pairs that can be included as part of `AddParticipant` or `Transfer` actions. The context can be later retrieved as part of the `IncomingCall` event payload.
+To pass this context, developers can utilize custom headers, which are a set of optional key-value pairs. These pairs can be incorporated into the 'AddParticipant' or 'Transfer' actions within the calling SDK. After this Content has been added you can. access this. payload. through Apis to inspect his context can be accessed as part of the payload for the IncomingCall event. By using the ability to look up metadata quickly and have it be associated with a call developers can eliminate additional external database lookups and instead have content information be available within the call object.
 
-Custom call context is also forwarded to the SIP protocol, this includes both the freeform custom headers as well as the standard User-to-User Information (UUI) SIP header. When routing an inbound call from your telephony network, the data set from your SBC in the custom headers and UUI is similarly included in the `IncomingCall` event payload. 
+Moreover, the custom call context is also transmitted to the SIP protocol. This transmission includes both the custom headers and the standard User-to-User Information (UUI) SIP header. When an inbound call is routed from your telephony network, the data from your Session Border Controller (SBC) in the custom headers and UUI is also included in the IncomingCall event payload.
 
-All custom context data is opaque to the calling SDK and when used in SIP protocols and its content is unrelated to any basic functions.
+It’s important to note that all custom context data remains transparent to the calling SDK and is not related to any of the SDK’s fundamental functions when used in SIP protocols.
+Below are tutorials to assist you in implementing custom context headers with the WebJS SDK.
 
-Below are samples on how to get started using custom context headers using the WebJS SDK. 
 
 ## Technical parameters
 The calling SDK  support adding up to 5 custom SIP headers and 1000 custom VOIP headers. Additionally, developers can include a dedicated User-To-User header as part of SIP headers list.
@@ -31,7 +31,7 @@ The maximum length of a VOIP header key is 64 chars. These headers can be sent w
 
 ## Adding custom context when inviting a participant
 
-### Setting custom context.
+### Setting custom context headings using the WebJS calling SDK
 
 ```js
  
@@ -58,9 +58,10 @@ The maximum length of a VOIP header key is 64 chars. These headers can be sent w
     
     // adding participant to existing call or transfer with custom context.
     call.addParticipant("USER_ID", callOptions);
- 
-    // Parsing custom context on the receiver side.
-    
+ ```
+
+ ### Parsing and reading custom context headers using the WebJS calling SDK
+```js
     let info = '';
  
     callAgent.on("incomingCall", (args) => {
@@ -80,11 +81,8 @@ The maximum length of a VOIP header key is 64 chars. These headers can be sent w
 
 ```
 
-## Reading custom context from an incoming call event
-
-
 ## Additional resources
 
-- For a sample payload of the incoming call, refer to this [guide](../../../event-grid/communication-services-voice-video-events.md#microsoftcommunicationincomingcall).
+- For more details on how to pass contextual data using ACS Call automation see this [guide](../../../how-tos/call-automation/custom-context.md).
 
 - Learn more about [SIP protocol details for direct routing](../../concepts/telephony/direct-routing-sip-specification.md).
