@@ -3,8 +3,8 @@ title: Enable Azure Automation Change Tracking and Inventory from Automation acc
 description: This article tells how to enable Change Tracking and Inventory from an Automation account.
 services: automation
 ms.subservice: change-inventory-management
-ms.date: 08/30/2024
-ms.topic: conceptual
+ms.date: 09/09/2024
+ms.topic: how-to
 ms.service: azure-automation
 ---
 

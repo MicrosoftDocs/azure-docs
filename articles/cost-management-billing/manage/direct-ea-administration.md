@@ -424,6 +424,8 @@ Check out the [EA admin manage subscriptions](https://www.youtube.com/watch?v=KF
 
 Azure Active Directory is now Microsoft Entra ID. For more information, see [New name for Azure AD](https://aka.ms/AzureADNewName).
 
+> [!WARNING]
+> You will not be able to create new subscriptions or transfer existing subscriptions from an enrollment account if the UPN is deleted from Entra ID. 
 ## Add a subscription
 
 A user must have at least one of the following roles to create a new subscription:

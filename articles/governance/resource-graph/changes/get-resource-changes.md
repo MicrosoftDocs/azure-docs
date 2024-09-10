@@ -53,8 +53,6 @@ When a resource is created, updated, or deleted, a new change resource (`Microso
     "properties.provisioningState": {
       "newValue": "Succeeded",
       "previousValue": "Updating",
-      "changeCategory": "System",
-      "propertyChangeType": "Update",
       "isTruncated": "true"
     },
     "tags.key1": {
