@@ -42,9 +42,9 @@ Use the connection details below to connect compute services to Queue Storage. F
 
 ### System-assigned managed identity
 
-#### SpringBoot client type
+#### SpringBoot client
 
-Using a system-assigned managed identity as the authentication type is only available for Spring Cloud Azure version 4.0 or higher.
+Authenticating with a system-assigned managed identity is only available for Spring Cloud Azure version 4.0 or higher.
 
 | Default environment variable name                                   | Description                          | Example value                                           |
 |---------------------------------------------------------------------|--------------------------------------|---------------------------------------------------------|
@@ -52,7 +52,7 @@ Using a system-assigned managed identity as the authentication type is only avai
 | spring.cloud.azure.storage.queue.account-name                        | Name for the storage account         | `storage-account-name`                                  |
 | spring.cloud.azure.storage.queue.endpoint                            | Queue Storage endpoint               | `https://<storage-account-name>.queue.core.windows.net/` |
 
-#### Other client types
+#### Other clients
 
 | Default environment variable name   | Description            | Example value                                              |
 | ----------------------------------- | ---------------------- | ---------------------------------------------------------- |
@@ -65,9 +65,9 @@ Refer to the steps and code below to connect to Azure Queue Storage using a syst
 
 ### User-assigned managed identity
 
-#### SpringBoot client type
+#### SpringBoot client
 
-Using a user-assigned managed identity as the authentication type is only available for Spring Cloud Azure version 4.0 or higher.
+Authenticating with a user-assigned managed identity is only available for Spring Cloud Azure version 4.0 or higher.
 
 | Default environment variable name                                   | Description                                      | Example value                                           |
 |---------------------------------------------------------------------|--------------------------------------------------|---------------------------------------------------------|
@@ -76,7 +76,7 @@ Using a user-assigned managed identity as the authentication type is only availa
 | spring.cloud.azure.storage.queue.endpoint                            | Queue Storage endpoint                           | `https://<storage-account-name>.queue.core.windows.net/` |
 | spring.cloud.azure.storage.queue.credential.client-id                | Client ID of the user-assigned managed identity  | `00001111-aaaa-2222-bbbb-3333cccc4444`                  |
 
-#### Other client types
+#### Other clients
 
 
 | Default environment variable name   | Description            | Example value                                              |
@@ -90,7 +90,7 @@ Refer to the steps and code below to connect to Azure Queue Storage using a user
 
 ### Connection string
 
-#### SpringBoot client type
+#### SpringBoot client
 
 | Application properties                 | Description                | Example value            |
 |----------------------------------------|----------------------------|--------------------------|
@@ -100,7 +100,7 @@ Refer to the steps and code below to connect to Azure Queue Storage using a user
 | spring.cloud.azure.storage.queue.account-key  | Queue storage account key for Spring Cloud Azure version above 4.0  | `<account-key>`          |
 | spring.cloud.azure.storage.queue.endpoint     | Queue storage endpoint for Spring Cloud Azure version above 4.0     | `https://<storage-account-name>.queue.core.windows.net/` |
 
-#### Other client types
+#### Other clients
 
 | Default environment variable name   | Description                     | Example value                                                                                                        |
 |-------------------------------------|---------------------------------|----------------------------------------------------------------------------------------------------------------------|
@@ -113,9 +113,9 @@ Refer to the steps and code below to connect to Azure Queue Storage using a conn
 
 ### Service principal
 
-#### SpringBoot client type
+#### SpringBoot client
 
-Using a service principal as the authentication type is only available for Spring Cloud Azure version 4.0 or higher.
+Authenticating with a service principal is only available for Spring Cloud Azure version 4.0 or higher.
 
 | Default environment variable name                                   | Description                                      | Example value                                           |
 |---------------------------------------------------------------------|--------------------------------------------------|---------------------------------------------------------|
@@ -124,7 +124,7 @@ Using a service principal as the authentication type is only available for Sprin
 | spring.cloud.azure.storage.queue.credential.client-id                | Client ID of the service principal               | `00001111-aaaa-2222-bbbb-3333cccc4444`                  |
 | spring.cloud.azure.storage.queue.credential.client-secret            | Client secret to perform service principal authentication | `Aa1Bb~2Cc3.-Dd4Ee5Ff6Gg7Hh8Ii9_Jj0Kk1Ll2`     |
 
-#### Other client types
+#### Other clients
 
 | Default environment variable name   | Description            | Example value                                              |
 | ----------------------------------- | ---------------------- | ---------------------------------------------------------- |
