@@ -62,26 +62,18 @@ git clone https://github.com/Azure-Samples/serviceconnector-webapp-postgresql-dj
 Navigate into the following folder:
 
 ```terminal
-cd serviceconnector-webapp-postgresql-django
-```
-
-Use the django-passwordless branch of the sample, which contains a few necessary changes, such as how the database server URL is set and adding `'OPTIONS': {'sslmode': 'require'}` to the Django database configuration as required by Azure PostgreSQL Flexible server.
-
-```terminal
-git checkout django-passwordless
+cd serviceconnector-webapp-postgresql-django-passwordless
 ```
 
 ### [Download](#tab/download)
 
 Visit [https://github.com/Azure-Samples/serviceconnector-webapp-postgresql-django-passwordless](https://github.com/Azure-Samples/serviceconnector-webapp-postgresql-django-passwordless).
 
-For Flexible server, select the branches control that says "master" and then select the **django-passwordless** branch.
-
 Select **Code**, and then select **Download ZIP**.
 
-Unpack the ZIP file into a folder named *msdocs-django-web-app-managed-identity*.
+Unpack the ZIP file into a folder named *serviceconnector-webapp-postgresql-django-passwordless*.
 
-Open a terminal window in that *msdocs-django-web-app-managed-identity* folder.
+Open a terminal window in that *serviceconnector-webapp-postgresql-django-passwordless* folder.
 
 ---
 
@@ -177,13 +169,7 @@ In this section, you create app host in App Service app, connect this app to the
 
 ### Create the App Service app
 
-1. In the terminal, make sure you're in the *msdocs-django-web-app-managed-identity* repository folder that contains the app code.
-
-1. Switch to the sample app's `django-passwordless` branch. This branch contains specific configuration needed for PostgreSQL Flexible server:
-
-    ```cmd
-    git checkout django-passwordless
-    ```
+1. In the terminal, make sure you're in the *serviceconnector-webapp-postgresql-django-passwordless* repository folder that contains the app code.
 
 1. Run the following [`az webapp up`](/cli/azure/webapp#az-webapp-up) command to create the App Service host for the app:
 
