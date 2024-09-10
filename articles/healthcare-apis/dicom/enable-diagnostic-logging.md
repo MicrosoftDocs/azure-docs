@@ -146,6 +146,6 @@ MicrosoftHealthcareApisAuditLogs
 
 ## Next steps
 
-Having access to diagnostic logs is essential for monitoring a service and providing compliance reports. The DICOM service allows you to do these actions through diagnostic logs. For more information, see [Azure Activity Log event schema](.././../azure-monitor/essentials/activity-log-schema.md)
+Having access to diagnostic logs is essential for monitoring a service and providing compliance reports. The DICOM service allows you to do these actions through diagnostic logs. For more information, see [Azure Activity Log event schema](azure/azure-monitor/essentials/activity-log-schema)
 
 [!INCLUDE [DICOM trademark statement](../includes/healthcare-apis-dicom-trademark.md)]
