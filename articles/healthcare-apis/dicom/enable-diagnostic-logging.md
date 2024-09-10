@@ -35,7 +35,7 @@ In this article, you'll learn how to enable diagnostic logging in DICOM&reg; ser
    * **Stream to an event hub** for ingestion by a third-party service or custom analytic solution. You need to create an event hub namespace and event hub policy before you can configure this step.
    * **Send to partner solution** that you're working with as a partner organization in Azure. For information about potential partner integrations, see [Azure partner solutions documentation](../../partner-solutions/overview.md)
 
-     For information about supported metrics, see [Supported metrics with Azure Monitor](azure/azure-monitor/essentials/metrics-supported).
+     For information about supported metrics, see [Supported metrics with Azure Monitor](/azure/azure-monitor/essentials/metrics-supported).
 
 6. Select **Save**.
 
@@ -146,6 +146,6 @@ MicrosoftHealthcareApisAuditLogs
 
 ## Next steps
 
-Having access to diagnostic logs is essential for monitoring a service and providing compliance reports. The DICOM service allows you to do these actions through diagnostic logs. For more information, see [Azure Activity Log event schema](azure/azure-monitor/essentials/activity-log-schema)
+Having access to diagnostic logs is essential for monitoring a service and providing compliance reports. The DICOM service allows you to do these actions through diagnostic logs. For more information, see [Azure Activity Log event schema](/azure/azure-monitor/essentials/activity-log-schema)
 
 [!INCLUDE [DICOM trademark statement](../includes/healthcare-apis-dicom-trademark.md)]
