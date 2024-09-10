@@ -1,7 +1,7 @@
 ---
 title: Monitoring data reference for Azure Virtual WAN
 description: This article contains important reference material you need when you monitor Azure Virtual WAN by using Azure Monitor.
-ms.date: 08/28/2024
+ms.date: 09/10/2024
 ms.custom: horz-monitor
 ms.topic: reference
 author: cherylmc
@@ -28,9 +28,17 @@ This table contains more information about some of the metrics in the preceding 
 
 | Metric | Description |
 |:-------|:------------|
-| **Data Processed by the Virtual Hub Router** | Data on how much traffic traverses the virtual hub router in a given time period. Only the following flows use the virtual hub router: virtual network to virtual network, same hub and interhub, and VPN/ExpressRoute branch to virtual network, for interhub. If a virtual hub is secured with routing intent, then these flows traverse the firewall instead of the hub router. *Same hub* and *interhub* refer to virtual network to virtual network traffic. These were previously described as *VNet to VNet* for *same hub and interhub* and *VPN/ExpressRoute branch to VNet* for *interhub*.|
+| **Data Processed by the Virtual Hub Router** | Data on how much traffic traverses the virtual hub router in a given time period. See note after table.|
 | **Routing Infrastructure Units** | The virtual hub's routing infrastructure units (RIU). The virtual hub's RIU determines how much bandwidth the virtual hub router can process for flows traversing the virtual hub router. The hub's RIU also determines how many VMs in spoke VNets the virtual hub router can support. For more information on routing infrastructure units, see [Virtual Hub Capacity](hub-settings.md#capacity).
 | **Spoke VM Utilization** | The approximate number of deployed spoke VMs as a percentage of the total number of spoke VMs that the hub's routing infrastructure units can support. For example, if the hub's RIU is set to 2, which supports 2,000 spoke VMs, and 1,000 VMs are deployed across spoke virtual networks, this metric's value is approximately 50%.  |
+
+> [!NOTE]
+> Only the following flows use the virtual hub router:
+>
+> - Virtual network to virtual network traffic. This flow applies to interhub traffic and traffic traversing just 1 hub.
+> - VPN/ExpressRoute/NVA branch to virtual network traffic. This flow applies to interhub traffic.
+>
+> If a virtual hub is secured with routing intent, then these flows traverse the firewall instead of the hub router. *Same hub* and *interhub* refer to virtual network to virtual network traffic. These were previously described as *VNet to VNet* for *same hub and interhub* and *VPN/ExpressRoute branch to VNet* for *interhub*.
 
 ### <a name="s2s-metrics"></a>Supported metrics for microsoft.network/vpngateways
 
