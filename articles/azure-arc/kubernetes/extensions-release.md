@@ -213,6 +213,15 @@ For more information, see [Try Azure AI Video Indexer enabled by Arc](/azure/azu
 
 For more information, see [What is Edge Storage Accelerator?](../edge-storage-accelerator/overview.md).
 
+## Connected registry Arc extension
+
+- **Supported distributions**: Connected registry Arc extension using the CLI UX with secure-by-default settings.
+- **Supported Azure regions**: All regions where Azure Arc-enabled Kubernetes is available.
+
+The connected registry extension for Azure Arc enables you to sync container images between your Azure Container Registry (ACR) and your Azure Arc-enabled Kubernetes cluster. The extension is deployed to the cluster and uses a synchronization schedule and window to sync images between the connected registry and the cloud registry.
+
+For more information, see [Secure and deploy connected registry Arc extension](../../container-registry/quickstart-connected-registry-arc-cli.md).
+
 ## Next steps
 
 - Read more about [cluster extensions for Azure Arc-enabled Kubernetes](conceptual-extensions.md).
