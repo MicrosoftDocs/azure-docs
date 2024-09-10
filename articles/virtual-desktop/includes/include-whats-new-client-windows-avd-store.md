@@ -16,9 +16,9 @@ The following table lists the current versions available for the public and Insi
 
 ## Updates for version 1.2.5702 (Insider) 
 
-*Date published: September 6, 2024*   
+*Date published: September 10, 2024*   
 
-- Fixed an issue where initiating a screenshare in Teams as a RemoteApp caused the client to crash. 
+- Fixed an issue where initiating a screen capture while Teams is open as a RemoteApp caused the client to crash. 
 
 > [!NOTE]
 > This version replaced the Insider version 1.2.5701 and has the same release notes with the changes in 1.2.5701 and 1.2.5699. 
