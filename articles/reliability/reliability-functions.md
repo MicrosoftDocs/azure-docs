@@ -77,43 +77,26 @@ There are currently two ways to deploy a zone-redundant Premium plan and functio
 # [Azure portal](#tab/azure-portal)
 
 1. In the Azure portal, go to the **Create Function App** page. For more information about creating a function app in the portal, see [Create a function app](../azure-functions/functions-create-function-app-portal.md#create-a-function-app).
+
 1. Select **Functions Premium** and then select the **Select** button. This article details how to create a zone redundant app in a Premium plan. Zone redundancy isn't currently available in Consumption plans. For information on zone redundancy on app service plans, see [Reliability in Azure App Service](../reliability/migrate-app-service.md).
+
 1. On the **Create Function App (Functions Premium)** page, on the **Basics** tab, enter the settings for your function app. Pay special attention to the settings in the following table (also highlighted in the following screenshot), which have specific requirements for zone redundancy.
 
     | Setting      | Suggested value  | Notes for zone redundancy |
     | ------------ | ---------------- | ----------- |
-    | **Region** | Preferred region | The region under which the new function app is created. You must pick a region that supports availability zones, as described in the [prerequisites](#prerequisites). |
+    | **Region** | Preferred region | The region under which the new function app is created. You must pick a region that supports availability zones, as described in the [prerequisites](#prerequisites). |  
+    | **Pricing plan** | Elastic Premium | This article details how to create a zone redundant app in a Premium plan. Zone redundancy isn't currently available in Consumption plans. For information on zone redundancy on app service plans, see [Reliability in Azure App Service](../reliability/migrate-app-service.md). |
+    | **Zone redundancy** | Enabled | This setting specifies whether your app is zone redundant. You won't be able to select `Enabled` unless you have chosen a region that supports zone redundancy, as described previously. |
 
     ![Screenshot of the Basics tab of the function app create page.](../azure-functions/media/functions-az-redundancy\azure-functions-basics-az.png)
 
-<!-- old section 
-### Create a zone-redundant Premium plan and function app
+1. On the **Storage** tab, enter the settings for your function app storage account. Pay special attention to the fields in the following table, which have specific requirements for zone redundancy.
 
-There are currently two ways to deploy a zone-redundant Premium plan and function app. You can use either the [Azure portal](https://portal.azure.com) or an ARM template.
-
-# [Azure portal](#tab/azure-portal)
-
-1. Open the Azure portal and navigate to the **Create Function App** page. Information on creating a function app in the portal can be found [here](../azure-functions/functions-create-function-app-portal.md#create-a-function-app).
-
-1. In the **Basics** page, fill out the fields for your function app. Pay special attention to the fields in the table below (also highlighted in the screenshot below), which have specific requirements for zone redundancy.
-
-    | Setting      | Suggested value  | Notes for Zone Redundancy |
+    | Setting      | Suggested value  | Notes for zone redundancy |
     | ------------ | ---------------- | ----------- |
-    | **Region** | Preferred region | The subscription under which this new function app is created. You must pick a region that is availability zone enabled from the [list above](#prerequisites). |
-
-    ![Screenshot of Basics tab of function app create page.](../azure-functions/media/functions-az-redundancy\azure-functions-basics-az.png)
-
-1. In the **Hosting** page, fill out the fields for your function app hosting plan. Pay special attention to the fields in the table below (also highlighted in the screenshot below), which have specific requirements for zone redundancy.
-
-    | Setting      | Suggested value  | Notes for Zone Redundancy |
-    | ------------ | ---------------- | ----------- |
-    | **Storage Account** | A [zone-redundant storage account](../azure-functions/storage-considerations.md#storage-account-requirements) | As mentioned above in the [prerequisites](#prerequisites) section, we strongly recommend using a zone-redundant storage account for your zone redundant function app. |
-    | **Plan Type** | Functions Premium | This article details how to create a zone redundant app in a Premium plan. Zone redundancy isn't currently available in Consumption plans. Information on zone redundancy on app service plans can be found [in this article](../reliability/migrate-app-service.md). |
-    | **Zone Redundancy** | Enabled | This field populates the flag that determines if your app is zone redundant or not. You won't be able to select `Enabled` unless you have chosen a region supporting zone redundancy, as mentioned in step 2. |
-
-    ![Screenshot of Hosting tab of function app create page.](../azure-functions/media/functions-az-redundancy\azure-functions-hosting-az.png)
-
-1. For the rest of the function app creation process, create your function app as normal. There are no fields in the rest of the creation process that affect zone redundancy.
+    | **Storage account** | A [zone-redundant storage account](../azure-functions/storage-considerations.md#storage-account-requirements) | As described in the [prerequisites](#prerequisites) section, we strongly recommend using a zone-redundant storage account for your zone-redundant function app. |
+  
+1. For the rest of the function app creation process, create your function app as normal. There are no settings in the rest of the creation process that affect zone redundancy.
 
 # [ARM template](#tab/arm-template)
 
@@ -162,7 +145,6 @@ To learn more about these templates, see [Automate resource deployment in Azure 
 ---
 
 After the zone-redundant plan is created and deployed, any function app hosted on your new plan is considered zone-redundant.
--->
 
 ### Availability zone migration
 
