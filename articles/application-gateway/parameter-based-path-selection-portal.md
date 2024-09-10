@@ -40,7 +40,7 @@ For this example, you have a shopping website and the product category is passed
 
 * The third rule has a condition that checks the *query_string* variable for *category=accessories* and has an action that rewrites the URL path to /*listing3* and has **Reevaluate path map** enabled
 
-    :::image type="content" source="./media/rewrite-http-headers-url/url-scenario1-2.png" alt-text="A screenshow of URL rewrite scenario 1-2.":::
+    :::image type="content" source="./media/rewrite-http-headers-url/url-scenario1-2.png" alt-text="A screenshot of URL rewrite scenario 1-2.":::
 
  
 **Step 2 (b):** Associate this rewrite set with the default path of the previous path-based rule:

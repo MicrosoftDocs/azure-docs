@@ -203,7 +203,7 @@ Here are the steps for replacing the hostname:
 1. Create a rewrite rule with a condition that evaluates if the location header in the response contains azurewebsites.net. Enter the pattern `(https?):\/\/.*azurewebsites\.net(.*)$`.
 2. Perform an action to rewrite the location header so that it has the application gateway's hostname. Do this by entering `{http_resp_Location_1}://contoso.com{http_resp_Location_2}` as the header value. Alternatively, you can also use the server variable `host` to set the hostname to match the original request.
 
-   ![A screenshow of the modify location header action.](./media/rewrite-http-headers-url/app-service-redirection.png)
+   ![A screenshot of the modify location header action.](./media/rewrite-http-headers-url/app-service-redirection.png)
 
 #### Implement security HTTP headers to prevent vulnerabilities
 
