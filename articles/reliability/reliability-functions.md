@@ -78,11 +78,13 @@ There are currently two ways to deploy a zone-redundant Premium plan and functio
 
 1. In the Azure portal, go to the **Create Function App** page. For more information about creating a function app in the portal, see [Create a function app](../azure-functions/functions-create-function-app-portal.md#create-a-function-app).
 1. Select **Functions Premium** and then select the **Select** button. This article details how to create a zone redundant app in a Premium plan. Zone redundancy isn't currently available in Consumption plans. For information on zone redundancy on app service plans, see [Reliability in Azure App Service](../reliability/migrate-app-service.md).
-1. On the **Create Function App (Functions Premium)** page, on the **Basics** tab, enter the settings for your function app. Pay special attention to the settings in the followin table (also highlighted in the following screenshot), which have specific requirements for zone redundancy.
+1. On the **Create Function App (Functions Premium)** page, on the **Basics** tab, enter the settings for your function app. Pay special attention to the settings in the following table (also highlighted in the following screenshot), which have specific requirements for zone redundancy.
 
     | Setting      | Suggested value  | Notes for zone redundancy |
     | ------------ | ---------------- | ----------- |
-    | **Region** | Preferred region | The subscription under which the new function app is created. You must pick a region that is availability zone enabled from the [list above](#prerequisites). |
+    | **Region** | Preferred region | The region under which the new function app is created. You must pick a region that supports availability zones, as described in the [prerequisites](#prerequisites). |
+
+    ![Screenshot of the Basics tab of the function app create page.](../azure-functions/media/functions-az-redundancy\azure-functions-basics-az.png)
 
 <!-- old section 
 ### Create a zone-redundant Premium plan and function app
