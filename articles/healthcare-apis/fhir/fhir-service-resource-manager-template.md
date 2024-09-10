@@ -188,13 +188,13 @@ You can deploy the ARM template using two options: PowerShell or CLI.
 
 The following sample code uses the template in the “templates” subfolder of the subfolder “src”. You may want to change the location path to reference the template file properly.
 
-The deployment process takes a few minutes to complete. Take a note of the names for the FHIR service and the resource group, which you'll use later.
+The deployment process takes a few minutes to complete. Take a note of the names for the FHIR service and the resource group, which you use later.
 
 # [PowerShell](#tab/PowerShell)
 
 ### Deploy the template: using PowerShell
 
-Run the code in PowerShell locally, in Visual Studio Code, or in Azure Cloud Shell, to deploy the FHIR service. 
+To deploy the FHIR service, run the code in PowerShell locally, in Visual Studio Code, or in Azure Cloud Shell. 
 
 If you haven't logged in to Azure, use "Connect-AzAccount" to log in. Once you've logged in, use "Get-AzContext" to verify the subscription and tenant you want to use. You can change the subscription and tenant if needed.
 
@@ -228,7 +228,7 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourcegroupname -TemplateFil
 
 ### Deploy the template: using CLI
 
-Run the code locally, in Visual Studio Code or in Azure Cloud Shell, to deploy the FHIR service. 
+To deploy the FHIR service, run the code in PowerShell locally, in Visual Studio Code, or in Azure Cloud Shell. 
 
 If you haven’t logged in to Azure, use "az login" to log in. Once you've logged in, use "az account show --output table" to verify the subscription and tenant you want to use. You can change the subscription and tenant if needed.
 
@@ -287,4 +287,3 @@ In this quickstart guide, you've deployed the FHIR service within Azure Health D
 >[Supported FHIR Features](fhir-features-supported.md)
 
 [!INCLUDE [FHIR trademark statement](../includes/healthcare-apis-fhir-trademark.md)]
-
