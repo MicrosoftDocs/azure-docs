@@ -3,7 +3,7 @@ title: Enable events diagnostic settings for diagnostic logs and metrics export 
 description: Learn how to enable events diagnostic settings for diagnostic logs and metrics exporting.
 services: healthcare-apis
 author: chachachachami
-ms.service: healthcare-apis
+ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.topic: how-to
 ms.date: 06/23/2022

@@ -220,6 +220,7 @@ You can also call a REST API technical profile with your business logic, overwri
 | IncludeClaimResolvingInClaimsHandling  | No | For input and output claims, specifies whether [claims resolution](claim-resolver-overview.md) is included in the technical profile. Possible values: `true`, or `false` (default). If you want to use a claims resolver in the technical profile, set this to `true`. |
 |setting.forgotPasswordLinkOverride <sup>4</sup>| No | A password reset claims exchange to be executed. For more information, see [Self-service password reset](add-password-reset-policy.md). |
 | setting.enableCaptchaChallenge | No | Specifies whether CAPTCHA challenge code should be displayed. Possible values: `true` , or `false` (default). For this setting to work, the [CAPTCHA display control]() must be referenced in the [display claims](#display-claims) of the self-asserted technical profile. CAPTCHA feature is in **public preview**.|
+| setting.showHeading | No | Specifies whether **User Details** heading element should be visible. Possible values: `true` (default), or `false`.|
 
 Notes:
 

@@ -2,12 +2,12 @@
 title: Links to the Azure Maps Rest API
 titleSuffix: Microsoft Azure Maps
 description: Links to the Azure Maps Rest API.
-author: eriklindeman
-ms.author: eriklind
+author: sinnypan
+ms.author: sipa
 ms.date: 02/05/2024
 ms.topic: reference
 ms.service: azure-maps
-services: azure-maps
+ms.subservice: rest-api
 ---
 
 # Azure Maps Rest API
@@ -25,7 +25,7 @@ The most recent stable release of the Azure Maps services.
 | [Data] |  2.0  | The Azure Maps Data v2 service is deprecated and will be retired on 9/16/24. To avoid service disruptions, all calls to the Data service need to be updated to use the Azure Maps [Data registry] service by 9/16/24. For more information, see [How to create data registry]. |
 | [Data Registry] |  2023-06-01  | Programmatically store and update geospatial data to use in spatial operations. |
 | [Geolocation] |  1.0  | Convert IP addresses to country/region ISO codes. |
-| [Render] |  2022-08-01  | Get road, satellite/aerial, weather, traffic map tiles, and static map images. |
+| [Render] |  2024-04-01  | Get road, satellite/aerial, weather, traffic map tiles, and static map images. |
 | [Route] |  1.0  | Calculate optimized travel times and distances between locations for multiple modes of transportation and get localized travel instructions. |
 | [Search] |  2023-06-01  | Geocode addresses and coordinates, search for business listings and places by name or category and get administrative boundary polygons. |
 | [Spatial] |  2022-08-01  | Use geofences, great circle distances and other spatial operations to analyze location data. |
@@ -33,9 +33,17 @@ The most recent stable release of the Azure Maps services.
 | [Traffic] |  1.0  | Get current traffic information including traffic flow and traffic incident details. |
 | [Weather] |  1.1  | Get current, forecasted, and historical weather conditions, air quality, tropical storm details and weather along a route. |
 
-## Previous release
+## Previous releases
 
-A previous stable release of an Azure Maps service that is still in use. The services in this list will generally have a more recent version available, and are slated for retirement. If using a previous release, update to the latest version before it's retired to avoid disruption of service.
+There are previous stable releases of an Azure Maps services that are still in use. The services in these lists will generally have a more recent version available, and are slated for retirement. If using a previous release, update to the latest version before it's retired to avoid disruption of service.
+
+### Version 2022-08-01
+
+| API | API version | Description |
+|-----|-------------|-------------|
+| [Render][render-2022-08-01] |  2022-08-01  | Get road, satellite/aerial, weather, traffic map tiles, and static map images. |
+
+### Version 1.0
 
 | API | API version | Description |
 |-----|-------------|-------------|
@@ -65,6 +73,8 @@ Prerelease version of an Azure Maps service. Preview releases contain new functi
 [Weather]: /rest/api/maps/weather
 
 <!--- Links to previous versions of each service -------------------------------->
+[render-2022-08-01]: /rest/api/maps/render?view=rest-maps-2022-08-01
+
 [Data-v1]: /rest/api/maps/data?view=rest-maps-1.0
 [Render v1]: /rest/api/maps/render?view=rest-maps-1.0
 [Search-v1]: /rest/api/maps/search?view=rest-maps-1.0

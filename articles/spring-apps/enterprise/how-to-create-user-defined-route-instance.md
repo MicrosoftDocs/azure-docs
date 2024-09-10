@@ -3,9 +3,9 @@ title:  Control egress traffic for an Azure Spring Apps instance
 description: Learn how to control egress traffic for an Azure Spring Apps instance.
 author: KarlErickson
 ms.author: karler
-ms.service: spring-apps
+ms.service: azure-spring-apps
 ms.topic: article
-ms.date: 01/17/2023
+ms.date: 06/27/2024
 ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli
 ---
 
@@ -245,7 +245,7 @@ az network vnet subnet update \
     --name $ASA_APP_SUBNET_NAME \
     --route-table $APP_ROUTE_TABLE_NAME
 
-az network vnet subnet update 
+az network vnet subnet update
     --resource-group $RG \
     --vnet-name $VNET_NAME \
     --name $ASA_SERVICE_RUNTIME_SUBNET_NAME \
@@ -273,18 +273,18 @@ export APP_ROUTE_TABLE_RESOURCE_ID=$(az network route-table show \
     --resource-group $RG \
     --query "id" \
     --output tsv)
-    
+
 az role assignment create \
     --role "Owner" \
     --scope ${APP_ROUTE_TABLE_RESOURCE_ID} \
     --assignee e8de9221-a19c-4c81-b814-fd37c6caf9d2
-    
+
 export SERVICE_RUNTIME_ROUTE_TABLE_RESOURCE_ID=$(az network route-table show \
     --name $SERVICE_RUNTIME_ROUTE_TABLE_NAME \
     --resource-group $RG \
     --query "id" \
     --output tsv)
-    
+
 az role assignment create \
     --role "Owner" \
     --scope ${SERVICE_RUNTIME_ROUTE_TABLE_RESOURCE_ID} \

@@ -3,7 +3,7 @@ title: Monitor metrics and logs - Azure Front Door
 description: This article describes the different metrics and logs that Azure Front Door records.
 services: frontdoor
 author: duongau
-ms.service: frontdoor
+ms.service: azure-frontdoor
 ms.topic: how-to
 ms.date: 12/19/2023
 ms.author: duau

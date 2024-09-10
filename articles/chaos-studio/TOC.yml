@@ -119,7 +119,7 @@
 - name: Resources
   items:
   - name: Service updates
-    href: https://azure.microsoft.com/updates/?query=chaos%20studio
+    href: https://azure.microsoft.com/updates/
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/chaos-studio/
   - name: Pricing calculator

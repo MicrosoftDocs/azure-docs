@@ -37,7 +37,6 @@ In addition to the managed service for Prometheus, you can also use self-managed
 
 Send metrics from self-managed Prometheus on Kubernetes clusters. For more information on remote-write to Azure Monitor workspaces for Kubernetes services, see the following articles:
 
-- [Microsoft Entra ID authorization proxy](/azure/azure-monitor/containers/prometheus-authorization-proxy?tabs=remote-write-example)
 - [Send Prometheus data from AKS to Azure Monitor by using managed identity authentication](/azure/azure-monitor/containers/prometheus-remote-write-managed-identity)
 - [Send Prometheus data from AKS to Azure Monitor by using Microsoft Entra ID authentication](/azure/azure-monitor/containers/prometheus-remote-write-active-directory)
 - [Send Prometheus data to Azure Monitor by using Microsoft Entra ID pod-managed identity (preview) authentication](/azure/azure-monitor/containers/prometheus-remote-write-azure-ad-pod-identity)
@@ -62,7 +61,7 @@ Alerts fired by alert rules can trigger actions or notifications, as defined in 
 
 ## Service limits and quotas
 
-Azure Monitor Managed service for Prometheus has default limits and quotas for ingestion. When you reach the ingestion limits throttling can occur. You can request an increase in these limits. For more information on throttling and requesting increased limits, see [Metrics throttling](../containers/prometheus-metrics-troubleshoot.md#metrics-throttling). For information on Prometheus metrics limits, see [Azure Monitor service limits](../service-limits.md#prometheus-metrics).
+Azure Monitor Managed service for Prometheus has default limits and quotas for ingestion. When you reach the ingestion limits throttling can occur. You can request an increase in these limits. For more information on throttling and requesting increased limits, see [Monitoring metrics limits](#how-can-i-monitor-the-service-limits-and-quota). For information on Prometheus metrics limits, see [Azure Monitor service limits](../service-limits.md#prometheus-metrics).
 
 ## Limitations/Known issues - Azure Monitor managed Service for Prometheus
 
@@ -76,6 +75,7 @@ Azure Monitor Managed service for Prometheus has default limits and quotas for i
 [!INCLUDE [case sensitivity](../includes/prometheus-case-sensitivity.md)] 
 
 ## Prometheus references
+
 Following are links to Prometheus documentation.
 
 - [PromQL](https://aka.ms/azureprometheus-promio-promql)
@@ -89,22 +89,45 @@ Following are links to Prometheus documentation.
 
 This section provides answers to common questions.
 
-### How do I retrieve Prometheus metrics? 
+### How do I retrieve Prometheus metrics?
 
 All data is retrieved from an Azure Monitor workspace by using queries that are written in Prometheus Query Language (PromQL). You can write your own queries, use queries from the open source community, and use Grafana dashboards that include PromQL queries. See the [Prometheus project](https://prometheus.io/docs/prometheus/latest/querying/basics/). 
 
 [!INCLUDE [prometheus-faq-can-i-view-prometheus-metrics-in-metrics-explorer](../includes/prometheus-faq-can-i-view-prometheus-metrics-in-metrics-explorer.md)]
 
 ### When I use managed service for Prometheus, can I store data for more than one cluster in an Azure Monitor workspace?
-        
+
 Yes. Managed service for Prometheus is intended to enable scenarios where you can store data from several Azure Kubernetes Service clusters in a single Azure Monitor workspace. See [Azure Monitor workspace overview](./azure-monitor-workspace-overview.md?#azure-monitor-workspace-architecture).
 
 ### What types of resources can send Prometheus metrics to managed service for Prometheus?
-        
+
 Our agent can be used on Azure Kubernetes Service clusters and Azure Arc-enabled Kubernetes clusters. It's installed as a managed add-on for AKS clusters and an extension for Azure Arc-enabled Kubernetes clusters and you can configure it to collect the data you want. You can also configure remote write on Kubernetes clusters running in Azure, another cloud, or on-premises by following our instructions for enabling remote write.
 
 If you use the Azure portal to enable Prometheus metrics collection and install the AKS add-on or Azure Arc-enabled Kubernetes extension from the Insights page of your cluster, it enables logs collection into Log Analytics and Prometheus metrics collection into managed service for Prometheus. For more information, see [Data sources](#data-sources).
 
+### How can I monitor the service limits and quota?
+
+Azure Monitor Managed service for Prometheus has default limits and quotas for ingestion. For information on Prometheus metrics limits, see [Azure Monitor service limits](../service-limits.md#prometheus-metrics). When you reach the ingestion limits throttling can occur. In order to avoid throttling, you can monitor and set up an alert on Azure Monitor Workspace ingestion limits.
+
+1. In the Azure portal, navigate to your Azure Monitor Workspace, click on **Metrics** under the **Monitoring** section.
+2. Select the Azure Monitor Workspace as scope, and in the drop-down for Metric, select *"View standard metrics with the builder"*.
+3. In the drop-down for Metric, select **Active Time Series % Utilization** and **Events Per Minute Ingested % Utilization** and verify that they are below 100%.
+
+:::image type="content" source="media/azure-monitor-workspace-overview/azure-monitor-workspace-limits-metrics.png" alt-text="Screenshot that shows how to create an alert rule for Azure Monitor Workspace ingestion limits." lightbox="media/azure-monitor-workspace-overview/azure-monitor-workspace-limits-metrics.png":::
+
+4. You can set an Azure Alert to monitor the utilization and fire an alert when the utilization is greater than a certain threshold (eg. 80% of the limit). Click on "**New alert rule**" to create an Azure alert for the same.
+
+:::image type="content" source="media/azure-monitor-workspace-overview/alert-azure-monitor-workspace.png" alt-text="Screenshot that shows how to create an alert for Azure Monitor Workspace limits." lightbox="media/azure-monitor-workspace-overview/alert-azure-monitor-workspace.png":::
+
+If the alert is fired i.e. the ingestion utilization is more than the threshold, you can request an increase in these limits by creating a support ticket.
+
+1. In the Azure portal, navigate to your Azure Monitor Workspace, click on **Support + Troubleshooting**.
+2. Type the issue eg. "Service and subscription limits (quotas)", then select **Service and subscription limits (quotas)** and click "Next".
+
+:::image type="content" source="media/azure-monitor-workspace-overview/azure-monitor-workspace-support-ticket.png" alt-text="Screenshot that shows how to create a support ticket for limit increase." lightbox="media/azure-monitor-workspace-overview/azure-monitor-workspace-support-ticket.png":::
+
+3. In the next screen, select your subscription and then select **Managed Prometheus** as the **Quota type**.
+4. Provide additional details to create the support ticket.
 
 
 ## Next steps

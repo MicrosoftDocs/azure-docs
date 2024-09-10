@@ -15,7 +15,11 @@ items:
   - name: Manage Elastic resource
     href: manage.md
   - name: Troubleshoot
-    href: troubleshoot.md
+    items:
+    - name: Get support
+      href: get-support.md
+    - name: Fix common errors
+      href: troubleshoot.md
 - name: Reference
   items:
   - name: Azure CLI

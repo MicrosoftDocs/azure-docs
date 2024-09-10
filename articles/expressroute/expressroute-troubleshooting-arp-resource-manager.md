@@ -3,7 +3,7 @@ title: 'Azure ExpressRoute: ARP tables - Troubleshooting'
 description: This page provides instructions on getting the Address Resolution Protocol (ARP) tables for an ExpressRoute circuit
 services: expressroute
 author: duongau
-ms.service: expressroute
+ms.service: azure-expressroute
 ms.custom:
 ms.topic: troubleshooting
 ms.date: 06/30/2023
@@ -22,7 +22,7 @@ This article walks you through the steps to learn the ARP tables for your Expres
 > This document is intended to help you diagnose and fix simple issues. It is not intended to be a replacement for Microsoft support. You must open a support ticket with [Microsoft support](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) if you are unable to solve the problem using the guidance described in this article.
 > 
 
-[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/hybrid-az-ps.md)]
+[!INCLUDE [updated-for-az](../../includes/hybrid-az-ps.md)]
 
 ## Address Resolution Protocol (ARP) and ARP tables
 

@@ -3,7 +3,7 @@ title: Monitor Azure Firewall logs and metrics
 description: In this article, you learn how to enable and manage Azure Firewall logs and metrics.
 services: firewall
 author: vhorne
-ms.service: firewall
+ms.service: azure-firewall
 ms.custom: devx-track-azurecli
 ms.topic: how-to
 ms.date: 06/07/2023

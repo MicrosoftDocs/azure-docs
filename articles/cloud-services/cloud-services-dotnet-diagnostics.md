@@ -2,8 +2,8 @@
 title: How to use Azure diagnostics (.NET) with Cloud Services (classic) | Microsoft Docs
 description: Using Azure diagnostics to gather data from Azure cloud Services for debugging, measuring performance, monitoring, traffic analysis, and more.
 ms.topic: article
-ms.service: cloud-services
-ms.date: 02/21/2023
+ms.service: azure-cloud-services-classic
+ms.date: 07/23/2024
 author: hirenshah1
 ms.author: hirshah
 ms.reviewer: mimckitt
@@ -16,21 +16,21 @@ ms.custom: compute-evergreen, devx-track-dotnet
 See [Azure Diagnostics Overview](../azure-monitor/agents/diagnostics-extension-overview.md) for a background on Azure Diagnostics.
 
 ## How to Enable Diagnostics in a Worker Role
-This walkthrough describes how to implement an Azure worker role that emits telemetry data using the .NET EventSource class. Azure Diagnostics is used to collect the telemetry data and store it in an Azure storage account. When creating a worker role, Visual Studio automatically enables Diagnostics 1.0 as part of the solution in Azure SDKs for .NET 2.4 and earlier. The following instructions describe the process for creating the worker role, disabling Diagnostics 1.0 from the solution, and deploying Diagnostics 1.2 or 1.3 to your worker role.
+This walkthrough describes how to implement an Azure worker role that emits telemetry data using the .NET EventSource class. Azure Diagnostics is used to collect the telemetry data and store it in an Azure storage account. When you create a worker role, Visual Studio automatically enables Diagnostics 1.0 as part of the solution in Azure Software Development Kits (SDKs) for .NET 2.4 and earlier. The following instructions describe the process for creating the worker role, disabling Diagnostics 1.0 from the solution, and deploying Diagnostics 1.2 or 1.3 to your worker role.
 
 ### Prerequisites
-This article assumes you have an Azure subscription and are using Visual Studio with the Azure SDK. If you do not have an Azure subscription, you can sign up for the [Free Trial][Free Trial]. Make sure to [Install and configure Azure PowerShell version 0.8.7 or later][Install and configure Azure PowerShell version 0.8.7 or later].
+This article assumes you have an Azure subscription and are using Visual Studio with the Azure SDK. If you don't have an Azure subscription, you can sign up for the [Free Trial][Free Trial]. Make sure to [Install and configure Azure PowerShell version 0.8.7 or later][Install and configure Azure PowerShell version 0.8.7 or later].
 
 ### Step 1: Create a Worker Role
 1. Launch **Visual Studio**.
-2. Create an **Azure Cloud Service** project from the **Cloud** template that targets .NET Framework 4.5.  Name the project "WadExample" and click Ok.
-3. Select **Worker Role** and click Ok. The project will be created.
+2. Create an **Azure Cloud Service** project from the **Cloud** template that targets .NET Framework 4.5.  Name the project "WadExample" and select Ok.
+3. Select **Worker Role** and select Ok. The project is created.
 4. In **Solution Explorer**, double-click the **WorkerRole1** properties file.
-5. In the **Configuration** tab, un-check **Enable Diagnostics** to disable Diagnostics 1.0 (Azure SDK 2.4 and earlier).
+5. In the **Configuration** tab, uncheck **Enable Diagnostics** to disable Diagnostics 1.0 (Azure SDK 2.4 and earlier).
 6. Build your solution to verify that you have no errors.
 
 ### Step 2: Instrument your code
-Replace the contents of WorkerRole.cs with the following code. The class SampleEventSourceWriter, inherited from the [EventSource Class][EventSource Class], implements four logging methods: **SendEnums**, **MessageMethod**, **SetOther** and **HighFreq**. The first parameter to the **WriteEvent** method defines the ID for the respective event. The Run method implements an infinite loop that calls each of the logging methods implemented in the **SampleEventSourceWriter** class every 10 seconds.
+Replace the contents of WorkerRole.cs with the following code. The class SampleEventSourceWriter, inherited from the [EventSource Class][EventSource Class], implements four logging methods: **SendEnums**, **MessageMethod**, **SetOther**, and **HighFreq**. The first parameter to the **WriteEvent** method defines the ID for the respective event. The Run method implements an infinite loop that calls each of the logging methods implemented in the **SampleEventSourceWriter** class every 10 seconds.
 
 ```csharp
 using Microsoft.WindowsAzure.ServiceRuntime;
@@ -122,8 +122,8 @@ namespace WorkerRole1
 3. In the **Microsoft Azure Publish Settings** dialog, select **Create New…**.
 4. In the **Create Cloud Service and Storage Account** dialog, enter a **Name** (for example, "WadExample") and select a region or affinity group.
 5. Set the **Environment** to **Staging**.
-6. Modify any other **Settings** as appropriate and click **Publish**.
-7. After deployment has completed, verify in the Azure portal that your cloud service is in a **Running** state.
+6. Modify any other **Settings** as appropriate and select **Publish**.
+7. After the deployment completes, verify in the Azure portal that your cloud service is in a **Running** state.
 
 ### Step 4: Create your Diagnostics configuration file and install the extension
 1. Download the public configuration file schema definition by executing the following PowerShell command:
@@ -131,10 +131,10 @@ namespace WorkerRole1
     ```powershell
     (Get-AzureServiceAvailableExtension -ExtensionName 'PaaSDiagnostics' -ProviderNamespace 'Microsoft.Azure.Diagnostics').PublicConfigurationSchema | Out-File -Encoding utf8 -FilePath 'WadConfig.xsd'
     ```
-2. Add an XML file to your **WorkerRole1** project by right-clicking on the **WorkerRole1** project and select **Add** -> **New Item…** -> **Visual C# items** -> **Data** -> **XML File**. Name the file "WadExample.xml".
+2. Add an XML file to your **WorkerRole1** project by right-clicking on the **WorkerRole1** project and select **Add** -> **New Item…** -> **Visual C# items** -> **Data** -> **XML File**. Name the file `WadExample.xml`.
 
    ![CloudServices_diag_add_xml](./media/cloud-services-dotnet-diagnostics/AddXmlFile.png)
-3. Associate the WadConfig.xsd with the configuration file. Make sure the WadExample.xml editor window is the active window. Press **F4** to open the **Properties** window. Click the **Schemas** property in the **Properties** window. Click the **…** in the **Schemas** property. Click the **Add…** button and navigate to the location where you saved the XSD file and select the file WadConfig.xsd. Click **OK**.
+3. Associate the WadConfig.xsd with the configuration file. Make sure the WadExample.xml editor window is the active window. Press **F4** to open the **Properties** window. Select the **Schemas** property in the **Properties** window. Select the **…** in the **Schemas** property. Select the **Add…** button and navigate to the location where you saved the .xsd file and select the file WadConfig.xsd. Select **OK**.
 
 4. Replace the contents of the WadExample.xml configuration file with the following XML and save the file. This configuration file defines a couple performance counters to collect: one for CPU utilization and one for memory utilization. Then the configuration defines the four events corresponding to the methods in the SampleEventSourceWriter class.
 
@@ -177,7 +177,7 @@ Set-AzureServiceDiagnosticsExtension -StorageContext $storageContext -Diagnostic
 ```
 
 ### Step 6: Look at your telemetry data
-In the Visual Studio **Server Explorer**, navigate to the wadexample storage account. After the cloud service has been running about five (5) minutes, you should see the tables **WADEnumsTable**, **WADHighFreqTable**, **WADMessageTable**, **WADPerformanceCountersTable** and **WADSetOtherTable**. Double-click one of the tables to view the telemetry that has been collected.
+In the Visual Studio **Server Explorer**, navigate to the wadexample storage account. After the cloud service has been running about five (5) minutes, you should see the tables **WADEnumsTable**, **WADHighFreqTable**, **WADMessageTable**, **WADPerformanceCountersTable**, and **WADSetOtherTable**. Double-click one of the tables to view the collected telemetry.
 
 ![CloudServices_diag_tables](./media/cloud-services-dotnet-diagnostics/WadExampleTables.png)
 
@@ -188,7 +188,7 @@ The Diagnostics configuration file defines values that are used to initialize di
 If you have trouble, see [Troubleshooting Azure Diagnostics](../azure-monitor/agents/diagnostics-extension-troubleshooting.md) for help with common problems.
 
 ## Next Steps
-[See a list of related Azure virtual-machine diagnostic articles](../azure-monitor/agents/diagnostics-extension-overview.md) to change the data you are collecting, troubleshoot problems or learn more about diagnostics in general.
+[See a list of related Azure virtual-machine diagnostic articles](../azure-monitor/agents/diagnostics-extension-overview.md) to change the data you collect, troubleshoot problems, or learn more about diagnostics in general.
 
 [EventSource Class]: /dotnet/api/system.diagnostics.tracing.eventsource
 

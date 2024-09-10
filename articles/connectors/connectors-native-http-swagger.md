@@ -10,7 +10,7 @@ ms.date: 12/13/2023
 
 # Connect or call REST API endpoints from workflows in Azure Logic Apps
 
-[!INCLUDE [logic-apps-sku-consumption-standard](~/reusable-content/ce-skilling/azure/includes/logic-apps-sku-consumption-standard.md)]
+[!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
 To call a REST API endpoint from a logic app workflow in Azure Logic Apps, you can use the built-in **HTTP + Swagger** operations to call any REST API endpoint through a [Swagger file](https://swagger.io). The **HTTP + Swagger** trigger and action work the same as the [HTTP trigger and action](connectors-native-http.md) but provide a better experience in the workflow designer by exposing the API structure and outputs described by the Swagger file. To implement a polling trigger, follow the polling pattern that's described in [Create custom APIs to call other APIs, services, and systems from logic app workflows](../logic-apps/logic-apps-create-api-app.md#polling-triggers).
 
@@ -32,7 +32,7 @@ The **HTTP + Swagger** built-in operations currently support only OpenAPI 2.0, n
 
   * The Swagger file must have [Cross-Origin Resource Sharing (CORS)](/rest/api/storageservices/cross-origin-resource-sharing--cors--support-for-the-azure-storage-services) enabled.
 
-  The examples in this guide use [Azure AI Face](../ai-services/computer-vision/overview-identity.md), which requires an [Azure AI services resource key and region](../ai-services/multi-service-resource.md?pivots=azportal).
+  The examples in this guide use [Azure AI Face](/azure/ai-services/computer-vision/overview-identity), which requires an [Azure AI services resource key and region](/azure/ai-services/multi-service-resource?pivots=azportal).
 
   > [!NOTE]
   >

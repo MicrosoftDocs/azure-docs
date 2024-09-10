@@ -2,7 +2,7 @@
 title: Develop with ASP.NET - Azure SignalR Service
 description: A quickstart for using Azure SignalR Service to create a chat room with ASP.NET framework.
 author: vicancy
-ms.service: signalr
+ms.service: azure-signalr-service
 ms.devlang: csharp
 ms.topic: quickstart
 ms.custom: devx-track-csharp, mode-other, devx-track-dotnet

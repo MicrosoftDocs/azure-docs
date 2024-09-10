@@ -4,7 +4,7 @@ description: Learn how to configure a custom IPsec policy for Azure Virtual WAN 
 services: virtual-wan
 author: cherylmc
 
-ms.service: virtual-wan
+ms.service: azure-virtual-wan
 ms.topic: how-to
 ms.date: 02/02/2023
 ms.author: cherylmc

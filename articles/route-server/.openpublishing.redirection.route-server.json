@@ -1,6 +1,11 @@
 {
     "redirections": [
         {
+            "source_path_from_root": "/articles/route-server/tutorial-configure-route-server-with-quagga.md",
+            "redirect_url": "/azure/route-server/peer-route-server-with-virtual-appliance",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/route-server/vmware-solution-default-route.md",
             "redirect_url": "/azure/azure-vmware/concepts-network-design-considerations",
             "redirect_document_id": false

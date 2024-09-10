@@ -3,8 +3,8 @@ title: Frequently asked questions about Azure Virtual Network Manager
 description: Find answers to frequently asked questions about Azure Virtual Network Manager.
 services: virtual-network-manager
 author: mbender-ms
-ms.service: virtual-network-manager
-ms.topic: article
+ms.service: azure-virtual-network-manager
+ms.topic: faq
 ms.date: 01/30/2024
 ms.author: mbender
 ms.custom:

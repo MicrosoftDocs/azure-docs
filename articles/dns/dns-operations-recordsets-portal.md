@@ -3,9 +3,9 @@ title: Manage DNS record sets and records with Azure DNS
 description: Azure DNS provides the capability to manage DNS record sets and records when hosting your domain.
 services: dns
 author: greg-lindsay
-ms.service: dns
+ms.service: azure-dns
 ms.topic: how-to
-ms.date: 06/07/2024
+ms.date: 06/27/2024
 ms.author: greglin
 ---
 
@@ -25,7 +25,7 @@ To create a record set in the Azure portal, see [Create an Azure DNS zone and re
 
 2. Select your DNS zone and then select **Recordsets**. The current record sets are displayed.
 
-   ![A screenshot of DNS zone record sets.](./media/dns-operations-recordsets-portal/recordsets.png)
+   [ ![A screenshot of DNS zone record sets.](./media/dns-operations-recordsets-portal/recordsets.png) ](./media/dns-operations-recordsets-portal/recordsets.png)
 
 ## Add a new record to a record set
 
@@ -37,7 +37,7 @@ You can add up to 20 records to any record set. A record set may not contain two
 
 2. Specify the record set properties by filling in the fields.
 
-   ![A screenshot of adding records to a recordset.](./media/dns-operations-recordsets-portal/record-page.png)
+   [ ![A screenshot of adding records to a recordset.](./media/dns-operations-recordsets-portal/record-page.png) ](./media/dns-operations-recordsets-portal/record-page.png)
 
 3. Select **Apply** at the bottom of the page to save your settings.
 
@@ -68,9 +68,12 @@ You can use the Azure portal to remove records from a record set. Removing the l
 2. A message appears asking if you want to delete the record set.
 3. Verify that the name matches the record set that you want to delete, and then select **Yes**.
 
-   ![A screenshot of adding new records to a recordset.](./media/dns-operations-recordsets-portal/delete-record-set.png)
+   [ ![A screenshot of deleting a recordset.](./media/dns-operations-recordsets-portal/delete-record-set.png) ](./media/dns-operations-recordsets-portal/delete-record-set.png)
 
 4. On the **DNS zone** page, verify that the record set is no longer visible.
+
+> [!NOTE]
+> If an IP address associated with a recrodset is [locked](/azure/azure-resource-manager/management/lock-resources) you must remove the lock prior to deleting the recordset.
 
 ## Work with NS and SOA records
 

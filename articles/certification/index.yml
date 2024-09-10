@@ -6,11 +6,11 @@ summary: Edge Secured-core is a security certification for devices running a ful
 metadata:
   title: Edge Secured-core program
   description: Edge Secured-core is a security certification for devices running a full operating system. 
-  ms.service: certification
+  ms.service: azure-certified-device
   ms.topic: landing-page
-  author: dimatokar
-  ms.author: dimatokar
-  ms.date: 01/29/2024
+  author: sufenfong
+  ms.author: sufon
+  ms.date: 08/07/2024
 
 landingContent:
   - title: Edge Secured-core
@@ -25,3 +25,5 @@ landingContent:
         url: ./edge-secured-core-get-certified.md       
       - text: List of certified devices
         url: ./edge-secured-core-devices.md
+      - text: Validate Edge Secured-core device
+        url: ./validate-device-edge-secured-core.md

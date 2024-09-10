@@ -2,11 +2,12 @@
 title: Migrate Log Analytics workspaces to availability zone support 
 description: Learn how to migrate Log Analytics workspaces to availability zone support.
 author: anaharris-ms
-ms.service: azure-migrate
+ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 05/19/2024
 ms.author: noakuper
 ms.custom: references_regions, subject-reliability
+ms.subservice: logs
 ---
 
 # Migrate Log Analytics workspaces to availability zone support
@@ -17,13 +18,9 @@ This guide describes how to migrate Log Analytics workspaces from non-availabili
 > Application Insights resources can also use availability zones, but only if they are workspace-based and the workspace uses a dedicated cluster. Classic (non-workspace-based) Application Insights resources cannot use availability zones.
 
 
-## Dedicated clusters
+## Prerequisites
 
-Dedicated clusters are a deployment option that enables advanced capabilities for Azure Monitor Logs including availability zones.
-
-In some regions, Azure Monitor support for availability zones requires a Log Analytics workspace linked to an Azure Monitor dedicated cluster, while others also support data resiliency for the shared clusters.  To see which regions support data resiliency for the shared clusters, see [Supported regions](../azure-monitor/logs/availability-zones.md#supported-regions). 
-
-Not all dedicated clusters can use availability zones. Dedicated clusters created after mid-October 2020 can be set to support availability zones when they are created. New clusters created after that date default to be enabled for availability zones in regions where Azure Monitor supports them.
+Make sure that the region to which you wish to move is a region that supports availability zones. To see which regions support availability zones, see [supported regions](/azure/azure-monitor/logs/availability-zones#supported-regions).
 
 ## Downtime requirements
 

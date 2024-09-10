@@ -2,7 +2,7 @@
 title: Enable Automanage for virtual machines through Azure Policy
 description: Learn how to enable Azure Automanage for VMs through a built-in Azure Policy in the Azure portal.
 author: ju-shim
-ms.service: automanage
+ms.service: azure-automanage
 ms.topic: how-to
 ms.date: 12/10/2021
 ms.author: jushiman
@@ -10,6 +10,9 @@ ms.author: jushiman
 
 
 # Enable Automanage for virtual machines through Azure Policy
+
+> [!CAUTION]
+> On 31 August 2024, both Automation Update Management and the Log Analytics agent it uses will be retired. Migrate to Azure Update Manager before that. Refer to guidance on migrating to Azure Update Manager [here](https://learn.microsoft.com/azure/update-manager/guidance-migration-automation-update-management-azure-update-manager?WT.mc_id=Portal-Microsoft_Azure_Automation). [Migrate Now](https://ms.portal.azure.com/).
 
 If you want to enable Automanage for lots of VMs, you can do that using a built-in [Azure Policy](..\governance\azure-management.md). This article will walk you through finding the right policy and how to assign it in order to enable Automanage in the Azure portal.
 

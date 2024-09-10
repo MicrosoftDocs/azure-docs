@@ -4,7 +4,7 @@ description: Describes how to set up disaster recovery for Azure VMs using Azure
 services: site-recovery
 author: ankitaduttaMSFT
 manager: rochakm
-ms.service: site-recovery
+ms.service: azure-site-recovery
 ms.topic: conceptual
 ms.date: 12/14/2023
 ms.author: ankitadutta
@@ -17,7 +17,7 @@ This article describes how to integrate Azure ExpressRoute with [Azure Site Reco
 
 Site Recovery enables disaster recovery of Azure VMs by replicating Azure VM data to Azure.
 
-- If Azure VMs use [Azure managed disks](../virtual-machines/managed-disks-overview.md), VM data is replicated to a replicated managed disk in the secondary region.
+- If Azure VMs use [Azure managed disks](/azure/virtual-machines/managed-disks-overview), VM data is replicated to a replicated managed disk in the secondary region.
 - If Azure VMs don't use managed disks, VM data is replicated to an Azure storage account.
 - Replication endpoints are public, but replication traffic for Azure VMs doesn't cross the internet.
 

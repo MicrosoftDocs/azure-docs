@@ -2,7 +2,7 @@
 title:  How to do custom search in FHIR service 
 description: This article describes how you can define your own custom search parameters to be used in the database. 
 author: expekesheth
-ms.service: healthcare-apis
+ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.topic: reference
 ms.date: 08/22/2022

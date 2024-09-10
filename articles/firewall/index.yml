@@ -6,7 +6,7 @@ summary: Learn how to deploy Azure Firewall, a cloud-based network security serv
 metadata:
   title: Azure Firewall documentation
   description: Learn how to deploy Azure Firewall, a cloud-based network security service.
-  ms.service: firewall
+  ms.service: azure-firewall
   ms.topic: landing-page
   author: vhorne
   ms.author: victorh

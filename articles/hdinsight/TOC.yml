@@ -83,13 +83,13 @@ items:
           href: ./hdinsight-high-availability-case-study.md
     - name: Understand managed identities
       href: ./hdinsight-managed-identities.md
+    - name: MSI Support to access Azure services
+      href: ./msi-support-to-access-azure-services.md
     - name: Compare storage options
       href: hdinsight-hadoop-compare-storage-options.md
       items:
       - name: Azure Storage overview 
         href: overview-azure-storage.md
-      - name: Azure Data Lake Storage Gen1 overview 
-        href: overview-data-lake-storage-gen1.md
       - name: Azure Data Lake Storage Gen2 overview 
         href: overview-data-lake-storage-gen2.md
   - name: How-to guides
@@ -127,8 +127,6 @@ items:
         href: hdinsight-hadoop-use-data-lake-storage-gen2-portal.md
       - name: Use Data Lake Storage Gen2 with Azure CLI
         href: hdinsight-hadoop-use-data-lake-storage-gen2-azure-cli.md
-      - name: Use Data Lake Storage Gen1
-        href: hdinsight-hadoop-use-data-lake-storage-gen1.md
     - name: Extend clusters
       items:
       - name: Install HDInsight apps
@@ -167,18 +165,54 @@ items:
         href: hdinsight-authorize-users-to-ambari.md
     - name: Migrate
       items:
-      - name: Motivation and benefits
-        href: ./hadoop/apache-hadoop-on-premises-migration-motivation.md
-      - name: Best practices - architecture
-        href: ./hadoop/apache-hadoop-on-premises-migration-best-practices-architecture.md
-      - name: Best practices - infrastructure
-        href: ./hadoop/apache-hadoop-on-premises-migration-best-practices-infrastructure.md
-      - name: Best practices - storage
-        href: ./hadoop/apache-hadoop-on-premises-migration-best-practices-storage.md
-      - name: Best practices - data migration
-        href: ./hadoop/apache-hadoop-on-premises-migration-best-practices-data-migration.md
-      - name: Best practices - security and DevOps
-        href: ./hadoop/apache-hadoop-on-premises-migration-best-practices-security-devops.md
+      - name: Migrate .NET to Linux
+        href: ./hdinsight-hadoop-migrate-dotnet-to-linux.md
+      - name: Migrate to granular role-based access for cluster configurations
+        href: ./hdinsight-migrate-granular-access-cluster-configurations.md
+      - name: Ambari user configs migration
+        href: ./migrate-ambari-recent-version-hdinsight.md  
+      - name: Hadoop
+        items:
+        - name: Motivation and benefits
+          href: ./hadoop/apache-hadoop-on-premises-migration-motivation.md
+        - name: Best practices - architecture
+          href: ./hadoop/apache-hadoop-on-premises-migration-best-practices-architecture.md
+        - name: Best practices - infrastructure
+          href: ./hadoop/apache-hadoop-on-premises-migration-best-practices-infrastructure.md
+        - name: Best practices - storage
+          href: ./hadoop/apache-hadoop-on-premises-migration-best-practices-storage.md
+        - name: Best practices - data migration
+          href: ./hadoop/apache-hadoop-on-premises-migration-best-practices-data-migration.md
+        - name: Best practices - security and DevOps
+          href: ./hadoop/apache-hadoop-on-premises-migration-best-practices-security-devops.md
+      - name: Kafka
+        items:
+        - name: Migrate Apache Kafka workloads to Azure HDInsight 5.1
+          href: ./kafka/migrate-5-1-versions.md
+        - name: Migrate Kafka workloads to 4.0
+          href: ./kafka/migrate-versions.md
+      - name: HBase
+        items:
+        - name: Migrate Apache HBase cluster to newer version
+          href: ./hbase/apache-hbase-migrate-new-version.md
+        - name: Migrate an Apache HBase cluster to an HDInsight 5.1
+          href: ./hbase/apache-hbase-migrate-hdinsight-5-1.md
+        - name: Migrate Apache HBase version and storage account
+          href: ./hbase/apache-hbase-migrate-new-version-new-storage-account.md
+        - name: Migrate Apache HBase to an HDInsight 5.1 and new storage account
+          href: ./hbase/apache-hbase-migrate-hdinsight-5-1-new-storage-account.md
+      - name: Interactive Query
+        items:
+        - name: Migrate default Hive metastore to external metastore on Azure HDInsight
+          href: ./interactive-query/hive-default-metastore-export-import.md
+        - name: Migrate Hive workloads to HDInsight 4.0
+          href: ./interactive-query/apache-hive-migrate-workloads.md
+        - name: Copy Hive tables across Storage Accounts
+          href: ./interactive-query/hive-migration-across-storage-accounts.md 
+        - name: HDInsight 3.6 to 4.0 troubleshoot guide - Hive
+          href: ./interactive-query/interactive-query-troubleshoot-migrate-36-to-40.md
+        - name: Significant version changes in HDInsight 4.0 and advantages
+          href: ./benefits-of-migrating-to-hdinsight-40.md    
     - name: Manage
       items:
       - name: Manage clusters using the Apache Ambari web UI
@@ -225,8 +259,6 @@ items:
         href: ./hdinsight-upload-data.md
       - name: Multiple HDInsight clusters with Data Lake Storage
         href: ./hdinsight-multiple-clusters-data-lake-store.md
-      - name: Migrate .NET to Linux
-        href: ./hdinsight-hadoop-migrate-dotnet-to-linux.md
       - name: Import and export data with Apache Sqoop
         items:
         - name: Overview - using Apache Sqoop
@@ -259,12 +291,22 @@ items:
         href: ./hdinsight-config-for-vscode.md
     - name: Monitoring
       items:
-      - name: Monitor
+      - name: Monitor Azure HDInsight
         href: monitor-hdinsight.md
-      - name: Use Azure Monitor logs
-        href: ./hdinsight-hadoop-oms-log-analytics-tutorial.md
-      - name: Use selective logging to monitor logs
-        href: ./selective-logging-analysis.md
+      - name: Use Azure Monitor logs  
+        items:
+        - name: New Azure Monitor experience Migration
+          href: ./hdinsight-hadoop-oms-log-analytics-tutorial.md
+        - name: Selective Logging
+          href: ./selective-logging-analysis-azure-logs.md
+        - name: Enable new Azure Monitor integration
+          href: ./log-analytics-migration.md  
+      - name: Use Azure Monitor Agent  
+        items:    
+        - name: Azure Monitor Agent Migration
+          href: ./azure-monitor-agent.md
+        - name: Selective Logging
+          href: ./selective-logging-analysis.md
       - name: Use queries with Azure Monitor logs
         href: ./hdinsight-hadoop-oms-log-analytics-use-queries.md
       - name: Monitor cluster performance
@@ -273,8 +315,6 @@ items:
         href: ./hdinsight-cluster-availability.md
       - name: Cluster availability - Azure Monitor logs
         href: ./cluster-availability-monitor-logs.md
-      - name: Enable new Azure Monitor integration
-        href: ./log-analytics-migration.md
       - name: Monitoring data reference
         href: monitor-hdinsight-reference.md
     - name: Troubleshoot
@@ -341,8 +381,6 @@ items:
         href: ./hdinsight-release-notes-archive.md 
     - name: Frequently asked questions (FAQ)
       href: ./hdinsight-faq.yml
-    - name: Migrate to granular role-based access for cluster configurations
-      href: ./hdinsight-migrate-granular-access-cluster-configurations.md
     - name: Information about using HDInsight on Linux
       href: ./hdinsight-hadoop-linux-information.md
     - name: Apache Hadoop memory and performance
@@ -481,8 +519,6 @@ items:
           href: ./spark/apache-spark-zeppelin-notebook.md
       - name: Use with other Azure services
         items: 
-        - name: Use with Data Lake Storage
-          href: ./spark/apache-spark-use-with-data-lake-store.md
         - name: Connect to Azure SQL Database
           href: ./spark/apache-spark-connect-to-sql-database.md
         - name: Run Azure ML workloads with AutoML
@@ -651,8 +687,6 @@ items:
         href: ./hadoop/troubleshoot-wasbs-storage-exception.md
       - name: Manage disk space
         href: ./hadoop/troubleshoot-disk-space.md
-      - name: Ambari user configs migration
-        href: ./migrate-ambari-recent-version-hdinsight.md  
 - name: Apache Kafka
   items:
   - name: Overview
@@ -685,10 +719,6 @@ items:
       href: ./kafka/connect-kafka-cluster-with-vm-in-different-vnet.md         
   - name: Concepts
     items:
-    - name: Migrate Apache Kafka workloads to Azure HDInsight 5.1
-      href: ./kafka/migrate-5-1-versions.md
-    - name: Migrate Kafka workloads to 4.0
-      href: ./kafka/migrate-versions.md
     - name: Storage and scalability
       href: ./kafka/apache-kafka-scalability.md
     - name: High availability of data
@@ -791,14 +821,6 @@ items:
         href: ./hbase/apache-hbase-replication.md
       - name: Set up backup and replication for Apache HBase and Apache Phoenix
         href: ./hbase/apache-hbase-backup-replication.md
-      - name: Migrate Apache HBase cluster to newer version
-        href: ./hbase/apache-hbase-migrate-new-version.md
-      - name: Migrate an Apache HBase cluster to an HDInsight 5.1
-        href: ./hbase/apache-hbase-migrate-hdinsight-5-1.md
-      - name: Migrate Apache HBase version and storage account
-        href: ./hbase/apache-hbase-migrate-new-version-new-storage-account.md
-      - name: Migrate Apache HBase to an HDInsight 5.1 and new storage account
-        href: ./hbase/apache-hbase-migrate-hdinsight-5-1-new-storage-account.md
       - name: Apache Phoenix performance best practices
         href: ./hbase/apache-hbase-phoenix-performance.md
       - name: Create Apache HBase cluster in Azure VNet
@@ -909,14 +931,6 @@ items:
         href: ./interactive-query/hive-workload-management.md
     - name: Manage
       items:
-      - name: Significant version changes in HDInsight 4.0 and advantages
-        href: ./benefits-of-migrating-to-hdinsight-40.md
-      - name: Copy Hive tables across Storage Accounts
-        href: ./interactive-query/hive-migration-across-storage-accounts.md
-      - name: Migrate default Hive metastore to external metastore on Azure HDInsight
-        href: ./interactive-query/hive-default-metastore-export-import.md
-      - name: Migrate Hive workloads to HDInsight 4.0
-        href: ./interactive-query/apache-hive-migrate-workloads.md
       - name: Optimize Apache Hive queries
         href: ./hdinsight-hadoop-optimize-hive-query.md
     - name: Troubleshoot
@@ -955,8 +969,6 @@ items:
         href: ./interactive-query/hdinsight-security-options-for-hive.md
       - name: Apache Hive LLAP Workload Management
         href: ./interactive-query/troubleshoot-workload-management-issues.md
-      - name: HDInsight 3.6 to 4.0 troubleshoot guide - Hive
-        href: ./interactive-query/interactive-query-troubleshoot-migrate-36-to-40.md
   - name: Reference
     items:
     - name: Hive LLAP Workload Management commands

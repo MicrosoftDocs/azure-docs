@@ -167,6 +167,8 @@ items:
        href: premium-deploy.md
      - name: Deploy Enterprise CA Certificates for Premium
        href: premium-deploy-certificates-enterprise-ca.md
+     - name: Use Azure Policy
+       href: firewall-azure-policy.md
   - name: Protect
     items:
     - name: Protect Azure Virtual Desktop
@@ -183,6 +185,10 @@ items:
       href: premium-migrate.md
     - name: Migrate to Premium using Terraform
       href: /azure/developer/terraform/firewall-upgrade-premium?toc=/azure/firewall/toc.json&bc=/azure/firewall/breadcrumb/toc.json
+  - name: Relocate
+    items:
+    - name: Relocate to another region
+      href: ../operational-excellence/relocation-firewall.md?toc=/azure/firewall/toc.json&bc=/azure/firewall/breadcrumb/toc.json
   - name: Monitor
     items:
     - name: Monitor diagnostic logs

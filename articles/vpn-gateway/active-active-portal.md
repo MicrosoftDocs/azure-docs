@@ -3,7 +3,7 @@ title: 'Configure active-active VPN gateways: Azure portal'
 titleSuffix: Azure VPN Gateway
 description: Learn how to configure active-active virtual network gateways using the Azure portal.
 author: cherylmc
-ms.service: vpn-gateway
+ms.service: azure-vpn-gateway
 ms.topic: how-to
 ms.date: 04/17/2024
 ms.author: cherylmc
@@ -63,7 +63,7 @@ Create a virtual network gateway using the following values:
 
 You can see the deployment status on the Overview page for your gateway. After the gateway is created, you can view the IP address that has been assigned to it by looking at the virtual network in the portal. The gateway appears as a connected device.
 
-[!INCLUDE [NSG warning](~/reusable-content/ce-skilling/azure/includes/vpn-gateway-no-nsg-include.md)]
+[!INCLUDE [NSG warning](../../includes/vpn-gateway-no-nsg-include.md)]
 
 ## <a name ="update"></a> Update an existing VPN gateway
 

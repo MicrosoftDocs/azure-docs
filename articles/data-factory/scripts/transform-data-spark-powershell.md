@@ -4,8 +4,6 @@ description: "This PowerShell script transforms data in the cloud by running Spa
 author: dcstwh
 ms.author: weetok
 ms.reviewer: jburchel
-ms.service: data-factory
-ms.subservice: tutorials
 ms.topic: conceptual
 ms.custom: devx-track-azurepowershell
 ms.date: 01/05/2024
@@ -17,7 +15,7 @@ This sample PowerShell script creates a pipeline that transforms data in the clo
 
 [!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
-[!INCLUDE [sample-powershell-install](~/reusable-content/ce-skilling/azure/includes/sample-powershell-install-no-ssh-az.md)]
+[!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh-az.md)]
 
 ## Prerequisites
 * **Azure Storage account**. Create a Python script and an input file, and upload them to the Azure storage. The output from the spark program is stored in this storage account. The on-demand Spark cluster uses the same storage account as its primary storage.  

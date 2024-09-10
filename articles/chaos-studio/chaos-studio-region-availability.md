@@ -4,9 +4,9 @@ description: Understand how Azure Chaos Studio makes chaos experiments and chaos
 author: prasha-microsoft 
 ms.author: abbyweisberg
 ms.reviewer: prashabora
-ms.service: chaos-studio
+ms.service: azure-chaos-studio
 ms.topic: conceptual
-ms.date: 4/29/2022
+ms.date: 09/05/2024
 ms.custom: template-concept
 ---
 

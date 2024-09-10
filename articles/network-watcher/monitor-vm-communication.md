@@ -4,7 +4,7 @@ titleSuffix: Azure Network Watcher
 description: In this tutorial, learn how to monitor network communication between two Azure virtual machines with Azure Network Watcher's connection monitor capability.
 author: halkazwini
 ms.author: halkazwini
-ms.service: network-watcher
+ms.service: azure-network-watcher
 ms.topic: tutorial
 ms.date: 09/29/2023
 
@@ -68,7 +68,7 @@ In this section, you create two virtual machines: **myVM1** and **myVM2** to tes
 
 ### Create the first virtual machine
 
-1. In the search box at the top of the portal, enter *virtual machine*. Select **Virtual machines** in the search results.
+1. In the search box at the top of the portal, enter *virtual machine*. Select **Virtual machines** from the search results.
 
 1. In **Virtual machines**, select **+ Create** then **+ Azure virtual machine**.
 
@@ -197,7 +197,7 @@ In this section, you view all the details of the connection monitor that you cre
 
 The connection monitor you created in the previous section monitors the connection between **myVM1** and port 22 on **myVM2**. If the connection fails for any reason, connection monitor detects and logs the failure. In this section, you simulate a problem by stopping **myVM2**.
 
-1. In the search box at the top of the portal, enter *virtual machine*. Select **Virtual machines** in the search results.
+1. In the search box at the top of the portal, enter *virtual machine*. Select **Virtual machines** from the search results.
 
 1. In **Virtual machines**, select **myVM2**.
 

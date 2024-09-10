@@ -3,8 +3,8 @@ title: Azure Private DNS zone resiliency
 description: In this article, learn about resiliency in Azure Private DNS zones.
 services: dns
 author: greg-lindsay
-ms.service: dns
-ms.topic: article
+ms.service: azure-dns
+ms.topic: concept-article
 ms.date: 06/09/2023
 ms.author: greglin
 ---

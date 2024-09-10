@@ -4,7 +4,7 @@ description: In this quickstart, you enable Microsoft Sentinel, and set up data 
 author: yelevin
 ms.author: yelevin
 ms.topic: quickstart
-ms.date: 06/14/2023
+ms.date: 06/18/2024
 ms.custom: references_regions, mode-other
 #Customer intent: As a security operator, set up data connectors in one place so I can monitor and protect my environment.
 ---
@@ -15,13 +15,15 @@ In this quickstart, you'll enable Microsoft Sentinel and install a solution from
 
 Microsoft Sentinel comes with many data connectors for Microsoft products such as the Microsoft Defender XDR service-to-service connector. You can also enable built-in connectors for non-Microsoft products such as Syslog or Common Event Format (CEF). For this quickstart, you'll use the Azure Activity data connector that's available in the Azure Activity solution for Microsoft Sentinel.
 
+To onboard to Microsoft Sentinel by using the API, see the latest supported version of [Sentinel Onboarding States](/rest/api/securityinsights/sentinel-onboarding-states). 
+
 ## Prerequisites
 
 - **Active Azure Subscription**. If you don't have one, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 - **Log Analytics workspace**. Learn how to [create a Log Analytics workspace](../azure-monitor/logs/quick-create-workspace.md). For more information about Log Analytics workspaces, see [Designing your Azure Monitor Logs deployment](../azure-monitor/logs/workspace-design.md).
 
-    You may have a default of [30 days retention](../azure-monitor/logs/cost-logs.md#legacy-pricing-tiers) in the Log Analytics workspace used for Microsoft Sentinel. To make sure that you can use all Microsoft Sentinel functionality and features, raise the retention to 90 days. [Configure data retention and archive policies in Azure Monitor Logs](../azure-monitor/logs/data-retention-archive.md).
+    You may have a default of [30 days retention](../azure-monitor/logs/cost-logs.md#legacy-pricing-tiers) in the Log Analytics workspace used for Microsoft Sentinel. To make sure that you can use all Microsoft Sentinel functionality and features, raise the retention to 90 days. [Configure data retention and archive policies in Azure Monitor Logs](../azure-monitor/logs/data-retention-configure.md).
 
 - **Permissions**:
 
@@ -54,8 +56,6 @@ To get started, add Microsoft Sentinel to an existing workspace or create a new 
    - Once deployed on a workspace, Microsoft Sentinel **doesn't support** moving that workspace to another resource group or subscription.
 
 1. Select **Add**.
-
-As an alternative to using the portal, you can onboard to Microsoft Sentinel using an API request, by calling the [OnboardingStates ARM api](/rest/api/securityinsights/sentinel-onboarding-states/create?view=rest-securityinsights-2024-03-01&preserve-view=true&tabs=HTTP).
 
 ## Install a solution from the content hub
 

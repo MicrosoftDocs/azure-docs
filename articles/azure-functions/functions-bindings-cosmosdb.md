@@ -16,7 +16,7 @@ ms.custom: devx-track-csharp
 
 [!INCLUDE [functions-runtime-1x-retirement-note](../../includes/functions-runtime-1x-retirement-note.md)]
 
-This article explains how to work with [Azure Cosmos DB](../cosmos-db/serverless-computing-database.md) bindings in Azure Functions. Azure Functions supports trigger, input, and output bindings for Azure Cosmos DB.
+This article explains how to work with [Azure Cosmos DB](/azure/cosmos-db/serverless-computing-database) bindings in Azure Functions. Azure Functions supports trigger, input, and output bindings for Azure Cosmos DB.
 
 > [!NOTE]
 > This article is for Azure Functions 1.x. For information about how to use these bindings in Functions 2.x and higher, see [Azure Cosmos DB bindings for Azure Functions 2.x](functions-bindings-cosmosdb-v2.md).
@@ -24,7 +24,7 @@ This article explains how to work with [Azure Cosmos DB](../cosmos-db/serverless
 >This binding was originally named DocumentDB. In Azure Functions version 1.x, only the trigger was renamed Azure Cosmos DB; the input binding, output binding, and NuGet package retain the DocumentDB name.
 
 > [!NOTE]
-> Azure Cosmos DB bindings are only supported for use with the SQL API. For all other Azure Cosmos DB APIs, you should access the database from your function by using the static client for your API, including [Azure Cosmos DB for MongoDB](../cosmos-db/mongodb-introduction.md), [Azure Cosmos DB for Apache Cassandra](../cosmos-db/cassandra-introduction.md), [Azure Cosmos DB for Apache Gremlin](../cosmos-db/graph-introduction.md), and [Azure Cosmos DB for Table](../cosmos-db/table-introduction.md).
+> Azure Cosmos DB bindings are only supported for use with the SQL API. For all other Azure Cosmos DB APIs, you should access the database from your function by using the static client for your API, including [Azure Cosmos DB for MongoDB](/azure/cosmos-db/mongodb-introduction), [Azure Cosmos DB for Apache Cassandra](/azure/cosmos-db/cassandra-introduction), [Azure Cosmos DB for Apache Gremlin](/azure/cosmos-db/graph-introduction), and [Azure Cosmos DB for Table](/azure/cosmos-db/table-introduction).
 
 ## Packages - Functions 1.x
 
@@ -34,7 +34,7 @@ The Azure Cosmos DB bindings for Functions version 1.x are provided in the [Micr
 
 ## Trigger
 
-The Azure Cosmos DB Trigger uses the [Azure Cosmos DB Change Feed](../cosmos-db/change-feed.md) to listen for inserts and updates across partitions. The change feed publishes inserts and updates, not deletions.
+The Azure Cosmos DB Trigger uses the [Azure Cosmos DB Change Feed](/azure/cosmos-db/change-feed) to listen for inserts and updates across partitions. The change feed publishes inserts and updates, not deletions.
 
 ## Trigger - example
 
@@ -912,7 +912,7 @@ The following table explains the binding configuration properties that you set i
 |**collectionName** |**CollectionName**  | The name of the collection where the document is created. |
 |**createIfNotExists**  |**CreateIfNotExists**    | A boolean value to indicate whether the collection is created when it doesn't exist. The default is *false* because new collections are created with reserved throughput, which has cost implications. For more information, see the [pricing page](https://azure.microsoft.com/pricing/details/documentdb/).  |
 |**partitionKey**|**PartitionKey** |When `CreateIfNotExists` is true, defines the partition key path for the created collection.|
-|**collectionThroughput**|**CollectionThroughput**| When `CreateIfNotExists` is true, defines the [throughput](../cosmos-db/set-throughput.md) of the created collection.|
+|**collectionThroughput**|**CollectionThroughput**| When `CreateIfNotExists` is true, defines the [throughput](/azure/cosmos-db/set-throughput) of the created collection.|
 |**connection**    |**ConnectionStringSetting** |The name of the app setting containing your Azure Cosmos DB connection string.        |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
@@ -932,7 +932,7 @@ By default, when you write to the output parameter in your function, a document 
 
 ## Next steps
 
-* [Learn more about serverless database computing with Azure Cosmos DB](../cosmos-db/serverless-computing-database.md)
+* [Learn more about serverless database computing with Azure Cosmos DB](/azure/cosmos-db/serverless-computing-database)
 * [Learn more about Azure Functions triggers and bindings](functions-triggers-bindings.md)
 
 <!---

@@ -2,7 +2,7 @@
 title: Tutorial - $member-match operation
 description: Introduces the $member-match operation that's defined as part of the Da Vinci Health Record Exchange (HRex).
 services: healthcare-apis
-ms.service: healthcare-apis
+ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.topic: tutorial
 ms.author: kesheth

@@ -4,8 +4,9 @@ description: This article tells how to manage inventory collection from VMs.
 services: automation
 ms.subservice: change-inventory-management
 keywords: inventory, automation, change, tracking
-ms.date: 10/14/2020
-ms.topic: conceptual
+ms.date: 09/09/2024
+ms.topic: how-to
+ms.service: azure-automation
 ---
 # Manage inventory collection from VMs
 
@@ -20,7 +21,7 @@ Azure Automation Change Tracking and Inventory provides a browser-based user int
 
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/).
 
-This article assumes that you have a VM to enable with Change Tracking and Inventory. If you don't have an Azure VM, you can [create a VM](../../virtual-machines/windows/quick-create-portal.md).
+This article assumes that you have a VM to enable with Change Tracking and Inventory. If you don't have an Azure VM, you can [create a VM](/azure/virtual-machines/windows/quick-create-portal).
 
 ## Sign in to the Azure portal
 

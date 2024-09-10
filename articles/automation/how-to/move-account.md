@@ -5,6 +5,7 @@ services: automation
 ms.subservice: process-automation
 ms.date: 05/26/2023
 ms.topic: conceptual 
+ms.service: azure-automation
 ---
 
 # Move your Azure Automation account to another subscription

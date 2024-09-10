@@ -4,7 +4,7 @@ description: This article describes how to set up a process server in Azure, to 
 services: site-recovery
 author: ankitaduttaMSFT
 manager: gaggupta
-ms.service: site-recovery
+ms.service: azure-site-recovery
 ms.topic: conceptual
 ms.author: ankitadutta
 ms.date: 05/27/2021

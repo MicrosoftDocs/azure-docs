@@ -3,9 +3,9 @@ title: Migrate Azure HDInsight 3.6 Hive workloads to HDInsight 4.0
 description: Learn how to migrate Apache Hive workloads on HDInsight 3.6 to HDInsight 4.0.
 author: reachnijel
 ms.author: nijelsf
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: how-to
-ms.date: 05/05/2023
+ms.date: 06/12/2024
 ---
 
 # Migrate Azure HDInsight 3.6 Hive workloads to HDInsight 4.0
@@ -183,7 +183,7 @@ To convert external table (non-ACID) to Managed (ACID) table,
 
 **Scenario 1**
 
-Consider table rt is external table (non-ACID). If the table is non-ORC table,
+Consider table `rt` is external table (non-ACID). If the table is non-ORC table,
 
 ```
 alter table rt set TBLPROPERTIES ('transactional'='true');
@@ -199,7 +199,7 @@ ERROR:
 Error: Error while processing statement: FAILED: Execution Error, return code 1 from org.apache.hadoop.hive.ql.exec.DDLTask. Unable to alter table. work.rt can't be declared transactional because it's an external table (state=08S01,code=1)
 ```
 
-This error is occurring because the table rt is external table and you can't convert external table to ACID.
+This error is occurring because the table `rt` is external table and you can't convert external table to ACID.
 
 **Scenario 3**
 
@@ -324,8 +324,6 @@ To fix this issue, you can follow the below option.
 
 * HDInsight 3.6 by default doesn't support ACID tables. If ACID tables are present, however, run 'MAJOR' compaction on them. See the [Hive Language Manual](https://cwiki.apache.org/confluence/display/Hive/LanguageManual+DDL#LanguageManualDDL-AlterTable/Partition/Compact) for details on compaction.
 
-* If using [Azure Data Lake Storage Gen1](../overview-data-lake-storage-gen1.md), Hive table locations are likely dependent on the cluster's HDFS configurations. Run the following script action to make these locations portable to other clusters. See [Script action to a running cluster](../hdinsight-hadoop-customize-cluster-linux.md#script-action-to-a-running-cluster).
-
   |Property | Value |
   |---|---|
   |Bash script URI|`https://hdiconfigactions.blob.core.windows.net/linuxhivemigrationv01/hive-adl-expand-location-v01.sh`|
@@ -434,13 +432,13 @@ In certain situations when running a Hive query, you might receive `java.lang.Cl
     ```
 The update command is to update the details manually in the backend DB and the alter command is used to alter the table with the new SerDe class from beeline or Hive.
 
-### Hive Backend DB schema compare Script
+### Hive Backend DB schema compares Script
 
 You can run the following script after completing the migration.
 
 There's a chance of missing few columns in the backend DB, which causes the query failures. If the schema upgrade wasn't happened properly, then there's chance that we may hit the invalid column name issue. The below script fetches the column name and datatype from customer backend DB and provides the output if there's any missing column or incorrect datatype.
 
-The following path contains the schemacompare_final.py and test.csv file. The script is present in "schemacompare_final.py" file and the file "test.csv" contains all the column name and the datatype for all the tables, which should be present in the hive backend DB.
+The following path contains the schemacompare_final.py and test.csv file. The script is present in `schemacompare_final.py` file and the file "test.csv" contains all the column name and the datatype for all the tables, which should be present in the hive backend DB.
 
 https://hdiconfigactions2.blob.core.windows.net/hiveschemacompare/schemacompare_final.py
 
@@ -450,11 +448,11 @@ Download these two files from the link. And copy these files to one of the head 
 
 **Steps to execute the script:**
 
-Create a directory called "schemacompare" under "/tmp" directory.
+Create a directory called `schemacompare` under "/tmp" directory.
 
 Put the "schemacompare_final.py" and "test.csv" into the folder "/tmp/schemacompare". Do "ls -ltrh /tmp/schemacompare/" and verify whether the files are present.
 
-To execute the Python script, use the command "python schemacompare_final.py". This script starts executing the script and it takes less than five minutes to complete. The above script automatically connects to your backend DB and fetches the details from each and every table, which Hive uses and update the details in the new csv file called "return.csv". After creating the file return.csv, it compares the data with the file "test.csv" and prints the column name or datatype if there's anything missing under the tablename.
+To execute the Python script, use the command "python schemacompare_final.py". This script starts executing the script and it takes less than five minutes to complete. The above script automatically connects to your backend DB and fetches the details from each and every table, which Hive uses and update the details in the new csv file called "return.csv". After you create the file return.csv, it compares the data with the file "test.csv" and prints the column name or datatype if there's anything missing under the tablename.
 
 Once after executing the script you can see the following lines, which indicate that the details are fetched for the tables and the script is in progressing
 
@@ -552,7 +550,7 @@ Tune Metastore to reduce their CPU usage.
    1. New value: `false` 
 
 1.	Optimize the partition repair feature 
-   1.	Disable partition repair - This feature is used to synchronize the partitions of Hive tables in storage location with Hive metastore. You may disable this feature if “msck repair” is used after the data ingestion. 
+   1.	Disable partition repair - This feature is used to synchronize the partitions of Hive tables in storage location with Hive metastore. You may disable this feature if `msck repair` is used after the data ingestion. 
    1. To disable the feature **add "discover.partitions=false"** under table properties using ALTER TABLE.
       OR (if the feature can't be disabled)
    1.	Increase the partition repair frequency. 

@@ -11,7 +11,7 @@ ms.date: 02/08/2024
 
 # Connect to Log Analytics or Application Insights from workflows in Azure Logic Apps
 
-[!INCLUDE [logic-apps-sku-consumption-standard](~/reusable-content/ce-skilling/azure/includes/logic-apps-sku-consumption-standard.md)]
+[!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
 > [!NOTE]
 > 

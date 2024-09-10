@@ -3,8 +3,9 @@ title: Query Azure Automation Update Management logs
 description: This article tells how to query the logs for Update Management in your Log Analytics workspace.
 services: automation
 ms.subservice: update-management
-ms.date: 06/28/2022
+ms.date: 07/15/2024
 ms.topic: conceptual
+ms.service: azure-automation
 ---
 
 # Query Update Management logs

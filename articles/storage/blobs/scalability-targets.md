@@ -18,7 +18,7 @@ The service-level agreement (SLA) for Azure Storage accounts is available at [SL
 
 ## Scale targets for Blob storage
 
-[!INCLUDE [storage-blob-scale-targets](~/reusable-content/ce-skilling/azure/includes/storage-blob-scale-targets.md)]
+[!INCLUDE [storage-blob-scale-targets](../../../includes/storage-blob-scale-targets.md)]
 
 ## See also
 

@@ -14,7 +14,7 @@ ms.reviewer: luki
 
 The [Azure Diagnostics extension](diagnostics-extension-overview.md) is an agent in Azure Monitor that collects monitoring data from the guest operating system and workloads of Azure virtual machines and other compute resources. This article provides information on how to install and configure the Azure Diagnostics extension for Windows and describes how the data is stored in an Azure Storage account.
 
-The diagnostics extension is implemented as a [virtual machine extension](../../virtual-machines/extensions/overview.md) in Azure. It supports the same installation options by using Azure Resource Manager templates, PowerShell, and the Azure CLI. For information on how to install and maintain virtual machine extensions, see [Virtual machine extensions and features for Windows](../../virtual-machines/extensions/features-windows.md).
+The diagnostics extension is implemented as a [virtual machine extension](/azure/virtual-machines/extensions/overview) in Azure. It supports the same installation options by using Azure Resource Manager templates, PowerShell, and the Azure CLI. For information on how to install and maintain virtual machine extensions, see [Virtual machine extensions and features for Windows](/azure/virtual-machines/extensions/features-windows).
 
 ## Overview
 
@@ -73,7 +73,7 @@ You can install and configure the diagnostics extension on an individual virtual
 
 ## Resource Manager template
 
-For information on how to deploy the diagnostics extension with Azure Resource Manager templates, see [Use monitoring and diagnostics with a Windows VM and Azure Resource Manager templates](../../virtual-machines/extensions/diagnostics-template.md).
+For information on how to deploy the diagnostics extension with Azure Resource Manager templates, see [Use monitoring and diagnostics with a Windows VM and Azure Resource Manager templates](/azure/virtual-machines/extensions/diagnostics-template).
 
 ## Azure CLI deployment
 
@@ -184,7 +184,7 @@ The following minimal example of a configuration file enables collection of diag
 }
 ```
 
-See also [Use PowerShell to enable Azure Diagnostics in a virtual machine running Windows](../../virtual-machines/extensions/diagnostics-windows.md).
+See also [Use PowerShell to enable Azure Diagnostics in a virtual machine running Windows](/azure/virtual-machines/extensions/diagnostics-windows).
 
 ## Data storage
 

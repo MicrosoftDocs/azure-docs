@@ -1,28 +1,28 @@
 ---
 title: Enable Profiler for Azure Service Fabric applications
 description: Profile live Azure Service Fabric apps with Application Insights.
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom:
-ms.date: 09/22/2023
+ms.date: 08/16/2024
 ---
 
 # Enable Profiler for Azure Service Fabric applications
 
 Application Insights Profiler is included with Azure Diagnostics. You can install the Azure Diagnostics extension by using an Azure Resource Manager template (ARM template) for your Azure Service Fabric cluster. Get a [template that installs Azure Diagnostics on a Service Fabric cluster](https://github.com/Azure/azure-docs-json-samples/blob/master/application-insights/ServiceFabricCluster.json).
 
-In this article, you:
-
-- Add the Application Insights Profiler property to your ARM template.
-- Deploy your Service Fabric cluster with the Application Insights Profiler instrumentation key.
-- Enable Application Insights on your Service Fabric application.
-- Redeploy your Service Fabric cluster to enable Profiler.
+In this guide, you learn how to:
+> [!div class="checklist"]
+> - Add the Application Insights Profiler property to your ARM template.
+> - Deploy your Service Fabric cluster with the Application Insights Profiler instrumentation key.
+> - Enable Application Insights on your Service Fabric application.
+> - Redeploy your Service Fabric cluster to enable Profiler.
 
 ## Prerequisites
 
 - Profiler supports .NET Framework and .NET applications.
   - Verify you're using [.NET Framework 4.6.2](/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) or later. 
   - Confirm that the deployed OS is `Windows Server 2012 R2` or later. 
-- [An Azure Service Fabric managed cluster](../../service-fabric/quickstart-managed-cluster-portal.md).
+- [An Azure Service Fabric managed cluster](/azure/service-fabric/quickstart-managed-cluster-portal).
 
 ## Create a deployment template
 
@@ -47,7 +47,7 @@ In this article, you:
       }  
       ```
 
-  For information about how to add the Diagnostics extension to your deployment template, see [Use monitoring and diagnostics with a Windows VM and Azure Resource Manager templates](../../virtual-machines/extensions/diagnostics-template.md).
+  For information about how to add the Diagnostics extension to your deployment template, see [Use monitoring and diagnostics with a Windows VM and Azure Resource Manager templates](/azure/virtual-machines/extensions/diagnostics-template).
 
 ## Deploy your Service Fabric cluster
 

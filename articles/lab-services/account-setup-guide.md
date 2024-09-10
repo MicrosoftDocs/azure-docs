@@ -8,6 +8,8 @@ ms.custom: devdivchpfy22
 
 # Lab account setup guide
 
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
+
 [!INCLUDE [lab account focused article](./includes/lab-services-labaccount-focused-article.md)]
 
 If you're an administrator, before you set up your Azure Lab Services environment, you first need to create a *lab account* within your Azure subscription. A lab account is a container for one or more labs, and it takes only a few minutes to set up.
@@ -88,6 +90,7 @@ You might want to create your images in your physical environment and then impor
 If you decide to use the Shared Image Gallery service, you'll need to create or attach a shared image gallery to your lab account. You can postpone this decision for now, because a shared image gallery can be attached to a lab account at any time.  
 
 For more information, see:
+
 - The "Shared image gallery" section of [Azure Lab Services - Administrator guide](./administrator-guide-1.md#shared-image-gallery)
 - The "Pricing" section of [Azure Lab Services - Administrator guide](./administrator-guide-1.md#pricing)
 
@@ -126,11 +129,11 @@ When you set up a lab account, you also can peer your lab account with a virtual
 
 After you've finished planning, you're ready to set up your lab account. You can apply the same steps to setting up [Azure Lab Services in Teams](./lab-services-within-teams-overview.md).
 
-1. **Create your lab account**. For instructions, see [Create a lab account](./tutorial-setup-lab-account.md#create-a-lab-account).
+1. **Create your lab account**. For instructions, see [Create a lab account](how-to-create-lab-accounts.md).
 
     For information about naming conventions, see the "Naming" section of [Azure Lab Services - Administrator guide](./administrator-guide-1.md#naming).
 
-1. **Add users to the Lab Creator role**. For instructions, see [Add users to the Lab Creator role](./tutorial-setup-lab-account.md#add-a-user-to-the-lab-creator-role).
+1. **Add users to the Lab Creator role**. For instructions, see [Add a user to the Lab Creator role](how-to-add-lab-creator.md).
 
 1. **Connect to a peer virtual network**. For instructions, see [Connect your lab network with a peer virtual network](./how-to-connect-peer-virtual-network.md).
 

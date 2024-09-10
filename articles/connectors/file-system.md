@@ -10,7 +10,7 @@ ms.date: 01/10/2024
 
 # Connect to on-premises file systems from workflows in Azure Logic Apps
 
-[!INCLUDE [logic-apps-sku-consumption-standard](~/reusable-content/ce-skilling/azure/includes/logic-apps-sku-consumption-standard.md)]
+[!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
 This how-to guide shows how to access an on-premises file share from a workflow in Azure Logic Apps by using the File System connector. You can then create automated workflows that run when triggered by events in your file share or in other systems and run actions to manage your files. The connector provides the following capabilities:
 
@@ -34,9 +34,8 @@ The File System connector has different versions, based on [logic app type and h
 
 | Logic app | Environment | Connector version |
 |-----------|-------------|-------------------|
-| **Consumption** | Multi-tenant Azure Logic Apps | Managed connector, which appears in the designer under the **Standard** label. For more information, review the following documentation: <br><br>- [File System managed connector reference](/connectors/filesystem/) <br>- [Managed connectors in Azure Logic Apps](../connectors/managed.md) |
-| **Consumption** | Integration service environment (ISE) | Managed connector, which appears in the designer under the **Standard** label, and the ISE version, which has different message limits than the Standard class. For more information, review the following documentation: <br><br>- [File System managed connector reference](/connectors/filesystem/) <br>- [ISE message limits](../logic-apps/logic-apps-limits-and-config.md#message-size-limits) <br>- [Managed connectors in Azure Logic Apps](../connectors/managed.md) |
-| **Standard** | Single-tenant Azure Logic Apps and App Service Environment v3 (Windows plans only) | Managed connector, which appears in the connector gallery under **Runtime** > **Shared**, and the built-in connector, which appears in the connector gallery under **Runtime** > **In-App** and is [service provider-based](../logic-apps/custom-connector-overview.md#service-provider-interface-implementation). The built-in connector differs in the following ways: <br><br>- The built-in connector supports only Standard logic apps that run in an App Service Environment v3 with Windows plans only. <br><br>- The built-in version can connect directly to a file share and access Azure virtual networks by using a connection string without an on-premises data gateway. <br><br>For more information, review the following documentation: <br><br>- [File System managed connector reference](/connectors/filesystem/) <br>- [File System built-in connector reference](/azure/logic-apps/connectors/built-in/reference/filesystem/) <br>- [Built-in connectors in Azure Logic Apps](../connectors/built-in.md) |
+| **Consumption** | Multitenant Azure Logic Apps | Managed connector, which appears in the connector gallery under **Runtime** > **Shared**. For more information, review the following documentation: <br><br>- [File System managed connector reference](/connectors/filesystem/) <br>- [Managed connectors in Azure Logic Apps](../connectors/managed.md) |
+| **Standard** | Single-tenant Azure Logic Apps and App Service Environment v3 (Windows plans only) | Managed connector, which appears in the connector gallery under **Runtime** > **Shared**, and built-in connector, which appears in the connector gallery under **Runtime** > **In-App** and is [service provider-based](../logic-apps/custom-connector-overview.md#service-provider-interface-implementation). The built-in connector differs in the following ways: <br><br>- The built-in connector supports only Standard logic apps that run in an App Service Environment v3 with Windows plans only. <br><br>- The built-in version can connect directly to a file share and access Azure virtual networks by using a connection string without an on-premises data gateway. <br><br>For more information, review the following documentation: <br><br>- [File System managed connector reference](/connectors/filesystem/) <br>- [File System built-in connector reference](/azure/logic-apps/connectors/built-in/reference/filesystem/) <br>- [Built-in connectors in Azure Logic Apps](../connectors/built-in.md) |
 
 ## Prerequisites
 
@@ -55,8 +54,6 @@ The File System connector has different versions, based on [logic app type and h
       1. [Create an on-premises data gateway resource in Azure](../logic-apps/logic-apps-gateway-connection.md).
 
       1. After you add a File System managed connector trigger or action to your workflow, select the data gateway resource that you previously created so you can connect to your file system.
-
-    - In an ISE, you don't need the on-premises data gateway. Instead, you can use the ISE-versioned File System connector.
 
   - Standard logic app workflows
 
@@ -100,17 +97,13 @@ The File System connector has different versions, based on [logic app type and h
    | **Connection name** | Yes | <*connection-name*> | The name to use for your connection |
    | **Root folder** | Yes | <*root-folder-name*> | The root folder for your file system, which is usually the main parent folder and is the folder used for the relative paths with all triggers that work on files. <br><br>For example, if you installed the on-premises data gateway, use the local folder on the computer with the data gateway installation. Or, use the folder for the network share where the computer can access that folder, for example, **`\\PublicShare\\MyFileSystem`**. |
    | **Authentication Type** | No | <*auth-type*> | The type of authentication that your file system server uses, which is **Windows** |
-   | **Username** | Yes | <*domain-and-username*> | The domain and username for the computer where you have your file system. <br><br>For the managed File System connector, use one of the following values with the backslash (**`\`**): <br><br>- **<*domain*>\\<*username*>** <br>- **<*local-computer*>\\<*username*>** <br><br>For example, if your file system folder is on the same computer as the on-premises data gateway installation, you can use **<*local-computer*>\\<*username*>**. <br><br>- For the ISE-based File System connector, use the forward slash instead (**`/`**): <br><br>- **<*domain*>/<*username*>** <br>- **<*local-computer*>/<*username*>** |
+   | **Username** | Yes | <*domain-and-username*> | The domain and username for the computer where you have your file system. <br><br>For the managed File System connector, use one of the following values with the backslash (**`\`**): <br><br>- **<*domain*>\\<*username*>** <br>- **<*local-computer*>\\<*username*>** <br><br>For example, if your file system folder is on the same computer as the on-premises data gateway installation, you can use **<*local-computer*>\\<*username*>**. |
    | **Password** | Yes | <*password*> | The password for the computer where you have your file system |
    | **gateway** | No | - <*Azure-subscription*> <br>- <*gateway-resource-name*> | This section applies only to the managed File System connector: <br><br>- **Subscription**: The Azure subscription associated with the data gateway resource <br>- **Connection Gateway**: The data gateway resource |
 
    The following example shows the connection information for the File System managed connector trigger:
 
    ![Screenshot showing Consumption workflow designer and connection information for File System managed connector trigger.](media/connect-file-systems/file-system-connection-consumption.png)
-
-   The following example shows the connection information for the File System ISE-based trigger:
-
-   ![Screenshot showing Consumption workflow designer and connection information for File System ISE-based connector trigger.](media/connect-file-systems/file-system-connection-ise.png)
 
 1. When you're done, select **Create**.
 
@@ -207,7 +200,7 @@ If successful, your workflow sends an email about the new file.
    | **Connection name** | Yes | <*connection-name*> | The name to use for your connection |
    | **Root folder** | Yes | <*root-folder-name*> | The root folder for your file system, which is usually the main parent folder and is the folder used for the relative paths with all triggers that work on files. <br><br>For example, if you installed the on-premises data gateway, use the local folder on the computer with the data gateway installation. Or, use the folder for the network share where the computer can access that folder, for example, **`\\PublicShare\\MyFileSystem`**. |
    | **Authentication Type** | No | <*auth-type*> | The type of authentication that your file system server uses, which is **Windows** |
-   | **Username** | Yes | <*domain-and-username*> | The domain and username for the computer where you have your file system. <br><br>For the managed File System connector, use one of the following values with the backslash (**`\`**): <br><br>- **<*domain*>\\<*username*>** <br>- **<*local-computer*>\\<*username*>** <br><br>For example, if your file system folder is on the same computer as the on-premises data gateway installation, you can use **<*local-computer*>\\<*username*>**. <br><br>- For the ISE-based File System connector, use the forward slash instead (**`/`**): <br><br>- **<*domain*>/<*username*>** <br>- **<*local-computer*>/<*username*>** |
+   | **Username** | Yes | <*domain-and-username*> | The domain and username for the computer where you have your file system. <br><br>For the managed File System connector, use one of the following values with the backslash (**`\`**): <br><br>- **<*domain*>\\<*username*>** <br>- **<*local-computer*>\\<*username*>** <br><br>For example, if your file system folder is on the same computer as the on-premises data gateway installation, you can use **<*local-computer*>\\<*username*>**. |
    | **Password** | Yes | <*password*> | The password for the computer where you have your file system |
    | **gateway** | No | - <*Azure-subscription*> <br>- <*gateway-resource-name*> | This section applies only to the managed File System connector: <br><br>- **Subscription**: The Azure subscription associated with the data gateway resource <br>- **Connection Gateway**: The data gateway resource |
 
@@ -266,17 +259,13 @@ The example logic app workflow starts with the [Dropbox trigger](/connectors/dro
    | **Connection name** | Yes | <*connection-name*> | The name to use for your connection |
    | **Root folder** | Yes | <*root-folder-name*> | The root folder for your file system, which is usually the main parent folder and is the folder used for the relative paths with all triggers that work on files. <br><br>For example, if you installed the on-premises data gateway, use the local folder on the computer with the data gateway installation. Or, use the folder for the network share where the computer can access that folder, for example, **`\\PublicShare\\MyFileSystem`**. |
    | **Authentication Type** | No | <*auth-type*> | The type of authentication that your file system server uses, which is **Windows** |
-   | **Username** | Yes | <*domain-and-username*> | The domain and username for the computer where you have your file system. <br><br>For the managed File System connector, use one of the following values with the backslash (**`\`**): <br><br>- **<*domain*>\\<*username*>** <br>- **<*local-computer*>\\<*username*>** <br><br>For example, if your file system folder is on the same computer as the on-premises data gateway installation, you can use **<*local-computer*>\\<*username*>**. <br><br>- For the ISE-based File System connector, use the forward slash instead (**`/`**): <br><br>- **<*domain*>/<*username*>** <br>- **<*local-computer*>/<*username*>** |
+   | **Username** | Yes | <*domain-and-username*> | The domain and username for the computer where you have your file system. <br><br>For the managed File System connector, use one of the following values with the backslash (**`\`**): <br><br>- **<*domain*>\\<*username*>** <br>- **<*local-computer*>\\<*username*>** <br><br>For example, if your file system folder is on the same computer as the on-premises data gateway installation, you can use **<*local-computer*>\\<*username*>**. |
    | **Password** | Yes | <*password*> | The password for the computer where you have your file system |
    | **gateway** | No | - <*Azure-subscription*> <br>- <*gateway-resource-name*> | This section applies only to the managed File System connector: <br><br>- **Subscription**: The Azure subscription associated with the data gateway resource <br>- **Connection Gateway**: The data gateway resource |
 
    The following example shows the connection information for the File System managed connector action:
 
    ![Screenshot showing connection information for File System managed connector action.](media/connect-file-systems/file-system-connection-consumption.png)
-
-   The following example shows the connection information for the File System ISE-based connector action:
-
-   ![Screenshot showing connection information for File System ISE-based connector action.](media/connect-file-systems/file-system-connection-ise.png)
 
 1. When you're done, select **Create**.
 
@@ -373,7 +362,7 @@ If successful, your workflow creates a file on your file system server, based on
    | **Connection name** | Yes | <*connection-name*> | The name to use for your connection |
    | **Root folder** | Yes | <*root-folder-name*> | The root folder for your file system, which is usually the main parent folder and is the folder used for the relative paths with all triggers that work on files. <br><br>For example, if you installed the on-premises data gateway, use the local folder on the computer with the data gateway installation. Or, use the folder for the network share where the computer can access that folder, for example, **`\\PublicShare\\MyFileSystem`**. |
    | **Authentication Type** | No | <*auth-type*> | The type of authentication that your file system server uses, which is **Windows** |
-   | **Username** | Yes | <*domain-and-username*> | The domain and username for the computer where you have your file system. <br><br>For the managed File System connector, use one of the following values with the backslash (**`\`**): <br><br>- **<*domain*>\\<*username*>** <br>- **<*local-computer*>\\<*username*>** <br><br>For example, if your file system folder is on the same computer as the on-premises data gateway installation, you can use **<*local-computer*>\\<*username*>**. <br><br>- For the ISE-based File System connector, use the forward slash instead (**`/`**): <br><br>- **<*domain*>/<*username*>** <br>- **<*local-computer*>/<*username*>** |
+   | **Username** | Yes | <*domain-and-username*> | The domain and username for the computer where you have your file system. <br><br>For the managed File System connector, use one of the following values with the backslash (**`\`**): <br><br>- **<*domain*>\\<*username*>** <br>- **<*local-computer*>\\<*username*>** <br><br>For example, if your file system folder is on the same computer as the on-premises data gateway installation, you can use **<*local-computer*>\\<*username*>**. |
    | **Password** | Yes | <*password*> | The password for the computer where you have your file system |
    | **gateway** | No | - <*Azure-subscription*> <br>- <*gateway-resource-name*> | This section applies only to the managed File System connector: <br><br>- **Subscription**: The Azure subscription associated with the data gateway resource <br>- **Connection Gateway**: The data gateway resource |
 

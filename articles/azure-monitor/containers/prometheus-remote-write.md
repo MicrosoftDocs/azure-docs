@@ -7,10 +7,15 @@ ms.date: 4/18/2024
 ---
 
 # Azure Monitor managed service for Prometheus remote write
-Azure Monitor managed service for Prometheus is intended to be a replacement for self managed Prometheus so you don't need to manage a Prometheus server in your Kubernetes clusters. You may also choose to use the managed service to centralize data from self-managed Prometheus clusters for long term data retention and to create a centralized view across your clusters. In this case, you can use [remote_write](https://prometheus.io/docs/operating/integrations/#remote-endpoints-and-storage) to send data from your self-managed Prometheus into the Azure managed service.
+Azure Monitor managed service for Prometheus is intended to be a replacement for self managed Prometheus so you don't need to manage a Prometheus server in your Kubernetes clusters. You may also choose to use the managed service to centralize data from self-managed Prometheus clusters for long term data retention and to create a centralized view across your clusters. In this case, you can use [remote_write](https://prometheus.io/docs/prometheus/latest/configuration/configuration/#remote_write) to send data from your self-managed Prometheus into the Azure managed service.
 
 ## Architecture
-Azure Monitor provides a reverse proxy container (Azure Monitor [side car container](/azure/architecture/patterns/sidecar)) that provides an abstraction for ingesting Prometheus remote write metrics and helps in authenticating packets. The Azure Monitor side car container currently supports User Assigned Identity and Microsoft Entra ID based authentication to ingest Prometheus remote write metrics to Azure Monitor workspace.
+
+You can configure Prometheus running on your Kubernetes cluster to remote-write into Azure Monitor Workspace. Currently user-assigned managed identity or Microsoft Entra ID application are the supported authentication types using Prometheus remote-write configuration to ingest metrics to Azure Monitor Workspace.
+
+Azure Monitor also provides a reverse proxy container (Azure Monitor [side car container](/azure/architecture/patterns/sidecar)) that provides an abstraction for ingesting Prometheus remote write metrics and helps in authenticating packets.
+
+We recommend configuring remote-write directly in your self-managed Prometheus config running in your environment. The Azure Monitor side car container can be used in case your preferred authentication is not supported through directly configuration.
 
 
 ## Supported versions
@@ -24,15 +29,15 @@ Azure Monitor provides a reverse proxy container (Azure Monitor [side car contai
 Configuring remote write depends on your cluster configuration and the type of authentication that you use.
 
 - Managed identity is recommended for Azure Kubernetes service (AKS) and Azure Arc-enabled Kubernetes cluster. 
-- Microsoft Entra ID can be used for Azure Kubernetes service (AKS) and Azure Arc-enabled Kubernetes cluster and is required for Kubernetes cluster running in another cloud or on-premises. 
+- Microsoft Entra ID can be used for Azure Kubernetes service (AKS) and Azure Arc-enabled Kubernetes cluster and is required for Kubernetes cluster running in another cloud or on-premises.
 
 See the following articles for more information on how to configure remote write for Kubernetes clusters:
 
-- [Microsoft Entra ID authorization proxy](/azure/azure-monitor/containers/prometheus-authorization-proxy?tabs=remote-write-example)
-- [Send Prometheus data from AKS to Azure Monitor by using managed identity authentication](/azure/azure-monitor/containers/prometheus-remote-write-managed-identity)
-- [Send Prometheus data from AKS to Azure Monitor by using Microsoft Entra ID authentication](/azure/azure-monitor/containers/prometheus-remote-write-active-directory)
-- [Send Prometheus data to Azure Monitor by using Microsoft Entra ID pod-managed identity (preview) authentication](/azure/azure-monitor/containers/prometheus-remote-write-azure-ad-pod-identity)
-- [Send Prometheus data to Azure Monitor by using Microsoft Entra ID Workload ID (preview) authentication](/azure/azure-monitor/containers/prometheus-remote-write-azure-workload-identity)
+- (**Recommended**) [Send Prometheus data to Azure Monitor by directly configuring Prometheus remote-write](../essentials/prometheus-remote-write-virtual-machines.md#set-up-authentication-for-remote-write). This option can be used for self-managed Prometheus running in any environment. The supported authentication options are user-assigned managed identity and Microsoft Entra ID application.
+- [Send Prometheus data from AKS to Azure Monitor using side car container with managed identity authentication](/azure/azure-monitor/containers/prometheus-remote-write-managed-identity)
+- [Send Prometheus data from AKS to Azure Monitor using side car container with Microsoft Entra ID authentication](/azure/azure-monitor/containers/prometheus-remote-write-active-directory)
+- [Send Prometheus data to Azure Monitor using side car container with Microsoft Entra ID pod-managed identity (preview) authentication](/azure/azure-monitor/containers/prometheus-remote-write-azure-ad-pod-identity)
+- [Send Prometheus data to Azure Monitor using side car container with Microsoft Entra ID Workload ID (preview) authentication](/azure/azure-monitor/containers/prometheus-remote-write-azure-workload-identity)
 
 ## Remote write from Virtual Machines and Virtual Machine Scale sets 
 

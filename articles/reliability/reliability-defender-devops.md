@@ -12,7 +12,7 @@ CustomerIntent: As a cloud architect/engineer, I need general guidance reliabili
 
 # Reliability in Microsoft Defender for Cloud DevOps security
 
-This article describes reliability support in [Microsoft Defender for Cloud DevOps security features](../defender-for-cloud/defender-for-devops-introduction.md), which includes [cross-region recovery and business continuity](#cross-region-disaster-recovery-and-business-continuity). For a more detailed overview of reliability in Azure, see [Azure reliability](/azure/architecture/framework/resiliency/overview).
+This article describes reliability support in [Microsoft Defender for Cloud DevOps security features](/azure/defender-for-cloud/defender-for-devops-introduction), which includes [cross-region recovery and business continuity](#cross-region-disaster-recovery-and-business-continuity). For a more detailed overview of reliability in Azure, see [Azure reliability](/azure/architecture/framework/resiliency/overview).
 
 This article is specific to recover in the case of a region outage.  If you are looking to move your existing DevOps connector to a new region, please see [Common questions about Defender for DevOps](/azure/defender-for-cloud/faq-defender-for-devops#can-i-migrate-the-connector-to-a-different-region-)
 

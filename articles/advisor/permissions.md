@@ -1,48 +1,112 @@
 ---
 title: Roles and permissions 
-description: Advisor permissions and how they may block your ability to configure subscriptions or postpone or dismiss recommendations.
+description: Learn about Advisor permissions, how to manage access to Advisor recommendations and reviews.
 ms.topic: article
-ms.date: 05/03/2024
+ms.date: 08/22/2024
 ---
 
 # Roles and permissions
 
-Azure Advisor provides recommendations based on the usage and configuration of your Azure resources and subscriptions. Advisor uses the [built-in roles](../role-based-access-control/built-in-roles.md) provided by [Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md) to manage your access to recommendations and Advisor features. 
+Learn how to manage access to recommendations and reviews for your organization.
 
-## Roles and their access
+## Roles and associated access
 
-The following table defines the roles and the access they have within Advisor:
+Advisor uses the built-in roles provided by Azure role-based access control (Azure RBAC).
 
-| **Role** | **View recommendations** | **Edit rules** | **Edit subscription configuration** | **Edit resource group configuration**| **Dismiss and postpone recommendations**|
-|---|:---:|:---:|:---:|:---:|:---:|
-|Subscription Owner|**X**|**X**|**X**|**X**|**X**|
-|Subscription Contributor|**X**|**X**|**X**|**X**|**X**|
-|Subscription Reader|**X**|--|--|--|--|
-|Resource group Owner|**X**|--|--|**X**|**X**|
-|Resource group Contributor|**X**|--|--|**X**|**X**|
-|Resource group Reader|**X**|--|--|--|--|
-|Resource Owner|**X**|--|--|--|**X**|
-|Resource Contributor|**X**|--|--|--|**X**|
-|Resource Reader|**X**|--|--|--|--|
+Review the following section to learn more about each role and the associated access.
+
+### Roles to view, dismiss, and postpone recommendations
+
+| Role | View recommendations | Dismiss and postpone recommendations |
+|:---|:--- |:--- |
+| Subscription Reader | X |  |
+| Subscription Contributor | X | X |
+| Subscription Owner | X | X |
+| Resource group Reader | X |  |
+| Resource group Contributor | X | X |
+| Resource group Owner | X | X |
+| Resource Reader | X |  |
+| Resource Contributor | X | X |
+| Resource Owner | X | X |
+
+### Roles to edit rules and configurations
+
+| Role | Edit rules | Edit subscription configuration | Edit resource group configuration |
+|:---|:--- |:--- |:--- |
+| Subscription Contributor | X | X | X |
+| Subscription Owner | X | X | X |
+| Resource group Contributor |  |  | X |
+| Resource group Owner |  |  | X |
 
 > [!NOTE]
-> Access to view recommendations is dependent on your access to the recommendation's impacted resource.
+> You must have access to the resource associated with the recommendation to view a recommendation.
+
+To learn more about built-in roles, see [Azure built-in roles](/azure/role-based-access-control/built-in-roles "Azure built-in roles | Azure RBAC | Microsoft Learn"). To learn more about Azure role-based access control (Azure RBAC), see [What is Azure role-based access control (Azure RBAC)?](/azure/role-based-access-control/overview "What is Azure role-based access control (Azure RBAC)? | Azure RBAC | Microsoft Learn").
+
+[!INCLUDE [View and manage assessments](./includes/advisor-permissions-review-recommendations.md)]
+
+[!INCLUDE [Reviews and personalized recommendations](./includes/advisor-permissions-waf-assessments.md)]
+
+## Available actions to build custom roles
+
+If your organization requires roles that don't match the Azure built-in roles, create your own custom role. A custom role works like a built-in role and allow you to assign it to users, groups, and service principals at management group, subscription, and resource group scopes. Use the following actions to create your custom role.
+
+| Action | Details |
+|:--- |:--- |
+| `Microsoft.Advisor/generateRecommendations/action` | Create a Recommendation. |
+| `Microsoft.Advisor/register/action` | Register with the Provider. |
+| `Microsoft.Advisor/unregister/action` | Unregister with the Provider. |
+| `Microsoft.Advisor/advisorScore/read` | Gets Advisor score. |
+| `Microsoft.Advisor/configurations/read` | Read Configurations. |
+| `Microsoft.Advisor/configurations/write` | Create or update Configuration. |
+| `Microsoft.Advisor/generateRecommendations/read` | Get status of `generateRecommendations` action. |
+| `Microsoft.Advisor/metadata/read` | Read Metadata. |
+| `Microsoft.Advisor/operations/read` | Get operations. |
+| `Microsoft.Advisor/recommendations/read` | Read recommendations. |
+| `Microsoft.Advisor/recommendations/write` | Create recommendations. |
+| `Microsoft.Advisor/recommendations/available/action` | New recommendation is available. |
+| `Microsoft.Advisor/recommendations/suppressions/read` | Read Suppressions. |
+| `Microsoft.Advisor/recommendations/suppressions/write` | Create or update Suppressions. |
+| `Microsoft.Advisor/recommendations/suppressions/delete` | Delete Suppression. |
+| `Microsoft.Advisor/suppressions/read` | Read Suppressions. |
+| `Microsoft.Advisor/suppressions/write` | Create or update Suppressions. |
+| `Microsoft.Advisor/suppressions/delete` | Delete Suppression. |
+| `Microsoft.Advisor/assessmentTypes/read` | Reads `AssessmentTypes`. |
+| `Microsoft.Advisor/assessments/read` | Reads Assessments. |
+| `Microsoft.Advisor/assessments/write` | Create Assessments. |
+| `Microsoft.Advisor/resiliencyReviews/read` | Reads `resiliencyReviews`. |
+| `Microsoft.Advisor/triageRecommendations/read` | Reads `triageRecommendations`. |
+| `Microsoft.Advisor/triageRecommendations/approve/action` | Approves `triageRecommendations`. |
+| `Microsoft.Advisor/triageRecommendations/reject/action` | Rejects `triageRecommendations`. |
+| `Microsoft.Advisor/triageRecommendations/reset/action` | Resets `triageRecommendations`. |
+| `Microsoft.Advisor/workloads/read` | Reads workloads. |
+
+> [!NOTE]
+> For example, you must have a sufficient permission level for a virtual machine (VM) to view recommendations associated with the VM.
+
+To learn more about custom roles, see [Azure custom roles](/azure/role-based-access-control/custom-roles "Azure custom roles | Azure RBAC | Microsoft Learn").
 
 ## Permissions and unavailable actions
 
-Lack of proper permissions can block your ability to perform actions in Advisor. Following are some common problems.
+If your permission level is too low, your access to the associated action is blocked. Review common problems in the following section.
 
-### Unable to configure subscriptions or resource groups
+### Configure subscription or resource group is blocked
 
-When you attempt to configure subscriptions or resource groups in Advisor, you may see that the option to include or exclude is disabled. This status indicates that you do not have a sufficient level of permission for that resource group or subscription. To resolve this issue, learn how to [grant a user access](../role-based-access-control/quickstart-assign-role-user-portal.md).
+When you try to configure a subscription or resource group, the option to include or exclude is blocked. The blocked status indicates that your permission level for that resource group or subscription is insufficient. To learn how to change your permission level, see [Tutorial: Grant a user access to Azure resources using the Azure portal](/azure/role-based-access-control/quickstart-assign-role-user-portal "Tutorial: Grant a user access to Azure resources using the Azure portal | Azure RBAC | Microsoft Learn").
 
-### Unable to postpone or dismiss a recommendation
+### Postpone or dismiss is allowed, but sends an error
 
-If you receive an error when trying to postpone or dismiss a recommendation, you might not have sufficient permissions. Dismissing a recommendation means you can't see it again unless manually reactivated, so you might potentially overlook important advice for optimizing Azure deployments. Therefore, it’s crucial that only users with sufficient permissions can dismiss recommendations. Make sure that you have at least contributor access to the impacted resource of the recommendation you're postponing or dismissing. To resolve this issue, learn how to [grant a user access](../role-based-access-control/quickstart-assign-role-user-portal.md).
+When you try to postpone or dismiss a recommendation, you receive an error. The error indicates that your permission level is insufficient. You must have a sufficient permission level to dismiss recommendations.
 
-## Next steps
+> [!TIP]
+> After you dismiss a recommendation, you must manually reactivate it before it is added in your list of recommendations. If you dismiss a recommendation, you may miss important advice that optimizes your Azure deployment.
 
-This article gave an overview of how Advisor uses Azure RBAC to control user permissions and how to resolve common issues. To learn more about Advisor, see:
+To postpone or dismiss a recommendation, verify that your permission level for the resource associated with the recommendation is set to Contributor or better. To learn how to change your permission level, see [Tutorial: Grant a user access to Azure resources using the Azure portal](/azure/role-based-access-control/quickstart-assign-role-user-portal "Tutorial: Grant a user access to Azure resources using the Azure portal | Azure RBAC | Microsoft Learn").
 
-- [What is Azure Advisor?](./advisor-overview.md)
-- [Get started with Azure Advisor](./advisor-get-started.md)
+## Related content
+
+This article provided an overview of how Advisor uses Azure role-based access control (Azure RBAC) to control user permissions and how to resolve common problems. To learn more about Advisor, see the following articles.
+
+*   [Introduction to Azure Advisor](./advisor-overview.md "Introduction to Azure Advisor | Azure Advisor | Microsoft Learn")
+
+*   [Azure Advisor portal basics](./advisor-get-started.md "Azure Advisor portal basics | Azure Advisor | Microsoft Learn")

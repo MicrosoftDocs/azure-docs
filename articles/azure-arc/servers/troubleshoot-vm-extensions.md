@@ -2,7 +2,7 @@
 title: Troubleshoot Azure Arc-enabled servers VM extension issues
 description: This article tells how to troubleshoot and resolve issues with Azure VM extensions that arise with Azure Arc-enabled servers.
 ms.date: 07/16/2021
-ms.topic: conceptual
+ms.topic: troubleshooting
 ---
 
 # Troubleshoot Azure Arc-enabled servers VM extension issues
@@ -37,7 +37,7 @@ The following troubleshooting steps apply to all VM extensions.
 
 - Error code 52 in the status message indicates a missing dependency. Check the output and logs for more information about which dependency is missing.
 
-- If an installation fails, review the **Troubleshoot and support** section in the overview for the extension. In most cases, there is an error code included in the status message. For the Log Analytics agent for Linux, status messages are explained [here](../../virtual-machines/extensions/oms-linux.md#troubleshoot-and-support), along with general troubleshooting information for this VM extension.
+- If an installation fails, review the **Troubleshoot and support** section in the overview for the extension. In most cases, there is an error code included in the status message. For the Log Analytics agent for Linux, status messages are explained [here](/azure/virtual-machines/extensions/oms-linux#troubleshoot-and-support), along with general troubleshooting information for this VM extension.
 
 ## Next steps
 
@@ -45,6 +45,6 @@ If you don't see your problem here or you can't resolve your issue, try one of t
 
 - Get answers from Azure experts through [Microsoft Q&A](/answers/topics/azure-arc.html).
 
-- Connect with [@AzureSupport](https://twitter.com/azuresupport), the official Microsoft Azure account for improving customer experience. Azure Support connects the Azure community to answers, support, and experts.
+- Connect with [@AzureSupport](https://x.com/azuresupport), the official Microsoft Azure account for improving customer experience. Azure Support connects the Azure community to answers, support, and experts.
 
 - File an Azure support incident. Go to the [Azure support site](https://azure.microsoft.com/support/options/), and select **Get Support**.

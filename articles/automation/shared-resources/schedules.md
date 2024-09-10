@@ -6,6 +6,7 @@ ms.subservice: shared-capabilities
 ms.date: 03/29/2021
 ms.topic: conceptual 
 ms.custom: devx-track-azurepowershell
+ms.service: azure-automation
 ---
 
 # Manage schedules in Azure Automation

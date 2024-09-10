@@ -1,10 +1,11 @@
 ---
 title: Troubleshoot Multimedia redirection on Azure Virtual Desktop - Azure
 description: Known issues and troubleshooting instructions for multimedia redirection for Azure Virtual Desktop.
-author: Heidilohr
+author: dknappettmsft
 ms.topic: troubleshooting
-ms.date: 07/18/2023
-ms.author: helohr
+ms.date: 06/27/2024
+ms.author: daknappe
+ms.custom: docs_inherited
 ---
 # Troubleshoot multimedia redirection for Azure Virtual Desktop
 
@@ -12,15 +13,15 @@ ms.author: helohr
 > Call redirection is currently in PREVIEW.
 > See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-This article describes known issues and troubleshooting instructions for multimedia redirection for Azure Virtual Desktop.
+This article describes known issues and troubleshooting instructions for multimedia redirection for Azure Virtual Desktop and Windows 365.
 
 ## Known issues and limitations
 
 The following issues are ones we're already aware of, so you won't need to report them:
 
-- In the first browser tab a user opens, the extension pop-up might show a message that says, "The extension is not loaded", or a message that says video playback or call redirection isn't supported while redirection is working correctly in the tab. You can resolve this issue by opening a second tab. 
+- In the first browser tab a user opens, the extension pop-up might show a message that says "The extension is not loaded" or a message that says video playback or call redirection isn't supported while redirection is working correctly in the tab. You can resolve this issue by opening a second tab. 
 
-- Multimedia redirection only works on the [Windows Desktop client](users/connect-windows.md). Any other clients, such as the macOS, iOS, Android or Web client, don't support multimedia redirection.
+- Multimedia redirection only works on the [Windows Desktop client](users/connect-windows.md). Any other clients, such as the macOS, iOS, Android, or Web client, don't support multimedia redirection.
 
 - Multimedia redirection won't work as expected if the session hosts in your deployment are blocking cmd.exe.
 
@@ -30,22 +31,22 @@ The following issues are ones we're already aware of, so you won't need to repor
 
 ### The MSI installer doesn't work
 
-- There's a small chance that the MSI installer won't be able to install the extension during internal testing. If you run into this issue, you'll need to install the multimedia redirection extension from the Microsoft Edge Store or Google Chrome Store.
+- There's a small chance that the MSI installer won't be able to install the extension during internal testing. If you run into this issue, you need to install the multimedia redirection extension from the Microsoft Edge Store or Google Chrome Store.
 
   - [Multimedia redirection browser extension (Microsoft Edge)](https://microsoftedge.microsoft.com/addons/detail/wvd-multimedia-redirectio/joeclbldhdmoijbaagobkhlpfjglcihd)
   - [Multimedia browser extension (Google Chrome)](https://chrome.google.com/webstore/detail/wvd-multimedia-redirectio/lfmemoeeciijgkjkgbgikoonlkabmlno)
 
-- Installing the extension on host machines with the MSI installer will either prompt users to accept the extension the first time they open the browser or display a warning or error message. If users deny this prompt, it can cause the extension to not load. To avoid this issue, install the extensions by [editing the group policy](multimedia-redirection.md#install-the-browser-extension-using-group-policy).
+- Installing the extension on host machines with the MSI installer will prompt users to either accept the extension the first time they open the browser or display a warning or error message. If users deny this prompt, it can cause the extension to not load. To avoid this issue, install the extensions by [editing the group policy](multimedia-redirection.md#install-the-browser-extension-using-group-policy).
 
-- Sometimes the host and client version number disappears from the extension status message, which prevents the extension from loading on websites that support it. If you've installed the extension correctly, this issue is because your host machine doesn't have the latest C++ Redistributable installed. To fix this issue, install the [latest supported Visual C++ Redistributable downloads](/cpp/windows/latest-supported-vc-redist).
+- Sometimes the host and client version number disappears from the extension status message, which prevents the extension from loading on websites that support it. If you installed the extension correctly, this issue is because your host machine doesn't have the latest C++ Redistributable installed. To fix this issue, install the [latest supported Visual C++ Redistributable downloads](/cpp/windows/latest-supported-vc-redist).
 
 ### Known issues for video playback redirection
 
 - Video playback redirection doesn't currently support protected content, so videos that use protected content, such as from Pluralsight and Netflix, won't work.
 
-- When you resize the video window, the window's size will adjust faster than the video itself. You'll also see this issue when minimizing and maximizing the window.
+- When you resize the video window, the window's size adjusts faster than the video itself. You'll also see this issue when minimizing and maximizing the window.
 
-- If you access a video site, sometimes the video will remain in a loading or buffering state but never actually start playing. We're aware of this issue and are currently investigating it. For now, you can make videos load again by signing out of Azure Virtual Desktop and restarting your session.
+- If you access a video site, sometimes the video remains in a loading or buffering state but never actually start playing. We're aware of this issue and are currently investigating it. For now, you can make videos load again by signing out of Azure Virtual Desktop and restarting your session.
 
 ### Known issues for call redirection
 

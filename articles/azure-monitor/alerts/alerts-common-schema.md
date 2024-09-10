@@ -108,6 +108,9 @@ For sample alerts that use the common schema, see [Sample alert payloads](alerts
 | firedDateTime | The date and time when the alert instance was fired in Coordinated Universal Time (UTC). |
 | resolvedDateTime | The date and time when the monitor condition for the alert instance is set to **Resolved** in UTC. Currently only applicable for metric alerts.|
 | description | The description, as defined in the alert rule. |
+| alertRuleID | The ID of the alert rule that generated the alert instance.|
+| resourceType | The resource type affected by the alert.|
+| resourceGroupName | Name of the resource group for the impacted resource.|
 |essentialsVersion| The version number for the essentials section.|
 |alertContextVersion | The version number for the `alertContext` section.|
 |investigationLink | Link to investigate the alert in Azure Monitor. Currently requires limited preview registration.|

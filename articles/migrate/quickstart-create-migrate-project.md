@@ -65,8 +65,7 @@ To confirm that the Azure Migrate project was created, use the Azure portal.
 
 ## Next steps
 
-In this quickstart, you created an Azure Migrate project. To learn more about Azure Migrate and its capabilities,
-continue to the Azure Migrate overview.
+In this quickstart, you created an Azure Migrate project. To learn more about Azure Migrate and its capabilities, continue to the Azure Migrate overview.
 
 > [!div class="nextstepaction"]
 > [Azure Migrate overview](migrate-services-overview.md)

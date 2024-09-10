@@ -3,9 +3,9 @@ title: "Quickstart - Monitoring Azure Spring Apps apps with logs, metrics, and t
 description: Use log streaming, log analytics, metrics, and tracing to monitor PetClinic sample apps on Azure Spring Apps.
 author: KarlErickson
 ms.author: karler
-ms.service: spring-apps
+ms.service: azure-spring-apps
 ms.topic: quickstart
-ms.date: 10/12/2021
+ms.date: 06/27/2024
 ms.custom: devx-track-java, devx-track-extended-java, mode-other
 zone_pivot_groups: programming-languages-spring-apps
 ---
@@ -38,7 +38,13 @@ There are two ways to see logs on Azure Spring Apps: **Log Streaming** of real-t
 
 ### Log streaming
 
-You can use log streaming in the Azure CLI with the following command.
+#### [Azure portal](#tab/azure-portal-1)
+
+[!INCLUDE [app-log-streaming-in-portal](../includes/log-streaming/app-log-streaming-in-portal.md)]
+
+#### [Azure CLI](#tab/Azure-CLI-1)
+
+You can use log streaming in the Azure CLI with the following command:
 
 ```azurecli
 az spring app logs --name solar-system-weather --follow
@@ -62,6 +68,8 @@ Executing ObjectResult, writing value of type 'System.Collections.Generic.KeyVal
 
 > [!TIP]
 > Use `az spring app logs -h` to explore more parameters and log stream functionality.
+
+---
 
 ### Log Analytics
 
@@ -130,9 +138,13 @@ There are two ways to see logs on Azure Spring Apps: **Log Streaming** of real-t
 
 ### Log streaming
 
-#### [CLI](#tab/Azure-CLI)
+#### [Azure portal](#tab/azure-portal)
 
-You can use log streaming in the Azure CLI with the following command.
+[!INCLUDE [app-log-streaming-in-portal](../includes/log-streaming/app-log-streaming-in-portal.md)]
+
+#### [Azure CLI](#tab/Azure-CLI)
+
+You can use log streaming in the Azure CLI with the following command:
 
 ```azurecli
 az spring app logs \
@@ -153,7 +165,7 @@ To learn more about the query language that's used in Log Analytics, see [Azure 
 
 #### [IntelliJ](#tab/IntelliJ)
 
-To get the logs using Azure Toolkit for IntelliJ:
+Use the following steps to get the logs using the Azure Toolkit for IntelliJ:
 
 1. Select **Azure Explorer**, then **Spring Cloud**.
 

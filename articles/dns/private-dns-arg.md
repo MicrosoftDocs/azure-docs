@@ -4,7 +4,7 @@ titleSuffix: Azure DNS
 description: Learn how to query Azure Private DNS zones using Azure Resource Graph.
 services: dns
 author: greg-lindsay
-ms.service: dns
+ms.service: azure-dns
 ms.date: 03/20/2024
 ms.author: greglin
 ms.topic: how-to
@@ -14,7 +14,7 @@ ms.topic: how-to
 
 This article describes some of the ways you can use Azure Resource Graph Exporer to view information about your Azure Private DNS zones and records. Some example queries are provided.
 
-[Azure Resource Graph](../governance/resource-graph/overview.md) (ARG) is an Azure service that allows you to query your Azure resources with complex filtering, grouping, and sorting. ARG queries provide detailed information about your resources and you can display the results in several ways. 
+[Azure Resource Graph (ARG)](../governance/resource-graph/overview.md) is an Azure service that allows you to query your Azure resources with complex filtering, grouping, and sorting. ARG queries provide detailed information about your resources and you can display the results in several ways. 
 
 You can display information about your DNS zones, including:
 

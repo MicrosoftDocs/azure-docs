@@ -4,7 +4,7 @@ description: Important reference material needed when you monitor Azure Communic
 author: rcdun
 ms.author: rdunstan
 ms.topic: reference
-ms.service: communications-gateway
+ms.service: azure-communications-gateway
 ms.custom: subject-monitoring
 ms.date: 02/01/2024
 ---

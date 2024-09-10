@@ -4,7 +4,7 @@ titleSuffix: Azure Network Watcher
 description: Learn what Azure Network Watcher traffic analytics is, and how to use it for viewing network activity, securing networks, and optimizing performance.
 author: halkazwini
 ms.author: halkazwini
-ms.service: network-watcher
+ms.service: azure-network-watcher
 ms.topic: concept-article
 ms.reviewer: harshacs
 ms.date: 04/24/2024

@@ -3,7 +3,7 @@ title: 'Troubleshoot Azure Microsoft.Network failed Provisioning State'
 description: Learn about the meaning of various provisioning states and how to troubleshoot Azure Microsoft.Network failed Provisioning State.
 services: networking
 author: stegag
-ms.service: virtual-network
+ms.service: azure-virtual-network
 ms.custom: devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 03/21/2023
@@ -49,7 +49,7 @@ The easiest way to achieve this task is to use Azure PowerShell. Issue a resourc
 >
 ## Azure PowerShell cmdlets to restore succeeded provisioning state
 
-[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/hybrid-az-ps.md)]
+[!INCLUDE [updated-for-az](../../includes/hybrid-az-ps.md)]
 
 ### Preliminary operations
 

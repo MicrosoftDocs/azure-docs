@@ -6,7 +6,7 @@ summary: Learn how to use Azure Load Balancer to efficiently distribute traffic 
 metadata:
   title: Load Balancer
   description: Learn how to use Azure Load Balancer to efficiently distribute traffic and improve application scalability. Explore quickstarts, tutorials, and how-to guides for deploying load balancers in virtual machines, cloud resources, and cross-premises networks.
-  ms.service: load-balancer
+  ms.service: azure-load-balancer
   ms.topic: landing-page
   author: mbender-ms
   ms.author: mbender

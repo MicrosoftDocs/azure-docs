@@ -1,6 +1,6 @@
 ---
 title: Get-Metric in Azure Monitor Application Insights
-description: Learn how to effectively use the GetMetric() call to capture locally pre-aggregated metrics for .NET and .NET Core applications with Azure Monitor Application Insights.
+description: Learn how to effectively use the GetMetric() call to capture locally preaggregated metrics for .NET and .NET Core applications with Azure Monitor Application Insights.
 ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 01/31/2024
@@ -11,15 +11,15 @@ ms.reviewer: mmcc
 
 # Custom metric collection in .NET and .NET Core
 
-The Azure Monitor Application Insights .NET and .NET Core SDKs have two different methods of collecting custom metrics: `TrackMetric()` and `GetMetric()`. The key difference between these two methods is local aggregation. The `TrackMetric()` method lacks pre-aggregation. The `GetMetric()` method has pre-aggregation. We recommend that you use aggregation, so `TrackMetric()` is no longer the preferred method of collecting custom metrics. This article walks you through using the `GetMetric()` method and some of the rationale behind how it works.
+The Azure Monitor Application Insights .NET and .NET Core SDKs have two different methods of collecting custom metrics: `TrackMetric()` and `GetMetric()`. The key difference between these two methods is local aggregation. The `TrackMetric()` method lacks preaggregation. The `GetMetric()` method has preaggregation. We recommend that you use aggregation, so `TrackMetric()` is no longer the preferred method of collecting custom metrics. This article walks you through using the `GetMetric()` method and some of the rationale behind how it works.
 
 [!INCLUDE [azure-monitor-app-insights-otel-available-notification](../includes/azure-monitor-app-insights-otel-available-notification.md)]
 
-## Pre-aggregating vs. non-pre-aggregating API
+## Preaggregating vs. non-preaggregating API
 
 The `TrackMetric()` method sends raw telemetry denoting a metric. It's inefficient to send a single telemetry item for each value. The `TrackMetric()` method is also inefficient in terms of performance because every `TrackMetric(item)` goes through the full SDK pipeline of telemetry initializers and processors.
 
-Unlike `TrackMetric()`, `GetMetric()` handles local pre-aggregation for you and then only submits an aggregated summary metric at a fixed interval of one minute. If you need to closely monitor some custom metric at the second or even millisecond level, you can do so while only incurring the storage and network traffic cost of only monitoring every minute. This behavior also greatly reduces the risk of throttling occurring because the total number of telemetry items that need to be sent for an aggregated metric are greatly reduced.
+Unlike `TrackMetric()`, `GetMetric()` handles local preaggregation for you and then only submits an aggregated summary metric at a fixed interval of one minute. If you need to closely monitor some custom metric at the second or even millisecond level, you can do so while only incurring the storage and network traffic cost of only monitoring every minute. This behavior also greatly reduces the risk of throttling occurring because the total number of telemetry items that need to be sent for an aggregated metric are greatly reduced.
 
 In Application Insights, custom metrics collected via `TrackMetric()` and `GetMetric()` aren't subject to [sampling](./sampling.md). Sampling important metrics can lead to scenarios where alerting you might have built around those metrics could become unreliable. By never sampling your custom metrics, you can generally be confident that when your alert thresholds are breached, an alert fires. Because custom metrics aren't sampled, there are some potential concerns.
 
@@ -29,9 +29,9 @@ Trend tracking in a metric every second, or at an even more granular interval, c
 - **Increased network traffic or performance overhead.** In some scenarios, this overhead could have both a monetary and application performance cost.
 - **Risk of ingestion throttling.** Azure Monitor drops ("throttles") data points when your app sends a high rate of telemetry in a short time interval.
 
-Throttling is a concern because it can lead to missed alerts. The condition to trigger an alert could occur locally and then be dropped at the ingestion endpoint because of too much data being sent. We don't recommend using `TrackMetric()` for .NET and .NET Core unless you've implemented your own local aggregation logic. If you're trying to track every instance an event occurs over a given time period, you might find that [`TrackEvent()`](./api-custom-events-metrics.md#trackevent) is a better fit. Keep in mind that unlike custom metrics, custom events are subject to sampling. You can still use `TrackMetric()` even without writing your own local pre-aggregation. But if you do so, be aware of the pitfalls.
+Throttling is a concern because it can lead to missed alerts. The condition to trigger an alert could occur locally and then be dropped at the ingestion endpoint because of too much data being sent. We don't recommend using `TrackMetric()` for .NET and .NET Core unless you've implemented your own local aggregation logic. If you're trying to track every instance an event occurs over a given time period, you might find that [`TrackEvent()`](./api-custom-events-metrics.md#trackevent) is a better fit. Keep in mind that unlike custom metrics, custom events are subject to sampling. You can still use `TrackMetric()` even without writing your own local preaggregation. But if you do so, be aware of the pitfalls.
 
-In summary, we recommend `GetMetric()` because it does pre-aggregation, it accumulates values from all the `Track()` calls, and sends a summary/aggregate once every minute. The `GetMetric()` method can significantly reduce the cost and performance overhead by sending fewer data points while still collecting all relevant information.
+In summary, we recommend `GetMetric()` because it does preaggregation, it accumulates values from all the `Track()` calls, and sends a summary/aggregate once every minute. The `GetMetric()` method can significantly reduce the cost and performance overhead by sending fewer data points while still collecting all relevant information.
 
 > [!NOTE]
 > Only the .NET and .NET Core SDKs have a `GetMetric()` method. If you're using Java, see [Sending custom metrics using micrometer](./java-standalone-config.md#autocollected-micrometer-metrics-including-spring-boot-actuator-metrics). For JavaScript and Node.js, you would still use `TrackMetric()`, but keep in mind the caveats that were outlined in the previous section. For Python, you can use [OpenCensus.stats](/previous-versions/azure/azure-monitor/app/opencensus-python#metrics) to send custom metrics, but the metrics implementation is different.
@@ -194,7 +194,7 @@ By default, multidimensional metrics within the metric explorer aren't turned on
 
 ### Enable multidimensional metrics
 
-To enable multidimensional metrics for an Application Insights resource, select **Usage and estimated costs** > **Custom Metrics** > **Enable alerting on custom metric dimensions** > **OK**. For more information, see [Custom metrics dimensions and pre-aggregation](pre-aggregated-metrics-log-metrics.md#custom-metrics-dimensions-and-pre-aggregation).
+To enable multidimensional metrics for an Application Insights resource, select **Usage and estimated costs** > **Custom Metrics** > **Enable alerting on custom metric dimensions** > **OK**. For more information, see [Custom metrics dimensions and preaggregation](pre-aggregated-metrics-log-metrics.md#custom-metrics-dimensions-and-preaggregation).
 
 After you've made that change and sent new multidimensional telemetry, you can select **Apply splitting**.
 
@@ -312,7 +312,7 @@ SeverityLevel.Error);
 * [Metrics - Get - REST API](/rest/api/application-insights/metrics/get)
 * [Application Insights API for custom events and metrics](api-custom-events-metrics.md)
 * [Learn more](./worker-service.md) about monitoring worker service applications.
-* Use [log-based and pre-aggregated metrics](./pre-aggregated-metrics-log-metrics.md).
+* Use [log-based and preaggregated metrics](./pre-aggregated-metrics-log-metrics.md).
 * Analyze metrics with [metrics explorer](../essentials/analyze-metrics.md).
 * Learn how to enable Application Insights for [ASP.NET Core applications](asp-net-core.md).
 * Learn how to enable Application Insights for [ASP.NET applications](asp-net.md).

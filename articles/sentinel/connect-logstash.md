@@ -224,4 +224,4 @@ If you are not seeing any data in this log file, generate and send some events l
 
 In this document, you learned how to use Logstash to connect external data sources to Microsoft Sentinel. To learn more about Microsoft Sentinel, see the following articles:
 - Learn how to [get visibility into your data and potential threats](get-visibility.md).
-- Get started detecting threats with Microsoft Sentinel, using [built-in](detect-threats-built-in.md) or [custom](detect-threats-custom.md) rules.
+- Get started [detecting threats with Microsoft Sentinel](detect-threats-built-in.md).

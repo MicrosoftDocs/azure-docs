@@ -351,7 +351,7 @@ The following list identifies the tables in a [Log Analytics workspace](log-anal
 | [UpdateRunProgress](/azure/azure-monitor/reference/tables/updaterunprogress) | |
 | [UpdateSummary](/azure/azure-monitor/reference/tables/updatesummary) | |
 | [UrlClickEvents](/azure/azure-monitor/reference/tables/urlclickevents) | |
-| [W3CIISLog](/azure/azure-monitor/reference/tables/w3ciislog) | |
+| [W3CIISLog](/azure/azure-monitor/reference/tables/w3ciislog) | Partial support – data arriving from Log Analytics agent (MMA) or Azure Monitor Agent (AMA) is fully supported. Data arriving via Diagnostics Extension agent is collected though storage while this path isn’t supported. |
 | [WaaSDeploymentStatus](/azure/azure-monitor/reference/tables/waasdeploymentstatus) | |
 | [WaaSInsiderStatus](/azure/azure-monitor/reference/tables/waasinsiderstatus) | |
 | [WaaSUpdateStatus](/azure/azure-monitor/reference/tables/waasupdatestatus) | |

@@ -2,7 +2,7 @@
 title: 'Azure Virtual WAN: Create a Network Virtual Appliance (NVA) in the hub'
 description: Learn how to deploy a Network Virtual Appliance in the Virtual WAN hub.
 author: cherylmc
-ms.service: virtual-wan
+ms.service: azure-virtual-wan
 ms.topic: how-to
 ms.date: 07/28/2023
 ms.author: cherylmc
@@ -10,7 +10,7 @@ ms.author: cherylmc
 ---
 # How to create a Network Virtual Appliance in an Azure Virtual WAN hub
 
-This article shows you how to use Virtual WAN to connect to your resources in Azure through a **Network Virtual Appliance** (NVA) in Azure. This type of connection requires a VPN device located on-premises that has an externally facing public IP address assigned to it. For more information about Virtual WAN, see [What is Virtual WAN?](virtual-wan-about.md)
+This article shows you how to use Virtual WAN to connect to your resources in Azure through a **Network Virtual Appliance (NVA)** in Azure. This type of connection requires a VPN device located on-premises that has an externally facing public IP address assigned to it. For more information about Virtual WAN, see [What is Virtual WAN?](virtual-wan-about.md)
 
 The steps in this article help you create a **Barracuda CloudGen WAN** Network Virtual Appliance in the Virtual WAN hub. To complete this exercise, you must have a Barracuda Cloud Premise Device (CPE) and a license for the Barracuda CloudGen WAN appliance that you deploy into the hub before you begin.
 
@@ -34,13 +34,13 @@ Verify that you've met the following criteria before beginning your configuratio
 
 ## <a name="openvwan"></a>Create a virtual WAN
 
-[!INCLUDE [Create virtual WAN](~/reusable-content/ce-skilling/azure/includes/virtual-wan-create-vwan-include.md)]
+[!INCLUDE [Create virtual WAN](../../includes/virtual-wan-create-vwan-include.md)]
 
 ## <a name="hub"></a>Create a hub
 
 Create a virtual hub by filling out the **Basics** tab to create an empty virtual hub (a virtual hub that doesn't contain any gateways).
 
-[!INCLUDE [Create a virtual hub](~/reusable-content/ce-skilling/azure/includes/virtual-wan-hub-basics.md)]
+[!INCLUDE [Create a virtual hub](../../includes/virtual-wan-hub-basics.md)]
 
 ## Create the Network Virtual Appliance in the hub
 

@@ -14,7 +14,7 @@ Organizations are increasingly moving to multicloud architectures, whether by de
 
 This article describes how to ingest GCP data into Microsoft Sentinel to get full security coverage and analyze and detect attacks in your multicloud environment.
 
-With the **GCP Pub/Sub** connectors, based on our [Codeless Connector Platform](create-codeless-connector.md?tabs=deploy-via-arm-template%2Cconnect-via-the-azure-portal) (CCP), you can ingest logs from your GCP environment using the GCP [Pub/Sub capability](https://cloud.google.com/pubsub/docs/overview):
+With the **GCP Pub/Sub** connectors, based on our [Codeless Connector Platform (CCP)](create-codeless-connector.md?tabs=deploy-via-arm-template%2Cconnect-via-the-azure-portal), you can ingest logs from your GCP environment using the GCP [Pub/Sub capability](https://cloud.google.com/pubsub/docs/overview):
 
 - The **Google Cloud Platform (GCP) Pub/Sub Audit Logs connector** collects audit trails of access to GCP resources. Analysts can monitor these logs to track resource access attempts and detect potential threats across the GCP environment.
 
@@ -170,9 +170,9 @@ For more information about workload identity federation in Google Cloud Platform
 1. **Grant access** to the principal that represents the workload identity pool and provider that you created in the previous step.
    - Use the following format for the principal name:
      ```http
-     principal://iam.googleapis.com/projects/{PROJECT_NUMBER}/locations/global/workloadIdentityPools/{WORKLOAD_IDENTITY_POOL_ID}/subject/{WORKLOAD_IDENTITY_PROVIDER_ID}
+     principalSet://iam.googleapis.com/projects/{PROJECT_NUMBER}/locations/global/workloadIdentityPools/{WORKLOAD_IDENTITY_POOL_ID}/*
      ```
-
+     
    - Assign the **Workload Identity User** role and save the configuration.
 
 For more information about granting access in Google Cloud Platform, see [Manage access to projects, folders, and organizations](https://cloud.google.com/iam/docs/granting-changing-revoking-access) in the Google Cloud documentation.
@@ -362,7 +362,7 @@ Follow the instructions in the Google Cloud documentation to [**configure Pub/Su
 ## Next steps
    In this article, you learned how to ingest GCP data into Microsoft Sentinel using the GCP Pub/Sub connectors. To learn more about Microsoft Sentinel, see the following articles:
 
-   - Learn how to [get visibility into your data, and potential threats](get-visibility.md).
+- Learn how to [get visibility into your data, and potential threats](get-visibility.md).
    - Get started [detecting threats with Microsoft Sentinel](detect-threats-built-in.md).
    - [Use workbooks](monitor-your-data.md) to monitor your data.
    

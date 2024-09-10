@@ -4,10 +4,10 @@ description: Measure, understand, and build resilience to incidents by using cha
 services: chaos-studio
 author: prasha-microsoft
 ms.topic: overview
-ms.date: 05/27/2022
+ms.date: 09/05/2024
 ms.author: abbyweisberg
 ms.reviewer: prashabora
-ms.service: chaos-studio
+ms.service: azure-chaos-studio
 ms.custom: template-overview, kr2b-contr-experiment
 ---
 

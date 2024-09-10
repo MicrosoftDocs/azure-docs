@@ -2,8 +2,9 @@
 title: Azure Web Application Firewall monitoring and logging
 description: Learn about Azure Web Application Firewall in Azure Front Door monitoring and logging.
 author: vhorne
-ms.service: web-application-firewall
-ms.topic: article
+ms.service: azure-web-application-firewall
+ms.custom: devx-track-js
+ms.topic: how-to
 services: web-application-firewall
 ms.date: 05/23/2024
 ms.author: victorh

@@ -3,7 +3,7 @@ title: Azure Front Door
 description: This article provides an overview of Azure Front Door.
 services: frontdoor
 author: duongau
-ms.service: frontdoor
+ms.service: azure-frontdoor
 ms.topic: overview
 ms.date: 10/12/2023
 ms.author: duau
@@ -18,7 +18,7 @@ Azure Front Door is Microsoft’s modern cloud Content Delivery Network (CDN) th
 
 :::image type="content" source="./media/overview/front-door-overview.png" alt-text="Diagram of Azure Front Door routing user traffic to endpoints." lightbox="./media/overview/front-door-overview-expanded.png":::
 
-[!INCLUDE [ddos-waf-recommendation](~/reusable-content/ce-skilling/azure/includes/ddos-waf-recommendation.md)]
+[!INCLUDE [ddos-waf-recommendation](../../includes/ddos-waf-recommendation.md)]
 
 ## Why use Azure Front Door?
 

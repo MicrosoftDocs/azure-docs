@@ -5,7 +5,7 @@ author: EdB-MSFT
 ms.author: edbaynash 
 ms.reviewer: tbd
 ms.topic: conceptual
-ms.date: 05/03/2023
+ms.date: 06/25/2024
 ---
 
 # Use private endpoints for Managed Prometheus and Azure Monitor workspace
@@ -13,7 +13,7 @@ ms.date: 05/03/2023
 Use [private endpoints](../../private-link/private-endpoint-overview.md) for Managed Prometheus and your Azure Monitor workspace to allow clients on a virtual network (VNet) to securely query data over a [Private Link](../../private-link/private-link-overview.md). The private endpoint uses a separate IP address within the VNet address space of your Azure Monitor workspace resource. Network traffic between the clients on the VNet and the workspace resource traverses the VNet and a private link on the Microsoft backbone network, eliminating exposure from the public internet.
 
 > [!NOTE]
-> If you are using Azure Managed Grafana to query your data, please configure a [Managed Private Endpoint](https://aka.ms/ags/mpe) to ensure the queries from Managed Grafana into your Azure Monitor workspace use the Microsoft backbone network without going through the internet.  
+> If you are using Azure Managed Grafana to query your data, configure a [Managed Private Endpoint](https://aka.ms/ags/mpe) to ensure the queries from Managed Grafana into your Azure Monitor workspace use the Microsoft backbone network without going through the internet.  
 
 
 Using private endpoints for your workspace enables you to:
@@ -22,7 +22,7 @@ Using private endpoints for your workspace enables you to:
 - Increase security for the VNet, by enabling you to block exfiltration of data from the VNet.
 - Securely connect to workspaces from on-premises networks that connect to the VNet using [VPN](../../vpn-gateway/vpn-gateway-about-vpngateways.md) or [ExpressRoutes](../../expressroute/expressroute-locations.md) with private-peering.
 
-## Conceptual overview
+## Conceptual overview 
 
 :::image type="content" source="./media/azure-monitor-workspace-private-endpoint/azure-monitor-workspace-private-endpoints-overview.png" alt-text="A diagram showing an overview of private endpoints for Azure Monitor workspace."  lightbox="./media/azure-monitor-workspace-private-endpoint/azure-monitor-workspace-private-endpoints-overview.png" :::
 
@@ -44,8 +44,11 @@ Azure Monitor workspace owners can manage consent requests and the private endpo
 
 To create a private endpoint by using the Azure portal, PowerShell, or the Azure CLI, see the following articles. The articles feature an Azure web app as the target service, but the steps to create a private link are the same for an Azure Monitor workspace.
 
-When you create a private endpoint, select the **Resource type**  `Microsoft.Monitor/accounts` and specify the Azure Monitor workspace to which it connects. Select `prometheusMetrics` as the Target sub-resource.
+When you create a private endpoint, make the following selections from the dropdown lists on the basic tab:  
+- **Resource type** - Select  `Microsoft.Monitor/accounts`. Specify the Azure   Monitor workspace to which it connects. 
+- **Target sub-resource** - Select `prometheusMetrics` .
 
+Create a private endpoint using the following articles:
 - [Create a private endpoint using Azure portal](../../private-link/create-private-endpoint-portal.md#create-a-private-endpoint)
 
 - [Create a private endpoint using Azure CLI](../../private-link/create-private-endpoint-cli.md#create-a-private-endpoint)
@@ -68,7 +71,7 @@ When you create a private endpoint, the DNS CNAME resource record for the worksp
 
 When you resolve the query endpoint URL from outside the VNet with the private endpoint, it resolves to the public endpoint of the workspace. When resolved from the VNet hosting the private endpoint, the query endpoint URL resolves to the private endpoint's IP address.
 
-For the example below we're using `k8s02-workspace` located in the East US region. The resource name is not guaranteed to be unique, which requires us to add a few characters after the name to make the URL path unique; for example, `k8s02-workspace-<key>`. This unique query endpoint is shown on the Azure Monitor workspace Overview page.
+For the example below we're using `k8s02-workspace` located in the East US region. The resource name isn't guaranteed to be unique, which requires us to add a few characters after the name to make the URL path unique; for example, `k8s02-workspace-<key>`. This unique query endpoint is shown on the Azure Monitor workspace Overview page.
 
 :::image type="content" source="./media/azure-monitor-workspace-private-endpoint/azure-monitor-workspace-overview.png" alt-text="A screenshot showing an Azure Monitor workspace overview page." lightbox="./media/azure-monitor-workspace-private-endpoint/azure-monitor-workspace-overview.png":::
 
@@ -82,7 +85,7 @@ The DNS resource records for the Azure Monitor workspace when resolved from outs
 
 As previously mentioned, you can deny or control access for clients outside the VNet through the public endpoint using the '*Public Access*' tab on the Networking page of your workspace.
 
-The DNS resource records for 'k8s02-workspace', when resolved by a client in the VNet hosting the private endpoint, are:
+The DNS resource records for 'k8s02-workspace' when resolved by a client in the VNet hosting the private endpoint, are:
 
 | Name  | Type | Value |
 | :--- | :---: | :--- |
@@ -117,7 +120,7 @@ Keep in mind the following known issues about private endpoints for Azure Monito
 
 ### Workspace query access constraints for clients in VNets with private endpoints
 
-Clients in VNets with existing private endpoints face constraints when accessing other Azure Monitor workspaces that have private endpoints. For example, suppose a VNet N1 has a private endpoint for a workspace A1. If workspace A2 has a private endpoint in a VNet N2, then clients in VNet N1 must also query workspace data in account A2 using a private endpoint. If workspace A2 does not have any private endpoints configured, then clients in VNet N1 can query data from that workspace without a private endpoint.
+Clients in VNets with existing private endpoints face constraints when accessing other Azure Monitor workspaces that have private endpoints. For example, suppose a VNet N1 has a private endpoint for a workspace A1. If workspace A2 has a private endpoint in a VNet N2, then clients in VNet N1 must also query workspace data in account A2 using a private endpoint. If workspace A2 doesn't have any private endpoints configured, then clients in VNet N1 can query data from that workspace without a private endpoint.
 
 This constraint is a result of the DNS changes made when workspace A2 creates a private endpoint.
 

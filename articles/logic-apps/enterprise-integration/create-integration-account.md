@@ -2,7 +2,7 @@
 title: Create and manage integration accounts
 description: Create and manage integration accounts for building B2B enterprise integration workflows in Azure Logic Apps with the Enterprise Integration Pack.
 services: logic-apps
-ms.service: logic-apps
+ms.service: azure-logic-apps
 ms.suite: integration
 author: ecfan
 ms.author: estfan
@@ -14,7 +14,7 @@ ms.date: 01/10/2024
 
 # Create and manage integration accounts for B2B workflows in Azure Logic Apps with the Enterprise Integration Pack
 
-[!INCLUDE [logic-apps-sku-consumption-standard](~/reusable-content/ce-skilling/azure/includes/logic-apps-sku-consumption-standard.md)]
+[!INCLUDE [logic-apps-sku-consumption-standard](../../../includes/logic-apps-sku-consumption-standard.md)]
 
 Before you can build business-to-business (B2B) and enterprise integration workflows using Azure Logic Apps, you need to create an *integration account* resource. This account is a scalable cloud-based container in Azure that simplifies how you store and manage B2B artifacts that you define and use in your workflows for B2B scenarios, for example:
 
@@ -102,9 +102,9 @@ For this task, you can use the Azure portal, [Azure CLI](/cli/azure/resource#az-
    | **Subscription** | Yes | <*Azure-subscription-name*> | The name for your Azure subscription |
    | **Resource group** | Yes | <*Azure-resource-group-name*> | The name for the [Azure resource group](../../azure-resource-manager/management/overview.md) to use for organizing related resources. For this example, create a new resource group named **FabrikamIntegration-RG**. |
    | **Integration account name** | Yes | <*integration-account-name*> | Your integration account's name, which can contain only letters, numbers, hyphens (`-`), underscores (`_`), parentheses (`()`), and periods (`.`). This example uses **Fabrikam-Integration**. |
-   | **Pricing Tier** | Yes | <*pricing-level*> | The pricing tier for the integration account, which you can change later. For this example, select **Free**. For more information, review the following documentation: <br><br>- [Logic Apps pricing model](../logic-apps-pricing.md#integration-accounts) <br>- [Logic Apps limits and configuration](../logic-apps-limits-and-config.md#integration-account-limits) <br>- [Logic Apps pricing](https://azure.microsoft.com/pricing/details/logic-apps/) |
+   | **Pricing Tier** | Yes | <*pricing-level*> | The pricing tier for the integration account, which you can change later. For this example, select **Free**. For more information, see the following documentation: <br><br>- [Logic Apps pricing model](../logic-apps-pricing.md#integration-accounts) <br>- [Logic Apps limits and configuration](../logic-apps-limits-and-config.md#integration-account-limits) <br>- [Logic Apps pricing](https://azure.microsoft.com/pricing/details/logic-apps/) |
    | **Storage account** | Available only for the Premium (preview) integration account | None | The name for an existing [Azure storage account](../../storage/common/storage-account-create.md). For the example in this guide, this option doesn't apply. |
-   | **Region** | Yes | <*Azure-region*> | The Azure region where to store your integration account metadata. Either select the same location as your logic app resource, or create your logic apps in the same location as your integration account. For this example, use **West US**. <br><br>To use your integration account with an [integration service environment (ISE)](../connect-virtual-network-vnet-isolated-environment-overview.md), select **Associate with integration service environment**, and then select your ISE as the location. To create an integration account from inside an ISE, see [Create integration accounts from inside an ISE](../add-artifacts-integration-service-environment-ise.md#create-integration-account-environment). <br><br>**Note**: The ISE resource will retire on August 31, 2024, due to its dependency on Azure Cloud Services (classic), which retires at the same time. Currently in preview, the capability is available for you to [export a Standard integration account for an ISE to a Premium integration account](../ise-manage-integration-service-environment.md#export-integration-account). |
+   | **Region** | Yes | <*Azure-region*> | The Azure region where to store your integration account metadata. Either select the same location as your logic app resource, or create your logic apps in the same location as your integration account. For this example, use **West US**. |
    | **Enable log analytics** | No | Unselected | For this example, don't select this option. |
 
 1. When you're done, select **Review + create**.
@@ -274,7 +274,7 @@ Before you can link your integration account to a Standard logic app resource, y
        "IsEncrypted": false,
        "Values": {
            "AzureWebJobStorage": "UseDevelopmentStorage=true",
-           "FUNCTIONS_WORKER_RUNTIME": "node",
+           "FUNCTIONS_WORKER_RUNTIME": "dotnet",
            "WORKFLOW_INTEGRATION_ACCOUNT_CALLBACK_URL": "https://prod-03.westus.logic.azure.com:443/integrationAccounts/...."
        }
    }

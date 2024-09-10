@@ -5,7 +5,7 @@ description: Learn how to configure Microsoft Entra authentication for Virtual W
 services: virtual-wan
 author: cherylmc
 
-ms.service: virtual-wan
+ms.service: azure-virtual-wan
 ms.topic: how-to
 ms.date: 11/21/2023
 ms.author: cherylmc 
@@ -15,7 +15,7 @@ ms.author: cherylmc
 
 This article shows you how to use Virtual WAN to connect to your resources in Azure. In this article, you create a point-to-site User VPN connection to Virtual WAN that uses Microsoft Entra authentication. Microsoft Entra authentication is only available for gateways that use the OpenVPN protocol.
 
-[!INCLUDE [OpenVPN note](~/reusable-content/ce-skilling/azure/includes/vpn-gateway-openvpn-auth-include.md)]
+[!INCLUDE [OpenVPN note](../../includes/vpn-gateway-openvpn-auth-include.md)]
 
 In this article, you learn how to:
 
@@ -28,7 +28,7 @@ In this article, you learn how to:
 * Download and apply the User VPN client configuration
 * View your virtual WAN
 
-:::image type="content" source="./media/virtual-wan-about/virtualwanp2s.png" alt-text="Virtual WAN diagram.":::
+:::image type="content" source="./media/virtual-wan-about/virtualwanp2s.png" alt-text="Screenshot of Virtual WAN diagram." lightbox="./media/virtual-wan-about/virtualwanp2s.png":::
 
 ## Before you begin
 
@@ -46,7 +46,7 @@ Verify that you've met the following criteria before beginning your configuratio
 
 From a browser, navigate to the [Azure portal](https://portal.azure.com) and sign in with your Azure account.
 
-[!INCLUDE [Create a virtual WAN](~/reusable-content/ce-skilling/azure/includes/virtual-wan-create-vwan-include.md)]
+[!INCLUDE [Create a virtual WAN](../../includes/virtual-wan-create-vwan-include.md)]
 
 ## <a name="user-config"></a>Create a User VPN configuration
 
@@ -83,7 +83,7 @@ A User VPN configuration defines the parameters for connecting remote clients. I
 
 For this exercise, we create an empty virtual hub in this step and, in the next section, you add a P2S gateway to this hub. However, you can combine these steps and create the hub with the P2S gateway settings all at once. The result is the same either way. After configuring the settings, click **Review + create** to validate, then **Create**.
 
-[!INCLUDE [Create an empty hub](~/reusable-content/ce-skilling/azure/includes/virtual-wan-hub-basics.md)]
+[!INCLUDE [Create an empty hub](../../includes/virtual-wan-hub-basics.md)]
 
 ## <a name="hub"></a>Add a P2S gateway to a hub
 
@@ -124,7 +124,7 @@ For **macOS** client instructions, see [Configure a VPN client - macOS (Preview)
 
 ### To configure Windows VPN clients
 
-[!INCLUDE [Download Azure VPN client](~/reusable-content/ce-skilling/azure/includes/vpn-gateway-download-vpn-client.md)]
+[!INCLUDE [Download Azure VPN client](../../includes/vpn-gateway-download-vpn-client.md)]
 
 #### <a name="import"></a>To import a VPN client profile (Windows)
 

@@ -22,13 +22,13 @@ This article describes how to enable complete monitoring of your Kubernetes clus
 > 
 >- [Configure data collection and cost optimization in Container insights using data collection rule](./container-insights-data-collection-dcr.md)<br>Details on customizing log collection once you've enabled monitoring, including using preset cost optimization configurations.
 >- [Best practices for monitoring Kubernetes with Azure Monitor](../best-practices-containers.md)<br>Best practices for monitoring Kubernetes clusters organized by the five pillars of the [Azure Well-Architected Framework](/azure/architecture/framework/), including cost optimization.
->- [Cost optimization in Azure Monitor](../best-practices-cost.md)<br>Best practices for configuring all features of Azure Monitor to optimize you costs and limit the amount of data that you collect.
+>- [Cost optimization in Azure Monitor](../best-practices-cost.md)<br>Best practices for configuring all features of Azure Monitor to optimize your costs and limit the amount of data that you collect.
 
 ## Supported clusters
 
 This article provides onboarding guidance for the following types of clusters. Any differences in the process for each type are noted in the relevant sections.
 
-- [Azure Kubernetes clusters (AKS)](../../aks/intro-kubernetes.md)
+- [Azure Kubernetes clusters (AKS)](/azure/aks/intro-kubernetes)
 - [Arc-enabled Kubernetes clusters](../../azure-arc/kubernetes/overview.md)
 
 ## Prerequisites
@@ -40,7 +40,7 @@ This article provides onboarding guidance for the following types of clusters. A
 
 **Managed Prometheus prerequisites**
 
-  - The cluster must use [managed identity authentication](../../aks/use-managed-identity.md).
+  - The cluster must use [managed identity authentication](/azure/aks/use-managed-identity).
   - The following resource providers must be registered in the subscription of the AKS cluster and the Azure Monitor workspace:
     - Microsoft.ContainerService
     - Microsoft.Insights
@@ -58,8 +58,8 @@ This article provides onboarding guidance for the following types of clusters. A
 
 > [!NOTE]
 > The Managed Prometheus Arc-Enabled Kubernetes extension does not support the following configurations:
-> * Red Hat Openshift distributions
-  > * Windows nodes
+> * Red Hat Openshift distributions, including Azure Red Hat OpenShift (ARO)
+> * Windows nodes
 
 
 ## Workspaces
@@ -80,7 +80,7 @@ Use one of the following methods to enable scraping of Prometheus metrics from y
 > If you have a single Azure Monitor Resource that is private-linked, then Prometheus enablement won't work if the AKS cluster and Azure Monitor Workspace are in different regions.
 > The configuration needed for the Prometheus add-on isn't available cross region because of the private link constraint.
 > To resolve this, create a new DCE in the AKS cluster location and a new DCRA (association) in the same AKS cluster region. Associate the new DCE with the AKS cluster and name the new association (DCRA) as configurationAccessEndpoint.
-> For full instructions on how to configure the DCEs associated with your Azure Monitor workspace to use a Private Link for data ingestion, see [Use a private link for Managed Prometheus data ingestion](../essentials/private-link-data-ingestion.md).
+> For full instructions on how to configure the DCEs associated with your Azure Monitor workspace to use a Private Link for data ingestion, see [Enable private link for Kubernetes monitoring in Azure Monitor](./kubernetes-monitoring-private-link.md).
 
 ### [CLI](#tab/cli)
 
@@ -188,6 +188,7 @@ If the Azure Managed Grafana instance is already linked to an Azure Monitor work
     - Parameter file: [https://aka.ms/azureprometheus-enable-bicep-template-parameters](https://aka.ms/azureprometheus-enable-arm-template-parameters)
     - DCRA module: [https://aka.ms/nested_azuremonitormetrics_dcra_clusterResourceId](https://aka.ms/nested_azuremonitormetrics_dcra_clusterResourceId)
     - Profile module: [https://aka.ms/nested_azuremonitormetrics_profile_clusterResourceId](https://aka.ms/nested_azuremonitormetrics_profile_clusterResourceId)
+    - Azure Managed Grafana Role Assignment module: [https://aka.ms/nested_grafana_amw_role_assignment](https://aka.ms/nested_grafana_amw_role_assignment)
 
     **Arc-Enabled cluster ARM**
 
@@ -524,7 +525,7 @@ Both ARM and Bicep templates are provided in this section.
 
 ### [Azure Policy](#tab/policy)
 
-#### Azure Portal
+#### Azure portal
 
 1. From the **Definitions** tab of the **Policy** menu in the Azure portal, create a policy definition with the following details.
 
@@ -564,60 +565,29 @@ After the policy is assigned to the subscription, whenever you create a new clus
 
 ---
 
-
-
-
-
 ## Enable full monitoring with Azure portal
-Using the Azure portal, you can enable both Managed Prometheus and Container insights at the same time. 
 
-> [!NOTE]
-> If you want to enabled Managed Prometheus without Container insights, then [enable it from the Azure Monitor workspace](./kubernetes-monitoring-enable.md#enable-prometheus-and-grafana) as described below.
+### New AKS cluster (Prometheus, Container insights, and Grafana)
 
-### New AKS cluster (Prometheus and Container insights)
+When you create a new AKS cluster in the Azure portal, you can enable Prometheus, Container insights, and Grafana from the **Monitoring** tab. Make sure that you check the **Enable Container Logs**, **Enable Prometheus metrics**, and **Enable Grafana** checkboxes.
 
-When you create a new AKS cluster in the Azure portal, you can enable Prometheus, Container insights, and Grafana from the **Integrations** tab. In the Azure Monitor section, select either **Default configuration** or **Custom configuration** if you want to specify which workspaces to use. You can perform additional configuration once the cluster is created.
+:::image type="content" source="media/prometheus-metrics-enable/aks-integrations.png" lightbox="media/prometheus-metrics-enable/aks-integrations.png" alt-text="Screenshot of Monitoring tab for new AKS cluster.":::
 
-:::image type="content" source="media/prometheus-metrics-enable/aks-integrations.png" lightbox="media/prometheus-metrics-enable/aks-integrations.png" alt-text="Screenshot of integrations tab for new AKS cluster.":::
+### Existing cluster (Prometheus, Container insights, and Grafana)
 
-### Existing cluster (Prometheus and Container insights)
-
-This option enables Container insights and optionally Prometheus and Grafana on an existing AKS cluster. 
-
-1. Either select **Insights** from the cluster's menu OR select **Containers** from the **Monitor** menu, **Unmonitored clusters** tab, and click **Enable** next to a cluster.
-   1. If Container insights isn't enabled for the cluster, then you're presented with a screen identifying which of the features have been enabled. Click **Configure monitoring**.
-
-    :::image type="content" source="media/aks-onboard/configure-monitoring-screen.png" lightbox="media/aks-onboard/configure-monitoring-screen.png" alt-text="Screenshot that shows the configuration screen for a cluster.":::
-
-   2. If Container insights has already been enabled on the cluster, select the **Monitoring Settings** button to modify the configuration.
-
-    :::image type="content" source="media/aks-onboard/monitor-settings-button.png" lightbox="media/aks-onboard/monitor-settings-button.png" alt-text="Screenshot that shows the monitoring settings button for a cluster.":::
-
-2. **Container insights** will be enabled. **Select** the checkboxes for **Enable Prometheus metrics** and **Enable Grafana** if you also want to enable them for the cluster. If you have existing Azure Monitor workspace and Grafana workspace, then they're selected for you. 
-
-    :::image type="content" source="media/prometheus-metrics-enable/configure-container-insights.png" lightbox="media/prometheus-metrics-enable/configure-container-insights.png" alt-text="Screenshot that shows the dialog box to configure Container insights with Prometheus and Grafana.":::
-
-3. Click **Advanced settings** to select alternate workspaces or create new ones. The **Cost presets** setting allows you to modify the default collection details to reduce your monitoring costs. See [Enable cost optimization settings in Container insights](./container-insights-cost-config.md) for details.
-
-    :::image type="content" source="media/aks-onboard/advanced-settings.png" lightbox="media/aks-onboard/advanced-settings.png" alt-text="Screenshot that shows the advanced settings dialog box.":::
-
-4. Click **Configure** to save the configuration.
+1. Navigate to your AKS cluster in the Azure portal.
+2. In the service menu, under **Monitoring**, select **Insights** > **Configure monitoring**.
+3. Container insights is already enabled. Select the **Enable Prometheus metrics** and **Enable Grafana** checkboxes. If you have existing Azure Monitor workspace and Grafana workspace, then they're selected for you.
+4. Select **Advanced settings** if you want to select alternate workspaces or create new ones. The **Cost presets** setting allows you to modify the default collection details to reduce your monitoring costs. See [Enable cost optimization settings in Container insights](./container-insights-cost-config.md) for details.
+5. Select **Configure**.
 
 ### Existing cluster (Prometheus only)
 
-This option enables Prometheus metrics on a cluster without enabling Container insights.
-
-1. Open the **Azure Monitor workspaces** menu in the Azure portal and select your workspace.
-1. Select **Monitored clusters** in the **Managed Prometheus** section to display a list of AKS clusters.
-1. Select **Configure** next to the cluster you want to enable.
-
-    :::image type="content" source="media/prometheus-metrics-enable/azure-monitor-workspace-configure-prometheus.png" lightbox="media/prometheus-metrics-enable/azure-monitor-workspace-configure-prometheus.png" alt-text="Screenshot that shows an Azure Monitor workspace with a Prometheus configuration.":::
-
-### Existing cluster (Add Prometheus)
-
-
-1. Select **Containers** from the **Monitor** menu, **Monitored clusters** tab, and click **Configure** next to a cluster in the **Managed Prometheus** column.
-
+1. Navigate to your AKS cluster in the Azure portal.
+2. In the service menu, under **Monitoring**, select **Insights** > **Configure monitoring**.
+3. Select the **Enable Prometheus metrics** checkbox.
+4. Select **Advanced settings** if you want to select alternate workspaces or create new ones. The **Cost presets** setting allows you to modify the default collection details to reduce your monitoring costs.
+5. Select **Configure**.
 
 ## Enable Windows metrics collection (preview)
 
@@ -658,7 +628,7 @@ As of version 6.4.0-main-02-22-2023-3ee44b9e of the Managed Prometheus addon con
 
 
 ## Verify deployment
-Use the [kubectl command line tool](../../aks/learn/quick-kubernetes-deploy-cli.md#connect-to-the-cluster) to verify that the agent is deployed properly.
+Use the [kubectl command line tool](/azure/aks/learn/quick-kubernetes-deploy-cli#connect-to-the-cluster) to verify that the agent is deployed properly.
 
 ### Managed Prometheus
 
@@ -792,7 +762,6 @@ When you create a new Azure Monitor workspace, the following additional resource
 | `<azuremonitor-workspace-name>` | **Data Collection Rule** | MA_\<azuremonitor-workspace-name>_\<azuremonitor-workspace-region>_managed | Same as Azure Monitor Workspace | DCR created when you use OSS Prometheus server to Remote Write to Azure Monitor Workspace. |
 | `<azuremonitor-workspace-name>` | **Data Collection Endpoint** | MA_\<azuremonitor-workspace-name>_\<azuremonitor-workspace-region>_managed | Same as Azure Monitor Workspace | DCE created when you use OSS Prometheus server to Remote Write to Azure Monitor Workspace.|
     
-
 
 ## Differences between Windows and Linux clusters
 

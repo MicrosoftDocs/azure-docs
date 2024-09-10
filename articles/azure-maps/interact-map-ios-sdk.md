@@ -7,7 +7,7 @@ ms.author: sipa
 ms.date: 11/18/2021
 ms.topic: how-to
 ms.service: azure-maps
-services: azure-maps
+ms.subservice: ios-sdk
 ---
 
 # Interact with the map in the iOS SDK (Preview)

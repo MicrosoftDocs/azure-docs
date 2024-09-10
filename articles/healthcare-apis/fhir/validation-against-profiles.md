@@ -2,7 +2,7 @@
 title: Validate FHIR resources against profiles in Azure Health Data Services
 description: This article describes how to validate FHIR resources against profiles in the FHIR service.
 author: expekesheth
-ms.service: healthcare-apis
+ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.topic: reference
 ms.date: 06/06/2022
@@ -15,7 +15,8 @@ In the [store profiles in the FHIR service](store-profiles-in-fhir.md) article, 
 
 `$validate` is an operation in Fast Healthcare Interoperability Resources (FHIR&#174;) that allows you to ensure that a FHIR resource conforms to the base resource requirements or a specified profile. This operation ensures that the data in FHIR service has the expected attributes and values. For information on validate operation, visit [HL7 FHIR Specification](https://www.hl7.org/fhir/resource-operation-validate.html). 
 Per specification, Mode can be specified with `$validate`, such as create and update:
-- `create`: Azure API for FHIR checks that the profile content is unique from the existing resources and that it's acceptable to be created as a new resource.
+- `create`: FHIR service checks that the profile content is unique from the existing resources and that it's acceptable to be created as a new resource.
+
 - `update`: Checks that the profile is an update against the nominated existing resource (that is no changes are made to the immutable fields).
 
 There are different ways provided for you to validate resource:

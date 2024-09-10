@@ -6,6 +6,7 @@ ms.subservice: process-automation
 ms.custom: devx-track-azurepowershell, devx-track-arm-template
 ms.date: 10/26/2021
 ms.topic: conceptual
+ms.service: azure-automation
 ---
 
 # Remove user-assigned managed identity for Azure Automation account

@@ -8,7 +8,7 @@ metadata:
   author: asudbring
   ms.author: allensu
   ms.date: 08/23/2023
-  ms.service: virtual-network
+  ms.service: azure-virtual-network
   ms.topic: how-to
   ms.custom:
     - template-how-to

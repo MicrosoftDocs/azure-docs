@@ -9,7 +9,7 @@ ms.reviewer: aul
 
 # Legacy authentication for Container Insights 
 
-Container Insights defaults to managed identity authentication, which has a monitoring agent that uses the [cluster's managed identity](../../aks/use-managed-identity.md) to send data to Azure Monitor. It replaced the legacy certificate-based local authentication and removed the requirement of adding a Monitoring Metrics Publisher role to the cluster.
+Container Insights defaults to managed identity authentication, which has a monitoring agent that uses the [cluster's managed identity](/azure/aks/use-managed-identity) to send data to Azure Monitor. It replaced the legacy certificate-based local authentication and removed the requirement of adding a Monitoring Metrics Publisher role to the cluster.
 
 This article describes how to migrate to managed identity authentication if you enabled Container insights using legacy authentication method and also how to enable legacy authentication if you have that requirement.
 

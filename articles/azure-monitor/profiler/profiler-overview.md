@@ -3,7 +3,7 @@ title: Analyze application performance traces with Application Insights Profiler
 description: Identify the hot path in your web server code with a low-footprint profiler.
 ms.contributor: charles.weininger
 ms.topic: conceptual
-ms.date: 12/11/2023
+ms.date: 08/15/2024
 ms.reviewer: ryankahng
 ---
 
@@ -24,9 +24,11 @@ Enable the Profiler on all your Azure applications to gather data with the follo
 
 Each of these triggers can be [configured, enabled, or disabled](./profiler-settings.md#trigger-settings).
 
-## Overhead and sampling algorithm
+## Sampling rate and overhead 
 
-Profiler randomly runs two minutes per hour on each virtual machine hosting applications with Profiler enabled. When Profiler is running, it adds from 5 percent to 15 percent CPU overhead to the server.
+Profiler randomly runs two minutes per hour on each virtual machine hosting applications with Profiler enabled.
+
+[!INCLUDE [profiler-overhead](./includes/profiler-overhead.md)]
 
 ## Supported in Profiler
 
@@ -55,6 +57,7 @@ If you've enabled Profiler but aren't seeing traces, see the [Troubleshooting gu
 - **Profiling web apps**:
    - Although you can use Profiler at no extra cost, your web app must be hosted in the basic tier of the Web Apps feature of Azure App Service, at minimum.
    - You can attach only one profiler to each web app.
+   - Profiler on Linux is only supported on Windows-based web apps.
 
 ## Next steps
 Learn how to enable Profiler on your Azure service:

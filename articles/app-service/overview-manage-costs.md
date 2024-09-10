@@ -4,7 +4,7 @@ description: Learn how to plan for and manage costs for Azure App Service by usi
 author: msangapu-msft
 ms.author: msangapu
 ms.custom: subject-cost-optimization
-ms.service: app-service
+ms.service: azure-app-service
 ms.topic: how-to
 ms.date: 06/23/2021
 ---
@@ -51,7 +51,7 @@ Depending on which feature you use in App Service, the following cost-accruing r
 - **Isolated tier**  A [Virtual Network](../virtual-network/index.yml) is required for an App Service environment and is charged separately.
 - **Backup**  A [Storage account](../storage/index.yml) is required to make backups and is charged separately.
 - **Diagnostic logs**  You can select [Storage account](../storage/index.yml) as the logging option, or integrate with [Azure Log Analytics](../azure-monitor/logs/log-analytics-tutorial.md). These services are charged separately.
-- **App Service certificates**  Certificates you purchase in Azure must be maintained in [Azure Key Vault](../key-vault/index.yml), which is charged separately.
+- **App Service certificates**  Certificates you purchase in Azure must be maintained in [Azure Key Vault](/azure/key-vault/), which is charged separately.
 
 ### Costs that might accrue after resource deletion
 

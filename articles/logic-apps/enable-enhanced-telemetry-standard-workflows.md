@@ -14,7 +14,7 @@ ms.date: 10/16/2023
 
 # Enable and view enhanced telemetry in Application Insights for Standard workflows in Azure Logic Apps
 
-[!INCLUDE [logic-apps-sku-standard](~/reusable-content/ce-skilling/azure/includes/logic-apps-sku-standard.md)]
+[!INCLUDE [logic-apps-sku-standard](../../includes/logic-apps-sku-standard.md)]
 
 This how-to guide shows how to turn on enhanced telemetry collection in Application Insights for your Standard logic app resource and then view the collected data after your workflow finishes a run.
 

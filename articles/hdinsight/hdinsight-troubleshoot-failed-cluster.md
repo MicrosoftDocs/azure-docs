@@ -1,10 +1,10 @@
 ---
 title: Troubleshoot a slow or failing job on Azure HDInsight cluster
 description: Diagnose and troubleshoot a slow or failing job on an Azure HDInsight cluster.
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.custom: hdinsightactive
 ms.topic: troubleshooting
-ms.date: 07/20/2023
+ms.date: 07/12/2024
 ---
 
 # Troubleshoot a slow or failing job on a HDInsight cluster
@@ -131,7 +131,7 @@ An HDInsight Gateway times out responses that take longer than two minutes, retu
 
 In this case, review the following logs in the `/var/log/webhcat` directory:
 
-* **webhcat.log** is the log4j log to which server writes logs
+* **webhcat.log** is the Log4j log to which server writes logs
 * **webhcat-console.log** is the stdout of the server when started
 * **webhcat-console-error.log** is the stderr of the server process
 
@@ -166,9 +166,9 @@ At the YARN level, there are two types of timeouts:
 
     If you open the `/var/log/webhcat/webhcat.log` log file and search for "queued job", you may see multiple entries where the execution time is excessively long (>2000 ms), with entries showing increasing wait times.
 
-    The time for the queued jobs continues to increase because the rate at which new jobs get submitted is  higher than the rate at which the old jobs are completed. Once the YARN memory is 100% used,  the *joblauncher queue* can no longer borrow capacity from the *default queue*. Therefore, no more new jobs can be accepted into the joblauncher queue. This behavior can  cause the waiting time to become longer and longer, causing a timeout error that is usually followed by many others.
+    The time for the queued jobs continues to increase because the rate at which new jobs get submitted is  higher than the rate at which the old jobs are completed. Once the YARN memory is 100% used,  the `joblauncher queue` can no longer borrow capacity from the *default queue*. Therefore, no more new jobs can be accepted into the job launcher queue. This behavior can  cause the waiting time to become longer and longer, causing a timeout error that is usually followed by many others.
 
-    The  following  image shows the joblauncher queue at 714.4% overused. This is acceptable so long as there is still free capacity in the default queue to borrow from. However, when the cluster is fully utilized and the YARN memory is at 100% capacity, new jobs must wait, which eventually causes timeouts.
+    The  following  image shows the job launcher queue at 714.4% overused. This is acceptable so long as there is still free capacity in the default queue to borrow from. However, when the cluster is fully utilized and the YARN memory is at 100% capacity, new jobs must wait, which eventually causes timeouts.
 
     :::image type="content" source="./media/hdinsight-troubleshoot-failed-cluster/hdi-job-launcher-queue.png" alt-text="HDInsight Job launcher queue view.":::
 
@@ -176,7 +176,7 @@ At the YARN level, there are two types of timeouts:
 
 2. YARN processing can take a long time, which can cause timeouts.
 
-    * List all jobs: This is a time-consuming call. This call enumerates the applications from the YARN ResourceManager, and for each completed application, gets the status from the YARN JobHistoryServer. With  higher numbers of jobs, this call can time out.
+    * List all jobs: This is a time-consuming call. This call enumerates the applications from the YARN Resource Manager, and for each completed application, gets the status from the YARN JobHistoryServer. With  higher numbers of jobs, this call can time out.
 
     * List jobs older than seven days: The HDInsight YARN JobHistoryServer is configured to retain completed job information for seven days (`mapreduce.jobhistory.max-age-ms` value). Trying to enumerate purged jobs results in a timeout.
 

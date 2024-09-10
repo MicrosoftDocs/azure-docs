@@ -12,7 +12,7 @@ ms.date: 04/26/2024
 
 # Set up deployment slots to enable zero downtime deployment in Azure Logic Apps (preview)
 
-[!INCLUDE [logic-apps-sku-standard](~/reusable-content/ce-skilling/azure/includes/logic-apps-sku-standard.md)]
+[!INCLUDE [logic-apps-sku-standard](../../includes/logic-apps-sku-standard.md)]
 
 > [!NOTE]
 > This capability is in preview and is subject to the 
@@ -22,7 +22,7 @@ To deploy mission-critical logic apps that are always available and responsive, 
 
 - Swap a deployment slot with your production slot without interruption. That way, you can update your logic app and workflows without affecting availability or performance.
 
-- Test and validate any changes in a deployment slot before you apply those changes to the production slot.
+- Validate any changes in a deployment slot before you apply those changes to the production slot.
 
 - Roll back to a previous version, if anything goes wrong with your deployment.
 

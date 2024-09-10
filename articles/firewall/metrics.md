@@ -3,8 +3,8 @@ title: Azure Firewall metrics and alerts
 description: Metrics in Azure Monitor are numerical values that describe some aspect of a system at a particular time.
 services: firewall
 author: vhorne
-ms.service: firewall
-ms.topic: article
+ms.service: azure-firewall
+ms.topic: concept-article
 ms.date: 12/04/2023
 ms.author: victorh
 ---

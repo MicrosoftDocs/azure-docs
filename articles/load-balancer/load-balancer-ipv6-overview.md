@@ -4,9 +4,9 @@ description: With this learning path, get started with IPv6 support for Azure Lo
 services: load-balancer
 author: mbender-ms
 keywords: ipv6, azure load balancer, dual stack, public ip, native ipv6, mobile, iot
-ms.service: load-balancer
+ms.service: azure-load-balancer
 ms.topic: conceptual
-ms.date: 05/03/2023
+ms.date: 06/26/2024
 ms.author: mbender
 ms.custom: template-concept, engagement-fy23
 ---
@@ -29,7 +29,7 @@ The following picture illustrates the IPv6 functionality for Azure Load Balancer
 
 ![Azure Load Balancer with IPv6](./media/load-balancer-ipv6-overview/load-balancer-ipv6.png)
 
-Once deployed, an IPv4 or IPv6-enabled Internet client can communicate with the public IPv4 or IPv6 addresses (or hostnames) of the Azure Internet-facing Load Balancer. The load balancer routes the IPv6 packets to the private IPv6 addresses of the VMs using network address translation (NAT). The IPv6 Internet client cannot communicate directly with the IPv6 address of the VMs.
+Once deployed, an IPv4 or IPv6-enabled Internet client can communicate with the public IPv4 or IPv6 addresses (or hostnames) of the Azure Internet-facing Load Balancer. The load balancer routes the IPv6 packets to the private IPv6 addresses of the VMs using network address translation (NAT). The IPv6 Internet client can't communicate directly with the IPv6 address of the VMs.
 
 ## Features
 
@@ -58,17 +58,17 @@ Details
 
 Limitations
 
-* You cannot add IPv6 load balancing rules in the Azure portal. The rules can only be created through the template, CLI, PowerShell.
+* You can't add IPv6 load balancing rules in the Azure portal. The rules can only be created through the template, CLI, PowerShell.
 * A single IPv6 address can be assigned to a single network interface in each VM.
-* You cannot configure the reverse DNS lookup for your public IPv6 addresses.
-* The VMs with the IPv6 addresses cannot be members of an Azure Cloud Service. They can be connected to an Azure Virtual Network (VNet) and communicate with each other over their IPv4 addresses.
-* Private IPv6 addresses can be deployed on individual VMs in a resource group but cannot be deployed into a resource group via Scale Sets.
-* Azure VMs cannot connect over IPv6 to other VMs, other Azure services, or on-premises devices. They can only communicate with the Azure load balancer over IPv6. However, they can communicate with these other resources using IPv4.
-* Network Security Group (NSG) protection for IPv4 is supported in dual-stack (IPv4+IPv6) deployments. NSGs do not apply to the IPv6 endpoints.
-* The IPv6 endpoint on the VM is not exposed directly to the internet. It is behind a load balancer. Only the ports specified in the load balancer rules are accessible over IPv6.
+* You can't configure the reverse DNS lookup for your public IPv6 addresses.
+* The VMs with the IPv6 addresses can't be members of an Azure Cloud Service. They can be connected to an Azure Virtual Network (VNet) and communicate with each other over their IPv4 addresses.
+* Private IPv6 addresses can be deployed on individual VMs in a resource group but can't be deployed into a resource group via Scale Sets.
+* Azure VMs can't connect over IPv6 to other VMs, other Azure services, or on-premises devices. They can only communicate with the Azure load balancer over IPv6. However, they can communicate with these other resources using IPv4.
+* Network Security Group (NSG) protection for IPv4 is supported in dual-stack (IPv4+IPv6) deployments. NSGs don't apply to the IPv6 endpoints.
+* The IPv6 endpoint on the VM isn't exposed directly to the internet. It is behind a load balancer. Only the ports specified in the load balancer rules are accessible over IPv6.
 * Changing the loadDistributionMethod parameter for IPv6 is **currently not supported**.
 * IPv6 for Basic Load Balancer is locked to a **Dynamic** SKU.  IPv6 for a Standard Load Balancer is locked to a **Static** SKU.
-* NAT64 (translation of IPv6 to IPv4) is not supported.
+* NAT64 (translation of IPv6 to IPv4) isn't supported.
 * Attaching a secondary NIC that refers to an IPv6 subnet to a backend pool is **not supported** for Basic Load Balancer.
 
 ## Next steps

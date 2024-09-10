@@ -58,7 +58,7 @@ Update your `.csproj` project file to use the latest extension version for your 
 
 ### [In-process model](#tab/in-process)
 
-[!INCLUDE [functions-in-process-model-retirement-note](~/reusable-content/ce-skilling/azure/includes/functions-in-process-model-retirement-note.md)]
+[!INCLUDE [functions-in-process-model-retirement-note](../../includes/functions-in-process-model-retirement-note.md)]
 
 ```xml
 <Project Sdk="Microsoft.NET.Sdk">
