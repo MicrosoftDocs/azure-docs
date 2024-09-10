@@ -26,7 +26,7 @@ The listed features were released in the last three months. For information abou
 
 ### Pre-purchase plans now available for Microsoft Sentinel
 
-Pre-purchase plans are a type of Azure reservation. When you buy a pre-purchase plan, you get commit units (CUs) at discounted tiers for a specific product. Microsoft Sentinel commit units (SCUs) apply towards eligible costs in your workspace. When you have predictable costs, this can save you money! 
+Pre-purchase plans are a type of Azure reservation. When you buy a pre-purchase plan, you get commit units (CUs) at discounted tiers for a specific product. Microsoft Sentinel commit units (SCUs) apply towards eligible costs in your workspace. When you have predictable costs, choosing the right pre-purchase plan saves you money! 
 
 For more information, see [Optimize costs with a pre-purchase plan](billing-prepurchase-plan.md).
 
