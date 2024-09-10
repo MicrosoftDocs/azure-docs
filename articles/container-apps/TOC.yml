@@ -343,6 +343,9 @@
       - name: Overview
         href: java-overview.md
         displayName: java
+      - name: Turn on Java features
+        href: java-feature-switch.md
+        displayName: java
       - name: Launch your first Java app
         href: java-get-started.md
         displayName: java

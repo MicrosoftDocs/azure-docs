@@ -131,3 +131,6 @@ Azure Container Apps offers support for the following Spring Components as manag
 
 > [!div class="nextstepaction"]
 > [Launch your first Java app](java-get-started.md)
+
+> [!div class="nextstepaction"]
+> [Turn on Java Features](java-feature-switch.md)
