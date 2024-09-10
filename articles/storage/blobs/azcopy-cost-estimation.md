@@ -127,7 +127,7 @@ The following table calculates the number of write operations required to upload
 |-------------------------------------------------------------|---------------|
 | Number of MiB in 5 GiB                                      | 5,120         |
 | Path - Update operations per blob (5,120 MiB / 4-MiB block) | 1,280         |
-| Total read operations (1000* 1,280)                         | **1,280,000** |
+| Total read operations (1000 * 1,280)                         | **1,280,000** |
 
 Using the [Sample prices](#sample-prices) that appear in this article, the following table calculates the cost to download these blobs.
 
@@ -235,6 +235,6 @@ The following table contains all of the estimates presented in this article. All
 ## See also
 
 - [Plan and manage costs for Azure Blob Storage](../common/storage-plan-manage-costs.md)
-- [Map each AzCopy command to a REST operation](../common/storage-ref-azcopy-map-commands-to-rest-operations.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json)
+- [Map each AzCopy command to a REST operation](../common/storage-reference-azcopy-map-commands-to-rest-operations.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json)
 - [Map each REST operation to a price](map-rest-apis-transaction-categories.md)
 - [Get started with AzCopy](../common/storage-use-azcopy-v10.md)

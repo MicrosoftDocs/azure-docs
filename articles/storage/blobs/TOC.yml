@@ -136,7 +136,7 @@ items:
       - name: Troubleshoot AzCopy issues
         href: /troubleshoot/azure/azure-storage/storage-use-azcopy-troubleshoot?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
       - name: Map of AzCopy commands to REST operations
-        href: ../common/storage-ref-azcopy-map-commands-to-rest-operations.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
+        href: ../common/storage-reference-azcopy-map-commands-to-rest-operations.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
     - name: Azure Data Factory
       href: ../../data-factory/connector-azure-blob-storage.md?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json
       items:
@@ -486,7 +486,7 @@ items:
         href: storage-blob-scalable-app-create-vm.md
       - name: 2 - Upload large data to an Azure storage account
         href: storage-blob-scalable-app-upload-files.md
-      - name: 3- Download large data from an Azure storage account
+      - name: 3 - Download large data from an Azure storage account
         href: storage-blob-scalable-app-download-files.md
       - name: 4 - Verify throughput and latency metrics
         href: storage-blob-scalable-app-verify-metrics.md

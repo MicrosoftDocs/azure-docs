@@ -17,7 +17,7 @@ This article helps you estimate the cost to store, upload, download, and work wi
 All calculations are based on a fictitious price. You can find each price in the [sample prices](#sample-prices) section at the end of this article. 
 
 > [!IMPORTANT]
-> These prices are meant only as examples, and shouldn't be used to calculate your costs. For official prices, see the [Azure Blob Storage pricing](https://azure.microsoft.com/pricing/details/storage/blobs/) or [Azure Data Lake Storage pricing](https://azure.microsoft.com/pricing/details/storage/data-lake/) pricing pages. For more information about how to choose the correct pricing page, see [Understand the full billing model for Azure Blob Storage](../common/storage-plan-manage-costs.md).
+> These prices are meant only as examples, and shouldn't be used to calculate your costs. For official prices, see the [Azure Blob Storage pricing](https://azure.microsoft.com/pricing/details/storage/blobs/) or [Azure Data Lake Storage pricing](https://azure.microsoft.com/pricing/details/storage/data-lake/) pages. For more information about how to choose the correct pricing page, see [Understand the full billing model for Azure Blob Storage](../common/storage-plan-manage-costs.md).
 
 ## The cost to store data
 
@@ -65,7 +65,7 @@ Using the [Sample prices](#sample-prices) that appear in this article, and assum
 | Number of MiB in 5 GiB                                   | 5,120          |
 | Write operations per blob (5,120 MiB / 8-MiB block)      | 640            |
 | Write operation to commit the blocks                     | 1              |
-| Total write operations (1,000 * 641)**                   | 641,000        |
+| **Total write operations (1,000 * 641)**                   | 641,000        |
 | Price of a single write operation (price / 10,000)       | $0.0000055     |
 | **Cost of write operations (641,000 * operation price)** | **$3.5255**    |
 | **Total cost (write + properties)**                      | **$3.5250055** |

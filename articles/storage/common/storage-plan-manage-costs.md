@@ -51,7 +51,7 @@ At the end of your billing cycle, the charges for each meter are summed. Your bi
 
 #### Data storage and index meters
 
-Data storage and metadata are billed per GB on a monthly basis. Most metadata is stored as part of the blob and includes properties and key-value pairs. The metadata that is associated with blobs in the archive tier is stored separately in the cold tier. That way, users can list the blob and its properties, metadata, and index tags. Because the size of metadata doesn't exceed 8 KB in size, it's cost is relatively insignificant as a percent of total storage capacity. 
+Data storage and metadata are billed per GB on a monthly basis. Most metadata is stored as part of the blob and includes properties and key-value pairs. The metadata that is associated with blobs in the archive tier is stored separately in the cold tier. That way, users can list the blob and its properties, metadata, and index tags. Because the size of metadata doesn't exceed 8 KB in size, its cost is relatively insignificant as a percent of total storage capacity. 
 
 Blob index tags are stored as a sub resource in the hot tier, and have their own billing meter. The **Index** meter applies only to accounts that have a hierarchical namespace as a means to bill for the space required to facilitate a hierarchical file structure including the access control lists (ACLs) associated with objects in that structure. Data associated with the index is always stored in the hot tier.
 
@@ -72,7 +72,7 @@ For more information about how to calculate the cost of storage, see [The cost t
 
 Each request made by a client arrives to the service in the form of a REST operation. You can monitor your resource logs to see which operations are executing against your data. 
 
-The pricing pages don't list a price for each individual operation but instead lists the price of an operation _type_. To determine the price of an operation, you must first determine how that operation is classified in terms of it's type. To trace a _logged operation_ to a _REST operation_ and then to an operation _type_, see [Map each REST operation to a price](../blobs/map-rest-apis-transaction-categories.md). 
+The pricing pages don't list a price for each individual operation but instead lists the price of an operation _type_. To determine the price of an operation, you must first determine how that operation is classified in terms of its type. To trace a _logged operation_ to a _REST operation_ and then to an operation _type_, see [Map each REST operation to a price](../blobs/map-rest-apis-transaction-categories.md). 
 
 The price that appears beside an operation type isn't the price you pay for each operation. In most cases, it's the price of `10,000` operations. To obtain the price of an individual operation, divide the price by `10,000`. For example, if the price for write operations is `$0.055`, then the price of an individual operation is `$.0555` / `10,000` = `$0.0000055`. You can estimate the cost to upload a file by multiplying the number write operations required to complete the upload by the cost of an individual transaction. To learn more, see [Estimate the cost of using Azure Blob Storage](../blobs/blob-storage-estimate-costs.md).
 
@@ -138,7 +138,7 @@ Use the [Azure pricing calculator](https://azure.microsoft.com/pricing/calculato
 
    As you modify the value of these drop-down lists, the cost estimate changes. That estimate appears in the upper corner as well as the bottom of the estimate.
 
-   ![Screenshot showing your estimate](media/storage-plan-manage-costs/price-calculator-storage-type.png)
+   ![Screenshot showing your estimate.](media/storage-plan-manage-costs/price-calculator-storage-type.png)
 
    As you change the value of the **Type** drop-down list, other options that appear on this worksheet change as well. Use the links in the **More Info** section to learn more about what each option means and how these options affect the price of storage-related operations.
 
@@ -171,7 +171,7 @@ You can also reduce costs by placing blob data into the most cost effective acce
 - [Best practices for using blob access tiers](../blobs/access-tiers-best-practices.md)
 - [Estimate the cost of archiving data](../blobs/archive-cost-estimation.md)
 
-Use lifecycle management policies to periodically move data between tiers to save the most money. These policies can move data to by using rules that you specify. For example, you might create a rule that moves blobs to the archive tier if that blob hasn't been modified in 90 days. By creating policies that adjust the access tier of your data, you can design the least expensive storage options for your needs. To learn more, see [Manage the Azure Blob Storage lifecycle](../blobs/lifecycle-management-overview.md?tabs=azure-portal)
+Use lifecycle management policies to periodically move data between tiers to save the most money. These policies can move data to by using rules that you specify. For example, you might create a rule that moves blobs to the archive tier if that blob hasn't been modified in 90 days. By creating policies that adjust the access tier of your data, you can design the least expensive storage options for your needs. To learn more, see [Manage the Azure Blob Storage lifecycle](../blobs/lifecycle-management-overview.md?tabs=azure-portal).
 
 ## Create budgets
 
@@ -230,7 +230,7 @@ See [Managing costs FAQ](../blobs/storage-blob-faq.yml#managing-costs).
 - Learn more on how pricing works with Azure Storage. See [Azure Storage Overview pricing](https://azure.microsoft.com/pricing/details/storage/).
 - Understanding how your blobs and containers are stored, organized, and used in production so that you better optimize the tradeoffs between cost and performance. See [Tutorial: Analyze blob inventory reports](../blobs/storage-blob-inventory-report-analytics.md).
 - [Optimize costs for Blob Storage with reserved capacity](../blobs/storage-blob-reserved-capacity.md).
-- Learn [how to optimize your cloud investment with Azure Cost Management](../../cost-management-billing/costs/cost-mgt-best-practices.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
+- Learn [how to optimize your cloud investment with Microsoft Cost Management](../../cost-management-billing/costs/cost-mgt-best-practices.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
 - Learn more about managing costs with [cost analysis](../../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
 - Learn about how to [prevent unexpected costs](../../cost-management-billing/cost-management-billing-overview.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
 - Take the [Cost Management](/training/paths/control-spending-manage-bills?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) guided learning course.

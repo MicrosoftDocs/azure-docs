@@ -9,7 +9,7 @@
 The following table includes sample (fictitious) prices for each request to the Blob Service endpoint (`blob.core.windows.net`). 
 
 > [!IMPORTANT]
-> These prices are meant only as examples, and shouldn't be used to calculate your costs. For official prices, see the [Azure Blob Storage pricing](https://azure.microsoft.com/pricing/details/storage/blobs/) or [Azure Data Lake Storage pricing](https://azure.microsoft.com/pricing/details/storage/data-lake/) pricing pages. For more information about how to choose the correct pricing page, see [Understand the full billing model for Azure Blob Storage](../articles/storage/common/storage-plan-manage-costs.md).
+> These prices are meant only as examples, and shouldn't be used to calculate your costs. For official prices, see the [Azure Blob Storage pricing](https://azure.microsoft.com/pricing/details/storage/blobs/) or [Azure Data Lake Storage pricing](https://azure.microsoft.com/pricing/details/storage/data-lake/) pages. For more information about how to choose the correct pricing page, see [Understand the full billing model for Azure Blob Storage](../articles/storage/common/storage-plan-manage-costs.md).
 
 | Price factor                                                    | Hot            | Cool           | Cold           | Archive |
 |-----------------------------------------------------------------|----------------|----------------|----------------|---------|
