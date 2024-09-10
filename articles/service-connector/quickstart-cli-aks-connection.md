@@ -61,8 +61,6 @@ az aks connection create storage-blob \
 > [!NOTE]
 > If you don't have a Blob Storage, you can run `az aks connection create storage-blob --new --workload-identity <user-identity-resource-id>"` to provision a new one and get connected to your function app straightaway.
 
----
-
 ### [Using an access key](#tab/Using-access-key)
 
 > [!WARNING]
@@ -82,7 +80,9 @@ Provide the following information as prompted:
 * **Storage account name:** the account name of your Blob Storage.
 
 > [!NOTE]
-> If you don't have a Blob Storage, you can run `az aks connection create storage-blob --new --secret` to provision a new one and directly get connected to your aks cluster.
+> If you don't have a Blob Storage, you can run `az aks connection create storage-blob --new --secret` to provision a new one and connect it to your AKS cluster.
+
+---
 
 ## View connections
 
