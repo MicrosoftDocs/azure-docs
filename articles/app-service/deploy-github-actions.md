@@ -301,4 +301,3 @@ Check out references on Azure GitHub Actions and workflows:
 - [Azure/k8s-deploy action](https://github.com/Azure/k8s-deploy)
 - [Actions workflows to deploy to Azure](https://github.com/Azure/actions-workflow-samples)
 - [Starter Workflows](https://github.com/actions/starter-workflows)
-- [Events that trigger workflows](https://docs.github.com/en/actions/reference/events-that-trigger-workflows)
