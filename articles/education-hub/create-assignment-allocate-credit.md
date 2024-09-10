@@ -14,7 +14,7 @@ After you set up a lab in the Azure Education Hub, you can add students and allo
 
 ## Prerequisites
 
-- An academic grant with an approved credit amount
+- An academic sponsorship with an approved credit amount
 - A work or school account and a subscription within the course that will access your Azure credit
 
 ### Accounts

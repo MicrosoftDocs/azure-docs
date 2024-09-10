@@ -57,7 +57,7 @@ A managed identity (either system or user) associated with the resources below. 
 
 - [Storage account](../../storage/common/storage-account-create.md)
 - [Event Hubs namespace and event hub](../../event-hubs/event-hubs-create.md)
-- [Virtual machine](../../virtual-machines/overview.md)
+- [Virtual machine](/azure/virtual-machines/overview)
 
 ## Create a data collection rule
 

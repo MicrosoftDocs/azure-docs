@@ -132,7 +132,7 @@ When the Azure Virtual Desktop Agent is first installed on session host VMs (eit
 
 1. If there's already a registration token, remove it with Remove-AzWvdRegistrationInfo.
 2. Run the **New-AzWvdRegistrationInfo** cmdlet to generate a new token.
-3. Confirm that the *-ExpriationTime* parameter is set to three days.
+3. Confirm that the *-ExpirationTime* parameter is set to three days.
 
 ### Error: Azure Virtual Desktop agent isn't reporting a heartbeat when running Get-AzWvdSessionHost
 

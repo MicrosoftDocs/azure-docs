@@ -88,3 +88,5 @@ The Azure SDK for Go contains libraries that build on top of the Azure REST API,
 The `get_container_properties` method retrieves container properties and metadata by calling both the [Get Container Properties](/rest/api/storageservices/get-container-properties) operation and the [Get Container Metadata](/rest/api/storageservices/get-container-metadata) operation.
 
 [!INCLUDE [storage-dev-guide-resources-go](../../../includes/storage-dev-guides/storage-dev-guide-resources-go.md)]
+
+[!INCLUDE [storage-dev-guide-next-steps-go](../../../includes/storage-dev-guides/storage-dev-guide-next-steps-go.md)]

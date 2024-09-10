@@ -225,6 +225,10 @@ items:
           href: quickstarts/advanced-messaging/whatsapp/download-media.md
         - name: Try Advanced Messaging Sandbox
           href: quickstarts/advanced-messaging/whatsapp/whatsapp-sandbox-quickstart.md
+    - name: Message Analysis
+      items:
+        - name: Enable Message Analysis With Azure OpenAI
+          href: quickstarts/advanced-messaging/message-analysis/message-analysis-with-azure-openai-quickstart.md
   - name: Managed Identity
     items:
     - name: Enable Managed Identity on Azure Communication Services resources
@@ -417,7 +421,10 @@ items:
           href: concepts/migrate-to-azure-communication-services.md
         - name: How to migrate from Twilio Video to Azure Communication Services
           href: tutorials/migrating-to-azure-communication-services-calling.md
-          displayName: migration, migrate, Twilio, move, shift
+          displayName: migration, migrate, Twilio, Twilio Video, move, shift
+        - name: How to migrate from Twilio Conversations Chat to Azure Communication Services
+          href: tutorials/migrating-to-azure-communication-services-chat.md
+          displayName: migration, migrate, Twilio, Twilio Conversations, move, shift
     - name: Mobile integrations
       items:
       - name: Integrate with CallKit in iOS
@@ -434,6 +441,8 @@ items:
           href: how-tos/ui-library-sdk/closed-captions.md
         - name: Configure theming
           href: how-tos/ui-library-sdk/theming.md
+        - name: Customize the button bar
+          href: how-tos/ui-library-sdk/button-injection.md
         - name: Disable end call confirmation
           href: how-tos/ui-library-sdk/leave-call-confirmation.md
         - name: Enable audio only mode
@@ -1086,10 +1095,12 @@ items:
           href: ../event-grid/communication-services-advanced-messaging-events.md
       - name: Templates
         href: concepts/advanced-messaging/whatsapp/template-messages.md
-      - name: Message Analysis
-        items:
-        - name: Overview
-          href: concepts/advanced-messaging/message-analysis.md
+    - name: Message Analysis
+      items:
+      - name: Overview
+        href: concepts/advanced-messaging/message-analysis/message-analysis.md
+      - name: Message Analysis Transparency FAQ
+        href: concepts/advanced-messaging/message-analysis/message-analysis-transparency-faq.md
   - name: Azure Advisor
     items:
       - name: Overview
@@ -1107,7 +1118,7 @@ items:
     - name: Troubleshooting in Azure Communication Services
       href: concepts/troubleshooting-info.md
     - name: Troubleshooting response codes
-      href: concepts/troubleshooting-codes.md
+      href: resources/troubleshooting/voice-video-calling/troubleshooting-codes.md
     - name: Voice and Video
       items:
       - name: General troubleshooting strategies
@@ -1268,6 +1279,18 @@ items:
       href: /java/api/overview/azure/resourcemanager-communication-readme
     - name: Azure Resource Manager (Python)
       href: /python/api/overview/azure/mgmt-communication-readme
+  - name: Advanced Messaging
+    items:
+    - name: Messages (Java)
+      href: /java/api/overview/azure/communication-messages-readme
+    - name: Messages (JavaScript)
+      href: /javascript/api/overview/azure/communication-messages-rest-readme
+    - name: Messages (.NET)
+      href: /dotnet/api/overview/azure/communication.messages-readme
+    - name: Messages (Python)
+      href: /python/api/overview/azure/communication-messages-readme
+    - name: Advanced Messaging (REST)
+      href: /rest/api/communication/advancedmessaging/operation-groups
   - name: Calling
     items:
     - name: Calling (JavaScript)
@@ -1370,11 +1393,6 @@ items:
       href: https://azure.github.io/azure-sdk-for-ios/AzureCommunicationUIChat
     - name: UI Library for Chat (Android)
       href: https://azure.github.io/azure-sdk-for-android/azure-communication-ui-chat/index.html
-    
-  - name: Advanced Messaging
-    items:
-    - name: Advanced Messaging (.NET)
-      href: /dotnet/api/overview/azure/communication.messages-readme
   - name: Common
     items:
     - name: Common (JavaScript)

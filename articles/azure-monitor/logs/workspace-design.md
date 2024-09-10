@@ -2,7 +2,7 @@
 title: Design a Log Analytics workspace architecture
 description: The article describes the considerations and recommendations for customers preparing to deploy a workspace in Azure Monitor.
 ms.topic: conceptual
-ms.date: 05/30/2024
+ms.date: 08/15/2024
 ---
 
 # Design a Log Analytics workspace architecture
@@ -67,6 +67,7 @@ Each Log Analytics workspace resides in a [particular Azure region](https://azur
 
 - **If you have requirements for keeping data in a particular geography:** Create a separate workspace for each region with such requirements.
 - **If you don't have requirements for keeping data in a particular geography:** Use a single workspace for all regions.
+- **If you are sending data to a geography or region that outside of your workspace's region, whether or not the sending resource resides in Azure**: Consider using a workspace in the same  geography or region as your data.
 
 Also consider potential [bandwidth charges](https://azure.microsoft.com/pricing/details/bandwidth/) that might apply when you're sending data to a workspace from a resource in another region. These charges are usually minor relative to data ingestion costs for most customers. These charges typically result from sending data to the workspace from a virtual machine. Monitoring data from other Azure resources by using [diagnostic settings](../essentials/diagnostic-settings.md) doesn't [incur egress charges](../cost-usage.md#data-transfer-charges).
 
@@ -123,6 +124,8 @@ For example, you might grant access to only specific tables collected by Microso
 - **If you don't require granular access control by table:** Grant the operations and security team access to their resources and allow resource owners to use resource-context RBAC for their resources.
 - **If you require granular access control by table:** Grant or deny access to specific tables by using table-level RBAC.
 
+For more information, see [Manage access to Microsoft Sentinel data by resource](../../sentinel/resource-context-rbac.md).
+
 ### Resilience
 
 To ensure that critical data in your workspace is available in the event of a region failure, you can ingest some or all of your data into multiple workspaces in different regions.
@@ -130,10 +133,14 @@ To ensure that critical data in your workspace is available in the event of a re
 This option requires managing integration with other services and products separately for each workspace. Even though the data will be available in the alternate workspace in case of failure, resources that rely on the data, such as alerts and workbooks, won't know to switch over to the alternate workspace. Consider storing ARM templates for critical resources with configuration for the alternate workspace in Azure DevOps, or as disabled policies that can quickly be enabled in a failover scenario.
 
 ## Work with multiple workspaces
-Many designs include multiple workspaces, so Azure Monitor and Microsoft Sentinel include features to assist you in analyzing this data across workspaces. For more information, see:
+Many designs include multiple workspaces. For example, a central security operations team might use its own Microsoft Sentinel workspaces to manage centralized artifacts like analytics rules or workbooks.
+
+Both Azure Monitor and Microsoft Sentinel include features to assist you in analyzing this data across workspaces. For more information, see:
 
 - [Create a log query across multiple workspaces and apps in Azure Monitor](cross-workspace-query.md)
 - [Extend Microsoft Sentinel across workspaces and tenants](../../sentinel/extend-sentinel-across-workspaces-tenants.md)
+
+When naming each workspace, we recommend including a meaningful indicator in the name so that you can easily identity the purpose of each workspace.
 
 ## Multiple tenant strategies
 Environments with multiple Azure tenants, including Microsoft service providers (MSPs), independent software vendors (ISVs), and large enterprises, often require a strategy where a central administration team has access to administer workspaces located in other tenants. Each of the tenants might represent separate customers or different business units.

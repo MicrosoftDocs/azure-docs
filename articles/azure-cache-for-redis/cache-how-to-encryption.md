@@ -1,12 +1,12 @@
 ---
 title: Configure disk encryption in Azure Cache for Redis
 description: Learn about disk encryption when using Azure Cache for Redis.
-author: flang-msft
 
-ms.service: azure-cache-redis
+
+
 ms.topic: how-to
 ms.date: 02/28/2024
-ms.author: franlanglois
+
 
 ---
 

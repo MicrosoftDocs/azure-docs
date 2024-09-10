@@ -22,7 +22,7 @@ In this guide, you learn how to:
 - Profiler supports .NET Framework and .NET applications.
   - Verify you're using [.NET Framework 4.6.2](/dotnet/framework/migration-guide/how-to-determine-which-versions-are-installed) or later. 
   - Confirm that the deployed OS is `Windows Server 2012 R2` or later. 
-- [An Azure Service Fabric managed cluster](../../service-fabric/quickstart-managed-cluster-portal.md).
+- [An Azure Service Fabric managed cluster](/azure/service-fabric/quickstart-managed-cluster-portal).
 
 ## Create a deployment template
 
@@ -47,7 +47,7 @@ In this guide, you learn how to:
       }  
       ```
 
-  For information about how to add the Diagnostics extension to your deployment template, see [Use monitoring and diagnostics with a Windows VM and Azure Resource Manager templates](../../virtual-machines/extensions/diagnostics-template.md).
+  For information about how to add the Diagnostics extension to your deployment template, see [Use monitoring and diagnostics with a Windows VM and Azure Resource Manager templates](/azure/virtual-machines/extensions/diagnostics-template).
 
 ## Deploy your Service Fabric cluster
 

@@ -3,7 +3,7 @@ title: Use Well Architected Framework assessments in Azure Advisor
 description: Azure Advisor offers Well Architected Framework assessments (curated and focused Advisor optimization reports) through the Assessments entry in the left menu of the Azure Advisor Portal.
 ms.service: azure
 ms.topic: article
-ms.date: 02/18/2024
+ms.date: 08/22/2024
 
 #customer intent: As an Advisor user, I want WAF assessments so that I can better understand recommendations.
 
@@ -30,15 +30,7 @@ To see all Microsoft assessment choices, go to the [Learn platform > Assessments
 
 ## Prerequisites
 
-You can manage access to Advisor WAF assessments using built-in roles. The permissions vary by role.
-
-> [!NOTE]
-> These roles must be configured for the relevant subscription to create the assessment and view the corresponding recommendations.
-
-| **Name** | **Description** |
-|---|:---:|
-|Reader|View assessments for a subscription or workload and the corresponding recommendations|
-|Contributor|Create assessments for a subscription or workload and triage the corresponding recommendations|
+[!INCLUDE [View and manage assessments](./includes/advisor-permissions-waf-assessments.md)]
 
 ## Access Azure Advisor WAF assessments
 

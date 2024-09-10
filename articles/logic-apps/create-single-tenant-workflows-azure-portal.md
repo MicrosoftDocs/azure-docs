@@ -6,7 +6,7 @@ ms.suite: integration
 ms.reviewer: estfan, azla
 ms.collection: ce-skilling-ai-copilot
 ms.topic: how-to
-ms.date: 08/09/2024
+ms.date: 08/13/2024
 # Customer intent: As a developer, I want to create my first example Standard logic app workflow that runs in single-tenant Azure Logic Apps using the Azure portal.
 ---
 
@@ -42,6 +42,8 @@ For more information, see the following documentation:
 
 - [Single-tenant versus multitenant](single-tenant-overview-compare.md)
 - [Create and deploy to different environments](logic-apps-overview.md#resource-environment-differences)
+
+To create a Standard logic app workflow from a prebuilt template that follows a commonly used pattern, see [Create a Standard logic app workflow from a prebuilt template](create-single-tenant-workflows-templates.md).
 
 To create and manage a Standard logic app workflow using other tools, see [Create Standard workflows with Visual Studio Code](create-single-tenant-workflows-visual-studio-code.md). With Visual Studio Code, you can develop, test, and run workflows in your *local* development environment.
 
@@ -136,6 +138,13 @@ More workflows in your logic app raise the risk of longer load times, which nega
    > for all new and existing deployed Standard logic apps, even for apps that had a different value. 
    > This change shouldn't affect your workflow's runtime, and everything should work the same way 
    > as before. For more information, see the [**FUNCTIONS_WORKER_RUNTIME** app setting](edit-app-settings-host-settings.md#reference-local-settings-json).
+   >
+   > The **APP_KIND** app setting for your Standard logic app is set to **workflowApp**, but in some 
+   > scenarios, this app setting is missing, for example, due to automation using Azure Resource Manager 
+   > templates or other scenarios where the setting isn't included. If certain actions don't work, 
+   > such as the **Execute JavaScript Code** action or the workflow stops working, check that the 
+   > **APP_KIND** app setting exists and is set to to **workflowApp**. For more information, see the 
+   > [**APP_KIND** app setting](edit-app-settings-host-settings.md#reference-local-settings-json).
 
 1. When you finish, select **Next: Storage**.
 

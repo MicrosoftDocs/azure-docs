@@ -27,7 +27,7 @@ App Service Environment has three versions. App Service Environment v3 is the la
 
 |Feature  |[App Service Environment v1](app-service-app-service-environment-intro.md)  |[App Service Environment v2](intro.md)  |[App Service Environment v3](overview.md)  |
 |---------|---------|---------|---------|
-|Hardware     |[Cloud Services (classic)](../../cloud-services/cloud-services-choose-me.md)  |[Cloud Services (classic)](../../cloud-services/cloud-services-choose-me.md)  |[Virtual Machine Scale Sets](../../virtual-machine-scale-sets/overview.md)  |
+|Hardware     |[Cloud Services (classic)](../../cloud-services/cloud-services-choose-me.md)  |[Cloud Services (classic)](../../cloud-services/cloud-services-choose-me.md)  |[Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/overview)  |
 |[Available SKUs](https://azure.microsoft.com/pricing/details/app-service/windows/)  |P1, P2, P3, P4         |I1, I2, I3         |I1v2, I2v2, I3v2, I4v2, I5v2, I6v2        |
 |CPU|Physical cores|Physical cores|Virtual CPu (vCPU)|
 |Maximum instance count     |55 hosts (default front-ends + workers)         |100 instances per App Service plan. Maximum of 200 instances across all plans.         |100 instances per App Service plan. Maximum of 200 instances across all plans.         |
@@ -55,7 +55,7 @@ App Service Environment has three versions. App Service Environment v3 is the la
 
 ### Scaling
 
-App Service Environment v3 runs on the latest [Virtual Machine Scale Sets](../../virtual-machine-scale-sets/overview.md) infrastructure while App Service Environment v1 and v2 run on [Cloud Services (classic)](../../cloud-services/cloud-services-choose-me.md). Because of this, App Service Environment v3 has the best performing and fastest scaling times across all versions. 
+App Service Environment v3 runs on the latest [Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/overview) infrastructure while App Service Environment v1 and v2 run on [Cloud Services (classic)](../../cloud-services/cloud-services-choose-me.md). Because of this, App Service Environment v3 has the best performing and fastest scaling times across all versions. 
 
 |Feature  |[App Service Environment v1](app-service-app-service-environment-intro.md)  |[App Service Environment v2](intro.md)  |[App Service Environment v3](overview.md)  |
 |---------|---------|---------|---------|

@@ -30,7 +30,7 @@ For more information, see  [Key Benefits of Private Link](../../private-link/pri
 
 Azure Arc Private Link Scope connects private endpoints (and the virtual networks they're contained in) to an Azure resource, in this case Azure Arc-enabled servers. When you enable any one of the Azure Arc-enabled servers supported VM extensions, such as Azure Monitor, those resources connect other Azure resources. Such as:
 
-- Log Analytics workspace, required for Azure Automation Change Tracking and Inventory, Azure Monitor VM insights, and Azure Monitor log collection with Log Analytics agent.
+- Log Analytics workspace, required for Azure Automation Change Tracking and Inventory, Azure Monitor VM insights, and Azure Monitor log collection with Azure Monitor agent.
 - Azure Automation account, required for Update Management and Change Tracking and Inventory.
 - Azure Key Vault
 - Azure Blob storage, required for Custom Script Extension.

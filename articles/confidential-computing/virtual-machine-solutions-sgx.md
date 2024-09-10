@@ -29,7 +29,7 @@ az vm list-skus `
 
 Deploying a **Standard_DC8_v2**, **Standard_DC48s_v3**, or **Standard_DC48ds_v3** series VM occupies the full host. Other tenants or subscriptions don't share the host. This family of VM SKUs provides the isolation you might need to meet compliance and security regulatory requirements. Normally, you might need a dedicated host service to meet these requirements. 
 
-For these VM sizes, the physical host server allocates all available hardware resources, including EPC memory, to your virtual machine only. This deployment isn't the same as the [Azure Dedicated Host](../virtual-machines/dedicated-hosts.md) service in other VM families.
+For these VM sizes, the physical host server allocates all available hardware resources, including EPC memory, to your virtual machine only. This deployment isn't the same as the [Azure Dedicated Host](/azure/virtual-machines/dedicated-hosts) service in other VM families.
 
 ## Deployment considerations
 
@@ -55,7 +55,7 @@ Because of their specialized hardware, you can only resize Intel SGX VM instance
 
 ### Image
 
-To provide Intel SGX support on confidential compute instances, all deployments must run on Generation 2 images. Azure confidential computing supports workloads running on **Ubuntu 20.04 Gen 2**, **Windows Server 2019 Gen 2** and **Ubuntu 22.04 Gen 2**. For more information about supported and unsupported scenarios, see [support for Generation 2 VMs on Azure](../virtual-machines/generation-2.md).
+To provide Intel SGX support on confidential compute instances, all deployments must run on Generation 2 images. Azure confidential computing supports workloads running on **Ubuntu 20.04 Gen 2**, **Windows Server 2019 Gen 2** and **Ubuntu 22.04 Gen 2**. For more information about supported and unsupported scenarios, see [support for Generation 2 VMs on Azure](/azure/virtual-machines/generation-2).
 
 ### Storage
 
@@ -67,7 +67,7 @@ To provide Intel SGX support on confidential compute instances, all deployments 
 
 When you use Azure VMs, you're responsible for creating a high availability (HA) and disaster recovery solution to avoid any downtime. 
 
-Azure confidential computing doesn't support zone-redundancy through Azure availability zones at this time. For the highest availability and redundancy for confidential computing, use [Availability Sets](../virtual-machines/availability-set-overview.md). Because of hardware restrictions, Availability Sets for confidential computing instances can only have a maximum of 10 update domains. 
+Azure confidential computing doesn't support zone-redundancy through Azure availability zones at this time. For the highest availability and redundancy for confidential computing, use [Availability Sets](/azure/virtual-machines/availability-set-overview). Because of hardware restrictions, Availability Sets for confidential computing instances can only have a maximum of 10 update domains. 
 
 ## Deployment with Azure Resource Manager (ARM) Template
 
@@ -75,7 +75,7 @@ Azure Resource Manager is the deployment and management service for Azure. You c
 
 To learn about Azure Resource Manager templates (ARM templates), see the [Templates overview](../azure-resource-manager/templates/overview.md).
 
-To deploy using ARM templates, see [Virtual machines in an Azure Resource Manager template](../virtual-machines/windows/template-description.md). Make sure to specify the correct properties for **vmSize** and your **imageReference**.
+To deploy using ARM templates, see [Virtual machines in an Azure Resource Manager template](/azure/virtual-machines/windows/template-description). Make sure to specify the correct properties for **vmSize** and your **imageReference**.
 
 ### VM sizes
 

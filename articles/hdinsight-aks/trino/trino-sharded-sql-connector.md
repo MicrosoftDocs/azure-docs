@@ -8,7 +8,9 @@ ms.date: 02/06/2024
 
 # Sharded SQL connector
 
+[!INCLUDE [retirement-notice](../includes/retirement-notice.md)]
 [!INCLUDE [feature-in-preview](../includes/feature-in-preview.md)]
+
 
 The sharded SQL connector allows queries to be executed over data distributed across any number of SQL servers. 
 

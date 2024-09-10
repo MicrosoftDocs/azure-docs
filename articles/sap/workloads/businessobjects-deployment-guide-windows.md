@@ -143,8 +143,8 @@ The SAP BusinessObjects BI application requires a partition on which its binarie
 
 In this example, an SAP BOBI application is installed on a separate partition (F:). Initialize the Premium SSD disk that you attached during the VM provisioning:
 
-1. **[A]** If no data disk is attached to the VM (azuswinboap1 and azuswinboap2), follow the steps in [Add a data disk](../../virtual-machines/windows/attach-managed-disk-portal.yml#add-a-data-disk) to attach a new managed data disk.
-1. **[A]** After the managed disk is attached to the VM, initialize the disk by following the steps in [Initialize a new data disk](../../virtual-machines/windows/attach-managed-disk-portal.yml#initialize-a-new-data-disk).
+1. **[A]** If no data disk is attached to the VM (azuswinboap1 and azuswinboap2), follow the steps in [Add a data disk](/azure/virtual-machines/windows/attach-managed-disk-portal#add-a-data-disk) to attach a new managed data disk.
+1. **[A]** After the managed disk is attached to the VM, initialize the disk by following the steps in [Initialize a new data disk](/azure/virtual-machines/windows/attach-managed-disk-portal#initialize-a-new-data-disk).
 
 ### Mount Azure Premium Files
 

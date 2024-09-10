@@ -9,7 +9,7 @@ ms.author: v-abhmallick
 
 # About agentless multi-disk crash-consistent backup for Azure VMs (preview)
 
-Azure Backup supports agentless VM backups by using multi-disk [crash-consistent restore points](../virtual-machines/virtual-machines-create-restore-points.md) (preview). The [Enhanced VM backup policy](backup-azure-vms-enhanced-policy.md) now enables you to configure the consistency type of the backups (application-consistent restore points or crash-consistent restore points preview) for Azure VMs. This feature also enables Azure VM backup to retry the backup operation with *crash-consistent snapshots* (for *supported VMs*) if the application-consistent snapshot fails. 
+Azure Backup supports agentless VM backups by using multi-disk [crash-consistent restore points](/azure/virtual-machines/virtual-machines-create-restore-points) (preview). The [Enhanced VM backup policy](backup-azure-vms-enhanced-policy.md) now enables you to configure the consistency type of the backups (application-consistent restore points or crash-consistent restore points preview) for Azure VMs. This feature also enables Azure VM backup to retry the backup operation with *crash-consistent snapshots* (for *supported VMs*) if the application-consistent snapshot fails. 
 
 ## When do I choose crash-consistent backup over application-consistent backup?
 
@@ -17,7 +17,7 @@ Choose to perform crash-consistent backup in the following scenarios:
 
 - If your workload is performance sensitive and can tolerate recovery from crash-consistent backups, crash-consistent backups help quiesce VM I/O for a shorter period during backup. Crash-consistent backup doesn't use Volume Shadow Copy Service (VSS) (for Windows) or *fsfreeze* (for Linux) to avoid the associated quiescing delays. 
 
-- If you don't want to install the [VM Agent](../virtual-machines/extensions/agent-windows.md) or [snapshot extension](../virtual-machines/extensions/vmsnapshot-windows.md) required for application-consistent or file-system-consistent snapshots in your Azure VM, use crash-consistent backups for an agentless backup solution.
+- If you don't want to install the [VM Agent](/azure/virtual-machines/extensions/agent-windows) or [snapshot extension](/azure/virtual-machines/extensions/vmsnapshot-windows) required for application-consistent or file-system-consistent snapshots in your Azure VM, use crash-consistent backups for an agentless backup solution.
 
 - If your operating system is not supported for application or file-system-consistent backup, use crash-consistent backups. Crash-consistent backup is operating system agnostic as it doesn't rely on the VM agent or snapshot extension.
 

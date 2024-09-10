@@ -195,4 +195,4 @@ While Microsoft Sentinel is also available in the [Microsoft Defender portal](mi
 In this article, you learned about available features in Microsoft Sentinel. 
 
 - [Learn about Microsoft Sentinel](overview.md)
-- [Plan your Microsoft Sentinel architecture](design-your-workspace-architecture.md)
+- [Design a Log Analytics workspace architecture](/azure/azure-monitor/logs/workspace-design?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json)

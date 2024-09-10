@@ -10,6 +10,8 @@ ms.service: azure-automation
 
 # Manage Change Tracking and Inventory
 
+[!INCLUDE [./log-analytics-retirement-announcement.md](../includes/log-analytics-retirement-announcement.md)]
+
 When you add a new file or registry key to track, Azure Automation enables it for [Change Tracking and Inventory](overview.md). This article describes how to configure tracking, review tracking results, and handle alerts when changes are detected.
 
 Before using the procedures in this article, ensure that you've enabled Change Tracking and Inventory on your VMs using one of these techniques:

@@ -37,7 +37,7 @@ If you're using Virtual Machine Scale Sets and you don't see a particular metric
 
 If a particular metric isn't being sampled or transferred at the frequency you want, you can update the diagnostics configuration.
 
-If either preceding case is true, see [Use PowerShell to enable Azure Diagnostics in a virtual machine running Windows](../../virtual-machines/extensions/diagnostics-windows.md) to configure and update your Azure VM Diagnostics extension to enable the metric. The article also includes a sample diagnostics configuration file.
+If either preceding case is true, see [Use PowerShell to enable Azure Diagnostics in a virtual machine running Windows](/azure/virtual-machines/extensions/diagnostics-windows) to configure and update your Azure VM Diagnostics extension to enable the metric. The article also includes a sample diagnostics configuration file.
 
 ### Host metrics for Resource Manager-based Windows and Linux VMs
 

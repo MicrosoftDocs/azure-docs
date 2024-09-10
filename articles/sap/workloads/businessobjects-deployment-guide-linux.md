@@ -619,7 +619,7 @@ You can achieve high availability for application servers by employing redundanc
 
 To reduce the impact of downtime due to [planned and unplanned events](./sap-high-availability-architecture-scenarios.md#planned-and-unplanned-maintenance-of-virtual-machines), it's a good idea to follow the [high availability architecture guidance](./sap-high-availability-architecture-scenarios.md).
 
-For more information, see [Manage the availability of Linux virtual machines](../../virtual-machines/availability.md).
+For more information, see [Manage the availability of Linux virtual machines](/azure/virtual-machines/availability).
 
 > [!IMPORTANT]
 >
