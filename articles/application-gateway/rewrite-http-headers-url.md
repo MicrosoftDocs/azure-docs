@@ -4,7 +4,7 @@ description: This article provides an overview of rewriting HTTP headers and URL
 author: greg-lindsay
 ms.service: azure-application-gateway
 ms.topic: conceptual
-ms.date: 09/06/2024
+ms.date: 09/10/2024
 ms.author: greglin
 ---
 
@@ -229,34 +229,14 @@ You can evaluate an HTTP request or response header for the presence of a header
 
 #### Parameter based path selection
 
-To accomplish scenarios where you want to choose the backend pool based on the value of a header, part of the URL, or query string in the request, you can use the combination of URL Rewrite capability and path-based routing. For example, if you have a shopping website and the product category is passed as query string in the URL, and you want to route the request to backend based on the query string, then:
+To accomplish scenarios where you want to choose the backend pool based on the value of a header, part of the URL, or query string in the request, you can use a combination of URL Rewrite capability and path-based routing. 
 
-**Step1:**  Create a path-map as shown in the image below
+To do this, you have to create a rewrite set with a condition that checks for a specific parameter (query string, header, etc.) and then performs an action where it changes the URL path (ensure **Reevaluate path map** is enabled). The rewrite set must then be associated to a path based rule. The path based rule must contain the same URL paths specified in the rewrite set and their corresponding backend pool. 
 
-:::image type="content" source="./media/rewrite-http-headers-url/url-scenario1-1.png" alt-text="URL rewrite scenario 1-1.":::
+Thus, the rewrite set allows users to check for a specific parameter and assign it a new path, and the path based rule allows users to assign backend pools to those paths. As long as "Reevaluate path map" is enabled, traffic routs based on the path specified in the rewrite set. 
 
-**Step 2 (a):** Create a rewrite set which has 3 rewrite rules: 
+For a use case example using query strings, please see [Route traffic using parameter based path selection in portal](parameter-based-path-selection-portal.md).
 
-* The first rule has a condition that checks the *query_string* variable for *category=shoes* and has an action that rewrites the URL path to /*listing1* and has **Reevaluate path map** enabled
-
-* The second rule has a condition that checks the *query_string* variable for *category=bags* and has an action that rewrites the URL path to /*listing2*  and has **Reevaluate path map** enabled
-
-* The third rule has a condition that checks the *query_string* variable for *category=accessories* and has an action that rewrites the URL path to /*listing3* and has **Reevaluate path map** enabled
-
-:::image type="content" source="./media/rewrite-http-headers-url/url-scenario1-2.png" alt-text="URL rewrite scenario 1-2.":::
-
- 
-
-**Step 2 (b):** Associate this rewrite set with the default path of the above path-based rule
-
-:::image type="content" source="./media/rewrite-http-headers-url/url-scenario1-3.png" alt-text="URL rewrite scenario 1-3.":::
-
-If the user requests *contoso.com/listing?category=any*, then it's matched with the default path since none of the path patterns in the path map (/listing1, /listing2, /listing3) are matched. Since you associated the previous rewrite set with this path, this rewrite set is evaluated. Because the query string won't match the condition in any of the 3 rewrite rules in this rewrite set, no rewrite action takes place. Therefore, the request is routed unchanged to the backend associated with the default path (which is *GenericList*).
-
-If the user requests *contoso.com/listing?category=shoes*, then the default path is matched. However, in this case the condition in the first rule matches. Therefore, the action associated with the condition is executed, which rewrites the URL path to /*listing1*  and reevaluates the path-map. When the path-map is reevaluated, the request matches the path associated with pattern */listing1* and the request is routed to the backend associated with this pattern (ShoesListBackendPool).
-
-> [!NOTE]
-> This scenario can be extended to any header or cookie value, URL path, query string or server variables based on the conditions defined and essentially enables you to route requests based on those conditions.
 
 #### Rewrite query string parameters based on the URL
 
