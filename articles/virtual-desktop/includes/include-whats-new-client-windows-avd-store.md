@@ -23,7 +23,7 @@ The following table lists the current versions available for the public and Insi
 > [!NOTE]
 > This version replaced the Insider version 1.2.5701 and has the same release notes with the changes in 1.2.5701 and 1.2.5699. 
 
-## Updates for version 1.2.5701 (Insider) 
+## Updates for version 1.2.5701 
 
 *Date published: September 6, 2024*   
 
