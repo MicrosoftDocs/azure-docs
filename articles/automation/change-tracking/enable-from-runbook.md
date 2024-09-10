@@ -27,7 +27,7 @@ This method uses two runbooks:
 
 * Azure subscription. If you don't have one yet, you can [activate your MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or sign up for a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * [Automation account](../automation-security-overview.md) to manage machines.
-* [Log Analytics workspace](../../azure-monitor/logs/log-analytics-workspace-overview.md)
+* [Log Analytics workspace](/azure/azure-monitor/logs/log-analytics-workspace-overview)
 * A [virtual machine](/azure/virtual-machines/windows/quick-create-portal).
 * Two Automation assets, which are used by the **Enable-AutomationSolution** runbook. This runbook, if it doesn't already exist in your Automation account, is automatically imported by the **Enable-MultipleSolution** runbook during its first run.
     * *LASolutionSubscriptionId*: Subscription ID of where the Log Analytics workspace is located.
