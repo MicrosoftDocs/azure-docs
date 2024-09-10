@@ -1667,3 +1667,12 @@ groups:
     title: C#
   - id: programming-language-java
     title: Java
+# Owner: xiaofanzhou
+- id: tutorial-type
+  title: Choose the tutorial type
+  prompt: Choose the tutorial type
+  pivots:
+  - id: serviceconnector
+    title: Service Connector
+  - id: manual
+    title: Manual
