@@ -5,7 +5,7 @@ description: Learn how to calculate the cost of storing and maintaining data in 
 author: normesta
 
 ms.author: normesta
-ms.date: 07/31/2024
+ms.date: 9/10/2024
 ms.service: azure-blob-storage
 ms.topic: conceptual
 ---

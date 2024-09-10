@@ -5,7 +5,7 @@ services: storage
 author: normesta
 ms.service: azure-blob-storage
 ms.topic: conceptual
-ms.date: 07/30/2024
+ms.date: 09/10/2024
 ms.author: normesta
 ms.custom: subject-cost-optimization
 ---
@@ -34,7 +34,7 @@ The following table calculates the number of write operations required to upload
 | Calculation                                            | Value       |
 |--------------------------------------------------------|-------------|
 | Number of MiB in 5 GiB                                 | 5,120       |
-| PutBlock operations per blob (5,120 MiB / 8 MiB block) | 640         |
+| PutBlock operations per blob (5,120 MiB / 8-MiB block) | 640         |
 | PutBlockList operations per blob                       | 1           |
 | **Total write operations (1,000 * 641)**               | **641,000** |
 
@@ -67,7 +67,7 @@ The following table calculates the number of write operations required to upload
 | Calculation                                                          | Value        |
 |----------------------------------------------------------------------|--------------|
 | Number of MiB in 5 GiB                                               | 5,120        |
-| Path - Update (append) operations per blob (5,120 MiB / 4 MiB block) | 1,280        |
+| Path - Update (append) operations per blob (5,120 MiB / 4-MiB block) | 1,280        |
 | Path - Update (flush) operations per blob                            | 1            |
 | **Total write operations (1,000 * 1,281)**                           | **1,281,00** |
 
@@ -126,7 +126,7 @@ The following table calculates the number of write operations required to upload
 | Calculation                                                 | Value         |
 |-------------------------------------------------------------|---------------|
 | Number of MiB in 5 GiB                                      | 5,120         |
-| Path - Update operations per blob (5,120 MiB / 4 MiB block) | 1,280         |
+| Path - Update operations per blob (5,120 MiB / 4-MiB block) | 1,280         |
 | Total read operations (1000* 1,280)                         | **1,280,000** |
 
 Using the [Sample prices](#sample-prices) that appear in this article, the following table calculates the cost to download these blobs.

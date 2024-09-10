@@ -4,7 +4,7 @@ description: Find the REST operations used by each AzCopy v10 command.
 author: normesta
 ms.service: azure-storage
 ms.topic: reference
-ms.date: 07/03/2024
+ms.date: 09/10/2024
 ms.author: normesta
 ms.subservice: storage-common-concepts
 ---

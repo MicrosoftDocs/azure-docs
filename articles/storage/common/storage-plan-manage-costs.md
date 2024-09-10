@@ -5,7 +5,7 @@ services: storage
 author: normesta
 ms.service: azure-storage
 ms.topic: conceptual
-ms.date: 11/27/2023
+ms.date: 09/10/2024
 ms.author: normesta
 ms.subservice: storage-common-concepts
 ms.custom: subject-cost-optimization
@@ -51,20 +51,20 @@ At the end of your billing cycle, the charges for each meter are summed. Your bi
 
 #### Data storage and index meters
 
-Data storage and metadata are billed per GB on a monthly basis. Most metadata is stored as part of the blob and includes properties and key-value pairs. The metadata that is associated with blobs in the archive tier is stored separately in the cold tier. That way, users can list the blob and its properties, metadata, and index tags. Because the size of metadata does not exceed 8 KB in size, it's cost is relatively insignificant as a percent of total storage capacity. 
+Data storage and metadata are billed per GB on a monthly basis. Most metadata is stored as part of the blob and includes properties and key-value pairs. The metadata that is associated with blobs in the archive tier is stored separately in the cold tier. That way, users can list the blob and its properties, metadata, and index tags. Because the size of metadata doesn't exceed 8 KB in size, it's cost is relatively insignificant as a percent of total storage capacity. 
 
 Blob index tags are stored as a sub resource in the hot tier, and have their own billing meter. The **Index** meter applies only to accounts that have a hierarchical namespace as a means to bill for the space required to facilitate a hierarchical file structure including the access control lists (ACLs) associated with objects in that structure. Data associated with the index is always stored in the hot tier.
 
 For data and metadata stored for less than a month, you can estimate the impact on your monthly bill by calculating the cost of each GB per day. The number of days in any given month varies. Therefore, to obtain the best approximation of your costs in a given month, make sure to divide the monthly cost by the number of days that occur in that month.
 
-Azure Blob Storage uses the following base-2 units of measurement to represent storage capacity: KiB, MiB, GiB, TiB, PiB. While the line items in your bill will contain GB as a unit of measurement, those units are calculated by Azure Blob Storage as binary GB (GiB). For example, a line item on your bill that shows **1** for **Data Stored (GB/month)** corresponds to 1 GiB per month of usage. The following table describes each base-2 unit:
+Azure Blob Storage uses the following base-2 units of measurement to represent storage capacity: KiB, MiB, GiB, TiB, PiB. While the line items in your bill contain GB as a unit of measurement, those units are calculated by Azure Blob Storage as binary GB (GiB). For example, a line item on your bill that shows **1** for **Data Stored (GB/month)** corresponds to 1 GiB per month of usage. The following table describes each base-2 unit:
 
 | Acronym | Unit | Definition |
 |---|---|--|
 | KiB | kibibyte | 1,024 bytes |
 | MiB | mebibyte | 1,024 KiB (1,048,576 bytes) |
-| GiB | gibibyte | 1024 MiB (1,073,741,824 bytes) |
-| TiB | tebibyte | 1024 GiB (1,099,511,627,776 bytes) |
+| GiB | gibibyte | 1,024 MiB (1,073,741,824 bytes) |
+| TiB | tebibyte | 1,024 GiB (1,099,511,627,776 bytes) |
 
 For more information about how to calculate the cost of storage, see [The cost to store data](../blobs/blob-storage-estimate-costs.md#the-cost-to-store-data).
 
@@ -74,15 +74,15 @@ Each request made by a client arrives to the service in the form of a REST opera
 
 The pricing pages don't list a price for each individual operation but instead lists the price of an operation _type_. To determine the price of an operation, you must first determine how that operation is classified in terms of it's type. To trace a _logged operation_ to a _REST operation_ and then to an operation _type_, see [Map each REST operation to a price](../blobs/map-rest-apis-transaction-categories.md). 
 
-The price that appears beside an operation type is not the price you pay for each operation. In most cases, it's the price of `10,000` operations. To obtain the price of an individual operation, divide the price by `10,000`. For example, if the price for write operations is `$0.055`, then the price of an individual operation is `$.0555` / `10,000` = `$0.0000055`. You can estimate the cost to upload a file by multiplying the number write operations required to complete the upload by the cost of an individual transaction. To learn more, see [Estimate the cost of using Azure Blob Storage](../blobs/blob-storage-estimate-costs.md).
+The price that appears beside an operation type isn't the price you pay for each operation. In most cases, it's the price of `10,000` operations. To obtain the price of an individual operation, divide the price by `10,000`. For example, if the price for write operations is `$0.055`, then the price of an individual operation is `$.0555` / `10,000` = `$0.0000055`. You can estimate the cost to upload a file by multiplying the number write operations required to complete the upload by the cost of an individual transaction. To learn more, see [Estimate the cost of using Azure Blob Storage](../blobs/blob-storage-estimate-costs.md).
 
 #### Data transfer meter
 
-Any data that leaves the Azure region incurs data transfer and network bandwidth charges. These charges commonly appear in scenarios where an account is configured for geo-redundant storage or when an object replication policy is configured to copy data to an account in another region. However, these charges also apply to data that is downloaded to an on-premises client. The price of network bandwidth does not appear in the Azure Storage pricing pages. To find the price of network bandwidth, see [Bandwidth pricing](https://azure.microsoft.com/pricing/details/data-transfers/).
+Any data that leaves the Azure region incurs data transfer and network bandwidth charges. These charges commonly appear in scenarios where an account is configured for geo-redundant storage or when an object replication policy is configured to copy data to an account in another region. However, these charges also apply to data that is downloaded to an on-premises client. The price of network bandwidth doesn't appear in the Azure Storage pricing pages. To find the price of network bandwidth, see [Bandwidth pricing](https://azure.microsoft.com/pricing/details/data-transfers/).
 
 #### Feature-related meters
 
-There is no cost to enable Blob Storage features. There are only three features that incur a passive charge after you enable them (SFTP support, encryption scopes, and blob index tags). For all other features, you're billed for the storage space that is occupied by the output of a feature and the operations executed as a result of using the feature. For example, if you enable versioning, your bill reflects the cost to store versions and the cost to perform operations to list or retrieve versions. Some features have added meters. For a complete list, see the [How you're charged for Azure Blob Storage](#how-youre-charged-for-azure-blob-storage) section of this article. 
+There's no cost to enable Blob Storage features. There are only three features that incur a passive charge after you enable them (SFTP support, encryption scopes, and blob index tags). For all other features, you're billed for the storage space that is occupied by the output of a feature and the operations executed as a result of using the feature. For example, if you enable versioning, your bill reflects the cost to store versions and the cost to perform operations to list or retrieve versions. Some features have added meters. For a complete list, see the [How you're charged for Azure Blob Storage](#how-youre-charged-for-azure-blob-storage) section of this article. 
 
 You can prorate time-based meters if you use those features for less than a month. For example, Encryption scopes are billed on a monthly basis. Encryption scopes in place for less than a month, you can estimate the impact on your monthly bill by calculating the cost of each day. The number of days in any given month varies. Therefore, to obtain the best approximation of your costs in a given month, make sure to divide the monthly cost by the number of days that occur in that month.
 
@@ -110,7 +110,7 @@ The correct pricing page for these requests is the [Block blob pricing](https://
 
 Requests to this endpoint can also occur in accounts that have a hierarchical namespace. In fact, to use NFS 3.0 and SFTP protocols, you must first enable the hierarchical namespace feature of the account. 
 
-If your account has the hierarchical namespace feature enabled, make sure that the **File Structure** drop-down list is set to **Hierarchical Namespace (NFS v3.0, SFTP Protocol)**. Otherwise, make sure that it is set to **Flat Namespace**.
+If your account has the hierarchical namespace feature enabled, make sure that the **File Structure** drop-down list is set to **Hierarchical Namespace (NFS v3.0, SFTP Protocol)**. Otherwise, make sure that it's set to **Flat Namespace**.
 
 ### Requests to the Data Lake Storage endpoint
 
@@ -124,7 +124,7 @@ Requests can originate from any of these sources:
 
 The correct pricing page for these requests is the [Azure Data Lake Storage pricing](https://azure.microsoft.com/pricing/details/storage/data-lake/) page. 
 
-If your account does not have the hierarchical namespace feature enabled, but you expect clients, workloads, or applications to make requests over the Data Lake Storage endpoint of your account, then set the **File Structure** drop-down list to **Flat Namespace**. Otherwise, make sure that it is set to **Hierarchical Namespace**.
+If your account doesn't have the hierarchical namespace feature enabled, but you expect clients, workloads, or applications to make requests over the Data Lake Storage endpoint of your account, then set the **File Structure** drop-down list to **Flat Namespace**. Otherwise, make sure that it's set to **Hierarchical Namespace**.
 
 ## Estimate costs
 
@@ -175,7 +175,7 @@ Use lifecycle management policies to periodically move data between tiers to sav
 
 ## Create budgets
 
-You can create [budgets](../../cost-management-billing/costs/tutorial-acm-create-budgets.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) to manage costs and create alerts that automatically notify stakeholders of spending anomalies and overspending risks. Alerts are based on spending compared to budget and cost thresholds. Budgets and alerts are created for Azure subscriptions and resource groups, so they're useful as part of an overall cost monitoring strategy. However, they might have limited functionality to manage individual Azure service costs like the cost of Azure Storage because they are designed to track costs at a higher level.
+You can create [budgets](../../cost-management-billing/costs/tutorial-acm-create-budgets.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) to manage costs and create alerts that automatically notify stakeholders of spending anomalies and overspending risks. Alerts are based on spending compared to budget and cost thresholds. Budgets and alerts are created for Azure subscriptions and resource groups, so they're useful as part of an overall cost monitoring strategy. However, they might have limited functionality to manage individual Azure service costs like the cost of Azure Storage because they're designed to track costs at a higher level.
 
 ## Monitor costs
 
@@ -215,11 +215,11 @@ Some actions, such as changing the default access tier of your account, can lead
 |----------|--------|-------------------------------|
 | Access tiers | Changing the default access tier setting | If your account contains a large number of blobs for which the access tier is inferred, then a change to this setting can incur a significant cost. <br><br>A change to the default access tier setting of a storage account applies to all blobs in the account for which an access tier hasn't been explicitly set. For example, if you toggle the default access tier setting from hot to cool in a general-purpose v2 account, then you're charged for write operations (per 10,000) for all blobs for which the access tier is inferred. You're charged for both read operations (per 10,000) and data retrieval (per GB) if you toggle from cool to hot in a general-purpose v2 account. <br><br>For more information, see [Default account access tier setting](../blobs/access-tiers-overview.md#default-account-access-tier-setting). |
 | Access tiers | Rehydrating from archive  | High priority rehydration from archive can lead to higher than normal bills. Microsoft recommends reserving high-priority rehydration for use in emergency data restoration situations. <br><br>For more information, see [Rehydration priority](../blobs/archive-rehydrate-overview.md#rehydration-priority).|
-| Access tiers | Deleting, overwriting, or moving a blob to another tier | Tools or applications that use the [Copy Blob](/rest/api/storageservices/copy-blob) operation to update a blob will overwrite the blob. Blobs are subject to an early deletion penalty if they are deleted, overwritten or moved to a different tier before the minimum number of days required by the tier have transpired.  |
+| Access tiers | Deleting, overwriting, or moving a blob to another tier | Tools or applications that use the [Copy Blob](/rest/api/storageservices/copy-blob) operation to update a blob will overwrite the blob. Blobs are subject to an early deletion penalty if they're deleted, overwritten, or moved to a different tier before the minimum number of days required by the tier have transpired.  |
 | Data protection | Enabling blob soft delete | Overwriting blobs can lead to blob snapshots. Unlike the case where a blob is deleted, the creation of these snapshots isn't logged. This can lead to unexpected storage costs. Consider whether data that is frequently overwritten should be placed in an account that doesn't have soft delete enabled.<br><br>For more information, see [How overwrites are handled when soft delete is enabled](../blobs/soft-delete-blob-overview.md#how-overwrites-are-handled-when-soft-delete-is-enabled).|
 | Data protection | Enabling blob versioning | Every write operation on a blob creates a new version. As is the case with enabling blob soft delete, consider whether data that is frequently overwritten should be placed in an account that doesn't have versioning enabled. <br><br>For more information, see [Versioning on write operations](../blobs/versioning-overview.md#versioning-on-write-operations). |
-| Monitoring | Enabling Storage Analytics logs (classic logs)| Storage analytics logs can accumulate in your account over time if the retention policy is not set. Make sure to set the retention policy to avoid log buildup which can lead to unexpected capacity charges.<br><br>For more information, see [Modify log data retention period](manage-storage-analytics-logs.md#modify-log-data-retention-period) |
-| Protocols | Enabling SSH File Transfer Protocol (SFTP) support| Enabling the SFTP endpoint incurs an hourly cost. To avoid passive charges, consider enabling SFTP only when you are actively using it to transfer data.<br><br> For guidance about how to enable and then disable SFTP support, see [Connect to Azure Blob Storage by using the SSH File Transfer Protocol (SFTP)](../blobs/secure-file-transfer-protocol-support-how-to.md). |
+| Monitoring | Enabling Storage Analytics logs (classic logs)| Storage analytics logs can accumulate in your account over time if the retention policy isn't set. Make sure to set the retention policy to avoid log buildup which can lead to unexpected capacity charges.<br><br>For more information, see [Modify log data retention period](manage-storage-analytics-logs.md#modify-log-data-retention-period) |
+| Protocols | Enabling SSH File Transfer Protocol (SFTP) support| Enabling the SFTP endpoint incurs an hourly cost. To avoid passive charges, consider enabling SFTP only when you're actively using it to transfer data.<br><br> For guidance about how to enable and then disable SFTP support, see [Connect to Azure Blob Storage by using the SSH File Transfer Protocol (SFTP)](../blobs/secure-file-transfer-protocol-support-how-to.md). |
 
 ## Frequently asked questions (FAQ)
 
