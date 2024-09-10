@@ -45,35 +45,35 @@ Here's an example policy:
 Assuming BaseRCG1 is a rule collection group priority (200) that contains the rule collections: DNATRC1, DNATRC3,NetworkRC1.\
 BaseRCG2 is a rule collection group priority (300) that contains the rule collections: AppRC2, NetworkRC2.\
 ChildRCG1 is a rule collection group priority (300) that contains the rule collections: ChNetRC1, ChAppRC1.\
-ChildRCG2 is a rule collection group that contains the rule collections: ChNetRC2, ChAppRC2,ChDNATRC3.
+ChildRCG2 is a rule collection group priority (650) that contains the rule collections: ChNetRC2, ChAppRC2,ChDNATRC3.
 
 As per following table:
 
 |Name  |Type  |Priority  |Rules  |Inherited from
 |---------|---------|---------|---------|-------|
 |BaseRCG1      |Rule collection group           |200         |8         |Parent policy|
-|DNATRC1     |DNAT rule collection         |  600       |   7      |Parent policy|
-|DNATRC3|DNAT rule collection|610|3|Parent policy|
-|NetworkRC1     |Network rule collection  | 800        |    1     |Parent policy|
+|   DNATRC1     |DNAT rule collection         |  600       |   7      |Parent policy|
+|   DNATRC3|DNAT rule collection|610|3|Parent policy|
+|   NetworkRC1     |Network rule collection  | 800        |    1     |Parent policy|
 |BaseRCG2  |Rule collection group         |300         | 3        |Parent policy|
-|AppRC2     |Application rule collection | 1200        |2         |Parent policy
-|NetworkRC2     |Network rule collection         |1300         |    1     |Parent policy|
+|   AppRC2     |Application rule collection | 1200        |2         |Parent policy
+|   NetworkRC2     |Network rule collection         |1300         |    1     |Parent policy|
 |ChildRCG1  | Rule collection group        | 300        |5         |-|
-|ChNetRC1     |Network rule collection         |  700       | 3        |-|
-|ChAppRC1       |   Application rule collection      |    900     |    2     |-|
+|   ChNetRC1     |Network rule collection         |  700       | 3        |-|
+|   ChAppRC1       |   Application rule collection      |    900     |    2     |-|
 |ChildRCG2      |Rule collection group         | 650        |    9     |-|
-|ChNetRC2      |Network rule collection         |    1100     |  2       |-|
-|ChAppRC2      |     Application rule collection    |2000         |7         |-|
-|ChDNATRC3     | DNAT rule collection        | 3000        |  2       |-|
+|   ChNetRC2      |Network rule collection         |    1100     |  2       |-|
+|   ChAppRC2      |     Application rule collection    |2000         |7         |-|
+|   ChDNATRC3     | DNAT rule collection        | 3000        |  2       |-|
 
-Initial Processing:
+Initial Iteration for DNAT Rules:
 
 The process begins by examining the rule collection group (RCG) with the lowest number, which is BaseRCG1 with a priority of 200. Within this group, it searches for DNAT rule collections and evaluates them according to their priorities. In this case, DNATRC1 (priority 600) and DNATRC3 (priority 610) are found and processed accordingly.\
-Next, it moves to the next RCG, BaseRCG2 (priority 200), but finds no DNAT rule collection.\
+Next, it moves to the next RCG, BaseRCG2 (priority 300), but finds no DNAT rule collection.\
 Following that, it proceeds to ChildRCG1 (priority 300), also without a DNAT rule collection.\
 Finally, it checks ChildRCG2 (priority 650) and finds the ChDNATRC3 rule collection (priority 3000).
 
-Iteration Within Rule Collection Groups:
+Iteration for NETWORK Rules:
 
 Returning to BaseRCG1, the iteration continues, this time for NETWORK rules. Only NetworkRC1 (priority 800) is found.\
 Then, it moves to BaseRCG2, where NetworkRC2 (priority 1300) is located.\
