@@ -2,8 +2,8 @@
 title: Remove Azure Automation Update Management feature 
 description: This article tells how to stop using Update Management and unlink an Automation account from the Log Analytics workspace. 
 services: automation
-ms.date: 08/30/2024
-ms.topic: conceptual
+ms.date: 09/10/2024
+ms.topic: how-to
 ms.custom: mvc
 ---
 
