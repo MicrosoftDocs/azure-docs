@@ -191,10 +191,16 @@ If there's an error during the extension installation, and the error message in 
 `Operation returned an invalid status code: Conflict`.
 
 **Reason:**
-This error usually occurs when attempting to create a service connection while the AKS (Azure Kubernetes Service) cluster is in an updating state. The service connection update conflicts with the ongoing update.
+This error usually occurs when attempting to create a service connection while the AKS (Azure Kubernetes Service) cluster is in an updating state. The service connection update conflicts with the ongoing update. It could also happen when your subscription is not resgitered for the `Microsoft.KubernetesConfiguration` resource provider.
 
 **Mitigation:**
-Ensure your cluster is in a "Succeeded" state before retrying the creation. It resolves most errors related to conflicts.
+- Run the following command to make sure your subscription is registered for `Microsoft.KubernetesConfiguration` resource provider.
+
+  ```azurecli
+  az provider register -n Microsoft.KubernetesConfiguration
+  ```
+- Ensure your cluster is in a "Succeeded" state and retry the creation.
+
 
 #### Timeout
 
@@ -227,7 +233,11 @@ Check the permissions on the Azure resources specified in the error message. Obt
 Service Connector requires the subscription to be registered for `Microsoft.KubernetesConfiguration`, which is the resource provider for [Azure Arc-enabled Kubernetes cluster extensions](../azure-arc/kubernetes/extensions.md).
 
 **Mitigation:**
-To resolve errors related to resource provider registration, follow this [tutorial](../azure-resource-manager/troubleshooting/error-register-resource-provider.md).
+Register the `Microsoft.KubernetesConfiguration` resource provider by running the following command. For more information on resource provider registration errors, please refer to this [tutorial](../azure-resource-manager/troubleshooting/error-register-resource-provider.md).
+
+```azurecli
+az provider register -n Microsoft.KubernetesConfiguration
+```
 
 #### Other issues
 
