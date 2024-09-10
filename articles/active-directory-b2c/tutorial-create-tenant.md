@@ -96,7 +96,7 @@ You can link multiple Azure AD B2C tenants to a single Azure subscription for bi
 
 ## Activate Azure AD B2C Go-Local add-on
 
-Azure AD B2C allows you to activate Go-Local add-on on an existing tenant as long as your tenant stores data in a country/region that has local data residence option. To opt-in to Go-Local add-on, use the following steps:
+Azure AD B2C allows you to activate Go-Local add-on on an existing tenant as long as your tenant stores data in a country/region that has local data residence option. To opt in to Go-Local add-on, use the following steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com). 
 
