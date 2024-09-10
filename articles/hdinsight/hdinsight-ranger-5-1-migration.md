@@ -3,7 +3,7 @@ title: Upgrade to Apache Ranger in Azure HDInsight
 description: Learn how to upgrade to Apache Ranger in Azure HDInsight 
 ms.service: azure-hdinsight
 ms.topic: how-to
-ms.date: 08/27/2024
+ms.date: 09/10/2024
 ---
 
 # Upgrade to Apache Ranger in Azure HDInsight 
@@ -12,7 +12,7 @@ HDInsight 5.1 has Apache Ranger version 2.3.0, which is major version upgrade fr
 
 ## Behavioral changes
 
-Hive Ranger permissions - In 5.1 stack for hive, default hive ranger policies have been added which allow all users to 
+Hive Ranger permissions - In 5.1 stack for hive, default hive ranger policies have been added which allow all users to
 
 1. Create a database.
 1. All privileges on default database tables and columns.  
@@ -45,18 +45,11 @@ Ranger UI is available by clicking on navigating to ranger component and clickin
 
 ### User Interface differences
 
-Ranger admin URL has new UI and looks & feel. There's option to switch to the classic Ranger 1.2.0 UI as well:
+* Ranger admin URL has new UI and looks & feel. There's option to switch to the classic Ranger 1.2.0 UI as well:
 
-<img width="449" alt="Ranger_51_3" src="https://github.com/user-attachments/assets/f3747e6b-abab-4a24-bceb-ab38cf9028da">
+* Root Service of Hive renamed to Hadoop SQL:
 
-Root Service of Hive renamed to Hadoop SQL:
-
-<img width="452" alt="Ranger_51_4" src="https://github.com/user-attachments/assets/7ec4444f-ef57-4a4d-aed9-77c9eac2d2db">
-
-Hive/Hadoop SQL also has new capabilities of adding roles under Ranger:
-
-<img width="452" alt="Ranger_51_10" src="https://github.com/user-attachments/assets/ba6ddc18-39d7-4359-bb75-d618899bf40c">
-
+* Hive/Hadoop SQL also has new capabilities of adding roles under Ranger:
 
 ## Migration method recommendations
 
@@ -76,18 +69,8 @@ Steps to import/export.
 
 1. Go to the older adults 4.0 clusters ranger page and select on export.
 
-    <img width="452" alt="Ranger_51_5" src="https://github.com/user-attachments/assets/ed26fb84-721d-44e8-bed5-406bd2aa1496">
-
 1. Save the file.
-
-    <img width="452" alt="Ranger_51_6" src="https://github.com/user-attachments/assets/c6e8b60f-92a3-4adf-8418-be15797aa6d7">
 
 1. On new 5.1 cluster, open ranger and import the same file created in step 2.
 
-    <img width="452" alt="Ranger_51_7" src="https://github.com/user-attachments/assets/d9a0b17c-f7a2-4189-8f9e-9ac5600efda4">
-
-    <img width="452" alt="Ranger_51_8" src="https://github.com/user-attachments/assets/dae0e9ad-ae81-4881-8d4f-0c4fb3726ca4">
-
 1. Map the services appropriately and set the override flag.
-
-    <img width="452" alt="Ranger_51_9" src="https://github.com/user-attachments/assets/b22d34bc-5f8c-458d-9f44-459fb448eb59">
