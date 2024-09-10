@@ -56,7 +56,7 @@ az extension add --name serviceconnector-passwordless --upgrade
 Clone the sample repository:
 
 ```terminal
-git clone https://github.com/brycechen1849/msdocs-django-web-app-managed-identity.git
+git clone https://github.com/Azure-Samples/serviceconnector-webapp-postgresql-django-passwordless.git
 ```
 
 Navigate into the following folder:
@@ -73,7 +73,7 @@ git checkout django-passwordless
 
 ### [Download](#tab/download)
 
-Visit [https://github.com/brycechen1849/msdocs-django-web-app-managed-identity](https://github.com/brycechen1849/msdocs-django-web-app-managed-identity).
+Visit [https://github.com/Azure-Samples/serviceconnector-webapp-postgresql-django-passwordless](https://github.com/Azure-Samples/serviceconnector-webapp-postgresql-django-passwordless).
 
 For Flexible server, select the branches control that says "master" and then select the **django-passwordless** branch.
 
