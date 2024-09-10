@@ -29,7 +29,7 @@ The table below shows which combinations of authentication methods and clients a
 |--------------------|----------------------------------|--------------------------------|----------------------------|-------------------|
 | .NET               | Yes                              | Yes                            | Yes                        | Yes               |
 | Java               | Yes                              | Yes                            | Yes                        | Yes               |
-| Java - Spring Boot | No                               | No                             | Yes                        | No                |
+| Java - Spring Boot | Yes                              | Yes                            | Yes                        | Yes               |
 | Node.js            | Yes                              | Yes                            | Yes                        | Yes               |
 | Python             | Yes                              | Yes                            | Yes                        | Yes               |
 | Go                 | Yes                              | Yes                            | Yes                        | Yes               |
@@ -43,7 +43,17 @@ Reference the connection details and sample code in the following tables, accord
 
 ### System-assigned managed identity
 
-For default environment variables and sample code of other authentication type, please choose from beginning of the documentation.
+#### SpringBoot client type
+
+Using a system-assigned managed identity as the authentication type is only available for Spring Cloud Azure version 4.0 or higher.
+
+| Default environment variable name                                   | Description                          | Example value                                           |
+|---------------------------------------------------------------------|--------------------------------------|---------------------------------------------------------|
+| spring.cloud.azure.storage.blob.credential.managed-identity-enabled | Whether to enable managed identity   | `True`                                                  |
+| spring.cloud.azure.storage.blob.account-name                        | Name for the storage account         | `storage-account-name`                                  |
+| spring.cloud.azure.storage.blob.endpoint                            | Blob Storage endpoint               | `https://<storage-account-name>.blob.core.windows.net/` |
+
+#### Other client types
 
 | Default environment variable name  | Description           | Example value                                             |
 | ---------------------------------- | --------------------- | --------------------------------------------------------- |
@@ -56,7 +66,18 @@ Refer to the steps and code below to connect to Azure Blob Storage using a syste
 
 ### User-assigned managed identity
 
-For default environment variables and sample code of other authentication type, please choose from beginning of the documentation.
+#### SpringBoot client type
+
+Using a user-assigned managed identity as the authentication type is only available for Spring Cloud Azure version 4.0 or higher.
+
+| Default environment variable name                                   | Description                                      | Example value                                           |
+|---------------------------------------------------------------------|--------------------------------------------------|---------------------------------------------------------|
+| spring.cloud.azure.storage.blob.credential.managed-identity-enabled | Whether to enable managed identity               | `True`                                                  |
+| spring.cloud.azure.storage.blob.account-name                        | Name for the storage account                     | `storage-account-name`                                  |
+| spring.cloud.azure.storage.blob.endpoint                            | Blob Storage endpoint                           | `https://<storage-account-name>.blob.core.windows.net/` |
+| spring.cloud.azure.storage.blob.credential.client-id                | Client ID of the user-assigned managed identity  | `00001111-aaaa-2222-bbbb-3333cccc4444`                  |
+
+#### Other client types
 
 | Default environment variable name  | Description           | Example value                                             |
 | ---------------------------------- | --------------------- | --------------------------------------------------------- |
@@ -69,8 +90,6 @@ Refer to the steps and code below to connect to Azure Blob Storage using a user-
 [!INCLUDE [code sample for blob](./includes/code-blob-me-id.md)]
 
 ### Connection string
-
-For default environment variables and sample code of other authentication type, please choose from beginning of the documentation.
 
 #### SpringBoot client type
 
@@ -95,7 +114,18 @@ Refer to the steps and code below to connect to Azure Blob Storage using a conne
 
 ### Service principal
 
-For default environment variables and sample code of other authentication type, please choose from beginning of the documentation.
+#### SpringBoot client type
+
+Using a service principal as the authentication type is only available for Spring Cloud Azure version 4.0 or higher.
+
+| Default environment variable name                                   | Description                                      | Example value                                           |
+|---------------------------------------------------------------------|--------------------------------------------------|---------------------------------------------------------|
+| spring.cloud.azure.storage.blob.account-name                        | Name for the storage account                     | `storage-account-name`                                  |
+| spring.cloud.azure.storage.blob.endpoint                            | Blob Storage endpoint                           | `https://<storage-account-name>.blob.core.windows.net/` |
+| spring.cloud.azure.storage.blob.credential.client-id                | Client ID of the service principal               | `00001111-aaaa-2222-bbbb-3333cccc4444`                  |
+| spring.cloud.azure.storage.blob.credential.client-secret            | Client secret to perform service principal authentication | `Aa1Bb~2Cc3.-Dd4Ee5Ff6Gg7Hh8Ii9_Jj0Kk1Ll2`     |
+
+#### Other client types
 
 | Default environment variable name  | Description           | Example value                                             |
 | ---------------------------------- | --------------------- | --------------------------------------------------------- |
