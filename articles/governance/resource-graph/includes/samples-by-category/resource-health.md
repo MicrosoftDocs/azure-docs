@@ -40,7 +40,7 @@ Search-AzGraph -Query "HealthResources | where type =~ 'microsoft.resourcehealth
 
 ### List of virtual machines and associated availability states by Resource Ids
 
-Returns the latest list of virtual machines (type `Microsoft.Compute/virtualMachines`) aggregated by availability state. The query also provides the associated Resource Id based on `properties.targetResourceId`, for easy debugging and mitigation. Availability states can be one of four values: Available, Unavailable, Degraded and Unknown. For more details on what each of the availability states mean, please see [Azure Resource Health overview](../../../../../../articles/service-health/resource-health-overview.md#health-status).
+Returns the latest list of virtual machines (type `Microsoft.Compute/virtualMachines`) aggregated by availability state. The query also provides the associated Resource Id based on `properties.targetResourceId`, for easy debugging and mitigation. Availability states can be one of four values: Available, Unavailable, Degraded, and Unknown. For more details on what each of the availability states mean, see [Azure Resource Health overview](../../../../../../articles/service-health/resource-health-overview.md#health-status).
 
 ```kusto
 HealthResources
@@ -110,9 +110,9 @@ Search-AzGraph -Query "Resources | where type =~ 'microsoft.compute/virtualmachi
 
 ---
 
-### List of virtual machines that are not Available by Resource Ids
+### List of virtual machines not available by Resource Ids
 
-Returns the latest list of virtual machines (type `Microsoft.Compute/virtualMachines`) aggregated by their availability state. The populated list only highlights virtual machines whose availability state is not "Available" to ensure you are aware of all the concerning states your virtual machines are in. When all your virtual machines are Available, you can expect to receive no results.
+Returns the latest list of virtual machines (type `Microsoft.Compute/virtualMachines`) aggregated by their availability state. The populated list only highlights virtual machines whose availability state isn't "Available" to ensure you're aware of all the concerning states your virtual machines are in. When all your virtual machines are Available, you can expect to receive no results.
 
 ```kusto
 HealthResources
