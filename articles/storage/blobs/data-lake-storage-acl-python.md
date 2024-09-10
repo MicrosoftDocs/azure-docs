@@ -146,7 +146,7 @@ You can remove one or more ACL entries. To remove ACL entries recursively, creat
 
 Remove ACL entries by calling the **DataLakeDirectoryClient.remove_access_control_recursive** method. If you want to remove a **default** ACL entry, then add the string `default:` to the beginning of the ACL entry string.
 
-This example removes an ACL entry from the ACL of the directory named `my-parent-directory`. This method accepts a boolean parameter named `is_default_scope` that specifies whether to remove the entry from the default ACL. if that parameter is `True`, the updated ACL entry is preceded with the string `default:`.
+This example removes an ACL entry from the ACL of the directory named `my-parent-directory`. This method accepts a boolean parameter named `is_default_scope` that specifies whether to remove the entry from the default ACL. If that parameter is `True`, the updated ACL entry is preceded with the string `default:`.
 
 ```python
 def remove_permission_recursively(is_default_scope):

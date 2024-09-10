@@ -103,7 +103,7 @@ To take dependency on a particular version of the library, add the direct depend
 
 ### Include import directives
 
-Then open your code file and add the necessary `import` directives. In this example, we add the following directives in the *App.java* file:
+Add the necessary `import` directives. In this example, we add the following directives in the *App.java* file:
 
 ```java
 import com.azure.storage.common.StorageSharedKeyCredential;
