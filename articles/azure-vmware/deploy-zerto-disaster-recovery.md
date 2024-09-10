@@ -85,7 +85,7 @@ In this scenario, the primary site is an Azure VMware Solution private cloud in 
 ## Install Zerto on Azure VMware Solution
 
 To deploy Zerto on Azure VMware Solution, follow these [instructions](
-1.	https://learn.microsoft.com/en-us/azure/azure-vmware/deploy-zerto-disaster-recovery#install-zerto-on-azure-vmware-solution
+/azure/azure-vmware/deploy-zerto-disaster-recovery#install-zerto-on-azure-vmware-solution
 ).
 
 ## FAQs
