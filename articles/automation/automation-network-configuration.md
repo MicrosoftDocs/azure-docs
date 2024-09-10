@@ -1,8 +1,8 @@
 ---
 title: Azure Automation network configuration details
 description: This article provides details of network information required by Azure Automation State Configuration, Azure Automation Hybrid Runbook Worker, Update Management, and Change Tracking and Inventory
-ms.topic: conceptual
-ms.date: 08/01/2023
+ms.topic: overview
+ms.date: 09/09/2024
 ---
 
 # Azure Automation network configuration details

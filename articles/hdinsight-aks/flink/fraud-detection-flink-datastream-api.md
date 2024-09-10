@@ -8,7 +8,9 @@ ms.date: 04/09/2024
 
 # Fraud detection with the Apache Flink® DataStream API
 
+[!INCLUDE [retirement-notice](../includes/retirement-notice.md)]
 [!INCLUDE [feature-in-preview](../includes/feature-in-preview.md)]
+
 
 In this article, learn how to build a fraud detection system for alerting on suspicious credit card transactions. Using a simple set of rules, you see how Flink allows us to implement advanced business logic and act in real-time.
 

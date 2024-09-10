@@ -69,7 +69,7 @@ Before starting your move operation, review the [checklist](./move-resource-grou
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
-> | actionrules | **Yes** | **Yes** | No |
+> | alertprocessingrules | No | Yes | No |
 > | alerts | No | No | No |
 > | alertslist | No | No | No |
 > | alertsmetadata | No | No | No |

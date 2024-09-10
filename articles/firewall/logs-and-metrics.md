@@ -4,7 +4,7 @@ description: You can monitor Azure Firewall using firewall logs. You can also us
 services: firewall
 author: vhorne
 ms.service: azure-firewall
-ms.topic: article
+ms.topic: concept-article
 ms.date: 12/04/2023
 ms.author: victorh
 ms.custom: FY23 content-maintenance
