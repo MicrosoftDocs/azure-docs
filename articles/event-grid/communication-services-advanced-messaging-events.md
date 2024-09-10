@@ -5,6 +5,8 @@ ms.topic: conceptual
 ms.date: 07/15/2024
 author: shamkh
 ms.author: shamkh
+ms.service: azure-communication-services
+ms.subservice: advanced-messaging
 ---
 
 # Azure Communication Services - Advanced Messaging events
