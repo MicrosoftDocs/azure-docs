@@ -267,7 +267,7 @@ The creation wizard generated the connectivity string for you already as an [app
 
 Having issues? Check the [Troubleshooting section](#troubleshooting).
 
-## 5. Deploy sample code
+## 4. Deploy sample code
 
 In this step, you configure GitHub deployment using GitHub Actions. It's just one of many ways to deploy to App Service, but also a great way to have continuous integration in your deployment process. By default, every `git push` to your GitHub repository kicks off the build and deploy action.
 
@@ -373,7 +373,7 @@ Like the Tomcat convention, if you want to deploy to the root context of Tomcat,
 
 Having issues? Check the [Troubleshooting section](#troubleshooting).
 
-## 6. Browse to the app
+## 5. Browse to the app
 
 :::row:::
     :::column span="2":::
@@ -397,7 +397,7 @@ Having issues? Check the [Troubleshooting section](#troubleshooting).
 
 Having issues? Check the [Troubleshooting section](#troubleshooting).
 
-## 7. Stream diagnostic logs
+## 6. Stream diagnostic logs
 
 Azure App Service captures all messages output to the console to help you diagnose issues with your application. The sample application includes standard Log4j logging statements to demonstrate this capability, as shown in the following snippet:
 
@@ -427,7 +427,7 @@ Learn more about logging in Java apps in the series on [Enable Azure Monitor Ope
 
 Having issues? Check the [Troubleshooting section](#troubleshooting).
 
-## 8. Clean up resources
+## 7. Clean up resources
 
 When you're finished, you can delete all of the resources from your Azure subscription by deleting the resource group.
 
@@ -544,7 +544,7 @@ The AZD template you use generated the connectivity variables for you already as
 
 Having issues? Check the [Troubleshooting section](#troubleshooting).
 
-## 5. Browse to the app
+## 4. Browse to the app
 
 1. In the AZD output, find the URL of your app and navigate to it in the browser. The URL looks like this in the AZD output:
 
@@ -563,7 +563,7 @@ Having issues? Check the [Troubleshooting section](#troubleshooting).
 
 Having issues? Check the [Troubleshooting section](#troubleshooting).
 
-## 6. Stream diagnostic logs
+## 5. Stream diagnostic logs
 
 Azure App Service can capture console logs to help you diagnose issues with your application. For convenience, the AZD template already [enabled logging to the local file system](troubleshoot-diagnostic-logs.md#enable-application-logging-linuxcontainer) and is [shipping the logs to a Log Analytics workspace](troubleshoot-diagnostic-logs.md#send-logs-to-azure-monitor).
 
@@ -581,7 +581,7 @@ Learn more about logging in Java apps in the series on [Enable Azure Monitor Ope
 
 Having issues? Check the [Troubleshooting section](#troubleshooting).
 
-## 7. Clean up resources
+## 6. Clean up resources
 
 To delete all Azure resources in the current deployment environment, run `azd down` and follow the prompts.
 
