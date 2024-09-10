@@ -51,9 +51,9 @@ The following table shows the difference between import modes.
 
 To achieve the best performance with the `import` operation, consider the following factors.
 
-- **Use large files for import**. The optimal NDJSON file size for import is >=50 MB (or >=20K resources, no upper limit). Consider combining smaller files together.
+- **Use large files for import**. The optimal NDJSON file size for import is >=50 MB (or >=20 K resources, no upper limit). Consider combining smaller files together.
 
-- **Import FHIR resource files as a single batch**. For optimal performance, import all the FHIR resource files that you want to ingest in the FHIR server in one `import` operation. Importing all the files in one operation reduces the overhead of creating and managing multiple import jobs. For optimal performance total size of files in single import should be large (>=100GB or >=100M resources, no upper limit).
+- **Import FHIR resource files as a single batch**. For optimal performance, import all the FHIR resource files that you want to ingest in the FHIR server in one `import` operation. Importing all the files in one operation reduces the overhead of creating and managing multiple import jobs. Optimally, the total size of files in a single import should be large (>=100 GB or >=100M resources, no upper limit).
 
 - **Limit the number of parallel import jobs**. You can run multiple `import` jobs at the same time, but might affect the overall throughput of the `import` operation. 
 

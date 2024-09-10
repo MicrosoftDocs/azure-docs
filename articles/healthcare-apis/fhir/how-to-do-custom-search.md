@@ -173,7 +173,7 @@ GET {{FHIR_URL}}/Patient?race=2028-9
 x-ms-use-partial-indices: true
 ```
 
-1. For Location (reference type):
+2. For Location (reference type):
 ```rest
 {{fhirurl}}/MedicationDispense?location=<locationid referenced in MedicationDispense Resource>
 x-ms-use-partial-indices: true
