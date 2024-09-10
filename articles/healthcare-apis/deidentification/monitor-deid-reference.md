@@ -11,7 +11,6 @@ ms.subservice: deidentification-service
 ---
 
 # Azure Health Data Services de-identification service (preview) monitoring data reference
-
 [!INCLUDE [horz-monitor-ref-intro](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-intro.md)]
 
 See [Monitor the de-identification service (preview)](monitor-deid.md) for details on the data you can collect for the de-identification service and how to use it.
