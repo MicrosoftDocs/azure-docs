@@ -59,7 +59,7 @@ The operations experience lets users create assets and subscribe to OPC UA tags 
 
 When you create an asset in the operations experience or by using the Azure IoT Operations CLI extension, that asset is defined in Azure Device Registry Preview.
 
-Device Registry provides a single registry for devices and assets across applications running in the cloud or on the edge. In the cloud, assets are created as Azure resources, which gives you management capabilities over them like organizing assets with resource groups and tags. On the edge, Device Registry creates a Kubernetes custom resource for each asset and keeps the two asset representations in sync.
+Device Registry provides a single registry for devices and assets across applications running in the cloud or on the edge. In the cloud, assets are created as Azure resources, which give you management capabilities over them like organizing assets with resource groups and tags. On the edge, Device Registry creates a Kubernetes custom resource for each asset and keeps the two asset representations in sync.
 
 Device Registry provides several capabilities that help teams to manage assets:
 
@@ -67,7 +67,7 @@ Device Registry provides several capabilities that help teams to manage assets:
 - **Assets as Azure resources**. Because Device Registry projects assets as true Azure resources, you can manage assets using established Azure features and services. Enterprises can use Azure Resource Manager, Azure's native deployment and management service, with industrial assets. Azure Resource Manager provides capabilities such as resource groups, tags, role-based access controls (RBAC), policy, logging, and audit.
 - **Cloud management of assets**. You can manage assets by using the operations experience or by using Azure APIs and management tools such as Azure Resource Graph. Regardless of which method you use to manage assets, changes made in the cloud are synced to the edge and exposed as custom resources in the Kubernetes cluster.
 
-For example, the following set of screenshots shows a single asset, in this case a thermostat, viewed voth in cloud management tools and on an Azure IoT Operations cluster. The first screenshot shows the thermostat asset in the operations experience:
+For example, the following set of screenshots shows a single asset, in this case a thermostat, viewed both in cloud management tools and on an Azure IoT Operations cluster. The first screenshot shows the thermostat asset in the operations experience:
 
 :::image type="content" source="media/overview-manage-assets/asset-operations-portal.png" alt-text="A screenshot that shows the thermostat asset in the operations experience.":::
 
