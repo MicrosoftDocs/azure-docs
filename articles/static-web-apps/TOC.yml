@@ -251,6 +251,8 @@
         href: static-web-apps-cli-configuration.md
       - name: API Reference
         href: static-web-apps-cli.yml
+      - name: CLI Sample TEST
+        href: /dotnet/samples/azure/sdk-identity-resources-storage/README.md
 - name: Samples & FAQs
   items:
   - name: Samples
