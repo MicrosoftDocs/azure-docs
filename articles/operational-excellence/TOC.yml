@@ -16,14 +16,22 @@
         href: relocation-event-hub.md
       - name: Azure Event Hubs Cluster
         href: relocation-event-hub-cluster.md
+      - name: Azure Load Balancer
+        href: ../load-balancer/move-across-regions-external-load-balancer-portal.md?toc=/azure/operational-excellence/toc.json
       - name: Azure Site Recovery (Recovery Services vaults)
         href: relocation-site-recovery.md
+      - name: Azure Virtual Network
+        href: relocation-virtual-network.md 
       - name: Azure Virtual Machines
         items:
         - name: Move Azure VMs to another region
           href: ../resource-mover/tutorial-move-region-virtual-machines.md?toc=/azure/operational-excellence/toc.json
         - name: Move encrypted Azure VMs to another region
           href: ../resource-mover/tutorial-move-region-encrypted-virtual-machines.md?toc=/azure/operational-excellence/toc.json
+      - name: Virtual Machine Scale Sets
+        href: ./relocation-virtual-machine-scale-sets.md
+      - name: Network Security Groups (NSG)
+        href: relocation-virtual-network-nsg.md
       - name: Azure Virtual Network
         items:
         - name: Virtual Network
@@ -90,6 +98,8 @@
         href: relocation-automation.md
       - name: Azure IoT Hub
         href: ../iot-hub/iot-hub-how-to-clone.md?toc=/azure/operational-excellence/toc.json
+      - name: Azure NetApp Files
+        href: relocation-netapp.md
       - name: Azure Static Web Apps
         href: relocation-static-web-apps.md
       - name: Power BI

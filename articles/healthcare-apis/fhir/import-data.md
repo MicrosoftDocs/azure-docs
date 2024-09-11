@@ -67,6 +67,8 @@ To achieve the best performance with the `import` operation, consider these fact
 
 - The data must be in the same tenant as the FHIR service.
 
+- To obtain an access token, see [Access Token](using-rest-client.md)
+
 
 ### Make a call
 
@@ -250,6 +252,27 @@ The `import` operation fails and returns `500 Internal Server Error`. The respon
 **import operation failed for reason: The database '****' has reached its size quota. Partition or delete data, drop indexes, or consult the documentation for possible resolutions.**
 Cause: You reached the storage limit of the FHIR service.
 Solution: Reduce the size of your data or consider Azure API for FHIR, which has a higher storage limit.
+
+#### 423 Locked
+
+**Behavior:** The `import` operation fails and returns `423 Locked`. The response body includes this content:
+
+```json
+{
+    "resourceType": "OperationOutcome",
+    "id": "13876ec9-3170-4525-87ec-9e165052d70d",
+    "issue": [
+        {
+            "severity": "error",
+            "code": "processing",
+            "diagnostics": "import operation failed for reason: Service is locked for initial import mode."
+        }
+    ]
+}
+```
+**Cause:** The FHIR Service is configured with Initial import mode which will blocked other operations.
+
+**Solution:** Switch the FHIR service's Initial import mode off, or select Incremental mode.
 
 ## Limitations
 - The maximum number of files allowed for each `import` operation is 10,000.

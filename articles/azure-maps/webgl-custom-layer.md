@@ -4,7 +4,7 @@ titleSuffix: Microsoft Azure Maps
 description: How to add a custom WebGL layer to a map using the Azure Maps Web SDK. 
 author: sinnypan
 ms.author: sipa
-ms.date: 10/17/2022
+ms.date: 08/29/2024
 ms.topic: how-to
 ms.service: azure-maps
 ms.subservice: web-sdk

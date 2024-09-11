@@ -1,6 +1,6 @@
 ---
 title: Troubleshoot Azure Modeling and Simulation Workbench
-description: In this article, learn how to troubleshoot some issues with an Azure Modeling and Simulation Workbench
+description: Learn how to troubleshoot  issues with an Azure Modeling and Simulation Workbench.
 author: lynnar
 ms.author: lynnar
 ms.reviewer: yochu
@@ -30,8 +30,8 @@ A *not authorized error* while accessing the remote desktop dashboard URL indica
 
 #### Failing for all users
 
-- Review the [Create an application in Microsoft Entra ID](./quickstart-create-portal.md#create-an-application-in-azure-active-directory) article to verify your application registration is set up correctly.
-- Review the [Update the application in Microsoft Entra ID](./quickstart-create-portal.md#add-redirect-uris-for-the-application-in-azure-active-directory) article to confirm your chamber connector's redirect URIs are set up correctly.
+- Review the [Create an application in Microsoft Entra ID](./quickstart-create-portal.md#create-an-application-in-microsoft-entra-id) article to verify your application registration is set up correctly.
+- Review the redirect URI registrations for the specific chamber and confirm the connector's redirects match those found with the application. If they don't match, re[register the redirect URIs](./how-to-guide-add-redirect-uris.md).
 - Review the application registration secrets for Modeling and Simulation Workbench and check to see if your application client secret has expired. Complete the following steps if it's expired.
     1. Generate a new secret and make note of the client secret value.
     1. Update your Key Vault app secret value with the newly generated client **secret value.**
@@ -44,8 +44,8 @@ A *not authorized error* while accessing the remote desktop dashboard URL indica
 #### Failing for some users
 
 1. Ensure the user is provisioned as a Chamber User or a Chamber Admin on the **chamber** resource. They should be set up as an IAM role directly for that chamber, not as a parent resource with inherited permission.
-1. Ensure the user has a valid email set for their Microsoft Entra profile, and that their Microsoft Entra alias matches their email alias. For example, a Microsoft Entra sign-in alias of _jane.doe_ must also have an email alias of _jane.doe_. Jane Doe can't sign in to Microsoft Entra ID with jadoe or any other variation.
-1. Validate your /mount/sharehome folder has available space. The /mount/sharedhome directory is set up to store user keys to establish a secure connection. Don't store uploaded tarballs/binaries in this folder or install tools and use disk capacity, as it may create system connection errors causing an outage. Use /mount/chamberstorages/\<storage name\> directory instead for all your data storage and tool installation needs.
+1. Ensure the user has a valid email set for their Microsoft Entra profile, and that their Microsoft Entra alias matches their email alias. For example, a Microsoft Entra sign-in alias of *jane.doe* must also have an email alias of *jane.doe*. Jane Doe can't sign in to Microsoft Entra ID with jadoe or any other variation.
+1. Validate your `/mount/sharehome` folder has available space. The`/mount/sharedhome` directory is set up to store user keys to establish a secure connection. Don't store uploaded tarballs/binaries in this folder or install tools and use disk capacity, as it may create system connection errors causing an outage. Use /mount/chamberstorages/\<storage name\> directory instead for all your data storage and tool installation needs.
 1. Validate your folder permission settings are correct within your chamber. User provisioning may not work properly if the folder permission settings aren't correct. You can check folder permissions in a terminal session using the *ls -al* command for each /mount/sharedhome/\<useralias\>/.ssh folder, results should match below expectations:
 
      ```text

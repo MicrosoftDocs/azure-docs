@@ -4,12 +4,14 @@ description: This article tells how to troubleshoot and resolve issues with the 
 services: automation
 ms.subservice: change-inventory-management
 ms.custom: linux-related-content
-ms.date: 02/15/2021
+ms.date: 08/30/2024
 ms.topic: troubleshooting
 ms.service: azure-automation
 ---
 
 # Troubleshoot Change Tracking and Inventory issues
+
+[!INCLUDE [./log-analytics-retirement-announcement.md](../includes/log-analytics-retirement-announcement.md)]
 
 This article describes how to troubleshoot and resolve Azure Automation Change Tracking and Inventory issues. For general information about Change Tracking and Inventory, see [Change Tracking and Inventory overview](../change-tracking/overview.md).
 

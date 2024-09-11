@@ -60,7 +60,8 @@ For this step, you need to get the request URL and JSON body:
 3. Select **JSON View**.
 4. Select the API version as **2022-06-01** or later.
 
-To specify the Azure storage account in JSON view, you need to use the [REST API](/rest/api/healthcareapis/fhir-services/create-or-update) to update the FHIR service.
+
+To specify the Azure storage account in JSON view which is in **READ** mode, you need to use the [REST API](/rest/api/healthcareapis/services/create-or-update) to update the FHIR service.
 
 [![Screenshot of selections for opening the JSON view.](media/bulk-import/fhir-json-view.png)](media/bulk-import/fhir-json-view.png#lightbox)
 

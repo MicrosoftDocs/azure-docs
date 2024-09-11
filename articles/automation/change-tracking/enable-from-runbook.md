@@ -4,11 +4,14 @@ description: This article tells how to enable Change Tracking and Inventory from
 services: automation
 ms.subservice: change-inventory-management
 ms.topic: conceptual
-ms.date: 07/22/2024
+ms.date: 08/30/2024
 ms.service: azure-automation
 ---
 
 # Enable Change Tracking and Inventory from a runbook
+
+> [!Important]
+> Change Tracking and Inventory using Log Analytics agent has retired on **31 August 2024** and we recommend that you use Azure Monitoring Agent as the new supporting agent. Follow the guidelines for  [migration from Change Tracking and inventory using Log Analytics to Change Tracking and inventory using Azure Monitoring Agent version](guidance-migration-log-analytics-monitoring-agent.md).
 
 This article describes how you can use a runbook to enable [Change Tracking and Inventory](overview.md) for VMs in your environment. To enable Azure VMs at scale, you must enable an existing VM using Change Tracking and Inventory.
 

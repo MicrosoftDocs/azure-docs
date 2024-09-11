@@ -150,7 +150,7 @@ The following table describes the expected behavior for delete and write operati
 
 [!INCLUDE [Blob Storage feature support in Azure Storage accounts](../../../includes/azure-storage-feature-support.md)]
 
-Soft delete isn't supported for blobs that are uploaded by using Data Lake Storage Gen2 APIs on Storage accounts with no hierarchical namespace.
+Soft delete isn't supported for blobs that are uploaded by using Data Lake Storage APIs on Storage accounts with no hierarchical namespace.
 
 ## Pricing and billing
 

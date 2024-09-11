@@ -1,18 +1,18 @@
 ---
 title: Operational guide - Microsoft Sentinel
 description: Learn about the operational recommendations to help security operations teams to plan and run security activities.
-ms.date: 06/28/2024
+ms.date: 08/30/2024
 ms.topic: reference
 ms.author: cwatson
 author: cwatson-cat
 appliesto:
   - Microsoft Sentinel in the Azure portal and the Microsoft Defender portal
-#Customer intent: As a security operations (SOC) team member or security administrator, I want to know what operational activities I should plan to do daily, weekly, and monthly with Microsoft Sentinel to help keep my organization's environment secure. 
+#Customer intent: As a security operations (SOC) team member or security administrator, I want to know what operational activities I should plan to do daily, weekly, and monthly with Microsoft Sentinel to help keep my organization's environment secure.
 ---
 
 # Microsoft Sentinel operational guide
 
-This article lists the operational activities that we recommend security operations (SOC) teams and security administrators plan for and run as part of their regular security activities with Microsoft Sentinel.
+This article lists the operational activities that we recommend security operations (SOC) teams and security administrators plan for and run as part of their regular security activities with Microsoft Sentinel. For more information about managing your security operations, see [Security operations overview](/security/operations/overview).
 
 ## Daily tasks
 
@@ -48,4 +48,6 @@ Schedule the following activities monthly.
 
 ## Related content
 
+- [Security operations overview](/security/operations/overview)
+- [Implement Microsoft Sentinel and Microsoft Defender XDR for Zero Trust](/security/operations/siem-xdr-overview)
 - [Deployment guide for Microsoft Sentinel](deploy-overview.md)

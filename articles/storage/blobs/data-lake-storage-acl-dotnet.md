@@ -1,5 +1,5 @@
 ---
-title: Use .NET to manage ACLs in Azure Data Lake Storage Gen2
+title: Use .NET to manage ACLs in Azure Data Lake Storage
 titleSuffix: Azure Storage
 description: Use .NET to manage access control lists (ACL) in storage accounts that has hierarchical namespace (HNS) enabled.
 author: pauljewellmsft
@@ -13,7 +13,7 @@ ms.devlang: csharp
 ms.custom: devx-track-csharp, devx-track-dotnet
 ---
 
-# Use .NET to manage ACLs in Azure Data Lake Storage Gen2
+# Use .NET to manage ACLs in Azure Data Lake Storage
 
 This article shows you how to use .NET to get, set, and update the access control lists of directories and files.
 
@@ -70,7 +70,7 @@ To use the snippets in this article, you'll need to create a [DataLakeServiceCli
 ### Connect by using Microsoft Entra ID
 
 > [!NOTE]
-> If you're using Microsoft Entra ID to authorize access, then make sure that your security principal has been assigned the [Storage Blob Data Owner role](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner). To learn more about how ACL permissions are applied and the effects of changing them, see  [Access control model in Azure Data Lake Storage Gen2](./data-lake-storage-access-control-model.md).
+> If you're using Microsoft Entra ID to authorize access, then make sure that your security principal has been assigned the [Storage Blob Data Owner role](../../role-based-access-control/built-in-roles.md#storage-blob-data-owner). To learn more about how ACL permissions are applied and the effects of changing them, see  [Access control model in Azure Data Lake Storage](./data-lake-storage-access-control-model.md).
 
 You can use the [Azure identity client library for .NET](/dotnet/api/overview/azure/identity-readme) to authenticate your application with Microsoft Entra ID.
 
@@ -223,5 +223,5 @@ This example sets ACL entries recursively. If this code encounters a permission 
 - [Gen1 to Gen2 mapping](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Files.DataLake/GEN1_GEN2_MAPPING.md)
 - [Known issues](data-lake-storage-known-issues.md#api-scope-data-lake-client-library)
 - [Give Feedback](https://github.com/Azure/azure-sdk-for-net/issues)
-- [Access control model in Azure Data Lake Storage Gen2](data-lake-storage-access-control.md)
-- [Access control lists (ACLs) in Azure Data Lake Storage Gen2](data-lake-storage-access-control.md)
+- [Access control model in Azure Data Lake Storage](data-lake-storage-access-control.md)
+- [Access control lists (ACLs) in Azure Data Lake Storage](data-lake-storage-access-control.md)

@@ -1,6 +1,6 @@
 ---
-title: Manage a license service for Azure Modeling and Simulation Workbench
-description: In this how-to guide, you learn how to upload a license file to activate a license service for an Azure Modeling and Simulation Workbench chamber.
+title: "Manage license services: Azure Modeling and Simulation Workbench"
+description: Learn how to upload a license file to chamber license service in Azure Modeling and Simulation Workbench.
 author: lynnar
 ms.author: lynnar
 ms.reviewer: yochu
@@ -27,15 +27,18 @@ This article shows you how to upload a license file and activate a license servi
 This section lists the steps to upload a license for a FLEXlm-based tool. First, you get the FLEXlm host ID or the virtual machine (VM) universally unique ID (UUID) from the chamber. Then you provide that value to the license vendor to get the license file. After you get the license file from the vendor, you upload it to the chamber and activate it.
 
 1. Open your web browser and go to the [Azure portal](https://portal.azure.com/). Enter your credentials to sign in to the portal.
-1. Search for **Modeling and Simulation Workbench**. Select the workbench that you want to provision from the resource list.
+1. Search for **Modeling and Simulation Workbench**. Select the workbench that you want to update the licenses in from the resource list.
 1. On the left menu, select **Settings** > **Chamber**. A resource list appears. Select the chamber that you want to upload the data to.
 1. In the **Settings** section, select the **License** pane.
 1. On the **License Overview** page, copy the **FLEXlm host ID** or **VM UUID** value. Provide this value to your license vendor to get a license file.
 1. After the vendor sends you the license file, select **Update** on the **License Overview** page. The **Update license** window appears.
 1. Select the chamber license service for the license file that you're uploading. Select **Enable** to enable the service. Then upload the license file from your storage space.
-1. In the **Update license** pop-up dialog, select the **Update** button to activate your license service.
-1. Azure Modeling and Simulation Workbench applies the new license to the license service and prompts a restart that might affect actively running jobs.
+1. In the **Update license** pop-up dialog, select the **Update** button to activate your license service. The new license is loaded, causing the service to restart.
+
+> [!IMPORTANT]
+> Loading a new license causes the license server to restart. This could affect actively running jobs.
 
 ## Next steps
 
-To learn how to import data into an Azure Modeling and Simulation Workbench chamber, see [Import data](./how-to-guide-upload-data.md).
+> [!div class="nextstepaction"]
+> [Import data](./how-to-guide-upload-data.md)

@@ -10,7 +10,7 @@
       "redirect_url": "/previous-versions/azure/azure-app-configuration/rest-api-fiddler",
       "redirect_document_id": false
     },
-    { 
+    {
       "source_path": "articles/kinect-dk/index.yml",
       "redirect_url": "/previous-versions/azure/kinect-dk/index",
       "redirect_document_id": false
@@ -4743,6 +4743,21 @@
     {
       "source_path_from_root": "/articles/virtual-network/tutorial-filter-network-traffic-cli.md",
       "redirect_url": "/azure/virtual-network/tutorial-filter-network-traffic",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/virtual-network/virtual-network-service-endpoint-policies-portal.md",
+      "redirect_url": "/azure/virtual-network/virtual-network-service-endpoint-policies",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/virtual-network/virtual-network-service-endpoint-policies-powershell.md",
+      "redirect_url": "/azure/virtual-network/virtual-network-service-endpoint-policies",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/modeling-simulation-workbench/how-to-guide-manage-storage.md",
+      "redirect_url": "/azure/modeling-simulation-workbench/concept-storage",
       "redirect_document_id": false
     }
   ]

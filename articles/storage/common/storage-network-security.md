@@ -657,7 +657,7 @@ If your account doesn't have the hierarchical namespace feature enabled on it, y
 
 You can use the same technique for an account that has the hierarchical namespace feature enabled on it. However, you don't have to assign an Azure role if you add the managed identity to the access control list (ACL) of any directory or blob that the storage account contains. In that case, the scope of access for the instance corresponds to the directory or file to which the managed identity has access.
 
-You can also combine Azure roles and ACLs together to grant access. To learn more, see [Access control model in Azure Data Lake Storage Gen2](../blobs/data-lake-storage-access-control-model.md).
+You can also combine Azure roles and ACLs together to grant access. To learn more, see [Access control model in Azure Data Lake Storage](../blobs/data-lake-storage-access-control-model.md).
 
 We recommend that you [use resource instance rules to grant access to specific resources](#grant-access-from-azure-resource-instances).
 
