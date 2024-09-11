@@ -6,7 +6,7 @@ author: sloanster
 ms.author: micahvivion
 
 services: azure-communication-services
-ms.date: 05/02/2024
+ms.date: 09/11/2024
 ms.topic: include
 ms.service: azure-communication-services
 ms.subservice: calling
@@ -14,14 +14,20 @@ ms.subservice: calling
 
 The Azure Communication Services audio effects **noise suppression** abilities can improve your audio calls by filtering out unwanted background noises. **Noise suppression** is a technology that removes background noises from audio calls. It makes audio calls clearer and better by eliminating background noise, making it easier to talk and listen. Noise suppression can also reduce distractions and tiredness caused by noisy places. For example, if you're taking an Azure Communication Services WebJS call in a coffee shop with considerable noise, turning on noise suppression can make the call experience better.
 
-[!INCLUDE [Public Preview Disclaimer](../../../includes/public-preview-include-document.md)]
-
-## Using audio effects - **noise suppression**
+## Using audio effects - **Noise Suppression**
 ### Install the npm package
 Use the `npm install` command to install the Azure Communication Services Audio Effects SDK for JavaScript.
-> [!IMPORTANT]
-> This tutorial uses the Azure Communication Services Calling SDK version of **`1.24.2-beta.1`** (or greater) and the Azure Communication Services Calling Audio Effects SDK version greater than or equal to **`1.1.1-beta.1`** (or greater).
 
+> [!IMPORTANT]
+This tutorial utilizes the Azure Communication Services Calling SDK version `1.28.4` or higher, and the Azure Communication Services Calling Audio Effects SDK version `1.1.1` or higher. The GA (stable) `1.28.4` or higher versions of the SDK support noise suppression. If you choose to use the public preview version of the calling SDK versions 1.24.2-beta.1 (or greater) support noise suppression.
+
+> [!NOTE]
+If you are using the GA version of the calling SDK you must use the GA version of the audio effects SDK:
+```console
+@azure/communication-calling-effects@1.1.1
+```
+
+If you are using the ACS public preview SDK you must use the beta version of the audio effects SDK:
 ```console
 @azure/communication-calling-effects@1.1.1-beta
 ```
