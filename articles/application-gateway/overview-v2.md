@@ -44,7 +44,7 @@ The v2 SKU includes the following enhancements:
 
 Application Gateway v2 is available under two SKUs: 
 - **Basic** (preview): The Basic SKU is designed for applications that have lower traffic and SLA requirements, and don't need advanced traffic management features. For information on how to register for the public preview of Application Gateway Basic SKU, see [Register for the preview](#register-for-the-preview).
-- **Standard_v2 SKU**: The Standard_v2 SKU is designed for running production workloads and high traffic. It also includes auto scale that can automatically adjust the number of instances to match your traffic needs. 
+- **Standard_v2 SKU**: The Standard_v2 SKU is designed for running production workloads and high traffic. It also includes [autoscaling](high-traffic-support.md#autoscaling-for-application-gateway-v2-sku-standard_v2waf_v2-sku), which can automatically adjust the number of instances to match your traffic needs. 
 
 The following table displays a comparison between Basic and Standard_v2.
 
