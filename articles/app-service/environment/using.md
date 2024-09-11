@@ -147,7 +147,7 @@ If you integrate with Azure Monitor Logs, you can see the logs by selecting **Lo
 
 ### Create an alert
 
-To create an alert against your logs, follow the instructions in [Create, view, and manage log alerts by using Azure Monitor](../../azure-monitor/alerts/alerts-log.md). In brief:
+To create an alert against your logs, follow the instructions in [Create, view, and manage log alerts by using Azure Monitor](/azure/azure-monitor/alerts/alerts-log). In brief:
 
 1. Open the **Alerts** page in your App Service Environment portal.
 1. Select **New alert rule**.
@@ -215,4 +215,4 @@ To delete:
 [AppDeploy]: ../deploy-local-git.md
 [ASEWAF]: ./integrate-with-application-gateway.md
 [AppGW]: ../../web-application-firewall/ag/ag-overview.md
-[logalerts]: ../../azure-monitor/alerts/alerts-log.md
+[logalerts]: /azure/azure-monitor/alerts/alerts-log

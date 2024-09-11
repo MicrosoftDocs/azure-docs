@@ -8,7 +8,9 @@ ms.date: 05/01/2024
 
 # Write messages to Apache HBase® with Apache Flink® DataStream API
 
+[!INCLUDE [retirement-notice](../includes/retirement-notice.md)]
 [!INCLUDE [feature-in-preview](../includes/feature-in-preview.md)]
+
 
 In this article, learn how to write messages to HBase with Apache Flink DataStream API.
 
