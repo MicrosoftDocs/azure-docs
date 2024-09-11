@@ -20,16 +20,16 @@ This article walks through several considerations for tuning data transfer optio
 
 ## Performance tuning for uploads
 
-Properly tuning data transfer options is key to reliable performance for uploads. Storage transfers are partitioned into several subtransfers based on the values of these arguments. The maximum supported transfer size varies by operation and service version, so be sure to check the documentation to determine the limits. For more information on transfer size limits for Blob storage, see [Scale targets for Blob storage](scalability-targets.md#scale-targets-for-blob-storage).
+Properly tuning data transfer options is key to reliable performance for uploads. Storage transfers are partitioned into several subtransfers based on the values of these properties. The maximum supported transfer size varies by operation and service version, so be sure to check the documentation to determine the limits. For more information on transfer size limits for Blob storage, see [Scale targets for Blob storage](scalability-targets.md#scale-targets-for-blob-storage).
 
 ### Set transfer options for uploads
 
-If the total blob size is less than or equal to 256 MiB, the data is uploaded with a single `Put Blob` request. If the blob size is greater than 256 MiB, or if the blob size is unknown, the blob is uploaded in chunks using a series of [Put Block](/rest/api/storageservices/put-block) calls followed by [Put Block List](/rest/api/storageservices/put-block-list).
+If the total blob size is less than or equal to 256 MB, the data is uploaded with a single `Put Blob` request. If the blob size is greater than 256 MB, or if the blob size is unknown, the blob is uploaded in chunks using a series of [Put Block](/rest/api/storageservices/put-block) calls followed by [Put Block List](/rest/api/storageservices/put-block-list).
 
-The following arguments can be tuned based on the needs of your app:
+The following properties can be configured and tuned based on the needs of your app:
 
-- `BlockSize`: The maximum length of a transfer in bytes when uploading a block blob in chunks. Defaults to 1 MiB. Minimum value is 1 MiB.
-- `Concurrency`: The maximum number of subtransfers that may be used in parallel. Defaults to 1.
+- `BlockSize`: The maximum length of a transfer in bytes when uploading a block blob in chunks. Defaults to 4 MB.
+- `Concurrency`: The maximum number of subtransfers that may be used in parallel. Defaults to 5.
 
 These options are available when uploading using the following methods: `UploadBuffer`, `UploadStream`, and `UploadFile`. The `Upload` method doesn't support these options, and uploads data in a single request.
 
@@ -40,7 +40,7 @@ These options are available when uploading using the following methods: `UploadB
 
 The `BlockSize` argument is the maximum length of a transfer in bytes when uploading a block blob in chunks.
 
-To keep data moving efficiently, the client libraries may not always reach the `max_block_size` value for every transfer. Depending on the operation, the maximum supported value for transfer size can vary. For more information on transfer size limits for Blob storage, see the chart in [Scale targets for Blob storage](scalability-targets.md#scale-targets-for-blob-storage).
+To keep data moving efficiently, the client libraries may not always reach the `BlockSize` value for every transfer. Depending on the operation, the maximum supported value for transfer size can vary. For more information on transfer size limits for Blob storage, see the chart in [Scale targets for Blob storage](scalability-targets.md#scale-targets-for-blob-storage).
 
 #### Code example
 
@@ -57,14 +57,14 @@ func uploadBlobWithTransferOptions(client *azblob.Client, containerName string, 
     // Upload the data to a block blob with transfer options
     _, err = client.UploadFile(context.TODO(), containerName, blobName, file,
         &azblob.UploadFileOptions{
-            BlockSize:   int64(4 * 1024 * 1024), // 4 MiB
+            BlockSize:   int64(8 * 1024 * 1024), // 8 MiB
             Concurrency: uint16(2),
         })
     handleError(err)
 }
 ```
 
-In this example, we set the number of parallel transfer workers to 2, using the `max_concurrency` argument on the method call. This configuration opens up to two connections simultaneously, allowing the upload to happen in parallel. During client instantiation, we set the `max_single_put_size` argument to 8 MiB. If the blob size is smaller than 8 MiB, only a single request is necessary to complete the upload operation. If the blob size is larger than 8 MiB, the blob is uploaded in chunks with a maximum chunk size of 4 MiB, as set by the `max_block_size` argument.
+In this example, we set the number of parallel transfer workers to 2, using the `Concurrency` field. This configuration opens up to two connections simultaneously, allowing the upload to happen in parallel. If the blob size is larger than 256 MB, the blob is uploaded in chunks with a maximum chunk size of 8 MiB, as set by the `Block_Size` field.
 
 ### Performance considerations for uploads
 
@@ -81,11 +81,11 @@ The Storage REST layer doesn’t support picking up a REST upload operation wher
 
 ## Performance tuning for downloads
 
-Properly tuning data transfer options is key to reliable performance for downloads. Storage transfers are partitioned into several subtransfers based on the values of these arguments.
+Properly tuning data transfer options is key to reliable performance for downloads. Storage transfers are partitioned into several subtransfers based on the values of these properties.
 
 ### Set transfer options for downloads
 
-The following arguments can be tuned based on the needs of your app:
+The following properties can be tuned based on the needs of your app:
 
 - `BlockSize`: The maximum chunk size used for downloading a blob. Defaults to 4 MB.
 - `Concurrency`: The maximum number of subtransfers that may be used in parallel. Defaults to 5.
