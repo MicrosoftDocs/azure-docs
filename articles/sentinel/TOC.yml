@@ -261,7 +261,7 @@
   - name: AMA migration for Microsoft Sentinel
     href: ama-migrate.md
   - name: Ingest data to an auxiliary logs table
-    href: ../azure-monitor/logs/create-custom-table-auxiliary.md?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
+    href: /azure/azure-monitor/logs/create-custom-table-auxiliary?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
   - name: Find data connector
     href: data-connectors-reference.md
   - name: All connectors
