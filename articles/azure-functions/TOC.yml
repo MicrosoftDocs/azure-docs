@@ -383,12 +383,8 @@
           displayName: bundles, extension bundles
         - name: Binding expression patterns
           href: functions-bindings-expressions-patterns.md
-        - name: Use binding return values
-          href: functions-bindings-return-value.md
         - name: Handle binding errors
           href: functions-bindings-errors.md
-        - name: Binding definitions for Python v2
-          href: functions-bindings-triggers-python.md
     - name: Frameworks
       items:
         - name: Express.js
@@ -451,6 +447,8 @@
         - name: Programming models
           displayName: python
           href: functions-reference-python.md#programming-model
+        - name: Binding definitions for Python v2
+          href: functions-bindings-triggers-python.md  
         - name: Python worker extensions
           href: develop-python-worker-extensions.md
         - name: Scale and performance recommendations

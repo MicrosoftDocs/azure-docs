@@ -27,6 +27,8 @@ items:
       items:
       - name: Asset management overview
         href: discover-manage-assets/overview-manage-assets.md
+      - name: Understand assets and asset endpoints
+        href: discover-manage-assets/concept-assets-asset-endpoints.md
       - name: Manage your assets
         href: discover-manage-assets/howto-manage-assets-remotely.md
       - name: Secure access to your assets

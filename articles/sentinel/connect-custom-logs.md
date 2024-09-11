@@ -18,7 +18,7 @@ For more information about supported data connectors that collect custom log for
 > [!IMPORTANT]
 > **The Log Analytics agent will be [retired on 31 August, 2024](https://azure.microsoft.com/updates/were-retiring-the-log-analytics-agent-in-azure-monitor-on-31-august-2024/).** If you are using the Log Analytics agent in your Microsoft Sentinel deployment, we recommend that you complete your migration to the **Azure Monitor Agent (AMA)**. For more information, see [AMA migration for Microsoft Sentinel](ama-migrate.md).
 
-Learn all about [custom logs in the Azure Monitor documentation](../azure-monitor/agents/data-sources-custom-logs.md).
+Learn all about [custom logs in the Azure Monitor documentation](/azure/azure-monitor/agents/data-sources-custom-logs).
 
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
