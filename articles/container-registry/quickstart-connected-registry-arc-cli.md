@@ -54,7 +54,7 @@ The connected registry is a pivotal tool for edge customers, enabling efficient 
 
 ## Deploy the connected registry Arc extension with secure-by-default settings
 
-Once the prerequisites and necessary conditions and components are in place, follow the streamlined approach to securely deploy a connected registry extension on an Arc-enabled Kubernetescluster using the following settings. These settings define the following configuration with HTTPS, Read Only, Trust Distribution, and Cert Manager service. Follow the steps for a successful deployment: 
+Once the prerequisites and necessary conditions and components are in place, follow the streamlined approach to securely deploy a connected registry extension on an Arc-enabled Kubernetes cluster using the following settings. These settings define the following configuration with HTTPS, Read Only, Trust Distribution, and Cert Manager service. Follow the steps for a successful deployment: 
 
 1.	[Create the connected registry.](#create-the-connected-registry-and-synchronize-with-acr)
 2.	[Deploy the connected registry Arc extension.](#deploy-the-connected-registry-arc-extension-on-the-arc-enabled-kubernetes-cluster)
