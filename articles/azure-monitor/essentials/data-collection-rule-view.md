@@ -31,8 +31,9 @@ Select a DCR to view its details, including the resources it's associated with. 
 
 :::image type="content" source="media/data-collection-rule-view/data-collection-rule-overview.png" lightbox="media/data-collection-rule-view/data-collection-rule-overview.png" alt-text="Screenshot that shows overview of a DCR in the Azure portal.":::
 
-Click the **Resources** tab to view the resources associated with the selected DCR. Click **Add** to add an association to a new resource. You can view and add resources using this feature whether or not you created the DCR in the Azure portal. 
+Click the **Resources** tab to view the resources associated with the selected DCR. Click **Add** to add an association to a new resource. You can view and add resources using this feature whether you created the DCR in the Azure portal. 
 
+:::image type="content" source="media/data-collection-rule-view/data-collection-rule-resources.png" lightbox="media/data-collection-rule-view/data-collection-rule-resources.png" alt-text="Screenshot that shows resources of a DCR in the Azure portal.":::
 
 ## Preview DCR experience
 A preview of the new Azure portal experience for DCRs is now available. The preview experience ties together DCRs and the resources they're associated with. You can either view the list by **Data collection rule**, which shows the number of resources associated with each DCR, or by **Resources**, which shows the count of DCRs associated with each resource.
