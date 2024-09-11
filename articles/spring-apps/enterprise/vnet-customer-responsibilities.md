@@ -92,7 +92,7 @@ Azure Firewall provides the FQDN tag `AzureKubernetesService` to simplify the fo
 
 ## Azure Spring Apps optional FQDN for Application Insights
 
-You need to open some outgoing ports in your server's firewall to allow the Application Insights SDK or the Application Insights Agent to send data to the portal. For more information, see the [Outgoing ports](../../azure-monitor/ip-addresses.md#outgoing-ports) section of [IP addresses used by Azure Monitor](../../azure-monitor/ip-addresses.md).
+You need to open some outgoing ports in your server's firewall to allow the Application Insights SDK or the Application Insights Agent to send data to the portal. For more information, see the [Outgoing ports](/azure/azure-monitor/ip-addresses#outgoing-ports) section of [IP addresses used by Azure Monitor](/azure/azure-monitor/ip-addresses).
 
 ## Next steps
 

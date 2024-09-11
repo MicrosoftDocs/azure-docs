@@ -106,4 +106,4 @@ Use the following steps configure an alert:
 In this article, you learned how to set up alerts and action groups for an application in Azure Spring Apps. To learn more about action groups, see:
 
 > [!div class="nextstepaction"]
-> [Action groups](../../azure-monitor/alerts/action-groups.md)
+> [Action groups](/azure/azure-monitor/alerts/action-groups)

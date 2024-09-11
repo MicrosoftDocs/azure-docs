@@ -357,11 +357,11 @@ When deploying Node.js apps on Azure App Service for Linux, you may need to hand
 
 ## Monitor with Application Insights
 
-Application Insights allows you to monitor your application's performance, exceptions, and usage without making any code changes. To attach the App Insights agent, go to your web app in the Portal and select **Application Insights** under **Settings**, then select **Turn on Application Insights**. Next, select an existing App Insights resource or create a new one. Finally, select **Apply** at the bottom. To instrument your web app using PowerShell, please see [these instructions](../azure-monitor/app/azure-web-apps-nodejs.md#enable-through-powershell)
+Application Insights allows you to monitor your application's performance, exceptions, and usage without making any code changes. To attach the App Insights agent, go to your web app in the Portal and select **Application Insights** under **Settings**, then select **Turn on Application Insights**. Next, select an existing App Insights resource or create a new one. Finally, select **Apply** at the bottom. To instrument your web app using PowerShell, please see [these instructions](/azure/azure-monitor/app/azure-web-apps-nodejs#enable-through-powershell)
 
-This agent will monitor your server-side Node.js application. To monitor your client-side JavaScript, [add the JavaScript SDK to your project](../azure-monitor/app/javascript.md).
+This agent will monitor your server-side Node.js application. To monitor your client-side JavaScript, [add the JavaScript SDK to your project](/azure/azure-monitor/app/javascript).
 
-For more information, see the [Application Insights extension release notes](../azure-monitor/app/web-app-extension-release-notes.md).
+For more information, see the [Application Insights extension release notes](/azure/azure-monitor/app/web-app-extension-release-notes).
 
 ::: zone-end
 

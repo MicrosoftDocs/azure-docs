@@ -4,7 +4,7 @@ description: Secure Azure Database for PostgreSQL connectivity with managed iden
 ms.devlang: java
 author: KarlErickson
 ms.topic: tutorial
-ms.author: karler
+ms.author: edburns
 ms.service: azure-container-apps
 ms.date: 06/04/2024
 ms.custom: devx-track-azurecli, devx-track-extended-java, devx-track-java, devx-track-javaee, devx-track-javaee-quarkus, passwordless-java, service-connector, devx-track-javaee-quarkus-aca

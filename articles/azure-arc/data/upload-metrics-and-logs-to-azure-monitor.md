@@ -187,7 +187,7 @@ Upload the usage only once per day. When usage information is exported and uploa
 > [!NOTE]
 > Note that usage data is automatically uploaded for Azure Arc data controller deployed in **direct** connected mode. 
 
-For uploading metrics, Azure monitor only accepts the last 30 minutes of data ([Learn more](../../azure-monitor/essentials/metrics-store-custom-rest-api.md#troubleshooting)). The guidance for uploading metrics is to upload the metrics immediately after creating the export file so you can view the entire data set in Azure portal. For instance, if you exported the metrics at 2:00 PM and ran the upload command at 2:50 PM. Since Azure Monitor only accepts data for the last 30 minutes, you may not see any data in the portal. 
+For uploading metrics, Azure monitor only accepts the last 30 minutes of data ([Learn more](/azure/azure-monitor/essentials/metrics-store-custom-rest-api#troubleshooting)). The guidance for uploading metrics is to upload the metrics immediately after creating the export file so you can view the entire data set in Azure portal. For instance, if you exported the metrics at 2:00 PM and ran the upload command at 2:50 PM. Since Azure Monitor only accepts data for the last 30 minutes, you may not see any data in the portal. 
 
 ## Related content
 
