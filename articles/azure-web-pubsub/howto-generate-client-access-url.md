@@ -261,7 +261,7 @@ You could also use Microsoft Entra ID and generate the token by invoking [Genera
     | ClientId | ClientId is the value of **Application (client) ID** from the **Overview** pane of the application you registered. |
     | ClientSecret | ClientSecret is the value of the client secret you just added in step #1 |
    
-1. Get the Microsot Entra ID token from Microsoft identity platform
+1. Get the Microsoft Entra ID token from Microsoft identity platform
    
     We use [CURL](https://curl.se/) tool to show how to invoke the REST APIs. The tool is bundled into Windows 10/11, and you could install the tool following [Install CURL](https://curl.se/download.html).
 
@@ -279,7 +279,7 @@ You could also use Microsoft Entra ID and generate the token by invoking [Genera
     --data-urlencode "scope=https://webpubsub.azure.com/.default"
 
     ```
-    The above curl command send a POST request to Microsoft identity endpoint to get the [Microsoft Entra ID token](/entra/identity-platform/id-tokens) back.
+    The above curl command sends a POST request to Microsoft identity endpoint to get the [Microsoft Entra ID token](/entra/identity-platform/id-tokens) back.
     In the response you see the Microsoft Entra ID token in `access_token` field. Copy and store it for later use.
 
 1. Use the Microsoft Entra ID token to invoke `:generateToken`
