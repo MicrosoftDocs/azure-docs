@@ -71,6 +71,25 @@ The `activeEffects` property returns an object with the names of the current act
 ```js
 // Using the audio effects feature api
 const currentActiveEffects = audioEffectsFeatureApi.activeEffects;
+
+// Create the noise supression instance 
+const deepNoiseSuppression = new DeepNoiseSuppressionEffect();
+// Its recommened to check support for the effect in the current environment using the isSupported method on the feature API. Remember that Noise Supression is only supported on Desktop Browsers for Chrome and Edge
+const isDeepNoiseSuppressionSupported = await audioEffectsFeatureApi.isSupported(deepNoiseSuppression);
+if (isDeepNoiseSuppressionSupported) {
+    console.log('Noise supression is supported in browser environment');
+}
+
+// To start ACS Deep Noise Suppression,
+await audioEffectsFeatureApi.startEffects({
+    noiseSuppression: deepNoiseSuppression
+});
+
+// To stop ACS Deep Noise Suppression
+await audioEffectsFeatureApi.stopEffects({
+    noiseSuppression: true
+});
+
 ```
 
 ### Start a call with Noise Suppression enabled
