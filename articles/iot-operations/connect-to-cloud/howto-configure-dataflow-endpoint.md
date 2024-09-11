@@ -5,7 +5,7 @@ author: PatAltimore
 ms.author: patricka
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 08/29/2024
+ms.date: 09/11/2024
 
 #CustomerIntent: As an operator, I want to understand how to configure source and destination endpoints so that I can create a dataflow.
 ---
@@ -36,6 +36,12 @@ To make it easier to reuse endpoints, the MQTT or Kafka topic filter is not part
 
 For example, you only need to create a dataflow endpoint for the built-in MQTT broker once:
 
+# [Portal](#tab/portal)
+
+:::image type="content" source="media/howto-configure-dataflow-endpoint/create-dataflow-endpoint.png" alt-text="Screenshot using operations portal to create a new dataflow endpoint for MQTT broker.":::
+
+# [Kubernetes](#tab/kubernetes)
+
 ```yaml
 apiVersion: connectivity.iotoperations.azure.com/v1beta1
 kind: DataflowEndpoint
@@ -50,7 +56,15 @@ spec:
       serviceAccountTokenSettings: {}
 ```
 
+---
+
 Then, in a dataflow configuration, you can use it for both the source and destination, with different topic filters:
+
+# [Portal](#tab/portal)
+
+:::image type="content" source="media/howto-configure-dataflow-endpoint/create-dataflow-mq-mq.png" alt-text="Screenshot using operations portal to create a dataflow from MQTT to MQTT.":::
+
+# [Kubernetes](#tab/kubernetes)
 
 ```yaml
 apiVersion: connectivity.iotoperations.azure.com/v1beta1
@@ -72,7 +86,15 @@ spec:
         dataDestination: example/topic/2
 ```
 
+---
+
 Similarly, you can create multiple dataflows that use the same MQTT endpoint for different topics.
+
+# [Portal](#tab/portal)
+
+:::image type="content" source="media/howto-configure-dataflow-endpoint/create-dataflow-mq-kafka.png" alt-text="Screenshot using operations portal to create a dataflow from MQTT to Kafka":::
+
+# [Kubernetes](#tab/kubernetes)
 
 ```yaml
 apiVersion: connectivity.iotoperations.azure.com/v1beta1
@@ -94,15 +116,21 @@ spec:
         dataDestination: example/topic/4
 ```
 
+---
+
 Similar to the MQTT example, you can create multiple dataflows that use the same Kafka endpoint for different topics, or the same Data Lake endpoint for different tables, and so on.
 
 ## Manage dataflow endpoints
 
 You can manage dataflow endpoints in the Azure IoT Operations portal or by using the Kubernetes CLI.
 
+:::image type="content" source="media/howto-configure-dataflow-endpoint/manage-dataflow-endpoints.png" alt-text="Screenshot using operations portal to view dataflow endpoint list.":::
+
+
 ### View
 
 You can view the health, metrics, configuration, and associated dataflows of an endpoint in the Azure IoT Operations portal.
+
 
 <!-- TODO: link to relevant observability docs -->
 
@@ -110,10 +138,20 @@ You can view the health, metrics, configuration, and associated dataflows of an 
 
 You can edit an endpoint in the Azure IoT Operations portal. Be cautious if the endpoint is in use by a dataflow.
 
+:::image type="content" source="media/howto-configure-dataflow-endpoint/edit-dataflow-endpoint.png" alt-text="Screenshot using operations portal to modify a dataflow":::
+
 ### Delete
 
-You can delete an endpoint in the Azure IoT Operations portal. Be cautious if the endpoint is in use by a dataflow.
+You can delete an endpoint in the Azure IoT Operations portal or using the `kubectl` command. Be cautious if the endpoint is in use by a dataflow.
+
+# [Portal](#tab/portal)
+
+:::image type="content" source="media/howto-configure-dataflow-endpoint/delete-dataflow-endpoint.png" alt-text="Screenshot using operations portal to delete a dataflow endpoint.":::
+
+# [Kubernetes](#tab/kubernetes)
 
 ```bash
 kubectl delete dataflowendpoint my-endpoint
 ```
+
+---
