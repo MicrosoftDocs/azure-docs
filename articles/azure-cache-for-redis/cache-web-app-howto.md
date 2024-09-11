@@ -16,16 +16,16 @@ In this quickstart, you use Visual Studio 2019 to create an ASP.NET web applicat
 
 ## Skip to the code
 
-Clone the repo [https://github.com/Azure-Samples/azure-cache-redis-samples/tree/main/quickstart/aspnet](https://github.com/Azure-Samples/azure-cache-redis-samples/tree/main/quickstart/aspnet) on GitHub.
+To skip to the code, clone the [ASP.NET quickstart sample](https://github.com/Azure-Samples/azure-cache-redis-samples/tree/main/quickstart/aspnet) repository on GitHub.
 
 ## Prerequisites
 
-- Azure subscription - [create one for free](https://azure.microsoft.com/free/dotnet)
+- Azure subscription. [Create one for free](https://azure.microsoft.com/free/dotnet)
 - [Visual Studio 2019](https://www.visualstudio.com/downloads/) with the **ASP.NET and web development** and **Azure development** workloads.
 
 ## Create a cache
 
-Next, you create the cache for the app.
+Next, create the cache for the app.
 
 [!INCLUDE [redis-cache-create](~/reusable-content/ce-skilling/azure/includes/azure-cache-for-redis/includes/redis-cache-create.md)]
 
@@ -33,23 +33,24 @@ Next, you create the cache for the app.
 
 ### Edit the CacheSecrets.config file
 
-1. Create a file on your computer named *CacheSecrets.config*. Put the file in a location where it isn't checked in with the source code of your sample application. For this quickstart, the *CacheSecrets.config* file is located at *C:\AppSecrets\CacheSecrets.config*.
+1. On your computer, create a file named *CacheSecrets.config*. Put the file in a location where it isn't checked in with the source code of your sample application. For this quickstart, the *CacheSecrets.config* file is located at *C:\AppSecrets\CacheSecrets.config*.
 
 1. Edit the *CacheSecrets.config* file to add the following content:
+
+   In the code:
+
+   - Replace `<cache-name>` with your cache host name.
+   - Replace `<access-key>` with the primary access key for your cache.
+
+     > [!TIP]
+     > You can use the secondary access key during key rotation as an alternate key while you regenerate the primary access key.
+     >
 
     ```xml
     <appSettings>
         <add key="CacheConnection" value="<cache-name>.redis.cache.windows.net,abortConnect=false,ssl=true,allowAdmin=true,password=<access-key>"/>
     </appSettings>
     ```
-
-1. Replace `<cache-name>` with your cache host name.
-
-1. Replace `<access-key>` with the primary access key for your cache.
-
-   > [!TIP]
-   > You can use the secondary access key during key rotation as an alternate key while you regenerate the primary access key.
-   >
 
 1. Save the file.
 
@@ -67,11 +68,11 @@ Because the *CacheSecrets.config* file isn't deployed to Azure with your applica
 
 1. In Solution Explorer, open the *web.config* file.
 
-     :::image type="content" source="media/cache-web-app-howto/cache-web-config.png" alt-text="Web.config":::
+   :::image type="content" source="media/cache-web-app-howto/cache-web-config.png" alt-text="Web.config":::
 
 1. In the *web.config* file, set the `<appSettings>` element to run the application locally:
 
-    `<appSettings file="C:\AppSecrets\CacheSecrets.config">`
+   `<appSettings file="C:\AppSecrets\CacheSecrets.config">`
 
 The ASP.NET runtime merges the contents of the external file with the markup in the `<appSettings>` element. The runtime ignores the file attribute if the specified file can't be found. Your secrets (the connection string to your cache) aren't included as part of the source code for the application. When you deploy your web app to Azure, the *CacheSecrets.config* file isn't deployed.
 
@@ -81,24 +82,17 @@ Your solution requires the `StackExchange.Redis` package to run. Install the `St
 
 1. To configure the app to use the [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) NuGet package for Visual Studio, select **Tools** > **NuGet Package Manager** > **Package Manager Console**.
 
-1. In the `Package Manager Console` window, run the following command:
+1. In the Package Manager Console window, run the following command:
 
     ```powershell
     Install-Package StackExchange.Redis
     ```
 
-1. The NuGet package downloads and adds the required assembly references for your client application to access Azure Cache for Redis by using the `StackExchange.Redis` client.
+The NuGet package downloads and adds the required assembly references for your client application to access Azure Cache for Redis by using the `StackExchange.Redis` client.
 
-<!--
+## Connect to the cache by using RedisConnection
 
-Philo - Isn't this superfluous now? 
-
-1. If you prefer to use a strong-named version of the `StackExchange.Redis` client library, install the `StackExchange.Redis` package.
- -->
-
-## Connect to the cache with RedisConnection
-
-The connection to your cache is managed by the `RedisConnection` class. The connection is first made in this statement from `ContosoTeamStats/Controllers/HomeController.cs`:
+The connection to your cache is managed by the `RedisConnection` class. The connection is first made in this statement from *ContosoTeamStats/Controllers/HomeController.cs*:
 
 ```csharp
    private static Task<RedisConnection> _redisConnectionFactory = RedisConnection.InitializeAsync(connectionString: ConfigurationManager.AppSettings["CacheConnection"].ToString()););

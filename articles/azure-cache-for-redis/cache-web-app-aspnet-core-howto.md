@@ -1,6 +1,6 @@
 ---
-title: Create an ASP.NET Core web app with Azure Cache for Redis
-description: In this quickstart, you learn how to create an ASP.NET Core web app with Azure Cache for Redis.
+title: 'Quickstart: Use Azure Cache for Redis with ASP.NET Core'
+description: In this quickstart, you learn how to create an ASP.NET Core web app and use it with Azure Cache for Redis.
 
 
 
@@ -15,19 +15,19 @@ ms.date: 04/24/2024
 
 In this quickstart, you incorporate Azure Cache for Redis into an ASP.NET Core web application that connects to Azure Cache for Redis to store and retrieve data from the cache.
 
-There are also caching providers in .NET core. To quickly start using Redis with minimal changes to your existing code, see:
+There are also caching providers in .NET Core. To quickly start using Redis with minimal changes to your existing code, see:
 
-- [ASP.NET core Output Cache provider](/aspnet/core/performance/caching/output#redis-cache)
-- [ASP.NET core Distributed Caching provider](/aspnet/core/performance/caching/distributed#distributed-redis-cache)
-- [ASP.NET core Redis session provider](/aspnet/core/fundamentals/app-state#configure-session-state)
+- [ASP.NET Core Output Cache provider](/aspnet/core/performance/caching/output#redis-cache)
+- [ASP.NET Core Distributed Caching provider](/aspnet/core/performance/caching/distributed#distributed-redis-cache)
+- [ASP.NET Core Redis session provider](/aspnet/core/fundamentals/app-state#configure-session-state)
 
 ## Skip to the code
 
 If you want to go straight to the code, see the [ASP.NET Core quickstart](https://github.com/Azure-Samples/azure-cache-redis-samples/tree/main/quickstart/aspnet-core) on GitHub.
 
-Clone the [Azure Cache for Redis samples](https://github.com/Azure-Samples/azure-cache-redis-samples) GitHub repository, and then go to the `quickstart/aspnet-core` directory to view the completed source code for the steps ahead.
+Clone the [Azure Cache for Redis samples](https://github.com/Azure-Samples/azure-cache-redis-samples) GitHub repository, and then go to the *quickstart/aspnet-core* directory to view the completed source code for the steps ahead.
 
-The `quickstart/aspnet-core` directory is also configured as an [Azure Developer CLI](/azure/developer/azure-developer-cli/overview) template. Use the open-source `azd` tool to streamline the provisioning and deployment from a local environment to Azure. Optionally, run the `azd up` command to automatically provision an Azure Cache for Redis instance, and to configure the local sample app to connect to it:
+The *quickstart/aspnet-core* directory is also configured as an [Azure Developer CLI](/azure/developer/azure-developer-cli/overview) template. Use the open-source `azd` tool to streamline the provisioning and deployment from a local environment to Azure. Optionally, run the `azd up` command to automatically provision an Azure Cache for Redis instance, and to configure the local sample app to connect to it:
 
 ```azdeveloper
 azd up
@@ -35,18 +35,18 @@ azd up
 
 ### Explore the eShop sample
 
-As a next step, you can see a real-world scenario eShop application demonstrating the ASP.NET core caching providers: [ASP.NET core eShop using Redis caching providers](https://github.com/Azure-Samples/azure-cache-redis-demos).
+As a next step, you can see a real-world scenario eShop application demonstrating the ASP.NET Core caching providers: [ASP.NET Core eShop by using Redis caching providers](https://github.com/Azure-Samples/azure-cache-redis-demos).
 
 Features included:
 
-- Redis Distributed Caching
+- Redis distributed caching
 - Redis session state provider
 
 Deployment instructions are in the README.md.
 
 ## Prerequisites
 
-- Azure subscription - [create one for free](https://azure.microsoft.com/free/)
+- Azure subscription. [Create one for free](https://azure.microsoft.com/free/)
 - [.NET Core SDK](https://dotnet.microsoft.com/download)
 
 ## Create a cache
@@ -59,52 +59,52 @@ Deployment instructions are in the README.md.
 
 ## Add a local secret for the host name
 
-In your command window, execute the following command to store a new secret named *RedisHostName*, after replacing the placeholders, including angle brackets, for your cache name and primary access key:
+In your command window, run the following command to store a new secret named *RedisHostName*. In the code, replace the placeholders, including angle brackets, with your cache name and primary access key:
 
 ```dos
 dotnet user-secrets set RedisHostName "<cache-name>.redis.cache.windows.net"
 ```
 
-## Connect to the cache with RedisConnection
+## Connect to the cache by using RedisConnection
 
-The `RedisConnection` class manages the connection to your cache. The connection is made in this statement in `HomeController.cs` in the *Controllers* folder:
+The `RedisConnection` class manages the connection to your cache. The connection is made in this statement in *HomeController.cs* in the *Controllers* folder:
 
 ```csharp
 _redisConnection = await _redisConnectionFactory;
 ```
 
-The `RedisConnection.cs` class includes the `StackExchange.Redis` and `Azure.Identity` namespaces at the top of the file to include essential types to connect to Azure Cache for Redis.
+The `RedisConnection.cs` class includes the StackExchange.Redis and Azure.Identity namespaces at the top of the file to include essential types to connect to Azure Cache for Redis.
 
 ```csharp
 using StackExchange.Redis;
 using Azure.Identity;
 ```
 
-The `RedisConnection` code ensures that there's always a healthy connection to the cache by managing the `ConnectionMultiplexer` instance from `StackExchange.Redis`. The `RedisConnection` class recreates the connection when a connection is lost and unable to reconnect automatically.
+The `RedisConnection` class code ensures that there's always a healthy connection to the cache by managing the `ConnectionMultiplexer` instance from StackExchange.Redis. The `RedisConnection` class re-creates the connection when a connection is lost and can't reconnect automatically.
 
-For more information, see [StackExchange.Redis](https://stackexchange.github.io/StackExchange.Redis/) and the code in a [GitHub repo](https://github.com/StackExchange/StackExchange.Redis).
+For more information, see [StackExchange.Redis](https://stackexchange.github.io/StackExchange.Redis/) and the code in the [StackExchange.Redis GitHub repo](https://github.com/StackExchange/StackExchange.Redis).
 
 ## Layout views in the sample
 
-The home page layout for this sample is stored in the *_Layout.cshtml* file. From this page, you start the actual cache testing by clicking the **Azure Cache for Redis Test** from this page.
+The home page layout for this sample is stored in the *_Layout.cshtml* file. In the next section, you test the cache by using the controller that you add here.
 
 1. Open *Views\Shared\\_Layout.cshtml*.
 
-1. You should see in `<div class="navbar-header">`:
+1. Verify that the following line is in `<div class="navbar-header">`:
 
     ```html
     <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="RedisCache">Azure Cache for Redis Test</a>
     ```
 
-:::image type="content" source="media/cache-web-app-aspnet-core-howto/cache-welcome-page.png" alt-text="screenshot of welcome page":::
+:::image type="content" source="media/cache-web-app-aspnet-core-howto/cache-welcome-page.png" alt-text="Screenshot that shows a welcome page.":::
 
-### Showing data from the cache
+### Show data from the cache
 
-From the home page, you select **Azure Cache for Redis Test** to see the sample output.
+On the home page, select **Azure Cache for Redis Test** to see the sample output.
 
-1. In **Solution Explorer**, expand the **Views** folder, and then right-click the **Home** folder.
+1. In Solution Explorer, expand the **Views** folder, and then right-click the **Home** folder.
 
-1. You should see this code in the *RedisCache.cshtml* file.
+1. Verify that the following code is in the *RedisCache.cshtml* file.
 
     ```csharp
     @{

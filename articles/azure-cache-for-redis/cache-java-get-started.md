@@ -10,13 +10,13 @@ ms.devlang: java
 ms.custom: devx-track-java, devx-track-javaee, mode-api, mvc, devx-track-extended-java
 ---
 
-# Quickstart: Use Azure Cache for Redis in Java
+# Quickstart: Use Azure Cache for Redis in a Java app
 
 In this quickstart, you incorporate Azure Cache for Redis into a Java app by using the [Jedis](https://github.com/xetorthio/jedis) Redis client. Your cache is a secure, dedicated cache that is accessible from any application within Azure.
 
 ## Skip to the code
 
-This article describes how to create an app by using the Azure portal and then modify the code to end up with a working sample app.
+This quickstart uses the Maven archetype feature to generate scaffolding for the app. The quickstart describes how to modify the generated code to end up with a working sample app.
 
 If you want to go straight to the code, see the [Java quickstart sample](https://github.com/Azure-Samples/azure-cache-redis-samples/tree/main/quickstart/java) on GitHub.
 
@@ -33,7 +33,7 @@ If you want to go straight to the code, see the [Java quickstart sample](https:/
 
 ## Set up the working environment
 
-Depending on your operating system, add environment variables for your **Host name** and **Primary access key** that you noted previously. Open a command prompt, or a terminal window, and set up the following values:
+Depending on your operating system, add environment variables for host name and primary access key that you noted earrlier. In a command prompt or a terminal window, set up the following values:
 
 ### [Linux](#tab/bash)
 
@@ -53,16 +53,16 @@ set REDISCACHEKEY=<your-primary-access-key>
 
 Replace the placeholders with the following values:
 
-- `<your-host-name>`: The DNS host name, obtained from the *Properties* section of your Azure Cache for Redis resource in the Azure portal.
-- `<your-primary-access-key>`: The primary access key, obtained from the *Access keys* section of your Azure Cache for Redis resource in the Azure portal.
+- `<your-host-name>`: The DNS host name, obtained from the **Properties** section of your Azure Cache for Redis resource in the Azure portal.
+- `<your-primary-access-key>`: The primary access key, obtained from the **Access keys** section of your Azure Cache for Redis resource in the Azure portal.
 
 ## Understand the Java sample
 
 In this sample, you use Maven to run the quickstart app.
 
-1. Change to the new *redistest* project directory.
+1. Go to the new *redistest* project directory.
 
-1. Open the *pom.xml* file. In the file, you see a dependency for [Jedis](https://github.com/xetorthio/jedis):
+1. Open the *pom.xml* file. In the file, verify that a dependency for [Jedis](https://github.com/xetorthio/jedis) appears:
 
     ```xml
     <dependency>
@@ -76,7 +76,7 @@ In this sample, you use Maven to run the quickstart app.
 
 1. Close the *pom.xml* file.
 
-1. Open *App.java* and see the code with the following code:
+1. Open *App.java* and verify that the following code appears:
 
     ```java
     package example.demo;
@@ -103,7 +103,7 @@ In this sample, you use Maven to run the quickstart app.
                 .ssl(useSsl)
                 .build());
     
-            // Perform cache operations using the cache connection object...
+            // Perform cache operations by using the cache connection object. 
     
             // Simple PING command
             System.out.println( "\nCache Command  : Ping" );
@@ -129,13 +129,13 @@ In this sample, you use Maven to run the quickstart app.
     }
     ```
 
-    This code shows you how to connect to an Azure Cache for Redis instance using the cache host name and key environment variables. The code also stores and retrieves a string value in the cache. The `PING` and `CLIENT LIST` commands are also executed.
+    This code shows you how to connect to an Azure Cache for Redis instance by using the cache host name and key environment variables. The code also stores and retrieves a string value in the cache. The `PING` and `CLIENT LIST` commands are also executed.
 
-1. Close the *App.java*.
+1. Close *App.java*.
 
 ## Build and run the app
 
-1. First, if you haven't already, you must set the environment variables as noted previously.
+1. Set the environment variables as noted earlier:
 
    ### [Linux](#tab/bash)
 
@@ -153,7 +153,7 @@ In this sample, you use Maven to run the quickstart app.
 
     ---
 
-1. Execute the following Maven command to build and run the app:
+1. To build and run the app, run the following Maven command:
 
    ### [Linux](#tab/bash)
 
@@ -171,7 +171,7 @@ In this sample, you use Maven to run the quickstart app.
 
     ---
 
-In the following output, you can see that the `Message` key previously had a cached value. The value was updated to a new value using `jedis.set`. The app also executed the `PING` and `CLIENT LIST` commands.
+In the following output, you can see that the `Message` key previously had a cached value. The value was updated to a new value by using `jedis.set`. The app also executed the `PING` and `CLIENT LIST` commands.
 
 ```output
 Cache Command  : Ping
@@ -195,8 +195,6 @@ Cache Response : id=777430 addr=             :58989 fd=22 name= age=1 idle=0 fla
 [!INCLUDE [cache-delete-resource-group](includes/cache-delete-resource-group.md)]
 
 ## Related content
-
-In this quickstart, you learned how to use Azure Cache for Redis from a Java application. Continue to the next quickstart to use Azure Cache for Redis with an ASP.NET web app.
 
 - [Development](cache-best-practices-development.md)
 - [Connection resilience](cache-best-practices-connection.md)
