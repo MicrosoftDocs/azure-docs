@@ -8,7 +8,7 @@ ms.author: jaspkaur
 
 ### Get count and percentage of Arc-enabled servers by domain
 
-This query summarizes the **domainName** property on [Azure Arc-enabled servers](../../../../../../articles/azure-arc/servers/overview.md) and uses a calculation with `bin` to create a **Pct** column for the percent of Arc-enabled servers per domain.
+This query summarizes the **domainName** property on [Azure Arc-enabled servers](/azure/azure-arc/servers/overview) and uses a calculation with `bin` to create a **Pct** column for the percent of Arc-enabled servers per domain.
 
 ```kusto
 Resources

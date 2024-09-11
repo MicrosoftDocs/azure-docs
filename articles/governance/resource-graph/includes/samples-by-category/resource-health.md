@@ -40,7 +40,7 @@ Search-AzGraph -Query "HealthResources | where type =~ 'microsoft.resourcehealth
 
 ### List of virtual machines and associated availability states by Resource Ids
 
-Returns the latest list of virtual machines (type `Microsoft.Compute/virtualMachines`) aggregated by availability state. The query also provides the associated Resource Id based on `properties.targetResourceId`, for easy debugging and mitigation. Availability states can be one of four values: Available, Unavailable, Degraded, and Unknown. For more details on what each of the availability states mean, see [Azure Resource Health overview](../../../../../../articles/service-health/resource-health-overview.md#health-status).
+Returns the latest list of virtual machines (type `Microsoft.Compute/virtualMachines`) aggregated by availability state. The query also provides the associated Resource Id based on `properties.targetResourceId`, for easy debugging and mitigation. Availability states can be one of four values: Available, Unavailable, Degraded, and Unknown. For more details on what each of the availability states mean, see [Azure Resource Health overview](/azure/service-health/resource-health-overview.md#health-status).
 
 ```kusto
 HealthResources

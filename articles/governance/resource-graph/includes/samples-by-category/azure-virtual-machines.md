@@ -76,7 +76,7 @@ Search-AzGraph -Query "HealthResources | where type =~ 'microsoft.resourcehealth
 
 ### Count of virtual machines by power state
 
-Returns count of virtual machines (type `Microsoft.Compute/virtualMachines`) categorized according to their power state. For more information on power states, please see [Power states overview](../../../../../../articles/virtual-machines/states-billing.md).
+Returns count of virtual machines (type `Microsoft.Compute/virtualMachines`) categorized according to their power state. For more information on power states, please see [Power states overview](/azure/virtual-machines/states-billing.md).
 
 ```kusto
 Resources
@@ -108,7 +108,7 @@ Search-AzGraph -Query "Resources | where type == 'microsoft.compute/virtualmachi
 
 ### Count virtual machines by OS type
 
-Building on the previous query, we're still limiting by Azure resources of type `Microsoft.Compute/virtualMachines`, but are no longer limiting the number of records returned. Instead, we used `summarize` and `count()` to define how to group and aggregate the values by property, which in this example is `properties.storageProfile.osDisk.osType`. For an example of how this string looks in the full object, see [explore resources - virtual machine discovery](../../../../../../articles/governance/resource-graph/concepts/explore-resources.md#virtual-machine-discovery).
+Building on the previous query, we're still limiting by Azure resources of type `Microsoft.Compute/virtualMachines`, but are no longer limiting the number of records returned. Instead, we used `summarize` and `count()` to define how to group and aggregate the values by property, which in this example is `properties.storageProfile.osDisk.osType`. For an example of how this string looks in the full object, see [explore resources - virtual machine discovery](/azure/governance/resource-graph/concepts/explore-resources.md#virtual-machine-discovery).
 
 ```kusto
 Resources
@@ -356,7 +356,7 @@ Search-AzGraph -Query "PatchAssessmentResources | where type has 'softwarepatche
 
 ### List of virtual machines and associated availability states by Resource Ids
 
-Returns the latest list of virtual machines (type `Microsoft.Compute/virtualMachines`) aggregated by availability state. The query also provides the associated Resource Id based on `properties.targetResourceId`, for easy debugging and mitigation. Availability states can be one of four values: Available, Unavailable, Degraded and Unknown. For more details on what each of the availability states mean, please see [Azure Resource Health overview](../../../../../../articles/service-health/resource-health-overview.md#health-status).
+Returns the latest list of virtual machines (type `Microsoft.Compute/virtualMachines`) aggregated by availability state. The query also provides the associated Resource Id based on `properties.targetResourceId`, for easy debugging and mitigation. Availability states can be one of four values: Available, Unavailable, Degraded and Unknown. For more details on what each of the availability states mean, please see [Azure Resource Health overview](/azure/service-health/resource-health-overview.md#health-status).
 
 ```kusto
 HealthResources
@@ -615,7 +615,7 @@ Search-AzGraph -Query "Resources | where type =~ 'Microsoft.Compute/virtualMachi
 
 ### Summarize virtual machine by the power states extended property
 
-This query uses the [extended properties](../../../../../../articles/governance/resource-graph/concepts/query-language.md#extended-properties) on virtual machines to summarize by power states.
+This query uses the [extended properties](/azure/governance/resource-graph/concepts/query-language.md#extended-properties) on virtual machines to summarize by power states.
 
 ```kusto
 Resources

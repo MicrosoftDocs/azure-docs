@@ -43,7 +43,7 @@ Search-AzGraph -Query "ResourceContainers | where type =~ 'microsoft.management/
 
 ### List all management group ancestors for a specified management group
 
-Provides the management group hierarchy details for the management group specified in the [query scope](../../../../resource-graph/concepts/query-language.md#query-scope). In this example, the management group is named **Application**.
+Provides the management group hierarchy details for the management group specified in the [query scope](../resource-graph/concepts/query-language.md#query-scope). In this example, the management group is named **Application**.
 
 ```kusto
 ResourceContainers
@@ -77,7 +77,7 @@ Search-AzGraph -Query "ResourceContainers | where type =~ 'microsoft.management/
 
 ### List all management group ancestors for a specified subscription
 
-Provides the management group hierarchy details for the subscription specified in the [query scope](../../../../resource-graph/concepts/query-language.md#query-scope). In this example, the subscription GUID is **11111111-1111-1111-1111-111111111111**.
+Provides the management group hierarchy details for the subscription specified in the [query scope](../resource-graph/concepts/query-language.md#query-scope). In this example, the subscription GUID is **11111111-1111-1111-1111-111111111111**.
 
 ```kusto
 ResourceContainers
@@ -111,7 +111,7 @@ Search-AzGraph -Query "ResourceContainers | where type =~ 'microsoft.resources/s
 
 ### List all subscriptions under a specified management group
 
-Provides the name and subscription ID of all subscriptions under the management group specified in the [query scope](../../../../resource-graph/concepts/query-language.md#query-scope). In this example, the management group is named **Application**.
+Provides the name and subscription ID of all subscriptions under the management group specified in the [query scope](../resource-graph/concepts/query-language.md#query-scope). In this example, the management group is named **Application**.
 
 ```kusto
 ResourceContainers
