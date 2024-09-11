@@ -43,7 +43,7 @@ Virtual network encryption has the following requirements:
 
 ## Availability
 
-Azure Virtual Network encryption is generally available in all Azure public regions, Azure Government regions, and Microsoft Azure operated by 21Vianet.
+Azure Virtual Network encryption is generally available in all Azure public regions and is currently in public preview in Azure Government and Microsoft Azure operated by 21Vianet.
 
 ## Limitations
 
