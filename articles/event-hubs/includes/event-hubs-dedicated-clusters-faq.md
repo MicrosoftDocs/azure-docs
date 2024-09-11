@@ -70,7 +70,7 @@ You can geo-pair a namespace under a Dedicated-tier cluster with another namespa
 
 We don't currently support an automated migration process for migrating your Event Hubs data from a Standard or Premium namespace to a dedicated one.
 
-### Why does a zone-redundant dedicated cluster have a minimum of eight CUs?
+### Why does a legacy zone-redundant dedicated cluster have a minimum of eight CUs?
 
 To provide zone redundancy for the Dedicated offering, all compute resources must have three replicas across three datacenters in the same region. This minimum requirement supports zone redundancy (so that the service can still function when two zones or datacenters are down) and results in a compute capacity equivalent to eight CUs.
 

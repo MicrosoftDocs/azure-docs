@@ -4,7 +4,7 @@ description: Describes how to deploy a Java Native Image application to Azure Sp
 author: KarlErickson
 ms.service: azure-spring-apps
 ms.topic: quickstart
-ms.date: 08/29/2023
+ms.date: 08/28/2024
 ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli, mode-other, engagement-fy23, references_regions
 ms.author: yili7
 ---

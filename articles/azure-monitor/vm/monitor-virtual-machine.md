@@ -44,8 +44,8 @@ The following table lists the different steps for configuration of VM monitoring
 | Step | Description |
 |:---|:---|
 | [Deploy Azure Monitor agent](monitor-virtual-machine-agent.md) | Deploy the Azure Monitor agent to your Azure and hybrid virtual machines to collect data from the guest operating system and workloads. |
-| [Configure data collection](monitor-virtual-machine-data-collection.md)) | Create data collection rules to instruct the Azure Monitor agent to collect telemetry from the guest operating system. |
-| [Analyze collect data](monitor-virtual-machine-analyze.md) | Analyze monitoring data collected by Azure Monitor from virtual machines and their guest operating systems and applications to identify trends and critical information. |
+| [Configure data collection](monitor-virtual-machine-data-collection.md) | Create data collection rules to instruct the Azure Monitor agent to collect telemetry from the guest operating system. |
+| [Analyze collected data](monitor-virtual-machine-analyze.md) | Analyze monitoring data collected by Azure Monitor from virtual machines and their guest operating systems and applications to identify trends and critical information. |
 | [Create alert rules](monitor-virtual-machine-alerts.md) | Create alerts to proactively identify critical issues in your monitoring data. |
 | [Migrate management pack logic](monitor-virtual-machine-management-packs.md) | General guidance for translation the logic from your System Center Operations Manager management packs to Azure Monitor. |
 

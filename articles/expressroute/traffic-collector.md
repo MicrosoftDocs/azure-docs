@@ -96,6 +96,8 @@ ExpressRoute Traffic Collector supports both Provider-managed circuits and Expre
 
 ExpressRoute Traffic Collector is supported in the following regions:
 
+Note: If your desired region is not yet supported, you can deploy ExpressRoute Traffic Collector to another region in the same geo-political region as your ExpressRoute Circuit. 
+
 | Region | Region Name |
 | ------ | ----------- |
 | North American | <ul><li>Canada East</li><li>Canada Central</li><li>Central US</li><li>Central US EUAP</li><li>North Central US</li><li>South Central US</li><li>West Central US</li><li>East US</li><li>East US 2</li><li>West US</li><li>West US 2</li><li>West US 3</li></ul> |
@@ -107,7 +109,7 @@ ExpressRoute Traffic Collector is supported in the following regions:
 
 ## Pricing
 
-| Zone | Gateway per hour | Data processed per GB |
+| Zone | Collector Instance Uptime | Data processed per GB |
 | ---- | ---------------- | --------------------- |
 | Zone 1 | $0.60/hour | $0.10/GB |
 | Zone 2 | $0.80/hour | $0.20/GB |

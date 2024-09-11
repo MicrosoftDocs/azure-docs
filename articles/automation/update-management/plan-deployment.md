@@ -4,12 +4,14 @@ description: This article describes the considerations and decisions to be made 
 services: automation
 ms.subservice: update-management
 ms.custom: linux-related-content
-ms.date: 07/15/2024
-ms.topic: conceptual
+ms.date: 09/10/2024
+ms.topic: overview
 ms.service: azure-automation
 ---
 
 # Plan your Update Management deployment
+
+[!INCLUDE [./log-analytics-retirement-announcement.md](../includes/log-analytics-retirement-announcement.md)]
 
 ## Step 1: Automation account
 

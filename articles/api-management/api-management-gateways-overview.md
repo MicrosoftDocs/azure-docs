@@ -198,6 +198,9 @@ Scale capacity by adding and removing scale [units](upgrade-and-scale.md) in the
 
 ## Related content
 
--   Learn more about [API Management in a Hybrid and multicloud World](https://aka.ms/hybrid-and-multi-cloud-api-management)
--   Learn more about using the [capacity metric](api-management-capacity.md) for scaling decisions
--   Learn about [observability capabilities](observability.md) in API Management
+Lear more about:
+
+-   [API Management in a Hybrid and multicloud World](https://aka.ms/hybrid-and-multi-cloud-api-management)
+-   [Capacity metric](api-management-capacity.md) for scaling decisions
+-   [Observability capabilities](observability.md) in API Management
+-   [GenAI gateway capabilities](genai-gateway-capabilities.md) in API Management

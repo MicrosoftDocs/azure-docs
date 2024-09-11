@@ -155,7 +155,7 @@ Use the options in the **Conditions** area to define conditions for your automat
 
     | Property | Operator set |
     | -------- | -------- |
-    | - **Title**<br>- **Description**<br>- All listed **entity properties** | - Equals/Does not equal<br>- Contains/Does not contain<br>- Starts with/Does not start with<br>- Ends with/Does not end with |
+    | - **Title**<br>- **Description**<br>- All listed **entity properties**<br>&nbsp;&nbsp;(see [supported entity properties](automation-rule-reference.md)) | - Equals/Does not equal<br>- Contains/Does not contain<br>- Starts with/Does not start with<br>- Ends with/Does not end with |
     | - **Tag** (See [individual vs. collection](automate-incident-handling-with-automation-rules.md#tag-property-individual-vs-collection)) | **Any individual tag:**<br>- Equals/Does not equal<br>- Contains/Does not contain<br>- Starts with/Does not start with<br>- Ends with/Does not end with<br><br>**Collection of all tags:**<br>- Contains/Does not contain |
     | - **Severity**<br>- **Status**<br>- **Custom details key** | - Equals/Does not equal |
     | - **Tactics**<br>- **Alert product names**<br>- **Custom details value**<br>- **Analytic rule name** | - Contains/Does not contain |
@@ -164,7 +164,7 @@ Use the options in the **Conditions** area to define conditions for your automat
 
     | Property | Operator set |
     | -------- | -------- |
-    | - **Title**<br>- **Description**<br>- All listed **entity properties** | - Equals/Does not equal<br>- Contains/Does not contain<br>- Starts with/Does not start with<br>- Ends with/Does not end with |
+    | - **Title**<br>- **Description**<br>- All listed **entity properties**<br>&nbsp;&nbsp;(see [supported entity properties](automation-rule-reference.md)) | - Equals/Does not equal<br>- Contains/Does not contain<br>- Starts with/Does not start with<br>- Ends with/Does not end with |
     | - **Tag** (See [individual vs. collection](automate-incident-handling-with-automation-rules.md#tag-property-individual-vs-collection)) | **Any individual tag:**<br>- Equals/Does not equal<br>- Contains/Does not contain<br>- Starts with/Does not start with<br>- Ends with/Does not end with<br><br>**Collection of all tags:**<br>- Contains/Does not contain |
     | - **Tag** (in addition to above)<br>- **Alerts**<br>- **Comments** | - Added |
     | - **Severity**<br>- **Status** | - Equals/Does not equal<br>- Changed<br>- Changed from<br>- Changed to |

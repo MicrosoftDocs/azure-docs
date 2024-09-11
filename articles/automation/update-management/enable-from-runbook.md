@@ -3,13 +3,15 @@ title: Enable Azure Automation Update Management from runbook
 description: This article tells how to enable Update Management from a runbook.
 services: automation
 ms.subservice: update-management
-ms.topic: conceptual
-ms.date: 07/15/2024
+ms.topic: how-to
+ms.date: 09/10/2024
 ms.custom: mvc
 ms.service: azure-automation
 ---
 
 # Enable Update Management from a runbook
+
+[!INCLUDE [./log-analytics-retirement-announcement.md](../includes/log-analytics-retirement-announcement.md)]
 
 This article describes how you can use a runbook to enable the [Update Management](overview.md) feature for VMs in your environment. To enable Azure VMs at scale, you must enable an existing VM with Update Management.
 

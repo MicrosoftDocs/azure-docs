@@ -126,11 +126,10 @@ Autoscale supports the following services.
 | Azure Data Explorer clusters                      | [Manage Azure Data Explorer clusters scaling to accommodate changing demand](/azure/data-explorer/manage-cluster-horizontal-scaling)             |
 | Azure Stream Analytics                            | [Autoscale streaming units (preview)](../../stream-analytics/stream-analytics-autoscale.md)                                                      |
 | Azure SignalR Service (Premium tier)              | [Automatically scale units of an Azure SignalR service](../../azure-signalr/signalr-howto-scale-autoscale.md)                                    |
-| Azure Machine Learning workspace                  | [Autoscale an online endpoint](../../machine-learning/how-to-autoscale-endpoints.md)                                                             |
+| Azure Machine Learning workspace                  | [Autoscale an online endpoint](/azure/machine-learning/how-to-autoscale-endpoints)                                                             |
 | Azure Spring Apps                                 | [Set up autoscale for applications](../../spring-apps/enterprise/how-to-setup-autoscale.md)                                                      |
 | Azure Media Services                              | [Autoscaling in Media Services](/azure/media-services/latest/release-notes#autoscaling)                                                          |
 | Azure Service Bus                                 | [Automatically update messaging units of an Azure Service Bus namespace](../../service-bus-messaging/automate-update-messaging-units.md)         |
-| Azure Logic Apps - Integration service environment (ISE) | [Add ISE capacity](../../logic-apps/ise-manage-integration-service-environment.md#add-ise-capacity)                                       |
 
 ## Next steps
 

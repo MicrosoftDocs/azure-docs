@@ -5,9 +5,8 @@ services: networking
 author: mbender-ms
 ms.service: azure-virtual-network
 ms.topic: conceptual
-ms.date: 07/17/2024
+ms.date: 08/28/2024
 ms.author: mbender
-ms.custom: template-concept, engagement-fy23
 ---
 
 # Azure networking services overview
@@ -70,9 +69,11 @@ Using Azure DNS, you can host and resolve public domains, manage DNS resolution 
 
 :::image type="content" source="../../bastion/media/bastion-overview/architecture.png" alt-text="Diagram showing Azure Bastion architecture.":::
 
-### <a name="routeserver"></a>Route Server
+### <a name="routeserver"></a>Azure Route Server
 
 [Azure Route Server](../../route-server/overview.md) simplifies dynamic routing between your network virtual appliance (NVA) and your virtual network. It allows you to exchange routing information directly through Border Gateway Protocol (BGP) routing protocol between any NVA that supports the BGP routing protocol and the Azure Software Defined Network (SDN) in the Azure Virtual Network (VNet) without the need to manually configure or maintain route tables.
+
+:::image type="content" source="../../route-server/media/overview/route-server-overview.png" alt-text="Diagram showing Azure Route Server configured in a virtual network.":::
 
 ### <a name="nat"></a>NAT Gateway
 
@@ -94,6 +95,8 @@ For more information about Traffic Manager, see [What is Azure Traffic Manager?]
 ### <a name="networkwatcher"></a>Azure Network Watcher
 
 [Azure Network Watcher](../../network-watcher/network-watcher-monitoring-overview.md?toc=%2fazure%2fnetworking%2ftoc.json) provides tools to monitor, diagnose, view metrics, and enable or disable logs for resources in an Azure virtual network.
+
+:::image type="content" source="../../network-watcher/media/network-watcher-overview/network-watcher-capabilities.png" alt-text="Diagram showing Azure Network Watcher's capabilities.":::
 
 ### <a name="azuremonitor"></a>Azure Monitor
 
@@ -166,8 +169,6 @@ The following diagram illustrates multiple site-to-site VPN connections to the s
 ### <a name="azurepeeringservice"></a>Peering Service
 
 [Azure Peering Service](../../peering-service/about.md) enhances customer connectivity to Microsoft cloud services such as Microsoft 365, Dynamics 365, software as a service (SaaS) services, Azure, or any Microsoft services accessible via the public internet.
-
-This section describes networking services in Azure that help protect your network resources - Protect your applications  using any or a combination of these networking services in Azure - DDoS protection, Private Link, Firewall, Web Application Firewall, Network Security Groups, and Virtual Network Service Endpoints.
 
 ## <a name="security"></a>Network security
 

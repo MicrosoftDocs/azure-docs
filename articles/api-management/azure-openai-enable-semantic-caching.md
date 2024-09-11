@@ -13,12 +13,12 @@ ms.collection: ce-skilling-ai-copilot
 
 # Enable semantic caching for Azure OpenAI APIs in Azure API Management
 
-[!INCLUDE [api-management-availability-basicv2-standardv2](../../includes/api-management-availability-basicv2-standardv2.md)]
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 
 Enable semantic caching of responses to Azure OpenAI API requests to reduce bandwidth and processing requirements imposed on the backend APIs and lower latency perceived by API consumers. With semantic caching, you can return cached responses for identical prompts and also for prompts that are similar in meaning, even if the text isn't the same. For background, see [Tutorial: Use Azure Cache for Redis as a semantic cache](../azure-cache-for-redis/cache-tutorial-semantic-cache.md).
 
 > [!NOTE]
-> The configuration steps in this article enable semantic caching for Azure OpenAI APIs. These steps can be generalized to enable semantic caching for corresponding large language model (LLM) APIs available through the [Azure AI Model Inference API](../ai-studio/reference/reference-model-inference-api.md). 
+> The configuration steps in this article enable semantic caching for Azure OpenAI APIs. These steps can be generalized to enable semantic caching for corresponding large language model (LLM) APIs available through the [Azure AI Model Inference API](/azure/ai-studio/reference/reference-model-inference-api). 
 
 ## Prerequisites
 
@@ -152,3 +152,4 @@ For example, if the cache was used, the **Output** section includes entries simi
 
 * [Caching policies](api-management-policies.md#caching)
 * [Azure Cache for Redis](../azure-cache-for-redis/cache-overview.md)
+* [GenAI gateway capabilities](genai-gateway-capabilities.md) in Azure API Management

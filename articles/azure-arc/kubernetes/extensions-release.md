@@ -103,7 +103,7 @@ For more information, see [Deploy an Azure API Management gateway on Azure Arc (
 
 The Azure Machine Learning extension lets you deploy and run Azure Machine Learning on Azure Arc-enabled Kubernetes clusters.
 
-For more information, see [Introduction to Kubernetes compute target in Azure Machine Learning](../../machine-learning/how-to-attach-kubernetes-anywhere.md) and [Deploy Azure Machine Learning extension on AKS or Arc Kubernetes cluster](../../machine-learning/how-to-deploy-kubernetes-extension.md).
+For more information, see [Introduction to Kubernetes compute target in Azure Machine Learning](/azure/machine-learning/how-to-attach-kubernetes-anywhere) and [Deploy Azure Machine Learning extension on AKS or Arc Kubernetes cluster](/azure/machine-learning/how-to-deploy-kubernetes-extension).
 
 ## Flux (GitOps)
 
@@ -212,6 +212,15 @@ For more information, see [Try Azure AI Video Indexer enabled by Arc](/azure/azu
 [Edge Storage Accelerator (ESA)](../edge-storage-accelerator/index.yml) is a first-party storage system designed for Arc-connected Kubernetes clusters. ESA can be deployed to write files to a "ReadWriteMany" persistent volume claim (PVC) where they are then transferred to Azure Blob Storage. ESA offers a range of features to support Azure IoT Operations and other Azure Arc Services.
 
 For more information, see [What is Edge Storage Accelerator?](../edge-storage-accelerator/overview.md).
+
+## Connected registry on Arc-enabled Kubernetes
+ 
+- **Supported distributions**: Connected registry for Arc-enabled Kubernetes clusters.
+- **Supported Azure regions**: All regions where Azure Arc-enabled Kubernetes is available.
+ 
+The connected registry extension for Azure Arc enables you to sync container images between your Azure Container Registry (ACR) and your local on-prem Azure Arc-enabled Kubernetes cluster. The extension is deployed to the local or remote cluster and uses a synchronization schedule and window to sync images between the on-prem connected registry and the cloud ACR registry.
+ 
+For more information, see [Connected Registry for Arc-enabled Kubernetes clusters](../../container-registry/quickstart-connected-registry-arc-cli.md).
 
 ## Next steps
 
