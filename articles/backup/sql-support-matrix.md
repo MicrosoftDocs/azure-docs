@@ -1,8 +1,8 @@
 ---
 title: Azure Backup support matrix for SQL Server Backup in Azure VMs 
 description: Provides a summary of support settings and limitations when backing up SQL Server in Azure VMs with the Azure Backup service.
-ms.topic: conceptual
-ms.date: 08/06/2024
+ms.topic: reference
+ms.date: 09/11/2024
 ms.custom: references_regions 
 ms.service: azure-backup
 author: AbhishekMallick-MS
