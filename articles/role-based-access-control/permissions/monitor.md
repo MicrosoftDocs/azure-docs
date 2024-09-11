@@ -89,7 +89,7 @@ Azure service: [Azure Managed Grafana](/azure/managed-grafana/)
 > | **DataAction** | **Description** |
 > | Microsoft.Dashboard/grafana/ActAsGrafanaAdmin/action | Act as Grafana Admin role |
 > | Microsoft.Dashboard/grafana/ActAsGrafanaEditor/action | Act as Grafana Editor role |
-> | Microsoft.Dashboard/grafana/ActAsGrafanaLimitedViewer/action | Act as Grafana Viewer role |
+> | Microsoft.Dashboard/grafana/ActAsGrafanaLimitedViewer/action | Act as Grafana Limited Viewer role |
 > | Microsoft.Dashboard/grafana/ActAsGrafanaViewer/action | Act as Grafana Viewer role |
 
 ## Microsoft.Insights
