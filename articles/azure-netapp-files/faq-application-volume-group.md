@@ -5,11 +5,11 @@ ms.service: azure-netapp-files
 ms.topic: conceptual
 author: b-hchen
 ms.author: anfdocs
-ms.date: 05/19/2022
+ms.date: 09/11/2024
 ---
 # Azure NetApp Files application volume group FAQs
 
-This article answers frequently asked questions (FAQs) about Azure NetApp Files application volume group. 
+Find answers to frequently asked questions (FAQs) about Azure NetApp Files application volume group. 
 
 ## Generic FAQs
 
@@ -131,9 +131,13 @@ Database volume throughput mostly affects the time it takes to read data into me
 
 Azure NetApp Files performance of each volume can be adjusted at runtime.  As such, at any time, you can adjust the performance of your database by adjusting the data and log volume throughput to your specific requirements. For instance, you can fine-tune performance and reduce costs by allowing higher throughput at startup while reducing to KPIs during normal operation.  
 
-### Will all the volumes be provisioned in close proximity to my SAP HANA servers?
+### Are all the volumes provisioned in close proximity to my SAP HANA servers?
 
-Using the proximity placement group (PPG) that you created for your SAP HANA servers ensures that the data, log, and shared volumes are created close to the SAP HANA servers to achieve the best latency and throughput. However, log-backup and data-backup volumes don’t require low latency. From a protection perspective, it makes sense to store these backup volumes in a different location from the data, log, and shared volumes. Therefore, application volume group places the backup volumes on a different storage location inside the region that has sufficient capacity and throughput available.
+With an application volume group, you have the option to deploy volumes with an availability zone or proximity placement group volume placement. Both methods ensure that the data volumes are placed in close proximity to the HANA VMs, but using different principles.
+
+Using availability zone volume placement (available with extension 1) places the volumes in the same availability zone as the application VMs. Using availability zones also supports Standard network features, which support enhanced security via network security group support. This method doesn't require manual pinning. It'ss therefore easier and faster to use.
+
+Using proximity placement group requires the creation of a proximity placement group (PPG) for your SAP HANA servers. This placement ensures the data, log, and shared volumes are created close to the SAP HANA servers to achieve the best latency and throughput. This method requires manual pinning of the proximity placement group, which application volume group uses to find the optimal location for deploying the volumes. This method only supports Basic network features. Note that log-backup and data-backup volumes don’t require low latency. From a protection perspective, it makes sense to store these backup volumes in a different location from the data, log, and shared volumes. Therefore, the application volume group places the backup volumes on a different storage location inside the region that has sufficient capacity and throughput availability.
 
 ### What is the relationship between AVset, VM, PPG, and Azure NetApp Files volumes? 
 
@@ -151,7 +155,6 @@ No. This scenario is currently one of the very few cases where you need to manua
 ### I want to create the data-backup volume for not only a single instance but for more than one SAP HANA database. How can I do this?
 
 Log-back and data-backup volumes are optional, and they don't require close proximity. The best way to achieve the intended outcome is to remove the data-backup or log-backup volume when you create the first volume from the application volume group for SAP HANA. You can then create your own volume as a single, independent volume using standard volume provisioning and selecting the proper capacity and throughput to meet your needs. You should use a naming convention that indicates a data-backup volume and that it's used for multiple SIDs.
-
 
 ## FAQs about application volume group for Oracle
 
