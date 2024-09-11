@@ -4,7 +4,7 @@ description: Metrics in Azure Monitor are numerical values that describe some as
 services: firewall
 author: vhorne
 ms.service: azure-firewall
-ms.topic: article
+ms.topic: concept-article
 ms.date: 12/04/2023
 ms.author: victorh
 ---

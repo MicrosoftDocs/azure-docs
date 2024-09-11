@@ -109,7 +109,7 @@ Note: If your desired region is not yet supported, you can deploy ExpressRoute T
 
 ## Pricing
 
-| Zone | Gateway per hour | Data processed per GB |
+| Zone | Collector Instance Uptime | Data processed per GB |
 | ---- | ---------------- | --------------------- |
 | Zone 1 | $0.60/hour | $0.10/GB |
 | Zone 2 | $0.80/hour | $0.20/GB |
