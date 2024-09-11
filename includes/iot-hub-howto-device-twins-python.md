@@ -17,7 +17,7 @@ This article describes how to use the [Azure IoT SDK for Python](https://github.
 
 ## Create a device application
 
-Device applications can read and write twin reported properties, and be notified of desired twin property changes that have been set by a backend application or IoT Hub.
+Device applications can read and write twin reported properties, and be notified of desired twin property changes that are set by a backend application or IoT Hub.
 
 The [IoTHubDeviceClient](/python/api/azure-iot-device/azure.iot.device.iothubdeviceclient) class contains methods that can be used to work with device twins.
 

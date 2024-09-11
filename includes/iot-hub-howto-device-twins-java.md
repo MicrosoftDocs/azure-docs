@@ -17,7 +17,7 @@ This article describes how to use the [Azure IoT SDK for Java](https://github.co
 
 ## Create a device application
 
-Device applications can read and write twin reported properties, and be notified of desired twin property changes that have been set by a backend application or IoT Hub.
+Device applications can read and write twin reported properties, and be notified of desired twin property changes that are set by a backend application or IoT Hub.
 
 This section describes how to create device application code to:
 
@@ -158,7 +158,7 @@ import com.microsoft.azure.sdk.iot.service.exceptions.IotHubException;
 
 To connect to IoT Hub to view and update device twin information:
 
-1. Create a [DeviceTwinClientOptions](/java/api/com.microsoft.azure.sdk.iot.service.devicetwin.devicetwinclientoptions?#com-microsoft-azure-sdk-iot-service-devicetwin-devicetwinclientoptions-devicetwinclientoptions()) object. Set any options that are needed for your application. These options are passed to the `DeviceTwin` object.
+1. Create a [DeviceTwinClientOptions](/java/api/com.microsoft.azure.sdk.iot.service.devicetwin.devicetwinclientoptions) object. Set any options that are needed for your application. These options are passed to the `DeviceTwin` object.
 1. Use a [DeviceTwin](/java/api/com.microsoft.azure.sdk.iot.service.devicetwin.devicetwin?#com-microsoft-azure-sdk-iot-service-devicetwin-devicetwin-devicetwin(java-lang-string)) constructor to create the connection to IoT hub. The `DeviceTwin` object handles the communication with your IoT hub. As parameters, supply the **IoT Hub service connection string** that you created in the Prerequisites section and the `DeviceTwinClientOptions` object.
 1. The [DeviceTwinDevice](/java/api/com.microsoft.azure.sdk.iot.service.devicetwin.devicetwindevice) object represents the device twin with its properties and tags.
 

@@ -17,7 +17,7 @@ This article describes how to use the [Azure IoT SDK for Node.js](https://github
 
 ## Create a device application
 
-Device applications can read and write twin reported properties, and be notified of desired twin property changes that have been set by a backend application or IoT Hub.
+Device applications can read and write twin reported properties, and be notified of desired twin property changes that are set by a backend application or IoT Hub.
 
 This section describes how to use the [azure-iot-device](/javascript/api/azure-iot-device) package in the Azure IoT SDK for Node.js to create a device application to:
 
@@ -83,6 +83,8 @@ Call [fromConnectionString](/javascript/api/azure-iot-device/client?#azure-iot-d
 "HostName=<iothub_host_name>;DeviceId=<device_id>;SharedAccessKey=<device_key>".
 * **transportCtor** - The transport protocol.
 
+This example uses the `Amqp` transport protocol:
+
 ```javascript
 const deviceConnectionString = "{IoT hub device connection string}"
 const Protocol = require('azure-iot-device-mqtt').Amqp;
@@ -91,7 +93,7 @@ let client = Client.fromConnectionString(deviceConnectionString, Protocol);
 
 ### Open the connection to IoT Hub
 
-Use [open](/javascript/api/azure-iot-device/client?#azure-iot-device-client-open) method to open a connection between an IoT device and IoT Hub.
+Use the [open](/javascript/api/azure-iot-device/client?#azure-iot-device-client-open) method to open a connection between an IoT device and IoT Hub.
 Use `.catch(err)` to catch an error and execute handler code.
 
 For example:
@@ -119,7 +121,7 @@ if (err)
 
 Use [update](/javascript/api/azure-iothub/twin?#azure-iothub-twin-update) to update device reported properties. Include a JSON-formatted patch as the first parameter and function execution status callback method as the second parameter to the method.
 
-In this example, a JSON-formatted device twin patch is stored in the `patch` variable. The patch contains a device twin `connectivity` update value of `cellular`. The patch and error handler are passed to the `update` method. If there is an error, a console error message is displayed.
+In this example, a JSON-formatted device twin patch is stored in the `patch` variable. The patch contains a device twin `connectivity` update value of `cellular`. The patch and error handler are passed to the `update` method. If there's an error, a console error message is displayed.
 
 ```javascript
 var patch = {
@@ -184,7 +186,7 @@ For example:
      };
     ```
 
-1. This code sets up a desired properties change event listener that triggers for any changes within the `properties.desired.climate` property grouping. If there is a desired property change within this group, min and max temperature change messages that are displayed to the console:
+1. This code sets up a desired properties change event listener that triggers for any changes within the `properties.desired.climate` property grouping. If there's a desired property change within this group, min and max temperature change messages that are displayed to the console:
 
     ```javascript
     twin.on('properties.desired.climate', function (delta) {
@@ -202,27 +204,27 @@ You can set up a listener for a single property change. In this example, the cod
 
 1. A backend application applies this desired property patch:
 
-  ```javascript
-   const twinPatch2 = {
-    properties: {
-      desired: {
-        climate: {
-          hvac: {
-            systemControl: { fanOn: true, },
+    ```javascript
+     const twinPatch2 = {
+      properties: {
+        desired: {
+          climate: {
+            hvac: {
+              systemControl: { fanOn: true, },
+            },
           },
         },
       },
-    },
-  };
-  ```
+    };
+    ```
 
 1. The listener triggers only when the `fanOn` property changes:
 
-  ```javascript
-   twin.on('properties.desired.climate.hvac.systemControl', function (fanOn) {
-       console.log('setting fan state to ' + fanOn);
-    });
-  ```
+    ```javascript
+     twin.on('properties.desired.climate.hvac.systemControl', function (fanOn) {
+         console.log('setting fan state to ' + fanOn);
+      });
+    ```
 
 ### Device SDK samples
 
@@ -243,14 +245,13 @@ This section describes how to create a backend application that:
 
 ### Install service SDK packages
 
-Run these command to install **azure-iothub** on your development machine:
+Run this command to install **azure-iothub** on your development machine:
 
 ```cmd/sh
-npm init --yes
 npm install azure-iothub --save
 ```
 
-The [Registry](/javascript/api/azure-iothub/registry?#azure-iothub-registry-gettwin-1) object exposes all methods required to interact with device twins from a backend application.
+The [Registry](/javascript/api/azure-iothub/registry) class exposes all methods required to interact with device twins from a backend application.
 
 ### Connect to IoT hub
 
@@ -269,12 +270,12 @@ You can create a patch that contains tag and desired property updates for a devi
 
 To update a device twin:
 
-* Use [getTwin](/javascript/api/azure-iothub/registry?#azure-iothub-registry-gettwin-1) to retrieve the device twin object.
+1. Call [getTwin](/javascript/api/azure-iothub/registry?#azure-iothub-registry-gettwin-1) to retrieve the device twin object.
 * Format a patch that contains the device twin update. The patch is formatted in JSON as described in [Twin class](/javascript/api/azure-iothub/twin?#azure-iothub-twin-update-1). A backend service patch can contain tag and desired property updates. For more patch format information, see [Tags and properties format](/azure/iot-hub/iot-hub-devguide-device-twins#tags-and-properties-format).
 
-* Use [update](/javascript/api/azure-iothub/twin?#azure-iothub-twin-update-1) to update the device twin with the patch.
+1. Call [update](/javascript/api/azure-iothub/twin?#azure-iothub-twin-update-1) to update the device twin with the patch.
 
-In this example, the the device twin is retrieved for `myDeviceId`, then a patch is applied to the twins that contains `location` tag update of `region: 'US', plant: 'Redmond43'`.
+In this example, the device twin is retrieved for `myDeviceId`, then a patch is applied to the twins that contains `location` tag update of `region: 'US', plant: 'Redmond43'`.
 
 ```javascript
      registry.getTwin('myDeviceId', function(err, twin){

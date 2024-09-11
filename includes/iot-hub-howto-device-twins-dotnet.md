@@ -33,7 +33,7 @@ Device client applications written in C# require the **Microsoft.Azure.Devices.C
 
 The [DeviceClient](/dotnet/api/microsoft.azure.devices.client.deviceclient) class exposes all the methods required to interact with device twins from the device.
 
-Connect to the device using the [CreateFromConnectionString](/dotnet/api/microsoft.azure.devices.client.deviceclient.createfromconnectionstring?#microsoft-azure-devices-client-deviceclient-createfromconnectionstring(system-string)) method along with device connection string and the connection transport protocol.
+Connect to the device using the [CreateFromConnectionString](/dotnet/api/microsoft.azure.devices.client.deviceclient.createfromconnectionstring?#microsoft-azure-devices-client-deviceclient-createfromconnectionstring(system-string-microsoft-azure-devices-client-transporttype)) method along with device connection string and the connection transport protocol.
 
 The `CreateFromConnectionString` [TransportType](/dotnet/api/microsoft.azure.devices.client.transporttype) transport protocol parameter supports the following transport protocols:
 
@@ -168,7 +168,7 @@ registryManager = RegistryManager.CreateFromConnectionString(connectionString);
 
 ### Read and update device twin fields
 
-You can retrieve current device twin fields into a [Twin](/dotnet/api/microsoft.azure.devices.shared.twin) object by calling [GetTwinAsync](/dotnet/api/microsoft.azure.devices.registrymanager.gettwinasync?#microsoft-azure-devices-registrymanager-gettwinasync(system-string-system-string)).
+You can retrieve current device twin fields into a [Twin](/dotnet/api/microsoft.azure.devices.shared.twin) object by calling [GetTwinAsync](/dotnet/api/microsoft.azure.devices.registrymanager.gettwinasync).
 
 The `Twin` class includes [properties](/dotnet/api/microsoft.azure.devices.shared.twin?&#properties) that correspond to each section of a device twin. Use the `Twin` class properties to view and update device twin fields. You can use the `Twin` object properties to update multiple twin fields before writing the updates to the device using `UpdateTwinAsync`.
 
@@ -244,7 +244,7 @@ catch (Exception e)
 
 #### View and update twin desired properties
 
-Use device twin [TwinProperties.Desired](/dotnet/api/microsoft.azure.devices.shared.twinproperties.desired?#microsoft-azure-devices-shared-twinproperties-desired) property to read and write device property information. Update twin `Desired` properties using a JSON-formatted patch.
+Use the device twin [TwinProperties.Desired](/dotnet/api/microsoft.azure.devices.shared.twinproperties.desired?#microsoft-azure-devices-shared-twinproperties-desired) property to read and write device desired property information. Update twin `Desired` properties using a JSON-formatted patch.
 
 This example calls `GetTwinAsync` to retrieve the current device twin fields into a `Twin` object, updates the twin `speed` desired property, and then calls `UpdateTwinAsync` to apply the `Twin` object to update the device twin.
 
