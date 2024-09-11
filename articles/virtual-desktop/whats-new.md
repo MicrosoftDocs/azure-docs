@@ -5,7 +5,7 @@ ms.topic: release-notes
 ms.custom: references_regions
 author: sipastak
 ms.author: sipastak
-ms.date: 07/31/2024
+ms.date: 09/09/2024
 ---
 
 # What's new in Azure Virtual Desktop?
@@ -21,6 +21,40 @@ Make sure to check back here often to keep up with new updates.
 
 > [!TIP]
 > See [What's new in documentation](whats-new-documentation.md), where we highlight new and updated articles for Azure Virtual Desktop.
+
+## August 2024
+
+Here's what changed in August 2024:
+
+### Configure the session lock behavior for Azure Virtual Desktop is now available 
+
+You can choose whether the session is disconnected or the remote lock screen is shown when a remote session is locked, either by the user or by policy. When the session lock behavior is set to disconnect, a dialog is shown to let users know they were disconnected. Users can choose the **Reconnect** option from the dialog when they're ready to connect again.
+
+For more information, see [Configure the session lock behavior for Azure Virtual Desktop](configure-session-lock-behavior.md). 
+
+### Configuring the clipboard transfer direction in Azure Virtual Desktop is now available 
+
+Clipboard redirection in Azure Virtual Desktop allows users to copy and paste content between the user's local device and the remote session in either direction. You might want to limit the direction of the clipboard for users, to help prevent data exfiltration or malicious files being copied to a session host. You can configure whether users can use the clipboard from session host to client, or client to session host, and the types of data that can be copied. 
+
+For more information see [Configure the clipboard transfer direction in Azure Virtual Desktop](clipboard-transfer-direction-data-types.md). 
+
+### Microsoft Purview forensic evidence is now compatible with Azure Virtual Desktop 
+
+Forensic evidence is an opt-in add-on feature in Insider Risk Management that gives security teams visual insights into potential insider data security incidents, with user privacy built in. Microsoft Purview Insider Risk Management correlates various signals to identify potential malicious or inadvertent insider risks, such as IP theft, data leakage and security violations. Insider risk management enables customers to create policies to manage security and compliance.  
+
+For more information see [Learn about insider risk management forensic evidence](purview-forensic-evidence.md). 
+
+### Support for FIDO devices and passkeys on macOS and iOS is now available 
+
+Windows App and the Remote Desktop app now support FIDO devices and passkeys for Microsoft Entra ID sign in on macOS and iOS. 
+
+For more information see [Azure Virtual Desktop identities and authentication](authentication.md). 
+
+### New Microsoft Teams can be installed on an image using custom image templates 
+
+New Teams has replaced classic Teams when using [custom image templates](custom-image-templates.md). When updating an existing template, classic Teams is replaced by new Teams. No action is required. When reusing an existing template which references classic Teams, it's updated to new Teams by Microsoft. 
+
+For more information see [End of availability for classic Teams client](/microsoftteams/teams-classic-client-end-of-availability). 
 
 ## July 2024 
 

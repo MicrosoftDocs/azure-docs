@@ -356,7 +356,7 @@ You can [create and manage automation rules](create-manage-use-automation-rules.
 
     When you create an automation rule from here, the **Create new automation rule** panel populates all the fields with values from the incident. It names the rule the same name as the incident, applies it to the analytics rule that generated the incident, and uses all the available entities in the incident as conditions of the rule. It also suggests a suppression (closing) action by default, and suggests an expiration date for the rule. You can add or remove conditions and actions, and change the expiration date, as you wish.
 
-### Export and import automation rules (Preview)
+### Export and import automation rules
 
 Export your automation rules to Azure Resource Manager (ARM) template files, and import rules from these files, as part of managing and controlling your Microsoft Sentinel deployments as code. The export action creates a JSON file in your browser's downloads location, that you can then rename, move, and otherwise handle like any other file.
 
