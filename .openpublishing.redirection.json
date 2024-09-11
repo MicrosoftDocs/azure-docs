@@ -1,6 +1,11 @@
 {
   "redirections": [
     {
+      "source_path": "articles/application-gateway/powershell-samples.md",
+      "redirect_url": "/previous-versions/azure/application-gateway/powershell-samples",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/azure-app-configuration/rest-api-postman.md",
       "redirect_url": "/previous-versions/azure/azure-app-configuration/rest-api-postman",
       "redirect_document_id": false
