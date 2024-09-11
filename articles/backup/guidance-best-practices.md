@@ -1,8 +1,8 @@
 ---
 title: Guidance and best practices
 description: Discover the best practices and guidance for backing up cloud and on-premises workload to the cloud
-ms.topic: conceptual
-ms.date: 03/12/2024
+ms.topic: overview
+ms.date: 09/11/2024
 ms.reviewer: dapatil
 ms.service: azure-backup
 author: AbhishekMallick-MS

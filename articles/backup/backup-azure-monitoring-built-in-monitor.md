@@ -1,8 +1,8 @@
 ---
 title: Monitor Azure Backup protected workloads
 description: In this article, learn about the monitoring and notification capabilities for Azure Backup workloads using the Azure portal.
-ms.topic: conceptual
-ms.date: 09/14/2022
+ms.topic: how-to
+ms.date: 09/11/2024
 ms.assetid: 86ebeb03-f5fa-4794-8a5f-aa5cbbf68a81
 ms.service: azure-backup
 author: AbhishekMallick-MS
