@@ -121,11 +121,11 @@ To sign by using Trusted Signing, you need to provide the details of your Truste
 
 ### Authentication
 
-This Task performs authentication using [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential?view=azure-dotnet), which attempts a series of authentication methods in order. If one method fails, it attempts the next one until authentication is successful.
+This Task performs authentication using [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential), which attempts a series of authentication methods in order. If one method fails, it attempts the next one until authentication is successful.
 
 Each authentication method can be disabled individually to avoid unnecessary attempts.
 
-For example, when authenticating with [EnvironmentCredential](/dotnet/api/azure.identity.environmentcredential?view=azure-dotnet) specifically, disable the other credentials with the following inputs:
+For example, when authenticating with [EnvironmentCredential](/dotnet/api/azure.identity.environmentcredential) specifically, disable the other credentials with the following inputs:
 
 ExcludeEnvironmentCredential: false
 ExcludeManagedIdentityCredential: true
@@ -136,7 +136,7 @@ ExcludeAzureCliCredential: true
 ExcludeAzurePowershellCredential: true
 ExcludeInteractiveBrowserCredential: true
 
-Similarly, if using for example an [AzureCliCredential](/dotnet/api/azure.identity.azureclicredential?view=azure-dotnet) , then we want to skip over attempting to authenticate with the several methods that come before it in order.
+Similarly, if using for example an [AzureCliCredential](/dotnet/api/azure.identity.azureclicredential) , then we want to skip over attempting to authenticate with the several methods that come before it in order.
 
 
 ### Use SignTool to sign a file
