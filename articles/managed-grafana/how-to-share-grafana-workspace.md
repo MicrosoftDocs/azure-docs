@@ -28,8 +28,8 @@ Azure Managed Grafana supports the Grafana Admin, Grafana Editor, and Grafana Vi
 
 - The Grafana Admin role provides full control of the instance including managing role assignments, viewing, editing, and configuring data sources.
 - The Grafana Editor role provides read-write access to the dashboards in the instance.
+- The Grafana Limited Viewer role provides read-only access to the Grafana home page.
 - The Grafana Viewer role provides read-only access to dashboards in the instance.
-- The Grafana Limited Viewer role provides read-only access to the Grafana instance.
 
 More details on Grafana roles can be found in the [Grafana documentation](https://grafana.com/docs/grafana/latest/permissions/organization_roles/#compare-roles).
 
