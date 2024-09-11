@@ -11,7 +11,7 @@ appliesto:
 ms.collection: usx-security
 
 
-#Customer intent: [AI]As a security analyst, I want to visualize and monitor data on a unified dashboard so that I can efficiently track incidents, automation, data records, and analytics in my environment.
+#Customer intent: As a security analyst, I want to visualize and monitor data on a unified dashboard so that I can efficiently track incidents, automation, data records, and analytics in my environment.
 
 ---
 

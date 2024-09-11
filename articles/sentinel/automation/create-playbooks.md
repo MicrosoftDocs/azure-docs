@@ -9,7 +9,7 @@ appliesto:
     - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
 ms.collection: usx-security
-#Customer intent: [AI]As a security analyst, I want to manage automated response playbooks so that I can efficiently handle incidents and alerts in my environment.
+#Customer intent: As a security analyst, I want to manage automated response playbooks so that I can efficiently handle incidents and alerts in my environment.
 
 ---
 

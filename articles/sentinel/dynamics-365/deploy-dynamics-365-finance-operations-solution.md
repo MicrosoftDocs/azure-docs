@@ -7,7 +7,7 @@ ms.topic: how-to
 ms.date: 02/12/2024
 
 
-#Customer intent: [AI]As a security administrator, I want to deploy a monitoring solution for Dynamics 365 Finance and Operations so that I can detect and respond to threats and suspicious activities in real-time.
+#Customer intent: As a security administrator, I want to deploy a monitoring solution for Dynamics 365 Finance and Operations so that I can detect and respond to threats and suspicious activities in real-time.
 
 ---
 

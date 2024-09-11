@@ -11,7 +11,7 @@ appliesto:
 ms.collection: usx-security
 
 
-#Customer intent: [AI]As a security analyst, I want to automate incident response using playbooks so that I can streamline and enhance the efficiency of threat management.
+#Customer intent: As a security analyst, I want to automate incident response using playbooks so that I can streamline and enhance the efficiency of threat management.
 
 ---
 

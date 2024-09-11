@@ -9,7 +9,7 @@ ms.date: 05/03/2022
 
 
 
-#Customer intent: [AI]As a security engineer, I want to deploy a secure data connector for SAP logs using SNC so that I can ensure encrypted and authenticated data transmission between SAP systems and my monitoring solution.
+#Customer intent: As a security engineer, I want to deploy a secure data connector for SAP logs using SNC so that I can ensure encrypted and authenticated data transmission between SAP systems and my monitoring solution.
 
 ---
 

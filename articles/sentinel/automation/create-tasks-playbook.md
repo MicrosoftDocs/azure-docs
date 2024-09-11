@@ -10,7 +10,7 @@ appliesto:
     - Microsoft Sentinel in the Microsoft Defender portal
 ms.collection: usx-security
 
-#Customer intent: [AI]As a security analyst, I want to automate incident management tasks using playbooks so that I can streamline and manage complex workflows efficiently.
+#Customer intent: As a security analyst, I want to automate incident management tasks using playbooks so that I can streamline and manage complex workflows efficiently.
 
 ---
 

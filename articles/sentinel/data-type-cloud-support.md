@@ -7,7 +7,7 @@ ms.date: 06/09/2024
 ms.author: bagol
 
 
-#Customer intent: [AI]As a security analyst, I want to understand the data type support for Microsoft Sentinel across different cloud environments so that I can ensure comprehensive threat detection and response.
+#Customer intent: As a security analyst, I want to understand the data type support for Microsoft Sentinel across different cloud environments so that I can ensure comprehensive threat detection and response.
 
 ---
 

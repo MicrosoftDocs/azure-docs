@@ -10,7 +10,7 @@ appliesto:
     - Microsoft Sentinel in the Microsoft Defender portal
 ms.collection: usx-security
 
-#Customer intent: [AI]As a security operations analyst, I want to authenticate playbooks to Microsoft Sentinel so that I can automate and orchestrate security tasks efficiently.
+#Customer intent: As a security analyst, I want to authenticate playbooks to Microsoft Sentinel so that I can automate and orchestrate security tasks efficiently.
 
 ---
 

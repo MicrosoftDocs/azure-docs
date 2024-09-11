@@ -7,7 +7,7 @@ ms.date: 09/11/2024
 ms.author: bagol
 
 
-#Customer intent: [AI]As a SOC engineer or analyst, I want to understand the differences between playbooks, workbooks, and notebooks so that I can choose the appropriate tool for automation, visualization, and data analysis tasks.
+#Customer intent: As a SOC engineer or analyst, I want to understand the differences between playbooks, workbooks, and notebooks so that I can choose the appropriate tool for automation, visualization, and data analysis tasks.
 
 ---
 

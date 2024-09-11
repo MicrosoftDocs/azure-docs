@@ -9,7 +9,7 @@ appliesto:
     - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
 ms.collection: usx-security
-#Customer intent: [AI]As a SOC analyst, I want to automate incident response and remediation tasks using SOAR capabilities so that I can focus on investigating advanced threats and reduce the risk of missed alerts.
+#Customer intent: As a SOC analyst, I want to automate incident response and remediation tasks using SOAR capabilities so that I can focus on investigating advanced threats and reduce the risk of missed alerts.
 
 ---
 

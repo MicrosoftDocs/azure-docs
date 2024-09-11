@@ -8,7 +8,7 @@ ms.date: 03/22/2023
 
 
 
-#Customer intent: [AI]As a security operations center (SOC) manager, I want to use Microsoft Sentinel for SAP applications across multiple workspaces so that I can ensure compliance with data residency requirements and facilitate collaboration between SOC and SAP teams.
+#Customer intent: As a security operations center (SOC) manager, I want to use Microsoft Sentinel for SAP applications across multiple workspaces so that I can ensure compliance with data residency requirements and facilitate collaboration between SOC and SAP teams.
 
 ---
 

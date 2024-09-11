@@ -12,7 +12,7 @@ ms.collection: usx-security
 
 
 
-#Customer intent: [AI]As a SOC analyst, I want to automate incident response tasks using automation rules so that I can streamline threat management and improve operational efficiency.
+#Customer intent: As a SOC analyst, I want to automate incident response tasks using automation rules so that I can streamline threat management and improve operational efficiency.
 
 ---
 

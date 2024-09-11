@@ -8,7 +8,7 @@ ms.date: 08/29/2024
 ms.custom: references_regions
 
 
-#Customer intent: [AI]As a compliance officer or a security operator setting up Microsoft Sentinel, I want to understand the geographical availability and data residency of Microsoft Sentinel so that I can ensure our data meets regional compliance requirements.
+#Customer intent: As a compliance officer or a security operator setting up Microsoft Sentinel, I want to understand the geographical availability and data residency of Microsoft Sentinel so that I can ensure our data meets regional compliance requirements.
 
 ---
 

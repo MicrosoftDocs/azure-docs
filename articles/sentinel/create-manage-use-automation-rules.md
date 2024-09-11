@@ -11,7 +11,7 @@ appliesto:
 ms.collection: usx-security
 
 
-#Customer intent: [AI]As a SOC analyst, I want to manage automation rules for incident and alert responses so that I can enhance the efficiency and effectiveness of my security operations center.
+#Customer intent: As a SOC analyst, I want to manage automation rules for incident and alert responses so that I can enhance the efficiency and effectiveness of my security operations center.
 
 ---
 

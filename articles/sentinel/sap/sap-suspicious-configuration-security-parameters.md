@@ -7,7 +7,7 @@ ms.topic: reference
 ms.date: 03/26/2023
 
 
-#Customer intent: [AI]As a security administrator, I want to monitor SAP security parameters so that I can detect and respond to suspicious configuration changes effectively.
+#Customer intent: As a security administrator, I want to monitor SAP security parameters so that I can detect and respond to suspicious configuration changes effectively.
 
 ---
 

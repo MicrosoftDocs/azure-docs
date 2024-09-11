@@ -9,7 +9,7 @@ ms.service: microsoft-sentinel
 ms.date: 07/15/2024
 
 
-#Customer intent: [AI]As a security operations manager, I want to understand the Microsoft Sentinel's feature availability across different Azure environments so that I can effectively plan and manage our security operations.
+#Customer intent: As a security operations manager, I want to understand the Microsoft Sentinel's feature availability across different Azure environments so that I can effectively plan and manage our security operations.
 
 ---
 

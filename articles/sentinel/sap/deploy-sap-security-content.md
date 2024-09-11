@@ -8,7 +8,7 @@ ms.date: 03/23/2023
 
 
 
-#Customer intent: [AI]As a security administrator, I want to deploy and configure security monitoring for SAP applications using a cloud-based SIEM solution so that I can enhance the security posture and threat detection capabilities of my SAP environment.
+#Customer intent: As a security administrator, I want to deploy and configure security monitoring for SAP applications using a cloud-based SIEM solution so that I can enhance the security posture and threat detection capabilities of my SAP environment.
 
 ---
 

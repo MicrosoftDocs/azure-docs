@@ -11,7 +11,7 @@ appliesto:
 ms.collection: usx-security
 
 
-#Customer intent: [AI]As a security operations analyst, I want to automate the process of checking IP address reputations in incidents so that I can quickly assess the severity of threats and save time.
+#Customer intent: As a security analyst, I want to automate the process of checking IP address reputations in incidents so that I can quickly assess the severity of threats and save time.
 
 ---
 

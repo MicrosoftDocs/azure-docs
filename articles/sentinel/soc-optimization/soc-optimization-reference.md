@@ -13,7 +13,7 @@ appliesto:
   - Microsoft Sentinel in the Azure portal
 
 
-#Customer intent: [AI]As a SOC manager, I want to implement SOC optimization recommendations so that I can close coverage gaps and improve data usage efficiency without manual analysis.
+#Customer intent: As a SOC manager, I want to implement SOC optimization recommendations so that I can close coverage gaps and improve data usage efficiency without manual analysis.
 
 ---
 

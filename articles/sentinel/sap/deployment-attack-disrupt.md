@@ -11,7 +11,7 @@ appliesto:
 ms.collection: usx-security
 
 
-#Customer intent: [AI]As a security engineer, I want to configure automatic attack disruption for SAP so that I can minimize the impact of sophisticated attacks and maintain control over investigation and remediation processes.
+#Customer intent: As a security engineer, I want to configure automatic attack disruption for SAP so that I can minimize the impact of sophisticated attacks and maintain control over investigation and remediation processes.
 
 ---
 

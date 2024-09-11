@@ -7,7 +7,7 @@ ms.topic: how-to
 ms.date: 01/15/2024
 
 
-#Customer intent: [AI]As a security analyst, I want to handle false positives in my SIEM system so that I can reduce noise and focus on genuine threats.
+#Customer intent: As a security analyst, I want to handle false positives in my SIEM system so that I can reduce noise and focus on genuine threats.
 
 ---
 

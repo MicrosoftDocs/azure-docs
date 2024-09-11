@@ -8,7 +8,7 @@ ms.custom: devx-track-azurepowershell
 ms.date: 07/17/2024
 
 
-#Customer intent: [AI]As a security administrator, I want to deploy a monitoring solution for SAP BTP so that I can detect and respond to threats and suspicious activities in my SAP environment.
+#Customer intent: As a security administrator, I want to deploy a monitoring solution for SAP BTP so that I can detect and respond to threats and suspicious activities in my SAP environment.
 
 ---
 

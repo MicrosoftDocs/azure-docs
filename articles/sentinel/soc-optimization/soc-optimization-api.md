@@ -14,7 +14,7 @@ appliesto:
   - Microsoft Sentinel in the Azure portal
 
 
-#Customer intent: [AI]As a security operations center (SOC) manager, I want to programmatically interact with SOC optimization recommendations so that I can automate evaluations, integrate with third-party tools, and manage multiple environments efficiently.
+#Customer intent: As a security operations center (SOC) manager, I want to programmatically interact with SOC optimization recommendations so that I can automate evaluations, integrate with third-party tools, and manage multiple environments efficiently.
 
 ---
 

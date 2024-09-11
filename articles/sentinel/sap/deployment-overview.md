@@ -6,7 +6,7 @@ ms.author: bagol
 ms.topic: conceptual
 ms.date: 06/19/2023
 
-#Customer intent: [AI]As a security analyst, I want to deploy and configure a monitoring solution for SAP applications so that I can detect and respond to security threats within my SAP environment.
+#Customer intent: As a security analyst, I want to deploy and configure a monitoring solution for SAP applications so that I can detect and respond to security threats within my SAP environment.
 
 ---
 

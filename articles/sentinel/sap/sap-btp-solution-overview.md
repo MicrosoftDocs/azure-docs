@@ -7,7 +7,7 @@ ms.topic: concept-article
 ms.date: 08/08/2024
 
 
-#Customer intent: [AI]As a security analyst, I want to monitor and protect SAP BTP applications so that I can detect and respond to security threats and suspicious activities effectively.
+#Customer intent: As a security analyst, I want to monitor and protect SAP BTP applications so that I can detect and respond to security threats and suspicious activities effectively.
 
 ---
 

@@ -12,7 +12,7 @@ ms.collection: usx-security
 
 
 
-#Customer intent: [AI]As a SOC manager, I want to manage incident tasks using automation rules so that I can standardize and streamline analyst workflows.
+#Customer intent: As a SOC manager, I want to manage incident tasks using automation rules so that I can standardize and streamline analyst workflows.
 
 ---
 

@@ -7,7 +7,7 @@ ms.topic: how-to
 ms.date: 03/10/2023
 
 
-#Customer intent: [AI]As a security analyst, I want to configure and monitor SAP systems using a cloud-based SIEM solution so that I can detect and respond to suspicious activities and threats effectively.
+#Customer intent: As a security analyst, I want to configure and monitor SAP systems using a cloud-based SIEM solution so that I can detect and respond to suspicious activities and threats effectively.
 
 ---
 

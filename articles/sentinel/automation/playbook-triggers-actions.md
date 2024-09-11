@@ -9,7 +9,7 @@ appliesto:
     - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
 ms.collection: usx-security
-#Customer intent: [AI]As a security analyst, I want to understand the supported triggers and actions in Microsoft Sentinel playbooks so that I can automate incident response and threat management effectively.
+#Customer intent: As a security analyst, I want to understand the supported triggers and actions in Microsoft Sentinel playbooks so that I can automate incident response and threat management effectively.
 
 ---
 

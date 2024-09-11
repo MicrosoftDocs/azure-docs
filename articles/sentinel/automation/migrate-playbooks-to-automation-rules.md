@@ -10,7 +10,7 @@ appliesto:
     - Microsoft Sentinel in the Microsoft Defender portal
 ms.collection: usx-security
 
-#Customer intent: [AI]As a security engineer, I want to migrate my alert-trigger playbooks to automation rules so that I can streamline automation management and prepare for the deprecation of analytics rule triggers.
+#Customer intent: As a security engineer, I want to migrate my alert-trigger playbooks to automation rules so that I can streamline automation management and prepare for the deprecation of analytics rule triggers.
 
 ---
 

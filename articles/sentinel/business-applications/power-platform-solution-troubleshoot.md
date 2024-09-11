@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.date: 03/18/2024
 
 
-#Customer intent: [AI]As a security engineer, I want to troubleshoot data collection issues in my Power Platform inventory connector so that I can ensure accurate and timely data ingestion for effective threat detection and response.
+#Customer intent: As a security engineer, I want to troubleshoot data collection issues in my Power Platform inventory connector so that I can ensure accurate and timely data ingestion for effective threat detection and response.
 
 ---
 

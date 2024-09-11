@@ -7,7 +7,7 @@ ms.topic: conceptual
 ms.date: 03/22/2023
 
 
-#Customer intent: [AI]As a security operations team member, I want to monitor and protect SAP systems using a comprehensive solution so that I can detect, analyze, and respond to threats effectively across all layers of the SAP environment.
+#Customer intent: As a security operations team member, I want to monitor and protect SAP systems using a comprehensive solution so that I can detect, analyze, and respond to threats effectively across all layers of the SAP environment.
 
 ---
 

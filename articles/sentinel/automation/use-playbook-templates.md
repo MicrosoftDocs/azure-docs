@@ -12,7 +12,7 @@ ms.collection: usx-security
 
 
 
-#Customer intent: [AI]As a security operations center (SOC) analyst, I want to create and customize automation workflows from playbook templates so that I can efficiently respond to security incidents and streamline threat management.
+#Customer intent: As a security operations center (SOC) analyst, I want to create and customize automation workflows from playbook templates so that I can efficiently respond to security incidents and streamline threat management.
 
 ---
 

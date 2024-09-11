@@ -13,7 +13,7 @@ appliesto:
   - Microsoft Sentinel in the Azure portal
 
 
-#Customer intent: [AI]As a SOC analyst, I want to optimize security controls and data ingestion so that I can enhance threat detection and reduce costs without compromising coverage.
+#Customer intent: As a SOC analyst, I want to optimize security controls and data ingestion so that I can enhance threat detection and reduce costs without compromising coverage.
 
 ---
 

@@ -10,7 +10,7 @@ appliesto:
     - Microsoft Sentinel in the Microsoft Defender portal
 ms.collection: usx-security
 
-#Customer intent: [AI]As a security engineer, I want to manage automated workflows using Azure Logic Apps for Microsoft Sentinel so that I can efficiently respond to security incidents and alerts.
+#Customer intent: As a security engineer, I want to manage automated workflows using Azure Logic Apps for Microsoft Sentinel so that I can efficiently respond to security incidents and alerts.
 
 ---
 
