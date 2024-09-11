@@ -2,6 +2,7 @@
 title: Manage the call duration events using Calling SDKs
 titleSuffix: An Azure Communication Services how-to guide
 description: Use Azure Communication Services Calling SDKs to handle call duration events
+author: garchiro7
 
 ms.author: jorgegarc
 ms.service: azure-communication-services
