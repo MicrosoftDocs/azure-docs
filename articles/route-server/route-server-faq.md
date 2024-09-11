@@ -59,7 +59,7 @@ Yes, Azure Route Server propagates the route with the BGP AS path intact.
 
 ### If AS path prepend is configured on an NVA towards the route server, will the ExpressRoute circuit pass the AS path prepend information to on-premises?
 
-When ExpressRoute advertises routes to on-premises, it removes the private BGP ASN information. On-premises receives the prefix with [AS 12076](../expressroute/expressroute-routing.md#autonomous-system-numbers-asn)
+When ExpressRoute advertises routes to on-premises, it removes the private BGP ASN information. On-premises receives the prefix with [AS 12076](../expressroute/expressroute-routing.md#autonomous-system-numbers-asn).
 
 ### Does Azure Route Server preserve the BGP communities of the route it receives?
 
