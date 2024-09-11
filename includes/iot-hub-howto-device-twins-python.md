@@ -113,7 +113,7 @@ The `twin_patch_handler` receives and prints JSON desired property updates.
         print(twin_patch)
 ```
 
-### SDK samples
+### SDK device samples
 
 The Azure IoT SDK for Python includes the following samples:
 
@@ -198,3 +198,7 @@ print("Devices in Redmond43 plant using cellular network: {}".format(', '.join([
 
 print()
 ```
+
+### SDK service sample
+
+The Azure IoT SDK for Python provides a working sample of a service app that handles device twin tasks. For more information, see  [Registry Manager Query Sample](https://github.com/Azure/azure-iot-hub-python/blob/main/samples/iothub_registry_manager_query_sample.py).

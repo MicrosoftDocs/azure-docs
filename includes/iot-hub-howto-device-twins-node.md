@@ -222,9 +222,9 @@ You can set up a listener for a single property change. In this example, the cod
    twin.on('properties.desired.climate.hvac.systemControl', function (fanOn) {
        console.log('setting fan state to ' + fanOn);
     });
-```
+  ```
 
-### SDK samples
+### Device SDK samples
 
 The Azure IoT SDK for Node.js contains two device twin samples:
 
@@ -342,3 +342,7 @@ query.nextAsTwin(function(err, results) {
 });
 };
 ```
+
+### Service SDK sample
+
+The Azure IoT SDK for Node.js provides a working sample of a service app that handles device twin tasks. For more information, see [Device Twin Backend Service](https://github.com/Azure/azure-iot-sdk-node/tree/main/device/samples/helpers/device-twin-service) - This project is used to send device twin patch updates for a specific device.

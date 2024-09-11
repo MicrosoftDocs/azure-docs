@@ -133,7 +133,7 @@ private async Task OnDesiredPropertyChangedAsync(TwinCollection desiredPropertie
 }
 ```
 
-### SDK sample
+### SDK device sample
 
 The Azure IoT SDK for .NET provides a working sample of a device app that handles device twin tasks. For more information, see [TwinSample](https://github.com/Azure/azure-iot-sdk-csharp/tree/main/iothub/device/samples/getting%20started/TwinSample).
 
@@ -294,3 +294,7 @@ var twinsInRedmond43UsingCellular = await query.GetNextAsTwinAsync();
 Console.WriteLine("Devices in Redmond43 using cellular network: {0}", 
 string.Join(", ", twinsInRedmond43UsingCellular.Select(t => t.DeviceId)));
 ```
+
+### SDK service sample
+
+The Azure IoT SDK for .NET provides a working sample of a service app that handles device twin tasks. For more information, see [Registry Manager Sample](https://github.com/Azure/azure-iot-sdk-csharp/blob/main/iothub/service/samples/how%20to%20guides/RegistryManagerSample/RegistryManagerSample.cs).

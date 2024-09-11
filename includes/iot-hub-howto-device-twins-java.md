@@ -132,7 +132,7 @@ In this example, the `DesiredPropertiesUpdatedHandler` desired property change c
   }
 ```
 
-### SDK sample
+### SDK device sample
 
 The Azure IoT SDK for Java includes a working sample to test the device app concepts described in this article. For more information, see  [Device Twin Sample](https://github.com/Azure/azure-iot-sdk-java/tree/main/iothub/device/iot-device-samples/device-twin-sample).
 
@@ -272,3 +272,7 @@ while (twinClient.hasNextDeviceTwin(twinQuery)) {
   System.out.println(d.getDeviceId());
 }
 ```
+
+### SDK service sample
+
+The Azure IoT SDK for Java provides a working sample of a service app that handles device twin tasks. For more information, see  [Device Twin Sample](https://github.com/Azure/azure-iot-service-sdk-java/blob/main/service/iot-service-samples/device-twin-sample/src/main/java/samples/com/microsoft/azure/sdk/iot/DeviceTwinSample.java).
