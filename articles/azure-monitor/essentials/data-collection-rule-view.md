@@ -24,14 +24,14 @@ To view your DCRs in the Azure portal, select **Data Collection Rules** under **
 
 :::image type="content" source="media/data-collection-rule-overview/view-data-collection-rules.png" lightbox="media/data-collection-rule-overview/view-data-collection-rules.png" alt-text="Screenshot that shows DCRs in the Azure portal.":::
 
-Select a DCR to view its details, including the resources it's associated with. For some DCRs, you may need to use the **JSON view** to view its details. See [Create and edit data collection rules (DCRs) in Azure Monitor](./data-collection-rule-create-edit.md) for details on how you can modify them.
-
 > [!NOTE]
 > Although this view shows all DCRs in the specified subscriptions, selecting the **Create** button will create a data collection for Azure Monitor Agent. Similarly, this page will only allow you to modify DCRs for Azure Monitor Agent. For guidance on how to create and update DCRs for other workflows, see [Create and edit data collection rules (DCRs) in Azure Monitor](./data-collection-rule-create-edit.md).
 
-Click the **Resources** tab to view the resources associated with the selected DCR. Click **Add** to add an association to a new resource. You can view and add resources using this feature whether or not you created the DCR in the Azure portal. 
+Select a DCR to view its details, including the resources it's associated with. For some DCRs, you may need to use the **JSON view** to view its details. See [Create and edit data collection rules (DCRs) in Azure Monitor](./data-collection-rule-create-edit.md) for details on how you can modify them.
 
-:::image type="content" source="media/data-collection-rule-overview/view-data-collection-rules.png" lightbox="media/data-collection-rule-overview/view-data-collection-rules.png" alt-text="Screenshot that shows DCRs in the Azure portal.":::
+:::image type="content" source="media/data-collection-rule-view/data-collection-rule-overview.png" lightbox="media/data-collection-rule-view/data-collection-rule-overview.png" alt-text="Screenshot that shows overview of a DCR in the Azure portal.":::
+
+Click the **Resources** tab to view the resources associated with the selected DCR. Click **Add** to add an association to a new resource. You can view and add resources using this feature whether or not you created the DCR in the Azure portal. 
 
 
 ## Preview DCR experience
