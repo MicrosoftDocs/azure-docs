@@ -55,7 +55,7 @@ az spring app create \
 ```
 
 > [!NOTE]
-> the `cert-id` value is in the format `/subscriptions/<your-sub-id>/resourceGroups/<resource-group-name>/providers/Microsoft.AppPlatform/Spring/<service-name>/certificates/<cert-name>`. To get the `cert-id` value, use the following command: `az spring certificate show --service <service-instance-name> --resource-group <resource-group-name> --name <certificate-name> --query id`
+> The `cert-id` value is in the format `/subscriptions/<your-sub-id>/resourceGroups/<resource-group-name>/providers/Microsoft.AppPlatform/Spring/<service-name>/certificates/<cert-name>`. To get the `cert-id` value, use the following command: `az spring certificate show --service <service-instance-name> --resource-group <resource-group-name> --name <certificate-name> --query id`
 
 This command creates an app with the following settings:
 
