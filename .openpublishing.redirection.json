@@ -2136,13 +2136,43 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/firewall/diagnostic-logs.md",
+      "redirect_url": "/azure/firewall/monitor-firewall",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/firewall/enable-top-ten-and-flow-trace.md",
+      "redirect_url": "/azure/firewall/monitor-firewall-reference",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/firewall/firewall-diagnostics.md",
+      "redirect_url": "/azure/firewall/monitor-firewall",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/firewall/firewall-network-rule-logging.md",
-      "redirect_url": "/azure/firewall/firewall-diagnostics",
+      "redirect_url": "/azure/firewall/monitor-firewall",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/firewall/firewall-structured-logs.md",
+      "redirect_url": "/azure/firewall/monitor-firewall",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/firewall/log-analytics-samples.md",
       "redirect_url": "/azure/firewall/firewall-workbook",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/firewall/logs-and-metrics.md",
+      "redirect_url": "/azure/firewall/monitor-firewall",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/firewall/metrics.md",
+      "redirect_url": "/azure/firewall/monitor-firewall-reference",
       "redirect_document_id": false
     },
     {
@@ -2167,7 +2197,7 @@
     },
     {
       "source_path_from_root": "/articles/firewall/tutorial-diagnostics.md",
-      "redirect_url": "/azure/firewall/firewall-diagnostics",
+      "redirect_url": "/azure/firewall/monitor-firewall",
       "redirect_document_id": false
     },
     {
