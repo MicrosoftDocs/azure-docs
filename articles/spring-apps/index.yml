@@ -251,19 +251,6 @@ conceptualContent:
           footerLink:
             text: See more
             url: basic-standard/index.yml
-        # Card
-        - title: Migrate apps
-          links:
-            - text: Migrate Spring Boot to Azure Spring Apps
-              url: /azure/developer/java/migration/migrate-spring-boot-to-azure-spring-apps?toc=/azure/spring-apps/basic-standard/toc.json&bc=/azure/spring-apps/basic-standard/breadcrumb/toc.json
-              itemType: overview
-            - text: Migrate Spring Cloud to Azure Spring Apps
-              url: /azure/developer/java/migration/migrate-spring-cloud-to-azure-spring-apps?toc=/azure/spring-apps/basic-standard/toc.json&bc=/azure/spring-apps/basic-standard/breadcrumb/toc.json
-              itemType: overview
-          # footerLink (Optional; Remove if not applicable.)
-          footerLink:
-            text: See more
-            url: basic-standard/index.yml
 
     - title: Standard consumption and dedicated plan # < 60 chars (Optional; Remove if not applicable.)
       items:

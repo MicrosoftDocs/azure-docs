@@ -196,12 +196,6 @@ Azure Spring Apps continuously probes port `1025` for customer's applications wi
 
 Yes. For more information, see [Monitor app lifecycle events using Azure Activity log and Azure Service Health](./monitor-app-lifecycle-events.md).
 
-::: zone pivot="programming-language-java"
-### What are the best practices for migrating existing Spring applications to Azure Spring Apps?
-
-For more information, see [Migrate Spring applications to Azure Spring Apps](/azure/developer/java/migration/migrate-spring-cloud-to-azure-spring-apps).
-::: zone-end
-
 ::: zone pivot="programming-language-csharp"
 
 ## .NET Core versions
