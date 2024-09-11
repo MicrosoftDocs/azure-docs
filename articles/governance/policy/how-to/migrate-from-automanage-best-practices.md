@@ -154,7 +154,7 @@ Boot diagnostics is a debugging feature for Azure VMs that you can use to diagno
 
 ### Windows Admin Center
 
-Boot diagnostics is a debugging feature for Azure VMs that helps you to diagnose VM boot failures. It collects serial log information and screenshots during the boot process. You can use an ARM template or a custom Azure Policy for configuration. For more information, see [Manage a Windows VM by using Windows Admin Center in Azure][04].
+You can now use Windows Admin Center in the Azure portal to manage the Windows operating system inside an Azure VM. You can also manage operating system functions from the Azure portal and work with files in the VM without using Remote Desktop or PowerShell. You can use an ARM template or a custom Azure Policy for configuration. For more information, see [Manage a Windows VM by using Windows Admin Center in Azure][04].
 
 ### Log Analytics workspace
 
