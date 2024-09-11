@@ -8,7 +8,7 @@ manager: chpalm
 services: azure-communication-services
 
 ms.author: chpalm
-ms.date: 06/30/2021
+ms.date: 09/05/2024
 ms.topic: conceptual
 ms.service: azure-communication-services
 ms.subservice: identity
@@ -24,14 +24,15 @@ Another type of authentication uses *user access tokens* to authenticate against
 
 The following table shows the Azure Communication Services SDKs and their authentication options:
 
-| SDK    | Authentication option                               |
-| ----------------- | ----------------------------------------------------|
-| Identity          | Access Key or Microsoft Entra authentication               |
-| SMS               | Access Key or Microsoft Entra authentication               |
-| Phone Numbers     | Access Key or Microsoft Entra authentication               |
-| Email             | Access Key or Microsoft Entra authentication               |
-| Calling           | User Access Token                                   |
-| Chat              | User Access Token                                   |
+| SDK                | Authentication option                        |
+|--------------------|----------------------------------------------|
+| Identity           | Access Key or Microsoft Entra authentication |
+| SMS                | Access Key or Microsoft Entra authentication |
+| Phone Numbers      | Access Key or Microsoft Entra authentication |
+| Email              | Access Key or Microsoft Entra authentication |
+| Advanced Messaging | Access Key or Microsoft Entra authentication |
+| Calling            | User Access Token                            |
+| Chat               | User Access Token                            |
 
 Each authorization option is briefly described below:
 

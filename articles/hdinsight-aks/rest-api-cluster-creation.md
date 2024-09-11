@@ -8,7 +8,10 @@ ms.date: 11/26/2023
 
 # Manage HDInsight on AKS clusters using Azure REST API 
 
+[!INCLUDE [retirement-notice](includes/retirement-notice.md)]
 [!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
+
+
 
 Learn how to create an HDInsight cluster using an Azure Resource Manager template and the Azure REST API. 
 

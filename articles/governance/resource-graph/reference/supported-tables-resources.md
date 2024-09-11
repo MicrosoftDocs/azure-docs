@@ -32,6 +32,12 @@ For sample queries for this table, see [Resource Graph sample queries for adviso
 - microsoft.chaos/targets
 - microsoft.chaos/targets/capabilities
 
+## computeresources
+
+- microsoft.compute/virtualmachinescalesets/virtualmachines
+- microsoft.compute/virtualmachinescalesets/virtualmachines/networkinterfaces
+- microsoft.compute/virtualmachinescalesets/virtualmachines/networkinterfaces/ipconfigurations/publicipaddresses
+
 ## desktopvirtualizationresources
 
 - microsoft.desktopvirtualization/hostpools/sessionhosts

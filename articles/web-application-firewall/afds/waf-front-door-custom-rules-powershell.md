@@ -4,7 +4,7 @@ description: Learn how to configure a web application firewall (WAF) policy that
 services: web-application-firewall
 author: vhorne
 ms.service: azure-web-application-firewall
-ms.topic: article
+ms.topic: how-to
 ms.date: 09/05/2019
 ms.author: victorh 
 ms.custom: devx-track-azurepowershell

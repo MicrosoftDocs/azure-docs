@@ -490,7 +490,7 @@ Follow these steps to allow Azure Monitor to scrape Prometheus endpoints for col
    osm metrics enable --namespace <namespace2>
    ```
 
-3. Install the Azure Monitor extension using the guidance available [here](../../azure-monitor/containers/container-insights-enable-arc-enabled-clusters.md?toc=/azure/azure-arc/kubernetes/toc.json).
+3. Install the Azure Monitor extension using the guidance available [here](/azure/azure-monitor/containers/container-insights-enable-arc-enabled-clusters?toc=/azure/azure-arc/kubernetes/toc.json).
 
 4. Create a Configmap in the `kube-system` namespace that enables Azure Monitor to monitor your namespaces. For example, create a `container-azm-ms-osmconfig.yaml` with the following to monitor `<namespace1>` and `<namespace2>`:
 
