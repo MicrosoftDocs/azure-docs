@@ -14,7 +14,7 @@ ms.subservice: deidentification-service
 [!INCLUDE [horz-monitor-intro](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-intro.md)]
 
 [!INCLUDE [horz-monitor-resource-types](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-resource-types.md)]
-For more information about the resource types for the de-identification service, see [the de-identification service monitoring data reference](monitor-deid-reference.md).
+For more information about the resource types for the de-identification service, see [the de-identification service monitoring data reference](monitor-deidentification-service-reference.md).
 
 [!INCLUDE [horz-monitor-data-storage](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-data-storage.md)]
 
@@ -22,7 +22,7 @@ For more information about the resource types for the de-identification service,
 
 [!INCLUDE [horz-monitor-resource-logs](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-resource-logs.md)]
 
-For the available resource log categories, their associated Log Analytics tables, and the log schemas for the de-identification service, see [the de-identification service monitoring data reference](monitor-deid-reference.md#resource-logs).
+For the available resource log categories, their associated Log Analytics tables, and the log schemas for the de-identification service, see [the de-identification service monitoring data reference](monitor-deidentification-service-reference.md#resource-logs).
 
 [!INCLUDE [horz-monitor-activity-log](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-activity-log.md)]
 
@@ -32,23 +32,38 @@ For the available resource log categories, their associated Log Analytics tables
 
 [!INCLUDE [horz-monitor-kusto-queries](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-kusto-queries.md)]
 
-<!-- REQUIRED. Add sample Kusto queries for your service here. -->
+- To list the 10 most common operations performed on your resource over the last three days:
+
+    ```kusto
+    AHDSDeidAuditLogs
+    | where TimeGenerated > ago(3d)
+    | summarize count() by OperationName
+    | top 10 by count_ desc
+    ```
+
+- To list recent unauthenticated requests:
+
+    ```kusto
+    AHDSDeidAuditLogs
+    | where TimeGenerated > ago(3d) and StatusCode == 401
+    | top 10 by count_ desc
+    ```
 
 [!INCLUDE [horz-monitor-alerts](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-alerts.md)]
 
-### [TODO-replace-with-service-name] alert rules
+### De-identification service (preview) alert rules
 
-The following table lists some suggested alert rules for [TODO-replace-with-service-name]. These alerts are just examples. You can set alerts for any metric, log entry, or activity log entry listed in the [de-identification service monitoring data reference](monitor-deid-reference.md).
+The following table lists some suggested alert rules for the de-identification service (preview). These alerts are just examples. You can set alerts for any metric, log entry, or activity log entry listed in the [de-identification service monitoring data reference](monitor-deidentification-service-reference.md).
 
 | Alert type | Condition | Description  |
 |:---|:---|:---|
-| | | |
-| | | |
+| Log | AHDSDeidAuditLogs<br>\| where StatusCode == 429 | De-identification service is throttled. |
+| Log | AHDSDeidAuditLogs<br>\| where StatusCode >= 500 | De-identification service is failing. |
 
 <!-- ### Advisor recommendations -->
 [!INCLUDE [horz-monitor-advisor-recommendations](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-advisor-recommendations.md)]
 
 ## Related content
 
-- See [the de-identification service monitoring data reference](monitor-deid-reference.md) for a reference of the metrics, logs, and other important values created for the de-identification service.
+- See [the de-identification service monitoring data reference](monitor-deidentification-service-reference.md) for a reference of the metrics, logs, and other important values created for the de-identification service.
 - See [Monitoring Azure resources with Azure Monitor](/azure/azure-monitor/essentials/monitor-azure-resource) for general details on monitoring Azure resources.
