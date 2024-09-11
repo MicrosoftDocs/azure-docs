@@ -198,8 +198,4 @@ The HTTP server starts on port `8080`.
 
 ## Related content
 
-In this quickstart, you learned how to get started using Go with Azure Cache for Redis. You configured and ran a simple REST API-based application to create and get user information backed by a Redis `HASH` data structure.
-
-## Related content
-
 - [Create a simple ASP.NET web app that uses Azure Cache for Redis.](./cache-web-app-howto.md)
