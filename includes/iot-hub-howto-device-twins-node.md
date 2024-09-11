@@ -83,11 +83,11 @@ Call [fromConnectionString](/javascript/api/azure-iot-device/client?#azure-iot-d
 "HostName=<iothub_host_name>;DeviceId=<device_id>;SharedAccessKey=<device_key>".
 * **transportCtor** - The transport protocol.
 
-This example uses the `Amqp` transport protocol:
+This example uses the `Mqtt` transport protocol:
 
 ```javascript
 const deviceConnectionString = "{IoT hub device connection string}"
-const Protocol = require('azure-iot-device-mqtt').Amqp;
+const Protocol = require('azure-iot-device-mqtt').Mqtt;
 let client = Client.fromConnectionString(deviceConnectionString, Protocol);
 ```
 
