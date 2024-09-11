@@ -2,7 +2,7 @@
 title: "Troubleshoot CLI parsing failures"
 titleSuffix: Azure Digital Twins
 description: Learn how to diagnose and resolve parsing failures with the Azure Digital Twins CLI command set.
-ms.service: digital-twins
+ms.service: azure-digital-twins
 author: baanders
 ms.author: baanders
 ms.topic: troubleshooting

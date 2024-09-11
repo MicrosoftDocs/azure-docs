@@ -3,9 +3,9 @@ title: 'Create a Basic SKU virtual network gateway: PowerShell'
 titleSuffix: Azure VPN Gateway
 description: Learn how to create a Basic SKU virtual network gateway for a VPN connection to your on-premises network, or to connect virtual networks. Use these instructions to create either a policy-based, or route-based VPN gateway.
 author: cherylmc
-ms.service: vpn-gateway
+ms.service: azure-vpn-gateway
 ms.topic: how-to
-ms.date: 07/17/2024
+ms.date: 08/15/2024
 ms.author: cherylmc 
 ms.custom: devx-track-azurepowershell
 ---
@@ -14,6 +14,9 @@ ms.custom: devx-track-azurepowershell
 
 This article helps you create a Basic SKU Azure VPN gateway using PowerShell. The VPN gateway you create can be either RouteBased, or PolicyBased, depending on your connection requirements. A VPN gateway is used when creating a VPN connection to your on-premises network. You can also use a VPN gateway to connect VNets.
 
+> [!IMPORTANT]
+> The Basic SKU has certain feature and performance limitations and shouldn't be used for production purposes. For more information about SKUs, see [About gateway SKUs](about-gateway-skus.md).
+
 :::image type="content" source="./media/create-gateway-basic-sku/gateway-diagram.png" alt-text="Diagram that shows a virtual network and a VPN gateway." lightbox="./media/create-gateway-basic-sku/gateway-diagram-expand.png":::
 
 * The left side of the diagram shows the virtual network and the VPN gateway that you create by using the steps in this article.
@@ -21,11 +24,9 @@ This article helps you create a Basic SKU Azure VPN gateway using PowerShell. Th
 
 The steps in this article create a virtual network, a subnet, a gateway subnet, and a VPN gateway (virtual network gateway) using the Basic SKU. The article steps specify a **RouteBased** VPN type. You can also specify a **PolicyBased** VPN type using the steps in this article. Once the gateway creation completes, you can then create connections. If you want to create a gateway using a SKU other than the Basic SKU, see the [Portal article](tutorial-create-gateway-portal.md).
 
-Basic SKU VPN gateways have limitations. For more information about SKUs and Basic SKU limitations, see [About gateway SKUs](about-gateway-skus.md). A few of the limitations that affect the settings used in this article are:
+The Basic SKU has certain feature and performance limitations and shouldn't be used for production purposes. Some of the limitations of the Basic SKU are:
 
-* A Basic SKU VPN gateway must use the Dynamic allocation method for public IP address, not Static.
-* A Basic SKU VPN gateway uses a Basic SKU public IP address, not Standard.
-* You can't create a Basic SKU VPN gateway using the Azure portal.
+[!INCLUDE [Basic SKU limitations](../../includes/vpn-gateway-basic-sku-limitations.md)]
 
 ## Before you begin
 
@@ -150,6 +151,6 @@ Remove-AzResourceGroup -Name TestRG1
 
 Once the gateway finishes creating, you can create a connection between your virtual network and another virtual network. Or, create a connection between your virtual network and an on-premises location. See the following articles:
 
-* [Create a site-to-site connection](vpn-gateway-create-site-to-site-rm-powershell.md)
+* [Add or remove a site-to-site connection](add-remove-site-to-site-connections.md)
 * [Create a point-to-site connection](vpn-gateway-howto-point-to-site-rm-ps.md)
 * [Create a connection to another virtual network](vpn-gateway-vnet-vnet-rm-ps.md)

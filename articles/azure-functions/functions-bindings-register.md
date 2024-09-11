@@ -18,7 +18,7 @@ The following table indicates when and how you register bindings.
 |Azure portal|Automatic|Automatic<sup>*</sup>|
 |Non-.NET languages|Automatic|Use [extension bundles](#extension-bundles) (recommended) or [explicitly install extensions](#explicitly-install-extensions)|
 |C# class library using Visual Studio|[Use NuGet tools](functions-develop-vs.md#add-bindings)|[Use NuGet tools](functions-develop-vs.md#add-bindings)|
-|C# class library using Visual Studio Code|N/A|[Use .NET Core CLI](functions-develop-vs-code.md?tabs=csharp#install-binding-extensions)|
+|C# class library using Visual Studio Code|N/A|[Use .NET Core CLI](functions-develop-vs-code.md?tabs=csharp#install-binding-extensions)<br/>[Use the C# Dev Kit](https://code.visualstudio.com/docs/csharp/package-management#_add-a-package)|
 
 <sup>*</sup> Portal uses extension bundles, including C# script.
 

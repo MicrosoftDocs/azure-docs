@@ -1,7 +1,7 @@
 ---
 title: 'Tutorial: Distributed training with Horovod and PyTorch (deprecated)'
 description: Tutorial on how to run distributed training with the Horovod Estimator and PyTorch
-ms.service: synapse-analytics 
+ms.service: azure-synapse-analytics
 ms.subservice: machine-learning
 ms.topic: tutorial
 ms.date: 07/15/2024
@@ -132,7 +132,7 @@ print(adls_store_path)
 
 ## Prepare dataset
 
-Next, we will prepare the dataset for training. In this tutorial, we will use the MNIST dataset from [Azure Open Datasets](../../open-datasets/dataset-mnist.md?tabs=azureml-opendatasets).
+Next, we will prepare the dataset for training. In this tutorial, we will use the MNIST dataset from [Azure Open Datasets](/azure/open-datasets/dataset-mnist?tabs=azureml-opendatasets).
 
 ```python
 # Initialize SparkSession

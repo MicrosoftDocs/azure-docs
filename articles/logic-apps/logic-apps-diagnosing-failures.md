@@ -6,7 +6,7 @@ ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.custom: engagement-fy23
-ms.date: 01/04/2024
+ms.date: 08/06/2024
 ---
 
 # Troubleshoot and diagnose workflow failures in Azure Logic Apps
@@ -158,7 +158,6 @@ Standard logic apps store all artifacts in an Azure storage account. You might g
 | Overview pane | - **System.private.corelib:Access to the path 'C:\\home\\site\\wwwroot\\hostj.son is denied** <br><br>- **Azure.Storage.Blobs: This request is not authorized to perform this operation** |
 | Workflows pane | - **Cannot reach host runtime. Error details, Code: 'BadRequest', Message: 'Encountered an error (InternalServerError) from host runtime.'** <br><br>- **Cannot reach host runtime. Error details, Code: 'BadRequest', Message: 'Encountered an error (ServiceUnavailable) from host runtime.'** <br><br>- **Cannot reach host runtime. Error details, Code: 'BadRequest', Message: 'Encountered an error (BadGateway) from host runtime.'** |
 | During workflow creation and execution | - **Failed to save workflow** <br><br>- **Error in the designer: GetCallFailed. Failed fetching operations** <br><br>- **ajaxExtended call failed** |
-|||
 
 ### Troubleshooting options
 
@@ -171,6 +170,22 @@ The following list includes possible causes for these errors and steps to help t
   * In your logic app resource's app settings, confirm the storage account's connection string in the app settings, **AzureWebJobsStorage** and **WEBSITE_CONTENTAZUREFILECONNECTIONSTRING**. For more information, review [Host and app settings for logic apps in single-tenant Azure Logic Apps](edit-app-settings-host-settings.md#manage-app-settings).
 
   If connectivity fails, check whether the Shared Access Signature (SAS) key in the connection string is the most recent.
+
+  > [!IMPORTANT]
+  >
+  > When you have sensitive information, such as connection strings that include usernames and passwords, 
+  > make sure to use the most secure authentication flow available. For example, in Standard logic app workflows, 
+  > secure data types, such as `securestring` and `secureobject`, aren't supported. Microsoft recommends that you 
+  > authenticate access to Azure resources with a [managed identity](/entra/identity/managed-identities-azure-resources/overview) 
+  > when possible, and assign a role that has the least privilege necessary.
+  >
+  > If this capability is unavailable, make sure to secure connection strings through other measures, such as 
+ > [Azure Key Vault](/azure/key-vault/general/overview), which you can use with [app settings](edit-app-settings-host-settings.md). 
+  > You can then [directly reference secure strings](../app-service/app-service-key-vault-references.md), such as connection 
+  > strings and keys. Similar to ARM templates, where you can define environment variables at deployment time, you can define 
+  > app settings within your [logic app workflow definition](/azure/templates/microsoft.logic/workflows). 
+  > You can then capture dynamically generated infrastructure values, such as connection endpoints, storage strings, and more. 
+  > For more information, see [Application types for the Microsoft identity platform](/entra/identity-platform/v2-app-types).
 
 * For a storage account that's behind a firewall, check access to the storage account in the following ways:
 

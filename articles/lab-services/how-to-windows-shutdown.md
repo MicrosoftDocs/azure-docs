@@ -2,9 +2,9 @@
 title: Control shutdown for Windows lab VMs
 description: Remove the shutdown command from the Windows Start menu in a lab virtual machine in Azure Lab Services.
 services: lab-services
-ms.service: lab-services
-ms.author: nicktrog
-author: ntrogh
+ms.service: azure-lab-services
+ms.author: rosemalcolm
+author: RoseHJM
 ms.topic: how-to
 ms.date: 06/02/2023
 ---

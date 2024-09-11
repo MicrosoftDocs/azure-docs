@@ -2,7 +2,7 @@
 title: Configure export settings in Azure API for FHIR
 description: Learn how to configure export settings in Azure API for FHIR.
 author: expekesheth
-ms.service: healthcare-apis
+ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.topic: reference
 ms.date: 09/27/2023

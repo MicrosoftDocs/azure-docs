@@ -2,12 +2,12 @@
 title: Migrate Bing Maps Find Time Zone API to Azure Maps Get Timezone By Coordinates API
 titleSuffix: Microsoft Azure Maps
 description: Learn how to Migrate the Bing Maps Find Time Zone API to the Azure Maps Get Time Zone By Coordinates API.
-author: eriklindeman
-ms.author: eriklind
+author: faterceros
+ms.author: aterceros
 ms.date: 04/15/2024
 ms.topic: how-to
 ms.service: azure-maps
-services: azure-maps
+ms.subservice: timezone
 ---
 
 

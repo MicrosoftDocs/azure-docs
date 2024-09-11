@@ -1,18 +1,21 @@
 ---
 title: Export API from Azure API Management to Postman for testing and monitoring | Microsoft Docs
-description: Learn how to export an API definition from API Management to Postman and use Postman for API testing and monitoring
+description: Learn how to export an API definition from API Management to Postman and use Postman for API testing, monitoring, and development
 author: dlepow
 
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: how-to
-ms.date: 10/11/2022
+ms.date: 08/06/2024
 ms.author: danlep
 ---
-# Export API definition to Postman for API testing and monitoring
+# Export API definition to Postman for API testing, monitoring, and development
 
 [!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 
 To enhance development of your APIs, you can export an API fronted in API Management to [Postman](https://www.postman.com/product/what-is-postman/). Export an API definition from API Management as a Postman [collection](https://learning.postman.com/docs/getting-started/creating-the-first-collection/) so that you can use Postman's tools to design, document, test, monitor, and collaborate on APIs. 
+
+> [!NOTE]
+> Only the API definition can be exported directly from API Management to Postman. Other information such as policies or subscription keys isn't exported.
 
 ## Prerequisites
 
@@ -22,8 +25,6 @@ To enhance development of your APIs, you can export an API fronted in API Manage
     > [!NOTE]
     > Currently, you can only export HTTP APIs from API Management directly to Postman.
     
-    For testing authorization in Postman as outlined later in this article, the API should require a subscription.
-
 + A [Postman](https://www.postman.com) account, which you can use to access Postman for Web.
     * Optionally, [download and install](https://learning.postman.com/docs/getting-started/installation-and-updates/) the Postman desktop app locally.
 
@@ -45,30 +46,18 @@ To enhance development of your APIs, you can export an API fronted in API Manage
 
     :::image type="content" source="media/export-api-postman/postman-collection-documentation.png" alt-text="Screenshot of collection imported to Postman."::: 
 
-## Authorize requests in Postman  
+## API development with API Management and Postman  
 
-If the API you exported requires a subscription, you'll need to configure a valid subscription key from your API Management instance to send requests from Postman. 
+API developers can rapidly iterate on API changes by using Postman's API testing, monitoring, and development capabilities.
 
-Use the following steps to configure a subscription key as a secret variable for the collection.
+APIs developed in Postman can then be exported and imported back into API Management as API revisions. This enables you to develop APIs in Postman and then deploy them to API Management for runtime access and management. [Learn more](https://learning.postman.com/docs/designing-and-developing-your-api/deploying-an-api/deploying-an-api-azure/)
 
-1. In your Postman workspace, select **Environments** > **Create environment**.
-1. Enter a name for the environment such as *Azure API Management*.
-1. Add a variable with the following values:
-    1. Name -  *apiKey*
-    1. Type - **secret**
-    1. Initial value - a valid API Management subscription key for the API
-1. Select **Save**.
-1. Select **Collections** and the name of the collection that you imported.
-1. Select the **Authorization** tab.
-1. In the upper right, select the name of the environment you created, such as *Azure API Management*.
-1. For the key **Ocp-Apim-Subscription-Key**, enter the variable name `{{apiKey}}`. Select **Save**.
 
-    :::image type="content" source="media/export-api-postman/postman-api-authorization.png" alt-text="Screenshot of configuring secret API key in Postman.":::
-1. Test your configuration by selecting an operation in your API such as a `GET` operation, and select **Send**.
-    
-    If correctly configured, the operation returns a `200 OK` status and some output.
+> [!CAUTION]
+> Use care when passing API Management subscription keys or other sensitive data in Postman. [Postman Vault](https://learning.postman.com/docs/sending-requests/postman-vault/postman-vault-secrets/) is recommended to store sensitive data as vault secrets in your instance of Postman, so you can safely reuse secrets in your collections and requests.
 
-## Next steps
+## Related content
 
-* Learn more about [importing APIs to Postman](https://learning.postman.com/docs/designing-and-developing-your-api/importing-an-api/).
+* [Blog: Enhanced API developer experience with the Microsoft-Postman partnership](https://techcommunity.microsoft.com/t5/apps-on-azure-blog/enhanced-api-developer-experience-with-the-microsoft-postman/ba-p/3650304)
+* Learn more about [importing API definitions to Postman](https://learning.postman.com/docs/designing-and-developing-your-api/importing-an-api/).
 * Learn more about [authorizing requests in Postman](https://learning.postman.com/docs/sending-requests/authorization/).

@@ -4,10 +4,10 @@ titleSuffix: Azure Virtual Network
 description: Learn about default outbound access in Azure.
 author: mbender-ms
 ms.author: mbender
-ms.service: virtual-network
+ms.service: azure-virtual-network
 ms.subservice: ip-services
 ms.topic: conceptual
-ms.date: 07/02/2024
+ms.date: 09/09/2024
 ---
 
 # Default outbound access in Azure
@@ -62,9 +62,6 @@ Some examples of configurations that won't work when using default outbound acce
  
 There are multiple ways to turn off default outbound access. The following sections describe the options available to you.
  
->[!Important]
-> Private Subnet is currently in public preview.  It's provided without a service-level agreement, and is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
- 
 ### Utilize the Private Subnet parameter
  
 * Creating a subnet to be Private prevents any virtual machines on the subnet from utilizing default outbound access to connect to public endpoints.
@@ -108,7 +105,7 @@ There are multiple ways to turn off default outbound access. The following secti
  
 ### Use Flexible orchestration mode for Virtual Machine Scale Sets
  
-* Flexible scale sets are secure by default. Any instances created via Flexible scale sets don't have the default outbound access IP associated with them, so an explicit outbound method is required. For more information, see [Flexible orchestration mode for Virtual Machine Scale Sets](../../virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes.md#what-has-changed-with-flexible-orchestration-mode)
+* Flexible scale sets are secure by default. Any instances created via Flexible scale sets don't have the default outbound access IP associated with them, so an explicit outbound method is required. For more information, see [Flexible orchestration mode for Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-orchestration-modes#what-has-changed-with-flexible-orchestration-mode)
  
 >[!Important]
 > When a load balancer backend pool is configured by IP address, it will use default outbound access due to an ongoing known issue. For secure by default configuration and applications with demanding outbound needs, associate a NAT gateway to the VMs in your load balancer's backend pool to secure traffic. See more on existing [known issues](../../load-balancer/whats-new.md#known-issues).

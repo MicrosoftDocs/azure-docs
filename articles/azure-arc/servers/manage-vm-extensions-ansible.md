@@ -1,7 +1,7 @@
 ---
 title: Enable VM extension using Red Hat Ansible
 description: This article describes how to deploy virtual machine extensions to Azure Arc-enabled servers running in hybrid cloud environments using Red Hat Ansible Automation.
-ms.date: 05/15/2023
+ms.date: 09/03/2024
 ms.topic: how-to
 ms.custom: devx-track-ansible
 ---
@@ -67,7 +67,6 @@ The project you created from the Azure Infrastructure Configuration Demo collect
 |---------|---------|
 |Microsoft Defender for Cloud integrated vulnerability scanner  |microsoft_defender  |
 |Custom Script extension  |custom_script  |
-|Log Analytics Agent  |log_analytics_agent  |
 |Azure Monitor for VMs (insights)  |azure_monitor_for-vms  |
 |Azure Key Vault Certificate Sync  |azure_key_vault  |
 |Azure Monitor Agent  |azure_monitor_agent  |

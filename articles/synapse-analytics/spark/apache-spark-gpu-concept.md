@@ -2,7 +2,7 @@
 title: GPU-accelerated pools (deprecated)
 description: Introduction to GPUs inside Synapse Analytics.
 author: midesa
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.topic: overview
 ms.subservice: spark
 ms.date: 05/02/2024

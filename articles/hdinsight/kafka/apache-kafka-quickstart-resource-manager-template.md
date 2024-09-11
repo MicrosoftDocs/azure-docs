@@ -1,10 +1,10 @@
 ---
 title: 'Quickstart: Apache Kafka using Azure Resource Manager - HDInsight'
 description: In this quickstart, you learn how to create an Apache Kafka cluster on Azure HDInsight using Azure Resource Manager template. You also learn about Kafka topics, subscribers, and consumers.
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: quickstart
 ms.custom: subject-armqs, mode-arm, devx-track-arm-template
-ms.date: 09/15/2023
+ms.date: 07/24/2024
 #Customer intent: I need to create a Kafka cluster so that I can use it to process streaming data
 ---
 
@@ -60,7 +60,7 @@ Two Azure resources are defined in the template:
 
 ## Review deployed resources
 
-Once the cluster is created, you'll receive a **Deployment succeeded** notification with a **Go to resource** link. Your Resource group page will list your new HDInsight cluster and the default storage associated with the cluster. Each cluster has an [Azure Blob Storage](../hdinsight-hadoop-use-blob-storage.md) account, an [Azure Data Lake Storage Gen1](../hdinsight-hadoop-use-data-lake-storage-gen1.md), or an  [`Azure Data Lake Storage Gen2`](../hdinsight-hadoop-use-data-lake-storage-gen2.md) dependency. It's referred as the default storage account. The HDInsight cluster and its default storage account must be colocated in the same Azure region. Deleting clusters doesn't delete the storage account.
+Once the cluster is created, you'll receive a **Deployment succeeded** notification with a **Go to resource** link. Your Resource group page will list your new HDInsight cluster and the default storage associated with the cluster. Each cluster has an [Azure Blob Storage](../hdinsight-hadoop-use-blob-storage.md) account, or an  [`Azure Data Lake Storage Gen2`](../hdinsight-hadoop-use-data-lake-storage-gen2.md) dependency. It's referred as the default storage account. The HDInsight cluster and its default storage account must be colocated in the same Azure region. Deleting clusters doesn't delete the storage account.
 
 ## Get the Apache Zookeeper and Broker host information
 
@@ -144,9 +144,9 @@ Kafka stores streams of data in *topics*. You can use the `kafka-topics.sh` util
         
         In regions with three fault domains, a replication factor of 3 allows replicas to be spread across the fault domains. In regions with two fault domains, a replication factor of four spreads the replicas evenly across the domains.
         
-        For information on the number of fault domains in a region, see the [Availability of Linux virtual machines](../../virtual-machines/availability.md) document.
+        For information on the number of fault domains in a region, see the [Availability of Linux virtual machines](/azure/virtual-machines/availability) document.
 
-        Kafka isn't aware of Azure fault domains. When creating partition replicas for topics, it may not distribute replicas properly for high availability.
+        Kafka isn't aware of Azure fault domains. When you create partition replicas for topics, it may not distribute replicas properly for high availability.
 
         To ensure high availability, use the [Apache Kafka partition rebalance tool](https://github.com/hdinsight/hdinsight-kafka-tools). This tool must be ran from an SSH connection to the head node of your Kafka cluster.
 

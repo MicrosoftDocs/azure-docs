@@ -37,7 +37,7 @@ For Azure Arc-enabled servers enrolled in WS2012 ESUs enabled by Azure Arc, free
 
 Other Azure services through Azure Arc-enabled servers are available as well, with offerings such as:
 
-* [Microsoft Defender for Cloud](../../defender-for-cloud/defender-for-cloud-introduction.md) - As part of the cloud security posture management (CSPM) pillar, it provides server protections through [Microsoft Defender for Servers](../../defender-for-cloud/plan-defender-for-servers.md) to help protect you from various cyber threats and vulnerabilities.
+* [Microsoft Defender for Cloud](/azure/defender-for-cloud/defender-for-cloud-introduction) - As part of the cloud security posture management (CSPM) pillar, it provides server protections through [Microsoft Defender for Servers](/azure/defender-for-cloud/plan-defender-for-servers) to help protect you from various cyber threats and vulnerabilities.
 * [Microsoft Sentinel](scenario-onboard-azure-sentinel.md) - Collect security-related events and correlate them with other data sources.
    
 ## Prepare delivery of ESUs

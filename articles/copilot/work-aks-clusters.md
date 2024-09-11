@@ -1,7 +1,7 @@
 ---
 title:  Work with AKS clusters efficiently using Microsoft Copilot in Azure
 description: Learn how Microsoft Copilot in Azure can help you be more efficient when working with Azure Kubernetes Service (AKS).
-ms.date: 05/28/2024
+ms.date: 07/29/2024
 ms.topic: how-to
 ms.service: copilot-for-azure
 ms.custom:
@@ -16,6 +16,10 @@ Microsoft Copilot in Azure (preview) can help you work more efficiently with [Az
 
 When you ask Microsoft Copilot in Azure for help with AKS, it automatically pulls context when possible, based on the current conversation or on the page you're viewing in the Azure portal. If the context isn't clear, you'll be prompted to specify a cluster.
 
+This video shows how Copilot in Azure can assist with AKS cluster management and configurations.
+
+> [!VIDEO https://learn-video.azurefd.net/vod/player?show=microsoft-copilot-in-azure&ep=microsoft-copilot-in-azure-series-kubectl]
+
 [!INCLUDE [scenario-note](includes/scenario-note.md)]
 
 [!INCLUDE [preview-note](includes/preview-note.md)]
@@ -23,6 +27,10 @@ When you ask Microsoft Copilot in Azure for help with AKS, it automatically pull
 ## Run cluster commands
 
 You can use Microsoft Copilot in Azure to run kubectl commands based on your prompts. When you make a request that can be achieved by a kubectl command, you'll see the command along with the option to execute it directly in the **Run command** pane. This pane lets you [run commands on your cluster through the Azure API](/azure/aks/access-private-cluster?tabs=azure-portal), without directly connecting to the cluster. You can also copy the generated command and run it directly.
+
+This video shows how Copilot in Azure can assist with kubectl commands for managing AKS clusters.
+
+> [!VIDEO https://learn-video.azurefd.net/vod/player?show=microsoft-copilot-in-azure&ep=microsoft-copilot-in-azure-series-kubectl]
 
 ### Cluster command sample prompts
 

@@ -5,7 +5,7 @@ author: anaharris-ms
 ms.author: anaharris
 ms.topic: reliability-article
 ms.custom: subject-reliability
-ms.service: event-hubs
+ms.service: azure-event-hubs
 ms.date: 06/12/2024
 ---
 

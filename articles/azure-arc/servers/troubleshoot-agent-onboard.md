@@ -19,7 +19,7 @@ Use the following table to identify and resolve issues when configuring the Azur
 | AZCM0001 | An unknown error occurred | Contact Microsoft Support for assistance. |
 | AZCM0011 | The user canceled the action (CTRL+C) | Retry the previous command. |
 | AZCM0012 | The access token is invalid | If authenticating via access token, obtain a new token and try again. If authenticating via service principal or device logins, contact Microsoft Support for assistance. |
-| AZCM0016 | Missing a mandatory parameter | Review the error message in the output to identify which parameters are missing. For the complete syntax of the command, run `azcmagent <command> --help`. |
+| AZCM0016 | Missing mandatory parameter | Review the error message in the output to identify which parameters are missing. For the complete syntax of the command, run `azcmagent <command> --help`. |
 | AZCM0018 | The command was executed without administrative privileges | Retry the command in an elevated user context (administrator/root). |
 | AZCM0019 | The path to the configuration file is incorrect | Ensure the path to the configuration file is correct and try again. |
 | AZCM0023 | The value provided for a parameter (argument) is invalid | Review the error message for more specific information. Refer to the syntax of the command (`azcmagent <command> --help`) for valid values or expected format for the arguments. |
@@ -117,6 +117,6 @@ If you don't see your problem here or you can't resolve your issue, try one of t
 
 * Get answers from Azure experts through [Microsoft Q&A](/answers/topics/azure-arc.html).
 
-* Connect with [@AzureSupport](https://twitter.com/azuresupport), the official Microsoft Azure account for improving customer experience. Azure Support connects the Azure community to answers, support, and experts.
+* Connect with [@AzureSupport](https://x.com/azuresupport), the official Microsoft Azure account for improving customer experience. Azure Support connects the Azure community to answers, support, and experts.
 
 * File an Azure support incident. Go to the [Azure support site](https://azure.microsoft.com/support/options/), and select **Get Support**.

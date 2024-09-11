@@ -5,7 +5,7 @@ ms.topic: tutorial
 ms.date: 10/31/2023
 ms.custom: subject-rbac-steps, devx-track-azurecli
 ms.author: tejaswikolli
-ms.service: container-registry
+ms.service: azure-container-registry
 ---
 
 # Rotate and revoke a customer-managed key 
@@ -44,22 +44,33 @@ If you configure the registry for manual updating for a new key version, run the
 > [!TIP]
 > When you run `az-acr-encryption-rotate-key`, you can pass either a versioned key ID or an unversioned key ID. If you use an unversioned key ID, the registry is then configured to automatically detect later key version updates.
 
-To update a customer-managed key version manually, you have two options:
+To update a customer-managed key version manually, you have three options:
 
-- Rotate the key and use a user-assigned identity.
+- Rotate the key and use a client ID of a managed identity.
 
-  If you're using the key from a different key vault, verify that `principal-id-user-assigned-identity` has the `get`, `wrap`, and `unwrap` permissions on that key vault.
+If you're using the key from a different key vault, verify the `identity` has the `get`, `wrap`, and `unwrap` permissions on that key vault.
 
   ```azurecli
   az acr encryption rotate-key \
     --name <registry-name> \
     --key-encryption-key <new-key-id> \
-    --identity <principal-id-user-assigned-identity>
+    --identity <client ID of a managed identity>
   ```
 
+- Rotate the key and use a user-assigned identity.
+
+Before you use the user-assigned identity, verify that the `get`, `wrap`, and `unwrap` permissions are assigned to it.
+
+  ```azurecli
+  az acr encryption rotate-key \
+    --name <registry-name> \
+    --key-encryption-key <new-key-id> \
+    --identity <id of user assigned identity>
+  ```
+    
 - Rotate the key and use a system-assigned identity.
 
-  Before you use the system-assigned identity, verify that the `get`, `wrap`, and `unwrap` permissions are assigned to it.
+Before you use the system-assigned identity, verify that the `get`, `wrap`, and `unwrap` permissions are assigned to it.
 
   ```azurecli
   az acr encryption rotate-key \

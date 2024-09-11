@@ -101,6 +101,6 @@ For more information, see [Create a support request](../azure-portal/supportabil
 
 ## Next steps
 
-- Learn more about [vCPU quotas](../virtual-machines/windows/quotas.md).
+- Learn more about [vCPU quotas](/azure/virtual-machines/windows/quotas).
 - Learn more in [Quotas overview](quotas-overview.md).
 - Learn about [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md).

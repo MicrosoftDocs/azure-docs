@@ -5,7 +5,7 @@ services: virtual-network
 ms.date: 12/01/2023
 ms.author: mbender
 author: mbender-ms
-ms.service: virtual-network
+ms.service: azure-virtual-network
 ms.subservice: ip-services
 ms.topic: how-to
 ms.custom: template-how-to, engagement-fy23, devx-track-azurecli, devx-track-azurepowershell
@@ -280,6 +280,6 @@ To create a virtual machine with different IP configurations, read the following
 
 |Task|Tool|
 |---|---|
-|Create a VM with multiple network interfaces|[CLI](../../virtual-machines/linux/multiple-nics.md), [PowerShell](../../virtual-machines/windows/multiple-nics.md)|
+|Create a VM with multiple network interfaces|[CLI](/azure/virtual-machines/linux/multiple-nics), [PowerShell](/azure/virtual-machines/windows/multiple-nics)|
 |Create a single NIC VM with multiple IPv4 addresses|[CLI](virtual-network-multiple-ip-addresses-cli.md), [PowerShell](virtual-network-multiple-ip-addresses-powershell.md)|
 |Create a single NIC VM with a private IPv6 address (behind an Azure Load Balancer)|[CLI](../../load-balancer/load-balancer-ipv6-internet-cli.md), [PowerShell](../../load-balancer/load-balancer-ipv6-internet-ps.md), [Azure Resource Manager template](../../load-balancer/load-balancer-ipv6-internet-template.md)|

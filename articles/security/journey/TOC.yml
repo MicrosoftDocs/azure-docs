@@ -190,7 +190,7 @@
       - name: Data encryption models
         href: ../fundamentals/encryption-models.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
       - name: Managed disk encryption
-        href: ../../virtual-machines/disk-encryption-overview.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
+        href: /azure/virtual-machines/disk-encryption-overview?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
     - name: Database security
       items:
       - name: Overview
@@ -225,7 +225,7 @@
     - name: Virtual machine security overview
       href: ../fundamentals/virtual-machines-overview.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
     - name: Automatic VM guest patching
-      href: ../../virtual-machines/automatic-vm-guest-patching.md?bc=%2fazure%2fsecurity%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsecurity%2fjourney%2ftoc.json
+      href: /azure/virtual-machines/automatic-vm-guest-patching?bc=%2fazure%2fsecurity%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsecurity%2fjourney%2ftoc.json
     - name: Best practices - IaaS workloads
       href: ../fundamentals/iaas.md?toc=/azure/security/journey/toc.json&bc=/azure/security/breadcrumb/toc.json
     - name: Azure Marketplace images

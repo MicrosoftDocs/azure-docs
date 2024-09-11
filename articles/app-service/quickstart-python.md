@@ -9,7 +9,7 @@ ms.devlang: python
 ms.custom: devx-azure-cli, devx-azure-portal, devx-vscode-azure-extension, devdivchpfy22, vscode-azure-extension-update-completed, devx-track-azurecli, devx-track-python
 ---
 
-# Quickstart: Deploy a Python (Django or Flask) web app to Azure App Service
+# Quickstart: Deploy a Python (Django, Flask, or FastAPI) web app to Azure App Service
 
 [!INCLUDE [regionalization-note](./includes/regionalization-note.md)]
 

@@ -75,7 +75,7 @@ Here's how to assign a role to an Azure Virtual Desktop service principal using 
 
 # [Azure PowerShell](#tab/powershell)
 
-Here's how to assign a role to an Azure Virtual Desktop service principal using the [Az.DesktopVirtualization](/powershell/module/az.desktopvirtualization) PowerShell module.
+Here's how to assign a role to an Azure Virtual Desktop service principal using the [Az.DesktopVirtualization](/powershell/module/az.desktopvirtualization) PowerShell module. Be sure to change the `<placeholder>` values for your own.
 
 [!INCLUDE [include-cloud-shell-local-powershell](includes/include-cloud-shell-local-powershell.md)]
 
@@ -88,7 +88,7 @@ Here's how to assign a role to an Azure Virtual Desktop service principal using 
 3. Store the subscription ID in a variable by running the following command, replacing the subscription ID in this example with your own:
 
    ```azurepowershell
-   $subId = "00000000-0000-0000-0000-000000000000"
+   $subId = "<SubscriptionID>"
    ```
 
 4. Assign the role to an Azure Virtual Desktop service principal by running the following command, replacing the value for the `RoleDefinitionName` parameter with the name of the role you need to assign, and the `ApplicationId` parameter with application ID of the service principal you want to assign from the earlier table. This example assigns the *Desktop Virtualization Power On Off Contributor* role to the *Azure Virtual Desktop* service principal on the subscription:

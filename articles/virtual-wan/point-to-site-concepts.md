@@ -3,7 +3,7 @@ title: 'User VPN (point-to-site) Concepts'
 titleSuffix: Azure Virtual WAN
 description: Learn about Virtual WAN  User VPN P2S VPN concepts.
 author: cherylmc
-ms.service: virtual-wan
+ms.service: azure-virtual-wan
 ms.topic: how-to
 ms.date: 12/05/2022
 ms.author: cherylmc

@@ -55,13 +55,15 @@ Refer to the following table for tools to use to validate NAT gateway connectivi
 
 ### How to analyze outbound connectivity
 
-To analyze outbound traffic from NAT gateway, use NSG flow logs. NSG flow logs provide connection information for your virtual machines. The connection information contains the source IP and port and the destination IP and port and the state of the connection. The traffic flow direction and the size of the traffic in number of packets and bytes sent is also logged. The source IP and port specified in the NSG flow log is for the virtual machine and not the NAT gateway.
+To analyze outbound traffic from NAT gateway, use virtual network (VNet) flow logs. VNet flow logs provide connection information for your virtual machines. The connection information contains the source IP and port and the destination IP and port and the state of the connection. The traffic flow direction and the size of the traffic in number of packets and bytes sent is also logged. The source IP and port specified in the VNet flow log is for the virtual machine and not the NAT gateway.
 
-* To learn more about NSG flow logs, see [NSG flow log overview](../network-watcher/network-watcher-nsg-flow-logging-overview.md).
+* To learn more about VNet flow logs, see [Virtual network flow logs overview](../network-watcher/vnet-flow-logs-overview.md).
 
-* For guides on how to enable NSG flow logs, see [Managing NSG flow logs](../network-watcher/network-watcher-nsg-flow-logging-overview.md#managing-nsg-flow-logs).
+* For guides on how to enable VNet flow logs, see [Manage virtual network flow logs](../network-watcher/vnet-flow-logs-portal.md).
 
-* For guides on how to read NSG flow logs, see [Working with NSG flow logs](../network-watcher/network-watcher-nsg-flow-logging-overview.md#working-with-flow-logs).
+* It is recommended to access the log data on [Log Analytics workspaces](/azure/azure-monitor/logs/log-analytics-overview) where you can also query and filter the data for outbound traffic. To learn more about using Log Analytics, see [Log Analytics tutorial](/azure/azure-monitor/logs/log-analytics-tutorial).
+
+* For more details on the VNet flow log schema, see [Traffic analytics schema and data aggregation](../network-watcher/traffic-analytics-schema.md).
 
 ## NAT gateway in a failed state
 

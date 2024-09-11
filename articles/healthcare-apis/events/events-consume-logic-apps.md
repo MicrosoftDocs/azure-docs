@@ -3,7 +3,7 @@ title: Consume FHIR events with Logic Apps - Azure Health Data Services
 description: Learn how to consume FHIR events with Logic Apps to enable automation workflows.
 services: healthcare-apis
 author: chachachachami
-ms.service: healthcare-apis
+ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.topic: tutorial
 ms.date: 06/23/2022

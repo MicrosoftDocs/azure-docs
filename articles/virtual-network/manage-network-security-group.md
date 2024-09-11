@@ -4,7 +4,7 @@ titlesuffix: Azure Virtual Network
 description: Learn how to create, change, or delete a network security group (NSG).
 services: virtual-network
 author: asudbring
-ms.service: virtual-network
+ms.service: azure-virtual-network
 ms.topic: how-to
 ms.date: 04/24/2023
 ms.author: allensu
@@ -122,7 +122,7 @@ Under **Help**, you can view **Effective security rules**. For more information,
 
 To learn more about the common Azure settings listed, see the following articles:
 
-- [Activity log](../azure-monitor/essentials/platform-logs-overview.md)
+- [Activity log](/azure/azure-monitor/essentials/platform-logs-overview)
 
 - [Access control (IAM)](../role-based-access-control/overview.md)
 
@@ -142,7 +142,7 @@ Get-AzNetworkSecurityGroup -Name myNSG -ResourceGroupName myResourceGroup
 
 To learn more about the common Azure settings listed, see the following articles:
 
-- [Activity log](../azure-monitor/essentials/platform-logs-overview.md)
+- [Activity log](/azure/azure-monitor/essentials/platform-logs-overview)
 
 - [Access control (IAM)](../role-based-access-control/overview.md)
 
@@ -160,7 +160,7 @@ az network nsg show --resource-group myResourceGroup --name myNSG
 
 To learn more about the common Azure settings listed, see the following articles:
 
-- [Activity log](../azure-monitor/essentials/platform-logs-overview.md)
+- [Activity log](/azure/azure-monitor/essentials/platform-logs-overview)
 
 - [Access control (IAM)](../role-based-access-control/overview.md)
 

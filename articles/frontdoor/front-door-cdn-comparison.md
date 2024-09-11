@@ -3,8 +3,8 @@ title: Comparison between Azure Front Door and Azure CDN services
 description: This article provides a comparison between the different Azure Front Door tiers and Azure CDN services.
 services: frontdoor
 author: duongau
-ms.service: frontdoor
-ms.topic: article
+ms.service: azure-frontdoor
+ms.topic: conceptual
 ms.date: 10/13/2023
 ms.author: duau
 ---

@@ -3,7 +3,7 @@ title: Connect API Management instance to a private network | Microsoft Docs
 description: Learn how to integrate an Azure API Management instance in the Standard v2 tier with a virtual network to access backend APIs hosted within the network.
 author: dlepow
 ms.author: danlep
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: how-to 
 ms.date: 05/20/2024
 ---

@@ -2,7 +2,7 @@
 title: Manage Azure HPC Cache storage targets
 description: How to suspend, remove, force delete, and flush Azure HPC Cache storage targets, and how to understand the storage target state
 author: ekpgh
-ms.service: hpc-cache
+ms.service: azure-hpc-cache
 ms.topic: how-to
 ms.date: 06/29/2022
 ms.author: rohogue

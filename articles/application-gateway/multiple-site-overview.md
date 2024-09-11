@@ -3,7 +3,7 @@ title: Hosting multiple sites on Azure Application Gateway
 description: This article provides an overview of the Azure Application Gateway multi-site support. Examples are provided of rule priority and the order of evaluation for rules applied to incoming requests. Application Gateway rule priority evaluation order is described in detail. Conditions and limitations for using wildcard rules are provided.
 services: application-gateway
 author: greg-lindsay
-ms.service: application-gateway
+ms.service: azure-application-gateway
 ms.date: 02/28/2024
 ms.author: greglin
 ms.topic: concept-article

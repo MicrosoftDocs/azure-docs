@@ -3,7 +3,7 @@ title: "Tutorial: Deploy hybrid Next.js websites on Azure Static Web Apps"
 description: "Generate and deploy Next.js hybrid sites with Azure Static Web Apps."
 services: static-web-apps
 author: aaronpowell
-ms.service: static-web-apps
+ms.service: azure-static-web-apps
 ms.topic:  tutorial
 ms.date: 04/25/2024
 ms.author: aapowell
@@ -90,7 +90,7 @@ In the _Build Details_ section, add configuration details specific to your prefe
 
 1. Leave the _Api location_ box empty.
 
-1. Leave the _App artifact location_ box empty.
+1. Leave the _Output location_ box empty.
 
 Select **Review + create**.
 

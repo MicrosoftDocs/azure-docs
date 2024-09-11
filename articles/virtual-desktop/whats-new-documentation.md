@@ -4,12 +4,46 @@ description: Learn about new and updated articles to the Azure Virtual Desktop d
 ms.topic: release-notes
 author: dknappettmsft
 ms.author: daknappe
-ms.date: 07/04/2024
+ms.date: 09/05/2024
 ---
 
 # What's new in documentation for Azure Virtual Desktop
 
-We update documentation for Azure Virtual Desktop regularly. In this article, we highlight articles for new features and where there are important updates to existing articles.
+We update documentation for Azure Virtual Desktop regularly. In this article, we highlight articles for new features and where there are significant updates to existing articles. To learn what's new in the service, see [What's new for Azure Virtual Desktop](whats-new.md).
+
+## August 2024
+
+In August 2024, we made the following changes to the documentation:
+
+- Published a new set of documentation to learn about peripheral and resource redirection and how to configure different classes of redirection:
+   - [Peripheral and resource redirection over the Remote Desktop Protocol](redirection-remote-desktop-protocol.md)
+   - [Configure audio and video redirection over the Remote Desktop Protocol](redirection-configure-audio-video.md).
+   - [Configure camera, webcam, and video capture redirection over the Remote Desktop Protocol](redirection-configure-camera-webcam-video-capture.md).
+   - [Configure clipboard redirection over the Remote Desktop Protocol](redirection-configure-clipboard.md).
+   - [Configure fixed, removable, and network drive redirection over the Remote Desktop Protocol](redirection-configure-drives-storage.md).
+   - [Configure location redirection over the Remote Desktop Protocol](redirection-configure-location.md).
+   - [Configure Media Transfer Protocol and Picture Transfer Protocol redirection on Windows over the Remote Desktop Protocol](redirection-configure-plug-play-mtp-ptp.md).
+   - [Configure printer redirection over the Remote Desktop Protocol](redirection-configure-printers.md).
+   - [Configure serial or COM port redirection over the Remote Desktop Protocol](redirection-configure-serial-com-ports.md).
+   - [Configure smart card redirection over the Remote Desktop Protocol](redirection-configure-smart-cards.md).
+   - [Configure USB redirection on Windows over the Remote Desktop Protocol](redirection-configure-usb.md).
+   - [Configure WebAuthn redirection over the Remote Desktop Protocol](redirection-configure-webauthn.md).
+
+- Updated [Set custom Remote Desktop Protocol (RDP) properties on a host pool in Azure Virtual Desktop](customize-rdp-properties.md) to include rewritten steps for Azure PowerShell and added steps for Azure CLI.
+
+- Updated [Use Microsoft Teams on Azure Virtual Desktop](teams-on-avd.md) to include information on how to publish new Teams as a RemoteApp.
+
+- Published a new article for [Azure Virtual Desktop on Azure Extended Zones](azure-extended-zones.md).
+
+- Published a new article to [Configure the session lock behavior for Azure Virtual Desktop](configure-session-lock-behavior.md) and updated [Configure single sign-on for Azure Virtual Desktop using Microsoft Entra ID](configure-single-sign-on.md) to include the relevant information.
+
+- Published a new article to [Onboard Azure Virtual Desktop session hosts to forensic evidence from Microsoft Purview Insider Risk Management](purview-forensic-evidence.md).
+
+- Updated [Configure the clipboard transfer direction and data types that can be copied in Azure Virtual Desktop](clipboard-transfer-direction-data-types.md?tabs=intune) to include the steps for using the Microsoft Intune settings catalog.
+
+## July 2024
+
+In July 2024, there were no significant changes to the documentation.
 
 ## June 2024
 

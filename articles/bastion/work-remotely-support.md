@@ -4,7 +4,7 @@ description: Learn how to use Azure Bastion to enable remote access to virtual m
 services: bastion
 author: isamorris
 
-ms.service: bastion
+ms.service: azure-bastion
 ms.topic: conceptual
 ms.date: 06/23/2023
 ms.author: isamorris

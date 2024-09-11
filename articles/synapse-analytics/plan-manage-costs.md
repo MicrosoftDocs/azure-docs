@@ -3,7 +3,7 @@ title: Plan to manage costs for Azure Synapse Analytics
 description: Learn how to plan for and manage costs for Azure Synapse Analytics by using cost analysis in the Azure portal.
 ms.topic: how-to
 ms.custom: subject-cost-optimization
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.subservice: overview
 ms.author: guyhay
 author: guyhay
@@ -142,4 +142,4 @@ To learn more about data integration costs, see [Plan and manage costs for Azure
 - Learn more about managing costs with [cost analysis](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
 - Learn about how to [prevent unexpected costs](../cost-management-billing/understand/analyze-unexpected-charges.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
 - Take the [Cost Management](/training/paths/control-spending-manage-bills?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) guided learning course.
-- Learn about planning and managing costs for [Azure Machine Learning](../machine-learning/concept-plan-manage-cost.md)
+- Learn about planning and managing costs for [Azure Machine Learning](/azure/machine-learning/concept-plan-manage-cost)

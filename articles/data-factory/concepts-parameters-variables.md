@@ -4,7 +4,6 @@ titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn about pipeline parameters and variables in Azure Data Factory and Azure Synapse Analytics.
 author: soferreira
 ms.author: soferreira
-ms.service: data-factory
 ms.subservice: orchestration
 ms.custom: synapse
 ms.topic: conceptual

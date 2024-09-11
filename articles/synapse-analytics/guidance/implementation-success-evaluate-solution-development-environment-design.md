@@ -1,10 +1,10 @@
 ---
 title: "Synapse implementation success methodology: Evaluate solution development environment design"
 description: "Learn how to set up multiple environments for your modern data warehouse project to support development, testing, and production."
-author: SnehaGunda
+author: whhender
 ms.author: whhender
 ms.reviewer: whhender
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.topic: conceptual
 ms.date: 05/31/2022
 ---
@@ -41,7 +41,7 @@ Promoting a workspace to another workspace is a two-part process:
 Ensure that integration with Azure DevOps or GitHub is properly set up. Design a repeatable process that releases changes across development, Test/QA/UAT, and production environments. 
 
 >[!IMPORTANT]
-> We recommend that sensitive configuration data always be stored securely in [Azure Key Vault](../../key-vault/general/basic-concepts.md). Use Azure Key Vault to maintain a central, secure location for sensitive configuration data, like database connection strings. That way, appropriate services can access configuration data from within each environment.
+> We recommend that sensitive configuration data always be stored securely in [Azure Key Vault](/azure/key-vault/general/basic-concepts). Use Azure Key Vault to maintain a central, secure location for sensitive configuration data, like database connection strings. That way, appropriate services can access configuration data from within each environment.
 
 ## Next steps
 

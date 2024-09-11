@@ -6,6 +6,8 @@
   items:
   - name: Capabilities
     href: capabilities.md
+  - name: Example prompts
+    href: example-prompts.md
   - name: Responsible AI FAQ
     href: responsible-ai-faq.md
 - name: How-to guides
@@ -18,11 +20,13 @@
   items:
   - name: Get resource information
     href: get-information-resource-graph.md
+  - name: Execute commands
+    href: execute-commands.md
   - name: Deploy VMs effectively
     href: deploy-vms-effectively.md
   - name: Build infrastructure and deploy workloads
     href: build-infrastructure-deploy-workloads.md
-  - name: Use guided deployments
+  - name: Use interactive deployments
     href: use-guided-deployments.md
   - name: Get monitoring information
     href: get-monitoring-information.md
@@ -38,6 +42,8 @@
     href: generate-cli-scripts.md
   - name: Generate PowerShell scripts
     href: generate-powershell-scripts.md
+  - name: Generate Terraform infrastructure
+    href: generate-terraform-configurations.md
   - name: Author API Management policies
     href: author-api-management-policies.md
   - name: Work with AKS clusters

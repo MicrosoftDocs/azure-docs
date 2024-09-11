@@ -3,8 +3,8 @@ title: What is guest attestation for confidential VMs?
 description: Learn how you can use guest attestation for assurance that your software inside an Azure confidential virtual machine runs on the expected hardware platform.
 author: prasadmsft
 ms.author: reprasa
-ms.service: virtual-machines
-ms.subservice: confidential-computing
+ms.service: azure-virtual-machines
+ms.subservice: azure-confidential-computing
 ms.topic: conceptual
 ms.date: 09/29/2022
 ms.custom: template-concept
@@ -30,7 +30,7 @@ The major components and services involved in guest attestation are:
 - The workload
 - The guest attestation library
 - Hardware (for reporting). For example, AMD-SEVSNP.
-- The [Microsoft Azure Attestation service](../attestation/overview.md)
+- The [Microsoft Azure Attestation service](/azure/attestation/overview)
 - JSON web token response
 
 :::image type="complex" source="./media/guest-attestation-confidential-vms/attestation-workflow.png" lightbox="./media/guest-attestation-confidential-vms/attestation-workflow.png" alt-text="Diagram of guest attestation scenario for a confidential VM.":::

@@ -225,7 +225,7 @@ To configure an existing machine to use Arc gateway, follow these steps:
 1. Associate your existing machine with your Arc gateway resource:
 
     ```azurecli
-    az connectedmachine setting update --resource-group [res-group] --subscription [subscription name] --base-provider Microsoft.HyrbridCompute --base-resource-type machines --base-resource-name [Arc-server's resource name]  --settings-resource-name default --gateway-resource-id [Full Arm resourceid]
+    az connectedmachine setting update --resource-group [res-group] --subscription [subscription name] --base-provider Microsoft.HybridCompute --base-resource-type machines --base-resource-name [Arc-server's resource name]  --settings-resource-name default --gateway-resource-id [Full Arm resourceid]
     ```
     
 1. Update the machine to use the Arc gateway resource.

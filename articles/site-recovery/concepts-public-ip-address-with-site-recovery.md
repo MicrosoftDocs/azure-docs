@@ -4,7 +4,7 @@ description: Describes how to set up public IP addresses with Azure Site Recover
 services: site-recovery
 author: ankitaduttaMSFT
 manager: rochakm
-ms.service: site-recovery
+ms.service: azure-site-recovery
 ms.topic: conceptual
 ms.date: 10/31/2023
 ms.author: ankitadutta

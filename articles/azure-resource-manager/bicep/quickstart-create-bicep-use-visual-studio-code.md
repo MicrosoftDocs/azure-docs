@@ -1,7 +1,7 @@
 ---
 title: Create Bicep files - Visual Studio Code
 description: Use Visual Studio Code and the Bicep extension to Bicep files for deploy Azure resources
-ms.date: 03/20/2024
+ms.date: 08/05/2024
 ms.topic: quickstart
 ms.custom: mode-ui, devx-track-bicep
 #Customer intent: As a developer new to Azure deployment, I want to learn how to use Visual Studio Code to create and edit Bicep files, so I can use them to deploy Azure resources.
@@ -171,6 +171,10 @@ resource exampleStorage 'Microsoft.Storage/storageAccounts@2023-01-01' =  {
 You're almost done. Just provide values for those properties.
 
 Again, intellisense helps you. Set `name` to `storageAccountName`, which is the parameter that contains a name for the storage account. For `location`, set it to `location`, which is a parameter you created earlier. When adding `sku.name` and `kind`, intellisense presents the valid options.
+
+To add optional properties alongside the required properties, place the cursor at the desired location and press <kbd>Ctrl</kbd>+<kbd>Space</kbd>. Intellisense suggests unused properties as shown in the following screenshot.
+
+:::image type="content" source="./media/quickstart-create-bicep-use-visual-studio-code/bicep-visual-studio-code-add-properties.png" alt-text="Screenshot of adding additional properties.":::
 
 When finished, you have:
 

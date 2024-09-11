@@ -8,7 +8,7 @@ ms.author: pauljewell
 
 ms.service: azure-blob-storage
 ms.topic: how-to
-ms.date: 05/01/2023
+ms.date: 08/05/2024
 ms.devlang: javascript
 ms.custom: devx-track-js, devguide-js
 ---
@@ -59,7 +59,7 @@ The following example renews a lease for a blob:
 
 You can release a blob lease if the lease ID specified on the request matches the lease ID associated with the blob. Releasing a lease allows another client to acquire a lease for the blob immediately after the release is complete.
 
-You can release a lease using one of the following methods on a JavaScript[BlobLeaseClient](/javascript/api/@azure/storage-blob/blobleaseclient) instance:
+You can release a lease using one of the following methods on a JavaScript [BlobLeaseClient](/javascript/api/@azure/storage-blob/blobleaseclient) instance:
 
 - [releaseLease](/javascript/api/@azure/storage-blob/blobleaseclient#@azure-storage-blob-blobleaseclient-releaselease)
 

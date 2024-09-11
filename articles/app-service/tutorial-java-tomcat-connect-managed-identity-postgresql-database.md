@@ -11,7 +11,7 @@ ms.custom: passwordless-java, service-connector, devx-track-azurecli, devx-track
 
 # Tutorial: Connect to a PostgreSQL Database from Java Tomcat App Service without secrets using a managed identity
 
-[Azure App Service](overview.md) provides a highly scalable, self-patching web hosting service in Azure. It also provides a [managed identity](overview-managed-identity.md) for your app, which is a turn-key solution for securing access to [Azure Database for PostgreSQL](../postgresql/index.yml) and other Azure services. Managed identities in App Service make your app more secure by eliminating secrets from your app, such as credentials in the environment variables. In this tutorial, you learn how to:
+[Azure App Service](overview.md) provides a highly scalable, self-patching web hosting service in Azure. It also provides a [managed identity](overview-managed-identity.md) for your app, which is a turn-key solution for securing access to [Azure Database for PostgreSQL](/azure/postgresql/) and other Azure services. Managed identities in App Service make your app more secure by eliminating secrets from your app, such as credentials in the environment variables. In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 > * Create a PostgreSQL database.

@@ -4,7 +4,7 @@ metadata:
   description: This article provides a list of frequently asked questions (FAQ) for Azure Blob Storage. 
   ms.topic: faq
   ms.service: azure-blob-storage
-  ms.date: 03/20/2024
+  ms.date: 08/27/2024
   ms.author: normesta
   author: normesta
 title: Azure Blob Storage frequently asked questions
@@ -17,7 +17,7 @@ sections:
       - question: |
           I created a new policy. Why do the actions not run immediately?
         answer: |
-          The platform runs the lifecycle policy once a day. Once you configure a policy, it can take up to 24 hours to go into effect. Once the policy is in effect, the time taken for actions to run may vary depending on the size of the storage account and the operations performed.
+          Once you configure a policy, it can take up to 24 hours to go into effect. Once the policy is in effect, the time taken for actions to run may vary depending on the size of the storage account and the operations performed.
       - question: |
           If I update an existing policy, how long does it take for the actions to run?
         answer: |
@@ -121,7 +121,11 @@ sections:
       - question: |
           How do I track availability of my storage account?
         answer: |
-          You can configure a resource health alert based on the [Azure Resource Health](../../service-health/resource-health-overview.md) service to track the availability of your storage account. If there are no transactions on the account, then the alert reports based on the health of the Storage cluster where your storage account is located.
+          You can configure a resource health alert based on the [Azure Resource Health](/azure/service-health/resource-health-overview) service to track the availability of your storage account. If there are no transactions on the account, then the alert reports based on the health of the Storage cluster where your storage account is located.
+      - question: |
+          How often does the blob count and blob capacity metric get updated?
+        answer: |
+          The blob capacity and blob count metric are emitted hourly. A background process computes these metrics and updates them multiple times a day.
   - name: Change feed support
     questions:
       - question: |

@@ -56,7 +56,7 @@ az extension add --upgrade --yes --name appservice-kube
 ## Create a connected cluster
 
 > [!NOTE]
-> This tutorial uses [Azure Kubernetes Service (AKS)](../aks/index.yml) to provide concrete instructions for setting up an environment from scratch. However, for a production workload, you will likely not want to enable Azure Arc on an AKS cluster as it is already managed in Azure. The steps below will help you get started understanding the service, but for production deployments, they should be viewed as illustrative, not prescriptive. See [Quickstart: Connect an existing Kubernetes cluster to Azure Arc](../azure-arc/kubernetes/quickstart-connect-cluster.md) for general instructions on creating an Azure Arc-enabled Kubernetes cluster.
+> This tutorial uses [Azure Kubernetes Service (AKS)](/azure/aks/) to provide concrete instructions for setting up an environment from scratch. However, for a production workload, you will likely not want to enable Azure Arc on an AKS cluster as it is already managed in Azure. The steps below will help you get started understanding the service, but for production deployments, they should be viewed as illustrative, not prescriptive. See [Quickstart: Connect an existing Kubernetes cluster to Azure Arc](../azure-arc/kubernetes/quickstart-connect-cluster.md) for general instructions on creating an Azure Arc-enabled Kubernetes cluster.
 
 1. Create a cluster in Azure Kubernetes Service with a public IP address. Replace `<group-name>` with the resource group name you want.
 
@@ -141,7 +141,7 @@ az extension add --upgrade --yes --name appservice-kube
     
 ## Create a Log Analytics workspace
 
-While a [Log Analytic workspace](../azure-monitor/logs/quick-create-workspace.md) is not required to run App Service in Azure Arc, it's how developers can get application logs for their apps that are running in the Azure Arc-enabled Kubernetes cluster. 
+While a [Log Analytic workspace](/azure/azure-monitor/logs/quick-create-workspace) is not required to run App Service in Azure Arc, it's how developers can get application logs for their apps that are running in the Azure Arc-enabled Kubernetes cluster. 
 
 1. For simplicity, create the workspace now.
 

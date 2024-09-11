@@ -1,17 +1,17 @@
 ---
 title: Azure Linux Container Host for AKS basic core concepts
 description: Learn the basic core concepts that make up the Azure Linux Container Host for AKS. 
-author: htaubenfeld
-ms.author: htaubenfeld
+author: suhuruli
+ms.author: suhuruli
 ms.service: microsoft-linux
 ms.topic: conceptual 
-ms.date: 09/29/2023
+ms.date: 08/18/2024
 ms.custom: template-concept, linux-related-content
 ---
 
 # Core concepts for the Azure Linux Container Host for AKS
 
-Microsoft Azure Linux is an open-sourced project maintained by Microsoft, which means that Microsoft is responsible for the entire Azure Linux Container Host stack, from the Linux kernel to the [Common Vulnerabilities and Exposures (CVEs)](https://cve.mitre.org/) infrastructure, support, and end-to-end validation. Microsoft makes it easy for you to create an AKS cluster with Azure Linux, without worrying about details such as verification and critical security vulnerability patches from a third party distribution.
+Microsoft Azure Linux is an open-sourced project maintained by Microsoft, which means that Microsoft is responsible for the entire Azure Linux Container Host stack, from the Linux kernel to the Common Vulnerabilities and Exposures (CVEs) infrastructure, support, and end-to-end validation. Microsoft makes it easy for you to create an AKS cluster with Azure Linux, without worrying about details such as verification and critical security vulnerability patches from a third party distribution.
 
 ## CVE infrastructure
 
@@ -32,7 +32,7 @@ Given that Microsoft owns the entire Azure Linux Container Host stack, including
 
 Before an Azure Linux node image is released for testing, it undergoes a series of Azure Linux and AKS specific tests to ensure that the image meets AKS's requirements. This approach to quality testing helps catch and mitigate issues before they're deployed to your production nodes. Part of these tests are performance related, testing CPU, network, storage, memory, and cluster metrics such as cluster creation and upgrade times. This ensures that the performance of the Azure Linux Container Host doesn't regress as we upgrade the image.
 
-In addition, the Azure Linux packages published to [packages.microsoft.com](https://packages.microsoft.com/cbl-mariner/) are also given an extra degree of confidence and safety through our testing. Both the Azure Linux node image and packages are run through a suite of tests that simulate an Azure environment. This includes Build Verification Tests (BVTs) that validate [AKS extensions and add-ons](../../articles/aks/integrations.md) are supported on each release of the Azure Linux Container Host. Patches are also tested against the current Azure Linux node image before being released to ensure that there are no regressions, significantly reducing the likelihood of a corrupt package being rolled out to your production nodes.
+In addition, the Azure Linux packages published to [packages.microsoft.com](https://packages.microsoft.com/cbl-mariner/) are also given an extra degree of confidence and safety through our testing. Both the Azure Linux node image and packages are run through a suite of tests that simulate an Azure environment. This includes Build Verification Tests (BVTs) that validate [AKS extensions and add-ons](/azure/aks/integrations) are supported on each release of the Azure Linux Container Host. Patches are also tested against the current Azure Linux node image before being released to ensure that there are no regressions, significantly reducing the likelihood of a corrupt package being rolled out to your production nodes.
 
 ## Next steps
 

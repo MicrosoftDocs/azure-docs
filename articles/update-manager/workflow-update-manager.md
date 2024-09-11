@@ -17,13 +17,13 @@ Update Manager assesses and applies updates to all Azure machines and Azure Arc-
 
 ## Update Manager VM extensions
 
-When an Azure Update Manager operation(AUM) is enabled or triggered on your Azure or Arc-enabled server, AUM installs an [Azure extension](../virtual-machines/extensions/overview.md) or [Arc-enabled servers extensions](../azure-arc/servers/manage-vm-extensions.md) respectively on your machine to manage the updates. 
+When an Azure Update Manager operation(AUM) is enabled or triggered on your Azure or Arc-enabled server, AUM installs an [Azure extension](/azure/virtual-machines/extensions/overview) or [Arc-enabled servers extensions](../azure-arc/servers/manage-vm-extensions.md) respectively on your machine to manage the updates. 
 
 The extension is automatically installed on your machine when you initiate any Update Manager operation on your machine for the first time, such as Check for updates, Install one-time update, Periodic Assessment or when scheduled update deployment runs on your machine for the first time. 
 
 Customer doesn't have to explicitly install the extension and its lifecycle as it is managed by Azure Update Manager including installation and configuration. The Update Manager extension is installed and managed by using the below agents, which are required for Update Manager to work on your machines: 
 
-- [Azure VM Windows agent](../virtual-machines/extensions/agent-windows.md) or the [Azure VM Linux agent](../virtual-machines/extensions/agent-linux.md) for Azure VMs.
+- [Azure VM Windows agent](/azure/virtual-machines/extensions/agent-windows) or the [Azure VM Linux agent](/azure/virtual-machines/extensions/agent-linux) for Azure VMs.
 - [Azure Arc-enabled servers agent](../azure-arc/servers/agent-overview.md) 
 
 >[!NOTE]
@@ -58,7 +58,7 @@ Azure Update Manager honors the update source settings on the machine and will f
 
 #### [Windows](#tab/update-win)
 
-If the [Windows Update Agent (WUA)](https://learn.microsoft.com/windows/win32/wua_sdk/updating-the-windows-update-agent) is configured to fetch updates from Windows Update repository or Microsoft Update repository or [Windows Server Update Services](https://learn.microsoft.com/windows-server/administration/windows-server-update-services/get-started/windows-server-update-services-wsus) (WSUS), AUM will honor these settings. For more information, see how to [configure Windows Update client](https://learn.microsoft.com/windows-server/administration/windows-server-update-services/get-started/windows-server-update-services-wsus). By default, **it is configured to fetch updates from Windows Updates repository**. 
+If the [Windows Update Agent (WUA)](/windows/win32/wua_sdk/updating-the-windows-update-agent) is configured to fetch updates from Windows Update repository or Microsoft Update repository or [Windows Server Update Services](/windows-server/administration/windows-server-update-services/get-started/windows-server-update-services-wsus) (WSUS), AUM will honor these settings. For more information, see how to [configure Windows Update client](/windows-server/administration/windows-server-update-services/get-started/windows-server-update-services-wsus). By default, **it is configured to fetch updates from Windows Updates repository**. 
 
 #### [Linux](#tab/update-lin)
 
@@ -77,7 +77,7 @@ AUM performs the following steps:
 
 ## Updates data stored in Azure Resource Graph
 
-Update Manager extension pushes all the pending updates information and update installation results to [Azure Resource Graph](https://learn.microsoft.com/azure/governance/resource-graph/overview) where data is retained for below time periods:
+Update Manager extension pushes all the pending updates information and update installation results to [Azure Resource Graph](/azure/governance/resource-graph/overview) where data is retained for below time periods:
 
 |Data              | Retention period in Azure Resource graph                                       |
 |------------------|---------------------------------------------------|

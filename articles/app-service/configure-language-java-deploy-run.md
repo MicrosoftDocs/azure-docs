@@ -178,6 +178,22 @@ To deploy .ear files, [use FTP](deploy-ftp.md). Your .ear application is deploye
 
 Don't deploy your .war or .jar using FTP. The FTP tool is designed to upload startup scripts, dependencies, or other runtime files. It's not the optimal choice for deploying web apps.
 
+## Rewrite or redirect URL
+
+To rewrite or redirect URL, use one of the available URL rewriters, such as [UrlRewriteFilter](http://tuckey.org/urlrewrite/).
+
+::: zone pivot="java-tomcat"
+
+Tomcat also provides a [rewrite valve](https://tomcat.apache.org/tomcat-10.1-doc/rewrite.html).
+
+::: zone-end
+
+::: zone pivot="java-jboss"
+
+JBoss also provides a [rewrite valve](https://docs.jboss.org/jbossweb/7.0.x/rewrite.html).
+
+::: zone-end
+
 ## Logging and debugging apps
 
 Performance reports, traffic visualizations, and health checkups are available for each app through the Azure portal. For more information, see [Azure App Service diagnostics overview](overview-diagnostics.md).
@@ -451,7 +467,8 @@ You don't need to incrementally add instances (scaling out), you can add multipl
 
 <a id="jboss-eap-hardware-options"></a>
 
-JBoss EAP is only available on the Premium v3 and Isolated v2 App Service Plan types. Customers that created a JBoss EAP site on a different tier during the public preview should scale up to Premium or Isolated hardware tier to avoid unexpected behavior.
+JBoss EAP is available in the following pricing tiers: **F1**,
+**P0v3**, **P1mv3**, **P2mv3**, **P3mv3**, **P4mv3**, and **P5mv3**.
 
 ::: zone-end
 

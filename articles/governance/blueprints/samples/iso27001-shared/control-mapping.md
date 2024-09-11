@@ -46,7 +46,7 @@ appropriate separation of duties.
 ## A.8.2.1 Classification of information
 
 Azure's
-[SQL Vulnerability Assessment service](../../../../defender-for-cloud/sql-azure-vulnerability-assessment-overview.md) can help you discover sensitive data stored in your databases and includes recommendations to classify that data. This blueprint assigns an [Azure Policy](../../../policy/overview.md) definition to audit that vulnerabilities identified during SQL Vulnerability Assessment scan are remediated.
+[SQL Vulnerability Assessment service](/azure/defender-for-cloud/sql-azure-vulnerability-assessment-overview) can help you discover sensitive data stored in your databases and includes recommendations to classify that data. This blueprint assigns an [Azure Policy](../../../policy/overview.md) definition to audit that vulnerabilities identified during SQL Vulnerability Assessment scan are remediated.
 
 - Vulnerabilities on your SQL databases should be remediated
 

@@ -1,7 +1,7 @@
 ---
 title: Firewall settings for labs when using lab accounts
 description: Learn how to determine the public IP address of VMs in a lab created using a lab account so information can be added to firewall rules.
-ms.service: lab-services
+ms.service: azure-lab-services
 ms.date: 07/04/2022
 ms.topic: how-to
 ms.custom: devdivchpfy22

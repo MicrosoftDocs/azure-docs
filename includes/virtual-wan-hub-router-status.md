@@ -2,7 +2,7 @@
 author: cherylmc
 ms.author: cherylmc
 ms.date: 05/20/2022
-ms.service: virtual-wan
+ms.service: azure-virtual-wan
 ms.topic: include
 ---
 

@@ -4,7 +4,7 @@ description: This article provides a detailed overview for ExpressRoute partners
 services: expressroute
 author: duongau
 
-ms.service: expressroute
+ms.service: azure-expressroute
 ms.topic: conceptual
 ms.date: 02/06/2020
 ms.author: duau
