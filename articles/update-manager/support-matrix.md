@@ -111,7 +111,7 @@ Following is the list of supported images and no other marketplace images releas
 | |cis-oracle-linux-8-l1 | cis-oracle8-l1||
 | |cis-rhel | cis-redhat7-l1-gen1 </br> cis-redhat8-l1-gen1 </br> cis-redhat8-l2-gen1 </br>  cis-redhat9-l1-gen1 </br> cis-redhat9-l1-gen2| |
 | |cis-rhel-7-l2 | cis-rhel7-l2 | |
-| |cis-rhel-8-l1 | | | |
+| |cis-rhel-8-l1 | | |
 | |cis-rhel-8-l2 | cis-rhel8-l2 | |
 | |cis-rhel9-l1 | cis-rhel9-l1 </br> cis-rhel9-l1-gen2 ||
 | |cis-ubuntu | cis-ubuntu1804-l1 </br> cis-ubuntulinux2004-l1-gen1 </br> cis-ubuntulinux2204-l1-gen1 </br> cis-ubuntulinux2204-l1-gen2 ||
