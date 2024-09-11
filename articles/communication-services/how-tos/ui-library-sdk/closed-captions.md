@@ -50,7 +50,7 @@ Captions are seamlessly integrated within the `CallingUILibrary`.
 :::image type="content" source="./includes/closed-captions/mobile-ui-closed-captions.png" alt-text="Screenshot that shows the experience of closed captions integration in the UI Library.":::
 
 > [!NOTE]
-> Live translated captions in meetings are only available as part of [**Teams Premium**](https://learn.microsoft.com/MicrosoftTeams/teams-add-on-licensing/licensing-enhance-teams#meetings), an add-on license that provides additional features to make Teams meetings more personalized, intelligent, and secure. To get access to Teams Premium, contact your IT admin. More details you can find it [here](../calling-sdk/closed-captions-teams-interop-how-to.md).
+> Live translated captions in meetings are only available as part of [**Teams Premium**](/MicrosoftTeams/teams-add-on-licensing/licensing-enhance-teams#meetings), an add-on license that provides additional features to make Teams meetings more personalized, intelligent, and secure. To get access to Teams Premium, contact your IT admin. More details you can find it [here](../calling-sdk/closed-captions-teams-interop-how-to.md).
 
 ## Supported languages
 
