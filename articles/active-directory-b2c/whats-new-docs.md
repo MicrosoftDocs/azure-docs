@@ -21,7 +21,7 @@ Welcome to what's new in Azure Active Directory B2C documentation. This article 
 
 ## August 2024
 
-This month, we updated Twitter to X in many articles and code samples.
+This month, we changed Twitter to X in numerous articles and code samples.
 
 ### Updated articles
 
