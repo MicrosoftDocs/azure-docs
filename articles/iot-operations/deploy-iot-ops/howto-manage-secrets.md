@@ -27,17 +27,17 @@ A workload identity is an identity you assign to a software workload (such as an
 
 The workload identity feature needs to be enabled on your cluster, so that the [Secret Synchronization Controller](#TODO-ADD-LINK) and Azure IoT Operations can access Microsoft Entra ID protected resources.
 
-If you deployed Azure IoT Operations with the advanced security settings, the workload identity feature is already enabled on your cluster. If you deployed with the default settings, you need to enable the workload identity feature on your cluster.
+If you deployed Azure IoT Operations with the *secure settings*, the workload identity feature is already enabled on your cluster. If you deployed with the *test settings*, you need to enable the workload identity feature on your cluster.
 
 To enable workload identity on your cluster:
 
 1. Use the [az connectedk8s update](/cli/azure/connectedk8s#az-connectedk8s-update) command to update a connected kubernetes cluster with oidc issuer and the workload identity webhook:
 
    ```azurecli
-   az connectedk8s update -g <RESOURCE_GROUP> -n <CLUSTER_NAME>  --subscription <SUBSCRIPTION_ID> --enable-oidc-issuer --enable-workload-identity
+   az connectedk8s update -g <RESOURCE_GROUP> -n <CLUSTER_NAME> --subscription <SUBSCRIPTION_ID> --enable-oidc-issuer --enable-workload-identity
    ```
 
-1. Restart the [kube-apiserver](https://kubernetes.io/docs/reference/command-line-tools-reference/kube-apiserver/). The following command runs on Ubuntu Linux with K3s clusters:
+1. Restart the [kube-apiserver](https://kubernetes.io/docs/reference/command-line-tools-reference/kube-apiserver/). The following command runs on Ubuntu Linux with K3s Kuberneters cluster:
 
    ```bash
    sudo systemctl daemon-reload
@@ -45,8 +45,9 @@ To enable workload identity on your cluster:
    ```
    
    > [!NOTE]
-   > The process for updating the api server configuration differs based on the specific cluster implementation, look up for documentation on how to update the api server based on your specific K8s flavor.
- 
+   > Workload identity requires the restart of kube-apiserver for updating the configuration. The process for updating the API server configuration varies depending on the specific cluster implementation. Please refer to the documentation for your particular Kubernetes distribution for detailed instructions on how to update the API server.
+
+ <!-- TODO: Confirm if the steps work for Codespaces Cluster as well. -->
 
 ## Set up secret management 
 
