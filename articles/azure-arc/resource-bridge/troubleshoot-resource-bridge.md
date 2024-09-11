@@ -147,6 +147,20 @@ This occurs when the management machine is trying to reach the ARB VM IP by SSH 
 
 If you receive an error that contains `Not able to connect to https://example.url.com`, check with your network administrator to ensure your network allows all of the required firewall and proxy URLs to deploy Arc resource bridge. For more information, see [Azure Arc resource bridge network requirements](network-requirements.md).
 
+### Not able to connect - network and internet connectivity validation failed
+
+When deploying Arc resource bridge, you may receive an error with `errorCode` as `PostOperationsError`, `errorResponse` as code `GuestInternetConnectivityError` with a URL specifying port 53 (DNS). This may be due to the appliance VM IPs being unable to reach DNS servers, so they can't resolve the endpoint specified in the error. 
+
+Error example: 
+
+`{ _errorCode_: _PostOperationsError_, _errorResponse_: _{\n\_message\_: \_{\\n  \\\_code\\\_:\\\_GuestInternetConnectivityError\\\_,\\n\\\_message\\\_:\\\_Not able to connect to http://aszhcitest01.company.org:55000. Error returned: action failed after 5 attempts: Get \\\\\\\_http://aszhcitest01.company.org:55000\\\\\\\_: dial tcp: lookup aszhcitest01.company.org on 127.0.0.53:53: read udp 127.0.0.1:32975-\\u003e127.0.0.53:53: i/o timeout. Arc Resource Bridge network and internet connectivity validation failed: cloud-agent-connectivity-test. 1.  check your networking setup and ensure the URLs mentioned in : https://aka.ms/AAla73m are reachable from the Appliance VM.   2. Check firewall/proxy settings\\\_\\n }\_\n}_ }`
+
+Error example: 
+
+`{ _errorCode_: _PostOperationsError_, _errorResponse_: _{\n\_message\_: \_{\\n  \\\_code\\\_: \\\_GuestInternetConnectivityError\\\_,\\n  \\\_message\\\_: \\\_Not able to connect to https://linuxgeneva-microsoft.azurecr.io. Error returned: action failed after 5 attempts: Get \\\\\\\_https://linuxgeneva-microsoft.azurecr.io\\\\\\\_: dial tcp: lookup linuxgeneva-microsoft.azurecr.io on 127.0.0.53:53: server misbehaving. Arc Resource Bridge network and internet connectivity validation failed: http-connectivity-test-arc. 1. Please check your networking setup and ensure the URLs mentioned in : https://aka.ms/AAla73m are reachable from the Appliance VM.   2. Check firewall/proxy settings\\\_\\n }\_\n}_ }`
+
+To resolve the error, work with your network administrator to allow the appliance VM IPs to reach the DNS servers. For more information, see [Azure Arc resource bridge network requirements](network-requirements.md).
+
 ### Http2 server sent GOAWAY
 
 When trying to deploy Arc resource bridge, you might receive an error message similar to:
@@ -263,16 +277,6 @@ To check if the DNS server is able to resolve an address, from a machine where w
 
 ```Resolve-DnsName -Name "http://aszhcitest01.company.org:55000" -Server "<dns-server.com>"```
 
-### Not able to connect - i/o timeout
-
-When deploying Arc resource bridge, you may receive an error with `errorCode` as `PostOperationsError`, `errorResponse` as code `GuestInternetConnectivityError` with keywords `i/o timeout` and `read udp`. This may be due to the appliance VM IPs being unable to reach DNS servers, so they can't resolve the MOC cloud agent address endpoint specified in the error. 
-
-Error example: 
-
-```{ _errorCode_: _PostOperationsError_, _errorResponse_: _{\n\_message\_: \_{\\n  \\\_code\\\_:\\\_GuestInternetConnectivityError\\\_,\\n\\\_message\\\_:\\\_Not able to connect to http://aszhcitest01.company.org:55000. Error returned: action failed after 5 attempts: Get \\\\\\\_http://aszhcitest01.company.org:55000\\\\\\\_: dial tcp: lookup aszhcitest01.company.org on 127.0.0.53:53: read udp 127.0.0.1:32975-\\u003e127.0.0.53:53: i/o timeout. Arc Resource Bridge network and internet connectivity validation failed: cloud-agent-connectivity-test. 1.  check your networking setup and ensure the URLs mentioned in : https://aka.ms/AAla73m are reachable from the Appliance VM.   2. Check firewall/proxy settings\\\_\\n }\_\n}_ }```
-
-To resolve the error, work with your network administrator to allow the appliance VM IPs to reach the DNS servers.
-
 ### Authentication handshake failure
 
 When running an `az arcappliance` command, you might see a connection error: `authentication handshake failed: x509: certificate signed by unknown authority`
@@ -361,7 +365,7 @@ When Arc resource bridge is deployed, you specify where the appliance VM will be
 These are the options to address either error: 
 
 - Move the appliance VM back to its original location and ensure RBAC credentials are updated for the location change.
-- Create a resource with the same name, move Arc resource bridge to that new resource, and then proceed with upgrade.
+- Create a resource with the same name, move Arc resource bridge to that new resource.
 - If you're using Arc-enabled VMware, [run the Arc-enabled VMware disaster recovery script](../vmware-vsphere/disaster-recovery.md). The script will delete the appliance, deploy a new appliance and reconnect the appliance with the previously deployed custom location, cluster extension and Arc-enabled VMs.
 - Delete and [redeploy the Arc resource bridge](../vmware-vsphere/quick-start-connect-vcenter-to-arc-using-script.md).
 
@@ -369,7 +373,7 @@ These are the options to address either error:
 
 When deploying or upgrading the resource bridge on VMware vCenter, you might get an error similar to: 
 
-`{  ""code"": ""PreflightcheckError"", ""message"": ""{\n  \""code\"": \""InsufficientPrivilegesError\"",\n  \""message\"": \""The provided vCenter account is missing required vSphere privileges on the resource 'root folder (MoRefId: Folder:group-d1)'. Missing privileges: [Sessions.ValidateSession].  add the privileges to the vCenter account and try again. To review the full list of required privileges, go to https://aka.ms/ARB-vsphere-privilege.\""\n }'
+`{  ""code"": ""PreflightcheckError"", ""message"": ""{\n  \""code\"": \""InsufficientPrivilegesError\"",\n  \""message\"": \""The provided vCenter account is missing required vSphere privileges on the resource 'root folder (MoRefId: Folder:group-d1)'. Missing privileges: [Sessions.ValidateSession].  add the privileges to the vCenter account and try again. To review the full list of required privileges, go to https://aka.ms/ARB-vsphere-privilege.\""\n }`
 
 When deploying Arc resource bridge, you are asked to provide vCenter credentials. The Arc resource bridge locally stores the vCenter credentials to interact with vCenter. To resolve the missing privileges issue, the vCenter account used by the resource bridge needs the following privileges in VMware vCenter:
 

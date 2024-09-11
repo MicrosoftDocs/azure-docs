@@ -14,19 +14,19 @@ ms.author: danlep
 
 [!INCLUDE [premium-dev-standard-basic.md](../../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
-Effective 15 March 2025, Azure API Management will retire its direct management REST API. If you enable and use the direct management API to configure and manage your API Management instance programmatically, migrate to use the standard Azure Resource Manager-based API instead.
+The direct management API in Azure API Management is deprecated and will be retired effective 15 March 2025. You should discontinue use of the direct management API to configure and manage your API Management instance programmatically, and migrate to the standard Azure Resource Manager-based API instead.
 
 ## Is my service affected by this?
 
-A built-in [direct management API](/rest/api/apimanagement/apimanagementrest/api-management-rest) to programmatically manage your API Management is disabled by default but can be enabled in the Premium, Standard, Basic, and Developer tiers of API Management. While your API Management instance isn't affected by this change, any tool, script, or program that uses the direct management API to interact with the API Management service is affected by this change. You'll be unable to run those tools successfully after the retirement date unless you update the tools to use the standard [Azure Resource Manager-based REST API](/rest/api/apimanagement) for API Management.
+A built-in [direct management API](/rest/api/apimanagement/apimanagementrest/api-management-rest) to programmatically manage your API Management instance is disabled by default but can be enabled in the Premium, Standard, Basic, and Developer tiers of API Management. This API is deprecated. While your API Management instance isn't affected by this change, any tool, script, or program that uses the direct management API to interact with the API Management service is affected by this change. You'll be unable to run those tools successfully after the retirement date unless you update the tools to use the standard [Azure Resource Manager-based REST API](/rest/api/apimanagement) for API Management.
 
 ## What is the deadline for the change?
 
-Support for the direct management API will no longer be available after 15 March 2025.
+The direct management API is deprecated. Support for the direct management API will no longer be available after 15 March 2025.
 
 ## What do I need to do?
 
-From now through 15 March 2025, if you have enabled the direct management API, you can continue to use it normally. At any time before the retirement date, update your tools, scripts, and programs to use equivalent operations in the Azure Resource Manager-based REST API instead. 
+You should no longer use the direct management API. Before the retirement date, update your tools, scripts, and programs to use equivalent operations in the Azure Resource Manager-based REST API instead. 
 
 ## Help and support
 

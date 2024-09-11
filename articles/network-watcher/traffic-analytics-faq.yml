@@ -48,7 +48,7 @@ sections:
       - question: |
           Can I use an existing workspace?
         answer: |
-          Yes. If you select an existing workspace, make sure that it has been migrated to the new query language. If you don't want to upgrade the workspace, you need to create a new one. For more information about Kusto Query Language (KQL), see [Log queries in Azure Monitor](../azure-monitor/logs/log-query-overview.md).
+          Yes. If you select an existing workspace, make sure that it has been migrated to the new query language. If you don't want to upgrade the workspace, you need to create a new one. For more information about Kusto Query Language (KQL), see [Log queries in Azure Monitor](/azure/azure-monitor/logs/log-query-overview).
           
       - question: |
           Can my Azure storage account be in one subscription and my Log Analytics workspace be in a different subscription?
@@ -149,7 +149,7 @@ sections:
           - You can use Log Analytics link in traffic analytics. 
           - Use the [traffic analytics schema](traffic-analytics-schema.md) to write your queries.
           - Select **New alert rule** to create the alert.
-          - See [Create a new alert rule](../azure-monitor/alerts/alerts-log.md) to create the alert.
+          - See [Create a new alert rule](/azure/azure-monitor/alerts/alerts-log) to create the alert.
           
       - question: |
           How do I check which virtual machines are receiving most on-premises traffic?

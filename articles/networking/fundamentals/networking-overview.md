@@ -100,7 +100,7 @@ For more information about Traffic Manager, see [What is Azure Traffic Manager?]
 
 ### <a name="azuremonitor"></a>Azure Monitor
 
-[Azure Monitor](../../azure-monitor/overview.md?toc=%2fazure%2fnetworking%2ftoc.json) maximizes the availability and performance of your applications by delivering a comprehensive solution for collecting, analyzing, and acting on telemetry from your cloud and on-premises environments. It helps you understand how your applications are performing and proactively identifies issues affecting them and the resources they depend on.
+[Azure Monitor](/azure/azure-monitor/overview?toc=%2fazure%2fnetworking%2ftoc.json) maximizes the availability and performance of your applications by delivering a comprehensive solution for collecting, analyzing, and acting on telemetry from your cloud and on-premises environments. It helps you understand how your applications are performing and proactively identifies issues affecting them and the resources they depend on.
 
 ## <a name="delivery"></a>Load balancing and content delivery
 
