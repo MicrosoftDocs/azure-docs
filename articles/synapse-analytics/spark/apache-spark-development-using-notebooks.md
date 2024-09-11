@@ -46,6 +46,7 @@ The following sections describe the operations for developing notebooks:
 * [Undo or redo a cell operation](#undo-redo-cell-operation)
 * [Comment on a code cell](#code-cell-commenting)
 * [Move a cell](#move-a-cell)
+* [Copy a cell](#copy-a-cell)
 * [Delete a cell](#delete-a-cell)
 * [Collapse cell input](#collapse-a-cell-input)
 * [Collapse cell output](#collapse-a-cell-output)
@@ -184,6 +185,13 @@ Supported cell operations include:
 To move a cell, select the left side of the cell and drag the cell to the desired position.
 
 ![Animated GIF of moving cells in a Synapse notebook.](./media/apache-spark-development-using-notebooks/synapse-azure-notebook-drag-drop-cell.gif)
+
+### <a name = "move-a-cell"></a>Copy a cell
+
+To copy a cell, create a new cell, select all the text in your original cell, copy the text, and paste the text into the new cell. When your cell is in edit mode, traditional keyboard shortcuts to select all text are limited to the cell.
+
+>[!TIP]
+>Synapse notebooks also provide [snippits](#code-snippets) of commonly used code patterns.
 
 ### <a name = "delete-a-cell"></a>Delete a cell
 
