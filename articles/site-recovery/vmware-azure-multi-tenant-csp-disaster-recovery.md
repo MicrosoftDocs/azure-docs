@@ -3,10 +3,9 @@ title: Set up VMware disaster recovery to Azure in a multi-tenancy environment u
 description: Describes how to set up VMware disaster recovery in a multi-tenant environment with Azure Site Recovery.
 ms.author: ankitadutta
 author: ankitaduttaMSFT
-manager: rochakm
 ms.service: azure-site-recovery
-ms.topic: conceptual
-ms.date: 04/03/2022
+ms.topic: how-to
+ms.date: 09/11/2024
 ms.custom: subject-rbac-steps, engagement-fy23
 ---
 
