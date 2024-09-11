@@ -30,10 +30,8 @@ Before you can use OneDrive with a RemoteApp in Azure Virtual Desktop, you need:
 
 - Session hosts in a host pool that:
 
-    - Are running Windows 11 23H2 OS version.  
+    - Are running Windows 11, version 23H2 with cumulative and noncumulative updates for Windows 11 ([KB5039302](https://support.microsoft.com/en-us/topic/june-25-2024-kb5039302-os-builds-22621-3810-and-22631-3810-preview-0ab34e3f-bca9-4a52-a1a4-404bf8162f58)) or later installed.
     
-    - Apply all cumulative and non-cumulative Windows Updates (specifically [KB Article 5039302](https://support.microsoft.com/en-us/topic/june-25-2024-kb5039302-os-builds-22621-3810-and-22631-3810-preview-0ab34e3f-bca9-4a52-a1a4-404bf8162f58)). 
-   
     - Have the latest version of FSLogix installed. For more information, see [Install FSLogix applications](/fslogix/how-to-install-fslogix).
 
 ## Configure OneDrive to launch with a RemoteApp
@@ -64,6 +62,8 @@ To configure OneDrive to launch with a RemoteApp in Azure Virtual Desktop, follo
        ```powershell
        New-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Run" -Name OneDrive -PropertyType String -Value '"C:\Program Files\Microsoft OneDrive\OneDrive.exe" /background' -Force
        ```
+    
+    4. Reboot your session host.
 
 ## Test OneDrive with a RemoteApp
 
