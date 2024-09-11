@@ -65,7 +65,7 @@ To schedule a new update deployment, perform the following steps. Depending on t
    > [!IMPORTANT]
    > When building a dynamic group of Azure VMs, Update Management only supports a maximum of 500 queries that combines subscriptions or resource groups in the scope of the group.
 
-6. In the **Machines to update** region, select a saved search, an imported group, or pick **Machines** from the dropdown menu and select individual machines. With this option, you can see the readiness of the Log Analytics agent for each machine. To learn about the different methods of creating computer groups in Azure Monitor logs, see [Computer groups in Azure Monitor logs](../../azure-monitor/logs/computer-groups.md). You can include up to a maximum of 1000 machines in a scheduled update deployment.
+6. In the **Machines to update** region, select a saved search, an imported group, or pick **Machines** from the dropdown menu and select individual machines. With this option, you can see the readiness of the Log Analytics agent for each machine. To learn about the different methods of creating computer groups in Azure Monitor logs, see [Computer groups in Azure Monitor logs](/azure/azure-monitor/logs/computer-groups). You can include up to a maximum of 1000 machines in a scheduled update deployment.
 
     > [!NOTE]
     > This option is not available if you selected an Azure VM or Azure Arc-enabled server. The machine is automatically targeted for the scheduled deployment.
