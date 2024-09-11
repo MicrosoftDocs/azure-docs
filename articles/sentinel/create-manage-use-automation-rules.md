@@ -17,11 +17,7 @@ This article explains how to create and use automation rules in Microsoft Sentin
 
 In this article you'll learn how to define the triggers and conditions that determine when your automation rule runs, the various actions that you can have the rule perform, and the remaining features and functionalities.
 
-> [!IMPORTANT]
->
-> Noted features of automation rules are currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
->
-> [!INCLUDE [unified-soc-preview-without-alert](includes/unified-soc-preview-without-alert.md)]
+[!INCLUDE [unified-soc-preview](includes/unified-soc-preview.md)]
 
 ## Design your automation rule
 
