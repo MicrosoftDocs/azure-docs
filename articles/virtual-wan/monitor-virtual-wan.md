@@ -71,6 +71,7 @@ For detailed description of the top-level diagnostic logs schema, see [Supported
 
 When you review any metrics through Log Analytics, the output contains the following columns:
 
+<<<<<<< HEAD
 |**Column**|**Type**|**Description**|
 | --- | --- | --- |
 |TimeGrain|string|PT1M (metric values are pushed every minute)|
@@ -79,6 +80,13 @@ When you review any metrics through Log Analytics, the output contains the follo
 |Maximum|real|The maximum of the two metric values pushed by the two MSEEs|
 |Average|real|Equal to (Minimum + Maximum)/2|
 |Total|real|Sum of the two metric values from both MSEEs (the main value to focus on for the metric queried)|
+=======
+## Analyzing logs
+
+Data in Azure Monitor Logs is stored in tables where each table has its own set of unique properties.  Resource Logs aren't collected and stored until you create a diagnostic setting and route them to one or more locations. 
+
+For a list of supported logs in Virtual WAN, see [Monitoring Virtual WAN data reference logs](monitor-virtual-wan-reference.md#diagnostic). All resource logs in Azure Monitor have the same fields followed by service-specific fields. The common schema is outlined in [Azure Monitor resource log schema](/azure/azure-monitor/essentials/resource-logs-schema).
+>>>>>>> bf2a42fb500ec62c3f2fba341b0aaeeff6acaa62
 
 ### <a name="create-diagnostic"></a>Create diagnostic setting to view logs
 
@@ -110,7 +118,11 @@ The following steps help you create, edit, and view diagnostic settings:
 
 ## <a name="azure-firewall"></a>Monitoring secured hub (Azure Firewall)
 
+<<<<<<< HEAD
 If you chose to secure your virtual hub using Azure Firewall, relevant logs and metrics are available here: [Azure Firewall logs and metrics](../firewall/logs-and-metrics.md).
+=======
+Azure Monitor alerts proactively notify you when important conditions are found in your monitoring data. They allow you to identify and address issues in your system before your customers notice them. You can set alerts on [metrics](/azure/azure-monitor/alerts/alerts-types#metric-alerts), [logs](/azure/azure-monitor/alerts/alerts-types#log-alerts), and the [activity log](/azure/azure-monitor/alerts/alerts-types#activity-log-alerts). Different types of alerts have benefits and drawbacks.
+>>>>>>> bf2a42fb500ec62c3f2fba341b0aaeeff6acaa62
 
 You can monitor the Secured Hub using Azure Firewall logs and metrics. You can also use activity logs to audit operations on Azure Firewall resources. For every Azure Virtual WAN you secure and convert to a Secured Hub, Azure Firewall creates an explicit firewall resource object. The object is in the resource group where the hub is located.
 
@@ -122,6 +134,7 @@ You can monitor the Secured Hub using Azure Firewall logs and metrics. You can a
 
 [!INCLUDE [horz-monitor-external-tools](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-external-tools.md)]
 
+<<<<<<< HEAD
 [!INCLUDE [horz-monitor-kusto-queries](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-kusto-queries.md)]
 
 [!INCLUDE [horz-monitor-alerts](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-alerts.md)]
@@ -268,3 +281,10 @@ You can also configure [Resource Health Alerts](../service-health/resource-healt
 
 - See [Azure Virtual WAN monitoring data reference](monitor-virtual-wan-reference.md) for a reference of the metrics, logs, and other important values created for Virtual WAN.
 - See [Monitoring Azure resources with Azure Monitor](/azure/azure-monitor/essentials/monitor-azure-resource) for general details on monitoring Azure resources.
+=======
+* See [Monitoring Virtual WAN - Data reference](monitor-virtual-wan-reference.md) for a data reference of the metrics, logs, and other important values created by Virtual WAN.
+* See [Monitoring Azure resources with Azure Monitor](/azure/azure-monitor/essentials/monitor-azure-resource) for details on monitoring Azure resources.
+* See [Analyze metrics with Azure Monitor metrics explorer](/azure/azure-monitor/essentials/analyze-metrics) for more details on **Azure Monitor Metrics**.
+* See [All resource metrics supported in Azure Monitor](/azure/azure-monitor/essentials/metrics-supported) for a list of all supported metrics.
+* See [Create diagnostic settings in Azure Monitor](/azure/azure-monitor/essentials/diagnostic-settings) for more information and troubleshooting for creating diagnostic settings via Azure portal, CLI, PowerShell, etc.
+>>>>>>> bf2a42fb500ec62c3f2fba341b0aaeeff6acaa62

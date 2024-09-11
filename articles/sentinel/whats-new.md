@@ -20,8 +20,15 @@ The listed features were released in the last three months. For information abou
 
 ## September 2024 
 
+- [Import/export of automation rules now generally available (GA)](#importexport-of-automation-rules-now-generally-available-ga)
 - [Google Cloud Platform data connectors are now generally available (GA)](#google-cloud-platform-data-connectors-are-now-generally-available-ga)
 - [Microsoft Sentinel now generally available (GA) in Azure Israel Central](#microsoft-sentinel-now-generally-available-ga-in-azure-israel-central)
+
+### Import/export of automation rules now generally available (GA)
+
+The ability to export automation rules to Azure Resource Manager (ARM) templates in JSON format, and to import them from ARM templates, is now generally available after a [short preview period](#export-and-import-automation-rules-preview).
+
+Learn more about [exporting and importing automation rules](import-export-automation-rules.md).
 
 ### Google Cloud Platform data connectors are now generally available (GA)
 
@@ -97,7 +104,7 @@ The new **Auxiliary logs** retention plan for Log Analytics tables allows you to
 
 To learn more about Auxiliary logs and compare with Analytics logs, see [Log retention plans in Microsoft Sentinel](log-plans.md).
 
-For more in-depth information about the different log management plans, see [**Table plans**](../azure-monitor/logs/data-platform-logs.md#table-plans) in the [Azure Monitor Logs overview](../azure-monitor/logs/data-platform-logs.md) article from the Azure Monitor documentation.
+For more in-depth information about the different log management plans, see [**Table plans**](/azure/azure-monitor/logs/data-platform-logs#table-plans) in the [Azure Monitor Logs overview](/azure/azure-monitor/logs/data-platform-logs) article from the Azure Monitor documentation.
 
 ### Create summary rules in Microsoft Sentinel for large sets of data (Preview)
 

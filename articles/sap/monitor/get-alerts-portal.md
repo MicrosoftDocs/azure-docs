@@ -40,7 +40,7 @@ In this how-to guide, you learn how to configure alerts in Azure Monitor for SAP
 1. Select **Create rule** to configure an alert of your choice.
 1. For **Alert threshold**, enter your alert threshold.
 1. For **Provider instance**, select a provider instance.
-1. For **Action group**, select or create an [action group](../../azure-monitor/alerts/action-groups.md) to configure the notification setting. You can edit frequency and severity information according to your requirements.
+1. For **Action group**, select or create an [action group](/azure/azure-monitor/alerts/action-groups) to configure the notification setting. You can edit frequency and severity information according to your requirements.
     
 1. Select **Enable alert rule** to create the alert rule.
 
