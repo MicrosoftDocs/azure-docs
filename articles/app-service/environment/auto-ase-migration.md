@@ -79,7 +79,7 @@ If your App Service Environment is suspended, you have two options.
 
 If you want to migrate yourself, open a support ticket using the option in the Migration page to see if we can unsuspend your App Service Environment. **We don't guarantee that we can unsuspend your environment**.
 
-:::image type="content" source="./media/migration/suspended-support-ticket.png" alt-text="Screenshot that shows the button on the Migration page where you can resume as an App Service Environment v3.":::
+:::image type="content" source="./media/migration/suspended-support-ticket.png" alt-text="Screenshot that shows the button on the Migration page where you can open a support ticket to see if we can unsuspend your environment.":::
 
 ### Resume/unsuspend as App Service Environment v3
 
