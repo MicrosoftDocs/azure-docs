@@ -12,7 +12,7 @@ ms.author: mmasheke
 > [!CAUTION]
 > On September 30, 2027, the Azure Automanage best practices product will be retired. Migrate to Azure Policy before that date. For more information on migration, see the [Azure portal](https://ms.portal.azure.com/).
 
-Azure Policy is a more robust cloud resource governance, enforcement, and compliance offering with full parity with the Automanage best practices service. When possible, you should plan to move your content and machines to the new service. This article provides guidance on developing a migration strategy from Automation to machine
+Azure Policy is a more robust cloud resource governance, enforcement, and compliance offering with full parity with the Azure Automanage best practices service. When possible, you should plan to move your content and machines to the new service. This article provides guidance on developing a migration strategy from Automation to machine
 configuration. Azure Policy implements a robust array of features, including:
 
 - **Granular control and flexibility:** Azure Policy allows for highly granular control over resources. You can create custom policies tailored to your specific regulatory and organizational compliance needs to ensure that every aspect of your infrastructure meets the required standards. This level of customization might not be as easy to achieve with the predefined configurations in Automanage.
@@ -55,7 +55,7 @@ Configure Backup by using the following policies:
 
 To configure backup time and duration, create a custom Azure policy based on the properties of the Backup policy resource or by a REST API call. For more information, see [Create Recovery Services backup policies by using the REST API][02].
 
-### Azure Antimalware
+### Microsoft Antimalware for Azure
 
 Microsoft Antimalware for Azure Cloud Services and Virtual Machines offers free real-time protection that helps identify and remove viruses, spyware, and other malicious software. It generates alerts when known malicious or unwanted software tries to install itself or run on your Azure systems. The Azure Guest agent (or the Microsoft Fabric agent) launches the Microsoft Antimalware for Azure extension and applies the antimalware configuration settings that were supplied as input. This step enables the antimalware service with either default or custom configuration settings.
 
@@ -75,7 +75,7 @@ For more information, see [this webpage][03].
 
 ### Azure Monitor Insights and analytics
 
-Azure Insights is a suite of tools within Azure Monitor designed to enhance the performance, reliability, and quality of your applications. It offers features like application performance management, monitoring alerts, metrics analysis, diagnostic settings, and logs. With Azure Insights, you can gain valuable insights into your application's behavior, troubleshoot issues, and optimize performance.
+Azure Monitor Insights is a suite of tools within Azure Monitor designed to enhance the performance, reliability, and quality of your applications. It offers features like application performance management, monitoring alerts, metrics analysis, diagnostic settings, and logs. With Azure Insights, you can gain valuable insights into your application's behavior, troubleshoot issues, and optimize performance.
 
 The following policies provide the same capabilities as Automanage:
 
