@@ -26,11 +26,11 @@ Make sure to check back here often to keep up with new updates.
 
 Here's what changed in August 2024:
 
-### Configure single sign-on for Azure Virtual Desktop using Microsoft Entra ID is now available 
+### Configure the session lock behavior for Azure Virtual Desktop is now available 
 
-Single sign-on (SSO) for Azure Virtual Desktop using Microsoft Entra ID provides a seamless sign-in experience for users connecting to session hosts. Single sign-on using Microsoft Entra ID also provides a seamless experience for Microsoft Entra ID-based resources within the session. For more information on using passwordless authentication within a session, see In-session passwordless authentication.  
+You can choose whether the session is disconnected or the remote lock screen is shown when a remote session is locked, either by the user or by policy. When the session lock behavior is set to disconnect, a dialog is shown to let users know they were disconnected. Users can choose the **Reconnect** option from the dialog when they're ready to connect again.
 
-For more information, see [Configure single sign-on for Azure Virtual Desktop using Microsoft Entra ID](configure-single-sign-on.md). 
+For more information, see [Configure the session lock behavior for Azure Virtual Desktop](configure-session-lock-behavior.md). 
 
 ### Configuring the clipboard transfer direction in Azure Virtual Desktop is now available 
 
@@ -38,27 +38,21 @@ Clipboard redirection in Azure Virtual Desktop allows users to copy and paste co
 
 For more information see [Configure the clipboard transfer direction in Azure Virtual Desktop](clipboard-transfer-direction-data-types.md). 
 
-### Apple Vision Pro compatibility mode is now in public preview 
-
-You can use Windows App on Apple Vision Pro in compatibility mode in preview, where you access desktops and applications in a 2D window. It doesn't support multi-window currently. 
-
-For more information see [Configure display settings in Windows App - Windows App](/windows-app/display-settings?tabs=macos). 
-
-### Microsoft Purview Insider Risk Management is now compatible with Azure Virtual Desktop 
+### Microsoft Purview forensic evidence is now compatible with Azure Virtual Desktop 
 
 Forensic evidence is an opt-in add-on feature in Insider Risk Management that gives security teams visual insights into potential insider data security incidents, with user privacy built in. Microsoft Purview Insider Risk Management correlates various signals to identify potential malicious or inadvertent insider risks, such as IP theft, data leakage and security violations. Insider risk management enables customers to create policies to manage security and compliance.  
 
 For more information see [Learn about insider risk management forensic evidence](purview-forensic-evidence.md). 
 
-### Azure Virtual Desktops support for FIDO devices and passkeys on macOS and iOS is now available 
+### Support for FIDO devices and passkeys on macOS and iOS is now available 
 
-Windows App and Azure Virtual Desktops now support FIDO devices and passkeys for Microsoft Entra ID sign in on macOS and iOS. 
+Windows App and the Remote Desktop app now support FIDO devices and passkeys for Microsoft Entra ID sign in on macOS and iOS. 
 
 For more information see [Azure Virtual Desktop identities and authentication](authentication.md). 
 
-### New Teams can be installed by using custom image templates on supported OS 
+### New Microsoft Teams can be installed on an image using custom image templates 
 
-Teams (Classic) has been removed. When updating an existing template, Teams (classic), will be replaced by new Teams. No action is required. Reusing an existing template which references Teams (classic), new Teams will be rolled out by Microsoft. 
+New Teams has replaced classic Teams when using [custom image templates](custom-image-templates.md). When updating an existing template, classic Teams is replaced by new Teams. No action is required. When reusing an existing template which references classic Teams, it's updated to new Teams by Microsoft. 
 
 For more information see [End of availability for classic Teams client](/microsoftteams/teams-classic-client-end-of-availability). 
 
