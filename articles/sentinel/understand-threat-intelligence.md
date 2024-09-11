@@ -170,7 +170,7 @@ Because Microsoft Sentinel workbooks are based on Azure Monitor workbooks, exten
 
 There's also a rich resource for [Azure Monitor workbooks on GitHub](https://github.com/microsoft/Application-Insights-Workbooks), where you can download more templates and contribute your own templates.
 
-For more information on using and customizing the **Threat Intelligence** workbook, see [Work with threat indicators in Microsoft Sentinel](work-with-threat-indicators.md#workbooks-provide-insights-about-your-threat-intelligence).
+For more information on using and customizing the **Threat Intelligence** workbook, see [Work with threat indicators in Microsoft Sentinel](work-with-threat-indicators.md#gain-insights-about-your-threat-intelligence-with-workbooks).
 
 ## Related content
 
