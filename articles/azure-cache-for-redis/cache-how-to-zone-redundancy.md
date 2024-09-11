@@ -55,7 +55,7 @@ To create a cache, follow these steps:
     > [!IMPORTANT]
     > Enabling Automatic Zone Allocation is currently NOT supported for Geo Replicated caches or caches with VNET injection.
 
-1. Availability zones can be selected manually for Premium tier caches. The count of availability zones must always be less than or equal to the Replica count for the cache.
+1. Availability zones can be selected manually for Premium tier caches. The number of availability zones must always be less than or equal to the total number of nodes for the cache.
 
    :::image type="content" source="media/cache-how-to-zone-redundancy/cache-premium-replica-count.png" alt-text="Screenshot showing Availability zones set to one and Replica count set to three.":::
 
