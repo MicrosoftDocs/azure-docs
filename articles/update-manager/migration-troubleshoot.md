@@ -36,7 +36,7 @@ Encountering a warning as - unable to acquire token `organizations` with error `
 
 ### Cause
 
-This is part of one of the documented [issues](https://github.com/Azure/azure-powershell/issues/25005) with Az.Accounts 3.0.0 module. [Learn more](https://learn.microsoft.com/answers/questions/1342970/warning-unable-to-acquire-token-for-tenant-organiz)
+This is part of one of the documented [issues](https://github.com/Azure/azure-powershell/issues/25005) with Az.Accounts 3.0.0 module. [Learn more](/answers/questions/1342970/warning-unable-to-acquire-token-for-tenant-organiz)
 
 ### Resolution
 

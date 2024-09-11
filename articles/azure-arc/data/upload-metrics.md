@@ -177,7 +177,7 @@ To upload metrics for SQL Managed Instance enabled by Azure Arc and Azure Arc-en
    >[!NOTE]
    >Wait for at least 30 mins after the Azure Arc-enabled data instances are created for the first upload.
    >
-   >Make sure `upload` the metrics right away after `export` as Azure Monitor only accepts metrics for the last 30 minutes. [Learn more](../../azure-monitor/essentials/metrics-store-custom-rest-api.md#troubleshooting).
+   >Make sure `upload` the metrics right away after `export` as Azure Monitor only accepts metrics for the last 30 minutes. [Learn more](/azure/azure-monitor/essentials/metrics-store-custom-rest-api#troubleshooting).
 
 
 If you see any errors indicating "Failure to get metrics" during export, check if data collection is set to `true` by running the following command:
@@ -249,7 +249,7 @@ Create, read, update, and delete (CRUD) operations on Azure Arc-enabled data ser
 
 Upload the usage only once per day. When usage information is exported and uploaded multiple times within the same 24 hour period, only the resource inventory is updated in Azure portal but not the resource usage.
 
-For uploading metrics, Azure monitor only accepts the last 30 minutes of data ([Learn more](../../azure-monitor/essentials/metrics-store-custom-rest-api.md#troubleshooting)). The guidance for uploading metrics is to upload the metrics immediately after creating the export file so you can view the entire data set in Azure portal. For instance, if you exported the metrics at 2:00 PM and ran the upload command at 2:50 PM. Since Azure Monitor only accepts data for the last 30 minutes, you may not see any data in the portal. 
+For uploading metrics, Azure monitor only accepts the last 30 minutes of data ([Learn more](/azure/azure-monitor/essentials/metrics-store-custom-rest-api#troubleshooting)). The guidance for uploading metrics is to upload the metrics immediately after creating the export file so you can view the entire data set in Azure portal. For instance, if you exported the metrics at 2:00 PM and ran the upload command at 2:50 PM. Since Azure Monitor only accepts data for the last 30 minutes, you may not see any data in the portal. 
 
 ## Related content
 
