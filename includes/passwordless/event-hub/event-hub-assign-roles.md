@@ -75,7 +75,7 @@ Copy the `Id` value from the preceding command output. You can then assign roles
 ```azurepowershell
 New-AzRoleAssignment -SignInName <user@domain> `
 -RoleDefinitionName "Azure Event Hubs Data Owner" `
--Scope <yourStorageAccountId>
+-Scope <yourResourceId>
 ```
 
 ---

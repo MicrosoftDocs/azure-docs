@@ -36,6 +36,8 @@ To complete this quickstart, you need:
 
   For Azure Functions _4.x_, Core Tools version 4.0.4915 or later is required.
 
+* An HTTP test tool that keeps your data secure. For more information, see [HTTP test tools](../functions-develop-local.md#http-test-tools).
+ 
 * An Azure subscription. To use Durable Functions, you must have an Azure Storage account.
 
 [!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
@@ -355,7 +357,9 @@ Azure Functions Core Tools gives you the capability to run an Azure Functions pr
 
    :::image type="content" source="media/quickstart-java/maven-functions-run.png" alt-text="Screenshot of Azure local output.":::
 
-1. Use a tool like [Postman](https://www.getpostman.com/) or [cURL](https://curl.haxx.se/) to send an HTTP POST request to the URL endpoint. The response should look similar to the following example:
+1. Use an HTTP test tool to send an HTTP POST request to the URL endpoint.
+
+    The response should look similar to the following example:
 
     ```json
     {
@@ -369,7 +373,7 @@ Azure Functions Core Tools gives you the capability to run an Azure Functions pr
 
    The response is the HTTP function's initial result. It lets you know that the durable orchestration started successfully. It doesn't yet display the end result of the orchestration. The response includes a few useful URLs. For now, query the status of the orchestration.
 
-1. Copy the URL value for `statusQueryGetUri`, paste it in your browser's address bar, and execute the request. Alternatively, you can continue to use Postman to issue the GET request.
+1. Copy the URL value for `statusQueryGetUri`, paste it in your browser's address bar, and execute the request. Alternatively, you can continue to use the HTTP test tool to issue the GET request.
 
     The request queries the orchestration instance for the status. You should see that the instance finished and that it includes the outputs or results of the durable function, like in this example:
 

@@ -37,7 +37,7 @@ The following troubleshooting steps apply to all VM extensions.
 
 - Error code 52 in the status message indicates a missing dependency. Check the output and logs for more information about which dependency is missing.
 
-- If an installation fails, review the **Troubleshoot and support** section in the overview for the extension. In most cases, there is an error code included in the status message. For the Log Analytics agent for Linux, status messages are explained [here](../../virtual-machines/extensions/oms-linux.md#troubleshoot-and-support), along with general troubleshooting information for this VM extension.
+- If an installation fails, review the **Troubleshoot and support** section in the overview for the extension. In most cases, there is an error code included in the status message. For the Log Analytics agent for Linux, status messages are explained [here](/azure/virtual-machines/extensions/oms-linux#troubleshoot-and-support), along with general troubleshooting information for this VM extension.
 
 ## Next steps
 

@@ -6,7 +6,7 @@ ms.author: sipa
 ms.date: 12/07/2020
 ms.topic: conceptual
 ms.service: azure-maps
-services: azure-maps
+ms.subservice: general
 ---
 
 # Azure Maps community - Open-source projects

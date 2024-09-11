@@ -58,7 +58,7 @@ Azure generates two 512-bit storage account access keys for each storage account
 
     * If you enable a user-assigned managed identity, take note of the identity's **Client ID**.
     * If you will back up and restore to different API Management instances, enable a managed identity in both the source and target instances.
-1. Assign the identity the **Storage Blob Data Contributor** role, scoped to the storage account used for backup and restore. To assign the role, use the [Azure portal](../active-directory/managed-identities-azure-resources/howto-assign-access-portal.md) or other Azure tools.
+1. Assign the identity the **Storage Blob Data Contributor** role, scoped to the storage account used for backup and restore. To assign the role, use the [Azure portal](../role-based-access-control/role-assignments-portal.yml) or other Azure tools.
 
 
 ## Back up an API Management service

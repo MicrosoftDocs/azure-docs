@@ -110,6 +110,9 @@ Deploy the Bicep file using Azure CLI
 
 ----
 
+> [!NOTE]
+> * The replica count is currently limited to a maximum of 8 per primary resource.
+
 ## Pricing and resource unit
 Each replica has its **own** `unit` and `autoscale settings`.
 

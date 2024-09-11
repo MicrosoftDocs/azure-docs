@@ -6,7 +6,7 @@ ms.author: aterceros
 ms.date: 11/01/2023
 ms.topic: conceptual
 ms.service: azure-maps
-services: azure-maps
+ms.subservice: render
 
 ---
 

@@ -26,7 +26,7 @@ You can use any type of TLS/SSL certificate. For example, you can use certificat
 
 Zero Trust is based on the principle of "never trust, always verify, and credential-free". Zero Trust helps to secure all communications by eliminating unknown and unmanaged certificates. Zero Trust involves trusting only certificates that are shared by verifying identity prior to granting access to those certificates. For more information, see the [Zero Trust Guidance Center](/security/zero-trust/).
 
-To securely load certificates from [Azure Key Vault](../../key-vault/index.yml), Spring Boot apps use [managed identities](/entra/identity/managed-identities-azure-resources/overview) and [Azure role-based access control (RBAC)](../../role-based-access-control/index.yml). Azure Spring Apps uses a provider [service principal](/entra/identity-platform/app-objects-and-service-principals#service-principal-object) and Azure role-based access control. This secure loading is powered using the Azure Key Vault Java Cryptography Architecture (JCA) Provider. For more information, see [Azure Key Vault JCA client library for Java](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/keyvault/azure-security-keyvault-jca).
+To securely load certificates from [Azure Key Vault](/azure/key-vault/), Spring Boot apps use [managed identities](/entra/identity/managed-identities-azure-resources/overview) and [Azure role-based access control (RBAC)](../../role-based-access-control/index.yml). Azure Spring Apps uses a provider [service principal](/entra/identity-platform/app-objects-and-service-principals#service-principal-object) and Azure role-based access control. This secure loading is powered using the Azure Key Vault Java Cryptography Architecture (JCA) Provider. For more information, see [Azure Key Vault JCA client library for Java](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/keyvault/azure-security-keyvault-jca).
 
 With Azure Key Vault, you control the storage and distribution of certificates to reduce accidental leakage. Applications and services can securely access certificates. Key Vault uses Azure role-based access control to lock down access to only those requiring access, such as an admin, but also apps, using the principle of least privilege. Applications and services authenticate and authorize, using Microsoft Entra ID and Azure role-based access control, to access certificates. You can monitor the access and use of certificates in Key Vault through its full audit trail.
 
@@ -82,7 +82,7 @@ You need the following three configuration steps to secure communications using 
        key-store-type: AzureKeyVault
    ```
 
-1. Enable the app's managed identity, and then grant the managed identity with "Get" and "List" access to the Azure Key Vault. For more information, see [Enable system-assigned managed identity for an application in Azure Spring Apps](how-to-enable-system-assigned-managed-identity.md) and [Certificate Access Control](../../key-vault/certificates/certificate-access-control.md).
+1. Enable the app's managed identity, and then grant the managed identity with "Get" and "List" access to the Azure Key Vault. For more information, see [Enable system-assigned managed identity for an application in Azure Spring Apps](how-to-enable-system-assigned-managed-identity.md) and [Certificate Access Control](/azure/key-vault/certificates/certificate-access-control).
 
 ### Segment 3: Secure communications from app to managed middleware
 

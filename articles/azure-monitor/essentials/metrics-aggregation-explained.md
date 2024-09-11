@@ -5,7 +5,7 @@ author: rboucher
 ms.author: robb
 services: azure-monitor
 ms.topic: conceptual
-ms.date: 07/13/2024
+ms.date: 09/06/2024
 ms.reviewer: vitalyg
 ---
 

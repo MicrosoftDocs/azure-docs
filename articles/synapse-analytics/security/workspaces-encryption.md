@@ -18,7 +18,7 @@ This article will describe:
 
 ## Encryption of data at rest
 
-A complete Encryption-at-Rest solution ensures the data is never persisted in unencrypted form. Double encryption of data at rest mitigates threats with two, separate layers of encryption to protect against compromises of any single layer. Azure Synapse Analytics offers a second layer of encryption for the data in your workspace with a customer-managed key. This key is safeguarded in your [Azure Key Vault](../../key-vault/general/overview.md), which allows you to take ownership of key management and rotation.
+A complete Encryption-at-Rest solution ensures the data is never persisted in unencrypted form. Double encryption of data at rest mitigates threats with two, separate layers of encryption to protect against compromises of any single layer. Azure Synapse Analytics offers a second layer of encryption for the data in your workspace with a customer-managed key. This key is safeguarded in your [Azure Key Vault](/azure/key-vault/general/overview), which allows you to take ownership of key management and rotation.
 
 The first layer of encryption for Azure services is enabled with platform-managed keys. By default, Azure Disks, and data in Azure Storage accounts are automatically encrypted at rest. Learn more about how encryption is used in Microsoft Azure in the [Azure Encryption Overview](../../security/fundamentals/encryption-overview.md).
 
@@ -51,7 +51,7 @@ Workspaces can be configured to enable double encryption with a customer-managed
 
 ### Key access and workspace activation
 
-The Azure Synapse encryption model with customer-managed keys involves the workspace accessing the keys in Azure Key Vault to encrypt and decrypt as needed. The keys are made accessible to the workspace either through an access policy or [Azure Key Vault RBAC](../../key-vault/general/rbac-guide.md). When granting permissions via an Azure Key Vault access policy, choose the ["Application-only"](../../key-vault/general/security-features.md#key-vault-authentication-options) option during policy creation (select the workspaces managed identity and do not add it as an authorized application).
+The Azure Synapse encryption model with customer-managed keys involves the workspace accessing the keys in Azure Key Vault to encrypt and decrypt as needed. The keys are made accessible to the workspace either through an access policy or [Azure Key Vault RBAC](/azure/key-vault/general/rbac-guide). When granting permissions via an Azure Key Vault access policy, choose the ["Application-only"](/azure/key-vault/general/security-features#key-vault-authentication-options) option during policy creation (select the workspaces managed identity and do not add it as an authorized application).
 
  The workspace managed identity must be granted the permissions it needs on the key vault before the workspace can be activated. This phased approach to workspace activation ensures that data in the workspace is encrypted with the customer-managed key. Encryption can be enabled or disabled for individual dedicated SQL Pools. Each dedicated pool is not enabled for encryption by default.
 
@@ -126,4 +126,4 @@ Use the following cmdlets for Azure Synapse workspace.
 ## Related content
 
 - [Use built-in Azure Policies to implement encryption protection for Synapse workspaces](../policy-reference.md)
-- [Create an Azure key vault and a key by using Resource Manager template](../../key-vault/keys/quick-create-template.md)
+- [Create an Azure key vault and a key by using Resource Manager template](/azure/key-vault/keys/quick-create-template)

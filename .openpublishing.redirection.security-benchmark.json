@@ -141,11 +141,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/key-vault/general/security-baseline.md",
-      "redirect_url": "/security/benchmark/azure/baselines/key-vault-security-baseline",
-      "redirect_document_id": false
-    },
-    {
       "source_path_from_root": "/articles/api-management/security-baseline.md",
       "redirect_url": "/security/benchmark/azure/baselines/api-management-security-baseline",
       "redirect_document_id": false
@@ -196,16 +191,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/search/security-baseline.md",
-      "redirect_url": "/security/benchmark/azure/baselines/cognitive-search-security-baseline",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/cosmos-db/security-baseline.md",
-      "redirect_url": "/security/benchmark/azure/baselines/cosmos-db-security-baseline",
-      "redirect_document_id": false
-    },
-    {
       "source_path_from_root": "/articles/databox/security-baseline.md",
       "redirect_url": "/security/benchmark/azure/baselines/databox-security-baseline",
       "redirect_document_id": false
@@ -218,31 +203,6 @@
     {
       "source_path_from_root": "/articles/data-share/security-baseline.md",
       "redirect_url": "/security/benchmark/azure/baselines/data-share-security-baseline",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/mysql/security-baseline.md",
-      "redirect_url": "/security/benchmark/azure/baselines/mysql-security-baseline",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/mariadb/security-baseline.md",
-      "redirect_url": "/security/benchmark/azure/baselines/mariadb-security-baseline",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/dms/security-baseline.md",
-      "redirect_url": "/security/benchmark/azure/baselines/database-migration-security-baseline",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/postgresql/postgresql-hyperscale-security-baseline.md",
-      "redirect_url": "/security/benchmark/azure/baselines/postgresql-hyperscale-security-baseline",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/postgresql/security-baseline.md",
-      "redirect_url": "/security/benchmark/azure/baselines/postgresql-security-baseline",
       "redirect_document_id": false
     },
     {
@@ -298,11 +258,6 @@
     {
       "source_path_from_root": "/articles/load-balancer/security-baseline.md",
       "redirect_url": "/security/benchmark/azure/baselines/load-balancer-security-baseline",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/machine-learning/security-baseline.md",
-      "redirect_url": "/security/benchmark/azure/baselines/machine-learning-security-baseline",
       "redirect_document_id": false
     },
     {
@@ -386,11 +341,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/container-instances/security-baseline.md",
-      "redirect_url": "/security/benchmark/azure/baselines/container-instances-security-baseline",
-      "redirect_document_id": false
-    },
-    {
       "source_path_from_root": "/articles/container-registry/security-baseline.md",
       "redirect_url": "/security/benchmark/azure/baselines/container-registry-security-baseline",
       "redirect_document_id": false
@@ -461,11 +411,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/service-fabric/security-baseline.md",
-      "redirect_url": "/security/benchmark/azure/baselines/service-fabric-security-baseline",
-      "redirect_document_id": false
-    },
-    {
       "source_path_from_root": "/articles/site-recovery/security-baseline.md",
       "redirect_url": "/security/benchmark/azure/baselines/site-recovery-security-baseline",
       "redirect_document_id": false
@@ -483,21 +428,6 @@
     {
       "source_path_from_root": "/articles/traffic-manager/security-baseline.md",
       "redirect_url": "/security/benchmark/azure/baselines/traffic-manager-security-baseline",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/virtual-machine-scale-sets/security-baseline.md",
-      "redirect_url": "/security/benchmark/azure/baselines/virtual-machine-scale-sets-security-baseline",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/virtual-machines/linux/security-baseline.md",
-      "redirect_url": "/security/benchmark/azure/baselines/virtual-machines-linux-security-baseline",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/virtual-machines/windows/security-baseline.md",
-      "redirect_url": "/security/benchmark/azure/baselines/virtual-machines-windows-security-baseline",
       "redirect_document_id": false
     },
     {

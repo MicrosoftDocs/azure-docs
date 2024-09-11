@@ -6,7 +6,7 @@ author: asudbring
 ms.service: nat-gateway
 # Customer intent: As an IT administrator, I want to understand how to use resource health to monitor NAT gateway.
 ms.topic: how-to
-ms.date: 01/30/2024
+ms.date: 08/12/2024
 ms.author: allensu
 ---
 # Azure NAT Gateway Resource Health

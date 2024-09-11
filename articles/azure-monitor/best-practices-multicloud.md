@@ -19,8 +19,8 @@ In addition to monitoring services and application in Azure, Azure Monitor can p
 
 If you use Defender for Cloud for security management and threat detection, then you can use auto provisioning to automate the deployment of the Azure Arc agent to your AWS EC2 and GCP VM instances.
 
-- [Connect your AWS accounts to Microsoft Defender for Cloud](../defender-for-cloud/quickstart-onboard-aws.md)
-- [Connect your GCP projects to Microsoft Defender for Cloud](../defender-for-cloud/quickstart-onboard-gcp.md)
+- [Connect your AWS accounts to Microsoft Defender for Cloud](/azure/defender-for-cloud/quickstart-onboard-aws)
+- [Connect your GCP projects to Microsoft Defender for Cloud](/azure/defender-for-cloud/quickstart-onboard-gcp)
 
 ## Kubernetes
 [Managed Prometheus](essentials/prometheus-metrics-overview.md) and [Container insights](containers/container-insights-overview.md) in Azure Monitor use [Azure Arc-enabled Kubernetes](../azure-arc/servers/overview.md) to provide a consistent experience between both [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes) and Kubernetes clusters in your AWS EKS or GCP GKE instances. You can view your hybrid clusters right alongside your Azure machines and onboard them using the same methods. This includes using standard Azure constructs such as Azure Policy and applying tags.

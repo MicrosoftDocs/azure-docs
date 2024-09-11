@@ -6,8 +6,8 @@ ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: troubleshooting
 ms.service: azure-migrate
-ms.date: 04/20/2023
-ms.custom: engagement-fy23
+ms.date: 08/21/2024
+ms.custom: engagement-fy25
 ---
 
 # Troubleshoot ongoing server discovery, software inventory, and SQL and web apps discovery
@@ -24,7 +24,7 @@ If the servers don't appear in the portal, wait for a few minutes because it tak
 
 If the state still doesn't change:
 
-- Select **Refresh** on the **Servers** tab to see the count of the discovered servers in Azure Migrate: Discovery and assessment and Migration and modernization.
+- Select **Refresh** on the **Servers, databases and web apps** tab to see the count of the discovered servers in Azure Migrate: Discovery and assessment and Migration and modernization.
 
 If the preceding step doesn't work and you're discovering VMware servers:
 

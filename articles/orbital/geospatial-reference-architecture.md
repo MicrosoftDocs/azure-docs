@@ -71,7 +71,7 @@ When Analysis Ready Datasets are made available through APIs that enable search 
 - [Azure Event Hubs](../event-hubs/event-hubs-about.md) is a fully managed streaming platform for big data. This platform as a service (PaaS) offers a partitioned consumer model. Multiple applications can use this model to process the data stream at the same time.
 - [Azure Orbital](../orbital/overview.md) is a fully managed, cloud-based ground station as a service that allows you to streamline your operations by ingesting space data directly into Azure.
 - [Azure Data Factory](../data-factory/introduction.md) is an integration service that works with data from disparate data stores. You can use this fully managed, serverless platform to create, schedule, and orchestrate data transformation workflows.
-- [Azure Cosmos DB](../cosmos-db/introduction.md) is a fully managed NoSQL database service for modern app development.
+- [Azure Cosmos DB](/azure/cosmos-db/introduction) is a fully managed NoSQL database service for modern app development.
 - [Azure Synapse Analytics](../synapse-analytics/overview-what-is.md) is an enterprise analytics service that accelerates time to insight across data warehouses and big data systems.
 - [Azure Digital Twins](../digital-twins/overview.md) is a platform as a service offering that enabled the creation of twin graphs based on digital models of entire environments, which could be buildings, factories, farms, energy networks, railways, stadiums, or entire cities.
 - [Azure Virtual Desktop](../virtual-desktop/overview.md) is a desktop and app virtualization service that runs on the cloud.
@@ -79,7 +79,7 @@ When Analysis Ready Datasets are made available through APIs that enable search 
 - [Azure Batch](https://azure.microsoft.com/services/batch/) allows you to run large-scale parallel and high-performance computing jobs.
 - [Azure Data Lake Storage](../data-lake-store/data-lake-store-overview.md) is a scalable and secure data lake for high-performance analytics workloads. This service can manage multiple petabytes of information while sustaining hundreds of gigabits of throughput. The data typically comes from multiple, heterogeneous sources and can be structured, semi-structured, or unstructured.
 - [Azure SQL Database](https://azure.microsoft.com/products/azure-sql/database/) is a PaaS version of SQL Server and is an intelligent, scalable, relational database service.
-- [Azure Database for PostgreSQL](../postgresql/overview.md) is a fully managed relational database service that's based on the community edition of the open-source [PostgreSQL](https://www.postgresql.org/) database engine.
+- [Azure Database for PostgreSQL](/azure/postgresql/overview) is a fully managed relational database service that's based on the community edition of the open-source [PostgreSQL](https://www.postgresql.org/) database engine.
 - [PostGIS](https://www.postgis.net/) is an extension for the PostgreSQL database that integrates with GIS servers. PostGIS can run SQL location queries that involve geographic objects.
 - [Power BI](/power-bi/fundamentals/power-bi-overview) is a collection of software services and apps. You can use Power BI to connect unrelated sources of data and create visuals of them.
 - The [Azure Maps visual for Power BI](../azure-maps/power-bi-visual-get-started.md) provides a way to enhance maps with spatial data. You can use this visual to show how location data affects business metrics.
@@ -99,7 +99,7 @@ Although not shown in the diagrams above, Azure Monitor, Log Analytics and Key V
   - [Azure Monitor Logs](../azure-monitor/logs/log-analytics-overview.md) records and stores log and performance data.
   - [Azure Monitor Metrics](../azure-monitor/essentials/metrics-getting-started.md) collects numerical values at regular intervals.
 - [Azure Log Analytics](../azure-monitor/logs/log-analytics-overview.md) is an Azure portal tool that runs queries on Monitor log data. Log Analytics also provides features for charting and statistically analyzing query results.
-- [Key Vault](../key-vault/general/basic-concepts.md) stores and controls access to secrets such as tokens, passwords, and API keys. Key Vault also creates and controls encryption keys and manages security certificates.
+- [Key Vault](/azure/key-vault/general/basic-concepts) stores and controls access to secrets such as tokens, passwords, and API keys. Key Vault also creates and controls encryption keys and manages security certificates.
 
 ## Alternatives
 

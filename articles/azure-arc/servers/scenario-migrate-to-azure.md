@@ -47,7 +47,7 @@ Follow the guidance to [uninstall the agent](manage-agent.md#uninstall-the-agent
 
 ## Step 4: Install the Azure Guest Agent
 
-The VM that is migrated to Azure from on-premises doesn't have the Linux or Windows Azure Guest Agent installed. In these scenarios, you have to manually install the VM agent. For more information about how to install the VM Agent, see [Azure Virtual Machine Windows Agent Overview](../../virtual-machines/extensions/agent-windows.md) or [Azure Virtual Machine Linux Agent Overview](../../virtual-machines/extensions/agent-linux.md).
+The VM that is migrated to Azure from on-premises doesn't have the Linux or Windows Azure Guest Agent installed. In these scenarios, you have to manually install the VM agent. For more information about how to install the VM Agent, see [Azure Virtual Machine Windows Agent Overview](/azure/virtual-machines/extensions/agent-windows) or [Azure Virtual Machine Linux Agent Overview](/azure/virtual-machines/extensions/agent-linux).
 
 ## Step 5: Migrate server or machine to Azure
 
@@ -55,7 +55,7 @@ Before proceeding with the migration with Azure Migration, review the [Prepare o
 
 ## Step 6: Deploy Azure VM extensions
 
-After migration and completion of all post-migration configuration steps, you can now deploy the Azure VM extensions based on the VM extensions originally installed on your Azure Arc-enabled server. Review [Azure virtual machine extensions and features](../../virtual-machines/extensions/overview.md) to help plan your extension deployment.
+After migration and completion of all post-migration configuration steps, you can now deploy the Azure VM extensions based on the VM extensions originally installed on your Azure Arc-enabled server. Review [Azure virtual machine extensions and features](/azure/virtual-machines/extensions/overview) to help plan your extension deployment.
 
 To resume using audit settings inside a machine with guest configuration policy definitions, see [Enable guest configuration](../../governance/machine-configuration/overview.md).
 

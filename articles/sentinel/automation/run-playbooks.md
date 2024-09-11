@@ -54,7 +54,7 @@ In a multitenant deployment, if the playbook you want to run is in a different t
 1. Select the **Configure permissions** button to open the **Manage permissions** panel.
 1. Mark the check boxes of the resource groups containing the playbooks you want to run, and select **Apply**. For example:
 
-    :::image type="content" source="../media/tutorial-respond-threats-playbook/manage-permissions.png" alt-text="Screenshot that shows the actions section with run playbook selected.":::
+    :::image type="content" source="../media/run-playbooks/manage-permissions.png" alt-text="Screenshot that shows the actions section with run playbook selected.":::
 
 You yourself must have **Owner** permissions on any resource group to which you want to grant Microsoft Sentinel permissions, and you must have the **Microsoft Sentinel Playbook Operator** role on any resource group containing playbooks you want to run.
 
@@ -88,17 +88,17 @@ To respond automatically to entire incidents or individual alerts with a playboo
 
 1. From the **Automation** page in the Microsoft Sentinel navigation menu, select **Create** from the top menu and then **Automation rule**. For example:
 
-   :::image type="content" source="../media/tutorial-respond-threats-playbook/add-new-rule.png" alt-text="Screenshot showing how to add a new automation rule.":::
+   :::image type="content" source="../media/run-playbooks/add-new-rule.png" alt-text="Screenshot showing how to add a new automation rule.":::
 
 1. The **Create new automation rule** panel opens. Enter a name for your rule. Your options differ depending on whether your workspace is onboarded to the unified security operations platform. For example:
 
     ### [Onboarded workspaces](#tab/after-onboarding)
 
-    :::image type="content" source="../media/tutorial-respond-threats-playbook/create-automation-rule-onboarded.png" alt-text="Screenshot showing the automation rule creation wizard.":::
+    :::image type="content" source="../media/run-playbooks/create-automation-rule-onboarded.png" alt-text="Screenshot showing the automation rule creation wizard.":::
 
     ### [Workspaces that aren't onboarded](#tab/before-onboarding)
 
-   :::image type="content" source="../media/tutorial-respond-threats-playbook/create-automation-rule.png" alt-text="Screenshot showing the automation rule creation wizard.":::
+   :::image type="content" source="../media/run-playbooks/create-automation-rule.png" alt-text="Screenshot showing the automation rule creation wizard.":::
 
     ---
 
@@ -127,7 +127,7 @@ To respond automatically to entire incidents or individual alerts with a playboo
 
        In the **Manage permissions** panel that opens up, mark the check boxes of the resource groups containing the playbooks you want to run, and select **Apply**. For example:
 
-       :::image type="content" source="../media/tutorial-respond-threats-playbook/manage-permissions.png" alt-text="Screenshot that shows the actions section with run playbook selected.":::
+       :::image type="content" source="../media/run-playbooks/manage-permissions.png" alt-text="Screenshot that shows the actions section with run playbook selected.":::
 
         You yourself must have **Owner** permissions on any resource group to which you want to grant Microsoft Sentinel permissions, and you must have the **Microsoft Sentinel Playbook Operator** role on any resource group containing playbooks you want to run.
 

@@ -7,6 +7,7 @@ ms.author: sipa
 ms.date: 06/19/2023
 ms.topic: how-to
 ms.service: azure-maps
+ms.subservice: web-sdk
 #Customer intent: As an Azure Maps web sdk user, I want to add simple data layer so that I can render styled features on the map.
 ---
 

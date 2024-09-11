@@ -173,7 +173,7 @@ To access your Log Analytics workspace, you sign in to the Azure portal using th
 
 Data in Azure Monitor is encrypted with Microsoft-managed keys. You can use [customer-managed encryption keys](../logs/customer-managed-keys.md) to protect the data and saved queries in your workspaces. Customer-managed keys in Azure Monitor give you greater flexibility to manage access controls to your logs.
 
-Once configure, new data ingested to linked workspaces gets encrypted with your key stored in [Azure Key Vault](../../key-vault/general/overview.md), or [Azure Key Vault Managed "HSM"](../../key-vault/managed-hsm/overview.md). 
+Once configure, new data ingested to linked workspaces gets encrypted with your key stored in [Azure Key Vault](/azure/key-vault/general/overview), or [Azure Key Vault Managed "HSM"](/azure/key-vault/managed-hsm/overview). 
 
 ## Private storage
 

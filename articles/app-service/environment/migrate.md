@@ -242,10 +242,6 @@ If the step is in progress, you get a status of `Migrating`. After you get a sta
 az rest --method get --uri "${ASE_ID}/configurations/networking?api-version=2021-02-01"
 ```
 
-> [!NOTE]
-> Due to a known bug, for ELB App Service Environment migrations, the inbound IP address may change again once the [migration step](#8-migrate-to-app-service-environment-v3-and-check-status) is complete. This bug is being addressed and will be fixed as soon as possible. Open a support case to receive the correct IP address upfront or if you have any questions or concerns about this issue.
->
-
 ### 4. Update dependent resources with new IPs
 
 By using the new IPs, update any of your resources or networking components to ensure that your new environment functions as intended after migration is complete. It's your responsibility to make any necessary updates.
@@ -375,10 +371,6 @@ Get the details of your new environment by running the following command or by g
 az appservice ase show --name $ASE_NAME --resource-group $ASE_RG
 ```
 
-> [!NOTE]
-> Due to a known bug, for ELB App Service Environment migrations, the inbound IP address may change once the [migration step](#8-migrate-to-app-service-environment-v3) is complete. Check your App Service Environment v3's IP addresses and make any needed updates if there have been changes since the IP generation step. Open a support case if you have any questions or concerns about this issue or need help with the confirming the new IPs.
->
-
 ::: zone-end
 
 ::: zone pivot="experience-azp"
@@ -410,10 +402,6 @@ If migration is supported for your App Service Environment, proceed to the next 
 ### 2. Generate IP addresses for your new App Service Environment v3 resource
 
 Under **Get new IP addresses**, confirm that you understand the implications and select the **Start** button. This step takes about 15 minutes to complete. You can't scale or make changes to your existing App Service Environment during this time.
-
-> [!NOTE]
-> Due to a known bug, for ELB App Service Environment migrations, the inbound IP address may change again once the migration step is complete. This bug is being addressed and will be fixed as soon as possible. Open a support case to receive the correct IP address upfront or if you have any questions or concerns about this issue.
->
 
 ### 3. Update dependent resources with new IPs
 
@@ -476,10 +464,6 @@ This step takes three to six hours for v2 to v3 migrations and up to six hours f
 At this time, detailed migration statuses are available only when you're using the Azure CLI. For more information, see the Azure CLI section for migrating to App Service Environment v3. You can check the status of the migration with the CLI even if you use the portal to do the migration.
 
 When migration is complete, you have an App Service Environment v3 resource, and all of your apps are running in your new environment. You can confirm the environment's version by checking the **Configuration** page for your App Service Environment.
-
-> [!NOTE]
-> Due to a known bug, for ELB App Service Environment migrations, the inbound IP address may change once the migration step is complete. Check your App Service Environment v3's IP addresses and make any needed updates if there have been changes since the IP generation step. Open a support case if you have any questions or concerns about this issue or need help confirming the new IPs.
->
 
 If your migration includes a custom domain suffix, the domain appeared in the **Essentials** section of the **Overview** page of the portal for App Service Environment v1/v2, but it no longer appears there in App Service Environment v3. Instead, for App Service Environment v3, go to the **Custom domain suffix** page to confirm that your custom domain suffix is configured correctly. You can also remove the configuration if you no longer need it or configure one if you didn't have one previously.
 

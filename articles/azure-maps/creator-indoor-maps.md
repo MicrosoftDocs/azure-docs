@@ -7,7 +7,7 @@ ms.author: aterceros
 ms.date: 04/01/2022
 ms.topic: conceptual
 ms.service: azure-maps
-services: azure-maps
+ms.subservice: creator
 
 ---
 

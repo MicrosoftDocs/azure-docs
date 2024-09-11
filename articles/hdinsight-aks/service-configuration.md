@@ -7,7 +7,10 @@ ms.date: 08/29/2023
 
 # Manage cluster configuration
 
+[!INCLUDE [retirement-notice](includes/retirement-notice.md)]
 [!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
+
+
 
 HDInsight on AKS allows you to tweak the configuration properties to improve performance of your cluster with certain settings. For example, usage or memory settings. You can do the following actions: 
 

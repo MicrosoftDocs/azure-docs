@@ -19,10 +19,8 @@
     href: prerequisites.md
   - name: Workspace architecture
     items:
-    - name: Review best practices
-      href: best-practices-workspace-architecture.md 
     - name: Design workspace architecture
-      href: design-your-workspace-architecture.md      
+      href: /azure/azure-monitor/logs/workspace-design?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json        
     - name: Review sample workspace designs
       href: sample-workspace-designs.md
     - name: Prepare for multiple workspaces
@@ -860,10 +858,16 @@
         href: connect-log-forwarder.md
       - name: Syslog (raw) sources (legacy)
         href: connect-syslog.md
+    - name: Custom log sources (text files)
+      items:
+      - name: Collect logs from text files via AMA
+        href: connect-custom-logs-ama.md
+      - name: Custom logs - configure security device
+        href: unified-connector-custom-device.md
+      - name: Custom log sources (legacy)
+        href: connect-custom-logs.md
     - name: DNS via AMA
-      href: connect-dns-ama.md   
-    - name: Custom log sources
-      href: connect-custom-logs.md
+      href: connect-dns-ama.md
     - name: Logstash plugin with Data Collection Rules
       href: connect-logstash-data-connection-rules.md
     - name: Logstash plugin (legacy)
@@ -1132,6 +1136,8 @@
       href: add-advanced-conditions-to-automation-rules.md
     - name: Create incident tasks using automation rules
       href: create-tasks-automation-rule.md
+    - name: Export and import automation rules
+      href: import-export-automation-rules.md
   - name: Playbooks
     items:
     - name: Overview
@@ -1182,7 +1188,7 @@
     - name: Auxiliary logs use cases
       href: basic-logs-use-cases.md
   - name: Connect Microsoft Sentinel to Microsoft Defender XDR
-    href: /microsoft-365/security/defender/microsoft-sentinel-onboard??toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
+    href: /defender-xdr/microsoft-sentinel-onboard??toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
   - name: Manage multiple workspaces 
     items:
     - name: Workspace manager
@@ -1229,8 +1235,6 @@
     href: troubleshooting-cef-syslog.md
   - name: Troubleshoot AWS S3 connector issues
     href: aws-s3-troubleshoot.md
-  - name: Troubleshoot Jupyter notebooks
-    href: notebooks-troubleshoot.md
   - name: Troubleshoot SAP solution deployment
     href: sap/sap-deploy-troubleshoot.md    
 - name: Reference
@@ -1297,12 +1301,16 @@
     items:
     - name: SOAR content catalog
       href: sentinel-soar-content.md
+    - name: Automation rules reference
+      href: automation-rule-reference.md
   - name: Data collection references
     items:
     - name: Data source schema reference
       href: data-source-schema-reference.md
     - name: Security alert schema reference
       href: security-alert-schema.md
+    - name: CEF log field mapping
+      href: cef-name-mapping.md
     - name: Windows security event sets
       href: windows-security-event-id-reference.md
     - name: DNS over AMA reference

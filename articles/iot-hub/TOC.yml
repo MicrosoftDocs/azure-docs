@@ -220,6 +220,8 @@
           href: create-hub.md
         - name: Create and connect a device
           href: create-connect-device.md
+        - name: Manage device twins
+          href: manage-device-twins.md
         - name: Create message routes and endpoints
           items:
             - name: Azure portal
@@ -273,32 +275,16 @@
             - name: Use Azure CLI
               displayName: automatic device management
               href: iot-hub-automatic-device-management-cli.md
-        - name: Manage device twin tags
-          href: iot-hubs-manage-device-twin-tags.md
     - name: Develop
       items:
         - name: Send cloud-to-device messages
           displayName: cloud-to-device messages
           href: how-to-cloud-to-device-messaging.md
         - name: Upload files from devices
-          items:
-            - name: .NET
-              displayName: file upload, upload files, csharp, C#
-              href: file-upload-dotnet.md
-            - name: Python
-              displayName: file upload, upload files
-              href: file-upload-python.md
-            - name: Node.js
-              displayName: file upload, upload files
-              href: file-upload-node.md
-            - name: Java
-              displayName: file upload, upload files
-              href: file-upload-java.md
+          displayName: file upload, upload files
+          href: how-to-file-upload.md
         - name: Get started with device twins
           items:
-            - name: CLI
-              displayName: device twins
-              href: device-twins-cli.md
             - name: .NET
               displayName: device twins
               href: device-twins-dotnet.md
@@ -316,9 +302,6 @@
             - name: Portal
               displayName: module twins, module identity
               href: module-twins-portal-dotnet.md
-            - name: CLI
-              displayName: module twins, module identity
-              href: module-twins-cli.md
             - name: .NET
               displayName: module twins, module identity
               href: module-twins-dotnet.md

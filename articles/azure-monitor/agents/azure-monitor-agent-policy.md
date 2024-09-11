@@ -12,15 +12,31 @@ ms.reviewer: jeffwo
 
 # Use Azure Policy to install and manage the Azure Monitor agent
 
+Using [Azure Policy](../../governance/policy/overview.md), you can have the Azure Monitor agent automatically installed on your existing and new virtual machines and have the appropriate DCRs automatically associated with them. This article describes the built-in policies and initiatives that you can leverage for this functionality and features of Azure Monitor to assist in managing them.
+
 Use the following policies and policy initiatives to automatically install the agent and associate it with a data collection rule every time you create a virtual machine, scale set, or Azure Arc-enabled server.
+
+> [!NOTE]
+> Azure Monitor has a preview [data collection rule DCR](../essentials/data-collection-rule-overview.md) experience that simplifies creating assignments for policies and initiatives that use DCRs. This includes initiatives that install the Azure Monitor agent. You may choose to use that experience to create assignments for the initiatives described in this article. See [Manage data collection rules (DCRs) and associations in Azure Monitor](../essentials/data-collection-rule-view.md#azure-policy) for more information.
+
+## Prerequisites
+Before you proceed, review [prerequisites for agent installation](azure-monitor-agent-manage.md#prerequisites).
 
 > [!NOTE]
 > As per Microsoft Identity best practices, policies for installing Azure Monitor Agent on virtual machines and scale sets rely on user-assigned managed identity. This option is the more scalable and resilient managed identity for these resources.
 > For Azure Arc-enabled servers, policies rely on system-assigned managed identity as the only supported option today.
 
-## Built-in policy initiatives
 
-Before you proceed, review [prerequisites for agent installation](azure-monitor-agent-manage.md#prerequisites).  
+## Built-in policies
+
+You can choose to use the individual policies from the preceding policy initiative to perform a single action at scale. For example, if you only want to automatically install the agent, use the second agent installation policy from the initiative, as shown.
+
+:::image type="content" source="media/azure-monitor-agent-install/built-in-ama-dcr-policy.png" lightbox="media/azure-monitor-agent-install/built-in-ama-dcr-policy.png" alt-text="Partial screenshot from the Azure Policy Definitions page that shows policies contained within the initiative for configuring Azure Monitor Agent.":::
+
+
+
+## Built-in policy initiatives
+ 
 
 There are built-in policy initiatives for Windows and Linux virtual machines, scale sets that provide at-scale onboarding using Azure Monitor agents end-to-end 
 - [Deploy Windows Azure Monitor Agent with user-assigned managed identity-based auth and associate with Data Collection Rule](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/InitiativeDetailBlade/id/%2Fproviders%2FMicrosoft.Authorization%2FpolicySetDefinitions%2F0d1b56c6-6d1f-4a5d-8695-b15efbea6b49/scopes~/%5B%22%2Fsubscriptions%2Fae71ef11-a03f-4b4f-a0e6-ef144727c711%22%5D)
@@ -52,11 +68,7 @@ These initiatives above comprise individual policies that:
 - Assigning policy to resource groups. If the assignment scope of the policy is a resource group and not a subscription, the identity used by policy assignment (different from the user-assigned identity used by agent) must be manually granted [these roles](../../active-directory/managed-identities-azure-resources/how-to-assign-managed-identity-via-azure-policy.md#required-authorization) prior to assignment/remediation. Failing to do this step will result in *deployment failures*.
 - Other [Managed Identity limitations](../../active-directory/managed-identities-azure-resources/managed-identities-faq.md#limitations).
 
-## Built-in policies
 
-You can choose to use the individual policies from the preceding policy initiative to perform a single action at scale. For example, if you *only* want to automatically install the agent, use the second agent installation policy from the initiative, as shown.
-
-:::image type="content" source="media/azure-monitor-agent-install/built-in-ama-dcr-policy.png" lightbox="media/azure-monitor-agent-install/built-in-ama-dcr-policy.png" alt-text="Partial screenshot from the Azure Policy Definitions page that shows policies contained within the initiative for configuring Azure Monitor Agent.":::
 
 ## Remediation
 
@@ -65,6 +77,7 @@ The initiatives or policies will apply to each virtual machine as it's created. 
 When you create the assignment by using the Azure portal, you have the option of creating a remediation task at the same time. For information on the remediation, see [Remediate non-compliant resources with Azure Policy](../../governance/policy/how-to/remediate-resources.md).
 <!-- convertborder later -->
 :::image type="content" source="media/azure-monitor-agent-install/built-in-ama-dcr-remediation.png" lightbox="media/azure-monitor-agent-install/built-in-ama-dcr-remediation.png" alt-text="Screenshot that shows initiative remediation for Azure Monitor Agent." border="false":::
+
 
 
 ## Next steps

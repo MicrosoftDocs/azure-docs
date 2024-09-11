@@ -15,7 +15,7 @@ ms.author: jushiman
 
 When you have critical SAP applications and business processes that rely on Azure resources, you might want to monitor those resources for availability, performance, and operation. Azure Monitor for SAP solutions is an Azure-native monitoring product for SAP landscapes that run on Azure. It uses specific parts of the [Azure Monitor](../../azure-monitor/overview.md) infrastructure. 
 
-You can use Azure Monitor for SAP solutions with both [SAP on Azure virtual machines (VMs)](../../virtual-machines/workloads/sap/hana-get-started.md) and [SAP on Azure Large Instances](../../virtual-machines/workloads/sap/hana-overview-architecture.md).
+You can use Azure Monitor for SAP solutions with both [SAP on Azure virtual machines (VMs)](/azure/virtual-machines/workloads/sap/hana-get-started) and [SAP on Azure Large Instances](/azure/virtual-machines/workloads/sap/hana-overview-architecture).
 
 ## What can you monitor?
 
@@ -126,7 +126,7 @@ The key components of the architecture are:
 - The Azure Monitor for SAP solutions resource, where you view monitoring data.
 - The managed resource group, which is deployed automatically as part of the Azure Monitor for SAP solutions resource's deployment. Inside the managed resource group, resources like these help collect data:
   - An [Azure Functions resource](../../azure-functions/functions-overview.md) hosts the monitoring code. This logic collects data from the source systems and transfers the data to the monitoring framework.
-  - An [Azure Key Vault resource](../../key-vault/general/basic-concepts.md) holds the SAP HANA database credentials and stores information about providers.
+  - An [Azure Key Vault resource](/azure/key-vault/general/basic-concepts) holds the SAP HANA database credentials and stores information about providers.
   - A [Log Analytics workspace](../../azure-monitor/logs/log-analytics-workspace-overview.md) is the destination for storing data. Optionally, you can choose to use an existing workspace in the same subscription as your Azure Monitor for SAP solutions resource at deployment.
   - A [storage account](../../storage/common/storage-account-overview.md) is associated with the Azure Functions resource. It's used to manage triggers and executions of logging functions.
 
