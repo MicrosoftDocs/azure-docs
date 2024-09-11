@@ -14,7 +14,7 @@ ms.date: 09/10/2024
 > [!NOTE]
 > In this tutorial, you use Service Connector that simplifies the process of connecting a web app to a database service. This tutorial is a modification of the [App Service tutorial](../app-service/tutorial-python-postgresql-app.md), so you may see some similarities. Look into section [Create a passwordless connector to Postgres database](#create-a-passwordless-connector-to-postgres-database) to see where Service Connector comes into play and simplifies the connection process given in the App Service tutorial.
 
-This tutorial shows how to deploy a data-driven Python [Django](https://www.djangoproject.com/) web app to [Azure App Service](overview.md) and connect it to an [Azure Database for PostgreSQL Flexible server](/azure/postgresql/flexible-server/) database.
+This tutorial shows how to deploy a data-driven Python [Django](https://www.djangoproject.com/) web app to [Azure App Service](/azure/app-service/overview.md) and connect it to an [Azure Database for PostgreSQL Flexible server](/azure/postgresql/flexible-server/overview.md) database.
 
 In this tutorial, you use the Azure CLI to complete the following tasks:
 
@@ -29,7 +29,7 @@ In this tutorial, you use the Azure CLI to complete the following tasks:
 ## Set up your initial environment
 
 ### [CloudShell](#tab/cloudshell)
-Lauch from  [Azure Cloud Shell](https://learn.microsoft.com/en-us/azure/cloud-shell/overview) from the Azure Portal and install the service connector passwordless extension for Azure CLI.
+Lauch from  [Azure Cloud Shell](/azure/cloud-shell/overview.md) from the Azure Portal and install the service connector passwordless extension for Azure CLI.
 
 ```terminal
 az extension add --name serviceconnector-passwordless --upgrade
@@ -78,9 +78,6 @@ Open a terminal window in that *serviceconnector-webapp-postgresql-django-passwo
 ---
 
 In this tutorial, you deploy a **[Django](https://www.djangoproject.com/)** web app to Azure App Service. The web app uses a system-assigned **[managed identity](/azure/active-directory/managed-identities-azure-resources/overview)** (passwordless connections) with Azure role-based access control to access [Azure Storage](/azure/storage/common/storage-introduction) and [Azure Database for PostgreSQL - Flexible Server](/azure/postgresql/flexible-server) resources. The code uses the [DefaultAzureCredential](/azure/developer/intro/passwordless-overview#introducing-defaultazurecredential) class of the [Azure Identity client library](/python/api/overview/azure/identity-readme) for Python. The `DefaultAzureCredential` class automatically detects that a managed identity exists for the App Service and uses it to access other Azure resources.
-
-
-The sample is also modified to run in a production environment like App Service:
 
 * Production settings are in the *azuresite/production.py* file. Development settings are in *azuresite/settings.py*.
 * The app uses production settings when the `WEBSITE_HOSTNAME` environment variable is set. Azure App Service automatically sets this variable to the URL of the web app, such as `msdocs-django.azurewebsites.net`.
