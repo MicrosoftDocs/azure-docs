@@ -1,7 +1,7 @@
 ---
 title: "What's new in Azure Active Directory business-to-customer (B2C)"
 description: "New and updated documentation for the Azure Active Directory business-to-customer (B2C)."
-ms.date: 07/31/2024
+ms.date: 09/11/2024
 ms.service: active-directory
 ms.subservice: B2C
 ms.topic: whats-new
@@ -19,6 +19,14 @@ manager: CelesteDG
 
 Welcome to what's new in Azure Active Directory B2C documentation. This article lists new docs that have been added and those that have had significant updates in the last three months. To learn what's new with the B2C service, see [What's new in Microsoft Entra ID](../active-directory/fundamentals/whats-new.md), [Azure AD B2C developer release notes](custom-policy-developer-notes.md) and [What's new in Microsoft Entra External ID](/entra/external-id/whats-new-docs).
 
+## August 2024
+
+This month, we updated Twitter to X in many articles and code samples.
+
+### Updated articles
+
+- [Tutorial: Configure Keyless with Azure Active Directory B2C](partner-keyless.md) - Editorial updates
+
 ## July 2024
 
 ### Updated articles
@@ -31,17 +39,4 @@ Welcome to what's new in Azure Active Directory B2C documentation. This article 
 ### Updated articles
 
 - [Define an OAuth2 custom error technical profile in an Azure Active Directory B2C custom policy](oauth2-error-technical-profile.md) - Error code updates
-- [Configure authentication in a sample Python web app by using Azure AD B2C](configure-authentication-sample-python-web-app.md) - Python version update
-
-
-## May 2024
-
-### New articles
-
-- [Configure Transmit Security with Azure Active Directory B2C for risk detection and prevention](partner-transmit-security.md)
-
-### Updated articles
-
-- [Set up sign-up and sign-in with a LinkedIn account using Azure Active Directory B2C](identity-provider-linkedin.md) - Updated LinkedIn instructions
-- [Page layout versions](page-layout.md) - Updated page layout versions
-
+- [Configure authentication in a sample Python web app by using Azure AD B2C](configure-authentication-sample-python-web-app.md) - Python version updates
