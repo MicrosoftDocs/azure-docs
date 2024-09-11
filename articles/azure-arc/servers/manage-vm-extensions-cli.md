@@ -103,7 +103,7 @@ For the `--extension-targets` parameter, you need to specify the extension and t
 To upgrade the Log Analytics agent extension for Windows that has a newer version available, run the following command:
 
 ```azurecli
-az connectedmachine upgrade-extension --machine-name "myMachineName" --resource-group "myResourceGroup" --extension-targets '{\"Microsoft.EnterpriseCloud.Monitoring.MicrosoftMonitoringAgent\":{\"targetVersion\":\"1.0.18053.0\"}}'
+az connectedmachine upgrade-extension --machine-name "myMachineName" --resource-group "myResourceGroup" --extension-targets '{"Microsoft.EnterpriseCloud.Monitoring.MicrosoftMonitoringAgent":{"targetVersion":"1.0.18053.0"}}'
 ```
 
 You can review the version of installed VM extensions at any time by running the command [az connectedmachine extension list](/cli/azure/connectedmachine/extension#az-connectedmachine-extension-list). The `typeHandlerVersion` property value represents the version of the extension.
