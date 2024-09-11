@@ -22,21 +22,20 @@ This tutorial employs the Azure Communication Services Calling SDK version `1.28
 
 Use the `npm install` command to install the Azure Communication Services Audio Effects SDK for JavaScript.
 
-> [!NOTE
-If you are using the GA version of the calling SDK you must use the [GA version](https://www.npmjs.com/package/@azure/communication-calling-effects/v/1.1.1) of the audio effects SDK]
+> [!NOTE]
+> If you are using the GA version of the calling SDK you must use the [GA version](https://www.npmjs.com/package/@azure/communication-calling-effects/v/1.1.1) of the audio effects SDK.
 ```console
 @azure/communication-calling-effects@1.1.1
 ```
 
-> [!NOTE
-If you are using the ACS public preview SDK you must use the [beta version](https://www.npmjs.com/package/@azure/communication-calling-effects/v/1.1.1-beta.2) of the audio effects SDK]
+> [!NOTE]
+> If you are using the ACS public preview SDK you must use the [beta version](https://www.npmjs.com/package/@azure/communication-calling-effects/v/1.1.1-beta.2) of the audio effects SDK.
 ```console
 @azure/communication-calling-effects@1.1.1-beta
 ```
 
-> [!NOTE
+> [!NOTE]
 > The calling effects library cannot be used standalone and can only work when used with the [Azure Communication Calling client library for WebJS] (https://www.npmjs.com/package/@azure/communication-calling).
-]
 
 You can find more [details ](https://www.npmjs.com/package/@azure/communication-calling-effects/v/next) on the calling effects npm package page.
 
