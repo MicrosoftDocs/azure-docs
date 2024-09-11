@@ -14,7 +14,7 @@ ms.date: 09/10/2024
 > [!NOTE]
 > In this tutorial, you use Service Connector that simplifies the process of connecting a web app to a database service. This tutorial is a modification of the [App Service tutorial](../app-service/tutorial-python-postgresql-app.md), so you may see some similarities. Look into section [Create a passwordless connector to Postgres database](#create-a-passwordless-connector-to-postgres-database) to see where Service Connector comes into play and simplifies the connection process given in the App Service tutorial.
 
-This tutorial shows how to deploy a data-driven Python [Django](https://www.djangoproject.com/) web app to [Azure App Service](/azure/app-service/overview.md) and connect it to an [Azure Database for PostgreSQL Flexible server](/azure/postgresql/flexible-server/overview.md) database.
+This tutorial shows how to deploy a data-driven Python [Django](https://www.djangoproject.com/) web app to [Azure App Service](../app-service/overview.md) and connect it to an [Azure Database for PostgreSQL Flexible server](/azure/postgresql/flexible-server/) database.
 
 In this tutorial, you use the Azure CLI to complete the following tasks:
 
@@ -29,7 +29,7 @@ In this tutorial, you use the Azure CLI to complete the following tasks:
 ## Set up your initial environment
 
 ### [CloudShell](#tab/cloudshell)
-Lauch from  [Azure Cloud Shell](/azure/cloud-shell/overview.md) from the Azure Portal and install the service connector passwordless extension for Azure CLI.
+Lauch from  [Azure Cloud Shell](../cloud-shell/overview.md) from the Azure Portal and install the service connector passwordless extension for Azure CLI.
 
 ```terminal
 az extension add --name serviceconnector-passwordless --upgrade
