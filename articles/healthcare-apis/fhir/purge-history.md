@@ -11,7 +11,7 @@ ms.author: kesheth
 
 # Purge history operation
 
-`$purge-history` is an operation that allows you to delete the history of a single Fast Healthcare Interoperability Resources (FHIR&#174;) resource. This operation isn't defined in the FHIR&reg; specification, but it's useful for [history management](fhir-versioning-policy-and-history-management.md) in large FHIR service instances.
+`$purge-history` is an operation that allows you to delete the history of a single Fast Healthcare Interoperability Resources (FHIR&#174;) resource. This operation isn't defined in the FHIR specification, but it's useful for [history management](fhir-versioning-policy-and-history-management.md) in large FHIR service instances.
 
 ## Overview of purge history
 

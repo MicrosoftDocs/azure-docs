@@ -12,7 +12,7 @@ ms.author: kesheth
 
 # Using Patient-everything in FHIR service
 
-The [Patient-everything](https://www.hl7.org/fhir/patient-operation-everything.html) operation is used to provide a view of all resources related to a patient. This operation can be useful to give patients' access to their entire record, or for a provider or other user to perform a bulk data download related to a patient. According to the Fast Healthcare Interoperability Resources (FHIR&#174;) specification, Patient-everything returns all the information related to one or more patients described in the resource or context on which this operation is invoked. In the FHIR&reg; service in Azure Health Data Services, Patient-everything is available to pull data related to a specific patient.
+The [Patient-everything](https://www.hl7.org/fhir/patient-operation-everything.html) operation is used to provide a view of all resources related to a patient. This operation can be useful to give patients' access to their entire record, or for a provider or other user to perform a bulk data download related to a patient. According to the Fast Healthcare Interoperability Resources (FHIR&#174;) specification, Patient-everything returns all the information related to one or more patients described in the resource or context on which this operation is invoked. In the FHIR service in Azure Health Data Services, Patient-everything is available to pull data related to a specific patient.
 
 ## Use Patient-everything
 To call Patient-everything, use the following command:
