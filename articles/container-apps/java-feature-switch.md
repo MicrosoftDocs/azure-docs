@@ -98,6 +98,10 @@ To use Admin for Spring on CLI, refer to [Use the componentt on CLI](java-admin.
 
 ::: zone-end
 
+> [!TIP]
+> With Eureka Server for Spring, you can bind Admin for Spring to Eureka Server for Spring, so that it can get application information through Eureka, instead of having to bind individual applications to Admin for Spring.[Learn More](java-admin-eureka-integration.md).
+
+
 ## Next steps
 
 > [!div class="nextstepaction"]
