@@ -60,7 +60,7 @@ First, configure an app registration in your Microsoft Entra ID tenant. The app 
 
     The Azure API Center permissions appear under **Configured permissions**.
 
-    :::image type="content" source="media/enable-data-view-vscode-extensions/configure-app-permissions.png" alt-text="Screenshot of required permissions in Microsoft Entra ID app registration in the portal." :::
+    :::image type="content" source="media/enable-data-view-vscode-extension/configure-app-permissions.png" alt-text="Screenshot of required permissions in Microsoft Entra ID app registration in the portal." :::
 
 ## Enable sign-in to data view by Microsoft Entra users and groups 
 
