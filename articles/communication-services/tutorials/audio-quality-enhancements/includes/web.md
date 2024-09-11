@@ -16,24 +16,27 @@ The Azure Communication Services audio effects **noise suppression** abilities c
 
 ## Using audio effects - **Noise Suppression**
 ### Install the npm package
+
+> [!IMPORTANT
+This tutorial employs the Azure Communication Services Calling SDK version `1.28.4` or later, alongside the Azure Communication Services Calling Effects SDK version `1.1.1` or newer. The GA (stable) version **`1.28.4`** and above of the calling SDK support noise suppression features. Alternatively, if you opt to use the public preview version, calling SDK versions `1.24.2-beta.1` and higher also support noise suppression.]
+
 Use the `npm install` command to install the Azure Communication Services Audio Effects SDK for JavaScript.
 
-> [!IMPORTANT]
-This tutorial utilizes the Azure Communication Services Calling SDK version `1.28.4` or higher, and the Azure Communication Services Calling Audio Effects SDK version `1.1.1` or higher. The GA (stable) `1.28.4` or higher versions of the SDK support noise suppression. If you choose to use the public preview version of the calling SDK versions 1.24.2-beta.1 (or greater) support noise suppression.
-
-> [!NOTE]
-If you are using the GA version of the calling SDK you must use the GA version of the audio effects SDK:
+> [!NOTE
+If you are using the GA version of the calling SDK you must use the [GA version](https://www.npmjs.com/package/@azure/communication-calling-effects/v/1.1.1) of the audio effects SDK]
 ```console
 @azure/communication-calling-effects@1.1.1
 ```
 
-If you are using the ACS public preview SDK you must use the beta version of the audio effects SDK:
+> [!NOTE
+If you are using the ACS public preview SDK you must use the [beta version](https://www.npmjs.com/package/@azure/communication-calling-effects/v/1.1.1-beta.2) of the audio effects SDK]
 ```console
 @azure/communication-calling-effects@1.1.1-beta
 ```
 
-> [!NOTE]
-> The calling effect library cannot be used standalone and can only work when used with the Azure Communication Calling client library for WebJS (https://www.npmjs.com/package/@azure/communication-calling). 
+> [!NOTE
+> The calling effects library cannot be used standalone and can only work when used with the [Azure Communication Calling client library for WebJS] (https://www.npmjs.com/package/@azure/communication-calling).
+]
 
 You can find more [details ](https://www.npmjs.com/package/@azure/communication-calling-effects/v/next) on the calling effects npm package page.
 
@@ -52,7 +55,7 @@ import { DeepNoiseSuppressionEffect } from '@azure/communication-calling-effects
 const localAudioStreamInCall = call.localAudioStreams[0];
 
 // Get the audio effects feature API from LocalAudioStream
-const audioEffectsFeatureApi = localAudioStreamInCall.feature(SDK.Features.AudioEffects);
+const audioEffectsFeatureApi = localAudioStreamInCall.feature(AzureCommunicationCallingSDK.Features.AudioEffects);
 
 // Subscribe to useful events that show audio effects status
 audioEffectsFeatureApi.on('effectsStarted', (activeEffects: ActiveAudioEffects) => {
@@ -82,8 +85,8 @@ To start a call with **noise suppression** turned on, you can create a new `Loca
 ```js
 // As an example, here we are simply creating a LocalAudioStream using the current selected mic on the DeviceManager
 const audioDevice = deviceManager.selectedMicrophone;
-const localAudioStreamWithEffects = new SDK.LocalAudioStream(audioDevice);
-const audioEffectsFeatureApi = localAudioStreamWithEffects.feature(SDK.Features.AudioEffects);
+const localAudioStreamWithEffects = new .LocalAudioStream(audioDevice);
+const audioEffectsFeatureApi = localAudioStreamWithEffects.feature(AzureCommunicationCallingSDK.Features.AudioEffects);
 
 // Start effect
 await audioEffectsFeatureApi.startEffects({
