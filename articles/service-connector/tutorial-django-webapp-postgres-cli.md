@@ -29,7 +29,7 @@ In this tutorial, you use the Azure CLI to complete the following tasks:
 ## Set up your initial environment
 
 ### [CloudShell](#tab/cloudshell)
-Lauch from CloudShell from the Azure Portal and install the service connector passwordless extension for Azure CLI
+Lauch from  [Azure Cloud Shell](https://learn.microsoft.com/en-us/azure/cloud-shell/overview) from the Azure Portal and install the service connector passwordless extension for Azure CLI.
 
 ```terminal
 az extension add --name serviceconnector-passwordless --upgrade
@@ -100,7 +100,7 @@ Having issues? [Let us know](https://aka.ms/DjangoCLITutorialHelp).
     APP_SERVICE_NAME="msdocs-mi-web-$RAND_ID"
     DB_SERVER_NAME="msdocs-mi-postgres-$RAND_ID"
     ADMIN_USER="demoadmin"
-    ADMIN_PW="ChAnG33#ThsPssWD$RAND_ID"
+    ADMIN_PW="{your database password}"
     ```
 
     > [!IMPORTANT]
@@ -123,7 +123,6 @@ Having issues? [Let us know](https://aka.ms/DjangoCLITutorialHelp).
       --admin-password $ADMIN_PW \
       --sku-name Standard_D2ds_v4
       --active-directory-auth Enabled \
-      --public-access 0.0.0.0
     ```
 
     If the `az` command isn't recognized, be sure you have the Azure CLI installed as described in [Set up your initial environment](#set-up-your-initial-environment).
@@ -136,7 +135,6 @@ Having issues? [Let us know](https://aka.ms/DjangoCLITutorialHelp).
         * With the sku specified with the `--sku-name` parameter.
     * Create an administrator account with a username and password specified with the `--admin-user` and `--admin-password` parameters.
     * Create a database which name is specified with the `--database-name` parameter.
-    * Enables complete public access, which you can control using the `--public-access` parameter.
 
 1. Configure a firewall rule on your server with the [az postgres flexible-server firewall-rule create](/cli/azure/postgres/flexible-server/firewall-rule) command. This rule allows your local environment access to connect to the server. (If you're using the Azure Cloud Shell, you can skip this step.)
 
@@ -245,20 +243,21 @@ Having issues? Refer first to the [Troubleshooting guide](../app-service/configu
     STORAGE_ACCOUNT_NAME=$(cut -d . -f1 <<< $(cut -d / -f3 <<< $STORAGE_ACCOUNT_URL))
     ```
 
-1. Create a container called *photos* in the storage account with the [az storage container create](/cli/azure/storage/container#az-storage-container-create) command. Allow anonymous read (public) access to blobs in the newly created container.
+1. Create a container called `photos` in the storage account with the [az storage container create](/cli/azure/storage/container#az-storage-container-create) command. Allow anonymous read (public) access to blobs in the newly created container.
 
     ```azurecli
+    # Set the BLOB_ENDPOINT variable
+    BLOB_ENDPOINT=$(az storage account show --name $STORAGE_ACCOUNT_NAME --query "primaryEndpoints.blob" | sed 's/"//g')
+    echo $BLOB_ENDPOINT
+
+    # Create the storage container using the BLOB_ENDPOINT variable
     az storage container create \
       --account-name $STORAGE_ACCOUNT_NAME \
       --name photos \
       --public-access blob \
-      --account-key $(az storage account keys list --account-name $STORAGE_ACCOUNT_NAME \
-          --query [0].value --output tsv) 
+      --auth-mode login \
+      --blob-endpoint $BLOB_ENDPOINT
     ```
-
-    > [!NOTE]
-    > For brevity, this command uses the storage account key to authorize with the storage account. For most scenarios, Microsoft's recommended approach is to use Microsoft Entra ID and Azure (RBAC) roles. For a quick set of instructions, see [Quickstart: Create, download, and list blobs with Azure CLI](/azure/storage/blobs/storage-quickstart-blobs-cli#create-a-container). Note that several Azure roles permit you to create containers in a storage account, including "Owner", "Contributor", "Storage Blob Data Owner", and "Storage Blob Data Contributor".
-To learn more about anonymous read access to blob data, see [Configure anonymous read access for containers and blobs](/azure/storage/blobs/anonymous-read-access-configure).
 
 ## Test the Python web app in Azure
 
