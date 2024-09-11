@@ -7,7 +7,7 @@ ms.topic: troubleshooting
 ms.date: 01/09/2023
 
 
-#Customer intent: [AI]As a system administrator, I want to troubleshoot and configure the SAP data connector for my cloud-based security solution so that I can ensure accurate and timely data ingestion and monitoring.
+#Customer intent: [AI]As an SAP BASIS team member, I want to troubleshoot issues with my Microsoft Sentinel for SAP applications data connector so that I can ensure accurate and timely data ingestion and monitoring.
 
 ---
 

@@ -7,7 +7,7 @@ ms.topic: how-to
 ms.date: 06/09/2024
 
 
-#Customer intent: [AI]As a security analyst, I want to collect and analyze SAP HANA audit logs in a centralized SIEM platform so that I can monitor and respond to security events effectively.
+#Customer intent: [AI]As a security analyst, I want to collect and analyze SAP HANA audit logs to Microsoft Sentinel so that I can monitor and respond to security events effectively.
 
 ---
 

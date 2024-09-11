@@ -9,10 +9,7 @@ appliesto:
     - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
 ms.collection: usx-security
-#customerIntent: As a SOC engineer, I want to understand the types of triggers and actions available for use in Microsoft Sentinel playbooks.
-
-
-#Customer intent: [AI]As a security operations analyst, I want to understand the supported triggers and actions in Microsoft Sentinel playbooks so that I can automate incident response and threat management effectively.
+#Customer intent: [AI]As a security analyst, I want to understand the supported triggers and actions in Microsoft Sentinel playbooks so that I can automate incident response and threat management effectively.
 
 ---
 

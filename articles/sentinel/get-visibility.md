@@ -9,7 +9,6 @@ appliesto:
     - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
 ms.collection: usx-security
-#customerIntent: As a security analyst, I want to learn how to get an initial view into Microsoft Sentinel data generated for my environment.
 
 
 #Customer intent: [AI]As a security analyst, I want to visualize and monitor data on a unified dashboard so that I can efficiently track incidents, automation, data records, and analytics in my environment.

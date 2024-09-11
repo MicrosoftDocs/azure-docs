@@ -9,10 +9,9 @@ appliesto:
   - Microsoft Sentinel in the Azure portal
   - Microsoft Sentinel in the Microsoft Defender portal
 ms.collection: usx-security
-#customerIntent: As a security engineer, I want to deploy automatic attack disruption for SAP with the unified security operations platform.
 
 
-#Customer intent: [AI]As a security operations manager, I want to configure automatic attack disruption for SAP so that I can minimize the impact of sophisticated attacks and maintain control over investigation and remediation processes.
+#Customer intent: [AI]As a security engineer, I want to configure automatic attack disruption for SAP so that I can minimize the impact of sophisticated attacks and maintain control over investigation and remediation processes.
 
 ---
 

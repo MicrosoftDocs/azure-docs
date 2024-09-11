@@ -7,7 +7,7 @@ ms.topic: concept-article
 ms.date: 08/04/2024
 
 
-#Customer intent: [AI]As a security operations analyst, I want to monitor and audit Microsoft Sentinel's health and activity so that I can ensure the service is functioning correctly and detect any unauthorized actions.
+#Customer intent: [AI]As a security analyst, I want to monitor and audit Microsoft Sentinel's health and activity so that I can ensure the service is functioning correctly and detect any unauthorized actions.
 
 ---
 

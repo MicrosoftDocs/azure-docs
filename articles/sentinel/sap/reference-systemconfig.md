@@ -8,7 +8,7 @@ ms.date: 06/03/2023
 ms.custom: devx-track-extended-java
 
 
-#Customer intent: [AI]As a system administrator, I want to understand the configuration options in the systemconfig.ini file so that I can properly configure the data collector for SAP applications.
+#Customer intent: [AI]As an SAP BASIS team member using the legacy systemconfig.ini file, I want to understand the configuration options so that I can properly configure the data collector for SAP applications.
 
 ---
 

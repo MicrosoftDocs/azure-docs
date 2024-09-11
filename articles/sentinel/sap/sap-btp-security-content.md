@@ -7,7 +7,7 @@ ms.topic: reference
 ms.date: 07/17/2024
 
 
-#Customer intent: [AI]As a security analyst, I want to utilize the Microsoft Sentinel Solution for SAP BTP so that I can monitor, detect, and respond to security threats within my SAP BTP environment.
+#Customer intent: [AI]As a security analyst, I want to use the Microsoft Sentinel solution for SAP BTP so that I can monitor, detect, and respond to security threats within my SAP BTP environment.
 
 ---
 

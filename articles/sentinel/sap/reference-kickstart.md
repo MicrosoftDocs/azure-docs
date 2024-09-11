@@ -7,7 +7,7 @@ ms.topic: reference
 ms.date: 04/03/2024
 
 
-#Customer intent: [AI]As a system administrator, I want to use a Kickstart script to deploy and configure a container hosting the SAP data connector, so that I can streamline the setup process and manage secrets storage and network configurations efficiently.
+#Customer intent: [AI]As an SAP BASIS team member, I want to understand the options in the kickstart script used to deploy and configure a container hosting the SAP data connector, so that I can streamline the setup process and manage secrets storage and network configurations efficiently.
 
 ---
 

@@ -12,7 +12,7 @@ ms.collection: usx-security
 
 
 
-#Customer intent: [AI]As a security operations center (SOC) analyst, I want to add advanced "Or" conditions to automation rules so that I can more effectively triage incidents and improve response efficiency. 
+#Customer intent: As a security operations center (SOC) analyst, I want to add advanced conditions to automation rules so that I can more effectively triage incidents and improve response efficiency..
 
 ---
 

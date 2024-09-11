@@ -10,7 +10,7 @@ appliesto:
     - Microsoft Sentinel in the Microsoft Defender portal
 
 
-#Customer intent: [AI]As a security operations engineer, I want to update the SAP data connector agent in Microsoft Sentinel so that I can ensure my SAP data integration is using the latest features and security updates.
+#Customer intent: [AI]As a security operations engineer, I want to update the Microsoft Sentinel for SAP applications data connector agent so that I can ensure my SAP data integration is using the latest features and security updates.
 
 ---
 
