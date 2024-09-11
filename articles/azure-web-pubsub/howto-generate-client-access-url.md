@@ -286,10 +286,10 @@ You could also use Microsoft Entra ID and generate the token by invoking [Genera
 
     ```bash
     # Replace the values in {} with your actual values.
-    export Endpoint={your_service_endpoint}
+    export Hostname={your_service_hostname}
     export Hub={your_hub}
     export Microsoft_Entra_Token={Microsoft_entra_id_token_from_previous_step}
-    curl -X POST "https://$Endpoint/api/hubs/$Hub/:generateToken?api-version=2024-01-01" \
+    curl -X POST "https://$Hostname/api/hubs/$Hub/:generateToken?api-version=2024-01-01" \
     -H "Authorization: Bearer $Microsoft_Entra_Token" \
     -H "Content-Type: application/json"
     ```
@@ -297,10 +297,10 @@ You could also use Microsoft Entra ID and generate the token by invoking [Genera
     If you need to generate the token for MQTT clients, append the `clientType=mqtt` parameter to the URL:
 
     ```bash
-    export Endpoint={your_service_endpoint}
+    export Hostname={your_service_hostname}
     export Hub={your_hub}
     export Microsoft_Entra_Token={Microsoft_entra_id_token_from_previous_step}
-    curl -X POST "https://$Endpoint/api/hubs/$Hub/:generateToken?api-version=2024-01-01&clientType=mqtt" \
+    curl -X POST "https://$Hostname/api/hubs/$Hub/:generateToken?api-version=2024-01-01&clientType=mqtt" \
     -H "Authorization: Bearer $Microsoft_Entra_Token" \
     -H "Content-Type: application/json"
     ```
