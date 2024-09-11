@@ -43,7 +43,7 @@ You can view metrics for Virtual WAN by using the Azure portal. The following st
 
    :::image type="content" source="./media/monitor-virtual-wan-reference/hub-metrics.png" alt-text="Screenshot that shows the virtual hub page with the metrics button." lightbox="./media/monitor-virtual-wan-reference/hub-metrics.png":::
 
-For more information, see [Analyze metrics for an Azure resource](/azure/azure-monitor/essentials/tutorial-metrics.md).
+For more information, see [Analyze metrics for an Azure resource](/azure/azure-monitor/essentials/tutorial-metrics).
 
 #### PowerShell steps
 
