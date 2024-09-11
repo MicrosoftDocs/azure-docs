@@ -1,8 +1,8 @@
 ---
 title: Back up SQL Server always on availability groups
 description: In this article, learn how to back up SQL Server on availability groups.
-ms.topic: conceptual
-ms.date: 01/25/2024
+ms.topic: how-to
+ms.date: 09/11/2024
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
