@@ -5,7 +5,7 @@ ms.service: azure-update-manager
 author: SnehaSudhirG
 ms.author: sudhirsneha
 ms.date: 08/27/2024
-ms.topic: conceptual
+ms.topic: overview
 ---
 
 # Access Azure Update Manager operations data using Azure Resource Graph

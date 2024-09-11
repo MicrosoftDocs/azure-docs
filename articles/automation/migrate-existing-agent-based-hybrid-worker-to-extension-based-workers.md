@@ -18,7 +18,7 @@ ms.service: azure-automation
 This article describes the benefits of Extension-based User Hybrid Runbook Worker and how to migrate existing Agent-based User Hybrid Runbook Workers to Extension-based Hybrid Workers.
 
 There are two Hybrid Runbook Workers installation platforms supported by Azure Automation:
-- **Agent based hybrid runbook worker** (V1) -  The Agent-based hybrid runbook worker depends on the [Log Analytics Agent](../azure-monitor/agents/log-analytics-agent.md).
+- **Agent based hybrid runbook worker** (V1) -  The Agent-based hybrid runbook worker depends on the [Log Analytics Agent](/azure/azure-monitor/agents/log-analytics-agent).
 - **Extension based hybrid runbook worker** (V2) - The Extension-based hybrid runbook worker provides native integration of the hybrid runbook worker role through the Virtual machine (VM) extension framework. 
 
 The process of executing runbooks on Hybrid Runbook Workers remains the same for both.

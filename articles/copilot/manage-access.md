@@ -6,6 +6,7 @@ ms.topic: how-to
 ms.service: copilot-for-azure
 ms.custom:
   - build-2024
+  - copilot-learning-hub
 ms.author: jenhayes
 author: JnHs
 ---

@@ -61,7 +61,7 @@ To analyze outbound traffic from NAT gateway, use virtual network (VNet) flow lo
 
 * For guides on how to enable VNet flow logs, see [Manage virtual network flow logs](../network-watcher/vnet-flow-logs-portal.md).
 
-* It is recommended to access the log data on [Log Analytics workspaces](../azure-monitor/logs/log-analytics-overview.md) where you can also query and filter the data for outbound traffic. To learn more about using Log Analytics, see [Log Analytics tutorial](../azure-monitor/logs/log-analytics-tutorial.md).
+* It is recommended to access the log data on [Log Analytics workspaces](/azure/azure-monitor/logs/log-analytics-overview) where you can also query and filter the data for outbound traffic. To learn more about using Log Analytics, see [Log Analytics tutorial](/azure/azure-monitor/logs/log-analytics-tutorial).
 
 * For more details on the VNet flow log schema, see [Traffic analytics schema and data aggregation](../network-watcher/traffic-analytics-schema.md).
 

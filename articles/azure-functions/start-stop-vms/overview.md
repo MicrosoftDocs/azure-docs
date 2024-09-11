@@ -10,17 +10,17 @@ ms.date: 09/23/2022
 
 # Start/Stop VMs v2 overview
 
-The Start/Stop VMs v2 feature starts or stops Azure Virtual Machines instances across multiple subscriptions. It starts or stops virtual machines on user-defined schedules, provides insights through [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md), and send optional notifications by using [action groups](../../azure-monitor/alerts/action-groups.md). For most scenarios, Start/Stop VMs can manage virtual machines deployed and managed both by Azure Resource Manager and by Azure Service Manager (classic), which is [deprecated](/azure/virtual-machines/classic-vm-deprecation).
+The Start/Stop VMs v2 feature starts or stops Azure Virtual Machines instances across multiple subscriptions. It starts or stops virtual machines on user-defined schedules, provides insights through [Azure Application Insights](/azure/azure-monitor/app/app-insights-overview), and send optional notifications by using [action groups](/azure/azure-monitor/alerts/action-groups). For most scenarios, Start/Stop VMs can manage virtual machines deployed and managed both by Azure Resource Manager and by Azure Service Manager (classic), which is [deprecated](/azure/virtual-machines/classic-vm-deprecation).
 
 This new version of Start/Stop VMs v2 provides a decentralized low-cost automation option for customers who want to optimize their VM costs. It offers all of the same functionality as the original version that was available with Azure Automation, but it's designed to take advantage of newer technology in Azure. The Start/Stop VMs v2 relies on multiple Azure services and it will be charged based on the service that are deployed and consumed.
 
 ## Important Start/Stop VMs v2 Updates
 
-> + No further development, enhancements, or updates will be available for Start/Stop V2 except when required to remain on supported versions of components and Azure services.
+> + No further development, enhancements, or updates will be available for Start/Stop v2 except when required to remain on supported versions of components and Azure services.
 >
-> + The TriggerAutoUpdate and UpdateStartStopV2 functions are now deprecated and will be removed in future updates to Start/Stop,V2. To update Start/Stop V2, we recommend that you stop the site, install to the latest version from our [GitHub repository](https://github.com/microsoft/startstopv2-deployments), and the start the site. No built-in notification system is available for updates. After an update to Start/Stop V2 becomes available, we will update the [readme.md](https://github.com/microsoft/startstopv2-deployments/blob/main/README.md) in the GitHub repository. Third-party Github file watchers might be available to enable you to be notified of changes. To disable the automatic update functionality, set the Function App's **AzureClientOptions:EnableAutoUpdate** [application setting](../functions-how-to-use-azure-function-app-settings.md?tabs=azure-portal%2Cto-premium#get-started-in-the-azure-portal) to **false**.
+> + The TriggerAutoUpdate and UpdateStartStopV2 functions are now deprecated and will be removed in the future. To update Start/Stop v2, we recommend that you stop the site, install to the latest version from our [GitHub repository](https://github.com/microsoft/startstopv2-deployments), and then start the site. To disable the automatic update functionality, set the Function App's **AzureClientOptions:EnableAutoUpdate** [application setting](../functions-how-to-use-azure-function-app-settings.md?tabs=azure-portal%2Cto-premium#get-started-in-the-azure-portal) to **false**. No built-in notification system is available for updates. After an update to Start/Stop v2 becomes available, we will update the [readme.md](https://github.com/microsoft/startstopv2-deployments/blob/main/README.md) in the GitHub repository. Third-party GitHub file watchers might be available to notify you of changes.
 > 
-> + As of August 19, 2024. Start/Stop v2 has been updated to the [.NET 8 isolated worker model](../functions-versions.md?tabs=isolated-process%2Cv4&pivots=programming-language-csharp#languages).  
+> + As of August 19, 2024, Start/Stop v2 has been updated to the [.NET 8 isolated worker model](../functions-versions.md?tabs=isolated-process%2Cv4&pivots=programming-language-csharp#languages).  
 
     
 ## Overview

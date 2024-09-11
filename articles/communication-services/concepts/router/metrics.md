@@ -22,7 +22,7 @@ Primitives in Azure Communication Services emit metrics for API requests. These 
 
 All API request metrics contain four dimensions that you can use to filter your metrics data. These dimensions can be aggregated together using the `Count` aggregation.
 
-More information on supported aggregation types and time series aggregations can be found [Advanced features of Azure Metrics Explorer](../../../azure-monitor/essentials/metrics-charts.md#aggregation).
+More information on supported aggregation types and time series aggregations can be found [Advanced features of Azure Metrics Explorer](/azure/azure-monitor/essentials/metrics-charts#aggregation).
 
 - **Operation** - All operations or routes that can be called on the Azure Communication Services gateway.
 
@@ -74,4 +74,4 @@ The following operations are available on Job Router API request metrics:
 
 ## Next steps
 
-- Learn more about [Data Platform Metrics](../../../azure-monitor/essentials/data-platform-metrics.md).
+- Learn more about [Data Platform Metrics](/azure/azure-monitor/essentials/data-platform-metrics).
