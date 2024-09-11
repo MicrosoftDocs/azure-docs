@@ -16,7 +16,7 @@ PolicyResources
 | summarize count() by tostring(properties.policyAssignmentId)
 ```
 
-For more information about using scopes with Azure CLI or Azure PowerShell, go to [Count Azure resources](../resource-graph/samples/starter.md#count-azure-resources).
+For more information about using scopes with Azure CLI or Azure PowerShell, go to [Count Azure resources](../../samples/starter#count-azure-resources).
 
 # [Azure CLI](#tab/azure-cli)
 
