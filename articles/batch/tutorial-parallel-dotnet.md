@@ -64,21 +64,6 @@ git clone https://github.com/Azure-Samples/batch-dotnet-ffmpeg-tutorial.git
 
 Navigate to the directory that contains the Visual Studio solution file *BatchDotNetFfmpegTutorial.sln*.
 
-Open the solution file in Visual Studio, and update the credential strings in *Program.cs* with the values you obtained for your accounts. For example:
-
-```csharp
-// Batch account credentials
-private const string BatchAccountName = "yourbatchaccount";
-private const string BatchAccountKey  = "xxxxxxxxxxxxxxxxE+yXrRvJAqT9BlXwwo1CwF+SwAYOxxxxxxxxxxxxxxxx43pXi/gdiATkvbpLRl3x14pcEQ==";
-private const string BatchAccountUrl  = "https://yourbatchaccount.yourbatchregion.batch.azure.com";
-
-// Storage account credentials
-private const string StorageAccountName = "yourstorageaccount";
-private const string StorageAccountKey  = "xxxxxxxxxxxxxxxxy4/xxxxxxxxxxxxxxxxfwpbIC5aAWA8wDu+AFXZB827Mt9lybZB1nUcQbQiUrkPtilK5BQ==";
-```
-
-[!INCLUDE [batch-credentials-include](../../includes/batch-credentials-include.md)]
-
 Also, make sure that the ffmpeg application package reference in the solution matches the identifier and version of the ffmpeg package that you uploaded to your Batch account. For example, `ffmpeg` and `4.3.1`.
 
 ```csharp
@@ -133,26 +118,20 @@ The following sections break down the sample application into the steps that it 
 
 ### Authenticate Blob and Batch clients
 
-To interact with the linked storage account, the app uses the Azure Storage Client Library for .NET. It creates a reference to the account with [CloudStorageAccount](/dotnet/api/microsoft.azure.cosmos.table.cloudstorageaccount), authenticating using shared key authentication. Then, it creates a [CloudBlobClient](/dotnet/api/microsoft.azure.storage.blob.cloudblobclient).
+To interact with the linked storage account, the app uses the Azure.Storage.Blobs Library for .NET. Using the [BlobServiceClient](/dotnet/api/azure.storage.blobs.blobserviceclient) class which takes a reference to the account Uri and authenticating [Token](dotnet/api/azure.core.tokencredentia) such as [DefaultAzureCredential](dotnet/api/azure.identity.defaultazurecredential).
 
 ```csharp
-// Construct the Storage account connection string
-string storageConnectionString = String.Format("DefaultEndpointsProtocol=https;AccountName={0};AccountKey={1}",
-                                StorageAccountName, StorageAccountKey);
-
-// Retrieve the storage account
-CloudStorageAccount storageAccount = CloudStorageAccount.Parse(storageConnectionString);
-
-CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
+// TODO: Replace <storage-account-name> with your actual storage account name
+Uri accountUri = new Uri("https://<storage-account-name>.blob.core.windows.net/");
+BlobServiceClient blobClient = new BlobServiceClient(accountUri, new DefaultAzureCredential());
 ```
 
 The app creates a [BatchClient](/dotnet/api/microsoft.azure.batch.batchclient) object to create and manage pools, jobs, and tasks in the Batch service. The Batch client in the sample uses shared key authentication. Batch also supports authentication through [Microsoft Entra ID](batch-aad-auth.md) to authenticate individual users or an unattended application.
 
 ```csharp
-BatchSharedKeyCredentials sharedKeyCredentials = new BatchSharedKeyCredentials(BatchAccountUrl, BatchAccountName, BatchAccountKey);
-
-using (BatchClient batchClient = BatchClient.Open(sharedKeyCredentials))
-...
+// TODO: Replace <batch-account-name> with your actual storage account name
+Uri batchUri = new Uri("https://<batch-account-name>t.eastus.batch.azure.com");
+BatchClient _batchClient = new BatchClient(batchUri, new DefaultAzureCredential());
 ```
 
 ### Upload input files
