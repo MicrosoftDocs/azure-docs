@@ -14,7 +14,7 @@ ms.date: 10/09/2024
 This document contains information about troubleshooting your Split Experimentation Workspace by initiating a new support request, and includes troubleshooting information for issues you might experience in creating and using a Split Experimentation Workspace.
 
 > [!NOTE]
-> To log an issue about a Split Experimentation Workspace resource on Azure App Configuration, [open a support ticket](https://azure.microsoft.com/support/create-ticket/). Support for this capability is managed by Microsoft.
+> To log an issue about a Split Experimentation Workspace resource in Azure App Configuration, [open a support ticket](https://azure.microsoft.com/support/create-ticket/). Support for this capability is managed by Microsoft.
 
 ## Known issues
 
