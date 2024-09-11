@@ -76,7 +76,7 @@ Search-AzGraph -Query "HealthResources | where type =~ 'microsoft.resourcehealth
 
 ### Count of virtual machines by power state
 
-Returns count of virtual machines (type `Microsoft.Compute/virtualMachines`) categorized according to their power state. For more information on power states, please see [Power states overview](/azure/virtual-machines/states-billing.md).
+Returns count of virtual machines (type `Microsoft.Compute/virtualMachines`) categorized according to their power state. For more information on power states, please see [Power states overview](/azure/virtual-machines/states-billing).
 
 ```kusto
 Resources

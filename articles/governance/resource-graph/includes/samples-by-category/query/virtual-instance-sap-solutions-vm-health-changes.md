@@ -8,7 +8,7 @@ ms.author: davidsmatlak
 
 ### Changes in health of virtual machines and annotations in Virtual Instance for SAP
 
-This query fetches the historical changes in availability health and corresponding annotations of all virtual machines of an SAP system given the SID of a [Virtual Instance for SAP](/azure/sap/center-sap-solutions/overview.md). Replace `mySubscriptionId` with your subscription ID, and replace `myResourceId` with the resource ID of your Virtual Instance for SAP.
+This query fetches the historical changes in availability health and corresponding annotations of all virtual machines of an SAP system given the SID of a [Virtual Instance for SAP](/azure/sap/center-sap-solutions/overview). Replace `mySubscriptionId` with your subscription ID, and replace `myResourceId` with the resource ID of your Virtual Instance for SAP.
 
 ```kusto
 Resources

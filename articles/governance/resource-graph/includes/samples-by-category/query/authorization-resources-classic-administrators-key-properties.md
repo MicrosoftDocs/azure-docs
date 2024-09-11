@@ -8,7 +8,7 @@ ms.author: danielkim
 
 ### Get classic administrators with key properties
 
-Provides a sample of [classic administrators](/azure/role-based-access-control/classic-administrators.md) and some of the resources relevant properties.
+Provides a sample of [classic administrators](/azure/role-based-access-control/classic-administrators) and some of the resources relevant properties.
 
 ```kusto
 authorizationresources

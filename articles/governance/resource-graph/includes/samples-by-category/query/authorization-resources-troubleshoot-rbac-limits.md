@@ -8,4 +8,4 @@ ms.author: davidsmatlak
 
 ### Troubleshoot Azure RBAC limits
 
-The `authorizationresources` table can be used to troubleshoot Azure role-based access control (Azure RBAC) if you exceed limits. For more information, go to [Troubleshoot Azure RBAC limits](/azure/role-based-access-control/troubleshoot-limits.md).
+The `authorizationresources` table can be used to troubleshoot Azure role-based access control (Azure RBAC) if you exceed limits. For more information, go to [Troubleshoot Azure RBAC limits](/azure/role-based-access-control/troubleshoot-limits).

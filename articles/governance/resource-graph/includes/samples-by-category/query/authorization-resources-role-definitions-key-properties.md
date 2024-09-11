@@ -8,7 +8,7 @@ ms.author: davidsmatlak
 
 ### Get role definitions with key properties
 
-Provides a sample of [role definitions](/azure/role-based-access-control/role-definitions.md) and some of the resources relevant properties.
+Provides a sample of [role definitions](/azure/role-based-access-control/role-definitions) and some of the resources relevant properties.
 
 ```kusto
 authorizationresources

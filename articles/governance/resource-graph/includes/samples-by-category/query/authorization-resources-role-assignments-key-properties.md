@@ -8,7 +8,7 @@ ms.author: davidsmatlak
 
 ### Get role assignments with key properties
 
-Provides a sample of [role assignments](/azure/role-based-access-control/role-assignments.md) and some of the resources relevant properties.
+Provides a sample of [role assignments](/azure/role-based-access-control/role-assignments) and some of the resources relevant properties.
 
 ```kusto
 authorizationresources

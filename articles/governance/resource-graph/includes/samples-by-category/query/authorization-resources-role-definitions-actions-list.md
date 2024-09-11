@@ -8,7 +8,7 @@ ms.author: davidsmatlak
 
 ### Get role definitions with actions
 
-Displays a sample of [role definitions](/azure/role-based-access-control/role-definitions.md) with an expanded list of actions and not actions for each role definition's permissions list.
+Displays a sample of [role definitions](/azure/role-based-access-control/role-definitions) with an expanded list of actions and not actions for each role definition's permissions list.
 
 ```kusto
 authorizationresources
