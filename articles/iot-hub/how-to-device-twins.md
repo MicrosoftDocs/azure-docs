@@ -60,6 +60,8 @@ This article shows you how to develop two types of applications:
 
   For more information about IoT Hub shared access policies and permissions, see [Access control and permissions](/azure/iot-hub/authenticate-authorize-sas).
 
+* If an application uses the MQTT protocol, make sure that **port 8883** is open in your firewall. The MQTT protocol communicates over port 8883. This port may be blocked in some corporate and educational network environments. For more information and ways to work around this issue, see [Connecting to IoT Hub (MQTT)](../iot/iot-mqtt-connect-to-iot-hub.md#connecting-to-iot-hub).
+
 * Language SDK requirements:
   * **.NET SDK** - Requres Visual Studio.
   * **Python SDK** - [Python version 3.7 or later](https://www.python.org/downloads/) is recommended. Make sure to use the 32-bit or 64-bit installation as required by your setup. When prompted during the installation, make sure to add Python to your platform-specific environment variable.

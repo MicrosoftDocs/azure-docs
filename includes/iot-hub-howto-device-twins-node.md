@@ -13,7 +13,7 @@ ms.custom: mqtt, devx-track-js
 
 ## Overview
 
-This article describes how to use the [Azure IoT SDK for JavaScript](https://github.com/Azure/azure-iot-sdk-node) to create device and backend service application code for device twins.
+This article describes how to use the [Azure IoT SDK for Node.js](https://github.com/Azure/azure-iot-sdk-node) to create device and backend service application code for device twins.
 
 ## Create a device application
 
@@ -55,7 +55,7 @@ npm install azure-iot-device-mqtt --save
 
 For more information about the differences between MQTT, AMQP, and HTTPS support, see [Cloud-to-device communications guidance](../articles/iot-hub/iot-hub-devguide-c2d-guidance.md) and [Choose a communication protocol](../articles/iot-hub/iot-hub-devguide-protocols.md).
 
-### Create a Client module
+### Create a client module
 
 Create a `Client` module using the installed package.
 
@@ -65,7 +65,7 @@ For example:
 const Client = require('azure-iot-device').Client;
 ```
 
-### Create a Protocol module
+### Create a protocol module
 
 Create a `Protocol` module using an installed transport package.
 

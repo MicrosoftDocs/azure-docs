@@ -61,7 +61,7 @@ _deviceClient = DeviceClient.CreateFromConnectionString(DeviceConnectionString,
 
 ### Retrieve a device twin and examine properties
 
-Call [GetTwinAsync](/dotnet/api/microsoft.azure.devices.client.deviceclient.gettwinasync?#microsoft-azure-devices-client-deviceclient-gettwinasync) to retrieve the current device twin properties. There are many [Twin](/dotnet/api/microsoft.azure.devices.shared.twin?) object [properties](/dotnet/api/microsoft.azure.devices.shared.twin?&branch=main#properties) that you can use to access specific areas of the Twin JSON data including Twin `Properties`, `Status`, `Tags`, and `Version`.
+Call [GetTwinAsync](/dotnet/api/microsoft.azure.devices.client.deviceclient.gettwinasync?#microsoft-azure-devices-client-deviceclient-gettwinasync) to retrieve the current device twin properties. There are many [Twin](/dotnet/api/microsoft.azure.devices.shared.twin?) object [properties](/dotnet/api/microsoft.azure.devices.shared.twin?&#properties) that you can use to access specific areas of the `Twin` JSON data including `Properties`, `Status`, `Tags`, and `Version`.
 
  This example retrieves device twin properties and prints the twin values in JSON format.
 
@@ -178,7 +178,7 @@ After making twin field updates, call [UpdateTwinAsync](/dotnet/api/microsoft.az
 
 Use the device twin [Tags](/dotnet/api/microsoft.azure.devices.shared.twin.tags?#microsoft-azure-devices-shared-twin-tags) property to read and write device tag information.
 
-##### Update using a Twin object
+##### Update tags using a twin object
 
 This example creates a `location` tag patch, assigns it to the `Twin` object using the `Tags` property, and then applies the patch using `UpdateTwinAsync`.
 
