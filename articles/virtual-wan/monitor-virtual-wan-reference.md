@@ -152,15 +152,15 @@ For Azure Firewall, a [workbook](../firewall/firewall-workbook.md) is provided t
 
 ## <a name="activity-logs"></a>Activity logs
 
-[**Activity log**](../azure-monitor/essentials/activity-log.md) entries are collected by default and can be viewed in the Azure portal. You can use Azure activity logs (formerly known as *operational logs* and *audit logs*) to view all operations submitted to your Azure subscription.
+[**Activity log**](/azure/azure-monitor/essentials/activity-log) entries are collected by default and can be viewed in the Azure portal. You can use Azure activity logs (formerly known as *operational logs* and *audit logs*) to view all operations submitted to your Azure subscription.
 
 You can view activity logs independently or route it to Azure Monitor Logs, where you can do much more complex queries using Log Analytics.
 
-For more information on the schema of Activity Log entries, see [Activity Log schema](../azure-monitor/essentials/activity-log-schema.md).
+For more information on the schema of Activity Log entries, see [Activity Log schema](/azure/azure-monitor/essentials/activity-log-schema).
 
 ## <a name="schemas"></a>Schemas
 
-For detailed description of the top-level diagnostic logs schema, see [Supported services, schemas, and categories for Azure Diagnostic Logs](../azure-monitor/essentials/resource-logs-schema.md).
+For detailed description of the top-level diagnostic logs schema, see [Supported services, schemas, and categories for Azure Diagnostic Logs](/azure/azure-monitor/essentials/resource-logs-schema).
 
 When reviewing any metrics through Log Analytics, the output contains the following columns:
 
@@ -186,4 +186,4 @@ For every Azure Virtual WAN you secure and convert to a Secured Hub, an explicit
 
 * To learn how to monitor Azure Firewall logs and metrics, see [Tutorial: Monitor Azure Firewall logs](../firewall/firewall-diagnostics.md).
 * For more information about Virtual WAN monitoring, see [Monitoring Azure Virtual WAN](monitor-virtual-wan.md).
-* To learn more about metrics in Azure Monitor, see [Metrics in Azure Monitor](../azure-monitor/essentials/data-platform-metrics.md).
+* To learn more about metrics in Azure Monitor, see [Metrics in Azure Monitor](/azure/azure-monitor/essentials/data-platform-metrics).
