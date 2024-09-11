@@ -6,7 +6,7 @@ author: sethmanheim
 manager: femila
 editor: jwargo
 
-ms.service: notification-hubs
+ms.service: azure-notification-hubs
 ms.tgt_pltfrm: mobile-multiple
 ms.topic: article
 ms.date: 09/23/2019
@@ -23,7 +23,7 @@ This topic describes the security model of Azure Notification Hubs.
 
 ## Shared Access Signature security
 
-Notification Hubs implements an entity-level security scheme called a *Shared Access Signature* (SAS). Each rule contains a name, a key value (shared secret), and a set of rights, as explained later in [Security claims](#security-claims). 
+Notification Hubs implements an entity-level security scheme called a *Shared Access Signature (SAS)*. Each rule contains a name, a key value (shared secret), and a set of rights, as explained later in [Security claims](#security-claims). 
 
 When creating a hub, two rules are automatically created: one with **Listen** rights (that the client app uses) and one with **all** rights (that the app backend uses):
 

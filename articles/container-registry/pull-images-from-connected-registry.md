@@ -7,10 +7,10 @@ ms.author: tejaswikolli
 ms.date: 10/31/2023
 ms.custom: mode-other, devx-track-azurecli
 ms.devlang: azurecli
-ms.service: container-registry
+ms.service: azure-container-registry
 ---
 
-# Pull images from a connected registry on IoT Edge device
+# Pull images from a connected registry on IoT Edge device (To be deprecated)
 
 To pull images from a [connected registry](intro-connected-registry.md), configure a [client token](overview-connected-registry-access.md#client-tokens) and pass the token credentials to access registry content.
 

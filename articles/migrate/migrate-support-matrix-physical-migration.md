@@ -6,7 +6,7 @@ ms.author: vijain
 ms.manager: kmadnani
 ms.topic: conceptual
 ms.service: azure-migrate
-ms.date: 10/16/2023
+ms.date: 06/18/2024
 ms.custom: engagement-fy24
 ---
 
@@ -40,7 +40,7 @@ Linux file system/guest storage | For the latest information, see the [Linux fil
 Network/Storage | For the latest information, see the [network](../site-recovery/vmware-physical-azure-support-matrix.md#network) and [storage](../site-recovery/vmware-physical-azure-support-matrix.md#storage) prerequisites for Site Recovery. Azure Migrate and Modernize provides identical network/storage requirements.
 Azure requirements | For the latest information, see the [Azure network](../site-recovery/vmware-physical-azure-support-matrix.md#azure-vm-network-after-failover), [storage](../site-recovery/vmware-physical-azure-support-matrix.md#azure-storage), and [compute](../site-recovery/vmware-physical-azure-support-matrix.md#azure-compute) requirements for Site Recovery. Azure Migrate and Modernize has identical requirements for physical server migration.
 Mobility service | Install the Mobility service agent on each machine you want to migrate.
-UEFI boot | Supported. UEFI-based machines are migrated to Azure generation 2 VMs.  <br/><br/> The OS disk should have up to four partitions, and volumes should be formatted with NTFS.
+UEFI boot | Supported. <br/><br/> Windows : NTFS  <br/><br/> Linux: The following filesystem types are supported: ext4, xfs, btrfs. Some filesystems such as ZFS, UFS, ReiserFS, and DazukoFS may not be supported subject to additional command requirements to mount them.
 UEFI - Secure boot         | Not supported for migration.
 Target disk | Machines can be migrated only to managed disks (standard HDD, standard SSD, premium SSD) in Azure.
 Ultra disk | Ultra disk migration isn't supported from the Azure Migrate and Modernize portal. You have to do an out-of-band migration for the disks that are recommended as Ultra disks. That is, you can migrate selecting it as premium disk type and change it to Ultra disk after migration.

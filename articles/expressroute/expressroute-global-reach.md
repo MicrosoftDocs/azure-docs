@@ -3,7 +3,7 @@ title: 'About Azure ExpressRoute Global Reach'
 description: Learn how Azure ExpressRoute Global Reach can link ExpressRoute circuits together to make a private network between your on-premises networks.
 services: expressroute
 author: duongau
-ms.service: expressroute
+ms.service: azure-expressroute
 ms.topic: conceptual
 ms.date: 06/29/2023
 ms.author: duau

@@ -165,7 +165,7 @@ Specifically, the required resource provider permission is `Microsoft.Network/ne
 
 Although a policy can be assigned at the management group level, _only_ resources at the subscription or resource group level are evaluated.
 
-For certain resource providers such as [Machine configuration](../machine-configuration/overview.md), [Azure Kubernetes Service](../../aks/intro-kubernetes.md), and [Azure Key Vault](../../key-vault/general/overview.md), there's a deeper integration for managing settings and objects. To find out more, go to [Resource Provider modes](./concepts/definition-structure.md#resource-provider-modes).
+For certain resource providers such as [Machine configuration](../machine-configuration/overview.md), [Azure Kubernetes Service](/azure/aks/intro-kubernetes), and [Azure Key Vault](/azure/key-vault/general/overview), there's a deeper integration for managing settings and objects. To find out more, go to [Resource Provider modes](./concepts/definition-structure.md#resource-provider-modes).
 
 ### Recommendations for managing policies
 
@@ -179,12 +179,11 @@ Here are a few pointers and tips to keep in mind:
   the assignment can be scoped down to a subscription or resource group within that management
   group.
 
-- We recommend creating and assigning initiative definitions even for a single policy definition.
-  For example, you have policy definition _policyDefA_ and create it under initiative definition
-  _initiativeDefC_. If you create another policy definition later for _policyDefB_ with goals
-  similar to _policyDefA_, you can add it under _initiativeDefC_ and track them together.
+- We recommend creating and assigning initiative definitions even if starting with a single policy definition. This enables you to add policy definitions to the initiative later without increasing the number of assignments to manage.
 
-    - Once you've created an initiative assignment, policy definitions added to the initiative also
+  - For example, imagine you create policy definition _policyDefA_ and add it to initiative definition  _initiativeDefC_. If you later create another policy definition _policyDefB_ with goals similar to _policyDefA_, you can add it under _initiativeDefC_ and track them together.
+
+  - Once you've created an initiative assignment, policy definitions added to the initiative also
   become part of that initiative's assignments.
 
   - When an initiative assignment is evaluated, all policies within the initiative are also evaluated.

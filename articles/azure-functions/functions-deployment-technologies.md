@@ -56,7 +56,7 @@ Some key concepts are critical to understanding how deployments work in Azure Fu
 
 When you change any of your triggers, the Functions infrastructure must be aware of the changes. Synchronization happens automatically for many deployment technologies. However, in some cases, you must manually sync your triggers. 
 
-You must manually sync triggers when using these deploymention options:
+You must manually sync triggers when using these deployment options:
 
 + [External package URL](#external-package-url)
 + [Local Git](#local-git)
@@ -65,7 +65,7 @@ You must manually sync triggers when using these deploymention options:
 You can sync triggers in one of three ways:
 
 + Restart your function app in the Azure portal.
-+ Send an HTTP POST request to `https://{functionappname}.azurewebsites.net/admin/host/synctriggers?code=<API_KEY>` using the [master key](functions-bindings-http-webhook-trigger.md#authorization-keys).
++ Send an HTTP POST request to `https://{functionappname}.azurewebsites.net/admin/host/synctriggers?code=<API_KEY>` using the [master key](function-keys-how-to.md).
 + Send an HTTP POST request to `https://management.azure.com/subscriptions/<SUBSCRIPTION_ID>/resourceGroups/<RESOURCE_GROUP_NAME>/providers/Microsoft.Web/sites/<FUNCTION_APP_NAME>/syncfunctiontriggers?api-version=2016-08-01`. Replace the placeholders with your subscription ID, resource group name, and the name of your function app. This request requires an [access token](/rest/api/azure/#acquire-an-access-token) in the [`Authorization` request header](/rest/api/azure/#request-header). 
 
 

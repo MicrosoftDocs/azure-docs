@@ -4,7 +4,7 @@ titleSuffix: Azure Virtual Network
 description: Learn about how to deploy a Dynamic Host Configuration Protocol (DHCP) server in Azure on a virtual machine as a target for an on-premises DHCP relay agent.
 author: asudbring
 ms.author: allensu
-ms.service: virtual-network
+ms.service: azure-virtual-network
 ms.topic: how-to
 ms.date: 02/28/2024
 
@@ -15,6 +15,9 @@ ms.date: 02/28/2024
 # Deploy a DHCP server in Azure on a virtual machine
 
 Learn how to deploy a highly available DHCP server in Azure on a virtual machine. This server is used as a target for an on-premises DHCP relay agent to provide dynamic IP address allocation to on-premises clients. Broadcast packets directly from clients to a DHCP Server don't work in an Azure Virtual Network by design.
+
+> [!NOTE]
+> The on-premises client to DHCP Server (source port UDP/68, destination port UDP/67) is still not supported in Azure, since this traffic is intercepted and handled differently. This will result in timeout messages at the time of DHCP RENEW at T1 when the client directly attempts to reach the DHCP Server in Azure. The DHCP RENEW will succeed when the DHCP RENEW attempt is made at T2 via DHCP Relay Agent. For more details on the T1 and T2 DHCP RENEW timers, see [RFC 2131](https://www.ietf.org/rfc/rfc2131.txt).
 
 ## Prerequisites
 

@@ -7,7 +7,7 @@ ms.author: duau
 manager: KumudD
 ms.date: 06/28/2022
 ms.topic: quickstart
-ms.service: frontdoor
+ms.service: azure-frontdoor
 ms.custom: devx-track-azurepowershell, mode-api
 ---
 
@@ -17,7 +17,7 @@ In this quickstart, you'll learn how to create an Azure Front Door Standard/Prem
 
 :::image type="content" source="media/quickstart-create-front-door/environment-diagram.png" alt-text="Diagram of Front Door deployment environment using the Azure PowerShell." border="false":::
 
-[!INCLUDE [ddos-waf-recommendation](~/reusable-content/ce-skilling/azure/includes/ddos-waf-recommendation.md)]
+[!INCLUDE [ddos-waf-recommendation](../../includes/ddos-waf-recommendation.md)]
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).

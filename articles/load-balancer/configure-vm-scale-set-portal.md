@@ -3,7 +3,7 @@ title: Configure Virtual Machine Scale Set with an existing Azure Load Balancer 
 description: Learn to configure a Virtual Machine Scale Set with an existing Azure standard Load Balancer using the Azure portal, Azure CLI or Azure PowerShell.
 author: mbender-ms
 ms.author: mbender
-ms.service: load-balancer
+ms.service: azure-load-balancer
 ms.topic: how-to
 ms.date: 01/11/2024
 ms.custom: template-quickstart, engagement-fy23, devx-track-azurecli, devx-track-azurepowershell
@@ -224,4 +224,4 @@ New-AzVmss -ResourceGroupName $rsg -Location $loc -VMScaleSetName $vms -VirtualN
 In this article, you deployed a Virtual Machine Scale Set with an existing Azure Load Balancer.  To learn more about Virtual Machine Scale Sets and load balancer, see:
 
 - [What is Azure Load Balancer?](load-balancer-overview.md)
-- [What are Virtual Machine Scale Sets?](../virtual-machine-scale-sets/overview.md)
+- [What are Virtual Machine Scale Sets?](/azure/virtual-machine-scale-sets/overview)

@@ -2,7 +2,7 @@
 title: REST API capabilities in the FHIR service in Azure Health Data Services
 description: Explore the RESTful capabilities of Azure Health Data Services FHIR API, including conditional operations and resource management. Learn more about efficient healthcare data handling.
 author: expekesheth
-ms.service: healthcare-apis
+ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.topic: conceptual
 ms.date: 05/14/2024
@@ -68,6 +68,22 @@ After you find the record to restore, use the `PUT` operation to recreate the re
 > There is no time-based expiration for history or soft delete data. The only way to remove history or soft-deleted data is with a hard delete or the purge history operation.
 
 [!INCLUDE [Bundle details](../includes/rest-api-bundle-common.md)]
+
+## History
+The history interaction retrieves the history of either a particular resource, all resources of a given type, or all resources supported by the system. History interactions are performed by the HTTP GET command.
+
+For example: 
+  `GET https://{{FHIR_URL}}/{resource type}/{resource id}/_history
+   GET https://{{FHIR_URL}}/{resource type})/_history`
+
+The response is a bundle with type set to the specified version history, sorted with oldest versions last, and including deleted resources. 
+
+To search with history, use these interactions:```
+* _count : defines the number of resources returned on single page.
+* _since : includes resource versions created at or after the given instant in time.
+* _before : includes resource versions that were created before the given instant in time.
+
+For more information on history and version management, please visit [FHIR versioning policy and history management](fhir-versioning-policy-and-history-management.md).
 
 ## Patch and conditional patch
 

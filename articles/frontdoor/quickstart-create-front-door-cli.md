@@ -4,7 +4,7 @@ description: This quickstart will show you how to use Azure Front Door to create
 services: front-door
 author: duongau
 manager: KumudD
-ms.service: frontdoor
+ms.service: azure-frontdoor
 ms.topic: quickstart
 ms.date: 3/28/2023
 ms.author: duau

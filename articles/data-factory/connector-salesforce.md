@@ -4,11 +4,10 @@ titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to copy data from Salesforce to supported sink data stores or from supported source data stores to Salesforce by using a copy activity in an Azure Data Factory or Azure Synapse Analytics pipeline.
 ms.author: jianleishen
 author: jianleishen
-ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 04/01/2024
+ms.date: 07/11/2024
 ---
 
 # Copy data from and to Salesforce using Azure Data Factory or Azure Synapse Analytics
@@ -39,8 +38,7 @@ Specifically, this Salesforce connector supports:
 - Salesforce Developer, Professional, Enterprise, or Unlimited editions.
 - Copying data from and to custom domain (Custom domain can be configured in both production and sandbox environments).
 
-You can explicitly set the API version used to read/write data via [`apiVersion` property](#linked-service-properties) in linked service. When copying data to Salesforce, the connector uses BULK API 2.0.
-
+You can explicitly set the API version used to read/write data via [`apiVersion` property](#linked-service-properties) in linked service. When you are copying data to Salesforce, the connector uses BULK API 2.0.
 
 ## Prerequisites
 
@@ -53,7 +51,7 @@ You can explicitly set the API version used to read/write data via [`apiVersion`
 
 ## Salesforce Bulk API 2.0 Limits
 
-We use Salesforce Bulk API 2.0 to query and ingest data. In Bulk API 2.0, batches are created for you automatically. You can submit up to **15,000** batches per rolling 24-hour period. If batches exceed the limit, you will see failures.
+We use Salesforce Bulk API 2.0 to query and ingest data. In Bulk API 2.0, batches are created for you automatically. You can submit up to **15,000** batches per rolling 24-hour period. If batches exceed the limit, you encounter failures.
 
 In Bulk API 2.0, only ingest jobs consume batches. Query jobs don't. For details, see [How Requests Are Processed in the Bulk API 2.0 Developer Guide](https://developer.salesforce.com/docs/atlas.en-us.api_asynch.meta/api_asynch/how_requests_are_processed.htm).
 
@@ -100,7 +98,7 @@ The following properties are supported for the Salesforce linked service.
 | authenticationType | Type of authentication used to connect to the Salesforce. <br/>The allowed value is **OAuth2ClientCredentials**. | Yes |
 | clientId |Specify the client ID of the Salesforce OAuth 2.0 Connected App. For more information, go to this [article](https://help.salesforce.com/s/articleView?id=sf.connected_app_client_credentials_setup.htm&type=5) |Yes |
 | clientSecret |Specify the client secret of the Salesforce OAuth 2.0 Connected App. For more information, go to this [article](https://help.salesforce.com/s/articleView?id=sf.connected_app_client_credentials_setup.htm&type=5) |Yes |
-| apiVersion | Specify the Salesforce Bulk API 2.0 version to use, e.g. `52.0`. The Bulk API 2.0 only supports API version >= 47.0. To learn about Bulk API 2.0 version, see [article](https://developer.salesforce.com/docs/atlas.en-us.api_asynch.meta/api_asynch/bulk_common_diff_two_versions.htm). If you use a lower API version, it will result in a failure. | Yes |
+| apiVersion | Specify the Salesforce Bulk API 2.0 version to use, for example, `52.0`. The Bulk API 2.0 only supports API version >= 47.0. To learn about Bulk API 2.0 version, see [article](https://developer.salesforce.com/docs/atlas.en-us.api_asynch.meta/api_asynch/bulk_common_diff_two_versions.htm). A failure occurs if you use a lower API version. | Yes |
 | connectVia | The [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. If not specified, it uses the default Azure Integration Runtime. | No |
 
 **Example: Store credentials**
@@ -159,7 +157,7 @@ The following properties are supported for the Salesforce linked service.
 
 **Example: Store credentials in Key Vault, as well as environmentUrl and clientId**
 
-Note that by doing so, you will no longer be able to use the UI to edit settings.  The ***Specify dynamic contents in JSON format*** checkbox will be checked, and you will have to edit this configuration entirely by hand.  The advantage is you can derive ALL configuration settings from the Key Vault instead of parameterizing anything here.
+By doing storing credentials in Key Vault, as well as environmentUrl and clientId, you can longer use the UI to edit settings. The ***Specify dynamic contents in JSON format*** checkbox must be checked, and you must this configuration manually. The advantage of this scenario is that you can derive all configuration settings from the Key Vault instead of parameterizing anything here.
 
 ```json
 {
@@ -211,8 +209,8 @@ To copy data from and to Salesforce, set the type property of the dataset to **S
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property must be set to **SalesforceV2Object**.  | Yes |
-| objectApiName | The Salesforce object name to retrieve data from. | No for source (if "SOQLQuery" in source is specified), Yes for sink |
-| reportId | The ID of the Salesforce report to retrieve data from. It is not supported in sink. Note that there are [limitations](https://developer.salesforce.com/docs/atlas.en-us.api_analytics.meta/api_analytics/sforce_analytics_rest_api_limits_limitations.htm) when you use reports. | No for source (if "SOQLQuery" in source is specified), not support sink |
+| objectApiName | The Salesforce object name to retrieve data from. | No for source (if "query" in source is specified), Yes for sink |
+| reportId | The ID of the Salesforce report to retrieve data from. It isn't supported in sink. There are [limitations](https://developer.salesforce.com/docs/atlas.en-us.api_analytics.meta/api_analytics/sforce_analytics_rest_api_limits_limitations.htm) when you use reports. | No for source (if "query" in source is specified), not support sink |
 
 > [!IMPORTANT]
 > The "__c" part of **API Name** is needed for any custom object.
@@ -249,7 +247,7 @@ To copy data from Salesforce, set the source type in the copy activity to **Sale
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property of the copy activity source must be set to **SalesforceV2Source**. | Yes |
-| SOQLQuery | Use the custom query to read data. You can only use [Salesforce Object Query Language (SOQL)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm) query with limitations. For SOQL limitations, see this [article](https://developer.salesforce.com/docs/atlas.en-us.api_asynch.meta/api_asynch/queries.htm#SOQL%20Considerations). If query is not specified, all the data of the Salesforce object specified in "ObjectApiName/reportId" in dataset will be retrieved. | No (if "ObjectApiName/reportId" in the dataset is specified) |
+| query | Use the custom query to read data. You can only use [Salesforce Object Query Language (SOQL)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm) query with limitations. For SOQL limitations, see this [article](https://developer.salesforce.com/docs/atlas.en-us.api_asynch.meta/api_asynch/queries.htm#SOQL%20Considerations). If query isn't specified, all the data of the Salesforce object specified in "ObjectApiName/reportId" in dataset is retrieved. | No (if "ObjectApiName/reportId" in the dataset is specified) |
 | includeDeletedObjects | Indicates whether to query the existing records, or query all records including the deleted ones. If not specified, the default behavior is false. <br>Allowed values: **false** (default), **true**.   | No |
 
 > [!IMPORTANT]
@@ -279,7 +277,7 @@ To copy data from Salesforce, set the source type in the copy activity to **Sale
         "typeProperties": {
             "source": {
                 "type": "SalesforceV2Source",
-                "SOQLQuery": "SELECT Col_Currency__c, Col_Date__c, Col_Email__c FROM AllDataType__c",
+                "query": "SELECT Col_Currency__c, Col_Date__c, Col_Email__c FROM AllDataType__c",
                 "includeDeletedObjects": false
             },
             "sink": {
@@ -299,7 +297,7 @@ To copy data to Salesforce, set the sink type in the copy activity to **Salesfor
 | type | The type property of the copy activity sink must be set to **SalesforceV2Sink**. | Yes |
 | writeBehavior | The write behavior for the operation.<br/>Allowed values are **Insert** and **Upsert**. | No (default is Insert) |
 | externalIdFieldName | The name of the external ID field for the upsert operation. The specified field must be defined as "External ID Field" in the Salesforce object. It can't have NULL values in the corresponding input data. | Yes for "Upsert" |
-| writeBatchSize | The row count of data written to Salesforce in each batch. Suggest set this value from 10,000 to 200,000. Too little rows in each batch will reduce the copy performance. Too many rows in each batch may cause API timeout. | No (default is 100,000) |
+| writeBatchSize | The row count of data written to Salesforce in each batch. Suggest set this value from 10,000 to 200,000. Too few rows in each batch reduces copy performance. Too many rows in each batch may cause API timeout. | No (default is 100,000) |
 | ignoreNullValues | Indicates whether to ignore NULL values from input data during a write operation.<br/>Allowed values are **true** and **false**.<br>- **True**: Leave the data in the destination object unchanged when you do an upsert or update operation. Insert a defined default value when you do an insert operation.<br/>- **False**: Update the data in the destination object to NULL when you do an upsert or update operation. Insert a NULL value when you do an insert operation. | No (default is false) |
 | maxConcurrentConnections |The upper limit of concurrent connections established to the data store during the activity run. Specify a value only when you want to limit concurrent connections.| No |
 
@@ -365,7 +363,7 @@ When you copy data from Salesforce, the following mappings are used from Salesfo
 | URL |String |
 
 > [!Note]
-> Salesforce Number type is mapping to Decimal type in Azure Data Factory and Azure Synapse pipelines as a service interim data type. Decimal type honors the defined precision and scale. For data whose decimal places exceeds the defined scale, its value will be rounded off in preview data and copy. To avoid getting such precision loss in Azure Data Factory and Azure Synapse pipelines, consider increasing the decimal places to a reasonably large value in **Custom Field Definition Edit** page of Salesforce. 
+> Salesforce Number type is mapping to Decimal type in Azure Data Factory and Azure Synapse pipelines as a service interim data type. Decimal type honors the defined precision and scale. For data whose decimal places exceeds the defined scale, its value is rounded off in preview data and copy. To avoid getting such precision loss in Azure Data Factory and Azure Synapse pipelines, consider increasing the decimal places to a reasonably large value in **Custom Field Definition Edit** page of Salesforce. 
 
 ## Lookup activity properties
 
@@ -377,7 +375,7 @@ Here are steps that help you upgrade your linked service and related queries:
 
 1. Configure the connected apps in Salesforce portal by referring to [Prerequisites](connector-salesforce.md#prerequisites).
 
-1. Create a new Salesforce linked service and configure it by referring to [Linked service properties](connector-salesforce.md#linked-service-properties).  
+1. Create a new Salesforce linked service and configure it by referring to [Linked service properties](connector-salesforce.md#linked-service-properties). You also need to manually update existing datasets that rely on the old linked service, editing each dataset to use the new linked service instead. Pipeline activities that reference the updated datasets automatically use the updated linked service reference.
 
 1. If you use SQL query in the copy activity source or the lookup activity that refers to the legacy linked service, you need to convert them to the SOQL query. Learn more about SOQL query from [Salesforce as a source type](connector-salesforce.md#salesforce-as-a-source-type) and [Salesforce Object Query Language (SOQL)](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql.htm).
 
@@ -385,13 +383,13 @@ Here are steps that help you upgrade your linked service and related queries:
 
 ## Differences between Salesforce and Salesforce (legacy)
 
-The Salesforce connector offers new functionalities and is compatible with most features of Salesforce (legacy) connector. The table below shows the feature differences between Salesforce and Salesforce (legacy).
+The Salesforce connector offers new functionalities and is compatible with most features of Salesforce (legacy) connector. The following table shows the feature differences between Salesforce and Salesforce (legacy).
 
 |Salesforce |Salesforce (legacy)|
 |:---|:---|
-|Support SOQL within [Salesforce Bulk API 2.0](https://developer.salesforce.com/docs/atlas.en-us.api_asynch.meta/api_asynch/queries.htm#SOQL%20Considerations). <br>For SOQL queries:  <br>• GROUP BY, LIMIT, ORDER BY, OFFSET, or TYPEOF clauses are not supported. <br>• Aggregate Functions such as COUNT() are not supported, you can use Salesforce reports to implement them. <br>• Date functions in GROUP BY clauses are not supported, but they are supported in the WHERE clause. <br>• Compound address fields or compound geolocation fields are not supported. As an alternative, query the individual components of compound fields.  <br>• Parent-to-child relationship queries are not supported, whereas child-to-parent relationship queries are supported. |Support both SQL and SOQL syntax. |
-|Objects that contain binary fields are not supported.| Objects that contain binary fields are supported, like Attachment object.|
-|Support objects within Bulk API. For more information, see this [article](https://help.salesforce.com/s/articleView?id=000383508&type=1).|Support objects that are not supported by Bulk API, like CaseStatus.|
+|Support SOQL within [Salesforce Bulk API 2.0](https://developer.salesforce.com/docs/atlas.en-us.api_asynch.meta/api_asynch/queries.htm#SOQL%20Considerations). <br>For SOQL queries:  <br>• GROUP BY, LIMIT, ORDER BY, OFFSET, or TYPEOF clauses aren't supported. <br>• Aggregate Functions such as COUNT() aren't supported, you can use Salesforce reports to implement them. <br>• Date functions in GROUP BY clauses aren't supported, but they're supported in the WHERE clause. <br>• Compound address fields or compound geolocation fields aren't supported. As an alternative, query the individual components of compound fields.  <br>• Parent-to-child relationship queries aren't supported, whereas child-to-parent relationship queries are supported. |Support both SQL and SOQL syntax. |
+|Objects that contain binary fields aren't supported.| Objects that contain binary fields are supported, like Attachment object.|
+|Support objects within Bulk API. For more information, see this [article](https://help.salesforce.com/s/articleView?id=000383508&type=1).|Support objects that are unsupported with Bulk API, like CaseStatus.|
 |Support report by selecting a report ID.|Support report query syntax, like `{call "<report name>"}`.|
 
 ## Related content

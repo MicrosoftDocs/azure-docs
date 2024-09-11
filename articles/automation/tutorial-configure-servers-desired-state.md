@@ -2,10 +2,11 @@
 title: Configure machines to a desired state in Azure Automation
 description: This article tells how to configure machines to a desired state using Azure Automation State Configuration.
 services: automation
-ms.subservice: dsc
-ms.topic: conceptual
-ms.date: 04/15/2021
+ms.subservice: desired-state-config
+ms.topic: tutorial
+ms.date: 09/10/2024
 ms.custom: devx-track-azurepowershell
+ms.service: azure-automation
 ---
 
 # Configure machines to a desired state
@@ -25,7 +26,7 @@ For this tutorial, we use a simple [DSC configuration](/powershell/dsc/configura
 
 - An Azure Automation account. To learn more about an Automation account and its requirements, see [Automation Account authentication overview](./automation-security-overview.md).
 - An Azure Resource Manager VM (not classic) running Windows Server 2008 R2 or later. For instructions on creating a VM, see
-  [Create your first Windows virtual machine in the Azure portal](../virtual-machines/windows/quick-create-portal.md).
+  [Create your first Windows virtual machine in the Azure portal](/azure/virtual-machines/windows/quick-create-portal).
 - Azure PowerShell module version 3.6 or later. Run `Get-Module -ListAvailable Az` to find the version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/azurerm/install-azurerm-ps).
 - Familiarity with Desired State Configuration (DSC). For information about DSC, see [Windows PowerShell Desired State Configuration Overview](/powershell/dsc/overview).
 

@@ -70,7 +70,7 @@ items:
       href: tutorial-multiple-components.md
     - name: Connect a device module
       href: tutorial-migrate-device-to-module.md
-    - name: Use MQTT to connect a Mobile device
+    - name: Use MQTT to connect a device
       href: tutorial-use-mqtt.md
     - name: Implement the Industrial IoT reference solution
       href: tutorial-iot-industrial-solution-architecture.md
@@ -115,8 +115,6 @@ items:
             href: concepts-modeling-guide.md
           - name: Use models in a solution
             href: concepts-model-discovery.md
-          - name: Model parser
-            href: concepts-model-parser.md
       - name: MQTT support
         items:
         - name: Use MQTT with IoT Hub

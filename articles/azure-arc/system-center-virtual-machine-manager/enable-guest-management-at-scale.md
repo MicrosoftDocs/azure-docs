@@ -3,8 +3,8 @@ title: Install Arc agent at scale for your SCVMM VMs
 description: Learn how to enable guest management at scale for Arc-enabled SCVMM VMs. 
 ms.service: azure-arc
 ms.subservice: azure-arc-scvmm
-author: Farha-Bano
-ms.author: v-farhabano
+author: PriskeyJeronika-MS
+ms.author: v-gjeronika
 manager: jsuri
 ms.topic: how-to 
 ms.date: 03/27/2024

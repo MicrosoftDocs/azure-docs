@@ -4,7 +4,7 @@ titleSuffix: Azure Network Watcher
 description: In this tutorial, you learn how to log network traffic flow to and from a virtual machine (VM) using Network Watcher NSG flow logs capability.
 author: halkazwini
 ms.author: halkazwini
-ms.service: network-watcher
+ms.service: azure-network-watcher
 ms.topic: tutorial
 ms.date: 09/26/2023
 # CustomerIntent: As an Azure administrator, I need to log the network traffic to and from a virtual machine (VM) so I can analyze the data for anomalies.
@@ -117,7 +117,7 @@ In this section, you create **myVM** virtual machine.
 
 NSG flow logging requires the **Microsoft.Insights** provider. To check its status, follow these steps:
 
-1. In the search box at the top of the portal, enter ***subscriptions***. Select **Subscriptions** in the search results.
+1. In the search box at the top of the portal, enter ***subscriptions***. Select **Subscriptions** from the search results.
 
 1. Select the Azure subscription that you want to enable the provider for in **Subscriptions**.
 
@@ -133,7 +133,7 @@ NSG flow logging requires the **Microsoft.Insights** provider. To check its stat
 
 In this section, you create a storage account to use it to store the flow logs.
 
-1. In the search box at the top of the portal, enter ***storage accounts***. Select **Storage accounts** in the search results.
+1. In the search box at the top of the portal, enter ***storage accounts***. Select **Storage accounts** from the search results.
 
 1. Select **+ Create**. In **Create a storage account**, enter or select the following values in the **Basics** tab:
 
@@ -156,7 +156,7 @@ In this section, you create a storage account to use it to store the flow logs.
 
 In this section, you create an NSG flow log that's saved into the storage account created previously in the tutorial.
 
-1. In the search box at the top of the portal, enter ***network watcher***. Select **Network Watcher** in the search results.
+1. In the search box at the top of the portal, enter ***network watcher***. Select **Network Watcher** from the search results.
 
 1. Under **Logs**, select **Flow logs**.
 
@@ -198,7 +198,7 @@ In this section, you create an NSG flow log that's saved into the storage accoun
 
 In this section, you go to the storage account you previously selected and download the NSG flow log created in the previous section.
 
-1. In the search box at the top of the portal, enter ***storage accounts***. Select **Storage accounts** in the search results.
+1. In the search box at the top of the portal, enter ***storage accounts***. Select **Storage accounts** from the search results.
 
 2. Select **mynwstorageaccount** or the storage account you previously created and selected to store the logs.
 

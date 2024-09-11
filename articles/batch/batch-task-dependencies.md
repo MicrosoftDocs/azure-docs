@@ -2,7 +2,7 @@
 title: Create task dependencies to run tasks
 description: Create tasks that depend on the completion of other tasks for processing MapReduce style and similar big data workloads in Azure Batch.
 ms.topic: how-to
-ms.date: 06/29/2021
+ms.date: 06/13/2024
 ms.devlang: csharp
 ms.custom: "H1Hack27Feb2017, devx-track-csharp"
 ---
@@ -59,9 +59,9 @@ There are three basic task dependency scenarios that you can use in Azure Batch:
 
 | Scenario&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; | Example | Illustration |
 |:---:| --- | --- |
-|  [One-to-one](#one-to-one) |*taskB* depends on *taskA* <p/> *taskB* will not be scheduled for execution until *taskA* has completed successfully |:::image type="content" source="media/batch-task-dependency/01_one_to_one.png" alt-text="Diagram showing the one-to-one task dependency scenario."::: |
-|  [One-to-many](#one-to-many) |*taskC* depends on both *taskA* and *taskB* <p/> *taskC* will not be scheduled for execution until both *taskA* and *taskB* have completed successfully |:::image type="content" source="media/batch-task-dependency/02_one_to_many.png" alt-text="Diagram showing the one-to-many task dependency scenario."::: |
-|  [Task ID range](#task-id-range) |*taskD* depends on a range of tasks <p/> *taskD* will not be scheduled for execution until the tasks with IDs *1* through *10* have completed successfully |:::image type="content" source="media/batch-task-dependency/03_task_id_range.png" alt-text="Diagram showing the task ID range task dependency scenario."::: |
+|  [One-to-one](#one-to-one) |*taskB* depends on *taskA* <p/> *taskB* won't be scheduled for execution until *taskA* has completed successfully |:::image type="content" source="media/batch-task-dependency/01_one_to_one.png" alt-text="Diagram showing the one-to-one task dependency scenario."::: |
+|  [One-to-many](#one-to-many) |*taskC* depends on both *taskA* and *taskB* <p/> *taskC* won't be scheduled for execution until both *taskA* and *taskB* have completed successfully |:::image type="content" source="media/batch-task-dependency/02_one_to_many.png" alt-text="Diagram showing the one-to-many task dependency scenario."::: |
+|  [Task ID range](#task-id-range) |*taskD* depends on a range of tasks <p/> *taskD* won't be scheduled for execution until the tasks with IDs *1* through *10* have completed successfully |:::image type="content" source="media/batch-task-dependency/03_task_id_range.png" alt-text="Diagram showing the task ID range task dependency scenario."::: |
 
 > [!TIP]
 > You can create **many-to-many** relationships, such as where tasks C, D, E, and F each depend on tasks A and B. This is useful, for example, in parallelized preprocessing scenarios where your downstream tasks depend on the output of multiple upstream tasks.

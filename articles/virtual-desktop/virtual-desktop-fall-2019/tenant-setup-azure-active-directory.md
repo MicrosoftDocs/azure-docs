@@ -1,18 +1,18 @@
 ---
 title: Create a tenant in Azure Virtual Desktop (classic) - Azure
 description: Describes how to set up Azure Virtual Desktop (classic) tenants in Microsoft Entra ID.
-author: Heidilohr
+author: dknappettmsft
 ms.topic: tutorial
 ms.date: 03/30/2020
-ms.author: helohr
-manager: femila
+ms.author: daknappe
+ms.custom: docs_inherited
 ---
 # Tutorial: Create a tenant in Azure Virtual Desktop (classic)
 
 > [!IMPORTANT]
 > - This content applies to Azure Virtual Desktop (classic), which doesn't support Azure Resource Manager Azure Virtual Desktop objects.
 >
-> - Beginning **September 30 2023**, you will no longer be able to create new Azure Virtual Desktop (classic) tenants. Azure Virtual Desktop (classic) will retire on **September 30, 2026**. You should transition to [Azure Virtual Desktop](../index.yml) before that date. For more information, see [Azure Virtual Desktop (classic) retirement](classic-retirement.md).
+> - You can no longer be able to create new Azure Virtual Desktop (classic) tenants. Azure Virtual Desktop (classic) will retire on **September 30, 2026**. You should transition to [Azure Virtual Desktop](../index.yml) before that date. For more information, see [Azure Virtual Desktop (classic) retirement](classic-retirement.md).
 
 Creating a tenant in Azure Virtual Desktop is the first step toward building your desktop virtualization solution. A tenant is a group of one or more host pools. Each host pool consists of multiple session hosts, running as virtual machines in Azure and registered to the Azure Virtual Desktop service. Each host pool also consists of one or more application groups that are used to publish desktop and application resources to users. With a tenant, you can build host pools, create application groups, assign users, and make connections through the service.
 
@@ -28,13 +28,11 @@ In this tutorial, learn how to:
 Before you start setting up your Azure Virtual Desktop tenant, make sure you have these things:
 
 * The [Microsoft Entra ID](https://azure.microsoft.com/services/active-directory/) tenant ID for Azure Virtual Desktop users.
-* A global administrator account within the Microsoft Entra tenant.
-   * This also applies to Cloud Solution Provider (CSP) organizations that are creating an Azure Virtual Desktop tenant for their customers. If you're in a CSP organization, you must be able to sign in as global administrator of the customer's Microsoft Entra instance.
+* A account within the Microsoft Entra tenant with the required permissions to provide admin consent for for an application in the tenant. For more information, see [Grant tenant-wide admin consent to an application](/entra/identity/enterprise-apps/grant-admin-consent).
+   * This also applies to Cloud Solution Provider (CSP) organizations that are creating an Azure Virtual Desktop tenant for their customers. If you're in a CSP organization, you must be able to sign in with an appropriate account in the customer's Microsoft Entra instance.
    * The administrator account must be sourced from the Microsoft Entra tenant in which you're trying to create the Azure Virtual Desktop tenant. This process doesn't support Microsoft Entra B2B (guest) accounts.
    * The administrator account must be a work or school account.
 * An Azure subscription.
-
-You must have the tenant ID, global administrator account, and Azure subscription ready so that the process described in this tutorial can work properly.
 
 ## Grant permissions to Azure Virtual Desktop
 
@@ -51,7 +49,7 @@ To grant the service permissions:
    >https://login.microsoftonline.com/{tenant}/adminconsent?client_id=5a0aa725-4958-4b0c-80a9-34562e23f3b7&redirect_uri=https%3A%2F%2Frdweb.wvd.microsoft.com%2FRDWeb%2FConsentCallback
    >```
 
-2. Sign in to the Azure Virtual Desktop consent page with a global administrator account. For example, if you were with the Contoso organization, your account might be admin@contoso.com or admin@contoso.onmicrosoft.com.
+2. Sign in to the Azure Virtual Desktop consent page with the appropriate account.
 3. Select **Accept**.
 4. Wait for one minute so Microsoft Entra ID can record consent.
 5. Open a browser and begin the admin consent flow to the [Azure Virtual Desktop client app](https://login.microsoftonline.com/common/adminconsent?client_id=fa4345a4-a730-4230-84a8-7d9651b86739&redirect_uri=https%3A%2F%2Frdweb.wvd.microsoft.com%2FRDWeb%2FConsentCallback).
@@ -61,12 +59,12 @@ To grant the service permissions:
    > https://login.microsoftonline.com/{tenant}/adminconsent?client_id=fa4345a4-a730-4230-84a8-7d9651b86739&redirect_uri=https%3A%2F%2Frdweb.wvd.microsoft.com%2FRDWeb%2FConsentCallback
    >```
 
-6. Sign in to the Azure Virtual Desktop consent page as global administrator, as you did in step 2.
+6. Sign in to the Azure Virtual Desktop consent page, as you did in step 2.
 7. Select **Accept**.
 
 ## Assign the TenantCreator application role
 
-Assigning a Microsoft Entra user the TenantCreator application role allows that user to create an Azure Virtual Desktop tenant associated with the Microsoft Entra instance. You'll need to use your global administrator account to assign the TenantCreator role.
+Assigning a Microsoft Entra user the `TenantCreator` application role allows that user to create an Azure Virtual Desktop tenant associated with the Microsoft Entra instance.
 
 To assign the TenantCreator application role:
 
@@ -80,11 +78,8 @@ To assign the TenantCreator application role:
 3. Select **Users and groups**. You might see that the administrator who granted consent to the application is already listed with the **Default Access** role assigned. This is not enough to create an Azure Virtual Desktop tenant. Continue following these instructions to add the **TenantCreator** role to a user.
 
 4. Select **Add user**, and then select **Users and groups** in the **Add Assignment** tab.
-5. Search for a user account that will create your Azure Virtual Desktop tenant. For simplicity, this can be the global administrator account.
-   - If you're using a Microsoft Identity Provider like contosoadmin@live.com or contosoadmin@outlook.com, you might not be able to sign in to Azure Virtual Desktop. We recommend using a domain-specific account like admin@contoso.com or admin@contoso.onmicrosoft.com instead.
-
-   > [!div class="mx-imgBorder"]
-   > ![A screenshot of selecting a user to add as "TenantCreator."](../media/tenant-assign-user.png)
+5. Search for a user account that will create your Azure Virtual Desktop tenant.
+   - If you're using a Microsoft Identity Provider like contosoadmin@live.com or contosoadmin@outlook.com, you might not be able to sign in to Azure Virtual Desktop.
 
    > [!NOTE]
    > You must select a user (or a group that contains a user) that's sourced from this Microsoft Entra instance. You can't choose a guest (B2B) user or a service principal.

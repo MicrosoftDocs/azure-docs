@@ -3,7 +3,7 @@ title: 'Microsoft Entra tenant for User VPN connections: Microsoft Entra authent
 description: You can use Azure Virtual WAN User VPN (point-to-site) to connect to your VNet using Microsoft Entra authentication
 titleSuffix: Azure Virtual WAN
 author: cherylmc
-ms.service: virtual-wan
+ms.service: azure-virtual-wan
 ms.topic: how-to
 ms.date: 11/21/2023
 ms.author: cherylmc
@@ -14,7 +14,7 @@ ms.author: cherylmc
 
 When you connect to your VNet using Virtual WAN User VPN (point-to-site), you have a choice of which protocol to use. The protocol you use determines the authentication options that are available to you. If you're using the OpenVPN protocol, Microsoft Entra authentication is one of the authentication options available for you to use. This article helps you configure a Microsoft Entra tenant for Virtual WAN User VPN (point-to-site) using OpenVPN authentication.
 
-[!INCLUDE [OpenVPN note](~/reusable-content/ce-skilling/azure/includes/vpn-gateway-openvpn-auth-include.md)]
+[!INCLUDE [OpenVPN note](../../includes/vpn-gateway-openvpn-auth-include.md)]
 
 <a name='a-nametenanta1-create-the-azure-ad-tenant'></a>
 
@@ -39,7 +39,7 @@ Verify that you have a Microsoft Entra tenant. If you don't have a Microsoft Ent
 
 ## <a name="enable-authentication"></a>3. Grant consent to the Azure VPN app registration
 
-[!INCLUDE [Steps to enable the tenant](~/reusable-content/ce-skilling/azure/includes/vpn-gateway-vwan-azure-ad-tenant.md)]
+[!INCLUDE [Steps to enable the tenant](../../includes/vpn-gateway-vwan-azure-ad-tenant.md)]
 
 ## Next steps
 

@@ -2,12 +2,12 @@
 title: 'Tutorial: Implement IoT spatial analytics'
 titleSuffix: Microsoft Azure Maps
 description: Tutorial on how to Integrate IoT Hub with Microsoft Azure Maps service APIs
-author: eriklindeman
-ms.author: eriklind
-ms.date: 09/14/2023
+author: farazgis
+ms.author: fsiddiqui
+ms.date: 08/14/2024
 ms.topic: tutorial
 ms.service: azure-maps
-services: azure-maps
+ms.subservice: spatial
 ms.custom: mvc
 ---
 
@@ -36,11 +36,11 @@ If you don't have an Azure subscription, create a [free account] before you begi
 * The [rentalCarSimulation] C# project
 
 > [!TIP]
-> You can download the entire [rentalCarSimulation] C# project from GitHub as a single ZIP file by going to [the root of the sample] and selecting the green **<> Code** button, then **Download ZIP**.
+> You can download the entire [rentalCarSimulation] C# project from GitHub as a single ZIP file by going to [the root of the sample] and selecting the green **Code** button, then **Download ZIP**.
 
-This tutorial uses the [Postman] application, but you can choose a different API development environment.
+This tutorial uses the [bruno] application, but you can choose a different API development environment.
 
->[!IMPORTANT]
+> [!IMPORTANT]
 > In the URL examples, replace `{Your-Azure-Maps-Subscription-key}` with your Azure Maps subscription key.
 
 ## Use case: rental car tracking
@@ -150,7 +150,7 @@ Now, set up your Azure function.
 
 1. After the app is created, you add a function to it. Go to the function app. Select the **Create in Azure Portal** button.
 
-     >[!IMPORTANT]
+    > [!IMPORTANT]
     > The **Azure Event ***Hub*** Trigger** and the **Azure Event ***Grid*** Trigger** templates have similar names. Make sure you select the **Azure Event ***Grid*** Trigger** template.
 
     :::image type="content" source="./media/tutorial-iot-hub-maps/function-create.png" alt-text="Screenshot of create a function in Azure Portal.":::
@@ -196,7 +196,7 @@ In your example scenario, you only want to receive messages when the rental car 
 
 :::image type="content" source="./media/tutorial-iot-hub-maps/hub-filter.png" alt-text="Screenshot of filter routing messages.":::
 
->[!TIP]
+> [!TIP]
 >There are various ways to query IoT device-to-cloud messages. To learn more about message routing syntax, see [IoT Hub message routing].
 
 ## Send telemetry data to IoT Hub
@@ -264,6 +264,7 @@ To learn more about how to send device-to-cloud telemetry, and the other way aro
 [Azure Functions]: ../azure-functions/functions-overview.md
 [Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
 [Azure Maps REST APIs]: /rest/api/maps/spatial/getgeofence
+[bruno]: https://www.usebruno.com/
 [C# script]: https://github.com/Azure-Samples/iothub-to-azure-maps-geofencing/blob/master/src/Azure%20Function/run.csx
 [create a storage account]: ../storage/common/storage-account-create.md?tabs=azure-portal
 [Create an Azure storage account]: #create-an-azure-storage-account
@@ -278,8 +279,7 @@ To learn more about how to send device-to-cloud telemetry, and the other way aro
 [IoT Plug and Play]: ../iot/overview-iot-plug-and-play.md
 [geofence JSON data file]: https://raw.githubusercontent.com/Azure-Samples/iothub-to-azure-maps-geofencing/master/src/Data/geofence.json?token=AKD25BYJYKDJBJ55PT62N4C5LRNN4
 [Plug and Play schema for geospatial data]: https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v1-preview/schemas/geospatial.md
-[Postman]: https://www.postman.com/
-[register a new device in the IoT hub]: ../iot-hub/iot-hub-create-through-portal.md#register-a-new-device-in-the-iot-hub
+[register a new device in the IoT hub]: ../iot-hub/create-connect-device.md
 [rentalCarSimulation]: https://github.com/Azure-Samples/iothub-to-azure-maps-geofencing/tree/master/src/rentalCarSimulation
 [resource group]: ../azure-resource-manager/management/manage-resource-groups-portal.md#create-resource-groups
 [the root of the sample]: https://github.com/Azure-Samples/iothub-to-azure-maps-geofencing

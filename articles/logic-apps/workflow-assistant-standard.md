@@ -10,7 +10,7 @@ ms.date: 11/17/2023
 
 # Get AI-powered help for Standard workflows in Azure Logic Apps (preview)
 
-[!INCLUDE [logic-apps-sku-standard](~/reusable-content/ce-skilling/azure/includes/logic-apps-sku-standard.md)]
+[!INCLUDE [logic-apps-sku-standard](../../includes/logic-apps-sku-standard.md)]
 
 > [!IMPORTANT]
 > This capability is in preview and is subject to the 
@@ -146,7 +146,7 @@ In the chat pane, under the workflow assistant's response, choose an option:
 
 **Q**: How does the workflow assistant use my query to generate responses?
 
-**A**: The workflow is powered by [Azure OpenAI Service](../ai-services/openai/overview.md) and [ChatGPT](https://openai.com/blog/chatgpt), which use Azure Logic Apps documentation from reputable sources along with internet data that's used to train GPT 3.5-Turbo. This content is processed into a vectorized format, which is then accessible through a backend system built on Azure App Service. Queries are triggered based on interactions with the workflow designer.
+**A**: The workflow is powered by [Azure OpenAI Service](/azure/ai-services/openai/overview) and [ChatGPT](https://openai.com/blog/chatgpt), which use Azure Logic Apps documentation from reputable sources along with internet data that's used to train GPT 3.5-Turbo. This content is processed into a vectorized format, which is then accessible through a backend system built on Azure App Service. Queries are triggered based on interactions with the workflow designer.
 
 When you enter your question in the assistant's chat box, the Azure Logic Apps backend performs preprocessing and forwards the results to a large language model in Azure OpenAI Service. This model generates responses based on the current context in the form of the workflow definition's JSON code and your prompt. 
 
@@ -172,9 +172,9 @@ When you enter your question in the assistant's chat box, the Azure Logic Apps b
 
 **Q**: What's the difference between Azure OpenAI Service and ChatGPT?
 
-**A**: [Azure OpenAI Service](../ai-services/openai/overview.md) is an enterprise-ready AI technology that's powered and optimized for your business processes and your business data to meet security and privacy requirements.
+**A**: [Azure OpenAI Service](/azure/ai-services/openai/overview) is an enterprise-ready AI technology that's powered and optimized for your business processes and your business data to meet security and privacy requirements.
 
-[ChatGPT](https://openai.com/blog/chatgpt) is built by [Open AI](https://openai.com) and is a general-purpose large language model (LLM) trained by OpenAI on a massive dataset of text, designed to engage in human-like conversations and answer a wide range of questions on several topics.
+[ChatGPT](https://openai.com/blog/chatgpt) is built by [OpenAI](https://openai.com) and is a general-purpose large language model (LLM) trained by OpenAI on a massive dataset of text, designed to engage in human-like conversations and answer a wide range of questions on several topics.
 
 ## Next steps
 

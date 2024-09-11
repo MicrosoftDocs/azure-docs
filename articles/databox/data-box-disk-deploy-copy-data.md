@@ -1,5 +1,5 @@
 ---
-title: Tutorial to copy data to Azure Data Box Disk| Microsoft Docs
+title: Tutorial to copy data to Azure Data Box Disk | Microsoft Docs
 description: In this tutorial, learn how to copy data from your host computer to Azure Data Box Disk and then generate checksums to verify data integrity.
 services: databox
 author: stevenmatthew
@@ -36,14 +36,16 @@ After the disks are connected and unlocked, you can copy data from your source d
 ::: zone target="docs"
 
 > [!IMPORTANT]
-> Azure Data Box now supports access tier assignment at the blob level. The steps contained within this tutorial reflect the updated data copy process and are specific to block blobs. 
+> Azure Data Box now supports access tier assignment at the blob level. The steps contained within this tutorial reflect the updated data copy process and are specific to block blobs.
 >
->For help with determining the appropriate access tier for your block blob data, refer to the [Determine appropriate access tiers for block blobs](#determine-appropriate-access-tiers-for-block-blobs) section. Follow the steps containined within the [Copy data to disks](#copy-data-to-disks) section to copy your data to the appropriate access tier.
+> Access tier assignment is not supported when copying data using the Data Box Split Copy Tool. If your use case requires access tier assignment, follow the steps containined within the [Copy data to disks](#copy-data-to-disks) section to copy your data to the appropriate access tier using the Robocopy utility.
+>
+> For help with determining the appropriate access tier for your block blob data, refer to the [Determine appropriate access tiers for block blobs](#determine-appropriate-access-tiers-for-block-blobs) section.
 >
 > The information contained within this section applies to orders placed after April 1, 2024.
 
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly.
+> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and planning accordingly.
 
 This tutorial describes how to copy data from your host computer and generate checksums to verify data integrity.
 
@@ -248,7 +250,10 @@ The Data Box Split Copy tool helps split and copy data across two or more Azure 
 
 >[!IMPORTANT]
 > The Data Box Split Copy tool can also validate your data. If you use Data Box Split Copy tool to copy data, you can skip the [validation step](#validate-data).
-> The Split Copy tool is not supported with managed disks.
+>
+> Access tier assignment is not supported when copying data using the Data Box Split Copy Tool. If your use case requires access tier assignment, follow the steps containined within the [Copy data to disks](#copy-data-to-disks) section to copy your data to the appropriate access tier using the Robocopy utility.
+>
+> The Data Box Split Copy tool is not supported with managed disks.
 
 1. On your Windows computer, ensure that you have the Data Box Split Copy tool downloaded and extracted in a local folder. This tool is included within the Data Box Disk toolset for Windows.
 1. Open File Explorer. Make a note of the data source drive and drive letters assigned to Data Box Disk.

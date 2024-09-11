@@ -72,7 +72,7 @@ Suppose you have the following ARM template:
   "resources": [
     {
       "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "2019-06-01",
+      "apiVersion": "2023-04-01",
       "name": "[variables('storageAccountName')]",
       "location": "[parameters('location')]",
       "sku": {
@@ -106,10 +106,10 @@ param storageAccountType string = 'Standard_LRS'
 @description('Location for all resources.')
 param location string = resourceGroup().location
 
-var storageAccountName_var = 'store${uniqueString(resourceGroup().id)}'
+var storageAccountName = 'store${uniqueString(resourceGroup().id)}'
 
-resource storageAccountName 'Microsoft.Storage/storageAccounts@2019-06-01' = {
-  name: storageAccountName_var
+resource storageAccount 'Microsoft.Storage/storageAccounts@2023-04-01' = {
+  name: storageAccountName
   location: location
   sku: {
     name: storageAccountType
@@ -118,7 +118,7 @@ resource storageAccountName 'Microsoft.Storage/storageAccounts@2019-06-01' = {
   properties: {}
 }
 
-output storageAccountName string = storageAccountName_var
+output storageAccountName string = storageAccountName
 ```
 
 The decompiled file works, but it has some names that you might want to change. The variable `var storageAccountName_var` has an unusual naming convention. Let's change it to:
@@ -132,7 +132,7 @@ To rename across the file, right-click the name, and then select **Rename symbol
 The resource has a symbolic name that you might want to change. Instead of `storageAccountName` for the symbolic name, use `exampleStorage`.
 
 ```bicep
-resource exampleStorage 'Microsoft.Storage/storageAccounts@2019-06-01' = {
+resource exampleStorage 'Microsoft.Storage/storageAccounts@2023-04-01' = {
 ```
 
 The complete file is:
@@ -152,7 +152,7 @@ param location string = resourceGroup().location
 
 var uniqueStorageName = 'store${uniqueString(resourceGroup().id)}'
 
-resource exampleStorage 'Microsoft.Storage/storageAccounts@2019-06-01' = {
+resource exampleStorage 'Microsoft.Storage/storageAccounts@2023-04-01' = {
   name: uniqueStorageName
   location: location
   sku: {

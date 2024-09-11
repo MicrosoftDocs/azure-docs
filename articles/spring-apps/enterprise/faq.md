@@ -2,7 +2,7 @@
 title: Frequently asked questions about Azure Spring Apps | Microsoft Docs
 description: This article answers frequently asked questions about Azure Spring Apps.
 author: KarlErickson
-ms.service: spring-apps
+ms.service: azure-spring-apps
 ms.topic: conceptual
 ms.date: 04/23/2024
 ms.author: karler
@@ -88,9 +88,9 @@ For the quickest way to get started with Azure Spring Apps, follow the instructi
 
 ### Where can I view my Spring application logs and metrics?
 
-Find metrics in the App Overview tab and the [Azure Monitor](../../azure-monitor/essentials/data-platform-metrics.md#metrics-explorer) tab.
+Find metrics in the App Overview tab and the [Azure Monitor](/azure/azure-monitor/essentials/data-platform-metrics#metrics-explorer) tab.
 
-Azure Spring Apps supports exporting Spring application logs and metrics to Azure Storage, Event Hubs, and [Log Analytics](../../azure-monitor/logs/data-platform-logs.md). The table name in Log Analytics is *AppPlatformLogsforSpring*. To learn how to enable it, see [Diagnostic services](diagnostic-services.md).
+Azure Spring Apps supports exporting Spring application logs and metrics to Azure Storage, Event Hubs, and [Log Analytics](/azure/azure-monitor/logs/data-platform-logs). The table name in Log Analytics is *AppPlatformLogsforSpring*. To learn how to enable it, see [Diagnostic services](diagnostic-services.md).
 
 ### Does Azure Spring Apps support distributed tracing?
 
@@ -141,9 +141,9 @@ You can delete the Azure Spring Apps diagnostic settings by using Azure CLI:
 
 ### Which versions of Java runtime are supported in Azure Spring Apps?
 
-Azure Spring Apps supports Java LTS versions with the most recent builds, currently Java 8, Java 11, and Java 17 are supported.
+Azure Spring Apps supports Java LTS versions with the most recent builds, currently Java 8, Java 11, Java 17, and Java 21 are supported. 
 
-### How long are Java 8, Java 11, and Java 17 LTS versions supported?
+### How long are Java 8, Java 11, Java 17, and Java 21 LTS versions supported?
 
 See [Java long-term support for Azure and Azure Stack](/azure/developer/java/fundamentals/java-support-on-azure).
 

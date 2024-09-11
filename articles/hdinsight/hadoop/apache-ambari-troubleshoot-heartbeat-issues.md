@@ -1,9 +1,9 @@
 ---
 title: Apache Ambari heartbeat issues in Azure HDInsight
 description: Review of various reasons for Apache Ambari heartbeat issues in Azure HDInsight
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: troubleshooting
-ms.date: 05/10/2023
+ms.date: 05/15/2024
 ---
 
 # Apache Ambari heartbeat issues in Azure HDInsight
@@ -22,7 +22,7 @@ Due to various ambari-agent bugs, in rare cases, your ambari-agent can have high
 
 ### Resolution
 
-1. Identify process ID (pid) of ambari-agent:
+1. Identify process ID `PID` of ambari-agent:
 
     ```bash
     ps -ef | grep ambari_agent

@@ -3,9 +3,9 @@ title: What is Azure Application Gateway v2?
 description: Learn about Azure application Gateway v2 features.
 services: application-gateway
 author: greg-lindsay
-ms.service: application-gateway
+ms.service: azure-application-gateway
 ms.topic: overview
-ms.date: 06/11/2024
+ms.date: 09/11/2024
 ms.author: greglin
 ms.custom: references_regions, devx-track-azurepowershell
 ---
@@ -152,8 +152,6 @@ Unregister-AzProviderFeature -FeatureName AllowApplicationGatewayBasicSku -Provi
 ## Next steps
 
 Depending on your requirements and environment, you can create a test Application Gateway using either the Azure portal, Azure PowerShell, or Azure CLI.
-
-
 
 - [Tutorial: Create an application gateway that improves web application access](tutorial-autoscale-ps.md)
 - [Learn module: Introduction to Azure Application Gateway](/training/modules/intro-to-azure-application-gateway)

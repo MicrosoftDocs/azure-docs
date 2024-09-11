@@ -58,9 +58,7 @@ To configure monitoring on your IoT Edge device, follow the [Tutorial: Monitor I
 
 A Microsoft-supplied metrics-collector module can be added to an IoT Edge deployment to collect module metrics and send them to Azure Monitor. The module code is open-source and available in the [IoT Edge GitHub repo](https://github.com/Azure/iotedge/tree/main/edge-modules/metrics-collector).
 
-The metrics-collector module is provided as a multi-arch Docker container image that supports Linux X64, ARM32, ARM64, and Windows X64 (version 1809). It's publicly available at **[`mcr.microsoft.com/azureiotedge-metrics-collector`](https://aka.ms/edgemon-metrics-collector)**.
-
-It also available in the [IoT Edge Module Marketplace](https://aka.ms/edgemon-module-marketplace).
+The metrics-collector module is provided as a multi-arch Docker container image that supports Linux X64, ARM32, ARM64, and Windows X64 (version 1809). It's publicly available at [`mcr.microsoft.com/azureiotedge-metrics-collector`](https://mcr.microsoft.com/product/azureiotedge-metrics-collector/tags).
 
 ## Metrics collector configuration
 
@@ -72,8 +70,8 @@ All configuration for the metrics-collector is done using environment variables.
 |-|-|
 | `ResourceId` | Resource ID of the IoT hub that the device communicates with. For more information, see the [Resource ID](#resource-id) section.  <br><br>  **Required** <br><br> Default value: *none* |
 | `UploadTarget` |  Controls whether metrics are sent directly to Azure Monitor over HTTPS or to IoT Hub as D2C messages. For more information, see [upload target](#upload-target). <br><br>Can be either **AzureMonitor** or **IoTMessage**  <br><br>  **Not required** <br><br> Default value: *AzureMonitor* |
-| `LogAnalyticsWorkspaceId` | [Log Analytics workspace ID](../azure-monitor/agents/agent-windows.md#workspace-id-and-key). <br><br>**Required** only if *UploadTarget* is *AzureMonitor* <br><br>Default value: *none* |
-| `LogAnalyticsSharedKey` | [Log Analytics workspace key](../azure-monitor/agents/agent-windows.md#workspace-id-and-key). <br><br>**Required** only if  *UploadTarget*  is  *AzureMonitor*   <br><br> Default value: *none* |
+| `LogAnalyticsWorkspaceId` | [Log Analytics workspace ID](/azure/azure-monitor/agents/agent-windows#workspace-id-and-key). <br><br>**Required** only if *UploadTarget* is *AzureMonitor* <br><br>Default value: *none* |
+| `LogAnalyticsSharedKey` | [Log Analytics workspace key](/azure/azure-monitor/agents/agent-windows#workspace-id-and-key). <br><br>**Required** only if  *UploadTarget*  is  *AzureMonitor*   <br><br> Default value: *none* |
 | `ScrapeFrequencyInSecs` | Recurring time interval in seconds at which to collect and transport metrics.<br><br>  Example: *600* <br><br>  **Not required** <br><br> Default value: *300* |
 | `MetricsEndpointsCSV` | Comma-separated list of endpoints to collect Prometheus metrics from. All module endpoints to collect metrics from must appear in this list.<br><br>  Example: *http://edgeAgent:9600/metrics, http://edgeHub:9600/metrics, http://MetricsSpewer:9417/metrics* <br><br>  **Not required** <br><br> Default value: *http://edgeHub:9600/metrics, http://edgeAgent:9600/metrics* |
 | `AllowedMetrics` | List of metrics to collect, all other metrics are ignored. Set to an empty string to disable. For more information, see [allow and disallow lists](#allow-and-disallow-lists). <br><br>Example: *metricToScrape{quantile=0.99}[endpoint=http://MetricsSpewer:9417/metrics]*<br><br>  **Not required** <br><br> Default value: *empty* |
@@ -87,8 +85,8 @@ All configuration for the metrics-collector is done using environment variables.
 |-|-|
 | `ResourceId` | Resource ID of the IoT Central application that the device communicates with. For more information, see the [Resource ID](#resource-id) section.  <br><br>  **Required** <br><br> Default value: *none* |
 | `UploadTarget` |  Controls whether metrics are sent directly to Azure Monitor over HTTPS or to IoT Central as D2C messages. For more information, see [upload target](#upload-target). <br><br>Can be either **AzureMonitor** or **IoTMessage**  <br><br>  **Not required** <br><br> Default value: *AzureMonitor* |
-| `LogAnalyticsWorkspaceId` | [Log Analytics workspace ID](../azure-monitor/agents/agent-windows.md#workspace-id-and-key). <br><br>**Required** only if *UploadTarget* is *AzureMonitor* <br><br>Default value: *none* |
-| `LogAnalyticsSharedKey` | [Log Analytics workspace key](../azure-monitor/agents/agent-windows.md#workspace-id-and-key). <br><br>**Required** only if  *UploadTarget*  is  *AzureMonitor*   <br><br> Default value: *none* |
+| `LogAnalyticsWorkspaceId` | [Log Analytics workspace ID](/azure/azure-monitor/agents/agent-windows#workspace-id-and-key). <br><br>**Required** only if *UploadTarget* is *AzureMonitor* <br><br>Default value: *none* |
+| `LogAnalyticsSharedKey` | [Log Analytics workspace key](/azure/azure-monitor/agents/agent-windows#workspace-id-and-key). <br><br>**Required** only if  *UploadTarget*  is  *AzureMonitor*   <br><br> Default value: *none* |
 | `ScrapeFrequencyInSecs` | Recurring time interval in seconds at which to collect and transport metrics.<br><br>  Example: *600* <br><br>  **Not required** <br><br> Default value: *300* |
 | `MetricsEndpointsCSV` | Comma-separated list of endpoints to collect Prometheus metrics from. All module endpoints to collect metrics from must appear in this list.<br><br>  Example: *http://edgeAgent:9600/metrics, http://edgeHub:9600/metrics, http://MetricsSpewer:9417/metrics* <br><br>  **Not required** <br><br> Default value: *http://edgeHub:9600/metrics, http://edgeAgent:9600/metrics* |
 | `AllowedMetrics` | List of metrics to collect, all other metrics are ignored. Set to an empty string to disable. For more information, see [allow and disallow lists](#allow-and-disallow-lists). <br><br>Example: *metricToScrape{quantile=0.99}[endpoint=http://MetricsSpewer:9417/metrics]*<br><br>  **Not required** <br><br> Default value: *empty* |

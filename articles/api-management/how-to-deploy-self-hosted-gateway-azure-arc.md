@@ -3,7 +3,7 @@ title: Deploy an Azure API Management gateway on Azure Arc
 description: Enable Azure Arc to deploy your self-hosted Azure API Management gateway. 
 author: dlepow
 ms.author: danlep
-ms.service: api-management
+ms.service: azure-api-management
 ms.custom: devx-track-azurecli
 ms.topic: article 
 ms.date: 06/12/2023
@@ -109,8 +109,8 @@ To enable monitoring of the self-hosted gateway, configure the following Log Ana
 
 > [!NOTE]
 > If you haven't enabled Log Analytics: 
-> 1. Walk through the [Create a Log Analytics workspace](../azure-monitor/logs/quick-create-workspace.md) quickstart. 
-> 1. Learn where to find the [Log Analytics agent settings](../azure-monitor/agents/log-analytics-agent.md).
+> 1. Walk through the [Create a Log Analytics workspace](/azure/azure-monitor/logs/quick-create-workspace) quickstart. 
+> 1. Learn where to find the [Log Analytics agent settings](/azure/azure-monitor/agents/log-analytics-agent).
 
 ## Next Steps
 

@@ -1,6 +1,8 @@
 ---
-title: Quickstart for adding feature flags to ASP.NET Core
-description: Add feature flags to ASP.NET Core apps and manage them using Azure App Configuration
+title: Quickstart for adding feature flags to ASP.NET Core apps
+titleSuffix: Azure App Configuration
+description: Learn to implement feature flags in your ASP.NET Core application using feature management and Azure App Configuration. Dynamically manage feature rollouts, conduct A/B testing, and control feature visibility without redeploying the app.
+services: azure-app-configuration
 author: zhenlan
 ms.service: azure-app-configuration
 ms.devlang: csharp
@@ -180,25 +182,31 @@ Add a feature flag called *Beta* to the App Configuration store and leave **Labe
 
 ## Next steps
 
-In this quickstart, you added feature management capability to an ASP.NET Core app on top of dynamic configuration. The [Microsoft.FeatureManagement.AspNetCore](https://www.nuget.org/packages/Microsoft.FeatureManagement.AspNetCore) library offers rich integration for ASP.NET Core apps, including feature management in MVC controller actions, razor pages, views, routes, and middleware. For more information, continue to the following tutorial.
+In this quickstart, you added feature management capability to an ASP.NET Core app on top of dynamic configuration. The [Microsoft.FeatureManagement.AspNetCore](https://www.nuget.org/packages/Microsoft.FeatureManagement.AspNetCore) library offers rich integration for ASP.NET Core apps, including feature management in MVC controller actions, razor pages, views, routes, and middleware. For the full feature rundown of the .NET feature management library, continue to the following document.
 
 > [!div class="nextstepaction"]
-> [Use feature flags in ASP.NET Core apps](./use-feature-flags-dotnet-core.md)
+> [.NET Feature Management](./feature-management-dotnet-reference.md)
 
 While a feature flag allows you to activate or deactivate functionality in your app, you may want to customize a feature flag based on your app's logic. Feature filters allow you to enable a feature flag conditionally. For more information, continue to the following tutorial.
 
 > [!div class="nextstepaction"]
-> [Use feature filters for conditional feature flags](./howto-feature-filters-aspnet-core.md)
+> [Enable conditional features with feature filters](./howto-feature-filters.md)
 
 Azure App Configuration offers built-in feature filters that enable you to activate a feature flag only during a specific period or to a particular targeted audience of your app. For more information, continue to the following tutorial.
 
 > [!div class="nextstepaction"]
-> [Enable features for targeted audiences](./howto-targetingfilter-aspnet-core.md)
+> [Enable features on a schedule](./howto-timewindow-filter.md)
+
+> [!div class="nextstepaction"]
+> [Roll out features to targeted audiences](./howto-targetingfilter.md)
 
 To enable feature management capability for other types of apps, continue to the following tutorials.
 
 > [!div class="nextstepaction"]
-> [Use feature flags in .NET apps](./quickstart-feature-flag-dotnet.md)
+> [Use feature flags in .NET/.NET Framework console apps](./quickstart-feature-flag-dotnet.md)
+
+> [!div class="nextstepaction"]
+> [Use feature flags in .NET background services](./quickstart-feature-flag-dotnet-background-service.md)
 
 > [!div class="nextstepaction"]
 > [Use feature flags in Azure Functions](./quickstart-feature-flag-azure-functions-csharp.md)

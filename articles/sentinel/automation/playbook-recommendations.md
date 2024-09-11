@@ -108,10 +108,10 @@ This section lists recommended playbooks, and other similar playbooks are availa
 
 | Playbook | Folder in<br>GitHub&nbsp;repository |Solution in Content hub/<br>Azure Marketplace |
 | -------- | ----------------------------------- |--------------------------------------------- |
-| **Post a message in a Microsoft Teamschannel** | [Post-Message-Teams](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/SentinelSOARessentials/Playbooks/Post-Message-Teams) | [Sentinel SOAR Essentialssolution](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/azuresentinel.azure-sentinel-solution-sentinelsoaressentials?tab=Overview) |
-| **Send an Outlook email notification** | [Send-basic-email](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/SentinelSOARessentials/Playbooks/Send-basic-email) | [Sentinel SOAR Essentialssolution](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/azuresentinel.azure-sentinel-solution-sentinelsoaressentials?tab=Overview) |
-| **Post a message in a Slack channel** | [Post-Message-Slack](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/SentinelSOARessentials/Playbooks/Post-Message-Slack) | [Sentinel SOAR Essentialssolution](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/azuresentinel.azure-sentinel-solution-sentinelsoaressentials?tab=Overview) |
-| **Send Microsoft Teams adaptive card on incident creation** |[Send-Teams-adaptive-card-on-incident-creation](https://github.com/Azure/Azure-Sentinel/treemaster/Solutions/SentinelSOARessentials/PlaybooksSend-Teams-adaptive-card-on-incident-creation) |[Sentinel SOAR Essentials solution](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/azuresentinel.azure-sentinel-solution-sentinelsoaressentials?tab=Overview) |
+| **Post a message in a Microsoft Teams channel** | [Post-Message-Teams](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/SentinelSOARessentials/Playbooks/Post-Message-Teams) | [Sentinel SOAR Essentials Solution](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/azuresentinel.azure-sentinel-solution-sentinelsoaressentials?tab=Overview) |
+| **Send an Outlook email notification** | [Send-basic-email](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/SentinelSOARessentials/Playbooks/Send-basic-email) | [Sentinel SOAR Essentials Solution](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/azuresentinel.azure-sentinel-solution-sentinelsoaressentials?tab=Overview) |
+| **Post a message in a Slack channel** | [Post-Message-Slack](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/SentinelSOARessentials/Playbooks/Post-Message-Slack) | [Sentinel SOAR Essentials Solution](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/azuresentinel.azure-sentinel-solution-sentinelsoaressentials?tab=Overview) |
+| **Send Microsoft Teams adaptive card on incident creation** | [Send-Teams-adaptive-card-on-incident-creation](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/Teams/Playbooks/Send-Teams-adaptive-card-on-incident-creation) |[Sentinel SOAR Essentials Solution](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/azuresentinel.azure-sentinel-solution-sentinelsoaressentials?tab=Overview) |
 
 ### Blocking playbook templates
 
@@ -132,7 +132,7 @@ This section lists recommended playbooks, and other similar playbooks are availa
 | -------- | ----------------------------------- | --------------------------------------------- |
 | **Create an incident using Microsoft Forms** | [CreateIncident-MicrosoftForms](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/SentinelSOARessentials/Playbooks/CreateIncident-MicrosoftForms) | [Sentinel SOAR Essentials solution](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/azuresentinel.azure-sentinel-solution-sentinelsoaressentials?tab=Overview) |
 | **Relate alerts to incidents** | [relateAlertsToIncident-basedOnIP](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/SentinelSOARessentials/Playbooks/relateAlertsToIncident-basedOnIP) | [Sentinel SOAR Essentials solution](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/azuresentinel.azure-sentinel-solution-sentinelsoaressentials?tab=Overview) |
-| **Create a ServiceNow incident** | [Create-SNOW-record](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/Servicenow/Playbooks/Create-SNOW-record) | [ServiceNow solution](https://azuremarketplace.microsoft.com/en-US/marketplace/apps/azuresentinel.azure-sentinel-solution-servicenow?tab=Overview) |
+| **Create a Service Now incident** | [Create-SNOW-record](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/Servicenow/Playbooks/Create-SNOW-record) | [ServiceNow solution](https://azuremarketplace.microsoft.com/en-US/marketplace/apps/azuresentinel.azure-sentinel-solution-servicenow?tab=Overview) |
 
 ## Commonly used playbook configurations
 
@@ -144,11 +144,11 @@ This section provides sample screenshots of how you might use a playbook to upda
 
 **Update an incident based on a new incident** (incident trigger):
 
-![Screenshot of an incident trigger simple update flow example.](../media/playbook-triggers-actions/incident-simple-flow.png)
+![Screenshot of an incident trigger simple update flow example.](../media/playbook-recommendations/incident-simple-flow.png)
 
 **Update an incident based on a new alert** (alert trigger):
 
-![Screenshot of an alert trigger simple update incident flow example.](../media/playbook-triggers-actions/alert-update-flow.png)
+![Screenshot of an alert trigger simple update incident flow example.](../media/playbook-recommendations/alert-update-flow.png)
 
 ### Use incident details in your flow
 
@@ -156,11 +156,11 @@ This section provides sample screenshots of how you might use your playbook to u
 
 **Send incident details by mail, using a playbook triggered by a new incident**: 
 
-![Screenshot of an incident trigger simple get flow example.](../media/playbook-triggers-actions/incident-simple-mail-flow.png)
+![Screenshot of an incident trigger simple get flow example.](../media/playbook-recommendations/incident-simple-mail-flow.png)
 
 **Send incident details by mail, using a playbook triggered by a new alert**:
 
-![Screenshot of an alert trigger simple get incident flow example.](../media/playbook-triggers-actions/alert-simple-mail-flow.png)
+![Screenshot of an alert trigger simple get incident flow example.](../media/playbook-recommendations/alert-simple-mail-flow.png)
 
 ### Add a comment to an incident
 
@@ -168,17 +168,17 @@ This section provides sample screenshots of how you might use your playbook to a
 
 **Add a comment to an incident, using a playbook triggered by a new incident**:
 
-![Screenshot of an incident trigger simple add comment example.](../media/playbook-triggers-actions/incident-comment.png)
+![Screenshot of an incident trigger simple add comment example.](../media/playbook-recommendations/incident-comment.png)
 
 **Add a comment to an incident, using a playbook triggered by a new alert**:
 
-![Screenshot of an alert trigger simple add comment example.](../media/playbook-triggers-actions/alert-comment.png)
+![Screenshot of an alert trigger simple add comment example.](../media/playbook-recommendations/alert-comment.png)
 
 ### Disable a user
 
 The following screenshot shows an example of how you might use your playbook to disable a user account, based on a Microsoft Sentinel entity trigger:
 
-:::image type="content" source="../media/playbook-triggers-actions/entity-trigger-actions.png" alt-text="Screenshot showing actions to take in an entity-trigger playbook to disable a user.":::
+:::image type="content" source="../media/playbook-recommendations/entity-trigger-actions.png" alt-text="Screenshot showing actions to take in an entity-trigger playbook to disable a user.":::
 
 ## Related content
 

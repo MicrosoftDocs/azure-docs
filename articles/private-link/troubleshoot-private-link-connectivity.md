@@ -2,7 +2,7 @@
 title: Troubleshoot Azure Private Link Service connectivity problems
 description: Step-by-step guidance to diagnose private link connectivity
 author: abell
-ms.service: private-link
+ms.service: azure-private-link
 ms.topic: troubleshooting
 ms.date: 03/29/2020
 ms.author: abell
@@ -99,7 +99,7 @@ If you experience connectivity problems with your private link setup, review the
 
        - You can also review the load balancer metric through Azure Monitor to see if data is flowing through the load balancer.
 
-1. Use [Azure Monitor](../azure-monitor/overview.md) to see if data is flowing.
+1. Use [Azure Monitor](/azure/azure-monitor/overview) to see if data is flowing.
 
     a. On the private link service resource, select **Metrics**.
 

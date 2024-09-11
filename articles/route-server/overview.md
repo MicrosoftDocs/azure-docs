@@ -3,7 +3,7 @@ title: What is Azure Route Server?
 description: Learn how Azure Route Server can simplify routing between your network virtual appliance (NVA) and your virtual network.
 author: halkazwini
 ms.author: halkazwini
-ms.service: route-server
+ms.service: azure-route-server
 ms.topic: overview
 ms.date: 12/12/2023
 
@@ -40,7 +40,7 @@ Azure Route Server simplifies configuration, management, and deployment of your 
 
 Azure Route Server has the following limits (per deployment).
 
-[!INCLUDE [route server limits](~/reusable-content/ce-skilling/azure/includes/route-server-limits.md)]
+[!INCLUDE [route server limits](../../includes/route-server-limits.md)]
 
 ## Pricing
 

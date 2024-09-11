@@ -1,7 +1,7 @@
 ---
 title: Event-driven scaling in Azure Functions
 description: Explains the scaling behaviors of Consumption plan and Premium plan function apps.
-ms.date: 05/12/2024
+ms.date: 07/31/2024
 ms.topic: conceptual
 ms.service: azure-functions
 ms.custom:
@@ -48,7 +48,8 @@ Scaling can vary based on several factors, and apps scale differently based on t
 * **Maximum instances:** A single function app only scales out to a [maximum allowed by the plan](functions-scale.md#scale). However, a single instance [can process more than one message or request at a time](functions-concurrency.md#concurrency-in-azure-functions). You can [specify a lower maximum](#limit-scale-out) to throttle scale as required.
 * **New instance rate:** For HTTP triggers, new instances are allocated, at most, once per second. For non-HTTP triggers, new instances are allocated, at most, once every 30 seconds. Scaling is faster when running in a [Premium plan](functions-premium-plan.md).
 * **Target-based scaling:** Target-based scaling provides a fast and intuitive scaling model for customers and is currently supported for Service Bus queues and topics, Storage queues, Event Hubs, Apache Kafka, and Azure Cosmos DB extensions. Make sure to review [target-based scaling](./functions-target-based-scaling.md) to understand their scaling behavior.
-* **Per-function scaling:** With some notable exceptions, functions running in the Flex Consumption plan scale on independent instances. The exceptions include HTTP triggers and Blob storage (Event Grid) triggers. Each of these trigger types scale together as a group on the same instances. Likewise, all Durable Functions triggers also share instances and scale together. For more information, see [per-function scaling](#per-function-scaling). 
+* **Per-function scaling:** With some notable exceptions, functions running in the Flex Consumption plan scale on independent instances. The exceptions include HTTP triggers and Blob storage (Event Grid) triggers. Each of these trigger types scale together as a group on the same instances. Likewise, all Durable Functions triggers also share instances and scale together. For more information, see [per-function scaling](#per-function-scaling).
+* **Maximum monitored triggers:** Currently, the scale controller can only monitor up to 100 triggers to making scaling decisions. When your app has more than 100 event-based triggers, scale decisions are made based on only the first 100 triggers that execute. For more information, see [Best practices and patterns for scalable apps](#best-practices-and-patterns-for-scalable-apps).  
 
 ## Limit scale-out
 
@@ -56,7 +57,11 @@ You might decide to restrict the maximum number of instances an app can use for 
 
 ### Flex Consumption plan 
 
-By default, apps running in a Flex Consumption plan have limit of `100` overall instances. Currently the lowest maximum instance count value is `40`, and the highest supported maximum instance count value is `1000`. When you use the [`az functionapp create`](/cli/azure/functionapp#az-functionapp-create) command to create a function app in the Flex Consumption plan, use the `--maximum-instance-count` parameter to set this maximum instance count for of your app. This example creates an app with a maximum instance count of `200`:
+By default, apps running in a Flex Consumption plan have limit of `100` overall instances. Currently the lowest maximum instance count value is `40`, and the highest supported maximum instance count value is `1000`. When you use the [`az functionapp create`](/cli/azure/functionapp#az-functionapp-create) command to create a function app in the Flex Consumption plan, use the `--maximum-instance-count` parameter to set this maximum instance count for of your app. 
+
+Note that while you can change the maximum instance count of Flex Consumption apps up to 1000, your apps will reach a quota limit before reaching that number. Review [Regional subscription memory quotas](flex-consumption-plan.md#regional-subscription-memory-quotas) for more details.
+
+This example creates an app with a maximum instance count of `200`:
 
 ```azurecli
 az functionapp create --resource-group <RESOURCE_GROUP> --name <APP_NAME> --storage <STORAGE_ACCOUNT_NAME> --runtime <LANGUAGE_RUNTIME> --runtime-version <RUNTIME_VERSION> --flexconsumption-location <REGION> --maximum-instance-count 200
@@ -120,6 +125,8 @@ In this example:
 ## Best practices and patterns for scalable apps
 
 There are many aspects of a function app that impacts how it scales, including host configuration, runtime footprint, and resource efficiency. For more information, see the [scalability section of the performance considerations article](performance-reliability.md#scalability-best-practices). You should also be aware of how connections behave as your function app scales. For more information, see [How to manage connections in Azure Functions](manage-connections.md).
+
+If your app has more than 100 functions that use event-based triggers, consider breaking the app into one or more apps, where each app has less than 100 event-based functions.
 
 For more information on scaling in Python and Node.js, see [Azure Functions Python developer guide - Scaling and concurrency](functions-reference-python.md#scaling-and-performance) and [Azure Functions Node.js developer guide - Scaling and concurrency](functions-reference-node.md#scaling-and-concurrency).
 

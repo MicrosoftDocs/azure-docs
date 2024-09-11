@@ -5,11 +5,14 @@ author: ju-shim
 ms.author: jushiman
 ms.date: 12/10/2021
 ms.topic: quickstart
-ms.service: automanage
+ms.service: azure-automanage
 ms.custom: mode-ui
 ---
 
 # Quickstart: Enable Azure Automanage for virtual machines in the Azure portal
+
+> [!CAUTION]
+> On 31 August 2024, both Automation Update Management and the Log Analytics agent it uses will be retired. Migrate to Azure Update Manager before that. Refer to guidance on migrating to Azure Update Manager [here](https://learn.microsoft.com/azure/update-manager/guidance-migration-automation-update-management-azure-update-manager?WT.mc_id=Portal-Microsoft_Azure_Automation). [Migrate Now](https://ms.portal.azure.com/).
 
 Get started with Azure Automanage for virtual machines by using the Azure portal to enable automanagement on a new or existing virtual machine.
 

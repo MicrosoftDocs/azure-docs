@@ -2,7 +2,7 @@
 title: Troubleshoot Azure Arc resource bridge issues
 description: This article tells how to troubleshoot and resolve issues with the Azure Arc resource bridge when trying to deploy or connect to the service.
 ms.date: 11/03/2023
-ms.topic: conceptual
+ms.topic: troubleshooting
 ---
 
 # Troubleshoot Azure Arc resource bridge issues
@@ -13,7 +13,7 @@ This article provides information on troubleshooting and resolving issues that c
 
 ### Logs collection
 
-For issues encountered with Arc resource bridge, collect logs for further investigation using the Azure CLI [`az arcappliance logs`](/cli/azure/arcappliance/logs) command. This command needs to be run from the management machine used to deploy the Arc resource bridge. If you're using a different machine, it needs to meet the [management machine requirements](system-requirements.md#management-machine-requirements).
+For issues encountered with Arc resource bridge, collect logs for further investigation using the Azure CLI [`az arcappliance logs`](/cli/azure/arcappliance/logs) command. This command needs to be run from the management machine used to deploy the Arc resource bridge. If you're using a different machine, the machine must meet the [management machine requirements](system-requirements.md#management-machine-requirements).
 
 If there's a problem collecting logs, most likely the management machine is unable to reach the Appliance VM. Contact your network administrator to allow SSH communication from the management machine to the Appliance VM on TCP port 22. 
 
@@ -41,6 +41,37 @@ az arcappliance get-credentials -n <Arc resource bridge name> -g <resource group
 az arcappliance logs vmware --kubeconfig kubeconfig --out-dir <path to specified output directory>
    ```
 
+### Download/upload connectivity was not successful
+If your network speed is slow you may be unable to successfully download the Arc resource bridge VM image and this error may occur: `ErrorCode: ValidateKvaError, Error: Pre-deployment validation of your download/upload connectivity was not successful. Timeout error occurred during download and preparation of appliance image to the on-premises fabric storage. Common causes of this timeout error are slow network download/upload speeds, a proxy limiting the network speed or slow storage performance.`
+
+If the error is due to slow network speed impacting upload, a workaround is to create a VM directly on the on-premises private cloud and then run the Arc resource bridge deployment script from that VM. This workaround ensures a faster upload of the image to the datastore.
+
+
+### Context timed out during phase `ApplyingKvaImageOperator`
+You may receive the following error while deploying Arc resource bridge: `Deployment of the Arc resource bridge appliance VM timed out. Collect logs with _az arcappliance logs_ and create a support ticket for help. To troubleshoot the error, refer to aka.ms/arc-rb-error   { _errorCode_: _ContextError_, _errorResponse_: _{\n\_message\_: \_Context timed out during phase _ApplyingKvaImageOperator_\_\n}_ }`
+
+This error typically occurs when trying to download the `KVAIO` image (400 MB compressed) over a network that is slow or experiencing intermittent connectivity. The `KVAIO` controller manager is waiting for the image download to complete and times out. You may want to check that your network speed between the Arc resource bridge VM and Microsoft Container Registry (`mcr.microsoft.com`) is stable and at least 2 Mbps. If your network connectivity and speed are stable and you're still getting this error, wait at least 30 minutes before you re-try as Microsoft Container Registry may be receiving a high volume of traffic.
+
+### Context timed out during phase `WaitingForAPIServer`
+When deploying Arc resource bridge, you may receive the error: `Deployment of the Arc resource bridge appliance VM timed out. Collect logs with _az arcappliance logs_ and create a support ticket for help. To troubleshoot the error, refer to aka.ms/arc-rb-error   { _errorCode_: _ContextError_, _errorResponse_: _{\n\_message\_: \_Context timed out during phase _WaitingForAPIServer`
+
+This error indicates that the deployment machine is unable to contact the control plane IP for Arc resource bridge within the time limit. Common causes of the error are often networking related, such as communication between the deployment machine and control plane IP being routed through a proxy. Traffic from the deployment machine to the control plane and the appliance VM IPs must not pass through proxy. If traffic is being proxied, then configure the proxy settings on your network or deployment machine to not proxy traffic between the deployment machine to the control plane IP and appliance VM IPs. Another cause for this error is if a firewall is closing access to port 6443 and port 22 between the deployment machine and control plane IP or the deployment machine and appliance VM IPs.
+
+### `UploadError` 403 Forbidden or 404 Site Not Found
+When deploying Arc resource bridge, you may receive the error: `{ _errorCode_: _UploadError_, _errorResponse_: _{\n\_message\_: \_Pre-deployment validation of your download/upload connectivity was not successful. {\\n  \\\_code\\\_: \\\_ImageProvisionError\\\_,\\n  \\\_message\\\_: \\\_403 Forbidden` or `{ _errorCode_: _UploadError_, _errorResponse_: _{\n\_message\_: \_Pre-deployment validation of your download/upload connectivity was not successful. {\\n  \\\_code\\\_: \\\_ImageProvisionError\\\_,\\n  \\\_message\\\_: \\\_404 Site Not Found`
+
+This error occurs in the deployment process when images need to be downloaded from Microsoft registries to the deployment machine and the download is being blocked by a proxy or firewall. Review the [network requirements](network-requirements.md#general-network-requirements) and verify that all required URLs are reachable. You may need to update your no proxy settings to ensure that traffic from your deployment machine to Microsoft required URLs aren't going through a proxy.
+
+### SSH folder access denied
+
+The CLI requires permission to access the SSH folder during deployment or operations that involve accessing files within the folder. This folder contains essential files such as the kubeconfig and logs key for the appliance VM. For instance, the CLI needs to access the logs key stored in the SSH folder to collect logs from the appliance VM.
+
+If you encounter an error stating: `Access to the file in the SSH folder was denied. This may occur if the CLI doesn't have permission to the SSH folder or if another CLI instance is using the file`, there are two common causes for this issue:
+
+1. Insufficient permissions: The CLI lacks the necessary permissions to access the SSH folder. Ensure that the user account running the CLI has appropriate permissions to access the SSH folder.
+
+1. Concurrent file access: Another instance of the CLI might be using the file in the SSH folder. This often happens on workstations with shared profiles. Ensure that any other CLI instance completes or terminates its operation before you proceed. 
+
 ### Arc resource bridge is offline
 
 If the resource bridge is offline, this is typically due to a networking change in the infrastructure, environment or cluster that stops the appliance VM from being able to  communicate with its counterpart Azure resource. If you're unable to determine what changed, you can reboot the appliance VM, collect logs and submit a support ticket for further investigation. 
@@ -55,7 +86,7 @@ In this release, all the parameters are specified at time of creation. To update
 
 ### Appliance Network Unavailable 
 
-If Arc resource bridge is experiencing a network problem, you may see an "Appliance Network Unavailable" error. In general, any network or infrastructure connectivity issue to the appliance VM may cause this error. This error can also surface as "Error while dialing dial tcp xx.xx.xxx.xx:55000: connect: no route to host". The problem could be that communication from the host to the Arc resource bridge VM needs to be opened over TCP port 22 with the help of your network administrator. It could be that there was a temporary network issue not allowing the host to reach the Arc resource bridge VM and once the network issue is resolved, you can retry the operation. You can also check that the appliance VM for Arc resource bridge isn't stopped or offline. In the case of Azure Stack HCI, the host storage may be full and the storage needs to be addressed. 
+If Arc resource bridge is experiencing a network problem, you may see an `Appliance Network Unavailable` error. In general, any network or infrastructure connectivity issue to the appliance VM may cause this error. This error can also surface as `Error while dialing dial tcp xx.xx.xxx.xx:55000: connect: no route to host`. The problem could be that communication from the host to the Arc resource bridge VM needs to be opened over TCP port 22 with the help of your network administrator. A temporary network issue may not allow the host to reach the Arc resource bridge VM. Once the network issue is resolved, you can retry the operation. You can also check that the appliance VM for Arc resource bridge isn't stopped or offline. In the case of Azure Stack HCI, the host storage may be full and the storage needs to be addressed. 
 
 ### Token refresh error
 
@@ -63,11 +94,11 @@ When you run the Azure CLI commands, the following error might be returned: *The
 
 ### Default host resource pools are unavailable for deployment
 
-When using the `az arcappliance createconfig` or `az arcappliance run` command, there will be an interactive experience which shows the list of the VMware entities where you can select to deploy the virtual appliance. This list will show all user-created resource pools along with default cluster resource pools, but the default host resource pools aren't listed. When the appliance is deployed to a host resource pool, there's no high availability if the host hardware fails. Because of this, we recommend that you don't try to deploy the appliance in a host resource pool.
+When using the `az arcappliance createconfig` or `az arcappliance run` command, there's an interactive experience that shows the list of the VMware entities where you can select to deploy the virtual appliance. This list shows all user-created resource pools. along with default cluster resource pools, but the default host resource pools aren't listed. When the appliance is deployed to a host resource pool, there's no high availability if the host hardware fails. We recommend that you don't deploy the appliance in a host resource pool.
 
-### Resource bridge status "Offline" and `provisioningState` "Failed"
+### Resource bridge status `Offline` and `provisioningState` `Failed`
 
-When deploying Arc resource bridge, the bridge might appear to be successfully deployed, because no errors were encountered when running `az arcappliance deploy` or `az arcappliance create`. However, when viewing the bridge in Azure portal, you might see status shows as **Offline**, and `az arcappliance show` might show the `provisioningState` as **Failed**. This happens when required providers aren't registered before the bridge is deployed.
+When deploying Arc resource bridge, the bridge might appear to be successfully deployed, because no errors were encountered when running `az arcappliance deploy` or `az arcappliance create`. However, when viewing the bridge in Azure portal, you might see status shows as `Offline`, and `az arcappliance show` might show the `provisioningState` as `Failed`. This happens when required providers aren't registered before the bridge is deployed.
 
 To resolve this problem, delete the resource bridge, register the providers, then redeploy the resource bridge.
 
@@ -104,9 +135,31 @@ Arc resource bridge doesn't support private link. All calls coming from the appl
 
 When trying to deploy Arc resource bridge, you might see an error that contains `back-off pulling image \\\"url"\\\: FailFastPodCondition`. This error is caused when the appliance VM can't reach the URL specified in the error. To resolve this issue, make sure the appliance VM meets system requirements, including internet access connectivity to [required allowlist URLs](network-requirements.md).
 
+### Management machine unable to reach appliance
+
+When trying to deploy Arc resource bridge, you might receive an error message similar to:
+
+`{ _errorCode_: _PostOperationsError_, _errorResponse_: _{\n\_message\_: \_Timeout occurred due to management machine being unable to reach the appliance VM IP, 10.2.196.170.  Ensure that the requirements are met: https://aka.ms/arb-machine-reqs: dial tcp 10.2.196.170:22: connectex: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond.\_\n}_, _errorMetadata_: { _errorCategory_: __ } `
+
+This occurs when the management machine is trying to reach the ARB VM IP by SSH (Port 22) or API Server (Port 6443) and is unable to. This error may also occur if the Arc resource bridge API server is being proxied - the Arc resource bridge API server needs to be added to the noproxy settings. For more information, see [Azure Arc resource bridge network requirements](network-requirements.md#inbound-connectivity-requirements).
+
 ### Not able to connect to URL
 
 If you receive an error that contains `Not able to connect to https://example.url.com`, check with your network administrator to ensure your network allows all of the required firewall and proxy URLs to deploy Arc resource bridge. For more information, see [Azure Arc resource bridge network requirements](network-requirements.md).
+
+### Not able to connect - network and internet connectivity validation failed
+
+When deploying Arc resource bridge, you may receive an error with `errorCode` as `PostOperationsError`, `errorResponse` as code `GuestInternetConnectivityError` with a URL specifying port 53 (DNS). This may be due to the appliance VM IPs being unable to reach DNS servers, so they can't resolve the endpoint specified in the error. 
+
+Error example: 
+
+`{ _errorCode_: _PostOperationsError_, _errorResponse_: _{\n\_message\_: \_{\\n  \\\_code\\\_:\\\_GuestInternetConnectivityError\\\_,\\n\\\_message\\\_:\\\_Not able to connect to http://aszhcitest01.company.org:55000. Error returned: action failed after 5 attempts: Get \\\\\\\_http://aszhcitest01.company.org:55000\\\\\\\_: dial tcp: lookup aszhcitest01.company.org on 127.0.0.53:53: read udp 127.0.0.1:32975-\\u003e127.0.0.53:53: i/o timeout. Arc Resource Bridge network and internet connectivity validation failed: cloud-agent-connectivity-test. 1.  check your networking setup and ensure the URLs mentioned in : https://aka.ms/AAla73m are reachable from the Appliance VM.   2. Check firewall/proxy settings\\\_\\n }\_\n}_ }`
+
+Error example: 
+
+`{ _errorCode_: _PostOperationsError_, _errorResponse_: _{\n\_message\_: \_{\\n  \\\_code\\\_: \\\_GuestInternetConnectivityError\\\_,\\n  \\\_message\\\_: \\\_Not able to connect to https://linuxgeneva-microsoft.azurecr.io. Error returned: action failed after 5 attempts: Get \\\\\\\_https://linuxgeneva-microsoft.azurecr.io\\\\\\\_: dial tcp: lookup linuxgeneva-microsoft.azurecr.io on 127.0.0.53:53: server misbehaving. Arc Resource Bridge network and internet connectivity validation failed: http-connectivity-test-arc. 1. Please check your networking setup and ensure the URLs mentioned in : https://aka.ms/AAla73m are reachable from the Appliance VM.   2. Check firewall/proxy settings\\\_\\n }\_\n}_ }`
+
+To resolve the error, work with your network administrator to allow the appliance VM IPs to reach the DNS servers. For more information, see [Azure Arc resource bridge network requirements](network-requirements.md).
 
 ### Http2 server sent GOAWAY
 
@@ -129,13 +182,11 @@ This occurs when a `.local` path is provided for a configuration setting, such a
 
 ### Azure Arc resource bridge is unreachable
 
-Azure Arc resource bridge runs a Kubernetes cluster, and its control plane requires a static IP address. The IP address is specified in the `infra.yaml` file. If the IP address is assigned from a DHCP server, the address can change if it's not reserved. Rebooting the Azure Arc resource bridge or VM can trigger an IP address change, resulting in failing services.
+Azure Arc resource bridge runs a Kubernetes cluster, and its control plane requires a static IP address. The IP address is specified in the `infra.yaml` file. If the IP address is assigned from a DHCP server, the address can change if it's not reserved. Rebooting the Azure Arc resource bridge or VM can trigger an IP address change and result in failing services.
 
-Intermittently, the resource bridge can lose the reserved IP configuration. This is due to the behavior described in [loss of VIPs when systemd-networkd is restarted](https://github.com/acassen/keepalived/issues/1385). When the IP address isn't assigned to the Azure Arc resource bridge VM, any call to the resource bridge API server will fail. As a result, you can't create any new resource through the resource bridge, ranging from connecting to Azure Arc private cloud, create a custom location, create a VM, etc.
+Arc resource bridge may intermittently lose the reserved IP configuration. This loss is due to the behavior described in [loss of VIPs when `systemd-networkd` is restarted](https://github.com/acassen/keepalived/issues/1385). When the IP address isn't assigned to the Azure Arc resource bridge VM, any call to the resource bridge API server fails. Core operations, such as creating a new resource, connecting to your private cloud from Azure, or creating a custom location, won't function as expected. To resolve this issue, reboot the resource bridge VM, and it should recover its IP address. If the address is assigned from a DHCP server, reserve the IP address associated with the resource bridge.
 
-Another possible cause is slow disk access. Azure Arc resource bridge uses etcd which requires 10 ms latency or less per [recommendation](https://docs.openshift.com/container-platform/4.6/scalability_and_performance/recommended-host-practices.html#recommended-etcd-practices_). If the underlying disk has low performance, it can impact the operations, and causing failures.
-
-To resolve this issue, reboot the resource bridge VM, and it should recover its IP address. If the address is assigned from a DHCP server, reserve the IP address associated with the resource bridge.
+The Arc resource bridge may also be unreachable due to slow disk access. Azure Arc resource bridge uses Kubernetes extended configuration tree (ETCD), which requires [latency of 10ms or less](https://docs.openshift.com/container-platform/4.6/scalability_and_performance/recommended-host-practices.html#recommended-etcd-practices_). If the underlying disk has low performance, operations are impacted and failures may occur.
 
 ### SSL proxy configuration issues
 
@@ -143,7 +194,7 @@ Be sure that the proxy server on your management machine trusts both the SSL cer
 
 ### No such host - dp.kubernetesconfiguration.azure.com
 
-An error that contains `dial tcp: lookup westeurope.dp.kubernetesconfiguration.azure.com: no such host` while deploying Arc resource bridge means that the configuration dataplane is currently unavailable in the specified region. The service may be temporarily unavailable. Please wait for the service to be available and then retry the deployment.
+An error that contains `dial tcp: lookup westeurope.dp.kubernetesconfiguration.azure.com: no such host` while deploying Arc resource bridge means that the configuration dataplane is currently unavailable in the specified region. The service may be temporarily unavailable.  Wait for the service to be available and then retry the deployment.
 
 ### Proxy connect tcp - No such host for Arc resource bridge required URL
 
@@ -151,7 +202,7 @@ An error that contains an Arc resource bridge required URL with the message `pro
 
 `Error:  { _errorCode_: _InvalidEntityError_, _errorResponse_: _{\n\_message\_: \_Post \\\_https://msk8s.api.cdp.microsoft.com/api/v1.1/contents/default/namespaces/default/names/arc-appliance-stable-catalogs-ext/versions/latest?action=select\\\_: POST https://msk8s.api.cdp.microsoft.com/api/v1.1/contents/default/namespaces/default/names/arc-appliance-stable-catalogs-ext/versions/latest?action=select giving up after 6 attempt(s): Post \\\_https://msk8s.api.cdp.microsoft.com/api/v1.1/contents/default/namespaces/default/names/arc-appliance-stable-catalogs-ext/versions/latest?action=select\\\_: proxyconnect tcp: dial tcp: lookup http: no such host\_\n}_ }`
 
-This error can occur if the DNS settings provided during deployment are not correct or there is a problem with the DNS server(s). You can check if your DNS server is able to resolve the url by running the following command from the management machine or a machine that has access to the DNS server(s): 
+This error can occur if the DNS settings provided during deployment aren't correct or there's a problem with the DNS server(s). You can check if your DNS server is able to resolve the url by running the following command from the management machine or a machine that has access to the DNS server(s): 
 
 ```
 nslookup
@@ -200,13 +251,31 @@ To resolve the error, one or more network misconfigurations might need to be add
 
    Verify that the DNS server IP used to create the configuration files has internal and external address resolution. If not, [delete the appliance](/cli/azure/arcappliance/delete), recreate the Arc resource bridge configuration files with the correct DNS server settings, and then deploy Arc resource bridge using the new configuration files.
    
-## Move Arc resource bridge location
+### Move Arc resource bridge location
 
 Resource move of Arc resource bridge isn't currently supported. You'll need to delete the Arc resource bridge, then re-deploy it to the desired location. 
 
 ## Azure Arc-enabled VMs on Azure Stack HCI issues
 
 For general help resolving issues related to Azure Arc-enabled VMs on Azure Stack HCI, see [Troubleshoot Azure Arc-enabled virtual machines](/azure-stack/hci/manage/troubleshoot-arc-enabled-vms).
+
+### Action failed - no such host
+
+When deploying Arc resource bridge, if you receive an error with `errorCode` as `PostOperationsError`, `errorResponse` as code `GuestInternetConnectivityError` and `no such host`, then the error may be caused by the appliance VM IPs not having reachability to the endpoint specified in the error. 
+
+Error example: 
+
+`{ _errorCode_: _PostOperationsError_, _errorResponse_: _{\n\_message\_: \_{\\n  \\\_code\\\_: \\\_GuestInternetConnectivityError\\\_,\\n  \\\_message\\\_: \\\_Not able to connect to http://aszhcitest01.company.org:55000. Error returned: action failed after 5 attempts: Get \\\\\\\_http://aszhcitest01.company.org:55000\\\\\\\_: dial tcp: lookup aszhcitest01.company.org: on 127.0.0.53:53: no such host. Arc Resource Bridge network and internet connectivity validation failed: cloud-agent-connectivity-test. 1.  check your networking setup and ensure the URLs mentioned in : https://aka.ms/AAla73m are reachable from the Appliance VM.   2. Check firewall/proxy settings`
+
+In the example, the appliance VM IPs are not able to access `http://aszhcitest01.company.org:55000`, which is the MOC endpoint. Work with your network administrator to make sure that the DNS server is able to resolve the required URLs.
+
+To test connectivity to the DNS server:
+
+```ping <dns-server.com>```
+
+To check if the DNS server is able to resolve an address, from a machine where we can reach the DNS servers run:
+
+```Resolve-DnsName -Name "http://aszhcitest01.company.org:55000" -Server "<dns-server.com>"```
 
 ### Authentication handshake failure
 
@@ -218,9 +287,21 @@ To install Azure Arc resource bridge on an Azure Stack HCI cluster, `az arcappli
 
 ## Azure Arc-enabled VMware VCenter issues
 
-### vSphere SDK client 403 Forbidden or 404 not found
+### errorResponse: error getting the vsphere sdk client
 
-If you receive an error that contains `errorCode_: _CreateConfigKvaCustomerError_, _errorResponse_: _error getting the vsphere sdk client: POST \_/sdk\_: 403 Forbidden` or `404 not found` while deploying Arc resource bridge, this is most likely due to an incorrect vCenter URL being provided during configuration file creation where you're prompted to enter the vCenter address as either FQDN or IP address. There are different ways to find your vCenter address. One option is to access the vSphere client via its web interface. The vCenter FQDN or IP address is typically what you use in the browser to access the vSphere client. If you're already logged in, you can look at the browser's address bar; the URL you use to access vSphere is your vCenter server's FQDN or IP address. Alternatively, after logging in, go to the Menu > Administration section. Under System Configuration, choose Nodes. Your vCenter server instance(s) will be listed there along with its FQDN. Verify your vCenter address and then re-try the deployment.
+For errors with errorCode `CreateConfigKvaCustomerError` and errorResponse `error getting the vsphere sdk client`, these errors occur when your deployment machine is trying to establish a TCP connection to your vCenter address but encounters a problem. You receive this errorCode and errorResponse if your vCenter address is incorrect (403 or 404 error) or if there's a network/proxy/firewall configuration blocking it (connection attempt failed). If you enter your vCenter address as a hostname and receive the error `no such host`, then your deployment machine isn't able to resolve the vCenter hostname via the client DNS. You may receive an error if the deployment machine is able to resolve the vCenter hostname but the deployment machine can't reach the IP address it received from DNS. You may receive an error if the endpoint returned by DNS isn't your vCenter address, or if the traffic was intercepted by proxy. Finally, you may get an error if your deployment machine is able to communicate with your vCenter address, but the username or password is incorrect.
+
+### vSphere SDK client - Connection attempt failed
+
+If you receive an error during deployment that states: `errorCode_: _CreateConfigKvaCustomerError_, _errorResponse_: _error getting the vsphere sdk client: Post \_https://ip.address/sdk\_: dial tcp ip.address:443: connectex: A connection attempt failed because the connected party did not properly respond after a period of time, or established connection failed because connected host has failed to respond._ }` then your management machine is not able to communicate with your vCenter server. Ensure that your management machine meets the [management machine requirements](system-requirements.md#management-machine-requirements) and that there's not a firewall or proxy blocking communication. 
+
+### vSphere SDK client - 403 Forbidden or 404 not found
+
+If you receive an error that contains `errorCode_: _CreateConfigKvaCustomerError_, _errorResponse_: _error getting the vsphere sdk client: POST \_/sdk\_: 403 Forbidden` or `404 not found` while deploying Arc resource bridge, this is most likely due to an incorrect vCenter address being provided during configuration file creation when you're prompted to enter the vCenter address as either a hostname or IP address. There are different ways to find your vCenter address. One option is to access the vSphere client via its web interface. The vCenter hostname or IP address is typically what you use in the browser to access the vSphere client. If you're already logged in, you can look at the browser's address bar; the URL you use to access vSphere is your vCenter server's hostname or IP address. Verify your vCenter address and then re-try the deployment.
+
+### vSphere SDK client - no such host
+
+If you encounter the error `{ _errorCode_: _CreateConfigKvaCustomerError_, _errorResponse_: _error getting the vsphere sdk client: Post \_https://your.vcenter.hostname/sdk\_: dial tcp: lookup your.vcenter.hostname: no such host_ }` during deployment, then the deployment machine can't resolve the vCenter hostname to an IP address. This issue arises because the deployment process is attempting to establish a TCP connection from your deployment machine to the vCenter hostname but fails due to DNS resolution problems. To address this, ensure the DNS configuration on your deployment machine is correct, verify that the DNS server is online, and check for a missing DNS entry for the vCenter hostname. You can test the DNS resolution by running `nslookup your.vcenter.hostname` or `ping your.vcenter.hostname` from the deployment machine. If you've specified your vCenter address as a hostname, consider using the IP address directly instead.
 
 ### Pre-deployment validation errors
 
@@ -240,14 +321,22 @@ A combination of these errors usually indicates that the management machine has 
 
 When you deploy Arc resource bridge, you may encounter the error: 
 
-`Error: { _errorCode_: _PostOperationsError_, _errorResponse_: _{\n\_message\_: \_{\\n  \\\_code\\\_: \\\_GuestInternetConnectivityError\\\_,\\n  \\\_message\\\_: \\\_Not able to connect to https://msk8s.api.cdp.microsoft.com. Error returned: action failed after 3 attempts: Get \\\\\\\_https://msk8s.api.cdp.microsoft.com\\\\\\\_: x509: certificate has expired or isn't yet valid: current time 2022-01-18T11:35:56Z is before 2023-09-07T19:13:21Z. Arc Resource Bridge network and internet connectivity validation failed: http-connectivity-test-arc. 1. Please check your networking setup and ensure the URLs mentioned in : https://aka.ms/AAla73m are reachable from the Appliance VM.   2. Check firewall/proxy settings` 
+`Error: { _errorCode_: _PostOperationsError_, _errorResponse_: _{\n\_message\_: \_{\\n  \\\_code\\\_: \\\_GuestInternetConnectivityError\\\_,\\n  \\\_message\\\_: \\\_Not able to connect to https://msk8s.api.cdp.microsoft.com. Error returned: action failed after 3 attempts: Get \\\\\\\_https://msk8s.api.cdp.microsoft.com\\\\\\\_: x509: certificate has expired or isn't yet valid: current time 2022-01-18T11:35:56Z is before 2023-09-07T19:13:21Z. Arc Resource Bridge network and internet connectivity validation failed: http-connectivity-test-arc. 1.  check your networking setup and ensure the URLs mentioned in : https://aka.ms/AAla73m are reachable from the Appliance VM.   2. Check firewall/proxy settings` 
 
 This error is caused when there's a clock/time difference between ESXi host(s) and the management machine where the deployment commands for Arc resource bridge are being executed. To resolve this issue, turn on NTP time sync on the ESXi host(s) and confirm that the management machine is also synced to NTP, then try the deployment again.
 
+### Resolves to multiple networks
+
+When deploying or upgrading Arc resource bridge, you may encounter an error similar to: 
+
+`{ "ErrorCode": "PreflightcheckErrorOnPrem", 
+"ErrorDetails": "Upgrade Operation Failed with error: \"{\\n \\\"code\\\": \\\"PreflightcheckError\\\",\\n \\\"message\\\": \\\"{\\\\n \\\\\\\"code\\\\\\\": \\\\\\\"InvalidEntityError\\\\\\\",\\\\n \\\\\\\"message\\\\\\\": \\\\\\\"Cannot retrieve vSphere Network 'vmware-azure-arc-01': path 'vmware-azure-arc-01' resolves to multiple networks\\\\\\\",\\\\n \\\\\\\"category\\\\\\\": \\\\\\\"\\\\\\\"\\\\n }\\\",\\n \\\"category\\\": \\\"\\\"\\n }\"" }` 
+
+This error occurs when the vSphere network segment resolves to multiple networks due to multiple vSphere network segments having the same name that is specified in the error. To fix this error, you can change the duplicate network name in vCenter (not the network with the appliance VM) or deploy Arc resource bridge on a different network.
+
 ### Arc resource bridge status is disconnected
 
-When running the initial Arc-enabled VMware onboarding script, you were prompted to provide a vSphere account. This account is stored locally within the Arc resource bridge as an encrypted Kubernetes secret. It is used to allow the Arc resource bridge to interact with vCenter. If your Arc resource bridge status is disconnected, this may be due to the vSphere account stored locally within the resource bridge being expired. You will need to update the credentials within Arc resource bridge and for Arc-enabled VMware by [following the updating vSphere account credentials instructions](/vmware-vsphere/administer-arc-vmware.md#updating-the-vsphere-account-credentials-using-a-new-password-or-a-new-vsphere-account-after-onboarding).
-
+When running the initial Arc-enabled VMware onboarding script, you were prompted to provide a vSphere account. This account is stored locally within the Arc resource bridge as an encrypted Kubernetes secret. The account is used to allow the Arc resource bridge to interact with vCenter. If your Arc resource bridge status is disconnected, this may be due to the vSphere account stored locally within the resource bridge being expired. You must update the credentials within Arc resource bridge and for Arc-enabled VMware by [following the updating vSphere account credentials instructions](/azure/azure-arc/vmware-vsphere/administer-arc-vmware#updating-the-vsphere-account-credentials-using-a-new-password-or-a-new-vsphere-account-after-onboarding).
 
 ### Error during host configuration
 
@@ -259,11 +348,34 @@ To resolve this issue, manually delete the existing template. Then run [`az arca
 
 ### Unable to find folders
 
-When deploying the resource bridge on VMware vCenter, you specify the folder in which the template and VM will be created. The folder must be VM and template folder type. Other types of folder, such as storage folders, network folders, or host and cluster folders, can't be used for the resource bridge deployment.
+When deploying Arc resource bridge on VMware, you specify the folder in which the template and VM are created. The selected folder must be a VM and template folder type. Other types of folder, such as storage folders, network folders, or host and cluster folders, can't be used for the resource bridge deployment.
 
-### Insufficient permissions
+### Cannot retrieve resource - not found or does not exist
 
-When deploying the resource bridge on VMware vCenter, you might get an error saying that you have insufficient permission. To resolve this issue, make sure that the user account being used to deploy the resource bridge has all of the following privileges in VMware vCenter and then try again.
+When Arc resource bridge is deployed, you specify where the appliance VM will be deployed. The appliance VM can't be moved from that location path. If the appliance VM moved location, you may hit an error similar to the ones below when upgrading: 
+
+`
+{\n  \"code\": \"PreflightcheckError\",\n  \"message\": \"{\\n  \\\"code\\\": \\\"InvalidEntityError\\\",\\n  \\\"message\\\": \\\"Cannot retrieve <resource> 'resource-name': <resource> 'resource-name' not found\\\"\\n }\"\n }"
+`
+
+`
+{\n  \"code\": \"PreflightcheckError\",\n  \"message\": \"{\\n  \\\"code\\\": \\\"InvalidEntityError\\\",\\n  \\\"message\\\": \\\"The specified vSphere Datacenter '/VxRail-Datacenter' does not exist\\\"\\n }\"\n }"
+`
+
+These are the options to address either error: 
+
+- Move the appliance VM back to its original location and ensure RBAC credentials are updated for the location change.
+- Create a resource with the same name, move Arc resource bridge to that new resource.
+- If you're using Arc-enabled VMware, [run the Arc-enabled VMware disaster recovery script](../vmware-vsphere/disaster-recovery.md). The script will delete the appliance, deploy a new appliance and reconnect the appliance with the previously deployed custom location, cluster extension and Arc-enabled VMs.
+- Delete and [redeploy the Arc resource bridge](../vmware-vsphere/quick-start-connect-vcenter-to-arc-using-script.md).
+
+### Insufficient privileges
+
+When deploying or upgrading the resource bridge on VMware vCenter, you might get an error similar to: 
+
+`{  ""code"": ""PreflightcheckError"", ""message"": ""{\n  \""code\"": \""InsufficientPrivilegesError\"",\n  \""message\"": \""The provided vCenter account is missing required vSphere privileges on the resource 'root folder (MoRefId: Folder:group-d1)'. Missing privileges: [Sessions.ValidateSession].  add the privileges to the vCenter account and try again. To review the full list of required privileges, go to https://aka.ms/ARB-vsphere-privilege.\""\n }`
+
+When deploying Arc resource bridge, you are asked to provide vCenter credentials. The Arc resource bridge locally stores the vCenter credentials to interact with vCenter. To resolve the missing privileges issue, the vCenter account used by the resource bridge needs the following privileges in VMware vCenter:
 
 **Datastore** 
 
@@ -367,6 +479,6 @@ When deploying the resource bridge on VMware vCenter, you might get an error say
 If you don't see your problem here or you can't resolve your issue, try one of the following channels for support:
 
 - Get answers from Azure experts through [Microsoft Q&A](/answers/topics/azure-arc.html).
-- Connect with [@AzureSupport](https://twitter.com/azuresupport), the official Microsoft Azure account for improving customer experience. Azure Support connects the Azure community to answers, support, and experts.
+- Connect with [@AzureSupport](https://x.com/azuresupport), the official Microsoft Azure account for improving customer experience. Azure Support connects the Azure community to answers, support, and experts.
 - [Open an Azure support request](../../azure-portal/supportability/how-to-create-azure-support-request.md).
 

@@ -4,7 +4,7 @@ titleSuffix: Azure Monitor
 description: Learn how to troubleshoot some of the common issues that you may encounter when using Azure Monitor network insights.
 author: halkazwini
 ms.author: halkazwini
-ms.service: network-watcher
+ms.service: azure-network-watcher
 ms.topic: how-to
 ms.date: 09/29/2023
 
@@ -13,7 +13,7 @@ ms.date: 09/29/2023
 
 # Troubleshoot network insights
 
-For general troubleshooting guidance, see [Troubleshooting workbook-based insights](../azure-monitor/insights/troubleshoot-workbooks.md).
+For general troubleshooting guidance, see [Troubleshooting workbook-based insights](/azure/azure-monitor/insights/troubleshoot-workbooks).
 
 This article helps you diagnose and troubleshoot some common problems you might encounter when you use Azure Monitor network insights. 
 

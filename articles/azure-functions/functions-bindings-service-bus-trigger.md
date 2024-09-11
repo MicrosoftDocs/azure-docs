@@ -33,7 +33,7 @@ Service Bus scaling decisions for the Consumption and Premium plans are made bas
 
 [!INCLUDE [functions-bindings-csharp-intro](../../includes/functions-bindings-csharp-intro.md)]
 
-[!INCLUDE [functions-in-process-model-retirement-note](~/reusable-content/ce-skilling/azure/includes/functions-in-process-model-retirement-note.md)]
+[!INCLUDE [functions-in-process-model-retirement-note](../../includes/functions-in-process-model-retirement-note.md)]
 
 # [Isolated worker model](#tab/isolated-process)
 
@@ -513,7 +513,7 @@ In [C# class libraries](functions-dotnet-class-library.md), the attribute's cons
 
 Use the [Message](/dotnet/api/microsoft.azure.servicebus.message) type to receive messages with metadata. To learn more, see [Messages, payloads, and serialization](../service-bus-messaging/service-bus-messages-payloads.md).
 
-[!INCLUDE [service-bus-track-0-and-1-sdk-support-retirement](~/reusable-content/ce-skilling/azure/includes/service-bus-track-0-and-1-sdk-support-retirement.md)]
+[!INCLUDE [service-bus-track-0-and-1-sdk-support-retirement](../../includes/service-bus-track-0-and-1-sdk-support-retirement.md)]
 
 In [C# class libraries](functions-dotnet-class-library.md), the attribute's constructor takes the name of the queue or the topic and subscription. 
 
@@ -526,7 +526,7 @@ The following parameter types are available for the queue or topic message:
 * [BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) - Gives you the deserialized message with the [BrokeredMessage.GetBody\<T>()](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.getbody#Microsoft_ServiceBus_Messaging_BrokeredMessage_GetBody__1) method.
 * [MessageReceiver](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver) - Used to receive and acknowledge messages from the message container, which is required when `autoComplete` is set to `false`.
 
-[!INCLUDE [service-bus-track-0-and-1-sdk-support-retirement](~/reusable-content/ce-skilling/azure/includes/service-bus-track-0-and-1-sdk-support-retirement.md)]
+[!INCLUDE [service-bus-track-0-and-1-sdk-support-retirement](../../includes/service-bus-track-0-and-1-sdk-support-retirement.md)]
 
 In [C# class libraries](functions-dotnet-class-library.md), the attribute's constructor takes the name of the queue or the topic and subscription. In Azure Functions version 1.x, you can also specify the connection's access rights. If you don't specify access rights, the default is `Manage`. 
 
@@ -621,7 +621,7 @@ These properties are members of the [ServiceBusReceivedMessage](/dotnet/api/azur
 
 These properties are members of the [Message](/dotnet/api/microsoft.azure.servicebus.message) class.
 
-[!INCLUDE [service-bus-track-0-and-1-sdk-support-retirement](~/reusable-content/ce-skilling/azure/includes/service-bus-track-0-and-1-sdk-support-retirement.md)]
+[!INCLUDE [service-bus-track-0-and-1-sdk-support-retirement](../../includes/service-bus-track-0-and-1-sdk-support-retirement.md)]
 
 |Property|Type|Description|
 |--------|----|-----------|
@@ -640,7 +640,7 @@ These properties are members of the [Message](/dotnet/api/microsoft.azure.servic
 
 These properties are members of the [BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) and [MessageReceiver](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver) classes.
 
-[!INCLUDE [service-bus-track-0-and-1-sdk-support-retirement](~/reusable-content/ce-skilling/azure/includes/service-bus-track-0-and-1-sdk-support-retirement.md)]
+[!INCLUDE [service-bus-track-0-and-1-sdk-support-retirement](../../includes/service-bus-track-0-and-1-sdk-support-retirement.md)]
 
 |Property|Type|Description|
 |--------|----|-----------|

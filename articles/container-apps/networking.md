@@ -3,7 +3,7 @@ title: Networking in Azure Container Apps environment
 description: Learn how to configure virtual networks in Azure Container Apps.
 services: container-apps
 author: cachai
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.topic:  conceptual
 ms.date: 08/29/2023
 ms.author: cachai
@@ -278,20 +278,31 @@ You can fully secure your ingress and egress networking traffic workload profile
 
 - Configure UDR to route all traffic through [Azure Firewall](./user-defined-routes.md).
 
-## <a name="mtls"></a> Environment level network encryption (preview)
+## <a name="peer-to-peer-encryption"></a> Peer-to-peer encryption in the Azure Container Apps environment
 
-Azure Container Apps supports environment level network encryption using mutual transport layer security (mTLS). When end-to-end encryption is required, mTLS encrypts data transmitted between applications within an environment.
+Azure Container Apps supports peer-to-peer TLS encryption within the environment. Enabling this feature encrypts all network traffic within the environment with a private certificate that is valid within the Azure Container Apps environment scope. These certificates are automatically managed by Azure Container Apps. 
 
-Applications within a Container Apps environment are automatically authenticated. However, the Container Apps runtime doesn't support authorization for access control between applications using the built-in mTLS.
+> [!NOTE]
+> By default, peer-to-peer encryption is disabled. Enabling peer-to-peer encryption for your applications may increase response latency and reduce maximum throughput in high-load scenarios.
+
+The following example shows an environment with peer-to-peer encryption enabled.
+:::image type="content" source="media/networking/peer-to-peer-encryption-traffic-diagram.png" alt-text="Diagram of how traffic is encrypted/decrypted with peer-to-peer encryption enabled.":::
+
+<sup>1</sup> Inbound TLS traffic is terminated at the ingress proxy on the edge of the environment.
+
+<sup>2</sup> Traffic to and from the ingress proxy within the environment is TLS encrypted with a private certificate and decrypted by the receiver. 
+
+<sup>3</sup> Calls made from app A to app B's FQDN are first sent to the edge ingress proxy, and are TLS encrypted.
+
+<sup>4</sup> Calls made from app A to app B using app B's app name are sent directly to app B and are TLS encrypted.
+
+Applications within a Container Apps environment are automatically authenticated. However, the Container Apps runtime doesn't support authorization for access control between applications using the built-in peer-to-peer encryption.
 
 When your apps are communicating with a client outside of the environment, two-way authentication with mTLS is supported. To learn more, see [configure client certificates](client-certificate-authorization.md).
 
-> [!NOTE]
-> Enabling mTLS for your applications may increase response latency and reduce maximum throughput in high-load scenarios.
-
 # [Azure CLI](#tab/azure-cli)
 
-You can enable mTLS using the following commands.
+You can enable peer-to-peer encryption using the following commands.
 
 On create:
 
@@ -300,7 +311,7 @@ az containerapp env create \
     --name <environment-name> \
     --resource-group <resource-group> \
     --location <location> \
-    --enable-mtls
+    --enable-peer-to-peer-encryption
 ```
 
 For an existing container app:
@@ -309,7 +320,7 @@ For an existing container app:
 az containerapp env update \
     --name <environment-name> \
     --resource-group <resource-group> \
-    --enable-mtls
+    --enable-peer-to-peer-encryption
 ```
 
 # [ARM template](#tab/arm-template)
@@ -320,8 +331,8 @@ You can enable mTLS in the ARM template for Container Apps environments using th
 {
   ...
   "properties": {
-       "peerAuthentication":{
-            "mtls": {
+       "peerTrafficConfiguration":{
+            "encryption": {
                 "enabled": "true|false"
             }
         }

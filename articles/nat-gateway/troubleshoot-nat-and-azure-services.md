@@ -65,7 +65,7 @@ NAT gateway can be deployed with AKS clusters in order to allow for explicit out
 
 - **User-Assigned NAT gateway**: You deploy a NAT gateway to an existing virtual network for the AKS cluster. 
 
-Learn more at [Managed NAT Gateway](../aks/nat-gateway.md).
+Learn more at [Managed NAT Gateway](/azure/aks/nat-gateway).
 
 ### Can't update my NAT gateway IPs or idle timeout timer for an AKS cluster 
 

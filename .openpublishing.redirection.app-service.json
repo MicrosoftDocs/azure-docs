@@ -552,7 +552,12 @@
         },
         {
             "source_path_from_root": "/articles/app-service/containers/configure-language-java.md",
-            "redirect_url": "/azure/app-service/configure-language-java?pivots=platform-linux",
+            "redirect_url": "/azure/app-service/configure-language-java-deploy-run?pivots=platform-linux",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/app-service/configure-language-java.md",
+            "redirect_url": "/azure/app-service/configure-language-java-deploy-run",
             "redirect_document_id": false
         },
         {
@@ -1317,7 +1322,22 @@
         },
         {
             "source_path_from_root": "/articles/app-service/containers/quickstart-multi-container.md",
-            "redirect_url": "/azure/app-service/quickstart-multi-container",
+            "redirect_url": "/azure/app-service/tutorial-custom-container-sidecar",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/app-service/containers/tutorial-multi-container-app.md",
+            "redirect_url": "/azure/app-service/tutorial-custom-container-sidecar",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/app-service/quickstart-multi-container.md",
+            "redirect_url": "/azure/app-service/tutorial-custom-container-sidecar",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/app-service/tutorial-multi-container-app.md",
+            "redirect_url": "/azure/app-service/tutorial-custom-container-sidecar",
             "redirect_document_id": false
         },
         {
@@ -1851,6 +1871,16 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/app-service/get-resource-events.md",
+            "redirect_url": "/azure/app-service/monitor-app-service",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/app-service/overview-monitoring.md",
+            "redirect_url": "/azure/app-service/monitor-app-service",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/app-service/app-service-security-attributes.md",
             "redirect_url": "/azure/app-service/security-baseline",
             "redirect_document_id": false
@@ -1951,6 +1981,11 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/app-service/tutorial-java-quarkus-postgresql-app.md",
+            "redirect_url": "/azure/app-service/tutorial-java-spring-cosmosdb",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/app-service/containers/tutorial-java-spring-cosmosdb.md",
             "redirect_url": "/azure/app-service/tutorial-java-spring-cosmosdb",
             "redirect_document_id": false
@@ -1958,11 +1993,6 @@
         {
             "source_path_from_root": "/articles/app-service-web/app-service-web-tutorial-java-mysql.md",
             "redirect_url": "/azure/app-service/tutorial-java-spring-cosmosdb",
-            "redirect_document_id": false
-        },
-        {
-            "source_path_from_root": "/articles/app-service/containers/tutorial-multi-container-app.md",
-            "redirect_url": "/azure/app-service/tutorial-multi-container-app",
             "redirect_document_id": false
         },
         {

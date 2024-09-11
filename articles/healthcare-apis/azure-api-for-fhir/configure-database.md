@@ -2,7 +2,7 @@
 title: Configure database settings in Azure API for FHIR
 description: This article describes how to configure Database settings in Azure API for FHIR
 author: expekesheth
-ms.service: healthcare-apis
+ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.topic: reference
 ms.date: 09/27/2023
@@ -14,7 +14,7 @@ ms.author: kesheth
 
 Azure API for FHIR uses database to store its data. Performance of the underlying database depends on the number of Request Units (RU) selected during service provisioning or in database settings after the service has been provisioned.
 
-Azure API for FHIR borrows the concept of [Request Units (RUs) in Azure Cosmos DB](../../cosmos-db/request-units.md)) when setting the performance of underlying database. 
+Azure API for FHIR borrows the concept of [Request Units (RUs) in Azure Cosmos DB](/azure/cosmos-db/request-units)) when setting the performance of underlying database. 
 
 Throughput must be provisioned to ensure that sufficient system resources are available for your database at all times. How many RUs you need for your application depends on operations you perform. Operations can range from simple read and writes to more complex queries. 
 

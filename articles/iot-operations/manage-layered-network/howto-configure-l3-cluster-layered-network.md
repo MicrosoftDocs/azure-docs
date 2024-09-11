@@ -6,7 +6,7 @@ ms.subservice: layered-network-management
 ms.author: patricka
 ms.topic: how-to
 ms.custom: ignite-2023, devx-track-azurecli
-ms.date: 11/15/2023
+ms.date: 07/02/2024
 
 #CustomerIntent: As an operator, I want to configure Layered Network Management so that I have secure isolate devices.
 ---
@@ -235,13 +235,16 @@ login.microsoftonline.com. 0    IN      A       100.104.0.165
     az account set -s $SUBSCRIPTION_ID
     ```
 1. Register the required resource providers in your subscription:
+
+   >[!NOTE]
+   >This step only needs to be run once per subscription. To register resource providers, you need permission to do the `/register/action` operation, which is included in subscription Contributor and Owner roles. For more information, see [Azure resource providers and types](../../azure-resource-manager/management/resource-providers-and-types.md).
+
     ```powershell
     az provider register -n "Microsoft.ExtendedLocation"
     az provider register -n "Microsoft.Kubernetes"
     az provider register -n "Microsoft.KubernetesConfiguration"
     az provider register -n "Microsoft.IoTOperationsOrchestrator"
-    az provider register -n "Microsoft.IoTOperationsMQ"
-    az provider register -n "Microsoft.IoTOperationsDataProcessor"
+    az provider register -n "Microsoft.IoTOperations"
     az provider register -n "Microsoft.DeviceRegistry"
     ```
 1. Use the [az group create](/cli/azure/group#az-group-create) command to create a resource group in your Azure subscription to store all the resources:
@@ -273,10 +276,10 @@ login.microsoftonline.com. 0    IN      A       100.104.0.165
 >[!IMPORTANT]
 > These steps are for AKS Edge Essentials only.
 
-After you've deployed Azure IoT Operations to your cluster, enable inbound connections to Azure IoT MQ Preview broker and configure port forwarding:
+After you've deployed Azure IoT Operations to your cluster, enable inbound connections to MQTT broker and configure port forwarding:
 1. Enable a firewall rule for port 8883:
     ```powershell
-    New-NetFirewallRule -DisplayName "Azure IoT MQ" -Direction Inbound -Protocol TCP -LocalPort 8883 -Action Allow
+    New-NetFirewallRule -DisplayName "MQTT broker" -Direction Inbound -Protocol TCP -LocalPort 8883 -Action Allow
     ```
 1. Run the following command and make a note of the IP address for the service called `aio-mq-dmqtt-frontend`:
     ```cmd

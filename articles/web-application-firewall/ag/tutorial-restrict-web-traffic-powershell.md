@@ -4,7 +4,7 @@ titleSuffix: Azure Web Application Firewall
 description: Learn how to restrict web traffic with a Web Application Firewall on an application gateway using Azure PowerShell.
 services: web-application-firewall
 author: vhorne
-ms.service: web-application-firewall
+ms.service: azure-web-application-firewall
 ms.date: 03/26/2021
 ms.author: victorh
 ms.topic: how-to 
@@ -13,7 +13,7 @@ ms.custom: devx-track-azurepowershell
 
 # Enable Web Application Firewall using Azure PowerShell
 
-You can restrict traffic on an application gateway with a [Web Application Firewall](ag-overview.md) (WAF). The WAF uses [OWASP](https://owasp.org/www-project-modsecurity-core-rule-set/) rules to protect your application. These rules include protection against attacks such as SQL injection, cross-site scripting attacks, and session hijacks. 
+You can restrict traffic on an application gateway with a [Web Application Firewall (WAF)](ag-overview.md). The WAF uses [OWASP](https://owasp.org/www-project-modsecurity-core-rule-set/) rules to protect your application. These rules include protection against attacks such as SQL injection, cross-site scripting attacks, and session hijacks. 
 
 In this article, you learn how to:
 
@@ -22,7 +22,7 @@ In this article, you learn how to:
 * Create a virtual machine scale set
 * Create a storage account and configure diagnostics
 
-![Web application firewall example](../media/tutorial-restrict-web-traffic-powershell/scenario-waf.png)
+:::image type="content" source="../media/tutorial-restrict-web-traffic-powershell/scenario-waf.png" alt-text="Diagram of the Web application firewall example." lightbox="../media/tutorial-restrict-web-traffic-powershell/scenario-waf.png":::
 
 If you prefer, you can complete this article using the [Azure portal](application-gateway-web-application-firewall-portal.md) or the [Azure CLI](tutorial-restrict-web-traffic-cli.md).
 

@@ -160,9 +160,9 @@
     href: notification-hubs-baidu-china-android-notifications-get-started.md
   - name: Use APNS VOIP through Notification Hubs
     href: voip-apns.md  
-  - name: Monitor
+  - name: Monitor Notification Hubs
     href: monitor-notification-hubs.md
-  - name: Enable diagnostic logs
+  - name: Enable resource logs
     href: notification-hubs-diagnostic-logs.md
 - name: Reference
   items:  

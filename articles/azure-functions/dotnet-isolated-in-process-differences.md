@@ -17,7 +17,7 @@ There are two execution models for .NET functions:
 
 [!INCLUDE [functions-dotnet-execution-model](../../includes/functions-dotnet-execution-model.md)] 
 
-[!INCLUDE [functions-in-process-model-retirement-note](~/reusable-content/ce-skilling/azure/includes/functions-in-process-model-retirement-note.md)]
+[!INCLUDE [functions-in-process-model-retirement-note](../../includes/functions-in-process-model-retirement-note.md)]
 
 This article describes the current state of the functional and behavioral differences between the two models. To migrate from the in-process model to the isolated worker model, see [Migrate .NET apps from the in-process model to the isolated worker model][migrate].
 
@@ -27,7 +27,7 @@ Use the following table to compare feature and functional differences between th
 
 | Feature/behavior | Isolated worker model  |  In-process model<sup>3</sup> |
 | ---- | ---- | ---- |
-| [Supported .NET versions](#supported-versions) | Long Term Support (LTS) versions,<br/>Standard Term Support (STS) versions,<br/>.NET Framework | Long Term Support (LTS) versions<sup>6</sup> |
+| [Supported .NET versions](#supported-versions) | Long Term Support (LTS) versions,<br/>Standard Term Support (STS) versions,<br/>.NET Framework | Long Term Support (LTS) versions, ending with .NET 8 |
 | Core packages | [Microsoft.Azure.Functions.Worker](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker/)<br/>[Microsoft.Azure.Functions.Worker.Sdk](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Sdk) | [Microsoft.NET.Sdk.Functions](https://www.nuget.org/packages/Microsoft.NET.Sdk.Functions/) |
 | Binding extension packages | [Microsoft.Azure.Functions.Worker.Extensions.*](https://www.nuget.org/packages?q=Microsoft.Azure.Functions.Worker.Extensions) | [Microsoft.Azure.WebJobs.Extensions.*](https://www.nuget.org/packages?q=Microsoft.Azure.WebJobs.Extensions)  |
 | Durable Functions | [Supported](durable/durable-functions-dotnet-isolated-overview.md)| [Supported](durable/durable-functions-overview.md) |
@@ -42,6 +42,7 @@ Use the following table to compare feature and functional differences between th
 | Cancellation tokens | [Supported](dotnet-isolated-process-guide.md#cancellation-tokens) | [Supported](functions-dotnet-class-library.md#cancellation-tokens) |
 | Cold start times<sup>2</sup> | [Configurable optimizations](./dotnet-isolated-process-guide.md#performance-optimizations) | Optimized |
 | ReadyToRun | [Supported](dotnet-isolated-process-guide.md#readytorun) | [Supported](functions-dotnet-class-library.md#readytorun) |
+| [Flex Consumption] | [Supported](./flex-consumption-plan.md#supported-language-stack-versions) | Not supported |
 
 <sup>1</sup> When you need to interact with a service using parameters determined at runtime, using the corresponding service SDKs directly is recommended over using imperative bindings. The SDKs are less verbose, cover more scenarios, and have advantages for error handling and debugging purposes. This recommendation applies to both models.
 
@@ -52,8 +53,6 @@ Use the following table to compare feature and functional differences between th
 <sup>4</sup> Service SDK types include types from the [Azure SDK for .NET](/dotnet/azure/sdk/azure-sdk-for-dotnet) such as [BlobClient](/dotnet/api/azure.storage.blobs.blobclient).
 
 <sup>5</sup> ASP.NET Core types are not supported for .NET Framework.
-
-<sup>6</sup> .NET 8 is not yet supported on the in-process model, though it is available on the isolated worker model. For information about .NET 8 plans, including future options for the in-process model, see the [Azure Functions Roadmap Update post](https://aka.ms/azure-functions-dotnet-roadmap).
 
 [HttpRequest]: /dotnet/api/microsoft.aspnetcore.http.httprequest
 [IActionResult]: /dotnet/api/microsoft.aspnetcore.mvc.iactionresult

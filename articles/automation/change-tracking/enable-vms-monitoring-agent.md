@@ -3,8 +3,9 @@ title: Enable Azure Automation Change Tracking for single machine and multiple m
 description: This article tells how to enable the Change Tracking feature for single machine and multiple machines at scale from the Azure portal.
 services: automation
 ms.subservice: change-inventory-management
-ms.date: 06/03/2024
-ms.topic: conceptual
+ms.date: 09/09/2024
+ms.topic: how-to
+ms.service: azure-automation
 ---
 
 # Enable Change Tracking and Inventory using Azure Monitoring Agent
@@ -17,7 +18,7 @@ This article describes how you can enable [Change Tracking and Inventory](overvi
 ## Prerequisites
 
 - An Azure subscription. If you don't have one yet, you can [activate your MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or sign up for a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- A [virtual machine](../../virtual-machines/windows/quick-create-portal.md) configured in the specified region.
+- A [virtual machine](/azure/virtual-machines/windows/quick-create-portal) configured in the specified region.
 
 ## Enable Change Tracking and Inventory
 

@@ -154,7 +154,7 @@ This code sample reads the HTTP Request query strings and assigns them to fields
 
 You've successfully added a binding to your HTTP trigger to store unstructured data in an Azure Cosmos DB instance.
 
-[!INCLUDE [Clean-up section](~/reusable-content/ce-skilling/azure/includes/clean-up-section-portal.md)]
+[!INCLUDE [Clean-up section](../../includes/clean-up-section-portal.md)]
 
 ## Next steps
 

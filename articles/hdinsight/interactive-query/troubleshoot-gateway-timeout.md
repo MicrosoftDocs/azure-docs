@@ -1,9 +1,9 @@
 ---
 title: Exception when running queries from Apache Ambari Hive View in Azure HDInsight
 description: Troubleshooting steps when running Apache Hive queries through Apache Ambari Hive View in Azure HDInsight.
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: troubleshooting
-ms.date: 07/25/2023
+ms.date: 07/12/2024
 ---
 
 # Exception when running queries from Apache Ambari Hive View in Azure HDInsight
@@ -25,9 +25,9 @@ Cannot create property 'errors' on string '<!DOCTYPE html PUBLIC '-//W3C//DTD XH
 
 A Gateway timeout.
 
-The Gateway timeout value is 2 minutes. Queries from Ambari Hive View are submitted to the `/hive2` endpoint through the gateway. Once the query is successfully compiled and accepted, the HiveServer returns a `queryid`. Clients then keep polling for the status of the query. During this process, if the HiveServer doesn't return an HTTP response within 2 minutes, the HDI Gateway throws a 502.3 Gateway timeout error to the caller. The errors could happen when the query is submitted for processing (more likely) and also in the get status call (less likely). Users could see either of them.
+The Gateway timeout value is 2 minutes. Queries from Ambari Hive View are submitted to the `/hive2` endpoint through the gateway. Once the query is successfully compiled and accepted, the HiveServer returns a `queryid`. Clients then keep polling for the status of the query. During this process, if the HiveServer doesn't return an HTTP response within 2 minutes, the HDI Gateway throws a 502.3 Gateway timeout error to the caller. The errors could happen when the query is submitted for processing (more likely) and also in the got status call (less likely). Users could see either of them.
 
-The http handler thread is supposed to be quick: prepare the job and return a `queryid`. However, due to several reasons, all the handler threads could be busy resulting in timeouts for new queries and the get status calls.
+The http handler thread is supposed to be quick: prepare the job and return a `queryid`. However, due to several reasons, all the handler threads could be busy resulting in timeouts for new queries and the got status calls.
 
 ### Responsibilities of the HTTP handler thread
 
@@ -46,7 +46,7 @@ Some general recommendations to you to improve the situation:
 
 * If using an external hive metastore, check the DB metrics and make sure that the database isn't overloaded. Consider scaling the metastore database layer.
 
-* Ensure that parallel ops is turned on (this enables the HTTP handler threads to run in parallel). To verify the value, launch [Apache Ambari](../hdinsight-hadoop-manage-ambari.md) and navigate to **Hive** > **Configs** > **Advanced** > **Custom hive-site**. The value for `hive.server2.parallel.ops.in.session` should be `true`.
+* Ensure that parallel ops are turned on (this enables the HTTP handler threads to run in parallel). To verify the value, launch [Apache Ambari](../hdinsight-hadoop-manage-ambari.md) and navigate to **Hive** > **Configs** > **Advanced** > **Custom hive-site**. The value for `hive.server2.parallel.ops.in.session` should be `true`.
 
 * Ensure that the cluster's VM SKU isn't too small for the load. Consider to splitting the work among multiple clusters. For more information, see [Choose a cluster type](../hdinsight-capacity-planning.md#choose-a-cluster-type).
 
@@ -62,6 +62,6 @@ If you didn't see your problem or are unable to solve your issue, visit one of t
 
 * Get answers from Azure experts through [Azure Community Support](https://azure.microsoft.com/support/community/).
 
-* Connect with [@AzureSupport](https://twitter.com/azuresupport) - the official Microsoft Azure account for improving customer experience. Connecting the Azure community to the right resources: answers, support, and experts.
+* Connect with [@AzureSupport](https://x.com/azuresupport) - the official Microsoft Azure account for improving customer experience. Connecting the Azure community to the right resources: answers, support, and experts.
 
 * If you need more help, you can submit a support request from the [Azure portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade/). Select **Support** from the menu bar or open the **Help + support** hub. For more detailed information, review [How to create an Azure support request](../../azure-portal/supportability/how-to-create-azure-support-request.md). Access to Subscription Management and billing support is included with your Microsoft Azure subscription, and Technical Support is provided through one of the [Azure Support Plans](https://azure.microsoft.com/support/plans/).

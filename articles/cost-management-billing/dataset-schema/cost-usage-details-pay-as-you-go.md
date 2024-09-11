@@ -12,9 +12,9 @@ ms.author: banders
 
 # Pay-as-you-go cost and usage details file schema
 
-This article applies to the pay-as-you-go cost and usage details file schema. Pay-as-you-go is also called Microsoft Online Services Program (MOSP) and Microsoft Online Subscription Agreement (MOSA).
+This article applies to the pay-as-you-go cost and usage details (usage only) file schema. Pay-as-you-go is also called Microsoft Online Services Program (MOSP) and Microsoft Online Subscription Agreement (MOSA).
 
-The following information lists the cost and usage details (formerly known as usage details) fields found in the pay-as-you-go cost and usage details file. The file contains contains all of the cost details and usage data for the Azure services that were used.
+The schema outlined here is applicable only to the 'Cost and Usage Details (Usage Only)' dataset and does not cover purchase information.
 
 ## Version 2019-11-01
 

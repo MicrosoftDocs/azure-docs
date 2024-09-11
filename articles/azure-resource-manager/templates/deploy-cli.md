@@ -13,7 +13,7 @@ This article explains how to use Azure CLI with Azure Resource Manager templates
 
 The deployment commands changed in Azure CLI version 2.2.0. The examples in this article require [Azure CLI version 2.20.0 or later](/cli/azure/install-azure-cli).
 
-[!INCLUDE [sample-cli-install](~/reusable-content/ce-skilling/azure/includes/sample-cli-install.md)]
+[!INCLUDE [sample-cli-install](../../../includes/sample-cli-install.md)]
 
 If you don't have Azure CLI installed, you can use Azure Cloud Shell. For more information, see [Deploy ARM templates from Azure Cloud Shell](deploy-cloud-shell.md).
 
@@ -208,7 +208,7 @@ az deployment group create \
   --parameters exampleString=@stringContent.txt exampleArray=@arrayContent.json
 ```
 
-Getting a parameter value from a file is helpful when you need to provide configuration values. For example, you can provide [cloud-init values for a Linux virtual machine](../../virtual-machines/linux/using-cloud-init.md).
+Getting a parameter value from a file is helpful when you need to provide configuration values. For example, you can provide [cloud-init values for a Linux virtual machine](/azure/virtual-machines/linux/using-cloud-init).
 
 The _arrayContent.json_ format is:
 

@@ -6,7 +6,7 @@ ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: conceptual
 ms.custom: devx-track-arm-template
-ms.date: 01/04/2024
+ms.date: 06/12/2024
 ---
 
 # Overview: Automate deployment for Azure Logic Apps by using Azure Resource Manager templates
@@ -32,14 +32,14 @@ For more information about Resource Manager templates, see these topics:
 * [Azure Resource Manager template best practices](../azure-resource-manager/templates/best-practices.md)
 * [Develop Azure Resource Manager templates for cloud consistency](../azure-resource-manager/templates/template-cloud-consistency.md)
 
-For template resource information specific to logic apps, integration accounts, integration account artifacts, and integration service environments, see [Microsoft.Logic resource types](/azure/templates/microsoft.logic/allversions).
+For template resource information specific to logic apps, integration accounts, and integration account artifacts, see [Microsoft.Logic resource types](/azure/templates/microsoft.logic/allversions).
 
 For sample logic app templates, see these examples:
 
 * [Full template](#full-example-template) that's used for this topic's examples
 * [Sample quickstart logic app template](https://github.com/Azure/azure-quickstart-templates/blob/master/quickstarts/microsoft.logic/logic-app-create/azuredeploy.json) in GitHub
 
-For the Logic Apps REST API, start with the [Azure Logic Apps REST API overview](/rest/api/logic).
+For the Azure Logic Apps REST API, start with the [Azure Logic Apps REST API overview](/rest/api/logic).
 
 <a name="template-structure"></a>
 
@@ -334,13 +334,10 @@ Here are the attributes that are specific to your logic app resource definition:
 | `parameters` | No | Object | The [workflow definition parameter values](#workflow-definition-parameters) to use at logic app runtime. The parameter definitions for these values appear inside your [workflow definition's parameters object](#workflow-definition-parameters). Also, if your logic app uses [managed connectors](../connectors/managed.md) for accessing other services and systems, this object includes a `$connections` object that sets the connection values to use at runtime. |
 | `accessControl` | No | Object | For specifying security attributes for your logic app, such as restricting IP access to request triggers or run history inputs and outputs. For more information, see [Secure access to logic apps](../logic-apps/logic-apps-securing-a-logic-app.md). |
 | `runtimeConfiguration` | No | Object | For specifying any `operationOptions` properties that control the way that your logic app behaves at run time. For example, you can run your logic app in [high throughput mode](../logic-apps/logic-apps-limits-and-config.md#run-high-throughput-mode). |
-|||||
 
-For more information about resource definitions for these Logic Apps objects, see [Microsoft.Logic resource types](/azure/templates/microsoft.logic/allversions):
+For more information about resource definitions for these Azure Logic Apps objects, see [Microsoft.Logic resource types](/azure/templates/microsoft.logic/allversions):
 
 * [Workflow resource definition](/azure/templates/microsoft.logic/workflows)
-* [Integration service environment resource definition](/azure/templates/microsoft.logic/integrationserviceenvironments)
-* [Integration service environment managed API resource definition](/azure/templates/microsoft.logic/integrationserviceenvironments/managedapis)
 
 * [Integration account resource definition](/azure/templates/microsoft.logic/integrationaccounts)
 
@@ -609,7 +606,9 @@ For more information about workflow definition parameters, see [Parameters - Wor
 
 ## Connection resource definitions
 
-When your logic app creates and uses connections to other services and system by using [managed connectors](../connectors/managed.md), your template's `resources` object contains the resource definitions for those connections. Although you create connections from within a logic app, connections are separate Azure resources with their own resource definitions. To review these connection resource definitions, [download your logic app from Azure into Visual Studio](../logic-apps/manage-logic-apps-with-visual-studio.md), which is the easiest way to create a valid parameterized logic app template that's mostly ready for deployment.
+When your logic app creates and uses connections to other services and system by using [managed connectors](../connectors/managed.md), your template's `resources` object contains the resource definitions for those connections. Although you create connections from within a logic app, connections are separate Azure resources with their own resource definitions. Also, if your connection uses an on-premises data gateway resource, this resource definition exists separately from the connector resource definition. For more information, see [On-premises data gateway resource definitions](#data-gateway-resource-definitions) and [Microsoft.Web connectionGateways](/azure/templates/microsoft.web/connectiongateways?pivots=deployment-language-arm-template#connectiongatewayreference-1).
+
+To review connection resource definitions, [download your logic app from Azure into Visual Studio](../logic-apps/manage-logic-apps-with-visual-studio.md), which is the easiest way to create a valid parameterized logic app template that's mostly ready for deployment.
 
 ```json
 {
@@ -782,6 +781,20 @@ This example shows the interactions between your logic app's resource definition
    "outputs": {}
 }
 ```
+
+<a name="data-gateway-resource-definitions"></a>
+
+## On-premises data gateway resource definitions
+
+If your connection uses an on-premises data gateway resource, this resource definition exists separately from the connector resource definition. To view the data gateway's resource definition, follow these steps:
+
+1. In the [Azure portal](https://portal.azure.com), find and view the Azure resource for your on-premises data gateway.
+
+1. On the resource menu, under **Automation**, select **Export template**.
+
+   After Azure generates the template, the gateway's resource definition appears in the code window.
+
+For more information, see [Microsoft.Web connectionGateways](/azure/templates/microsoft.web/connectiongateways?pivots=deployment-language-arm-template#connectiongatewayreference-1).
 
 <a name="secure-connection-parameters"></a>
 
@@ -985,7 +998,6 @@ Some connections support using a Microsoft Entra [service principal](../active-d
 | `token:clientSecret` | The key value associated with your service principal |
 | `token:TenantId` | The directory ID for your Microsoft Entra tenant |
 | `token:grantType` | The requested grant type, which must be `client_credentials`. For more information, see [Microsoft identity platform and the OAuth 2.0 client credentials flow](../active-directory/develop/v2-oauth2-client-creds-grant-flow.md). |
-|||
 
 **Template parameter definitions**
 

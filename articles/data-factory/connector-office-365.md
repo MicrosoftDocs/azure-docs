@@ -3,7 +3,6 @@ title: Copy and transform data from Microsoft 365 (Office 365)
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to copy and transform data from Microsoft 365 (Office 365) to supported sink data stores by using copy and mapping data flow activity in an Azure Data Factory or Synapse Analytics pipeline.
 author: jianleishen
-ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
@@ -59,7 +58,7 @@ To copy and transform data from Microsoft 365 (Office 365) into Azure, you need 
 
 If this is the first time you are requesting data for this context (a combination of which data table is being access, which destination account is the data being loaded into, and which user identity is making the data access request), you will see the copy activity status as "In Progress", and only when you click into ["Details" link under Actions](copy-activity-overview.md#monitoring) will you see the status as "RequestingConsent".  A member of the data access approver group needs to approve the request in the Privileged Access Management before the data extraction can proceed.
 
-Refer [here](/graph/data-connect-faq#how-can-i-approve-pam-requests-via-microsoft-365-admin-portal) on how the approver can approve the data access request, and refer [here](/graph/data-connect-pam) for an explanation on the overall integration with Privileged Access Management, including how to set up the data access approver group.
+Refer [here](/graph/data-connect-faq#how-can-i-approve-pam-requests-via-microsoft-365-admin-portal) on how the approver can approve the data access request.
 
 
 ## Getting started

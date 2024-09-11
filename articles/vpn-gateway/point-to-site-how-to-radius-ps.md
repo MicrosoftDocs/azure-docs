@@ -3,9 +3,9 @@ title: 'Connect to a virtual network using P2S and RADIUS authentication: PowerS
 titleSuffix: Azure VPN Gateway
 description: Learn how to connect VPN clients securely to a virtual network using P2S and RADIUS authentication.
 author: cherylmc
-ms.service: vpn-gateway
+ms.service: azure-vpn-gateway
 ms.topic: how-to
-ms.date: 05/29/2024
+ms.date: 06/20/2024
 ms.author: cherylmc 
 ms.custom: devx-track-azurepowershell
 
@@ -25,6 +25,11 @@ This type of connection requires:
 * A RADIUS server to handle user authentication. The RADIUS server can be deployed on-premises, or in the Azure virtual network (VNet). You can also configure two RADIUS servers for high availability.
 * The VPN client profile configuration package. The VPN client profile configuration package is a package that you generate. It contains the settings required for a VPN client to connect over P2S.
 
+Limitations:
+
+* If you are using IKEv2 with RADIUS, only EAP-based authentication is supported.
+* An ExpressRoute connection can't be used to connect to an on-premises RADIUS server.
+
 ## <a name="aboutad"></a>About Active Directory (AD) Domain Authentication for P2S VPNs
 
 AD Domain authentication allows users to sign in to Azure using their organization domain credentials. It requires a RADIUS server that integrates with the AD server. Organizations can also use their existing RADIUS deployment.
@@ -35,17 +40,13 @@ Apart from Active Directory, a RADIUS server can also integrate with other exter
 
 :::image type="content" source="./media/point-to-site-how-to-radius-ps/radius-diagram.png" alt-text="Diagram of RADIUS authentication P2S connection." lightbox="./media/point-to-site-how-to-radius-ps/radius-diagram.png":::
 
-> [!IMPORTANT]
-> An ExpressRoute connection can't be used to connect to an on-premises RADIUS server.
->
-
 ## <a name="before"></a>Before beginning
 
 Verify that you have an Azure subscription. If you don't already have an Azure subscription, you can activate your [MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details) or sign up for a [free account](https://azure.microsoft.com/pricing/free-trial).
 
 ### Working with Azure PowerShell
 
-[!INCLUDE [PowerShell](~/reusable-content/ce-skilling/azure/includes/vpn-gateway-cloud-shell-powershell-about.md)]
+[!INCLUDE [PowerShell](../../includes/vpn-gateway-cloud-shell-powershell-about.md)]
 
 ### <a name="example"></a>Example values
 

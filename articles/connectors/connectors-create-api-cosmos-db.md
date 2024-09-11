@@ -12,7 +12,7 @@ ms.date: 01/04/2024
 
 # Process and create Azure Cosmos DB documents using Azure Logic Apps
 
-[!INCLUDE [logic-apps-sku-consumption-standard](~/reusable-content/ce-skilling/azure/includes/logic-apps-sku-consumption-standard.md)]
+[!INCLUDE [logic-apps-sku-consumption-standard](../../includes/logic-apps-sku-consumption-standard.md)]
 
 From your workflow in Azure Logic Apps, you can connect to Azure Cosmos DB and work with documents by using the [Azure Cosmos DB connector](/connectors/documentdb/). This connector provides triggers and actions that your workflow can use for Azure Cosmos DB operations. For example, actions include creating or updating, reading, querying, and deleting documents.
 
@@ -22,13 +22,13 @@ You can connect to Azure Cosmos DB from both **Logic App (Consumption)** and **L
 
 - Currently, only stateful workflows in a **Logic App (Standard)** resource can use both the managed connector operations and built-in operations. Stateless workflows can use only built-in operations.
 
-- The Azure Cosmos DB connector supports only Azure Cosmos DB accounts created with [Azure Cosmos DB for NoSQL](../cosmos-db/choose-api.md#coresql-api).
+- The Azure Cosmos DB connector supports only Azure Cosmos DB accounts created with [Azure Cosmos DB for NoSQL](/azure/cosmos-db/choose-api#coresql-api).
 
 ## Prerequisites
 
 - An Azure account and subscription. If you don't have an Azure subscription, [sign up for a free Azure account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-- An [Azure Cosmos DB account](../cosmos-db/sql/create-cosmosdb-resources-portal.md).
+- An [Azure Cosmos DB account](/azure/cosmos-db/sql/create-cosmosdb-resources-portal).
 
 - A logic app workflow from which you want to access your Azure Cosmos DB account. To use the Azure Cosmos DB trigger, you need to [create your logic app using the **Logic App (Standard)** resource type](../logic-apps/create-single-tenant-workflows-azure-portal.md), and add a blank workflow.
 
@@ -36,7 +36,7 @@ You can connect to Azure Cosmos DB from both **Logic App (Consumption)** and **L
 
 In Azure Logic Apps, every workflow must start with a [trigger](../logic-apps/logic-apps-overview.md#logic-app-concepts), which fires when a specific event happens or when a specific condition is met.
 
-If you're working with the **Logic App (Standard)** resource type, the built-in trigger called **When an item is created or modified (preview)** is available and is based on the [Azure Cosmos DB change feed pattern](../cosmos-db/sql/change-feed-design-patterns.md). This trigger is unavailable for the **Logic App (Consumption)** resource type.
+If you're working with the **Logic App (Standard)** resource type, the built-in trigger called **When an item is created or modified (preview)** is available and is based on the [Azure Cosmos DB change feed pattern](/azure/cosmos-db/sql/change-feed-design-patterns). This trigger is unavailable for the **Logic App (Consumption)** resource type.
 
 ### [Consumption](#tab/consumption)
 
@@ -67,7 +67,7 @@ To add an Azure Cosmos DB built-in trigger to a logic app workflow in single-ten
    | **Database Id** | Yes | <*database-name*> | The name of the database with the container that you want to monitor. This database should also have the lease container. If you don't already have a lease container, the connector will create one for you in a later step. |
    | **Monitored Container Id** | Yes | <*container-name*> | The name of the container that you want to monitor. This container should already exist in the specified database. |
    | **Lease Container Id** |  Yes | <*lease-container-name*> | The name of either an existing lease container or a new container that you want created for you. The trigger pre-fills `leases` as a common default name. |
-   | **Create Lease Container** | No | **No** or **Yes** | If the lease container already exists in the specified database, select **No**. If you want the trigger to create this container, select **Yes**. If you select **Yes** and are using manual throughput dedicated for each container, make sure to open the **Add new parameter** list to select the **Lease Container Throughput** property. Enter the number of [request units (RUs)](../cosmos-db/request-units.md) that you want to provision for this container. |
+   | **Create Lease Container** | No | **No** or **Yes** | If the lease container already exists in the specified database, select **No**. If you want the trigger to create this container, select **Yes**. If you select **Yes** and are using manual throughput dedicated for each container, make sure to open the **Add new parameter** list to select the **Lease Container Throughput** property. Enter the number of [request units (RUs)](/azure/cosmos-db/request-units) that you want to provision for this container. |
    |||||
 
    The following image shows an example trigger:

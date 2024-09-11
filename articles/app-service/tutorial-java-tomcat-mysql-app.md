@@ -8,11 +8,12 @@ ms.topic: tutorial
 ms.date: 05/08/2024
 ms.custom: mvc, devx-track-extended-java, AppServiceConnectivity, devx-track-extended-azdevcli, linux-related-content
 zone_pivot_groups: app-service-portal-azd
+ms.collection: ce-skilling-ai-copilot
 ---
 
 # Tutorial: Build a Tomcat web app with Azure App Service on Linux and MySQL
 
-This tutorial shows how to build, configure, and deploy a secure Tomcat application in Azure App Service that connects to a MySQL database (using [Azure Database for MySQL](../mysql/index.yml)). Azure App Service is a highly scalable, self-patching, web-hosting service that can easily deploy apps on Windows or Linux. When you're finished, you'll have a Tomcat app running on [Azure App Service on Linux](overview.md).
+This tutorial shows how to build, configure, and deploy a secure Tomcat application in Azure App Service that connects to a MySQL database (using [Azure Database for MySQL](/azure/mysql/)). Azure App Service is a highly scalable, self-patching, web-hosting service that can easily deploy apps on Windows or Linux. When you're finished, you'll have a Tomcat app running on [Azure App Service on Linux](overview.md).
 
 :::image type="content" source="./media/tutorial-java-tomcat-mysql-app/azure-portal-browse-app-2.png" alt-text="Screenshot of Tomcat application storing data in MySQL.":::
 
@@ -21,6 +22,7 @@ This tutorial shows how to build, configure, and deploy a secure Tomcat applicat
 ::: zone pivot="azure-portal"  
 
 * An Azure account with an active subscription. If you don't have an Azure account, you [can create one for free](https://azure.microsoft.com/free/java/).
+* A GitHub account. you can also [get one for free](https://github.com/join).
 * Knowledge of Java with Tomcat development.
 * **(Optional)** To try GitHub Copilot, a [GitHub Copilot account](https://docs.github.com/copilot/using-github-copilot/using-github-copilot-code-suggestions-in-your-editor). A 30-day free trial is available.
 
@@ -66,7 +68,7 @@ First, you set up a sample data-driven app as a starting point. For your conveni
     :::column span="2":::
         **Step 2:** In the GitHub fork:
         1. Select **main** > **starter-no-infra** for the starter branch. This branch contains just the sample project and no Azure-related files or configuration.
-        1. Select **Code** > **Create codespace on main**.
+        1. Select **Code** > **Create codespace on starter-no-infra**.
         The codespace takes a few minutes to set up.
     :::column-end:::
     :::column:::
@@ -100,8 +102,8 @@ Having issues? Check the [Troubleshooting section](#troubleshooting).
 
 First, you create the Azure resources. The steps used in this tutorial create a set of secure-by-default resources that include App Service and Azure Database for MySQL. For the creation process, you specify:
 
-* The **Name** for the web app. It's the name used as part of the DNS name for your webapp in the form of `https://<app-name>.azurewebsites.net`.
-* The **Region** to run the app physically in the world.
+* The **Name** for the web app. It's the name used as part of the DNS name for your app in the form of `https://<app-name>.azurewebsites.net`.
+* The **Region** to run the app physically in the world. It's also used as part of the DNS name for your app.
 * The **Runtime stack** for the app. It's where you select the version of Java to use for your app.
 * The **Hosting plan** for the app. It's the pricing tier that includes the set of features and scaling capacity for your app.
 * The **Resource Group** for the app. A resource group lets you group (in a logical container) all the Azure resources needed for the application.
@@ -252,10 +254,10 @@ Like the Tomcat convention, if you want to deploy to the root context of Tomcat,
     :::column span="2":::
         **Step 4 (Option 1: with GitHub Copilot):**  
         1. Start a new chat session by clicking the **Chat** view, then clicking **+**.
-        1. Ask, "*@workspace How does the app connect to the database?*". Copilot might give you some explanation about the `jdbc/MYSQLDS` data source and how it's configured. 
+        1. Ask, "*@workspace How does the app connect to the database?*" Copilot might give you some explanation about the `jdbc/MYSQLDS` data source and how it's configured. 
         1. Ask, "*@workspace I want to replace the data source defined in persistence.xml with an existing JNDI data source in Tomcat but I want to do it dynamically.*". Copilot might give you a code suggestion similar to the one in the **Option 2: without GitHub Copilot** steps below and even tell you to make the change in the [ContextListener](https://github.com/Azure-Samples/msdocs-tomcat-mysql-sample-app/blob/starter-no-infra/src/main/java/com/microsoft/azure/appservice/examples/tomcatmysql/ContextListener.java) class. 
         1. Open *src/main/java/com/microsoft/azure/appservice/examples/tomcatmysql/ContextListener.java* in the explorer and add the code suggestion in the `contextInitialized` method.
-        GitHub Copilot doesn't give you the same response every time, you might need to add additional questions to fine-tune its response. For tips, see [What can I do with GitHub Copilot in my codespace?](#what-can-i-do-with-github-copilot-in-my-codespace)
+        GitHub Copilot doesn't give you the same response every time, you might need to ask more questions to fine-tune its response. For tips, see [What can I do with GitHub Copilot in my codespace?](#what-can-i-do-with-github-copilot-in-my-codespace)
     :::column-end:::
     :::column:::
         :::image type="content" source="media/tutorial-java-tomcat-mysql-app/github-copilot-1.png" alt-text="A screenshot showing how to ask a question in a new GitHub Copilot chat session." lightbox="media/tutorial-java-tomcat-mysql-app/github-copilot-1.png":::
@@ -356,7 +358,7 @@ Azure App Service captures all messages output to the console to help you diagno
     :::column-end:::
 :::row-end:::
 
-Learn more about logging in Java apps in the series on [Enable Azure Monitor OpenTelemetry for .NET, Node.js, Python and Java applications](../azure-monitor/app/opentelemetry-enable.md?tabs=java).
+Learn more about logging in Java apps in the series on [Enable Azure Monitor OpenTelemetry for .NET, Node.js, Python and Java applications](/azure/azure-monitor/app/opentelemetry-enable?tabs=java).
 
 Having issues? Check the [Troubleshooting section](#troubleshooting).
 
@@ -493,13 +495,13 @@ Having issues? Check the [Troubleshooting section](#troubleshooting).
 
 1. Back in the GitHub codespace of your sample fork, start a new chat session by clicking the **Chat** view, then clicking **+**. 
 
-1. Ask, "*@workspace How does the app connect to the database?*". Copilot might give you some explanation about the `jdbc/MYSQLDS` data source and how it's configured.
+1. Ask, "*@workspace How does the app connect to the database?*" Copilot might give you some explanation about the `jdbc/MYSQLDS` data source and how it's configured.
 
-1. Ask, "*@workspace I want to replace the data source defined in persistence.xml with an existing JNDI data source in Tomcat but I want to do it dynamically.*". Copilot might give you a code suggestion similar to the one in the **Option 2: without GitHub Copilot** steps below and even tell you to make the change in the [ContextListener](https://github.com/Azure-Samples/msdocs-tomcat-mysql-sample-app/blob/starter-no-infra/src/main/java/com/microsoft/azure/appservice/examples/tomcatmysql/ContextListener.java) class. 
+1. Ask, "*@workspace I want to replace the data source defined in persistence.xml with an existing JNDI data source in Tomcat but I want to do it dynamically.*" Copilot might give you a code suggestion similar to the one in the **Option 2: without GitHub Copilot** steps below and even tell you to make the change in the [ContextListener](https://github.com/Azure-Samples/msdocs-tomcat-mysql-sample-app/blob/starter-no-infra/src/main/java/com/microsoft/azure/appservice/examples/tomcatmysql/ContextListener.java) class. 
 
 1. Open *src/main/java/com/microsoft/azure/appservice/examples/tomcatmysql/ContextListener.java* in the explorer and add the code suggestion in the `contextInitialized` method.
 
-    GitHub Copilot doesn't give you the same response every time, you might need to add additional questions to fine-tune its response. For tips, see [What can I do with GitHub Copilot in my codespace?](#what-can-i-do-with-github-copilot-in-my-codespace)
+    GitHub Copilot doesn't give you the same response every time, you might need to ask other questions to fine-tune its response. For tips, see [What can I do with GitHub Copilot in my codespace?](#what-can-i-do-with-github-copilot-in-my-codespace)
 
 1. Back in the codespace terminal, run `azd deploy`.
  
@@ -571,7 +573,7 @@ In the AZD output, find the link to stream App Service logs and navigate to it i
 Stream App Service logs at: https://portal.azure.com/#@/resource/subscriptions/&lt;subscription-guid>/resourceGroups/&lt;group-name>/providers/Microsoft.Web/sites/&lt;app-name>/logStream
 </pre>
 
-Learn more about logging in Java apps in the series on [Enable Azure Monitor OpenTelemetry for .NET, Node.js, Python and Java applications](../azure-monitor/app/opentelemetry-enable.md?tabs=java).
+Learn more about logging in Java apps in the series on [Enable Azure Monitor OpenTelemetry for .NET, Node.js, Python and Java applications](/azure/azure-monitor/app/opentelemetry-enable?tabs=java).
 
 Having issues? Check the [Troubleshooting section](#troubleshooting).
 
@@ -631,7 +633,7 @@ Pricing for the created resources is as follows:
 
 #### How do I connect to the MySQL server behind the virtual network with other tools?
 
-- The Tomcat container currently doesn't have the `mysql-client` terminal too. If you want, you must manually install it. Note that anything you install doesn't persist across app restarts.
+- The Tomcat container currently doesn't have the `mysql-client` terminal too. If you want, you must manually install it. Remember that anything you install doesn't persist across app restarts.
 - To connect from a desktop tool like MySQL Workbench, your machine must be within the virtual network. For example, it could be an Azure VM in one of the subnets, or a machine in an on-premises network that has a [site-to-site VPN](../vpn-gateway/vpn-gateway-about-vpngateways.md) connection with the Azure virtual network.
 - You can also [integrate Azure Cloud Shell](../cloud-shell/private-vnet.md) with the virtual network.
 
@@ -651,18 +653,18 @@ See [Set up GitHub Actions deployment from the Deployment Center](deploy-github-
 
 #### What can I do with GitHub Copilot in my codespace?
 
-You might have noticed that the GitHub Copilot chat view was already there for you when you created the codespace. For your convenience, we include the GitHub Copilot chat extension in the container definition (see *.devcontainer/devcontainer.json*). However, you need a [GitHub Copilot account](https://docs.github.com/copilot/using-github-copilot/using-github-copilot-code-suggestions-in-your-editor) (30-day free trial available). 
+You might notice that the GitHub Copilot chat view was already there for you when you created the codespace. For your convenience, we include the GitHub Copilot chat extension in the container definition (see *.devcontainer/devcontainer.json*). However, you need a [GitHub Copilot account](https://docs.github.com/copilot/using-github-copilot/using-github-copilot-code-suggestions-in-your-editor) (30-day free trial available). 
 
 A few tips for you when you talk to GitHub Copilot:
 
 - In a single chat session, the questions and answers build on each other and you can adjust your questions to fine-tune the answer you get.
-- By default, GitHub Copilot doesn't have access to any file in your repository. You can ask it questions about a file, open the file in the editor first.
+- By default, GitHub Copilot doesn't have access to any file in your repository. To ask questions about a file, open the file in the editor first.
 - To let GitHub Copilot have access to all of the files in the repository when preparing its answers, begin your question with `@workspace`. For more information, see [Use the @workspace agent](https://github.blog/2024-03-25-how-to-use-github-copilot-in-your-ide-tips-tricks-and-best-practices/#10-use-the-workspace-agent).
 - In the chat session, GitHub Copilot can suggest changes and (with `@workspace`) even where to make the changes, but it's not allowed to make the changes for you. It's up to you to add the suggested changes and test it.
 
 Here are some other things you can say to fine-tune the answer you get.
 
-* Please change this code to use the data source jdbc/AZURE_MYSQL_CONNECTIONSTRING_DS.
+* Change this code to use the data source jdbc/AZURE_MYSQL_CONNECTIONSTRING_DS.
 * Some imports in your code are using javax but I have a Jakarta app.
 * I want this code to run only if the environment variable AZURE_MYSQL_CONNECTIONSTRING is set.
 * I want this code to run only in Azure App Service and not locally.
@@ -674,7 +676,7 @@ Here are some other things you can say to fine-tune the answer you get.
 Learn more about running Java apps on App Service in the developer guide.
 
 > [!div class="nextstepaction"] 
-> [Configure a Java app in Azure App Service](configure-language-java.md?pivots=platform-linux)
+> [Configure a Java app in Azure App Service](configure-language-java-deploy-run.md?pivots=platform-linux)
 
 Learn how to secure your app with a custom domain and certificate.
 

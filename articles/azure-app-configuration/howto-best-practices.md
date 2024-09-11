@@ -99,7 +99,7 @@ Excessive requests to App Configuration can result in throttling or overage char
 
 ## Importing configuration data into App Configuration
 
-App Configuration offers the option to bulk [import](./howto-import-export-data.md) your configuration settings from your current configuration files using either the Azure portal or CLI. You can also use the same options to export key-values from App Configuration, for example between related stores. If you’d like to set up an ongoing sync with your repo in GitHub or Azure DevOps, you can use our [GitHub Action](./concept-github-action.md) or [Azure Pipeline Push Task](./push-kv-devops-pipeline.md) so that you can continue using your existing source control practices while getting the benefits of App Configuration.
+App Configuration offers the option to bulk [import](./howto-import-export-data.md) your configuration settings from your current configuration files using either the Azure portal or CLI. You can also use the same options to export key-values from App Configuration, for example between related stores. If you have adopted Configuration as Code and manage your configurations in GitHub or Azure DevOps, you can set up ongoing configuration file import using [GitHub Actions](./push-kv-github-action.md) or [Azure Pipeline Push Task](./push-kv-devops-pipeline.md).
 
 ## Multi-region deployment in App Configuration
 
@@ -129,7 +129,7 @@ A multitenant application is built on an architecture where a shared instance of
 
 Configuration as code is a practice of managing configuration files under your source control system, for example, a git repository. It gives you benefits like traceability and approval process for any configuration changes. If you adopt configuration as code, App Configuration has tools to assist you in [managing your configuration data in files](./concept-config-file.md) and deploying them as part of your build, release, or CI/CD process. This way, your applications can access the latest data from your App Configuration store(s).
 
-- For GitHub, you can enable the [App Configuration Sync GitHub Action](concept-github-action.md) for your repository. Changes to configuration files are synchronized to App Configuration automatically whenever a pull request is merged. 
+- For GitHub, you can import configuration files from your GitHub repository into your App Configuration store using [GitHub Actions](./push-kv-github-action.md)
 - For Azure DevOps, you can include the [Azure App Configuration Push](push-kv-devops-pipeline.md), an Azure pipeline task, in your build or release pipelines for data synchronization. 
 - You can also import configuration files to App Configuration using Azure CLI as part of your CI/CD system. For more information, see [az appconfig kv import](scripts/cli-import.md).
 

@@ -2,12 +2,12 @@
 title: Connection strings for Synapse SQL
 description: Connection strings for Synapse SQL
 author: azaricstefan 
-ms.service: synapse-analytics 
+ms.service: azure-synapse-analytics
 ms.topic: overview 
 ms.subservice: sql
 ms.date: 04/15/2020 
 ms.author: stefanazaric 
-ms.reviewer: sngun
+ms.reviewer: whhender
 ms.custom: devx-track-csharp
 ---
 
