@@ -84,15 +84,13 @@ Azure Cache for Redis continually expands to new regions in Azure. To check the 
    > - You can't change modules after you create a cache. Modules must be enabled at the time you create your instance of Azure Cache for Redis. There is no option to enable the configuration of a module after you create a cache.
    >
 
-1. Select **Next: Tags** and skip.
+1. Select **Next: Tags** (skip), and then select **Next: Review + create**.
 
-1. Select **Next: Review + create**.
-
-   :::image type="content" source="media/cache-create/enterprise-tier-summary.png" alt-text="Screenshot that shows the Enterprise tier Review + Create tab on the New Redis Cache pane.":::
+   :::image type="content" source="media/cache-create/enterprise-tier-summary.png" alt-text="Screenshot that shows the Enterprise tier Review + create tab on the New Redis Cache pane.":::
 
 1. On the **Review + create** tab, review the settings, and then select **Create**.
 
-   It takes some time for the cache deployment to finish. You can monitor progress on the Azure Cache for Redis Overview pane. When **Status** displays **Running**, the cache is ready to use.
+It takes some time for the cache deployment to finish. You can monitor progress on the Azure Cache for Redis Overview pane. When **Status** displays **Running**, the cache is ready to use.
   
 ## Related content
 
