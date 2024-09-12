@@ -14,7 +14,7 @@ ms.date: 09/10/2024
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-A dataflow is the path that data takes from the source to the destination with optional transformations. You can configure the dataflow by creating a *Dataflow* custom resource. A dataflow is made up of three parts: the **source**, the **transformation**, and the **destination**. 
+A dataflow is the path that data takes from the source to the destination with optional transformations. You can configure the dataflow by creating a *Dataflow* custom resource or using the Azure IoT Operations Studio portal. A dataflow is made up of three parts: the **source**, the **transformation**, and the **destination**. 
 
 <!--
 ```mermaid
@@ -43,29 +43,18 @@ This article shows you how to create a dataflow with an example, including the s
 
 ## Prerequisites
 
-- **Azure IoT Operations**. See [Deploy Azure IoT Operations Preview](../deploy-iot-ops/howto-deploy-iot-operations.md).
-- **Dataflow profile**. See [Configure dataflow profile](howto-configure-dataflow-profile.md).
-- **Dataflow endpoint**. For example, create a dataflow endpoint for the [built-in MQTT broker](./howto-configure-mqtt-endpoint.md#azure-iot-operations-built-in-mqtt-broker).
-
-  ```yaml
-  apiVersion: connectivity.iotoperations.azure.com/v1beta1
-  kind: DataflowEndpoint
-  metadata:
-    name: mq
-    namespace: azure-iot-operations
-  spec:
-    endpointType: Mqtt
-    mqttSettings:
-      authentication:
-        method: ServiceAccountToken
-        serviceAccountTokenSettings: {}
-  ```
-
-  You can use this endpoint for both the source and destination. Or, you can try other endpoints like Kafka, Event Hubs, or Azure Data Lake Storage. To learn how to configure each type of dataflow endpoint, see [Configure dataflow endpoints](howto-configure-dataflow-endpoint.md).
+- An instance of [Azure IoT Operations Preview](../deploy-iot-ops/howto-deploy-iot-operations.md)
+- A [configured dataflow profile](howto-configure-dataflow-profile.md)
+- [Dataflow endpoints](howto-configure-dataflow-endpoint.md). For example, create a dataflow endpoint for the [built-in MQTT broker](./howto-configure-mqtt-endpoint.md#azure-iot-operations-built-in-mqtt-broker). You can use this endpoint for both the source and destination. Or, you can try other endpoints like Kafka, Event Hubs, or Azure Data Lake Storage. To learn how to configure each type of dataflow endpoint, see [Configure dataflow endpoints](howto-configure-dataflow-endpoint.md).
 
 ## Create dataflow
 
-With endpoints created, you can use them to create a dataflow. Recall that a dataflow is made up of three parts: the source, the transformation, and the destination. The overall structure of a dataflow configuration is as follows:
+Once you have dataflow endpoints, you can use them to create a dataflow. Recall that a dataflow is made up of three parts: the source, the transformation, and the destination.
+
+# [Portal](#tab/portal)
+
+
+The overall structure of a dataflow configuration is as follows:
 
 ```yaml
 apiVersion: connectivity.iotoperations.azure.com/v1beta1
@@ -87,7 +76,7 @@ spec:
       destinationSettings:
         # See destination configuration section
 ```
-
+---
 <!-- TODO: link to API reference -->
 
 Review the following sections to learn how to configure the operation types of the dataflow.
