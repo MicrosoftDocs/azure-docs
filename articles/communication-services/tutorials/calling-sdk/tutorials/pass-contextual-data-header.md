@@ -20,10 +20,9 @@ Moreover, the custom call context can also also transmitted to to SIP endpoints 
 
 It’s important to note that all custom context data remains transparent to the calling SDK and is not related to any of the SDK’s fundamental functions when used in SIP protocols. Here is a tutorial to assist you in adding custom context headers when using the WebJS SDK.
 
-[!INCLUDE [Public Preview Disclaimer](../../../includes/public-preview-include.md)]
 
 > [!IMPORTANT]
-> To use the ability to pass User-to-User Information (UUI) data using the calling SDK you must use the public preview calling SDK version `1.29.1` or later.
+> To use the ability to pass User-to-User Information (UUI) data using the calling SDK you must use the calling WebJS SDK GA or public preview version `1.29.1` or later.
 
 ## Technical parameters
 The calling SDK supports adding up to 5 custom SIP headers and 1000 custom VOIP headers. Additionally, developers can include a dedicated User-To-User header as part of SIP headers list.
@@ -35,6 +34,8 @@ The SIP header key may consist of alphanumeric characters and a few selected sym
 The maximum length of a VOIP header key is 64 chars. The maximum length of VOIP header value is 1024 chars.
 
 When adding these custom headers as a developer you can choose to add only SIP headers, only VoIP headers or both can be included.
+
+Currently, adding custom User-to-User Information headers is only supported when initiating a 1:1 call. After starting the 1:1 call, you can include additional participants while maintaining the User-to-User Information within the calls. To support adding these headers, you must begin with a 1:1 call where the additional headers are available at the start of the initiation process.
 
 ## Adding custom context when inviting a participant
 
