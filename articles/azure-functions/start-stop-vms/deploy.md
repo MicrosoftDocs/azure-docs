@@ -141,8 +141,8 @@ For each scenario, you can target the action against one or more subscriptions, 
 
     :::image type="content" source="media/deploy/schedule-recurrence-property.png" alt-text="Configure the recurrence frequency for logic app":::
 
-> [!NOTE]
-> If you do not provide a start date and time for the first recurrence, a recurrence will immediately run when you save the logic app, which might cause the VMs to start or stop before the scheduled run.
+   > [!NOTE]
+   > If you do not provide a start date and time for the first recurrence, a recurrence will immediately run when you save the logic app, which might cause the VMs to start or stop before the scheduled run.
 
 1. In the designer pane, select **Function-Try** to configure the target settings. In the request body, if you want to manage VMs across all resource groups in the subscription, modify the request body as shown in the following example.
 
@@ -241,8 +241,8 @@ In an environment that includes two or more components on multiple Azure Resourc
 
     :::image type="content" source="media/deploy/schedule-recurrence-property.png" alt-text="Configure the recurrence frequency for logic app":::
 
-> [!NOTE]
-> If you do not provide a start date and time for the first recurrence, a recurrence will immediately run when you save the logic app, which might cause the VMs to start or stop before the scheduled run.
+   > [!NOTE]
+   > If you do not provide a start date and time for the first recurrence, a recurrence will immediately run when you save the logic app, which might cause the VMs to start or stop before the scheduled run.
 
 1. In the designer pane, select **Function-Try** to configure the target settings and then select the **</> Code view** button in the top menu to edit the code for the **Function-Try** element. In the request body, if you want to manage VMs across all resource groups in the subscription, modify the request body as shown in the following example.
 
@@ -328,7 +328,7 @@ The following metric alert properties in the request body support customization:
 - AutoStop_TimeAggregationOperator
 - AutoStop_TimeWindow
 
-To learn more about how Azure Monitor metric alerts work and how to configure them see [Metric alerts in Azure Monitor](../../azure-monitor/alerts/alerts-metric-overview.md).
+To learn more about how Azure Monitor metric alerts work and how to configure them see [Metric alerts in Azure Monitor](/azure/azure-monitor/alerts/alerts-metric-overview).
 
 1. From the list of Logic apps, to configure auto stop, select **ststv2_vms_AutoStop**.
 

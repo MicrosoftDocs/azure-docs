@@ -71,6 +71,9 @@ Now you can create a service connection to another target service and directly s
 
     ### [Connection string](#tab/connectionstring)
 
+    > [!IMPORTANT]
+    > Microsoft recommends that you use the most secure authentication flow available. The authentication flow described in this procedure requires a very high degree of trust in the application, and carries risks that are not present in other flows. You should only use this flow when other more secure flows, such as managed identities, aren't viable.
+
     Select **Next: Authentication** to select the authentication type and select **Connection string** to use an access key to connect your storage account.
 
     | Setting      | Suggested value  | Description                                        |

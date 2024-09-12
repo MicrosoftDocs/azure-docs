@@ -58,7 +58,7 @@ az login
 az acr login -n $REGISTRY  
 ``` 
 
-If Docker isn't available, you can utilize the AD token provided for authentication. Authenticate with your[individual Microsoft Entra identity](container-registry-authentication.md?tabs=azure-cli#individual-login-with-azure-ad) using an AD token. Always use "000..." for the `USER_NAME` as the token is parsed through the `PASSWORD` variable.
+If Docker isn't available, you can utilize the AD token provided for authentication. Authenticate with your [individual Microsoft Entra identity](container-registry-authentication.md?tabs=azure-cli#individual-login-with-azure-ad) using an AD token. Always use "000..." for the `USER_NAME` as the token is parsed through the `PASSWORD` variable.
 
 ```azurecli
 # Login to Azure
@@ -528,5 +528,3 @@ In this article, you learned how to use Azure Container Registry to store, manag
 [iana-mediatypes]:          https://www.rfc-editor.org/rfc/rfc6838
 [acr-landing]:              https://aka.ms/acr
 [Notation]:                  /azure/container-registry/container-registry-tutorial-sign-build-push
-
-

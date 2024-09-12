@@ -168,9 +168,7 @@ Having issues? Check the [Troubleshooting section](#troubleshooting).
 
 ## 3. Secure connection secrets
 
-The creation wizard generated the connectivity string for you already as [app settings](configure-common.md#configure-app-settings). However, it's In this step, you learn where to find the app settings, and how you can create your own.
-
-App settings are one way to keep connection secrets out of your code repository. When you're ready to move your secrets to a more secure location, you can use [Key Vault references](app-service-key-vault-references.md) instead.
+The creation wizard generated the connectivity string for you already as an [app setting](configure-common.md#configure-app-settings). However, the security best practice is to keep secrets out of App Service completely. You'll move your secrets to key vault and change your app setting to a [Key Vault reference](app-service-key-vault-references.md) with the help of Service Connectors.
 
 :::row:::
     :::column span="2":::
@@ -206,7 +204,7 @@ App settings are one way to keep connection secrets out of your code repository.
         1. In **Region**, set it to the sample location as the resource group.
         1. In the dialog, in **Location**, select the same location as your App Service app.
         1. In **Resource Group**, select **msdocs-spring-cosmosdb-tutorial**.
-        1. In **Name**, type **msdocs-spring-cosmosdb-XYZVvaultEndpoint**.
+        1. In **Name**, type **msdocs-spring-cosmosdb-XYZVaultEndpoint**.
         1. In **Virtual network**, select **msdocs-spring-cosmosdb-XYZVnet**.
         1. In **Subnet**, **msdocs-spring-cosmosdb-XYZSubnet**.
         1. Select **OK**.
@@ -220,11 +218,11 @@ App settings are one way to keep connection secrets out of your code repository.
     :::column span="2":::
         **Step 4:**
         1. In the top search bar, type *msdocs-spring-cosmosdb*, then the App Service resource called **msdocs-spring-cosmosdb-XYZ**.
-        1. In the App Service page, in the left menu, select **Settings > Service Connector. There's already a connector, which the app creation wizard created for you.
+        1. In the App Service page, in the left menu, select **Settings > Service Connector**. There's already a connector, which the app creation wizard created for you.
         1. Select checkbox next to the connector, then select **Edit**.
         1. In the **Basics** tab, set **Client type** to **SpringBoot**. This option creates the Spring Boot specific environment variables for you.
         1. Select the **Authentication** tab.
-        1. Select Store Secret in Key Vault.
+        1. Select **Store Secret in Key Vault**.
         1. Under **Key Vault Connection**, select **Create new**. 
         A **Create connection** dialog is opened on top of the edit dialog.
     :::column-end:::
@@ -246,9 +244,9 @@ App settings are one way to keep connection secrets out of your code repository.
 :::row:::
     :::column span="2":::
         **Step 6:** You're back in the edit dialog for **defaultConnector**.
-        1. In the **Authentication** tab, wait for the key vault connector to be created. When it's finished, the Key Vault Connection dropdown automatically selects it.
+        1. In the **Authentication** tab, wait for the key vault connector to be created. When it's finished, the **Key Vault Connection** dropdown automatically selects it.
         1. Select **Next: Networking**.
-        1. Select **Configure firewall rules to enable access to target service**. If you see the message, "No Private Endpoint on the target service," ignore it. The app creation wizard already secured the Cosmos DB database with a private endpoint.
+        1. Select **Configure firewall rules to enable access to target service**. If you see the message, "No Private Endpoint on the target service," ignore it. The app creation wizard already secured the SQL database with a private endpoint.
         1. Select **Save**. Wait until the **Update succeeded** notification appears.
     :::column-end:::
     :::column:::
@@ -269,7 +267,7 @@ App settings are one way to keep connection secrets out of your code repository.
 
 Having issues? Check the [Troubleshooting section](#troubleshooting).
 
-## 5. Deploy sample code
+## 4. Deploy sample code
 
 In this step, you configure GitHub deployment using GitHub Actions. It's just one of many ways to deploy to App Service, but also a great way to have continuous integration in your deployment process. By default, every `git push` to your GitHub repository kicks off the build and deploy action.
 
@@ -375,13 +373,13 @@ Like the Tomcat convention, if you want to deploy to the root context of Tomcat,
 
 Having issues? Check the [Troubleshooting section](#troubleshooting).
 
-## 6. Browse to the app
+## 5. Browse to the app
 
 :::row:::
     :::column span="2":::
         **Step 1:** In the App Service page:
         1. From the left menu, select **Overview**.
-        1. Select the URL of your app. You can also navigate directly to `https://<app-name>.azurewebsites.net`.
+        1. Select the URL of your app.
     :::column-end:::
     :::column:::
         :::image type="content" source="./media/tutorial-java-spring-cosmosdb/azure-portal-browse-app-1.png" alt-text="A screenshot showing how to launch an App Service from the Azure portal." lightbox="./media/tutorial-java-spring-cosmosdb/azure-portal-browse-app-1.png":::
@@ -399,7 +397,7 @@ Having issues? Check the [Troubleshooting section](#troubleshooting).
 
 Having issues? Check the [Troubleshooting section](#troubleshooting).
 
-## 7. Stream diagnostic logs
+## 6. Stream diagnostic logs
 
 Azure App Service captures all messages output to the console to help you diagnose issues with your application. The sample application includes standard Log4j logging statements to demonstrate this capability, as shown in the following snippet:
 
@@ -425,11 +423,11 @@ Azure App Service captures all messages output to the console to help you diagno
     :::column-end:::
 :::row-end:::
 
-Learn more about logging in Java apps in the series on [Enable Azure Monitor OpenTelemetry for .NET, Node.js, Python and Java applications](../azure-monitor/app/opentelemetry-enable.md?tabs=java).
+Learn more about logging in Java apps in the series on [Enable Azure Monitor OpenTelemetry for .NET, Node.js, Python and Java applications](/azure/azure-monitor/app/opentelemetry-enable?tabs=java).
 
 Having issues? Check the [Troubleshooting section](#troubleshooting).
 
-## 8. Clean up resources
+## 7. Clean up resources
 
 When you're finished, you can delete all of the resources from your Azure subscription by deleting the resource group.
 
@@ -485,7 +483,7 @@ The dev container already has the [Azure Developer CLI](/azure/developer/azure-d
     |---------|---------|
     |The current directory is not empty. Would you like to initialize a project here in '\<your-directory>'?     | **Y**        |
     |What would you like to do with these files?     | **Keep my existing files unchanged**        |
-    |Enter a new environment name     | Type a unique name. The AZD template uses this name as part of the DNS name of your web app in Azure (`<app-name>.azurewebsites.net`). Alphanumeric characters and hyphens are allowed.          |
+    |Enter a new environment name     | Type a unique name. The AZD template uses this name as part of the DNS name of your web app in Azure (`<app-name>-<hash>.azurewebsites.net`). Alphanumeric characters and hyphens are allowed.          |
 
 1. Sign into Azure by running the `azd auth login` command and following the prompt:
 
@@ -546,7 +544,7 @@ The AZD template you use generated the connectivity variables for you already as
 
 Having issues? Check the [Troubleshooting section](#troubleshooting).
 
-## 5. Browse to the app
+## 4. Browse to the app
 
 1. In the AZD output, find the URL of your app and navigate to it in the browser. The URL looks like this in the AZD output:
 
@@ -554,7 +552,7 @@ Having issues? Check the [Troubleshooting section](#troubleshooting).
     Deploying services (azd deploy)
     
       (✓) Done: Deploying service web
-      - Endpoint: https://&lt;app-name>.azurewebsites.net/
+      - Endpoint: https://&lt;app-name>-&lt;hash>.azurewebsites.net/
     </pre>
 
 2. Add a few tasks to the list.
@@ -565,7 +563,7 @@ Having issues? Check the [Troubleshooting section](#troubleshooting).
 
 Having issues? Check the [Troubleshooting section](#troubleshooting).
 
-## 6. Stream diagnostic logs
+## 5. Stream diagnostic logs
 
 Azure App Service can capture console logs to help you diagnose issues with your application. For convenience, the AZD template already [enabled logging to the local file system](troubleshoot-diagnostic-logs.md#enable-application-logging-linuxcontainer) and is [shipping the logs to a Log Analytics workspace](troubleshoot-diagnostic-logs.md#send-logs-to-azure-monitor).
 
@@ -579,11 +577,11 @@ In the AZD output, find the link to stream App Service logs and navigate to it i
 Stream App Service logs at: https://portal.azure.com/#@/resource/subscriptions/&lt;subscription-guid>/resourceGroups/&lt;group-name>/providers/Microsoft.Web/sites/&lt;app-name>/logStream
 </pre>
 
-Learn more about logging in Java apps in the series on [Enable Azure Monitor OpenTelemetry for .NET, Node.js, Python and Java applications](../azure-monitor/app/opentelemetry-enable.md?tabs=java).
+Learn more about logging in Java apps in the series on [Enable Azure Monitor OpenTelemetry for .NET, Node.js, Python and Java applications](/azure/azure-monitor/app/opentelemetry-enable?tabs=java).
 
 Having issues? Check the [Troubleshooting section](#troubleshooting).
 
-## 7. Clean up resources
+## 6. Clean up resources
 
 To delete all Azure resources in the current deployment environment, run `azd down` and follow the prompts.
 

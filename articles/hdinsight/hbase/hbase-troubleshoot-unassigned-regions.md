@@ -3,7 +3,7 @@ title: Issues with region servers in Azure HDInsight
 description: Issues with region servers in Azure HDInsight
 ms.service: azure-hdinsight
 ms.topic: troubleshooting
-ms.date: 09/19/2023
+ms.date: 09/06/2024
 ---
 
 # Issues with region servers in Azure HDInsight

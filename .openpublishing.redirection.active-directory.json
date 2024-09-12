@@ -24393,7 +24393,7 @@
     {
       "source_path_from_root": "/articles/active-directory/reports-monitoring/overview-service-health-notifications.md",
       "redirect_url": "/azure/service-health/service-health-portal-update",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/active-directory/reports-monitoring/quickstart-configure-named-locations.md",
