@@ -177,7 +177,7 @@ If you have multiple App Service Environments, you might want some of them to be
 
 Select the value you want, and then select **Save**.
 
-![Screenshot that shows the App Service Environment configuration portal.][5]
+![Screenshot that shows the App Service Environment upgrade preference setting.][7]
 
 This feature makes the most sense when you have multiple App Service Environments, and you might benefit from sequencing the upgrades. For example, you might set your development and test App Service Environments to be early, and your production App Service Environments to be late.
 
@@ -199,6 +199,7 @@ To delete:
 [4]: ./media/using/using-logs.png
 [5]: ./media/using/using-configuration.png
 [6]: ./media/using/using-ip-addresses.png
+[7]: ./media/using/using-upgrade-preference.png
 
 <!--Links-->
 
