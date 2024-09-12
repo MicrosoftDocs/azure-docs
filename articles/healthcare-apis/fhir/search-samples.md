@@ -121,7 +121,7 @@ GET {{FHIR_URL}}/Patient?general-practitioner:Practitioner.name=Sarah&general-pr
 
 ```
 
-This returns all `Patient` resources that have a reference to "Sarah" as a `generalPractitioner` plus a reference to a `generalPractitioner` that has an address in the state of Washington. In other words, if a patient had a `generalPractitioner` named Sarah from New York state and another `generalPractitioner` named Bill from Washington state, this would meet the conditions for a positive match when doing this search.
+This returns all `Patient` resources that have a reference to "Sarah" as a `generalPractitioner` plus a reference to a `generalPractitioner` that has an address in the state of Washington. In other words, if a patient had a `generalPractitioner` named Sarah from New York state and another `generalPractitioner` named Bill from Washington state, both would meet the conditions for a positive match when doing this search.
 
 For scenarios in which the search requires a logical AND condition that strictly checks for paired element values, refer to the following **composite search** examples.
 
