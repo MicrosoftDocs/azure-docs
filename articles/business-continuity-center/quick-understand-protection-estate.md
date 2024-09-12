@@ -35,7 +35,7 @@ To identify the resources that are currently not protected, follow these steps:
    >- Currently, you can view the *unprotected Azure resources* under **Protectable resources** only.
    >- You can also query information on your protectable Azure resources by  using Azure Resource Graph (ARG) at no additional cost. ARG is an Azure service designed to extend Azure Resource Management. It aims to provide efficient resource exploration with the ability to query at scale across a given set of subscriptions.
 
-   Alternatively, you can check for the protectable Azure resources using Azure Resource Graph (ARG). To do so, use the *sample query* provided in the Azure portal by selecting **Open query**.
+   To check for the protectable Azure resources using Azure Resource Graph (ARG), use the *sample query* provided in the Azure portal by selecting **Open query**.
  
    :::image type="content" source="./media/quick-understand-protection-estate/sample-query-to-find-protectable-resources.png" alt-text="Screenshot shows how to open sample query to find protectable resources." lightbox="./media/quick-understand-protection-estate/sample-query-to-find-protectable-resources.png":::
 
