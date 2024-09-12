@@ -4766,18 +4766,18 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/load-balancer/upgrade-basic-standard-with-powershell.md",
+      "source_path_from_root": "/articles/load-balancer/upgrade-basic-standard.md",
       "redirect_url": "/azure/load-balancer/upgrade-basic-standard",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/load-balancer/upgrade-basic-standard-with-powershell.md",
-      "redirect_url": "/azure/load-balancer/upgrade-basicinternal-standard",
+      "source_path_from_root": "/articles/load-balancer/upgrade-basicinternal-standard.md",
+      "redirect_url": "/azure/load-balancer/upgrade-basic-standard-with-powershell",
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/virtual-network/ip-services/ipv6-overview.md",
-      "redirect_url": "/azure/load-balancer/load-balancer-ipv6-overview",
+      "source_path_from_root": "/articles/load-balancer/load-balancer-ipv6-overview.md",
+      "redirect_url": "/azure/virtual-network/ip-services/ipv6-overview",
       "redirect_document_id": false
     },
   ]
