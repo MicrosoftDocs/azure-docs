@@ -15,7 +15,7 @@ This tutorial walks you through how to create a Web PubSub for Socket.IO service
 
 Find full code samples that are used in this tutorial:
 
-- [JavaScript Sample](https://github.com/Azure/azure-webpubsub/tree/main/sdk/webpubsub-socketio-extension/examples/chat-serverless-javascript)
+- [Socket.IO Serverless Sample](https://github.com/Azure/azure-webpubsub/tree/main/sdk/webpubsub-socketio-extension/examples/chat-serverless-javascript)
 
 > [!IMPORTANT]
 > Default Mode needs a persistent server, you cannot integration Web PubSub for Socket.IO in default mode with Azure Function.
@@ -252,18 +252,24 @@ After code is prepared, following the instructions to run the sample.
 
 ### Set up Azure Storage for Azure Function
 
-Azure Functions requires a storage account to work. Choose either of the two following options:
+Azure Functions requires a storage account to work even running in local. Choose either of the two following options:
 
-* Run the free [Azure Storage Emulator](../storage/common/storage-use-azurite.md).
+* Run the free [Azurite emulator](../storage/common/storage-use-azurite.md).
 * Use the Azure Storage service. This may incur costs if you continue to use it.
 
 #### [Local emulation](#tab/storage-azurite) 
 
+1. Install the Azureite
+
+```bash
+npm install -g azurite
+```
+
 1. Start the Azurite storage emulator:
 
-    ```bash
-    azurite -l azurite -d azurite\debug.log
-    ```
+```bash
+azurite -l azurite -d azurite\debug.log
+```
 
 1. Make sure the `AzureWebJobsStorage` in *local.settings.json* set to `UseDevelopmentStorage=true`.
 
@@ -291,6 +297,14 @@ func settings add WebPubSubForSocketIOConnectionString "<connection string>"
 az webpubsub hub create -n <resource name> -g <resource group> --hub-name hub --event-handler url-template="tunnel:///runtime/webhooks/socketio" user-event-pattern="*"
 ```
 
+The connection string can be get by the azure cli command
+
+```azcli
+az webpubsub key show -g <resource group> -n <resource name>
+```
+
+The output will contains `primaryConnectionString` and `secondaryConnectionString`, and either is available.
+
 ### Setup tunnel 
 
 In serverless mode, the service uses webhooks to trigger the function. When running the app locally, a crucial problem is let the service be able to access your local function endpoint.
@@ -308,6 +322,8 @@ npm install -g @azure/web-pubsub-tunnel-tool
 ```bash
 awps-tunnel run --hub hub --connection "<connection string>" --upstream http://127.0.0.1:7071
 ```
+
+The `--upstream` is the url that local Azure Function exposes. The port may be different and you can check the output when starting the function in the next step.
 
 ### Run Sample App
 
