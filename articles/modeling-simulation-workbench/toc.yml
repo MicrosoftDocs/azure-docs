@@ -63,6 +63,8 @@ items:
         href: ./how-to-guide-register-resource-provider.md
       - name: Create a chamber
         href: ./how-to-guide-chamber.md
+      - name: Refresh remote connection keys
+        href: ./refresh-remote-connection-keys.md
   - name: Resources
     items:
       - name: Troubleshoot

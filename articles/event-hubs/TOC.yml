@@ -324,7 +324,7 @@
         - name: Monitor Event Hubs
           href: monitor-event-hubs.md
         - name: Stream Azure Diagnostics data using Event Hubs
-          href: ../azure-monitor/agents/diagnostics-extension-stream-event-hubs.md       
+          href: /azure/azure-monitor/agents/diagnostics-extension-stream-event-hubs       
     - name: Secure
       items:
         - name: Allow access from specific IP addresses

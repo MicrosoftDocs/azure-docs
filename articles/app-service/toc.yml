@@ -168,8 +168,6 @@
           href: tutorial-java-tomcat-mysql-app.md            
         - name: Spring Boot with MongoDB
           href: tutorial-java-spring-cosmosdb.md
-        - name: Quarkus with Postgres
-          href: tutorial-java-quarkus-postgresql-app.md            
     - name: Connect by using secrets
       items:
         - name: Use secrets in app settings
@@ -241,7 +239,7 @@
     - name: Scale out automatically
       href: manage-automatic-scaling.md      
     - name: Scale out with rules
-      href: ../azure-monitor/autoscale/autoscale-get-started.md?toc=/azure/app-service/toc.json
+      href: /azure/azure-monitor/autoscale/autoscale-get-started?toc=/azure/app-service/toc.json
     - name: Add CDN
       href: ../cdn/cdn-add-to-web-app.md?toc=/azure/cdn/toc.json
     - name: About high density hosting

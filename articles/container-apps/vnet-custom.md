@@ -6,7 +6,7 @@ author: craigshoemaker
 ms.service: azure-container-apps
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ms.topic:  how-to
-ms.date: 08/31/2022
+ms.date: 09/05/2024
 ms.author: cshoe
 zone_pivot_groups: azure-cli-or-portal
 ---
@@ -145,7 +145,7 @@ $vnet = New-AzVirtualNetwork @VnetArgs
 
 ---
 
-When using the Workload profiles environment, you need to do one more step to delegate the subnet to `Microsoft.App/environments`. This delegation is not applicable to the Consumption only environment.
+When using the Workload profiles environment, you need update the VNET to delegate the subnet to `Microsoft.App/environments`. This delegation is not applicable to the Consumption-only environment.
 
 # [Bash](#tab/bash)
 

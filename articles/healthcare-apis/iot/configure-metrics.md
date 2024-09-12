@@ -54,7 +54,7 @@ The screenshot shows an example of a line chart that monitors the **Number of In
 
 To keep your MedTech service metrics settings and view the metrics again later, pin them as a tile on an Azure dashboard. For steps, see [Create a dashboard in the Azure portal](../../azure-portal/azure-portal-dashboards.md).
 
-To learn more about advanced metrics display and sharing options, see [Analyze metrics with Azure Monitor metrics explorer](../../azure-monitor/essentials/analyze-metrics.md).
+To learn more about advanced metrics display and sharing options, see [Analyze metrics with Azure Monitor metrics explorer](/azure/azure-monitor/essentials/analyze-metrics).
 
 ## Next steps
 
