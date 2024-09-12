@@ -167,7 +167,7 @@ In this section, you configure test failure criteria on server-side metrics for 
    
 4.	Configure the **Metrics reference identity**. The identity can be the system-assigned identity of the load testing resource, or one of the user-assigned identities. Make sure you use the same identity you've granted access previously.
    
-    :::image type="content" source="media/how-to-define-test-criteria/moniotring-tab.png" alt-text="Screenshot of configuring metrics reference identity":::
+    :::image type="content" source="media/how-to-define-test-criteria/monitoring-tab.png" alt-text="Screenshot of configuring metrics reference identity.":::
   	
 6.	On the **Test criteria** pane, fill the **Resource ID, Namespace, Metric, Aggregation, Condition, Threshold values** for your test. You can set failure criteria only for those resources/app components that you are monitoring during the test.
    
@@ -179,7 +179,7 @@ When you now run the load test, Azure Load Testing uses the test criteria to det
 9.	Run the test and view the status in the load test dashboard.
 The dashboard shows each of the test criteria and their status. The overall test status is failed if at least one criterion was met.
 
-    :::image type="content" source="media/how-to-define-test-criteria/dashboard.png" alt-text="Screenshot of configuring failure criteria on server metrics.":::
+    :::image type="content" source="media/how-to-define-test-criteria/dashboard.png" alt-text="Screenshot of the dashboard displaying test results.":::
 
 ## Auto stop configuration
 
