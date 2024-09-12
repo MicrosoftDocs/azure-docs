@@ -38,37 +38,40 @@ If two agents use the same configuration, you'll encounter inconsistent behavior
 
 Azure Arc supports the following Windows and Linux operating systems. x86-64 (64-bit) architecture is fully supported. Some features are supported on ARM64, see below. The Azure Connected Machine agent doesn't run on 32-bit architectures.
 
-| Operating System                    | Version    | x86-64 | ARM64 | Notes                                                                     |
-| ----------------------------------- | ---------- | ------ | ----- | ------------------------------------------------------------------------- |
-| AlmaLinux                           | 9          | ✅    | ❌    |                                                                           |
-| Amazon Linux                        | 2          | ✅    | ❌    |                                                                           |
-| Amazon Linux                        | 2023       | ✅    | ✅    | see [ARM64 Architecture support](#arm64-architecture-support)             |
-| Azure Linux (CBL-Mariner)           | 2.0        | ✅    | ❌    |                                                                           |
-| Azure Linux (CBL-Mariner)           | 3.0        | ✅    | ❌    |                                                                           |
-| Azure Stack HCI                     |            |       |        |                                                                           |
-| Debian                              | 11         | ✅    | ❌    |                                                                           |
-| Debian                              | 12         | ✅    | ❌    |                                                                           |
-| Oracle Linux                        | 7          | ✅    | ❌    |                                                                           |
-| Oracle Linux                        | 8          | ✅    | ❌    |                                                                           |
-| Oracle Linux                        | 9          | ✅    | ❌    |                                                                           |
-| Red Hat Enterprise Linux (RHEL)     | 7          | ✅    | ❌    |                                                                           |
-| Red Hat Enterprise Linux (RHEL)     | 8          | ✅    | ❌    |                                                                           |
-| Red Hat Enterprise Linux (RHEL)     | 9          | ✅    | ❌    |                                                                           |
-| Rocky Linux                         | 8          | ✅    | ❌    |                                                                           |
-| Rocky Linux                         | 9          | ✅    | ❌    |                                                                           |
-| SUSE Linux Enterprise Server (SLES) | 12 SP3-SP5 | ✅    | ❌    |                                                                           |
-| SUSE Linux Enterprise Server (SLES) | 15         | ✅    | ✅    | see [ARM64 Architecture support](#arm64-architecture-support)             |
-| Ubuntu                              | 18.04      | ✅    | ❌    |                                                                           |
-| Ubuntu                              | 20.04      | ✅    | ❌    |                                                                           |
-| Ubuntu                              | 22.04      | ✅    | ❌    |                                                                           |
-| Windows Client                      | 10         | ✅    | ❌    | see [client operating system guidance](#client-operating-system-guidance) |
-| Windows Client                      | 11         | ✅    | ❌    | see [client operating system guidance](#client-operating-system-guidance) |
-| Windows IoT Enterprise              |            |        |       |                                                                           |
-| Windows Server                      | 2012       | ✅    | ❌    |                                                                           |
-| Windows Server                      | 2012 R2    | ✅    | ❌    |                                                                           |
-| Windows Server                      | 2016       | ✅    | ❌    |                                                                           |
-| Windows Server                      | 2019       | ✅    | ❌    |                                                                           |
-| Windows Server                      | 2022       | ✅    | ❌    |                                                                           |
+| Operating System                    | Version     | x86-64 | ARM64 | Notes                                                                                            |
+| ----------------------------------- | ----------- | ------ | ----- | ------------------------------------------------------------------------------------------------ |
+| AlmaLinux                           | 9           | ✅    | ❌    |                                                                                                  |
+| Amazon Linux                        | 2           | ✅    | ❌    |                                                                                                  |
+| Amazon Linux                        | 2023        | ✅    | ✅    | see [ARM64 Architecture support](#arm64-architecture-support)                                    |
+| Azure Linux (CBL-Mariner)           | 2.0         | ✅    | ❌    |                                                                                                  |
+| Azure Linux (CBL-Mariner)           | 3.0         | ✅    | ❌    |                                                                                                  |
+| Azure Stack HCI                     |             |       |        |                                                                                                  |
+| Centos                              | 7           | ⚠️    | ❌    | **Limited Support**, see [Limited support operating systems](#limited-support-operating-systems) |
+| Centos                              | 8           | ⚠️    | ❌    | **Limited Support**, see [Limited support operating systems](#limited-support-operating-systems) |
+| Debian                              | 11          | ✅    | ❌    |                                                                                                  |
+| Debian                              | 12          | ✅    | ❌    |                                                                                                  |
+| Oracle Linux                        | 7           | ✅    | ❌    |                                                                                                  |
+| Oracle Linux                        | 8           | ✅    | ❌    |                                                                                                  |
+| Oracle Linux                        | 9           | ✅    | ❌    |                                                                                                  |
+| Red Hat Enterprise Linux (RHEL)     | 7           | ✅    | ❌    |                                                                                                  |
+| Red Hat Enterprise Linux (RHEL)     | 8           | ✅    | ❌    |                                                                                                  |
+| Red Hat Enterprise Linux (RHEL)     | 9           | ✅    | ❌    |                                                                                                  |
+| Rocky Linux                         | 8           | ✅    | ❌    |                                                                                                  |
+| Rocky Linux                         | 9           | ✅    | ❌    |                                                                                                  |
+| SUSE Linux Enterprise Server (SLES) | 12 SP3-SP5  | ✅    | ❌    |                                                                                                  |
+| SUSE Linux Enterprise Server (SLES) | 15          | ✅    | ✅    | see [ARM64 Architecture support](#arm64-architecture-support)                                    |
+| Ubuntu                              | 18.04       | ✅    | ❌    |                                                                                                  |
+| Ubuntu                              | 20.04       | ✅    | ❌    |                                                                                                  |
+| Ubuntu                              | 22.04       | ✅    | ❌    |                                                                                                  |
+| Windows Client                      | 10          | ✅    | ❌    | see [client operating system guidance](#client-operating-system-guidance)                        |
+| Windows Client                      | 11          | ✅    | ❌    | see [client operating system guidance](#client-operating-system-guidance)                        |
+| Windows IoT Enterprise              |             |       |        |                                                                                                  |
+| Windows Server                      | 2008 R2 SP1 | ⚠️    | ❌    | **Limited Support**, see [Limited support operating systems](#limited-support-operating-systems) |
+| Windows Server                      | 2012        | ✅    | ❌    |                                                                                                  |
+| Windows Server                      | 2012 R2     | ✅    | ❌    |                                                                                                  |
+| Windows Server                      | 2016        | ✅    | ❌    |                                                                                                  |
+| Windows Server                      | 2019        | ✅    | ❌    |                                                                                                  |
+| Windows Server                      | 2022        | ✅    | ❌    |                                                                                                  |
 
 
 For Windows Server, both Desktop and Server Core experiences are supported. Azure Editions are supported on Azure Stack HCI.
