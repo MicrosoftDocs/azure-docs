@@ -5,6 +5,10 @@ author: batamig
 ms.author: bagol
 ms.topic: how-to
 ms.date: 06/09/2024
+
+
+#Customer intent: As a security analyst, I want to collect and analyze SAP HANA audit logs to Microsoft Sentinel so that I can monitor and respond to security events effectively.
+
 ---
 
 # Collect SAP HANA audit logs in Microsoft Sentinel
