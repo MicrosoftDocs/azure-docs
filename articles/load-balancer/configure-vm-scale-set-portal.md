@@ -6,7 +6,7 @@ ms.author: mbender
 ms.service: azure-load-balancer
 ms.topic: how-to
 ms.date: 09/11/2024
-ms.custom: template-quickstart, engagement-fy23, devx-track-azurecli, devx-track-azurepowershell
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ---
 
 # Configure a Virtual Machine Scale Set with an existing Azure Standard Load Balancer
