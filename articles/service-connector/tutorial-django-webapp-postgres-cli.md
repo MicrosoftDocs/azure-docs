@@ -109,7 +109,7 @@ Having issues? [Let us know](https://aka.ms/DjangoCLITutorialHelp).
     az group create --name $RESOURCE_GROUP_NAME --location $LOCATION
     ```
 
-1. Create the database server (the process takes a few minutes):
+1. Create the database server. If prompted to enable access to current client IP address, type `y` for yes. (the process takes a few minutes):
 
     ```azurecli
     az postgres flexible-server create \
@@ -119,7 +119,7 @@ Having issues? [Let us know](https://aka.ms/DjangoCLITutorialHelp).
       --admin-user $ADMIN_USER \
       --admin-password $ADMIN_PW \
       --sku-name Standard_D2ds_v4
-      --active-directory-auth Enabled \
+      --active-directory-auth Enabled
     ```
 
     If the `az` command isn't recognized, be sure you have the Azure CLI installed as described in [Set up your initial environment](#set-up-your-initial-environment).
@@ -133,7 +133,7 @@ Having issues? [Let us know](https://aka.ms/DjangoCLITutorialHelp).
     * Create an administrator account with a username and password specified with the `--admin-user` and `--admin-password` parameters.
     * Create a database which name is specified with the `--database-name` parameter.
 
-1. Configure a firewall rule on your server with the [az postgres flexible-server firewall-rule create](/cli/azure/postgres/flexible-server/firewall-rule) command. This rule allows your local environment access to connect to the server. (If you're using the Azure Cloud Shell, you can skip this step.)
+1. Configure a firewall rule on your server with the [az postgres flexible-server firewall-rule create](/cli/azure/postgres/flexible-server/firewall-rule) command. This rule allows your local environment access to the server. (If you're prompted to enable access from your client IP address in previous step, you can skip this step.)
 
     ```azurecli
     IP_ADDRESS=<your IP>
@@ -223,10 +223,13 @@ In your Python code, you access these settings as environment variables with sta
 
 Having issues? Refer first to the [Troubleshooting guide](../app-service/configure-language-python.md#troubleshooting), otherwise, [let us know](https://aka.ms/DjangoCLITutorialHelp).
 
-### Create a connector to Azure Storage account
+### Create a storage account and connect to it
 
-1. Add a storage service connector with the [az webapp connection create storage-blob](/cli/azure/webapp/connection/create#az-webapp-connection-create-storage-blob) command.
-    This command also adds a storage account and adds the web app with role *Storage Blob Data Contributor* to the storage account.
+1. Use the [az webapp connection create storage-blob](/cli/azure/webapp/connection/create#az-webapp-connection-create-storage-blob) command to create an storage account and creates a service connector that does the following configuraitons:
+ * Enables system-assigned managed identity on the web app
+ * Adds the web app with role *Storage Blob Data Contributor* to the newly created storage account.
+ * Configure the storage account network to accept access from the web app.
+
     ```azurecli
     STORAGE_ACCOUNT_URL=$(az webapp connection create storage-blob \
       --new true \
@@ -238,6 +241,13 @@ Having issues? Refer first to the [Troubleshooting guide](../app-service/configu
       --query configurations[].value \
       --output tsv)
     STORAGE_ACCOUNT_NAME=$(cut -d . -f1 <<< $(cut -d / -f3 <<< $STORAGE_ACCOUNT_URL))
+    ```
+1. Update the storage account to allow blob public access for the *restaurant app* users to access images.
+
+    ```azurecli
+     az storage account update  \
+       --name $STORAGE_ACCOUNT_NAME \
+       --allow-blob-public-access 
     ```
 
 1. Create a container called `photos` in the storage account with the [az storage container create](/cli/azure/storage/container#az-storage-container-create) command. Allow anonymous read (public) access to blobs in the newly created container.
