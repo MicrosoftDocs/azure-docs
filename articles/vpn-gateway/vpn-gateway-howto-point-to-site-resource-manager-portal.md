@@ -6,7 +6,7 @@ author: cherylmc
 ms.service: azure-vpn-gateway
 ms.custom: devx-track-azurepowershell
 ms.topic: how-to
-ms.date: 08/23/2024
+ms.date: 09/06/2024
 ms.author: cherylmc
 ---
 # Configure server settings for P2S VPN Gateway certificate authentication

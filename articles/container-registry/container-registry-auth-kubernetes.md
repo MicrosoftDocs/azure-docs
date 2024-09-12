@@ -1,7 +1,7 @@
 ---
 title: Authenticate with an Azure container registry using a Kubernetes pull secret
 description: Learn how to provide a Kubernetes cluster with access to images in your Azure container registry by creating a pull secret using a service principal
-ms.topic: article
+ms.topic: conceptual
 ms.custom: devx-track-azurecli
 ms.service: azure-container-registry
 author: karolz-ms

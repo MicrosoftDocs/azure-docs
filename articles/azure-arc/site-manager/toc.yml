@@ -34,4 +34,4 @@
   - name: Azure Arc
     href: ../overview.md
   - name: Azure Monitor
-    href: ../../azure-monitor/overview.md
+    href: /azure/azure-monitor/overview
