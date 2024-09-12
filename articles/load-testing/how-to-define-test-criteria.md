@@ -100,7 +100,7 @@ To specify fail criteria in the YAML configuration file:
 
 1. Add your test criteria in the `failureCriteria` setting.
 
-    Use the [fail criteria format](#fail-criteria-structure), as described earlier. You can add multiple fail criteria for a load test.
+    Use the [fail criteria format](#fail-criteria-structure-for-client-metrics), as described earlier. You can add multiple fail criteria for a load test.
 
     The following example defines three fail criteria. The first two criteria apply to the overall load test, and the last one specifies a condition for the `GetCustomerDetails` request.
 
