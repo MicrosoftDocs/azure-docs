@@ -44,18 +44,18 @@ Azure Arc supports the following Windows and Linux operating systems. x86-64 (64
 | Amazon Linux                        | 2          | ✅    | ❌    |                                                                           |
 | Amazon Linux                        | 2023       | ✅    | ✅    | see [ARM64 Architecture support](#arm64-architecture-support)             |
 | Azure Linux (CBL-Mariner)           | 2.0        | ✅    | ❌    |                                                                           |
-| Azure Stack HCI                     |            |       |        |                                                                           |
 | Azure Linux (CBL-Mariner)           | 3.0        | ✅    | ❌    |                                                                           |
-| Debian                              | 12         | ✅    | ❌    |                                                                           |
+| Azure Stack HCI                     |            |       |        |                                                                           |
 | Debian                              | 11         | ✅    | ❌    |                                                                           |
-| Oracle Linux                        | 8          | ✅    | ❌    |                                                                           |
+| Debian                              | 12         | ✅    | ❌    |                                                                           |
 | Oracle Linux                        | 7          | ✅    | ❌    |                                                                           |
-| Red Hat Enterprise Linux (RHEL)     | 7          | ✅    | ❌    |                                                                           |
+| Oracle Linux                        | 8          | ✅    | ❌    |                                                                           |
 | Oracle Linux                        | 9          | ✅    | ❌    |                                                                           |
-| Red Hat Enterprise Linux (RHEL)     | 9          | ✅    | ❌    |                                                                           |
+| Red Hat Enterprise Linux (RHEL)     | 7          | ✅    | ❌    |                                                                           |
 | Red Hat Enterprise Linux (RHEL)     | 8          | ✅    | ❌    |                                                                           |
-| Rocky Linux                         | 9          | ✅    | ❌    |                                                                           |
+| Red Hat Enterprise Linux (RHEL)     | 9          | ✅    | ❌    |                                                                           |
 | Rocky Linux                         | 8          | ✅    | ❌    |                                                                           |
+| Rocky Linux                         | 9          | ✅    | ❌    |                                                                           |
 | SUSE Linux Enterprise Server (SLES) | 12 SP3-SP5 | ✅    | ❌    |                                                                           |
 | SUSE Linux Enterprise Server (SLES) | 15         | ✅    | ✅    | see [ARM64 Architecture support](#arm64-architecture-support)             |
 | Ubuntu                              | 18.04      | ✅    | ❌    |                                                                           |
