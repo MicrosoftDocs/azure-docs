@@ -300,12 +300,8 @@
       href: manage-secure-access-resources-spoke-p2s.md
   - name: Monitoring
     items:
-    - name: Monitoring Virtual WAN
+    - name: Monitor Virtual WAN
       href: monitor-virtual-wan.md
-    - name: Monitoring - Best practices
-      href: monitoring-best-practices.md
-    - name: Monitoring - Data reference
-      href: monitor-virtual-wan-reference.md
     - name: Azure Monitor Insights
       href: azure-monitor-insights.md
     - name: BGP dashboard
@@ -332,6 +328,8 @@
     href: /cli/azure/network
   - name: Python SDK
     href: https://azuresdkdocs.blob.core.windows.net/$web/python/azure-mgmt-network/10.0.0/azure.mgmt.network.v2019_02_01.operations.html#azure.mgmt.network.v2019_02_01.operations.VirtualWansOperations
+  - name: Monitoring data reference
+    href: monitor-virtual-wan-reference.md
 - name: Resources
   items:
   - name: Pricing
