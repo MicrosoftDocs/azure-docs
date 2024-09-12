@@ -67,6 +67,8 @@ For this tutorial, we've provided a CLI script that performs the following steps
 
 4. Register a device identity for the simulated device that sends messages to your IoT hub. Save the device connection string to use to configure the simulated device.
 
+[!INCLUDE [iot-authentication-device-connection-string.md](../../includes/iot-authentication-device-connection-string.md)]
+
 ### Set up resources using Azure CLI
 
 Copy and paste the following commands into Cloud Shell or a local command line instance that has the Azure CLI installed. Some of the commands may take some time to execute. The new resources are created in the resource group *ContosoResources*.
