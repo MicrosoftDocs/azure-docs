@@ -91,8 +91,6 @@ There are multiple ways to turn off default outbound access. The following secti
 
 * Delegated subnets can't be marked as Private.
 
-* Existing subnets can't currently be converted to Private.
-
 * In configurations using a User Defined Route (UDR) with a default route (0/0) that sends traffic to an upstream firewall/network virtual appliance, any traffic that bypasses this route (for example, to Service Tagged destinations) breaks in a Private subnet.
  
 ### Add an explicit outbound connectivity method
