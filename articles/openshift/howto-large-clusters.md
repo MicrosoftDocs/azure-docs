@@ -27,7 +27,7 @@ For clusters with over 100 worker nodes, the following [virtual machine instance
 
 ### Infrastructure nodes
 
-For clusters with over 100 worker nodes, infrastructure nodes are required to separate cluster workloads (such as prometheus) to minimize contention with other workloads. You should deploy three (3) infrastructure nodes per cluster for redundancy and scalability needs.
+For clusters with over 100 worker nodes, infrastructure nodes are required to separate cluster workloads (such as Prometheus) to minimize contention with other workloads. You should deploy three (3) infrastructure nodes per cluster for redundancy and scalability needs.
 
 The following instance types are recommended for infrastructure nodes:
 
@@ -40,21 +40,19 @@ For instructions on configuring infrastructure nodes, see [Deploy infrastructure
 
 Azure Red Hat OpenShift public clusters are created with a public load balancer that's used for outbound connectivity from inside the cluster. By default, one public IP address is configured on that public load balancer, and that limits the maximum node count of your cluster to 62. To be able to scale your cluster to the maximum supported number of 250 nodes, you need to assign multiple additional public IP addresses to the load balancer. You can configure up to 20 IP addresses per cluster. The outbound rules and frontend IP configurations are adjusted to accommodate the number of IP addresses.
 
-For example, a cluster with 180 worker nodes needs at least three IP addresses (180 nodes / 62 nodes per IP).
+For example, a cluster with 180 worker nodes needs at least (3) three IP addresses (180 nodes / 62 nodes per IP).
 
 This can be accomplished as part of the cluster creation process or later, after the cluster is created.
 
 ## Deploy a cluster
 
-> [!NOTE]
-> When deploying a large cluster you must start with at most 50 worker nodes at creation time, then scale the cluster out to the desired number of worker nodes up to 250 worker nodes. 
-> 
+When deploying a large cluster, you must start with at most 50 worker nodes at creation time, then scale the cluster out to the desired number of worker nodes, up to 250 worker nodes. 
 
 > [!NOTE]
-> While you can define up to 50 worker nodes at creation time, it is a best practice to start with a small cluster (e.g, 3 worker nodes as the default) and then scale to the desired number of worker nodes after the cluster is installed.
+> While you can define up to 50 worker nodes at creation time, it's best to start with a small cluster (e.g, three (3) worker nodes as the default) and then scale to the desired number of worker nodes after the cluster is installed.
 >
 
-Follow the steps listed on the [Create an Azure Red Hat OpenShift cluster](https://learn.microsoft.com/azure/openshift/create-cluster?tabs=azure-cli) page until the "Create the cluster" steps, then continue as instructed:
+Follow the steps provided in [Create an Azure Red Hat OpenShift cluster](https://learn.microsoft.com/azure/openshift/create-cluster?tabs=azure-cli) until the "Create the cluster" steps, then continue as instructed:
 
 For large clusters, the previous recommendations should be followed. Therefore, the sample command below using the Azure CLI can be used to deploy a cluster with Standard_D32s_v5 as the control plane nodes, request three public IP addresses, and define nine worker nodes:
 
@@ -76,4 +74,4 @@ To add IP addresses to the load balancer using the Azure CLI after the cluster i
 
 You can then configure the corresponding OpenShift MachineSets to obtain the number of worker nodes desired. See [Manually scaling a compute machine set](https://docs.openshift.com/container-platform/latest/machine_management/manually-scaling-machineset.html) for more details.
 
-After the cluster is successfully installed, proceed to deploying infrastructure nodes as defined in the [Infrastructure nodes](#infrastructure-nodes) section above.
+Once the cluster is successfully installed, proceed to deploying infrastructure nodes as defined in the [Infrastructure nodes](#infrastructure-nodes) section.
