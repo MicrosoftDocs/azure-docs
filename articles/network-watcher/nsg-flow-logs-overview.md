@@ -498,6 +498,17 @@ Currently, these Azure services don't support NSG flow logs:
 > [!NOTE]
 > App services deployed under an Azure App Service plan don't support NSG flow logs. To learn more, see [How virtual network integration works](../app-service/overview-vnet-integration.md#how-regional-virtual-network-integration-works).
 
+### Incompatible virtual machines
+NSG flow logs are not supported on the following virtual machine sizes
+- D family v6 series
+- E family v6 series
+- F family v6 series
+
+It is recommended to use virtual network flow logs [Virtual network flow logs](vnet-flow-logs-overview.md) for these virtual machine sizes.
+
+> [!NOTE]
+> Virtual Machines running heavy networking traffic may encounter flow logging failures. It is recommended to migrate NSG flow logs to virtual network flow logs [Virtual network flow logs](vnet-flow-logs-overview.md) for these type of workloads.
+ 
 ## Best practices
 
 - **Enable NSG flow logs on critical subnets**: Flow logs should be enabled on all critical subnets in your subscription as an auditing and security best practice.
