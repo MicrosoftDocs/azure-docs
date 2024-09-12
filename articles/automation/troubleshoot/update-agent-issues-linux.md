@@ -68,7 +68,7 @@ If the asset tag is different than 7783-7084-3265-9085-8269-3286-77, then reboot
 
 ### Monitoring Agent
 
-To fix this, install Azure Log Analytics Linux agent and ensure it communicates the required endpoints. For more information, see [Install Log Analytics agent on Linux computers](../../azure-monitor/agents/agent-linux.md).
+To fix this, install Azure Log Analytics Linux agent and ensure it communicates the required endpoints. For more information, see [Install Log Analytics agent on Linux computers](/azure/azure-monitor/agents/agent-linux).
 
 This task checks if the folder is present -
 
@@ -89,13 +89,13 @@ process_name="omsagent"
 ps aux | grep %s | grep -v grep" % (process_name)"
 ```
 
-For more information, see [Troubleshoot issues with the Log Analytics agent for Linux](../../azure-monitor/agents/agent-linux-troubleshoot.md)
+For more information, see [Troubleshoot issues with the Log Analytics agent for Linux](/azure/azure-monitor/agents/agent-linux-troubleshoot)
 
 
 ### Multihoming
 This check determines if the agent is reporting to multiple workspaces. Update Management doesn't support multihoming.
 
-To fix this issue, purge the OMS Agent completely and reinstall it with the [workspace linked with Update management](../../azure-monitor/agents/agent-linux-troubleshoot.md#purge-and-reinstall-the-linux-agent)
+To fix this issue, purge the OMS Agent completely and reinstall it with the [workspace linked with Update management](/azure/azure-monitor/agents/agent-linux-troubleshoot#purge-and-reinstall-the-linux-agent)
 
 
 Validate that there are no more multihoming by checking the directories under this path:

@@ -67,7 +67,7 @@ This section lists the supported languages and required environment variables fo
   Environment variables required for buildpack binding:
   - `connection-string`
 
-  For other supported environment variables, see [Application Insights Overview](../../azure-monitor/app/app-insights-overview.md?tabs=java).
+  For other supported environment variables, see [Application Insights Overview](/azure/azure-monitor/app/app-insights-overview?tabs=java).
 
 - **DynaTrace**
 
