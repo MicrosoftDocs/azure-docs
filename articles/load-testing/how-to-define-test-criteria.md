@@ -139,6 +139,8 @@ To grant your Azure load testing resource permissions to read the metrics from y
 1.	In the Azure portal, go to your app component.
    
 2.	On the left pane, select **Access Control(IAM)**, then select **+ Add**, and then select **Add role assignment**.
+
+    :::image type="content" source="media/how-to-define-test-criteria/add-role-assignment.png" alt-text="Screenshot of the Access Control(IAM) in the application component on which failure criteria is to be set":::
    
 3.	On the **Role **tab, under** Job functions roles**, search for **Monitoring Reader** or **Monitoring Contributor**.
    
@@ -148,6 +150,9 @@ To grant your Azure load testing resource permissions to read the metrics from y
 If you're using a system-assigned managed identity, the managed identity name matches that of your Azure load testing resource.
 
 6.	Select **Review + assign** to assign the identity the permission.
+
+    :::image type="content" source="media/how-to-define-test-criteria/assign-permissions.png" alt-text="Screenshot of assigning the permissions to read metrics to the load testing resource":::
+
 When your test runs, the managed identity that's associated with your load testing resource can now read the metrics for your load test from your app component.
 
 ### Define load test fail criteria for server metrics
@@ -158,17 +163,23 @@ In this section, you configure test failure criteria on server-side metrics for 
    
 2.	Click on **Create Test**.
    
-3.	Under the **Monitoring** Tab, configure the app components  you want to monitor during the test.
+3.	Under the **Monitoring** Tab, configure the app components you want to monitor during the test.
    
 4.	Configure the **Metrics reference identity**. The identity can be the system-assigned identity of the load testing resource, or one of the user-assigned identities. Make sure you use the same identity you've granted access previously.
    
-5.	On the **Test criteria** pane, fill the **Resource ID, Namespace, Metric, Aggregation, Condition, Threshold values** for your test. You can set failure criteria only for those resources/app components that you are monitoring during the test.
-
-6.	Select **Apply** to save the changes.
+    :::image type="content" source="media/how-to-define-test-criteria/moniotring-tab.png" alt-text="Screenshot of configuring metrics reference identity":::
+  	
+6.	On the **Test criteria** pane, fill the **Resource ID, Namespace, Metric, Aggregation, Condition, Threshold values** for your test. You can set failure criteria only for those resources/app components that you are monitoring during the test.
+   
+    :::image type="content" source="media/how-to-define-test-criteria/server-failure-criteria.png" alt-text="Screenshot of configuring failure criteria on server metrics.":::
+ 
+8.	Select **Apply** to save the changes.
 When you now run the load test, Azure Load Testing uses the test criteria to determine the status of the load test run.
 
-7.	Run the test and view the status in the load test dashboard.
+9.	Run the test and view the status in the load test dashboard.
 The dashboard shows each of the test criteria and their status. The overall test status is failed if at least one criterion was met.
+
+    :::image type="content" source="media/how-to-define-test-criteria/dashboard.png" alt-text="Screenshot of configuring failure criteria on server metrics.":::
 
 ## Auto stop configuration
 
