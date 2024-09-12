@@ -1,5 +1,5 @@
 ---
-title: Configure multiple IP addresses for ARO cluster load balancers
+title: Configure multiple IP addresses for Azure Red Hat OpenShift cluster load balancers
 description: Discover how to configure multiple IP addresses for ARO cluster load balancers.
 author: johnmarco
 ms.author: johnmarc
@@ -8,9 +8,9 @@ ms.topic: how-to
 ms.date: 09/11/2024
 #Customer intent: As an ARO SRE, I need to configure multiple outbound IP addresses per ARO cluster load balancers
 ---
-# Configure multiple IP addresses per ARO cluster load balancer
+# Configure multiple IP addresses per Azure Red Hat OpenShift cluster load balancer
 
-ARO public clusters are created with a public load balancer that's used for outbound connectivity from inside the cluster. By default, one public IP address is configured on that public load balancer, and that limits the maximum node count of your cluster to 62. To be able to scale your cluster to the maximum supported number of 250 nodes, you need to assign multiple additional public IP addresses to the load balancer.
+Azure Red Hat OpenShift public clusters are created with a public load balancer that's used for outbound connectivity from inside the cluster. By default, one public IP address is configured on that public load balancer, and that limits the maximum node count of your cluster to 62. To be able to scale your cluster to the maximum supported number of 250 nodes, you need to assign multiple additional public IP addresses to the load balancer.
 
 You can configure up to 20 IP addresses per cluster. The outbound rules and frontend IP configurations are adjusted to accommodate the number of IP addresses.
 
@@ -24,7 +24,7 @@ The multiple public IPs feature is only available on the current network archite
 
 If you're unsure if your cluster was created before OCP version 4.5, use the following commands to check.
 
-To get the cluster managed resource group:
+Get the cluster managed resource group:
 
 ```
 RESOURCEGROUP=aro-rg   # the name of the resource group your cluster is in
@@ -42,7 +42,7 @@ If you have a loadbalancer named `$CLUSTER-public-lb`, the cluster has the older
 
 ## Create the cluster with multiple IP addresses 
 
-To create a new ARO cluster with multiple managed IPs on the public load balancer, use the following command with the desired number of IPs in the `--load-balancer-managed-outbound-ip-count` parameter. In the example below, seven (7) IP addresses will be created:
+To create a new ARO cluster with multiple managed IPs on the public load balancer, use the following command with the desired number of IPs in the `--load-balancer-managed-outbound-ip-count` parameter. In the example below, seven (7) IP addresses are created:
 
 ```
 az aro create \
@@ -64,4 +64,4 @@ az aro update \
   --load-balancer-managed-outbound-ip-count 4
 ```
 
-You can use this update method to either increase or decrease the number of IPs on a cluster to be between 1 and 20. Note that scaling down the number of clusters can interrupt the outbound network traffic from the cluster.
+You can use this update method to either increase or decrease the number of IPs on a cluster to be between 1 and 20. Scaling down the number of clusters can interrupt the outbound network traffic from the cluster.
