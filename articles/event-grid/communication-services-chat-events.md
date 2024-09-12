@@ -14,7 +14,7 @@ Azure Communication Services emits chat events only when Azure Communication Ser
 
 ## Event types
 
-Azure Communication Services emits chat events on two different levels: **User-level** and **Thread-level**. User-level events pertain to a specific user on the chat thread and are delivered once per user. Thread-level events pertain to the entire chat thread and are delivered once per thread. For example: if there are 10 users in a thread, there will be one thread-level event and 10 user-level events, one for each user, when a message is received in a thread.
+Azure Communication Services emits chat events on two different levels: **User-level** and **Thread-level**. User-level events are specific to each user in the chat thread and are delivered once per user, excluding the event sender. Thread-level events pertain to the entire chat thread and are delivered once per thread. For instance, when a message is received in a thread with 10 users, there will be one thread-level event and 9 user-level events, one for each user, except for the sender.
 
 Azure Communication Services emits the following chat event types:
 
