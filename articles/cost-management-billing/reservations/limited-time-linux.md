@@ -5,15 +5,16 @@ author: bandersmsft
 ms.reviewer: shreyabaheti
 ms.service: cost-management-billing
 ms.subservice: reservations
-ms.topic: conceptual_article
+ms.topic: how-to
 ms.date: 09/12/2024
 ms.author: banders
 ms.custom: references_regions
+#customer intent: I want to learn how to save money with reservations and buy one.
 ---
 
 # Save on select Linux VMs for a limited time
 
-Save up to 15 percent in addition to the existing one-year [Azure Reserved Virtual Machine (VM) Instances](/virtual-machines/prepay-reserved-vm-instances?toc=/azure/cost-management-billing/reservations/toc.json&source=azlto3) discount for select Linux VMs for a limited period. Customers could potentially see total savings of to up to 56% compared to running an Azure VM on a pay-as-you-go basis. This offer is available between October 1, 2024, and March 31, 2025.
+Save up to 15 percent in addition to the existing one-year [Azure Reserved Virtual Machine (VM) Instances](/azure/virtual-machines/prepay-reserved-vm-instances?toc=%2Fazure%2Fcost-management-billing%2Freservations%2Ftoc.json&source=azlto3) discount for select Linux VMs for a limited period. Customers could potentially see total savings of to up to 56% compared to running an Azure VM on a pay-as-you-go basis. This offer is available between October 1, 2024, and March 31, 2025.
 
 ## Purchase the offer
 
@@ -73,13 +74,13 @@ These terms and conditions (hereinafter referred to as "terms") govern the promo
 
 *² VM isn't available for the offer in US Government Iowa and US Government Virginia.*
 
-Instance size flexibility is available for these VMs. For more information about instance size flexibility, see [Virtual machine size flexibility](/virtual-machines/reserved-vm-instance-size-flexibility?source=azlto7).
+Instance size flexibility is available for these VMs. For more information about instance size flexibility, see [Virtual machine size flexibility](/azure/virtual-machines/reserved-vm-instance-size-flexibility?source=azlto7).
 
 ### Qualifying regions
 
 The offer applies to all regions where the Azure VM Reserved Instances are generally available (GA) for the VM series listed in the section above, except EU West (Amsterdam), EU North (Dublin), AP Southeast (Singapore), and QA Central (Qatar).
 
-The offer provides an extra discount of up to 15 percent in addition to the existing one-year [Azure Reserved Virtual Machine (VM) Instances](/virtual-machines/prepay-reserved-vm-instances?toc=/azure/cost-management-billing/reservations/toc.json&source=azlto3) rates. The savings don’t include operating system costs. Actual savings might vary based on instance type or usage. Customers could potentially see total savings of to up to 56% compared to running an Azure VM on a pay-as-you-go basis.
+The offer provides an extra discount of up to 15 percent in addition to the existing one-year [Azure Reserved Virtual Machine (VM) Instances](/azure/virtual-machines/prepay-reserved-vm-instances?toc=%2Fazure%2Fcost-management-billing%2Freservations%2Ftoc.json&source=azlto3) rates. The savings don’t include operating system costs. Actual savings might vary based on instance type or usage. Customers could potentially see total savings of to up to 56% compared to running an Azure VM on a pay-as-you-go basis.
 
 ### Eligibility
 
@@ -94,7 +95,7 @@ The offer is available based on the following criteria:
 
 ### Offer details
 
-Upon successful purchase and payment for the one-year Azure Reserved VM Instance in a qualified region for one or more of the qualifying VMs during the specified period, the discount applies automatically to the number of running virtual machines. You don't need to assign a reservation to a virtual machine to benefit from the discounts. A reserved instance purchase covers only the compute part of your VM usage. For more information about how to pay and save with an Azure Reserved VM Instance, see [Prepay for Azure virtual machines to save money](/virtual-machines/prepay-reserved-vm-instances?toc=/azure/cost-management-billing/reservations/toc.json&source=azlto3).
+Upon successful purchase and payment for the one-year Azure Reserved VM Instance in a qualified region for one or more of the qualifying VMs during the specified period, the discount applies automatically to the number of running virtual machines. You don't need to assign a reservation to a virtual machine to benefit from the discounts. A reserved instance purchase covers only the compute part of your VM usage. For more information about how to pay and save with an Azure Reserved VM Instance, see [Prepay for Azure virtual machines to save money](/azure/virtual-machines/prepay-reserved-vm-instances?toc=%2Fazure%2Fcost-management-billing%2Freservations%2Ftoc.json&source=azlto3).
 
 - Other taxes might apply.
 - Payment is processed using the payment method on file for the selected subscriptions.
@@ -108,7 +109,7 @@ Upon successful purchase and payment for the one-year Azure Reserved VM Instance
 - A reservation discount is "use-it-or-lose-it." So, if you don't have matching resources for any hour, then you lose a reservation quantity for that hour. You can't carry forward unused reserved hours.
 - When you deallocate, delete, or scale the number of VMs, the reservation discount automatically applies to another matching resource in the specified scope. If no matching resources are found in the specified scope, then the reserved hours are lost.
 - Stopped VMs are billed and continue to use reservation hours. To use your available reservation hours with other workloads, deallocate or delete VM resources or scale-in other VMs.
-- For more information about how Azure Reserved VM Instance discounts are applied, see [Understand Azure Reserved VM Instances discount](understand-vm-reservation-charges.md?source=azlto4).
+- For more information about how Azure Reserved VM Instance discounts are applied, see [Understand Azure Reserved VM Instances discount](understand-reservation-charges.md?source=azlto4).
 
 ##### Exchanges and refunds
 
@@ -129,5 +130,5 @@ By participating in the offer, customers agree to be bound by these terms and th
 
 ## Related Content
 
-- [Understand Azure Reserved VM Instances discount](understand-vm-reservation-charges.md?source=azlto4)
+- [Understand Azure Reserved VM Instances discount](understand-reservation-charges.md?source=azlto4)
 - [Purchase Azure Reserved VM instances in the Azure portal](https://portal.azure.com/#view/Microsoft_Azure_Reservations/CreateBlade)
