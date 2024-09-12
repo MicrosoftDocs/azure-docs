@@ -12,7 +12,7 @@ ms.date: 09/12/2024
 This article provides the steps and best practices for deploying large scale Azure Red Hat OpenShift clusters up to 250 worker nodes. For clusters of that size, there are some recommendations regarding control plane nodes and infrastructure nodes.
 
 > [!CAUTION]
-> Before deleting a cluster with more than 120 nodes, please scale down the cluster to 120 nodes or less.
+> Before deleting a cluster with more than 120 nodes, scale down the cluster to 120 nodes or less.
 > 
 
 ## Recommendations
@@ -54,7 +54,7 @@ When deploying a large cluster, you must start with at most 50 worker nodes at c
 
 Follow the steps provided in [Create an Azure Red Hat OpenShift cluster](https://learn.microsoft.com/azure/openshift/create-cluster?tabs=azure-cli) until the "Create the cluster" steps, then continue as instructed:
 
-For large clusters, the previous recommendations should be followed. Therefore, the sample command below using the Azure CLI can be used to deploy a cluster with Standard_D32s_v5 as the control plane nodes, request three public IP addresses, and define nine worker nodes:
+For large clusters, the previous recommendations should be followed. Therefore, the sample command below using the Azure CLI can be used to deploy a cluster with Standard_D32s_v5 as the control plane nodes, requesting three public IP addresses, and defining nine worker nodes:
 
 ```azurecli
 az aro create \ 
