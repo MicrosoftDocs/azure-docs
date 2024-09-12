@@ -1,26 +1,25 @@
 ---
-title: Updating Azure Notification Hub with FCMv1 Credentials
+title: Updating Azure notification hub with FCMv1 credentials
 description: Describes how Azure Notification Hubs can be updated using FCMv1 credentials
 author: sreeharir
 manager: nanooka
 ms.service: azure-notification-hubs
 ms.topic: article
-ms.date: 09/04/2024
+ms.date: 09/12/2024
 ms.author: sreeharir
 ms.reviewer: sethm
-ms.lastreviewed: 09/04/2024
+ms.lastreviewed: 09/12/2024
 ---
 
 # Updating Azure Notification Hub with FCMv1 Credentials
 
-## Introduction
-This guide explains how to update an Azure Notification Hub with FCMv1 credentials using the Azure Management SDK for .NET. This is essential for enabling push notifications to Android devices via Firebase Cloud Messaging (FCMv1).
+This guide explains how to update an Azure notification hub with FCMv1 credentials using the Azure Management SDK for .NET. This is essential for enabling push notifications to Android devices via Firebase Cloud Messaging (FCMv1).
 
 ## Prerequisites
 - An existing Azure Notification Hub within a namespace.
 - FCMv1 credentials including `clientEmail`, `privateKey`, and `projectId`.
 
-### Step 1: Setup and Retrieve the Notification Hub
+### Step 1: Set up and retrieve the Notification Hub
 Before you can update the Notification Hub, ensure that you have set up the `ArmClient` and retrieved the relevant Notification Hub resource.
 
 ```csharp
@@ -31,7 +30,7 @@ NotificationHubNamespaceResource notificationHubNamespaceResource = resourceGrou
 NotificationHubResource notificationHubResource = notificationHubNamespaceResource.GetNotificationHubs().Get(notificationHubName);
 ```
 
-### Step 2: Define and Update FCMv1 Credentials
+### Step 2: Define and update FCMv1 credentials
 Next, create an `FcmV1Credential` object with your FCMv1 details and use it to update the Notification Hub.
 
 ```csharp
@@ -44,7 +43,7 @@ NotificationHubResource updatedNotificationHub = await notificationHubResource.U
 Console.WriteLine($"Notification Hub '{notificationHubName}' updated successfully with FCMv1 credentials.");
 ```
 
-### Step 3: Verify the Update
+### Step 3: Verify the update
 After updating, you can verify the credentials by retrieving and printing them.
 
 ```csharp
@@ -54,7 +53,7 @@ Console.WriteLine($"FCMv1 Credentials Email: '{notificationHubCredentials.FcmV1C
 
 This step confirms that the Notification Hub has been updated with the correct FCMv1 credentials.
 
-## Complete Code Example
+## Complete code example
 Below is the complete code example that includes the setup, creation, update, and verification of the Notification Hub.
 
 ```csharp
