@@ -7,7 +7,7 @@ ms.author: mbender
 ms.service: azure-virtual-network
 ms.subservice: ip-services
 ms.topic: conceptual
-ms.date: 07/02/2024
+ms.date: 09/09/2024
 ---
 
 # Default outbound access in Azure
@@ -61,9 +61,6 @@ Some examples of configurations that won't work when using default outbound acce
 ## How can I transition to an explicit method of public connectivity (and disable default outbound access)?
  
 There are multiple ways to turn off default outbound access. The following sections describe the options available to you.
- 
->[!Important]
-> Private Subnet is currently in public preview.  It's provided without a service-level agreement, and is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
  
 ### Utilize the Private Subnet parameter
  

@@ -3,7 +3,7 @@ title: Drawing tools events | Microsoft Azure Maps
 description: This article demonstrates how to add a drawing toolbar to a map using Microsoft Azure Maps Web SDK
 author: sinnypan
 ms.author: sipa
-ms.date: 05/23/2023
+ms.date: 09/03/2024
 ms.topic: how-to
 ms.service: azure-maps
 ms.subservice: web-sdk
@@ -15,18 +15,18 @@ When using drawing tools on a map, it's useful to react to certain events as the
 
 | Event | Description |
 |-------|-------------|
-| `drawingchanged` | Fired when any coordinate in a shape has been added or changed. |
+| `drawingchanged` | Fired when any coordinate in a shape is added or changed. |
 | `drawingchanging` | Fired when any preview coordinate for a shape is being displayed. For example, this event fires multiple times as a coordinate is dragged. |
-| `drawingcomplete` | Fired when a shape has finished being drawn or taken out of edit mode. |
+| `drawingcomplete` | Fired when a shape completes drawing or is taken out of edit mode. |
 | `drawingerased` | Fired when a shape is erased from the drawing manager when in `erase-geometry` mode. |
-| `drawingmodechanged` | Fired when the drawing mode has changed. The new drawing mode is passed into the event handler. |
+| `drawingmodechanged` | Fired when the drawing mode changes. The new drawing mode is passed into the event handler. |
 | `drawingstarted` | Fired when the user starts drawing a shape or puts a shape into edit mode.  |
 
-For a complete working sample of how to display data from a vector tile source on the map, see [Drawing tools events] in the [Azure Maps Samples]. In this sample you can draw shapes on the map and watch as the events fire. For the source code for this sample, see [Drawing tools events sample code].
+For a complete working sample of how to display data from a vector tile source on the map, see [Drawing tools events] in the [Azure Maps Samples]. This sample enables you to draw shapes on the map and watch as the events fire. For the source code for this sample, see [Drawing tools events sample code].
 
 The following image shows a screenshot of the complete working sample that demonstrates how the events in the Drawing Tools module work.
 
-:::image type="content" source="./media/drawing-tools-events/drawing-tools-events.png" alt-text="Screenshot showing a map displaying data from a vector tile source.":::
+:::image type="content" source="./media/drawing-tools-events/drawing-tools-events.png" lightbox="./media/drawing-tools-events/drawing-tools-events.png" alt-text="Screenshot showing a map displaying data from a vector tile source.":::
 
 ## Examples
 
@@ -38,7 +38,7 @@ This code demonstrates how to monitor an event of a user drawing shapes. For thi
 
 For a complete working sample of how to use the drawing tools to draw polygon areas on the map with points within them that can be selected, see [Select data in drawn polygon area] in the [Azure Maps Samples]. For the source code for this sample, see [Select data in drawn polygon area sample code].
 
-:::image type="content" source="./media/drawing-tools-events/select-data-in-drawn-polygon-area.png" alt-text="Screenshot showing a map displaying points within polygon areas.":::
+:::image type="content" source="./media/drawing-tools-events/select-data-in-drawn-polygon-area.png" lightbox="./media/drawing-tools-events/select-data-in-drawn-polygon-area.png" alt-text="Screenshot showing a map displaying points within polygon areas.":::
 
 ### Draw and search in polygon area
 
@@ -46,15 +46,15 @@ This code searches for points of interests inside the area of a shape after the 
 
 For a complete working sample of how to use the drawing tools to search for points of interests within drawn areas, see [Draw and search polygon area] in the [Azure Maps Samples]. For the source code for this sample, see [Draw and search polygon area sample code].
 
-:::image type="content" source="./media/drawing-tools-events/draw-and-search-polygon-area.png" alt-text="Screenshot showing a map displaying the Draw and search in polygon area sample.":::
+:::image type="content" source="./media/drawing-tools-events/draw-and-search-polygon-area.png" lightbox="./media/drawing-tools-events/draw-and-search-polygon-area.png" alt-text="Screenshot showing a map displaying the Draw and search in polygon area sample.":::
 
 ### Create a measuring tool
 
-The following code shows how the drawing events can be used to create a measuring tool. The `drawingchanging` is used to monitor the shape, as it's being drawn. As the user moves the mouse, the dimensions of the shape are calculated. The `drawingcomplete` event is used to do a final calculation on the shape after it has been drawn. The `drawingmodechanged` event is used to determine when the user is switching into a drawing mode. Also, the  `drawingmodechanged` event clears the drawing canvas and clears old measurement information.
+The following code shows how the drawing events can be used to create a measuring tool. The `drawingchanging` is used to monitor the shape, as it's being drawn. As the user moves the mouse, the dimensions of the shape are calculated. The `drawingcomplete` event is used to do a final calculation on the shape after drawing completes. The `drawingmodechanged` event is used to determine when the user is switching into a drawing mode. Also, the  `drawingmodechanged` event clears the drawing canvas and clears old measurement information.
 
 For a complete working sample of how to use the drawing tools to measure distances and areas, see [Create a measuring tool] in the [Azure Maps Samples]. For the source code for this sample, see [Create a measuring tool sample code].
 
-:::image type="content" source="./media/drawing-tools-events/create-a-measuring-tool.png" alt-text="Screenshot showing a map displaying the measuring tool sample.":::
+:::image type="content" source="./media/drawing-tools-events/create-a-measuring-tool.png" lightbox="./media/drawing-tools-events/create-a-measuring-tool.png" alt-text="Screenshot showing a map displaying the measuring tool sample.":::
 
 ## Next steps
 

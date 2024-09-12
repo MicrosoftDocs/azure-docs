@@ -10,7 +10,7 @@ ms.date: 08/11/2024
 
 # Differences between Standard single-tenant logic apps versus Consumption multitenant logic apps
 
-Azure Logic Apps is a cloud-based platform for creating and running automated *logic app workflows* that integrate your apps, data, services, and systems. With this platform, you can quickly develop highly scalable integration solutions for your enterprise and business-to-business (B2B) scenarios. When you create a logic app resource, you select either the **Consumption** workflow type or **Standard** workflow type. A Consumption logic app can have only one workflow that runs in *multitenant* Azure Logic Apps or an *integration service environment*. A Standard logic app can have one or multiple workflows that run in *single-tenant* Azure Logic Apps or an App Service Environment v3 (ASE v3).
+Azure Logic Apps is a cloud-based platform for creating and running automated *logic app workflows* that integrate your apps, data, services, and systems. With this platform, you can quickly develop highly scalable integration solutions for your enterprise and business-to-business (B2B) scenarios. When you create a logic app resource, you select either the **Consumption** or **Standard** hosting option. A Consumption logic app can have only one workflow that runs in *multitenant* Azure Logic Apps. A Standard logic app can have one or multiple workflows that run in *single-tenant* Azure Logic Apps or an App Service Environment v3 (ASE v3).
 
 Before you choose which logic app resource to create, review the following guide to learn how the logic app workflow types compare with each other. You can then make a better choice about which logic app workflow and environment best suits your scenario, solution requirements, and the destination where you want to deploy and run your workflows.
 
@@ -20,7 +20,7 @@ If you're new to Azure Logic Apps, review [What is Azure Logic Apps?](logic-apps
 
 ## Logic app workflow types and environments
 
-The following table summarizes the differences between a **Consumption** logic app workflow and **Standard** logic app workflow. You also learn how the single-tenant environment differs from the multitenant environment and an integration service environment (ISE) for deploying, hosting, and running your workflows.
+The following table summarizes the differences between a **Consumption** logic app workflow and **Standard** logic app workflow. You also learn how the single-tenant environment differs from the multitenant environment for deploying, hosting, and running your workflows.
 
 [!INCLUDE [Logic app workflow and environment differences](../../includes/logic-apps-resource-environment-differences-table.md)]
 
@@ -71,13 +71,13 @@ When you use the new built-in connector operations, you create connections calle
 
 ### Direct access to resources in Azure virtual networks
 
-Workflows that run in either single-tenant Azure Logic Apps or in an *integration service environment (ISE)* can directly access secured resources such as virtual machines (VMs), other services, and systems that exist in an [Azure virtual network](../virtual-network/virtual-networks-overview.md).
+Workflows that run in either single-tenant Azure Logic Apps can directly access secured resources such as virtual machines (VMs), other services, and systems that exist in an [Azure virtual network](../virtual-network/virtual-networks-overview.md).
 
-Both single-tenant Azure Logic Apps and an ISE are dedicated instances of the Azure Logic Apps service, use dedicated resources, and run separately from multitenant Azure Logic Apps. Running workflows in a dedicated instance helps reduce the impact that other Azure tenants might have on app performance, also known as the ["noisy neighbors" effect](https://en.wikipedia.org/wiki/Cloud_computing_issues#Performance_interference_and_noisy_neighbors).
+Single-tenant Azure Logic Apps is a dedicated instance of the Azure Logic Apps service, uses dedicated resources, and runs separately from multitenant Azure Logic Apps. Running workflows in a dedicated instance helps reduce the impact that other Azure tenants might have on app performance, also known as the ["noisy neighbors" effect](https://en.wikipedia.org/wiki/Cloud_computing_issues#Performance_interference_and_noisy_neighbors).
 
-Single-tenant Azure Logic Apps and an ISE also provide the following benefits:
+Single-tenant Azure Logic Apps also provide the following benefits:
 
-* Your own static IP addresses, which are separate from the static IP addresses that are shared by the logic apps in the multitenant Azure Logic Apps. You can also set up a single public, static, and predictable outbound IP address to communicate with destination systems. That way, you don't have to set up extra firewall openings at those destination systems for each ISE.
+* Your own static IP addresses, which are separate from the static IP addresses that are shared by the logic apps in the multitenant Azure Logic Apps. You can also set up a single public, static, and predictable outbound IP address to communicate with destination systems. That way, you don't have to set up extra firewall openings at those destination systems.
 
 * Increased limits on run duration, storage retention, throughput, HTTP request and response timeouts, message sizes, and custom connector requests. For more information, review [Limits and configuration for Azure Logic Apps](logic-apps-limits-and-config.md).
 
@@ -106,12 +106,6 @@ To create a logic app resource based on the environment that you want, you have 
 | Azure Resource Manager | [**Create a logic app** ARM template](https://azure.microsoft.com/resources/templates/logic-app-create/) | [Quickstart: Create and deploy Consumption logic app workflows in multitenant Azure Logic Apps - ARM template](quickstart-create-deploy-azure-resource-manager-template.md) |
 | Azure PowerShell | [Az.LogicApp module](/powershell/module/az.logicapp) | [Get started with Azure PowerShell](/powershell/azure/get-started-azureps) |
 | Azure REST API | [Azure Logic Apps REST API](/rest/api/logic) | [Get started with Azure REST API reference](/rest/api/azure) |
-
-**Integration service environment**
-
-| Option | Resources and tools | More information |
-|--------|---------------------|------------------|
-| Azure portal | **Consumption** logic app deployed to an existing ISE resource | Same as [Quickstart: Create an example Consumption logic app workflow in multitenant Azure Logic Apps - Azure portal](quickstart-create-example-consumption-workflow.md), but select an ISE, not a multitenant region. |
 
 Although your development experiences differ based on whether you create **Consumption** or **Standard** logic app resources, you can find and access all your deployed logic apps under your Azure subscription.
 
@@ -232,7 +226,7 @@ The single-tenant model and **Standard** logic app include many current and new 
 
 * Directly publish or deploy logic apps and their workflows from Visual Studio Code to various hosting environments such as Azure and Azure Arc enabled Logic Apps.
 
-* Enable diagnostics logging and tracing capabilities for your logic app by using [Application Insights](../azure-monitor/app/app-insights-overview.md) when supported by your Azure subscription and logic app settings.
+* Enable diagnostics logging and tracing capabilities for your logic app by using [Application Insights](/azure/azure-monitor/app/app-insights-overview) when supported by your Azure subscription and logic app settings.
 
 * Access networking capabilities, such as connect and integrate privately with Azure virtual networks, similar to Azure Functions when you create and deploy your logic apps using the [Azure Functions Premium plan](../azure-functions/functions-premium-plan.md). For more information, review the following documentation:
 
@@ -312,8 +306,6 @@ For the **Standard** logic app workflow, these capabilities have changed, or the
 * **Trigger history and run history**: For a **Standard** logic app, trigger history and run history in the Azure portal appears at the workflow level, not the logic app resource level. For more information, review [Create single-tenant based workflows using the Azure portal](create-single-tenant-workflows-azure-portal.md).
 
 * **Backup and restore for workflow run history**: **Standard** logic apps currently don't support backup and restore for workflow run history.
-
-* **Deployment targets**: You can't deploy a **Standard** logic app resource to an [integration service environment (ISE)](connect-virtual-network-vnet-isolated-environment-overview.md).
 
 * **Terraform templates**: You can't use these templates with a **Standard** logic app resource for complete infrastructure deployment. For more information, see [What is Terraform on Azure](/azure/developer/terraform/overview)?
 

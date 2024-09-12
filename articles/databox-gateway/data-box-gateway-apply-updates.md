@@ -5,7 +5,7 @@ services: databox
 author: stevenmatthew
 
 ms.service: databox
-ms.topic: article
+ms.topic: how-to
 ms.date: 10/14/2020
 ms.author: shaas
 ---
