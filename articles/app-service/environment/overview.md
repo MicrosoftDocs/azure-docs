@@ -42,7 +42,7 @@ App Service Environments have many use cases, including:
 - Network-isolated application hosting.
 - Multi-tier applications.
 
-There are many networking features that enable apps in a multi-tenant App Service to reach network-isolated resources or become network-isolated themselves. These features are enabled at the application level. With an App Service Environment, no added configuration is required for the apps to be on a virtual network. The apps are deployed into a network-isolated environment that's already on a virtual network. If you really need a complete isolation story, you can also deploy your App Service Environment onto dedicated hardware.
+There are many networking features that enable apps in a multitenant App Service to reach network-isolated resources or become network-isolated themselves. These features are enabled at the application level. With an App Service Environment, no added configuration is required for the apps to be on a virtual network. The apps are deployed into a network-isolated environment that's already on a virtual network. If you really need a complete isolation story, you can also deploy your App Service Environment onto dedicated hardware.
 
 ## Dedicated environment
 
@@ -60,9 +60,9 @@ The number of addresses that are used by an App Service Environment v3 in its su
 
 The apps in an App Service Environment don't need any features enabled to access resources on the same virtual network that the App Service Environment is in. If the App Service Environment virtual network is connected to another network, the apps in the App Service Environment can access resources in those extended networks. Traffic can be blocked by user configuration on the network.
 
-The multi-tenant version of Azure App Service contains numerous features to enable your apps to connect to your various networks. With those networking features, your apps can act as though they're deployed on a virtual network. The apps in an App Service Environment v3 don't need any added configuration to be on the virtual network.
+The multitenant version of Azure App Service contains numerous features to enable your apps to connect to your various networks. With those networking features, your apps can act as though they're deployed on a virtual network. The apps in an App Service Environment v3 don't need any added configuration to be on the virtual network.
 
-A benefit of using an App Service Environment instead of a multi-tenant service is that any network access controls for the App Service Environment-hosted apps are external to the application configuration. With the apps in the multi-tenant service, you must enable the features on an app-by-app basis and use role-based access control or a policy to prevent any configuration changes.
+A benefit of using an App Service Environment instead of a multitenant service is that any network access controls for the App Service Environment-hosted apps are external to the application configuration. With the apps in the multitenant service, you must enable the features on an app-by-app basis and use role-based access control or a policy to prevent any configuration changes.
 
 ## Feature differences
 
@@ -71,7 +71,7 @@ App Service Environment v3 differs from earlier versions in the following ways:
 - There are no networking dependencies on the customer's virtual network. You can secure all inbound and outbound traffic and route outbound traffic as you want.
 - You can deploy an App Service Environment v3 that's enabled for zone redundancy. You set zone redundancy only during creation and only in regions where all App Service Environment v3 dependencies are zone redundant. In this case, each App Service Plan on the App Service Environment will need to have a minimum of three instances so that they can be spread across zones. For more information, see [Migrate App Service Environment to availability zone support](../../availability-zones/migrate-app-service-environment.md).
 - You can deploy an App Service Environment v3 on a dedicated host group. Host group deployments aren't zone redundant.
-- Scaling is much faster than with an App Service Environment v2. Although scaling still isn't immediate, as in the multi-tenant service, it's a lot faster.
+- Scaling is much faster than with an App Service Environment v2. Although scaling still isn't immediate, as in the multitenant service, it's a lot faster.
 - Front-end scaling adjustments are no longer required. App Service Environment v3 front ends automatically scale to meet your needs and are deployed on better hosts.
 - Scaling no longer blocks other scale operations within the App Service Environment v3. Only one scale operation can be in effect for a combination of OS and size. For example, while your Windows small App Service plan is scaling, you could kick off a scale operation to run at the same time on a Windows medium or anything else other than Windows small.
 - You can reach apps in an internal-VIP App Service Environment v3 across global peering. Such access wasn't possible in earlier versions.
