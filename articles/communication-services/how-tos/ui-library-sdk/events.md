@@ -1,27 +1,23 @@
 ---
-title: Customize the actions from the button bar in the UI Library
+title: Handle events in the UI Library
 titleSuffix: An Azure Communication Services how-to guide
-description: Customize the actions from the button bar in the Azure Communication Services UI Library.
+description: Handle events in the Azure Communication Services UI Library.
 author: garchiro7
 
 ms.author: jorgegarc
 ms.service: azure-communication-services
 ms.subservice: calling
 ms.topic: how-to 
-ms.date: 08/01/2024
+ms.date: 09/01/2024
 ms.custom: template-how-to
 zone_pivot_groups: acs-plat-ios-android
 
-#Customer intent: As a developer, I want to customize the button bar actions in the UI Library.
+#Customer intent: As a developer, I want to handle events in the UI Library
 ---
 
-# Customize the button bar
+# Subscribe events in the UI Library
 
 [!INCLUDE [Public Preview Notice](../../includes/public-preview-include.md)]
-
-To implement custom actions or modify the current button layout, you can interact with the Native UI Library's API. This API involves defining custom button configurations, specifying actions, and managing the button bar's current actions. The API provides methods for adding custom actions, and removing existing buttons, all of which are accessible via straightforward function calls.
-
-This functionality provides a high degree of customization, and ensures that the user interface remains cohesive and consistent with the application's overall design.
 
 ## Prerequisites
 
@@ -33,11 +29,11 @@ This functionality provides a high degree of customization, and ensures that the
 ## Set up the feature
 
 ::: zone pivot="platform-android"
-[!INCLUDE [Customize the actions from the button bar in the Android UI Library](./includes/button-injection/android.md)]
+[!INCLUDE [Listen events in the Android UI Library](./includes/events/android.md)]
 ::: zone-end
 
 ::: zone pivot="platform-ios"
-[!INCLUDE [Customize the actions from the button bar in the iOS UI Library](./includes/button-injection/ios.md)]
+[!INCLUDE [Listen events in the iOS UI Library](./includes/events/ios.md)]
 ::: zone-end
 
 ## Next steps
