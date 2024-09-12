@@ -90,7 +90,7 @@ In this tutorial, you learn how to:
             Write-Output "Querying ARG to get machine details[MaintenanceRunId=$maintenanceRunId][ResourceSubscriptionIdsCount=$($resourceSubscriptionIds.Count)]"    
             $argQuery = @"maintenanceresources     
             | where type =~ 'microsoft.maintenance/applyupdates'    
-            | where properties.correlationId =~ '$($maintenanceRunId)'  
+            | where name == '$($maintenanceRunId)'  
             | where id has '/providers/microsoft.compute/virtualmachines/'    
             | project id, resourceId = tostring(properties.resourceId)    
             | order by id asc 
