@@ -209,8 +209,8 @@ To copy data from and to Salesforce, set the type property of the dataset to **S
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | type | The type property must be set to **SalesforceV2Object**.  | Yes |
-| objectApiName | The Salesforce object name to retrieve data from. | No for source (if "query" in source is specified), Yes for sink |
-| reportId | The ID of the Salesforce report to retrieve data from. It isn't supported in sink. There are [limitations](https://developer.salesforce.com/docs/atlas.en-us.api_analytics.meta/api_analytics/sforce_analytics_rest_api_limits_limitations.htm) when you use reports. | No for source (if "query" in source is specified), not support sink |
+| objectApiName | The Salesforce object name to retrieve data from. The applicable self-hosted integration runtime version is 5.44.8984.1 or above. | No for source (if "query" in source is specified), Yes for sink |
+| reportId | The ID of the Salesforce report to retrieve data from. It isn't supported in sink. There are [limitations](https://developer.salesforce.com/docs/atlas.en-us.api_analytics.meta/api_analytics/sforce_analytics_rest_api_limits_limitations.htm) when you use reports. The applicable self-hosted integration runtime version is 5.44.8984.1 or above. | No for source (if "query" in source is specified), not support sink |
 
 > [!IMPORTANT]
 > The "__c" part of **API Name** is needed for any custom object.
@@ -388,8 +388,8 @@ The Salesforce connector offers new functionalities and is compatible with most 
 |Salesforce |Salesforce (legacy)|
 |:---|:---|
 |Support SOQL within [Salesforce Bulk API 2.0](https://developer.salesforce.com/docs/atlas.en-us.api_asynch.meta/api_asynch/queries.htm#SOQL%20Considerations). <br>For SOQL queries:  <br>• GROUP BY, LIMIT, ORDER BY, OFFSET, or TYPEOF clauses aren't supported. <br>• Aggregate Functions such as COUNT() aren't supported, you can use Salesforce reports to implement them. <br>• Date functions in GROUP BY clauses aren't supported, but they're supported in the WHERE clause. <br>• Compound address fields or compound geolocation fields aren't supported. As an alternative, query the individual components of compound fields.  <br>• Parent-to-child relationship queries aren't supported, whereas child-to-parent relationship queries are supported. |Support both SQL and SOQL syntax. |
-| Support objects that contain binary fields in the following conditions: <br>• Specifying objectApiName/reportId. <br>• Using self-hosted integration runtime version 5.44.8984.1 or above. |Support objects that contain binary fields (like Attachment object) in the following condition: <br>• Specifying objectApiName/query.|
-| Support objects that are unsupported with Bulk API in the following conditions: <br>• Specifying objectApiName/reportId. <br>• Using self-hosted integration runtime version 5.44.8984.1 or above. | Support objects (like CaseStatus) that are unsupported with Bulk API in the following condition: <br>• Specifying objectApiName/query.|
+| Objects that contain binary fields aren't supported when specifying query. | Objects that contain binary fields are supported when specifying query.|
+| Support objects within Bulk API when specifying query. | Support objects that are unsupported with Bulk API when specifying query.|
 |Support report by selecting a report ID.|Support report query syntax, like `{call "<report name>"}`.|
 
 ## Related content
