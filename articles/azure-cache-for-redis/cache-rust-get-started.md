@@ -344,4 +344,4 @@ The application accepts connectivity and credentials in the form of environment 
 
 ## Related content
 
-- [Create a basic ASP.NET web app that uses Azure Cache for Redis](./cache-web-app-howto.md)
+* [Create a basic ASP.NET web app that uses Azure Cache for Redis](./cache-web-app-howto.md)

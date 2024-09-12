@@ -24,7 +24,7 @@ If you want to skip straight to the code, see the [Python quickstart sample](htt
 
 ## Prerequisites
 
-- Azure subscription. [Create one for free](https://azure.microsoft.com/free/)
+- An Azure subscription. [Create one for free](https://azure.microsoft.com/free/)
 - Python 3
   - For macOS or Linux, download from [python.org](https://www.python.org/downloads/).
   - For Windows 11, use the [Windows Store](https://apps.microsoft.com/search/publisher?name=Python+Software+Foundation&hl=en-us&gl=US).

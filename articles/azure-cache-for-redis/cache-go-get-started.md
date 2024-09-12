@@ -48,7 +48,7 @@ func main() {
 ...
 ```
 
-Then, you establish connection with Azure Cache for Redis. We use [tls.Config](https://go.dev/pkg/crypto/tls/#Config)--Azure Cache for Redis only accepts secure connections with [TLS 1.2 as the minimum required version](cache-remove-tls-10-11.md).
+Then, you establish connection with Azure Cache for Redis. We use [tls.Config](https://go.dev/pkg/crypto/tls/#Config). Azure Cache for Redis supports only secure connections, and [TLS 1.2 as the minimum required version](cache-remove-tls-10-11.md).
 
 ```go
 ...

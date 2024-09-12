@@ -36,7 +36,7 @@ Make a note of the values for **HOST NAME** and the **Primary** access key. You 
 
 ## Add a local secret for the connection string
 
-In your command window, execute the following command to store a new secret named `CacheConnection`. Replace the placeholders (including angle brackets) with your cache name (`<cache name>`) and primary access key (`<primary-access-key>`):
+In your Command Prompt window, execute the following command to store a new secret named `CacheConnection`. Replace the placeholders (including angle brackets) with your cache name (`<cache name>`) and primary access key (`<primary-access-key>`):
 
 ```dos
 dotnet user-secrets set CacheConnection "<cache name>.redis.cache.windows.net,abortConnect=false,ssl=true,allowAdmin=true,password=<primary-access-key>"

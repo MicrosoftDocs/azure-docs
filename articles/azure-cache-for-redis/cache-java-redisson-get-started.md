@@ -291,5 +291,5 @@ Cache Response : Hello! The cache is working from Java! 2023-12-05T15:45:45.7486
 
 ## Related content
 
-- [Create an ASP.NET web app that uses an Azure Cache for Redis](./cache-web-app-howto.md)
+- [Create an ASP.NET web app that uses Azure Cache for Redis](./cache-web-app-howto.md)
 - [Use Java with Azure Cache for Redis on Azure Kubernetes Service](/azure/developer/java/ee/how-to-deploy-java-liberty-jcache)
