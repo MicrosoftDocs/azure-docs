@@ -5,7 +5,6 @@ ms.topic: include
 ms.date: 09/01/2024
 ms.author: iaulakh
 ---
-[!INCLUDE [Install SDK](../install-sdk/install-sdk-android.md)]
 
 ## Get call start time 
 To retrieve the call start time, subscribe to the `addOnStartTimeUpdatedListener` on the `CommonCall` object. The start time is returned as a `Date` object, indicating when the call was bootstrapped.

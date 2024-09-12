@@ -337,7 +337,7 @@ items:
       - name: Manage Teams meeting Lobby
         href: how-tos/calling-sdk/lobby.md
       - name: Manage call duration
-        href: how-tos/calling-sdk/call-duration.md
+        href: tutorials/call-duration.md
       - name: PowerPoint Live
         href: how-tos/calling-sdk/powerpoint-live.md
       - name: Record calls

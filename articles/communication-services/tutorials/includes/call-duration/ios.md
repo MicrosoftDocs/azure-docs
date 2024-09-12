@@ -5,7 +5,6 @@ ms.topic: include
 ms.date: 09/01/2024
 ms.author: iaulakh
 ---
-[!INCLUDE [Install SDK](../install-sdk/install-sdk-ios.md)]
 
 ## Get call start time 
 To retrieve the call start time, set the `didUpdateStartTime` on the `CallDelegate`. The start time is returned as a `Date` object, indicating when the indicating when the call was bootstrapped.
