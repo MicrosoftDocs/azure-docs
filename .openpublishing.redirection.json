@@ -4764,6 +4764,21 @@
       "source_path_from_root": "/articles/modeling-simulation-workbench/how-to-guide-manage-storage.md",
       "redirect_url": "/azure/modeling-simulation-workbench/concept-storage",
       "redirect_document_id": false
-    }
+    },
+    {
+      "source_path_from_root": "/articles/load-balancer/upgrade-basic-standard-with-powershell.md",
+      "redirect_url": "/azure/load-balancer/upgrade-basic-standard",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/load-balancer/upgrade-basic-standard-with-powershell.md",
+      "redirect_url": "/azure/load-balancer/upgrade-basicinternal-standard",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/virtual-network/ip-services/ipv6-overview.md",
+      "redirect_url": "/azure/load-balancer/load-balancer-ipv6-overview",
+      "redirect_document_id": false
+    },
   ]
 }
