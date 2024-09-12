@@ -169,6 +169,8 @@
       href: authorize-oauth-rest.md
   - name: Enable threat protection
     href: ../common/azure-defender-storage-configure.md?toc=/azure/storage/files/toc.json
+  - name: Configure root squash (NFS shares)
+    href: nfs-root-squash.md    
 - name: Data protection
   items:
   - name: Data protection overview
@@ -211,8 +213,6 @@
       href: ../../backup/manage-afs-powershell.md?toc=/azure/storage/files/toc.json
     - name: REST API
       href: ../../backup/manage-azure-file-share-rest-api.md?toc=/azure/storage/files/toc.json
-  - name: Root squash (NFS shares)
-    href: nfs-root-squash.md
 - name: Availability and disaster recovery
   items:
   - name: Storage redundancy

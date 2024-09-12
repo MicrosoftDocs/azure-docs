@@ -54,14 +54,19 @@ The following table highlights the UID behavior observed from the server when sp
 
 You can configure root squash settings via the Azure portal, Azure PowerShell, or Azure CLI.
 
-
 # [Portal](#tab/azure-portal)
 
 1. Sign in to the Azure portal and navigate to the FileStorage storage account containing the NFS Azure file share.
 
 1. In the service menu, under **Data storage**, select **File shares**.
 
-1. 
+1. Select the file share for which you want to modify the root squash setting.
+
+1. In the service menu, select **Properties**. Then toggle the **Root squash** setting as desired.
+
+   :::image type="content" source="media/nfs-root-squash/toggle-root-squash.png" alt-text="Screenshot showing how to create a storage account in the Azure portal." lightbox="media/nfs-root-squash/toggle-root-squash.png":::
+
+1. Select **Save** to update the root squash value.
 
 # [Azure PowerShell](#tab/azure-powershell)
 
