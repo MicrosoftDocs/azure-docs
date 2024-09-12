@@ -55,11 +55,11 @@ sections:
             * Set the `ConnectionMultiplexer.ClientName` property to an app instance unique name for diagnostic purposes.
             * Use multiple `ConnectionMultiplexer` instances for custom workloads.
 
-              You can follow this model if you have varying load in your application. For example:
+              You can follow this model if you have varying loads in your application. For example:  
 
               * You can have one multiplexer for dealing with large keys.
               * You can have one multiplexer for dealing with small keys.
-              * You can set different values for connection timeouts and retry logic for each ConnectionMultiplexer that you use.
+              * You can set different values for connection timeouts and retry logic for each `ConnectionMultiplexer` that you use.
               * Set the `ClientName` property on each multiplexer to help with diagnostics.
               
               Following this guidance might lead to more streamlined latency per `ConnectionMultiplexer`.

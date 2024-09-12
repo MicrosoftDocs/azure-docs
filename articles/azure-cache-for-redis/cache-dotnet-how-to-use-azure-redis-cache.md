@@ -12,7 +12,7 @@ ms.date: 03/25/2022
 
 # Quickstart: Use Azure Cache for Redis with a .NET app
 
-In this quickstart, you incorporate Azure Cache for Redis into a .NET app to access a secure, dedicated cache that is accessible from any application in Azure. You specifically use the [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) client with C# code in a .NET console app.
+In this quickstart, you incorporate Azure Cache for Redis into a .NET app for access to a secure, dedicated cache that is accessible from any application in Azure. You specifically use the [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) client with C# code in a .NET console app.
 
 ## Skip to the code on GitHub
 
