@@ -1,8 +1,8 @@
 ---
 title: Introduction to the Azure Linux Container Host for AKS
 description: Learn about the Azure Linux Container Host to use the container-optimized OS in your AKS clusters.
-author: htaubenfeld
-ms.author: htaubenfeld
+author: suhuruli
+ms.author: suhuruli
 ms.service: microsoft-linux
 ms.custom: linux-related-content
 ms.topic: overview

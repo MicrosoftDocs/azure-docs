@@ -2009,6 +2009,11 @@
       "source_path_from_root": "/articles/azure-resource-manager/bicep/bicep-extensibility-kubernetes-provider.md",
       "redirect_url": "/azure/azure-resource-manager/bicep/bicep-kubernetes-extension",
       "redirect_document_id": false
-    }    
+    },
+    {
+      "source_path_from_root": "/articles/azure-resource-manager/bicep/tutorial-use-deployment-stacks.md",
+      "redirect_url": "/training/modules/manage-resource-lifecycles-deployment-stacks",
+      "redirect_document_id": false
+    }        
   ]
 }

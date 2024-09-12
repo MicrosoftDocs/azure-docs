@@ -1,7 +1,7 @@
 ---
-title: Best practices for using Azure Data Lake Storage Gen2
+title: Best practices for using Azure Data Lake Storage
 titleSuffix: Azure Storage
-description: Learn how to optimize performance, reduce costs, and secure your Data Lake Storage Gen2 enabled Azure Storage account.
+description: Learn how to optimize performance, reduce costs, and secure your Data Lake Storage enabled Azure Storage account.
 author: normesta
 
 ms.service: azure-data-lake-storage
@@ -11,28 +11,28 @@ ms.author: normesta
 ms.reviewer: sachins
 ---
 
-# Best practices for using Azure Data Lake Storage Gen2
+# Best practices for using Azure Data Lake Storage
 
-This article provides best practice guidelines that help you optimize performance, reduce costs, and secure your Data Lake Storage Gen2 enabled Azure Storage account.
+This article provides best practice guidelines that help you optimize performance, reduce costs, and secure your Data Lake Storage enabled Azure Storage account.
 
 For general suggestions around structuring a data lake, see these articles:
 
 - [Overview of Azure Data Lake Storage for the data management and analytics scenario](/azure/cloud-adoption-framework/scenarios/data-management/best-practices/data-lake-overview?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json)
-- [Provision three Azure Data Lake Storage Gen2 accounts for each data landing zone](/azure/cloud-adoption-framework/scenarios/data-management/best-practices/data-lake-services?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json)
+- [Provision three Azure Data Lake Storage accounts for each data landing zone](/azure/cloud-adoption-framework/scenarios/data-management/best-practices/data-lake-services?toc=/azure/storage/blobs/toc.json&bc=/azure/storage/blobs/breadcrumb/toc.json)
 
 ## Find documentation
 
-Azure Data Lake Storage Gen2 isn't a dedicated service or account type. It's a set of capabilities that support high throughput analytic workloads. The Data Lake Storage Gen2 documentation provides best practices and guidance for using these capabilities. For all other aspects of account management such as setting up network security, designing for high availability, and disaster recovery, see the [Blob storage documentation](storage-blobs-introduction.md) content.
+Azure Data Lake Storage isn't a dedicated service or account type. It's a set of capabilities that support high throughput analytic workloads. The Data Lake Storage documentation provides best practices and guidance for using these capabilities. For all other aspects of account management such as setting up network security, designing for high availability, and disaster recovery, see the [Blob storage documentation](storage-blobs-introduction.md) content.
 
 #### Evaluate feature support and known issues
 
 Use the following pattern as you configure your account to use Blob storage features.
 
-1. Review the [Blob Storage feature support in Azure Storage accounts](storage-feature-support-in-storage-accounts.md) article to determine whether a feature is fully supported in your account. Some features aren't yet supported or have partial support in Data Lake Storage Gen2 enabled accounts. Feature support is always expanding so make sure to periodically review this article for updates.
+1. Review the [Blob Storage feature support in Azure Storage accounts](storage-feature-support-in-storage-accounts.md) article to determine whether a feature is fully supported in your account. Some features aren't yet supported or have partial support in Data Lake Storage enabled accounts. Feature support is always expanding so make sure to periodically review this article for updates.
 
-2. Review the [Known issues with Azure Data Lake Storage Gen2](data-lake-storage-known-issues.md) article to see if there are any limitations or special guidance around the feature you intend to use.
+2. Review the [Known issues with Azure Data Lake Storage](data-lake-storage-known-issues.md) article to see if there are any limitations or special guidance around the feature you intend to use.
 
-3. Scan feature articles for any guidance that is specific to Data Lake Storage Gen2 enabled accounts.
+3. Scan feature articles for any guidance that is specific to Data Lake Storage enabled accounts.
 
 #### Understand the terms used in documentation
 
@@ -42,13 +42,13 @@ As you move between content sets, you notice some slight terminology differences
 
 If your workloads require a low consistent latency and/or require a high number of input output operations per second (IOP), consider using a premium block blob storage account. This type of account makes data available via high-performance hardware. Data is stored on solid-state drives (SSDs) which are optimized for low latency. SSDs provide higher throughput compared to traditional hard drives. The storage costs of premium performance are higher, but transaction costs are lower. Therefore, if your workloads execute a large number of transactions, a premium performance block blob account can be economical.
 
-If your storage account is going to be used for analytics, we highly recommend that you use Azure Data Lake Storage Gen2 along with a premium block blob storage account. This combination of using premium block blob storage accounts along with a Data Lake Storage enabled account is referred to as the [premium tier for Azure Data Lake Storage](premium-tier-for-data-lake-storage.md).
+If your storage account is going to be used for analytics, we highly recommend that you use Azure Data Lake Storage along with a premium block blob storage account. This combination of using premium block blob storage accounts along with a Data Lake Storage enabled account is referred to as the [premium tier for Azure Data Lake Storage](premium-tier-for-data-lake-storage.md).
 
 ## Optimize for data ingest
 
 When ingesting data from a source system, the source hardware, source network hardware, or the network connectivity to your storage account can be a bottleneck.
 
-![Diagram that shows the factors to consider when ingesting data from a source system to Data Lake Storage Gen2.](./media/data-lake-storage-best-practices/bottleneck.png)
+![Diagram that shows the factors to consider when ingesting data from a source system to Data Lake Storage.](./media/data-lake-storage-best-practices/bottleneck.png)
 
 ### Source hardware
 
@@ -56,13 +56,13 @@ Whether you're using on-premises machines or Virtual Machines (VMs) in Azure, ma
 
 ### Network connectivity to the storage account
 
-The network connectivity between your source data and your storage account can sometimes be a bottleneck. When your source data is on premise, consider using a dedicated link with [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/). If your source data is in Azure, the performance is best when the data is in the same Azure region as your Data Lake Storage Gen2 enabled account.
+The network connectivity between your source data and your storage account can sometimes be a bottleneck. When your source data is on premise, consider using a dedicated link with [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/). If your source data is in Azure, the performance is best when the data is in the same Azure region as your Data Lake Storage enabled account.
 
 ### Configure data ingestion tools for maximum parallelization
 
 To achieve the best performance, use all available throughput by performing as many reads and writes in parallel as possible.
 
-![Data Lake Storage Gen2 performance](./media/data-lake-storage-best-practices/throughput.png)
+![Data Lake Storage performance](./media/data-lake-storage-best-practices/throughput.png)
 
 The following table summarizes the key settings for several popular ingestion tools.
 
@@ -75,7 +75,7 @@ The following table summarizes the key settings for several popular ingestion to
 > [!NOTE]
 > The overall performance of your ingest operations depend on other factors that are specific to the tool that you're using to ingest data. For the best up-to-date guidance, see the documentation for each tool that you intend to use.
 
-Your account can scale to provide the necessary throughput for all analytics scenarios. By default, a Data Lake Storage Gen2 enabled account provides enough throughput in its default configuration to meet the needs of a broad category of use cases. If you run into the default limit, the account can be configured to provide more throughput by contacting [Azure Support](https://azure.microsoft.com/support/faq/).
+Your account can scale to provide the necessary throughput for all analytics scenarios. By default, a Data Lake Storage enabled account provides enough throughput in its default configuration to meet the needs of a broad category of use cases. If you run into the default limit, the account can be configured to provide more throughput by contacting [Azure Support](https://azure.microsoft.com/support/faq/).
 
 ## Structure data sets
 
@@ -156,11 +156,11 @@ Again, the choice you make with the folder and file organization should optimize
 
 Start by reviewing the recommendations in the [Security recommendations for Blob storage](security-recommendations.md) article. You'll find best practice guidance about how to protect your data from accidental or malicious deletion, secure data behind a firewall, and use Microsoft Entra ID as the basis of identity management.
 
-Then, review the [Access control model in Azure Data Lake Storage Gen2](data-lake-storage-access-control-model.md) article for guidance that is specific to Data Lake Storage Gen2 enabled accounts. This article helps you understand how to use Azure role-based access control (Azure RBAC) roles together with access control lists (ACLs) to enforce security permissions on directories and files in your hierarchical file system.
+Then, review the [Access control model in Azure Data Lake Storage](data-lake-storage-access-control-model.md) article for guidance that is specific to Data Lake Storage enabled accounts. This article helps you understand how to use Azure role-based access control (Azure RBAC) roles together with access control lists (ACLs) to enforce security permissions on directories and files in your hierarchical file system.
 
 ## Ingest, process, and analyze
 
-There are many different sources of data and different ways in which that data can be ingested into a Data Lake Storage Gen2 enabled account.
+There are many different sources of data and different ways in which that data can be ingested into a Data Lake Storage enabled account.
 
 For example, you can ingest large sets of data from HDInsight and Hadoop clusters or smaller sets of *ad hoc* data for prototyping applications. You can ingest streamed data that is generated by various sources such as applications, devices, and sensors. For this type of data, you can use tools to capture and process the data on an event-by-event basis in real time, and then write the events in batches into your account. You can also ingest web server logs, which contain information such as the history of page requests. For log data, consider writing custom scripts or applications to upload them so that you'll have the flexibility to include your data uploading component as part of your larger big data application.
 
@@ -181,7 +181,7 @@ The following table recommends tools that you can use to ingest, analyze, visual
 | Download data | Azure portal, [PowerShell](data-lake-storage-directory-file-acl-powershell.md), [Azure CLI](data-lake-storage-directory-file-acl-cli.md), [REST](/rest/api/storageservices/data-lake-storage-gen2), Azure SDKs ([.NET](data-lake-storage-directory-file-acl-dotnet.md), [Java](data-lake-storage-directory-file-acl-java.md), [Python](data-lake-storage-directory-file-acl-python.md), and [Node.js](data-lake-storage-directory-file-acl-javascript.md)), [Azure Storage Explorer](data-lake-storage-explorer.md), [AzCopy](../common/storage-use-azcopy-v10.md#transfer-data), [Azure Data Factory](../../data-factory/copy-activity-overview.md), [Apache DistCp](./data-lake-storage-use-distcp.md) |
 
 > [!NOTE]
-> This table doesn't reflect the complete list of Azure services that support Data Lake Storage Gen2. To see a list of supported Azure services, their level of support, see [Azure services that support Azure Data Lake Storage Gen2](data-lake-storage-supported-azure-services.md).
+> This table doesn't reflect the complete list of Azure services that support Data Lake Storage. To see a list of supported Azure services, their level of support, see [Azure services that support Azure Data Lake Storage](data-lake-storage-supported-azure-services.md).
 
 
 ## Monitor telemetry
@@ -202,6 +202,6 @@ Azure Storage logs in Azure Monitor can be enabled through the Azure portal, Pow
 ## See also
 
 - [Key considerations for Azure Data Lake Storage](/azure/cloud-adoption-framework/scenarios/data-management/best-practices/data-lake-key-considerations)
-- [Access control model in Azure Data Lake Storage Gen2](data-lake-storage-access-control-model.md)
+- [Access control model in Azure Data Lake Storage](data-lake-storage-access-control-model.md)
 - [The hitchhiker's guide to the Data Lake](https://azure.github.io/Storage/docs/analytics/hitchhikers-guide-to-the-datalake/)
-- [Overview of Azure Data Lake Storage Gen2](data-lake-storage-introduction.md)
+- [Overview of Azure Data Lake Storage](data-lake-storage-introduction.md)

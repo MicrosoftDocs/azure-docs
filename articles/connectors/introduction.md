@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: conceptual
-ms.date: 01/10/2024
+ms.date: 09/06/2024
 ms.custom: engagement-fy23
 # Customer intent: As a developer, I want to learn how connectors help me access data, events, and resources in other apps, services, systems, and platforms from my workflow in Azure Logic Apps.
 ---
@@ -135,46 +135,6 @@ In Standard workflows for single-tenant Azure Logic Apps, you can create nativel
 * [Service provider-based custom built-in connectors for Standard workflows](../logic-apps/custom-connector-overview.md#custom-connector-standard)
 
 * [Create service provider-based custom built-in connectors for Standard workflows](../logic-apps/create-custom-built-in-connector-standard.md)
-
-## ISE and connectors
-
-> [!IMPORTANT]
->
-> On August 31, 2024, the ISE resource retires, due to its dependency on Azure Cloud Services (classic), 
-> which retires at the same time. Before the retirement date, export any logic apps from your ISE to Standard 
-> logic apps to avoid service disruption. Standard logic app workflows run in single-tenant Azure Logic Apps 
-> and provide the same capabilities plus more. For example, Standard workflows support using private endpoints 
-> for inbound traffic so that your workflows can communicate privately and securely with virtual networks. 
-> Standard workflows also support virtual network integration for outbound traffic. For more information, 
-> review [Secure traffic between virtual networks and single-tenant Azure Logic Apps using private endpoints](/azure/logic-apps/secure-single-tenant-workflow-virtual-network-private-endpoint).
-
-If you use a dedicated [integration service environment (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md) where workflows can directly access to resources in an Azure virtual network, you can build, deploy, and run your workflows on dedicated resources.
-
-Custom connectors created within an ISE don't work with the on-premises data gateway. However, these connectors can directly access on-premises data sources that are connected to an Azure virtual network hosting the ISE. So, logic app workflows in an ISE most likely don't need the data gateway when communicating with those resources. If you have custom connectors that you created outside an ISE that require the on-premises data gateway, workflows in an ISE can use those connectors.
-
-In the workflow designer, when you browse the built-in connectors or managed connectors that you want to use for workflows in an ISE, the **CORE** label appears on built-in connectors, while the **ISE** label appears on managed connectors that are designed to work with an ISE.
-
-:::row:::
-    :::column:::
-        ![Example CORE connector](./media/apis-list/example-core-connector.png)
-        <br><br>**CORE**
-        <br><br>Built-in connectors with this label run in the same ISE as your workflows.
-    :::column-end:::
-    :::column:::
-        ![Example ISE connector](./media/apis-list/example-ise-connector.png)
-        <br><br>**ISE**
-        <br><br>Managed connectors with this label run in the same ISE as your workflows.
-        <br><br>If you have an on-premises system that's connected to an Azure virtual network, an ISE lets your workflows directly access that system without using the [on-premises data gateway](../logic-apps/logic-apps-gateway-connection.md). Instead, you can either use that system's **ISE** connector if available, an HTTP action, or a [custom connector](#custom-connectors-and-apis).
-        <br><br>For on-premises systems that don't have **ISE** connectors, use the on-premises data gateway. To find available ISE connectors, review [ISE connectors](#ise-and-connectors).
-    :::column-end:::
-    :::column:::
-        ![Example non-ISE connector](./media/apis-list/example-multitenant-connector.png)
-        <br><br>No label
-        <br><br>All other connectors without a label, which you can continue to use, run in the global, multitenant Logic Apps service.
-    :::column-end:::
-    :::column:::
-    :::column-end:::
-:::row-end:::
 
 ## Known issues
 
