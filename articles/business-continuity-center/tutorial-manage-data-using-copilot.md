@@ -2,7 +2,7 @@
 title: Tutorial - Manage your Business Continuity and Disaster Recovery estate efficiently using Azure Business Continuity Center Copilot
 description: In this tutorial, learn how to manage your Business Continuity and Disaster Recovery estate efficiently using Azure Business Continuity Center Copilot
 ms.topic: how-to
-ms.date: 03/29/2024
+ms.date: 09/12/2024
 ms.service: azure-business-continuity-center
 ms.reviewer: dapatil
 author: AbhishekMallick-MS
@@ -55,7 +55,7 @@ To enhance protection of your resources, follow these steps:
 
 1. In the [Azure portal](https://portal.azure.com/), select **Copilot**, and then use the prompt **Show the running Virtual Machines**.
 
-2. On **Select resources**, select your virtual machine.
+2. On **Select resources**, choose your virtual machine, and then click **Select**.
 
    :::image type="content" source="./media/tutorial-manage-data-using-copilot/enhance-protection-select-item.png" alt-text="Screenshot shows how to enhance protection using the Copilot." lightbox="./media/tutorial-manage-data-using-copilot/enhance-protection-select-item.png":::
 
@@ -85,9 +85,9 @@ You can also ask Copilot to help enhance your security posture.
 
 To increase the security configuration, follow these steps:
 
-1. On **Copilot**, use the prompt **Increase security level for vault.** Copilot provides a series of steps to enable various security features.
+1. In the [Azure portal](https://portal.azure.com/), on **Copilot**, use the prompt **Increase security level for vault.** Copilot provides a series of steps to enable various security features.
 
-2. On **Select resources**, select a vault, either a **Recovery Services vault** or a **Backup vault**.
+2. On **Select resources**, choose a vault, either a **Recovery Services vault** or a **Backup vault**, and then click **Select**.
 
    :::image type="content" source="./media/tutorial-manage-data-using-copilot/change-security-level-select-vault.png" alt-text="Screenshot shows how to select a vault." lightbox="./media/tutorial-manage-data-using-copilot/change-security-level-select-vault.png":::
 
@@ -95,11 +95,13 @@ To increase the security configuration, follow these steps:
 
    :::image type="content" source="./media/tutorial-manage-data-using-copilot/change-security-level-view-vault-security-level.png" alt-text="Screenshot shows the vault security level." lightbox="./media/tutorial-manage-data-using-copilot/change-security-level-view-vault-security-level.png":::
 
-4. Choose how you want to proceed, through the Azure portal or CLI tools.
+4. Choose the way you want to proceed, through the Azure portal or CLI tools.
+
+   If you select **Command tools (PowerShell/CLI)**, Copilot provides the script for download from the Azure portal  to modify the security levels.
 
    :::image type="content" source="./media/tutorial-manage-data-using-copilot/change-security-level-select-tool.png" alt-text="Screenshot shows the tools available to change security level." lightbox="./media/tutorial-manage-data-using-copilot/change-security-level-select-tool.png":::
 
-   Copilot lists through each security feature and tries to update it so that the desired security level is reached. 
+   Copilot lists through each security feature and tries to update it so that the desired security level is reached. Select the required options to increase the security levels.
 
    :::image type="content" source="./media/tutorial-manage-data-using-copilot/change-security-level-soft-delete-immutability.png" alt-text="Screenshot shows the soft-delete and immutability changes." lightbox="./media/tutorial-manage-data-using-copilot/change-security-level-soft-delete-immutability.png":::
 
@@ -113,19 +115,27 @@ To increase the security configuration, follow these steps:
 
 Copilot can help you get a list of datasources that don’t have any Recovery Point in a specified duration. This helps to monitor any backup failures and maintain service level agreement (SLA) for recovery.
 
-To trigger a query to check for datasources that don't have Recovery Point in **Copilot**, use the prompt **How many datasources don’t have Recovery Point in the last 7 days.** Copilot shows a list of such resources and the ARG query to fetch more details.
+To trigger an on-demand backup for resources, follow these steps:
 
-:::image type="content" source="./media/tutorial-manage-data-using-copilot/view-recovery-point.png" alt-text="Screenshot shows the items with no recovery points." lightbox="./media/tutorial-manage-data-using-copilot/view-recovery-point.png":::
+1. In the [Azure portal](https://portal.azure.com/), on **Copilot**, trigger a query to check for resources that don't have Recovery Point by using the prompt **How many datasources don’t have Recovery Point in the last 7 days.** 
 
-Azure Business Continuity Center Copilot (preview) also provides a PowerShell script for download from the Azure portal to trigger backups on all such resources. To trigger an on-demand backup, select **Yes** on the further prompt.
+   Copilot shows a list of such resources and the ARG query to fetch more details.
 
-:::image type="content" source="./media/tutorial-manage-data-using-copilot/trigger-backup-for-recovery-point.png" alt-text="Screenshot shows the Copilot prompts to trigger backup." lightbox="./media/tutorial-manage-data-using-copilot/trigger-backup-for-recovery-point.png":::
+     :::image type="content" source="./media/tutorial-manage-data-using-copilot/view-recovery-point.png" alt-text="Screenshot shows the items with no recovery points." lightbox="./media/tutorial-manage-data-using-copilot/view-recovery-point.png":::
 
-:::image type="content" source="./media/tutorial-manage-data-using-copilot/trigger-backup-script.png" alt-text="Screenshot shows the script to trigger backup." lightbox="./media/tutorial-manage-data-using-copilot/trigger-backup-script.png":::
+2. Azure Business Continuity Center Copilot (preview) also provides a PowerShell script for download from the Azure portal to trigger backups on all such resources.
 
-:::image type="content" source="./media/tutorial-manage-data-using-copilot/trigger-backup-script-for-failed-jobs.png" alt-text="Screenshot shows the script to trigger backup on failed jobs." lightbox="./media/tutorial-manage-data-using-copilot/trigger-backup-script-for-failed-jobs.png":::
+   To trigger an on-demand backup, select **Yes** on the further prompt.
 
-You can also fetch a list of failed backup jobs in a given time period.
+   :::image type="content" source="./media/tutorial-manage-data-using-copilot/trigger-backup-for-recovery-point.png" alt-text="Screenshot shows the Copilot prompts to trigger backup." lightbox="./media/tutorial-manage-data-using-copilot/trigger-backup-for-recovery-point.png":::
 
-:::image type="content" source="./media/tutorial-manage-data-using-copilot/view-failed-jobs-script.png" alt-text="Screenshot shows the script to view failed jobs." lightbox="./media/tutorial-manage-data-using-copilot/view-failed-jobs-script.png":::
+   The following screenshots show, the scripts to fetch the list of failed backup jobs and to trigger backups for them.
+
+     :::image type="content" source="./media/tutorial-manage-data-using-copilot/trigger-backup-script.png" alt-text="Screenshot shows the script to trigger backup." lightbox="./media/tutorial-manage-data-using-copilot/trigger-backup-script.png":::
+
+     :::image type="content" source="./media/tutorial-manage-data-using-copilot/trigger-backup-script-for-failed-jobs.png" alt-text="Screenshot shows the script to trigger backup on failed jobs." lightbox="./media/tutorial-manage-data-using-copilot/trigger-backup-script-for-failed-jobs.png":::
+
+   You can also fetch a list of failed backup jobs in a given time period.
+
+     :::image type="content" source="./media/tutorial-manage-data-using-copilot/view-failed-jobs-script.png" alt-text="Screenshot shows the script to view failed jobs." lightbox="./media/tutorial-manage-data-using-copilot/view-failed-jobs-script.png":::
 
