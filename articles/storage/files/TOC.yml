@@ -211,6 +211,8 @@
       href: ../../backup/manage-afs-powershell.md?toc=/azure/storage/files/toc.json
     - name: REST API
       href: ../../backup/manage-azure-file-share-rest-api.md?toc=/azure/storage/files/toc.json
+  - name: Root squash (NFS shares)
+    href: nfs-root-squash.md
 - name: Availability and disaster recovery
   items:
   - name: Storage redundancy
