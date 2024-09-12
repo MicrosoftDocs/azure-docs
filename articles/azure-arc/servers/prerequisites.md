@@ -36,7 +36,7 @@ If two agents use the same configuration, you'll encounter inconsistent behavior
 
 ## Supported operating systems
 
-Azure Arc supports the following Windows and Linux operating systems. x86-64 (64-bit) architectures are supported. The Azure Connected Machine agent doesn't run on 32-bit architectures. Some scenarios are supported for ARM64, see below. 
+Azure Arc supports the following Windows and Linux operating systems. x86-64 (64-bit) architecture is fully supported. Some features are supported on ARM64, see below. The Azure Connected Machine agent doesn't run on 32-bit architectures.
 
 | Operating System                    | Version    | x86-64 | ARM64 | Notes                                                                     |
 | ----------------------------------- | ---------- | ------ | ----- | ------------------------------------------------------------------------- |
