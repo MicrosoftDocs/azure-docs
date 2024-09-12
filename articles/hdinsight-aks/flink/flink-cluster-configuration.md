@@ -8,7 +8,9 @@ ms.date: 09/26/2023
 
 # Troubleshoot Apache Flink® cluster configurations on HDInsight on AKS
 
+[!INCLUDE [retirement-notice](../includes/retirement-notice.md)]
 [!INCLUDE [feature-in-preview](../includes/feature-in-preview.md)]
+
 
 Incorrect cluster configuration may lead to deployment errors. Typically those errors occur when incorrect configuration provided in ARM template or input in Azure portal, for example, on [Configuration management](flink-configuration-management.md) page. 
 

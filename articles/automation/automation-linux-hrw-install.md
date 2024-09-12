@@ -4,8 +4,8 @@ description: This article tells how to install an agent-based  Hybrid Runbook Wo
 services: automation
 ms.subservice: process-automation
 ms.custom: linux-related-content
-ms.date: 06/29/2024
-ms.topic: conceptual
+ms.date: 09/09/2024
+ms.topic: how-to
 ms.service: azure-automation
 ---
 
@@ -14,8 +14,7 @@ ms.service: azure-automation
 > [!CAUTION]
 > This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](/azure/virtual-machines/workloads/centos/centos-end-of-life).
 
-> [!IMPORTANT]
->  Azure Automation Agent-based User Hybrid Runbook Worker (Windows and Linux) will retire on **31 August 2024** and wouldn't be supported after that date. You must complete migrating existing Agent-based User Hybrid Runbook Workers to Extension-based Workers before 31 August 2024. Moreover, starting **1 November 2023**, creating new Agent-based Hybrid Workers wouldn't be possible. [Learn more](migrate-existing-agent-based-hybrid-worker-to-extension-based-workers.md).
+[!INCLUDE [./agent-based-user-hybrid-runbook-worker-retirement.md](./includes/agent-based-user-hybrid-runbook-worker-retirement.md)]
 
 You can use the user Hybrid Runbook Worker feature of Azure Automation to run runbooks directly on the Azure or non-Azure machine, including servers registered with [Azure Arc-enabled servers](../azure-arc/servers/overview.md). From the machine or server that's hosting the role, you can run runbooks directly it and against resources in the environment to manage those local resources.
 
@@ -32,13 +31,13 @@ Before you start, make sure that you've the following.
 
 ### A Log Analytics workspace
 
-The Hybrid Runbook Worker role depends on an Azure Monitor Log Analytics workspace to install and configure the role. You can create it through [Azure Resource Manager](../azure-monitor/logs/resource-manager-workspace.md#create-a-log-analytics-workspace), through [PowerShell](../azure-monitor/logs/powershell-workspace-configuration.md?toc=%2fpowershell%2fmodule%2ftoc.json), or in the [Azure portal](../azure-monitor/logs/quick-create-workspace.md).
+The Hybrid Runbook Worker role depends on an Azure Monitor Log Analytics workspace to install and configure the role. You can create it through [Azure Resource Manager](/azure/azure-monitor/logs/resource-manager-workspace#create-a-log-analytics-workspace), through [PowerShell](/azure/azure-monitor/logs/powershell-workspace-configuration?toc=%2fpowershell%2fmodule%2ftoc.json), or in the [Azure portal](/azure/azure-monitor/logs/quick-create-workspace).
 
-If you don't have an Azure Monitor Log Analytics workspace, review the [Azure Monitor Log design guidance](../azure-monitor/logs/workspace-design.md) before you create the workspace.
+If you don't have an Azure Monitor Log Analytics workspace, review the [Azure Monitor Log design guidance](/azure/azure-monitor/logs/workspace-design) before you create the workspace.
 
 ### Log Analytics agent
 
-The Hybrid Runbook Worker role requires the [Log Analytics agent](../azure-monitor/agents/log-analytics-agent.md) for the supported Linux operating system. For servers or machines hosted outside of Azure, you can install the Log Analytics agent using [Azure Arc-enabled servers](../azure-arc/servers/overview.md). The agent is installed with certain service accounts that execute commands requiring root permissions. For more information, see [Service accounts](./automation-hrw-run-runbooks.md#service-accounts).
+The Hybrid Runbook Worker role requires the [Log Analytics agent](/azure/azure-monitor/agents/log-analytics-agent) for the supported Linux operating system. For servers or machines hosted outside of Azure, you can install the Log Analytics agent using [Azure Arc-enabled servers](../azure-arc/servers/overview.md). The agent is installed with certain service accounts that execute commands requiring root permissions. For more information, see [Service accounts](./automation-hrw-run-runbooks.md#service-accounts).
 
 ### Supported Linux operating systems
 

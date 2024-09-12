@@ -49,7 +49,7 @@ In the event of a regional outage, use the same design as that described in [Set
 
 All instances of Azure DNS Private Resolver run as Active-Active within the same region.
 
-The service health is onboarded to [Azure Resource Health](../service-health/resource-health-overview.md), so you'll be able to check for health notifications when you subscribe to them. For more information, see [Create activity log alerts on service notifications using the Azure portal](../service-health/alerts-activity-log-service-notifications-portal.md).
+The service health is onboarded to [Azure Resource Health](/azure/service-health/resource-health-overview), so you'll be able to check for health notifications when you subscribe to them. For more information, see [Create activity log alerts on service notifications using the Azure portal](/azure/service-health/alerts-activity-log-service-notifications-portal).
 
 Also see the [SLA for Azure DNS](https://azure.microsoft.com/support/legal/sla/dns/v1_1/).
 

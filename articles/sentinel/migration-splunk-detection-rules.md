@@ -13,7 +13,7 @@ ms.date: 09/01/2024
 
 The best way to migrate Splunk detection rules to Microsoft Sentinel is to start with the [SIEM migration experience](siem-migration.md). This article describes the manual strategies involved to identify, compare, and migrate your Splunk detection rules to Microsoft Sentinel built-in rules.
 
-For more information about Splunk Observability migration, see [migrate from Splunk to Azure Monitor Logs](../azure-monitor/logs/migrate-splunk-to-azure-monitor-logs.md).
+If you want to migrate your Splunk Observability deployment, learn more about how to [migrate from Splunk to Azure Monitor Logs](/azure/azure-monitor/logs/migrate-splunk-to-azure-monitor-logs).
 
 ## Identify rules
 
@@ -88,7 +88,7 @@ Learn more about analytics rules:
 - [**Create custom analytics rules to detect threats**](detect-threats-custom.md). Use [alert grouping](detect-threats-custom.md#alert-grouping) to reduce alert fatigue by grouping alerts that occur within a given timeframe.
 - [**Map data fields to entities in Microsoft Sentinel**](map-data-fields-to-entities.md) to enable SOC engineers to define entities as part of the evidence to track during an investigation. Entity mapping also makes it possible for SOC analysts to take advantage of an intuitive [investigation graph] (investigate-cases.md#use-the-investigation-graph-to-deep-dive) that can help reduce time and effort.
 - [**Investigate incidents with UEBA data**](investigate-with-ueba.md), as an example of how to use evidence to surface events, alerts, and any bookmarks associated with a particular incident in the incident preview pane.
-- [**Kusto Query Language (KQL)**](/azure/data-explorer/kusto/query/), which you can use to send read-only requests to your [Log Analytics](../azure-monitor/logs/log-analytics-tutorial.md) database to process data and return results. KQL is also used across other Microsoft services, such as [Microsoft Defender for Endpoint](https://www.microsoft.com/microsoft-365/security/endpoint-defender) and [Application Insights](../azure-monitor/app/app-insights-overview.md).
+- [**Kusto Query Language (KQL)**](/azure/data-explorer/kusto/query/), which you can use to send read-only requests to your [Log Analytics](/azure/azure-monitor/logs/log-analytics-tutorial) database to process data and return results. KQL is also used across other Microsoft services, such as [Microsoft Defender for Endpoint](https://www.microsoft.com/microsoft-365/security/endpoint-defender) and [Application Insights](/azure/azure-monitor/app/app-insights-overview).
 
 ## Compare rule terminology
 

@@ -8,7 +8,10 @@ ms.date: 08/29/2023
 
 # Get started with one-click deployment 
 
+[!INCLUDE [retirement-notice](includes/retirement-notice.md)]
 [!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
+
+
 
 
 One-click deployments are designed for users to experience zero touch creation of HDInsight on AKS. It eliminates the need to manually perform certain steps. 
