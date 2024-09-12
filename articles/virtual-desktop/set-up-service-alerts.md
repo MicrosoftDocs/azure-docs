@@ -14,7 +14,7 @@ ms.custom: docs_inherited
 
 You can use Azure Service Health to monitor service issues and health advisories for Azure Virtual Desktop. Azure Service Health can notify you with different types of alerts (for example, email or SMS), help you understand the effect of an issue, and keep you updated as the issue resolves. Azure Service Health can also help you mitigate downtime and prepare for planned maintenance and changes that could affect the availability of your resources.
 
-To learn more about Azure Service Health, see the [Azure Health Documentation](../service-health/index.yml).
+To learn more about Azure Service Health, see the [Azure Health Documentation](/azure/service-health/).
 
 ## Create service alerts
 
@@ -35,7 +35,7 @@ To configure service alerts:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 2. Select **Service Health.**
-3. Follow the instructions in [Create activity log alerts on service notifications](../service-health/alerts-activity-log-service-notifications-portal.md?toc=%2fazure%2fservice-health%2ftoc.json) to set up your alerts and notifications.
+3. Follow the instructions in [Create activity log alerts on service notifications](/azure/service-health/alerts-activity-log-service-notifications-portal?toc=%2fazure%2fservice-health%2ftoc.json) to set up your alerts and notifications.
 
 ## Next steps
 

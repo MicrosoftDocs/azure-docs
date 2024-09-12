@@ -4,7 +4,7 @@ description: This article provides an introduction to what Application Gateway I
 services: application-gateway
 author: greg-lindsay
 ms.service: azure-application-gateway
-ms.topic: article
+ms.topic: concept-article
 ms.date: 01/31/2024
 ms.author: greglin
 ---

@@ -176,7 +176,7 @@ Alternatively, for Azure Stack HCI you can use operating system images from:
 
 - Azure Marketplace. For more information, see [Create Azure Stack HCI VM image using Azure Marketplace images](/azure-stack/hci/manage/virtual-machine-image-azure-marketplace).
 - Azure Storage account. For more information, see [Create Azure Stack HCI VM image using image in Azure Storage account](/azure-stack/hci/manage/virtual-machine-image-storage-account).
-- A local share. For more information, see[Create Azure Stack HCI VM image using images in a local share](/azure-stack/hci/manage/virtual-machine-image-local-share).
+- A local share. For more information, see [Create Azure Stack HCI VM image using images in a local share](/azure-stack/hci/manage/virtual-machine-image-local-share).
 
 You can deploy a virtual machines (VMs) to be used as session hosts from these images with any of the following methods:
 

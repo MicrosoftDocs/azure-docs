@@ -6,7 +6,7 @@ author: stevenmatthew
 
 ms.service: databox
 ms.subservice: disk
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/10/2024
 ms.author: shaas
 ---

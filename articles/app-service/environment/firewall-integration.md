@@ -105,7 +105,7 @@ Azure Firewall can send logs to Azure Storage, Event Hubs, or Azure Monitor logs
 AzureDiagnostics | where msg_s contains "Deny" | where TimeGenerated >= ago(1h)
 ```
 
-Integrating your Azure Firewall with Azure Monitor logs is useful when first getting an application working when you aren't aware of all of the application dependencies. You can learn more about Azure Monitor logs from [Analyze log data in Azure Monitor](../../azure-monitor/logs/log-query-overview.md).
+Integrating your Azure Firewall with Azure Monitor logs is useful when first getting an application working when you aren't aware of all of the application dependencies. You can learn more about Azure Monitor logs from [Analyze log data in Azure Monitor](/azure/azure-monitor/logs/log-query-overview).
 
 <a name="dependencies"></a>
 ## Configuring third-party firewall with your ASE
