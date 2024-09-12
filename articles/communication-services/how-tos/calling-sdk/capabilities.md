@@ -1,7 +1,7 @@
 ---
 title: Get local user capabilities
 titleSuffix: An Azure Communication Services how-to guide
-description: Use Azure Communication Services SDKs to get capabilities of the local user in a call.
+description: Use Azure Communication Services SDK to get capabilities of the local user in a call.
 author: elavarasid
 ms.author: elavarasid
 ms.service: azure-communication-services
@@ -36,26 +36,26 @@ Do I have permission to turn on video, do I have permission to turn on mic, do I
 [!INCLUDE [Capabilities iOS](./includes/capabilities/capabilities-ios.md)]
 ::: zone-end
 
-## Supported Calltype
+## Supported call types
 The feature is currently supported only for Azure Communication Services Rooms call type and teams meeting call type
 
 ## Reasons
 
-The following table provides additional information about why action is not available and provides tips how to make the action available. 
+The following table provides additional information about why action isn't available and provides tips how to make the action available. 
 
 
-| Reason | Description | Resolution |
+|Reason |Description |Resolution |
 |---|---|---|	
-| `Capable`                                      | Action is allowed.                                                 | |
-| `CapabilityNotApplicableForTheCallType`        | Call type blocks the action.                                       | Consider other type of call if you need this action. The call types are: 1:1 call, group call, 1:1 Teams interop call, 1:1 Teams interop group call, Room and Meeting. |
-| `ClientRestricted`                             | The runtime environment is blocking this action                    | Check supported operated systems, browsers, platforms and hardware to unblock the action on your device. |
-| `UserPolicyRestricted`                         | Microsoft 365 user's policy blocks the action.                     | Depending on the action, the policy assigned to the organizer of the meeting, initiator of the call or Microsoft 365 user leveraging ACS SDK dictates availability of the action. Learn more about Teams policy in Teams and change the setting if you need to have the action available. |
-| `RoleRestricted`                               | Assigned role blocks the action.                                   | Promote user to different role to make the action available. | 
-| `FeatureNotSupported`                          | The capabilities feature isn't supported in this call type.        | Let us know in Azure Feedback channel that you would like to have this feature available for this call type. |
-| `MeetingRestricted`                            | Teams meeting option blocks the action.                            | Teams meeting organizer or co-organizer needs to change meeting option to enable this action. |
-| `NotInitialized`                               | The capabilities feature isn't initialized yet.                    | Subscribe to event `capabilitiesChanged` on this.call.feature(Features.Capabilities) to know when capability is initialized. |
-| `NotCapable`                                   | User type blocks the action.                                       | The action is only allowed to specific type of identity (i.e., usually Microsoft 365 users). Consider changing identity of the user to enable this action. |
-| `TeamsPremiumLicenseRestricted`                | Microsoft 365 user needs to have Teams Premium license assigned.   | Depending on the action, Teams meeting organizer or the Microsoft 365 user needs Teams Premium license to enable this action. Microsoft 365 admin can assign required license. |
+|`Capable`                                      | Action is allowed.                                                 | |
+|`CapabilityNotApplicableForTheCallType`        | Call type blocks the action.                                       | Consider other type of call if you need this action. The call types are: 1:1 call, group call, 1:1 Teams interop call, 1:1 Teams interop group call, Room, and Meeting. |
+|`ClientRestricted`                             | The runtime environment is blocking this action                    | Unblock the action on your device by chaning operatin system, browsers, platform or hardware. You can find supported environment in our documentation. |
+|`UserPolicyRestricted`                         | Microsoft 365 user's policy blocks the action.                     | Enable this action by changing policy that is assigned to the organizer of the meeting, initiator of the call or Microsoft 365 user using ACS SDK. The target user depends on the type of action. Learn more about Teams policy in Teams. Teams administrator can change policies. |
+|`RoleRestricted`                               | Assigned role blocks the action.                                   | Promote user to different role to make the action available. | 
+|`FeatureNotSupported`                          | The capabilities feature isn't supported in this call type.        | Let us know in Azure Feedback channel that you would like to have this feature available for this call type. |
+|`MeetingRestricted`                            | Teams meeting option blocks the action.                            | Teams meeting organizer or co-organizer needs to change meeting option to enable this action. |
+|`NotInitialized`                               | The capabilities feature isn't initialized yet.                    | Subscribe to event `capabilitiesChanged` on `this.call.feature(Features.Capabilities)` to know when capability is initialized. |
+|`NotCapable`                                   | User type blocks the action.                                       | The action is only allowed to specific type of identity. Enable this action by using Microsoft 365 identity. |
+|`TeamsPremiumLicenseRestricted`                | Microsoft 365 user needs to have Teams Premium license assigned.   | Enable this action by assigning Teams Premium license to the Teams meeting organizer or the Microsoft 365 user using SDKs. The target user depends on the type of action. Microsoft 365 admin can assign required license. |
 
 
 ## Next steps
