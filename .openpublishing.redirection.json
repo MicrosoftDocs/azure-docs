@@ -4767,7 +4767,7 @@
     },
     {
       "source_path_from_root": "/articles/load-balancer/upgrade-basic-standard.md",
-      "redirect_url": "/azure/load-balancer/upgrade-basic-standard",
+      "redirect_url": "/azure/load-balancer/upgrade-basic-standard-with-powershell",
       "redirect_document_id": false
     },
     {
