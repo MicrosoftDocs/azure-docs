@@ -18,7 +18,7 @@ Workbooks, playbooks, and notebooks are key resources in Microsoft Sentinel that
 This article helps to differentiate between workbooks, playbooks, and notebooks in Microsoft Sentinel:
 
 - After you connect your data sources to Microsoft Sentinel, visualize and monitor the data using [workbooks in Microsoft Sentinel](monitor-your-data.md). Microsoft Sentinel workbooks are based on [Azure Monitor workbooks](/azure/azure-monitor/visualize/workbooks-overview), and add tables and charts with analytics for your logs and queries to the tools already available in Azure.
-- [Jupyter notebooks in Microsoft Sentinel](notebooks.md) are a powerful tool for security investigations and hunting, providing full programmability with a huge colletion of libraries for machine learning, visualization, and data analysis. While many common tasks can be carried out in the portal, Jupyter extends the scope of what you can do with this data.
+- [Jupyter notebooks in Microsoft Sentinel](notebooks.md) are a powerful tool for security investigations and hunting, providing full programmability with a huge collection of libraries for machine learning, visualization, and data analysis. While many common tasks can be carried out in the portal, Jupyter extends the scope of what you can do with this data.
 - Use [Microsoft Sentinel playbooks](automate-responses-with-playbooks.md) to run preconfigured sets of remediation actions to help automate and orchestrate your threat response.
 
 ## Compare by persona
