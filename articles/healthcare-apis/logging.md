@@ -50,6 +50,6 @@ Here's an example of the AuditLog:
 
 [Enable diagnostic settings for the MedTech service](./../healthcare-apis/iot/how-to-enable-diagnostic-settings.md)
 
-[Use Azure Monitor logs](../azure-monitor/essentials/platform-logs-overview.md).
+[Use Azure Monitor logs](/azure/azure-monitor/essentials/platform-logs-overview).
 
-[Supported metrics with Azure Monitor](../azure-monitor/essentials/metrics-supported.md)
+[Supported metrics with Azure Monitor](/azure/azure-monitor/essentials/metrics-supported)

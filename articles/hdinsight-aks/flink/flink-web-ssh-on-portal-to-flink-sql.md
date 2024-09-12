@@ -8,7 +8,9 @@ ms.date: 02/04/2024
 
 # Access Apache Flink® CLI client using Secure Shell (SSH) on HDInsight on AKS clusters with Azure portal
 
+[!INCLUDE [retirement-notice](../includes/retirement-notice.md)]
 [!INCLUDE [feature-in-preview](../includes/feature-in-preview.md)]
+
 
 This example guides how to enter the Apache Flink CLI client on HDInsight on AKS clusters using SSH on Azure portal, we cover both SQL and Flink DataStream.
 

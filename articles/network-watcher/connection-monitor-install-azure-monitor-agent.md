@@ -14,9 +14,9 @@ ms.custom: devx-track-azurecli, devx-track-azurepowershell
 
 # Install and upgrade Azure Monitor Agent on Azure Arc-enabled servers
 
-Azure Monitor Agent is implemented as an Azure virtual machine (VM) extension. You can install Azure Monitor Agent using any of the methods described in [Azure Monitor Agent overview](../azure-monitor/agents/agents-overview.md?toc=/azure/network-watcher/toc.json). 
+Azure Monitor Agent is implemented as an Azure virtual machine (VM) extension. You can install Azure Monitor Agent using any of the methods described in [Azure Monitor Agent overview](/azure/azure-monitor/agents/agents-overview?toc=/azure/network-watcher/toc.json). 
 
-This article covers installing Azure Monitor Agent on Azure Arc-enabled servers using PowerShell or the Azure CLI. For more information, see [Manage Azure Monitor Agent](../azure-monitor/agents/azure-monitor-agent-manage.md?tabs=ARMAgentPowerShell%2CPowerShellWindows%2CPowerShellWindowsArc%2CCLIWindows%2CCLIWindowsArc).
+This article covers installing Azure Monitor Agent on Azure Arc-enabled servers using PowerShell or the Azure CLI. For more information, see [Manage Azure Monitor Agent](/azure/azure-monitor/agents/azure-monitor-agent-manage?tabs=ARMAgentPowerShell%2CPowerShellWindows%2CPowerShellWindowsArc%2CCLIWindows%2CCLIWindowsArc).
 
 ## Use PowerShell
 

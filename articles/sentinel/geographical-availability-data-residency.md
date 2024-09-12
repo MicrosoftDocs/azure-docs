@@ -6,7 +6,10 @@ ms.author: bagol
 ms.topic: conceptual
 ms.date: 08/29/2024
 ms.custom: references_regions
-#Customer intent: As a security operator setting up Microsoft Sentinel, I want to understand where data is stored, so I can meet compliance guidelines.
+
+
+#Customer intent: As a compliance officer or a security operator setting up Microsoft Sentinel, I want to understand the geographical availability and data residency of Microsoft Sentinel so that I can ensure our data meets regional compliance requirements.
+
 ---
 
 # Geographical availability and data residency in Microsoft Sentinel
@@ -40,10 +43,10 @@ Microsoft Sentinel can run on workspaces in the following regions:
 | **North America**| **Canada** | • Canada Central<br>• Canada East |
 | |   **United States** | • Central US<br>• East US<br>• East US 2<br>• East US 2 EUAP<br>• North Central US<br>• South Central US<br>• West US<br>• West US 2<br>• West US 3<br>• West Central US<br><br>**Azure government** <br>• USGov Arizona<br>• USGov Virginia<br>• USNat East<br>• USNat West<br>• USSec East<br>• USSec West|
 |**South America** | **Brazil** | • Brazil South<br>• Brazil Southeast |
-|**Asia** | |• East Asia<br>• Southeast Asia |
+|**Asia and Middle East** | |• East Asia<br>• Southeast Asia |
 | | **China 21Vianet**| • China East 2<br>• China North 3|
 | | **India**| • Central India<br>• Jio India West<br>• Jio India Central|
-| | **Israel** | • Israel |
+| | **Israel** | • Israel Central |
 | | **Japan** | • Japan East<br>• Japan West|
 | | **Korea**| • Korea Central<br>• Korea South| 
 | | **Quatar** | • Qatar Central|
