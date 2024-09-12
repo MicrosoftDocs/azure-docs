@@ -63,7 +63,9 @@ To configure OneDrive to launch with a RemoteApp in Azure Virtual Desktop, follo
        New-ItemProperty -Path "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Run" -Name OneDrive -PropertyType String -Value '"C:\Program Files\Microsoft OneDrive\OneDrive.exe" /background' -Force
        ```
     
-    4. Reboot your session host.
+    4. Ensure the Stack on the session host is version 2404.16770 or higher.
+
+    5. Reboot your session host.
 
 ## Test OneDrive with a RemoteApp
 
