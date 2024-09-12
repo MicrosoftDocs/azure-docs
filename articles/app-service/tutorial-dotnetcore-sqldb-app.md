@@ -229,6 +229,7 @@ The creation wizard generated the connectivity string for you already as [.NET c
         1. In the App Service page, in the left menu, select **Settings > Service Connector**. There are already two connectors, which the app creation wizard created for you.
         1. Select checkbox next to the SQL Database connector, then select **Edit**.
         1. Select the **Authentication** tab.
+        1. In **Password**, paste the password you copied earlier.
         1. Select **Store Secret in Key Vault**.
         1. Under **Key Vault Connection**, select **Create new**. 
         A **Create connection** dialog is opened on top of the edit dialog.
@@ -277,7 +278,7 @@ The creation wizard generated the connectivity string for you already as [.NET c
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 8:** To verify that your changes: 
+        **Step 8:** To verify your changes: 
         1. From the left menu, select **Environment variables > Connection strings** again.
         1. Next to **AZURE_SQL_CONNECTIONSTRING**, select **Show value**. The value should be `@Microsoft.KeyValut(...)`, which means that it's a [key vault reference](app-service-key-vault-references.md) because the secret is now managed in the key vault.
         1. To verify the Redis connection string, select the **App setting** tab. Next to **AZURE_REDIS_CONNECTIONSTRING**, select **Show value**. The value should be `@Microsoft.KeyValut(...)` too.

@@ -155,20 +155,108 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps 
 
 Having issues? Check the [Troubleshooting section](#troubleshooting).
 
-## 3. Verify connection settings
+## 3. Secure connection secrets
 
-The creation wizard generated the connectivity string for you already as [app settings](configure-common.md#configure-app-settings). In this step, you learn where to find the app settings, and how you can create your own.
-
-App settings are one way to keep connection secrets out of your code repository. When you're ready to move your secrets to a more secure location, you can use [Key Vault references](app-service-key-vault-references.md) instead.
+The creation wizard generated the connectivity string for you already as an [app setting](configure-common.md#configure-app-settings). However, the security best practice is to keep secrets out of App Service completely. You'll move your secrets to key vault and change your app setting to a [Key Vault reference](app-service-key-vault-references.md) with the help of Service Connectors.
 
 :::row:::
     :::column span="2":::
-        **Step 1:** In the App Service page, in the left menu, select **Configuration**.
+        **Step 1:** In the App Service page, 
+        1. In the left menu, select **Settings > Environment variables**. 
+        1. Select **AZURE_MYSQL_CONNECTIONSTRING**. It contains a JDBC connection string. If you add an app setting that contains a valid Oracle, SQL Server, PostgreSQL, or MySQL connection string, App Service injects it as a Java Naming and Directory Interface (JNDI) data source in the Tomcat server's *context.xml* file. 
+        1. In **Add/Edit application setting**, in the **Value** field, find the *password=* part at the end of the string.
+        1. Copy the password string after *Password=* for use later.
+        This app setting lets you connect to the MySQL database secured behind a private endpoint. However, the secret is saved directly in the App Service app, which isn't the best. You'll change this.
     :::column-end:::
     :::column:::
-        :::image type="content" source="./media/tutorial-java-tomcat-mysql-app/azure-portal-get-connection-string-1.png" alt-text="A screenshot showing how to open the configuration page in App Service." lightbox="./media/tutorial-java-tomcat-mysql-app/azure-portal-get-connection-string-1.png":::
+        :::image type="content" source="./media/tutorial-java-tomcat-mysql-app/azure-portal-secure-connection-secrets-1.png" alt-text="A screenshot showing how to see the value of an app setting." lightbox="./media/tutorial-java-tomcat-mysql-app/azure-portal-secure-connection-secrets-1.png":::
     :::column-end:::
 :::row-end:::
+:::row:::
+    :::column span="2":::
+        **Step 2:** Create a key vault for secure management of secrets.
+        1. In the top search bar, type "*key vault*", then select **Marketplace** > **Key Vault**.
+        1. In **Resource Group**, select **msdocs-tomcat-mysql-tutorial**.
+        1. In **Key vault name**, type a name that consists of only letters and numbers.
+        1. In **Region**, set it to the sample location as the resource group.
+    :::column-end:::
+    :::column:::
+        :::image type="content" source="./media/tutorial-java-tomcat-mysql-app/azure-portal-secure-connection-secrets-2.png" alt-text="A screenshot showing how to create a key vault." lightbox="./media/tutorial-java-tomcat-mysql-app/azure-portal-secure-connection-secrets-2.png":::
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="2":::
+        **Step 3:**
+        1. Select the **Networking** tab.
+        1. Unselect **Enable public access**.
+        1. Select **Create a private endpoint**.
+        1. In **Resource Group**, select **msdocs-tomcat-mysql-tutorial**.
+        1. In **Key vault name**, type a name that consists of only letters and numbers.
+        1. In **Region**, set it to the sample location as the resource group.
+        1. In the dialog, in **Location**, select the same location as your App Service app.
+        1. In **Resource Group**, select **msdocs-tomcat-mysql-tutorial**.
+        1. In **Name**, type **msdocs-tomcat-mysql-XYZVaultEndpoint**.
+        1. In **Virtual network**, select **msdocs-tomcat-mysql-XYZVnet**.
+        1. In **Subnet**, **msdocs-tomcat-mysql-XYZSubnet**.
+        1. Select **OK**.
+        1. Select **Review + create**, then select **Create**. Wait for the key vault deployment to finish. You should see "Your deployment is complete."
+    :::column-end:::
+    :::column:::
+        :::image type="content" source="./media/tutorial-java-tomcat-mysql-app/azure-portal-secure-connection-secrets-3.png" alt-text="A screenshot showing how secure a key vault with a private endpoint." lightbox="./media/tutorial-java-tomcat-mysql-app/azure-portal-secure-connection-secrets-3.png":::
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="2":::
+        **Step 4:**
+        1. In the top search bar, type *msdocs-tomcat-mysql*, then the App Service resource called **msdocs-tomcat-mysql-XYZ**.
+        1. In the App Service page, in the left menu, select **Settings > Service Connector**. There's already a connector, which the app creation wizard created for you.
+        1. Select checkbox next to the connector, then select **Edit**.
+        1. In the **Basics** tab, set **Client type** to **Java**.
+        1. Select the **Authentication** tab.
+        1. In **Password**, paste the password you copied earlier.
+        1. Select **Store Secret in Key Vault**.
+        1. Under **Key Vault Connection**, select **Create new**. 
+        A **Create connection** dialog is opened on top of the edit dialog.
+    :::column-end:::
+    :::column:::
+        :::image type="content" source="./media/tutorial-java-tomcat-mysql-app/azure-portal-secure-connection-secrets-4.png" alt-text="A screenshot showing how to edit a service connector with a key vault connection." lightbox="./media/tutorial-java-tomcat-mysql-app/azure-portal-secure-connection-secrets-4.png":::
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="2":::
+        **Step 5:** In the **Create connection** dialog for the Key Vault connection:
+        1. In **Key Vault**, select the key vault you created earlier.
+        1. Select **Review + Create**. You should see that **System assigned managed identity** is set to **Selected**.
+        1. When validation completes, select **Create**.
+    :::column-end:::
+    :::column:::
+        :::image type="content" source="./media/tutorial-java-tomcat-mysql-app/azure-portal-secure-connection-secrets-5.png" alt-text="A screenshot showing how to configure a key vault service connector." lightbox="./media/tutorial-java-tomcat-mysql-app/azure-portal-secure-connection-secrets-5.png":::
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="2":::
+        **Step 6:** You're back in the edit dialog for **defaultConnector**.
+        1. In the **Authentication** tab, wait for the key vault connector to be created. When it's finished, the **Key Vault Connection** dropdown automatically selects it.
+        1. Select **Next: Networking**.
+        1. Select **Save**. Wait until the **Update succeeded** notification appears.
+    :::column-end:::
+    :::column:::
+        :::image type="content" source="./media/tutorial-java-tomcat-mysql-app/azure-portal-secure-connection-secrets-6.png" alt-text="A screenshot showing the key vault connection selected in the defaultConnector." lightbox="./media/tutorial-java-tomcat-mysql-app/azure-portal-secure-connection-secrets-6.png":::
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column span="2":::
+        **Step 7:** To verify your changes: 
+        1. From the left menu, select **Environment variables > Connection strings** again.
+        1. Next to **AZURE_MYSQL_CONNECTIONSTRING**, select **Show value**. The value should be `@Microsoft.KeyValut(...)`, which means that it's a [key vault reference](app-service-key-vault-references.md) because the secret is now managed in the key vault.
+    :::column-end:::
+    :::column:::
+        :::image type="content" source="./media/tutorial-java-tomcat-mysql-app/azure-portal-secure-connection-secrets-7.png" alt-text="A screenshot showing how to see the value of the MySQL environment variable in Azure." lightbox="./media/tutorial-java-tomcat-mysql-app/azure-portal-secure-connection-secrets-7.png":::
+    :::column-end:::
+:::row-end:::
+
+Having issues? Check the [Troubleshooting section](#troubleshooting).
+
 :::row:::
     :::column span="2":::
         **Step 2:** 

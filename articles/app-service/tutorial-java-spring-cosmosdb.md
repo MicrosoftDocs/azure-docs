@@ -255,7 +255,7 @@ The creation wizard generated the connectivity string for you already as an [app
 :::row-end:::
 :::row:::
     :::column span="2":::
-        **Step 7:** To verify that you secured the secrets: 
+        **Step 7:** To verify your changes: 
         1. From the left menu, select **Environment variables** again.
         1. Make sure that the app setting **spring.data.mongodb.uri** exists. The default connector generated it for you, and your Spring Boot application already uses the variable.
         1. Next to the app setting, select **Show value**. The value should be `@Microsoft.KeyValut(...)`, which means that it's a [key vault reference](app-service-key-vault-references.md) because the secret is now managed in the key vault.
