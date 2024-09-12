@@ -42,7 +42,7 @@ For more information about the resource types for Load Balancer, see [Azure Load
 
 [!INCLUDE [horz-monitor-platform-metrics](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-platform-metrics.md)]
 
-You can analyze metrics for Load Balancer with metrics from other Azure services using metrics explorer by opening **Metrics** from the **Azure Monitor** menu. See [Analyze metrics with Azure Monitor metrics explorer](../azure-monitor/essentials/analyze-metrics.md) for details on using this tool.
+You can analyze metrics for Load Balancer with metrics from other Azure services using metrics explorer by opening **Metrics** from the **Azure Monitor** menu. See [Analyze metrics with Azure Monitor metrics explorer](/azure/azure-monitor/essentials/analyze-metrics) for details on using this tool.
 
 For a list of available metrics for Load Balancer, see [Azure Load Balancer monitoring data reference](monitor-load-balancer-reference.md#metrics).
 
@@ -54,7 +54,7 @@ For the available resource log categories, their associated Log Analytics tables
 
 Resource logs aren't collected and stored until you create a diagnostic setting and route them to one or more locations. You can create a diagnostic setting with the Azure portal, Azure PowerShell, or the Azure CLI.
 
-To use the Azure portal and for general guidance, see [Create diagnostic setting to collect platform logs and metrics in Azure](../azure-monitor/essentials/diagnostic-settings.md). To use PowerShell or the Azure CLI, see the following sections.
+To use the Azure portal and for general guidance, see [Create diagnostic setting to collect platform logs and metrics in Azure](/azure/azure-monitor/essentials/diagnostic-settings). To use PowerShell or the Azure CLI, see the following sections.
 
 When you create a diagnostic setting, you specify which categories of logs to collect. The category for Load Balancer is **AllMetrics**.
 

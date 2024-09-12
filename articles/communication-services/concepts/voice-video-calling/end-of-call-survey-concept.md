@@ -110,8 +110,8 @@ You cannot access your survey and it will not be stored unless you have enabled 
 
 - Analyze your survey data, see: [End of Call Survey Logs](../analytics/logs/end-of-call-survey-logs.md)
 
--	Learn how to use the Log Analytics workspace, see: [Log Analytics Tutorial](../../../azure-monitor/logs/log-analytics-tutorial.md)
+-	Learn how to use the Log Analytics workspace, see: [Log Analytics Tutorial](/azure/azure-monitor/logs/log-analytics-tutorial)
 
--	Create your own queries in Log Analytics, see: [Get Started Queries](../../../azure-monitor/logs/get-started-queries.md)
+-	Create your own queries in Log Analytics, see: [Get Started Queries](/azure/azure-monitor/logs/get-started-queries)
 
 

@@ -11,7 +11,7 @@ Azure Monitor Agent (AMA) replaces the Log Analytics agent (also known as Micros
 
 Azure Arc is a bridge, extending not only Azure Monitor but the breadth of Azure management capabilities across Microsoft Defender, Azure Policy, and Azure Update Manager to non-Azure environments. Through the lightweight Connected Machine agent, Azure Arc projects non-Azure servers into the Azure control plane, providing a consistent management experience across Azure VMs and non-Azure servers.   
 
-This article focuses on considerations when migrating from legacy Log Analytics agents in non-Azure environments. For core migration guidance, see [Migrate to Azure Monitor Agent from Log Analytics agent](../../azure-monitor/agents/azure-monitor-agent-migration.md).
+This article focuses on considerations when migrating from legacy Log Analytics agents in non-Azure environments. For core migration guidance, see [Migrate to Azure Monitor Agent from Log Analytics agent](/azure/azure-monitor/agents/azure-monitor-agent-migration).
 
 ## Advantages of Azure Arc  
 

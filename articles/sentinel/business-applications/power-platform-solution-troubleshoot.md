@@ -6,7 +6,10 @@ author: batamig
 ms.service: microsoft-sentinel
 ms.topic: how-to
 ms.date: 03/18/2024
-#CustomerIntent: As a security engineer, I want to learn how to troubleshoot common issues with the Power Platform inventory connector for Microsoft Sentinel.
+
+
+#Customer intent: As a security engineer, I want to troubleshoot data collection issues in my Power Platform inventory connector so that I can ensure accurate and timely data ingestion for effective threat detection and response.
+
 ---
 
 # Troubleshoot the Microsoft Sentinel solution for Microsoft Power Platform 

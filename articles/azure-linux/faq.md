@@ -1,8 +1,8 @@
 ---
   title: Frequently asked questions about the Azure Linux Container Host for AKS
   description: Find answers to some of the common questions about the Azure Linux Container Host for AKS.
-  author: htaubenfeld
-  ms.author: htaubenfeld
+  author: suhuruli
+  ms.author: suhuruli
   ms.service: microsoft-linux
   ms.custom: linux-related-content
   ms.topic: faq

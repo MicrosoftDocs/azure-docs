@@ -1,8 +1,8 @@
 ---
 title: Azure Linux Container Host for AKS tutorial - Add an Azure Linux node pool to your existing AKS cluster
 description: In this Azure Linux Container Host for AKS tutorial, you learn how to add an Azure Linux node pool to your existing cluster.
-author: htaubenfeld
-ms.author: htaubenfeld
+author: suhuruli
+ms.author: suhuruli
 ms.service: microsoft-linux
 ms.custom: linux-related-content
 ms.topic: tutorial

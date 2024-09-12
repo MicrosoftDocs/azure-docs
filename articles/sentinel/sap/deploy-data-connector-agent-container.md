@@ -6,6 +6,10 @@ ms.author: bagol
 ms.topic: how-to
 ms.custom: devx-track-azurecli
 ms.date: 04/01/2024
+
+
+#Customer intent: As an SAP BASIS team member, I want to deploy and configure a containerized SAP data connector agent so that I can ingest SAP data into Microsoft Sentinel for enhanced monitoring and threat detection.
+
 ---
 
 # Deploy and configure the container hosting the SAP data connector agent
