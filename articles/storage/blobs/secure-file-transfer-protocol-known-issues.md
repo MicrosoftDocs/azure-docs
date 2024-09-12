@@ -6,7 +6,7 @@ author: normesta
 
 ms.service: azure-blob-storage
 ms.topic: conceptual
-ms.date: 07/22/2024
+ms.date: 09/03/2024
 ms.author: normesta
 
 ---
@@ -22,9 +22,7 @@ This article describes limitations and known issues of SFTP support for Azure Bl
 
 The following clients are known to be incompatible with SFTP for Azure Blob Storage. For more information, see [Supported algorithms](secure-file-transfer-protocol-support.md#supported-algorithms).
 
-- Five9
 - Kemp
-- Mule
 - paramiko 1.16.0
 - SSH.NET 2016.1.0
 

@@ -38,7 +38,7 @@ Before building a connector, understand your data source and how Microsoft Senti
 
 1. Data Collection Endpoint (DCE)
    
-   A DCE is a requirement for a DCR. Only one DCE is created per log analytics workspace DCR deployment. Every DCR deployed for a Microsoft Sentinel workspace uses the same DCE. For more information on how to create one or whether you need a new one, see [Data collection endpoints in Azure Monitor](../azure-monitor/essentials/data-collection-endpoint-overview.md).
+   A DCE is a requirement for a DCR. Only one DCE is created per log analytics workspace DCR deployment. Every DCR deployed for a Microsoft Sentinel workspace uses the same DCE. For more information on how to create one or whether you need a new one, see [Data collection endpoints in Azure Monitor](/azure/azure-monitor/essentials/data-collection-endpoint-overview).
 
 1. Schema of the output table(s).  
 
@@ -52,7 +52,9 @@ Research the following components and verify support for them in the [Data Conne
 
 1. Pagination options to the data source
 
-We also recommend testing your components with an API testing tool like one of the following:
+### Testing APIs
+
+We recommend testing your components with an API testing tool like one of the following:
 
   - [Visual Studio Code](https://code.visualstudio.com/download) with an [extension from Visual Studio Marketplace](https://marketplace.visualstudio.com/vscode)
   - [PowerShell Invoke-RestMethod](/powershell/module/microsoft.powershell.utility/invoke-restmethod)
@@ -88,7 +90,7 @@ If your data source doesn't conform to the schema of a standard table, you have 
 - Create a custom table for all the data
 - Create a custom table for some data and split conforming data out to a standard table
 
-Use the Log Analytics UI for a straight forward method to create a custom table together with a DCR. If you create the custom table using the [Tables API](/rest/api/loganalytics/tables/create-or-update) or another programmatic method, add the `_CL` suffix manually to the table name. For more information, see [Create a custom table](../azure-monitor/logs/create-custom-table.md#create-a-custom-table).
+Use the Log Analytics UI for a straight forward method to create a custom table together with a DCR. If you create the custom table using the [Tables API](/rest/api/loganalytics/tables/create-or-update) or another programmatic method, add the `_CL` suffix manually to the table name. For more information, see [Create a custom table](/azure/azure-monitor/logs/create-custom-table#create-a-custom-table).
 
 For more information on splitting your data to more than one table, see the [example data](#example-data) and the [example custom table](#example-custom-table) created for that data.
 
@@ -101,10 +103,10 @@ Data collection rules (DCRs) define the data collection process in Azure Monitor
 - When the CCP data connector is deployed, the DCR is created if it doesn't already exist.
 
 Reference the latest information on DCRs in these articles:
-- [Data collection rules overview](../azure-monitor/essentials/data-collection-rule-overview.md)
-- [Structure of a data collections rule](../azure-monitor//essentials/data-collection-rule-structure.md)
+- [Data collection rules overview](/azure/azure-monitor/essentials/data-collection-rule-overview)
+- [Structure of a data collections rule](/azure/azure-monitor/essentials/data-collection-rule-structure)
 
-For a tutorial demonstrating the creation of a DCE, including using sample data to create the custom table and DCR, see [Tutorial: Send data to Azure Monitor Logs with Logs ingestion API (Azure portal)](../azure-monitor/logs/tutorial-logs-ingestion-portal.md). Use the process in this tutorial to verify data is ingested correctly to your table with your DCR.
+For a tutorial demonstrating the creation of a DCE, including using sample data to create the custom table and DCR, see [Tutorial: Send data to Azure Monitor Logs with Logs ingestion API (Azure portal)](/azure/azure-monitor/logs/tutorial-logs-ingestion-portal). Use the process in this tutorial to verify data is ingested correctly to your table with your DCR.
 
 To understand how to create a complex DCR with multiple data flows, see the [DCR example section](#example-data-collection-rule).
 
@@ -119,7 +121,7 @@ Notes:
 2)	Since this is a type of API polling connector, set the `connectivityCriteria` type to `hasDataConnectors`
 3)	The example `instructionsSteps` include a button of type `ConnectionToggleButton`. This button helps trigger the deployment of data connector rules based on the connection parameters specified.
 
-Use Postman to call the data connector definitions API to create the data connector UI in order to validate it in the data connectors gallery.
+Use an [API testing tool](#testing-apis) to call the data connector definitions API to create the data connector UI in order to validate it in the data connectors gallery.
 
 To learn from an example, see the [Data connector definitions reference example section](data-connector-ui-definitions-reference.md#example-data-connector-definition).
 
@@ -134,7 +136,7 @@ For more information on building this section, see the [Data connector connectio
 
 To learn from an example, see the [Data connector connection rules reference example](data-connector-connection-rules-reference.md#example-ccp-data-connector).
 
-Use Postman to call the data connector API to create the data connector which combines the connection rules and previous components. Verify the connector is now connected in the UI.
+Use an [API testing tool](#testing-apis) to call the data connector API to create the data connector which combines the connection rules and previous components. Verify the connector is now connected in the UI.
 
 ## Secure confidential input
 
@@ -338,9 +340,9 @@ The following DCR defines a single stream `Custom-ExampleConnectorInput` using t
 1. The first dataflow directs `eventType` = **Alert** to the custom `ExampleConnectorAlerts_CL` table.
 1. the second dataflow directs `eventType` = **File** to the normalized standard table,`ASimFileEventLogs`.
 
-For more information on the structure of this example, see [Structure of a data collection rule](../azure-monitor/essentials/data-collection-rule-structure.md).
+For more information on the structure of this example, see [Structure of a data collection rule](/azure/azure-monitor/essentials/data-collection-rule-structure).
 
-To create this DCR in a test environment, follow the [Data Collection Rules API](/rest/api/monitor/data-collection-rules/create). Elements of the example in `{{double curly braces}}` indicate variables that require values with ease of use for Postman. When you create this resource in the ARM template, the variables expressed here are exchanged for parameters.
+To create this DCR in a test environment, follow the [Data Collection Rules API](/rest/api/monitor/data-collection-rules/create). Elements of the example in `{{double curly braces}}` indicate variables that require values for ease of use with an [API testing tool](#testing-apis). When you create this resource in the ARM template, the variables expressed here are exchanged for parameters.
 
 ```json
 {

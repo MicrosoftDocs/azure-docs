@@ -4,7 +4,7 @@ description: Learn about the latest new features and announcement in Microsoft S
 author: yelevin
 ms.author: yelevin
 ms.topic: concept-article
-ms.date: 08/18/2024
+ms.date: 09/09/2024
 ---
 
 # What's new in Microsoft Sentinel
@@ -17,6 +17,34 @@ The listed features were released in the last three months. For information abou
 `https://aka.ms/sentinel/rss`
 
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
+
+## September 2024 
+
+- [Import/export of automation rules now generally available (GA)](#importexport-of-automation-rules-now-generally-available-ga)
+- [Google Cloud Platform data connectors are now generally available (GA)](#google-cloud-platform-data-connectors-are-now-generally-available-ga)
+- [Microsoft Sentinel now generally available (GA) in Azure Israel Central](#microsoft-sentinel-now-generally-available-ga-in-azure-israel-central)
+
+### Import/export of automation rules now generally available (GA)
+
+The ability to export automation rules to Azure Resource Manager (ARM) templates in JSON format, and to import them from ARM templates, is now generally available after a [short preview period](#export-and-import-automation-rules-preview).
+
+Learn more about [exporting and importing automation rules](import-export-automation-rules.md).
+
+### Google Cloud Platform data connectors are now generally available (GA)
+
+Microsoft Sentinel's [Google Cloud Platform (GCP) data connectors](connect-google-cloud-platform.md), based on our [Codeless Connector Platform (CCP)](create-codeless-connector.md), are now **generally available**. WIth these connectors, you can ingest logs from your GCP environment using the GCP [Pub/Sub capability](https://cloud.google.com/pubsub/docs/overview):
+
+- The **Google Cloud Platform (GCP) Pub/Sub Audit Logs connector** collects audit trails of access to GCP resources. Analysts can monitor these logs to track resource access attempts and detect potential threats across the GCP environment.
+
+- The **Google Cloud Platform (GCP) Security Command Center connector** collects findings from Google Security Command Center, a robust security and risk management platform for Google Cloud. Analysts can view these findings to gain insights into the organization's security posture, including asset inventory and discovery, detections of vulnerabilities and threats, and risk mitigation and remediation.
+
+For more information on these connectors, see [Ingest Google Cloud Platform log data into Microsoft Sentinel](connect-google-cloud-platform.md).
+
+### Microsoft Sentinel now generally available (GA) in Azure Israel Central
+
+Microsoft Sentinel is now available in the *Israel Central* Azure region, with the same feature set as all other Azure Commercial regions.
+
+For more information, see as [Microsoft Sentinel feature support for Azure commercial/other clouds](feature-availability.md) and [Geographical availability and data residency in Microsoft Sentinel](geographical-availability-data-residency.md).
 
 ## August 2024
 
@@ -46,7 +74,7 @@ If you've onboarded Microsoft Sentinel to the Microsoft unified security operati
 
 Your premium license for Microsoft Defender Threat Intelligence (MDTI) now unlocks the ability to ingest all premium indicators directly into your workspace. The premium MDTI data connector adds more to your hunting and research capabilities within Microsoft Sentinel. 
 
-For more information, see [Understand threat intelligence](understand-threat-intelligence.md#add-threat-indicators-to-microsoft-sentinel-with-the-microsoft-defender-threat-intelligence-data-connector). 
+For more information, see [Understand threat intelligence](understand-threat-intelligence.md#add-threat-indicators-to-microsoft-sentinel-with-the-defender-threat-intelligence-data-connector). 
 
 ### Unified AMA-based connectors for syslog ingestion
 
@@ -76,7 +104,7 @@ The new **Auxiliary logs** retention plan for Log Analytics tables allows you to
 
 To learn more about Auxiliary logs and compare with Analytics logs, see [Log retention plans in Microsoft Sentinel](log-plans.md).
 
-For more in-depth information about the different log management plans, see [**Table plans**](../azure-monitor/logs/data-platform-logs.md#table-plans) in the [Azure Monitor Logs overview](../azure-monitor/logs/data-platform-logs.md) article from the Azure Monitor documentation.
+For more in-depth information about the different log management plans, see [**Table plans**](/azure/azure-monitor/logs/data-platform-logs#table-plans) in the [Azure Monitor Logs overview](/azure/azure-monitor/logs/data-platform-logs) article from the Azure Monitor documentation.
 
 ### Create summary rules in Microsoft Sentinel for large sets of data (Preview)
 
@@ -248,11 +276,22 @@ To learn more about the Syslog and CEF connectors, see [Ingest Syslog and CEF lo
 
 ## February 2024
 
+- [Install domain solutions with dependencies](#install-domain-solutions-with-dependencies)
 - [Microsoft Sentinel solution for Microsoft Power Platform preview available](#microsoft-sentinel-solution-for-microsoft-power-platform-preview-available)
 - [New Google Pub/Sub-based connector for ingesting Security Command Center findings (Preview)](#new-google-pubsub-based-connector-for-ingesting-security-command-center-findings-preview)
 - [Incident tasks now generally available (GA)](#incident-tasks-now-generally-available-ga)
 - [AWS and GCP data connectors now support Azure Government clouds](#aws-and-gcp-data-connectors-now-support-azure-government-clouds)
 - [Windows DNS Events via AMA connector now generally available (GA)](#windows-dns-events-via-ama-connector-now-generally-available-ga)
+
+### Install domain solutions with dependencies
+
+Some Microsoft Sentinel content hub solutions, including many [domain solutions](sentinel-solutions-catalog.md#domain-solutions) and solutions that use the unified AMA connectors for [CEF, Syslog](cef-syslog-ama-overview.md), or [custom logs](connect-custom-logs-ama.md), don't necessarily include a data connector of their own. Instead, they rely on data connectors from other solutions to provide visibility in a specific area across data connectors. The data connectors they use are prerequisites for the domain solution to work properly.
+
+When installing a domain solution, you can now select **Install with dependencies** to ensure that the data connectors required by the domain solution are also installed:
+
+:::image type="content" source="media/whats-new/dependencies.png" alt-text="Screenshot of the new Install with dependencies button.":::
+
+For more information, see [Install with dependencies](sentinel-solutions-deploy.md#install-with-dependencies) and [Domain solutions](sentinel-solutions-catalog.md#domain-solutions).
 
 ### Microsoft Sentinel solution for Microsoft Power Platform preview available
 
