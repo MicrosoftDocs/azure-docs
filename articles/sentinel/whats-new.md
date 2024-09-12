@@ -18,7 +18,7 @@ The listed features were released in the last three months. For information abou
 
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
-## September 2024 
+## September 2024
 
 - [Import/export of automation rules now generally available (GA)](#importexport-of-automation-rules-now-generally-available-ga)
 - [Google Cloud Platform data connectors are now generally available (GA)](#google-cloud-platform-data-connectors-are-now-generally-available-ga)
@@ -48,6 +48,7 @@ For more information, see as [Microsoft Sentinel feature support for Azure comme
 
 ## August 2024
 
+- [Legacy Log Analytics agent](#legacy-log-analytics-agent)
 - [Export and import automation rules (Preview)](#export-and-import-automation-rules-preview)
 - [Microsoft Sentinel support in Microsoft Defender multitenant management (Preview)](#microsoft-sentinel-support-in-microsoft-defender-multitenant-management-preview)
 - [Premium Microsoft Defender Threat Intelligence data connector (Preview)](#premium-microsoft-defender-threat-intelligence-data-connector-preview)
@@ -55,6 +56,12 @@ For more information, see as [Microsoft Sentinel feature support for Azure comme
 - [Better visibility for Windows security events](#better-visibility-for-windows-security-events)
 - [New Auxiliary logs retention plan (Preview)](#new-auxiliary-logs-retention-plan-preview)
 - [Create summary rules for large sets of data (Preview)](#create-summary-rules-in-microsoft-sentinel-for-large-sets-of-data-preview)
+
+### Log Analytics agent retirement
+
+As of August 31, 2024, the [Log Analytics Agent (MMA/OMS) is retired](https://azure.microsoft.com/updates/were-retiring-the-log-analytics-agent-in-azure-monitor-on-31-august-2024/). If you've been using the Log Analytics agent in your Microsoft Sentinel deployment, we recommend that you start planning your migration to the Azure Monitor Agent (AMA).
+
+For more information, see [AMA migration for Microsoft Sentinel](ama-migrate.md).
 
 ### Export and import automation rules (Preview)
 
