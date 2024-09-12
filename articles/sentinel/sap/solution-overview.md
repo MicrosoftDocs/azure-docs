@@ -23,7 +23,8 @@ The Microsoft Sentinel solution for SAP applications continuously monitors SAP s
 - **Security information and event management (SIEM)**: Correlate SAP monitoring with other signals across your organization. Use out-of-the-box and custom detections to monitor sensitive transactions and other business risks, such as privilege escalation, unapproved changes, and unauthorized access.
 
 - **Security orchestration, automation and response (SOAR)**: Build automated response processes that interact with your SAP systems to stop active security threats.
-For example, the following image shows a multi-SID SAP landscape with a split between productive and nonproductive systems. All of the systems in this image are onboarded to Microsoft Sentinel for the SAP solution.
+
+For example, the following image shows a sample environment where the Microsoft Sentinel solution for SAP applications is deployed. This sample architecture uses a multi-SID SAP landscape with a split between productive and nonproductive systems. All of the systems in this image are onboarded to Microsoft Sentinel for the SAP solution.
 
 :::image type="content" source="media/deployment-overview/sap-sentinel-multi-sid-overview.png" alt-text="Diagram of a multi-SID SAP landscape with Microsoft Sentinel." lightbox="media/deployment-overview/sap-sentinel-multi-sid-overview.png" border="false":::
 
