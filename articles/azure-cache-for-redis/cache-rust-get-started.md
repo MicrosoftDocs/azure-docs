@@ -8,7 +8,7 @@ ms.devlang: rust
 ms.topic: quickstart
 ms.date: 01/08/2021
 ms.custom: mode-other
-#Customer intent: As a Rust developer new to Azure Cache for Redis, I want to learn how to use it with Azure Cache for Redis.
+#Customer intent: As a Rust developer who is new to Azure Cache for Redis, I want to create a new Node.js app that uses Azure Cache for Redis.
 ---
 
 # Quickstart: Use Azure Cache for Redis with a Rust app

@@ -9,8 +9,7 @@ ms.topic: quickstart
 
 ms.devlang: python
 ms.custom: mvc, devx-track-python, mode-api, py-fresh-zinc
-
-#customer intent: As a cloud developer, I want to quickly see a cache so that understand how to use Python with Azure Cache for Redis.
+#Customer intent: As a Python developer who is new to Azure Cache for Redis, I want to create a new Python app that uses Azure Cache for Redis.
 ---
 
 # Quickstart: Use Azure Cache for Redis with a Python app

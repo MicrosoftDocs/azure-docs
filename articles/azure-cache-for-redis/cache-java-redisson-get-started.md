@@ -8,7 +8,7 @@ ms.topic: quickstart
 
 ms.devlang: java
 ms.custom: mvc, seo-java-january2024, seo-java-february2024, mode-api, devx-track-java, devx-track-extended-java, devx-track-javaee
-#Customer intent: As a Java developer, new to Azure Cache for Redis, I want to create a new Java app that uses Azure Cache for Redis and Redisson as Redis client.
+#Customer intent: As a Java developer who is new to Azure Cache for Redis, I want to create a new Java app that uses Azure Cache for Redis and Redisson as the Redis client.
 ---
 
 # Quickstart: Use Azure Cache for Redis with a Java app and a Redisson Redis client

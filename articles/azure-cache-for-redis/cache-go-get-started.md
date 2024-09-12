@@ -7,6 +7,7 @@ ms.devlang: golang
 ms.topic: quickstart
 ms.date: 09/09/2021
 ms.custom: mode-api, devx-track-go
+#Customer intent: As a Go developer who is new to Azure Cache for Redis, I want to create a new Go app that uses Azure Cache for Redis.
 ---
 
 # Quickstart: Use Azure Cache for Redis with a Go app

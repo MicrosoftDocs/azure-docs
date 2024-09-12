@@ -8,6 +8,7 @@ ms.topic: quickstart
 
 ms.devlang: java
 ms.custom: devx-track-java, devx-track-javaee, mode-api, mvc, devx-track-extended-java
+#Customer intent: As a Java developer who is new to Azure Cache for Redis, I want to create a new Java app that uses Azure Cache for Redis.
 ---
 
 # Quickstart: Use Azure Cache for Redis with a Java app

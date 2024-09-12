@@ -8,7 +8,7 @@ ms.devlang: csharp
 ms.custom: devx-track-csharp, mvc, mode-other
 ms.topic: quickstart
 ms.date: 04/24/2024
-
+#Customer intent: As an ASP.NET Core developer who is new to Azure Cache for Redis, I want to create a new ASP.NET Core app that uses Azure Cache for Redis.
 ---
 
 # Quickstart: Use Azure Cache for Redis with an ASP.NET Core web app

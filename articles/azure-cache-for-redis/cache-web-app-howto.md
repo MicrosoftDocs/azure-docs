@@ -5,9 +5,8 @@ description: Modify a sample ASP.NET web app and connect the app to Azure Cache 
 
 ms.topic: quickstart
 ms.date: 03/25/2022
-
 ms.custom: devx-track-csharp, mvc, mode-other
-
+#Customer intent: As an ASP.NET developer who is new to Azure Cache for Redis, I want to create a new ASP.NET app that uses Azure Cache for Redis.
 ---
 
 # Quickstart: Use Azure Cache for Redis with an ASP.NET web app
