@@ -59,7 +59,7 @@ For more information, see as [Microsoft Sentinel feature support for Azure comme
 
 ### Log Analytics agent retirement
 
-As of August 31, 2024, the [Log Analytics Agent (MMA/OMS) is retired](https://azure.microsoft.com/updates/were-retiring-the-log-analytics-agent-in-azure-monitor-on-31-august-2024/). If you've been using the Log Analytics agent in your Microsoft Sentinel deployment, we recommend that you start planning your migration to the Azure Monitor Agent (AMA).
+As of August 31, 2024, the [Log Analytics Agent (MMA/OMS) is retired](https://azure.microsoft.com/updates/were-retiring-the-log-analytics-agent-in-azure-monitor-on-31-august-2024/). If you've been using the Log Analytics agent in your Microsoft Sentinel deployment, we recommend that you migrate to the Azure Monitor Agent (AMA).
 
 For more information, see [AMA migration for Microsoft Sentinel](ama-migrate.md).
 
