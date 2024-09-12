@@ -167,7 +167,12 @@ spec:
     :::image type="content" source="media/tutorial-managed-private-endpoint/private-link-service-managed-private-endpoint-create-info.png" alt-text="Screenshot of the Azure platform showing Prometheus information entered for the new managed private endpoint.":::
 
 1. Approve the private endpoint connection by going to the promManagedPls resource. Under **Settings**, go **Private endpoint connections**, select your connection using the checkbox and **Approve**.
+
+    :::image type="content" source="media/tutorial-managed-private-endpoint/private-link-service-approve-connection.png" alt-text="Screenshot of the Azure platform showing the Approve connection action.":::
+
 1. After the private endpoint connection is approved, go back to your Azure Managed Grafana resource and select the **Refresh** button in the Managed Private Endpoint tab to synchronize the `Connection state`. It should now show as **Approved**.
+
+    :::image type="content" source="media/tutorial-managed-private-endpoint/managed-private-endpoint-sync.png" alt-text="Screenshot of the Azure platform showing the Refresh button.":::
 
 ## Display Prometheus data in a Grafana dashboard
 
