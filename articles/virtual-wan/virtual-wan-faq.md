@@ -143,7 +143,7 @@ Also, be sure to plan for downtime in case you decide to scale up or down on the
 
 ### For User VPN (point-to-site) is Microsoft registered app in Entra Id Authentication supported?
 
-Yes, [Microsoft-registered app](https://learn.microsoft.com/azure/vpn-gateway/point-to-site-entra-gateway) is supported on Virtual WAN. You can [migrate your User VPN from manually registered app](https://learn.microsoft.com/azure/vpn-gateway/point-to-site-entra-gateway-update) to Microsoft-registered app for a more secure connectivity.
+Yes, [Microsoft-registered app](/azure/vpn-gateway/point-to-site-entra-gateway) is supported on Virtual WAN. You can [migrate your User VPN from manually registered app](/azure/vpn-gateway/point-to-site-entra-gateway-update) to Microsoft-registered app for a more secure connectivity.
 
 ### What are Virtual WAN gateway scale units?
 

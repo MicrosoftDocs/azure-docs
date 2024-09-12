@@ -179,7 +179,7 @@ Now that you have an overview of Azure Policy and some of the key concepts, here
 [01]: ../overview.md
 [02]: ../../../backup/backup-azure-arm-userestapi-createorupdatepolicy.md
 [03]: /azure/virtual-machines/extensions/iaas-antimalware-windows
-[04]: https://learn.microsoft.com/windows-server/manage/windows-admin-center/azure/manage-vm
+[04]: /windows-server/manage/windows-admin-center/azure/manage-vm
 [05]: ../../../update-manager/migration-overview.md
 [06]: https://ms.portal.azure.com/
 [07]: ../concepts/definition-structure-basics.md

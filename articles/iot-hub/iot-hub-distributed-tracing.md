@@ -13,7 +13,7 @@ ms.custom: [amqp, mqtt, fasttrack-edit, references_regions]
 
 # Trace Azure IoT device-to-cloud messages by using distributed tracing (preview)
 
-Use distributed tracing (preview) in IoT Hub to monitor IoT messages as they pass through Azure services. IoT Hub is one of the first Azure services to support distributed tracing. As more Azure services support distributed tracing, you're able to trace Internet of Things (IoT) messages throughout the Azure services involved in your solution. For more information about the feature, see [What is distributed tracing?](../azure-monitor/app/distributed-trace-data.md).
+Use distributed tracing (preview) in IoT Hub to monitor IoT messages as they pass through Azure services. IoT Hub is one of the first Azure services to support distributed tracing. As more Azure services support distributed tracing, you're able to trace Internet of Things (IoT) messages throughout the Azure services involved in your solution. For more information about the feature, see [What is distributed tracing?](/azure/azure-monitor/app/distributed-trace-data).
 
 When you enable distributed tracing for IoT Hub, you can:
 
@@ -188,7 +188,7 @@ To update the distributed tracing sampling configuration for multiple devices, u
 
 To see all the traces logged by an IoT hub, query the log store that you selected in diagnostic settings. This section shows how to query by using Log Analytics.
 
-If you set up [Log Analytics with resource logs](../azure-monitor/essentials/resource-logs.md#send-to-azure-storage), query by looking for logs in the `DistributedTracing` category. For example, this query shows all the logged traces:
+If you set up [Log Analytics with resource logs](/azure/azure-monitor/essentials/resource-logs#send-to-azure-storage), query by looking for logs in the `DistributedTracing` category. For example, this query shows all the logged traces:
 
 ```Kusto
 // All distributed traces 
