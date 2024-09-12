@@ -313,7 +313,7 @@
         {
             "source_path": "articles/sentinel/store-logs-in-azure-data-explorer.md",
             "redirect_url": "/azure/azure-monitor/logs/data-retention-archive",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path": "articles/sentinel/review-fine-tune-overview.md",

@@ -51,7 +51,7 @@ The following table maps data and feature access for SAP and SOC teams when they
 <sup>*</sup> The SOC team can see these functions in both workspaces. The SAP BASIS team can see these functions only in the SAP workspace.
 
 > [!NOTE]
-> Running cross-workspace queries across larger SAP landscapes can affect performance. For improved performance and cost optimizations, consider having both the SOC and SAP workspaces on the same dedicated cluster. For more information, see [Create and manage a dedicated cluster in Azure Monitor Logs](../../azure-monitor/logs/logs-dedicated-clusters.md?tabs=cli#cluster-pricing-model).
+> Running cross-workspace queries across larger SAP landscapes can affect performance. For improved performance and cost optimizations, consider having both the SOC and SAP workspaces on the same dedicated cluster. For more information, see [Create and manage a dedicated cluster in Azure Monitor Logs](/azure/azure-monitor/logs/logs-dedicated-clusters?tabs=cli#cluster-pricing-model).
 
 ## Store SAP data only in the SOC workspace
 

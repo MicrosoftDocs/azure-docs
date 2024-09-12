@@ -1,7 +1,7 @@
 ---
 title: Build image with Cloud Native Buildpack
 description: Use the az acr pack build command to build a container image from an app and push to Azure Container Registry, without using a Dockerfile.
-ms.topic: article
+ms.topic: how-to
 author: tejaswikolli-web
 ms.author: tejaswikolli
 ms.date: 10/31/2023
