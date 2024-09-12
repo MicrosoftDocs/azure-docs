@@ -2,7 +2,7 @@
 title: Create vaults to back up and replicate resources
 description: In this article, you learn how to create Recovery Services vault (or Backup vault) that stores backups and replication data.
 ms.topic: how-to
-ms.date: 11/15/2023
+ms.date: 09/30/2024
 ms.service: azure-business-continuity-center
 ms.custom:
   - ignite-2023
