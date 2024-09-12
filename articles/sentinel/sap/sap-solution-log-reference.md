@@ -26,8 +26,6 @@ We *strongly recommend* that you use available functions as the subjects of thei
 
 [Functions](/azure/azure-monitor/logs/functions) provided with the Microsoft Sentinel solution for SAP applications are intended to serve as the principal user interface to the data. They form the basis for all the built-in analytics rules and workbooks available to you out of the box. Using functions allows for changes to be made to the data infrastructure beneath the functions, without breaking user-created content.
 
-Find these functions in the Microsoft Sentinel **Logs** page to use in your KQL queries, listed under **Workspace functions**.
-
 For more information, see [Microsoft Sentinel solution for SAP applications - functions reference](sap-solution-function-reference.md) and [Functions in Azure Monitor log queries](/azure/azure-monitor/logs/functions).
 
 ## Log coverage

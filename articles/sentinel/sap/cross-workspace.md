@@ -9,11 +9,11 @@ ms.date: 05/23/2024
 
 ---
 
-# Work with the Microsoft Sentinel solution for SAP applications in multiple workspaces
+# Integrate SAP across multiple workspaces
 
 When you set up your Log Analytics workspace enabled for Microsoft Sentinel, you have [multiple architecture options](/azure/azure-monitor/logs/workspace-design?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json) and factors to consider. Taking into account geography, regulation, access control, and other factors, you might choose to have multiple workspaces in your organization.
 
-For example, your SAP and SOC teams might be working in separate workspaces. However, your SAP BASIS team has technical knowledge that's critical to successfully and effectively implement the Microsoft Sentinel solution for SAP applications. Therefore, your SAP BASIS team needs access to Microsoft Sentinel data, so that they can work with the SOC team to provide required configurations and incident response procedures.
+When working with SAP, your SAP and SOC teams might need to work in spearate workspaces to maintain security boundaries. You might not want the SAP team to have visibility into all other security logs across your organization. However, the SAP BASIS team plays a critical role in successfully implementing and maintaining the Microsoft Sentinel solution for SAP applications. Their technical knowledge is essential for effectively monitoring SAP systems, configuring security settings, and ensuring that proper incident response procedures are in place. For this reason, the SAP BASIS team must have access to the Microsoft Sentinel workspace, allowing them to collaborate with the SOC team while focusing specifically on SAP-related security monitoring.
 
 This article discusses how to work with the Microsoft Sentinel solution for SAP applications in multiple workspaces, with improved flexibility for:
 
@@ -53,7 +53,7 @@ The following table maps data and feature access for SAP and SOC teams when they
 > [!NOTE]
 > Running cross-workspace queries across larger SAP landscapes can affect performance. For improved performance and cost optimizations, consider having both the SOC and SAP workspaces on the same dedicated cluster. For more information, see [Create and manage a dedicated cluster in Azure Monitor Logs](/azure/azure-monitor/logs/logs-dedicated-clusters?tabs=cli#cluster-pricing-model).
 
-## Store SAP data only in the SOC workspace
+## SAP and SOC data maintained in the same workspace
 
 You might want to keep all data in a single workspace and apply access controls to determine who on your team is able to access the data.
 

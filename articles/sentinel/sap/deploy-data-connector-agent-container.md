@@ -513,27 +513,6 @@ For more information, see [Monitor the health and role of your SAP systems](../m
 <br>
 > [!VIDEO https://www.youtube.com/embed/FasuyBSIaQM?si=apdesRR29Lvq6aQM]
 
-## Stop log ingestion and disable the connector
-
-To stop ingesting SAP logs into the Microsoft Sentinel workspace, and to stop the data stream from the Docker container, sign into your data connector agent machine and run:
-
-```bash
-docker stop sapcon-[SID/agent-name]
-```
-
-To stop ingesting a specific SID for a multi-SID container, make sure that you also delete the SID from the connector page UI in Microsoft Sentinel:
-
-1. In Microsoft Sentinel, select **Configuration > Data connectors** and search for **Microsoft Sentinel for SAP**.
-1. Select the data connector row and then select **Open connector page** in the side pane.
-1. In the **Configuration** area on the **Microsoft Sentinel for SAP** data connector page, locate the SID agent you want to remove and select **Delete**. <!--need validation for this-->
-
-The Docker container stops and doesn't send any more SAP logs to the Microsoft Sentinel workspace. This stops both the ingestion and billing for the SAP system related to the connector.
-
-If you need to reenable the Docker container, sign into the data connector agent machine and run:
-
-```bash
-docker start sapcon-[SID]
-```
 
 ## Next step
 

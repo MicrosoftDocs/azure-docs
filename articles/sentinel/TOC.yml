@@ -143,8 +143,6 @@
         items:
         - name: Overview
           href: sap/solution-overview.md
-        - name: Integrate SAP across multiple workspaces
-          href: sap/cross-workspace.md
         - name: Deploy the SAP integration
           items: 
           - name: Deployment overview
@@ -182,6 +180,8 @@
           href: sap/deployment-solution-configuration.md
         - name: Automatic attack disruption for SAP
           href: sap/deployment-attack-disrupt.md
+        - name: Integrate SAP across multiple workspaces
+          href: sap/cross-workspace.md
         - name: Monitor SAP systems
           items:
           - name: Monitor SAP audit logs
@@ -194,6 +194,8 @@
           href: sap/sap-solution-function-reference.md
         - name: SAP solution log and table reference
           href: sap/sap-solution-log-reference.md
+        - name: Stop SAP data collection
+          href: sap/stop-collection.md
       - name: SAP BTP
         items:
         - name: Overview

@@ -8,7 +8,7 @@ ms.date: 05/26/2024
 #customerIntent: As an organization planning to deploy the Microsoft Sentinel solution for SAP applications, I want to understand the different types of prerequisites required from each of the teams involved in the process.
 ---
 
-# Prerequisites for deploying Microsoft Sentinel solution for SAP applications
+# Deployment prerequisites for the Microsoft Sentinel solution for SAP applications
 
 This article lists the prerequisites required for deployment of the Microsoft Sentinel solution for SAP applications. Reviewing and ensuring that you have or understand all the prerequisites is the first step in deploying the Microsoft Sentinel solution for SAP applications.
 
@@ -23,18 +23,19 @@ Typically, Azure prerequisites are managed by your **security** teams.
 | Prerequisite | Description |Required/optional |
 | ---- | ----------- |----------- |
 | **Access to Microsoft Sentinel** | Make a note of your Microsoft Sentinel *workspace ID* and *primary key*.<br>You can find these details in Microsoft Sentinel: from the navigation menu, select **Settings** > **Workspace settings** > **Agents management**. Copy the *Workspace ID* and *Primary key* and paste them aside for use during the deployment process. |Required |
-| **Permissions to create Azure resources** | At a minimum, you must have the necessary permissions to deploy solutions from the Microsoft Sentinel content hub. For more information, see the [Microsoft Sentinel content hub catalog](../sentinel-solutions-catalog.md). |Required |
-| **Permissions to create an Azure key vault or access an existing one** | Use Azure Key Vault to store secrets required to connect to your SAP system (recommended when this is a required prerequisite). For more information, see [Assign key vault access permissions](deploy-data-connector-agent-container.md#assign-key-vault-access-permissions). |Required if you plan to store the SAP system credentials in Azure Key Vault. <br><br>Optional if you plan to store them in a configuration file. For more information, see [Create a virtual machine and configure access to your credentials](deploy-data-connector-agent-container.md#create-a-virtual-machine-and-configure-access-to-your-credentials).|
+| **Permissions to create Azure resources** | At a minimum, you must have the necessary permissions to deploy solutions from the Microsoft Sentinel content hub. For more information, see [Prerequisites for deploying Microsoft Sentinel solutions](../sentinel-solutions-deploy.md#prerequisites). |Required |
+| **Permissions to create an Azure key vault or access an existing one** | Use Azure Key Vault to store secrets required to connect to your SAP system. For more information, see [Assign key vault access permissions](deploy-data-connector-agent-container.md#assign-key-vault-access-permissions). |Required if you plan to store the SAP system credentials in Azure Key Vault. <br><br>Optional if you plan to store them in a configuration file. For more information, see [Create a virtual machine and configure access to your credentials](deploy-data-connector-agent-container.md#create-a-virtual-machine-and-configure-access-to-your-credentials).|
 | **Permissions to assign a privileged role to the SAP data connector agent** | Deploying the SAP data connector agent requires that you grant your agent's VM identity with specific permissions to the Microsoft Sentinel workspace, using the **Microsoft Sentinel Business Applications Agent Operator** role. To grant this role, you need **Owner** permissions on the resource group where your Microsoft Sentinel workspace resides. <br><br>For more information, see [Connect your SAP system by deploying your data connector agent container](deploy-data-connector-agent-container.md#deploy-the-data-connector-agent). | Required. <br> If you don't have **Owner** permissions on the resource group, the relevant step can also be performed by another user who does have the relevant permissions, separately after the agent is fully deployed.|
 
 ## System prerequisites
 
 Typically, system prerequisites are managed by your **infrastructure** teams. The following system prerequisites are required for deploying the SAP data connector agent container:
 
+<!--double check w PG about support tickets-->
 | Prerequisite | Description |
 | ---- | ----------- |
-| **System architecture** | The data connector component of the SAP solution is deployed as a Docker container, and each SAP client requires its own container instance.<br>The container host can be either a physical machine or a virtual machine, can be located either on-premises or in any cloud. <br>The VM hosting the container ***does not*** have to be located in the same Azure subscription as your Microsoft Sentinel workspace, or even in the same Microsoft Entra tenant. |
-| **Supported Linux versions** | The SAP data connector agent is tested with the following Linux distributions:<br>- Ubuntu 18.04 or higher<br>- SLES version 15 or higher<br>- RHEL version 7.7 or higher<br><br>If you have a different operating system, you might need to deploy and configure the container manually. For more information, open a support ticket. |
+| **System architecture** | The data connector component of the SAP solution is deployed as a Docker container.<br>The container host can be either a physical machine or a virtual machine, can be located either on-premises or in any cloud. <br>The VM hosting the container ***does not*** have to be located in the same Azure subscription as your Microsoft Sentinel workspace, or even in the same Microsoft Entra tenant. |
+| **Supported Linux versions** | The SAP data connector agent is tested with the following Linux distributions:<br>- Ubuntu 18.04 or higher<br>- SLES version 15 or higher<br>- RHEL version 7.7 or higher<br><br>If you have a different operating system, you might need to deploy and configure the container manually. <br><br>For more information, see [Deploy the Microsoft Sentinel for SAP data connector agent container with expert options](sap-solution-deploy-alternate.md). |
 | **Virtual machine sizing recommendations** | **Minimum specification**, such as for a lab environment:<br>*Standard_B2s* VM, with:<br>- Two cores<br>- 4-GB RAM<br><br>**Standard connector** (default):<br>*Standard_D2as_v5* VM or<br>*Standard_D2_v5* VM, with: <br>- Two cores<br>- 8-GB RAM<br><br>**Multiple connectors**:<br>*Standard_D4as_v5* or<br>*Standard_D4_v5* VM, with: <br>- Four cores<br>- 16-GB RAM |
 | **Administrative privileges** | Administrative privileges (root) are required on the container host machine. |
 | **Network connectivity** | Ensure that the container host has access to: <br>- Microsoft Sentinel <br>- Azure key vault (in deployment scenario where Azure key vault is used to store secrets<br>- SAP system via the following TCP ports: *32xx*, *5xx13*, *33xx*, *48xx* (when SNC is used), where *xx* is the SAP instance number. |
@@ -51,16 +52,20 @@ We recommend that your **SAP BASIS** team verify and ensure SAP system prerequis
 | **Required software** | SAP NetWeaver RFC SDK 7.50 ([Download here](https://aka.ms/sentinel4sapsdk))<br>Make sure that you also have an SAP user account in order to access the SAP software download page. |
 | **SAP system details** | Make a note of the following SAP system details: <br>- SAP system IP address and FQDN hostname<br>- SAP system number, such as `00`<br>- SAP System ID, from the SAP NetWeaver system (for example, `NPL`) <br>- SAP client ID, such as `001` |
 | **SAP NetWeaver instance access** | The SAP data connector agent uses one of the following mechanisms to authenticate to the SAP system: <br>- SAP ABAP user/password<br>- A user with an X.509 certificate. This option requires extra configuration steps. |
+| **SAP role requirements** | To allow the SAP data connector to connect to your SAP system, you must create an SAP system role.  For more information, see [SAP role requirements](#sap-role-requirements).|
 
 ### SAP role requirements
 
-To allow the SAP data connector to connect to your SAP system, you must create an SAP system role. We recommend creating the role by loading the role authorizations from the [**/MSFTSEN/SENTINEL_RESPONDER**](https://aka.ms/SAP_Sentinel_Responder_Role) file, as described in the next step, [Configure SAP authorizations and deploy optional SAP change requests](preparing-sap.md).
+We recommend creating the required system role by loading role authorizations from the [**/MSFTSEN/SENTINEL_RESPONDER**](https://aka.ms/SAP_Sentinel_Responder_Role) file, as described in the next step, [Configure SAP authorizations and deploy optional SAP change requests](preparing-sap.md).
 
-The **/MSFTSEN/SENTINEL_RESPONDER** role includes both log retrieval and [attack disruption response actions](https://aka.ms/attack-disrupt-defender). To enable only log retrieval, without attack disruption response actions, either deploy the SAP *NPLK900271* CR on the SAP system, or load the role authorizations from the [**MSFTSEN_SENTINEL_CONNECTOR**](https://aka.ms/SAP_Sentinel_Connector_Role) file. The **/MSFTSEN/SENTINEL_CONNECTOR** role that has all the basic permissions for the data connector to operate.
+The **/MSFTSEN/SENTINEL_RESPONDER** role includes both log retrieval and [attack disruption response actions](https://aka.ms/attack-disrupt-defender). To enable only log retrieval, without attack disruption response actions, use one of the following methods:
 
-| SAP BASIS versions | Sample CR |
-| --- | --- |
-| Any version  | *NPLK900271*: [K900271.NPL](https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/CR/K900271.NPL), [R900271.NPL](https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/CR/R900271.NPL) | 
+- Deploy the SAP *NPLK900271* CR on the SAP system:
+
+    - [K900271.NPL](https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/CR/K900271.NPL)
+    - [R900271.NPL](https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/CR/R900271.NPL)
+
+- Load the role authorizations from the [**MSFTSEN_SENTINEL_CONNECTOR**](https://aka.ms/SAP_Sentinel_Connector_Role) file. The **/MSFTSEN/SENTINEL_CONNECTOR** role that has all the basic permissions for the data connector to operate.
 
 Experienced SAP administrators might choose to create the role manually and assign it the appropriate permissions. In such cases, make sure to follow the recommended authorizations for each log. For more information, see:
 
