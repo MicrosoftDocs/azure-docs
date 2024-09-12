@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.date: 08/16/2024
 # ms.custom: template-include
 ---
-## Upgrading cluster runtime with a pause rack strategy
+## Upgrading Cluster runtime with a pause rack strategy
 
 This how-to guide explains the steps to execute a cluster runtime upgrade with pasue rack strategy. Executing cluster runtime upgrade with "PauseRack" strategy will update a single rack in a cluster and then pause to wait for confirmation before moving to the next rack. All existing thresholds will still be honoried with pause rack strategy.
 
