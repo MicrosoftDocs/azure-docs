@@ -31,7 +31,7 @@ The following properties can be configured and tuned based on the needs of your 
 - `BlockSize`: The maximum length of a transfer in bytes when uploading a block blob in chunks. Defaults to 4 MB.
 - `Concurrency`: The maximum number of subtransfers that may be used in parallel. Defaults to 5.
 
-These options are available when uploading using the following methods: `UploadBuffer`, `UploadStream`, and `UploadFile`. The `Upload` method doesn't support these options, and uploads data in a single request.
+These options are available when uploading using the following methods: [UploadBuffer](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob#Client.UploadBuffer), [UploadStream](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob#Client.UploadStream), and [UploadFile](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob#Client.UploadFile). The [Upload](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob/blockblob#Client.Upload) method doesn't support these options, and uploads data in a single request.
 
 > [!NOTE]
 > The client libraries use defaults for each data transfer option, if not provided. These defaults are typically performant in a data center environment, but not likely to be suitable for home consumer environments. Poorly tuned data transfer options can result in excessively long operations and even request timeouts. It's best to be proactive in testing these values, and tuning them based on the needs of your application and environment.
@@ -44,7 +44,9 @@ To keep data moving efficiently, the client libraries may not always reach the `
 
 #### Code example
 
-The following code example shows how to specify data transfer options when creating a `BlobClient` object, and how to upload data using that client object. The values provided in this sample aren't intended to be a recommendation. To properly tune these values, you need to consider the specific needs of your app.
+The following code example shows how to define values for an [UploadFileOptions](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob#UploadFileOptions) instance and pass these configuration options as a parameter to [UploadFile](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob#Client.UploadFile).
+
+The values provided in this sample aren't intended to be a recommendation. To properly tune these values, you need to consider the specific needs of your app.
 
 ```go
 func uploadBlobWithTransferOptions(client *azblob.Client, containerName string, blobName string) {
@@ -90,25 +92,20 @@ The following properties can be tuned based on the needs of your app:
 - `BlockSize`: The maximum chunk size used for downloading a blob. Defaults to 4 MB.
 - `Concurrency`: The maximum number of subtransfers that may be used in parallel. Defaults to 5.
 
-These options are available when downloading using the following methods: `DownloadBuffer` and `DownloadFile`. The `DownloadStream` method doesn't support these options, and downloads data in a single request.
+These options are available when downloading using the following methods: [DownloadBuffer](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob#Client.DownloadBuffer) and [DownloadFile](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob#Client.DownloadFile). The [DownloadStream](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob#Client.DownloadStream) method doesn't support these options, and downloads data in a single request.
 
 #### Code example
 
 ```go
-def download_blob_transfer_options(self, account_url: str, container_name: str, blob_name: str):
-    # Create a BlobClient object with data transfer options for download
-    blob_client = BlobClient(
-        account_url=account_url, 
-        container_name=container_name, 
-        blob_name=blob_name,
-        credential=DefaultAzureCredential(),
-        max_single_get_size=1024*1024*32, # 32 MiB
-        max_chunk_get_size=1024*1024*4 # 4 MiB
-    )
+func downloadBlobTransferOptions(client *azblob.Client, containerName string, blobName string) {
+    // Create or open a local file where we can download the blob
+    file, err := os.Create("path/to/sample/file")
+    handleError(err)
 
-    with open(file=os.path.join(r'file_path', 'file_name'), mode="wb") as sample_blob:
-        download_stream = blob_client.download_blob(max_concurrency=2)
-        sample_blob.write(download_stream.readall())
+    // Download the blob to the local file
+    _, err = client.DownloadFile(context.TODO(), containerName, blobName, file, nil)
+    handleError(err)
+}
 ```
 
 ### Performance considerations for downloads
