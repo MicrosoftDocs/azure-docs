@@ -7,7 +7,7 @@ author: jianleishen
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 01/05/2024
+ms.date: 09/12/2024
 ---
 
 # Copy and transform data in Azure Data Lake Storage Gen2 using Azure Data Factory or Azure Synapse Analytics
@@ -428,6 +428,7 @@ For a full list of sections and properties available for defining activities, se
 ### Azure Data Lake Storage Gen2 as a source type
 
 [!INCLUDE [data-factory-v2-file-formats](includes/data-factory-v2-file-formats.md)] 
+- [Iceberg format](format-iceberg.md)
 
 You have several options to copy data from ADLS Gen2:
 

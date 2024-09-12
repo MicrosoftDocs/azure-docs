@@ -492,6 +492,8 @@ items:
       displayName: timeout
     - name: HubSpot
       href: connector-hubspot.md
+    - name: Iceberg format
+      href: format-iceberg.md      
     - name: Impala
       href: connector-impala.md
     - name: Informix
