@@ -25,11 +25,11 @@ The following v2 tiers are generally available:
 
 The following v2 tier is in preview:
 
-* **Premium v2** (preview) - Premium v2 supports virtual network isolation, zone redundancy, workspaces, and scaling for enterprise workloads.
+* **Premium v2** (preview) - Premium v2 provides enterprise features including full virtual network isolation, zone redundancy, workspaces, and greater scaling.
 
 ## Key capabilities
 
-* **Faster deployment, configuration, and scaling** - Deploy a production-ready API Management instance in minutes. Quickly apply configurations such as certificate and hostname updates. Scale a Basic v2 or Standard v2 instance quickly to up to 10 units to meet the needs of your API management workloads.
+* **Faster deployment, configuration, and scaling** - Deploy a production-ready API Management instance in minutes. Quickly apply configurations such as certificate and hostname updates. Scale a Basic v2 or Standard v2 instance quickly to up to 10 units to meet the needs of your API management workloads. Scale a Premium v2 instance to up to 30 units.
 
 * **Simplified networking** - The Standard v2 tier supports [outbound connections](#networking-options) to network-isolated backends. Premium v2 supports simplified network injection to isolate both inbound and outbound traffic.
 
@@ -37,17 +37,29 @@ The following v2 tier is in preview:
 
 * **Developer portal options** - Enable the [developer portal](api-management-howto-developer-portal.md) when you're ready to let API consumers discover your APIs. 
 
-## Networking options
-
-* Standard v2 tier supports VNet integration to allow your API Management instance to reach API backends that are isolated in a single connected VNet. The API Management gateway, management plane, and developer portal remain publicly accessible from the internet. The VNet must be in the same region as the API Management instance. [Learn more](integrate-vnet-outbound.md).
-
-* Premium v2 supports VNet injection for complete network isolation of the API Management instance. The API Management gateway, management plane, and developer portal are all privately accessible from the VNet. The VNet can be in the same region or a different region from the API Management instance. [Learn more](api-management-using-with-internal-vnet.md).
 
 ## Features
 
 ### API version
 
-The v2 tiers are supported in API Management API version **2024-05-01** or later.
+The latest capabilities of the v2 tiers are supported in API Management API version **2024-05-01** or later.
+
+## Networking options
+
+* **Standard v2** supports VNet integration to allow your API Management instance to reach API backends that are isolated in a single connected VNet. The API Management gateway, management plane, and developer portal remain publicly accessible from the internet. The VNet must be in the same region as the API Management instance. [Learn more](integrate-vnet-outbound.md).
+
+* **Premium v2** supports VNet injection for complete network isolation of the API Management instance without networking dependencies on the customer's virtual network. You can secure all inbound and outbound traffic and route outbound traffic as you want. [Learn more](virtual-network-concepts.md)
+
+
+### Enterprise capabilities in the Premium v2 tier
+
+The Premium v2 tier offers additional capabilities compared to the Basic v2 and Standard v2 tiers. These capabilities include:
+
+* **Workspaces with isolation** - Configure [wowrkspaces](workspaces-overview.md) for API teams to own and operate a portion of a shared API Management service with an isolated workspace gateway. 
+
+* **Availability zones by default** - Premium v2 instances are availability zone-enabled by default. The underlying infrastructure and dependencies of the API Management instance are distributed across two availability zones in a region.  
+
+* **Distribute your data plane across availability zones** - Distribute API gateways across specific availability zones in a region. 
 
 ### Supported regions
 
@@ -86,7 +98,7 @@ The Premium v2 tier (preview) is available in the following regions:
 * East US
 * West Europe
 
-### Feature availability
+### Classic feature availability
 
 Most capabilities of the classic API Management tiers are supported in the v2 tiers. However, the following capabilities aren't supported in the v2 tiers:
 
@@ -148,11 +160,13 @@ A: They're not related. stv2 is a [compute platform](compute-infrastructure.md) 
 
 ### Q: Will I still be able to provision Basic, Standard, or Premium tier services? 
 
-A: Yes, there are no changes to the Basic, Standard, or Premium tiers. 
+A: Yes, there are no changes to the classic Basic, Standard, or Premium tiers. 
 
 ### Q: What is the difference between VNet integration in Standard v2 tier and VNet support in the Premium and Premium v2 tiers? 
 
-A: A Standard v2 service instance can be integrated with a VNet to provide secure access to the backends residing there. A Standard v2 service instance integrated with a VNet will have a public IP address. The Premium tier and Premium v2 tier support a fully private integration with a VNet (often referred to as injection into VNet) without exposing a public IP address. [Learn more about networking options in API Management](virtual-network-concepts.md). 
+A: A Standard v2 service instance can be integrated with a VNet to provide secure access to the backends residing there. A Standard v2 service instance integrated with a VNet will have a public IP address for inbound access. 
+
+The Premium tier and Premium v2 tier support a fully private integration with a VNet (often referred to as injection into VNet) without exposing a public IP address. [Learn more about networking options in API Management](virtual-network-concepts.md). 
 
 ### Q: Can I deploy an instance of the Basic v2 or Standard v2 tier entirely in my VNet? 
 
