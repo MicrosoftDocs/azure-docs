@@ -65,9 +65,7 @@ There are multiple ways to turn off default outbound access. The following secti
 ### Utilize the Private Subnet parameter
  
 * Creating a subnet to be Private prevents any virtual machines on the subnet from utilizing default outbound access to connect to public endpoints.
- 
-* The parameter to create a Private subnet can only be set during the creation of a subnet.
- 
+  
 * VMs on a Private subnet can still access the Internet using explicit outbound connectivity.
  
     > [!NOTE]
