@@ -162,28 +162,28 @@ The following example shows the contents of the Scrubbed-wfpdiag.txt file. In th
 
 ```
 ...
-[0]0368.03A4::02/02/2017-17:36:01.496 [ikeext] 3038|52.161.24.36|Deleted ICookie from the high priority thread pool list
-[0]0368.03A4::02/02/2017-17:36:01.496 [ikeext] 3038|52.161.24.36|IKE diagnostic event:
-[0]0368.03A4::02/02/2017-17:36:01.496 [ikeext] 3038|52.161.24.36|Event Header:
-[0]0368.03A4::02/02/2017-17:36:01.496 [ikeext] 3038|52.161.24.36|  Timestamp: 1601-01-01T00:00:00.000Z
-[0]0368.03A4::02/02/2017-17:36:01.496 [ikeext] 3038|52.161.24.36|  Flags: 0x00000106
-[0]0368.03A4::02/02/2017-17:36:01.496 [ikeext] 3038|52.161.24.36|    Local address field set
-[0]0368.03A4::02/02/2017-17:36:01.496 [ikeext] 3038|52.161.24.36|    Remote address field set
-[0]0368.03A4::02/02/2017-17:36:01.496 [ikeext] 3038|52.161.24.36|    IP version field set
-[0]0368.03A4::02/02/2017-17:36:01.496 [ikeext] 3038|52.161.24.36|  IP version: IPv4
-[0]0368.03A4::02/02/2017-17:36:01.496 [ikeext] 3038|52.161.24.36|  IP protocol: 0
-[0]0368.03A4::02/02/2017-17:36:01.496 [ikeext] 3038|52.161.24.36|  Local address: 13.78.238.92
-[0]0368.03A4::02/02/2017-17:36:01.496 [ikeext] 3038|52.161.24.36|  Remote address: 52.161.24.36
-[0]0368.03A4::02/02/2017-17:36:01.496 [ikeext] 3038|52.161.24.36|  Local Port: 0
-[0]0368.03A4::02/02/2017-17:36:01.496 [ikeext] 3038|52.161.24.36|  Remote Port: 0
-[0]0368.03A4::02/02/2017-17:36:01.496 [ikeext] 3038|52.161.24.36|  Application ID:
-[0]0368.03A4::02/02/2017-17:36:01.496 [ikeext] 3038|52.161.24.36|  User SID: <invalid>
-[0]0368.03A4::02/02/2017-17:36:01.496 [ikeext] 3038|52.161.24.36|Failure type: IKE/Authip Main Mode Failure
-[0]0368.03A4::02/02/2017-17:36:01.496 [ikeext] 3038|52.161.24.36|Type specific info:
-[0]0368.03A4::02/02/2017-17:36:01.496 [ikeext] 3038|52.161.24.36|  Failure error code:0x000035e9
-[0]0368.03A4::02/02/2017-17:36:01.496 [ikeext] 3038|52.161.24.36|    IKE authentication credentials are unacceptable
-[0]0368.03A4::02/02/2017-17:36:01.496 [ikeext] 3038|52.161.24.36|
-[0]0368.03A4::02/02/2017-17:36:01.496 [ikeext] 3038|52.161.24.36|  Failure point: Remote
+[0]0368.03A4::02/02/2017-17:36:01.496 [ikeext] 3038|<IPaddress>|Deleted ICookie from the high priority thread pool list
+[0]0368.03A4::02/02/2017-17:36:01.496 [ikeext] 3038|<IPaddress>|IKE diagnostic event:
+[0]0368.03A4::02/02/2017-17:36:01.496 [ikeext] 3038|<IPaddress>|Event Header:
+[0]0368.03A4::02/02/2017-17:36:01.496 [ikeext] 3038|<IPaddress>|  Timestamp: 1601-01-01T00:00:00.000Z
+[0]0368.03A4::02/02/2017-17:36:01.496 [ikeext] 3038|<IPaddress>|  Flags: 0x00000106
+[0]0368.03A4::02/02/2017-17:36:01.496 [ikeext] 3038|<IPaddress>|    Local address field set
+[0]0368.03A4::02/02/2017-17:36:01.496 [ikeext] 3038|<IPaddress>|    Remote address field set
+[0]0368.03A4::02/02/2017-17:36:01.496 [ikeext] 3038|<IPaddress>|    IP version field set
+[0]0368.03A4::02/02/2017-17:36:01.496 [ikeext] 3038|<IPaddress>|  IP version: IPv4
+[0]0368.03A4::02/02/2017-17:36:01.496 [ikeext] 3038|<IPaddress>|  IP protocol: 0
+[0]0368.03A4::02/02/2017-17:36:01.496 [ikeext] 3038|<IPaddress>|  Local address: <IPaddress>
+[0]0368.03A4::02/02/2017-17:36:01.496 [ikeext] 3038|<IPaddress>|  Remote address: <IPaddress>
+[0]0368.03A4::02/02/2017-17:36:01.496 [ikeext] 3038|<IPaddress>|  Local Port: 0
+[0]0368.03A4::02/02/2017-17:36:01.496 [ikeext] 3038|<IPaddress>|  Remote Port: 0
+[0]0368.03A4::02/02/2017-17:36:01.496 [ikeext] 3038|<IPaddress>|  Application ID:
+[0]0368.03A4::02/02/2017-17:36:01.496 [ikeext] 3038|<IPaddress>|  User SID: <invalid>
+[0]0368.03A4::02/02/2017-17:36:01.496 [ikeext] 3038|<IPaddress>|Failure type: IKE/Authip Main Mode Failure
+[0]0368.03A4::02/02/2017-17:36:01.496 [ikeext] 3038|<IPaddress>|Type specific info:
+[0]0368.03A4::02/02/2017-17:36:01.496 [ikeext] 3038|<IPaddress>|  Failure error code:0x000035e9
+[0]0368.03A4::02/02/2017-17:36:01.496 [ikeext] 3038|<IPaddress>|    IKE authentication credentials are unacceptable
+[0]0368.03A4::02/02/2017-17:36:01.496 [ikeext] 3038|<IPaddress>|
+[0]0368.03A4::02/02/2017-17:36:01.496 [ikeext] 3038|<IPaddress>|  Failure point: Remote
 ...
 ```
 
