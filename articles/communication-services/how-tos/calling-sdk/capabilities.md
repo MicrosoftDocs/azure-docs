@@ -44,8 +44,8 @@ The feature is currently supported only for Azure Communication Services Rooms c
 The following table provides additional information about why action is not available and provides tips how to make the action available. 
 
 
-| Reason                                       | Description             | Resolution |
-| --- | --- | --- |	
+| Reason | Description | Resolution |
+|---|---|---|	
 | `Capable`                                      | Action is allowed.                                                 | |
 | `CapabilityNotApplicableForTheCallType`        | Call type blocks the action.                                       | Consider other type of call if you need this action. The call types are: 1:1 call, group call, 1:1 Teams interop call, 1:1 Teams interop group call, Room and Meeting. |
 | `ClientRestricted`                             | The runtime environment is blocking this action                    | Check supported operated systems, browsers, platforms and hardware to unblock the action on your device. |
@@ -56,6 +56,7 @@ The following table provides additional information about why action is not avai
 | `NotInitialized`                               | The capabilities feature isn't initialized yet.                    | Subscribe to event `capabilitiesChanged` on this.call.feature(Features.Capabilities) to know when capability is initialized. |
 | `NotCapable`                                   | User type blocks the action.                                       | The action is only allowed to specific type of identity (i.e., usually Microsoft 365 users). Consider changing identity of the user to enable this action. |
 | `TeamsPremiumLicenseRestricted`                | Microsoft 365 user needs to have Teams Premium license assigned.   | Depending on the action, Teams meeting organizer or the Microsoft 365 user needs Teams Premium license to enable this action. Microsoft 365 admin can assign required license. |
+
 
 ## Next steps
 - [Learn how to manage video](./manage-video.md)
