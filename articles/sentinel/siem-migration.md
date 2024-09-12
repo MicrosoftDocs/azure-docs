@@ -4,7 +4,7 @@ titleSuffix: Microsoft Sentinel
 description: Migrate security monitoring use cases from other Security Information and Event Management (SIEM) systems to Microsoft Sentinel. 
 author: austinmccollum
 ms.topic: how-to
-ms.date: 9/01/2024
+ms.date: 9/11/2024
 ms.author: austinmc
 appliesto: 
 - Microsoft Sentinel in the Azure portal
@@ -19,7 +19,7 @@ Migrate your SIEM to Microsoft Sentinel for all your security monitoring use cas
 These features are currently included in the SIEM Migration experience: 
 
 **Splunk**
-- The experience focuses on migrating Splunk security monitoring to Microsoft Sentinel.
+- The experience focuses on migrating Splunk security monitoring to Microsoft Sentinel and mapping out-of-the-box (OOTB) analytics rules wherever possible.
 - The experience only supports migration of Splunk detections to Microsoft Sentinel analytics rules.
 
 ## Prerequisites
@@ -44,13 +44,15 @@ At the core of Splunk detection rules is the Search Processing Language (SPL). T
 
 Current capabilities:
 
+- Map Splunk detections to OOTB Microsoft Sentinel analytics rules
 - Translate simple queries with a single data source
-- Direct translations listed in the article, [Splunk to Kusto cheat sheet](/azure/data-explorer/kusto/query/splunk-cheat-sheet)
-- Review translated query error feedback with edit capability to save time in the detection rule translation process
-- Translated queries feature a completeness status with translation states
+- Automatic translations of SPL to KQL for the mappings listed in the article, [Splunk to Kusto cheat sheet](/azure/data-explorer/kusto/query/splunk-cheat-sheet)
+- **Schema Mapping (Preview)** connects Splunk data sources and lookups to Microsoft Sentinel tables and watchlists respectively
+- Translated query review provides error feedback with edit capability to save time in the detection rule translation process
+- **Translation State** indicating whether the syntax was fully or partially translated at the grammatical level
 - Support for Splunk macros
-- Support for Splunk lookups
 - Splunk Common Information Model (CIM) to Microsoft Sentinel's Advanced Security Information Model (ASIM) translation support
+- Downloadable pre-migration and post-migration summary
 
 ## Start the SIEM migration experience
 
