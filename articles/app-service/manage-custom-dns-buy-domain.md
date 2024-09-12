@@ -1,8 +1,8 @@
 ---
-title: Buy an App Service custom domain
+title: Buy a custom domain
 description: Learn how to buy an App Service domain and use it as a custom domain for your app Azure App Service.
 ms.assetid: 70fb0e6e-8727-4cca-ba82-98a4d21586ff
-ms.topic: article
+ms.topic: how-to
 ms.date: 08/28/2024
 ms.author: msangapu
 author: msangapu-msft
