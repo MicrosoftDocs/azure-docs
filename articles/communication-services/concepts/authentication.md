@@ -49,8 +49,7 @@ If you wish to call Azure Communication Services' APIs manually using an access 
 
 To set up a service principal, [create a registered application from the Azure CLI](../quickstarts/identity/service-principal.md?pivots=platform-azcli). Then, the endpoint and credentials can be used to authenticate the SDKs. See examples of how [service principal](../quickstarts/identity/service-principal.md) is used.
 
-Communication services supports Microsoft Entra ID authentication for Communication services resources. You can find more details, about the managed identity support in the [How to use Managed Identity with Azure Communication Services](https://learn.microsoft.com/en-us/azure/communication-services/how-tos/managed-identity).
-
+Communication services supports Microsoft Entra ID authentication for Communication services resources. You can find more details, about the managed identity support in the [How to use Managed Identity with Azure Communication Services](/azure/communication-services/how-tos/managed-identity).
 
 
 
@@ -63,7 +62,9 @@ The Azure platform provides role-based access (Azure RBAC) to control access to 
 - **Managed Identity:**
   - By using managed identity, you avoid having to store your account access key within your code, as you do with Access Key authorization. Managed identity credentials are fully managed, rotated, and protected by the platform, reducing the risk of credential exposure.
   - Managed identities can authenticate to Azure services and resources that support Microsoft Entra ID authentication. This method provides a seamless and secure way to manage credentials.
-  - For more information on how to use Managed Identity with Azure Communication Services, refer to [this guide](https://learn.microsoft.com/azure/communication-services/how-tos/managed-identity).
+  - For more information on how to use Managed Identity with Azure Communication Services, refer to [This Guide](/azure/communication-services/how-tos/managed-identity). 
+  
+  
 
 - **Service Principal:**
   - To set up a service principal [create a registered application from the Azure CLI](../quickstarts/identity/service-principal.md?pivots=platform-azcli). Then, the endpoint and credentials can be used to authenticate the SDKs.
