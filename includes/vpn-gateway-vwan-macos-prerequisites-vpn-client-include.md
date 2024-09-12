@@ -13,4 +13,4 @@ ms.topic: include
   * Supported processors: x64, Arm64
 
 * If your device has an M-series chip and VPN client release earlier 2.7.101, you must install Rosetta software. For more information, see the [Apple support article](https://support.apple.com/en-us/HT211861)
-* VPN client 2.7.101 and above do not require installation of Rosetta software.
+* VPN client 2.7.101 and above don't require installation of Rosetta software.
