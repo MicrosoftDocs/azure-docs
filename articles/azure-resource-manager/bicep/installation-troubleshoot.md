@@ -10,61 +10,6 @@ ms.date: 03/20/2024
 
 This article describes how to resolve potential errors in your Bicep installation.
 
-## .NET runtime error
-
-When installing the Bicep extension for Visual Studio Code, you may run into the following error messages:
-
-```error
-Failed to install .NET runtime v5.0
-```
-
-```error
-Failed to download .NET 5.0.x ....... Error!
-```
-
-> [!WARNING]
-> This is a last resort solution that may cause problems when updating versions.
-
-To solve the problem, you can manually install .NET from the [.NET website](https://aka.ms/dotnet-core-download), and then configure Visual Studio Code to reuse an existing installation of .NET with the following settings:
-
-**Windows**
-
-```json
-"dotnetAcquisitionExtension.existingDotnetPath": [
-  {
-    "extensionId": "ms-azuretools.vscode-bicep",
-    "path": "C:\\Program Files\\dotnet\\dotnet.exe"
-  }
-]
-
-```
-
-**macOS**
-
-If you need an **x64** installation, use:
-
-```json
-"dotnetAcquisitionExtension.existingDotnetPath": [
-  {
-    "extensionId": "ms-azuretools.vscode-bicep",
-    "path": "/usr/local/share/dotnet/x64/dotnet"
-  }
-]
-```
-
-For other **macOS** installations, use:
-
-```json
-"dotnetAcquisitionExtension.existingDotnetPath": [
-  {
-    "extensionId": "ms-azuretools.vscode-bicep",
-    "path": "/usr/local/share/dotnet/dotnet"
-  }
-]
-```
-
-See [User and Workspace Settings](https://code.visualstudio.com/docs/getstarted/settings) for configuring Visual Studio Code settings.
-
 ## Visual Studio Code error
 
 If you see the following error message popup in Visual Studio Code:
