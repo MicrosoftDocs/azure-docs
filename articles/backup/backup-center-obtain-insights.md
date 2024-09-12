@@ -9,7 +9,7 @@ ms.author: v-abhmallick
 
 # Obtain Insights using Backup center
 
-For analyzing historical trends and gaining deeper insights on your backups, Backup Center provides an interface to [Backup Reports](configure-reports.md), which uses [Azure Monitor Logs](../azure-monitor/logs/data-platform-logs.md) and [Azure Workbooks](../azure-monitor/visualize/workbooks-overview.md). Backup Reports offers the following capabilities:
+For analyzing historical trends and gaining deeper insights on your backups, Backup Center provides an interface to [Backup Reports](configure-reports.md), which uses [Azure Monitor Logs](/azure/azure-monitor/logs/data-platform-logs) and [Azure Workbooks](/azure/azure-monitor/visualize/workbooks-overview). Backup Reports offers the following capabilities:
 
 - Allocating and forecasting of cloud storage consumed.
 
