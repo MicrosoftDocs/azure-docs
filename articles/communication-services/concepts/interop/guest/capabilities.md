@@ -110,7 +110,7 @@ This article describes which capabilities Azure Communication Services SDKs supp
 | Video rendering   | Render single video in many places (local camera or remote stream)                                                  | ✔️        |
 |                   | Set/update scaling mode                                                                                           | ✔️        |
 |                   | Render remote video stream                                                                                          | ✔️        |
-|                   | See **Together** mode video stream                                                                                      | ❌ |
+|                   | See **Together** mode video stream                                                                                      | ✔️ |
 |                   | See **Large gallery** view                                                                                              | ❌ |
 |                   | Receive video stream from Teams media bot                                                                           | ❌ |
 |                   | Receive adjusted stream for **Content from camera**                                                                   | ❌ |

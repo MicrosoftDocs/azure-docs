@@ -8,7 +8,7 @@ ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
 ms.custom: devx-track-azurepowershell, linux-related-content
-ms.date: 04/08/2024
+ms.date: 08/26/2024
 ms.author: radeltch
 ---
 
@@ -640,10 +640,16 @@ Make sure to assign the custom role to the service principal at all VM (cluster 
    ```
 
    > [!NOTE]
-   > On SLES 15 SP4 check the version of *crmsh* and *pacemaker* package, and make sure that the miniumum version requirements are met:
    >
-   > - crmsh-4.4.0+20221028.3e41444-150400.3.9.1 or later
-   > - pacemaker-2.1.2+20211124.ada5c3b36-150400.4.6.1 or later
+   > For **SLES 15 SP4**, verify the versions of the `crmsh` and `pacemaker` packages to ensure they meet the minimum version requirements:
+   >
+   > - `crmsh-4.4.0+20221028.3e41444-150400.3.9.1` or later
+   > - `pacemaker-2.1.2+20211124.ada5c3b36-150400.4.6.1` or later
+
+   > [!IMPORTANT]
+   >
+   > - **SLES 12 SP5:** If python-azure-core-1.23.1-**2.12.8** is installed, the Azure fence agent may fail to start in a Pacemaker cluster, displaying the error message “Azure Resource Manager Python SDK not found or not accessible” in /var/log/messages. Follow the instructions in [SUSE KBA 21532](https://www.suse.com/support/kb/doc/?id=000021532) for more details.
+   > - **SLES 15 SP4+:** After updating the OS, the Azure libraries for Python might use the Python 3.11 interpreter, causing the Azure fence agent to fail to start in a Pacemaker cluster. The error message “Azure Resource Manager Python SDK not found or not accessible” will appear in /var/log/messages. Follow the instructions in [SUSE KBA 21504](https://www.suse.com/support/kb/doc/?id=000021504) for more details.
 
 2. **[A]** Install the component, which you need for the cluster resources.
 
@@ -770,20 +776,30 @@ Make sure to assign the custom role to the service principal at all VM (cluster 
    >
    > Earlier versions will not work correctly with a managed identity configuration.  
 
-10. **[A]** Install the Azure Python SDK and Azure Identity Python module.  
+10. **[A]** Install fence-agents-azure-arm package.
 
-    Install the Azure Python SDK on SLES 12 SP4 or SLES 12 SP5:
+    For **SLES 12 SP5**, if you are using `fence-agents` version `4.9.0+git.1624456340.8d746be9-3.41.3` or later, and for **SLES 15 SP4 and newer**, you need to install the `fence-agents-azure-arm` package. This package will include all required dependencies.
+
+    ```bash
+    # On SLES 12 SP5 with fence-agents version 4.9.0+git.1624456340.8d746be9-3.41.3 or higher. You might need to activate the public cloud extension first
+    SUSEConnect -p sle-module-public-cloud/12/x86_64
+    sudo zypper install fence-agents-azure-arm
+    
+    # On SLES 15 SP4 and later. You might need to activate the public cloud extension first. In this example, the SUSEConnect 
+    SUSEConnect -p sle-module-public-cloud/15.4/x86_64
+    sudo zypper install fence-agents-azure-arm
+    ```
+
+11. **[A]** Install the Azure Python SDK and Azure Identity Python module.
+
+    For **SLES 12 SP5**, if your `fence-agents` version is lower then `4.9.0+git.1624456340.8d746be9-3.41.3`, and for **SLES 15 SP3 and below**, you need to install below additional packages.
 
     ```bash
     # You might need to activate the public cloud extension first
     SUSEConnect -p sle-module-public-cloud/12/x86_64
     sudo zypper install python-azure-mgmt-compute
     sudo zypper install python-azure-identity
-    ```
-
-    Install the Azure Python SDK on SLES 15 or later:
-
-    ```bash
+    
     # You might need to activate the public cloud extension first. In this example, the SUSEConnect command is for SLES 15 SP1
     SUSEConnect -p sle-module-public-cloud/15.1/x86_64
     sudo zypper install python3-azure-mgmt-compute
@@ -795,10 +811,10 @@ Make sure to assign the custom role to the service principal at all VM (cluster 
     > You can check the extension by running `SUSEConnect ---list-extensions`.
     > To achieve the faster failover times with the Azure fence agent:
     >
-    > - On SLES 12 SP4 or SLES 12 SP5, install version 4.6.2 or later of the *python-azure-mgmt-compute* package.
+    > - On SLES 12 SP5, install version 4.6.2 or later of the *python-azure-mgmt-compute* package.
     > - If your *python-azure-mgmt-compute or python**3**-azure-mgmt-compute* package version is 17.0.0-6.7.1, follow the instructions in [SUSE KBA](https://www.suse.com/support/kb/doc/?id=000020377) to update the fence-agents version and install the Azure Identity client library for Python module if it is missing.
 
-11. **[A]** Set up the hostname resolution.
+12. **[A]** Set up the hostname resolution.
 
     You can either use a DNS server or modify the */etc/hosts* file on all nodes. This example shows how to use the */etc/hosts* file.
 
@@ -822,7 +838,7 @@ Make sure to assign the custom role to the service principal at all VM (cluster 
     10.0.0.7 prod-cl1-1
     ```
 
-12. **[1]** Install the cluster.
+13. **[1]** Install the cluster.
 
     - If you're using SBD devices for fencing (for either the iSCSI target server or Azure shared disk):
 
@@ -851,7 +867,7 @@ Make sure to assign the custom role to the service principal at all VM (cluster 
       # Do you wish to configure an administration IP (y/n)? n
       ```
 
-13. **[2]** Add the node to the cluster.
+14. **[2]** Add the node to the cluster.
 
     ```bash
     sudo crm cluster join
@@ -861,13 +877,13 @@ Make sure to assign the custom role to the service principal at all VM (cluster 
     # /root/.ssh/id_rsa already exists - overwrite (y/n)? n
     ```
 
-14. **[A]** Change the hacluster password to the same password.
+15. **[A]** Change the hacluster password to the same password.
 
     ```bash
     sudo passwd hacluster
     ```
 
-15. **[A]** Adjust the corosync settings.  
+16. **[A]** Adjust the corosync settings.  
 
     ```bash
     sudo vi /etc/corosync/corosync.conf
@@ -949,14 +965,14 @@ Make sure to assign the custom role to the service principal at all VM (cluster 
 #### [Managed identity](#tab/msi)
 
    ```bash
-   # Adjust the command with your subscription ID and resource group of the VM
+# Adjust the command with your subscription ID and resource group of the VM
 
-   sudo crm configure primitive rsc_st_azure stonith:fence_azure_arm \
-   params msi=true subscriptionId="subscription ID" resourceGroup="resource group" \
-   pcmk_monitor_retries=4 pcmk_action_limit=3 power_timeout=240 pcmk_reboot_timeout=900 pcmk_delay_max=15 pcmk_host_map="prod-cl1-0:prod-cl1-0-vm-name;prod-cl1-1:prod-cl1-1-vm-name" \
-   op monitor interval=3600 timeout=120
+sudo crm configure primitive rsc_st_azure stonith:fence_azure_arm \
+params msi=true subscriptionId="subscription ID" resourceGroup="resource group" \
+pcmk_monitor_retries=4 pcmk_action_limit=3 power_timeout=240 pcmk_reboot_timeout=900 pcmk_delay_max=15 pcmk_host_map="prod-cl1-0:prod-cl1-0-vm-name;prod-cl1-1:prod-cl1-1-vm-name" \
+op monitor interval=3600 timeout=120
    
-   sudo crm configure property stonith-timeout=900
+sudo crm configure property stonith-timeout=900
    ```
 
 #### [Service principal](#tab/spn)
@@ -972,7 +988,7 @@ Make sure to assign the custom role to the service principal at all VM (cluster 
    sudo crm configure property stonith-timeout=900
    ```
 
-   ---
+---
 
    If you're using fencing device, based on service principal configuration, read [Change from SPN to MSI for Pacemaker clusters using Azure fencing](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/sap-on-azure-high-availability-change-from-spn-to-msi-for/ba-p/3609278) and learn how to convert to managed identity configuration.
 
@@ -1035,11 +1051,11 @@ Azure offers [scheduled events](/azure/virtual-machines/linux/scheduled-events).
    Important: The resources must start with 'health-azure'.
 
    ```bash
-   sudo crm configure primitive health-azure-events ocf:heartbeat:azure-events-az \ 
-   meta allow-unhealthy-nodes=true failure-timeout=120s \ 
-   op start start-delay=60s \ 
+   sudo crm configure primitive health-azure-events ocf:heartbeat:azure-events-az \
+   meta allow-unhealthy-nodes=true failure-timeout=120s \
+   op start start-delay=60s \
    op monitor interval=10s
-
+   
    sudo crm configure clone health-azure-events-cln health-azure-events
    ```
 

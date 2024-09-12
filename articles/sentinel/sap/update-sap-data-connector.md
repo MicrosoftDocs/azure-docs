@@ -8,6 +8,10 @@ ms.date: 03/27/2024
 appliesto:
     - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
+
+
+#Customer intent: As a security operations engineer, I want to update the Microsoft Sentinel for SAP applications data connector agent so that I can ensure my SAP data integration is using the latest features and security updates.
+
 ---
 
 # Update Microsoft Sentinel's SAP data connector agent

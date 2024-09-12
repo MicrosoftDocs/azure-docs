@@ -421,7 +421,10 @@ items:
           href: concepts/migrate-to-azure-communication-services.md
         - name: How to migrate from Twilio Video to Azure Communication Services
           href: tutorials/migrating-to-azure-communication-services-calling.md
-          displayName: migration, migrate, Twilio, move, shift
+          displayName: migration, migrate, Twilio, Twilio Video, move, shift
+        - name: How to migrate from Twilio Conversations Chat to Azure Communication Services
+          href: tutorials/migrating-to-azure-communication-services-chat.md
+          displayName: migration, migrate, Twilio, Twilio Conversations, move, shift
     - name: Mobile integrations
       items:
       - name: Integrate with CallKit in iOS
@@ -438,6 +441,8 @@ items:
           href: how-tos/ui-library-sdk/closed-captions.md
         - name: Configure theming
           href: how-tos/ui-library-sdk/theming.md
+        - name: Customize the button bar
+          href: how-tos/ui-library-sdk/button-injection.md
         - name: Disable end call confirmation
           href: how-tos/ui-library-sdk/leave-call-confirmation.md
         - name: Enable audio only mode
@@ -1274,6 +1279,18 @@ items:
       href: /java/api/overview/azure/resourcemanager-communication-readme
     - name: Azure Resource Manager (Python)
       href: /python/api/overview/azure/mgmt-communication-readme
+  - name: Advanced Messaging
+    items:
+    - name: Messages (Java)
+      href: /java/api/overview/azure/communication-messages-readme
+    - name: Messages (JavaScript)
+      href: /javascript/api/overview/azure/communication-messages-rest-readme
+    - name: Messages (.NET)
+      href: /dotnet/api/overview/azure/communication.messages-readme
+    - name: Messages (Python)
+      href: /python/api/overview/azure/communication-messages-readme
+    - name: Advanced Messaging (REST)
+      href: /rest/api/communication/advancedmessaging/operation-groups
   - name: Calling
     items:
     - name: Calling (JavaScript)
@@ -1376,11 +1393,6 @@ items:
       href: https://azure.github.io/azure-sdk-for-ios/AzureCommunicationUIChat
     - name: UI Library for Chat (Android)
       href: https://azure.github.io/azure-sdk-for-android/azure-communication-ui-chat/index.html
-    
-  - name: Advanced Messaging
-    items:
-    - name: Advanced Messaging (.NET)
-      href: /dotnet/api/overview/azure/communication.messages-readme
   - name: Common
     items:
     - name: Common (JavaScript)
