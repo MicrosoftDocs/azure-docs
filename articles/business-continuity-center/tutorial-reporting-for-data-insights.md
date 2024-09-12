@@ -21,7 +21,7 @@ Azure Business Continuity Center provides a reporting solution for backup and di
 - Auditing backups and restores.
 - Identifying key trends at different levels of detail.
 
-The Reporting solution in Azure Business Continuity Center uses [Azure Monitor logs and Azure workbooks](../azure-monitor/logs/log-analytics-tutorial.md). These resources enable you to gain insights into your estate that is protected with either Azure Backup or Azure Site Recovery.
+The Reporting solution in Azure Business Continuity Center uses [Azure Monitor logs and Azure workbooks](/azure/azure-monitor/logs/log-analytics-tutorial). These resources enable you to gain insights into your estate that is protected with either Azure Backup or Azure Site Recovery.
 
 ## Configure reports
 
@@ -29,15 +29,15 @@ To set up reporting for backup and site recovery, see the following sections.
 
 ### Create a Log Analytics workspace or use an existing workspace
 
-Set up one or more Log Analytics workspaces to store your backup reporting data. The location and subscription of this Log Analytics workspace can be different from where your vaults are located or subscribed. To set up a Log Analytics workspace, see [this article](../azure-monitor/logs/quick-create-workspace.md).
+Set up one or more Log Analytics workspaces to store your backup reporting data. The location and subscription of this Log Analytics workspace can be different from where your vaults are located or subscribed. To set up a Log Analytics workspace, see [this article](/azure/azure-monitor/logs/quick-create-workspace).
 
-The data in a Log Analytics workspace is kept for *30 days* by default. If you want to see data for a longer time span, change the retention period of the Log Analytics workspace. To change the retention period, see [Configure data retention and archive policies in Azure Monitor Logs](../azure-monitor/logs/data-retention-configure.md?tabs=portal-3%2Cportal-1%2Cportal-2).
+The data in a Log Analytics workspace is kept for *30 days* by default. If you want to see data for a longer time span, change the retention period of the Log Analytics workspace. To change the retention period, see [Configure data retention and archive policies in Azure Monitor Logs](/azure/azure-monitor/logs/data-retention-configure?tabs=portal-3%2Cportal-1%2Cportal-2).
 
 ### Configure diagnostics settings for your vaults
 
 Azure Resource Manager resources, like Recovery Services vaults, record information about backup and site recovery jobs as diagnostics data.
 
-To learn how to configure diagnostics settings, see [this article](../azure-monitor/essentials/diagnostic-settings.md). You can also configure diagnostics settings for your BCDR estate using the steps for [Azure Backup](../backup/backup-azure-diagnostic-events.md?tabs=recovery-services-vaults) and [Azure Site Recovery](../site-recovery/report-site-recovery.md?branch=release-abcc#configure-diagnostics-settings-for-your-vaults).
+To learn how to configure diagnostics settings, see [this article](/azure/azure-monitor/essentials/diagnostic-settings). You can also configure diagnostics settings for your BCDR estate using the steps for [Azure Backup](../backup/backup-azure-diagnostic-events.md?tabs=recovery-services-vaults) and [Azure Site Recovery](../site-recovery/report-site-recovery.md?branch=release-abcc#configure-diagnostics-settings-for-your-vaults).
 
 >[!Note]
 >After diagnostics configuration, it takes up to *24 hours* for the initial data push to complete. Once the data migrates to the Log Analytics workspace, the data in the reports might take some time to appear because the data for the current day isn't available in the reports.
