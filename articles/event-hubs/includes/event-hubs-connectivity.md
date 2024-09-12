@@ -70,7 +70,7 @@ If you use a namespace hosted in an older cluster (based on Cloud Services - CNA
 ### What client IPs are sending events to or receiving events from my namespace?
 First, enable [IP filtering](../event-hubs-ip-filtering.md) on the namespace. 
 
-Then, Enable diagnostic logs for [Event Hubs virtual network connection events](../monitor-event-hubs-reference.md#event-hubs-virtual-network-connection-event-schema) by following instructions in the [Enable diagnostic logs](../../azure-monitor/essentials/diagnostic-settings.md). You see the IP address for which connection is denied.
+Then, Enable diagnostic logs for [Event Hubs virtual network connection events](../monitor-event-hubs-reference.md#event-hubs-virtual-network-connection-event-schema) by following instructions in the [Enable diagnostic logs](/azure/azure-monitor/essentials/diagnostic-settings). You see the IP address for which connection is denied.
 
 ```json
 {

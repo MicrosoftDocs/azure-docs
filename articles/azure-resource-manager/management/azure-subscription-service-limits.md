@@ -127,7 +127,7 @@ Pricing tiers determine the capacity and limits of your search service. Tiers in
 
 [!INCLUDE [azure-search-limits-per-service](~/reusable-content/ce-skilling/azure/includes/azure-search-limits-per-service.md)]
 
-To learn more about limits on a more granular level, such as document size, queries per second, keys, requests, and responses, see [Service limits in Azure AI Search](../../search/search-limits-quotas-capacity.md).
+To learn more about limits on a more granular level, such as document size, queries per second, keys, requests, and responses, see [Service limits in Azure AI Search](/azure/search/search-limits-quotas-capacity).
 
 <a name='azure-cognitive-services-limits'></a>
 
@@ -137,7 +137,7 @@ To learn more about limits on a more granular level, such as document size, quer
 
 ## Azure Chaos Studio limits
 
-For Azure Chaos Studio limits, see [Azure Chaos Studio service limits](../../chaos-studio/chaos-studio-service-limits.md).
+For Azure Chaos Studio limits, see [Azure Chaos Studio service limits](/azure/chaos-studio/chaos-studio-service-limits).
 
 ## Azure Communications Gateway limits
 
@@ -213,7 +213,7 @@ For Azure Load Testing limits, see [Service limits in Azure Load Testing](../../
 
 ## Azure Machine Learning limits
 
-The latest values for Azure Machine Learning Compute quotas can be found in the [Azure Machine Learning quota page](../../machine-learning/how-to-manage-quotas.md)
+The latest values for Azure Machine Learning Compute quotas can be found in the [Azure Machine Learning quota page](/azure/machine-learning/how-to-manage-quotas)
 
 ## Azure Maps limits
 
@@ -225,7 +225,7 @@ The latest values for Azure Machine Learning Compute quotas can be found in the 
 
 ## Azure Monitor limits
 
-For Azure Monitor limits, see [Azure Monitor service limits](../../azure-monitor/service-limits.md).
+For Azure Monitor limits, see [Azure Monitor service limits](/azure/azure-monitor/service-limits).
 
 ## Azure Data Factory limits
 

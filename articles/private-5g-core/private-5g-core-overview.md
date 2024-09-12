@@ -197,7 +197,7 @@ For more information on using Azure Monitor to analyze metrics in your deploymen
 
 Azure Private 5G Core is integrated with Azure Resource Health, which reports on the health of your control plane resources and allows you to diagnose and get support for service issues.
 
-For more information on using Azure Resource Health to monitor the health of your deployment, see [Resource Health overview](../service-health/resource-health-overview.md).
+For more information on using Azure Resource Health to monitor the health of your deployment, see [Resource Health overview](/azure/service-health/resource-health-overview).
 
 Azure Private 5G Core can be configured to integrate with Azure Monitor Event Hubs, allowing you to monitor UE usage.
 

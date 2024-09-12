@@ -27,11 +27,11 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 
 If you're new to Azure Automation and Azure Monitor, it's important that you understand the configuration details. The understanding can help you avoid errors when you try to create, configure, and use a Log Analytics workspace linked to your new Automation account.
 
-* Review [additional details](../azure-monitor/logs/resource-manager-workspace.md#create-a-log-analytics-workspace) to fully understand workspace configuration options, such as access control mode, pricing tier, retention, and capacity reservation level.
+* Review [additional details](/azure/azure-monitor/logs/resource-manager-workspace#create-a-log-analytics-workspace) to fully understand workspace configuration options, such as access control mode, pricing tier, retention, and capacity reservation level.
 
 * Review [workspace mappings](how-to/region-mappings.md) to specify the supported regions inline or in a parameter file. Only certain regions are supported for linking a Log Analytics workspace and an Automation account in your subscription.
 
-* If you're new to Azure Monitor Logs and haven't deployed a workspace already, review the [workspace design guidance](../azure-monitor/logs/workspace-design.md). This document will help you learn about access control, and help you understand the recommended design implementation strategies for your organization.
+* If you're new to Azure Monitor Logs and haven't deployed a workspace already, review the [workspace design guidance](/azure/azure-monitor/logs/workspace-design). This document will help you learn about access control, and help you understand the recommended design implementation strategies for your organization.
 
 ## Review the template
 

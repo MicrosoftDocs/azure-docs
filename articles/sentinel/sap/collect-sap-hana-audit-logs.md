@@ -5,6 +5,10 @@ author: batamig
 ms.author: bagol
 ms.topic: how-to
 ms.date: 06/09/2024
+
+
+#Customer intent: As a security analyst, I want to collect and analyze SAP HANA audit logs to Microsoft Sentinel so that I can monitor and respond to security events effectively.
+
 ---
 
 # Collect SAP HANA audit logs in Microsoft Sentinel
@@ -35,7 +39,7 @@ For more information, see [Ingest syslog and CEF messages to Microsoft Sentinel 
 4. Install an agent on your machine and confirm that your machine is connected. For more information, see:
 
     - [Azure Monitor Agent](/azure/azure-monitor/agents/azure-monitor-agent-manage?tabs=azure-portal)
-    - [Log Analytics Agent](../../azure-monitor/agents/agent-linux.md) (legacy)
+    - [Log Analytics Agent](/azure/azure-monitor/agents/agent-linux) (legacy)
 
 5. Configure your agent to collect Syslog data. For more information, see:
 

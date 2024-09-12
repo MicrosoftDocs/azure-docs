@@ -21,6 +21,11 @@
            "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/vpn-gateway/troubleshoot-ad-vpn-client.md",
+            "redirect_url": "/azure/vpn-gateway/troubleshoot-azure-vpn-client",
+            "redirect_document_id": false
+         },
+        {
            "source_path_from_root": "/articles/vpn-gateway/vpn-gateway-multi-site.md",
            "redirect_url": "/previous-versions/azure/vpn-gateway/vpn-gateway-multi-site",
            "redirect_document_id": false

@@ -1100,6 +1100,39 @@ Azure service: [Azure API for FHIR](/azure/healthcare-apis/azure-api-for-fhir/)
 > | Microsoft.HealthcareApis/workspaces/fhirservices/resources/editProfileDefinitions/action | Allows user to perform Create Update Delete operations on profile resources. |
 > | Microsoft.HealthcareApis/workspaces/fhirservices/resources/searchParameter/action | Allows running of $status operation for Search Parameters |
 
+## Microsoft.HealthDataAIServices
+
+Azure service: [Azure Health Data Services](/azure/healthcare-apis/healthcare-apis-overview)
+
+> [!div class="mx-tableFixed"]
+> | Action | Description |
+> | --- | --- |
+> | Microsoft.HealthDataAIServices/register/action | Register the subscription for Microsoft.HealthDataAIServices |
+> | Microsoft.HealthDataAIServices/unregister/action | Unregister the subscription for Microsoft.HealthDataAIServices |
+> | Microsoft.HealthDataAIServices/DeidServices/read | List DeidService resources by subscription ID |
+> | Microsoft.HealthDataAIServices/DeidServices/read | List DeidService resources by resource group |
+> | Microsoft.HealthDataAIServices/DeidServices/read | Get a DeidService |
+> | Microsoft.HealthDataAIServices/DeidServices/write | Create a DeidService |
+> | Microsoft.HealthDataAIServices/DeidServices/delete | Delete a DeidService |
+> | Microsoft.HealthDataAIServices/DeidServices/write | Update a DeidService |
+> | Microsoft.HealthDataAIServices/locations/operationStatuses/read | read operationStatuses |
+> | Microsoft.HealthDataAIServices/locations/operationStatuses/write | write operationStatuses |
+> | Microsoft.HealthDataAIServices/Operations/read | read Operations |
+> | **DataAction** | **Description** |
+> | Microsoft.HealthDataAIServices/DeidServices/Realtime/action | Allows access to the realtime endpoint |
+> | Microsoft.HealthDataAIServices/DeidServices/Batch/write | Creates batches |
+> | Microsoft.HealthDataAIServices/DeidServices/Batch/delete | Deletes a batch |
+> | Microsoft.HealthDataAIServices/DeidServices/Batch/read | Reads a batch |
+> | Microsoft.HealthDataAIServices/DeidServices/PrivateEndpointConnectionProxies/delete | Deletes private endpoint connection proxies |
+> | Microsoft.HealthDataAIServices/DeidServices/PrivateEndpointConnectionProxies/read | Reads private endpoint connection proxies |
+> | Microsoft.HealthDataAIServices/DeidServices/PrivateEndpointConnectionProxies/write | Writes private endpoint connection proxies |
+> | Microsoft.HealthDataAIServices/DeidServices/PrivateEndpointConnectionProxies/validate/action | Validates private endpoint connection proxies |
+> | Microsoft.HealthDataAIServices/DeidServices/PrivateEndpointConnectionProxies/validate/action | Validates private endpoint connection proxies |
+> | Microsoft.HealthDataAIServices/DeidServices/PrivateEndpointConnections/read | Reads private endpoint connections |
+> | Microsoft.HealthDataAIServices/DeidServices/PrivateEndpointConnections/write | Writes private endpoint connections |
+> | Microsoft.HealthDataAIServices/DeidServices/PrivateEndpointConnections/delete | Deletes private endpoint connections |
+> | Microsoft.HealthDataAIServices/DeidServices/PrivateLinkResources/read | Reads private link resources |
+
 ## Microsoft.Logic
 
 Automate the access and use of data across clouds without writing code.
@@ -1390,7 +1423,6 @@ Azure service: [Service Bus](/azure/service-bus-messaging/)
 > | Microsoft.ServiceBus/namespaces/eventGridFilters/write | Creates or Updates the Event Grid filter associated with the namespace. |
 > | Microsoft.ServiceBus/namespaces/eventGridFilters/read | Gets the Event Grid filter associated with the namespace. |
 > | Microsoft.ServiceBus/namespaces/eventGridFilters/delete | Deletes the Event Grid filter associated with the namespace. |
-> | Microsoft.ServiceBus/namespaces/eventhubs/read | Get list of EventHub Resource Descriptions |
 > | Microsoft.ServiceBus/namespaces/ipFilterRules/read | Get IP Filter Resource |
 > | Microsoft.ServiceBus/namespaces/ipFilterRules/write | Create IP Filter Resource |
 > | Microsoft.ServiceBus/namespaces/ipFilterRules/delete | Delete IP Filter Resource |
