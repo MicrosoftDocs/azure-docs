@@ -111,7 +111,7 @@ Upon successful purchase and payment for the one-year Azure Reserved VM Instance
 - Stopped VMs are billed and continue to use reservation hours. To use your available reservation hours with other workloads, deallocate or delete VM resources or scale-in other VMs.
 - For more information about how Azure Reserved VM Instance discounts are applied, see [Understand Azure Reserved VM Instances discount](understand-reservation-charges.md?source=azlto4).
 
-##### Exchanges and refunds
+### Exchanges and refunds
 
 The offer follows standard exchange and refund policies for reservations. For more information about exchanges and refunds, see [Self-service exchanges and refunds for Azure Reservations](exchange-and-refund-azure-reservations.md?source=azlto6).
 
