@@ -16,7 +16,7 @@ Azure Health Data Services provides multiple options for securing network access
 
 ## Private Link
 
-[Private Link](../private-link/index.yml) is a network isolation technique that allows access to Azure services, including Azure Health Data Services. Private Link allows data to flow over private Microsoft networks instead of the public internet. By using Private Link, you can allow access only to specified virtual networks, and lock down access to provisioned services. For more information, see [Configure Private Link](healthcare-apis-configure-private-link.md).
+[Private Link](../private-link/index.yml) is a network isolation technique that allows access to Azure services, including Azure Health Data Services. Private Link allows data to flow over private Microsoft networks instead of the public internet. By using Private Link, you can allow access only to specified virtual networks, and lock down access to provisioned services. For more information, see [Configure Private Link](configure-private-link.md).
 
 ## Microsoft Trusted Services
 
@@ -41,6 +41,10 @@ Here's a list of features that can make outbound connections from Azure Health D
 ### MedTech service
 
 - **Events**: [Allow trusted services access to Azure Event Hubs](../event-hubs/event-hubs-service-endpoints.md)
+
+### De-identification service (preview)
+
+- **De-identify documents in Azure Storage**: [Allow trusted services access to Azure Storage accounts](../storage/common/storage-network-security.md)
 
 ## Service tags
 
