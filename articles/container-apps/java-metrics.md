@@ -52,11 +52,11 @@ Once you select the Java development stack, the *Customize Java features for you
 
 1. Go to your container app in the [Azure portal](https://portal.azure.com).
 
-1. In the *Overview* section, find *Essentials*.
+1. In the *Overview* section, under *Essentials*, find *Development stack* and select **manage**.
 
-1. Locate the configuration *Development stack*, click *manage*.
+1. In the *Development stack* drown down, select *Java*.
 
-1. In the pop up window, select Java development stack, update *Java features* checkbox.
+1. Select **Apply**.
 
 ::: zone-end
 
