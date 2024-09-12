@@ -6,7 +6,7 @@ author: timritzer
 ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.topic: conceptual
-ms.date: 05/06/2024
+ms.date: 09/12/2024
 ms.author: jasteppe
 ---
 
