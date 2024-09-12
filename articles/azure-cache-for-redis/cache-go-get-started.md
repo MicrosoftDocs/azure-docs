@@ -1,6 +1,6 @@
 ---
 title: 'Quickstart: Use Azure Cache for Redis with Go'
-description: In this quickstart, you learn how to create a Go app that uses Azure Cache for Redis.
+description: Create a Go app and connect the app to Azure Cache for Redis.
 
 
 ms.devlang: golang
@@ -11,7 +11,7 @@ ms.custom: mode-api, devx-track-go
 
 # Quickstart: Use Azure Cache for Redis with a Go app
 
-In this article, you learn how to build a REST API in Go that stores and retrieves user information backed by a [HASH](https://redis.io/topics/data-types-intro#redis-hashes) data structure in [Azure Cache for Redis](./cache-overview.md).
+In this quickstart, you learn how to build a REST API in Go that stores and retrieves user information backed by a [HASH](https://redis.io/topics/data-types-intro#redis-hashes) data structure in [Azure Cache for Redis](./cache-overview.md).
 
 ## Skip to the code
 
@@ -21,7 +21,7 @@ If you want to go straight to the code, see the [Go quickstart sample](https://g
 
 ## Prerequisites
 
-- Azure subscription. [Create one for free](https://azure.microsoft.com/free/)
+- An Azure subscription. [Create one for free](https://azure.microsoft.com/free/)
 - [Go](https://go.dev/doc/install) (preferably version 1.13 or later)
 - [Git](https://git-scm.com/downloads)
 - An HTTP client like [curlL](https://curl.se/)
@@ -36,7 +36,7 @@ If you want to go straight to the code, see the [Go quickstart sample](https://g
 
 If you're interested in learning how the code works, you can review the following code snippets. Feel free to skip ahead to [Run the application](#run-the-application).
 
-The open source [go-redis](https://github.com/go-redis/redis) library is used to interact with Azure Cache for Redis.
+The open-source [go-redis](https://github.com/go-redis/redis) library is used to interact with Azure Cache for Redis.
 
 The `main` function starts by reading the host name and password (access key) for the Azure Cache for Redis instance.
 
@@ -103,7 +103,7 @@ func (uh userHandler) getUser(rw http.ResponseWriter, r *http.Request) {
 
 Start by cloning the application on GitHub:
 
-1. At the command prompt for your computer's root directory, create a new folder named `git-samples`:
+1. In the Command Prompt window for your computer's root directory, create a folder named *git-samples*:
 
     ```bash
     md "C:\git-samples"
@@ -198,4 +198,4 @@ The HTTP server starts on port `8080`.
 
 ## Related content
 
-- [Create a simple ASP.NET web app that uses Azure Cache for Redis.](./cache-web-app-howto.md)
+- [Create a basic ASP.NET web app that uses Azure Cache for Redis](./cache-web-app-howto.md)

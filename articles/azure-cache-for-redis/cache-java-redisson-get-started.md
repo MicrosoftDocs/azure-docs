@@ -1,6 +1,6 @@
 ---
-title: "Quickstart: Use Azure Cache for Redis in Java with Redisson Redis client"
-description: In this quickstart, you create a new Java app that uses Azure Cache for Redis and Redisson as the Redis client.
+title: "Quickstart: Use Azure Cache for Redis with Java and Redisson Redis client"
+description: Create a Java app and connect the app to Azure Cache for Redis by using Redisson as the Redis client.
 author: KarlErickson
 ms.author: zhihaoguo
 ms.date: 01/18/2024
@@ -11,24 +11,24 @@ ms.custom: mvc, seo-java-january2024, seo-java-february2024, mode-api, devx-trac
 #Customer intent: As a Java developer, new to Azure Cache for Redis, I want to create a new Java app that uses Azure Cache for Redis and Redisson as Redis client.
 ---
 
-# Quickstart: Use Azure Cache for Redis in Java with Redisson Redis client
+# Quickstart: Use Azure Cache for Redis with a Java app and a Redisson Redis client
 
-In this quickstart, you incorporate Azure Cache for Redis into a Java app by using the [Redisson](https://redisson.org/) Redis client and the Java Community Practice (JCP) standard JCache API. These services give you access to a secure, dedicated cache that is accessible from any application within Azure.
+In this quickstart, you incorporate Azure Cache for Redis into a Java app by using the [Redisson](https://redisson.org/) Redis client and the Java Community Practice (JCP) standard JCache API. These services give you access to a secure, dedicated cache that is accessible from any application in Azure.
 
-This article provides two options for selecting the Azure identity to use for the Redis connection:
+This article describes two options to select the Azure identity to use for the Redis connection:
 
 - Authentication by using a Redis key
 - Authentication by using Microsoft Entra ID
 
 ## Skip to the code
 
-This quickstart uses the Maven archetype feature to generate scaffolding for the app. The quickstart describes how to modify the generated code to end up with a working sample app.
+This quickstart uses the Maven archetype feature to generate scaffolding for a Java app. The quickstart describes how to configure the code to create a working app that connects to Azure Cache for Redis.
 
-If you want to go straight to the completed code, see the [Java quickstart sample](https://github.com/Azure-Samples/azure-cache-redis-samples/tree/main/quickstart/java-redisson-jcache) on GitHub.
+If you want to go straight to the code, see the [Java quickstart sample](https://github.com/Azure-Samples/azure-cache-redis-samples/tree/main/quickstart/java-redisson-jcache) on GitHub.
 
 ## Prerequisites
 
-- Azure subscription - [create one for free](https://azure.microsoft.com/free/)
+- An Azure subscription. [Create one for free](https://azure.microsoft.com/free/)
 - [Microsoft Entra ID for cache authentication](cache-azure-active-directory-for-authentication.md)
 - [Apache Maven](https://maven.apache.org/download.cgi)
 
@@ -40,11 +40,11 @@ If you want to go straight to the completed code, see the [Java quickstart sampl
 
 ## Set up the working environment
 
-The steps in this section show you two options to select the Azure identity to use for the Redis connection. The sample code looks at the value of the `AUTH_TYPE` environment variable, and then takes action depending on the value.
+The steps in this section show you two options for selecting an Azure identity to use for the Redis connection. The sample code looks at the value of the `AUTH_TYPE` environment variable, and then takes action based on the value.
 
 ### Authenticate by using a Redis key
 
-Depending on your operating system, add environment variables to hold your cache's host name and primary access key. In a command prompt or terminal window, set up the following values:
+Depending on your operating system, add environment variables to hold your cache's host name and primary access key. In a Command Prompt window or terminal window, set the following values:
 
 ### [Linux](#tab/bash)
 
@@ -71,7 +71,7 @@ In the preceding code, replace the placeholders with the following values:
 
 ### Authenticate by using Microsoft Entra ID
 
-Depending on your operating system, add environment variables to hold your cache's host name and user name. In a command prompt or terminal window, set up the following values:
+Depending on your operating system, add environment variables to hold your cache's host name and user name. In a Command Prompt window or terminal window, set up the following values:
 
 ### [Linux](#tab/bash)
 
@@ -291,5 +291,5 @@ Cache Response : Hello! The cache is working from Java! 2023-12-05T15:45:45.7486
 
 ## Related content
 
-- [Create an ASP.NET web app that uses an Azure Cache for Redis.](./cache-web-app-howto.md)
+- [Create an ASP.NET web app that uses an Azure Cache for Redis](./cache-web-app-howto.md)
 - [Use Java with Azure Cache for Redis on Azure Kubernetes Service](/azure/developer/java/ee/how-to-deploy-java-liberty-jcache)

@@ -1,6 +1,6 @@
 ---
-title: Create an ASP.NET web app with Azure Cache for Redis
-description: In this quickstart, you learn how to create an ASP.NET web app with Azure Cache for Redis
+title: 'Quickstart: Use Azure Cache for Redis with ASP.NET'
+description: Modify a sample ASP.NET web app and connect the app to Azure Cache for Redis.
 
 
 ms.topic: quickstart
@@ -12,20 +12,22 @@ ms.custom: devx-track-csharp, mvc, mode-other
 
 # Quickstart: Use Azure Cache for Redis with an ASP.NET web app
 
-In this quickstart, you use Visual Studio 2019 to create an ASP.NET web application that connects to Azure Cache for Redis to store and gets data from the cache. Then, you deploy the app to Azure App Service.
+In this quickstart, you use Visual Studio 2019 to modify an ASP.NET web application that connects to Azure Cache for Redis to store and get data from the cache. Then, you deploy the app to Azure App Service.
 
 ## Skip to the code
 
-To skip to the code, clone the [ASP.NET quickstart sample](https://github.com/Azure-Samples/azure-cache-redis-samples/tree/main/quickstart/aspnet) repository on GitHub.
+This article describes how to modify the code for a sample app to create a working app that connects to Azure Cache for Redis.
+
+If you want to go straight to the sample code, see the [ASP.NET quickstart sample](https://github.com/Azure-Samples/azure-cache-redis-samples/tree/main/quickstart/aspnet) on GitHub.
 
 ## Prerequisites
 
-- Azure subscription. [Create one for free](https://azure.microsoft.com/free/dotnet)
+- An Azure subscription. [Create one for free](https://azure.microsoft.com/free/dotnet)
 - [Visual Studio 2019](https://www.visualstudio.com/downloads/) with the **ASP.NET and web development** and **Azure development** workloads.
 
 ## Create a cache
 
-Next, create the cache for the app.
+Next, create the cache to use with the app.
 
 [!INCLUDE [redis-cache-create](~/reusable-content/ce-skilling/azure/includes/azure-cache-for-redis/includes/redis-cache-create.md)]
 
@@ -68,7 +70,7 @@ Because the *CacheSecrets.config* file isn't deployed to Azure with your applica
 
 1. In Solution Explorer, open the *web.config* file.
 
-   :::image type="content" source="media/cache-web-app-howto/cache-web-config.png" alt-text="Web.config":::
+   :::image type="content" source="media/cache-web-app-howto/cache-web-config.png" alt-text="Screenshot that shows the web.config file in Visual Studio Solution Explorer.":::
 
 1. In the *web.config* file, set the `<appSettings>` element to run the application locally:
 
@@ -78,7 +80,9 @@ The ASP.NET runtime merges the contents of the external file with the markup in 
 
 ## Install StackExchange.Redis
 
-Your solution requires the `StackExchange.Redis` package to run. Install the `StackExchange.Redis` package by completing  this procedure:
+Your solution requires the `StackExchange.Redis` package to run.
+
+To install the `StackExchange.Redis` package:
 
 1. To configure the app to use the [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) NuGet package for Visual Studio, select **Tools** > **NuGet Package Manager** > **Package Manager Console**.
 
@@ -92,48 +96,48 @@ The NuGet package downloads and adds the required assembly references for your c
 
 ## Connect to the cache by using RedisConnection
 
-The connection to your cache is managed by the `RedisConnection` class. The connection is first made in this statement from *ContosoTeamStats/Controllers/HomeController.cs*:
+The connection to your cache is managed by the `RedisConnection` class. The connection is first made in this statement that's in *ContosoTeamStats/Controllers/HomeController.cs*:
 
 ```csharp
    private static Task<RedisConnection> _redisConnectionFactory = RedisConnection.InitializeAsync(connectionString: ConfigurationManager.AppSettings["CacheConnection"].ToString()););
 
 ```
 
-The value of the *CacheConnection* secret is accessed by using the Secret Manager configuration provider and is used as the password parameter.
+The value of the `CacheConnection` secret is accessed by using the Secret Manager configuration provider and is used as the password parameter.
 
-In `RedisConnection.cs`, you see the `StackExchange.Redis` namespace was added to the code. This is needed for the `RedisConnection` class.
+In *RedisConnection.cs*, you can see that the StackExchange.Redis namespace is added to the code. The `RedisConnection` class requires the namespace.
 
 ```csharp
 using StackExchange.Redis;
 ```
 
-The `RedisConnection` code ensures that there's always a healthy connection to the cache by managing the `ConnectionMultiplexer` instance from `StackExchange.Redis`. The `RedisConnection` class recreates the connection when a connection is lost and unable to reconnect automatically.
+The `RedisConnection` code ensures that there's always a healthy connection to the cache. The connection is managed via the `ConnectionMultiplexer` instance in StackExchange.Redis. The `RedisConnection` class re-creates the connection when a connection is lost and unable to reconnect automatically.
 
 For more information, see [StackExchange.Redis](https://stackexchange.github.io/StackExchange.Redis/) and the code in a [GitHub repo](https://github.com/StackExchange/StackExchange.Redis).
 
 <!-- :::code language="csharp" source="~/samples-cache/quickstart/aspnet/ContosoTeamStats/RedisConnection.cs "::: -->
 
-## Layout views in the sample
+## Verify layout views in the sample
 
 The home page layout for this sample is stored in the *_Layout.cshtml* file. From this page, you start the actual cache testing by selecting **Azure Cache for Redis Test** on this page.
 
-1. In **Solution Explorer**, expand the folder **Views** > **Shared**. Then, open the *_Layout.cshtml* file.
+1. In Solution Explorer, select **Views**, and then right-click the **Shared** folder. Then, open the *_Layout.cshtml* file.
 
-1. You see the following line in `<div class="navbar-header">`.
+1. Verify that the following line is in `<div class="navbar-header">`:
 
     ```csharp
     @Html.ActionLink("Azure Cache for Redis Test", "RedisCache", "Home", new { area = "" }, new { @class = "navbar-brand" })
     ```
 
-    :::image type="content" source="media/cache-web-app-howto/cache-welcome-page.png" alt-text="screenshot of welcome page":::
+    :::image type="content" source="media/cache-web-app-howto/cache-welcome-page.png" alt-text="Screenshot that shows the welcome page of a webpage.":::
 
 ### Show data from the cache
 
-From the home page, select **Azure Cache for Redis Test** to see the sample output.
+On the home page, select **Azure Cache for Redis Test** in the navigation bar to see the sample output.
 
-1. In **Solution Explorer**, expand the **Views** folder, and then right-click the **Home** folder. 
+1. In Solution Explorer, select **Views**, and then right-click the **Home** folder.
 
-1. Verify that this code appears in the *RedisCache.cshtml* file:
+1. Verify that the following code is in the *RedisCache.cshtml* file:
 
     ```csharp
     @{
@@ -183,58 +187,58 @@ To run the app locally:
 
 1. In the following example, the `Message` key previously had a cached value, which was set by using the Azure Cache for Redis console in the portal. The app updated that cached value. The app also executed the `PING` and `CLIENT LIST` commands.
 
-   :::image type="content" source="media/cache-web-app-howto/cache-simple-test-complete-local.png" alt-text="Screenshot of simple test completed local":::
+   :::image type="content" source="media/cache-web-app-howto/cache-simple-test-complete-local.png" alt-text="Screenshot that shows a simple test completed locally.":::
 
 ## Publish and run in Azure
 
 After you successfully test the app locally, you can deploy the app to Azure and run it in the cloud.
 
-To publish the app in Azure:
+To publish the app to Azure:
 
-1. In Visual Studio, in Solution Explorer, right-click the project node, and then select **Publish**.
+1. In Visual Studio, in Solution Explorer, right-click the project node and select **Publish**.
 
-   :::image type="content" source="media/cache-web-app-howto/cache-publish-app.png" alt-text="Publish":::
+   :::image type="content" source="media/cache-web-app-howto/cache-publish-app.png" alt-text="Screenshot that shows the Publish menu command highlighted in Azure.":::
 
 1. Select **Microsoft Azure App Service** > **Create New** > **Publish**.
 
-   :::image type="content" source="media/cache-web-app-howto/cache-publish-to-app-service.png" alt-text="Publish to App Service":::
+   :::image type="content" source="media/cache-web-app-howto/cache-publish-to-app-service.png" alt-text="Screenshot that shows menu options to set to publish to App Service.":::
 
 1. In the **Create App Service** dialog box, make the following changes:
 
-    | Setting | Recommended value | Description |
+    | Setting | Action | Description |
     | ------- | :---------------: | ----------- |
-    | **App name** | Use the default. | The app name is the host name for the app when it's deployed to Azure. The name might have a timestamp suffix added to it to make it unique if necessary. |
-    | **Subscription** | Choose your Azure subscription. | This subscription is charged for any related hosting costs. If you have multiple Azure subscriptions, verify that the subscription that you want is selected.|
-    | **Resource group** | Use the same resource group where you created the cache (for example, *TestResourceGroup*). | The resource group helps you manage all resources as a group. Later, when you want to delete the app, you can just delete the group. |
-    | **App Service plan** | Select **New**, and then create a new App Service plan named *TestingPlan*. <br />Use the same value for **Location** that you used when you created your cache. <br />For the size, select **Free**. | An App Service plan defines a set of compute resources for a web app to run with. |
+    | **App name** | Use the default. | The app name is the host name for the app when it's deployed to Azure. The name might have a timestamp suffix added to it to make the app name unique. |
+    | **Subscription** | Select your Azure subscription. | This subscription is charged for any related hosting costs. If you have multiple Azure subscriptions, verify that the subscription that you want to use is selected.|
+    | **Resource group** | Use the same resource group that you used to create the cache (for example, **TestResourceGroup**). | The resource group helps you manage all resources as a group. Later, when you want to delete the app, you can delete the resource group to delete all related resources. |
+    | **App Service plan** | Select **New**, and then create a new App Service plan named **TestingPlan**. <br />Use the same value for **Location** that you used when you created your cache. <br />For size, select **Free**. | An App Service plan defines a set of compute resources for a web app to run with. |
 
-    :::image type="content" source="media/cache-web-app-howto/cache-create-app-service-dialog.png" alt-text="App Service dialog box":::
+    :::image type="content" source="media/cache-web-app-howto/cache-create-app-service-dialog.png" alt-text="Screenshot that shows the App Service dialog box in Azure.":::
 
 1. After you configure the App Service host settings, select **Create**.
 
-1. In the **Output** window in Visual Studio, check to see the publishing status. After the app is published, the URL for the app appears as output:
+1. In the Output window, check the publishing status. After the app is published, the URL for the app appears as output:
 
-   :::image type="content" source="media/cache-web-app-howto/cache-publishing-output.png" alt-text="Publishing output":::
+   :::image type="content" source="media/cache-web-app-howto/cache-publishing-output.png" alt-text="Screenshot that shows the publishing output window in Visual Studio.":::
 
-### Add the app setting for the cache
+### Add an app setting for the cache
 
-After the new app is published, add a new app setting. This setting stores the cache connection information.
+After the new app is published, add a new app setting in the Azure portal. This setting stores the cache connection information.
 
 To add the app setting:
 
-1. In the search bar at the top of the Azure portal, enter the name of the app.
+1. In the Azure portal, enter the name of the app in the search bar.
 
-   :::image type="content" source="media/cache-web-app-howto/cache-find-app-service.png" alt-text="Find app":::
+   :::image type="content" source="media/cache-web-app-howto/cache-find-app-service.png" alt-text="Screenshot that shows searching for an app in the Azure portal.":::
 
-1. Add a new app setting named **CacheConnection** for the app to use to connect to the cache. Use the same value you configured for `CacheConnection` in your *CacheSecrets.config* file. The value contains the cache host name and access key.
+1. Add a new app setting named **CacheConnection** for the app to use to connect to the cache. Use the same value that you used for `CacheConnection` in the *CacheSecrets.config* file. The value contains the cache host name and access key.
 
-   :::image type="content" source="media/cache-web-app-howto/cache-add-app-setting.png" alt-text="Add app setting":::
+   :::image type="content" source="media/cache-web-app-howto/cache-add-app-setting.png" alt-text="Screenshot that shows adding an app setting.":::
 
 ### Run the app in Azure
 
-1. In your browser, go to the URL for the app. The URL appears in the results of the publishing operation in the Visual Studio output window. It's also provided in the Azure portal on the overview page of the app you created.
+1. In your browser, go to the URL for the app. The URL appears in the results of the publishing operation in the Visual Studio Output window. It also appears in the Azure portal on the Overview pane of your app.
 
-1. Select **Azure Cache for Redis Test** on the navigation bar to test cache access as you did with the local version.
+1. On the webpage navigation bar, select **Azure Cache for Redis Test** to test cache access like you did with the local version.
 
 <!-- Clean up include -->
 
@@ -242,5 +246,5 @@ To add the app setting:
 
 ## Related content
 
-- [Connection resilience](cache-best-practices-connection.md)
-- [Best Practices Development](cache-best-practices-development.md)
+- [Connection resilience best practices for your cache](cache-best-practices-connection.md)
+- [Development best practices for your cache](cache-best-practices-development.md)

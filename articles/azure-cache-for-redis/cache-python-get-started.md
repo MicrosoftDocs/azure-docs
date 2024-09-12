@@ -1,6 +1,6 @@
 ---
 title: 'Quickstart: Use Azure Cache for Redis with Python'
-description: In this quickstart, you learn how to create a Python script that uses Azure Cache for Redis.
+description: Create a Python app and connect the app to Azure Cache for Redis.
 
 
 
@@ -15,11 +15,11 @@ ms.custom: mvc, devx-track-python, mode-api, py-fresh-zinc
 
 # Quickstart: Use Azure Cache for Redis with a Python app
 
-In this quickstart, you incorporate Azure Cache for Redis into a Python script to have access to a secure, dedicated cache that is accessible from any application within Azure.
+In this quickstart, you incorporate Azure Cache for Redis into a Python script for access to a secure, dedicated cache that is accessible from any application in Azure.
 
 ## Skip to the code
 
-This article describes how to create an app by using the Azure portal and then modify the code to end up with a working sample app.
+This article describes how to create a Python app and then modify the code to end up with a working sample app.
 
 If you want to skip straight to the code, see the [Python quickstart sample](https://github.com/Azure-Samples/azure-cache-redis-samples/tree/main/quickstart/python) on GitHub.
 
@@ -36,9 +36,9 @@ If you want to skip straight to the code, see the [Python quickstart sample](htt
 
 ## Install the redis-py library
 
-[Redis-py](https://pypi.org/project/redis/) is a Python interface to Azure Cache for Redis. Use the Python packages tool `pip` to install the redis-py package at a command prompt.
+[Redis-py](https://pypi.org/project/redis/) is a Python interface to Azure Cache for Redis. Use the Python packages tool pip to install the redis-py package at a command line.
 
-The following example uses `pip3` for Python 3 to install redis-py on Windows 11 at an Administrator command prompt.
+The following example uses `pip3` for Python 3 to install redis-py on Windows 11 in an Administrator Command Prompt window.
 
 :::image type="content" source="media/cache-python-get-started/cache-python-install-redis-py.png" alt-text="Screenshot of a terminal showing an install of redis-py interface to Azure Cache for Redis.":::
 
@@ -68,7 +68,7 @@ To install MSAL:
 
 ### Create a Python script by using Microsoft Entra ID
 
-1. Create a new text file. Save the file as *PythonApplication1.py*.
+1. Create a text file. Save the file as *PythonApplication1.py*.
 
 1. In *PythonApplication1.py*, add and modify the following script.
 
@@ -114,7 +114,7 @@ To install MSAL:
         hello_world()
     ```
 
-1. Before you run your Python code in a terminal, authorize the terminal to use Microsoft Entra ID by using this command:
+1. Before you run your Python code in a terminal, authorize the terminal to use Microsoft Entra ID:
   
     `azd auth login`
 
@@ -128,7 +128,7 @@ A Microsoft Entra ID access token has a limited lifespan of approximately [75 mi
 
 This example demonstrates how to refresh a token by using Python.
 
-1. Create a new text file. Save the file as *PythonApplication2.py*.
+1. Create a text file. Save the file as *PythonApplication2.py*.
 
 1. In *PythonApplication2.py*, add and modify the following script.
 
@@ -212,7 +212,7 @@ This example demonstrates how to refresh a token by using Python.
 
 [!INCLUDE [redis-cache-access-keys](includes/redis-cache-access-keys.md)]
 
-### Read and write to the cache from the command line
+### Read and write to the cache at the command line
 
 To test your cache, run [Python from the command line](https://docs.python.org/3/faq/windows.html#id2).
 
@@ -279,4 +279,4 @@ To test your cache, run [Python from the command line](https://docs.python.org/3
 
 ## Related content
 
-- [Create a ASP.NET web app that uses Azure Cache for Redis.](./cache-web-app-howto.md)
+- [Create a ASP.NET web app that uses Azure Cache for Redis](./cache-web-app-howto.md)

@@ -1,6 +1,6 @@
 ---
-title: 'Quickstart: Use Azure Cache for Redis in .NET Core'
-description: In this quickstart, learn how to access Azure Cache for Redis in your .NET Core apps
+title: 'Quickstart: Use Azure Cache for Redis with .NET Core'
+description: Modify a sample .NET Core app and connect the app to Azure Cache for Redis.
 
 
 
@@ -10,19 +10,19 @@ ms.topic: quickstart
 ms.date: 03/25/2022
 ---
 
-# Quickstart: Use Azure Cache for Redis in .NET Core
+# Quickstart: Use Azure Cache for Redis with a .NET Core app
 
-In this quickstart, you incorporate Azure Cache for Redis into a .NET Core app to have access to a secure, dedicated cache that is accessible from any application within Azure. You specifically use the [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) client with C# code in a .NET Core console app.
+In this quickstart, you incorporate Azure Cache for Redis into a .NET Core app to have access to a secure, dedicated cache that is accessible from any application in Azure. You specifically use the [StackExchange.Redis](https://github.com/StackExchange/StackExchange.Redis) client with C# code in a .NET Core console app.
 
 ## Skip to the code
 
-This article describes how to create an app by using the Azure portal and then modify the code to end up with a working sample app.
+This article describes how to modify the code for a sample app to create a working app that connects to Azure Cache for Redis.
 
-If you want to go straight to the code, see the [.NET Core sample](https://github.com/Azure-Samples/azure-cache-redis-samples/tree/main/quickstart/dotnet-core) on GitHub.
+If you want to go straight to the sample code, see the [.NET Core quickstart sample](https://github.com/Azure-Samples/azure-cache-redis-samples/tree/main/quickstart/dotnet-core) on GitHub.
 
 ## Prerequisites
 
-- Azure subscription - [create one for free](https://azure.microsoft.com/free/)
+- An Azure subscription. [Create one for free](https://azure.microsoft.com/free/)
 - [.NET Core SDK](https://dotnet.microsoft.com/download)
 
 ## Create a cache
@@ -31,11 +31,11 @@ If you want to go straight to the code, see the [.NET Core sample](https://githu
 
 [!INCLUDE [redis-cache-access-keys](includes/redis-cache-access-keys.md)]
 
-Make a note of the values for **HOST NAME** and the **Primary** access key. You ise these values later to construct the `CacheConnection` secret.
+Make a note of the values for **HOST NAME** and the **Primary** access key. You use these values later to construct the `CacheConnection` secret.
 
 ## Add a local secret for the connection string
 
-In your command window, execute the following command to store a new secret named *CacheConnection* after you replace the placeholders (including angle brackets) with your cache name (`<cache name>`) and primary access key (`<primary-access-key>`):
+In your command window, execute the following command to store a new secret named `CacheConnection`. Replace the placeholders (including angle brackets) with your cache name (`<cache name>`) and primary access key (`<primary-access-key>`):
 
 ```dos
 dotnet user-secrets set CacheConnection "<cache name>.redis.cache.windows.net,abortConnect=false,ssl=true,allowAdmin=true,password=<primary-access-key>"
@@ -43,29 +43,29 @@ dotnet user-secrets set CacheConnection "<cache name>.redis.cache.windows.net,ab
 
 ## Connect to the cache by using RedisConnection
 
-The connection to your cache is managed by the `RedisConnection` class. First, you make the connection in this statement from *Program.cs*:
+The connection to your cache is managed by the `RedisConnection` class. First, make the connection in this statement in *Program.cs*:
 
 ```csharp
       _redisConnection = await RedisConnection.InitializeAsync(connectionString: configuration["CacheConnection"].ToString());
 
 ```
 
-In *RedisConnection.cs*, the `StackExchange.Redis` namespace was added to the code. The namespace is required for the `RedisConnection` class.
+In *RedisConnection.cs*, the StackExchange.Redis namespace is added to the code. The namespace is required for the `RedisConnection` class.
 
 ```csharp
 using StackExchange.Redis;
 
 ```
 
-The `RedisConnection` code ensures that there's always a healthy connection to the cache by managing the `ConnectionMultiplexer` instance from `StackExchange.Redis`. The `RedisConnection` class re-creates the connection when a connection is lost and unable to reconnect automatically.
+The `RedisConnection` class code ensures that there's always a healthy connection to the cache. The connection is managed by the `ConnectionMultiplexer` instance from StackExchange.Redis. The `RedisConnection` class re-creates the connection when a connection is lost and can't reconnect automatically.
 
-For more information, see [StackExchange.Redis](https://stackexchange.github.io/StackExchange.Redis/) and the code in a [GitHub repo](https://github.com/StackExchange/StackExchange.Redis).
+For more information, see [StackExchange.Redis](https://stackexchange.github.io/StackExchange.Redis/) and the code in the [StackExchange.Redis GitHub repo](https://github.com/StackExchange/StackExchange.Redis).
 
 <!-- :::code language="csharp" source="~/samples-cache/quickstart/dotnet-core/RedisConnection.cs"::: -->
 
-## Executing cache commands
+## Execute cache commands
 
-In `program.cs`, you can see the following code for the `RunRedisCommandsAsync` method in the `Program` class for the console application:
+In *Program.cs*, you can see the following code for the `RunRedisCommandsAsync` method in the `Program` class for the console application:
 
 <!-- Replaced this code with lines 57-81 from dotnet-core/Program.cs -->
 
@@ -153,7 +153,7 @@ To test serialization of .NET objects, run this command:
 dotnet run
 ```
 
-:::image type="content" source="media/cache-dotnet-core-quickstart/cache-console-app-complete.png" alt-text="Console app completed":::
+:::image type="content" source="media/cache-dotnet-core-quickstart/cache-console-app-complete.png" alt-text="Screenshot that shows a console test completed.":::
 
 <!-- Clean up include -->
 
@@ -161,5 +161,5 @@ dotnet run
 
 ## Related content
 
-- [Connection resilience](cache-best-practices-connection.md)
-- [Best Practices Development](cache-best-practices-development.md)
+- [Connection resilience best practices for your cache](cache-best-practices-connection.md)
+- [Development best practices for your cache](cache-best-practices-development.md)

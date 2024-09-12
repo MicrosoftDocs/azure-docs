@@ -1,6 +1,6 @@
 ---
-title: Use Azure Cache for Redis with Rust
-description: In this quickstart, you learn how to interact with Azure Cache for Redis using Rust.
+title: 'Quickstart: Use Azure Cache for Redis with Rust'
+description: Modify a sample Rust app and connect the app to Azure Cache for Redis.
 
 
 
@@ -10,26 +10,27 @@ ms.date: 01/08/2021
 ms.custom: mode-other
 #Customer intent: As a Rust developer new to Azure Cache for Redis, I want to learn how to use it with Azure Cache for Redis.
 ---
-# Quickstart: Use Azure Cache for Redis with Rust
 
-In this article, you'll learn how to use the [Rust programming language](https://www.rust-lang.org/) to interact with [Azure Cache for Redis](./cache-overview.md). You'll also learn about commonly used Redis data structures: 
+# Quickstart: Use Azure Cache for Redis with a Rust app
 
-* [String](https://redis.io/topics/data-types-intro#redis-strings) 
-* [Hash](https://redis.io/topics/data-types-intro#redis-hashes) 
-* [List](https://redis.io/topics/data-types-intro#redis-lists) 
+In this quickstart, you learn how to use the [Rust programming language](https://www.rust-lang.org/) to interact with [Azure Cache for Redis](./cache-overview.md). You also learn about commonly used Redis data structures:
 
-You'll use the [redis-rs](https://github.com/mitsuhiko/redis-rs) library for Redis in this sample. This client exposes both high-level and low-level APIs, and you'll see both these styles in action.
+* [String](https://redis.io/topics/data-types-intro#redis-strings)
+* [Hash](https://redis.io/topics/data-types-intro#redis-hashes)
+* [List](https://redis.io/topics/data-types-intro#redis-lists)
+
+You start with a sample app and use the [redis-rs](https://github.com/mitsuhiko/redis-rs) library for Redis. The client exposes both high-level and low-level APIs, and you see both of these styles in action.
 
 ## Skip to the code
 
-This article describes how to create an app by using the Azure portal and then modify the code to end up with a working sample app.
+This article describes how to modify the code for a sample app to create a working app that connects to Azure Cache for Redis.
 
-If you want to skip straight to the code, see the [Rust sample quickstart](https://github.com/Azure-Samples/azure-redis-cache-rust-quickstart/) on GitHub.
+If you want to go straight to the code, see the [Rust quickstart sample](https://github.com/Azure-Samples/azure-redis-cache-rust-quickstart/) on GitHub.
 
 ## Prerequisites
 
-* Azure subscription - [create one for free](https://azure.microsoft.com/free/)
-* [Rust](https://www.rust-lang.org/tools/install) (version 1.39 or above)
+* An Azure subscription. [Create one for free](https://azure.microsoft.com/free/)
+* [Rust](https://www.rust-lang.org/tools/install) (version 1.39 or later)
 * [Git](https://git-scm.com/downloads)
 
 ## Create a cache
@@ -92,7 +93,7 @@ fn basics() {
 }
 ```
 
-The following code snippet demonstrates the functionality of a Redis `HASH` data structure. [HSET](https://redis.io/commands/hset) is invoked by using the low-level API to store information (`name`, `version`, `repo`) about Redis drivers (clients). For example, details for the Rust driver (one being used in this sample code!) is captured in the form of a [BTreeMap](https://doc.rust-lang.org/std/collections/struct.BTreeMap.html). Then, it's passed on to the low-level API. Finally, you retrieve it by using [HGETALL](https://redis.io/commands/hgetall).
+The following code snippet demonstrates the functionality of a Redis `HASH` data structure. [HSET](https://redis.io/commands/hset) is invoked by using the low-level API to store information (`name`, `version`, `repo`) about Redis drivers (clients). For example, details for the Rust driver (the one that's used in this sample code) are captured in the form of a [BTreeMap](https://doc.rust-lang.org/std/collections/struct.BTreeMap.html). Then, the details are passed on to the low-level API. Finally, you retrieve the details by using [HGETALL](https://redis.io/commands/hgetall).
 
 `HSET` can also be executed by using a high-level API. [hset_multiple](https://docs.rs/redis/0.19.0/redis/trait.Commands.html#method.hset_multiple) accepts an array of tuples. [hget](https://docs.rs/redis/0.19.0/redis/trait.Commands.html#method.hget) is then executed to fetch the value for a single attribute (the value for `repo`, in this case).
 
@@ -206,7 +207,7 @@ fn set() {
 }
 ```
 
-The `sorted_set` function demonstrates the Sorted Set data structure. [ZADD](https://redis.io/commands/zadd) is invoked with the low-level API to add a random integer score for a player (`player-1`). Next, the [zadd](https://docs.rs/redis/0.19.0/redis/trait.Commands.html#method.zadd) method (high-level API) is used to add more players (`player-2` to `player-5`) and their respective (randomly generated) scores. The number of entries in the sorted set is determined by using [ZCARD](https://redis.io/commands/zcard). That's used as the limit to the [ZRANGE](https://redis.io/commands/zrange) command (invoked with the low-level API) to list out the players with their scores in ascending order.
+The `sorted_set` function demonstrates the Sorted Set data structure. [ZADD](https://redis.io/commands/zadd) is invoked with the low-level API to add a random integer score for a player (`player-1`). Next, the [zadd](https://docs.rs/redis/0.19.0/redis/trait.Commands.html#method.zadd) method (high-level API) is used to add more players (`player-2` to `player-5`) and their respective scores, which are randomly generated. The number of entries in the sorted set is determined by using [ZCARD](https://redis.io/commands/zcard). That number is the limit to the [ZRANGE](https://redis.io/commands/zrange) command (invoked with the low-level API) to list out the players with their scores in ascending order.
 
 ```rust
 fn sorted_set() {
@@ -248,15 +249,15 @@ fn sorted_set() {
 
 ## Clone the sample application
 
-Start by cloning the application from GitHub.
+Start by cloning the application repository on GitHub.
 
-1. Open a command prompt and create a new folder named `git-samples`.
+1. In a Command Prompt window, create a folder named *git-samples*.
 
     ```bash
     md "C:\git-samples"
     ```
 
-1. Open a git terminal window, such as Git Bash. Use the `cd` command to go to the new folder where you will clone the sample app.
+1. Open a git terminal window, like in Git Bash. Use the `cd` command to go to the new folder where you will clone the sample app.
 
     ```bash
     cd "C:\git-samples"
@@ -281,7 +282,7 @@ The application accepts connectivity and credentials in the form of environment 
     set REDIS_PASSWORD=<Primary Access Key>
     ```
 
-1. In the terminal window, go to the correct folder.
+1. In the terminal window, go to the relevant folder.
 
    For example:
 
@@ -295,7 +296,7 @@ The application accepts connectivity and credentials in the form of environment 
     cargo run
     ```
 
-    The output looks like this example:
+    The output looks similar to this example:
 
     ```bash
     ******* Running SET, GET, INCR commands *******
@@ -325,7 +326,7 @@ The application accepts connectivity and credentials in the form of environment 
     player-3 = 8
     ```
 
-    If you want to run a specific function, comment out other functions inside the `main` function:
+    If you want to run a specific function, comment-out other functions inside the `main` function:
 
     ```rust
     fn main() {
@@ -343,7 +344,4 @@ The application accepts connectivity and credentials in the form of environment 
 
 ## Related content
 
-In this quickstart, you learned how to use the Rust driver for Redis to connect and execute operations in Azure Cache for Redis.
-
-> [!div class="nextstepaction"]
-> [Create a simple ASP.NET web app that uses an Azure Cache for Redis.](./cache-web-app-howto.md)
+- [Create a basic ASP.NET web app that uses Azure Cache for Redis](./cache-web-app-howto.md)

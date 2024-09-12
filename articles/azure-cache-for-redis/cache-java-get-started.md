@@ -1,6 +1,6 @@
 ---
-title: 'Quickstart: Use Azure Cache for Redis in Java'
-description: In this quickstart, you create a new Java app that uses Azure Cache for Redis.
+title: 'Quickstart: Use Azure Cache for Redis with Java'
+description: Create a Java app and connect the app to Azure Cache for Redis.
 author: KarlErickson
 ms.author: zhihaoguo
 ms.date: 01/04/2022
@@ -10,19 +10,19 @@ ms.devlang: java
 ms.custom: devx-track-java, devx-track-javaee, mode-api, mvc, devx-track-extended-java
 ---
 
-# Quickstart: Use Azure Cache for Redis in a Java app
+# Quickstart: Use Azure Cache for Redis with a Java app
 
-In this quickstart, you incorporate Azure Cache for Redis into a Java app by using the [Jedis](https://github.com/xetorthio/jedis) Redis client. Your cache is a secure, dedicated cache that is accessible from any application within Azure.
+In this quickstart, you incorporate Azure Cache for Redis into a Java app by using the [Jedis](https://github.com/xetorthio/jedis) Redis client. Your app connects to a secure, dedicated cache that is accessible from any application in Azure.
 
 ## Skip to the code
 
-This quickstart uses the Maven archetype feature to generate scaffolding for the app. The quickstart describes how to modify the generated code to end up with a working sample app.
+This quickstart uses the Maven archetype feature to generate scaffolding for a Java app. The quickstart describes how to configure the code to create a working app that connects to Azure Cache for Redis.
 
 If you want to go straight to the code, see the [Java quickstart sample](https://github.com/Azure-Samples/azure-cache-redis-samples/tree/main/quickstart/java) on GitHub.
 
 ## Prerequisites
 
-- Azure subscription - [create one for free](https://azure.microsoft.com/free/)
+- An Azure subscription. [Create one for free](https://azure.microsoft.com/free/)
 - [Apache Maven](https://maven.apache.org/download.cgi)
 
 ## Create a cache
@@ -33,7 +33,7 @@ If you want to go straight to the code, see the [Java quickstart sample](https:/
 
 ## Set up the working environment
 
-Depending on your operating system, add environment variables for host name and primary access key that you noted earrlier. In a command prompt or a terminal window, set up the following values:
+Depending on your operating system, add environment variables for host name and primary access key that you noted earlier. In a Command Prompt window or terminal window, set the following values:
 
 ### [Linux](#tab/bash)
 
@@ -56,7 +56,7 @@ Replace the placeholders with the following values:
 - `<your-host-name>`: The DNS host name, obtained from the **Properties** section of your Azure Cache for Redis resource in the Azure portal.
 - `<your-primary-access-key>`: The primary access key, obtained from the **Access keys** section of your Azure Cache for Redis resource in the Azure portal.
 
-## Understand the Java sample
+## Review the Java sample
 
 In this sample, you use Maven to run the quickstart app.
 
@@ -196,7 +196,7 @@ Cache Response : id=777430 addr=             :58989 fd=22 name= age=1 idle=0 fla
 
 ## Related content
 
-- [Development](cache-best-practices-development.md)
-- [Connection resilience](cache-best-practices-connection.md)
-- [Azure Cache for Redis with Jakarta EE](/azure/developer/java/ee/how-to-deploy-java-liberty-jcache)
-- [Azure Cache for Redis with Spring](/azure/developer/java/spring-framework/configure-spring-boot-initializer-java-app-with-redis-cache)
+- [Connection resilience best practices for your cache](cache-best-practices-connection.md)
+- [Development best practices for your cache](cache-best-practices-development.md)
+- [Use Azure Cache for Redis with Jakarta EE](/azure/developer/java/ee/how-to-deploy-java-liberty-jcache)
+- [Use Azure Cache for Redis with Spring](/azure/developer/java/spring-framework/configure-spring-boot-initializer-java-app-with-redis-cache)
