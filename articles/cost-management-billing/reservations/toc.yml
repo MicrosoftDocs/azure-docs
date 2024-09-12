@@ -84,6 +84,8 @@
       href: limited-time-central-poland.md
     - name: Poland Central SQL services
       href: poland-limited-time-sql-services-reservations.md
+    - name: Linux VMs
+      href: limited-time-linux.md
   - name: Buy reservations
     items:
     - name: Buy an Azure reservation
