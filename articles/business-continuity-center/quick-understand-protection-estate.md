@@ -16,8 +16,8 @@ As a Business Continuity and Disaster Recovery (BCDR) administrator, safeguardin
 
 Azure Business Continuity Center provides the following two key views to help you manage your protection details:
 
-- **Protectable resources**: This lists the resources that are currently not protected. You can configure protection for them.
-- **Protected items**: This shows the resources that are already protected. Allows you to perform actions such as recovery and failover.
+- **Protectable resources**: Lists the resources that are currently not protected. You can configure protection for them.
+- **Protected items**: Shows the resources that are already protected. Allows you to perform actions such as recovery and failover.
 
 
 ## Identify unprotected resources

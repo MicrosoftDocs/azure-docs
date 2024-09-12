@@ -18,9 +18,9 @@ The Azure Business Continuity Center is a cloud-native unified business continui
 
 Some of the key benefits you get with Azure Business Continuity Center include:
 
-- **Single pane of glass to manage BCDR protection**: Azure Business Continuity Center is designed to function well across a large and distributed, Azure and Hybrid environment. You can use Azure Business Continuity Center to efficiently manage backup and replication spanning multiple workload types, vaults, subscriptions, regions, and [Azure Lighthouse](/azure/lighthouse/overview) tenants. It enables you to identify gaps in your current protection estate and fix it. You can also understand your protection settings across multiple protection policies.
+- **Single pane of glass to manage BCDR protection**: Azure Business Continuity Center is designed to function well across a large and distributed, Azure, and Hybrid environment. You can use Azure Business Continuity Center to efficiently manage backup and replication spanning multiple workload types, vaults, subscriptions, regions, and [Azure Lighthouse](/azure/lighthouse/overview) tenants. It enables you to identify gaps in your current protection estate and fix it. You can also understand your protection settings across multiple protection policies.
 
-- **Action center**: Azure Business Continuity Center provides at scale views for your protection across Azure, Hybrid and Edge environments along with the ability to perform the core actions across the solutions. 
+- **Action center**: Azure Business Continuity Center provides at scale views for your protection across Azure, Hybrid, and Edge environments along with the ability to perform the core actions across the solutions. 
 
 - **At-scale and unified monitoring capabilities**: Azure Business Continuity (ABC) center provides at-scale unified monitoring capabilities across the solutions that help you to view [jobs](tutorial-monitor-operate.md), [alerts](tutorial-monitor-alerts-metrics.md), and [reports](tutorial-reporting-for-data-insights.md) across all vaults and manage them across subscriptions, resource groups, and regions from a single view.
 
@@ -30,7 +30,7 @@ Some of the key benefits you get with Azure Business Continuity Center include:
 
 ## What can I manage with ABC center? 
 
-Azure Business Continuity Center allows you to manage data sources protected across the solutions. You can manage these resources from different environments, such as Azure and on-premises.  Learn about the [supported scenarios and limitations]().
+Azure Business Continuity Center allows you to manage data sources protected across the solutions. You can manage these resources from different environments, such as Azure and on-premises. Learn about the [supported scenarios and limitations]().
 
 ## Get started
 

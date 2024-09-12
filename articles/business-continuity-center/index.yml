@@ -1,11 +1,11 @@
 ### YamlMime:Landing
 
 title: Azure Business Continuity Center documentation
-summary: The Azure Business Continuity Center is an easy-to-use web-based user interface for managing your backup and disaster recovery at scale from single place across various environment and solutions.  Use it for configuring backups and replication, defining protection policies, monitoring operations, review configurations and much more.
+summary: The Azure Business Continuity Center is an easy-to-use web-based user interface for managing your backup and disaster recovery at scale from single place across various environment and solutions. Use it for configuring backups and replication, defining protection policies, monitoring operations, review configurations and much more.
 
 metadata:
   title: Azure Business Continuity Center Documentation
-  description: The Azure Business Continuity Center is an easy-to-use web-based user interface for managing your backup and disaster recovery at scale from single place across various environment and solutions.  Use it for configuring backups and replication, defining protection policies, monitoring operations, review configurations and much more.
+  description: The Azure Business Continuity Center is an easy-to-use web-based user interface for managing your backup and disaster recovery at scale from single place across various environment and solutions. Use it for configuring backups and replication, defining protection policies, monitoring operations, review configurations and much more.
   ms.service: azure-business-continuity-center
   ms.custom:
     - ignite-2023
