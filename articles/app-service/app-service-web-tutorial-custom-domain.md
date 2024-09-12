@@ -4,7 +4,7 @@ description: Learn how to add an existing custom DNS domain name (vanity domain)
 keywords: app service, azure app service, domain mapping, domain name, existing domain, hostname, vanity domain
 
 ms.assetid: dc446e0e-0958-48ea-8d99-441d2b947a7c
-ms.topic: article
+ms.topic: how-to
 ms.date: 08/27/2024
 ms.custom: mvc
 ms.author: msangapu
