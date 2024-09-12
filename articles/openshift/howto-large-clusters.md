@@ -49,12 +49,12 @@ This can be accomplished as part of the cluster creation process or later, after
 When deploying a large cluster, you must start with at most 50 worker nodes at creation time, then scale the cluster out to the desired number of worker nodes, up to 250 worker nodes. 
 
 > [!NOTE]
-> While you can define up to 50 worker nodes at creation time, it's best to start with a small cluster (e.g, three (3) worker nodes as the default) and then scale to the desired number of worker nodes after the cluster is installed.
+> While you can define up to 50 worker nodes at creation time, it's best to start with a small cluster (e.g, three (3) worker nodes) and then scale out to the desired number of worker nodes after the cluster is installed.
 >
 
 Follow the steps provided in [Create an Azure Red Hat OpenShift cluster](https://learn.microsoft.com/azure/openshift/create-cluster?tabs=azure-cli) until the "Create the cluster" steps, then continue as instructed:
 
-For large clusters, the previous recommendations should be followed. Therefore, the sample command below using the Azure CLI can be used to deploy a cluster with Standard_D32s_v5 as the control plane nodes, requesting three public IP addresses, and defining nine worker nodes:
+The sample command below using the Azure CLI can be used to deploy a cluster with Standard_D32s_v5 as the control plane nodes, requesting three public IP addresses, and defining nine worker nodes:
 
 ```azurecli
 az aro create \ 
@@ -70,7 +70,12 @@ az aro create \
 
 To add IP addresses to the load balancer using the Azure CLI after the cluster is created, run the following command:
 
-`az aro update --name <CLUSTER_NAME> –-resource-group <RESOURCE_GROUP> --lb-ip-count <PUBLIC_IP_COUNT>`
+```azurecli
+    az aro update
+    --name <CLUSTER_NAME>
+    –-resource-group <RESOURCE_GROUP>
+    --lb-ip-count <PUBLIC_IP_COUNT>`
+```
 
 You can then configure the corresponding OpenShift MachineSets to obtain the number of worker nodes desired. See [Manually scaling a compute machine set](https://docs.openshift.com/container-platform/latest/machine_management/manually-scaling-machineset.html) for more details.
 
