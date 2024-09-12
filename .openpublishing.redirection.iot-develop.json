@@ -351,6 +351,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/iot/concepts-model-parser.md",
+      "redirect_url": "/azure/iot/concepts-modeling-guide",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/iot-pnp/concepts-model-repository.md",
       "redirect_url": "/azure/iot/concepts-model-discovery",
       "redirect_document_id": false

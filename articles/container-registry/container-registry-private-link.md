@@ -1,7 +1,7 @@
 ---
 title: Set up private endpoint with private link
 description: Set up a private endpoint on a container registry and enable access over a private link in a local virtual network. Private link access is a feature of the Premium service tier.
-ms.topic: article
+ms.topic: how-to
 ms.custom: devx-track-azurecli
 author: tejaswikolli-web
 ms.author: tejaswikolli

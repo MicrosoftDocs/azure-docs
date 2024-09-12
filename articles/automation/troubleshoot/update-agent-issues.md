@@ -2,13 +2,15 @@
 title: Troubleshoot Windows update agent issues in Azure Automation
 description: This article tells how to troubleshoot and resolve issues with the Windows update agent during Update Management.
 services: automation
-ms.date: 01/25/2020
+ms.date: 08/30/2024
 ms.topic: troubleshooting
 ms.subservice: update-management
 ms.service: azure-automation
 ---
 
 # Troubleshoot Windows update agent issues
+
+[!INCLUDE [./log-analytics-retirement-announcement.md](../includes/log-analytics-retirement-announcement.md)]
 
 There can be many reasons why your machine isn't showing up as ready (healthy) during an Update Management deployment. You can check the health of a Windows Hybrid Runbook Worker agent to determine the underlying problem. The following are the three readiness states for a machine:
 
@@ -63,7 +65,7 @@ To fix, you need to download and install [Windows Management Framework 5.1](http
 
 This check determines whether you're using TLS 1.2 to encrypt your communications. TLS 1.0 is no longer supported by the platform. Use TLS 1.2 to communicate with Update Management.
 
-To fix, follow the steps to [Enable TLS 1.2](../../azure-monitor/agents/agent-windows.md#configure-agent-to-use-tls-12)
+To fix, follow the steps to [Enable TLS 1.2](/azure/azure-monitor/agents/agent-windows#configure-agent-to-use-tls-12)
 
 
 ## Monitoring agent service health checks
@@ -85,7 +87,7 @@ To validate, check event id *15003 (HW start event) OR 15004 (hw stopped event) 
 Raise a support ticket if the issue is not fixed still.
 
 ### VMs linked workspace
-See [Network requirements](../../azure-monitor/agents/agent-windows-troubleshoot.md#connectivity-issues).
+See [Network requirements](/azure/azure-monitor/agents/agent-windows-troubleshoot#connectivity-issues).
 
 To validate: Check VMs connected workspace or Heartbeat table of corresponding log analytics.
 
@@ -184,7 +186,7 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -Method GET -Uri http://169.254.
 
 This check determines if the Log Analytics agent for Windows (`healthservice`) is running on the machine. To learn more about troubleshooting the service, see [The Log Analytics agent for Windows isn't running](hybrid-runbook-worker.md#mma-not-running).
 
-To reinstall the Log Analytics agent for Windows, see [Install the agent for Windows](../../azure-monitor/agents/agent-windows.md).
+To reinstall the Log Analytics agent for Windows, see [Install the agent for Windows](/azure/azure-monitor/agents/agent-windows).
 
 ### Monitoring agent service events
 

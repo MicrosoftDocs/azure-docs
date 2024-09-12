@@ -470,8 +470,7 @@ As an example, the following code demonstrates how to define a Blob Storage inpu
   "Values": {
     "FUNCTIONS_WORKER_RUNTIME": "python",
     "STORAGE_CONNECTION_STRING": "<AZURE_STORAGE_CONNECTION_STRING>",
-    "AzureWebJobsStorage": "<azure-storage-connection-string>",
-    "AzureWebJobsFeatureFlags": "EnableWorkerIndexing"
+    "AzureWebJobsStorage": "<azure-storage-connection-string>"
   }
 }
 ```
@@ -1154,16 +1153,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
   logging.info(f'My app setting value:{my_app_setting_value}')
 ```
 
-For local development, application settings are [maintained in the *local.settings.json* file](functions-develop-local.md#local-settings-file).
-
-When you're using the new programming model, enable the following app setting in the *local.settings.json* file, as shown here:
-
-```json
-"AzureWebJobsFeatureFlags": "EnableWorkerIndexing"
-```
-
-When you're deploying the function, this setting isn't created automatically. You must explicitly create this setting in your function app in Azure for it to run by using the v2 model.
-
+For local development, application settings are [maintained in the *local.settings.json* file](functions-develop-local.md#local-settings-file).  
 ::: zone-end
 
 ## Python version

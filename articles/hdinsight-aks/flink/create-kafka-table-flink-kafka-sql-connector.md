@@ -8,7 +8,9 @@ ms.date: 03/14/2024
 
 # Create Apache Kafka® table on Apache Flink® on HDInsight on AKS
 
+[!INCLUDE [retirement-notice](../includes/retirement-notice.md)]
 [!INCLUDE [feature-in-preview](../includes/feature-in-preview.md)]
+
 
 Using this example, learn how to Create Kafka table on Apache FlinkSQL.
 

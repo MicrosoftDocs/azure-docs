@@ -8,7 +8,9 @@ ms.date: 10/27/2023
 
 # How to use Azure Pipelines with Apache Flink® on HDInsight on AKS
 
+[!INCLUDE [retirement-notice](../includes/retirement-notice.md)]
 [!INCLUDE [feature-in-preview](../includes/feature-in-preview.md)]
+
 
 In this article, you'll learn how to use Azure Pipelines with HDInsight on AKS to submit Flink jobs with the cluster's REST API. We guide you through the process using a sample YAML pipeline and a PowerShell script, both of which streamline the automation of the REST API interactions.
 

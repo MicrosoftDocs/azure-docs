@@ -5,7 +5,7 @@ ms.service: azure-update-manager
 ms.topic: overview
 author: SnehaSudhirG
 ms.author: sudhirsneha
-ms.date: 07/24/2024
+ms.date: 08/21/2024
 ---
 
 # What's new in Azure Update Manager
@@ -13,6 +13,11 @@ ms.date: 07/24/2024
 [Azure Update Manager](overview.md) helps you manage and govern updates for all your machines. You can monitor Windows and Linux update compliance across your deployments in Azure, on-premises, and on the other cloud platforms from a single dashboard. This article summarizes new releases and features in Azure Update Manager.
 
 ## August 2024
+
+### Support for 35 CIS images added along with 59 other images
+
+Azure Update Manager now supports CIS images along with 59 other popular images. For more information, see the [latest list of supported images](support-matrix.md#supported-operating-systems).
+
 
 ### Pre and Post events
 

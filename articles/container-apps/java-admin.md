@@ -49,13 +49,15 @@ When running Admin for Spring in Azure Container Apps, be aware of the following
 
 Before you begin to work with the Admin for Spring, you first need to create the required resources.
 
+### [Azure CLI](#tab/azure-cli)
+
 The following commands help you create your resource group and Container Apps environment.
 
 1. Create variables to support your application configuration. These values are provided for you for the purposes of this lesson.
 
     ```bash
     export LOCATION=eastus
-    export RESOURCE_GROUP=my-demo-resource-group
+    export RESOURCE_GROUP=my-resource-group
     export ENVIRONMENT=my-environment
     export JAVA_COMPONENT_NAME=admin
     export APP_NAME=sample-admin-client
@@ -96,7 +98,62 @@ The following commands help you create your resource group and Container Apps en
       --location $LOCATION
     ```
 
+### [Azure portal](#tab/azure-portal)
+
+Use the following steps to create each of the resources necessary to create a container app.
+
+1. Search for **Container Apps** in the Azure portal and select **Create**.
+
+1. Enter the following values to *Basics* tab.
+
+    | Property | Value |
+    |---|---|
+    | **Subscription** | Select your Azure subscription. |
+    | **Resource group** | Select **Create new** link to create a new resource group named **my-resource-group**. |
+    | **Container app name** | Enter **sample-admin-client**.  |
+    | **Deployment source** | Select **Container image**. |
+    | **Region** | Select the region nearest you. |
+    | **Container Apps environment** | Select the **Create new** link to create a new environment. |
+
+1. In the *Create Container Apps environment* window, enter the following values.
+
+    | Property | Value |
+    |---|---|
+    | **Environment name** | Enter **my-environment**. |
+    | **Zone redundancy** | Select **Disabled**.  |
+  
+    Select the **Create** button, and then select the **Container** tab.
+  
+1. In *Container* tab, enter the following values.
+
+    | Property | Value |
+    |---|---|
+    | **Name** | Enter **sample-admin-client**. |
+    | **Image source** | Select **Docker Hub or other registries**. |
+    | **Image type** | Select **Public**. |
+    | **Registry login server** | Enter **mcr.microsoft.com**. |
+    | **Image and tag** | Enter **javacomponents/samples/sample-admin-for-spring-client:latest**. |
+  
+    Select the **Ingress** tab.
+
+1. In *Ingress* tab, enter the following and leave the rest of the form with their default values.
+
+    | Property | Value |
+    |---|---|
+    | **Ingress** | Select **Enabled**. |
+    | **Ingress traffic** | Select **Accept traffic from anywhere**. |
+    | **Ingress type** | Select **HTTP**. |
+    | **Target port** | Enter **8080**. |
+  
+    Select **Review + create**.
+
+1. Once the validation checks pass, select **Create** to create your container app.
+
+---
+
 ## Use the component
+
+### [Azure CLI](#tab/azure-cli)
 
 Now that you have an existing environment, you can create your container app and bind it to a Java component instance of Admin for Spring component.
 
@@ -122,6 +179,33 @@ Now that you have an existing environment, you can create your container app and
       --max-replicas 2
     ```
 
+### [Azure portal](#tab/azure-portal)
+
+Now that you have an existing environment and admin client container app, you can create a Java component instance of Admin for Spring.
+
+1. Go to your container app's environment in the portal.
+
+1. From the left menu, under *Services* category, select **Services**.
+
+1. Select **+ Configure** drop down, and select **Java component**.
+
+1. In the *Configure Java component* panel, enter the following values.
+
+    | Property | Value |
+    |---|---|
+    | **Java component type** | Select **Admin for Spring**. |
+    | **Java component name** | Enter **admin**. |
+
+1. Select **Next**.
+
+1. On the *Review* tab, select **Configure**.
+
+---
+
+## Bind your container app to the Admin for Spring Java component
+
+### [Azure CLI](#tab/azure-cli)
+
 1. Create the container app and bind to the Admin for Spring.
 
     ```azurecli
@@ -137,17 +221,64 @@ Now that you have an existing environment, you can create your container app and
       --bind $JAVA_COMPONENT_NAME
     ```
 
-    The `--bind` parameter binds the container app to the Admin for Spring Java component. The container app can now read the configuration values from environment variables, primarily the `SPRING_BOOT_ADMIN_CLIENT_URL` property and connect to the Admin for Spring.
+### [Azure portal](#tab/azure-portal)
 
-    The binding also injects the following property:
+1. Go to your container app environment in the portal.
 
-    ```bash
-    "SPRING_BOOT_ADMIN_CLIENT_INSTANCE_PREFER-IP": "true",
-    ```
+1. From the left menu, under *Services* category, select **Services**.
 
-    This property indicates that the Admin for Spring component client should prefer the IP address of the container app instance when connecting to the Admin for Spring server.
+1. From the list, select **admin**.
 
-    You can also [remove a binding](java-admin-for-spring-usage.md#unbind) from your application.
+1. Under *Bindings*, select the *App name* drop-down and select  **sample-admin-client**.
+
+1. Select the **Review** tab.
+
+1. Select the **Configure** button.
+
+1. Return to your container app in the portal and copy the URL of your app to a text editor so you can use it in a coming step.
+
+---
+
+The bind operation binds the container app to the Admin for Spring Java component. The container app can now read the configuration values from environment variables, primarily the `SPRING_BOOT_ADMIN_CLIENT_URL` property and connect to the Admin for Spring.
+
+The binding also injects the following property:
+
+```bash
+"SPRING_BOOT_ADMIN_CLIENT_INSTANCE_PREFER-IP": "true",
+```
+
+This property indicates that the Admin for Spring component client should prefer the IP address of the container app instance when connecting to the Admin for Spring server.
+
+## (Optional) Unbind your container app from the Admin for Spring Java component
+
+### [Azure CLI](#tab/azure-cli)
+
+To remove a binding from a container app, use the `--unbind` option.
+
+``` azurecli
+  az containerapp update \
+    --name $APP_NAME \
+    --unbind $JAVA_COMPONENT_NAME \
+    --resource-group $RESOURCE_GROUP
+```
+
+### [Azure portal](#tab/azure-portal)
+
+1. Go to your container app environment in the portal.
+
+1. From the left menu, under *Services* category, select **Services**.
+
+1. From the list, select **admin**.
+
+1. Under *Bindings*, find the line for *sample-admin-client* select and select **Delete**.
+
+1. Select **Next**.
+
+1. Select the **Review** tab.
+
+1. Select the **Configure** button.
+
+---
 
 ## View the dashboard
 
