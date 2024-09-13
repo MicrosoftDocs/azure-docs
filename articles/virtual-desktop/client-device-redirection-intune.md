@@ -209,9 +209,9 @@ To create and apply an app protection policy, follow the steps in [How to create
 
 - On the **Apps** tab, do the following, depending on whether you're targeting Windows App or the Remote Desktop app
 
-   - For Windows App on iOS/iPadOS, select **Select custom apps**, then for **Bundle or Package ID**, enter `com.microsoft.rdc.apple`.
+   - For Windows App on iOS/iPadOS, select **Select public apps**, then search for and select  **Windows App**.
 
-   - For the Remote Desktop app, select **Select public apps**, then search for and select **Remote Desktop**.
+   - For the Remote Desktop app on Android, select **Select public apps**, then search for and select **Remote Desktop**.
 
 - On the **Data protection** tab, only the following settings are relevant to Windows App and the Remote Desktop app. The other settings don't apply as Windows App and the Remote Desktop app interact with the session host and not with data in the app. On mobile devices, unapproved keyboards are a source of keystroke logging and theft.
 
