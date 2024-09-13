@@ -176,6 +176,9 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps 
 
 The creation wizard generated the connectivity string for you already as [.NET connection strings](configure-common.md#configure-connection-strings) and [app settings](configure-common.md#configure-app-settings). However, the security best practice is to keep secrets out of App Service completely. You'll move your secrets to key vault and change your app setting to [Key Vault references](app-service-key-vault-references.md) with the help of Service Connectors.
 
+> [!TIP]
+> To use passwordless authentication, see [How do I change the SQL Database connection to use a managed identity instead?](#how-do-i-change-the-sql-database-connection-to-use-a-managed-identity-instead)
+
 :::row:::
     :::column span="2":::
         **Step 1:** In the App Service page, 

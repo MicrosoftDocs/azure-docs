@@ -157,6 +157,7 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps 
         - **App Service**: Represents your app and runs in the App Service plan.
         - **Virtual network**: Integrated with the App Service app and isolates back-end network traffic.
         - **Azure Cosmos DB**: Accessible only from behind its private endpoint. A database is created for you on the database account.
+        - **Private endpoints**: Access endpoints for the database server and the Redis cache in the virtual network.
         - **Private DNS zones**: Enable DNS resolution of the database server and the Redis cache in the virtual network.
     :::column-end:::
     :::column:::
@@ -508,6 +509,7 @@ The dev container already has the [Azure Developer CLI](/azure/developer/azure-d
     - **Azure Cosmos DB account with MongoDB API**: Accessible only from behind its private endpoint. A database is created for you on the server.
     - **Azure Cache for Redis**: Accessible only from within the virtual network.
     - **Key vault**: Accessible only from behind its private endpoint. Used to manage secrets for the App Service app.
+    - **Private endpoints**: Access endpoints for the key vault, the database server, and the Redis cache in the virtual network.
     - **Private DNS zones**: Enable DNS resolution of the Cosmos DB database, the Redis cache, and the key vault in the virtual network.
     - **Log Analytics workspace**: Acts as the target container for your app to ship its logs, where you can also query the logs.
 
