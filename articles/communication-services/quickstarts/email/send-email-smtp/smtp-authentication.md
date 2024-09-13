@@ -28,7 +28,7 @@ Application developers who build apps that send email using the SMTP protocol ne
 
 ### Creating a custom email role for the Entra application
 
-The Entra application must be assigned a role with both the **Microsoft.Communication/CommunicationServices/Read** and the **Microsoft.Communication/EmailServices/write** permissions on the Azure Communication Service Resource. This can be done either by using the **Contributor** role, or by creating a **custom role**. Follow these steps to create a custom role by cloning an existing role.
+The Entra application must be assigned a role with both the **Microsoft.Communication/CommunicationServices/Read**, **Microsoft.Communication/CommunicationServices/Write**, and the **Microsoft.Communication/EmailServices/write** permissions on the Azure Communication Service Resource. This can be done either by using the **Contributor** role, or by creating a **custom role**. Follow these steps to create a custom role by cloning an existing role.
 
 1. In the portal, a custom role can be created by first navigating to the subscription, resource group, or Azure Communication Service Resource where you want the custom role to be assignable and then open **Access control (IAM)**.
     :::image type="content" source="../media/smtp-custom-role-iam.png" alt-text="Screenshot that shows Access control.":::
@@ -40,7 +40,7 @@ The Entra application must be assigned a role with both the **Microsoft.Communic
     :::image type="content" source="../media/smtp-custom-role-basics.png" alt-text="Screenshot that shows creating a name for a new custom role.":::
 1. Click the **Permissions** tab and click **Add permissions**. Search for **Microsoft.Communication** and select **Azure Communication Services**
     :::image type="content" source="../media/smtp-custom-role-permissions.png" alt-text="Screenshot that shows adding permissions for a new custom role.":::
-1. Select the **Microsoft.Communication/CommunicationServices** **Read** and the **Microsoft.Communication/EmailServices** **Write*** permissions. Click **Add**.
+1. Select the **Microsoft.Communication/CommunicationServices** **Read**, **Microsoft.Communication/CommunicationServices** **Write**, and the **Microsoft.Communication/EmailServices** **Write** permissions. Click **Add**.
     :::image type="content" source="../media/smtp-custom-role-add-permissions.png" alt-text="Screenshot that shows adding Azure Communication Services' permissions.":::
 1. Review the permissions for the new role. Click **Review + create** and then **Create** on the next page.
     :::image type="content" source="../media/smtp-custom-role-review.png" alt-text="Screenshot that shows reviewing the new custom role.":::
