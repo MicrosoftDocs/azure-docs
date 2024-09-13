@@ -94,8 +94,8 @@ Update the CI workflow definition to run your Playwright tests with the Playwrig
 
     ```yml
     
-
-    - name: OIDC Login to Azure Public Cloud with AzPowershell (enableAzPSSession true) # This step is to sign-in to Azure to run tests from GitHub Action workflow
+      # This step is to sign-in to Azure to run tests from GitHub Action workflow. You need to configure Open ID connect to set up authentication with Azure
+    - name: OIDC Login to Azure Public Cloud with AzPowershell (enableAzPSSession true) 
       uses: azure/login@v2 
       with: 
         client-id: ${{ secrets.AZURE_CLIENT_ID }} 
@@ -134,17 +134,20 @@ Update the CI workflow definition to run your Playwright tests with the Playwrig
         targetType: 'inline'
         script: 'npm ci'
         workingDirectory: path/to/playwright/folder # update accordingly
-    
-    - task: PowerShell@2
-      enabled: true
-      displayName: "Run Playwright tests"
-      env:
-        PLAYWRIGHT_SERVICE_ACCESS_TOKEN: $(PLAYWRIGHT_SERVICE_ACCESS_TOKEN)
+          
+    - task: AzureCLI@2
+      displayName: Run Playwright Test  
+        env:
         PLAYWRIGHT_SERVICE_URL: $(PLAYWRIGHT_SERVICE_URL)
+        PLAYWRIGHT_SERVICE_RUN_ID: ${{ parameters.runIdPrefix }}$(Build.DefinitionName) - $(Build.BuildNumber) - $(System.JobAttempt) 
       inputs:
-        targetType: 'inline'
-        script: 'npx playwright test -c playwright.service.config.ts --workers=20'
-        workingDirectory: path/to/playwright/folder # update accordingly
+        azureSubscription: My_Service_Connection # Service connection used to authenticate this pipeline with Azure to use the service
+        scriptType: 'pscore'
+        scriptLocation: 'inlineScript'
+        inlineScript: |
+          npx playwright test -c playwright.service.config.ts --workers=20
+      addSpnToEnvironment: true
+      workingDirectory: path/to/playwright/folder # update accordingly
 
     - task: PublishPipelineArtifact@1
       displayName: Upload Playwright report

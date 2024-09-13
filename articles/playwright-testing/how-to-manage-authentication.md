@@ -51,7 +51,7 @@ To enable authentication using access tokens:
 
 1. While running the tests, enable access token auth in the `playwright.service.config.ts` file in your setup. 
 
-    ```typeScript
+    ```typescript
     /* Learn more about service configuration at https://aka.ms/mpt/config */
     export default defineConfig(config, getServiceConfig( config {
         defaultAuth:'TOKEN'
@@ -87,7 +87,7 @@ To enable authentication using access tokens:
 
 Run Playwright tests against cloud-hosted browsers and publish the results to the service using the configuration you created above.
 
-    ```nodejs
+    ```typescript
     npx playwright test --config=playwright.service.config.ts --workers=20
     ```
 

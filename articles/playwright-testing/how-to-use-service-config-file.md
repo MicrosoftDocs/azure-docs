@@ -131,5 +131,5 @@ export default defineConfig(
           },
         ],
       ]
-      ```
+    ```
 
