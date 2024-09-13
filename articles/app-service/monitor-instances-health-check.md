@@ -189,7 +189,7 @@ Unhealthy instances will always be removed from the load balancer rotation regar
 
 #### Example 
 
-Imagine you have two applications (or one app with a slot) with Health check enabled. They're called App A and App B. They're on the same App Service plan, and the the plan is scaled out to four instances. If App A becomes unhealthy on two instances, the load balancer stops sending requests to App A on those two instances. Requests are still routed to App B on those instances, assuming App B is healthy. If App A remains unhealthy for more than an hour on those two instances, the instances are only replaced if App B is **also** unhealthy on those instances. If App B is healthy, the instances aren't replaced.
+Imagine you have two applications (or one app with a slot) with Health check enabled. They're called App A and App B. They're on the same App Service plan, and the plan is scaled out to four instances. If App A becomes unhealthy on two instances, the load balancer stops sending requests to App A on those two instances. Requests are still routed to App B on those instances, assuming App B is healthy. If App A remains unhealthy for more than an hour on those two instances, the instances are only replaced if App B is **also** unhealthy on those instances. If App B is healthy, the instances aren't replaced.
 
 ![Diagram of the example scenario.][2]
 
