@@ -87,9 +87,9 @@ To enable authentication using access tokens:
 
 Run Playwright tests against cloud-hosted browsers and publish the results to the service using the configuration you created above.
 
-    ```typescript
-    npx playwright test --config=playwright.service.config.ts --workers=20
-    ```
+```typescript
+npx playwright test --config=playwright.service.config.ts --workers=20
+```
 
 
 ## Related content
