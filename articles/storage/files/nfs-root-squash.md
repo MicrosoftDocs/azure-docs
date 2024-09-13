@@ -5,7 +5,7 @@ author: khdownie
 ms.service: azure-file-storage
 ms.custom: linux-related-content
 ms.topic: conceptual
-ms.date: 09/12/2024
+ms.date: 09/13/2024
 ms.author: kendownie
 ---
 
@@ -35,8 +35,8 @@ Although root squash is the default behavior in NFS, it's not the default option
 
 You can choose from three root squash settings:
 
-- **No root squash:** Turn off root squashing. This option is mainly useful for diskless clients or workloads as specified by documentation. This is the default setting when creating a new NFS Azure file share.
-- **All squash:** Map all UIDs and GIDs to the anonymous user. Useful for shares that require read only access by all clients.
+- **No root squash:** Turn off root squashing. This option is mainly useful for diskless clients or workloads as specified by workload documentation. This is the default setting when creating a new NFS Azure file share.
+- **All squash:** Map all UIDs and GIDs to the anonymous user. Useful for shares that require read-only access by all clients.
 - **Root squash:** Map requests from UID/GID 0 (root) to the anonymous UID/GID. This doesn't apply to any other UIDs or GIDs that might be equally sensitive, such as user bin or group staff.
 
 The following table highlights the UID behavior observed from the server when specific root squash options are configured.
@@ -64,7 +64,7 @@ You can configure root squash settings via the Azure portal, Azure PowerShell, o
 
 1. In the service menu, select **Properties**. Then toggle the **Root squash** setting as desired.
 
-   :::image type="content" source="media/nfs-root-squash/toggle-root-squash.png" alt-text="Screenshot showing how to create a storage account in the Azure portal." lightbox="media/nfs-root-squash/toggle-root-squash.png":::
+   :::image type="content" source="media/nfs-root-squash/toggle-root-squash.png" alt-text="Screenshot showing how to configure root squash settings for an NFS file share in the Azure portal." lightbox="media/nfs-root-squash/toggle-root-squash.png":::
 
 1. Select **Save** to update the root squash value.
 
