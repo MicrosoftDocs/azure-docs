@@ -1,5 +1,5 @@
 ---
-title: Create Snapshots in App Configuration with Azure Pipelines
+title: Create snapshots in App Configuration with Azure Pipelines
 description: Learn to use Azure Pipelines to create a snapshot in an App Configuration Store
 services: azure-app-configuration
 author: MaryanneNjeri
