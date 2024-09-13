@@ -72,7 +72,7 @@ You can now monitor all your subscriptions through a single Dynatrace resource u
 
 To manage multiple subscriptions that you want to monitor, select **Monitored Subscriptions** in the **Dynatrace environment configurations** section of the Resource menu.
 
-<!-- dynatrace-monitored-subscriptions.png -->
+:::image type="content" source="media/dynatrace-how-to-manage/dynatrace-monitored-subscriptions.png" alt-text="Screenshot showing Monitored Subscriptions selected in the Resource menu.":::
 
 From **Monitored Subscriptions** in the Resource menu, select the **Add Subscriptions**. The **Add Subscriptions** experience that opens and shows the subscriptions you have *Owner* role assigned to and any Dynatrace resource created in those subscriptions that is already linked to the same Dynatrace environment as the current resource.
 
@@ -80,11 +80,11 @@ If the subscription you want to monitor has a resource already linked to the sam
 
 Select the subscriptions you want to monitor through the Dynatrace resource and select **Add**.
 
-<!--new-relic-add-subscription.png -->
+:::image type="content" source="media/dynatrace-how-to-manage/dynatrace-add-subscription.png" alt-text="Screenshot showing subscriptions to add.":::
 
 If the list doesn't get updated automatically, select **Refresh** to view the subscriptions and their monitoring status. You might see an intermediate status of *In Progress* while a subscription gets added. When the subscription is successfully added, you see the status is updated to **Active**. If a subscription fails to get added, **Monitoring Status** shows as **Failed**.
 
-<!-- new-relic-monitored-subscriptions-list.png -->
+:::image type="content" source="media/dynatrace-how-to-manage/dynatrace-monitored-subscriptions-list.png" alt-text="Screenshot showing statuses of monitored subscriptions.":::
 
 The set of tag rules for metrics and logs defined for the Dynatrace resource applies to all subscriptions that are added for monitoring. Setting separate tag rules for different subscriptions isn't supported. Diagnostics settings are automatically added to resources in the added subscriptions that match the tag rules defined for the Dynatrace resource.
 
