@@ -242,7 +242,7 @@ az monitor diagnostic-settings create \
 
 [Virtual network flow logs](../network-watcher/vnet-flow-logs-overview.md) are a feature of Azure Network Watcher that logs information about IP traffic flowing through a virtual network. Flow data from virtual network flow logs is sent to Azure Storage. From there, you can access the data and export it to any visualization tool, security information and event management (SIEM) solution, or intrusion detection system (IDS).
 
-For general guidance on creating and managing virtual network flow logs, see [Manage virtual network flow logs](../network-watcher/vnet-flow-logs-portal.md). Once you have created your virtual network flow logs, you can access the data on [Log Analytics workspaces](../azure-monitor/logs/log-analytics-overview.md) where you can also query and filter the data to identify traffic flowing through your Load Balancer. See [Traffic analytics schema and data aggregation](../network-watcher/traffic-analytics-schema.md) for more details on the virtual network flow logs schema.
+For general guidance on creating and managing virtual network flow logs, see [Manage virtual network flow logs](../network-watcher/vnet-flow-logs-portal.md). Once you have created your virtual network flow logs, you can access the data on [Log Analytics workspaces](../azure/azure-monitor/logs/log-analytics-overview.md) where you can also query and filter the data to identify traffic flowing through your Load Balancer. See [Traffic analytics schema and data aggregation](../network-watcher/traffic-analytics-schema.md) for more details on the virtual network flow logs schema.
 
 You can also enable [Traffic Analytics](../network-watcher/traffic-analytics.md) when you are creating your virtual network flow logs which provides insights and visualizations on the flow log data such as traffic distribution, traffic pattern, application ports utilized, and top talkers in your virtual network.
 ## Log Analytics query for VNet flow logs
@@ -253,7 +253,7 @@ NTANetAnalytics
 | where DestLoadBalancer == '<Subscription ID>/<Resource Group name>/<Load Balancer name>'
 ```
 
-1. Use the query above in your Log Analytics workspace and update the string with the valid values for your Load Balancer. To learn more about using Log Analytics, see [Log Analytics tutorial](../azure-monitor/logs/log-analytics-tutorial.md).
+1. Use the query above in your Log Analytics workspace and update the string with the valid values for your Load Balancer. To learn more about using Log Analytics, see [Log Analytics tutorial](../azure/azure-monitor/logs/log-analytics-tutorial.md).
 
 1. To view the source IP of the connection, either the `SrcIp` or `SrcPublicIps` column will be populated. All traffic originating from public non-malicious or Azure service-owned IP addresses will appear in `SrcPublicIps` and all other source IPs will appear in `SrcIP`. If you want more details on the type of traffic, you can use the `FlowType` column to filter for different types of IP addresses involved in the flow. See  [Traffic analytics schema and data aggregation notes](../network-watcher/traffic-analytics-schema.md#notes) for `FlowType` field definitions.
 
