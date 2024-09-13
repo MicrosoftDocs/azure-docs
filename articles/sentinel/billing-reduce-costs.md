@@ -33,13 +33,13 @@ To learn more about how to monitor your costs, see [Manage and monitor costs for
 
 For workspaces still using classic pricing tiers, the Microsoft Sentinel pricing tiers don't include Log Analytics charges. For more information, see [Simplified pricing tiers](billing.md#simplified-pricing-tiers).
 
-## Buy a prepurchase plan
+## Buy a pre-purchase plan
 
-Save on your Microsoft Sentinel costs when you prepurchase Microsoft Sentinel commit units (CUs). Use the prepurchased CUs at any time during the one year purchase term.
+Save on your Microsoft Sentinel costs when you pre-purchase Microsoft Sentinel commit units (CUs). Use the pre-purchased CUs at any time during the one year purchase term.
 
-Any eligible Microsoft Sentinel costs deduct first from the prepurchased CUs automatically. You don't need to redeploy or assign a prepurchased plan to your Microsoft Sentinel workspaces for the CU usage to get the prepurchase discounts.
+Any eligible Microsoft Sentinel costs deduct first from the pre-purchased CUs automatically. You don't need to redeploy or assign a pre-purchased plan to your Microsoft Sentinel workspaces for the CU usage to get the pre-purchase discounts.
 
-For more information, see [Optimize Microsoft Sentinel costs with a prepurchase plan](billing-prepurchase-plan.md).
+For more information, see [Optimize Microsoft Sentinel costs with a pre-purchase plan](billing-pre-purchase-plan.md).
 
 ## Separate non-security data in a different workspace
 
