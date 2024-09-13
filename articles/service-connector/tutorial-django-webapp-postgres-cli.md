@@ -29,7 +29,7 @@ In this tutorial, you use the Azure CLI to complete the following tasks:
 ## Set up your initial environment
 
 ### [CloudShell](#tab/cloudshell)
-Lauch from  [Azure Cloud Shell](../cloud-shell/overview.md) from the Azure Portal and install the service connector passwordless extension for Azure CLI.
+Lauch from  [Azure Cloud Shell](../cloud-shell/overview.md) in the Azure Portal and install the service connector passwordless extension for the Azure CLI.
 
 ```terminal
 az extension add --name serviceconnector-passwordless --upgrade
