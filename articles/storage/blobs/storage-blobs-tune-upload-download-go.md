@@ -99,12 +99,16 @@ These options are available when downloading using the following methods: [Downl
 ```go
 func downloadBlobTransferOptions(client *azblob.Client, containerName string, blobName string) {
     // Create or open a local file where we can download the blob
-    file, err := os.Create("path/to/sample/file")
-    handleError(err)
+	file, err := os.Create("path/to/sample/file")
+	handleError(err)
 
-    // Download the blob to the local file
-    _, err = client.DownloadFile(context.TODO(), containerName, blobName, file, nil)
-    handleError(err)
+	// Download the blob to the local file
+	_, err = client.DownloadFile(context.TODO(), containerName, blobName, file,
+		&azblob.DownloadFileOptions{
+			BlockSize:   int64(4 * 1024 * 1024), // 4 MiB
+			Concurrency: uint16(2),
+		})
+	handleError(err)
 }
 ```
 
