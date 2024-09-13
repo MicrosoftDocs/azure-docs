@@ -1321,11 +1321,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/nat-gateway/nat-metrics.md",
-      "redirect_url": "/azure/nat-gateway/monitor-nat-gateway",
-      "redirect_document_id": true
-    },
-    {
       "source_path_from_root": "/articles/data-catalog/data-catalog-developer-concepts.md",
       "redirect_url": "/previous-versions/azure/data-catalog/data-catalog-developer-concepts",
       "redirect_document_id": false

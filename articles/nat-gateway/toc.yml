@@ -52,6 +52,8 @@ items:
     href: nat-gateway-snat.md
   - name: NAT gateway design guidance
     href: nat-gateway-design.md
+  - name: Metrics and alerts
+    href: nat-metrics.md
 - name: How-to
   items:
   - name: Monitor NAT gateway
