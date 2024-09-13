@@ -175,6 +175,10 @@ The following IP prefix sizes can be used with NAT gateway:
 
 NAT gateway is a standard resource and can't be used with basic resources, including basic public IP addresses. You can upgrade your basic public IP address in order to use with your NAT gateway using the following guidance: [Upgrade a public IP address.](../virtual-network/ip-services/public-ip-upgrade-portal.md) 
 
+### Can't use public IPs with internet routing preference together with NAT gateway
+
+When NAT gateway is configured with a public IP address, traffic is routed via the [Microsoft network](/azure/virtual-network/ip-services/routing-preference-overview#routing-via-microsoft-global-network). NAT gateway can't be associated with public IPs with routing preference choice **Internet**. NAT gateway can only be associated with public IPs with routing preference choice **Microsoft Global Network**. See [supported services](/azure/virtual-network/ip-services/routing-preference-overview#supported-services) for a list of all Azure services that do support public IPs with the Internet routing preference.
+
 ### Can't mismatch zones of public IP addresses and NAT gateway 
 
 NAT gateway is a [zonal resource](./nat-availability-zones.md) and can either be designated to a specific zone or to "no zone." When NAT gateway is placed in "no zone," Azure places the NAT gateway into a zone for you, but you don't have visibility into which zone the NAT gateway is located. 
