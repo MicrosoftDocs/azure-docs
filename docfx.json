@@ -43,6 +43,16 @@
             "**/includes/**",
             "**/obj/**"
         ]
+      },
+      {
+        "src": "redirects",
+        "dest": ".",
+        "files": [
+          "**/*.md",
+          "**/*.yml"
+        ],
+        "exclude": [
+        ]
       }
     ],
     "resource": [
