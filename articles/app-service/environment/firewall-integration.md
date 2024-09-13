@@ -161,8 +161,8 @@ With an Azure Firewall, you automatically get the following configured with the 
 |definitionupdates.microsoft.com:443 |
 |go.microsoft.com:80 |
 |go.microsoft.com:443 |
-|<www.microsoft.com:80> |
-|<www.microsoft.com:443> |
+|www.microsoft.com:80 |
+|www.microsoft.com:443 |
 |wdcpalt.microsoft.com:443 |
 |wdcp.microsoft.com:443 |
 |ocsp.msocsp.com:443 |
@@ -173,7 +173,7 @@ With an Azure Firewall, you automatically get the following configured with the 
 |mscrl.microsoft.com:80 |
 |crl.microsoft.com:443 |
 |crl.microsoft.com:80 |
-|<www.thawte.com:443> |
+|www.thawte.com:443 |
 |crl3.digicert.com:80 |
 |ocsp.digicert.com:80 |
 |ocsp.digicert.com:443 |
@@ -200,7 +200,7 @@ With an Azure Firewall, you automatically get the following configured with the 
 |management.core.windows.net:443 |
 |management.core.windows.net:80 |
 |management.azure.com:443 |
-|<www.msftconnecttest.com:80> |
+|www.msftconnecttest.com:80 |
 |shavamanifestcdnprod1.azureedge.net:443 |
 |validation-v2.sls.microsoft.com:443 |
 |flighting.cp.wd.microsoft.com:443 |
@@ -378,9 +378,9 @@ Linux isn't available in US Gov regions and is thus not listed as an optional co
 |v10ortex-win.data.microsoft.com:80 |
 |wp.microsoft.com:80 |
 |dcpalt.microsoft.com:80 |
-|<www.microsoft.com:80> |
-|<www.msftconnecttest.com:80> |
-|<www.thawte.com:80> |
+|www.microsoft.com:80 |
+|www.msftconnecttest.com:80 |
+|www.thawte.com:80 |
 |admin.core.usgovcloudapi.net:443 |
 |azperfmerges.blob.core.windows.net:443 |
 |azperfmerges.blob.core.windows.net:443 |
