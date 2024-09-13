@@ -109,7 +109,7 @@ Having issues? [Let us know](https://aka.ms/DjangoCLITutorialHelp).
     az group create --name $RESOURCE_GROUP_NAME --location $LOCATION
     ```
 
-1. Create the database server. If prompted to enable access to current client IP address, type `y` for yes. (the process takes a few minutes):
+1. Create the database server. If prompted to enable access to current client IP address, type `y` for yes. This process takes a few minutes:
 
     ```azurecli
     az postgres flexible-server create \
