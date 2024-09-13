@@ -33,9 +33,10 @@ These features have their own pricing plans and are billed separately. You can c
 
 1. Select the workspace settings icon, and then go to the **General** page to view the workspace settings.
 
+1. Navigate to **Feature management** section.
+
     :::image type="content" source="./media/how-to-use-service-features/playwright-testing-enable-reporting-for-workspace.png" alt-text="Screenshot that shows the workspace settings page in the Playwright Testing portal for Feature Management." lightbox="./media/how-to-use-service-features/playwright-testing-enable-reporting-for-workspace.png":::
 
-1. Navigate to **Feature management** section.
 
 1. Choose the features you want to enable for your workspace.
 
