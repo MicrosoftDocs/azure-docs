@@ -112,7 +112,7 @@ Having issues? Check the [Troubleshooting section](#troubleshooting).
 
 ::: zone pivot="azure-portal"  
 
-## 1. Create App Service, database, and cache
+## 2. Create App Service, database, and cache
 
 In this step, you create the Azure resources. The steps used in this tutorial create a set of secure-by-default resources that include App Service, Azure SQL Database, and Azure Cache. For the creation process, you'll specify:
 
@@ -181,7 +181,7 @@ The creation wizard generated the connectivity string for you already as [.NET c
 
 :::row:::
     :::column span="2":::
-        **Step 1:** In the App Service page, 
+        **Step 1:** In the App Service page:
         1. In the left menu, select **Settings > Environment variables > Connection strings**. 
         1. Select **AZURE_SQL_CONNECTIONSTRING**.
         1. In **Add/Edit connection string**, in the **Value** field, find the *Password=* part at the end of the string.
@@ -291,7 +291,7 @@ The creation wizard generated the connectivity string for you already as [.NET c
     :::column-end:::
 :::row-end:::
 
-## 3. Deploy sample code
+## 4. Deploy sample code
 
 In this step, you configure GitHub deployment using GitHub Actions. It's just one of many ways to deploy to App Service, but also a great way to have continuous integration in your deployment process. By default, every `git push` to your GitHub repository kicks off the build and deploy action.
 
@@ -410,7 +410,7 @@ In this step, you configure GitHub deployment using GitHub Actions. It's just on
     :::column-end:::
 :::row-end:::
 
-## 4. Generate database schema
+## 5. Generate database schema
 
 With the SQL Database protected by the virtual network, the easiest way to run [dotnet database migrations](/ef/core/managing-schemas/migrations/?tabs=dotnet-core-cli) is in an SSH session with the App Service container. 
 
@@ -437,7 +437,7 @@ In the SSH session, only changes to files in `/home` can persist beyond app rest
 
 Having issues? Check the [Troubleshooting section](#troubleshooting).
 
-## 5. Browse to the app
+## 6. Browse to the app
 
 :::row:::
     :::column span="2":::
@@ -462,7 +462,7 @@ Having issues? Check the [Troubleshooting section](#troubleshooting).
 > [!TIP]
 > The sample application implements the [cache-aside](/azure/architecture/patterns/cache-aside) pattern. When you visit a data view for the second time, or reload the same page after making data changes, **Processing time** in the webpage shows a much faster time because it's loading the data from the cache instead of the database.
 
-## 6. Stream diagnostic logs
+## 7. Stream diagnostic logs
 
 Azure App Service captures all messages logged to the console to assist you in diagnosing issues with your application. The sample app outputs console log messages in each of its endpoints to demonstrate this capability.
 
@@ -485,7 +485,7 @@ Azure App Service captures all messages logged to the console to assist you in d
     :::column-end:::
 :::row-end:::
 
-## 7. Clean up resources
+## 8. Clean up resources
 
 When you're finished, you can delete all of the resources from your Azure subscription by deleting the resource group.
 
@@ -554,7 +554,7 @@ The dev container already has the [Azure Developer CLI](/azure/developer/azure-d
     azd up
     ```  
 
-    The `azd up` command takes about 15 minutes to complete (the Redis cache take the most time). It also compiles and deploys your application code, but you'll modify your code later to work with App Service. While it's running, the command provides messages about the provisioning and deployment process, including a link to the deployment in Azure. When it finishes, the command also displays a link to the deploy application.
+    The `azd up` command takes about 15 minutes to complete (the Redis cache takes the most time). It also compiles and deploys your application code, but you'll modify your code later to work with App Service. While it's running, the command provides messages about the provisioning and deployment process, including a link to the deployment in Azure. When it finishes, the command also displays a link to the deploy application.
 
     This AZD template contains files (*azure.yaml* and the *infra* directory) that generate a secure-by-default architecture with the following Azure resources:
 
@@ -636,7 +636,7 @@ Before you deploy these changes, you still need to generate a migration bundle.
 
 Having issues? Check the [Troubleshooting section](#troubleshooting).
 
-## 4. Generate database schema
+## 5. Generate database schema
 
 With the SQL Database protected by the virtual network, the easiest way to run database migrations is in an SSH session with the App Service container. However, the App Service Linux containers don't have the .NET SDK, so the easiest way to run database migrations is to upload a self-contained migrations bundle.
 

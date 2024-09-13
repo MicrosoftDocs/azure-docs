@@ -173,7 +173,7 @@ The creation wizard generated the connectivity string for you already as an [app
 
 :::row:::
     :::column span="2":::
-        **Step 1:** In the App Service page, 
+        **Step 1:** In the App Service page:
         1. In the left menu, select **Settings > Environment variables**. 
         1. Next to **AZURE_COSMOS_CONNECTIONSTRING**, select **Show value**.
         This connection string lets you connect to the Cosmos DB database secured behind a private endpoint. However, the secret is saved directly in the App Service app, which isn't the best. You'll change this.
@@ -322,7 +322,7 @@ Like the Tomcat convention, if you want to deploy to the root context of Tomcat,
     :::column span="2":::
         **Step 5 (Option 1: with GitHub Copilot):**  
         1. Start a new chat session by selecting the **Chat** view, then selecting **+**.
-        1. Ask, "*@workspace why do i get the error in GitHub actions: The string 'java21' is not valid SemVer notation for a Java version.*" Copilot might give you an explanation and even give you the link to the workflow file that you need to fix.
+        1. Ask, "*@workspace Why do I get the error in GitHub actions: The string 'java21' is not valid SemVer notation for a Java version.*" Copilot might give you an explanation and even give you the link to the workflow file that you need to fix.
         1. Open *.github/workflows/starter-no-infra_msdocs-spring-cosmosdb-123.yaml* in the explorer and make the suggested fix.
         GitHub Copilot doesn't give you the same response every time, you might need to ask more questions to fine-tune its response. For tips, see [What can I do with GitHub Copilot in my codespace?](#what-can-i-do-with-github-copilot-in-my-codespace).
     :::column-end:::
@@ -498,7 +498,7 @@ The dev container already has the [Azure Developer CLI](/azure/developer/azure-d
     azd up
     ```  
 
-    The `azd up` command takes about 15 minutes to complete (the Redis cache take the most time). It also compiles and deploys your application code, but you'll modify your code later to work with App Service. While it's running, the command provides messages about the provisioning and deployment process, including a link to the deployment in Azure. When it finishes, the command also displays a link to the deploy application.
+    The `azd up` command takes about 15 minutes to complete (the Redis cache takes the most time). It also compiles and deploys your application code, but you'll modify your code later to work with App Service. While it's running, the command provides messages about the provisioning and deployment process, including a link to the deployment in Azure. When it finishes, the command also displays a link to the deploy application.
 
     This AZD template contains files (*azure.yaml* and the *infra* directory) that generate a secure-by-default architecture with the following Azure resources:
 
