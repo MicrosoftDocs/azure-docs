@@ -4,7 +4,7 @@ description: The complete overview guide for Azure Spring Apps migration to Azur
 author: KarlErickson
 ms.service: azure-spring-apps
 ms.topic: overview
-ms.date: 09/05/2024
+ms.date: 09/30/2024
 ms.author: seal
 ms.custom: devx-track-java, devx-track-extended-java
 #Customer intent: As an Azure Cloud user, I want to deploy, run, and monitor Spring applications.
@@ -18,13 +18,19 @@ Use Azure Container Apps as the main destination for your migration. Azure Conta
 
 With one easy step, you can migrate from Azure Spring Apps consumption & dedicated plan to Azure Container Apps. Select the **Migrate** button in the Azure portal and confirm the action. 
 
-:::image type="content" source="media/overview-migration-guide/consumption-plan-migration-button.png" alt-text="Screenshot of the Azure portal that shows the Migrate button." border="false" lightbox="media/overview-migration-guide/consumption-plan-migration-button.png":::
+:::image type="content" source="media/overview-migration/consumption-plan-migration-button.png" alt-text="Screenshot of the Azure portal that shows the Migrate button." border="false" lightbox="media/overview-migration/consumption-plan-migration-button.png":::
 
-:::image type="content" source="media/overview-migration-guide/consumption-plan-migration-confirmation.png" alt-text="Screenshot of the Migrate to Azure Container Apps message with Yes option highlighted." border="false" lightbox="media/overview-migration-guide/consumption-plan-migration-confirmation.png":::
+:::image type="content" source="media/overview-migration/consumption-plan-migration-confirmation.png" alt-text="Screenshot of the Migrate to Azure Container Apps dialog box." border="false" lightbox="media/overview-migration/consumption-plan-migration-confirmation.png":::
 
 This feature is available mid-October 2024 and you can start the migration process as soon as it's available.
 
 Once the migration finishes, the app appears as a standard app inside Azure Container Apps application, with the Java development stack turned on. With this option enabled, you get access to Java specific [metrics](../../container-apps/java-metrics.md) and [logs](../../container-apps/java-dynamic-log-level.md) to monitor and troubleshoot your apps.
+
+The following video announces the general availability of Java Experiences on Azure Container Apps:
+
+<br>
+
+> [!VIDEO https://www.youtube.com/embed/-T90dC2CCPA]
 
 ## Frequently asked questions
 
@@ -67,7 +73,7 @@ All in-flight transactions execute without any interruptions, unless you're usin
 
 There's no change. All IP addresses/FQDN remains the same after the migration.
 
-### I’m using persistent storage. How do I recreate them in Azure Container Apps?
+### I'm using persistent storage. How do I recreate them in Azure Container Apps?
 
 Persistent storage migrates automatically to Azure Container Apps.
 
