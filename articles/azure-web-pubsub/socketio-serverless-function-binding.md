@@ -102,6 +102,7 @@ The attribute for input binding is `[SocketIONegotiation]`.
 |---------|---------|
 | Hub | The hub name that a client needs to connect to. |
 | Connection | The name of the app setting that contains the Socket.IO connection string (defaults to "WebPubSubForSocketIOConnectionString"). |
+| UserId | The userId of the connection. It applys to all sockets in the connection. It becomes the `sub` claim in the generated token. |
 
 # [JavaScript Model v4](#tab/javascript-v4)
 
@@ -139,6 +140,7 @@ app.http('negotiate', {
 | name | Variable name used in function code for input connection binding object |
 | hub | The hub name that a client needs to connect to. |
 | connection | The name of the app setting that contains the Socket.IO connection string (defaults to "WebPubSubForSocketIOConnectionString"). |
+| userId | The userId of the connection. It applys to all sockets in the connection. It becomes the `sub` claim in the generated token. |
 
 ---
 

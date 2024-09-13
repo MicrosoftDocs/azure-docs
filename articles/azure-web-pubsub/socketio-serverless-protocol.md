@@ -41,11 +41,19 @@ Explanations of the previous sample:
 - The `<hub-name>` in `path` is a concept in Web PubSub for Socket.IO, which provides isolation between hubs.
 - The `<access-token>` is a JWT used to authenticate with the service. See (How to generate access token)[] for details. 
 
-### Authentication
+### Authentication flow
 
 When a client attempts to connect to the service, the process is divided into two distinct steps: establishing an Engine.IO (physical) connection and connecting to a namespace, which is referred to as a socket in Socket.IO terminology. The authentication process differs between these two steps:
 
 1. **Engine.IO connection**: During this step, the service authenticates the client using an access token to determine whether to accept the connection. If the corresponding hub is configured to allow anonymous mode, the Engine.IO connection can proceed without validating the access token. However, for security reasons, it's recommended to disable anonymous mode in production environments.
+
+    - The Engine.IO connection url follow the format as shown below. But in most cases, it should be handled by Socket.IO client library.
+
+      ```
+      http://<service-endpoint>/clients/socketio/hubs/<hub-name>/?access_token=<access-token>
+      ```
+
+    - The details of access token can be found in [here](#authentication-details)
 
 2. **Socket**: After the Engine.IO connection is successfully established, the client SDK sends a payload to connect to a namespace. Upon receiving the socket connect request, the service triggers a connect call to the event handler. The outcome of this step depends on the status code returned by the connect response: a 200 status code indicates that the socket is approved, while a 4xx or 5xx status code results in the socket being rejected.
 
@@ -74,6 +82,89 @@ The event handler may respond with a body like `{ type: ACK, namespace: "/", dat
 ### Socket Disconnects
 
 Client disconnects from a namespace or the corresponding Engine.IO connection closes results in socket close. Service triggers a disconnected event for every disconnected socket. It's an asynchronized call for notification.
+
+## Authentication Details
+
+The service uses bearer token to authenticate. There're two main scenario to use the token. 
+
+- Connect of Engine.IO connection. The following request is an example.
+
+  ```
+  https://<service-endpoint>/clients/socketio/hubs/<hub-name>/?access_token=<access-token>
+  ```
+
+- RESTful request to send messages or manage connections. The following request is an example.
+
+  ```
+  POST {endpoint}/api/hubs/{hub}/:removeFromGroups?api-version=2024-01-01
+
+  Headers:
+  Authorization: Bearer <token>
+  ```
+
+The generation of token can also be devided into two categories: key based authenitcation or identity based authentication.
+
+### **Key based authentication**
+
+  The JWT format:
+
+  **Header**
+
+  ```text
+  {
+    "alg": "HS256",
+    "typ": "JWT"
+  }
+  ```
+
+  **Payload**
+
+  ```text
+  {
+    "nbf": 1726196900,
+    "exp": 1726197200,
+    "iat": 1726196900,
+    "aud": "https://sample.webpubsub.azure.com/api/hubs/hub/groups/0~Lw~/:send?api-version=2024-01-01",
+    "sub": "userId"
+  }
+  ```
+
+  `aud` should keep consistent with the url which you're requesting.
+
+  `sub` is the userId of connection. Only available for the Engine.IO connection request.
+
+  **Signature**
+
+  ```text
+  HMACSHA256(base64UrlEncode(header) + "." + base64UrlEncode(payload), <AccessKey>)
+  ```
+
+  The `AccessKey` can be get from the service Azure Portal or from the Azure Cli:
+
+  ```azcli
+  az webpubsub key show -g <resource-group> -n <resource-name>
+  ```
+
+### **Identity based authentication**
+
+#### Token for RESTful API
+
+Identity based authentication uses an [`access token`](/entra/identity-platform/access-tokens) signed by Microsoft identity platform.
+
+The application which is used to request a token must use the resource `https://webpubsub.azure.com` or scope `https://webpubsub.azure.com/.default`. And it needs to be granted `Web PubSub Service Owner` Role. For more detail, see [Authorize access to Web PubSub resources using Microsoft Entra ID](./concept-azure-ad-authorization.md)
+
+#### Token for Engine.IO connection
+
+Different from the RESTful API, Engine.IO connection doesn't use the Entra ID token directly. Instead, you must make a RESTful call to the service to get a token and use the returned token as the access token for client.
+
+```Http
+POST {endpoint}/api/hubs/{hub}/:generateToken?api-version=2024-01-01
+
+Headers:
+Authorization: Bearer <Entra ID Token>
+```
+
+For more optional parameters, see [Generate Client Token](/rest/api/webpubsub/dataplane/web-pub-sub/generate-client-token)
 
 ## Supported functionality and RESTful APIs
 
@@ -117,6 +208,10 @@ A Socket ID uniquely identifies a socket connection. According to the Socket.IO 
 
 ```Http
 POST {endpoint}/api/hubs/{hub}/:addToGroups?api-version=2024-01-01
+
+Headers:
+Authorization: Bearer <access token>
+Content-Type: application/json
 ```
 
 #### Request Body
@@ -136,8 +231,13 @@ Add socket `socketId` in namespace `/ns` to room `rm` in hub `myHub`.
 ```HTTP
 POST {endpoint}/api/hubs/myHub/:addToGroups?api-version=2024-01-01
 
+Headers:
+Authorization: Bearer <access token>
+Content-Type: application/json
+
+Body:
 {
-  "filter": "'0~L25z~c29ja2V0SWQ' in groups"
+  "filter": "'0~L25z~c29ja2V0SWQ' in groups",
   "groups": [ "'0~L25z~cm0" ]
 }
 ```
@@ -146,6 +246,10 @@ POST {endpoint}/api/hubs/myHub/:addToGroups?api-version=2024-01-01
 
 ```Http
 POST {endpoint}/api/hubs/{hub}/:removeFromGroups?api-version=2024-01-01
+
+Headers:
+Authorization: Bearer <access token>
+Content-Type: application/json
 ```
 
 #### Request Body
@@ -165,8 +269,13 @@ Remove socket `socketId` in namespace `/ns` from room `rm` in hub `myHub`.
 ```HTTP
 POST {endpoint}/api/hubs/myHub/:removeFromGroups?api-version=2024-01-01
 
+Headers:
+Authorization: Bearer <access token>
+Content-Type: application/json
+
+Body:
 {
-  "filter": "'0~L25z~c29ja2V0SWQ' in groups"
+  "filter": "'0~L25z~c29ja2V0SWQ' in groups",
   "groups": [ "'0~L25z~cm0" ]
 }
 ```
@@ -176,6 +285,8 @@ POST {endpoint}/api/hubs/myHub/:removeFromGroups?api-version=2024-01-01
 ```Http
 POST {endpoint}/api/hubs/{hub}/groups/{group}/:send?api-version=2024-01-01
 
+Headers:
+Authorization: Bearer <access token>
 Content-Type: text/plain
 ```
 
@@ -202,6 +313,11 @@ socket.on('eventName', (arg1, arg2) => {
 ```HTTP
 POST {endpoint}/api/hubs/myHub/groups/0~L25z~c29ja2V0SWQ/:send?api-version=2024-01-01
 
+Headers:
+Authorization: Bearer <access token>
+Content-Type: text/plain
+
+Body:
 42/ns,["eventName","arg1","arg2"]
 ```
 
@@ -210,6 +326,8 @@ POST {endpoint}/api/hubs/myHub/groups/0~L25z~c29ja2V0SWQ/:send?api-version=2024-
 ```Http
 POST {endpoint}/api/hubs/{hub}/groups/{group}/:send?api-version=2024-01-01
 
+Headers:
+Authorization: Bearer <access token>
 Content-Type: text/plain
 ```
 
@@ -236,6 +354,11 @@ socket.on('eventName', (arg1, arg2) => {
 ```HTTP
 POST {endpoint}/api/hubs/myHub/groups/0~L25z~cm0/:send?api-version=2024-01-01
 
+Headers:
+Authorization: Bearer <access token>
+Content-Type: text/plain
+
+Body:
 42/ns,["eventName","arg1","arg2"]
 ```
 
@@ -244,6 +367,8 @@ POST {endpoint}/api/hubs/myHub/groups/0~L25z~cm0/:send?api-version=2024-01-01
 ```Http
 POST {endpoint}/api/hubs/{hub}/groups/{group}/:send?api-version=2024-01-01
 
+Headers:
+Authorization: Bearer <access token>
 Content-Type: text/plain
 ```
 
@@ -270,6 +395,11 @@ socket.on('eventName', (arg1, arg2) => {
 ```HTTP
 POST {endpoint}/api/hubs/myHub/groups/0~L25z~/:send?api-version=2024-01-01
 
+Headers:
+Authorization: Bearer <access token>
+Content-Type: text/plain
+
+Body:
 42/ns,["eventName","arg1","arg2"]
 ```
 
@@ -278,6 +408,8 @@ POST {endpoint}/api/hubs/myHub/groups/0~L25z~/:send?api-version=2024-01-01
 ```Http
 POST {endpoint}/api/hubs/{hub}/groups/{group}/:send?api-version=2024-01-01
 
+Headers:
+Authorization: Bearer <access token>
 Content-Type: text/plain
 ```
 
@@ -296,6 +428,11 @@ Disconnect socket `socketId` in namespace `/ns` in hub `myHub`.
 ```HTTP
 POST {endpoint}/api/hubs/myHub/groups/0~L25z~c29ja2V0SWQ/:send?api-version=2024-01-01
 
+Headers:
+Authorization: Bearer <access token>
+Content-Type: text/plain
+
+Body:
 41/ns,
 ```
 
