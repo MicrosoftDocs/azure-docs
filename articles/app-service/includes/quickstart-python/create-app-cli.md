@@ -8,7 +8,7 @@ Azure CLI commands can be run on a computer with the [Azure CLI installed](/cli/
 
 Azure CLI has a command `az webapp up` that will create the necessary resources and deploy your application in a single step.
 
-If necessary, login to Azure using [az login](/cli/azure/authenticate-azure-cli).
+If necessary, log in to Azure using [az login](/cli/azure/authenticate-azure-cli).
 
 ```azurecli
 az login
