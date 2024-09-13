@@ -37,17 +37,7 @@ This article demonstrates how to deploy an existing container to Azure Container
 
 ## Create a container app
 
-Now that you have an environment created, you can deploy your first container app. With the `containerapp create` command, deploy a container image to Azure Container Apps.
-
-The example shown in this article demonstrates how to use a custom container image with common commands. Your container image might need more parameters for the following items:
-
-- Set the revision mode
-- Define secrets
-- Define environment variables
-- Set container CPU or memory requirements
-- Enable and configure Dapr
-- Enable external or internal ingress
-- Provide minimum and maximum replica values or scale rules
+Now that you have an environment created, you can deploy your first container app.
 
 ::: zone pivot="container-apps-private-registry"
 
@@ -164,6 +154,18 @@ For more information, see
 ---
 
 ### Create container app
+
+With the `containerapp create` command, deploy a container image to Azure Container Apps.
+
+The example shown in this article demonstrates how to use a custom container image with common commands. Your container image might need more parameters for the following items:
+
+- Set the revision mode
+- Define secrets
+- Define environment variables
+- Set container CPU or memory requirements
+- Enable and configure Dapr
+- Enable external or internal ingress
+- Provide minimum and maximum replica values or scale rules
 
 # [Bash](#tab/bash)
 
