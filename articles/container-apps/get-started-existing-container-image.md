@@ -108,7 +108,7 @@ az role assignment create --role "Key Vault Secrets Officer" --assignee "$USER_P
 
 ```azurepowershell-interactive
 $KeyVault=Get-AzKeyVault -VaultName $KeyVaultName
-New-AzRoleAssignment -SignInName "$UserPrincipalName" -RoleDefinitionName "Key Vault Secrets Officer" -Scope "$KeyVault.ResourceID"
+New-AzRoleAssignment -SignInName "$UserPrincipalName" -RoleDefinitionName "Key Vault Secrets Officer" -Scope $KeyVault.ResourceID
 ```
 
 ---
