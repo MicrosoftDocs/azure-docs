@@ -1184,7 +1184,7 @@
     - name: Switch to simplified pricing tiers
       href: enroll-simplified-pricing-tier.md
     - name: Optimize costs with pre-purchase plan
-      href: billing-prepurchase-plan.md
+      href: billing-pre-purchase-plan.md
     - name: Tutorial - Configure data retention policy
       href: configure-data-retention.md
     - name: Auxiliary logs use cases
