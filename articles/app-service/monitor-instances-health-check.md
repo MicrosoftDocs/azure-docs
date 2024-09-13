@@ -4,8 +4,8 @@ description: Learn how to monitor the health of App Service instances using Heal
 keywords: azure app service, web app, health check, route traffic, healthy instances, path, monitoring, remove faulty instances, unhealthy instances, remove workers
 author: msangapu-msft
 
-ms.topic: article
-ms.date: 09/06/2024
+ms.topic: overview
+ms.date: 09/13/2024
 ms.author: msangapu
 ---
 
