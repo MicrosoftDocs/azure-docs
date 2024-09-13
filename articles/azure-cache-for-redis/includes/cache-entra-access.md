@@ -24,7 +24,7 @@ For an existing cache, first check to see if Microsoft Entra authentication is e
 
    :::image type="content" source="media/cache-entra-access/cache-enable-microsoft-entra.png" alt-text="Screenshot that shows Authentication selected in the service menu and the Enable Microsoft Entra Authentication checkbox selected.":::
 
-1. In a dialog box, you're asked if you want to update your configuration, and you're informated that making the update takes several minutes to finish. Select **Yes.**
+1. In a dialog box, you're asked if you want to update your configuration, and you're informed that making the update takes several minutes to finish. Select **Yes.**
 
    > [!IMPORTANT]
    > When the enable operation is finished, the nodes in your cache reboot to load the new configuration. We recommend that you complete this operation during your standard maintenance window or outside your peak business hours. The process can take up to 30 minutes.
