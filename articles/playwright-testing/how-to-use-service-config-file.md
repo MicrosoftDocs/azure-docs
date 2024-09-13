@@ -13,6 +13,10 @@ If you don't have this file in your code, follow the QuickStart guide, see [Quic
 > [!IMPORTANT]
 > Microsoft Playwright Testing is currently in preview. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
+## Prerequisites
+
+* Follow the Qickstart guide and set up a project to run with Microsoft Playwright Testing service. See, [Quickstart: Run end-to-end tests at scale with Microsoft Playwright Testing Preview](./quickstart-run-end-to-end-tests.md) 
+
 Here's version of the `playwright.service.config.ts` file with all the available options:
 
 ```typescript
@@ -53,7 +57,7 @@ export default defineConfig(
     - **Description**: This setting allows you to choose the authentication method you want to use for your test run. 
     - **Available Options**:
         - `TOKEN` to use access tokens. You need to enable authentication using access tokens if you want to use this option, see [manage authentication](./how-to-manage-authentication.md).
-        - `ENTRA` to use Enrta ID for authentication. It's the default mode. 
+        - `ENTRA` to use Entra ID for authentication. It's the default mode. 
     - **Default Value**: `ENTRA_ID`
     - **Example**:
       ```typescript
@@ -80,7 +84,7 @@ export default defineConfig(
       ```
 
 * **`credential`**:
-    - **Description**: This setting allows you to select the authentication method you want to use with Entra.
+    - **Description**: This setting allows you to select the authentication method you want to use with Microsoft Entra ID.
     - **Example**:
       ```typescript
       credential: new AzureCliCredential()

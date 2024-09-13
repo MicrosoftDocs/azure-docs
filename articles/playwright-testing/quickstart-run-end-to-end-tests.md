@@ -86,14 +86,15 @@ The service offers two authentication methods: Microsoft Entra ID and Access Tok
 
 Microsoft Entra ID uses your Azure credentials, requiring a sign-in to your Azure account for secure access. Alternatively, you can generate an access token from your Playwright workspace and use it in your setup.
 
-##### Set up authtication using Microsoft Entra ID 
+##### Set up authentication using Microsoft Entra ID 
 
 Microsoft Entra ID is the default and recommended authentication for the service. From your local dev machine, you can use [Azure CLI](/cli/azure/install-azure-cli) to sign-in
 
 ```CLI
 az login
 ```
-**NOTE**: If you are a part of multiple Microsoft Entra tenants, make sure you sign-in to the tenant where your workspace belongs. You can get the tenant id from Azure portal. See [Find your Microsoft Entra Tenant](/azure/azure-portal/get-subscription-tenant-id#find-your-microsoft-entra-tenant). Once you get the ID, sign-in using the command `az login --tenant <TenantID>`
+> [!NOTE]
+> If you're a part of multiple Microsoft Entra tenants, make sure you sign-in to the tenant where your workspace belongs. You can get the tenant ID from Azure portal. See [Find your Microsoft Entra Tenant](/azure/azure-portal/get-subscription-tenant-id#find-your-microsoft-entra-tenant). Once you get the ID, sign-in using the command `az login --tenant <TenantID>`
 
 ##### Set up authentication using access tokens
 
