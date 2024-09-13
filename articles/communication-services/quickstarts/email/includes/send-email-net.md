@@ -23,7 +23,7 @@ The following classes and interfaces handle some of the major features of the Az
 | Name                | Description                                                                                                                                          |
 | --------------------| -----------------------------------------------------------------------------------------------------------------------------------------------------|
 | EmailAddress        | This class contains an email address and an option for a display name.                                                                               |
-| EmailAttachment     | This class creates an email attachment by accepting a unique ID, email attachment [MIME type](../../../concepts/email/email-attachment-allowed-mime-types.md) string, and binary data for content.                               |
+| EmailAttachment     | This class creates an email attachment by accepting a unique ID, email attachment [MIME type](../../../concepts/email/email-attachment-allowed-mime-types.md) string, binary data for content, and an optional content ID to define it as an inline attachment. |
 | EmailClient         | This class is needed for all email functionality. You instantiate it with your connection string and use it to send email messages.                  |
 | EmailClientOptions  | This class can be added to the EmailClient instantiation to target a specific API version.                                                           |
 | EmailContent        | This class contains the subject and the body of the email message. You have to specify at least one of PlainText or Html content   |
@@ -46,7 +46,7 @@ EmailSendResult returns the following status on the email operation performed.
 
 ## Prerequisites
 
-- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - The latest version [.NET Core client library](https://dotnet.microsoft.com/download/dotnet-core) for your operating system.
 - An Azure Email Communication Services Resource created and ready with a provisioned domain [Get started with Creating Email Communication Resource](../create-email-communication-resource.md)
 - An active Communication Services resource connected with Email Domain and a Connection String. [Get started by Connecting Email Resource with a Communication Resource](../connect-email-communication-resource.md)
@@ -151,13 +151,13 @@ var emailClient = new EmailClient(endpoint, key);
 
 ---
 
-## Basic email sending 
+## Basic email sending
 
 ### Construct your email message
 
 To send an email message, you need to:
 - Define the email subject and body.
-- Define your Sender Address. Construct your email message with your Sender information you get your MailFrom address from your verified domain. 
+- Define your Sender Address. Construct your email message with your Sender information you get your MailFrom address from your verified domain.
 - Define the Recipient Address.
 - Call the SendAsync method. Add this code to the end of `Main` method in **Program.cs**:
 
@@ -175,7 +175,7 @@ var recipient = "emailalias@contoso.com";
 ### Send and get the email send status
 
 To send an email message, you need to:
-- Call SendAsync method that sends the email request as an asynchronous operation. Call with Azure.WaitUntil.Completed if your method should wait to return until the long-running operation has completed on the service. Call with Azure.WaitUntil.Started if your method should return after starting the operation. 
+- Call SendAsync method that sends the email request as an asynchronous operation. Call with Azure.WaitUntil.Completed if your method should wait to return until the long-running operation has completed on the service. Call with Azure.WaitUntil.Started if your method should return after starting the operation.
 - SendAsync method returns EmailSendOperation that returns "Succeeded" EmailSendStatus if email is out for delivery and throws an exception otherwise. Add this code to the end of `Main` method in **Program.cs**:
 
 ```csharp
@@ -189,7 +189,7 @@ try
         subject,
         htmlContent);
     EmailSendResult statusMonitor = emailSendOperation.Value;
-    
+
     Console.WriteLine($"Email Sent. Status = {emailSendOperation.Value.Status}");
 
     /// Get the OperationId so that it can be used for tracking the message for troubleshooting
@@ -207,8 +207,8 @@ catch (RequestFailedException ex)
 
 EmailSendOperation only returns email operation status. To get the actual email delivery status, you can subscribe to "EmailDeliveryReportReceived" event that is generated when the email delivery is completed. The event returns the following delivery state:
 
-- Delivered. 
-- Failed. 
+- Delivered.
+- Failed.
 - Quarantined.
 
 See [Handle Email Events](../handle-email-events.md) for details.
