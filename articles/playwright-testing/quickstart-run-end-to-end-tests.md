@@ -80,7 +80,7 @@ We recommend that you use the `dotenv` module to manage your environment. With `
 
 ## Set up Authentication
 
-To run your Playwright tests in your Microsoft Playwright Testing workspace, you need to authenticate the Playwright client where you are running the tests with the service. This could be your local dev machine or CI machine. 
+To run your Playwright tests in your Microsoft Playwright Testing workspace, you need to authenticate the Playwright client where you're running the tests with the service. This could be your local dev machine or CI machine. 
 
 The service offers two authentication methods: Microsoft Entra ID and Access Tokens.
 
@@ -244,7 +244,7 @@ Go to the [Playwright portal](https://aka.ms/mpt/portal) to view the test runs a
 
  :::image type="content" source="./media/quickstart-run-end-to-end-tests/playwright-testing-test-run-page.png" alt-text="Screenshot that shows the test runs for a workspace in the Playwright Testing portal." lightbox="./media/quickstart-run-end-to-end-tests/playwright-testing-test-run-page.png":::
 
-The test run contains the CI information, test run status, workers used, duration and billable minutes. If you open a test run, you can see the results and artifacts for each test along with other information. 
+The test run contains the CI information, test run status, workers used, duration, and billable minutes. If you open a test run, you can see the results and artifacts for each test along with other information. 
 
 > [!TIP]
 > You can use Microsoft Playwright Testing service features independently. You can publish test results to the portal without using the cloud-hosted browsers feature and you can also use only cloud-hosted browsers to expedite your test suite without publishing test results. 
