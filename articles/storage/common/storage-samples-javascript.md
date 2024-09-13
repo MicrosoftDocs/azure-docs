@@ -16,7 +16,10 @@ ai-usage: ai-assisted
 
 This article provides an overview of code sample scenarios found in our developer guides and samples repository. Click on the links to view the corresponding samples, either in our developer guides or in GitHub repositories. 
 
-Developer guides are collections of articles that provide detailed information and code examples for specific scenarios related to Azure Storage services. To learn more about the Blob Storage developer guide for JavaScript, see [Get started with Azure Blob Storage and JavaScript](../blobs/storage-blob-javascript-get-started.md).
+Developer guides are collections of articles that provide detailed information and code examples for specific scenarios related to Azure Storage services. To learn more about the Blob Storage developer guides for JavaScript or TypeScript, see the following articles: 
+
+- [Get started with Azure Blob Storage and JavaScript](../blobs/storage-blob-javascript-get-started.md)
+- [Get started with Azure Blob Storage and TypeScript](../blobs/storage-blob-typescript-get-started.md)
 
 > [!NOTE]
 > These samples use the latest Azure Storage JavaScript v12 library. For legacy v11 code, see [Getting Started with Azure Blob Service in Node.js](https://github.com/Azure-Samples/storage-blob-node-getting-started) in the GitHub repository.
