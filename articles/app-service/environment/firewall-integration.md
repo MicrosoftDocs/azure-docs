@@ -438,9 +438,9 @@ Linux isn't available in US Gov regions and is thus not listed as an optional co
 |v10.vortex-win.data.microsoft.com:443 |
 |wdcp.microsoft.com:443 |
 |wdcpalt.microsoft.com:443 |
-|<www.microsoft.com:443> |
-|<www.msftconnecttest.com:443> |
-|<www.thawte.com:443> |
+|www.microsoft.com:443 |
+|www.msftconnecttest.com:443 |
+|www.thawte.com:443 |
 |global-dsms.dsms.core.usgovcloudapi.net:443 |
 
 ### Wildcard HTTP/HTTPS dependencies
