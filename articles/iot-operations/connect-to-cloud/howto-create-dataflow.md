@@ -53,6 +53,9 @@ Once you have dataflow endpoints, you can use them to create a dataflow. Recall 
 
 # [Portal](#tab/portal)
 
+:::image type="content" source="media/howto-create-dataflow/create-dataflow.png" alt-text="Screenshot using operations portal to create a dataflow.":::
+
+# [Kubernetes](#tab/kubernetes)
 
 The overall structure of a dataflow configuration is as follows:
 
@@ -76,7 +79,9 @@ spec:
       destinationSettings:
         # See destination configuration section
 ```
+
 ---
+
 <!-- TODO: link to API reference -->
 
 Review the following sections to learn how to configure the operation types of the dataflow.
@@ -85,7 +90,19 @@ Review the following sections to learn how to configure the operation types of t
 
 To configure a source for the dataflow, specify the endpoint reference and data source. You can specify a list of data sources for the endpoint which are MQTT or Kafka topics.
 
-For example, to configure a source using the MQTT endpoint created earlier and two MQTT topic filters, use the following configuration:
+# [Portal](#tab/portal)
+
+:::image type="content" source="media/howto-create-dataflow/dataflow-source-mqtt.png" alt-text="Screenshot using operations portal to select MQTT source endpoint.":::
+
+### Use Asset as a source
+
+You can use an [asset](../discover-manage-assets/overview-manage-assets.md) as the source for the dataflow. This is only available in the Azure IoT Operations portal.
+
+:::image type="content" source="media/howto-create-dataflow/dataflow-source-asset.png" alt-text="Screenshot using operations portal to select an asset as the source endpoint.":::
+
+# [Kubernetes](#tab/kubernetes)
+
+For example, to configure a source using a MQTT endpoint and two MQTT topic filters, use the following configuration:
 
 ```yaml
 sourceSettings:
@@ -99,15 +116,17 @@ Because `dataSources` allows you to specify MQTT or Kafka topics without modifyi
 
 <!-- TODO: link to API reference -->
 
-### Use Asset as a source
-
-You can use an [asset](../discover-manage-assets/overview-manage-assets.md) as the source for the dataflow. This is only available in the Azure IoT Operations portal.
-
-<!-- TODO: details -->
+---
 
 ### Specify schema to deserialize data
 
 If the source data has optional fields or fields with different types, specify a deserialization schema to ensure consistency. For example, the data might have fields that are not present in all messages. Without the schema, the transformation can't handle these fields as they would have empty values. With the schema, you can specify default values or ignore the fields.
+
+# [Portal](#tab/portal)
+
+:::image type="content" source="media/howto-create-dataflow/dataflow-source-schema.png" alt-text="Screenshot using operations portal to select MQTT source endpoint with message schema.":::
+
+# [Kubernetes](#tab/kubernetes)
 
 ```yaml
 spec:
@@ -117,9 +136,6 @@ spec:
       serializationFormat: Json
       schemaRef: aio-sr://exampleNamespace/exampleAvroSchema:1.0.0
 ```
-
-> [!NOTE]
-> The only supported serialization format is JSON. The schema is optional.
 
 To specify the schema, create the file and store it in the schema registry.
 
@@ -134,7 +150,12 @@ To specify the schema, create the file and store it in the schema registry.
 }
 ```
 
+> [!NOTE]
+> The only supported serialization format is JSON. The schema is optional.
+
 <!-- TODO: link to schema registry docs -->
+
+---
 
 ### Shared subscriptions
 
@@ -161,6 +182,11 @@ The transformation operation is where you can transform the data from the source
 1. **Filter**: Filter the data based on a condition.
 1. **Map**: Move data from one field to another with an optional conversion.
 
+# [Portal](#tab/portal)
+
+
+# [Kubernetes](#tab/kubernetes)
+
 ```yaml
 builtInTransformationSettings:
   datasets:
@@ -173,13 +199,18 @@ builtInTransformationSettings:
 
 <!-- TODO: link to API reference -->
 
+---
+
 ### Enrich: Add reference data
 
 To enrich the data, you can use the reference dataset in the Azure IoT Operations [distributed state store (DSS)](../create-edge-apps/concept-about-state-store-protocol.md). The dataset is used to add extra data to the source data based on a condition. The condition is specified as a field in the source data that matches a field in the dataset.
 
-<!-- TODO: link to API reference -->
-
 Key names in the distributed state store correspond to a dataset in the dataflow configuration.
+
+# [Portal](#tab/portal)
+
+
+# [Kubernetes](#tab/kubernetes)
 
 For example, you could use the `deviceId` field in the source data to match the `asset` field in the dataset:
 
@@ -205,6 +236,10 @@ If the dataset has a record with the `asset` field, similar to:
 
 The data from the source with the `deviceId` field matching `thermostat1` has the `location` and `manufacturer` fields available in `filter` and `map` stages.
 
+<!-- TODO: link to API reference -->
+
+---
+
 You can load sample data into the DSS by using the [DSS set tool sample](https://github.com/Azure-Samples/explore-iot-operations/tree/main/samples/dss_set).
 
 For more information about condition syntax, see [Enrich data by using dataflows](concept-dataflow-enrich.md) and [Convert data using dataflows](concept-dataflow-conversions.md).
@@ -213,7 +248,10 @@ For more information about condition syntax, see [Enrich data by using dataflows
 
 To filter the data on a condition, you can use the `filter` stage. The condition is specified as a field in the source data that matches a value.
 
-<!-- TODO: link to API reference -->
+# [Portal](#tab/portal)
+
+
+# [Kubernetes](#tab/kubernetes)
 
 For example, you could use the `temperature` field in the source data to filter the data:
 
@@ -227,11 +265,18 @@ builtInTransformationSettings:
 
 If the `temperature` field is greater than 20, the data is passed to the next stage. If the `temperature` field is less than or equal to 20, the data is filtered.
 
+<!-- TODO: link to API reference -->
+
+---
+
 ### Map: Move data from one field to another
 
 To map the data to another field with optional conversion, you can use the `map` operation. The conversion is specified as a formula that uses the fields in the source data.
 
-<!-- TODO: link to API reference -->
+# [Portal](#tab/portal)
+
+
+# [Kubernetes](#tab/kubernetes)
 
 For example, you could use the `temperature` field in the source data to convert the temperature to Celsius and store it in the `temperatureCelsius` field. You could also enrich the source data with the `location` field from the contextualization dataset:
 
@@ -247,11 +292,20 @@ builtInTransformationSettings:
       output: location
 ```
 
+<!-- TODO: link to API reference -->
+
+---
+
 To learn more, see [Map data by using dataflows](concept-dataflow-mapping.md) and [Convert data by using dataflows](concept-dataflow-conversions.md).
 
 ### Serialize data according to a schema
 
 If you want to serialize the data before sending it to the destination, you need to specify a schema and serialization format. Otherwise, the data will be serialized in JSON with the types inferred. Remember that storage endpoints like Microsoft Fabric or Azure Data Lake require a schema to ensure data consistency.
+
+# [Portal](#tab/portal)
+
+
+# [Kubernetes](#tab/kubernetes)
 
 ```yaml
 builtInTransformationSettings:
@@ -276,11 +330,18 @@ To specify the schema, you can create a Schema CR with the schema definition.
 }
 ```
 
+---
+
 Supported serialization formats are JSON, Parquet, and Delta.
 
 ## Configure destination with a dataflow endpoint to send data
 
 To configure a destination for the dataflow, specify the endpoint reference and data destination. You can specify a list of data destinations for the endpoint which are MQTT or Kafka topics.
+
+# [Portal](#tab/portal)
+
+
+# [Kubernetes](#tab/kubernetes)
 
 For example, to configure a destination using the MQTT endpoint created earlier and a static MQTT topic, use the following configuration:
 
@@ -344,11 +405,12 @@ spec:
 
 <!-- TODO: add links to examples in the reference docs -->
 
+---
+
 ## Verify a dataflow is working
 
-Best to follow one of the tutorials to verify the dataflow is working.
+Follow [Tutorial: Bi-directional MQTT bridge to Azure Event Grid](tutorial-mqtt-bridge.md) to verify the dataflow is working.
 
-<!-- TODO: add links to the tutorials -->
 
 ## Manage dataflows
 
