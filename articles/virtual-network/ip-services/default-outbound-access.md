@@ -62,7 +62,12 @@ Some examples of configurations that won't work when using default outbound acce
  
 There are multiple ways to turn off default outbound access. The following sections describe the options available to you.
  
-### Utilize the Private Subnet parameter
+### Utilize the Private Subnet parameter (public preview)
+
+> [!IMPORTANT]
+> Private Subnets are currently in public preview.
+> This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities. 
+> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
  
 * Creating a subnet to be Private prevents any virtual machines on the subnet from utilizing default outbound access to connect to public endpoints.
  
