@@ -53,9 +53,9 @@ The latest capabilities of the v2 tiers are supported in API Management API vers
 
 ### Enterprise capabilities in the Premium v2 tier
 
-The Premium v2 tier offers additional capabilities compared to the Basic v2 and Standard v2 tiers. These capabilities include:
+The Premium v2 tier offers enterprise capabilities including the following:
 
-* **Workspaces with isolation** - Configure [wowrkspaces](workspaces-overview.md) for API teams to own and operate a portion of a shared API Management service with an isolated workspace gateway. 
+* **Workspaces with isolation** - Configure [workspaces](workspaces-overview.md) for API teams to own and operate a portion of a shared API Management service with an isolated workspace gateway. 
 
 * **Availability zones by default** - Premium v2 instances are availability zone-enabled by default. The underlying infrastructure and dependencies of the API Management instance are distributed across two availability zones in a region.  
 
@@ -95,8 +95,18 @@ The Basic v2 and Standard v2 tiers are available in the following regions:
 
 The Premium v2 tier (preview) is available in the following regions:
 
-* East US
+* East US 2
+* Central US
+* UK South
+* France Central
+* Germany West Central
 * West Europe
+* Brazil South
+* Korea Central
+* East Asia
+* Japan East
+* Australia East
+* Southeast Asia
 
 ### Classic feature availability
 
@@ -105,6 +115,7 @@ Most capabilities of the classic API Management tiers are supported in the v2 ti
 * API Management service configuration using Git
 * Back up and restore of API Management instance
 * Enabling Azure DDoS Protection
+* Direct Management API access
 
 ### Limitations
 
@@ -114,7 +125,7 @@ The following API Management capabilities are currently unavailable in the v2 ti
 * Multi-region deployment 
 * Multiple custom domain names 
 * Capacity metric - *replaced by CPU Percentage of Gateway and Memory Percentage of Gateway metrics*
-* Built-in analytics - *replaced with Azure Monitor-based dashboard*
+* Built-in analytics - *replaced by Azure Monitor-based dashboard*
 * Inbound connection using a private endpoint
 * Upgrade to v2 tiers from v1 tiers 
 * CA Certificates
@@ -164,7 +175,7 @@ A: Yes, there are no changes to the classic Basic, Standard, or Premium tiers.
 
 ### Q: What is the difference between VNet integration in Standard v2 tier and VNet support in the Premium and Premium v2 tiers? 
 
-A: A Standard v2 service instance can be integrated with a VNet to provide secure access to the backends residing there. A Standard v2 service instance integrated with a VNet will have a public IP address for inbound access. 
+A: A Standard v2 service instance can be integrated with a VNet to provide secure access to the backends residing there. A Standard v2 service instance integrated with a VNet has a public IP address for inbound access. 
 
 The Premium tier and Premium v2 tier support a fully private integration with a VNet (often referred to as injection into VNet) without exposing a public IP address. [Learn more about networking options in API Management](virtual-network-concepts.md). 
 
