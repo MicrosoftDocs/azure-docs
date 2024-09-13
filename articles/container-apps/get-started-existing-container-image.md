@@ -51,18 +51,123 @@ The example shown in this article demonstrates how to use a custom container ima
 
 ::: zone pivot="container-apps-private-registry"
 
+### Set environment variables
+
+Replace the \<PLACEHOLDERS\> with your values. Your user principal name will typically be in the format of an email address (for example, `username@domain.com`).
+
 # [Bash](#tab/bash)
 
-For details on how to provide values for any of these parameters to the `create` command, run `az containerapp create --help` or [visit the online reference](/cli/azure/containerapp#az-containerapp-create). To generate credentials for an Azure Container Registry, use [az acr credential show](/cli/azure/acr/credential#az-acr-credential-show).
-
 ```bash
+KEY_VAULT_NAME=<KEY_VAULT_NAME>
+USER_PRINCIPAL_NAME=<USER_PRINCIPAL_NAME>
+SECRET_NAME=<SECRET_NAME>
 CONTAINER_IMAGE_NAME=<CONTAINER_IMAGE_NAME>
 REGISTRY_SERVER=<REGISTRY_SERVER>
 REGISTRY_USERNAME=<REGISTRY_USERNAME>
-REGISTRY_PASSWORD=<REGISTRY_PASSWORD>
 ```
 
-(Replace the \<placeholders\> with your values.)
+# [Azure PowerShell](#tab/azure-powershell)
+
+```azurepowershell-interactive
+$KeyVaultName = "<KEY_VAULT_NAME>"
+$UserPrincipalName = "<USER_PRINCIPAL_NAME>"
+$SecretName = "<SECRET_NAME>"
+$ContainerImageName = "<CONTAINER_IMAGE_NAME>"
+$RegistryServer = "<REGISTRY_SERVER>"
+$RegistryUsername = "<REGISTRY_USERNAME>"
+```
+
+---
+
+### Create key vault
+
+# [Bash](#tab/bash)
+
+```bash
+az keyvault create --name $KEY_VAULT_NAME --resource-group $RESOURCE_GROUP
+```
+
+# [Azure PowerShell](#tab/azure-powershell)
+
+First make sure you have installed the [KeyVault](https://www.powershellgallery.com/packages/Az.KeyVault) module.
+
+```azurepowershell-interactive
+Install-Module Az.KeyVault -Repository PSGallery -Force
+```
+
+```azurepowershell-interactive
+New-AzKeyVault -Name "$KeyVaultName" -ResourceGroupName "$ResourceGroupName" -Location "$Location"
+```
+
+---
+
+### Give your user account permissions to manage secrets in the key vault
+
+# [Bash](#tab/bash)
+
+```bash
+KEY_VAULT_ID=$(az keyvault show --name $KEY_VAULT_NAME --query id --output tsv)
+az role assignment create --role "Key Vault Secrets Officer" --assignee "$USER_PRINCIPAL_NAME" --scope "$KEY_VAULT_ID"
+```
+
+# [Azure PowerShell](#tab/azure-powershell)
+
+```azurepowershell-interactive
+$KeyVault=Get-AzKeyVault -VaultName $KeyVaultName
+New-AzRoleAssignment -SignInName "$UserPrincipalName" -RoleDefinitionName "Key Vault Secrets Officer" -Scope "$KeyVault.ResourceID"
+
+```
+
+---
+
+### Store registry password
+
+Replace the \<PLACEHOLDERS\> with your values.
+
+# [Bash](#tab/bash)
+
+```bash
+az keyvault secret set --vault-name $KEY_VAULT_NAME --name $SECRET_NAME --value "<REGISTRY_PASSWORD>"
+```
+
+# [Azure PowerShell](#tab/azure-powershell)
+
+```azurepowershell-interactive
+$Secret = ConvertTo-SecureString -String "<REGISTRY_PASSWORD>" -AsPlainText -Force
+Set-AzKeyVaultSecret -VaultName "$KeyVaultName" -Name "$SecretName" -SecretValue "$Secret"
+```
+
+---
+
+### Retrieve registry password
+
+# [Bash](#tab/bash)
+
+```bash
+REGISTRY_PASSWORD=$(az keyvault secret show --name $SECRET_NAME --vault-name $KEY_VAULT_NAME --query value --output tsv)
+```
+
+For more information, see
+- [Quickstart: Set and retrieve a secret from Azure Key Vault using Azure CLI](../key-vault/secrets/quick-create-cli)
+- [Manage Key Vault using the Azure CLI](../key-vault/general/manage-with-cli2.md)
+
+# [Azure PowerShell](#tab/azure-powershell)
+
+```azurepowershell-interactive
+$RegistryPassword = Get-AzKeyVaultSecret -VaultName "$KeyVaultName" -Name "$SecretName" -AsPlainText
+```
+
+For more information, see
+- [Quickstart: Set and retrieve a secret from Azure Key Vault using PowerShell](../key-vault/secrets/quick-create-powershell)
+- [Use Azure Key Vault in automation](../../powershell/utility-modules/secretmanagement/how-to/using-azure-keyvault?view=ps-modules)
+
+---
+
+### Create container app
+
+# [Bash](#tab/bash)
+
+For details on how to provide values for any of these parameters to the `create` command, run `az containerapp create --help` or [visit the online reference](/cli/azure/containerapp#az-containerapp-create). To generate credentials for an Azure Container Registry, use [az acr credential show](/cli/azure/acr/credential#az-acr-credential-show).
 
 ```azurecli-interactive
 az containerapp create \
@@ -76,15 +181,6 @@ az containerapp create \
 ```
 
 # [Azure PowerShell](#tab/azure-powershell)
-
-```azurepowershell-interactive
-$ContainerImageName = "<CONTAINER_IMAGE_NAME>"
-$RegistryServer = "<REGISTRY_SERVER>"
-$RegistryUsername = "<REGISTRY_USERNAME>"
-$RegistryPassword = "<REGISTRY_PASSWORD>"
-```
-
-(Replace the \<placeholders\> with your values.)
 
 ```azurepowershell-interactive
 $EnvId = (Get-AzContainerAppManagedEnv -ResourceGroupName $ResourceGroupName -EnvName $ContainerAppsEnvironment).Id
