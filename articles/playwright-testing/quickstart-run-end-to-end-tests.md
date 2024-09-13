@@ -38,9 +38,8 @@ To use the service, install Microsoft Playwright Testing package.
 npm init @azure/microsoft-playwright-testing
 ```
 
-This will generate a `playwright.service.config.ts` file. 
+This will generate `playwright.service.config.ts` file which serves to:
 
-The service configuration serves to:
 - Direct and authenticate Playwright to the Microsoft Playwright Testing service.
 - Adds a reporter to publish test results and artifacts.
 
