@@ -1,6 +1,6 @@
 ---
 title: Microsoft Playwright Testing authentication
-description: Learn how manage authentication and authorization for Microsoft Playwright Testing preview
+description: Learn how to manage authentication and authorization for Microsoft Playwright Testing preview
 ms.topic: how-to
 ms.date: 09/07/2024
 ms.custom: playwright-testing-preview

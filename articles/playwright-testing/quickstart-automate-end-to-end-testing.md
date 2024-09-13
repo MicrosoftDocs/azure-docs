@@ -73,7 +73,7 @@ If you haven't configured your Playwright tests yet for running them on cloud-ho
 
 ## Update package.json file 
 
-Update the `package.json` file in your repository to add details about Microaoft Playwright Testing service package in `devDependencies` section.
+Update the `package.json` file in your repository to add details about Microsoft Playwright Testing service package in `devDependencies` section.
 
 ```json
 "devDependencies": {
@@ -162,7 +162,7 @@ Update the CI workflow definition to run your Playwright tests with the Playwrig
 
 1. Save and commit your changes.
 
-    When the CI workflow is triggered, your Playwright tests will run in your Microsoft Playwright Testing workspace on cloud-hosted browsers, across 20 parallel workers.
+    When the CI workflow is triggered, your Playwright tests run in your Microsoft Playwright Testing workspace on cloud-hosted browsers, across 20 parallel workers.
 
 > [!CAUTION]
 > With Microsoft Playwright Testing, you get charged based on the number of total test minutes and test result published. If you're a first-time user or [getting started with a free trial](./how-to-try-playwright-testing-free.md), you might start with running a single test at scale instead of your full test suite to avoid exhausting your free test minutes and test results.

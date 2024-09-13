@@ -38,12 +38,12 @@ To use the service, install Microsoft Playwright Testing package.
 npm init @azure/microsoft-playwright-testing
 ```
 
-This will generate `playwright.service.config.ts` file which serves to:
+This generates `playwright.service.config.ts` file which serves to:
 
 - Direct and authenticate Playwright to the Microsoft Playwright Testing service.
 - Adds a reporter to publish test results and artifacts.
 
-If you already have this file, the package will ask you to override it. 
+If you already have this file, the package asks you to override it. 
 
 ## Configure the service region endpoint
 
@@ -93,7 +93,7 @@ Microsoft Entra ID is the default and recommended authentication for the service
 ```CLI
 az login
 ```
-**NOTE**: If you are a part of multiple Microsoft Entra tenants, make sure you sign-in to the tenant where your workspace belongs. You can get the tenant id from Azure portal, see [Find your Microsoft Entra Tenant](/azure/azure-portal/get-subscription-tenant-id#find-your-microsoft-entra-tenant). Once you get the ID, sign-in using the command `az login --tenant <TenantID>`
+**NOTE**: If you are a part of multiple Microsoft Entra tenants, make sure you sign-in to the tenant where your workspace belongs. You can get the tenant id from Azure portal. See [Find your Microsoft Entra Tenant](/azure/azure-portal/get-subscription-tenant-id#find-your-microsoft-entra-tenant). Once you get the ID, sign-in using the command `az login --tenant <TenantID>`
 
 ##### Set up authentication using access tokens
 
