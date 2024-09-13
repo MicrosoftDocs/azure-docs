@@ -126,7 +126,7 @@ Uri accountUri = new Uri("https://<storage-account-name>.blob.core.windows.net/"
 BlobServiceClient blobClient = new BlobServiceClient(accountUri, new DefaultAzureCredential());
 ```
 
-The app creates a reference to the [BatchAccountResource](/dotnet/api/azure.resourcemanager.batch.batchaccountresource) via the Resource managemer's [ArmClient](/dotnet/api/azure.resourcemanager.armclient to create the pool in the Batch service. The Arm client in the sample uses  [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential) authentication. 
+The app creates a reference to the [BatchAccountResource](/dotnet/api/azure.resourcemanager.batch.batchaccountresource) via the Resource manager's [ArmClient](/dotnet/api/azure.resourcemanager.armclient) to create the pool in the Batch service. The Arm client in the sample uses  [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential) authentication. 
 
 ```csharp
 ArmClient _armClient = new ArmClient(new DefaultAzureCredential());
