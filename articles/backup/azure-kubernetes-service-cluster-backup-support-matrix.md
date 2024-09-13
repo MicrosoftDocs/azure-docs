@@ -24,7 +24,7 @@ You can use [Azure Backup](./backup-overview.md) to help protect Azure Kubernete
 
   >[!Note]
   >Vaulted backup and Cross Region Restore for AKS using Azure Backup are currently in preview.
-
+  >
   >To access backups stored in Vault Tier in the Azure paired region, enable Cross Region Restore capability for your Backup Vault. See the [list of Azure Paired Region](../reliability/cross-region-replication-azure.md#azure-paired-regions).
 
 ## Limitations
