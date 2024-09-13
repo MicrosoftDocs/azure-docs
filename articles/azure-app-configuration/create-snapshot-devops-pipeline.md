@@ -1,6 +1,6 @@
 ---
 title: Create Snapshots in App Configuration with Azure Pipelines
-description: Learn to use Azure Pipelines to create a snapshot in App Configuration Store
+description: Learn to use Azure Pipelines to create a snapshot in an App Configuration Store
 services: azure-app-configuration
 author: MaryanneNjeri
 ms.service: azure-app-configuration
@@ -65,10 +65,10 @@ In this section, learn how to use the Azure App Configuration snapshot task in a
 1. Navigate to the release pipeline page by selecting, **Pipelines** > **Releases**. For more information about release pipelines go to [Create your first pipeline](/azure/devops/pipelines/release).
 1. Choose an existing release pipeline. If you don’t have one, select **+ New** to create a new one.
 1. Select the **Edit** button in the top-right corner to edit the release pipeline.
-1. From the **Tasks** dropdown, choose the **Stage** to which you want to add the task. More information about stages can be found [here](/azure/devops/pipelines/release/environments).
+1. From the **Tasks** dropdown, choose the **Stage** to which you want to add the task. More information about stages can be found in [Add stages, dependecies, & conditions](/azure/devops/pipelines/release/environments).
     > [!div class="mx-imgBorder"]
     > ![Screenshot shows the selected stage in the Tasks dropdown.](./media/pipeline-stage-tasks.png)
-1. Click **+** next to the Job to which you want to add a new task.
+1. Click **+** next to the job to which you want to add a new task.
     > [!div class="mx-imgBorder"]
     > ![Screenshot shows the plus button next to the job.](./media/add-task-to-job.png)
 1. In the **Add tasks** dialog, type **Azure App Configuration snapshot** into the search box and select it.
