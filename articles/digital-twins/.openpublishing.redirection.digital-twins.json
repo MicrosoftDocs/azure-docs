@@ -1,7 +1,7 @@
 {
   "redirections": [
     {
-      "source_path": "articles/digital-twins/how-to-provision-using-device-provisioning-service.md",
+      "source_path": "how-to-provision-using-device-provisioning-service.md",
       "redirect_url": "/previous-versions/azure/digital-twins/how-to-provision-using-device-provisioning-service",
       "redirect_document_id": false
     },
