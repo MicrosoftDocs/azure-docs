@@ -18,7 +18,7 @@ To request a limit increase, create a support request from the Azure portal. For
 | Resource | Basic v2 | Standard v2 | Premium v2 |
 | ---------| ----------- | ----------- | ----------- |
 | Maximum number of scale units | 10 | 10 | 30 |
-| Maximum cache size per service instance  | 250 MB | 1 GB | TBD |
+| Maximum cache size per service instance  | 250 MB | 1 GB | 5 GB<sup>4</sup> |
 | Maximum number of APIs per service instance | 150 | 500 | 1,000 |
 | Maximum number of API operations per service instance | 3,000 | 10,000 | 20,000 |
 | Maximum number of subscriptions per service instance | 500 | 2,000 | 4,000 |
@@ -28,25 +28,25 @@ To request a limit increase, create a support request from the Azure portal. For
 | Maximum number of authorization servers per service instance | 10 | 10 | 20 |
 | Maximum number of policy fragments per service instance | 50 | 50 | 100 |
 | Maximum number of OpenID Connect providers per service instance | 10 | 10 | 20 |
-| Maximum number of certificates per service instance | 100 | 100 |
-| Maximum number of backends per service instance | 100 | 100 |
-| Maximum number of caches per service instance | 100 | 100 |
-| Maximum number of named values per service instance | 100 | 100 |
-| Maximum number of loggers per service instance | 100 | 100 |
-| Maximum number of schemas per service instance | 100 | 100 |
-| Maximum number of schemas per API | 100 | 100 |
-| Maximum number of tags per service instance | 100 | 100 |
-| Maximum number of tags per API | 100 | 100 |
-| Maximum number of version sets per service instance | 100 | 100 |
-| Maximum number of releases per API | 100 | 100 |
-| Maximum number of operations per API | 100 | 100 |
-| Maximum number of GraphQL resolvers per service instance | 100 | 100 |
-| Maximum number of GraphQL resolvers per API | 100 | 100 |
-| Maximum number of APIs per product | 100 | 100 |
-| Maximum number of APIs per subscription | 100 | 100 |
-| Maximum number of products per subscription | 100 | 100 |
-| Maximum number of groups per product | 100 | 100 |
-| Maximum number of tags per product | 100 | 100 |
+| Maximum number of certificates per service instance | 100 | 100 | 100<sup>4</sup> |
+| Maximum number of backends per service instance | 100 | 100 | 100<sup>4</sup> |
+| Maximum number of caches per service instance | 100 | 100 | 100<sup>4</sup> |
+| Maximum number of named values per service instance | 100 | 100 | 100<sup>4</sup> |
+| Maximum number of loggers per service instance | 100 | 100 | 100<sup>4</sup> |
+| Maximum number of schemas per service instance | 100 | 100 | 100<sup>4</sup> |
+| Maximum number of schemas per API | 100 | 100 | 100<sup>4</sup> |
+| Maximum number of tags per service instance | 100 | 100 | 100<sup>4</sup> |
+| Maximum number of tags per API | 100 | 100 | 100<sup>4</sup> |
+| Maximum number of version sets per service instance | 100 | 100 | <sup>4</sup> |
+| Maximum number of releases per API | 100 | 100 | 100<sup>4</sup> |
+| Maximum number of operations per API | 100 | 100 | 100<sup>4</sup> |
+| Maximum number of GraphQL resolvers per service instance | 100 | 100 | 100<sup>4</sup> |
+| Maximum number of GraphQL resolvers per API | 100 | 100 | 100<sup>4</sup> |
+| Maximum number of APIs per product | 100 | 100 | 100<sup>4</sup> |
+| Maximum number of APIs per subscription | 100 | 100 | 100<sup>4</sup> |
+| Maximum number of products per subscription | 100 | 100 |     100<sup>4</sup> |
+| Maximum number of groups per product | 100 | 100 |     100<sup>4</sup> |
+| Maximum number of tags per product | 100 | 100 |  100<sup>4</sup> |
 | Concurrent back-end connections<sup>1</sup> per HTTP authority | 2,048 | 2,048 | 2,048 |
 | Maximum cached response size | 2 MiB | 2 MiB | 2 MiB |
 | Maximum policy document size  | 256 KiB | 256 KiB | 256 KiB |
@@ -63,6 +63,7 @@ To request a limit increase, create a support request from the Azure portal. For
 <sup>1</sup> Connections are pooled and reused unless explicitly closed by the backend.<br/>
 <sup>2</sup> Includes an up to 2048-bytes long query string.<br/>
 <sup>3</sup> Up to a maximum of 60,000 connections per service instance.
+<sup>4</sup> Estimate
 
 
 

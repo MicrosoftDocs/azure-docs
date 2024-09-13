@@ -14,8 +14,8 @@ ms.custom: Include file
 <!-- Limits - Developer portal in API Management v2 tiers -->
 
 
-| Item | Basic v2 | Standard v2 | Premium v2 |
-| ---------| ----------- | ----------- | ----------- |
+| Item | Basic v2 | Standard v2 |
+| ---------| ----------- | ----------- |
 | Maximum number of media files to upload | 15 | 15 |
 | Maximum size of a media file | 500 KB | 500 KB |
 | Maximum number of pages | 30 | 50 |
