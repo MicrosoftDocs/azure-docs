@@ -118,7 +118,7 @@ The following sections break down the sample application into the steps that it 
 
 ### Authenticate Blob and Batch clients
 
-To interact with the linked storage account, the app uses the Azure.Storage.Blobs Library for .NET. Using the [BlobServiceClient](/dotnet/api/azure.storage.blobs.blobserviceclient) class which takes a reference to the account Uri and authenticating [Token](dotnet/api/azure.core.tokencredentia) such as [DefaultAzureCredential](dotnet/api/azure.identity.defaultazurecredential).
+To interact with the linked storage account, the app uses the Azure.Storage.Blobs Library for .NET. Using the [BlobServiceClient](/dotnet/api/azure.storage.blobs.blobserviceclient) class which takes a reference to the account Uri and authenticating [Token](/dotnet/api/azure.core.tokencredentia) such as [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential).
 
 ```csharp
 // TODO: Replace <storage-account-name> with your actual storage account name
@@ -126,7 +126,7 @@ Uri accountUri = new Uri("https://<storage-account-name>.blob.core.windows.net/"
 BlobServiceClient blobClient = new BlobServiceClient(accountUri, new DefaultAzureCredential());
 ```
 
-The app creates a reference to the [BatchAccountResource](/dotnet/api/azure.resourcemanager.batch.batchaccountresource) via the Resource managemer's [ArmClient](dotnet/api/azure.resourcemanager.armclient to create the pool in the Batch service. The Arm client in the sample uses  [DefaultAzureCredential](dotnet/api/azure.identity.defaultazurecredential) authentication. 
+The app creates a reference to the [BatchAccountResource](/dotnet/api/azure.resourcemanager.batch.batchaccountresource) via the Resource managemer's [ArmClient](/dotnet/api/azure.resourcemanager.armclient to create the pool in the Batch service. The Arm client in the sample uses  [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential) authentication. 
 
 ```csharp
 ArmClient _armClient = new ArmClient(new DefaultAzureCredential());
@@ -134,7 +134,7 @@ var batchAccountIdentifier = ResourceIdentifier.Parse(BatchAccountResourceID);
 BatchAccountResource batchAccount = await _armClient.GetBatchAccountResource(batchAccountIdentifier).GetAsync();
 ```
 
-The app creates a [BatchClient](/dotnet/api/azure.compute.batch.batchclient) object to create and jobs and tasks in the Batch service. The Batch client in the sample uses  [DefaultAzureCredential](dotnet/api/azure.identity.defaultazurecredential) authentication. 
+The app creates a [BatchClient](/dotnet/api/azure.compute.batch.batchclient) object to create and jobs and tasks in the Batch service. The Batch client in the sample uses  [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential) authentication. 
 
 ```csharp
 // TODO: Replace <batch-account-name> with your actual storage account name
