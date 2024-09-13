@@ -126,7 +126,7 @@ Configure the new container registry by using the suggested values in the follow
 |**SKU**| **Basic**. For more information, see [Pricing tiers](https://azure.microsoft.com/pricing/details/container-registry/). |
 |**Registry Location**| **West Europe** | 
 
-:::image type="content" source="./media/tutorial-custom-container/configure-registry.png" alt-text="Configure Azure Container Registry.":::
+:::image type="content" source="./media/tutorial-custom-container/configure-registry.png" alt-text="Screenshot of the Create a new Azure Container Registry page.":::
 
 A terminal window opens and displays the image deployment progress. Wait for the deployment to complete.
 
