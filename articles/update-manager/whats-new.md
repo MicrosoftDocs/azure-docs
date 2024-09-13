@@ -5,7 +5,7 @@ ms.service: azure-update-manager
 ms.topic: overview
 author: SnehaSudhirG
 ms.author: sudhirsneha
-ms.date: 08/21/2024
+ms.date: 09/13/2024
 ---
 
 # What's new in Azure Update Manager
@@ -25,9 +25,9 @@ General Availability: Azure Update Manager now supports creating and managing pr
 
 ## July 2024
 
-### Support for Windows IoT Enterprise on Arc enabled IaaS VMs
+### Support for Windows IoT Enterprise on Arc enabled servers
 
-Public preview: Azure Update Manager now supports Windows IoT Enterprise on Arc enabled IaaS VMs. For more information, see [supported Windows IoT enterprise releases](/azure/update-manager/support-matrix?tabs=winio-arc%2Cpublic%2Cthird-party-win#support-for-check-for-updatesone-time-updateperiodic-assessment-and-scheduled-patching).
+Public preview: Azure Update Manager now supports Windows IoT Enterprise on Arc enabled servers. For more information, see [supported Windows IoT enterprise releases](/azure/update-manager/support-matrix?tabs=winio-arc%2Cpublic%2Cthird-party-win#support-for-check-for-updatesone-time-updateperiodic-assessment-and-scheduled-patching).
 
 ## June 2024
 

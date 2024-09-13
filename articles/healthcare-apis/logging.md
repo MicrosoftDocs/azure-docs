@@ -5,7 +5,7 @@ services: healthcare-apis
 author: msjasteppe
 ms.service: azure-health-data-services
 ms.topic: tutorial
-ms.date: 06/12/2024
+ms.date: 09/12/2024
 ms.author: jasteppe
 ---
 
@@ -49,6 +49,8 @@ Here's an example of the AuditLog:
 [Enable diagnostic logging in the DICOM service](./dicom/enable-diagnostic-logging.md)
 
 [Enable diagnostic settings for the MedTech service](./../healthcare-apis/iot/how-to-enable-diagnostic-settings.md)
+
+[Enable diagnostic logging in the de-identification service (preview)](./deidentification/monitor-deidentification-service-reference.md)
 
 [Use Azure Monitor logs](/azure/azure-monitor/essentials/platform-logs-overview).
 
