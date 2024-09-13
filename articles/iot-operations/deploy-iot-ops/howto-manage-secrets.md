@@ -30,7 +30,7 @@ If you deployed Azure IoT Operations with the secure settings, the workload iden
 
 To enable workload identity on your cluster:
 
-1. Use the [az connectedk8s update](/cli/azure/connectedk8s#az-connectedk8s-update) command to update a connected kubernetes cluster with oidc issuer and the workload identity webhook.
+1. Use the [az connectedk8s update](/cli/azure/connectedk8s#az-connectedk8s-update) command to update a connected kubernetes cluster with OpenID Connect (OIDC) issuer and the workload identity webhook.
 
    ```azurecli
    az connectedk8s update --resource-group <RESOURCE_GROUP> --name <CLUSTER_NAME> --subscription <SUBSCRIPTION_ID> --enable-oidc-issuer --enable-workload-identity   
@@ -166,7 +166,22 @@ Create a user-assigned managed identity and give it permissions to access the Az
 
 ### Create a federated identity credential for secrets 
 
+Use the [TODO](/cli/azure/) command to create two federated identity credentials with the user-assigned managed identity and the OIDC issuer: one for the Secret Synchronization Controller and another for the Azure IoT Operations service account. For more information, see [Workload identity federations](/entra/workload-id/workload-identity-federation).
 
+```azurecli
+#TODO: Need Azure CLI Command
+# Will require one or two user-assigned managed identities?
+```
+
+The command automates the steps required to:
+<!-- TODO: Validate if it grants permission to Azure Key Vault? Aren't we doing it above when assigning role Key Vault Secrets User? -->
+- Grant the user-assigned managed identity permission to the Azure Key Vault.
+- Create a federated identity credential using the user-assigned managed identity for Secret Synchronization Controller to use. 
+- Create a federated identity credential using the user-assigned managed identity for Azure IoT Operations to use for its northbound connection.
+- Create an empty Secret Provider Class.
+
+> [!NOTE]
+> It is recommended to use separate User Assigned Managed Identity for the Secret Synchronization Controller and the e IoT Operations service account. 
 
 ## Add and use secrets
 
