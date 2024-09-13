@@ -58,8 +58,6 @@
       href: tutorial-load-balancer-standard-public-zonal-portal.md
     - name: Load balance VMs with multiple availability sets
       href: tutorial-multi-availability-sets-portal.md
-    - name: Load balance with an existing Virtual Machine Scale Set
-      href: tutorial-add-lb-existing-scale-set-portal.md
   - name: Cross-region load balancer
     items:
     - name: Create cross-region load balancer - Portal
