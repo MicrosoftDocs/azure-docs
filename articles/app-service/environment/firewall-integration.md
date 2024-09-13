@@ -16,9 +16,9 @@ ms.custom: references_regions
 >
 > As of 31 August 2024, [Service Level Agreement (SLA) and Service Credits](https://aka.ms/postEOL/ASE/SLA) no longer apply for App Service Environment v1 and v2 workloads that continue to be in production since they are retired products. Decommissioning of the App Service Environment v1 and v2 hardware has begun, and this may affect the availability and performance of your apps and data.
 >
-> You must complete migration to App Service Environment v3 immediately or your apps and resources may be deleted. We will attempt to auto-migrate any remaining App Service Environment v1 and v2 on a best-effort basis using the [in-place migration feature](migrate.md), but Microsoft makes no claim or guarantees about application availability after auto-migration. You may need to perform manual configuration to complete the migration and to optimize your App Service plan SKU choice to meet your needs. If auto-migration isn't feasible, your resources and associated app data will be deleted. We strongly urge you to act now to avoid either of these extreme scenarios. 
+> You must complete migration to App Service Environment v3 immediately or your apps and resources may be deleted. We will attempt to auto-migrate any remaining App Service Environment v1 and v2 on a best-effort basis using the [in-place migration feature](migrate.md), but Microsoft makes no claim or guarantees about application availability after auto-migration. You may need to perform manual configuration to complete the migration and to optimize your App Service plan SKU choice to meet your needs. If auto-migration isn't feasible, your resources and associated app data will be deleted. We strongly urge you to act now to avoid either of these extreme scenarios.
 >
-> If you need additional time, we can offer a one-time 30-day grace period for you to complete your migration. For more information and to request this grace period, review the [grace period overview](./auto-ase-migration.md#grace-period), and then go to [Azure portal](https://portal.azure.com) and visit the Migration blade for each of your App Service Environments.
+> If you need additional time, we can offer a one-time 30-day grace period for you to complete your migration. For more information and to request this grace period, review the [grace period overview](./auto-migration.md#grace-period), and then go to [Azure portal](https://portal.azure.com) and visit the Migration blade for each of your App Service Environments.
 >
 > For the most up-to-date information on the App Service Environment v1/v2 retirement, see the [App Service Environment v1 and v2 retirement update](https://github.com/Azure/app-service-announcements/issues/469).
 >
@@ -108,6 +108,7 @@ AzureDiagnostics | where msg_s contains "Deny" | where TimeGenerated >= ago(1h)
 Integrating your Azure Firewall with Azure Monitor logs is useful when first getting an application working when you aren't aware of all of the application dependencies. You can learn more about Azure Monitor logs from [Analyze log data in Azure Monitor](/azure/azure-monitor/logs/log-query-overview).
 
 <a name="dependencies"></a>
+
 ## Configuring third-party firewall with your ASE
 
 The following information is only required if you wish to configure a firewall appliance other than Azure Firewall. For Azure Firewall see [the section above](#configuring-azure-firewall-with-your-ase).
@@ -160,8 +161,8 @@ With an Azure Firewall, you automatically get the following configured with the 
 |definitionupdates.microsoft.com:443 |
 |go.microsoft.com:80 |
 |go.microsoft.com:443 |
-|www.microsoft.com:80 |
-|www.microsoft.com:443 |
+|<www.microsoft.com:80> |
+|<www.microsoft.com:443> |
 |wdcpalt.microsoft.com:443 |
 |wdcp.microsoft.com:443 |
 |ocsp.msocsp.com:443 |
@@ -172,7 +173,7 @@ With an Azure Firewall, you automatically get the following configured with the 
 |mscrl.microsoft.com:80 |
 |crl.microsoft.com:443 |
 |crl.microsoft.com:80 |
-|www.thawte.com:443 |
+|<www.thawte.com:443> |
 |crl3.digicert.com:80 |
 |ocsp.digicert.com:80 |
 |ocsp.digicert.com:443 |
@@ -199,7 +200,7 @@ With an Azure Firewall, you automatically get the following configured with the 
 |management.core.windows.net:443 |
 |management.core.windows.net:80 |
 |management.azure.com:443 |
-|www.msftconnecttest.com:80 |
+|<www.msftconnecttest.com:80> |
 |shavamanifestcdnprod1.azureedge.net:443 |
 |validation-v2.sls.microsoft.com:443 |
 |flighting.cp.wd.microsoft.com:443 |
@@ -377,9 +378,9 @@ Linux isn't available in US Gov regions and is thus not listed as an optional co
 |v10ortex-win.data.microsoft.com:80 |
 |wp.microsoft.com:80 |
 |dcpalt.microsoft.com:80 |
-|www.microsoft.com:80 |
-|www.msftconnecttest.com:80 |
-|www.thawte.com:80 |
+|<www.microsoft.com:80> |
+|<www.msftconnecttest.com:80> |
+|<www.thawte.com:80> |
 |admin.core.usgovcloudapi.net:443 |
 |azperfmerges.blob.core.windows.net:443 |
 |azperfmerges.blob.core.windows.net:443 |
@@ -437,9 +438,9 @@ Linux isn't available in US Gov regions and is thus not listed as an optional co
 |v10.vortex-win.data.microsoft.com:443 |
 |wdcp.microsoft.com:443 |
 |wdcpalt.microsoft.com:443 |
-|www.microsoft.com:443 |
-|www.msftconnecttest.com:443 |
-|www.thawte.com:443 |
+|<www.microsoft.com:443> |
+|<www.msftconnecttest.com:443> |
+|<www.thawte.com:443> |
 |global-dsms.dsms.core.usgovcloudapi.net:443 |
 
 ### Wildcard HTTP/HTTPS dependencies

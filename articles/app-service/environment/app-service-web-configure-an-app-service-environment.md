@@ -15,23 +15,25 @@ ms.author: madsd
 >
 > As of 31 August 2024, [Service Level Agreement (SLA) and Service Credits](https://aka.ms/postEOL/ASE/SLA) no longer apply for App Service Environment v1 and v2 workloads that continue to be in production since they are retired products. Decommissioning of the App Service Environment v1 and v2 hardware has begun, and this may affect the availability and performance of your apps and data.
 >
-> You must complete migration to App Service Environment v3 immediately or your apps and resources may be deleted. We will attempt to auto-migrate any remaining App Service Environment v1 and v2 on a best-effort basis using the [in-place migration feature](migrate.md), but Microsoft makes no claim or guarantees about application availability after auto-migration. You may need to perform manual configuration to complete the migration and to optimize your App Service plan SKU choice to meet your needs. If auto-migration isn't feasible, your resources and associated app data will be deleted. We strongly urge you to act now to avoid either of these extreme scenarios. 
+> You must complete migration to App Service Environment v3 immediately or your apps and resources may be deleted. We will attempt to auto-migrate any remaining App Service Environment v1 and v2 on a best-effort basis using the [in-place migration feature](migrate.md), but Microsoft makes no claim or guarantees about application availability after auto-migration. You may need to perform manual configuration to complete the migration and to optimize your App Service plan SKU choice to meet your needs. If auto-migration isn't feasible, your resources and associated app data will be deleted. We strongly urge you to act now to avoid either of these extreme scenarios.
 >
-> If you need additional time, we can offer a one-time 30-day grace period for you to complete your migration. For more information and to request this grace period, review the [grace period overview](./auto-ase-migration.md#grace-period), and then go to [Azure portal](https://portal.azure.com) and visit the Migration blade for each of your App Service Environments.
+> If you need additional time, we can offer a one-time 30-day grace period for you to complete your migration. For more information and to request this grace period, review the [grace period overview](./auto-migration.md#grace-period), and then go to [Azure portal](https://portal.azure.com) and visit the Migration blade for each of your App Service Environments.
 >
 > For the most up-to-date information on the App Service Environment v1/v2 retirement, see the [App Service Environment v1 and v2 retirement update](https://github.com/Azure/app-service-announcements/issues/469).
 >
 
 ## Overview
+
 At a high level, an Azure App Service Environment consists of several major components:
 
 * Compute resources that are running in the App Service Environment hosted service
 * Storage
 * A database
-* A Classic(V1) or Resource Manager(V2) Azure Virtual Network (virtual network) 
+* A Classic(V1) or Resource Manager(V2) Azure Virtual Network (virtual network)
 * A subnet with the App Service Environment hosted service running in it
 
 ### Compute resources
+
 You use the compute resources for your four resource pools.  Each App Service Environment (ASE) has a set of front ends and three possible worker pools. You don't need to use all three worker pools--if you want, you can just use one or two.
 
 The hosts in the resource pools (front ends and workers) aren't directly accessible to tenants. You can't use Remote Desktop Protocol (RDP) to connect to them, change their provisioning, or act as an admin on them.
@@ -54,7 +56,7 @@ Changing the quantity or size is called a scale operation.  Only one scale opera
 
 The fastest way to change the compute resource size of a worker pool that isn't running any apps is to:
 
-* Scale down the quantity of workers to 2.  The minimum scale down size in the portal is 2. It will take a few minutes to deallocate your instances. 
+* Scale down the quantity of workers to 2.  The minimum scale down size in the portal is 2. It will take a few minutes to deallocate your instances.
 * Select the new compute size and number of instances. From here, it will take up to 2 hours to complete.
 
 If your apps require a larger compute resource size, you can't take advantage of the previous guidance. Instead of changing the size of the worker pool that is hosting those apps, you can populate another worker pool with workers of the desired size and move your apps over to that pool.
@@ -68,12 +70,15 @@ If your apps require a larger compute resource size, you can't take advantage of
 If you want to set autoscale rules around compute resource pool metrics, then keep in mind the time that provisioning requires. For more information about autoscaling App Service Environments, see [How to configure autoscale in an App Service Environment][ASEAutoscale].
 
 ### Storage
+
 Each ASE is configured with 500 GB of storage. This space is used across all the apps in the ASE. This storage space is a part of the ASE and currently can't be switched to use your storage space. If you're making adjustments to your virtual network routing or security, you need to still allow access to Azure Storage--or the ASE can't function.
 
 ### Database
+
 The database holds the information that defines the environment, and the details about the apps that are running within it. This too is a part of the Azure-held subscription. It's not something that you have a direct ability to manipulate. If you're making adjustments to your virtual network routing or security, you need to still allow access to SQL Azure--or the ASE can't function.
 
 ### Network
+
 The virtual network that is used with your ASE can be one that you made when you created the ASE or one that you made ahead of time. When you create the subnet during ASE creation, it forces the ASE to be in the same resource group as the virtual network. If you need the resource group used by your ASE to be different than that of your virtual network, then you need to create your ASE using an Azure Resource Manager template.
 
 There are some restrictions on the virtual network that is used for an ASE:
@@ -94,13 +99,15 @@ For example, you can use virtual network Integration to integrate with a virtual
 If you do have your virtual network configured with an ExpressRoute VPN, you should be aware of some of the routing needs that an ASE has. There are some user-defined route (UDR) configurations that are incompatible with an ASE. For more information about running an ASE in a virtual network with ExpressRoute, see [Running an App Service Environment in a virtual network with ExpressRoute][ExpressRoute].
 
 #### Securing inbound traffic
+
 There are two primary methods to control inbound traffic to your ASE.  You can use Network Security Groups(NSGs) to control what IP addresses can access your ASE as described here [How to control inbound traffic in an App Service Environment](app-service-app-service-environment-control-inbound-traffic.md) and you can also configure your ASE with an Internal Load Balancer(ILB).  These features can also be used together if you want to restrict access using NSGs to your ILB ASE.
 
 When you create an ASE, it will create a VIP in your virtual network.  There are two VIP types, external and internal.  When you create an ASE with an external VIP then your apps in your ASE will be accessible via an internet routable IP address. When you select Internal your ASE will be configured with an ILB and won't be directly internet accessible.  An ILB ASE still requires an external VIP but it's only used for Azure management and maintenance access.  
 
-During ILB ASE creation you provide the subdomain used by the ILB ASE and will have to manage your own DNS for the subdomain you specify.  Because you set the subdomain name, you also need to manage the certificate used for HTTPS access.  After ASE creation, you're prompted to provide the certificate.  To learn more about creating and using an ILB ASE read [How to Create an ASEv1 from template](app-service-app-service-environment-create-ilb-ase-resourcemanager.md). 
+During ILB ASE creation you provide the subdomain used by the ILB ASE and will have to manage your own DNS for the subdomain you specify.  Because you set the subdomain name, you also need to manage the certificate used for HTTPS access.  After ASE creation, you're prompted to provide the certificate.  To learn more about creating and using an ILB ASE read [How to Create an ASEv1 from template](app-service-app-service-environment-create-ilb-ase-resourcemanager.md).
 
 ## Portal
+
 You can manage and monitor your App Service Environment by using the UI in the Azure portal. If you have an ASE, then you're likely to see the App Service symbol on your sidebar. This symbol is used to represent App Service Environments in the Azure portal:
 
 ![App Service Environment symbol][1]
@@ -112,6 +119,7 @@ To open the UI that lists all of your App Service Environments, you can use the 
 This first blade shows some properties of your ASE, along with a metric chart per resource pool. Some of the properties that are shown in the **Essentials** block are also hyperlinks that will open up the blade that is associated with it. For example, you can select the **Virtual Network** name to open up the UI associated with the virtual network that your ASE is running in. **App Service plans** and **Apps** each open up blades that list these items that are in your ASE.  
 
 ### Monitoring
+
 The charts allow you to see a variety of performance metrics in each resource pool. For the front-end pool, you can monitor the average CPU and memory. For worker pools, you can monitor the quantity that is used and the quantity that is available.
 
 Multiple App Service plans can make use of the workers in a worker pool. The workload isn't distributed in the same fashion as with the front-end servers, so the CPU and memory usage don't provide much in the way of useful information. It's more important to track how many workers that you have used and are available--especially if you're managing this system for others to use.  
@@ -122,9 +130,10 @@ You can also use all of the metrics that can be tracked in the charts to set up 
 
 The metrics that were discussed are the App Service Environment metrics. There are also metrics that are available at the App Service plan level. This is where monitoring CPU and memory makes a lot of sense.
 
-In an ASE, all of the App Service plans are dedicated App Service plans. That means that the only apps that are running on the hosts allocated to that App Service plan are the apps in that App Service plan. To see details on your App Service plan, bring up your App Service plan from any of the lists in the ASE UI or from **Browse App Service plans** (which lists all of them).   
+In an ASE, all of the App Service plans are dedicated App Service plans. That means that the only apps that are running on the hosts allocated to that App Service plan are the apps in that App Service plan. To see details on your App Service plan, bring up your App Service plan from any of the lists in the ASE UI or from **Browse App Service plans** (which lists all of them).
 
 ### Settings
+
 Within the ASE blade, there's a **Settings** section that contains several important capabilities:
 
 **Settings** > **Properties**: The **Settings** blade automatically opens when you bring up your ASE blade. At the top is **Properties**. There are many items in here that are redundant to what you see in **Essentials**, but what is useful is **Virtual IP Address**, and **Outbound IP Addresses**.
@@ -140,6 +149,7 @@ The base blade for each resource pool provides a chart with metrics for that res
 ![Worker pool settings UI][5]
 
 ### Portal scale capabilities
+
 There are three scale operations:
 
 * Changing the number of IP addresses in the ASE that are available for IP SSL usage.
@@ -161,6 +171,7 @@ To use the manual or autoscale capabilities in a specific resource pool, go to *
 ![Scale settings UI][7]
 
 ## Fault-tolerance considerations
+
 You can configure an App Service Environment to use up to 55 total compute resources. Of those 55 compute resources, only 50 can be used to host workloads. The reason for this is twofold. There's a minimum of two front-end compute resources.  That leaves up to 53 to support the worker-pool allocation. In order to provide fault tolerance, you need to have an additional compute resource that is allocated according to the following rules:
 
 * Each worker pool needs at least one additional compute resource that isn't available to be assigned a workload.
@@ -182,11 +193,13 @@ The minimum footprint has two front-end servers and two workers.  With the above
 The fault-tolerance aspect is important, but you need to keep it in mind as you scale above certain thresholds. If you want to add more capacity going from 20 instances, then go to 22 or higher because 21 doesn't add any more capacity. The same is true going above 40, where the next number that adds capacity is 42.  
 
 ## Deleting an App Service Environment
+
 If you want to delete an App Service Environment, then simply use the **Delete** action at the top of the App Service Environment blade. When you do this, you'll be prompted to enter the name of your App Service Environment to confirm that you really want to do this. Note that when you delete an App Service Environment, you delete all of the content within it as well.  
 
 ![Delete an App Service Environment UI][9]  
 
 ## Getting started
+
 To get started with App Service Environments, see [How to Create an ASEv1 from template](app-service-app-service-environment-create-ilb-ase-resourcemanager.md).
 
 [!INCLUDE [app-service-web-try-app-service](../../../includes/app-service-web-try-app-service.md)]
@@ -199,16 +212,10 @@ To get started with App Service Environments, see [How to Create an ASEv1 from t
 [5]: ./media/app-service-web-configure-an-app-service-environment/aseconfig-poolblade.png
 [6]: ./media/app-service-web-configure-an-app-service-environment/aseconfig-scalecommand.png
 [7]: ./media/app-service-web-configure-an-app-service-environment/aseconfig-poolscale.png
-[8]: ./media/app-service-web-configure-an-app-service-environment/aseconfig-pricingtiers.png
 [9]: ./media/app-service-web-configure-an-app-service-environment/aseconfig-deletease.png
 
 <!--Links-->
-[WhatisASE]: app-service-app-service-environment-intro.md
-[Appserviceplans]: ../overview-hosting-plans.md
-[HowtoScale]: app-service-web-scale-a-web-app-in-an-app-service-environment.md
-[ControlInbound]: app-service-app-service-environment-control-inbound-traffic.md
 [virtualnetwork]: ../../virtual-network/virtual-networks-faq.md
 [AppServicePricing]: https://azure.microsoft.com/pricing/details/app-service/
 [ASEAutoscale]: app-service-environment-auto-scale.md
 [ExpressRoute]: app-service-app-service-environment-network-configuration-expressroute.md
-[ILBASE]: app-service-environment-with-internal-load-balancer.md
