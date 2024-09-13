@@ -156,7 +156,7 @@ A Log Analytics workspace automatically configures its pricing tier to match the
 ### Will switching reduce my costs?
 Though the goal of the experience is to merely simplify the pricing and cost management experience without impacting actual costs, three primary scenarios exist for a cost reduction when switching to a simplified pricing tier.
 
-- Reduce Microsoft Sentinel costs with a [prepurchase plan](billing-prepurchase-plan.md). Commit units of a prepurchase plan don't apply to Log Analytics costs in the classic pricing tier. Since the entire simplified pricing tier is categorized as a Microsoft Sentinel cost, your effective spend with the simplified pricing tier is reduced with a prepurchase plan that approaches your commitment tier. 
+- Reduce Microsoft Sentinel costs with a [pre-purchase plan](billing-pre-purchase-plan.md). Commit units of a pre-purchase plan don't apply to Log Analytics costs in the classic pricing tier. Since the entire simplified pricing tier is categorized as a Microsoft Sentinel cost, your effective spend with the simplified pricing tier is reduced with a pre-purchase plan that approaches your commitment tier. 
 - The combined [Defender for Servers](/azure/defender-for-cloud/faq-defender-for-servers#is-the-500-mb-of-free-data-ingestion-allowance-applied-per-workspace-or-per-machine-) benefit results in a total cost savings if utilized by the workspace. 
 - If one of the separate pricing tiers for Log Analytics or Microsoft Sentinel was inappropriately mismatched, the simplified pricing tier could result in cost saving.
 
