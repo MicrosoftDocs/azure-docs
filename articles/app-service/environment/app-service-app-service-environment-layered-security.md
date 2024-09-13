@@ -35,15 +35,15 @@ The green plus signs indicate that the network security group on the subnet cont
 The remainder of this article walks through the steps needed to configure the network security group on the subnet containing "apiase."
 
 ## Determining the Network Behavior
-In order to know what network security rules are needed, you need to determine which network clients will be allowed to reach the App Service Environment containing the API app, and which clients will be blocked.
+In order to know what network security rules are needed, you need to determine which network clients will be allowed to reach the App Service Environment containing the API app, and which clients are blocked.
 
-Since [network security groups (NSGs)][NetworkSecurityGroups] are applied to subnets, and App Service Environments are deployed into subnets, the rules contained in an NSG apply to **all** apps running on an App Service Environment.  Using the sample architecture for this article, once a network security group is applied to the subnet containing "apiase", all apps running on the "apiase" App Service Environment will be protected by the same set of security rules. 
+Since [network security groups (NSGs)][NetworkSecurityGroups] are applied to subnets, and App Service Environments are deployed into subnets, the rules contained in an NSG apply to **all** apps running on an App Service Environment.  Using the sample architecture for this article, once a network security group is applied to the subnet containing "apiase," all apps running on the "apiase" App Service Environment will be protected by the same set of security rules. 
 
-* **Determine the outbound IP address of upstream callers:**  What is the IP address or addresses of the upstream callers?  These addresses will need to be explicitly allowed access in the NSG.  Since calls between App Service Environments are considered "Internet" calls, the outbound IP address assigned to each of the three upstream App Service Environments needs to be allowed access in the NSG for the "apiase" subnet.   For more information on determining the outbound IP address for apps running in an App Service Environment, see the [Network Architecture][NetworkArchitecture] Overview article.
-* **Will the back-end API app need to call itself?**  A sometimes overlooked and subtle point is the scenario where the back-end application needs to call itself.  If a back-end API application on an App Service Environment needs to call itself, it is also treated as an "Internet" call.  In the sample architecture, this requires allowing access from the outbound IP address of the "apiase" App Service Environment as well.
+* **Determine the outbound IP address of upstream callers:**  What is the IP address or addresses of the upstream callers?  These addresses need to be explicitly allowed access in the NSG.  Since calls between App Service Environments are considered "Internet" calls, the outbound IP address assigned to each of the three upstream App Service Environments needs to be allowed access in the NSG for the "apiase" subnet.   For more information on determining the outbound IP address for apps running in an App Service Environment, see the [Network Architecture][NetworkArchitecture] Overview article.
+* **Will the back-end API app need to call itself?**  A sometimes overlooked and subtle point is the scenario where the back-end application needs to call itself.  If a back-end API application on an App Service Environment needs to call itself, it's also treated as an "Internet" call.  In the sample architecture, this requires allowing access from the outbound IP address of the "apiase" App Service Environment as well.
 
 ## Setting up the Network Security Group
-Once the set of outbound IP addresses are known, the next step is to construct a network security group.  Network security groups can be created for both Resource Manager based virtual networks, as well as classic virtual networks.  The examples below show creating and configuring an NSG on a classic virtual network using PowerShell.
+Once the set of outbound IP addresses are known, the next step is to construct a network security group.  Network security groups can be created for both Resource Manager based virtual networks, and classic virtual networks.  The following examples show creating and configuring an NSG on a classic virtual network using PowerShell.
 
 For the sample architecture, the environments are located in South Central US, so an empty NSG is created in that region:
 
@@ -107,7 +107,7 @@ Get-AzureNetworkSecurityGroup -Name "RestrictBackendApi" | Set-AzureNetworkSecur
 
 No other network security rules are required, because every NSG has a set of default rules that block inbound access from the Internet, by default.
 
-The full list of rules in the network security group are shown below.  Note how the last rule, which is highlighted, blocks inbound access from all callers, other than callers that have been explicitly granted access.
+The full list of rules in the network security group are shown.  Note how the last rule, which is highlighted, blocks inbound access from all callers, other than callers that are explicitly granted access.
 
 ![NSG Configuration][NSGConfiguration] 
 
@@ -121,7 +121,7 @@ Get-AzureNetworkSecurityGroup -Name "RestrictBackendApi" | Set-AzureNetworkSecur
 
 With the NSG applied to the subnet, only the three upstream App Service Environments, and the App Service Environment containing the API back-end, are allowed to call into the "apiase" environment.
 
-## Additional Links and Information
+## Extra Links and Information
 Information about [network security groups](../../virtual-network/network-security-groups-overview.md).
 
 Understanding [outbound IP addresses][NetworkArchitecture] and App Service Environments.

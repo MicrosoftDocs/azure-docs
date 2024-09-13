@@ -23,7 +23,7 @@ ms.author: madsd
 >
 
 ## Overview
-An App Service Environment can be created in **either** an Azure Resource Manager virtual network, **or** a classic deployment model [virtual network][virtualnetwork].  A new virtual network and new subnet can be defined at the time an App Service Environment is created. Instead, an App Service Environment can be created in a pre-existing virtual network and pre-existing subnet.  As of June 2016, ASEs can also be deployed into virtual networks that use either public address ranges or RFC1918 address spaces (private addresses).  For more information, see [How to Create an ASEv1 from template](app-service-app-service-environment-create-ilb-ase-resourcemanager.md).
+An App Service Environment can be created in **either** an Azure Resource Manager virtual network, **or** a classic deployment model [virtual network][virtualnetwork].  A new virtual network and new subnet can be defined at the time an App Service Environment is created. Instead, an App Service Environment can be created in a preexisting virtual network and preexisting subnet.  As of June 2016, ASEs can also be deployed into virtual networks that use either public address ranges or RFC1918 address spaces (private addresses).  For more information, see [How to Create an ASEv1 from template](app-service-app-service-environment-create-ilb-ase-resourcemanager.md).
 
 Always create an App Service Environment within a subnet. A subnet provides a network boundary that can be used to lock down inbound traffic behind upstream devices and services. This setup allows only specific upstream IP addresses to accept HTTP and HTTPS traffic.
 
@@ -55,9 +55,9 @@ The following list contains the ports used by an App Service Environment. All po
 ## Outbound Connectivity and DNS Requirements
 For an App Service Environment to function properly, it also requires outbound access to various endpoints. A full list of the external endpoints used by an ASE is in the "Required Network Connectivity" section of the [Network Configuration for ExpressRoute](app-service-app-service-environment-network-configuration-expressroute.md#required-network-connectivity) article.
 
-App Service Environments require a valid DNS infrastructure configured for the virtual network.  If the DNS configuration is changed after the creation of an App Service Environment, developers can force an App Service Environment to pick up the new DNS configuration.  If you trigger a rolling environment reboot using the **Restart** icon, the environment picks up the new DNS configuration. (The **Restart** icon is located at the top of the App Service Environment management blade, in the [Azure portal](https://portal.azure.com).)
+App Service Environments require a valid DNS infrastructure configured for the virtual network.  If the DNS configuration is changed after the creation of an App Service Environment, developers can force an App Service Environment to pick up the new DNS configuration.  If you trigger a rolling environment reboot using the **Restart** icon, the environment picks up the new DNS configuration. (The **Restart** icon is located at the top of the App Service Environment management page, in the [Azure portal](https://portal.azure.com).)
 
-It's also recommended that any custom DNS servers on the vnet be set up ahead of time before creating an App Service Environment.  If a virtual network's DNS configuration is changed during the creation of an App Service Environment, the App Service Environment creation process will fail.  Similarly, if there's a custom DNS server that's unreachable or unavailable on the other end of a VPN gateway, the App Service Environment creation process will also fail.
+It's also recommended that any custom DNS servers on the virtual network be set up ahead of time before creating an App Service Environment.  If a virtual network's DNS configuration is changed during the creation of an App Service Environment, the App Service Environment creation process fails.  Similarly, if there's a custom DNS server that's unreachable or unavailable on the other end of a VPN gateway, the App Service Environment creation process will also fail.
 
 ## Creating a Network Security Group
 For full details on how network security groups work see the following [information][NetworkSecurityGroups].  The Azure Service Management example below touches on highlights of network security groups. The example configures and applies a network security group to a subnet that contains an App Service Environment.
@@ -72,33 +72,33 @@ The following command demonstrates creating a network security group:
 New-AzureNetworkSecurityGroup -Name "testNSGexample" -Location "South Central US" -Label "Example network security group for an app service environment"
 ```
 
-Once a network security group is created, one or more network security rules are added to it.  Since the set of rules may change over time, you should space out the numbering scheme used for rule priorities. This practice makes it easy to insert additional rules over time.
+Once a network security group is created, one or more network security rules are added to it.  Since the set of rules might change over time, you should space out the numbering scheme used for rule priorities. This practice makes it easy to insert other rules over time.
 
-In the example below, a rule explicitly grants access to the management ports needed by the Azure infrastructure to manage and maintain an App Service Environment.  All management traffic flows over TLS and is secured by client certificates. Even though the ports are opened, they're inaccessible by any entity other than Azure management infrastructure.
+In the following example, a rule explicitly grants access to the management ports needed by the Azure infrastructure to manage and maintain an App Service Environment.  All management traffic flows over TLS and is secured by client certificates. Even though the ports are opened, they're inaccessible by any entity other than Azure management infrastructure.
 
 ```azurepowershell-interactive
 Get-AzureNetworkSecurityGroup -Name "testNSGexample" | Set-AzureNetworkSecurityRule -Name "ALLOW AzureMngmt" -Type Inbound -Priority 100 -Action Allow -SourceAddressPrefix 'INTERNET'  -SourcePortRange '*' -DestinationAddressPrefix '*' -DestinationPortRange '454-455' -Protocol TCP
 ```
 
-When you lock down access to port 80 and 443 to "hide" an App Service Environment behind upstream devices or services, remember the upstream IP address.  For example, if you're using a web application firewall (WAF), the WAF will have its own IP address or addresses. The WAF uses them when proxying traffic to a downstream App Service Environment.  You'll need to use this IP address in the *SourceAddressPrefix* parameter of a network security rule.
+When you lock down access to port 80 and 443 to "hide" an App Service Environment behind upstream devices or services, remember the upstream IP address.  For example, if you're using a web application firewall (WAF), the WAF has its own IP address or addresses. The WAF uses them when proxying traffic to a downstream App Service Environment.  You need to use this IP address in the *SourceAddressPrefix* parameter of a network security rule.
 
-In the example below, inbound traffic from a specific upstream IP address is explicitly allowed.  The address *1.2.3.4* is used as a placeholder for the IP address of an upstream WAF.  Change the value to match the address used by your upstream device or service.
+In the following example, inbound traffic from a specific upstream IP address is explicitly allowed.  The address *1.2.3.4* is used as a placeholder for the IP address of an upstream WAF.  Change the value to match the address used by your upstream device or service.
 
 ```azurepowershell-interactive
 Get-AzureNetworkSecurityGroup -Name "testNSGexample" | Set-AzureNetworkSecurityRule -Name "RESTRICT HTTP" -Type Inbound -Priority 200 -Action Allow -SourceAddressPrefix '1.2.3.4/32'  -SourcePortRange '*' -DestinationAddressPrefix '*' -DestinationPortRange '80' -Protocol TCP
 Get-AzureNetworkSecurityGroup -Name "testNSGexample" | Set-AzureNetworkSecurityRule -Name "RESTRICT HTTPS" -Type Inbound -Priority 300 -Action Allow -SourceAddressPrefix '1.2.3.4/32'  -SourcePortRange '*' -DestinationAddressPrefix '*' -DestinationPortRange '443' -Protocol TCP
 ```
 
-If FTP support is wanted, use the following rules as a template to grant access to the FTP control port and data channel ports.  Since FTP is a stateful protocol, you may be unable to route FTP traffic through a traditional HTTP/HTTPS firewall or proxy device.  In this case, you'll need to set the *SourceAddressPrefix* to a different value, such as the IP address range of developer or deployment machines on which FTP clients are running. 
+If FTP support is wanted, use the following rules as a template to grant access to the FTP control port and data channel ports.  Since FTP is a stateful protocol, you might be unable to route FTP traffic through a traditional HTTP/HTTPS firewall or proxy device.  In this case, you need to set the *SourceAddressPrefix* to a different value, such as the IP address range of developer or deployment machines on which FTP clients are running. 
 
 ```azurepowershell-interactive
 Get-AzureNetworkSecurityGroup -Name "testNSGexample" | Set-AzureNetworkSecurityRule -Name "RESTRICT FTPCtrl" -Type Inbound -Priority 400 -Action Allow -SourceAddressPrefix '1.2.3.4/32'  -SourcePortRange '*' -DestinationAddressPrefix '*' -DestinationPortRange '21' -Protocol TCP
 Get-AzureNetworkSecurityGroup -Name "testNSGexample" | Set-AzureNetworkSecurityRule -Name "RESTRICT FTPDataRange" -Type Inbound -Priority 500 -Action Allow -SourceAddressPrefix '1.2.3.4/32'  -SourcePortRange '*' -DestinationAddressPrefix '*' -DestinationPortRange '10001-10020' -Protocol TCP
 ```
 
-(**Note:**  the data channel port range may change during the preview period.)
+(**Note:**  the data channel port range might change during the preview period.)
 
-If remote debugging with Visual Studio is used, the following rules demonstrate how to grant access.  There's a separate rule for each supported version of Visual Studio since each version uses a different port for remote debugging.  As with FTP access, remote debugging traffic may not flow properly through a traditional WAF or proxy device.  The *SourceAddressPrefix* can instead be set to the IP address range of developer machines running Visual Studio.
+If remote debugging with Visual Studio is used, the following rules demonstrate how to grant access.  There's a separate rule for each supported version of Visual Studio since each version uses a different port for remote debugging.  As with FTP access, remote debugging traffic might not flow properly through a traditional WAF or proxy device.  The *SourceAddressPrefix* can instead be set to the IP address range of developer machines running Visual Studio.
 
 ```azurepowershell-interactive
 Get-AzureNetworkSecurityGroup -Name "testNSGexample" | Set-AzureNetworkSecurityRule -Name "RESTRICT RemoteDebuggingVS2012" -Type Inbound -Priority 600 -Action Allow -SourceAddressPrefix '1.2.3.4/32'  -SourcePortRange '*' -DestinationAddressPrefix '*' -DestinationPortRange '4016' -Protocol TCP
@@ -126,7 +126,7 @@ Get-AzureNetworkSecurityGroup -Name "testNSGexample" | Remove-AzureNetworkSecuri
 ```
 
 ## Special Considerations for Explicit IP-SSL
-If an app is configured with an explicit IP-SSL address (applicable *only* to ASEs that have a public VIP), instead of using the default IP address of the App Service Environment, both HTTP and HTTPS traffic flows into the subnet over ports other than ports 80 and 443.
+If an app is configured with an explicit IP-SSL address (applicable *only* to ASEs that have a public VIP), instead of using the default IP address of the App Service Environment, both HTTP, and HTTPS traffic flows into the subnet over ports other than ports 80 and 443.
 
 To find the individual pair of ports that is used by each IP-SSL address, go to the portal and view the App Service Environment's details UX blade.  Select **All settings** > **IP addresses**.  The **IP addresses** blade shows a table of all explicitly configured IP-SSL addresses for the App Service Environment. The blade also shows the special port pair that's used to route HTTP and HTTPS traffic associated with each IP-SSL address.  Use this port pair for the DestinationPortRange parameters when configuring rules in a network security group.
 

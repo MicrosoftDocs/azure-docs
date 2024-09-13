@@ -21,28 +21,28 @@ ms.author: madsd
 > For the most up-to-date information on the App Service Environment v1/v2 retirement, see the [App Service Environment v1 and v2 retirement update](https://github.com/Azure/app-service-announcements/issues/469).
 >
 
-The App Service Environment(ASE) is a deployment of the Azure App Service that runs within your Azure Virtual Network(VNet). It can be deployed with an internet accessible application endpoint or an application endpoint that is in your VNet. If you deploy the ASE with an internet accessible endpoint, that deployment is called an External ASE. If you deploy the ASE with an endpoint in your VNet, that deployment is called an ILB ASE. You can learn more about the ILB ASE from the [Create and use an ILB ASE](./create-ilb-ase.md) document.
+The App Service Environment(ASE) is a deployment of the Azure App Service that runs within your Azure Virtual Network(VNet). It can be deployed with an internet accessible application endpoint or an application endpoint that is in your virtual network. If you deploy the ASE with an internet accessible endpoint, that deployment is called an External ASE. If you deploy the ASE with an endpoint in your virtual network, that deployment is called an ILB ASE. You can learn more about the ILB ASE from the [Create and use an ILB ASE](./create-ilb-ase.md) document.
 
-The ASE is a single tenant system. Because it is single tenant, there are some features available only with an ASE that are not available in the multi-tenant App Service. 
+The ASE is a single tenant system. Because it's single tenant, there are some features available only with an ASE that aren't available in the multitenant App Service. 
 
 ## ILB ASE certificates 
 
-If you are using an External ASE, then your apps are reached at &lt;appname&gt;.&lt;asename&gt;.p.azurewebsites.net. By default all ASEs, even ILB ASEs, are created with certificates that follow that format. When you have an ILB ASE, the apps are reached based on the domain name that you specify when creating the ILB ASE. In order for the apps to support TLS, you need to upload certificates. Obtain a valid TLS/SSL certificate by using internal certificate authorities, purchasing a certificate from an external issuer, or using a self-signed certificate. 
+If you're using an External ASE, then your apps are reached at &lt;appname&gt;.&lt;asename&gt;.p.azurewebsites.net. By default all ASEs, even ILB ASEs, are created with certificates that follow that format. When you have an ILB ASE, the apps are reached based on the domain name that you specify when creating the ILB ASE. In order for the apps to support TLS, you need to upload certificates. Obtain a valid TLS/SSL certificate by using internal certificate authorities, purchasing a certificate from an external issuer, or using a self-signed certificate. 
 
 There are two options for configuring certificates with your ILB ASE.  You can set a wildcard default certificate for the ILB ASE or set certificates on the individual web apps in the ASE.  Regardless of the choice you make, the following certificate attributes must be configured properly:
 
 - **Subject:** This attribute must be set to *.[your-root-domain-here] for a wildcard ILB ASE certificate. If creating the certificate for your app, then it should be [appname].[your-root-domain-here]
 - **Subject Alternative Name:** This attribute must include both *.[your-root-domain-here] and *.scm.[your-root-domain-here] for the wildcard ILB ASE certificate. If creating the certificate for your app, then it should be [appname].[your-root-domain-here] and [appname].scm.[your-root-domain-here].
 
-As a third variant, you can create an ILB ASE certificate that includes all of your individual app names in the SAN of the certificate instead of using a wildcard reference. The problem with this method is that you need to know up front the names of the apps that you are putting in the ASE or you need to keep updating the ILB ASE certificate.
+As a third variant, you can create an ILB ASE certificate that includes all of your individual app names in the SAN of the certificate instead of using a wildcard reference. The problem with this method is that you need to know up front the names of the apps that you're putting in the ASE or you need to keep updating the ILB ASE certificate.
 
 ### Upload certificate to ILB ASE 
 
-After an ILB ASE is created in the portal, the certificate must be set for the ILB ASE. Until the certificate is set, the ASE will show a banner that the certificate was not set.  
+After an ILB ASE is created in the portal, the certificate must be set for the ILB ASE. Until the certificate is set, the ASE will show a banner that the certificate wasn't set.  
 
-The certificate that you upload must be a .pfx file. After the certificate is uploaded, there is a time delay of approximately 20 minutes before the certificate is used. 
+The certificate that you upload must be a .pfx file. After the certificate is uploaded, there's a time delay of approximately 20 minutes before the certificate is used. 
 
-You cannot create the ASE and upload the certificate as one action in the portal or even in one template. As a separate action, you can upload the certificate using a template as described in the [Create an ASE from a template](./create-from-template.md) document.  
+You can't create the ASE and upload the certificate as one action in the portal or even in one template. As a separate action, you can upload the certificate using a template as described in the [Create an ASE from a template](./create-from-template.md) document.  
 
 If you want to create a self signed certificate quickly for testing, you can use the following bit of PowerShell:
 
@@ -56,17 +56,17 @@ $fileName = "exportedcert.pfx"
 Export-PfxCertificate -cert $certThumbprint -FilePath $fileName -Password $password
 ```
 
-When creating a self signed cert, you will need to ensure the subject name has the format of CN={ASE_NAME_HERE}_InternalLoadBalancingASE.
+When creating a self signed cert, you'll need to ensure the subject name has the format of CN={ASE_NAME_HERE}_InternalLoadBalancingASE.
 
 ## Application certificates 
 
-Apps that are hosted in an ASE can use the app-centric certificate features that are available in the multi-tenant App Service. Those features include:  
+Apps that are hosted in an ASE can use the app-centric certificate features that are available in the multitenant App Service. Those features include:  
 
 - SNI certificates 
-- IP-based SSL, which is only supported with an External ASE.  An ILB ASE does not support IP-based SSL.
+- IP-based SSL, which is only supported with an External ASE.  An ILB ASE doesn't support IP-based SSL.
 - KeyVault hosted certificates 
 
-The instructions for uploading and managing those certificates are available in [Add a TLS/SSL certificate in Azure App Service](../configure-ssl-certificate.md).  If you are simply configuring certificates to match a custom domain name that you have assigned to your web app, then those instructions will suffice. If you are uploading the certificate for an ILB ASE web app with the default domain name, then specify the scm site in the SAN of the certificate as noted earlier. 
+The instructions for uploading and managing those certificates are available in [Add a TLS/SSL certificate in Azure App Service](../configure-ssl-certificate.md).  If you're simply configuring certificates to match a custom domain name that you have assigned to your web app, then those instructions will suffice. If you're uploading the certificate for an ILB ASE web app with the default domain name, then specify the scm site in the SAN of the certificate as noted earlier. 
 
 ## TLS settings 
 
@@ -86,7 +86,7 @@ To upload the certificate to your app in your ASE:
 
 	84EC242A4EC7957817B8E48913E50953552DAFA6,6A5C65DC9247F762FE17BF8D4906E04FE6B31819
 
-The certificate will be available by all the apps in the same app service plan as the app, which configured that setting. If you need it to be available for apps in a different App Service plan, you will need to repeat the App Setting operation in an app in that App Service plan. To check that the certificate is set, go to the Kudu console and issue the following command in the PowerShell debug console:
+The certificate will be available by all the apps in the same app service plan as the app, which configured that setting. If you need it to be available for apps in a different App Service plan, you'll need to repeat the App Setting operation in an app in that App Service plan. To check that the certificate is set, go to the Kudu console and issue the following command in the PowerShell debug console:
 
 ```azurepowershell-interactive
 dir cert:\localmachine\root
