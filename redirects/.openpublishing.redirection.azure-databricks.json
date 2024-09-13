@@ -101,7 +101,7 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/pytorch-enterprise/index.yml",
+            "source_path_from_root": "/articles/pytorch-enterprise/index.yml",
             "redirect_url": "/azure/databricks/machine-learning/train-model/pytorch",
             "redirect_document_id": false
         }
