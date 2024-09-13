@@ -37,7 +37,7 @@ az extension add --name serviceconnector-passwordless --upgrade
 
 ### [Local shell](#tab/localshell)
 
-1. Install the [Azure CLI](/cli/azure/install-azure-cli) 2.30.0 or higher. To check if your Azure CLI version is 2.30.0 or higher, run the `az --version` command. If you need to upgrade, run `az upgrade` (requires version 2.30.0+).
+1. Install the [Azure CLI](/cli/azure/install-azure-cli) 2.30.0 or higher. To check if your Azure CLI version is 2.30.0 or higher, run the `az --version` command. If you need to upgrade, run `az upgrade` (requires version 2.11.0+).
 
 1. Sign in to Azure using the CLI with `az login`. This command opens a browser to gather your credentials. When the command finishes, it shows JSON output containing information about your subscriptions. Once signed in, you can run Azure commands with the Azure CLI to work with resources in your subscription.
 
