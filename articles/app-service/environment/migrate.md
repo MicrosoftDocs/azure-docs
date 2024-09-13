@@ -11,10 +11,12 @@ zone_pivot_groups: app-service-cli-portal
 # Migration to App Service Environment v3 using the in-place migration feature
 
 > [!NOTE]
-> The migration feature described in this article is used for in-place (same subnet) automated migration of App Service Environment v1 and v2 to App Service Environment v3. If you're looking for information on the side-by-side migration feature, see [Migrate to App Service Environment v3 by using the side-by-side migration feature](side-by-side-migrate.md). If you're looking for information on manual migration options, see [Manual migration options](migration-alternatives.md). For help deciding which migration option is right for you, see [Migration path decision tree](upgrade-to-asev3.md#migration-path-decision-tree). For more information on App Service Environment v3, see [App Service Environment v3 overview](overview.md).
+> The migration feature described in this article is used for in-place (same subnet) automated migration of App Service Environment v1 and v2 to App Service Environment v3. If you haven't requested a 30-day grace period, review the [grace period overview](./auto-migration.md#grace-period), and then request a grace period by going to [Azure portal](https://portal.azure.com) and visiting the Migration blade for each of your App Service Environments.
+>
+> If you're looking for information on the side-by-side migration feature, see [Migrate to App Service Environment v3 by using the side-by-side migration feature](side-by-side-migrate.md). If you're looking for information on manual migration options, see [Manual migration options](migration-alternatives.md). For help deciding which migration option is right for you, see [Migration path decision tree](upgrade-to-asev3.md#migration-path-decision-tree). For more information on App Service Environment v3, see [App Service Environment v3 overview](overview.md).
 >
 
-App Service can automate migration of your App Service Environment v1 and v2 to an [App Service Environment v3](overview.md). There are different migration options. Review the [migration path decision tree](upgrade-to-asev3.md#migration-path-decision-tree) to decide which option is best for your use case. App Service Environment v3 provides [advantages and feature differences](overview.md#feature-differences) over earlier versions. Make sure to review the [supported features](overview.md#feature-differences) of App Service Environment v3 before migrating to reduce the risk of an unexpected application issue. 
+App Service can automate migration of your App Service Environment v1 and v2 to an [App Service Environment v3](overview.md). There are different migration options. Review the [migration path decision tree](upgrade-to-asev3.md#migration-path-decision-tree) to decide which option is best for your use case. App Service Environment v3 provides [advantages and feature differences](overview.md#feature-differences) over earlier versions. Make sure to review the [supported features](overview.md#feature-differences) of App Service Environment v3 before migrating to reduce the risk of an unexpected application issue.
 
 The in-place migration feature automates your migration to App Service Environment v3 by upgrading your existing App Service Environment in the same subnet. This migration option is best for customers who want to migrate to App Service Environment v3 with minimal changes to their networking configurations. You must also be able to support about one hour of application downtime. If you can't support downtime, see the [side migration feature](side-by-side-migrate.md) or the [manual migration options](migration-alternatives.md).
 
@@ -68,8 +70,8 @@ The in-place migration feature doesn't support the following scenarios. See the 
 - ELB App Service Environment v2 with IP SSL addresses
 - ELB App Service Environment v1 with IP SSL addresses
 - App Service Environment with a name that doesn't meet the character limits. The entire name, including the domain suffix, must be 64 characters or fewer. For example: *my-ase-name.appserviceenvironment.net* for ILB and *my-ase-name.p.azurewebsites.net* for ELB must be 64 characters or fewer. If you don't meet the character limit, you must migrate manually. The character limits specifically for the App Service Environment name are as follows:
-    - ILB App Service Environment name character limit: 36 characters
-    - ELB App Service Environment name character limit: 42 characters
+  - ILB App Service Environment name character limit: 36 characters
+  - ELB App Service Environment name character limit: 42 characters
 
 The App Service platform reviews your App Service Environment to confirm in-place migration support. If your scenario doesn't pass all validation checks, you can't migrate at this time using the in-place migration feature. If your environment is in an unhealthy or suspended state, you can't migrate until you make the needed updates.
 
@@ -189,7 +191,7 @@ Since scaling is blocked during the migration, you should scale your environment
 
 We recommend that you use the [Azure portal](migrate.md?pivots=experience-azp) for the in-place migration experience. If you decide to use the [Azure CLI](/cli/azure/) for the migration, follow the steps described here in order and as written, because you're making Azure REST API calls. We recommend that you use the Azure CLI to make these API calls. For information about other methods, see [Azure REST API reference](/rest/api/azure/).
 
-For this guide, [install the Azure CLI](/cli/azure/install-azure-cli) or use [Azure Cloud Shell](https://shell.azure.com/) and use a Bash shell. 
+For this guide, [install the Azure CLI](/cli/azure/install-azure-cli) or use [Azure Cloud Shell](https://shell.azure.com/) and use a Bash shell.
 
 > [!NOTE]
 > We recommend that you use a Bash shell to run the commands given in this guide. The commands might not be compatible with PowerShell conventions and escape characters.
@@ -429,7 +431,7 @@ Virtual network locks block platform operations during migration. If your virtua
 
 ### 7. Choose your configurations
 
-You can make your new App Service Environment v3 resource zone redundant if your existing environment is in a [region that supports zone redundancy](./overview.md#regions). 
+You can make your new App Service Environment v3 resource zone redundant if your existing environment is in a [region that supports zone redundancy](./overview.md#regions).
 
 Select the **Enabled** checkbox if you want to configure zone redundancy.
 
