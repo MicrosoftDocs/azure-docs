@@ -1,11 +1,24 @@
 ---
-author: aakanmu
+author: sloanster
 ms.service: azure-communication-services
 ms.topic: include
-ms.date: 05/14/2024
-ms.author: aakanmu
+ms.date: 09/13/2024
+ms.author: micahvivion
 ---
 [!INCLUDE [Install SDK](../install-sdk/install-sdk-web.md)]
+
+## Technical parameters
+The calling SDK supports adding up to 5 custom SIP headers and 1000 custom VOIP headers. Additionally, developers can include a dedicated User-To-User header as part of SIP headers list.
+
+The maximum length of a SIP header key is 64 chars, including the X-MS-Custom prefix. Due note that when the SIP header is added the calling SDK will automatically add the ‘X-MS-Custom-’ prefix (which can be seeing if you inspect the SIP header with packet inspector).
+
+The SIP header key may consist of alphanumeric characters and a few selected symbols which include `.`, `!`, `%`, `*`, `_`, `+`, `~`, `-`. The maximum length of SIP header value is 256 chars. The same limitations apply when configuring the SIP headers on your SBC. The SIP header value may consist of alphanumeric characters and a few selected symbols which include `=`, `;`, `.`, `!`, `%`, `*`, `_`, `+`, `~`, `-`.
+
+The maximum length of a VOIP header key is 64 chars. The maximum length of VOIP header value is 1024 chars.
+
+When adding these custom headers as a developer you can choose to add only SIP headers, only VoIP headers or both can be included.
+
+Currently, adding custom User-to-User Information headers is only supported when initiating a 1:1 call. After starting the 1:1 call, you can include additional participants while maintaining the User-to-User Information within the calls. 
 
 ## Place a call with contextual Information
 

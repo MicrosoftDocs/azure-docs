@@ -287,17 +287,6 @@ items:
       href: tutorials/building-app-start.md
     - name: Build an authentication service using Azure Functions
       href: tutorials/trusted-service-tutorial.md
-    - name: Add video calling to your Android WebView client app
-      href: quickstarts/voice-video-calling/get-started-android-webview.md
-    - name: Using Event Grid to send calling push notifications
-      href: tutorials/add-voip-push-notifications-event-grid.md
-    - name: Proxy your calling traffic
-      href: tutorials/proxy-calling-support-tutorial.md
-    - name: Survey users
-      href: tutorials/end-of-call-survey-tutorial.md
-      displayName: diagnostics, Survey, feedback, quality, reliability, users, end, call, quick
-    - name: Collecting user feedback with the mobile UI Library
-      href: tutorials/collecting-user-feedback/collecting-user-feedback.md
     - name: Audio quality enhancements
       items:
         - name: Enabling audio effects
@@ -415,6 +404,13 @@ items:
         - name: 3. Microphone and camera setup before a call
           href: tutorials/call-readiness/call-readiness-tutorial-part-3-camera-microphone-setup.md
           displayName: diagnostics, diagnose, feedback, quality, reliability, users, call, quick, satisfaction, improve, issues
+    - name: Add end of call survey
+      items:
+        - name: Using the survey users API
+        - href: tutorials/end-of-call-survey-tutorial.md
+        - displayName: diagnostics, Survey, feedback, quality, reliability, users, end, call, quick
+        - name: Collecting user feedback with the mobile UI Library
+        - href: tutorials/collecting-user-feedback/collecting-user-feedback.md
     - name: Migrating to Azure Communication Services
       items:
         - name: Migrate from Twilio Video to Azure Communication Services
@@ -465,6 +461,8 @@ items:
           href: how-tos/ui-library-sdk/troubleshooting.md
     - name: Events
       items:
+      - name: Using Event Grid to send calling push notifications
+      - href: tutorials/add-voip-push-notifications-event-grid.md
       - name: View calling events
         href: quickstarts/voice-video-calling/handle-calling-events.md
     - name: Analytics
@@ -489,6 +487,12 @@ items:
         href: how-tos/calling-sdk/breakoutrooms.md
       - name: Together Mode
         href: how-tos/calling-sdk/together-mode.md
+    - name: Configuring to proxy traffic
+      - name: Proxy your calling traffic
+        href: tutorials/proxy-calling-support-tutorial.md
+    - name: Build a Webview based client
+      - name: Add video calling to your Android WebView client app
+      - href: quickstarts/voice-video-calling/get-started-android-webview.md
   - name: Chat
     items:
     - name: Build an authentication service using Azure Functions

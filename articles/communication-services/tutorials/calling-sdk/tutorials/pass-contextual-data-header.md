@@ -5,7 +5,7 @@ description: Provide a tutorial on how to pass contextual User-to-User Informati
 author: sloanster
 ms.topic: tutorial
 ms.service: azure-communication-services
-ms.date: 09/12/2024
+ms.date: 09/13/2024
 ms.author: micahvivion
 services: azure-communication-services
 ---
