@@ -25,7 +25,7 @@ After you complete this quickstart, you have a CI workflow that runs your Playwr
 - A GitHub account. If you don't have a GitHub account, you can [create one for free](https://github.com/).
 - A GitHub repository that contains your Playwright test specifications and GitHub Actions workflow. To create a repository, see [Creating a new repository](https://docs.github.com/github/creating-cloning-and-archiving-repositories/creating-a-new-repository).
 - A GitHub Actions workflow. If you need help with getting started with GitHub Actions, see [create your first workflow](https://docs.github.com/en/actions/quickstart)
-- OpenID connect for Azure for securely authenticating to the service from GitHub Action workflows. To configure see [configuring OpenID connect in Azure](https://docs.github.com/en/actions/security-for-github-actions/security-hardening-your-deployments/configuring-openid-connect-in-azure)
+- Set up authentication from GitHub Actions to Azure. To configure see [Use GitHub Actions to connect to Azure](https://learn.microsoft.com/azure/developer/github/connect-from-azure)
 
 # [Azure Pipelines](#tab/pipelines)
 - An Azure DevOps organization and project. If you don't have an Azure DevOps organization, you can [create one for free](/azure/devops/organizations/projects/create-project).
@@ -77,7 +77,7 @@ Update the `package.json` file in your repository to add details about Microaoft
 
 ```json
 "devDependencies": {
-    "@azure/microsoft-playwright-testing": "^1.0.0-beta.3"
+    "@azure/microsoft-playwright-testing": "^1.0.0-beta.2"
 }
 ```
 ## Update the workflow definition
@@ -94,7 +94,8 @@ Update the CI workflow definition to run your Playwright tests with the Playwrig
 
     ```yml
     
-      # This step is to sign-in to Azure to run tests from GitHub Action workflow. You need to configure Open ID connect to set up authentication with Azure
+      # This step is to sign-in to Azure to run tests from GitHub Action workflow. 
+      # You can choose how set up Authentication to Azure from GitHub Actions, this is one example. 
     - name: OIDC Login to Azure Public Cloud with AzPowershell (enableAzPSSession true) 
       uses: azure/login@v2 
       with: 

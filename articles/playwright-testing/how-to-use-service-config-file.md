@@ -24,7 +24,7 @@ import config from "./playwright.config";
 export default defineConfig(
   config,
   getServiceConfig(config, {
-    defaultAuth: 'TOKEN', // Use this option when you want to authenticate using access tokens. This mode of auth should be enabled for the workspace.
+    serviceAuthType:'ACCESS_TOKEN' // Use this option when you want to authenticate using access tokens. This mode of auth should be enabled for the workspace.
     os: ServiceOS.WINDOWS, // Select the operating system where you want to run tests.
     runId: new Date().toISOString(), // Set a unique ID for every test run to distinguish them in the service portal.
     credential: new AzureCliCredential(), // Select the authentication method you want to use with Entra.
@@ -49,15 +49,15 @@ export default defineConfig(
 
 ## Settings in `playwright.service.config.ts` file
 
-* **`defaultAuth`**:
+* **`serviceAuthType`**:
     - **Description**: This setting allows you to choose the authentication method you want to use for your test run. 
     - **Available Options**:
         - `TOKEN` to use access tokens. You need to enable authtication using access tokens if you want to use this option, see [manage authentication](./how-to-manage-authentication.md).
         - `ENTRA` to use Enrta ID for authentication. This is the default mode. 
-    - **Default Value**: `ENTRA`
+    - **Default Value**: `ENTRA_ID`
     - **Example**:
       ```typescript
-      defaultAuth:'ENTRA'
+      serviceAuthType:'ENTRA_ID'
       ```
 
 

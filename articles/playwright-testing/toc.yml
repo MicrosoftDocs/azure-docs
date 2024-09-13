@@ -52,7 +52,7 @@ items:
       href: how-to-manage-authentication.md
     - name: Use service features
       href: how-to-use-service-features.md
-    - name: Service options
+    - name: Use Service package options
       href: how-to-use-service-config-file.md
 - name: Samples
   items:

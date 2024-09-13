@@ -61,7 +61,9 @@ jobs:
     - uses: actions/setup-node@v3
       with:
         node-version: 18
-     - name: OIDC Login to Azure Public Cloud with AzPowershell (enableAzPSSession true) # This step is to sign-in to Azure to run tests from GitHub Action workflow
+      # This step is to sign-in to Azure to run tests from GitHub Action workflow.
+      # You can choose how set up Authentication to Azure from GitHub Actions, this is one example. 
+     - name: OIDC Login to Azure Public Cloud with AzPowershell (enableAzPSSession true) 
       uses: azure/login@v2 
       with: 
         client-id: ${{ secrets.AZURE_CLIENT_ID }} 

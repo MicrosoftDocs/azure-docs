@@ -24,7 +24,7 @@ To use the service, the client must authenticate with the service to access the 
 
 Microsoft Entra ID uses your Azure credentials, requiring a sign-in to your Azure account for secure access. Alternatively, you can generate an access token from your Playwright workspace and use it in your setup. However, we strongly recommend Microsoft Entra ID for authentication due to its enhanced security. Access tokens, while convenient, function like long-lived passwords and are more susceptible to being compromised.
 
-## Enable access-token based authentication 
+## Enable authentication using access-tokens
 
 Microsoft Playwright Testing service also supports authentication using access tokens. This authentication method is less secure. We recommend using Microsoft Entra ID to authenticate to the service. 
 
@@ -54,7 +54,7 @@ To enable authentication using access tokens:
     ```typescript
     /* Learn more about service configuration at https://aka.ms/mpt/config */
     export default defineConfig(config, getServiceConfig( config {
-        defaultAuth:'TOKEN'
+        serviceAuthType:'ACCESS_TOKEN'
     }));
     ```
 
@@ -90,7 +90,6 @@ Run Playwright tests against cloud-hosted browsers and publish the results to th
 ```typescript
 npx playwright test --config=playwright.service.config.ts --workers=20
 ```
-
 
 ## Related content
 

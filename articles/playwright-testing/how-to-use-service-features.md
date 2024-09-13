@@ -46,7 +46,8 @@ These features have their own pricing plans and are billed separately. You can c
 
 You can also choose to use either feature or both for a test run. 
 
-**NOTE**: You can only use a feature in a test run if it is enabled for the workspace.
+> [!IMPORTANT]
+> You can only use a feature in a test run if it is enabled for the workspace.
 
 1. In your Playwright setup, go to `playwright.service.config.ts` file and use these settings for feature management. 
 
