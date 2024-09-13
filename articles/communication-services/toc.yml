@@ -491,8 +491,8 @@ items:
       - name: Proxy your calling traffic
         href: tutorials/proxy-calling-support-tutorial.md
     - name: Build a Webview based client
-      - name: Add video calling to your Android WebView client app
-      - href: quickstarts/voice-video-calling/get-started-android-webview.md
+      - name: Add audio and video calling to your WebView client application
+      - href: quickstarts/voice-video-calling/get-started-webview.md
   - name: Chat
     items:
     - name: Build an authentication service using Azure Functions
