@@ -120,7 +120,7 @@ Add both decorators and specify the character limits:
 param storageAccountName string = 'store${uniqueString(resourceGroup().id)}'
 ```
 
-You can also add a description for the parameter. Include information that helps people deploying the Bicep file understand the value to provide.
+You can also add a description for the parameter. Include information that helps people deploying the Bicep file understand which value to provide.
 
 ```bicep
 @minLength(3)
