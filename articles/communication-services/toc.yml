@@ -407,10 +407,10 @@ items:
     - name: Add end of call survey
       items:
         - name: Using the survey users API
-        - href: tutorials/end-of-call-survey-tutorial.md
-        - displayName: diagnostics, Survey, feedback, quality, reliability, users, end, call, quick
+          href: tutorials/end-of-call-survey-tutorial.md
+          displayName: diagnostics, Survey, feedback, quality, reliability, users, end, call, quick
         - name: Collecting user feedback with the mobile UI Library
-        - href: tutorials/collecting-user-feedback/collecting-user-feedback.md
+          href: tutorials/collecting-user-feedback/collecting-user-feedback.md
     - name: Migrating to Azure Communication Services
       items:
         - name: Migrate from Twilio Video to Azure Communication Services
@@ -462,7 +462,7 @@ items:
     - name: Events
       items:
       - name: Using Event Grid to send calling push notifications
-      - href: tutorials/add-voip-push-notifications-event-grid.md
+        href: tutorials/add-voip-push-notifications-event-grid.md
       - name: View calling events
         href: quickstarts/voice-video-calling/handle-calling-events.md
     - name: Analytics
@@ -488,11 +488,13 @@ items:
       - name: Together Mode
         href: how-tos/calling-sdk/together-mode.md
     - name: Configuring to proxy traffic
-      - name: Proxy your calling traffic
-        href: tutorials/proxy-calling-support-tutorial.md
+      items:
+        - name: Proxy your calling traffic
+          href: tutorials/proxy-calling-support-tutorial.md
     - name: Build a Webview based client
-      - name: Add audio and video calling to your WebView client application
-        href: quickstarts/voice-video-calling/get-started-webview.md
+      items:
+        - name: Add audio and video calling to your WebView application
+          href: quickstarts/voice-video-calling/get-started-webview.md
   - name: Chat
     items:
     - name: Build an authentication service using Azure Functions
