@@ -4765,5 +4765,10 @@
       "redirect_url": "/azure/virtual-network/ip-services/ipv6-overview",
       "redirect_document_id": false
     },
+    {
+      "source_path_from_root": "/articles/azure-glossary-cloud-terminology.md",
+      "redirect_url": "/azure/cloud-adoption-framework/ready/considerations/fundamental-concepts",
+      "redirect_document_id": false
+    }
   ]
 }
