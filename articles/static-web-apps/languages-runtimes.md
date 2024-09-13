@@ -39,6 +39,10 @@ The underlying support for APIs in Azure Static Web Apps is provided by Azure Fu
 
 The following versions are supported for managed functions in Static Web Apps. If your application requires a version not listed, consider [bringing your own functions](./functions-bring-your-own.md) to your app.
 
+> [!NOTE]  
+> Some runtime languages are supported by both Windows and Linux plans such as ASP.NET Core, .NET, PHP, Node.js and Java. Some others are supported by a specific operating system. For example, only Windows plans support ASP.NET and only Linux plans support Ruby and Python.
+>
+
 [!INCLUDE [Languages and runtimes](../../includes/static-web-apps-languages-runtimes.md)]
 
 ## Re-enabling proxies in v4.x
