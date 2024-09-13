@@ -35,7 +35,7 @@ To use $member-match, use the following call.
 
 You need to include a parameters resource in the body that includes the patient, the old coverage, and the new coverage. To see a JSON representation, see [$member-match example request](http://hl7.org/fhir/us/davinci-hrex/2020Sep/Parameters-member-match-in.json.html).
 
-If a single match is found, you receive a 200 response with another identifier added:
+If a single match is found, you receive a 200 response with another identifier added.
 
 :::image type="content" source="media/centers-medicare-services-tutorials/two-hundred-response.png" alt-text="200 hundred response code.":::
 
