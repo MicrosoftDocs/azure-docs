@@ -147,6 +147,7 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps 
         - **Virtual network**: Integrated with the App Service app and isolates back-end network traffic.
         - **Azure Database for MySQL flexible server**: Accessible only from the virtual network. A database and a user are created for you on the server.
         - **Private DNS zones**: Enable DNS resolution of the database server in the virtual network.
+        <!-- Author note: Azure Database for MySQL's networking is not the same as other databases. It integrates with a private DNS zone, not with a private endpoint. -->
     :::column-end:::
     :::column:::
         :::image type="content" source="./media/tutorial-java-tomcat-mysql-app/azure-portal-create-app-mysql-3.png" alt-text="A screenshot showing the deployment process completed." lightbox="./media/tutorial-java-tomcat-mysql-app/azure-portal-create-app-mysql-3.png":::
