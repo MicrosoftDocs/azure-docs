@@ -1,6 +1,6 @@
 ---
 title: Microsoft Playwright Testing features
-description: Learn how to use different features offered by Microaoft Playwright Testing service
+description: Learn how to use different features offered by Microsoft Playwright Testing service
 ms.topic: how-to
 ms.date: 09/07/2024
 ms.custom: playwright-testing-preview
@@ -71,14 +71,14 @@ export default defineConfig(
 );
 ```
 - **`useCloudHostedBrowsers`**: 
-    - **Description**: This setting allows you to choose whether to use cloud-hosted browsers or the browsers on your client machine to run your Playwright tests. If you disable this option, your tests will run on the browsers of your client machine instead of cloud-hosted browsers, and you will not incur any charges. You can still configure reporting options.
+    - **Description**: This setting allows you to choose whether to use cloud-hosted browsers or the browsers on your client machine to run your Playwright tests. If you disable this option, your tests run on the browsers of your client machine instead of cloud-hosted browsers, and you do not incur any charges. You can still configure reporting options.
     - **Default Value**: true
     - **Example**:
       ```typescript
       useCloudHostedBrowsers: true
       ```
 - **`reporter`**
-    - **Description**: The `playwright.service.config.ts` file extends the Playwright configuration file of your setup. This option overrides the existing reporters and sets the Microsoft Playwright Testing reporter. You can add or modify this list to include the reporters you want to use. You will be billed for Microsoft Playwright Testing reporting if you add `@azure/microsoft-playwright-testing/reporter`. This can be used independently of cloud-hosted browsers, meaning you don’t have to run tests on service-managed browsers to get reports and artifacts on the Playwright portal.
+    - **Description**: The `playwright.service.config.ts` file extends the Playwright configuration file of your setup. This option overrides the existing reporters and sets the Microsoft Playwright Testing reporter. You can add or modify this list to include the reporters you want to use. You are billed for Microsoft Playwright Testing reporting if you add `@azure/microsoft-playwright-testing/reporter`. This feature can be used independently of cloud-hosted browsers, meaning you don’t have to run tests on service-managed browsers to get reports and artifacts on the Playwright portal.
     - **Default Value**: ["@azure/microsoft-playwright-testing/reporter"]
     - **Example**:
       ```typescript

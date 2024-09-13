@@ -53,7 +53,7 @@ export default defineConfig(
     - **Description**: This setting allows you to choose the authentication method you want to use for your test run. 
     - **Available Options**:
         - `TOKEN` to use access tokens. You need to enable authtication using access tokens if you want to use this option, see [manage authentication](./how-to-manage-authentication.md).
-        - `ENTRA` to use Enrta ID for authentication. This is the default mode. 
+        - `ENTRA` to use Enrta ID for authentication. It is the default mode. 
     - **Default Value**: `ENTRA_ID`
     - **Example**:
       ```typescript
@@ -62,7 +62,7 @@ export default defineConfig(
 
 
 * **`os`**:
-    - **Description**: This setting allows you to choose the operating system where the browsers running Playwright tests will be hosted.
+    - **Description**: This setting allows you to choose the operating system where the browsers running Playwright tests are hosted.
     - **Available Options**:
         - `ServiceOS.WINDOWS` for Windows OS.
         - `ServiceOS.LINUX` for Linux OS.
@@ -87,7 +87,7 @@ export default defineConfig(
       ```
 
 * **`useCloudHostedBrowsers`**
-    - **Description**: This setting allows you to choose whether to use cloud-hosted browsers or the browsers on your client machine to run your Playwright tests. If you disable this option, your tests will run on the browsers of your client machine instead of cloud-hosted browsers, and you will not incur any charges.
+    - **Description**: This setting allows you to choose whether to use cloud-hosted browsers or the browsers on your client machine to run your Playwright tests. If you disable this option, your tests run on the browsers of your client machine instead of cloud-hosted browsers, and you do not incur any charges.
     - **Default Value**: true
     - **Example**:
       ```typescript
@@ -95,7 +95,7 @@ export default defineConfig(
       ```
 
 * **`exposeNetwork`**
-    - **Description**: This setting allows you to connect to local resources from your Playwright test code without having to configure additional firewall settings. To learn more, see [how to test local applications](./how-to-test-local-applications.md)
+    - **Description**: This setting allows you to connect to local resources from your Playwright test code without having to configure another firewall settings. To learn more, see [how to test local applications](./how-to-test-local-applications.md)
     - **Example**:
       ```typescript
       exposeNetwork: '<loopback>'
@@ -109,7 +109,7 @@ export default defineConfig(
       ```     
 
 * **`reporter`**
-    - **Description**: The `playwright.service.config.ts` file extends the playwright config file of your setup. This option overrides the existing reporters and sets Microsoft Playwright Testing reporter. You can add or modify this list to include the reporters that you want to use. You will be billed for Microsoft Playwright Testing reporting if you add `@azure/microsoft-playwright-testing/reporter`. 
+    - **Description**: The `playwright.service.config.ts` file extends the playwright config file of your setup. This option overrides the existing reporters and sets Microsoft Playwright Testing reporter. You can add or modify this list to include the reporters that you want to use. You are billed for Microsoft Playwright Testing reporting if you add `@azure/microsoft-playwright-testing/reporter`. 
     - **Default Value**: ["@azure/microsoft-playwright-testing/reporter"]
     - **Example**:
       ```typescript
