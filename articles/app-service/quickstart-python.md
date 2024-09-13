@@ -2,7 +2,7 @@
 title: 'Quickstart: Deploy a Python (Django, Flask, or FastAPI) web app to Azure'
 description: Get started with Azure App Service by deploying your first Python app to Azure App Service.
 ms.topic: quickstart
-ms.date: 08/29/2024
+ms.date: 09/13/2024
 ms.author: msangapu
 author: msangapu-msft
 ms.devlang: python
