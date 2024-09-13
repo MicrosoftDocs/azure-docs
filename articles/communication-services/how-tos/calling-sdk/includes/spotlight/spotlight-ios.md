@@ -7,7 +7,9 @@ ms.author: cnwankwo
 ---
 [!INCLUDE [Install SDK](../install-sdk/install-sdk-ios.md)]
 
-Spotlight is an extended feature of the core Call API. You first need to import calling features from the Calling SDK.
+## Implement spotlight
+
+Spotlight is an extended feature of the core `Call` API. You first need to import calling features from the Calling SDK.
 
 ```swift
 import AzureCommunicationCalling

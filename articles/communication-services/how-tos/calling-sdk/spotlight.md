@@ -36,19 +36,28 @@ The following table shows support for call and identity types.
 
 | Identities | Teams meeting | Room | 1:1 call | Group call | 1:1 Teams interop call | Group Teams interop call |
 | --- | --- | --- | --- | --- | --- | --- |
-|Communication Services user	| ✔️	          |   ✔️   |          |        ✔️    |	                      |	    ✔️                     |
-|Microsoft 365 user	                        | ✔️	          |    ✔️  |          |        ✔️    |                        |        ✔️                  |
+|Communication Services user	| ✔️ |   ✔️   |    |  ✔️  |	   |  ✔️    |
+|Microsoft 365 user | ✔️  |   ✔️  |         |   ✔️    |     |  ✔️    |
 
 ## Operations
 
-The following table shows support for individual operations in Calling SDK to individual identity types. 
+Azure Communication Services or Microsoft 365 users can call spotlight operations based on role type and conversation type.
 
-| Operations                   | Communication Services user | Microsoft 365 user |
+The following table shows support for individual operations in Calling SDK to individual identity types.
+
+**In one-to-one calls, group calls, and meeting scenarios the following operations are supported for both Communication Services and Microsoft 365 users**
+
+| Operations | Communication Services user | Microsoft 365 user |
 | --- | --- | --- |
-| startSpotlight | ✔️ [1] | ✔️ [1] |
-| stopSpotlight | ✔️ | ✔️ |
-| stopAllSpotlight |  ✔️ [1] | ✔️ [1] | 
-| getSpotlightedParticipants |  ✔️ | ✔️ | 
+| `startSpotlight` | ✔️ [1] | ✔️ [1] |
+| `stopSpotlight` | ✔️ | ✔️ |
+| `stopAllSpotlight` |  ✔️ [1] | ✔️ [1] | 
+| `getSpotlightedParticipants` |  ✔️ | ✔️ | 
+| `StartSpotlightAsync` |  ✔️ [1] | ✔️ [1] | 
+| `StopSpotlightAsync` |  ✔️ [1] | ✔️ [1] | 
+| `StopAllSpotlightAsync` |  ✔️ [1] | ✔️ [1] | 
+| `SpotlightedParticipants` |  ✔️ [1] | ✔️ [1] | 
+| `MaxSupported` |  ✔️ [1] | ✔️ [1] | 
 
 [1] In Teams meeting scenarios, these operations are only available to users with role organizer, co-organizer, or presenter.
 
@@ -58,31 +67,7 @@ The following table shows support for spotlight feature in individual Azure Comm
 
 | Platforms | Web | Web UI | iOS | iOS UI | Android | Android UI | Windows |
 | --- | --- | --- | --- | --- | --- | --- | --- |
-|Is Supported | ✔️  |  ✔️  |  ✔️  |     |  ✔️  |    |  ✔️  |
-
-## Spotlight features
-
-Azure Communication Services or Microsoft 365 users can call spotlight operations based on role type and conversation type.
-
-**In a one to one call or group call scenario, the following operations are supported for both Communication Services and Microsoft 365 users**
-
-| Operations | Organizer | Presenter | Attendee |
-| --- | --- | --- | --- |
-| `StartSpotlightAsync` | ✔️ | ✔️  | ✔️ |
-| `StopSpotlightAsync` | ✔️ | ✔️ | ✔️ |
-| `StopAllSpotlightAsync` |  ✔️ | ✔️ | ✔️ |
-| `SpotlightedParticipants` |  ✔️ | ✔️ | ✔️ |
-| `MaxSupported` |  ✔️ | ✔️ | ✔️ |
-
-**For meeting scenario the following operations are supported for both Communication Services and Microsoft 365 users**
-
-| Operations | Organizer | Presenter | Attendee |
-| --- | --- | --- | --- |
-| `StartSpotlightAsync` | ✔️ | ✔️  |  |
-| `StopSpotlightAsync` | ✔️ | ✔️ | ✔️ |
-| `StopAllSpotlightAsync` |  ✔️ | ✔️ |  |
-| `SpotlightedParticipants` |  ✔️ | ✔️ | ✔️ |
-| `MaxSupported` |  ✔️ | ✔️ | ✔️ |
+| Is Supported | ✔️  |  ✔️  |  ✔️  |     |  ✔️  |    |  ✔️  |
 
 ::: zone pivot="platform-web"
 [!INCLUDE [Spotlight Client-side JavaScript](./includes/spotlight/spotlight-web.md)]
@@ -109,6 +94,7 @@ Azure Communication Services or Microsoft 365 users can call spotlight operation
 | 403 | 45903	| ExpectedError | Only participants with the roles of organizer, co-organizer, or presenter can initiate a spotlight. | Ensure the participant calling the `startSpotlight` operation has the role of organizer, co-organizer, or presenter. |
 
 ## Next steps
+
 - [Learn how to manage calls](./manage-calls.md)
 - [Learn how to manage video](./manage-video.md)
 - [Learn how to record calls](./record-calls.md)

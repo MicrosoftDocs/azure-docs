@@ -8,7 +8,9 @@ ms.author: cnwankwo
 
 [!INCLUDE [Install SDK](../install-sdk/install-sdk-android.md)]
 
-Spotlight is an extended feature of the core Call API. You first need to import calling features from the Calling SDK.
+## Implement spotlight
+
+Spotlight is an extended feature of the core `Call` API. You first need to import calling features from the Calling SDK.
 
 ```java
 import com.azure.android.communication.calling.SpotlightFeature;
@@ -20,6 +22,7 @@ Then you can get the feature API object from the call instance.
 SpotlightCallFeature spotlightCallFeature;
 spotlightCallFeature = call.feature(Features.SPOTLIGHT);
 ```
+
 ### Start spotlight for participants
 
 Any participant in the call or meeting can be pinned. Only Microsoft 365 users who have an organizer, co-organizer, or presenter role can start spotlight for other participants. This action is idempotent, trying to start spotlight on a pinned participant does nothing
@@ -65,6 +68,7 @@ CommunicationUserIdentifier acsUser = new CommunicationUserIdentifier(<USER_ID>)
 MicrosoftTeamsUserIdentifier teamsUser = new MicrosoftTeamsUserIdentifier(<USER_ID>);
 spotlightCallFeature.StopSpotlight(acsUser, teamsUser);
 ```
+
 ### Remove all spotlights
 
 All pinned participants can be unpinned using this operation. Only `MicrosoftTeamsUserIdentifier` users who have an organizer, co-organizer, or presenter role can unpin all participants.

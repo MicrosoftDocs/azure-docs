@@ -8,7 +8,9 @@ ms.author: cnwankwo
 
 [!INCLUDE [Install SDK](../install-sdk/install-sdk-web.md)]
 
-Spotlight is an extended feature of the core Call API. You first need to import calling features from the Calling SDK.
+## Implement spotlight
+
+Spotlight is an extended feature of the core `Call` API. You first need to import calling features from the Calling SDK.
 
 ```js
 import { Features} from "@azure/communication-calling";
