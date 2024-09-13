@@ -41,6 +41,8 @@ Now that you have an environment created, you can deploy your first container ap
 
 ::: zone pivot="container-apps-private-registry"
 
+TODO1 Replace these H3s with a numbered list?
+
 ### Set environment variables
 
 Replace the \<PLACEHOLDERS\> with your values. Your user principal name will typically be in the format of an email address (for example, `username@domain.com`).
@@ -70,6 +72,8 @@ $RegistryUsername = "<REGISTRY_USERNAME>"
 ---
 
 ### Create key vault
+
+TODO1 Explain why you should use a key vault to store your registry password. We could just link to one of the quickstarts below on creating a key vault and storing a secret in it, and only include the command for retrieving the secret here.
 
 # [Bash](#tab/bash)
 
@@ -105,16 +109,19 @@ az role assignment create --role "Key Vault Secrets Officer" --assignee "$USER_P
 ```azurepowershell-interactive
 $KeyVault=Get-AzKeyVault -VaultName $KeyVaultName
 New-AzRoleAssignment -SignInName "$UserPrincipalName" -RoleDefinitionName "Key Vault Secrets Officer" -Scope "$KeyVault.ResourceID"
-
 ```
 
 ---
 
-### Store registry password
+### Store container registry password
 
 Replace the \<PLACEHOLDERS\> with your values.
 
+TODO1 We are deliberately not using an env var to store the registry password here.
+
 # [Bash](#tab/bash)
+
+TODO1 There does not seem to be an Azure CLI equivalent for "convert to secure string."
 
 ```bash
 az keyvault secret set --vault-name $KEY_VAULT_NAME --name $SECRET_NAME --value "<REGISTRY_PASSWORD>"
@@ -129,7 +136,7 @@ Set-AzKeyVaultSecret -VaultName "$KeyVaultName" -Name "$SecretName" -SecretValue
 
 ---
 
-### Retrieve registry password
+### Retrieve container registry password
 
 # [Bash](#tab/bash)
 
