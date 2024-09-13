@@ -8,7 +8,7 @@ ms.author: cnwankwo
 
 [!INCLUDE [Install SDK](../install-sdk/install-sdk-web.md)]
 
-
+## Implement Together Mode
 
 Together Mode is an extended feature of the core `Call` API. You first need to import calling Features from the Calling SDK:
 
@@ -23,6 +23,7 @@ const togetherModeFeature = call.feature(Features.TogetherMode);
 ```
 
 ### Receive events when Together Mode stream starts or updates
+
 You can subscribe to the event `togetherModeStreamsUpdated` to receive notifications when Together Mode starts or updates. The event contains information about rendering the added video stream. 
 
 ```js
@@ -35,6 +36,7 @@ togetherModeFeature.on('togetherModeStreamsUpdated', (event) => {
 ```
 
 ### Get Together Mode stream
+
 You can access Together Mode streams through the property `togetherModeStream`.
 
 ```js
@@ -49,15 +51,18 @@ const togetherModeStreams = togetherModeFeature.togetherModeStream;
 | `size` | 	Returns the Together Mode `StreamSize` with information about the width and height of the stream in pixels. |
 
 ### Start Together Mode for all participants
+
 Microsoft 365 users with role organizer, co-organizer, or presenter can start Together Mode for everyone in the meeting. When Together Mode starts, all subscribers to the `togetherModeStreamsUpdated` event receive notification that enables participants to render Together Mode.
 
 ```js
 togetherModeFeature.start();
 ```
 ### End Together Mode
+
 Together Mode automatically terminates for all participants if no video stream is detected from any participant for a duration of one minute. There's no API to end Together Mode.
 
 ### Get coordinates of participants in Together Mode
+
 The property `togetherModeSeatingMap` provides coordinates for individual participants in the stream. Developers can use these coordinates to overlay participant info such as display name or visual features like spotlight, hand raised, and reactions on the stream. 
 
 ```js
@@ -74,6 +79,7 @@ const seatingMap = togetherModeFeature.togetherModeSeatingMap;
 ```
 
 ### Manage scene size
+
 The `sceneSize` property specifies the dimensions (width and height) of the HTML container that houses the `togetherMode` video stream. The seating positions of participants are calculated based on the dimensions of the scene size. If scene size isn't provided, the calculation defaults to a width of 1,280 pixels and a height of 720 pixels.
 
 ```js
