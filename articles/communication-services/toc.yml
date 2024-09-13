@@ -492,7 +492,7 @@ items:
         href: tutorials/proxy-calling-support-tutorial.md
     - name: Build a Webview based client
       - name: Add audio and video calling to your WebView client application
-      - href: quickstarts/voice-video-calling/get-started-webview.md
+        href: quickstarts/voice-video-calling/get-started-webview.md
   - name: Chat
     items:
     - name: Build an authentication service using Azure Functions
