@@ -1,6 +1,6 @@
 ---
-title: "Exchange Security Insights On-Premise Collector connector for Microsoft Sentinel"
-description: "Learn how to install the connector Exchange Security Insights On-Premise Collector to connect your data source to Microsoft Sentinel."
+title: "Exchange Security Insights On-Premises Collector connector for Microsoft Sentinel"
+description: "Learn how to install the connector Exchange Security Insights On-Premises Collector to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
 ms.date: 04/26/2024
@@ -9,7 +9,7 @@ ms.author: cwatson
 ms.collection: sentinel-data-connector
 ---
 
-# Exchange Security Insights On-Premise Collector connector for Microsoft Sentinel
+# Exchange Security Insights On-Premises Collector connector for Microsoft Sentinel
 
 Connector used to push Exchange On-Premises Security configuration for Microsoft Sentinel Analysis
 
@@ -36,7 +36,7 @@ ESIExchangeConfig_CL
 
 ## Prerequisites
 
-To integrate with Exchange Security Insights On-Premise Collector make sure you have: 
+To integrate with Exchange Security Insights On-Premises Collector make sure you have: 
 
 - **Service Account with Organization Management role**: The service Account that launch the script as scheduled task needs to be Organization Management to be able to retrieve all the needed security Information.
 
