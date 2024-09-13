@@ -83,7 +83,7 @@ For a conceptual overview of this feature, see [Azure RBAC on Azure Arc-enabled 
        sudo vi /etc/kubernetes/manifests/kube-apiserver.yaml
        ```
 
-   1. Add the following specification under `volumes`:
+    1. Add the following specification under `volumes`:
    
        ```yml
        - hostPath
