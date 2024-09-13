@@ -42,8 +42,6 @@ Enable connectivity between your on-premises networks. There are separate sets o
 
 1. Select the **Overview** tab of your ExpressRoute circuit and then select **Add Global Reach** to open the *Add Global Reach* configuration page.
 
-    :::image type="content" source="./media/expressroute-howto-set-global-reach-portal/overview.png" alt-text="Screenshot of ExpressRoute overview page.":::
-
 1. On the *Add Global Reach* configuration page, give a name to this configuration. Select the *ExpressRoute circuit* you want to connect this circuit to and enter in a **/29 IPv4** for the *Global Reach IPv4 subnet*. We use IP addresses in this subnet to establish connectivity between the two ExpressRoute circuits. Don’t use the addresses in this subnet in your Azure virtual networks, private peering subnet, or on-premises network. Select **Add** to add the circuit to the private peering configuration.
 
     > [!NOTE]
@@ -101,8 +99,6 @@ After the operation is complete, you no longer have connectivity between your on
 1. Update the configuration on the *Edit Global Reach** page and the select **Save**.
 
 1. Select **Save** on the main overview page to apply the configuration to the circuit.
-
-    :::image type="content" source="./media/expressroute-howto-set-global-reach-portal/save-edit-configuration.png" alt-text="Screenshot of the save button after editing Global Reach configuration.":::
 
 ## Next steps
 - [Learn more about ExpressRoute Global Reach](expressroute-global-reach.md)
