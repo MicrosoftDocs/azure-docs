@@ -4,7 +4,7 @@ description: This article provides a summary of supported regions and operating 
 ms.service: azure-update-manager
 author: SnehaSudhirG
 ms.author: sudhirsneha
-ms.date: 08/23/2024
+ms.date: 09/13/2024
 ms.topic: overview
 ms.custom: references_regions
 ---
@@ -111,7 +111,7 @@ Following is the list of supported images and no other marketplace images releas
 | |cis-oracle-linux-8-l1 | cis-oracle8-l1||
 | |cis-rhel | cis-redhat7-l1-gen1 </br> cis-redhat8-l1-gen1 </br> cis-redhat8-l2-gen1 </br>  cis-redhat9-l1-gen1 </br> cis-redhat9-l1-gen2| |
 | |cis-rhel-7-l2 | cis-rhel7-l2 | |
-| |cis-rhel-8-l1 | | | |
+| |cis-rhel-8-l1 | | |
 | |cis-rhel-8-l2 | cis-rhel8-l2 | |
 | |cis-rhel9-l1 | cis-rhel9-l1 </br> cis-rhel9-l1-gen2 ||
 | |cis-ubuntu | cis-ubuntu1804-l1 </br> cis-ubuntulinux2004-l1-gen1 </br> cis-ubuntulinux2204-l1-gen1 </br> cis-ubuntulinux2204-l1-gen2 ||
@@ -180,8 +180,8 @@ Following is the list of supported images and no other marketplace images releas
 |microsoft-dsvm |aml-workstation | ubuntu |
 |microsoftcblmariner |cbl-mariner | cbl-mariner-1 </br> 1-gen2 </br> cbl-mariner-2 </br> cbl-mariner-2-gen2. | |
 |microsoftcblmariner|cbl-mariner | cbl-mariner-1,1-gen2, cbl-mariner-2, cbl-mariner-2-gen2 |
-|microsoftsqlserver | * | * | |**Offers**: sql2019-sles* </br> sql2019-rhel7 </br> sql2017-rhel 7 </br></br> Example  </br> Publisher: </br> microsoftsqlserver </br> Offer: sql2019-sles12sp5 </br> sku:webARM </br></br> Publisher: microsoftsqlserver </br> Offer: sql2019-rhel7 </br> sku: web-ARM | 
-|microsoftsqlserver | * | *||**Offers**:  sql2019-sles*</br> sql2019-rhel7 </br> sql2017-rhel7 |
+|microsoftsqlserver | * | * |**Offers**: sql2019-sles* </br> sql2019-rhel7 </br> sql2017-rhel 7 </br></br> Example  </br> Publisher: </br> microsoftsqlserver </br> Offer: sql2019-sles12sp5 </br> sku:webARM </br></br> Publisher: microsoftsqlserver </br> Offer: sql2019-rhel7 </br> sku: web-ARM | 
+|microsoftsqlserver | * | *|**Offers**:  sql2019-sles*</br> sql2019-rhel7 </br> sql2017-rhel7 |
 |nginxinc|nginx-plus-ent-v1 | nginx-plus-ent-centos7 |
 |ntegralinc1586961136942|ntg_oracle_8_7| ntg_oracle_8_7|
 |openlogic | centos | 7.2, 7.3, 7.4, 7.5, 7.6, 7_8, 7_9, 7_9-gen2 |
@@ -194,7 +194,7 @@ Following is the list of supported images and no other marketplace images releas
 |redhat | rhel-sap | 7.7 |
 |redHat |rhel | 8_9||
 |redhat |rhel-byos | rhel-lvm79 </br> rhel-lvm79-gen2 </br> rhel-lvm8 </br> rhel-lvm82-gen2 </br> rhel-lvm83 </br> rhel-lvm84 </br> rhel-lvm84-gen2 </br> rhel-lvm85-gen2 </br> rhel-lvm86 </br> rhel-lvm86-gen2 </br> rhel-lvm87-gen2 </br> rhel-raw76 </br> |
-|redhat |rhel-byos |rhel-lvm88 </br> rhel-lvm88-gent2 </br> rhel-lvm92 </br>rhel-lvm92-gen2 || |
+|redhat |rhel-byos |rhel-lvm88 </br> rhel-lvm88-gent2 </br> rhel-lvm92 </br>rhel-lvm92-gen2 ||
 |redhat |rhel-ha | 8* | 81_gen2 |
 |redhat |rhel-raw | 7*,8*,9* | |
 |redhat |rhel-sap | 7*|  |
@@ -260,7 +260,7 @@ The following table lists the operating systems supported on [Azure Arc-enabled 
    | Debian 10 and 11|
    | Rocky Linux 8|
 
-# [Windows IoT Enterprise on Arc enabled IaaS VMs (preview)](#tab/winio-arc)
+# [Windows IoT Enterprise on Arc enabled servers (preview)](#tab/winio-arc)
 
    - Windows 10 IoT Enterprise LTSC 2021 
    - Windows 10 IoT Enterprise LTSC 2019 
