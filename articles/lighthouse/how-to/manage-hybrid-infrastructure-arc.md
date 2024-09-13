@@ -34,7 +34,7 @@ If your customer has created a service principal account to onboard Kubernetes c
 
 You can deploy [configurations and Helm charts](../../azure-arc/kubernetes/tutorial-use-gitops-flux2.md) using [GitOps for connected clusters](../../azure-arc/kubernetes/conceptual-gitops-flux2.md).
 
-You can also [monitor connected clusters](../..//azure-monitor/containers/container-insights-enable-arc-enabled-clusters.md) with Azure Monitor, use tagging to organize clusters, and [use Azure Policy for Kubernetes](/azure/governance/policy/concepts/policy-for-kubernetes?toc=%2Fazure%2Fazure-arc%2Fkubernetes%2Ftoc.json&bc=%2Fazure%2Fazure-arc%2Fkubernetes%2Fbreadcrumb%2Ftoc.json) to manage and report on compliance state.
+You can also [monitor connected clusters](/azure/azure-monitor/containers/container-insights-enable-arc-enabled-clusters) with Azure Monitor, use tagging to organize clusters, and [use Azure Policy for Kubernetes](/azure/governance/policy/concepts/policy-for-kubernetes?toc=%2Fazure%2Fazure-arc%2Fkubernetes%2Ftoc.json&bc=%2Fazure%2Fazure-arc%2Fkubernetes%2Fbreadcrumb%2Ftoc.json) to manage and report on compliance state.
 
 ## Next steps
 

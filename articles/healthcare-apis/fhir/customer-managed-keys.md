@@ -11,7 +11,7 @@ ms.author: kesheth
 
 # Best practices for using customer-managed keys for the FHIR service
 
-Customer-managed keys (CMK) are encryption keys that you create and manage in your own key store. By using CMK, you can have more flexibility and control over the encryption and access of your organization’s data. You use [Azure Key Vault](../../key-vault/index.yml) to create and manage CMK and then use the keys to encrypt the data stored by the FHIR&reg; service. 
+Customer-managed keys (CMK) are encryption keys that you create and manage in your own key store. By using CMK, you have more flexibility and control over the encryption and access of your organization’s data. You use [Azure Key Vault](/azure/key-vault/) to create and manage CMK, and then use the keys to encrypt the data stored by the FHIR&reg; service. 
 
 ## Rotate keys often
 
@@ -21,7 +21,7 @@ To rotate the key by generating a new version of the key, use the 'az keyvault k
 
 ## Update the FHIR service after changing a managed identity
 
-If you change the managed identity in any way, such as moving your FHIR service to a different tenant or subscription, the FHIR service isn't able to access your keys until you update the service manually with an ARM template deployment. For steps, see [Use an ARM template to update the encryption key](configure-customer-managed-keys.md#update-the-key-by-using-an-arm-template).
+If you change the managed identity in any way, such as moving your FHIR service to a different tenant or subscription, the FHIR service isn't able to access your keys. You must update the service manually with an ARM template deployment. For steps, see [Use an ARM template to update the encryption key](configure-customer-managed-keys.md#update-the-key-by-using-an-arm-template).
 
 ## Disable public access with a firewall
 

@@ -13,7 +13,7 @@ This article shows you how to deploy, update, and uninstall Azure VM extensions 
 > The Key Vault VM extension does not support deployment from the Azure portal, only using the Azure CLI, the Azure PowerShell, or using an Azure Resource Manager template.
 
 > [!NOTE]
-> Azure Arc-enabled servers does not support deploying and managing VM extensions to Azure virtual machines. For Azure VMs, see the following [VM extension overview](../../virtual-machines/extensions/overview.md) article.
+> Azure Arc-enabled servers does not support deploying and managing VM extensions to Azure virtual machines. For Azure VMs, see the following [VM extension overview](/azure/virtual-machines/extensions/overview) article.
 
 ## Enable extensions
 
@@ -29,7 +29,7 @@ VM extensions can be applied to your Azure Arc-enabled server-managed machine vi
 
     ![Install Log Analytics VM extension](./media/manage-vm-extensions/mma-extension-config.png)
 
-    To complete the installation, you are required to provide the workspace ID and primary key. If you are not familiar with how to find this information, see [obtain workspace ID and key](../../azure-monitor/agents/agent-windows.md#workspace-id-and-key).
+    To complete the installation, you are required to provide the workspace ID and primary key. If you are not familiar with how to find this information, see [obtain workspace ID and key](/azure/azure-monitor/agents/agent-windows#workspace-id-and-key).
 
 5. After confirming the required information provided, select **Review + Create**. A summary of the deployment is displayed and you can review the status of the deployment.
 

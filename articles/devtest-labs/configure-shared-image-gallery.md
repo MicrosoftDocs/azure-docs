@@ -13,7 +13,7 @@ ms.date: 06/10/2024
 
 # Configure a shared image gallery in Azure DevTest Labs
 
-DevTest Labs supports storing and sharing images with [Azure Compute Gallery](../virtual-machines/shared-image-galleries.md). A shared image gallery makes it easy to maintain a large number of managed images and make them widely available. It's also a great way to provide standardized images with current software for your users. Both specialized and generalized images are supported. By using a shared image gallery, you can build structure and organization around your custom-managed virtual machine (VM) images.
+DevTest Labs supports storing and sharing images with [Azure Compute Gallery](/azure/virtual-machines/shared-image-galleries). A shared image gallery makes it easy to maintain a large number of managed images and make them widely available. It's also a great way to provide standardized images with current software for your users. Both specialized and generalized images are supported. By using a shared image gallery, you can build structure and organization around your custom-managed virtual machine (VM) images.
 
 This article describes how to attach a shared image gallery to your lab. Users can access images from the shared location when creating lab VMs. A key advantage of this approach is that DevTest Labs lets you share VM images across labs, across subscriptions, and across regions. 
 
@@ -33,7 +33,7 @@ Keep in mind the following considerations when working with a shared gallery:
 - When you create a VM from a shared image, DevTest Labs uses the latest published version of the image in the attached gallery. If an image has multiple versions, you can choose an earlier version under **Advanced Settings** during VM creation.  
 - DevTest Labs attempts to replicate all images in the attached gallery to the lab region. Sometimes, replication isn't possible. To avoid users having issues when creating VMs from images, ensure the images in the attached gallery fully replicate to the lab region.
 
-To learn about costs associated with using a shared image gallery, see [Billing for Azure Compute Gallery](../virtual-machines/azure-compute-gallery.md#billing).
+To learn about costs associated with using a shared image gallery, see [Billing for Azure Compute Gallery](/azure/virtual-machines/azure-compute-gallery#billing).
 
 ## Attach gallery from the Azure portal
 
@@ -199,4 +199,4 @@ GET  https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/
 ## Related content
 
 - [Create VM from image in attached shared image gallery](add-vm-use-shared-image.md)
-- Explore [Azure Compute Gallery documentation](../virtual-machines/shared-image-galleries.md)
+- Explore [Azure Compute Gallery documentation](/azure/virtual-machines/shared-image-galleries)

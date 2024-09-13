@@ -50,7 +50,7 @@ Most Azure tasks and services can be used with delegated resources across manage
   - Manage Windows Server or Linux machines outside Azure that are connected to delegated subscriptions
   - Manage connected machines using Azure constructs, such as Azure Policy and tagging
   - Ensure the same set of [policies are applied](../../azure-arc/servers/learn/tutorial-assign-policy-portal.md) across customers' hybrid environments
-  - Use Microsoft Defender for Cloud to [monitor compliance across customers' hybrid environments](../../defender-for-cloud/quickstart-onboard-machines.md?pivots=azure-arc)
+  - Use Microsoft Defender for Cloud to [monitor compliance across customers' hybrid environments](/azure/defender-for-cloud/quickstart-onboard-machines?pivots=azure-arc)
 - Manage hybrid Kubernetes clusters at scale - [Azure Arc-enabled Kubernetes](../../azure-arc/kubernetes/overview.md):
   - [Connect Kubernetes clusters](../../azure-arc/kubernetes/quickstart-connect-cluster.md) to delegated subscriptions and/or resource groups
   - [Use GitOps](../../azure-arc/kubernetes/tutorial-use-gitops-flux2.md) to deploy configurations to connected clusters
@@ -75,7 +75,7 @@ Most Azure tasks and services can be used with delegated resources across manage
 
 - From the managing tenant, CSP partners can view, manage, and analyze pre-tax consumption costs (not inclusive of purchases) for customers who are under the Azure plan. The cost is based on retail rates and the Azure role-based access control (Azure RBAC) access that the partner has for the customer's subscription. Currently, you can view consumption costs at retail rates for each individual customer subscription based on Azure RBAC access.
 
-[Azure Key Vault](../../key-vault/general/index.yml):
+[Azure Key Vault](/azure/key-vault/general/):
 
 - Create Key Vaults in customer tenants
 - Use a managed identity to create Key Vaults in customer tenants
@@ -90,14 +90,14 @@ Most Azure tasks and services can be used with delegated resources across manage
 
 - Create migration projects in the customer tenant and migrate VMs
 
-[Azure Monitor](../../azure-monitor/index.yml):
+[Azure Monitor](/azure/azure-monitor/):
 
 - View alerts for delegated subscriptions, with the ability to view and refresh alerts across all subscriptions
 - View activity log details for delegated subscriptions
-- [Log analytics](../../azure-monitor/logs/workspace-design.md#multiple-tenant-strategies): Query data from remote workspaces in multiple tenants (note that automation accounts used to access data from workspaces in customer tenants must be created in the same tenant)
-- Create, view, and manage [alerts](../../azure-monitor/alerts/alerts-create-new-alert-rule.md) in customer tenants
+- [Log analytics](/azure/azure-monitor/logs/workspace-design#multiple-tenant-strategies): Query data from remote workspaces in multiple tenants (note that automation accounts used to access data from workspaces in customer tenants must be created in the same tenant)
+- Create, view, and manage [alerts](/azure/azure-monitor/alerts/alerts-create-new-alert-rule) in customer tenants
 - Create alerts in customer tenants that trigger automation, such as Azure Automation runbooks or Azure Functions, in the managing tenant through webhooks
-- Create [diagnostic settings](../..//azure-monitor/essentials/diagnostic-settings.md) in workspaces created in customer tenants, to send resource logs to workspaces in the managing tenant
+- Create [diagnostic settings](/azure/azure-monitor/essentials/diagnostic-settings) in workspaces created in customer tenants, to send resource logs to workspaces in the managing tenant
 - For SAP workloads, [monitor SAP Solutions metrics with an aggregated view across customer tenants](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/using-azure-lighthouse-and-azure-monitor-for-sap-solutions-to/ba-p/1537293)
 - For Azure AD B2C, [route sign-in and auditing logs](../../active-directory-b2c/azure-monitor.md) to different monitoring solutions
 
@@ -121,7 +121,7 @@ Most Azure tasks and services can be used with delegated resources across manage
 
 - See the tenant ID in returned query results, allowing you to identify whether a subscription belongs to a managed tenant
 
-[Azure Service Health](../../service-health/index.yml):
+[Azure Service Health](/azure/service-health/):
 
 - Monitor the health of customer resources with Azure Resource Health
 - Track the health of the Azure services used by your customers
@@ -130,7 +130,7 @@ Most Azure tasks and services can be used with delegated resources across manage
 
 - Manage disaster recovery options for Azure virtual machines in customer tenants (note that you can't use `RunAs` accounts to copy VM extensions)
 
-[Azure Virtual Machines](../../virtual-machines/index.yml):
+[Azure Virtual Machines](/azure/virtual-machines/):
 
 - Use virtual machine extensions to provide post-deployment configuration and automation tasks on Azure VMs
 - Use boot diagnostics to troubleshoot Azure VMs
@@ -138,7 +138,7 @@ Most Azure tasks and services can be used with delegated resources across manage
 - Integrate VMs with Azure Key Vault for passwords, secrets, or cryptographic keys for disk encryption by using [managed identity through policy](https://github.com/Azure/Azure-Lighthouse-samples/tree/master/templates/create-keyvault-secret), ensuring that secrets are stored in a Key Vault in the managed tenants
 - Note that you can't use Microsoft Entra ID for remote login to VMs
 
-[Microsoft Defender for Cloud](../../defender-for-cloud/index.yml):
+[Microsoft Defender for Cloud](/azure/defender-for-cloud/):
 
 - Cross-tenant visibility
   - Monitor compliance with security policies and ensure security coverage across all tenants' resources

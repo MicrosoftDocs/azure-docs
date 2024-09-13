@@ -33,11 +33,11 @@ The following troubleshooting steps apply to all VM extensions.
 
 - The Log Analytics agent version 1.13.9 (corresponding extension version is 1.13.15) is not correctly marking uploaded data with the resource ID of the Azure Arc-enabled server. Although logs are being sent to the service, when you try to view the data from the selected enabled server after selecting **Logs** or **Insights**, no data is returned. You can view its data by running queries from Azure Monitor Logs or from Azure Monitor for VMs, which are scoped to the workspace.
 
-- Some distributions are not currently supported by the Log Analytics agent for Linux. The agent requires additional dependencies to be installed, including Python 2. Review the support matrix and prerequisites [here](../../azure-monitor/agents/agents-overview.md#supported-operating-systems).
+- Some distributions are not currently supported by the Log Analytics agent for Linux. The agent requires additional dependencies to be installed, including Python 2. Review the support matrix and prerequisites [here](/azure/azure-monitor/agents/agents-overview#supported-operating-systems).
 
 - Error code 52 in the status message indicates a missing dependency. Check the output and logs for more information about which dependency is missing.
 
-- If an installation fails, review the **Troubleshoot and support** section in the overview for the extension. In most cases, there is an error code included in the status message. For the Log Analytics agent for Linux, status messages are explained [here](../../virtual-machines/extensions/oms-linux.md#troubleshoot-and-support), along with general troubleshooting information for this VM extension.
+- If an installation fails, review the **Troubleshoot and support** section in the overview for the extension. In most cases, there is an error code included in the status message. For the Log Analytics agent for Linux, status messages are explained [here](/azure/virtual-machines/extensions/oms-linux#troubleshoot-and-support), along with general troubleshooting information for this VM extension.
 
 ## Next steps
 

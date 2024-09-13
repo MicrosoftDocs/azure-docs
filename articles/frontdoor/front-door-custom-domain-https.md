@@ -162,7 +162,7 @@ Azure Front Door can now access this key vault and the certificates it contains.
     > :::image type="content" source="./media/front-door-custom-domain-https/certificate-version.png" alt-text="Screenshot of selecting secret version on update custom domain page.":::
 
     > [!WARNING]
-    > This is an Azure portal only warning. You need to configure your service principal to have a GET permission on the Key Vault. In order for a user to see the certificate in the portal drop-down, the user account must have LIST and GET permissions on the Key Vault. If a user doesn't have these permissions, they'll see an inaccessible error message in portal. An inaccessible error message doesn't have any impact on certificate auto-rotation or any HTTPS function. No actions are required for this error message if you don't intend to make changes to the certificate or the version. If you want to change the information on this page, see [provide permission to Key Vault](../key-vault/general/rbac-guide.md?tabs=azure-cli) to add your account to the LIST and GET permission of the Key Vault.
+    > This is an Azure portal only warning. You need to configure your service principal to have a GET permission on the Key Vault. In order for a user to see the certificate in the portal drop-down, the user account must have LIST and GET permissions on the Key Vault. If a user doesn't have these permissions, they'll see an inaccessible error message in portal. An inaccessible error message doesn't have any impact on certificate auto-rotation or any HTTPS function. No actions are required for this error message if you don't intend to make changes to the certificate or the version. If you want to change the information on this page, see [provide permission to Key Vault](/azure/key-vault/general/rbac-guide?tabs=azure-cli) to add your account to the LIST and GET permission of the Key Vault.
 
 
 5. When you use your own certificate, domain validation isn't required. Continue to [Wait for propagation](#wait-for-propagation).
@@ -198,7 +198,7 @@ If the CNAME record entry for your endpoint no longer exists or it contains the 
 
 After you enable HTTPS on your custom domain, the DigiCert CA validates ownership of your domain by contacting its registrant, according to the domain's [WHOIS](http://whois.domaintools.com/) registrant information. Contact is made via the email address (by default) or the phone number listed in the WHOIS registration. You must complete domain validation before HTTPS is active on your custom domain. You have six business days to approve the domain. Requests that aren't approved within six business days are automatically canceled. DigiCert domain validation works at the subdomain level. You need to prove ownership of each subdomain separately.
 
-![WHOIS record](./media/front-door-custom-domain-https/whois-record.png)
+:::image type="content" source="./media/front-door-custom-domain-https/whois-record.png" alt-text="Screenshot of WHOIS record.":::
 
 DigiCert also sends a verification email to other email addresses. If the WHOIS registrant information is private, verify that you can approve directly from one of the following addresses:
 
@@ -216,7 +216,10 @@ When you select the approval link, you're directed to an online approval form. F
 
 - You can approve just the specific host name used in this request. Extra approval is required for subsequent requests.
 
-After approval, DigiCert completes the certificate creation for your custom domain name. The certificate is valid for one year and gets autorenew before it expires.
+After approval, DigiCert completes the certificate creation for your custom domain name. The certificate is valid for one year. If the CNAME record for your custom domain is added or updated to map to your Azure Front Door's default hostname after verification, then it will be autorenewed before it expires.
+
+> [!NOTE]
+> Managed certificate autorenewal requires that your custom domain be directly mapped to your Front Door's default .azurefd.net hostname by a CNAME record.
 
 ## Wait for propagation
 

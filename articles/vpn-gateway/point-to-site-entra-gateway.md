@@ -6,14 +6,14 @@ author: cherylmc
 ms.service: azure-vpn-gateway
 ms.custom: linux-related-content
 ms.topic: how-to
-ms.date: 07/24/2024
+ms.date: 08/06/2024
 ms.author: cherylmc
 # Customer intent: As an VPN Gateway administrator, I want to configure point-to-site to allow Microsoft Entra ID authentication using the Microsoft-registered Azure VPN Client APP ID.
 ---
 
 # Configure P2S VPN Gateway for Microsoft Entra ID authentication – Microsoft-registered app
 
-This article helps you configure your point-to-site (P2S) VPN gateway for Microsoft Entra ID authentication using the new Microsoft-registered Azure VPN Client App ID.
+This article helps you configure your point-to-site (P2S) VPN gateway for Microsoft Entra ID authentication using the new Microsoft-registered Azure VPN Client App ID. 
 
 > [!NOTE]
 > The steps in this article apply to Microsoft Entra ID authentication using the new Microsoft-registered Azure VPN Client App ID and associated Audience values. This article doesn't apply to the older, manually registered Azure VPN Client app for your tenant. For the manually registered Azure VPN Client steps, see [Configure P2S using manually registered VPN client](openvpn-azure-ad-tenant.md).
@@ -86,7 +86,7 @@ The client address pool is a range of private IP addresses that you specify. The
 
       * Azure Public: `https://login.microsoftonline.com/{Microsoft ID Entra Tenant ID}`
 
-   * **Audience**: The corresponding value for the Microsoft-registered Azure VPN Client App ID. Custom audience is also supported for this field.
+   * **Audience**: The corresponding value for the Microsoft-registered Azure VPN Client App ID. [Custom audience](point-to-site-entra-register-custom-app.md) is also supported for this field.
 
      * Azure Public: `c632b3df-fb67-4d84-bdcf-b95ad541b5c8`
 

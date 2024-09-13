@@ -119,7 +119,7 @@
     - name: Organize and inventory servers
       href: organize-inventory-servers.md
     - name: Onboard to Microsoft Defender for Cloud
-      href: ../../defender-for-cloud/quickstart-onboard-machines.md?toc=/azure/azure-arc/servers/toc.json&bc=/azure/azure-arc/servers/breadcrumb/toc.json
+      href: /azure/defender-for-cloud/quickstart-onboard-machines?toc=/azure/azure-arc/servers/toc.json&bc=/azure/azure-arc/servers/breadcrumb/toc.json
     - name: Manage with Windows Admin Center
       href: /windows-server/manage/windows-admin-center/azure/manage-arc-hybrid-machines?toc=/azure/azure-arc/servers/toc.json&bc=/azure/azure-arc/servers/breadcrumb/toc.json
   - name: Connect via SSH

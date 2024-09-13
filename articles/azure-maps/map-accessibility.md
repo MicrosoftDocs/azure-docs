@@ -6,6 +6,7 @@ ms.author: sipa
 ms.date: 05/15/2023
 ms.topic: how-to
 ms.service: azure-maps
+ms.subservice: web-sdk
 ---
 
 # Building an accessible application

@@ -4,17 +4,19 @@ description: This article describes the supported Windows and Linux operating sy
 services: automation
 ms.subservice: update-management
 ms.custom: linux-related-content
-ms.date: 07/15/2024
-ms.topic: conceptual
+ms.date: 09/10/2024
+ms.topic: overview
 ms.service: azure-automation
 ---
 
 # Operating systems supported by Update Management
 
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
+> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](/azure/virtual-machines/workloads/centos/centos-end-of-life).
 
 This article details the Windows and Linux operating systems supported and system requirements for machines or servers managed by Update Management.
+
+[!INCLUDE [./log-analytics-retirement-announcement.md](../includes/log-analytics-retirement-announcement.md)]
 
 ## Supported operating systems
 
@@ -49,7 +51,7 @@ All operating systems are assumed to be x64. x86 is not supported for any operat
 ---
 
 > [!NOTE]
-> Update Management does not support automating update management across all instances in an Azure virtual machine scale set. [Automatic OS image upgrades](../../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md) is the recommended method for managing OS image upgrades on your scale set.
+> Update Management does not support automating update management across all instances in an Azure virtual machine scale set. [Automatic OS image upgrades](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade) is the recommended method for managing OS image upgrades on your scale set.
 
 ## Unsupported operating systems
 
@@ -75,7 +77,7 @@ The section describes operating system-specific requirements. For additional gui
 
 Windows Update agents must be configured to communicate with a Windows Server Update Services (WSUS) server, or they require access to Microsoft Update. For hybrid machines, we recommend installing the Log Analytics agent for Windows by first connecting your machine to [Azure Arc-enabled servers](../../azure-arc/servers/overview.md), and then use Azure Policy to assign the [Deploy Log Analytics agent to Microsoft Azure Arc machines](../../governance/policy/samples/built-in-policies.md#monitoring) built-in policy definition. Alternatively, if you plan to monitor the machines with VM insights, instead use the [Enable Enable VM insights](../../governance/policy/samples/built-in-initiatives.md#monitoring) initiative.
 
-You can use Update Management with Microsoft Configuration Manager. To learn more about integration scenarios, see [Integrate Update Management with Windows Configuration Manager](mecmintegration.md). The [Log Analytics agent for Windows](../../azure-monitor/agents/agent-windows.md) is required for Windows servers managed by sites in your Configuration Manager environment.
+You can use Update Management with Microsoft Configuration Manager. To learn more about integration scenarios, see [Integrate Update Management with Windows Configuration Manager](mecmintegration.md). The [Log Analytics agent for Windows](/azure/azure-monitor/agents/agent-windows) is required for Windows servers managed by sites in your Configuration Manager environment.
 
 By default, Windows VMs that are deployed from Azure Marketplace are set to receive automatic updates from Windows Update Service. This behavior doesn't change when you add Windows VMs to your workspace. If you don't actively manage updates by using Update Management, the default behavior (to automatically apply updates) applies.
 

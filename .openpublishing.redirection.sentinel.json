@@ -1,6 +1,21 @@
 {
     "redirections": [
         {
+            "source_path": "articles/sentinel/best-practices-workspace-architecture.md",
+            "redirect_url": "/azure/azure-monitor/logs/workspace-design",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/sentinel/design-your-workspace-architecture.md",
+            "redirect_url": "/azure/azure-monitor/logs/workspace-design",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/sentinel/notebooks-troubleshoot.md",
+            "redirect_url": "/azure/sentinel/notebooks-hunt",
+            "redirect_document_id": true
+        },
+        {
             "source_path": "articles/sentinel/detect-threats-built-in.md#use-analytics-rule-templates",
             "redirect_url": "/azure/sentinel/create-analytics-rule-from-template",
             "redirect_document_id": true
@@ -268,7 +283,7 @@
         {
             "source_path": "articles/sentinel/store-logs-in-azure-data-explorer.md",
             "redirect_url": "/azure/azure-monitor/logs/data-retention-archive",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path": "articles/sentinel/review-fine-tune-overview.md",

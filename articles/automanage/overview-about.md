@@ -11,6 +11,9 @@ ms.custom: overview
 
 # Azure Automanage machine best practices
 
+> [!CAUTION]
+> On 31 August 2024, both Automation Update Management and the Log Analytics agent it uses will be retired. Migrate to Azure Update Manager before that. Refer to guidance on migrating to Azure Update Manager [here](/azure/update-manager/guidance-migration-automation-update-management-azure-update-manager?WT.mc_id=Portal-Microsoft_Azure_Automation). [Migrate Now](https://portal.azure.com/).
+
 This article covers information about Azure Automanage machine best practices, which have the following benefits:
 
 - Intelligently onboards virtual machines to select best practices Azure services
@@ -38,7 +41,7 @@ There are several prerequisites to consider before trying to enable Azure Automa
 - Machines must be in a [supported region](#supported-regions)
 - User must have correct [permissions](#required-rbac-permissions)
 - Automanage does not support Sandbox subscriptions at this time
-- Automanage does not support [Trusted Launch VMs](../virtual-machines/trusted-launch.md)
+- Automanage does not support [Trusted Launch VMs](/azure/virtual-machines/trusted-launch)
 
 ### Supported regions
 

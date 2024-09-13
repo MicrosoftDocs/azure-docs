@@ -149,7 +149,7 @@ If your migration includes a custom domain suffix, for App Service Environment v
 After completing the previous steps, you should continue with migration as soon as possible.
 
 > [!IMPORTANT]
-> Since scaling is blocked during the migration, you should scale your environment to the desired size before starting the migration.
+> Since scaling is blocked during the migration, you should scale your environment to the desired size before starting the migration. If you have auto-scaling enabled, if a scaling event occurs before the migration starts, you have to wait until the scaling event completes before starting the migration. You should disable auto-scaling before starting the migration to avoid this issue. If you need to scale your environment after the migration, you can do so once the migration is complete.
 >
 
 Migration requires a three to six hour service window for App Service Environment v2 to v3 migrations. Up to a six hour service window is required depending on environment size for v1 to v3 migrations. The service window might be extended in rare cases where manual intervention by the service team is required. During migration, scaling and environment configurations are blocked and the following events occur:
@@ -183,7 +183,7 @@ Ensure that there are no locks on your virtual network, resource group, resource
 
 Ensure that no Azure policies are blocking actions that are required for the migration, including subnet modifications and Azure App Service resource creations. Policies that block resource modifications and creations can cause migration to get stuck or fail.
 
-Since scaling is blocked during the migration, you should scale your environment to the desired size before starting the migration. If you need to scale your environment after the migration, you can do so once the migration is complete.
+Since scaling is blocked during the migration, you should scale your environment to the desired size before starting the migration. If you need to scale your environment after the migration, you can do so once the migration is complete. If you have auto-scaling enabled, if a scaling event occurs before the migration starts, your migration is blocked until the scaling event completes. You should disable auto-scaling before starting the migration to avoid this issue.
 
 ::: zone pivot="experience-azcli"
 
@@ -241,10 +241,6 @@ If the step is in progress, you get a status of `Migrating`. After you get a sta
 ```azurecli
 az rest --method get --uri "${ASE_ID}/configurations/networking?api-version=2021-02-01"
 ```
-
-> [!NOTE]
-> Due to a known bug, for ELB App Service Environment migrations, the inbound IP address may change again once the [migration step](#8-migrate-to-app-service-environment-v3-and-check-status) is complete. This bug is being addressed and will be fixed as soon as possible. Open a support case to receive the correct IP address upfront or if you have any questions or concerns about this issue.
->
 
 ### 4. Update dependent resources with new IPs
 
@@ -375,10 +371,6 @@ Get the details of your new environment by running the following command or by g
 az appservice ase show --name $ASE_NAME --resource-group $ASE_RG
 ```
 
-> [!NOTE]
-> Due to a known bug, for ELB App Service Environment migrations, the inbound IP address may change once the [migration step](#8-migrate-to-app-service-environment-v3) is complete. Check your App Service Environment v3's IP addresses and make any needed updates if there have been changes since the IP generation step. Open a support case if you have any questions or concerns about this issue or need help with the confirming the new IPs.
->
-
 ::: zone-end
 
 ::: zone pivot="experience-azp"
@@ -410,10 +402,6 @@ If migration is supported for your App Service Environment, proceed to the next 
 ### 2. Generate IP addresses for your new App Service Environment v3 resource
 
 Under **Get new IP addresses**, confirm that you understand the implications and select the **Start** button. This step takes about 15 minutes to complete. You can't scale or make changes to your existing App Service Environment during this time.
-
-> [!NOTE]
-> Due to a known bug, for ELB App Service Environment migrations, the inbound IP address may change again once the migration step is complete. This bug is being addressed and will be fixed as soon as possible. Open a support case to receive the correct IP address upfront or if you have any questions or concerns about this issue.
->
 
 ### 3. Update dependent resources with new IPs
 
@@ -476,10 +464,6 @@ This step takes three to six hours for v2 to v3 migrations and up to six hours f
 At this time, detailed migration statuses are available only when you're using the Azure CLI. For more information, see the Azure CLI section for migrating to App Service Environment v3. You can check the status of the migration with the CLI even if you use the portal to do the migration.
 
 When migration is complete, you have an App Service Environment v3 resource, and all of your apps are running in your new environment. You can confirm the environment's version by checking the **Configuration** page for your App Service Environment.
-
-> [!NOTE]
-> Due to a known bug, for ELB App Service Environment migrations, the inbound IP address may change once the migration step is complete. Check your App Service Environment v3's IP addresses and make any needed updates if there have been changes since the IP generation step. Open a support case if you have any questions or concerns about this issue or need help confirming the new IPs.
->
 
 If your migration includes a custom domain suffix, the domain appeared in the **Essentials** section of the **Overview** page of the portal for App Service Environment v1/v2, but it no longer appears there in App Service Environment v3. Instead, for App Service Environment v3, go to the **Custom domain suffix** page to confirm that your custom domain suffix is configured correctly. You can also remove the configuration if you no longer need it or configure one if you didn't have one previously.
 

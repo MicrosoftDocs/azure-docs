@@ -5,8 +5,8 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-route-server
 ms.topic: quickstart
-ms.date: 08/11/2023
-ms.custom: template-quickstart, devx-track-azurepowershell, mode-api, engagement-fy23
+ms.date: 08/14/2024
+ms.custom: devx-track-azurepowershell, mode-api
 ---
 
 # Quickstart: Create and configure Route Server using Azure PowerShell
@@ -98,6 +98,8 @@ $subnetId = (Get-AzVirtualNetworkSubnetConfig -Name RouteServerSubnet -VirtualNe
     }
     New-AzRouteServer @rs 
     ```
+
+    [!INCLUDE [Deployment note](../../includes/route-server-note-creation-time.md)]
 
 ## Create BGP peering with an NVA
 

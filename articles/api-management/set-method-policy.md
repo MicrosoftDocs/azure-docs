@@ -31,7 +31,7 @@ The value of the element specifies the HTTP method, such as `POST`, `GET`, and s
 
 - [**Policy sections:**](./api-management-howto-policies.md#sections) inbound, on-error
 - [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, workspace, product, API, operation
--  [**Gateways:**](api-management-gateways-overview.md) classic, v2, consumption, self-hosted
+-  [**Gateways:**](api-management-gateways-overview.md) classic, v2, consumption, self-hosted, workspace
 
 ## Example
 

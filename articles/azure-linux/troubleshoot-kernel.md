@@ -1,8 +1,8 @@
 ---
 title: Troubleshooting Azure Linux Container Host for AKS kernel version issues
 description: How to troubleshoot Azure Linux Container Host for AKS kernel version issues.
-author: htaubenfeld
-ms.author: htaubenfeld
+author: suhuruli
+ms.author: suhuruli
 ms.service: microsoft-linux
 ms.custom: linux-related-content
 ms.topic: troubleshooting

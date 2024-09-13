@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: azure-api-management
 ms.topic: article
-ms.date: 06/25/2024
+ms.date: 08/30/2024
 ms.author: danlep
 ---
 
@@ -111,7 +111,7 @@ The `validate-jwt` policy enforces existence and validity of a supported JSON we
 
 - [**Policy sections:**](./api-management-howto-policies.md#sections) inbound
 - [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, workspace, product, API, operation
--  [**Gateways:**](api-management-gateways-overview.md) classic, v2, consumption, self-hosted
+-  [**Gateways:**](api-management-gateways-overview.md) classic, v2, consumption, self-hosted, workspace
 
 ### Usage notes
 
@@ -119,7 +119,7 @@ The `validate-jwt` policy enforces existence and validity of a supported JSON we
 * The policy supports both symmetric and asymmetric signing algorithms: 
     * **Symmetric** - The following encryption algorithms are supported: A128CBC-HS256, A192CBC-HS384, A256CBC-HS512.
     	* If used in the policy, the key must be provided inline within the policy in the Base64-encoded form.
-    * **Asymmetric** - The following encryption algortithms are supported: PS256, RS256, RS512. 
+    * **Asymmetric** - The following encryption algortithms are supported: PS256, RS256, RS512, ES256. 
     	* If used in the policy, the key may be provided either via an OpenID configuration endpoint, or by providing the ID of an uploaded certificate (in PFX format) that contains the public key, or the modulus-exponent pair of the public key.
 * To configure the policy with one or more OpenID configuration endpoints for use with a self-hosted gateway, the OpenID configuration endpoints URLs must also be reachable by the cloud gateway.
 * You can use access restriction policies in different scopes for different purposes. For example, you can secure the whole API with Microsoft Entra authentication by applying the `validate-jwt` policy on the API level, or you can apply it on the API operation level and use `claims` for more granular control.

@@ -6,7 +6,7 @@ description: Learn about Nutanix Cloud Clusters on Azure and the benefits it off
 ms.topic: overview
 ms.subservice: baremetal-nutanix
 ms.custom: engagement-fy23
-ms.date: 7/19/2024
+ms.date: 8/15/2024
 ms.service: azure-baremetal-infrastructure
 ---
 

@@ -6,7 +6,7 @@ ms.author: aterceros
 ms.date: 02/14/2019
 ms.topic: reference
 ms.service: azure-maps
-services: azure-maps
+ms.subservice: spatial
 ---
 
 # Geofencing GeoJSON data
