@@ -12,11 +12,13 @@ ms.topic: article
 App Service Environment has three versions. App Service Environment v3 is the latest version and provides advantages and feature differences over earlier versions.
 
 > [!IMPORTANT]
-> This article includes information about about App Service Environment v1 and v2. [App Service Environment v1 and v2 will be retired on 31 August 2024](https://azure.microsoft.com/updates/v2/App-Service-Environment-v1v2-Retirement-Update). There's a new version of App Service Environment that is easier to use and runs on more powerful infrastructure. To learn more about the new version, start with the [Introduction to the App Service Environment](overview.md). If you're currently using App Service Environment v2, please follow the steps in [this article](upgrade-to-asev3.md) to migrate to the new version.
+> This article includes information about about App Service Environment v1 and v2. [App Service Environment v1 and v2 are retired as of 31 August 2024](https://aka.ms/postEOL/ASE). There's a new version of App Service Environment that is easier to use and runs on more powerful infrastructure. To learn more about the new version, start with the [Introduction to the App Service Environment](overview.md). If you're currently using App Service Environment v1, please follow the steps in [this article](upgrade-to-asev3.md) to migrate to the new version.
 >
-> After 31 August 2024, decommissioning of the App Service Environment v1 and v2 hardware will begin, and this may affect the availability and performance of your apps and data. Service Level Agreement (SLA) and Service Credits will no longer apply for App Service Environment v1 and v2 workloads that continue to be in production after 31 August 2024.  
+> As of 31 August 2024, [Service Level Agreement (SLA) and Service Credits](https://aka.ms/postEOL/ASE/SLA) no longer apply for App Service Environment v1 and v2 workloads that continue to be in production since they are retired products. Decommissioning of the App Service Environment v1 and v2 hardware has begun, and this may affect the availability and performance of your apps and data.
 >
-> You must complete migration to App Service Environment v3 before 31 August 2024 or your apps and resources may be deleted. We will attempt to auto-migrate any remaining App Service Environment v1 and v2 on a best-effort basis using the [in-place migration feature](migrate.md), but Microsoft makes no claim or guarantees about application availability after auto-migration. You may need to perform manual configuration to complete the migration and to optimize your App Service plan SKU choice to meet your needs. If auto-migration is not feasible, your resources and associated app data will be deleted. We strongly urge you to act now to avoid either of these extreme scenarios.
+> You must complete migration to App Service Environment v3 immediately or your apps and resources may be deleted. We will attempt to auto-migrate any remaining App Service Environment v1 and v2 on a best-effort basis using the [in-place migration feature](migrate.md), but Microsoft makes no claim or guarantees about application availability after auto-migration. You may need to perform manual configuration to complete the migration and to optimize your App Service plan SKU choice to meet your needs. If auto-migration isn't feasible, your resources and associated app data will be deleted. We strongly urge you to act now to avoid either of these extreme scenarios.
+>
+> If you need additional time, we can offer a one-time 30-day grace period for you to complete your migration. For more information and to request this grace period, review the [grace period overview](./auto-migration.md#grace-period), and then go to [Azure portal](https://portal.azure.com) and visit the Migration blade for each of your App Service Environments.
 >
 > For the most up-to-date information on the App Service Environment v1/v2 retirement, see the [App Service Environment v1 and v2 retirement update](https://github.com/Azure/app-service-announcements/issues/469).
 >
@@ -39,7 +41,6 @@ App Service Environment has three versions. App Service Environment v3 is the la
 |Remote debugging     |Yes         |Yes         |Yes, [must be explicitly enabled](configure-network-settings.md#remote-debugging-access)         |
 |[Azure virtual network (classic)](../../virtual-network/create-virtual-network-classic.md) support    |Yes         |No         |No         |
 
-
 ### Networking
 
 |Feature  |[App Service Environment v1](app-service-app-service-environment-intro.md)  |[App Service Environment v2](intro.md)  |[App Service Environment v3](overview.md)  |
@@ -55,7 +56,7 @@ App Service Environment has three versions. App Service Environment v3 is the la
 
 ### Scaling
 
-App Service Environment v3 runs on the latest [Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/overview) infrastructure while App Service Environment v1 and v2 run on [Cloud Services (classic)](../../cloud-services/cloud-services-choose-me.md). Because of this, App Service Environment v3 has the best performing and fastest scaling times across all versions. 
+App Service Environment v3 runs on the latest [Virtual Machine Scale Sets](/azure/virtual-machine-scale-sets/overview) infrastructure while App Service Environment v1 and v2 run on [Cloud Services (classic)](../../cloud-services/cloud-services-choose-me.md). Because of this, App Service Environment v3 has the best performing and fastest scaling times across all versions.
 
 |Feature  |[App Service Environment v1](app-service-app-service-environment-intro.md)  |[App Service Environment v2](intro.md)  |[App Service Environment v3](overview.md)  |
 |---------|---------|---------|---------|
@@ -148,16 +149,16 @@ For more information on App Service Environment v3 networking dependencies, see 
 On App Service Environment v2, there are many inbound and outbound requirements that have to you have to manage. Modifying these rules can cause the environment to go into an unhealthy state.
 
 - Inbound
-    - TCP from the IP service tag AppServiceManagement on ports 454, 455
-    - TCP from the load balancer on port 16001
-    - From the App Service Environment subnet to the App Service Environment subnet on all ports
+  - TCP from the IP service tag AppServiceManagement on ports 454, 455
+  - TCP from the load balancer on port 16001
+  - From the App Service Environment subnet to the App Service Environment subnet on all ports
 - Outbound
-    - UDP to all IPs on port 53
-    - UDP to all IPs on port 123
-    - TCP to all IPs on port 80, 443
-    - TCP to the IPs service tag Sql on ports 1433
-    - TCP to all IPs on port 12000
-    - To the App Service Environment subnet on all ports 
+  - UDP to all IPs on port 53
+  - UDP to all IPs on port 123
+  - TCP to all IPs on port 80, 443
+  - TCP to the IPs service tag Sql on ports 1433
+  - TCP to all IPs on port 12000
+  - To the App Service Environment subnet on all ports
 
 For more information on App Service Environment v2 networking dependencies, see [inbound and outbound dependencies](network-info.md#inbound-and-outbound-dependencies).
 
@@ -167,7 +168,7 @@ This limitation is a result of the underlying infrastructure change that was imp
 
 #### What does custom domain suffix refer to?
 
-The custom domain suffix is for the App Service Environment. It's available on App Service Environment v1 and v3, but was removed from App Service Environment v2. 
+The custom domain suffix is for the App Service Environment. It's available on App Service Environment v1 and v3, but was removed from App Service Environment v2.
 
 It's different from a custom domain binding on App Service. The custom domain suffix defines a root domain that can be used by the App Service Environment. In the public variation of Azure App Service, the default root domain for all web apps is azurewebsites.net. For ILB App Service Environments, the default root domain is appserviceenvironment.net. However, since an ILB App Service Environment is internal to a customer's virtual network, customers can use a root domain in addition to the default one that makes sense for use within a company's internal virtual network. For example, a hypothetical Contoso Corporation might use a default root domain of internal.contoso.com for apps that are intended to only be resolvable and accessible within Contoso's virtual network. An app in this virtual network could be reached by accessing APP-NAME.internal.contoso.com.
 
