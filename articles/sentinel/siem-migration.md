@@ -91,6 +91,11 @@ Current capabilities:
 
 :::image type="content" source="media/siem-migration/upload-file.png" alt-text="Screenshot showing the upload files tab.":::
 
+## Schema mapping
+
+Microsoft Sentinel Analytics require that the data type be present in the Log Analytics Workspace before a rule is enabled. Schema mapping ensures the data types and fields used in the rule logic are mapped accurately. It's also important the fields used in the query are accurate for the data type schema.
+
+
 ## Configure rules
 
 1. Select **Configure Rules**.
@@ -99,20 +104,17 @@ Current capabilities:
 
     - **Name** is the original Splunk detection rule name.
     - **Translation Type** indicates if a Sentinel OOTB analytics rule matches the Splunk detection logic.
-    - **Translation State** has the following values:
-        - **Fully Translated** queries in this rule were fully translated to KQL
-        - **Partially Translated** queries in this rule weren't fully translated to KQL
-        - **Not Translated** indicates an error in translation
-        - **Manually Translated** when any rule is reviewed and saved
+    - **Translation State** gives feedback about how completely the syntax of a Splunk detection has been translated to KQL. The translation state doesn't test the rule or verify the data source.
+        - **Fully Translated** - Queries in this rule were fully translated to KQL but haven't tested the rule logic or data source.
+        - **Partially Translated** - Queries in this rule weren't fully translated to KQL.
+        - **Not Translated** - Indicates an error in translation.
+        - **Manually Translated** - This status is set when any rule is edited and saved.
 
     :::image type="content" source="media/siem-migration/configure-rules.png" alt-text="Screenshot showing the results of the automatic rule mapping." lightbox="media/siem-migration/configure-rules.png":::
 
-    > [!NOTE]
-    > Check the schema of the data types and fields used in the rule logic. Microsoft Sentinel Analytics require that the data type be present in the Log Analytics Workspace before the rule is enabled. It's also important the fields used in the query are accurate for the defined data type schema.
-
 1. Highlight a rule to resolve translation and select **Edit**. When you are satisfied with the results, select **Save Changes**. 
 
-1. Switch on the **Ready to deploy** toggle for Analytics rules you want to deploy.
+1. Switch on the **Deploy** toggle for analytics rules you want to deploy.
 
 1. When the review is complete, select **Review and migrate**.
 
