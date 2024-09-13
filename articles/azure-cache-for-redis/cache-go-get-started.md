@@ -25,7 +25,7 @@ If you want to go straight to the code, see the [Go quickstart sample](https://g
 - An Azure subscription. [Create one for free](https://azure.microsoft.com/free/)
 - [Go](https://go.dev/doc/install) (preferably version 1.13 or later)
 - [Git](https://git-scm.com/downloads)
-- An HTTP client like [curlL](https://curl.se/)
+- An HTTP client like [curl](https://curl.se/)
 
 ## Create a cache
 
