@@ -12,6 +12,12 @@ ms.subservice: web-sdk
 
 # Core IO operations
 
+> [!NOTE]
+>
+> **Azure Maps Spatial service retirement**
+>
+> The Azure Maps Spatial service is now deprecated and will be retired on 9/30/25.
+
 In addition to providing tools to read spatial data files, the spatial IO module exposes core underlying libraries to read and write XML and delimited data fast and efficiently.
 
 The `atlas.io.core` namespace contains two low-level classes that can quickly read and write CSV and XML data. These base classes power the spatial data readers and writers in the Spatial IO module. Feel free to use them to add more reading and writing support for CSV or XML files.

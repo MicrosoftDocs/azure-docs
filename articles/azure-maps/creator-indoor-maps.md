@@ -13,6 +13,12 @@ ms.subservice: creator
 
 # Creator for indoor maps
 
+> [!NOTE]
+>
+> **Azure Maps Creator retirement**
+>
+> The Azure Maps Creator is now deprecated and will be retired on 9/30/25.
+
 This article introduces concepts and tools that apply to Azure Maps Creator. We recommend that you read this article before you begin to use the Azure Maps Creator API and SDK.
 
 You can use Creator to develop applications with map features that are based on indoor map data. This article describes the process of uploading, converting, creating, and using your map data. Typically, the workflow is completed by two different personas with distinct areas of expertise and responsibility:

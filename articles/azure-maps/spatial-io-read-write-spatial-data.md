@@ -12,6 +12,12 @@ ms.subservice: web-sdk
 
 # Read and write spatial data
 
+> [!NOTE]
+>
+> **Azure Maps Spatial service retirement**
+>
+> The Azure Maps Spatial service is now deprecated and will be retired on 9/30/25.
+
 The following table lists the spatial file formats that are supported for reading and writing operations with the Spatial IO module.
 
 | Data Format       | Read | Write |
