@@ -16,7 +16,7 @@ Today, Azure Backup provides various built-in policies (using [Azure Policy](../
 
 ## Policy 1 - Azure Backup should be enabled for Managed Disks
 
-It is an [audit-only](../governance/policy/concepts/effects.md#audit) policy. This policy identifies which disks don't have backup enabled but doesn't automatically configure backups for these disks. It is useful when you're only looking to evaluate the overall compliance of the disks but not looking to take action immediately.
+Use an [audit-only](../governance/policy/concepts/effects.md#audit) policy to identify disks which don't have backup enabled. However, this policy doesn't automatically configure backups for these disks. It is useful when you're only looking to evaluate the overall compliance of the disks but not looking to take action immediately.
 
 ## Policy 2 - Configure backup for Azure Disks (Managed Disks) with a given tag to an existing backup vault in the same region
 
@@ -28,7 +28,9 @@ This policy works the same as Policy 2 above, with the only difference being tha
 
 ## Supported Scenarios
 
-* The built-in policy is currently supported only for Azure Managed Disks. Users must take care to ensure that the Backup Vault and backup policy specified during assignment is a Disk backup policy. 
+Before you audit and enforce backups for AKS clusters, see the following scenarios supported:
+
+* The built-in policy is currently supported only for Azure Managed Disks. Ensure that the Backup Vault and backup policy specified during assignment is a Disk backup policy. 
 
 * The Policies 2 and 3 can be assigned to a single location and subscription at a time. To enable backup for Disks across locations and subscriptions, multiple instances of the policy assignment need to be created, one for each combination of location and subscription.
 
@@ -41,23 +43,33 @@ This policy works the same as Policy 2 above, with the only difference being tha
 
 The below steps describe the end-to-end process of assigning Policy 2: **Configure backup on Managed Disks with a given tag to an existing backup vault in the same location to a given scope** . Similar instructions are applicable for the other policies. Once assigned, any new Managed Disk created in the scope is automatically configured for backup.
 
+To assign Policy 2, follow these steps:
+
 1. Sign in to the Azure portal and navigate to the **Policy** Dashboard.
+
 2. Select **Definitions** in the left menu to get a list of all built-in policies across Azure Resources.
+
 3. Filter the list for **Category=Backup** and select the policy named *Configure backup on Managed Disks with a given tag to an existing backup vault in the same location to a given scope*.
 :::image type="content" source="./media/backup-managed-disks-policy/policy-dashboard-inline.png" alt-text="Screenshot showing how to filter the list by category on Policy dashboard." lightbox="./media/backup-azure-auto-enable-backup/policy-dashboard-expanded.png":::
+
 4. Select the name of the policy. You're then redirected to the detailed definition for this policy.
 ![Screenshot showing the Policy Definition pane.](./media/backup-managed-disks-policy/policy-definition-blade.png)
+
 5. Select the **Assign** button at the top of the pane. This redirects you to the **Assign Policy** pane.
+
 6. Under **Basics**, select the three dots next to the **Scope** field. It opens up a right context pane where you can select the subscription for the policy to be applied on. You can also optionally select a resource group, so that the policy is applied only for Disks in a particular resource group.
 ![Screenshot showing the Policy Assignment Basics tab.](./media/backup-managed-disks-policy/policy-assignment-basics.png)
+
 7. In the **Parameters** tab, choose a location from the drop-down, and select the vault, backup policy to which the Disks in the scope must be associated, and resource group where these disk snapshots are stored. You can also choose to specify a tag name and an array of tag values. A Disk that contains any of the specified values for the given tag is included in the scope of the policy assignment.
 ![Screenshot showing the Policy Assignment Parameters pane.](./media/backup-managed-disks-policy/policy-assignment-parameters.png)
+
 8. Ensure that **Effect** is set to deployIfNotExists.
+
 9. Navigate to **Review+create** and select **Create**.
 
 > [!NOTE]
 >
-> - Azure Policy can also be used on existing Disks, using [remediation](../governance/policy/how-to/remediate-resources.md).
+> - Use [remediation](../governance/policy/how-to/remediate-resources.md) to enable policy of exisiting Managed Disks.
 > - It's recommended that this policy not be assigned to more than 200 Disks at a time. If the policy is assigned to more than 200 Disks, it can result in the backup being triggered a few hours later than that specified by the schedule.
 
 ## Next step
