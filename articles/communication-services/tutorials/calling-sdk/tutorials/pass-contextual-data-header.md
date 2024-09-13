@@ -5,14 +5,14 @@ description: Provide a tutorial on how to pass contextual User-to-User Informati
 author: sloanster
 ms.topic: tutorial
 ms.service: azure-communication-services
-ms.date: 09/11/2024
+ms.date: 09/12/2024
 ms.author: micahvivion
 services: azure-communication-services
 ---
 
 # Using the ACS calling SDK to pass contextual User-to-User Information (UUI) data between calls
 
-The Azure Communication Services (ACS) WebJS SDK provides developers to include custom contextual data (included as a header on the callling object) when directing and routing calls from one person to another.  This information, also known as User-to-User Information (UUI) data or call control UUI data, is a small piece of data inserted by an application initiating the call. The UUI data is opaque to end users making a call.
+The Azure Communication Services (ACS) WebJS SDK provides developers to include custom contextual data (included as a header on the calling object) when directing and routing calls from one person to another.  This information, also known as User-to-User Information (UUI) data or call control UUI data, is a small piece of data inserted by an application initiating the call. The UUI data is opaque to end users making a call.
 
 Developers can pass this context by using custom headers, which consist of optional key-value pairs. These pairs can be included in the 'AddParticipant' or 'Transfer' actions within the calling SDK. Once added, you can read the data payload as the call moves between endpoints. By efficiently looking up this metadata and associating it with the call, developers can avoid external database lookups and have the content information readily available within the call object.
 
@@ -29,7 +29,7 @@ The calling SDK supports adding up to 5 custom SIP headers and 1000 custom VOIP 
 
 The maximum length of a SIP header key is 64 chars, including the X-MS-Custom prefix. Due note that when the SIP header is added the calling SDK will automatically add the ‘X-MS-Custom-’ prefix (which can be seeing if you inspect the SIP header with packet inspector).
 
-The SIP header key may consist of alphanumeric characters and a few selected symbols which includes `.`, `!`, `%`, `*`, `_`, `+`, `~`, `-`. The maximum length of SIP header value is 256 chars. The same limitations apply when configuring the SIP headers on your SBC. The SIP header value may consist of alphanumeric characters and a few selected symbols which includes `=`, `;`, `.`, `!`, `%`, `*`, `_`, `+`, `~`, `-`.
+The SIP header key may consist of alphanumeric characters and a few selected symbols which include `.`, `!`, `%`, `*`, `_`, `+`, `~`, `-`. The maximum length of SIP header value is 256 chars. The same limitations apply when configuring the SIP headers on your SBC. The SIP header value may consist of alphanumeric characters and a few selected symbols which include `=`, `;`, `.`, `!`, `%`, `*`, `_`, `+`, `~`, `-`.
 
 The maximum length of a VOIP header key is 64 chars. The maximum length of VOIP header value is 1024 chars.
 
@@ -86,6 +86,6 @@ Currently, adding custom User-to-User Information headers is only supported when
 
 ## More resources
 
-- For more details on how to pass contextual data using Azure Communication Services Call automation, see this [guide](../../../how-tos/call-automation/custom-context.md).
+- You can find more details on how to pass contextual data using Azure Communication Services Call automation in this [guide](../../../how-tos/call-automation/custom-context.md).
 
-- Learn more about [SIP protocol details for direct routing](../../../concepts/telephony/direct-routing-sip-specification.md).
+- Youn can learn more about SIP protocol details for direct routing in this [guide](../../../concepts/telephony/direct-routing-sip-specification.md).
