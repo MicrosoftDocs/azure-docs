@@ -21,11 +21,11 @@ You can use [Azure Backup](./backup-overview.md) to help protect Azure Kubernete
 
 - Vault Tier and Cross Region Restore support (preview) for AKS backup are available in the following regions: East US, West US, West US 3, North Europe, West Europe, North Central US, South Central US, West Central US, East US 2, Central US, UK South, UK West, East Asia, South-East Asia, Japan East South India, Central India, Canada Central and Norway East .
 
->[!Note]
->Vaulted backup and Cross Region Restore for AKS using Azure Backup are currently in preview.
 
   >[!Note]
-  >If Cross Region Restore is enabled, backups stored in Vault Tier will be available in the Azure Paired region. See the [list of Azure Paired Region](../reliability/cross-region-replication-azure.md#azure-paired-regions).
+  >Vaulted backup and Cross Region Restore for AKS using Azure Backup are currently in preview.
+
+  >To access backups stored in Vault Tier in the Azure paired region, enable Cross Region Restore capability for your Backup Vault. See the [list of Azure Paired Region](../reliability/cross-region-replication-azure.md#azure-paired-regions).
 
 ## Limitations
 
