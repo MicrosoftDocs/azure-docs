@@ -71,7 +71,7 @@ az aro create \
 To add IP addresses to the load balancer using the Azure CLI after the cluster is created, run the following command:
 
 ```azurecli
-    az aro update
+az aro update
     --name <CLUSTER_NAME>
     –-resource-group <RESOURCE_GROUP>
     --lb-ip-count <PUBLIC_IP_COUNT>`
