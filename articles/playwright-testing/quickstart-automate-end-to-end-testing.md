@@ -25,7 +25,7 @@ After you complete this quickstart, you have a CI workflow that runs your Playwr
 - A GitHub account. If you don't have a GitHub account, you can [create one for free](https://github.com/).
 - A GitHub repository that contains your Playwright test specifications and GitHub Actions workflow. To create a repository, see [Creating a new repository](https://docs.github.com/github/creating-cloning-and-archiving-repositories/creating-a-new-repository).
 - A GitHub Actions workflow. If you need help with getting started with GitHub Actions, see [create your first workflow](https://docs.github.com/en/actions/quickstart)
-- Set up authentication from GitHub Actions to Azure. To configure see [Use GitHub Actions to connect to Azure](https://learn.microsoft.com/azure/developer/github/connect-from-azure)
+- Set up authentication from GitHub Actions to Azure. To configure see [Use GitHub Actions to connect to Azure](/azure/developer/github/connect-from-azure)
 
 # [Azure Pipelines](#tab/pipelines)
 - An Azure DevOps organization and project. If you don't have an Azure DevOps organization, you can [create one for free](/azure/devops/organizations/projects/create-project).

@@ -100,7 +100,7 @@ az login
 
 You can generate an access token from your Playwright Testing workspace and use it in your setup. However, we strongly recommend Microsoft Entra ID for authentication due to its enhanced security. Access tokens, while convenient, function like long-lived passwords and are more susceptible to being compromised.
 
-1. To use access token based authentication, [Enable access-token based authentication](./how-to-manage-authentication.md#enable-access-token-based-authentication)
+1. Authentication using access tokens is disabled by default. To use, [Enable access-token based authentication](./how-to-manage-authentication.md#enable-authentication-using-access-tokens)
 
 2. [Set up authentication using access tokens](./how-to-manage-authentication.md#set-up-authentication-using-access-tokens)
 
