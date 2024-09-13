@@ -36,7 +36,9 @@ Check the following configurations to ensure that NAT gateway can be used to dir
 
 ### How to validate connectivity
 
-[NAT gateway](./nat-overview.md#azure-nat-gateway-basics) supports IPv4 User Datagram Protocol (UDP) and Transmission Control Protocol (TCP) protocols. Ping isn't supported and is expected to fail. 
+[NAT gateway](./nat-overview.md#azure-nat-gateway-basics) supports IPv4 User Datagram Protocol (UDP) and Transmission Control Protocol (TCP) protocols. 
+> [!NOTE]
+> ICMP protocol is not supported by NAT Gateway. Ping using ICMP protocol isn't supported and is expected to fail. 
 
 To validate end-to-end connectivity of NAT gateway, follow these steps: 
 
