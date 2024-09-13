@@ -5,6 +5,7 @@ author: seligj95
 ms.topic: tutorial
 ms.date: 9/13/2024
 ms.author: jordanselig
+ms.custom: references_regions
 ---
 # Prevent and resolve issues caused by an auto-migration of an App Service Environment
 
