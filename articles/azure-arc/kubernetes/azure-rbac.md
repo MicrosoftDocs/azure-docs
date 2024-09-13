@@ -102,7 +102,7 @@ For a conceptual overview of this feature, see [Azure RBAC on Azure Arc-enabled 
 
     **If your `kube-apiserver` is a not a static pod:**
 
-1. Open the `apiserver` manifest in edit mode:
+    1. Open the `apiserver` manifest in edit mode:
 
        ```console
        sudo vi /etc/kubernetes/manifests/kube-apiserver.yaml
