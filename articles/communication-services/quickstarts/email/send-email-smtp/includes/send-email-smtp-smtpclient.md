@@ -4,7 +4,7 @@ description: Sending with SMTP with .NET SmtpClient include file
 author: ddouglas-msft
 manager: koagbakp
 services: azure-communication-services
-ms.author: ddouglas
+ms.author: ddouglas-msft
 ms.date: 11/01/2023
 ms.topic: include
 ms.service: azure-communication-services
