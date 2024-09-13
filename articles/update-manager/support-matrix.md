@@ -4,7 +4,7 @@ description: This article provides a summary of supported regions and operating 
 ms.service: azure-update-manager
 author: SnehaSudhirG
 ms.author: sudhirsneha
-ms.date: 08/23/2024
+ms.date: 09/13/2024
 ms.topic: overview
 ms.custom: references_regions
 ---
@@ -260,7 +260,7 @@ The following table lists the operating systems supported on [Azure Arc-enabled 
    | Debian 10 and 11|
    | Rocky Linux 8|
 
-# [Windows IoT Enterprise on Arc enabled IaaS VMs (preview)](#tab/winio-arc)
+# [Windows IoT Enterprise on Arc enabled servers (preview)](#tab/winio-arc)
 
    - Windows 10 IoT Enterprise LTSC 2021 
    - Windows 10 IoT Enterprise LTSC 2019 
