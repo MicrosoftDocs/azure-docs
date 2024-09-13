@@ -118,7 +118,7 @@ The server always returns an `OperationOutcome` as the result.
 
 ## Option 3: Validate on resource CREATE or UPDATE using a header
 
-You can choose when you'd like to validate your resource, such as on resource `CREATE` or `UPDATE`. By default, the FHIR service is configured to opt out of validation on resource `Create/Update`. This capability allows validation on `Create/Update` using the `x-ms-profile-validation` header. Set `x-ms-profile-validation' to true for validation.
+You can choose when you'd like to validate your resource, such as on resource `CREATE` or `UPDATE`. By default, the FHIR service is configured to opt out of validation on resource `Create/Update`. This capability allows validation on `Create/Update` using the `x-ms-profile-validation` header. Set `x-ms-profile-validation` to true for validation.
 
 
 > [!NOTE]
