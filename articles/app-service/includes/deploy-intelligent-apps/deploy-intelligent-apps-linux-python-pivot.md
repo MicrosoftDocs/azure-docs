@@ -282,7 +282,7 @@ client = AzureOpenAI(
 )
 ```
 
-Once the credentials are added to the application, you�ll then need to enable managed identity in your application and grant access to the resource.
+Once the credentials are added to the application, you'll then need to enable managed identity in your application and grant access to the resource.
 
 1. In your web app resource, navigate to the **Identity** blade and turn on **System assigned** and click **Save**
 2. Once System assigned identity is turned on, it registers the web app with Microsoft Entra ID and the web app can be granted permissions to access protected resources.  
