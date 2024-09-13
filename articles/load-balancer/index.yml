@@ -138,7 +138,7 @@ landingContent:
           - text: Configure TCP reset and idle timeout for Azure Load Balancer
             url: load-balancer-tcp-idle-timeout.md
           - text: Upgrade from Basic to Standard
-            url: upgrade-basic-standard.md
+            url: upgrade-basic-standard-with-powershell.md
       - linkListType: video
         links:
           - text: Deep dive into cross region load balancing
