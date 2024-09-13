@@ -443,6 +443,8 @@ items:
           href: how-tos/ui-library-sdk/theming.md
         - name: Customize the button bar
           href: how-tos/ui-library-sdk/button-injection.md
+        - name: Customize the title and subtitle
+          href: how-tos/ui-library-sdk/setup-title-subtitle.md
         - name: Disable end call confirmation
           href: how-tos/ui-library-sdk/leave-call-confirmation.md
         - name: Enable audio only mode
@@ -451,6 +453,8 @@ items:
           href: how-tos/ui-library-sdk/picture-in-picture.md
         - name: Enable skip the setup screen
           href: how-tos/ui-library-sdk/skip-setup-screen.md
+        - name: Events
+          href: how-tos/ui-library-sdk/events.md
         - name: Inject participant view data
           href: how-tos/ui-library-sdk/data-model.md
         - name: Integrate CallKit
@@ -1279,6 +1283,18 @@ items:
       href: /java/api/overview/azure/resourcemanager-communication-readme
     - name: Azure Resource Manager (Python)
       href: /python/api/overview/azure/mgmt-communication-readme
+  - name: Advanced Messaging
+    items:
+    - name: Messages (Java)
+      href: /java/api/overview/azure/communication-messages-readme
+    - name: Messages (JavaScript)
+      href: /javascript/api/overview/azure/communication-messages-rest-readme
+    - name: Messages (.NET)
+      href: /dotnet/api/overview/azure/communication.messages-readme
+    - name: Messages (Python)
+      href: /python/api/overview/azure/communication-messages-readme
+    - name: Advanced Messaging (REST)
+      href: /rest/api/communication/advancedmessaging/operation-groups
   - name: Calling
     items:
     - name: Calling (JavaScript)
@@ -1381,11 +1397,6 @@ items:
       href: https://azure.github.io/azure-sdk-for-ios/AzureCommunicationUIChat
     - name: UI Library for Chat (Android)
       href: https://azure.github.io/azure-sdk-for-android/azure-communication-ui-chat/index.html
-    
-  - name: Advanced Messaging
-    items:
-    - name: Advanced Messaging (.NET)
-      href: /dotnet/api/overview/azure/communication.messages-readme
   - name: Common
     items:
     - name: Common (JavaScript)

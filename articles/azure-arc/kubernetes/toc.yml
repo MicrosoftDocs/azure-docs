@@ -132,7 +132,7 @@
     - name: Deploy Azure Marketplace applications
       href: deploy-marketplace.md
     - name: Monitor using Azure Monitor Container Insights
-      href: ../../azure-monitor/containers/container-insights-enable-arc-enabled-clusters.md?toc=/azure/azure-arc/kubernetes/toc.json&bc=/azure/azure-arc/kubernetes/breadcrumb/toc.json
+      href: /azure/azure-monitor/containers/container-insights-enable-arc-enabled-clusters?toc=/azure/azure-arc/kubernetes/toc.json&bc=/azure/azure-arc/kubernetes/breadcrumb/toc.json
     - name: Monitor GitOps (Flux v2) activity
       displayName: dashboard, prometheus, compliance, status, reconciliation, activity
       href: monitor-gitops-flux-2.md
