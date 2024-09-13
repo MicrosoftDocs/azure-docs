@@ -90,7 +90,7 @@ Reconfigure your deployment using the information you gathered in [Back up deplo
 
     - Check that the resource is healthy and there are no unexpected alerts.
     - If there are any unexpected alerts, follow the recommended steps listed to recover the system.
-    - To learn more about health and the status types that may appear, see [Resource Health overview](../service-health/resource-health-overview.md).
+    - To learn more about health and the status types that may appear, see [Resource Health overview](/azure/service-health/resource-health-overview).
 1. Use [Azure Monitor platform metrics](monitor-private-5g-core-with-platform-metrics.md) or the [packet core dashboards](packet-core-dashboards.md) to confirm your packet core instance is operating normally after the reinstall.
 
 ## Next steps

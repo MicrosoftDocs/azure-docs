@@ -74,7 +74,7 @@ Creating a client secret allows the Azure Modeling and Simulation Workbench to r
 1. In **App registrations**, select your application *QuickstartModSimWorkbenchApp*.
 1. Select **Certificates & secrets** > **Client secrets** > **New client secret**.
 1. Add a description for your client secret.
-1. Select **6 months** for the **Expires**.
+1. Select **12 months** for the **Expires**.
 1. Select **Add**. The application properties displays.
 1. Locate the **Client secret value** and document it. You need the client secret value when you create your Key Vault. Make sure you write it down now, as it will never be displayed again after you leave this page.
 

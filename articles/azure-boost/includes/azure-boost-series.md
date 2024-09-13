@@ -13,7 +13,7 @@ ms.custom:
 
 | Size Series | Series Type | Deployment Status |
 |:-:|:-:|:-:|
-|[Msv3/Mdsv3](/azure/virtual-machines/msv3-mdsv3-medium-series)| Medium Memory | GA|
+|[Msv3/Mdsv3](/azure/virtual-machines/msv3-mdsv3-medium-series)| Medium Memory | Production |
 |[Mbsv3/Mbdsv3](/azure/virtual-machines/sizes/memory-optimized/mbsv3-mbdsv3-series)| Medium Memory| Preview|
 |Msv3/Mdsv3| High Memory | Preview|
 |Msv3/Mdsv3| Very High Memory | Preview|

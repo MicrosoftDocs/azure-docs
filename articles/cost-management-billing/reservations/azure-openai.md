@@ -6,7 +6,7 @@ ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 09/04/2024
+ms.date: 09/12/2024
 ms.author: banders
 # customer intent: As a billing administrator, I want to learn about saving costs with Microsoft Azure OpenAI Service Provisioned Reservations and buy one.
 ---
@@ -45,6 +45,9 @@ For more information about how enterprise customers and pay-as-you-go customers 
 The Azure OpenAI reservation size should be based on the total provisioned throughput units that you consume via deployments. Reservation purchases are made in one provisioned throughput unit increments.
 
 For example, assume that your total consumption of provisioned throughput units is 100 units. You want to purchase a reservation for all of it, so you should purchase 100 of reservation quantity.
+
+> [!CAUTION]
+> Capacity availability for model deployments is dynamic and changes frequently across regions and models. To prevent buying a reservation for more PTUs than you can use, create deployments first. Then buy the reservation to cover the PTUs you deployed. This best practice ensures that you maximize the reservation discount and helps to prevent you from purchasing a term commitment that you can’t fully use.
 
 ## Buy a Microsoft Azure OpenAI reservation
 

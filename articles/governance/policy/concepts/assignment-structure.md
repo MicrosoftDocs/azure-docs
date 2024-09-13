@@ -273,7 +273,7 @@ One override can be used to replace the effect of many policies by specifying mu
 
 ## Enforcement mode
 
-The `enforcementMode` property provides customers the ability to test the outcome of a policy on existing resources without initiating the policy effect or triggering entries in the [Azure Activity log](../../../azure-monitor/essentials/platform-logs-overview.md).
+The `enforcementMode` property provides customers the ability to test the outcome of a policy on existing resources without initiating the policy effect or triggering entries in the [Azure Activity log](/azure/azure-monitor/essentials/platform-logs-overview).
 
 This scenario is commonly referred to as _What If_ and aligns to safe deployment practices. `enforcementMode` is different from the [Disabled](./effects.md#disabled) effect, as that effect prevents resource evaluation from happening at all.
 

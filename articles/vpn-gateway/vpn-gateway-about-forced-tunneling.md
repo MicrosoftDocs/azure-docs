@@ -5,7 +5,7 @@ description: Learn how to configure forced tunneling for virtual networks create
 author: cherylmc
 ms.service: azure-vpn-gateway
 ms.custom:
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/09/2023
 ms.author: cherylmc
 ---

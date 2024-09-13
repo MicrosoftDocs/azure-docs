@@ -37,7 +37,7 @@ This functionality provides a high degree of customization, and ensures that the
 ::: zone-end
 
 ::: zone pivot="platform-ios"
-[!INCLUDE [DCustomize the actions from the button bar in the iOS UI Library](./includes/button-injection/ios.md)]
+[!INCLUDE [Customize the actions from the button bar in the iOS UI Library](./includes/button-injection/ios.md)]
 ::: zone-end
 
 ## Next steps

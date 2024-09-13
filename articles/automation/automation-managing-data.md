@@ -3,8 +3,8 @@ title: Azure Automation data security
 description: This article helps you learn how Azure Automation protects your privacy and secures your data.
 services: automation
 ms.subservice: shared-capabilities
-ms.date: 05/09/2024
-ms.topic: conceptual 
+ms.date: 09/09/2024
+ms.topic: overview
 ms.custom:
 ms.service: azure-automation
 ---
@@ -27,7 +27,7 @@ To ensure the security of data in transit to Azure Automation, we strongly encou
 
 Older versions of TLS/Secure Sockets Layer (SSL) have been found to be vulnerable and while they still currently work to allow backwards compatibility, they are **not recommended**. We do not recommend explicitly setting your agent to only use TLS 1.2 unless its necessary, as it can break platform level security features that allow you to automatically detect and take advantage of newer more secure protocols as they become available, such as TLS 1.3.
 
-For information about TLS support with the Log Analytics agent for Windows and Linux, which is a dependency for the Hybrid Runbook Worker role, see [Log Analytics agent overview - TLS](../azure-monitor/agents/log-analytics-agent.md#tls-protocol).
+For information about TLS support with the Log Analytics agent for Windows and Linux, which is a dependency for the Hybrid Runbook Worker role, see [Log Analytics agent overview - TLS](/azure/azure-monitor/agents/log-analytics-agent#tls-protocol).
 
 ### Upgrade TLS protocol for Hybrid Workers and Webhook calls
 

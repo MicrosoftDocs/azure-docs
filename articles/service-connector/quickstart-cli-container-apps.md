@@ -77,6 +77,9 @@ Create a connection using a managed identity or an access key.
 
 ### [Access key](#tab/using-access-key)
 
+> [!WARNING]
+> Microsoft recommends that you use the most secure authentication flow available. The authentication flow described in this procedure requires a very high degree of trust in the application, and carries risks that are not present in other flows. You should only use this flow when other more secure flows, such as managed identities, aren't viable.
+
 1. Run the `az containerapp connection create` command to create a service connection between Container Apps and Azure Blob Storage using an access key.
 
     ```azurecli
