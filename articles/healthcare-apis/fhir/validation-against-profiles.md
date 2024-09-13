@@ -22,7 +22,7 @@ Per specification, Mode can be specified with `$validate`, such as create and up
 There are different ways provided for you to validate resource:
 - Option 1: Validate an existing resource with the validate operation.
 - Option 2: Validate a new resource with the validate operation.
-- Option 3: Validate on resource CREATE/ UPDATE using a header.
+- Option 3: Validate on resource CREATE or UPDATE using a header.
 
 On the successful validation of an existing or new resource with the validate operation, the resource isn't persisted into the FHIR service. Use Option 3 to successfully persist validated resources to the FHIR service.
 
@@ -55,7 +55,7 @@ In this example, you're validating the existing Patient resource `a6e11662-def8-
     ]
 }
 ```
-If the resource isn't valid, you get an error code and an error message with details on why the resource is invalid. An example `OperationOutcome` gets returned with error messages and could look like the following code example:
+If the resource isn't valid, you get an error code and an error message with details on why the resource is invalid. An example `OperationOutcome` gets returned with error messages and could look like the following code example.
 
 ```json
 {
@@ -99,7 +99,7 @@ If the resource isn't valid, you get an error code and an error message with det
 
 In this example, the resource didn't conform to the provided Patient profile, which required a patient identifier value and gender.
 
-If you'd like to specify a profile as a parameter, you can specify the canonical URL for the profile to validate against, such as the following example for the HL7 base profile for `heartrate`:
+If you'd like to specify a profile as a parameter, you can specify the canonical URL for the profile to validate against, such as the following example for the HL7 base profile for `heartrate`.
 
 `GET https://myworkspace-myfhirserver.fhir.azurehealthcareapis.com/Observation/12345678/$validate?profile=http://hl7.org/fhir/StructureDefinition/heartrate`
 

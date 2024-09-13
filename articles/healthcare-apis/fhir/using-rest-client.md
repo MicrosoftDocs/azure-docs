@@ -32,7 +32,7 @@ Create a new file in Visual Studio Code. Enter a `GET` request command line in t
 
 While you can use values such as the client ID directly in calls to the REST API, it's a good practice that you define a few variables for these values and use the variables instead.
 
-In your `test.http` file, include the following information obtained from registering your application: 
+In your `test.http` file, include the following information obtained from registering your application. 
 
 ```
 ### REST Client
