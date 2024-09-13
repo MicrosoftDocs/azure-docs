@@ -75,7 +75,7 @@ To enable authentication using access tokens:
         ```
 
     1. Create a `.env` file alongside the `playwright.config.ts` file in your Playwright project:
-
+        
         ```
         PLAYWRIGHT_SERVICE_ACCESS_TOKEN={MY-ACCESS-TOKEN}
         ```
