@@ -22,7 +22,7 @@ In this tutorial, you learn how to:
 > - Use a GitHub Actions workflow to add resources to Azure with a Azure Resource Manager template (ARM template)
 > - Use a GitHub Actions workflow to build an ASP.NET Core application
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 ## Prerequisites
 
@@ -50,11 +50,11 @@ az group create --name {resource-group-name} --location {resource-group-location
 
 ## Generate deployment credentials
 
-[!INCLUDE [include](~/articles/reusable-content/github-actions/generate-openid-credentials.md)]
+[!INCLUDE [include](~/reusable-content/github-actions/generate-openid-credentials.md)]
 
 ## Configure the GitHub secret for authentication
 
-[!INCLUDE [include](~/articles/reusable-content/github-actions/create-secrets-openid-only.md)]
+[!INCLUDE [include](~/reusable-content/github-actions/create-secrets-openid-only.md)]
 
 ## Add GitHub secrets for your build
 

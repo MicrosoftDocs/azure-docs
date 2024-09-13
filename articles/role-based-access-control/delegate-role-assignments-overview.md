@@ -1,16 +1,13 @@
 ---
 title: Delegate Azure access management to others - Azure ABAC
 description: Overview of how to delegate Azure role assignment management to other users by using Azure attribute-based access control (Azure ABAC).
-services: active-directory
 author: rolyon
 manager: amycolannino
 ms.service: role-based-access-control
 ms.subservice: conditions
 ms.topic: conceptual
-ms.workload: identity
-ms.date: 11/29/2023
+ms.date: 08/29/2024
 ms.author: rolyon
-
 #Customer intent: As a dev, devops, or it admin, I want to delegate Azure role assignment management to other users who are closer to the decision, but want to limit the scope of the role assignments.
 ---
 
@@ -35,7 +32,7 @@ Here are some reasons why you might want to delegate role assignment management 
 
 The [Owner](built-in-roles.md#owner) and [User Access Administrator](built-in-roles.md#user-access-administrator) roles are built-in roles that allow users to create role assignments. Members of these roles can decide who can have write, read, and delete permissions for any resource in a subscription. To delegate role assignment management to another user, you can assign the Owner or User Access Administrator role to a user.
 
-The following diagram shows how Alice can delegate role assignment responsibilities to Dara. For specific steps, see [Assign a user as an administrator of an Azure subscription](role-assignments-portal-subscription-admin.md).
+The following diagram shows how Alice can delegate role assignment responsibilities to Dara. For specific steps, see [Assign a user as an administrator of an Azure subscription](role-assignments-portal-subscription-admin.yml).
 
 1. Alice assigns the User Access Administrator role to Dara.
 1. Dara can now assign any role to any user, group, or service principal at the same scope.
@@ -52,11 +49,7 @@ Here are the primary issues with the current method of delegating role assignmen
 
 Instead of assigning the Owner or User Access Administrator roles, a more secure method is to constrain a delegate's ability to create role assignments.
 
-## A more secure method: Delegate role assignment management with conditions (preview)
-
-> [!IMPORTANT]
-> Delegating Azure role assignment management with conditions is currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+## A more secure method: Delegate role assignment management with conditions
 
 Delegating role assignment management with conditions is a way to restrict the role assignments a user can create. In the preceding example, Alice can allow Dara to create some role assignments on her behalf, but not all role assignments. For example, Alice can constrain the roles that Dara can assign and constrain the principals that Dara can assign roles to. This delegation with conditions is sometimes referred to as *constrained delegation* and is implemented using [Azure attribute-based access control (Azure ABAC) conditions](conditions-overview.md).
 
@@ -77,7 +70,7 @@ Here are some reasons why delegating role assignment management to others with c
 
 Consider an example where Alice is an administrator with the User Access Administrator role for a subscription. Alice wants to grant Dara the ability to assign specific roles for specific groups. Alice doesn't want Dara to have any other role assignment permissions. The following diagram shows how Alice can delegate role assignment responsibilities to Dara with conditions.
 
-1. Alice assigns the Role Based Access Control Administrator (Preview) role to Dara. Alice adds conditions so that Dara can only assign the Backup Contributor or Backup Reader roles to the Marketing and Sales groups.
+1. Alice assigns the Role Based Access Control Administrator role to Dara. Alice adds conditions so that Dara can only assign the Backup Contributor or Backup Reader roles to the Marketing and Sales groups.
 1. Dara can now assign the Backup Contributor or Backup Reader roles to the Marketing and Sales groups.
 1. If Dara attempts to assign other roles or assign any roles to different principals (such as a user or managed identity), the role assignment fails.
 
@@ -85,7 +78,7 @@ Consider an example where Alice is an administrator with the User Access Adminis
 
 ## Role Based Access Control Administrator role
 
-The [Role Based Access Control Administrator (Preview)](built-in-roles.md#role-based-access-control-administrator-preview) role is a built-in role that has been designed for delegating role assignment management to others. It has fewer permissions than [User Access Administrator](built-in-roles.md#user-access-administrator), which follows least privilege best practices. The Role Based Access Control Administrator role has following permissions:
+The [Role Based Access Control Administrator](built-in-roles.md#role-based-access-control-administrator) role is a built-in role that has been designed for delegating role assignment management to others. It has fewer permissions than [User Access Administrator](built-in-roles.md#user-access-administrator), which follows least privilege best practices. The Role Based Access Control Administrator role has following permissions:
 
 - Create a role assignment at the specified scope
 - Delete a role assignment at the specified scope
@@ -125,9 +118,9 @@ To delegate role assignment management with conditions, you assign roles as you 
 
 1. Start a new role assignment
 
-1. Select the [Role Based Access Control Administrator (Preview)](built-in-roles.md#role-based-access-control-administrator-preview) role
+1. Select the [Role Based Access Control Administrator](built-in-roles.md#role-based-access-control-administrator) role
 
-    You can select any role that includes the `Microsoft.Authorization/roleAssignments/write` action, but Role Based Access Control Administrator (Preview) has fewer permissions.
+    You can select any role that includes the `Microsoft.Authorization/roleAssignments/write` action, but Role Based Access Control Administrator has fewer permissions.
 
 1. Select the delegate
 
@@ -141,7 +134,7 @@ To delegate role assignment management with conditions, you assign roles as you 
 
     Choose from a list of condition templates. Select **Configure** to specify the roles, principal types, or principals.
 
-    For more information, see [Delegate Azure role assignment management to others with conditions (preview)](delegate-role-assignments-portal.md).
+    For more information, see [Delegate Azure role assignment management to others with conditions](delegate-role-assignments-portal.md).
     
     :::image type="content" source="./media/shared/condition-templates.png" alt-text="Screenshot of Add role assignment condition with a list of condition templates." lightbox="./media/shared/condition-templates.png":::
 
@@ -149,7 +142,7 @@ To delegate role assignment management with conditions, you assign roles as you 
 
     If the condition templates don't work for your scenario or if you want more control, you can use the condition editor.
 
-    For examples, see [Examples to delegate Azure role assignment management with conditions (preview)](delegate-role-assignments-examples.md).
+    For examples, see [Examples to delegate Azure role assignment management with conditions](delegate-role-assignments-examples.md).
 
     :::image type="content" source="./media/shared/delegate-role-assignments-expression.png" alt-text="Screenshot of condition editor in Azure portal showing a role assignment condition to delegate role assignment management." lightbox="./media/shared/delegate-role-assignments-expression.png":::
 
@@ -248,7 +241,9 @@ To delegate role assignment management with conditions, you assign roles as you 
 
 ## Built-in roles with conditions
 
-The [Key Vault Data Access Administrator (Preview)](built-in-roles.md#key-vault-data-access-administrator-preview) role already has a built-in condition to constrain role assignments. This role enables you to manage access to Key Vault secrets, certificates, and keys. It's exclusively focused on access control without the ability to assign privileged roles such as Owner or User Access Administrator roles. It allows better separation of duties for scenarios like managing encryption at rest across data services to further comply with least privilege principle. The condition constrains role assignments to the following Azure Key Vault roles:
+The [Key Vault Data Access Administrator](built-in-roles.md#key-vault-data-access-administrator) and [Virtual Machine Data Access Administrator (preview)](built-in-roles.md#virtual-machine-data-access-administrator-preview) roles already have a built-in condition to constrain role assignments.
+
+The Key Vault Data Access Administrator role enables you to manage access to Key Vault secrets, certificates, and keys. It's exclusively focused on access control without the ability to assign privileged roles such as Owner or User Access Administrator roles. It allows better separation of duties for scenarios like managing encryption at rest across data services to further comply with least privilege principle. The condition constrains role assignments to the following Azure Key Vault roles:
 
 - [Key Vault Administrator](built-in-roles.md#key-vault-administrator)
 - [Key Vault Certificates Officer](built-in-roles.md#key-vault-certificates-officer)
@@ -267,18 +262,17 @@ If you want to further constrain the Key Vault Data Access Administrator role as
 
 ## Known issues
 
-Here are the known issues related to delegating role assignment management with conditions (preview):
+Here are the known issues related to delegating role assignment management with conditions:
 
-- You can't delegate role assignment management with conditions using [Privileged Identity Management](../active-directory/privileged-identity-management/pim-resource-roles-assign-roles.md).
+- You can't delegate role assignment management for custom roles with conditions using [Privileged Identity Management](../active-directory/privileged-identity-management/pim-resource-roles-assign-roles.md).
 - You can't have a role assignment with a Microsoft.Storage data action and an ABAC condition that uses a GUID comparison operator. For more information, see [Troubleshoot Azure RBAC](troubleshooting.md#symptom---authorization-failed).
-- This preview isn't available in Azure Government or Microsoft Azure operated by 21Vianet.
 
 ## License requirements
 
-[!INCLUDE [Azure AD free license](../../includes/active-directory-free-license.md)]
+[!INCLUDE [Free license](./includes/license-free.md)]
 
 ## Next steps
 
-- [Delegate Azure role assignment management to others with conditions (preview)](delegate-role-assignments-portal.md)
+- [Delegate Azure role assignment management to others with conditions](delegate-role-assignments-portal.md)
 - [What is Azure attribute-based access control (Azure ABAC)?](conditions-overview.md)
-- [Examples to delegate Azure role assignment management with conditions (preview)](delegate-role-assignments-examples.md)
+- [Examples to delegate Azure role assignment management with conditions](delegate-role-assignments-examples.md)

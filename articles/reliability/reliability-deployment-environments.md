@@ -1,8 +1,8 @@
 ---
 title: Reliability and availability in Azure Deployment Environments
 description: Learn how Azure Deployment Environments supports disaster recovery. Understand reliability and availability within a single region and across regions.
-ms.service: deployment-environments
-ms.topic: conceptual
+ms.service: azure-deployment-environments
+ms.topic: reliability-article
 ms.author: rosemalcolm
 author: RoseHJM
 ms.date: 08/25/2023

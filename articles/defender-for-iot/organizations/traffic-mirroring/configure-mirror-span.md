@@ -33,7 +33,7 @@ Cisco2960# configure terminal
 Cisco2960(config)# monitor session 1 source interface fastehernet 0/2 - 23 rx
 Cisco2960(config)# monitor session 1 destination interface fastethernet 0/24
 Cisco2960(config)# end
-Cisco2960# show monitor 1
+Cisco2960# show monitor session 1
 Cisco2960# running-copy startup-config
 ```
 

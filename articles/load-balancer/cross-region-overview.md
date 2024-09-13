@@ -4,17 +4,16 @@ titleSuffix: Azure Load Balancer
 description: Overview of cross region load balancer tier for Azure Load Balancer.
 services: load-balancer
 author: mbender-ms
-ms.service: load-balancer
+ms.service: azure-load-balancer
 ms.topic: conceptual
-ms.workload: infrastructure-services
-ms.date: 06/23/2023
+ms.date: 06/26/2024
 ms.author: mbender
 ms.custom: template-concept, references_regions
 ---
 
-# Cross-region (Global) Load Balancer
+# Global Load Balancer
 
-Azure Standard Load Balancer supports cross-region load balancing enabling geo-redundant High Availability scenarios such as:
+Azure Standard Load Balancer supports cross-region load balancing enabling geo-redundant high availability scenarios such as:
 
 * Incoming traffic originating from multiple regions.
 * [Instant global failover](#regional-redundancy) to the next optimal regional deployment.
@@ -24,7 +23,7 @@ Azure Standard Load Balancer supports cross-region load balancing enabling geo-r
 * [Client IP preservation](#client-ip-preservation)
 * [Build on existing load balancer](#build-cross-region-solution-on-existing-azure-load-balancer) solution with no learning curve
 
-The frontend IP configuration of your cross-region load balancer is static and advertised across [most Azure regions](#participating-regions).
+The frontend IP configuration of your cross-region load balancer is static and advertised across [most Azure regions](#participating-regions-in-azure).
 
 :::image type="content" source="./media/cross-region-overview/cross-region-load-balancer.png" alt-text="Diagram of cross-region load balancer." border="true":::
 
@@ -70,7 +69,7 @@ When you expose the global endpoint of a cross-region load balancer to customers
 
 ### Static anycast global IP address
 
-Cross-region load balancer comes with a static public IP, which ensures the IP address remains the same. To learn more about static IP, read more [here](../virtual-network/ip-services/public-ip-addresses.md#ip-address-assignment)
+Cross-region load balancer comes with a static public IP, which ensures the IP address remains the same. Both IPv4 and IPv6 configurations are supported. To learn more about static IP, read more [here.](../virtual-network/ip-services/public-ip-addresses.md#ip-address-assignment)
 
 ### Client IP Preservation
 
@@ -78,13 +77,13 @@ Cross-region load balancer is a Layer-4 pass-through network load balancer. This
 
 ### Floating IP
 
-Floating IP can be configured at both the global IP level and regional IP level. For more information, visit [Multiple frontends for Azure Load Balancer](./load-balancer-multivip-overview.md)
+Floating IP can be configured at both the global IP level and regional IP level. For more information, visit [Multiple frontends for Azure Load Balancer.](./load-balancer-multivip-overview.md)
 
-It is important to note that floating IP configured on the Azure cross-region Load Balancer operates independently of floating IP configurations on backend regional load balancers. If floating IP is enabled on the cross-region load balancer, the appropriate loopback interface needs to be added to the backend VMs. 
+It's important to note that floating IP configured on the Azure cross-region Load Balancer operates independently of floating IP configurations on backend regional load balancers. If floating IP is enabled on the cross-region load balancer, the appropriate loopback interface needs to be added to the backend VMs. 
 
 ### Health Probes
 
-Azure cross-region Load Balancer utilizes the health of the backend regional load balancers when deciding where to distribute traffic to. Health checks by cross-region load balancer are done automatically every 5 seconds, given that a user has set up health probes on their regional load balancer.  
+Azure cross-region Load Balancer utilizes the health of the backend regional load balancers when deciding where to distribute traffic to. Health checks by cross-region load balancer are done automatically every 5 seconds, given that health probes are set up on their regional load balancer.  
 
 ## Build cross region solution on existing Azure Load Balancer
 
@@ -92,10 +91,12 @@ The backend pool of cross-region load balancer contains one or more regional loa
 
 Add your existing load balancer deployments to a cross-region load balancer for a highly available, cross-region deployment.
 
+### Home regions and participating regions
+
 **Home region** is where the cross-region load balancer or Public IP Address of Global tier is deployed. 
 This region doesn't affect how the traffic is routed. If a home region goes down, traffic flow is unaffected.
 
-### Home regions
+#### Home regions in Azure
 * Central US
 * East Asia
 * East US 2
@@ -105,6 +106,7 @@ This region doesn't affect how the traffic is routed. If a home region goes down
 * US Gov Virginia
 * West Europe
 * West US
+* China North 2
 
 > [!NOTE]
 > You can only deploy your cross-region load balancer or Public IP in Global tier in one of the listed Home regions.
@@ -117,7 +119,8 @@ Cross-region load balancer routes the traffic to the appropriate regional load b
 
 :::image type="content" source="./media/cross-region-overview/multiple-region-global-traffic.png" alt-text="Diagram of multiple region global traffic.":::
 
-### Participating regions
+#### Participating regions in Azure
+
 * Australia East 
 * Australia Southeast 
 * Central India 
@@ -144,7 +147,7 @@ Cross-region load balancer routes the traffic to the appropriate regional load b
 > [!NOTE]
 > The backend regional load balancers can be deployed in any publicly available Azure Region and is not limited to just participating regions.
 
-## Limitations
+## Limitations of cross-region load balancer
 
 * Cross-region frontend IP configurations are public only. An internal frontend is currently not supported.
 
@@ -152,11 +155,11 @@ Cross-region load balancer routes the traffic to the appropriate regional load b
 
 * NAT64 translation isn't supported at this time. The frontend and backend IPs must be of the same type (v4 or v6).
 
-* UDP traffic isn't supported on Cross-region Load Balancer for IPv6.
-
 * UDP traffic on port 3 isn't supported on Cross-Region Load Balancer
 
 * Outbound rules aren't supported on Cross-region Load Balancer. For outbound connections, utilize [outbound rules](./outbound-rules.md) on the regional load balancer or [NAT gateway](../nat-gateway/nat-overview.md).
+
+* Regional load balancers can't be upgraded to the global tier. Only new load balancers can be created as the global tier. 
 
 ## Pricing and SLA
 Cross-region load balancer shares the [SLA](https://azure.microsoft.com/support/legal/sla/load-balancer/v1_0/) of standard load balancer.

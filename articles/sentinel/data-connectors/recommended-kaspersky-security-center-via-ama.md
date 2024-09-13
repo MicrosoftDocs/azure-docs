@@ -6,6 +6,7 @@ ms.topic: how-to
 ms.date: 10/23/2023
 ms.service: microsoft-sentinel
 ms.author: cwatson
+ms.collection: sentinel-data-connector
 ---
 
 # [Recommended] Kaspersky Security Center via AMA connector for Microsoft Sentinel
@@ -17,7 +18,7 @@ The [Kaspersky Security Center](https://support.kaspersky.com/KSC/13/en-US/3396.
 | Connector attribute | Description |
 | --- | --- |
 | **Log Analytics table(s)** | CommonSecurityLog (KasperskySC)<br/> |
-| **Data collection rules support** | [Workspace transform DCR](/azure/azure-monitor/logs/tutorial-workspace-transformations-portal) |
+| **Data collection rules support** | [Azure Monitor Agent DCR](/azure/azure-monitor/agents/data-collection-rule-azure-monitor-agent) |
 | **Supported by** | [Microsoft Corporation](https://support.microsoft.com) |
 
 ## Query samples
@@ -47,7 +48,7 @@ To integrate with [Recommended] Kaspersky Security Center via AMA make sure you 
 
 
 > [!NOTE]
-   >  This data connector depends on a parser based on a Kusto Function to work as expected [**KasperskySCEvent**](https://aka.ms/sentinel-kasperskysc-parser) which is deployed with the Microsoft Sentinel Solution.
+   >  This data connector depends on a parser based on a Kusto Function to work as expected **KasperskySCEvent** which is deployed with the Microsoft Sentinel Solution.
 
 
 2. Secure your machine 
@@ -56,9 +57,3 @@ Make sure to configure the machine's security according to your organization's s
 
 
 [Learn more >](https://aka.ms/SecureCEF)
-
-
-
-## Next steps
-
-For more information, go to the [related solution](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/azuresentinel.azure-sentinel-solution-kasperskysc?tab=Overview) in the Azure Marketplace.

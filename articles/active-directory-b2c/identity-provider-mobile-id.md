@@ -13,6 +13,9 @@ ms.date: 04/08/2022
 ms.author: godonnell
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
+
+#Customer Intent: As a developer integrating Azure Active Directory B2C, I want to set up sign-up and sign-in with Mobile ID, so that I can provide a strong multi-factor authentication solution for my customers and protect access to company data and applications.
+
 ---
 
 # Set up sign-up and sign-in with Mobile ID using Azure Active Directory B2C

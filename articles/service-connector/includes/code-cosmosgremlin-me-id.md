@@ -3,7 +3,7 @@ author: wchigit
 description: managed identity, code sample
 ms.service: service-connector
 ms.topic: include
-ms.date: 10/31/2023
+ms.date: 12/04/2023
 ms.author: wchi
 ---
 
@@ -34,7 +34,7 @@ ms.author: wchi
     var listKeyUrl = Environment.GetEnvironmentVariable("AZURE_COSMOS_LISTKEYURL");
     var scope = Environment.GetEnvironmentVariable("AZURE_COSMOS_SCOPE");
     
-    // Uncomment the following lines according to the authentication type.
+    // Uncomment the following lines corresponding to the authentication type you want to use.
     // For system-assigned identity.
     // var tokenProvider = new DefaultAzureCredential();
     
@@ -114,7 +114,7 @@ ms.author: wchi
     String listKeyUrl = System.getenv("AZURE_COSMOS_LISTKEYURL");
     String scope = System.getenv("AZURE_COSMOS_SCOPE");
     
-    // Uncomment the following lines according to the authentication type.
+    // Uncomment the following lines corresponding to the authentication type you want to use.
     // For system managed identity.
     // DefaultAzureCredential defaultCredential = new DefaultAzureCredentialBuilder().build();
 
@@ -164,7 +164,6 @@ ms.author: wchi
     ```python
     from gremlin_python.driver import client, serializer
     import requests
-    from azure.core.pipeline.policies import BearerTokenCredentialPolicy
     from azure.identity import ManagedIdentityCredential, ClientSecretCredential
 
     username = os.getenv('AZURE_COSMOS_USERNAME')
@@ -173,7 +172,7 @@ ms.author: wchi
     listKeyUrl = os.getenv('AZURE_COSMOS_LISTKEYURL')
     scope = os.getenv('AZURE_COSMOS_SCOPE')
     
-    # Uncomment the following lines according to the authentication type.
+    # Uncomment the following lines corresponding to the authentication type you want to use.
     # For system-assigned managed identity
     # cred = ManagedIdentityCredential()
 
@@ -189,8 +188,8 @@ ms.author: wchi
     
     # Get the password 
     session = requests.Session()
-    session = BearerTokenCredentialPolicy(cred, scope).on_request(session)
-    response = session.post(listKeyUrl)
+    token = cred.get_token(scope)
+    response = session.post(listKeyUrl, headers={"Authorization": "Bearer {}".format(token.token)})
     keys_dict = response.json()
     password = keys_dict['primaryMasterKey']
     
@@ -204,13 +203,79 @@ ms.author: wchi
     )
     ```
 
-### [NodeJS](#tab/node)
+### [Go](#tab/go)
+1. Install dependencies.
+    ```bash
+    go get github.com/Azure/azure-sdk-for-go/sdk/azidentity
+    go get github.com/go-gremlin/gremlin
+    ```
+
+1. In code, get the access token using `azidentity`, then use it to acquire the password. Get connection information from the environment variable added by Service Connector and connect to Azure Cosmos DB for Apache Gremlin. When using the code below, uncomment the part of the code snippet for the authentication type you want to use.
+
+    ```go
+    import (
+        "fmt"
+        "os"
+        "context"
+        "log"
+        "io/ioutil"
+        "encoding/json"
+
+        "github.com/go-gremlin/gremlin"
+        "github.com/Azure/azure-sdk-for-go/sdk/azidentity"
+    )
+
+    func main() {
+        username = os.Getenv("AZURE_COSMOS_USERNAME")
+        endpoint = os.getenv("AZURE_COSMOS_RESOURCEENDPOINT")
+        port = os.getenv("AZURE_COSMOS_PORT")
+        listKeyUrl = os.Getenv("AZURE_COSMOS_LISTKEYURL")
+        scope = os.Getenv("AZUE_COSMOS_SCOPE")
+
+        // Uncomment the following lines corresponding to the authentication type you want to use.
+        // For system-assigned identity.
+        // cred, err := azidentity.NewDefaultAzureCredential(nil)
+        
+        // For user-assigned identity.
+        // clientid := os.Getenv("AZURE_COSMOS_CLIENTID")
+        // azidentity.ManagedIdentityCredentialOptions.ID := clientid
+        // options := &azidentity.ManagedIdentityCredentialOptions{ID: clientid}
+        // cred, err := azidentity.NewManagedIdentityCredential(options)
+        
+        // For service principal.
+        // clientid := os.Getenv("AZURE_COSMOS_CLIENTID")
+        // tenantid := os.Getenv("AZURE_COSMOS_TENANTID")
+        // clientsecret := os.Getenv("AZURE_COSMOS_CLIENTSECRET")
+        // cred, err := azidentity.NewClientSecretCredential(tenantid, clientid, clientsecret, &azidentity.ClientSecretCredentialOptions{})
+
+        // Acquire the access token.
+        ctx, cancel := context.WithTimeout(context.Background(), 30*time.Second)
+        token, err := cred.GetToken(ctx, policy.TokenRequestOptions{
+            Scopes: []string{scope},
+        })
+        
+        // Acquire the connection string.
+        client := &http.Client{}
+        req, err := http.NewRequest("POST", listKeyUrl, nil)
+        req.Header.Add("Authorization", "Bearer " + token.Token)
+        resp, err := client.Do(req)
+        body, err := ioutil.ReadAll(resp.Body)
+        var result map[string]interface{}
+        json.Unmarshal(body, &result)
+        password, err := result["primaryMasterKey"];
+    
+        auth := gremlin.OptAuthUserPass(username, password)
+	    client, err := gremlin.NewClient(endpoint, auth)
+    }
+    ```
+
+### [NodeJS](#tab/nodejs)
 1. Install dependencies.
    ```bash
    npm install gremlin
    npm install --save @azure/identity
    ```
-2. In code, get the access token using `@azure/identity`, then use it to acquire the password. Get connection information from the environment variable added by Service Connector and connect to Azure Cosmos DB for Apache Gremlin. When using the code below, uncomment the part of the code snippet for the authentication type you want to use.
+1. In code, get the access token using `@azure/identity`, then use it to acquire the password. Get connection information from the environment variable added by Service Connector and connect to Azure Cosmos DB for Apache Gremlin. When using the code below, uncomment the part of the code snippet for the authentication type you want to use.
 
     ```javascript
     import { DefaultAzureCredential,ClientSecretCredential } from "@azure/identity";
@@ -223,7 +288,7 @@ ms.author: wchi
     let listKeyUrl = process.env.AZURE_COSMOS_LISTKEYURL;
     let scope = process.env.AZURE_COSMOS_SCOPE;
     
-    // Uncomment the following lines according to the authentication type.  
+    // Uncomment the following lines corresponding to the authentication type you want to use.  
     // For system-assigned identity.
     // const credential = new DefaultAzureCredential();
     

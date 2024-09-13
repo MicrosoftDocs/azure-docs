@@ -3,14 +3,15 @@ title: Azure Tables input bindings for Azure Functions
 description: Understand how to use Azure Tables input bindings in Azure Functions.
 ms.topic: reference
 ms.date: 11/11/2022
-ms.devlang: csharp, java, javascript, powershell, python
-ms.custom: devx-track-csharp, devx-track-python, ignite-2022, devx-track-extended-java, devx-track-js
+ms.devlang: csharp
+# ms.devlang: csharp, java, javascript, powershell, python
+ms.custom: devx-track-csharp, devx-track-python, devx-track-extended-java, devx-track-js, devx-track-ts
 zone_pivot_groups: programming-languages-set-functions
 ---
 
 # Azure Tables input bindings for Azure Functions
 
-Use the Azure Tables input binding to read a table in [Azure Cosmos DB for Table](../cosmos-db/table/introduction.md) or [Azure Table Storage](../storage/tables/table-storage-overview.md).
+Use the Azure Tables input binding to read a table in [Azure Cosmos DB for Table](/azure/cosmos-db/table/introduction) or [Azure Table Storage](../storage/tables/table-storage-overview.md).
 
 For information on setup and configuration details, see the [overview](./functions-bindings-storage-table.md).
 
@@ -29,6 +30,8 @@ The usage of the binding depends on the extension package version and the C# mod
 An [isolated worker process class library](dotnet-isolated-process-guide.md) compiled C# function runs in a process isolated from the runtime.  
    
 # [In-process model](#tab/in-process)
+
+[!INCLUDE [functions-in-process-model-retirement-note](../../includes/functions-in-process-model-retirement-note.md)]
 
 An [in-process class library](functions-dotnet-class-library.md) is a compiled C# function runs in the same process as the Functions runtime.
  
@@ -180,7 +183,7 @@ namespace FunctionAppCloudTable2
 }
 ```
 
-For more information about how to use CloudTable, see [Get started with Azure Table storage](../cosmos-db/tutorial-develop-table-dotnet.md).
+For more information about how to use CloudTable, see [Get started with Azure Table storage](/azure/cosmos-db/tutorial-develop-table-dotnet).
 
 If you try to bind to `CloudTable` and get an error message, make sure that you have a reference to [the correct Storage SDK version](./functions-bindings-storage-table.md#azure-storage-sdk-version-in-functions-1x).
 

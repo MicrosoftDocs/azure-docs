@@ -3,14 +3,14 @@ title: Azure Firewall rule processing logic
 description: Azure Firewall has NAT rules, network rules, and applications rules. The rules are processed according to the rule type.
 services: firewall
 author: vhorne
-ms.service: firewall
-ms.topic: article
-ms.date: 08/30/2023
+ms.service: azure-firewall
+ms.topic: concept-article
+ms.date: 07/02/2024
 ms.author: victorh
 ---
 
 # Configure Azure Firewall rules
-You can configure NAT rules, network rules, and applications rules on Azure Firewall using either classic rules or Firewall Policy. Azure Firewall denies all traffic by default, until rules are manually configured to allow traffic.
+You can configure NAT rules, network rules, and applications rules on Azure Firewall using either classic rules or Firewall Policy. Azure Firewall denies all traffic by default, until rules are manually configured to allow traffic. The rules are terminating, so rule processing stops on a match.
 
 ## Rule processing using classic rules
 
@@ -24,13 +24,30 @@ With Firewall Policy, rules are organized inside Rule Collections and Rule Colle
 
 Rules are processed based on Rule Collection Group Priority and Rule Collection priority. Priority is any number between 100 (highest priority) to 65,000 (lowest priority). Highest priority Rule Collection Groups are processed first. Inside a rule collection group, Rule Collections with highest priority (lowest number) are processed first.  
 
-If a Firewall Policy is inherited from a parent policy, Rule Collection Groups in the parent policy always takes precedence regardless of the priority of a child policy.  
+If a Firewall Policy is inherited from a parent policy, Rule Collection Groups in the parent policy always takes precedence regardless of the priority of a child policy.
+
+
 
 > [!NOTE]
 > Application rules are always processed after Network rules, which are processed after DNAT rules regardless of Rule collection group or Rule collection priority and policy inheritance.
 
+So, to summarize:
+
+Parent policy always takes precedence.
+
+1. Rule collection groups are processed in priority order.
+1. Rule collections are processed in priority order.
+1. DNAT rules, then Network rules, then Application rules are processed.
+
+
 Here's an example policy:
 
+Assuming BaseRCG1 is a rule collection group priority (200) that contains the rule collections: DNATRC1, DNATRC3,NetworkRC1.\
+BaseRCG2 is a rule collection group priority (300) that contains the rule collections: AppRC2, NetworkRC2.\
+ChildRCG1 is a rule collection group priority (300) that contains the rule collections: ChNetRC1, ChAppRC1.\
+ChildRCG2 is a rule collection group that contains the rule collections: ChNetRC2, ChAppRC2,ChDNATRC3.
+
+As per following table:
 
 |Name  |Type  |Priority  |Rules  |Inherited from
 |---------|---------|---------|---------|-------|
@@ -49,7 +66,32 @@ Here's an example policy:
 |ChAppRC2      |     Application rule collection    |2000         |7         |-|
 |ChDNATRC3     | DNAT rule collection        | 3000        |  2       |-|
 
-The rule processing is in the following order: DNATRC1, DNATRC3, ChDNATRC3, NetworkRC1, NetworkRC2, ChNetRC1, ChNetRC2, AppRC2, ChAppRC1, ChAppRC2.
+Initial Processing:
+
+The process begins by examining the rule collection group (RCG) with the lowest number, which is BaseRCG1 with a priority of 200. Within this group, it searches for DNAT rule collections and evaluates them according to their priorities. In this case, DNATRC1 (priority 600) and DNATRC3 (priority 610) are found and processed accordingly.\
+Next, it moves to the next RCG, BaseRCG2 (priority 200), but finds no DNAT rule collection.\
+Following that, it proceeds to ChildRCG1 (priority 300), also without a DNAT rule collection.\
+Finally, it checks ChildRCG2 (priority 650) and finds the ChDNATRC3 rule collection (priority 3000).
+
+Iteration Within Rule Collection Groups:
+
+Returning to BaseRCG1, the iteration continues, this time for NETWORK rules. Only NetworkRC1 (priority 800) is found.\
+Then, it moves to BaseRCG2, where NetworkRC2 (priority 1300) is located.\
+Moving on to ChildRCG1, it discovers ChNetRC1 (priority 700) as the NETWORK rule.\
+Lastly, in ChildRCG2, it finds ChNetRC2 (priority 1100) as the NETWORK rule collection.
+
+Final Iteration for APPLICATION Rules:
+
+Returning to BaseRCG1, the process iterates for APPLICATION rules, but none are found.\
+In BaseRCG2, it identifies AppRC2 (priority 1200) as the APPLICATION rule.\
+In ChildRCG1, ChAppRC1 (priority 900) is found as the APPLICATION rule.\
+Finally, in ChildRCG2, it locates ChAppRC2 (priority 2000) as the APPLICATION rule.
+
+**In summary, the rule processing sequence is as follows: DNATRC1, DNATRC3, ChDNATRC3, NetworkRC1, NetworkRC2, ChNetRC1, ChNetRC2, AppRC2, ChAppRC1, ChAppRC2.**
+
+This process involves analyzing rule collection groups by priority, and within each group, ordering the rules according to their priorities for each rule type (DNAT, NETWORK, and APPLICATION).
+
+So first all the DNAT rules are processed from all the rule collection groups, analysing the rule collection groups by order of priority and ordering the DNAT rules within each rule collection group by order of priority. Then the same process for NETWORK rules, and finally for APPLICATION rules.
 
 For more information about Firewall Policy rule sets, see [Azure Firewall Policy rule sets](policy-rule-sets.md).
 
@@ -93,7 +135,7 @@ If still no match is found within application rules, then the packet is evaluate
 
 ### DNAT rules and Network rules
 
-Inbound Internet connectivity can be enabled by configuring Destination Network Address Translation (DNAT) as described in [Filter inbound traffic with Azure Firewall DNAT using the Azure portal](../firewall/tutorial-firewall-dnat.md). NAT rules are applied in priority before network rules. If a match is found, the traffic is translated according to the DNAT rule and allowed by the firewall. So the traffic isn't subject to any further processing by other network rules. For security reasons, the recommended approach is to add a specific Internet source to allow DNAT access to the network and avoid using wildcards.
+Inbound Internet or intranet (preview) connectivity can be enabled by configuring Destination Network Address Translation (DNAT) as described in [Filter inbound Internet or intranet traffic with Azure Firewall DNAT using the Azure portal](../firewall/tutorial-firewall-dnat.md). NAT rules are applied in priority before network rules. If a match is found, the traffic is translated according to the DNAT rule and allowed by the firewall. So the traffic isn't subject to any further processing by other network rules. For security reasons, the recommended approach is to add a specific Internet source to allow DNAT access to the network and avoid using wildcards.
 
 Application rules aren't applied for inbound connections. So, if you want to filter inbound HTTP/S traffic, you should use Web Application Firewall (WAF). For more information, see [What is Azure Web Application Firewall](../web-application-firewall/overview.md)?
 
@@ -164,7 +206,7 @@ As a stateful service, Azure Firewall completes a TCP three-way handshake for al
 
 Creating an allow rule from VNet-A to VNet-B doesn't mean that new initiated connections from VNet-B to VNet-A are allowed.
 
-As a result, there's no need to create an explicit deny rule from VNet-B to VNet-A. If you create this deny rule, you interrupt the three-way handshake from the initial allow rule from VNet-A to VNet-B. 
+As a result, there's no need to create an explicit deny rule from VNet-B to VNet-A. 
 
 ## Next steps
 

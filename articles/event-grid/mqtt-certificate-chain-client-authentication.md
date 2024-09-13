@@ -6,8 +6,9 @@ ms.custom:
   - build-2023
   - ignite-2023
 ms.date: 11/15/2023
-author: veyaddan
-ms.author: veyaddan
+author: george-guirguis
+ms.author: geguirgu
+ms.subservice: mqtt
 ---
 
 # Client authentication using CA certificate chain
@@ -77,18 +78,19 @@ Using the CA files generated to create certificate for the client.
 Use the following commands to upload/show/delete a certificate authority (CA) certificate to the service
 
 **Upload certificate authority root or intermediate certificate**
+
 ```azurecli-interactive
-az resource create --resource-type Microsoft.EventGrid/namespaces/caCertificates --id /subscriptions/`Subscription ID`/resourceGroups/`Resource Group`/providers/Microsoft.EventGrid/namespaces/`Namespace Name`/caCertificates/`CA certificate name` --api-version  --properties @./resources/ca-cert.json
+az eventgrid namespace ca-certificate create -g myRG --namespace-name myNS -n myCertName --certificate @./resources/ca-cert.json
 ```
 
 **Show certificate information**
 ```azurecli-interactive
-az resource show --id /subscriptions/`Subscription ID`/resourceGroups/`Resource Group`/providers/Microsoft.EventGrid/namespaces/`Namespace Name`/caCertificates/`CA certificate name`
+az eventgrid namespace ca-certificate show -g myRG --namespace-name myNS -n myCertName
 ```
 
 **Delete certificate**
 ```azurecli-interactive
-az resource delete --id /subscriptions/`Subscription ID`/resourceGroups/`Resource Group`/providers/Microsoft.EventGrid/namespaces/`Namespace Name`/caCertificates/`CA certificate name`
+az eventgrid namespace ca-certificate delete -g myRG --namespace-name myNS -n myCertName
 ```
 
 ## Next steps

@@ -4,7 +4,6 @@ titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn about pipeline parameters and variables in Azure Data Factory and Azure Synapse Analytics.
 author: soferreira
 ms.author: soferreira
-ms.service: data-factory
 ms.subservice: orchestration
 ms.custom: synapse
 ms.topic: conceptual
@@ -59,7 +58,7 @@ After defining a pipeline variable, you can access its value during a pipeline r
 
 ![Screenshot of variable definition.](./media/pipeline-parameter-variable-definition/variable-definition.png)
 
-## Next steps
+## Related content
 See the following tutorials for step-by-step instructions for creating pipelines with activities:
 
 - [Build a pipeline with a copy activity](quickstart-create-data-factory-powershell.md)

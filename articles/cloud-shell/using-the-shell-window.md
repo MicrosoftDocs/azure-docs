@@ -1,8 +1,8 @@
 ---
 description: Overview of how to use the Azure Cloud Shell window.
 ms.contributor: jahelmic
-ms.date: 11/14/2022
-ms.topic: article
+ms.date: 01/23/2024
+ms.topic: how-to
 tags: azure-resource-manager
 title: Using the Azure Cloud Shell window
 ---
@@ -106,7 +106,7 @@ select restore.
 
 - Windows: <kbd>Ctrl</kbd>-<kbd>C</kbd> to copy is supported but use
   <kbd>Shift</kbd>-<kbd>Insert</kbd> to paste.
-  - FireFox/IE may not support clipboard permissions properly.
+  - FireFox and Internet Explorer may not support clipboard permissions properly.
 - macOS: <kbd>Cmd</kbd>-<kbd>C</kbd> to copy and <kbd>Cmd</kbd>-<kbd>V</kbd> to paste.
 - Linux: <kbd>CTRL</kbd>-<kbd>C</kbd> to copy and <kbd>CTRL</kbd>-<kbd>SHIFT</kbd>-<kbd>V</kbd> to paste.
 
@@ -127,11 +127,6 @@ Scroll with your mouse or touchpad to move terminal text.
 The `exit` command terminates the active session. Cloud Shell also terminates your session after 20
 minutes without interaction.
 
-## Next steps
-
-- [Bash in Cloud Shell Quickstart][13]
-- [PowerShell in Cloud Shell Quickstart][12]
-
 <!-- link references -->
 [02]: media/using-the-shell-window/env-selector.png
 [03]: media/using-the-shell-window/minmax.png
@@ -143,6 +138,4 @@ minutes without interaction.
 [09]: media/using-the-shell-window/text-font.png
 [10]: media/using-the-shell-window/text-size.png
 [11]: media/using-the-shell-window/uploaddownload.png
-[12]: quickstart-powershell.md
-[13]: quickstart.md
 [14]: using-cloud-shell-editor.md

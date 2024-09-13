@@ -1,9 +1,9 @@
 ---
 title: Restore SQL Server databases on an Azure VM
 description: This article describes how to restore SQL Server databases that are running on an Azure VM and that are backed up with Azure Backup. You can also use Cross Region Restore to restore your databases to a secondary region.
-ms.topic: conceptual
-ms.date: 08/03/2023
-ms.service: backup
+ms.topic: how-to
+ms.date: 09/11/2024
+ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
@@ -259,6 +259,8 @@ The secondary region restore user experience will be similar to the primary regi
 >- After the restore is triggered and in the data transfer phase, the restore job can't be cancelled.
 >- The role/access level required to perform restore operation in cross-regions are _Backup Operator_ role in the subscription and _Contributor(write)_ access on the source and target virtual machines. To view backup jobs, _Backup reader_ is the minimum permission required in the subscription.
 >- The RPO for the backup data to be available in secondary region is 12 hours. Therefore, when you turn on CRR, the RPO for the secondary region is 12 hours + log frequency duration (that can be set to a minimum of 15 minutes).
+
+Learn about the [minimum role requirements for cross-region restore](backup-rbac-rs-vault.md#minimum-role-requirements-for-azure-workload-backups-sql-and-hana-db-backups).
 
 ### Monitoring secondary region restore jobs
 

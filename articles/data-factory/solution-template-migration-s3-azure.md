@@ -3,11 +3,8 @@ title: Migrate data from Amazon S3 to Azure Data Lake Storage Gen2
 description: Learn how to use a solution template to migrate data from Amazon S3 by using an external control table to store a partition list on AWS S3 with Azure Data Factory.
 author: dearandyxu
 ms.author: yexu
-ms.service: data-factory
-ms.subservice: tutorials
 ms.topic: conceptual
-ms.custom: seo-lt-2019
-ms.date: 04/12/2023
+ms.date: 01/05/2024
 ---
 
 # Migrate data from Amazon S3 to Azure Data Lake Storage Gen2
@@ -186,7 +183,7 @@ The template contains two parameters:
 
     :::image type="content" source="media/solution-template-migration-s3-azure/delta-migration-s3-azure-6.png" alt-text="Screenshot that shows the results from the control table after you run the query.":::
 
-## Next steps
+## Related content
 
 - [Copy files from multiple containers](solution-template-copy-files-multiple-containers.md)
 - [Move files](solution-template-move-files.md)

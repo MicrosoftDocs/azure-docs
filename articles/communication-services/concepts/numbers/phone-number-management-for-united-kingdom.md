@@ -30,6 +30,9 @@ Use the below tables to find all the relevant information on number availability
 
 \** Please refer to [SMS Concepts page](../sms/concepts.md) for supported destinations for this service.
 
+> [!IMPORTANT]
+> Effective **June 30, 2024**, unregistered alphanumeric sender IDs sending messages to UK phone numbers will have its traffic blocked. To prevent this from happening, a [registration application](https://forms.office.com/r/pK8Jhyhtd4) needs to be submitted and be in approved status.
+
 ## Subscription eligibility
 
 To acquire a phone number, you need to be on a paid Azure subscription. Phone numbers can't be acquired by Azure free credits. Also, due to regulatory reasons phone number availability is dependent on your Azure subscription billing location.
@@ -47,14 +50,22 @@ More details on eligible subscription types are as follows:
 ## Azure subscription billing locations where United Kingdom phone numbers are available
 | Country/Region |
 | :---------- |
+|Australia|
 |Canada|
 |Denmark|
+|France|
+|Germany|
 |Ireland|
 |Italy|
+|Japan|
+|Netherlands|
 |Puerto Rico|
+|Spain|
 |Sweden|
 |United Kingdom|
 |United States|
+
+[!INCLUDE [Azure Prepayment](../../includes/azure-prepayment.md)]
 
 ## Azure subscription billing locations where United Kingdom alphanumeric sender IDs are available
 | Country/Region |

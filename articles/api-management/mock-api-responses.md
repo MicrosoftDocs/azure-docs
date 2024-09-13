@@ -3,7 +3,7 @@ title: Tutorial - Mock API responses in API Management - Azure portal  | Microso
 description: In this tutorial, you use API Management to set a policy on an API. The policy returns a mocked response even if the backend isn't available to send real responses.
 
 author: dlepow
-ms.service: api-management
+ms.service: azure-api-management
 ms.custom: mvc, devx-track-azurecli, devdivchpfy22
 ms.topic: tutorial
 ms.date: 12/17/2021
@@ -11,6 +11,8 @@ ms.author: danlep
 
 ---
 # Tutorial: Mock API responses
+
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 
 Backend APIs are imported into an API Management (APIM) API or created and managed manually. The steps in this tutorial, show you how to:
 
@@ -100,7 +102,7 @@ Although not required for this example, you can configure more settings for an A
 
 To begin using Azure CLI:
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 To add an operation to your test API, run the [az apim api operation create](/cli/azure/apim/api/operation#az-apim-api-operation-create) command:
 

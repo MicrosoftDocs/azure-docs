@@ -4,11 +4,10 @@ titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to transform data from an SAP ODP source by using mapping data flows in Azure Data Factory or Azure Synapse Analytics.
 author: ukchrist
 ms.author: ulrichchrist
-ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 04/14/2023
+ms.date: 01/05/2024
 ---
 
 # Transform data from an SAP ODP source using the SAP CDC connector in Azure Data Factory or Azure Synapse Analytics
@@ -32,7 +31,7 @@ This SAP CDC connector is supported for the following capabilities:
 
 This SAP CDC connector uses the SAP ODP framework to extract data from SAP source systems. For an introduction to the architecture of the solution, read [Introduction and architecture to SAP change data capture (CDC)](sap-change-data-capture-introduction-architecture.md) in our [SAP knowledge center](industry-sap-overview.md).
 
-The SAP ODP framework is contained in all up-to-date SAP NetWeaver based systems, including SAP ECC, SAP S/4HANA, SAP BW, SAP BW/4HANA, SAP LT Replication Server (SLT). For prerequisites and minimum required releases, see [Prerequisites and configuration](sap-change-data-capture-prerequisites-configuration.md#sap-system-requirements).  
+The SAP ODP framework is contained in all up-to-date SAP NetWeaver based systems, including SAP ECC, SAP S/4HANA, SAP BW, SAP BW/4HANA, SAP LT Replication Server (SLT). For prerequisites and minimum required releases, see [Prerequisites and configuration](sap-change-data-capture-prerequisites-configuration.md#verify-sap-system-requirements).  
 
 The SAP CDC connector supports basic authentication or Secure Network Communications (SNC), if SNC is configured.
 
@@ -86,6 +85,43 @@ The **Checkpoint Key** is used by the SAP CDC runtime to store status informatio
 
 :::image type="content" source="media/sap-change-data-capture-solution/sap-change-data-capture-checkpoint-key.png" alt-text="Screenshot of checkpoint key property in data flow activity.":::
 
+### Parameterized checkpoint keys
+
+Checkpoint keys are required to manage the status of change data capture processes. For efficient management, you can parameterize the checkpoint key to allow connections to different sources. Here's how you can implement a parameterized checkpoint key:
+
+1. Create a global parameter to store the checkpoint key at the pipeline level to ensure consistency across executions:
+
+   ```json
+   "parameters": {
+    "checkpointKey": {
+        "type": "string",
+        "defaultValue": "YourStaticCheckpointKey"
+    }
+   } 
+   ```
+
+1. Programmatically set the checkpoint key to invoke the pipeline with the desired value each time it runs. Here's an example of a REST call using the parameterized checkpoint key:
+
+   ```json
+   PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.DataFactory/factories/{factoryName}/pipelines/{pipelineName}?api-version=2018-06-01
+   Content-Type: application/json
+   {
+       "properties": {
+           "activities": [
+               // Your activities here
+           ],
+           "parameters": {
+               "checkpointKey": {
+                   "type": "String",
+                   "defaultValue": "YourStaticCheckpointKey"
+               }
+           }
+       }
+   }
+   ```
+
+For more detailed information refer to [Advanced topics for the SAP CDC connector](sap-change-data-capture-advanced-topics.md).
+
 ### Mapping data flow properties
 
 To create a mapping data flow using the SAP CDC connector as a source, complete the following steps:
@@ -118,7 +154,7 @@ If **Run mode** is set to **Full on every run** or **Full on the first run, then
 
 If partitions are equally sized, source partitioning can linearly increase the throughput of data extraction. To achieve such performance improvements, sufficient resources are required in the SAP source system, the virtual machine hosting the self-hosted integration runtime, and the Azure integration runtime.
 
-## Next steps
+## Related content
 
 - [Overview and architecture of the SAP CDC capabilities](sap-change-data-capture-introduction-architecture.md)
 - [Replicate multiple objects from SAP via SAP CDC](solution-template-replicate-multiple-objects-sap-cdc.md)

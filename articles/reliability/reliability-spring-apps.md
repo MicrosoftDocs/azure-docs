@@ -5,7 +5,7 @@ author: anaharris-ms
 ms.author: anaharris
 ms.topic: overview
 ms.custom: subject-reliability, references.regions
-ms.service: spring-apps
+ms.service: azure-spring-apps
 ms.date: 10/17/2023
 ---
 
@@ -71,13 +71,13 @@ az spring create \
 
 To create a service in Azure Spring Apps with zone-redundancy enabled using the Azure portal, select the **Zone Redundant** option when you create the instance.
 
-:::image type="content" source="../spring-apps/media/how-to-enable-redundancy-and-disaster-recovery/availability-zone-portal.png" alt-text="Screenshot of the Azure portal Create page showing the Zone Redundant option." lightbox="../spring-apps/media/how-to-enable-redundancy-and-disaster-recovery/availability-zone-portal.png":::
+:::image type="content" source="media/reliability-spring-apps/availability-zone-portal.png" alt-text="Screenshot of the Azure portal Create page showing the Zone Redundant option." lightbox="media/reliability-spring-apps/availability-zone-portal.png":::
 
 ---
 
 ### Enable your own resource with availability zones enabled
 
-You can enable your own resource in Azure Spring Apps, such as your own persistent storage. However, you must make sure to enable zone-redundancy for your resource. For more information, see [How to enable your own persistent storage in Azure Spring Apps](../spring-apps/how-to-custom-persistent-storage.md).
+You can enable your own resource in Azure Spring Apps, such as your own persistent storage. However, you must make sure to enable zone-redundancy for your resource. For more information, see [How to enable your own persistent storage in Azure Spring Apps](../spring-apps/enterprise/how-to-custom-persistent-storage.md).
 
 ### Zone down experience
 
@@ -117,7 +117,7 @@ Use the following steps to create an Azure Traffic Manager instance for Azure Sp
    | service-sample-a | East US     | gateway / auth-service / account-service |
    | service-sample-b | West Europe | gateway / auth-service / account-service |
 
-1. Set up a custom domain for the service instances. For more information, see [Tutorial: Map an existing custom domain to Azure Spring Apps](../spring-apps/how-to-custom-domain.md). After successful setup, both service instances will bind to the same custom domain, such as `bcdr-test.contoso.com`.
+1. Set up a custom domain for the service instances. For more information, see [Tutorial: Map an existing custom domain to Azure Spring Apps](../spring-apps/enterprise/how-to-custom-domain.md). After successful setup, both service instances will bind to the same custom domain, such as `bcdr-test.contoso.com`.
 
 1. Create a traffic manager and two endpoints. For instructions, see [Quickstart: Create a Traffic Manager profile using the Azure portal](../traffic-manager/quickstart-create-traffic-manager-profile.md), which produces the following Traffic Manager profile:
 
@@ -137,12 +137,12 @@ The environment is now set up. If you used the example values in the linked arti
 
 Azure Front Door is a global, scalable entry point that uses the Microsoft global edge network to create fast, secure, and widely scalable web applications. Azure Front Door provides the same multi-geo redundancy and routing to the closest region as Azure Traffic Manager. Azure Front Door also provides advanced features such as TLS protocol termination, application layer processing, and Web Application Firewall (WAF). For more information, see [What is Azure Front Door?](../frontdoor/front-door-overview.md)
 
-The following diagram shows the architecture of a multi-region redundancy, virtual-network-integrated Azure Spring Apps service instance. The diagram shows the correct reverse proxy configuration for Application Gateway and Front Door with a custom domain. This architecture is based on the scenario described in [Expose applications with end-to-end TLS in a virtual network](../spring-apps/expose-apps-gateway-end-to-end-tls.md). This approach combines two Application-Gateway-integrated Azure Spring Apps virtual-network-injection instances into a geo-redundant instance.
+The following diagram shows the architecture of a multi-region redundancy, virtual-network-integrated Azure Spring Apps service instance. The diagram shows the correct reverse proxy configuration for Application Gateway and Front Door with a custom domain. This architecture is based on the scenario described in [Expose applications with end-to-end TLS in a virtual network](../spring-apps/enterprise/expose-apps-gateway-end-to-end-tls.md). This approach combines two Application-Gateway-integrated Azure Spring Apps virtual-network-injection instances into a geo-redundant instance.
 
-:::image type="content" source="../spring-apps/media/how-to-enable-redundancy-and-disaster-recovery/multi-region-spring-apps-reference-architecture.png" alt-text="Diagram showing the architecture of a multi-region Azure Spring Apps service instance." lightbox="../spring-apps/media/how-to-enable-redundancy-and-disaster-recovery/multi-region-spring-apps-reference-architecture.png":::
+:::image type="content" source="media/reliability-spring-apps/multi-region-spring-apps-reference-architecture.png" alt-text="Diagram showing the architecture of a multi-region Azure Spring Apps service instance." lightbox="media/reliability-spring-apps/multi-region-spring-apps-reference-architecture.png":::
 
 ## Next steps
 
-- [Quickstart: Deploy your first Spring Boot app in Azure Spring Apps](../spring-apps/quickstart.md)
+- [Quickstart: Deploy your first Spring Boot app in Azure Spring Apps](../spring-apps/enterprise/quickstart.md)
 
 - [Reliability in Azure](./overview.md)

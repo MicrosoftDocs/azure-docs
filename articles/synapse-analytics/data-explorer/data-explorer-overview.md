@@ -6,9 +6,8 @@ ms.date: 11/02/2021
 author: shsagir
 ms.author: shsagir
 ms.reviewer: maraheja
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.subservice: data-explorer
-ms.custom: ignite-fall-2021
 ---
 
 # What is Azure Synapse Data Explorer? (Preview)

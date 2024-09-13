@@ -1,13 +1,14 @@
 ---
-title: Balance partition load across multiple instances - Azure Event Hubs | Microsoft Docs
+title: Balance partition load across multiple instances
 description: Describes how to balance partition load across multiple instances of your application using an event processor and the Azure Event Hubs SDK.  
-ms.topic: conceptual
-ms.date: 11/14/2022
+ms.topic: concept-article
+ms.date: 07/31/2024
+#customer intent: As a developer, I want to know how to run multiple instances of my processing client to read data from an event hub. 
 ---
 
 # Balance partition load across multiple instances of your application
 
-To scale your event processing application, you can run multiple instances of the application and have the load balanced among themselves. In the older versions, [EventProcessorHost](event-hubs-event-processor-host.md) allowed you to balance the load between multiple instances of your program and checkpoint events when receiving the events. In the newer versions (5.0 onwards), **EventProcessorClient** (.NET and Java), or **EventHubConsumerClient** (Python and JavaScript) allows you to do the same. The development model is made simpler by using events. You subscribe to the events that you're interested in by registering an event handler. If you're using the old version of the client library, see the following migration guides: [.NET](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/MigrationGuide.md), [Java](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/servicebus/azure-messaging-servicebus/migration-guide.md), [Python](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/servicebus/azure-servicebus/migration_guide.md), and [JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/servicebus/service-bus/migrationguide.md).
+To scale your event processing application, you can run multiple instances of the application and have the load balanced among themselves. In the older and deprecated versions, `EventProcessorHost` allowed you to balance the load between multiple instances of your program and checkpoint events when receiving the events. In the newer versions (5.0 onwards), **EventProcessorClient** (.NET and Java), or **EventHubConsumerClient** (Python and JavaScript) allows you to do the same. The development model is made simpler by using events. You can subscribe to the events that you're interested in by registering an event handler. If you're using the old version of the client library, see the following migration guides: [.NET](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/MigrationGuide.md), [Java](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/servicebus/azure-messaging-servicebus/migration-guide.md), [Python](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/servicebus/azure-servicebus/migration_guide.md), and [JavaScript](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/servicebus/service-bus/migrationguide.md).
 
 This article describes a sample scenario for using multiple instances of client `applications to read events from an event hub. It also gives you details about features of event processor client, which allows you to receive events from multiple partitions at once and load balance with other consumers that use the same event hub and consumer group.
 
@@ -22,7 +23,7 @@ Each sensor pushes data to an event hub. The event hub is configured with 16 par
 
 ## Consumer application
 
-When designing the consumer in a distributed environment, the scenario must handle the following requirements:
+When you design a consumer in a distributed environment, the scenario must handle the following requirements:
 
 1. **Scale:** Create multiple consumers, with each consumer taking ownership of reading from a few Event Hubs partitions.
 2. **Load balance:** Increase or reduce the consumers dynamically. For example, when a new sensor type (for example, a carbon monoxide detector) is added to each home, the number of events increases. In that case, the operator (a human) increases the number of consumer instances. Then, the pool of consumers can rebalance the number of partitions they own, to share the load with the newly added consumers.
@@ -58,7 +59,7 @@ Each event processor instance acquires ownership of a partition and starts proce
 
 ## Receive messages
 
-When you create an event processor, you specify functions that will process events and errors. Each call to the function that processes events delivers a single event from a specific partition. It's your responsibility to handle this event. If you want to make sure the consumer processes every message at least once, you need to write your own code with retry logic. But be cautious about poisoned messages.
+When you create an event processor, you specify functions that process events and errors. Each call to the function that processes events delivers a single event from a specific partition. It's your responsibility to handle this event. If you want to make sure the consumer processes every message at least once, you need to write your own code with retry logic. But be cautious about poisoned messages.
 
 We recommend that you do things relatively fast. That is, do as little processing as possible. If you need to write to storage and do some routing, it's better to use two consumer groups and have two event processors.
 
@@ -78,7 +79,7 @@ When the checkpoint is performed to mark an event as processed, an entry in chec
 
 By default, the function that processes events is called sequentially for a given partition. Subsequent events and calls to this function from the same partition queue up behind the scenes as the event pump continues to run in the background on other threads. Events from different partitions can be processed concurrently and any shared state that is accessed across partitions have to be synchronized.
 
-## Next steps
+## Related content
 See the following quick starts:
 
 - [.NET Core](event-hubs-dotnet-standard-getstarted-send.md)

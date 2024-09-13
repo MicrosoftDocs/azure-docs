@@ -4,8 +4,8 @@ description: Troubleshoot Azure Managed Grafana issues related to fetching data,
 author: maud-lv
 ms.author: malev
 ms.topic: troubleshooting
-ms.service: managed-grafana
-ms.date: 09/13/2022
+ms.service: azure-managed-grafana
+ms.date: 04/12/2024
 ---
 
 # Troubleshoot issues for Azure Managed Grafana
@@ -69,13 +69,7 @@ Enter a name that:
 
 The user has successfully created an Azure Managed Grafana instance but can't access their Managed Grafana instance, when going to the endpoint URL.
 
-<a name='solution-1-use-an-azure-ad-account'></a>
-
-### Solution 1: use a Microsoft Entra account
-
-Managed Grafana doesn't support Microsoft accounts. Sign in with a Microsoft Entra account.
-
-### Solution 2: check the provisioning state
+### Solution 1: check the provisioning state
 
 If you get a page with an error message such as "can't reach this page", stating that the page took too long to respond, follow the process below:
 
@@ -89,7 +83,7 @@ If you get a page with an error message such as "can't reach this page", stating
 
 1. If you have a firewall blocking outbound traffic, allow access to your instance, to your URL ending in grafana.azure.com, and Microsoft Entra ID.
 
-### Solution 3: fix access role issues
+### Solution 2: fix access role issues
 
 If you get an error page stating "No Roles Assigned":
 
@@ -161,7 +155,7 @@ Every Grafana instance comes pre-configured with an Azure Monitor data source. W
       1. In the left menu, under **Settings**, select **Identity**.
       1. Select **Status**: **On** and select **Save**
 
-      :::image type="content" source="media/troubleshoot/troubleshoot-managed-identity.png" alt-text="Screenshot of the Azure platform: Turn on system-assigned managed identity." lightbox="media/troubleshoot/troubleshoot-managed-identity-expanded.png":::
+      :::image type="content" source="media/troubleshoot/troubleshoot-managed-identity.png" alt-text="Screenshot of the Azure platform: Turn on system-assigned managed identity.":::
 
    1. Check if the managed identity has the Monitoring Reader role assigned to the Managed Grafana instance. If not, add it manually from the Azure portal:
       1. Open your Managed Grafana instance in the Azure portal.

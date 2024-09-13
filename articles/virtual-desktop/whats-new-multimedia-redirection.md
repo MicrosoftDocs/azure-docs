@@ -1,20 +1,46 @@
 ---
 title: What's new in multimedia redirection MMR? - Azure Virtual Desktop
 description: New features and product updates for multimedia redirection for Azure Virtual Desktop.
-author: Heidilohr
+author: dknappettmsft
 ms.topic: release-notes
-ms.date: 09/12/2023
-ms.author: helohr
-manager: femila
+ms.date: 08/12/2024
+ms.author: daknappe
+ms.custom: docs_inherited
 ---
 
 # What's new in multimedia redirection?
 
-This article has the latest updates for multimedia redirection (MMR) for Azure Virtual Desktop. 
+This article has the latest updates for host component of multimedia redirection (MMR) for Azure Virtual Desktop.
+
+## Latest available version
+
+The following table shows the latest available version of the MMR extension for Azure Virtual Desktop. For setup instructions, see [Use multimedia redirection on Azure Virtual Desktop](multimedia-redirection.md).
+
+| Release | Latest version | Download |
+|---------|----------------|----------|
+| Public | 1.0.2404.4003 | [MMR extension](https://aka.ms/avdmmr/msi) |
+
+## Updates for version 1.0.2404.4003
+
+*Published: July 23, 2024*
+
+In this release, we've made the following changes:
+
+- Fixed a deadlock issue and improved telemetry processing.
+
+## Updates for version 1.0.2311.2004
+
+*Published: January 23, 2024*
+
+In this release, we've made the following changes:
+
+- Fixed an issue that affected call redirection.
+- Fixed an installer log file location issue.
+- The extension no longer displays error messages for unsupported media formats.
 
 ## Updates for version 1.0.2309.7002
 
-*Date published: September 12, 2023*
+*Published: September 12, 2023*
 
 In this release, we've made the following changes:
 
@@ -25,7 +51,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 1.0.2304.12009 
 
-*Date published: June 13, 2023*
+*Published: June 13, 2023*
 
 In this release, we've made the following changes: 
 
@@ -34,7 +60,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 1.0.2301.24004
 
-*Date published: February 7, 2023*
+*Published: February 7, 2023*
 
 In this release, we've made the following changes:
 
@@ -43,7 +69,7 @@ In this release, we've made the following changes:
 
 ## Updates for version 0.3.2210.12012
 
-*Date published: October 13, 2022*
+*Published: October 13, 2022*
 
 In this release, we've made the following changes:
 

@@ -2,7 +2,6 @@
 title: End-to-end security in Azure | Microsoft Docs
 description: The article provides a map of Azure services that help you secure and protect your cloud resources and detect and investigate threats.
 services: security
-documentationcenter: na
 author: TerryLanfear
 manager: rkarlin
 
@@ -10,9 +9,7 @@ ms.assetid: a5a7f60a-97e2-49b4-a8c5-7c010ff27ef8
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 01/29/2023
+ms.date: 06/28/2024
 ms.author: terrylan
 
 ---
@@ -39,8 +36,6 @@ The [Microsoft cloud security benchmark](/security/benchmark/azure/introduction)
 
 ## Secure and protect
 
-:::image type="content" source="media/end-to-end/secure-and-protect.svg" alt-text="Diagram showing Azure services that help you secure and protect your cloud resources." border="false":::
-
 | Service | Description |
 |------|--------|
 | [Microsoft Defender for Cloud](../../security-center/security-center-introduction.md)| A unified infrastructure security management system that strengthens the security posture of your data centers, and provides advanced threat protection across your hybrid workloads in the cloud - whether they're in Azure or not - as well as on premises. |
@@ -56,8 +51,8 @@ The [Microsoft cloud security benchmark](/security/benchmark/azure/introduction)
 | [Azure DDoS Protection](../../ddos-protection/ddos-protection-overview.md) | Provides enhanced DDoS mitigation features to defend against DDoS attacks. It is automatically tuned to help protect your specific Azure resources in a virtual network. |
 | [Azure Front Door](../../frontdoor/front-door-overview.md) | A global, scalable entry-point that uses the Microsoft global edge network to create fast, secure, and widely scalable web applications. |
 | [Azure Firewall](../../firewall/overview.md) | A cloud-native and intelligent network firewall security service that provides threat protection for your cloud workloads running in Azure. It's a fully stateful firewall as a service with built-in high availability and unrestricted cloud scalability. Azure Firewall is offered in three SKUs: [Standard](../../firewall/features.md), [Premium](../../firewall/premium-features.md), and [Basic](../../firewall/overview.md#azure-firewall-basic). |
-| [Azure Key Vault](../../key-vault/general/overview.md) | A secure secrets store for tokens, passwords, certificates, API keys, and other secrets. Key Vault can also be used to create and control the encryption keys used to encrypt your data. |
-| [Key Vault Managed HSM](../../key-vault/managed-hsm/overview.md) | A fully managed, highly available, single-tenant, standards-compliant cloud service that enables you to safeguard cryptographic keys for your cloud applications, using FIPS 140-2 Level 3 validated HSMs. |
+| [Azure Key Vault](/azure/key-vault/general/overview) | A secure secrets store for tokens, passwords, certificates, API keys, and other secrets. Key Vault can also be used to create and control the encryption keys used to encrypt your data. |
+| [Key Vault Managed HSM](/azure/key-vault/managed-hsm/overview) | A fully managed, highly available, single-tenant, standards-compliant cloud service that enables you to safeguard cryptographic keys for your cloud applications, using FIPS 140-2 Level 3 validated HSMs. |
 | [Azure Private Link](../../private-link/private-link-overview.md) | Enables you to access Azure PaaS Services (for example, Azure Storage and SQL Database) and Azure hosted customer-owned/partner services over a private endpoint in your virtual network. |
 | [Azure Application Gateway](../../application-gateway/overview.md) | An advanced web traffic load balancer that enables you to manage traffic to your web applications. Application Gateway can make routing decisions based on additional attributes of an HTTP request, for example URI path or host headers. |
 | [Azure Service Bus](../../service-bus-messaging/service-bus-messaging-overview.md) | A fully managed enterprise message broker with message queues and publish-subscribe topics. Service Bus is used to decouple applications and services from each other. |
@@ -77,14 +72,12 @@ The [Microsoft cloud security benchmark](/security/benchmark/azure/introduction)
 
 ## Detect threats
 
-:::image type="content" source="media/end-to-end/detect-threats.svg" alt-text="Diagram showing Azure services that detect threats." border="false":::
-
 | Service | Description |
 |------|--------|
 | [Microsoft Defender for Cloud](../../security-center/azure-defender.md) | Brings advanced, intelligent, protection of your Azure and hybrid resources and workloads. The workload protection dashboard in Defender for Cloud provides visibility and control of the cloud workload protection features for your environment. |
 | [Microsoft Sentinel](../../sentinel/overview.md) | A scalable, cloud-native, security information event management (SIEM) and security orchestration automated response (SOAR) solution. Sentinel delivers intelligent security analytics and threat intelligence across the enterprise, providing a single solution for alert detection, threat visibility, proactive hunting, and threat response. |
 | **Identity&nbsp;&&nbsp;Access&nbsp;Management** |  |
-| [Microsoft 365 Defender](/microsoft-365/security/defender/microsoft-365-defender) | A unified pre- and post-breach enterprise defense suite that natively coordinates detection, prevention, investigation, and response across endpoints, identities, email, and applications to provide integrated protection against sophisticated attacks. |
+| [Microsoft Defender XDR](/microsoft-365/security/defender/microsoft-365-defender) | A unified pre- and post-breach enterprise defense suite that natively coordinates detection, prevention, investigation, and response across endpoints, identities, email, and applications to provide integrated protection against sophisticated attacks. |
 |  | [Microsoft Defender for Endpoint](/microsoft-365/security/defender-endpoint/microsoft-defender-endpoint) is an enterprise endpoint security platform designed to help enterprise networks prevent, detect, investigate, and respond to advanced threats. |
 |  | [Microsoft Defender for Identity](/defender-for-identity/what-is) is a cloud-based security solution that leverages your on-premises Active Directory signals to identify, detect, and investigate advanced threats, compromised identities, and malicious insider actions directed at your organization. |
 | [Microsoft Entra ID Protection](../../active-directory/identity-protection/howto-identity-protection-configure-notifications.md) | Sends two types of automated notification emails to help you manage user risk and risk detections: Users at risk detected email and Weekly digest email. |
@@ -94,17 +87,15 @@ The [Microsoft cloud security benchmark](/security/benchmark/azure/introduction)
 | [Azure Network Watcher](../../network-watcher/network-watcher-monitoring-overview.md) | Provides tools to monitor, diagnose, view metrics, and enable or disable logs for resources in an Azure virtual network. Network Watcher is designed to monitor and repair the network health of IaaS products which includes virtual machines, virtual networks, application gateways, and load balancers. |
 | [Azure Policy](../../governance/policy/overview.md) | Helps to enforce organizational standards and to assess compliance at-scale. Azure Policy uses activity logs, which are automatically enabled to include event source, date, user, timestamp, source addresses, destination addresses, and other useful elements. |
 | **Data & Application** |  |
-| [Microsoft Defender for Containers](../../defender-for-cloud/defender-for-containers-introduction.md) | A cloud-native solution that is used to secure your containers so you can improve, monitor, and maintain the security of your clusters, containers, and their applications. |
+| [Microsoft Defender for Containers](/azure/defender-for-cloud/defender-for-containers-introduction) | A cloud-native solution that is used to secure your containers so you can improve, monitor, and maintain the security of your clusters, containers, and their applications. |
 | [Microsoft Defender for Cloud Apps](/cloud-app-security/what-is-cloud-app-security) | A cloud access security broker (CASB) that operates on multiple clouds. It provides rich visibility, control over data travel, and sophisticated analytics to identify and combat cyberthreats across all your cloud services. |
 
 ## Investigate and respond
 
-:::image type="content" source="media/end-to-end/investigate-and-respond.svg" alt-text="Diagram showing Azure services that help you investigate and respond to threats." border="false":::
-
 | Service | Description |
 |------|--------|
 | [Microsoft Sentinel](../../sentinel/hunting.md) | Powerful search and query tools to hunt for security threats across your organization's data sources. |
-| [Azure&nbsp;Monitor&nbsp;logs&nbsp;and&nbsp;metrics](../../azure-monitor/overview.md) | Delivers a comprehensive solution for collecting, analyzing, and acting on telemetry from your cloud and on-premises environments. Azure Monitor [collects and aggregates data](../../azure-monitor/data-platform.md#observability-data-in-azure-monitor) from a variety of sources into a common data platform where it can be used for analysis, visualization, and alerting. |
+| [Azure&nbsp;Monitor&nbsp;logs&nbsp;and&nbsp;metrics](/azure/azure-monitor/overview) | Delivers a comprehensive solution for collecting, analyzing, and acting on telemetry from your cloud and on-premises environments. Azure Monitor [collects and aggregates data](/azure/azure-monitor/data-platform#observability-data-in-azure-monitor) from a variety of sources into a common data platform where it can be used for analysis, visualization, and alerting. |
 | **Identity&nbsp;&&nbsp;Access&nbsp;Management** |  |
 | [Azure&nbsp;AD&nbsp;reports&nbsp;and&nbsp;monitoring](../../active-directory/reports-monitoring/index.yml) | [Microsoft Entra reports](../../active-directory/reports-monitoring/overview-reports.md) provide a comprehensive view of activity in your environment. |
 |  | [Microsoft Entra monitoring](../../active-directory/reports-monitoring/overview-monitoring.md) lets you route your Microsoft Entra activity logs to different endpoints.|

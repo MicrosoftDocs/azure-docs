@@ -4,10 +4,9 @@ description: Learn how to create a workload group that is similar to a resource 
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.date: 08/13/2020
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.subservice: sql-dw
 ms.topic: conceptual
-ms.custom: seo-lt-2019
 ---
 
 # Convert Resource Classes to Workload Groups

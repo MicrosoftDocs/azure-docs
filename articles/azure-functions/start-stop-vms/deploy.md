@@ -12,7 +12,7 @@ ms.custon: subject-rbac-steps
 
 Perform the steps in this article in sequence to install the Start/Stop VMs v2 feature. After completing the setup process, configure the schedules to customize it to your requirements.
 
-## Permissions considerations
+## Permissions and Policy considerations
 
 Keep the following considerations in mind before and during deployment:
 
@@ -21,6 +21,9 @@ Keep the following considerations in mind before and during deployment:
 + Any users with access to the Start/Stop v2 solution could uncover cost, savings, operation history, and other data that is stored in the Application Insights instance used by the Start/Stop v2 application.
 
 + When managing a Start/Stop v2 solution, you should consider the permissions of users to the Start/Stop v2 solution, particularly when whey don't have permission to directly modify the target virtual machines.
+
++ When you deploy the Start/Stop v2 solution to a new or existing resource group, a tag named **SolutionName** with a value of **StartStopV2** is added to resource group and to its resources that are deployed by Start/Stop v2. Any other tags on these resources are removed. If you have an Azure policy that denies management operations based on resource tags, you must allow management operations for resources that contain only this tag.
+
 
 ## Deploy feature
 
@@ -93,7 +96,7 @@ After the Start/Stop deployment completes, perform the following steps to enable
 
 1. Select **Add** > **Add role assignment** to open the **Add role assignment** page.
 
-1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
+1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.yml).
 
     | Setting | Value |
     | --- | --- |
@@ -101,7 +104,7 @@ After the Start/Stop deployment completes, perform the following steps to enable
     | Assign access to | User, group, or service principal |
     | Members | \<Your Azure Function App name> |
 
-    ![Screenshot showing Add role assignment page in Azure portal.](../../../includes/role-based-access-control/media/add-role-assignment-page.png)
+    ![Screenshot showing Add role assignment page in Azure portal.](~/reusable-content/ce-skilling/azure/media/role-based-access-control/add-role-assignment-page.png)
 
 ## Configure schedules overview
 
@@ -137,6 +140,9 @@ For each scenario, you can target the action against one or more subscriptions, 
 1. After Logic App Designer appears, in the designer pane, select **Recurrence** to configure the logic app schedule. To learn about the specific recurrence options, see [Schedule recurring task](../../connectors/connectors-native-recurrence.md#add-the-recurrence-trigger).
 
     :::image type="content" source="media/deploy/schedule-recurrence-property.png" alt-text="Configure the recurrence frequency for logic app":::
+
+   > [!NOTE]
+   > If you do not provide a start date and time for the first recurrence, a recurrence will immediately run when you save the logic app, which might cause the VMs to start or stop before the scheduled run.
 
 1. In the designer pane, select **Function-Try** to configure the target settings. In the request body, if you want to manage VMs across all resource groups in the subscription, modify the request body as shown in the following example.
 
@@ -208,7 +214,7 @@ For each scenario, you can target the action against one or more subscriptions, 
     ```json
     {
       "Action": "start",
-      "EnableClassic": true,
+      "EnableClassic": false,
       "RequestScopes": {
         "ExcludedVMLists": [],
         "VMLists": [
@@ -234,6 +240,9 @@ In an environment that includes two or more components on multiple Azure Resourc
 1. After Logic App Designer appears, in the designer pane, select **Recurrence** to configure the logic app schedule. To learn about the specific recurrence options, see [Schedule recurring task](../../connectors/connectors-native-recurrence.md#add-the-recurrence-trigger).
 
     :::image type="content" source="media/deploy/schedule-recurrence-property.png" alt-text="Configure the recurrence frequency for logic app":::
+
+   > [!NOTE]
+   > If you do not provide a start date and time for the first recurrence, a recurrence will immediately run when you save the logic app, which might cause the VMs to start or stop before the scheduled run.
 
 1. In the designer pane, select **Function-Try** to configure the target settings and then select the **</> Code view** button in the top menu to edit the code for the **Function-Try** element. In the request body, if you want to manage VMs across all resource groups in the subscription, modify the request body as shown in the following example.
 
@@ -290,7 +299,7 @@ In an environment that includes two or more components on multiple Azure Resourc
     ```json
     {
       "Action": "start",
-      "EnableClassic": true,
+      "EnableClassic": false,
       "RequestScopes": {
         "ExcludedVMLists": [],
         "VMLists": [
@@ -319,7 +328,7 @@ The following metric alert properties in the request body support customization:
 - AutoStop_TimeAggregationOperator
 - AutoStop_TimeWindow
 
-To learn more about how Azure Monitor metric alerts work and how to configure them see [Metric alerts in Azure Monitor](../../azure-monitor/alerts/alerts-metric-overview.md).
+To learn more about how Azure Monitor metric alerts work and how to configure them see [Metric alerts in Azure Monitor](/azure/azure-monitor/alerts/alerts-metric-overview).
 
 1. From the list of Logic apps, to configure auto stop, select **ststv2_vms_AutoStop**.
 
@@ -366,7 +375,7 @@ To learn more about how Azure Monitor metric alerts work and how to configure th
       "AutoStop_Threshold": "5",
       "AutoStop_TimeAggregationOperator": "Average",
       "AutoStop_TimeWindow": "06:00:00",
-      "EnableClassic": true,
+      "EnableClassic": false,
       "RequestScopes": {
         "ExcludedVMLists": [],
         "ResourceGroups": [
@@ -391,7 +400,7 @@ To learn more about how Azure Monitor metric alerts work and how to configure th
       "AutoStop_Threshold": "5",
       "AutoStop_TimeAggregationOperator": "Average",
       "AutoStop_TimeWindow": "06:00:00",
-      "EnableClassic": true,
+      "EnableClassic": false,
       "RequestScopes": {
         "ExcludedVMLists": [],
         "VMLists": [

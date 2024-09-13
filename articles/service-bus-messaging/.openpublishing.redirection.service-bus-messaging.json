@@ -22,7 +22,7 @@
   },
   {
     "source_path": "service-bus-amqp-php.md",
-    "redirect_url": "/azure/service-bus-messaging/service-bus-php-how-to-use-queues",
+    "redirect_url": "https://github.com/Azure/azure-sdk-for-php/tree/master/src/ServiceBus",
     "redirect_document_id": false
   },
   {
@@ -186,6 +186,16 @@
     "redirect_document_id": false
   },
   {
+    "source_path": "service-bus-php-how-to-use-queues.md",
+    "redirect_url": "https://github.com/Azure/azure-sdk-for-php/tree/master/src/ServiceBus",
+    "redirect_document_id": false
+  },
+  {
+    "source_path": "service-bus-php-how-to-use-topics-subscriptions.md",
+    "redirect_url": "https://github.com/Azure/azure-sdk-for-php/tree/master/src/ServiceBus",
+    "redirect_document_id": false
+  },
+  {
     "source_path": "service-bus-shared-access-signature-authentication.md",
     "redirect_url": "/azure/service-bus-messaging/service-bus-sas",
     "redirect_document_id": false
@@ -198,6 +208,11 @@
   {
     "source_path": "enable-partitions.md",
     "redirect_url": "/azure/service-bus-messaging/enable-partitions-basic-standard",
+    "redirect_document_id": false
+  },
+  {
+    "source_path_from_root": "/articles/service-bus/index.md",
+    "redirect_url": "/azure/service-bus-messaging/index",
     "redirect_document_id": false
   }
 ]

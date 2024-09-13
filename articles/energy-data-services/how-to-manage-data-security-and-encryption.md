@@ -33,9 +33,9 @@ In addition to TLS, when you interact with Azure Data Manager for Energy, all tr
 
 **Step 1: Configure the key vault**
 
-1. You can use a new or existing key vault to store customer-managed keys. To learn more about Azure Key Vault, see [Azure Key Vault Overview](../key-vault/general/overview.md) and [What is Azure Key Vault](../key-vault/general/basic-concepts.md)?
+1. You can use a new or existing key vault to store customer-managed keys. To learn more about Azure Key Vault, see [Azure Key Vault Overview](/azure/key-vault/general/overview) and [What is Azure Key Vault](/azure/key-vault/general/basic-concepts)?
 2. Using customer-managed keys with Azure Data Manager for Energy requires that both soft delete and purge protection be enabled for the key vault. Soft delete is enabled by default when you create a new key vault and cannot be disabled. You can enable purge protection either when you create the key vault or after it is created.
-3. To learn how to create a key vault with the Azure portal, see [Quickstart: Create a key vault using the Azure portal](../key-vault/general/quick-create-portal.md). When you create the key vault, select Enable purge protection.
+3. To learn how to create a key vault with the Azure portal, see [Quickstart: Create a key vault using the Azure portal](/azure/key-vault/general/quick-create-portal). When you create the key vault, select Enable purge protection.
 
    [![Screenshot of enabling purge protection and soft delete while creating key vault](media/how-to-manage-data-security-and-encryption/customer-managed-key-1-create-key-vault.png)](media/how-to-manage-data-security-and-encryption/customer-managed-key-1-create-key-vault.png#lightbox)
  
@@ -46,8 +46,8 @@ In addition to TLS, when you interact with Azure Data Manager for Energy, all tr
 
 **Step 2: Add a key**
 1.	Next, add a key to the key vault.
-2.	To learn how to add a key with the Azure portal, see [Quickstart: Set and retrieve a key from Azure Key Vault using the Azure portal](../key-vault/keys/quick-create-portal.md).
-3.	It is recommended that the RSA key size is 3072, see [Configure customer-managed keys for your Azure Cosmos DB account | Microsoft Learn](../cosmos-db/how-to-setup-customer-managed-keys.md#generate-a-key-in-azure-key-vault).
+2.	To learn how to add a key with the Azure portal, see [Quickstart: Set and retrieve a key from Azure Key Vault using the Azure portal](/azure/key-vault/keys/quick-create-portal).
+3.	It is recommended that the RSA key size is 3072, see [Configure customer-managed keys for your Azure Cosmos DB account | Microsoft Learn](/azure/cosmos-db/how-to-setup-customer-managed-keys#generate-a-key-in-azure-key-vault).
 
 **Step 3: Choose a managed identity to authorize access to the key vault**
 1.	When you enable customer-managed keys for an existing Azure Data Manager for Energy instance you must specify a managed identity that will be used to authorize access to the key vault that contains the key. The managed identity must have permissions to access the key in the key vault.
@@ -72,7 +72,7 @@ In addition to TLS, when you interact with Azure Data Manager for Energy, all tr
  
    [![Screenshot of key vault, key, user assigned identity, and CMK on encryption tab](media/how-to-manage-data-security-and-encryption/customer-managed-key-3bb-select-managed-identity.png)](media/how-to-manage-data-security-and-encryption/customer-managed-key-3bb-select-managed-identity.png#lightbox)
 
-10.	This user assigned identity must have _get key_, _list key_, _wrap key_, and _unwrap key_ permissions on the key vault. For more information on assigning Azure Key Vault access policies, see [Assign a Key Vault Access Policy](../key-vault/general/assign-access-policy.md). 
+10.	This user assigned identity must have _get key_, _list key_, _wrap key_, and _unwrap key_ permissions on the key vault. For more information on assigning Azure Key Vault access policies, see [Assign a Key Vault Access Policy](/azure/key-vault/general/assign-access-policy). 
  
     [![Screenshot of get, list, wrap, and upwrap key access policy](media/how-to-manage-data-security-and-encryption/customer-managed-key-4-access-policy.png)](media/how-to-manage-data-security-and-encryption/customer-managed-key-4-access-policy.png#lightbox)
 

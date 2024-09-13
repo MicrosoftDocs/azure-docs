@@ -3,11 +3,10 @@ title: View your billing accounts in Azure portal
 description: Learn how to view your billing accounts in the Azure portal. See scope information for Enterprise, Microsoft Customer, and Microsoft Partner Agreements.
 author: bandersmsft
 ms.reviewer: amberb
-tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 05/18/2023
+ms.date: 03/21/2024
 ms.author: banders
 ---
 
@@ -47,7 +46,7 @@ If you don't have access to view or manage billing accounts, you probably don't 
 
 ### Microsoft Online Services Program
 
-![Screenshot that shows MOSP hierarchy](./media/view-all-accounts/mosp-hierarchy.png)
+:::image type="content" border="true" source="./media/view-all-accounts/mosp-hierarchy.png" alt-text="Screenshot that shows a M O S P hierarchy.":::
 
 |Scope  |Definition  |
 |---------|---------|
@@ -56,7 +55,7 @@ If you don't have access to view or manage billing accounts, you probably don't 
 
 ### Enterprise Agreement
 
-![Screenshot that shows EA hierarchy](./media/view-all-accounts/ea-hierarchy.png)
+:::image type="content" border="true" source="./media/view-all-accounts/ea-hierarchy.png" alt-text="Screenshot that shows an E A hierarchy.":::
 
 |Scope  |Definition  |
 |---------|---------|
@@ -66,7 +65,7 @@ If you don't have access to view or manage billing accounts, you probably don't 
 
 ### Microsoft Customer Agreement
 
-![Screenshot that shows MCA hierarchy](./media/view-all-accounts/mca-hierarchy.png)
+:::image type="content" border="true" source="./media/view-all-accounts/mca-hierarchy.png" alt-text="Screenshot that shows an M C A hierarchy.":::
 
 |Scope  |Tasks  |
 |---------|---------|
@@ -76,7 +75,7 @@ If you don't have access to view or manage billing accounts, you probably don't 
 
 ### Microsoft Partner Agreement
 
-![Screenshot that shows MPA hierarchy](./media/view-all-accounts/mpa-hierarchy.png)
+:::image type="content" border="true" source="./media/view-all-accounts/mpa-hierarchy.png" alt-text="Screenshot that shows an M P A hierarchy.":::
 
 |Scope  |Tasks  |
 |---------|---------|
@@ -91,11 +90,11 @@ If you don't have access to view or manage billing accounts, you probably don't 
 
 2. Search for **Cost Management + Billing**.
 
-   ![Screenshot that shows Azure portal search for Cost Management + Billing.](./media/view-all-accounts/billing-search-cost-management-billing.png)
+   :::image type="content" border="true" source="./media/view-all-accounts/billing-search-cost-management-billing.png" alt-text="Screenshot that shows Azure portal search for Cost Management + Billing.":::
 
 3. In the overview page, select **Switch scope**.
 
-   ![Screenshot that shows billing scopes.](./media/view-all-accounts/overview-select-scopes.png)
+   :::image type="content" border="true" source="./media/view-all-accounts/overview-select-scopes.png" alt-text="Screenshot that shows billing scopes.":::
 
    > [!Note]
     >
@@ -103,7 +102,7 @@ If you don't have access to view or manage billing accounts, you probably don't 
 
 4. Select a scope to view details.
 
-   ![Screenshot that shows billing scopes, which you can select for details.](./media/view-all-accounts/list-of-scopes.png)
+   :::image type="content" border="true" source="./media/view-all-accounts/list-of-scopes.png" alt-text="Screenshot that shows billing scopes, which you can select for details.":::
 
 ## Check the type of your account
 [!INCLUDE [billing-check-mca](../../../includes/billing-check-account-type.md)]
@@ -112,5 +111,6 @@ If you don't have access to view or manage billing accounts, you probably don't 
 
 If you have questions or need help,  [create a support request](https://go.microsoft.com/fwlink/?linkid=2083458).
 
-## Next steps
+## Related content
+
 - Learn how to start [analyzing your costs](../costs/quick-acm-cost-analysis.md).

@@ -1,13 +1,12 @@
 ---
 title: Best practices for Azure Maps Route service in Microsoft Azure Maps 
 description: Learn how to route vehicles by using Route service from Microsoft Azure Maps.
-author: eriklindeman
-ms.author: eriklind
+author: farazgis
+ms.author: fsiddiqui
 ms.date: 10/28/2021
-ms.topic: conceptual
+ms.topic: best-practice
 ms.service: azure-maps
-services: azure-maps
-
+ms.subservice: routing
 ---
 
 # Best practices for Azure Maps Route service
@@ -31,7 +30,7 @@ The Route Directions and Route Matrix APIs in Azure Maps [Route service] can be 
 
 For more information about the coverage of the Route service, see [Routing Coverage].
 
-This article uses the [Postman] application to build REST calls, but you can choose any API development environment.
+You can use any API development environment such as [Postman] or [bruno] to run the HTTP request samples shown in this article or to build REST calls.
 
 ## Choose between Route Directions and Matrix Routing
 
@@ -48,7 +47,7 @@ Consider calling Matrix Routing API if your scenario is to:
 
 * Calculate the travel time or distance between a set of origins and destinations. For example, you have 12 drivers and you need to find the closest available driver to pick up the food delivery from the restaurant.
 * Sort potential routes by their actual travel distance or time. The Matrix API returns only travel times and distances for each origin and destination combination.
-* Cluster data based on travel time or distances. For example, your company has 50 employees, find all employees that live within 20 minute Drive Time from your office.
+* Cluster data based on travel time or distances. For example, your company has 50 employees, find all employees that live within 20 minute drive time from your office.
 
 Here's a comparison to show some capabilities of the Route Directions and Matrix APIs:
 
@@ -265,6 +264,12 @@ The following image is an example of rendering alternative routes with specified
 
 The Azure Maps Web SDK provides a [Service module]. This module is a helper library that makes it easy to use the Azure Maps REST APIs in web or Node.js applications, using JavaScript or TypeScript. The Service module can be used to render the returned routes on the map. The module automatically determines which API to use with GET and POST requests.
 
+> [!NOTE]
+>
+> **Azure Maps Web SDK Service Module retirement**
+>
+> The Azure Maps Web SDK Service Module is now deprecated and will be retired on 9/30/26. To avoid service disruptions, we recommend migrating to the Azure Maps JavaScript REST SDK by 9/30/26. For more information, see [JavaScript/TypeScript REST SDK Developers Guide (preview)](how-to-dev-guide-js-sdk.md).
+
 ## Next steps
 
 To learn more, please see:
@@ -284,8 +289,9 @@ To learn more, please see:
 [Azure Maps account]: quick-demo-map-app.md#create-an-azure-maps-account
 [Azure Maps npm Package]: https://www.npmjs.com/package/azure-maps-rest
 [Azure Maps Route service]: /rest/api/maps/route
+[bruno]: https://www.usebruno.com/
 [How to use the Service module]: how-to-use-services-module.md
-[Point of Interest]: /rest/api/maps/search/getsearchpoi
+[Point of Interest]: /rest/api/maps/search/getsearchpoi?view=rest-maps-1.0&preserve-view=true
 [Post Route Directions API documentation]: /rest/api/maps/route/postroutedirections#supportingpoints
 [Post Route Directions]: /rest/api/maps/route/postroutedirections
 [Postman]: https://www.postman.com/downloads/

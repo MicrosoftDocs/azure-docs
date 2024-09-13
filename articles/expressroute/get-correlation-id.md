@@ -5,7 +5,7 @@ description: This article shows you how to obtain the correlation ID for an Expr
 author: duongau
 ms.topic: how-to
 ms.author: duau
-ms.service: expressroute
+ms.service: azure-expressroute
 ms.date: 05/23/2023
 ---
 

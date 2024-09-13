@@ -6,10 +6,9 @@ services: iot
 author: dominicbetts
 ms.author: dobett
 ms.topic: overview
-ms.date: 03/20/2023
+ms.date: 02/28/2024
 ms.custom: template-overview
-
-# As a solution builder or device developer I want a high-level overview of the issues around device management and control so that I can easily find relevant content.
+# Customer intent: As a solution builder or device developer I want a high-level overview of the issues around device management and control so that I can easily find relevant content.
 ---
 
 # Device management and control
@@ -43,7 +42,7 @@ In Azure IoT, *command and control* refers to the processes that let you send co
 Azure IoT solutions can use the following primitives for both device management and command and control:
 
 - *Device twins* to share and synchronize state data with the cloud. For example, a device can use the device twin to report the current state of a valve it controls to the cloud and to receive a desired target temperature from the cloud.
-- *Digital twins* to represent a device in the digital world. For example, a digital twin can represent a device's physical location, its capabilities, and its relationships with other devices. To learn more about the differences between device twins and digital twins, see [Understand IoT Plug and Play digital twins](../iot-pnp/concepts-digital-twin.md).
+- *Digital twins* to represent a device in the digital world. For example, a digital twin can represent a device's physical location, its capabilities, and its relationships with other devices. To learn more about the differences between device twins and digital twins, see [Understand IoT Plug and Play digital twins](concepts-digital-twin.md).
 - *Direct methods* to receive commands from the cloud. A direct method can have parameters and return a response. For example, the cloud can call a direct method to request the device to reboot in 30 seconds.
 - *Cloud-to-device* messages to receive one-way notifications from the cloud. For example, a notification that an update is ready to download.
 
@@ -57,7 +56,7 @@ Before a device can connect to an IoT hub, it must be registered. Device registr
 - Authentication information such as symmetric keys or X.509 certificates.
 - The type of device. Is it an IoT Edge device or not?
 
-If you think a device has been compromised or isn't functioning correctly, you can disable it in the device registry to prevent it from connecting to the cloud. To allow a device to connect back to a cloud after the issue is resolved, you can re-enable it in the device registry. You can also permanently remove a device from the device registry to completely prevent it from connecting to the cloud.
+If you think a device is compromised or isn't functioning correctly, you can disable it in the device registry to prevent it from connecting to the cloud. To allow a device to connect back to a cloud after the issue is resolved, you can re-enable it in the device registry. You can also permanently remove a device from the device registry to completely prevent it from connecting to the cloud.
 
 To learn more, see [Understand the identity registry in your IoT hub](../iot-hub/iot-hub-devguide-identity-registry.md).
 
@@ -65,7 +64,7 @@ IoT Central provides a UI to manage the device registry in the underlying IoT hu
 
 ## Device provisioning
 
-You must configure each device in your solution with the details of the IoT hub it should connect to. You can manually configure each device in your solution, but this may not be practical for a large number of devices. To get around this problem, you can use the Device Provisioning Service (DPS) to automatically register each device with an IoT hub, and then provision each device with the required connection information. If your IoT solution uses multiple IoT hubs, you can use DPS to provision devices to a hub based on criteria such as which is the closest hub to the device. You can configure your DPS with rules for registering and provisioning your devices in advance of physically deploying the device in the field.
+You must configure each device in your solution with the details of the IoT hub it should connect to. You can manually configure each device in your solution, but this approach might not be practical for a large number of devices. To get around this problem, you can use the Device Provisioning Service (DPS) to automatically register each device with an IoT hub, and then provision each device with the required connection information. If your IoT solution uses multiple IoT hubs, you can use DPS to provision devices to a hub based on criteria such as which is the closest hub to the device. You can configure your DPS with rules for registering and provisioning your devices in advance of physically deploying the device in the field.
 
 If your IoT solution uses IoT Hub, then using DPS is optional. If you're using IoT Central, then your solution automatically uses a DPS instance that IoT Central manages.
 
@@ -89,14 +88,14 @@ The [Device Update for IoT Hub](../iot-hub-device-update/understand-device-updat
 
 ## Device key management and rotation
 
-During the lifecycle of your IoT solution, you may need to roll over the keys used to authenticate devices. For example, you may need to roll over your keys if you suspect that a key has been compromised or if a certificate expires:
+During the lifecycle of your IoT solution, you might need to roll over the keys used to authenticate devices. For example, you might need to roll over your keys if you suspect that a key is compromised or if a certificate expires:
 
 - [Roll over the keys used to authenticate devices in IoT Hub and DPS](../iot-dps/how-to-roll-certificates.md)
-- [Roll over the keys used to authenticate devices in IoT Central](../iot-central/core/how-to-connect-devices-x509.md#roll-x509-device-certificates)
+- [Roll over the keys used to authenticate devices in IoT Central](../iot-central/core/how-to-connect-devices-x509.md#roll-your-x509-device-certificates)
 
 ## Device monitoring
 
-As part of overall solution monitoring, you may want to monitor the health of your devices. For example, you may want to monitor the health of your devices or detect when a device is no longer connected to the cloud. Options for monitoring devices include:
+As part of overall solution monitoring, you might want to monitor the health of your devices. For example, you might want to monitor the health of your devices or detect when a device is no longer connected to the cloud. Options for monitoring devices include:
 
 - Devices use the device twin to report its current state to the cloud. For example, a device can report its current internal temperature or its current battery level.
 - Devices can raise alerts by sending telemetry messages to the cloud.
@@ -137,7 +136,7 @@ To learn more, see:
 
 ## Next steps
 
-Now that you've seen an overview of device management and control in Azure IoT solutions, some suggested next steps include
+Now that you've seen an overview of device management and control in Azure IoT solutions, some suggested next steps include:
 
 - [Process and route messages](iot-overview-message-processing.md)
 - [Extend your IoT solution](iot-overview-solution-extensibility.md)

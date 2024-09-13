@@ -3,9 +3,9 @@ title: Understand and adjust Azure Stream Analytics streaming units
 description: This article describes the streaming units setting and other factors that affect performance in Azure Stream Analytics.
 author: ahartoon
 ms.author: anboisve
-ms.service: stream-analytics
+ms.service: azure-stream-analytics
 ms.topic: conceptual
-ms.date: 11/14/2023
+ms.date: 01/02/2024
 ---
 # Understand and adjust Stream Analytics streaming units
 
@@ -26,9 +26,9 @@ The underlying compute power for V1 and V2 streaming units is as follows:
 For information on SU pricing, visit the [Azure Stream Analytics Pricing Page](https://azure.microsoft.com/pricing/details/stream-analytics/).
 
 ## Understand streaming unit conversions and where they apply
-There's an automatic conversion of Streaming Units which occurs from REST API layer to UI.  You may also notice this conversion in your [Activity log](stream-analytics-job-diagnostic-logs.md) where SU count appears different than the value which was specified on the UI for a particular job.  This is by design and it is because REST API fields must be limited to integer values and ASA jobs support fractional nodes (1/3 SUV2 and 2/3 SUV2).  To support this, we put an automatic conversion in place from Azure Portal to backend.  On the portal, you will see 1/3, 2/3, 1, 2, 3, … and so on.  In activity logs, REST API, etc. SU V2 values are 3, 7, 10, 20, 30, etc.  The backend structure is the proposal multiplied by 10 (rounding up in some cases).  This allows us to convey the same granularity and eliminate the decimal point at the API layer.  This conversion is automatic and has no impact on your job's performance.
+There's an automatic conversion of Streaming Units which occurs from REST API layer to UI (Azure Portal and Visual Studio Code).  You will notice this conversion in the [Activity log](stream-analytics-job-diagnostic-logs.md) as well where SU values appear different than the values on the UI.  This is by design and the reason for it is because REST API fields are limited to integer values and ASA jobs support fractional nodes (1/3 and 2/3 Streaming Units).  ASA's UI displays node values 1/3, 2/3, 1, 2, 3, … etc, while backend (activity logs, REST API layer) display the same values multiplied by 10 as 3, 7, 10, 20, 30 respectively. 
 
-| Standard  | Standard V2 (UI) | Standard V2 (Backend) |
+| Standard  | Standard V2 (UI) | Standard V2 (Backend such as logs, Rest API, etc.) |
 | ------------- | ------------- | ------------- |
 | 1  | 1/3  | 3  |
 | 3  | 2/3  | 7  |
@@ -37,6 +37,7 @@ There's an automatic conversion of Streaming Units which occurs from REST API la
 | 18  | 3  | 30  |
 | ...  | ...  | ... |
 
+This allows us to convey the same granularity and eliminate the decimal point at the API layer for V2 SKUs.  This conversion is automatic and has no impact on your job's performance.
 
 ## Understand consumption and memory utilization
 To achieve low latency stream processing, Azure Stream Analytics jobs perform all processing in memory.  When running out of memory, the streaming job fails. As a result, for a production job, it’s important to monitor a streaming job’s resource usage, and make sure there's enough resource allocated to keep the jobs running 24/7.
@@ -58,7 +59,7 @@ The SU % utilization metric, which ranges from 0% to 100%, describes the memory 
 5. You can change the number of SUs assigned to your job while it is running. You may be restricted to choosing from a set of SU values when the job is running if your job uses a [non-partitioned output.](./stream-analytics-parallelization.md#query-using-non-partitioned-output) or has [a multi-step query with different PARTITION BY values](./stream-analytics-parallelization.md#multi-step-query-with-different-partition-by-values). 
 
 ## Monitor job performance
-Using the Azure portal, you can track the performance related metrics of a job. To learn about the metrics definition, see [Azure Stream Analytics job metrics](./stream-analytics-job-metrics.md). To learn more about the metrics monitoring in portal, see [Monitor Stream Analytics job with Azure portal](./stream-analytics-monitoring.md).
+Using the Azure portal, you can track the performance related metrics of a job. To learn about the metrics definition, see [Azure Stream Analytics job metrics](./monitor-azure-stream-analytics-reference.md#metrics). To learn more about the metrics monitoring in portal, see [Monitor Stream Analytics job with Azure portal](./stream-analytics-monitoring.md).
 
 ![Screenshot of monitor job performance.](./media/stream-analytics-scale-jobs/stream-analytics-job-monitor-new-portal.png)
 
@@ -83,7 +84,7 @@ Note that a job with complex query logic could have high SU% utilization even wh
 
 SU% utilization may suddenly drop to 0 for a short period before coming back to expected levels. This happens due to transient errors or system initiated upgrades. Increasing number of streaming units for a job might not reduce SU% Utilization if your query isn't [fully parallel](./stream-analytics-parallelization.md).
 
-While comparing utilization over a period of time, use [event rate metrics](stream-analytics-job-metrics.md). InputEvents and OutputEvents metrics show how many events were read and processed. There are metrics that indicate number of error events as well, such as deserialization errors. When the number of events per time unit increases, SU% increases in most cases.
+While comparing utilization over a period of time, use [event rate metrics](monitor-azure-stream-analytics-reference.md#metrics). InputEvents and OutputEvents metrics show how many events were read and processed. There are metrics that indicate number of error events as well, such as deserialization errors. When the number of events per time unit increases, SU% increases in most cases.
 
 ## Stateful query logic in temporal elements
 One of the unique capability of Azure Stream Analytics job is to perform stateful processing, such as windowed aggregates, temporal joins, and temporal analytic functions. Each of these operators keeps state information. The maximum window size for these query elements is seven days. 
@@ -171,8 +172,8 @@ When you add a UDF function, Azure Stream Analytics loads the JavaScript runtime
 ## Next steps
 * [Create parallelizable queries in Azure Stream Analytics](stream-analytics-parallelization.md)
 * [Scale Azure Stream Analytics jobs to increase throughput](stream-analytics-scale-jobs.md)
-* [Azure Stream Analytics job metrics](./stream-analytics-job-metrics.md)
-* [Azure Stream Analytics job metrics dimensions](./stream-analytics-job-metrics-dimensions.md)
+* [Azure Stream Analytics job metrics](monitor-azure-stream-analytics-reference.md#metrics)
+* [Azure Stream Analytics job metrics dimensions](monitor-azure-stream-analytics-reference.md#metric-dimensions)
 * [Monitor Stream Analytics job with Azure portal](./stream-analytics-monitoring.md)
 * [Analyze Stream Analytics job performance with metrics dimensions](./stream-analytics-job-analysis-with-metric-dimensions.md)
 * [Understand and adjust Streaming Units](./stream-analytics-streaming-unit-consumption.md)

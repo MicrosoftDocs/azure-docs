@@ -3,7 +3,6 @@ title: Preserve metadata and ACLs using copy activity
 description: Learn how to preserve metadata and ACLs when using the copy activity in Azure Data Factory and Synapse Analytics pipelines.
 titleSuffix: Azure Data Factory & Azure Synapse
 author: jianleishen
-ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
@@ -138,7 +137,7 @@ Here's an example of copy activity JSON configuration (see `preserve`):
 ]
 ```
 
-## Next steps
+## Related content
 
 See the other Copy Activity articles:
 

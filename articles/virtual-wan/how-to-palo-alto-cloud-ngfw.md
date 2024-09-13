@@ -5,7 +5,7 @@ description: Learn how to configure Palo Alto Networks Cloud NGFW in a Virtual W
 services: virtual-wan
 author: wtnlee
 
-ms.service: virtual-wan
+ms.service: azure-virtual-wan
 ms.topic: how-to
 ms.date: 07/31/2023
 ms.author: wellee
@@ -23,8 +23,8 @@ Palo Alto Networks Cloud NGFW integration with Virtual WAN provides the followin
 
 * **Protect critical workloads** using a highly scalable SaaS security offering that can be injected as a bump-in-the-wire solution in Virtual WAN.
 * **Fully managed infrastructure and software lifecycle** under software-as-a-service model.
-* **Consumption-based pay-as-you-go** billing.
-* **Cloud-native experience** that has a tight integration with Azure to provide end-to-end Firewall management using Azure portal or Azure APIs. Rule and policy management is also optionally  configurable through Palo Alto Network management solution Panorama.
+* **Consumption-based pay-as-you-go** billing. Note that if you use Palo Alto Networks Cloud NGFW, you are not billed for Virtual WAN NVA infrastruture units. Instead, you are billed for pay-as-you-go SaaS consumption through Azure Marketplace as documented in [Palo Alto Networks Cloud NGFW pricing](https://docs.paloaltonetworks.com/cloud-ngfw/azure/cloud-ngfw-for-azure/getting-started-with-cngfw-for-azure/pricing).
+* **Cloud-native experience** that has a tight integration with Azure to provide end-to-end Firewall management using Azure portal or Azure APIs. Rule and policy management is also optionally configurable through Palo Alto Network management solution Panorama.
 * **Dedicated and streamlined support channel** between Azure and Palo Alto Networks to troubleshoot issues.
 * **One-click routing** to configure Virtual WAN to inspect on-premises, Virtual Network and Internet-outbound traffic using Palo Alto Networks Cloud NGFW.
 
@@ -79,9 +79,8 @@ To create a new virtual WAN, use the steps in the following article:
 
 ## Known limitations
 
-* Palo Alto Networks Cloud NGFW is only available in the following Azure regions: Central US, East US, East US 2, West US, West US 2, West US 3, North Europe, West Europe, Australia East, Australia Southeast, UK South, UK West, Canada Central and East Asia. Other Azure regions are on the roadmap.
+* Check [Palo Alto Networks documentation](https://docs.paloaltonetworks.com/cloud-ngfw/azure/cloud-ngfw-for-azure/getting-started-with-cngfw-for-azure/supported-regions-and-zones) for the list of regions where Palo Alto Networks Cloud NGFW is available. 
 * Palo Alto Networks Cloud NGFW can't be deployed with Network Virtual Appliances in the Virtual WAN hub.
-* For routing between Virtual WAN and Palo Alto Networks Cloud NGFW to work properly, your entire network (on-premises and Virtual Networks) must be within RFC-1918 (subnets within 10.0.0.0/8, 192.168.0.0/16, 172.16.0.0/12). For example, you may not use a subnet such as 40.0.0.0/24 within your Virtual Network or on-premises. Traffic to 40.0.0.0/24 may not be routed properly.  
 * All other limitations in the [Routing Intent and Routing policies documentation limitations section](how-to-routing-policies.md) apply to Palo Alto Networks Cloud NGFW deployments in Virtual WAN.
 
 ## Register resource provider
@@ -97,7 +96,7 @@ The following steps describe how to deploy a Virtual Hub that can be used with P
 1. Navigate to your Virtual WAN resource.
 1. On the left hand menu, select **Hubs** under **Connectivity**.
 1. Click on **New Hub**.
-1. Under **Basics** specify a region for your Virtual Hub. Make sure the region is Central US, East US, East US 2, West US, West US 2, West US 3, North Europe, West Europe, Australia East, Australia Southeast, UK South, UK West, Canada Central or East Asia. Additionally, specify a name, address space, Virtual hub capacity and Hub routing preference for your hub.
+1. Under **Basics** specify a region for your Virtual Hub. Make sure the region is listed in [Available Palo Alto Cloud NGFW regions](https://docs.paloaltonetworks.com/cloud-ngfw/azure/cloud-ngfw-for-azure/getting-started-with-cngfw-for-azure/supported-regions-and-zones). Additionally, specify a name, address space, Virtual hub capacity and Hub routing preference for your hub.
     :::image type="content" source="./media/how-to-palo-alto-cloudngfw/create-hub.png" alt-text="Screenshot showing hub creation page. Region selector box is highlighted." lightbox="./media/how-to-palo-alto-cloudngfw/create-hub.png":::
 1. Select and configure the Gateways (Site-to-site VPN, Point-to-site VPN, ExpressRoute) you want to deploy in the Virtual Hub. You can deploy Gateways later if you wish.
 1. Click **Review + create**.
@@ -157,7 +156,7 @@ The following section describes common issues seen when using Palo Alto Networks
 
 ### Troubleshooting Cloud NGFW creation
 
-* Ensure your Virtual Hubs are deployed in one of the following regions: Central US, East US, East US 2, West US, West US 2, West US 3, North Europe, West Europe, Australia East, Australia Southeast, UK South, UK West, Canada Central and East Asia. Other regions are in the roadmap.
+* Ensure your Virtual Hubs are deployed in one of the following regions listed in [Palo Alto Networks documentation](https://docs.paloaltonetworks.com/cloud-ngfw/azure/cloud-ngfw-for-azure/getting-started-with-cngfw-for-azure/supported-regions-and-zones).
 * Ensure the Routing status of the Virtual Hub is "Provisioned." Attempts to create Cloud NGFW prior to routing being provisioned will fail.
 * Ensure registration to the **PaloAltoNetworks.Cloudngfw** resource provider is successful.
 
@@ -170,7 +169,7 @@ The following section describes common issues seen when using Palo Alto Networks
 ### Troubleshooting Routing intent and policies
 
 * Ensure Cloud NGFW deployment is completed successfully before attempting to configure Routing Intent.
-* Ensure all your on-premises and Azure Virtual Networks are in RFC1918 (subnets within 10.0.0.0/8, 192.168.0.0/16, 172.16.0.0/12).
+* Ensure all your on-premises and Azure Virtual Networks are in RFC1918 (subnets within 10.0.0.0/8, 192.168.0.0/16, 172.16.0.0/12). If there are networks that are not in RFC1918, make sure those prefixes are listed in the Private Traffic prefixes text box.
 * For more information about troubleshooting routing intent, see [Routing Intent documentation](how-to-routing-policies.md). This document describes pre-requisites,  common errors associated with configuring routing intent and troubleshooting tips.
 
 ### Troubleshooting Palo Alto Networks Cloud NGFW configuration

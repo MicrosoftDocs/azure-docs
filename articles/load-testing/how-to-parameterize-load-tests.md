@@ -1,24 +1,26 @@
 ---
-title: Parameterize load tests with secrets and environment variables
+title: Use secrets & environment variables
 titleSuffix: Azure Load Testing
 description: 'Learn how to create configurable load tests by using secrets and environment variables as parameters in Azure Load Testing.'
 services: load-testing
-ms.service: load-testing
+ms.service: azure-load-testing
 ms.author: ninallam
 author: ninallam
-ms.date: 01/15/2023
+ms.date: 01/16/2024
 ms.topic: how-to
 ---
 
-# Create configurable load tests with secrets and environment variables
+# Use secrets and environment variables in Azure Load Testing
 
-Learn how to change the behavior of a load test without having to edit the Apache JMeter script. With Azure Load Testing, you can use parameters to make a configurable test script. For example, turn the application endpoint into a parameter to reuse your test script across multiple environments.
+In this article, you learn how to pass secrets and environments as parameters to a load test in Azure Load Testing. You can use parameters to change the behavior of a load test without having to edit the Apache JMeter script. For example, to test a web application, specify the endpoint URL as a parameter to reuse your test script across multiple environments. You can also use parameters to avoid that you have to hard code sensitive information in the JMeter test script.
 
 The Azure Load Testing service supports two types of parameters:
 
 - **Secrets**: Contain sensitive information and are passed securely to the load test engine. For example, secrets provide web service credentials instead of hard-coding them in the test script. For more information, see [Configure load tests with secrets](#secrets).
 
 - **Environment variables**: Contain non-sensitive information and are available as environment variables in the load test engine. For example, environment variables make the application endpoint URL configurable. For more information, see [Configure load tests with environment variables](#envvars).
+
+You can specify parameters in the load test configuration when you create a new test or update an existing test. If you run a load test in your CI/CD workflow, you define parameters in the load test configuration file or in the CI/CD workflow definition.
 
 ## Prerequisites  
 
@@ -38,6 +40,9 @@ To use secrets with Azure Load Testing, you perform the following steps:
 1. Pass a reference to the secret into the Apache JMeter test script.
 1. Use the secret value in the Apache JMeter test script by using the `GetSecret` custom function.
 
+> [!IMPORTANT]
+> You can only use the `GetSecret` custom function when you run your JMeter test script with Azure Load Testing. If you run your test script locally, you need to update your test script and read secret values in a different way.
+
 ### <a name="akv_secrets"></a> Use Azure Key Vault to store load test secrets
 
 You can use Azure Key Vault to pass secret values to your test script in Azure Load Testing. You add a reference to the secret in the Azure Load Testing configuration. Azure Load Testing then uses this reference to retrieve the secret value in the Apache JMeter script.
@@ -49,7 +54,7 @@ You also need to grant Azure Load Testing access to your Azure key vault to retr
 
 #### Create a secret in Azure Key Vault
 
-1. [Add the secret value to your key vault](../key-vault/secrets/quick-create-portal.md#add-a-secret-to-key-vault), if you haven't already done so.
+1. [Add the secret value to your key vault](/azure/key-vault/secrets/quick-create-portal#add-a-secret-to-key-vault), if you haven't already done so.
 
     > [!IMPORTANT]
     > If you restricted access to your Azure key vault by a firewall or virtual networking, follow these steps to [grant access to trusted Azure services](/azure/key-vault/general/overview-vnet-service-endpoints#grant-access-to-trusted-azure-services).
@@ -315,10 +320,7 @@ If a parameter exists in both the YAML configuration file and the Azure Load Tes
 
 The values of the parameters aren't stored when they're passed from the CI/CD workflow. You have to provide the parameter values again when you run the test from the Azure portal. You get a prompt to enter the missing values. For secret values, you enter the key vault secret URI. The values that you enter at the test run or rerun page are valid only for that test run. For making changes at the test level, go to **Configure Test** and enter your parameter values.
 
-## Next steps
+## Related content
 
+- Use secrets to [load test secured endpoints](./how-to-test-secured-endpoints.md).
 - For more information about reading CSV files, see [Read CSV files in load tests](./how-to-read-csv-data.md).
-
-- For information about high-scale load tests, see [Set up a high-scale load test](./how-to-high-scale-load.md).
-
-- To learn about performance test automation, see [Configure automated performance testing](./tutorial-identify-performance-regression-with-cicd.md).

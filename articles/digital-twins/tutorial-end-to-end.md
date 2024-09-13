@@ -6,7 +6,7 @@ author: baanders
 ms.author: baanders # Microsoft employees only
 ms.date: 09/12/2023
 ms.topic: tutorial
-ms.service: digital-twins
+ms.service: azure-digital-twins
 ms.custom: engagement-fy23, devx-track-azurecli
 
 # CustomerIntent: As a developer, I want to create a data flow from devices through Azure Digital Twins so that I can have a connected digital twin solution.
@@ -28,7 +28,7 @@ In this tutorial, you will...
 
 [!INCLUDE [Sample prerequisites for Azure Digital Twins tutorial](../../includes/digital-twins-tutorial-sample-prereqs.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-h3.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-h3.md)]
 
 [!INCLUDE [CLI setup for Azure Digital Twins](../../includes/digital-twins-cli.md)]
 
@@ -40,7 +40,7 @@ The sample project used in this tutorial represents a real-world building scenar
 
 Below is a diagram representing the full scenario. 
 
-You'll first create the Azure Digital Twins instance (**section A** in the diagram), then set up the telemetry data flow into the digital twins (**arrow B**), then set up the data propagation through the twin graph (**arrow C**).
+You'll first create the Azure Digital Twins instance (**section A** in the diagram), then set up the device telemetry data flow into the digital twins (**arrow B**), then set up the data propagation through the twin graph (**arrow C**).
 
 :::image type="content" source="media/tutorial-end-to-end/building-scenario.png" alt-text="Diagram of the full building scenario, which shows the data flowing from a device into and out of Azure Digital Twins through various Azure services.":::
 
@@ -51,7 +51,7 @@ Here are the components implemented by the building scenario AdtSampleApp sample
 * [.NET (C#) SDK](/dotnet/api/overview/azure/digitaltwins.core-readme) usage examples (found in *CommandLoop.cs*)
 * Console interface to call the Azure Digital Twins API
 * SampleClientApp - A sample Azure Digital Twins solution
-* SampleFunctionsApp - An Azure Functions app that updates your Azure Digital Twins graph based on telemetry from IoT Hub and Azure Digital Twins events
+* SampleFunctionsApp - An Azure Functions app that updates your Azure Digital Twins graph based on device telemetry from IoT Hub and Azure Digital Twins events
 
 ### Instantiate the pre-created twin graph
 
@@ -111,12 +111,12 @@ To publish the function app to Azure, you'll need to create a storage account, t
 1. Create an Azure function app by running the following command:
 
     ```azurecli-interactive
-    az functionapp create --name <name-for-new-function-app> --storage-account <name-of-storage-account-from-previous-step> --functions-version 4 --consumption-plan-location <location> --runtime dotnet-isolated --runtime-version 7 --resource-group <resource-group>
+    az functionapp create --name <name-for-new-function-app> --storage-account <name-of-storage-account-from-previous-step> --functions-version 4 --consumption-plan-location <location> --runtime dotnet-isolated --resource-group <resource-group>
     ```
 
 1. Next, you'll zip up the functions and publish them to your new Azure function app.
 
-    1. Open a console window on your machine, and navigate into the *digital-twins-samples-main\AdtSampleApp\SampleFunctionsApp* folder inside your downloaded sample project.
+    1. Open a console window on your machine (if you're using the local Azure CLI, it can be the same window), and navigate into the *digital-twins-samples-main\AdtSampleApp\SampleFunctionsApp* folder inside your downloaded sample project.
     
     1. In the console, run the following command to publish the project locally:
 
@@ -135,7 +135,7 @@ To publish the function app to Azure, you'll need to create a storage account, t
 
         :::image type="content" source="media/tutorial-end-to-end/publish-zip.png" alt-text="Screenshot of File Explorer in Windows showing the contents of the publish zip folder.":::
 
-    Now you can close the local console window that you used to prepare the project. The last step will be done in the Azure CLI.
+    The last step will be done in the Azure CLI.
 
 1. In the Azure CLI, run the following command to deploy the published and zipped functions to your Azure function app:
 

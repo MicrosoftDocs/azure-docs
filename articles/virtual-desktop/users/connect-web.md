@@ -4,6 +4,7 @@ description: Learn how to connect to Azure Virtual Desktop using the Remote Desk
 author: dknappettmsft
 ms.topic: how-to
 ms.date: 10/04/2022
+ms.custom: "se-defect-target"
 ms.author: daknappe
 ---
 
@@ -45,7 +46,7 @@ When you sign in to the Remote Desktop Web client, you'll see your workspaces. A
    |--|--|
    | Azure cloud *(most common)* | [https://client.wvd.microsoft.com/arm/webclient/](https://client.wvd.microsoft.com/arm/webclient/) |
    | Azure cloud (classic) | [https://client.wvd.microsoft.com/webclient/index.html](https://client.wvd.microsoft.com/webclient/index.html) |
-   | Azure US Gov | [https://rdweb.wvd.azure.us/arm/webclient/](https://rdweb.wvd.azure.us/arm/webclient/) |
+   | Azure for US Government | [https://rdweb.wvd.azure.us/arm/webclient/](https://rdweb.wvd.azure.us/arm/webclient/) |
    | Azure operated by 21Vianet | [https://rdweb.wvd.azure.cn/arm/webclient/](https://rdweb.wvd.azure.cn/arm/webclient/) |
 
 1. Sign in with your user account. Once you've signed in successfully, your workspaces should show the desktops and applications that have been made available to you by your admin.

@@ -5,8 +5,8 @@ author: sshiba
 ms.author: sidneyshiba
 ms.service: azure-operator-nexus
 ms.topic: how-to
-ms.date: 10/15/2023
-ms.custom: template-how-to, devx-track-azurecli
+ms.date: 02/15/2024
+ms.custom: template-how-to
 ---
 
 # Introduction to the Microsoft Defender for Endpoint runtime protection service
@@ -17,7 +17,7 @@ The Azure CLI allows you to configure runtime protection ***Enforcement Level***
 This document provides the steps to execute those tasks.
 
 > [!NOTE]
-> The MDE runtime protection service integrates with [Microsoft Defender for Endpoint](../defender-for-cloud/integration-defender-for-endpoint.md), which provides comprehensive Endpoint Detection and Response (EDR) capabilities. With Microsoft Defender for Endpoint integration, you can spot abnormalities and detect vulnerabilities.
+> The MDE runtime protection service integrates with [Microsoft Defender for Endpoint](/azure/defender-for-cloud/integration-defender-for-endpoint), which provides comprehensive Endpoint Detection and Response (EDR) capabilities. With Microsoft Defender for Endpoint integration, you can spot abnormalities and detect vulnerabilities.
 
 ## Before you begin
 
@@ -41,36 +41,18 @@ export MANAGED_RESOURCE_GROUP="contoso-cluster-managed-rg"
 export CLUSTER_NAME="contoso-cluster"
 ```
 
-## Enabling & disabling MDE service on all nodes
-To use the MDE runtime protection service on the Cluster, you need to make the cluster aware of it first. The Cluster is not aware of this functionality by default.
-To do this, execute the following command with `enforcement-level="Disabled"`.
-
-```bash
-az networkcloud cluster update \
---subscription ${SUBSCRIPTION_ID} \
---resource-group ${RESOURCE_GROUP} \
---cluster-name ${CLUSTER_NAME} \
---runtime-protection enforcement-level="Disabled"
-```
-
-Upon execution, inspect the output for the following:
-
-```json
-  "runtimeProtectionConfiguration": {
-    "enforcementLevel": "Disabled"
-  }
-```
-
-Running this command will make the Cluster aware of the MDE runtime protection service. To use the service and benefit from its features, you need to set the `enforcement-level`
-to a value other than `Disabled` in the next section
+## Defaults for MDE Runtime Protection
+The runtime protection sets to following default values when you deploy a cluster
+- Enforcement Level: `Disabled` if not specified when creating the cluster
+- MDE Service: `Disabled`
 
 > [!NOTE]
->As you have noted, the argument `--runtime-protection enforcement-level="<enforcement level>"` serves two purposes: enabling/disabling MDE service and updating the enforcement level.
+>The argument `--runtime-protection enforcement-level="<enforcement level>"` serves two purposes: enabling/disabling MDE service and updating the enforcement level.
 
 If you want to disable the MDE service across your Cluster, use an `<enforcement level>` of `Disabled`.
 
 ## Configuring enforcement level
-The `az networkcloud cluster update` allows you to update of the settings for Cluster runtime protection *enforcement level* by using the argument `--runtime-protection enforcement-level="<enforcement level>"`.
+The `az networkcloud cluster update` command allows you to update of the settings for Cluster runtime protection *enforcement level* by using the argument `--runtime-protection enforcement-level="<enforcement level>"`.
 
 The following command configures the `enforcement level` for your Cluster.
 
@@ -82,9 +64,18 @@ az networkcloud cluster update \
 --runtime-protection enforcement-level="<enforcement level>"
 ```
 
-Allowed values for `<enforcement level>`: `Audit`, `Disabled`, `OnDemand`, `Passive`, `RealTime`. 
+Allowed values for `<enforcement level>`: `Disabled`, `RealTime`, `OnDemand`, `Passive`.
+- `Disabled`: Real-time protection is turned off and no scans are performed.
+- `RealTime`: Real-time protection (scan files as they're modified) is enabled.
+- `OnDemand`: Files are scanned only on demand. In this:
+  - Real-time protection is turned off.
+- `Passive`: Runs the antivirus engine in passive mode. In this:
+  - Real-time protection is turned off: Threats are not remediated by Microsoft Defender Antivirus.
+  - On-demand scanning is turned on: Still use the scan capabilities on the endpoint.
+  - Automatic threat remediation is turned off: No files will be moved and security admin is expected to take required action.
+  - Security intelligence updates are turned on: Alerts will be available on security admins tenant.
 
-Upon execution, inspect the output for the following:
+You can confirm that enforcement level was updated by inspecting the output for the following json snippet:
 
 ```json
   "runtimeProtectionConfiguration": {
@@ -93,7 +84,7 @@ Upon execution, inspect the output for the following:
 ```
 
 ## Triggering MDE scan on all nodes
-Once you have set an enforcement level for your Cluster, you can trigger an MDE scan with the following command:
+To trigger an MDE scan on all nodes of a cluster, use the following command:
 
 ```bash
 az networkcloud cluster scan-runtime \
@@ -102,6 +93,9 @@ az networkcloud cluster scan-runtime \
 --cluster-name ${CLUSTER_NAME} \
 --scan-activity Scan
 ```
+
+> NOTE: the MDE scan action requires the MDE service to be enabled. Just in case it is not enabled, the command will fail.
+In this case set the `Enforcement Level` to a value different from `Disabled` to enable the MDE service.
 
 ## Retrieve MDE scan information from each node
 This section provides the steps to retrieve MDE scan information.

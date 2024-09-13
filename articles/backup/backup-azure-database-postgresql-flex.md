@@ -1,22 +1,27 @@
 ---
 title: Back up Azure Database for PostgreSQL Flexible server with long-term retention (preview) 
 description: Learn about Azure Database for PostgreSQL Flexible server backup with long-term retention.
-ms.topic: conceptual
-ms.date: 11/06/2023
-ms.service: backup
+ms.topic: how-to
+ms.date: 06/14/2024
+ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
 
 # Back up Azure Database for PostgreSQL Flexible server with long-term retention (preview) 
 
-This article describes how to back up Azure Database for PostgreSQL-Flex server. 
+This article describes how to back up Azure Database for PostgreSQL Flexible Server. 
 
-[Learn about](./backup-azure-database-postgresql-flex-support-matrix.md) the supported scenarios and known limitations of Azure Database for PostgreSQL Flexible server backup.
+## Prerequisites
+
+Before you configure backup for Azure Database for PostgreSQL Flexible server:
+
+- [Review the supported scenarios and known limitations](./backup-azure-database-postgresql-flex-support-matrix.md) of Azure Database for PostgreSQL Flexible server backup.
+- Ensure that you have the required [permissions for the backup operation](backup-azure-database-postgresql-flex-overview.md#permissions-for-backup).
 
 ## Configure backup 
 
-To configure backup on the Azure PostgreSQL-flex databases using Azure Backup, follow these steps:
+To configure backup on the Azure Database for PostgreSQL Flexible Server databases using Azure Backup, follow these steps:
 
 1. Create a [Backup vault](./create-manage-backup-vault.md#create-a-backup-vault).
 
@@ -32,10 +37,10 @@ To configure backup on the Azure PostgreSQL-flex databases using Azure Backup, f
 1. Select or [create](#create-a-backup-policy) a Backup Policy to define the backup schedule and the retention duration.
    :::image type="content" source="./media/backup-azure-database-postgresql-flex/backup-policy.png" alt-text="Screenshot showing the option to edit a backup policy.":::
 
-1. Select **Next** then select **Add** to select the PostgreSQL-Flex server that you want to back up.
+1. Select **Next** then select **Add** to select the Azure Database for PostgreSQL Flexible Server that you want to back up.
    :::image type="content" source="./media/backup-azure-database-postgresql-flex/select-server.png" alt-text="Screenshot showing the select server option.":::
 
-1. Choose one of the Azure PostgreSQL-Flex servers across subscriptions if they're in the same region as that of the vault. Expand the arrow to see the list of databases within a server.
+1. Choose one of the Azure Database for PostgreSQL Flexible Servers across subscriptions if they're in the same region as that of the vault. Expand the arrow to see the list of databases within a server.
    :::image type="content" source="./media/backup-azure-database-postgresql-flex/select-resources.png" alt-text="Screenshot showing the select resources option.":::
 
 1. After the selection, the validation starts. The backup readiness check ensures the vault has sufficient permissions for backup operations. Resolve any access issues by granting appropriate [permissions](/azure/backup/backup-azure-database-postgresql-flex-overview) to the vault MSI and re-triggering the validation.

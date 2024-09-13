@@ -2,7 +2,7 @@
 title: About credential manager in Azure API Management
 description: Learn about using credential manager in Azure API Management to create and manage connections to backend SaaS APIs
 author: dlepow
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: conceptual
 ms.date: 11/14/2023
 ms.author: danlep
@@ -11,11 +11,15 @@ ms.custom: references_regions
 
 # About API credentials and credential manager
 
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
+
 To help you manage access to backend APIs, your API Management instance includes a *credential manager*. Use credential manager to manage, store, and control access to API credentials from your API Management instance.
 
 > [!NOTE]
 > * Currently, you can use credential manager to configure and manage connections (formerly called *authorizations*) for backend OAuth 2.0 APIs. 
 > * No breaking changes are introduced with credential manager. OAuth 2.0 credential providers and connections use the existing API Management [authorization](/rest/api/apimanagement/authorization) APIs and resource provider.
+
+[!INCLUDE [api-management-workspace-availability](../../includes/api-management-workspace-availability.md)]
 
 ## Managed connections for OAuth 2.0 APIs
 
@@ -63,16 +67,16 @@ After configuring the credential provider and a connection, the API manager can 
 :::image type="content" source="media/credentials-overview/configuration-scenario.png" alt-text="Diagram of initial configuration scenario for credential manager.":::
 
 
-### Managed identity scenario
+### Unattended scenario
 
-By default when a connection is created, an access policy is preconfigured for the managed identity of the API Management instance. To use such a connection, different users may sign in to a client application such as a static web app, which then calls a backend API exposed through API Management. To make this call, connections are applied using the `get-authorization-context` policy. Because the API call uses a preconfigured connection that's not related to the user context, the same data is returned to all users.
+By default when a connection is created, an access policy and connection are preconfigured for the managed identity of the API Management instance. To use such a connection, different users may sign in to a client application such as a static web app, which then calls a backend API exposed through API Management. To make this call, connections are applied using the `get-authorization-context` policy. Because the API call uses a preconfigured connection that's not related to the user context, the same data is returned to all users.
 
 :::image type="content" source="media/credentials-overview/managed-identity-scenario.png" alt-text="Diagram of managed identity scenario for credential manager.":::
 
 
-### User-delegated scenario
+### Attended (user-delegated) scenario
 
-To enable a simplified authentication experience for users of client applications, such as static web apps, that call backend SaaS APIs that require a user context, you can enable access to a connection on behalf of a Microsoft Entra user or group identity. In this case, a configured user needs to login and provide consent only once, and the API Management instance will manage their connection after that. When API Management gets an incoming call to be forwarded to an external service, it attaches the access token from the connection to the request. This is ideal for when API requests and responses are geared towards an individual (for example, retrieving user-specific profile information).
+To enable a simplified authentication experience for users of client applications, such as static web apps, that call backend SaaS APIs that require a user context, you can enable access to a connection on behalf of a Microsoft Entra user or group identity. In this case, a configured user needs to login and provide consent only once, and the API Management instance will create and manage their connection after that. When API Management gets an incoming call to be forwarded to an external service, it attaches the access token from the connection to the request. This is ideal for when API requests and responses are geared towards an individual (for example, retrieving user-specific profile information).
 
 :::image type="content" source="media/credentials-overview/user-delegated-scenario.png" alt-text="Diagram of user-delegated scenario for credential manager.":::
 
@@ -137,7 +141,7 @@ All underlying connections and access policies are also deleted.
 
 ### Are the access tokens cached by API Management?
 
-In the dedicated service tiers, the access token is cached by the API Management instance until 3 minutes before the token expiration time. If the access token is less than 3 minutes away from expiration, the cached time will be until the access token expires.
+In the classic and v2 service tiers, the access token is cached by the API Management instance until 3 minutes before the token expiration time. If the access token is less than 3 minutes away from expiration, the cached time will be until the access token expires.
 
 Access tokens aren't cached in the Consumption tier.
 

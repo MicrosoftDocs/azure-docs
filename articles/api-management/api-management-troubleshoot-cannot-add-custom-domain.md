@@ -3,20 +3,17 @@ title: Cannot add custom domain by using Key Vault certificate
 titleSuffix: Azure API Management
 description: Learn how to troubleshoot the issue in which you can't add a custom domain in Azure API Management by using a key vault certificate.
 services: api-management
-documentationcenter: ''
 author: genlin
 manager: dcscontentpm
-editor: ''
-
-ms.service: api-management
-ms.workload: mobile
-ms.tgt_pltfrm: na
+ms.service: azure-api-management
 ms.topic: article
 ms.date: 07/19/2019
 ms.author: tehnoonr
 ---
 
 # Failed to update API Management service hostnames
+
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 
 This article describes the "Failed to update API Management service hostnames" error that you may experience when you add a custom domain for the Azure API Management service. This article provides troubleshooting steps to help you resolve the issue.
 

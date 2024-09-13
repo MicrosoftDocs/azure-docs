@@ -8,11 +8,14 @@ manager: CelesteDG
 ms.service: active-directory
 
 ms.topic: how-to
-ms.date: 03/09/2023
-ms.custom: 
+ms.date: 09/11/2024
 ms.author: kengaderdus
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
+
+
+#Customer intent: As an Azure AD B2C administrator, I want to define custom attributes in Azure AD B2C, so that I can manage specific scenarios and persist additional user data for customer-facing applications, identity providers, and custom user journeys.
+
 ---
 
 # Define custom attributes in Azure Active Directory B2C
@@ -37,7 +40,7 @@ Azure AD B2C allows you to extend the set of attributes stored on each user acco
 
 ## Create a custom attribute
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) as the global administrator of your Azure AD B2C tenant.
+1. Sign in to the [Azure portal](https://portal.azure.com/) as at least [External ID User Flow Attribute Administrator](/entra/identity/role-based-access-control/permissions-reference#external-id-user-flow-attribute-administrator) of your Azure AD B2C tenant.
 1. If you have access to multiple tenants, select the **Settings** icon in the top menu to switch to your Azure AD B2C tenant from the **Directories + subscriptions** menu.
 1. Choose **All services** in the top-left corner of the Azure portal, search for and select **Azure AD B2C**.
 1. Select **User attributes**, and then select **Add**.
@@ -196,7 +199,7 @@ Unlike built-in attributes, custom attributes can be removed. The extension attr
 
 Use the following steps to remove a custom attribute from a user flow in your tenant:
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) as the global administrator of your Azure AD B2C tenant.
+1. Sign in to the [Azure portal](https://portal.azure.com/) as at least [External ID User Flow Attribute Administrator](/entra/identity/role-based-access-control/permissions-reference#external-id-user-flow-attribute-administrator) of your Azure AD B2C tenant.
 2. Make sure you're using the directory that contains your Azure AD B2C tenant:
     1. Select the **Directories + subscriptions** icon in the portal toolbar.
     1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the Directory name list, and then select **Switch**
@@ -211,8 +214,6 @@ Use the following steps to remove a custom attribute from a user flow in your te
 Use the [Microsoft Graph API](microsoft-graph-operations.md#application-extension-directory-extension-properties) to manage the custom attributes.
 
 ::: zone-end
-
- 
 
 
 ## Next steps

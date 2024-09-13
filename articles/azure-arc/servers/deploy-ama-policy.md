@@ -2,7 +2,7 @@
 title: How to deploy and configure Azure Monitor Agent using Azure Policy
 description: Learn how to deploy and configure Azure Monitor Agent using Azure Policy.
 ms.date: 05/17/2023
-ms.topic: conceptual
+ms.topic: how-to
 ---
 
 # Deploy and configure Azure Monitor Agent using Azure Policy
@@ -26,7 +26,7 @@ Data Collection Rules define the data collection process in Azure Monitor. They 
 1. From your browser, go to the [Azure portal](https://portal.azure.com).
 
 1. Navigate to the **Monitor | Overview** page. Under **Settings**, select **Data Collection Rules**.
-    A list of existing DCRs displays. You can filter this at the top of the window. If you need to create a new DCR, see [Data collection rules in Azure Monitor](../../azure-monitor/essentials/data-collection-rule-overview.md) for more information.
+    A list of existing DCRs displays. You can filter this at the top of the window. If you need to create a new DCR, see [Data collection rules in Azure Monitor](/azure/azure-monitor/essentials/data-collection-rule-overview) for more information.
 
 1. Select the DCR to apply to your ARM template to view its overview.
 
@@ -49,8 +49,8 @@ In order for Azure Policy to check if AMA is installed on your Arc-enabled, you'
 - Enforces a remediation task to install the AMA and create the association with the DCR on VMs that aren't compliant with the policy.
 
 1. Select one of the following policy definition templates (that is, for Windows or Linux machines):
-    - [Configure Windows machines](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/CreateAssignmentBladeV2/assignMode~/0/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicySetDefinitions%2F9575b8b7-78ab-4281-b53b-d3c1ace2260b)
-    - [Configure Linux machines](https://ms.portal.azure.com/#view/Microsoft_Azure_Policy/InitiativeDetailBlade/id/%2Fproviders%2FMicrosoft.Authorization%2FpolicySetDefinitions%2F118f04da-0375-44d1-84e3-0fd9e1849403/scopes~/%5B%22%2Fsubscriptions%2Fd05f0ffc-ace9-4dfc-bd6d-d9ec0a212d16%22%2C%22%2Fsubscriptions%2F6e967edb-425b-4a33-ae98-f1d2c509dda3%22%2C%22%2Fsubscriptions%2F5f2bd58b-42fc-41da-bf41-58690c193aeb%22%2C%22%2Fsubscriptions%2F2dad32d6-b188-49e6-9437-ca1d51cec4dd%22%5D)
+    - [Configure Windows machines](https://portal.azure.com/#view/Microsoft_Azure_Policy/InitiativeDetail.ReactView/id/%2Fproviders%2FMicrosoft.Authorization%2FpolicySetDefinitions%2F9575b8b7-78ab-4281-b53b-d3c1ace2260b/scopes/undefined)
+    - [Configure Linux machines](https://portal.azure.com/#view/Microsoft_Azure_Policy/InitiativeDetail.ReactView/id/%2Fproviders%2FMicrosoft.Authorization%2FpolicySetDefinitions%2F118f04da-0375-44d1-84e3-0fd9e1849403/scopes/undefined)
     
     These templates are used to create a policy to configure machines to run Azure Monitor Agent and associate those machines to a DCR.
 
@@ -62,6 +62,6 @@ In order for Azure Policy to check if AMA is installed on your Arc-enabled, you'
 
 ## Additional resources
 
-* [Azure Monitor overview](../../azure-monitor/overview.md)
+* [Azure Monitor overview](/azure/azure-monitor/overview)
 
 * [Tutorial: Monitor a hybrid machine with VM insights](learn/tutorial-enable-vm-insights.md)

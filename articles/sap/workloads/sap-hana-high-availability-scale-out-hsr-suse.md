@@ -6,9 +6,8 @@ manager: juergent
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
-ms.workload: infrastructure-services
-ms.custom: devx-track-azurecli
-ms.date: 07/11/2023
+ms.custom: devx-track-azurecli, devx-track-azurepowershell, linux-related-content
+ms.date: 06/18/2024
 ms.author: radeltch
 ---
 
@@ -73,7 +72,7 @@ The presented configuration shows three HANA nodes on each site, plus majority m
 
 The HANA shared file system `/hana/shared` in the presented architecture can be provided by [Azure NetApp Files](../../azure-netapp-files/azure-netapp-files-introduction.md) or [NFS share on Azure Files](../../storage/files/files-nfs-protocol.md). The HANA shared file system is NFS mounted on each HANA node in the same HANA system replication site. File systems `/hana/data` and `/hana/log` are local file systems and aren't shared between the HANA DB nodes. SAP HANA will be installed in non-shared mode.  
   
-For recommended SAP HANA storage configurations, see [SAP HANA Azure VMs storage configurations](./hana-vm-operations-storage.md). 
+For recommended SAP HANA storage configurations, see [SAP HANA Azure VMs storage configurations](./hana-vm-operations-storage.md).
 
 > [!IMPORTANT]
 > If deploying all HANA file systems on Azure NetApp Files, for production systems, where performance is a key, we recommend to evaluate and consider using [Azure NetApp Files application volume group for SAP HANA](hana-vm-operations-netapp.md#deployment-through-azure-netapp-files-application-volume-group-for-sap-hana-avg).  
@@ -93,7 +92,7 @@ As `/hana/data` and `/hana/log` are deployed on local disks, it isn't necessary 
 
 If you're using Azure NetApp Files, the NFS volumes for `/hana/shared`, are deployed in a separate subnet, [delegated to Azure NetApp Files](../../azure-netapp-files/azure-netapp-files-delegate-subnet.md): `anf` 10.23.1.0/26.
 
-## Set up the infrastructure
+## Prepare the infrastructure
 
 In the instructions that follow, we assume that you've already created the resource group, the Azure virtual network with three Azure network subnets: `client`, `inter` and `hsr`.
 
@@ -117,8 +116,9 @@ In the instructions that follow, we assume that you've already created the resou
    When the VM is deployed via Azure portal, the network interface name is automatically generated. In these instructions for simplicity we'll refer to the automatically generated, primary network interfaces, which are attached to the `client` Azure virtual network subnet as **hana-s1-db1-client**, **hana-s1-db2-client**, **hana-s1-db3-client**, and so on.  
 
    > [!IMPORTANT]
-   > Make sure that the OS you select is SAP-certified for SAP HANA on the specific VM types you're using. For a list of SAP HANA certified VM types and OS releases for those types, go to the [SAP HANA certified IaaS platforms](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=v:deCertified;ve:24;iaas;v:125;v:105;v:99;v:120) site. Click into the details of the listed VM type to get the complete list of SAP HANA-supported OS releases for that type.
-   > If you choose to deploy `/hana/shared` on NFS on Azure Files, we recommend to deploy on SLES15 SP2 and above.
+   >
+   > * Make sure that the OS you select is SAP-certified for SAP HANA on the specific VM types you're using. For a list of SAP HANA certified VM types and OS releases for those types, go to the [SAP HANA certified IaaS platforms](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/#/solutions?filters=v:deCertified;ve:24;iaas;v:125;v:105;v:99;v:120) site. Click into the details of the listed VM type to get the complete list of SAP HANA-supported OS releases for that type.
+   > * If you choose to deploy `/hana/shared` on NFS on Azure Files, we recommend to deploy on SLES 15 SP2 and above.
   
 2. Create six network interfaces, one for each HANA DB virtual machine, in the `inter` virtual network subnet (in this example, **hana-s1-db1-inter**, **hana-s1-db2-inter**, **hana-s1-db3-inter**, **hana-s2-db1-inter**, **hana-s2-db2-inter**, and **hana-s2-db3-inter**).  
 
@@ -157,54 +157,41 @@ In the instructions that follow, we assume that you've already created the resou
 
 6. Start the HANA DB virtual machines
 
-### Deploy Azure Load Balancer
+### Configure Azure load balancer
 
-1. We recommend using standard load balancer. Follow these configuration steps to deploy standard load balancer:
+During VM configuration, you have an option to create or select exiting load balancer in networking section. Follow below steps, to setup standard load balancer for high availability setup of HANA database.
 
-   1. First, create a front-end IP pool:
+> [!NOTE]
+>
+> * For HANA scale out, select the NIC for the `client` subnet when adding the virtual machines in the backend pool.
+> * The full set of command in Azure CLI and PowerShell adds the VMs with primary NIC in the backend pool.
 
-      1. Open the load balancer, select **frontend IP pool**, and select **Add**.
-      2. Enter the name of the new front-end IP pool (for example, **hana-frontend**).
-      3. Set the **Assignment** to **Static** and enter the IP address (for example, **10.23.0.27**).
-      4. Select **OK**.
-      5. After the new front-end IP pool is created, note the pool IP address.
+#### [Azure Portal](#tab/lb-portal)
 
-   2. Create a single back-end pool:
+[!INCLUDE [Configure Azure standard load balancer using Azure portal](../../../includes/sap-load-balancer-db-portal.md)]
 
-      1. Open the load balancer, select **Backend pools**, and then select **Add**.
-      2. Enter the name of the new back-end pool (for example, **hana-backend**).
-      3. Select **NIC** for Backend Pool Configuration.
-      4. Select **Add a virtual machine**.
-      5. Select the virtual machines of the HANA cluster (the NICs for the `client` subnet).
-      6. Select **Add**.
-      7. Select **Save**.
+#### [Azure CLI](#tab/lb-azurecli)
 
-   3. Next, create a health probe:
+The full set of Azure CLI codes display the setup of the load balancer, which include two VMs in the backend pool. Depending on the number of VMs in your HANA scale-out, you could add more VMs in the backend pool.
 
-      1. Open the load balancer, select **health probes**, and select **Add**.
-      2. Enter the name of the new health probe (for example, **hana-hp**).
-      3. Select **TCP** as the protocol and port 625**03**. Keep the **Interval** value set to 5.
-      4. Select **OK**.
+[!INCLUDE [Configure Azure standard load balancer using Azure CLI](../../../includes/sap-load-balancer-db-azurecli.md)]
 
-   4. Next, create the load-balancing rules:
+#### [PowerShell](#tab/lb-powershell)
 
-      1. Open the load balancer, select **load balancing rules**, and select **Add**.
-      2. Enter the name of the new load balancer rule (for example, **hana-lb**).
-      3. Select the front-end IP address, the back-end pool, and the health probe that you created earlier (for example, **hana-frontend**, **hana-backend** and **hana-hp**).
-      4. Increase idle timeout to 30 minutes.
-      5. Select **HA Ports**.
-      6. Make sure to **enable Floating IP**.
-      7. Select **OK**.
+The full set of PowerShell code display the setup of the load balancer, which include two VMs in the backend pool. Depending on the number of VMs in your HANA scale-out, you could add more VMs in the backend pool.
 
-   > [!IMPORTANT]
-   > Floating IP is not supported on a NIC secondary IP configuration in load-balancing scenarios. For details see [Azure Load balancer Limitations](../../load-balancer/load-balancer-multivip-overview.md#limitations). If you need additional IP address for the VM, deploy a second NIC.
+[!INCLUDE [Configure Azure standard load balancer using PowerShell](../../../includes/sap-load-balancer-db-powershell.md)]
 
-   > [!NOTE]
-   > When VMs without public IP addresses are placed in the backend pool of internal (no public IP address) Standard Azure load balancer, there will be no outbound internet connectivity, unless additional configuration is performed to allow routing to public end points. For details on how to achieve outbound connectivity see [Public endpoint connectivity for Virtual Machines using Azure Standard Load Balancer in SAP high-availability scenarios](./high-availability-guide-standard-load-balancer-outbound-connections.md).  
+---
 
-   > [!IMPORTANT]
-   > Do not enable TCP timestamps on Azure VMs placed behind Azure Load Balancer. Enabling TCP timestamps will cause the health probes to fail. Set parameter **net.ipv4.tcp_timestamps** to **0**. For details see [Load Balancer health probes](../../load-balancer/load-balancer-custom-probe-overview.md).
-   > See also SAP note [2382421](https://launchpad.support.sap.com/#/notes/2382421).  
+
+> [!NOTE]
+> When VMs without public IP addresses are placed in the backend pool of internal (no public IP address) Standard Azure load balancer, there will be no outbound internet connectivity, unless additional configuration is performed to allow routing to public end points. For details on how to achieve outbound connectivity see [Public endpoint connectivity for Virtual Machines using Azure Standard Load Balancer in SAP high-availability scenarios](./high-availability-guide-standard-load-balancer-outbound-connections.md).  
+
+> [!IMPORTANT]
+>
+> * Do not enable TCP timestamps on Azure VMs placed behind Azure Load Balancer. Enabling TCP timestamps will cause the health probes to fail. Set parameter `net.ipv4.tcp_timestamps` to `0`. For details see [Load Balancer health probes](../../load-balancer/load-balancer-custom-probe-overview.md) and SAP note [2382421](https://launchpad.support.sap.com/#/notes/2382421).
+> * To prevent saptune from changing the manually set `net.ipv4.tcp_timestamps` value from `0` back to `1`, update saptune version to 3.1.1 or higher. For more details, see [saptune 3.1.1 – Do I Need to Update?](https://www.suse.com/c/saptune-3-1-1-do-i-need-to-update/).
 
 ### Deploy NFS
 
@@ -217,7 +204,7 @@ The next sections describe the steps to deploy NFS - you'll need to select only 
 
 #### Deploy the Azure NetApp Files infrastructure
 
-Deploy ANF volumes for the `/hana/shared` file system. You'll need a separate `/hana/shared` volume for each HANA system replication site. For more information, see [Set up the Azure NetApp Files infrastructure](./sap-hana-scale-out-standby-netapp-files-suse.md#set-up-the-azure-netapp-files-infrastructure).
+Deploy Azure NetApp Files volumes for the `/hana/shared` file system. You'll need a separate `/hana/shared` volume for each HANA system replication site. For more information, see [Set up the Azure NetApp Files infrastructure](./sap-hana-scale-out-standby-netapp-files-suse.md#set-up-the-azure-netapp-files-infrastructure).
 
 In this example, the following Azure NetApp Files volumes were used:
 
@@ -1122,12 +1109,12 @@ You can adjust the behavior of susChkSrv with parameter action_on_lost. Valid va
 
    To simulate failure for `/hana/shared`:
 
-   * If using NFS on ANF, first confirm the IP address for the `/hana/shared` ANF volume on the primary site. You can do that by running `df -kh|grep /hana/shared`.
+   * If using NFS on Azure NetApp Files, first confirm the IP address for the `/hana/shared` Azure NetApp Files volume on the primary site. You can do that by running `df -kh|grep /hana/shared`.
    * If using NFS on Azure Files, first determine the IP address of the private end point for your storage account.
 
    Then, set up a temporary firewall rule to block access to the IP address of the `/hana/shared` NFS file system by executing the following command on one of the primary HANA system replication site VMs.
 
-   In this example, the command was executed on hana-s1-db1 for ANF volume `/hana/shared`.
+   In this example, the command was executed on hana-s1-db1 for Azure NetApp Files volume `/hana/shared`.
 
      ```bash
      iptables -A INPUT -s 10.23.1.7 -j DROP; iptables -A OUTPUT -d 10.23.1.7 -j DROP

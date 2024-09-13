@@ -2,15 +2,17 @@
 title: Troubleshoot Azure VM replication in Azure Site Recovery
 description: Troubleshoot errors when replicating Azure virtual machines for disaster recovery.
 author: ankitaduttaMSFT
-manager: rochakm
-ms.service: site-recovery
-ms.topic: article
-ms.date: 07/29/2022
+ms.service: azure-site-recovery
+ms.topic: troubleshooting
+ms.date: 03/07/2024
 ms.author: ankitadutta
 ms.custom: engagement-fy23
 ---
 
 # Troubleshoot Azure-to-Azure VM replication errors
+
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and plan accordingly. For more information, see the [CentOS End Of Life guidance](/azure/virtual-machines/workloads/centos/centos-end-of-life).
 
 This article describes how to troubleshoot common errors in Azure Site Recovery during replication and recovery of [Azure virtual machines](azure-to-azure-tutorial-enable-replication.md) (VM) from one region to another. For more information about supported configurations, see the [support matrix for replicating Azure VMs](azure-to-azure-support-matrix.md).
 
@@ -217,11 +219,11 @@ If you're using Azure Network Security Group (NSG) rules/firewall proxy to contr
 
 #### Possible cause
 
-The custom proxy settings are invalid and the Mobility service agent didn't autodetect the proxy settings from Internet Explorer (IE).
+The custom proxy settings are invalid and the Mobility service agent didn't autodetect the proxy settings from Internet Explorer.
 
 #### Fix the problem
 
-1. The Mobility service agent detects the proxy settings from IE on Windows and `/etc/environment` on Linux.
+1. The Mobility service agent detects the proxy settings from Internet Explorer on Windows and `/etc/environment` on Linux.
 1. If you prefer to set proxy only for the Mobility service, then you can provide the proxy details in _ProxyInfo.conf_ located at:
 
    - **Linux**: `/usr/local/InMage/config/`
@@ -259,8 +261,8 @@ Azure data disk <DiskName> <DiskURI> with logical unit number <LUN> <LUNValue> w
 
 Make sure that the data disks are initialized, and then retry the operation.
 
-- **Windows**: [Attach and initialize a new disk](../virtual-machines/windows/attach-managed-disk-portal.md).
-- **Linux**: [Initialize a new data disk in Linux](../virtual-machines/linux/add-disk.md).
+- **Windows**: [Attach and initialize a new disk](/azure/virtual-machines/windows/attach-managed-disk-portal).
+- **Linux**: [Initialize a new data disk in Linux](/azure/virtual-machines/linux/add-disk).
 
 If the problem persists, contact support.
 
@@ -580,4 +582,4 @@ To resolve this issue, wait till system time crosses the skewed future time. Ano
 
 ## Next steps
 
-[Replicate Azure VMs to another Azure region](azure-to-azure-how-to-enable-replication.md)
+[Replicate Azure VMs to another Azure region](azure-to-azure-how-to-enable-replication.md).

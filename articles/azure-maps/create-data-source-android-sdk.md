@@ -4,10 +4,10 @@ description: "Find out how to create a data source for a map. Learn about the da
 author: sinnypan
 ms.author: sipa
 ms.date: 2/26/2021
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: azure-maps
-ms.custom: devx-track-extended-java
-services: azure-maps
+ms.subservice: android-sdk
+ms.custom: devx-track-java
 zone_pivot_groups: azure-maps-android
 ---
 
@@ -17,6 +17,12 @@ The Azure Maps Android SDK stores data in data sources. Using data sources optim
 
 - **GeoJSON source**: Manages raw location data in GeoJSON format locally. Good for small to medium data sets (upwards of hundreds of thousands of shapes).
 - **Vector tile source**: Loads data formatted as vector tiles for the current map view, based on the maps tiling system. Ideal for large to massive data sets (millions or billions of shapes).
+
+> [!NOTE]
+>
+> **Azure Maps Android SDK retirement**
+>
+> The Azure Maps Native SDK for Android is now deprecated and will be retired on 3/31/25. To avoid service disruptions, migrate to the Azure Maps Web SDK by 3/31/25. For more information, see [The Azure Maps Android SDK migration guide](android-sdk-migration-guide.md).
 
 ## GeoJSON data source
 
@@ -1045,9 +1051,9 @@ See the following articles for more code samples to add to your maps:
 [Polygon layer]: how-to-add-shapes-to-android-map.md
 [Tile layer]: how-to-add-tile-layer-android-map.md
 <!---------   REST API Links     --------------->
-[Road tiles]: /rest/api/maps/render-v2/get-map-tile
+[Road tiles]: /rest/api/maps/render/get-map-tile
 [Traffic incidents]: /rest/api/maps/traffic/gettrafficincidenttile
 [Traffic flow]: /rest/api/maps/traffic/gettrafficflowtile
-[Render - Get Map Tile]: /rest/api/maps/render-v2/get-map-tile
+[Render - Get Map Tile]: /rest/api/maps/render/get-map-tile
 <!---------   External Links     --------------->
 [Mapbox Vector Tile Specification]: https://github.com/mapbox/vector-tile-spec

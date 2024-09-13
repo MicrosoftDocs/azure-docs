@@ -1,11 +1,11 @@
 ---
 title: Supported features for Microsoft Teams on Azure Virtual Desktop - Azure
 description: Supported features for Microsoft Teams on Azure Virtual Desktop.
-author: Heidilohr
+author: dknappettmsft
 ms.topic: conceptual
 ms.date: 07/26/2023
-ms.author: helohr
-manager: femila
+ms.author: daknappe
+ms.custom: docs_inherited
 ---
 
 # Supported features for Microsoft Teams on Azure Virtual Desktop
@@ -40,6 +40,9 @@ The following table lists whether the Windows Desktop client, Azure Virtual Desk
 | Secondary ringer | Yes | Yes |
 | Shared system audio | Yes | No |
 | Simulcast | Yes | Yes |
+
+> [!TIP]
+> You can find a more general list of Teams features that aren't supported on any VDI platform in the documentation for Microsoft Teams at [Features not supported in VDI](/microsoftteams/new-teams-vdi-requirements-deploy#features-not-supported-in-vdi).
 
 ## Version requirements
 

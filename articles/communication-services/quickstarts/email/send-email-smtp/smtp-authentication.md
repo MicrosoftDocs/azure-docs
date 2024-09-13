@@ -11,6 +11,7 @@ ms.service: azure-communication-services
 ---
 
 # Quickstart: How to create authentication credentials for sending emails using SMTP
+
 In this quick start, you learn about how to use an Entra application to create the authentication credentials for using SMTP to send an email using Azure Communication Services.
 
 ## Prerequisites
@@ -18,8 +19,8 @@ In this quick start, you learn about how to use an Entra application to create t
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
 - An Azure Communication Email Resource created and ready with a provisioned domain [Get started with Creating Email Communication Resource](../create-email-communication-resource.md)
 - An active Azure Communication Services Resource connected with Email Domain and a Connection String. [Get started by Connecting Email Resource with a Communication Resource](../connect-email-communication-resource.md)
-- An Entra application with access to the Azure Communication Services Resource. [Register an application with Microsoft Entra ID and create a service principal](../../../../active-directory/develop/howto-create-service-principal-portal.md#register-an-application-with-microsoft-entra-id-and-create-a-service-principal)
-- A client secret for the Entra application with access to the Azure Communication Service Resource. [Create a new client secret](../../../../active-directory/develop/howto-create-service-principal-portal.md#option-3-create-a-new-client-secret)
+- An Entra application with access to the Azure Communication Services Resource. [Register an application with Microsoft Entra ID and create a service principal](/entra/identity-platform/howto-create-service-principal-portal#register-an-application-with-microsoft-entra-id-and-create-a-service-principal)
+- A client secret for the Entra application with access to the Azure Communication Service Resource. [Create a new client secret](/entra/identity-platform/howto-create-service-principal-portal#option-3-create-a-new-client-secret)
 
 ## Using a Microsoft Entra application with access to the Azure Communication Services Resource for SMTP
 
@@ -64,7 +65,7 @@ When assigning the Entra application a role for the Azure Communication Services
 
 ### Creating the SMTP credentials from the Entra application information.
 #### SMTP Authentication Username
-Azure Communication Services allows the credentials for an Entra application to be used as the SMTP username and password. The username consists of three pipe-delimited parts.
+Azure Communication Services allows the credentials for an Entra application to be used as the SMTP username and password. The username consists of the following three parts and can be pipe or dot delimited.
 1. The Azure Communication Service Resource name.
     :::image type="content" source="../media/email-smtp-resource-name.png" alt-text="Screenshot that shows finding the resource name.":::
 1. The Entra Application ID.
@@ -72,10 +73,15 @@ Azure Communication Services allows the credentials for an Entra application to 
 1. The Entra Tenant ID.
     :::image type="content" source="../media/email-smtp-entra-tenant.png" alt-text="Screenshot that shows finding the Entra Tenant ID.":::
 
-**Format:**
+**Dot-delimited Format:**
+```
+username: <Azure Communication Services Resource name>.<Entra Application ID>.<Entra Tenant ID>
+```
+**Pipe-delimited Format:**
 ```
 username: <Azure Communication Services Resource name>|<Entra Application ID>|<Entra Tenant ID>
 ```
+
 #### SMTP Authentication Password
 The password is one of the Entra application's client secrets.
     :::image type="content" source="../media/email-smtp-entra-secret.png" alt-text="Screenshot that shows finding the Entra client secret.":::
@@ -85,7 +91,7 @@ The password is one of the Entra application's client secrets.
 - **Authentication**: Username and password authentication is supported using Entra application details as the credentials. The Azure Communication Services SMTP service will use the Entra application details to get an access token on behalf of the user and use that to submit the email. Because the Entra token isn't cached, access can be revoked immediately by either changing the Entra application client secret or by changing the access controls for the Azure Communication Services Resource.
 - **Azure Communication Service**: An Azure Communication Services Resource with a connected Azure Communication Email Resource and domain is required.
 - **Transport Layer Security (TLS)**: Your device must be able to use TLS version 1.2 and above.
-- **Port**: Port 587 (recommended) or port 25 is required and must be unblocked on your network. Some network firewalls or ISPs block ports, especially port 25, because that's the port that email servers use to send mail.
+- **Port**: Port 587 is required and must be unblocked on your network. Some network firewalls or ISPs block ports because that's the port that email servers use to send mail.
 - **DNS**: Use the DNS name smtp.azurecomm.net. Don't use an IP address for the Microsoft 365 or Office 365 server, as IP Addresses aren't supported.
 
 ### How to set up SMTP AUTH client submission
@@ -95,6 +101,6 @@ Enter the following settings directly on your device or in the application as th
 | Device or Application setting | Value |
 |--|--|
 |Server / smart host | smtp.azurecomm.net |
-|Port |Port 587 (recommended) or port 25|
+|Port |Port 587|
 |TLS / StartTLS | Enabled|
 |Username and password | Enter the Entra application credentials from an application with access to the Azure Communication Services Resource |

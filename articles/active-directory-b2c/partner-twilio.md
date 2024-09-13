@@ -9,9 +9,13 @@ manager: CelesteDG
 ms.service: active-directory
 
 ms.topic: how-to
-ms.date: 09/20/2021
+ms.date: 09/11/2024
 ms.author: kengaderdus
 ms.subservice: B2C
+
+
+#Customer intent: As a developer integrating Azure AD B2C with Twilio Verify API, I want a walkthrough on how to integrate a sample online payment app with Twilio Verify API, so that I can comply with PSD2 transaction requirements through dynamic linking and strong customer authentication.
+
 ---
 
 # Integrating Twilio Verify App with Azure Active Directory B2C
@@ -94,7 +98,7 @@ The following components make up the Twilio solution:
 
 Add the policy files to Azure AD B2C:
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) as the global administrator of your Azure AD B2C tenant.
+1. Sign in to the [Azure portal](https://portal.azure.com/) as the [B2C IEF Policy Administrator](/entra/identity/role-based-access-control/permissions-reference#b2c-ief-policy-administrator) of your Azure AD B2C tenant.
 1. If you have access to multiple tenants, select the **Settings** icon in the top menu to switch to your Azure AD B2C tenant from the **Directories + subscriptions** menu.
 1. Choose **All services** in the top-left corner of the Azure portal, search for and select **Azure AD B2C**.
 1. Navigate to **Azure AD B2C** > **Identity Experience Framework** > **Policy Keys**.

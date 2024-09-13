@@ -5,9 +5,9 @@ titleSuffix: Azure Digital Twins
 description: See how to retrieve, update, and delete individual twins and relationships.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 10/3/2023
+ms.date: 1/3/2024
 ms.topic: how-to
-ms.service: digital-twins
+ms.service: azure-digital-twins
 
 # Optional fields. Don't forget to remove # if you need a field.
 # ms.custom: can-be-multiple-comma-separated
@@ -45,7 +45,6 @@ To create a digital twin, you need to provide:
 * The [model](concepts-models.md) you want to use
 * Any desired initialization of twin data, including...
     - Properties (initialization optional): You can set initial values for properties of the digital twin if you want. Properties are treated as optional and can be set later, but note that **they won't show up as part of a twin until they've been set**.
-    - Telemetry (initialization recommended): You can also set initial values for telemetry fields on the twin. Although initializing telemetry isn't required, telemetry fields don't show up as part of a twin until they've been set. This means that you can't edit telemetry values for a twin unless they've been initialized first.
     - Components (initialization required if they're present on a twin): If your twin contains any [components](concepts-models.md#model-attributes), these must be initialized when the twin is created. They can be empty objects, but the components themselves have to exist.
     
 The model and any initial property values are provided through the `initData` parameter, which is a JSON string containing the relevant data. For more information on structuring this object, continue to the next section.
@@ -143,7 +142,7 @@ The result of calling `object result = await client.GetDigitalTwinAsync("my-moon
 
 The defined properties of the digital twin are returned as top-level properties on the digital twin. Metadata or system information that isn't part of the DTDL definition is returned with a `$` prefix. Metadata properties include the following values:
 * `$dtId`: The ID of the digital twin in this Azure Digital Twins instance
-* `$etag`: A standard HTTP field assigned by the web server. This is updated to a new value every time the twin is updated, which can be useful to determine whether the twin's data has been updated on the server since a previous check. You can use `If-Match` to perform updates and deletes that only complete if the entity's etag matches the etag provided. For more information on these operations, see the documentation for [DigitalTwins Update](/rest/api/digital-twins/dataplane/twins/digitaltwins_update) and [DigitalTwins Delete](/rest/api/digital-twins/dataplane/twins/digitaltwins_delete).
+* `$etag`: A standard HTTP field assigned by the web server. This is updated to a new value every time the twin is updated, which can be useful to determine whether the twin's data has been updated on the server since a previous check. You can use `If-Match` to perform updates and deletes that only complete if the entity's etag matches the etag provided. For more information on these operations, see the documentation for [DigitalTwins Update](/rest/api/digital-twins/dataplane/twins/digital-twins-update) and [DigitalTwins Delete](/rest/api/digital-twins/dataplane/twins/digital-twins-delete).
 * `$metadata`: A set of metadata properties, which might include the following:
   - `$model`, the DTMI of the model of the digital twin.
   - `lastUpdateTime` for twin properties. This is a timestamp indicating the date and time that Azure Digital Twins processed the property update message

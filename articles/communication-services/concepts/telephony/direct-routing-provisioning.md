@@ -35,21 +35,24 @@ The health of an SBC connection now exposed in Azure portal. It takes in account
 ### Possible values of each health indicator
 
 TLS Status - Status of the TLS connections of a Trunk: 
-- Unknown - Indicates an unknown status. 
+- Unknown - Indicates that SBC hasn't attempted a TLS handshake in the last 15 minutes. 
 - Active - Indicates that TLS connection is established. 
 - CertExpiring - Indicates that SBC certificate is expiring. 
 - CertExpired - Indicates that SBC certificate is expired. 
 
 SIP OPTIONS (Ping) - Status of SIP OPTIONS messages exchange: 
-- Unknown - Indicates an unknown status. 
+- Unknown - Indicates that SBC hasn't sent any SIP options. 
 - Active - Indicates that OPTIONS are being sent and received. 
-- Expired - Indicates that status is expired. 
+- Expired - Indicates that SBC was sending SIP OPTIONS, but we haven't received any OPTIONS messages in the last 15 minutes. 
 - Error - Indicates an error in OPTIONS exchange.  
 
 Status - The overall health status of a Trunk: 
 - Unknown - Indicates an unknown health status. 
 - Online - Indicates that SBC connection is healthy. 
 - Warning - Indicates TLS or Ping is expired. 
+
+> [!NOTE]
+>If you've just configured a new trunk, it can take up to 15 minutes to update the status.
 
 > [!IMPORTANT]
 > Before placing or receiving calls, make sure that SBC status is *Online*
@@ -83,7 +86,7 @@ If you created one voice route with a pattern `^\+1(425|206)(\d{7})$` and added 
 If you created one voice route with a pattern `^\+1(425|206)(\d{7})$` and added `sbc1.contoso.biz` and `sbc2.contoso.biz` to it, and then created a second route with the same pattern with `sbc3.contoso.biz` and `sbc4.contoso.biz`. In this case, when the user makes a call to `+1 425 XXX XX XX` or `+1 206 XXX XX XX`, the call is first routed to SBC `sbc1.contoso.biz` or `sbc2.contoso.biz`. If both sbc1 and sbc2 are unavailable, the route with lower priority is tried (`sbc3.contoso.biz` and `sbc4.contoso.biz`). If none of the SBCs of the second route are available, the call is dropped.
 
 ### Three routes example:
-If you created one voice route with a pattern `^\+1(425|206)(\d{7})$` and added `sbc1.contoso.biz` and `sbc2.contoso.biz` to it, and then created a second route with the same pattern with `sbc3.contoso.biz` and `sbc4.contoso.biz`, and created a third route with `^+1(\d[10])$` with `sbc5.contoso.biz`. In this case, when the user makes a call to `+1 425 XXX XX XX` or `+1 206 XXX XX XX`, the call is first routed to SBC `sbc1.contoso.biz` or `sbc2.contoso.biz`. If both sbc1 nor sbc2 are unavailable, the route with lower priority is tried (`sbc3.contoso.biz` and `sbc4.contoso.biz`). If none of the SBCs of a second route are available, the third route is tried. If sbc5 is also not available, the call is dropped. Also, if a user dials `+1 321 XXX XX XX`, the call goes to `sbc5.contoso.biz`, and it isn't available, the call is dropped.
+If you created one voice route with a pattern `^\+1(425|206)(\d{7})$` and added `sbc1.contoso.biz` and `sbc2.contoso.biz` to it, and then created a second route with the same pattern with `sbc3.contoso.biz` and `sbc4.contoso.biz`, and created a third route with `^\+1(\d{10})$` with `sbc5.contoso.biz`. In this case, when the user makes a call to `+1 425 XXX XX XX` or `+1 206 XXX XX XX`, the call is first routed to SBC `sbc1.contoso.biz` or `sbc2.contoso.biz`. If both sbc1 nor sbc2 are unavailable, the route with lower priority is tried (`sbc3.contoso.biz` and `sbc4.contoso.biz`). If none of the SBCs of a second route are available, the third route is tried. If sbc5 is also not available, the call is dropped. Also, if a user dials `+1 321 XXX XX XX`, the call goes to `sbc5.contoso.biz`, and it isn't available, the call is dropped.
 
 > [!NOTE]
 > Failover to the next SBC in voice routing works only for response codes 408, 503, and 504.
@@ -102,6 +105,7 @@ Omnichannel for Customer Service customers, refer to [these instructions](/dynam
 - [Session Border Controllers certified for Azure Communication Services direct routing](./certified-session-border-controllers.md)
 - [Call Automation overview](../call-automation/call-automation.md)
 - [Pricing](../pricing.md)
+- [Try Phone Calling](./try-phone-calling.md)
 
 ### Quickstarts
 

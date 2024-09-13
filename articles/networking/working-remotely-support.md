@@ -2,8 +2,8 @@
 title: Enable remote work by using Azure networking services
 description: Learn how to use Azure networking services to enable remote work and how to mitigate traffic issues that result from an increased number of people who work remotely.
 author: asudbring
-ms.service: virtual-network
-ms.topic: article
+ms.service: azure-virtual-network
+ms.topic: conceptual
 ms.date: 04/09/2023
 ms.author: allensu
 
@@ -109,4 +109,4 @@ The following articles discuss how you can use Azure networking features to scal
 [ExR]: ../expressroute/expressroute-introduction.md
 [ExR-eco]: ../expressroute/expressroute-locations.md
 [ExR-D]: ../expressroute/expressroute-erdirect-about.md
-[Az-OCI]: ../virtual-machines/workloads/oracle/configure-azure-oci-networking.md
+[Az-OCI]: /azure/virtual-machines/workloads/oracle/configure-azure-oci-networking

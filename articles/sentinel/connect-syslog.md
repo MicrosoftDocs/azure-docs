@@ -2,12 +2,16 @@
 title: Connect Syslog data to Microsoft Sentinel
 description: Connect any machine or appliance that supports Syslog to Microsoft Sentinel by using an agent on a Linux machine between the appliance and Microsoft Sentinel.
 author: yelevin
-ms.topic: how-to
-ms.date: 06/14/2023
 ms.author: yelevin
+ms.topic: how-to
+ms.custom: linux-related-content
+ms.date: 06/18/2024
 ---
 
 # Collect data from Linux-based sources using Syslog
+
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that has reached End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](/azure/virtual-machines/workloads/centos/centos-end-of-life).
 
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
@@ -15,7 +19,7 @@ ms.author: yelevin
 
 This article describes how to connect your data sources to Microsoft Sentinel using Syslog. For more information about supported connectors for this method, see [Data connectors reference](data-connectors-reference.md).
 
-Learn how to [collect Syslog with the Azure Monitor Agent](../azure-monitor/agents/data-collection-syslog.md), including how to configure Syslog and create a DCR.
+Learn how to [collect Syslog with the Azure Monitor Agent](/azure/azure-monitor/agents/data-collection-syslog), including how to configure Syslog and create a DCR.
 
 > [!IMPORTANT]
 > The Log Analytics agent will be [retired on **31 August, 2024**](https://azure.microsoft.com/updates/were-retiring-the-log-analytics-agent-in-azure-monitor-on-31-august-2024/). If you are using the Log Analytics agent in your Microsoft Sentinel deployment, we recommend that you start planning your migration to the AMA. For more information, see [AMA migration for Microsoft Sentinel](ama-migrate.md).
@@ -26,7 +30,7 @@ Learn how to [collect Syslog with the Azure Monitor Agent](../azure-monitor/agen
 
 When the Log Analytics agent is installed on your VM or appliance, the installation script configures the local Syslog daemon to forward messages to the agent on UDP port 25224. After receiving the messages, the agent sends them to your Log Analytics workspace over HTTPS, where they are ingested into the Syslog table in **Microsoft Sentinel > Logs**.
 
-For more information, see [Syslog data sources in Azure Monitor](../azure-monitor/agents/data-sources-syslog.md).
+For more information, see [Syslog data sources in Azure Monitor](/azure/azure-monitor/agents/data-sources-syslog).
 
 :::image type="content" source="media/connect-syslog/syslog-diagram.png" alt-text="This diagram shows the data flow from syslog sources to the Microsoft Sentinel workspace, where the Log Analytics agent is installed directly on the data source device.":::
 
@@ -76,7 +80,7 @@ You can use your existing [CEF log forwarder machine](connect-log-forwarder.md) 
 
 Having already set up [data collection from your CEF sources](connect-common-event-format.md), and having configured the Log Analytics agent:
 
-1. On each machine that sends logs in CEF format, you must edit the Syslog configuration file to remove the facilities that are being used to send CEF messages. This way, the facilities that are sent in CEF won't also be sent in Syslog. See [Configure Syslog on Linux agent](../azure-monitor/agents/data-sources-syslog.md#configure-syslog-on-linux-agent) for detailed instructions on how to do this.
+1. On each machine that sends logs in CEF format, you must edit the Syslog configuration file to remove the facilities that are being used to send CEF messages. This way, the facilities that are sent in CEF won't also be sent in Syslog. See [Configure Syslog on Linux agent](/azure/azure-monitor/agents/data-sources-syslog#configure-syslog-on-linux-agent) for detailed instructions on how to do this.
 
 1. You must run the following command on those machines to disable the synchronization of the agent with the Syslog configuration in Microsoft Sentinel. This ensures that the configuration change you made in the previous step does not get overwritten.
 
@@ -118,7 +122,7 @@ For more information, see [Advanced Security Information Model (ASIM) parsers](n
 
     (Some connectors using the Syslog mechanism might store their data in tables other than `Syslog`. Consult your connector's section in the [Microsoft Sentinel data connectors reference](data-connectors-reference.md) page.)
 
-1. You can use the query parameters described in [Using functions in Azure Monitor log queries](../azure-monitor/logs/functions.md) to parse your Syslog messages. You can then save the query as a new Log Analytics function and use it as a new data type.
+1. You can use the query parameters described in [Using functions in Azure Monitor log queries](/azure/azure-monitor/logs/functions) to parse your Syslog messages. You can then save the query as a new Log Analytics function and use it as a new data type.
 
 ### Configure the Syslog connector for anomalous SSH login detection
 

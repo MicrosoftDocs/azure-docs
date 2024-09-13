@@ -3,9 +3,9 @@ title: Enable zone-to-zone disaster recovery for Azure virtual machines
 description: This article describes when and how to use zone-to-zone disaster recovery for Azure virtual machines.
 author: ankitaduttaMSFT
 manager: aravindang
-ms.service: site-recovery
-ms.topic: article
-ms.date: 10/09/2023
+ms.service: azure-site-recovery
+ms.topic: tutorial
+ms.date: 05/06/2024
 ms.author: ankitadutta
 ms.custom: references_regions
 ---
@@ -24,23 +24,27 @@ If you want to move VMs to an availability zone in a different region, review [t
 
 Support for zone-to-zone disaster recovery is currently limited to the following regions:
 
-| Americas | Europe | Middle East | Africa | APAC |
-|--------|--------------|-------------|--------|--------------|
-| Canada Central | UK South | Qatar Central | South Africa North | Southeast Asia |
-| US Gov Virginia | West Europe | | | East Asia |
-| Central US | North Europe | UAE North | | Japan East |
-| South Central US | Germany West Central | | | Korea Central |
-| East US | Norway East | | | Australia East |
-| East US 2 | France Central | | | Central India |
-| West US 2 | Switzerland North | | | China North 3 |
-| West US 3 | Sweden Central (managed access) | | |  |
-| Brazil South | Poland Central | | | |
-| | Italy North | | | |
+| Americas | Europe | Middle East | Africa | Asia Pacific |
+|---|---|---|---|---|
+| Brazil South | France Central | Israel Central  | South Africa North | Australia East |
+| Canada Central | Germany West Central  | Qatar Central  | | Central India |
+| Central US | Italy North  | UAE North | | China North 3  |
+| East US | North Europe | | | East Asia  |
+| East US 2 | Norway East | | | Japan East |
+| South Central US | Poland Central  | | | Korea Central |
+| US Gov Virginia | Sweden Central  | | | Southeast Asia |
+| West US 2 | Switzerland North | | | |
+| West US 3 | UK South | | | |
+|| West Europe ||||
 
 When you use zone-to-zone disaster recovery, Site Recovery doesn't move or store data out of the region in which it's deployed. You can select a Recovery Services vault from a different region if you want one. The Recovery Services vault contains metadata but no actual customer data.
 
-> [!Note]
+Learn more about [currently supported availability zones](../reliability/availability-zones-service-support.md#azure-regions-with-availability-zone-support).
+
+> [!NOTE]
 > Zone-to-zone disaster recovery isn't supported for VMs that have managed disks via zone-redundant storage (ZRS).
+>
+>Regions that don't support Azure availability zones also don't support Azure Site Recovery zone-to-zone replication. For Azure Site Recovery zone-to-zone replication to work, the region must support availability zones.
 
 ## Using availability zones for disaster recovery
 
@@ -85,6 +89,7 @@ Before you deploy zone-to-zone disaster recovery for your VMs, ensure that other
 |Proximity placement groups    |    Supported    |
 |Backup interoperability    |    File level backup and restore are supported. Disk and VM level backup and restore aren't supported.    |
 |Hot add/remove    |    You can add disks after you enable zone-to-zone replication. Removing disks after you enable zone-to-zone replication isn't supported.    |
+| Multiple IP addresses    |    Not supported    |
 
 ## Set up Site Recovery zone-to-zone disaster recovery
 
@@ -131,8 +136,6 @@ No. You must fail over to a different resource group.
 
 The steps that you follow to run a disaster recovery drill, fail over, reprotect, and failback are the same as the steps in an Azure-to-Azure disaster recovery scenario.
 
-To perform a disaster recovery drill, follow the steps outlined in [Tutorial: Run a disaster recovery drill for Azure VMs](./azure-to-azure-tutorial-dr-drill.md).
-
-To perform a failover and reprotect VMs in the secondary zone, follow the steps outlined in [Tutorial: Fail over Azure VMs to a secondary region](./azure-to-azure-tutorial-failover-failback.md).
-
-To fail back to the primary zone, follow the steps outlined [Tutorial: Fail back Azure VMs to the primary region](./azure-to-azure-tutorial-failback.md).
+- To perform a disaster recovery drill, follow the steps outlined in [Tutorial: Run a disaster recovery drill for Azure VMs](./azure-to-azure-tutorial-dr-drill.md).
+- To perform a failover and reprotect VMs in the secondary zone, follow the steps outlined in [Tutorial: Fail over Azure VMs to a secondary region](./azure-to-azure-tutorial-failover-failback.md).
+- To fail back to the primary zone, follow the steps outlined [Tutorial: Fail back Azure VMs to the primary region](./azure-to-azure-tutorial-failback.md).

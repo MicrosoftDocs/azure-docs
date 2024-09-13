@@ -1,9 +1,8 @@
 ---
 title: Plan to manage costs for Azure Data Factory
 description: Learn how to plan for and manage costs for Azure Data Factory by using cost analysis in the Azure portal.
-author: chez-charlie
-ms.author: chez
-ms.service: data-factory
+author: kromerm
+ms.author: makromer
 ms.subservice: pricing
 ms.topic: how-to
 ms.custom: subject-cost-optimization
@@ -112,9 +111,6 @@ In the preceding example, you see the current cost for the service. Costs by Azu
 
 ### Monitor costs at pipeline level with Cost Analysis
 
-> [!NOTE]
-> Monitoring costs at pipeline level is a preview feature currently only available in Azure Data Factory, and not Synapse pipelines.
-
 In certain cases, you may want a granular breakdown of cost of operations within our factory, for instance, for charge back purposes. Integrating Azure Billing [cost analysis](../cost-management-billing/costs/quick-acm-cost-analysis.md) platform, Data Factory can separate out billing charges for each pipeline. By **opting in** Azure Data Factory detailed billing reporting for a factory, you can better understand how much each pipeline is costing you, within the aforementioned factory.
 
 You need to opt in for _each_ factory that you want detailed billing for. To turn on per pipeline detailed billing feature,
@@ -186,7 +182,7 @@ Budgets can be created with filters for specific resources or services in Azure 
 
 You can also [export your cost data](../cost-management-billing/costs/tutorial-export-acm-data.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn) to a storage account. This is helpful when you need or others to do other data analysis for costs. For example, finance teams can analyze the data using Excel or Power BI. You can export your costs on a daily, weekly, or monthly schedule and set a custom date range. Exporting cost data is the recommended way to retrieve cost datasets.
 
-## Next steps
+## Related content
 
 - Learn [how to optimize your cloud investment with Azure Cost Management](../cost-management-billing/costs/cost-mgt-best-practices.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
 - Learn more about managing costs with [cost analysis](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).

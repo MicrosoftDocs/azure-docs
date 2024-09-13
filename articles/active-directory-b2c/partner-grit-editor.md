@@ -2,16 +2,16 @@
 title: Edit identity experience framework XML with Grit Visual Identity Experience Framework (IEF) Editor
 titleSuffix: Azure AD B2C
 description: Learn how Grit Visual IEF Editor enables fast authentication deployments in Azure AD B2C
-
 author: gargi-sinha
 manager: martinco
 ms.service: active-directory
-
 ms.topic: how-to
-ms.date: 10/10/2022
+ms.date: 01/26/2024
 ms.author: gasinh
 ms.reviewer: kengaderdus
 ms.subservice: B2C 
+
+# Customer intent: I'm an Azure AD B2C administrator, and I want to use the Visual IEF Editor tool to create, modify, and deploy Azure AD B2C policies, without writing code.
 ---
 
 

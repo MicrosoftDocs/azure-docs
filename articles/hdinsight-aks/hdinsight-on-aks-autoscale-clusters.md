@@ -1,14 +1,17 @@
 ---
 title: Automatically scale Azure HDInsight on AKS clusters
 description: Use the Auto scale feature to automatically scale Azure HDInsight clusters on AKS based on a schedule or load based metrics.
-ms.service: hdinsight-aks
+ms.service: azure-hdinsight-on-aks
 ms.topic: how-to
-ms.date: 08/29/2023
+ms.date: 02/06/2024
 ---
 
 # Auto Scale HDInsight on AKS Clusters
 
+[!INCLUDE [retirement-notice](includes/retirement-notice.md)]
 [!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
+
+
 
 The sizing of any cluster to meet job performance and manage costs ahead of time is always tricky, and hard to determine! One of the lucrative benefits of building data lake house over Cloud is its elasticity, which means to use autoscale feature to maximize the utilization of resources at hand. Auto scale with Kubernetes is one key to establishing a cost optimized ecosystem. With varied usage patterns in any enterprise, there could be variations in cluster loads over time that could lead to clusters being under-provisioned (lousy performance) or overprovisioned (unnecessary costs due to idle resources).  
 
@@ -40,7 +43,7 @@ The following table describes the cluster types that are compatible with the Aut
 |Workload	|Load Based	|Schedule Based|
 |-|-|-|
 |Flink	|Planned	|Yes|
-|Trino	|Planned	|Yes**|
+|Trino	|Yes**	|Yes**|
 |Spark	|Yes**	|Yes**|
 
 **Graceful decommissioning is configurable.
@@ -128,7 +131,7 @@ The default value is set to **180 seconds**
 
    :::image type="content" source="./media/hdinsight-on-aks-autoscale-clusters/add-permissions-concept-step-5.png" alt-text="Screenshot showing how to add role assignment." border="true" lightbox="./media/hdinsight-on-aks-autoscale-clusters/add-permissions-concept-step-5.png":::
    
-1. Select the **add role assignment**, 
+1. Select **add role assignment**, 
    1. Assignment type: Privileged administrator roles
    1. Role: **Owner** or **Contributor**
    1. Members: Choose Managed identity and select the **User-assigned managed identity**, which was given during cluster creation phase. 
@@ -167,7 +170,7 @@ The default value is set to **180 seconds**
       > * Your subscription has a capacity quota for each region. The total number of cores of your head nodes and the maximum worker nodes can't exceed the capacity quota. However, this quota is a soft limit; you can always create a support ticket to get it increased easily.
       > * If you exceed the total core quota limit, You'll receive an error message saying `The maximum node count you can select is {maxCount} due to the remaining quota in the selected subscription ({remaining} cores)`.
       > * Scale Up rules take precedence when one or more rules are triggered. Even if only one of the rules for scale up suggest cluster being under-provisioned, cluster will try to scale up. For scale down to happen, no scale up rule should be triggered.
-      > * The maximum number of nodes allowed in a cluster pool is 250 in public preview.
+      > * In public preview, HDInsight on AKS supports upto 500 nodes in a cluster.
 
 ### Create a cluster with a Resource Manager template
 

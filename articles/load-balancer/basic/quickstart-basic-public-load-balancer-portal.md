@@ -4,9 +4,10 @@ titleSuffix: Azure Load Balancer
 description: Learn how to create a public basic SKU Azure Load Balancer in this quickstart. 
 author: mbender-ms
 ms.author: mbender
-ms.service: load-balancer
+ms.service: azure-load-balancer
 ms.topic: quickstart
-ms.date: 04/10/2023
+ms.date: 03/12/2024
+ROBOTS: NOINDEX, NOFOLLOW
 ms.custom: template-quickstart
 ---
 
@@ -80,7 +81,7 @@ In this section, you'll create a virtual network and subnet.
 
 > [!IMPORTANT]
 
-> [!INCLUDE [Pricing](../../../includes/bastion-pricing.md)]
+> [!INCLUDE [Pricing](~/reusable-content/ce-skilling/azure/includes/bastion-pricing.md)]
 
 >
 
@@ -234,7 +235,7 @@ The two VMs will be added to an availability set named **myAvailabilitySet**.
     | Availability set | Select **myAvailabilitySet** |
     | Network security group | Select the existing **myNSG** |
 
-[!INCLUDE [ephemeral-ip-note.md](../../../includes/ephemeral-ip-note.md)]
+[!INCLUDE [ephemeral-ip-note.md](~/reusable-content/ce-skilling/azure/includes/ephemeral-ip-note.md)]
 
 ## Install IIS
 

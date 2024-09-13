@@ -1,12 +1,12 @@
 ---
 title: Overview for Microsoft Azure Maps
 description: Learn about services and capabilities in Microsoft Azure Maps and how to use them in your applications.
-author: eriklindeman
-ms.author: eriklind
+author: faterceros
+ms.author: aterceros
 ms.date: 10/21/2022
 ms.topic: overview
 ms.service: azure-maps
-services: azure-maps
+ms.subservice: general
 ms.custom: mvc, references_regions
 ---
 
@@ -15,7 +15,6 @@ ms.custom: mvc, references_regions
 Azure Maps is a collection of geospatial services and SDKs that use fresh mapping data to provide geographic context to web and mobile applications. Azure Maps provides:
 
 * REST APIs to render vector and raster maps in multiple styles and satellite imagery.
-* Creator services to create and render maps based on private indoor map data.
 * Search services to locate addresses, places, and points of interest around the world.
 * Various routing options; such as point-to-point, multipoint, multipoint optimization, isochrone, electric vehicle, commercial vehicle, traffic influenced, and matrix routing.
 * Traffic flow view and incidents view, for applications that require real-time traffic information.
@@ -23,7 +22,7 @@ Azure Maps is a collection of geospatial services and SDKs that use fresh mappin
 * Geofencing service and mapping data storage, with location information hosted in Azure.
 * Location intelligence through geospatial analytics.
 
-Additionally, Azure Maps services are available through the Web SDK and the Android SDK. These tools help developers quickly develop and scale solutions that integrate location information into Azure solutions.
+Additionally, Azure Maps services are available through the Web SDK. These tools help developers quickly develop and scale solutions that integrate location information into Azure solutions.
 
 You can sign up for a free [Azure Maps account] and start developing.
 
@@ -42,6 +41,12 @@ The Azure Maps Web SDK lets you customize interactive maps with your own content
 :::image type="content" source="./media/about-azure-maps/intro_web_map_control.png" lightbox="./media/about-azure-maps/intro_web_map_control.png" alt-text="Example map of population change created by using Azure Maps Web SDK.":::
 
 ### Android SDK
+
+> [!NOTE]
+>
+> **Azure Maps Android SDK retirement**
+>
+> The Azure Maps Native SDK for Android is now deprecated and will be retired on 3/31/25. To avoid service disruptions, migrate to the Azure Maps Web SDK by 3/31/25. For more information, see [The Azure Maps Android SDK migration guide](android-sdk-migration-guide.md).
 
 Use the Azure Maps Android SDK to create mobile mapping applications.
 
@@ -209,10 +214,6 @@ Verify that the location of your current IP address is in a supported country/re
 
 ## Next steps
 
-Learn about indoor maps:
-
-[What is Azure Maps Creator?]
-
 Try a sample app that showcases Azure Maps:
 
 [Quickstart: Create a web app]
@@ -226,21 +227,22 @@ Stay up to date on Azure Maps:
 [Get started with Azure Maps Power BI visual]: power-bi-visual-get-started.md
 [How to use the Get Map Attribution API]: how-to-show-attribution.md
 [Quickstart: Create a web app]: quick-demo-map-app.md
-[What is Azure Maps Creator?]: about-creator.md
-[v1]: /rest/api/maps/data
-[v2]: /rest/api/maps/data-v2
+[v1]: /rest/api/maps/data?view=rest-maps-1.0&preserve-view=true
+[v2]: /rest/api/maps/data
 [How to create data registry]: how-to-create-data-registries.md
 <!---------   REST API Links     --------------->
 [Data registry]: /rest/api/maps/data-registry
 [Geolocation]: /rest/api/maps/geolocation
-[Get Map Tile]: /rest/api/maps/render-v2/get-map-tile
+[Get Map Tile]: /rest/api/maps/render/get-map-tile
 [Get Weather along route API]: /rest/api/maps/weather/getweatheralongroute
-[Render]: /rest/api/maps/render-v2
+[Render]: /rest/api/maps/render
+[Render v1]: /rest/api/maps/render?view=rest-maps-1.0
+[Render v2]: /rest/api/maps/render
 [REST APIs]: /rest/api/maps/
 [Route]: /rest/api/maps/route
-[Search]: /rest/api/maps/search
+[Search]: /rest/api/maps/search?view=rest-maps-1.0&preserve-view=true
 [Spatial]: /rest/api/maps/spatial
-[TilesetID]: /rest/api/maps/render-v2/get-map-tile#tilesetid
+[TilesetID]: /rest/api/maps/render/get-map-tile#tilesetid
 [Timezone]: /rest/api/maps/timezone
 [Traffic]: /rest/api/maps/traffic
 <!---------   JavaScript API Links     --------------->

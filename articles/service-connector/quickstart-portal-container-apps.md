@@ -4,10 +4,8 @@ description: This quickstart shows how to create a service connection in Azure C
 author: maud-lv
 ms.author: malev
 ms.service: service-connector
-ms.custom: event-tier1-build-2022
 ms.topic: quickstart
 ms.date: 10/31/2023
-
 #Customer intent: As an app developer, I want to connect Azure Container Apps to a storage account in the Azure portal using Service Connector.
 ---
 
@@ -77,14 +75,17 @@ Use Service Connector to create a new service connection in Container Apps.
 
     For more information, go to [create a user-assigned managed identity](../active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities.md?pivots=identity-mi-methods-azp).
 
-    ### [Connection string](#tab/CS)
-
-   Select **Connection string** to generate or configure one or multiple key-value pairs with pure secrets or tokens.
-
     ### [Service principal](#tab/SP)
 
     1. Select **Service principal** to use a service principal that defines the access policy and permissions for the user/application in Microsoft Entra ID.
     1. Select a service principal from the list and enter a **secret**
+
+    ### [Connection string](#tab/CS)
+
+    > [!WARNING]
+    > Microsoft recommends that you use the most secure authentication flow available. The authentication flow described in this procedure requires a very high degree of trust in the application, and carries risks that are not present in other flows. You should only use this flow when other more secure flows, such as managed identities, aren't viable.
+
+   Select **Connection string** to generate or configure one or multiple key-value pairs with pure secrets or tokens.
 
     ---
 

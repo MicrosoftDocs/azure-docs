@@ -17,24 +17,32 @@ items:
         href: mqtt-overview.md
       - name: Quickstarts
         items:
-        - name: Publish and subscribe on an MQTT topic using CLI
-          href: mqtt-publish-and-subscribe-cli.md
-        - name: Publish and subscribe on an MQTT topic using portal
-          href: mqtt-publish-and-subscribe-portal.md
+        - name: Publish and subscribe on an MQTT topic
+          items:
+          - name: Azure CLI
+            href: mqtt-publish-and-subscribe-cli.md          
+          - name: Azure portal
+            href: mqtt-publish-and-subscribe-portal.md
       - name: Tutorials
         items:
-        - name: Route MQTT messages to Event Hubs using CLI
-          href: mqtt-routing-to-event-hubs-cli.md
-        - name: Route MQTT messages to Event Hubs using portal
-          href: mqtt-routing-to-event-hubs-portal.md
+        - name: Route MQTT messages to Event Hubs
+          items:
+          - name: Azure CLI
+            href: mqtt-routing-to-event-hubs-cli-namespace-topics.md
+          - name: Azure portal
+            href: mqtt-routing-to-event-hubs-portal-namespace-topics.md
+        - name: Route MQTT messages to Azure Functions using custom topics 
+          items:
+          - name: Azure portal
+            href: mqtt-routing-to-azure-functions-portal.md
+          - name: Azure CLI
+            href: mqtt-routing-to-azure-functions-cli.md
       - name: Samples
         href: https://github.com/Azure-Samples/MqttApplicationSamples
       - name: Concepts
         items:
         - name: Terminology
           href: mqtt-event-grid-namespace-terminology.md
-        - name: MQTT client authentication
-          href: mqtt-client-authentication.md                
         - name: Access control for MQTT clients
           href: mqtt-access-control.md
         - name: MQTT clients
@@ -56,10 +64,21 @@ items:
           href: mqtt-support.md
         - name: MQTT clients life cycle events
           href: mqtt-client-life-cycle-events.md
-        - name: JWT authentication and RBAC authorization for clients with Microsoft Entra identity
-          href: mqtt-client-microsoft-entra-token-and-rbac.md
-        - name: High availability and disaster recovery
-          href: high-availability-disaster-recovery.md 
+        - name: Custom domains for namespaces
+          href: custom-domains-namespaces.md
+        - name: MQTT client authentication
+          href: mqtt-client-authentication.md                
+          items:
+          - name: OAuth 2.0 JSON Web Token authentication
+            href: oauth-json-web-token-authentication.md
+          - name: MQTT client authentication using certificates
+            href: mqtt-client-certificate-authentication.md        
+          - name: JWT authentication and RBAC authorization for clients with Microsoft Entra identity
+            href: mqtt-client-microsoft-entra-token-and-rbac.md
+          - name: Transport Layer Security connection with MQTT broker
+            href: mqtt-transport-layer-security-flow.md
+        - name: Reliability
+          href: ../reliability/reliability-event-grid.md?toc=/azure/event-grid/toc.json
         - name: Security
           items:
           - name: Security baseline
@@ -68,8 +87,9 @@ items:
             href: security-controls-policy.md
           - name: Azure Policy built-ins
             displayName: samples, policies, definitions
+            href: ./policy-reference.md
           - name: Network security (MQTT)
-            href: network-security-mqtt.md
+            href: network-security-namespaces.md
         - name: Use cases
           items:
           - name: Automotive Messaging
@@ -78,28 +98,38 @@ items:
         items:
         - name: Create and manage namespaces
           href: create-view-manage-namespaces.md
-        - name: MQTT client authentication using certificate chain
-          href: mqtt-certificate-chain-client-authentication.md
         - name: Customer enabled disaster recovery
           href: custom-disaster-recovery-client-side.md
         - name: How to configure multiple sessions for an MQTT client
           href: mqtt-establishing-multiple-sessions-per-client.md
-        - name: Enable managed identity for namespace
-          href: event-grid-namespace-managed-identity.md 
+        - name: Send events to Microsoft Fabric via Azure Event Hubs
+          href: mqtt-events-fabric.md
         - name: MQTT Request Response messaging
           href: mqtt-request-response-messages.md                
-        - name: Troubleshoot MQTT runtime issues
-          href: mqtt-troubleshoot-errors.md
+        - name: Assign custom domain name to a namespace
+          href: assign-custom-domain-name.md
+        - name: Authenticate with MQTT broker using OAuth 2.0 authentication
+          href: authenticate-with-namespaces-using-json-web-tokens.md
         - name: Monitor
           items:
+          - name: Monitor Event Grid namespaces
+            href: monitor-namespaces.md
           - name: Monitoring data reference (MQTT delivery)
             href: monitor-mqtt-delivery-reference.md
+        - name: Troubleshoot
+          items:
+          - name: Troubleshoot MQTT runtime issues
+            href: mqtt-troubleshoot-errors.md
         - name: Secure
           items:
           - name: Allow access from specific IP addresses
-            href: configure-firewall-mqtt.md
+            href: mqtt-configure-firewall.md
           - name: Allow access via private endpoints
-            href: configure-private-endpoints-mqtt.md
+            href: mqtt-configure-private-endpoints.md
+          - name: Enable managed identity for namespace
+            href: event-grid-namespace-managed-identity.md 
+          - name: MQTT client authentication using certificate chain
+            href: mqtt-certificate-chain-client-authentication.md            
     - name: Namespace topics
       items:
       - name: Pull delivery overview
@@ -114,24 +144,41 @@ items:
           items:
           - name: Receive events from namespace topics (Java)
             href: receive-events-from-namespace-topics-java.md         
-          - name: Publish and subscribe to events using namespace topics (CLI)
-            href: publish-events-using-namespace-topics.md
+          - name: Publish and subscribe to events using namespace topics
+            items:
+            - name: Azure CLI
+              href: publish-events-using-namespace-topics.md
+            - name: Azure portal
+              href: publish-events-namespace-topics-portal.md
           - name: Send and pull messages
             items:
             - name: .NET
               href: event-grid-dotnet-get-started-pull-delivery.md
         - name: Push delivery
           items:
-          - name: Publish and deliver events using namespace topics
-            href: publish-deliver-events-with-namespace-topics.md
+          - name: Deliver events to Azure Event Hubs using namespace topics
+            items:
+            - name: Azure CLI
+              href: publish-deliver-events-with-namespace-topics.md
+            - name: Azure portal
+              href: publish-deliver-events-with-namespace-topics-portal.md
+          - name: Deliver events to Webhooks using namespace topics
+            items:
+            - name: Azure CLI
+              href: publish-deliver-events-with-namespace-topics-webhook.md
+            - name: Azure portal
+              href: publish-deliver-events-with-namespace-topics-webhook-portal.md              
       - name: Concepts        
         items:
         - name: Terminology 
           href: concepts-event-grid-namespaces.md
         - name: Event handlers (Push delivery)
+          href: namespace-topics-event-handlers.md
           items:
           - name: Event Hubs
             href: namespace-handler-event-hubs.md
+          - name: Webhook
+            href: namespace-handler-webhook.md
         - name: Delivery properties
           href: namespace-delivery-properties.md
         - name: Publisher operations
@@ -145,7 +192,9 @@ items:
         - name: Delivery and retry
           href: namespace-delivery-retry.md
         - name: Event filtering
-          href: namespace-event-filtering.md            
+          href: namespace-event-filtering.md
+        - name: Custom domains for namespaces
+          href: custom-domains-namespaces.md
         - name: Security
           items:
           - name: Security baseline
@@ -153,7 +202,8 @@ items:
           - name: Security controls by Azure Policy
             href: security-controls-policy.md
           - name: Azure Policy built-ins
-            displayName: samples, policies, definitions          
+            displayName: samples, policies, definitions
+            href: ./policy-reference.md
           - name: Network security
             href: network-security-namespaces.md            
       - name: How-to
@@ -164,14 +214,12 @@ items:
           href: create-view-manage-namespace-topics.md
         - name: Create, view, and manage event subscriptions
           href: create-view-manage-event-subscriptions.md
-        - name: Enable managed identity for namespace
-          href: event-grid-namespace-managed-identity.md
-        - name: Authenticate publishing clients using Microsoft Entra ID
-          href: authenticate-with-entra-id-namespaces.md
-        - name: Forward events to Event Grid namespace topic
-          href: handler-event-grid-namespace-topic.md
+        - name: Assign custom domain name to a namespace
+          href: assign-custom-domain-name.md
         - name: Monitor
           items:
+          - name: Monitor Event Grid namespaces
+            href: monitor-namespaces.md
           - name: Pull delivery data reference
             href: monitor-pull-reference.md
           - name: Push delivery data reference
@@ -182,6 +230,10 @@ items:
             href: configure-firewall-namespaces.md
           - name: Allow access via private endpoints
             href: configure-private-endpoints-pull.md
+          - name: Enable managed identity for namespace
+            href: event-grid-namespace-managed-identity.md
+          - name: Authenticate publishing clients using Microsoft Entra ID
+            href: authenticate-with-entra-id-namespaces.md
   - name: Event Grid basic
     items:
     - name: Overview
@@ -228,12 +280,6 @@ items:
       items:
       - name: Email when VM changes
         href: monitor-virtual-machine-changes-logic-app.md
-      - name: Resize uploaded images
-        items:
-        - name: Upload image data in the cloud with Azure Storage
-          href: storage-upload-process-images.md
-        - name: Automate resizing uploaded images using Event Grid
-          href: resize-images-on-storage-blob-upload-event.md
       - name: Trigger Automation runbook
         href: ensure-tags-exists-on-new-virtual-machines.md
       - name: Email when IoT Hub device disconnects
@@ -291,6 +337,8 @@ items:
           href: system-topics.md
         - name: Event sources (publishers)
           items:
+          - name: Azure API Center
+            href: event-schema-api-center.md
           - name: Azure API Management
             href: event-schema-api-management.md
           - name: Azure App Configuration
@@ -361,6 +409,8 @@ items:
             href: event-schema-service-bus.md
           - name: Azure SignalR
             href: event-schema-azure-signalr.md
+          - name: Azure Storage Actions
+            href: event-schema-storage-actions.md
           - name: Azure subscriptions
             href: event-schema-subscriptions.md
       - name: Partner Events
@@ -373,6 +423,10 @@ items:
           items:
           - name: Auth0
             href: auth0-overview.md
+          - name: SAP
+            href: subscribe-to-sap-events.md
+          - name: Tribal Group
+            href: subscribe-to-tribal-group-events.md
           - name: Microsoft Graph API
             items:
             - name: Graph API event sources
@@ -383,6 +437,18 @@ items:
               href: outlook-events.md
             - name: Microsoft Teams
               href: teams-events.md
+            - name: One Drive
+              href: one-drive-events.md
+            - name: SharePoint
+              href: share-point-events.md
+            - name: ToDo
+              href: to-do-events.md
+            - name: Security alerts
+              href: security-alert-events.md
+            - name: Cloud printing
+              href: cloud-printing-events.md
+            - name: Conversations
+              href: conversation-events.md
       - name: Event Domains
         href: event-domains.md
       - name: Event schema formats
@@ -422,7 +488,7 @@ items:
         - name: Custom delivery properties
           href: delivery-properties.md
       - name: Availability zones and disaster recovery
-        href: availability-zones-disaster-recovery.md
+        href: ../reliability/reliability-event-grid.md?toc=/azure/event-grid/toc.json
       - name: Security
         items:
         - name: Security baseline
@@ -446,6 +512,8 @@ items:
           href: security-authorization.md
         - name: Network security
           href: network-security.md
+        - name: Enforce minimum required TLS version
+          href: transport-layer-security-enforce-minimum-version.md
       - name: Use cases
         items:
         - name: Use cases for domains
@@ -487,7 +555,7 @@ items:
           - name: Send Auth0 events to Azure Application Insights
             href: auth0-log-stream-app-insights.md
         - name: Subscribe to Microsoft Entra ID events
-          href: subscribe-to-microsoft-entra-id-events.md                 
+          href: subscribe-to-microsoft-entra-id-events-portal.md
         - name: Subscribe to Microsoft Graph API events
           href: subscribe-to-graph-api-events.md
         - name: Enable managed identity for a partner topic
@@ -512,22 +580,30 @@ items:
         href: input-mappings.md
       - name: Manage topics with Event Domains
         href: how-to-event-domains.md
+      - name: Send events to webhooks hosted in private destinations
+        href: send-events-webhooks-private-destinations.md
       - name: Build your own client-side disaster recovery
         href: custom-disaster-recovery-client-side.md
+      - name: Azure Monitor alerts as destination
+        items:
+        - name: Handle Azure Key Vault events using Azure Monitor alerts
+          href: handle-key-vault-events-using-azure-monitor-alerts.md
+        - name: Handle Health Resources events using Azure Monitor alerts
+          href: handle-health-resources-events-using-azure-monitor-alerts.md
       - name: Subscribe to Azure Resource Notifications - Health Resources events
         href: subscribe-to-resource-notifications-health-resources-events.md
       - name: Subscribe to Azure Resource Notifications - Resource Management events
         href: subscribe-to-resource-notifications-resources-events.md
       - name: Track asynchronous REST operations
         href: ../azure-resource-manager/management/async-operations.md?toc=/azure/event-grid/toc.json
-      - name: Move
+      - name: Relocate
         items:
-        - name: Move system topics across regions
-          href: move-system-topics-across-regions.md
-        - name: Move custom topics across regions
-          href: move-custom-topics-across-regions.md
-        - name: Move domains across regions
-          href: move-domains-across-regions.md
+        - name: Relocate system topics across regions
+          href: ../operational-excellence/relocation-event-grid-system-topics.md?toc=/azure/event-grid/toc.json
+        - name: Relocate custom topics across regions
+          href: ../operational-excellence/relocation-event-grid-custom-topics.md?toc=/azure/event-grid/toc.json
+        - name: Relocate domains across regions
+          href: ../operational-excellence/relocation-event-grid-domains.md?toc=/azure/event-grid/toc.json
       - name: Secure
         items:
         - name: Publish events securely over a private link
@@ -550,7 +626,9 @@ items:
           href: configure-firewall.md
         - name: Deliver events to Microsoft Entra protected endpoints
           href: secure-webhook-delivery.md
-      - name: Monitor and troubleshoot
+        - name: Configure minimum required TLS version
+          href: transport-layer-security-configure-minimum-version.md
+      - name: Monitor
         items:
         - name: Enable diagnostic logs
           href: enable-diagnostic-logs-topic.md
@@ -560,6 +638,8 @@ items:
           href: monitor-push-reference.md
         - name: Create alerts
           href: set-alerts.md
+      - name: Troubleshoot
+        items:
         - name: Troubleshoot Event Grid issues
           href: troubleshoot-issues.md          
         - name: Troubleshoot errors
@@ -580,20 +660,6 @@ items:
           href: /azure/templates/microsoft.eventgrid/topics
       - name: Transition from Event Grid on IoT Edge to Azure IoT Edge
         href: transition.md
-    - name: Resources
-      items:
-      - name: Build your skills with Microsoft Learn training
-        href: /training/browse/?products=azure-event-grid
-      - name: FAQ
-        href: faq.yml
-      - name: Azure Roadmap
-        href: https://azure.microsoft.com/roadmap/
-      - name: Pricing
-        href: https://azure.microsoft.com/pricing/details/event-grid/
-      - name: Pricing Calculator
-        href: https://azure.microsoft.com/pricing/calculator/
-      - name: Stack Overflow
-        href: https://stackoverflow.com/questions/tagged/azure-eventgrid
   - name: Reference
     items:
     - name: SDKs
@@ -603,15 +669,35 @@ items:
     - name: PowerShell
       href: /powershell/module/az.eventgrid
     - name: REST
-      href: /rest/api/eventgrid
+      items:
+      - name: Preview
+        href: /rest/api/eventgrid/controlplane/operation-groups?view=rest-eventgrid-controlplane-2023-12-15-preview&preserve-view=true
+      - name: GA
+        href: /rest/api/eventgrid/controlplane/operation-groups?view=rest-eventgrid-controlplane-2022-06-15&preserve-view=true
     - name: .NET
-      href: /dotnet/api/overview/azure/event-grid
+      items:
+      - name: Preview
+        href: /dotnet/api/overview/azure/event-grid?view=azure-dotnet-preview&preserve-view=true
+      - name: GA
+        href: /dotnet/api/overview/azure/event-grid
     - name: Java
-      href: /java/api/overview/azure/event-grid
+      items:
+      - name: Preview
+        href: /java/api/overview/azure/messaging-eventgrid-readme?view=azure-java-preview&preserve-view=true
+      - name: GA
+        href: /java/api/overview/azure/event-grid
     - name: Python
-      href: /python/api/overview/azure/event-grid
+      items:
+      - name: Preview
+        href: /python/api/overview/azure/eventgrid-readme?view=azure-python-preview&preserve-view=true
+      - name: GA
+        href: /python/api/overview/azure/event-grid
     - name: Node.js
-      href: /javascript/api/overview/azure/event-grid
+      items:
+      - name: Preview
+        href: /javascript/api/overview/azure/eventgrid-readme?view=azure-node-preview&preserve-view=true
+      - name: GA
+        href: /javascript/api/overview/azure/event-grid      
     - name: Quotas and limits
       href: quotas-limits.md
   - name: Resources

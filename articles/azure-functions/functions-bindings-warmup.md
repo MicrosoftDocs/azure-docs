@@ -4,8 +4,9 @@ description: Understand how to use the warmup trigger in Azure Functions.
 keywords: azure functions, functions, event processing, warmup, cold start, premium, dynamic compute, serverless architecture
 ms.service: azure-functions
 ms.topic: reference
-ms.devlang: csharp, java, javascript, python
-ms.custom: devx-track-csharp, devx-track-extended-java, devx-track-js, devx-track-python
+ms.devlang: csharp
+# ms.devlang: csharp, java, javascript, python
+ms.custom: devx-track-csharp, devx-track-extended-java, devx-track-js, devx-track-python, devx-track-ts
 ms.date: 09/04/2023
 zone_pivot_groups: programming-languages-set-functions
 ---
@@ -31,6 +32,8 @@ The following considerations apply when using a warmup trigger:
 <!--Optional intro text goes here, followed by the C# modes include.-->
 
 [!INCLUDE [functions-bindings-csharp-intro-with-csx](../../includes/functions-bindings-csharp-intro-with-csx.md)]
+
+[!INCLUDE [functions-in-process-model-retirement-note](../../includes/functions-in-process-model-retirement-note.md)]
 
 # [Isolated worker model](#tab/isolated-process)
 

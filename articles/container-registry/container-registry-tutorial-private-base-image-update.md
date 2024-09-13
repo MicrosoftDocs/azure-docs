@@ -4,7 +4,8 @@ description: In this tutorial, you configure an Azure Container Registry Task to
 ms.topic: tutorial
 author: tejaswikolli-web
 ms.author: tejaswikolli
-ms.date: 10/11/2022
+ms.date: 10/31/2023
+ms.service: azure-container-registry
 ms.custom: devx-track-azurecli
 ---
 

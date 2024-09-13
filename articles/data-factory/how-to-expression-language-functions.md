@@ -4,10 +4,9 @@ description: This How To article provides information about expressions and func
 author: ssabat
 ms.author: susabat
 ms.reviewer: jburchel
-ms.service: data-factory
 ms.subservice: orchestration
 ms.topic: conceptual
-ms.date: 07/17/2023
+ms.date: 05/15/2024
 ---
 
 # How to use parameters, expressions and functions in Azure Data Factory
@@ -315,5 +314,5 @@ Please follow [Mapping data flow with parameters](./parameters-data-flow.md) for
 Please follow [Metadata driven pipeline with parameters](./how-to-use-trigger-parameterization.md) to learn more about how to use parameters to design metadata driven pipelines. This is a popular use case for parameters.
 
 
-## Next steps
+## Related content
 For a list of system variables you can use in expressions, see [System variables](control-flow-system-variables.md).

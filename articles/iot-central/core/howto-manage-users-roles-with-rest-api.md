@@ -21,8 +21,6 @@ Every IoT Central REST API call requires an authorization header. To learn more,
 
 For the reference documentation for the IoT Central REST API, see [Azure IoT Central REST API reference](/rest/api/iotcentral/).
 
-[!INCLUDE [iot-central-postman-collection](../../../includes/iot-central-postman-collection.md)]
-
 To learn how to manage users and roles by using the IoT Central UI, see [Manage users and roles in your IoT Central application.](../core/howto-manage-users-roles.md)
 
 ## Manage roles
@@ -57,6 +55,9 @@ The response to this request looks like the following example that includes the 
   ]
 }
 ```
+
+>[!NOTE]
+>This command only shows roles that are associated with an application and not a custom organization level role.
 
 ## Manage users
 

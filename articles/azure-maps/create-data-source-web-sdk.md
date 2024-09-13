@@ -4,10 +4,9 @@ description: "Find out how to create a data source for a map. Learn about the da
 author: sinnypan
 ms.author: sipa
 ms.date: 12/07/2020
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: azure-maps
-services: azure-maps
-ms.custom:
+ms.subservice: web-sdk
 ---
 
 # Create a data source
@@ -271,8 +270,8 @@ See the following articles for more code samples to add to your maps:
 [Line layer]: map-add-line-layer.md
 [Mapbox Vector Tile Specification]: https://github.com/mapbox/vector-tile-spec
 [Polygon layer]: map-add-shape.md
-[Render - Get Map Tile]: /rest/api/maps/render-v2/get-map-tile
-[Road tiles]: /rest/api/maps/render-v2/get-map-tile
+[Render - Get Map Tile]: /rest/api/maps/render/get-map-tile
+[Road tiles]: /rest/api/maps/render/get-map-tile
 [SourceManager]: /javascript/api/azure-maps-control/atlas.sourcemanager
 [Symbol layer]: map-add-pin.md
 [Tile layer]: map-add-tile-layer.md

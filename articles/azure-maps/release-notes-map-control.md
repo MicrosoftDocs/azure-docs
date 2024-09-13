@@ -7,7 +7,7 @@ ms.author: sipa
 ms.date: 3/15/2023
 ms.topic: reference
 ms.service: azure-maps
-services: azure-maps
+ms.subservice: web-sdk
 ---
 
 # Web SDK map control release notes
@@ -15,6 +15,77 @@ services: azure-maps
 This document contains information about new features and other changes to the Map Control.
 
 ## v3 (latest)
+
+### [3.3.0] (Aug 8, 2024)
+
+#### New features (3.3.0)
+- Update the Copyright control
+  - Make the copyright text smaller and ensure it fits on one line.
+  - Use different types of Microsoft logos for different CSS themes to improve visibility.
+  - Implement RWD to hide part of the component (MS logo) when the map canvas is relatively small.
+- Enhance base layer class by adding abstract `getOptions` and `setOptions` functions.
+
+#### Bug fixes (3.3.0)
+- Skip existing sources when copying user layers.
+- **\[BREAKING\]** Address the incorrect ordering of latitude and longitude values in `Position.fromLatLng()`.
+- Fix hidden accessible element visible issue on control buttons.
+
+### [3.2.1] (May 13, 2024)
+
+#### New features (3.2.1)
+- Constrain horizontal panning when `renderWorldCopies` is set to `false`.
+- Make `easeTo` and `flyTo` animation smoother when the target point is close to the limits: maxBounds, vertical world edges, or antimeridian.
+
+
+#### Bug fixes (3.2.1)
+- Correct accessible numbers for hidden controls while using 'Show numbers' command.
+- Fix memory leak in worker when the map is removed.
+- Fix unwanted zoom and panning changes at the end of a panning motion.
+
+#### Other changes (3.2.1)
+- Improve the format of inline code in the document.
+
+### [3.2.0] (March 29, 2024)
+
+#### Other changes (3.2.0)
+
+- Upgrade MapLibre to [V4](https://github.com/maplibre/maplibre-gl-js/releases/tag/v4.0.0).
+
+- Correct the default value of `HtmlMarkerOptions.pixelOffset` from `[0, -18]` to `[0, 0]` in the doc.
+
+### [3.1.2] (February 22, 2024)
+
+#### New features (3.1.2)
+
+- Added `fillAntialias` option to `PolygonLayer` for enabling MSAA antialiasing on polygon fills.
+ 
+#### Other changes (3.1.2)
+
+- Update the feedback icon and link.
+
+### [3.1.1] (January 26, 2024)
+
+#### New features (3.1.1)
+
+- Added a new option, `enableAccessibilityLocationFallback`, to enable or disable reverse-geocoding API fallback for accessibility (screen reader).
+
+#### Bug fixes (3.1.1)
+
+- Resolved an issue where ApplicationInsights v3.0.5 was potentially sending a large number of requests.
+
+### [3.1.0] (January 12, 2024)
+
+#### New features (3.1.0)
+
+- Added a new control, `atlas.control.ScaleControl`, to display a scale bar on the map.
+
+- Introduced functions for accessing, updating, and deleting a feature state.
+
+#### Bug fixes (3.1.0)
+
+- Addressed the issue of layer ordering after a style update, when a user layer is inserted before another user layer.
+
+- **\[BREAKING\]** Aligned the polygon fill pattern behavior with Maplibre. Now, the `fillPattern` option consistently disables the `fillColor` option. When configuring `fillColor` for polygon layers, ensure that `fillPattern` is set to `undefined`.
 
 ### [3.0.3] (November 29, 2023)
 
@@ -373,6 +444,29 @@ This update is the first preview of the upcoming 3.0.0 release. The underlying [
 
 ## v2
 
+### [2.3.7] (February 22, 2024)
+
+#### New features (2.3.7)
+
+- Added `fillAntialias` option to `PolygonLayer` for enabling MSAA antialiasing on polygon fills.
+- Added a new option, `enableAccessibilityLocationFallback`, to enable or disable reverse-geocoding API fallback for accessibility (screen reader).
+ 
+#### Other changes (2.3.7)
+
+- Update the feedback icon and link.
+
+### [2.3.6] (January 12, 2024)
+
+#### New features (2.3.6)
+
+- Added a new control, `atlas.control.ScaleControl`, to display a scale bar on the map.
+
+- Introduced functions for accessing, updating, and deleting a feature state.
+
+#### Bug fixes (2.3.6)
+
+- Addressed the issue of layer ordering after a style update, when a user layer is inserted before another user layer.
+
 ### [2.3.5] (November 29, 2023)
 
 #### Other changes (2.3.5)
@@ -522,6 +616,12 @@ Stay up to date on Azure Maps:
 > [!div class="nextstepaction"]
 > [Azure Maps Blog]
 
+[3.3.0]: https://www.npmjs.com/package/azure-maps-control/v/3.3.0
+[3.2.1]: https://www.npmjs.com/package/azure-maps-control/v/3.2.1
+[3.2.0]: https://www.npmjs.com/package/azure-maps-control/v/3.2.0
+[3.1.2]: https://www.npmjs.com/package/azure-maps-control/v/3.1.2
+[3.1.1]: https://www.npmjs.com/package/azure-maps-control/v/3.1.1
+[3.1.0]: https://www.npmjs.com/package/azure-maps-control/v/3.1.0
 [3.0.3]: https://www.npmjs.com/package/azure-maps-control/v/3.0.3
 [3.0.2]: https://www.npmjs.com/package/azure-maps-control/v/3.0.2
 [3.0.1]: https://www.npmjs.com/package/azure-maps-control/v/3.0.1
@@ -536,6 +636,8 @@ Stay up to date on Azure Maps:
 [3.0.0-preview.3]: https://www.npmjs.com/package/azure-maps-control/v/3.0.0-preview.3
 [3.0.0-preview.2]: https://www.npmjs.com/package/azure-maps-control/v/3.0.0-preview.2
 [3.0.0-preview.1]: https://www.npmjs.com/package/azure-maps-control/v/3.0.0-preview.1
+[2.3.7]: https://www.npmjs.com/package/azure-maps-control/v/2.3.7
+[2.3.6]: https://www.npmjs.com/package/azure-maps-control/v/2.3.6
 [2.3.5]: https://www.npmjs.com/package/azure-maps-control/v/2.3.5
 [2.3.4]: https://www.npmjs.com/package/azure-maps-control/v/2.3.4
 [2.3.3]: https://www.npmjs.com/package/azure-maps-control/v/2.3.3

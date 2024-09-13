@@ -3,11 +3,10 @@ title: Managed virtual network and managed private endpoints
 description: Learn about managed virtual network and managed private endpoints in Azure Data Factory.
 ms.author: lle
 author: lrtoyou1223
-ms.service: data-factory
 ms.subservice: integration-runtime
 ms.topic: conceptual
-ms.custom: seo-lt-2019, references_regions, devx-track-azurepowershell
-ms.date: 08/02/2023
+ms.custom: references_regions, devx-track-azurepowershell
+ms.date: 05/15/2024
 ---
 
 # Azure Data Factory managed virtual network
@@ -184,6 +183,8 @@ New-AzResource -ApiVersion "${apiVersion}" -ResourceId "${integrationRuntimeReso
 > [!NOTE]
 > You can get the **groupId** of other data sources from a [private link resource](../private-link/private-endpoint-overview.md#private-link-resource).
 
+> [!NOTE]
+> The referenceName should only be set as "default" if you create via PowerShell Command.
 
 ## Outbound connection
 
@@ -236,7 +237,7 @@ You're unable to access each PaaS resource when both sides are exposed to Privat
 
 For example, you have a managed private endpoint for storage account A. You can also access storage account B through public network in the same managed virtual network. But when storage account B has a private endpoint connection from other managed virtual network or customer virtual network, then you can't access storage account B in your managed virtual network through public network.
 
-## Next steps
+## Related content
 
 See the following tutorials:
 

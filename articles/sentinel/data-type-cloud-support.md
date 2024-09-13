@@ -1,17 +1,21 @@
 ---
 title: Support for Microsoft Sentinel connector data types in different clouds
 description: This article describes the types of clouds that affect data streaming from the different connectors that Microsoft Sentinel supports.  
-author: limwainstein
+author: batamig
 ms.topic: conceptual
-ms.date: 11/14/2022
-ms.author: lwainstein
+ms.date: 06/09/2024
+ms.author: bagol
+
+
+#Customer intent: As a security analyst, I want to understand the data type support for Microsoft Sentinel across different cloud environments so that I can ensure comprehensive threat detection and response.
+
 ---
 
 # Support for data types in Microsoft Sentinel across different clouds
 
 Microsoft Sentinel data connectors use data stored in various cloud environments, like the Microsoft 365 Commercial cloud or the Government Community Cloud (GCC). 
 
-This article describes the types of clouds that affect the supported data types for the different connectors that Microsoft Sentinel supports. Specifically, support varies for different Microsoft 365 Defender connector data types in different GCC environments.  
+This article describes the types of clouds that affect the supported data types for the different connectors that Microsoft Sentinel supports. Specifically, support varies for different Microsoft Defender XDR connector data types in different GCC environments.  
 
 ## Microsoft cloud types
 
@@ -28,11 +32,11 @@ Microsoft Sentinel is built on Microsoft Azure environments—both commercial an
 
 This diagram shows the hierarchy of the Office 365 and Microsoft Azure clouds and how they relate to each other and to Microsoft Sentinel. 
 
-:::image type="content" source="./media/data-type-cloud-support/cloud-architecture-microsoft-sentinel.png" alt-text="Diagram showing how the Microsoft cloud architecture relates to Microsoft Sentinel data." border="false" lightbox="./media/data-type-cloud-support/cloud-architecture-microsoft-sentinel.png":::
+:::image type="content" source="./media/data-type-cloud-support/cloud-architecture-microsoft-sentinel.png" alt-text="Diagram showing how the Microsoft cloud architecture relates to Microsoft Sentinel data." lightbox="./media/data-type-cloud-support/cloud-architecture-microsoft-sentinel.png":::
 
 Because of this complexity, different types of data streaming into Microsoft Sentinel may or may not be fully supported.
 
-## How cloud support affects data from Microsoft 365 Defender connectors
+## How cloud support affects data from Microsoft Defender XDR connectors
 
 Your environment ingests data from multiple connectors. The type of cloud you use affects Microsoft Sentinel's ability to ingest and display data from these connectors, like logs, alerts, device events, and more.
 
@@ -52,3 +56,4 @@ In this article, you learned about the types of clouds that affect the supported
 
 - To get started with Microsoft Sentinel, you need a subscription to Microsoft Azure. If you don't have a subscription, you can sign up for a [free trial](https://azure.microsoft.com/free/).
 - Learn how to [onboard your data to Microsoft Sentinel](quickstart-onboard.md) and [get visibility into your data and potential threats](get-visibility.md).
+- Microsoft Sentinel is available as part of the unified security operations platform in the Microsoft Defender portal. For more information, see [Microsoft Sentinel in the Microsoft Defender portal](microsoft-sentinel-defender-portal.md) and [Connect Microsoft Sentinel to Microsoft Defender XDR](/microsoft-365/security/defender/microsoft-sentinel-onboard).

@@ -1,11 +1,11 @@
 ---
 title: Stream data from Kafka into Azure Stream Analytics
 description: Learn about setting up Azure Stream Analytics as a consumer from Kafka
-author: enkrumah
-ms.author: ebnkruma
-ms.service: stream-analytics
+author: AliciaLiMicrosoft 
+ms.author: ali 
+ms.service: azure-stream-analytics
 ms.topic: conceptual
-ms.date: 11/21/2023
+ms.date: 02/20/2024
 ---
 
 # Stream data from Kafka into Azure Stream Analytics (Preview)
@@ -21,6 +21,21 @@ The following are the major use cases:
 
 Azure Stream Analytics lets you connect directly to Kafka clusters to ingest data. The solution is low code and entirely managed by the Azure Stream Analytics team at Microsoft, allowing it to meet business compliance standards. The ASA Kafka input is backward compatible and supports all versions with the latest client release starting from version 0.10. Users can connect to Kafka clusters inside a VNET and Kafka clusters with a public endpoint, depending on the configurations. The configuration relies on existing Kafka configuration conventions. Supported compression types are None, Gzip, Snappy, LZ4, and Zstd.
 
+
+## Steps
+This article shows how to set up Kafka as an input source for Azure Stream Analytics. There are six steps:
+
+1. Create an Azure Stream Analytics job.
+2. Configure your Azure Stream Analytics job to use managed identity if you are using mTLS or SASL_SSL security protocols.
+3. Configure Azure Key vault if you are using mTLS or SASL_SSL security protocols.
+4. Upload certificates as secrets into Azure Key vault.
+5. Grant Azure Stream Analytics permissions to access the uploaded certificate.
+6. Configure Kafka input in your Azure Stream Analytics job.
+
+> [!NOTE]
+> Depending on how your Kafka cluster is configured and the type of Kafka cluster you are using, some of the above steps may not apply to you. Examples are: if you are using confluent cloud Kafka, you will not need to upload a certificate to use the Kafka connector. If your Kafka cluster is inside a virtual network (VNET) or behind a firewall, you may have to configure your Azure Stream Analytics job to access your Kafka topic using a private link or a dedicated networking configuration.
+
+
 ## Configuration
 The following table lists the property names and their description for creating a Kafka Input: 
 
@@ -34,23 +49,22 @@ The following table lists the property names and their description for creating 
 | Bootstrap server addresses   | A list of host/port pairs to establish the connection to the Kafka cluster.                                  |
 | Kafka topic                  | A named, ordered, and partitioned stream of data that allows for the publish-subscribe and event-driven processing of messages.|
 | Security Protocol            | How you want to connect to your Kafka cluster. Azure Stream Analytics supports mTLS, SASL_SSL, SASL_PLAINTEXT or None. |
+| Consumer Group Id            | The name of the Kafka consumer group that the input should be a part of. It will be automatically assigned if not provided. |
 | Event Serialization format   | The serialization format (JSON, CSV, Avro, Parquet, Protobuf) of the incoming data stream.                              |
+
+:::image type="content" source="./media/kafka/kafka-input.png" alt-text="Screenshot showing how to configure kafka input for a stream analytics job." lightbox="./media/kafka/kafka-input.png" :::
 
 
 ## Authentication and encryption
 
 You can use four types of security protocols to connect to your Kafka clusters:
 
-> [!NOTE]
-> For SASL_SSL and SASL_PLAINTEXT, Azure Stream Analytics supports only PLAIN SASL mechanism.
-> You must upload certificates as secrets to key vault using Azure CLI.
-
 |Property name   |Description   |
 |----------|-----------|
-|mTLS     |encryption and authentication       |
-|SASL_SSL |It combines two different security mechanisms - SASL (Simple Authentication and Security Layer) and SSL (Secure Sockets Layer) - to ensure both authentication and encryption are in place for data transmission. The mechanism supported is PLAIN. The SASL_SSL protocol doesn't support SCRAM |
+|mTLS     |Encryption and authentication. Supports PLAIN, SCRAM-SHA-256, and SCRAM-SHA-512 security mechanisms.    |
+|SASL_SSL |It combines two different security mechanisms - SASL (Simple Authentication and Security Layer) and SSL (Secure Sockets Layer) - to ensure both authentication and encryption are in place for data transmission. The SASL_SSL protocol supports PLAIN, SCRAM-SHA-256, and SCRAM-SHA-512 security mechanisms. |
 |SASL_PLAINTEXT |standard authentication with username and password without encryption |
-|None |The serialization format (JSON, CSV, Avro, Parquet) of the incoming data stream. |
+|None | No authentication and  encryption. |
 
 
 > [!IMPORTANT]
@@ -66,14 +80,14 @@ For a step-by-step tutorial on connecting to confluent cloud kakfa, visit the do
 
 > [!NOTE]
 > When using trust store certificates with mTLS or SASL_SSL security protocols, you must have Azure Key vault and managed identity configured for your Azure Stream Analytics job.
->
+> Check your key vault's network settings to ensure **Allow public access from all networks** is selected. Suppose your Key vault is in a VNET or only allows access from specific networks. In that case, you must inject your ASA job into a VNET containing the key vault or inject your ASA job into a VNET, then connect your key vault to the VNET containing the job using service endpoints.
 
 Azure Stream Analytics integrates seamlessly with Azure Key vault to access stored secrets needed for authentication and encryption when using mTLS or SASL_SSL security protocols. Your Azure Stream Analytics job connects to your Azure Key vault using managed identity to ensure a secure connection and avoid the exfiltration of secrets.
 Certificates are stored as secrets in the key vault and must be in PEM format.
 
 ### Configure Key vault with permissions
 
-You can create a key vault resource by following the documentation [Quickstart: Create a key vault using the Azure portal](../key-vault/general/quick-create-portal.md)
+You can create a key vault resource by following the documentation [Quickstart: Create a key vault using the Azure portal](/azure/key-vault/general/quick-create-portal)
 You must have "**Key Vault Administrator**" access to your Key vault to upload certificates. 
 Follow the following to grant admin access:
 
@@ -101,7 +115,7 @@ Follow the following to grant admin access:
 > Your Azure Stream Analytics job will fail when the certificate used for authentication expires. To resolve this, you must update/replace the certificate in your key vault and restart your Azure Stream Analytics job.
 
 Make sure you have Azure CLI configured locally with PowerShell.
-You can visit this page to get guidance on setting up Azure CLI: [Get started with Azure CLI](https://learn.microsoft.com/cli/azure/get-started-with-azure-cli#how-to-sign-into-the-azure-cli)
+You can visit this page to get guidance on setting up Azure CLI: [Get started with Azure CLI](/cli/azure/get-started-with-azure-cli#how-to-sign-into-the-azure-cli)
 
 **Login to Azure CLI:**
 ```PowerShell
@@ -157,7 +171,7 @@ Use the following steps to grant special permissions to your stream analytics jo
    
 ### VNET integration
 
-If your Kafka is inside a virtual network (VNET) or behind a firewall, you must configure your Azure Stream Analytics job to access your Kafka topic.
+If your Kafka cluster is inside a virtual network (VNET) or behind a firewall, you may have to configure your Azure Stream Analytics job to access your Kafka topic using a private link or a dedicated networking configuration.
 Visit the [Run your Azure Stream Analytics job in an Azure Virtual Network documentation](../stream-analytics/run-job-in-virtual-network.md) for more information.
 
 

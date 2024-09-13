@@ -3,7 +3,7 @@ title: Reliability in Azure Data Manager for Energy
 description: Find out about reliability in Azure Data Manager for Energy
 author: bharathim 
 ms.author: anaharris
-ms.topic: conceptual
+ms.topic: reliability-article
 ms.service: energy-data-services
 ms.custom: subject-reliability, references_regions
 ms.date: 06/07/2023
@@ -18,18 +18,17 @@ This article describes reliability support in [Azure Data Manager for Energy](/a
 
 [!INCLUDE [Availability zone description](includes/reliability-availability-zone-description-include.md)]
 
-Azure Data Manager for Energy supports zone-redundant instance by default and there's no additional configuration required.
+Azure Data Manager for Energy supports zone-redundant instances by default and there's no additional configuration required.
 
 ## Prerequisites
 
 The Azure Data Manager for Energy supports availability zones in the following regions:
 
-
-| Americas         | Europe               |
-|------------------|----------------------|
-| South Central US | North Europe         |
-| East US          | West Europe          |
-| Brazil South     |                      |
+| Americas             | Europe               | Asia Pacific   |     Middle East / Africa  
+|----------------------|----------------------|----------------|-----------------------
+| South Central US     | North Europe         | Australia East | Qatar Central
+| East US              | West Europe          |                | 
+| Brazil South         |                      |                |           
 
 ### Zone down experience
 During a zone-wide outage, no action is required during zone recovery. There may be a brief degradation of performance until the service self-heals and rebalances underlying capacity to adjust to healthy zones. During this period, you may experience 5xx errors and you may have to retry API calls until the service is restored.
@@ -54,6 +53,8 @@ Below is the list of primary and secondary regions for regions where disaster re
 |Americas          | Brazil South*        |                  |
 |Europe            | North Europe         | West Europe      |
 |Europe            | West Europe          | North Europe     |
+|Asia Pacific      | Australia East       | Australia        |
+|Middle East / Africa | Qatar Central*    |                  |
 
 (*) These regions are restricted in supporting customer scenarios for disaster recovery. For more information please contact your Microsoft sales or customer representatives.
 
@@ -62,6 +63,7 @@ Azure Data Manager for Energy uses Azure Storage, Azure Cosmos DB and Elasticsea
 > [!IMPORTANT]
 > In the following regions, disaster recovery is not available. For more information please contact your Microsoft sales or customer representative.
 > 1. Brazil South
+> 2. Qatar Central
 
 #### Set up disaster recovery and outage detection
 

@@ -4,18 +4,17 @@ titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn about pipelines and activities in Azure Data Factory and Azure Synapse Analytics.
 author: dcstwh
 ms.author: weetok
-ms.service: data-factory
 ms.subservice: orchestration
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 10/20/2023
+ms.date: 03/11/2024
 ---
 
 # Pipelines and activities in Azure Data Factory and Azure Synapse Analytics
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-[!INCLUDE[ML Studio (classic) retirement](../../includes/machine-learning-studio-classic-deprecation.md)] 
+[!INCLUDE[ML Studio (classic) retirement](~/reusable-content/ce-skilling/azure/includes/machine-learning-studio-classic-deprecation.md)] 
 
 This article helps you understand pipelines and activities in Azure Data Factory and Azure Synapse Analytics and use them to construct end-to-end data-driven workflows for your data movement and data processing scenarios.
 
@@ -29,6 +28,10 @@ Azure Data Factory and Azure Synapse Analytics have three groupings of activitie
 :::image type="content" source="media/concepts-pipelines-activities/relationship-between-dataset-pipeline-activity.png" alt-text="Relationship between dataset, activity, and pipeline":::
 
 An input dataset represents the input for an activity in the pipeline, and an output dataset represents the output for the activity. Datasets identify data within different data stores, such as tables, files, folders, and documents. After you create a dataset, you can use it with activities in a pipeline. For example, a dataset can be an input/output dataset of a Copy Activity or an HDInsightHive Activity. For more information about datasets, see [Datasets in Azure Data Factory](concepts-datasets-linked-services.md) article.
+
+> [!NOTE]
+> There is a default soft limit of maximum 80 activities per pipeline, which includes inner activities for containers.
+
 
 ## Data movement activities
 
@@ -429,7 +432,7 @@ For example, say you have a Scheduler trigger, "Trigger A," that I wish to kick 
 }
 ```
 
-## Next steps
+## Related content
 See the following tutorials for step-by-step instructions for creating pipelines with activities:
 
 - [Build a pipeline with a copy activity](quickstart-create-data-factory-powershell.md)

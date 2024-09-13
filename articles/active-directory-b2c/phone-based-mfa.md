@@ -5,13 +5,15 @@ description: Learn tips for securing phone-based multifactor authentication in y
 
 author: kengaderdus
 manager: CelesteDG
-
 ms.service: active-directory
 ms.topic: how-to
-
-ms.date: 09/20/2021
+ms.date: 09/11/2024
 ms.author: kengaderdus
 ms.subservice: B2C
+
+
+
+#Customer intent: As an Azure AD B2C administrator, I want to monitor phone authentication failures and mitigate fraudulent sign-ups, so that I can protect against malicious use of the telephony service and ensure a secure authentication process.
 
 ---
 # Securing phone-based multifactor authentication
@@ -87,11 +89,11 @@ Take the following actions to help mitigate fraudulent sign-ups.
      
    - [Enable the email one-time passcode feature (OTP)](phone-authentication-user-flows.md) for MFA (applies to both sign-up and sign-in flows).
    - [Configure a Conditional Access policy](conditional-access-user-flow.md) to block sign-ins based on location (applies to sign-in flows only, not sign-up flows).
-   - Use API connectors to [integrate with an anti-bot solution like reCAPTCHA](https://github.com/Azure-Samples/active-directory-b2c-node-sign-up-user-flow-captcha) (applies to sign-up flows).
+   - To prevent automated attacks on your consumer-facing apps, [enable CAPTCHA](add-captcha.md). Azure AD B2C’s CAPTCHA supports both audio and visual CAPTCHA challenges, and applies to both sign-up and sign-in flows for your local accounts.
 
 - Remove country codes that aren't relevant to your organization from the drop-down menu where the user verifies their phone number (this change will apply to future sign-ups):
     
-   1. Sign in to the [Azure portal](https://portal.azure.com) as the global administrator of your Azure AD B2C tenant.
+   1. Sign in to the [Azure portal](https://portal.azure.com) as the [External ID User Flow Administrator](/entra/identity/role-based-access-control/permissions-reference#external-id-user-flow-administrator) of your Azure AD B2C tenant.
    1. If you have access to multiple tenants, select the **Settings** icon in the top menu to switch to your Azure AD B2C tenant from the **Directories + subscriptions** menu.
    1. Choose **All services** in the top-left corner of the Azure portal, search for and select **Azure AD B2C**.
    1. Select the user flow, and then select **Languages**. Select the language for your organization's geographic location to open the language details panel. (For this example, we'll select **English en** for the United States). Select **Multifactor authentication page**, and then select **Download defaults (en)**.
@@ -108,7 +110,7 @@ Take the following actions to help mitigate fraudulent sign-ups.
  
       ![Country code drop-down](media/phone-based-mfa/country-code-drop-down.png)
 
-## Next steps
+## Related content
 
 - Learn about [Identity Protection and Conditional Access for Azure AD B2C](conditional-access-identity-protection-overview.md) 
 

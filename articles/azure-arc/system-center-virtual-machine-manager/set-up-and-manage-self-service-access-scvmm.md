@@ -18,7 +18,7 @@ Once your SCVMM resources are enabled in Azure, as a final step, provide your te
 ## Prerequisites
 
 - Your SCVMM instance must be connected to Azure Arc.
-- Your SCVMM resources such as virtual machines, clouds, VM networks and VM templates must be Azure enabled.
+- Your SCVMM resources such as virtual machines, clouds, VM networks, and VM templates must be Azure enabled.
 - You must have **User Access Administrator** or **Owner** role at the scope (resource group/subscription) to assign roles to other users.
 
 ## Provide access to use Arc-enabled SCVMM resources
@@ -61,4 +61,4 @@ The **Azure Arc ScVmm VM Contributor** role is a built-in role that provides per
 
 ## Next steps
 
-[Create an Azure Arc VM](https://learn.microsoft.com/azure/azure-arc/system-center-virtual-machine-manager/create-virtual-machine).
+[Create an Azure Arc VM](create-virtual-machine.md).

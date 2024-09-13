@@ -1,5 +1,5 @@
 ---
-author: xiaofanzhou
+author: xfz11
 ms.service: service-connector
 ms.topic: include
 ms.date: 10/20/2023
@@ -15,7 +15,7 @@ using Azure.Core;
 using Azure.Identity;
 using MySqlConnector;
 
-// Uncomment the following lines according to the authentication type.
+// Uncomment the following lines corresponding to the authentication type you want to use.
 // For system-assigned managed identity.
 // var credential = new DefaultAzureCredential();
 
@@ -71,13 +71,13 @@ await connection.OpenAsync();
         pluginName + "&authenticationPlugins=" + pluginName);
     ```
 
-For more information, see [Use Java and JDBC with Azure Database for MySQL - Flexible Server](../../mysql/flexible-server/connect-java.md?tabs=passwordless).
+For more information, see [Use Java and JDBC with Azure Database for MySQL - Flexible Server](/azure/mysql/flexible-server/connect-java?tabs=passwordless).
 
 ### [SpringBoot](#tab/springBoot)
 
 For a Spring application, if you create a connection with option `--client-type springboot`, Service Connector sets the properties `spring.datasource.azure.passwordless-enabled`, `spring.datasource.url`, and `spring.datasource.username` to Azure Spring Apps. 
 
-Update your application following the tutorial [Connect an Azure Database for MySQL instance to your application in Azure Spring Apps](../../spring-apps/how-to-bind-mysql.md#prepare-your-project). Remember to remove the `spring.datasource.password` configuration property if it was set before and add the correct dependencies to your Spring application.
+Update your application following the tutorial [Connect an Azure Database for MySQL instance to your application in Azure Spring Apps](../../spring-apps/enterprise/how-to-bind-mysql.md#prepare-your-project). Remember to remove the `spring.datasource.password` configuration property if it was set before and add the correct dependencies to your Spring application.
 
 For more tutorials, see [Use Spring Data JDBC with Azure Database for MySQL](/azure/developer/java/spring-framework/configure-spring-data-jdbc-with-azure-mysql?tabs=passwordless%2Cservice-connector&pivots=mysql-passwordless-flexible-server#store-data-from-azure-database-for-mysql)
 
@@ -96,7 +96,7 @@ For more tutorials, see [Use Spring Data JDBC with Azure Database for MySQL](/az
     import mysql.connector
     import os
     
-    # Uncomment the following lines according to the authentication type.
+    # Uncomment the following lines corresponding to the authentication type you want to use.
     # For system-assigned managed identity.
     # cred = ManagedIdentityCredential()    
 
@@ -139,7 +139,7 @@ For more tutorials, see [Use Spring Data JDBC with Azure Database for MySQL](/az
     from azure.identity import ManagedIdentityCredential, ClientSecretCredential
     import os
 
-    # Uncomment the following lines according to the authentication type.
+    # Uncomment the following lines corresponding to the authentication type you want to use.
     # system-assigned managed identity
     # cred = ManagedIdentityCredential()
     
@@ -199,7 +199,7 @@ For more tutorials, see [Use Spring Data JDBC with Azure Database for MySQL](/az
    
    func main() {
        
-     // Uncomment the following lines according to the authentication type.
+     // Uncomment the following lines corresponding to the authentication type you want to use.
      // for system-assigned managed identity
      // cred, err := azidentity.NewDefaultAzureCredential(nil)
 
@@ -242,7 +242,7 @@ For more tutorials, see [Use Spring Data JDBC with Azure Database for MySQL](/az
    
    const mysql = require('mysql2');
 
-   // Uncomment the following lines according to the authentication type.
+   // Uncomment the following lines corresponding to the authentication type you want to use.
    // for system-assigned managed identity
    // const credential = new DefaultAzureCredential();
 
@@ -280,10 +280,13 @@ For more tutorials, see [Use Spring Data JDBC with Azure Database for MySQL](/az
    ```
 
 ### [PHP](#tab/php)
-For other languages, you can use the connection string and username that Service Connector sets to the environment variables to connect the database. For environment variable details, see [Integrate Azure Database for MySQL with Service Connector](../how-to-integrate-mysql.md).
+For other languages, use the connection string and username that Service Connector sets to the environment variables to connect the database. For environment variable details, see [Integrate Azure Database for MySQL with Service Connector](../how-to-integrate-mysql.md).
 
 ### [Ruby](#tab/ruby)
-For other languages, you can use the connection string and username that Service Connector sets to the environment variables to connect the database. For environment variable details, see [Integrate Azure Database for MySQL with Service Connector](../how-to-integrate-mysql.md).
+For other languages, use the connection string and username that Service Connector sets to the environment variables to connect the database. For environment variable details, see [Integrate Azure Database for MySQL with Service Connector](../how-to-integrate-mysql.md).
+
+### [Other](#tab/none)
+For other languages, use the connection properties that Service Connector sets to the environment variables to connect the database. For environment variable details, see [Integrate Azure Database for MySQL with Service Connector](../how-to-integrate-mysql.md).
 
 ---
 

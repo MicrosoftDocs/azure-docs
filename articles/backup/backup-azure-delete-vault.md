@@ -3,7 +3,7 @@ title: Delete a Microsoft Azure Recovery Services vault
 description: In this article, learn how to remove dependencies and then delete an Azure Backup Recovery Services vault.
 ms.topic: how-to
 ms.date: 05/23/2022
-ms.service: backup
+ms.service: azure-backup
 ms.custom: devx-track-azurepowershell
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
@@ -55,16 +55,19 @@ To delete a vault, follow these steps:
 
 - <a id="portal-disable-soft-delete">**Step 3:**</a> Disable the soft delete and Security features
 
-  1. Go to **Properties** -> **Security Settings** and disable the **Soft Delete** feature if enabled. See [how to disable soft delete](./backup-azure-security-feature-cloud.md#enabling-and-disabling-soft-delete).
+  1. Go to **Properties** -> **Security Settings** and disable the **Soft Delete** feature if enabled. See [how to disable soft delete](./backup-azure-security-feature-cloud.md#enable-and-disable-soft-delete).
   1. Go to **Properties** -> **Security Settings** and disable **Security Features**, if enabled. [Learn more](./backup-azure-security-feature.md)
 
 - <a id="portal-delete-cloud-protected-items">**Step 4:**</a> Delete Cloud protected items
 
-  1. **Delete Items in soft-deleted state**: After disabling soft delete, check if there are any items previously remaining in the soft deleted state. If there are items in soft deleted state, then you need to *undelete* and *delete* them again. [Follow these steps](./backup-azure-security-feature-cloud.md#using-azure-portal) to find soft delete items and permanently delete them.
+  1. **Delete Items in soft-deleted state**: After disabling soft delete, check if there are any items previously remaining in the soft deleted state. If there are items in soft deleted state, then you need to *undelete* and *delete* them again. [Follow these steps](./backup-azure-security-feature-cloud.md?tabs=azure-portal#delete-soft-deleted-backup-items-permanently) to find soft delete items and permanently delete them.
 
      :::image type="content" source="./media/backup-azure-delete-vault/delete-items-in-soft-delete-state-inline.png" alt-text="Screenshot showing the process to delete items in soft-delete state." lightbox="./media/backup-azure-delete-vault/delete-items-in-soft-delete-state-expanded.png":::
 
   1. Go to the vault dashboard menu -> **Backup Items**. Click **Stop Backup** to stop the backups of all listed items, and then click **Delete Backup Data** to delete. [Follow these steps](#delete-protected-items-in-the-cloud) to remove those items.
+
+  >[!Note]
+  > You don't need to delete Virtual Machine or policy, you only need to stop backup to the vault.
       
 - <a id="portal-delete-backup-servers">**Step 5:**</a> Delete Backup Servers
 

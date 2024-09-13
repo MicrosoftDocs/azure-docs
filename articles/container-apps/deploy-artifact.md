@@ -1,22 +1,18 @@
 ---
-title: 'Deploy an artifact file to Azure Container Apps'
+title: Deploy an artifact file to Azure Container Apps
 description: Use a prebuilt artifact file to deploy to Azure Container Apps.
 services: container-apps
 author: craigshoemaker
 ms.author: cshoe
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.topic: quickstart
-ms.date: 11/15/2023
-ms.custom: ignite-2023, devx-track-azurecli
+ms.date: 02/27/2024
+ms.custom: ignite-2023
 ---
 
 # Quickstart: Deploy an artifact file to Azure Container Apps
 
-This article demonstrates how to deploy a container app from a prebuilt artifact file.
-
-The following example deploys a Java application using a JAR file, which includes a Java-specific manifest file.
-
-In this quickstart, you create a backend web API service that returns a static collection of music albums.  After completing this quickstart, you can continue to [Tutorial: Communication between microservices in Azure Container Apps](communicate-between-microservices.md) to learn how to deploy a front end application that calls the API.
+In this quickstart, you learn to deploy a container app from a prebuilt artifact file. The example in this article deploys a Java application using a JAR file, which includes a Java-specific manifest file. Your job is to create a backend web API service that returns a static collection of music albums. After completing this quickstart, you can continue to [Communication between microservices](communicate-between-microservices.md) to learn how to deploy a front end application that calls the API.
 
 The following screenshot shows the output from the album API service you deploy.
 
@@ -26,86 +22,16 @@ The following screenshot shows the output from the album API service you deploy.
 
 | Requirement  | Instructions |
 |--|--|
-| Azure account | If you don't have one, [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). You need the *Contributor* or *Owner* permission on the Azure subscription to proceed. <br><br>Refer to [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md?tabs=current) for details. |
+| Azure account | If you don't have one, [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). You need the *Contributor* or *Owner* permission on the Azure subscription to proceed. <br><br>Refer to [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml?tabs=current) for details. |
 | GitHub Account | Get one for [free](https://github.com/join). |
 | git | [Install git](https://git-scm.com/downloads) |
 | Azure CLI | Install the [Azure CLI](/cli/azure/install-azure-cli).|
-| Java | Install the [JDK](/java/openjdk/install), recommend 17 or later|
+| Java | Install the [JDK](/java/openjdk/install), recommend 17, or later|
 | Maven | Install the [Maven](https://maven.apache.org/download.cgi).|
 
-## Setup
+[!INCLUDE [container-apps-create-cli-steps.md](../../includes/container-apps-create-cli-steps.md)]
 
-To sign in to Azure from the CLI, run the following command and follow the prompts to complete the authentication process.
-
-# [Bash](#tab/bash)
-
-```azurecli
-az login
-```
-
-# [Azure PowerShell](#tab/azure-powershell)
-
-```azurepowershell
-az login
-```
-
----
-
-Ensure you're running the latest version of the CLI via the upgrade command.
-
-# [Bash](#tab/bash)
-
-```azurecli
-az upgrade
-```
-
-# [Azure PowerShell](#tab/azure-powershell)
-
-```azurepowershell
-az upgrade
-```
-
----
-
-Next, install or update the Azure Container Apps extension for the CLI.
-
-# [Bash](#tab/bash)
-
-```azurecli
-az extension add --name containerapp --upgrade
-```
-
-# [Azure PowerShell](#tab/azure-powershell)
-
-```azurepowershell
-az extension add --name containerapp --upgrade
-```
-
----
-
-Register the `Microsoft.App` and `Microsoft.OperationalInsights` namespaces they're not already registered in your Azure subscription.
-
-# [Bash](#tab/bash)
-
-```azurecli
-az provider register --namespace Microsoft.App
-```
-
-```azurecli
-az provider register --namespace Microsoft.OperationalInsights
-```
-
-# [Azure PowerShell](#tab/azure-powershell)
-
-```azurepowershell
-az provider register --namespace Microsoft.App
-```
-
-```azurepowershell
-az provider register --namespace Microsoft.OperationalInsights
-```
-
----
+## Create environment variables
 
 Now that your Azure CLI setup is complete, you can define the environment variables that are used throughout this article.
 
@@ -212,7 +138,7 @@ This command:
 - Creates the Container Apps environment with a Log Analytics workspace
 - Creates and deploys the container app using a public container image
 
-The `up` command uses the Docker file in the root of the repository to build the container image.  The `EXPOSE` instruction in the Docker file defines the target port. A Docker file, however, isn't required to build a container app.
+The `up` command uses the Docker file in the root of the repository to build the container image. The `EXPOSE` instruction in the Docker file defines the target port. A Docker file, however, isn't required to build a container app.
 
 > [!NOTE]
 > Note: When using `containerapp up` in combination with a Docker-less code base, use the `--location` parameter so that application runs in a location other than US East.
@@ -249,9 +175,13 @@ az containerapp up `
 
 ## Verify deployment
 
-Copy the FQDN to a web browser.  From your web browser, go to the `/albums` endpoint of the FQDN.
+Copy the FQDN to a web browser. From your web browser, go to the `/albums` endpoint of the FQDN.
 
 :::image type="content" source="media/quickstart-code-to-cloud/azure-container-apps-album-api.png" alt-text="Screenshot of response from albums API endpoint.":::
+
+## Deploy a WAR file
+
+You can also deploy your container app from a [WAR file](java-get-started.md?tabs=war).
 
 ## Clean up resources
 
@@ -281,4 +211,4 @@ az group delete `
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Environments in Azure Container Apps](environment.md)
+> [Learn more about developing in Java on Container Apps](java-overview.md)

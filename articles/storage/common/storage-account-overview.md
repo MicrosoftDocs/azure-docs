@@ -8,7 +8,7 @@ author: akashdubey-ms
 ms.service: azure-storage
 ms.subservice: storage-common-concepts
 ms.topic: conceptual
-ms.date: 06/28/2022
+ms.date: 12/06/2023
 ms.author: akashdubey
 ---
 
@@ -31,7 +31,7 @@ The following table describes the types of storage accounts recommended by Micro
 | Premium file shares<sup>3</sup> | Azure Files | LRS<br /><br />ZRS<sup>2</sup> | Premium storage account type for file shares only. Recommended for enterprise or high-performance scale applications. Use this account type if you want a storage account that supports both Server Message Block (SMB) and NFS file shares. |
 | Premium page blobs<sup>3</sup> | Page blobs only | LRS<br /><br />ZRS<sup>2</sup> | Premium storage account type for page blobs only. [Learn more about page blobs and sample use cases.](../blobs/storage-blob-pageblob-overview.md) |
 
-<sup>1</sup> Data Lake Storage is a set of capabilities dedicated to big data analytics, built on Azure Blob Storage. For more information, see [Introduction to Data Lake Storage Gen2](../blobs/data-lake-storage-introduction.md) and [Create a storage account to use with Data Lake Storage Gen2](../blobs/create-data-lake-storage-account.md).
+<sup>1</sup> Data Lake Storage is a set of capabilities dedicated to big data analytics, built on Azure Blob Storage. For more information, see [Introduction to Data Lake Storage](../blobs/data-lake-storage-introduction.md) and [Create a storage account to use with Data Lake Storage](../blobs/create-data-lake-storage-account.md).
 
 <sup>2</sup> ZRS, GZRS, and RA-GZRS are available only for standard general-purpose v2, premium block blobs, premium file shares, and premium page blobs accounts in certain regions. For more information, see [Azure Storage redundancy](storage-redundancy.md).
 
@@ -79,7 +79,7 @@ The following table lists the format for the standard endpoints for each of the 
 |--|--|
 | Blob Storage | `https://<storage-account>.blob.core.windows.net` |
 | Static website (Blob Storage) | `https://<storage-account>.web.core.windows.net` |
-| Data Lake Storage Gen2 | `https://<storage-account>.dfs.core.windows.net` |
+| Data Lake Storage | `https://<storage-account>.dfs.core.windows.net` |
 | Azure Files | `https://<storage-account>.file.core.windows.net` |
 | Queue Storage | `https://<storage-account>.queue.core.windows.net` |
 | Table Storage | `https://<storage-account>.table.core.windows.net` |
@@ -104,7 +104,7 @@ The following table lists the format for Azure DNS Zone endpoints for each of th
 |--|--|
 | Blob Storage | `https://<storage-account>.z[00-50].blob.storage.azure.net` |
 | Static website (Blob Storage) | `https://<storage-account>.z[00-50].web.storage.azure.net` |
-| Data Lake Storage Gen2 | `https://<storage-account>.z[00-50].dfs.storage.azure.net` |
+| Data Lake Storage | `https://<storage-account>.z[00-50].dfs.storage.azure.net` |
 | Azure Files | `https://<storage-account>.z[00-50].file.storage.azure.net` |
 | Queue Storage | `https://<storage-account>.z[00-50].queue.storage.azure.net` |
 | Table Storage | `https://<storage-account>.z[00-50].table.storage.azure.net` |
@@ -122,6 +122,20 @@ The Azure DNS zone endpoints preview is available in all public regions. The pre
 
 To register for the preview, follow the instructions provided in [Set up preview features in Azure subscription](../../azure-resource-manager/management/preview-features.md#register-preview-feature). Specify `PartitionedDnsPublicPreview` as the feature name and `Microsoft.Storage` as the provider namespace.
 
+### CNAME records, subdomains and IP addresses
+
+Each storage account endpoint points to a chain of DNS CNAME records which eventually point to a DNS A record. The number of records and the subdomains that are associated with each record can vary between accounts and can depend on the storage account type and how the account is configured.
+
+The storage account endpoint is stable and does not change. However, the CNAME records in a given chain can change and you won't be notified when a change occurs. If you host a private DNS service in Azure, then these changes can impact your configuration. 
+
+Consider the following guidelines:
+
+- The CNAME chain associated with a storage account endpoint can change without notice. Applications and environments should not take a dependency on the number of of CNAME records or the sub-domains that are associated with those CNAME records.
+
+- The A record's IP address that is returned by the DNS resolution of a storage account endpoint can change frequently.
+
+- The applications and operating systems should always honor the time-to-live (TTL) associated with the CNAME record. Caching the the value of the CNAME record beyond the TTL could lead to unintended behavior.
+
 ## Migrate a storage account
 
 The following table summarizes and points to guidance on how to move, upgrade, or migrate a storage account:
@@ -132,7 +146,7 @@ The following table summarizes and points to guidance on how to move, upgrade, o
 | Move a storage account to a different resource group | Azure Resource Manager provides options for moving a resource to a different resource group. For more information, see [Move resources to a new resource group or subscription](../../azure-resource-manager/management/move-resource-group-and-subscription.md). |
 | Move a storage account to a different region | To move a storage account, create a copy of your storage account in another region. Then, move your data to that account by using AzCopy, or another tool of your choice. For more information, see [Move an Azure Storage account to another region](storage-account-move.md). |
 | Upgrade to a general-purpose v2 storage account | You can upgrade a general-purpose v1 storage account or Blob Storage account to a general-purpose v2 account. Note that this action can’t be undone. For more information, see [Upgrade to a general-purpose v2 storage account](storage-account-upgrade.md). |
-| Migrate a classic storage account to Azure Resource Manager | The Azure Resource Manager deployment model is superior to the classic deployment model in terms of functionality, scalability, and security. For more information about migrating a classic storage account to Azure Resource Manager, see the "Migration of storage accounts" section of [Platform-supported migration of IaaS resources from classic to Azure Resource Manager](../../virtual-machines/migration-classic-resource-manager-overview.md#migration-of-storage-accounts). |
+| Migrate a classic storage account to Azure Resource Manager | The Azure Resource Manager deployment model is superior to the classic deployment model in terms of functionality, scalability, and security. For more information about migrating a classic storage account to Azure Resource Manager, see the "Migration of storage accounts" section of [Platform-supported migration of IaaS resources from classic to Azure Resource Manager](/azure/virtual-machines/migration-classic-resource-manager-overview#migration-of-storage-accounts). |
 
 ## Transfer data into a storage account
 

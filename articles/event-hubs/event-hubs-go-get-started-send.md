@@ -13,7 +13,7 @@ Azure Event Hubs is a Big Data streaming platform and event ingestion service, c
 This quickstart describes how to write Go applications to send events to or receive events from an event hub. 
 
 > [!NOTE]
-> This quickstart is based on samples on GitHub at [https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/messaging/azeventhubs](https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/messaging/azeventhubs). The send one is based on the **example_producing_events_test.go** sample and the receive one is based on the **example_processor_test.go** sample. The code is simplified for the quickstart and all the detailed comments are removed, so look at the samples for more details and explanations. 
+> This quickstart is based on samples on GitHub at [https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/messaging/azeventhubs](https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/messaging/azeventhubs). The send events section is based on the **example_producing_events_test.go** sample and the receive one is based on the **example_processor_test.go** sample. The code is simplified for the quickstart and all the detailed comments are removed, so look at the samples for more details and explanations. 
 
 ## Prerequisites
 
@@ -100,7 +100,7 @@ Don't run the application yet. You first need to run the receiver app and then t
 
 ### Create a Storage account and container
 
-State such as leases on partitions and checkpoints in the event stream are shared between receivers using an Azure Storage container. You can create a storage account and container with the Go SDK, but you can also create one by following the instructions in [About Azure storage accounts](../storage/common/storage-account-create.md).
+State such as leases on partitions and checkpoints in the events are shared between receivers using an Azure Storage container. You can create a storage account and container with the Go SDK, but you can also create one by following the instructions in [About Azure storage accounts](../storage/common/storage-account-create.md).
 
 [!INCLUDE [storage-checkpoint-store-recommendations](./includes/storage-checkpoint-store-recommendations.md)]
 
@@ -110,6 +110,7 @@ To receive the messages, get the Go packages for Event Hubs as shown in the foll
 
 ```bash
 go get github.com/Azure/azure-sdk-for-go/sdk/messaging/azeventhubs
+go get github.com/Azure/azure-sdk-for-go/sdk/storage/azblob
 ```
 
 ### Code to receive events from an event hub
@@ -140,6 +141,7 @@ import (
 
     "github.com/Azure/azure-sdk-for-go/sdk/messaging/azeventhubs"
     "github.com/Azure/azure-sdk-for-go/sdk/messaging/azeventhubs/checkpoints"
+    "github.com/Azure/azure-sdk-for-go/sdk/storage/azblob/container"
 )
 
 func main() {

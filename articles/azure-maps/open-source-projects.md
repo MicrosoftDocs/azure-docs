@@ -1,13 +1,12 @@
 ---
 title: Azure Maps community Open-source projects | Microsoft Azure Maps
 description: Open-source projects coordinated for the Microsoft Azure Maps platform.
-author: eriklindeman
-ms.author: eriklind
+author: sinnypan
+ms.author: sipa
 ms.date: 12/07/2020
 ms.topic: conceptual
 ms.service: azure-maps
-services: azure-maps
-ms.custom: 
+ms.subservice: general
 ---
 
 # Azure Maps community - Open-source projects
@@ -111,6 +110,7 @@ Find more open-source Azure Maps projects.
 [Azure Maps Jupyter Notebook samples]: https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook
 [Azure Maps Leaflet plugin]: https://github.com/azure-samples/azure-maps-leaflet
 [Azure Maps OpenLayers plugin]: https://github.com/azure-samples/azure-maps-openlayers
+[Azure Maps Open Source Projects]: https://github.com/Microsoft/Maps/blob/master/AzureMaps.md
 [Azure Maps Overview Map module]: https://github.com/Azure-Samples/azure-maps-overview-map
 [Azure Maps Scale Bar Control module]: https://github.com/Azure-Samples/azure-maps-scale-bar-control
 [Azure Maps Selection Control module]: https://github.com/Azure-Samples/azure-maps-selection-control
@@ -119,14 +119,14 @@ Find more open-source Azure Maps projects.
 [Azure Maps Spyglass Control module]: https://github.com/Azure-Samples/azure-maps-spyglass-control
 [Azure Maps Swipe Map module]: https://github.com/Azure-Samples/azure-maps-swipe-map
 [Azure Maps Sync Map module]: https://github.com/Azure-Samples/azure-maps-sync-maps
-[Azure Maps tile services]: /rest/api/maps/render-v2/get-map-tile
+[Azure Maps tile services]: /rest/api/maps/render/get-map-tile
 [Bot Framework - Point of Interest skill]: https://github.com/microsoft/botframework-solutions/tree/488093ac2fddf16096171f6a926315aa45e199e7/skills/csharp/pointofinterestskill
 [BotBuilder Location]: https://github.com/Microsoft/BotBuilder-Location
 [Cesium JS]: https://cesium.com/cesiumjs/
 [Code samples]: /samples/browse/?products=azure-maps
-[geocoding services]: /rest/api/maps/search
+[geocoding services]: /rest/api/maps/search?view=rest-maps-1.0&preserve-view=true
 [Implement IoT spatial analytics using Azure Maps]: https://github.com/Azure-Samples/iothub-to-azure-maps-geofencing
 [leaflet]: https://leafletjs.com
 [LiveMaps]: https://github.com/Azure-Samples/LiveMaps
 [OpenLayers]: https://www.openlayers.org/
-[tile layers]: /rest/api/maps/render-v2/get-map-tile
+[tile layers]: /rest/api/maps/render/get-map-tile

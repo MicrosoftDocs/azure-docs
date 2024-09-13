@@ -3,10 +3,9 @@ title: Examples for better understanding pricing model under different integrati
 description: Learn about pricing model under different integration runtime types from some examples.
 ms.author: lle
 author: lrtoyou1223
-ms.service: data-factory
 ms.subservice: integration-runtime
 ms.topic: conceptual
-ms.date: 07/13/2023
+ms.date: 01/05/2024
 ---
 
 # Examples for better understanding pricing model under different integration runtime types
@@ -85,7 +84,7 @@ In this example, the execution time of each HDInsight activity is rounded up to 
 :::image type="content" source="./media/integration-runtime-pricing/self-hosted-integration-runtime-example-3.png" alt-text="Screenshot of calculation formula for Self-hosted integration runtime example 3.":::
 
 
-## Next steps
+## Related content
 
 Now that you understand the pricing for Azure Data Factory, you can get started!
 

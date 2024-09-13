@@ -1,14 +1,12 @@
 ---
 title: Use the Execute SSIS Package activity from the portal
 description: This article describes how to run a SQL Server Integration Services (SSIS) package in an Azure Data Factory pipeline by using the Execute SSIS Package activity and the Azure Data Factory Studio portal.
-ms.service: data-factory
 ms.subservice: integration-services
 ms.devlang: powershell
 ms.topic: conceptual
 ms.author: chugu
 author: chugugrace
-ms.custom: seo-lt-2019
-ms.date: 07/17/2023
+ms.date: 05/15/2024
 ---
 
 # Run an SSIS package with the Execute SSIS Package activity in Azure portal
@@ -27,7 +25,7 @@ In this step, you use the Data Factory UI or app to create a pipeline. You add a
 # [Azure Data Factory](#tab/data-factory)
 1. On your Data Factory overview or home page in the Azure portal, select the **Open Azure Data Factory Studio** tile to start the Data Factory UI or app in a separate tab. 
 
-   :::image type="content" source="./media/doc-common-process/data-factory-home-page.png" alt-text="Screenshot of the Azure Data Factory home page.":::
+   :::image type="content" source="~/reusable-content/ce-skilling/azure/media/data-factory/data-factory-home-page.png" alt-text="Screenshot of the Azure Data Factory home page.":::
 
    On the home page, select **Orchestrate**. 
 
@@ -322,6 +320,6 @@ In this step, you trigger a pipeline run.
 
 You can also create a scheduled trigger for your pipeline so that the pipeline runs on a schedule, such as hourly or daily. For an example, see [Create a data factory - Data Factory UI](quickstart-create-data-factory-portal.md#trigger-the-pipeline-on-a-schedule).
 
-## Next steps
+## Related content
 - [Run an SSIS package with the Execute SSIS Package activity in Azure Data Factory with PowerShell](how-to-invoke-ssis-package-ssis-activity-powershell.md)
 - [Modernize and extend your ETL/ELT workflows with SSIS activities in Azure Data Factory pipelines](https://techcommunity.microsoft.com/t5/SQL-Server-Integration-Services/Modernize-and-Extend-Your-ETL-ELT-Workflows-with-SSIS-Activities/ba-p/388370)

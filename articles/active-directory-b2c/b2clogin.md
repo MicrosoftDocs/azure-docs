@@ -9,9 +9,13 @@ manager: CelesteDG
 ms.service: active-directory
 
 ms.topic: how-to
-ms.date: 11/21/2023
+ms.date: 01/26/2024
 ms.author: kengaderdus
 ms.subservice: B2C
+
+
+#Customer intent: As an Azure AD B2C application developer, I want to update the redirect URLs in my identity provider's applications to reference b2clogin.com or a custom domain, so that I can authenticate users with Azure AD B2C using the updated endpoints.
+
 ---
 
 # Set redirect URLs to b2clogin.com for Azure Active Directory B2C
@@ -23,17 +27,18 @@ When you set up an identity provider for sign-up and sign-in in your Azure Activ
 The transition to b2clogin.com only applies to authentication endpoints that use Azure AD B2C policies (user flows or custom policies) to authenticate users. These endpoints have a `<policy-name>` parameter, which specifies the policy Azure AD B2C should use. [Learn more about Azure AD B2C policies](technical-overview.md#identity-experiences-user-flows-or-custom-policies). 
 
 Old endpoints may look like:
-- <code>https://<b>login.microsoft.com</b>/\<tenant-name\>.onmicrosoft.com/<b>\<policy-name\></b>/oauth2/v2.0/authorize</code>
-- <code>https://<b>login.microsoft.com</b>/\<tenant-name\>.onmicrosoft.com/oauth2/v2.0/authorize<b>?p=\<policy-name\></b></code>
+- <code>https://<b>login.microsoft.com</b>/\<tenant-name\>.onmicrosoft.com/<b>\<policy-name\></b>/oauth2/v2.0/authorize</code> or <code>https://<b>login.microsoft.com</b>/\<tenant-name\>.onmicrosoft.com/oauth2/v2.0/authorize<b>?p=\<policy-name\></b></code> for `/authorize` endpoint.
+- <code>https://<b>login.microsoft.com</b>/\<tenant-name\>.onmicrosoft.com/<b>\<policy-name\></b>/oauth2/v2.0/logout</code> or <code>https://<b>login.microsoft.com</b>/\<tenant-name\>.onmicrosoft.com/oauth2/v2.0/logout<b>?p=\<policy-name\></b></code> for `/logout` endpoint.
 
-A corresponding updated endpoint would look like:
-- <code>https://<b>\<tenant-name\>.b2clogin.com</b>/\<tenant-name\>.onmicrosoft.com/<b>\<policy-name\></b>/oauth2/v2.0/authorize</code>
-- <code>https://<b>\<tenant-name\>.b2clogin.com</b>/\<tenant-name\>.onmicrosoft.com/oauth2/v2.0/authorize?<b>p=\<policy-name\></b></code>
+A corresponding updated endpoint would look similar to the following endpoints:
+- <code>https://<b>\<tenant-name\>.b2clogin.com</b>/\<tenant-name\>.onmicrosoft.com/<b>\<policy-name\></b>/oauth2/v2.0/authorize</code> or  <code>https://<b>\<tenant-name\>.b2clogin.com</b>/\<tenant-name\>.onmicrosoft.com/oauth2/v2.0/authorize?<b>p=\<policy-name\></b></code> for the `/authorize` endpoint.
+- <code>https://<b>\<tenant-name\>.b2clogin.com</b>/\<tenant-name\>.onmicrosoft.com/<b>\<policy-name\></b>/oauth2/v2.0/logout</code> or <code>https://<b>\<tenant-name\>.b2clogin.com</b>/\<tenant-name\>.onmicrosoft.com/oauth2/v2.0/logout?<b>p=\<policy-name\></b></code> for the `/logout` endpoint.
 
-With Azure AD B2C [custom domain](./custom-domain.md) the corresponding updated endpoint would look like:
 
-- <code>https://<b>login.contoso.com</b>/\<tenant-name\>.onmicrosoft.com/<b>\<policy-name\></b>/oauth2/v2.0/authorize</code>
-- <code>https://<b>login.contoso.com</b>/\<tenant-name\>.onmicrosoft.com/oauth2/v2.0/authorize?<b>p=\<policy-name\></b></code>
+With Azure AD B2C [custom domain](./custom-domain.md) the corresponding updated endpoint would look similar to the following endpoints. You can use either of these endpoints:
+
+- <code>https://<b>login.contoso.com</b>/\<tenant-name\>.onmicrosoft.com/<b>\<policy-name\></b>/oauth2/v2.0/authorize</code> or <code>https://<b>login.contoso.com</b>/\<tenant-name\>.onmicrosoft.com/oauth2/v2.0/authorize?<b>p=\<policy-name\></b></code> for the `/authorize` endpoint.
+- <code>https://<b>login.contoso.com</b>/\<tenant-name\>.onmicrosoft.com/<b>\<policy-name\></b>/oauth2/v2.0/logout</code> or <code>https://<b>login.contoso.com</b>/\<tenant-name\>.onmicrosoft.com/oauth2/v2.0/logout?<b>p=\<policy-name\></b></code> for the `/logout` endpoint.
 
 ## Endpoints that are not affected
 
@@ -44,6 +49,12 @@ This change doesn't affect all endpoints, which don't contain a policy parameter
 ```http
 https://login.microsoftonline.com/<tenant-name>.onmicrosoft.com/oauth2/v2.0/token
 ```
+
+However, if you only want to obtain a token to authenticate users, then you can specify the policy that your application wishes to use to authenticate users. In this case, the updated `/token` endpoints  would look similar to the following examples.
+
+- <code>https://<b>\<tenant-name\>.b2clogin.com</b>/\<tenant-name\>.onmicrosoft.com/<b>\<policy-name\></b>/oauth2/v2.0/token</code> or  <code>https://<b>\<tenant-name\>.b2clogin.com</b>/\<tenant-name\>.onmicrosoft.com/oauth2/v2.0/token?<b>p=\<policy-name\></b></code> when you use *b2clogin.com*. 
+
+-  <code>https://<b>login.contoso.com</b>/\<tenant-name\>.onmicrosoft.com/<b>\<policy-name\></b>/oauth2/v2.0/token</code> or <code>https://<b>login.contoso.com</b>/\<tenant-name\>.onmicrosoft.com/oauth2/v2.0/token?<b>p=\<policy-name\></b></code> when you use a custom domain.
 
 ## Overview of required changes
 

@@ -4,7 +4,7 @@ description: Significant updates to Azure Automation updated each month.
 services: automation
 ms.subservice:
 ms.topic: overview
-ms.date: 11/28/2023
+ms.date: 07/19/2024
 ms.custom: references_regions
 ---
 
@@ -20,6 +20,49 @@ Azure Automation receives improvements on an ongoing basis. To stay up to date w
 
 
 This page is updated monthly, so revisit it regularly. If you're looking for items older than six months, you can find them in [Archive for What's new in Azure Automation](whats-new-archive.md).
+
+## July 2024
+
+### General Availability: Azure Automation supports PowerShell 7.2 runbooks in Government clouds
+
+Azure Automation now supports PowerShell 7.2 runbooks in Government clouds.
+
+
+## April 2024
+ 
+### Changes in Process Automation subscription and service limits and quotas
+ 
+Find the changes in Azure Automation limits and quotas [here](../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits). These changes are aimed towards improving the reliability and performance of the service by ensuring fair access to cloud resources for all users. We recommend to use other regions or other subscriptions within the same Azure geography to create more Automation accounts.
+
+## February 2024
+
+### New version of Start/Stop VMs
+
+Start/Stop VM during off-hours, version 1 is deprecated and unavailable in the marketplace now and we recommend that you start using version 2, which is now generally available. The new version of Start/Stop VMs v2 provides a decentralized low-cost automation option for customers who want to optimize their VM costs. It offers all of the same functionality as the original version that was available with Azure Automation. [Learn more](../azure-functions/start-stop-vms/overview.md).
+
+## January 2024
+
+### Public Preview: Azure Automation Runtime environment & support for Azure CLI commands in runbooks
+
+Azure Automation introduces [Runtime environment](runtime-environment-overview.md) (preview) that provides a simple and hassle-free experience for [updating scripts](quickstart-update-runbook-in-runtime-environment.md) to the latest language versions. It also provides complete control to configure the script execution environment, without worrying about conflicting module versions in a single Automation account. All existing runbooks are automatically available in the new Runtime environment experience with zero manual effort. You can navigate seamlessly between the old and new experience with a single click. [Learn more](manage-runtime-environment.md).
+
+Additionally, this feature enables support for [Azure CLI commands](quickstart-cli-support-powershell-runbook-runtime-environment.md) (preview) in PowerShell 7.2 runbooks. Now reap combined benefits of the rich command set of Azure CLI in Azure Automation runbooks to streamline management of Azure resources.
+
+
+## December 2023
+
+### Restore deleted Automation runbooks
+
+**Type: New change**
+
+You can now restore Runbooks deleted in the past 29 days. [Learn more](manage-runbooks.md#restore-deleted-runbook)
+
+
+### Retirement of Azure Update Management and Change Tracking using Log Analytics 
+
+**Type: Retirement**
+
+On **31 August 2024**, Azure Automation will  retire [Automation Update management](/answers/questions/1459053/retirement-announcement-azure-automation-update-ma) and [Change Tracking using Log Analytics](/answers/questions/1459059/retirement-announcement-azure-automation-change-tr). You must migrate to [Azure Update Manager](../update-manager/overview.md) and [Change tracking and inventory using Azure Monitoring Agent](change-tracking/overview-monitoring-agent.md) respectively before the deprecation date. 
 
 ## November 2023
 

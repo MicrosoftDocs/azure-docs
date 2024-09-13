@@ -3,11 +3,9 @@ title: Manage the SAP CDC process
 titleSuffix: Azure Data Factory
 description: Learn how to manage your SAP change data capture (CDC) process in Azure Data Factory.
 author: ukchrist
-ms.service: data-factory
 ms.subservice: data-movement
-ms.custom: ignite-2022
 ms.topic: conceptual
-ms.date: 07/20/2023
+ms.date: 05/15/2024
 ms.author: ulrichchrist
 ---
 
@@ -94,6 +92,6 @@ In the subscription, a list of requests corresponds to mapping data flow runs in
 
 Based on the timestamp in the first row, find the line that corresponds to the mapping data flow run you want to analyze. If the number of rows shown equals the number of rows read by the mapping data flow, you've verified that Data Factory has read and transferred the data as provided by the SAP system. In this scenario, we recommend that you consult with the team that's responsible for your SAP system.
 
-## Next steps
+## Related content
 
 Learn more about [SAP connectors](industry-sap-connectors.md).

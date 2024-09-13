@@ -4,14 +4,15 @@ titleSuffix: Azure Front Door
 description: This article helps you understand how Azure Front Door monitors the health of your origins.
 services: frontdoor
 author: duongau
-ms.service: frontdoor
+ms.service: azure-frontdoor
 ms.topic: conceptual
-ms.workload: infrastructure-services
-ms.date: 05/15/2023
+ms.date: 08/12/2024
 ms.author: duau
 ---
 
 # Health probes
+
+[!INCLUDE [Azure Front Door (classic) retirement notice](../../includes/front-door-classic-retirement.md)]
 
 > [!NOTE]
 > An *origin* and an *origin group* in this article refers to the backend and backend pool of an Azure Front Door (classic) configuration.
@@ -73,6 +74,9 @@ Once an origin returns to a healthy state, Front Door resumes the normal load-ba
 ## Disabling health probes
 
 If you have a single origin in your origin group, you can choose to disable health probes to reduce the load on your application. If you have multiple origins in your origin group and more than one of them is in enabled state, you can't disable health probes.
+
+> [!NOTE]
+> If there is only a single origin in your origin group, the single origin will get very few health probes. This may lead to a dip in origin health metrics but your traffic will not be impacted.
 
 ## Next steps
 

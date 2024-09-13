@@ -1,11 +1,12 @@
 ---
 title: Access from Container Instances
 description: Learn how to provide access to images in your private container registry from Azure Container Instances by using a Microsoft Entra service principal.
-ms.topic: article
+ms.topic: conceptual
 ms.custom: devx-track-azurecli
+ms.service: azure-container-registry
 author: tejaswikolli-web
 ms.author: tejaswikolli
-ms.date: 10/11/2022
+ms.date: 10/31/2023
 ---
 
 # Authenticate with Azure Container Registry from Azure Container Instances
@@ -18,7 +19,7 @@ In this article, you learn to create and configure a Microsoft Entra service pri
 
 You should use a service principal for authentication from ACI in **headless scenarios**, such as in applications or services that create container instances in an automated or otherwise unattended manner.
 
-For example, if you have an automated script that runs nightly and creates a [task-based container instance](../container-instances/container-instances-restart-policy.md) to process some data, it can use a service principal with pull-only permissions to authenticate to the registry. You can then rotate the service principal's credentials or revoke its access completely without affecting other services and applications.
+For example, if you have an automated script that runs nightly and creates a [task-based container instance](/azure/container-instances/container-instances-restart-policy) to process some data, it can use a service principal with pull-only permissions to authenticate to the registry. You can then rotate the service principal's credentials or revoke its access completely without affecting other services and applications.
 
 Service principals should also be used when the registry [admin user](container-registry-authentication.md#admin-account) is disabled.
 
@@ -53,7 +54,7 @@ You can find the preceding sample scripts for Azure CLI on GitHub, as well versi
 The following articles contain additional details on working with service principals and ACR:
 
 * [Azure Container Registry authentication with service principals](container-registry-auth-service-principal.md)
-* [Authenticate with Azure Container Registry from Azure Kubernetes Service (AKS)](../aks/cluster-container-registry-integration.md)
+* [Authenticate with Azure Container Registry from Azure Kubernetes Service (AKS)](/azure/aks/cluster-container-registry-integration)
 
 <!-- IMAGES -->
 

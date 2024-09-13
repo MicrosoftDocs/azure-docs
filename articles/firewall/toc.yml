@@ -81,12 +81,10 @@ items:
         href: fqdn-tags.md
       - name: Service tags
         href: service-tags.md
-    - name: Logs
+    - name: Logs and metrics
       items:
-      - name: Structured Firewall Logs
-        href: firewall-structured-logs.md
-      - name: Logs and metrics
-        href: logs-and-metrics.md
+      - name: Monitor Azure Firewall
+        href: monitor-firewall.md
     - name: Policy
       items:
       - name: Policy rule sets
@@ -133,6 +131,8 @@ items:
       href: firewall-sentinel-overview.md
     - name: Best practices for performance
       href: firewall-best-practices.md
+    - name: Microsoft Copilot for Security
+      href: firewall-copilot.md
 - name: How-to guides
   items:
   - name: Deploy
@@ -161,6 +161,8 @@ items:
        href: premium-deploy.md
      - name: Deploy Enterprise CA Certificates for Premium
        href: premium-deploy-certificates-enterprise-ca.md
+     - name: Use Azure Policy
+       href: firewall-azure-policy.md
   - name: Protect
     items:
     - name: Protect Azure Virtual Desktop
@@ -169,19 +171,20 @@ items:
       href: protect-azure-kubernetes-service.md
     - name: Protect Office 365
       href: protect-office-365.md
+    - name: Detect malware with Microsoft Sentinel
+      href: detect-malware-with-sentinel.md
   - name: Migrate
     items:
     - name: Migrate to Azure Firewall Premium
       href: premium-migrate.md
     - name: Migrate to Premium using Terraform
       href: /azure/developer/terraform/firewall-upgrade-premium?toc=/azure/firewall/toc.json&bc=/azure/firewall/breadcrumb/toc.json
+  - name: Relocate
+    items:
+    - name: Relocate to another region
+      href: ../operational-excellence/relocation-firewall.md?toc=/azure/firewall/toc.json&bc=/azure/firewall/breadcrumb/toc.json
   - name: Monitor
     items:
-    - name: Monitor diagnostic logs
-      href: firewall-diagnostics.md
-      displayName: Azure CLI, az monitor diagnostic-settings create, monitor diagnostic settings
-    - name: Enable Top 10 flow and Flow trace logs
-      href: enable-top-ten-and-flow-trace.md
     - name: Azure Firewall Workbook
       href: firewall-workbook.md
   - name: Scale Outbound SNAT Ports
@@ -220,11 +223,13 @@ items:
     href: /rest/api/firewall
   - name: Azure Resource Manager
     href: ../azure-resource-manager/management/overview.md
+  - name: Monitoring dataWinRT reference
+    href: monitor-firewall-reference.md
 - name: Resources
   items:
   - name: FAQ
     href: firewall-faq.yml
-  - name: Known issues
+  - name: Known issues and limitations
     href: firewall-known-issues.md
   - name: Author templates
     href: ../azure-resource-manager/templates/syntax.md

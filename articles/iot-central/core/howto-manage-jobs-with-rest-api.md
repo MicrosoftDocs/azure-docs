@@ -29,8 +29,6 @@ For the reference documentation for the IoT Central REST API, see [Azure IoT Cen
 
 To learn how to create and manage jobs in the UI, see [Manage devices in bulk in your Azure IoT Central application](howto-manage-devices-in-bulk.md).
 
-[!INCLUDE [iot-central-postman-collection](../../../includes/iot-central-postman-collection.md)]
-
 ## Job payloads
 
 Many of the APIs described in this article include a definition that looks like the following JSON snippet:
@@ -361,7 +359,7 @@ The following example shows a request body that creates a scheduled job.
     "data": [
         {
             "type": "cloudProperty",
-            "target": "dtmi:azurertos:devkit:hlby5jgib2o",
+            "target": "dtmi:eclipsethreadx:devkit:hlby5jgib2o",
             "path": "Company",
             "value": "Contoso"
         }
@@ -388,7 +386,7 @@ The response to this request looks like the following example:
     "data": [
         {
             "type": "cloudProperty",
-            "target": "dtmi:azurertos:devkit:hlby5jgib2o",
+            "target": "dtmi:eclipsethreadx:devkit:hlby5jgib2o",
             "path": "Company",
             "value": "Contoso"
         }
@@ -426,7 +424,7 @@ The response to this request looks like the following example:
     "data": [
         {
             "type": "cloudProperty",
-            "target": "dtmi:azurertos:devkit:hlby5jgib2o",
+            "target": "dtmi:eclipsethreadx:devkit:hlby5jgib2o",
             "path": "Company",
             "value": "Contoso"
         }
@@ -462,7 +460,7 @@ The response to this request looks like the following example:
             "data": [
                 {
                     "type": "cloudProperty",
-                    "target": "dtmi:azurertos:devkit:hlby5jgib2o",
+                    "target": "dtmi:eclipsethreadx:devkit:hlby5jgib2o",
                     "path": "Company",
                     "value": "Contoso"
                 }
@@ -529,7 +527,7 @@ The response to this request looks like the following example:
     "data": [
         {
             "type": "cloudProperty",
-            "target": "dtmi:azurertos:devkit:hlby5jgib2o",
+            "target": "dtmi:eclipsethreadx:devkit:hlby5jgib2o",
             "path": "Company",
             "value": "Contoso"
         }

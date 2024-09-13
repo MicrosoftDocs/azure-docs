@@ -7,7 +7,7 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: estfan, azla
 ms.topic: reference
-ms.date: 10/09/2023
+ms.date: 01/04/2024
 ---
 
 # Reference for X12 message settings in agreements for Azure Logic Apps

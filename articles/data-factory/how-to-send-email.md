@@ -5,10 +5,8 @@ description: Learn how to send an email with an Azure Data Factory or Azure Syna
 author: ssabat
 ms.author: susabat
 ms.reviewer: jburchel
-ms.service: data-factory
-ms.subservice: tutorials
 ms.topic: tutorial
-ms.date: 07/20/2023
+ms.date: 05/15/2024
 ---
 
 # Send an email with an Azure Data Factory or Azure Synapse pipeline
@@ -111,6 +109,6 @@ make your messages dynamic. For example:  
 The above expressions will return the relevant error messages from a Copy activity failure, which can be redirected then to your Web activity that sends the email. Refer to the
 [Copy activity output properties](copy-activity-monitoring.md) article for more details.
 
-## Next steps
+## Related content
 
 [How to send Teams notifications from a pipeline](how-to-send-notifications-to-teams.md)

@@ -1,15 +1,15 @@
 ---
-title: Azure Notification Hubs Private Link
+title: Azure Notification Hubs Private Link (preview)
 description: Learn how to use the Private Link feature in Azure Notification Hubs. 
 author: sethmanheim
 ms.author: sethm
-ms.service: notification-hubs
-ms.custom: devx-track-azurecli, devx-track-azurepowershell
+ms.date: 02/02/2024
+ms.service: azure-notification-hubs
+ms.custom: devx-track-azurecli
 ms.topic: conceptual
-ms.date: 11/06/2023
 ---
 
-# Use Private Link
+# Use Private Link (preview)
 
 This article describes how to use *Private Link* to restrict access to managing resources in your subscriptions. Private links enable you to access Azure services over a private endpoint in your virtual network. This prevents exposure of the service to the public internet.
 
@@ -17,6 +17,9 @@ This article describes the Private Link setup process using the [Azure portal](h
 
 > [!IMPORTANT]
 > You can enable this feature on tiers, for an additional fee.
+
+> [!NOTE]
+> The ability to use private links with Azure Notification Hubs is currently in preview. If you're interested in using this feature, contact your customer success manager at Microsoft, or create an Azure support ticket.
 
 ## Create a private endpoint along with a new notification hub in the portal
 
@@ -46,101 +49,6 @@ The following procedure creates a private endpoint along with a new notification
 1. Fill in the subscription, resource group, location, and a name for the new private endpoint. Choose a virtual network and subnet. Select **Create**.
 
    :::image type="content" source="media/private-link/create-properties.png" alt-text="Screenshot of private link creation properties." lightbox="media/private-link/create-properties.png":::
-
-## Create a private endpoint using PowerShell
-
-The following example shows how to use PowerShell to create a private endpoint connection to a Notification Hubs namespace. Your private endpoint uses a private IP address in your virtual network.
-
-1. Sign in to Azure via PowerShell and set a subscription:
-
-   ```powershell
-   Login-AzAccount
-   Set-AzContext -SubscriptionId <azure_subscription_id>
-   ```
-
-1. Create a new resource group:
-
-   ```powershell
-   New-AzResourceGroup -Name <resource_group_name> -Location <azure_region>
-   ```
-
-1. Register **Microsoft.NotificationHubs** as a resource provider:
-
-   ```powershell
-   Register-AzResourceProvider -ProviderNamespace Microsoft.NotificationHubs
-   ```
-
-1. Create a new Azure Notification Hubs namespace:
-
-   ```powershell
-   New-AzNotificationHubsNamespace -ResourceGroup <resource_group_name> -Location <azure_region> -Namespace <namespace_name> -SkuTier "Standard"
-   ```
-
-1. Create a new notification hub. First, create a JSON file with the notification hub details. This file is used as an input to the create notification hub PowerShell command. Paste the following content into the JSON file:
-
-   ```json
-   {
-       "ResourceGroup": "resource_group_name",
-       "NamespaceName": "namespace_name",
-       "Location": "azure_region",
-       "Name": "notification_hub_name"
-   }
-   ```
-
-1. Run the following PowerShell command:
-
-   ```powershell
-   New-AzNotificationHub -ResourceGroup <resource_group_name> -Namespace <namespace_name> -InputFile <path_to_json_file>
-   ```
-
-1. Create a virtual network with a subnet:
-
-   ```powershell
-   New-AzVirtualNetwork -ResourceGroup <resource_group_name> -Location <azure_region> -Name <your_VNet_name> -AddressPrefix <address_prefix>
-   Add-AzVirtualNetworkSubnetConfig -VirtualNetwork (Get-AzVirtualNetwork -Name <your_VNet_name> -ResourceGroup <resource_group_name>) -Name <subnet_name> -AddressPrefix <address_prefix>
-   ```
-
-1. Disable virtual network policies:
-
-   ```powershell
-   $net = @{
-    Name = 'myVNet'
-    ResourceGroupName = 'RG'
-   }
-   $vnet = Get-AzVirtualNetwork @net
-
-   $sub = @{
-       Name = <subnet_name>
-       VirtualNetwork = $vnet
-       PrivateEndpointNetworkPoliciesFlag = 'Disabled'
-   }
-   Set-AzVirtualNetworkSubnetConfig @sub
-   ```
-
-1. Add private DNS zones and link them to the virtual network:
-
-   ```powershell
-   New-AzPrivateDnsZone -ResourceGroup <resource_group_name> -Name privatelink.servicebus.windows.net
-   New-AzPrivateDnsZone -ResourceGroup <resource_group_name> -Name privatelink.notificationhub.windows.net
-   
-   New-AzPrivateDnsVirtualNetworkLink -ResourceGroup <resource_group_name> -Name <dns_Zone_Link_Name> -ZoneName "privatelink.servicebus.windows.net" -VirtualNetworkId "/subscriptions/<azure_subscription_id>/resourceGroups/<resource_group_name>/providers/Microsoft.Network/virtualNetworks/<vNet_name>"
-   
-   New-AzPrivateDnsVirtualNetworkLink -ResourceGroup <resource_group_name> -Name <dns_Zone_Link_Name> -ZoneName "privatelink.notificationhub.windows.net" -VirtualNetworkId "/subscriptions/<azure_subscription_id>/resourceGroups/<resource_group_name>/providers/Microsoft.Network/virtualNetworks/<vNet_name>"
-   ```
-
-1. Create a private endpoint:
-
-   ```powershell
-   $plsConnection= New-AzPrivateLinkServiceConnection -Name <private_link_connection_name> -PrivateLinkServiceId '/subscriptions/<azure_subscription_id> /resourceGroups/<resource_group_name>/providers/Microsoft.NotificationHubs/namespaces/<namespace_name>' 
-   
-   New-AzPrivateEndpoint -ResourceGroup <resource_group_name> -Location <azure_region> -Name <private_endpoint_name> -Subnet (Get-AzVirtualNetworkSubnetConfig -Name <subnet_name> -VirtualNetwork (Get-AzVirtualNetwork -Name <vNet_name> -ResourceGroup <resource_group_name>)) -PrivateLinkServiceConnection  $plsConnection
-   ```
-
-1. Show the connection status:
-
-   ```powershell
-   Get-AzPrivateEndpointConnection -ResourceGroup <resource_group_name> -Name <private_endpoint_name>
-   ```
 
 ## Create a private endpoint using CLI
 

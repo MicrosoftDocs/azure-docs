@@ -4,15 +4,17 @@ description: Integrate Azure Blob Storage into your application with Service Con
 author: maud-lv
 ms.author: malev
 ms.service: service-connector
-ms.custom: event-tier1-build-2022
 ms.topic: how-to
-ms.date: 10/25/2023
+ms.date: 02/02/2024
 ---
+
 # Integrate Azure Blob Storage with Service Connector
 
 This page shows the supported authentication types, client types and sample code of Azure Blob Storage using Service Connector. This page also shows default environment variable names and values (or Spring Boot configuration) you get when you create the service connection.
 
 ## Supported compute services
+
+Service Connector can be used to connect the following compute services to Azure Blob Storage:
 
 - Azure App Service
 - Azure Functions
@@ -21,19 +23,19 @@ This page shows the supported authentication types, client types and sample code
 
 ## Supported authentication types and client types
 
-Supported authentication and clients for App Service, Azure Functions, Container Apps and Azure Spring Apps:
+The table below shows which combinations of authentication methods and clients are supported for connecting your compute service to Azure Blob Storage using Service Connector. A “Yes” indicates that the combination is supported, while a “No” indicates that it is not supported.
 
-| Client type        | System-assigned managed identity   | User-assigned managed identity     | Secret / connection string         | Service principal                  |
-| ------------------ | ---------------------------------- | ---------------------------------- | ---------------------------------- | ---------------------------------- |
-| .NET               | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
-| Java               | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
-| Java - Spring Boot |                                    |                                    | ![yes icon](./media/green-check.png) |                                    |
-| Node.js            | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
-| Python             | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
-| Go                 | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
-| None               | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
+| Client type        | System-assigned managed identity | User-assigned managed identity | Secret / connection string | Service principal |
+|--------------------|----------------------------------|--------------------------------|----------------------------|-------------------|
+| .NET               | Yes                              | Yes                            | Yes                        | Yes               |
+| Java               | Yes                              | Yes                            | Yes                        | Yes               |
+| Java - Spring Boot | No                               | No                             | Yes                        | No                |
+| Node.js            | Yes                              | Yes                            | Yes                        | Yes               |
+| Python             | Yes                              | Yes                            | Yes                        | Yes               |
+| Go                 | Yes                              | Yes                            | Yes                        | Yes               |
+| None               | Yes                              | Yes                            | Yes                        | Yes               |
 
----
+This table clearly indicates that all combinations of client types and authentication methods are supported, except for the Java - Spring Boot client type, which only supports the Secret / connection string method. All other client types can use any of the authentication methods to connect to Azure Blob Storage using Service Connector.
 
 ## Default environment variable names or application properties and sample code
 
@@ -67,6 +69,9 @@ Refer to the steps and code below to connect to Azure Blob Storage using a user-
 [!INCLUDE [code sample for blob](./includes/code-blob-me-id.md)]
 
 ### Connection string
+
+> [!WARNING]
+> Microsoft recommends that you use the most secure authentication flow available. The authentication flow described in this procedure requires a very high degree of trust in the application, and carries risks that are not present in other flows. You should only use this flow when other more secure flows, such as managed identities, aren't viable.
 
 For default environment variables and sample code of other authentication type, please choose from beginning of the documentation.
 

@@ -5,7 +5,6 @@ description: Learn how to parameterize a mapping data flow from Azure Data Facto
 author: kromerm
 ms.author: makromer
 ms.reviewer: daperlov
-ms.service: data-factory
 ms.subservice: data-flows
 ms.custom: synapse
 ms.topic: conceptual
@@ -119,6 +118,6 @@ For example, if you wanted to map a string column based upon a parameter `column
 > [!NOTE]
 > In data flow expressions, string interpolation (substituting variables inside of the string) isn't supported. Instead, concatenate the expression into string values. For example, `'string part 1' + $variable + 'string part 2'`
 
-## Next steps
+## Related content
 * [Execute data flow activity](control-flow-execute-data-flow-activity.md)
 * [Control flow expressions](control-flow-expression-language-functions.md)

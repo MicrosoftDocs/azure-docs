@@ -1,14 +1,20 @@
 ---
 title: Outbound traffic on HDInsight on AKS
 description: Learn required outbound traffic on HDInsight on AKS. 
-ms.service: hdinsight-aks
+ms.service: azure-hdinsight-on-aks
 ms.topic: conceptual
-ms.date: 08/29/2023
+ms.date: 03/26/2024
 ---
 
 # Required outbound traffic for HDInsight on AKS
 
+[!INCLUDE [retirement-notice](includes/retirement-notice.md)]
 [!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
+
+
+
+> [!NOTE]
+> HDInsight on AKS uses Azure CNI Overlay network model by default. For more information, see [Azure CNI Overlay networking](/azure/aks/concepts-network-azure-cni-overlay).
 
 This article outlines the networking information to help manage the network policies at enterprise and make necessary changes to the network security groups (NSGs) for smooth functioning of HDInsight on AKS.
 
@@ -19,20 +25,23 @@ You need to configure the following network and application security rules in yo
 
 ## Common traffic
 
+
 |Type| Destination Endpoint              | Protocol | Port | Azure Firewall Rule Type | Use |
 |----|-----------------------------------|----------|------|-----| ----|
-| ServiceTag | AzureCloud.`<Region>` | UDP      | 1194 | Network security rule| Tunneled secure communication between the nodes and the control plane.|
-| ServiceTag | AzureCloud.`<Region>` | TCP      | 9000 | Network security rule|Tunneled secure communication between the nodes and the control plane.|
+| ** ServiceTag | AzureCloud.`<Region>`   | UDP      | 1194 | Network security rule| Tunneled secure communication between the nodes and the control plane.|
+| ** ServiceTag | AzureCloud.`<Region>`   | TCP      | 9000 | Network security rule|Tunneled secure communication between the nodes and the control plane.|
 | FQDN Tag| AzureKubernetesService | HTTPS      | 443 |Application security rule| Required by AKS Service.|
-| Service Tag  | AzureMonitor | TCP      | 443 |Application security rule| Required for integration with Azure Monitor.|
+| Service Tag  | AzureMonitor | TCP      | 443 |Network security rule| Required for integration with Azure Monitor.|
 | FQDN| hiloprodrpacr00.azurecr.io|HTTPS|443|Application security rule| Downloads metadata info of the docker image for setup of HDInsight on AKS and monitoring.|
 | FQDN| *.blob.core.windows.net|HTTPS|443|Application security rule| Monitoring and setup of HDInsight on AKS.|
-| FQDN|graph.microsoft.com|HTTPS|443|Application security rule| Authentication.|
+| FQDN|graph.microsoft.com|HTTPS|443|Application security rule|  Authentication.|
 | FQDN|*.servicebus.windows.net|HTTPS|443|Application security rule| Monitoring.|
 | FQDN|*.table.core.windows.net|HTTPS|443|Application security rule| Monitoring.
 | FQDN|gcs.prod.monitoring.core.windows.net|HTTPS|443|Application security rule| Monitoring.|
-| FQDN|API Server FQDN (available once AKS cluster is created)|TCP|443|Network security rule| Required as the running pods/deployments use it to access the API Server. You can get this information from the AKS cluster running behind the cluster pool. For more information, see [how to get API Server FQDN](secure-traffic-by-firewall-azure-portal.md#get-aks-cluster-details-created-behind-the-cluster-pool) using Azure portal.|
+| ** FQDN|API Server FQDN (available once AKS cluster is created)|TCP|443|Network security rule| Required as the running pods/deployments use it to access the API Server. You can get this information from the AKS cluster running behind the cluster pool. For more information, see [how to get API Server FQDN](secure-traffic-by-firewall-azure-portal.md#get-aks-cluster-details-created-behind-the-cluster-pool) using Azure portal.|
 
+> [!NOTE]
+> ** This configiration isn't required if you enable private AKS. 
 
 ## Cluster specific traffic
 

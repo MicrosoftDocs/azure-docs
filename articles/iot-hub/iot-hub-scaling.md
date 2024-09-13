@@ -6,7 +6,7 @@ author: kgremban
 ms.author: kgremban
 ms.service: iot-hub
 ms.topic: concept-article
-ms.date: 02/09/2023
+ms.date: 04/08/2024
 ms.custom: [amqp, mqtt, 'Role: Cloud Development', 'Role: Operations']
 ---
 
@@ -18,15 +18,21 @@ To decide which IoT Hub tier is right for your solution, ask yourself two questi
 
 **What features do I plan to use?**
 
-Azure IoT Hub offers two tiers, basic and standard, that differ in the number of features they support. If your IoT solution is based around collecting data from devices and analyzing it centrally, then the basic tier is probably right for you. If you want to use more advanced configurations to control IoT devices remotely or distribute some of your workloads onto the devices themselves, then you should consider the standard tier. For a detailed breakdown of which features are included in each tier, continue to [Basic and standard tiers](#basic-and-standard-tiers).
+Azure IoT Hub offers two tiers, basic and standard, that differ in the features that they support. If your IoT solution is based around collecting data from devices and analyzing it centrally, then the basic tier is probably right for you. If you want to use more advanced configurations to control IoT devices remotely or distribute some of your workloads onto the devices themselves, then you should consider the standard tier.
+
+For a detailed breakdown of which features are included in each tier, continue to [Basic and standard tiers](#choose-your-features-basic-and-standard-tiers).
 
 **How much data do I plan to move daily?**
 
-Each IoT Hub tier is available in three sizes, based around how much data throughput they can handle in any given day. These sizes are numerically identified as 1, 2, and 3. For example, each unit of a level 1 IoT hub can handle 400 thousand messages a day, while a level 3 unit can handle 300 million. For more details about the data guidelines, continue to [Tier editions and units](#tier-editions-and-units).
+Each IoT Hub tier is available in three sizes, based around how much data throughput they can handle in a day. These sizes are numerically identified as 1, 2, and 3. The size determines the baseline daily message limit, and then you can scale out an IoT hub by adding *units*. For example, each unit of a level 1 IoT hub can handle 400,000 messages a day. A level 1 IoT hub with five units can handle 2,000,000 messages a day. Or, go up to a level 2 hub where each unit has a 6,000,000 messages daily limit.
 
-## Basic and standard tiers
+For more details about determining your message requirements and limits, continue to [Tier editions and units](#choose-your-size-editions-and-units).
 
-The standard tier of IoT Hub enables all features, and is required for any IoT solutions that want to make use of the bi-directional communication capabilities. The basic tier enables a subset of the features and is intended for IoT solutions that only need uni-directional communication from devices to the cloud. Both tiers offer the same security and authentication features.
+## Choose your features: basic and standard tiers
+
+The basic tier of IoT Hub enables a subset of available features and is intended for IoT solutions that only need uni-directional communication from devices to the cloud. The standard tier of IoT Hub enables all features, and is meant for IoT solutions that want to make use of the bi-directional communication capabilities. The basic tier enables a subset of the features and is intended for IoT solutions that only need uni-directional communication from devices to the cloud.
+
+Both tiers offer the same security and authentication features.
 
 | Capability | Basic tier | Standard tier |
 | ---------- | ---------- | ------------- |
@@ -40,7 +46,7 @@ The standard tier of IoT Hub enables all features, and is required for any IoT s
 | [Device twins](iot-hub-devguide-device-twins.md), [module twins](iot-hub-devguide-module-twins.md), and [device management](iot-hub-device-management-overview.md) |   | Yes |
 | [Device streams (preview)](iot-hub-device-streams-overview.md) |   | Yes |
 | [Azure IoT Edge](../iot-edge/about-iot-edge.md) |   | Yes |
-| [IoT Plug and Play](../iot-develop/overview-iot-plug-and-play.md) |   | Yes |
+| [IoT Plug and Play](../iot/overview-iot-plug-and-play.md) |   | Yes |
 
 IoT Hub also offers a free tier that is meant for testing and evaluation. It has all the capabilities of the standard tier, but includes limited messaging allowances. You can't upgrade from the free tier to either the basic or standard tier.
 
@@ -55,18 +61,18 @@ The difference in supported capabilities between the basic and standard tiers of
 | [Get registry statistics](/rest/api/iothub/service/statistics/get-device-statistics) | Yes | Yes |
 | [Get services statistics](/rest/api/iothub/service/statistics/get-service-statistics) | Yes | Yes |
 | [Query IoT Hub](/rest/api/iothub/iot-hub-resource/get) | Yes | Yes |
-| [Create file upload SAS URI](/rest/api/iothub/device/createfileuploadsasuri) | Yes | Yes |
-| [Receive device bound notification](/rest/api/iothub/device/receivedeviceboundnotification) | Yes | Yes |
-| [Send device event](/rest/api/iothub/device/senddeviceevent) | Yes | Yes |
+| [Create file upload SAS URI](/rest/api/iothub/operation-groups) | Yes | Yes |
+| [Receive device bound notification](/rest/api/iothub/operation-groups) | Yes | Yes |
+| [Send device event](/rest/api/iothub/operation-groups) | Yes | Yes |
 | Send module event | AMQP and MQTT only | AMQP and MQTT only |
-| [Update file upload status](/rest/api/iothub/device/updatefileuploadstatus) | Yes | Yes |
+| [Update file upload status](/rest/api/iothub/iot-hub-resource/update) | Yes | Yes |
 | [Bulk device operation](/rest/api/iothub/service/bulk-registry/update-registry) | Yes, except for IoT Edge capabilities | Yes |
 | [Create import export job](/rest/api/iothub/service/jobs/createimportexportjob), [Get import export job](/rest/api/iothub/service/jobs/getimportexportjob), [Cancel import export job](/rest/api/iothub/service/jobs/cancelimportexportjob) | Yes | Yes |
 | [Get device twin](/rest/api/iothub/service/devices/get-twin), [Update device twin](/rest/api/iothub/service/devices/update-twin) |   | Yes |
 | [Get module twin](/rest/api/iothub/service/modules/get-twin), [Update module twin](/rest/api/iothub/service/modules/update-twin) |   | Yes |
 | [Invoke device method](/rest/api/iothub/service/devices/invoke-method) |   | Yes |
-| [Abandon device bound notification](/rest/api/iothub/device/abandondeviceboundnotification) |   | Yes |
-| [Complete device bound notification](/rest/api/iothub/device/completedeviceboundnotification) |   | Yes |
+| [Abandon device bound notification](/rest/api/iothub/service/devices) |   | Yes |
+| [Complete device bound notification](/rest/api/iothub/service/devices) |   | Yes |
 | [Create job](/rest/api/iothub/service/jobs/create-scheduled-job), [Get job](/rest/api/iothub/service/jobs/get-scheduled-job), [Cancel job](/rest/api/iothub/service/jobs/cancel-scheduled-job) |   | Yes |
 | [Query jobs](/rest/api/iothub/service/jobs/query-scheduled-jobs) |   | Yes |
 
@@ -85,15 +91,17 @@ The partition configuration remains unchanged when you migrate from basic tier t
 > [!NOTE]
 > The free tier does not support upgrading to basic or standard tier.
 
-## Tier editions and units
+## Choose your size: editions and units
 
 Once you've chosen the tier that provides the best features for your solution, determine the size that provides the best data capacity for your solution.
 
 Each IoT Hub tier is available in three sizes, based around how much data throughput they can handle in any given day. These sizes are numerically identified as 1, 2, and 3.
 
-Tiers and sizes are represented as *editions*. A basic tier IoT hub of size 2 is represented by the edition **B2**. Similarly, a standard tier IoT hub of size 3 is represented by the edition **S3**.
+A tier-size pair is represented as an *edition*. A basic tier IoT hub of size 2 is represented by the edition **B2**. Similarly, a standard tier IoT hub of size 3 is represented by the edition **S3**. For more information, includig pricing details, see [IoT Hub edition](https://azure.microsoft.com/pricing/details/iot-hub/)
 
-Only one type of [IoT Hub edition](https://azure.microsoft.com/pricing/details/iot-hub/) within a tier can be chosen per IoT hub. For example, you can create an IoT hub with multiple units of S1. However, you can't create an IoT hub with a mix of units from different editions, such as S1 and B3 or S1 and S2.
+Once you choose an edition for your IoT hub, you can multiple its messaging capacity by increasing the number of *units*.
+
+Each IoT hub can only be one edition. For example, you can create an IoT hub with multiple units of S1. However, you can't create an IoT hub with a mix of units from different editions, such as S1 and B3 or S1 and S2.
 
 The following table shows the capacity for device-to-cloud messages for each size.
 
@@ -116,7 +124,7 @@ After you create your IoT hub, without interrupting your existing operations, yo
 
 For more information, see [How to upgrade your IoT hub](iot-hub-upgrade.md).  
 
-## Auto-scale
+### Auto-scale
 
 If you're approaching the allowed message limit on your IoT hub, you can use these [steps to automatically scale](https://azure.microsoft.com/resources/samples/iot-hub-dotnet-autoscale/) to increment an IoT Hub unit in the same IoT Hub tier.
 

@@ -3,11 +3,10 @@ title: Copy data from OData sources
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to copy data from OData sources to supported sink data stores using a copy activity in an Azure Data Factory or Synapse Analytics pipeline.
 author: jianleishen
-ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 07/13/2023
+ms.date: 01/05/2024
 ms.author: jianleishen
 ---
 # Copy data from an OData source by using Azure Data Factory or Synapse Analytics
@@ -31,7 +30,7 @@ For a list of data stores that are supported as sources/sinks, see [Supported da
 
 Specifically, this OData connector supports:
 
-- OData version 3.0 and 4.0.
+- OData version 2.0, 3.0, and 4.0.
 - Copying data by using one of the following authentications: **Anonymous**, **Basic**, **Windows**, and **Microsoft Entra service principal**.
 
 ## Prerequisites
@@ -358,21 +357,23 @@ Project Online requires user-based OAuth, which is not supported by Azure Data F
 
 1. Use **Postman** to get the access token:
 
-   1. Navigate to **Authorization** tab on the Postman Website.
-   1. In the **Type** box, select **OAuth 2.0**, and in the **Add authorization data to** box, select **Request Headers**.
-   1. Fill the following information in the **Configure New Token** page to get a new access token: 
-      - **Grant type**: Select **Authorization Code**.
-      - **Callback URL**: Enter `https://www.localhost.com/`. 
-      - **Auth URL**: Enter `https://login.microsoftonline.com/common/oauth2/authorize?resource=https://<your tenant name>.sharepoint.com`. Replace `<your tenant name>` with your own tenant name. 
-      - **Access Token URL**: Enter `https://login.microsoftonline.com/common/oauth2/token`.
-      - **Client ID**: Enter your Microsoft Entra service principal ID.
-      - **Client Secret**: Enter your service principal secret.
-      - **Client Authentication**: Select **Send as Basic Auth header**.
-     
-   1. You will be asked to sign in with your username and password.
-   1. Once you get your access token, please copy and save it for the next step.
-   
-    :::image type="content" source="./media/connector-odata/odata-project-online-postman-access-token-inline.png" alt-text="Screenshot of using Postman to get the access token." lightbox="./media/connector-odata/odata-project-online-postman-access-token-expanded.png":::        
+    > [!NOTE]
+    > Postman is a used by some developers for testing remote web APIs. However, there are some security and privacy risks associated with its usage. This article does not endorse the use of Postman for production environments. Please use it at your own risk.
+
+    1. Navigate to **Authorization** tab on the Postman Website.
+    1. In the **Type** box, select **OAuth 2.0**, and in the **Add authorization data to** box, select **Request Headers**.
+    1. Fill the following information in the **Configure New Token** page to get a new access token: 
+       - **Grant type**: Select **Authorization Code**.
+       - **Callback URL**: Enter `https://www.localhost.com/`.
+       - **Auth URL**: Enter `https://login.microsoftonline.com/common/oauth2/authorize?resource=https://<your tenant name>.sharepoint.com`. Replace `<your tenant name>` with your own tenant name. 
+       - **Access Token URL**: Enter `https://login.microsoftonline.com/common/oauth2/token`.
+       - **Client ID**: Enter your Microsoft Entra service principal ID.
+       - **Client Secret**: Enter your service principal secret.
+       - **Client Authentication**: Select **Send as Basic Auth header**.
+    1. You will be asked to sign in with your username and password.
+    1. Once you get your access token, please copy and save it for the next step.
+
+    :::image type="content" source="./media/connector-odata/odata-project-online-postman-access-token-inline.png" alt-text="Screenshot of using Postman to get the access token." lightbox="./media/connector-odata/odata-project-online-postman-access-token-expanded.png":::
 
 1. Create the OData linked service:
     - **Service URL**: Enter `https://<your tenant name>.sharepoint.com/sites/pwa/_api/Projectdata`. Replace `<your tenant name>` with your own tenant name. 
@@ -396,6 +397,6 @@ Project Online requires user-based OAuth, which is not supported by Azure Data F
 
 To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
 
-## Next steps
+## Related content
 
 For a list of data stores that Copy Activity supports as sources and sinks, see [Supported data stores and formats](copy-activity-overview.md#supported-data-stores-and-formats).

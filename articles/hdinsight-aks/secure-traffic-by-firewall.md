@@ -1,15 +1,19 @@
 ---
 title: Use firewall to restrict outbound traffic on HDInsight on AKS using Azure CLI 
 description: Learn how to secure traffic using firewall on HDInsight on AKS using Azure CLI
-ms.service: hdinsight-aks
+ms.service: azure-hdinsight-on-aks
 ms.custom: devx-track-azurecli
 ms.topic: how-to
-ms.date: 08/3/2023
+ms.date: 02/19/2024
 ---
 
 # Use firewall to restrict outbound traffic using Azure CLI
 
+[!INCLUDE [retirement-notice](includes/retirement-notice.md)]
 [!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
+
+
+
 
 When an enterprise wants to use their own virtual network for the cluster deployments, securing the traffic of the virtual network becomes important.
 This article provides the steps to secure outbound traffic from your HDInsight on AKS cluster via Azure Firewall using [Azure CLI](/azure/cloud-shell/quickstart?tabs=azurecli).
@@ -73,7 +77,7 @@ FWROUTE_NAME_INTERNET="${PREFIX}-fwinternet"
       ```
       > [!Important]
       > 1. If you add NSG in subnet `HDIAKS_SUBNET_NAME`, you need to add certain outbound and inbound rules manually. Follow [use NSG to restrict the traffic](./secure-traffic-by-nsg.md).
-      > 1. Don't associate subnet `HDIAKS_SUBNET_NAME` with a route table because HDInsight on AKS creates cluster pool with default outbound type and can't create the cluster pool in a subnet already associated with a route table.
+      > 1. By default, route table will not be associated with subnet. If required, user has to create a route table and associate it with the cluster pool.
 
 ## Create HDInsight on AKS cluster pool using Azure portal
 
@@ -83,9 +87,9 @@ FWROUTE_NAME_INTERNET="${PREFIX}-fwinternet"
     
      :::image type="content" source="./media/secure-traffic-by-firewall/security-tab.png" alt-text="Diagram showing the security tab." border="true" lightbox="./media/secure-traffic-by-firewall/security-tab.png":::
     
-  1. When HDInsight on AKS cluster pool is created, you can find a route table in subnet `HDIAKS_SUBNET_NAME`.
+  1. Create a route table.
     
-     :::image type="content" source="./media/secure-traffic-by-firewall/route-table.png" alt-text="Diagram showing the route table." border="true" lightbox="./media/secure-traffic-by-firewall/route-table.png":::
+     Create a route table and associate it with the cluster pool. For more information, see [create a route table](../virtual-network/manage-route-table.yml#create-a-route-table).
 
 ### Get AKS cluster details created behind the cluster pool
 
@@ -168,22 +172,11 @@ FWROUTE_NAME_INTERNET="${PREFIX}-fwinternet"
 
 ### Create route in the route table to redirect the traffic to firewall
 
-1.	Get the route table associated with HDInsight on AKS cluster pool.
-   
-    ```azurecli
-    ROUTE_TABLE_ID=$(az network vnet subnet show --name $HDIAKS_SUBNET_NAME --vnet-name $VNET_NAME --resource-group $RG --query routeTable.id -o tsv)
-    
-    ROUTE_TABLE_NAME=$(az network route-table show --ids $ROUTE_TABLE_ID --query 'name' -o tsv)
-    ```
-1. Create the route.
-    ```azurecli
-    az network route-table route create -g $AKS_MANAGED_RG --name $FWROUTE_NAME --route-table-name $ROUTE_TABLE_NAME --address-prefix 0.0.0.0/0 --next-hop-type VirtualAppliance --next-hop-ip-address $FWPRIVATE_IP
-    
-    az network route-table route create -g $AKS_MANAGED_RG --name $FWROUTE_NAME_INTERNET --route-table-name $ROUTE_TABLE_NAME --address-prefix $FWPUBLIC_IP/32 --next-hop-type Internet
-   ```
+Create a route table to be associated to HDInsight on AKS cluster pool. For more information, see [create route table commands](../virtual-network/manage-route-table.yml#create-route-table---commands).
+
 ## Create cluster
  
-In the previous steps, we have routed the traffic to firewall.
+In the previous steps, we routed network traffic to firewall.
 
 The following steps provide details about the specific network and application rules needed by each cluster type. You can refer to the cluster creation pages for creating [Apache Flink](./flink/flink-create-cluster-portal.md), [Trino](./trino/trino-create-cluster.md), and [Apache Spark](./spark/hdinsight-on-aks-spark-overview.md) clusters based on your need.
 
@@ -227,7 +220,7 @@ The following steps provide details about the specific network and application r
     az network firewall application-rule create -g $RG -f $FWNAME --collection-name 'aksfwar' -n 'dfs' --source-addresses '*' --protocols 'https=443' --target-fqdns "*.dfs.core.windows.net"
     ```
   
-   **Change the `Sql.<Region> `in the following syntax to your region as per your requirement. For example: `Sql.EastUS`**
+   **Change the `Sql.<Region>` in the following syntax to your region as per your requirement. For example: `Sql.EastUS`**
 
    ```azurecli
     az network firewall network-rule create -g $RG -f $FWNAME --collection-name 'aksfwnr' -n 'mysql' --protocols 'TCP' --source-addresses '*' --destination-addresses "Sql.<Region>" --destination-ports '11000-11999'
@@ -245,7 +238,7 @@ The following steps provide details about the specific network and application r
   az network route-table route create -g $AKS_MANAGED_RG --name clientip --route-table-name $ROUTE_TABLE_NAME --address-prefix {Client_IPs} --next-hop-type Internet
   ```
 
-  If you can't reach the cluster and have configured NSG, follow [use NSG to restrict the traffic](./secure-traffic-by-nsg.md) to allow the traffic.
+  If you can't reach the cluster after having configured NSG, follow [use NSG to restrict the traffic](./secure-traffic-by-nsg.md) to allow the traffic.
 
 > [!TIP]
 > If you want to allow more traffic, you can configure it over the firewall.

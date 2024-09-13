@@ -4,11 +4,9 @@ description: Learn how to use Hadoop Streaming Activity in Azure Data Factory or
 titleSuffix: Azure Data Factory & Azure Synapse
 author: nabhishek
 ms.author: abnarain
-ms.service: data-factory
-ms.subservice: tutorials
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 08/10/2023
+ms.date: 05/15/2024
 ---
 
 # Transform data using Hadoop Streaming activity in Azure Data Factory or Synapse Analytics
@@ -92,7 +90,7 @@ To use an HDInsight Streaming activity to a pipeline, complete the following ste
 | arguments         | Specifies an array of arguments for a Hadoop job. The arguments are passed as command-line arguments to each task. | No       |
 | defines           | Specify parameters as key/value pairs for referencing within the Hive script. | No       | 
 
-## Next steps
+## Related content
 See the following articles that explain how to transform data in other ways: 
 
 * [U-SQL activity](transform-data-using-data-lake-analytics.md)

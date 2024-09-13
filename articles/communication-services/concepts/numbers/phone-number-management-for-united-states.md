@@ -43,14 +43,22 @@ More details on eligible subscription types are as follows:
 ## Azure subscription billing locations where United States phone numbers are available
 | Country/Region |
 | :---------- |
+|Australia|
 |Canada|
 |Denmark|
+|France|
+|Germany|
 |Ireland|
 |Italy|
+|Japan|
+|Netherlands|
 |Puerto Rico|
+|Spain|
 |Sweden|
 |United Kingdom|
 |United States|
+
+[!INCLUDE [Azure Prepayment](../../includes/azure-prepayment.md)]
 
 ## Find information about other countries/regions
 

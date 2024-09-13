@@ -1,8 +1,8 @@
 ---
-title: Azure Business Continuity center support matrix
+title: Azure Business Continuity Center support matrix
 description: Provides a summary of support settings and limitations for the Azure Business Continuity center service.
-ms.topic: conceptual
-ms.date: 11/15/2023
+ms.topic: reference
+ms.date: 09/11/2024
 ms.custom:
   - references_regions
   - ignite-2023
@@ -11,18 +11,15 @@ author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
 
-# Support matrix for Azure Business Continuity center (preview)
+# Support matrix for Azure Business Continuity Center (preview)
 
 This article describes supportable scenarios and limitations.
 
-You can use [Azure Business Continuity center](business-continuity-center-overview.md), a cloud-native unified business continuity and disaster recovery (BCDR) management platform in Azure to manage your protection estate across solutions and environments. This helps enterprises to govern, monitor, operate, and analyze backups and replication at scale. This article summarizes the solutions and scenarios that ABC center supports for each workload type.
+You can use [Azure Business Continuity Center](business-continuity-center-overview.md), a cloud-native unified business continuity and disaster recovery (BCDR) management platform in Azure to manage your protection estate across solutions and environments. This solution helps enterprises to govern, monitor, operate, and analyze backups and replication at scale. This article summarizes the solutions and scenarios that ABC center supports for each workload type.
 
 ## Supported regions
 
-Azure Business Continuity center currently supports the following region: West Central US.
-
->[!Note]
->To manage Azure resources using Azure Business Continuity center in other regions, write to us at [ABCRegionExpansion@microsoft.com](mailto:ABCRegionExpansion@microsoft.com).
+Azure Business Continuity Center supports all Azure regions.
 
 ## Supported solutions and datasources
 
@@ -41,7 +38,7 @@ The following table lists all supported scenarios:
 | --- | --- | --- | --- |
 | Monitoring | View all backup and site recovery jobs. | All Solutions and datasource types from above table. | - Seven days’ worth of jobs available out of the box. <br><br> - Each filter/drop-down supports a maximum of 1000 items. Hence, if you want to filter the grid for a particular vault, there might be scenarios where you might not see the desired vault if you have more than 1000 vaults. In these cases, choosing the ‘All’ option in filter helps you aggregate data across your entire set of subscriptions and vaults that you have access to. |
 | Monitoring | View Azure Monitor alerts at scale | **Azure Backup**: <br><br> - Azure Virtual Machine <br> - Azure Database for PostgreSQL server <br> - SQL in Azure VM <br> - SAP HANA in Azure VM <br> - Azure Files <br> - Azure Blobs <br> - Azure Disks <br><br> **Azure Site Recovery**: <br><br> - Azure to Azure disaster recovery <br> - VMware and Physical to Azure disaster recovery | See [Alerts documentation](/azure/backup/backup-azure-monitoring-built-in-monitor#azure-monitor-alerts-for-azure-backup). |
-| Monitoring | View Azure Backup metrics and write metric alert rules. | **Azure Backup**: <br><br> - Azure Virtual Machine <br> - SQL in Azure VM <br> - SAP HANA in Azure VM <br> - Azure Files <br> - Azure Blobs (Restore Health Events metric only) <br> - Azure Kubernetes Services | See [Metrics documentation](/azure/backup/metrics-overview#supported-scenarios). |
+| Monitoring | View the Azure Backup metrics and write metric alert rules. | **Azure Backup**: <br><br> - Azure Virtual Machine <br> - SQL in Azure VM <br> - SAP HANA in Azure VM <br> - Azure Files <br> - Azure Blobs (Restore Health Events metric only) <br> - Azure Kubernetes Services | See [Metrics documentation](/azure/backup/metrics-overview#supported-scenarios). |
 | Security | View security level | Only for the Azure Backup supported datasources given in the above table, and vaults. |        |
 | Governance | View resources not configured for protection. | **Azure Backup**: <br><br> - Azure VM backup <br> - Azure Storage account (with no file or blobs protected) <br> - Azure Managed Disks backup <br> - Azure Database for PostgreSQL Server backup <br> - Azure Kubernetes services <br><br> **Azure Site Recovery**: <br><br> - Azure to Azure disaster recovery |            |
 | Governance | View all protected items across solutions. | All solutions and datasource types as given in the above table. | Same as previous. |
@@ -67,11 +64,11 @@ Action | Restore. | Only for Azure Backup supported datasources given in the abo
 
 ## Unsupported scenarios
 
-This table lists the solutions and scenarios that are unsupported in Azure Business Continuity center for each workload type:
+This table lists the solutions and scenarios that are unsupported in Azure Business Continuity Center for each workload type:
 
 | Category | Scenario |
 | --- | --- |
-| Monitor | Azure Site Recovery replication and failover health are not yet available in Azure Business Continuity center. You can continue to access these views via the individual vault pane. |
+| Monitor | Azure Site Recovery replication and failover health are not yet available in Azure Business Continuity Center. You can continue to access these views via the individual vault pane. |
 | Monitor | Metrics view is not yet supported for Azure Database for Azure Backup protected items of Azure Disks, Azure Database for PostgreSQL and for Azure Site Recovery protected items. |
 | Govern | Protectable resources view currently only shows Azure resources. It doesn't show hosted items in Azure resources like SQL databases in Azure Virtual machines, SAP HANA databases in Azure Virtual machines, Blobs and files in Azure Storage accounts. |
 | Actions | Undelete action is not available for Azure Backup protected items of Azure Virtual machine, SQL in Azure Virtual machine, SAP in Azure Virtual machine, and Files (Azure Storage account). |
@@ -85,4 +82,4 @@ This table lists the solutions and scenarios that are unsupported in Azure Busin
 
 ## Next steps
 
-- [About Azure Business Continuity center (preview)](business-continuity-center-overview.md).
+- [About Azure Business Continuity Center (preview)](business-continuity-center-overview.md).

@@ -3,11 +3,10 @@ title: Troubleshoot common deployment errors
 titleSuffix: Azure Load Balancer
 description: Describes how to resolve common errors when you deploy Azure Load Balancers.
 services: load-balancer
-tags: top-support-issue
 author: mbender-ms
-ms.service: load-balancer
+ms.service: azure-load-balancer
 ms.topic: troubleshooting
-ms.date: 04/20/2023
+ms.date: 06/26/2024
 ms.author: mbender
 ms.custom: template-concept, engagement-fy23
 ---

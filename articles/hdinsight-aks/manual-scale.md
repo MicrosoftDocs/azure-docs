@@ -1,14 +1,17 @@
 ---
 title: Manual scale
 description: How to manually scale in HDInsight on AKS.
-ms.service: hdinsight-aks
+ms.service: azure-hdinsight-on-aks
 ms.topic: how-to
-ms.date: 08/29/2023
+ms.date: 02/06/2024
 ---
 
 # Manual scale
 
+[!INCLUDE [retirement-notice](includes/retirement-notice.md)]
 [!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
+
+
 
 HDInsight on AKS provides elasticity with options to scale up and scale down the number of cluster nodes. This elasticity works to help increase resource utilization and improve cost efficiency.
 
@@ -51,7 +54,7 @@ If you **remove nodes** (scale down) from an HDInsight on AKS cluster:
 |Question|Answer|
 | -------- | -------- |
 |What are the minimum nodes that I can add/remove during scale operations?|One Node.|
-|What's the maximum limit to scale up an HDInsight on AKS Trino cluster?|100 nodes (in public preview).|
+|How many nodes are supported by HDInsight on AKS cluster?|500 nodes per cluster (in public preview).|
 |How do I manually scale down my cluster?|In the ARM request, update `computeProfile.count` or follow the steps mentioned to scale down using Azure portal.|
 |Can I add custom script actions to a cluster during manual scale?|Script actions are applicable for Apache Spark cluster type|
 |How do I get logs for manual scale failures for the cluster nodes?|Logs are available in Log analytics module, refer the [Azure Monitor Integration](./how-to-azure-monitor-integration.md).|

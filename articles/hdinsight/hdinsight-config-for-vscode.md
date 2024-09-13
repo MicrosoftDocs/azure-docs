@@ -1,7 +1,7 @@
 ---
 title: Azure HDInsight configuration settings reference
 description: Introduce the configuration of Azure HDInsight extension.
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: how-to
 ms.date: 10/16/2023
 ms.custom:
@@ -20,7 +20,7 @@ For general information about working with settings in VS Code, refer to [User a
 3. Search **Set Configuration**.
 4. Expand **Extensions** in the left directory, and select **HDInsight configuration**.
 
- ![hdi config image](./media/HDInsight-config-for-vscode/HDInsight-config-for-vscode.png)
+ :::image type="content" border="true" source="./media/HDInsight-config-for-vscode/HDInsight-config-for-vscode.png" alt-text="hdi config image.":::
 
 ## General settings   
 

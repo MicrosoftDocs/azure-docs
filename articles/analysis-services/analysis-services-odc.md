@@ -1,11 +1,11 @@
 ---
 title: Connect to Azure Analysis Services with an .odc file | Microsoft Docs
 description: Learn how to create an Office Data Connection file to connect to and get data from an Analysis Services server in Azure.
-author: minewiskan
+author: kfollis
 ms.service: analysis-services
 ms.topic: conceptual
 ms.date: 04/27/2021
-ms.author: owend
+ms.author: kfollis
 ms.reviewer: minewiskan
 
 ---

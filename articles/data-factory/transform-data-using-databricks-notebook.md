@@ -1,12 +1,9 @@
 ---
 title: Run a Databricks Notebook with the activity
 description: "Learn how you can use the Databricks Notebook Activity in an Azure data factory to run a Databricks notebook against the databricks jobs cluster."
-ms.service: data-factory
-ms.subservice: tutorials
 ms.topic: tutorial
 ms.author: abnarain
 author: nabhishek
-ms.custom: seo-lt-2019
 ms.date: 08/14/2023
 ---
 
@@ -72,7 +69,7 @@ For an eleven-minute introduction and demonstration of this feature, watch the f
 
 1. After the creation is complete, select **Go to resource** to navigate to the **Data Factory** page. Select the **Open Azure Data Factory Studio** tile to start the Azure Data Factory user interface (UI) application on a separate browser tab.
 
-    :::image type="content" source="./media/doc-common-process/data-factory-home-page.png" alt-text="Screenshot showing the home page for the Azure Data Factory, with the Open Azure Data Factory Studio tile.":::
+    :::image type="content" source="~/reusable-content/ce-skilling/azure/media/data-factory/data-factory-home-page.png" alt-text="Screenshot showing the home page for the Azure Data Factory, with the Open Azure Data Factory Studio tile.":::
 
 ## Create linked services
 
@@ -217,7 +214,7 @@ You can click on the **Job name** and navigate to see further details. On succes
 
 :::image type="content" source="media/transform-data-using-databricks-notebook/databricks-output.png" alt-text="Screenshot showing how to view the run details and output."::: 
 
-## Next steps
+## Related content
 
 The pipeline in this sample triggers a Databricks Notebook activity and passes a parameter to it. You learned how to:
 

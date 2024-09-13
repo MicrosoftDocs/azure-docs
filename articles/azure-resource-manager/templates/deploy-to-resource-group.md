@@ -1,9 +1,9 @@
 ---
 title: Deploy resources to resource groups
 description: Describes how to deploy resources in an Azure Resource Manager template. It shows how to target more than one resource group.
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: devx-track-arm-template
-ms.date: 08/05/2022
+ms.date: 03/26/2024
 ---
 
 # Resource group deployments with ARM templates
@@ -84,6 +84,8 @@ When deploying to a resource group, you can deploy resources to:
 * other resource groups in the same subscription or other subscriptions
 * any subscription in the tenant
 * the tenant for the resource group
+
+[!INCLUDE [Scope transitions](../../../includes/resource-manager-scope-transition.md)]
 
 An [extension resource](scope-extension-resources.md) can be scoped to a target that is different than the deployment target.
 

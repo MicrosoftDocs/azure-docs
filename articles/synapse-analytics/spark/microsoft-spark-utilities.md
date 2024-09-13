@@ -1,14 +1,12 @@
 ---
 title: Introduction to Microsoft Spark utilities
 description: "Tutorial: MSSparkutils in Azure Synapse Analytics notebooks"
-author: ruixinxu
-services: synapse-analytics
-ms.service: synapse-analytics
+author: JeneZhang
+ms.service: azure-synapse-analytics
 ms.topic: reference
 ms.subservice: spark
 ms.date: 09/10/2020
-ms.author: ruxu
-ms.reviewer:
+ms.author: jingzh
 zone_pivot_groups: programming-languages-spark-all-minus-sql
 ms.custom: subject-rbac-steps, devx-track-python
 ---
@@ -33,7 +31,7 @@ Follow these steps to make sure your Microsoft Entra ID and workspace MSI have a
 
 1. Select **Add** > **Add role assignment** to open the Add role assignment page.
 
-1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
+1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.yml).
 
     | Setting | Value |
     | --- | --- |
@@ -44,7 +42,7 @@ Follow these steps to make sure your Microsoft Entra ID and workspace MSI have a
     > [!NOTE]
     > The managed identity name is also the workspace name.
 
-    ![Add role assignment page in Azure portal.](../../../includes/role-based-access-control/media/add-role-assignment-page.png)
+    ![Add role assignment page in Azure portal.](~/reusable-content/ce-skilling/azure/media/role-based-access-control/add-role-assignment-page.png)
 
 1. Select **Save**.
 
@@ -392,6 +390,17 @@ mssparkutils.fs.cp('source file or directory', 'destination file or directory', 
 ```
 ::: zone-end
 
+### Performant copy file
+
+This method provides a faster way of copying or moving files, especially large volumes of data.
+
+```python
+mssparkutils.fs.fastcp('source file or directory', 'destination file or directory', True) # Set the third parameter as True to copy all files and directories recursively
+```
+
+> [!NOTE]
+> The method only supports in [Azure Synapse Runtime for Apache Spark 3.3](./apache-spark-33-runtime.md) and [Azure Synapse Runtime for Apache Spark 3.4](./apache-spark-34-runtime.md).
+
 ### Preview file content
 
 Returns up to the first 'maxBytes' bytes of the given file as a String encoded in UTF-8.
@@ -588,6 +597,9 @@ run(path: String, timeoutSeconds: int, arguments: Map): String -> This method ru
 
 ```
 
+> [!NOTE]
+> Notebook utilities aren't applicable for Apache Spark job definitions (SJD).
+
 ### Reference a notebook
 Reference a notebook and returns its exit value. You can run nesting function calls in a notebook interactively or in a pipeline. The notebook being referenced will run on the Spark pool of which notebook calls this function.
 
@@ -606,6 +618,75 @@ mssparkutils.notebook.run("folder/Sample1", 90, {"input": 20 })
 After the run finished, you will see a snapshot link named '**View notebook run: *Notebook Name***'  shown in the cell output, you can click the link to see the snapshot for this specific run.
 
 ![Screenshot of a snap link python](./media/microsoft-spark-utilities/spark-utilities-run-notebook-snap-link-sample-python.png)
+
+### Reference run multiple notebooks in parallel
+
+The method `mssparkutils.notebook.runMultiple()` allows you to run multiple notebooks in parallel or with a predefined topological structure. The API is using a multi-thread implementation mechanism within a spark session, which means the compute resources are shared by the reference notebook runs.
+
+With `mssparkutils.notebook.runMultiple()`, you can:
+
+- Execute multiple notebooks simultaneously, without waiting for each one to finish.
+
+- Specify the dependencies and order of execution for your notebooks, using a simple JSON format.
+
+- Optimize the use of Spark compute resources and reduce the cost of your Synapse projects.
+
+- View the Snapshots of each notebook run record in the output, and debug/monitor your notebook tasks conveniently.
+
+- Get the exit value of each executive activity and use them in downstream tasks.
+
+You can also try to run the mssparkutils.notebook.help("runMultiple") to find the example and detailed usage.
+
+Here's a simple example of running a list of notebooks in parallel using this method:
+
+```python
+
+mssparkutils.notebook.runMultiple(["NotebookSimple", "NotebookSimple2"])
+
+```
+
+The execution result from the root notebook is as follows:
+
+:::image type="content" source="media\microsoft-spark-utilities\spark-utilities-run-notebook-list.png" alt-text="Screenshot of reference a list of notebooks." lightbox="media\microsoft-spark-utilities\spark-utilities-run-notebook-list.png":::
+
+The following is an example of running notebooks with topological structure using `mssparkutils.notebook.runMultiple()`. Use this method to easily orchestrate notebooks through a code experience.
+
+```python
+# run multiple notebooks with parameters
+DAG = {
+    "activities": [
+        {
+            "name": "NotebookSimple", # activity name, must be unique
+            "path": "NotebookSimple", # notebook path
+            "timeoutPerCellInSeconds": 90, # max timeout for each cell, default to 90 seconds
+            "args": {"p1": "changed value", "p2": 100}, # notebook parameters
+        },
+        {
+            "name": "NotebookSimple2",
+            "path": "NotebookSimple2",
+            "timeoutPerCellInSeconds": 120,
+            "args": {"p1": "changed value 2", "p2": 200}
+        },
+        {
+            "name": "NotebookSimple2.2",
+            "path": "NotebookSimple2",
+            "timeoutPerCellInSeconds": 120,
+            "args": {"p1": "changed value 3", "p2": 300},
+            "retry": 1,
+            "retryIntervalInSeconds": 10,
+            "dependencies": ["NotebookSimple"] # list of activity names that this activity depends on
+        }
+    ]
+}
+mssparkutils.notebook.runMultiple(DAG)
+
+```
+
+> [!NOTE]
+>
+> - The method only supports in [Azure Synapse Runtime for Apache Spark 3.3](./apache-spark-33-runtime.md) and [Azure Synapse Runtime for Apache Spark 3.4](./apache-spark-34-runtime.md).
+> - The parallelism degree of the multiple notebook run is restricted to the total available compute resource of a Spark session.
+
 
 ### Exit a notebook
 Exits a notebook with a value. You can run nesting function calls in a notebook interactively or in a pipeline.
@@ -1542,6 +1623,22 @@ mssparkutils.session.stop()
 > [!NOTE]
 > We don't recommend call language built-in APIs like `sys.exit` in Scala or `sys.exit()` in Python in your code, because such APIs just
 > kill the interpreter process, leaving Spark session alive and resources not released.
+
+## Package Dependencies
+
+If you want to develop notebooks or jobs locally and need to reference the relevant packages for compilation/IDE hints, you can use the following packages.
+
+:::zone pivot = "programming-language-python"
+[PyPI package](https://pypi.org/project/dummy-notebookutils/)
+::: zone-end
+
+:::zone pivot = "programming-language-r"
+[Cran package](https://cran.r-project.org/web/packages/notebookutils/index.html)
+::: zone-end
+
+:::zone pivot = "programming-language-scala"
+[Maven dependencies](https://mvnrepository.com/artifact/com.microsoft.azure.synapse/synapseutils)
+::: zone-end
 
 ## Next steps
 

@@ -4,8 +4,8 @@ description: Lists Azure Policy Regulatory Compliance controls available for Azu
 ms.topic: sample
 author: tejaswikolli-web
 ms.author: tejaswikolli
-ms.date: 11/21/2023
-ms.service: container-registry
+ms.date: 02/06/2024
+ms.service: azure-container-registry
 ms.custom: subject-policy-compliancecontrols
 ---
 # Azure Policy Regulatory Compliance controls for Azure Container Registry

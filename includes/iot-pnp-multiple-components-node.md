@@ -31,7 +31,7 @@ node --version
 
 ## Download the code
 
-If you completed [Tutorial: Connect a sample IoT Plug and Play device application running on Windows to IoT Hub (Node)](../articles/iot-develop/tutorial-connect-device.md), you've already cloned the repository.
+If you completed [Tutorial: Connect a sample IoT Plug and Play device application running on Windows to IoT Hub (Node)](../articles/iot/tutorial-connect-device.md), you've already cloned the repository.
 
 Open a command prompt in the directory of your choice. Execute the following command to clone the [Microsoft Azure IoT SDK for Node.js](https://github.com/Azure/azure-iot-sdk-node) GitHub repository into this location:
 
@@ -57,7 +57,7 @@ Navigate to the *azure-iot-sdk-node/device/samples/javascript* folder.
 
 The *azure-iot-sdk-node/device/samples/javascript* folder contains the sample code for the IoT Plug and Play temperature controller device.
 
-The code in the *pnp_temperature_controller.js* file implements an IoT Plug and Play temperature controller device. The model this sample implements uses [multiple components](../articles/iot-develop/concepts-modeling-guide.md). The [Digital Twins Definition Language (DTDL) V2 model file for the temperature device](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/TemperatureController.json) defines the telemetry, properties, and commands the device implements.
+The code in the *pnp_temperature_controller.js* file implements an IoT Plug and Play temperature controller device. The model this sample implements uses [multiple components](../articles/iot/concepts-modeling-guide.md). The [Digital Twins Definition Language (DTDL) model file for the temperature device](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/TemperatureController.json) defines the telemetry, properties, and commands the device implements.
 
 Open the *pnp_temperature_controller.js* file in a code editor of your choice. The sample code shows how to:
 

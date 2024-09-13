@@ -48,7 +48,7 @@ Configuration settings for [Durable Functions](../articles/azure-functions/durab
         "publishRetryInterval": "00:00:30",
         "publishEventTypes": [
           "Started",
-          "Pending",
+          "Completed",
           "Failed",
           "Terminated"
         ]

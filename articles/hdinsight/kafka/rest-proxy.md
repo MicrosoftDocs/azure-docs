@@ -1,10 +1,10 @@
 ---
 title: Apache Kafka REST proxy - Azure HDInsight
 description: Learn how to do Apache Kafka operations using a Kafka REST proxy on Azure HDInsight.
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: how-to
 ms.custom:
-ms.date: 02/17/2023
+ms.date: 04/09/2024
 ---
 
 # Interact with Apache Kafka clusters in Azure HDInsight using a REST proxy
@@ -17,7 +17,7 @@ For operations supported by the Kafka REST API, see [HDInsight Kafka REST Proxy 
 
 ## Background
 
-:::image type="content" source="./media/rest-proxy/rest-proxy-architecture.png" alt-text="Kafka REST proxy design" border="false":::
+:::image type="content" source="./media/rest-proxy/rest-proxy-architecture.png" alt-text="Kafka REST proxy design." border="false":::
 
 For the full specification of operations supported by the API, see [Apache Kafka REST Proxy API](/rest/api/hdinsight-kafka-rest-proxy).
 
@@ -44,10 +44,10 @@ If you bring your own VNet and control network traffic with network security gro
 1. Create a Microsoft Entra security group. Add the application that you've registered with Microsoft Entra ID to the security group as a **member** of the group. This security group will be used to control which applications allow to interact with the REST proxy. For more information on creating Microsoft Entra groups, see [Create a basic group and add members using Microsoft Entra ID](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md).
 
     Validate the group is of type **Security**.
-    :::image type="content" source="./media/rest-proxy/rest-proxy-group.png" alt-text="Security Group" border="true":::
+    :::image type="content" source="./media/rest-proxy/rest-proxy-group.png" alt-text="Security Group." border="true":::
 
     Validate that application is member of Group.
-    :::image type="content" source="./media/rest-proxy/rest-proxy-membergroup.png" alt-text="Check Membership" border="true":::
+    :::image type="content" source="./media/rest-proxy/rest-proxy-membergroup.png" alt-text="Check Membership." border="true":::
 
 ## Create a Kafka cluster with REST proxy enabled
 
@@ -55,17 +55,17 @@ The steps use the Azure portal. For an example using Azure CLI, see [Create Apac
 
 1. During the Kafka cluster creation workflow, in the **Security + networking** tab, check the **Enable Kafka REST proxy** option.
 
-     :::image type="content" source="./media/rest-proxy/azure-portal-cluster-security-networking-kafka-rest.png" alt-text="Screenshot shows the Create H D Insight cluster page with Security + networking selected." border="true":::
+     :::image type="content" source="./media/rest-proxy/azure-portal-cluster-security-networking-kafka-rest.png" alt-text="Screenshot shows the Create HDInsight cluster page with Security + networking selected." border="true":::
 
 1. Click **Select Security Group**. From the list of security groups, select the security group that you want to have access to the REST proxy. You can use the search box to find the appropriate security group. Click the **Select** button at the bottom.
 
-     :::image type="content" source="./media/rest-proxy/azure-portal-cluster-security-networking-kafka-rest2.png" alt-text="Screenshot shows the Create H D Insight cluster page with the option to select a security group." border="true":::
+     :::image type="content" source="./media/rest-proxy/azure-portal-cluster-security-networking-kafka-rest2.png" alt-text="Screenshot shows the Create HDInsight cluster page with the option to select a security group." border="true":::
 
 1. Complete the remaining steps to create your cluster as described in [Create Apache Kafka cluster in Azure HDInsight using Azure portal](./apache-kafka-get-started.md).
 
 1. Once the cluster is created, go to the cluster properties to record the Kafka REST proxy URL.
 
-     :::image type="content" source="./media/rest-proxy/apache-kafka-rest-proxy-view-proxy-url.png" alt-text="view REST proxy URL" border="true":::
+     :::image type="content" source="./media/rest-proxy/apache-kafka-rest-proxy-view-proxy-url.png" alt-text="view REST proxy URL." border="true":::
 
 ## Client application sample
 

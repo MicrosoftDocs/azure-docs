@@ -6,10 +6,8 @@ author: MartinPankraz
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: how-to
-ms.workload: infrastructure-services
 ms.date: 07/19/2022
 ms.author: mapankra
-
 ---
 # Expose SAP legacy middleware securely with Azure PaaS
 
@@ -126,7 +124,7 @@ For insights into Network File System (NFS) file shares as an alternative to Blo
 
 SAP RISE deployments are technically identical to the scenarios described earlier, with the exception that SAP itself manages the target SAP workload. The described concepts can be applied here.
 
-The following diagrams show two setups as examples. For more information, see the [SAP RISE reference guide](rise-integration.md#virtual-network-peering-with-sap-riseecs).
+The following diagrams show two setups as examples. For more information, see the [SAP RISE reference guide](rise-integration-network.md#virtual-network-peering-with-sap-riseecs).
 
 > [!IMPORTANT]
 > Contact SAP to ensure that communication ports for your scenario are allowed and opened in NSGs.
@@ -170,11 +168,11 @@ To determine which integration scenarios described in this article best fit your
 
 - [Azure Firewall](../../firewall/features.md) for non-HTTP integrations
 
-- [High availability](../../virtual-machines/workloads/sap/sap-high-availability-architecture-scenarios.md) and [disaster recovery](/azure/cloud-adoption-framework/scenarios/sap/eslz-business-continuity-and-disaster-recovery) for VM-based SAP integration workloads
+- [High availability](/azure/virtual-machines/workloads/sap/sap-high-availability-architecture-scenarios) and [disaster recovery](/azure/cloud-adoption-framework/scenarios/sap/eslz-business-continuity-and-disaster-recovery) for VM-based SAP integration workloads
 
 - Modern [authentication mechanisms like OAuth2](../../api-management/sap-api.md#production-considerations), where applicable
 
-- A managed key store like [Azure Key Vault](../../key-vault/general/overview.md) for all involved credentials, certificates, and keys
+- A managed key store like [Azure Key Vault](/azure/key-vault/general/overview) for all involved credentials, certificates, and keys
 
 ## Alternatives to SAP Process Orchestration with Azure Integration Services
 

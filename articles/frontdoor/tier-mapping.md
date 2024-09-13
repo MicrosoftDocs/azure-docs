@@ -3,13 +3,15 @@ title: Settings mapping between Azure Front Door (classic) and Standard/Premium 
 description: This article explains the differences between settings mapped between an Azure Front Door (classic) and Azure Front Door Standard or Premium profile.
 services: frontdoor
 author: duongau
-ms.service: frontdoor
+ms.service: azure-frontdoor
 ms.topic: conceptual
 ms.date: 05/24/2023
 ms.author: duau
 ---
 
 # Settings mapped between Azure Front Door (classic) and Standard/Premium tier
+
+[!INCLUDE [Azure Front Door (classic) retirement notice](../../includes/front-door-classic-retirement.md)]
 
 When you migrate your Azure Front Door (classic) to Azure Front Door Standard or Premium, you'll notice some configurations have been either changed, or relocated to provide a better experience when managing your Front Door profile. In this article you'll learn how routing rules, cache duration, rules engine configuration, WAF policy and custom domains are mapped in the new Front Door tier.
 

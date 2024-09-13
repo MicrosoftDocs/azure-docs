@@ -3,9 +3,9 @@
  description: include file
  services: virtual-network
  author: asudbring
- ms.service: virtual-network
+ ms.service: azure-virtual-network
  ms.topic: include
- ms.date: 09/06/2022
+ ms.date: 08/02/2024
  ms.author: allensu
  ms.custom: include file
 ---
@@ -360,7 +360,7 @@ ip route add default via 10.1.0.1 dev eth2 table custom
 
 </details>
 
-### Red Hat Enterprise Linux, CentOS, and others
+### Red Hat Enterprise Linux and others
 
 <details>
   <summary>Expand</summary>
@@ -466,7 +466,7 @@ ip route add default via 10.1.0.1 dev eth2 table custom
         ether 60:45:bd:7d:70:4a  txqueuelen 1000  (Ethernet)
     ```
 
-#### Validation (Red Hat, CentOS, and others)
+#### Validation (Red Hat and others)
 
 To ensure you're able to connect to the internet from your secondary IP configuration via the public IP associated with it, use the following command:
 

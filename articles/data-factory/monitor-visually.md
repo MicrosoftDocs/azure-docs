@@ -4,10 +4,9 @@ description: Learn how to visually monitor Azure data factories
 author: nabhishek
 ms.author: abnarain
 ms.reviewer: jburchel
-ms.service: data-factory
 ms.subservice: monitoring
 ms.topic: conceptual
-ms.date: 07/13/2023
+ms.date: 01/05/2024
 ---
 
 # Visually monitor Azure Data Factory
@@ -206,6 +205,6 @@ For a seven-minute introduction and demonstration of this feature, watch the fol
 
     :::image type="content" source="media/monitor-visually/create-alert-rule.png" alt-text="Screenshot of options for creating an alert rule.":::
 
-## Next steps
+## Related content
 
 To learn about monitoring and managing pipelines, see the [Monitor and manage pipelines programmatically](./monitor-programmatically.md) article.

@@ -1,7 +1,6 @@
 ---
 title: Handle Service Bus events via Event Grid using Azure Logic Apps
 description: This article provides steps for handling Service Bus events via Event Grid using Azure Logic Apps.
-documentationcenter: .net
 author: spelluru
 ms.topic: tutorial
 ms.date: 10/10/2023
@@ -166,7 +165,7 @@ If you don't see any invocations after waiting and refreshing for sometime, foll
 * Learn more about [Azure Event Grid](../event-grid/index.yml).
 * Learn more about [Azure Functions](../azure-functions/index.yml).
 * Learn more about the [Logic Apps feature of Azure App Service](../logic-apps/index.yml).
-* Learn more about [Azure Service Bus](/azure/service-bus/).
+* Learn more about [Azure Service Bus](../service-bus-messaging/service-bus-messaging-overview.md).
 
 
 [2]: ./media/service-bus-to-event-grid-integration-example/sbtoeventgrid2.png

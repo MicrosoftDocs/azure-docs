@@ -4,11 +4,12 @@ titleSuffix: Azure Storage
 description: Learn how to specify a blob's access tier when you upload it, or how to change the access tier for an existing blob.
 author: normesta
 ms.author: normesta
-ms.date: 08/10/2023
+ms.date: 09/03/2024
 ms.service: azure-blob-storage
 ms.topic: how-to
 ms.reviewer: fryu
-ms.devlang: powershell, azurecli
+ms.devlang: powershell
+# ms.devlang: powershell, azurecli
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
@@ -16,7 +17,7 @@ ms.custom: devx-track-azurepowershell, devx-track-azurecli
 
 You can set a blob's access tier in any of the following ways:
 
-- By setting the default online access tier (hot or cool) for the storage account. Blobs in the account inherit this access tier unless you explicitly override the setting for an individual blob.
+- By setting the default online access tier for the storage account. Blobs in the account inherit this access tier unless you explicitly override the setting for an individual blob.
 - By explicitly setting a blob's tier on upload. You can create a blob in the hot, cool, cold, or archive tier.
 - By changing an existing blob's tier with a Set Blob Tier operation. Typically, you would use this operation to move from a hotter tier to a cooler one.
 - By copying a blob with a Copy Blob operation. Typically, you would use this operation to move from a cooler tier to a hotter one.
@@ -39,7 +40,7 @@ To set the default access tier for a storage account at create time in the Azure
 
 2. Fill out the **Basics** tab.
 
-3. On the **Advanced** tab, under **Blob storage**, set the **Access tier** to either *Hot* or *Cool*. The default setting is *Hot*.
+3. On the **Advanced** tab, under **Blob storage**, set the **Access tier** to either *Hot*, *Cool* or *Cold*. The default setting is *Hot*.
 
 4. Select **Review + Create** to validate your settings and create your storage account.
 
@@ -51,7 +52,7 @@ To update the default access tier for an existing storage account in the Azure p
 
 2. Under **Settings**, select **Configuration**.
 
-3. Locate the **Blob access tier (default)** setting, and select either *Hot* or *Cool*. The default setting is *Hot*, if you have not previously set this property.
+3. Locate the **Blob access tier (default)** setting, and select either *Hot*, *Cool*, or *Cold*. The default setting is *Hot*, if you have not previously set this property.
 
 4. Save your changes.
 
@@ -216,7 +217,7 @@ A blob that doesn't have an explicitly assigned tier infers its tier from the de
 
 #### [Portal](#tab/azure-portal)
 
-If a blob's access tier is inferred from the default account access tier setting, then the Azure portal displays the access tier as **Hot (inferred)** or **Cool (inferred)**.
+If a blob's access tier is inferred from the default account access tier setting, then the Azure portal displays the access tier as **Hot (inferred)**, **Cool (inferred)**, or **Cold (inferred)**.
 
 :::image type="content" source="media/access-tiers-online-manage/default-access-tier-portal.png" alt-text="Screenshot showing blobs with the default access tier in the Azure portal.":::
 
@@ -276,6 +277,9 @@ Use PowerShell, Azure CLI, AzCopy v10, or one of the Azure Storage client librar
 ### Change a blob's tier
 
 When you change a blob's tier, you move that blob and all of its data to the target tier by calling the [Set Blob Tier](/rest/api/storageservices/set-blob-tier) operation (either directly or via a [lifecycle management](access-tiers-overview.md#blob-lifecycle-management) policy), or by using the [azcopy set-properties](../common/storage-ref-azcopy-set-properties.md) command with AzCopy. This option is typically the best when you're changing a blob's tier from a hotter tier to a cooler one.
+
+> [!TIP]
+> You can use a _storage task_ to change the access tier of blobs at scale across multiple storage accounts based on a set of conditions that you define. A storage task is a resource available in _Azure Storage Actions_; a serverless framework that you can use to perform common data operations on millions of objects across multiple storage accounts. To learn more, see [What is Azure Storage Actions?](../../storage-actions/overview.md).
 
 #### [Portal](#tab/azure-portal)
 
@@ -403,7 +407,8 @@ az storage blob copy start \
 To copy a blob from cool to hot with AzCopy, use [azcopy copy](..\common\storage-ref-azcopy-copy.md) command and set the `--block-blob-tier` parameter to `hot`.
 
 > [!NOTE]
-> This example encloses path arguments with single quotes (''). Use single quotes in all command shells except for the Windows Command Shell (cmd.exe). If you're using a Windows Command Shell (cmd.exe), enclose path arguments with double quotes ("") instead of single quotes (''). <br>This example excludes the SAS token because it assumes that you've provided authorization credentials by using Microsoft Entra ID.  See the [Get started with AzCopy](../common/storage-use-azcopy-v10.md) article to learn about the ways that you can provide authorization credentials to the storage service.
+> This example encloses path arguments with single quotes (''). Use single quotes in all command shells except for the Windows Command Shell (cmd.exe). If you're using a Windows Command Shell (cmd.exe), enclose path arguments with double quotes ("") instead of single quotes (''). <br><br>This example excludes the SAS token because it assumes that you've provided authorization credentials by using Microsoft Entra ID.  See the [Get started with AzCopy](../common/storage-use-azcopy-v10.md) article to learn about the ways that you can provide authorization credentials to the storage service.
+> <br><br>AzCopy doesn't support copy from a source blob in archive tier.
 
 
 

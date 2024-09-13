@@ -8,7 +8,7 @@ ms.author: pauljewell
 
 ms.service: azure-blob-storage
 ms.topic: how-to
-ms.date: 06/07/2023
+ms.date: 08/05/2024
 ms.custom: devguide-csharp, devguide-java, devguide-javascript, devguide-python
 ---
 
@@ -22,9 +22,13 @@ A Blob Storage endpoint forms the base address for all objects within a storage 
 When your application creates a service client object that connects to Blob Storage data resources, you pass a URI referencing the endpoint to the service client constructor. You can construct the URI string manually, or you can query for the service endpoint at runtime using the Azure Storage management library.
 
 > [!IMPORTANT]
-> When referencing a service endpoint in a client application, it's recommended that you avoid taking a dependency on a cached IP address. The storage account IP address is subject to change, and relying on a cached IP address may result in unexpected behavior.
+> When referencing a service endpoint in a client application, it's recommended that you avoid taking a dependency on a cached IP address. The storage account IP address is subject to change, and relying on a cached IP address may result in unexpected behavior. 
+>
+> CNAMEs that are associated with a storage account endpoint can change without notice. Your application shouldn't take a dependency on the number of of CNAME records or the sub-domains that are associated with those CNAME records.
 >
 > Additionally, it's recommended that you honor the time-to-live (TTL) of the DNS record and avoid overriding it. Overriding the DNS TTL may result in unexpected behavior.
+>
+> For more information, see [CNAME records, subdomains and IP addresses](../common/storage-account-overview.md#cname-records-subdomains-and-ip-addresses).
 
 The Azure Storage management library provides programmatic access to the [Azure Storage resource provider](/rest/api/storagerp). The resource provider is the Azure Storage implementation of the Azure Resource Manager. The management library enables developers to manage storage accounts and account configuration, as well as configure lifecycle management policies, object replication policies, and immutability policies.
 

@@ -3,7 +3,6 @@ title: Fault tolerance of copy activity
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn about how to add fault tolerance to copy activity in Azure Data Factory and Synapse Analytics pipelines by skipping the incompatible data.
 author: dearandyxu
-ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
@@ -311,7 +310,7 @@ data1, data2, data3, "UserErrorInvalidDataValue", "Column 'Prop_2' contains an i
 data4, data5, data6, "2627", "Violation of PRIMARY KEY constraint 'PK_tblintstrdatetimewithpk'. Cannot insert duplicate key in object 'dbo.tblintstrdatetimewithpk'. The duplicate key value is (data4)."
 ```
 
-## Next steps
+## Related content
 See the other copy activity articles:
 
 - [Copy activity overview](copy-activity-overview.md)

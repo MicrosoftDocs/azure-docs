@@ -3,15 +3,15 @@ title: Custom domain names and free managed certificates in Azure Container Apps
 description: Learn to configure custom domain names and managed certificates in Azure Container Apps
 services: container-apps
 author: craigshoemaker
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.custom: build-2023, devx-track-azurecli
 ms.topic: how-to
-ms.date: 04/02/2023
+ms.date: 03/08/2024
 ms.author: cshoe
 zone_pivot_groups: azure-cli-or-portal
 ---
 
-# Custom domain names and free managed certificates in Azure Container Apps (preview)
+# Custom domain names and free managed certificates in Azure Container Apps
 
 Azure Container Apps allows you to bind one or more custom domains to a container app. You can automatically configure a free managed certificate for your custom domain.
 
@@ -19,8 +19,6 @@ If you want to set up a custom domain using your own certificate, see [Custom do
 
 > [!NOTE]
 > If you configure a [custom environment DNS suffix](environment-custom-dns-suffix.md), you cannot add a custom domain that contains this suffix to your Container App.
->
-> The managed certificates feature in Azure Container Apps is currently in preview.
 
 ## Free certificate requirements
 
@@ -29,8 +27,10 @@ Azure Container Apps provides a free managed certificate for your custom domain.
 The requirements are:
 
 - Your container app has HTTP ingress enabled and is publicly accessible.
+
 - For apex domains, you must have an A record pointing to your Container Apps environment's IP address.
-- For subdomains, you must have a CNAME record mapped directly to the container app's automatically generated domain name. Mapping to an intermediate CNAME value blocks certificate issuance and renewal.
+
+- For subdomains, you must have a CNAME record mapped directly to the container app's automatically generated domain name. Mapping to an intermediate CNAME value blocks certificate issuance and renewal. Examples of CNAME values are traffic managers, Cloudflare, and similar services.
 
 > [!NOTE]
 > To ensure the certificate issuance and subsequent renewals proceed successfully, all requirements must be met at all times when the managed certificate is assigned.

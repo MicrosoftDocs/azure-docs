@@ -1,7 +1,6 @@
 ---
 title: Deploy SSIS packages 
 description: Learn how to deploy and run SSIS packages in Azure Data Factory with the Azure-SSIS integrated runtime.
-ms.service: data-factory
 ms.subservice: integration-services
 ms.topic: conceptual
 ms.date: 10/20/2023
@@ -29,7 +28,7 @@ For more information, see [Deploy SSIS projects/packages](/sql/integration-servi
 
 In both cases, you can also run your deployed packages on Azure-SSIS IR by using the Execute SSIS Package activity in Data Factory pipelines. For more information, see [Invoke SSIS package execution as a first-class Data Factory activity](./how-to-invoke-ssis-package-ssis-activity.md).
 
-## Next steps
+## Related content
 
 - [Learn how to provision an Azure-SSIS IR using the Azure portal](create-azure-ssis-integration-runtime-portal.md).
 - [Learn how to provision an Azure-SSIS IR using Azure PowerShell](create-azure-ssis-integration-runtime-powershell.md).

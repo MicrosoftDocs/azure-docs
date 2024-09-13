@@ -45,12 +45,17 @@ More details on eligible subscription types are as follows:
 ## Azure subscription billing locations where Netherlands phone numbers are available
 | Country/Region |
 | :---------- |
-|Netherlands|
-|United States|
-|United Kingdom|
-|Canada|
-|Japan|
 |Australia|
+|Canada|
+|France|
+|Germany|
+|Italy|
+|Japan|
+|Netherlands|
+|United Kingdom|
+|United States|
+
+[!INCLUDE [Azure Prepayment](../../includes/azure-prepayment.md)]
 
 ## Azure subscription billing locations where Netherlands alphanumeric sender IDs are available
 | Country/Region |

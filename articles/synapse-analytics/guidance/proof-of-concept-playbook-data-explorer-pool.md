@@ -4,7 +4,7 @@ description: "A high-level methodology for preparing and running an effective Az
 author: shsagir
 ms.author: shsagir
 ms.reviewer: devsha
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.topic: conceptual
 ms.date: 09/28/2022
 ---

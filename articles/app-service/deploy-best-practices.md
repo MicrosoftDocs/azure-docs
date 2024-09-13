@@ -12,13 +12,15 @@ ms.author: cephalin
 
 # Deployment Best Practices
 
+[!INCLUDE [regionalization-note](./includes/regionalization-note.md)]
+
 Every development team has unique requirements that can make implementing an efficient deployment pipeline difficult on any cloud service. This article introduces the three main components of deploying to App Service: deployment sources, build pipelines, and deployment mechanisms. This article also covers some best practices and tips for specific language stacks.
 
 ## Deployment Components
 
 ### Deployment Source
 
-A deployment source is the location of your application code. For production apps, the deployment source is usually a repository hosted by version control software such as [GitHub, BitBucket, or Azure Repos](deploy-continuous-deployment.md). For development and test scenarios, the deployment source may be [a project on your local machine](deploy-local-git.md). App Service also supports [OneDrive and Dropbox folders](deploy-content-sync.md) as deployment sources. While cloud folders can make it easy to get started with App Service, it's not typically recommended to use this source for enterprise-level production applications. 
+A deployment source is the location of your application code. For production apps, the deployment source is usually a repository hosted by version control software such as [GitHub, BitBucket, or Azure Repos](deploy-continuous-deployment.md). For development and test scenarios, the deployment source may be [a project on your local machine](deploy-local-git.md). 
 
 ### Build Pipeline
 
@@ -65,44 +67,39 @@ App Service has [built-in continuous delivery](deploy-continuous-deployment.md) 
 
 ### Use GitHub Actions
 
-You can also automate your container deployment [with GitHub Actions](./deploy-ci-cd-custom-container.md).  The workflow file below will build and tag the container with the commit ID, push it to a container registry, and update the specified site slot with the new image tag.
+You can also automate your container deployment [with GitHub Actions](https://github.com/Azure/webapps-deploy).  The workflow file below will build and tag the container with the commit ID, push it to a container registry, and update the specified web app with the new image tag.
 
 ```yaml
-name: Build and deploy a container image to Azure Web Apps
-
 on:
   push:
     branches:
     - <your-branch-name>
 
+name: Linux_Container_Node_Workflow
+
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
-    
     steps:
-    - uses: actions/checkout@main
+    # checkout the repo
+    - name: 'Checkout GitHub Action'
+      uses: actions/checkout@main
 
-    -name: Authenticate using a Service Principal
-      uses: azure/actions/login@v1
+    - uses: azure/docker-login@v1
       with:
-        creds: ${{ secrets.AZURE_SP }}
+        login-server: contoso.azurecr.io
+        username: ${{ secrets.REGISTRY_USERNAME }}
+        password: ${{ secrets.REGISTRY_PASSWORD }}
 
-    - uses: azure/container-actions/docker-login@v1
+    - run: |
+        docker build . -t contoso.azurecr.io/nodejssampleapp:${{ github.sha }}
+        docker push contoso.azurecr.io/nodejssampleapp:${{ github.sha }} 
+
+    - uses: azure/webapps-deploy@v2
       with:
-        username: ${{ secrets.DOCKER_USERNAME }}
-        password: ${{ secrets.DOCKER_PASSWORD }}
-
-    - name: Build and push the image tagged with the git commit hash
-      run: |
-        docker build . -t contoso/demo:${{ github.sha }}
-        docker push contoso/demo:${{ github.sha }}
-
-    - name: Update image tag on the Azure Web App
-      uses: azure/webapps-container-deploy@v1
-      with:
-        app-name: '<your-webapp-name>'
-        slot-name: '<your-slot-name>'
-        images: 'contoso/demo:${{ github.sha }}'
+        app-name: 'node-rnc'
+        publish-profile: ${{ secrets.azureWebAppPublishProfile }}
+        images: 'contoso.azurecr.io/nodejssampleapp:${{ github.sha }}'
 ```
 
 ### Use other automation providers

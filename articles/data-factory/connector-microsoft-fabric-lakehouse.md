@@ -1,35 +1,35 @@
 ---
-title: Copy and transform data in Microsoft Fabric Lakehouse (Preview) 
+title: Copy and transform data in Microsoft Fabric Lakehouse 
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Learn how to copy and transform data to and from Microsoft Fabric Lakehouse (Preview) using Azure Data Factory or Azure Synapse Analytics pipelines.
+description: Learn how to copy and transform data in Microsoft Fabric Lakehouse using Azure Data Factory or Azure Synapse Analytics pipelines.
 ms.author: jianleishen
 author: jianleishen
-ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 11/03/2023
+ms.date: 07/19/2024
 ---
 
-# Copy and transform data in Microsoft Fabric Lakehouse (Preview) using Azure Data Factory or Azure Synapse Analytics
+# Copy and transform data in Microsoft Fabric Lakehouse using Azure Data Factory or Azure Synapse Analytics
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Microsoft Fabric Lakehouse is a data architecture platform for storing, managing, and analyzing structured and unstructured data in a single location. In order to achieve seamless data access across all compute engines in Microsoft Fabric, go to [Lakehouse and Delta Tables](/fabric/data-engineering/lakehouse-and-delta-tables) to learn more.
+Microsoft Fabric Lakehouse is a data architecture platform for storing, managing, and analyzing structured and unstructured data in a single location. In order to achieve seamless data access across all compute engines in Microsoft Fabric, go to [Lakehouse and Delta Tables](/fabric/data-engineering/lakehouse-and-delta-tables) to learn more. By default, data is written to Lakehouse Table in V-Order, and you can go to [Delta Lake table optimization and V-Order](/fabric/data-engineering/delta-optimization-and-v-order?tabs=sparksql#what-is-v-order) for more information.
 
-This article outlines how to use Copy activity to copy data from and to Microsoft Fabric Lakehouse (Preview) and use Data Flow to transform data in Microsoft Fabric Lakehouse (Preview). To learn more, read the introductory article for [Azure Data Factory](introduction.md) or [Azure Synapse Analytics](../synapse-analytics/overview-what-is.md).
+This article outlines how to use Copy activity to copy data from and to Microsoft Fabric Lakehouse and use Data Flow to transform data in Microsoft Fabric Lakehouse. To learn more, read the introductory article for [Azure Data Factory](introduction.md) or [Azure Synapse Analytics](../synapse-analytics/overview-what-is.md).
 
-> [!IMPORTANT]
-> This connector is currently in preview. You can try it out and give us feedback. If you want to take a dependency on preview connectors in your solution, please contact [Azure support](https://azure.microsoft.com/support/).
 
 ## Supported capabilities
 
 This Microsoft Fabric Lakehouse connector is supported for the following capabilities:
 
-| Supported capabilities|IR | Managed private endpoint|
-|---------| --------| --------|
-|[Copy activity](copy-activity-overview.md) (source/sink)|&#9312; &#9313;|✓ |
-|[Mapping data flow](concepts-data-flow-overview.md) (-/sink)|&#9312; |- |
+| Supported capabilities|IR | 
+|---------| --------| 
+|[Copy activity](copy-activity-overview.md) (source/sink)|&#9312; &#9313;|
+|[Mapping data flow](concepts-data-flow-overview.md) (source/sink)|&#9312; |
+|[Lookup activity](control-flow-lookup-activity.md)|&#9312; &#9313;|
+|[GetMetadata activity](control-flow-get-metadata-activity.md)|&#9312; &#9313;|
+|[Delete activity](delete-activity.md)|&#9312; &#9313;|
 
 *&#9312; Azure integration runtime  &#9313; Self-hosted integration runtime*
 
@@ -41,7 +41,7 @@ This Microsoft Fabric Lakehouse connector is supported for the following capabil
 
 Use the following steps to create a Microsoft Fabric Lakehouse linked service in the Azure portal UI.
 
-1. Browse to the Manage tab in your Azure Data Factory or Synapse workspace and select Linked Services, then select New:
+1. Browse to the **Manage** tab in your Azure Data Factory or Synapse workspace and select Linked Services, then select New:
 
     # [Azure Data Factory](#tab/data-factory)
 
@@ -73,10 +73,10 @@ The Microsoft Fabric Lakehouse connector supports the following authentication t
 
 To use service principal authentication, follow these steps.
 
-1. Register an application with the Microsoft Identity platform. To learn how, see [Quickstart: Register an application with the Microsoft identity platform](../active-directory/develop/quickstart-register-app.md). Make note of these values, which you use to define the linked service:
+1. [Register an application with the Microsoft Identity platform](../active-directory/develop/quickstart-register-app.md) and [add a client secret](../active-directory/develop/quickstart-register-app.md#add-a-client-secret). Afterwards, make note of these values, which you use to define the linked service:
 
-    - Application ID
-    - Application key
+    - Application (client) ID, which is the service principal ID in the linked service.
+    - Client secret value, which is the service principal key in the linked service.
     - Tenant ID
 
 2. Grant the service principal at least the **Contributor** role in Microsoft Fabric workspace. Follow these steps:
@@ -87,6 +87,9 @@ To use service principal authentication, follow these steps.
         :::image type="content" source="media/connector-microsoft-fabric-lakehouse/manage-access-pane.png" alt-text=" Screenshot shows Fabric workspace Manage access pane."::: 
     
     1. In **Add people** pane, enter your service principal name, and select your service principal from the drop-down list.
+
+       >[!Note]
+       > The service principal will not appear in the **Add people** list unless the Power BI tenant settings [enable service principals access to Fabric APIs](/power-bi/developer/embedded/embed-service-principal#step-3---enable-the-power-bi-service-admin-settings).
     
     1. Specify the role as **Contributor** or higher (Admin, Member), then select **Add**.
         
@@ -104,7 +107,7 @@ These properties are supported for the linked service:
 | tenant | Specify the tenant information (domain name or tenant ID) under which your application resides. Retrieve it by hovering the mouse in the upper-right corner of the Azure portal. | Yes |
 | servicePrincipalId | Specify the application's client ID. | Yes |
 | servicePrincipalCredentialType | The credential type to use for service principal authentication. Allowed values are **ServicePrincipalKey** and **ServicePrincipalCert**. | Yes |
-| servicePrincipalCredential | The service principal credential. <br/> When you use **ServicePrincipalKey** as the credential type, specify the application's key. Mark this field as **SecureString** to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). <br/> When you use **ServicePrincipalCert** as the credential, reference a certificate in Azure Key Vault, and ensure the certificate content type is **PKCS #12**.| Yes |
+| servicePrincipalCredential | The service principal credential. <br/> When you use **ServicePrincipalKey** as the credential type, specify the application's client secret value. Mark this field as **SecureString** to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). <br/> When you use **ServicePrincipalCert** as the credential, reference a certificate in Azure Key Vault, and ensure the certificate content type is **PKCS #12**.| Yes |
 | connectVia | The [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. You can use the Azure integration runtime or a self-hosted integration runtime if your data store is in a private network. If not specified, the default Azure integration runtime is used. |No |
 
 **Example: using service principal key authentication**
@@ -199,24 +202,26 @@ The following properties are supported for Microsoft Fabric Lakehouse Table data
 | Property  | Description                                                  | Required                    |
 | :-------- | :----------------------------------------------------------- | :-------------------------- |
 | type      | The **type** property of the dataset must be set to **LakehouseTable**. | Yes                         |
+| schema | Name of the schema. If not specified, the default value is `dbo`. | No |
 | table | The name of your table. | Yes |
 
 **Example:**
 
 ```json
 { 
-    "name": "LakehouseTableDataset", 
-    "properties": {
-        "type": "LakehouseTable",
-        "linkedServiceName": { 
-            "referenceName": "<Microsoft Fabric Lakehouse linked service name>", 
-            "type": "LinkedServiceReference" 
-        }, 
-        "typeProperties": { 
+    "name": "LakehouseTableDataset", 
+    "properties": {
+        "type": "LakehouseTable",
+        "linkedServiceName": { 
+            "referenceName": "<Microsoft Fabric Lakehouse linked service name>", 
+            "type": "LinkedServiceReference" 
+        }, 
+        "typeProperties": { 
+            "schema": "<schema_name>",
             "table": "<table_name>"   
-        }, 
-        "schema": [< physical schema, optional, retrievable during authoring >] 
-    } 
+        },
+        "schema": [< physical schema, optional, retrievable during authoring >]
+    } 
 }
 ```
 
@@ -397,7 +402,7 @@ Assuming you have the following source folder structure and want to copy the fil
 
 | Sample source structure                                      | Content in FileListToCopy.txt                             | ADF configuration                                            |
 | ------------------------------------------------------------ | --------------------------------------------------------- | ------------------------------------------------------------ |
-| filesystem<br/>&nbsp;&nbsp;&nbsp;&nbsp;FolderA<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File1.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File2.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File3.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File5.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;Metadata<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FileListToCopy.txt | File1.csv<br>Subfolder1/File3.csv<br>Subfolder1/File5.csv | **In dataset:**<br>- File system: `filesystem`<br>- Folder path: `FolderA`<br><br>**In copy activity source:**<br>- File list path: `filesystem/Metadata/FileListToCopy.txt` <br><br>The file list path points to a text file in the same data store that includes a list of files you want to copy, one file per line with the relative path to the path configured in the dataset. |
+| filesystem<br/>&nbsp;&nbsp;&nbsp;&nbsp;FolderA<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File1.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File2.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Subfolder1<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File3.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;File4.json<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;**File5.csv**<br/>&nbsp;&nbsp;&nbsp;&nbsp;Metadata<br/>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;FileListToCopy.txt | File1.csv<br>Subfolder1/File3.csv<br>Subfolder1/File5.csv | **In dataset:**<br>- Folder path: `FolderA`<br><br>**In copy activity source:**<br>- File list path: `Metadata/FileListToCopy.txt` <br><br>The file list path points to a text file in the same data store that includes a list of files you want to copy, one file per line with the relative path to the path configured in the dataset. |
 
 
 #### Some recursive and copyBehavior examples
@@ -469,6 +474,9 @@ To copy data to Microsoft Fabric Lakehouse using Microsoft Fabric Lakehouse Tabl
 | :--------------------------- | :----------------------------------------------------------- | :------- |
 | type                         | The **type** property of the Copy Activity source must be set to **LakehouseTableSink**. | Yes      |
 
+>[!Note]
+> Data is written to Lakehouse Table in V-Order by default. For more information, go to [Delta Lake table optimization and V-Order](/fabric/data-engineering/delta-optimization-and-v-order?tabs=sparksql#what-is-v-order).
+
 **Example:**
 
 ```json
@@ -514,7 +522,7 @@ For more information, see the [source transformation](data-flow-source.md) and [
 
 To use Microsoft Fabric Lakehouse Files dataset as a source or sink dataset in mapping data flow, go to the following sections for the detailed configurations.
 
-#### Microsoft Fabric Lakehouse Files as a sink type
+#### Microsoft Fabric Lakehouse Files as a source or sink type
 
 Microsoft Fabric Lakehouse connector supports the following file formats. Refer to each article for format-based settings.
 
@@ -523,10 +531,18 @@ Microsoft Fabric Lakehouse connector supports the following file formats. Refer 
 - [JSON format](format-json.md)
 - [ORC format](format-orc.md)
 - [Parquet format](format-parquet.md)
+  
+To use Fabric Lakehouse file-based connector in inline dataset type, you need to choose the right Inline dataset type for your data. You can use DelimitedText, Avro, JSON, ORC, or Parquet depending on your data format.
 
 ### Microsoft Fabric Lakehouse Table in mapping data flow
 
 To use Microsoft Fabric Lakehouse Table dataset as a source or sink dataset in mapping data flow, go to the following sections for the detailed configurations.
+
+#### Microsoft Fabric Lakehouse Table as a source type
+
+There are no configurable properties under source options.
+> [!NOTE]
+> CDC support for Lakehouse table source is currently not available.
 
 #### Microsoft Fabric Lakehouse Table as a sink type
 
@@ -537,42 +553,55 @@ The following properties are supported in the Mapping Data Flows **sink** sectio
 | Update method | When you select "Allow insert" alone or when you write to a new delta table, the target receives all incoming rows regardless of the Row policies set. If your data contains rows of other Row policies, they need to be excluded using a preceding Filter transform. <br><br> When all Update methods are selected a Merge is performed, where rows are inserted/deleted/upserted/updated as per the Row Policies set using a preceding Alter Row transform. | yes | `true` or `false` | insertable <br> deletable <br> upsertable <br> updateable  |
 | Optimized Write | Achieve higher throughput for write operation via optimizing internal shuffle in Spark executors. As a result, you might notice fewer partitions and files that are of a larger size | no | `true` or `false` | optimizedWrite: true |
 | Auto Compact | After any write operation has completed, Spark will automatically execute the ```OPTIMIZE``` command to reorganize the data, resulting in more partitions if necessary, for better reading performance in the future | no | `true` or `false` |    autoCompact: true | 
-| Merge Schema | Merge schema option allows schema evolution, that is, any columns that are present in the current incoming stream but not in the target Delta table is automatically added to its schema. This option is supported across all update methods. | no | `true` or `false` |    mergeSchema: true | 
+| Merge Schema | Merge schema option allows schema evolution, that is, any columns that are present in the current incoming stream but not in the target Delta table is automatically added to its schema. This option is supported across all update methods. | no | `true` or `false` |    mergeSchema: true | 
 
 **Example: Microsoft Fabric Lakehouse Table sink**
 
 ```
 sink(allowSchemaDrift: true, 
-    validateSchema: false, 
-    input( 
-        CustomerID as string,
-        NameStyle as string, 
-        Title as string, 
-        FirstName as string, 
-        MiddleName as string,
-        LastName as string, 
-        Suffix as string, 
-        CompanyName as string,
-        SalesPerson as string, 
-        EmailAddress as string, 
-        Phone as string, 
-        PasswordHash as string, 
-        PasswordSalt as string, 
-        rowguid as string, 
-        ModifiedDate as string 
-    ), 
-    deletable:false, 
-    insertable:true, 
-    updateable:false, 
-    upsertable:false, 
-    optimizedWrite: true, 
-    mergeSchema: true, 
-    autoCompact: true, 
-    skipDuplicateMapInputs: true, 
-    skipDuplicateMapOutputs: true) ~> CustomerTable
+    validateSchema: false, 
+    input( 
+        CustomerID as string,
+        NameStyle as string, 
+        Title as string, 
+        FirstName as string, 
+        MiddleName as string,
+        LastName as string, 
+        Suffix as string, 
+        CompanyName as string,
+        SalesPerson as string, 
+        EmailAddress as string, 
+        Phone as string, 
+        PasswordHash as string, 
+        PasswordSalt as string, 
+        rowguid as string, 
+        ModifiedDate as string 
+    ), 
+    deletable:false, 
+    insertable:true, 
+    updateable:false, 
+    upsertable:false, 
+    optimizedWrite: true, 
+    mergeSchema: true, 
+    autoCompact: true, 
+    skipDuplicateMapInputs: true, 
+    skipDuplicateMapOutputs: true) ~> CustomerTable
 
 ```
+For Fabric Lakehouse table-based connector in inline dataset type, you only need to use Delta as dataset type. This will allow you to read and write data from Fabric Lakehouse tables.
 
-## Next steps
+## Lookup activity properties
+
+To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
+
+## GetMetadata activity properties
+
+To learn details about the properties, check [GetMetadata activity](control-flow-get-metadata-activity.md) 
+
+## Delete activity properties
+
+To learn details about the properties, check [Delete activity](delete-activity.md)
+
+## Related content
 
 For a list of data stores supported as sources and sinks by the copy activity, see [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).

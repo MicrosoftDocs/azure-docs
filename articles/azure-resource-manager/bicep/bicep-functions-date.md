@@ -1,9 +1,9 @@
 ---
 title: Bicep functions - date
 description: Describes the functions to use in a Bicep file to work with dates.
-ms.topic: conceptual
+ms.topic: reference
 ms.custom: devx-track-bicep
-ms.date: 11/03/2023
+ms.date: 07/11/2024
 ---
 
 # Date functions for Bicep
@@ -32,14 +32,17 @@ The datetime value that results from adding the duration value to the base value
 
 ### Remarks
 
-The dateTimeAdd function takes into account leap years and the number of days in a month when performing date arithmetic. The following example adds one month to January 31:
+The `dateTimeAdd` function doesn't take leap years into consideration, and _P1Y_ should be interpreted as _P365D_, while _P1M_ should be interpreted as _P30D_. The following Bicep file shows some examples:
 
 ```bicep
-output add1MonthOutput string = dateTimeAdd('2023-01-31 00:00:00Z', 'P1M') //2023-03-02T00:00:00Z
-output add1MonthLeapOutput string = dateTimeAdd('2024-01-31 00:00:00Z', 'P1M')  //2024-03-01T00:00:00Z
+output addOneYearNonLeap string = dateTimeAdd('2023-01-01 00:00:00Z', 'P1Y') //2024-01-01T00:00:00Z
+output addOneYearLeap string = dateTimeAdd('2024-01-01 00:00:00Z', 'P1Y')  //2024-12-31T00:00:00Z
+
+output addOneMonthNonLeap string = dateTimeAdd('2023-02-01 00:00:00Z', 'P1M') //2023-03-03T00:00:00Z
+output addOneMonthLeap string = dateTimeAdd('2024-02-01 00:00:00Z', 'P1M') //2023-03-02T00:00:00Z
 ```
 
-In this example, `dateTimeAdd` returns `2023-03-02T00:00:00Z`, not `2023-02-28T00:00:00Z`. If the base is `2024-01-31 00:00:00Z`, it returns `2024-03-01T00:00:00Z` because 2024 is a leap year.
+In the preceding example, considering 2023 as a non-leap year, the outcome of adding one year to the initial day of the year is _2024-01-01T00:00:00Z_. Conversely, adding one year to the starting day of 2024, a leap year, results in _2024-12-31T00:00:00Z_, not _2025-01-01T00:00:00Z_, given that a leap year comprises 366 days instead of 365 days. Furthermore, the distinction between leap and non-leap years becomes apparent when adding one month to the first day of February, leading to varying day-of-the-month results.
 
 ### Examples
 
@@ -76,7 +79,7 @@ var startTime = dateTimeAdd(baseTime, 'PT1H')
 
 ...
 
-resource scheduler 'Microsoft.Automation/automationAccounts/schedules@2022-08-08' = {
+resource scheduler 'Microsoft.Automation/automationAccounts/schedules@2023-11-01' = {
   name: concat(omsAutomationAccountName, '/', scheduleName)
   properties: {
     description: 'Demo Scheduler'
@@ -229,7 +232,7 @@ The next example shows how to use a value from the function when setting a tag v
 param utcShort string = utcNow('d')
 param rgName string
 
-resource myRg 'Microsoft.Resources/resourceGroups@2022-09-01' = {
+resource myRg 'Microsoft.Resources/resourceGroups@2024-03-01' = {
   name: rgName
   location: 'westeurope'
   tags: {

@@ -21,7 +21,7 @@ ms.author: wchi
     using Azure.Storage.Queues;
     using Azure.Identity;    
     
-    // Uncomment the following lines according to the authentication type.
+    // Uncomment the following lines corresponding to the authentication type you want to use.
     // system-assigned managed identity
     // var credential = new DefaultAzureCredential();
     
@@ -61,7 +61,7 @@ ms.author: wchi
     import com.azure.storage.queue.*;
     import com.azure.storage.queue.models.*;
     
-    // Uncomment the following lines according to the authentication type.
+    // Uncomment the following lines corresponding to the authentication type you want to use.
     // for system-managed identity
     // DefaultAzureCredential credential = new DefaultAzureCredentialBuilder().build();
 
@@ -86,7 +86,7 @@ ms.author: wchi
     ```
 
 ### [SpringBoot](#tab/springBoot)
-The authentication type is not supported by Spring Boot client type.
+Spring Boot client type doesn't support the authentication type.
 
 ### [Python](#tab/python)
 1. Install dependencies.
@@ -100,7 +100,7 @@ The authentication type is not supported by Spring Boot client type.
     from azure.identity import ManagedIdentityCredential, ClientSecretCredential
     from azure.storage.queue import QueueServiceClient, QueueClient
     
-    # Uncomment the following lines according to the authentication type.
+    # Uncomment the following lines corresponding to the authentication type you want to use.
     # system-assigned managed identity
     # cred = ManagedIdentityCredential()
     
@@ -130,7 +130,7 @@ The authentication type is not supported by Spring Boot client type.
     const { QueueServiceClient } = require("@azure/storage-queue");
     import { DefaultAzureCredential,ClientSecretCredential } from "@azure/identity";
     
-    // Uncomment the following lines according to the authentication type.
+    // Uncomment the following lines corresponding to the authentication type you want to use.
     // for system-assigned managed identity
     // const credential = new DefaultAzureCredential();
     

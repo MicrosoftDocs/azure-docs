@@ -3,7 +3,7 @@ title: Deploy an Azure Firewall Manager security partner provider
 description: Learn how to deploy an Azure Firewall Manager security partner provider using the Azure portal. 
 services: firewall-manager
 author: vhorne
-ms.service: firewall-manager
+ms.service: azure-firewall-manager
 ms.topic: how-to
 ms.date: 09/28/2023
 ms.author: victorh
@@ -84,7 +84,7 @@ To set up tunnels to your virtual hub’s VPN Gateway, third-party providers nee
 
    - [Zscaler: Configure Microsoft Azure Virtual WAN integration](https://help.zscaler.com/zia/configuring-microsoft-azure-virtual-wan-integration).
    - [Check Point: Configure Microsoft Azure Virtual WAN integration](https://www.checkpoint.com/cloudguard/microsoft-azure-security/wan).
-   - [iboss: Configure Microsoft Azure Virtual WAN integration](https://www.iboss.com/blog/securing-microsoft-azure-with-iboss-saas-network-security). 
+   - [iboss: Configure Microsoft Azure Virtual WAN integration](https://www.iboss.com/solution-briefs/microsoft-virtual-wan/). 
    
 2. You can look at the tunnel creation status on the Azure Virtual WAN portal in Azure. Once the tunnels show **connected** on both Azure and the partner portal, continue with the next steps to set up routes to select which branches and VNets should send Internet traffic to the partner.
 

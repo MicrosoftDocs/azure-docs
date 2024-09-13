@@ -1,6 +1,5 @@
 ---
-title: Configure Azure IoT Layered Network Management on level 4 cluster
-titleSuffix: Azure IoT Layered Network Management
+title: Configure Layered Network Management on level 4 cluster
 description: Deploy and configure Azure IoT Layered Network Management on a level 4 cluster.
 author: PatAltimore
 ms.subservice: layered-network-management
@@ -12,21 +11,71 @@ ms.date: 11/15/2023
 #CustomerIntent: As an operator, I want to configure Layered Network Management so that I have secure isolate devices.
 ---
 
-# Configure Azure IoT Layered Network Management on level 4 cluster
+# Configure Azure IoT Layered Network Management Preview on level 4 cluster
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-Azure IoT Layered Network Management is one of the Azure IoT Operations components. However, it can be deployed individually to the top network layer for supporting the Azure IoT Operations in the lower layer. In the top level of your network layers (usually level 4 of the ISA-95 network architecture), the cluster and Layered Network Management service have direct internet access. Once the setup is completed, the Layered Network Management service is ready for receiving network traffic from the child layer and forwards it to Azure Arc.
+Azure IoT Layered Network Management Preview is one of the Azure IoT Operations Preview components. However, it can be deployed individually to the top network layer for supporting the Azure IoT Operations in the lower layer. In the top level of your network layers (usually level 4 of the ISA-95 network architecture), the cluster and Layered Network Management service have direct internet access. Once the setup is completed, the Layered Network Management service is ready for receiving network traffic from the child layer and forwards it to Azure Arc.
 
 ## Prerequisites
 Meet the following minimum requirements for deploying the Layered Network Management individually on the system.
-- Arc-connected cluster and GitOps in [AKS Edge Essentials requirements and support matrix](/azure/aks/hybrid/aks-edge-system-requirements)
+- **AKS Edge Essentials** - *Arc-connected cluster and GitOps* category in [AKS Edge Essentials requirements and support matrix](/azure/aks/hybrid/aks-edge-system-requirements)
+- **K3S Kubernetes cluster** - [Azure Arc-enabled Kubernetes system requirements](/azure/azure-arc/kubernetes/system-requirements)
 
 ## Set up Kubernetes cluster in Level 4
 
 To set up only Layered Network Management, the prerequisites are simpler than an Azure IoT Operations deployment. It's optional to fulfill the general requirements for Azure IoT Operations in [Prepare your Kubernetes cluster](../deploy-iot-ops/howto-prepare-cluster.md).
 
-Currently, the steps only include setting up an [AKS Edge Essentials](/azure/aks/hybrid/aks-edge-overview) Kubernetes cluster. 
+The following steps for setting up [AKS Edge Essentials](/azure/aks/hybrid/aks-edge-overview) and [K3S](https://docs.k3s.io/) Kubernetes cluster are verified by Microsoft.
+
+# [K3S Cluster](#tab/k3s)
+
+## Prepare an Ubuntu machine
+
+1. Ubuntu 22.04 LTS is the recommended version for the host machine.
+
+1. Install [Helm](https://helm.sh/docs/intro/install/) 3.8.0 or later.
+
+1. Install [Kubectl](https://kubernetes.io/docs/tasks/tools/).
+
+1. Install the Azure CLI. You can install the Azure CLI directly onto the level 4 machine or on another *developer* or *jumpbox* machine if you plan to access the level 3 cluster remotely. If you choose to access the Kubernetes cluster remotely to keep the cluster host clean, you run the *kubectl* and *az*" related commands from the *developer* machine for the rest of the steps in this article.
+
+    - Install Azure CLI. Follow the steps in [Install Azure CLI on Linux](/cli/azure/install-azure-cli-linux).
+
+    - Install *connectedk8s* and other extensions.
+
+        ```bash
+        az extension add --name connectedk8s
+        az extension add --name k8s-extension
+        ```
+
+    - [Install Azure CLI extension](/cli/azure/iot/ops) using `az extension add --name azure-iot-ops`.
+
+## Create the K3S cluster
+
+1. Install K3S with the following command:
+    
+    ```bash
+    curl -sfL https://get.k3s.io | sh -s - --disable=traefik --write-kubeconfig-mode 644
+    ```
+    
+    > [!IMPORTANT]
+    > Be sure to use the `--disable=traefik` parameter to disable treafik. Otherwise, you might have an issue when you try to allocate public IP for the Layered Network Management service in later steps.
+
+1. Copy the K3s configuration yaml file to `.kube/config`.
+
+    ```bash
+    mkdir ~/.kube
+    cp ~/.kube/config ~/.kube/config.back
+    sudo KUBECONFIG=~/.kube/config:/etc/rancher/k3s/k3s.yaml kubectl config view --flatten > ~/.kube/merged
+    mv ~/.kube/merged ~/.kube/config
+    chmod  0600 ~/.kube/config
+    export KUBECONFIG=~/.kube/config
+    #switch to k3s context
+    kubectl config use-context default
+    ```
+
+# [AKS Edge Essentials](#tab/aksee)
 
 ## Prepare Windows 11
 
@@ -71,6 +120,8 @@ Currently, the steps only include setting up an [AKS Edge Essentials](/azure/aks
 
         For more information about deployment configurations, see [Deployment configuration JSON parameters](/azure/aks/hybrid/aks-edge-deployment-config-json).
 
+---
+
 ## Arc enable the cluster
 
 1. Sign in with Azure CLI. To avoid permission issues later, it's important that you sign in interactively using a browser window:
@@ -94,15 +145,18 @@ Currently, the steps only include setting up an [AKS Edge Essentials](/azure/aks
     az account set -s $SUBSCRIPTION_ID
     ```
 1. Register the required resource providers in your subscription:
-    ```powershell
-    az provider register -n "Microsoft.ExtendedLocation"
-    az provider register -n "Microsoft.Kubernetes"
-    az provider register -n "Microsoft.KubernetesConfiguration"
-    az provider register -n "Microsoft.IoTOperationsOrchestrator"
-    az provider register -n "Microsoft.IoTOperationsMQ"
-    az provider register -n "Microsoft.IoTOperationsDataProcessor"
-    az provider register -n "Microsoft.DeviceRegistry"
-    ```
+
+   >[!NOTE]
+   >This step only needs to be run once per subscription. To register resource providers, you need permission to do the `/register/action` operation, which is included in subscription Contributor and Owner roles. For more information, see [Azure resource providers and types](../../azure-resource-manager/management/resource-providers-and-types.md).
+
+   ```powershell
+   az provider register -n "Microsoft.ExtendedLocation"
+   az provider register -n "Microsoft.Kubernetes"
+   az provider register -n "Microsoft.KubernetesConfiguration"
+   az provider register -n "Microsoft.IoTOperationsOrchestrator"
+   az provider register -n "Microsoft.IoTOperations"
+   az provider register -n "Microsoft.DeviceRegistry"
+   ```
 1. Use the [az group create](/cli/azure/group#az-group-create) command to create a resource group in your Azure subscription to store all the resources:
     ```bash
     az group create --location $LOCATION --resource-group $RESOURCE_GROUP --subscription $SUBSCRIPTION_ID
@@ -114,11 +168,11 @@ Currently, the steps only include setting up an [AKS Edge Essentials](/azure/aks
     > [!TIP]
     > If the `connectedk8s` commands fail, try using the cmdlets in [Connect your AKS Edge Essentials cluster to Arc](/azure/aks/hybrid/aks-edge-howto-connect-to-arc).
 
-## Deploy Layered Network Management Service to the cluster
+## Deploy Layered Network Management Preview Service to the cluster
 
 Once your Kubernetes cluster is Arc-enabled, you can deploy the Layered Network Management service to the cluster.
 
-### Install the Layered Network Management operator
+### Install the Layered Network Management Preview operator
 
 1. Run the following command. Replace the placeholders `<RESOURCE GROUP>` and `<CLUSTER NAME>` with your Arc onboarding information from an earlier step.
 
@@ -131,7 +185,7 @@ Once your Kubernetes cluster is Arc-enabled, you can deploy the Layered Network 
 1. Use the *kubectl* command to verify the Layered Network Management operator is running.
 
     ```bash
-    kubectl get pods
+    kubectl get pods -n azure-iot-operations
     ```
 
     ```output
@@ -139,7 +193,7 @@ Once your Kubernetes cluster is Arc-enabled, you can deploy the Layered Network 
     azedge-lnm-operator-598cc495c-5428j   1/1     Running   0          28h
     ```
 
-## Configure Layered Network Management Service
+## Configure Layered Network Management Preview Service
 
 Create the Layered Network Management custom resource.
 
@@ -150,7 +204,7 @@ Create the Layered Network Management custom resource.
     kind: Lnm
     metadata:
       name: level4
-      namespace: default
+      namespace: azure-iot-operations
     spec:
       image:
         pullPolicy: IfNotPresent
@@ -217,7 +271,7 @@ Create the Layered Network Management custom resource.
 1. View the Layered Network Management Kubernetes service:
 
     ```bash
-    kubectl get services
+    kubectl get services -n azure-iot-operations
     ```
 
     ```output
@@ -227,7 +281,8 @@ Create the Layered Network Management custom resource.
 
 ### Add iptables configuration
 
-This step is for AKS Edge Essentials only.
+> [!IMPORTANT]
+> This step is for AKS Edge Essentials only.
 
 The Layered Network Management deployment creates a Kubernetes service of type *LoadBalancer*. To ensure that the service is accessible from outside the Kubernetes cluster, you need to map the underlying Windows host's ports to the appropriate ports on the Layered Network Management service. 
 

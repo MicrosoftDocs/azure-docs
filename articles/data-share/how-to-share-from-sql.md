@@ -3,10 +3,11 @@ title: Share and receive data from Azure SQL Database and Azure Synapse Analytic
 description: Learn how to share and receive data from Azure SQL Database and Azure Synapse Analytics
 author:  sidontha
 ms.author: sidontha
-ms.service: data-share
+ms.service: azure-data-share
 ms.topic: how-to
-ms.date: 10/27/2022
+ms.date: 12/19/2023
 ---
+
 # Share and receive data from Azure SQL Database and Azure Synapse Analytics
 
 [!INCLUDE [appliesto-sql](includes/appliesto-sql.md)]
@@ -140,7 +141,7 @@ These prerequisites cover the authentication you'll need so Azure Data Share can
 - SQL Server Firewall access:
     1. In the [Azure portal](https://portal.azure.com/), navigate to your SQL server. Select *Firewalls and virtual networks* from left navigation.
     1. Select **Yes** for *Allow Azure services and resources to access this server*.
-    1. Select **+Add client IP**. Client IP address can change, so you may need to add your client IP again next time you share data from the portal.
+    1. Select **+Add client IP**. Client IP address can change, so you might need to add your client IP again next time you share data from the portal.
     1. Select **Save**.
 
 #### SQL authentication
@@ -166,7 +167,7 @@ You can follow the [step by step demo video](https://youtu.be/hIE-TjJD8Dc) to co
 - SQL Server Firewall access:
     1. In the [Azure portal](https://portal.azure.com/), navigate to SQL server. Select *Firewalls and virtual networks* from left navigation.
     1. Select **Yes** for *Allow Azure services and resources to access this server*.
-    1. Select **+Add client IP**. Client IP address can change, so you may need to add your client IP again next time you share data from the portal.
+    1. Select **+Add client IP**. Client IP address can change, so you might need to add your client IP again next time you share data from the portal.
     1. Select **Save**.
 
 <a id="prerequisitesforsharingazuresynapseworkspace"></a>
@@ -189,7 +190,7 @@ You can follow the [step by step demo video](https://youtu.be/hIE-TjJD8Dc) to co
 - Synapse workspace Firewall access:
     1. In the [Azure portal](https://portal.azure.com/), navigate to Synapse workspace. Select **Firewalls** from left navigation.
     1. Select **ON** for **Allow Azure services and resources to access this workspace**.
-    1. Select **+Add client IP**. Client IP address can change, so you may need to add your client IP again next time you share data from the portal.
+    1. Select **+Add client IP**. Client IP address can change, so you might need to add your client IP again next time you share data from the portal.
     1. Select **Save**.
 
 ## Create a share
@@ -220,7 +221,7 @@ You can follow the [step by step demo video](https://youtu.be/hIE-TjJD8Dc) to co
 
    Select **Next** to navigate to the object you would like to share and select 'Add Datasets'. You can select tables and views from Azure SQL Database and Azure Synapse Analytics (formerly Azure SQL DW), or tables from Azure Synapse Analytics (workspace) dedicated SQL pool.
 
-    :::image type="content" source="./media/select-datasets-sql.png" alt-text="Screenshot showing the Azure SQL Database dataset window with a sql server selected.":::
+    :::image type="content" source="./media/select-datasets-sql.png" alt-text="Screenshot showing the Azure SQL Database dataset window with a SQL server selected.":::
 
 1. In the Recipients tab, enter in the email addresses of your Data Consumer by selecting '+ Add Recipient'. The email address needs to be recipient's Azure sign-in email.
 
@@ -244,7 +245,7 @@ Your Azure Data Share has now been created and the recipient of your Data Share 
 
 Before you can accept a data share invitation, you need to prepare your environment.
 
-Confirm that all pre-requisites are complete before accepting a data share invitation:
+Confirm that all prerequisites are complete before accepting a data share invitation:
 
 - Azure Subscription: If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 - A Data Share invitation: An invitation from Microsoft Azure with a subject titled "Azure Data Share invitation from **<yourdataprovider@domain.com>**".
@@ -280,7 +281,7 @@ For a SQL server where you're the **Microsoft Entra admin** of the SQL server, c
 - SQL Server Firewall access:
     1. In the [Azure portal](https://portal.azure.com/), navigate to your SQL server. Select **Firewalls and virtual networks** from left navigation.
     1. Select **Yes** for *Allow Azure services and resources to access this server*.
-    1. Select **+Add client IP**. Client IP address can change, so you may need to add your client IP again next time you share data from the portal.
+    1. Select **+Add client IP**. Client IP address can change, so you might need to add your client IP again next time you share data from the portal.
     1. Select **Save**.
 
 For a SQL server where you're **not** the **Microsoft Entra admin**, complete these prerequisites before accepting a data share:
@@ -307,7 +308,7 @@ You can follow the [step by step demo video](https://youtu.be/aeGISgK1xro), or t
 - SQL Server Firewall access:
     1. In the [Azure portal](https://portal.azure.com/), navigate to the SQL server and select **Firewalls and virtual networks**.
     1. Select **Yes** for **Allow Azure services and resources to access this server**.
-    1. Select **+Add client IP**. Client IP address can change, so you may need to add your client IP again next time you share data from the portal.
+    1. Select **+Add client IP**. Client IP address can change, so you might need to add your client IP again next time you share data from the portal.
     1. Select **Save**.
 
 <a id="prerequisitesforreceivingtoazuresynapseworkspacepool"></a>
@@ -363,7 +364,7 @@ Then, select the share you would like to view.
 
 1. For the **Data Share Account** field, select **Create new** if you don't have an existing Data Share account. Otherwise, select an existing Data Share account that you'd like to accept your data share into.
 
-1. For the **Received Share Name** field, you may leave the default specified by the data provide, or specify a new name for the received share.
+1. For the **Received Share Name** field, you might leave the default specified by the data provide, or specify a new name for the received share.
 
 1. Once you've agreed to the terms of use and specified a Data Share account to manage your received share, Select **Accept and configure**. A share subscription will be created.
 

@@ -1,10 +1,10 @@
 ---
 title: Tutorial - Use Apache HBase in Azure HDInsight
 description: Follow this Apache HBase tutorial to start using hadoop on HDInsight. Create tables from the HBase shell and query them using Hive.
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: tutorial
-ms.custom: hdinsightactive,hdiseo17may2017
-ms.date: 04/26/2023
+ms.custom: hdinsightactive, linux-related-content
+ms.date: 05/10/2024
 ---
 
 # Tutorial: Use Apache HBase in Azure HDInsight
@@ -59,11 +59,11 @@ You can use SSH to connect to HBase clusters and then use [Apache HBase Shell](h
 
 For most people, data appears in the tabular format:
 
-:::image type="content" source="./media/apache-hbase-tutorial-get-started-linux/hdinsight-hbase-contacts-tabular.png" alt-text="HDInsight Apache HBase tabular data" border="false":::
+:::image type="content" source="./media/apache-hbase-tutorial-get-started-linux/hdinsight-hbase-contacts-tabular.png" alt-text="HDInsight Apache HBase tabular data." border="false":::
 
 In HBase (an implementation of [Cloud BigTable](https://cloud.google.com/bigtable/)), the same data looks like:
 
-:::image type="content" source="./media/apache-hbase-tutorial-get-started-linux/hdinsight-hbase-contacts-bigtable.png" alt-text="HDInsight Apache HBase BigTable data" border="false":::
+:::image type="content" source="./media/apache-hbase-tutorial-get-started-linux/hdinsight-hbase-contacts-bigtable.png" alt-text="HDInsight Apache HBase BigTable data." border="false":::
 
 **To use the HBase shell**
 
@@ -106,7 +106,7 @@ In HBase (an implementation of [Cloud BigTable](https://cloud.google.com/bigtabl
     scan 'Contacts'
     ```
 
-    :::image type="content" source="./media/apache-hbase-tutorial-get-started-linux/hdinsight-hbase-shell.png" alt-text="HDInsight Apache Hadoop HBase shell" border="false":::
+    :::image type="content" source="./media/apache-hbase-tutorial-get-started-linux/hdinsight-hbase-shell.png" alt-text="HDInsight Apache Hadoop HBase shell." border="false":::
 
 1. Use `get` command to fetch contents of a row. Enter the following command:
 
@@ -325,7 +325,7 @@ HBase in HDInsight ships with a Web UI for monitoring clusters. Using the Web UI
 
 1. Select **Quick links** on the top of the page, point to the active Zookeeper node link, and then select **HBase Master UI**.  The UI is opened in another browser tab:
 
-   :::image type="content" source="./media/apache-hbase-tutorial-get-started-linux/hdinsight-hbase-hmaster-ui.png" alt-text="HDInsight Apache HBase HMaster UI" border="false":::
+   :::image type="content" source="./media/apache-hbase-tutorial-get-started-linux/hdinsight-hbase-hmaster-ui.png" alt-text="HDInsight Apache HBase HMaster UI." border="false":::
 
    The HBase Master UI contains the following sections:
 

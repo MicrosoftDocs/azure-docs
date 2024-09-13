@@ -2,11 +2,11 @@
 title: 'Quickstart: Deploy Azure Bastion to a virtual network using an ARM template'
 titleSuffix: Azure Bastion
 description: Learn how to deploy Azure Bastion to a virtual network by using an Azure Resource Manager template.
-author: abell
-ms.author: abell
-ms.service: bastion
+author: cherylmc
+ms.author: cherylmc
+ms.service: azure-bastion
 ms.topic: quickstart 
-ms.date: 06/27/2022
+ms.date: 12/04/2023
 ms.custom: template-quickstart, devx-track-arm-template
 #Customer intent: As someone with a networking background, I want to deploy Azure Bastion to a virtual machine by using an ARM template.
 ---
@@ -24,7 +24,7 @@ The following diagram shows the architecture of Bastion.
 
 If your environment meets the prerequisites and you're familiar with using ARM templates, select the following **Deploy to Azure** button. The template opens in the Azure portal.
 
-[![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2fquickstarts%2fmicrosoft.network%2fazure-bastion-nsg%2fazuredeploy.json)
+:::image type="content" source="~/reusable-content/ce-skilling/azure/media/template-deployments/deploy-to-azure-button.svg" alt-text="Button to deploy the Resource Manager template to Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2fquickstarts%2fmicrosoft.network%2fazure-bastion-nsg%2fazuredeploy.json":::
 
 ## Prerequisites
 
@@ -62,14 +62,14 @@ By default, this template creates a Bastion deployment with a resource group, a 
 ## Deploy the template
 
 > [!IMPORTANT]
-> [!INCLUDE [Pricing](../../includes/bastion-pricing.md)]
+> [!INCLUDE [Pricing](~/reusable-content/ce-skilling/azure/includes/bastion-pricing.md)]
 
 In this section, you deploy Bastion by using the Azure portal. You don't connect and sign in to your virtual machine or deploy Bastion directly from your VM.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Select the following **Deploy to Azure** button:
 
-     [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2fquickstarts%2fmicrosoft.network%2fazure-bastion-nsg%2fazuredeploy.json)
+     :::image type="content" source="~/reusable-content/ce-skilling/azure/media/template-deployments/deploy-to-azure-button.svg" alt-text="Button to deploy the Resource Manager template to Azure." border="false" link="https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2fquickstarts%2fmicrosoft.network%2fazure-bastion-nsg%2fazuredeploy.json":::
 
 1. In the **Azure Bastion as a Service** template, enter or select information on the **Basics** tab. Keep these considerations in mind:
 
@@ -116,7 +116,7 @@ When you finish using the virtual network and the virtual machines, delete the r
 In this quickstart, you deployed Bastion by using an ARM template. You then connected to a virtual machine securely via Bastion. Continue with the following steps if you want to copy and paste to your virtual machine.
 
 > [!div class="nextstepaction"]
-> [Quickstart: Create a Windows virtual machine in the Azure portal](../virtual-machines/windows/quick-create-portal.md)
+> [Quickstart: Create a Windows virtual machine in the Azure portal](/azure/virtual-machines/windows/quick-create-portal)
 
 > [!div class="nextstepaction"]
 > [Create an RDP connection to a Windows VM using Azure Bastion](../bastion/bastion-connect-vm-rdp-windows.md)

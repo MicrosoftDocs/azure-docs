@@ -2,12 +2,12 @@
 title: Azure Maps Drawing Conversion errors and warnings
 titleSuffix:  Microsoft Azure Maps Creator
 description: Learn about the Conversion errors and warnings you may meet while you're using the Azure Maps Conversion service. Read the recommendations on how to resolve the errors and the warnings, with some examples.
-author: brendansco 
-ms.author: brendanc 
+author: faterceros
+ms.author: aterceros
 ms.date: 05/21/2021
-ms.topic: conceptual
+ms.topic: reference
 ms.service: azure-maps
-services: azure-maps
+ms.subservice: creator
 
 ---
 
@@ -507,7 +507,7 @@ To fix a **verticalPenetrationError** error, read about how to use a vertical pe
 > [!div class="nextstepaction"]
 > [Creator for indoor mapping]
 
-[Conversion service]: /rest/api/maps/v2/conversion
+[Conversion service]: /rest/api/maps-creator/conversion
 [Creator for indoor mapping]: creator-indoor-maps.md
 [Drawing files requirements]: drawing-requirements.md#drawing-package-requirements
 [Drawing Package Guide]: drawing-package-guide.md

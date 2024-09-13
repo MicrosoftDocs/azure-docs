@@ -3,8 +3,9 @@ title: Node.js developer reference for Azure Functions
 description: Understand how to develop functions by using Node.js.
 ms.assetid: 45dedd78-3ff9-411f-bb4b-16d29a11384c
 ms.topic: conceptual
-ms.date: 04/17/2023
-ms.devlang: javascript, typescript
+ms.date: 02/28/2024
+ms.devlang: javascript
+# ms.devlang: javascript, typescript
 ms.custom: devx-track-js, vscode-azure-extension-update-not-needed
 zone_pivot_groups: functions-nodejs-model
 ---
@@ -30,10 +31,10 @@ The following table shows each version of the Node.js programming model along wi
 
 | [Programming Model Version](https://www.npmjs.com/package/@azure/functions?activeTab=versions) | Support Level | [Functions Runtime Version](./functions-versions.md) | [Node.js Version](https://github.com/nodejs/release#release-schedule) | Description |
 | ---- | ---- | --- | --- | --- |
-| 4.x | GA | 4.25+ | 20.x (Preview), 18.x | Supports a flexible file structure and code-centric approach to triggers and bindings. |
-| 3.x | GA | 4.x | 20.x (Preview), 18.x, 16.x, 14.x | Requires a specific file structure with your triggers and bindings declared in a "function.json" file |
-| 2.x | GA (EOL) | 3.x | 14.x, 12.x, 10.x | Reached end of life (EOL) on December 13, 2022. See [Functions Versions](./functions-versions.md) for more info. |
-| 1.x | GA (EOL) | 2.x | 10.x, 8.x | Reached end of life (EOL) on December 13, 2022. See [Functions Versions](./functions-versions.md) for more info. |
+| 4.x | GA | 4.25+ | 20.x, 18.x | Supports a flexible file structure and code-centric approach to triggers and bindings. |
+| 3.x | GA | 4.x | 20.x, 18.x, 16.x, 14.x | Requires a specific file structure with your triggers and bindings declared in a "function.json" file |
+| 2.x | n/a | 3.x | 14.x, 12.x, 10.x | Reached end of support on December 13, 2022. See [Functions Versions](./functions-versions.md) for more info. |
+| 1.x | n/a | 2.x | 10.x, 8.x | Reached end of support on December 13, 2022. See [Functions Versions](./functions-versions.md) for more info. |
 
 ## Folder structure
 
@@ -269,7 +270,25 @@ export default httpTrigger;
 
 ::: zone pivot="nodejs-model-v4"
 
-The programming model loads your functions based on the `main` field in your `package.json`. This field can be set to a single file like `src/index.js` or a [glob pattern](https://wikipedia.org/wiki/Glob_(programming)) specifying multiple files like `src/functions/*.js`.
+The programming model loads your functions based on the `main` field in your `package.json`. You can set the `main` field to a single file or multiple files by using a [glob pattern](https://wikipedia.org/wiki/Glob_(programming)). The following table shows example values for the `main` field:
+
+# [JavaScript](#tab/javascript)
+
+| Example | Description |
+| --- | --- |
+| **`src/index.js`** | Register functions from a single root file. |
+| **`src/functions/*.js`** | Register each function from its own file. |
+| **`src/{index.js,functions/*.js}`** | A combination where you register each function from its own file, but you still have a root file for general app-level code. |
+
+# [TypeScript](#tab/typescript)
+
+| Example | Description |
+| --- | --- |
+| **`dist/src/index.js`** | Register functions from a single root file. |
+| **`dist/src/functions/*.js`** | Register each function from its own file. |
+| **`dist/src/{index.js,functions/*.js}`** | A combination where you register each function from its own file, but you still have a root file for general app-level code. |
+
+---
 
 In order to register a function, you must import the `app` object from the `@azure/functions` npm module and call the method specific to your trigger type. The first argument when registering a function is the function name. The second argument is an `options` object specifying configuration for your trigger, your handler, and any other inputs or outputs. In some cases where trigger configuration isn't necessary, you can pass the handler directly as the second argument instead of an `options` object.
 
@@ -711,7 +730,7 @@ app.storageQueue('copyBlob1', {
 
 ### Generic inputs and outputs
 
-The `app`, `trigger`, `input`, and `output` objects exported by the `@azure/functions` module provide type-specific methods for most types. For all the types that aren't supported, a `generic` method has been provided to allow you to manually specify the configuration. The `generic` method can also be used if you want to change the default settings provided by a type-specific method.
+The `app`, `trigger`, `input`, and `output` objects exported by the `@azure/functions` module provide type-specific methods for most types. For all the types that aren't supported, a `generic` method is provided to allow you to manually specify the configuration. The `generic` method can also be used if you want to change the default settings provided by a type-specific method.
 
 The following example is a simple HTTP triggered function using generic methods instead of type-specific methods.
 
@@ -1203,7 +1222,7 @@ The `HttpRequest` object has the following properties:
 | **`params`**   | `Record<string, string>` | Route parameter keys and values. |
 | **`user`**     | `HttpRequestUser | null` | Object representing logged-in user, either through Functions authentication, SWA Authentication, or null when no such user is logged in. |
 | **`body`**     | [`ReadableStream | null`](https://developer.mozilla.org/docs/Web/API/ReadableStream) | Body as a readable stream. |
-| **`bodyUsed`** | `boolean` | A boolean indicating if the body has been read from already. |
+| **`bodyUsed`** | `boolean` | A boolean indicating if the body is already read. |
 
 In order to access a request or response's body, the following methods can be used:
 
@@ -1403,6 +1422,163 @@ The response can be set in several ways:
 
 ::: zone-end
 
+## HTTP streams
+
+HTTP streams is a feature that makes it easier to process large data, stream OpenAI responses, deliver dynamic content, and support other core HTTP scenarios. It lets you stream requests to and responses from HTTP endpoints in your Node.js function app. Use HTTP streams in scenarios where your app requires real-time exchange and interaction between client and server over HTTP. You can also use HTTP streams to get the best performance and reliability for your apps when using HTTP.
+
+::: zone pivot="nodejs-model-v3"  
+>[!IMPORTANT]
+>HTTP streams aren't supported in the v3 model. [Upgrade to the v4 model](./functions-node-upgrade-v4.md) to use the HTTP streaming feature.
+::: zone-end  
+::: zone pivot="nodejs-model-v4"  
+The existing `HttpRequest` and `HttpResponse` types in programming model v4 already support various ways of handling the message body, including as a stream. 
+ 
+### Prerequisites
+- The [`@azure/functions` npm package](https://www.npmjs.com/package/@azure/functions) version 4.3.0 or later.
+- [Azure Functions runtime](./functions-versions.md) version 4.28 or later. 
+- [Azure Functions Core Tools](./functions-run-local.md) version 4.0.5530 or a later version, which contains the correct runtime version. 
+
+### Enable streams
+
+Use these steps to enable HTTP streams in your function app in Azure and in your local projects:
+
+1. If you plan to stream large amounts of data, modify the [`FUNCTIONS_REQUEST_BODY_SIZE_LIMIT`](./functions-app-settings.md#functions_request_body_size_limit) setting in Azure. The default maximum body size allowed is `104857600`, which limits your requests to a size of ~100 MB.
+
+1. For local development, also add `FUNCTIONS_REQUEST_BODY_SIZE_LIMIT` to the [local.settings.json file](./functions-develop-local.md#local-settings-file).
+
+1. Add the following code to your app in any file included by your [main field](./functions-reference-node.md#registering-a-function).
+
+    #### [JavaScript](#tab/javascript)
+    
+    ```javascript
+    const { app } = require('@azure/functions'); 
+    
+    app.setup({ enableHttpStream: true });
+    ```
+
+    #### [TypeScript](#tab/typescript)
+    
+    ```typescript
+    import { app } from '@azure/functions'; 
+    
+    app.setup({ enableHttpStream: true }); 
+    ```
+    
+    ---
+
+### Stream examples
+
+This example shows an HTTP triggered function that receives data via an HTTP POST request, and the function streams this data to a specified output file: 
+
+#### [JavaScript](#tab/javascript)
+
+:::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/functions/httpTriggerStreamRequest.js" :::
+
+#### [TypeScript](#tab/typescript)
+
+:::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/functions/httpTriggerStreamRequest.ts" :::
+
+---
+
+This example shows an HTTP triggered function that streams a file's content as the response to incoming HTTP GET requests: 
+
+#### [JavaScript](#tab/javascript)
+
+:::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/functions/httpTriggerStreamResponse.js" :::
+
+#### [TypeScript](#tab/typescript)
+
+:::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/functions/httpTriggerStreamResponse.ts" :::
+  
+---
+
+For a ready-to-run sample app using streams, check out this example on [GitHub](https://github.com/Azure-Samples/azure-functions-nodejs-stream).
+
+### Stream considerations
+
++ Use `request.body` to obtain the maximum benefit from using streams. You can still continue to use methods like `request.text()`, which always return the body as a string.
+::: zone-end  
+
+## Hooks
+
+::: zone pivot="nodejs-model-v3"
+
+Hooks aren't supported in the v3 model. [Upgrade to the v4 model](./functions-node-upgrade-v4.md) to use hooks.
+
+::: zone-end
+::: zone pivot="nodejs-model-v4"
+
+Use a hook to execute code at different points in the Azure Functions lifecycle. Hooks are executed in the order they're registered and can be registered from any file in your app. There are currently two scopes of hooks, "app" level and "invocation" level.
+
+### Invocation hooks
+
+Invocation hooks are executed once per invocation of your function, either before in a `preInvocation` hook or after in a `postInvocation` hook. By default your hook executes for all trigger types, but you can also filter by type. The following example shows how to register an invocation hook and filter by trigger type:
+
+# [JavaScript](#tab/javascript)
+
+:::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/invocationHooks1.js" :::
+
+# [TypeScript](#tab/typescript)
+
+:::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/invocationHooks1.ts" :::
+
+---
+
+The first argument to the hook handler is a context object specific to that hook type.
+
+The `PreInvocationContext` object has the following properties:
+
+| Property | Description |
+| --- | --- |
+| **`inputs`** | The arguments passed to the invocation. |
+| **`functionHandler`** | The function handler for the invocation. Changes to this value affect the function itself. |
+| **`invocationContext`** | The [invocation context](#invocation-context) object passed to the function. |
+| **`hookData`** | The recommended place to store and share data between hooks in the same scope. You should use a unique property name so that it doesn't conflict with other hooks' data. |
+
+The `PostInvocationContext` object has the following properties:
+
+| Property | Description |
+| --- | --- |
+| **`inputs`** | The arguments passed to the invocation. |
+| **`result`** | The result of the function. Changes to this value affect the overall result of the function. |
+| **`error`** | The error thrown by the function, or null/undefined if there's no error. Changes to this value affect the overall result of the function. |
+| **`invocationContext`** | The [invocation context](#invocation-context) object passed to the function. |
+| **`hookData`** | The recommended place to store and share data between hooks in the same scope. You should use a unique property name so that it doesn't conflict with other hooks' data. |
+
+### App hooks
+
+App hooks are executed once per instance of your app, either during startup in an `appStart` hook or during termination in an `appTerminate` hook. App terminate hooks have a limited time to execute and don't execute in all scenarios.
+
+The Azure Functions runtime currently [doesn't support](https://github.com/Azure/azure-functions-host/issues/8222) context logging outside of an invocation. Use the Application Insights [npm package](https://www.npmjs.com/package/applicationinsights) to log data during app level hooks.
+
+The following example registers app hooks:
+
+# [JavaScript](#tab/javascript)
+
+:::code language="javascript" source="~/azure-functions-nodejs-v4/js/src/appHooks1.js" :::
+
+# [TypeScript](#tab/typescript)
+
+:::code language="typescript" source="~/azure-functions-nodejs-v4/ts/src/appHooks1.ts" :::
+
+---
+
+The first argument to the hook handler is a context object specific to that hook type.
+
+The `AppStartContext` object has the following properties:
+
+| Property | Description |
+| --- | --- |
+| **`hookData`** | The recommended place to store and share data between hooks in the same scope. You should use a unique property name so that it doesn't conflict with other hooks' data. |
+
+The `AppTerminateContext` object has the following properties:
+
+| Property | Description |
+| --- | --- |
+| **`hookData`** | The recommended place to store and share data between hooks in the same scope. You should use a unique property name so that it doesn't conflict with other hooks' data. |
+
+::: zone-end
+
 ## Scaling and concurrency
 
 By default, Azure Functions automatically monitors the load on your application and creates more host instances for Node.js as needed. Azure Functions uses built-in (not user configurable) thresholds for different trigger types to decide when to add instances, such as the age of messages and queue size for QueueTrigger. For more information, see [How the Consumption and Premium plans work](event-driven-scaling.md).
@@ -1439,11 +1615,11 @@ Before upgrading your Node.js version, make sure your function app is running on
 Run the Azure CLI [`az functionapp config appsettings set`](/cli/azure/functionapp/config#az-functionapp-config-appsettings-set) command to update the Node.js version for your function app running on Windows:
 
 ```azurecli-interactive
-az functionapp config appsettings set  --settings WEBSITE_NODE_DEFAULT_VERSION=~18 \
+az functionapp config appsettings set  --settings WEBSITE_NODE_DEFAULT_VERSION=~20 \
  --name <FUNCTION_APP_NAME> --resource-group <RESOURCE_GROUP_NAME> 
 ```
 
-This sets the [`WEBSITE_NODE_DEFAULT_VERSION` application setting](./functions-app-settings.md#website_node_default_version) the supported LTS version of `~18`.
+This sets the [`WEBSITE_NODE_DEFAULT_VERSION` application setting](./functions-app-settings.md#website_node_default_version) the supported LTS version of `~20`.
 
 # [Azure portal](#tab/azure-portal/windows)
 
@@ -1456,11 +1632,11 @@ Use the following steps to change the Node.js version:
 Run the Azure CLI [`az functionapp config set`](/cli/azure/functionapp/config#az-functionapp-config-set) command to update the Node.js version for your function app running on Linux:
 
 ```azurecli-interactive
-az functionapp config set --linux-fx-version "node|18" --name "<FUNCTION_APP_NAME>" \
+az functionapp config set --linux-fx-version "node|20" --name "<FUNCTION_APP_NAME>" \
  --resource-group "<RESOURCE_GROUP_NAME>"
 ```
 
-This sets the base image of the Linux function app to Node.js version 18.
+This sets the base image of the Linux function app to Node.js version 20.
 
 # [Azure portal](#tab/azure-portal/linux)
 
@@ -1718,7 +1894,7 @@ export default { logHello };
 
 It's recommended to use VS Code for local debugging, which starts your Node.js process in debug mode automatically and attaches to the process for you. For more information, see [run the function locally](./create-first-function-vs-code-node.md#run-the-function-locally).
 
-If you're using a different tool for debugging or want to start your Node.js process in debug mode manually, add `"languageWorkers__node__arguments": "--inspect"` under `Values` in your [local.settings.json](./functions-develop-local.md#local-settings-file). The `--inspect` argument tells Node.js to listen for a debug client, on port 9229 by default. For more information, see the [Node.js debugging guide](https://nodejs.org/en/docs/guides/debugging-getting-started).
+If you're using a different tool for debugging or want to start your Node.js process in debug mode manually, add `"languageWorkers__node__arguments": "--inspect"` under `Values` in your [local.settings.json](./functions-develop-local.md#local-settings-file). The `--inspect` argument tells Node.js to listen for a debug client, on port 9229 by default. For more information, see the [Node.js debugging guide](https://nodejs.org/en/learn/getting-started/debugging).
 
 <a name="considerations-for-javascript-functions"></a>
 
@@ -1728,7 +1904,7 @@ This section describes several impactful patterns for Node.js apps that we recom
 
 ### Choose single-vCPU App Service plans
 
-When you create a function app that uses the App Service plan, we recommend that you select a single-vCPU plan rather than a plan with multiple vCPUs. Today, Functions runs Node.js functions more efficiently on single-vCPU VMs, and using larger VMs doesn't produce the expected performance improvements. When necessary, you can manually scale out by adding more single-vCPU VM instances, or you can enable autoscale. For more information, see [Scale instance count manually or automatically](../azure-monitor/autoscale/autoscale-get-started.md?toc=/azure/app-service/toc.json).
+When you create a function app that uses the App Service plan, we recommend that you select a single-vCPU plan rather than a plan with multiple vCPUs. Today, Functions runs Node.js functions more efficiently on single-vCPU VMs, and using larger VMs doesn't produce the expected performance improvements. When necessary, you can manually scale out by adding more single-vCPU VM instances, or you can enable autoscale. For more information, see [Scale instance count manually or automatically](/azure/azure-monitor/autoscale/autoscale-get-started?toc=/azure/app-service/toc.json).
 
 <a name="cold-start"></a>
 

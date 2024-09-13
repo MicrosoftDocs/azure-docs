@@ -35,11 +35,11 @@ npx install-peerdeps @fluidframework/azure-client
 
 ## Compatibility table
 
-| npm package                         | Minimum version | API                                                              |
-| ----------------------------------  | :-------------- | :--------------------------------------------------------------- |
-| @fluidframework/azure-client        | [1.0.2][]      | [API](https://fluidframework.com/docs/apis/azure-client/)        |
-| fluid-framework                     | [1.2.4][]      | [API](https://fluidframework.com/docs/apis/fluid-framework/)     |
-| @fluidframework/azure-service-utils | [1.0.2][]      | [API](https://fluidframework.com/docs/apis/azure-service-utils/) |
+| npm package                         | Minimum version |
+| ----------------------------------  | :-------------- |
+| @fluidframework/azure-client        | [1.0.2][]      |
+| fluid-framework                     | [1.2.4][]      |
+| @fluidframework/azure-service-utils | [1.0.2][]      |
 
 [1.0.2]: https://fluidframework.com/docs/updates/v1.0.0/
 [1.2.4]: https://fluidframework.com/docs/updates/v1.0.0/

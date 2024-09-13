@@ -8,10 +8,14 @@ manager: CelesteDG
 ms.service: active-directory
 
 ms.topic: reference
-ms.date: 03/06/2022
+ms.date: 01/11/2024
 ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: "b2c-support"
+
+
+#Customer intent: As a policy administrator or developer, I want to understand the structure and attributes of the ClaimsSchema element, so that I can define and manage claim types in the policy effectively.
+
 ---
 
 # ClaimsSchema
@@ -391,7 +395,7 @@ The **Readonly** user input type is used to provide a readonly field to display 
 
 #### Paragraph
 
-The **Paragraph** user input type is used to provide a field that shows text only in a paragraph tag.  For example, &lt;p&gt;text&lt;/p&gt;. A **Paragraph** user input type `OutputClaim` of self-asserted technical profile, must set the `Required` attribute `false` (default).
+The **Paragraph** user input type is used to provide a field that shows text only in a paragraph tag.  For example, &lt;p&gt;text&lt;/p&gt;. A **Paragraph** user input type `OutputClaim` of self-asserted technical profile, must set the `Required` attribute `false` (default). This user input type is only supported in self-asserted page layouts. Unified sign-in and sign-up pages (unifiedssp) might not display this properly.
 
 ![Using claim type with paragraph](./media/claimsschema/paragraph.png)
 

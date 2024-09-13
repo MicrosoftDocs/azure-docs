@@ -4,11 +4,12 @@ titleSuffix: Azure Network Watcher
 description: In this tutorial, you'll learn how to use Azure Network Watcher connection monitor tool to monitor network communication with a virtual machine scale set using the Azure portal.
 author: halkazwini
 ms.author: halkazwini
-ms.service: network-watcher
+ms.service: azure-network-watcher
 ms.topic: tutorial
-ms.date: 01/25/2023
+ms.date: 05/31/2024
 
 #CustomerIntent: I need to monitor communication between a virtual machine scale set and a virtual machine. If the communication fails, I need to know why, so that I can resolve the problem.
+
 ---
 
 # Tutorial: Monitor network communication with a virtual machine scale set using the Azure portal
@@ -71,7 +72,7 @@ First, create a public standard load balancer using the Azure portal. The name a
 
 ### Create a virtual machine scale set
 
-You can deploy a scale set with a Windows Server image or Linux images such as RHEL, CentOS, Ubuntu, or SLES.
+You can deploy a scale set with a Windows Server image or Linux images such as Ubuntu or Red Hat Enterprise Linux.
 
 1. Type **Scale set** in the search box. In the results, under **Marketplace**, select **Virtual machine scale sets**. 
 1. On the **Virtual machine scale sets** pane, select **Create**. The **Create a virtual machine scale set** page opens. 
@@ -81,8 +82,8 @@ You can deploy a scale set with a Windows Server image or Linux images such as R
 1. Under **Orchestration**, for **Orchestration mode**, ensure that the **Uniform** option is selected. 
 1. For **Image**, select a marketplace image. In this example, we've chosen *Ubuntu Server 18.04 LTS*.
 1. Enter your username, and then select the authentication type you prefer.
-   - A **Password** must be at least 12 characters long and contain three of the following: a lowercase character, an uppercase character, a number, and a special character. For more information, see [username and password requirements](../virtual-machines/windows/faq.yml#what-are-the-password-requirements-when-creating-a-vm-).
-   - If you select a Linux OS disk image, you can instead choose **SSH public key**. Provide only your public key, such as *~/.ssh/id_rsa.pub*. You can use the Azure Cloud Shell from the portal to [create and use SSH keys](../virtual-machines/linux/mac-create-ssh-keys.md).
+   - A **Password** must be at least 12 characters long and contain three of the following: a lowercase character, an uppercase character, a number, and a special character. For more information, see [username and password requirements](/azure/virtual-machines/windows/faq#what-are-the-password-requirements-when-creating-a-vm-).
+   - If you select a Linux OS disk image, you can instead choose **SSH public key**. Provide only your public key, such as *~/.ssh/id_rsa.pub*. You can use the Azure Cloud Shell from the portal to [create and use SSH keys](/azure/virtual-machines/linux/mac-create-ssh-keys).
  
 1. Select **Next**. 
 1. Leave the defaults for the **Instance** and **Disks** pages.
@@ -274,7 +275,7 @@ In the Azure portal, to create alerts for a connection monitor, specify values f
 
 * **Condition name**: The alert is created on the `Test Result(preview)` metric. When the result of the connection monitor test is a failing result, the alert rule will fire. 
 
-* **Action group name**: You can enter your email directly or you can create alerts via action groups. If you enter your email directly, an action group with the name **NPM Email ActionGroup** is created. The email ID is added to that action group. If you choose to use action groups, you need to select a previously created action group. To learn how to create an action group, see [Create action groups in the Azure portal](../azure-monitor/alerts/action-groups.md). After the alert is created, you can [manage your alerts](../azure-monitor/alerts/alerts-metric.md#view-and-manage-with-azure-portal). 
+* **Action group name**: You can enter your email directly or you can create alerts via action groups. If you enter your email directly, an action group with the name **NPM Email ActionGroup** is created. The email ID is added to that action group. If you choose to use action groups, you need to select a previously created action group. To learn how to create an action group, see [Create action groups in the Azure portal](/azure/azure-monitor/alerts/action-groups). After the alert is created, you can [manage your alerts](/azure/azure-monitor/alerts/alerts-metric#view-and-manage-with-azure-portal). 
 
 * **Alert rule name**: The name of the connection monitor.
 

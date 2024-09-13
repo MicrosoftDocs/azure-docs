@@ -1,12 +1,12 @@
 ---
 title: 'Tutorial - Migrate a web app from Google Maps to Microsoft Azure Maps'
 description: Tutorial on how to migrate a web app from Google Maps to Microsoft Azure Maps
-author: eriklindeman
-ms.author: eriklind
+author: sinnypan
+ms.author: sipa
 ms.date: 09/28/2023
 ms.topic: tutorial
 ms.service: azure-maps
-ms.custom:
+ms.subservice: web-sdk
 ---
 
 # Tutorial: Migrate a web app from Google Maps
@@ -1845,10 +1845,10 @@ Learn more about migrating to Azure Maps:
 [Popup options]: /javascript/api/azure-maps-control/atlas.popupoptions
 [Popup with Media Content]: https://samples.azuremaps.com/?sample=popup-with-media-content
 [Popups on Shapes]: https://samples.azuremaps.com/?sample=popups-on-shapes
-[Render]:  /rest/api/maps/render-v2
+[Render]: /rest/api/maps/render
 [Reusing Popup with Multiple Pins]: https://samples.azuremaps.com/?sample=reusing-popup-with-multiple-pins
-[road tiles]: /rest/api/maps/render-v2/get-map-tile
-[satellite tiles]: /rest/api/maps/render-v2/get-map-static-image
+[road tiles]: /rest/api/maps/render/get-map-tile
+[satellite tiles]: /rest/api/maps/render/get-map-static-image
 [Search Autosuggest with JQuery UI]: https://samples.azuremaps.com/?sample=search-autosuggest-and-jquery-ui
 [Search for points of interest]: map-search-location.md
 [Setting the map view]: #setting-the-map-view

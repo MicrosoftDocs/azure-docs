@@ -4,8 +4,9 @@ description: In this tutorial, you learn how to build a Docker container image i
 ms.topic: tutorial
 author: tejaswikolli-web
 ms.author: tejaswikolli
-ms.date: 10/11/2022
-ms.custom: "seodec18, mvc, devx-track-azurecli"
+ms.date: 10/31/2023
+ms.service: azure-container-registry
+ms.custom: mvc, devx-track-azurecli
 # Customer intent: As a developer or devops engineer, I want to quickly build container images in Azure, without having to install dependencies like Docker Engine, so that I can simplify my inner-loop development pipeline.
 ---
 
@@ -60,7 +61,7 @@ cd acr-build-helloworld-node
 
 The commands in this tutorial series are formatted for the Bash shell. If you prefer to use PowerShell, Command Prompt, or another shell, you may need to adjust the line continuation and environment variable format accordingly.
 
-[!INCLUDE [azure-cli-prepare-your-environment-h3.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-h3.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-h3.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-h3.md)]
 
 ## Build in Azure with ACR Tasks
 
@@ -86,7 +87,7 @@ Now that you have a registry, use ACR Tasks to build a container image from the 
 [!INCLUDE [pull-image-dockerfile-include](../../includes/pull-image-dockerfile-include.md)]
 
 ```azurecli
-az acr build --registry $ACR_NAME --image helloacrtasks:v1 .
+az acr build --registry $ACR_NAME --image helloacrtasks:v1 --file /path/to/Dockerfile /path/to/build/context.
 ```
 
 Output from the [az acr build][az-acr-build] command is similar to the following. You can see the upload of the source code (the "context") to Azure, and the details of the `docker build` operation that the ACR task runs in the cloud. Because ACR tasks use `docker build` to build your images, no changes to your Dockerfiles are required to start using ACR Tasks immediately.
@@ -172,7 +173,7 @@ All production scenarios should use [service principals][service-principal-auth]
 
 #### Create a key vault
 
-If you don't already have a vault in [Azure Key Vault](../key-vault/index.yml), create one with the Azure CLI using the following commands.
+If you don't already have a vault in [Azure Key Vault](/azure/key-vault/), create one with the Azure CLI using the following commands.
 
 ```azurecli
 AKV_NAME=$ACR_NAME-vault
@@ -312,5 +313,5 @@ Now that you've tested your inner loop with a quick task, configure a **build ta
 [service-principal-auth]: container-registry-auth-service-principal.md
 
 <!-- IMAGES -->
-[quick-build-01-fork]: ./media/container-registry-tutorial-quick-build/quick-build-01-fork.png
+[quick-build-01-fork]: ~/reusable-content/ce-skilling/azure/media/container-registry/quick-build-01-fork.png
 [quick-build-02-browser]: ./media/container-registry-tutorial-quick-build/quick-build-02-browser.png

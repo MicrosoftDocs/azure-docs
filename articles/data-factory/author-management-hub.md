@@ -1,7 +1,6 @@
 ---
 title: Management hub
 description: Manage your connections, source control configuration and global authoring properties in the Azure Data Factory management hub
-ms.service: data-factory
 ms.subservice: authoring
 ms.topic: conceptual
 author: kromerm
@@ -61,7 +60,7 @@ Global parameters are constants across a data factory that can be consumed by a 
 
 :::image type="content" source="media/author-global-parameters/create-global-parameter-3.png" alt-text="Create global parameters":::
 
-## Next steps
+## Related content
 
 Learn how to [configure a git repository](source-control.md) to your ADF
 

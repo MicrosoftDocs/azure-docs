@@ -5,8 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 08/20/2022
-ms.custom: ignite-fall-2021
+ms.date: 01/04/2024
 ---
 
 # Create replication tasks for Azure resources using Azure Logic Apps (preview)
@@ -23,7 +22,7 @@ To reduce the effect that unpredictable events can have on your Azure resources 
 > You can also use replication tasks to move content between entities in the same region, but if the 
 > entire region becomes unavailable or experiences disruption, both source and target are affected.
 
-This article provides an overview about replication tasks powered by Azure Logic Apps and shows how to create an example replication task for Azure Service Bus queues. If you're new to logic apps and workflows, review [What is Azure Logic Apps](logic-apps-overview.md) and [Single-tenant versus multi-tenant and integration service environment for Azure Logic Apps](single-tenant-overview-compare.md).
+This article provides an overview about replication tasks powered by Azure Logic Apps and shows how to create an example replication task for Azure Service Bus queues. If you're new to logic apps and workflows, review [What is Azure Logic Apps](logic-apps-overview.md) and [Single-tenant versus multitenant in Azure Logic Apps](single-tenant-overview-compare.md).
 
 <a name="replication-task"></a>
 
@@ -414,7 +413,7 @@ To learn how you can build your own automated workflows so that you can integrat
 
 ## Monitor replication tasks
 
-To check the performance and health of your replication task, or underlying logic app workflow, you can use [Application Insights](../azure-monitor/app/app-insights-overview.md), which is a capability in Azure Monitor. The [Application Insights Application Map](../azure-monitor/app/app-map.md) is a useful visual tool that you can use to monitor replication tasks. This map is automatically generated from the captured monitoring information so that you can explore the performance and reliability of the replication task source and target transfers. For immediate diagnostic insights and low latency visualization of log details, you can work with the [Live Metrics](../azure-monitor/app/live-stream.md) portal tool, also a capability in Azure Monitor.
+To check the performance and health of your replication task, or underlying logic app workflow, you can use [Application Insights](/azure/azure-monitor/app/app-insights-overview), which is a capability in Azure Monitor. The [Application Insights Application Map](/azure/azure-monitor/app/app-map) is a useful visual tool that you can use to monitor replication tasks. This map is automatically generated from the captured monitoring information so that you can explore the performance and reliability of the replication task source and target transfers. For immediate diagnostic insights and low latency visualization of log details, you can work with the [Live Metrics](/azure/azure-monitor/app/live-stream) portal tool, also a capability in Azure Monitor.
 
 <a name="edit-task"></a>
 
@@ -493,7 +492,7 @@ You can edit the underlying workflow behind a replication task, which changes th
 
    ![Screenshot showing the workflow's run details with the trigger's inputs, outputs, and properties.](./media/create-replication-tasks-azure-resources/view-updated-run-details-trigger-inputs.png)
 
-1. To disable the workflow so that the task doesn't continue running, on the **Overview** toolbar, select **Disable**. For more information, review [Disable or enable single-tenant workflows](create-single-tenant-workflows-azure-portal.md#disable-or-enable-workflows).
+1. To disable the workflow so that the task doesn't continue running, on the **Overview** toolbar, select **Disable**. For more information, review [Disable or enable single-tenant workflows](manage-logic-apps-with-azure-portal.md#disable-enable-standard-workflows).
 
 <a name="failover"></a>
 

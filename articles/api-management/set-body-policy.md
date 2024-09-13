@@ -4,13 +4,15 @@ description: Reference for the set-body policy available for use in Azure API Ma
 services: api-management
 author: dlepow
 
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: article
-ms.date: 01/13/2023
+ms.date: 07/23/2024
 ms.author: danlep
 ---
 
 # Set body
+
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 
 Use the `set-body` policy to set the message body for a request or response. To access the message body you can use the `context.Request.Body` property or the `context.Response.Body`, depending on whether the policy is in the inbound or outbound section.
 
@@ -23,7 +25,7 @@ Use the `set-body` policy to set the message body for a request or response. To 
 ## Policy statement
 
 ```xml
-<set-body template="liquid" xsi-nil="blank | null">
+<set-body template="liquid" xsi-nil="blank | null" parse-date="true | false">
     new body value as text
 </set-body>
 ```
@@ -34,6 +36,7 @@ Use the `set-body` policy to set the message body for a request or response. To 
 | ----------------- | ------------------------------------------------------ | -------- | ------- |
 |template|Used to change the templating mode that the `set-body` policy runs in. Currently the only supported value is:<br /><br />- `liquid` - the `set-body` policy will use the liquid templating engine |No| N/A|
 |xsi-nil| Used to control how elements marked with `xsi:nil="true"` are represented in XML payloads. Set to one of the following values:<br /><br />- `blank` - `nil` is represented with an empty string.<br />- `null` - `nil` is represented with a null value.<br/></br>Policy expressions aren't allowed. |No | `blank` |
+|parse-date| Boolean. Specifies whether date-formatted strings (for example, `"/Date(1198908717056)/"`, `"2012-03-21T05:40Z"`) are parsed to System.DateTime (`mm/dd/yyyy hh:mm:ss`). When set to `false`, date values are simply copied.<br/></br>Policy expressions aren't allowed.  |No| `true`|
 
 For accessing information about the request and response, the Liquid template can bind to a context object with the following properties: <br />
 <pre>context.
@@ -79,7 +82,7 @@ OriginalUrl.
 
 - [**Policy sections:**](./api-management-howto-policies.md#sections) inbound, outbound, backend
 - [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, workspace, product, API, operation
--  [**Gateways:**](api-management-gateways-overview.md) dedicated, consumption, self-hosted
+-  [**Gateways:**](api-management-gateways-overview.md) classic, v2, consumption, self-hosted, workspace
 
 ### Usage notes
 
@@ -270,7 +273,7 @@ The following example uses the `AsFormUrlEncodedContent()` expression to access 
 
 ## Related policies
 
-* [API Management transformation policies](api-management-transformation-policies.md)
+* [Transformation](api-management-policies.md#transformation)
 
 [!INCLUDE [api-management-policy-ref-next-steps](../../includes/api-management-policy-ref-next-steps.md)]
 

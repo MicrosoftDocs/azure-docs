@@ -8,11 +8,11 @@ ms.date: 11/17/2022
 
 ## SDKs
 
-The code snippets in this article are based on samples that use the [Azure IoT Middleware addon for Azure RTOS](https://github.com/azure-rtos/netxduo/tree/master/addons/azure_iot). The addon is a binding layer between the [Azure RTOS](/azure/rtos/overview-rtos) and the [Azure SDK for Embedded C](https://github.com/Azure/azure-sdk-for-c/tree/master/sdk/docs/iot).
+The code snippets in this article are based on samples that use the [Azure IoT Middleware addon for Eclipse ThreadX](https://github.com/eclipse-threadx/netxduo/tree/master/addons/azure_iot). The addon is a binding layer between the [Eclipse ThreadX](https://github.com/eclipse-threadx) and the [Azure SDK for Embedded C](https://github.com/Azure/azure-sdk-for-c/tree/master/sdk/docs/iot).
 
 The code snippets in this article are based on the following samples:
 
-- [Sample IoT Plug and Play Thermostat](https://github.com/azure-rtos/netxduo/blob/master/addons/azure_iot/samples/sample_azure_iot_embedded_sdk_pnp.c)
+- [Sample IoT Plug and Play Thermostat](https://github.com/eclipse-threadx/netxduo/blob/master/addons/azure_iot/samples/sample_azure_iot_embedded_sdk_pnp.c)
 - [Sample IoT Plug and Play Thermostat](https://github.com/Azure/embedded-wireless-framework/tree/main/examples/WIN32/netxduo/addons/azure_iot/samples/sample_pnp_temperature_controller)
 
 ## Model ID announcement
@@ -61,7 +61,7 @@ status = nx_azure_iot_provisioning_client_registration_payload_set(prov_client_p
 
 ## Use components
 
-As described in [Understand components in IoT Plug and Play models](../articles/iot-develop/concepts-modeling-guide.md), you must decide if you want to use components to describe your devices. When you use components, devices must follow the rules described in the following sections. To simplify working with the IoT Plug and Play conventions for components, the samples use the helper functions in [nx_azure_iot_hub_client.h](https://github.com/azure-rtos/netxduo/blob/master/addons/azure_iot/nx_azure_iot_hub_client.h).
+As described in [Understand components in IoT Plug and Play models](../articles/iot/concepts-modeling-guide.md), you must decide if you want to use components to describe your devices. When you use components, devices must follow the rules described in the following sections. To simplify working with the IoT Plug and Play conventions for components, the samples use the helper functions in [nx_azure_iot_hub_client.h](https://github.com/eclipse-threadx/netxduo/blob/master/addons/azure_iot/nx_azure_iot_hub_client.h).
 
 ## Telemetry
 

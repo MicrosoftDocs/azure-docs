@@ -1,10 +1,9 @@
 ---
 title: Create an Azure-SSIS integration runtime in Azure Data Factory 
 description: Learn how to create an Azure-SSIS integration runtime in Azure Data Factory so you can deploy and run SSIS packages in Azure.
-ms.service: data-factory
 ms.subservice: integration-services
 ms.topic: conceptual
-ms.date: 04/12/2023
+ms.date: 01/05/2024
 author: chugugrace
 ms.author: chugu 
 ms.custom:
@@ -36,7 +35,7 @@ These articles shows how to provision an Azure-SSIS IR by using the [Azure porta
 
 ## Prerequisites
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 - **Azure subscription**. If you don't already have a subscription, you can create a [free trial](https://azure.microsoft.com/pricing/free-trial/) account.
 
@@ -84,7 +83,7 @@ The following table compares certain features of an Azure SQL Database server an
 | | | |
 
 
-## Next steps
+## Related content
 
 - [Learn how to provision an Azure-SSIS IR using the Azure portal](create-azure-ssis-integration-runtime-portal.md).
 - [Learn how to provision an Azure-SSIS IR using Azure PowerShell](create-azure-ssis-integration-runtime-powershell.md).

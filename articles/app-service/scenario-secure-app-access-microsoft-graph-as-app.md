@@ -5,9 +5,8 @@ services: microsoft-graph, app-service-web
 author: rwike77
 manager: CelesteDG
 
-ms.service: app-service
+ms.service: azure-app-service
 ms.topic: tutorial
-ms.workload: identity
 ms.date: 04/05/2023
 ms.author: ryanwi
 ms.reviewer: stsoneff

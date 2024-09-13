@@ -1,12 +1,11 @@
 ---
 title: Outbound network rules with Azure Policy (Preview)
 description: Learn about outbound network rules using Azure Policy (Preview).
-ms.service: data-factory
 ms.reviewer: jburchel
 ms.author: abnarain
 author: nabhishek
 ms.topic: how-to
-ms.date: 05/23/2023
+ms.date: 01/05/2024
 ---
 
 # Outbound network rules using Azure Policy (Preview)
@@ -64,7 +63,7 @@ To apply policies to an Azure Data Factory instance, complete the following step
   - For an individual Azure Data factory: 1,000 requests / 5 minutes. Only 1,000 activity runs can be executed in a 5-minute period. Subsequent run requests fail once this limit is reached. 
   - For a subscription: 50,000 requests / 5 minutes. Only 50,000 activity runs can be executed in a 5-minute period per subscription. Subsequent run requests fail once this limit is reached.
 
-## Next steps
+## Related content
 
 Check out the following article to learn more about the Azure security baseline:
 

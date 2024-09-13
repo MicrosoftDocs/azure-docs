@@ -3,7 +3,7 @@ title: Publish revisions with Azure Pipelines in Azure Container Apps
 description: Learn to automatically create new revisions in Azure Container Apps using an Azure DevOps pipeline
 services: container-apps
 author: craigshoemaker
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.custom:
   - devx-track-azurecli
   - ignite-2023
@@ -26,7 +26,7 @@ The task supports the following scenarios:
 * Build from source code without a Dockerfile and deploy to Container Apps. Supported languages include .NET, Java, Node.js, PHP, and Python
 * Deploy an existing container image to Container Apps
 
-With the production release this task comes with Azure DevOps and no longer requires explicit installation. For the complete documentation please see [AzureContainerApps@1 - Azure Container Apps Deploy v1 task](/azure/devops/pipelines/tasks/reference/azure-container-apps-v1).
+With the production release this task comes with Azure DevOps and no longer requires explicit installation. For the complete documentation, see [AzureContainerApps@1 - Azure Container Apps Deploy v1 task](/azure/devops/pipelines/tasks/reference/azure-container-apps-v1).
 
 ### Usage examples
 
@@ -90,15 +90,15 @@ Take the following steps to configure an Azure DevOps pipeline to deploy to Azur
 
 | Requirement  | Instructions |
 |--|--|
-| Azure account | If you don't have one, [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). You need the *Contributor* or *Owner* permission on the Azure subscription to proceed. Refer to [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md?tabs=current) for details. |
-| Azure Devops project | Go to [Azure DevOps](https://azure.microsoft.com/services/devops/) and select *Start free*. Then create a new project. |
+| Azure account | If you don't have one, [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). You need the *Contributor* or *Owner* permission on the Azure subscription to proceed. Refer to [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml?tabs=current) for details. |
+| Azure DevOps project | Go to [Azure DevOps](https://azure.microsoft.com/services/devops/) and select *Start free*. Then create a new project. |
 | Azure CLI | Install the [Azure CLI](/cli/azure/install-azure-cli).|
 
 ### Create an Azure DevOps repository and clone the source code
 
 Before creating a pipeline, the source code for your app must be in a repository. 
 
-1. Log in to [Azure DevOps](https://dev.azure.com/) and navigate to your project.
+1. Sign in to [Azure DevOps](https://dev.azure.com/) and navigate to your project.
 
 1. Open the **Repos** page.
 

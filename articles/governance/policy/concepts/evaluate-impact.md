@@ -63,7 +63,7 @@ resources before full implementation of the new policy. This cleanup can be done
 a [remediation task](../how-to/remediate-resources.md) if the policy definition effect is
 _DeployIfNotExists_ or _Modify_.
 
-Policy definitions with a _DeployIfNotExist_ should leverage the [Azure Resource Manager template what if](../../../azure-resource-manager/templates/deploy-what-if.md) to validate and test the changes that happen when deploying the ARM template. 
+Policy definitions with a _DeployIfNotExist_ should leverage the [Azure Resource Manager template what if](../../../azure-resource-manager/templates/deploy-what-if.md) to validate and test the changes that happen when deploying the ARM template.
 
 ## Audit new or updated resources
 
@@ -90,7 +90,7 @@ existing resources.
 After completing validation of your new policy definition with both existing resources and new or
 updated resource requests, you begin the process of implementing the policy. It's recommended to
 create the policy assignment for the new policy definition to a subset of all resources first, such
-as a resource group. You can further filter by resource type or location using the [`resourceSelectors`](./assignment-structure.md#resource-selectors-preview) property within the policy assignment.After validating initial deployment, extend the scope of the policy to broader as a resource group. After validating initial deployment, expand the impact of the policy by adjusting the resourceSelector filters to target more locations or resource types, or by removing the assignment and replacing it with a new one at broader scopes like subscriptions and management groups. Continue this gradual rollout until it's assigned to the full scope of resources intended to be covered by your new policy definition.
+as a resource group. You can further filter by resource type or location using the [`resourceSelectors`](./assignment-structure.md#resource-selectors) property within the policy assignment.After validating initial deployment, extend the scope of the policy to broader as a resource group. After validating initial deployment, expand the impact of the policy by adjusting the resourceSelector filters to target more locations or resource types, or by removing the assignment and replacing it with a new one at broader scopes like subscriptions and management groups. Continue this gradual rollout until it's assigned to the full scope of resources intended to be covered by your new policy definition.
 
 During rollout, if resources are located that should be exempt from your new policy definition,
 address them in one of the following ways:
@@ -107,7 +107,7 @@ security and compliance organizations to ensure there are no gaps in coverage.
 Implementing and assigning your policy definition isn't the final step. Continuously monitor the
 [compliance](../how-to/get-compliance-data.md) level of resources to your new policy definition and
 setup appropriate
-[Azure Monitor alerts and notifications](../../../azure-monitor/alerts/alerts-overview.md) for
+[Azure Monitor alerts and notifications](/azure/azure-monitor/alerts/alerts-overview) for
 when non-compliant devices are identified. It's also recommended to evaluate the policy definition
 and related assignments on a scheduled basis to validate the policy definition is meeting business
 policy and compliance needs. Policies should be removed if no longer needed. Policies also need to update from time to time as the underlying Azure resources evolve and add new properties and

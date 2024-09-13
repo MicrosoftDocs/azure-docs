@@ -1,20 +1,20 @@
 ---
 title: Azure API Management Diagnose and solve problems
 description: Learn how to troubleshoot issues with your API in Azure API Management with the Diagnose and Solve tool in the Azure portal. 
-author: rzhang628
-ms.service: api-management
+author: dlepow
+ms.service: azure-api-management
 ms.topic: article
 ms.date: 02/05/2021
-ms.author: rongzhang
+ms.author: danlep
 ---
 
 # Azure API Management Diagnostics overview
 
+[!INCLUDE [api-management-availability-premium-dev-standard-basic-consumption](../../includes/api-management-availability-premium-dev-standard-basic-consumption.md)]
+
 When you build and manage an API in Azure API Management, you want to be prepared for any issues that may arise, from 404 not found errors to 502 bad gateway error. API Management Diagnostics is an intelligent and interactive experience to help you troubleshoot your API published in APIM with no configuration required. When you do run into issues with your published APIs, API Management Diagnostics points out what’s wrong, and guides you to the right information to quickly troubleshoot and resolve the issue.
 
 Although this experience is most helpful when you re having issues with your API within the last 24 hours, all the diagnostic graphs are always available for you to analyze.
-
-[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
 ## Open API Management Diagnostics
 
@@ -82,5 +82,5 @@ In additional to the Diagnose and solve problems tools, you can search for troub
 
 * Also use [API analytics](howto-use-analytics.md) to analyze the usage and performance of the APIs. 
 * Want to troubleshoot Web Apps issues with Diagnostics? Read it [here](../app-service/overview-diagnostics.md)
-* Leverage Diagnostics to check Azure Kubernetes Services issues. See [Diagnostics on AKS](../aks/concepts-diagnostics.md)
+* Leverage Diagnostics to check Azure Kubernetes Services issues. See [Diagnostics on AKS](/azure/aks/concepts-diagnostics)
 * Post your questions or feedback at [UserVoice](https://feedback.azure.com/d365community/forum/e808a70c-ff24-ec11-b6e6-000d3a4f0858) by adding "[Diag]" in the title.

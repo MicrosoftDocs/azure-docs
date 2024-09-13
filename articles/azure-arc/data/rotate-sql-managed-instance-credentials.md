@@ -10,7 +10,7 @@ ms.reviewer: mikeray
 ms.date: 03/06/2023
 ms.topic: how-to
 ---
-# Rotate SQL Server Managed Instance enabled by Azure Arc service-managed credentials (preview)
+# Rotate SQL Managed Instance enabled by Azure Arc service-managed credentials (preview)
 
 This article describes how to rotate service-managed credentials for SQL Managed Instance enabled by Azure Arc. Arc data services generate various service-managed credentials like certificates and SQL logins used for Monitoring, Backup/Restore, High Availability etc. These credentials are considered custom resource credentials managed by Azure Arc data services.
 

@@ -3,11 +3,10 @@ title: Deploy linked ARM templates with VSTS
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to deploy linked ARM templates with Azure DevOps Services (formerly Visual Studio Team Services, or VSTS).
 author: jonburchel
-ms.service: data-factory
 ms.subservice: 
 ms.custom: synapse
 ms.topic: how-to
-ms.date: 07/17/2023
+ms.date: 05/15/2024
 ms.author: jburchel
 ---
 # Deploy linked ARM templates with VSTS
@@ -77,5 +76,5 @@ The scenario we  walk through here's to deploy VNet with a Network Security Grou
 
 1. Save the release pipeline and trigger a release.
 
-## Next steps
+## Related content
 - [Automate continuous integration using Azure Pipelines releases](continuous-integration-delivery-automate-azure-pipelines.md)

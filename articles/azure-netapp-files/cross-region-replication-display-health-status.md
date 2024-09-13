@@ -2,15 +2,8 @@
 title: Display health status of Azure NetApp Files replication relationship | Microsoft Docs
 description: Describes how to view replication status on the source volume or the destination volume of Azure NetApp Files.
 services: azure-netapp-files
-documentationcenter: ''
 author: b-hchen
-manager: ''
-editor: ''
-
-ms.assetid:
 ms.service: azure-netapp-files
-ms.workload: storage
-ms.tgt_pltfrm: na
 ms.topic: how-to
 ms.date: 05/16/2022
 ms.author: anfdocs
@@ -42,14 +35,14 @@ You can view replication status on the source volume or the destination volume. 
 
     * **Total progress** – Shows the total number of cumulative bytes transferred over the lifetime of the relationship. This amount is the actual bytes transferred, and it might differ from the logical space that the source and destination volumes report.  
 
-    ![Replication health status](../media/azure-netapp-files/cross-region-replication-health-status.png)
+    ![Replication health status](./media/cross-region-replication-display-health-status/cross-region-replication-health-status.png)
 
 > [!NOTE] 
-> Replication relationship shows health status as *unhealthy* if previous replication jobs are not complete. This status is a result of large volumes being transferred with a lower transfer window (for example, a ten-minute transfer time for a large volume). In this case, the relationship status shows *transferring* and health status shows *unhealthy*.
+> Replication relationship shows health status as *unhealthy* if previous replication jobs are not complete. This status is a result of larger volumes being transferred with a lower transfer window (for example, a ten-minute transfer time for a larger volume). In this case, the relationship status shows *transferring* and health status shows *unhealthy*.
 
 ## Set alert rules to monitor replication
 
-Create [alert rules in Azure Monitor](../azure-monitor/alerts/alerts-overview.md) to help you monitor the status of cross-region replication:
+Create [alert rules in Azure Monitor](/azure/azure-monitor/alerts/alerts-overview) to help you monitor the status of cross-region replication:
 
 1. In Azure Monitor, select **Alerts**.
 2. From the **Alerts** window, select the **Create** dropdown then **Alert rule**.
@@ -64,7 +57,7 @@ Create [alert rules in Azure Monitor](../azure-monitor/alerts/alerts-overview.md
     * If your replication schedule is daily, enter 103,680 (24 hours * 60 minutes * 60 seconds * 1.2).
 9.	Select **Review + create**. The alert rule is ready for use.
 
-:::image type="content" source="../media/azure-netapp-files/alert-config-signal-logic.png" alt-text="Screenshot of the Azure interface that shows the configure signal logic step with a backdrop of the Create alert rule page." lightbox="../media/azure-netapp-files/alert-config-signal-logic.png":::
+:::image type="content" source="./media/cross-region-replication-display-health-status/alert-config-signal-logic.png" alt-text="Screenshot of the Azure interface that shows the configure signal logic step with a backdrop of the Create alert rule page." lightbox="./media/cross-region-replication-display-health-status/alert-config-signal-logic.png":::
 
 ## Next steps
 
@@ -74,4 +67,3 @@ Create [alert rules in Azure Monitor](../azure-monitor/alerts/alerts-overview.md
 * [Volume replication metrics](azure-netapp-files-metrics.md#replication)
 * [Delete volume replications or volumes](cross-region-replication-delete.md)
 * [Troubleshoot cross-region replication](troubleshoot-cross-region-replication.md)
-

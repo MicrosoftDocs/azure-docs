@@ -3,11 +3,15 @@ title: Deploy Zerto disaster recovery on Azure VMware Solution
 description: Learn how to implement Zerto disaster recovery for on-premises VMware or Azure VMware Solution virtual machines. 
 ms.topic: how-to 
 ms.service: azure-vmware
-ms.date: 11/29/2023
+ms.date: 12/11/2023
 ms.custom: engagement-fy23
 ---
 
 # Deploy Zerto disaster recovery on Azure VMware Solution
+
+> [!IMPORTANT]
+> AV64 node type does not support Zerto Disaster Recovery at the moment. You can contact your Zerto account team to get more information and an estimate of when this will be available.
+
 
 In this article, learn how to implement disaster recovery for on-premises VMware or Azure VMware Solution-based virtual machines (VMs). The solution in this article uses [Zerto disaster recovery](https://www.zerto.com/solutions/use-cases/disaster-recovery/). Instances of Zerto are deployed at both the protected and the recovery sites.
 
@@ -20,7 +24,7 @@ Zerto is a disaster recovery solution designed to minimize downtime of VMs shoul
 | **Zerto Virtual Manager (ZVM)**   | Management application for Zerto implemented as a Windows service installed on a Windows VM. The private cloud administrator installs and manages the Windows VM. The ZVM enables Day 0 and Day 2 disaster recovery configuration. For example, configuring primary and disaster recovery sites, protecting VMs, recovering VMs, and so on. However, it doesn't handle the replication data of the protected customer VMs.     |
 | **Virtual Replication appliance (vRA)**   | Linux VM to handle data replication from the source to the replication target. One instance of vRA is installed per ESXi host, delivering a true scale architecture that grows and shrinks along with the private cloud's hosts. The vRA manages data replication to and from protected VMs to its local or remote target, storing the data in the journal.    |
 | **Zerto ESXi host driver**   | Installed on each VMware ESXi host configured for Zerto disaster recovery. The host driver intercepts a vSphere VM's IO and sends the replication data to the chosen vRA for that host. The vRA is then responsible for replicating the VM's data to one or more disaster recovery targets.    |
-| **Zerto Cloud Appliance (ZCA)**   | Windows VM only used when Zerto is used to recover vSphere VMs as Azure Native IaaS VMs. The ZCA is composed of:<ul><li>**ZVM:** A Windows service that hosts the UI and integrates with the native APIs of Azure for management and orchestration.</li><li>**VRA:** A Windows service that replicates the data from or to Azure.</li></ul>The ZCA integrates natively with the platform it's deployed on, allowing you to use Azure Blob storage within a storage account on Microsoft Azure. As a result, it ensures the most cost-efficient deployment on each of these platforms.   |
+| **Zerto Cloud Appliance (ZCA)**   | Windows VM only used when Zerto is used to recover vSphere VMs as Azure Native IaaS VMs. The ZCA is composed of:<ul><li>**ZVM:** A Windows service that hosts the UI and integrates with the native APIs of Azure for management and orchestration.</li><li>**VRA:** A Windows service that replicates the data from or to Azure.</li></ul>The ZCA integrates natively with the platform it gets deployed on, allowing you to use Azure Blob storage within a storage account on Microsoft Azure. As a result, it ensures the most cost-efficient deployment on each of these platforms.   |
 | **Virtual Protection Group (VPG)**   | Logical group of VMs created on the ZVM. Zerto allows configuring disaster recovery, Backup, and Mobility policies on a VPG. This mechanism enables a consistent set of policies to be applied to a group of VMs.  |
 
 To learn more about Zerto platform architecture, see the [Zerto Platform Architecture Guide](https://www.zerto.com/wp-content/uploads/2021/07/Zerto-Platform-Architecture-Guide.pdf).
@@ -32,8 +36,11 @@ You can use Zerto with Azure VMware Solution for the following three scenarios.
 > [!NOTE]
 > For Azure NetApp Files (ANFs), [Azure VMware Solution](/azure/azure-vmware/introduction) supports Network File System (NFS) datastores as a persistent storage option. You can create NFS datastores with Azure NetApp Files volumes and attach them to clusters of your choice. You can also create virtual machines (VMs) for optimal cost and performance. To leverage ANF datastores, select them as a Recovery Datastore in the Zerto VPG wizard when creating or editing a VPG.
 
->[!TIP]
+> [!TIP]
 > Explore more about ANF datastores and how to [Attach Azure NetApp datastores to Azure VMware Solution hosts](/azure/azure-vmware/attach-azure-netapp-files-to-azure-vmware-solution-hosts?tabs=azure-portal).
+
+> [!IMPORTANT]
+> AV64 node type does not support Zerto Disaster Recovery at the moment. You can contact your Zerto account team to get more information and an estimate of when this will be available.
 
 ### Scenario 1: On-premises VMware vSphere to Azure VMware Solution disaster recovery
 
@@ -71,13 +78,14 @@ In this scenario, the primary site is an Azure VMware Solution private cloud in 
 
 ### Azure VMware Solution IaaS VMs cloud disaster recovery
 
-- Network connectivity, ExpressRoute based, from Azure VMware Solution to the vNET used for disaster recovery.
+- Network connectivity, ExpressRoute based, from Azure VMware Solution to the virtual network used for disaster recovery.
 
-- Follow the [Zerto Virtual Replication Azure Quickstart Guide](https://help.zerto.com/bundle/QS.Azure.HTML.95/page/Zerto_Quick_Start_Azure_Environments.htm) for the rest of the prerequisites.
+- Follow the [Zerto Virtual Replication Azure Quickstart Guide](https://help.zerto.com/bundle/Install.MA.HTML.10.0_U1/page/Prerequisites_Requirements_Microsoft_Azure_Environments.htm) for the rest of the prerequisites.
 
 ## Install Zerto on Azure VMware Solution
 
-To deploy Zerto on Azure VMware Solution, follow these [instructions](https://help.zerto.com/bundle/Install.AVS.HTML/page/Prerequisites_Zerto_AVS.htm).
+To deploy Zerto on Azure VMware Solution, follow these [instructions](https://help.zerto.com/bundle/Install.AVS.HTML.10.0_U5/page/zerto_deployment_and_configuration.html
+).
 
 ## FAQs
 

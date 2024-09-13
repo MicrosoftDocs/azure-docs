@@ -18,7 +18,7 @@ ms.custom: [mvc, mqtt, devx-track-azurecli, devx-track-csharp]
 
 Use Azure Monitor to collect metrics and logs from your IoT hub to monitor the operation of your solution and troubleshoot problems when they occur. In this tutorial, you'll learn how to create charts based on metrics, how to create alerts that trigger on metrics, how to send IoT Hub operations and errors to Azure Monitor Logs, and how to check the logs for errors.
 
-This tutorial uses the Azure sample from the [.NET send telemetry quickstart](../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-csharp) to send messages to the IoT hub. You can always use a device or another sample to send messages, but you may have to modify a few steps accordingly.
+This tutorial uses the Azure sample from the [.NET send telemetry quickstart](../iot/tutorial-send-telemetry-iot-hub.md?toc=/azure/iot-hub/toc.json&bc=/azure/iot-hub/breadcrumb/toc.json&pivots=programming-language-csharp) to send messages to the IoT hub. You can always use a device or another sample to send messages, but you may have to modify a few steps accordingly.
 
 Some familiarity with Azure Monitor concepts might be helpful before you begin this tutorial. To learn more, see [Monitor IoT Hub](monitor-iot-hub.md). To learn more about the metrics and resource logs emitted by IoT Hub, see [Monitoring data reference](monitor-iot-hub-reference.md).
 
@@ -51,7 +51,7 @@ In this tutorial, you perform the following tasks:
 
 * Make sure that port 8883 is open in your firewall. The device sample in this tutorial uses MQTT protocol, which communicates over port 8883. This port may be blocked in some corporate and educational network environments. For more information and ways to work around this issue, see [Connecting to IoT Hub (MQTT)](../iot/iot-mqtt-connect-to-iot-hub.md#connecting-to-iot-hub).
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 ## Set up resources
 
@@ -66,6 +66,8 @@ For this tutorial, we've provided a CLI script that performs the following steps
 3. Create a Log Analytics workspace.
 
 4. Register a device identity for the simulated device that sends messages to your IoT hub. Save the device connection string to use to configure the simulated device.
+
+[!INCLUDE [iot-authentication-device-connection-string.md](../../includes/iot-authentication-device-connection-string.md)]
 
 ### Set up resources using Azure CLI
 
@@ -118,7 +120,7 @@ az iot hub device-identity create --device-id $iotDeviceName --hub-name $iotHubN
 Retrieve the primary connection string for the device identity, then copy it locally. You need this connection string to run the device simulation during the testing phase.
 
 ```azurecli-interactive
-az iot hub device-identity show-connection-string --device-id $iotDeviceName --hub-name $iotHubName
+az iot hub device-identity connection-string show --device-id $iotDeviceName --hub-name $iotHubName
 ```
 
 ## Collect logs for connections and device telemetry

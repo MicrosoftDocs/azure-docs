@@ -2,17 +2,10 @@
 title: Oracle database performance on Azure NetApp Files multiple volumes | Microsoft Docs
 description: Migrating highly performant Exadata grade databases to the cloud is increasingly becoming an imperative for Microsoft customers.
 services: azure-netapp-files
-documentationcenter: ''
 author: b-ahibbard
-manager: ''
-editor: ''
-
-ms.assetid:
 ms.service: azure-netapp-files
-ms.workload: storage
-ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 05/04/2023
+ms.date: 08/20/2024
 ms.author: anfdocs
 ---
 
@@ -33,24 +26,26 @@ The testing occurred in two phases:
 
 The following charts capture the performance profile of a single E104ids_v5 Azure VM running a single Oracle 19c database against eight Azure NetApp Files volumes with eight storage endpoints. The volumes are spread across three ASM disk groups: data, log, and archive. Five volumes were allocated to the data disk group, two volumes to the log disk group, and one volume to the archive disk group. All results captured throughout this article were collected using production Azure regions and active production Azure services. 
 
+To deploy Oracle on Azure virtual machines using multiple Azure NetApp Files volumes on multiple storage endpoints, use [application volume group for Oracle](application-volume-group-oracle-introduction.md).
+
 #### Single-host architecture
 
 The following diagram depicts the architecture that testing was completed against; note the Oracle database spread across multiple Azure NetApp Files volumes and endpoints. 
 
-:::image type="content" alt-text="Diagram of an Oracle subnet with an Azure NetApp Files capacity pool." source="../media/azure-netapp-files/oracle-subnet-diagram.png" lightbox="../media/azure-netapp-files/oracle-subnet-diagram.png":::
+:::image type="content" alt-text="Diagram of an Oracle subnet with an Azure NetApp Files capacity pool." source="./media/performance-oracle-multiple-volumes/oracle-subnet-diagram.png" lightbox="./media/performance-oracle-multiple-volumes/oracle-subnet-diagram.png":::
 
 #### Single-host storage IO 
 
 The following diagram shows a 100% randomly selected workload with a database buffer hit ratio of about 8%. SLOB2 was able to drive approximately 850,000 I/O requests per second while maintaining a submillisecond DB file sequential read event latency. With a database block size of 8K that amounts to approximately 6,800 MiB/s of storage throughput. 
 
-:::image type="content" alt-text="Chart showing single-host random storage I/O." source="../media/azure-netapp-files/single-host-random-performance-chart.png" lightbox="../media/azure-netapp-files/single-host-random-performance-chart.png":::
+:::image type="content" alt-text="Chart showing single-host random storage I/O." source="./media/performance-oracle-multiple-volumes/single-host-random-performance-chart.png" lightbox="./media/performance-oracle-multiple-volumes/single-host-random-performance-chart.png":::
 
 
 #### Single-host throughput 
 
 The following diagram demonstrates that, for bandwidth intensive sequential IO workloads such as full table scans or RMAN activities, Azure NetApp Files can deliver the full bandwidth capabilities of the E104ids_v5 VM itself. 
 
-:::image type="content" alt-text="Bar chart showing single-host sequential throughput." source="../media/azure-netapp-files/single-host-sequential-throughput-chart.png" lightbox="../media/azure-netapp-files/single-host-sequential-throughput-chart.png":::
+:::image type="content" alt-text="Bar chart showing single-host sequential throughput." source="./media/performance-oracle-multiple-volumes/single-host-sequential-throughput-chart.png" lightbox="./media/performance-oracle-multiple-volumes/single-host-sequential-throughput-chart.png":::
 
 >[!NOTE]
 >As the compute instance is at the theoretical maximum of its bandwidth, adding additional application concurrency results only in increased client-side latency. This results in SLOB2 workloads exceeding the targeted completion timeframe therefore thread count was capped at six. 
@@ -63,19 +58,19 @@ The following charts capture the performance profile of three E104ids_v5 Azure V
 
 The following diagram depicts the architecture that testing was completed against; note the three Oracle databases spread across multiple Azure NetApp Files volumes and endpoints. Endpoints can be dedicated to a single host as shown with Oracle VM 1 or shared among hosts as shown with Oracle VM2 and Oracle VM 3. 
 
-:::image type="content" alt-text="Diagram of Oracle automatic storage management for Azure NetApp Files." source="../media/azure-netapp-files/oracle-multiple-volume-diagram.png" lightbox="../media/azure-netapp-files/oracle-multiple-volume-diagram.png":::
+:::image type="content" alt-text="Diagram of Oracle automatic storage management for Azure NetApp Files." source="./media/performance-oracle-multiple-volumes/oracle-multiple-volume-diagram.png" lightbox="./media/performance-oracle-multiple-volumes/oracle-multiple-volume-diagram.png":::
 
 #### Multi-host storage IO
 
 The following diagram shows a 100% randomly selected workload with a database buffer hit ratio of about 8%. SLOB2 was able to drive approximately 850,000 I/O requests per second across all three hosts individually. SLOB2 was able accomplish this while executing in parallel to a collective total of about 2,500,000 I/O requests per second with each host still maintaining a submillisecond db file sequential read event latency. With a database block size of 8K, this amounts to approximately 20,000 MiB/s between the three hosts. 
 
-:::image type="content" alt-text="Line graph of collective random storage from an IO perspective." source="../media/azure-netapp-files/collective-random-storage-chart.png" lightbox="../media/azure-netapp-files/collective-random-storage-chart.png":::
+:::image type="content" alt-text="Line graph of collective random storage from an IO perspective." source="./media/performance-oracle-multiple-volumes/collective-random-storage-chart.png" lightbox="./media/performance-oracle-multiple-volumes/collective-random-storage-chart.png":::
 
 #### Multi-host throughput 
 
 The following diagram demonstrates that for sequential workloads, Azure NetApp Files can still deliver the full bandwidth capabilities of the E104ids_v5 VM itself even as it scales outward. SLOB2 was able to drive I/O totaling over 30,000 MiB/s across the three hosts while running in parallel.
 
-:::image type="content" alt-text="Stacked bar chart of collective sequential throughput." source="../media/azure-netapp-files/collective-sequential-throughput-chart.png" lightbox="../media/azure-netapp-files/collective-sequential-throughput-chart.png":::
+:::image type="content" alt-text="Stacked bar chart of collective sequential throughput." source="./media/performance-oracle-multiple-volumes/collective-sequential-throughput-chart.png" lightbox="./media/performance-oracle-multiple-volumes/collective-sequential-throughput-chart.png":::
 
 #### Real-world performance 
 
@@ -95,7 +90,7 @@ All systems eventually hit resource constraints, traditionally known as chokepoi
 
 ### Virtual machines 
 
-This section details the criteria to be considered in selecting [VMs](../virtual-machines/sizes.md) for best performance and the rationale behind selections made for testing. Azure NetApp Files is a Network Attached Storage (NAS) service, therefore appropriate network bandwidth sizing is critical for optimal performance. 
+This section details the criteria to be considered in selecting [VMs](/azure/virtual-machines/sizes) for best performance and the rationale behind selections made for testing. Azure NetApp Files is a Network Attached Storage (NAS) service, therefore appropriate network bandwidth sizing is critical for optimal performance. 
 
 #### Chipsets 
 
@@ -105,7 +100,7 @@ Read the [Azure Compute documentation](/azure/architecture/guide/technology-choi
 
 #### Available network bandwidth 
 
-It's important to understand the difference between the available bandwidth of the VM network interface and the metered bandwidth applied against the same. When [Azure Compute documentation](../virtual-network/virtual-machine-network-throughput.md) speaks to network bandwidth limits, these limits are applied on egress (write) only. Ingress (read) traffic is not metered and as such is limited only by the physical bandwidth of the NIC itself. The network bandwidth of most VMs outpaces the egress limit applied against the machine.
+It's important to understand the difference between the available bandwidth of the VM network interface and the metered bandwidth applied against the same. When [Azure Compute documentation](../virtual-network/virtual-machine-network-throughput.md) speaks to network bandwidth limits, these limits are applied on egress (write) only. Ingress (read) traffic is not metered and as such is limited only by the physical bandwidth of the network interface card (NIC) itself. The network bandwidth of most VMs outpaces the egress limit applied against the machine.
 
 As Azure NetApp Files volumes are network attached, the egress limit can be understood as being applied against writes specifically whereas ingress is defined as reads and read-like workloads. While the egress limit of most machines is greater than the network bandwidth of the NIC, the same cannot be said for the E104_v5 used in testing for this article. The E104_v5 has a 100 Gbps NIC with the egress limit set at 100 Gbps as well. By comparison, the E96_v5, with its 100 Gbps NIC has an egress limit of 35 Gbps with ingress unfettered at 100 Gbps. As VMs decrease in size, egress limits decrease but ingress remains unfettered by logically imposed limits. 
 
@@ -137,13 +132,13 @@ In the scenario where multiple NICs are configured, you need to determine which 
 Use the following process to identify the mapping between configured network interface and its associated virtual interface. This process validates that accelerated networking is enabled for a specific NIC on your Linux machine and display the physical ingress speed the NIC can potentially achieve. 
 
 1. Execute the `ip a` command: 
-    :::image type="content" alt-text="Screenshot of output of ip a command." source="../media/azure-netapp-files/ip-a-command-output.png":::
+    :::image type="content" alt-text="Screenshot of output of ip a command." source="./media/performance-oracle-multiple-volumes/ip-a-command-output.png":::
 1. List the `/sys/class/net/` directory of the NIC ID you are verifying (`eth0` in the example) and `grep` for the word lower:
     ```bash
     ls /sys/class/net/eth0 | grep lower lower_eth1
     ```
 1. Execute the `ethtool` command against the ethernet device identified as the lower device in the previous step.
-    :::image type="content" alt-text="Screenshot of output of settings for eth1." source="../media/azure-netapp-files/ethtool-output.png":::
+    :::image type="content" alt-text="Screenshot of output of settings for eth1." source="./media/performance-oracle-multiple-volumes/ethtool-output.png":::
 
 #### Azure VM: Network vs. disk bandwidth limits 
 
@@ -155,7 +150,7 @@ A level of expertise is required when reading Azure VM performance limits docume
 
 A sample chart is shown for reference:
 
-:::image type="content" alt-text="Screenshot of a table showing sample chart data." source="../media/azure-netapp-files/sample-chart.png":::
+:::image type="content" alt-text="Screenshot of a table showing sample chart data." source="./media/performance-oracle-multiple-volumes/sample-chart.png":::
 
 ### Azure NetApp Files 
 
@@ -185,7 +180,7 @@ Automatic Storage Management (ASM) is supported for NFS volumes. Though typicall
 
 An ASM over dNFS configuration was used to produce all test results discussed in this article. The following diagram illustrates the ASM file layout within the Azure NetApp Files volumes and the file allocation to the ASM disk groups. 
 
-:::image type="content" alt-text="Diagram of Oracle Automatic Storage Management with Azure NetApp Files." source="../media/azure-netapp-files/oracle-automatic-storage-management.png" lightbox="../media/azure-netapp-files/oracle-automatic-storage-management.png":::
+:::image type="content" alt-text="Diagram of Oracle Automatic Storage Management with Azure NetApp Files." source="./media/performance-oracle-multiple-volumes/oracle-automatic-storage-management.png" lightbox="./media/performance-oracle-multiple-volumes/oracle-automatic-storage-management.png":::
 
 There are some limitations with the use of ASM over Azure NetApp Files NFS mounted volumes when it comes to storage snapshots that can be overcome with certain architectural considerations. Contact your Azure NetApp Files specialist or cloud solutions architect for an in-depth review of these considerations. 
 
@@ -336,7 +331,7 @@ In Oracle version 12.2 and above, an Exadata specific addition will be included 
         * The top cells by percentage CPU are display and are in descending order of percentage CPU
         * Average: 39.34% CPU, 28.57% user, 10.77% sys
 
-        :::image type="content" alt-text="Screenshot of a table showing top cells by percentage CPU." source="../media/azure-netapp-files/exadata-top-cells.png":::
+        :::image type="content" alt-text="Screenshot of a table showing top cells by percentage CPU." source="./media/performance-oracle-multiple-volumes/exadata-top-cells.png":::
 
 * Single cell physical block reads 
 * Flash cache usage 
@@ -361,7 +356,7 @@ Microsoft Oracle subject matter experts have estimated that more than 80% of Ora
 
 * [Run Your Most Demanding Oracle Workloads in Azure without Sacrificing Performance or Scalability](https://techcommunity.microsoft.com/t5/azure-architecture-blog/run-your-most-demanding-oracle-workloads-in-azure-without/ba-p/3264545) 
 * [Solution architectures using Azure NetApp Files - Oracle](azure-netapp-files-solution-architectures.md#oracle)
-* [Design and implement an Oracle database in Azure](../virtual-machines/workloads/oracle/oracle-design.md)
+* [Design and implement an Oracle database in Azure](/azure/virtual-machines/workloads/oracle/oracle-design)
 * [Estimate Tool for Sizing Oracle Workloads to Azure IaaS VMs](https://techcommunity.microsoft.com/t5/data-architecture-blog/estimate-tool-for-sizing-oracle-workloads-to-azure-iaas-vms/ba-p/1427183) 
-* [Reference architectures for Oracle Database Enterprise Edition on Azure](../virtual-machines/workloads/oracle/oracle-reference-architecture.md) 
+* [Reference architectures for Oracle Database Enterprise Edition on Azure](/azure/virtual-machines/workloads/oracle/oracle-reference-architecture) 
 * [Understand Azure NetApp Files application volumes groups for SAP HANA](application-volume-group-introduction.md)

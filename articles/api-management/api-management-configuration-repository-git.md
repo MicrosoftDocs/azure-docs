@@ -4,12 +4,14 @@ description: Learn how to save and configure your API Management service configu
 services: api-management
 author: dlepow
 
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: how-to
 ms.date: 08/05/2022
 ms.author: danlep
 ---
 # How to save and configure your API Management service configuration using Git
+
+[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
 Each API Management service instance maintains a configuration database that contains information about the configuration and metadata for the service instance. Changes can be made to the service instance by changing a setting in the Azure portal, using Azure tools such as Azure PowerShell or the Azure CLI, or making a REST API call. In addition to these methods, you can manage your service instance configuration using Git, enabling scenarios such as:
 
@@ -35,10 +37,6 @@ This article describes how to enable and use Git to manage your service configur
 
 > [!IMPORTANT]
 > This feature is designed to work with small to medium API Management service configurations, such as those with an exported size less than 10 MB, or with fewer than 10,000 entities. Services with a large number of entities (products, APIs, operations, schemas, and so on) may experience unexpected failures when processing Git commands. If you encounter such failures, please reduce the size of your service configuration and try again. Contact Azure Support if you need assistance. 
-
-[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
-
-
 
 ## Access Git configuration in your service
 

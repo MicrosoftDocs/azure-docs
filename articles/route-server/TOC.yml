@@ -18,16 +18,18 @@
 - name: Tutorials
   items:
   - name: Peer Route Server with NVA
-    href: tutorial-configure-route-server-with-quagga.md
+    href: peer-route-server-with-virtual-appliance.md
   - name: Deploy Route Server with DDoS protection
     href: tutorial-protect-route-server-ddos.md
 - name: Concepts
   items:
   - name: Route Server FAQ
     href: route-server-faq.md
+  - name: Route Server limits
+    href: ../azure-resource-manager/management/azure-subscription-service-limits.md?toc=/azure/route-server/toc.json#azure-route-server-limits
   - name: Routing preference
     href: hub-routing-preference.md
-  - name: Next Hop IP support
+  - name: Next hop IP support
     href: next-hop-ip.md
   - name: ExpressRoute and Azure VPN support
     href: expressroute-vpn-support.md

@@ -5,7 +5,6 @@ description: Build expressions by using Expression Builder in mapping data flows
 author: kromerm
 ms.author: makromer
 ms.reviewer: daperlov
-ms.service: data-factory
 ms.subservice: data-flows
 ms.custom: synapse
 ms.topic: conceptual
@@ -190,6 +189,6 @@ Dataflow processes till milliseconds. For *2018-07-31T20:00:00.2170000*, you'll 
 In the portal for the service, timestamp is being shown in the **current browser setting**, which can  eliminate 217, but when you'll run the data flow end to end, 217 (milliseconds part is processed as well). You can use toString(myDateTimeColumn) as expression and see full precision data in preview. Process datetime as datetime rather than string for all practical purposes.
  
 
-## Next steps
+## Related content
 
 [Begin building data transformation expressions.](data-transformation-functions.md)

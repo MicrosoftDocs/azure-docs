@@ -3,9 +3,8 @@ title: HTTP/2 support in Azure Front Door
 description: This article helps you learn about HTTP/2 support in Azure Front Door
 services: frontdoor
 author: duongau
-ms.service: frontdoor
+ms.service: azure-frontdoor
 ms.topic: conceptual
-ms.workload: infrastructure-services
 ms.date: 09/28/2020
 ms.author: duau
 ---

@@ -20,7 +20,6 @@ This article provides a reference of Defender for IoT actions available for each
 
 Permissions are applied to user roles across an entire Azure subscription, or in some cases, across individual Defender for IoT sites. For more information, see [Zero Trust and your OT networks](concept-zero-trust.md) and [Manage site-based access control (Public preview)](manage-users-portal.md#manage-site-based-access-control-public-preview).
 
-
 | Action and scope|[Security Reader](../../role-based-access-control/built-in-roles.md#security-reader)  |[Security Admin](../../role-based-access-control/built-in-roles.md#security-admin)  |[Contributor](../../role-based-access-control/built-in-roles.md#contributor) | [Owner](../../role-based-access-control/built-in-roles.md#owner) |
 |---------|---------|---------|---------|---------|
 | **[Grant permissions to others](manage-users-portal.md)**<br>Apply per subscription or site | -       |  -       |   -      | ✔ |
@@ -36,13 +35,15 @@ Permissions are applied to user roles across an entire Azure subscription, or in
 |  **[Download OT threat intelligence packages](how-to-work-with-threat-intelligence-packages.md#manually-update-locally-managed-sensors)** <br>Apply per subscription only | ✔      |  ✔       |   ✔      | ✔ |
 |  **[Push OT threat intelligence updates](how-to-work-with-threat-intelligence-packages.md#manually-push-updates-to-cloud-connected-sensors)** <br>Apply per subscription only | -     |   ✔     | ✔ | ✔ |
 | **[View Azure alerts](how-to-manage-cloud-alerts.md)** <br>Apply per subscription or site | ✔ | ✔ |✔ | ✔|
-| **[Modify Azure alerts](how-to-manage-cloud-alerts.md) (write access - change status, learn, download PCAP)** <br>Apply per subscription or site|  - | ✔ |✔ | ✔ |
+| **[Modify Azure alerts](how-to-manage-cloud-alerts.md) (write access - change status, learn, download PCAP, suppression rules)** <br>Apply per subscription or site|  - | ✔ |✔ | ✔ |
 | **[View Azure device inventory](how-to-manage-device-inventory-for-organizations.md)**  <br>Apply per subscription or site  |  ✔ | ✔ |✔ | ✔|
 | **[Manage Azure device inventory](how-to-manage-device-inventory-for-organizations.md) (write access)**   <br>Apply per subscription or site | - | ✔ |✔ | ✔ |
 | **[View Azure workbooks](workbooks.md)**<br>Apply per subscription or site   | ✔ | ✔ |✔ | ✔ |
 | **[Manage Azure workbooks](workbooks.md) (write access)**  <br>Apply per subscription or site |  - | ✔ |✔ | ✔ |
 | **[View Defender for IoT settings](configure-sensor-settings-portal.md)** <br>Apply per subscription | ✔ | ✔ |✔ | ✔ |
 | **[Configure Defender for IoT settings](configure-sensor-settings-portal.md)** <br>Apply per subscription | - | ✔ |✔ | ✔ |
+
+For an overview on creating new Azure custom roles, see [Azure custom roles](/azure/role-based-access-control/custom-roles). To set up a role, you need to add permissions from the actions listed in the [Internet of Things security permissions table](/azure/role-based-access-control/permissions/internet-of-things#microsoftiotsecurity).
 
 ## Next steps
 
@@ -52,4 +53,4 @@ For more information, see:
 - [Manage OT monitoring users on the Azure portal](manage-users-portal.md)
 - [On-premises user roles for OT monitoring with Defender for IoT](roles-on-premises.md)
 - [Create and manage users on an OT network sensor](manage-users-sensor.md)
-- [Create and manage users on an on-premises management console](manage-users-on-premises-management-console.md)
+- [Create and manage users on an on-premises management console](legacy-central-management/install-software-on-premises-management-console.md)

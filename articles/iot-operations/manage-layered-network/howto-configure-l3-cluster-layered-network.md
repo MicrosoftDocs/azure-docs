@@ -1,22 +1,21 @@
 ---
-title: Configure level 3 cluster in an Azure IoT Layered Network Management isolated network
-titleSuffix: Azure IoT Layered Network Management
-description: Prepare a level 3 cluster and connect it to the IoT Layered Network Management service
+title: Configure level 3 cluster in an isolated network
+description: Prepare a level 3 cluster and connect it to the Azure IoT Layered Network Management service
 author: PatAltimore
 ms.subservice: layered-network-management
 ms.author: patricka
 ms.topic: how-to
 ms.custom: ignite-2023, devx-track-azurecli
-ms.date: 11/15/2023
+ms.date: 07/02/2024
 
 #CustomerIntent: As an operator, I want to configure Layered Network Management so that I have secure isolate devices.
 ---
 
-# Configure level 3 cluster in an isolated network
+# Configure level 3 cluster in an isolated network with Azure IoT Layered Network Management Preview
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-You can configure a special isolated network environment for deploying Azure IoT Operations. For example, level 3 or lower in the ISA-95 network architecture. In this article, you set up a Kubernetes cluster to meet all the prerequisites of Azure IoT Operations and Arc-enable the cluster through the Azure IoT Layered Network Management service in the upper level. Before you start this process, the Layered Network Management service has to be ready for accepting the connection request from this level.
+You can configure a special isolated network environment for deploying Azure IoT Operations Preview. For example, level 3 or lower in the ISA-95 network architecture. In this article, you set up a Kubernetes cluster to meet all the prerequisites of Azure IoT Operations and Arc-enable the cluster through the Azure IoT Layered Network Management Preview service in the upper level. Before you start this process, the Layered Network Management service has to be ready for accepting the connection request from this level.
 
 You'll complete the following tasks:
 - Set up the host system and install all the required software in an internet facing environment.
@@ -33,71 +32,6 @@ Follow the guidance for **hardware requirements** and **prerequisites** sections
 
 You can choose to use [AKS Edge Essentials](/azure/aks/hybrid/aks-edge-overview) hosted on Windows 11 or a K3S cluster on Ubuntu for the Kubernetes cluster.
 
-# [AKS Edge Essentials](#tab/aksee)
-
-## Prepare Windows 11
-
-You should complete this step in an *internet facing environment* outside of the isolated network. Otherwise, you need to prepare the offline installation package for the following required software.
-
-If you're using VM to create your Windows 11 machines, use the [VM image](https://developer.microsoft.com/windows/downloads/virtual-machines/) that includes Visual Studio preinstalled. Having Visual Studio ensures the required certificates needed by Arc onboarding are included.
-
-1. Install [Windows 11](https://www.microsoft.com/software-download/windows11) on your device.
-1. Install [Helm](https://helm.sh/docs/intro/install/) 3.8.0 or later.
-1. Install [Kubectl](https://kubernetes.io/docs/tasks/tools/)
-1. Download the [installer for the validated AKS Edge Essentials](https://aka.ms/aks-edge/msi-k3s-1.2.414.0) version.
-1. Install AKS Edge Essentials. Follow the steps in [Prepare your machines for AKS Edge Essentials](/azure/aks/hybrid/aks-edge-howto-setup-machine). Be sure to use the installer you downloaded in the previous step and not the most recent version.
-1. Install Azure CLI. Follow the steps in [Install Azure CLI on Windows](/cli/azure/install-azure-cli-windows).
-1. Install *connectedk8s* and other extensions.
-
-    ```bash
-    az extension add --name connectedk8s
-    az extension add --name k8s-extension
-    az extension add --name customlocation
-    ```
-1. [Install Azure CLI extension](/cli/azure/iot/ops) using `az extension add --name azure-iot-ops`.
-1. **Certificates:** For Level 3 and lower, you ARC onboard the cluster that isn't connected to the internet. Therefore, you need to install certificates steps in [Prerequisites for AKS Edge Essentials offline installation](/azure/aks/hybrid/aks-edge-howto-offline-install).
-1. Install the following optional software if you plan to try IoT Operations quickstarts or MQTT related scenarios.
-    - [MQTTUI](https://github.com/EdJoPaTo/mqttui/releases) or other MQTT client
-    - [Mosquitto](https://mosquitto.org/)
-
-## Create the AKS Edge Essentials cluster
-
-To create the AKS Edge Essentials cluster that's compatible with Azure IoT Operations:
-
-1. Complete the steps in [Create a single machine deployment](/azure/aks/hybrid/aks-edge-howto-single-node-deployment).
-
-    At the end of [Step 1: single machine configuration parameters](/azure/aks/hybrid/aks-edge-howto-single-node-deployment#step-1-single-machine-configuration-parameters), modify the following values in the *aksedge-config.json* file as follows:
-
-    - `Init.ServiceIPRangeSize` = 10
-    - `LinuxNode.DataSizeInGB` = 30
-    - `LinuxNode.MemoryInMB` = 8192
-
-    In the **Network** section, set the `SkipDnsCheck` property to **true**.Add and set the `DnsServers` to the address of the DNS server in the subnet.
-
-    ```json
-    "DnsServers": ["<IP ADDRESS OF THE DNS SERVER IN SUBNET>"],
-    "SkipDnsCheck": true,
-    ```
-
-1. Install **local-path** storage in the cluster by running the following command:
-
-    ```cmd
-    kubectl apply -f https://raw.githubusercontent.com/Azure/AKS-Edge/main/samples/storage/local-path-provisioner/local-path-storage.yaml
-    ```
-
-## Move the device to level 3 isolated network
-
-In your isolated network layer, the DNS server was configured in a prerequisite step using [Create sample network environment](./howto-configure-layered-network.md). Complete the step if you haven't done so.
-
-After the device is moved to level 3, configure the DNS setting using the following steps:
-
-1. In **Windows Control Panel** > **Network and Internet** > **Network and Sharing Center**, select the current network connection.
-1. In the network properties dialog, select **Properties** > **Internet Protocol Version 4 (TCP/IPv4)** > **Properties**.
-1. Select **Use the following DNS server addresses**.
-1. Enter the level 3 DNS server local IP address.
-
-    :::image type="content" source="./media/howto-configure-l3-cluster-layered-network/windows-dns-setting.png" alt-text="Screenshot that shows Windows DNS setting with the level 3 DNS server local IP address.":::
-
 # [K3S cluster](#tab/k3s)
 
 You should complete this step in an *internet facing environment outside of the isolated network*. Otherwise, you need to prepare the offline installation package for the following software in the next section.
@@ -110,11 +44,6 @@ You should complete this step in an *internet facing environment outside of the 
 
 1. Install [Kubectl](https://kubernetes.io/docs/tasks/tools/).
 
-1. Install `nfs-common` on the host machine.
-
-    ```bash
-    sudo apt install nfs-common
-    ```
 1. Run the following command to increase the [user watch/instance limits](https://www.suse.com/support/kb/doc/?id=000020048).
 
     ```bash
@@ -132,7 +61,7 @@ You should complete this step in an *internet facing environment outside of the 
     sudo sysctl -p
     ```
 
-1. Install the following optional software if you plan to try IoT Operations quickstarts or MQTT related scenarios.
+1. Install the following optional software if you plan to try Azure IoT Operations quickstarts or MQTT related scenarios.
     - [MQTTUI](https://github.com/EdJoPaTo/mqttui/releases) or other MQTT client
     - [Mosquitto](https://mosquitto.org/)
 
@@ -183,6 +112,76 @@ After the device is moved to your level 3 isolated network layer, it's required 
     1. Open the **Wi-Fi Settings**.
     1. Select the setting of the current connection.
     1. In the IPv4 tab, disable the **Automatic** setting for DNS and enter the local IP of DNS server.
+
+# [AKS Edge Essentials](#tab/aksee)
+There are few limitations for setting up AKS Edge Essentials as the level 3 cluster.
+- When configuring the custom DNS, you must use a DNS server. The CoreDNS approach is not applicable to AKS Edge Essentials cluster.
+- If you plan to access and manage the cluster remotely, you need to make a [full deployment](/azure/aks/hybrid/aks-edge-howto-multi-node-deployment) instead of a [single machine deployment](/azure/aks/hybrid/aks-edge-howto-single-node-deployment). Moreover, the full deployment can't be hosted on an Azure VM.
+
+## Prepare Windows 11
+
+You should complete this step in an *internet facing environment* outside of the isolated network. Otherwise, you need to prepare the offline installation package for the following required software.
+
+If you're using VM to create your Windows 11 machines, use the [VM image](https://developer.microsoft.com/windows/downloads/virtual-machines/) that includes Visual Studio preinstalled. Having Visual Studio ensures the required certificates needed by Arc onboarding are included.
+
+1. Install [Windows 11](https://www.microsoft.com/software-download/windows11) on your device.
+1. Install [Helm](https://helm.sh/docs/intro/install/) 3.8.0 or later.
+1. Install [Kubectl](https://kubernetes.io/docs/tasks/tools/)
+1. Download the [installer for the validated AKS Edge Essentials](https://aka.ms/aks-edge/msi-k3s-1.2.414.0) version.
+1. Install AKS Edge Essentials. Follow the steps in [Prepare your machines for AKS Edge Essentials](/azure/aks/hybrid/aks-edge-howto-setup-machine). Be sure to use the installer you downloaded in the previous step and not the most recent version.
+1. **Certificates:** For level 3 and lower, you ARC onboard the cluster that isn't connected to the internet. Therefore, you need to install certificates steps in [Prerequisites for AKS Edge Essentials offline installation](/azure/aks/hybrid/aks-edge-howto-offline-install).
+1. Install the following optional software if you plan to try Azure IoT Operations quickstarts or MQTT related scenarios.
+    - [MQTTUI](https://github.com/EdJoPaTo/mqttui/releases) or other MQTT client
+    - [Mosquitto](https://mosquitto.org/)
+1. Install Azure CLI. You can install the Azure CLI directly onto the level 3 machine or on another *developer* or *jumpbox* machine if you plan to access the level 3 cluster remotely. If you choose to access the Kubernetes cluster remotely to keep the cluster host clean, you run the *kubectl* and *az* related commands from the developer machine for the rest of the steps in this article.
+    The *AKS Edge Essentials - Single machine deployment* does not support accessing Kubernetes remotely. If you want to enable remote kubectl access, you will need to create the [Full Kubernetes Deployment](/azure/aks/hybrid/aks-edge-howto-multi-node-deployment) instead. Additional configurations are needed when creating this type of Kubernetes cluster.
+    - Install Azure CLI. Follow the steps in [Install Azure CLI on Windows](/cli/azure/install-azure-cli-windows).
+    - Install *connectedk8s* and other extensions.
+
+        ```bash
+        az extension add --name connectedk8s
+        az extension add --name k8s-extension
+        az extension add --name customlocation
+        ```
+    - [Install Azure CLI extension](/cli/azure/iot/ops) using `az extension add --name azure-iot-ops`.
+## Create the AKS Edge Essentials cluster
+
+To create the AKS Edge Essentials cluster that's compatible with Azure IoT Operations:
+
+1. Complete the steps in [Create a single machine deployment](/azure/aks/hybrid/aks-edge-howto-single-node-deployment).
+    Create a [Full Kubernetes Deployment](/azure/aks/hybrid/aks-edge-howto-multi-node-deployment) instead if you plan to remotely access the kubernetes from another machine.
+
+    At the end of [Step 1: single machine configuration parameters](/azure/aks/hybrid/aks-edge-howto-single-node-deployment#step-1-single-machine-configuration-parameters), modify the following values in the *aksedge-config.json* file as follows:
+
+    - `Init.ServiceIPRangeSize` = 10
+    - `LinuxNode.DataSizeInGB` = 30
+    - `LinuxNode.MemoryInMB` = 8192
+
+    In the **Network** section, set the `SkipDnsCheck` property to **true**. Add and set the `DnsServers` to the address of the DNS server in the subnet.
+
+    ```json
+    "DnsServers": ["<IP ADDRESS OF THE DNS SERVER IN SUBNET>"],
+    "SkipDnsCheck": true,
+    ```
+
+1. Install **local-path** storage in the cluster by running the following command:
+
+    ```cmd
+    kubectl apply -f https://raw.githubusercontent.com/Azure/AKS-Edge/main/samples/storage/local-path-provisioner/local-path-storage.yaml
+    ```
+
+## Move the device to level 3 isolated network
+
+In your isolated network layer, the DNS server was configured in a prerequisite step using [Create sample network environment](./howto-configure-layered-network.md). Complete the step if you haven't done so.
+
+After the device is moved to level 3, configure the DNS setting using the following steps:
+
+1. In **Windows Control Panel** > **Network and Internet** > **Network and Sharing Center**, select the current network connection.
+1. In the network properties dialog, select **Properties** > **Internet Protocol Version 4 (TCP/IPv4)** > **Properties**.
+1. Select **Use the following DNS server addresses**.
+1. Enter the level 3 DNS server local IP address.
+
+    :::image type="content" source="./media/howto-configure-l3-cluster-layered-network/windows-dns-setting.png" alt-text="Screenshot that shows Windows DNS setting with the level 3 DNS server local IP address.":::
 
 ---
 
@@ -236,13 +235,16 @@ login.microsoftonline.com. 0    IN      A       100.104.0.165
     az account set -s $SUBSCRIPTION_ID
     ```
 1. Register the required resource providers in your subscription:
+
+   >[!NOTE]
+   >This step only needs to be run once per subscription. To register resource providers, you need permission to do the `/register/action` operation, which is included in subscription Contributor and Owner roles. For more information, see [Azure resource providers and types](../../azure-resource-manager/management/resource-providers-and-types.md).
+
     ```powershell
     az provider register -n "Microsoft.ExtendedLocation"
     az provider register -n "Microsoft.Kubernetes"
     az provider register -n "Microsoft.KubernetesConfiguration"
     az provider register -n "Microsoft.IoTOperationsOrchestrator"
-    az provider register -n "Microsoft.IoTOperationsMQ"
-    az provider register -n "Microsoft.IoTOperationsDataProcessor"
+    az provider register -n "Microsoft.IoTOperations"
     az provider register -n "Microsoft.DeviceRegistry"
     ```
 1. Use the [az group create](/cli/azure/group#az-group-create) command to create a resource group in your Azure subscription to store all the resources:
@@ -274,10 +276,10 @@ login.microsoftonline.com. 0    IN      A       100.104.0.165
 >[!IMPORTANT]
 > These steps are for AKS Edge Essentials only.
 
-After you've deployed Azure IoT Operations to your cluster, enable inbound connections to Azure IoT MQ broker and configure port forwarding:
+After you've deployed Azure IoT Operations to your cluster, enable inbound connections to MQTT broker and configure port forwarding:
 1. Enable a firewall rule for port 8883:
     ```powershell
-    New-NetFirewallRule -DisplayName "Azure IoT MQ" -Direction Inbound -Protocol TCP -LocalPort 8883 -Action Allow
+    New-NetFirewallRule -DisplayName "MQTT broker" -Direction Inbound -Protocol TCP -LocalPort 8883 -Action Allow
     ```
 1. Run the following command and make a note of the IP address for the service called `aio-mq-dmqtt-frontend`:
     ```cmd
@@ -290,5 +292,5 @@ After you've deployed Azure IoT Operations to your cluster, enable inbound conne
 
 ## Related content
 
-- [Configure IoT Layered Network Management level 4 cluster](./howto-configure-l4-cluster-layered-network.md)
+- [Configure Azure IoT Layered Network Management Preview on level 4 cluster](./howto-configure-l4-cluster-layered-network.md)
 - [Create sample network environment](./howto-configure-layered-network.md)

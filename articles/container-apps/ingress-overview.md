@@ -3,7 +3,7 @@ title: Ingress in Azure Container Apps
 description: Ingress options for Azure Container Apps
 services: container-apps
 author: craigshoemaker
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.topic: conceptual
 ms.date: 05/03/2023
 ms.author: cshoe
@@ -78,9 +78,12 @@ With TCP ingress enabled, your container app:
 - Is accessible to other container apps in the same environment via its name (defined by the `name` property in the Container Apps resource) and exposed port number.
 - Is accessible externally via its fully qualified domain name (FQDN) and exposed port number if the ingress is set to "external".
 
-## <a name="additional-tcp-ports"></a>Additional TCP ports (preview)
+## <a name="additional-tcp-ports"></a>Additional TCP ports
 
-In addition to the main HTTP/TCP port for your container apps, you might expose additional TCP ports to enable applications that accept TCP connections on multiple ports. This feature is in preview.
+In addition to the main HTTP/TCP port for your container apps, you might expose additional TCP ports to enable applications that accept TCP connections on multiple ports.
+
+> [!NOTE]
+> This feature requires using the latest preview version of the container apps CLI extension.
 
 The following apply to additional TCP ports:
 - Additional TCP ports can only be external if the app itself is set as external and the container app is using a custom VNet.
@@ -112,7 +115,7 @@ Azure Container Apps provides built-in authentication and authorization features
 
 You can configure your app to support client certificates (mTLS) for authentication and traffic encryption. For more information, see [Configure client certificates](client-certificate-authorization.md). 
 
-For details on how to use mTLS for environment level network encryption, see the [networking overview](./networking.md#mtls). 
+For details on how to use peer-to-peer environment level network encryption, see the [networking overview](./networking.md#peer-to-peer-encryption). 
 
 ## Traffic splitting
 

@@ -1,14 +1,16 @@
 ---
 title: Configure caching
 description: Learn how to configure caching in Trino
-ms.service: hdinsight-aks
+ms.service: azure-hdinsight-on-aks
 ms.topic: how-to 
 ms.date: 11/03/2023
 ---
 
 # Configure caching
 
+[!INCLUDE [retirement-notice](../includes/retirement-notice.md)]
 [!INCLUDE [feature-in-preview](../includes/feature-in-preview.md)]
+
 
 Querying object storage using the Hive connector is a common use case for Trino. This process often involves sending large amounts of data. Objects are retrieved from HDFS or another supported object store by multiple workers and processed by those workers. Repeated queries with different parameters, or even different queries from different users, often access and transfer the same objects. 
 
@@ -168,7 +170,7 @@ The following example demonstrates where to add the properties.
 
 ## Hive/Iceberg/Delta Lake caching
 
-All three connectors share the same set of parameters as described in [Hive caching](https://trino.io/docs/current/connector/hive-caching.html).
+All three connectors share the same set of parameters as described in [Hive](https://trino.io/docs/current/connector/hive.html) caching.
 
 > [!NOTE]
 > Certain parameters are not configurable and always set to their default values: <br>hive.cache.data-transfer-port=8898, <br>hive.cache.bookkeeper-port=8899, <br>hive.cache.location=/etc/trino/cache, <br>hive.cache.disk-usage-percentage=80

@@ -2,12 +2,10 @@
 title: 'Support for long data type in Azure Time Series Insights Gen2 | Microsoft Docs'
 description: Support for long data type in Azure Time Series Insights Gen2.
 ms.service: time-series-insights
-services: time-series-insights
 author: msrsrinivasan
 ms.author: radhsrin
 manager: cnovak
 ms.reviewer: orspodak
-ms.workload: big-data
 ms.topic: conceptual
 ms.date: 12/07/2020
 ---
@@ -39,7 +37,7 @@ Depending on your IoT solution and constraints, you might not have visibility in
 - You can preemptively make the recommended changes for all numeric tags.
 - You can temporarily route a subset of events to storage to better understand and explore your schema.
 
-To store events, turn on [event capture](../event-hubs/event-hubs-capture-overview.md) for Azure Event Hubs, or [route](../iot-hub/iot-hub-devguide-messages-d2c.md#azure-storage-as-a-routing-endpoint) from your IoT Hub to Azure Blob storage.
+To store events, turn on [event capture](../event-hubs/event-hubs-capture-overview.md) for Azure Event Hubs, or [route](../iot-hub/iot-hub-devguide-messages-d2c.md) from your IoT Hub to Azure Blob storage.
 
 Data can also be observed through the [Event Hub Explorer](https://marketplace.visualstudio.com/items?itemName=Summer.azure-event-hub-explorer), or by using the [Event Processor Host](../event-hubs/event-hubs-dotnet-standard-getstarted-send.md#receive-events-from-the-event-hub).
 

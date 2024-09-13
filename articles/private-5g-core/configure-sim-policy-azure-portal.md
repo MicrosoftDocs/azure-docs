@@ -4,7 +4,7 @@ titleSuffix: Azure Private 5G Core
 description: With this how-to guide, learn how to configure a SIM policy for Azure Private 5G Core through the Azure portal. 
 author: robswain
 ms.author: robswain
-ms.service: private-5g-core
+ms.service: azure-private-5g-core
 ms.topic: how-to 
 ms.date: 01/16/2022
 ms.custom: template-how-to
@@ -13,6 +13,8 @@ ms.custom: template-how-to
 # Configure a SIM policy for Azure Private 5G Core - Azure portal
 
 *SIM policies* allow you to define different sets of policies and interoperability settings that can each be assigned to a group of SIMs. The SIM policy also defines the default Quality of Service settings for any services that policy uses. You'll need to assign a SIM policy to a SIM before the user equipment (UE) using that SIM can access the private mobile network. In this how-to-guide, you'll learn how to configure a SIM policy.
+
+A SIM policy takes effect on a UE when it attaches or re-attaches to the network. Therefore, changes to the policy are not dynamically implemented on existing UE sessions. However, if a SIM policy is removed from a UE's SIM, then Azure Private 5G Core will perform a network-initiated detach, disconnecting the UE from the network.
 
 ## Prerequisites
 

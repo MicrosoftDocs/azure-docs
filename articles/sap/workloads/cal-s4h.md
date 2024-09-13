@@ -2,22 +2,15 @@
 title: Deploy SAP S/4HANA or BW/4HANA on an Azure VM | Microsoft Docs
 description: Deploy SAP S/4HANA or BW/4HANA on an Azure VM
 services: virtual-machines-linux
-documentationcenter: ''
 author: pepeters
 manager: timlt
-editor: ''
-tags: azure-resource-manager
-keywords: ''
-
 ms.assetid: 44bbd2b6-a376-4b5c-b824-e76917117fa9
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure-services
 ms.date: 02/15/2023
 ms.author: hobruche
-
 ---
 # SAP Cloud Appliance Library
 
@@ -38,12 +31,18 @@ The online library is continuously updated with Appliances for demo, proof of co
 
 | Appliance Template | Date | Description | Creation Link |
 | ------------------ | ---- | ----------- | ------------- |
+| [**SAP S/4HANA 2023 FPS01, Fully-Activated Appliance**]( https://cal.sap.com/catalog?provider=208b780d-282b-40ca-9590-5dd5ad1e52e8#/applianceTemplates/)|  May 01 2024|This appliance contains SAP S/4HANA 2023 (FPS01) with pre-activated SAP Best Practices for SAP S/4HANA core functions, and further scenarios for Service, Master Data Governance (MDG), Portfolio & Project Mgmt. (PPM), Human Capital Management (HCM), Analytics, and more. User access happens via SAP Fiori, SAP GUI, SAP HANA Studio, Windows remote desktop, or the backend operating system for full administrative access. |   [Create Appliance](https://cal.sap.com/registration?sguid=a28eacc8-388b-4c44-8172-8ff9bd436259&provider=208b780d-282b-40ca-9590-5dd5ad1e52e8) |
+| [**SAP S/4HANA 2023, Fully-Activated Appliance**]( https://cal.sap.com/catalog?provider=208b780d-282b-40ca-9590-5dd5ad1e52e8#/applianceTemplates/6ad2fc04-407f-47f8-9a1d-c94df8549ea4)| December 14 2023 | This appliance contains SAP S/4HANA 2023 (SP00) with pre-activated SAP Best Practices for SAP S/4HANA core functions, and further scenarios for Service, Master Data Governance (MDG), Portfolio Mgmt. (PPM), Human Capital Management (HCM), Analytics, and more. User access happens via SAP Fiori, SAP GUI, SAP HANA Studio, Windows remote desktop, or the backend operating system for full administrative access. | [Create Appliance](https://cal.sap.com/registration?sguid=6ad2fc04-407f-47f8-9a1d-c94df8549ea4&provider=208b780d-282b-40ca-9590-5dd5ad1e52e8) |
 | [**SAP S/4HANA 2022 FPS02, Fully-Activated Appliance**](https://cal.sap.com/catalog?provider=208b780d-282b-40ca-9590-5dd5ad1e52e8#/applianceTemplates/983008db-db92-4d4d-ac79-7e2afa95a2e0)| July 16 2023 |This appliance contains SAP S/4HANA 2022 (FPS02) with pre-activated SAP Best Practices for SAP S/4HANA core functions, and further scenarios for Service, Master Data Governance (MDG), Portfolio Mgmt. (PPM), Human Capital Management (HCM), Analytics, and more. User access happens via SAP Fiori, SAP GUI, SAP HANA Studio, Windows remote desktop, or the backend operating system for full administrative access. |  [Create Appliance](https://cal.sap.com/registration?sguid=983008db-db92-4d4d-ac79-7e2afa95a2e0&provider=208b780d-282b-40ca-9590-5dd5ad1e52e8)
-| [**SAP S/4HANA 2022 FPS01, Fully-Activated Appliance**](https://cal.sap.com/catalog?provider=208b780d-282b-40ca-9590-5dd5ad1e52e8#/applianceTemplates/3722f683-42af-4059-90db-4e6a52dc9f54) |  April 20 2023 |This appliance contains SAP S/4HANA 2022 (FPS01) with pre-activated SAP Best Practices for SAP S/4HANA core functions, and further scenarios for Service, Master Data Governance (MDG), Portfolio Mgmt. (PPM), Human Capital Management (HCM), Analytics, and more. User access happens via SAP Fiori, SAP GUI, SAP HANA Studio, Windows remote desktop, or the backend operating system for full administrative access. |  [Create Appliance](https://cal.sap.com/registration?sguid=3722f683-42af-4059-90db-4e6a52dc9f54&provider=208b780d-282b-40ca-9590-5dd5ad1e52e8) |
-| [**SAP S/4HANA 2021 FPS01, Fully-Activated Appliance**](https://cal.sap.com/catalog?provider=208b780d-282b-40ca-9590-5dd5ad1e52e8#/applianceTemplates/a954cc12-da16-4caa-897e-cf84bc74cf15)| April 26 2022 |This appliance contains SAP S/4HANA 2021 (FPS01) with pre-activated SAP Best Practices for SAP S/4HANA core functions, and further scenarios for Service, Master Data Governance (MDG), Portfolio Mgmt. (PPM), Human Capital Management (HCM), Analytics, Migration Cockpit, and more. User access happens via SAP Fiori, SAP GUI, SAP HANA Studio, Windows remote desktop, or the backend operating system for full administrative access. |[Create Appliance](https://cal.sap.com/registration?sguid=a954cc12-da16-4caa-897e-cf84bc74cf15&provider=208b780d-282b-40ca-9590-5dd5ad1e52e8) |
-| [**SAP BW/4HANA 2021 SP04 Developer Edition**](https://cal.sap.com/catalog?provider=208b780d-282b-40ca-9590-5dd5ad1e52e8#/applianceTemplates/1b0ac659-a5b4-4d3b-b1ae-f1a1cb89c6db) | March 23 2023 | This solution offers you an insight of SAP BW/4HANA2021 SP04. SAP BW/4HANA is the next generation Data Warehouse optimized for SAP HANA. Beside the basic BW/4HANA options the solution offers a bunch of SAP HANA optimized BW/4HANA Content and the next step of Hybrid Scenarios with SAP Data Warehouse Cloud. |  [Create Appliance](https://cal.sap.com/registration?sguid=1b0ac659-a5b4-4d3b-b1ae-f1a1cb89c6db&provider=208b780d-282b-40ca-9590-5dd5ad1e52e8) |
-| [**SAP ABAP Platform 1909, Developer Edition**](https://cal.sap.com/catalog?provider=208b780d-282b-40ca-9590-5dd5ad1e52e8#/applianceTemplates/5a830213-f0cb-423e-ab5f-f7736e57f5a1)| May 10 2023  | The SAP ABAP Platform on SAP HANA gives you access to your own copy of SAP ABAP Platform 1909 Developer Edition on SAP HANA. Note that this solution is preconfigured with many additional elements, including: SAP ABAP RESTful Application Programming Model, SAP Fiori launchpad, SAP gCTS, SAP ABAP Test Cockpit, and preconfigured frontend / backend connections, etc It also includes all the standard ABAP AS infrastructure: Transaction Management, database operations / persistence, Change and Transport System, SAP Gateway, interoperability with ABAP Development Toolkit and SAP WebIDE, and much more. | [Create Appliance](https://cal.sap.com/registration?sguid=5a830213-f0cb-423e-ab5f-f7736e57f5a1&provider=208b780d-282b-40ca-9590-5dd5ad1e52e8) |
-| [**SAP Solution Manager 7.2 SP17 & Focused Solutions SP12 (Baseline)**](https://cal.sap.com/catalog?provider=208b780d-282b-40ca-9590-5dd5ad1e52e8#/applianceTemplates/811a4b92-3ea1-4108-9661-c38e775ca488)| September 24 2023 |This template contains a partly configured SAP Solution Manager 7.2 SP17 (incl. Focused Build and Focused Insights 2.0 SP12). Only the Mandatory Configuration and Focused Build configuration are performed. The system is clean and does not contain pre-defined demo scenarios. | [Create Appliance](https://cal.sap.com/registration?sguid=811a4b92-3ea1-4108-9661-c38e775ca488&provider=208b780d-282b-40ca-9590-5dd5ad1e52e8) |
+| [**SAP S/4HANA 2023 FPS01**](https://cal.sap.com/catalog?provider=208b780d-282b-40ca-9590-5dd5ad1e52e8#/applianceTemplates/5ea7035f-4ea5-4245-bde5-3fff409a2f03) | March 12 2024 |This Appliance Template contains a pre-configured and activated SAP S/4HANA Fiori UI in client 100, with prerequisite components activated as per SAP note 3336782 – Composite SAP note: Rapid Activation for SAP Fiori in SAP S/4HANA 2023. It also includes a remote desktop for easy frontend access. | [Create Appliance](https://cal.sap.com/registration?sguid=5ea7035f-4ea5-4245-bde5-3fff409a2f03&provider=208b780d-282b-40ca-9590-5dd5ad1e52e8) |
+| [**SAP Yard Logistics 2021 SP03 for SAP S/4HANA**](https://cal.sap.com/catalog?provider=208b780d-282b-40ca-9590-5dd5ad1e52e8#/applianceTemplates/85374cf6-4f40-476c-8864-7f3948f8c7b0)| May 22 2024 |Run more efficient and profitable supply chain logistics with the SAP Yard Logistics application. Maximize your visibility into all yard processes and preview planned workloads with a range of visualization and reporting tools, so you can optimize resource use and support planning, execution, and billing with a single system. | [Create Appliance](https://cal.sap.com/registration?sguid=85374cf6-4f40-476c-8864-7f3948f8c7b0&provider=208b780d-282b-40ca-9590-5dd5ad1e52e8) |
+| [**SAP Process Orchestration 7.50 SPS28**](https://cal.sap.com/catalog?provider=208b780d-282b-40ca-9590-5dd5ad1e52e8#/applianceTemplates/fa69ce73-ba98-438a-b2e9-e0171b280b07) | May 22 2024  | SAP Process Orchestration is a solution offering comprising process integration, business process management and business rules management capabilities. It allows you to model, run and monitor integration scenarios that can span applications from SAP and other vendors. | [Create Appliance](https://cal.sap.com/registration?sguid=fa69ce73-ba98-438a-b2e9-e0171b280b07&provider=208b780d-282b-40ca-9590-5dd5ad1e52e8) |
+
+
+
+
+
+
   
 
 
@@ -56,6 +55,8 @@ The following links highlight the Product stacks that you can quickly deploy on 
 
 | All products | Link |
 | -------------- | :--------- |
+| **SAP S/4HANA 2023 FPS00 for Productive Deployments** |[Deploy System](https://cal.sap.com/registration?sguid=88f59e31-d776-45ea-811c-1da6577e4d25&provider=208b780d-282b-40ca-9590-5dd5ad1e52e8&provType=newInstallation) |
+|This solution comes as a standard S/4HANA system installation including High Availability capabilities to ensure higher system uptime for productive usage. The system parameters can be customized during initial provisioning according to the requirements for the target system. |  [Details]( https://cal.sap.com/catalog?provider=208b780d-282b-40ca-9590-5dd5ad1e52e8#/products/88f59e31-d776-45ea-811c-1da6577e4d25)
 | **SAP S/4HANA 2022 FPS02 for Productive Deployments** | [Deploy System](https://cal.sap.com/registration?sguid=c86d7a56-4130-4459-8060-ffad1a1118ce&provider=208b780d-282b-40ca-9590-5dd5ad1e52e8&provType=newInstallation) |
 |This solution comes as a standard S/4HANA system installation including High Availability capabilities to ensure higher system uptime for productive usage. The system parameters can be customized during initial provisioning according to the requirements for the target system. |  [Details]( https://cal.sap.com/catalog?provider=208b780d-282b-40ca-9590-5dd5ad1e52e8#/products/c86d7a56-4130-4459-8060-ffad1a1118ce) |
 | **SAP S/4HANA 2022 FPS01 for Productive Deployments** | [Deploy System](https://cal.sap.com/registration?sguid=1294f31c-2697-443c-bacc-117d5924fcb2&provider=208b780d-282b-40ca-9590-5dd5ad1e52e8&provType=newInstallation) |

@@ -2,12 +2,12 @@
 title: Connect to Synapse SQL with Power BI Professional
 description: In this tutorial, we will go through steps how to connect Power BI desktop to serverless SQL pool.
 author: azaricstefan
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.topic: tutorial
 ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: stefanazaric
-ms.reviewer: sngun 
+ms.reviewer: whhender 
 ---
 
 
@@ -77,7 +77,7 @@ IF EXISTS (SELECT * FROM sys.credentials WHERE name = 'https://azureopendatastor
 DROP CREDENTIAL [https://azureopendatastorage.blob.core.windows.net/censusdatacontainer];
 GO
 
--- Create credentials for Census Data container which resides in a azure open data storage account
+-- Create credentials for Census Data container which resides in an azure open data storage account
 -- There is no secret. We are using public storage account which doesn't need secret
 CREATE CREDENTIAL [https://azureopendatastorage.blob.core.windows.net/censusdatacontainer]  
 WITH IDENTITY='SHARED ACCESS SIGNATURE',  

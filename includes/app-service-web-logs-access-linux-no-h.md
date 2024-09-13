@@ -3,11 +3,11 @@ title: "include file"
 description: "include file"
 services: app-service
 author: cephalin
-ms.service: app-service
+ms.service: azure-app-service
 ms.topic: "include"
 ms.date: 03/27/2019
 ms.author: cephalin
-ms.custom: "include file"
+ms.custom: include file, linux-related-content
 ---
 
 You can access the console logs generated from inside the container.

@@ -1,10 +1,9 @@
 ---
 title: Create an Azure-SSIS integration runtime via Azure portal
 description: Learn how to create an Azure-SSIS integration runtime in Azure Data Factory via Azure portal so you can deploy and run SSIS packages in Azure.
-ms.service: data-factory
 ms.subservice: integration-services
 ms.topic: conceptual
-ms.date: 04/12/2023
+ms.date: 01/05/2024
 author: chugugrace
 ms.author: chugu 
 ---
@@ -285,7 +284,7 @@ On the **Connections** pane of **Manage** hub, switch to the **Integration runti
 
 1. For the remaining steps to set up an Azure-SSIS IR, see the [Provision an Azure SSIS integration runtime](#provision-an-azure-ssis-integration-runtime) section.
  
-## Next steps
+## Related content
 
 - [Create an Azure-SSIS IR via Azure PowerShell](create-azure-ssis-integration-runtime-powershell.md).
 - [Create an Azure-SSIS IR via Azure Resource Manager template](create-azure-ssis-integration-runtime-resource-manager-template.md).

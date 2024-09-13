@@ -19,7 +19,7 @@ The Azure Communication Services Calling SDK enables Teams user devices to drive
 
 Key features of the Calling SDK:
 
-- **Addressing** - Azure Communication Services is using [Microsoft Entra user identifier](/powershell/module/azuread/get-azureaduser) to address communication endpoints. Clients use Microsoft Entra identities to authenticate to the service and communicate with each other. These identities are used in Calling APIs that provide clients visibility into who is connected to a call (the roster). And are also used in [Microsoft Graph API](/graph/api/user-get).
+- **Addressing** - Azure Communication Services is using [Microsoft Entra user identifier](/powershell/module/microsoft.graph.users/get-mguser) to address communication endpoints. Clients use Microsoft Entra identities to authenticate to the service and communicate with each other. These identities are used in Calling APIs that provide clients visibility into who is connected to a call (the roster). And are also used in [Microsoft Graph API](/graph/api/user-get).
 - **Encryption** - The Calling SDK encrypts traffic and prevents tampering on the wire. 
 - **Device Management and Media** - The Calling SDK provides facilities for binding to audio and video devices, encodes content for efficient transmission over the communications data plane, and renders content to output devices and views that you specify. APIs are also provided for screen and application sharing.
 - **Notifications** - The Calling SDK provides APIs that allow clients to be notified of an incoming call. In situations where your app is not running in the foreground, patterns are available to [fire pop-up notifications](../notifications.md) ("toasts") to inform users of an incoming call. 
@@ -86,7 +86,7 @@ The following list presents the set of features that are currently available in 
 | Video Rendering   | Render single video in many places (local camera or remote stream)                                                  | ✔️        | ✔️ | ✔️ | ✔️ |
 |                   | Set / update scaling mode                                                                                           | ✔️        | ✔️ | ✔️ | ✔️ |
 |                   | Render remote video stream                                                                                          | ✔️        | ✔️ | ✔️ | ✔️ |
-|                   | See together mode video stream                                                                                      | ❌ | ❌ | ❌ | ❌ |
+|                   | See together mode video stream                                                                                      | ✔️ | ❌ | ❌ | ❌ |
 |                   | See Large gallery view                                                                                              | ❌ | ❌ | ❌ | ❌ |
 |                   | Receive video stream from Teams media bot                                                                           | ❌ | ❌ | ❌ | ❌ |
 |                   | Receive adjusted stream for "content from Camera"                                                                   | ❌ | ❌ | ❌ | ❌ |
@@ -94,8 +94,10 @@ The following list presents the set of features that are currently available in 
 |                   | Allow video stream to be selected for spotlight                                                                     | ✔️ | ✔️ | ✔️ | ✔️ |
 | Video Effects     | [Background Blur](../../quickstarts/voice-video-calling/get-started-video-effects.md)                               | ✔️ | ✔️ | ✔️ | ✔️ |
 |                   | Custom background image                                                                                             | ✔️ | ❌ | ❌ | ❌ |
-| Recording & transcription | Manage Teams convenient recording                                                                           | ❌ | ❌ | ❌ | ❌ |
-|                   | Receive information of call being recorded                                                                          | ✔️ | ✔️ | ✔️ | ✔️ |
+| Recording & transcription | Manage Teams cloud recording                                                                                | ❌ | ❌ | ❌ | ❌ |
+|                   | Receive information of call being cloud recorded                                                                    | ✔️ | ✔️ | ✔️ | ✔️ |
+|                   | Manage Teams local recording                                                                                        | ❌ | ❌ | ❌ | ❌ |
+|                   | Receive information of call being locally recorded                                                                  | ✔️ | ✔️ | ✔️ | ✔️ |
 |                   | Manage Teams transcription                                                                                          | ❌ | ❌ | ❌ | ❌ |
 |                   | Receive information of call being transcribed                                                                       | ✔️ | ✔️ | ✔️ | ✔️ |
 |                   | Manage Teams closed captions                                                                                        | ✔️ | ✔️ | ✔️ | ✔️ |
@@ -121,7 +123,7 @@ The following list presents the set of features that are currently available in 
 |                   | Transfer a call to a user                                                                                           |   ✔️      | ✔️ | ✔️ | ✔️ |
 |                   | Be transferred to a user or call                                                                                     |   ✔️      | ✔️ | ✔️ | ✔️ |
 |                   | Transfer a call to a call                                                                                            |   ✔️      | ✔️ | ✔️ | ✔️ |
-|                   | Transfer a call to Voicemail                                                                                         |   ❌      | ❌ | ❌ | ❌ |
+|                   | Transfer a call to Voicemail                                                                                         |   ✔️      | ✔️ | ✔️ | ✔️ |
 |                   | Be transferred to voicemail                                                                                           |   ✔️      | ✔️ | ✔️ | ✔️ |
 |                   | Merge ongoing calls                                                                                                  |   ❌      | ❌ | ❌ | ❌ |
 |                   | Does start a call and add user operations honor shared line configuration                                            |   ✔️      | ✔️ | ✔️ | ✔️ |

@@ -2,11 +2,11 @@
 title: Secure a custom DNS with a TLS/SSL binding
 description: Secure HTTPS access to your custom domain by creating a TLS/SSL binding with a certificate. Improve your website's security by enforcing HTTPS or TLS 1.2.
 tags: buy-ssl-certificates
+ms.custom: devx-track-azurepowershell
 
 ms.topic: article
 ms.date: 04/20/2023
 ms.reviewer: yutlin
-ms.custom: seodec18, devx-track-azurepowershell
 ms.author: msangapu
 author: msangapu-msft
 ---
@@ -45,7 +45,7 @@ In the <a href="https://portal.azure.com" target="_blank">Azure portal</a>:
 1. In **TLS/SSL type**, choose between **SNI SSL** and **IP based SSL**.
 
     - **[SNI SSL](https://en.wikipedia.org/wiki/Server_Name_Indication)**: Multiple SNI SSL bindings may be added. This option allows multiple TLS/SSL certificates to secure multiple domains on the same IP address. Most modern browsers (including Internet Explorer, Chrome, Firefox, and Opera) support SNI (for more information, see [Server Name Indication](https://wikipedia.org/wiki/Server_Name_Indication)).
-    - - **IP based SSL**: Only one IP SSL binding may be added. This option allows only one TLS/SSL certificate to secure a dedicated public IP address. After you configure the binding, follow the steps in [2. Remap records for IP based SSL](#2-remap-records-for-ip-based-ssl).<br/>IP SSL is supported only in **Basic** tier or higher.
+    - **IP based SSL**: Only one IP SSL binding may be added. This option allows only one TLS/SSL certificate to secure a dedicated public IP address. After you configure the binding, follow the steps in [2. Remap records for IP based SSL](#2-remap-records-for-ip-based-ssl).<br/>IP SSL is supported only in **Basic** tier or higher.
 
 1. When adding a new certificate, validate the new certificate by selecting **Validate**.
 
@@ -66,9 +66,9 @@ There are two changes you need to make, potentially:
 
 - By default, your app uses a shared public IP address. When you bind a certificate with IP SSL, App Service creates a new, dedicated IP address for your app. If you mapped an A record to your app, update your domain registry with this new, dedicated IP address.
 
-    Your app's **Custom domain** page is updated with the new, dedicated IP address. Copy this IP address, then [remap the A record](app-service-web-tutorial-custom-domain.md#2-create-the-dns-records) to this new IP address.
+    Your app's **Custom domain** page is updated with the new, dedicated IP address. Copy this IP address, then [remap the A record](app-service-web-tutorial-custom-domain.md#create-the-dns-records) to this new IP address.
 
-- If you have an SNI SSL binding to `<app-name>.azurewebsites.net`, [remap any CNAME mapping](app-service-web-tutorial-custom-domain.md#2-create-the-dns-records) to point to `sni.<app-name>.azurewebsites.net` instead (add the `sni` prefix).
+- If you have an SNI SSL binding to `<app-name>.azurewebsites.net`, [remap any CNAME mapping](app-service-web-tutorial-custom-domain.md#create-the-dns-records) to point to `sni.<app-name>.azurewebsites.net` instead (add the `sni` prefix).
 
 ## 3. Test HTTPS
 

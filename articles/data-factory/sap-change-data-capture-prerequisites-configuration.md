@@ -3,11 +3,9 @@ title: Prerequisites and setup for the SAP CDC connector
 titleSuffix: Azure Data Factory
 description: Learn about the prerequisites and setup for the SAP CDC connector in Azure Data Factory.
 author: ukchrist
-ms.service: data-factory
 ms.subservice: data-movement
-ms.custom: ignite-2022
 ms.topic: conceptual
-ms.date: 07/24/2023
+ms.date: 05/15/2024
 ms.author: ulrichchrist
 ---
 
@@ -31,19 +29,17 @@ To use the SAP CDC capabilities in Azure Data Factory, be able to complete these
 
 To set up your SAP systems to use the SAP ODP framework, follow the guidelines that are described in the following sections.
 
-### SAP system requirements
+### Verify SAP system requirements
 
-The ODP framework is part of many SAP systems, including SAP ECC and SAP S/4HANA. It's also contained in SAP BW and SAP BW/4HANA. To ensure that your SAP releases have ODP, see the following SAP documentation or support notes. Even though the guidance primarily refers to SAP BW and SAP Data Services, the information also applies to Data Factory.
+The SAP CDC connector uses the ODP 2.0 framework, which is part of many SAP systems. For example it comes with all up-to-date releases of SAP ECC and SAP S/4HANA, SAP BW and SAP BW/4HANA and SAP SLT. To ensure that your SAP releases have ODP 2.0, see the following SAP documentation or support notes. Even though the guidance primarily refers to SAP BW and SAP Data Services, the information also applies to Data Factory.
 
-- To support ODP, run your SAP systems on SAP NetWeaver 7.0 SPS 24 or later. For more information, see [Transferring Data from SAP Source Systems via ODP (Extractors)](https://help.sap.com/docs/SAP_BW4HANA/107a6e8a38b74ede94c833ca3b7b6f51/327833022dcf42159a5bec552663dc51.html).
-- To support SAP Advanced Business Application Programming (ABAP) Core Data Services (CDS) full extractions via ODP, run your SAP systems on NetWeaver 7.4 SPS 08 or later. To support SAP ABAP CDS delta extractions, run your SAP systems on NetWeaver 7.5 SPS 05 or later. For more information, see [Transferring Data from SAP Systems via ODP (ABAP CDS Views)](https://help.sap.com/docs/SAP_BW4HANA/107a6e8a38b74ede94c833ca3b7b6f51/af11a5cb6d2e4d4f90d344f58fa0fb1d.html).
-- [1521883 - To use ODP API 1.0](https://launchpad.support.sap.com/#/notes/1521883)
-- [1931427 - To use ODP API 2.0 that supports SAP hierarchies](https://launchpad.support.sap.com/#/notes/1931427)
-- [2481315 - To use ODP for data extractions from SAP source systems into BW or BW/4HANA](https://launchpad.support.sap.com/#/notes/2481315)
+- [1931427 - ODP Data Replication API 2.0](https://launchpad.support.sap.com/#/notes/1931427)
+- [2481315 - Operational Data Provisioning: Availability and Limitations](https://launchpad.support.sap.com/#/notes/2481315)
+- To support SAP ABAP Core Data Services (CDS) full extractions via ODP, run your SAP systems on NetWeaver 7.4 SPS 08 or later. To support SAP ABAP CDS delta extractions, run your SAP systems on NetWeaver 7.5 SPS 05 or later. For more information, see [Transferring Data from SAP Systems via ODP (ABAP CDS Views)](https://help.sap.com/docs/SAP_BW4HANA/107a6e8a38b74ede94c833ca3b7b6f51/af11a5cb6d2e4d4f90d344f58fa0fb1d.html).
 
 ### Set up the SAP user
 
-Data extractions via ODP require a properly configured user on SAP systems. The user must be authorized for ODP API invocations over Remote Function Call (RFC) modules. The user configuration is the same configuration that's required for data extractions via ODP from SAP source systems into BW or BW/4HANA. For more information, see these SAP support notes:
+Data extractions via ODP require a properly configured user on SAP systems. The user must be authorized for ODP API invocations over Remote Function Call (RFC) modules. The user configuration is the same configuration as for data extractions via ODP from SAP source systems into BW or BW/4HANA. For more information, see these SAP support notes:
 
 - [2855052 - To authorize ODP API usage](https://launchpad.support.sap.com/#/notes/2855052)
 - [460089 - To authorize ODP RFC invocations](https://launchpad.support.sap.com/#/notes/460089)
@@ -97,6 +93,6 @@ The following SAP support notes resolve known issues on SAP systems:
 - [3038236 - To resolve CDS view extractions that fail to populate ODQ](https://launchpad.support.sap.com/#/notes/3038236)
 - [3076927 - To remove unsupported callbacks when extracting from SAP BW or BW/4HANA](https://launchpad.support.sap.com/#/notes/3076927)
 
-## Next steps
+## Related content
 
 [Set up a self-hosted integration runtime for your SAP CDC solution](sap-change-data-capture-shir-preparation.md)

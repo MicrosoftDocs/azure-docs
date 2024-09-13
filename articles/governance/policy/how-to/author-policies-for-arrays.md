@@ -59,7 +59,9 @@ can be rewritten as follows:
             "displayName": "Allowed locations",
             "strongType": "location"
         },
-        "defaultValue": "eastus2",
+        "defaultValue": [
+            "eastus2"
+        ],
         "allowedValues": [
             "eastus2",
             "eastus",
@@ -108,7 +110,7 @@ To use this string with each SDK, use the following commands:
   parameter **params**
 - Azure PowerShell: Cmdlet [New-AzPolicyAssignment](/powershell/module/az.resources/New-Azpolicyassignment)
   with parameter **PolicyParameter**
-- REST API: In the _PUT_ [create](/rest/api/policy/policyassignments/create) operation as part of
+- REST API: In the _PUT_ [create](/rest/api/policy/policy-assignments/create) operation as part of
   the Request Body as the value of the **properties.parameters** property
 
 ## Using arrays in conditions

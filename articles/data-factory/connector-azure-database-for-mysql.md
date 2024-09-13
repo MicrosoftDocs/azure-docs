@@ -4,7 +4,6 @@ description: Learn how to copy and transform data in Azure Database for MySQL us
 titleSuffix: Azure Data Factory & Azure Synapse
 ms.author: jianleishen
 author: jianleishen
-ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
@@ -18,8 +17,8 @@ ms.date: 10/20/2023
 This article outlines how to use Copy Activity in Azure Data Factory or Synapse Analytics pipelines to copy data from and to Azure Database for MySQL, and use Data Flow to transform data in Azure Database for MySQL. To learn more, read the introductory articles for [Azure Data Factory](introduction.md) and [Synapse Analytics](../synapse-analytics/overview-what-is.md).
 
 This connector is specialized for 
-- [Azure Database for MySQL Single Server](../mysql/single-server-overview.md)
-- [Azure Database for MySQL Flexible Server](../mysql/flexible-server/overview.md) 
+- [Azure Database for MySQL Single Server](/azure/mysql/single-server-overview)
+- [Azure Database for MySQL Flexible Server](/azure/mysql/flexible-server/overview) 
 
  To copy data from generic MySQL database located on-premises or in the cloud, use [MySQL connector](connector-mysql.md).
 
@@ -373,5 +372,5 @@ When copying data from Azure Database for MySQL, the following mappings are used
 | `varchar` |`String` |
 | `year` |`Int32` |
 
-## Next steps
+## Related content
 For a list of data stores supported as sources and sinks by the copy activity, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).

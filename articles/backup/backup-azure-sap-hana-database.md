@@ -2,8 +2,8 @@
 title: Back up an SAP HANA database to Azure with Azure Backup 
 description: In this article, learn how to back up an SAP HANA database to Azure virtual machines with the Azure Backup service.
 ms.topic: how-to
-ms.date: 11/29/2023
-ms.service: backup
+ms.date: 04/26/2024
+ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
@@ -75,7 +75,7 @@ You can also use the following FQDNs to allow access to the required services fr
 | -------------- | ------------------------------------------------------------ | ---------------------- |
 | Azure  Backup  |  `*.backup.windowsazure.com`                             |  443       |
 | Azure  Storage | `*.blob.core.windows.net` <br><br> `*.queue.core.windows.net` <br><br> `*.blob.storage.azure.net` |   443    |
-| Azure  AD      | `*.australiacentral.r.login.microsoft.com` <br><br> Allow  access to FQDNs under sections 56 and 59 according to [this article](/office365/enterprise/urls-and-ip-address-ranges#microsoft-365-common-and-office-online) |   443 <br><br> As applicable      |
+| Azure  AD      | `*.login.microsoft.com` <br><br> Allow  access to FQDNs under sections 56 and 59 according to [this article](/office365/enterprise/urls-and-ip-address-ranges#microsoft-365-common-and-office-online) |   443 <br><br> As applicable      |
 
 #### Use an HTTP proxy server to route traffic
 
@@ -113,13 +113,13 @@ You can also use the following FQDNs to allow access to the required services fr
 
 If the Firewall or NSG settings block the `“management.azure.com”` domain from Azure Virtual Machine, snapshot backups will fail.
 
-Create the following outbound rule and allow the domain name to do the database backup. Learn hot to [create outbound rules](../machine-learning/how-to-access-azureml-behind-firewall.md).
+Create the following outbound rule and allow the domain name to do the database backup. Learn hot to [create outbound rules](/azure/machine-learning/how-to-access-azureml-behind-firewall).
 
 - **Source**: IP address of the VM.
 - **Destination**: Service Tag.
 - **Destination Service Tag**: `AzureResourceManager`
 
-:::image type="content" source="./media/backup-azure-sap-hana-database/outbound-rule-hana-backups.png" alt-text="Screenshot shows the outbound rule settings."  lightbox="./media/backup-azure-sap-hana-database/outbound-rule-hana-backups.png":::
+:::image type="content" source="./media/backup-azure-sap-hana-database/outbound-rule-hana-backups.png" alt-text="Screenshot shows the outbound rule settings." lightbox="./media/backup-azure-sap-hana-database/outbound-rule-hana-backups.png":::
 
 
 
@@ -257,27 +257,25 @@ You can run an on-demand backup using SAP HANA native clients to local file-syst
 
 To configure multistreaming data backups, see the [SAP documentation](https://help.sap.com/docs/SAP_HANA_PLATFORM/6b94445c94ae495c83a19646e7c3fd56/18db704959a24809be8d01cc0a409681.html).
 
+Learn about the [supported scenarios](sap-hana-backup-support-matrix.md#support-for-multistreaming-data-backups).
 
-### Support matrix
+## Review backup status 
 
-- **Supported HANA versions**: SAP HANA 2.0 SP05 and prior.
-- **Parameters to enable SAP HANA settings for multistreaming**: 
-  - *parallel_data_backup_backint_channels*
-  - *data_backup_buffer_size (optional)*
+Azure Backup periodically synchronizes the datasource between the extension installed on the VM and Azure Backup service, and shows the backup status in the Azure portal. The following table lists the (four) backup status for a datasource:
 
-  >[!Note]
-  >By setting the above HANA parameters will lead to increased memory and CPU utilization. We recommend that you monitor the memory consumption and CPU utilization as overutilization might negatively impact the backup and other HANA operations.
+| Backup state | Description |
+| --- | --- |
+| **Healthy** | The last backup is successful. |
+| **Unhealthy** | The last backup has failed. |
+| **NotReachable** | There's currently no synchronization occurring between the extension on the VM and the Azure Backup service. |
+| **IRPending** | The first backup on the datasource hasn't occurred yet. |
+ 
+Generally, synchronization occurs *every hour*. However, at the extension level, Azure Backup polls every *5 minutes* to check for any changes in the status of the latest backup compared to the previous one. For example, if the previous backup is successful but the latest backup has failed, Azure Backup syncs that information to the service to update the backup status in the Azure portal accordingly to *Healthy* or *Unhealthy*.
+ 
+If no data sync occurs to the Azure Backup service for more than *2 hours*, Azure Backup shows the backup status as *NotReachable*. This scenario might occur if the VM is shut down for an extended period or there's a network connectivity issue on the VM, causing the synchronization to cease. Once the VM is operational again and the extension services restart, the data sync operation to the service resumes, and the backup status changes to *Healthy* or *Unhealthy* based on the status of the last backup.
 
-- **Backup performance for databases**: The performance gain will be more prominent for larger databases.
 
-- **Database size applicable for multistreaming**: The number of multistreaming channels applies to all data backups *larger than 128 GB*. Data backups smaller than 128 GB always use only one channel.
-
-- **Supported backup throughput**: Multistreaming currently supports the data backup throughput of up to *1.5 GBps*. Recovery throughput is slower than the backup throughput.
-
-- **VM configuration applicable for multistreaming**: To utilize the benefits of multistreaming, the VM needs to have a minimum configuration of *16 vCPUs* and *128 GB* of RAM.
-- **Limiting factors**: Throughput of *total disk LVM striping* and *VM network*, whichever hits first. 
-
-Learn more about [SAP HANA Azure Virtual Machine storage](/azure/sap/workloads/hana-vm-operations-storage) and [SAP HANA Azure virtual machine Premium SSD storage configurations](/azure/sap/workloads/hana-vm-premium-ssd-v1) configurations.
+:::image type="content" source="./media/backup-azure-sap-hana-database/check-backup-status.png" alt-text="Screenshot shows the backup status for the SAP HANA database." lightbox="./media/backup-azure-sap-hana-database/check-backup-status.png":::
 
 ## Next steps
 

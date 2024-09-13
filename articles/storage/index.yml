@@ -6,9 +6,8 @@ brand: azure
 
 metadata:
   title: Azure Storage Documentation Hub | Microsoft Learn
-  description: Azure Storage options include cloud and hybrid storage solutions. Find documentation for object, file, disk, queue, big data, and table Storage. 
+  description: Azure Storage options include cloud and hybrid storage solutions. Find documentation for object, file, disk, queue, big data, and table Storage.
   ms.service: azure-storage
-  ms.custom: ignite-2022
   ms.topic: hub-page
   author: normesta
   ms.author: normesta
@@ -70,9 +69,9 @@ additionalContent:
         # Card
         - title: Storage for infrastructure
           links:
-          - url: ../virtual-machines/managed-disks-overview.md
+          - url: /azure/virtual-machines/managed-disks-overview
             text: Learn about Azure managed disks for Azure VMs
-          - url: ../virtual-machines/disks-types.md
+          - url: /azure/virtual-machines/disks-types
             text: Understand the available virtual machine disk types
           - url: elastic-san/elastic-san-introduction.md
             text: Learn about Azure Elastic SAN
@@ -92,7 +91,7 @@ additionalContent:
           links:
           - url: ./tables/table-storage-overview.md
             text: Store structured NoSQL data in the cloud (Table Storage and Azure Cosmos DB)
-          - url: ../cosmos-db/table-support.md
+          - url: /azure/cosmos-db/table-support
             text: Compare Table Storage and Azure Cosmos DB for Table
           - url: ./tables/index.yml
             text: All Table Storage documentation >

@@ -4,14 +4,14 @@ metadata:
   description: Find answers to frequently asked questions about Azure Application Gateway.
   services: application-gateway
   author: greg-lindsay
-  ms.service: application-gateway
+  ms.service: azure-application-gateway
   ms.topic: faq
-  ms.date: 11/06/2023
+  ms.date: 07/15/2024
   ms.author: greglin
   ms.custom: references_regions, devx-track-azurepowershell
 title: Frequently asked questions about Application Gateway
 summary: |
-  [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+  [!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
   
   The following common questions are asked about Azure Application Gateway.
   
@@ -84,7 +84,7 @@ sections:
         answer: No. There's no way to rename an Application Gateway resource. You must create a new resource with a different name. 
         
       - question: Is there a way to restore an Application Gateway resource and its public IP if it was deleted?
-        answer: No. There's no way to restore an Application Gateway resource or its public IP after it's deleted. You must create a new resource.
+        answer: No. There's no way to restore an Application Gateway resource or its public IP after deletion. You must create a new resource.
         
       - question: Does the IP or DNS name change over the lifetime of the application gateway?
         answer: In Application Gateway v1 SKU, the VIP can change if you stop and start the application gateway. But the DNS name associated with the application gateway doesn't change over the lifetime of the gateway. Because the DNS name doesn't change, you should use a CNAME alias and point it to the DNS address of the application gateway. In Application Gateway v2 SKU, IP addresses are static, so the IP address and DNS name won't change over the lifetime of the application gateway. 
@@ -93,8 +93,8 @@ sections:
         answer: Yes. The Application Gateway v2 SKU supports static public IP addresses and static internal IPs. The v1 SKU supports static internal IPs.
 
       - question: Does Application Gateway support multiple public IPs on the gateway?
-        answer: An application gateway supports only one public IP address.
-
+        answer: An application gateway supports only one public IP address per IP protocol. If the application gateway is configured as DualStack, it can support two Public IPs, one for IPv4 and one for IPv6.
+        
       - question: How large should I make my subnet for Application Gateway?
         answer: |
           See [Application Gateway subnet size considerations](./configuration-infrastructure.md#size-of-the-subnet).
@@ -121,12 +121,16 @@ sections:
           
       - question: How does Application Gateway handle routine maintenance?
         answer: |
-          Updates initiated to Application Gateway are applied one [update domain](../../articles/virtual-machines/availability-set-overview.md#how-do-availability-sets-work) at a time. As each update domain's instances are being updated, the remaining instances in other update domains continue to serve traffic<sup>1</sup>. Active connections are gracefully drained from the instances being updated for up to 5 minutes to help establish connectivity to instances in a different update domain before the update begins. During update, Application Gateway temporarily runs at reduced maximum capacity, which is determined by the number of instances configured. The update process proceeds to the next set of instances only if the current set of instances were upgraded successfully.
+          Updates initiated to Application Gateway are applied one [update domain](/azure/virtual-machines/availability-set-overview#how-do-availability-sets-work) at a time. As each update domain's instances are being updated, the remaining instances in other update domains continue to serve traffic<sup>1</sup>. Active connections are gracefully drained from the instances being updated for up to 5 minutes to help establish connectivity to instances in a different update domain before the update begins. During update, Application Gateway temporarily runs at reduced maximum capacity, which is determined by the number of instances configured. The update process proceeds to the next set of instances only if the current set of instances were upgraded successfully.
           
           <sup>1</sup> We recommend a minimum instance count of 2 to be configured for Application Gateway v1 SKU deployments to ensure at least one instance can serve traffic while updates are applied.
           
       - question: Can I use Exchange Server as a backend with Application Gateway?
-        answer: Application Gateway doesn't support email protocols such as SMTP, IMAP, and POP3. HTTP/HTTPS services such as OWA, ActiveSync, and AutoDiscovery traffic might flow through Application Gateway, but WAF exclusions might be required if you're using a WAF SKU.
+        answer: |
+          Application Gateway supports [TLS/TCP protocol proxy](tcp-tls-proxy-overview.md) through its Layer 4 proxy in **Preview**.
+          
+          Application gateway's Layer 7 proxy with HTTP(S) protocols will not support email protocols such as SMTP, IMAP, and POP3. However, for some supporting email services, such as Outlook Web Access (OWA), ActiveSync, and AutoDiscovery traffic that uses HTTP(S) protocols, you can use Layer 7 proxy, and their traffic should flow through. (Note: Exclusions in the WAF rules might be required when using a WAF SKU).
+        
 
       - question: Is there guidance available to migrate from the v1 SKU to the v2 SKU?
         answer: |
@@ -202,7 +206,7 @@ sections:
         
       - question: Can I change the virtual network or subnet for an existing application gateway?
         answer: |
-          You can move an application gateway across subnets within the same virtual network only. It's supported with v1 with a public and private frontend and v2 with a public frontend only. The application gateway should be in a *Stopped* state to perform this action. Stopping or starting v1 changes the public IP. This operation can only be done by using Azure PowerShell and the Azure CLI by running the following commands:
+          You can move an application gateway across subnets within the same virtual network only. It's supported with v1 with a public and private frontend (dynamic allocation) and v2 with a public frontend only. We can't move the application gateway to another subnet if the private frontend IP configuration is statically allocated. The application gateway should be in a *Stopped* state to perform this action. Stopping or starting v1 changes the public IP. This operation can only be done by using Azure PowerShell and the Azure CLI by running the following commands:
           
           **Azure PowerShell**
 
@@ -273,11 +277,42 @@ sections:
           Yes, you can use public-facing and private-facing listeners with the same port number to simultaneously support public and private clients. If a network security group (NSG) is associated with your application gateway's subnet, a specific Inbound rule might be needed depending on its configuration. [Know more](./configuration-listeners.md#frontend-port).
 
       - question: Does Application Gateway support IPv6?
-        answer: Application Gateway v2 supports IPv4 and IPv6 frontends (public preview). Currently, IPv6 support is available for new application gateways only. To support IPv6, the virtual network should be dual stack. Application Gateway v1 doesn't support dual-stack virtual networks. 
+        answer: Application Gateway v2 supports IPv4 and IPv6 frontends. Currently, IPv6 support is available for new application gateways only. To support IPv6, the virtual network should be dual stack. Application Gateway v1 doesn't support dual-stack virtual networks. 
 
       - question: Does Application Gateway support FIPS?
-        answer: Application Gateway v1 SKUs can run in a FIPS 140-2 approved mode of operation, which is commonly referred to as "FIPS mode." FIPS mode calls a FIPS 140-2 validated cryptographic module that ensures FIPS-compliant algorithms for encryption, hashing, and signing when enabled. To ensure FIPS mode is enabled, the `FIPSMode` setting must be configured via PowerShell, Azure Resource Manager template, or REST API after the subscription has been enrolled to enable configuration of `FIPSmode`.
+        answer: |
+          Application Gateway v1 SKUs can run in a FIPS 140-2 approved mode of operation, which is commonly referred to as "FIPS mode." FIPS mode calls a FIPS 140-2 validated cryptographic module that ensures FIPS-compliant algorithms for encryption, hashing, and signing when enabled. To ensure FIPS mode is enabled, the `FIPSMode` setting must be configured via PowerShell, Azure Resource Manager template, or REST API after the subscription has been enrolled to enable configuration of `FIPSmode`.
 
+          **Note:** As part of the FedRAMP compliance, US Government mandates that systems operate in a [FIPS-approved mode](/azure/compliance/offerings/offering-fips-140-2) after August 2024. 
+          
+          **Steps to enable FIPS Mode in V1 SKU**:
+          
+          **Step 1**: Register the **‘AllowApplicationGatewayEnableFIPS’** feature to enroll the subscription for FIPS mode configuration.
+          
+            To register using Azure PowerShell, open a Cloud Shell prompt and enter the following:
+          
+            ```azurepowershell-interactive
+            Register-AzProviderFeature -FeatureName AllowApplicationGatewayEnableFIPS -ProviderNamespace Microsoft.Network
+            ```
+            
+            To register using the **Azure portal**:
+
+           - Sign in to the Azure portal and search for **Preview features**.
+           - Enter **AllowApplicationGatewayEnableFIPS** into the filter box. Select **Application Gateway V1 Allow FIPS Mode**, and then select **Register**.
+
+          **Step 2**: Set the **enableFips** property to **True** using PowerShell, Azure Resource Manager template, or REST API.
+
+            ```azurepowershell-interactive
+            # Get the application gateway
+            $appgw = Get-AzApplicationGateway -Name <ApplicationGatewayName> -ResourceGroupName <ResourceGroupName>
+            # Set the EnableFips property
+            $appgw.EnableFips = $true
+            # Update the application gateway
+            Set-AzApplicationGateway -ApplicationGateway $appgw
+            ```
+          
+          Changing FIPS mode doesn't affect the overall availability of cipher suites on V1 gateways. However, when using [elliptic curve cryptography](/windows/win32/secauthn/tls-elliptic-curves-in-windows-10-1607-and-later) for ciphers, with FIPS mode disabled  you can use curve25519, NistP256, and NistP384 whereas with FIPS mode enabled only NistP256 and NistP384 are allowed and curve25519 is disabled. Since curve25519 becomes unavailable in FIPS mode, make sure your clients support NistP256 or NistP384 for secure communication before enabling FIPS. 
+          
       - question: How do I use Application Gateway v2 with only a private frontend IP address?
         answer: |
           Application Gateway v2 currently supports private IP frontend configuration only (no public IP) via public preview. For more information, see [Private Application Gateway deployment (preview)](application-gateway-private-deployment.md).
@@ -415,12 +450,12 @@ sections:
 
       - question: My EV certificate is issued by DigiCert and my intermediate certificate has been revoked. How do I renew my certificate on Application Gateway?
         answer: |
-          CA/Browser members recently published reports detailing multiple certificates issued by CA vendors that are used by our customers, Microsoft, and the greater technology community that were out of compliance with industry standards for publicly trusted CAs. The reports regarding the noncompliant CAs can be found here:  
+          CA/Browser members recently published reports detailing multiple certificates issued by CA vendors that are used by our customers, Microsoft, and the greater technology community that were out of compliance with industry standards for publicly trusted CAs. The reports regarding the noncompliant CAs can be found here:  
           
           * [Bug 1649951](https://bugzilla.mozilla.org/show_bug.cgi?id=1649951)
           * [Bug 1650910](https://bugzilla.mozilla.org/show_bug.cgi?id=1650910)
           
-          According to the industry's compliance requirements, CA vendors began revoking noncompliant CAs and issuing compliant CAs, which requires customers to have their certificates reissued. Microsoft is partnering closely with these vendors to minimize the potential impact to Azure services. *However, your self-issued certificates or certificates used in Bring Your Own Certificate (BYOC) scenarios are still at risk of being unexpectedly revoked*.
+          According to the industry's compliance requirements, CA vendors began revoking noncompliant CAs and issuing compliant CAs, which requires customers to have their certificates reissued. Microsoft is partnering closely with these vendors to minimize the potential impact to Azure services. *However, your self-issued certificates or certificates used in Bring Your Own Certificate (BYOC) scenarios are still at risk of being unexpectedly revoked*.
           
           To check if certificates utilized by your application were revoked, see [DigiCert's announcement](https://knowledge.digicert.com/alerts/digicert-ica-replacement) and the [Certificate Revocation Tracker](https://social.technet.microsoft.com/wiki/contents/articles/34071.pki-certificate-revocation-process-explained.aspx). If your certificates were revoked, or will be revoked, you need to request new certificates from the CA vendor utilized in your applications. To avoid your application's availability being interrupted because of certificates being unexpectedly revoked, or to update a certificate that has been revoked, see [Revocation of noncompliant Certificate Authorities potentially impacting customer's Azure services](https://azure.microsoft.com/updates/certificateauthorityrevocation/).
           
@@ -450,7 +485,7 @@ sections:
           If you're referencing certificates from Key Vault in your Application Gateway listener, we recommend the following steps for a quick change:
           
           1. In the [Azure portal](https://portal.azure.com/), go to your Key Vault settings that are associated with the application gateway.
-          1. Add or import the reissued certificate in your store. For more information, see [Quickstart: Create a key vault using the Azure portal](../key-vault/certificates/quick-create-portal.md).
+          1. Add or import the reissued certificate in your store. For more information, see [Quickstart: Create a key vault using the Azure portal](/azure/key-vault/certificates/quick-create-portal).
           1. After the certificate has been imported, go to your Application Gateway listener settings and under **Choose a certificate from Key Vault**, select the **Certificate** dropdown and select the recently added certificate.
           1. Select **Save**.
           For more information on TLS termination on Application Gateway with Key Vault certificates, see [TLS termination with Key Vault certificates](./key-vault-certs.md).
@@ -465,9 +500,69 @@ sections:
           1. You can remove the old certificate later by selecting the **...** options button next to the old certificate. Select **Delete** and then select **Save**.
           For more information, see [Configure end-to-end TLS by using Application Gateway with the portal](./end-to-end-ssl-portal.md#add-authenticationtrusted-root-certificates-of-backend-servers).
           
-          If you're using the v2 SKU of the Application Gateway/WAF service, you don't have to upload the new certificate in the HTTP settings because v2 SKU uses "trusted root certificates," and no action needs to be taken here.
+          If you're using the V2 SKU of the Application Gateway/WAF service, you don't have to upload the new certificate in the HTTP settings since V2 SKU uses "trusted root certificates", and no action needs to be taken here.
+
+  - name: Configuration - TLS/TCP proxy
+    questions:
+      - question: Does Application Gateway’s Layer 7 and Layer 4 use the same frontend IP addresses?
+        answer: Yes. Both Layer 7 and Layer 4 routing through application gateway use the same frontend IP configuration. This way, you can direct all your clients to a single IP address (public or private) and the same gateway resource will route them based on the configured listener protocols and the ports.
+
+      - question: Can I use TCP or TLS proxy for HTTP(S) traffic?
+        answer: While the HTTP(S) traffic can be served through L4 proxy protocols as well, we don't recommend doing so. The L7 proxy solution of Application Gateway offers greater control and security over the HTTP(S) protocols through advanced features such Rewrites, Session Affinity, Redirection, WebSockets, WAF and more.
           
-  - name: 'Configuration: Ingress controller for AKS'
+      - question: What are the property names for Layer 4 proxy?
+        answer: |
+          The resource properties for Layer 4 features are different from the Layer 7 ones. Accordingly, when using REST API or CLI, you must use the following properties. 
+
+          | Property                  | Purpose                                                        |
+          | ------------------------- | -------------------------------------------------------------- |
+          | listener                  | For TLS or TCP based listeners |
+          | routingRule               | To associate a layer 4 listener with a layer 4 backend setting |
+          | backendSettingsCollection | For TLS or TCP based backend settings |
+          
+          - [REST API](/rest/api/application-gateway/application-gateways/create-or-update)
+          - [CLI](/cli/azure/network/application-gateway?view=azure-cli-latest)
+          
+          > [!NOTE] 
+          > You can't use any layer 4 properties for HTTP or HTTPS protocol settings.
+
+      - question: Can I map a TCP/TLS protocol listener with an HTTP(S) protocol Backend setting?
+        answer: No. You can't cross-link Layer 4 and Layer 7 properties. Therefore, a routing rule will only allow you to link a Layer 4-type listener to a Layer 4-type Backend setting.
+
+      - question: Can L7 and L4 properties have same names?
+        answer: You can't use the same name for an L7 (httpListeners) and L4 (listeners). This applies to other L4 properties such as backendSettingsCollection and routingRules also.
+
+      - question: Can I add Private endpoint to a Backend pool when using Layer 4 (TCP or TLS protocols)?
+        answer: Absolutely. Similar to Layer 7 proxy, you can add a private endpoint to the backend pool of your application gateway. This private endpoint must be deployed in an adjacent subnet of the same virtual network of your application gateway.
+
+      - question: Does Application Gateway use Keepalive connection for backend servers?
+        answer: It doesn't use Keepalive for backend connections. For each incoming request on the frontend listener connection, Application Gateway initiates a new backend connection to fulfill that request.
+
+      - question: Which IP address does the backend server see when a connection is established with Application Gateway?
+        answer: The backend server sees the IP address of the application gateway. Currently, we don't support “Client IP preservation” through which the backend application can be made aware of the original client’s IP address.
+
+      - question: How can I set the TLS policy for TLS listeners?
+        answer: The same TLS/SSL policy configuration is applicable for both Layer 7 (HTTPS) as well as Layer 4 (TLS). You can now use SSL Profile (for listener-specific TLS policy and Mutual Authentication) for TLS listeners. However, currently an SSL profile can be associated with a TLS listener through CLI, PowerShell or REST API only. 
+
+      - question: Does Application Gateway support session affinity for Layer 4 routing?
+        answer: No. Routing a client to the same backend server isn't supported at the moment. The connections will be distributed in a round-robin manner to the servers in a backend pool.
+
+      - question: Does the autoscale feature work with Layer 4 proxy?
+        answer: Yes, the autoscale feature will operate for spikes and reductions in traffic for TLS or TCP protocol as well.
+
+      - question: Is Web Application Firewall (WAF) supported for Layer 4 traffic?
+        answer: The Web Application Firewall (WAF) capabilities won't work for Layer 4 usage.
+
+      - question: Does Application Gateway’s Layer 4 proxy support UDP protocol?
+        answer: No. UDP support isn't available at this time.
+
+      - question: Which ports are supported for TLS/TCP listeners?
+        answer: The same list of [allowed port range and exceptions](application-gateway-components.md#ports) apply for the Layer 4 proxy too.
+
+      - question: How can I use the same port number for Public and Private TLS/TCP proxy listeners?
+        answer: The use of a common port for TLS/TCP listeners is currently not supported.
+
+  - name: Configuration - ingress controller for AKS
     questions:
       - question: What is an ingress controller?
         answer: |
@@ -475,6 +570,12 @@ sections:
           To satisfy this `Ingress` resource, an ingress controller is required, which listens for any changes to `Ingress` resources and configures the load balancer policies.
           
           The Application Gateway Ingress Controller (AGIC) allows [Application Gateway](https://azure.microsoft.com/services/application-gateway/) to be used as the ingress for an [Azure Kubernetes Service](https://azure.microsoft.com/services/kubernetes-service/), also known as an AKS cluster.
+
+      - question: Can I configure Application Gateway directly instead of using ingress controller?
+        answer: |
+          Direct configuration of Application Gateway isn't supported.
+          
+          If there is a need to change settings on Application Gateway, make the change by using the exposed configuration on the ingress controller or other Kubernetes objects, such as by using supported annotations. After an Application Gateway is linked to Application Gateway Ingress Controller (AGIC), nearly all configuration of that gateway will be synced and controlled by the ingress controller. If you're trying to directly configure Application Gateway imperatively or through infrastructure as code, those changes will eventually be overwritten by the ingress controller. 
           
       - question: Can a single ingress controller instance manage multiple application gateways?
         answer: Currently, one instance of an ingress controller can only be associated to one application gateway.
@@ -533,7 +634,7 @@ sections:
 
       - question: Can I set alerts with Application Gateway?
         answer: |
-          Yes. In Application Gateway, alerts are configured on metrics. For more information, see [Application Gateway metrics](./application-gateway-metrics.md) and [Receive alert notifications](../azure-monitor/alerts/alerts-overview.md).
+          Yes. In Application Gateway, alerts are configured on metrics. For more information, see [Application Gateway metrics](./application-gateway-metrics.md) and [Receive alert notifications](/azure/azure-monitor/alerts/alerts-overview).
           
       - question: How do I analyze traffic statistics for Application Gateway?
         answer: |
@@ -553,5 +654,5 @@ sections:
 
 additionalContent: |
     ## Next steps
-    * To learn more about Application Gateway, see [What is Azure Application Gateway?](overview.md).
+    * To learn more about Application Gateway, see [What is Azure Application Gateway](overview.md).
     * To learn about TLS termination and end-to-end TLS with Application Gateway, see [Enable end-to-end TLS on Azure Application Gateway](ssl-overview.md).

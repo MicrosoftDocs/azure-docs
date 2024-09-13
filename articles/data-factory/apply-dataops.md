@@ -1,13 +1,11 @@
 ---
 title: Applying DataOps
 description: Learn how to apply DataOps to Azure Data Factory.
-ms.service: data-factory
-ms.subservice: concepts
 author: kromerm
 ms.author: makromer
 ms.reviewer: jburchel
 ms.topic: conceptual
-ms.date: 02/17/2023
+ms.date: 01/05/2024
 ---
 
 # Applying DataOps to Azure Data Factory
@@ -210,7 +208,7 @@ You can use the main search bar from the Azure Data Factory Studio to find data 
 
 :::image type="content" lightbox="media/apply-dataops/purview-search.png" source="media/apply-dataops/purview-search.png" alt-text="Screenshot showing Purview results from a search in the Azure Data Factory Studio search bar.":::
 
-## Next steps
+## Related content
 
 - [Automated publishing for CI/CD in Azure Data Factory](continuous-integration-delivery-improvements.md)
 - [Source control in Azure Data Factory](source-control.md)

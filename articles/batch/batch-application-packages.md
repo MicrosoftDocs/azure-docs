@@ -4,7 +4,7 @@ description: Learn how to use the application packages feature of Azure Batch to
 ms.topic: how-to
 ms.date: 04/03/2023
 ms.devlang: csharp
-ms.custom: H1Hack27Feb2017, devx-track-csharp, contperf-fy21q1
+ms.custom: H1Hack27Feb2017, devx-track-csharp
 ---
 # Deploy applications to compute nodes with Batch application packages
 

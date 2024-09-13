@@ -11,6 +11,8 @@ ms.custom: mode-ui, devx-track-arm-template
 
 The Azure Resource Manager Tools for Visual Studio Code provide language support, resource snippets, and resource autocompletion. These tools help create and validate Azure Resource Manager templates (ARM templates), and are therefore the recommended method of ARM template creation and configuration. In this quickstart, you use the extension to create an ARM template from scratch. While doing so you experience the extensions capabilities such as ARM template snippets, validation, completions, and parameter file support.
 
+This quickstart focuses on using Visual Studio Code extension to build the ARM template. For a tutorial that is more focused on syntax, see [Tutorial: Create and deploy your first ARM template](./template-tutorial-create-first-template.md).
+
 To complete this quickstart, you need [Visual Studio Code](https://code.visualstudio.com/), with the [Azure Resource Manager tools extension](https://marketplace.visualstudio.com/items?itemName=msazurermtools.azurerm-vscode-tools) installed. You also need either the [Azure CLI](/cli/azure/) or the [Azure PowerShell module](/powershell/azure/new-azureps-module-az) installed and authenticated.
 
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/) before you begin.
@@ -32,7 +34,7 @@ This snippet creates the basic building blocks for an ARM template.
 
 :::image type="content" source="./media/quickstart-create-templates-use-visual-studio-code/2.png" alt-text="Screenshot showing a fully scaffolded ARM template.":::
 
-Notice that the Visual Studio Code language mode has changed from *JSON* to *Azure Resource Manager Template*. The extension includes a language server specific to ARM templates that provides ARM template-specific validation, completion, and other language services.
+Notice that the Visual Studio Code language mode changed from *JSON* to *Azure Resource Manager Template*. The extension includes a language server specific to ARM templates that provides template-specific validation, completion, and other language services.
 
 :::image type="content" source="./media/quickstart-create-templates-use-visual-studio-code/3.png" alt-text="Screenshot showing Azure Resource Manager as the Visual Studio Code language mode.":::
 
@@ -72,7 +74,7 @@ Place your cursor in the parameters block, add a carriage return, type `"`, and 
 
 :::image type="content" source="./media/quickstart-create-templates-use-visual-studio-code/9.png" alt-text="Screenshot showing a parameter being added to the ARM template.":::
 
-Update the name of the parameter to `storageAccountName` and the description to `Storage Account Name`.
+Update the name of the parameter to `storageAccountName` and the description to `Storage account name`.
 
 :::image type="content" source="./media/quickstart-create-templates-use-visual-studio-code/10.png" alt-text="Screenshot showing the completed parameter in an ARM template.":::
 
@@ -90,7 +92,7 @@ Entering a single quote `'` inside of the round brackets produces a list of all 
 
 ## Create a parameter file
 
-An ARM template parameter file allows you to store environment-specific parameter values and pass these values in as a group at deployment time. For example, you may have a parameter file with values specific to a test environment and another for a production environment.
+An ARM template parameter file allows you to store environment-specific parameter values and pass these values in as a group at deployment time. For example, you can have a parameter file with values specific to a test environment and another for a production environment.
 
 The extension makes it easy to create a parameter file from your existing templates. To do so, right-click on the template in the code editor and select `Select/Create Parameter File`.
 
@@ -102,15 +104,15 @@ This action creates a new parameter file and maps it with the template from whic
 
 :::image type="content" source="./media/quickstart-create-templates-use-visual-studio-code/16.png" alt-text="Screenshot showing the template/parameter file mapping in the Visual Studio Code status bar.":::
 
-Now that the parameter file has been mapped to the template, the extension validates both the template and parameter file together. To see this validation in practice, add a two-character value to the `storageAccountName` parameter in the parameter file and save the file.
+Now that the parameter file is mapped to the template, the extension validates both the template and parameter file together. To see this validation in practice, add a two-character value to the `storageAccountName` parameter in the parameter file and save the file.
 
 :::image type="content" source="./media/quickstart-create-templates-use-visual-studio-code/17.png" alt-text="Screenshot showing an invalidated template due to parameter file issue.":::
 
-Navigate back to the ARM template and notice that an error has been raised indicating that the value doesn't meet the parameter criteria.
+Navigate back to the ARM template and notice the error indicating that the value doesn't meet the parameter criteria.
 
 :::image type="content" source="./media/quickstart-create-templates-use-visual-studio-code/18.png" alt-text="Screenshot showing a valid ARM template.":::
 
-Update the value to something appropriate, save the file, and navigate back to the template. Notice that the error on the parameter has been resolved.
+Update the value to something appropriate, save the file, and navigate back to the template. Notice that the error on the parameter is resolved.
 
 ## Deploy the template
 

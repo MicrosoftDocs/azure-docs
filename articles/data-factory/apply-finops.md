@@ -1,13 +1,11 @@
 ---
 title: Applying FinOps
 description: Learn how to apply FinOps to Azure Data Factory.
-ms.service: data-factory
-ms.subservice: concepts
 author: kromerm
 ms.author: makromer
 ms.reviewer: jburchel
 ms.topic: conceptual
-ms.date: 02/16/2023
+ms.date: 01/05/2024
 ---
 
 # Applying FinOps to Azure Data Factory
@@ -159,7 +157,7 @@ The pipeline-level view of your data factory bill is useful to attribute overall
 
 Another mechanism for tracking attributing costs for your data factory resource is to use [tagging in your factory](plan-manage-costs.md). You can assign the same tag to your data factory and other Azure resources, putting them into the same category to view their consolidated billing. All SSIS (SQL Server Integration Services) IRs within the factory inherit this tag. Keep in mind that if you change your data factory tag, you need to stop and restart all SSIS IRs within the factory for them to inherit the new tag. For more details, refer to the [reconfigure SSIS IR section](manage-azure-ssis-integration-runtime.md#to-reconfigure-an-azure-ssis-ir).
 
-## Next steps
+## Related content
 
 - [Plan to manage costs for Azure Data Factory](plan-manage-costs.md)
 - [Understanding Azure Data Factory pricing through examples](pricing-concepts.md)

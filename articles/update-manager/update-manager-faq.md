@@ -2,8 +2,8 @@
 title: Azure Update Manager FAQ
 description: This article gives answers to frequently asked questions about Azure Update Manager
 ms.service: azure-update-manager
-ms.topic: conceptual
-ms.date: 09/25/2023
+ms.topic: faq
+ms.date: 09/06/2024
 author: snehasudhirG
 ms.author: sudhirsneha
 #Customer intent: As an implementer, I want answers to various questions.
@@ -23,7 +23,7 @@ Following are the benefits of using Azure Update Manager:
 - View and deploy pending updates to secure your machines [instantly](updates-maintenance-schedules.md#update-nowone-time-update).
 - Manage [extended security updates (ESUs)](../azure-arc/servers/prepare-extended-security-updates.md) for your Azure Arc-enabled Windows Server 2012/2012 R2 machines. Get consistent experience for deployment of ESUs and other updates.
 - Define recurring time windows during which your machines receive updates and might undergo reboots using [scheduled patching](scheduled-patching.md). Enforce machines grouped together based on standard Azure constructs (Subscriptions, Location, Resource Group, Tags etc.) to have common patch schedules using [dynamic scoping](dynamic-scope-overview.md). Sync patch schedules for Windows machines in relation to patch Tuesday, the unofficial term for month.
-- Enable incremental rollout of updates to Azure VMs in off-peak hours using [automatic VM guest patching](../virtual-machines/automatic-vm-guest-patching.md) and reduce reboots by enabling [hotpatching](updates-maintenance-schedules.md#hotpatching).
+- Enable incremental rollout of updates to Azure VMs in off-peak hours using [automatic VM guest patching](/azure/virtual-machines/automatic-vm-guest-patching) and reduce reboots by enabling [hotpatching](updates-maintenance-schedules.md#hotpatching).
 - Automatically [assess](assessment-options.md#periodic-assessment) machines for pending updates every 24 hours, and flag machines that are out of compliance. Enforce enabling periodic assessments on multiple machines at scale using [Azure Policy](periodic-assessment-at-scale.md).
 - Create [custom reports](workbooks.md) for deeper understanding of the updates data of the environment.
 - Granular access management to Azure resources with Azure roles and identity, to control who can perform update operations and edit schedules.
@@ -99,7 +99,7 @@ These capabilities will be added to Azure Update Manager. For more information, 
 
 ### I'm using Automation Update Management on sovereign clouds; will I get region support in the new Azure Update Manager? 
 
-Yes, Automation Update Manager will be rolled out to sovereign clouds soon. 
+Yes, you can, as Azure Update Manager is available in sovereign clouds. 
 
 ## Pricing
 
@@ -113,19 +113,19 @@ For Arc-enabled servers, Azure Update Manager is charged $5/server/month (assumi
 
 ### When is an Arc-enabled server considered managed by Azure Update Manager?
 
-An Arc-enabled server is considered managed by Azure Update Manager for days on which the machine fulfills the following conditions: 
- - *Connected* status for Arc at any time during the day. 
- - An update operation (patched on demand or through a scheduled job, assessed on demand or through periodic assessment) is triggered on it, or it's associated with a schedule.
- 
+An Arc-enabled server is considered managed by Azure Update Manager for days on which the machine fulfills **both** the following conditions:
+- *Connected* status for Arc at any time during the day.
+- An update operation (patched on demand or through a scheduled job, assessed on demand or through periodic assessment) is triggered on it, or it's associated with a schedule.
+
 ### Are there scenarios in which Arc-enabled Server isn't charged for Azure Update Manager? 
 
 An Arc-enabled server managed with Azure Update Manager is not charged in following scenarios:
  - If the machine is enabled for delivery of Extended Security Updates (ESUs) enabled by Azure Arc.
- - Microsoft Defender for Servers Plan 2 is enabled for the subscription hosting the Arc-enabled server.
+ - Microsoft Defender for Servers Plan 2 is enabled for the subscription hosting the Arc-enabled server. However, if customer is using Defender using Security connector, they will be charged.
 
 ### Will I be charged if I move from Automation Update Management to Update Manager? 
 
-Customers using Automation Update Management moving to Azure Update Manager won't be charged till retirement of LA agent.
+Customers will not be charged for already existing Arc-enabled servers which were using Automation Update Management for free as of Sep 1, 2023. Any new Arc-enabled machines which will be onboarded to Azure Update Manager in the same subscription will also be exempted from charge. This exception will be provided till LA agent retires. Post that date, these customers will be charged.
 
 ### I'm a Defender for Server customer and use update recommendations powered by Azure Update Manager namely "periodic assessment should be enabled on your machines" and "system updates should be installed on your machines". Would I be charged for Azure Update Manager? 
 
@@ -165,7 +165,7 @@ Azure Update Manager honors machine settings and installs updates accordingly.
 
 ### Does Azure Update Manager store customer data? 
 
-No, Azure Update Manager doesn't store any customer identifiable data outside of the Azure Resource Graph for the subscription. 
+Azure Update manager doesn't move or store customer data out of the region it's deployed in. 
 
 ## Next steps
 

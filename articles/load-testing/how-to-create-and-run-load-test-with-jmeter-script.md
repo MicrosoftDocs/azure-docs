@@ -3,11 +3,11 @@ title: Create a JMeter-based load test
 titleSuffix: Azure Load Testing
 description: 'Learn how to load test a website by using an existing Apache JMeter script and Azure Load Testing.'
 services: load-testing
-ms.service: load-testing
+ms.service: azure-load-testing
 ms.custom: devx-track-azurecli
 ms.topic: how-to
-author: ntrogh
-ms.author: nicktrog
+author: ninallam
+ms.author: ninallam
 ms.date: 10/23/2023
 adobe-target: true
 ---
@@ -80,7 +80,7 @@ To create a load test using an existing JMeter script with the Azure CLI:
     Specify a unique test ID for your load test, and the name of the JMeter test script (JMX file). If you use an existing test ID, a test run will be added to the test when you run it.
 
     ```azurecli
-    $testId="<test-id>"
+    testId="<test-id>"
     testPlan="<my-jmx-file>"
     ```
 

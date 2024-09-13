@@ -2,14 +2,12 @@
 title: Deploy and manage Notification Hubs using PowerShell
 description: How to create and manage Notification Hubs using PowerShell for Automation
 services: notification-hubs
-documentationcenter: ''
 author: sethmanheim
 manager: femila
 editor: jwargo
 
 ms.assetid: 7c58f2c8-0399-42bc-9e1e-a7f073426451
-ms.service: notification-hubs
-ms.workload: mobile
+ms.service: azure-notification-hubs
 ms.tgt_pltfrm: powershell
 ms.custom: devx-track-dotnet
 ms.topic: article

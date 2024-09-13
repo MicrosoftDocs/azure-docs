@@ -1,9 +1,8 @@
 ---
 title: include file
 description: include file
-services: synapse-analytics
 author: jonburchel
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.topic: include
 ms.date: 05/03/2023
 ms.author: jburchel

@@ -2,7 +2,6 @@
 title: Azure security features that help with identity management | Microsoft Docs
 description: Learn about the core Azure security features that help with identity management. See information about topics like single sign-on and reverse proxy.
 services: security
-documentationcenter: na
 author: TerryLanfear
 manager: rkarlin
 
@@ -10,9 +9,7 @@ ms.assetid: 5aa0a7ac-8f18-4ede-92a1-ae0dfe585e28
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 12/05/2022
+ms.date: 01/25/2024
 ms.author: terrylan
 # Customer intent: As an IT Pro or decision maker, I am trying to learn about identity management capabilities in Azure
 ---
@@ -23,7 +20,7 @@ ms.author: terrylan
 
 By taking advantage of the security benefits of Microsoft Entra ID, you can:
 
-* Create and manage a single identity for each user across your hybrid enterprise, keeping users, groups, and devices in sync. 
+* Create and manage a single identity for each user across your hybrid enterprise, keeping users, groups, and devices in sync.
 * Provide SSO access to your applications, including thousands of pre-integrated SaaS apps.
 * Enable application access security by enforcing rules-based multifactor authentication for both on-premises and cloud applications.
 * Provision secure remote access to on-premises web applications through Microsoft Entra application proxy.
@@ -46,7 +43,7 @@ The article focuses on the following core Azure Identity management capabilities
 
 ## Single sign-on
 
-SSO means being able to access all the applications and resources that you need to do business, by signing in only once using a single user account. Once signed in, you can access all of the applications you need without being required to authenticate (for example, type a password) a second time.
+Single sign-on (SSO) means being able to access all the applications and resources that you need to do business, by signing in only once using a single user account. Once signed in, you can access all of the applications you need without being required to authenticate (for example, type a password) a second time.
 
 Many organizations rely upon SaaS applications such as Microsoft 365, Box, and Salesforce for user productivity. Historically, IT staff needed to individually create and update user accounts in each SaaS application, and users had to remember a password for each SaaS application.
 
@@ -62,7 +59,7 @@ Learn more:
 
 ## Reverse proxy
 
-Microsoft Entra application proxy lets you publish on-premises applications, such as [SharePoint](https://support.office.com/article/What-is-SharePoint-97b915e6-651b-43b2-827d-fb25777f446f?ui=en-US&rs=en-US&ad=US) sites, [Outlook Web App](/Exchange/clients/outlook-on-the-web/outlook-on-the-web), and [IIS](https://www.iis.net/)-based apps inside your private network and provides secure access to users outside your network. Application Proxy provides remote access and SSO for many types of on-premises web applications with the thousands of SaaS applications that Microsoft Entra ID supports. Employees can sign in to your apps from home on their own devices and authenticate through this cloud-based proxy.
+Microsoft Entra application proxy lets you publish applications on a private network, such as [SharePoint](https://support.office.com/article/What-is-SharePoint-97b915e6-651b-43b2-827d-fb25777f446f?ui=en-US&rs=en-US&ad=US) sites, [Outlook Web App](/Exchange/clients/outlook-on-the-web/outlook-on-the-web), and [IIS](https://www.iis.net/)-based apps inside your private network and provides secure access to users outside your network. Application Proxy provides remote access and SSO for many types of on-premises web applications with the thousands of SaaS applications that Microsoft Entra ID supports. Employees can sign in to your apps from home on their own devices and authenticate through this cloud-based proxy.
 
 Learn more:
 

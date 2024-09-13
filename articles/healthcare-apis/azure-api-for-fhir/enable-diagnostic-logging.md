@@ -2,7 +2,7 @@
 title: Enable diagnostic logging in Azure API for FHIR
 description: This article explains how to enable diagnostic logging in Azure API for FHIR®
 services: healthcare-apis
-ms.service: healthcare-apis
+ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.topic: conceptual
 ms.author: kesheth
@@ -14,11 +14,13 @@ ms.date: 06/03/2022
 
 [!INCLUDE [retirement banner](../includes/healthcare-apis-azure-api-fhir-retirement.md)]
 
-In this article, you'll learn how to enable diagnostic logging in Azure API for FHIR and be able to review some sample queries for these logs. Access to diagnostic logs is essential for any healthcare service where compliance with regulatory requirements (such as HIPAA) is a must. The feature in Azure API for FHIR that enables diagnostic logs is the [**Diagnostic settings**](../../azure-monitor/essentials/diagnostic-settings.md) in the Azure portal. 
+In this article, you'll learn how to enable diagnostic logging in Azure API for FHIR and be able to review some sample queries for these logs. Access to diagnostic logs is essential for any healthcare service where compliance with regulatory requirements (such as HIPAA) is a must. The feature in Azure API for FHIR that enables diagnostic logs is the [**Diagnostic settings**](/azure/azure-monitor/essentials/diagnostic-settings) in the Azure portal. 
 
 ## View and Download FHIR Metrics Data
 
-You can view the metrics under Monitoring | Metrics from the portal. The metrics include Number of Requests, Average Latency, Number of Errors, Data Size, RUs Used, Number of requests that exceeded capacity, and Availability (in %). The screenshot below shows RUs used for a sample environment with few activities in the last seven days. You can download the data in Json format.
+You can view the metrics under Monitoring | Metrics from the portal. The metrics include Number of Requests, Average Latency, Number of Errors, Data Size, RUs Used, Number of requests that exceeded capacity, and Availability (in %). The Total Request Metrics will provide the number of requests reaching the FHIR service. This means for requests such as FHIR bundles, it will be considered as single request for logging. 
+
+The screenshot below shows RUs used for a sample environment with few activities in the last seven days. You can download the data in Json format.
 
    :::image type="content" source="media/diagnostic-logging/fhir-metrics-rus-screen.png" alt-text="Azure API for FHIR Metrics from the portal" lightbox="media/diagnostic-logging/fhir-metrics-rus-screen.png":::
 
@@ -38,7 +40,7 @@ You can view the metrics under Monitoring | Metrics from the portal. The metrics
     2. **Stream to event hub** for ingestion by a third-party service or custom analytic solution. You'll need to create an event hub namespace and event hub policy before you can configure this step.
     3. **Stream to the Log Analytics** workspace in Azure Monitor. You'll need to create your Logs Analytics Workspace before you can select this option.
 
-6. Select **AuditLogs** and/or **AllMetrics**. The metrics include service name, availability, data size, total latency, total requests, total errors and timestamp. You can find more detail on [supported metrics](../../azure-monitor/essentials/metrics-supported.md#microsofthealthcareapisservices). 
+6. Select **AuditLogs** and/or **AllMetrics**. The metrics include service name, availability, data size, total latency, total requests, total errors and timestamp. You can find more detail on [supported metrics](/azure/azure-monitor/essentials/metrics-supported#microsofthealthcareapisservices). 
 
    :::image type="content" source="media/diagnostic-logging/fhir-diagnostic-setting.png" alt-text="Azure FHIR Diagnostic Settings. Select AuditLogs and/or AllMetrics." lightbox="media/diagnostic-logging/fhir-diagnostic-setting.png":::
 
@@ -48,7 +50,7 @@ You can view the metrics under Monitoring | Metrics from the portal. The metrics
 > [!Note] 
 > It might take up to 15 minutes for the first Logs to show in Log Analytics. Also, if Azure API for FHIR is moved from one resource group or subscription to another, update the setting once the move is complete. 
  
-For more information on how to work with diagnostic logs, please refer to the [Azure Resource Log documentation](../../azure-monitor/essentials/platform-logs-overview.md)
+For more information on how to work with diagnostic logs, please refer to the [Azure Resource Log documentation](/azure/azure-monitor/essentials/platform-logs-overview)
 
 ## Audit log details
 At this time, the Azure API for FHIR service returns the following fields in the audit log: 

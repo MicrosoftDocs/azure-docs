@@ -3,9 +3,9 @@ title: FAQ - Azure ExpressRoute | Microsoft Docs
 description: The ExpressRoute FAQ contains information about Supported Azure Services, Cost, Data and Connections, SLA, Providers and Locations, Bandwidth, and other Technical Details.
 services: expressroute
 author: duongau
-ms.service: expressroute
-ms.topic: conceptual
-ms.date: 11/28/2023
+ms.service: azure-expressroute
+ms.topic: faq
+ms.date: 07/18/2024
 ms.author: duau
 
 ---
@@ -42,9 +42,9 @@ No. You can purchase a private connection of any speed from your service provide
 
 ### Is it possible to use more bandwidth than I procured for my ExpressRoute circuit?
 
-Yes, you can use up to two times the bandwidth limit you procured by using the bandwidth available on the secondary connection of your ExpressRoute circuit. The built-in redundancy of your circuit is configured using primary and secondary connections, each of the procured bandwidth, to two Microsoft Enterprise Edge routers (MSEEs). The bandwidth available through your secondary connection can be used for more traffic if necessary. Since the secondary connection is meant for redundancy, it isn't guaranteed and shouldn't be used for extra traffic for a sustained period of time. To learn more about how to use both connections to transmit traffic, see [use AS PATH prepending](expressroute-optimize-routing.md#solution-use-as-path-prepending).
+Yes, you can use up to two times the bandwidth limit you procured by spreading the traffic across both links of your ExpressRoute circuit and thereby using the redundant bandwidth available. The built-in redundancy of your circuit is configured using redundant links, each with procured bandwidth, to two Microsoft Enterprise Edge routers (MSEEs). The bandwidth available through your secondary link can be used for more traffic if necessary. Since the second link is meant for redundancy, it isn't guaranteed and shouldn't be used for extra traffic for a sustained period of time. To learn more about how to use both connections to transmit traffic, see [use AS PATH prepending](expressroute-optimize-routing.md#solution-use-as-path-prepending).
 
-If you plan to use only your primary connection to transmit traffic, the bandwidth for the connection is fixed, and attempting to oversubscribe it results in increased packet drops. If traffic flows through an ExpressRoute Gateway, the bandwidth for the Gateway SKU is fixed and not burstable. For the bandwidth of each Gateway SKU, see [About ExpressRoute virtual network gateways](expressroute-about-virtual-network-gateways.md#aggthroughput).
+If you plan to use only your primary link to transmit traffic, the bandwidth for the connection is fixed, and attempting to oversubscribe it results in increased packet drops. If traffic flows through an ExpressRoute Gateway, the bandwidth for the Gateway SKU is fixed and not burstable. For the bandwidth of each Gateway SKU, see [About ExpressRoute virtual network gateways](expressroute-about-virtual-network-gateways.md#aggthroughput).
 
 ### If I pay for unlimited data, do I get unlimited egress data transfer for services accessed over Microsoft peering?
 
@@ -107,13 +107,7 @@ If your ExpressRoute circuit is enabled for Azure Microsoft peering, you can acc
 * Multifactor Authentication Server (legacy)
 * Traffic Manager
 * Logic Apps
-
-### Public peering
-
-Public peering is no longer available on new ExpressRoute circuits and is scheduled for retirement on March 31, 2024. Access to Azure services can be done through Microsoft peering. To avoid disruption to your services, you should migrate to Microsoft peering before the retirement date. 
-
-* For more information, see [Migrate from public peering to Microsoft peering](how-to-move-peering.md). 
-* For a comparison between the different peering types, see [Peering comparison](about-public-peering.md#compare).
+* [Intune](/mem/intune/fundamentals/intune-endpoints?tabs=north-america#intune-core-service)
 
 ### Why does the **Advertised public prefixes** status show *Validation needed*, while configuring Microsoft peering?
 
@@ -148,7 +142,7 @@ Supported bandwidth offers:
 
 ### What's the maximum MTU supported?
 
-ExpressRoute and other hybrid networking services--VPN and vWAN--supports a maximum MTU of 1400 bytes.
+ExpressRoute supports the standard internet MTU of 1500 bytes.
 See [TCP/IP performance tuning for Azure VMs](../virtual-network/virtual-network-tcpip-performance-tuning.md) for tuning the MTU of your VMs.
 
 ### Which service providers are available?
@@ -189,11 +183,11 @@ You can achieve high availability by connecting up to 4 ExpressRoute circuits in
 > - Although it is possible to connect up to 16 circuits to your virtual network, the outgoing traffic from your virtual network will be load-balanced using Equal-Cost Multipath (ECMP) across a maximum of 4 circuits.
 > - Equal-Cost Multipath (ECMP) in ExpressRoute uses the Per-Flow (based on 5-tuple) load balancing method. Accordingly, traffic flow between a given source and destination host pair are guaranteed to take the same path, even if multiple ECMP paths are available. 
 
-### How do I ensure that my traffic destined for Azure Public services like Azure Storage and Azure SQL on Microsoft peering or public peering is preferred on the ExpressRoute path?
+### How do I ensure that my traffic destined for Azure Public services like Azure Storage and Azure SQL on Microsoft peering is preferred on the ExpressRoute path?
 
 You must implement the *Local Preference* attribute on your router(s) to ensure that the path from on-premises to Azure is always preferred on your ExpressRoute circuit(s).
 
-For more information, see [BGP path selection and common router configurations](./expressroute-optimize-routing.md#path-selection-for-microsoft-and-public-peering).
+For more information, see [BGP path selection and common router configurations](./expressroute-optimize-routing.md#path-selection-for-microsoft-peering).
 
 ### <a name="onep2plink"></a>If I'm not colocated at a cloud exchange and my service provider offers point-to-point connection, do I need to order two physical connections between my on-premises network and Microsoft?
 
@@ -448,6 +442,10 @@ See the recommendation for [High availability and failover with Azure ExpressRou
 
 Yes. Office 365 GCC service endpoints are reachable through the Azure US Government ExpressRoute. However, you first need to open a support ticket on the Azure portal to provide the prefixes you intend to advertise to Microsoft. Your connectivity to Office 365 GCC services will be established after the support ticket is resolved. 
 
+### Can I have ExpressRoute Private Peering in an Azure Goverment environment with Virtual Network Gateways in Azure commercial cloud? 
+
+No, it's not possible to establish ExpressRoute Private peering in an Azure Goverment environment with a virtual network gateway in Azure commercial cloud environments. Furthermore, the scope of the ExpressRoute Government Microsoft Peering is limited to only public IPs within Azure government regions and doesn't extend to the broader ranges of commercial public IPs. 
+
 ## Route filters for Microsoft peering
 
 ### Are Azure service routes advertised when I first configure Microsoft peering?
@@ -482,9 +480,9 @@ VNet-to-VNet connectivity over ExpressRoute isn't recommended. Instead, configur
 
 ## ExpressRoute Traffic Collector
 
-### Where does ExpressRoute Traffic Collector store your data?
+### Does ExpressRoute Traffic Collector store customer data?
 
-All flow logs are ingested into your Log Analytics workspace by the ExpressRoute Traffic Collector. ExpressRoute Traffic Collector itself, doesn't store any of your data.
+ExpressRoute Traffic Collector doesn't store any customer data.
 
 ### What is the sampling rate used by ExpressRoute Traffic Collector?
 
@@ -496,11 +494,11 @@ ExpressRoute Traffic Collector can handle up to 300,000 flows a minute. In the e
 
 ### Does ExpressRoute Traffic Collector support Virtual WAN?
 
-Yes, you can use Express Traffic Collector with ExpressRoute Direct circuits used in a Virtual WAN deployment. However, deploying ExpressRoute Traffic Collector within a Virtual WAN hub isn’t supported. You can deploy ExpressRoute Traffic collector in a spoke virtual network and ingest flow logs to a Log Analytics workspace.
+Yes, you can use Express Traffic Collector with ExpressRoute circuits used in a Virtual WAN deployment. 
 
 ### Does ExpressRoute Traffic Collector support ExpressRoute provider ports?
 
-For supported ExpressRoute provider ports contact ErTCasks@microsoft.com.
+Yes. ExpressRoute Traffic Collector supports both ExpressRoute Provider and ExpressRoute Direct circuits with a bandwidth of 1Gbps or greater.
 
 ### What is the effect of maintenance on flow logging?
 
@@ -514,6 +512,14 @@ ExpressRoute Traffic Collector deployment by default has availability zones enab
 ### How should I incorporate ExpressRoute Traffic Collector in my disaster recovery plan?
 
 You can associate a single ExpressRoute Direct circuit with multiple ExpressRoute Traffic Collectors deployed in different Azure region within a given geo-political region. It's recommended that you associate your ExpressRoute Direct circuit with multiple ExpressRoute Traffic Collectors as part of your disaster recovery and high availability plan.
+
+### Will my ExpressRoute Circuit experience any downtime while configuring ExpressRoute Traffic Collector?
+
+No. ExpressRoute Traffic Collector setup does not cause any ExpressRoute Circuit downtime.
+
+### Does ExpressRoute Traffic Collector need to be deployed to the same subscription as my ExpressRoute Circuit?
+
+No. ExpressRoute Traffic Collector can be deployed to a different subscription from your ExpressRoute Circuit. However, ExpressRoute Traffic Collector must be deployed to the same geopolitical region as the ExpressRoute Circuit peering location.
 
 ## <a name="customer-controlled"></a>Customer-controlled gateway maintenance
 

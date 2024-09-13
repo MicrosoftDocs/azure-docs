@@ -5,7 +5,6 @@ description: Learn about optimizing sink performance and best practices in mappi
 author: kromerm
 ms.topic: conceptual
 ms.author: makromer
-ms.service: data-factory
 ms.subservice: data-flows
 ms.custom: synapse
 ms.date: 10/20/2023
@@ -90,7 +89,7 @@ When you're writing to Azure Cosmos DB, altering throughput and batch size durin
 
 **Write throughput budget:** Use a value, which is smaller than total RUs per minute. If you have a data flow with a high number of Spark partitions, setting a budget throughput allows more balance across those partitions.
 
-## Next steps
+## Related content
 
 - [Data flow performance overview](concepts-data-flow-performance.md)
 - [Optimizing sources](concepts-data-flow-performance-sources.md)

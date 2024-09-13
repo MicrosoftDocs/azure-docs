@@ -3,7 +3,7 @@ title: Backup and restore an Azure Managed CCF resource
 description: Learn to back up and restore an Azure Managed CCF resource
 services: managed-ccf
 author: pallabpaul
-ms.service: confidential-ledger
+ms.service: azure-confidential-ledger
 ms.topic: how-to
 ms.date: 09/07/2023
 ms.author: pallabpaul
@@ -17,7 +17,7 @@ In this article, you'll learn to perform backup of an Azure Managed CCF (Managed
 - A Managed CCF resource is an append only ledger at the core. It is impossible to delete few erroneous transactions without impacting the integrity of the ledger. To keep the data clean, a business could decide to recreate the resource sans the erroneous transactions.  
 - A developer could add reference data into a Managed CCF resource and create a back of it. The developer can use the copy later to create a fresh Managed CCF resource and save time.
 
-This article uses the commands found at the [Managed CCF's REST API Docs](/rest/api/confidentialledger/managed-ccf).
+This article uses the commands found at the Managed CCF's REST API Docs.
 
 ## Prerequisites
 

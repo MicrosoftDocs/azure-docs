@@ -2,10 +2,11 @@
 title: Configure Windows Update settings in Azure Update Manager
 description: This article tells how to configure Windows update settings to work with Azure Update Manager.
 ms.service: azure-update-manager
-ms.date: 09/18/2023
-ms.topic: conceptual
+ms.date: 09/06/2024
+ms.topic: how-to
 author: SnehaSudhirG
 ms.author: sudhirsneha
+ms.custom: engagement-fy24
 ---
 
 # Configure Windows update settings for Azure Update Manager
@@ -67,11 +68,11 @@ The Windows update client on Windows servers can get their patches from either o
 
 ### Edit the registry
 
-If scheduled patching is configured on your machine using the Azure Update Manager, the Auto update on the client is disabled. To edit the registry and configure the setting, see [First party updates on Windows](support-matrix.md#first-party-updates-on-windows).
+If scheduled patching is configured on your machine using the Azure Update Manager, the Auto update on the client is disabled. To edit the registry and configure the setting, see [First party updates on Windows](support-matrix.md).
 
-### Patching using group policy on Azure Update management
+### Patching using group policy on Azure Update Manager
 
-If your machine is patched using Automation Update management, and has Automatic updates enabled on the client, you can use the group policy to have complete control. To patch using group policy, follow these steps:
+If your machine is patched using Azure Update Manager, and has Automatic updates enabled on the client, you can use the group policy to have complete control. To patch using group policy, follow these steps:
 
 1. Go to **Computer Configuration** > **Administrative Templates** > **Windows Components** > **Windows Update** > **Manage end user experience**.
 1. Select **Configure Automatic Updates**.
@@ -79,6 +80,13 @@ If your machine is patched using Automation Update management, and has Automatic
 
    :::image type="content" source="./media/configure-wu-agent/configure-updates-group-policy-inline.png" alt-text="Screenshot of selection or deselection of install updates for other Microsoft products." lightbox="./media/configure-wu-agent/configure-updates-group-policy-expanded.png":::
 
+For Windows Server 2022:
+
+1. Go to **Computer Configuration** > **Administrative Templates** > **Windows Components** > **Windows Update** > **Configure Automatic Updates**.
+1. Select **Configure Automatic Updates**.
+1. Select or deselect the **Install updates for other Microsoft products** option.
+
+   :::image type="content" source="./media/configure-wu-agent/configure-updates-group-policy-windows.png" alt-text="Screenshot of selection or deselection of install updates for other Microsoft products in Windows Server 2022.":::
 
 ## Make WSUS configuration settings
 

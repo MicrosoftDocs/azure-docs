@@ -3,7 +3,6 @@ title: Copy data from Web Table
 description: Learn about Web Table Connector that lets you copy data from a web table to data stores supported as sinks by Azure Data Factory and Synapse Analytics. 
 titleSuffix: Azure Data Factory & Azure Synapse
 author: jianleishen
-ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
@@ -205,5 +204,5 @@ If you are using Excel 2013, use [Microsoft Power Query for Excel](https://www.m
 
 To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
 
-## Next steps
+## Related content
 For a list of data stores supported as sources and sinks by the copy activity, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).

@@ -3,9 +3,8 @@ title: Configure deployment credentials
 description: Learn what types of deployment credentials are in Azure App Service and how to configure and use them.
 
 ms.topic: article
-ms.date: 02/11/2021
+ms.date: 01/26/2024
 ms.reviewer: byvinyal
-ms.custom: seodec18
 author: cephalin
 ms.author: cephalin
 ---
@@ -17,7 +16,7 @@ and [FTP/S deployment](deploy-ftp.md). These credentials are not the same as you
 [!INCLUDE [app-service-deploy-credentials](../../includes/app-service-deploy-credentials.md)]
 
 > [!NOTE]
-> The **Development Center (Classic)** page in the Azure portal, which is the old deployment experience, will be deprecated in March, 2021. This change will not affect any existing deployment settings in your app, and you can continue to manage app deployment in the **Deployment Center** page.
+> When [basic authentication is disabled](configure-basic-auth-disable.md), you can't view or configure deployment credentials in the Deployment Center.
 
 ## <a name="userscope"></a>Configure user-scope credentials
 

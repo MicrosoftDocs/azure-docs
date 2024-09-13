@@ -4,11 +4,10 @@ titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to copy data from supported source data stores to Azure Data Lake Store, or from Data Lake Store to supported sink stores, using Azure Data Factory or Azure Synapse Analytics pipelines.
 ms.author: jianleishen
 author: jianleishen
-ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 08/10/2023
+ms.date: 06/03/2024
 ---
 
 # Copy data to or from Azure Data Lake Storage Gen1 using Azure Data Factory or Azure Synapse Analytics
@@ -16,6 +15,9 @@ ms.date: 08/10/2023
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 This article outlines how to copy data to and from Azure Data Lake Storage Gen1. To learn more, read the introductory article for [Azure Data Factory](introduction.md) or [Azure Synapse Analytics](../synapse-analytics/overview-what-is.md).
+
+>[!Note]
+>Azure Data Lake Storage Gen1 was retired on **February 29, 2024**. Please migrate to [Azure Data Lake Storage Gen2 connector](connector-azure-data-lake-storage.md). See this [article](https://azure.microsoft.com/updates/action-required-switch-to-azure-data-lake-storage-gen2-by-29-february-2024/) for the Azure Data Lake Storage Gen1 migration guidance.
 
 ## Supported capabilities
 
@@ -661,6 +663,6 @@ When you debug the pipeline, the **Enable change data capture (Preview)** works 
 
 In the monitoring section, you always have the chance to rerun a pipeline. When you're doing so, the changes are always gotten from the checkpoint record in your selected pipeline run.   
 
-## Next steps
+## Related content
 
 For a list of data stores supported as sources and sinks by the copy activity, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).

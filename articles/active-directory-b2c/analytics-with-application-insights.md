@@ -9,10 +9,14 @@ manager: CelesteDG
 ms.service: active-directory
 ms.topic: how-to
 
-ms.date: 08/24/2021
+ms.date: 01/26/2024
 ms.author: kengaderdus
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
+
+
+#Customer intent: As a developer using Azure AD B2C, I want to track user behavior by sending event data to Application Insights, so that I can gain insights on user behavior, troubleshoot policies, measure performance, and create notifications.
+
 ---
 
 # Track user behavior in Azure AD B2C by using Application Insights
@@ -27,12 +31,14 @@ zone_pivot_groups: b2c-policy-type
 
 ::: zone pivot="b2c-custom-policy"
 
-In Azure Active Directory B2C (Azure AD B2C), you can send event data directly to [Application Insights](../azure-monitor/app/app-insights-overview.md) by using the instrumentation key provided to Azure AD B2C. With an Application Insights technical profile, you can get detailed and customized event logs for your user journeys to:
+In Azure Active Directory B2C (Azure AD B2C), you can send event data directly to [Application Insights](/azure/azure-monitor/app/app-insights-overview) by using the instrumentation key provided to Azure AD B2C. With an Application Insights technical profile, you can get detailed and customized event logs for your user journeys to:
 
 - Gain insights on user behavior.
 - Troubleshoot your own policies in development or in production.
 - Measure performance.
 - Create notifications from Application Insights.
+
+[!INCLUDE [active-directory-b2c-limited-to-custom-policy](../../includes/active-directory-b2c-public-preview.md)]
 
 ## Overview
 
@@ -179,10 +185,12 @@ Open the *TrustFrameworkExtensions.xml* file from the starter pack. Add the tech
 
 ## Add the technical profiles as orchestration steps
 
-Add new orchestration steps that refer to the technical profiles.
+Add new orchestration steps that refer to the technical profiles.  
 
 > [!IMPORTANT]
 > After you add the new orchestration steps, renumber the steps sequentially without skipping any integers from 1 to N.
+
+1. Identify the policy file that contains your user journey, such as `SocialAndLocalAccounts/SignUpOrSignin.xml`, then open it.
 
 1. Call `AppInsights-SignInRequest` as the second orchestration step. This step tracks that a sign-up or sign-in request has been received.
 
@@ -195,10 +203,12 @@ Add new orchestration steps that refer to the technical profiles.
    </OrchestrationStep>
    ```
 
-1. Before the `SendClaims` orchestration step, add a new step that calls `AppInsights-UserSignup`. It's triggered when the user selects the sign-up button in a sign-up or sign-in journey.
+1. Before the `SendClaims` orchestration step, add a new step that calls `AppInsights-UserSignup`. It's triggered when the user selects the sign-up button in a sign-up or sign-in journey. You may need to update the orchestration step, `Order="8"`,to make sure you don't skip any integer from the first to the last orchestration step. 
 
    ```xml
-   <!-- Handles the user selecting the sign-up link in the local account sign-in page -->
+   <!-- Handles the user selecting the sign-up link in the local account sign-in page 
+    The `SendClaims` orchestration step comes after this one,
+    -->
    <OrchestrationStep Order="8" Type="ClaimsExchange">
      <Preconditions>
        <Precondition Type="ClaimsExist" ExecuteActionsIf="false">
@@ -217,10 +227,12 @@ Add new orchestration steps that refer to the technical profiles.
    </OrchestrationStep>
    ```
 
-1. After the `SendClaims` orchestration step, call `AppInsights-SignInComplete`. This step shows a successfully completed journey.
+1. After the `SendClaims` orchestration step, call `AppInsights-SignInComplete`. This step shows a successfully completed journey. You may need to update the orchestration step, `Order="10"`, to make sure you don't skip any integer from the first to the last orchestration step. 
 
    ```xml
-   <!-- Track that we have successfully sent a token -->
+   <!-- Track that we have successfully sent a token 
+    The `SendClaims` orchestration step come before this one,
+    -->
    <OrchestrationStep Order="10" Type="ClaimsExchange">
      <ClaimsExchanges>
        <ClaimsExchange Id="TrackSignInComplete" TechnicalProfileReferenceId="AppInsights-SignInComplete" />
@@ -322,6 +334,6 @@ To disable Application Insights logs, change the `DisableTelemetry` metadata to 
 
 ## Next steps
 
-Learn how to [create custom KPI dashboards using Azure Application Insights](../azure-monitor/app/overview-dashboard.md#create-custom-kpi-dashboards-using-application-insights).
+Learn how to [create custom KPI dashboards using Azure Application Insights](/azure/azure-monitor/app/overview-dashboard#create-custom-kpi-dashboards-using-application-insights).
 
 ::: zone-end

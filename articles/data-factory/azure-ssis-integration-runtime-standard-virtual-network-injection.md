@@ -1,10 +1,9 @@
 ---
 title: Configure a virtual network for standard injection of Azure-SSIS integration runtime
 description: Learn how to configure a virtual network for standard injection of Azure-SSIS integration runtime. 
-ms.service: data-factory
 ms.subservice: integration-services
 ms.topic: conceptual
-ms.date: 04/12/2023
+ms.date: 01/05/2024
 author: chugugrace
 ms.author: chugu 
 ms.custom: devx-track-azurepowershell
@@ -267,7 +266,7 @@ Make sure that the resource quota for your subscription is enough for these reso
 
   If your data source is an Azure service, please check whether you've configured it with virtual network service endpoints. If that's the case, the traffic from Azure-SSIS IR to your data source will switch to use the private IP addresses managed by Azure services and adding your own static public IP addresses to the firewall's allowlist for your data source won't take effect.
 
-## Next steps
+## Related content
 
 - [Join Azure-SSIS IR to a virtual network via ADF UI](join-azure-ssis-integration-runtime-virtual-network-ui.md)
 - [Join Azure-SSIS IR to a virtual network via Azure PowerShell](join-azure-ssis-integration-runtime-virtual-network-powershell.md)

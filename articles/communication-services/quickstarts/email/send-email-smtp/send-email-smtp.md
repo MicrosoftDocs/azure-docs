@@ -15,6 +15,7 @@ zone_pivot_groups: acs-smtp-sending-method
 
 In this quick start, you learn about how to send email using SMTP.
 
+
 ::: zone pivot="smtp-method-smtpclient"
 [!INCLUDE [Send a message with SMTP and SmtpClient](./includes/send-email-smtp-smtpclient.md)]
 ::: zone-end

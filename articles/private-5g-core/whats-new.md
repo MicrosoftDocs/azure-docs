@@ -1,11 +1,11 @@
 ---
 title: What's new in Azure Private 5G Core?
-description: Discover what's new in Azure Private 5G Core
+description: Discover what's new in Azure Private 5G Core.
 author: paulcarter
 ms.author: paulcarter
-ms.service: private-5g-core
+ms.service: azure-private-5g-core
 ms.topic: how-to 
-ms.date: 11/07/2023
+ms.date: 12/21/2023
 ---
 
 # What's new in Azure Private 5G Core?
@@ -17,17 +17,151 @@ ms.date: 11/07/2023
 
 To help you stay up to date with the latest developments, this article covers:
 
-- New features, improvements and fixes for the online service.
+- New features, improvements, and fixes for the online service.
 - New releases for the packet core, referencing the packet core release notes for further information.
 
 This page is updated regularly with the latest developments in Azure Private 5G Core.
+
+## May 2024
+### Packet core 2404
+
+**Type:** New release
+
+**Date available:** May 13, 2024
+
+The 2404 release for the Azure Private 5G Core packet core is now available. For more information, see [Azure Private 5G Core 2404 release notes](azure-private-5g-core-release-notes-2404.md).
+
+### High Availability
+
+We're excited to announce that AP5GC is now resilient to system failures when run on a two-node ASE cluster. Userplane traffic, sessions, and registrations are unaffected on failure of any single pod, physical interface, or ASE device.
+
+### In Service Software Upgrade 
+
+In our commitment to continuous improvement and minimizing service impact we’re excited to announce that when upgrading from this version to a future release, updates include the capability for In-Service Software Upgrades (ISSU).
+
+ISSU is supported for deployments on a 2-node cluster. Software upgrades can be performed seamlessly, ensuring minimal disruption to your services. The upgrade completes with no loss of sessions or registrations and minimal packet loss and packet reordering. Should the upgrade fail, the software automatically rolls back to the previous version, also with minimal service disruption.
+
+### Azure Resource Health 
+
+This feature allows you to monitor the health of your control plane resource using Azure Resource Health. Azure Resource Health is a service that processes and displays health signals from your resource and displays the health in the Azure portal. This service gives you a personalized dashboard showing all the times your resource was unavailable or in a degraded state, along with recommended actions to take to restore health.
+
+For more information, on using Azure Resource Health to monitor the health of your deployment, see [Resource Health overview](/azure/service-health/resource-health-overview).
+
+### NAS Encryption
+
+NAS (Non-Access-Stratum) encryption configuration determines the encryption algorithm applied to the management traffic between the UEs and the AMF(5G) or MME(4G). By default, for security reasons, Packet Core deployments are configured to preferentially use NEA2/EEA2 encryption.
+
+You can change the preferred encryption level after deployment by [modifying the packet core configuration](modify-packet-core.md).
+
+### RADIUS Authentication
+
+The RADIUS authentication feature enables AP5GC to perform secondary authentication via an AAA server for 4G attach and establishing a PDN/PDU session for 4G and 5G.
+This feature can be enabled per DN to perform secondary authentication. PAP based secondary authentication is supported in current release.
+
+For more information on configuration RADIUS Authentication for your deployment, see [RADIUS Authentication](security.md).
+
+### VLAN Trunking
+
+VLAN trunking provides a new method for configuring data networks. A single virtual network interface is used to carry all data plane traffic. The traffic is all VLAN tagged, with each DN using a separate VLAN to provide separation. Configuration to use VLAN trunking is done on both the ASE and Private Mobile Network. When AP5GC is deployed on a 2-node cluster, VLAN trunking is mandatory.
+
+For more information on configuration of VLAN Trunking, see [Commission an AKS Cluster](commission-cluster.md?pivots=ase-pro-2#set-up-advanced-networking).
+
+### Dual-router link redundancy
+
+Link connectivity monitoring for High Availability now accommodates paired peer routers in a dual-redundancy topology.  You can configure this by designating two BFD peer router IP addresses per interface – if this is set then:
+- Each Packet Core node establishes BFD sessions with each of these routers, rather than with the default gateway IP.
+- The interface is not considered to have lost connectivity unless both IPs in the redundant pair are unreachable.
+
+For more information on configuration of dual-routers, see [Create a site](create-a-site.md) or [Modify a site](modify-packet-core.md).
+
+### RAN insights preview
+
+We’re excited to announce that radio access network (RAN) insights is now in preview for AP5GC. This feature integrates third-party data from RAN vendors, collecting and displaying a subset of metrics from your Element Management Systems (EMS) as standard metrics in Azure. By leveraging Azure's capabilities, this integration offers a unified and simplified experience for monitoring and troubleshooting RAN across multiple vendors and locations. With RAN insights you will now be able to:
+
+- View the metrics of your RAN to monitor their deployment’s performance, reliability, and connection status.
+- Access geo maps for a visual overview of all connected access points along with health status and performance metrics of each radio.
+- Use correlated metrics of your RAN and packet core to help diagnose and troubleshoot issues.
+
+To learn more and get started, see [RAN Insights Concepts](ran-insights-concepts.md) and [Create a Radio Access Network Insights Resource](ran-insights-create-resource.md).
+
+## April 2024
+### Packet core 2403
+
+**Type:** New release
+
+**Date available:** April 4, 2024
+
+The 2403 release for the Azure Private 5G Core packet core is now available. For more information, see [Azure Private 5G Core 2403 release notes](azure-private-5g-core-release-notes-2403.md).
+
+### TCP Maximum Segment Size (MSS) Clamping
+
+TCP session initial setup messages that include a Maximum Segment Size (MSS) value, which controls the size limit of packets transmitted during the session. The packet core now automatically sets this value, where necessary, to ensure packets aren't too large for the core to transmit. This setting reduces packet loss due to oversized packets arriving at the core's interfaces, and reduces the need for fragmentation and reassembly, which are costly procedures.
+
+### Improved Packet Core Scaling 
+
+In this release, the maximum supported limits for a range of parameters in an Azure Private 5G Core deployment increase. Testing confirms these limits, but other factors could affect what is achievable in a given scenario.
+
+For details, see [Service Limits](azure-stack-edge-virtual-machine-sizing.md#service-limits).
+
+## March 2024
+
+### Azure Policy support
+
+**Type:** New feature
+
+**Date available:** March 26, 2024
+
+You can now use [Azure Policy](../governance/policy/overview.md) to enforce security-related settings in your AP5GC deployment. Azure Policy allows you to ensure compliance with organizational standards across supported Azure services. AP5GC has built-in policy definitions for:
+
+- using Microsoft Entra ID to access local monitoring tools
+- using customer-managed keys to encrypt SIM groups.
+
+See [Azure Policy policy definitions for Azure Private 5G Core](azure-policy-reference.md) for details.
+
+### SUPI concealment
+
+**Type:** New feature
+
+**Date available:** March 22, 2024
+
+The SUPI (subscription permanent identifier) secret needs to be encrypted before being transmitted over the radio network as a SUCI (subscription concealed identifier). UEs perform this concealment on registration, and the packet core performs the deconcealment. You can now securely manage the required private keys through the Azure portal and provision SIMs with public keys.
+
+For more information, see [Enable SUPI concealment](supi-concealment.md).
+
+## February 2024
+### New Microsoft Entra ID user role needed for distributed tracing tool
+
+**Type:** New feature
+
+**Date available:** February 21, 2024
+
+Access to the [distributed tracing](distributed-tracing.md) tool now requires a dedicated sas.user role in Microsoft Entra ID. This user is available from AP5GC version 4.2310.0-8, and required from AP5GC version 2402 onwards. If you're using Microsoft Entra ID authentication, you should create this user before upgrading to version 2402 to avoid losing access to the tracing tool. Microsoft Entra ID access to the packet core dashboards is unchanged.
+
+See [Enable Microsoft Entra ID for local monitoring tools](enable-azure-active-directory.md) for details.
+
+## December 2023
+### Packet Capture
+
+**Type:** New feature
+
+**Date available:** December 4, 2023
+
+Previously, packet capture could only be performed from edge sites, requiring local access to your Azure Stack Edge device. Now, you can initiate packet capture from the Azure portal and seamlessly transmit the captured data from edge sites to an Azure storage container. You can then download the data to inspect with a tool of your choice.  For more information, see [Data Plane Packet Capture](data-plane-packet-capture.md).
+
+### Edge Log Backhaul
+
+**Type:** New Feature
+
+**Date available:** December 22, 2023
+
+The new Edge Log Backhaul feature provides Microsoft support personnel with easy access to customer network function logs to help them troubleshoot and find root cause for customer issues. This feature is enabled by default. To disable this feature, [modify the packet core configuration](modify-packet-core.md).
 
 ## October 2023
 ### Packet core 2310
 
 **Type:** New release
 
-**Date available:** October 7, 2023
+**Date available:** November 7, 2023
 
 The 2310 release for the Azure Private 5G Core packet core is now available. For more information, see [Azure Private 5G Core 2310 release notes](azure-private-5g-core-release-notes-2310.md).
 
@@ -35,17 +169,16 @@ The 2310 release for the Azure Private 5G Core packet core is now available. For
 This feature makes the N2, N3 and N6 gateways optional during the network configuration of an ASE if the RAN and Packet Core are on the same subnet. This feature provides flexibility to use AP5GC without gateways if there's direct connectivity available with the RAN and/or DN.
 
 ### Improved software download time
-This feature improves overall AP5GC software download time by reducing the size of underlying software packages. The overall size of the software image is reduced by around 40%.
+This feature improves overall AP5GC software download time by reducing the size of underlying software packages by around 40%.
 
 ### Per-UE information in Azure portal and API
-This feature allows you to view UE-level information in the Azure portal, including a list of SIMs with high level information and a detailed view for each SIM. This information is the current snapshot of the UE in the system and can be fetched on-demand with a throttling period of 5 min. See [Manage existing SIMs for Azure Private 5G Core - Azure portal](manage-existing-sims.md).
+This feature allows you to view UE-level information in the Azure portal. It includes a list of SIMs with high level information and a detailed view for each SIM. This information is the current snapshot of the UE in the system and can be fetched on-demand with a throttling period of 5 min. See [Manage existing SIMs for Azure Private 5G Core - Azure portal](manage-existing-sims.md).
 
 ### Per gNB metrics in Azure portal
 This feature categorizes a few metrics based on the RAN identifier, for example UL/DL bandwidth etc. These metrics are exposed via Azure monitor under Packet Core Control Plane and Packet Core Data Plane resources. These metrics can be used to correlate the RAN and packet core metrics and troubleshoot.
 
 ### Combined 4G/5G on a single packet core
 This feature allows a packet core that supports both 4G and 5G networks on a single Mobile Network site. You can deploy a RAN network with both 4G and 5G radios and connect to a single packet core.
-
 
 ## September 2023
 ### Packet core 2308
@@ -77,7 +210,7 @@ In this release, the default MTU values are changed as follows:
 
 Customers upgrading to 2308 see a change in the MTU values on their packet core.
 
-If the UE MTU is set to any valid value (see API Spec) then the other MTUs will be set to:
+If the UE MTU is set to any valid value (see API Spec), then the other MTUs are set to:
 - Access MTU: UE MTU + 60
 - Data MTU: UE MTU
   
@@ -114,7 +247,7 @@ The UE usage tracking messages in Azure Event Hubs are now encoded in AVRO file 
 
 **Date available:** July 31, 2023
 
-In this release, the 4G NAS EMM cause code for “unknown user” (subscriber not provisioned on AP5GC) changes to “no-suitable-cells-in-ta-15” by default. This provides better interworking in scenarios where a single PLMN is used for multiple, independent mobile networks.
+This feature changes the 4G NAS EMM cause code for “unknown user” (subscriber not provisioned on AP5GC) to “no-suitable-cells-in-ta-15” by default. This feature provides better interworking in scenarios where a single PLMN is used for multiple, independent mobile networks.
 ### 2023-06-01 API
 
 **Type:** New release
@@ -128,7 +261,7 @@ If you use the Azure portal to manage your deployment and all your resources wer
 ARM API users with existing resources can continue to use the 2022-04-01-preview API or 2022-11-01 without updating their templates.
 ARM API users can migrate to the 2023-06-01 API with their current resources with no ARM template changes (other than specifying the newer API version).
  
-Note: ARM API users who have done a PUT using the 2023-06-01 API and have enabled configuration only accessible in the up-level API can't go back to using the 2022-11-01 API for PUTs. If they do, then the up-level config will be deleted.
+Note: ARM API users who did a PUT using the 2023-06-01 API and enabled configuration only accessible in the up-level API can't go back to using the 2022-11-01 API for PUTs. If they do, then the up-level config is deleted.
 
 ### New cloud monitoring option - Azure Monitor Workbooks
 
@@ -138,7 +271,7 @@ Note: ARM API users who have done a PUT using the 2023-06-01 API and have enable
 
 You can now use Azure Monitor Workbooks to monitor your private mobile network. Workbooks provide versatile tools for visualizing and analyzing data. You can use workbooks to gain insights into your connected resources - including the packet core, Azure Stack Edge devices and Kubernetes clusters - using a range of visualization options. You can create new workbooks or customize one of the included templates to suit your needs.
 
-See [Monitor Azure Private 5G Core with Azure Monitor Workbooks](monitor-private-5g-core-workbooks.md) to learn more.
+For more information, see [Monitor Azure Private 5G Core with Azure Monitor Workbooks](monitor-private-5g-core-workbooks.md).
 
 ## June 2023
 
@@ -156,10 +289,10 @@ The 2306 release for the Azure Private 5G Core packet core is now available. For
 **Date available:** July 10, 2023
 
 It's now possible to:
-- attach a new or existing data network
-- modify an attached data network's configuration
+- attach a new or existing data network.
+- modify an attached data network's configuration.
   
-followed by a few minutes of downtime, but not a packet core reinstall.
+This change is followed by a few minutes of downtime, but not a packet core reinstall.
 
 For details, see [Modify a packet core instance](modify-packet-core.md).
 
@@ -260,7 +393,7 @@ For more details, see [Create and manage network slices - Azure portal](create-m
 
 **Date available:** January 31, 2023
 
-The Azure Private 5G Core online service now reports the provisioning status of SIMs per-site, on both the **SIM** and **Site** resource views, to allow you to accurately determine where individual SIMs have been provisioned.
+The Azure Private 5G Core online service now reports the provisioning status of SIMs per-site, on both the **SIM** and **Site** resource views, to allow you to accurately determine where individual SIMs are provisioned.
 
 ### Diagnostic package collection
 
@@ -341,7 +474,7 @@ Make the following changes for each 2022-04-01-preview API template that you wan
 1. In the **Packet Core Control Plane** resource:
    1. Remove the field **properties.mobileNetwork**.
    2. Add the new mandatory field **properties.sites**. This array must contain a reference to the site resource under which this control plane is being created.
-   3. Add the new mandatory field **properties.localDiagnosticsAccess.authenticationType**. This field is an enum governing how users of local diagnostics APIs will be authenticated. Set this to **Password**.
+   3. Add the new mandatory field **properties.localDiagnosticsAccess.authenticationType**. This field is an enum governing how users of local diagnostics APIs are authenticated. Set this field to **Password**.
    4. Update the field **properties.sku** according to the mapping in the following table.
 
         | 2022-04-01-preview API  | 2022-11-01 API |
@@ -355,10 +488,10 @@ Make the following changes for each 2022-04-01-preview API template that you wan
         | LargePackage | G10 |
 
 1. In the **Attached Data Network** resource, add the new mandatory field **properties.dnsAddresses** if one doesn't already exist. List your chosen DNS addresses in an array or provide an empty array if no DNS addresses are required.
-1. In the **Sites** resource, remove the field **properties.networkFunctions**. This field is now read-only and will be ignored if provided.
-1. Move the **Sites** resource above the **packetCoreControlPlanes** resource. This ensures that the resources are created in the required order.
+1. In the **Sites** resource, remove the field **properties.networkFunctions**. This field is now read-only and is ignored if provided.
+1. Move the **Sites** resource above the **packetCoreControlPlanes** resource. This move ensures that the resources are created in the required order.
 
-The following is a comparison of templates using the 2022-04-01-preview and the 2022-11-01 APIs.
+The following json extract is a comparison of templates using the 2022-04-01-preview and the 2022-11-01 APIs.
 
 # [2022-04-01-preview API](#tab/2022-04-01-preview)
 
@@ -473,11 +606,11 @@ Each Data Network can have its own configuration for DNS, UE IP address pools, N
 
 This feature has the following limitations:
 
-- Once more than a single Data Network is configured, further configuration changes require the packet core to be reinstalled. To ensure this reinstall happens only after you have made all your changes, you must follow the process for installing and modifying as described in the documentation.
+- Once more than a single Data Network is configured, further configuration changes require the packet core to be reinstalled. To ensure this reinstall happens only after you make all your changes, you must follow the process for installing and modifying as described in the documentation.
 
-- VLAN separation of Data Networks is not supported. Only Layer 3 separation is supported (meaning you can't have overlapping IP address spaces across the Data Networks).
+- VLAN separation of Data Networks isn't supported. Only Layer 3 separation is supported (meaning you can't have overlapping IP address spaces across the Data Networks).
 
-- Metrics are not yet reported on a per-Data Network basis.
+- Metrics aren't yet reported on a per-Data Network basis.
 
 To add data networks to an existing site, see [Modify the packet core instance in a site](modify-packet-core.md). To create a new site, see [Create a site](create-a-site.md).
 
@@ -495,7 +628,7 @@ Previously, you had to delete all the ARM resources associated with a site befor
 
 **Date available:** December 5, 2022
 
-You can no longer choose a packet core version that is incompatible with your ASE version when installing or upgrading the packet core. The install or upgrade will be blocked and the portal will display an error message. This only applies when using the Azure portal.
+You can no longer choose a packet core version that is incompatible with your ASE version when installing or upgrading the packet core. The install or upgrade blocks and the portal displays an error message. This change only applies when using the Azure portal.
 
 ## October 2022
 
@@ -513,7 +646,7 @@ The 2210 release for the Azure Private 5G Core packet core is now available. For
 
 **Date available:** October 25, 2022
 
-When deploying a site directly on an ASE device, you no longer need to specify the subnet mask and gateway information for the access and data networks. Instead, you'll only need to provide an Azure Stack Edge device and the names of the N2 (or S1-MME), N3 (or S1-U), and N6 (or SGi) interfaces that exist on the ASE. The subnet mask and gateway information will then be automatically collected from the linked ASE device.
+When deploying a site directly on an ASE device, you no longer need to specify the subnet mask and gateway information for the access and data networks. Instead, you need to provide an Azure Stack Edge device and the names of the N2 (or S1-MME), N3 (or S1-U), and N6 (or SGi) interfaces that exist on the ASE. The subnet mask and gateway information will then be automatically collected from the linked ASE device.
 
 See [Collect the required information for a site](collect-required-information-for-a-site.md) for the information you need to collect to create a site following this enhancement. If your site is already deployed, you can link it to your ASE device by following [Modify the packet core instance in a site](modify-packet-core.md).
 

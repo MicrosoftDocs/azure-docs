@@ -13,8 +13,6 @@ ms.custom: mode-other, devx-track-js
 
 # Quickstart: Join your calling app to a Teams call queue
 
-[!INCLUDE [Public Preview](../../../communication-services/includes/public-preview-include-document.md)]
-
 In this quickstart you are going to learn how to start a call from Azure Communication Services user to Teams Call Queue. You are going to achieve it with the following steps:
 
 1. Enable federation of Azure Communication Services resource with Teams Tenant.
@@ -60,7 +58,6 @@ If you want to clean up and remove a Communication Services subscription, you ca
 
 For more information, see the following articles:
 
-- Check out our [calling hero sample](../../samples/calling-hero-sample.md)
-- Get started with the [UI Library](../ui-library/get-started-composites.md)
+- Get started with [UI Calling to Teams Voice Apps](../../tutorials/calling-widget/calling-widget-tutorial.md)
 - Learn about [Calling SDK capabilities](./getting-started-with-calling.md)
 - Learn more about [how calling works](../../concepts/voice-video-calling/about-call-types.md)

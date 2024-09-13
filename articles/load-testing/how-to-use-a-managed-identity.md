@@ -1,13 +1,14 @@
 ---
 title: Use managed identities for Azure Load Testing
 titleSuffix: Azure Load Testing
-description: Learn how to enable a managed identity for Azure Load Testing. You can use managed identities for reading secrets or certificates from Azure Key Vault in your JMeter test script.
+description: Learn how to enable a managed identity in Azure Load Testing for reading secrets or certificates from Azure Key Vault in your test script.
 services: load-testing
-ms.service: load-testing
+ms.service: azure-load-testing
 ms.author: ninallam
 author: ninallam
 ms.date: 10/19/2023
 ms.topic: how-to
+# CustomerIntent: As an administrator, I want to understand how to enable a managed identity in Azure Load Testing, so that test scripts can read secrets and certificates from Azure Key Vault.
 ---
 
 # Use managed identities for Azure Load Testing
@@ -20,6 +21,8 @@ Azure Load Testing supports two types of identities:
 
 - A **system-assigned identity** is associated with your load testing resource and is deleted when your resource is deleted. A resource can only have one system-assigned identity.
 - A **user-assigned identity** is a standalone Azure resource that you can assign to your load testing resource. When you delete the load testing resource, the managed identity remains available. You can assign multiple user-assigned identities to the load testing resource.
+
+Currently, you can only use the managed identity for accessing Azure Key Vault.
 
 ## Prerequisites  
 

@@ -4,8 +4,6 @@ description: Learn how to control flow of data in Azure Data Factory by branchin
 author: ssabat
 ms.author: susabat
 ms.reviewer: jburchel
-ms.service: data-factory
-ms.subservice: tutorials
 ms.topic: tutorial
 ms.date: 08/11/2023
 ---
@@ -740,7 +738,7 @@ Checking copy activity run details...
 Press any key to exit...
 ```
 
-## Next steps
+## Related content
 
 You did the following tasks in this tutorial:
 

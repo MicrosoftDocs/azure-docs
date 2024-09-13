@@ -55,6 +55,11 @@ This guide will help you get started with recognizing DTMF input provided by par
 | RecognizeFailed | 500	| 8511	| Action failed, encountered failure while trying to play the prompt. | 
 | RecognizeFailed | 500	| 8512	| Unknown internal server error. | 
 
+## Known limitations
+- In-band DTMF is not supported, use RFC 2833 DTMF instead.
+- Text-to-Speech text prompts support a maximum of 400 characters, if your prompt is longer than this we suggest using SSML for Text-to-Speech based play actions.
+- For scenarios where you exceed your Speech service quota limit, you can request to increase this lilmit by following the steps outlined [here](/azure/ai-services/speech-service/speech-services-quotas-and-limits).
+
 ## Clean up resources
 
 If you want to clean up and remove a Communication Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it. Learn more about [cleaning up resources](../../quickstarts/create-communication-resource.md#clean-up-resources).

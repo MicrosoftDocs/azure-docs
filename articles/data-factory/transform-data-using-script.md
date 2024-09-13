@@ -2,8 +2,6 @@
 title: Transform data by using the Script activity
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Explains how to use the Script Activity to transform data in an Azure Data Factory or Synapse Analytics pipeline.
-ms.service: data-factory
-ms.subservice: tutorials
 ms.topic: conceptual
 author: nabhishek
 ms.author: abnarain
@@ -157,7 +155,7 @@ Sample output:
 > - Since the output has size / rows limitation, the output will be truncated in following order: logs -> parameters -> rows. Note, this applies to a single script block, which means the output rows of next script block won’t evict previous logs. 
 > - Any error caused by log won’t fail the activity. 
 > - For consuming activity output resultSets in down stream activity please refer to the [Lookup activity result documentation](control-flow-lookup-activity.md#use-the-lookup-activity-result).
-> - Use outputLogs when you are using 'PRINT' statements for logging purpose. If query returns resultSets, it will be available in the activity output and will be limited to 5000 rows/ 2MB size limit. 
+> - Use outputLogs when you are using 'PRINT' statements for logging purpose. If query returns resultSets, it will be available in the activity output and will be limited to 5000 rows/ 4MB size limit. 
 
 ## Configure the Script activity using UI
 
@@ -174,13 +172,13 @@ Inline scripts integrate well with Pipeline CI/CD since the script is stored as 
 Logging options:
 
 - _Disable_ - No execution output is logged.
-- _Activity output_ - The script execution output is appended to the activity output. It can be consumed by downstream activities. The output size is limited to 2MB.  
+- _Activity output_ - The script execution output is appended to the activity output. It can be consumed by downstream activities. The output size is limited to 4MB.  
 - _External storage_ - Persists output to storage.  Use this option if the output size is greater than 2MB or you would like to explicitly persist the output on your storage account.
  
 > [!NOTE]
 > **Billing** - The Script activity will be [billed](https://azure.microsoft.com/pricing/details/data-factory/data-pipeline/) as **Pipeline activities**.
 
-## Next steps
+## Related content
 See the following articles that explain how to transform data in other ways:
 
 * [U-SQL activity](transform-data-using-data-lake-analytics.md)

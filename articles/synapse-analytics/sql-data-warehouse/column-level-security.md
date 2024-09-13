@@ -4,10 +4,9 @@ description: Column-Level Security allows customers to control access to databas
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.date: 09/19/2023
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.subservice: sql-dw
 ms.topic: conceptual
-tags: azure-synapse
 ---
 # Column-level security
 

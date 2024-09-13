@@ -20,7 +20,7 @@ Use the below tables to find all the relevant information on number availability
 
 | Number Type | Send SMS             | Receive SMS          | Make Calls           | Receive Calls          |
 | :---------- | :------------------- | :------------------- | :------------------- | :--------------------- |
-| Toll-Free   | -  | - | General Availability | General Availability\* |
+| Toll-Free   | -  | - | - | General Availability\* |
 | Local       | -                    | -                    | General Availability | General Availability\* |
 
 \* Please refer to [Inbound calling capabilities page](../telephony/inbound-calling-capabilities.md) for details.
@@ -41,13 +41,19 @@ More details on eligible subscription types are as follows:
 ## Azure subscription billing locations where Belgium phone numbers are available
 | Country/Region |
 | :---------- |
-|Belgium|
-|United States|
-|United Kingdom|
-|Canada|
-|Japan|
 |Australia|
+|Belgium|
+|Canada|
+|France|
+|Germany|
+|Italy|
+|Japan|
+|Netherlands|
+|Spain|
+|United Kingdom|
+|United States|
 
+[!INCLUDE [Azure Prepayment](../../includes/azure-prepayment.md)]
 
 ## Find information about other countries/regions
 

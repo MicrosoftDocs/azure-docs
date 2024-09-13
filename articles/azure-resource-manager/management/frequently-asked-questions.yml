@@ -3,9 +3,10 @@ metadata:
   title: Azure Resource Manager frequently asked questions
   description: Answers to common questions about using Azure Resource Manager to manage resources.
   ms.topic: faq
-  ms.date: 11/20/2023
+  ms.date: 05/31/2024
   content_well_notification: 
     - AI-contribution
+  ai-usage: ai-assisted
 
 title: Frequently asked questions for managing resources with Azure Resource Manager
 summary: |
@@ -33,6 +34,13 @@ sections:
           To ensure state consistency for the resource group, all control plane operations are routed through the resource group's location. When selecting a 
           resource group location, we recommend that you select a location close to where your control operations originate. Typically, this location is the one closest to 
           your current location.
+
+  - name: Resources
+    questions:
+      - question: What happens if two operations update the same resource at the same time?
+        answer: |
+          Azure Resource Manager detects the conflict and permits only one operation to complete successfully. The other operation fails and returns a 409 conflict error.
+          If the blocked operation has the correct state, you can retry the operation.
 
 additionalContent: |
     ## Related content

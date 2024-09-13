@@ -4,12 +4,10 @@ titleSuffix: How to choose between Azure Key Vault, Azure Managed HSM, Azure Ded
 description: This article provides a detailed explanation of how to choose the right Key Management solution in Azure.
 services: security
 author: chenkaren
-
 ms.service: security
 ms.topic: article
-ms.date: 07/25/2023
+ms.date: 02/08/2024
 ms.author: chenkaren
-ms.collection:
 ---
 
 # How to choose the right key management solution
@@ -51,9 +49,9 @@ Use the table to compare all the solutions side by side. Begin from top to botto
 
 |  | **AKV Standard** | **AKV Premium** | **Azure Managed HSM** | **Azure Dedicated HSM** | **Azure Payment HSM** |
 | --- | --- | --- | --- | --- | --- |
-| What level of **compliance** do you need? | FIPS 140-2 level 1 | FIPS 140-2 level 2, PCI DSS | FIPS 140-2 level 3, PCI DSS, PCI 3DS | FIPS 140-2 level 3, HIPPA, PCI DSS, PCI 3DS, eIDAS CC EAL4+, GSMA | FIPS 140-2 level 3, PCI PTS HSM v3, PCI DSS, PCI 3DS, PCI PIN |
+| What level of **compliance** do you need? | FIPS 140-2 level 1 | FIPS 140-2 level 3, PCI DSS, PCI 3DS** | FIPS 140-2 level 3, PCI DSS, PCI 3DS | FIPS 140-2 level 3, HIPPA, PCI DSS, PCI 3DS, eIDAS CC EAL4+, GSMA | FIPS 140-2 level 3, PCI PTS HSM v3, PCI DSS, PCI 3DS, PCI PIN |
 | Do you need **key sovereignty**? | No | No | Yes | Yes | Yes |
-| What kind of **tenancy** are you looking for? | Multi Tenant | Multi Tenant | Single Tenant | Single Tenant | Single Tenant |
+| What kind of **tenancy** are you looking for? | Multitenant | Multitenant | Single Tenant | Single Tenant | Single Tenant |
 | What are your **use cases**? | Encryption at Rest, CMK, custom | Encryption at Rest, CMK, custom | Encryption at Rest, TLS Offload, CMK, custom | PKCS11, TLS Offload, code/document signing, custom | Payment PIN processing, custom |
 | Do you want **HSM hardware protection**? | No | Yes | Yes | Yes | Yes |
 | What is your **budget**? | $ | $$ | $$$ | $$$$ | $$$$ |
@@ -76,24 +74,27 @@ Here is a list of the key management solutions we commonly see being utilized ba
 
 ## Learn more about Azure key management solutions
 
-**Azure Key Vault (Standard Tier)**: A FIPS 140-2 Level 1 validated multi-tenant cloud key management service that can be used to store both asymmetric and symmetric keys, secrets, and certificates. Keys stored in Azure Key Vault are software-protected and can be used for encryption-at-rest and custom applications. Azure Key Vault Standard provides a modern API and a breadth of regional deployments and integrations with Azure Services. For more information, see [About Azure Key Vault](../../key-vault/general/overview.md).
+**Azure Key Vault (Standard Tier)**: A FIPS 140-2 Level 1 validated multitenant cloud key management service that can be used to store both asymmetric and symmetric keys, secrets, and certificates. Keys stored in Azure Key Vault are software-protected and can be used for encryption-at-rest and custom applications. Azure Key Vault Standard provides a modern API and a breadth of regional deployments and integrations with Azure Services. For more information, see [About Azure Key Vault](/azure/key-vault/general/overview).
 
-**Azure Key Vault (Premium Tier)**: A FIPS 140-2 Level 2 validated multi-tenant HSM offering that can be used to store both asymmetric and symmetric keys, secrets, and certificates. Keys are stored in a secure hardware boundary*. Microsoft manages and operates the underlying HSM, and keys stored in Azure Key Vault Premium can be used for encryption-at-rest and custom applications. Azure Key Vault Premium also provides a modern API and a breadth of regional deployments and integrations with Azure Services. If you are an AKV Premium customer looking for higher security compliance, key sovereignty, single tenancy, and/or higher crypto operations per second, you may want to consider Managed HSM instead. For more information, see [About Azure Key Vault](../../key-vault/general/overview.md).
+**Azure Key Vault (Premium Tier)**: A FIPS 140-2 Level 3** validated multitenant HSM offering that can be used to store both asymmetric and symmetric keys, secrets, and certificates. Keys are stored in a secure hardware boundary*. Microsoft manages and operates the underlying HSM, and keys stored in Azure Key Vault Premium can be used for encryption-at-rest and custom applications. Azure Key Vault Premium also provides a modern API and a breadth of regional deployments and integrations with Azure Services. If you are an AKV Premium customer looking for key sovereignty, single tenancy, and/or higher crypto operations per second, you may want to consider Managed HSM instead. For more information, see [About Azure Key Vault](/azure/key-vault/general/overview).
 
-**Azure Managed HSM**: A FIPS 140-2 Level 3 validated, PCI compliant, single-tenant HSM offering that gives customers full control of an HSM for encryption-at-rest, Keyless SSL/TLS offload, and custom applications. Azure Managed HSM is the only key management solution offering confidential keys. Customers receive a pool of three HSM partitions—together acting as one logical, highly available HSM appliance—fronted by a service that exposes crypto functionality through the Key Vault API. Microsoft handles the provisioning, patching, maintenance, and hardware failover of the HSMs, but doesn't have access to the keys themselves, because the service executes within Azure's Confidential Compute Infrastructure. Azure Managed HSM is integrated with the Azure SQL, Azure Storage, and Azure Information Protection PaaS services and offers support for Keyless TLS with F5 and Nginx. For more information, see [What is Azure Key Vault Managed HSM?](../../key-vault/managed-hsm/overview.md) 
+**Azure Managed HSM**: A FIPS 140-2 Level 3 validated, PCI compliant, single-tenant HSM offering that gives customers full control of an HSM for encryption-at-rest, Keyless SSL/TLS offload, and custom applications. Azure Managed HSM is the only key management solution offering confidential keys. Customers receive a pool of three HSM partitions—together acting as one logical, highly available HSM appliance—fronted by a service that exposes crypto functionality through the Key Vault API. Microsoft handles the provisioning, patching, maintenance, and hardware failover of the HSMs, but doesn't have access to the keys themselves, because the service executes within Azure's Confidential Compute Infrastructure. Azure Managed HSM is integrated with the Azure SQL, Azure Storage, and Azure Information Protection PaaS services and offers support for Keyless TLS with F5 and Nginx. For more information, see [What is Azure Key Vault Managed HSM?](/azure/key-vault/managed-hsm/overview) 
 
-**Azure Dedicated HSM**: A FIPS 140-2 Level 3 validated single-tenant bare metal HSM offering that lets customers lease a general-purpose HSM appliance that resides in Microsoft datacenters. The customer has complete ownership over the HSM device and is responsible for patching and updating the firmware when required. Microsoft has no permissions on the device or access to the key material, and Azure Dedicated HSM is not integrated with any Azure PaaS offerings. Customers can interact with the HSM using the PKCS#11, JCE/JCA, and KSP/CNG APIs. This offering is most useful for legacy lift-and-shift workloads, PKI, SSL Offloading and Keyless TLS (supported integrations include F5, Nginx, Apache, Palo Alto, IBM GW and more), OpenSSL applications, Oracle TDE, and Azure SQL TDE IaaS. For more information, see [What is Azure Dedicated HSM?](../../dedicated-hsm/overview.md) 
+**Azure Dedicated HSM**: A FIPS 140-2 Level 3 validated single-tenant bare metal HSM offering that lets customers lease a general-purpose HSM appliance that resides in Microsoft datacenters. The customer has complete ownership over the HSM device and is responsible for patching and updating the firmware when required. Microsoft has no permissions on the device or access to the key material, and Azure Dedicated HSM is not integrated with any Azure PaaS offerings. Customers can interact with the HSM using the PKCS#11, JCE/JCA, and KSP/CNG APIs. This offering is most useful for legacy lift-and-shift workloads, PKI, SSL Offloading and Keyless TLS (supported integrations include F5, Nginx, Apache, Palo Alto, IBM GW and more), OpenSSL applications, Oracle TDE, and Azure SQL TDE IaaS. For more information, see [What is Azure Dedicated HSM?](/azure/dedicated-hsm/overview) 
 
-**Azure Payment HSM**: A FIPS 140-2 Level 3, PCI HSM v3, validated single-tenant bare metal HSM offering that lets customers lease a payment HSM appliance in Microsoft datacenters for payments operations, including payment PIN processing, payment credential issuing, securing keys and authentication data, and sensitive data protection. The service is PCI DSS, PCI 3DS, and PCI PIN compliant. Azure Payment HSM offers single-tenant HSMs for customers to have complete administrative control and exclusive access to the HSM. Once the HSM is allocated to a customer, Microsoft has no access to customer data. Likewise, when the HSM is no longer required, customer data is zeroized and erased as soon as the HSM is released, to ensure complete privacy and security is maintained. For more information, see [About Azure Payment HSM](../../payment-hsm/overview.md).
+**Azure Payment HSM**: A FIPS 140-2 Level 3, PCI HSM v3, validated single-tenant bare metal HSM offering that lets customers lease a payment HSM appliance in Microsoft datacenters for payments operations, including payment PIN processing, payment credential issuing, securing keys and authentication data, and sensitive data protection. The service is PCI DSS, PCI 3DS, and PCI PIN compliant. Azure Payment HSM offers single-tenant HSMs for customers to have complete administrative control and exclusive access to the HSM. Once the HSM is allocated to a customer, Microsoft has no access to customer data. Likewise, when the HSM is no longer required, customer data is zeroized and erased as soon as the HSM is released, to ensure complete privacy and security is maintained. For more information, see [About Azure Payment HSM](/azure/payment-hsm/overview).
 
 > [!NOTE]
 > \* Azure Key Vault Premium allows the creation of both software-protected and HSM protected keys. If using Azure Key Vault Premium, check to ensure that the key created is HSM protected.
+>
+> \*\* Except UK Regions which are FIPS 140-2 level 2, PCI DSS.
+
 
 ## What's next
 
 - [Key management in Azure](key-management.md)
-- [Azure Key Vault](../../key-vault/general/overview.md)
-- [Azure Managed HSM](../../key-vault/managed-hsm/overview.md)
-- [Azure Dedicated HSM](../../dedicated-hsm/overview.md)
-- [Azure Payment HSM](../../payment-hsm/overview.md)
+- [Azure Key Vault](/azure/key-vault/general/overview)
+- [Azure Managed HSM](/azure/key-vault/managed-hsm/overview)
+- [Azure Dedicated HSM](/azure/dedicated-hsm/overview)
+- [Azure Payment HSM](/azure/payment-hsm/overview)
 - [What is Zero Trust?](/security/zero-trust/zero-trust-overview)

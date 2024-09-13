@@ -4,12 +4,10 @@ description: Use a data factory to copy data from one location in Azure Blob sto
 author: ssabat
 ms.author: susabat
 ms.reviewer: jburchel
-ms.service: data-factory
-ms.subservice: tutorials
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 07/20/2023
-ms.custom: seo-python-october2019, devx-track-python, mode-api
+ms.date: 05/15/2024
+ms.custom: devx-track-python, mode-api
 ---
 
 # Quickstart: Create a data factory and pipeline using Python
@@ -466,6 +464,6 @@ To delete the data factory, add the following code to the program:
 adf_client.factories.delete(rg_name, df_name)
 ```
 
-## Next steps
+## Related content
 
 The pipeline in this sample copies data from one location to another location in an Azure blob storage. Go through the [tutorials](tutorial-copy-data-dot-net.md) to learn about using Data Factory in more scenarios.

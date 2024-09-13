@@ -4,12 +4,11 @@ titlesuffix: Azure Virtual Network
 description: Learn how to create, change, or delete a network security group (NSG).
 services: virtual-network
 author: asudbring
-ms.service: virtual-network
+ms.service: azure-virtual-network
 ms.topic: how-to
-ms.workload: infrastructure-services
 ms.date: 04/24/2023
 ms.author: allensu
-ms.custom: template-how-to, engagement-fy23, devx-track-azurepowershell, devx-track-azurecli, devx-track-linux
+ms.custom: template-how-to, engagement-fy23, devx-track-azurepowershell, devx-track-azurecli
 ---
 
 # Create, change, or delete a network security group
@@ -65,7 +64,7 @@ There's a limit to how many network security groups you can create for each Azur
 
 # [**PowerShell**](#tab/network-security-group-powershell)
 
-Use [New-AzNetworkSecurityGroup](/powershell/module/az.network/new-aznetworksecuritygroup) to create a network security group named **myNSG** in **East US** region. **myNSG** is created in the existing **myResourceGroup** resource group. 
+Use [New-AzNetworkSecurityGroup](/powershell/module/az.network/new-aznetworksecuritygroup) to create a network security group named **myNSG** in **East US** region. **myNSG** is created in the existing **myResourceGroup** resource group.
 
 ```azurepowershell-interactive
 New-AzNetworkSecurityGroup -Name myNSG -ResourceGroupName myResourceGroup  -Location  eastus
@@ -98,7 +97,7 @@ Get-AzNetworkSecurityGroup | format-table Name, Location, ResourceGroupName, Pro
 
 # [**Azure CLI**](#tab/network-security-group-cli)
 
-Use [az network nsg list](/cli/azure/network/nsg#az-network-nsg-list) to list all network security groups in your subscription.    
+Use [az network nsg list](/cli/azure/network/nsg#az-network-nsg-list) to list all network security groups in your subscription.
 
 ```azurecli-interactive
 az network nsg list --out table
@@ -119,11 +118,11 @@ Under **Monitoring**, you can enable or disable **Diagnostic settings**. For mor
 
 Under **Help**, you can view **Effective security rules**. For more information, see [Diagnose a virtual machine network traffic filter problem](diagnose-network-traffic-filter-problem.md).
 
-:::image type="content" source="./media/manage-network-security-group/network-security-group-details-inline.png" alt-text="Screenshot of network security group page in Azure portal." lightbox="./media/manage-network-security-group/network-security-group-details-expanded.png"::: 
+:::image type="content" source="./media/manage-network-security-group/network-security-group-details-inline.png" alt-text="Screenshot of network security group page in Azure portal." lightbox="./media/manage-network-security-group/network-security-group-details-expanded.png":::
 
 To learn more about the common Azure settings listed, see the following articles:
 
-- [Activity log](../azure-monitor/essentials/platform-logs-overview.md)
+- [Activity log](/azure/azure-monitor/essentials/platform-logs-overview)
 
 - [Access control (IAM)](../role-based-access-control/overview.md)
 
@@ -143,7 +142,7 @@ Get-AzNetworkSecurityGroup -Name myNSG -ResourceGroupName myResourceGroup
 
 To learn more about the common Azure settings listed, see the following articles:
 
-- [Activity log](../azure-monitor/essentials/platform-logs-overview.md)
+- [Activity log](/azure/azure-monitor/essentials/platform-logs-overview)
 
 - [Access control (IAM)](../role-based-access-control/overview.md)
 
@@ -161,7 +160,7 @@ az network nsg show --resource-group myResourceGroup --name myNSG
 
 To learn more about the common Azure settings listed, see the following articles:
 
-- [Activity log](../azure-monitor/essentials/platform-logs-overview.md)
+- [Activity log](/azure/azure-monitor/essentials/platform-logs-overview)
 
 - [Access control (IAM)](../role-based-access-control/overview.md)
 
@@ -373,7 +372,7 @@ az network nsg rule list --resource-group myResourceGroup --nsg-name myNSG
     > [!NOTE]
     > This procedure only applies to a custom security rule. It doesn't work if you choose a default security rule.
 
-    :::image type="content" source="./media/manage-network-security-group/view-security-rule-details.png" alt-text="Screenshot of details of an inbound security rule of a network security group in Azure portal.":::    
+    :::image type="content" source="./media/manage-network-security-group/view-security-rule-details.png" alt-text="Screenshot of details of an inbound security rule of a network security group in Azure portal.":::
 
 # [**PowerShell**](#tab/network-security-group-powershell)
 
@@ -415,7 +414,7 @@ az network nsg rule show --resource-group myResourceGroup --nsg-name myNSG --nam
 
 5. Change the settings as needed, and then select **Save**. For an explanation of all settings, see [Security rule settings](#security-rule-settings).
 
-    :::image type="content" source="./media/manage-network-security-group/change-security-rule.png" alt-text="Screenshot of change of an inbound security rule details of a network security group in Azure portal.":::    
+    :::image type="content" source="./media/manage-network-security-group/change-security-rule.png" alt-text="Screenshot of change of an inbound security rule details of a network security group in Azure portal.":::
 
     > [!NOTE]
     > This procedure only applies to a custom security rule. You aren't allowed to change a default security rule.
@@ -561,7 +560,7 @@ Get-AzApplicationSecurityGroup | format-table Name, ResourceGroupName, Location
 
 # [**Azure CLI**](#tab/network-security-group-cli)
 
-Use [az network asg list](/cli/azure/network/asg#az-network-asg-list) to list all application security groups in a resource group. 
+Use [az network asg list](/cli/azure/network/asg#az-network-asg-list) to list all application security groups in a resource group.
 
 ```azurecli-interactive
 az network asg list --resource-group myResourceGroup --out table
@@ -675,7 +674,7 @@ To manage network security groups, security rules, and application security grou
 | Microsoft.Network/networkSecurityGroups/read                  |   Get network security group                                          |
 | Microsoft.Network/networkSecurityGroups/write                 |   Create or update network security group                             |
 | Microsoft.Network/networkSecurityGroups/delete                |   Delete network security group                                       |
-| Microsoft.Network/networkSecurityGroups/join/action           |   Associate a network security group to a subnet or network interface 
+| Microsoft.Network/networkSecurityGroups/join/action           |   Associate a network security group to a subnet or network interface
 
 >[!NOTE]
 > To perform `write` operations on a network security group, the subscription account must have at least `read` permissions for resource group along with `Microsoft.Network/networkSecurityGroups/write` permission.

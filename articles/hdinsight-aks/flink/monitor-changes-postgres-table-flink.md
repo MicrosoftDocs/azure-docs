@@ -1,18 +1,20 @@
 ---
 title: Change Data Capture (CDC) of PostgreSQL table using Apache Flink® 
 description: Learn how to perform CDC on PostgreSQL table using Apache Flink® 
-ms.service: hdinsight-aks
+ms.service: azure-hdinsight-on-aks
 ms.topic: how-to
-ms.date: 10/27/2023
+ms.date: 03/29/2024
 ---
 
 # Change Data Capture (CDC) of PostgreSQL table using Apache Flink® 
 
+[!INCLUDE [retirement-notice](../includes/retirement-notice.md)]
 [!INCLUDE [feature-in-preview](../includes/feature-in-preview.md)]
+
 
 Change Data Capture (CDC) is a technique you can use to track row-level changes in database tables in response to create, update, and delete operations. In this article, we use [CDC Connectors for Apache Flink®](https://github.com/ververica/flink-cdc-connectors), which offer a set of source connectors for Apache Flink. The connectors integrate [Debezium®](https://nightlies.apache.org/flink/flink-docs-master/docs/connectors/table/formats/debezium/#debezium-format) as the engine to capture the data changes.  
 
-Flink supports to interpret Debezium JSON and Avro messages as INSERT/UPDATE/DELETE messages into Apache Flink SQL system. 
+Flink supports to interpret Debezium JSON and Avro messages as INSERT/UPDATE/DELETE messages into Apache Flink SQL system.
 
 This support is useful in many cases to:
 
@@ -91,7 +93,7 @@ Now, let's learn how to monitor changes on PostgreSQL table using Flink-SQL CDC.
         <dependency>
             <groupId>com.ververica</groupId>
             <artifactId>flink-sql-connector-postgres-cdc</artifactId>
-            <version>2.3.0</version>
+            <version>2.4.2</version>
         </dependency>
         </dependencies>
     </project>
@@ -113,41 +115,87 @@ Now, let's learn how to monitor changes on PostgreSQL table using Flink-SQL CDC.
 
     ```sql
     /opt/flink-webssh/bin/sql-client.sh -j
-    /opt/flink-webssh/target/flink-sql-connector-postgres-cdc-2.3.0.jar -j
+    /opt/flink-webssh/target/flink-sql-connector-postgres-cdc-2.4.2.jar -j
     /opt/flink-webssh/target/slf4j-api-1.7.15.jar -j
     /opt/flink-webssh/target/hamcrest-2.1.jar -j
-    /opt/flink-webssh/target/flink-shaded-guava-30.1.1-jre-16.0.jar -j
+    /opt/flink-webssh/target/flink-shaded-guava-31.1-jre-17.0.jar-j
     /opt/flink-webssh/target/awaitility-4.0.1.jar -j
     /opt/flink-webssh/target/jsr308-all-1.1.2.jar
     ```
     These commands start the sql client with the dependencies as,
 
-     :::image type="content" source="./media/monitor-changes-postgres-table-flink/start-the-sql-client.png" alt-text="Screenshot showing start-the-sql-client." border="true" lightbox="./media/monitor-changes-postgres-table-flink/start-the-sql-client.png":::
-
-     :::image type="content" source="./media/monitor-changes-postgres-table-flink/sql-client-status.png" alt-text="Screenshot showing sql-client-status."    border="true" lightbox="./media/monitor-changes-postgres-table-flink/sql-client-status.png":::
-
+    ```
+    user@sshnode-0 [ ~ ]$ bin/sql-client.sh -j flink-sql-connector-postgres-cdc-2.4.2.jar -j slf4j-api-1.7.15.jar -j hamcrest-2.1.jar -j flink-shaded-guava-31.1-jre-17.0.jar -j awaitility-4.0.1.jar -j jsr308-all-1.1.2.jar 
+     
+                                      ????????
+                                  ????????????????
+                               ???????        ??????? ?
+                             ????   ?????????      ?????
+                             ???         ???????    ?????
+                               ???            ???   ?????
+                                 ??       ???????????????
+                               ?? ?   ???      ?????? ?????
+                               ?????   ????     ????? ?????
+                            ???????       ???   ??????? ???
+                      ????????? ??         ??   ??????????
+                     ????????  ??          ?   ?? ???????
+                   ????  ???           ?  ?? ???????? ?????
+                  ???? ? ??          ? ?? ????????    ???? ??
+                 ???? ????          ??????????       ??? ?? ????
+              ???? ?? ???       ???????????         ???? ? ?  ???
+              ??? ?? ??? ?????????             ????           ???
+              ??   ? ???????             ????????          ??? ??
+              ???    ???   ????????????????????           ????  ?
+             ????? ???   ??????  ????????                 ????  ??
+             ????????  ???????????????                            ??
+             ?? ????   ??????? ???       ??????    ??         ???
+             ??? ???  ??? ???????            ????   ?????????????
+              ??? ?????  ???? ??                ??      ????  ???
+              ??  ???   ?     ??                ??              ??
+               ??  ??         ??                 ??        ????????
+                ?? ?????       ??                  ???????????    ??
+                 ??   ????     ?                    ???????      ??
+                  ???   ?????                         ?? ???????????
+                   ????    ????                     ??????? ????????
+                     ?????                          ??  ???? ?????
+                        ????????????????????????????????? ?????
+            
+       ______ _ _       _      _____  ____  _        _____ _ _            _  BETA   
+      | ____| (_)     | |     / ____|/ __ \| |       / ____| (_)          | | 
+      | |__ | |_ _ __ | | __ | (___ | |  | | |      | |    | |_ ___ _ __ | |_ 
+      |  __| | | | '_ \| |/ /  \___ \| |  | | |     | |    | | |/ _ \ '_ \| __|
+      | |   | | | | | |   <   ____) | |__| | |____  | |____| | | __/ | | | |_ 
+      |_|   |_|_|_| |_|_|\_\ |_____/ \___\_\______| \_____|_|_|\___|_| |_|\__|
+            
+           Welcome! Enter 'HELP;' to list all available commands. 'QUIT;' to exit.
+     
+    Command history file path: /home/xcao/.flink-sql-history
+     
+    Flink SQL>
+    ```
 
 - Create a Flink PostgreSQL CDC table using CDC connector
 
     ``` 
     CREATE TABLE shipments (
-       shipment_id INT,
-       order_id INT,
-       origin STRING,
-       destination STRING,
-       is_arrived BOOLEAN,
-       PRIMARY KEY (shipment_id) NOT ENFORCED
-     ) WITH (
-       'connector' = 'postgres-cdc',
-       'hostname' = 'flinkpostgres.postgres.database.azure.com',
-       'port' = '5432',
-       'username' = 'username',
-       'password' = 'admin',
-       'database-name' = 'postgres',
-       'schema-name' = 'public',
-       'table-name' = 'shipments',
-       'decoding.plugin.name' = 'pgoutput'
-     );
+      shipment_id INT,
+      order_id INT,
+      origin STRING,
+      destination STRING,
+      is_arrived BOOLEAN,
+      PRIMARY KEY (shipment_id) NOT ENFORCED
+    ) WITH (
+      'connector' = 'postgres-cdc',
+      'hostname' = 'flinkpostgres.postgres.database.azure.com',
+      'port' = '5432',
+      'username' = 'username',
+      'password' = 'password',
+      'database-name' = 'postgres',
+      'schema-name' = 'public',
+      'table-name' = 'shipments',
+      'decoding.plugin.name' = 'pgoutput',
+      'slot.name' = 'flink'
+    );
     ```
 ## Validation
 
@@ -160,5 +208,5 @@ Now, let's learn how to monitor changes on PostgreSQL table using Flink-SQL CDC.
 ### Reference
 
 - [Apache Flink Website](https://flink.apache.org/)
-- [PostgreSQL CDC Connector](https://ververica.github.io/flink-cdc-connectors/release-2.1/content/connectors/postgres-cdc.html) is licensed under [Apache 2.0 License](https://github.com/ververica/flink-cdc-connectors/blob/master/LICENSE)
+- [PostgreSQL CDC Connector](https://github.com/apache/flink-cdc) is licensed under [Apache 2.0 License](https://github.com/ververica/flink-cdc-connectors/blob/master/LICENSE)
 - Apache, Apache Flink, Flink, and associated open source project names are [trademarks](../trademarks.md) of the [Apache Software Foundation](https://www.apache.org/) (ASF).

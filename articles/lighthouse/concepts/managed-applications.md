@@ -1,13 +1,13 @@
 ---
 title: Azure Lighthouse and Azure managed applications
 description: Understand how Azure Lighthouse and Azure managed applications can be used together.
-ms.date: 05/10/2023
+ms.date: 07/10/2024
 ms.topic: conceptual
 ---
 
 # Azure Lighthouse and Azure managed applications
 
-Both Azure managed applications and Azure Lighthouse work by enabling a service provider to access resources that reside in the customer's tenant. It can be helpful to understand the differences in the way that they work, the scenarios that they help to enable, and how they can be used together.
+Both [Azure managed applications](../../azure-resource-manager/managed-applications/overview.md) and [Azure Lighthouse](../overview.md) work by enabling a service provider to access resources that reside in the customer's tenant. It can be helpful to understand the differences in the way that they work, the scenarios that they help to enable, and how they can be used together.
 
 > [!TIP]
 > Though we refer to service providers and customers in this topic, [enterprises managing multiple tenants](enterprise.md) can use the same processes and tools.
@@ -28,7 +28,7 @@ This table illustrates some high-level differences that may impact whether you m
 
 With [Azure Lighthouse](../overview.md), a service provider can perform a wide range of management tasks directly on a customer's subscription (or resource group). This access is achieved through a [logical projection](architecture.md#logical-projection), allowing service providers to sign in to their own tenant and access resources that belong to the customer's tenant. The customer can determine which subscriptions or resource groups to delegate to the service provider, and the customer maintains full access to those resources. They can also remove the service provider's access at any time.
 
-To use Azure Lighthouse, customers are onboarded either by [deploying ARM templates](../how-to/onboard-customer.md) or through a [Managed Service offer in Azure Marketplace](managed-services-offers.md). You can track your impact on customer engagements by [linking your partner ID](../how-to/partner-earned-credit.md).
+To use Azure Lighthouse, customers are onboarded either by [deploying ARM templates](../how-to/onboard-customer.md) or through a [Managed Service offer in Azure Marketplace](managed-services-offers.md). You can track your impact on customer engagements by [linking your partner ID](../../cost-management-billing/manage/link-partner-id.md).
 
 Azure Lighthouse is typically used when a service provider will perform management tasks for a customer on an ongoing basis. To learn more about how Azure Lighthouse works at a technical level, see [Azure Lighthouse architecture](architecture.md).
 
@@ -36,11 +36,11 @@ Azure Lighthouse is typically used when a service provider will perform manageme
 
 [Azure managed applications](../../azure-resource-manager/managed-applications/overview.md) allow an ISV/publisher to offer cloud solutions that are easy for customers to deploy and use in their own subscriptions.
 
-In a managed application, the resources used by the application are bundled together and deployed to a resource group that can be managed by the ISV/publisher. This 'managed resource group' is present in the customer's subscription, but identities in the publisher's tenant can have access to it. When publishing an offer in Microsoft Partner Center, the publisher can choose whether they enable or disable management access by the publisher itself. In addition, the publisher can restrict customer access (using deny assignments), or grant the customer full access.
+In a managed application, the resources used by the application are bundled together and deployed to a resource group that can be managed by the ISV/publisher. This "managed resource group" is present in the customer's subscription, but identities in the publisher's tenant can have access to it. When publishing an offer in Microsoft Partner Center, the publisher can choose whether they enable or disable management access by the publisher itself. In addition, the publisher can restrict customer access (using deny assignments), or grant the customer full access.
 
 Managed applications support [customized Azure portal experiences](../../azure-resource-manager/managed-applications/concepts-view-definition.md) and [integration with custom providers](../../azure-resource-manager/managed-applications/tutorial-create-managed-app-with-custom-provider.md). These options can be used to deliver a more customized and integrated experience, making it easier for customers to perform some management tasks themselves.
 
-Managed applications can be [published to Azure Marketplace](../../marketplace/azure-app-offer-setup.md), either as a private offer for a specific customer's use, or as public offers that multiple customers can purchase. They can also be delivered to users within your organization by [publishing managed applications to your service catalog](../../azure-resource-manager/managed-applications/publish-service-catalog-app.md). You can deploy both service catalog and Marketplace instances using ARM templates, which can include a Commercial Marketplace partner's unique identifier to track [customer usage attribution](../../marketplace/azure-partner-customer-usage-attribution.md).
+Managed applications can be [published to Azure Marketplace](../../marketplace/azure-app-offer-setup.md), either as a private offer for a specific customer's use, or as public offers that multiple customers can purchase. They can also be delivered to users within your organization by [publishing managed applications to your service catalog](../../azure-resource-manager/managed-applications/publish-service-catalog-app.md). You can deploy both service catalog and Marketplace instances using ARM templates, which can include a commercial marketplace partner's unique identifier to track [customer usage attribution](../../marketplace/azure-partner-customer-usage-attribution.md).
 
 Azure managed applications are typically used for a specific customer need that can be achieved through a turnkey solution that is fully managed by the service provider.
 

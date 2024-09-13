@@ -5,7 +5,6 @@ summary: Learn how to use Azure Managed Confidential Consortium Framework
 metadata:
   title: Azure Managed Confidential Consortium Framework documentation
   description: Learn how to use Azure Managed Confidential Consortium Framework
-  services: azure-managed-confidential-consortium-framework
   ms.service: azure-managed-confidential-consortium-framework
   ms.topic: landing-page
   author: msftsettiy

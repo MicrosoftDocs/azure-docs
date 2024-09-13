@@ -2,9 +2,8 @@
 title: Overview of Azure Boost
 description: Learn more about how Azure Boost can Learn more about how Azure Boost can improve security and performance of your virtual machines.
 author: mattmcinnes
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 ms.topic: conceptual
-ms.workload: infrastructure
 ms.custom:
   - ignite-2023
 ms.date: 11/07/2023
@@ -74,7 +73,7 @@ HW RoT identity, Secure Boot, and Attestation through Azure’s Attestation Serv
 Boost systems embrace multiple layers of defense-in-depth, including ubiquitous code integrity verification that enforces only Microsoft approved and signed code runs on the Boost system on chip. Microsoft has sought to learn from and contribute back to the wider security community, up streaming advancements to the Integrity Measurement Architecture.
 
 - **Security Enhanced OS:**
-Azure Boost uses Security Enhanced Linux (SELinux) to enforce principle of least privileges for all software running on its system on chip. All control plane and data plane software running on top of the Boost OS is restricted to running only with the minimum set of privileges required to operate – the operating system restricts any attempt by Boost software to act in an unexpected manner. Boost OS properties make it difficult to compromise code, data, or the availability of Boost and Azure hosting Infrastructure.
+Azure Boost uses Security Enhanced Linux (SELinux) to enforce principle of least privilege for all software running on its system on chip. All control plane and data plane software running on top of the Boost OS is restricted to running only with the minimum set of privileges required to operate – the operating system restricts any attempt by Boost software to act in an unexpected manner. Boost OS properties make it difficult to compromise code, data, or the availability of Boost and Azure hosting Infrastructure.
 
 - **Rust memory safety:**
 Rust serves as the primary language for all new code written on the Boost system, to provide memory safety without impacting performance. Control and data plane operations are isolated with memory safety improvements that enhance Azure’s ability to keep tenants safe. 
@@ -99,5 +98,5 @@ Azure Boost is currently available on several VM size families:
 
 ## Next Steps
 - Learn more about [Azure Virtual Network](../virtual-network/virtual-networks-overview.md).
-- Look into [Azure Dedicated Hosts](../virtual-machines/dedicated-hosts.md).
+- Look into [Azure Dedicated Hosts](/azure/virtual-machines/dedicated-hosts).
 - Learn more about [Azure Storage](../storage/common/storage-introduction.md).

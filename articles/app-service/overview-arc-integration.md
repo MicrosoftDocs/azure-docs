@@ -3,7 +3,7 @@ title: 'App Service on Azure Arc'
 description: An introduction to App Service integration with Azure Arc for Azure operators.
 ms.topic: article
 ms.custom: devx-track-azurecli
-ms.date: 03/15/2023
+ms.date: 12/05/2023
 author: msangapu-msft
 ms.author: msangapu
 ---
@@ -113,7 +113,7 @@ All applications deployed with Azure App Service on Kubernetes with Azure Arc ar
 
 ### What logs are collected?
 
-Logs for both system components and your applications are written to standard output. Both log types can be collected for analysis using standard Kubernetes tools. You can also configure the App Service cluster extension with a [Log Analytics workspace](../azure-monitor/logs/log-analytics-overview.md), and it sends all logs to that workspace.
+Logs for both system components and your applications are written to standard output. Both log types can be collected for analysis using standard Kubernetes tools. You can also configure the App Service cluster extension with a [Log Analytics workspace](/azure/azure-monitor/logs/log-analytics-overview), and it sends all logs to that workspace.
 
 By default, logs from system components are sent to the Azure team. Application logs aren't sent. You can prevent these logs from being transferred by setting `logProcessor.enabled=false` as an extension configuration setting. This configuration setting will also disable forwarding of application to your Log Analytics workspace. Disabling the log processor might impact time needed for any support cases, and you will be asked to collect logs from standard output through some other means.
 
@@ -227,6 +227,20 @@ If your extension was in the stable version and auto-upgrade-minor-version is se
 
 ```azurecli-interactive
     az k8s-extension update --cluster-type connectedClusters -c <clustername> -g <resource group> -n <extension name> --release-train stable --version 0.13.1
+```
+
+### Application services extension v 0.13.5 (December 2023)
+
+- Update to support Kubernetes version 1.26 and above
+- Update Envoy to 1.2.1
+- Update Keda to v2.10.0
+- Update EasyAuth to v1.6.20
+- Update base images for supported languages
+
+If your extension was in the stable version and auto-upgrade-minor-version is set to true, the extension upgrades automatically. To manually upgrade the extension to the latest version, you can run the command:
+
+```azurecli-interactive
+    az k8s-extension update --cluster-type connectedClusters -c <clustername> -g <resource group> -n <extension name> --release-train stable --version 0.13.5
 ```
 
 ## Next steps

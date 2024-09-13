@@ -4,9 +4,9 @@ titleSuffix: Azure Container Apps
 description: Learn how to apply container app to container app resiliency when using the application's service name in Azure Container Apps.
 services: container-apps
 author: hhunter-ms
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.topic: conceptual
-ms.date: 11/06/2023
+ms.date: 08/02/2024
 ms.author: hannahhunter
 ms.custom: ignite-fall-2023, ignite-2023, devx-track-azurecli
 # Customer Intent: As a developer, I'd like to learn how to make my container apps resilient using Azure Container Apps.
@@ -47,7 +47,7 @@ When you apply a policy to a container app, the rules are applied to all request
 The following resiliency example demonstrates all of the available configurations. 
 
 ```bicep
-resource myPolicyDoc 'Microsoft.App/containerApps/resiliencyPolicies@2023-08-01-preview' = {
+resource myPolicyDoc 'Microsoft.App/containerApps/resiliencyPolicies@2023-11-02-preview' = {
   name: 'my-app-resiliency-policies'
   parent: '${appName}'
   properties: {
@@ -106,7 +106,7 @@ resource myPolicyDoc 'Microsoft.App/containerApps/resiliencyPolicies@2023-08-01-
 
 ### Before you begin
 
-Log-in to the Azure CLI:
+Log in to the Azure CLI:
 
 ```azurecli
 az login
@@ -358,7 +358,7 @@ matches: {
     '5xx'
     'reset'
     'connect-failure'
-    'retriabe-4xx'
+    'retriable-4xx'
   ]
 }
 ```

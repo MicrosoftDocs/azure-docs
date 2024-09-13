@@ -34,7 +34,7 @@ To create an IoT hub route, you need an IoT hub that you created by using Azure 
 
 Be sure to have the following hub resource to use when you create your IoT hub route:
 
-* An IoT hub in your [Azure subscription](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). If you don't have a hub yet, you can follow the steps to [create an IoT hub by using the Azure portal](./iot-hub-create-through-portal.md).
+* An IoT hub in your Azure subscription. If you don't have a hub yet, you can follow the steps in [Create an IoT hub](create-hub.md).
 
 ### Endpoint service
 
@@ -50,7 +50,7 @@ Be sure to have *one* of the following resources to use when you create an endpo
 
 * An Azure Storage resource (account and container). If you need to create a new storage account in Azure, see [Create a storage account](../storage/common/storage-account-create.md?tabs=azure-portal). When you create a storage account, you have many options, but you need only a new container in your account for this article.
 
-* An Azure Cosmos DB resource (account, database, and container). If you need to create a new instance of Azure Cosmos DB, see [Create an Azure Cosmos DB account](../cosmos-db/nosql/quickstart-portal.md#create-account). For the API option, select **Azure Cosmos DB for NoSQL**.
+* An Azure Cosmos DB resource (account, database, and container). If you need to create a new instance of Azure Cosmos DB, see [Create an Azure Cosmos DB account](/azure/cosmos-db/nosql/quickstart-portal#create-account). For the API option, select **Azure Cosmos DB for NoSQL**.
 
 ## Create a route and endpoint
 
@@ -68,12 +68,12 @@ Routes send messages or event logs to an Azure service for storage or processing
 
    | Parameter | Value |
    | --------- | ----- |
-   | **Endpoint type** | Select **Cosmos DB (preview)**. |
+   | **Endpoint type** | Select **Cosmos DB**. |
    | **Endpoint name** | Provide a unique name for a new endpoint, or select **Select existing** to choose an existing Storage endpoint. |
    | **Cosmos DB account** | Use the drop-down menu to select an existing Cosmos DB account in your subscription. |
    | **Database** | Use the drop-down menu to select an existing database in your Cosmos DB account. |
    | **Collection** | Use the drop-down menu to select an existing collection (or container). |
-   | **Generate a synthetic partition key for messages** | Select **Enable** to support data storage for high-scale scenarios. Otherwise, select **Disable** For more information, see [Partitioning and horizontal scaling in Azure Cosmos DB](../cosmos-db/partitioning-overview.md) and [Synthetic partition keys](../cosmos-db/nosql/synthetic-partition-keys.md). |
+   | **Generate a synthetic partition key for messages** | Select **Enable** to support data storage for high-scale scenarios. Otherwise, select **Disable** For more information, see [Partitioning and horizontal scaling in Azure Cosmos DB](/azure/cosmos-db/partitioning-overview) and [Synthetic partition keys](/azure/cosmos-db/nosql/synthetic-partition-keys). |
    | **Partition key name** | If you enable synthetic partition keys, provide a name for the partition key. The partition key property name is defined at the container level and can't be changed once it has been set. |
    | **Partition key template** | Provide a template that is used to configure the synthetic partition key value. The generated partition key value is automatically added to the partition key property for each new Cosmos DB record. |
 

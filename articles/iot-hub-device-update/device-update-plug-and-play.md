@@ -3,31 +3,31 @@ title: Understand how Device Update for IoT Hub uses IoT Plug and Play
 description: Device Update for IoT Hub uses to discover and manage devices that are over-the-air update capable.
 author: eshashah-msft
 ms.author: eshashah
-ms.date: 2/2/2023
+ms.date: 3/4/2024
 ms.topic: concept-article
 ms.service: iot-hub-device-update
 ---
 
 # Device Update for IoT Hub and IoT Plug and Play
 
-Device Update for IoT Hub uses [IoT Plug and Play](../iot-develop/overview-iot-plug-and-play.md) to discover and manage devices that are over-the-air update capable. The Device Update service sends and receives properties and messages to and from devices using IoT Plug and Play interfaces. 
+Device Update for IoT Hub uses [IoT Plug and Play](../iot/overview-iot-plug-and-play.md) to discover and manage devices that are over-the-air update capable. The Device Update service sends and receives properties and messages to and from devices using IoT Plug and Play interfaces. 
 
 For more information:
 
-* Understand the [IoT Plug and Play device client](../iot-develop/concepts-developer-guide-device.md).
+* Understand the [IoT Plug and Play device client](../iot/concepts-developer-guide-device.md).
 * See how the [Device Update agent is implemented](https://github.com/Azure/iot-hub-device-update/blob/main/docs/agent-reference/how-to-build-agent-code.md).
 
 ## Device Update Models
 
-Model ID is how smart devices advertise their capabilities to Azure IoT applications with IoT Plug and Play.To learn more on how to build smart devices to advertise their capabilities to Azure IoT applications visit [IoT Plug and Play device developer guide](../iot-develop/concepts-developer-guide-device.md).
+Model ID is how smart devices advertise their capabilities to Azure IoT applications with IoT Plug and Play.To learn more on how to build smart devices to advertise their capabilities to Azure IoT applications visit [IoT Plug and Play device developer guide](../iot/concepts-developer-guide-device.md).
 
-Device Update for IoT Hub requires the IoT Plug and Play smart device to announce a model ID as part of the device connection. [Learn how to announce a model ID](../iot-develop/concepts-developer-guide-device.md#model-id-announcement).
+Device Update for IoT Hub requires the IoT Plug and Play smart device to announce a model ID as part of the device connection. [Learn how to announce a model ID](../iot/concepts-developer-guide-device.md#model-id-announcement).
 
-Device Update has 2 PnP models defined that support DU features. The Device Update model, '**dtmi:azure:iot:deviceUpdateContractModel;2**', supports the core functionality and uses the device update core interface to send update actions and metadata to devices and receive update status from devices. 
+Device Update has several PnP models defined that support DU features. The Device Update model, '**dtmi:azure:iot:deviceUpdateContractModel;3**', supports the core functionality and uses the device update core interface to send update actions and metadata to devices and receive update status from devices. 
 
-The other supported model is **dtmi:azure:iot:deviceUpdateModel;2** which extends **deviceUpdateContractModel;2** and also uses other PnP interfaces that send device properties and information and enable diagnostic features. Learn more about the [Device Update Models and Interfaces Versions] (https://github.com/Azure/iot-plugandplay-models/tree/main/dtmi/azure/iot). 
+The other supported model is **dtmi:azure:iot:deviceUpdateModel;3** which extends **deviceUpdateContractModel;3** and also uses other PnP interfaces that send device properties and information and enable diagnostic features. Learn more about the [Device Update Models and Interfaces Versions] (https://github.com/Azure/iot-plugandplay-models/tree/main/dtmi/azure/iot). 
 
-The Device Update agent uses the **dtmi:azure:iot:deviceUpdateModel;2** which supports all the latest features in the [1.0.0 release](understand-device-update.md#flexible-features-for-updating-devices). This model supports the [V5 manifest version](import-concepts.md). 
+The Device Update agent uses the **dtmi:azure:iot:deviceUpdateModel;3** which supports all the latest features in the [1.1.0 release](https://github.com/Azure/iot-hub-device-update/releases/). This model supports the [V5 manifest version](import-concepts.md).Older manifests will work with the latest agents but new features require the use of the latest manifest version.
 
 ### Agent metadata
 
@@ -54,7 +54,7 @@ The **deviceProperties** field contains the manufacturer and model information f
 |----|------|---------|-----------|
 |manufacturer|string|device to cloud|The device manufacturer of the device, reported through `deviceProperties`. This property is read from one of two places - first, the DeviceUpdateCore interface attempts to read the 'aduc_manufacturer' value from the [Configuration file](device-update-configuration-file.md). If the value isn't populated in the configuration file, it defaults to reporting the compile-time definition for ADUC_DEVICEPROPERTIES_MANUFACTURER. This property is reported only at boot time. <br><br> Default value: 'Contoso'.|
 |model|string|device to cloud|The device model of the device, reported through `deviceProperties`. This property is read from one of two places - first, the DeviceUpdateCore interface attempts to read the 'aduc_model' value from the [Configuration file](device-update-configuration-file.md).  If the value isn't populated in the configuration file, it defaults to reporting the compile-time definition for ADUC_DEVICEPROPERTIES_MODEL. This property is reported only at boot time. <br><br> Default value: 'Video'|
-|contractModelId|string|device to cloud|This property is used by the service to identify the base model version being used by the Device Update agent to manage and communicate with the agent.<br>Value: 'dtmi:azure:iot:deviceUpdateContractModel;2' for devices using DU agent version 1.0.0. <br>**Note:** Agents using the 'dtmi:azure:iot:deviceUpdateModel;2' must report the contractModelId as 'dtmi:azure:iot:deviceUpdateContractModel;2' as deviceUpdateModel;2 is extended from deviceUpdateModel;2|
+|contractModelId|string|device to cloud|This property is used by the service to identify the base model version being used by the Device Update agent to manage and communicate with the agent.<br>Value: 'dtmi:azure:iot:deviceUpdateContractModel;3' for devices using DU agent version 1.1.0. <br>**Note:** Agents using the 'dtmi:azure:iot:deviceUpdateModel;2' must report the contractModelId as 'dtmi:azure:iot:deviceUpdateContractModel;3' as deviceUpdateModel;3 is extended from deviceUpdateContractModel;3|
 |aduVer|string|device to cloud|Version of the Device Update agent running on the device. This value is read from the build only if ENABLE_ADU_TELEMETRY_REPORTING is set to 1 (true) during compile time. Customers can choose to opt out of version reporting by setting the value to 0 (false). [How to customize Device Update agent properties](https://github.com/Azure/iot-hub-device-update/blob/main/docs/agent-reference/how-to-build-agent-code.md).|
 |doVer|string|device to cloud|Version of the Delivery Optimization agent running on the device. The value is read from the build only if ENABLE_ADU_TELEMETRY_REPORTING is set to 1 (true) during compile time. Customers can choose to opt out of the version reporting by setting the value to 0 (false). [How to customize Delivery Optimization agent properties](https://github.com/microsoft/do-client/blob/main/README.md#building-do-client-components).|
 |Custom compatibility Properties|User Defined|device to cloud|Implementer can define other device properties to be used for the compatibility check while targeting the update deployment.|
@@ -68,10 +68,9 @@ IoT Hub device twin example:
                     "deviceProperties": {
                         "manufacturer": "contoso",
                         "model": "virtual-vacuum-v1",
-                        "contractModelId": "dtmi:azure:iot:deviceUpdateContractModel;2",
-                        "aduVer": "DU;agent/0.8.0-rc1-public-preview",
-                        "doVer": "DU;lib/v0.6.0+20211001.174458.c8c4051,DU;agent/v0.6.0+20211001.174418.c8c4051"
-                    },
+                        "contractModelId": "dtmi:azure:iot:deviceUpdateContractModel;3",
+                        "aduVer": "DU;agent/1.1.0",
+                        },
                     "compatPropertyNames": "manufacturer,model",
                     "lastInstallResult": {
                         "resultCode": 700,
@@ -96,7 +95,7 @@ IoT Hub device twin example:
 ```
 
 >[!NOTE]
->The device or module must add the `{"__t": "c"}` marker to indicate that the element refers to a component. For more information, see [IoT Plug and Play conventions](../iot-develop/concepts-convention.md#sample-multiple-components-writable-property).
+>The device or module must add the `{"__t": "c"}` marker to indicate that the element refers to a component. For more information, see [IoT Plug and Play conventions](../iot/concepts-convention.md#sample-multiple-components-writable-property).
 
 #### State
 
@@ -135,9 +134,9 @@ The **action** field represents the actions taken by the Device Update agent as 
 
 ## Device information interface
 
-The device information interface is a concept used within [IoT Plug and Play architecture](../iot-develop/overview-iot-plug-and-play.md). It contains device-to-cloud properties that provide information about the hardware and operating system of the device. Device Update for IoT Hub uses the `DeviceInformation.manufacturer` and `DeviceInformation.model` properties for telemetry and diagnostics. To learn more, see this [example of the device information interface](https://devicemodels.azure.com/dtmi/azure/devicemanagement/deviceinformation-1.json).
+The device information interface is a concept used within [IoT Plug and Play architecture](../iot/overview-iot-plug-and-play.md). It contains device-to-cloud properties that provide information about the hardware and operating system of the device. Device Update for IoT Hub uses the `DeviceInformation.manufacturer` and `DeviceInformation.model` properties for telemetry and diagnostics. To learn more, see this [example of the device information interface](https://devicemodels.azure.com/dtmi/azure/devicemanagement/deviceinformation-1.json).
 
-The expected component name in your model is **deviceInformation** when this interface is implemented. [Learn about Azure IoT Plug and Play Components](../iot-develop/concepts-modeling-guide.md)
+The expected component name in your model is **deviceInformation** when this interface is implemented. [Learn about Azure IoT Plug and Play Components](../iot/concepts-modeling-guide.md)
 
 |Name|Type|Schema|Direction|Description|Example|
 |----|----|------|---------|-----------|-----------|

@@ -17,12 +17,12 @@ Azure Communication Services emits the following voice and video calling event t
 
 | Event type                                                  | Description                                                                                    |
 | ----------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| Microsoft.Communication.RecordingFileStatusUpdated | Published when recording file is available |
-| Microsoft.Communication.CallStarted | Published when call is started  |
-| Microsoft.Communication.CallEnded   | Published when call is ended  |
-| Microsoft.Communication.CallParticipantAdded | Published when participant is added  |
-| Microsoft.Communication.CallParticipantRemoved | Published when participant is removed  |
-| Microsoft.Communication.IncomingCall | Published when there is an incoming call  |
+| [Microsoft.Communication.RecordingFileStatusUpdated](#microsoftcommunicationrecordingfilestatusupdated) | Published when a recording file is available |
+| [Microsoft.Communication.CallStarted](#microsoftcommunicationcallstarted) | Published when a call is started  |
+| [Microsoft.Communication.CallEnded](#microsoftcommunicationcallended)   | Published when a call ends  |
+| [Microsoft.Communication.CallParticipantAdded](#microsoftcommunicationcallparticipantadded) | Published when a participant is added to a call AND they join it |
+| [Microsoft.Communication.CallParticipantRemoved](#microsoftcommunicationcallparticipantremoved) | Published when a participant leaves or is removed from a call  |
+| [Microsoft.Communication.IncomingCall](#microsoftcommunicationincomingcall) | Published when there is an incoming call  |
 
 ## Event responses
 
@@ -263,6 +263,11 @@ This section contains an example of what that data would look like for each even
       },
       "serverCallId": "tob2JIV0wzOHdab3dWcGVWZmsrL2QxYVZnQ2U1bVVLQTh1T056YmpvdXdnQjNzZTlnTEhjNFlYem5BVU9nRGY5dUFQ",
       "callerDisplayName": "John Doe",
+      "customContext": {
+        "voipHeaders": {
+          "voipHeaderName": "value"
+        }
+      },
       "incomingCallContext": "eyJhbGciOiJub25lIiwidHliSldUIn0.eyJjYyI6Ikg0c0lBQi9iT0JiOUs0SVhtQS9UMGhJbFVaUUlHQVBIc1J1M1RlbzgyNW4xcmtHJNa2hCNVVTQkNUbjFKTVo1NCt3ZDk1WFY0ZnNENUg0VDV2dk5VQ001NWxpRkpJb0pDUWlXS0F3OTJRSEVwUWo4aFFleDl4ZmxjRi9lMTlaODNEUmN6QUpvMVRWVXoxK1dWYm1lNW5zNmF5cFRyVGJ1KzMxU3FMY3E1SFhHWHZpc3FWd2kwcUJWSEhta0xjVFJEQ0hlSjNhdzA5MHE2T0pOaFNqS0pFdXpCcVdidzRoSmJGMGtxUkNaOFA4T3VUMTF0MzVHN0kvS0w3aVQyc09aS2F0NHQ2cFV5d0UwSUlEYm4wQStjcGtiVjlUK0E4SUhLZ2JKUjc1Vm8vZ0hFZGtRT3RCYXl1akc4cUt2U1dITFFCR3JFYjJNY3RuRVF0TEZQV1JEUzJHMDk3TGU5VnhhTktob2JIV0wzOHdab3dWcGVWZmsrL2QxYVZnQ2U1bVVLQTh1T056YmpvdXdnQjNzZTlnTEhjNFlYem5BVU9nRGY5dUFQMndsMXA0WU5nK1cySVRxSEtZUzJDV25IcEUySkhVZzd2UnVHOTBsZ081cU81MngvekR0OElYWHBFSi9peUxtNkdibmR1eEdZREozRXNWWXh4ZzZPd1hqc0pCUjZvR1U3NDIrYTR4M1RpQXFaV245UVIrMHNaVDg3YXpRQzbDNUR3BuZFhST1FTMVRTRzVVTkRGeU5UVjNORTFHU2kxck1UTk9VMUF0TWtWNVNreFRUVVI0YlMxRk1VdEVabnBRTjFsQ1EwWkVlVTQxZURCc1IyaHljVTVYTFROeWVTMVJNVjgyVFhrdGRFNUJZV3hrZW5SSVUwMTFVVE5GWkRKUkluMTlmUS5hMTZ0eXdzTDhuVHNPY1RWa2JnV3FPbTRncktHZmVMaC1KNjZUZXoza0JWQVJmYWYwOTRDWDFJSE5tUXRJeDN1TWk2aXZ3QXFFQWV1UlNGTjhlS3gzWV8yZXppZUN5WDlaSHp6Q1ZKemdZUVprc0RjYnprMGJoR09laWkydkpEMnlBMFdyUW1SeGFxOGZUM25EOUQ1Z1ZSUVczMGRheGQ5V001X1ZuNFNENmxtLVR5TUSVEifQ.",
       "correlationId": "d732db64-4803-462d-be9c-518943ea2b7a"
     },
@@ -275,10 +280,10 @@ This section contains an example of what that data would look like for each even
 ```
 
 ## Limitations
-Aside from `IncomingCall`, Calling events are only available for ACS VoIP users. PSTN, bots, echo bot and Teams users events are excluded.
-No calling events will be available for ACS - Teams meeting interop call.
+Aside from `IncomingCall`, Calling events are only available for Azure Communication Services VoIP users. PSTN, bots, echo bot and Teams users events are excluded.
+No calling events will be available for Azure Communication Services - Teams meeting interop call.
 
-`IncomingCall` events have support for ACS VoIP users and PSTN numbers. For more details on which scenarios can trigger `IncomingCall` events, see the following [Incoming call concepts](../communication-services/concepts/call-automation/incoming-call-notification.md) documentation. 
+`IncomingCall` events have support for Azure Communication Services VoIP users and PSTN numbers. For more details on which scenarios can trigger `IncomingCall` events, see the following [Incoming call concepts](../communication-services/concepts/call-automation/incoming-call-notification.md) documentation. 
 
 ## Next steps
 See the following tutorial: [Quickstart: Handle voice and video calling events](../communication-services/quickstarts/voice-video-calling/handle-calling-events.md).

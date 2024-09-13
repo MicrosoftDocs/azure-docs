@@ -1,11 +1,10 @@
 ---
-title: include file
-description: include file
-services: event-hubs
+title: Troubleshoot connectivity issues
+description: Include file with some common content that helps you with troubleshooting connectivity issues. 
 author: spelluru
-ms.service: event-hubs
+ms.service: azure-event-hubs
 ms.topic: include
-ms.date: 12/15/2022
+ms.date: 07/29/2024
 ms.author: spelluru
 ms.custom: "include file"
 
@@ -15,7 +14,7 @@ ms.custom: "include file"
 You can use the following protocols with Azure Event Hubs to send and receive events:
 
 - Advanced Message Queuing Protocol 1.0 (AMQP)
-- Hypertext Transfer Protocol 1.1 with TLS (HTTPS)
+- Hypertext Transfer Protocol 1.1 with Transport Layer Security (HTTPS)
 - Apache Kafka
 
 See the following table for the outbound ports you need to open to use these protocols to communicate with Azure Event Hubs. 
@@ -49,7 +48,7 @@ Also, verify that the IP address for your namespace is allowed. To find the righ
     ```
 2. Note down the IP address returned in `Non-authoritative answer`. 
 
-If you use the **zone redundancy** for your namespace, you need to do a few extra steps: 
+If you use a namespace hosted in an older cluster (based on Cloud Services - CNAME ending in *.cloudapp.net) and the namespace is **zone redundant**, you'll need to follow few extra steps below. If your namespace is on a newer cluster (based on Virtual Machine Scale Set (VMSS) - CNAME ending in *.cloudapp.azure.com) and zone redundant you can skip below steps.
 
 1. First, you run nslookup on the namespace.
 
@@ -71,7 +70,7 @@ If you use the **zone redundancy** for your namespace, you need to do a few extr
 ### What client IPs are sending events to or receiving events from my namespace?
 First, enable [IP filtering](../event-hubs-ip-filtering.md) on the namespace. 
 
-Then, Enable diagnostic logs for [Event Hubs virtual network connection events](../monitor-event-hubs-reference.md#event-hubs-virtual-network-connection-event-schema) by following instructions in the [Enable diagnostic logs](../../azure-monitor/essentials/diagnostic-settings.md). You'll see the IP address for which connection is denied.
+Then, Enable diagnostic logs for [Event Hubs virtual network connection events](../monitor-event-hubs-reference.md#event-hubs-virtual-network-connection-event-schema) by following instructions in the [Enable diagnostic logs](/azure/azure-monitor/essentials/diagnostic-settings). You see the IP address for which connection is denied.
 
 ```json
 {
@@ -87,7 +86,7 @@ Then, Enable diagnostic logs for [Event Hubs virtual network connection events](
 ```
 
 > [!IMPORTANT]
-> Virtual network logs are generated only if the namespace allows access from **specific IP addresses** (IP filter rules). If you don't want to restrict access to your namespace using these features and still want to get virtual network logs to track IP addresses of clients connecting to the Event Hubs namespace, you could use the following workaround: Enable IP filtering, and add the total addressable IPv4 range (1.0.0.0/1 - 255.0.0.0/1). Event Hubs doesn't support IPv6 address ranges. 
+> Virtual network logs are generated only if the namespace allows access from **specific IP addresses** (IP filter rules). If you don't want to restrict access to your namespace using these features and still want to get virtual network logs to track IP addresses of clients connecting to the Event Hubs namespace, you could use the following workaround: [Enable IP filtering](../event-hubs-ip-filtering.md), and add the total addressable IPv4 range (`0.0.0.0/1` - `128.0.0.0/1`) and IPv6 range (`::/1` - `8000::/1`). 
 
 > [!NOTE]
 > Currently, it's not possible to determine the source IP of an individual message or event. 

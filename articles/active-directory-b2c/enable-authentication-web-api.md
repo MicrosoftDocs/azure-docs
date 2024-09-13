@@ -7,10 +7,14 @@ manager: CelesteDG
 ms.service: active-directory
 
 ms.topic: how-to
-ms.date: 11/20/2023
+ms.date: 01/11/2024
 ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: "b2c-support"
+
+
+#Customer intent: As a developer building a web API, I want to enable authentication using Azure AD B2C, so that I can authorize access to my API endpoints and ensure that only users with valid access tokens can call them.
+
 ---
 
 # Enable authentication in your own web API by using Azure AD B2C

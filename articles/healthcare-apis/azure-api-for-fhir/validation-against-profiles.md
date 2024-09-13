@@ -2,7 +2,7 @@
 title: Validate FHIR resources against profiles in Azure API for FHIR
 description: This article describes how to validate FHIR resources against profiles in Azure API for FHIR.
 author: expekesheth
-ms.service: healthcare-apis
+ms.service: azure-health-data-services
 ms.subservice: fhir
 ms.topic: reference
 ms.date: 09/27/2023
@@ -108,6 +108,7 @@ If you'd like to specify a profile as a parameter, you can specify the canonical
 ## Validating a new resource
 
 If you'd like to validate a new resource that you're uploading to Azure API for FHIR, you can do a `POST` request:
+The server will always return an OperationOutcome as the result.
 
 `POST http://<your Azure API for FHIR base URL>/{Resource}/$validate`
 
@@ -115,7 +116,7 @@ For example:
 
 `POST https://myAzureAPIforFHIR.azurehealthcareapis.com/Patient/$validate`
 
-This request will first validate the resource. New resource you're specifying in the request will be created after validation. The server will always return an OperationOutcome as the result.
+This request will validate the resource. On validation resources are not created in FHIR service, you will need to send a POST request without $validate to create resource.
 
 ## Validate on resource CREATE/ UPDATE using header.
 

@@ -8,9 +8,8 @@ ms.assetid: a47fb43a-bbbd-4751-bdc1-cd382eae49f8
 ms.topic: article
 ms.date: 11/18/2022
 ms.author: msangapu
-ms.custom: seodec18, devx-track-azurecli
+ms.custom: devx-track-azurecli, linux-related-content
 zone_pivot_groups: app-service-containers-windows-linux
-
 ---
 # Continuous deployment with custom containers in Azure App Service
 
@@ -43,6 +42,9 @@ Once you authorize your Azure account with GitHub, **select** the **Organization
 ::: zone-end  
 ::: zone pivot="container-linux"
 ## 3. Configure registry settings
+
+> [!NOTE]
+> Sidecar containers (preview) will succeed multi-container (Docker Compose) apps in App Service. To get started, see [Tutorial: Configure a sidecar container for custom container in Azure App Service (preview)](tutorial-custom-container-sidecar.md).
 
 To deploy a multi-container (Docker Compose) app, **select** **Docker Compose** in **Container Type**.
 
@@ -189,7 +191,7 @@ This optional configuration replaces the default authentication with publishing 
 ```azurecli-interactive
 az ad sp create-for-rbac --name "myAppDeployAuth" --role contributor \
                             --scopes /subscriptions/<subscription-id>/resourceGroups/<group-name>/providers/Microsoft.Web/sites/<app-name> \
-                            --sdk-auth
+                            --json-auth
 ```
 
 > [!IMPORTANT]

@@ -1,12 +1,11 @@
 ---
 title: Autoscale scaling plans and example scenarios in Azure Virtual Desktop
 description: Information about autoscale and a collection of four example scenarios that illustrate how various parts of autoscale for Azure Virtual Desktop work.
-author: Heidilohr
+author: dknappettmsft
 ms.topic: conceptual
 ms.date: 11/01/2023
-ms.author: helohr
-manager: femila
-ms.custom: references_regions
+ms.author: daknappe
+ms.custom: references_regions, docs_inherited
 ---
 # Autoscale scaling plans and example scenarios in Azure Virtual Desktop
 
@@ -15,7 +14,6 @@ Autoscale lets you scale your session host virtual machines (VMs) in a host pool
 > [!NOTE]
 > - Azure Virtual Desktop (classic) doesn't support autoscale. 
 > - Autoscale isn't supported on Azure Virtual Desktop for Azure Stack HCI.
-> - Autoscale doesn't support scaling of ephemeral disks.
 > - You can't use autoscale and [scale session hosts using Azure Automation](set-up-scaling-script.md) on the same host pool. You must use one or the other.
 > - Autoscale is available in Azure and Azure Government in the same regions you can [create host pools](create-host-pools-azure-marketplace.md) in.
 
@@ -29,7 +27,7 @@ Before you create your plan, keep the following things in mind:
 
 - You can only associate one scaling plan per host pool. If you assign a single scaling plan to multiple host pools, those host pools can't be assigned to another scaling plan.
 
-- Hibernate (preview) is available for personal host pools. For more information, view [Hibernation in virtual machines](/azure/virtual-machines/hibernate-resume).
+- Hibernate is available for personal host pools. For more information, view [Hibernation in virtual machines](/azure/virtual-machines/hibernate-resume).
 
 - A scaling plan can only operate in its configured time zone.
 

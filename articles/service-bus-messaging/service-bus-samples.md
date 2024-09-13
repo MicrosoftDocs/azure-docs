@@ -3,7 +3,7 @@ title: Azure Service Bus samples or examples
 description: Azure Service Bus messaging samples or examples that demonstrate key features. 
 author: spelluru
 ms.topic: article
-ms.custom: devx-track-dotnet, devx-track-extended-java, devx-track-js, devx-track-python
+ms.custom: devx-track-dotnet, devx-track-extended-java, devx-track-js, devx-track-python, devx-track-ts
 ms.date: 11/28/2023
 ms.author: spelluru
 ---
@@ -51,7 +51,7 @@ The Service Bus messaging samples demonstrate key features in [Service Bus messa
 ## Go samples
 | Package | Samples location | 
 | ------- | ---------------- | 
-| azservicebus | [GitHub location](https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/messaging/azservicebus) |
+| azservicebus | [GitHub location](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/messaging/azservicebus#pkg-examples) |
 
 ## Management samples
 You can find management samples on GitHub at https://github.com/Azure/azure-service-bus/tree/master/samples/Management.

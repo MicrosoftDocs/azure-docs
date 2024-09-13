@@ -1,9 +1,9 @@
 ---
 title: Permission denied error with Apache Hive table in Azure HDInsight
 description: Permission denied error when trying to create an Apache Hive table in Azure HDInsight
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: troubleshooting
-ms.date: 12/08/2022
+ms.date: 01/04/2024
 ---
 
 # Scenario: Permission denied error when trying to create an Apache Hive table in Azure HDInsight

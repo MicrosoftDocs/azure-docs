@@ -1,17 +1,14 @@
 ---
-title: Azure Service Bus Resource Manager exceptions | Microsoft Docs
-description: List of Service Bus exceptions surfaced by Azure Resource Manager and suggested actions.
+title: Azure Service Bus Resource Manager exceptions
+description: This article provides a list of Service Bus exceptions surfaced by Azure Resource Manager and suggested actions.
 ms.topic: article
 ms.custom: devx-track-arm-template
-ms.date: 10/25/2022
+ms.date: 03/19/2024
 ---
 
 # Service Bus Resource Manager exceptions
 
 This article lists exceptions generated when interacting with Azure Service Bus using Azure Resource Manager - via templates or direct calls.
-
-> [!IMPORTANT]
-> This document is frequently updated. Please check back for updates.
 
 Here are the various exceptions/errors that are surfaced through the Azure Resource Manager.
 
@@ -23,7 +20,7 @@ Here are the various exceptions/errors that are surfaced through the Azure Resou
 | ---------- | ------------- | ------------- | ----------- | -------------- |
 | Bad Request | 40000 | Sub code=40000. The property *'property name'* can't be set when creating a Queue because the namespace *'namespace name'* is using the 'Basic' Tier. This operation is only supported in 'Standard' or 'Premium' tier. | On Azure Service Bus Basic Tier, the below properties can't be set or updated - <ul> <li> RequiresDuplicateDetection </li> <li> AutoDeleteOnIdle </li> <li>RequiresSession</li> <li>DefaultMessageTimeToLive </li> <li> DuplicateDetectionHistoryTimeWindow </li> <li> EnableExpress (not supported in Premium too)</li> <li> ForwardTo </li> <li> Topics </li> </ul> | Consider upgrading from Basic to Standard or Premium tier to use this functionality. |
 | Bad Request | 40000 | Sub code=40000. The value for the 'requiresDuplicateDetection' property of an existing Queue(or Topic) can't be changed. | Duplicate detection must be enabled/disabled at the time of entity creation. The duplicate detection configuration parameter can't be changed after creation. | To enable duplicate detection on a previously created queue/topic, you can create a new queue/topic with duplicate detection and then forward from the original queue to the new queue/topic. |
-| Bad Request | 40000 | Sub code=40000. The specified value 16384 is invalid. The property 'MaxSizeInMegabytes', must be one of the following values: 1024;2048;3072;4096;5120. | The MaxSizeInMegabytes value is invalid. | Ensure that the MaxSizeInMegabytes is one of the following - 1024, 2048, 3072, 4096, 5120. |
+| Bad Request | 40000 | Sub code=40000. The specified value 16384 is invalid. The property `MaxSizeInMegabytes` must be one of the following values: 1024;2048;3072;4096;5120. | The MaxSizeInMegabytes value is invalid. | Ensure that the MaxSizeInMegabytes is one of the following - 1024, 2048, 3072, 4096, 5120. |
 | Bad Request | 40000 | Sub code=40000. Partitioning can't be changed for Queue/Topic. | Partitioning can't be changed for entity. | Create a new entity (queue or topic) and enable partitions. | 
 | Bad Request | none | The namespace *'namespace name'* doesn't exist. | The namespace doesn't exist within your Azure subscription. | To resolve this error: <ul> <li> Ensure that the Azure Subscription is correct. </li> <li> Ensure the namespace exists. </li> <li> Verify the namespace name is correct (no spelling errors or null strings). </li> </ul> | 
 | Bad Request | 40000 | Sub code=40000. The supplied lock time exceeds the allowed maximum of '5' minutes. | The time for which a message can be locked must be between 1 minute (minimum) and 5 minutes (maximum). | Ensure that the supplied lock time is between 1 min and 5 mins. |
@@ -36,16 +33,16 @@ Here are the various exceptions/errors that are surfaced through the Azure Resou
 
 ## Error code: 429
 
-Just like in HTTP, "Error code 429" indicates "too many requests". It implies that the specific resource (namespace) is being throttled because of too many requests (or due to conflicting operations) on that resource.
+Just like in HTTP, "Error code 429" indicates too many requests. It implies that the specific resource (namespace) is being throttled because of too many requests (or due to conflicting operations) on that resource.
 
 | Error code | Error sub code | Error message | Description | Recommendation |
 | ---------- | ------------- | ------------- | ----------- | -------------- |
 | 429 | 50004 | Sub code=50004. The request was terminated because the namespace *your namespace* is being throttled. | This error condition is hit when the number of incoming requests exceed the limitation of the resource. | Wait for a few seconds and try again. <br/> <br/> Learn more about the [quotas](service-bus-quotas.md) and [Azure Resource Manager request limits](../azure-resource-manager/management/request-limits-and-throttling.md)|
 | 429 | 40901 | Sub code=40901. Another conflicting operation is in progress. | Another conflicting operation is in progress on the same resource/entity | Wait for the current in-progress operation to complete before trying again. |
-| 429 | 40900 | Sub code=40900. Conflict. You're requesting an operation that isn't allowed in the resource's current state. | This condition may be hit when multiple requests are made to perform the operations on the same entity (queue, topic, subscription, or rule) at the same time. | Wait for a few seconds and try again |
+| 429 | 40900 | Sub code=40900. Conflict. You're requesting an operation that isn't allowed in the resource's current state. | This condition might be hit when multiple requests are made to perform the operations on the same entity (queue, topic, subscription, or rule) at the same time. | Wait for a few seconds and try again |
 | 429 | 40901 | Request on entity *'entity name'* conflicted with another request | Another conflicting operation is in progress on the same resource/entity | Wait for the previous operation to complete before trying again |
-| 429 | 40901 | Another update request is in progress for the entity *'entity name'*. | Another conflicting operation is in progress on the same resource/entity | Wait for the previous operation to complete before trying again |
-| 429 | none | Resource Conflict Occurred. Another conflicting operation may be in progress. If this operation is a retry for failed operation, background cleanup is still pending. Try again later. | This condition may be hit when there's a pending operation against the same entity. | Wait for the previous operation to complete before trying again. |
+| 429 | 40901 | Another update request is in progress for the entity: `<entity name>`. | Another conflicting operation is in progress on the same resource/entity | Wait for the previous operation to complete before trying again |
+| 429 | none | Resource Conflict Occurred. Another conflicting operation might be in progress. If this operation is a retry for failed operation, background cleanup is still pending. Try again later. | This condition might be hit when there's a pending operation against the same entity. | Wait for the previous operation to complete before trying again. |
 
 
 ## Error code: Not Found
@@ -61,7 +58,7 @@ This class of errors indicates that the resource wasn't found.
 
 ## Error code: Internal Server Error
 
-This class of errors indicates that there was an internal server error
+This class of errors indicates that there was an internal server error.
 
 | Error code | Error sub code | Error message | Description | Recommendation |
 | ---------- | ------------- | ------------- | ----------- | -------------- |

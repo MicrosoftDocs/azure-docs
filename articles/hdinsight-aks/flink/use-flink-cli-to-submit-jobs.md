@@ -1,14 +1,16 @@
 ---
 title: How to use Apache Flink® CLI to submit jobs
 description: Learn how to use Apache Flink® CLI to submit jobs
-ms.service: hdinsight-aks
+ms.service: azure-hdinsight-on-aks
 ms.topic: how-to
 ms.date: 10/27/2023
 ---
 
 # Apache Flink® Command-Line Interface (CLI) on HDInsight on AKS clusters
 
+[!INCLUDE [retirement-notice](../includes/retirement-notice.md)]
 [!INCLUDE [feature-in-preview](../includes/feature-in-preview.md)]
+
 
 Apache Flink provides a CLI (Command Line Interface) **bin/flink** to run jobs (programs) that are packaged as JAR files and to control their execution. The CLI is part of the Flink setup and can be set up on a single-node VM. It connects to the running JobManager specified in **conf/flink-conf.yaml**.
 
@@ -29,6 +31,11 @@ Both installing and updating the CLI require rerunning the install script. Insta
 
 ```bash
 curl -L https://aka.ms/hdionaksflinkcliinstalllinux | bash
+```
+
+If you are using Flink 1.17, you can use the below CLI
+```bash
+curl -L https://aka.ms/hdionaksflink117clilinux | bash
 ```
 
 This command installs Flink CLI in the user's home directory (`$HOME/flink-cli`). The script can also be downloaded and run locally. You might have to restart your shell in order for changes to take effect.

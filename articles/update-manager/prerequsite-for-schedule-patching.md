@@ -2,8 +2,9 @@
 title: Configure schedule patching on Azure VMs for business continuity
 description: The article describes the new prerequisites to configure scheduled patching to ensure business continuity in Azure Update Manager.
 ms.service: azure-update-manager
-ms.date: 09/18/2023
-ms.topic: conceptual
+ms.custom: devx-track-azurepowershell
+ms.date: 09/06/2024
+ms.topic: how-to
 author: snehasudhirG
 ms.author: sudhirsneha
 ---
@@ -14,7 +15,7 @@ ms.author: sudhirsneha
 
 This article is an overview on how to configure schedule patching and automatic guest virtual machine (VM) patching on Azure VMs by using the new prerequisite to ensure business continuity. The steps to configure both the patching options on Azure Arc VMs remain the same.
 
-Currently, you can enable [automatic guest VM patching](../virtual-machines/automatic-vm-guest-patching.md) (autopatch) by setting the patch mode to **Azure-orchestrated** in the Azure portal or **AutomaticByPlatform** in the REST API, where patches are automatically applied during off-peak hours.
+Currently, you can enable [automatic guest VM patching](/azure/virtual-machines/automatic-vm-guest-patching) (autopatch) by setting the patch mode to **Azure-orchestrated** in the Azure portal or **AutomaticByPlatform** in the REST API, where patches are automatically applied during off-peak hours.
 
 For customizing control over your patch installation, you can use [schedule patching](updates-maintenance-schedules.md#scheduled-patching) to define your maintenance window. You can [enable schedule patching](scheduled-patching.md#schedule-recurring-updates-on-a-single-vm) by setting the patch mode to **Azure-orchestrated** in the Azure portal or **AutomaticByPlatform** in the REST API and attaching a schedule to the Azure VM. So, the VM properties couldn't be differentiated between **schedule patching** or **Automatic guest VM patching** because both had the patch mode set to **Azure-orchestrated**.
 
@@ -25,9 +26,11 @@ In some instances, when you remove the schedule from a VM, there's a possibility
 
 ## Schedule patching in an availability set
 
-All VMs in a common [availability set](../virtual-machines/availability-set-overview.md) aren't updated concurrently.
+All VMs in a common [availability set](/azure/virtual-machines/availability-set-overview) aren't updated concurrently.
 
-VMs in a common availability set are updated within Update Domain boundaries. VMs across multiple Update Domains aren't updated concurrently.
+VMs in a common availability set are updated within Update Domain boundaries. VMs across multiple Update Domains aren't updated concurrently. 
+
+In scenarios where machines from the same availability set are being patched at the same time in different schedules, it is likely that they might not get patched or could potentially fail if the maintenance window exceeds. To avoid this, we recommend that you either increase the maintenance window or split the machines belonging to the same availability set across multiple schedules at different times. 
 
 ## Find VMs with associated schedules
 
@@ -147,10 +150,47 @@ PATCH on `/subscriptions/subscription_id/resourceGroups/myResourceGroup/provider
   } 
 } 
 ```
+# [PowerShell](#tab/new-prereq-powershell)
+
+## Prerequisites
+
+- Patch mode = `AutomaticByPlatform`
+- `BypassPlatformSafetyChecksOnUserSchedule` = TRUE
+
+### Enable on Windows VMs
+
+```powershell-interactive
+$VirtualMachine = Get-AzVM -ResourceGroupName "<resourceGroup>" -Name "<vmName>"
+Set-AzVMOperatingSystem -VM $VirtualMachine -Windows -PatchMode "AutomaticByPlatform"
+$AutomaticByPlatformSettings = $VirtualMachine.OSProfile.WindowsConfiguration.PatchSettings.AutomaticByPlatformSettings
+ 
+if ($null -eq $AutomaticByPlatformSettings) {
+   $VirtualMachine.OSProfile.WindowsConfiguration.PatchSettings.AutomaticByPlatformSettings = New-Object -TypeName Microsoft.Azure.Management.Compute.Models.WindowsVMGuestPatchAutomaticByPlatformSettings -Property @{BypassPlatformSafetyChecksOnUserSchedule = $true}
+} else {
+   $AutomaticByPlatformSettings.BypassPlatformSafetyChecksOnUserSchedule = $true
+}
+ 
+Update-AzVM -VM $VirtualMachine -ResourceGroupName "<resourceGroup>"
+```
+### Enable on Linux VMs
+
+```powershell-interactive
+$VirtualMachine = Get-AzVM -ResourceGroupName "<resourceGroup>" -Name "<vmName>"
+Set-AzVMOperatingSystem -VM $VirtualMachine -Linux -PatchMode "AutomaticByPlatform"
+$AutomaticByPlatformSettings = $VirtualMachine.OSProfile.LinuxConfiguration.PatchSettings.AutomaticByPlatformSettings
+ 
+if ($null -eq $AutomaticByPlatformSettings) {
+   $VirtualMachine.OSProfile.LinuxConfiguration.PatchSettings.AutomaticByPlatformSettings = New-Object -TypeName Microsoft.Azure.Management.Compute.Models.LinuxVMGuestPatchAutomaticByPlatformSettings -Property @{BypassPlatformSafetyChecksOnUserSchedule = $true}
+} else {
+   $AutomaticByPlatformSettings.BypassPlatformSafetyChecksOnUserSchedule = $true
+}
+ 
+Update-AzVM -VM $VirtualMachine -ResourceGroupName "<resourceGroup>"
+```
 ---
 
 > [!NOTE]
-> Currently, you can only enable the new prerequisite for schedule patching via the Azure portal and the REST API. It can't be enabled via the Azure CLI or PowerShell.
+> You can now enable the new prerequisite for schedule patching via the Azure portal, REST API, PowerShell and Azure CLI.
 
 ## Enable automatic guest VM patching on Azure VMs
 
@@ -260,4 +300,8 @@ Scenario 8 | No | False | No | Autopatch and schedule patch don't run.|
 
 ## Next steps
 
-To troubleshoot issues, see [Troubleshoot Update Manager](troubleshoot.md).
+- Learn more about [Dynamic scope](dynamic-scope-overview.md), an advanced capability of schedule patching.
+- Follow the instructions on how to [manage various operations of Dynamic scope](manage-dynamic-scoping.md)
+- Learn on how to [automatically installs the updates according to the created schedule both for a single VM and at scale](scheduled-patching.md).
+- Learn about [pre and post events](pre-post-scripts-overview.md) to automatically perform tasks before and after a scheduled maintenance configuration.
+

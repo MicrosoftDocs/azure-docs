@@ -9,9 +9,13 @@ manager: CelesteDG
 ms.service: active-directory
 
 ms.topic: reference
-ms.date: 06/22/2023
+ms.date: 01/11/2024
 ms.author: kengaderdus
 ms.subservice: B2C
+
+
+#Customer intent: As a developer integrating Azure Active Directory B2C into my application, I want to understand the different types of technical profiles available, so that I can choose the appropriate profile to communicate with Azure AD B2C and perform actions such as user creation, user profile reading, and authentication.
+
 ---
 
 # Technical profiles
@@ -24,7 +28,7 @@ A *technical profile* provides a framework with a built-in mechanism to communic
 
 A technical profile enables these types of scenarios:
 
-- [Application Insights](analytics-with-application-insights.md): Sends event data to [Application Insights](../azure-monitor/app/app-insights-overview.md).
+- [Application Insights](analytics-with-application-insights.md): Sends event data to [Application Insights](/azure/azure-monitor/app/app-insights-overview).
 - [Microsoft Entra ID](active-directory-technical-profile.md): Provides support for the Azure AD B2C user management.
 - [Microsoft Entra multifactor authentication](multi-factor-auth-technical-profile.md): Provides support for verifying a phone number by using Microsoft Entra multifactor authentication.
 - [Claims transformation](claims-transformation-technical-profile.md): Calls output claims transformations to manipulate claims values, validate claims, or set default values for a set of output claims.
@@ -55,7 +59,7 @@ All types of technical profiles share the same concept. They start by reading th
     - Calls a REST API while sending parameters as InputClaims and getting information back as OutputClaims.
     - Creates or updates the user account.
     - Sends and verifies the multifactor authentication text message.
-1. **Validation technical profiles**: A [self-asserted technical profile](self-asserted-technical-profile.md) can call [validation technical profiles](validation-technical-profile.md) to validate the data profiled by the user.
+1. **Validation technical profiles**: A [self-asserted technical profile](self-asserted-technical-profile.md) can call [validation technical profiles](validation-technical-profile.md) to validate the data profiled by the user. Only self-asserted technical profiles can use validation technical profiles.
 1. **Output claims**: Claims are returned back to the claims bag. You can use those claims in the next orchestrations step or output claims transformations.
 1. **Output claims transformations**: After the technical profile is completed, Azure AD B2C runs output [claims transformations](claimstransformations.md).
 1. **SSO session management**: Persists the technical profile's data to the session by using [SSO session management](custom-policy-reference-sso.md).
@@ -249,7 +253,7 @@ The **InputClaim** element contains the following attributes:
 | --------- | -------- | ----------- |
 | ClaimTypeReferenceId | Yes | The identifier of a claim type. The claim is already defined in the claims schema section in the policy file or parent policy file. |
 | DefaultValue | No | A default value to use to create a claim if the claim indicated by ClaimTypeReferenceId doesn't exist so that the resulting claim can be used as an InputClaim element by the technical profile. |
-|AlwaysUseDefaultValue |No |Forces the use of the default value. |
+|AlwaysUseDefaultValue |Yes |Forces the use of the default value. |
 | PartnerClaimType | No | The identifier of the claim type of the external partner that the specified policy claim type maps to. If the PartnerClaimType attribute isn't specified, the specified policy claim type is mapped to the partner claim type of the same name. Use this property when your claim type name is different from the other party. An example is if the first claim name is *givenName*, while the partner uses a claim named *first_name*. |
 
 ## Display claims

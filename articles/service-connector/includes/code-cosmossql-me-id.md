@@ -2,7 +2,7 @@
 author: wchigit
 ms.service: service-connector
 ms.topic: include
-ms.date: 10/25/2023
+ms.date: 12/04/2023
 ms.author: wchi
 ---
 
@@ -14,14 +14,14 @@ ms.author: wchi
     dotnet add package Azure.Identity
     ```
 
-2. Authenticate using `Azure.Identity` NuGet package and get the endpoint URL from the environment variable added by Service Connector. When using the code below, uncomment the part of the code snippet for the authentication type you want to use.
+1. Authenticate using `Azure.Identity` NuGet package and get the endpoint URL from the environment variable added by Service Connector. When using the code below, uncomment the part of the code snippet for the authentication type you want to use.
     ```csharp
     using Microsoft.Azure.Cosmos;
     using Azure.Core;
     using Azure.Identity;
     using System; 
     
-    // Uncomment the following lines according to the authentication type.
+    // Uncomment the following lines corresponding to the authentication type you want to use.
     // For system-assigned identity.
     // TokenCredential credential = new DefaultAzureCredential();
     
@@ -70,7 +70,7 @@ ms.author: wchi
     import com.azure.cosmos.CosmosClient;
     import com.azure.cosmos.CosmosClientBuilder;
     
-    // Uncomment the following lines according to the authentication type.
+    // Uncomment the following lines corresponding to the authentication type you want to use.
     // For system-assigned identity
     // DefaultAzureCredential credential = new DefaultAzureCredentialBuilder().build();
     
@@ -108,9 +108,9 @@ Refer to [Build a Spring Data Azure Cosmos DB v3 app to manage Azure Cosmos DB f
    ```python
    import os
    from azure.cosmos import CosmosClient
-   from azure.identity import DefaultAzureCredential
+   from azure.identity import ManagedIdentityCredential, ClientSecretCredential
    
-   # Uncomment the following lines according to the authentication type.
+   # Uncomment the following lines corresponding to the authentication type you want to use.
    # system-assigned managed identity
    # cred = ManagedIdentityCredential()
 
@@ -129,6 +129,44 @@ Refer to [Build a Spring Data Azure Cosmos DB v3 app to manage Azure Cosmos DB f
    
    ```
 
+### [Go](#tab/go)
+1. Install dependencies.
+    ```bash
+    go get t github.com/Azure/azure-sdk-for-go/sdk/azidentity
+    go get github.com/Azure/azure-sdk-for-go/sdk/data/azcosmos
+    ```
+1. Authenticate using `azidentity` npm package and get the endpoint URL from the environment variable added by Service Connector. When using the code below, uncomment the part of the code snippet for the authentication type you want to use.
+    ```go
+    import (
+        "os"
+
+        "github.com/Azure/azure-sdk-for-go/sdk/data/azcosmos"
+        "github.com/Azure/azure-sdk-for-go/sdk/azidentity"
+    )
+
+    func main() {
+        endpoint = os.Getenv("AZURE_COSMOS_RESOURCEENDPOINT")
+
+        // Uncomment the following lines corresponding to the authentication type you want to use.
+        // For system-assigned identity.
+        // cred, err := azidentity.NewDefaultAzureCredential(nil)
+        
+        // For user-assigned identity.
+        // clientid := os.Getenv("AZURE_COSMOS_CLIENTID")
+        // azidentity.ManagedIdentityCredentialOptions.ID := clientid
+        // options := &azidentity.ManagedIdentityCredentialOptions{ID: clientid}
+        // cred, err := azidentity.NewManagedIdentityCredential(options)
+        
+        // For service principal.
+        // clientid := os.Getenv("AZURE_COSMOS_CLIENTID")
+        // tenantid := os.Getenv("AZURE_COSMOS_TENANTID")
+        // clientsecret := os.Getenv("AZURE_COSMOS_CLIENTSECRET")
+        // cred, err := azidentity.NewClientSecretCredential(tenantid, clientid, clientsecret, &azidentity.ClientSecretCredentialOptions{})
+
+        client, err := azcosmos.NewClient(endpoint, cred, nil)
+    }
+    ```
+
 ### [NodeJS](#tab/nodejs)
 1. Install dependencies.
     ```bash
@@ -141,7 +179,7 @@ Refer to [Build a Spring Data Azure Cosmos DB v3 app to manage Azure Cosmos DB f
     import { CosmosClient } from "@azure/cosmos";
     const { DefaultAzureCredential } = require("@azure/identity");
     
-    // Uncomment the following lines according to the authentication type.
+    // Uncomment the following lines corresponding to the authentication type you want to use.
     // For system-assigned managed identity.
     // const credential = new DefaultAzureCredential();
 

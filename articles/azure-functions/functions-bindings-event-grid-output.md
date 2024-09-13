@@ -4,8 +4,9 @@ description: Learn to send an Event Grid event in Azure Functions.
 
 ms.topic: reference
 ms.date: 09/22/2023
-ms.devlang: csharp, java, javascript, powershell, python
-ms.custom: devx-track-csharp, fasttrack-edit, devx-track-python, devx-track-extended-java, devx-track-js
+ms.devlang: csharp
+# ms.devlang: csharp, java, javascript, powershell, python
+ms.custom: devx-track-csharp, fasttrack-edit, devx-track-python, devx-track-extended-java, devx-track-js, devx-track-ts
 zone_pivot_groups: programming-languages-set-functions
 ---
 
@@ -19,17 +20,7 @@ For information on setup and configuration details, see [How to work with Event 
 [!INCLUDE [functions-nodejs-model-tabs-description](../../includes/functions-nodejs-model-tabs-description.md)]
 ::: zone-end
 ::: zone pivot="programming-language-python"
-Azure Functions supports two programming models for Python. The way that you define your bindings depends on your chosen programming model.
-
-# [v2](#tab/python-v2)
-The Python v2 programming model lets you define bindings using decorators directly in your Python function code. For more information, see the [Python developer guide](functions-reference-python.md?pivots=python-mode-decorators#programming-model).
-
-# [v1](#tab/python-v1)
-The Python v1 programming model requires you to define bindings in a separate *function.json* file in the function folder. For more information, see the [Python developer guide](functions-reference-python.md?pivots=python-mode-configuration#programming-model).
-
----
-
-This article supports both programming models.
+[!INCLUDE [functions-bindings-python-models-intro](../../includes/functions-bindings-python-models-intro.md)]
 
 ::: zone-end
 
@@ -52,6 +43,8 @@ The following example shows how the custom type is used in both the trigger and 
 :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/EventGrid/EventGridFunction.cs" range="4-49":::
 
 # [In-process model](#tab/in-process)
+
+[!INCLUDE [functions-in-process-model-retirement-note](../../includes/functions-in-process-model-retirement-note.md)]
 
 The following example shows a C# function that publishes a `CloudEvent` using version 3.x of the extension:
 
@@ -156,7 +149,7 @@ Starting in version 3.3.0, it's possible to use Microsoft Entra ID when authenti
 [FunctionName("EventGridAsyncOutput")]
 public static async Task Run(
     [TimerTrigger("0 */5 * * * *")] TimerInfo myTimer,
-    [EventGrid(Connection = "MyEventGridConnection"]IAsyncCollector<CloudEvent> outputEvents,
+    [EventGrid(Connection = "MyEventGridConnection")]IAsyncCollector<CloudEvent> outputEvents,
     ILogger log)
 {
     for (var i = 0; i < 3; i++)
@@ -172,7 +165,7 @@ When you use the `Connection` property, the `topicEndpointUri` must be specified
 ```json
 {
   "Values": {
-    "myConnection__topicEndpointUri": "{topicEndpointUri}"
+    "MyEventGridConnection__topicEndpointUri": "{topicEndpointUri}"
   }
 }
 ```
@@ -449,8 +442,10 @@ import logging
 import azure.functions as func
 import datetime
 
+app = func.FunctionApp()
+
 @app.function_name(name="eventgrid_output")
-@app.route(route="eventgrid_output")
+@app.event_grid_trigger(arg_name="eventGridEvent")
 @app.event_grid_output(
     arg_name="outputEvent",
     topic_endpoint_uri="MyEventGridTopicUriSetting",
@@ -734,7 +729,7 @@ In this mode, the extension requires the following properties:
 More properties can be used to customize the connection. See [Common properties for identity-based connections](functions-reference.md#common-properties-for-identity-based-connections).
 
 > [!NOTE]
-> When using [Azure App Configuration](../azure-app-configuration/quickstart-azure-functions-csharp.md) or [Key Vault](../key-vault/general/overview.md) to provide settings for managed identity-based connections, setting names should use a valid key separator such as `:` or `/` in place of the `__` to ensure names are resolved correctly.
+> When using [Azure App Configuration](../azure-app-configuration/quickstart-azure-functions-csharp.md) or [Key Vault](/azure/key-vault/general/overview) to provide settings for managed identity-based connections, setting names should use a valid key separator such as `:` or `/` in place of the `__` to ensure names are resolved correctly.
 > 
 > For example, `<CONNECTION_NAME_PREFIX>:topicEndpointUri`.
 

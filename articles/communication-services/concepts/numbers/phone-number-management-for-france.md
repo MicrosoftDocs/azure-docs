@@ -45,14 +45,18 @@ More details on eligible subscription types are as follows:
 ## Azure subscription billing locations where France phone numbers are available
 | Country/Region |
 | :---------- |
-|France|
-|Italy|
-|United States|
-|United Kingdom|
-|Canada|
-|Japan|
 |Australia|
+|Canada|
+|France|
+|Germany|
+|Italy|
+|Japan|
+|Netherlands|
+|Spain|
+|United Kingdom|
+|United States|
 
+[!INCLUDE [Azure Prepayment](../../includes/azure-prepayment.md)]
 
 ## Azure subscription billing locations where France alphanumeric sender IDs are available
 | Country/Region |

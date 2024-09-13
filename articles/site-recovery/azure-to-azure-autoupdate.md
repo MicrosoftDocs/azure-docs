@@ -1,11 +1,10 @@
 ---
 title: Automatic update of the Mobility service in Azure Site Recovery
 description: Overview of automatic update of the Mobility service when replicating Azure VMs by using Azure Site Recovery.
-services: site-recovery
 author: ankitaduttaMSFT
 manager: rochakm
-ms.service: site-recovery
-ms.topic: article
+ms.service: azure-site-recovery
+ms.topic: how-to
 ms.date: 03/24/2023
 ms.author: ankitadutta
 ms.custom: engagement-fy23
@@ -17,7 +16,7 @@ Azure Site Recovery uses a monthly release cadence to fix any issues and enhance
 
 As mentioned in [Azure-to-Azure disaster recovery architecture](azure-to-azure-architecture.md), the Mobility service is installed on all Azure virtual machines (VMs) that have replication enabled from one Azure region to another. When you use automatic updates, each new release updates the Mobility service extension.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 ## How automatic updates work
 
@@ -26,7 +25,7 @@ When you use Site Recovery to manage updates, it deploys a global runbook (used 
 The default runbook schedule occurs daily at 12:00 AM in the time zone of the replicated VM's geography. You can also change the runbook schedule via the automation account.
 
 > [!NOTE]
-> Starting with [Update Rollup 35](site-recovery-whats-new.md#updates-march-2019), you can choose an existing automation account to use for updates. Prior to Update Rollup 35, Site Recovery created the automation account by default. You can only select this option when you enable replication for a VM. It isn't available for a VM that already has replication enabled. The setting you select applies to all Azure VMs protected in the same vault.
+> Starting with [Update Rollup 35](site-recovery-whats-new-archive.md#updates-march-2019), you can choose an existing automation account to use for updates. Prior to Update Rollup 35, Site Recovery created the automation account by default. You can only select this option when you enable replication for a VM. It isn't available for a VM that already has replication enabled. The setting you select applies to all Azure VMs protected in the same vault.
 
 Turning on automatic updates doesn't require a restart of your Azure VMs or affect ongoing replication.
 
@@ -486,8 +485,6 @@ If you can't enable automatic updates, see the following common errors and recom
   The self-signed certificate that is created for the Run As account expires one year from the date of creation. You can renew it at any time before it expires. If you have signed up for email notifications, you will also receive emails when an action is required from your side. This error will be shown two months prior to the expiry date, and will change to a critical error if the certificate has expired. Once the certificate has expired, auto update will not be functional until you renew the same.
 
   **Recommended action**: To resolve this issue, select **Repair** and then **Renew Certificate**.
-
-  :::image type="content" source="./media/azure-to-azure-autoupdate/automation-account-renew-runas-certificate.PNG" alt-text="renew-cert":::
 
   > [!NOTE]
   > After you renew the certificate, refresh the page to display the current status.

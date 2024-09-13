@@ -5,10 +5,9 @@ description: How to update database target using the alter row transformation in
 author: kromerm
 ms.author: makromer
 ms.reviewer: daperlov
-ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
-ms.custom: synapse, ignite-2022
+ms.custom: synapse
 ms.date: 10/20/2023
 ---
 
@@ -103,6 +102,6 @@ SpecifyUpsertConditions alterRow(insertIf(alterRowCondition == 'insert'),
 	deleteIf(alterRowCondition == 'delete')) ~> AlterRow
 ```
 
-## Next steps
+## Related content
 
 After the Alter Row transformation, you may want to [sink your data into a destination data store](data-flow-sink.md).

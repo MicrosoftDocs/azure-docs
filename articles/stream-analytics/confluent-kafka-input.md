@@ -1,9 +1,9 @@
 ---
 title: Stream data from confluent cloud Kafka with Azure Stream Analytics
 description: Learn about how to set up an Azure Stream Analytics job as a consumer from confluent cloud kafka
-author: enkrumah
-ms.author: ebnkruma
-ms.service: stream-analytics
+author: AliciaLiMicrosoft 
+ms.author: ali 
+ms.service: azure-stream-analytics
 ms.custom: devx-track-azurecli
 ms.topic: how-to
 ms.date: 11/09/2023
@@ -21,7 +21,7 @@ This article describes how to connect your Azure Stream Analytics job directly t
 - You have an Azure Stream Analytics job. You can create an Azure Stream Analytics job by following the documentation: [Quickstart: Create a Stream Analytics job by using the Azure portal](stream-analytics-quick-create-portal.md)
 - Your confluent cloud kafka cluster must be publicly accessible and not behind a firewall or secured in a virtual network.
 - The timestamp type of the topic of your confluent cloud kafka cluster should be **LogAppendTime**. The default for confluent cloud kafka topic is **CreateTime**.
-- You should have an existing key vault. You can create a key vault resource by following the documentation [Quickstart: Create a key vault using the Azure portal](../key-vault/general/quick-create-portal.md)
+- You should have an existing key vault. You can create a key vault resource by following the documentation [Quickstart: Create a key vault using the Azure portal](/azure/key-vault/general/quick-create-portal)
 
 ## Configure Azure Stream Analytics to use managed identity
 
@@ -75,7 +75,7 @@ To upload certificates, you must have "**Key Vault Administrator**"  access to y
 > Your Azure Stream Analytics job will fail when the certificate used for authentication expires. To resolve this, you must update/replace the certificate in your key vault and restart your Azure Stream Analytics job.
 
 Make sure you have Azure CLI configured and installed locally with PowerShell.
-You can visit this page to get guidance on setting up Azure CLI: [Get started with Azure CLI](https://learn.microsoft.com/cli/azure/get-started-with-azure-cli#how-to-sign-into-the-azure-cli)
+You can visit this page to get guidance on setting up Azure CLI: [Get started with Azure CLI](/cli/azure/get-started-with-azure-cli#how-to-sign-into-the-azure-cli)
 
 **Login to Azure CLI:**
 ```PowerShell
@@ -147,6 +147,7 @@ Use the following steps to grant special permissions to your stream analytics jo
 | Bootstrap server addresses   | A list of host/port pairs to establish the connection to your confluent cloud kafka cluster. Example: pkc-56d1g.eastus.azure.confluent.cloud:9092 |
 | Kafka topic                  | The name of your kafka topic in your confluent cloud kafka cluster.|
 | Security Protocol            | Select **SASL_SSL**. The mechanism supported is PLAIN. |
+| Consumer Group Id          | The name of the Kafka consumer group that the input should be a part of. It will be automatically assigned if not provided. |
 | Event Serialization format   | The serialization format (JSON, CSV, Avro, Parquet, Protobuf) of the incoming data stream. |
 
 > [!IMPORTANT]

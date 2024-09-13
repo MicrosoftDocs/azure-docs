@@ -3,15 +3,16 @@ title: Caching with Azure Front Door
 description: This article helps you understand Front Door behavior when enabling caching in routing rules.
 services: frontdoor
 author: duongau
-ms.service: frontdoor
+ms.service: azure-frontdoor
 ms.topic: conceptual
-ms.workload: infrastructure-services
 ms.date: 11/08/2023
 ms.author: duau
 zone_pivot_groups: front-door-tiers
 ---
 
 # Caching with Azure Front Door
+
+[!INCLUDE [Azure Front Door (classic) retirement notice](../../includes/front-door-classic-retirement.md)]
 
 Azure Front Door is a modern content delivery network (CDN), with dynamic site acceleration and load balancing capabilities. When caching is configured on your route, the edge site that receives each request checks its cache for a valid response. Caching helps to reduce the amount of traffic sent to your origin server. If no cached response is available, the request is forwarded to the origin.
 
@@ -109,7 +110,7 @@ If a request supports gzip and Brotli compression, Brotli compression takes prec
 
 When a request for an asset specifies compression and the request results in a cache miss, Azure Front Door (classic) does compression of the asset directly on the POP server. Afterward, the compressed file is served from the cache. The resulting item is returned with a `Transfer-Encoding: chunked` response header.
 
-If the origin uses Chunked Transfer Encoding (CTE) to send compressed data to the Azure Front Door PoP, then response sizes greater than 8 MB aren't supported.
+If the origin uses Chunked Transfer Encoding (CTE) to send data to the Azure Front Door POP, then compression isn't supported.
 
 > [!NOTE]
 > Range requests may be compressed into different sizes. Azure Front Door requires the content-length values to be the same for any GET HTTP request. If clients send byte range requests with the `Accept-Encoding` header that leads to the Origin responding with different content lengths, then Azure Front Door will return a 503 error. You can either disable compression on the origin, or create a Rules Engine rule to remove the `Accept-Encoding` header from the request for byte range requests.
@@ -194,6 +195,8 @@ If the `Cache-Control` header isn't present on the response from the origin, by 
 > Cache expiration can't be greater than **366 days**.
 > 
 
+You may see `REVALIDATED_HIT` in the `Cache-Control` response header. This indicates that the cached content in Azure Front Door was revalidated with the origin server before being served to the client. This can happen when the cached content has expired, but the origin server indicates that the content hasn't changed. In this case, the cached content is served to the client, and the cache expiration is reset.
+
 ## Request headers
 
 The following request headers don't get forwarded to the origin when caching is enabled:
@@ -203,6 +206,9 @@ The following request headers don't get forwarded to the origin when caching is 
 - `Accept`
 - `Accept-Charset`
 - `Accept-Language`
+
+> [!NOTE]
+> Requests that include authorization header will not be cached.
 
 ## Response headers
 

@@ -7,8 +7,8 @@ ms.author: sipa
 ms.date: 09/22/2022
 ms.topic: quickstart
 ms.service: azure-maps
-services: azure-maps
-ms.custom: mvc, mode-other, devx-track-extended-java
+ms.subservice: android-sdk
+ms.custom: mvc, devx-track-java
 zone_pivot_groups: azure-maps-android
 ---
 
@@ -21,6 +21,12 @@ This article shows you how to add the Azure Maps to an Android app. It walks you
 * Get your primary Azure Maps key to use in the app.
 * Reference the Azure Maps libraries from the project.
 * Add an Azure Maps control to the app.
+
+> [!NOTE]
+>
+> **Azure Maps Android SDK retirement**
+>
+> The Azure Maps Native SDK for Android is now deprecated and will be retired on 3/31/25. To avoid service disruptions, migrate to the Azure Maps Web SDK by 3/31/25. For more information, see [The Azure Maps Android SDK migration guide](android-sdk-migration-guide.md).
 
 ## Prerequisites
 
@@ -436,5 +442,5 @@ In this quickstart, you created your Azure Maps account and created a demo appli
 [Manage authentication in Azure Maps]: how-to-manage-authentication.md
 [Microsoft Azure]: https://azure.microsoft.com
 [Next Steps]: #next-steps
-[Set up Azure Key Vault with key rotation and auditing]: ../key-vault/secrets/tutorial-rotation-dual.md
+[Set up Azure Key Vault with key rotation and auditing]: /azure/key-vault/secrets/tutorial-rotation-dual
 [Tutorial: Load GeoJSON data into Azure Maps Android SDK]: tutorial-load-geojson-file-android.md

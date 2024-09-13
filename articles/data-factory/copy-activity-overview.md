@@ -3,11 +3,10 @@ title: Copy activity
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn about the Copy activity in Azure Data Factory and Azure Synapse Analytics. You can use it to copy data from a supported source data store to a supported sink data store.
 author: jianleishen
-ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 08/10/2023
+ms.date: 08/02/2024
 ms.author: jianleishen
 ---
 
@@ -27,6 +26,9 @@ The Copy activity is executed on an [integration runtime](concepts-integration-r
 
 An integration runtime needs to be associated with each source and sink data store. For information about how the Copy activity determines which integration runtime to use, see [Determining which IR to use](concepts-integration-runtime.md#determining-which-ir-to-use).
 
+> [!NOTE]
+> You cannot use more than one self-hosted integration runtime within the same Copy activity. The source and sink for the activity must be connected with the same self-hosted integration runtime.
+
 To copy data from a source to a sink, the service that runs the Copy activity performs these steps:
 
 1. Reads data from a source data store.
@@ -36,7 +38,7 @@ To copy data from a source to a sink, the service that runs the Copy activity pe
 :::image type="content" source="media/copy-activity-overview/copy-activity-overview.png" alt-text="Copy activity overview":::
 
 > [!NOTE]
-> If a self-hosted integration runtime is used in either a source or sink data store within a Copy activity, then both the source and sink must be accessible from the server hosting the integartion runtime for the Copy activity to be successful.
+> If a self-hosted integration runtime is used in either a source or sink data store within a Copy activity, then both the source and sink must be accessible from the server hosting the integration runtime for the Copy activity to be successful.
 
 ## Supported data stores and formats
 
@@ -166,9 +168,17 @@ Few points to note:
 
 For other scenarios than binary file copy, copy activity rerun starts from the beginning.
 
+>[!Note]
+>Resuming from last failed run via self-hosted integration runtime is now only supported in the self-hosted integration runtime version 5.43.8935.2 or above.
+
 ## Preserve metadata along with data
 
 While copying data from source to sink, in scenarios like data lake migration, you can also choose to preserve the metadata and ACLs along with data using copy activity. See [Preserve metadata](copy-activity-preserve-metadata.md) for details.
+
+## Add metadata tags to file based sink
+When the sink is Azure Storage based (Azure data lake storage or Azure Blob Storage), we can opt to add some metadata to the files. These metadata will be appearing as part of the file properties as Key-Value pairs. 
+For all the types of file based sinks, you can add metadata involving dynamic content using the pipeline parameters, system variables, functions and variables. 
+In addition to this, for binary file based sink, you have the option to add Last Modified datetime (of the source file) using the keyword $$LASTMODIFIED, as well as custom values as a metadata to the sink file. 
 
 ## Schema and data type mapping
 
@@ -265,7 +275,7 @@ When you move data from source to destination store, copy activity provides an o
 ## Session log
 You can log your copied file names, which can help you to further ensure the data is not only successfully copied from source to destination store, but also consistent between source and destination store by reviewing the copy activity session logs. See [Session sign in copy activity](copy-activity-log.md) for details.
 
-## Next steps
+## Related content
 See the following quickstarts, tutorials, and samples:
 
 - [Copy data from one location to another location in the same Azure Blob storage account](quickstart-create-data-factory-dot-net.md)

@@ -5,7 +5,8 @@ ms.topic: how-to
 ms.custom: devx-track-azurecli
 author: tejaswikolli-web
 ms.author: tejaswikolli
-ms.date: 10/11/2022
+ms.date: 10/31/2023
+ms.service: azure-container-registry
 ---
 
 # Disable export of artifacts from an Azure container registry 
@@ -24,7 +25,7 @@ Export policy is a property introduced in API version **2021-06-01-preview** for
 
 * A Premium container registry configured with a [private endpoint](container-registry-private-link.md).
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 ## Other requirements to disable exports
 

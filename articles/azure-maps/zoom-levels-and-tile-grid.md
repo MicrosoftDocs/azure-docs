@@ -1,13 +1,12 @@
 ---
 title: Zoom levels and tile grid in Microsoft Azure Maps
 description: Learn how to set zoom levels in Azure Maps. See how to convert geographic coordinates into pixel coordinates, tile coordinates, and quadkeys. View code samples.
-author: eriklindeman
-ms.author: eriklind
+author: faterceros 
+ms.author: aterceros 
 ms.date: 07/14/2020
 ms.topic: conceptual
 ms.service: azure-maps
-services: azure-maps
-
+ms.subservice: render
 ---
 
 # Zoom levels and tile grid
@@ -29,7 +28,7 @@ Each additional zoom level quad-divides the tiles of the previous one, creating 
 
 The Azure Maps interactive map controls for web and Android support 25 zoom levels, numbered 0 through 24. Although road data is only available at the zoom levels in when the tiles are available.
 
-The following table provides the full list of values for zoom levels where the tile size is **512** pixels square at latitude 0:
+The following table provides the full list of values for zoom levels where the tile size is **256** pixels square:
 
 |Zoom level|Meters/pixel|Meters/tile side|
 |--- |--- |--- |
@@ -952,7 +951,7 @@ Learn more about geospatial concepts:
 [EPSG:3857]: https://epsg.io/3857
 [Web SDK: Map pixel and position calculations]: /javascript/api/azure-maps-control/atlas.map#pixelstopositions-pixel---
 [Add a tile layer]: map-add-tile-layer.md
-[Get map tiles]: /rest/api/maps/render-v2/get-map-tile
+[Get map tiles]: /rest/api/maps/render/get-map-tile
 [Get traffic flow tiles]: /rest/api/maps/traffic/gettrafficflowtile
 [Get traffic incident tiles]: /rest/api/maps/traffic/gettrafficincidenttile
 [Azure Maps glossary]: glossary.md

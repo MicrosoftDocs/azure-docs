@@ -6,10 +6,9 @@ services: iot
 author: dominicbetts
 ms.author: dobett
 ms.topic: overview
-ms.date: 03/20/2023
+ms.date: 02/28/2024
 ms.custom: template-overview
-
-# As a solution builder or device developer I want a high-level overview of the issues around device development so that I can easily find relevant content.
+# Customer intent: As a solution builder or device developer I want a high-level overview of the issues around device development so that I can easily find relevant content.
 ---
 
 # IoT device development
@@ -27,7 +26,7 @@ In Azure IoT, a device developer writes the code to run on the devices in the so
 - Manages device state and synchronizes that state with the cloud.
 - Responds to commands sent from the cloud.
 - Enables the installation of software updates from the cloud.
-- Enables the device to keep functioning while it's disconnected from the cloud.
+- Enables the device to keep functioning while disconnected from the cloud.
 
 ## Device types
 
@@ -41,7 +40,7 @@ Examples of specialized hardware and operating systems include:
 
 [Windows for IoT](/windows/iot/product-family/windows-iot) is an embedded version of Windows for MPUs with cloud connectivity that lets you create secure devices with easy provisioning and management.
 
-[Azure RTOS](/azure/rtos/overview-rtos) is a real time operating system for IoT and edge devices powered by MCUs. Azure RTOS is designed to support highly constrained devices that are battery powered and have less than 64 KB of flash memory.
+[Eclipse ThreadX](https://github.com/eclipse-threadx/rtos-docs) is a real time operating system for IoT and edge devices powered by MCUs. Eclipse ThreadX is designed to support highly constrained devices that are battery powered and have less than 64 KB of flash memory.
 
 [Azure Sphere](/azure-sphere/product-overview/what-is-azure-sphere) is a secure, high-level application platform with built-in communication and security features for internet-connected devices. It comprises a secured, connected, crossover MCU, a custom high-level Linux-based operating system, and a cloud-based security service that provides continuous, renewable security.
 
@@ -72,7 +71,7 @@ For MPU devices, device SDKs are available for the following languages:
 
 For MCU devices, see:
 
-- [Azure RTOS Middleware](https://github.com/azure-rtos/)
+- [Eclipse ThreadX](https://github.com/eclipse-threadx)
 - [FreeRTOS Middleware](https://github.com/Azure/azure-iot-middleware-freertos)
 - [Azure SDK for Embedded C](https://github.com/Azure/azure-sdk-for-c)
 
@@ -80,15 +79,15 @@ For MCU devices, see:
 
 All of the device SDKs include samples that demonstrate how to use the SDK to connect to the cloud, send telemetry, and use the other primitives.
 
-The [IoT device development](../iot-develop/about-iot-develop.md) site includes tutorials and how-to guides that show you how to implement code for a range of device types and scenarios.
+The [IoT device development](./concepts-iot-device-development.md) site includes tutorials and how-to guides that show you how to implement code for a range of device types and scenarios.
 
 You can find more samples in the [code sample browser](/samples/browse/?expanded=azure&products=azure-iot%2Cazure-iot-edge%2Cazure-iot-pnp%2Cazure-rtos).
 
-To learn more about implementing automatic reconnections to endpoints, see [Manage device reconnections to create resilient applications](../iot-develop/concepts-manage-device-reconnections.md).
+To learn more about implementing automatic reconnections to endpoints, see [Manage device reconnections to create resilient applications](./concepts-manage-device-reconnections.md).
 
 ## Device development without a device SDK
 
-Although you're recommended to use one of the device SDKS, there may be scenarios where you prefer not to. In these scenarios, your device code must directly use one of the communication protocols that IoT Hub and the Device Provisioning Service (DPS) support.
+Although you're recommended to use one of the device SDKS, there might be scenarios where you prefer not to. In these scenarios, your device code must directly use one of the communication protocols that IoT Hub and the Device Provisioning Service (DPS) support.
 
 For more information, see:
 
@@ -99,7 +98,7 @@ For more information, see:
 
 IoT Plug and Play enables solution builders to integrate IoT devices with their solutions without any manual configuration. At the core of IoT Plug and Play, is a device model that a device uses to advertise its capabilities to an IoT Plug and Play-enabled application such as IoT Central. This model is structured as a set of elements that define:
 
-- *Properties* that represent the read-only or writable state of a device or other entity. For example, a device serial number may be a read-only property and a target temperature on a thermostat may be a writable property.
+- *Properties* that represent the read-only or writable state of a device or other entity. For example, a device serial number might be a read-only property and a target temperature on a thermostat might be a writable property.
 - *Telemetry* that's the data emitted by a device, whether the data is a regular stream of sensor readings, an occasional error, or an information message.
 - *Commands* that describe a function or operation that can be done on a device. For example, a command could reboot a gateway or take a picture using a remote camera.
 
@@ -113,12 +112,12 @@ As a device developer, when you implement an IoT Plug and Play device there are 
 
 To learn more, see:
 
-- [What is IoT Plug and Play?](../iot-develop/overview-iot-plug-and-play.md)
-- [IoT Plug and Play modeling guide](../iot-develop/concepts-modeling-guide.md)
+- [What is IoT Plug and Play?](../iot/overview-iot-plug-and-play.md)
+- [IoT Plug and Play modeling guide](../iot/concepts-modeling-guide.md)
 
 ## Containerized device code
 
-Using containers, such as Docker, to run your device code lets you deploy code to your devices by using the capabilities of the container infrastructure. Containers also let you define a runtime environment for your code with all the required library and package versions installed. Containers make it easier to deploy updates and to manage the lifecycle of your IoT devices.
+If you use containers, such as in Docker, to run your device code you can deploy code to your devices by using the capabilities of the container infrastructure. Containers also let you define a runtime environment for your code with all the required library and package versions installed. Containers make it easier to deploy updates and to manage the lifecycle of your IoT devices.
 
 Azure IoT Edge runs device code in containers. You can use Azure IoT Edge to deploy code modules to your devices. To learn more, see [Develop your own IoT Edge modules](../iot-edge/module-development.md).
 
@@ -139,5 +138,6 @@ The following table lists some of the available IoT development tools:
 
 Now that you've seen an overview of device development in Azure IoT solutions, some suggested next steps include:
 
+- [Azure IoT device development](concepts-iot-device-development.md)
 - [Device infrastructure and connectivity](iot-overview-device-connectivity.md)
 - [Device management and control](iot-overview-device-management.md)

@@ -1,15 +1,13 @@
 ---
 title: "Allow read access to blobs based on tags and custom security attributes - Azure ABAC"
 description: Allow read access to blobs based on tags and custom security attributes by using Azure role assignment conditions and Azure attribute-based access control (Azure ABAC).
-services: active-directory
 author: rolyon
 manager: amycolannino
 ms.service: role-based-access-control
 ms.subservice: conditions
 ms.topic: how-to
-ms.workload: identity
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.date: 11/15/2023
+ms.date: 12/01/2023
 ms.author: rolyon
 #Customer intent: As a dev, devops, or it admin, I want to
 ---
@@ -23,7 +21,7 @@ In this article, you learn how to allow read access to blobs based on blob index
 To assign custom security attributes and add role assignments conditions in your Microsoft Entra tenant, you need:
 
 - [Attribute Definition Administrator](../active-directory/roles/permissions-reference.md#attribute-definition-administrator) and [Attribute Assignment Administrator](../active-directory/roles/permissions-reference.md#attribute-assignment-administrator)
-- [User Access Administrator](built-in-roles.md#user-access-administrator) or [Owner](built-in-roles.md#owner)
+- [Role Based Access Control Administrator](built-in-roles.md#role-based-access-control-administrator)
 
 > [!IMPORTANT]
 > By default, [Global Administrator](../active-directory/roles/permissions-reference.md#global-administrator) and other administrator roles do not have permissions to read, define, or assign custom security attributes. If you do not meet these prerequisites, you won't see the principal/user attributes in the condition editor.
@@ -194,7 +192,7 @@ You can also use Azure PowerShell to add role assignment conditions. The followi
 
 ### Add a condition
 
-1. Use the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) command and follow the instructions that appear to sign in to your directory as User Access Administrator or Owner.
+1. Use the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) command and follow the instructions that appear to sign in to your directory as Role Based Access Control Administrator.
 
     ```powershell
     Connect-AzAccount
@@ -271,7 +269,7 @@ You can also use Azure CLI to add role assignments conditions. The following com
 
 ### Add a condition
 
-1. Use the [az login](/cli/azure/reference-index#az-login) command and follow the instructions that appear to sign in to your directory as User Access Administrator or Owner.
+1. Use the [az login](/cli/azure/reference-index#az-login) command and follow the instructions that appear to sign in to your directory as Role Based Access Control Administrator.
 
     ```azurecli
     az login

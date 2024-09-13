@@ -2,9 +2,9 @@
 title: Receive events using namespace topics with Java
 description: This article provides step-by-step instructions to consume events from Event Grid namespace topics using pull delivery.
 ms.topic: quickstart
-ms.custom: ignite-2023, devx-track-extended-java
-ms.author: jafernan
-author: jfggdl
+ms.custom: ignite-2023, devx-track-extended-java, build-2024
+ms.author: robece
+author: robece
 ms.date: 11/15/2023
 ---
 
@@ -35,13 +35,6 @@ The prerequisites you need to have in place before proceeding are:
 
 * You should have events available on a topic. See [publish events](publish-events-to-namespace-topics-java.md) to namespace topics.
 
-## Sample code
-
-The sample code used in this article is found in this location:
-
-```bash
-    https://github.com/jfggdl/event-grid-pull-delivery-quickstart
-```
 
 ## Receive events using pull delivery
 
@@ -195,6 +188,7 @@ Reject events that your consumer application can't process. Conditions for which
 
 ## Next steps
 
+* See [Java API reference](/java/api/overview/azure/messaging-eventgrid-readme?view=azure-java-preview&preserve-view=true).
 * To learn more about pull delivery model, see [Pull delivery overview](pull-delivery-overview.md).
 
  

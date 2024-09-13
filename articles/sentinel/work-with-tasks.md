@@ -15,10 +15,6 @@ This article explains how SOC analysts can use incident tasks to manage their in
 
 You can see the list of tasks you need to perform for a particular incident on the incident details page, and mark them complete as you go.
 
-> [!IMPORTANT]
->
-> The **Incident tasks** feature is currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
-
 ## Use cases for different roles
 
 This article addresses the following scenarios, which apply to SOC analysts:
@@ -38,15 +34,15 @@ The **Microsoft Sentinel Responder** role is required to create automation rules
 
 ## View and follow incident tasks
 
-1. In the **Incidents** page, select an incident from the list, and select **View full details**  under **Tasks (Preview)** in the details panel, or select **View full details** at the bottom of the details panel.
+1. In the **Incidents** page, select an incident from the list, and select **View full details**  under **Tasks** in the details panel, or select **View full details** at the bottom of the details panel.
 
     :::image type="content" source="media/work-with-tasks/tasks-from-incident-info-panel.png" alt-text="Screenshot of link to enter the tasks panel from the incident info panel on the main incidents screen.":::
 
-1. If you opted to enter the full details page, select **Tasks (Preview)** from the top banner.
+1. If you opted to enter the full details page, select **Tasks** from the top banner.
 
     :::image type="content" source="media/work-with-tasks/incident-details-screen.png" alt-text="Screenshot shows incident details screen with tasks panel open." lightbox="media/work-with-tasks/incident-details-screen.png":::
 
-1. The **Incident tasks (Preview)** panel will open on the right side of whichever screen you were in (the main incidents page or the incident details page). You'll see the list of tasks defined for this incident, along with how or by whom it was created - whether manually or by an automation rule or a playbook.
+1. The **Incident tasks** panel will open on the right side of whichever screen you were in (the main incidents page or the incident details page). You'll see the list of tasks defined for this incident, along with how or by whom it was created - whether manually or by an automation rule or a playbook.
 
     :::image type="content" source="media/work-with-tasks/incident-tasks-panel.png" alt-text="Screenshot shows incident tasks panel as seen from incident details page.":::
 
@@ -60,7 +56,7 @@ The **Microsoft Sentinel Responder** role is required to create automation rules
 
 You can also add tasks for yourself, on the spot, to an incident's task list. This task will apply only to the open incident. This helps if your investigation leads you in new directions and you think of new things you need to check. Adding these as tasks ensures that you won't forget to do them, and that there will be a record of what you did, that other analysts and managers can benefit from.
 
-1. Select **+ Add task** from the top of the **Incident tasks (Preview)** panel.
+1. Select **+ Add task** from the top of the **Incident tasks** panel.
 
     :::image type="content" source="media/work-with-tasks/add-task-ad-hoc-1.png" alt-text="Screenshot shows how to manually add a task to your task list.":::
 

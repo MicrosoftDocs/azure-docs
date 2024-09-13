@@ -1,9 +1,9 @@
 ---
 title: Deploy Azure Site Recovery replication appliance - Modernized
 description: This article describes how to replicate appliance for VMware disaster recovery to Azure with Azure Site Recovery - Modernized
-ms.service: site-recovery
-ms.topic: article
-ms.date: 08/23/2023
+ms.service: azure-site-recovery
+ms.topic: how-to
+ms.date: 04/04/2024
 ms.author: ankitadutta
 author: ankitaduttaMSFT
 ---
@@ -58,7 +58,7 @@ If you just created a free Azure account, you're the owner of your subscription.
 
   - In Azure portal, navigate to **Microsoft Entra ID** > **Users** > **User Settings**. In **User settings**, verify that Microsoft Entra users can register applications (set to *Yes* by default).
 
-  - In case the **App registrations** settings is set to *No*, request the tenant/global admin to assign the required permission. Alternately, the tenant/global admin can assign the Application Developer role to an account to allow the registration of Microsoft Entra App.
+  - In case the **App registrations** settings is set to *No*, request the tenant/global admin to assign the required permission. The Application Developer role **cannot** be used to enable registration of Microsoft Entra App.
 
 
 ## Prepare infrastructure
@@ -109,12 +109,12 @@ If there are any organizational restrictions, you can manually set up the Site R
 
   - CheckRegistryAccessPolicy - Prevents access to registry editing tools.
       - Key: HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System
-      - DisableRegistryTools value shouldn't be equal 0.
+      - DisableRegistryTools value should be equal 0.
 
   - CheckCommandPromptPolicy - Prevents access to the command prompt.
 
       - Key: HKLM\SOFTWARE\Policies\Microsoft\Windows\System
-      - DisableCMD value shouldn't be equal 0.
+      - DisableCMD value should be equal 0.
 
   - CheckTrustLogicAttachmentsPolicy - Trust logic for file attachments.
 
@@ -129,9 +129,11 @@ If there are any organizational restrictions, you can manually set up the Site R
 
   **Use the following steps to register the appliance**:
 
-1. If the appliance uses a proxy for internet access, configure the proxy settings by toggling on the **use proxy to connect to internet** option.
+1. If the appliance uses a proxy for internet access, configure the proxy settings by toggling on the **use proxy to connect to internet** option. All Azure Site Recovery services will use these settings to connect to the internet. Only HTTP proxy is supported. 
 
-    All Azure Site Recovery services will use these settings to connect to the internet. Only HTTP proxy is supported.
+2. Proxy settings can be updated later also using the "Update proxy" button.
+
+    :::image type="Update proxy settings" source="./media/deploy-vmware-azure-replication-appliance-modernized/proxy-settings.png" alt-text="Screenshot showing proxy update screen.":::
 
 2. Ensure the [required URLs](./replication-appliance-support-matrix.md#allow-urls) are allowed and are reachable from the Azure Site Recovery replication appliance for continuous connectivity.
 

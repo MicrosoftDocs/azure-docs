@@ -1,10 +1,10 @@
 ---
-title: Azure Functions Overview 
+title: Azure Functions Overview
 description: Learn how you can use Azure Functions to build robust serverless apps.
 ms.assetid: 01d6ca9f-ca3f-44fa-b0b9-7ffee115acd4
 ms.topic: overview
 ms.date: 05/22/2023
-ms.custom: contperf-fy21q2, devdivchpfy22, ignite-2022, build-2023
+ms.custom: devdivchpfy22, build-2023
 zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---
 
@@ -30,7 +30,7 @@ The following are a common, _but by no means exhaustive_, set of integrated scen
 | [Run scheduled task](./functions-scenarios.md#run-scheduled-tasks)| Execute data clean-up code on pre-defined timed intervals. |
 | [Build a scalable web API](./functions-scenarios.md#build-a-scalable-web-api)| Implement a set of REST endpoints for your web applications using HTTP triggers. |
 | [Build a serverless workflow](./functions-scenarios.md#build-a-serverless-workflow)| Create an event-driven workflow from a series of functions using Durable Functions. |
-| [Respond to database changes](./functions-scenarios.md#respond-to-database-changes)| Run custom logic when a document is created or updated in Azure Cosmos DB. |
+| [Respond to database changes](./functions-scenarios.md#respond-to-database-changes)| Run custom logic when a document is created or updated in [Azure Cosmos DB](/azure/cosmos-db/introduction). |
 | [Create reliable message systems](./functions-scenarios.md#create-reliable-message-systems)| Process message queues using Queue Storage, Service Bus, or Event Hubs. |
 
 These scenarios allow you to build event-driven systems using modern architectural patterns. For more information, see [Azure Functions Scenarios](functions-scenarios.md).
@@ -39,7 +39,7 @@ These scenarios allow you to build event-driven systems using modern architectur
 
 With Functions, you write your function code in your preferred language using your favorite development tools and then deploy your code to the Azure cloud. Functions provides native support for developing in [C#, Java, JavaScript, PowerShell, Python](./supported-languages.md), plus the ability to use [more languages](./functions-custom-handlers.md), such as Rust and Go. 
 
-Functions integrates directly with Visual Studio, Visual Studio Code, Maven, and other popular development tools to enable seemless debugging and [deployments](functions-deployment-technologies.md). 
+Functions integrates directly with Visual Studio, Visual Studio Code, Maven, and other popular development tools to enable seamless debugging and [deployments](functions-deployment-technologies.md). 
 
 Functions also integrates with Azure Monitor and Azure Application Insights to provide comprehensive runtime telemetry and analysis of your [functions in the cloud](functions-monitoring.md).
 

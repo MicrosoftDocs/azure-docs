@@ -1,20 +1,20 @@
 ---
-title: Quickstart - Back up a VM with the Azure portal
-description: In this Quickstart, learn how to create a Recovery Services vault, enable protection on an Azure VM, and backup the VM,  with the Azure portal.
-ms.date: 02/27/2023
+title: Quickstart - Back up a VM with the Azure portal by using Azure Backup
+description: In this Quickstart, learn how to create a Recovery Services vault, enable protection on an Azure VM, and back up the VM,  with the Azure portal.
+ms.date: 09/02/2024
 ms.topic: quickstart
 ms.devlang: azurecli
-ms.custom: mvc, mode-ui
-ms.service: backup
+ms.custom: mvc, mode-ui, engagement-fy24
+ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
 
-# Back up a virtual machine in Azure
+# Quickstart: Back up a virtual machine in Azure
+
+This quickstart describes how to enable backup on an existing Azure VM by using the Azure portal. If you need to create a VM, you can [create a VM with the Azure portal](/azure/virtual-machines/windows/quick-create-portal).
 
 Azure backups can be created through the Azure portal. This method provides a browser-based user interface to create and configure Azure backups and all related resources. You can protect your data by taking backups at regular intervals. Azure Backup creates recovery points that can be stored in geo-redundant recovery vaults. This article details how to back up a virtual machine (VM) with the Azure portal.
-
-This quickstart enables backup on an existing Azure VM. If you need to create a VM, you can [create a VM with the Azure portal](../virtual-machines/windows/quick-create-portal.md).
 
 ## Sign in to Azure
 
@@ -24,6 +24,9 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 
+>[!Important]
+>If you have [Azure Files for protection](azure-file-share-backup-overview.md), after vault creation, [configure backup for Azure Files, and then initiate an on-demand backup](backup-azure-files.md). Learn more [about the best practices for Azure Files backp](backup-azure-files.md?tabs=backup-center#best-practices).
+
 ## Apply a backup policy
 
 To apply a backup policy to your Azure VMs, follow these steps:
@@ -32,9 +35,9 @@ To apply a backup policy to your Azure VMs, follow these steps:
 
    ![Screenshot showing the Backup button.](./media/backup-azure-arm-vms-prepare/backup-button.png)
 
-1. Select **Azure Virtual machines** as the **Datasource type** and select the vault you have created. Then select **Continue**.
+1. On the **Start: Configure Backup** blade, select **Azure Virtual machines** as the **Datasource type** and select the vault you have created. Then select **Continue**.
 
-   ![Screenshot showing Backup and Backup Goal panes.](./media/backup-azure-arm-vms-prepare/select-backup-goal-1.png)
+   ![Screenshot showing Backup and Backup Goal blades.](./media/backup-azure-arm-vms-prepare/select-backup-goal-1.png)
 
 1. Assign a Backup policy.
 
@@ -55,13 +58,13 @@ Create a simple scheduled daily backup to a Recovery Services vault.
 
       ![Screenshot showing to add virtual machines.](./media/backup-azure-arm-vms-prepare/add-virtual-machines.png)
 
-1. The **Select virtual machines** pane will open. Select the VMs you want to back up using the policy. Then select **OK**.
+1. The **Select virtual machines** blade will open. Select the VMs you want to back up using the policy. Then select **OK**.
 
    * The selected VMs are validated.
    * You can only select VMs in the same region as the vault.
    * VMs can only be backed up in a single vault.
 
-     ![Screenshot showing the Select virtual machines pane.](./media/backup-azure-arm-vms-prepare/select-vms-to-backup.png)
+     ![Screenshot showing the Select virtual machines blade.](./media/backup-azure-arm-vms-prepare/select-vms-to-backup.png)
 
     >[!NOTE]
     > All the VMs in the same region and subscription as that of the vault are available to configure backup. When configuring backup, you can browse to the virtual machine name and its resource group, even though you don’t have the required permission on those VMs. If your VM is in soft deleted state, then it won't be visible in this list. If you need to re-protect the VM, then you need to wait for the soft delete period to expire or undelete the VM from the soft deleted list. For more information, see [the soft delete for VMs article](soft-delete-virtual-machines.md#soft-delete-for-vms-using-azure-portal).
@@ -121,7 +124,7 @@ The snapshot phase guarantees the availability of a recovery point stored along 
 
   ![Screenshot showing the backup job status.](./media/backup-azure-arm-vms-prepare/backup-job-status.png)
 
-There are two **Sub Tasks** running at the backend, one for front-end backup job that can be checked from the **Backup Job** details pane as given below:
+There are two **Sub Tasks** running at the backend, one for front-end backup job that can be checked from the **Backup Job** details blade as given below:
 
   ![Screenshot showing backup job status sub-tasks.](./media/backup-azure-arm-vms-prepare/backup-job-phase.png)
 
@@ -149,7 +152,7 @@ Azure Backup backs up Azure VMs by installing an extension to the Azure VM agent
 **VM** | **Details**
 --- | ---
 **Windows** | 1. [Download and install](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409) the agent MSI file. <br><br> 2. Install with admin permissions on the machine. <br><br> 3. Verify the installation. In *C:\WindowsAzure\Packages* on the VM, right-click **WaAppAgent.exe** > **Properties**. On the **Details** tab, **Product Version** should be 2.6.1198.718 or higher. <br><br>  If you're updating the agent, make sure that no backup operations are running, and [reinstall the agent](https://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409).
-**Linux** | Install by using an RPM or a DEB package from your distribution's package repository. This is the preferred method for installing and upgrading the Azure Linux agent. All the [endorsed distribution providers](../virtual-machines/linux/endorsed-distros.md) integrate the Azure Linux agent package into their images and repositories. The agent is available on [GitHub](https://github.com/Azure/WALinuxAgent), but we don't recommend installing from there. <br><br>  If you're updating the agent, make sure no backup operations are running, and update the binaries.</li><ul>
+**Linux** | Install by using an RPM or a DEB package from your distribution's package repository. This is the preferred method for installing and upgrading the Azure Linux agent. All the [endorsed distribution providers](/azure/virtual-machines/linux/endorsed-distros) integrate the Azure Linux agent package into their images and repositories. The agent is available on [GitHub](https://github.com/Azure/WALinuxAgent), but we don't recommend installing from there. <br><br>  If you're updating the agent, make sure no backup operations are running, and update the binaries.</li><ul>
 
 ## Clean up deployment
 
@@ -167,7 +170,7 @@ If you're going to continue on to a Backup tutorial that explains how to restore
 
 4. In the **Type the name of the Backup item** dialog, enter your VM name, such as *myVM*. Select **Stop Backup**.
 
-    Once the VM backup has been stopped and recovery points removed, you can delete the resource group. If you used an existing VM, you may wish to leave the resource group and VM in place.
+    Once the VM backup has been stopped and recovery points removed, you can delete the resource group. If you used an existing VM, you may want to leave the resource group and VM in place.
 
 5. In the menu on the left, select **Resource groups**.
 6. From the list, choose your resource group. If you used the sample VM quickstart commands, the resource group is named *myResourceGroup*.

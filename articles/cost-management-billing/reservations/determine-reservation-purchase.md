@@ -6,7 +6,7 @@ ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 11/17/2023
+ms.date: 01/04/2024
 ms.author: banders
 ---
 
@@ -38,7 +38,7 @@ Here's an example of the usage file showing the usage file with filters applied.
 
 :::image type="content" source="./media/determine-reservation-purchase/example-usage-file-details.png" alt-text="Screenshot showing the usage file with filters applied." lightbox="./media/determine-reservation-purchase/example-usage-file-details.png" :::
 
-If you want to analyze at the instance size family level, you can get the instance size flexibility values from [https://isfratio.blob.core.windows.net/isfratio/ISFRatio.csv](https://isfratio.blob.core.windows.net/isfratio/ISFRatio.csv). Combine the values with your data to do the analysis. For more information about instance size flexibility, see [Virtual machine size flexibility with Reserved VM Instances](../../virtual-machines/reserved-vm-instance-size-flexibility.md).
+If you want to analyze at the instance size family level, you can get the instance size flexibility values from [Instance size flexibility ratios](https://aka.ms/isf). Combine the values with your data to do the analysis. For more information about instance size flexibility, see [Virtual machine size flexibility with Reserved VM Instances](/azure/virtual-machines/reserved-vm-instance-size-flexibility).
 
 ### Analyze usage for an Azure Synapse Analytics reserved instance purchase
 
@@ -90,7 +90,7 @@ Note the following points:
 
 Reservation purchases calculated by the recommendations engine are shown on the **Recommended** tab in the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/docs). Here's an example image.
 
-![Image showing recommendations](./media/determine-reservation-purchase/select-product-ri.png)
+:::image type="content" border="true" source="./media/determine-reservation-purchase/select-product-ri.png" alt-text="Screenshot showing reservation purchase recommendations.":::
 
 Learn more about [recommendations](reserved-instance-purchase-recommendations.md#recommendations-in-the-azure-portal).
 

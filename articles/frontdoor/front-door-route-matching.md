@@ -4,10 +4,9 @@ titleSuffix: Azure Front Door
 description: This article helps you understand how Azure Front Door matches incoming requests to a route configuration.
 services: front-door
 author: duongau
-ms.service: frontdoor
+ms.service: azure-frontdoor
 ms.topic: conceptual
-ms.workload: infrastructure-services
-ms.date: 06/01/2023
+ms.date: 12/04/2023
 ms.author: duau
 zone_pivot_groups: front-door-tiers
 ---
@@ -24,6 +23,8 @@ A *route* in Azure Front Door defines how traffic gets handled when the incoming
 ::: zone-end
 
 ::: zone pivot="front-door-classic"
+
+[!INCLUDE [Azure Front Door (classic) retirement notice](../../includes/front-door-classic-retirement.md)]
 
 When a request arrives Azure Front Door (classic) edge, one of the first things that Front Door does is determine how to route the matching request to a backend resource and then take a defined action in the routing configuration. The following document explains how Front Door determines which route configuration to use when processing a request.
 
@@ -56,7 +57,7 @@ This section focuses on how Front Door matches to a routing rule. The basic conc
 Azure Front Door uses the following logic to match frontend hosts:
 
 1. Determine if there are any routes with an exact match on the frontend host.
-2. If there are no exact frontend hosts match, the request get rejected and a 400: Bad Request error gets sent.
+2. If there are no exact frontend hosts match, the request get rejected and a 404: Bad Request error gets sent.
 
 The following tables show three different routing rules with frontend host and paths:
 
@@ -72,11 +73,11 @@ The following table shows the matching results for the above routing rules:
 |--|--|
 | foo.contoso.com | A, B |
 | www\.fabrikam.com | C |
-| images.fabrikam.com | Error 400: Bad Request |
+| images.fabrikam.com | Error 404: Bad Request |
 | foo.adventure-works.com | C |
-| contoso.com | Error 400: Bad Request |
-| www\.adventure-works.com | Error 400: Bad Request |
-| www\.northwindtraders.com | Error 400: Bad Request |
+| contoso.com | Error 404: Bad Request |
+| www\.adventure-works.com | Error 404: Bad Request |
+| www\.northwindtraders.com | Error 404: Bad Request |
 
 ### Path matching
 
@@ -84,12 +85,12 @@ After Front Door determines the specific frontend host and filters for possible 
 
 1. Determine if there are any routing rules with an exact match to the request path.
 1. If there isn't an exact matching path, then Front Door looks for a routing rule with a wildcard path that matches.
-1. If there are no routing rules found with a matching path, then request gets rejected and a 400: Bad Request error gets set sent.
+1. If there are no routing rules found with a matching path, then request gets rejected and a 404: Bad Request error gets set sent.
 
 ::: zone pivot="front-door-standard-premium"
 
 >[!NOTE]
-> * Any paths without a wildcard are considered to be exact-match paths. If a path ends in a `/`, this is considered an exact match.
+> The wildcard character `*` is only valid for paths that don't have any other characters after it. Additionally, the wildcard character `*` must be preceded by a slash `/`. Paths without a wildcard are considered to be exact-match paths. A path that ends in a slash `/` is also an exact-match path. Ensure that your paths follow these rules to avoid any errors.
 
 ::: zone-end
 
@@ -146,7 +147,7 @@ The following table shows which routing rule the incoming request gets matched t
 >
 > | Incoming request       | Matched Route |
 > |------------------------|---------------|
-> | profile.domain.com/other | None. Error 400: Bad Request |
+> | profile.domain.com/other | None. Error 404: Bad Request |
 
 ### Routing decision
 

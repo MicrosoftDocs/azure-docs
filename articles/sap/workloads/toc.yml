@@ -30,7 +30,15 @@ items:
       - name: SAP ILM
         href: sap-information-lifecycle-management.md
       - name: SAP RISE integration
-        href: rise-integration.md
+        items:
+        - name: SAP RISE integration overview
+          href: rise-integration.md
+        - name: Network connectivity with SAP RISE
+          href: rise-integration-network.md
+        - name: Azure services with SAP RISE
+          href: rise-integration-services.md
+        - name: Identity and security services with SAP RISE
+          href: rise-integration-security.md
       - name: Virtual Machine Scale Sets
         items:
         - name: Flexible scale sets deployment guide
@@ -81,7 +89,7 @@ items:
         href: sap-higher-availability-architecture-scenarios.md
       - name: Azure Availability Zones for SAP workloads
         href: high-availability-zones.md
-      - name: Configuration options for optimal network latency with SAP applications
+      - name: Configuration options to minimize network latency with SAP applications
         href: proximity-placement-scenarios.md
       - name: Public endpoint connectivity with Azure Load Balancer
         href: high-availability-guide-standard-load-balancer-outbound-connections.md
@@ -221,10 +229,12 @@ items:
           href: high-availability-guide-rhel-with-hana-ascs-ers-dialog-instance.md
     - name: Disaster recovery
       items: 
-      - name: Add HSR third site to HANA Pacemaker cluster on SUSE
-        href: disaster-recovery-sap-hana-suse.md
+      - name: Add HSR third site to HANA Pacemaker cluster
+        href: disaster-recovery-sap-hana.md
     - name: Integration with Microsoft services
       items:
+      - name: Enable SAP Principal Propagation and SSO for Power Platform
+        href: expose-sap-odata-to-power-platform.md
       - name: Outbound E-Mail from SAP to Exchange Online
         href: exchange-online-integration-sap-email-outbound.md
       - name: Recommended setup for SAP Cloud Identity Services and SAP Business Technology Platform with Microsoft Entra ID
@@ -233,6 +243,8 @@ items:
         href: expose-sap-process-orchestration-on-azure.md
       - name: Enable SAP Principal Propagation for live OData feeds with Power Query
         href: expose-sap-odata-to-power-query.md
+      - name: SAP front-end printing with Universal Print
+        href: universal-print-sap-frontend.md
   - name: Reference
     items:
     - name: REST API

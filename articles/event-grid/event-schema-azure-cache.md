@@ -24,75 +24,6 @@ These events are triggered when a client exports, imports, or scales by calling 
 ## Example event
 When an event is triggered, the Event Grid service sends data about that event to subscribing endpoint. This section contains an example of what that data would look like for each Azure Cache for Redis event.
 
-# [Event Grid event schema](#tab/event-grid-event-schema)
-
-### Microsoft.Cache.PatchingCompleted event
-
-```json
-[{
-"id":"9b87886d-21a5-4af5-8e3e-10c4b8dac73b",
-"eventType":"Microsoft.Cache.PatchingCompleted",
-"topic":"/subscriptions/{subscription_id}/resourceGroups/{resource_group_name}/providers/Microsoft.Cache/Redis/{cache_name}",
-"data":{
-    "name":"PatchingCompleted",
-    "timestamp":"2020-12-09T21:50:19.9995668+00:00",
-    "status":"Succeeded"},
-"subject":"PatchingCompleted",
-"dataversion":"1.0",
-"metadataVersion":"1",
-"eventTime":"2020-12-09T21:50:19.9995668+00:00"}]
-```
-
-### Microsoft.Cache.ImportRDBCompleted event
-
-```json
-[{
-"id":"9b87886d-21a5-4af5-8e3e-10c4b8dac73b",
-"eventType":"Microsoft.Cache.ImportRDBCompleted",
-"topic":"/subscriptions/{subscription_id}/resourceGroups/{resource_group_name}/providers/Microsoft.Cache/Redis/{cache_name}",
-"data":{
-    "name":"ImportRDBCompleted",
-    "timestamp":"2020-12-09T21:50:19.9995668+00:00",
-    "status":"Succeeded"},
-"subject":"ImportRDBCompleted",
-"dataversion":"1.0",
-"metadataVersion":"1",
-"eventTime":"2020-12-09T21:50:19.9995668+00:00"}]
-```
-
-### Microsoft.Cache.ExportRDBCompleted event
-
-```json
-[{
-"id":"9b87886d-21a5-4af5-8e3e-10c4b8dac73b",
-"eventType":"Microsoft.Cache.ExportRDBCompleted",
-"topic":"/subscriptions/{subscription_id}/resourceGroups/{resource_group_name}/providers/Microsoft.Cache/Redis/{cache_name}",
-"data":{
-    "name":"ExportRDBCompleted",
-    "timestamp":"2020-12-09T21:50:19.9995668+00:00",
-    "status":"Succeeded"},
-"subject":"ExportRDBCompleted",
-"dataversion":"1.0",
-"metadataVersion":"1",
-"eventTime":"2020-12-09T21:50:19.9995668+00:00"}]
-```
-
-### Microsoft.Cache.ScalingCompleted
-
-```json
-[{
-"id":"9b87886d-21a5-4af5-8e3e-10c4b8dac73b",
-"eventType":"Microsoft.Cache.ScalingCompleted",
-"topic":"/subscriptions/{subscription_id}/resourceGroups/{resource_group_name}/providers/Microsoft.Cache/Redis/{cache_name}",
-"data":{
-    "name":"ScalingCompleted",
-    "timestamp":"2020-12-09T21:50:19.9995668+00:00",
-    "status":"Succeeded"},
-"subject":"ScalingCompleted",
-"dataversion":"1.0",
-"metadataVersion":"1",
-"eventTime":"2020-12-09T21:50:19.9995668+00:00"}]
-```
 
 # [Cloud event schema](#tab/cloud-event-schema)
 
@@ -169,24 +100,79 @@ When an event is triggered, the Event Grid service sends data about that event t
 }]
 ```
 
+# [Event Grid event schema](#tab/event-grid-event-schema)
+
+### Microsoft.Cache.PatchingCompleted event
+
+```json
+[{
+"id":"9b87886d-21a5-4af5-8e3e-10c4b8dac73b",
+"eventType":"Microsoft.Cache.PatchingCompleted",
+"topic":"/subscriptions/{subscription_id}/resourceGroups/{resource_group_name}/providers/Microsoft.Cache/Redis/{cache_name}",
+"data":{
+    "name":"PatchingCompleted",
+    "timestamp":"2020-12-09T21:50:19.9995668+00:00",
+    "status":"Succeeded"},
+"subject":"PatchingCompleted",
+"dataversion":"1.0",
+"metadataVersion":"1",
+"eventTime":"2020-12-09T21:50:19.9995668+00:00"}]
+```
+
+### Microsoft.Cache.ImportRDBCompleted event
+
+```json
+[{
+"id":"9b87886d-21a5-4af5-8e3e-10c4b8dac73b",
+"eventType":"Microsoft.Cache.ImportRDBCompleted",
+"topic":"/subscriptions/{subscription_id}/resourceGroups/{resource_group_name}/providers/Microsoft.Cache/Redis/{cache_name}",
+"data":{
+    "name":"ImportRDBCompleted",
+    "timestamp":"2020-12-09T21:50:19.9995668+00:00",
+    "status":"Succeeded"},
+"subject":"ImportRDBCompleted",
+"dataversion":"1.0",
+"metadataVersion":"1",
+"eventTime":"2020-12-09T21:50:19.9995668+00:00"}]
+```
+
+### Microsoft.Cache.ExportRDBCompleted event
+
+```json
+[{
+"id":"9b87886d-21a5-4af5-8e3e-10c4b8dac73b",
+"eventType":"Microsoft.Cache.ExportRDBCompleted",
+"topic":"/subscriptions/{subscription_id}/resourceGroups/{resource_group_name}/providers/Microsoft.Cache/Redis/{cache_name}",
+"data":{
+    "name":"ExportRDBCompleted",
+    "timestamp":"2020-12-09T21:50:19.9995668+00:00",
+    "status":"Succeeded"},
+"subject":"ExportRDBCompleted",
+"dataversion":"1.0",
+"metadataVersion":"1",
+"eventTime":"2020-12-09T21:50:19.9995668+00:00"}]
+```
+
+### Microsoft.Cache.ScalingCompleted
+
+```json
+[{
+"id":"9b87886d-21a5-4af5-8e3e-10c4b8dac73b",
+"eventType":"Microsoft.Cache.ScalingCompleted",
+"topic":"/subscriptions/{subscription_id}/resourceGroups/{resource_group_name}/providers/Microsoft.Cache/Redis/{cache_name}",
+"data":{
+    "name":"ScalingCompleted",
+    "timestamp":"2020-12-09T21:50:19.9995668+00:00",
+    "status":"Succeeded"},
+"subject":"ScalingCompleted",
+"dataversion":"1.0",
+"metadataVersion":"1",
+"eventTime":"2020-12-09T21:50:19.9995668+00:00"}]
+```
+
 ---
 
 ## Event properties
-
-# [Event Grid event schema](#tab/event-grid-event-schema)
-
-An event has the following top-level data:
-
-| Property | Type | Description |
-| -------- | ---- | ----------- |
-| `topic` | string | Full resource path to the event source. This field isn't writeable. Event Grid provides this value. |
-| `subject` | string | Publisher-defined path to the event subject. |
-| `eventType` | string | One of the registered event types for this event source. |
-| `eventTime` | string | The time the event is generated based on the provider's UTC time. |
-| `id` | string | Unique identifier for the event. |
-| `data` | object | Azure Cache for Redis event data. |
-| `dataVersion` | string | The schema version of the data object. The publisher defines the schema version. |
-| `metadataVersion` | string | The schema version of the event metadata. Event Grid defines the schema of the top-level properties. Event Grid provides this value. |
 
 
 # [Cloud event schema](#tab/cloud-event-schema)
@@ -204,6 +190,22 @@ An event has the following top-level data:
 | `data` | object | Azure Cache for Redis event data. |
 | `specversion` | string | CloudEvents schema specification version. |
 
+# [Event Grid event schema](#tab/event-grid-event-schema)
+
+An event has the following top-level data:
+
+| Property | Type | Description |
+| -------- | ---- | ----------- |
+| `topic` | string | Full resource path to the event source. This field isn't writeable. Event Grid provides this value. |
+| `subject` | string | Publisher-defined path to the event subject. |
+| `eventType` | string | One of the registered event types for this event source. |
+| `eventTime` | string | The time the event is generated based on the provider's UTC time. |
+| `id` | string | Unique identifier for the event. |
+| `data` | object | Azure Cache for Redis event data. |
+| `dataVersion` | string | The schema version of the data object. The publisher defines the schema version. |
+| `metadataVersion` | string | The schema version of the event metadata. Event Grid defines the schema of the top-level properties. Event Grid provides this value. |
+
+
 ---
 
 
@@ -211,7 +213,7 @@ The data object has the following properties:
 
 | Property | Type | Description |
 | -------- | ---- | ----------- |
-| `timestamp` | string | The time at which the event occurred. |
+| `timestamp` | string | The time when the event occurred. |
 | `name` | string | The name of the event. |
 | `status` | string | The status of the event. Failed or succeeded. |
 

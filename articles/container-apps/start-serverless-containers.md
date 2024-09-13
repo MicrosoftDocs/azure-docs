@@ -1,15 +1,15 @@
 ---
-title: Introduction to serverless containers on Azure
-description: Get started with serverless containers on Azure with Azure Container Apps
+title: Using serverless containers on Azure
+description: Get started using serverless containers on Azure with Azure Container Apps
 services: container-apps
 author: craigshoemaker
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.topic: conceptual
-ms.date: 11/14/2023
+ms.date: 11/30/2023
 ms.author: cshoe
 ---
 
-# Introduction to serverless containers on Azure
+# Use serverless containers on Azure
 
 Serverless computing offers services that manage and maintain servers, which relieve you of the burden of physically operating servers yourself. Azure Container Apps is a serverless platform that handles scaling, security, and infrastructure management for you - all while reducing costs. Once freed from server-related concerns, you're able to spend your time focusing on your application code.
 
@@ -31,7 +31,7 @@ Use the following table to help you get acquainted with Azure Container Apps.
 
 | Action | Description |
 |---|---|
-| [Build the app](quickstart-code-to-cloud.md) | Deploy your first app, then create an event driven app to process a message queue. |
+| [Build the app](quickstart-portal.md) | Deploy your first app, then create an event driven app to process a message queue. |
 | [Scale the app](scale-app.md) | Learn how Containers Apps handles meeting variable levels of demand. |
 | [Enable public access](ingress-overview.md) | Enable ingress on your container app to accept request from the public web. |
 | [Observe app behavior](observability.md) | Use log streaming, your apps console, application logs, and alerts to observe the state of your container app.  |

@@ -17,7 +17,7 @@
 # - name: Samples
 - name: Concepts
   items:
-  - name: NAS volumes as a service 
+  - name: Volumes as a service 
     items: 
       - name: Understand NAS
         href: network-attached-storage-concept.md 
@@ -41,12 +41,22 @@
             href: nfs-access-control-lists.md
       - name: Understand dual-protocol security style and permission behaviors
         href: dual-protocol-permission-behaviors.md
+      - name: Understand data encryption 
+        href: understand-data-encryption.md
+      - name: Understand guidelines for Active Directory Domain Services
+        href: understand-guidelines-active-directory-domain-service-site.md
+      - name: Understand DNS 
+        href: domain-name-system-concept.md
       - name: Understand the use of LDAP
         href: lightweight-directory-access-protocol.md
       - name: Understand NFS group memberships and supplemental groups
         href: network-file-system-group-memberships.md
       - name: Understand file locking
         href: understand-file-locks.md  
+      - name: Understand volume languages
+        href: understand-volume-languages.md
+      - name: Understand file path lengths 
+        href: understand-path-lengths.md 
   - name: Azure NetApp Files essentials 
     items:
     - name: Storage hierarchy of Azure NetApp Files
@@ -57,6 +67,12 @@
       href: azure-netapp-files-network-topologies.md
     - name: Resource limits for Azure NetApp Files
       href: azure-netapp-files-resource-limits.md
+    - name: High file counts 
+      items: 
+        - name: Understand maxfiles 
+          href: maxfiles-concept.md
+        - name: Understand maximum directory sizes 
+          href: directory-sizes-concept.md
     - name: Ways to monitor Azure NetApp Files
       href: monitor-azure-netapp-files.md
     - name: Metrics for Azure NetApp Files
@@ -69,7 +85,7 @@
     items:
     - name: Cost model for Azure NetApp Files
       href: azure-netapp-files-cost-model.md
-    - name: Standard storage with cool access
+    - name: Azure NetApp Files storage with cool access
       href: cool-access-introduction.md
   - name: Quotas 
     items:
@@ -91,8 +107,12 @@
       href: azure-netapp-files-performance-metrics-volumes.md 
     - name: Performance benchmarks for Linux
       href: performance-benchmarks-linux.md
+    - name: Large volume performance benchmarks for Linux
+      href: performance-large-volumes-linux.md
     - name: Performance impact of Kerberos on NFSv4.1
       href: performance-impact-kerberos.md
+    - name: Performance considerations for cool access 
+      href: performance-considerations-cool-access.md
     - name: Oracle database performance on Azure NetApp Files single volumes
       href: performance-oracle-single-volumes.md
     - name: Oracle database performance on Azure NetApp Files multiple volumes
@@ -119,12 +139,20 @@
         href: performance-virtual-machine-sku.md 
   - name: Application volume groups 
     items:
+      - name: Understand application volume groups
+        href: application-volume-group-concept.md 
       - name: Application volume groups for SAP HANA
         items: 
         - name: Understand application volume group for SAP HANA
           href: application-volume-group-introduction.md
         - name: Requirements and considerations for application volume group for SAP HANA
           href: application-volume-group-considerations.md
+      - name: Application volume groups for Oracle
+        items: 
+        - name: Understand application volume group for Oracle
+          href: application-volume-group-oracle-introduction.md
+        - name: Requirements and considerations for application volume group for Oracle
+          href: application-volume-group-oracle-considerations.md
   - name: Data protection and resiliency
     items:
     - name: Understand data protection and disaster recovery options
@@ -154,16 +182,48 @@
     - name: Azure Application Consistent Snapshot (AzAcSnap) tool
       items: 
       - name: What is AzAcSnap?
-        href: azacsnap-introduction.md
-      - name: Release Notes for AzAcSnap
-        href: azacsnap-release-notes.md
+        items:
+        - name: Introduction to AzAcSnap
+          href: azacsnap-introduction.md
+        - name: Release Notes for AzAcSnap
+          href: azacsnap-release-notes.md
       - name: Get started with AzAcSnap
-        href: azacsnap-get-started.md
-      - name: Install AzAcSnap
-        href: azacsnap-installation.md
+        items:
+        - name: Overall workflow
+          href: azacsnap-get-started.md
+        - name: Install AzAcSnap
+          href: azacsnap-installation.md
+        - name: Configure Database
+          items:
+          - name: All databases
+            href: azacsnap-configure-database.md
+          - name: SAP HANA
+            href: azacsnap-configure-database.md?tabs=sap-hana
+          - name: Oracle Database
+            href: azacsnap-configure-database.md?tabs=oracle
+          - name: IBM Db2
+            href: azacsnap-configure-database.md?tabs=db2
+          - name: Microsoft SQL Server (PREVIEW)
+            href: azacsnap-preview.md?tabs=mssql#microsoft-sql-server
+        - name: Configure Storage
+          items:
+          - name: All storage
+            href: azacsnap-configure-storage.md
+          - name: Azure NetApp Files
+            href: azacsnap-configure-storage.md?tabs=azure-netapp-files
+          - name: Azure Large Instance
+            href: azacsnap-configure-storage.md?tabs=azure-large-instance
+          - name: Azure Managed Disk (PREVIEW)
+            href: azacsnap-preview.md?tabs=mssql#azure-managed-disks
+        - name: Configure AzAcSnap
+          href: azacsnap-cmd-ref-configure.md
+        - name: Test configuration of AzAcSnap
+          href: azacsnap-cmd-ref-test.md
+        - name: Backup your database with AzAcSnap
+          href: azacsnap-cmd-ref-backup.md
       - name: Disaster recovery using AzAcSnap
         href: azacsnap-disaster-recovery.md
-      - name: Tips and tricks for using AzAcSnap
+      - name: Tips for using AzAcSnap
         href: azacsnap-tips.md
       - name: Troubleshoot AzAcSnap
         href: azacsnap-troubleshoot.md
@@ -177,36 +237,12 @@
       items:
       - name: Benefits of using Azure NetApp Files with Oracle Database
         href: solutions-benefits-azure-netapp-files-oracle-database.md
-      - name: Benefits of using Azure NetApp Files for electronic design automation
+      - name: Benefits of using Azure NetApp Files for Electronic Design Automation (EDA)
         href: solutions-benefits-azure-netapp-files-electronic-design-automation.md
       - name: Benefits of using Azure NetApp Files with Azure Virtual Desktop
         href: solutions-windows-virtual-desktop.md
       - name: Benefits of using Azure NetApp Files for SQL Server deployment
         href: solutions-benefits-azure-netapp-files-sql-server.md
-  - name: FAQs
-    items:
-          - name: Networking FAQs
-            href: faq-networking.md
-          - name: Capacity management FAQs
-            href: faq-capacity-management.md
-          - name: NFS FAQs
-            href: faq-nfs.md
-          - name: SMB FAQs
-            href: faq-smb.md
-          - name: Performance FAQs
-            href: faq-performance.md
-          - name: Application resilience FAQs
-            href: faq-application-resilience.md
-          - name: Data migration and protection FAQs
-            href: faq-data-migration-protection.md
-          - name: Application volume group FAQs
-            href: faq-application-volume-group.md
-          - name: Azure NetApp Files backup FAQs
-            href: faq-backup.md
-          - name: Security FAQs
-            href: faq-security.md
-          - name: Integration FAQs
-            href: faq-integration.md
   - name: Security
     items:
     - name: Security baseline
@@ -225,8 +261,6 @@
       href: request-region-access.md
   - name: Manage Active Directory 
     items:
-    - name: Understand guidelines for Active Directory Domain Services
-      href: understand-guidelines-active-directory-domain-service-site.md
     - name: Create and manage Active Directory connections
       href: create-active-directory-connections.md
     - name: Modify Active Directory connections
@@ -287,6 +321,8 @@
         href: configure-network-features.md
       - name: Configure customer-managed keys 
         href: configure-customer-managed-keys.md
+      - name: Configure customer-managed keys with managed HSM
+        href: configure-customer-managed-keys-hardware.md
       - name: Configure Virtual WAN
         href: configure-virtual-wan.md
     - name: Mount volumes
@@ -307,8 +343,10 @@
         href: dynamic-change-volume-service-level.md
       - name: Manage default and individual user and group quotas for a volume
         href: manage-default-individual-user-group-quotas.md
-      - name: Manage standard storage with cool access 
+      - name: Manage storage with cool access 
         href: manage-cool-access.md
+    - name: Update Terraform-managed volume
+      href: terraform-manage-volume.md
   - name: Manage application volume groups 
     items:
       - name: Manage application volume groups for SAP HANA
@@ -321,12 +359,22 @@
           href: application-volume-group-add-volume-secondary.md
         - name: Add volumes for an SAP HANA system as a DR system
           href: application-volume-group-disaster-recovery.md
-        - name: Manage volumes in an application volume group
+        - name: Manage volumes in an application volume group for SAP HANA
           href: application-volume-group-manage-volumes.md
-        - name: Delete an application volume group
-          href: application-volume-group-delete.md
-        - name: Configure application volume groups using REST API
+        - name: Configure application volume groups for SAP HANA using REST API
           href: configure-application-volume-group-sap-hana-api.md
+      - name: Manage application volume groups for Oracle
+        items: 
+        - name: Deploy application volume group for Oracle
+          href: application-volume-group-oracle-deploy-volumes.md
+        - name: Manage volumes in an application volume group for Oracle
+          href: application-volume-group-manage-volumes-oracle.md
+        - name: Configure application volume group for Oracle using REST API
+          href: configure-application-volume-oracle-api.md 
+        - name: Deploy application volume group for Oracle using Azure Resource Manager
+          href: configure-application-volume-oracle-azure-resource-manager.md 
+      - name: Delete an application volume group
+        href: application-volume-group-delete.md
   - name: Manage data protection  
     items:
     - name: Manage volume snapshots
@@ -363,8 +411,6 @@
         href: backup-search.md 
       - name: Restore a backup
         href: backup-restore-new-volume.md 
-      - name: Disable backup functionality
-        href: backup-disable.md
       - name: Delete backups 
         href: backup-delete.md 	
     - name: Manage replication
@@ -387,6 +433,10 @@
         href: manage-availability-zone-volume-placement.md
       - name: Create cross-zone replication 
         href: create-cross-zone-replication.md
+  - name: Relocate
+    items:
+    - name: Relocate volume to another region
+      href: ../operational-excellence/relocation-netapp.md?toc=/azure/azure-netapp-files/toc.json
   - name: Develop
     items:
     - name: REST API
@@ -415,6 +465,30 @@
       href: troubleshoot-user-access-ldap.md
     - name: Troubleshoot file locks
       href: troubleshoot-file-locks.md
+- name: FAQs
+  items:
+  - name: Networking FAQs
+    href: faq-networking.md
+  - name: Capacity management FAQs
+    href: faq-capacity-management.md
+  - name: NFS FAQs
+    href: faq-nfs.md
+  - name: SMB FAQs
+    href: faq-smb.md
+  - name: Performance FAQs
+    href: faq-performance.md
+  - name: Application resilience FAQs
+    href: faq-application-resilience.md
+  - name: Data migration and protection FAQs
+    href: faq-data-migration-protection.md
+  - name: Application volume group FAQs
+    href: faq-application-volume-group.md
+  - name: Azure NetApp Files backup FAQs
+    href: faq-backup.md
+  - name: Security FAQs
+    href: faq-security.md
+  - name: Integration FAQs
+    href: faq-integration.md
 - name: Reference
   items:
   - name: REST
@@ -445,6 +519,8 @@
       href: azacsnap-cmd-ref-runbefore-runafter.md
 - name: Resources
   items:
+  - name: Azure NetApp Files tools 
+    href: tools-reference.md
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/netapp/
   - name: Regional availability

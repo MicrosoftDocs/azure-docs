@@ -6,11 +6,9 @@ summary: Azure Container Registry allows you to build, store, and manage contain
 metadata:
   title: Azure Container Registry documentation
   description: Learn about Azure's private registry service to host Docker container images and related artifacts. Azure Container Registry service also supports ACR Tasks, a suite of services to build, manage, and patch container images.
-  services: container-registry
-  ms.service: container-registry
+  ms.service: azure-container-registry
   ms.subservice: subservice
   ms.topic: landing-page
-  ms.collection: collection
   author: tejaswikolli-web
   ms.author: tejaswikolli
   ms.date: 11/08/2019
@@ -40,9 +38,7 @@ landingContent:
             url: container-registry-get-started-geo-replication-template.md
           - text: Push and pull image with Docker
             url: container-registry-get-started-docker-cli.md
-    - linkListType: concept
-      links:
-          - text: Service tiers
+          - text: Azure Container Registry service tiers
             url: container-registry-skus.md
     - linkListType: learn 
       links:
@@ -80,23 +76,24 @@ landingContent:
           - text: Best practices
             url: container-registry-best-practices.md
   # Card   
-  - title: Troubleshoot guides
+  - title: What's new
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Troubleshoot authentication issues
-            url: container-registry-troubleshoot-login.md
-          - text: Troubleshoot network issues
-            url: container-registry-troubleshoot-access.md
-          - text: Troubleshoot performance issues
-            url: container-registry-troubleshoot-performance.md
-          - text: Detect common issues
-            url: container-registry-check-health.md
-          - text: ACR Technical Support policies
-            url: container-registry-check-health.md
-          - text: FAQ
-            url: container-registry-faq.yml
-  # Card (optional)
+          - text: Artifact Streaming
+            url: container-registry-artifact-streaming.md
+          - text: Soft delete policy
+            url: container-registry-soft-delete-policy.md
+  # Card (optional) 
+  - title: Tutorials
+    linkLists:
+      - linkListType: tutorial
+        links:
+          - text: Geo-replication
+            url: container-registry-tutorial-prepare-registry.md
+          - text: Artifact Cache
+            url: container-registry-artifact-cache.md
+  # Card
   - title: ACR Tasks
     linkLists:
       - linkListType: overview
@@ -113,27 +110,44 @@ landingContent:
         links:
           - text: Automate image builds     
             url: container-registry-tutorial-quick-task.md
-  - title: Connected registry (Preview)
+  # Card   
+  - title: Troubleshoot guides
     linkLists:
-      - linkListType: overview
+      - linkListType: how-to-guide
         links:
-          - text: About connected registry
-            url: intro-connected-registry.md
-          - text: Connected registry and IoT Edge
-            url: overview-connected-registry-and-iot-edge.md
-      - linkListType: quickstart
+          - text: Troubleshoot authentication issues
+            url: container-registry-troubleshoot-login.md
+          - text: Troubleshoot network issues
+            url: container-registry-troubleshoot-access.md
+          - text: Troubleshoot performance issues
+            url: container-registry-troubleshoot-performance.md
+          - text: Detect common issues
+            url: container-registry-check-health.md
+  # Card
+  - title: Reference
+    linkLists:
+      - linkListType: reference
         links:
-          - text: Create a connected registry - CLI
-            url: quickstart-connected-registry-cli.md
-          - text: Create a connected registry - Portal
-            url: quickstart-connected-registry-portal.md
-
-
+          - text: ACR Technical Support policies
+            url: container-registry-check-health.md
+          - text: FAQ
+            url: container-registry-faq.yml
+          - text: Azure Policy built-in
+            url: policy-reference.md
+          - text: Deprecated APIs
+            url: container-registry-api-deprecation.md
+          - text: Service Tags
+            url: container-registry-service-tag.md
+  # Card (optional)    
   - title: Security
     linkLists:
       - linkListType: how-to-guide
         links:
           - text: Push and pull supply chain artifacts (Preview)
-            url: container-registry-oras-artifacts.md
+            url: container-registry-manage-artifact.md
           - text: Build, sign, and verify container images using Notary and Azure Key Vault (Preview)
             url: container-registry-tutorial-sign-build-push.md
+          - text: Connect to ACR with Azure Private Link
+            url: container-registry-private-link.md
+          - text: Configure conditional access for ACR
+            url: container-registry-configure-conditional-access.md

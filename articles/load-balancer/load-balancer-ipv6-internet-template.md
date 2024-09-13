@@ -5,12 +5,11 @@ description: Learn how to deploy IPv6 support for Azure Load Balancer and load-b
 services: load-balancer
 author: mbender-ms
 keywords: ipv6, azure load balancer, dual stack, public ip, native ipv6, mobile, iot
-ms.service: load-balancer
+ms.service: azure-load-balancer
 ms.topic: how-to
-ms.workload: infrastructure-services
-ms.date: 05/03/2023
+ms.date: 06/26/2024
 ms.author: mbender
-ms.custom: template-how-to, seodec18, engagement-fy23
+ms.custom: template-how-to, engagement-fy23
 ---
 
 # Deploy an Internet-facing load-balancer solution with IPv6 using a template
@@ -96,7 +95,7 @@ When the template has deployed successfully, you can validate connectivity by co
 4. From each VM, initiate an outbound connection to an IPv6 or IPv4-connected Internet device. In both cases, the source IP seen by the destination device is the public IPv4 or IPv6 address of the load balancer.
 
 > [!NOTE]
-> To test connectivity for both an IPv4 and an IPv6 frontend of a Load Balancer, an ICMP ping can be sent to the frontend of the Load Balancer. Note that the IP addresses shown in the diagram are examples of values that you might see. Since the IPv6 addresses are assigned dynamically, the addresses you receive will differ and can vary by region. Also, it is common for the public IPv6 address on the load balancer to start with a different prefix than the private IPv6 addresses in the back-end pool.
+> To test connectivity for both an IPv4 and an IPv6 frontend of a Load Balancer, an ICMP ping can be sent to the frontend of the Load Balancer. Note that the IP addresses shown in the diagram are examples of values that you might see. Since the IPv6 addresses are assigned dynamically, the addresses you receive will differ and can vary by region. Also, it is common for the public IPv6 address on the load balancer to start with a different prefix than the private IPv6 addresses in the backend pool.
 
 ## Template parameters and variables
 

@@ -25,6 +25,8 @@
       href: understand-work-scopes.md
     - name: Cost Management for partners
       href: get-started-partners.md
+    - name: Retire AWS connector
+      href: retire-aws-connector.md
     - name: Security
       items:
       - name: Security baseline
@@ -33,8 +35,6 @@
       href: cost-management-error-codes.md
   - name: Resources
     items:
-    - name: Estimate costs with Azure pricing calculator
-      href: pricing-calculator.md
     - name: Cost Management for AWS pricing
       href: https://azure.microsoft.com/pricing/details/cost-management
     - name: Build your skills with Microsoft Learn training
@@ -45,10 +45,62 @@
     items:
     - name: Cost Management REST APIs
       href: /rest/api/cost-management/
+    - name: Dataset schema
+      items:
+      - name: Dataset schema index
+        href: ../dataset-schema/schema-index.md
+      - name: Cost and usage details
+        items:
+        - name: Cost and usage details - EA
+          href: ../dataset-schema/cost-usage-details-ea.md
+        - name: Cost and usage details - MCA
+          href: ../dataset-schema/cost-usage-details-mca.md
+        - name: Cost and usage details - MPA
+          href: ../dataset-schema/cost-usage-details-mca-partner.md
+        - name: Cost and usage details - CSP subscription
+          href: ../dataset-schema/cost-usage-details-mca-partner-subscription.md
+        - name: Cost and usage details - pay-as-you-go
+          href: ../dataset-schema/cost-usage-details-pay-as-you-go.md
+        - name: Cost and usage details - FOCUS
+          href: ../dataset-schema/cost-usage-details-focus.md
+      - name: Price sheet
+        items:
+        - name: EA price sheet 
+          href: ../dataset-schema/price-sheet-ea.md
+        - name: MCA price sheet 
+          href: ../dataset-schema/price-sheet-mca.md
+      - name: Reservation details
+        items:
+        - name: EA reservation details
+          href: ../dataset-schema/reservation-details-ea.md
+        - name: MCA reservation details
+          href: ../dataset-schema/reservation-details-mca.md
+      - name: Reservation recommendations
+        items:
+        - name: EA reservation recommendations
+          href: ../dataset-schema/reservation-recommendations-ea.md
+        - name: MCA reservation recommendations
+          href: ../dataset-schema/reservation-recommendations-mca.md
+      - name: Reservation transactions
+        items:
+        - name: EA reservation transactions
+          href: ../dataset-schema/reservation-transactions-ea.md
+        - name: MCA reservation transactions
+          href: ../dataset-schema/reservation-transactions-mca.md
+- name: Pricing and estimation
+  items:
+  - name: Quickstarts
+    items:
+    - name: Estimate costs with the Azure pricing calculator
+      href: pricing-calculator.md
+  - name: Reference
+    items:
     - name: Azure Retail Prices REST API
       href: /rest/api/cost-management/retail-prices/azure-retail-prices
     - name: Price Sheet API (MCA)
       href: /rest/api/cost-management/price-sheet
+    - name: Price Sheet API (EA)
+      href: /rest/api/consumption/price-sheet
 - name: Reporting and analytics
   items:
   - name: Overview
@@ -159,10 +211,16 @@
       href: ../reservations/reservation-renew.md
 - name: Cost allocation
   items:
+  - name: Overview
+    items:
+    - name: Cost allocation overview
+      href: cost-allocation-introduction.md
   - name: Tutorials
     items:
     - name: Group and allocate costs using tag inheritance
       href: enable-tag-inheritance.md
+    - name: Apply billing tags
+      href: billing-tags.md
     - name: Split shared costs
       href: allocate-costs.md
   - name: Reference
@@ -181,6 +239,8 @@
     items:
     - name: Export data
       href: tutorial-export-acm-data.md
+    - name: Tutorial - Improved exports (Preview)
+      href: tutorial-improved-exports.md
     - name: Seed historical cost dataset with Exports API
       href: ../automate/tutorial-seed-historical-cost-dataset-exports-api.md
     - name: Export cost data with a Storage SAS key
@@ -227,6 +287,10 @@
       items:
       - name: Migrate from EA Reporting APIs to ARM
         href: ../automate/migrate-ea-reporting-arm-apis-overview.md
+      - name: EA Marketplace Store Charge API
+        href: ../automate/migrate-ea-marketplace-store-charge-api.md
+      - name: EA Billing Periods API
+        href: ../automate/migrate-enterprise-agreement-billing-periods-api.md
       - name: EA Usage Details APIs
         href: ../automate/migrate-ea-usage-details-api.md
       - name: EA Balance Summary API
@@ -258,7 +322,7 @@
     - name: Cost Management REST API
       href: /rest/api/cost-management
     - name: Cost Management REST API samples
-      href: https://github.com/Azure-Samples/Cost-Management-Samples
+      href: https://github.com/Azure-Samples/azure-cost-management-dashboard
     - name: Azure PowerShell cmdlets for Cost Management
       href: /powershell/module/Az.CostManagement
   - name: Resources

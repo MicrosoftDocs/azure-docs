@@ -7,7 +7,7 @@ manager: rochakm
 ms.topic: how-to
 ms.date: 01/14/2020
 ms.custom: engagement-fy23
-ms.service: site-recovery
+ms.service: azure-site-recovery
 ---
 
 
@@ -48,4 +48,4 @@ After the enable replication job runs and the initial replication finishes, the 
 
 ## Next steps
 
-[Learn more](site-recovery-test-failover-to-azure.md) about running a test failover.
+- [Learn more](site-recovery-test-failover-to-azure.md) about running a test failover.

@@ -10,10 +10,14 @@ ms.service: active-directory
 
 ms.topic: how-to
 ms.custom: b2c-docs-improvements
-ms.date: 11/06/2023
+ms.date: 01/11/2024
 ms.author: kengaderdus
 ms.reviewer: yoelh
 ms.subservice: B2C
+
+
+#Customer intent: As a developer using Azure Active Directory B2C, I want to collect and manipulate user inputs by writing a custom policy, so that I can customize the user interface and process the inputs as claims in a JWT token.
+
 ---
 
 # Collect and manipulate user inputs by using Azure Active Directory B2C custom policy
@@ -467,12 +471,12 @@ After you complete [step 6](#step-6---update-relying-party), the `ContosoCustomP
 ```
 If you haven't already done so, replace `yourtenant` with the subdomain part of your tenant name, such as `contoso`. Learn how to [Get your tenant name](tenant-management-read-tenant-name.md#get-your-tenant-name).
 
-## Step 3 - Upload custom policy file
+## Step 7 - Upload custom policy file
 
 Follow the steps in [Upload custom policy file](custom-policies-series-hello-world.md#step-3---upload-custom-policy-file). If you're uploading a file with same name as the one already in the portal, make sure you select **Overwrite the custom policy if it already exists**.
 
 
-## Step 4 - Test the custom policy
+## Step 8 - Test the custom policy
 
 1. Under **Custom policies**, select **B2C_1A_CONTOSOCUSTOMPOLICY**.
 1. For **Select application** on the overview page of the custom policy, select the web application such as *webapp1* that you previously registered. Make sure that the **Select reply URL** value is set to`https://jwt.ms`.

@@ -2,15 +2,12 @@
 title: 'Add an Event Hubs event source - Azure Time Series Insights | Microsoft Docs'
 description: Learn how to add an Azure Event Hubs event source to your Azure Time Series Insights environment.
 ms.service: time-series-insights
-services: time-series-insights
 author: tedvilutis
 ms.author: tvilutis
 manager: cnovak
 ms.reviewer: orspodek
-ms.workload: big-data
 ms.topic: conceptual
 ms.date: 01/21/2021
-ms.custom: seodec18
 ---
 
 # Add an event hub event source to your Azure Time Series Insights environment
@@ -113,5 +110,3 @@ To add a new consumer group in your event hub:
 - [Define data access policies](./concepts-access-policies.md) to secure the data.
 
 - [Send events](time-series-insights-send-events.md) to the event source.
-
-- Access your environment in the [Azure Time Series Insights Explorer](https://insights.timeseries.azure.com).

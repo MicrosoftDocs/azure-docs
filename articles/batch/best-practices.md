@@ -1,7 +1,7 @@
 ---
 title: Best practices
 description: Learn best practices and useful tips for developing your Azure Batch solutions.
-ms.date: 11/02/2023
+ms.date: 06/27/2024
 ms.topic: conceptual
 ---
 
@@ -19,15 +19,6 @@ This article discusses best practices and useful tips for using the Azure Batch 
 ### Pool configuration and naming
 
 - **Pool allocation mode:** When creating a Batch account, you can choose between two pool allocation modes: **Batch service** or **user subscription**. For most cases, you should use the default Batch service mode, in which pools are allocated behind the scenes in Batch-managed subscriptions. In the alternative user subscription mode, Batch VMs and other resources are created directly in your subscription when a pool is created. User subscription accounts are primarily used to enable a small but important subset of scenarios. For more information, see [configuration for user subscription mode](batch-account-create-portal.md#additional-configuration-for-user-subscription-mode).
-
-- **`virtualMachineConfiguration` or `cloudServiceConfiguration`:** While you can currently create pools using either
-configuration, new pools should be configured using `virtualMachineConfiguration` and not `cloudServiceConfiguration`.
-All current and new Batch features will be supported by Virtual Machine Configuration pools. Cloud Service Configuration
-pools don't support all features and no new capabilities are planned. You won't be able to create new
-`cloudServiceConfiguration` pools or add new nodes to existing pools
-[after February 29, 2024](https://azure.microsoft.com/updates/azure-batch-cloudserviceconfiguration-pools-will-be-retired-on-29-february-2024/).
-For more information, see
-[Migrate Batch pool configuration from Cloud Services to Virtual Machine](batch-pool-cloud-service-to-virtual-machine-configuration.md).
 
 - **`classic` or `simplified` node communication mode:** Pools can be configured in one of two node communication modes,
 classic or [simplified](simplified-compute-node-communication.md). In the classic node communication model, the Batch service
@@ -53,6 +44,15 @@ derived or aligned with. An image without a specified `batchSupportEndOfLife` da
 determined yet by the Batch service. Absence of a date doesn't indicate that the respective image will be supported
 indefinitely. An EOL date may be added or updated in the future at any time.
 
+- **VM SKUs with impending end-of-life (EOL) dates:** As with VM images, VM SKUs or families may also reach Batch support
+end of life (EOL). These dates can be discovered via the
+[`ListSupportedVirtualMachineSkus` API](/rest/api/batchmanagement/location/list-supported-virtual-machine-skus),
+[PowerShell](/powershell/module/az.batch/get-azbatchsupportedvirtualmachinesku), or
+[Azure CLI](/cli/azure/batch/location#az-batch-location-list-skus).
+Plan for the migration of your workload to a non-EOL VM SKU by creating a new pool with an appropriate supported VM SKU.
+Absence of an associated `batchSupportEndOfLife` date for a VM SKU doesn't indicate that particular VM SKU will be
+supported indefinitely. An EOL date may be added or updated in the future at any time.
+
 - **Unique resource names:** Batch resources (jobs, pools, etc.) often come and go over time. For example, you may create a pool on Monday, delete it on Tuesday, and then create another similar pool on Thursday. Each new resource you create should be given a unique name that you haven't used before. You can create uniqueness by using a GUID (either as the entire resource name, or as a part of it) or by embedding the date and time that the resource was created in the resource name. Batch supports [DisplayName](/dotnet/api/microsoft.azure.batch.jobspecification.displayname), which can give a resource a more readable name even if the actual resource ID is something that isn't human-friendly. Using unique names makes it easier for you to differentiate which particular resource did something in logs and metrics. It also removes ambiguity if you ever have to file a support case for a resource.
 
 - **Continuity during pool maintenance and failure:** It's best to have your jobs use pools dynamically. If your jobs use the same pool for everything, there's a chance that jobs won't run if something goes wrong with the pool. This principle is especially important for time-sensitive workloads. For example, select or create a pool dynamically when you schedule each job, or have a way to override the pool name so that you can bypass an unhealthy pool.
@@ -67,7 +67,7 @@ For the purposes of isolation, if your scenario requires isolating jobs or tasks
 
 #### Batch Node Agent updates
 
-Batch node agents aren't automatically upgraded for pools that have non-zero compute nodes. To ensure your Batch pools receive the latest security fixes and updates to the Batch node agent, you need to either resize the pool to zero compute nodes or recreate the pool. It's recommended to monitor the [Batch Node Agent release notes](https://github.com/Azure/Batch/blob/master/changelogs/nodeagent/CHANGELOG.md) to understand changes to new Batch node agent versions. Checking regularly for updates when they were released enables you to plan upgrades to the latest agent version.
+Batch node agents aren't automatically upgraded for pools that have nonzero compute nodes. To ensure your Batch pools receive the latest security fixes and updates to the Batch node agent, you need to either resize the pool to zero compute nodes or recreate the pool. It's recommended to monitor the [Batch Node Agent release notes](https://github.com/Azure/Batch/blob/master/changelogs/nodeagent/CHANGELOG.md) to understand changes to new Batch node agent versions. Checking regularly for updates when they were released enables you to plan upgrades to the latest agent version.
 
 Before you recreate or resize your pool, you should download any node agent logs for debugging purposes if you're experiencing issues with your Batch pool or compute nodes. This process is further discussed in the [Nodes](#nodes) section.
 
@@ -77,9 +77,16 @@ Before you recreate or resize your pool, you should download any node agent logs
 #### Operating system updates
 
 It's recommended that the VM image selected for a Batch pool should be up-to-date with the latest publisher provided security updates.
-Some images may perform automatic updates upon boot (or shortly thereafter), which may interfere with certain user directed actions such
+Some images may perform automatic package updates upon boot (or shortly thereafter), which may interfere with certain user directed actions such
 as retrieving package repository updates (for example, `apt update`) or installing packages during actions such as a
 [StartTask](jobs-and-tasks.md#start-task).
+
+It's recommended to enable [Auto OS upgrade for Batch pools](batch-upgrade-policy.md), which allows the underlying
+Azure infrastructure to coordinate updates across the pool. This option can be configured to be nondisrupting for task
+execution. Automatic OS upgrade doesn't support all operating systems that Batch supports. For more information, see the
+[Virtual Machine Scale Sets Auto OS upgrade Support Matrix](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade#supported-os-images).
+For Windows operating systems, ensure that you aren't enabling the property
+`virtualMachineConfiguration.windowsConfiguration.enableAutomaticUpdates` when using Auto OS upgrade on the Batch pool.
 
 Azure Batch doesn't verify or guarantee that images allowed for use with the service have the latest security updates.
 Updates to images are under the purview of the publisher of the image, and not that of Azure Batch. For certain images published
@@ -91,7 +98,7 @@ Pool lifetime can vary depending upon the method of allocation and options appli
 
 - **Pool recreation:** Avoid deleting and recreating pools on a daily basis. Instead, create a new pool and then update your existing jobs to point to the new pool. Once all of the tasks have been moved to the new pool, then delete the old pool.
 
-- **Pool efficiency and billing:** Batch itself incurs no extra charges. However, you do incur charges for Azure resources utilized, such as compute, storage, networking and any other resources that may be required for your Batch workload. You're billed for every compute node in the pool, regardless of the state it's in. For more information, see [Cost analysis and budgets for Azure Batch](budget.md).
+- **Pool efficiency and billing:** Batch itself incurs no extra charges. However, you do incur charges for Azure resources utilized, such as compute, storage, networking, and any other resources that may be required for your Batch workload. You're billed for every compute node in the pool, regardless of the state it's in. For more information, see [Cost analysis and budgets for Azure Batch](budget.md).
 
 - **Ephemeral OS disks:** Virtual Machine Configuration pools can use [ephemeral OS disks](create-pool-ephemeral-os-disk.md), which create the OS disk on the VM cache or temporary SSD, to avoid extra costs associated with managed disks.
 
@@ -111,6 +118,19 @@ When you create an Azure Batch pool using the Virtual Machine Configuration, you
 
 Pools can be created using third-party images published to Azure Marketplace. With user subscription mode Batch accounts, you may see the error "Allocation failed due to marketplace purchase eligibility check" when creating a pool with certain third-party images. To resolve this error, accept the terms set by the publisher of the image. You can do so by using [Azure PowerShell](/powershell/module/azurerm.marketplaceordering/set-azurermmarketplaceterms) or [Azure CLI](/cli/azure/vm/image/terms).
 
+### Container pools
+
+When you create a Batch pool with a [virtual network](batch-virtual-network.md), there can be interaction
+side effects between the specified virtual network and the default Docker bridge. Docker, by default, will
+create a network bridge with a subnet specification of `172.17.0.0/16`. Ensure that there are no conflicting
+IP ranges between the Docker network bridge and your virtual network.
+
+Docker Hub limits the number of image pulls. Ensure that your workload doesn't
+[exceed published rate limits](https://docs.docker.com/docker-hub/download-rate-limit/) for Docker
+Hub-based images. It's recommended to use
+[Azure Container Registry](../container-registry/container-registry-intro.md) directly or leverage
+[Artifact cache in ACR](../container-registry/container-registry-artifact-cache.md).
+
 ### Azure region dependency
 
 You shouldn't rely on a single Azure region if you have a time-sensitive or production workload. While rare, there are issues that can affect an entire region. For example, if your processing needs to start at a specific time, consider scaling up the pool in your primary region *well before your start time*. If that pool scale fails, you can fall back to scaling up a pool in a backup region (or regions).
@@ -123,7 +143,7 @@ A [job](jobs-and-tasks.md#jobs) is a container designed to contain hundreds, tho
 
 ### Fewer jobs, more tasks
 
-Using a job to run a single task is inefficient. For example, it's more efficient to use a single job containing 1000 tasks rather than creating 100 jobs that contain 10 tasks each. If you used 1000 jobs, each with a single task that would be the least efficient, slowest, and most expensive approach to take.
+Using a job to run a single task is inefficient. For example, it's more efficient to use a single job containing 1,000 tasks rather than creating 100 jobs that contain 10 tasks each. If you used 1,000 jobs, each with a single task that would be the least efficient, slowest, and most expensive approach to take.
 
 Avoid designing a Batch solution that requires thousands of simultaneously active jobs. There's no quota for tasks, so executing many tasks under as few jobs as possible efficiently uses your [job and job schedule quotas](batch-quota-limit.md#resource-quotas).
 
@@ -134,6 +154,11 @@ A Batch job has an indefinite lifetime until it's deleted from the system. Its s
 A job doesn't automatically move to completed state unless explicitly terminated. This action can be automatically triggered through the [onAllTasksComplete](/dotnet/api/microsoft.azure.batch.common.onalltaskscomplete) property or [maxWallClockTime](/rest/api/batchservice/job/add#jobconstraints).
 
 There's a default [active job and job schedule quota](batch-quota-limit.md#resource-quotas). Jobs and job schedules in completed state don't count towards this quota.
+
+Delete jobs when they're no longer needed, even if in completed state. Although completed jobs don't count towards
+active job quota, it's beneficial to periodically clean up completed jobs. For example,
+[listing jobs](/rest/api/batchservice/job/list) will be more efficient when the total number of jobs is a smaller
+set (even if proper filters are applied to the request).
 
 ## Tasks
 
@@ -155,7 +180,10 @@ Deleting tasks accomplishes two things:
 - Cleans up the corresponding task data on the node (provided `retentionTime` hasn't already been hit). This action helps ensure that your nodes don't fill up with task data and run out of disk space.
 
 > [!NOTE]
-> For tasks just submitted to Batch, the DeleteTask API call takes up to 10 minutes to take effect. Before it takes effect, other tasks might be prevented from being scheduled. It's because Batch Scheduler still tries to schedule the tasks just deleted. If you want to delete one task shortly after it's submitted, please terminate the task instead (since the terminate task will take effect immediately). And then delete the task 10 minutes later.
+> For tasks just submitted to Batch, the DeleteTask API call takes up to 10 minutes to take effect. Before it takes effect,
+> other tasks might be prevented from being scheduled. It's because Batch Scheduler still tries to schedule the tasks just
+> deleted. If you wanted to delete one task shortly after it's submitted, please terminate the task instead (since the
+> terminate task request will take effect immediately). And then delete the task 10 minutes later.
 
 ### Submit large numbers of tasks in collection
 
@@ -167,7 +195,7 @@ Batch supports oversubscribing tasks on nodes (running more tasks than a node ha
 
 ### Design for retries and re-execution
 
-Tasks can be automatically retried by Batch. There are two types of retries: user-controlled and internal. User-controlled retries are specified by the task's [maxTaskRetryCount](/dotnet/api/microsoft.azure.batch.taskconstraints.maxtaskretrycount). When a program specified in the task exits with a non-zero exit code, the task is retried up to the value of the `maxTaskRetryCount`.
+Tasks can be automatically retried by Batch. There are two types of retries: user-controlled and internal. User-controlled retries are specified by the task's [maxTaskRetryCount](/dotnet/api/microsoft.azure.batch.taskconstraints.maxtaskretrycount). When a program specified in the task exits with a nonzero exit code, the task is retried up to the value of the `maxTaskRetryCount`.
 
 Although rare, a task can be retried internally due to failures on the compute node, such as not being able to update internal state or a failure on the node while the task is running. The task will be retried on the same compute node, if possible, up to an internal limit before giving up on the task and deferring the task to be rescheduled by Batch, potentially on a different compute node.
 
@@ -185,7 +213,7 @@ Tasks that only run for one to two seconds aren't ideal. Try to do a significant
 
 ### Use pool scope for short tasks on Windows nodes
 
-When scheduling a task on Batch nodes, you can choose whether to run it with task scope or pool scope. If the task will only run for a short time, task scope can be inefficient due to the resources needed to create the auto-user account for that task. For greater efficiency, consider setting these tasks to pool scope. For more information, see [Run a task as an auto-user with pool scope](batch-user-accounts.md#run-a-task-as-an-auto-user-with-pool-scope).
+When scheduling a task on Batch nodes, you can choose whether to run it with task scope or pool scope. If the task will only run for a short time, task scope can be inefficient due to the resources needed to create the autouser account for that task. For greater efficiency, consider setting these tasks to pool scope. For more information, see [Run a task as an autouser with pool scope](batch-user-accounts.md#run-a-task-as-an-auto-user-with-pool-scope).
 
 ## Nodes
 
@@ -212,7 +240,7 @@ facilities.
 
 ### Isolated nodes
 
-Consider using isolated VM sizes for workloads with compliance or regulatory requirements. Supported isolated sizes in virtual machine configuration mode include `Standard_E80ids_v4`, `Standard_M128ms`, `Standard_F72s_v2`, `Standard_G5`, `Standard_GS5`, and `Standard_E64i_v3`. For more information about isolated VM sizes, see [Virtual machine isolation in Azure](../virtual-machines/isolation.md).
+Consider using isolated VM sizes for workloads with compliance or regulatory requirements. Supported isolated sizes in virtual machine configuration mode include `Standard_E80ids_v4`, `Standard_M128ms`, `Standard_F72s_v2`, `Standard_G5`, `Standard_GS5`, and `Standard_E64i_v3`. For more information about isolated VM sizes, see [Virtual machine isolation in Azure](/azure/virtual-machines/isolation).
 
 ### Avoid creating directory junctions in Windows
 
@@ -230,7 +258,7 @@ section about attaching and preparing data disks for compute nodes.
 ### Attaching and preparing data disks
 
 Each individual compute node has the exact same data disk specification attached if specified as part of the Batch pool instance. Only
-new data disks may be attached to Batch pools. These data disks attached to compute nodes aren't automatically partitioned, formatted or
+new data disks may be attached to Batch pools. These data disks attached to compute nodes aren't automatically partitioned, formatted, or
 mounted. It's your responsibility to perform these operations as part of your [start task](jobs-and-tasks.md#start-task). These start tasks
 must be crafted to be idempotent. Re-execution of the start tasks on compute nodes is possible. If the start
 task isn't idempotent, potential data loss can occur on the data disks.
@@ -261,7 +289,7 @@ In this example, this device would be `/dev/disk/azure/scsi1/lun0`. You could pr
 tooling required for your workflow. Alternatively, you can use `lsblk` with `blkid` to map the UUID for the disk.
 
 For more information about Azure data disks in Linux, including alternate methods of locating data disks and `/etc/fstab` options,
-see this [article](../virtual-machines/linux/add-disk.md). Ensure that there are no dependencies or races as described by the Tip
+see this [article](/azure/virtual-machines/linux/add-disk). Ensure that there are no dependencies or races as described by the Tip
 note before promoting your method into production use.
 
 #### Preparing data disks in Windows Batch pools
@@ -285,18 +313,12 @@ Where disk number 2 is the uninitialized data disk attached to this compute node
 and formatted as required for your workflow.
 
 For more information about Azure data disks in Windows, including sample PowerShell scripts, see this
-[article](../virtual-machines/windows/attach-disk-ps.md). Ensure any sample scripts are validated for idempotency before
+[article](/azure/virtual-machines/windows/attach-disk-ps). Ensure any sample scripts are validated for idempotency before
 promotion into production use.
 
 ### Collect Batch agent logs
 
 If you notice a problem involving the behavior of a node or tasks running on a node, collect the Batch agent logs prior to deallocating the nodes in question. The Batch agent logs can be collected using the Upload Batch service logs API. These logs can be supplied as part of a support ticket to Microsoft and will help with issue troubleshooting and resolution.
-
-### Manage OS upgrades
-
-For user subscription mode Batch accounts, automated OS upgrades can interrupt task progress, especially if the tasks are long-running. [Building idempotent tasks](#build-durable-tasks) can help to reduce errors caused by these interruptions. We also recommend [scheduling OS image upgrades for times when tasks aren't expected to run](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md#manually-trigger-os-image-upgrades).
-
-For Windows pools, `enableAutomaticUpdates` is set to `true` by default. Allowing automatic updates is recommended, but you can set this value to `false` if you need to ensure that an OS update doesn't happen unexpectedly.
 
 ## Batch API
 
@@ -312,7 +334,7 @@ Review the following guidance related to connectivity in your Batch solutions.
 
 ### Network Security Groups (NSGs) and User Defined Routes (UDRs)
 
-When provisioning [Batch pools in a virtual network](batch-virtual-network.md), ensure that you're closely following the guidelines regarding the use of the BatchNodeManagement.*region* service tag, ports, protocols and direction of the rule. Use of the service tag is highly recommended; don't use underlying Batch service IP addresses as they can change over time. Using Batch service IP addresses directly can cause instability, interruptions, or outages for your Batch pools.
+When provisioning [Batch pools in a virtual network](batch-virtual-network.md), ensure that you're closely following the guidelines regarding the use of the BatchNodeManagement.*region* service tag, ports, protocols, and direction of the rule. Use of the service tag is highly recommended; don't use underlying Batch service IP addresses as they can change over time. Using Batch service IP addresses directly can cause instability, interruptions, or outages for your Batch pools.
 
 For User Defined Routes (UDRs), it's recommended to use BatchNodeManagement.*region* [service tags](../virtual-network/virtual-networks-udr-overview.md#service-tags-for-user-defined-routes) instead of Batch service IP addresses as they can change over time.
 
@@ -329,10 +351,6 @@ Ensure that your Batch service clients have appropriate retry policies in place 
 ### Static public IP addresses
 
 Typically, virtual machines in a Batch pool are accessed through public IP addresses that can change over the lifetime of the pool. This dynamic nature can make it difficult to interact with a database or other external service that limits access to certain IP addresses. To address this concern, you can create a pool using a set of static public IP addresses that you control. For more information, see [Create an Azure Batch pool with specified public IP addresses](create-pool-public-ip.md).
-
-### Testing connectivity with Cloud Services configuration
-
-You can't use the normal "ping"/ICMP protocol with cloud services, because the ICMP protocol isn't permitted through the Azure load balancer. For more information, see [Connectivity and networking for Azure Cloud Services](../cloud-services/cloud-services-connectivity-and-networking-faq.yml#can-i-ping-a-cloud-service-).
 
 ## Batch node underlying dependencies
 

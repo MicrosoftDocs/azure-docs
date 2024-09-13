@@ -111,7 +111,7 @@ Exporting your workbook to Power BI:
 - **Makes the workbook visualizations easier to share**. You can send the customer a link to the Power BI dashboard, where they can view the reported data, without requiring Azure access permissions.
 - **Enables scheduling**. Configure Power BI to send emails periodically that contain a snapshot of the dashboard for that time.
 
-For more information, see [Import Azure Monitor log data into Power BI](../azure-monitor/logs/log-powerbi.md).
+For more information, see [Import Azure Monitor log data into Power BI](/azure/azure-monitor/logs/log-powerbi).
 
 ### Playbooks
 
@@ -131,7 +131,7 @@ You can protect your playbooks as follows, depending on where the  analytic rule
 
 In both cases, if the playbook needs to access the customer’s Azure environment, use a user or service principal that has that access via Lighthouse.
 
-However, if the playbook needs to access non-Azure resources in the customer’s tenant, such as Microsoft Entra ID, Office 365, or Microsoft 365 Defender, create a service principal with appropriate permissions in the customer tenant, and then add that identity in the playbook.
+However, if the playbook needs to access non-Azure resources in the customer’s tenant, such as Microsoft Entra ID, Office 365, or Microsoft Defender XDR, create a service principal with appropriate permissions in the customer tenant, and then add that identity in the playbook.
 
 > [!NOTE]
 > If you use automation rules together with your playbooks, you must set the automation rule permissions on the resource group where the playbooks live.

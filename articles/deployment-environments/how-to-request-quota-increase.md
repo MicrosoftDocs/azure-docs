@@ -1,21 +1,20 @@
 ---
 title:  Request a quota limit increase for Azure Deployment Environments resources
 description: Learn how to request a quota increase to extend the number of Deployment Environments resources you can use in your subscription. 
-services: dev-box
-ms.service: dev-box
+ms.service: azure-deployment-environments
 author: RoseHJM
 ms.author: rosemalcolm
 ms.topic: how-to
-ms.date: 09/27/2023
+ms.date: 12/07/2023
 ---
 
 # Request a quota limit increase for Azure Deployment Environments resources
 
-This article describes how to submit a support request for increasing the number of resources available to Azure Deployment Environments in your Azure subscription. 
+This guide explains how to submit a support request to increase the number of resources available to Azure Deployment Environments in your Azure subscription.
 
-If your organization uses Deployment Environments extensively, you may encounter a quota limit during deployment. When you reach the limit for a resource in your subscription, you can request a limit increase (sometimes called a capacity increase, or a quota increase) to extend the number of resources available. The request process allows the Azure Deployment Environments team to ensure that your subscription isn't involved in any cases of fraud or unintentional, sudden large-scale deployments. 
+If your organization uses Deployment Environments extensively, you might encounter a quota limit during deployment. When you reach the limit for a resource in your subscription, you can request a limit increase (sometimes called a capacity increase or a quota increase) to extend the number of resources available. The request process allows the Azure Deployment Environments team to ensure that your subscription isn't involved in any cases of fraud or unintentional, sudden large-scale deployments. 
 
-Learn more about the general [process for creating Azure support requests](../azure-portal/supportability/how-to-create-azure-support-request.md).
+To learn more about the general process for creating Azure support requests, see [Create an Azure support request](../azure-portal/supportability/how-to-create-azure-support-request.md).
 
 ## Prerequisites
 
@@ -24,22 +23,20 @@ Learn more about the general [process for creating Azure support requests](../az
 
 ## Gather information for your request
 
-Submitting a support request for additional quota is quicker if you gather the required information before you begin the request process. 
+Submitting a support request to increase your quota is quicker if you gather the required information before you begin the request process. 
 
 - **Identify the quota type**
 
    If you reach the quota limit for a Deployment Environments resource, you see a notification indicating which quota type is affected during deployment. Take note of it and submit a request for that quota type.
-   
-   The following resources are limited by subscription.  
 
+   The following resources are limited by subscription: 
    - Runtime limit per month (mins)
    - Runtime limit per deployment (mins)
    - Storage limit per environment (GBs)
 
+- **Determine the region for the quota increase**
 
-- **Determine the region for the additional quota**
-
-   Deployment Environments resources can exist in many regions. You should choose the region where your Deployment Environments Project exists for best performance. 
+   Deployment Environments resources can exist in many regions. For best performance, you should choose the region where your Deployment Environments project exists.
 
    For more information about Azure regions, how they relate to global geographies, and which services are available in each region, see [Azure global infrastructure](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/).
 
@@ -47,7 +44,7 @@ Submitting a support request for additional quota is quicker if you gather the r
 
 Follow these steps to request a limit increase:  
 
-1. On the Azure portal home page, select Support & troubleshooting, and then select  **Help + support**
+1. Sign in to the [Azure portal](https://portal.azure.com), select Support & troubleshooting from the menu bar, and then choose **Help + support**. If this option doesn't appear, enter *Help + support* in the search bar.
 
     :::image type="content" source="./media/how-to-request-capacity-increase/submit-new-request.png" alt-text="Screenshot of the Azure portal home page, highlighting the Request core limit increase button." lightbox="./media/how-to-request-capacity-increase/submit-new-request.png":::
 
@@ -79,11 +76,12 @@ Follow these steps to request a limit increase:
     :::image type="content" source="media/how-to-request-capacity-increase/quota-details.png" alt-text="Screenshot of the Quota details pane." lightbox="media/how-to-request-capacity-increase/quota-details.png":::
 
 1. Select **Save and continue**.
+
 ## Complete the support request
 
 To complete the support request, enter the following information:
 
-1. Complete the remainder of the support request **Additional details** tab using the following information:
+1. Complete the remainder of the **Additional details** tab by using the following information:
 
    ### Advanced diagnostic information
 
@@ -116,7 +114,7 @@ To complete the support request, enter the following information:
 1. Select **Next**.
 
 1. On the **Review + create** tab, review the information, and then select **Create**.
- 
+
 ## Related content
 
 - Check the default quota for each resource type by subscription type: [Azure Deployment Environments limits](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-deployment-environments-limits)

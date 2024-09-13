@@ -12,7 +12,7 @@ ms.custom:
 
 # Object bounds
 
-Object bounds represent the volume that an [entity](entities.md) and its children occupy. In Azure Remote Rendering, object bounds are always given as *axis aligned bounding boxes* (AABB). Object bounds can be either in *local space* or in *world space*. Either way, they're always axis-aligned, which means the extents and volume may differ between the local and world space representation.
+Object bounds represent the volume that an [entity](entities.md) and its children occupy. In Azure Remote Rendering, object bounds are always given as *axis aligned bounding boxes (AABB)*. Object bounds can be either in *local space* or in *world space*. Either way, they're always axis-aligned, which means the extents and volume may differ between the local and world space representation.
 
 ## Querying object bounds
 

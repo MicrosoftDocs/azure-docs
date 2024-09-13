@@ -1,12 +1,11 @@
 ---
 title: Configure a host pool as a validation environment - Azure
 description: How to configure a host pool as a validation environment to test service updates before they roll out to production.
-author: Heidilohr
+author: dknappettmsft
 ms.topic: how-to
 ms.date: 03/01/2023
-ms.author: helohr 
-ms.custom: devx-track-azurecli
-manager: femila
+ms.author: daknappe
+ms.custom: devx-track-azurecli, docs_inherited
 ---
 # Configure a host pool as a validation environment
 
@@ -75,7 +74,7 @@ The results from the cmdlet should look similar to this output:
 
 If you haven't already done so, prepare your environment for the Azure CLI and sign in.
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 To define the new host pool as a validation host pool, use the [az desktopvirtualization hostpool update](/cli/azure/desktopvirtualization#az-desktopvirtualization-hostpool-update) command:
 

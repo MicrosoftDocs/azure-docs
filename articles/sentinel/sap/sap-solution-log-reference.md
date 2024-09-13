@@ -1,11 +1,15 @@
 ---
 title: Microsoft Sentinel solution for SAP® applications - data reference
 description: Learn about the SAP logs, tables, and functions available from the Microsoft Sentinel solution for SAP® applications.
-author: yelevin
-ms.author: yelevin
+author: batamig
+ms.author: bagol
 ms.topic: reference
-ms.custom: mvc, ignite-fall-2021
-ms.date: 05/24/2023
+ms.custom: mvc
+ms.date: 01/15/2024
+
+
+#Customer intent: As a security analyst, I want to understand the functions, logs, and tables available in the Microsoft Sentinel solution for SAP applications so that I can effectively monitor and analyze SAP system security and performance.
+
 ---
 
 # Microsoft Sentinel solution for SAP® applications data reference
@@ -19,7 +23,7 @@ This article describes the functions, logs, and tables available as part of the 
 
 ## Functions available from the SAP solution
 
-This section describes the [functions](../../azure-monitor/logs/functions.md) that are available in your workspace after you've deployed the Microsoft Sentinel solution for SAP® applications. Find these functions in the Microsoft Sentinel **Logs** page to use in your KQL queries, listed under **Workspace functions**.
+This section describes the [functions](/azure/azure-monitor/logs/functions) that are available in your workspace after you've deployed the Microsoft Sentinel solution for SAP® applications. Find these functions in the Microsoft Sentinel **Logs** page to use in your KQL queries, listed under **Workspace functions**.
 
 Users are *strongly encouraged* to use the functions as the subjects of their analysis whenever possible, instead of the underlying logs or tables. These functions are intended to serve as the principal user interface to the data. They form the basis for all the built-in analytics rules and workbooks available to you out of the box. This allows for changes to be made to the data infrastructure beneath the functions, without breaking user-created content.
 
@@ -291,54 +295,67 @@ SAPAuditLogAnomalies(LearningTime = 14d, DetectingTime=0h, SelectedSystems= dyna
 See [Built-in SAP analytics rules for monitoring the SAP audit log](sap-solution-security-content.md#monitoring-the-sap-audit-log) for more information.
 
 ### SAPAuditLogConfigRecommend
+
 The **SAPAuditLogConfigRecommend** is a helper function designed to offer recommendations for the configuration of the [SAP - Dynamic Anomaly based Audit Log Monitor Alerts (PREVIEW)](sap-solution-security-content.md#sap---dynamic-anomaly-based-audit-log-monitor-alerts-preview) analytics rule. Learn how to [configure the rules](configure-audit-log-rules.md).
 
 ### SAPUsersGetVIP
 
-The Sentinel for SAP solution uses a concept of central user tagging, designed to allow for lower false positive rate with minimal effort on the customer end:
+The [Microsoft Sentinel solution for SAP® applications](solution-overview.md) uses a concept of central user tagging and explicit exclusions, designed to help you lower false positives with minimal effort. Use the *SAPUsersGetVIP* function to exclude users from triggering alerts by specifying SAP user roles, SAP user functions, or tags that represent those users. For more information, see [Handle false positives in Microsoft Sentinel](../false-positives.md#example-manage-exceptions-for-the-microsoft-sentinel-solution-for-sap-applications).
 
-- Users can be tagged using the "SAP User Config" watchlist (for example DDIC is assigned with “RunObsoleteProgOK”). Multiple users can have multiple tags.
-- An alert rule sends the relevant tags to the **SAPUsersGetVIP** function asking for a list of users to be excluded. The alert rule “SAP - Execution of an Obsolete or an Insecure Program” can ask for users bearing the tag “RunObsoleteProgOK”. 
+Tags specified as input for the *SAPUsersGetVIP* function exclude all users with a tag listed in the *SAP_User_Config* watchlist. The same functionality is extended to work with wildcards, allowing you to assign a single tag to a group of users with the same naming syntax.
 
-Here is a KQL query demonstrating the use case described below:
+1. Tag users in the *SAP_User_Config* watchlist as follows:
+
+    - Add multiple tags to each user in the *SAP_User_Config* watchlist, as needed to cover various scenarios. Each alert rule has its own relevant tags, if any, and you can add custom tags as needed.
+
+    - Use an asterisk (*) as a wildcard to include users with a specific naming syntax template.
+
+1. Add the **SAPUsersGetVIP** function in your analytics rules to request the lists of users you've defined to be excluded from alerts. In the function call, add an array with the tags, SAP roles, and SAP profiles that you'd like to exclude.
+
+For example, use the following KQL query in your analytics rule to exclude any users configured with the *RunObsoleteProgOK* tag in the *SAP_User_Config* watchlist, or any users with the sample *SAP_BASIS_ADMIN_ROLE* role or the sample *SAP_ADMIN_PROFILE* profile.
+
+When copying this sample function call, replace *SAP_BASIS_ADMIN_ROLE* role and *SAP_ADMIN_PROFILE* profile with your own SAP roles or profiles as needed.
 
 ```kusto
 // Execution of Obsolete/Insecure Program
 let ObsoletePrograms = _GetWatchlist("SAP - Obsolete Programs");
 // here you can exclude system users which are OK to run obsolete/ sensitive programs
 // by adding those users in the SAP_User_Config watchlist with a tag of 'RunObsoleteProgOK'
-let excludeUsersTags= dynamic(['RunObsoleteProgOK']);
-let excludedUsers= SAPUsersGetVIP(SearchForTags= dynamic(["RunObsoleteProgOK"]))| summarize by User2Exclude=SAPUser;
+// can also specify SAP roles or SAP profiles that group the users you would like to exclude
+let excludeUsersTagsRolesProfiles= dynamic(["RunObsoleteProgOK","SAP_BASIS_ADMIN_ROLE", "SAP_ADMIN_PROFILE"]);
+let excludedUsers= SAPUsersGetVIP(SearchForTags= excludeUsersTagsRolesProfiles)| summarize by User2Exclude=SAPUser;
 // Query logic
-SAPAuditLog 
+SAPAuditLog
 | where MessageID == 'AUW'
 | where ABAPProgramName in (ObsoletePrograms) // The program is obsolete
 | join kind=leftantisemi excludedUsers on $left.User == $right.User2Exclude
 ```
 
-This functionality is heavily used in the Deterministic and Anomalous Audit Log Monitor Alerts, 'where tags can be associated with SAP audit log message ID, and can also be easily extended to custom alert rules. 
+The **SAPUsersGetVIP** function is commonly used in *Deterministic and Anomalous Audit Log Monitor* alerts. Associate a tag with an SAP audit log message ID, or extend the rule template to a custom rule that matches your organization's needs.
+
+> [!TIP]
+> We recommend that contacting your SAP system admin to understand which SAP users, roles, and profiles to include in your *SAP_User_Config* watchlist.
+>
+
 **Parameters:**
 
-- SearchForTags
-  - Optional
-  - Default value: dynamic('All Tags')
-  - When SearchForTags equals 'All Tags', all users are returned along with their tags, else, only users bearing the tags specified in SearchForTags are returned. TagsIntersect will show which tags were found, and IntersectionSize will hold the count of those.
-- SpecialFocusTags
-  - Optional
-  - Default value: "Do not return any in-focus users"
-  - The function returns all users bearing the tags specified in SpecialFocusTags, and marked those with specialFocusTagged = true.
+|Name  |Description  |Default value  |
+|---------|---------|---------|
+|**SearchForTags** (Optional)    |  When `SearchForTags` equals `All Tags`, all users are returned along with their tags. <br><br>Otherwise, only users bearing the tags, SAP roles, or SAP profiles specified in `SearchForTags` are returned. `TagsIntersect` shows the tags that are found, and `IntersectionSize` holds the number of tags that are found.      |   `dynamic('All Tags')`      |
+|**SpecialFocusTags** (Optional)     |   Returns all users bearing the tags specified in `SpecialFocusTags`, and marked those with `specialFocusTagged = true`.      |     `Do not return any in-focus users`    |
+
 
 | Source | Field | Description | Notes  
 | ------------- | ------------- | ------------- | -------------  
-| The "SAP User Config" watchlist | SearchKey | Search Key |
-| The "SAP User Config" watchlist | SAPUser | The SAP User | OSS, DDIC  
-| The "SAP User Config" watchlist | Tags | string of tags assigned to user | RunObsoleteProgOK  
-| The "SAP User Config" watchlist | User's Microsoft Entra Object ID | Microsoft Entra Object ID |   
-| The "SAP User Config" watchlist | User Identifier | AD User Identifier |
-| The "SAP User Config" watchlist | User on-premises Sid |  |
-| The "SAP User Config" watchlist | User Principal Name |  |
-| The "SAP User Config" watchlist | TagsList | A list of tags assigned to user | ChangeUserMasterDataOK;RunObsoleteProgOK  
-| Logic | TagsIntersect | A set of tags that matched SearchForTags | ["ChangeUserMasterDataOK","RunObsoleteProgOK"]  
+| The *SAP_User_Config* watchlist | SearchKey | Search Key |
+| The *SAP_User_Config* watchlist | SAPUser | The SAP User | OSS, DDIC  
+| The *SAP_User_Config* watchlist | Tags | String of tags assigned to user | RunObsoleteProgOK |  
+| The *SAP_User_Config* watchlist | User's Microsoft Entra Object ID | Microsoft Entra Object ID |   
+| The *SAP_User_Config* watchlist | User Identifier | AD User Identifier |
+| The *SAP_User_Config* watchlist | User on-premises Sid |  |
+| The *SAP_User_Config* watchlist | User Principal Name |  |
+| The *SAP_User_Config* watchlist | TagsList | A list of tags assigned to user | ChangeUserMasterDataOK;RunObsoleteProgOK |
+| Logic | TagsIntersect | A set of tags that matched SearchForTags | ["ChangeUserMasterDataOK","RunObsoleteProgOK"]  |
 | Logic | SpecialFocusTagged | Special focus indication | True, False  
 | Logic | IntersectionSize | The number of intersected Tags |
 
@@ -366,6 +383,7 @@ SelectedSystemRoles:dynamic = dynamic(["All System Roles"]) SelectedSystems:dyna
   - Accepts a single user only
 
 #### Additional notes
+
 For performance considerations, only a few days of audit activity are considered.
 For a full history of user activity, run a custom KQL query against the SAPAuditLog function.
 

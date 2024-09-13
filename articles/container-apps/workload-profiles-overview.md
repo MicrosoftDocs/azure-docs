@@ -3,7 +3,7 @@ title: Workload profiles in Azure Container Apps
 description: Learn how to select a workload profile for your container app
 services: container-apps
 author: craigshoemaker
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.topic: conceptual
 ms.date: 10/11/2023
 ms.author: cshoe
@@ -25,7 +25,10 @@ Profiles are configured to fit the different needs of your applications.
 | Dedicated (Memory optimized) | Increased memory resources | Apps that need access to large in-memory data, in-memory machine learning models, or other high memory requirements |
 | Dedicated (GPU enabled) (preview) | GPU enabled with increased memory and compute resources available in West US 3 and North Europe regions.  | Apps that require GPU |
 
-The Consumption workload profile is the default profile added to every Workload profiles [environment](environment.md) type. You can add Dedicated workload profiles to your environment as you create an environment or after it's created.
+> [!NOTE]
+> When using GPU-enabled workload profiles, make sure your application is running the latest version of [CUDA](https://catalog.ngc.nvidia.com/orgs/nvidia/containers/cuda).
+
+The Consumption workload profile is the default profile added to every Workload profiles [environment](environment.md) type. You can add Dedicated workload profiles to your environment as you create an environment or after it's created. Workload profiles environments are deployed separately from Consumption only environments.
 
 For each Dedicated workload profile in your environment, you can:
 
@@ -45,7 +48,7 @@ There are different types and sizes of workload profiles available by region. By
 
 | Display name | Name | vCPU | Memory (GiB) | GPU | Category | Allocation |
 |---|---|---|---|---|---|
-| Consumption | consumption |4 | 8 | - | Consumption | per replica |
+| Consumption | Consumption |4 | 8 | - | Consumption | per replica |
 | Dedicated-D4 | D4 | 4 | 16 | - | General purpose | per node |
 | Dedicated-D8 | D8 | 8 | 32 | - | General purpose | per node |
 | Dedicated-D16 | D16 | 16 | 64 | - | General purpose | per node |

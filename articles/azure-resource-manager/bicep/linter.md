@@ -1,9 +1,9 @@
 ---
 title: Use Bicep linter
 description: Learn how to use Bicep linter.
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: devx-track-bicep
-ms.date: 11/27/2023
+ms.date: 07/30/2024
 ---
 
 # Use Bicep linter
@@ -22,6 +22,7 @@ The default set of linter rules is minimal and taken from [arm-ttk test cases](.
 - [artifacts-parameters](./linter-rule-artifacts-parameters.md)
 - [decompiler-cleanup](./linter-rule-decompiler-cleanup.md)
 - [explicit-values-for-loc-params](./linter-rule-explicit-values-for-loc-params.md)
+- [max-asserts](./linter-rule-max-asserts.md)
 - [max-outputs](./linter-rule-max-outputs.md)
 - [max-params](./linter-rule-max-parameters.md)
 - [max-resources](./linter-rule-max-resources.md)
@@ -47,8 +48,11 @@ The default set of linter rules is minimal and taken from [arm-ttk test cases](.
 - [use-parent-property](./linter-rule-use-parent-property.md)
 - [use-protectedsettings-for-commandtoexecute-secrets](./linter-rule-use-protectedsettings-for-commandtoexecute-secrets.md)
 - [use-recent-api-versions](./linter-rule-use-recent-api-versions.md)
+- [use-recent-module-versions](./linter-rule-use-recent-module-versions.md)
 - [use-resource-id-functions](./linter-rule-use-resource-id-functions.md)
 - [use-resource-symbol-reference](./linter-rule-use-resource-symbol-reference.md)
+- [use-safe-access](./linter-rule-use-safe-access.md)
+- [use-secure-value-for-secure-inputs](./linter-rule-use-secure-value-for-secure-inputs.md)
 - [use-stable-resource-identifiers](./linter-rule-use-stable-resource-identifier.md)
 - [use-stable-vm-image](./linter-rule-use-stable-vm-image.md)
 
@@ -74,7 +78,7 @@ Select the solution to fix the issue automatically.
 
 ## Use in Bicep CLI
 
-The following screenshot shows the linter in the command line. The output from the build command shows any rule violations.
+The following screenshot shows the linter in the command line. The output from the [lint command](./bicep-cli.md#lint) and the [build command](./bicep-cli.md#build) shows any rule violations.
 
 :::image type="content" source="./media/linter/bicep-linter-command-line.png" alt-text="Bicep linter usage in command line.":::
 

@@ -2,12 +2,12 @@
 title: Work with datasets using the QGIS plugin
 titleSuffix: Microsoft Azure Maps Creator
 description: How to view and edit indoor map data using the Azure Maps QGIS plugin
-author: brendansco
-ms.author: Brendanc
+author: faterceros
+ms.author: aterceros
 ms.date: 06/14/2023
 ms.topic: how-to
 ms.service: azure-maps
-services: azure-maps
+ms.subservice: creator
 ---
 
 # Work with datasets using the QGIS plugin
@@ -18,8 +18,8 @@ The [Azure Maps QGIS plugin] is used to view and edit [datasets] in [QGIS]. It e
 
 ## Prerequisites
 
-- Understanding of [Creator concepts].
-- An Azure Maps Creator [dataset]. If you have never used Azure Maps Creator to create an indoor map, you might find the [Use Creator to create indoor maps] tutorial helpful.
+- Understanding of [Creator concepts]
+- A  [dataset]
 - A basic working knowledge of [QGIS]
 
 ## Get started
@@ -82,7 +82,7 @@ Some layers have a drop-down containing multiple layers within it, followed by t
 
 :::image type="content" source="./media/creator-indoor-maps/qgis/layers-example.png"alt-text="A screenshot showing a data set in the QGIS layers section.":::
 
-This happens in the case when the [layer definition] shows that the layer can hold features of different geometries. since QGIS only supports one geometry per layer, the plugin splits these layers by their possible geometries.
+This happens in the case when the [layer definition] shows that the layer can hold features of different geometries. Since QGIS only supports one geometry per layer, the plugin splits these layers by their possible geometries.
 
 > [!NOTE]
 > The geometry geometryCollection is not supported by QGIS.
@@ -139,7 +139,7 @@ To edit a feature property using the attribute table
     ![A screenshot showing the attribute table.](./media/creator-indoor-maps/qgis/attribute-table.png)
 
     > [!NOTE]
-    > The attribute table shows each feature, with their properties, in a tabular form. It can be accessed by right-clicking on any layer in the **Layers** panel then selecting **Open Attribute Table**.
+    > The attribute table shows each feature, with their properties, in a tabular form. Right-click to access any layer in the **Layers** panel then select **Open Attribute Table**.
 
 1. Toggle edit mode on.
 
@@ -200,8 +200,7 @@ If you have question related to Azure Maps, see [MICROSOFT Q&A]. Be sure and tag
 [Download QGIS]: https://qgis.org/en/site/forusers/download.html
 [geographic information system (GIS)]: https://www.usgs.gov/faqs/what-geographic-information-system-gis
 [Installing New Plugins]: https://docs.qgis.org/3.28/en/docs/training_manual/qgis_plugins/fetching_plugins.html#basic-fa-installing-new-plugins
-[layer definition]: /rest/api/maps/2023-03-01-preview/features/get-collection-definition?tabs=HTTP
+[layer definition]: /rest/api/maps-creator/features/get-collection-definition?view=rest-maps-creator-2023-03-01-preview&preserve-view=true?tabs=HTTP
 [MICROSOFT Q&A]: /answers/questions/ask
 [QGIS]: https://qgis.org/en/site/
 [subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account
-[Use Creator to create indoor maps]: tutorial-creator-indoor-maps.md

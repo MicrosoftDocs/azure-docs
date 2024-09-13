@@ -2,7 +2,7 @@
 author: alkohli
 ms.service: databox  
 ms.topic: include
-ms.date: 10/02/2023
+ms.date: 01/19/2024
 ms.author: alkohli
 ---
 
@@ -39,7 +39,7 @@ The following VMs are supported for creation on your Azure Stack Edge device.
 
 <!--| **Standard_DS14_v2**  | 16    | 114           | 224                 | 2000                           | 64000                               | 2300                             | 64              | 8         |-->
 
-For more information, see [Dv2 and DSv2-series](../articles/virtual-machines/dv2-dsv2-series.md#dv2-series).
+For more information, see [Dv2 and DSv2-series](/azure/virtual-machines/dv2-dsv2-series#dv2-series).
 
 
 ### N-series GPU optimized 
@@ -59,7 +59,7 @@ These sizes are supported for GPU VMs on your device and are optimized for compu
 | **Standard_NC32as_2T4_v1**  | 32    | 224           | 352                 | 2000                            | 48000                               | 2300                             | 2    | 32                | 8         | Yes |
 
 
-For more information, see [NCasT4_v3-series](../articles/virtual-machines/nct4-v3-series.md).
+For more information, see [NCasT4_v3-series](/azure/virtual-machines/nct4-v3-series).
 
 #### NVIDIA A2 Tensor Core GPU
 
@@ -93,11 +93,12 @@ These series are optimized for computational workloads and run on Intel Xeon pro
 | **Standard_F8s**   | 8       | 16           | 32                  | 2000                           | 32000                               | 2300                             | 32              | 8         | Yes |
 | **Standard_F16s**  | 16      | 32           | 64                  | 2000                           | 64000                               | 2300                             | 64              | 8         | Yes |
 | **Standard_F4s_v1**| 4       | 4            | 8                  | 2000                             | 8000                              | 2300                             | 8               | 4         | Yes |
+| **Standard_F4s_v3**| 4       | 5            | 8                  | 2000                             | 8000                              | 2300                             | 8               | 4         | Yes |
 | **Standard_F32s**   | 32       | 48                | 64    | 2000    | 64000   | 2300   | 64   |  8 | Yes   |  
 | **Standard_F32s_v1**| 32       | 96     | 64    | 2000    | 64000   | 2300   | 64   | 8   | Yes |
 | **Standard_F32s_v3**| 32     | 224      | 64    | 2000    | 64000   | 2300   | 64   | 8   | Yes |
 
-For more information, see [Fsv2-series](../articles/virtual-machines/fsv2-series.md).
+For more information, see [Fsv2-series](/azure/virtual-machines/fsv2-series).
 
 ### High-performance network VMs
 

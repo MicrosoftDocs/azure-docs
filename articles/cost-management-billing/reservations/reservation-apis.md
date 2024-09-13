@@ -3,12 +3,10 @@ title: APIs for Azure reservation automation
 description: Learn about the Azure APIs that you can use to programmatically get reservation information.
 author: bandersmsft
 ms.reviewer: primittal
-tags: billing
-ms.custom: ignite-2022
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
-ms.date: 11/17/2023
+ms.date: 08/14/2024
 ms.author: banders
 ---
 
@@ -42,7 +40,7 @@ Request body:
  "location": "westus",
  "properties": {
     "reservedResourceType": "VirtualMachines",
-    "billingScopeId": "/subscriptions/ed3a1871-612d-abcd-a849-c2542a68be83",
+    "billingScopeId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e",
     "term": "P1Y",
     "quantity": "1",
     "displayName": "TestReservationOrder",
@@ -58,12 +56,12 @@ Request body:
 You can also buy a reservation in the Azure portal. For more information, see the following articles:
 
 Service plans:
-- [Virtual machine](../../virtual-machines/prepay-reserved-vm-instances.md?toc=/azure/cost-management-billing/reservations/toc.json)
-- [Azure Cosmos DB](../../cosmos-db/cosmos-db-reserved-capacity.md?toc=/azure/cost-management-billing/reservations/toc.json)
+- [Virtual machine](/azure/virtual-machines/prepay-reserved-vm-instances?toc=/azure/cost-management-billing/reservations/toc.json)
+- [Azure Cosmos DB](/azure/cosmos-db/cosmos-db-reserved-capacity?toc=/azure/cost-management-billing/reservations/toc.json)
 - [SQL Database](/azure/azure-sql/database/reserved-capacity-overview?toc=/azure/cost-management-billing/reservations/toc.json)
 
 Software plans:
-- [SUSE Linux software](../../virtual-machines/linux/prepay-suse-software-charges.md?toc=/azure/cost-management-billing/reservations/toc.json)
+- [SUSE Linux software](/azure/virtual-machines/linux/prepay-suse-software-charges?toc=/azure/cost-management-billing/reservations/toc.json)
 
 ## Get reservations
 
@@ -103,7 +101,7 @@ The scope of a reservation can be single subscription, single resource group or 
 
 To change the scope programmatically, use the API [Reservation - Update](/rest/api/reserved-vm-instances/reservation/update).
 
-## Learn more
+## Related content
 
 - [What are reservations for Azure](save-compute-costs-reservations.md)
 - [Understand how the VM reservation discount is applied](../manage/understand-vm-reservation-charges.md)

@@ -15,7 +15,13 @@ ms.author: prakulka
 >[!Important] 
 >In most cases, customers with Azure subscriptions locations that match the country/region of the Number offer will be able to buy the Number. However, US and Canada numbers may be purchased by customers with Azure subscription locations in other countries/regions. Please see [here](../numbers/sub-eligibility-number-capability.md) for details on in-country and cross-country purchases.
 
-The Toll-free SMS service requires provisioning a toll-free number through the Azure portal. Once a toll-free number is provisioned, pay-as-you-go pricing applies to the leasing fee, and the usage fee. The leasing fee, and the usage fee is determined by the short code type, location of the short code, and the destination.
+> [!IMPORTANT]
+>- For billing locations in the US and Puerto Rico – Azure Prepayment (previously called Monetary Commitment) funds and Azure prepaid credits are not eligible for purchasing the products. Additionally, customer spend on the products is not eligible for Microsoft Azure Consumption Commitment drawdown.
+>
+>
+>- For billing locations outside the US and Puerto Rico Azure Prepayment (previously called Monetary Commitment) funds and Azure prepaid credits are not eligible for purchasing the products.
+
+The Toll-free SMS service requires provisioning a toll-free number through the Azure portal. Once a toll-free number is provisioned, pay-as-you-go pricing applies to the leasing fee, and the usage fee. The leasing fee, and the usage fee is determined by the location of the toll-free, and the destination.
 
 ## Toll Free Pricing
 

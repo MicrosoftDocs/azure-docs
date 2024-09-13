@@ -4,8 +4,9 @@ description: Use Azure Container Registry commands to quickly build, push, and r
 ms.topic: quickstart
 author: tejaswikolli-web
 ms.author: tejaswikolli
-ms.date: 10/11/2022
-ms.custom: contperf-fy21q1, devx-track-azurecli, mode-other
+ms.date: 10/31/2023
+ms.service: azure-container-registry
+ms.custom: devx-track-azurecli, mode-other
 ---
 
 # Quickstart: Build and run a container image using Azure Container Registry Tasks
@@ -14,9 +15,9 @@ In this quickstart, you use [Azure Container Registry Tasks][container-registry-
 
 After this quickstart, explore more advanced features of ACR Tasks using the [tutorials](container-registry-tutorial-quick-task.md). ACR Tasks can automate image builds based on code commits or base image updates, or test multiple containers, in parallel, among other scenarios. 
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
     
 - This quickstart requires version 2.0.58 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
@@ -32,11 +33,11 @@ az group create --name myResourceGroup --location eastus
 
 ## Create a container registry
 
-Create a container registry using the [az acr create][az-acr-create] command. The registry name must be unique within Azure, and contain 5-50 alphanumeric characters. In the following example, *myContainerRegistry008* is used. Update this to a unique value.
+Create a container registry using the [az acr create][az-acr-create] command. The registry name must be unique within Azure, and contain 5-50 alphanumeric characters. In the following example, *mycontainerregistry008* is used. Update this to a unique value.
 
 ```azurecli-interactive
 az acr create --resource-group myResourceGroup \
-  --name myContainerRegistry008 --sku Basic
+  --name mycontainerregistry008 --sku Basic
 ```
 
 This example creates a *Basic* registry, a cost-optimized option for developers learning about Azure Container Registry. For details on available service tiers, see [Container registry service tiers][container-registry-skus].
@@ -53,7 +54,7 @@ Run the [az acr build][az-acr-build] command, which builds the image and, after 
 
 ```azurecli-interactive
 az acr build --image sample/hello-world:v1 \
-  --registry myContainerRegistry008 \
+  --registry mycontainerregistry008 \
   --file Dockerfile . 
 ```
 
@@ -116,7 +117,7 @@ Now quickly run the image you built and pushed to your registry. Here you use [a
 The following example uses $Registry to specify the endpoint of the registry where you run the command:
 
 ```azurecli-interactive
-az acr run --registry myContainerRegistry008 \
+az acr run --registry mycontainerregistry008 \
   --cmd '$Registry/sample/hello-world:v1' /dev/null
 ```
 

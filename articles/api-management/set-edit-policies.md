@@ -2,16 +2,17 @@
 title: How to set or edit Azure API Management policies | Microsoft Docs
 description: Configure policies at different scopes in an Azure API Management instance using the policy editor in the Azure portal.
 services: api-management
-documentationcenter: ''
 author: dlepow
 
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: how-to
 ms.date: 10/18/2023
 ms.author: danlep
 ---
 
 # How to set or edit Azure API Management policies
+
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 
 This article shows you how to configure policies in your API Management instance by editing policy definitions in the Azure portal. Each policy definition is an XML document that describes a sequence of inbound and outbound statements that run sequentially on an API request and response.
 
@@ -113,16 +114,6 @@ To configure a policy:
     
     The **ip-filter** policy now appears in the **Inbound processing** section.
 ---
-
-## Get assistance creating policies using Microsoft Copilot for Azure (preview)
-
-
-[Microsoft Copilot for Azure](../copilot/overview.md) (preview) provides policy authoring capabilities for Azure API Management. Using Copilot for Azure in the context of API Management's policy editor, you can create policies that match your specific requirements without knowing the syntax or have already configured policies explained to you. This proves particularly useful for handling complex policies with multiple requirements. 
-
-You can prompt Copilot for Azure to generate policy definitions, then copy the results into the policy editor and make any necessary adjustments. Ask questions to gain insights into different options, modify the provided policy, or clarify the policy you already have. [Learn more](../copilot/author-api-management-policies.md) about this capability.
-
-> [!NOTE]
-> Microsoft Copilot for Azure requires [registration](../copilot/limited-access.md#registration-process) (preview) and is currently only available to approved enterprise customers and partners. 
 
 ## Configure policies at different scopes
 
@@ -233,6 +224,8 @@ To modify the policy evaluation order using the policy editor:
 
     A globally scoped policy has no parent scope, and using the `base` element in it has no effect.
 
+[!INCLUDE [api-management-policies-azure-copilot](../../includes/api-management-policies-azure-copilot.md)]
+
 ## Related content
 
 For more information about working with policies, see:
@@ -241,3 +234,4 @@ For more information about working with policies, see:
 + [Set or edit policies](set-edit-policies.md)
 + [Policy reference](./api-management-policies.md) for a full list of policy statements and their settings
 + [Policy snippets repo](https://github.com/Azure/api-management-policy-snippets)	
++ [Author policies using Microsoft Copilot in Azure](../copilot/author-api-management-policies.md?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=/azure/api-management/breadcrumb/toc.json)

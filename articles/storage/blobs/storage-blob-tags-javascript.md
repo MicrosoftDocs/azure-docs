@@ -5,7 +5,7 @@ description: Learn how to categorize, manage, and query for blob objects by usin
 services: storage
 author: pauljewellmsft
 ms.author: pauljewell
-ms.date: 11/30/2022
+ms.date: 08/05/2024
 ms.service: azure-blob-storage
 ms.topic: how-to
 ms.devlang: javascript
@@ -26,11 +26,7 @@ This article shows how to use blob index tags to manage and find data using the 
     - [Set Blob Tags](/rest/api/storageservices/set-blob-tags#authorization)
     - [Find Blobs by Tags](/rest/api/storageservices/find-blobs-by-tags#authorization)
 
-## About blob index tags
-
-Blob index tags categorize data in your storage account using key-value tag attributes. These tags are automatically indexed and exposed as a searchable multi-dimensional index to easily find data. This article shows you how to set, get, and find data using blob index tags.
-
-To learn more about this feature along with known issues and limitations, see [Manage and find Azure Blob data with blob index tags](storage-manage-find-blobs.md).
+[!INCLUDE [storage-dev-guide-about-blob-tags](../../../includes/storage-dev-guides/storage-dev-guide-about-blob-tags.md)]
 
 ## Set tags
 

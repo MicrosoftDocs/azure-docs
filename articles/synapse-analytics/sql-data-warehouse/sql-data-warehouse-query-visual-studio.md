@@ -4,10 +4,9 @@ description: Query dedicated SQL pool (formerly SQL DW) in Azure Synapse Analyti
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.date: 08/15/2019
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.subservice: sql-dw
 ms.topic: conceptual
-ms.custom: seo-lt-2019
 ---
 
 # Connect to dedicated SQL pool (formerly SQL DW) in Azure Synapse Analytics with Visual Studio and SSDT

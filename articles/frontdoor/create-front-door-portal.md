@@ -4,9 +4,8 @@ description: This quickstart shows how to use Azure Front Door service for your 
 services: frontdoor
 author: duongau
 manager: KumudD
-ms.service: frontdoor
+ms.service: azure-frontdoor
 ms.topic: quickstart
-ms.workload: infrastructure-services
 ms.date: 10/02/2023
 ms.author: duau
 ms.custom: mode-ui

@@ -1,77 +1,81 @@
 ---
-title: Sync a GitHub repository in Managed Airflow
-description: This article provides step-by-step instructions for how to sync a GitHub repository using Managed Airflow in Azure Data Factory.
+title: Sync a GitHub repository in Workflow Orchestration Manager
+description: This article provides step-by-step instructions for how to sync a GitHub repository by using Workflow Orchestration Manager in Azure Data Factory.
 author: nabhishek
 ms.author: abnarain
 ms.reviewer: jburchel
-ms.service: data-factory
 ms.topic: how-to
 ms.date: 09/19/2023
 ---
 
-# Sync a GitHub repository in Managed Airflow
+# Sync a GitHub repository in Workflow Orchestration Manager
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-In this guide, you will learn how to synchronize your GitHub repository in Managed Airflow in two different ways.
+> [!NOTE]
+> This feature is in public preview. Workflow Orchestration Manager is powered by Apache Airflow.
 
-- Using the ``Enable Git Sync`` in the Managed Airflow UI
-- Using the Rest API
+In this article, you learn how to synchronize your GitHub repository in Azure Data Factory Workflow Orchestration Manager in two different ways:
+
+- By using **Enable git sync** in the Workflow Orchestration Manager UI.
+- By using the Rest API.
 
 ## Prerequisites
 
-- **Azure subscription** - If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin. Create or select an existing [Data Factory](https://azure.microsoft.com/products/data-factory#get-started) in a [region where the Managed Airflow preview is supported](concept-managed-airflow.md#region-availability-public-preview).
-- **Access to a GitHub repository**
+- **Azure subscription**: If you don't have an Azure subscription, create a [free Azure account](https://azure.microsoft.com/free/) before you begin. Create or select an existing [Data Factory](https://azure.microsoft.com/products/data-factory#get-started) instance in a [region where the Workflow Orchestration Manager preview is supported](concepts-workflow-orchestration-manager.md#region-availability-public-preview).
+- **GitHub repository**: You need access to a GitHub repository.
 
-## Using the Managed Airflow UI
+## Use the Workflow Orchestration Manager UI
 
-The following steps describe how to sync your GitHub repository using Managed Airflow UI:
+To sync your GitHub repository by using the Workflow Orchestration Manager UI:
 
-1. Ensure your repository contains the necessary folders and files.
-   - **Dags/** - for Apache Airflow Dags (required)
-   - **Plugins/** - for integrating external features to Airflow.
-     :::image type="content" source="media/airflow-git-sync-repository/airflow-folders.png" alt-text="Screenshot showing the Airflow folders structure in GitHub.":::
+1. Ensure that your repository contains the necessary folders and files:
+   - **dags/**: For Apache Airflow directed acyclic graphs (dags) (required).
+   - **Plugins/**: For integrating external features to Airflow.
 
-1. While creating an Airflow integrated runtime (IR), select **Enable git sync** on the Airflow environment setup dialog.
+     :::image type="content" source="media/airflow-git-sync-repository/airflow-folders.png" alt-text="Screenshot that shows the Airflow folders structure in GitHub.":::
 
-   :::image type="content" source="media/airflow-git-sync-repository/enable-git-sync.png" alt-text="Screenshot showing the Enable git sync checkbox on the Airflow environment setup dialog that appears during creation of an Airflow IR.":::
+1. When you create a Workflow Orchestration Manager integration runtime, select **Enable git sync** in the **Airflow environment setup** dialog.
 
-1. Select one of the following supported git service types:
-   - GitHub
-   - ADO
-   - GitLab
-   - Bitbucket
-   
-   :::image type="content" source="media/airflow-git-sync-repository/git-service-type.png" alt-text="Screenshot showing the Git service type selection dropdown on the Airflow environment setup dialog that appears during creation of an Airflow IR.":::
+   :::image type="content" source="media/airflow-git-sync-repository/enable-git-sync.png" alt-text="Screenshot that shows the Enable git sync checkbox in the Airflow environment setup dialog that appears during creation of an Airflow integration runtime.":::
 
-1. Select credential type:
+1. Select one of the following supported Git service types:
+   - **GitHub**
+   - **ADO**
+   - **GitLab**
+   - **BitBucket**
 
-   - **None** (for a public repo) 
-     When you select this option, make sure to make your repository’s visibility is public. Once you select this option, fill out the details: 
-     - **Git Repo URL** (required): The clone URL for your desired GitHub repository
-     - **Git branch** (required): The current branch, where your desired git repository is located
-   - **PAT** (Personal Access Token)
-     Once you select this option, fill out the remaining fields based upon on the selected Git Service type:
-     - GitHub Personal Access Token
-     - ADO Personal Access Token
-     - GitLab Personal Access Token
-     - Bitbucket Personal Access Token
-     :::image type="content" source="media/airflow-git-sync-repository/git-pat-credentials.png" alt-text="Screenshot showing the Git PAT credential options on the Airflow environment setup dialog that appears during creation of an Airflow IR.":::
-   - **SPN** ([Service Principal Name](https://devblogs.microsoft.com/devops/introducing-service-principal-and-managed-identity-support-on-azure-devops/) - Only ADO supports this credential type.)
-     Once you select this option, fill out the remaining fields based upon on the selected **Git service type**:
-     - **Git repo URL** (Required): The clone URL to the git repository to sync
-     - **Git branch** (Required): The branch in the repository to sync
-     - **Service principal app id** (Required): The service principal app id with access to the ADO repo to sync
-     - **Service principal secret** (Required): A manually generated secret in service principal whose value is to be used to authenticate and access the ADO repo
-     - **Service principal tenant id** (Required): The service principal tenant id
-     :::image type="content" source="media/airflow-git-sync-repository/git-spn-credentials.png" alt-text="Screenshot showing the Git SPN credential options on the Airflow environment setup dialog that appears during creation of an Airflow IR.":::
+   :::image type="content" source="media/airflow-git-sync-repository/git-service-type.png" alt-text="Screenshot that shows the Git service type selection dropdown in the  environment setup dialog that appears during creation of an Workflow Orchestration Manager integration runtime.":::
+
+1. Select a credential type:
+
+   - **None** (for a public repo): When you select this option, make sure that your repository's visibility is public. Then fill out the details:
+     - **Git repo url** (required): The clone URL for the GitHub repository you want.
+     - **Git branch** (required): The current branch, where the Git repository you want is located.
+   - **Git personal access token**:
+     After you select this option for a personal access token (PAT), fill out the remaining fields based on the selected **Git service type**:
+     - GitHub personal access token
+     - ADO personal access token
+     - GitLab personal access token
+     - BitBucket personal access token
+
+     :::image type="content" source="media/airflow-git-sync-repository/git-pat-credentials.png" alt-text="Screenshot that shows the Git PAT credential options in the Airflow environment setup dialog that appears during creation of an AWorkflow Orchestration Manager integration runtime.":::
+   - **SPN** ([service principal name](https://devblogs.microsoft.com/devops/introducing-service-principal-and-managed-identity-support-on-azure-devops/)): Only ADO supports this credential type.
+     After you select this option, fill out the remaining fields based on the selected **Git service type**:
+     - **Git repo url** (required): The clone URL to the Git repository to sync.
+     - **Git branch** (required): The branch in the repository to sync.
+     - **Service principal app id** (required): The service principal app ID with access to the ADO repo to sync.
+     - **Service principal secret** (required): A manually generated secret in the service principal whose value is used to authenticate and access the ADO repo.
+     - **Service principal tenant id** (required): The service principal tenant ID.
+
+     :::image type="content" source="media/airflow-git-sync-repository/git-spn-credentials.png" alt-text="Screenshot that shows the Git SPN credential options in the Airflow environment setup dialog that appears during creation of an Workflow Orchestration Manager integration runtime.":::
 
 1. Fill in the rest of the fields with the required information.
-1. Select Create.
+1. Select **Create**.
 
-## Using the REST API
+## Use the REST API
 
-The following steps describe how to sync your GitHub repository using the Rest APIs:
+To sync your GitHub repository by using the Rest API:
 
 - **Method**: PUT
 - **URL**: ```https://management.azure.com/subscriptions/<subscriptionid>/resourcegroups/<resourceGroupName>/providers/Microsoft.DataFactory/factories/<datafactoryName>/integrationruntimes/<airflowEnvName>?api-version=2018-06-01```
@@ -82,7 +86,7 @@ The following steps describe how to sync your GitHub repository using the Rest A
   |Subscription Id     | path        | True        | string        | Subscription identifier        |
   |ResourceGroup Name     |  path       | True        | string        | Resource group name (Regex pattern: ```^[-\w\._\(\)]+$```)        |
   |dataFactoryName     |  path       | True        | string        | Name of the Azure Data Factory (Regex pattern: ```^[A-Za-z0-9]+(?:-[A-Za-z0-9]+)*$```        |
-  |airflowEnvName     | path        | True        | string        | Name of the Managed Airflow environment        |
+  |airflowEnvName     | path        | True        | string        | Name of the Workflow Orchestration Manager environment        |
   |Api-version     | query        | True        | string        | The API version        |
 
 - **Request body (Airflow configuration)**:
@@ -99,53 +103,55 @@ The following steps describe how to sync your GitHub repository using the Rest A
   |Type     |string         |The resource type (**Airflow** in this scenario)         |
   |typeProperties     |typeProperty         |Airflow         |
 
-- **Type property**
+- **Type property**:
 
   |Name  |Type  |Description  |
   |---------|---------|---------|
-  |computeProperties     |computeProperty         |Configuration of the compute type used for the environment.         |
-  |airflowProperties     |airflowProperty         |Configuration of the Airflow properties for the environment.         |
+  |computeProperties     |computeProperty         |Configuration of the compute type used for the environment         |
+  |airflowProperties     |airflowProperty         |Configuration of the Airflow properties for the environment         |
 
-- **Compute property**
-
-  |Name  |Type  |Description  |
-  |---------|---------|---------|
-  |location     |string         |The Airflow integrated runtime location defaults to the data factory region. To create an integrated runtime in a different region, create a new data factory in the required region.         |
-  | computeSize | string |The size of the compute node you want your Airflow environment to run on. Example: “Large”, “Small”. 3 nodes are allocated initially. |
-  | extraNodes | integer |Each extra node adds 3 more workers. |
-
-- **Airflow property**
+- **Compute property**:
 
   |Name  |Type  |Description  |
   |---------|---------|---------|
-  |airflowVersion | string | Current version of Airflow (Example: 2.4.3) |
-  |airflowRequirements | Array\<string\> | Python libraries you wish to use. Example: ["flask-bcrypy=0.7.1"]. Can be a comma delimited list. |
-  |airflowEnvironmentVariables | Object (Key/Value pair) | Environment variables you wish to use. Example: { “SAMPLE_ENV_NAME”: “test” } | 
-  |gitSyncProperties | gitSyncProperty | Git configuration properties |
-  |enableAADIntegration | boolean | Allows Microsoft Entra ID to login to Airflow |
-  |userName | string or null | Username for Basic Authentication |
-  |password | string or null | Password for Basic Authentication |
+  |location     |string         |The Airflow integration runtime location defaults to the data factory region. To create an integration runtime in a different region, create a new data factory in the required region.         |
+  | computeSize | string |The size of the compute node you want your Airflow environment to run on. Examples are Large or Small. Three nodes are allocated initially. |
+  | extraNodes | integer |Each extra node adds three more workers. |
 
-- **Git sync property**
+- **Airflow property**:
 
   |Name  |Type  |Description  |
   |---------|---------|---------|
-  |gitServiceType | string | The Git service your desired repo is located in. Values: GitHub, AOD, GitLab, or BitBucket |
-  |gitCredentialType | string | Type of Git credential. Values: PAT (for Personal Access Token), SPN (supported only by ADO), None |
-  |repo | string | Repository link |
-  |branch | string | Branch to use in the repository |
-  |username | string | GitHub username |
-  |Credential | string | Value of the Personal Access Token |
-  |tenantId | string | The service principal tenant id (supported only by ADO) |
+  |airflowVersion | string | Supported version Apache Airflow. For example, 2.4.3. |
+  |airflowRequirements | Array\<string\> | Python libraries you want to use. For example, ["flask-bcrypy=0.7.1"]. Can be a comma-delimited list. |
+  |airflowEnvironmentVariables | Object (Key/Value pair) | Environment variables you want to use. For example, { "SAMPLE_ENV_NAME": "test" }. |
+  |gitSyncProperties | gitSyncProperty | Git configuration properties. |
+  |enableAADIntegration | boolean | Allows Microsoft Entra ID to log in to Workflow Orchestration Manager. |
+  |userName | string or null | Username for Basic Authentication. |
+  |password | string or null | Password for Basic Authentication. |
 
-- **Responses**
+- **Git sync property**:
+
+  |Name  |Type  |Description  |
+  |---------|---------|---------|
+  |gitServiceType | string | The Git service where your desired repository is located. Values are GitHub, ADO, GitLab, or BitBucket. |
+  |gitCredentialType | string | Type of Git credential. Values are PAT (for personal access token), SPN (supported only by ADO), and None. |
+  |repo | string | Repository link. |
+  |branch | string | Branch to use in the repository. |
+  |username | string | GitHub username. |
+  |Credential | string | Value of the PAT. |
+  |tenantId | string | The service principal tenant ID (supported only by ADO). |
+
+- **Responses**:
 
   |Name  |Status code  |Type  |Description |
   |---------|---------|---------|----------|
   |Accepted | 200 | [Factory](/rest/api/datafactory/factories/get?tabs=HTTP#factory) | OK |
-  |Unauthorized | 401 | [Cloud Error](/rest/api/datafactory/factories/get?tabs=HTTP#clouderror) | Array with additional error details |
+  |Unauthorized | 401 | [Cloud Error](/rest/api/datafactory/factories/get?tabs=HTTP#clouderror) | Array with more error details |
 
 ### Examples
+
+Review the following examples.
 
 Sample request:
 
@@ -154,7 +160,7 @@ HTTP
 PUT https://management.azure.com/subscriptions/222f1459-6ebd-4896-82ab-652d5f6883cf/resourcegroups/abnarain-rg/providers/Microsoft.DataFactory/factories/ambika-df/integrationruntimes/sample-2?api-version=2018-06-01
 ```
 
-Sample Body:
+Sample body:
 
 ```rest
 {
@@ -185,13 +191,13 @@ Sample Body:
 }
 ```
 
-Sample Response:
+Sample response:
 
 ```rest
 Status code: 200 OK
 ```
 
-Response Body:
+Response body:
 
 ```rest
 {
@@ -230,7 +236,8 @@ Response Body:
 
 Here are some API payload examples:
 
-- Git sync properties for GitHub with PAT: 
+- Git sync properties for GitHub with PAT:
+
   ```rest
   "gitSyncProperties":  {
           "gitServiceType": "Github",
@@ -241,8 +248,9 @@ Here are some API payload examples:
           "credential": <personal access token>
   }
   ```
- 
-- Git sync properties for ADO with PAT: 
+
+- Git sync properties for ADO with PAT:
+
   ```rest
   "gitSyncProperties":  {
           "gitServiceType": "ADO",
@@ -251,9 +259,11 @@ Here are some API payload examples:
           "branch": <repo branch to sync>,
           "username": <username>,
           "credential": <personal access token>
-  }```
- 
-- Git sync properties for ADO with Service Principal: 
+  }
+  ```
+
+- Git sync properties for ADO with service principal:
+
   ```rest
   "gitSyncProperties":  {
           "gitServiceType": "ADO",
@@ -263,25 +273,32 @@ Here are some API payload examples:
           "username": < service principal app id >,
           "credential": <service principal secret value>
           "tenantId": <service principal tenant id>
-  }```
- 
-- Git sync properties for GitHub public repo: 
+  }
+  ```
+
+- Git sync properties for a GitHub public repo:
+
   ```rest
   "gitSyncProperties":  {
           "gitServiceType": "Github",
           "gitCredentialType": "None",
           "repo":  <repo url>,
           "branch": <repo branch to sync>
-  }```
+  }
+  ```
 
-## Importing a private package with git-sync (Optional - only applies when using private packages)
+## Import a private package with Git sync
 
-Assuming your private package has already been auto synced via git-sync, all you need to do is add the package as a requirement in the data factory Airflow UI along with the path prefix _/opt/airflow/git/\<repoName\>/__ if you are connecting to an ADO repo or _/opt/airflow/git/\<repoName\>.git/_ for all other git services. For example, if your private package is in _/dags/test/private.whl_ in a GitHub repo, then you should add the requirement _/opt/airflow/git/\<repoName\>.git/dags/test/private.whl_ to the Airflow environment.
+This optional process only applies when you use private packages.
 
-:::image type="content" source="media/airflow-git-sync-repository/airflow-private-package.png" alt-text="Screenshot showing the Airflow requirements section on the Airflow environment setup dialog that appears during creation of an Airflow IR.":::
+This process assumes that your private package was autosynced via Git sync. You add the package as a requirement in the Workflow Orchestration Manager UI along with the path prefix `/opt/airflow/git/\<repoName\>/`, if you're connecting to an ADO repo. Use `/opt/airflow/git/\<repoName\>.git/` for all other Git services.
 
-## Next steps
+For example, if your private package is in `/dags/test/private.whl` in a GitHub repo, you should add the requirement `/opt/airflow/git/\<repoName\>.git/dags/test/private.whl` in the Workflow Orchestration Manager environment.
 
-- [Run an existing pipeline with Managed Airflow](tutorial-run-existing-pipeline-with-airflow.md)
-- [Managed Airflow pricing](airflow-pricing.md)
-- [How to change the password for Managed Airflow environments](password-change-airflow.md)
+:::image type="content" source="media/airflow-git-sync-repository/airflow-private-package.png" alt-text="Screenshot that shows the Airflow requirements section in the Airflow environment setup dialog that appears during creation of an Workflow Orchestration Manager integration runtime.":::
+
+## Related content
+
+- [Run an existing pipeline with Workflow Orchestration Manager](tutorial-run-existing-pipeline-with-airflow.md)
+- [Workflow Orchestration Manager pricing](airflow-pricing.md)
+- [Change the password for Workflow Orchestration Manager environment](password-change-airflow.md)

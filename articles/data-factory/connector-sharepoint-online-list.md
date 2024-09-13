@@ -3,11 +3,10 @@ title: Copy data from SharePoint Online List
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to copy data from SharePoint Online List to supported sink data stores by using a copy activity in an Azure Data Factory or Azure Synapse Analytics pipeline.
 author: jianleishen
-ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 06/26/2023
+ms.date: 08/29/2024
 ms.author: jianleishen
 ---
 # Copy data from SharePoint Online List by using Azure Data Factory or Azure Synapse Analytics
@@ -33,38 +32,6 @@ Specifically, this SharePoint List Online connector uses service principal authe
 
 > [!TIP]
 > This connector supports copying data from SharePoint Online **List** but not file. Learn how to copy file from [Copy file from SharePoint Online](#copy-file-from-sharepoint-online) section.
-
-## Prerequisites
-
-The SharePoint List Online connector uses service principal authentication to connect to SharePoint. Follow these steps to set it up:
-
-1. Register an application with the Microsoft identity platform. To learn how, see [Quickstart: Register an application with the Microsoft identity platform](../active-directory/develop/quickstart-register-app.md). Make note of these values, which you use to define the linked service:
-
-    - Application ID
-    - Application key
-    - Tenant ID
-
-2. Grant SharePoint Online site permission to your registered application by following the steps below. To do this, you need a site admin role.
-
-    1. Open SharePoint Online site link e.g. `https://[your_site_url]/_layouts/15/appinv.aspx` (replace the site URL).
-    2. Search the application ID you registered, fill the empty fields, and click "Create".
-
-        - App Domain: `contoso.com`
-        - Redirect URL: `https://www.contoso.com`
-        - Permission Request XML:  
-
-            ```xml
-            <AppPermissionRequests AllowAppOnlyPolicy="true">
-                <AppPermissionRequest Scope="http://sharepoint/content/sitecollection/web" Right="Read"/>
-            </AppPermissionRequests>
-            ```
-
-            :::image type="content" source="media/connector-sharepoint-online-list/sharepoint-online-grant-permission-admin.png" alt-text="Grant SharePoint Online site permission to your registered application when you have site admin role.":::
-            
-        > [!NOTE]
-        > In the context of configuring the SharePoint connector, the "App Domain" and "Redirect URL" refer to the SharePoint app that you have registered in Microsoft Entra ID to allow access to your SharePoint data. The "App Domain" is the domain where your SharePoint site is hosted. For example, if your SharePoint site is located at "https://contoso.sharepoint.com", then the "App Domain" would be "contoso.sharepoint.com". The "Redirect URL" is the URL that the SharePoint app will redirect to after the user has authenticated and granted permissions to the app. This URL should be a page on your SharePoint site that the app has permission to access. For example, you could use the URL of a page that displays a list of files in a library, or a page that displays the contents of a document.
-
-    3. Click "Trust It" for this app.
 
 ## Get started
 
@@ -104,13 +71,18 @@ The following properties are supported for a SharePoint Online List linked servi
 | ------------------- | ------------------------------------------------------------ | ------------ |
 | type                | The type property must be set to: **SharePointOnlineList**.  | Yes          |
 | siteUrl             | The SharePoint Online site url, e.g. `https://contoso.sharepoint.com/sites/siteName`. | Yes          |
-| servicePrincipalId  | The Application (client) ID of the application registered in Microsoft Entra ID. Refer to [Prerequisites](#prerequisites) for more details including the permission settings.| Yes          |
-| servicePrincipalKey | The application's key. Mark this field as a **SecureString** to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes          |
+| servicePrincipalId  | The Application (client) ID of the application registered in Microsoft Entra ID. | Yes          |
+| servicePrincipalCredentialType | Specify the credential type to use for service principal authentication. Allowed values are `ServicePrincipalKey` and `ServicePrincipalCert`. | No |
+| ***For ServicePrincipalKey*** | | |
+| servicePrincipalKey | The application's key. Mark this field as a **SecureString** to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). Refer to this [section](#grant-permission-for-using-service-principal-key) for more details including the permission settings. | No          |
+| ***For ServicePrincipalCert*** | | |
+| servicePrincipalEmbeddedCert | Specify the base64 encoded certificate of your application registered in Microsoft Entra ID, and ensure the certificate content type is **PKCS #12**. Mark this field as a **SecureString** to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). Refer to this [article](/sharepoint/dev/solution-guidance/security-apponly-azuread) for permission settings.| No |
+| servicePrincipalEmbeddedCertPassword | Specify the password of your certificate if your certificate is secured with a password. Mark this field as a **SecureString** to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | No |
+|  |  |  |
 | tenantId            | The tenant ID under which your application resides.          | Yes          |
 | connectVia          | The [Integration Runtime](concepts-integration-runtime.md) to use to connect to the data store. If not specified, the default Azure Integration Runtime is used. | No           |
 
-
-**Example:**
+**Example 1: Using service principal key authentication**
 
 ```json
 {
@@ -120,15 +92,80 @@ The following properties are supported for a SharePoint Online List linked servi
         "typeProperties": {
             "siteUrl": "<site URL>",
             "servicePrincipalId": "<service principal id>",
+            "servicePrincipalCredentialType":  "ServicePrincipalKey",
             "servicePrincipalKey": {
                 "type": "SecureString",
                 "value": "<service principal key>"
             },
             "tenantId": "<tenant ID>"
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
         }
     }
 }
 ```
+
+**Example 2: Using service principal certificate authentication**
+
+```json
+{
+    "name": "SharePointOnlineList",
+    "properties": {
+        "type": "SharePointOnlineList",
+        "typeProperties": {
+            "siteUrl": "<site URL>",
+            "servicePrincipalId": "<service principal id>",
+            "servicePrincipalCredentialType": "ServicePrincipalCert",
+            "servicePrincipalEmbeddedCert": { 
+                "type": "SecureString", 
+                "value": "<base64 encoded string of (.pfx) certificate data>"
+            },
+            "servicePrincipalEmbeddedCertPassword": { 
+                "type": "SecureString", 
+                "value": "<password of your certificate>"
+            },
+            "tenantId": "<tenant ID>"
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+### Grant permission for using service principal key
+
+The SharePoint List Online connector uses service principal authentication to connect to SharePoint. Follow these steps to set it up:
+
+1. Register an application with the Microsoft identity platform. To learn how, see [Quickstart: Register an application with the Microsoft identity platform](../active-directory/develop/quickstart-register-app.md). Make note of these values, which you use to define the linked service:
+
+    - Application ID
+    - Application key
+    - Tenant ID
+
+2. Grant SharePoint Online site permission to your registered application by following the steps below. To do this, you need a site admin role.
+
+    1. Open your SharePoint Online site link. For example, the URL in the format `https://<your-site-url>/_layouts/15/appinv.aspx` where the placeholder `<your-site-url>` is your site.
+    2. Search the application ID you registered, fill the empty fields, and click "Create".
+
+        - App Domain: `contoso.com`
+        - Redirect URL: `https://www.contoso.com`
+        - Permission Request XML:  
+
+            ```xml
+            <AppPermissionRequests AllowAppOnlyPolicy="true">
+                <AppPermissionRequest Scope="http://sharepoint/content/sitecollection/web" Right="Read"/>
+            </AppPermissionRequests>
+            ```
+
+            :::image type="content" source="media/connector-sharepoint-online-list/sharepoint-online-grant-permission-admin.png" alt-text="Grant SharePoint Online site permission to your registered application when you have site admin role.":::
+            
+        > [!NOTE]
+        > In the context of configuring the SharePoint connector, the "App Domain" and "Redirect URL" refer to the SharePoint app that you have registered in Microsoft Entra ID to allow access to your SharePoint data. The "App Domain" is the domain where your SharePoint site is hosted. For example, if your SharePoint site is located at "https://contoso.sharepoint.com", then the "App Domain" would be "contoso.sharepoint.com". The "Redirect URL" is the URL that the SharePoint app will redirect to after the user has authenticated and granted permissions to the app. This URL should be a page on your SharePoint site that the app has permission to access. For example, you could use the URL of a page that displays a list of files in a library, or a page that displays the contents of a document.
+
+    3. Click "Trust It" for this app.
 
 ## Dataset properties
 
@@ -236,7 +273,7 @@ You can copy file from SharePoint Online by using **Web activity** to authentica
 
 :::image type="content" source="media/connector-sharepoint-online-list/sharepoint-online-copy-file-flow.png" alt-text="sharepoint copy file flow":::
 
-1. Follow the [Prerequisites](#prerequisites) section to create Microsoft Entra application and grant permission to SharePoint Online. 
+1. Follow the [Grant permission for using service principal key](#grant-permission-for-using-service-principal-key) section to create Microsoft Entra application and grant permission to SharePoint Online. 
 
 2. Create a **Web Activity** to get the access token from SharePoint Online:
 
@@ -267,6 +304,6 @@ You can copy file from SharePoint Online by using **Web activity** to authentica
 
 To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
 
-## Next steps
+## Related content
 
 For a list of data stores that Copy Activity supports as sources and sinks, see [Supported data stores and formats](copy-activity-overview.md#supported-data-stores-and-formats).

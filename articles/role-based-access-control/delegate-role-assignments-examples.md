@@ -1,24 +1,18 @@
 ---
-title: Examples to delegate Azure role assignment management with conditions (preview) - Azure ABAC
+title: Examples to delegate Azure role assignment management with conditions - Azure ABAC
 description: Examples to delegate Azure role assignment management to other users by using Azure attribute-based access control (Azure ABAC).
-services: active-directory
 author: rolyon
 manager: amycolannino
 ms.service: role-based-access-control
 ms.subservice: conditions
 ms.topic: conceptual
-ms.workload: identity
 ms.custom: devx-track-azurepowershell
-ms.date: 11/29/2023
+ms.date: 04/15/2024
 ms.author: rolyon
 #Customer intent: As a dev, devops, or it admin, I want to learn about the conditions so that I write more complex conditions.
 ---
 
-# Examples to delegate Azure role assignment management with conditions (preview)
-
-> [!IMPORTANT]
-> Delegating Azure role assignment management with conditions is currently in PREVIEW.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+# Examples to delegate Azure role assignment management with conditions
 
 This article lists examples of how to delegate Azure role assignment management to other users with conditions.
 
@@ -684,7 +678,7 @@ New-AzRoleAssignment -ObjectId $principalId -Scope $scope -RoleDefinitionId $rol
 
 ## Example: Allow most roles, but don't allow others to assign roles
 
-This condition allows a delegate to add or remove role assignments for all roles except the [Owner](built-in-roles.md#owner), [Role Based Access Control Administrator](built-in-roles.md#role-based-access-control-administrator-preview), and [User Access Administrator](built-in-roles.md#user-access-administrator) roles.
+This condition allows a delegate to add or remove role assignments for all roles except the [Owner](built-in-roles.md#owner), [Role Based Access Control Administrator](built-in-roles.md#role-based-access-control-administrator), and [User Access Administrator](built-in-roles.md#user-access-administrator) roles.
 
 This condition is useful when you want to allow a delegate to assign most roles, but not allow the delegate to allow others to assign roles.
 
@@ -700,7 +694,13 @@ You must add this condition to any role assignments for the delegate that includ
 
 # [Template](#tab/template)
 
-None
+Here are the settings to add this condition using the Azure portal and a condition template.
+
+> [!div class="mx-tableFixed"]
+> | Condition | Setting |
+> | --- | --- |
+> | Template | Allow all except specific roles |
+> | Exclude roles | [Owner](built-in-roles.md#owner)<br/>[Role Based Access Control Administrator](built-in-roles.md#role-based-access-control-administrator)<br/>[User Access Administrator](built-in-roles.md#user-access-administrator) |
 
 # [Condition editor](#tab/condition-editor)
 
@@ -714,9 +714,9 @@ To target both the add and remove role assignment actions, notice that you must 
 > | Actions | [Create or update role assignments](conditions-authorization-actions-attributes.md#create-or-update-role-assignments) |
 > | Attribute source | Request |
 > | Attribute | [Role definition ID](conditions-authorization-actions-attributes.md#role-definition-id) |
-> | Operator | [ForAnyOfAnyValues:GuidNotEquals](conditions-format.md#foranyofanyvalues) |
+> | Operator | [ForAnyOfAllValues:GuidNotEquals](conditions-format.md#foranyofallvalues) |
 > | Comparison | Value |
-> | Roles | [Owner](built-in-roles.md#owner)<br/>[Role Based Access Control Administrator](built-in-roles.md#role-based-access-control-administrator-preview)<br/>[User Access Administrator](built-in-roles.md#user-access-administrator) |
+> | Roles | [Owner](built-in-roles.md#owner)<br/>[Role Based Access Control Administrator](built-in-roles.md#role-based-access-control-administrator)<br/>[User Access Administrator](built-in-roles.md#user-access-administrator) |
 
 > [!div class="mx-tableFixed"]
 > | Condition #2 | Setting |
@@ -724,9 +724,9 @@ To target both the add and remove role assignment actions, notice that you must 
 > | Actions | [Delete a role assignment](conditions-authorization-actions-attributes.md#delete-a-role-assignment) |
 > | Attribute source | Resource |
 > | Attribute | [Role definition ID](conditions-authorization-actions-attributes.md#role-definition-id) |
-> | Operator | [ForAnyOfAnyValues:GuidNotEquals](conditions-format.md#foranyofanyvalues) |
+> | Operator | [ForAnyOfAllValues:GuidNotEquals](conditions-format.md#foranyofallvalues) |
 > | Comparison | Value |
-> | Roles | [Owner](built-in-roles.md#owner)<br/>[Role Based Access Control Administrator](built-in-roles.md#role-based-access-control-administrator-preview)<br/>[User Access Administrator](built-in-roles.md#user-access-administrator) |
+> | Roles | [Owner](built-in-roles.md#owner)<br/>[Role Based Access Control Administrator](built-in-roles.md#role-based-access-control-administrator)<br/>[User Access Administrator](built-in-roles.md#user-access-administrator) |
 
 ```
 (
@@ -735,7 +735,7 @@ To target both the add and remove role assignment actions, notice that you must 
  )
  OR 
  (
-  @Request[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidNotEquals {8e3af657-a8ff-443c-a75c-2fe8c4bcb635, f58310d9-a9f6-439a-9e8d-f62e7b41a168, 18d7d88d-d35e-4fb5-a5c3-7773c20a72d9}
+  @Request[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAllValues:GuidNotEquals {8e3af657-a8ff-443c-a75c-2fe8c4bcb635, f58310d9-a9f6-439a-9e8d-f62e7b41a168, 18d7d88d-d35e-4fb5-a5c3-7773c20a72d9}
  )
 )
 AND
@@ -745,7 +745,7 @@ AND
  )
  OR 
  (
-  @Resource[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidNotEquals {8e3af657-a8ff-443c-a75c-2fe8c4bcb635, f58310d9-a9f6-439a-9e8d-f62e7b41a168, 18d7d88d-d35e-4fb5-a5c3-7773c20a72d9}
+  @Resource[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAllValues:GuidNotEquals {8e3af657-a8ff-443c-a75c-2fe8c4bcb635, f58310d9-a9f6-439a-9e8d-f62e7b41a168, 18d7d88d-d35e-4fb5-a5c3-7773c20a72d9}
  )
 )
 ```
@@ -758,7 +758,7 @@ Here's how to add this condition using Azure PowerShell.
 $roleDefinitionId = "f58310d9-a9f6-439a-9e8d-f62e7b41a168"
 $principalId = "<principalId>"
 $scope = "/subscriptions/<subscriptionId>"
-$condition = "((!(ActionMatches{'Microsoft.Authorization/roleAssignments/write'})) OR (@Request[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidNotEquals {8e3af657-a8ff-443c-a75c-2fe8c4bcb635, f58310d9-a9f6-439a-9e8d-f62e7b41a168, 18d7d88d-d35e-4fb5-a5c3-7773c20a72d9})) AND ((!(ActionMatches{'Microsoft.Authorization/roleAssignments/delete'})) OR (@Resource[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAnyValues:GuidNotEquals {8e3af657-a8ff-443c-a75c-2fe8c4bcb635, f58310d9-a9f6-439a-9e8d-f62e7b41a168, 18d7d88d-d35e-4fb5-a5c3-7773c20a72d9}))"
+$condition = "((!(ActionMatches{'Microsoft.Authorization/roleAssignments/write'})) OR (@Request[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAllValues:GuidNotEquals {8e3af657-a8ff-443c-a75c-2fe8c4bcb635, f58310d9-a9f6-439a-9e8d-f62e7b41a168, 18d7d88d-d35e-4fb5-a5c3-7773c20a72d9})) AND ((!(ActionMatches{'Microsoft.Authorization/roleAssignments/delete'})) OR (@Resource[Microsoft.Authorization/roleAssignments:RoleDefinitionId] ForAnyOfAllValues:GuidNotEquals {8e3af657-a8ff-443c-a75c-2fe8c4bcb635, f58310d9-a9f6-439a-9e8d-f62e7b41a168, 18d7d88d-d35e-4fb5-a5c3-7773c20a72d9}))"
 $conditionVersion = "2.0"
 New-AzRoleAssignment -ObjectId $principalId -Scope $scope -RoleDefinitionId $roleDefinitionId -Condition $condition -ConditionVersion $conditionVersion
 ```
@@ -767,6 +767,6 @@ New-AzRoleAssignment -ObjectId $principalId -Scope $scope -RoleDefinitionId $rol
 
 ## Next steps
 
-- [Authorization actions and attributes (preview)](conditions-authorization-actions-attributes.md)
-- [Azure role assignment condition format and syntax (preview)](conditions-format.md)
-- [Troubleshoot Azure role assignment conditions (preview)](conditions-troubleshoot.md)
+- [Authorization actions and attributes](conditions-authorization-actions-attributes.md)
+- [Azure role assignment condition format and syntax](conditions-format.md)
+- [Troubleshoot Azure role assignment conditions](conditions-troubleshoot.md)

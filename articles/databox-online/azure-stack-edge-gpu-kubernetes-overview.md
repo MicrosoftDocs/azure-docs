@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 07/26/2023
+ms.date: 04/01/2024
 ms.author: alkohli
 ---
 
@@ -87,7 +87,7 @@ The Kubernetes cluster on your Azure Stack Edge device  allows Kubernetes role-b
 
 You can also monitor the health of your cluster and resources via the Kubernetes dashboard. Container logs are also available. For more information, see [Use the Kubernetes dashboard to monitor the Kubernetes cluster health on your Azure Stack Edge device](azure-stack-edge-gpu-monitor-kubernetes-dashboard.md).
 
-Azure Monitor is also available as an add-on to collect health data from containers, nodes, and controllers. For more information, see [Azure Monitor overview](../azure-monitor/overview.md)
+Azure Monitor is also available as an add-on to collect health data from containers, nodes, and controllers. For more information, see [Azure Monitor overview](/azure/azure-monitor/overview)
 
 ## Edge container registry
 
@@ -109,13 +109,6 @@ These methods are explained in the following sections.
 Once the Kubernetes cluster is deployed, then you can manage the applications deployed on the cluster locally from a client machine. You use a native tool such as *kubectl* via the command line to interact with the applications. 
 
 For more information on deploying Kubernetes cluster, go to [Deploy a Kubernetes cluster on your Azure Stack Edge device](azure-stack-edge-gpu-create-kubernetes-cluster.md). For information on management, go to [Use kubectl to manage Kubernetes cluster on your Azure Stack Edge device](azure-stack-edge-gpu-create-kubernetes-cluster.md).
-
-
-### Kubernetes and IoT Edge
-
-This feature has been deprecated. Support will end soon.
-
-All new deployments of IoT Edge on Azure Stack Edge must be on a Linux VM. For detailed steps, see [Deploy IoT runtime on Ubuntu VM on Azure Stack Edge](azure-stack-edge-gpu-deploy-iot-edge-linux-vm.md).
 
 ### Kubernetes and Azure Arc
 

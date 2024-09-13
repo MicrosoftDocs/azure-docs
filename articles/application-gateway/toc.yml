@@ -97,11 +97,11 @@
       href: mutual-authentication-overview.md
     - name: Using Key Vault
       href: key-vault-certs.md
-    - name: SSL certificate management (preview)
+    - name: SSL certificate management
       href: ssl-certificate-management.md
   - name: Health monitoring
     items:
-    - name: Monitor Azure Application Gateway
+    - name: Monitor Application Gateway
       href: monitor-application-gateway.md
     - name: Health probe
       href: application-gateway-probe-overview.md
@@ -111,6 +111,8 @@
       href: application-gateway-diagnostics.md
     - name: Metrics
       href: application-gateway-metrics.md
+  - name: TCP/TLS proxy
+    href: tcp-tls-proxy-overview.md
   - name: Support for working remotely
     href: ../networking/working-remotely-support.md?toc=%2fazure%2fapplication-gateway%2ftoc.json
   - name: High traffic support
@@ -127,6 +129,10 @@
     href: application-gateway-faq.yml
 - name: How-to guides
   items:
+  - name: Configure TCP/TLS proxy
+    items:
+    - name: Azure portal
+      href: how-to-tcp-tls-proxy.md
   - name: Host single site
     items:
     - name: Azure PowerShell
@@ -265,6 +271,10 @@
       items:
         - name: Azure portal
           href: rewrite-url-portal.md
+    - name: Parameter based path selection
+      items:
+        - name: Azure portal
+          href: parameter-based-path-selection-portal.md
   - name: Configure custom probes
     items:
       - name: Portal
@@ -273,10 +283,18 @@
         href: application-gateway-create-probe-classic-ps.md
       - name: Resource Manager PowerShell
         href: application-gateway-create-probe-ps.md
+  - name: Deploy Application Gateway Basic
+    href: deploy-basic-portal.md
   - name: Configure App Service
     href: configure-web-app.md
   - name: Schedule autoscaling
     href: application-gateway-externally-managed-scheduled-autoscaling.md
+  - name: Relocate
+    items:
+    - name: Relocate to another region
+      href: ../operational-excellence/relocation-app-gateway.md?toc=/azure/application-gateway/toc.json
+    - name: Migrate to availability zone support
+      href: ../reliability/migrate-app-gateway-v2.md?toc=/azure/application-gateway/toc.json
   - name: Troubleshoot
     items:
       - name: ILB with an App Service Environment
@@ -307,7 +325,7 @@
     href: proxy-buffers.md
   - name: Custom error pages
     href: custom-error.md
-  - name: Migrating to v2 SKU
+  - name: Migrate to v2 SKU
     items:
       - name: About v1 retirement
         href: v1-retirement.md
@@ -323,7 +341,7 @@
     href: private-link-configure.md
 - name: Reference
   items:
-  - name: Monitoring data
+  - name: Monitoring data reference
     href: monitor-application-gateway-reference.md
   - name: Ingress for AKS annotations
     href: ingress-controller-annotations.md

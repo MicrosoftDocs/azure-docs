@@ -59,6 +59,8 @@
           href: queues-auth-abac.md
         - name: Actions and attributes for conditions
           href: queues-auth-abac-attributes.md
+        - name: Example conditions
+          href: queues-auth-abac-examples.md
     - name: Authenticate and authorize with Microsoft Entra ID
       href: authorize-access-azure-active-directory.md
     - name: Authorize with Shared Key
@@ -111,14 +113,10 @@
     items:
     - name: Monitor Queue storage
       href: monitor-queue-storage.md
-    - name: Transition from classic metrics
-      href: ../common/storage-metrics-migration.md?toc=/azure/storage/queues/toc.json
     - name: Monitoring (classic)
       items:
       - name: Storage Analytics
         href: ../common/storage-analytics.md?toc=/azure/storage/queues/toc.json
-      - name: Metrics
-        href: ../common/storage-analytics-metrics.md?toc=/azure/storage/queues/toc.json
       - name: Logs
         href: ../common/storage-analytics-logging.md?toc=/azure/storage/queues/toc.json
       - name: Monitor, diagnose, and troubleshoot
@@ -272,7 +270,7 @@
       href: /python/api/overview/azure/storage#management
     - name: JavaScript SDK
       href: /javascript/api/overview/azure/storage#management
-  - name: Monitoring Azure Queue storage reference
+  - name: Monitoring Queue Storage data reference
     href: monitor-queue-storage-reference.md
   - name: Spring Integration with Azure Storage Queue
     href: /azure/developer/java/spring-framework/spring-cloud-azure?toc=/azure/storage/queues/TOC.json#spring-integration-with-azure-storage-queue
@@ -353,17 +351,5 @@
         href: https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage
       - name: Azure Storage client library version 2.1
         href: https://github.com/Azure/azure-storage-python
-  - name: Code samples using deprecated SDKs
-    items:
-    - name: .NET
-      items:
-      - name: Version 11.x samples
-        href: queues-v11-samples-dotnet.md
-      - name: Design highly available applications (.NET version 11.x)
-        href: ../common/geo-redundant-design-legacy.md?toc=/azure/storage/queues/toc.json
-    - name: Java version 8 samples
-      href: queues-v8-samples-java.md
-    - name: Python version 2 samples
-      href: queues-v2-samples-python.md
   - name: Compliance offerings
     href: ../common/storage-compliance-offerings.md

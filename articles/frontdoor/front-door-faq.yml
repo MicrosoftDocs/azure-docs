@@ -4,10 +4,9 @@ metadata:
   description: This page provides answers to frequently asked questions about Azure Front Door.
   author: duongau
   ms.author: duau
-  ms.service: frontdoor
+  ms.service: azure-frontdoor
   ms.topic: faq
-  ms.workload: infrastructure-services
-  ms.date: 11/08/2023
+  ms.date: 06/17/2024
 title: Frequently asked questions for Azure Front Door
 summary: |
   This article answers common questions about Azure Front Door features and functionality. If you don't see the answer to your question, you can contact us through the following channels (in escalating order):
@@ -26,7 +25,6 @@ sections:
           What is Azure Front Door?
         answer:  |
           Azure Front Door is a cloud-based service that delivers your applications faster and more reliably. It uses layer 7 load balancing to distribute traffic across multiple regions and endpoints. It also offers dynamic site acceleration (DSA) to optimize web performance and near real-time failover to ensure high availability. Azure Front Door is a fully managed service, so you don't have to worry about scaling or maintenance.
-
 
       - question: |
           What features does Azure Front Door support?
@@ -75,7 +73,6 @@ sections:
           - API Management
           - Application Gateway
           - Public IP address
-          - Traffic Manager
           - Azure Spring Apps
           - Container Instances
           - Container Apps
@@ -149,6 +146,11 @@ sections:
           > Custom TLS/SSL certificate updates might take longer, from several minutes up to an hour, to be deployed globally.
           
           Updates to routes or origin groups/backend pools are seamless and don't cause any downtime (assuming the new configuration is correct). Certificate updates are also done atomically, so there's no risk of outage.
+
+      - question: |
+          Does Azure Front Door support gRPC?
+        answer:  |
+          No. Currently, Azure Front Door only supports HTTP/1.1 from the edge to the origin. For gRPC to work, HTTP/2 is required.
           
   - name: Configuration
     questions:
@@ -199,9 +201,14 @@ sections:
 
           - The *AzureFrontDoor.Backend* service tag contains the IP addresses that Front Door uses to access your origins. You can apply this service tag when you [configure security for your origins](origin-security.md).
           - The *AzureFrontDoor.Frontend* service tag contains the IP addresses that clients use to reach Front Door. You can apply the `AzureFrontDoor.Frontend` service tag when you want to control the outbound traffic that can connect to services behind Azure Front Door.
-          - The *AzureFrontDoor.FirstParty* service tag is for internal use within Azure.
+          - The *AzureFrontDoor.FirstParty* service tag is reserved for a select group of Microsoft services hosted on Azure Front Door. 
           
           For more information on Azure Front Door service tags scenarios, see [available service tags](../virtual-network/service-tags-overview.md#available-service-tags).
+
+      - question: |
+          What is the value of header timeout from client to Azure Front Door?
+        answer:  |   
+          Azure Front Door has a 5-second timeout for receiving headers from client. The connection is terminated if the client doesn't send headers within 5 seconds to Azure Front Door after establishing TCP/TLS connection. You can't configure this timeout value.
 
       - question: |
           What is the value of the HTTP keep-alive timeout for Azure Front Door?
@@ -236,34 +243,24 @@ sections:
     questions:
   
       - question: | 
-          How does Azure Front Door handle domain fronting behavior? 
+          How does Azure Front Door block domain fronting? 
         answer: |
-          Domain fronting is a technique that allows an attacker to hide the true destination of a malicious request by using a different domain name in the TLS handshake and the HTTP host header.
+          Domain fronting is a network technique that enables an attacker to conceal the actual destination of a malicious request by using a different domain name in the TLS handshake and the HTTP host header.
           
-          As part of our ongoing efforts to enhance the security and performance of our services, we have implemented the following changes:
-
-          - Starting from November 8, 2022, we'll block any new Azure Front Door (Standard, Premium and Classic tier) or Azure CDN Standard from Microsoft (classic) resources that exhibit domain fronting behavior. Any request that has a host header mismatching the original TLS SNI extension used during the TLS negotiation gets rejected. 
-
-          - Starting from September 25, 2023, we have updated the domain fronting blocking restrictions based on feedback from customers. Instead of blocking a request when the SNI and host headers don't match, we allow the mismatch as long as the two domains are added to the same subscription. You can use multiple domains for your applications without affecting the functionality, which Azure Front Door enables.
-
-          - Starting from January 8, 2024, we'll enforce domain fronting blocking on all existing domains. It can take one or two weeks from January 8, 2024 for the enforcement to be effective in all regions.
-
-          Once domain fronting gets blocked, Azure Front Door and Azure CDN Standard from Microsoft (classic) resources block any HTTP/HTTPS requests that exhibit this behavior.
-
-          We recommend that you review your existing Azure Front Door and Azure CDN Standard from Microsoft (classic) resources and ensure that they don't rely on domain fronting behavior. If you have any questions or concerns, contact our support team.
+          Azure Front Door (Standard, Premium and Classic tier) or Azure CDN Standard from Microsoft (classic) resources created after November 8, 2022, have domain fronting blocking enabled. Rather than blocking a request with mismatched SNI and host headers, we permit the discrepancy if the two domains belong to the same subscription and are included in the routes/routing rules. Domain fronting blocking enforcement will start on January 22, 2024, for all existing domains. The enforcement may require up to two weeks to propagate to all regions. 
          
           When Front Door blocks a request due to a mismatch: 
           - The client receives an HTTP `421 Misdirected Request` error code response. 
-          - Azure Front Door logs the block in the diagnostic logs under the **Error Info** property with the value **SSLMismatchedSNI**.
+          - Azure Front Door records the block in the diagnostic logs under the *Error Info* property with the value *SSLMismatchedSNI*.
           
-          For more information about domain fronting, see [Securing our approach to domain fronting within Azure](https://www.microsoft.com/security/blog/2021/03/26/securing-our-approach-to-domain-fronting-within-azure/).
+          For more information about domain fronting, see [Securing our approach to domain fronting within Azure](https://www.microsoft.com/security/blog/2021/03/26/securing-our-approach-to-domain-fronting-within-azure/) and [Prohibiting domain fronting on Azure Front Door and Azure CDN Standard from Microsoft (classic)](https://techcommunity.microsoft.com/t5/azure-networking-blog/prohibiting-domain-fronting-with-azure-front-door-and-azure-cdn/ba-p/4006619).
  
       - question: |
           What TLS versions are supported with Azure Front Door?
         answer: |
           Front Door uses TLS 1.2 as the minimum version for all profiles created after September 2019.
 
-          You can choose to use TLS 1.0, 1.1 or 1.2 with Front Door, but TLS 1.3 isn't supported yet. To learn more, read the [Azure Front Door end-to-end TLS](concept-end-to-end-tls.md) article.
+          You can choose to use TLS 1.0, 1.1, 1.2 or 1.3 with Azure Front Door. To learn more, read the [Azure Front Door end-to-end TLS](concept-end-to-end-tls.md) article.
                   
   - name: Billing
     questions:

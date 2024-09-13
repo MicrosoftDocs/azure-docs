@@ -4,13 +4,15 @@ description: Reference for the retry policy available for use in Azure API Manag
 services: api-management
 author: dlepow
 
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: article
-ms.date: 12/08/2022
+ms.date: 07/23/2024
 ms.author: danlep
 ---
 
 # Retry
+
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 
 The `retry` policy executes its child policies once and then retries their execution until the retry `condition` becomes `false` or retry `count` is exhausted.
 
@@ -47,7 +49,7 @@ The `retry` policy executes its child policies once and then retries their execu
 
 * When only the `interval` is specified, **fixed** interval retries are performed.
 * When only the `interval` and `delta` are specified, a **linear** interval retry algorithm is used. The  wait time between retries increases according to the following formula: `interval + (count - 1)*delta`.
-* When the `interval`, `max-interval` and `delta` are specified, an **exponential** interval retry algorithm is applied. The wait time between the retries increases exponentially according to the following formula: `interval + (2^count - 1) * random(delta * 0.8, delta * 1.2)`, up to a maximum interval set by `max-interval`. 
+* When the `interval`, `max-interval` and `delta` are specified, an **exponential** interval retry algorithm is applied. The wait time between the retries increases exponentially according to the following formula: `interval + (2^(count - 1)) * random(delta * 0.8, delta * 1.2)`, up to a maximum interval set by `max-interval`. 
 
     For example, when `interval` and `delta` are both set to 10 seconds, and `max-interval` is 100 seconds, the approximate wait time between retries increases as follows: 10 seconds, 20 seconds, 40 seconds, 80 seconds, with 100 seconds wait time used for remaining retries.
 
@@ -59,7 +61,7 @@ The `retry` policy may contain any other policies as its child elements.
 
 - [**Policy sections:**](./api-management-howto-policies.md#sections) inbound, outbound, backend, on-error
 - [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, workspace, product, API, operation
--  [**Gateways:**](api-management-gateways-overview.md) dedicated, consumption, self-hosted
+-  [**Gateways:**](api-management-gateways-overview.md) classic, v2, consumption, self-hosted, workspace
 
 ## Examples
 
@@ -103,6 +105,6 @@ In the following example, sending a request to a URL other than the defined back
 
 ## Related policies
 
-* [API Management advanced policies](api-management-advanced-policies.md)
+* [Policy control and flow](api-management-policies.md#policy-control-and-flow)
 
 [!INCLUDE [api-management-policy-ref-next-steps](../../includes/api-management-policy-ref-next-steps.md)]

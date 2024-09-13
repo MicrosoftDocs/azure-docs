@@ -14,7 +14,7 @@ To complete the steps in this article, you need the following resources:
 
 [!INCLUDE [iot-central-prerequisites-basic](iot-central-prerequisites-basic.md)]
 
-- A development machine with [Python](https://www.python.org/) version 3.7 or later installed. You can run `python --version` at the command line to check your version. Python is available for a wide variety of operating systems. The instructions in this tutorial assume you're running the **python** command at the Windows command prompt.
+- A development machine with [Python](https://www.python.org/) installed. Check the [Azure IoT Python SDK](https://github.com/Azure/azure-iot-sdk-python/blob/main/README.md) for current Python version requirements. You can run `python --version` at the command line to check your version. Python is available for a wide variety of operating systems. The instructions in this tutorial assume you're running the **python** command at the Windows command prompt.
 
 - A local copy of the [Microsoft Azure IoT SDK for Python](https://github.com/Azure/azure-iot-sdk-python/tree/v2/) GitHub repository that contains the sample code. Use this link to download a copy of the repository: [Download ZIP](https://github.com/Azure/azure-iot-sdk-python/archive/v2.zip). Then unzip the file to a suitable location on your local machine.
 

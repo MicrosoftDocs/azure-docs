@@ -1,18 +1,22 @@
 ---
 title: Microsoft Sentinel solution for SAP® applications systemconfig.json container configuration file reference
 description: Description of settings available in systemconfig.json file
-author: limwainstein
-ms.author: lwainstein
+author: batamig
+ms.author: bagol
 ms.topic: reference
 ms.custom: devx-track-extended-java
 ms.date: 06/03/2023
+
+
+#Customer intent: As an SAP BASIS team member, I want to understand the configuration options in the systemconfig.json file so that I can properly set up and manage the data collector for SAP applications.
+
 ---
 # Systemconfig.json file reference
 
 The *systemconfig.json* file is used to configure behavior of the data collector. Configuration options are grouped into several sections. This article lists options available and provides an explanation to the options.
 
 > [!IMPORTANT]
-> Microsoft Sentinel solution for SAP® applications uses the new *systemconfig.json* file from agent versions deployed on June 22 and later. For previous agent versions, you must still use the *[systemconfig.ini file](reference-systemconfig.md)*.
+> Microsoft Sentinel solution for SAP® applications uses the new *systemconfig.json* file for agent versions released on or after June 22, 2023. For previous agent versions, you must still use the *[systemconfig.ini file](reference-systemconfig.md)*.
 
 ## File structure
 

@@ -7,8 +7,8 @@ metadata:
   title: Azure Container Apps documentation
   description: Azure Container Apps allows you to run containerized applications without worrying about orchestration or infrastructure.
   ms.topic: landing-page
-  ms.service: container-apps
-  ms.custom: event-tier1-build-2022, ignite-2022, build-2023
+  ms.service: azure-container-apps
+  ms.custom: build-2023
   author: craigshoemaker
   ms.author: cshoe
   ms.date: 05/24/2023

@@ -2,8 +2,8 @@
 title: Scheduling recurring updates in Azure Update Manager
 description: This article details how to use Azure Update Manager to set update schedules that install recurring updates on your machines.
 ms.service: azure-update-manager
-ms.date: 09/18/2023
-ms.topic: conceptual
+ms.date: 06/24/2024
+ms.topic: how-to
 author: SnehaSudhirG
 ms.author: sudhirsneha
 ---
@@ -13,7 +13,7 @@ ms.author: sudhirsneha
 **Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Linux VMs :heavy_check_mark: On-premises environment :heavy_check_mark: Azure Arc-enabled servers.
 
 > [!IMPORTANT]
-> For a seamless scheduled patching experience, we recommend that for all Azure virtual machines (VMs), you update the patch orchestration to **Customer Managed Schedules** by **June 30, 2023**. If you fail to update the patch orchestration by June 30, 2023, you can experience a disruption in business continuity because the schedules will fail to patch the VMs. [Learn more](prerequsite-for-schedule-patching.md).
+> - For a seamless scheduled patching experience, we recommend that for all Azure virtual machines (VMs), you update the patch orchestration to **Customer Managed Schedules** by **June 30, 2023**. If you fail to update the patch orchestration by June 30, 2023, you can experience a disruption in business continuity because the schedules will fail to patch the VMs. [Learn more](prerequsite-for-schedule-patching.md). 
 
 You can use Azure Update Manager to create and save recurring deployment schedules. You can create a schedule on a daily, weekly, or hourly cadence. You can specify the machines that must be updated as part of the schedule and the updates to be installed.
 
@@ -23,17 +23,20 @@ Update Manager uses a maintenance control schedule instead of creating its own s
 
 ## Prerequisites for scheduled patching
 
-1. See [Prerequisites for Update Manager](./overview.md#prerequisites).
+1. See [Prerequisites for Update Manager](prerequisites.md).
 1. Patch orchestration of the Azure machines should be set to **Customer Managed Schedules**. For more information, see [Enable schedule patching on existing VMs](prerequsite-for-schedule-patching.md#enable-schedule-patching-on-azure-vms). For Azure Arc-enabled machines, it isn't a requirement.
 
 	> [!NOTE]
-	> If you set the patch mode to **Azure orchestrated** (`AutomaticByPlatform`) but do not enable the **BypassPlatformSafetyChecksOnUserSchedule** flag and do not attach a maintenance configuration to an Azure machine, it's treated as an [automatic guest patching](../virtual-machines/automatic-vm-guest-patching.md)-enabled machine. The Azure platform automatically installs updates according to its own schedule. [Learn more](./overview.md#prerequisites).
+	> If you set the patch mode to **Azure orchestrated** (`AutomaticByPlatform`) but do not enable the **BypassPlatformSafetyChecksOnUserSchedule** flag and do not attach a maintenance configuration to an Azure machine, it's treated as an [automatic guest patching](/azure/virtual-machines/automatic-vm-guest-patching)-enabled machine. The Azure platform automatically installs updates according to its own schedule. [Learn more](prerequisites.md).
 
 ## Schedule patching in an availability set
 
-All VMs in a common [availability set](../virtual-machines/availability-set-overview.md) aren't updated concurrently.
+All VMs in a common [availability set](/azure/virtual-machines/availability-set-overview) aren't updated concurrently.
 
-VMs in a common availability set are updated within Update Domain boundaries. VMs across multiple Update Domains aren't updated concurrently.
+VMs in a common availability set are updated within Update Domain boundaries. VMs across multiple Update Domains aren't updated concurrently. 
+
+In scenarios where machines from the same availability set are being patched at the same time in different schedules, it is likely that they might not get patched or could potentially fail if the maintenance window exceeds. To avoid this, we recommend that you either increase the maintenance window or split the machines belonging to the same availability set across multiple schedules at different times. 
+
 
 ## Configure reboot settings
 
@@ -266,7 +269,40 @@ To view the current compliance state of your existing resources:
 
 You can check the deployment status and history of your maintenance configuration runs from the Update Manager portal. For more information, see [Update deployment history by maintenance run ID](./manage-multiple-machines.md#update-deployment-history-by-maintenance-run-id).
 
+
+## Timeline of Maintenance Window
+
+The maintenance window controls the number of updates that can be installed on your virtual machine and Arc-enabled servers. We recommend that you go through the following table to understand the timeline for a maintenance window while installing an update:
+
+For example, if a maintenance window is of 3 hours and starts at 3:00 PM, the following are the details on how the updates are installed:
+
+#### [Windows](#tab/windows-maintenance)
+
+| **Update Type** | **Details** |
+| ---------- | ------------- |
+| Service Pack | If you are installing a Service Pack, you need 20 mins left in the maintenance window for the updates to be successfully installed, else the update is skipped. </br> In this example, you must finish installing the service pack by 5:40 PM. |  
+| Other updates | If you are installing any other update besides Service Pack, you need to have 15 mins left in the maintenance window, else it is skipped. </br> In this example, you must finish installing the other updates by 5:45 PM.| 
+| Reboot | If the machine(s) needs a reboot, you need to have 10 minutes left in the maintenance window, else the reboot is skipped. </br> In this example, you must start the reboot by 5:50 PM. </br> **Note**: For Azure virtual machines and Arc-enabled servers, Azure Update Manager waits for a maximum of 15 minutes for Azure VMs and 25 minutes for Arc servers after a reboot to complete the reboot operation before marking it as failed. |
+
+#### [Linux](#tab/linux-maintenance)
+
+| **Update Type** | **Details** |
+| ---------- | ------------- |
+| Reboot | If the VMs need a reboot, you need to have 15 minutes left in the maintenance window, else the reboot is skipped. </br> **Note**: This is only applicable for Azure VMs and not for Arc-enabled servers. </br> In this example, you must start the reboot by 5:45 PM. |
+| Updates installed in batches | If the batch size is X, then the minimum time required to update the packages is calculated as follows </br></br> - If X is less than or equal to 3, the minimum required time  = 5 x X minutes. </br> - If X is greater than 3, the minimum required time = 15+2 x (X-3) minutes. </br> **Note**:  Only Azure Update Manager service controls the batch size (X) of the updates. |
+
+---
+
+> [!NOTE]
+> - Azure Update Manager doesn't stop installing the new updates if it's approaching the end of the maintenance window.
+> - Azure Update Manger doesn't terminate in-progress updates if the maintenance window is exceeded and only the remaining updates that must be installed aren't attempted. We recommend that you re-evaluate the duration of your maintenance window to ensure all the updates are installed . 
+> - If the maintenance window is exceeded on Windows, it's often because a service pack update is taking a long time to install.
+
+
+
 ## Next steps
 
-* To view update assessment and deployment logs generated by Update Manager, see [Query logs](query-logs.md).
-* To troubleshoot issues, see [Troubleshoot Update Manager](troubleshoot.md).
+* Learn more about [Dynamic scope](dynamic-scope-overview.md), an advanced capability of schedule patching.
+* Learn more about how to [Configure schedule patching on Azure VMs for business continuity](prerequsite-for-schedule-patching.md).
+* Follow the instructions on how to [manage various operations of Dynamic scope](manage-dynamic-scoping.md)
+* Learn about [pre and post events](pre-post-scripts-overview.md) to automatically perform tasks before and after a scheduled maintenance configuration.

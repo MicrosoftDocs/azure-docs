@@ -8,10 +8,14 @@ manager: CelesteDG
 
 ms.service: active-directory
 
-ms.topic: conceptual
-ms.date: 10/11/2022
+ms.topic: concept-article
+ms.date: 01/11/2024
 ms.author: kengaderdus
 ms.subservice: B2C
+
+
+
+#Customer intent: As a developer building an application that requires user authentication, I want to understand the different types of applications that can be used with Azure Active Directory B2C, so that I can choose the appropriate authentication method for my application.
 
 ---
 # Application types that can be used in Active Directory B2C

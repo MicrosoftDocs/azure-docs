@@ -2560,6 +2560,26 @@
             "source_path_from_root": "/articles/sql-database/sql-database-customer-implementations.md",
             "redirect_url": "https://customers.microsoft.com",
             "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sql-database/scripts/sql-database-import-purview-labels.md",
+            "redirect_url": "/purview/register-scan-azure-sql-database",
+            "redirect_document_id": false
+        },        
+        {
+            "source_path_from_root": "/articles/scripts/sql-database-setup-geodr-failover-database-failover-group-powershell.md",
+            "redirect_url": "/azure/sql-database/scripts/sql-database-add-single-db-to-failover-group-powershell",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sql-data-warehouse/sql-data-warehouse-auditing-overview.md",
+            "redirect_url": "/azure/sql-database/sql-database-auditing",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sql-data-warehouse/sql-data-warehouse-security-threat-detection.md",
+            "redirect_url": "/azure/sql-database/sql-database-threat-detection-overview",
+            "redirect_document_id": false
         }
     ]
 }

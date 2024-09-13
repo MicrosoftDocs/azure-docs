@@ -11,8 +11,6 @@ ms.subservice: security-develop
 services: azure
 
 ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
-ms.tgt_pltfrm: na
-ms.workload: na
 ---
 
 # Develop secure applications on Azure

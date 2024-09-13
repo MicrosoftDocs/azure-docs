@@ -2,10 +2,11 @@
 title: Protect your Azure resources with a lock
 description: You can safeguard Azure resources from updates or deletions by locking all users and roles.
 ms.topic: conceptual
-ms.date: 08/24/2023
+ms.date: 06/14/2024
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 content_well_notification: 
   - AI-contribution
+ai-usage: ai-assisted
 ---
 
 # Lock your resources to protect your infrastructure
@@ -17,7 +18,7 @@ You can set locks that prevent either deletions or modifications. In the portal,
 - **CanNotDelete** means authorized users can read and modify a resource, but they can't delete it.
 - **ReadOnly** means authorized users can read a resource, but they can't delete or update it. Applying this lock is similar to restricting all authorized users to the permissions that the **Reader** role provides.
 
-Unlike role-based access control (RBAC), you use management locks to apply a restriction across all users and roles. To learn about setting permissions for users and roles, see [Azure RBAC](../../role-based-access-control/role-assignments-portal.md).
+Unlike role-based access control (RBAC), you use management locks to apply a restriction across all users and roles. To learn about setting permissions for users and roles, see [Azure RBAC](../../role-based-access-control/role-assignments-portal.yml).
 
 ## Lock inheritance
 
@@ -60,6 +61,7 @@ Applying locks can lead to unexpected results. Some operations, which don't seem
 - A read-only lock on a **storage account** protects RBAC assignments scoped for a storage account or a data container (blob container or queue).
 
 - A read-only lock on a **storage account** prevents the creation of a blob container.
+-  A read-only lock on a **storage account** prevents the creation of a blob container. However, create operations on a storage account can be done through both the control plane and data plane. Read-only locks only block control plane create requests, but a user can still perform a valid create operation on the resource through the data plane.
 
 - A read-only lock or cannot-delete lock on a **storage account** doesn't prevent its data from deletion or modification. It also doesn't protect the data in a blob, queue, table, or file.
 
@@ -75,9 +77,7 @@ Applying locks can lead to unexpected results. Some operations, which don't seem
 
 - A read-only lock on a **resource group** that contains a **virtual machine** prevents all users from starting or restarting a virtual machine. These operations require a POST method request.
 
-- A read-only lock on a **resource group** that contains a **virtual machine** prevents users from moving the VM out of the resource group.
-
-- A read-only lock on a **resource group** prevents users from moving any new **resource** into that resource group.
+- A read-only lock on a **resource group** prevents you from moving existing **resources** in or out of the resource group. But note that a **resource** with read-only lock can be moved to another resource group.
 
 - A read-only lock on a **resource group** that contains an **automation account** prevents all runbooks from starting. These operations require a POST method request.
 
@@ -87,11 +87,11 @@ Applying locks can lead to unexpected results. Some operations, which don't seem
 
 - A cannot-delete lock on the **resource group** created by **Azure Backup Service** causes backups to fail. The service supports a maximum of 18 restore points. When locked, the backup service can't clean up restore points. For more information, see [Frequently asked questions-Back up Azure VMs](../../backup/backup-azure-vm-backup-faq.yml).
 
-- A cannot-delete lock on a **resource group** that contains **Azure Machine Learning** workspaces prevents autoscaling of [Azure Machine Learning compute clusters](../../machine-learning/concept-compute-target.md#azure-machine-learning-compute-managed) from working correctly. With the lock, autoscaling can't remove unused nodes. Your solution consumes more resources than are required for the workload.
+- A cannot-delete lock on a **resource group** that contains **Azure Machine Learning** workspaces prevents autoscaling of [Azure Machine Learning compute clusters](/azure/machine-learning/concept-compute-target#azure-machine-learning-compute-managed) from working correctly. With the lock, autoscaling can't remove unused nodes. Your solution consumes more resources than are required for the workload.
 
 - A read-only lock on a **Log Analytics workspace** prevents **User and Entity Behavior Analytics (UEBA)** from being enabled.
 
-- A cannot-delete lock on a **Log Analytics workspace** doesn't prevent [data purge operations](../../azure-monitor/logs/personal-data-mgmt.md#delete), remove the [data purge](../../role-based-access-control/built-in-roles.md#data-purger) role from the user instead. 
+- A cannot-delete lock on a **Log Analytics workspace** doesn't prevent [data purge operations](/azure/azure-monitor/logs/personal-data-mgmt#delete). Instead, remove the [data purge](../../role-based-access-control/built-in-roles.md#data-purger) role from the user.
 
 - A read-only lock on a **subscription** prevents **Azure Advisor** from working correctly. Advisor is unable to store the results of its queries.
 
@@ -99,11 +99,13 @@ Applying locks can lead to unexpected results. Some operations, which don't seem
 
 - A read-only lock on an Azure Kubernetes Service (AKS) cluster limits how you can access cluster resources through the portal. A read-only lock prevents you from using the AKS cluster's Kubernetes resources section in the Azure portal to choose a cluster resource. These operations require a POST method request for authentication.
 
-- A cannot-delete lock on a **Virtual Machine** that is protected by **Site Recovery** prevents certain resource links related to Site Recovery from being removed properly when you remove the protection or disable replication. If you plan to protect the VM again later, you need to remove the lock prior to disabling protection. If you don't remove the lock, you need to follow certain steps to clean up the stale links before you can protect the VM. For more information, see [Troubleshoot Azure VM replication](../../site-recovery/azure-to-azure-troubleshoot-errors.md#replication-not-enabled-on-vm-with-stale-resources-error-code-150226).
+- A cannot-delete lock on a **Virtual Machine** that is protected by **Site Recovery** prevents certain resource links related to Site Recovery from being removed properly when you remove the protection or disable replication. If you plan to protect the VM again later, you need to remove the lock before disabling protection. If you don't remove the lock, you need to follow certain steps to clean up the stale links before you can protect the VM. For more information, see [Troubleshoot Azure VM replication](../../site-recovery/azure-to-azure-troubleshoot-errors.md#replication-not-enabled-on-vm-with-stale-resources-error-code-150226).
+
+- For **Postgresql**, the virtual network shouldn't have any resource locks set at the virtual network or subnet level, as locks may interfere with network and DNS operations. Before creating the server in a virtual network, ensure you remove any delete or read-only locks from your virtual network and all subnets. You can reapply the locks after the server is created.
 
 ## Who can create or delete locks
 
-To create or delete management locks, you need access to `Microsoft.Authorization/*` or `Microsoft.Authorization/locks/*` actions. Only the **Owner** and the **User Access Administrator** built-in roles can create and delete management locks. You can create a custom role with the required permissions.
+To create or delete management locks, you need access to `Microsoft.Authorization/*` or `Microsoft.Authorization/locks/*` actions. Users assigned to the **Owner** and the **User Access Administrator** roles have the required access. Some specialized built-in roles also grant this access. You can create a custom role with the required permissions.
 
 ## Managed applications and locks
 
@@ -137,7 +139,7 @@ In the left navigation panel, the subscription lock feature's name is **Resource
 
 When using an ARM template or Bicep file to deploy a lock, it's good to understand how the deployment scope and the lock scope work together. To apply a lock at the deployment scope, such as locking a resource group or a subscription, leave the scope property unset. When locking a resource, within the deployment scope, set the scope property on the lock.
 
-The following template applies a lock to the resource group it's deployed to. Notice there isn't a scope property on the lock resource because the lock scope matches the deployment scope. Deploy this template at the resource group level.
+The following template applies a lock to the resource group. Notice there isn't a scope property on the lock resource because the lock scope matches the deployment scope. Deploy this template at the resource group level.
 
 # [JSON](#tab/json)
 

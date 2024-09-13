@@ -5,8 +5,9 @@ ms.topic: conceptual
 ms.custom:
   - ignite-2023
 ms.date: 11/15/2023
-author: veyaddan
-ms.author: veyaddan
+author: george-guirguis
+ms.author: geguirgu
+ms.subservice: mqtt
 ---
 
 # How to implement Request-Response messaging pattern using Azure Event Grid's MQTT broker feature
@@ -79,6 +80,7 @@ Create permission bindings that allow cloud application group to publish on requ
 > - Request-Response message pattern can also be achieved in MQTT v3.1.1, by including the Response topic in the request message payload.  The device client needs to parse the message payload, identifies the Response topic, and publishes the response on that topic.
 
 ## Next steps
-- See [Route MQTT messages to Event Hubs](mqtt-routing-to-event-hubs-portal.md)
+- [Tutorial: Route MQTT messages to Azure Event Hubs using namespace topics](mqtt-routing-to-event-hubs-portal-namespace-topics.md)
+- [Tutorial: Route MQTT messages to Azure Functions using custom topics](mqtt-routing-to-azure-functions-portal.md)
 - Learn more about [client life cycle events](mqtt-client-life-cycle-events.md)
 - For code samples, go to [this repository.](https://github.com/Azure-Samples/MqttApplicationSamples/tree/main)

@@ -1,10 +1,9 @@
 ---
 title: Pipeline failure and error message
 description: Understand how pipeline failure status and error message are determined
-ms.service: data-factory
 ms.subservice: orchestration
-author: chez-charlie
-ms.author: chez
+author: kromerm
+ms.author: makromer
 ms.reviewer: jburchel
 ms.topic: tutorial
 ms.date: 10/20/2023
@@ -179,6 +178,9 @@ To set up the pattern:
 * Add second activity, but don't connect to the first activity
 * Connect both UponFailure and UponSkip paths from the error handling activity to the second activity
 
+> [!NOTE]
+> Each path (UponSuccess, UponFailure, and UponSkip) can point to any activity. Multiple paths can point to the same activity. For example, UponSuccess and UponSkip can both point to one activity while UponFailure points to a different one.
+
 :::image type="content" source="media/tutorial-pipeline-failure-error-handling/error-handling-1-try-catch.png" alt-text="Screenshot showcasing pipeline with try catch block.":::
 
 Error Handling job runs only when First Activity fails. Next Activity will run regardless if First Activity succeeds or not.
@@ -202,7 +204,7 @@ You can add multiple activities for error handling.
 
 
 
-## Next steps
+## Related content
 
 [Data Factory metrics and alerts](monitor-metrics-alerts.md)
 

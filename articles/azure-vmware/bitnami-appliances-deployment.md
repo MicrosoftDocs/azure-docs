@@ -3,14 +3,15 @@ title: Deploy Bitnami virtual appliances
 description: Learn about the virtual appliances packed by Bitnami to deploy in your Azure VMware Solution private cloud.
 ms.topic: how-to
 ms.service: azure-vmware
-ms.date: 04/11/2022
+ms.date: 11/28/2023
+ms.custom: engagement-fy23
 ---
 
 # Bitnami appliance deployment
 
 Bitnami by VMware provides a rich catalog of turnkey virtual appliances. You can deploy any vSphere compatible appliance by Bitnami available in the [VMware Marketplace](https://marketplace.cloud.vmware.com/), including many of the most common open-source software projects.
 
-In this article, you'll learn how to install and configure the following virtual appliances packaged by Bitnami on your Azure VMware Solution private cloud:
+In this article, learn how to install and configure the following virtual appliances packaged by Bitnami on your Azure VMware Solution private cloud:
 
 - LAMP
 
@@ -63,7 +64,7 @@ In this article, you'll learn how to install and configure the following virtual
 
 1. Copy the vCenter Server URL, username, and password. You'll use them to access your virtual machine (VM). 
 
-1. Select **Overview**, select the VM, and then connect to it through RDP. If you need help with connecting, see [connect to a virtual machine](../virtual-machines/windows/connect-logon.md#connect-to-the-virtual-machine) for details.
+1. Select **Overview**, select the VM, and then connect to it through RDP. If you need help with connecting, see [connect to a virtual machine](/azure/virtual-machines/windows/connect-logon#connect-to-the-virtual-machine) for details.
 
 1. In the VM, open a browser and navigate to the vCenter URL. 
 

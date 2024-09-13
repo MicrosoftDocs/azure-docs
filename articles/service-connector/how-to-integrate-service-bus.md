@@ -1,18 +1,20 @@
 ---
 title: Integrate Azure Service Bus with Service Connector
-description: Integrate Service Bus into your application with Service Connector
+description: Integrate Azure Service Bus into your application with Service Connector
 author: maud-lv
 ms.author: malev
 ms.service: service-connector
-ms.custom: event-tier1-build-2022
 ms.topic: how-to
-ms.date: 10/25/2023
+ms.date: 02/02/2024
 ---
+
 # Integrate Service Bus with Service Connector
 
 This page shows supported authentication methods and clients, and shows sample code you can use to connect Azure Service Bus to other cloud services using Service Connector. You might still be able to connect to Service Bus in other programming languages without using Service Connector. This page also shows default environment variable names and values (or Spring Boot configuration) you get when you create service connections. 
 
 ## Supported compute services
+
+Service Connector can be used to connect the following compute services to Azure Service Bus:
 
 - Azure App Service
 - Azure Functions
@@ -21,19 +23,19 @@ This page shows supported authentication methods and clients, and shows sample c
 
 ## Supported authentication types and client types
 
-Supported authentication and clients for App Service, Azure Functions, Container Apps and Azure Spring Apps:
+The table below shows which combinations of authentication methods and clients are supported for connecting your compute service to Azure Service Bus using Service Connector. A “Yes” indicates that the combination is supported, while a “No” indicates that it is not supported.
 
-| Client type        |   System-assigned managed identity   |    User-assigned managed identity    |       Secret/connection string       |           Service principal          |
-|--------------------|:------------------------------------:|:------------------------------------:|:------------------------------------:|:------------------------------------:|
-| .NET               | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
-| Go                 | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
-| Java               | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
-| Java - Spring Boot | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
-| Node.js            | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
-| Python             | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
-| None               | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) | ![yes icon](./media/green-check.png) |
+| Client type        | System-assigned managed identity | User-assigned managed identity | Secret/connection string | Service principal |
+|--------------------|:--------------------------------:|:------------------------------:|:------------------------:|:-----------------:|
+| .NET               |                Yes               |               Yes              |            Yes           |        Yes        |
+| Go                 |                Yes               |               Yes              |            Yes           |        Yes        |
+| Java               |                Yes               |               Yes              |            Yes           |        Yes        |
+| Java - Spring Boot |                Yes               |               Yes              |            Yes           |        Yes        |
+| Node.js            |                Yes               |               Yes              |            Yes           |        Yes        |
+| Python             |                Yes               |               Yes              |            Yes           |        Yes        |
+| None               |                Yes               |               Yes              |            Yes           |        Yes        |
 
----
+This table indicates that all combinations of client types and authentication methods in the table are supported. All client types can use any of the authentication methods to connect to Azure Service Bus using Service Connector.
 
 ## Default environment variable names or application properties
 
@@ -78,6 +80,9 @@ Refer to the steps and code below to connect to Service Bus using a user-assigne
 [!INCLUDE [code sample for service bus](./includes/code-servicebus-me-id.md)]
 
 ### Connection string
+
+> [!WARNING]
+> Microsoft recommends that you use the most secure authentication flow available. The authentication flow described in this procedure requires a very high degree of trust in the application, and carries risks that are not present in other flows. You should only use this flow when other more secure flows, such as managed identities, aren't viable.
 
 #### SpringBoot client type
 

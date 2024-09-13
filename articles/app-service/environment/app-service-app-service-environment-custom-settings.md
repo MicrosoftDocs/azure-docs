@@ -5,15 +5,19 @@ author: madsd
 
 ms.assetid: 1d1d85f3-6cc6-4d57-ae1a-5b37c642d812
 ms.topic: tutorial
-ms.date: 11/03/2021
+ms.date: 03/06/2024
 ms.author: madsd
-ms.custom: mvc, seodec18, devx-track-arm-template
+ms.custom: mvc, devx-track-arm-template
 ---
 
 # Custom configuration settings for App Service Environments
 
 ## Overview
 Because App Service Environments are isolated to a single customer, there are certain configuration settings that can be applied exclusively to App Service Environments. This article documents the various specific customizations that are available for App Service Environments.
+
+> [!NOTE]
+> This article covers the features, benefits, and use cases of App Service Environment v3, which is used with App Service Isolated v2 plans.
+> 
 
 If you do not have an App Service Environment, see [How to Create an App Service Environment v3](./creation.md).
 
@@ -44,7 +48,7 @@ The following abbreviated Resource Manager template snippet shows the **clusterS
 The **clusterSettings** attribute can be included in a Resource Manager template to update the App Service Environment.
 
 ## Use Azure Resource Explorer to update an App Service Environment
-Alternatively, you can update the App Service Environment by using [Azure Resource Explorer](https://resources.azure.com).  
+Alternatively, you can update the App Service Environment by using [Azure Resource Explorer](https://resources.azure.com).
 
 1. In Resource Explorer, go to the node for the App Service Environment (**subscriptions** > **{your Subscription}** > **resourceGroups** > **{your Resource Group}** > **providers** > **Microsoft.Web** > **hostingEnvironments**). Then click the specific App Service Environment that you want to update.
 2. In the right pane, click **Read/Write** in the upper toolbar to allow interactive editing in Resource Explorer.  
@@ -53,8 +57,7 @@ Alternatively, you can update the App Service Environment by using [Azure Resour
 5. Type (or copy and paste) the array of configuration values you want in the **clusterSettings** attribute.  
 6. Click the green **PUT** button that's located at the top of the right pane to commit the change to the App Service Environment.
 
-However you submit the change, it takes roughly 30 minutes multiplied by the number of front ends in the App Service Environment for the change to take effect.
-For example, if an App Service Environment has four front ends, it will take roughly two hours for the configuration update to finish. While the configuration change is being rolled out, no other scaling operations or configuration change operations can take place in the App Service Environment.
+However you submit the change, the change is not immediate and it can take up to 24 hours for the change to take full effect. Some settings have specific details on the time and impact of configuring the specific setting.
 
 ## Enable internal encryption
 

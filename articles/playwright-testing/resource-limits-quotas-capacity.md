@@ -1,8 +1,8 @@
 ---
-title: Service limits
-description: 'Service limitations and quotas for running Playwright testing with Microsoft Playwright Testing Preview.'
+title: Limits and configuration reference guide
+description: 'Service limitations, quotas, and configuration settings for running Playwright testing with Microsoft Playwright Testing Preview.'
 ms.topic: reference
-ms.date: 10/04/2023
+ms.date: 02/08/2024
 ms.custom: playwright-testing-preview
 ---
 
@@ -46,6 +46,17 @@ While the service is in preview, the following limits apply on a per-subscriptio
 ## Request quota increases
 
 To raise the resource quota above the default limit for your subscription, [create an issue in the Playwright Testing GitHub repository](https://github.com/microsoft/playwright-testing-service/issues/new/choose).
+
+## Outbound IP addresses
+
+This section lists the outbound IP address ranges that Microsoft Playwright Testing requires to communicate through your firewall.
+
+| Azure region | IP address range |
+|--------------|------------------|
+| East US      | 52.190.15.208/28 |
+| West US3     | 20.172.9.112/28  |
+| East Asia    | 20.24.220.64/28  |
+| West Europe  | 98.71.172.224/28 |
 
 ## Related content
 

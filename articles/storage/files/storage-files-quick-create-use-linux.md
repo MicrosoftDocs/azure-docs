@@ -1,11 +1,11 @@
 ---
-title: Tutorial - Create an NFS Azure file share and mount it on a Linux VM using the Azure portal
-description: This tutorial covers how to use the Azure portal to deploy a Linux virtual machine, create an Azure file share using the NFS protocol, and mount the file share so that it's ready to store files.
+title: Create an NFS Azure file share and mount it on a Linux VM
+description: This tutorial covers how to use the Azure portal to deploy a Linux virtual machine (VM), create an Azure file share using the NFS protocol, and mount the file share.
 author: khdownie
 ms.service: azure-file-storage
-ms.custom: devx-track-linux
+ms.custom: linux-related-content
 ms.topic: tutorial
-ms.date: 10/10/2023
+ms.date: 06/11/2024
 ms.author: kendownie
 #Customer intent: As an IT admin new to Azure Files, I want to try out Azure file share using NFS and Linux so I can determine whether I want to subscribe to the service.
 ---
@@ -24,6 +24,7 @@ In this tutorial, you will:
 > * Mount the file share to your VM
 
 ## Applies to
+
 | File share type | SMB | NFS |
 |-|:-:|:-:|
 | Standard file shares (GPv2), LRS/ZRS | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
@@ -76,7 +77,7 @@ Next, create an Azure VM running Linux to represent the on-premises server. When
     :::image type="content" source="media/storage-files-quick-create-use-linux/create-vm-inbound-port-rules.png" alt-text="Screenshot showing how to configure the inbound port rules for a new V M." lightbox="media/storage-files-quick-create-use-linux/create-vm-inbound-port-rules.png" border="true":::
 
    > [!IMPORTANT]
-   > Setting SSH port(s) open to the internet is only recommended for testing. If you want to change this setting later, go back to the **Basics** tab.  
+   > Setting SSH port(s) open to the internet is only recommended for testing. If you want to change this setting later, go back to the **Basics** tab.
 
 1. Select the **Review + create** button at the bottom of the page.
 
@@ -96,7 +97,7 @@ Now you're ready to create an NFS file share and provide network-level security 
 
 1. Select the storage account you created.
 
-1. Select **Data storage > File shares** from the storage account pane.
+1. In the service menu, under **Data storage**, select **File shares**.
 
 1. Select **+ File Share**.
 
@@ -150,13 +151,13 @@ Azure Files doesn't currently support encryption-in-transit with the NFS protoco
 
 1. Select the storage account you created.
 
-1. Select **File shares** from the storage account pane.
+1. In the service menu, under **Data storage**, select **File shares**.
 
 1. Select the NFS file share that you created. Under **Secure transfer setting**, select **Change setting**.
 
     :::image type="content" source="media/storage-files-quick-create-use-linux/secure-transfer-setting.png" alt-text="Screenshot showing how to change the secure transfer setting." lightbox="media/storage-files-quick-create-use-linux/secure-transfer-setting.png" border="true":::
 
-1. Change the **Secure transfer required** setting to **Disabled**, and select **Save**. The setting change may take up to 30 seconds to take effect.
+1. Change the **Secure transfer required** setting to **Disabled**, and select **Save**. The setting change can take up to 30 seconds to take effect.
 
     :::image type="content" source="media/storage-files-quick-create-use-linux/disable-secure-transfer.png" alt-text="Screenshot showing how to disable the secure transfer setting." lightbox="media/storage-files-quick-create-use-linux/disable-secure-transfer.png" border="true":::
 
@@ -172,26 +173,26 @@ Create an SSH connection with the VM.
 
 1. If you are on a Mac or Linux machine, open a Bash prompt. If you are on a Windows machine, open a PowerShell prompt.
 
-1. At your prompt, open an SSH connection to your VM. Replace the IP address with the one from your VM, and replace the path to the `.pem` with the path to where the key file was downloaded.
+1. At your prompt, open an SSH connection to your VM. Replace `xx.xx.xx.xx` with the IP address of your VM, and replace the path to the `.pem` with the path to where the key file was downloaded.
 
 ```console
-ssh -i .\Downloads\myVM_key.pem azureuser@20.25.14.85
+ssh -i .\Downloads\myVM_key.pem azureuser@xx.xx.xx.xx
 ```
 
 If you encounter a warning that the authenticity of the host can't be established, type **yes** to continue connecting to the VM. Leave the ssh connection open for the next step.
 
 > [!TIP]
-> The SSH key you created can be used the next time your create a VM in Azure. Just select the **Use a key stored in Azure** for **SSH public key source** the next time you create a VM. You already have the private key on your computer, so you won't need to download anything.
+> You can use the SSH key you created the next time you create a VM in Azure. Just select the **Use a key stored in Azure** for **SSH public key source** the next time you create a VM. You already have the private key on your computer, so you won't need to download anything.
 
 ## Mount the NFS share
 
-Now that you've created an NFS share, to use it you have to mount it on your Linux client.
+Now that you've created an NFS share, you have to mount it on your Linux client. Using Azure Storage Explorer isn't supported for NFS Azure file shares, either standalone or from within the Azure portal. To view the files in the share, you must mount the share.
 
-1. Select **Home** and then **Storage accounts**. 
+1. Select **Home** and then **Storage accounts**.
 
 1. Select the storage account you created.
 
-1. Select **File shares** from the storage account pane and select the NFS file share you created.
+1. In the service menu, under **Data storage**, select **File shares**, and then select the NFS file share you created.
 
 1. You should see **Connect to this NFS share from Linux** along with sample commands to use NFS on your Linux distribution and a mounting script that contains the required mount options. For other recommended mount options, see [Mount NFS Azure file share on Linux](storage-files-how-to-mount-nfs-shares.md#mount-options).
 

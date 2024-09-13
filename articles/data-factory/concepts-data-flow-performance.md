@@ -5,7 +5,6 @@ description: Learn about key factors that affect the performance of mapping data
 author: kromerm
 ms.topic: conceptual
 ms.author: makromer
-ms.service: data-factory
 ms.subservice: data-flows
 ms.custom: synapse
 ms.date: 10/20/2023
@@ -90,7 +89,7 @@ If you don't require every pipeline execution of your data flow activities to fu
 
 :::image type="content" source="media/data-flow/logging.png" alt-text="Logging level":::
 
-## Next steps
+## Related content
 
 - [Optimizing sources](concepts-data-flow-performance-sources.md)
 - [Optimizing sinks](concepts-data-flow-performance-sinks.md)

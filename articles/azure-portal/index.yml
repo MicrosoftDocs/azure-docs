@@ -6,11 +6,9 @@ summary: The Azure portal is a web-based, unified console that provides an alter
 metadata:
   title: Azure portal documentation
   description: Learn how to manage your Azure subscriptions and resources using the Azure portal web-based console. The Azure portal is an alternative to using command-line tools.
-  services: Azure portal
   ms.topic: landing-page
   ms.service: azure-portal
-  ms.collection: collection
-  ms.date: 10/16/2023
+  ms.date: 01/29/2024
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -35,7 +33,7 @@ landingContent:
       - linkListType: quickstart
         links:
           - text: Create a VM in the portal
-            url: ../virtual-machines/windows/quick-create-portal.md?toc=/azure/azure-portal/toc.json&bc=/azure/azure-portal/breadcrumb/toc.json
+            url: /azure/virtual-machines/windows/quick-create-portal?toc=/azure/azure-portal/toc.json&bc=/azure/azure-portal/breadcrumb/toc.json
       - linkListType: learn
         links:
           - text: Module - Manage services with the Azure portal
@@ -70,15 +68,18 @@ landingContent:
             url: azure-portal-dashboard-share-access.md
            
   # Card
-  - title: Reference
+  - title: Azure mobile app
     linkLists:
-      - linkListType: reference
+      - linkListType: get-started
         links:
-          - text: Azure CLI
-            url: /cli/azure/portal
-          - text: Azure PowerShell
-            url: /powershell/module/az.portal
-
+          - text: What is the Azure mobile app?
+            url: mobile-app/overview.md
+          - text: Azure mobile app Home
+            url: mobile-app/home.md
+          - text: View and manage alerts
+            url: mobile-app/alerts-notifications.md
+          - text: Use Microsoft Entra ID
+            url: mobile-app/microsoft-entra-id.md
 
   # Card
   - title: Create and manage support requests
@@ -90,13 +91,12 @@ landingContent:
           - text: Manage an Azure support request
             url: supportability/how-to-manage-azure-support-request.md
 
-
   # Card
-  - title: Azure mobile app
+  - title: Reference
     linkLists:
-      - linkListType: get-started
+      - linkListType: reference
         links:
-          - text: What is the Azure mobile app?
-            url: mobile-app/overview.md
-          - text: Azure mobile app Home
-            url: mobile-app/home.md
+          - text: Azure CLI
+            url: /cli/azure/portal
+          - text: Azure PowerShell
+            url: /powershell/module/az.portal

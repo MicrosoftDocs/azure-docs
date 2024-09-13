@@ -3,9 +3,9 @@ title: Create and manage tests runs
 titleSuffix: Azure Load Testing
 description: Learn how to create and manage tests runs in Azure Load Testing with the Azure portal.
 services: load-testing
-ms.service: load-testing
-ms.author: nicktrog
-author: ntrogh
+ms.service: azure-load-testing
+ms.author: ninallam
+author: ninallam
 ms.date: 05/10/2023
 ms.topic: how-to
 ---
@@ -38,7 +38,7 @@ Test runs are associated with a load test in Azure Load Testing. To view the tes
     - Select **Download input file** to download all input files for running the test, such as the JMeter test script, input data files, and user property files. The download also contains the [load test configuration YAML file](./reference-test-config-yaml.md).
 
 	    > [!TIP]
-        > You can use the downloaded test configuration YAML file for [setting up automated load testing in a CI/CD pipeline](./tutorial-identify-performance-regression-with-cicd.md).
+        > You can use the downloaded test configuration YAML file for [setting up automated load testing in a CI/CD pipeline](./how-to-configure-load-test-cicd.md).
 
     - Select **Download results file** to download the JMeter test results CSV file. This file contains an entry for each web request. Learn more about [exporting load test results](./how-to-export-test-results.md).
 
@@ -121,4 +121,4 @@ To identify performance degradation over time, you can visually compare up to fi
 ## Next steps
 
 - [Create and manage load tests](./how-to-create-manage-test.md)
-- [Set up automated load testing with CI/CD](./tutorial-identify-performance-regression-with-cicd.md)
+- [Set up automated load testing with CI/CD](./quickstart-add-load-test-cicd.md)

@@ -7,10 +7,9 @@ ms.author: shresha
 manager: cnovak
 ms.reviewer: orspodek
 ms.devlang: csharp
-ms.workload: big-data
 ms.topic: conceptual
 ms.date: 02/23/2021
-ms.custom: seodec18, devx-track-azurecli
+ms.custom: devx-track-azurecli
 ---
 
 # Authentication and authorization for Azure Time Series Insights API
@@ -63,7 +62,7 @@ The steps you'll use to create a managed identity will vary depending on where y
 
 - [Azure VMs](../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#enable-system-assigned-managed-identity-during-creation-of-a-vm)
 - [App Service and Azure Functions](../app-service/overview-managed-identity.md)
-- [Azure Container Instances](../container-instances/container-instances-managed-identity.md)
+- [Azure Container Instances](/azure/container-instances/container-instances-managed-identity)
 - and more ...
 
 ### Application registration

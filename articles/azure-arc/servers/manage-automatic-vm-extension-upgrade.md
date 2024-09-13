@@ -2,7 +2,7 @@
 title: Automatic extension upgrade for Azure Arc-enabled servers
 description: Learn how to enable automatic extension upgrades for your Azure Arc-enabled servers.
 ms.topic: conceptual
-ms.date: 11/03/2023
+ms.date: 09/03/2024
 ---
 
 # Automatic extension upgrade for Azure Arc-enabled servers
@@ -23,7 +23,7 @@ The extension upgrade process replaces the existing Azure VM extension version s
 
 The availability-first model for platform orchestrated updates ensures that availability configurations in Azure are respected across multiple availability levels.
 
-For a group of Arc-enabled servers undergoing an update, the Azure platform will orchestrate updates following the model described in the [Automation Extension Upgrade](../../virtual-machines/automatic-extension-upgrade.md#availability-first-updates). However, there are some notable differences between Arc-enabled servers and Azure VMs:
+For a group of Arc-enabled servers undergoing an update, the Azure platform will orchestrate updates following the model described in the [Automation Extension Upgrade](/azure/virtual-machines/automatic-extension-upgrade#availability-first-updates). However, there are some notable differences between Arc-enabled servers and Azure VMs:
 
 **Across regions:**
 
@@ -55,13 +55,12 @@ Extension versions fixing critical security vulnerabilities are rolled out much 
 Automatic extension upgrade supports the following extensions:
 
 - Azure Monitor agent - Linux and Windows
-- Log Analytics agent (OMS agent) - Linux only
 - Dependency agent – Linux and Windows
 - Azure Security agent - Linux and Windows
 - Key Vault Extension - Linux only
 - Azure Update Manager - Linux and Windows
 - Azure Automation Hybrid Runbook Worker - Linux and Windows
-- Azure Arc-enabled SQL Server agent - Linux and Windows
+- Azure extension for SQL Server - Linux and Windows
 
 More extensions will be added over time. Extensions that do not support automatic extension upgrade today are still configured to enable automatic upgrades by default. This setting will have no effect until the extension publisher chooses to support automatic upgrades.
 

@@ -3,9 +3,9 @@ title: Azure Application Gateway infrastructure configuration
 description: This article describes how to configure the Azure Application Gateway infrastructure.
 services: application-gateway
 author: greg-lindsay
-ms.service: application-gateway
+ms.service: azure-application-gateway
 ms.topic: conceptual
-ms.date: 07/05/2023
+ms.date: 05/01/2024
 ms.author: greglin
 ---
 
@@ -61,25 +61,29 @@ It's possible to change the subnet of an existing Application Gateway instance w
 
 ### DNS servers for name resolution
 
-The virtual network resource supports [DNS server](../virtual-network/manage-virtual-network.md#view-virtual-networks-and-settings-using-the-azure-portal) configuration, which allows you to choose between Azure-provided default or custom DNS servers. The instances of your application gateway also honor this DNS configuration for any name resolution. After you change this setting, you must restart ([Stop](/powershell/module/az.network/Stop-AzApplicationGateway) and [Start](/powershell/module/az.network/start-azapplicationgateway)) your application gateway for these changes to take effect on the instances.
+The virtual network resource supports [DNS server](../virtual-network/manage-virtual-network.yml#view-virtual-networks-and-settings-using-the-azure-portal) configuration, which allows you to choose between Azure-provided default or custom DNS servers. The instances of your application gateway also honor this DNS configuration for any name resolution. After you change this setting, you must restart ([Stop](/powershell/module/az.network/Stop-AzApplicationGateway) and [Start](/powershell/module/az.network/start-azapplicationgateway)) your application gateway for these changes to take effect on the instances.
+
+When an instance of your Application Gateway issues a DNS query, it uses the value from the server that responds first.
 
 > [!NOTE]
 > If you use custom DNS servers in the Application Gateway virtual network, the DNS server must be able to resolve public internet names. Application Gateway requires this capability.
 
 ### Virtual network permission
 
-The Application Gateway resource is deployed inside a virtual network, so we also perform a check to verify the permission on the provided virtual network resource. This validation is performed during both creation and management operations.
+The Application Gateway resource is deployed inside a virtual network, so checks are also performed to verify the permission on the virtual network resource. This validation is performed during both creation and management operations and also applies to the [managed identities for Application Gateway Ingress Controller](./tutorial-ingress-controller-add-on-new.md#deploy-an-aks-cluster-with-the-add-on-enabled).
 
-Check your [Azure role-based access control](../role-based-access-control/role-assignments-list-portal.md) to verify that the users (and service principals) that operate application gateways also have at least **Microsoft.Network/virtualNetworks/subnets/join/action** permission on the virtual network or subnet. This validation also applies to the [managed identities for Application Gateway Ingress Controller](./tutorial-ingress-controller-add-on-new.md#deploy-an-aks-cluster-with-the-add-on-enabled).
+Check your [Azure role-based access control](../role-based-access-control/role-assignments-list-portal.yml) to verify that the users and service principals that operate application gateways have at least the following permissions on the virtual network or subnet:
+- **Microsoft.Network/virtualNetworks/subnets/join/action** 
+- **Microsoft.Network/virtualNetworks/subnets/read**
 
-You can use the built-in roles, such as [Network contributor](../role-based-access-control/built-in-roles.md#network-contributor), which already support this permission. If a built-in role doesn't provide the right permission, you can [create and assign a custom role](../role-based-access-control/custom-roles-portal.md). Learn more about [managing subnet permissions](../virtual-network/virtual-network-manage-subnet.md#permissions).
+You can use the built-in roles, such as [Network contributor](../role-based-access-control/built-in-roles.md#network-contributor), which already support these permissions. If a built-in role doesn't provide the right permission, you can [create and assign a custom role](../role-based-access-control/custom-roles-portal.md). Learn more about [managing subnet permissions](../virtual-network/virtual-network-manage-subnet.md#permissions).
 
 > [!NOTE]
 > You might have to allow sufficient time for [Azure Resource Manager cache refresh](../role-based-access-control/troubleshooting.md?tabs=bicep#symptom---role-assignment-changes-are-not-being-detected) after role assignment changes.
 
 #### Identify affected users or service principals for your subscription
 
-By visiting Azure Advisor for your account, you can verify if your subscription has any users or service principals with insufficient permission. The details of that recommendation are:
+By visiting Azure Advisor for your account, you can verify if your subscription has any users or service principals with insufficient permission. The details of that recommendation are as follows:
 
 **Title**: Update VNet permission of Application Gateway users </br>
 **Category**: Reliability </br>
@@ -104,7 +108,7 @@ Azure Virtual Network Manager is a management service that allows you to group, 
 Security admin rule configuration in Azure Virtual Network Manager allows you to define security policies at scale and apply them to multiple virtual networks at once.
 
 > [!NOTE]
-> Security admin rules of Azure Virtual Network Manager apply to Application Gateway subnets that only contain application gateways that have [Network Isolation](Application-gateway-private-deployment.md) enabled. Subnets that have any application gateway that doesn't have [Network Isolation](Application-gateway-private-deployment.md) enabled won't have security admin rules.
+> Security admin rules of Azure Virtual Network Manager only apply to Application Gateway subnets that contain application gateways with [Network Isolation](Application-gateway-private-deployment.md) enabled. Subnets with application gateways that have [Network Isolation](Application-gateway-private-deployment.md) disabled don't have security admin rules.
 
 ## Network security groups
 
@@ -155,6 +159,9 @@ You can block all other incoming traffic by using a **Deny All** rule.
 | Source  | Source ports | Destination | Destination ports | Protocol | Access |
 |---|---|---|---|---|---|
 |Any|Any|Internet|Any|Any|Allow|
+
+> [!NOTE]
+> Application Gateways that don't have [Network Isolation](application-gateway-private-deployment.md#route-table-control) enabled don't allow traffic to be sent between peered VNets when **Allow traffic to remote virtual network** is disabled.
 
 ## Supported user-defined routes
 

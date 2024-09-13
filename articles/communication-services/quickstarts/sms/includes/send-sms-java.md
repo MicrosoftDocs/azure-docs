@@ -41,8 +41,16 @@ To set up an environment for sending messages, take the steps in the following s
 
 Open your terminal or command window and navigate to the directory where you would like to create your Java application. Run the following command to generate the Java project from the maven-archetype-quickstart template.
 
+- **Command Prompt**
+
 ```console
 mvn archetype:generate -DgroupId=com.communication.quickstart -DartifactId=communication-quickstart -DarchetypeArtifactId=maven-archetype-quickstart -DarchetypeVersion=1.4 -DinteractiveMode=false
+```
+
+- **PowerShell**
+
+```PowerShell
+mvn archetype:generate "-DgroupId=com.communication.quickstart" "-DartifactId=communication-quickstart" "-DarchetypeArtifactId=maven-archetype-quickstart" "-DarchetypeVersion=1.4" "-DinteractiveMode=false"
 ```
 
 The `generate` goal creates a directory with the same name as the `artifactId` value. Under this directory, the **src/main/java** directory contains the project source code, the **src/test/java directory** contains the test source, and the **pom.xml** file is the project's Project Object Model (POM).
@@ -197,8 +205,16 @@ You can use the `setTag` method to apply a tag to the delivery report.
 
 1. Run the following `mvn` command to execute the app.
 
+   - **Command Prompt**
+
    ```console
 
    mvn exec:java -Dexec.mainClass="com.communication.quickstart.App" -Dexec.cleanupDaemonThreads=false
 
+   ```
+   
+   - **PowerShell**
+   
+   ```PowerShell
+   mvn exec:java "-Dexec.mainClass=com.communication.quickstart.App" "-Dexec.cleanupDaemonThreads=false"
    ```

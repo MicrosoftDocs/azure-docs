@@ -1,8 +1,8 @@
 ---
 title: Lake database in serverless SQL pools
 description: Azure Synapse Analytics provides a shared metadata model where creating a lake database in an Apache Spark pool will make it accessible from its serverless SQL pool engine. 
-services: synapse-analytics 
-ms.service: synapse-analytics  
+ 
+ms.service: azure-synapse-analytics
 ms.topic: overview
 ms.subservice: metadata
 ms.date: 08/16/2022
@@ -113,7 +113,7 @@ This script enables you to create users without admin privileges who can read an
 First, create a new Spark database named `mytestdb` using a Spark cluster you have already created in your workspace. You can achieve that, for example, using a Spark C# Notebook with the following .NET for Spark statement:
 
 ```csharp
-spark.Sql("CREATE DATABASE mytestlakedb")
+spark.sql("CREATE DATABASE mytestlakedb")
 ```
 
 After a short delay, you can see the lake database from serverless SQL pool. For example, run the following statement from serverless SQL pool.

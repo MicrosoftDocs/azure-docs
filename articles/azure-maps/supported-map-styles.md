@@ -1,12 +1,12 @@
 ---
 title: Supported built-in Azure Maps map styles
 description: Learn about the built-in map styles that Azure Maps supports, such as road, blank_accessible, satellite, satellite_road_labels, road_shaded_relief, and night.
-author: eriklindeman
-ms.author: eriklind
+author: faterceros
+ms.author: aterceros
 ms.date: 11/01/2023
 ms.topic: conceptual
 ms.service: azure-maps
-services: azure-maps
+ms.subservice: render
 
 ---
 
@@ -166,7 +166,7 @@ Learn about how to set a map style in Azure Maps:
 
 [Android map control]: how-to-use-android-map-control-library.md
 [Choose a map style]: choose-map-style.md
-[Get Map Static Image]: /rest/api/maps/render-v2/get-map-static-image
-[Get Map Tile]: /rest/api/maps/render-v2/get-map-tile
+[Get Map Static Image]: /rest/api/maps/render/get-map-static-image
+[Get Map Tile]: /rest/api/maps/render/get-map-tile
 [Power BI visual]: power-bi-visual-get-started.md
 [Web SDK map control]: how-to-use-map-control.md

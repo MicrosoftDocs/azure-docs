@@ -2,12 +2,12 @@
 title: 'Azure Firewall scenarios to inspect traffic destined to a private endpoint'
 titleSuffix: Azure Private Link
 description: Learn about different scenarios to inspect traffic destined to a private endpoint using Azure Firewall.
-author: asudbring
-ms.service: private-link
+author: abell
+ms.service: azure-private-link
 ms.topic: conceptual
 ms.date: 08/14/2023
-ms.author: allensu
-ms.custom: template-how-to, devx-track-linux
+ms.author: abell
+ms.custom: template-how-to
 ---
 
 # Azure Firewall scenarios to inspect traffic destined to a private endpoint
@@ -35,10 +35,10 @@ Azure Firewall filters traffic using either:
 
 * [FQDN in network rules](../firewall/fqdn-filtering-network-rules.md) for TCP and UDP protocols
 
-* [FQDN in application rules](../firewall/features.md#application-fqdn-filtering-rules) for HTTP, HTTPS, and MSSQL. 
+* [FQDN in application rules](../firewall/features.md#application-fqdn-filtering-rules) for HTTP, HTTPS, and MSSQL.
 
-> [!IMPORTANT] 
-> The use of application rules over network rules is recommended when inspecting traffic destined to private endpoints in order to maintain flow symmetry. If network rules are used, or an NVA is used instead of Azure Firewall, SNAT must be configured for traffic destined to private endpoints in order to maintain flow symmetry.
+> [!IMPORTANT]
+> The use of application rules over network rules is recommended when inspecting traffic destined to private endpoints in order to maintain flow symmetry. Application rules are preferred over network rules to inspect traffic destined to private endpoints because Azure Firewall always SNATs traffic with application rules. If network rules are used, or an NVA is used instead of Azure Firewall, SNAT must be configured for traffic destined to private endpoints in order to maintain flow symmetry.
 
 > [!NOTE]
 > SQL FQDN filtering is supported in [proxy-mode](/azure/azure-sql/database/connectivity-architecture#connection-policy) only (port 1433). **Proxy** mode can result in more latency compared to *redirect*. If you want to continue using redirect mode, which is the default for clients connecting within Azure, you can filter access using FQDN in firewall network rules.
@@ -63,7 +63,7 @@ This scenario is implemented when:
 
 * When only a few services are exposed in the virtual network using private endpoints
 
-The virtual machines have /32 system routes pointing to each private endpoint. One route per private endpoint is configured to route traffic through Azure Firewall. 
+The virtual machines have /32 system routes pointing to each private endpoint. One route per private endpoint is configured to route traffic through Azure Firewall.
 
 The administrative overhead of maintaining the route table increases as services are exposed in the virtual network. The possibility of hitting the route limit also increases.
 
@@ -83,11 +83,11 @@ Use this pattern when a migration to a hub and spoke architecture isn't possible
 
 :::image type="content" source="./media/inspect-traffic-using-azure-firewall/on-premises.png" alt-text="On-premises traffic to private endpoints" border="true":::
 
-This architecture can be implemented if you have configured connectivity with your on-premises network using either: 
+This architecture can be implemented if you have configured connectivity with your on-premises network using either:
 
 * [ExpressRoute](..\expressroute\expressroute-introduction.md)
 
-* [Site to Site VPN](../vpn-gateway/tutorial-site-to-site-portal.md) 
+* [Site to Site VPN](../vpn-gateway/tutorial-site-to-site-portal.md)
 
 If your security requirements require client traffic to services exposed via private endpoints to be routed through a security appliance, deploy this scenario.
 

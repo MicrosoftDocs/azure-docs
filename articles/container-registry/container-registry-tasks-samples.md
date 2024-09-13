@@ -1,10 +1,11 @@
 ---
 title: ACR task samples
 description: Sample Azure Container Registry Tasks (ACR Tasks) to build, run, and patch container images
-ms.topic: article
+ms.topic: conceptual
 author: tejaswikolli-web
 ms.author: tejaswikolli
-ms.date: 10/11/2022
+ms.date: 10/31/2023
+ms.service: azure-container-registry
 ---
 
 # ACR Tasks samples

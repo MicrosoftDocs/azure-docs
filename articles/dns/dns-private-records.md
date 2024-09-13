@@ -2,10 +2,9 @@
 title: Private DNS records overview - Azure Private DNS
 description: Overview of support for DNS records in Azure Private DNS.
 author: greg-lindsay
-ms.service: dns
-ms.topic: conceptual
-ms.workload: infrastructure-services
-ms.date: 10/12/2023
+ms.service: azure-dns
+ms.topic: concept-article
+ms.date: 02/07/2024
 ms.author: greglin
 ---
 
@@ -25,7 +24,10 @@ An *apex* record is a DNS record at the root (or *apex*) of a DNS zone. For exam
 
 Each DNS record has a name and a type. Records are organized into various types according to the data they contain. The most common type is an 'A' record, which maps a name to an IPv4 address. Another common type is an 'MX' record, which maps a name to a mail server.
 
-Azure Private DNS supports the following common DNS record types: A, AAAA, CNAME, MX, NS, PTR, SOA, SRV, and TXT.
+Azure Private DNS supports the following common DNS record types: A, AAAA, CNAME, MX, PTR, SOA, SRV, and TXT.
+
+> [!NOTE]
+>  The **Host** field in the SOA record isn't editable.
 
 ### Record sets
 
@@ -85,7 +87,9 @@ The DNS standards permit a single TXT record to contain multiple strings, each o
 
 When calling the Azure DNS REST API, you need to specify each TXT string separately.  When you use the Azure portal, PowerShell, or CLI interfaces, you should specify a single string per record. This string is automatically divided into 255-character segments if necessary.
 
-The multiple strings in a DNS record shouldn't be confused with the multiple TXT records in a TXT record set.  A TXT record set can contain multiple records, *each of which* can contain multiple strings.  Azure private DNS supports a total string length of up to 1024 characters in each TXT record set (across all records combined).
+The multiple strings in a DNS record shouldn't be confused with the multiple TXT records in a TXT record set.  A TXT record set can contain multiple records, *each of which* can contain multiple strings.  Azure DNS supports a total string length of up to 4096 characters`*` in each TXT record set (across all records combined).
+
+`*` 4096 character support is currently only available in the Azure Public Cloud. National clouds are limited to 1024 characters until 4k support rollout is complete.
 
 ## Tags and metadata
 

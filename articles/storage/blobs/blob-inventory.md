@@ -5,7 +5,7 @@ services: storage
 author: normesta
 
 ms.service: azure-blob-storage
-ms.date: 10/23/2023
+ms.date: 03/28/2024
 ms.topic: conceptual
 ms.author: normesta
 ms.custom: references_regions
@@ -94,7 +94,7 @@ Each rule within the policy has several parameters:
 | name | string | A rule name can include up to 256 case-sensitive alphanumeric characters. The name must be unique within a policy. | Yes |
 | enabled | boolean | A flag allowing a rule to be enabled or disabled. The default value is **true**. | Yes |
 | definition | JSON inventory rule definition | Each definition is made up of a rule filter set. | Yes |
-| destination | string | The destination container where all inventory files will be generated. The destination container must already exist. |
+| destination | string | The destination container where all inventory files are generated. The destination container must already exist. |
 
 The global **Blob inventory enabled** flag takes precedence over the *enabled* parameter in a rule.
 
@@ -115,12 +115,14 @@ Several filters are available for customizing a blob inventory report:
 | Filter name | Filter type | Notes | Required? |
 |--|--|--|--|
 | blobTypes | Array of predefined enum values | Valid values are `blockBlob` and `appendBlob` for hierarchical namespace enabled accounts, and `blockBlob`, `appendBlob`, and `pageBlob` for other accounts. This field isn't applicable for inventory on a container, (objectType: `container`). | Yes |
-| creationTime | Number |  Specifies the number of days ago within which the blob must have been created. For example, a value of `3` includes in the report only those blobs which were created in the last 3 days. | No |
+| creationTime | Number |  Specifies the number of days ago within which the blob must have been created. For example, a value of `3` includes in the report only those blobs, which were created in the last three days. | No |
 | prefixMatch | Array of up to 10 strings for prefixes to be matched. | If you don't define *prefixMatch* or provide an empty prefix, the rule applies to all blobs within the storage account. A prefix must be a container name prefix or a container name. For example, `container`, `container1/foo`. | No |
 | excludePrefix | Array of up to 10 strings for prefixes to be excluded. | Specifies the blob paths to exclude from the inventory report.<br><br>An *excludePrefix* must be a container name prefix or a container name. An empty *excludePrefix* would mean that all blobs with names matching any *prefixMatch* string will be listed.<br><br>If you want to include a certain prefix, but exclude some specific subset from it, then you could use the excludePrefix filter. For example, if you want to include all blobs under `container-a` except those under the folder `container-a/folder`, then *prefixMatch* should be set to `container-a` and *excludePrefix* should be set to `container-a/folder`. | No |
 | includeSnapshots | boolean | Specifies whether the inventory should include snapshots. Default is `false`. This field isn't applicable for inventory on a container, (objectType: `container`). | No |
 | includeBlobVersions | boolean | Specifies whether the inventory should include blob versions. Default is `false`. This field isn't applicable for inventory on a container, (objectType: `container`). | No |
 | includeDeleted | boolean | Specifies whether the inventory should include deleted blobs. Default is `false`. In accounts that have a hierarchical namespace, this filter includes folders and also includes blobs that are in a soft-deleted state. <br><br>Only the folders and files (blobs) that are explicitly deleted appear in reports. Child folders and files that are deleted as a result of deleting a parent folder aren't included in the report. | No |
+
+
 
 
 
@@ -170,9 +172,9 @@ View the JSON for inventory rules by selecting the **Code view** tab in the **Bl
 ### Custom schema fields supported for blob inventory
 
 > [!NOTE]
-> The **Data Lake Storage Gen2** column shows support in accounts that have the hierarchical namespace feature enabled.
+> The **Data Lake Storage** column shows support in accounts that have the hierarchical namespace feature enabled.
 
-| Field | Blob Storage (default support) | Data Lake Storage Gen2 |
+| Field | Blob Storage (default support) | Data Lake Storage |
 |---------------|-------------------|---|
 | Name (Required)  | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
 | Creation-Time  | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
@@ -225,14 +227,14 @@ View the JSON for inventory rules by selecting the **Code view** tab in the **Bl
 | IncrementalCopy | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) | 
 | x-ms-blob-sequence-number | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) | 
 
-<sup>1</sup> Disabled by default. [Optionally enable access time tracking](lifecycle-management-policy-configure.md#optionally-enable-access-time-tracking).
+<sup>1</sup> Disabled by default. [Optionally enable access time tracking](blob-inventory-how-to.md#optionally-enable-access-time-tracking).
 
 ### Custom schema fields supported for container inventory
 
 > [!NOTE]
-> The **Data Lake Storage Gen2** column shows support in accounts that have the hierarchical namespace feature enabled.
+> The **Data Lake Storage** column shows support in accounts that have the hierarchical namespace feature enabled.
 
-| Field | Blob Storage (default support) | Data Lake Storage Gen2 |
+| Field | Blob Storage (default support) | Data Lake Storage |
 |---------------|-------------------|---|
 | Name (Required)  | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
 | Last-Modified  | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
@@ -247,10 +249,11 @@ View the JSON for inventory rules by selecting the **Code view** tab in the **Bl
 | HasImmutabilityPolicy  | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
 | HasLegalHold  | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
 | ImmutableStorageWithVersioningEnabled  | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) | 
-| Deleted (Will appear only if include deleted containers is selected)  | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) | 
-| Version (Will appear only if include deleted containers is selected)  | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) | 
+| Deleted (Appears only if include deleted containers is selected)  | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) | 
+| Version (Appears only if include deleted containers is selected)  | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) | 
 | DeletedTime (Will appear only if include deleted containers is selected)  | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) | 
 | RemainingRetentionDays (Will appear only if include deleted containers is selected)  | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) | 
+
 
 
 ## Inventory run
@@ -384,8 +387,6 @@ Pricing for inventory is based on the number of blobs and containers that are sc
 
 After inventory files are created, additional standard data storage and operations charges will be incurred for storing, reading, and writing the inventory-generated files in the account.
 
-After an inventory report is complete, additional standard data storage and operations charges are incurred for storing, reading, and writing the inventory report in the storage account.
-
 If a rule contains a prefix that overlaps with a prefix of any other rule, then the same blob can appear in more than one inventory report. In this case, you're billed for both instances. For example, assume that the `prefixMatch` element of one rule is set to `["inventory-blob-1", "inventory-blob-2"]`, and the `prefixMatch` element of another rule is set to `["inventory-blob-10", "inventory-blob-20"]`. An object named `inventory-blob-200` appears in both inventory reports.
 
 Snapshots and versions of a blob also count towards billing even if you've set `includeSnapshots` and `includeVersions` filters to `false`. Those filter values don't affect billing. You can use them only to filter what appears in the report.
@@ -414,16 +415,26 @@ An inventory job can take a longer amount of time in these cases:
 
   An inventory job might take more than one day to complete for hierarchical namespace enabled accounts that have hundreds of millions of blobs. Sometimes the inventory job fails and doesn't create an inventory file. If a job doesn't complete successfully, check subsequent jobs to see if they're complete before contacting support.
 
-- There is no option to generate a report retrospectively for a particular date.
+- There's no option to generate a report retrospectively for a particular date.
 
 ### Inventory jobs can't write reports to containers that have an object replication policy
 
 An object replication policy can prevent an inventory job from writing inventory reports to the destination container. Some other scenarios can archive the reports or make the reports immutable when they're partially completed which can cause inventory jobs to fail.
 
+### Inventory and Immutable Storage
+
+You can't configure an inventory policy in the account if support for version-level immutability is enabled on that account, or if support for version-level immutability is enabled on the destination container that is defined in the inventory policy.
+
+### Reports might exclude soft-deleted blobs in accounts that have a hierarchical namespace
+
+If a container or directory is deleted with soft-delete enabled, then the container or directory and all its contents are marked as soft-deleted. However, only the container or directory (reported as a zero-length blob) appears in an inventory report and not the soft-deleted blobs in that container or directory even if you set the `includeDeleted` field of the policy to **true**.  This can lead to a difference between what appears in capacity metrics that you obtain in the Azure portal and what is reported by an inventory report. 
+
+Only blobs that are explicitly deleted appear in reports. Therefore, to obtain a complete listing of all soft-deleted blobs (directory and all child blobs), workloads should delete each blob in a directory before deleting the directory itself.
+
 ## Next steps
 
 - [Enable Azure Storage blob inventory reports](blob-inventory-how-to.md)
-- [Calculate the count and total size of blobs per container](calculate-blob-count-size.md)
+- [Calculate the count and total size of blobs per container](calculate-blob-count-size.yml)
 - [Tutorial: Analyze blob inventory reports](storage-blob-inventory-report-analytics.md)
 - [Manage the Azure Blob Storage lifecycle](./lifecycle-management-overview.md)
 - [Blob Inventory FAQ](storage-blob-faq.yml#azure-storage-blob-inventory)

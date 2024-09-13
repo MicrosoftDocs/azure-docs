@@ -44,13 +44,19 @@ More details on eligible subscription types are as follows:
 ## Azure subscription billing locations where Slovakia phone numbers are available
 | Country/Region |
 | :---------- |
-|Slovakia|
-|United States|
-|United Kingdom|
-|Canada|
-|Japan|
 |Australia|
+|Canada|
+|France|
+|Germany|
+|Italy|
+|Japan|
+|Netherlands|
+|Slovakia|
+|Spain|
+|United Kingdom|
+|United States|
 
+[!INCLUDE [Azure Prepayment](../../includes/azure-prepayment.md)]
 
 ## Find information about other countries/regions
 

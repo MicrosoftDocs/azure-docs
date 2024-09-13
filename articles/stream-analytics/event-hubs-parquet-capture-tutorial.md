@@ -3,10 +3,9 @@ title: Capture Event Hubs data to ADLS in parquet format
 description: Shows you how to use the Stream Analytics no code editor to create a job that captures Event Hubs data in to Azure Data Lake Storage Gen2 in the parquet format.
 author: xujxu
 ms.author: xujiang1
-ms.service: stream-analytics
+ms.service: azure-stream-analytics
 ms.topic: tutorial
 ms.date: 08/03/2023
-ms.custom: seodec18
 ---
 
 # Tutorial: Capture Event Hubs data in parquet format and analyze with Azure Synapse Analytics

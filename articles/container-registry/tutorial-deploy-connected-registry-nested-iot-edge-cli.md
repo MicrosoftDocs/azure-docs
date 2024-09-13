@@ -2,10 +2,11 @@
 title: 'Tutorial: Deploy a connected registry to an IoT Edge hierarchy'
 description: In this tutorial, use Azure CLI commands to create a two-layer hierarchy of Azure IoT Edge devices and deploy a connected registry as a module at each layer.
 ms.topic: tutorial
-ms.date: 10/11/2022
+ms.date: 10/31/2023
 ms.author: memladen
 author: toddysm
-ms.custom: [ignite-fall-2021, mode-other, devx-track-azurecli, kr2b-contr-experiment]
+ms.custom: mode-other, devx-track-azurecli, kr2b-contr-experiment
+ms.service: azure-container-registry
 ---
 
 # Tutorial: Deploy a connected registry to a nested IoT Edge hierarchy
@@ -14,7 +15,7 @@ In this tutorial, you use Azure CLI commands to create a two-layer hierarchy of 
 
 For an overview of using a connected registry with IoT Edge, see [Using connected registry with Azure IoT Edge](overview-connected-registry-and-iot-edge.md).
 
-[!INCLUDE [Prepare Azure CLI environment](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [Prepare Azure CLI environment](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 * Azure IoT Hub. For deployment steps, see [Create an IoT hub using the Azure portal](../iot-hub/iot-hub-create-through-portal.md).
 * Two connected registry resources in Azure. For deployment steps, see quickstarts using the [Azure CLI][quickstart-connected-registry-cli] or [Azure portal][quickstart-connected-registry-portal].
@@ -194,7 +195,7 @@ The following steps are adapted from [Tutorial: Create a hierarchy of IoT Edge d
 Create top layer and lower layer virtual machines using an existing [ARM template](https://raw.githubusercontent.com/Azure/iotedge-vm-deploy/1.2.0/edgeDeploy.json). The template also installs the IoT Edge agent. If you want to deploy from your own devices instead, see [Tutorial: Install or uninstall Azure IoT Edge for Linux](../iot-edge/how-to-install-iot-edge.md) to learn how to manually set up the device.
 
 > [!IMPORTANT]
-> For later access to the modules deployed on the top layer device, make sure that you open the following ports inbound: 8000, 443, 5671, 8883. For configuration steps, see [How to open ports to a virtual machine with the Azure portal](../virtual-machines/windows/nsg-quickstart-portal.md).
+> For later access to the modules deployed on the top layer device, make sure that you open the following ports inbound: 8000, 443, 5671, 8883. For configuration steps, see [How to open ports to a virtual machine with the Azure portal](/azure/virtual-machines/windows/nsg-quickstart-portal).
 
 ### Create and configure the hierarchy
 

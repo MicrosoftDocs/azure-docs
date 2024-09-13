@@ -4,9 +4,9 @@ description: In this quickstart, you learn how to create and manage your first p
 services: dns
 author: greg-lindsay
 ms.author: greglin
-ms.date: 11/30/2023
+ms.date: 04/05/2024
 ms.topic: quickstart
-ms.service: dns
+ms.service: azure-dns
 ms.custom: devx-track-azurepowershell, mode-api, ignite-2022
 #Customer intent: As an experienced network administrator, I want to create an  Azure private DNS resolver, so I can resolve host names on my private virtual networks.
 ---
@@ -15,9 +15,13 @@ ms.custom: devx-track-azurepowershell, mode-api, ignite-2022
 
 This article walks you through the steps to create your first private DNS zone and record using Azure PowerShell. If you prefer, you can complete this quickstart using [Azure portal](private-dns-getstarted-portal.md).
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 Azure DNS Private Resolver is a new service that enables you to query Azure DNS private zones from an on-premises environment and vice versa without deploying VM based DNS servers. For more information, including benefits, capabilities, and regional availability, see [What is Azure DNS Private Resolver](dns-private-resolver-overview.md).
+
+The following figure summarizes the setup used in this article:
+
+:::image type="content" source="./media/dns-resolver-getstarted-portal/resolver-components.png" alt-text="Conceptual figure displaying components of the private resolver." lightbox="./media/dns-resolver-getstarted-portal/resolver-components.png":::
 
 ## Prerequisites
 
@@ -51,7 +55,7 @@ Connect PowerShell to Azure cloud.
 Connect-AzAccount -Environment AzureCloud
 ```
 
-If multiple subscriptions are present, the first subscription ID is used. To specify a different subscription ID, use the following command.
+If multiple subscriptions are present, the first subscription ID will be used. To specify a different subscription ID, use the following command.
 
 ```Azure PowerShell
 Select-AzSubscription -SubscriptionObject (Get-AzSubscription -SubscriptionId <your-sub-id>)
@@ -81,7 +85,7 @@ New-AzResourceGroup -Name myresourcegroup -Location westcentralus
 Create a virtual network in the resource group that you created.
 
 ```Azure PowerShell
-New-AzVirtualNetwork -Name myvnet -ResourceGroupName myresourcegroup -Location westcentralus -AddressPrefix "10.0.0.0/16"
+New-AzVirtualNetwork -Name myvnet -ResourceGroupName myresourcegroup -Location westcentralus -AddressPrefix "10.0.0.0/8"
 ```
 
 Create a DNS resolver in the virtual network that you created.
@@ -114,18 +118,14 @@ Create an inbound endpoint to enable name resolution from on-premises or another
 
 > [!TIP]
 > Using PowerShell, you can specify the inbound endpoint IP address to be dynamic or static.<br> 
-> If the endpoint IP address is specified as dynamic, the address does not change unless the endpoint is deleted and reprovisioned. Typically the same IP address is assigned again during reprovisioning.<br>
+> If the endpoint IP address is specified as dynamic, the address does not change unless the endpoint is deleted and reprovisioned. Typically the same IP address will be assigned again during reprovisioning.<br>
 > If the endpoint IP address is static, it can be specified and reused if the endpoint is reprovisioned. The IP address that you choose can't be a [reserved IP address in the subnet](../virtual-network/virtual-networks-faq.md#are-there-any-restrictions-on-using-ip-addresses-within-these-subnets).
-
-#### Dynamic IP address
 
 The following commands provision a dynamic IP address:
 ```Azure PowerShell
 $ipconfig = New-AzDnsResolverIPConfigurationObject -PrivateIPAllocationMethod Dynamic -SubnetId /subscriptions/<your sub id>/resourceGroups/myresourcegroup/providers/Microsoft.Network/virtualNetworks/myvnet/subnets/snet-inbound
 New-AzDnsResolverInboundEndpoint -DnsResolverName mydnsresolver -Name myinboundendpoint -ResourceGroupName myresourcegroup -Location westcentralus -IpConfiguration $ipconfig
 ```
-
-#### Static IP address
 
 Use the following commands to specify a static IP address. Do not use both the dynamic and static sets of commands. 
 
@@ -215,7 +215,7 @@ $virtualNetworkLink.ToJsonString()
 Create a second virtual network to simulate an on-premises or other environment.
 
 ```Azure PowerShell
-$vnet2 = New-AzVirtualNetwork -Name myvnet2 -ResourceGroupName myresourcegroup -Location westcentralus -AddressPrefix "10.1.0.0/16"
+$vnet2 = New-AzVirtualNetwork -Name myvnet2 -ResourceGroupName myresourcegroup -Location westcentralus -AddressPrefix "12.0.0.0/8"
 $vnetlink2 = New-AzDnsForwardingRulesetVirtualNetworkLink -DnsForwardingRulesetName $dnsForwardingRuleset.Name -ResourceGroupName myresourcegroup -VirtualNetworkLinkName "vnetlink2" -VirtualNetworkId $vnet2.Id -SubscriptionId <your sub id>
 ```
 
@@ -230,6 +230,8 @@ $virtualNetworkLink2.ToJsonString()
 
 ## Create forwarding rules
 
+
+
 Create a forwarding rule for a ruleset to one or more target DNS servers. You must specify the fully qualified domain name (FQDN) with a trailing dot. The **New-AzDnsResolverTargetDnsServerObject** cmdlet sets the default port as 53, but you can also specify a unique port. 
 
 ```Azure PowerShell
@@ -238,7 +240,7 @@ $targetDNS2 = New-AzDnsResolverTargetDnsServerObject -IPAddress 192.168.1.3 -Por
 $targetDNS3 = New-AzDnsResolverTargetDnsServerObject -IPAddress 10.0.0.4 -Port 53
 $targetDNS4 = New-AzDnsResolverTargetDnsServerObject -IPAddress 10.5.5.5 -Port 53
 $forwardingrule = New-AzDnsForwardingRulesetForwardingRule -ResourceGroupName myresourcegroup -DnsForwardingRulesetName myruleset -Name "Internal" -DomainName "internal.contoso.com." -ForwardingRuleState "Enabled" -TargetDnsServer @($targetDNS1,$targetDNS2)
-$forwardingrule = New-AzDnsForwardingRulesetForwardingRule -ResourceGroupName myresourcegroup -DnsForwardingRulesetName myruleset -Name "AzurePrivate" -DomainName "azure.contoso.com." -ForwardingRuleState "Enabled" -TargetDnsServer $targetDNS3
+$forwardingrule = New-AzDnsForwardingRulesetForwardingRule -ResourceGroupName myresourcegroup -DnsForwardingRulesetName myruleset -Name "AzurePrivate" -DomainName "azure.contoso.com" -ForwardingRuleState "Enabled" -TargetDnsServer $targetDNS3
 $forwardingrule = New-AzDnsForwardingRulesetForwardingRule -ResourceGroupName myresourcegroup -DnsForwardingRulesetName myruleset -Name "Wildcard" -DomainName "." -ForwardingRuleState "Enabled" -TargetDnsServer $targetDNS4
 ```
 
@@ -246,6 +248,10 @@ In this example:
 - 10.0.0.4 is the resolver's inbound endpoint. 
 - 192.168.1.2 and 192.168.1.3 are on-premises DNS servers.
 - 10.5.5.5 is a protective DNS service.
+
+> [!IMPORTANT]
+> The rules shown in this quickstart are examples of rules that can be used for specific scenarios. None of the fowarding rules described in this article are required. Be careful to test your forwarding rules and ensure that the rules don't cause DNS resolution issues.<br><br>
+> **If you include a wildcard rule in your ruleset, ensure that the target DNS service can resolve public DNS names. Some Azure services have dependencies on public name resolution.**
 
 ## Test the private resolver
 

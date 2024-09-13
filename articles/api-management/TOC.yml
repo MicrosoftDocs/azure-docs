@@ -1,7 +1,10 @@
 - name: Azure API Management Documentation
   href: index.yml
 - name: Get started
+  expanded: true
   items:
+  - name: What's new?
+    href: https://github.com/Azure/API-Management/blob/main/changelogs/api-management-service.md
   - name: Overview
     items:
     - name: About API Management
@@ -9,13 +12,14 @@
       href: api-management-key-concepts.md
     - name: API Management features availability
       href: api-management-features.md
+    - name: API Management gateways
+      href: api-management-gateways-overview.md  
     - name: v2 service tiers
       href: v2-service-tiers-overview.md
     - name: Terminology
       href: api-management-terminology.md
     - name: Service limits
       href: ../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=/azure/api-management/breadcrumb/toc.json#api-management-limits
-    expanded: true
   - name: Create an instance
     items:
     - name: Create an instance - CLI
@@ -79,8 +83,14 @@
     - name: Compute platform
       displayName: stv1, stv2
       href: compute-infrastructure.md
-    - name: Migrate to stv2 platform
-      href: migrate-stv1-to-stv2.md
+    - name: Migrate from stv1 to stv2 platform
+      items:
+      - name: Scenarios to migrate to stv2
+        href: migrate-stv1-to-stv2.md
+      - name: Migrate a non-VNet-injected instance
+        href: migrate-stv1-to-stv2-no-vnet.md
+      - name: Migrate a VNet-injected instance
+        href: migrate-stv1-to-stv2-vnet.md
     - name: Validate service updates
       href: validate-service-updates.md
     - name: Move instances between regions
@@ -98,6 +108,10 @@
     items:
     - name: Networking options
       href: virtual-network-concepts.md
+    - name: VNet injection (service) - requirements
+      href: virtual-network-injection-resources.md
+    - name: VNet integration (workspace gateway) - requirements
+      href: virtual-network-workspaces-resources.md  
     - name: Deploy to a VNet - external
       href: api-management-using-with-vnet.md
     - name: Deploy to a VNet - internal
@@ -120,8 +134,6 @@
       href: workspaces-overview.md
     - name: Create a workspace
       href: how-to-create-workspace.md
-    - name: Use a workspace
-      href: api-management-in-workspace.md
   - name: Configuration management
     items:
     - name: Landing zone accelerator
@@ -150,7 +162,7 @@
     - name: Security controls by Azure Policy
       href: ./security-controls-policy.md
     - name: Security baseline
-      href: /security/benchmark/azure/baselines/api-management-security-baseline?toc=/azure/api-management/&bc=/azure/api-management/breadcrumb/toc.json
+      href: /security/benchmark/azure/baselines/api-management-security-baseline?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=/azure/api-management/breadcrumb/toc.json
 - name: Logs and monitoring
   items:
   - name: Observability
@@ -164,9 +176,6 @@
     href: api-management-howto-app-insights.md
   - name: Visualize data using Managed Grafana
     href: visualize-using-managed-grafana-dashboard.md
-  - name: Test and monitor APIs in Postman
-    displayName: collection
-    href: export-api-postman.md
 - name: Define APIs
   items:
   - name: Add and import APIs
@@ -199,7 +208,7 @@
     - name: Import a Logic App
       href: import-logic-app-as-api.md
     - name: Configure Service Fabric backend
-      href: how-to-configure-service-fabric-backend.md
+      href: how-to-configure-service-fabric-backend.yml
     - name: OData
       items:
       - name: Import OData API
@@ -207,11 +216,19 @@
       - name: Import SAP OData metadata
         href: sap-api.md
     - name: Import gRPC API
-      href: grpc-api.md    
-    - name: Azure OpenAI
+      href: grpc-api.md
+    - name: Azure OpenAI and LLM APIs
       items:
+      - name: GenAI gateway capabilities in API Management
+        href: genai-gateway-capabilities.md
+      - name: Import Azure OpenAI API
+        href: azure-openai-api-from-specification.md
+      - name: Authenticate and authorize to Azure OpenAI
+        href: api-management-authenticate-authorize-azure-openai.md
+      - name: Semantic caching for Azure OpenAI API requests
+        href: azure-openai-enable-semantic-caching.md
       - name: Protect Azure OpenAI keys
-        href: /semantic-kernel/deploy/use-ai-apis-with-api-management?toc=/azure/api-management/&bc=/azure/api-management/breadcrumb/toc.json
+        href: /semantic-kernel/deploy/use-ai-apis-with-api-management?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=/azure/api-management/breadcrumb/toc.json
     - name: Configure API for SSE
       href: how-to-server-sent-events.md
     - name: API import restrictions
@@ -221,7 +238,7 @@
       - name: Manage microservices deployed in AKS
         href: api-management-kubernetes.md
       - name: Integrate with Service Fabric
-        href: ../service-fabric/service-fabric-api-management-overview.md?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=/azure/api-management/breadcrumb/toc.json
+        href: /azure/service-fabric/service-fabric-api-management-overview?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=/azure/api-management/breadcrumb/toc.json
   - name: Modify APIs
     items:
     - name: Edit an API
@@ -246,8 +263,8 @@
     href: api-management-howto-policies.md
   - name: Set or edit policies
     href: set-edit-policies.md
-  - name: Author policies using Microsoft Copilot for Azure
-    href: ../copilot/author-api-management-policies.md?toc=/azure/api-management/&bc=/azure/api-management/breadcrumb/toc.json
+  - name: Author policies using Microsoft Copilot in Azure
+    href: ../copilot/author-api-management-policies.md?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=/azure/api-management/breadcrumb/toc.json
   - name: Debug policies in VS Code
     href: api-management-debug-policies.md
   - name: Policy expressions
@@ -270,24 +287,26 @@
     href: configure-graphql-resolver.md
 - name: Manage APIs on-premises and in other clouds
   items:
-  - name: API Management gateway overview
-    href: api-management-gateways-overview.md
   - name: Self-hosted gateway overview
     href: self-hosted-gateway-overview.md
-  - name: Provision a self-hosted gateway
-    href: api-management-howto-provision-self-hosted-gateway.md
-  - name: Deploy an Azure API Management gateway on Azure Arc
-    href: how-to-deploy-self-hosted-gateway-azure-arc.md
-  - name: Deploy a self-hosted gateway to Azure Kubernetes Service
-    href: how-to-deploy-self-hosted-gateway-azure-kubernetes-service.md
-  - name: Deploy a self-hosted gateway to Kubernetes (YAML)
-    href: how-to-deploy-self-hosted-gateway-kubernetes.md
-  - name: Deploy a self-hosted gateway to Kubernetes (Helm)
-    href: how-to-deploy-self-hosted-gateway-kubernetes-helm.md
-  - name: Deploy self-hosted gateway to Kubernetes with OpenTelemetry Collector integration
-    href: how-to-deploy-self-hosted-gateway-kubernetes-opentelemetry.md
-  - name: Deploy a self-hosted gateway to Docker
-    href: how-to-deploy-self-hosted-gateway-docker.md
+  - name: Deploy the gateway
+    items: 
+    - name: Provision a self-hosted gateway
+      href: api-management-howto-provision-self-hosted-gateway.md
+    - name: Deploy a self-hosted gateway to Azure Kubernetes Service
+      href: how-to-deploy-self-hosted-gateway-azure-kubernetes-service.md
+    - name: Deploy a self-hosted gateway to Kubernetes (YAML)
+      href: how-to-deploy-self-hosted-gateway-kubernetes.md
+    - name: Deploy a self-hosted gateway to Kubernetes (Helm)
+      href: how-to-deploy-self-hosted-gateway-kubernetes-helm.md
+    - name: Deploy self-hosted gateway to Kubernetes with OpenTelemetry Collector integration
+      href: how-to-deploy-self-hosted-gateway-kubernetes-opentelemetry.md
+    - name: Deploy a self-hosted gateway to Docker
+      href: how-to-deploy-self-hosted-gateway-docker.md
+    - name: Deploy a self-hosted gateway to Azure Container Apps
+      href: how-to-deploy-self-hosted-gateway-container-apps.md  
+    - name: Deploy an Azure API Management gateway to Arc-enabled Kubernetes cluster
+      href: how-to-deploy-self-hosted-gateway-azure-arc.md
   - name: Configure custom domain for self-hosted gateway
     href: api-management-howto-configure-custom-domain-gateway.md
   - name: Configure cloud metrics and logs for self-hosted gateway
@@ -325,7 +344,7 @@
     - name: Mitigate OWASP API threats
       displayName: OWASP top 10, vulnerability, vulnerabilities
       href: mitigate-owasp-api-threats.md
-  - name: Manage API credentials 
+  - name: Manage API credentials
     items:
     - name: Credential manager overview
       displayName: OAuth, authorizations, SaaS, token
@@ -360,30 +379,28 @@
       href: api-management-howto-create-or-invite-developers.md
     - name: Manage groups
       href: api-management-howto-create-groups.md
-  - name: Export APIs to the Power Platform
-    items:
-    - name: Export API as custom connector
-      displayName: Power Platform
-      href: export-api-power-platform.md
-    - name: Enable CORS for custom connector
-      displayName: Power Platform
-      href: enable-cors-power-platform.md
-  - name: Customize the developer portal
+  - name: Manage and customize the developer portal
     items:
     - name: Understand the developer portal
-      href: api-management-howto-developer-portal.md
+      href: developer-portal-overview.md
     - name: Frequently asked questions - developer portal
       href: developer-portal-faq.md
     - name: Automate portal deployments
       href: automate-portal-deployments.md
     - name: Extend portal with custom functionality
       href: developer-portal-extend-custom-functionality.md
+    - name: Enable CORS for interactive console
+      href: enable-cors-developer-portal.md    
     - name: Enable console OAuth support
       href: api-management-howto-oauth2.md
     - name: Integrate Application Insights
       href: developer-portal-integrate-application-insights.md
+    - name: Log developer portal usage
+      href: developer-portal-enable-usage-logs.md  
     - name: Integrate Google Tag Manager
       href: developer-portal-integrate-google-tag-manager.md
+    - name: Customize developer portal on WordPress
+      href: developer-portal-wordpress-plugin.md
   - name: Self-host the developer portal
     items:
     - name: Create self-hosted portal
@@ -392,20 +409,36 @@
       href: developer-portal-alternative-processes-self-host.md
     - name: Test self-hosted portal
       href: developer-portal-testing.md
-    - name: Secure access to developer portal
-      items:
-      - name: Options to secure developer portal access
-        href: secure-developer-portal-access.md
-      - name: Authenticate with username and password
-        href: developer-portal-basic-authentication.md
-      - name: Authenticate with Microsoft Entra ID
-        href: api-management-howto-aad.md
-      - name: Authenticate with Azure AD B2C
-        href: api-management-howto-aad-b2c.md
-      - name: Delegate authentication
-        href: api-management-howto-setup-delegation.md
+  - name: Secure access to developer portal
+    items:
+    - name: Options to secure developer portal access
+      href: secure-developer-portal-access.md
+    - name: Authenticate with username and password
+      href: developer-portal-basic-authentication.md
+    - name: Authenticate with Microsoft Entra ID
+      href: api-management-howto-aad.md
+    - name: Authenticate with Azure AD B2C
+      href: api-management-howto-aad-b2c.md
+    - name: Delegate authentication
+      href: api-management-howto-setup-delegation.md
     - name: Email notifications and templates
       href: api-management-howto-configure-notifications.md
+  - name: Export APIs
+    items:
+
+    - name: Inventory APIs in API Center
+      href: ../api-center/import-api-management-apis.md?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=/azure/api-management/breadcrumb/toc.json
+    - name: Export APIs to Postman for API development
+      displayName: collection
+      href: export-api-postman.md
+    - name: Export APIs to the Power Platform
+      items:
+        - name: Export API as custom connector
+          displayName: Power Platform
+          href: export-api-power-platform.md
+        - name: Enable CORS for custom connector
+          displayName: Power Platform
+          href: enable-cors-power-platform.md
   - name: Monetize APIs
     items:
     - name: Monetization overview
@@ -462,6 +495,14 @@
       href: authentication-certificate-policy.md
     - name: authentication-managed-identity
       href: authentication-managed-identity-policy.md
+    - name: azure-openai-emit-token-metric
+      href: azure-openai-emit-token-metric-policy.md
+    - name: azure-openai-semantic-cache-lookup
+      href: azure-openai-semantic-cache-lookup-policy.md
+    - name: azure-openai-semantic-cache-store
+      href: azure-openai-semantic-cache-store-policy.md
+    - name: azure-openai-token-limit
+      href: azure-openai-token-limit-policy.md
     - name: cache-lookup
       href: cache-lookup-policy.md
     - name: cache-lookup-value
@@ -504,6 +545,14 @@
       href: json-to-xml-policy.md
     - name: limit-concurrency
       href: limit-concurrency-policy.md
+    - name: llm-emit-token-metric
+      href: llm-emit-token-metric-policy.md
+    - name: llm-semantic-cache-lookup
+      href: llm-semantic-cache-lookup-policy.md
+    - name: llm-semantic-cache-store
+      href: llm-semantic-cache-store-policy.md
+    - name: llm-token-limit
+      href: llm-token-limit-policy.md
     - name: log-to-eventhub
       href: log-to-eventhub-policy.md
     - name: mock-response
@@ -540,8 +589,6 @@
       href: set-backend-service-dapr-policy.md
     - name: set-body
       href: set-body-policy.md
-    - name: set-graphql-resolver
-      href: set-graphql-resolver-policy.md
     - name: set-header
       href: set-header-policy.md
     - name: set-method
@@ -583,8 +630,10 @@
   - name: Azure Policy built-ins
     displayName: samples, policies, definitions
     href: ./policy-reference.md
-  - name: Resource log schema
+  - name: Gateway log schema
     href: gateway-log-schema-reference.md
+  - name: Developer portal audit log schema
+    href: developer-portal-audit-log-schema-reference.md
   - name: Event Grid events schema
     href: ../event-grid/event-schema-api-management.md?toc=/azure/api-management/toc.json&bc=/azure/api-management/breadcrumb/toc.json
   - name: Virtual network configuration
@@ -597,47 +646,57 @@
     href: diagnostic-logs-reference.md
 - name: Resources
   items:
-      - name: FAQ
-        href: api-management-faq.yml
-      - name: Pricing
-        href: https://aka.ms/apimpricing
-      - name: Product updates
-        href: https://aka.ms/apimupdates
-      - name: Release notes
-        href: https://aka.ms/apim/releases
-      - name: API design
-        items:
-        - name: API design ebook
-          href: https://azure.microsoft.com/mediahandler/files/resourcefiles/api-design/Azure_API-Design_Guide_eBook.pdf?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=/azure/api-management/breadcrumb/toc.json
-        - name: RESTful web API design
-          href: /azure/architecture/best-practices/api-design?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=/azure/api-management/breadcrumb/toc.json
-        - name: Web API implementation
-          href: /azure/architecture/best-practices/api-implementation?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=/azure/api-management/breadcrumb/toc.json
-      - name: Breaking changes
-        items:
-            - name: Breaking changes overview
-              href: breaking-changes/overview.md
-            - name: Virtual network changes (March 2023)
-              href: breaking-changes/rp-source-ip-address-change-mar-2023.md
-            - name: Metrics retirements (August 2023)
-              href: breaking-changes/metrics-retirement-aug-2023.md
-            - name: Virtual network changes (September 2023)
-              href: breaking-changes/rp-source-ip-address-change-sep-2023.md
-            - name: API version retirements (September 2023)
-              href: breaking-changes/api-version-retirement-sep-2023.md
-            - name: Self-hosted gateway v0/v1 retirements (October 2023)
-              href: breaking-changes/self-hosted-gateway-v0-v1-retirement-oct-2023.md
-            - name: Deprecated (legacy) developer portal (October 2023)
-              href: breaking-changes/legacy-portal-retirement-oct-2023.md
-            - name: stv1 compute platform retirement (August 2024)
-              href: breaking-changes/stv1-platform-retirement-august-2024.md
-            - name: ADAL-based identity provider retirement (September 2025)
-              href: breaking-changes/identity-provider-adal-retirement-sep-2025.md
-            - name: CAPTCHA endpoint update (September 2025)
-              href: breaking-changes/captcha-endpoint-change-sep-2025.md       
-      - name: Regional availability
-        href: https://azure.microsoft.com/global-infrastructure/services/
-      - name: Microsoft Q&A question page
-        href: /answers/tags/29/azure-api-management
-      - name: Stack Overflow
-        href: https://stackoverflow.com/questions/tagged/azure-api-management
+  - name: FAQ
+    href: api-management-faq.yml
+  - name: Pricing
+    href: https://aka.ms/apimpricing
+  - name: Azure updates
+    href: https://aka.ms/apimupdates
+  - name: API design
+    items:
+    - name: API design ebook
+      href: https://azure.microsoft.com/mediahandler/files/resourcefiles/api-design/Azure_API-Design_Guide_eBook.pdf?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=/azure/api-management/breadcrumb/toc.json
+    - name: RESTful web API design
+      href: /azure/architecture/best-practices/api-design?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=/azure/api-management/breadcrumb/toc.json
+    - name: Web API implementation
+      href: /azure/architecture/best-practices/api-implementation?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=/azure/api-management/breadcrumb/toc.json
+  - name: Breaking changes and retirements
+    items:
+    - name: Breaking changes overview
+      href: breaking-changes/overview.md
+    - name: Virtual network changes (March 2023)
+      href: breaking-changes/rp-source-ip-address-change-mar-2023.md
+    - name: Metrics retirements (August 2023)
+      href: breaking-changes/metrics-retirement-aug-2023.md
+    - name: Virtual network changes (September 2023)
+      href: breaking-changes/rp-source-ip-address-change-sep-2023.md
+    - name: Self-hosted gateway v0/v1 retirements (October 2023)
+      href: breaking-changes/self-hosted-gateway-v0-v1-retirement-oct-2023.md
+    - name: Deprecated (legacy) developer portal (October 2023)
+      href: breaking-changes/legacy-portal-retirement-oct-2023.md
+    - name: Workspaces preview breaking changes (June 2024)
+      href: breaking-changes/workspaces-breaking-changes-june-2024.md
+    - name: API version retirements (June 2024)
+      href: breaking-changes/api-version-retirement-sep-2023.md
+    - name: stv1 compute platform retirement - Global Azure (August 2024)
+      href: breaking-changes/stv1-platform-retirement-august-2024.md
+    - name: stv1 compute platform retirement - Azure Government, Azure in China (February 2025)
+      href: breaking-changes/stv1-platform-retirement-sovereign-clouds-february-2025.md 
+    - name: Workspaces preview breaking changes, part 2 (March 2025)
+      href: breaking-changes/workspaces-breaking-changes-march-2025.md
+    - name: Git configuration retirement (March 2025)
+      href: breaking-changes/git-configuration-retirement-march-2025.md
+    - name: Direct management API retirement (March 2025)
+      href: breaking-changes/direct-management-api-retirement-march-2025.md
+    - name: ADAL-based identity provider retirement (September 2025)
+      href: breaking-changes/identity-provider-adal-retirement-sep-2025.md
+    - name: CAPTCHA endpoint update (September 2025)
+      href: breaking-changes/captcha-endpoint-change-sep-2025.md
+    - name: Built-in analytics dashboard retirement (March 2027)
+      href: breaking-changes/analytics-dashboard-retirement-march-2027.md
+  - name: Regional availability
+    href: https://azure.microsoft.com/global-infrastructure/services/
+  - name: Microsoft Q&A question page
+    href: /answers/tags/29/azure-api-management
+  - name: Stack Overflow
+    href: https://stackoverflow.com/questions/tagged/azure-api-management

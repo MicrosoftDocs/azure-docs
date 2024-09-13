@@ -5,7 +5,7 @@ services: dev-box
 ms.service: dev-box
 author: RoseHJM
 ms.author: rosemalcolm
-ms.date: 04/25/2023
+ms.date: 01/05/2024
 ms.topic: how-to
 ---
 
@@ -33,23 +33,23 @@ Use the following steps to assign the DevCenter Project Admin role:
 
 1. Select the project that you want to give your team members access to.
 
-   :::image type="content" source="./media/how-to-project-admin/projects-grid.png" alt-text="Screenshot that shows the list of existing projects.":::
+   :::image type="content" source="./media/how-to-project-admin/projects-grid.png" alt-text="Screenshot that shows the list of existing projects." lightbox="./media/how-to-project-admin/projects-grid.png":::
 
-1. On the left menu, select **Access Control (IAM)**.
+1. On the left, select **Access Control (IAM)**.
 
-   :::image type="content" source="./media/how-to-project-admin/access-control-tab.png" alt-text="Screenshot that shows the access control page for a project.":::
+   :::image type="content" source="./media/how-to-project-admin/access-control-tab.png" alt-text="Screenshot that shows the access control page for a project." lightbox="./media/how-to-project-admin/access-control-tab.png":::
 
 1. Select **Add** > **Add role assignment**.
 
-1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
+1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml).
 
     | Setting | Value |
-    | --- | --- |
+    |---|---|
     | **Role** | Select **DevCenter Project Admin**. |
     | **Assign access to** | Select **User, group, or service principal**. |
     | **Members** | Select the users or groups that need administrative access to the project. |
 
-    :::image type="content" source="media/how-to-project-admin/add-role-assignment-admin.png" alt-text="Screenshot that shows the pane for adding a role assignment.":::
+   :::image type="content" source="media/how-to-project-admin/add-role-assignment-admin.png" alt-text="Screenshot that shows the pane for adding a role assignment." lightbox="media/how-to-project-admin/add-role-assignment-admin.png":::
 
 The users can now manage the project and create dev box pools within it.
 

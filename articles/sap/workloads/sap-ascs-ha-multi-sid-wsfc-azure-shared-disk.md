@@ -2,19 +2,13 @@
 title: SAP ASCS/SCS multi-SID HA with WSFC and Azure shared disk | Microsoft Docs
 description: Learn about multi-SID high availability for an SAP ASCS/SCS instance with Windows Server Failover Clustering and an Azure shared disk.
 services: virtual-machines-windows,virtual-network,storage
-documentationcenter: saponazure
 author: rdeltcheva
 manager: juergent
-editor: ''
-tags: azure-resource-manager
-keywords: ''
 ms.assetid: cbf18abe-41cb-44f7-bdec-966f32c89325
+ms.topic: article
 ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
-ms.topic: article
-ms.tgt_pltfrm: vm-windows
-ms.workload: infrastructure-services
-ms.date: 12/16/2022
+ms.date: 06/19/2024
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017, devx-track-azurepowershell
 ---
@@ -28,17 +22,17 @@ This article focuses on how to move from a single SAP ASCS/SCS installation to c
 
 You can use Azure Premium SSD disks as Azure shared disks for the SAP ASCS/SCS instance. The following limitations are currently in place:
 
-- [Azure Ultra Disk Storage disks](../../virtual-machines/disks-types.md#ultra-disks) and [Azure Standard SSD disks](../../virtual-machines/disks-types.md#standard-ssds) are not supported as Azure shared disks for SAP workloads.
-- [Azure shared disks](../../virtual-machines/disks-shared.md) with [Premium SSD disks](../../virtual-machines/disks-types.md#premium-ssds) are supported for SAP deployment in availability sets and availability zones.
+- [Azure Ultra Disk Storage disks](/azure/virtual-machines/disks-types#ultra-disks) and [Azure Standard SSD disks](/azure/virtual-machines/disks-types#standard-ssds) aren't supported as Azure shared disks for SAP workloads.
+- [Azure shared disks](/azure/virtual-machines/disks-shared) with [Premium SSD disks](/azure/virtual-machines/disks-types#premium-ssds) are supported for SAP deployment in availability sets and availability zones.
 - Azure shared disks with Premium SSD disks come with two storage options:
   - Locally redundant storage (LRS) for Premium SSD shared disks (`skuName` value of `Premium_LRS`) is supported with deployment in availability sets.
   - Zone-redundant storage (ZRS) for Premium SSD shared disks (`skuName` value of `Premium_ZRS`) is supported with deployment in availability zones.
-- The Azure shared disk value [maxShares](../../virtual-machines/disks-shared-enable.md?tabs=azure-cli#disk-sizes) determines how many cluster nodes can use the shared disk. For an SAP ASCS/SCS instance, you typically configure two nodes in WSFC. You then set the value for `maxShares` to `2`.
-- An [Azure proximity placement group (PPG)](../../virtual-machines/windows/proximity-placement-groups.md) is not required for Azure shared disks. But for SAP deployment with PPGs, follow these guidelines:
+- The Azure shared disk value [maxShares](/azure/virtual-machines/disks-shared-enable?tabs=azure-cli#disk-sizes) determines how many cluster nodes can use the shared disk. For an SAP ASCS/SCS instance, you typically configure two nodes in WSFC. You then set the value for `maxShares` to `2`.
+- An [Azure proximity placement group (PPG)](/azure/virtual-machines/windows/proximity-placement-groups) isn't required for Azure shared disks. But for SAP deployment with PPGs, follow these guidelines:
   - If you're using PPGs for an SAP system deployed in a region, all virtual machines that share a disk must be part of the same PPG.
   - If you're using PPGs for an SAP system deployed across zones, as described in [Proximity placement groups with zonal deployments](proximity-placement-scenarios.md#proximity-placement-groups-with-zonal-deployments), you can attach `Premium_ZRS` storage to virtual machines that share a disk.
 
-For more information, review the [Limitations](../../virtual-machines/disks-shared.md#limitations) section of the documentation for Azure shared disks.
+For more information, review the [Limitations](/azure/virtual-machines/disks-shared#limitations) section of the documentation for Azure shared disks.
 
 ### Important considerations for Premium SSD shared disks
 
@@ -49,9 +43,9 @@ Consider these important points about Azure Premium SSD shared disks:
 
 - ZRS for Premium SSD shared disks:
   - Write latency for ZRS is higher than that of LRS because cross-zonal copying of data.
-  - The distance between availability zones in different regions varies, and so does ZRS disk latency across availability zones. [Benchmark your disks](../../virtual-machines/disks-benchmarks.md) to identify the latency of ZRS disks in your region.
+  - The distance between availability zones in different regions varies, and so does ZRS disk latency across availability zones. [Benchmark your disks](/azure/virtual-machines/disks-benchmarks) to identify the latency of ZRS disks in your region.
   - ZRS for Premium SSD shared disks synchronously replicates data across three availability zones in the region. If there's a problem in one of the storage clusters, your SAP ASCS/SCS instance continues to run because storage failover is transparent to the application layer.
-  - For more information, review the [Limitations](../../virtual-machines/disks-redundancy.md#limitations) section of the documentation about ZRS for managed disks.
+  - For more information, review the [Limitations](/azure/virtual-machines/disks-redundancy#limitations) section of the documentation about ZRS for managed disks.
 
 > [!IMPORTANT]
 > The setup must meet the following conditions:
@@ -72,7 +66,7 @@ We strongly recommend using at least Windows Server 2019 Datacenter, for these r
 
 ## Architecture
 
-Both ERS1 and ERS2 are supported in a multi-SID configuration. A mix of ERS1 and ERS2 is not supported in the same cluster.
+Both ERS1 and ERS2 are supported in a multi-SID configuration. A mix of ERS1 and ERS2 isn't supported in the same cluster.
 
 The following example shows two SAP SIDs. Both have an ERS1 architecture where:
 
@@ -111,7 +105,7 @@ The next example also shows two SAP SIDs. Both have an ERS2 architecture where:
 
 ## Infrastructure preparation
 
-You'll install a new SAP SID PR2 instance, in addition to the existing clustered SAP PR1 ASCS/SCS instance.  
+You install a new SAP SID PR2 instance, in addition to the existing clustered SAP PR1 ASCS/SCS instance.  
 
 ### Host names and IP addresses
 
@@ -145,59 +139,32 @@ The steps in this article remain the same for both deployment types. But if your
 
 ### Create an Azure internal load balancer
 
-SAP ASCS, SAP SCS, and SAP ERS2 use virtual host names and virtual IP addresses. On Azure, a [load balancer](../../load-balancer/load-balancer-overview.md) is required to use a virtual IP address.
-We strongly recommend using a [standard load balancer](../../load-balancer/quickstart-load-balancer-standard-public-portal.md).
+For multi-sid configuration of SAP SID, PR2, you could use the same internal load balancer that you have created for SAP SID, PR1 system. For the ENSA1 architecture on Windows, you would need only one virtual IP address for SAP ASCS/SCS. On the other hand, the ENSA2 architecture necessitates two virtual IP addresses - one for SAP ASCS and another for ERS2.
 
-You need to add configuration to the existing load balancer for the second SAP SID instance, PR2, for ASCS, SCS, or ERS. The configuration for the first SAP SID, PR1, should be already in place.  
+Configure additional frontend IP and load balancing rule for SAP SID, PR2 system on the existing load balancer using following guidelines. This section assumes that the configuration of standard internal load balancer for SAP SID, PR1 is already in place as described in [create load balancer](./sap-high-availability-infrastructure-wsfc-shared-disk.md#create-azure-internal-load-balancer).
 
-#### (A)SCS PR2 [instance number 02]
+1. Open the same standard internal load balancer that you have created for SAP SID, PR1 system.
+2. **Frontend IP Configuration:** Create frontend IP (example: 10.0.0.45).
+3. **Backend Pool:** Backend Pool is same as that of SAP SID PR1 system.
+4. **Inbound rules:** Create load balancing rule.
+     - Frontend IP address: Select frontend IP
+     - Backend pool: Select backend pool
+     - Check "High availability ports"
+     - Protocol: TCP
+     - Health Probe: Create health probe with below details
+       - Protocol: TCP
+       - Port: [for example: 620<Instance-no.> for SAP SID, PR2 ASCS]
+       - Interval: 5
+       - Probe Threshold: 2
+     - Idle timeout (minutes): 30
+     - Check "Enable Floating IP"
+5. Applicable to only ENSA2 architecture: Create additional frontend IP (10.0.0.44), load balancing rule (use 621<Instance-no.> for ERS2 health probe port) as described in point 1 and 3.
 
-- Front-end configuration:
-  - Static ASCS/SCS IP address 10.0.0.45.
-- Back-end configuration:
-  - Already in place. The VMs were added to the back-end pool during configuration of SAP SID PR1.
-- Probe port:
-  - Port 620*nr* [62002]. Leave the default options for protocol (TCP), interval (5), and unhealthy threshold (2).
-- Load-balancing rules:
-  - If you're using a standard load balancer, select high-availability (HA) ports.
-  - If you're using a basic load balancer, create load-balancing rules for the following ports:
-    - 32*nr* TCP [3202]
-    - 36*nr* TCP [3602]
-    - 39*nr* TCP [3902]
-    - 81*nr* TCP [8102]
-    - 5*nr*13 TCP [50213]
-    - 5*nr*14 TCP [50214]
-    - 5*nr*16 TCP [50216]
+> [!NOTE]
+> Health probe configuration property numberOfProbes, otherwise known as "Unhealthy threshold" in Portal, isn't respected. So to control the number of successful or failed consecutive probes, set the property "probeThreshold" to 2. It is currently not possible to set this property using Azure portal, so use either the [Azure CLI](/cli/azure/network/lb/probe) or [PowerShell](/powershell/module/az.network/new-azloadbalancerprobeconfig) command.
 
-  - Associate load-balancing rules with the PR2 ASCS front-end IP address, the health probe, and the existing back-end pool.  
-
-  - Make sure that idle timeout is set to the maximum value of 30 minutes, and that floating IP (direct server return) is enabled.
-
-#### ERS2 PR2 [instance number 12]
-
-Because ERS2 is clustered, you must configure the ERS2 virtual IP address on an Azure internal load balancer in addition to the preceding SAP ASCS/SCS IP address. This section applies only if you're using the ERS2 architecture for PR2.  
-
-- New front-end configuration:
-  - Static SAP ERS2 IP address 10.0.0.46.
-
-- Back-end configuration:
-  - The VMs were already added to the internal load balancer's back-end pool.  
-
-- New probe port:
-  - Port 621*nr* [62112]. Leave the default options for protocol (TCP), interval (5), and unhealthy threshold (2).
-
-- New load-balancing rules:
-  - If you're using a standard load balancer, select HA ports.
-  - If you're using a basic load balancer, create load-balancing rules for the following ports:
-    - 32*nr* TCP [3212]
-    - 33*nr* TCP [3312]
-    - 5*nr*13 TCP [51212]
-    - 5*nr*14 TCP [51212]
-    - 5*nr*16 TCP [51212]
-  
-  - Associate load-balancing rules with the PR2 ERS2 front-end IP address, the health probe, and the existing back-end pool.  
-
-  - Make sure that idle timeout is set to the maximum value of 30 minutes, and that floating IP (direct server return) is enabled.
+> [!NOTE]
+> When VMs without public IP addresses are placed in the back-end pool of an internal (no public IP address) Standard Azure load balancer, there will be no outbound internet connectivity unless you perform additional configuration to allow routing to public endpoints. For details on how to achieve outbound connectivity, see [Public endpoint connectivity for virtual machines using Azure Standard Load Balancer in SAP high-availability scenarios](./high-availability-guide-standard-load-balancer-outbound-connections.md).  
 
 ### Create and attach a second Azure shared disk
 
@@ -298,17 +265,17 @@ Update-AzVm -VM $vm -ResourceGroupName $ResourceGroupName -Verbose
 
 1. Create a DNS entry for the virtual host name for new the SAP ASCS/SCS instance in the Windows DNS manager.  
 
-   The IP address that you assign to the virtual host name in DNS must be the same as the IP address that you assigned in Azure Load Balancer.  
+   The IP address that you assigned to the virtual host name in DNS must be the same as the IP address that you assigned in Azure Load Balancer.  
 
    ![Screenshot that shows options for defining a DNS entry for the SAP ASCS/SCS cluster virtual name and IP address.][sap-ha-guide-figure-6009]
 
 2. If you're using a clustered instance of SAP ERS2, you need to reserve in DNS a virtual host name for ERS2.
 
-   The IP address that you assign to the virtual host name for ERS2 in DNS must be the same as the IP address that you assigned in Azure Load Balancer.  
+   The IP address that you assigned to the virtual host name for ERS2 in DNS must be the same as the IP address that you assigned in Azure Load Balancer.  
 
    ![Screenshot that shows options for defining a DNS entry for the SAP ERS2 cluster virtual name and IP address.][sap-ha-guide-figure-6010]
 
-3. To define the IP address that's assigned to the virtual host name, select **DNS Manager** > **Domain**.
+3. To define the IP address assigned to the virtual host name, select **DNS Manager** > **Domain**.
 
    ![Screenshot that shows a new virtual name and IP address for SAP ASCS/SCS and ERS2 cluster configuration.][sap-ha-guide-figure-6011]
 
@@ -320,7 +287,7 @@ Follow the SAP-described installation procedure. Be sure to select **First Clust
 
 ### Modify the SAP profile of the ASCS/SCS instance
 
-If you're running ERS1, add the SAP profile parameter `enque/encni/set_so_keepalive`. The profile parameter prevents connections between SAP work processes and the enqueue server from closing when they're idle for too long. The SAP parameter is not required for ERS2.
+If you're running ERS1, add the SAP profile parameter `enque/encni/set_so_keepalive`. The profile parameter prevents connections between SAP work processes and the enqueue server from closing when they're idle for too long. The SAP parameter isn't required for ERS2.
 
 1. Add this profile parameter to the SAP ASCS/SCS instance profile, if you're using ERS1:
 
@@ -501,9 +468,9 @@ The code for the function `Set-AzureLoadBalancerHealthCheckProbePortOnSAPCluster
 
 ### Continue with the SAP installation
 
-1. Install the database instance by following the process that's described in the SAP installation guide.  
+1. Install the database instance by following the process described in the SAP installation guide.  
 2. Install SAP on the second cluster node by following the steps that are described in the SAP installation guide.  
-3. Install the SAP Primary Application Server (PAS) instance on the virtual machine that you've designated to host the PAS.
+3. Install the SAP Primary Application Server (PAS) instance on the virtual machine that is designated to host the PAS.
 
    Follow the process described in the SAP installation guide. There are no dependencies on Azure.
 4. Install additional SAP application servers on the virtual machines that are designated to host SAP application server instances.  

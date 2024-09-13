@@ -5,16 +5,16 @@ services: microsoft-graph, app-service-web
 author: rwike77
 manager: CelesteDG
 
-ms.service: app-service
+ms.service: azure-app-service
 ms.topic: include
-ms.workload: identity
 ms.date: 09/15/2023
 ms.author: ryanwi
 ms.reviewer: stsoneff
-ms.devlang: csharp, javascript
+ms.devlang: csharp
+# ms.devlang: csharp, javascript
 ms.custom: azureday1
-#Customer intent: As an application developer, I want to learn how to access data in Microsoft Graph for a signed-in user.
 ms.subservice: web-apps
+#Customer intent: As an application developer, I want to learn how to access data in Microsoft Graph for a signed-in user.
 ---
 
 Learn how to access Microsoft Graph from a web app running on Azure App Service.
@@ -30,7 +30,7 @@ In this tutorial, you learn how to:
 > * Grant delegated permissions to a web app.
 > * Call Microsoft Graph from a web app for a signed-in user.
 
-[!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 ## Prerequisites
 

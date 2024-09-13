@@ -2,9 +2,9 @@
 title: 'About gateway SKUs'
 description: Learn about VPN Gateway SKUs.
 author: cherylmc
-ms.service: vpn-gateway
+ms.service: azure-vpn-gateway
 ms.topic: conceptual
-ms.date: 11/28/2023
+ms.date: 08/15/2024
 ms.author: cherylmc 
 
 ---
@@ -18,9 +18,13 @@ When you configure a virtual network gateway SKU, select the SKU that satisfies 
 
 [!INCLUDE [Aggregated throughput by SKU](../../includes/vpn-gateway-table-gwtype-aggtput-include.md)]
 
+(*) If you need more than 100 S2S VPN tunnels, use [Virtual WAN](../virtual-wan/virtual-wan-about.md) instead of VPN Gateway.
+
 **Additional information**
 
-* The Basic SKU doesn't support IPv6 and can only be configured using PowerShell or Azure CLI. Additionally, the Basic SKU doesn't support RADIUS authentication.
+* Because Basic SKU public IP addresses are [announced to retire](https://azure.microsoft.com/updates/upgrade-to-standard-sku-public-ip-addresses-in-azure-by-30-september-2025-basic-sku-will-be-retired/) September 30, 2025, we're no longer permitting new gateways to be created using Basic SKU public IP addresses. Starting December 1, 2023, when you create a new VPN gateway, you must use a Standard SKU public IP address. This limitation doesn't apply to new gateways that you create using the VPN Gateway Basic gateway SKU. You can still create a Basic SKU VPN gateway that uses a Basic SKU public IP address.
+  
+* The Basic gateway SKU doesn't support IPv6 and can only be configured using PowerShell or Azure CLI. Additionally, the Basic gateway SKU doesn't support RADIUS authentication.
 
 * These connection limits are separate. For example, you can have 128 SSTP connections and also 250 IKEv2 connections on a VpnGw1 SKU.
 
@@ -34,31 +38,7 @@ When you configure a virtual network gateway SKU, select the SKU that satisfies 
 
 ## <a name="performance"></a>Gateway SKUs by performance
 
-To help you understand the relative performance of SKUs using different algorithms, we used publicly available iPerf and CTSTraffic tools to measure performances for site-to-site connections.
-
-The table in this section lists the results of performance tests for VpnGW SKUs. A VPN tunnel connects to a VPN gateway instance. Each instance throughput is mentioned in the throughput table in the previous section and is available aggregated across all tunnels connecting to that instance. The table shows the observed bandwidth and packets per second throughput per tunnel for the different gateway SKUs. All testing was performed between gateways (endpoints) within Azure across different regions with 100 connections and under standard load conditions.
-
-* The best performance was obtained when we used the GCMAES256 algorithm for both IPsec Encryption and Integrity.
-* Average performance was obtained when using AES256 for IPsec Encryption and SHA256 for Integrity.
-* The lowest performance was obtained when we used DES3 for IPsec Encryption and SHA256 for Integrity.
-
-|**Generation**|**SKU**   | **Algorithms<br>used** | **Throughput<br>observed per tunnel** | **Packets per second per tunnel<br>observed** |
-|---           |---       | ---                 | ---            | ---                    |
-|**Generation1**|**VpnGw1**| GCMAES256<br>AES256 & SHA256<br>DES3 & SHA256| 650 Mbps<br>500 Mbps<br>130 Mbps   | 62,000<br>47,000<br>12,000|
-|**Generation1**|**VpnGw2**| GCMAES256<br>AES256 & SHA256<br>DES3 & SHA256| 1.2 Gbps<br>650 Mbps<br>140 Mbps | 100,000<br>61,000<br>13,000|
-|**Generation1**|**VpnGw3**| GCMAES256<br>AES256 & SHA256<br>DES3 & SHA256| 1.25 Gbps<br>700 Mbps<br>140 Mbps | 120,000<br>66,000<br>13,000|
-|**Generation1**|**VpnGw1AZ**| GCMAES256<br>AES256 & SHA256<br>DES3 & SHA256| 650 Mbps<br>500 Mbps<br>130 Mbps   | 62,000<br>47,000<br>12,000|
-|**Generation1**|**VpnGw2AZ**| GCMAES256<br>AES256 & SHA256<br>DES3 & SHA256| 1.2 Gbps<br>650 Mbps<br>140 Mbps | 110,000<br>61,000<br>13,000|
-|**Generation1**|**VpnGw3AZ**| GCMAES256<br>AES256 & SHA256<br>DES3 & SHA256| 1.25 Gbps<br>700 Mbps<br>140 Mbps | 120,000<br>66,000<br>13,000|
-| | |
-|**Generation2**|**VpnGw2**| GCMAES256<br>AES256 & SHA256<br>DES3 & SHA256| 1.25 Gbps<br>550 Mbps<br>130 Mbps | 120,000<br>52,000<br>12,000|
-|**Generation2**|**VpnGw3**| GCMAES256<br>AES256 & SHA256<br>DES3 & SHA256| 1.5 Gbps<br>700 Mbps<br>140 Mbps | 140,000<br>66,000<br>13,000|
-|**Generation2**|**VpnGw4**| GCMAES256<br>AES256 & SHA256<br>DES3 & SHA256| 2.3 Gbps<br>700 Mbps<br>140 Mbps | 220,000<br>66,000<br>13,000|
-|**Generation2**|**VpnGw5**| GCMAES256<br>AES256 & SHA256<br>DES3 & SHA256| 2.3 Gbps<br>700 Mbps<br>140 Mbps | 220,000<br>66,000<br>13,000|
-|**Generation2**|**VpnGw2AZ**| GCMAES256<br>AES256 & SHA256<br>DES3 & SHA256| 1.25 Gbps<br>550 Mbps<br>130 Mbps | 120,000<br>52,000<br>12,000|
-|**Generation2**|**VpnGw3AZ**| GCMAES256<br>AES256 & SHA256<br>DES3 & SHA256| 1.5 Gbps<br>700 Mbps<br>140 Mbps | 140,000<br>66,000<br>13,000|
-|**Generation2**|**VpnGw4AZ**| GCMAES256<br>AES256 & SHA256<br>DES3 & SHA256| 2.3 Gbps<br>700 Mbps<br>140 Mbps | 220,000<br>66,000<br>13,000|
-|**Generation2**|**VpnGw5AZ**| GCMAES256<br>AES256 & SHA256<br>DES3 & SHA256| 2.3 Gbps<br>700 Mbps<br>140 Mbps | 220,000<br>66,000<br>13,000|
+[!INCLUDE [Performance by SKU](../../includes/vpn-gateway-table-sku-performance.md)]
 
 ## <a name="feature"></a>Gateway SKUs by feature set
 
@@ -66,42 +46,42 @@ The table in this section lists the results of performance tests for VpnGW SKUs.
 | ---    | ---         |
 |**Basic** (**)   | **Route-based VPN**: 10 tunnels for S2S/connections; no RADIUS authentication for P2S; no IKEv2 for P2S<br>**Policy-based VPN**: (IKEv1): 1 S2S/connection tunnel; no P2S|
 | **All Generation1 and Generation2 SKUs except Basic** | **Route-based VPN**: up to 100 tunnels (*), P2S, BGP, active-active, custom IPsec/IKE policy, ExpressRoute/VPN coexistence |
-|        |             |
 
 (*) You can configure "PolicyBasedTrafficSelectors" to connect a route-based VPN gateway to multiple on-premises policy-based firewall devices. Refer to [Connect VPN gateways to multiple on-premises policy-based VPN devices using PowerShell](vpn-gateway-connect-multiple-policybased-rm-ps.md) for details.
 
-(\*\*) The Basic SKU is considered a legacy SKU. The Basic SKU has certain feature limitations. Verify that the feature that you need is supported before you use the Basic SKU. The Basic SKU doesn't support IPv6 and can only be configured using PowerShell or Azure CLI. Additionally, the Basic SKU doesn't support RADIUS authentication.
+(\*\*) The Basic SKU has certain feature and performance limitations and shouldn't be used for production purposes. Verify that the feature that you need is supported before you use the Basic SKU. The Basic SKU doesn't support IPv6 and can only be configured using PowerShell or Azure CLI. Additionally, the Basic SKU doesn't support RADIUS authentication.
 
 ## <a name="workloads"></a>Gateway SKUs - Production vs. Dev-Test workloads
 
 Due to the differences in SLAs and feature sets, we recommend the following SKUs for production vs. dev-test:
 
-| **Workload**                       | **SKUs**               |
-| ---                                | ---                    |
-| **Production, critical workloads** | All Generation1 and Generation2 SKUs except Basic |
-| **Dev-test or proof of concept**   | Basic (**)                 |
-|                                    |                        |
+| **Workload**     | **SKUs**       |
+| ---         | ---             |
+| **Production, critical workloads** | All Generation1 and Generation2 SKUs, except Basic|
+| **Dev-test or proof of concept**   | Basic (**)             |
 
-(\*\*) The Basic SKU is considered a legacy SKU. The Basic SKU has certain feature limitations. Verify that the feature that you need is supported before you use the Basic SKU. The Basic SKU doesn't support IPv6 and can only be configured using PowerShell or Azure CLI. Additionally, the Basic SKU doesn't support RADIUS authentication.
+
+(\*\*) The Basic SKU has certain feature and performance limitations and shouldn't be used for production purposes. Verify that the feature that you need is supported before you use the Basic SKU. The Basic SKU doesn't support IPv6 and can only be configured using PowerShell or Azure CLI. Additionally, the Basic SKU doesn't support RADIUS authentication.
 
 If you're using the old SKUs (legacy), the production SKU recommendations are Standard and HighPerformance. For information and instructions for old SKUs, see [Gateway SKUs (legacy)](vpn-gateway-about-skus-legacy.md).
 
 ## About legacy SKUs
 
-For information about working with the legacy gateway SKUs (Basic, Standard, and High Performance), including SKU deprecation, see [Managing legacy gateway SKUs](vpn-gateway-about-skus-legacy.md).
+For information about working with the legacy gateway SKUs (Standard and High Performance), including SKU deprecation, see [Managing legacy gateway SKUs](vpn-gateway-about-skus-legacy.md).
 
 ## Specify a SKU
 
 You specify the gateway SKU when you create your VPN Gateway. See the following article for steps:
 
 * [Azure portal](tutorial-create-gateway-portal.md)
-* [PowerShell](create-routebased-vpn-gateway-powershell.md)
+* [PowerShell - Basic SKU](create-gateway-basic-sku-powershell.md)
+* [PowerShell](create-gateway-powershell.md)
 * [Azure CLI](create-routebased-vpn-gateway-cli.md)
 
 ## <a name="resizechange"></a>Change or resize a SKU
 
 > [!NOTE]
-> If you're working with a legacy gateway SKU (Basic, Standard, and High Performance), see [Managing Legacy gateway SKUs](vpn-gateway-about-skus-legacy.md).
+> If you're working with a legacy gateway SKU (Standard and High Performance), see [Managing Legacy gateway SKUs](vpn-gateway-about-skus-legacy.md).
 
 [!INCLUDE [changing vs. resizing](../../includes/vpn-gateway-sku-about-change-resize.md)]
 

@@ -2,12 +2,12 @@
 title: 'Tutorial: Join sensor data with weather forecast data by using Azure Notebooks(Python)'
 titleSuffix: Microsoft Azure Maps
 description: Tutorial on how to join sensor data with weather forecast data from Microsoft Azure Maps Weather services using Azure Notebooks(Python).
-author: eriklindeman
-ms.author: eriklind
+author: farazgis
+ms.author: fsiddiqui
 ms.date: 10/28/2021
 ms.topic: tutorial
 ms.service: azure-maps
-services: azure-maps
+ms.subservice: weather
 ms.custom: mvc, devx-track-python
 ---
 
@@ -144,7 +144,7 @@ The following table displays the combined historical and forecast data for one o
 grouped_weather_data.get_group(station_ids[0]).reset_index()
 ```
 
-<center>![Grouped data](./media/weather-service-tutorial/grouped-data.png)</center>
+![Grouped data](./media/weather-service-tutorial/grouped-data.png)
 
 ## Plot forecast data
 
@@ -169,9 +169,7 @@ windsPlot.set_ylabel("Wind direction")
 
 The following graphs visualize the forecast data. For the change of wind speed, see the left graph. For change in wind direction, see the right graph. This data is prediction for next 15 days from the day the data is requested.
 
-<center>
 ![Wind speed plot](./media/weather-service-tutorial/speed-date-plot.png) ![Wind direction plot](./media/weather-service-tutorial/direction-date-plot.png)
-</center>
 
 In this tutorial, you learned how to call Azure Maps REST APIs to get weather forecast data. You also learned how to visualize the data on graphs.
 
@@ -203,9 +201,9 @@ To learn more about Azure Notebooks, see
 [Daily Forecast]: /rest/api/maps/weather/getdailyforecast
 [EV routing using Azure Notebooks]: tutorial-ev-routing.md
 [free account]: https://azure.microsoft.com/free/
-[Get Map Image service]: /rest/api/maps/render-v2/get-map-static-image
+[Get Map Image service]: /rest/api/maps/render/get-map-static-image
 [manage authentication in Azure Maps]: how-to-manage-authentication.md
-[Render - Get Map Image]: /rest/api/maps/render-v2/get-map-static-image
+[Render - Get Map Image]: /rest/api/maps/render/get-map-static-image
 [subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account
 [Weather Maps Jupyter Notebook repository]: https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook/tree/master/AzureMapsJupyterSamples/Tutorials/Analyze%20Weather%20Data
 [weather_dataset_demo.csv]: https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook/tree/master/AzureMapsJupyterSamples/Tutorials/Analyze%20Weather%20Data/data

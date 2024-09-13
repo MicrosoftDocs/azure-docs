@@ -4,7 +4,8 @@ description: Learn how to implement durable timers in the Durable Functions exte
 ms.topic: conceptual
 ms.date: 12/07/2022
 ms.author: azfuncdf
-ms.devlang: csharp, javascript, powershell, python, java
+ms.devlang: csharp
+# ms.devlang: csharp, javascript, powershell, python, java
 ---
 
 # Timers in Durable Functions (Azure Functions)
@@ -42,7 +43,7 @@ durable_timeout_task = context.create_timer(due_time)
 
 ```powershell
 # Put the orchestrator to sleep for 72 hours
-@duration = New-TimeSpan -Hours 72
+$duration = New-TimeSpan -Hours 72
 Start-DurableTimer -Duration $duration
 ```
 

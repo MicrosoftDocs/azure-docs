@@ -2,11 +2,8 @@
 title: Use the Azure portal to create a data factory pipeline
 description: This tutorial provides step-by-step instructions for using the Azure portal to create a data factory with a pipeline. The pipeline uses the copy activity to copy data from Azure Blob storage to Azure SQL Database.
 author: jianleishen
-ms.service: data-factory
-ms.subservice: tutorials
 ms.topic: tutorial
-ms.custom: seo-lt-2019
-ms.date: 08/10/2023
+ms.date: 05/15/2024
 ms.author: jianleishen
 ---
 
@@ -246,7 +243,7 @@ In this schedule, you create a schedule trigger for the pipeline. The trigger ru
 
 1. Verify that two rows per minute (for each pipeline run) are inserted into the **emp** table until the specified end time.
 
-## Next steps
+## Related content
 The pipeline in this sample copies data from one location to another location in Blob storage. You learned how to:
 
 > [!div class="checklist"]

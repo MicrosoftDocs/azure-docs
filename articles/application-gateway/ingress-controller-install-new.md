@@ -1,10 +1,10 @@
 ---
-title: Creating an ingress controller with a new Application Gateway 
-description: This article provides information on how to deploy an Application Gateway Ingress Controller with a new Application Gateway. 
+title: Creating an ingress controller with a new Application Gateway
+description: This article provides information on how to deploy an Application Gateway Ingress Controller with a new Application Gateway.
 services: application-gateway
 author: greg-lindsay
-ms.service: application-gateway
-ms.custom: devx-track-linux
+ms.service: azure-application-gateway
+ms.custom:
 ms.topic: how-to
 ms.date: 07/28/2023
 ms.author: greglin
@@ -16,13 +16,13 @@ The instructions below assume Application Gateway Ingress Controller (AGIC) will
 installed in an environment with no pre-existing components.
 
 > [!TIP]
-> Also see [What is Application Gateway for Containers?](for-containers/overview.md) currently in public preview.
+> Also see [What is Application Gateway for Containers](for-containers/overview.md).
 
 ## Required Command Line Tools
 
 We recommend the use of [Azure Cloud Shell](https://shell.azure.com/) for all command-line operations below. Launch your shell from shell.azure.com or by clicking the link:
 
-[![Embed launch](./media/launch-cloud-shell/launch-cloud-shell.png "Launch Azure Cloud Shell")](https://shell.azure.com)
+:::image type="icon" source="~/reusable-content/ce-skilling/azure/media/cloud-shell/launch-cloud-shell-button.png" alt-text="Button to launch the Azure Cloud Shell." border="false" link="https://shell.azure.com":::
 
 Alternatively, launch Cloud Shell from Azure portal using the following icon:
 
@@ -72,7 +72,7 @@ Follow the steps below to create a Microsoft Entra [service principal object](..
 ## Deploy Components
 This step will add the following components to your subscription:
 
-- [Azure Kubernetes Service](../aks/intro-kubernetes.md)
+- [Azure Kubernetes Service](/azure/aks/intro-kubernetes)
 - [Application Gateway](./overview.md) v2
 - [Virtual Network](../virtual-network/virtual-networks-overview.md) with two [subnets](../virtual-network/virtual-networks-overview.md)
 - [Public IP Address](../virtual-network/ip-services/virtual-network-public-ip-address.md)
@@ -114,7 +114,7 @@ With the instructions in the previous section, we created and configured a new A
 For the following steps, we need setup [kubectl](https://kubectl.docs.kubernetes.io/) command,
 which we'll use to connect to our new Kubernetes cluster. [Cloud Shell](https://shell.azure.com/) has `kubectl` already installed. We'll use `az` CLI to obtain credentials for Kubernetes.
 
-Get credentials for your newly deployed AKS ([read more](../aks/manage-azure-rbac.md#use-azure-rbac-for-kubernetes-authorization-with-kubectl)):
+Get credentials for your newly deployed AKS ([read more](/azure/aks/manage-azure-rbac#use-azure-rbac-for-kubernetes-authorization-with-kubectl)):
 
 ```azurecli
 # use the deployment-outputs.json created after deployment to get the cluster name and resource group name
@@ -150,12 +150,12 @@ To install Microsoft Entra Pod Identity to your cluster:
      ```
 
 ### Install Helm
-[Helm](../aks/kubernetes-helm.md) is a package manager for Kubernetes. We'll use it to install the `application-gateway-kubernetes-ingress` package.
+[Helm](/azure/aks/kubernetes-helm) is a package manager for Kubernetes. We'll use it to install the `application-gateway-kubernetes-ingress` package.
 
 > [!NOTE]
 > If you use [Cloud Shell](https://shell.azure.com/), you don't need to install Helm.  Azure Cloud Shell comes with Helm version 3. Skip the first step and just add the AGIC Helm repository.
 
-1. Install [Helm](../aks/kubernetes-helm.md) and run the following to add `application-gateway-kubernetes-ingress` helm package:
+1. Install [Helm](/azure/aks/kubernetes-helm) and run the following to add `application-gateway-kubernetes-ingress` helm package:
 
     - *Kubernetes RBAC enabled* AKS cluster
 
@@ -191,14 +191,14 @@ To install Microsoft Entra Pod Identity to your cluster:
     ```bash
     wget https://raw.githubusercontent.com/Azure/application-gateway-kubernetes-ingress/master/docs/examples/sample-helm-config.yaml -O helm-config.yaml
     ```
-    Or copy the YAML file below: 
-    
+    Or copy the YAML file below:
+
     ```yaml
     # This file contains the essential configs for the ingress controller helm chart
 
     # Verbosity level of the App Gateway Ingress Controller
     verbosityLevel: 3
-    
+
     ################################################################################
     # Specify which application gateway the ingress controller will manage
     #
@@ -206,12 +206,12 @@ To install Microsoft Entra Pod Identity to your cluster:
         subscriptionId: <subscriptionId>
         resourceGroup: <resourceGroupName>
         name: <applicationGatewayName>
-    
+
         # Setting appgw.shared to "true" will create an AzureIngressProhibitedTarget CRD.
         # This prohibits AGIC from applying config for any host/path.
         # Use "kubectl get AzureIngressProhibitedTargets" to view and change this.
         shared: false
-    
+
     ################################################################################
     # Specify which kubernetes namespace the ingress controller will watch
     # Default value is "default"
@@ -220,7 +220,7 @@ To install Microsoft Entra Pod Identity to your cluster:
     #
     # kubernetes:
     #   watchNamespace: <namespace>
-    
+
     ################################################################################
     # Specify the authentication with Azure Resource Manager
     #
@@ -230,17 +230,17 @@ To install Microsoft Entra Pod Identity to your cluster:
         type: aadPodIdentity
         identityResourceID: <identityResourceId>
         identityClientID:  <identityClientId>
-    
+
     ## Alternatively you can use Service Principal credentials
     # armAuth:
     #    type: servicePrincipal
     #    secretJSON: <<Generate this value with: "az ad sp create-for-rbac --subscription <subscription-uuid> --role Contributor --sdk-auth | base64 -w0" >>
-    
+
     ################################################################################
     # Specify if the cluster is Kubernetes RBAC enabled or not
     rbac:
         enabled: false # true/false
-    
+
     # Specify aks cluster related information. THIS IS BEING DEPRECATED.
     aksClusterConfiguration:
         apiServerAddress: <aks-api-server-address>
@@ -254,7 +254,7 @@ To install Microsoft Entra Pod Identity to your cluster:
     sed -i "s|<identityResourceId>|${identityResourceId}|g" helm-config.yaml
     sed -i "s|<identityClientId>|${identityClientId}|g" helm-config.yaml
     ```
-    
+
 
    > [!NOTE]
    > **For deploying to Sovereign Clouds (e.g., Azure Government)**, the `appgw.environment` configuration parameter must be added and set to the appropriate value as documented below.
@@ -270,8 +270,8 @@ To install Microsoft Entra Pod Identity to your cluster:
      - `kubernetes.watchNamespace`: Specify the namespace that AGIC should watch. The namespace value can be a single string value, or a comma-separated list of namespaces.
     - `armAuth.type`: could be `aadPodIdentity` or `servicePrincipal`
     - `armAuth.identityResourceID`: Resource ID of the Azure Managed Identity
-    - `armAuth.identityClientID`: The Client ID of the Identity. More information about **identityClientID** is provided below. 
-    - `armAuth.secretJSON`: Only needed when Service Principal Secret type is chosen (when `armAuth.type` has been set to `servicePrincipal`) 
+    - `armAuth.identityClientID`: The Client ID of the Identity. More information about **identityClientID** is provided below.
+    - `armAuth.secretJSON`: Only needed when Service Principal Secret type is chosen (when `armAuth.type` has been set to `servicePrincipal`)
 
 
    > [!NOTE]
@@ -305,7 +305,7 @@ spec:
   - image: "mcr.microsoft.com/dotnet/samples:aspnetapp"
     name: aspnetapp-image
     ports:
-    - containerPort: 80
+    - containerPort: 8080
       protocol: TCP
 
 ---
@@ -320,7 +320,7 @@ spec:
   ports:
   - protocol: TCP
     port: 80
-    targetPort: 80
+    targetPort: 8080
 
 ---
 
@@ -335,6 +335,7 @@ spec:
   - http:
       paths:
       - path: /
+        pathType: Exact
         backend:
           service:
             name: aspnetapp

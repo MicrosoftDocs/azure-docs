@@ -4,10 +4,9 @@ description: Learn how to configure Microsoft Account authentication as an ident
 ms.assetid: ffbc6064-edf6-474d-971c-695598fd08bf
 ms.topic: article
 ms.date: 03/29/2021
-ms.custom: seodec18, fasttrack-edit, AppServiceIdentity
+ms.custom: fasttrack-edit, AppServiceIdentity
 author: cephalin
 ms.author: cephalin
-
 ---
 
 # Configure your App Service or Azure Functions app to use Microsoft Account login

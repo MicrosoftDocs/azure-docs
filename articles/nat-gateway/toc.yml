@@ -19,6 +19,8 @@ items:
   - name: ARM template
     displayName: Resource Manager
     href: quickstart-create-nat-gateway-template.md
+  - name: Terraform
+    href: quickstart-create-nat-gateway-terraform.md
 - name: Tutorials
   items:
   - name: Configure dual-stack outbound with a NAT gateway
@@ -40,10 +42,6 @@ items:
   items:
   - name: NAT gateway resource
     href: nat-gateway-resource.md
-  - name: Metrics and alerts
-    href: nat-metrics.md
-  - name: Resource health
-    href: resource-health.md
   - name: Availability zones
     href: nat-availability-zones.md
   - name: Security
@@ -56,6 +54,10 @@ items:
     href: nat-gateway-design.md
 - name: How-to
   items:
+  - name: Metrics and alerts
+    href: nat-metrics.md
+  - name: Resource health
+    href: resource-health.md
   - name: Manage NAT gateway
     href: manage-nat-gateway.md
   - name: Move across regions

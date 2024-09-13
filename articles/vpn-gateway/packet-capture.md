@@ -3,7 +3,7 @@ title: 'Configure packet capture for VPN Gateway'
 titleSuffix: Azure VPN Gateway
 description: Learn about packet capture functionality that you can use on VPN gateways to help narrow down the cause of a problem.  
 author: cherylmc
-ms.service: vpn-gateway
+ms.service: azure-vpn-gateway
 ms.topic: how-to
 ms.date: 08/24/2023
 ms.author: cherylmc
@@ -363,6 +363,9 @@ To complete a packet capture, you need to provide a valid SAS (or Shared Access 
 1. Paste the SAS URL (from the previous step) in the **Output Sas Url** text box and click **Stop Packet Capture**.
 
 1. The packet capture (pcap) file will be stored in the specified account.
+
+> [!NOTE]  
+> Avoid the use of Azure-generated containers, such as `$logs`. Containers that start with `$` are typically internal containers, and only the service that creates them should use them. For instance, `$logs` is used by Azure Storage Account for writing storage account related logs.
 
 ## Packet capture - PowerShell
 

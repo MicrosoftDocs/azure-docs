@@ -3,11 +3,11 @@ title: Azure Container Apps overview
 description: Learn about common scenarios and uses for Azure Container Apps.
 services: container-apps
 author: craigshoemaker
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.topic: overview
 ms.date: 11/14/2023
 ms.author: cshoe
-ms.custom: ignite-fall-2021, event-tier1-build-2022, ignite-2022, build-2023
+ms.custom: build-2023
 ---
 
 # Azure Container Apps overview
@@ -34,8 +34,8 @@ To begin working with Container Apps, select the description that best describes
 
 | | Description | Resource |
 |---|---|---|
-| **I'm new to containers**| Start here if you have yet to build your first container, but are curious how containers can serve your development needs. | [Learn more about containers](start-containers.md) |
-| **I'm using serverless containers** | Container Apps provides automatic scaling, reduces operational complexity, and allows you to focus on your application rather than infrastructure.<br><br>Start here if you're interested in management, scalability, and pay-per-use features of cloud computing. | [Learn more about serverless containers](start-serverless-containers.md) |
+| **I'm new to containers**| Start here if you have yet to build your first container but are curious how containers can serve your development needs. | [Learn more about containers](start-containers.md) |
+| **I'm using serverless containers** | Container Apps provides automatic scaling, reduces operational complexity, and allows you to focus on your application rather than infrastructure.<br><br>Start here if you're interested in the management, scalability, and pay-per-use features of cloud computing. | [Learn more about serverless containers](start-serverless-containers.md) |
 
 ## Features
 
@@ -69,7 +69,7 @@ With Azure Container Apps, you can:
 
 - [**Monitor logs**](log-monitoring.md) using Azure Log Analytics.
 
-- [**Generous quotas**](quotas.md) which can be overridden to increase limits on a per-account basis.
+- [**Generous quotas**](quotas.md), which can be overridden to increase limits on a per-account basis.
 
 <sup>1</sup> Applications that [scale on CPU or memory load](scale-app.md) can't scale to zero.
 

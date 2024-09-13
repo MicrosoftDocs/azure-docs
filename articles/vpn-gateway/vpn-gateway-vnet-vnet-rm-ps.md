@@ -3,27 +3,19 @@ title: 'Connect a VNet to another VNet using a VPN Gateway VNet-to-VNet connecti
 titleSuffix: Azure VPN Gateway
 description: Learn how to connect virtual networks together using a VNet-to-VNet connection and PowerShell.
 author: cherylmc
-ms.service: vpn-gateway
+ms.service: azure-vpn-gateway
 ms.custom: devx-track-azurepowershell
 ms.topic: how-to
-ms.date: 08/22/2023
+ms.date: 07/11/2024
 ms.author: cherylmc
 ---
 # Configure a VNet-to-VNet VPN gateway connection using PowerShell
 
-This article helps you connect virtual networks by using the VNet-to-VNet connection type. The virtual networks can be in the same or different regions, and from the same or different subscriptions. When you connect virtual networks from different subscriptions, the subscriptions don't need to be associated with the same Active Directory tenant.
+This article helps you connect virtual networks by using the VNet-to-VNet connection type. The virtual networks can be in the same or different regions, and from the same or different subscriptions. When you connect virtual networks from different subscriptions, the subscriptions don't need to be associated with the same tenant.  If you already have VNets that you want to connect and they're in the same subscription, you might want to use the [Azure portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md) steps instead because the process is less complicated. Note that you can't connect VNets from different subscriptions using the Azure portal.
 
-The steps in this article apply to the [Resource Manager deployment model](../azure-resource-manager/management/deployment-models.md) and use PowerShell. You can also create this configuration using a different deployment tool or deployment model by selecting a different option from the following list:
+In this exercise, you create the required virtual networks (VNets) and VPN gateways. We have steps to connect VNets within the same subscription, as well as steps and commands for the more complicated scenario to connect VNets in different subscriptions. The PowerShell cmdlet to create a connection is [New-AzVirtualNetworkGatewayConnection](/powershell/module/az.network/new-azvirtualnetworkgatewayconnection). The `-ConnectionType` is `Vnet2Vnet`. 
 
-> [!div class="op_single_selector"]
-> * [Azure portal](vpn-gateway-howto-vnet-vnet-resource-manager-portal.md)
-> * [PowerShell](vpn-gateway-vnet-vnet-rm-ps.md)
-> * [Azure CLI](vpn-gateway-howto-vnet-vnet-cli.md)
-> * [Azure portal (classic)](vpn-gateway-howto-vnet-vnet-portal-classic.md)
-> * [Connect different deployment models - Azure portal](vpn-gateway-connect-different-deployment-models-portal.md)
-> * [Connect different deployment models - PowerShell](vpn-gateway-connect-different-deployment-models-powershell.md)
-
-:::image type="content" source="./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/vnet-vnet-diagram.png" alt-text="VNet to VNet diagram.":::
+:::image type="content" source="./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/vnet-vnet-diagram.png" alt-text="VNet to VNet diagram." lightbox="./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/vnet-vnet-diagram.png":::
 
 ## <a name="about"></a>About connecting VNets
 
@@ -35,15 +27,15 @@ Configuring a VNet-to-VNet connection is a good way to easily connect VNets. Con
 
 ### Site-to-Site (IPsec)
 
-If you're working with a complicated network configuration, you may prefer to connect your VNets using the [Site-to-Site](vpn-gateway-create-site-to-site-rm-powershell.md) steps, instead the VNet-to-VNet steps. When you use the Site-to-Site steps, you create and configure the local network gateways manually. The local network gateway for each VNet treats the other VNet as a local site. This lets you specify additional address space for the local network gateway in order to route traffic. If the address space for a VNet changes, you need to update the corresponding local network gateway to reflect the change. It doesn't automatically update.
+If you're working with a complicated network configuration, you might prefer to connect your VNets using the [Site-to-Site](vpn-gateway-create-site-to-site-rm-powershell.md) steps, instead the VNet-to-VNet steps. When you use the Site-to-Site steps, you create and configure the local network gateways manually. The local network gateway for each VNet treats the other VNet as a local site. This lets you specify additional address space for the local network gateway in order to route traffic. If the address space for a VNet changes, you need to update the corresponding local network gateway to reflect the change. It doesn't automatically update.
 
 ### VNet peering
 
-You may want to consider connecting your VNets using VNet Peering. VNet peering doesn't use a VPN gateway and has different constraints. Additionally, [VNet peering pricing](https://azure.microsoft.com/pricing/details/virtual-network) is calculated differently than [VNet-to-VNet VPN Gateway pricing](https://azure.microsoft.com/pricing/details/vpn-gateway). For more information, see [VNet peering](../virtual-network/virtual-network-peering-overview.md).
+You might want to consider connecting your VNets using VNet Peering. VNet peering doesn't use a VPN gateway and has different constraints. Additionally, [VNet peering pricing](https://azure.microsoft.com/pricing/details/virtual-network) is calculated differently than [VNet-to-VNet VPN Gateway pricing](https://azure.microsoft.com/pricing/details/vpn-gateway). For more information, see [VNet peering](../virtual-network/virtual-network-peering-overview.md).
 
 ## <a name="why"></a>Why create a VNet-to-VNet connection?
 
-You may want to connect virtual networks using a VNet-to-VNet connection for the following reasons:
+You might want to connect virtual networks using a VNet-to-VNet connection for the following reasons:
 
 * **Cross region geo-redundancy and geo-presence**
 
@@ -112,7 +104,7 @@ We use the following values in the examples:
 For the following steps, you can either use Azure Cloud Shell, or you can run PowerShell locally. For more information, see [How to install and configure Azure PowerShell](/powershell/azure/).
 
 > [!NOTE]
-> You may see warnings saying "The output object type of this cmdlet will be modified in a future release". This is expected behavior and you can safely ignore these warnings.
+> You might see warnings saying "The output object type of this cmdlet will be modified in a future release". This is expected behavior and you can safely ignore these warnings.
 
 1. Declare your variables. This example declares the variables using the values for this exercise. In most cases, you should replace the values with your own. However, you can use these variables if you're running through the steps to become familiar with this type of configuration. Modify the variables if needed, then copy and paste them into your PowerShell console.
 
@@ -139,7 +131,7 @@ For the following steps, you can either use Azure Cloud Shell, or you can run Po
 
 1. Create the subnet configurations for TestVNet1. This example creates a virtual network named TestVNet1 and two subnets, one called GatewaySubnet, and one called FrontEnd. When substituting values, it's important that you always name your gateway subnet specifically GatewaySubnet. If you name it something else, your gateway creation fails. For this reason, it isn't assigned via variable in the example.
 
-   The following example uses the variables that you set earlier. In this example, the gateway subnet is using a /27. While it's possible to create a gateway subnet using /28 for this configuration, we recommend that you create a larger subnet that includes more addresses by selecting at least /27. This will allow for enough addresses to accommodate possible additional configurations that you may want in the future.
+   The following example uses the variables that you set earlier. In this example, the gateway subnet is using a /27. While it's possible to create a gateway subnet using /28 for this configuration, we recommend that you create a larger subnet that includes more addresses by selecting at least /27. This will allow for enough addresses to accommodate possible additional configurations that you might want in the future.
 
    ```azurepowershell-interactive
    $fesub1 = New-AzVirtualNetworkSubnetConfig -Name $FESubName1 -AddressPrefix $FESubPrefix1
@@ -273,11 +265,11 @@ Wait until both gateways are completed. Restart your Azure Cloud Shell session a
 
 ## <a name="difsub"></a>How to connect VNets that are in different subscriptions
 
-In this scenario, you connect TestVNet1 and TestVNet5. TestVNet1 and TestVNet5 reside in different subscriptions. The subscriptions don't need to be associated with the same Active Directory tenant.
+In this scenario, you connect TestVNet1 and TestVNet5. TestVNet1 and TestVNet5 reside in different subscriptions. The subscriptions don't need to be associated with the same tenant.
 
 The difference between these steps and the previous set is that some of the configuration steps need to be performed in a separate PowerShell session in the context of the second subscription. Especially when the two subscriptions belong to different organizations.
 
-Due to changing subscription context in this exercise, you may find it easier to use PowerShell locally on your computer, rather than using the Azure Cloud Shell, when you get to Step 8.
+Due to changing subscription context in this exercise, you might find it easier to use PowerShell locally on your computer, rather than using the Azure Cloud Shell, when you get to Step 8.
 
 ### Step 5: Create and configure TestVNet1
 
@@ -285,7 +277,7 @@ You must complete [Step 1](#Step1) and [Step 2](#Step2) from the previous sectio
 
 ### Step 6: Verify the IP address ranges
 
-It's important to make sure that the IP address space of the new virtual network, TestVNet5, doesn't overlap with any of your VNet ranges or local network gateway ranges. In this example, the virtual networks may belong to different organizations. For this exercise, you can use the following values for the TestVNet5:
+It's important to make sure that the IP address space of the new virtual network, TestVNet5, doesn't overlap with any of your VNet ranges or local network gateway ranges. In this example, the virtual networks might belong to different organizations. For this exercise, you can use the following values for the TestVNet5:
 
 **Values for TestVNet5:**
 
@@ -303,7 +295,7 @@ It's important to make sure that the IP address space of the new virtual network
 
 ### Step 7: Create and configure TestVNet5
 
-This step must be done in the context of the new subscription. This part may be performed by the administrator in a different organization that owns the subscription.
+This step must be done in the context of the new subscription. This part might be performed by the administrator in a different organization that owns the subscription.
 
 1. Declare your variables. Be sure to replace the values with the ones that you want to use for your configuration.
 

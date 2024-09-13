@@ -9,6 +9,8 @@ ms.topic: reference
 
 If an unexpected error occurs, you can use these troubleshooting methods in an attempt to resolve the issue. 
 
+[!INCLUDE [device-agents-note](../includes/device-agents-note.md)]
+
 ## Service status 
 
 To view the status of the service: 
@@ -36,7 +38,7 @@ You will know that the service is crashing if, the process uptime is less than 2
 Use the following command to verify that the Defender for IoT micro agent service is running with root privileges.
 
 ```bash
-ps -aux | grep " defender-iot-micro-agent"
+ps -aux | grep "defender_iot_micro_agent"
 ```
 The following sample result shows that the folder 'defender_iot_micro_agent' has root privileges due to the word 'root' appearing as shown by the red box.
 

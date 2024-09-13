@@ -3,16 +3,18 @@ title: Copy data from Drill
 description: Learn how to copy data from Drill to supported sink data stores using a copy activity in an Azure Data Factory or Synapse Analytics pipeline.
 titleSuffix: Azure Data Factory & Azure Synapse
 author: jianleishen
-ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 07/13/2023
+ms.date: 09/04/2024
 ms.author: jianleishen
 ---
 # Copy data from Drill using Azure Data Factory or Synapse Analytics
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+> [!IMPORTANT]
+> This connector will be deprecated on **December 31, 2024**. You are recommended to migrate to [ODBC connector](connector-odbc.md) by installing a driver before that date. 
 
 This article outlines how to use the Copy Activity in an Azure Data Factory or Synapse Analytics pipeline to copy data from Drill. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
 
@@ -200,5 +202,5 @@ To copy data from Drill, set the source type in the copy activity to **DrillSour
 
 To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
 
-## Next steps
+## Related content
 For a list of data stores supported as sources and sinks by the copy activity, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).

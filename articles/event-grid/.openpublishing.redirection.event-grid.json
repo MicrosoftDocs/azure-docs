@@ -1,8 +1,43 @@
 {
-  "redirections": [
+  "redirections": [    
+    {
+      "source_path": "storage-upload-process-images.md",
+      "redirect_url": "/azure/event-grid/blob-event-quickstart-portal",
+      "redirect_document_id": false
+    },    
+    {
+      "source_path": "resize-images-on-storage-blob-upload-event.md",
+      "redirect_url": "/azure/event-grid/blob-event-quickstart-portal",
+      "redirect_document_id": false
+    },    
+    {
+      "source_path": "subscribe-to-microsoft-entra-id-events.md",
+      "redirect_url": "/azure/event-grid/subscribe-to-graph-api-events",
+      "redirect_document_id": false
+    },    
+    {
+      "source_path": "configure-firewall-mqtt.md",
+      "redirect_url": "/azure/event-grid/mqtt-configure-firewall",
+      "redirect_document_id": false
+    },    
+    {
+      "source_path": "configure-private-endpoints-mqtt.md",
+      "redirect_url": "/azure/event-grid/mqtt-configure-private-endpoints",
+      "redirect_document_id": false
+    },    
     {
       "source_path": "configure-firewall-namespace-topics.md",
       "redirect_url": "/azure/event-grid/configure-firewall-namespaces",
+      "redirect_document_id": false
+    },        
+    {
+      "source_path": "mqtt-routing-to-event-hubs-portal.md",
+      "redirect_url": "/azure/event-grid/mqtt-routing-to-azure-functions-portal",
+      "redirect_document_id": false
+    },        
+    {
+      "source_path": "mqtt-routing-to-event-hubs-cli.md",
+      "redirect_url": "/azure/event-grid/mqtt-routing-to-azure-functions-cli",
       "redirect_document_id": false
     },    
     {
@@ -334,6 +369,36 @@
       "source_path": "event-schema-farmbeats.md",
       "redirect_url": "/azure/event-grid/system-topics",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/event-grid/cli-samples.md",
+      "redirect_url": "/azure/event-grid/scripts/event-grid-cli-subscribe-custom-topic",
+      "redirect_document_id": true
+    },
+    {
+        "source_path_from_root": "/articles/event-grid/scripts/event-grid-cli-azure-subscription.md",
+        "redirect_url": "/azure/event-grid/scripts/event-grid-cli-subscribe-custom-topic",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/event-grid/scripts/event-grid-cli-create-custom-topic.md",
+        "redirect_url": "/azure/event-grid/scripts/event-grid-cli-subscribe-custom-topic",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/event-grid/scripts/event-grid-cli-resource-group-filter.md",
+        "redirect_url": "/azure/event-grid/scripts/event-grid-cli-subscribe-custom-topic",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/event-grid/scripts/event-grid-cli-blob.md",
+        "redirect_url": "/azure/event-grid/scripts/event-grid-cli-subscribe-custom-topic",
+        "redirect_document_id": false
+    },
+    {
+        "source_path_from_root": "/articles/event-grid/scripts/event-grid-cli-resource-group.md",
+        "redirect_url": "/azure/event-grid/scripts/event-grid-cli-subscribe-custom-topic",
+        "redirect_document_id": false
     }
   ]
 }

@@ -18,7 +18,7 @@ In this article, you'll learn how to start collecting Airflow Logs for your Micr
 
 
 * An existing **Log Analytics Workspace**. 
-    This workspace will be used to query the Airflow logs using the Kusto Query Language (KQL) query editor in the Log Analytics Workspace. Useful Resource: [Create a log analytics workspace in Azure portal](../azure-monitor/logs/quick-create-workspace.md).
+    This workspace will be used to query the Airflow logs using the Kusto Query Language (KQL) query editor in the Log Analytics Workspace. Useful Resource: [Create a log analytics workspace in Azure portal](/azure/azure-monitor/logs/quick-create-workspace).
 
 
 
@@ -27,7 +27,7 @@ In this article, you'll learn how to start collecting Airflow Logs for your Micr
 
 
 ## Enabling diagnostic settings to collect logs in a storage account
-Every Azure Data Manager for Energy instance comes inbuilt with an Azure Data Factory-managed Airflow instance. We collect Airflow logs for internal troubleshooting and debugging purposes. Airflow logs can be integrated with Azure Monitor in the following ways:
+Every Azure Data Manager for Energy instance comes inbuilt with an Azure Data Factory Workflow Orchestration Manager (powered by Apache Airflow) instance. We collect Airflow logs for internal troubleshooting and debugging purposes. Airflow logs can be integrated with Azure Monitor in the following ways:
 
 * Storage account
 * Log Analytics workspace
@@ -37,7 +37,7 @@ To access logs via any of the above two options, you need to create a Diagnostic
 | Part | Description |
 |-|-|
 | Name  | This is the name of the diagnostic log. Ensure a unique name is set for each log. |
-| Categories | Category of logs to send to each of the destinations. The set of categories will vary for each Azure service. Visit: [Supported Resource Log Categories](../azure-monitor/essentials/resource-logs-categories.md) |
+| Categories | Category of logs to send to each of the destinations. The set of categories will vary for each Azure service. Visit: [Supported Resource Log Categories](/azure/azure-monitor/essentials/resource-logs-categories) |
 | Destinations | One or more destinations to send the logs. All Azure services share the same set of possible destinations. Each diagnostic setting can define one or more destinations but no more than one destination of a particular type. It should be a storage account, an Event Hubs namespace or an event hub. |
 
 Follow the following steps to set up Diagnostic Settings:
@@ -124,4 +124,4 @@ We have added document to help you [troubleshoot](../energy-data-services/troubl
 Now that you're collecting resource logs, create a log query alert to be proactively notified when interesting data is identified in your log data.
 
 > [!div class="nextstepaction"]
-> [Create a log query alert for an Azure resource](../azure-monitor/alerts/tutorial-log-alert.md)
+> [Create a log query alert for an Azure resource](/azure/azure-monitor/alerts/tutorial-log-alert)

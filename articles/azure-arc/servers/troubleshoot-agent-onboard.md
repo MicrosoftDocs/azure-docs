@@ -2,7 +2,7 @@
 title: Troubleshoot Azure Connected Machine agent connection issues
 description: This article tells how to troubleshoot and resolve issues with the Connected Machine agent that arise with Azure Arc-enabled servers when trying to connect to the service.
 ms.date: 10/13/2022
-ms.topic: conceptual
+ms.topic: troubleshooting
 ---
 
 # Troubleshoot Azure Connected Machine agent connection issues
@@ -19,7 +19,7 @@ Use the following table to identify and resolve issues when configuring the Azur
 | AZCM0001 | An unknown error occurred | Contact Microsoft Support for assistance. |
 | AZCM0011 | The user canceled the action (CTRL+C) | Retry the previous command. |
 | AZCM0012 | The access token is invalid | If authenticating via access token, obtain a new token and try again. If authenticating via service principal or device logins, contact Microsoft Support for assistance. |
-| AZCM0016 | Missing a mandatory parameter | Review the error message in the output to identify which parameters are missing. For the complete syntax of the command, run `azcmagent <command> --help`. |
+| AZCM0016 | Missing mandatory parameter | Review the error message in the output to identify which parameters are missing. For the complete syntax of the command, run `azcmagent <command> --help`. |
 | AZCM0018 | The command was executed without administrative privileges | Retry the command in an elevated user context (administrator/root). |
 | AZCM0019 | The path to the configuration file is incorrect | Ensure the path to the configuration file is correct and try again. |
 | AZCM0023 | The value provided for a parameter (argument) is invalid | Review the error message for more specific information. Refer to the syntax of the command (`azcmagent <command> --help`) for valid values or expected format for the arguments. |
@@ -104,7 +104,6 @@ The following table lists some of the known errors and suggestions on how to tro
 |--------|------|---------------|---------|
 |Failed to acquire authorization token device flow |`Error occurred while sending request for Device Authorization Code: Post https://login.windows.net/fb84ce97-b875-4d12-b031-ef5e7edf9c8e/oauth2/devicecode?api-version=1.0:  dial tcp 40.126.9.7:443: connect: network is unreachable.` |Can't reach `login.windows.net` endpoint | Run [azcmagent check](azcmagent-check.md) to see if a firewall is blocking access to Microsoft Entra ID. |
 |Failed to acquire authorization token device flow |`Error occurred while sending request for Device Authorization Code: Post https://login.windows.net/fb84ce97-b875-4d12-b031-ef5e7edf9c8e/oauth2/devicecode?api-version=1.0:  dial tcp 40.126.9.7:443: connect: network is Forbidden`. |Proxy or firewall is blocking access to `login.windows.net` endpoint. | Run [azcmagent check](azcmagent-check.md) to see if a firewall is blocking access to Microsoft Entra ID.|
-|Failed to acquire authorization token device flow  |`Error occurred while sending request for Device Authorization Code: Post https://login.windows.net/fb84ce97-b875-4d12-b031-ef5e7edf9c8e/oauth2/devicecode?api-version=1.0:  dial tcp lookup login.windows.net: no such host`. | Group Policy Object *Computer Configuration\ Administrative Templates\ System\ User Profiles\ Delete user profiles older than a specified number of days on system restart* is enabled. | Verify the GPO is enabled and targeting the affected machine. See footnote <sup>[1](#footnote1)</sup> for further details. |
 |Failed to acquire authorization token from SPN |`Failed to execute the refresh request. Error = 'Post https://login.windows.net/fb84ce97-b875-4d12-b031-ef5e7edf9c8e/oauth2/token?api-version=1.0: Forbidden'` |Proxy or firewall is blocking access to `login.windows.net` endpoint. |Run [azcmagent check](azcmagent-check.md) to see if a firewall is blocking access to Microsoft Entra ID. |
 |Failed to acquire authorization token from SPN |`Invalid client secret is provided` |Wrong or invalid service principal secret. |Verify the service principal secret. |
 | Failed to acquire authorization token from SPN |`Application with identifier 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx' wasn't found in the directory 'xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx'. This can happen if the application has not been installed by the administrator of the tenant or consented to by any user in the tenant` |Incorrect service principal and/or Tenant ID. |Verify the service principal and/or the tenant ID.|
@@ -112,14 +111,12 @@ The following table lists some of the known errors and suggestions on how to tro
 |Failed to AzcmagentConnect ARM resource |`The subscription isn't registered to use namespace 'Microsoft.HybridCompute'` |Azure resource providers aren't registered. |Register the [resource providers](prerequisites.md#azure-resource-providers). |
 |Failed to AzcmagentConnect ARM resource |`Get https://management.azure.com/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcegroups/myResourceGroup/providers/Microsoft.HybridCompute/machines/MSJC01?api-version=2019-03-18-preview:  Forbidden` |Proxy server or firewall is blocking access to `management.azure.com` endpoint. | Run [azcmagent check](azcmagent-check.md) to see if a firewall is blocking access to Azure Resource Manager. |
 
-<a name="footnote1"></a><sup>1</sup>If this GPO is enabled and applies to machines with the Connected Machine agent, it deletes the user profile associated with the built-in account specified for the *himds* service. As a result, it also deletes the authentication certificate used to communicate with the service that is cached in the local certificate store for 30 days. Before the 30-day limit, an attempt is made to renew the certificate. To resolve this issue, follow the steps to [disconnect the agent](azcmagent-disconnect.md) and then re-register it with the service running `azcmagent connect`.
-
 ## Next steps
 
 If you don't see your problem here or you can't resolve your issue, try one of the following channels for more support:
 
 * Get answers from Azure experts through [Microsoft Q&A](/answers/topics/azure-arc.html).
 
-* Connect with [@AzureSupport](https://twitter.com/azuresupport), the official Microsoft Azure account for improving customer experience. Azure Support connects the Azure community to answers, support, and experts.
+* Connect with [@AzureSupport](https://x.com/azuresupport), the official Microsoft Azure account for improving customer experience. Azure Support connects the Azure community to answers, support, and experts.
 
 * File an Azure support incident. Go to the [Azure support site](https://azure.microsoft.com/support/options/), and select **Get Support**.

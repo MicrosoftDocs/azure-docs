@@ -4,7 +4,6 @@ description: Learn how to copy data from and to Microsoft Access using a copy ac
 titleSuffix: Azure Data Factory & Azure Synapse
 ms.author: jianleishen
 author: jianleishen
-ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
@@ -37,7 +36,7 @@ To use this Microsoft Access connector, you need to:
 - Install the Microsoft Access ODBC driver for the data store on the Integration Runtime machine.
 
 >[!NOTE]
->Microsoft Access 2016 version of ODBC driver doesn't work with this connector. Use Microsoft Access 2013 or 2010 version of ODBC driver instead.
+>This connector works with Microsoft Access 2016 version of ODBC driver. The recommended driver version is 16.00.5378.1000 or above.
 
 ## Getting started
 
@@ -229,5 +228,5 @@ To copy data to Microsoft Access, the following properties are supported in the 
 
 To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
 
-## Next steps
+## Related content
 For a list of data stores supported as sources and sinks by the copy activity, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).

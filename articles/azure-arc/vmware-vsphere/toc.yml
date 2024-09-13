@@ -26,6 +26,8 @@
       href: support-matrix-for-arc-enabled-vmware-vsphere.md
     - name: Enable VMware vCenter resources in Azure
       href: browse-and-enable-vcenter-resources-in-azure.md
+    - name: Enable additional capabilities on Arc-enabled Server machines by linking to vCenter
+      href: enable-virtual-hardware.md
   - name: Use Azure Management services for VMware VMs
     items: 
     - name: Install Arc agent at scale for your VMware VMs
@@ -36,6 +38,10 @@
         href: setup-and-manage-self-service-access.md
       - name: Perform VM operations on VMware VMs through Azure
         href: perform-vm-ops-through-azure.md
+  - name: Enable Extended Security Updates
+    items:
+      - name: Deliver ESUs for VMware VMs through Arc
+        href: deliver-extended-security-updates-for-vmware-vms-through-arc.md
   - name: Administer
     items: 
     - name: Administer Arc-enabled VMware vSphere
@@ -55,8 +61,32 @@
     items:
     - name: Azure Arc-enabled VMware vSphere
       href: /cli/azure/connectedvmware
-    - name: Azure Arc resource bridge
+    - name: Azure Arc Resource Bridge
       href: /cli/azure/arcappliance
+  - name: Azure PowerShell
+    items:
+    - name: Azure Arc-enabled VMware vSphere
+      href: /powershell/module/az.connectedvmware
+    - name: Azure Arc Resource Bridge
+      href: /powershell/module/az.arcresourcebridge
+  - name: Azure REST APIs
+    href: /rest/api/azure-arc-vmware/operation-groups
+  - name: ARM Templates
+    href: /azure/templates/microsoft.connectedvmwarevsphere/clusters?pivots=deployment-language-arm-template
+  - name: Bicep Templates
+    href: /azure/templates/microsoft.connectedvmwarevsphere/clusters?pivots=deployment-language-bicep
+  - name: Terraform Templates
+    href: /azure/templates/microsoft.connectedvmwarevsphere/clusters?pivots=deployment-language-terraform
+  - name: Python SDK
+    href: /python/api/overview/azure/mgmt-connectedvmware-readme
+  - name: Java SDK
+    href: /java/api/overview/azure/resourcemanager-connectedvmware-readme
+  - name: JavaScript SDK
+    href: /javascript/api/overview/azure/arm-connectedvmware-readme
+  - name: .NET SDK
+    href: /dotnet/api/overview/azure/resourcemanager.connectedvmwarevsphere-readme
+  - name: Go SDK
+    href: https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/resourcemanager/connectedvmware/armconnectedvmware#section-documentation
 - name: Resources
   items:
    - name: Azure Arc Jumpstart

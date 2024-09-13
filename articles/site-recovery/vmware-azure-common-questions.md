@@ -1,9 +1,9 @@
 ---
 title: Common questions about VMware disaster recovery with Azure Site Recovery
 description: Get answers to common questions about disaster recovery of on-premises VMware VMs to Azure by using Azure Site Recovery.
-ms.date: 03/14/2023
+ms.date: 07/10/2024
 ms.topic: conceptual
-ms.service: site-recovery
+ms.service: azure-site-recovery
 ms.author: ankitadutta
 author: ankitaduttaMSFT
 ms.custom: engagement-fy23
@@ -95,6 +95,10 @@ Managed disks are charged slightly differently from storage accounts. [Learn mor
 
 You'll typically see an increase in the transactions cost incurred on GPv2 storage accounts since Azure Site Recovery is transactions heavy. [Read more](../storage/common/storage-account-upgrade.md#pricing-and-billing) to estimate the change.
 
+### Does Site Recovery work with reserved instances?
+
+Yes, you can purchase [reserved Azure virtual machines](https://azure.microsoft.com/pricing/reserved-vm-instances/) in the disaster recovery region, and Site Recovery failover operations use them. No additional configuration is needed.
+
 ## Mobility service
 
 ### Where can I find the Mobility service installers?
@@ -132,7 +136,7 @@ Replication of new VMs to a storage account is available only by using PowerShel
 
 ### Can I change the managed-disk type after a machine is protected?
 
-Yes, you can easily [change the type of managed disk](../virtual-machines/disks-convert-types.md) for ongoing replications. Before changing the type, ensure that no shared access signature URL is generated on the managed disk:
+Yes, you can easily [change the type of managed disk](/azure/virtual-machines/disks-convert-types) for ongoing replications. Before changing the type, ensure that no shared access signature URL is generated on the managed disk:
 
 1. Go to the **Managed Disk** resource on the Azure portal and check whether you have a shared access signature URL banner on the **Overview** blade.
 1. If the banner is present, select it to cancel the ongoing export.
@@ -172,6 +176,10 @@ For every source disk, data is replicated to a managed disk in Azure. This disk 
 ### Can I exclude disks from replication?
 
 Yes, you can exclude disks.
+
+### Does upgrading kernel firmware on a server protected by Azure Site Recovery for disaster recovery have any impact?
+
+No, it won't have any impact on the ongoing replication because the server is already protected through Azure Site Recovery.
 
 ### Can I replicate VMs that have dynamic disks?
 
@@ -324,14 +332,6 @@ Yes, Azure Site Recovery can protect VMs across different clusters.
 
 ## Process server
 
-### Why am I unable to select the process server when I enable replication?
-
-Updates in versions 9.24 and later now display the [health of the process server when you enable replication](vmware-azure-enable-replication.md#enable-replication). This feature helps to avoid process-server throttling and to minimize the use of unhealthy process servers.
-
-### How do I update the process server to version 9.24 or later for accurate health information?
-
-Beginning with [version 9.24](service-updates-how-to.md#links-to-currently-supported-update-rollups), more alerts have been added to indicate the health of the process server. [Update your Site Recovery components to version 9.24 or later](service-updates-how-to.md#links-to-currently-supported-update-rollups) so that all alerts are generated.
-
 ### How can I ensure high availability of the process server?
 
 By configuring more than one process server, the design provides flexibility to move protected machines from an unhealthy process server to working process server. Movement of a machine from one process server to another must be initiated explicitly/manually via the defined steps here: [moving VMs between process servers](vmware-azure-manage-process-server.md#move-vms-to-balance-the-process-server-load).
@@ -389,6 +389,13 @@ Yes. If you failed over to Azure, you can fail back to a different location if t
 
 When you fail back from Azure, data from Azure is copied back to your on-premises VM, and private access is required.
 
+### Can I use On-demand capacity reservation with VMware(also Physical) to IaaS scenario?
+
+No. Azure Site Recovery cannot use On-demand capacity reservation unless it's Azure to Azure scenario.
+
+### The application license is based on UUID of VMware virtual machine. Is the UUID of a VMware virtual machine changed when it is failed over to Azure?
+
+Yes, the UUID of the Azure virtual machine is different from the on-prem VMware virtual machine. However, most application vendors support transferring the license to a new UUID. If the application supports it, the customer can work with the vendor to transfer the license to the VM with the new UUID.
 
 ## Automation and scripting
 

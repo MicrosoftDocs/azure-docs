@@ -1,10 +1,9 @@
 ---
 title: Join Azure-SSIS integration runtime to a virtual network
 description: Learn how to join Azure-SSIS integration runtime to a virtual network. 
-ms.service: data-factory
 ms.subservice: integration-services
 ms.topic: conceptual
-ms.date: 07/20/2023
+ms.date: 05/15/2024
 author: chugugrace
 ms.author: chugu 
 ---
@@ -73,7 +72,7 @@ If your SSIS packages access other cloud data stores/resources that allow only s
 
 In all cases, the virtual network can only be deployed through Azure Resource Manager deployment model.
 
-## Next steps
+## Related content
 
 - [Configure a virtual network to inject Azure-SSIS IR](azure-ssis-integration-runtime-virtual-network-configuration.md)
 - [Express virtual network injection method](azure-ssis-integration-runtime-express-virtual-network-injection.md)

@@ -77,15 +77,17 @@ For demonstration purposes, this sample uses a publicly accessible endpoint by d
 With additional configuration, this sample supports connecting to an **Microsoft Entra ID** (Microsoft Entra ID) protected endpoint so that user login is required for the app to fetch an Azure Communication Services token. See steps below:
 
 1. Enable Microsoft Entra authentication in your app.  
-   - [Register your app under Microsoft Entra ID (using Android platform settings)](../../../active-directory/develop/tutorial-v2-android.md) 
-	- [Configure your App Service or Azure Functions app to use Microsoft Entra login](../../../app-service/configure-authentication-provider-aad.md)
+   - [Register your app under Microsoft Entra ID (using Android platform settings)](/entra/identity-platform/tutorial-v2-android) 
+   - [Configure your App Service or Azure Functions app to use Microsoft Entra login](../../../app-service/configure-authentication-provider-aad.md)
 
-2. Go to your registered app overview page under Microsoft Entra App Registrations. Take note of the `Package name`, `Signature hash`, `MSAL Configutaion`
+2. Go to your registered app overview page under Microsoft Entra App Registrations. Take note of the `Package name`, `Signature hash`, `MSAL Configutaion`.
 
 :::image type="content" source="../media/calling/aad-overview-android.png" alt-text="Microsoft Entra configuration on Azure portal.":::
 
-3. Edit `AzureCalling/app/src/main/res/raw/auth_config_single_account.json` and set `isAADAuthEnabled` to enable Microsoft Entra ID
+3. Edit `AzureCalling/app/src/main/res/raw/auth_config_single_account.json` and set `isAADAuthEnabled` to enable Microsoft Entra ID.
+
 4. Edit `AndroidManifest.xml` and set `android:path` to keystore signature hash. (Optional. The current value uses hash from bundled debug.keystore. If different keystore is used, this must be updated.)
+
    ```
    <activity android:name="com.microsoft.identity.client.BrowserTabActivity">
             <intent-filter>

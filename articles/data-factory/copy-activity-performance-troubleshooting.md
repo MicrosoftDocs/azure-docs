@@ -4,11 +4,10 @@ titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn about how to troubleshoot copy activity performance in Azure Data Factory and Azure Synapse Analytics.
 ms.author: jianleishen
 author: jianleishen
-ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 06/21/2023
+ms.date: 01/05/2024
 ---
 
 # Troubleshoot copy activity performance
@@ -250,11 +249,11 @@ Here is performance monitoring and tuning references for some of the supported d
 * Azure Table storage: [Scalability and performance targets for Table storage](../storage/tables/scalability-targets.md) and [Performance and scalability checklist for Table storage](../storage/tables/storage-performance-checklist.md).
 * Azure SQL Database: You can [monitor the performance](/azure/azure-sql/database/monitor-tune-overview) and check the Database Transaction Unit (DTU) percentage.
 * Azure Synapse Analytics: Its capability is measured in Data Warehouse Units (DWUs). See [Manage compute power in Azure Synapse Analytics (Overview)](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md).
-* Azure Cosmos DB: [Performance levels in Azure Cosmos DB](../cosmos-db/performance-levels.md).
+* Azure Cosmos DB: [Performance levels in Azure Cosmos DB](/azure/cosmos-db/performance-levels).
 * SQL Server: [Monitor and tune for performance](/sql/relational-databases/performance/monitor-and-tune-for-performance).
 * On-premises file server: [Performance tuning for file servers](/previous-versions//dn567661(v=vs.85)).
 
-## Next steps
+## Related content
 See the other copy activity articles:
 
 - [Copy activity overview](copy-activity-overview.md)

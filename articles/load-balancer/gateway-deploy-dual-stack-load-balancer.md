@@ -1,11 +1,10 @@
 ---
-title: Deploy a dual-stack Azure Gateway Load Balancer 
+title: Deploy a dual-stack Azure Gateway Load Balancer
 titlesuffix: Azure Virtual Network
 description: In this tutorial, you deploy IPv6 configurations to an existing IPv4-configured Azure Gateway Load Balancer
 author: mbender-ms
-ms.service: load-balancer
+ms.service: azure-load-balancer
 ms.topic: how-to
-ms.workload: infrastructure-services
 ms.date: 09/25/2023
 ms.author: mbender
 ms.custom: template-how-to, devx-track-azurecli, devx-track-azurepowershell
@@ -27,7 +26,7 @@ You learn to:
 Along with the Gateway Load Balancer, this scenario includes the following already-deployed resources:
 
 - A dual stack virtual network and subnet.
-- A standard Load Balancer with dual (IPv4 + IPv6) front-end configurations.
+- A standard Load Balancer with dual (IPv4 + IPv6) frontend configurations.
 - A Gateway Load Balancer with IPv4 only.
 - A network interface with a dual-stack IP configuration, a network security group attached, and public IPv4 & IPv6 addresses.
 

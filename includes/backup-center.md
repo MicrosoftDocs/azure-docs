@@ -1,6 +1,6 @@
 ---
 author: v-amallick
-ms.service: backup
+ms.service: azure-backup
 ms.topic: include
 ms.date: 10/19/2020
 ms.author: v-amallick

@@ -1,14 +1,16 @@
 ---
 title: Built-in policy definitions for Azure API Management
 description: Lists Azure Policy built-in policy definitions for Azure API Management. These built-in policy definitions provide approaches to managing your Azure resources.
-ms.date: 11/29/2023
+ms.date: 02/06/2024
 author: dlepow
 ms.author: danlep
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: reference
 ms.custom: subject-policy-reference
 ---
 # Azure Policy built-in policy definitions for Azure API Management
+
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 
 This page is an index of [Azure Policy](../governance/policy/overview.md) built-in policy
 definitions for Azure API Management. For additional Azure Policy built-ins for other services, see

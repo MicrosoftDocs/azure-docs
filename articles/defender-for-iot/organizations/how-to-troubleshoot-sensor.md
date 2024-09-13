@@ -1,7 +1,7 @@
 ---
 title: Troubleshoot the sensor | Microsoft Defender for IoT
 description: Learn how to troubleshoot your Microsoft Defender for IoT OT sensor.
-ms.date: 09/07/2023
+ms.date: 12/19/2023
 ms.topic: troubleshooting
 #CustomerIntent: As a Defender for IoT sensor admin, I want to know how to troubleshoot sensor issues so that I can get it back online quickly.
 ---
@@ -19,7 +19,7 @@ For any other issues, contact [Microsoft Support](https://support.microsoft.com/
 
 To perform the procedures in this article, make sure that you have:
 
-- Access to the OT network sensor as a **Support** user. For more information, see [Default privileged on-premises users](roles-on-premises.md#default-privileged-on-premises-users).
+- Access to the OT network sensor as the default *admin* user. For more information, see [Default privileged on-premises users](roles-on-premises.md#default-privileged-on-premises-users).
 
 ## Check sensor - cloud connectivity issues
 
@@ -48,7 +48,7 @@ The **Cloud connectivity troubleshooting** pane covers the following types of is
 |**Proxy authentication issues**     |  Occurs when a proxy demands authentication, but no credentials, or incorrect credentials, are provided. <br><br>In such cases, make sure that you've configured the proxy credentials correctly. For more information, see [Update the OT sensor network configuration](how-to-manage-individual-sensors.md#update-the-ot-sensor-network-configuration).      |
 |**Name resolution failures**     | Occurs when the sensor can't perform name resolution for a specific endpoint. <br><br>In such cases, if your DNS server is reachable, make sure that the DNS server is configured on your sensor correctly. If the configuration is correct, we recommend reaching out to your DNS administrator.   <br><br>For more information, see [Update the OT sensor network configuration](how-to-manage-individual-sensors.md#update-the-ot-sensor-network-configuration).      |
 |**Unreachable proxy server errors**     | Occurs when the sensor can't establish a connection with the proxy server. In such cases, confirm the reachability of your proxy server with your network team.    <br><br>For more information, see [Update the OT sensor network configuration](how-to-manage-individual-sensors.md#update-the-ot-sensor-network-configuration).      |
-
+|**Time drift detected** |Occurs when the UTC time of the sensor isn't synchronized with Defender for IoT on the Azure portal.<br><br>In this case, configure a Network Time Protocol (NTP) server to synchronize the sensor in UTC time.<br><br>For more information, see [Configure OT sensor settings from the Azure portal](configure-sensor-settings-portal.md#ntp). |
 
 ## Check system health
 
@@ -56,7 +56,7 @@ Check your system health from the sensor.
 
 **To access the system health tool**:
 
-1. Sign in to the sensor with the *support* user credentials and select **System Settings** > :::image type="icon" source="media/tutorial-install-components/system-health-check-icon.png" border="false"::: **System health check**.
+1. Sign in to the sensor with the *admin* user credentials and select **System Settings** > :::image type="icon" source="media/tutorial-install-components/system-health-check-icon.png" border="false"::: **System health check**.
 
 1. In the **System health check** pane, select a command from the menu to view more details in the box. For example:
 
@@ -91,7 +91,7 @@ For more information, see [CLI command reference from OT network sensors](cli-ot
 
 **To test the system's sanity**:
 
-1. Connect to the CLI with the Linux terminal (for example, PuTTY) and the user *support*.
+1. Connect to the CLI with the Linux terminal (for example, PuTTY) and the user *admin*.
 
 1. Enter `system sanity`.
 
@@ -105,7 +105,7 @@ Verify that the correct version is used:
 
 **To check the system's version**:
 
-1. Connect to the CLI with the Linux terminal (for example, PuTTY) and the user *support*.
+1. Connect to the CLI with the Linux terminal (for example, PuTTY) and the user *admin*.
 
 1. Enter `system version`.
 
@@ -115,7 +115,7 @@ Verify that all the input interfaces configured during the installation process 
 
 **To validate the system's network status**:
 
-1. Connect to the CLI with the Linux terminal (for example, PuTTY) and the *support* user.
+1. Connect to the CLI with the Linux terminal (for example, PuTTY) and the *admin* user.
 
 1. Enter `network list` (the equivalent of the Linux command `ifconfig`).
 
@@ -188,7 +188,7 @@ For more information, see [Data retention across Microsoft Defender for IoT](ref
 
    1. Connect a monitor and a keyboard to the appliance.
 
-   1. Use the *support* user and password to sign in.
+   1. Use the *admin* user and password to sign in.
 
    1. Use the command `network list` to see the current IP address.
 
@@ -208,7 +208,7 @@ For more information, see [Data retention across Microsoft Defender for IoT](ref
 
    1. To apply the settings, select **Y**.
 
-1. After restart, connect with the *support* user credentials and use the `network list` command to verify that the parameters were changed.
+1. After restart, connect with the *admin* user credentials and use the `network list` command to verify that the parameters were changed.
 
 1. Try to ping and connect from the GUI again.
 
@@ -216,7 +216,7 @@ For more information, see [Data retention across Microsoft Defender for IoT](ref
 
 1. Connect a monitor and keyboard to the appliance, or use PuTTY to connect remotely to the CLI.
 
-1. Use the *support* user credentials to sign in.
+1. Use the *admin* user credentials to sign in.
 
 1. Use the `system sanity` command and check that all processes are running. For example:
 
@@ -230,7 +230,7 @@ When signing into a pre-configured sensor for the first time, you'll need to per
 
 1. On the Defender for IoT sign in screen, select  **Password recovery**. The **Password recovery** screen opens.
 
-1. Select either **Support** or **CyberX**, and copy the unique identifier.
+1. Select either **Admin** or **CyberX**, and copy the unique identifier. <!--how does this work now?-->
 
 1. Navigate to the Azure portal and select **Sites and sensors**.
 
@@ -249,7 +249,7 @@ When signing into a pre-configured sensor for the first time, you'll need to per
 1. Select **Next**, and your user, and a system-generated password for your management console will then appear.
 
     > [!NOTE]
-    > When you sign in to a sensor or on-premises management console for the first time, it's linked to your Azure subscription, which you'll need if you need to recover the password for the *support*, or *cyberx* user. For more information, see the relevant procedure for [sensors](manage-users-sensor.md#recover-privileged-access-to-a-sensor) or an [on-premises management console](manage-users-on-premises-management-console.md#recover-privileged-access-to-an-on-premises-management-console).
+    > When you sign in to a sensor for the first time, it's linked to your Azure subscription, which you'll need if you need to recover the password for the *admin* user. For more information, see [Recover privileged access to a sensor](manage-users-sensor.md#recover-privileged-access-to-a-sensor).
 
 ## Investigate a lack of traffic
 
@@ -356,4 +356,4 @@ For further troubleshooting, you may want to export logs to send to the support 
 
 - [Set up SNMP MIB health monitoring on an OT sensor](how-to-set-up-snmp-mib-monitoring.md)
 
-- [Monitor disconnected OT sensors](how-to-manage-sensors-from-the-on-premises-management-console.md#monitor-disconnected-ot-sensors)
+- [Monitor disconnected OT sensors](legacy-central-management/how-to-manage-sensors-from-the-on-premises-management-console.md#monitor-disconnected-ot-sensors)

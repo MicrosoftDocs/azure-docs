@@ -7,13 +7,14 @@ ms.author: duau
 manager: KumudD
 ms.date: 10/02/2023
 ms.topic: quickstart
-ms.service: frontdoor
-ms.workload: infrastructure-services
+ms.service: azure-frontdoor
 ms.custom: template-tutorial, mode-ui, engagement-fy23
 #Customer intent: As an IT admin, I want to manage user traffic to ensure high availability of web applications.
 ---
 
 # Quickstart: Create a Front Door for a highly available global web application
+
+[!INCLUDE [Azure Front Door (classic) retirement notice](../../includes/front-door-classic-retirement.md)]
 
 This quickstart shows you how to use the Azure portal to set up high availability for a web application with Azure Front Door. You create a Front Door configuration that distributes traffic across two instances of a web application running in different Azure regions. The configuration uses equal weighted and same priority backends, which means that Azure Front Door directs traffic to the closest available site that hosts the application. Azure Front Door also monitors the health of the web application and performs automatic failover to the next nearest site if the closest site is down.
 

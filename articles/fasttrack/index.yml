@@ -7,11 +7,11 @@ brand: azure
 metadata:
   title: FastTrack for Azure
   description: Expertise and custom technical guidance you can trust, directly from Azure engineers to help accelerate your Azure deployments securely.
-  ms.prod: azure 
+  ms.service: azure 
   ms.topic: hub-page
-  author: nwiddup
-  ms.author: kimberlm, nwiddup, alricha
-  ms.date: 10/31/2023
+  author: ARMSGit
+  ms.author: alricha
+  ms.date: 08/27/2024
 
 # productDirectory section
 productDirectory:
@@ -19,18 +19,18 @@ productDirectory:
     # Card
     - title: Watch Live
       imageSrc: ./media/azure-cloud.png
-      summary: Register on Reactor to join upcoming interactive live sessions and webcasts to get your questions answered real time by Azure engineers
+      summary: Register on Reactor to join upcoming interactive live sessions and webcasts to get your questions answered real time by Azure engineers.
       url: https://developer.microsoft.com/en-us/reactor/?search=fasttrack
     # Card
     - title: Watch on-demand recordings
       imageSrc: ./media/productivity.png
-      summary: Catch up on past sessions at your own pace
+      summary: Catch up on past sessions at your own pace.
       url: https://learn.microsoft.com/shows/learn-live/?terms=fasttrack
     # Card
     - title: Ask an Azure Engineer
       imageSrc: ./media/interact.png
-      summary: Get your technical questions answered directly from an Azure engineer
-      url: https://learn.microsoft.com/answers/tags/351/azure-fasttrack
+      summary: Get your technical questions answered directly from an Azure engineer.
+      url: https://learn.microsoft.com/answers/questions/ask/
       
 # conceptualContent section
 conceptualContent:
@@ -57,6 +57,9 @@ conceptualContent:
             - url: https://learn.microsoft.com/shows/learn-live/fasttrack-for-azure-season-1-ep09-microsoft-identity-platform
               itemType: video
               text: Introduction to Microsoft Identity Platform
+            - url: https://aka.ms/ftalive-202400827-zpr
+              itemType: video
+              text: Zone Preferred Regions - NEW!
         # Card
         - title: Infrastructure
           links:
@@ -69,6 +72,12 @@ conceptualContent:
             - url: https://learn.microsoft.com/shows/learn-live/fasttrack-for-azure-season-2-ep08-how-to-get-started-fast-azure-virtual-desktop-for-beginners
               itemType: video
               text: How To Get Started FAST - Azure Virtual Desktop for Beginners
+            - url: https://learn-video.azurefd.net/vod/player?id=179b612f-e2cb-42e8-89d7-97f2b4632daa
+              itemType: video
+              text: 'Azure Routing: Ultimate Guide for Beginners (Spanish)'
+            - url: https://aka.ms/ftalive-20240523-cloudserviceclassictocloudserviceextendedsupportmigration
+              itemType: video
+              text: Classic Cloud Services to Cloud Services Extended Support Migration
             # Possible addition - Azure Networking Fundamentals (replace AVD)
             # Possible removal - AVD FastStart
         # Card
@@ -83,6 +92,18 @@ conceptualContent:
             - url: https://learn.microsoft.com/shows/learn-live/fasttrack-for-azure-season-1-ep01-aks-security-best-practices
               itemType: video
               text: AKS Security Best Practices
+            - url: https://learn-video.azurefd.net/vod/player?id=0e082046-7a52-48b6-8818-6997eb422992
+              itemType: video
+              text: Azure API Management (APIM) STV Migration
+            - url: https://learn-video.azurefd.net/vod/player?id=799a7ef2-d0c8-4dab-bb15-19181554aea1
+              itemType: video
+              text: ISE to Logic App Migration
+            - url: https://aka.ms/ftalive-202404-asev2v3migration
+              itemType: video
+              text: ASE v2 to ASE v3 Migration - NEW!
+            - url: https://aka.ms/ftalive-20240520-appgwv1v2migration
+              itemType: video
+              text: App Gateway v1 to v2 Migration
         # Card
         - title: Data
           links:
@@ -98,6 +119,9 @@ conceptualContent:
             - url: https://learn.microsoft.com/shows/learn-live/fasttrack-for-azure-season-3-ep04-azure-database-for-postgresql-single-server-to-flexible-server-migration
               itemType: video
               text: Azure Database for PostgreSQL Single to Flexible server migration
+            - url: https://learn-video.azurefd.net/vod/player?id=51536711-1644-432d-beb6-26060695cf91
+              itemType: video
+              text: Azure Classic Cache for Redis Retirement and Migration
         # Card
         - title: "AI & ML"
           links:
@@ -152,6 +176,6 @@ additionalContent:
           summary: Learn how to get expert help with FastTrack for Azure to accelerate your cloud deployments and minimize risk at the same time.
           url: https://techcommunity.microsoft.com/t5/fasttrack-for-azure/bg-p/FastTrackforAzureBlog
         # Card
-        - title: FastTrack for Azure TechCommunity Discussion
-          summary: Your community for best practices and the latest news on Microsoft FastTrack
-          url: https://techcommunity.microsoft.com/t5/fasttrack-for-azure/bd-p/FastTrack-for-Azure
+        - title: Azure Academy
+          summary: The Azure Academy helps IT folks like YOU around the world master your Cloud skills with Engaging, Entertaining, Educational Videos so YOU can take your career to the next level!
+          url: https://www.youtube.com/@AzureAcademy

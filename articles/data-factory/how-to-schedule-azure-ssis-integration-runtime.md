@@ -1,11 +1,10 @@
 ---
 title: Schedule an Azure-SSIS integration runtime 
 description: This article describes how to schedule starting and stopping an Azure-SSIS integration runtime by using Azure Data Factory.
-ms.service: data-factory
 ms.subservice: integration-services
 ms.devlang: powershell
 ms.topic: conceptual
-ms.date: 05/31/2023
+ms.date: 01/05/2024
 author: chugugrace
 ms.author: chugu
 ms.custom: subject-rbac-steps, devx-track-azurepowershell
@@ -22,7 +21,7 @@ Alternatively, you can create web activities in Data Factory or Azure Synapse An
 
 You can also chain an Execute SSIS Package activity between two web activities that start and stop your IR. Your IR will then start and stop on demand, before or after your package execution. For more information about the Execute SSIS Package activity, see [Run an SSIS package with the Execute SSIS Package activity in the Azure portal](how-to-invoke-ssis-package-ssis-activity.md).
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 ## Prerequisites
 
@@ -121,7 +120,7 @@ If you create a third trigger that's scheduled to run daily at midnight and is a
 
    1. On your Data Factory page in the Azure portal, select **Access control (IAM)**.
    1. Select **Add** > **Add role assignment** to open the **Add role assignment** page.
-   1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.md).
+   1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml).
 
       | Setting | Value |
       | --- | --- |
@@ -129,7 +128,7 @@ If you create a third trigger that's scheduled to run daily at midnight and is a
       | Assign access to | User, group, or service principal |
       | Members | Your Data Factory username |
 
-      :::image type="content" source="../../includes/role-based-access-control/media/add-role-assignment-page.png" alt-text="Screenshot that shows the page for adding a role assignment in the Azure portal.":::
+      :::image type="content" source="~/reusable-content/ce-skilling/azure/media/role-based-access-control/add-role-assignment-page.png" alt-text="Screenshot that shows the page for adding a role assignment in the Azure portal.":::
 
 7. Validate your data factory and all pipeline settings by selecting **Validate all** or **Validate** on the factory or pipeline toolbar. Close **Factory Validation Output** or **Pipeline Validation Output** by selecting the double arrow (**>>**) button.  
 
@@ -398,7 +397,7 @@ In the previous section, you created an Azure Automation runbook that can either
 
 6. When you finish testing, disable your schedules by editing them. Select **Schedules** on the left menu, select **Start IR daily/Stop IR daily**, and then select **No** for **Enabled**.
 
-## Next steps
+## Related content
 
 See the following blog post:
 

@@ -1,16 +1,9 @@
 ---
 title: Configure Unix permissions and change ownership mode for Azure NetApp Files NFS and dual-protocol volumes | Microsoft Docs
-description: Describes how to set the Unix permissions and the change ownership mode options for Azure NetApp Files NFS and dual-protocol volumes. 
+description: Describes how to set the Unix permissions and the change ownership mode options for Azure NetApp Files NFS and dual-protocol volumes.
 services: azure-netapp-files
-documentationcenter: ''
 author: b-hchen
-manager: ''
-editor: ''
-
-ms.assetid:
 ms.service: azure-netapp-files
-ms.workload: storage
-ms.tgt_pltfrm: na
 ms.topic: how-to
 ms.date: 02/28/2023
 ms.author: anfdocs
@@ -45,15 +38,15 @@ The change ownership mode (**`Chown Mode`**) functionality enables you to set th
 
     The following example shows the Create a Volume screen for an NFS volume. 
 
-    ![Screenshots that shows the Create a Volume screen for NFS.](../media/azure-netapp-files/unix-permissions-create-nfs-volume.png)
+    ![Screenshots that shows the Create a Volume screen for NFS.](./media/configure-unix-permissions-change-ownership-mode/unix-permissions-create-nfs-volume.png)
 
 2. For existing NFS or dual-protocol volumes, you can set or modify **Unix permissions** and **change ownership mode** as follows:  
 
     1. To modify Unix permissions, right-click the **volume**, and select **Edit**. In the Edit window that appears, specify a value for **Unix Permissions**.  
-        ![Screenshots that shows the Edit screen for Unix permissions.](../media/azure-netapp-files/unix-permissions-edit.png)
+        ![Screenshots that shows the Edit screen for Unix permissions.](./media/configure-unix-permissions-change-ownership-mode/unix-permissions-edit.png)
 
     2. To modify the change ownership mode, click the **volume**, click **Export policy**, then modify the **`Chown Mode`** setting.  
-        ![Screenshots that shows the Export Policy screen.](../media/azure-netapp-files/chown-mode-edit.png)
+        ![Screenshots that shows the Export Policy screen.](./media/configure-unix-permissions-change-ownership-mode/chown-mode-edit.png)
 
 ## Next steps  
 

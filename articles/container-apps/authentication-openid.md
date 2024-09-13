@@ -3,8 +3,7 @@ title: Enable authentication and authorization in Azure Container Apps with a Cu
 description: Learn to use the built-in Custom OpenID Connect authentication provider in Azure Container Apps.
 services: container-apps
 author: craigshoemaker
-ms.service: container-apps
-ms.custom: event-tier1-build-2022
+ms.service: azure-container-apps
 ms.topic: how-to
 ms.date: 04/20/2022
 ms.author: cshoe

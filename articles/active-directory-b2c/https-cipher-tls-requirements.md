@@ -9,10 +9,13 @@ manager: CelesteDG
 ms.service: active-directory
 
 ms.topic: reference
-ms.date: 04/30/2021
-ms.custom: 
+ms.date: 01/11/2024
 ms.author: kengaderdus
 ms.subservice: B2C
+
+
+#Customer intent: As a developer integrating Azure Active Directory B2C with my endpoints, I want to understand the TLS and cipher suite requirements, so that I can ensure my endpoints are compatible and establish a secure connection with Azure AD B2C.
+
 ---
 
 # Azure Active Directory B2C TLS and cipher suite requirements

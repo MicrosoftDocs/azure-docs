@@ -1,7 +1,6 @@
 ---
 title: Azure Service Bus to Event Grid integration overview | Microsoft Docs
 description: This article provides a description of how Azure Service Bus messaging integrates with Azure Event Grid. 
-documentationcenter: .net
 author: spelluru
 ms.topic: conceptual
 ms.date: 12/08/2022

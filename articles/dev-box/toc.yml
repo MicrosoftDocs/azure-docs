@@ -3,106 +3,145 @@ items:
   href: index.yml
 - name: Overview
   expanded: true
-  items: 
+  items:
     - name: What is Microsoft Dev Box?
       displayName: DevBox, VDI
       href: overview-what-is-microsoft-dev-box.md
+    - name: Roadmap for Microsoft Dev Box
+      displayName: roadmap, future, features, enhancements, coming soon, in development
+      href: dev-box-roadmap.md
 - name: Quickstarts
   expanded: true
-  items: 
-    - name: Set up Dev Box with Azure portal
+  items:
+    - name: Set up Dev Box service (Azure portal)
       href: quickstart-configure-dev-box-service.md
-    - name: Set up Dev Box with an ARM template
+    - name: Set up Dev Box service (ARM template)
       displayName: Resource Manager
       href: quickstart-configure-dev-box-arm-template.md  
-    - name: Create a dev box
+    - name: Spin up a new dev box
+      displayName: connect, access dev box
       href: quickstart-create-dev-box.md
-- name: Tutorials
-  expanded: false
-  items:
-    - name: Connect with Remote Desktop App 
-      href: tutorial-connect-to-dev-box-with-remote-desktop-app.md
-    - name: Limit number of dev boxes per project
-      href: tutorial-dev-box-limits.md  
 - name: Concepts
-  expanded: false
-  items:
-    - name: Key concepts
-      href: concept-dev-box-concepts.md
-- name: How-to guides
   expanded: true
   items:
-    - name: Configure resources
-      expanded: false
-      items: 
-      - name: Manage a dev center
-        href: how-to-manage-dev-center.md
-      - name: Manage network connections
-        href: how-to-configure-network-connections.md  
-      - name: Manage a dev box project
-        href: how-to-manage-dev-box-projects.md
-      - name: Manage a dev box definition
-        href: how-to-manage-dev-box-definitions.md
-      - name: Manage a dev box pool
-        href: how-to-manage-dev-box-pools.md
-      - name: Provide access to project admins
-        href: how-to-project-admin.md
-      - name: Provide access to dev box users
-        href: how-to-dev-box-user.md        
-      - name: Manage a dev box through developer portal
-        href: how-to-create-dev-boxes-developer-portal.md
-    - name: Manage costs
-      expanded: false
-      items:
-      - name: Determine resource usage and quota
-        href: how-to-determine-your-quota-usage.md
-      - name: Request a quota limit increase
-        href: how-to-request-quota-increase.md
-      - name: Configure Dev Box Hibernation
-        href: how-to-configure-dev-box-hibernation.md
-      - name: Hibernate your Dev Box
-        href: how-to-hibernate-your-dev-box.md  
-      - name: Configure an auto-stop schedule
-        href: how-to-configure-stop-schedule.md
-      - name: Skip or delay an automatic shutdown
-        href: how-to-skip-delay-stop.md
-    - name: Prepare images
-      expanded: false
-      items:
-      - name: Configure an Azure compute gallery
-        href: how-to-configure-azure-compute-gallery.md
-      - name: Provision a Custom Image with Azure Image Builder
-        href: how-to-customize-devbox-azure-image-builder.md
-    - name: Authenticate to REST APIs
-      href: how-to-authenticate.md
-    - name: Install Azure CLI devcenter extension
-      href: how-to-install-dev-box-cli.md  
-    - name: Configure Visual Studio caches
-      href: how-to-generate-visual-studio-caches.md
-    - name: Configure Azure Diagnostic Logs
-      href: how-to-configure-dev-box-azure-diagnostic-logs.md
-- name: Troubleshooting and support
+    - name: Architecture overview
+      displayName: Architecture,concepts,what is,overview,dev box,devbox,dev center,devcenter,project,networking,intune,azure
+      href: concept-dev-box-architecture.md
+    - name: Network requirements
+      displayName: Network,firewall,endpoints,ports,connect,network connection,native,hybrid,hosted,tags
+      href: concept-dev-box-network-requirements.md
+    - name: Key concepts
+      href: concept-dev-box-concepts.md
+    - name: Azure role-based access control
+      displayName: RBAC,role-based access control,permissions,access,role,role assignment,role definition
+      href: concept-dev-box-role-based-access-control.md
+- name: Plan
+  expanded: true
   items:
-    - name: Troubleshoot dev box connectivity issues
-      href: how-to-troubleshoot-repair-dev-box.md
-    - name: Get support for Microsoft Dev Box
-      href: how-to-get-help.md
+    - name: Microsoft Dev Box deployment guide
+      href: concept-dev-box-deployment-guide.md
+- name: Configure resources
+  items:
+  - name: Manage a dev center
+    href: how-to-manage-dev-center.md
+  - name: Manage network connections
+    href: how-to-configure-network-connections.md  
+  - name: Manage a dev box project
+    href: how-to-manage-dev-box-projects.md
+  - name: Manage a dev box definition
+    href: how-to-manage-dev-box-definitions.md
+  - name: Manage a dev box pool
+    href: how-to-manage-dev-box-pools.md
+  - name: Display names for a project or pool
+    href: how-to-add-project-pool-display-name.md
+  - name: Limit number of dev boxes per project
+    href: tutorial-dev-box-limits.md      
+  - name: Configure Visual Studio caches
+    href: how-to-generate-visual-studio-caches.md
+  - name: Monitor Dev Box
+    displayName: diagnostic, logs
+    href: monitor-dev-box.md    
+- name: Prepare images
+  items:
+  - name: Configure an Azure compute gallery
+    href: how-to-configure-azure-compute-gallery.md
+  - name: Provision a Custom Image with Azure Image Builder
+    href: how-to-customize-devbox-azure-image-builder.md
+- name: Customize dev boxes
+  items:
+  - name: Create reusable customizations
+    href: how-to-customize-dev-box-setup-tasks.md
+  - name: Use Dev Home to manage dev boxes
+    href: how-to-use-dev-home-customize-dev-box.md
+- name: Create & connect to dev boxes
+  items:
+  - name: Manage a dev box through developer portal
+    href: how-to-create-dev-boxes-developer-portal.md
+  - name: Connect with Windows App
+    displayName: connect, access dev box, RDP, iPad 
+    href: /windows-app/get-started-connect-devices-desktops-apps?context=/azure/dev-box/context/context&pivots=dev-box
+  - name: Connect with Remote Desktop
+    displayName: connect, access dev box, RDP, iPad 
+    href: tutorial-connect-to-dev-box-with-remote-desktop-app.md
+  - name: Use multiple monitors
+    href: tutorial-configure-multiple-monitors.md
+- name: Security
+  items:
+  - name: Provide access to project admins
+    href: how-to-project-admin.md
+  - name: Provide access to dev box users
+    href: how-to-dev-box-user.md 
+  - name: Configure conditional access policies
+    href: how-to-configure-intune-conditional-access-policies.md
+  - name: Configure elevated privilege for dev boxes
+    href: how-to-elevate-privilege-dev-box.md
+    displayName: run as, administrator, Intune, EPM, policy
+  - name: Enable single sign-on for dev boxes
+    href: how-to-enable-single-sign-on.md
+    displayName: SSO
+- name: Manage costs
+  items:
+  - name: Request a quota limit increase
+    href: how-to-request-quota-increase.md
+  - name: Configure Dev Box Hibernation
+    href: how-to-configure-dev-box-hibernation.md
+  - name: Hibernate your Dev Box
+    href: how-to-hibernate-your-dev-box.md  
+  - name: Configure an auto-stop schedule
+    href: how-to-configure-stop-schedule.md
+  - name: Configure stop on disconnect
+    href: how-to-configure-stop-on-disconnect.md
+  - name: Skip or delay an automatic shutdown
+    href: how-to-skip-delay-stop.md
+- name: Troubleshooting
+  items: 
+  - name: Troubleshoot dev box connectivity issues
+    href: how-to-troubleshoot-repair-dev-box.md
+  - name: Troubleshoot Task view issues
+    href: how-to-troubleshoot-dev-box-task-view.md    
 - name: Reference
   items:
-    - name: Azure CLI - devcenter
-      href: https://aka.ms/CLI-reference
+    - name: Install Azure CLI devcenter extension
+      href: how-to-install-dev-box-cli.md    
+    - name: Azure CLI - az devcenter
+      href: /cli/azure/service-page/microsoft%20dev%20box%20and%20azure%20deployment%20environments
+    - name: Authenticate to REST APIs
+      href: how-to-authenticate.md
     - name: REST API
-      href: https://aka.ms/dev-box/restapidocs
+      href: /rest/api/devcenter/
     - name: Monitoring Microsoft DevCenter data reference
-      href: monitor-reference.md  
+      displayName: diagnostic, logs
+      href: monitor-dev-box-reference.md  
 - name: Resources
   items: 
     - name: Azure roadmap
       href: https://azure.microsoft.com/roadmap/
-    - name: Regional availability
-      href: https://azure.microsoft.com/regions/services/
+    - name: Azure regions supported by Dev Box
+      href: https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=dev-box
     - name: FAQ
       href: dev-box-faq.yml
+    - name: Get support for Microsoft Dev Box
+      href: how-to-get-help.md
     - name: Report a problem
       href: https://aka.ms/devbox/report
     - name: Suggest a feature

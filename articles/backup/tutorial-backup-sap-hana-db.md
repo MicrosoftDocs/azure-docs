@@ -2,8 +2,9 @@
 title: Tutorial - Back up SAP HANA databases in Azure VMs 
 description: In this tutorial, learn how to back up SAP HANA databases running on Azure VM to an Azure Backup Recovery Services vault. 
 ms.topic: tutorial
-ms.date: 05/16/2022
-ms.service: backup
+ms.date: 01/24/2024
+ms.service: azure-backup
+ms.custom: engagement-fy24
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
@@ -41,13 +42,13 @@ Make sure you do the following before configuring backups:
 
 ## Understanding backup and restore throughput performance
 
-The backups (log and non-log) in SAP HANA Azure VMs provided via Backint are streams to Azure Recovery Services vaults (which internally use Azure Storage Blob) and so it is important to understand this streaming methodology.
+The backups (log and non-log) in SAP HANA Azure VMs provided via Backint are streams to Azure Recovery Services vaults (which internally use Azure Storage Blob) and so it's important to understand this streaming methodology.
 
 The Backint component of HANA provides the 'pipes' (a pipe to read from and a pipe to write into), connected to underlying disks where database files reside, which are then read by the Azure Backup service and transported to Azure Recovery Services vault, which is a remote Azure Storage Account. The Azure Backup service also performs a checksum to validate the streams, in addition to the Backint native validation checks. These validations will make sure that the data present in Azure Recovery Services vault is indeed reliable and recoverable.
 
-Since the streams primarily deal with disks, you need to understand the disk performance for read and network performance to transfer backup data  to gauge the backup and restore performance. Refer to [this article](../virtual-machines/disks-performance.md) for an in-depth understanding of disk/network throughput and performance in Azure VMs. These are also applicable to backup and restore performance.
+Since the streams primarily deal with disks, you need to understand the disk performance for read and network performance to transfer backup data  to gauge the backup and restore performance. Refer to [this article](/azure/virtual-machines/disks-performance) for an in-depth understanding of disk/network throughput and performance in Azure VMs. These are also applicable to backup and restore performance.
 
-**The Azure Backup service attempts to achieve upto ~420 MBps for non-log backups (such as full, differential and incremental) and upto 100 MBps for log backups for HANA**. As mentioned above, these are not guaranteed speeds and depend on following factors:
+**The Azure Backup service attempts to achieve upto ~420 MBps for non-log backups (such as full, differential and incremental) and upto 100 MBps for log backups for HANA**. As mentioned above, these aren't guaranteed speeds and depend on following factors:
 
 - Maximum Uncached disk throughput of the VM – read from data or log area.
 - Underlying disk type and its throughput – read from data or log area.
@@ -63,23 +64,26 @@ Since the streams primarily deal with disks, you need to understand the disk per
 If you want to throttle backup service disk IOPS consumption to a maximum value, then perform the following steps.
 
 1. Go to the "opt/msawb/bin" folder
-2. Create a new JSON file named "ExtensionSettingOverrides.JSON"
+2. Create a new JSON file named "ExtensionSettingsOverrides.JSON"
 3. Add a key-value pair to the JSON file as follows:
 
     ```json
     {
-    "MaxUsableVMThroughputInMBPS": 200
+    "MaxUsableVMThroughputInMBPS": 120
     }
     ```
 
 4. Change the permissions and ownership of the file as follows:
     
     ```bash
-    chmod 750 ExtensionSettingOverrides.json
-    chown root:msawb ExtensionSettingOverrides.json
+    chmod 750 ExtensionSettingsOverrides.json
+    chown root:msawb ExtensionSettingsOverrides.json
     ```
 
 5. No restart of any service is required. The Azure Backup service will attempt to limit the throughput performance as mentioned in this file.
+
+>[!Note]
+> If the changes aren't applied, restart the databases.
 
 ## What the pre-registration script does
 
@@ -93,7 +97,7 @@ Running the pre-registration script performs the following functions:
   * For MDC: DATABASE ADMIN and BACKUP ADMIN (from HANA 2.0 SPS05 onwards): to create new databases during restore.
   * For SDC: BACKUP ADMIN: to create new databases during restore.
   * CATALOG READ: to read the backup catalog.
-  * SAP_INTERNAL_HANA_SUPPORT: to access a few private tables. Only required for SDC and MDC versions below HANA 2.0 SPS04 Rev 46. This is not required for HANA 2.0 SPS04 Rev 46 and above since we are getting the required information from public tables now with the fix from HANA team.
+  * SAP_INTERNAL_HANA_SUPPORT: to access a few private tables. Only required for SDC and MDC versions below HANA 2.0 SPS04 Rev 46. This isn't required for HANA 2.0 SPS04 Rev 46 and above since we're getting the required information from public tables now with the fix from HANA team.
 * The script adds a key to **hdbuserstore** for AZUREWLBACKUPHANAUSER for the HANA backup plug-in to handle all operations (database queries, restore operations, configuring and running backup).
 * Alternatively, you could choose to create your own custom Backup user. Ensure that this user is assigned the following required roles and permissions:
   * For MDC: DATABASE ADMIN and BACKUP ADMIN (from HANA 2.0 SPS05 onwards): to create new databases during restore.

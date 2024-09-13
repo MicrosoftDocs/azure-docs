@@ -5,13 +5,13 @@ author: anraghun
 ms.author: anraghun
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 11/23/2023
+ms.date: 03/06/2024
 ms.custom: template-tutorial, engagement-fy24
 ---
 
 # Modernize ASP.NET web apps to Azure Kubernetes Service (preview)
 
-This article shows you how to migrate ASP.NET web apps at-scale to [Azure Kubernetes Service](../aks/intro-kubernetes.md) using Azure Migrate. Currently, this flow only supports ASP.NET web apps running on VMware. For other environments, follow [these steps](./tutorial-app-containerization-aspnet-kubernetes.md).
+This article shows you how to migrate ASP.NET web apps at-scale to [Azure Kubernetes Service](/azure/aks/intro-kubernetes) using Azure Migrate. Currently, this flow only supports ASP.NET web apps running on VMware. For other environments, follow [these steps](./tutorial-app-containerization-aspnet-kubernetes.md).
 
 > [!NOTE]
 > Tutorials show you the simplest deployment path for a scenario so that you can quickly set up a proof-of-concept. Tutorials use default options where possible and don't show all possible settings and paths.
@@ -19,7 +19,7 @@ This article shows you how to migrate ASP.NET web apps at-scale to [Azure Kubern
 In this tutorial, you'll learn how to:
 
 > [!div class="checklist"]
-> * Choose and prepare ASP.NET web apps at-scale for migration to [Azure Kubernetes Service](../aks/intro-kubernetes.md) using the integrated flow in Azure Migrate.
+> * Choose and prepare ASP.NET web apps at-scale for migration to [Azure Kubernetes Service](/azure/aks/intro-kubernetes) using the integrated flow in Azure Migrate.
 > * Configure target settings such as the number of application instances to run and replicate your applications.
 > * Run test migrations to ensure your applications spin up correctly.
 > * Run a full migration of your applications to AKS.
@@ -72,7 +72,23 @@ In **Replicate** > **Web apps**, you can see a list of ASP.NET apps discovered o
 
     :::image type="content" source="./media/tutorial-modernize-asp-net-aks/replicate-web-apps-app-dir.png" alt-text="Screenshot of the Application directories tab.":::
 
-5. Select **Next**.
+5. For the applications using Windows authentication, indicated by the **Authentication type**, you can configure gMSA V2 on the target AKS cluster. 
+
+    :::image type="content" source="./media/tutorial-modernize-asp-net-aks/replicate-web-apps-gmsa.png" alt-text="Screenshot of the gMSA configuration tab.":::
+
+    | Setting |  Comments |
+    | --- | --- |
+    | Account name | Name of the gMSA account to use. If the account doesn't exist, a new account with this name is created automatically. |
+    | Account username | Username of the standard domain user that's authorized to access the gMSA configured on your Domain Controller. If the given username doesn't exist, a new standard domain user is created automatically. |
+    | Account password | Password of the above user. |
+    | Domain DNS server | IP address of the DNS server which can resolve your Active Directory domain name. |
+    | Domain FQDN | Fully qualified domain name of your Active Directory domain. |
+    | Domain controller address | IP address of the Active Directory Domain Controller. Connection is established to remotely allow the specified domain user to retrieve credentials for the specified gMSA. |
+    | Domain admin username | Username of a user that has sufficient privileges to remotely validate the gMSA account and domain user. |
+    | Domain admin password | Password for the admin user above. |
+
+
+6. Select **Next**.
 
 > [!NOTE]
 > The source path and the attribute value of App configurations and App directories together must be under 3000 characters in length. This can roughly be translated to around 15 entries (inclusive of both configurations and directories) of character length of about 200 each.
@@ -107,7 +123,7 @@ If one or more apps had app configurations or directories updated in **Replicate
 
 :::image type="content" source="./media/tutorial-modernize-asp-net-aks/replicate-advanced-settings.png" alt-text="Screenshot of the Advanced settings tab on the Replicate tab.":::
 
-1. If application configurations were provided, choose to store them either as native Kubernetes secrets or on Azure Key Vault using [secrets store CSI driver](../aks/csi-secrets-store-driver.md). Ensure that the target cluster has the [secrets store driver addon enabled](../aks/csi-secrets-store-driver.md#upgrade-an-existing-aks-cluster-with-azure-key-vault-provider-for-secrets-store-csi-driver-support).
+1. If application configurations were provided, choose to store them either as native Kubernetes secrets or on Azure Key Vault using [secrets store CSI driver](/azure/aks/csi-secrets-store-driver). Ensure that the target cluster has the [secrets store driver addon enabled](/azure/aks/csi-secrets-store-driver#upgrade-an-existing-aks-cluster-with-azure-key-vault-provider-for-secrets-store-csi-driver-support).
 2. If application directories were provided with a persistent storage option, select an Azure file share to store these files.
 3. Select **Next**.
 
@@ -194,9 +210,9 @@ The application is finally ready for migration:
 
 After successfully migrating your applications to AKS, you may explore the following articles to optimize your apps for cloud:
 
-- Set up CI/CD with [Azure Pipelines](../aks/devops-pipeline.md), [GitHub Actions](../aks/kubernetes-action.md) or [through GitOps](../azure-arc/kubernetes/tutorial-gitops-flux2-ci-cd.md).
-- Use Azure Monitor to [monitor health and performance of AKS and your apps](../aks/monitor-aks.md).
-- Harden the security posture of your AKS cluster and containers with [Microsoft Defender for Containers](../defender-for-cloud/defender-for-containers-enable.md).
+- Set up CI/CD with [Azure Pipelines](/azure/aks/devops-pipeline), [GitHub Actions](/azure/aks/kubernetes-action) or [through GitOps](../azure-arc/kubernetes/tutorial-gitops-flux2-ci-cd.md).
+- Use Azure Monitor to [monitor health and performance of AKS and your apps](/azure/aks/monitor-aks).
+- Harden the security posture of your AKS cluster and containers with [Microsoft Defender for Containers](/azure/defender-for-cloud/defender-for-containers-enable).
 - Optimize [Windows Dockerfiles](/virtualization/windowscontainers/manage-docker/optimize-windows-dockerfile?context=/azure/aks/context/aks-context).
-- [Review and implement best practices](../aks/best-practices.md) to build and manage apps on AKS.
+- [Review and implement best practices](/azure/aks/best-practices) to build and manage apps on AKS.
 

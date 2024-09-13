@@ -1,9 +1,9 @@
 ---
 title: 'Tutorial: Conduct vector similarity search on Azure OpenAI embeddings using Azure Cache for Redis'
 description: In this tutorial, you learn how to use Azure Cache for Redis to store and search for vector embeddings.
-author: flang-msft
-ms.author: franlanglois
-ms.service: cache
+
+
+
 ms.topic: tutorial
 ms.date: 09/15/2023
 
@@ -41,7 +41,7 @@ In this tutorial, you learn how to:
     Currently, you must apply for access to Azure OpenAI. You can apply for access to Azure OpenAI by completing the form at <a href="https://aka.ms/oai/access" target="_blank">https://aka.ms/oai/access</a>.
 * <a href="https://www.python.org/" target="_blank">Python 3.7.1 or later version</a>
 * [Jupyter Notebooks](https://jupyter.org/) (optional)
-* An Azure OpenAI resource with the **text-embedding-ada-002 (Version 2)** model deployed. This model is currently only available in [certain regions](../ai-services/openai/concepts/models.md#model-summary-table-and-region-availability). See the [resource deployment guide](../ai-services/openai/how-to/create-resource.md) for instructions on how to deploy the model.
+* An Azure OpenAI resource with the **text-embedding-ada-002 (Version 2)** model deployed. This model is currently only available in [certain regions](/azure/ai-services/openai/concepts/models#model-summary-table-and-region-availability). See the [resource deployment guide](/azure/ai-services/openai/how-to/create-resource) for instructions on how to deploy the model.
 
 ## Create an Azure Cache for Redis Instance
 
@@ -60,7 +60,7 @@ In this tutorial, you learn how to:
 1. Install the required Python packages:
 
    ```python
-   pip install "openai==0.28.1" num2words matplotlib plotly scipy scikit-learn pandas tiktoken redis langchain
+   pip install "openai==1.6.1" num2words matplotlib plotly scipy scikit-learn pandas tiktoken redis langchain
    ```
 
 ## Download the dataset
@@ -77,7 +77,7 @@ In this tutorial, you learn how to:
 
 To successfully make a call against Azure OpenAI, you need an **endpoint** and a **key**. You also need an **endpoint** and a **key** to connect to Azure Cache for Redis.
 
-1. Go to your Azure Open AI resource in the Azure portal.
+1. Go to your Azure OpenAI resource in the Azure portal.
 
 1. Locate **Endpoint and Keys** in the **Resource Management** section. Copy your endpoint and access key as you'll need both for authenticating your API calls. An example endpoint is: `https://docs-test-001.openai.azure.com`. You can use either `KEY1` or `KEY2`.
 
@@ -94,10 +94,9 @@ To successfully make a call against Azure OpenAI, you need an **endpoint** and a
    from num2words import num2words
    import os
    import pandas as pd
-   from openai.embeddings_utils import get_embedding
    import tiktoken
    from typing import List
-   from langchain.embeddings import OpenAIEmbeddings
+   from langchain.embeddings import AzureOpenAIEmbeddings
    from langchain.vectorstores.redis import Redis as RedisVectorStore
    from langchain.document_loaders import DataFrameLoader
 
@@ -114,7 +113,7 @@ To successfully make a call against Azure OpenAI, you need an **endpoint** and a
 1. Update `REDIS_ENDPOINT` and `REDIS_PASSWORD` with the endpoint and key value from your Azure Cache for Redis instance.
 
    > [!Important]
-   > We strongly recommend using environmental variables or a secret manager like [Azure Key Vault](../key-vault/general/overview.md) to pass in the API key, endpoint, and deployment name information. These variables are set in plaintext here for the sake of simplicity.
+   > We strongly recommend using environmental variables or a secret manager like [Azure Key Vault](/azure/key-vault/general/overview) to pass in the API key, endpoint, and deployment name information. These variables are set in plaintext here for the sake of simplicity.
 
 1. Execute code cell 2.
 
@@ -226,13 +225,14 @@ Now that the data has been filtered and loaded into LangChain, you'll create emb
    ```python
    # Code cell 8
 
-   embedding = OpenAIEmbeddings(
+   embedding = AzureOpenAIEmbeddings(
        deployment=DEPLOYMENT_NAME,
        model=MODEL_NAME,
-       openai_api_base=RESOURCE_ENDPOINT,
+       azure_endpoint=RESOURCE_ENDPOINT,
        openai_api_type="azure",
        openai_api_key=API_KEY,
        openai_api_version="2023-05-15",
+       show_progress_bar=True,
        chunk_size=16 # current limit with Azure OpenAI service. This will likely increase in the future.
        )
 
@@ -255,8 +255,11 @@ Now that the data has been filtered and loaded into LangChain, you'll create emb
    vectorstore.write_schema("redis_schema.yaml")
    ```
 
-1. Execute code cell 8.  This can take up to 10 minutes to complete. A `redis_schema.yaml` file is generated as well. This file is useful if you want to connect to your index in Azure Cache for Redis instance without re-generating embeddings.
+1. Execute code cell 8.  This can take over 30 minutes to complete. A `redis_schema.yaml` file is generated as well. This file is useful if you want to connect to your index in Azure Cache for Redis instance without re-generating embeddings.
 
+> [!Important]
+> The speed at which embeddings are generated depends on the [quota available](/azure/ai-services/openai/quotas-limits) to the Azure OpenAI Model. With a quota of 240k tokens per minute, it will take around 30 minutes to process the 7M tokens in the data set.
+> 
 ## Run vector search queries
 
 Now that your dataset, Azure OpenAI service API, and Redis instance are set up, you can search using vectors. In this example, the top 10 results for a given query are returned.
@@ -335,7 +338,7 @@ With Azure Cache for Redis and Azure OpenAI Service, you can use embeddings and 
 
 * [Learn more about Azure Cache for Redis](cache-overview.md)
 * Learn more about Azure Cache for Redis [vector search capabilities](./cache-overview-vector-similarity.md)
-* Learn more about [embeddings generated by Azure OpenAI Service](../ai-services/openai/concepts/understand-embeddings.md)
+* Learn more about [embeddings generated by Azure OpenAI Service](/azure/ai-services/openai/concepts/understand-embeddings)
 * Learn more about [cosine similarity](https://en.wikipedia.org/wiki/Cosine_similarity)
 * [Read how to build an AI-powered app with OpenAI and Redis](https://techcommunity.microsoft.com/t5/azure-developer-community-blog/vector-similarity-search-with-azure-cache-for-redis-enterprise/ba-p/3822059)
 * [Build a Q&A app with semantic answers](https://github.com/ruoccofabrizio/azure-open-ai-embeddings-qna)

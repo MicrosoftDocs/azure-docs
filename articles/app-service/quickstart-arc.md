@@ -2,7 +2,7 @@
 title: 'Quickstart: Create a web app on Azure Arc'
 description: Get started with App Service on Azure Arc deploying your first web app.
 ms.topic: quickstart
-ms.date: 10/19/2023
+ms.date: 06/10/2024
 ms.custom: mode-other, devx-track-azurecli 
 ms.devlang: azurecli
 author: msangapu-msft
@@ -48,8 +48,6 @@ Supported runtimes:
 | Python 3.8 | PYTHON\|3.8 |
 | PHP 7.3 | PHP\|7.3 |
 | PHP 7.4 | PHP\|7.4 |
-| Ruby 2.5 | RUBY\|2.5 |
-| Ruby 2.6 | RUBY\|2.6 |
 | Java 8 | JAVA\|8-jre8 |
 | Java 11 | JAVA\|11-java11 |
 | Tomcat 8.5 | TOMCAT\|8.5-jre8 |
@@ -99,7 +97,7 @@ The application logs for all the apps hosted in your Kubernetes cluster are logg
 
 **Log_s** contains application logs for a given App Service and **AppName_s** contains the App Service app name. In addition to logs you write via your application code, the Log_s column also contains logs on container startup, shutdown, and Function Apps.
 
-You can learn more about log queries in [getting started with Kusto](../azure-monitor/logs/get-started-queries.md).
+You can learn more about log queries in [getting started with Kusto](/azure/azure-monitor/logs/get-started-queries).
 
 ## (Optional) Deploy a custom container
 
@@ -112,7 +110,7 @@ az webapp create \
     --resource-group myResourceGroup \
     --name <app-name> \
     --custom-location $customLocationId \
-    --deployment-container-image-name mcr.microsoft.com/appsvc/node:14-lts
+    --deployment-container-image-name mcr.microsoft.com/appsvc/staticsite:latest
 ```
 
 <!-- `TODO: currently gets an error but the app is successfully created: "Error occurred in request., RetryError: HTTPSConnectionPool(host='management.azure.com', port=443): Max retries exceeded with url: /subscriptions/62f3ac8c-ca8d-407b-abd8-04c5496b2221/resourceGroups/myResourceGroup/providers/Microsoft.Web/sites/cephalin-arctest4/config/appsettings?api-version=2020-12-01 (Caused by ResponseError('too many 500 error responses',))"` -->
@@ -125,6 +123,5 @@ To update the image after the app is create, see [Change the Docker image of a c
 - [Configure a Node.js app](configure-language-nodejs.md?pivots=platform-linux)
 - [Configure a PHP app](configure-language-php.md?pivots=platform-linux)
 - [Configure a Linux Python app](configure-language-python.md)
-- [Configure a Java app](configure-language-java.md?pivots=platform-linux)
-- [Configure a Linux Ruby app](configure-language-ruby.md)
+- [Configure a Java app](configure-language-java-deploy-run.md?pivots=platform-linux)
 - [Configure a custom container](configure-custom-container.md?pivots=container-linux)

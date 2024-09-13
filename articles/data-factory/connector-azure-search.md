@@ -4,11 +4,10 @@ description: Learn about how to push or copy data to an Azure search index using
 titleSuffix: Azure Data Factory & Azure Synapse
 ms.author: jianleishen
 author: jianleishen
-ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 07/13/2023
+ms.date: 01/05/2024
 ---
 
 # Copy data to an Azure AI Search index using Azure Data Factory or Synapse Analytics
@@ -205,5 +204,5 @@ The following table specifies whether an Azure AI Search data type is supported 
 
 Currently other data types e.g. ComplexType are not supported. For a full list of Azure AI Search supported data types, see [Supported data types (Azure AI Search)](/rest/api/searchservice/supported-data-types).
 
-## Next steps
+## Related content
 For a list of data stores supported as sources and sinks by the copy activity, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).

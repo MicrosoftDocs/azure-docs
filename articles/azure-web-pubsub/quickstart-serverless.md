@@ -4,8 +4,9 @@ description: A tutorial to walk through how to use Azure Web PubSub service and 
 author: JialinXin
 ms.author: jixin
 ms.service: azure-web-pubsub
+ms.custom: devx-track-azurecli
 ms.topic: tutorial
-ms.date: 05/05/2023
+ms.date: 01/12/2024
 ---
 
 # Tutorial: Create a serverless real-time chat app with Azure Functions and Azure Web PubSub service
@@ -24,11 +25,22 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-# [JavaScript](#tab/javascript)
+# [JavaScript Model v4](#tab/javascript-v4)
 
 - A code editor, such as [Visual Studio Code](https://code.visualstudio.com/)
 
-- [Node.js](https://nodejs.org/en/download/), version 10.x.
+- [Node.js](https://nodejs.org/en/download/), version 18.x or above.
+  > [!NOTE]
+  > For more information about the supported versions of Node.js, see [Azure Functions runtime versions documentation](../azure-functions/functions-versions.md#languages).
+- [Azure Functions Core Tools](https://github.com/Azure/azure-functions-core-tools#installing) (v4 or higher preferred) to run Azure Function apps locally and deploy to Azure.
+
+- The [Azure CLI](/cli/azure) to manage Azure resources.
+
+# [JavaScript Model v3](#tab/javascript-v3)
+
+- A code editor, such as [Visual Studio Code](https://code.visualstudio.com/)
+
+- [Node.js](https://nodejs.org/en/download/), version 18.x or above.
   > [!NOTE]
   > For more information about the supported versions of Node.js, see [Azure Functions runtime versions documentation](../azure-functions/functions-versions.md#languages).
 - [Azure Functions Core Tools](https://github.com/Azure/azure-functions-core-tools#installing) (v4 or higher preferred) to run Azure Function apps locally and deploy to Azure.
@@ -51,9 +63,19 @@ In this tutorial, you learn how to:
 
 - The [Azure CLI](/cli/azure) to manage Azure resources.
 
+# [Python](#tab/python)
+
+- A code editor, such as [Visual Studio Code](https://code.visualstudio.com/).
+
+- [Python](https://www.python.org/downloads/) (v3.7+). See [supported Python versions](../azure-functions/functions-reference-python.md#python-version).
+
+- [Azure Functions Core Tools](https://github.com/Azure/azure-functions-core-tools#installing) (v4 or higher preferred) to run Azure Function apps locally and deploy to Azure.
+
+- The [Azure CLI](/cli/azure) to manage Azure resources.
+
 ---
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [create-instance-portal](includes/create-instance-portal.md)]
 
@@ -61,10 +83,16 @@ In this tutorial, you learn how to:
 
 1. Make sure you have [Azure Functions Core Tools](https://github.com/Azure/azure-functions-core-tools#installing) installed. And then create an empty directory for the project. Run command under this working directory.
 
-   # [JavaScript](#tab/javascript)
+   # [JavaScript Model v4](#tab/javascript-v4)
 
    ```bash
-   func init --worker-runtime javascript
+   func init --worker-runtime javascript --model V4
+   ```
+
+   # [JavaScript Model v3](#tab/javascript-v3)
+
+   ```bash
+   func init --worker-runtime javascript --model V3
    ```
 
    # [C# in-process](#tab/csharp-in-process)
@@ -79,15 +107,33 @@ In this tutorial, you learn how to:
    func init --worker-runtime dotnet-isolated
    ```
 
+   # [Python](#tab/python)
+
+   ```bash
+   func init --worker-runtime python --model V1
+   ```
+
 2. Install `Microsoft.Azure.WebJobs.Extensions.WebPubSub`.
 
-   # [JavaScript](#tab/javascript)
+   # [JavaScript Model v4](#tab/javascript-v4)
 
-   Update `host.json`'s extensionBundle to version _3.3.0_ or later to get Web PubSub support.
+   Confirm and update `host.json`'s extensionBundle to version _4.*_ or later to get Web PubSub support.
 
    ```json
    {
-     "version": "2.0",
+     "extensionBundle": {
+       "id": "Microsoft.Azure.Functions.ExtensionBundle",
+       "version": "[4.*, 5.0.0)"
+     }
+   }
+   ```
+
+   # [JavaScript Model v3](#tab/javascript-v3)
+
+   Confirm and update `host.json`'s extensionBundle to version _3.3.0_ or later to get Web PubSub support.
+
+   ```json
+   {
      "extensionBundle": {
        "id": "Microsoft.Azure.Functions.ExtensionBundle",
        "version": "[3.3.*, 4.0.0)"
@@ -107,13 +153,52 @@ In this tutorial, you learn how to:
    dotnet add package Microsoft.Azure.Functions.Worker.Extensions.WebPubSub --prerelease
    ```
 
+   # [Python](#tab/python)
+
+   ```json
+   {
+     "extensionBundle": {
+       "id": "Microsoft.Azure.Functions.ExtensionBundle",
+       "version": "[3.3.*, 4.0.0)"
+   }
+   ```
+   
+
 3. Create an `index` function to read and host a static web page for clients.
 
    ```bash
    func new -n index -t HttpTrigger
    ```
+   # [JavaScript Model v4](#tab/javascript-v4)
 
-   # [JavaScript](#tab/javascript)
+   - Update `src/functions/index.js` and copy following codes.
+     ```js
+     const { app } = require('@azure/functions');
+     const { readFile } = require('fs/promises');
+     
+     app.http('index', {
+         methods: ['GET', 'POST'],
+         authLevel: 'anonymous',
+         handler: async (context) => {
+             const content = await readFile('index.html', 'utf8', (err, data) => {
+                 if (err) {
+                     context.err(err)
+                     return
+                 }
+             });
+     
+             return { 
+                 status: 200,
+                 headers: { 
+                     'Content-Type': 'text/html'
+                 }, 
+                 body: content, 
+             };
+         }
+     });
+     ```
+
+   # [JavaScript Model v3](#tab/javascript-v3)
 
    - Update `index/function.json` and copy following json codes.
      ```json
@@ -196,6 +281,45 @@ In this tutorial, you learn how to:
      }
      ```
 
+   # [Python](#tab/python)
+
+   - Update `index/function.json` and copy following json codes.
+   
+     ```json
+     {
+       "bindings": [
+         {
+           "authLevel": "anonymous",
+           "type": "httpTrigger",
+           "direction": "in",
+           "name": "req",
+           "methods": ["get", "post"]
+         },
+         {
+           "type": "http",
+           "direction": "out",
+           "name": "$return"
+         }
+       ]
+     }
+
+     ```
+     
+
+   - Update `__init__.py` and replace `main` function with following codes.
+   
+     ```python
+     import os
+
+     import azure.functions as func
+
+
+     def main(req: func.HttpRequest) -> func.HttpResponse:
+         f = open(os.path.dirname(os.path.realpath(__file__)) + "/../index.html")
+         return func.HttpResponse(f.read(), mimetype="text/html")
+     ```
+     
+
 4. Create a `negotiate` function to help clients get service connection url with access token.
 
    ```bash
@@ -205,7 +329,30 @@ In this tutorial, you learn how to:
    > [!NOTE]
    > In this sample, we use [Microsoft Entra ID](../app-service/configure-authentication-user-identities.md) user identity header `x-ms-client-principal-name` to retrieve `userId`. And this won't work in a local function. You can make it empty or change to other ways to get or generate `userId` when playing in local. For example, let client type a user name and pass it in query like `?user={$username}` when call `negotiate` function to get service connection url. And in the `negotiate` function, set `userId` with value `{query.user}`.
 
-   # [JavaScript](#tab/javascript)
+   # [JavaScript Model v4](#tab/javascript-v4)
+   - Update `src/functions/negotiate` and copy following codes.
+     ```js
+     const { app, input } = require('@azure/functions');
+     
+     const connection = input.generic({
+         type: 'webPubSubConnection',
+         name: 'connection',
+         userId: '{headers.x-ms-client-principal-name}',
+         hub: 'simplechat'
+     });
+     
+     app.http('negotiate', {
+         methods: ['GET', 'POST'],
+         authLevel: 'anonymous',
+         extraInputs: [connection],
+         handler: async (request, context) => {
+             return { body: JSON.stringify(context.extraInputs.get('connection')) };
+         },
+     });
+     ```
+
+
+   # [JavaScript Model v3](#tab/javascript-v3)
 
    - Update `negotiate/function.json` and copy following json codes.
      ```json
@@ -273,16 +420,91 @@ In this tutorial, you learn how to:
      }
      ```
 
+   # [Python](#tab/python)
+
+   - Update `negotiate/function.json` and copy following json codes. 
+     ```json
+     {
+       "bindings": [
+         {
+           "authLevel": "anonymous",
+           "type": "httpTrigger",
+           "direction": "in",
+           "name": "req"
+         },
+         {
+           "type": "http",
+           "direction": "out",
+           "name": "$return"
+         },
+         {
+           "type": "webPubSubConnection",
+           "name": "connection",
+           "hub": "simplechat",
+           "userId": "{headers.x-ms-client-principal-name}",
+           "direction": "in"
+         }
+       ]
+     }
+     ```
+
+   - Update `negotiate/__init__.py` and copy following codes.
+     ```python
+     import azure.functions as func
+
+
+     def main(req: func.HttpRequest, connection) -> func.HttpResponse:
+         return func.HttpResponse(connection)
+
+     ```
+     
+     
+
 5. Create a `message` function to broadcast client messages through service.
 
    ```bash
    func new -n message -t HttpTrigger
    ```
 
-   > [!NOTE]
-   > This function is actually using `WebPubSubTrigger`. However, the `WebPubSubTrigger` is not integrated in function's template. We use `HttpTrigger` to initialize the function template and change trigger type in code.
+   # [JavaScript Model v4](#tab/javascript-v4)
 
-   # [JavaScript](#tab/javascript)
+   - Update `src/functions/message.js` and copy following codes.
+     ```js
+     const { app, output, trigger } = require('@azure/functions');
+     
+     const wpsMsg = output.generic({
+         type: 'webPubSub',
+         name: 'actions',
+         hub: 'simplechat',
+     });
+     
+     const wpsTrigger = trigger.generic({
+         type: 'webPubSubTrigger',
+         name: 'request',
+         hub: 'simplechat',
+         eventName: 'message',
+         eventType: 'user'
+     });
+     
+     app.generic('message', {
+         trigger: wpsTrigger,
+         extraOutputs: [wpsMsg],
+         handler: async (request, context) => {
+             context.extraOutputs.set(wpsMsg, [{
+                 "actionName": "sendToAll",
+                 "data": `[${context.triggerMetadata.connectionContext.userId}] ${request.data}`,
+                 "dataType": request.dataType
+             }]);
+             
+             return {
+                 data: "[SYSTEM] ack.",
+                 dataType: "text",
+             };
+         }
+     });
+     ```
+
+   # [JavaScript Model v3](#tab/javascript-v3)
 
    - Update `message/function.json` and copy following json codes.
      ```json
@@ -367,6 +589,50 @@ In this tutorial, you learn how to:
      }
      ```
 
+   # [Python](#tab/python)
+
+   - Update `message/function.json` and copy following json codes.
+     ```json
+     {
+       "bindings": [
+         {
+           "type": "webPubSubTrigger",
+           "direction": "in",
+           "name": "request",
+           "hub": "simplechat",
+           "eventName": "message",
+           "eventType": "user"
+         },
+         {
+           "type": "webPubSub",
+           "name": "actions",
+           "hub": "simplechat",
+           "direction": "out"
+         }
+       ]
+     }
+     ``` 
+   - Update `message/__init__.py` and copy following codes.
+     ```python
+     import json
+
+     import azure.functions as func
+     
+     
+     def main(request, actions: func.Out[str]) -> None:
+         req_json = json.loads(request)
+         actions.set(
+             json.dumps(
+                 {
+                     "actionName": "sendToAll",
+                     "data": f'[{req_json["connectionContext"]["userId"]}] {req_json["data"]}',
+                     "dataType": req_json["dataType"],
+                 }
+             )
+         )
+     ```
+     
+
 6. Add the client single page `index.html` in the project root folder and copy content.
 
    ```html
@@ -417,7 +683,9 @@ In this tutorial, you learn how to:
    </html>
    ```
 
-   # [JavaScript](#tab/javascript)
+   # [JavaScript Model v4](#tab/javascript-v4)
+
+   # [JavaScript Model v3](#tab/javascript-v3)
 
    # [C# in-process](#tab/csharp-in-process)
 
@@ -442,6 +710,8 @@ In this tutorial, you learn how to:
        </None>
    </ItemGroup>
    ```
+
+   # [Python](#tab/python)
 
 ## Create and Deploy the Azure Function App
 
@@ -473,10 +743,19 @@ Use the following commands to create these items.
 
 1. Create the function app in Azure:
 
-   # [JavaScript](#tab/javascript)
+   # [JavaScript Model v4](#tab/javascript-v4)
 
    ```azurecli
-   az functionapp create --resource-group WebPubSubFunction --consumption-plan-location <REGION> --runtime node --runtime-version 14 --functions-version 4 --name <FUNCIONAPP_NAME> --storage-account <STORAGE_NAME>
+   az functionapp create --resource-group WebPubSubFunction --consumption-plan-location <REGION> --runtime node --runtime-version 18 --functions-version 4 --name <FUNCIONAPP_NAME> --storage-account <STORAGE_NAME>
+   ```
+
+   > [!NOTE]
+   > Check [Azure Functions runtime versions documentation](../azure-functions/functions-versions.md#languages) to set `--runtime-version` parameter to supported value.
+
+   # [JavaScript Model v3](#tab/javascript-v3)
+
+   ```azurecli
+   az functionapp create --resource-group WebPubSubFunction --consumption-plan-location <REGION> --runtime node --runtime-version 18 --functions-version 4 --name <FUNCIONAPP_NAME> --storage-account <STORAGE_NAME>
    ```
 
    > [!NOTE]
@@ -492,6 +771,12 @@ Use the following commands to create these items.
 
    ```azurecli
    az functionapp create --resource-group WebPubSubFunction --consumption-plan-location <REGION> --runtime dotnet-isolated --functions-version 4 --name <FUNCIONAPP_NAME> --storage-account <STORAGE_NAME>
+   ```
+
+   # [Python](#tab/python)
+
+   ```azurecli
+   az functionapp create --resource-group WebPubSubFunction --consumption-plan-location <REGION> --runtime python --runtime-version 3.9 --functions-version 4 --name <FUNCIONAPP_NAME> --os-type linux --storage-account <STORAGE_NAME>
    ```
 
 1. Deploy the function project to Azure:
@@ -532,7 +817,7 @@ Here we choose `Microsoft` as identify provider, which uses `x-ms-client-princip
 - [Microsoft Entra ID](../app-service/configure-authentication-provider-aad.md)
 - [Facebook](../app-service/configure-authentication-provider-facebook.md)
 - [Google](../app-service/configure-authentication-provider-google.md)
-- [Twitter](../app-service/configure-authentication-provider-twitter.md)
+- [X](../app-service/configure-authentication-provider-twitter.md)
 
 ## Try the application
 

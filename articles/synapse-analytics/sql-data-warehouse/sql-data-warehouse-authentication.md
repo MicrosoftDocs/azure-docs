@@ -4,10 +4,9 @@ description: Learn how to authenticate to dedicated SQL pool (formerly SQL DW) i
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.date: 04/02/2019
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.subservice: sql-dw
 ms.topic: conceptual
-ms.custom: seo-lt-2019
 tag: azure-synapse
 ---
 

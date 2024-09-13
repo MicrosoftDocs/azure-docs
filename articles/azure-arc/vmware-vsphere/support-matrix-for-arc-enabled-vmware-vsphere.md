@@ -2,9 +2,13 @@
 title: Plan for deployment
 description: Learn about the support matrix for Arc-enabled VMware vSphere including vCenter Server versions supported, network requirements, and more.
 ms.topic: how-to 
-ms.date: 11/06/2023
+ms.date: 09/04/2024
 ms.service: azure-arc
 ms.subservice: azure-arc-vmware-vsphere
+author: PriskeyJeronika-MS
+ms.author: v-gjeronika
+manager: jsuri
+
 # Customer intent: As a VI admin, I want to understand the support matrix for Arc-enabled VMware vSphere.
 ---
 
@@ -32,13 +36,14 @@ You need a vSphere account that can:
 - Read all inventory.
 - Deploy and update VMs to all the resource pools (or clusters), networks, and VM templates that you want to use with Azure Arc.
 
-This account is used for the ongoing operation of Azure Arc-enabled VMware vSphere and the deployment of the Azure Arc resource bridge VM.
+>[!Important]
+> As part of the Azure Arc-enabled VMware onboarding script, you will be prompted to provide a vSphere account to deploy the Azure Arc resouce bridge VM on the ESXi host. This account will be stored locally within the Azure Arc resource bridge VM and encrypted as a Kubernetes secret at rest. The vSphere account allows Azure Arc-enabled VMware to interact with VMware vSphere. If your organization practices routine credential rotation, you must [update the credentials in Azure Arc-enabled VMware](administer-arc-vmware.md#updating-the-vsphere-account-credentials-using-a-new-password-or-a-new-vsphere-account-after-onboarding) to maintain the connection between Azure Arc-enabled VMware and VMware vSphere.
 
 ### Resource bridge resource requirements
 
-For Arc-enabled VMware vSphere, resource bridge has the following minimum virtual hardware requirements
+For Arc-enabled VMware vSphere, resource bridge has the following minimum virtual hardware requirements:
 
-- 16 GB of memory
+- 8 GB of memory
 - 4 vCPUs
 - An external virtual switch that can provide access to the internet directly or through a proxy. If internet access is through a proxy or firewall, ensure [these URLs](#resource-bridge-networking-requirements) are allow-listed.
 
@@ -50,11 +55,9 @@ The following firewall URL exceptions are needed for the Azure Arc resource brid
 
 [!INCLUDE [network-requirements](../resource-bridge/includes/network-requirements.md)]
 
-In addition, VMware VSphere requires the following exception:
+In addition, VMware VSphere requires the following:
 
-| **Service** | **Port** | **URL** | **Direction** | **Notes**|
-| --- | --- | --- | --- | --- |
-| vCenter Server | 443 | URL of the vCenter server  | Appliance VM IP and control plane endpoint need outbound connection. | Used to by the vCenter server to communicate with the Appliance VM and the control plane.|
+[!INCLUDE [netork-requirements](includes/network-requirements.md)]
 
 For a complete list of network requirements for Azure Arc features and Azure Arc-enabled services, see [Azure Arc network requirements (Consolidated)](../network-requirements-consolidated.md).
 

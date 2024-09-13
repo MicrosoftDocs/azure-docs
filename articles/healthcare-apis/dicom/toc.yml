@@ -14,37 +14,45 @@ items:
   expanded: true
   items: 
     - name: Get started with the DICOM service
-      href: get-started-with-dicom.md
-    - name: Azure Data Lake Storage integration for the DICOM service (Preview)
       href: dicom-data-lake.md
-    - name: Deploy the DICOM service
-      href: deploy-dicom-services-in-azure.md
-    - name: Deploy the DICOM service with Data Lake Storage (Preview)
+    - name: Deploy the DICOM service with Data Lake Storage
       href: deploy-dicom-services-in-azure-data-lake.md
+    - name: Deploy the DICOM service with the Azure portal
+      href: deploy-dicom-services-in-azure.md
     - name: Get an access token
       href: get-access-token.md
     - name: Register a client application
       href: dicom-register-application.md
 - name: Tutorials
-  expanded: true
-  items: 
+  expanded: false
+  items:
     - name: Use DICOM data in analytics workloads
       href: get-started-with-analytics-dicom.md
     - name: Use the DICOM service for digital pathology
       href: dicom-digital-pathology.md
 - name: Configuration & operations
   expanded: true
-  items: 
+  items:
+    - name: Customer-managed keys best practices
+      href: customer-managed-keys.md
+    - name: Configure customer-managed keys
+      href: configure-customer-managed-keys.md
     - name: Configure CORS
       href: configure-cross-origin-resource-sharing.md
     - name: Configure Azure RBAC
       href: dicom-configure-azure-rbac.md
     - name: Enable audit and diagnostic logging
       href: enable-diagnostic-logging.md
+    - name: Enable data partitioning
+      href: data-partitions.md
+    - name: Access DICOM Change Feed logs 
+      href: pull-dicom-changes-from-change-feed.md
     - name: Import DICOM files
       href: import-files.md
     - name: Export DICOM files
       href: export-files.md
+    - name: Bulk update DICOM files
+      href: update-files.md
 - name: API reference
   expanded: true
   items: 
@@ -63,12 +71,12 @@ items:
       expanded: false
       items: 
         - name: Change feed overview
-          href: dicom-change-feed-overview.md
+          href: change-feed-overview.md
         - name: Extended query tags
           href: dicom-extended-query-tags-overview.md
     - name: API versioning
       expanded: false
-      items:
+      items: 
         - name: API versioning policies
           href: api-versioning-dicom-service.md
         - name: DICOM service API v2 changes

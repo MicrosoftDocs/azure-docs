@@ -3,9 +3,9 @@ title: Read CSV data in an Apache JMeter load test
 titleSuffix: Azure Load Testing
 description: Learn how to read external data from a CSV file in Apache JMeter with Azure Load Testing.
 services: load-testing
-ms.service: load-testing
-ms.author: nicktrog
-author: ntrogh
+ms.service: azure-load-testing
+ms.author: ninallam
+author: ninallam
 ms.date: 10/23/2023
 ms.topic: how-to 
 ms.custom: template-how-to
@@ -85,7 +85,7 @@ To add a CSV file to your load test by using the Azure portal:
 
 # [Azure Pipelines / GitHub Actions](#tab/pipelines+github)
 
-If you run a load test within your CI/CD workflow, you can add a CSV file to the test configuration YAML file. For more information about running a load test in a CI/CD workflow, see the [Automated regression testing tutorial](./tutorial-identify-performance-regression-with-cicd.md).
+If you run a load test within your CI/CD workflow, you can add a CSV file to the test configuration YAML file. For more information about running a load test in a CI/CD workflow, see [how to add load testing to CI/CD](./how-to-configure-load-test-cicd.md).
 
 To add a CSV file to your load test:
 

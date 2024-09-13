@@ -6,11 +6,11 @@ author: johndowns
 ms.author: jodowns
 ms.date: 8/11/2023
 ms.topic: quickstart
-ms.service: frontdoor
-ms.workload: infrastructure-services
+ms.service: azure-frontdoor
 ms.custom: devx-track-terraform
 content_well_notification: 
   - AI-contribution
+ai-usage: ai-assisted
 ---
 
 # Quickstart: Create an Azure Front Door Standard/Premium profile using Terraform

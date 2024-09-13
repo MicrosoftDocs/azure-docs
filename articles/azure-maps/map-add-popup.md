@@ -6,6 +6,7 @@ ms.author: sipa
 ms.date: 06/14/2023
 ms.topic: how-to
 ms.service: azure-maps
+ms.subservice: web-sdk
 ---
 
 # Add a popup to the map
@@ -99,7 +100,7 @@ Popup templates make it easy to create data driven layouts for popups. The follo
 > [!NOTE]
 > By default, all content rendered use the popup template will be sandboxed inside of an iframe as a security feature. However, there are limitations:
 >
-> - All scripts, forms, pointer lock and top navigation functionality is disabled. Links are allowed to open up in a new tab when clicked.
+> - All scripts, forms, pointer lock and top navigation functionality is disabled. Links are allowed to open up in a new tab when selected.
 > - Older browsers that don't support the `srcdoc` parameter on iframes will be limited to rendering a small amount of content.
 >
 > If you trust the data being loaded into the popups and potentially want these scripts loaded into popups be able to access your application, you can disable this by setting the popup templates `sandboxContent` option to false.
@@ -272,7 +273,7 @@ function InitMap()
         message: 'This point doesn\'t have a template defined, fallback to title and table of properties.',
         randomValue: 10,
         url: 'https://samples.azuremaps.com/',
-        imageLink: 'https://azuremapscodesamples.azurewebsites.net/common/images/Pike_Market.jpg',
+        imageLink: 'https://samples.azuremaps.com/images/Pike_Market.jpg',
         email: 'info@microsoft.com'
       }),
 
@@ -354,7 +355,7 @@ function InitMap()
           subValue: 'Pizza'
         },
         arrayValue: [3, 4, 5, 6],
-        imageLink: 'https://azuremapscodesamples.azurewebsites.net/common/images/Pike_Market.jpg',
+        imageLink: 'https://samples.azuremaps.com/images/Pike_Market.jpg',
         popupTemplate: {
           content: [
             'This template has two pieces of content; a string template with placeholders and a array of property info which renders a full width image.<br/><br/> - Value 1 = {value1}<br/> - Value 2 = {value2/subValue}<br/> - Array value [2] = {arrayValue/2}',

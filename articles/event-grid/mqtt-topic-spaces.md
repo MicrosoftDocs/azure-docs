@@ -8,6 +8,7 @@ ms.custom:
 ms.date: 11/15/2023
 author: george-guirguis
 ms.author: geguirgu
+ms.subservice: mqtt
 ---
 # Topic Spaces in Azure Event Grid’s MQTT broker feature
 
@@ -58,9 +59,9 @@ Topic Spaces can group up to 10 topic templates. Topic templates support MQTT wi
 - A variable can represent a portion of a segment or an entire segment but can't cover more than one segment. For example, a topic template could include "machines/${client.authenticationName|.factory1}/temp" matches topics "machines/machine1.factory1/temp", "machines/machine2.factory1/temp", etc.
 - Topic templates use special characters \$ and | and these need to be escaped differently based on the shell being used. In PowerShell, \$ can be escaped with vehicles/${dollar}telemetry/#. If you’re using PowerShell, you can escape these special characters as shown in the following examples:
 
-    - '"vehicles/${client.authenticationName|dollar}/#"'
+    - `"vehicles/${client.authenticationName|dollar}/#"`
 
-    - 'vehicles/${client.authenticationName"|"dollar}/#'
+    - `vehicles/${client.authenticationName"|"dollar}/#`
 
 ### Azure portal configuration:
 
@@ -83,21 +84,7 @@ Use the following steps to create a topic space:
 
 Use the following commands to create a topic space:
 ```azurecli-interactive
-az resource create --resource-type Microsoft.EventGrid/namespaces/topicSpaces --id /subscriptions/<Subscription ID>/resourceGroups/<Resource Group>/providers/Microsoft.EventGrid/namespaces/<Namespace Name>/topicSpaces/<Topic Space Name> --is-full-object --api-version 2023-06-01-preview --properties @./resources/TS.json
-```
-
-**TS.json:**
-```json
-{ 
-    "properties": {
-        "topicTemplates": [
-            "segment1/+/segment3/${client.authenticationName}",
-            "segment1/${client.attributes.attribute1}/segment3/#"
-        ]
-
-    }
-
-}
+az eventgrid namespace topic-space create -g myRG --namespace-name myNS -n myTopicSpace --topic-templates ['segment1/+/segment3/${client.authenticationName}', "segment1/${client.attributes.attribute1}/segment3/#"]
 ```
 
 > [!NOTE]

@@ -105,7 +105,12 @@ The following data is specific to the issuer of an SSL certificate.
 
 ## Data tabs
 
-On the rightmost pane of the asset details page, users can access more expansive data related to the selected asset. This data is organized in a series of categorized tabs. The available metadata tabs change depending on the type of asset you're viewing.
+On the rightmost pane of the asset details page, users can access more expansive data related to the selected asset. This data is organized in a series of categorized tabs. The available metadata tabs change depending on the type of asset you're viewing. 
+
+Certain tabs display a "Recent only" toggle in the upper-right corner. By default, Defender EASM displays all data that we've collected for each asset, including historical observations that may not be actively running on your current attack surface. While this historical context is very valuable for certain use cases, the "Recent only" toggle will limit all results on the Asset Details page to those most recently observed on the asset. It is recommended that you use the "Recent only" toggle when you only wish to view data that represents the current state of the asset for remediation purposes. 
+
+![Screenshot that highlights the "Recent only" toggle from the Overview page of Asset Details.](media/inventory-1b.png)
+
 
 ### Overview
 
@@ -113,7 +118,7 @@ The **Overview** tab provides more context to ensure that significant insights a
 
 This section can also include dashboard widgets that visualize insights that are relevant to the asset type in question.
 
-![Screenshot that shows the asset details page Overview pane.](media/Inventory_2.png)
+![Screenshot that shows the asset details page Overview pane.](media/inventory-2.png)
 
 ### Discovery chain
 
@@ -172,7 +177,7 @@ This section displays any name servers that are running on the asset to provide 
 
 This section lists any open ports detected on the asset. Microsoft regularly scans around 230 distinct ports. This data is useful to identify any unsecured services that shouldn't be accessible from the open internet. These services include databases, IoT devices, and network services like routers and switches. It's also helpful in identifying shadow IT infrastructure or insecure remote access services.
 
-In this section, Defender EASM provides the open port number, a description of the port, the last state it was observed in, and the **First seen** and **Last seen** dates. The **Recent** column indicates whether the port was observed as open during the most recent scan.
+In this section, Defender EASM provides the open port number, a description of the port, the last state it was observed in, and the **First seen** and **Last seen** dates. The **Recent** column indicates whether the port was observed as open during the most recent scan. Defender EASM considers a port “open” when our system can successfully complete a syn-ack handshake that results in attributed banners. When we can establish a TCP connection but are unable to complete our service fingerprinting, we mark the port as “filtered”. A "closed" port is still accessible but there is no service listening on the port and thus denies connections.
 
 ![Screenshot that shows the asset details page Open ports section of the Services tab.](media/Inventory_9.png)
 
@@ -205,7 +210,7 @@ Web components are categorized based on their function.
 | Network device | Cisco Router, Motorola WAP, ZyXEL Modem |
 | Building control | Linear eMerge, ASI Controls Weblink, Optergy |
 
-### Observation
+### Observations
 
 The **Observation** tab displays any insights from the Attack Surface Priorities dashboard that pertain to the asset. These priorities can include:
 
@@ -218,6 +223,25 @@ The **Observation** tab displays any insights from the Attack Surface Priorities
 For more information on observations, see [Understanding dashboards](understanding-dashboards.md). For each observation, Defender EASM provides the name of the observation, categorizes it by type, assigns a priority, and lists both CVSS v2 and v3 scores where applicable.
 
 ![Screenshot that shows the Observation tab.](media/Inventory-15.png)
+
+
+### Connected assets 
+
+Connected Assets empowers users to graphically link and gather information about assets for investigative analysis. You can explore your environment and its intricate relationships through relationship mappings, which offer clear and concise views. This helps you identify hidden connections and potential attack paths. By visually mapping out the relationships between assets and vulnerabilities, you can comprehend your environment's complexity and make well-informed decisions to enhance your security posture and apply choke points effectively. 
+
+[![Screenshot that shows the Connected assets tab.](media/connected-1.png)](media/connected-1.png#lightbox)
+
+
+On this page, all the assets that are connected to the specified asset are identified in a list. The list provides key information about each policy including:  
+- **Asset:** the identified connected asset.
+- **Kind:** the type of asset.
+- **State:** the state of the asset.
+- **Labels:** any labels associated with the asset.
+- **First Seen:** when the asset was first discovered.
+- **Last Seen:** when the asset was last identified.
+
+From this page, you can modify or remove connected assets. You can also sort or filter the asset list to further categorize the list of connected assets. You can also download a CSV report of the listed assets. Any filters applied will be reflected on the CSV export. 
+
 
 ### Resources
 

@@ -3,9 +3,8 @@ title: Connect a Data Factory to Microsoft Purview
 description: Learn about how to connect a Data Factory to Microsoft Purview
 ms.author: jianleishen
 author: jianleishen
-ms.service: data-factory
 ms.topic: conceptual
-ms.custom: seo-lt-2019, references_regions
+ms.custom: references_regions
 ms.date: 10/20/2023
 ---
 
@@ -94,7 +93,7 @@ Once you connect the data factory to a Microsoft Purview account, when you execu
 
 Once you connect the data factory to a Microsoft Purview account, you can use the search bar at the top center of Data Factory authoring UI to search for data and perform actions. Learn more from [Discover and explore data in ADF using Microsoft Purview](how-to-discover-explore-purview-data.md).
 
-## Next steps
+## Related content
 
 [Tutorial: Push Data Factory lineage data to Microsoft Purview](tutorial-push-lineage-to-purview.md)
 

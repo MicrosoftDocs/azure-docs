@@ -12,13 +12,16 @@ ms.topic: how-to
 
 Microsoft Defender External Attack Surface Management (Defender EASM) offers a series of four dashboards designed to help users quickly surface valuable insights derived from their Approved inventory. These dashboards help organizations prioritize the vulnerabilities, risks and compliance issues that pose the greatest threat to their Attack Surface, making it easy to quickly mitigate key issues.
 
-Defender EASM provides five dashboards:
+Defender EASM provides eight dashboards:
 
-- **Overview**: this dashboard is the default landing page when you access Defender EASM. It provides the key context that can help you familiarize yourself with your attack surface. 
+- **Overview**: this dashboard is the default landing page when you access Defender EASM. It provides the key context that can help you familiarize yourself with your attack surface.
+- **Inventory changes**: this dashboard displays any changes to your asset counts, separately listing additions and removals from your inventory. This dashboard also displays assets that have been automatically removed from inventory because the system determined that the asset is no longer live or owned by your organization. 
 - **Attack surface summary**: this dashboard summarizes the key observations derived from your inventory. It provides a high-level overview of your Attack Surface and the asset types that comprise it, and surfaces potential vulnerabilities by severity (high, medium, low). This dashboard also provides key context on the infrastructure that comprises your Attack Surface. This context includes insight into cloud hosting, sensitive services, SSL certificate and domain expiry, and IP reputation.
-- **Security posture**: this dashboard helps organizations understand the maturity and complexity of their security program based on the metadata derived from assets in your Approved inventory. It is comprised of technical and nontechnical policies, processes and controls that mitigate risk of external threats. This dashboard provides insight on CVE exposure, domain administration and configuration, hosting and networking, open ports, and SSL certificate configuration.
+- **Security posture**: this dashboard helps organizations understand the maturity and complexity of their security program based on the metadata derived from assets in your Approved inventory. It is composed of technical and nontechnical policies, processes and controls that mitigate risk of external threats. This dashboard provides insight on CVE exposure, domain administration and configuration, hosting and networking, open ports, and SSL certificate configuration.
 - **GDPR compliance**: this dashboard surfaces key areas of compliance risk based on the General Data Protection Regulation (GDPR) requirements for online infrastructure that’s accessible to European nations. This dashboard provides insight on the status of your websites, SSL certificate issues, exposed personal identifiable information (PII), login protocols, and cookie compliance.
 - **OWASP Top 10**: this dashboard surfaces any assets that are vulnerable according to OWASP’s list of the most critical web application security risks. On this dashboard, organizations can quickly identify assets with broken access control, cryptographic failures, injections, insecure designs, security misconfigurations and other critical risks as defined by OWASP.
+- **CWE top 25 software weaknesses**: this dashboard is based on the Top 25 Common Weakness Enumeration (CWE) list provided annually by MITRE. These CWEs represent the most common and impactful software weaknesses that are easy to find and exploit. 
+- **CISA known exploits**: this dashboard displays any assets that are potentially impacted by vulnerabilities that led to known exploits as defined by CISA. This dashboard helps you prioritize remediation efforts based on vulnerabilities that were exploited in the past, indicating a higher level of risk for your organization.  
 
 ## Accessing dashboards
 
@@ -31,11 +34,20 @@ To access your Defender EASM dashboards, first navigate to your Defender EASM in
 
 The data underlying any dashboard chart can be exported to a CSV file.  This export is useful for users who wish to import Defender EASM data into third party tools, or work off a CSV file when remediating any issues.  To download chart data, first select the specific chart segment that contains the data you wish to download. Chart exports currently support individual chart segments; to download multiple segments from the same chart, you need to export each individual segment. 
 
-Selecting an individual chart segment opens a drilldown view of the data, listing any assets that comprise the segment count. At the top of this page, select **Download CSV report** to begin your export. If you are exporting a small number of assets, this action directly downloads the CSV file to your machine. If you are exporting a large number of assets, this action creates a task manager notification where you can track the status of your export. 
+Selecting an individual chart segment opens a drilldown view of the data, listing any assets that comprise the segment count. At the top of this page, select **Download CSV report** to begin your export. This action creates a task manager notification where you can track the status of your export. 
 
 Microsoft Excel enforces a character limit of 32,767 characters per cell. Some fields, like the "Last banner" column, might be improperly displayed due to this limitation. If you encounter an issue, try opening the file in another program that supports CSV files. 
 
 ![Screenshot of dashboard chart drilldown view with export button visible.](media/export-1.png)
+
+
+## Inventory changes 
+
+Your attack surface is constantly changing, which is why Defender EASM continuously analyzes and updates your inventory to ensure accuracy. Assets are frequently added and removed from inventory, so it's important to track these changes to understand your attack surface and identify key trends. The inventory changes dashboard provides an overview of these changes, displaying the "added" and "removed" counts for each asset type. You can filter the dashboard by two date ranges: either the last 7 or 30 days. 
+
+The "Changes by date" section provides more granular context on how your attack surface has changed on a daily basis. This section categorizes removals as "removed by user" or "removed by system."  User removals include all manual removals, including individual, bulk or cascading asset state changes, as well as removals triggered by user-configured asset policies. System removals occur automatically. The system removes assets that are no longer relevant to your attack surface because recent scans no longer observed their connection to your inventory. Assets are eligible for pruning if they haven't been observed in a scan for 30-60 days, depending on the asset type. Assets that are manually added to inventory are not eligible for removal. From the "Changes by date" section, you can click on any listed value to see a full list of the assets that were added or removed. 
+
+![Screenshot of Inventory changes dashboard with addition and removal counts.](media/inventory-changes-2.png)
 
 
 ## Attack surface summary
@@ -48,16 +60,16 @@ Microsoft identifies organizations' attack surfaces through proprietary technolo
 
 At the top of this dashboard, Defender EASM provides a list of security priorities organized by severity (high, medium, low). Large organizations’ attack surfaces can be incredibly broad, so prioritizing the key findings derived from our expansive data helps users quickly and efficiently address the most important exposed elements of their attack surface. These priorities can include critical CVEs, known associations to compromised infrastructure, use of deprecated technology, infrastructure best practice violations, or compliance issues.
 
-Insight Priorities are determined by Microsoft’s assessment of the potential impact of each insight. For instance, high severity insights can include vulnerabilities that are new, exploited frequently, particularly damaging, or easily exploited by hackers with a lower skill level. Low severity insights can include use of deprecated technology that is no longer supported, infrastructure that will soon expire, or compliance issues that do not align with security best practices. Each insight contains suggested remediation actions to protect against potential exploits.
+Insight Priorities are determined by Microsoft’s assessment of the potential impact of each insight. For instance, high severity insights can include vulnerabilities that are new, exploited frequently, particularly damaging, or easily exploited by hackers with a lower skill level. Low severity insights can include use of deprecated technology that is no longer supported, infrastructure soon expiring, or compliance issues that do not align with security best practices. Each insight contains suggested remediation actions to protect against potential exploits.
 
 Insights that were recently added to the Defender EASM platform are flagged with a "NEW" label on this dashboard. When we add new insights that impact assets in your Confirmed Inventory, the system also delivers a push notification that routes you to a detailed view of this new insight with a list of the impacted assets. 
 
-Some insights are flagged with "Potential" in the title. A "Potential" insight occurs when Defender EASM is unable to confirm that an asset is impacted by a vulnerability. This is common when our scanning system detects the presence of a specific service but cannot detect the version number. For example, some services enable administrators to hide version information. Vulnerabilities are often associated with specific versions of the software, so manual investigation is required to determine whether the asset is impacted. Other vulnerabilities can be remediated by steps that Defender EASM is unable to detect. For instance, users can make recommended changes to service configurations or run backported patches. If an insight is prefaced with "Potential", the system has reason to believe that the asset is impacted by the vulnerability but is unable to confirm it for one of the above listed reasons. To manually investigate, click the insight name to review remediation guidance that can help you determine whether your assets are impacted.
+Some insights are flagged with "Potential" in the title. A "Potential" insight occurs when Defender EASM is unable to confirm that an asset is impacted by a vulnerability. Potential insights occur when our scanning system detects the presence of a specific service but cannot detect the version number. For example, some services enable administrators to hide version information. Vulnerabilities are often associated with specific versions of the software, so manual investigation is required to determine whether the asset is impacted. Other vulnerabilities can be remediated by steps that Defender EASM is unable to detect. For instance, users can make recommended changes to service configurations or run backported patches. If an insight is prefaced with "Potential", the system has reason to believe that the asset is impacted by the vulnerability but is unable to confirm it for one of the above listed reasons. To manually investigate, click the insight name to review remediation guidance that can help you determine whether your assets are impacted.
 
 
 ![Screenshot of attack surface priorities with clickable options highlighted.](media/Dashboards-2.png)
 
-A user will usually decide to first investigate any High Severity Observations. You can click the top-listed observation to be directly routed to a list of impacted assets, or instead select “View All __ Insights” to see a comprehensive, expandable list of all potential observations within that severity group.
+A user usually decides to first investigate any High Severity Observations. You can click the top-listed observation to be directly routed to a list of impacted assets, or instead select “View All __ Insights” to see a comprehensive, expandable list of all potential observations within that severity group.
 
 The Observations page features a list of all potential insights in the left-hand column. This list is sorted by the number of assets that are impacted by each security risk, displaying the issues that impact the greatest number of assets first. To view the details of any security risk, simply click on it from this list. 
 
@@ -85,7 +97,7 @@ This section of the Attack Surface Summary dashboard provides insight on the clo
 
 ![Screenshot of cloud chart.](media/Dashboards-6.png)
 
-For instance, your organization might have recently decided to migrate all cloud infrastructure to a single provider to simplify and consolidate their Attack Surface. This chart can help you identify assets that still need to be migrated. Each bar of the chart is clickable, routing users to a filtered list that displays the assets that comprise the chart value.
+For instance, your organization may decide to migrate all cloud infrastructure to a single provider to simplify and consolidate their Attack Surface. This chart can help you identify assets that still need to be migrated. Each bar of the chart is clickable, routing users to a filtered list that displays the assets that comprise the chart value.
 
 ### Sensitive services
 
@@ -113,7 +125,7 @@ This chart is organized by the detection policy that triggered a negative reputa
 
 ## Security posture dashboard
 
-The Security Posture dashboard helps organizations measure the maturity of their security program based on the status of assets in your Confirmed Inventory. It is comprised of technical and non-technical policies, processes and controls that mitigate the risk of external threats. This dashboard provides insight on CVE exposure, domain administration and configuration, hosting and networking, open ports, and SSL certificate configuration.
+The Security Posture dashboard helps organizations measure the maturity of their security program based on the status of assets in your Confirmed Inventory. It is composed of technical and non-technical policies, processes and controls that mitigate the risk of external threats. This dashboard provides insight on CVE exposure, domain administration and configuration, hosting and networking, open ports, and SSL certificate configuration.
 
 ![Screenshot of security posture chart.](media/Dashboards-10.png)
 
@@ -276,6 +288,14 @@ This dashboard provides a description of each critical risk, information on why 
 This dashboard is based on the Top 25 Common Weakness Enumeration (CWE) list provided annually by MITRE. These CWEs represent the most common and impactful software weaknesses that are easy to find and exploit. This dashboard displays all CWEs included on the list over the last five years, and lists all of your inventory assets that might be impacted by each CWE. For each CWE, the dashboard provides a description and examples of the vulnerability, and lists related CVEs. The CWEs are organized by year, and each section is expandable or collapsible.  Referencing this dashboard helps your vulnerability mediation efforts by helping you identify the greatest risks to your organization based on other observed exploits.
 
 [![Screenshot of CWE Top 25 Software Weaknesses dashboard.](media/dashboards-28.png)](media/dashboards-28-expanded.png#lightbox) 
+
+
+## CISA Known Exploits
+
+While there are hundreds of thousands of identified CVE vulnerabilities, only a small subset has been identified by the Cybersecurity & Infrastructure Security Agency (CISA) as recently exploited by threat actors. This list includes less than .5% of all identified CVEs; for this reason, it is instrumental to helping security professionals prioritize the remediation of the greatest risks to their organization. Those who remediate threats based on this list operate with the upmost efficiency because they’re prioritizing the vulnerabilities that have resulted in real security incidents.  
+
+![Screenshot of CISA Known Exploits dashboard.](media/dashboards-29.png)
+
 
 
 

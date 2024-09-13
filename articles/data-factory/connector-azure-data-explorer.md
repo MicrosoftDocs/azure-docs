@@ -2,13 +2,12 @@
 title: Copy and transform data in Azure Data Explorer
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to copy or transform data in Azure Data Explorer by using Data Factory or Azure Synapse Analytics.
-ms.author: orspodek
+ms.author: jianleishen
 author: jianleishen
-ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 07/24/2023
+ms.date: 05/15/2024
 ---
 
 # Copy data to or from Azure Data Explorer using Azure Data Factory or Synapse Analytics
@@ -420,7 +419,7 @@ IncomingStream sink(allowSchemaDrift: true,
 
 For more information about the properties, see [Lookup activity](control-flow-lookup-activity.md).
 
-## Next steps
+## Related content
 
 * For a list of data stores that the copy activity supports as sources and sinks, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).
 

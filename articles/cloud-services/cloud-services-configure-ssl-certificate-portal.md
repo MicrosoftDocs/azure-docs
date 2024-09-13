@@ -2,8 +2,8 @@
 title: Configure TLS for a cloud service  | Microsoft Docs
 description: Learn how to specify an HTTPS endpoint for a web role and how to upload a TLS/SSL certificate to secure your application. These examples use the Azure portal.
 ms.topic: article
-ms.service: cloud-services
-ms.date: 02/21/2023
+ms.service: azure-cloud-services-classic
+ms.date: 07/23/2024
 author: hirenshah1
 ms.author: hirshah
 ms.reviewer: mimckitt
@@ -20,21 +20,21 @@ Transport Layer Security (TLS), previously known as Secure Socket Layer (SSL) en
 > The procedures in this task apply to Azure Cloud Services; for App Services, see [this](../app-service/configure-ssl-bindings.md).
 >
 
-This task uses a production deployment. Information on using a staging deployment is provided at the end of this topic.
+This task uses a production deployment. Information on using a staging deployment is provided at the end of this article.
 
-Read [this](cloud-services-how-to-create-deploy-portal.md) first if you have not yet created a cloud service.
+Read [How to create and deploy an Azure Cloud Service (classic)](cloud-services-how-to-create-deploy-portal.md) first if you haven't yet created a cloud service.
 
 ## Step 1: Get a TLS/SSL certificate
-To configure TLS for an application, you first need to get a TLS/SSL certificate that has been signed by a Certificate Authority (CA), a trusted third party who issues certificates for this purpose. If you do not already have one, you need to obtain one from a company that sells TLS/SSL certificates.
+To configure TLS for an application, you first need to get a TLS/SSL certificate signed by a Certificate Authority (CA), a trusted partner who issues certificates for this purpose. If you don't already have one, you need to obtain one from a company that sells TLS/SSL certificates.
 
 The certificate must meet the following requirements for TLS/SSL certificates in Azure:
 
 * The certificate must contain a public key.
 * The certificate must be created for key exchange, exportable to a Personal Information Exchange (.pfx) file.
-* The certificate's subject name must match the domain used to access the cloud service. You cannot obtain a TLS/SSL certificate from a certificate authority (CA) for the cloudapp.net domain. You must acquire a custom domain name to use when access your service. When you request a certificate from a CA, the certificate's subject name must match the custom domain name used to access your application. For example, if your custom domain name is **contoso.com** you would request a certificate from your CA for ***.contoso.com** or **www\.contoso.com**.
+* The certificate's subject name must match the domain used to access the cloud service. You can't obtain a TLS/SSL certificate from a certificate authority (CA) for the cloudapp.net domain. You must acquire a custom domain name to use when accessing your service. When you request a certificate from a CA, the certificate's subject name must match the custom domain name used to access your application. For example, if your custom domain name is **contoso.com** you would request a certificate from your CA for ***.contoso.com** or **www\.contoso.com**.
 * The certificate must use a minimum of 2048-bit encryption.
 
-For test purposes, you can [create](cloud-services-certs-create.md) and use a self-signed certificate. A self-signed certificate is not authenticated through a CA and can use the cloudapp.net domain as the website URL. For example, the following task uses a self-signed certificate in which the common name (CN) used in the certificate is **sslexample.cloudapp.net**.
+For test purposes, you can [create](cloud-services-certs-create.md) and use a self-signed certificate. A self-signed certificate isn't authenticated through a CA and can use the cloudapp.net domain as the website URL. For example, the following task uses a self-signed certificate in which the common name (CN) used in the certificate is **sslexample.cloudapp.net**.
 
 Next, you must include information about the certificate in your service definition and service configuration files.
 
@@ -69,7 +69,7 @@ Your application must be configured to use the certificate, and an HTTPS endpoin
     </WebRole>
     ```
 
-   The **Certificates** section defines the name of our certificate, its location, and the name of the store where it is located.
+   The **Certificates** section defines the name of our certificate, its location, and the name of the store where it's located.
 
    Permissions (`permissionLevel` attribute) can be set to one of the following values:
 
@@ -110,12 +110,9 @@ Your application must be configured to use the certificate, and an HTTPS endpoin
     </WebRole>
     ```
 
-   All the required changes to the service definition file have been
-   completed; but, you still need to add the certificate information to
-   the service configuration file.
-4. In your service configuration file (CSCFG), ServiceConfiguration.Cloud.cscfg, add a **Certificates**
-value with that of your certificate. The following code sample provides
-   details of the **Certificates** section, except for the thumbprint value.
+   All the required changes to the service definition file are complete, but you still need to add the certificate information to the service configuration file.
+
+4. In your service configuration file (CSCFG), ServiceConfiguration.Cloud.cscfg, add a **Certificates** value with that of your certificate. The following code sample provides details of the **Certificates** section, except for the thumbprint value.
 
     ```xml
     <Role name="Deployment">
@@ -134,11 +131,10 @@ value with that of your certificate. The following code sample provides
 
 (This example uses **sha1** for the thumbprint algorithm. Specify the appropriate value for your certificate's thumbprint algorithm.)
 
-Now that the service definition and service configuration files have
-been updated, package your deployment for uploading to Azure. If
-you are using **cspack**, don't use the
-**/generateConfigurationFile** flag, as that will overwrite the
-certificate information you just inserted.
+Now that you updated the service definition and service configuration files, package your deployment for uploading to Azure. If
+you're using **cspack**, don't use the
+**/generateConfigurationFile** flag, as that overwrites the
+certificate information you inserted.
 
 ## Step 3: Upload a certificate
 Connect to the Azure portal and...
@@ -147,21 +143,21 @@ Connect to the Azure portal and...
 
     ![Publish your cloud service](media/cloud-services-configure-ssl-certificate-portal/browse.png)
 
-2. Click **Certificates**.
+2. Select **Certificates**.
 
     ![Click the certificates icon](media/cloud-services-configure-ssl-certificate-portal/certificate-item.png)
 
-3. Click **Upload** at the top of the certificates area.
+3. Select **Upload** at the top of the certificates area.
 
     ![Click the Upload menu item](media/cloud-services-configure-ssl-certificate-portal/Upload_menu.png)
 
-4. Provide the **File**, **Password**, then click **Upload** at the bottom of the data entry area.
+4. Provide the **File**, **Password**, then select **Upload** at the bottom of the data entry area.
 
 ## Step 4: Connect to the role instance by using HTTPS
 Now that your deployment is up and running in Azure, you can
 connect to it using HTTPS.
 
-1. Click the **Site URL** to open up the web browser.
+1. Select the **Site URL** to open up the web browser.
 
    ![Click the Site URL](media/cloud-services-configure-ssl-certificate-portal/navigate.png)
 

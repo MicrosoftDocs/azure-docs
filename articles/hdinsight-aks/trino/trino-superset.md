@@ -1,14 +1,16 @@
 ---
 title: Use Apache Superset with Trino on HDInsight on AKS
 description: Deploying Superset and connecting to Trino with HDInsight on AKS
-ms.service: hdinsight-aks
+ms.service: azure-hdinsight-on-aks
 ms.topic: how-to 
 ms.date: 10/19/2023
 ---
 
 # Deploy Apache Superset™
 
+[!INCLUDE [retirement-notice](../includes/retirement-notice.md)]
 [!INCLUDE [feature-in-preview](../includes/feature-in-preview.md)]
+
 
 Visualization is essential to effectively explore, present, and share data. [Apache Superset](https://superset.apache.org/) allows you to run queries, visualize, and build dashboards over your data in a flexible Web UI. 
 
@@ -54,7 +56,6 @@ Summary of the steps covered in this article:
 4. Install [Kubernetes](https://kubernetes.io/docs/tasks/tools/).
 
 5. Install [Helm](https://helm.sh/docs/intro/install/).
-
 
 ## Create kubernetes cluster for Apache Superset
 
@@ -177,7 +178,7 @@ This step creates the Azure Kubernetes Service (AKS) cluster where you can insta
        |hostname|mytrinocluster.00000000000000000000000000<br>.eastus.hdinsightaks.net|The hostname of your Trino cluster. <br> You can get this information from "Overview" page of your cluster in the Azure portal.|
        |catalog|/tpch|After the slash, is the default catalog name. <br> You need to change this catalog to the catalog that has the data you want to visualize.|
 
-       trino://<mark>$USER</mark>@<mark>$TRINO_CLUSTER_HOST_NAME</mark>.hdinsightaks.net:443/<mark>$DEFAULT_CATALOG</mark>
+       `trino://$USER@$TRINO_CLUSTER_HOST_NAME.hdinsightaks.net:443/$DEFAULT_CATALOG`
     
        Example: `trino://trino@mytrinocluster.00000000000000000000000000.westus3.hdinsightaks.net:443/tpch`
 

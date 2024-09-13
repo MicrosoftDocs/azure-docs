@@ -17,6 +17,8 @@ items:
 - name: Tutorial
   expanded: true
   items:
+  - name: Connect to self-hosted Prometheus through managed private endpoint
+    href: tutorial-mpe-oss-prometheus.md
   - name: Call Grafana APIs programmatically
     href: how-to-api-calls.md
 - name: Concepts
@@ -26,6 +28,10 @@ items:
     href: high-availability.md
   - name: Encryption
     href: encryption.md
+  - name: Grafana settings
+    href: grafana-settings.md
+  - name: Azure RBAC  
+    href: concept-role-based-access-control.md
 - name: How-to guides
   expanded: true
   items:
@@ -47,6 +53,8 @@ items:
       href: how-to-data-source-plugins-managed-identity.md
     - name: Add an Azure Monitor workspace
       href: how-to-connect-azure-monitor-workspace.md
+    - name: Add Azure Data Explorer
+      href: how-to-connect-azure-data-explorer.md
     - name: Enable Grafana Enterprise
       href: how-to-grafana-enterprise.md
     - name: Manage plugins
@@ -72,10 +80,10 @@ items:
     items:
     - name: Set up private access
       href: how-to-set-up-private-access.md
-    - name: Connect to a data source privately
-      href: how-to-connect-to-data-source-privately.md
     - name: Use deterministic outbound IPs
       href: how-to-deterministic-ip.md
+    - name: Connect to a data source privately
+      href: how-to-connect-to-data-source-privately.md
   - name: Availability
     expanded: false
     items:
@@ -90,8 +98,12 @@ items:
       href: how-to-create-api-keys.md
     - name: Monitor Azure Managed Grafana
       href: how-to-monitor-managed-grafana-workspace.md
+  - name: Migrate to Azure Managed Grafana
+    href: how-to-migrate.md
   - name: Transition to grafana.azure.com domain
     href: how-to-transition-domain.md
+  - name: Upgrade to Grafana 10
+    href: how-to-upgrade-grafana-10.md
   - name: Troubleshoot common issues
     href: troubleshoot-managed-grafana.md
   - name: Known limitations

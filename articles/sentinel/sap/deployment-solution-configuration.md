@@ -1,10 +1,14 @@
 ---
 title: Configure Microsoft Sentinel solution for SAP® applications
 description: This article shows you how to configure the deployed Microsoft Sentinel solution for SAP® applications
-author: limwainstein
-ms.author: lwainstein
+author: batamig
+ms.author: bagol
 ms.topic: how-to
 ms.date: 03/10/2023
+
+
+#Customer intent: As a security analyst, I want to configure and monitor SAP systems using a cloud-based SIEM solution so that I can detect and respond to suspicious activities and threats effectively.
+
 ---
 
 # Configure Microsoft Sentinel solution for SAP® applications

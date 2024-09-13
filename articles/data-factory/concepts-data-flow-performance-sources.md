@@ -5,7 +5,6 @@ description: Learn about optimizing source performance in mapping data flows in 
 author: kromerm
 ms.topic: conceptual
 ms.author: makromer
-ms.service: data-factory
 ms.subservice: data-flows
 ms.custom: synapse
 ms.date: 10/20/2023
@@ -57,7 +56,7 @@ If possible, avoid using the For-Each activity to run data flows over a set of f
 
 ADF and Synapse datasets are shared resources in your factories and workspaces. However, when you're reading large numbers of source folders and files with delimited text and JSON sources, you can improve the performance of data flow file discovery by setting the option "User projected schema" inside the Projection | Schema options dialog. This option turns off ADF's default schema autodiscovery and greatly improves the performance of file discovery. Before setting this option, make sure to import the projection so that ADF has an existing schema for projection. This option doesn't work with schema drift.
 
-## Next steps
+## Related content
 
 - [Data flow performance overview](concepts-data-flow-performance.md)
 - [Optimizing sinks](concepts-data-flow-performance-sinks.md)

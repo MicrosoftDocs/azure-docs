@@ -57,7 +57,7 @@
     - name: Java
       href: https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/streamanalytics/azure-resourcemanager-streamanalytics/src/samples/java/com/azure/resourcemanager/streamanalytics/generated
     - name: JavaScript and TypeScript
-      href: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/streamanalytics/arm-streamanalytics/samples/v4
+      href: https://github.com/Azure/azure-sdk-for-js/tree/main/sdk/streamanalytics/arm-streamanalytics/samples/v5-beta
     - name: Python
       href: https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/streamanalytics/azure-mgmt-streamanalytics/generated_samples
 - name: Concepts
@@ -85,12 +85,6 @@
       href: ./security-controls-policy.md
     - name: Security baseline
       href: /security/benchmark/azure/baselines/stream-analytics-security-baseline?toc=/azure/stream-analytics/TOC.json
-  - name: Metrics for job monitoring
-    items:
-    - name: Stream Analytics metrics
-      href: stream-analytics-job-metrics.md
-    - name: Stream Analytics metrics dimensions
-      href: stream-analytics-job-metrics-dimensions.md
   - name: Integrate with Schema Registry
     href: stream-analytics-schema-registry-integration.md
   - name: Input types for a job
@@ -150,8 +144,6 @@
       href: service-bus-topics-output.md
     - name: Azure Functions
       href: azure-functions-output.md
-    - name: Azure Data Lake Storage Gen 1
-      href: azure-data-lake-storage-gen1-output.md
     - name: Kafka output
       href: kafka-output.md
   - name: Extend queries with functions
@@ -237,8 +229,6 @@
       href: geo-redundancy.md
     - name: Encrypt your data (CMK)
       href: data-protection.md
-    - name: Configure alerts
-      href: stream-analytics-set-up-alerts.md
   - name: Manage Stream Analytics clusters
     items:
     - name: Create and delete private endpoints
@@ -298,12 +288,9 @@
     - name: Service Bus
       href: service-bus-managed-identity.md
       displayName: managed identity, identities, authenticate
-    - name: Azure Data Lake Storage Gen 1
-      href: stream-analytics-managed-identities-adls.md
-      displayName: managed identity, identities, authenticate
   - name: Build solutions
     items:
-    - name: Twitter sentiment analysis
+    - name: X sentiment analysis
       href: stream-analytics-twitter-sentiment-analysis-trends.md
     - name: Run jobs on Azure Stack
       href: on-azure-stack.md
@@ -330,7 +317,7 @@
       href: geospatial-scenarios.md
   - name: Monitor
     items:
-    - name: Monitor Azure Stream Analytics
+    - name: Monitor Stream Analytics
       href: monitor-azure-stream-analytics.md
     - name: Monitoring data reference
       href: monitor-azure-stream-analytics-reference.md
@@ -340,6 +327,10 @@
       href: stream-analytics-monitor-and-manage-jobs-use-powershell.md
     - name: Monitor jobs - Azure .NET SDK
       href: stream-analytics-monitor-jobs.md
+    - name: Configure alerts
+      href: stream-analytics-set-up-alerts.md
+    - name: Use activity and resource logs
+      href: stream-analytics-job-diagnostic-logs.md
   - name: Optimize jobs
     items:
     - name: Job simulation
@@ -424,8 +415,6 @@
       href: stream-analytics-troubleshoot-query.md
     - name: Watermark delay increase
       href: stream-analytics-job-analysis-with-metric-dimensions.md
-    - name: Activity and resource logs
-      href: stream-analytics-job-diagnostic-logs.md
     - name: Data errors
       href: data-errors.md
     - name: Error codes
@@ -448,12 +437,6 @@
       href: stream-analytics-machine-learning-anomaly-detection.md
     - name: Use ML REST APIs
       href: stream-analytics-how-to-configure-azure-machine-learning-endpoints-in-stream-analytics.md
-  - name: Export from Application Insights
-    items:
-    - name: Export to Stream Analytics
-      href: app-insights-export-stream-analytics.md
-    - name: Export to SQL using Stream Analytics
-      href: app-insights-export-sql-stream-analytics.md
   - name: Scale with ML functions
     href: stream-analytics-scale-with-machine-learning-functions.md
   - name: Run job in your virtual network
@@ -893,7 +876,7 @@
   - name: Feedback forum
     href: https://feedback.azure.com/d365community/forum/d12ec4e3-b825-ec11-b6e6-000d3a4f0f1c
   - name: Microsoft Q&A question page
-    href: /answers/topics/azure-stream-analytics.html
+    href: /answers/tags/179/azure-stream-analytics
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/stream-analytics/
   - name: Pricing calculator

@@ -25,11 +25,11 @@ The following changes are required in the `.csproj` XML project file:
 1. In the `ItemGroup`.`PackageReference` list, replace the package reference to `Microsoft.NET.Sdk.Functions` with the following references:
 
     ```xml
-      <PackageReference Include="Microsoft.Azure.Functions.Worker" Version="1.19.0" />
-      <PackageReference Include="Microsoft.Azure.Functions.Worker.Sdk" Version="1.16.2" />
-      <PackageReference Include="Microsoft.Azure.Functions.Worker.Extensions.Http" Version="3.0.13" />
-      <PackageReference Include="Microsoft.ApplicationInsights.WorkerService" Version="2.21.0" />
-      <PackageReference Include="Microsoft.Azure.Functions.Worker.ApplicationInsights" Version="1.0.0" />
+      <PackageReference Include="Microsoft.Azure.Functions.Worker" Version="1.21.0" />
+      <PackageReference Include="Microsoft.Azure.Functions.Worker.Sdk" Version="1.16.4" />
+      <PackageReference Include="Microsoft.Azure.Functions.Worker.Extensions.Http" Version="3.1.0" />
+      <PackageReference Include="Microsoft.ApplicationInsights.WorkerService" Version="2.22.0" />
+      <PackageReference Include="Microsoft.Azure.Functions.Worker.ApplicationInsights" Version="1.2.0" />
     ```
 
     Make note of any references to other packages in the `Microsoft.Azure.WebJobs.*` namespaces. You'll replace these packages in a later step.
@@ -53,11 +53,11 @@ After you make these changes, your updated project should look like the followin
     <OutputType>Exe</OutputType>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Microsoft.Azure.Functions.Worker" Version="1.19.0" />
-    <PackageReference Include="Microsoft.Azure.Functions.Worker.Sdk" Version="1.16.2" />
-    <PackageReference Include="Microsoft.Azure.Functions.Worker.Extensions.Http" Version="3.0.13" />
-    <PackageReference Include="Microsoft.ApplicationInsights.WorkerService" Version="2.21.0" />
-    <PackageReference Include="Microsoft.Azure.Functions.Worker.ApplicationInsights" Version="1.0.0" />
+      <PackageReference Include="Microsoft.Azure.Functions.Worker" Version="1.21.0" />
+      <PackageReference Include="Microsoft.Azure.Functions.Worker.Sdk" Version="1.16.4" />
+      <PackageReference Include="Microsoft.Azure.Functions.Worker.Extensions.Http" Version="3.1.0" />
+      <PackageReference Include="Microsoft.ApplicationInsights.WorkerService" Version="2.22.0" />
+      <PackageReference Include="Microsoft.Azure.Functions.Worker.ApplicationInsights" Version="1.2.0" />
     <!-- Other packages may also be in this list -->
   </ItemGroup>
   <ItemGroup>

@@ -3,11 +3,10 @@ title: Copy and transform data from and to a REST endpoint
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to use Copy Activity to copy data and use Data Flow to transform data from a cloud or on-premises REST source to supported sink data stores, or from supported source data store to a REST sink in Azure Data Factory or Azure Synapse Analytics pipelines. 
 author: jianleishen
-ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 08/10/2023
+ms.date: 08/29/2024
 ms.author: makromer
 ---
 
@@ -43,7 +42,7 @@ Specifically, this generic REST connector supports:
 - For REST as source, copying the REST JSON response [as-is](#export-json-response-as-is) or parse it by using [schema mapping](copy-activity-schema-and-type-mapping.md#schema-mapping). Only response payload in **JSON** is supported.
 
 > [!TIP]
-> To test a request for data retrieval before you configure the REST connector in Data Factory, learn about the API specification for header and body requirements. You can use tools like Postman or a web browser to validate.
+> To test a request for data retrieval before you configure the REST connector in Data Factory, learn about the API specification for header and body requirements. You can use tools like Visual Studio, PowerShell's Invoke-RestMethod or a web browser to validate.
 
 ## Prerequisites
 
@@ -141,12 +140,18 @@ Set the **authenticationType** property to **AadServicePrincipal**. In addition 
 | Property | Description | Required |
 |:--- |:--- |:--- |
 | servicePrincipalId | Specify the Microsoft Entra application's client ID. | Yes |
-| servicePrincipalKey | Specify the Microsoft Entra application's key. Mark this field as a **SecureString** to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes |
+| servicePrincipalCredentialType | Specify the credential type to use for service principal authentication. Allowed values are `ServicePrincipalKey` and `ServicePrincipalCert`. | No |
+| ***For ServicePrincipalKey*** | | |
+| servicePrincipalKey | Specify the Microsoft Entra application's key. Mark this field as a **SecureString** to store it securely in Data Factory, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | No |
+| ***For ServicePrincipalCert*** | | |
+| servicePrincipalEmbeddedCert | Specify the base64 encoded certificate of your application registered in Microsoft Entra ID, and ensure the certificate content type is **PKCS #12**. Mark this field as a **SecureString** to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). Go to this [section](#save-the-service-principal-certificate-in-azure-key-vault) to learn how to save the certificate in Azure Key Vault. | No |
+| servicePrincipalEmbeddedCertPassword | Specify the password of your certificate if your certificate is secured with a password. Mark this field as a **SecureString** to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | No |
+|  |  |  |
 | tenant | Specify the tenant information (domain name or tenant ID) under which your application resides. Retrieve it by hovering the mouse in the top-right corner of the Azure portal. | Yes |
 | aadResourceId | Specify the Microsoft Entra resource you are requesting for authorization, for example, `https://management.core.windows.net`.| Yes |
 | azureCloudType | For Service Principal authentication, specify the type of Azure cloud environment to which your Microsoft Entra application is registered. <br/> Allowed values are **AzurePublic**, **AzureChina**, **AzureUsGovernment**, and **AzureGermany**. By default, the data factory's cloud environment is used. | No |
 
-**Example**                                                                          
+**Example 1: Using service principal key authentication**                                                                          
 
 ```json
 {
@@ -157,6 +162,7 @@ Set the **authenticationType** property to **AadServicePrincipal**. In addition 
             "url": "<REST endpoint e.g. https://www.example.com/>",
             "authenticationType": "AadServicePrincipal",
             "servicePrincipalId": "<service principal id>",
+            "servicePrincipalCredentialType": "ServicePrincipalKey",
             "servicePrincipalKey": {
                 "value": "<service principal key>",
                 "type": "SecureString"
@@ -171,6 +177,59 @@ Set the **authenticationType** property to **AadServicePrincipal**. In addition 
     }
 }
 ```
+
+**Example 2: Using service principal certificate authentication**
+
+```json
+{
+    "name": "RESTLinkedService",
+    "properties": {
+        "type": "RestService",
+        "typeProperties": {
+            "url": "<REST endpoint e.g. https://www.example.com/>",
+            "authenticationType": "AadServicePrincipal",
+            "servicePrincipalId": "<service principal id>",
+            "servicePrincipalCredentialType": "ServicePrincipalCert",
+            "servicePrincipalEmbeddedCert": {
+                "type": "SecureString",
+                "value": "<the base64 encoded certificate of your application registered in Microsoft Entra ID>"
+            },
+            "servicePrincipalEmbeddedCertPassword": {
+                "type": "SecureString",
+                "value": "<password of your certificate>"
+            },
+            "tenant": "<tenant info, e.g. microsoft.onmicrosoft.com>",
+            "aadResourceId": "<Azure AD resource URL e.g. https://management.core.windows.net>"
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+#### Save the service principal certificate in Azure Key Vault
+
+You have two options to save the service principal certificate in Azure Key Vault:
+
+- **Option 1**
+
+    1. Convert the service principal certificate to a base64 string. Learn more from this [article](https://blog.tekspace.io/convert-certificate-from-pfx-to-base64-with-powershell/).
+
+    
+    2. Save the base64 string as a secret in Azure Key Vault.
+    	
+       :::image type="content" source="media/connector-rest/secrets.png" alt-text="Screenshot of secrets.":::
+    
+       :::image type="content" source="media/connector-rest/secret-value.png" alt-text="Screenshot of secret value.":::
+
+- **Option 2**
+	
+    If you can't download the certificate from Azure Key Vault, you can use this [template](https://supportability.visualstudio.com/256c8350-cb4b-49c9-ac6e-a012aeb312d1/_apis/git/repositories/da6cf5d9-0dc5-4ba9-a5e2-6e6a93adf93c/Items?path=/AzureDataFactory/.attachments/ConvertCertToBase64StringInAKVPipeline-47f8e507-e7ef-4343-a73b-733b9a7f8e4e.zip&download=false&resolveLfs=true&%24format=octetStream&api-version=5.0-preview.1&sanitize=true&includeContentMetadata=true&versionDescriptor.version=master) to save the converted service principal certificate as a secret in Azure Key Vault. 
+        
+    :::image type="content" source="media/connector-rest/template-pipeline.png" alt-text="Screenshot of template pipeline to save service principal certificate as a secret in AKV.":::
+ 
 ### Use OAuth2 Client Credential authentication
 
 Set the **authenticationType** property to **OAuth2ClientCredential**. In addition to the generic properties that are described in the preceding section, specify the following properties:
@@ -352,7 +411,8 @@ The following properties are supported in the copy activity **source** section:
 | requestInterval | The time to wait before sending the request for next page. The default value is **00:00:01** |  No |
 
 >[!NOTE]
->REST connector ignores any "Accept" header specified in `additionalHeaders`. As REST connector only support response in JSON, it will auto generate a header of `Accept: application/json`.
+>REST connector ignores any "Accept" header specified in `additionalHeaders`. As REST connector only support response in JSON, it will auto generate a header of `Accept: application/json`. <br>
+>The array of object as the response body is not supported in pagination.
 
 **Example 1: Using the Get method with pagination**
 
@@ -568,7 +628,7 @@ This generic REST connector supports the following pagination patterns:
 | Value | Description |
 |:--- |:--- |
 | Headers.*response_header* OR Headers['response_header'] | "response_header" is user-defined, which references one header name in the current HTTP response, the value of which will be used to issue next request. |
-| A JSONPath expression starting with "$" (representing the root of the response body) | The response body should contain only one JSON object. The JSONPath expression should return a single primitive value, which will be used to issue next request. |
+| A JSONPath expression starting with "$" (representing the root of the response body) | The response body should contain only one JSON object and the array of object as the response body is not supported. The JSONPath expression should return a single primitive value, which will be used to issue next request. |
 
 >[!NOTE]
 > The pagination rules in mapping data flows is different from it in copy activity in the following aspects:
@@ -648,7 +708,7 @@ Request 100: `Header(id->100)`<br/>
 
 *Step 1*: Input `{id}` in **Additional headers**.
     
-*Step 2*: Set **Pagination rules** as **"Headers.{id}" : "RARNGE:0:100:10"**.
+*Step 2*: Set **Pagination rules** as **"Headers.{id}" : "RANGE:0:100:10"**.
 
 :::image type="content" source="media/connector-rest/pagination-rule-example-3.png" alt-text="Screenshot showing the pagination rule to send multiple requests whose variables are in Headers."::: 
 
@@ -916,6 +976,6 @@ You can use this REST connector to export REST API JSON response as-is to variou
 
 To copy data from REST endpoint to tabular sink, refer to [schema mapping](copy-activity-schema-and-type-mapping.md#schema-mapping).
 
-## Next steps
+## Related content
 
 For a list of data stores that Copy Activity supports as sources and sinks in Azure Data Factory, see [Supported data stores and formats](copy-activity-overview.md#supported-data-stores-and-formats).

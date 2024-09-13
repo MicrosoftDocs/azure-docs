@@ -2,14 +2,12 @@
 title: Dapr Extension for Azure Functions
 description: Learn to use the Dapr triggers and bindings in Azure Functions.
 ms.topic: reference
-ms.custom: devx-track-extended-java, devx-track-js, devx-track-python
-ms.date: 11/15/2023
+ms.custom: devx-track-extended-java, devx-track-js, devx-track-python, build-2024
+ms.date: 05/10/2024
 zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---
 
 # Dapr Extension for Azure Functions
-
-[!INCLUDE [preview-support](../../includes/functions-dapr-support-limitations.md)]
 
 The Dapr Extension for Azure Functions is a set of tools and services that allow developers to easily integrate Azure Functions with the [Distributed Application Runtime (Dapr)](https://docs.dapr.io/) platform. 
 
@@ -36,22 +34,22 @@ The extension NuGet package you install depends on the C# mode [in-process](func
 
 # [In-process](#tab/in-process)
 
-This extension is available by installing the [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Dapr), version 0.17.0-preview01.
+This extension is available by installing the [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Dapr), version 1.0.0.
 
 Using the .NET CLI:
 
 ```dotnetcli
-dotnet add package Microsoft.Azure.WebJobs.Extensions.Dapr --prerelease
+dotnet add package Microsoft.Azure.WebJobs.Extensions.Dapr
 ``` 
 
 # [Isolated process](#tab/isolated-process)
 
-Add the extension to your project by installing the [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.Dapr), version 0.17.0-preview01.
+Add the extension to your project by installing the [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.Functions.Worker.Extensions.Dapr), version 1.0.0.
 
 Using the .NET CLI:
 
 ```dotnetcli
-dotnet add package Microsoft.Azure.Functions.Worker.Extensions.Dapr --prerelease
+dotnet add package Microsoft.Azure.Functions.Worker.Extensions.Dapr
 ``` 
 
 ---
@@ -62,15 +60,15 @@ dotnet add package Microsoft.Azure.Functions.Worker.Extensions.Dapr --prerelease
 
 ## Install bundle
 
-# [Preview Bundle v4.x](#tab/preview-bundle-v4x)
+# [Bundle v4.x](#tab/bundle-v4x)
 
-You can add the preview extension by adding or replacing the following code in your `host.json` file:
+You can add the extension by adding or replacing the following code in your `host.json` file:
 
 ```json
 {
   "version": "2.0",
   "extensionBundle": {
-    "id": "Microsoft.Azure.Functions.ExtensionBundle.Preview",
+    "id": "Microsoft.Azure.Functions.ExtensionBundle",
     "version": "[4.*, 5.0.0)"
   }
 }
@@ -259,6 +257,73 @@ Learn how to use the Dapr Extension for Azure Functions via the provided samples
 [dapr-python-2]: https://github.com/Azure/azure-functions-dapr-extension/tree/master/samples/python-v2-azurefunction
 
 ::: zone-end
+
+## Troubleshooting
+
+This section describes how to troubleshoot issues that can occur when using the Dapr extension for Azure Functions.
+
+### Ensure Dapr is enabled in your environment
+
+If you're using Dapr bindings and triggers in Azure Functions, and Dapr isn't enabled in your environment, you might receive the error message: `Dapr sidecar isn't present. Please see (https://aka.ms/azure-functions-dapr-sidecar-missing) for more information.` To enable Dapr in your environment:
+
+- If your Azure Function is deployed in Azure Container Apps, refer to [Dapr enablement instructions for the Dapr extension for Azure Functions](../azure-functions/functions-bindings-dapr.md#dapr-enablement).
+
+- If your Azure Function is deployed in Kubernetes, verify that your [deployment's YAML configuration](https://github.com/azure/azure-functions-dapr-extension/blob/master/deploy/kubernetes/kubernetes-deployment.md#sample-kubernetes-deployment) has the following annotations: 
+
+    ```YAML
+    annotations:
+      ...
+      dapr.io/enabled: "true"
+      dapr.io/app-id: "functionapp"
+      # You should only set app-port if you are using a Dapr trigger in your code.
+      dapr.io/app-port: "<DAPR_APP_PORT>"
+      ...
+    ```
+
+- If you're running your Azure Function locally, run the following command to ensure you're [running the function app with Dapr](https://github.com/azure/azure-functions-dapr-extension/tree/master/samples/python-v2-azurefunction#step-2---run-function-app-with-dapr):
+
+    ```bash
+    dapr run --app-id functionapp --app-port <DAPR_APP_PORT>  --components-path <COMPONENTS_PATH> -- func host start 
+    ```
+
+### Verify app-port value in Dapr configuration
+
+The Dapr extension for Azure Functions starts an HTTP server on port `3001` by default. You can configure this port using the [`DAPR_APP_PORT` environment variable](https://docs.dapr.io/reference/environment/).
+
+If you provide an incorrect app port value when running an Azure Functions app, you might receive the error message: `The Dapr sidecar is configured to listen on port {portInt}, but the app server is running on port {appPort}. This may cause unexpected behavior. For more information, visit [this link](https://aka.ms/azfunc-dapr-app-config-error).` To resolve this error message:
+
+1. In your container app's Dapr settings:
+
+   - If you're using a Dapr trigger in your code, verify that the app port is set to `3001` or to the value of the `DAPR_APP_PORT` environment variable.
+
+   - If you're _not_ using a Dapr trigger in your code, verify that the app port is _not_ set. It should be empty.
+
+1. Verify that you provide the correct app port value in the Dapr configuration.
+
+   - If you're using Azure Container Apps, specify the app port in Bicep:
+
+      ```bash
+      DaprConfig: {
+        ...
+        appPort: <DAPR_APP_PORT>
+        ...
+      }
+      ```
+
+   - If you're using a Kubernetes environment, set the `dapr.io/app-port` annotation:
+
+      ```
+      annotations:
+        ...
+        dapr.io/app-port: "<DAPR_APP_PORT>"
+        ...
+      ```
+
+   - If you're developing locally, verify you set `--app-port` when running the function app with Dapr:
+
+      ```
+      dapr run --app-id functionapp --app-port <DAPR_APP_PORT> --components-path <COMPONENTS_PATH> -- func host start 
+      ```
 
 ## Next steps
 

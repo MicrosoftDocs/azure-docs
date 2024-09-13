@@ -6,9 +6,8 @@ services: virtual-network
 author: mbender-ms
 ms.author: mbender
 ms.date: 08/24/2023
-ms.service: virtual-network
+ms.service: azure-virtual-network
 ms.topic: how-to
-ms.workload: infrastructure-services
 ---
 
 # Deploy virtual machine scale sets with IPv6 in Azure

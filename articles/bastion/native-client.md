@@ -3,9 +3,9 @@ title: 'Configure Bastion for native client connections'
 titleSuffix: Azure Bastion
 description: Learn how to configure Bastion for native client connections.
 author: cherylmc
-ms.service: bastion
+ms.service: azure-bastion
 ms.topic: how-to
-ms.date: 06/23/2023
+ms.date: 08/12/2024
 ms.author: cherylmc
 ---
 
@@ -18,7 +18,7 @@ This article helps you configure your Bastion deployment to accept connections f
 You can configure this feature by modifying an existing Bastion deployment, or you can deploy Bastion with the feature configuration already specified. Your capabilities on the VM when connecting via native client are dependent on what is enabled on the native client.
 
 >[!NOTE]
->[!INCLUDE [Pricing](../../includes/bastion-pricing.md)]
+>[!INCLUDE [Pricing](~/reusable-content/ce-skilling/azure/includes/bastion-pricing.md)]
 
 ## Deploy Bastion with the native client feature
 
@@ -58,7 +58,7 @@ Use the following table to understand how to connect from native clients. Notice
 |---|---|---|---| --- |---|---|
 | Windows native client | Windows VM | [RDP](connect-vm-native-client-windows.md) | Yes | [Upload/Download](vm-upload-download-native.md#rdp) | Yes | Yes |
 |  | Linux VM | [SSH](connect-vm-native-client-windows.md) | Yes |No | Yes | Yes |
-| | Any VM|[az network bastion tunnel](connect-vm-native-client-windows.md)  |No |[Upload](vm-upload-download-native.md#tunnel-command)| No | No |
+| | Any VM|[az network bastion tunnel](connect-vm-native-client-windows.md#connect-to-a-vm---tunnel-command)  |No |[Upload](vm-upload-download-native.md#tunnel-command)| No | No |
 | Linux native client | Linux VM |[SSH](connect-vm-native-client-linux.md#ssh)| Yes | No | Yes | Yes |
 | | Windows or any VM| [az network bastion tunnel](connect-vm-native-client-linux.md) | No | [Upload](vm-upload-download-native.md#tunnel-command) | No | No |
 | Other native client (putty) | Any VM | [az network bastion tunnel](connect-vm-native-client-linux.md) | No | [Upload](vm-upload-download-native.md#tunnel-command) | No | No |

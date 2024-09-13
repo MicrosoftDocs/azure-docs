@@ -5,7 +5,6 @@
   - name: What is Azure Firewall Manager?
     href: overview.md
 - name: Quickstarts
-  expanded: true
   items:
   - name: Secure virtual hub - Bicep
     displayName: Resource Manager, ARM, Template
@@ -26,8 +25,9 @@
     displayName: Resource Manager
     href: quick-firewall-policy.md
   - name: Create and update policy
-    displayname: PowerShell
+    displayName: PowerShell
     href: create-policy-powershell.md
+  expanded: true
 - name: Tutorials
   items:
   - name: Secure your virtual hub - portal
@@ -72,8 +72,6 @@
     href: migrate-to-policy.md
   - name: DNS settings
     href: dns-settings.md
-  - name: Deploy multiple public IPs - PowerShell
-    href: multiple-public-ip-powershell.md
   - name: Define a rule hierarchy
     href: rule-hierarchy.md
   - name: Configure DDoS Protection Plan

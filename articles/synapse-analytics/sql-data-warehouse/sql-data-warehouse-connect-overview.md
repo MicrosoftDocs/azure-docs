@@ -5,12 +5,11 @@ author: joannapea
 ms.author: joanpo
 ms.reviewer: wiassaf
 ms.date: 06/13/2022
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.subservice: sql-dw
 ms.topic: conceptual
 ms.custom:
   - azure-synapse
-  - seo-lt-2019
   - devx-track-csharp
   - kr2b-contr-experiment
 ---

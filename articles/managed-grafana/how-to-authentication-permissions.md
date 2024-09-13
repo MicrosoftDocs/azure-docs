@@ -1,12 +1,11 @@
 ---
 title: How to set up authentication and permissions in Azure Managed Grafana
 description: Learn how to set up Azure Managed Grafana authentication permissions using a system-assigned Managed identity or a Service Principal
-ms.service: managed-grafana
+ms.service: azure-managed-grafana
 ms.topic: how-to
 author: maud-lv
 ms.author: malev
-ms.date: 10/13/2023
-ms.custom: engagement-fy23
+ms.date: 02/21/2024
 --- 
 
 # Set up Azure Managed Grafana authentication and permissions

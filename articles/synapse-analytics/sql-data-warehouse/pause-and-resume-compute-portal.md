@@ -4,11 +4,10 @@ description: Use the Azure portal to pause compute for dedicated SQL pool to sav
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.date: 01/05/2023
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.subservice: sql-dw
 ms.topic: quickstart
 ms.custom:
-  - seo-lt-2019
   - azure-synapse
   - mode-ui
 ---

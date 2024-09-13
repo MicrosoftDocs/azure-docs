@@ -1,10 +1,10 @@
 ---
 title: Use LetsEncrypt.org certificates with Application Gateway
-description: This article provides information on how to obtain a certificate from LetsEncrypt.org and use it on your Application Gateway for AKS clusters. 
+description: This article provides information on how to obtain a certificate from LetsEncrypt.org and use it on your Application Gateway for AKS clusters.
 services: application-gateway
 author: greg-lindsay
-ms.service: application-gateway
-ms.custom: devx-track-linux
+ms.service: azure-application-gateway
+ms.custom:
 ms.topic: how-to
 ms.date: 08/01/2023
 ms.author: greglin
@@ -15,7 +15,7 @@ ms.author: greglin
 This section configures your AKS to use [LetsEncrypt.org](https://letsencrypt.org/) and automatically obtain a TLS/SSL certificate for your domain. The certificate is installed on Application Gateway, which performs SSL/TLS termination for your AKS cluster. The setup described here uses the [cert-manager](https://github.com/jetstack/cert-manager) Kubernetes add-on, which automates the creation and management of certificates.
 
 > [!TIP]
-> Also see [What is Application Gateway for Containers?](for-containers/overview.md) currently in public preview.
+> Also see [What is Application Gateway for Containers](for-containers/overview.md).
 
 Use the following steps to install [cert-manager](https://docs.cert-manager.io) on your existing AKS cluster.
 
@@ -52,8 +52,8 @@ Use the following steps to install [cert-manager](https://docs.cert-manager.io) 
       --namespace cert-manager \
       --version v1.10.1 \
       # --set installCRDs=true
-     
-    # To automatically install and manage the CRDs as part of your Helm release, 
+
+    # To automatically install and manage the CRDs as part of your Helm release,
     # you must add the --set installCRDs=true flag to your Helm installation command.
     ```
 
@@ -65,7 +65,7 @@ Use the following steps to install [cert-manager](https://docs.cert-manager.io) 
 
     The default challenge type in the following YAML is `http01`. Other challenges are documented on [letsencrypt.org - Challenge Types](https://letsencrypt.org/docs/challenge-types/)
 
-    > [!IMPORTANT] 
+    > [!IMPORTANT]
     > Update `<YOUR.EMAIL@ADDRESS>` in the following YAML.
 
     ```bash
@@ -95,7 +95,7 @@ Use the following steps to install [cert-manager](https://docs.cert-manager.io) 
         solvers:
           - http01:
                ingress:
-                  class: azure/application-gateway
+                  ingressclassName: azure/application-gateway
     EOF
     ```
 
@@ -105,7 +105,7 @@ Use the following steps to install [cert-manager](https://docs.cert-manager.io) 
 
     Ensure your Application Gateway has a public Frontend IP configuration with a DNS name (either using the default `azure.com` domain, or provision a `Azure DNS Zone` service, and assign your own custom domain). The annotation `certmanager.k8s.io/cluster-issuer: letsencrypt-staging`, which tells cert-manager to process the tagged Ingress resource.
 
-    > [!IMPORTANT] 
+    > [!IMPORTANT]
     > Update `<PLACEHOLDERS.COM>` in the following YAML with your own domain (or the Application Gateway one, for example 'kh-aks-ingress.westeurope.cloudapp.azure.com')
 
     ```bash

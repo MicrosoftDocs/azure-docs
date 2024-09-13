@@ -2,10 +2,13 @@
 title: What is Azure Arc-enabled VMware vSphere?
 description: Azure Arc-enabled VMware vSphere extends Azure governance and management capabilities to VMware vSphere infrastructure and delivers a consistent management experience across both platforms. 
 ms.topic: overview
-ms.date: 11/06/2023
+ms.date: 08/08/2024
 ms.custom: references_regions
 ms.service: azure-arc
 ms.subservice: azure-arc-vmware-vsphere
+author: PriskeyJeronika-MS
+ms.author: v-gjeronika
+manager: jsuri
 ---
 
 # What is Azure Arc-enabled VMware vSphere?
@@ -20,9 +23,12 @@ Arc-enabled VMware vSphere allows you to:
 
 - Empower developers and application teams to self-serve VM operations on-demand using [Azure role-based access control](../../role-based-access-control/overview.md) (RBAC).
 
-- Install the Arc-connected machine agent at scale on VMware VMs to [govern, protect, configure, and monitor](../servers/overview.md#supported-cloud-operations) them.
+- Install the Azure connected machine agent at scale on VMware VMs to [govern, protect, configure, and monitor](../servers/overview.md#supported-cloud-operations) them.
 
 - Browse your VMware vSphere resources (VMs, templates, networks, and storage) in Azure, providing you with a single pane view for your infrastructure across both environments.
+
+> [!NOTE]
+> For more information regarding the different services Azure Arc offers, see [Choosing the right Azure Arc service for machines](../choose-service.md).
 
 ## Onboard resources to Azure management at scale
 
@@ -32,7 +38,7 @@ By using Arc-enabled VMware vSphere's capabilities to discover your VMware estat
 
 ## Set up self-service access for your teams to use vSphere resources using Azure Arc
 
-Arc-enabled VMware vSphere extends Azure's control plane (Azure Resource Manager) to VMware vSphere infrastructure. This enables you to use Microsoft Entra ID-based identity management, granular Azure RBAC, and ARM templates to help your app teams and developers get self-service access to provision and manage VMs on VMware vSphere environment, providing greater agility. 
+Arc-enabled VMware vSphere extends Azure's control plane (Azure Resource Manager) to VMware vSphere infrastructure. This enables you to use Microsoft Entra ID-based identity management, granular Azure RBAC, and Azure Resource Manager (ARM) templates to help your app teams and developers get self-service access to provision and manage VMs on VMware vSphere environment, providing greater agility. 
 
 1. Virtualized Infrastructure Administrators/Cloud Administrators can connect a vCenter instance to Azure. 
 
@@ -42,7 +48,7 @@ Arc-enabled VMware vSphere extends Azure's control plane (Azure Resource Manager
 
 4. App teams can use Azure interfaces (portal, CLI, or REST API) to manage the lifecycle of on-premises VMs they use for deploying their applications (CRUD, Start/Stop/Restart).
 
-5. App teams can use ARM templates/Bicep (Infrastructure as Code) to deploy VMs as part of CI/CD pipelines. 
+5. App teams can use Azure Resource Manager (ARM) templates/Bicep (Infrastructure as Code) to deploy VMs as part of CI/CD pipelines. 
 
 ## How does it work?
 
@@ -62,7 +68,6 @@ The easiest way to think of this is as follows:
 
 You have the flexibility to start with either option, and incorporate the other one later without any disruption. With both the options, you enjoy the same consistent experience.
 
-
 ## Supported VMware vSphere versions
 
 Azure Arc-enabled VMware vSphere currently works with vCenter Server versions 7 and 8.
@@ -70,29 +75,47 @@ Azure Arc-enabled VMware vSphere currently works with vCenter Server versions 7 
 > [!NOTE]
 > Azure Arc-enabled VMware vSphere supports vCenters with a maximum of 9500 VMs. If your vCenter has more than 9500 VMs, we don't recommend you to use Arc-enabled VMware vSphere with it at this point.
 
+If you're trying to enable Arc for Azure VMware Solution (AVS) private cloud, see [Deploy Arc-enabled VMware vSphere for Azure VMware Solution private cloud](../../azure-vmware/deploy-arc-for-azure-vmware-solution.md).
+
 ## Supported regions
 
 You can use Azure Arc-enabled VMware vSphere in these supported regions:
 
 - East US
-- East US2
-- West US2
-- West US3
+- East US 2
+- West US 2
+- West US 3
+- Central US
+- North Central US
 - South Central US
 - Canada Central
+- UK West
 - UK South
 - North Europe
 - West Europe
 - Sweden Central
+- Japan East
+- East Asia
 - Southeast Asia
+- Central India
 - Australia East
 
 For the most up-to-date information about region availability of Azure Arc-enabled VMware vSphere, see [Azure Products by Region](https://azure.microsoft.com/explore/global-infrastructure/products-by-region/?products=azure-arc&regions=all) page.
 
-
 ## Data Residency
 
 Azure Arc-enabled VMware vSphere doesn't store/process customer data outside the region the customer deploys the service instance in.  
+
+## Azure Kubernetes Service (AKS) Arc on VMware (preview)
+
+Starting March 2024, Azure Kubernetes Service (AKS) enabled by Azure Arc on VMware is available for preview. AKS Arc on VMware enables you to use Azure Arc to create new Kubernetes clusters on VMware vSphere. For more information, see [What is AKS enabled by Arc on VMware?](/azure/aks/hybrid/aks-vmware-overview).
+
+The following capabilities are available in the AKS Arc on VMware preview:
+
+- **Simplified infrastructure deployment on Arc-enabled VMware vSphere**: Onboard VMware vSphere to Azure using a single-step process with the AKS Arc extension installed.
+- **Azure CLI**: A consistent command-line experience, with [AKS Arc on Azure Stack HCI 23H2](/azure/aks/hybrid/aks-create-clusters-cli), for creating and managing Kubernetes clusters. Note that the preview only supports a limited set of commands.
+- **Cloud-based management**: Use familiar tools such as Azure CLI to create and manage Kubernetes clusters on VMware.
+- **Support for managing and scaling node pools and clusters**.
 
 ## Next steps
 

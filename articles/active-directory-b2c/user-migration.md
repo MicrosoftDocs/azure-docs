@@ -8,10 +8,13 @@ manager: CelesteDG
 ms.service: active-directory
 
 ms.topic: how-to
-ms.date: 12/29/2022
+ms.date: 01/11/2024
 ms.author: kengaderdus
-ms.custom: 
 ms.subservice: B2C
+
+
+#Customer intent: As an IT admin migrating user accounts to Azure AD B2C, I want to understand the different migration methods (pre migration and seamless migration), so that I can choose the appropriate approach and write the necessary application or script using the Microsoft Graph API.
+
 ---
 # Migrate users to Azure AD B2C
 

@@ -4,13 +4,13 @@ description: Learn about configuring Azure SQL Edge.
 author: rwestMSFT
 ms.author: randolphwest
 ms.date: 09/14/2023
-ms.service: sql-edge
+ms.service: azure-sql-edge
 ms.topic: conceptual
-ms.custom: devx-track-linux
+ms.custom:
 ---
 # Configure Azure SQL Edge
 
-> [!IMPORTANT]  
+> [!IMPORTANT]
 > Azure SQL Edge no longer supports the ARM64 platform.
 
 Azure SQL Edge supports configuration through one of the following two options:
@@ -18,7 +18,7 @@ Azure SQL Edge supports configuration through one of the following two options:
 - Environment variables
 - An mssql.conf file placed in the /var/opt/mssql folder
 
-> [!NOTE]  
+> [!NOTE]
 > Setting environment variables overrides the settings specified in the mssql.conf file.
 
 ## Configure by using environment variables
@@ -40,7 +40,7 @@ The following SQL Server on Linux environment variable isn't supported for Azure
 | --- | --- |
 | **MSSQL_ENABLE_HADR** | Enable availability group. For example, `1` is enabled, and `0` is disabled. |
 
-> [!IMPORTANT]  
+> [!IMPORTANT]
 > The **MSSQL_PID** environment variable for SQL Edge only accepts **Premium** and **Developer** as the valid values. Azure SQL Edge doesn't support initialization using a product key.
 
 ### Specify the environment variables
@@ -55,12 +55,12 @@ Add values in **Container Create Options**.
 
 :::image type="content" source="media/configure/set-environment-variables-using-create-options.png" alt-text="Screenshot of set by using container create options.":::
 
-> [!NOTE]  
+> [!NOTE]
 > In the disconnected deployment mode, environment variables can be specified using the `-e` or `--env` or the `--env-file` option of the `docker run` command.
 
 ## Configure by using an `mssql.conf` file
 
-Azure SQL Edge doesn't include the [mssql-conf configuration utility](/sql/linux/sql-server-linux-configure-mssql-conf/) like SQL Server on Linux does. You need to manually configure the mssql.conf file and place it in the persistent storage drive that is mapped to the /var/opt/mssql/ folder in the SQL Edge module. When you're deploying SQL Edge from Azure Marketplace, this mapping is specified as the **Mounts** option in the **Container Create Options**.
+Azure SQL Edge doesn't include the [mssql-conf configuration utility](/sql/linux/sql-server-linux-configure-mssql-conf/) like SQL Server on Linux does. You need to manually configure the mssql.conf file and place it in the persistent storage drive that is mapped to the /var/opt/mssql/ folder in the SQL Edge module. When you're deploying SQL Edge through Azure IoT Hub, this mapping is specified as the **Mounts** option in the **Container Create Options**.
 
 ```json
 {
@@ -126,7 +126,7 @@ traceflag2 = 1204
 
 ## Run Azure SQL Edge as non-root user
 
-By default, the Azure SQL Edge containers run with a non-root user/group. When deployed through the Azure Marketplace (or using `docker run`), unless a different user/group is specified, SQL Edge containers starts up as the mssql (non-root) user. To specify a different non-root user during deployment, add the `*"User": "<name|uid>[:<group|gid>]"*` key-value pair under container create options. In the following example, SQL Edge is configured to start as the user `*IoTAdmin*`.
+By default, the Azure SQL Edge containers run with a non-root user/group. When deployed through the Azure IoT Hub (or using `docker run`), unless a different user/group is specified, SQL Edge containers starts up as the mssql (non-root) user. To specify a different non-root user during deployment, add the `*"User": "<name|uid>[:<group|gid>]"*` key-value pair under container create options. In the following example, SQL Edge is configured to start as the user `*IoTAdmin*`.
 
 ```json
 {
@@ -175,7 +175,7 @@ Earlier CTPs of Azure SQL Edge were configured to run as the root users. The fol
 
 Your Azure SQL Edge configuration changes and database files are persisted in the container even if you restart the container with `docker stop` and `docker start`. However, if you remove the container with `docker rm`, everything in the container is deleted, including Azure SQL Edge and your databases. The following section explains how to use **data volumes** to persist your database files even if the associated containers are deleted.
 
-> [!IMPORTANT]  
+> [!IMPORTANT]
 > For Azure SQL Edge, it's critical that you understand data persistence in Docker. In addition to the discussion in this section, see Docker's documentation on [how to manage data in Docker containers](https://docs.docker.com/engine/tutorials/dockervolumes/).
 
 ### Mount a host directory as data volume
@@ -192,10 +192,10 @@ docker run -e "ACCEPT_EULA=Y" -e "MSSQL_SA_PASSWORD=<YourStrong!Passw0rd>" -p 14
 
 This technique also enables you to share and view the files on the host outside of Docker.
 
-> [!IMPORTANT]  
+> [!IMPORTANT]
 > Host volume mapping for **Docker on Windows** doesn't currently support mapping the complete `/var/opt/mssql` directory. However, you can map a subdirectory, such as `/var/opt/mssql/data` to your host machine.
 
-> [!IMPORTANT]  
+> [!IMPORTANT]
 > Host volume mapping for **Docker on macOS** with the Azure SQL Edge image isn't supported at this time. Use data volume containers instead. This restriction is specific to the `/var/opt/mssql` directory. Reading from a mounted directory works fine. For example, you can mount a host directory using `-v` on macOS and restore a backup from a `.bak` file that resides on the host.
 
 ### Use data volume containers
@@ -210,7 +210,7 @@ docker run -e 'ACCEPT_EULA=Y' -e 'MSSQL_SA_PASSWORD=<YourStrong!Passw0rd>' -p 14
 docker run -e "ACCEPT_EULA=Y" -e "MSSQL_SA_PASSWORD=<YourStrong!Passw0rd>" -p 1433:1433 -v sqlvolume:/var/opt/mssql -d mcr.microsoft.com/azure-sql-edge
 ```
 
-> [!NOTE]  
+> [!NOTE]
 > This technique for implicitly creating a data volume in the run command doesn't work with older versions of Docker. In that case, use the explicit steps outlined in the Docker documentation, [Creating and mounting a data volume container](https://docs.docker.com/engine/tutorials/dockervolumes/#creating-and-mounting-a-data-volume-container).
 
 Even if you stop and remove this container, the data volume persists. You can view it with the `docker volume ls` command.
@@ -223,7 +223,7 @@ If you then create another container with the same volume name, the new containe
 
 To remove a data volume container, use the `docker volume rm` command.
 
-> [!WARNING]  
+> [!WARNING]
 > If you delete the data volume container, any Azure SQL Edge data in the container is *permanently* deleted.
 
 ## Next steps

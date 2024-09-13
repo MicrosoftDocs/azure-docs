@@ -5,7 +5,7 @@ description: Learn how to authorize users of the developer portal in Azure API M
 services: api-management
 author: dlepow
 
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: how-to
 ms.date: 06/28/2023
 ms.author: danlep
@@ -14,6 +14,7 @@ ms.custom: engagement-fy23
 
 # How to authorize developer accounts by using Azure Active Directory B2C in Azure API Management
 
+[!INCLUDE [premium-dev-standard-standardv2-basicv2.md](../../includes/api-management-availability-premium-dev-standard-standardv2-basicv2.md)]
 
 Azure Active Directory B2C is a cloud identity management solution for consumer-facing web and mobile applications. You can use it to manage access to your API Management developer portal. 
 
@@ -25,7 +26,6 @@ For an overview of options to secure the developer portal, see [Secure access to
 > * This article has been updated with steps to configure an Azure AD B2C app using the Microsoft Authentication Library ([MSAL](../active-directory/develop/msal-overview.md)). 
 > * If you previously configured an Azure AD B2C app for user sign-in using the Azure AD Authentication Library (ADAL), we recommend that you [migrate to MSAL](#migrate-to-msal).
 
-[!INCLUDE [premium-dev-standard.md](../../includes/api-management-availability-premium-dev-standard.md)]
 
 ## Prerequisites
 
@@ -105,13 +105,13 @@ For steps to update the Azure AD B2C app, see [Switch redirect URIs to the singl
 1. Select **Azure Active Directory B2C** from the list.
 1. In the **Client library** dropdown, select **MSAL**.
 1. Select **Update**.
-1. [Republish your developer portal](api-management-howto-developer-portal-customize.md#publish-from-the-azure-portal).
+1. [Republish your developer portal](developer-portal-overview.md#publish-the-portal).
 
 
 ## Developer portal - add Azure Active Directory B2C account authentication
 
 > [!IMPORTANT]
-> You need to [republish the developer portal](api-management-howto-developer-portal-customize.md#publish) when you create or update Azure Active Directory B2C configuration settings for the changes to take effect.
+> You need to [republish the developer portal](developer-portal-overview.md#publish-the-portal) when you create or update Azure Active Directory B2C configuration settings for the changes to take effect.
 
 In the developer portal, sign-in with Azure Active Directory B2C is possible with the **Sign-in button: OAuth** widget. The widget is already included on the sign-in page of the default developer portal content.
 

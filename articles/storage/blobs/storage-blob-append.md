@@ -5,10 +5,11 @@ description: Learn how to append data to an append blob in Azure Storage by usin
 author: pauljewellmsft
 
 ms.author: pauljewell
-ms.date: 09/01/2023
+ms.date: 08/05/2024
 ms.service: azure-blob-storage
 ms.topic: how-to
-ms.devlang: csharp, python
+ms.devlang: csharp
+# ms.devlang: csharp, python
 ms.custom: devx-track-csharp, devx-track-dotnet, devguide-csharp
 ---
 

@@ -4,11 +4,10 @@ description: Learn how to copy data from supported source data stores to or from
 titleSuffix: Azure Data Factory & Azure Synapse
 ms.author: jianleishen
 author: jianleishen
-ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
-ms.custom: synapse, ignite-2022
-ms.date: 07/13/2023
+ms.custom: synapse
+ms.date: 01/05/2024
 ---
 
 # Copy data to or from Azure Cosmos DB for MongoDB using Azure Data Factory or Synapse Analytics
@@ -34,7 +33,7 @@ You can copy data from Azure Cosmos DB for MongoDB to any supported sink data st
 
 You can use the Azure Cosmos DB for MongoDB connector to:
 
-- Copy data from and to the [Azure Cosmos DB for MongoDB](../cosmos-db/mongodb-introduction.md).
+- Copy data from and to the [Azure Cosmos DB for MongoDB](/azure/cosmos-db/mongodb-introduction).
 - Write to Azure Cosmos DB as **insert** or **upsert**.
 - Import and export JSON documents as-is, or copy data from or to a tabular dataset. Examples include a SQL database and a CSV file. To copy documents as-is to or from JSON files or to or from another Azure Cosmos DB collection, see Import or export JSON documents.
 
@@ -264,6 +263,6 @@ After copy activity execution, below BSON ObjectId is generated in sink:
 }
 ``` 
 
-## Next steps
+## Related content
 
 For a list of data stores that Copy Activity supports as sources and sinks, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).

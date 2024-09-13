@@ -6,15 +6,12 @@ summary: Azure role-based access control (Azure RBAC) is a system that provides 
 metadata:
   title: Azure RBAC documentation
   description: Learn about Azure role-based access control (Azure RBAC) to manage who has access to Azure resources, what they can do with those resources, and what areas they have access to.
-  services: role-based-access-control
   ms.service: role-based-access-control
-  ms.subservice: na
   ms.topic: landing-page
-  ms.collection: na
   author: rolyon
   manager: amycolannino
   ms.author: rolyon
-  ms.date: 02/15/2021
+  ms.date: 03/24/2024
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -50,22 +47,37 @@ landingContent:
           - text: Secure your Azure resources with Azure RBAC
             url: /training/modules/secure-azure-resources-with-rbac/
   # Card
+  - title: List role assignments
+    linkLists: 
+      - linkListType: overview
+        links: 
+          - text: Understand role assignments
+            url: role-assignments.md
+      - linkListType: how-to-guide
+        links: 
+          - text: List role assignments
+            url: /azure/role-based-access-control/role-assignments-list-portal
+  # Card
   - title: Assign roles
     linkLists: 
+      - linkListType: reference
+        links: 
+          - text: Azure built-in roles
+            url: built-in-roles.md
       - linkListType: how-to-guide
         links: 
           - text: Portal
-            url: role-assignments-portal.md
+            url: role-assignments-portal.yml
           - text: Portal - Subscription admin
-            url: role-assignments-portal-subscription-admin.md
+            url: role-assignments-portal-subscription-admin.yml
           - text: PowerShell
             url: role-assignments-powershell.md
           - text: Azure CLI
             url: role-assignments-cli.md
           - text: REST API
             url: role-assignments-rest.md
-          - text: Template
-            url: role-assignments-template.md
+          - text: Bicep
+            url: quickstart-role-assignments-bicep.md
   # Card
   - title: Create or update custom roles
     linkLists: 
@@ -77,9 +89,18 @@ landingContent:
         links: 
           - text: Create a custom role - Portal
             url: custom-roles-portal.md
-      - linkListType: tutorial
+  # Card
+  - title: Add ABAC conditions
+    linkLists: 
+      - linkListType: overview
         links: 
-          - text: Create a custom role - PowerShell
-            url: tutorial-custom-role-powershell.md
-          - text: Create a custom role - CLI
-            url: tutorial-custom-role-cli.md
+          - text: What is Azure ABAC?
+            url: conditions-overview.md
+      - linkListType: concept
+        links: 
+          - text: Delegate role assignment management overview
+            url: delegate-role-assignments-overview.md
+      - linkListType: how-to-guide
+        links: 
+          - text: Delegate role assignment management
+            url: delegate-role-assignments-portal.md

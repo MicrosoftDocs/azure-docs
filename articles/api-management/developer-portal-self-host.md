@@ -4,12 +4,14 @@ titleSuffix: Azure API Management
 description: Learn how to self-host the developer portal for Azure API Management.
 author: dlepow
 ms.author: danlep
-ms.date: 06/07/2022
-ms.service: api-management
+ms.date: 03/29/2024
+ms.service: azure-api-management
 ms.topic: how-to
 ---
 
 # Self-host the API Management developer portal
+
+[!INCLUDE [api-management-availability-premium-dev-standard-basic](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
 This tutorial describes how to self-host the [API Management developer portal](api-management-howto-developer-portal.md). Self-hosting is one of several options to [extend the functionality](developer-portal-extend-custom-functionality.md) of the developer portal. For example, you can self-host multiple portals for your API Management instance, with different features. When you self-host a portal, you become its maintainer and you're responsible for its upgrades. 
 
@@ -23,8 +25,6 @@ This tutorial describes how to self-host the [API Management developer portal](a
 > The self-hosted portal does not support visibility and access controls that are available in the managed developer portal.
 
 If you have already uploaded or modified media files in the managed portal, see [Move from managed to self-hosted](#move-from-managed-to-self-hosted-developer-portal), later in this article.
-
-[!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
 ## Prerequisites
 

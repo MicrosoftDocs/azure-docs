@@ -1,274 +1,365 @@
 ---
-title: Deploy extensions - Azure IoT Orchestrator
-description: Use the Azure portal, Azure CLI, or GitHub Actions to deploy Azure IoT Operations extensions with the Azure IoT Orchestrator
+title: Deploy Azure IoT Operations to a cluster
+description: Use the Azure CLI to deploy Azure IoT Operations to an Arc-enabled Kubernetes cluster.
 author: kgremban
 ms.author: kgremban
-# ms.subservice: orchestrator
 ms.topic: how-to
 ms.custom: ignite-2023, devx-track-azurecli
-ms.date: 11/07/2023
+ms.date: 08/02/2024
 
 #CustomerIntent: As an OT professional, I want to deploy Azure IoT Operations to a Kubernetes cluster.
 ---
 
-# Deploy Azure IoT Operations extensions to a Kubernetes cluster
+# Deploy Azure IoT Operations Preview to an Arc-enabled Kubernetes cluster
 
-Deploy Azure IoT Operations preview - enabled by Azure Arc to a Kubernetes cluster using the Azure portal, Azure CLI, or GitHub actions. Once you have Azure IoT Operations deployed, then you can use the Orchestrator service to manage and deploy additional workloads to your cluster.
+[!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
+
+Deploy Azure IoT Operations Preview to a Kubernetes cluster using the Azure CLI. Once you have Azure IoT Operations deployed, then you can manage and deploy other workloads to your cluster.
+
+* An Azure IoT Operations *deployment* describes all of the components and resources that enable the Azure IoT Operations scenario. These components and resources include:
+  * An Azure IoT Operations instance
+  * Arc extensions
+  * Custom locations
+  * Resource sync rules
+  * Resources that you can configure in your Azure IoT Operations solution, like assets, MQTT broker, and dataflows.
+
+* An Azure IoT Operations *instance* is one part of a deployment. It's the parent resource that bundles the suite of services that are defined in [What is Azure IoT Operations Preview?](../overview-iot-operations.md), like MQ, Akri, and OPC UA connector.
+
+In this article, when we talk about deploying Azure IoT Operations we mean the full set of components that make up a *deployment*. Once the deployment exists, you can view, manage, and update the *instance*.
 
 ## Prerequisites
 
-* An Azure subscription. If you don't have an Azure subscription, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+Cloud resources:
 
-* An Azure Arc-enabled Kubernetes cluster. If you don't have one, follow the steps in [Prepare your Azure Arc-enabled Kubernetes cluster](./howto-prepare-cluster.md?tabs=wsl-ubuntu). Using Ubuntu in Windows Subsystem for Linux (WSL) is the simplest way to get a Kubernetes cluster for testing.
+* An Azure subscription.
+
+* Azure access permissions. At a minimum, have **Contributor** permissions in your Azure subscription. Depending on the deployment feature flag status you select, you might also need **Microsoft/Authorization/roleAssignments/write** permissions for the resource group that contains your Arc-enabled Kubernetes cluster. You can make a custom role in Azure role-based access control or assign a built-in role that grants this permission. For more information, see [Azure built-in roles for General](../../role-based-access-control/built-in-roles/general.md).
+
+  If you *don't* have role assignment write permissions, you can still deploy Azure IoT Operations by disabling some features. This approach is discussed in more detail in the [Deploy](#deploy) section of this article.
+
+  * In the Azure CLI, use the [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) command to give permissions. For example, `az role assignment create --assignee sp_name --role "Role Based Access Control Administrator" --scope subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/MyResourceGroup`
+
+  * In the Azure portal, when you assign privileged admin roles to a user or principal, you can restrict access using conditions. For this scenario, select the **Allow user to assign all roles** condition in the **Add role assignment** page.
+
+    :::image type="content" source="./media/howto-deploy-iot-operations/add-role-assignment-conditions.png" alt-text="Screenshot that shows assigning users highly privileged role access in the Azure portal.":::
+
+* An Azure key vault that has the **Permission model** set to **Vault access policy**. You can check this setting in the **Access configuration** section of an existing key vault. To create a new key vault, use the [az keyvault create](/cli/azure/keyvault#az-keyvault-create) command:
+
+  ```azurecli
+  az keyvault create --enable-rbac-authorization false --name "<KEYVAULT_NAME>" --resource-group "<RESOURCE_GROUP>"
+  ```
+
+Development resources:
+
+* Azure CLI installed on your development machine. For more information, see [How to install the Azure CLI](/cli/azure/install-azure-cli). This scenario requires Azure CLI version 2.53.0 or higher. Use `az --version` to check your version and `az upgrade` to update if necessary.
+
+* The Azure IoT Operations extension for Azure CLI. Use the following command to add the extension or update it to the latest version:
+
+  ```azurecli
+  az extension add --upgrade --name azure-iot-ops
+  ```
+
+A cluster host:
+
+* An Azure Arc-enabled Kubernetes cluster. If you don't have one, follow the steps in [Prepare your Azure Arc-enabled Kubernetes cluster](./howto-prepare-cluster.md?tabs=wsl-ubuntu).
+
+  If you deployed Azure IoT Operations to your cluster previously, uninstall those resources before continuing. For more information, see [Update Azure IoT Operations](#update-azure-iot-operations).
 
   Azure IoT Operations should work on any CNCF-conformant kubernetes cluster. Currently, Microsoft only supports K3s on Ubuntu Linux and WSL, or AKS Edge Essentials on Windows.
 
-* Azure CLI installed on your development machine. For more information, see [How to install the Azure CLI](/cli/azure/install-azure-cli). This scenario requires Azure CLI version 2.42.0 or higher. Use `az --version` to check your version and `az upgrade` to update if necessary.
+  Use the Azure IoT Operations extension for Azure CLI to verify that your cluster host is configured correctly for deployment by using the [verify-host](/cli/azure/iot/ops#az-iot-ops-verify-host) command on the cluster host:
 
-* The Azure IoT Operations extension for Azure CLI.
-
-  ```bash
-  az extension add --name azure-iot-ops
+  ```azurecli
+  az iot ops verify-host
   ```
 
-* An [Azure Key Vault](../../key-vault/general/overview.md) that has the **Permission model** set to **Vault access policy**. You can check this setting in the **Access configuration** section of an existing key vault.
+## Deploy
 
-## Deploy extensions
+Use the Azure portal or Azure CLI to deploy Azure IoT Operations to your Arc-enabled Kubernetes cluster.
 
-#### [Azure portal](#tab/portal)
+The Azure portal deployment experience is a helper tool that generates a deployment command based on your resources and configuration. The final step is to run an Azure CLI command, so you still need the Azure CLI prerequisites described in the previous section.
 
-Use the Azure portal to deploy Azure IoT Operations components to your Arc-enabled Kubernetes cluster.
+### [Azure CLI](#tab/cli)
 
-1. In the Azure portal search bar, search for and select **Azure Arc**.
-
-1. Select **Azure IoT Operations (preview)** from the **Application services** section of the Azure Arc menu.
-
-1. Select **Create**.
-
-1. On the **Basics** tab of the **Install Azure IoT Operations Arc Extension** page, provide the following information:
-
-   | Field | Value |
-   | ----- | ----- |
-   | **Subscription** | Select the subscription that contains your Arc-enabled Kubernetes cluster. |
-   | **Resource group** | Select the resource group that contains your Arc-enabled Kubernetes cluster. |
-   | **Cluster name** | Select your cluster. When you do, the **Custom location** and **Deployment details** sections autofill. |
-
-1. Select **Next: Configuration**.
-
-1. On the **Configuration** tab, provide the following information:
-
-   | Field | Value |
-   | ----- | ----- |
-   | **Deploy a simulated PLC** | Switch this toggle to **Yes**. The simulated PLC creates demo telemetry data that you use in the following quickstarts. |
-   | **Mode** | Set the MQ configuration mode to **Auto**. |
-
-1. Select **Next: Automation**.
-
-1. On the **Automation** tab, select **Pick or create an Azure Key Vault**.
-
-1. Provide the following information to connect a key vault:
-
-   | Field | Value |
-   | ----- | ----- |
-   | **Subscription** | Select the subscription that contains your Arc-enabled Kubernetes cluster. |
-   | **Key vault** | Choose an existing key vault from the drop-down list or create a new one by selecting **Create new key vault**. |
-
-1. Select **Select**.
-
-1. On the **Automation** tab, the automation commands are populated based on your chosen cluster and key vault. Copy the **Required** CLI command.
-
-   :::image type="content" source="../get-started/media/quickstart-deploy/install-extension-automation-2.png" alt-text="Screenshot of copying the CLI command from the automation tab for installing the Azure IoT Operations Arc extension in the Azure portal.":::
-
-1. Sign in to Azure CLI on your development machine. To prevent potential permission issues later, sign in interactively with a browser here even if you've already logged in before.
+1. Sign in to Azure CLI interactively with a browser even if you already signed in before. If you don't sign in interactively, you might get an error that says *Your device is required to be managed to access your resource* when you continue to the next step to deploy Azure IoT Operations.
 
    ```azurecli
    az login
    ```
 
    > [!NOTE]
-   > If you're using Github Codespaces in a browser, `az login` returns a localhost error in the browser window after logging in. To fix, either:
+   > If you're using GitHub Codespaces in a browser, `az login` returns a localhost error in the browser window after logging in. To fix, either:
    >
-   > * Open the codespace in VS Code desktop, and then run `az login` again in the browser terminal.
-   > * After you get the localhost error on the browser, copy the URL from the browser and run `curl "<URL>"` in a new terminal tab. You should see a JSON response with the message "You have logged into Microsoft Azure!."
+   > * Open the codespace in VS Code desktop, and then run `az login` in the terminal. This opens a browser window where you can log in to Azure.
+   > * Or, after you get the localhost error on the browser, copy the URL from the browser and use `curl <URL>` in a new terminal tab. You should see a JSON response with the message "You have logged into Microsoft Azure!".
 
-1. Run the copied [az iot ops init](/cli/azure/iot/ops#az-iot-ops-init) command on your development machine.
+1. Deploy Azure IoT Operations to your cluster. Use optional flags to customize the [az iot ops init](/cli/azure/iot/ops#az-iot-ops-init) command to fit your scenario.
 
-1. Return to the Azure portal and select **Review + Create**.
+   By default, the `az iot ops init` command takes the following actions, some of which require that the principal signed in to the CLI has elevated permissions:
 
-1. Wait for the validation to pass and then select **Create**.
+     * Set up a service principal and app registration to give your cluster access to the key vault.
+     * Configure TLS certificates.
+     * Configure a secrets store on your cluster that connects to the key vault.
+     * Deploy the Azure IoT Operations resources.
 
-#### [Azure CLI](#tab/cli)
+   ```azurecli
+   az iot ops init --cluster <CLUSTER_NAME> --resource-group <RESOURCE_GROUP> --kv-id <KEYVAULT_SETTINGS_PROPERTIES_RESOURCE_ID>
+   ```
 
-Use the Azure CLI to deploy Azure IoT Operations components to your Arc-enabled Kubernetes cluster.
+   Use the [optional parameters](/cli/azure/iot/ops#az-iot-ops-init-optional-parameters) to customize your deployment, including:
 
-Sign in to Azure CLI. To prevent potential permission issues later, sign in interactively with a browser here even if you already logged in before.
+     | Parameter | Value | Description |
+     | --------- | ----- | ----------- |
+     | `--add-insecure-listener` |  | Add an insecure 1883 port config to the default listener. *Not for production use*. |
+     | `--broker-config-file` | Path to JSON file | Provide a configuration file for the MQTT broker. For more information, see [Advanced MQTT broker config](https://github.com/Azure/azure-iot-ops-cli-extension/wiki/Advanced-Mqtt-Broker-Config) and [Configure core MQTT broker settings](../manage-mqtt-broker/howto-configure-availability-scale.md). |
+     | `--disable-rsync-rules` |  | Disable the resource sync rules on the deployment feature flag if you don't have **Microsoft.Authorization/roleAssignment/write** permissions in the resource group. |
+     | `--name` | String | Provide a name for your Azure IoT Operations instance. Otherwise, a default name is assigned. You can view the `instanceName` parameter in the command output. |
+     | `--no-progress` |  | Disables the deployment progress display in the terminal. |
+     | `--simulate-plc` |  | Include the OPC PLC simulator that ships with the OPC UA connector. |
+     | `--sp-app-id`,<br>`--sp-object-id`,<br>`--sp-secret` | Service principal app ID, service principal object ID, and service principal secret | Include all or some of these parameters to use an existing service principal, app registration, and secret instead of allowing `init` to create new ones. For more information, see [Configure service principal and Key Vault manually](howto-manage-secrets.md#configure-service-principal-and-key-vault-manually). |
 
-```azurecli-interactive
-az login
-```
+### [Azure portal](#tab/portal)
 
-> [!NOTE]
-> If you're using GitHub Codespaces in a browser, `az login` returns a localhost error in the browser window after logging in. To fix, either:
->
-> * Open the codespace in VS Code desktop, and then run `az login` in the terminal. This opens a browser window where you can log in to Azure.
-> * After you get the localhost error on the browser, copy the URL from the browser and use `curl <URL>` in a new terminal tab. You should see a JSON response with the message "You have logged into Microsoft Azure!".
+1. In the [Azure portal](https://portal.azure.com), search for and select **Azure IoT Operations**.
 
-Deploy Azure IoT Operations to your cluster. The [az iot ops init](/cli/azure/iot/ops#az-iot-ops-init) command does the following steps:
+1. Select **Create**.
 
-* Creates a key vault in your resource group.
-* Sets up a service principal to give your cluster access to the key vault.
-* Configures TLS certificates.
-* Configures a secrets store on your cluster that connects to the key vault.
-* Deploys the Azure IoT Operations resources.
+1. On the **Basics** tab, provide the following information:
 
-```azurecli-interactive
-az iot ops init --cluster <CLUSTER_NAME> -g <RESOURCE_GROUP> --kv-id $(az keyvault create -n <NEW_KEYVAULT_NAME> -g <RESOURCE_GROUP> -o tsv --query id)
-```
+   | Parameter | Value |
+   | --------- | ----- |
+   | **Subscription** | Select the subscription that contains your Arc-enabled cluster. |
+   | **Resource group** | Select the resource group that contains your Arc-enabled cluster. |
+   | **Cluster name** | Select the cluster that you want to deploy Azure IoT Operations to. |
+   | **Custom location name** | *Optional*: Replace the default name for the custom location. |
 
->[!TIP]
->If you get an error that says *Your device is required to be managed to access your resource*, go back to the previous step and make sure that you signed in interactively.
+   :::image type="content" source="./media/howto-deploy-iot-operations/deploy-basics.png" alt-text="A screenshot that shows the first tab for deploying Azure IoT Operations from the portal.":::
 
-Use optional flags to customize the `az iot ops init` command. To learn more, see [az iot ops init](/cli/azure/iot/ops#az-iot-ops-init).
+1. Select **Next: Configuration**.
 
-#### [GitHub Actions](#tab/github)
+1. On the **Configuration** tab, provide the following information:
 
-Use GitHub Actions to deploy Azure IoT Operations components to your Arc-enabled Kubernetes cluster.
+   | Parameter | Value |
+   | --------- | ----- |
+   | **Azure IoT Operations name** | *Optional*: Replace the default name for the Azure IoT Operations instance. |
+   | **MQTT broker configuration** | *Optional*: Replace the default settings for the MQTT broker. For more information, see [Configure core MQTT broker settings](../manage-mqtt-broker/howto-configure-availability-scale.md). |
 
-Before you begin deploying, use the [az iot ops init](/cli/azure/iot/ops#az-iot-ops-init) command to configure your cluster with a secrets store and a service principal so that it can connect securely to cloud resources.
+1. Select **Next: Automation**.
 
-1. Sign in to Azure CLI on your development machine. To prevent potential permission issues later, sign in interactively with a browser here even if you already logged in before.
+1. On the **Automation** tab, provide the following information:
+
+   | Parameter | Value |
+   | --------- | ----- |
+   | **Subscription** | Select the subscription that contains your Azure key vault. |
+   | **Azure Key Vault** | Select your Azure key vault. Or, select **Create new**.<br><br>Ensure that your key vault has **Vault access policy** as its permission model. To check this setting, select **Manage selected vault** > **Settings** > **Access configuration**. |
+
+   :::image type="content" source="./media/howto-deploy-iot-operations/deploy-automation.png" alt-text="A screenshot that shows the third tab for deploying Azure IoT Operations from the portal.":::
+
+1. If you didn't prepare your Azure CLI environment as described in the prerequisites, do so now in a terminal of your choice:
+
+   ```azurecli
+   az upgrade
+   az extension add --upgrade --name azure-iot-ops
+   ```
+
+1. Sign in to Azure CLI interactively with a browser even if you already signed in before. If you don't sign in interactively, you might get an error that says *Your device is required to be managed to access your resource* when you continue to the next step to deploy Azure IoT Operations.
 
    ```azurecli
    az login
    ```
 
-1. Run the `az iot ops init` command to do the following:
-
-   * Create a key vault in your resource group.
-   * Set up a service principal to give your cluster access to the key vault.
-   * Configure TLS certificates.
-   * Configure a secrets store on your cluster that connects to the key vault.
-
-   ```azurecli-interactive
-   az iot ops init --cluster <CLUSTER_NAME> -g <RESOURCE_GROUP> --kv-id $(az keyvault create -n <NEW_KEYVAULT_NAME> -g <RESOURCE_GROUP> -o tsv --query id) --no-deploy
-   ```
-
-   >[!TIP]
-   >If you get an error that says *Your device is required to be managed to access your resource*, go back to the previous step and make sure that you signed in interactively.
-
-Now, you can deploy Azure IoT Operations to your cluster.
-
-1. On GitHub, fork the [azure-iot-operations repo](https://github.com/azure/azure-iot-operations).
-
-   >[!IMPORTANT]
-   >You're going to be adding secrets to the repo to run the deployment steps. It's important that you fork the repo and do all of the following steps in your own fork.
-
-1. Review the [azure-iot-operations.json](https://github.com/Azure/azure-iot-operations/blob/main/release/azure-iot-operations.json) file in the repo. This template defines the Azure IoT Operations deployment.
-
-1. Create a service principal for the repository to use when deploying to your cluster. Use the [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac) command.
-
-   ```azurecli
-   az ad sp create-for-rbac --name <NEW_SERVICE_PRINCIPAL_NAME> \
-                            --role owner \
-                            --scopes /subscriptions/<YOUR_SUBSCRIPTION_ID>
-                            --json-auth
-   ```
-
-1. Copy the JSON output from the service principal creation command.
-
-1. On GitHub, navigate to your fork of the azure-iot-operations repo.
-
-1. Select **Settings** > **Secrets and variables** > **Actions**.
-
-1. Create a repository secret named `AZURE_CREDENTIALS` and paste the service principal JSON as the secret value.
-
-1. Create a parameter file in your forked repo to specify the environment configuration for your Azure IoT Operations deployment. For example, `envrionments/parameters.json`.
-
-1. Paste the following snippet into the parameters file, replacing the `clusterName` placeholder value with your own information:
-
-   ```json
-   {
-     "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
-     "contentVersion": "1.0.0.0",
-     "parameters": {
-       "clusterName": {
-         "value": "<CLUSTER_NAME>"
-       }
-     }
-   }
-   ```
-
-1. Add any of the following optional parameters as needed for your deployment:
-
-   | Parameter | Type | Description |
-   | --------- | ---- | ----------- |
-   | `clusterLocation` | string | Specify the cluster's location if it's different than the resource group's location. Otherwise, this parameter defaults to the resource group's location. |
-   | `location` | string | If the resource group's location isn't supported for Azure IoT Operations deployments, use this parameter to override the default and set the location for the Azure IoT Operations resources. |
-   | `simulatePLC` | Boolean | Set to `true` if you want to include a simulated component to generate test data. |
-   | `dataProcessorSecrets` | object | Pass a secret to an Azure IoT Data Processor resource. |
-   | `mqSecrets` | object | Pass a secret to an Azure IoT MQ resource. |
-   | `opcUaBrokerSecrets` | object | Pass a secret to an Azure OPC UA Broker resource. |
-
-1. Save your changes to the parameters file.
-
-1. On the GitHub repo, select **Actions** and confirm **I understand my workflows, go ahead and enable them.**
-
-1. Run the **GitOps Deployment of Azure IoT Operations** action and provide the following information:
-
-   | Parameter | Value |
-   | --------- | ----- |
-   | **Subscription** | Your Azure subscription ID. |
-   | **Resource group** | The name of the resource group that contains your Arc-enabled cluster. |
-   | **Environment parameters file** | The path to the parameters file that you created. |
+1. Copy the [az iot ops init](/cli/azure/iot/ops#az-iot-ops-init) command from the **Automation** tab in the Azure portal and run it in your terminal.
 
 ---
 
-### Configure cluster network (AKS EE)
+While the deployment is in progress, you can watch the resources being applied to your cluster.
 
-On AKS Edge Essentials clusters, enable inbound connections to Azure IoT MQ broker and configure port forwarding:
+* If your terminal supports it, `init` displays the deployment progress.
 
-1. Enable a firewall rule for port 8883:
+  :::image type="content" source="./media/howto-deploy-iot-operations/view-deployment-terminal.png" alt-text="A screenshot that shows the progress of an Azure IoT Operations deployment in a terminal.":::
 
-    ```powershell
-    New-NetFirewallRule -DisplayName "Azure IoT MQ" -Direction Inbound -Protocol TCP -LocalPort 8883 -Action Allow
-    ```
+  Once the **Deploy IoT Operations** phase begins, the text in the terminal becomes a link to view the deployment progress in the Azure portal.
 
-1. Run the following command and make a note of the IP address for the service called `aio-mq-dmqtt-frontend`:
+  :::image type="content" source="./media/howto-deploy-iot-operations/view-deployment-portal.png" alt-text="A screenshot that shows the progress of an Azure IoT Operations deployment in the Azure portal." lightbox="./media/howto-deploy-iot-operations/view-deployment-portal.png":::
 
-    ```cmd
-    kubectl get svc aio-mq-dmqtt-frontend -n azure-iot-operations -o jsonpath='{.status.loadBalancer.ingress[0].ip}'
-    ```
+* Otherwise, or if you choose to disable the progress interface with `--no-progress` added to the `init` command, you can use kubectl commands to view the pods on your cluster:
 
-1. Enable port forwarding for port 8883. Replace `<aio-mq-dmqtt-frontend IP address>` with the IP address you noted in the previous step:
+  ```bash
+  kubectl get pods -n azure-iot-operations
+  ```
 
-    ```cmd
-    netsh interface portproxy add v4tov4 listenport=8883 listenaddress=0.0.0.0 connectport=8883 connectaddress=<aio-mq-dmqtt-frontend IP address>
-    ```
+  It can take several minutes for the deployment to complete. Rerun the `get pods` command to refresh your view.
 
-## View resources in your cluster
+After the deployment is complete, use [az iot ops check](/cli/azure/iot/ops#az-iot-ops-check) to evaluate IoT Operations service deployment for health, configuration, and usability. The *check* command can help you find problems in your deployment and configuration.
 
-While the deployment is in progress, you can watch the resources being applied to your cluster. You can use kubectl commands to observe changes on the cluster or, since the cluster is Arc-enabled, you can use the Azure portal.
-
-To view the pods on your cluster, run the following command:
-
-```bash
-kubectl get pods -n azure-iot-operations
+```azurecli
+az iot ops check
 ```
 
-It can take several minutes for the deployment to complete. Continue running the `get pods` command to refresh your view.
+You can also check the configurations of topic maps, QoS, and message routes by adding the `--detail-level 2` parameter for a verbose view.
 
-To view your cluster on the Azure portal, use the following steps:
+## Manage Azure IoT Operations
 
-1. In the Azure portal, navigate to the resource group that contains your cluster.
+After deployment, you can use the Azure CLI and Azure portal to view and manage your Azure IoT Operations instance.
 
-1. From the **Overview** of the resource group, select the name of your cluster.
+### List instances
 
-1. On your cluster, select **Extensions** from the menu.
+#### [Azure CLI](#tab/cli)
 
-   You can see that your cluster is running extensions of the type **microsoft.iotoperations.x**, which is the group name for all of the Azure IoT Operations components and the orchestration service.
+Use the `az iot ops list` command to see all of the Azure IoT Operations instances in your subscription or resource group.
 
-   There's also an extension called **akvsecretsprovider**. This extension is the secrets provider that you configured and installed on your cluster with the `az iot ops init` command. You might delete and reinstall the Azure IoT Operations components during testing, but keep the secrets provider extension on your cluster.
+The basic command returns all instances in your subscription.
+
+```azurecli
+az iot ops list
+```
+
+To filter the results by resource group, add the `--resource-group` parameter.
+
+```azurecli
+az iot ops list --resource-group <RESOURCE_GROUP>
+```
+
+#### [Azure portal](#tab/portal)
+
+1. In the [Azure portal](https://portal.azure.com), search for and select **Azure IoT Operations**.
+1. Use the filters to view Azure IoT Operations instances based on subscription, resource group, and more.
+
+---
+
+### View instance
+
+#### [Azure CLI](#tab/cli)
+
+Use the `az iot ops show` command to view the properties of an instance.
+
+```azurecli
+az iot ops show --name <INSTANCE_NAME> --resource-group <RESOURCE_GROUP>
+```
+
+You can also use the `az iot ops show` command to view the resources in your Azure IoT Operations deployment in the Azure CLI. Add the `--tree` flag to show a tree view of the deployment that includes the specified Azure IoT Operations instance.
+
+```azurecli
+az iot ops show --name <INSTANCE_NAME> --resource-group <RESOURCE_GROUP> --tree
+```
+
+The tree view of a deployment looks like the following example:
+
+```bash
+MyCluster
+├── extensions
+│   ├── akvsecretsprovider
+│   ├── azure-iot-operations-ltwgs
+│   └── azure-iot-operations-platform-ltwgs
+└── customLocations
+    └── MyCluster-cl
+        ├── resourceSyncRules
+        └── resources
+            ├── MyCluster-ops-init-instance
+            └── MyCluster-observability
+```
+
+You can run `az iot ops check` on your cluster to assess health and configurations of individual Azure IoT Operations components. By default, the command checks MQ but you can [specify the service](/cli/azure/iot/ops#az-iot-ops-check-examples) with `--ops-service` parameter.
+
+#### [Azure portal](#tab/portal)
+
+You can view your Azure IoT Operations instance in the Azure portal.
+
+1. In the [Azure portal](https://portal.azure.com), go to the resource group that contains your Azure IoT Operations instance, or search for and select **Azure IoT Operations**.
+
+1. Select the name of your Azure IoT Operations instance.
+
+1. On the **Overview** page of your instance, the **Arc extensions** table displays the resources that were deployed to your cluster.
+
+   :::image type="content" source="../get-started-end-to-end-sample/media/quickstart-deploy/view-instance.png" alt-text="Screenshot that shows the Azure IoT Operations instance on your Arc-enabled cluster." lightbox="../get-started-end-to-end-sample/media/quickstart-deploy/view-instance.png":::
+
+---
+
+### Update instance tags and description
+
+#### [Azure CLI](#tab/cli)
+
+Use the `az iot ops update` command to edit the tags and description parameters of your Azure IoT Operations instance. The values provided in the `update` command replace any existing tags or description
+
+```azurecli
+az iot ops update --name <INSTANCE_NAME> --resource-group <RESOURCE_GROUP> --desc "<INSTANCE_DESCRIPTION>" --tags <TAG_NAME>=<TAG-VALUE> <TAG_NAME>=<TAG-VALUE>
+```
+
+To delete all tags on an instance, set the tags parameter to a null value. For example:
+
+```azurecli
+az iot ops update --name <INSTANCE_NAME> --resource-group --tags ""
+```
+
+#### [Azure portal](#tab/portal)
+
+1. In the [Azure portal](https://portal.azure.com), go to the resource group that contains your Azure IoT Operations instance, or search for and select **Azure IoT Operations**.
+
+1. Select the name of your Azure IoT Operations instance.
+
+1. On the **Overview** page of your instance, select **Add tags** or **edit** to modify tags on your instance.
+
+---
+
+## Uninstall Azure IoT Operations
+
+The Azure CLI and Azure portal offer different options for uninstalling Azure IoT Operations.
+
+If you want to delete an entire Azure IoT Operations deployment, use the Azure CLI.
+
+If you want to delete an Azure IoT Operations instance but keep the related resources in the deployment, use the Azure portal.
+
+### [Azure CLI](#tab/cli)
+
+Use the [az iot ops delete](/cli/azure/iot/ops#az-iot-ops-delete) command to delete the entire Azure IoT Operations deployment from a cluster. The `delete` command evaluates the Azure IoT Operations related resources on the cluster and presents a tree view of the resources to be deleted. The cluster should be online when you run this command.
+
+The `delete` command removes:
+
+* The Azure IoT Operations instance
+* Arc extensions
+* Custom locations
+* Resource sync rules
+* Resources that you can configure in your Azure IoT Operations solution, like assets, MQTT broker, and dataflows.
+
+```azurecli
+az iot ops delete --cluster <CLUSTER_NAME> --resource-group <RESOURCE_GROUP>
+```
+
+### [Azure portal](#tab/portal)
+
+1. In the [Azure portal](https://portal.azure.com), go to the resource group that contains your Azure IoT Operations instance, or search for and select **Azure IoT Operations**.
+
+1. Select the name of your Azure IoT Operations instance.
+
+1. On the **Overview** page of your instance, select **Delete** your instance.
+
+1. Review the list of resources that are and aren't deleted as part of this operation, then type the name of your instance and select **Delete** to confirm.
+
+   :::image type="content" source="./media/howto-deploy-iot-operations/delete-instance.png" alt-text="A screenshot that shows deleting an Azure IoT Operations instance in the Azure portal.":::
+
+---
+
+## Update Azure IoT Operations
+
+Currently, there's no support for updating an existing Azure IoT Operations deployment. Instead, uninstall and redeploy a new version of Azure IoT Operations.
+
+1. Use the [az iot ops delete](/cli/azure/iot/ops#az-iot-ops-delete) command to delete the Azure IoT Operations deployment on your cluster.
+
+   ```azurecli
+   az iot ops delete --cluster <CLUSTER_NAME> --resource-group <RESOURCE_GROUP>
+   ```
+
+1. Update the CLI extension to get the latest Azure IoT Operations version.
+
+   ```azurecli
+   az extension update --name azure-iot-ops
+   ```
+
+1. Follow the steps in this article to deploy the newest version of Azure IoT Operations to your cluster.
+
+   >[!TIP]
+   >Add the `--ensure-latest` flag to the `az iot ops init` command to check that the latest Azure IoT Operations CLI version is installed and raise an error if an upgrade is available.
 
 ## Next steps
 
-If your components need to connect to Azure endpoints like SQL or Fabric, learn how to [Manage secrets for your Azure IoT Operations deployment](./howto-manage-secrets.md).
+If your components need to connect to Azure endpoints like SQL or Fabric, learn how to [Manage secrets for your Azure IoT Operations Preview deployment](./howto-manage-secrets.md).

@@ -4,9 +4,8 @@ description: Details of the geo-replication feature in Azure App Configuration.
 author: maud-lv
 ms.author: malev
 ms.service: azure-app-configuration
-ms.custom: 
 ms.topic: conceptual
-ms.date: 08/01/2022
+ms.date: 05/13/2024
 ---
 
 # Geo-replication overview

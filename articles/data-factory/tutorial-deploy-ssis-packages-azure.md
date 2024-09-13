@@ -1,11 +1,9 @@
 ---
-title: Provision the Azure-SSIS integration runtime 
+title: Provision the Azure-SSIS integration runtime
 description: Learn how to provision the Azure-SSIS integration runtime in Azure Data Factory so you can deploy and run SSIS packages in Azure.
-ms.service: data-factory
 ms.subservice: integration-services
 ms.topic: tutorial
-ms.custom: seo-lt-2019
-ms.date: 08/10/2023
+ms.date: 05/15/2024
 author: chugugrace
 ms.author: chugu
 ---
@@ -31,7 +29,7 @@ In this tutorial, you complete the following steps:
 
 ## Prerequisites
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 - **Azure subscription**. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 
@@ -284,7 +282,7 @@ See also the following SSIS documentation:
 - [Schedule package executions in Azure](/sql/integration-services/lift-shift/ssis-azure-schedule-packages) 
 - [Connect to on-premises data sources with Windows authentication](/sql/integration-services/lift-shift/ssis-azure-connect-with-windows-auth) 
 
-## Next steps
+## Related content
 
 To learn about customizing your Azure-SSIS integration runtime, advance to the following article: 
 

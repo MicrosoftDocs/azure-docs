@@ -3,10 +3,9 @@ title: Troubleshoot the Dynamics 365, Dataverse (Common Data Service), and Dynam
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to troubleshoot issues with the Dynamics 365, Dataverse (Common Data Service), and Dynamics CRM connectors in Azure Data Factory and Azure Synapse Analytics. 
 author: jianleishen
-ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: troubleshooting
-ms.date: 07/13/2023
+ms.date: 01/05/2024
 ms.author: jianleishen
 ms.custom: has-adal-ref, synapse
 ---
@@ -186,7 +185,7 @@ This article provides suggestions to troubleshoot common problems with the Dynam
 
 - **Recommendation**: Enable the staging and retry.
 
-## Next steps
+## Related content
 
 For more troubleshooting help, try these resources:
 
@@ -196,4 +195,4 @@ For more troubleshooting help, try these resources:
 - [Azure videos](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)
 - [Microsoft Q&A page](/answers/topics/azure-data-factory.html)
 - [Stack Overflow forum for Data Factory](https://stackoverflow.com/questions/tagged/azure-data-factory)
-- [Twitter information about Data Factory](https://twitter.com/hashtag/DataFactory)
+- [X information about Data Factory](https://x.com/hashtag/DataFactory)

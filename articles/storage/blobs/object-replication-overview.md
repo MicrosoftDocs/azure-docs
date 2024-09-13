@@ -6,8 +6,8 @@ author: normesta
 
 ms.service: azure-blob-storage
 ms.topic: conceptual
-ms.date: 05/04/2023
-ms.author: normesta
+ms.date: 12/08/2023
+ms.author: nachakra
 ms.custom: engagement-fy23
 ---
 
@@ -43,7 +43,7 @@ Object replication isn't supported for blobs in the source account that are encr
 
 Customer-managed failover isn't supported for either the source or the destination account in an object replication policy.
 
-Object replication is not supported for blobs that are uploaded by using [Data Lake Storage Gen2](/rest/api/storageservices/data-lake-storage-gen2) APIs.
+Object replication is not supported for blobs that are uploaded by using [Data Lake Storage](/rest/api/storageservices/data-lake-storage-gen2) APIs.
 
 ## How object replication works
 
@@ -57,6 +57,9 @@ Object replication asynchronously copies block blobs in a container according to
 Object replication requires that blob versioning is enabled on both the source and destination accounts. When a replicated blob in the source account is modified, a new version of the blob is created in the source account that reflects the previous state of the blob, before modification. The current version in the source account reflects the most recent updates. Both the current version and any previous versions are replicated to the destination account. For more information about how write operations affect blob versions, see [Versioning on write operations](versioning-overview.md#versioning-on-write-operations).
 
 If your storage account has object replication policies in effect, you cannot disable blob versioning for that account. You must delete any object replication policies on the account before disabling blob versioning.
+
+> [!NOTE]
+> Only blobs are copied to the destination. A blob's version ID is not copied. The blob that is placed at the destination location is assigned a new version ID.
 
 ### Deleting a blob in the source account
 
@@ -78,9 +81,9 @@ Object replication is supported when the source and destination accounts are in 
 
 Immutability policies for Azure Blob Storage include time-based retention policies and legal holds. When an immutability policy is in effect on the destination account, object replication may be affected. For more information about immutability policies, see [Store business-critical blob data with immutable storage](immutable-storage-overview.md).
 
-If a container-level immutability policy is in effect for a container in the destination account, and an object in the source container is updated or deleted, then the operation on the source container may succeed, but replication of that operation to the destination container will fail. For more information about which operations are prohibited with an immutability policy that is scoped to a container, see [Scenarios with container-level scope](immutable-storage-overview.md#scenarios-with-container-level-scope).
+If a container-level immutability policy is in effect for a container in the destination account, and an object in the source container is updated or deleted, then the operation on the source container may succeed, but replication of that operation to the destination container will fail. For more information about which operations are prohibited with an immutability policy that is scoped to a container, see [Scenarios with container-level scope](immutable-container-level-worm-policies.md#scenarios).
 
-If a version-level immutability policy is in effect for a blob version in the destination account, and a delete or update operation is performed on the blob version in the source container, then the operation on the source object may succeed, but replication of that operation to the destination object will fail. For more information about which operations are prohibited with an immutability policy that is scoped to a container, see [Scenarios with version-level scope](immutable-storage-overview.md#scenarios-with-version-level-scope).
+If a version-level immutability policy is in effect for a blob version in the destination account, and a delete or update operation is performed on the blob version in the source container, then the operation on the source object may succeed, but replication of that operation to the destination object will fail. For more information about which operations are prohibited with an immutability policy that is scoped to a container, see [Scenarios with version-level scope](immutable-version-level-worm-policies.md#scenarios).
 
 ## Object replication policies and rules
 
@@ -178,13 +181,13 @@ The following table summarizes which values to use for the **policyId** and **ru
 
 A Microsoft Entra tenant is a dedicated instance of Microsoft Entra ID that represents an organization for identity and access management. Each Azure subscription has a trust relationship with a single Microsoft Entra tenant. All resources in a subscription, including storage accounts, are associated with the same Microsoft Entra tenant. For more information, see [What is Microsoft Entra ID?](../../active-directory/fundamentals/active-directory-whatis.md)
 
-By default, cross-tenant replication is disabled in the Azure portal. If your security policies require that you restrict object replication to storage accounts that reside within the same tenant only, you can disallow replication across tenants by setting a security property, the **AllowCrossTenantReplication** property (preview). When you disallow cross-tenant object replication for a storage account, then for any object replication policy that is configured with that storage account as the source or destination account, Azure Storage requires that both the source and destination accounts reside within the same Microsoft Entra tenant. For more information about disallowing cross-tenant object replication, see [Prevent object replication across Microsoft Entra tenants](object-replication-prevent-cross-tenant-policies.md).
+By default, cross-tenant replication is disabled for new accounts created starting Dec 15, 2023. If your security policies require that you restrict object replication to storage accounts that reside within the same tenant only, you can disallow replication across tenants by setting a security property, the **AllowCrossTenantReplication** property (preview). When you disallow cross-tenant object replication for a storage account, then for any object replication policy that is configured with that storage account as the source or destination account, Azure Storage requires that both the source and destination accounts reside within the same Microsoft Entra tenant. For more information about disallowing cross-tenant object replication, see [Prevent object replication across Microsoft Entra tenants](object-replication-prevent-cross-tenant-policies.md).
 
 To disallow cross-tenant object replication for a storage account, set the **AllowCrossTenantReplication** property to *false*. If the storage account doesn't currently participate in any cross-tenant object replication policies, then setting the **AllowCrossTenantReplication** property to *false* prevents future configuration of cross-tenant object replication policies with this storage account as the source or destination.
 
 If the storage account currently participates in one or more cross-tenant object replication policies, then setting the **AllowCrossTenantReplication** property to *false* isn't permitted. You must delete the existing cross-tenant policies before you can disallow cross-tenant replication.
 
-By default, the **AllowCrossTenantReplication** property isn't set for a storage account, and its value is *null*, which is equivalent to *false*. When the value of the **AllowCrossTenantReplication** property for a storage account is *null* or *true*, then authorized users can configure cross-tenant object replication policies with this account as the source or destination. For more information about how to configure cross-tenant policies, see [Configure object replication for block blobs](object-replication-configure.md).
+By default, the **AllowCrossTenantReplication** property is set to false for a storage account created starting Dec 15, 2023. For storage accounts created prior to Dec 15, 2023, when the value of the **AllowCrossTenantReplication** property for a storage account is *null* or *true*, then authorized users can configure cross-tenant object replication policies with this account as the source or destination. For more information about how to configure cross-tenant policies, see [Configure object replication for block blobs](object-replication-configure.md).
 
 You can use Azure Policy to audit a set of storage accounts to ensure that the **AllowCrossTenantReplication** property is set to prevent cross-tenant object replication. You can also use Azure Policy to enforce governance for a set of storage accounts. For example, you can create a policy with the deny effect to prevent a user from creating a storage account where the **AllowCrossTenantReplication** property is set to *true*, or from modifying an existing storage account to change the property value to *true*.
 
@@ -224,15 +227,14 @@ Here's a breakdown of the costs. To find the price of each cost component, see [
 ||Storage cost of the blob and each blob version<sup>1</sup>|
 ||Cost of network egress<sup>3</sup>|
 
-
-
-<sup>1</sup>    See [Blob versioning pricing and Billing](versioning-overview.md#pricing-and-billing).
+<sup>1</sup>    On the source account, if you haven't changed a blob or version's tier, then you're billed for unique blocks of data across that blob, its versions. See [Blob versioning pricing and Billing](versioning-overview.md#pricing-and-billing). At the destination account, for a version, you're billed for all of the blocks of a version whether or not those blocks are unique.
 
 <sup>2</sup>    This includes only blob versions created since the last replication completed.
 
-<sup>3</sup>    See [Bandwidth pricing](https://azure.microsoft.com/pricing/details/bandwidth/).
+<sup>3</sup>    Object replication copies the whole version to destination (not just the unique blocks of the version). This transfer incurs the cost of network egress. See [Bandwidth pricing](https://azure.microsoft.com/pricing/details/bandwidth/).
 
-
+> [!TIP]
+> To reduce the risk of an unexpected bill, enable object replication in an account that contains only a small number of objects. Then, measure the impact on cost before you enable the feature in a production setting.
 
 ## Next steps
 

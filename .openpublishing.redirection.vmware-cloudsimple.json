@@ -1,0 +1,369 @@
+{
+    "redirections": [
+        {
+            "source_path_from_root": "/articles/vmware-cloudsimple/access-cloudsimple-portal.md",
+            "redirect_url": "/previous-versions/azure/vmware-cloudsimple/access-cloudsimple-portal",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/vmware-cloudsimple/account.md",
+            "redirect_url": "/previous-versions/azure/vmware-cloudsimple/account",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/vmware-cloudsimple/azure-ad.md",
+            "redirect_url": "/previous-versions/azure/vmware-cloudsimple/azure-ad",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/vmware-cloudsimple/azure-application-gateway.md",
+            "redirect_url": "/previous-versions/azure/vmware-cloudsimple/azure-application-gateway",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/vmware-cloudsimple/azure-create-vm.md",
+            "redirect_url": "/previous-versions/azure/vmware-cloudsimple/azure-create-vm",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/vmware-cloudsimple/azure-expressroute-connection.md",
+            "redirect_url": "/previous-versions/azure/vmware-cloudsimple/azure-expressroute-connection",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/vmware-cloudsimple/azure-manage-vm.md",
+            "redirect_url": "/previous-versions/azure/vmware-cloudsimple/azure-manage-vm",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/vmware-cloudsimple/azure-subscription-mapping.md",
+            "redirect_url": "/previous-versions/azure/vmware-cloudsimple/azure-subscription-mapping",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/vmware-cloudsimple/backup-workloads-veeam.md",
+            "redirect_url": "/previous-versions/azure/vmware-cloudsimple/backup-workloads-veeam",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/vmware-cloudsimple/cloudsimple-account.md",
+            "redirect_url": "/previous-versions/azure/vmware-cloudsimple/cloudsimple-account",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/vmware-cloudsimple/cloudsimple-activity.md",
+            "redirect_url": "/previous-versions/azure/vmware-cloudsimple/cloudsimple-activity",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/vmware-cloudsimple/cloudsimple-azure-network-connection.md",
+            "redirect_url": "/previous-versions/azure/vmware-cloudsimple/cloudsimple-azure-network-connection",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/vmware-cloudsimple/cloudsimple-firewall-tables.md",
+            "redirect_url": "/previous-versions/azure/vmware-cloudsimple/cloudsimple-firewall-tables",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/vmware-cloudsimple/cloudsimple-maintenance-updates.md",
+            "redirect_url": "/previous-versions/azure/vmware-cloudsimple/cloudsimple-maintenance-updates",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/vmware-cloudsimple/cloudsimple-network-checklist.md",
+            "redirect_url": "/previous-versions/azure/vmware-cloudsimple/cloudsimple-network-checklist",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/vmware-cloudsimple/cloudsimple-node.md",
+            "redirect_url": "/previous-versions/azure/vmware-cloudsimple/cloudsimple-node",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/vmware-cloudsimple/cloudsimple-private-cloud.md",
+            "redirect_url": "/previous-versions/azure/vmware-cloudsimple/cloudsimple-private-cloud",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/vmware-cloudsimple/cloudsimple-public-ip-address.md",
+            "redirect_url": "/previous-versions/azure/vmware-cloudsimple/cloudsimple-public-ip-address",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/vmware-cloudsimple/cloudsimple-security.md",
+            "redirect_url": "/previous-versions/azure/vmware-cloudsimple/cloudsimple-security",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/vmware-cloudsimple/cloudsimple-service.md",
+            "redirect_url": "/previous-versions/azure/vmware-cloudsimple/cloudsimple-service",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/vmware-cloudsimple/cloudsimple-virtual-machines.md",
+            "redirect_url": "/previous-versions/azure/vmware-cloudsimple/cloudsimple-virtual-machines",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/vmware-cloudsimple/cloudsimple-vlans-subnets.md",
+            "redirect_url": "/previous-versions/azure/vmware-cloudsimple/cloudsimple-vlans-subnets",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/vmware-cloudsimple/cloudsimple-vmware-solutions-overview.md",
+            "redirect_url": "/previous-versions/azure/vmware-cloudsimple/cloudsimple-vmware-solutions-overview",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/vmware-cloudsimple/cloudsimple-vpn-gateways.md",
+            "redirect_url": "/previous-versions/azure/vmware-cloudsimple/cloudsimple-vpn-gateways",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/vmware-cloudsimple/configure-server-vrealize-automation-endpoint.md",
+            "redirect_url": "/previous-versions/azure/vmware-cloudsimple/configure-server-vrealize-automation-endpoint",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/vmware-cloudsimple/create-cloudsimple-service.md",
+            "redirect_url": "/previous-versions/azure/vmware-cloudsimple/create-cloudsimple-service",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/vmware-cloudsimple/create-nodes.md",
+            "redirect_url": "/previous-versions/azure/vmware-cloudsimple/create-nodes",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/vmware-cloudsimple/create-private-cloud.md",
+            "redirect_url": "/previous-versions/azure/vmware-cloudsimple/create-private-cloud",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/vmware-cloudsimple/create-vlan-subnet.md",
+            "redirect_url": "/previous-versions/azure/vmware-cloudsimple/create-vlan-subnet",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/vmware-cloudsimple/delete-nodes.md",
+            "redirect_url": "/previous-versions/azure/vmware-cloudsimple/delete-nodes",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/vmware-cloudsimple/delete-private-cloud.md",
+            "redirect_url": "/previous-versions/azure/vmware-cloudsimple/delete-private-cloud",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/vmware-cloudsimple/disaster-recovery-site-recovery-manager.md",
+            "redirect_url": "/previous-versions/azure/vmware-cloudsimple/disaster-recovery-site-recovery-manager",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/vmware-cloudsimple/disaster-recovery-zerto.md",
+            "redirect_url": "/previous-versions/azure/vmware-cloudsimple/disaster-recovery-zerto",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/vmware-cloudsimple/dns-dhcp-setup.md",
+            "redirect_url": "/previous-versions/azure/vmware-cloudsimple/dns-dhcp-setup",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/vmware-cloudsimple/ensuring-high-availability.md",
+            "redirect_url": "/previous-versions/azure/vmware-cloudsimple/ensuring-high-availability",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/vmware-cloudsimple/escalate-private-cloud-privileges.md",
+            "redirect_url": "/previous-versions/azure/vmware-cloudsimple/escalate-private-cloud-privileges",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/vmware-cloudsimple/escalate-privileges.md",
+            "redirect_url": "/previous-versions/azure/vmware-cloudsimple/escalate-privileges",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/vmware-cloudsimple/expand-private-cloud.md",
+            "redirect_url": "/previous-versions/azure/vmware-cloudsimple/expand-private-cloud",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/vmware-cloudsimple/firewall.md",
+            "redirect_url": "/previous-versions/azure/vmware-cloudsimple/firewall",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/vmware-cloudsimple/forbidden-actions.md",
+            "redirect_url": "/previous-versions/azure/vmware-cloudsimple/forbidden-actions",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/vmware-cloudsimple/high-availability-vpn-connection.md",
+            "redirect_url": "/previous-versions/azure/vmware-cloudsimple/high-availability-vpn-connection",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/vmware-cloudsimple/horizon-guide.md",
+            "redirect_url": "/previous-versions/azure/vmware-cloudsimple/horizon-guide",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/vmware-cloudsimple/index.md",
+            "redirect_url": "/previous-versions/azure/vmware-cloudsimple/index",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/vmware-cloudsimple/key-concepts.md",
+            "redirect_url": "/previous-versions/azure/vmware-cloudsimple/key-concepts",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/vmware-cloudsimple/learn-private-cloud-permissions.md",
+            "redirect_url": "/previous-versions/azure/vmware-cloudsimple/learn-private-cloud-permissions",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/vmware-cloudsimple/load-balancers.md",
+            "redirect_url": "/previous-versions/azure/vmware-cloudsimple/load-balancers",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/vmware-cloudsimple/manage-private-cloud.md",
+            "redirect_url": "/previous-versions/azure/vmware-cloudsimple/manage-private-cloud",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/vmware-cloudsimple/migrate-workloads.md",
+            "redirect_url": "/previous-versions/azure/vmware-cloudsimple/migrate-workloads",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/vmware-cloudsimple/migration-layer-2-vpn.md",
+            "redirect_url": "/previous-versions/azure/vmware-cloudsimple/migration-layer-2-vpn",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/vmware-cloudsimple/migration-using-azure-data-box.md",
+            "redirect_url": "/previous-versions/azure/vmware-cloudsimple/migration-using-azure-data-box",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/vmware-cloudsimple/monitor-activity.md",
+            "redirect_url": "/previous-versions/azure/vmware-cloudsimple/monitor-activity",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/vmware-cloudsimple/node-quota.md",
+            "redirect_url": "/previous-versions/azure/vmware-cloudsimple/node-quota",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/vmware-cloudsimple/on-premises-connection.md",
+            "redirect_url": "/previous-versions/azure/vmware-cloudsimple/on-premises-connection",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/vmware-cloudsimple/on-premises-dns-setup.md",
+            "redirect_url": "/previous-versions/azure/vmware-cloudsimple/on-premises-dns-setup",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/vmware-cloudsimple/on-premises-firewall-configuration.md",
+            "redirect_url": "/previous-versions/azure/vmware-cloudsimple/on-premises-firewall-configuration",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/vmware-cloudsimple/oracle-real-application-clusters.md",
+            "redirect_url": "/previous-versions/azure/vmware-cloudsimple/oracle-real-application-clusters",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/vmware-cloudsimple/private-cloud-dns-forwarding.md",
+            "redirect_url": "/previous-versions/azure/vmware-cloudsimple/private-cloud-dns-forwarding",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/vmware-cloudsimple/private-cloud-secure.md",
+            "redirect_url": "/previous-versions/azure/vmware-cloudsimple/private-cloud-secure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/vmware-cloudsimple/public-ips.md",
+            "redirect_url": "/previous-versions/azure/vmware-cloudsimple/public-ips",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/vmware-cloudsimple/quickstart-create-cloudsimple-service.md",
+            "redirect_url": "/previous-versions/azure/vmware-cloudsimple/quickstart-create-cloudsimple-service",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/vmware-cloudsimple/quickstart-create-private-cloud-vmware-virtual-machine.md",
+            "redirect_url": "/previous-versions/azure/vmware-cloudsimple/quickstart-create-private-cloud-vmware-virtual-machine",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/vmware-cloudsimple/quickstart-create-private-cloud.md",
+            "redirect_url": "/previous-versions/azure/vmware-cloudsimple/quickstart-create-private-cloud",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/vmware-cloudsimple/quickstart-create-vmware-virtual-machine.md",
+            "redirect_url": "/previous-versions/azure/vmware-cloudsimple/quickstart-create-vmware-virtual-machine",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/vmware-cloudsimple/set-up-vpn.md",
+            "redirect_url": "/previous-versions/azure/vmware-cloudsimple/set-up-vpn",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/vmware-cloudsimple/set-vcenter-identity.md",
+            "redirect_url": "/previous-versions/azure/vmware-cloudsimple/set-vcenter-identity",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/vmware-cloudsimple/shrink-private-cloud.md",
+            "redirect_url": "/previous-versions/azure/vmware-cloudsimple/shrink-private-cloud",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/vmware-cloudsimple/update-plan-sept-2020.md",
+            "redirect_url": "/previous-versions/azure/vmware-cloudsimple/update-plan-sept-2020",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/vmware-cloudsimple/users.md",
+            "redirect_url": "/previous-versions/azure/vmware-cloudsimple/users",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/vmware-cloudsimple/vcenter-access.md",
+            "redirect_url": "/previous-versions/azure/vmware-cloudsimple/vcenter-access",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/vmware-cloudsimple/virtual-network-connection.md",
+            "redirect_url": "/previous-versions/azure/vmware-cloudsimple/virtual-network-connection",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/vmware-cloudsimple/vmware-components.md",
+            "redirect_url": "/previous-versions/azure/vmware-cloudsimple/vmware-components",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/vmware-cloudsimple/vpn-gateway.md",
+            "redirect_url": "/previous-versions/azure/vmware-cloudsimple/vpn-gateway",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/vmware-cloudsimple/vsan-encryption.md",
+            "redirect_url": "/previous-versions/azure/vmware-cloudsimple/vsan-encryption",
+            "redirect_document_id": false
+        }
+    ]
+}

@@ -8,9 +8,13 @@ ms.author: kengaderdus
 manager: CelesteDG
 ms.service: active-directory
 
-ms.topic: conceptual
-ms.date: 07/13/2023
+ms.topic: concept-article
+ms.date: 02/05/2024
 ms.subservice: B2C
+
+
+#Customer intent: As an application developer integrating Azure Active Directory B2C, I want recommendations and best practices for integrating Azure AD B2C into my application environment, so that I can ensure a secure and efficient integration with Azure AD B2C.
+
 ---
 
 # Recommendations and best practices for Azure Active Directory B2C
@@ -21,9 +25,11 @@ The following best practices and recommendations cover some of the primary aspec
 
 | Best practice | Description |
 |--|--|
+| Create emergency access account | This emergency access account helps you gain access to your Azure AD B2C tenant in circumstances such as the only administrator is unreachable when the credential is needed. [Learn how to create an emergency access account](tenant-management-emergency-access-account.md#create-emergency-access-account)  |
 | Choose user flows for most scenarios | The Identity Experience Framework of Azure AD B2C is the core strength of the service. Policies fully describe identity experiences such as sign-up, sign-in, or profile editing. To help you set up the most common identity tasks, the Azure AD B2C portal includes predefined, configurable policies called user flows. With user flows, you can create great user experiences in minutes, with just a few clicks. [Learn when to use user flows vs. custom policies](user-flow-overview.md#comparing-user-flows-and-custom-policies).|
 | App registrations | Every application (web, native) and API that is being secured must be registered in Azure AD B2C. If an app has both a web and native version of iOS and Android, you can register them as one application in Azure AD B2C with the same client ID. Learn how to [register OIDC, SAML, web, and native apps](./tutorial-register-applications.md?tabs=applications). Learn more about [application types that can be used in Azure AD B2C](./application-types.md). |
 | Move to monthly active users billing | Azure AD B2C has moved from monthly active authentications to monthly active users (MAU) billing. Most customers will find this model cost-effective. [Learn more about monthly active users billing](https://azure.microsoft.com/updates/mau-billing/). |
+| Follow Security best practices | There are continuous and evolving threats and attacks, and like all owned resources, your Azure AD B2C deployment should follow best practices for security, including guidance on implementing WAFs (defense against threats such as DDOS and Bots) and other defense in depth best guidance [B2C Security Architecture](/azure/active-directory-b2c/security-architecture). |
 
 ## Planning and design
 
@@ -41,7 +47,6 @@ Define your application and service architecture, inventory current systems, and
 | Migrate existing apps to b2clogin.com | The deprecation of login.microsoftonline.com will go into effect for all Azure AD B2C tenants on 04 December 2020. [Learn more](b2clogin.md). |
 | Use Identity Protection and Conditional Access | Use these capabilities for significantly greater control over risky authentications and access policies. Azure AD B2C Premium P2 is required. [Learn more](conditional-access-identity-protection-overview.md). |
 |Tenant size | You need to plan with Azure AD B2C tenant size in mind. By default, Azure AD B2C tenant can accommodate 1.25 million objects (user accounts and applications). You can increase this limit to 5.25 million objects by adding a custom domain to your tenant, and verifying it. If you need a bigger tenant size, you need to contact [Support](find-help-open-support-ticket.md).|
-| Use Identity Protection and Conditional Access | Use these capabilities for greater control over risky authentications and access policies. Azure AD B2C Premium P2 is required. [Learn more](conditional-access-identity-protection-overview.md). |
 
 ## Implementation
 

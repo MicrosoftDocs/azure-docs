@@ -1,18 +1,20 @@
 ---
-title: Analyze Azure Files metrics
-description: Learn to use Azure Monitor to analyze Azure Files metrics such as availability, latency, and utilization.
+title: Analyze Azure Files metrics with Azure Monitor
+description: Learn to use Azure Monitor to monitor workload performance, throughput, and IOPS. Analyze Azure Files metrics such as availability, latency, and utilization.
 author: khdownie
 services: storage
 ms.service: azure-file-storage
 ms.topic: how-to
-ms.date: 09/06/2023
+ms.date: 08/19/2024
 ms.author: kendownie
 ms.custom: monitoring, devx-track-azurepowershell
 ---
 
-# Analyze Azure Files metrics using Azure Monitor
+# Use Azure Monitor to Analyze Azure Files metrics
 
-Understanding how to monitor file share performance is critical to ensuring that your application is running as efficiently as possible. This article shows you how to use [Azure Monitor](../../azure-monitor/overview.md) to analyze Azure Files metrics such as availability, latency, and utilization. 
+Understanding how to monitor file share performance is critical to ensuring that your application is running as efficiently as possible. This article shows you how to use [Azure Monitor](/azure/azure-monitor/overview) to analyze Azure Files metrics such as availability, latency, and utilization.
+
+See [Monitor Azure Files](storage-files-monitoring.md) for details on the monitoring data you can collect for Azure Files and how to use it.
 
 ## Applies to
 | File share type | SMB | NFS |
@@ -23,16 +25,24 @@ Understanding how to monitor file share performance is critical to ensuring that
 
 ## Supported metrics
 
-For a list of all Azure Monitor support metrics, which includes Azure Files, see [Azure Monitor supported metrics](../../azure-monitor/essentials/metrics-supported.md#microsoftstoragestorageaccountsfileservices).
-
-### [Azure portal](#tab/azure-portal)
-
-You can analyze metrics for Azure Storage with metrics from other Azure services by using Metrics Explorer. Open Metrics Explorer by choosing **Metrics** from the **Azure Monitor** menu. For details on using this tool, see [Analyze metrics with Azure Monitor metrics explorer](../../azure-monitor/essentials/analyze-metrics.md). 
-
-For metrics that support dimensions, you can filter the metric with the desired dimension value.  For a complete list of the dimensions that Azure Storage supports, see [Metrics dimensions](storage-files-monitoring-reference.md#metrics-dimensions). Metrics for Azure Files are in these namespaces: 
+Metrics for Azure Files are in these namespaces: 
 
 - Microsoft.Storage/storageAccounts
 - Microsoft.Storage/storageAccounts/fileServices
+
+For a list of available metrics for Azure Files, see [Azure Files monitoring data reference](storage-files-monitoring-reference.md#supported-metrics-for-microsoftstoragestorageaccountsfileservices).
+
+For a list of all Azure Monitor supported metrics, which includes Azure Files, see [Azure Monitor supported metrics](/azure/azure-monitor/reference/supported-metrics/metrics-index#supported-metrics-per-resource-type).
+
+## View Azure Files metrics data
+
+You can view Azure Files metrics by using the Azure portal, PowerShell, Azure CLI, or .NET.
+
+### [Azure portal](#tab/azure-portal)
+
+You can analyze metrics for Azure Storage with metrics from other Azure services by using Azure Monitor Metrics Explorer. Open metrics explorer by choosing **Metrics** from the **Azure Monitor** menu. For details on using this tool, see [Analyze metrics with Azure Monitor metrics explorer](/azure/azure-monitor/essentials/analyze-metrics). 
+
+For metrics that support dimensions, you can filter the metric with the desired dimension value.  For a complete list of the dimensions that Azure Storage supports, see [Metrics dimensions](storage-files-monitoring-reference.md#metrics-dimensions).
 
 ### [PowerShell](#tab/azure-powershell)
 
@@ -104,7 +114,7 @@ Azure Monitor provides the [.NET SDK](https://www.nuget.org/packages/Microsoft.A
  
 In these examples, replace the `<resource-ID>` placeholder with the resource ID of the entire storage account or the Azure Files service. You can find these resource IDs on the **Properties** pages of your storage account in the Azure portal.
 
-Replace the `<subscription-ID>` variable with the ID of your subscription. For guidance on how to obtain values for `<tenant-ID>`, `<application-ID>`, and `<AccessKey>`, see [Use the portal to create a Microsoft Entra application and service principal that can access resources](../../active-directory/develop/howto-create-service-principal-portal.md). 
+Replace the `<subscription-ID>` variable with the ID of your subscription. For guidance on how to obtain values for `<tenant-ID>`, `<application-ID>`, and `<AccessKey>`, see [Use the portal to create a Microsoft Entra application and service principal that can access resources](/azure/active-directory/develop/howto-create-service-principal-portal). 
 
 ### List the account-level metric definition
 
@@ -244,13 +254,13 @@ The following example shows how to read metric data on the metric supporting mul
 
 You can use Azure Monitor to analyze workloads that utilize Azure Files. Follow these steps.
 
-1. Go to your storage account in the [Azure portal](https://portal.azure.com). 
-1. From the left navigation, select **Data storage** > **File shares**. Select the file share you want to monitor.
-1. From the left navigation, select **Monitoring** > **Metrics**.
-1. When using Azure Monitor for Azure Files, it’s important to always select the **Files** metric namespace. Select **Add metric**.
-1. Under **Metric namespace** select **File**.
+1. Navigate to your storage account in the [Azure portal](https://portal.azure.com). 
+1. In the service menu, under **Monitoring**, select **Metrics**.
+1. Under **Metric namespace**, select **File**.
 
 :::image type="content" source="media/analyze-files-metrics/add-metric-namespace-file.png" alt-text="Screenshot showing how to select the Files metric namespace." lightbox="media/analyze-files-metrics/add-metric-namespace-file.png":::
+
+Now you can select a metric depending on what you want to monitor.
 
 ### Monitor availability
 
@@ -314,85 +324,11 @@ Compared against the **Bandwidth by Max MiB/s**, we achieved 123 MiB/s at peak.
 
 :::image type="content" source="media/analyze-files-metrics/bandwidth-by-max-mibs.png" alt-text="Screenshot showing bandwidth by max MIBS." lightbox="media/analyze-files-metrics/bandwidth-by-max-mibs.png" border="false":::
 
-## Analyze logs
-
-You can access resource logs either as a blob in a storage account, as event data, or through Log Analytics queries. For information about how to find those logs, see [Azure resource logs](../../azure-monitor/essentials/resource-logs.md).
-
-All resource logs in Azure Monitor have the same fields followed by service-specific fields. The common schema is outlined in [Azure Monitor resource log schema](../../azure-monitor/essentials/resource-logs-schema.md). The schema for Azure Files resource logs is found in [Azure Files monitoring data reference](storage-files-monitoring-reference.md).
-
-To get the list of SMB and REST operations that are logged, see [Storage logged operations and status messages](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages).
-
-Log entries are created only if there are requests made against the service endpoint. For example, if a storage account has activity in its file endpoint but not in its table or queue endpoints, only logs that pertain to the Azure File service are created. Azure Storage logs contain detailed information about successful and failed requests to a storage service. This information can be used to monitor individual requests and to diagnose issues with a storage service. Requests are logged on a best-effort basis.
-
-The [Activity log](../../azure-monitor/essentials/activity-log.md) is a type of platform log located in Azure that provides insight into subscription-level events. You can view it independently or route it to Azure Monitor Logs, where you can do much more complex queries using Log Analytics.  
-
-
-### Log authenticated requests
-
- The following types of authenticated requests are logged:
-
-- Successful requests
-- Failed requests, including timeout, throttling, network, authorization, and other errors
-- Requests that use Kerberos, NTLM or shared access signature (SAS), including failed and successful requests
-- Requests to analytics data (classic log data in the **$logs** container and classic metric data in the **$metric** tables)
-
-Requests made by the Azure Files service itself, such as log creation or deletion, aren't logged. For a full list of the SMB and REST requests that are logged, see [Storage logged operations and status messages](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) and [Azure Files monitoring data reference](storage-files-monitoring-reference.md).
-
-### Sample Kusto queries
-
-If you send logs to Log Analytics, you can access those logs by using Azure Monitor log queries. For more information, see [Log Analytics tutorial](../../azure-monitor/logs/log-analytics-tutorial.md).
-
-Here are some queries that you can enter in the **Log search** bar to help you monitor your Azure Files. These queries work with the [new language](../../azure-monitor/logs/log-query-overview.md).
-
-> [!IMPORTANT]
-> When you select **Logs** from the storage account resource group menu, Log Analytics is opened with the query scope set to the current resource group. This means that log queries will only include data from that resource group. If you want to run a query that includes data from other resources or data from other Azure services, select **Logs** from the **Azure Monitor** menu. See [Log query scope and time range in Azure Monitor Log Analytics](../../azure-monitor/logs/scope.md) for details.
-
-Use these queries to help you monitor your Azure file shares:
-
-- View SMB errors over the last week
-
-```Kusto
-StorageFileLogs
-| where Protocol == "SMB" and TimeGenerated >= ago(7d) and StatusCode contains "-"
-| sort by StatusCode
-```
-- Create a pie chart of SMB operations over the last week
-
-```Kusto
-StorageFileLogs
-| where Protocol == "SMB" and TimeGenerated >= ago(7d) 
-| summarize count() by OperationName
-| sort by count_ desc
-| render piechart
-```
-
-- View REST errors over the last week
-
-```Kusto
-StorageFileLogs
-| where Protocol == "HTTPS" and TimeGenerated >= ago(7d) and StatusText !contains "Success"
-| sort by StatusText asc
-```
-
-- Create a pie chart of REST operations over the last week
-
-```Kusto
-StorageFileLogs
-| where Protocol == "HTTPS" and TimeGenerated >= ago(7d) 
-| summarize count() by OperationName
-| sort by count_ desc
-| render piechart
-```
-
-To view the list of column names and descriptions for Azure Files, see [StorageFileLogs](/azure/azure-monitor/reference/tables/storagefilelogs).
-
-For more information on how to write queries, see [Log Analytics tutorial](../../azure-monitor/logs/log-analytics-tutorial.md).
-
-## Next steps
+## Related content
 
 - [Monitor Azure Files](storage-files-monitoring.md)
-- [Create monitoring alerts for Azure Files](files-monitoring-alerts.md)
 - [Azure Files monitoring data reference](storage-files-monitoring-reference.md)
-- [Monitor Azure resources with Azure Monitor](../../azure-monitor/essentials/monitor-azure-resource.md)
+- [Create monitoring alerts for Azure Files](files-monitoring-alerts.md)
+- [Monitor Azure resources with Azure Monitor](/azure/azure-monitor/essentials/monitor-azure-resource)
 - [Understand Azure Files performance](understand-performance.md)
 - [Troubleshoot ClientOtherErrors](/troubleshoot/azure/azure-storage/files-client-other-errors?toc=/azure/storage/files/toc.json)

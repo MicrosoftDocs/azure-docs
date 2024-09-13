@@ -4,11 +4,10 @@ titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn about the integration runtime in Azure Data Factory and Azure Synapse Analytics.
 ms.author: lle
 author: lrtoyou1223
-ms.service: data-factory
 ms.subservice: integration-runtime
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 04/12/2023
+ms.date: 01/05/2024
 ---
 
 # Integration runtime in Azure Data Factory 
@@ -236,7 +235,7 @@ Data Flow activities are executed on their associated Azure integration runtime.
 ## Integration Runtime in CI/CD
 Integration runtimes don't change often and are similar across all stages in your CI/CD. Data Factory requires you to have the same name and type of integration runtime across all stages of CI/CD. If you want to share integration runtimes across all stages, consider using a dedicated factory just to contain the shared integration runtimes. You can then use this shared factory in all of your environments as a linked integration runtime type.
 
-## Next steps
+## Related content
 
 See the following articles:
 

@@ -5,11 +5,10 @@ description: Learn about datasets in Azure Data Factory and Azure Synapse Analyt
 author: dcstwh
 ms.author: weetok
 ms.reviewer: jburchel
-ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 02/08/2023
+ms.date: 01/05/2024
 ---
 
 # Datasets in Azure Data Factory and Azure Synapse Analytics
@@ -156,7 +155,7 @@ Here are some differences between datasets in Data Factory current version (and 
 - The policy and availability properties aren’t supported in the current version. The start time for a pipeline depends on [triggers](concepts-pipeline-execution-triggers.md).
 - Scoped datasets (datasets defined in a pipeline) aren’t supported in the current version.
 
-## Next steps
+## Related content
 See the following tutorial for step-by-step instructions for creating pipelines and datasets by using one of these tools or SDKs.
 
 - [Quickstart: create a data factory using .NET](quickstart-create-data-factory-dot-net.md)

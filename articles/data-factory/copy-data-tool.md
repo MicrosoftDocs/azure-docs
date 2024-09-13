@@ -3,7 +3,6 @@ title: Copy Data tool
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn about the Copy Data tool in the Azure Data Factory and Synapse Analytics UI.
 author: dearandyxu
-ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
@@ -105,7 +104,7 @@ A one-time copy operation enables data movement from a source to a destination o
 :::image type="content" source="./media/copy-data-tool/scheduling-options.png" alt-text="Scheduling options":::
 
 
-## Next steps
+## Related content
 Try these tutorials that use the Copy Data tool:
 
 - [Quickstart: Create a data factory using the Copy Data tool](quickstart-hello-world-copy-data-tool.md)

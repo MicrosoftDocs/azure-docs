@@ -3,10 +3,9 @@ title: Getting started with wrangling data flow in Azure Data Factory
 description: A tutorial on how to prepare data in Azure Data Factory using wrangling data flow 
 author: kromerm
 ms.author: makromer
-ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
-ms.date: 08/10/2023
+ms.date: 05/15/2024
 ---
 
 # Prepare data with data wrangling
@@ -57,6 +56,6 @@ Go to the **Monitor** tab to visualize the output of a triggered Power Query act
 
 :::image type="content" source="media/wrangling-data-flow/tutorial2.png" alt-text="Screenshot that shows the output of a triggered wrangling Power Query activity run.":::
 
-## Next steps
+## Related content
 
 Learn how to [create a mapping data flow](tutorial-data-flow.md).

@@ -3,10 +3,10 @@ title: 'Tutorial: Accept & receive data - Azure Data Share'
 description: Tutorial - Accept and receive data using Azure Data Share 
 author: sidontha
 ms.author: sidontha
-ms.service: data-share
+ms.service: azure-data-share
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
 ms.topic: tutorial
-ms.date: 11/30/2022
+ms.date: 12/19/2023
 ---
 # Tutorial: Accept and receive data using Azure Data Share  
 
@@ -19,6 +19,7 @@ In this tutorial, you'll learn how to accept a data share invitation using Azure
 > * Create a subscription to your data share for scheduled refresh
 
 ## Prerequisites
+
 Before you can accept a data share invitation, you must create some Azure resources, which are listed below. 
 
 Ensure that all prerequisites are complete before accepting a data share invitation. 
@@ -30,10 +31,11 @@ Ensure that all prerequisites are complete before accepting a data share invitat
 ### Receive data into a storage account
 
 * An Azure Storage account: If you don't already have one, you can create an [Azure Storage account](../storage/common/storage-account-create.md). 
-* Permission to write to the storage account, which is present in *Microsoft.Storage/storageAccounts/write*. This permission exists in the **Storage Blob Data Contributor** role. 
+* Permission to write to the storage account, which is present in *Microsoft.Storage/storageAccounts/write*. This permission exists in the **Storage Account Contributor** role. 
 * Permission to add role assignment to the storage account, which is present in *Microsoft.Authorization/role assignments/write*. This permission exists in the Owner role.  
 
 ### Receive data into a SQL-based target
+
 If you choose to receive data into Azure SQL Database, Azure Synapse Analytics, below is the list of prerequisites. 
 
 #### Prerequisites for receiving data into Azure SQL Database or Azure Synapse Analytics (formerly Azure SQL DW)
@@ -52,7 +54,7 @@ If you choose to receive data into Azure SQL Database, Azure Synapse Analytics, 
 * An Azure Synapse Analytics (workspace) dedicated SQL pool. Receiving data into serverless SQL pool isn't currently supported.
 * Permission to write to the SQL pool in Synapse workspace, which is present in *Microsoft.Synapse/workspaces/sqlPools/write*. This permission exists in the **Contributor** role.
 * Permission for the Data Share resource's managed identity to access the Synapse workspace SQL pool. This can be done through the following steps: 
-    1. In Azure portal, navigate to Synapse workspace. Select SQL Active Directory admin from left navigation and set yourself as the **Microsoft Entra admin**.
+    1. In Azure portal, navigate to Synapse workspace. Select Microsoft Entra admin from left navigation and set yourself as the **Microsoft Entra admin**.
     1. Open Synapse Studio, select *Manage* from the left navigation. Select *Access control* under Security. Assign yourself **SQL admin** or **Workspace admin** role.
     1. In Synapse Studio, select *Develop* from the left navigation. Execute the following script in SQL pool to add the Data Share resource Managed Identity as a 'db_datareader, db_datawriter, db_ddladmin'. 
     
@@ -62,7 +64,7 @@ If you choose to receive data into Azure SQL Database, Azure Synapse Analytics, 
         exec sp_addrolemember db_datawriter, "<share_acc_name>"; 
         exec sp_addrolemember db_ddladmin, "<share_acc_name>";
         ```                   
-       The *<share_acc_name>* is the name of your Data Share resource. If you haven't created a Data Share resource as yet, you can come back to this pre-requisite later.  
+       The *<share_acc_name>* is the name of your Data Share resource. If you haven't created a Data Share resource as yet, you can come back to this prerequisite later.  
 
 * Synapse workspace Firewall access. This can be done through the following steps: 
     1. In Azure portal, navigate to Synapse workspace. Select *Firewalls* from left navigation.
@@ -101,7 +103,7 @@ Prepare your Azure CLI environment and then view your invitations.
 
 Start by preparing your environment for the Azure CLI:
 
-[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
+[!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 Run the [az datashare consumer-invitation list-invitation](/cli/azure/datashare/consumer-invitation) command to see your current invitations:
 
@@ -115,9 +117,9 @@ Copy your invitation ID for use in the next section.
 
 Start by preparing your environment for PowerShell. You can either run PowerShell commands locally or using the Bash environment in the Azure Cloud Shell.
 
-[!INCLUDE [azure-powershell-requirements-no-header.md](../../includes/azure-powershell-requirements-no-header.md)]
+[!INCLUDE [azure-powershell-requirements-no-header.md](~/reusable-content/ce-skilling/azure/includes/azure-powershell-requirements-no-header.md)]
 
-   [![Launch Cloud Shell in a new window](../../includes/media/cloud-shell-try-it/hdi-launch-cloud-shell.png)](https://shell.azure.com)
+   :::image type="icon" source="~/reusable-content/ce-skilling/azure/media/cloud-shell/launch-cloud-shell-button.png" alt-text="Button to launch the Azure Cloud Shell." border="false" link="https://shell.azure.com":::
 
 1. Use the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) command to connect to your Azure account.
 
@@ -153,7 +155,7 @@ Copy your invitation ID for use in the next section.
 
    For the **Data Share Account** field, select **Create new** if you don't have an existing Data Share account. Otherwise, select an existing Data Share account that you'd like to accept your data share into. 
 
-   For the **Received Share Name** field, you may leave the default specified by the data provide, or specify a new name for the received share. 
+   For the **Received Share Name** field, you can leave the default specified by the data provide, or specify a new name for the received share. 
 
    Once you've agreed to the terms of use and specified a Data Share account to manage your received share, Select **Accept and configure**. A share subscription will be created. 
 
@@ -179,7 +181,7 @@ az datashare share-subscription create --resource-group share-rg \
 Use the [New-AzDataShareSubscription](/powershell/module/az.datashare/new-azdatasharesubscription) command to create the Data Share. The InvitationId will be the ID you gathered from the previous step.
 
 ```azurepowershell
-New-AzDataShareSubscription -ResourceGroupName <String> -AccountName <String> -Name <String> -InvitationId <String>
+New-AzDataShareSubscription -ResourceGroupName share-rg -AccountName FabrikamDataShareAccount -Name "Fabrikam Solutions" -InvitationId "89abcdef-0123-4567-89ab-cdef01234567"
 ```
 
 ---
@@ -292,15 +294,15 @@ Use these commands to configure where you want to receive data.
 1. Run the [Get-AzDataShareSourceDataSet](/powershell/module/az.datashare/get-azdatasharesourcedataset) command to get the data set ID:
 
    ```azurepowershell
-   Get-AzDataShareSourceDataSet -ResourceGroupName <String> -AccountName <String> -ShareSubscriptionName <String>
+   Get-AzDataShareSourceDataSet -ResourceGroupName "share-rg" -AccountName "FabrikamDataShareAccount" -ShareSubscriptionName "fabrikamsolutions"
    ```
 
-1. If you don't already have a location where you would like to store the shared data, you can follow these steps to create a storage account. If you already have storage, you may skip to the next steps.
+1. If you don't already have a location where you would like to store the shared data, you can follow these steps to create a storage account. If you already have storage, you can skip to the next steps.
 
     1. Run the [New-AzStorageAccount](/powershell/module/az.storage/new-azstorageaccount) command to create an Azure Storage account:
 
        ```azurepowershell
-       $storageAccount = New-AzStorageAccount -ResourceGroupName <String> -AccountName <String> -Location <String> -SkuName <String>
+       $storageAccount = New-AzStorageAccount -ResourceGroupName "share-rg" -AccountName FabrikamStorageAccount -Location "East US 2" -SkuName Standard_GRS
 
        $ctx = $storageAccount.Context
        ```
@@ -308,7 +310,7 @@ Use these commands to configure where you want to receive data.
     1. Run the [New-AzStorageContainer](/powershell/module/az.storage/new-azstoragecontainer) command to create a container in your new Azure Storage account that will hold your data:
 
        ```azurepowershell
-       $containerName = <String>
+       $containerName = "StorageContainer"
 
        New-AzStorageContainer -Name $containerName -Context $ctx -Permission blob
        ```
@@ -324,31 +326,31 @@ Use these commands to configure where you want to receive data.
 1. Use the [Get-AzStorageAccount](/powershell/module/az.storage/Get-azStorageAccount) command to get the storage account ID:
 
    ```azurepowershell
-   Get-AzStorageAccount -ResourceGroupName <String> -Name <String>
+   Get-AzStorageAccount -ResourceGroupName "share-rg" -Name FabrikamStorageAccount
    ```
 
 1. Use the data set ID from the first step, then run the [New-AzDataShareDataSetMapping](/powershell/module/az.datashare/new-azdatasharedatasetmapping) command to create the dataset mapping:
 
    ```azurepowershell
-   New-AzDataShareDataSetMapping -ResourceGroupName <String> -AccountName <String> -ShareSubscriptionName <String> -Name <String> -StorageAccountResourceId <String> -DataSetId <String> -Container <String>
+   New-AzDataShareDataSetMapping -ResourceGroupName "share-rg" -AccountName "FabrikamDataShareAccount" -ShareSubscriptionName "fabrikamsolutions" -Name "Fabrikam Solutions" -StorageAccountResourceId "6789abcd-ef01-2345-6789-abcdef012345"  -DataSetId "0123abcd-ef01-2345-6789-abcdef012345"  -Container "StorageContainer"
    ```
 
 1. Run the [Start-AzDataShareSubscriptionSynchronization](/powershell/module/az.datashare/start-azdatasharesubscriptionsynchronization) command to start dataset synchronization.
 
    ```azurepowershell
-   Start-AzDataShareSubscriptionSynchronization -ResourceGroupName <String> -AccountName <String> -ShareSubscriptionName <String> -SynchronizationMode <String>
+   Start-AzDataShareSubscriptionSynchronization -ResourceGroupName "share-rg" -AccountName "FabrikamDataShareAccount" -ShareSubscriptionName "fabrikamsolutions" -SynchronizationMode "Incremental"
    ```
 
    Run the [Get-AzDataShareSubscriptionSynchronization](/powershell/module/az.datashare/get-azdatasharesubscriptionsynchronization) command to see a list of your synchronizations:
 
    ```azurepowershell
-   Get-AzDataShareSubscriptionSynchronization -ResourceGroupName <String> -AccountName <String> -ShareSubscriptionName <String>
+   Get-AzDataShareSubscriptionSynchronization -ResourceGroupName "share-rg" -AccountName "FabrikamDataShareAccount" -ShareSubscriptionName "fabrikamsolutions"
    ```
 
    Use the [Get-AzDataShareSubscriptionSynchronizationDetail](/powershell/module/az.datashare/get-azdatasharesubscriptionsynchronizationdetail) command to see synchronization settings set on your share.
 
    ```azurepowershell
-   Get-AzDataShareSubscriptionSynchronizationDetail -ResourceGroupName <String> -AccountName <String> -ShareSubscriptionName <String> -SynchronizationId <String>
+   Get-AzDataShareSubscriptionSynchronizationDetail -ResourceGroupName "share-rg" -AccountName "FabrikamDataShareAccount" -ShareSubscriptionName "fabrikamsolutions" -SynchronizationId "a6ee5c8d-0ce0-485e-b2f2-966b187dc6c7"
    ```
 ---
 
@@ -381,7 +383,7 @@ These steps only apply to snapshot-based sharing.
 Run the [New-AzDataShareTrigger](/powershell/module/az.datashare/new-azdatasharetrigger) command to trigger a snapshot:
 
    ```azurepowershell
-   New-AzDataShareTrigger -ResourceGroupName <String> -AccountName <String> -Name <String> -RecurrenceInterval <String> -SynchronizationTime <DateTime>
+   New-AzDataShareTrigger -ResourceGroupName "share-rg" -AccountName "FabrikamDataShareAccount" -Name "Fabrikam Solutions" -RecurrenceInterval "Day" -SynchronizationTime "2018-11-14T04:47:52.9614956Z"
    ```
 ---
 

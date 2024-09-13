@@ -3,11 +3,9 @@ title: Overview and architecture of the SAP CDC capabilities
 titleSuffix: Azure Data Factory
 description: Learn about the SAP change data capture (CDC) capabilities in Azure Data Factory and understand its architecture.
 author: ukchrist
-ms.service: data-factory
 ms.subservice: data-movement
-ms.custom: ignite-2022
 ms.topic: conceptual
-ms.date: 07/20/2023
+ms.date: 05/15/2024
 ms.author: ulrichchrist
 ---
 
@@ -67,6 +65,6 @@ In this process, the SAP data sources are *providers*. The providers run on SAP 
 
 Because ODP completely decouples providers from subscribers, any SAP documentation that offers provider configurations are applicable to Data Factory as a subscriber. For more information about ODP, see [Introduction to operational data provisioning](https://wiki.scn.sap.com/wiki/display/BI/Introduction+to+Operational+Data+Provisioning).
 
-## Next steps
+## Related content
 
 [Prerequisites and setup for the SAP CDC solution](sap-change-data-capture-prerequisites-configuration.md)

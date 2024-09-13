@@ -1,15 +1,17 @@
 ---
 title: Azure API Management compute platform
-description: Learn about the compute platform used to host your API Management service instance. Instances in the dedicated service tiers of API Management are hosted on the stv1 or stv2 compute platform.
+description: Learn about the compute platform used to host your API Management service instance. Instances in the classic service tiers of API Management are hosted on the stv1 or stv2 compute platform.
 author: dlepow
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: conceptual
-ms.date: 09/18/2023
+ms.date: 03/26/2024
 ms.author: danlep
 ms.custom:
 ---
 
-# Compute platform for Azure API Management
+# Compute platform for Azure API Management - Classic tiers
+
+[!INCLUDE [api-management-availability-premium-dev-standard-basic-consumption](../../includes/api-management-availability-premium-dev-standard-basic-consumption.md)]
 
 As a cloud platform-as-a-service (PaaS), Azure API Management abstracts many details of the infrastructure used to host and run your service. You can create, manage, and scale most aspects of your API Management instance without needing to know about its underlying resources.
 
@@ -19,21 +21,18 @@ Most new instances created in service tiers other than the Consumption tier are 
 
 ## What are the compute platforms for API Management?
 
-The following table summarizes the compute platforms currently used in the **Consumption**, **Developer**, **Basic**, **Standard**, and **Premium** tiers of API Management.  
+The following table summarizes the compute platforms currently used in the **Consumption**, **Developer**, **Basic**, **Standard**, and **Premium** tiers of API Management. This table doesn't apply to the [v2 pricing tiers](#what-about-the-v2-pricing-tiers).
 
 | Version | Description | Architecture | Tiers |
 | -------| ----------| ----------- | ---- |
-| `stv2` or `stv2.1`<sup>1</sup>| Single-tenant v2 | Azure-allocated compute infrastructure that supports added resiliency and security features. See [What are the benefits of the `stv2` platform?](#what-are-the-benefits-of-the-stv2-platform) in this article. | Developer, Basic, Standard, Premium<sup>2</sup> |
+| `stv2`| Single-tenant v2 | Azure-allocated compute infrastructure that supports added resiliency and security features. See [What are the benefits of the `stv2` platform?](#what-are-the-benefits-of-the-stv2-platform) in this article. | Developer, Basic, Standard, Premium<sup>1</sup> |
 | `stv1` |  Single-tenant v1 | Azure-allocated compute infrastructure |  Developer, Basic, Standard, Premium |
 | `mtv1` | Multi-tenant v1 |  Shared infrastructure that supports native autoscaling and scaling down to zero in times of no traffic |  Consumption |
 
-<sup>1</sup> `stv2.1` infrastructure provides higher performing CPU, increased RAM, and greater API Management capacity. Instances hosted on `stv2` platform may migrate automatically to `stv2.1` based on regional infrastructure availability. Customers cannot initiate migration from `stv2` to `stv2.1`.<br/>
-<sup>2</sup> Newly created instances in these tiers and some existing instances in Developer and Premium tiers configured with virtual networks or availability zones.
+<sup>1</sup> Newly created instances in these tiers and some existing instances in Developer and Premium tiers configured with virtual networks or availability zones.
 
 > [!NOTE]
-> Currently, the `stv2` platform isn't available in the following Azure regions: China East, China East 2, China North, China North 2.
-> 
-> Also, as Qatar Central is a recently established Azure region, only the `stv2` platform is supported for API Management services deployed in this region.
+> In Qatar Central, only the `stv2` platform is supported for API Management services deployed in this region.
 
 ## How do I know which platform hosts my API Management instance?
 
@@ -66,7 +65,7 @@ Migration steps depend on features enabled in your API Management instance. If t
 
 ## What about the v2 pricing tiers?
 
-The v2 pricing tiers are a new set of tiers for API Management currently in preview. Hosted on a new, highly scalable and available Azure infrastructure that's different from the `stv1` and `stv2` compute platforms, the v2 tiers aren't affected by the retirement of the `stv1` platform.
+The v2 pricing tiers are a new set of tiers for API Management. Hosted on a new, highly scalable and available Azure infrastructure that's different from the `stv1` and `stv2` compute platforms, the v2 tiers aren't affected by the retirement of the `stv1` platform.
 
 The v2 tiers are designed to make API Management accessible to a broader set of customers and offer flexible options for a wider variety of scenarios. For more information, see [v2 tiers overview](v2-service-tiers-overview.md).
 

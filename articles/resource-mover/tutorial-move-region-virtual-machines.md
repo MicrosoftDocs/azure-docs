@@ -1,14 +1,13 @@
 ---
 title: Move Azure VMs across regions with Azure Resource Mover
 description: Learn how to move Azure VMs to another region with Azure Resource Mover
-manager: evansma
 author: ankitaduttaMSFT 
-ms.service: resource-mover
+ms.service: azure-resource-mover
 ms.topic: tutorial
-ms.date: 10/12/2023
+ms.date: 03/29/2024
 ms.author: ankitadutta
 ms.custom: mvc, engagement-fy23
-#Customer intent: As an Azure admin, I want to move Azure VMs to a different Azure region.
+#Customer intent: As an Azure admin, I want to move Azure VMs to a different Azure region using Azure Resource Mover.
 ---
 
 # Move Azure VMs across regions

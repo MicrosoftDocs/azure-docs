@@ -3,14 +3,15 @@ title: "[Deprecated] Trend Micro Apex One via Legacy Agent connector for Microso
 description: "Learn how to install the connector [Deprecated] Trend Micro Apex One via Legacy Agent to connect your data source to Microsoft Sentinel."
 author: cwatson-cat
 ms.topic: how-to
-ms.date: 10/23/2023
+ms.date: 11/29/2023
 ms.service: microsoft-sentinel
 ms.author: cwatson
+ms.collection: sentinel-data-connector
 ---
 
 # [Deprecated] Trend Micro Apex One via Legacy Agent connector for Microsoft Sentinel
 
-The [Trend Micro Apex One](https://www.trendmicro.com/en_us/business/products/user-protection/sps/endpoint.html) data connector provides the capability to ingest [Trend Micro Apex One events](https://docs.trendmicro.com/en-us/enterprise/trend-micro-apex-central-2019-online-help/appendices/syslog-mapping-cef.aspx) into Microsoft Sentinel. Refer to [Trend Micro Apex Central](https://docs.trendmicro.com/en-us/enterprise/trend-micro-apex-central-2019-online-help/preface_001.aspx) for more information.
+The [Trend Micro Apex One](https://www.trendmicro.com/en_us/business/products/user-protection/sps/endpoint.html) data connector provides the capability to ingest [Trend Micro Apex One events](https://aka.ms/sentinel-TrendMicroApex-OneEvents) into Microsoft Sentinel. Refer to [Trend Micro Apex Central](https://aka.ms/sentinel-TrendMicroApex-OneCentral) for more information.
 
 ## Connector attributes
 

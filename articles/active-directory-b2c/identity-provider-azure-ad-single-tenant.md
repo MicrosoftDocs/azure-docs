@@ -9,11 +9,14 @@ manager: CelesteDG
 ms.service: active-directory
 
 ms.topic: how-to
-ms.date: 02/07/2023
+ms.date: 01/27/2024
 ms.author: godonnell
 ms.subservice: B2C
 ms.custom: fasttrack-edit, 
 zone_pivot_groups: b2c-policy-type
+
+#Customer Intent: As a developer using Azure Active Directory B2C, I want to set up sign-in for a single Microsoft Entra ID tenant, so that users from that organization can authenticate and access my application securely.
+
 ---
 
 # Set up sign-in for a specific Microsoft Entra organization in Azure Active Directory B2C

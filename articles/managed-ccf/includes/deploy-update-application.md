@@ -1,6 +1,6 @@
 ---
 author: msmbaldwin
-ms.service: confidential-ledger
+ms.service: azure-confidential-ledger
 ms.topic: include
 ms.date: 03/25/2022
 ms.author: msmbaldwin
@@ -12,7 +12,7 @@ ms.author: msmbaldwin
 1. Submit the application bundle present in *set_js_app.json* by creating a proposal.
 
 ```Bash
-$ proposalid=$( (ccf_cose_sign1 --content set_js_app.json --signing-cert member0_cert.pem --signing-key member0_privk.pem --ccf-gov-msg-type proposal --ccf-gov-msg-created_at `date -Is` | curl https://confidentialbillingapp.confidential-ledger.azure.com/gov/proposals -H 'Content-Type: application/cose' --data-binary @- --cacert service_cert.pem | jq -r ‘.proposal_id’) )
+$ proposalid=$( (ccf_cose_sign1 --content set_js_app.json --signing-cert member0_cert.pem --signing-key member0_privk.pem --ccf-gov-msg-type proposal --ccf-gov-msg-created_at `date -Is` | curl https://confidentialbillingapp.confidential-ledger.azure.com/gov/proposals -H 'Content-Type: application/cose' --data-binary @- --cacert service_cert.pem | jq -r '.proposal_id') )
 ```
 2. The next step is to accept the proposal by submitting a vote.
 

@@ -5,9 +5,9 @@ titleSuffix: Azure Digital Twins
 description: Learn how to stream Azure Digital Twins telemetry to clients using Azure SignalR
 author: dejimarquis
 ms.author: aymarqui # Microsoft employees only
-ms.date: 06/21/2022
+ms.date: 08/21/2024
 ms.topic: how-to
-ms.service: digital-twins
+ms.service: azure-digital-twins
 
 # Optional fields. Don't forget to remove # if you need a field.
 # ms.custom: can-be-multiple-comma-separated
@@ -36,13 +36,7 @@ Here are the prerequisites you should complete before proceeding:
 
 Be sure to sign in to the [Azure portal](https://portal.azure.com/) with your Azure account, as you'll need to use it in this guide.
 
-## Solution architecture
-
-You'll be attaching Azure SignalR Service to Azure Digital Twins through the path below. Sections A, B, and C in the diagram are taken from the architecture diagram of the [end-to-end tutorial prerequisite](tutorial-end-to-end.md). In this how-to article, you'll build section D on the existing architecture, which includes two new Azure functions that communicate with SignalR and client apps.
-
-:::image type="content" source="media/how-to-integrate-azure-signalr/signalr-integration-topology.png" alt-text="Diagram of Azure services in an end-to-end scenario, which shows data flowing in and out of Azure Digital Twins." lightbox="media/how-to-integrate-azure-signalr/signalr-integration-topology.png":::
-
-## Download the sample applications
+### Download the sample applications
 
 First, download the required sample apps. You'll need both of the following samples:
 * [Azure Digital Twins end-to-end samples](/samples/azure-samples/digital-twins-samples/digital-twins-samples/): This sample contains an *AdtSampleApp* that holds two Azure functions for moving data around an Azure Digital Twins instance (you can learn about this scenario in more detail in [Connect an end-to-end solution](tutorial-end-to-end.md)). It also contains a *DeviceSimulator* sample application that simulates an IoT device, generating a new temperature value every second.
@@ -54,7 +48,15 @@ First, download the required sample apps. You'll need both of the following samp
 * [SignalR integration web app sample](/samples/azure-samples/digitaltwins-signalr-webapp-sample/digital-twins-samples/): This sample React web app will consume Azure Digital Twins telemetry data from an Azure SignalR Service.
     -  Navigate to the sample link and use the same download process to download a copy of the sample to your machine, as *digitaltwins-signalr-webapp-sample-main.zip*. Unzip the folder.
 
-[!INCLUDE [Create instance](../azure-signalr/includes/signalr-quickstart-create-instance.md)]
+## Solution architecture
+
+You'll be attaching Azure SignalR Service to Azure Digital Twins through the path below. Sections A, B, and C in the diagram are taken from the architecture diagram of the [end-to-end tutorial prerequisite](tutorial-end-to-end.md). In this how-to article, you'll build section D on the existing architecture, which includes two new Azure functions that communicate with SignalR and client apps.
+
+:::image type="content" source="media/how-to-integrate-azure-signalr/signalr-integration-topology.png" alt-text="Diagram of Azure services in an end-to-end scenario, which shows data flowing in and out of Azure Digital Twins." lightbox="media/how-to-integrate-azure-signalr/signalr-integration-topology.png":::
+
+## Create Azure SignalR instance
+
+Next, create an Azure SignalR instance to use in this article by following the instructions in [Create an Azure SignalR Service instance](../azure-signalr/signalr-quickstart-azure-functions-csharp.md#create-an-azure-signalr-service-instance) (for now, only complete the steps in this section).
 
 Leave the browser window open to the Azure portal, as you'll use it again in the next section.
 
@@ -74,7 +76,7 @@ Start Visual Studio or another code editor of your choice, and open the code sol
 
 1. In Visual Studio's **Package Manager Console** window, or any command window on your machine, navigate to the folder *digital-twins-samples-main\AdtSampleApp\SampleFunctionsApp*, and run the following command to install the `SignalRService` NuGet package to the project:
     ```cmd
-    dotnet add package Microsoft.Azure.WebJobs.Extensions.SignalRService --version 1.2.0
+    dotnet add package Microsoft.Azure.WebJobs.Extensions.SignalRService --version 1.14.0
     ```
 
     Running this command should resolve any dependency issues in the class.
@@ -130,7 +132,7 @@ At this point, you should see two event subscriptions in the **Event Grid Topic*
 
 ## Configure and run the web app
 
-In this section, you'll see the result in action. First, configure the sample client web app to connect to the Azure SignalR flow you've set up. Next, you'll start up the simulated device sample app that sends telemetry data through your Azure Digital Twins instance. After that, you'll view the sample web app to see the simulated device data updating the sample web app in real time.
+In this section, you'll see the result in action. First, configure the sample client web app to connect to the Azure SignalR flow you've set up. Next, you'll start up the simulated device sample app that sends device telemetry data through your Azure Digital Twins instance. After that, you'll view the sample web app to see the simulated device data updating the sample web app in real time.
 
 ### Configure the sample client web app
 
@@ -174,7 +176,7 @@ Now, start the simulator project located in *digital-twins-samples-main\DeviceSi
 
 :::image type="content" source="media/how-to-integrate-azure-signalr/start-button-simulator.png" alt-text="Screenshot of the Visual Studio start button with the DeviceSimulator project open.":::
 
-A console window will open and display simulated temperature telemetry messages. These messages are being sent through your Azure Digital Twins instance, where they're then picked up by the Azure functions and SignalR.
+A console window will open and display simulated device temperature telemetry messages. These messages are being sent through your Azure Digital Twins instance, where they're then picked up by the Azure functions and SignalR.
 
 You don't need to do anything else in this console, but leave it running while you complete the next step.
 

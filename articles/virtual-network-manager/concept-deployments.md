@@ -3,17 +3,15 @@ title: 'Configuration deployments in Azure Virtual Network Manager'
 description: Learn about how configuration deployments work in Azure Virtual Network Manager.
 author: mbender-ms    
 ms.author: mbender
-ms.service: virtual-network-manager
+ms.service: azure-virtual-network-manager
 ms.topic: conceptual
-ms.date: 3/22/2023
+ms.date: 03/22/2024
 ms.custom: template-concept
 ---
 
 # Configuration deployments in Azure Virtual Network Manager
 
 In this article, you learn about how configurations are applied to your network resources. Also, you explore how updating a configuration deployment is different for each membership type. Then we go into details about *Deployment status* and *Goal state model*.
-
-[!INCLUDE [virtual-network-manager-preview](../../includes/virtual-network-manager-preview.md)]
 
 ## Deployment
 
@@ -38,13 +36,19 @@ Virtual network manager applies the configuration to the virtual networks in the
 
 ## Deployment status
 
-When you commit a configuration deployment, the API does a POST operation. Once the deployment request has been made, Azure Virtual Network Manager calculates the goal state of your networks in the deployed regions and request the underlying infrastructure to make the changes. You can see the deployment status on the *Deployment* page of the Virtual Network Manager.
+When you commit a configuration deployment, the API does a POST operation. Once the deployment request is made, Azure Virtual Network Manager calculates the goal state of your networks in the deployed regions and request the underlying infrastructure to make the changes. You can see the deployment status on the *Deployment* page of the Virtual Network Manager.
 
 :::image type="content" source="./media/tutorial-create-secured-hub-and-spoke/deployment-in-progress.png" alt-text="Screenshot of deployment in progress in deployment list.":::
 
 ## <a name = "goalstate"></a> Goal state model
 
 When you commit a deployment of configuration(s), you're describing the goal state of your network manager in that region. This goal state is enforced during the next deployment. For example, when you commit configurations named *Config1* and *Config2* into a region, these two configurations get applied and become the region's goal state. If you decided to commit configuration named *Config1* and *Config3* into the same region, *Config2* would then be removed, and *Config3* would be added. To remove all configurations, you would deploy a **None** configuration against the region(s) you no longer wish to have any configurations applied.
+
+## Configuration availability
+
+A virtual network manager instance is available in a region as long as the region is up and running. Should a region with a virtual network manager go down, the virtual network manager instance is no longer available for deploying new configurations or editing current configurations. However, the configurations that were deployed to the virtual networks in the network group are still in effect unless those virtual networks are in the region that went down.
+
+For example, if an Azure Virtual Network Manager instance is created in region A and programs the VNets in region B, the configurations are still in effect even if region A goes down. However, if region B goes down, the configurations are no longer in effect. Also, you can't create new configurations or edit current configurations for virtual networks in region B.
 
 ## Next steps
 

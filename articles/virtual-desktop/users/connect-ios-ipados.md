@@ -3,7 +3,7 @@ title: Connect to Azure Virtual Desktop with the Remote Desktop client for iOS a
 description: Learn how to connect to Azure Virtual Desktop using the Remote Desktop client for iOS and iPadOS.
 author: dknappettmsft
 ms.topic: how-to
-ms.date: 03/13/2023
+ms.date: 03/19/2024
 ms.author: daknappe
 ---
 
@@ -21,7 +21,7 @@ Before you can access your resources, you'll need to meet the following prerequi
 
 - Internet access.
 
-- An iPhone running iOS 15 or later or an iPad running iPadOS 15 or later.
+- An iPhone running iOS 16 or later or an iPad running iPadOS 16 or later.
 
 - Download and install the Remote Desktop client from the [App Store](https://apps.apple.com/app/microsoft-remote-desktop/id714464092).
 
@@ -41,7 +41,7 @@ A workspace combines all the desktops and applications that have been made avail
    | Azure environment | Workspace URL |
    |--|--|
    | Azure cloud *(most common)* | `https://rdweb.wvd.microsoft.com` |
-   | Azure US Gov | `https://rdweb.wvd.azure.us/api/arm/feeddiscovery` |
+   | Azure for US Government | `https://rdweb.wvd.azure.us/api/arm/feeddiscovery` |
    | Azure operated by 21Vianet | `https://rdweb.wvd.azure.cn/api/arm/feeddiscovery` |
 
 1. Tap **Next**.
@@ -59,6 +59,9 @@ Once you've subscribed to a workspace, its content will update automatically reg
 ## Beta client
 
 If you want to help us test new builds before they're released, you should download our beta client. Organizations can use the beta client to validate new versions for their users before they're generally available. For more information, see [Test the beta client](client-features-ios-ipados.md#test-the-beta-client).
+
+> [!IMPORTANT]
+> The Remote Desktop app is changing to Windows App. To ensure you can validate the upcoming Windows App update before it's released into the store, the Windows App preview is now available in the [Remote Desktop Beta channels](client-features-ios-ipados.md#test-the-beta-client) where you can test the experience of updating from Remote Desktop to Windows App. To learn more about Windows App, see [Get started with Windows App to connect to devices and apps](/windows-app/get-started-connect-devices-desktops-apps).
 
 ## Next steps
 

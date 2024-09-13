@@ -3,8 +3,9 @@ title: Troubleshoot a customer-managed key
 description: Learn how to troubleshoot the most common problems for a registry that's enabled with a customer-managed key.
 author: tejaswikolli-web
 ms.topic: tutorial
-ms.date: 08/5/2022
+ms.date: 10/31/2023
 ms.author: tejaswikolli
+ms.service: azure-container-registry
 ---
 
 # Troubleshoot a customer-managed key 
@@ -65,8 +66,8 @@ You have to reassign the identity back to registry explicitly.
 
 ## Accidental deletion of a key vault or key
 
-Deletion of the key vault, or the key, that's used to encrypt a registry with a customer-managed key makes the registry's content inaccessible. If [soft delete](../key-vault/general/soft-delete-overview.md) is enabled in the key vault (the default option), you can recover a deleted vault or key vault object and resume registry operations.
+Deletion of the key vault, or the key, that's used to encrypt a registry with a customer-managed key makes the registry's content inaccessible. If [soft delete](/azure/key-vault/general/soft-delete-overview) is enabled in the key vault (the default option), you can recover a deleted vault or key vault object and resume registry operations.
 
 ## Next steps
 
-For key vault deletion and recovery scenarios, see [Azure Key Vault recovery management with soft delete and purge protection](../key-vault/general/key-vault-recovery.md).
+For key vault deletion and recovery scenarios, see [Azure Key Vault recovery management with soft delete and purge protection](/azure/key-vault/general/key-vault-recovery).

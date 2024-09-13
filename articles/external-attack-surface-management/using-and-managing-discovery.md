@@ -53,14 +53,14 @@ Custom discoveries are organized into discovery groups. They're independent seed
 
 3. Name your new discovery group and add a description. The **Recurring Frequency** field allows you to schedule discovery runs for this group by scanning for new assets related to the designated seeds on a continuous basis. The default recurrence selection is **Weekly**. We recommend this cadence to ensure that your organization's assets are routinely monitored and updated.
 
-   For a single, one-time discovery run, select **Never**. We recommend that you keep the **Weekly** default cadence and instead turn off historical monitoring within your discovery group settings if you later decide to discontinue recurrent discovery runs.
+   For a single, one-time discovery run, select **Never**. We recommend that you keep the **Weekly** default cadence as discovery is designed to continuously discover new assets that are related to your known infrastructure.  You can edit the recurrence frequency later by selecting the "Edit" option from any Discovery group details page. 
 
 4. Select **Next: Seeds**.
 
     ![Screenshot that shows the first page of the discovery group setup.](media/Discovery_4.png)
 
 
-5. Select the seeds that you want to use for this discovery group. Seeds are known assets that belong to your organization. The Defender EASM platform scans these entities and maps their connections to other online infrastructure to create your attack surface.
+5. Select the seeds that you want to use for this discovery group. Seeds are known assets that belong to your organization. The Defender EASM platform scans these entities and maps their connections to other online infrastructure to create your attack surface. Since Defender EASM is intended to monitor your attack surface from an external perspective, private IP addresses cannot be included as discovery seeds. 
 
     ![Screenshot that shows the seed selection page of the discovery group setup.](media/Discovery_5.png)
 

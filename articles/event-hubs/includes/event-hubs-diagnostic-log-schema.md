@@ -1,9 +1,8 @@
 ---
 title: include file
 description: include file
-services: event-hubs
 author: spelluru
-ms.service: event-hubs
+ms.service: azure-event-hubs
 ms.topic: include
 ms.date: 06/11/2021
 ms.author: spelluru
@@ -17,10 +16,10 @@ Event Hubs captures diagnostic logs for the following categories:
 | -------- | ----------- | 
 | Archive Logs | Captures information about [Event Hubs Capture](../event-hubs-capture-overview.md) operations, specifically, logs related to capture errors. |
 | Operational Logs | Capture all management operations that are performed on the Azure Event Hubs namespace. Data operations aren't captured, because of the high volume of data operations that are conducted on Azure Event Hubs. |
-| Auto scale logs | Captures auto-inflate operations done on an Event Hubs namespace. |
+| Auto scale logs | Captures autoinflate operations done on an Event Hubs namespace. |
 | Kafka coordinator logs | Captures Kafka coordinator operations related to Event Hubs. |
 | Kafka user error logs | Captures information about Kafka APIs called on Event Hubs. |
-| Event Hubs virtual network (VNet) connection event | Captures information about IP addresses and virtual networks sending traffic to Event Hubs. |
+| Event Hubs virtual network connection event | Captures information about IP addresses and virtual networks sending traffic to Event Hubs. |
 | Customer-managed key user logs | Captures operations related to customer-managed key. |
 | Runtime Audit Logs | Capture aggregated diagnostic information for all data plane access operations (such as send or receive events) in Event Hubs. |
 | Application Metric Logs | Capture the aggregated information on certain metrics related to data plane operations. |
@@ -40,7 +39,7 @@ Name | Description | Supported in Azure Diagnostics | Supported in AZMSArchiveLo
 `resourceId` | Azure Resource Manager resource ID | yes | Yes
 `eventHub` | Event hub full name (includes namespace name)| Yes | No
 `EventhubName`| Name of event hub entity | No | Yes
-`partitionId` | Event Hub partition being written to | Yes | Yes
+`partitionId` | Event hub's partition being written to | Yes | Yes
 `archiveStep` | possible values: ArchiveFlushWriter, DestinationInit | Yes | Yes
 `startTime` | Failure start time | Yes | No
 `Time Generated (UTC)` | Timestamp of operation | No | Yes
@@ -48,7 +47,7 @@ Name | Description | Supported in Azure Diagnostics | Supported in AZMSArchiveLo
 `durationInSeconds` | Duration of failure | Yes | Yes
 `message` | Error message | Yes | Yes
 `category` | Log Category | Yes | No
- `Provider`|Name of Service emitting the logs e.g., Event Hubs | No | Yes 
+ `Provider`|Name of the service emitting the logs, for example, Event Hubs | No | Yes 
  `Type`  | Type of log emitted| No | Yes
 
 The following code is an example of an archive log JSON string:
@@ -106,7 +105,7 @@ Name | Description | Supported in AzureDiagnostics | Supported in AZMSOperationa
 `Status` | Operation status. The value can be either **Succeeded** or **Failed**.  | Yes | Yes
 `Caller` | Caller of operation (Azure portal or management client) | Yes | Yes
 `Category` | Log Category | Yes | No
-`Provider`|Name of Service emitting the logs e.g., Event Hubs | No | Yes 
+`Provider`|Name of the service emitting the logs, for example, Event Hubs | No | Yes 
  `Type`  | Type of logs emitted | No | Yes
 
 The following code is an example of an operational log JSON string:
@@ -150,7 +149,7 @@ Event name is populated as operation type + resource type from the following enu
 
 | Operation type | Resource type |
 | -------------- | ------------- |
-|- Create<br>- Update<br>- Delete<br>- Retrieve<br>- Unknown | - Namespace<br>- Queue<br>- Topic<br>- Subscription<br>- EventHub<br>- SharedAccessPolicy<br>- UsageCredit<br>- Rule<br>- ConsumerGroup |
+|- Create<br>- Update<br>- Delete<br>- Retrieve<br>- Unknown | - Namespace<br>- Queue<br>- Topic<br>- Subscription<br>- Event Hubs<br>- SharedAccessPolicy<br>- UsageCredit<br>- Rule<br>- ConsumerGroup |
 
 
 ### Autoscale logs schema
@@ -160,9 +159,9 @@ Autoscale log JSON includes elements listed in the following table:
 | ---- | ----------- |----| ----|  
 | `TrackingId` | Internal ID, which is used for tracing purposes | Yes | Yes
 | `ResourceId` | Azure Resource Manager resource ID. | Yes | Yes
-| `Message` | Informational message, which provides details about auto-inflate action. The message contains previous and current value of throughput unit for a given namespace and what triggered the inflate of the TU. | Yes | Yes
+| `Message` | Informational message, which provides details about autoinflate action. The message contains previous and current value of throughput unit for a given namespace and what triggered the inflate of the TU. | Yes | Yes
 |`Time Generated (UTC)` | Timestamp of operation | No | Yes
-|`Provider`|Name of Service emitting the logs e.g., Event Hubs | No | Yes 
+|`Provider`|Name of Service emitting the logs, for example, Event Hubs | No | Yes 
 |`Type`  | Type of logs emitted | No | Yes
 
 Here's an example autoscale event: 
@@ -195,13 +194,13 @@ Kafka coordinator log JSON includes elements listed in the following table:
 | ---- | ----------- |----|----| 
 | `RequestId` | Request ID, which is used for tracing purposes | Yes | Yes
 | `ResourceId` | Azure Resource Manager resource ID | Yes | Yes
-| `Operation` | Name of the operation that's done during the group coordination | Yes | Yes
+| `Operation` | Name of the operation done during the group coordination | Yes | Yes
 | `ClientId` | Client ID | Yes | Yes
 | `NamespaceName` | Namespace name | Yes | Yes
 | `SubscriptionId` | Azure subscription ID | Yes | Yes
 | `Message` | Informational or warning message, which provides details about actions done during the group coordination. | Yes | Yes 
 |`Time Generated (UTC)` | Timestamp of operation | No | Yes
-|`Provider`|Name of Service emitting the logs e.g., ServiceBus | No | Yes 
+|`Provider`|Name of Service emitting the logs, for example, ServiceBus | No | Yes 
 |`Type`  | Type of log emitted | No | Yes
 
 #### Example
@@ -252,11 +251,11 @@ Kafka user error log JSON includes elements listed in the following table:
 | `ResourceId` | Azure Resource Manager resource ID. | Yes | Yes 
 | `Message` | Informational message, which provides details about an error | Yes | Yes 
 |`TimeGenerated (UTC)` | Timestamp for executed operation | No | Yes 
-|`Provider` | Name of service emitting the logs e.g., Event Hubs | No | Yes 
+|`Provider` | Name of service emitting the logs, for example, Event Hubs | No | Yes 
 | `Type` | Type of log emitted | NO | Yes 
 
 ### Event Hubs virtual network connection event schema
-Event Hubs virtual network (VNet) connection event JSON includes elements listed in the following table:
+Event Hubs virtual network (virtual network) connection event JSON includes elements listed in the following table:
 
 | Name | Description | Supported in Azure Diagnostics | Supported in AZMSVNetConnectionevents (Resource specific table) | 
 | ---  | ----------- |-----| -----|
@@ -269,10 +268,10 @@ Event Hubs virtual network (VNet) connection event JSON includes elements listed
 | `Count` | Number of occurrences for the given action | Yes | Yes
 | `ResourceId` | Azure Resource Manager resource ID. | Yes | Yes 
 |`Time Generated (UTC)` | Timestamp of operation | No | Yes
-|`Provider`|Name of Service emitting the logs e.g., ServiceBus | No | Yes 
+|`Provider`|Name of Service emitting the logs, for example, ServiceBus | No | Yes 
 |`Type`  | AZMSVNetConnectionevents | No | Yes
 
-Virtual network logs are generated only if the namespace allows access from **selected networks** or from **specific IP addresses** (IP filter rules). If you don't want to restrict the access to your namespace using these features and still want to get virtual network logs to track IP addresses of clients connecting to the Event Hubs namespace, you could use the following workaround. [Enable IP filtering](../event-hubs-ip-filtering.md), and add the total addressable IPv4 range (1.0.0.0/1 - 255.0.0.0/1). Event Hubs IP filtering doesn't support IPv6 ranges. You may see private endpoint addresses in the IPv6 format in the log. 
+Virtual network logs are generated only if the namespace allows access from **selected networks** or from **specific IP addresses** (IP filter rules). If you don't want to restrict the access to your namespace using these features and still want to get virtual network logs to track IP addresses of clients connecting to the Event Hubs namespace, you could use the following workaround. [Enable IP filtering](../event-hubs-ip-filtering.md), and add the total addressable IPv4 range  (`0.0.0.0/1` - `128.0.0.0/1`) and IPv6 range (`::/1` - `8000::/1`). Event Hubs IP filtering doesn't support IPv6 ranges. You might see private endpoint addresses in the IPv6 format in the log. 
 
 #### Example
 
@@ -318,10 +317,10 @@ Customer-managed key user log JSON includes elements listed in the following tab
 | `Key` | Name of the Key Vault key that's used to encrypt the Event Hubs namespace. | Yes | Yes 
 | `Version` | Version of the Key Vault key.| Yes | Yes
 | `Operation` | The operation that's performed on the key in your key vault. For example, disable/enable the key, wrap, or unwrap. | Yes | Yes 
-| `Code` | The code that's associated with the operation. Example: Error code, 404 means that key wasn't found. | Yes | Yes 
+| `Code` | The code associated with the operation. Example: Error code, 404 means that key wasn't found. | Yes | Yes 
 | `Message` | Message, which provides details about an error or informational message | Yes | Yes 
 |`Time Generated (UTC)` | Timestamp of operation | No | Yes
-|`Provider`|Name of Service emitting the logs e.g., ServiceBus | No | Yes 
+|`Provider`|Name of Service emitting the logs, for example, ServiceBus | No | Yes 
 |`Type`  | Type of log emitted | No | Yes
 
 Here's an example of the  log for a customer managed key:
@@ -394,7 +393,7 @@ Following are the common errors codes to look for when BYOK encryption is enable
 | Action | Error code |	Resulting state of data |
 | ------ | ---------- | ----------------------- | 
 | Remove wrap/unwrap permission from a key vault | 403 |	Inaccessible |
-| Remove AAD role membership from an AAD principal that granted the wrap/unwrap permission | 403 |	Inaccessible |
+| Remove Microsoft Entra ID role membership from a Microsoft Entra principal that granted the wrap/unwrap permission | 403 |	Inaccessible |
 | Delete an encryption key from the key vault | 404 | Inaccessible |
 | Delete the key vault | 404 | Inaccessible (assumes soft-delete is enabled, which is a required setting.) |
 | Changing the expiration period on the encryption key such that it's already expired | 403 |	Inaccessible  |

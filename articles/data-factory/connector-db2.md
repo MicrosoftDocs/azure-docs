@@ -3,11 +3,10 @@ title: Copy data from DB2
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to copy data from DB2 to supported sink data stores by using a copy activity in an Azure Data Factory or Synapse Analytics pipeline.
 author: jianleishen
-ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 07/13/2023
+ms.date: 11/16/2023
 ms.author: jianleishen
 ---
 # Copy data from DB2 using Azure Data Factory or Synapse Analytics
@@ -33,16 +32,12 @@ Specifically, this DB2 connector supports the following IBM DB2 platforms and ve
 
 * IBM DB2 for z/OS 12.1
 * IBM DB2 for z/OS 11.1
-* IBM DB2 for z/OS 10.1
 * IBM DB2 for i 7.3
 * IBM DB2 for i 7.2
 * IBM DB2 for i 7.1
 * IBM DB2 for LUW 11
 * IBM DB2 for LUW 10.5
 * IBM DB2 for LUW 10.1
-
->[!TIP]
->DB2 connector is built on top of Microsoft OLE DB Provider for DB2. To troubleshoot DB2 connector errors, refer to [Data Provider Error Codes](/host-integration-server/db2oledbv/data-provider-error-codes#drda-protocol-errors).
 
 ## Prerequisites
 
@@ -292,5 +287,5 @@ When copying data from DB2, the following mappings are used from DB2 data types 
 
 To learn details about the properties, check [Lookup activity](control-flow-lookup-activity.md).
 
-## Next steps
+## Related content
 For a list of data stores supported as sources and sinks by the copy activity, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).

@@ -1,18 +1,18 @@
 ---
  title: include file
  description: include file
- services: virtual-network
+ services: load-balancer
  author: mbender-ms
- ms.service: virtual-network
+ ms.service: azure-load-balancer
  ms.topic: include
- ms.date: 11/29/2023
+ ms.date: 12/05/2023
  ms.author: mbender
  ms.custom: include file
 ---
 
 ## Create NAT gateway
 
-In this section, you'll create a NAT gateway for outbound internet access for resources in the virtual network.  For other options for outbound rules, check out [Network Address Translation (SNAT) for outbound connections](/azure/load-balancer/load-balancer-outbound-connections)
+In this section, you create a NAT gateway for outbound internet access for resources in the virtual network. For other options for outbound rules, check out [Network Address Translation (SNAT) for outbound connections](/azure/load-balancer/load-balancer-outbound-connections)
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -26,11 +26,11 @@ In this section, you'll create a NAT gateway for outbound internet access for re
     | ------- | ----- |
     | **Project details** |   |
     | Subscription | Select your subscription. |
-    | Resource group | Select **Create new**. </br> Enter **load-balancer-rg** in Name. </br> Select **OK**. |
+    | Resource group | Select **Create new**.</br> Enter **load-balancer-rg** in Name.</br> Select **OK**. |
     | **Instance details** |    |
     | NAT gateway name | Enter **lb-nat-gateway**. |
     | Region | Select **East US**. |
-    | Availability zone | Select **None**. |
+    | Availability zone | Select **No zone**. |
     | Idle timeout (minutes) | Enter **15**. |
 
     :::image type="content" source="./media/load-balancer-internal-create-bastion-include/create-nat-gateway.png" alt-text="Screenshot of Create network address translation gateway window in the Azure portal.":::
@@ -42,8 +42,6 @@ In this section, you'll create a NAT gateway for outbound internet access for re
 1. Enter **nat-gw-public-ip** in **Name** in **Add a public IP address**.
 
 1. Select **OK**.
-
-    :::image type="content" source="./media/load-balancer-internal-create-bastion-include/create-virtual-network-basics.png" alt-text="Screenshot of Add a public IP address window in the Azure portal":::
 
 1. Select the blue **Review + create** button at the bottom of the page, or select the **Review + create** tab.
 

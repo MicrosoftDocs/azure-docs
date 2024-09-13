@@ -235,7 +235,7 @@ You can find SOAR integrations and their components in the following places:
 
 | Product | Integration components | Supported by | Scenarios |
 | --- | --- | --- | --- |
-| **TitaniumCloud File Enrichment**<br>(Available as solution) | [Managed Logic Apps connector](/connectors/reversinglabsintelligence/)<br><br>Playbooks | ReversingLabs | FileHash enrichment |
+| **TitaniumCloud File Enrichment**<br>(Available as solution) | [Managed Logic Apps connector](/connectors/reversinglabstitaniu/)<br><br>Playbooks | ReversingLabs | FileHash enrichment |
 |
 
 ## RiskIQ

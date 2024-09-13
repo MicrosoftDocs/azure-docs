@@ -3,11 +3,9 @@ title: Azure Private Link for Azure Data Factory
 description: Learn about how Azure Private Link works in Azure Data Factory.
 ms.author: lle
 author: lrtoyou1223
-ms.service: data-factory
 ms.subservice: integration-runtime
 ms.topic: conceptual
-ms.custom: seo-lt-2019, contperf-fy22q2
-ms.date: 07/13/2023
+ms.date: 01/05/2024
 ---
 
 # Azure Private Link for Azure Data Factory
@@ -94,6 +92,9 @@ If you don't allow the preceding outbound traffic in the firewall and NSG, self-
 
 > [!NOTE]
 > If one data factory (shared) has a self-hosted IR and the self-hosted IR is shared with other data factories (linked), you only need to create a private endpoint for the shared data factory. Other linked data factories can leverage this private link for the communications between self-hosted IR and Data Factory.
+
+> [!NOTE]
+> We do not currently support establishing a private link between a self-hosted integration runtime and a Synapse Analytics workspace. And the self-hosted integration runtime can still communicate with Synapse even when data exfiltration protection is enabled on the Synapse workspace.
 
 ## DNS changes for private endpoints
 
@@ -217,7 +218,7 @@ You must also create or assign an existing virtual machine to run the self-hoste
 1. Select **Review + create**.
 1. Review the settings, and then select **Create**.
 
-[!INCLUDE [ephemeral-ip-note.md](../../includes/ephemeral-ip-note.md)]
+[!INCLUDE [ephemeral-ip-note.md](~/reusable-content/ce-skilling/azure/includes/ephemeral-ip-note.md)]
 
 ### Create a private endpoint
 
@@ -278,7 +279,7 @@ You're unable to access each PaaS resource when both sides are exposed to Privat
 
 For example, customer A is using a private link to access the portal of data factory A in virtual network A. When data factory A doesn't block public access, customer B can access the portal of data factory A in virtual network B via public. But when customer B creates a private endpoint against data factory B in virtual network B, then customer B can't access data factory A via public in virtual network B anymore.
 
-## Next steps
+## Related content
 
 - [Create a data factory by using the Azure Data Factory UI](quickstart-create-data-factory-portal.md)
 - [Introduction to Azure Data Factory](introduction.md)

@@ -34,17 +34,17 @@ To add a new step to your workflow by using the Azure Communication Services Ema
    
    1. Under the step where you want to add the new action, select **New step**. Alternatively, to add the new action between steps, move your pointer over the arrow between those steps, select the plus sign (+), and select **Add an action**.
 
-   1. Under the **Choose an operation** search box, select **Standard**. In the search box, enter **Communication Services Email**.
+   1. Under the **Choose an operation** search box, select **Premium**. In the search box, enter **Azure Communication Email**.
 
    1. From the actions list, select **Send email**.
 
-      :::image type="content" source="../media/logic-app/azure-communications-services-connector-send-email.png" alt-text="Screenshot that shows the Azure Communication Services Email connector Send email action."::: 
+      :::image type="content" source="../media/logic-app/azure-communications-services-connector-send-email-general-availability.png" alt-text="Screenshot that shows the Azure Communication Services Email connector Send email action."::: 
 
    **Standard**
    
    1. Under the step where you want to add the new action, select the plus sign (**+**). Alternatively, to add the new action between steps, move your pointer over the arrow between those steps, select the plus sign (+), and select **Add an action**.
 
-   1. Under the **Choose an operation** search box, select **Azure**. In the search box, enter **Communication Services Email**.
+   1. Under the **Add an action** search box, select **Premium** in the runtime dropdown. In the search box, enter **Azure Communication Email**.
 
    1. From the actions list, select **Send email**.
 
@@ -60,9 +60,9 @@ To add a new step to your workflow by using the Azure Communication Services Ema
  
 1. When you're done, select **Create**.
 
-1. In the **From** field, use the email address that you configured in the [prerequisites](#prerequisites). Enter the values for the **To**, **Subject**, and **Body** fields, for example:
+1. In the **From** field, use the email address that you configured in the [prerequisites](#prerequisites). Enter the values for the **To Email**, **Subject**, and **Body** fields, for example:
  
-   :::image type="content" source="../media/logic-app/azure-communications-services-connector-send-email-input.png" alt-text="Screenshot that shows the Azure Communication Services Email connector Send email action input.":::
+   :::image type="content" source="../media/logic-app/azure-communication-services-connector-send-email-input-general-availability.png" alt-text="Screenshot that shows the Azure Communication Services Email connector Send email action input.":::
 
 1. Save your workflow. On the designer toolbar, select **Save**.
 
@@ -79,4 +79,4 @@ You should get an email at the specified address. Also, you can use the **Get em
 
 ## Clean up workflow resources
 
-To clean up your logic app workflow and related resources, review [how to clean up Consumption logic app resources](../../../../logic-apps/quickstart-create-example-consumption-workflow.md#clean-up-resources) or [how to clean up Standard logic app resources](../../../../logic-apps/create-single-tenant-workflows-azure-portal.md#delete-logic-apps).
+To clean up your logic app resource, workflow, and related resources, review [how to clean up Consumption logic app resources](../../../../logic-apps/manage-logic-apps-with-azure-portal.md?tabs=consumption#delete-logic-apps) or [how to clean up Standard logic app resources](../../../../logic-apps/manage-logic-apps-with-azure-portal.md?tabs=standard#delete-logic-apps).

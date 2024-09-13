@@ -1,7 +1,7 @@
 ---
  description: include file
  author: cherylmc
- ms.service: virtual-wan
+ ms.service: azure-virtual-wan
  ms.topic: include
  ms.date: 05/20/2022
  ms.author: cherylmc
@@ -19,3 +19,6 @@
 | VNet connections per hub  | 500 minus total number of hubs in Virtual WAN |
 | Aggregate throughput per Virtual WAN hub router | 50 Gbps for VNet to VNet transit |
 | VM workload across all VNets connected to a single Virtual WAN hub | 2000 (If you want to raise the limit or quota above the default limit, see [hub settings](../articles/virtual-wan/hub-settings.md)). |
+| Total number of routes the hub can accept from its connected resources (virtual networks, branches, other virtual hubs, etc.) | 10,000 |
+
+

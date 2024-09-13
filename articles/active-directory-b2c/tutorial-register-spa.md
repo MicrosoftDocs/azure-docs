@@ -9,10 +9,14 @@ manager: CelesteDG
 ms.service: active-directory
 
 ms.topic: how-to
-ms.date: 11/20/2023
+ms.date: 01/11/2024
 ms.custom:  
 ms.author: kengaderdus
 ms.subservice: B2C
+
+
+#Customer intent: As a developer building a single-page application (SPA), I want to register the SPA in Azure Active Directory B2C, so that I can enable authentication and authorization for my application and allow users to sign in and access protected APIs.
+
 ---
 
 # Register a single-page application in Azure Active Directory B2C

@@ -3,7 +3,6 @@ title: Data Flow activity
 titleSuffix: Azure Data Factory & Azure Synapse
 description: How to execute data flows from inside an Azure Data Factory or Azure Synapse Analytics pipeline. 
 author: kromerm
-ms.service: data-factory
 ms.subservice: data-flows
 ms.custom: synapse
 ms.topic: conceptual
@@ -70,7 +69,7 @@ Property | Description | Allowed values | Required
 dataflow | The reference to the Data Flow being executed | DataFlowReference | Yes
 integrationRuntime | The compute environment the data flow runs on. If not specified, the autoresolve Azure integration runtime is used. | IntegrationRuntimeReference | No
 compute.coreCount | The number of cores used in the spark cluster. Can only be specified if the autoresolve Azure Integration runtime is used | 8, 16, 32, 48, 80, 144, 272 | No
-compute.computeType | The type of compute used in the spark cluster. Can only be specified if the autoresolve Azure Integration runtime is used | "General", "MemoryOptimized" | No
+compute.computeType | The type of compute used in the spark cluster. Can only be specified if the autoresolve Azure Integration runtime is used | "General" | No
 staging.linkedService | If you're using an Azure Synapse Analytics source or sink, specify the storage account used for PolyBase staging.<br/><br/>If your Azure Storage is configured with VNet service endpoint, you must use managed identity authentication with "allow trusted Microsoft service" enabled on storage account, refer to [Impact of using VNet Service Endpoints with Azure storage](/azure/azure-sql/database/vnet-service-endpoint-rule-overview#impact-of-using-virtual-network-service-endpoints-with-azure-storage). Also learn the needed configurations for [Azure Blob](connector-azure-blob-storage.md#managed-identity) and [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md#managed-identity) respectively.<br/> | LinkedServiceReference | Only if the data flow reads or writes to an Azure Synapse Analytics
 staging.folderPath | If you're using an Azure Synapse Analytics source or sink, the folder path in blob storage account used for PolyBase staging | String | Only if the data flow reads or writes to Azure Synapse Analytics
 traceLevel | Set logging level of your data flow activity execution | Fine, Coarse, None | No
@@ -189,7 +188,7 @@ To get the number of rows read from a source named 'source1' that was used in th
 > [!NOTE]
 > If a sink has zero rows written, it won't show up in metrics. Existence can be verified using the `contains` function. For example, `contains(activity('dataflowActivity').output.runStatus.metrics, 'sink1')` checks whether any rows were written to sink1.
 
-## Next steps
+## Related content
 
 See supported control flow activities: 
 

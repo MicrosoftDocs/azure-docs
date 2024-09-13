@@ -1,6 +1,6 @@
 ### YamlMime:Landing
 
-title: Desktop app authentication documentation
+title: Azure AD B2C desktop app authentication documentation
 summary: >
   Learn how to sign in users and access web APIs in your desktop application using our how-to guides.
 
@@ -8,7 +8,7 @@ metadata:
   author: kengaderdus
   manager: CelesteDG
   ms.author: kengaderdus
-  ms.date: 08/31/2022
+  ms.date: 03/01/2024
   ms.service: active-directory
   ms.subservice: B2C
   ms.topic: landing-page

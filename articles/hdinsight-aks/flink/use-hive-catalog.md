@@ -1,14 +1,16 @@
 ---
 title: Use Hive Catalog, Hive Read & Write demo on Apache Flink® 
 description: Learn how to use Hive Catalog, Hive Read & Write demo on Apache Flink® on HDInsight on AKS
-ms.service: hdinsight-aks
+ms.service: azure-hdinsight-on-aks
 ms.topic: how-to
-ms.date: 10/27/2023
+ms.date: 03/29/2024
 ---
 
 # How to use Hive Catalog with Apache Flink® on HDInsight on AKS
 
+[!INCLUDE [retirement-notice](../includes/retirement-notice.md)]
 [!INCLUDE [feature-in-preview](../includes/feature-in-preview.md)]
+
 
 This example uses Hive’s Metastore as a persistent catalog with Apache Flink’s Hive Catalog. We use this functionality for storing Kafka table and MySQL table metadata on Flink across sessions. Flink uses Kafka table registered in Hive Catalog as a source, perform some lookup and sink result to MySQL database
 
@@ -143,19 +145,19 @@ mysql> desc orders;
 > Download the correct version jar according to our HDInsight kafka version and MySQL version.
 
 ```
-wget https://repo1.maven.org/maven2/org/apache/flink/flink-connector-jdbc/1.16.0/flink-connector-jdbc-1.16.0.jar
+wget https://repo1.maven.org/maven2/org/apache/flink/flink-connector-jdbc/3.1.0-1.17/flink-connector-jdbc-3.1.0-1.17.jar
 wget https://repo1.maven.org/maven2/com/mysql/mysql-connector-j/8.0.33/mysql-connector-j-8.0.33.jar
 wget https://repo1.maven.org/maven2/org/apache/kafka/kafka-clients/3.2.0/kafka-clients-3.2.0.jar
-wget https://repo1.maven.org/maven2/org/apache/flink/flink-connector-kafka/1.16.0/flink-connector-kafka-1.16.0.jar
+wget https://repo1.maven.org/maven2/org/apache/flink/flink-connector-kafka/1.17.0/flink-connector-kafka-1.17.0.jar
 ```
 
 **Moving the planner jar**
 
-Move the jar flink-table-planner_2.12-1.16.0-0.0.18.jar located in webssh pod's /opt to /lib and move out the jar flink-table-planner-loader-1.16.0-0.0.18.jar from /lib. Refer to [issue](https://issues.apache.org/jira/browse/FLINK-25128) for more details. Perform the following steps to move the planner jar.
+Move the jar flink-table-planner_2.12-1.17.0-*.*.*.*.jar located in webssh pod's /opt to /lib and move out the jar flink-table-planner-loader1.17.0-*.*.*.*.jar /opt/flink-webssh/opt/ from /lib. Refer to [issue](https://issues.apache.org/jira/browse/FLINK-25128) for more details. Perform the following steps to move the planner jar.
 
 ```
-mv /opt/flink-webssh/opt/flink-table-planner_2.12-1.16.0-0.0.18.jar /opt/flink-webssh/lib/
-mv /opt/flink-webssh/lib/flink-table-planner-loader-1.16.0-0.0.18.jar /opt/flink-webssh/opt/
+mv /opt/flink-webssh/lib/flink-table-planner-loader-1.17.0-*.*.*.*.jar /opt/flink-webssh/opt/
+mv /opt/flink-webssh/opt/flink-table-planner_2.12-1.17.0-*.*.*.*.jar /opt/flink-webssh/lib/
 ```
 
 > [!NOTE]
@@ -165,7 +167,7 @@ mv /opt/flink-webssh/lib/flink-table-planner-loader-1.16.0-0.0.18.jar /opt/flink
 ### Use bin/sql-client.sh to connect to Flink SQL
 
 ``` 
-bin/sql-client.sh -j kafka-clients-3.2.0.jar -j flink-connector-kafka-1.16.0.jar -j flink-connector-jdbc-1.16.0.jar  -j mysql-connector-j-8.0.33.jar
+bin/sql-client.sh -j flink-connector-jdbc-3.1.0-1.17.jar -j mysql-connector-j-8.0.33.jar -j kafka-clients-3.2.0.jar -j flink-connector-kafka-1.17.0.jar
 ```
 
 ### Create Hive catalog and connect to the hive catalog on Flink SQL

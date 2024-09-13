@@ -8,10 +8,14 @@ manager: CelesteDG
 ms.service: active-directory
 
 ms.topic: reference
-ms.date: 02/16/2022
+ms.date: 01/11/2024
 ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: "b2c-support"
+
+
+#Customer intent: As a developer using Azure AD B2C, I want to understand how to use date claims transformations, so that I can manipulate and compare dates in my authentication and authorization processes.
+
 ---
 
 # Date claims transformations

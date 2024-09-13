@@ -1,10 +1,18 @@
 ---
 title: Extract incident entities with non-native actions 
 description: In this tutorial, you extract entity types with action types that aren't native to Microsoft Sentinel, and save these actions in a playbook to use for SOC automation.
-author: limwainstein
-ms.author: lwainstein
 ms.topic: tutorial
-ms.date: 02/28/2023
+author: batamig
+ms.author: bagol
+ms.date: 03/14/2024
+appliesto:
+    - Microsoft Sentinel in the Azure portal
+    - Microsoft Sentinel in the Microsoft Defender portal
+ms.collection: usx-security
+
+
+
+#Customer intent: As a security analyst, I want to extract and use non-native entity information from incidents so that I can enhance my investigative and remedial actions.
 
 ---
 # Tutorial: Extract incident entities with non-native actions 
@@ -31,6 +39,8 @@ In this tutorial, you learn how to:
 > * Parse the results in a JSON file.
 > * Create the values as dynamic content for future use.
 
+[!INCLUDE [unified-soc-preview](includes/unified-soc-preview.md)]
+
 ## Prerequisites
 
 To complete this tutorial, make sure you have:
@@ -45,12 +55,13 @@ To complete this tutorial, make sure you have:
 
 ## Create a playbook with an incident trigger
 
-1. Open the [Azure portal](https://portal.azure.com/) and navigate to the **Microsoft Sentinel** service.
-1. On the left, select **Automation**, and on the top left of the **Automation** page, select **Create** > **Playbook with incident trigger**.
+1. For Microsoft Sentinel in the [Azure portal](https://portal.azure.com), select the **Configuration** > **Automation** page. For Microsoft Sentinel in the [Defender portal](https://security.microsoft.com/), select **Microsoft Sentinel** > **Configuration** > **Automation**.
+
+1. On the **Automation** page, select **Create** > **Playbook with incident trigger**.
 1. In the **Create playbook** wizard, under **Basics**, select the subscription and resource group, and give the playbook a name. 
 1. Select **Next: Connections >**.
 
-    Under **Connections**, the **Microsoft Sentinel - Connect with managed identity** connection should be visible.
+    Under **Connections**, the **Microsoft Sentinel - Connect with managed identity** connection should be visible. For example:
 
     :::image type="content" source="media/tutorial-extract-incident-entities/create-playbook.png" alt-text="Screenshot of creating a new playbook with an incident trigger.":::
 

@@ -1,17 +1,17 @@
 ---
 title: Enable authentication in your own Python web application using Azure Active Directory B2C
-description: This article explains how to enable authentication in your own Python web application using Azure AD B2C 
+description: This article explains how to enable authentication in your own Python web application using Azure AD B2C
 titleSuffix: Azure AD B2C
 
 author: kengaderdus
 manager: CelesteDG
 ms.service: active-directory
-
-ms.custom: devx-track-python, devx-track-linux
+ms.custom: devx-track-python
 ms.topic: how-to
-ms.date: 06/28/2022
+ms.date: 01/11/2024
 ms.author: kengaderdus
 ms.subservice: B2C
+#Customer intent: As a Python web application developer, I want to enable Azure Active Directory B2C authentication in my application, so that users can sign in, sign out, update their profile, and reset their password using Azure AD B2C user flows.
 ---
 
 # Enable authentication in your own Python web application using Azure Active Directory B2C
@@ -34,9 +34,9 @@ This article uses [Python 3.9+](https://www.python.org/) and [Flask 2.1](https:/
 1. On your file system, create a project folder for this tutorial, such as  `my-python-web-app`.
 1. In your terminal, change directory into your Python app folder, such as `cd my-python-web-app`.
 1. Run the following command to create and activate a virtual environment named `.venv` based on your current interpreter.
-    
-    # [Linux](#tab/linux)    
-    
+
+    # [Linux](#tab/linux)
+
     ```bash
     sudo apt-get install python3-venv  # If needed
     python3 -m venv .venv
@@ -44,14 +44,14 @@ This article uses [Python 3.9+](https://www.python.org/) and [Flask 2.1](https:/
     ```
 
     # [macOS](#tab/macos)
-    
+
     ```zsh
     python3 -m venv .venv
     source .venv/bin/activate
     ```
-    
+
     # [Windows](#tab/windows)
-    
+
     ```cmd
     py -3 -m venv .venv
     .venv\scripts\activate
@@ -62,24 +62,24 @@ This article uses [Python 3.9+](https://www.python.org/) and [Flask 2.1](https:/
 
     ```
     python -m pip install --upgrade pip
-    ``` 
+    ```
 
 1. To enable the Flask debug features, switch Flask to the development environment to `development` mode. For more information about debugging Flask apps, check out the [Flask documentation](https://flask.palletsprojects.com/en/2.1.x/config/#environment-and-debug-features).
 
-    # [Linux](#tab/linux)    
-    
+    # [Linux](#tab/linux)
+
     ```bash
     export FLASK_ENV=development
     ```
 
     # [macOS](#tab/macos)
-    
+
     ```zsh
     export FLASK_ENV=development
     ```
-    
+
     # [Windows](#tab/windows)
-    
+
     ```cmd
     set FLASK_ENV=development
     ```
@@ -104,7 +104,7 @@ msal>=1.7,<2
 
 In your terminal, install the dependencies by running the following commands:
 
-# [Linux](#tab/linux)    
+# [Linux](#tab/linux)
 
 ```bash
 python -m pip install -r requirements.txt
@@ -124,9 +124,9 @@ py -m pip install -r requirements.txt
 
 ---
 
-## Step 3: Build app UI components 
+## Step 3: Build app UI components
 
-Flask is a lightweight Python framework for web applications that provides the basics for URL routing and page rendering. It leverages Jinja2 as its template engine to render the content of your app. For more information, check out the [template designer documentation](https://jinja.palletsprojects.com/en/3.1.x/templates/). In this section, you add the required templates that provide the basic functionality of your web app.  
+Flask is a lightweight Python framework for web applications that provides the basics for URL routing and page rendering. It leverages Jinja2 as its template engine to render the content of your app. For more information, check out the [template designer documentation](https://jinja.palletsprojects.com/en/3.1.x/templates/). In this section, you add the required templates that provide the basic functionality of your web app.
 
 ### Step 3.1 Create a base template
 
@@ -196,28 +196,28 @@ Add the following templates under the templates folder. These templates extend t
     {% extends "base.html" %}
     {% block title %}Home{% endblock %}
     {% block content %}
-    
+
     <h1>Microsoft Identity Python Web App</h1>
-    
+
     {% if user %}
     <h2>Claims:</h2>
     <pre>{{ user |tojson(indent=4) }}</pre>
-    
-    
+
+
     {% if config.get("ENDPOINT") %}
     <li><a href='/graphcall'>Call Microsoft Graph API</a></li>
     {% endif %}
-    
+
     {% if config.get("B2C_PROFILE_AUTHORITY") %}
     <li><a href='{{_build_auth_code_flow(authority=config["B2C_PROFILE_AUTHORITY"])["auth_uri"]}}'>Edit Profile</a></li>
     {% endif %}
-    
+
     <li><a href="/logout">Logout</a></li>
-    
+
     {% else %}
     <li><a href='{{ auth_url }}'>Sign In</a></li>
     {% endif %}
-    
+
     {% endblock %}
     ```
 
@@ -239,7 +239,7 @@ Add the following templates under the templates folder. These templates extend t
     ```html
     {% extends "base.html" %}
     {% block title%}Error{% endblock%}
-    
+
     {% block metadata %}
     {% if config.get("B2C_RESET_PASSWORD_AUTHORITY") and "AADB2C90118" in result.get("error_description") %}
     <!-- See also https://learn.microsoft.com/azure/active-directory-b2c/active-directory-b2c-reference-policies#linking-user-flows -->
@@ -247,14 +247,14 @@ Add the following templates under the templates folder. These templates extend t
       content='0;{{_build_auth_code_flow(authority=config["B2C_RESET_PASSWORD_AUTHORITY"])["auth_uri"]}}'>
     {% endif %}
     {% endblock %}
-    
+
     {% block content %}
     <h2>Login Failure</h2>
     <dl>
       <dt>{{ result.get("error") }}</dt>
       <dd>{{ result.get("error_description") }}</dd>
     </dl>
-    
+
     <a href="{{ url_for('index') }}">Homepage</a>
     {% endblock %}
     ```
@@ -286,7 +286,7 @@ B2C_PROFILE_AUTHORITY = authority_template.format(
 B2C_RESET_PASSWORD_AUTHORITY = authority_template.format(
     tenant=b2c_tenant, user_flow=resetpassword_user_flow)
 
-REDIRECT_PATH = "/getAToken"  
+REDIRECT_PATH = "/getAToken"
 
 # This is the API resource endpoint
 ENDPOINT = '' # Application ID URI of app registration in Azure portal
@@ -419,7 +419,7 @@ if __name__ == "__main__":
 
 In the Terminal, run the app by entering the following command, which runs the Flask development server. The development server looks for `app.py` by default. Then, open your browser and navigate to the web app URL: `http://localhost:5000`.
 
-# [Linux](#tab/linux)    
+# [Linux](#tab/linux)
 
 ```bash
 python -m flask run --host localhost --port 5000

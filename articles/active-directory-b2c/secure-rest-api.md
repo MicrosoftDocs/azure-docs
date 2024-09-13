@@ -6,10 +6,14 @@ author: kengaderdus
 manager: CelesteDG
 ms.service: active-directory
 ms.topic: how-to
-ms.date: 11/20/2023
+ms.date: 01/11/2024
 ms.author: kengaderdus
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
+
+
+#Customer intent: As a developer integrating a REST API within an Azure AD B2C user flow, I want to learn how to secure my REST API endpoint with authentication, so that only authorized services like Azure AD B2C can make calls to the endpoint.
+
 ---
 
 # Secure APIs used for API connectors in Azure AD B2C 
@@ -131,7 +135,7 @@ Client certificate authentication is a mutual certificate-based authentication, 
 
 #### Option 1: Use Azure Key Vault (recommended)
 
-To create a certificate, you can use [Azure Key Vault](../key-vault/certificates/create-certificate.md), which has options for self-signed certificates and integrations with certificate issuer providers for signed certificates. Recommended settings include:
+To create a certificate, you can use [Azure Key Vault](/azure/key-vault/certificates/create-certificate), which has options for self-signed certificates and integrations with certificate issuer providers for signed certificates. Recommended settings include:
 - **Subject**: `CN=<yourapiname>.<tenantname>.onmicrosoft.com`
 - **Content Type**: `PKCS #12`
 - **Lifetime Acton Type**: `Email all contacts at a given percentage lifetime` or `Email all contacts a given number of days before expiry`
@@ -139,7 +143,7 @@ To create a certificate, you can use [Azure Key Vault](../key-vault/certificates
 - **Key Size**: `2048`
 - **Exportable Private Key**: `Yes` (in order to be able to export `.pfx` file)
 
-You can then [export the certificate](../key-vault/certificates/how-to-export-certificate.md).
+You can then [export the certificate](/azure/key-vault/certificates/how-to-export-certificate).
 
 #### Option 2: prepare a self-signed certificate using PowerShell module
 

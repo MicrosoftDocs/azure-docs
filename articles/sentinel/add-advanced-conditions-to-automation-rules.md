@@ -1,10 +1,19 @@
 ---
 title: Add advanced conditions to Microsoft Sentinel automation rules
 description: This article explains how to add complex, advanced "Or" conditions to automation rules in Microsoft Sentinel, for more effective triage of incidents.
-author: yelevin
-ms.author: yelevin
 ms.topic: how-to
-ms.date: 05/09/2023
+author: batamig
+ms.author: bagol
+ms.date: 03/14/2024
+appliesto:
+    - Microsoft Sentinel in the Azure portal
+    - Microsoft Sentinel in the Microsoft Defender portal
+ms.collection: usx-security
+
+
+
+#Customer intent: As a security operations center (SOC) analyst, I want to add advanced conditions to automation rules so that I can more effectively triage incidents and improve response efficiency.
+
 ---
 
 # Add advanced conditions to Microsoft Sentinel automation rules
@@ -31,11 +40,15 @@ Condition groups can contain two levels of conditions:
 
 You can see that this capability affords you great power and flexibility in determining when rules will run. It can also greatly increase your efficiency by enabling you to combine many old automation rules into one new rule.
 
+[!INCLUDE [unified-soc-preview](includes/unified-soc-preview.md)]
+
 ## Add a condition group
 
 Since condition groups offer a lot more power and flexibility in creating automation rules, the best way to explain how to do this is by presenting some examples.
 
 Let's create a rule that will change the severity of an incoming incident from whatever it is to High, assuming it meets the conditions we'll set.
+
+1. For Microsoft Sentinel in the [Azure portal](https://portal.azure.com), select the **Configuration** > **Automation** page. For Microsoft Sentinel in the [Defender portal](https://security.microsoft.com/), select **Microsoft Sentinel** > **Configuration** > **Automation**.
 
 1. From the **Automation** page, select **Create > Automation rule** from the button bar at the top.
 
@@ -45,14 +58,23 @@ Let's create a rule that will change the severity of an incoming incident from w
 
 1. Select the trigger **When incident is created**.
 
-1. Under **Conditions**, leave the **Incident provider** and **Analytics rule name** conditions as they are. We'll add more conditions below.
+1. Under **Conditions**, if you see the **Incident provider** and **Analytics rule name** conditions, leave them as they are. These conditions aren't available if your workspace is onboarded to the unified security operations platform. In either case, we'll add more conditions later in this process.
 
 1. Under **Actions**, select **Change severity** from the drop-down list.
 
 1. Select **High** from the drop-down list that appears below **Change severity**.
 
+For example, the following tabs show samples from a workspace that's onboarded to the unified security operations platform, in either the Azure or Defender portals, and a workspace that isn't:
+
+### [Onboarded workspaces](#tab/after-onboarding)
+
+:::image type="content" source="media/add-advanced-conditions-to-automation-rules/create-automation-rule-no-conditions-onboarded.png" alt-text="Screenshot of creating new automation rule without adding conditions.":::
+
+### [Workspaces that aren't onboarded](#tab/before-onboarding)
+
 :::image type="content" source="media/add-advanced-conditions-to-automation-rules/create-automation-rule-no-conditions.png" alt-text="Screenshot of creating new automation rule without adding conditions.":::
 
+---
 ## Example 1: simple conditions
 
 In this first example, we'll create a simple condition group: If either condition A **or** condition B is true, the rule will run and the incident's severity will be set to *High*.

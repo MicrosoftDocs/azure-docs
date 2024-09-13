@@ -9,7 +9,7 @@ ms.service: azure-web-pubsub
 ms.topic: how-to
 ---
 
-# Geo-replication (Preview) in Azure Web PubSub 
+# Geo-replication in Azure Web PubSub 
 
 Mission critical apps often need to have a robust failover system and serve users closer to where they are. Before the release of the geo-replication feature, developers needed to deploy multiple Web PubSub resources and write custom code to orchestrate communication across resources. Now, with quick configuration through Azure portal, you can easily enable this feature. 
 
@@ -117,6 +117,9 @@ Update **webpubsub** extension to the latest version, then run:
 
 ----
 
+> [!NOTE]
+> * The replica count is currently limited to a maximum of 8 per primary resource.
+
 ## Pricing and resource unit
 Each replica has its **own** `unit` and `autoscale settings`.
 
@@ -197,10 +200,4 @@ To ensure effective failover management, it is recommended to set each replica's
 
 For more performance evaluation, refer to [Performance](concept-performance.md).
 
-## Breaking issues
-* **Using replica and event handler together**
-
-  If you use the Web PubSub event handler with Web PubSub C# server SDK or an Azure Function that utilizes the Web PubSub extension, you might encounter issues with the abuse protection once replicas are enabled. To address this, you can either **disable the abuse protection** or **upgrade to the latest SDK/extension versions**.
-  
-  For a detailed explanation and potential solutions, please refer to this [issue](https://github.com/Azure/azure-webpubsub/issues/598).
  

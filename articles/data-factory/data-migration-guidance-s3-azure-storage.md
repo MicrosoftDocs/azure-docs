@@ -3,11 +3,9 @@ title: Migrate data from Amazon S3 to Azure Storage
 description: Use Azure Data Factory to migrate data from Amazon S3 to Azure Storage.
 ms.author: yexu
 author: dearandyxu
-ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
-ms.custom: seo-lt-2019
-ms.date: 07/17/2023
+ms.date: 05/15/2024
 ---
 
 # Use Azure Data Factory to migrate data from Amazon S3 to Azure Storage 
@@ -145,6 +143,6 @@ Here's the estimated price based on the above assumptions:
 
 Here's the [template](solution-template-migration-s3-azure.md) to start with to migrate petabytes of data consisting of hundreds of millions of files from Amazon S3 to Azure Data Lake Storage Gen2.
 
-## Next steps
+## Related content
 
 - [Copy files from multiple containers with Azure Data Factory](solution-template-copy-files-multiple-containers.md)

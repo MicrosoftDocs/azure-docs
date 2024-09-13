@@ -14,8 +14,6 @@ ms.subservice: calling
 
 # Data Channel
 
-[!INCLUDE [Public Preview Disclaimer](../../includes/public-preview-include.md)]
-
 > [!NOTE]
 > This document delves into the Data Channel feature present in the Azure Communication Services Calling SDK.
 > While the Data Channel in this context bears some resemblance to the Data Channel in WebRTC, it's crucial to recognize subtle differences in their specifics.

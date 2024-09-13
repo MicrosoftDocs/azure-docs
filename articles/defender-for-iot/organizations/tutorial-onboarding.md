@@ -2,7 +2,7 @@
 title: Onboard and activate a virtual OT sensor - Microsoft Defender for IoT.
 description: This tutorial describes how to set up a virtual OT network sensor to monitor your OT network traffic.
 ms.topic: tutorial
-ms.date: 07/04/2023
+ms.date: 12/19/2023
 ---
 
 # Tutorial: Onboard and activate a virtual OT sensor
@@ -79,7 +79,7 @@ Defender for IoT also supports other processes, such as using Hyper-V or physica
 
    - Guest OS family: **Linux**
 
-   - Guest OS version: **Ubuntu Linux (64-bit)**
+   - Guest OS version: **Debian**
 
 1. Select **Next**.
 
@@ -126,7 +126,7 @@ Before you can start using your Defender for IoT sensor, you need to onboard you
 
 1. In the **Add outbound allow rules** box, select the **Download endpoint details** link to download a JSON list of the endpoints you must configure as secure endpoints from your sensor.
 
-    Save the downloaded file locally. Use the endpoints listed in the downloaded file to [later in this tutorial](#provision-for-cloud-management) to ensure that your new sensor can successfully connect to Azure.
+    Save the downloaded file locally. Use the endpoints listed in the downloaded file [later in this tutorial](#provision-for-cloud-management) to ensure that your new sensor can successfully connect to Azure.
 
     > [!TIP]
     > You can also access the list of required endpoints from the **Sites and sensors** page. For more information, see [Sensor management options from the Azure portal](how-to-manage-sensors-on-the-cloud.md#sensor-management-options-from-the-azure-portal).
@@ -245,11 +245,11 @@ Use the default IP address provided to access your sensor for [initial setup and
 
 ### Post-installation validation
 
-This procedure describes how to validate your installation using the sensor's own system health checks, and is available to both the *support* and *cyberx* sensor users.
+This procedure describes how to validate your installation using the sensor's own system health checks and is available to the default *admin* user.
 
 **To validate your installation**:
 
-1. Sign in to the OT sensor as the `support` user.
+1. Sign in to the OT sensor as the `admin` user.
 
 1. Select **System Settings** > **Sensor management** > **System Health Check**.
 
@@ -265,7 +265,7 @@ For more post-installation validation tests, such as gateway, DNS or firewall ch
 
 The following procedure describes how to configure your sensor's initial setup settings, including:
 
-- Signing into the sensor console and changing the *support* user password
+- Signing into the sensor console and changing the *admin* user password
 - Defining network details for your sensor
 - Defining the interfaces you want to monitor
 - Activating your sensor
@@ -273,7 +273,7 @@ The following procedure describes how to configure your sensor's initial setup s
 
 ### Sign in to the sensor console and change the default password
 
-This procedure describes how to sign into the OT sensor console for the first time. You're prompted to change the default password for the *support* user.
+This procedure describes how to sign into the OT sensor console for the first time. You're prompted to change the default password for the *admin* user.
 
 **To sign in to your sensor**:
 
@@ -288,7 +288,7 @@ This procedure describes how to sign into the OT sensor console for the first ti
     - **Username**: `support`
     - **Password**: `support`
 
-    You're asked to define a new password for the *support* user.
+    You're asked to define a new password for the *admin* user.
 
 1. In the **New password** field, enter your new password. Your password must contain lowercase and uppercase alphabetic characters, numbers, and symbols.
 
@@ -356,7 +356,6 @@ Use the **Certificates** tab to deploy an SSL/TLS certificate on your OT sensor.
     For more information, see [SSL/TLS certificate requirements for on-premises resources](best-practices/certificate-requirements.md) and [Create SSL/TLS certificates for OT appliances](ot-deploy/create-ssl-certificates.md).
 
 1. Select **Finish** to complete the initial setup and open your sensor console.
-
 
 ## Next steps
 

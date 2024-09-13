@@ -2,7 +2,7 @@
 title: Get started with OT monitoring - Microsoft Defender for IoT
 description: Use this quickstart to set up a trial OT plan with Microsoft Defender for IoT and understand the next steps required to configure your network sensors.
 ms.topic: get-started
-ms.date: 09/21/2023
+ms.date: 03/25/2024
 #CustomerIntent: As a prospective Defender for IoT customer with OT networks, I want to understand how I can set up a trial and evaluate Defender for IoT.
 ---
 
@@ -10,23 +10,33 @@ ms.date: 09/21/2023
 
 This article describes how to set up a trial license and create an initial OT plan for Microsoft Defender for IoT, for customers who don't have any Microsoft tenant or Azure subscription at all. Use Defender for IoT to monitor network traffic across your OT networks.
 
-A trial supports a **Large** site size with up to 1000 devices, and lasts for 60 days. You might want to use this trial with a [virtual sensor](tutorial-onboarding.md) or on-premises sensors to monitor traffic, analyze data, generate alerts, understand network risks and vulnerabilities, and more.
+A trial supports a **Large** site size with up to 1,000 devices. You might want to use this trial with a [virtual sensor](tutorial-onboarding.md) or on-premises sensors to monitor traffic, analyze data, generate alerts, understand network risks and vulnerabilities, and more.
+
+For more information, see [Free trial](billing.md#free-trial).
 
 ## Prerequisites
 
-Before you start, all you need is an email address that will be used as the contact for your new Microsoft Tenant.
+Before you start, you need:
 
-You'll also need to enter credit card details for your new Azure subscription, although you won't be charged until you switch from the **Free Trial** to the **Pay-As-You-Go** plan.
+1. An email address to be used as the contact for your new Microsoft Tenant
+1. A Global Admin permissions (Entra ID role on the tenant)
+1. Credit card details for your new Azure subscription, although you aren't charged until you switch from the **Free Trial** to the **Pay-As-You-Go** plan
 
 ## Add a trial license
 
 This procedure describes how to add a trial license for Defender for IoT to your Azure subscription. One trial license is available per tenant.
 
-**To add a trial license**:
+To add a trial license with a new tenant, we recommend that you use the Trial wizard. If you already have a tenant, use the Microsoft 365 Marketplace to add a trial license to your tenant.
 
-1. In a browser, open the [Microsoft Defender for IoT - OT Site License (1000 max devices per site) Trial wizard](https://signup.microsoft.com/get-started/signup?OfferId=11c457e2-ac0a-430d-8500-88c99927ff9f&ali=1&products=11c457e2-ac0a-430d-8500-88c99927ff9f).
+# [Add a trial with the Trial wizard](#tab/wizard)
+
+**To add a trial license with a new tenant**:
+
+1. In a browser, open the [Microsoft Defender for IoT - OT Site License (1000 max devices per site) Trial wizard](https://signup.microsoft.com/get-started/signup?products=d2bdd05f-4856-4569-8474-2f9ec298923b).
 
 1. In the **Email** box, enter the email address you want to associate with the trial license, and select **Next**.
+
+1. Confirm that the email address is correct by selecting **Set up account**.
 
 1. In the **Tell us about yourself** page, enter your details, and then select **Next**.
 
@@ -36,12 +46,26 @@ This procedure describes how to add a trial license for Defender for IoT to your
 
 1. In the **How you'll sign in** page, enter a username and password and select **Next**.
 
-1. In the **Confirmation details** page, note your order number and username, and then select **Start using Microsoft Defender for IoT - OT Site License (1000 max devices per site) Trial** button to continue. We recommend that you copy your full username to the clipboard as you'll need it to access the Azure portal.
+1. In the **Confirmation details** page, note your order number and username, and then select **Start using Microsoft Defender for IoT - OT Site License (1000 max devices per site) Trial** button to continue. We recommend that you copy your full username to the clipboard as you need it to access the Azure portal.
+
+# [Add a trial from the Microsoft 365 Marketplace](#tab/marketplace)
+
+**To add a trial license with an existing tenant**:
+
+1. Go to the [Microsoft 365 admin center](https://portal.office.com/AdminPortal/Home#/catalog) **Billing > Purchase services**. If you don't have this option, select **Marketplace** instead.
+
+1. Search for **Microsoft Defender for IoT** and locate the **Microsoft Defender for IoT - OT site license - Trial Trial** item.
+
+1. Select **Details** > **Start free trial** > **Try now** to start the trial.
+
+For more information, see the [Microsoft 365 admin center help](/microsoft-365/admin/).
+
+---
 
 Use the Microsoft 365 admin center manage your users, billing details, and more. For more information, see the [Microsoft 365 admin center help](/microsoft-365/admin/).
 
 ## Add an OT plan
- 
+
 This procedure describes how to add an OT plan for Defender for IoT in the Azure portal, based on your [new trial license](#add-a-trial-license).
 
 **To add an OT plan in Defender for IoT**:

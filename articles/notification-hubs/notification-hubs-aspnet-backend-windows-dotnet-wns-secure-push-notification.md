@@ -6,8 +6,7 @@ manager: femila
 editor: thsomasu
 services: notification-hubs
 
-ms.service: notification-hubs
-ms.workload: mobile
+ms.service: azure-notification-hubs
 ms.tgt_pltfrm: windows
 ms.devlang: csharp
 ms.topic: article

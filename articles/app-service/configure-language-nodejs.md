@@ -1,14 +1,14 @@
 ---
 title: Configure Node.js apps
 description: Learn how to configure a Node.js app in the native Windows instances, or in a pre-built Linux container, in Azure App Service. This article shows the most common configuration tasks. 
-ms.custom: devx-track-js, devx-track-azurecli
-ms.devlang: javascript, devx-track-azurecli
+ms.custom: devx-track-js, devx-track-azurecli, linux-related-content
+ms.devlang: javascript
+# ms.devlang: javascript, devx-track-azurecli
 ms.topic: article
 ms.date: 01/21/2022
 author: msangapu-msft
 ms.author: msangapu
 zone_pivot_groups: app-service-platform-windows-linux
-
 ---
 
 # Configure a Node.js app for Azure App Service
@@ -350,13 +350,18 @@ if (req.secure) {
 
 ::: zone pivot="platform-linux"
 
+## URL rewrites
+
+When deploying Node.js apps on Azure App Service for Linux, you may need to handle URL rewrites directly within your application. This is particularly useful for ensuring specific URL patterns are redirected to the correct endpoints without relying on web server configurations. There are several ways to accomplish URL rewrites in Node.js. One example is through the [express-urlrewrite](https://www.npmjs.com/package/express-urlrewrite) package.
+
+
 ## Monitor with Application Insights
 
-Application Insights allows you to monitor your application's performance, exceptions, and usage without making any code changes. To attach the App Insights agent, go to your web app in the Portal and select **Application Insights** under **Settings**, then select **Turn on Application Insights**. Next, select an existing App Insights resource or create a new one. Finally, select **Apply** at the bottom. To instrument your web app using PowerShell, please see [these instructions](../azure-monitor/app/azure-web-apps-nodejs.md#enable-through-powershell)
+Application Insights allows you to monitor your application's performance, exceptions, and usage without making any code changes. To attach the App Insights agent, go to your web app in the Portal and select **Application Insights** under **Settings**, then select **Turn on Application Insights**. Next, select an existing App Insights resource or create a new one. Finally, select **Apply** at the bottom. To instrument your web app using PowerShell, please see [these instructions](/azure/azure-monitor/app/azure-web-apps-nodejs#enable-through-powershell)
 
-This agent will monitor your server-side Node.js application. To monitor your client-side JavaScript, [add the JavaScript SDK to your project](../azure-monitor/app/javascript.md).
+This agent will monitor your server-side Node.js application. To monitor your client-side JavaScript, [add the JavaScript SDK to your project](/azure/azure-monitor/app/javascript).
 
-For more information, see the [Application Insights extension release notes](../azure-monitor/app/web-app-extension-release-notes.md).
+For more information, see the [Application Insights extension release notes](/azure/azure-monitor/app/web-app-extension-release-notes).
 
 ::: zone-end
 

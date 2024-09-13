@@ -3,8 +3,7 @@ title: Health probes in Azure Container Apps
 description: Check startup, liveness, and readiness with Azure Container Apps health probes
 services: container-apps
 author: craigshoemaker
-ms.service: container-apps
-ms.custom: event-tier1-build-2022, ignite-2022
+ms.service: azure-container-apps
 ms.topic: conceptual
 ms.date: 08/29/2023
 ms.author: cshoe
@@ -12,7 +11,7 @@ ms.author: cshoe
 
 # Health probes in Azure Container Apps
 
-Azure Container Apps Health probes are based on [Kubernetes health probes](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-startup-probes/). These probes allow the Container Apps runtime to regularly inspect the status of your container apps.
+Azure Container Apps health probes allow the Container Apps runtime to regularly inspect the status of your container apps.
 
 You can set up probes using either TCP or HTTP(S) exclusively.
 

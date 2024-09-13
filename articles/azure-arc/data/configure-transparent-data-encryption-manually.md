@@ -9,7 +9,7 @@ ms.subservice: azure-arc-data-sqlmi
 ms.reviewer: mikeray
 ms.topic: how-to
 ms.date: 05/22/2022
-ms.custom: template-how-to, event-tier1-build-2022
+ms.custom: template-how-to
 ---
 
 # Encrypt a database with transparent data encryption on SQL Managed Instance enabled by Azure Arc

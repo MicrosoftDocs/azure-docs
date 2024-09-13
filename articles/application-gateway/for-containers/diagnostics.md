@@ -1,16 +1,16 @@
 ---
-title: Diagnostic logs for Application Gateway for Containers (preview)
+title: Diagnostic logs for Application Gateway for Containers
 description: Learn how to enable access logs for Application Gateway for Containers
 services: application-gateway
 author: greglin
-ms.service: application-gateway
+ms.service: azure-application-gateway
 ms.subservice: appgw-for-containers
-ms.topic: article
-ms.date: 10/11/2023
+ms.topic: concept-article
+ms.date: 07/17/2024
 ms.author: greglin
 ---
 
-# Diagnostic logs for Application Gateway for Containers (preview)
+# Diagnostic logs for Application Gateway for Containers
 
 Learn how to troubleshoot common problems in Application Gateway for Containers.
 
@@ -22,9 +22,9 @@ You can monitor Azure Application Gateway for Containers resources in the follow
 
 ## Diagnostic logs
 
-You can use different types of logs in Azure to manage and troubleshoot Application Gateway for Containers. You can access some of these logs through the portal. All logs can be extracted from Azure Blob storage and viewed in different tools, such as [Azure Monitor logs](../../azure-monitor/logs/data-platform-logs.md), Excel, and Power BI. You can learn more about the different types of logs from the following list:
+You can use different types of logs in Azure to manage and troubleshoot Application Gateway for Containers. You can access some of these logs through the portal. All logs can be extracted from Azure Blob storage and viewed in different tools, such as [Azure Monitor logs](/azure/azure-monitor/logs/data-platform-logs), Excel, and Power BI. You can learn more about the different types of logs from the following list:
 
-* **Activity log**: You can use [Azure activity logs](../../azure-monitor/essentials/activity-log.md) (formerly known as operational logs and audit logs) to view all operations that are submitted to your Azure subscription, and their status. Activity log entries are collected by default, and you can view them in the Azure portal.
+* **Activity log**: You can use [Azure activity logs](/azure/azure-monitor/essentials/activity-log) (formerly known as operational logs and audit logs) to view all operations that are submitted to your Azure subscription, and their status. Activity log entries are collected by default, and you can view them in the Azure portal.
 * **Access log**: You can use this log to view Application Gateway for Containers access patterns and analyze important information. This includes the caller's IP, requested URL, response latency, return code, and bytes in and out. An access log is collected every 60 seconds. The data may be stored in a storage account that is specified at time of enable logging.
 
 ### Configure access log
@@ -39,7 +39,7 @@ Activity logging is automatically enabled for every Resource Manager resource. Y
   2. In **Search resources, service, and docs**, type **Application Gateways for Containers** and select your Application Gateway for Containers name.
   3. Under **Monitoring**, select **Diagnostic settings**.
   4. Select **Add diagnostic setting**.
-  5. Enter a **Diagnostic setting name** (ex: agfc-logs), choose the logs and metrics to save and choose a destination, such as **Archive to a storage account**. To save all logs, select **allLogs** and **AllMetrics**. 
+  5. Enter a **Diagnostic setting name** (ex: agfc-logs), choose the logs and metrics to save and choose a destination, such as **Archive to a storage account**. To save all logs, select **allLogs** and **AllMetrics**.
   6. Select **Save** to save your settings. See the following example:
 
       ![Configure diagnostic logs](./media/diagnostics/enable-diagnostic-logs.png)
@@ -71,7 +71,7 @@ New-AzDiagnosticSetting -Name 'AppGWForContainersLogs' -ResourceId "/subscriptio
 > [!Note]
 > After initially enabling diagnostic logs, it may take up to one hour before logs are available at your selected destination.
 
-For more information and Azure Monitor deployment tutorials, see [Diagnostic settings in Azure Monitor](../../azure-monitor/essentials/diagnostic-settings.md).
+For more information and Azure Monitor deployment tutorials, see [Diagnostic settings in Azure Monitor](/azure/azure-monitor/essentials/diagnostic-settings).
 
 ### Access log format
 
@@ -103,7 +103,11 @@ Each access log entry in Application Gateway for Containers contains the followi
 | trackingId | Generated guid by Application Gateway for Containers to help with tracking and debugging.  This value correlates to the x-request-id header returned to the client from Application Gateway for Containers. |
 | userAgent | User-Agent header of the request received from the client by Application Gateway for Containers |
 
+>[!Note]
+>Query string parameter values such as "secret", "password", "pwd", "passwd", "key", "token", "pat", "accesskey", "accesstoken", "credential", "sas", "personalAccessToken", and "personal.access.token" logged in the requestUri field will be replaced with a value of _**<redacted\>**_ to prevent sensitive information from being logged. This is non-configurable. 
+
 Here an example of the access log emitted in JSON format to a storage account.
+
 ```JSON
 {
     "category": "TrafficControllerAccessLog",
@@ -138,6 +142,3 @@ Here an example of the access log emitted in JSON format to a storage account.
     "location": "northcentralus"
 }
 ```
-
-### Limitations
-- Although it's possible to configure logging to log analytics, logs are currently not emitted to a log analytics workspace or event hub. Log analytics and event hub streaming will be supported in a future update.

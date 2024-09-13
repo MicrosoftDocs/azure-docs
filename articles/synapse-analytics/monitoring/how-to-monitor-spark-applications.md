@@ -1,9 +1,9 @@
 ---
 title: How to monitor Apache Spark applications in Synapse Studio
 description: Learn how to monitor your Apache Spark applications by using Synapse Studio.
-services: synapse-analytics 
+ 
 author: matt1883
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.topic: how-to
 ms.subservice: monitoring
 ms.date: 11/30/2020

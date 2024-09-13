@@ -5,6 +5,7 @@ services: automation
 keywords: azure automation, DSC, powershell, state configuration, update management, change tracking, DSC, inventory, runbooks, python, graphical
 ms.date: 10/25/2021
 ms.topic: overview
+ms.custom: linux-related-content
 ---
 
 # What is Azure Automation?
@@ -119,8 +120,8 @@ Azure Automation supports management throughout the lifecycle of your infrastruc
 Depending on your requirements, one or more of the following Azure services integrate with or complement Azure Automation to help fulfill them:
 
 * [Azure Arc-enabled servers](../azure-arc/servers/overview.md) enables simplified onboarding of hybrid machines to Update Management, Change Tracking and Inventory, and the Hybrid Runbook Worker role.
-* [Azure Alerts action groups](../azure-monitor/alerts/action-groups.md) can initiate an Automation runbook when an alert is raised.
-* [Azure Monitor](../azure-monitor/overview.md) to collect metrics and log data from your Automation account for further analysis and take action on the telemetry. Automation features such as Update Management and Change Tracking and Inventory rely on the Log Analytics workspace to deliver elements of their functionality.
+* [Azure Alerts action groups](/azure/azure-monitor/alerts/action-groups) can initiate an Automation runbook when an alert is raised.
+* [Azure Monitor](/azure/azure-monitor/overview) to collect metrics and log data from your Automation account for further analysis and take action on the telemetry. Automation features such as Update Management and Change Tracking and Inventory rely on the Log Analytics workspace to deliver elements of their functionality.
 * [Azure Policy](../governance/policy/samples/built-in-policies.md) includes initiative definitions to help establish and maintain  compliance with different security standards for your Automation account.
 * [Azure Site Recovery](../site-recovery/site-recovery-runbook-automation.md) can use Azure Automation runbooks to automate recovery plans.
 
@@ -131,7 +132,7 @@ These Azure services can work with Automation job and runbook resources using an
 * [Azure Event Grid](../event-grid/handler-webhooks.md)
 * [Azure Power Automate](/connectors/azureautomation)
 
-[!INCLUDE [azure-lighthouse-supported-service](../../includes/azure-lighthouse-supported-service.md)]
+[!INCLUDE [azure-lighthouse-supported-service](~/reusable-content/ce-skilling/azure/includes/azure-lighthouse-supported-service.md)]
 
 ## Pricing for Azure Automation
 

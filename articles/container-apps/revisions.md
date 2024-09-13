@@ -3,11 +3,11 @@ title: Update and deploy changes in Azure Container Apps
 description: Learn how to use revisions to make changes in Azure Container Apps.
 services: container-apps
 author: craigshoemaker
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.topic: conceptual
-ms.date: 10/10/2023
+ms.date: 02/01/2024
 ms.author: cshoe
-ms.custom: ignite-fall-2021, event-tier1-build-2022, build-2023
+ms.custom: build-2023
 ---
 
 # Update and deploy changes in Azure Container Apps
@@ -26,7 +26,7 @@ Key characteristics of revisions include:
 
 - **Scoped changes**: While revisions remain static, [application-scope](#change-types) changes can affect all revisions, while [revision-scope](#change-types) changes create a new revision.
 
-- **Historical record**: Azure Container Apps allow you to retain up to 100 revisions. This history gives you a comprehensive historical record of your app's updates.
+- **Historical record**: By default, you have access to 100 inactive revisions, but you can [adjust this threshold manually](#change-inactive-revision-limit).
 
 - **Multiple revisions**: You can run multiple revisions concurrently. This feature is especially beneficial when you need to manage different versions of your app simultaneously.
 
@@ -64,6 +64,16 @@ After a container app is successfully provisioned, a revision enters its operati
 ### Inactive status
 
 Revisions can also enter an inactive state. These revisions don't possess provisioning or running states. However, Azure Container Apps maintains a list of these revisions, accommodating up to 100 inactive entries. You can activate a revision at any time.
+
+### Change inactive revision limit
+
+You can use the `--max-inactive-revisions` parameter with the `containerapp create` or `containerapp update` commands to control the number of inactive revisions tracked by Container Apps.
+
+This example demonstrates how to create a new container app that tracks 50 inactive revisions:
+
+```azurecli
+az containerapp create --max-inactive-revisions 50
+```
 
 ## Revision modes
 

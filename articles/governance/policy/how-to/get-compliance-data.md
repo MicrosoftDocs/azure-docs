@@ -1,11 +1,9 @@
 ---
 title: Get policy compliance data
 description: Azure Policy evaluations and effects determine compliance. Learn how to get the compliance details of your Azure resources.
-author: davidsmatlak
 ms.date: 11/03/2022
 ms.topic: how-to
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
-ms.author: davidsmatlak
 ---
 # Get compliance data of Azure resources
 
@@ -91,7 +89,7 @@ This scan is an asynchronous process.
 Use the
 [Azure Policy Compliance Scan action](https://github.com/marketplace/actions/azure-policy-compliance-scan)
 to trigger an on-demand evaluation scan from your
-[GitHub workflow](https://docs.github.com/actions/configuring-and-managing-workflows/configuring-a-workflow#about-workflows)
+[GitHub workflow](https://docs.github.com/actions/writing-workflows/about-workflows)
 on one or multiple resources, resource groups, or subscriptions, and gate the workflow based on the
 compliance state of resources. You can also configure the workflow to run at a scheduled time so
 that you get the latest compliance status at a convenient time. Optionally, GitHub Actions can
@@ -291,7 +289,7 @@ Use ARMClient or a similar tool to handle authentication to Azure for the REST A
 
 With the REST API, summarization can be performed by container, definition, or assignment. Here's
 an example of summarization at the subscription level using Azure Policy Insight's [Summarize For
-Subscription](/rest/api/policy/policystates/summarizeforsubscription):
+Subscription](/rest/api/policy/policy-states/summarize-for-subscription):
 
 ```http
 POST https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/policyStates/latest/summarize?api-version=2019-10-01
@@ -419,7 +417,7 @@ Your results resemble the following example:
 ```
 
 For more information about querying policy events, see the
-[Azure Policy Events](/rest/api/policy/policyevents) reference article.
+[Azure Policy Events](/rest/api/policy/policy-events) reference article.
 
 ### Azure CLI
 
@@ -762,9 +760,9 @@ Trent Baker
 
 ## Azure Monitor logs
 
-If you have a [Log Analytics workspace](../../../azure-monitor/logs/log-query-overview.md) with
+If you have a [Log Analytics workspace](/azure/azure-monitor/logs/log-query-overview) with
 `AzureActivity` from the
-[Activity Log Analytics solution](../../../azure-monitor/essentials/activity-log.md) tied to your
+[Activity Log Analytics solution](/azure/azure-monitor/essentials/activity-log) tied to your
 subscription, you can also view non-compliance results from the evaluation of new and updated
 resources using simple Kusto queries and the `AzureActivity` table. With details in Azure Monitor
 logs, alerts can be configured to watch for non-compliance.

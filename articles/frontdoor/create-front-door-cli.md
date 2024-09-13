@@ -2,9 +2,9 @@
 title: 'Quickstart: Create an Azure Front Door Standard/Premium - the Azure CLI'
 description: Learn how to create an Azure Front Door Standard/Premium using Azure CLI. Use Azure Front Door to deliver content to your global user base and protect your web apps against vulnerabilities.
 ms.topic: quickstart
-author: duau
+author: duongau
 ms.author: duau
-ms.service: frontdoor
+ms.service: azure-frontdoor
 ms.date: 6/30/2023
 ms.custom: devx-track-azurecli
 ---
@@ -17,9 +17,9 @@ In this quickstart, you learn how to create an Azure Front Door Standard/Premium
 
 [!INCLUDE [ddos-waf-recommendation](../../includes/ddos-waf-recommendation.md)]
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [azure-cli-prepare-your-environment](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 ## Create a resource group
 
@@ -231,7 +231,7 @@ To learn more about WAF policy settings for Front Door, see [Policy settings for
 
 Azure-managed rule sets provide an easy way to protect your application against common security threats.
 
-Run [az network front-door waf-policy managed-rules add](/cli/azure/network/front-door/waf-policy/managed-rules#az-network-front-door-waf-policy-managed-rules-add) to add managed rules to your WAF Policy. This example adds Microsoft_DefaultRuleSet_1.2 and Microsoft_BotManagerRuleSet_1.0 to your policy.
+Run [az network front-door waf-policy managed-rules add](/cli/azure/network/front-door/waf-policy/managed-rules#az-network-front-door-waf-policy-managed-rules-add) to add managed rules to your WAF Policy. This example adds Microsoft_DefaultRuleSet_2.1 and Microsoft_BotManagerRuleSet_1.0 to your policy.
 
 
 ```azurecli-interactive
@@ -239,7 +239,8 @@ az network front-door waf-policy managed-rules add \
     --policy-name contosoWAF \
     --resource-group myRGFD \
     --type Microsoft_DefaultRuleSet \
-    --version 1.2 
+    --action Block \
+    --version 2.1 
 ```
 
 ```azurecli-interactive

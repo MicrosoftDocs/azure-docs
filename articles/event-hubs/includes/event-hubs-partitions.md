@@ -1,11 +1,10 @@
 ---
-title: include file
-description: include file
-services: event-hubs
+title: Event Hubs partitions
+description: Describes partitions in Azure Event Hubs. 
 author: spelluru
-ms.service: event-hubs
+ms.service: azure-event-hubs
 ms.topic: include
-ms.date: 11/27/2023
+ms.date: 02/15/2024
 ms.author: spelluru
 ms.custom: "include file"
 
@@ -15,14 +14,19 @@ Event Hubs organizes sequences of events sent to an event hub into one or more p
 
 :::image type="content" source="./media/event-hubs-partitions/multiple-partitions.png" alt-text="Image that shows an event hub with a few partitions.":::
 
-A partition can be thought of as a commit log. Partitions hold event data that contains body of the event, a user-defined property bag describing the event, metadata such as its offset in the partition, its number in the stream sequence, and service-side timestamp at which it was accepted.
+A partition can be thought of as a commit log. Partitions hold event data that contains the following information:
+
+- Body of the event
+- User-defined property bag describing the event
+- Metadata such as its offset in the partition, its number in the stream sequence
+- Service-side timestamp at which it was accepted
 
 :::image type="content" source="./media/event-hubs-partitions/partition.png" alt-text="Diagram that displays the older to newer sequence of events.":::
 
 ### Advantages of using partitions
 Event Hubs is designed to help with processing of large volumes of events, and partitioning helps with that in two ways:
 
-- Even though Event Hubs is a PaaS service, there's a physical reality underneath, and maintaining a log that preserves the order of events requires that these events are being kept together in the underlying storage and its replicas and that results in a throughput ceiling for such a log. Partitioning allows for multiple parallel logs to be used for the same event hub and therefore multiplying the available raw IO throughput capacity.
+- Even though Event Hubs is a PaaS service, there's a physical reality underneath. Maintaining a log that preserves the order of events requires that these events are being kept together in the underlying storage and its replicas and that results in a throughput ceiling for such a log. Partitioning allows for multiple parallel logs to be used for the same event hub and therefore multiplying the available raw input-output (IO) throughput capacity.
 - Your own applications must be able to keep up with processing the volume of events that are being sent into an event hub. It might be complex and requires substantial, scaled-out, parallel processing capacity. The capacity of a single process to handle events is limited, so you need several processes. Partitions are how your solution feeds those processes and yet ensures that each event has a clear processing owner. 
 
 ### Number of partitions

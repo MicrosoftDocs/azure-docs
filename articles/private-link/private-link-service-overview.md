@@ -2,11 +2,11 @@
 title: What is Azure Private Link service?
 description: Learn about Azure Private Link service.
 services: private-link
-author: asudbring
-ms.service: private-link
+author: abell
+ms.service: azure-private-link
 ms.topic: conceptual
-ms.date: 10/27/2022
-ms.author: allensu
+ms.date: 02/23/2024
+ms.author: abell
 ms.custom: template-concept
 ---
 
@@ -72,7 +72,7 @@ A Private Link service specifies the following properties:
  
 - Multiple Private Link services can be created on the same Standard Load Balancer using different front-end IP configurations. There are limits to the number of Private Link services you can create per Standard Load Balancer and per subscription. For details, see [Azure limits](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits).
  
-- Private Link service can have more than one NAT IP configurations linked to it. Choosing more than one NAT IP configurations can help service providers to scale. Today, service providers can assign up to eight NAT IP addresses per Private Link service. With each NAT IP address, you can assign more ports for your TCP connections and thus scale out. After you add multiple NAT IP addresses to a Private Link service, you can't delete the NAT IP addresses. This restriction is in place to ensure that active connections aren't impacted while deleting the NAT IP addresses.
+- Private Link service can have more than one NAT IP configurations linked to it. Choosing more than one NAT IP configurations can help service providers to scale. Today, service providers can assign up to eight NAT IP addresses per Private Link service. With each NAT IP address, you can assign more ports for your TCP connections and thus scale out. You can add multiple NAT IP addresses to a Private Link service, but you must maintain at least one NAT IP address once configured. You will be restricted from deleting the last remaining NAT IP to ensure that active connections aren't impacted as a result of unavailable NAT IP addresses.
 
 ## Alias
 
@@ -143,6 +143,8 @@ The following are the known limitations when using the Private Link service:
 - Supports TCP and UDP traffic only
 
 - Private Link Service has an idle timeout of ~5 minutes (300 seconds). To avoid hitting this limit, applications connecting through Private Link Service must use TCP Keepalives lower than that time.
+
+- For an Inbound NAT rule with type set to *backend pool* to operate with Azure Private Link Service, a load balancing rule must be configured.
 
 ## Next steps
 

@@ -1,13 +1,13 @@
 ---
-title: Upgrading from basic Load Balancer - Guidance
+title: Upgrading from Basic Load Balancer - Guidance
 description: Upgrade guidance for migrating basic Load Balancer to standard Load Balancer.
 author: mbender-ms
-ms.service: load-balancer
+ms.service: azure-load-balancer
 ms.author: mbender
 ms.topic: conceptual
 ms.date: 09/27/2023
 ms.custom: template-concept
-#customer-intent: As an cloud engineer with basic Load Balancer services, I need guidance and direction on migrating my workloads off basic to standard SKUs
+# Customer intent: As an cloud engineer with basic Load Balancer services, I need guidance and direction on migrating my workloads off basic to standard SKUs
 ---
 
 # Upgrading from basic Load Balancer - Guidance
@@ -86,16 +86,21 @@ Suggested order of operations for manually upgrading a Basic Load Balancer in co
     1. Load balancing rules - use the temporary frontend configuration
     1. NAT rules - use the temporary frontend configuration
 1. For public load balancers, if you do not have one already, [create a new Network Security Group](../virtual-network/tutorial-filter-network-traffic.md) with allow rules for the traffic coming through the Load Balancer rules
-1. For Virtual Machine Scale Set backends, remove the Load Balancer association in the Networking settings and [update the instances](../virtual-machine-scale-sets/virtual-machine-scale-sets-upgrade-policy.md#performing-manual-upgrades) 
+1. For Virtual Machine Scale Set backends, remove the Load Balancer association in the Networking settings and [update the instances](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-perform-manual-upgrades) 
 1. Delete the Basic Load Balancer 
    > [!NOTE]
-   > For Virtual Machine Scale Set backends, you will need to remove the load balancer association in the Networking settings. Once removed, you will also need to [**update the instances**](../virtual-machine-scale-sets/virtual-machine-scale-sets-upgrade-policy.md#performing-manual-upgrades) 
+   > For Virtual Machine Scale Set backends, you will need to remove the load balancer association in the Networking settings. Once removed, you will also need to [**update the instances**](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-perform-manual-upgrades) 
 1. [Upgrade all Public IPs](../virtual-network/ip-services/public-ip-upgrade-portal.md) previously associated with the Basic Load Balancer and backend Virtual Machines to Standard SKU. For Virtual Machine Scale Sets, remove any instance-level public IP configuration, update the instances, then add a new one with Standard SKU and update the instances again. 
 1. Recreate the frontend configurations from the Basic Load Balancer on the newly created Standard Load Balancer, using the same public or private IP addresses as on the Basic Load Balancer
 1. Update the load balancing and NAT rules to use the appropriate frontend configurations
 1. For public Load Balancers, [create one or more outbound rules](./outbound-rules.md) to enable internet access for backend pools
 1. Remove the temporary frontend configuration
 1. Test that inbound and outbound traffic flow through the new Standard Load Balancer as expected 
+
+## FAQ
+
+### Will the Basic Load Balancer retirement impact Cloud Services Extended Support (CSES) deployments?
+No, this retirement will not impact your existing or new deployments on CSES. This means that you can still create and use Basic Load Balancers for CSES deployments. However, we advise using Standard SKU on ARM native resources (those that do not depend on CSES) when possible, because Standard has more advantages than Basic.
 
 ## Next Steps
 

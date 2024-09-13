@@ -6,8 +6,7 @@ summary: Web Application Firewall (WAF) provides centralized protection of your 
 metadata:
   title: Web Application Firewall documentation
   description: Learn about Web Application Firewall that can be deployed with Application Gateway and Front Door
-  services: web-application-firewall
-  ms.service: web-application-firewall
+  ms.service: azure-web-application-firewall
   ms.topic: landing-page
   author: vhorne
   ms.author: victorh
@@ -81,6 +80,17 @@ landingContent:
           - text: Configure a custom response
             url: ./afds/waf-front-door-configure-custom-response-code.md
 
+  # Card
+  - title: Learn about Azure Web Application Firewall integration in Copilot for Security
+    linkLists:
+      - linkListType: concept
+        links:
+         - text: Azure Web Application Firewall integration in Copilot for Security (preview)
+           url: waf-copilot.md
+         - text: Azure WAF integration in Copilot for Security - Protect web applications using Gen AI
+           url: https://techcommunity.microsoft.com/t5/azure-network-security-blog/azure-waf-integration-in-copilot-for-security-protect-web/ba-p/4145547
+
+
 # Card
   - title: Learn about Azure Web Application Firewall architecture
     linkLists:
@@ -98,3 +108,22 @@ landingContent:
         links:
          - text: Azure network security
            url: ../networking/security/index.yml
+
+# Card
+  - title: Reference
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: Azure CLI - Front Door
+            url: /cli/azure/network/front-door
+          - text: Azure CLI - Application Gateway
+            url: /cli/azure/network/application-gateway
+          - text: Azure PowerShell - Front Door
+            url: /powershell/module/az.frontdoor/
+          - text: Azure PowerShell - Application Gateway
+            url: /powershell/module/az.network/#application_gateway
+          - text: REST - Front Door
+            url: /rest/api/frontdoor
+          - text: REST - Application Gateway
+            url: /rest/api/application-gateway
+

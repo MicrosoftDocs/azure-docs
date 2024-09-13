@@ -2,12 +2,12 @@
 title: Traffic coverage
 titleSuffix: Microsoft Azure Maps
 description: Learn about traffic coverage in Azure Maps. See whether information on traffic flow and incidents is available in various regions throughout the world.
-author: eriklindeman
-ms.author: eriklind
+author: farazgis
+ms.author: fsiddiqui
 ms.date: 03/24/2022
 ms.topic: conceptual
 ms.service: azure-maps
-services: azure-maps
+ms.subservice: traffic
 ---
 
 
@@ -59,7 +59,6 @@ The following tables provide information about what kind of traffic information 
 
 | Country/Region         | Incidents | Flow |
 |------------------------|:---------:|:----:|
-| Belarus                |     ✓     |  ✓  |
 | Belgium                |     ✓     |  ✓  |
 | Bosnia and Herzegovina |     ✓     |  ✓  |
 | Bulgaria               |     ✓     |  ✓  |
@@ -88,7 +87,6 @@ The following tables provide information about what kind of traffic information 
 | Poland                 |     ✓     |  ✓  |
 | Portugal               |     ✓     |  ✓  |
 | Romania                |     ✓     |  ✓  |
-| Russian Federation     |     ✓     |  ✓  |
 | San Marino             |     ✓     |  ✓  |
 | Serbia                 |     ✓     |  ✓  |
 | Slovakia               |     ✓     |  ✓  |
@@ -97,7 +95,6 @@ The following tables provide information about what kind of traffic information 
 | Sweden                 |     ✓     |  ✓  |
 | Switzerland            |     ✓     |  ✓  |
 | Türkiye                |     ✓     |  ✓  |
-| Ukraine                |     ✓     |  ✓  |
 | United Kingdom         |     ✓     |  ✓  |
 
 ## Middle East & Africa
@@ -106,7 +103,6 @@ The following tables provide information about what kind of traffic information 
 |----------------------|:---------:|:----:|
 | Bahrain              |     ✓     |  ✓  |
 | Egypt                |     ✓     |  ✓  |
-| Israel               |     ✓     |  ✓  |
 | Kenya                |     ✓     |  ✓  |
 | Kuwait               |     ✓     |  ✓  |
 | Lesotho              |     ✓     |  ✓  |

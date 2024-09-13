@@ -6,28 +6,43 @@ items:
   items:
   - name: What is HDInsight on AKS?
     href: overview.md
+  - name: Preview information 
+    href: preview.md
   - name: What's new?
     href: whats-new.md 
-  - name: Preview information
-    href: preview.md
 - name: Quickstarts
   items:
   - name: Subscription prerequisites
-    href: prerequisites-subscription.md
+    href: quickstart-prerequisites-subscription.md
   - name: Resource prerequisites
-    href: prerequisites-resources.md
+    href: quickstart-prerequisites-resources.md
   - name: One click deployment
-    href: get-started.md
+    href: quickstart-get-started.md
+  - name: Create cluster pool
+    items:
+    - name: Create cluster pool - Azure portal
+      href: quickstart-create-cluster.md
+    - name: Create cluster pool - Azure CLI
+      href: quickstart-create-cli.md
+    - name: Create cluster pool - Azure PowerShell
+      href: quickstart-create-powershell.md
 - name: Concepts
   items:
+  - name: Reliability
+    href: ../reliability/reliability-hdinsight-on-aks.md?toc=/azure/hdinsight-aks/toc.json
   - name: Versioning
     href: versions.md 
   - name: Enterprise security
     items:
     - name: Security architecture and security pillars
       href: concept-security.md
+    - name: Security baseline for Azure HDInsight on AKS
+      href: /security/benchmark/azure/baselines/azure-hdinsight-on-aks-security-baseline
+      maintainContext: true
     - name: Network Security
       items:
+      - name: Ingress and Egress controls
+        href: ./control-egress-traffic-from-hdinsight-on-aks-clusters.md
       - name: Required outbound traffic
         href: ./required-outbound-traffic.md
   - name: Resource management
@@ -36,22 +51,18 @@ items:
     href: ./concept-azure-monitor-integration.md
   - name: Customize clusters
     href : ./customize-clusters.md
+  - name: In-place upgrades
+    href : ./in-place-upgrade.md  
 - name: Releases
   items:
   - name: Release notes
     href: ./release-notes/hdinsight-aks-release-notes.md
+  - name: Archived release notes
+    href: ./release-notes/hdinsight-aks-release-notes-archive.md
 - name: Get started
   items:
-  - name: Create a cluster pool and cluster
-    href: quickstart-create-cluster.md
   - name: Introduction to cluster storage
     href: cluster-storage.md
-  - name: Export ARM templates
-    items:
-    - name: Manual export
-      href: ./create-cluster-using-arm-template.md
-    - name: Script based export
-      href: ./create-cluster-using-arm-template-script.md
   - name: Secure network traffic  
     items:
     - name: Use firewall with Azure CLI
@@ -60,6 +71,20 @@ items:
       href: ./secure-traffic-by-firewall-azure-portal.md
     - name: Use NSG to restrict traffic
       href: ./secure-traffic-by-nsg.md
+  - name: Export cluster ARM template
+    items:
+    - name: Export ARM template using Azure portal
+      href: ./create-cluster-using-arm-template-script.md
+    - name: Export ARM template using Azure CLI
+      href: ./create-cluster-using-arm-template.md
+  - name: Tutorials
+    items: 
+    - name: Manage HDInsight on AKS clusters - .NET SDK
+      href: ./sdk-cluster-creation.md
+    - name: Manage HDInsight on AKS clusters - PowerShell
+      href: ./powershell-cluster-create.md
+    - name: Manage HDInsight on AKS clusters - REST API
+      href: ./rest-api-cluster-creation.md     
 - name: Manage
   items: 
   - name: Cluster pools
@@ -113,6 +138,8 @@ items:
       href: ./trino/trino-add-delta-lake-catalog.md
     - name: Configure Iceberg catalog
       href: ./trino/trino-add-iceberg-catalog.md
+    - name: Configure sharded SQL connector
+      href: ./trino/trino-sharded-sql-connector.md
   - name: Cluster management
     items:
     - name: Trino configuration
@@ -161,6 +188,8 @@ items:
     href: ./flink/flink-create-cluster-portal.md
   - name: Tutorials
     items:
+    - name: Application Mode clusters
+      href: ./flink/application-mode-cluster-on-hdinsight-on-aks.md
     - name: Configuration management
       href: ./flink/flink-configuration-management.md
     - name: Job management
@@ -168,7 +197,9 @@ items:
     - name: Hive dialect in Flink
       href: ./flink/hive-dialect-flink.md
     - name: Table API and SQL
-      href: ./flink/flink-table-api-and-sql.md    
+      href: ./flink/flink-table-api-and-sql.md
+    - name: SQL gateway
+      href: ./flink/start-sql-client-cli-gateway-mode.md  
   - name: How-to guides
     items:
     - name: General
@@ -191,7 +222,7 @@ items:
         href: ./flink/azure-iot-hub.md  
       - name:  Azure Pipelines
         href: ./flink/use-azure-pipelines-to-run-flink-jobs.md  
-      - name:  Azure Data Factory Managed Airflow
+      - name:  Azure Data Factory Workflow Orchestration Manager
         href: ./flink/flink-job-orchestration.md  
       - name:  Delta connectors
         href: ./flink/use-flink-delta-connector.md  
@@ -247,14 +278,16 @@ items:
     href: ./spark/create-spark-cluster.md
   - name: How-to guides
     items:
-    - name: Submit and manage jobs
-      href: ./spark/submit-manage-jobs.md
+    - name:  Azure Data Factory Workflow Orchestration Manager
+      href: ./spark/spark-job-orchestration.md  
     - name: Configuration management
       href: ./spark/configuration-management.md
-    - name: Library management 
-      href: ./spark/library-management.md
     - name: Connect to One Lake Storage
       href: ./spark/connect-to-one-lake-storage.md
+    - name: Library management 
+      href: ./spark/library-management.md
+    - name: Submit and manage jobs
+      href: ./spark/submit-manage-jobs.md  
     - name: Use Delta Lake scenario in Azure HDInsight on AKS cluster
       href: ./spark/azure-hdinsight-spark-on-aks-delta-lake.md
     - name: Use ML Notebook on Spark

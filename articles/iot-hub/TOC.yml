@@ -12,7 +12,7 @@
       href: quickstart-send-telemetry-cli.md
     - name: Send telemetry using SDK
       displayName: IoT Plug and Play, Azure IoT Explorer
-      href: ../iot-develop/quickstart-send-telemetry-iot-hub.md?toc=/azure/iot-hub/toc.json&bc=/azure/iot-hub/breadcrumb/toc.json
+      href: ../iot/tutorial-send-telemetry-iot-hub.md?toc=/azure/iot-hub/toc.json&bc=/azure/iot-hub/breadcrumb/toc.json
     - name: Control a device
       displayName: direct method, Azure IoT Explorer
       href: quickstart-control-device.md
@@ -47,9 +47,13 @@
       - name: Visualize data in Power BI
         displayName: Stream Analytics
         href: iot-hub-live-data-visualization-in-power-bi.md
-      - name: Visualize data in an App Service web app
+      - name: Visualize data in App Service web apps
         displayName: Node.js
         href: iot-hub-live-data-visualization-in-web-apps.md
+      - name: Monitor and notify with Logic Apps
+        displayName: Service Bus, queue, namespace
+        href: iot-hub-monitoring-notifications-with-azure-logic-apps.md
+
 - name: Concepts
   items:
     - name: IoT Hub concepts overview
@@ -74,7 +78,7 @@
       - name: Schedule jobs on multiple devices
         href: iot-hub-devguide-jobs.md
       - name: IoT Hub endpoints
-        displayName: multi-tenant
+        displayName: multitenant
         href: iot-hub-devguide-endpoints.md
       - name: Queries
         items:
@@ -127,7 +131,7 @@
         href: iot-hub-message-enrichments-overview.md
     - name: Message routing
       items:
-      - name: Use message routing to send device-to-cloud messages
+      - name: Route device-to-cloud messages to Azure services
         displayName: endpoints, built-in endpoint, Azure storage, Service Bus Queues, fallback, route
         href: iot-hub-devguide-messages-d2c.md
       - name: Add queries to message routes
@@ -212,25 +216,12 @@
     - name: Manage
       items:
         - name: Create an IoT hub
-          items:
-            - name: Use Azure portal
-              displayName: create IoT Hub, register device, message routing, delete IoT hub
-              href: iot-hub-create-through-portal.md
-            - name: Use Visual Studio Code
-              displayName: create IoT Hub, register device, message routing, delete IoT hub
-              href: iot-hub-create-use-iot-toolkit.md
-            - name: Use Azure PowerShell
-              displayName: create IoT Hub, register device, message routing, delete IoT hub
-              href: iot-hub-create-using-powershell.md
-            - name: Use Azure CLI
-              displayName: create IoT Hub, register device, message routing, delete IoT hub, az iot hub create
-              href: iot-hub-create-using-cli.md
-            - name: Use the REST API
-              displayName: create IoT Hub, register device, message routing, delete IoT hub, Azure Resource Manager
-              href: iot-hub-rm-rest.md
-            - name: Use a template from Azure PowerShell
-              displayName: create IoT Hub, register device, message routing, delete IoT hub, Azure Resource Manager
-              href: iot-hub-rm-template-powershell.md
+          displayName: create IoT Hub, delete IoT hub, portal, CLI
+          href: create-hub.md
+        - name: Create and connect a device
+          href: create-connect-device.md
+        - name: Manage device twins
+          href: manage-device-twins.md
         - name: Create message routes and endpoints
           items:
             - name: Azure portal
@@ -284,66 +275,22 @@
             - name: Use Azure CLI
               displayName: automatic device management
               href: iot-hub-automatic-device-management-cli.md
-        - name: Manage device twin tags
-          href: iot-hubs-manage-device-twin-tags.md
     - name: Develop
       items:
         - name: Send cloud-to-device messages
-          items:
-            - name: .NET
-              displayName: cloud-to-device messages, C2D, csharp, C#
-              href: c2d-messaging-dotnet.md
-            - name: Python
-              displayName: cloud-to-device messages, C2D
-              href: c2d-messaging-python.md
-            - name: Node.js
-              displayName: cloud-to-device messages, C2D
-              href: c2d-messaging-node.md
-            - name: Java
-              displayName: cloud-to-device messages, C2D
-              href: c2d-messaging-java.md
-            - name: iOS
-              displayName: cloud-to-device messages, C2D
-              href: c2d-messaging-ios.md
+          displayName: cloud-to-device messages
+          href: how-to-cloud-to-device-messaging.md
         - name: Upload files from devices
-          items:
-            - name: .NET
-              displayName: file upload, upload files, csharp, C#
-              href: file-upload-dotnet.md
-            - name: Python
-              displayName: file upload, upload files
-              href: file-upload-python.md
-            - name: Node.js
-              displayName: file upload, upload files
-              href: file-upload-node.md
-            - name: Java
-              displayName: file upload, upload files
-              href: file-upload-java.md
+          displayName: file upload, upload files
+          href: how-to-file-upload.md
         - name: Get started with device twins
-          items:
-            - name: CLI
-              displayName: device twins
-              href: device-twins-cli.md
-            - name: .NET
-              displayName: device twins
-              href: device-twins-dotnet.md
-            - name: Python
-              displayName: device twins
-              href: device-twins-python.md
-            - name: Node.js
-              displayName: device twins
-              href: device-twins-node.md
-            - name: Java
-              displayName: device twins
-              href: device-twins-java.md
+          displayName: device twins
+          href: how-to-device-twins.md   
         - name: Get started with module twins
           items:
             - name: Portal
               displayName: module twins, module identity
               href: module-twins-portal-dotnet.md
-            - name: CLI
-              displayName: module twins, module identity
-              href: module-twins-cli.md
             - name: .NET
               displayName: module twins, module identity
               href: module-twins-dotnet.md
@@ -353,9 +300,6 @@
             - name: Node.js
               displayName: module twins, module identity
               href: module-twins-node.md
-            - name: C
-              displayName: module twins, module identity
-              href: module-twins-c.md
         - name: Get started with device management
           items:
             - name: CLI
@@ -393,12 +337,12 @@
         - name: Query Avro data from a hub route
           displayName: Azure Data Lake, U-SQL
           href: iot-hub-query-avro-data.md
+        - name: Use Raspberry Pi to run samples
+          href: raspberry-pi-get-started.md
     - name: Monitor
       items:
         - name: Monitor IoT Hub
           href: monitor-iot-hub.md
-        - name: Monitoring data reference
-          href: monitor-iot-hub-reference.md
         - name: Enable message tracing
           displayName: monitor, distributed tracing
           href: iot-hub-distributed-tracing.md
@@ -421,26 +365,7 @@
         - name: Deploy an update
           displayName: device update
           href: ../iot-hub-device-update/deploy-update.md
-    - name: Use real devices
-      items:
-        - name: Use an online simulator
-          displayName: Raspberry Pi, assembly area, coding area, integrated console window, create IoT hub, register new device, Pi web simulator
-          href: iot-hub-raspberry-pi-web-simulator-get-started.md
-        - name: Use a physical device
-          displayName: IoT scenarios, Node.js, C
-          href: iot-hub-get-started-physical.md
-          items:
-            - name: Raspberry Pi with Node.js
-              displayName: BME280 sensor
-              href: iot-hub-raspberry-pi-kit-node-get-started.md
-            - name: Raspberry Pi with C
-              displayName: BME280 sensor
-              href: iot-hub-raspberry-pi-kit-c-get-started.md
-    - name: Extended IoT scenarios
-      items:
-        - name: Remote monitoring and notifications with Logic Apps
-          href: iot-hub-monitoring-notifications-with-azure-logic-apps.md
-    - name: Troubleshoot and problem solution
+    - name: Troubleshoot and resolve problems
       items:
         - name: Troubleshoot device connectivity
           href: iot-hub-troubleshoot-connectivity.md
@@ -526,8 +451,8 @@
         - name: TLS 1.0 and 1.1 deprecation
           displayName: Transport Layer Security 
           href: iot-hub-tls-deprecating-1-0-and-1-1.md
-        - name: Classic IP filter
-          href: iot-hub-ip-filter-classic.md
+    - name: Monitoring data reference
+      href: monitor-iot-hub-reference.md
 - name: Resources
   items:
     - name: Support and help options
@@ -550,15 +475,12 @@
         href: ../azure-maps/index.yml
       - name: Time Series Insights
         href: ../time-series-insights/index.yml
-    - name: IoT device developer
-      displayName: MXCHIP, microchip, NXP MIMXRT, evaluation kit, STMicroelectronics
-      href: ../iot-develop/index.yml
     - name: Azure IoT SDKs
       items:
       - name: IoT Service SDKs
         href: ./iot-hub-devguide-sdks.md#azure-iot-hub-service-sdks
       - name: IoT Device SDKs
-        href: ../iot-develop/about-iot-sdks.md
+        href: ../iot/iot-sdks.md
     - name: Azure IoT samples
       items:
       - name: C# (.NET)
@@ -596,8 +518,6 @@
       - name: IoT Hub shared access policy data source
         displayName: Terraform
         href: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/data-sources/iothub_shared_access_policy
-    - name: Azure Certified Device catalog
-      href: https://devicecatalog.azure.com/
     - name: Azure IoT Developer Center
       href: https://azure.microsoft.com/develop/iot/
     - name: Customer data requests
@@ -620,6 +540,6 @@
     - name: Service updates
       href: https://azure.microsoft.com/updates/?product=iot-hub
     - name: Technical case studies
-      href: https://microsoft.github.io/techcasestudies/#technology=IoT&sortBy=featured
+      href: https://microsoft.github.io/generative-ai-for-beginners/#technology=IoT&sortBy=featured
     - name: Videos
       href: https://azure.microsoft.com/documentation/videos/index/?services=iot-hub

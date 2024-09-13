@@ -3,15 +3,18 @@ title: Alias records overview - Azure DNS
 description: In this article, learn about support for alias records in Microsoft Azure DNS.
 services: dns
 author: greg-lindsay
-ms.service: dns
-ms.topic: article
-ms.date: 11/22/2023
+ms.service: azure-dns
+ms.topic: concept-article
+ms.date: 03/08/2024
 ms.author: greglin
 ---
 
 # Azure DNS alias records overview
 
 Azure DNS alias records are qualifications on a DNS record set. They can reference other Azure resources from within your DNS zone. For example, you can create an alias record set that references an Azure public IP address instead of an A record. Your alias record set points to an Azure public IP address service instance dynamically. As a result, the alias record set seamlessly updates itself during DNS resolution.
+
+> [!NOTE]
+> To create alias records, you must register the **Microsoft.Network** resource provider. If the DNS zone and the alias target resource are in different subscriptions, both subscriptions must be registered. For more information, see [Resolve errors for resource provider registration](/azure/azure-resource-manager/troubleshooting/error-register-resource-provider?tabs=azure-portal#solution).
 
 An alias record set is supported for the following record types in an Azure DNS zone: 
 

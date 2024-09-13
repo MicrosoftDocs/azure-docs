@@ -1,14 +1,17 @@
 ---
 title: Use NSG to restrict traffic on HDInsight on AKS
 description: Learn how to secure traffic by NSGs on HDInsight on AKS 
-ms.service: hdinsight-aks
+ms.service: azure-hdinsight-on-aks
 ms.topic: how-to
 ms.date: 08/3/2023
 ---
 
 # Use NSG to restrict traffic to HDInsight on AKS
 
+[!INCLUDE [retirement-notice](includes/retirement-notice.md)]
 [!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
+
+
 
 HDInsight on AKS relies on AKS outbound dependencies and they're entirely defined with FQDNs, which don't have static addresses behind them. The lack of static IP addresses means one can't use Network Security Groups (NSGs) to lock down the outbound traffic from the cluster using IPs. 
 
@@ -54,7 +57,7 @@ When clusters are created, then certain ingress public IPs also get created. To 
 The following Azure CLI command can help you get the ingress public IP:
 
 ``` 
-aksManagedResourceGroup=`az rest --uri https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HDInsight/clusterpools/{clusterPoolName}\?api-version\=2023-06-01-preview --query properties.managedResourceGroupName -o tsv --query properties.aksManagedResourceGroupName -o tsv`
+aksManagedResourceGroup="az rest --uri https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.HDInsight/clusterpools/{clusterPoolName}\?api-version\=2023-06-01-preview --query properties.managedResourceGroupName -o tsv --query properties.aksManagedResourceGroupName -o tsv"
 
 az network public-ip list --resource-group $aksManagedResourceGroup --query "[?starts_with(name, 'kubernetes')].{Name:name, IngressPublicIP:ipAddress}" --output table
 ```

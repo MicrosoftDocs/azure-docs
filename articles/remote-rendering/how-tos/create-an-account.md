@@ -70,6 +70,8 @@ The value for **`arrAccountKey`** can either be primary or secondary key.
 
 This paragraph explains how to link storage accounts to your Remote Rendering account. With a linked account, it isn't necessary anymore to generate a SAS URI every time you want to interact with the data in your account. Instead, you can use the storage account names directly as described in the [loading a model section](../concepts/models.md#loading-models).
 
+Another advantage of this approach is that the storage access level can be limited to private endpoints as described in the [Azure documentation how to configure Storage firewalls and virtual networks](../../storage/common/storage-network-security.md#change-the-default-network-access-rule). Loading from blob storage through a SAS token on the other hand only works if the blob storage has been configured with the "Enabled from all networks" option.
+
 The steps in this paragraph have to be performed for each storage account that should use this access method. If you haven't created storage accounts yet, you can walk through the respective step in the [convert a model for rendering quickstart](../quickstarts/convert-model.md#storage-account-creation).
 
 1. Navigate to your storage account in the Azure portal
@@ -80,13 +82,13 @@ The steps in this paragraph have to be performed for each storage account that s
 
    If the **Add a role assignment** option is disabled, you probably don't have owner permissions to this storage account.
 
-4. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
+4. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.yml).
    1. Select the **Storage Blob Data Contributor** role and click **Next**.
    1. Choose to assign access to a **Managed Identity**.
    1. Select **Select members**, select your subscription, select **Remote Rendering Account**, select your remote rendering account, and then click **Select**.
    1. Select **Review + assign** and select **Review + assign** again.
 
-    ![Screenshot showing Add role assignment page in Azure portal.](../../../includes/role-based-access-control/media/add-role-assignment-page.png)
+    ![Screenshot showing Add role assignment page in Azure portal.](~/reusable-content/ce-skilling/azure/media/role-based-access-control/add-role-assignment-page.png)
 
 > [!WARNING]
 > If your Remote Rendering account is not listed, refer to this [troubleshoot section](../resources/troubleshoot.md#cant-link-storage-account-to-arr-account).

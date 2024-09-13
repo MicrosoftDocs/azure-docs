@@ -6,14 +6,10 @@ summary: Learn how to use Azure Event Grid to react to relevant events across bo
 metadata:
   title: Azure Event Grid documentation
   description: Learn how to use Azure Event Grid to react to relevant events across both Azure and non-Azure services in near-real time fashion.
-  services: event-grid
-  ms.service: event-grid
-  ms.subservice:
   ms.custom:
     - build-2023
     - ignite-2023
   ms.topic: landing-page
-  ms.collection: collection
   author: spelluru
   ms.author: spelluru
   ms.date: 11/15/2023
@@ -48,8 +44,10 @@ landingContent:
             url: publish-events-using-namespace-topics.md
       - linkListType: tutorial
         links:
-          - text: Route MQTT messages to Azure Event Hubs
-            url: mqtt-routing-to-event-hubs-portal.md
+          - text: Route MQTT messages to Azure Event Hubs using namespace topics
+            url: mqtt-routing-to-event-hubs-portal-namespace-topics.md
+          - text: Route MQTT messages to Azure Functions using custom topics
+            url: mqtt-routing-to-azure-functions-portal.md
       - linkListType: sample
         links:
           - text: Code samples

@@ -40,6 +40,8 @@
         href: cache-dotnet-how-to-use-azure-redis-cache.md
       - name: Java app
         href: cache-java-get-started.md
+      - name: Java app with JCache
+        href: cache-java-redisson-get-started.md
       - name: Node.js app
         href: cache-nodejs-get-started.md
       - name: Python app
@@ -106,15 +108,14 @@
 
 - name: Logs and monitoring
   items:
-  - name: Monitor in Azure portal
-    href: cache-how-to-monitor.md
-  - name: Set alerts for exceptions
-    href: cache-how-to-monitor.md#create-alerts
-  - name: Monitor with diagnostic logs
-    href: cache-monitor-diagnostic-settings.md
-  - name: Use Insights to understand performance and utilization
+  - name: Monitor Cache for Redis
+    href: monitor-cache.md
+  - name: Monitor using insights
     href: cache-insights-overview.md
-
+  - name: Monitor using diagnostic settings
+    href: cache-monitor-diagnostic-settings.md
+  - name: List of Redis metrics
+    href: monitor-cache-reference.md#metrics
 - name: Scaling and performance
   items:
   - name: Change the size and tier of a cache
@@ -125,14 +126,16 @@
     href: cache-best-practices-scale.md
   - name: Server load management best practice
     href: cache-best-practices-server-load.md
+  - name: Performance testing
+    href: cache-best-practices-performance.md
 
 
 - name: Authentication and authorization
   items:
-  - name: Role-based access control
-    href: cache-configure-role-based-access-control.md
   - name: Microsoft Entra ID for authentication
     href: cache-azure-active-directory-for-authentication.md
+  - name: Role-based access control
+    href: cache-configure-role-based-access-control.md
   - name: Managed identity for storage accounts
     href: cache-managed-identity.md
 
@@ -142,6 +145,8 @@
       href: cache-network-isolation.md
     - name: Connect to cache using Private Link
       href: cache-private-link.md
+    - name: Using TLS with a cache
+      href: cache-tls-configuration.md
     - name: Migrate from VNet injection to Private Link
       href: cache-vnet-migration.md
     - name: Secure your cache with a virtual network
@@ -167,7 +172,7 @@
     href: cache-administration.md#reboot
   - name: Update channel and schedule updates
     href: cache-administration.md#update-channel-and-schedule-updates
-  - name: Configure redis-cli.exe access
+  - name: Configure redis-cli access
     href: cache-how-to-redis-cli-tool.md
   - name: Create and manage a cache using CLI
     href: cache-manage-cli.md
@@ -232,12 +237,16 @@
       href: cache-best-practices-kubernetes.md
   - name: Artificial Intelligence
     items:
-      - name: Vector Search
+      - name: Vector search concepts
         href: cache-overview-vector-similarity.md
       - name: Vector similarity search
         href: cache-tutorial-vector-similarity.md
+      - name: Semantic caching
+        href: cache-tutorial-semantic-cache.md
   - name: ASP.NET
     items:
+    - name: Use ASP.NET core output cache
+      href: cache-aspnet-core-output-cache-provider.md
     - name: Use session state provider
       href: cache-aspnet-session-state-provider.md
     - name: Use output cache provider
@@ -288,6 +297,8 @@
     href: ./policy-reference.md
   - name: Redis commands
     href: https://redis.io/commands#
+  - name: Monitoring data reference
+    href: monitor-cache-reference.md
 
 - name:  Resources
   items:
@@ -325,4 +336,3 @@
        href: cache-best-practices-scale.md
      - name: Server load management
        href: cache-best-practices-server-load.md
-

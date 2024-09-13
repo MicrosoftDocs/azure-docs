@@ -1,12 +1,10 @@
 ---
 title: Manage packages with Azure-SSIS Integration Runtime package store
-description: Learn how to manage packages with Azure-SSIS Integration Runtime package store. 
-ms.service: data-factory
+description: Learn how to manage packages with Azure-SSIS Integration Runtime package store.
 ms.subservice: integration-services
 ms.topic: conceptual
 author: chugugrace
 ms.author: chugu
-ms.custom: seo-lt-2019
 ms.date: 10/20/2023
 ---
 
@@ -200,6 +198,6 @@ dtutil /SQL YourFolder\YourPackage3 /ENCRYPT FILE;Z:\YourFolder\YourPackage3.dts
 
 If you've configured Azure-SSIS IR package stores on top of Azure Files, your deployed packages will appear in them when you connect to your Azure-SSIS IR on SSMS 2019 or later versions.
 
-## Next steps
+## Related content
 
 You can rerun/edit the auto-generated ADF pipelines with Execute SSIS Package activities or create new ones on ADF portal. For more information, see [Run SSIS packages as Execute SSIS Package activities in ADF pipelines](./how-to-invoke-ssis-package-ssis-activity.md).

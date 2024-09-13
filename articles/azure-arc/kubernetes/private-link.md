@@ -1,12 +1,12 @@
 ---
-title: Private connectivity for Azure Arc-enabled Kubernetes clusters using private link (preview)
+title: Use private connectivity for Azure Arc-enabled Kubernetes clusters with private link (preview)
 ms.date: 09/21/2022
-ms.topic: article
+ms.topic: how-to
 description: With Azure Arc, you can use a Private Link Scope model to allow multiple Kubernetes clusters to use a single private endpoint.
 ms.custom: references_regions
 ---
 
-# Private connectivity for Arc-enabled Kubernetes clusters using private link (preview)
+# Use private connectivity for Arc-enabled Kubernetes clusters with private link (preview)
 
 [Azure Private Link](../../private-link/private-link-overview.md) allows you to securely link Azure services to your virtual network using private endpoints. This means you can connect your on-premises Kubernetes clusters with Azure Arc and send all traffic over an Azure ExpressRoute or site-to-site VPN connection instead of using public networks. In Azure Arc, you can use a Private Link Scope model to allow multiple Kubernetes clusters to communicate with their Azure Arc resources using a single private endpoint.
 
@@ -32,7 +32,7 @@ For more information, see [Key benefits of Azure Private Link](../../private-lin
 
 Azure Arc Private Link Scope connects private endpoints (and the virtual networks they're contained in) to an Azure resource, in this case Azure Arc-enabled Kubernetes clusters. When you enable any one of the Arc-enabled Kubernetes cluster supported extensions, such as Azure Monitor, then connection to other Azure resources may be required for these scenarios. For example, in the case of Azure Monitor, the logs collected from the cluster are sent to Log Analytics workspace.
 
-Connectivity to the other Azure resources from an Arc-enabled Kubernetes cluster listed earlier requires configuring Private Link for each service. For an example, see [Private Link for Azure Monitor](../../azure-monitor/logs/private-link-security.md).
+Connectivity to the other Azure resources from an Arc-enabled Kubernetes cluster listed earlier requires configuring Private Link for each service. For an example, see [Private Link for Azure Monitor](/azure/azure-monitor/logs/private-link-security).
 
 ## Current limitations
 
@@ -52,7 +52,7 @@ Consider these current limitations when planning your Private Link setup.
 On Azure Arc-enabled Kubernetes clusters configured with private links, the following extensions support end-to-end connectivity through private links. Refer to the guidance linked to each cluster extension for additional configuration steps and details on support for private links.
 
 * [Azure GitOps](conceptual-gitops-flux2.md)
-* [Azure Monitor](../../azure-monitor/logs/private-link-security.md)
+* [Azure Monitor](/azure/azure-monitor/logs/private-link-security)
 
 ## Planning your Private Link setup
 
@@ -199,4 +199,4 @@ If you run into problems, the following suggestions may help:
 
 * Learn more about [Azure Private Endpoint](../../private-link/private-link-overview.md).
 * Learn how to [troubleshoot Azure Private Endpoint connectivity problems](../../private-link/troubleshoot-private-endpoint-connectivity.md).
-* Learn how to [configure Private Link for Azure Monitor](../../azure-monitor/logs/private-link-security.md).
+* Learn how to [configure Private Link for Azure Monitor](/azure/azure-monitor/logs/private-link-security).

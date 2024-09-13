@@ -2,10 +2,9 @@
 title: Create a custom image for Azure confidential VMs
 description: Learn how to use the Azure CLI to create a Confidential VM custom image from a vhd.
 author: simranparkhe
-ms.service: virtual-machines
+ms.service: azure-virtual-machines
 mms.subservice: confidential-computing
 ms.topic: how-to
-ms.workload: infrastructure
 ms.date: 6/09/2023
 ms.author: corsini
 ms.custom: devx-track-azurecli
@@ -78,23 +77,23 @@ az group create --name $resourceGroupName --location eastus
 #### Create a confidential supported image
 
 1. Create a Shared Image Gallery.
-   ```azurecli
+    ```azurecli
     az sig create --resource-group $resourceGroupName --gallery-name $galleryName
     ```
 2. Create a [shared image gallery (SIG) definition](/cli/azure/sig/image-definition) confidential VM supported. Set new names for gallery image definition, SIG publisher, and SKU.  
-   ```azurecli
+    ```azurecli
     az sig image-definition create --resource-group  $resourceGroupName --location $region --gallery-name $galleryName --gallery-image-definition $imageDefinitionName --publisher $sigPublisherName --offer ubuntu --sku $sigSkuName --os-type Linux --os-state specialized --hyper-v-generation V2  --features SecurityType=ConfidentialVMSupported
     ```
 3. Get the storage account ID.
-   ```azurecli
+    ```azurecli
     storageAccountId=$(az storage account show --name $storageAccountName --resource-group $resourceGroupName | jq -r .id)
     ```
 4. Create a SIG image version.
-   ```azurecli
+    ```azurecli
     az sig image-version create --resource-group $resourceGroupName --gallery-name $galleryName --gallery-image-definition $imageDefinitionName --gallery-image-version $galleryImageVersion --os-vhd-storage-account $storageAccountId --os-vhd-uri $blob_url
     ```
 5. Store the ID of the SIG image version created in the previous step.
-   ```azurecli
+    ```azurecli
     galleryImageId=$(az sig image-version show --gallery-image-definition $imageDefinitionName --gallery-image-version $galleryImageVersion --gallery-name $galleryName --resource-group $resourceGroupName | jq -r .id)
     ```
 #### Create a confidential VM
@@ -115,4 +114,4 @@ az group create --name $resourceGroupName --location eastus
     ```
 ## Next Steps
 > [!div class="nextstepaction"]
-> [Connect and attest the CVM through Microsoft Azure Attestation Sample App](quick-create-confidential-vm-azure-cli-amd.md)
+> [Connect and attest the CVM through Microsoft Azure Attestation Sample App](quick-create-confidential-vm-azure-cli.md)

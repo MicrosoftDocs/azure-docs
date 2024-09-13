@@ -1,7 +1,6 @@
 ---
 title: Continuous integration and delivery pre- and post-deployment scripts
 description: Learn how to use a pre- and post-deployment script with continuous integration and delivery in Azure Data Factory from this sample.
-ms.service: data-factory
 ms.subservice: ci-cd
 author: nabhishek
 ms.author: abnarain
@@ -85,7 +84,7 @@ The following YAML code executes a script that can be used to stop triggers befo
               workingDirectory: ../
 ```
 
-## Next steps
+## Related content
 
 - [Continuous integration and delivery overview](continuous-integration-delivery.md)
 - [Automate continuous integration using Azure Pipelines releases](continuous-integration-delivery-automate-azure-pipelines.md)

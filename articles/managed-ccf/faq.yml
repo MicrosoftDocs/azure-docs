@@ -4,9 +4,8 @@ metadata:
   description: Get answers to frequently asked questions about Azure Managed Confidential Consortium Framework
   services: managed-ccf
   author: msmbaldwin
-  tags: azure-resource-manager
-  
-  ms.service: managed-ccf
+    
+  ms.service: azure-managed-ccf
   ms.topic: faq
   ms.date: 09/15/2023
   ms.author: mbaldwin

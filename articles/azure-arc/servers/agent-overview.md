@@ -1,13 +1,17 @@
 ---
 title:  Overview of the Azure Connected Machine agent
 description: This article provides a detailed overview of the Azure Connected Machine agent, which supports monitoring virtual machines hosted in hybrid environments.
-ms.date: 09/11/2023
-ms.topic: conceptual
+ms.date: 08/07/2024
+ms.topic: overview
 ---
 
 # Overview of Azure Connected Machine agent
 
 The Azure Connected Machine agent enables you to manage your Windows and Linux machines hosted outside of Azure on your corporate network or other cloud providers.
+
+> [!WARNING]
+> Only Connected Machine agent versions within the last 1 year are officially supported by the product group. Customers should update to an agent version within this window.
+> 
 
 ## Agent components
 
@@ -28,7 +32,11 @@ The Azure Connected Machine agent package contains several logical components bu
 * The Extension agent manages VM extensions, including install, uninstall, and upgrade. Azure downloads extensions and copies them to the `%SystemDrive%\%ProgramFiles%\AzureConnectedMachineAgent\ExtensionService\downloads` folder on Windows, and to `/opt/GC_Ext/downloads` on Linux. On Windows, the extension installs to the following path `%SystemDrive%\Packages\Plugins\<extension>`, and on Linux the extension installs to `/var/lib/waagent/<extension>`.
 
 >[!NOTE]
-> The [Azure Monitor agent](../../azure-monitor/agents/azure-monitor-agent-overview.md) (AMA) is a separate agent that collects monitoring data, and it does not replace the Connected Machine agent; the AMA only replaces the Log Analytics agent, Diagnostics extension, and Telegraf agent for both Windows and Linux machines.
+> The [Azure Monitor agent (AMA)](/azure/azure-monitor/agents/azure-monitor-agent-overview) is a separate agent that collects monitoring data, and it does not replace the Connected Machine agent; the AMA only replaces the Log Analytics agent, Diagnostics extension, and Telegraf agent for both Windows and Linux machines.
+
+### Azure Arc Proxy
+
+The Azure Arc Proxy service is responsible for aggregating network traffic from the Azure Connected Machine agent services and any extensions you’ve installed and deciding where to route that data. If you’re using the [Azure Arc gateway (Limited preview)](arc-gateway.md) to simplify your network endpoints, the Azure Arc Proxy service is the local component that forwards network requests via the Azure Arc gateway instead of the default route. The Azure Arc Proxy runs as a Network Service on Windows and a standard user account (arcproxy) on Linux. It's disabled by default until you configure the agent to use the Azure Arc gateway (Limited preview).
 
 ## Agent resources
 
@@ -151,8 +159,8 @@ Installing the Connected Machine agent for Linux applies the following system-wi
 
 The Azure Connected Machine agent is designed to manage agent and system resource consumption. The agent approaches resource governance under the following conditions:
 
-* The Guest Configuration agent can use up to 5% of the CPU to evaluate policies.
-* The Extension Service agent can use up to 5% of the CPU on Windows machines and 30% of the CPU on Linux machines to install, upgrade, run, and delete extensions. Some extensions might apply more restrictive CPU limits once installed. The following exceptions apply:
+* The Machine Configuration (formerly Guest Configuration) service can use up to 5% of the CPU to evaluate policies.
+* The Extension service can use up to 5% of the CPU on Windows machines and 30% of the CPU on Linux machines to install, upgrade, run, and delete extensions. Some extensions might apply more restrictive CPU limits once installed. The following exceptions apply:
 
   | Extension type | Operating system | CPU limit |
   | -------------- | ---------------- | --------- |
@@ -173,11 +181,29 @@ During normal operations, defined as the Azure Connected Machine agent being con
 
 The performance data above was gathered in April 2023 on virtual machines running Windows Server 2022 and Ubuntu 20.04. Actual agent performance and resource consumption will vary based on the hardware and software configuration of your servers.
 
+### Custom resource limits
+
+The default resource governance limits are the best choice for most servers. However, small virtual machines and servers with limited CPU resources might encounter timeouts when managing extensions or evaluating policies because there aren't enough CPU resources to complete the tasks. Starting with agent version 1.39, you can customize the CPU limits applied to the extension manager and Machine Configuration services to help the agent complete these tasks faster.
+
+To see the current resource limits for the extension manager and Machine Configuration services, run the following command.
+
+```bash
+azcmagent config list
+```
+
+In the output, you'll see two fields, `guestconfiguration.agent.cpulimit` and `extensions.agent.cpulimit` with the current resource limit specified as a percentage. On a fresh install of the agent, both will show `5` because the default limit is 5% of the CPU.
+
+To change the resource limit for the extension manager to 80%, run the following command:
+
+```bash
+azcmagent config set extensions.agent.cpulimit 80
+```
+
 ## Instance metadata
 
 Metadata information about a connected machine is collected after the Connected Machine agent registers with Azure Arc-enabled servers. Specifically:
 
-* Operating system name, type, and version
+* Operating system name, edition, type, and version
 * Computer name
 * Computer manufacturer and model
 * Computer fully qualified domain name (FQDN)
@@ -196,6 +222,15 @@ Metadata information about a connected machine is collected after the Connected 
 * Total physical memory
 * Serial number
 * SMBIOS asset tag
+* Network interface information
+  * IP address
+  * Subnet
+* Windows licensing information
+  * OS license status
+  * OS license channel
+  * Extended Security Updates eligibility
+  * Extended Security Updates license status
+  * Extended Security Updates license channel
 * Cloud provider
 * Amazon Web Services (AWS) metadata, when running in AWS:
   * Account ID
@@ -209,6 +244,8 @@ Metadata information about a connected machine is collected after the Connected 
   * Project number
   * Service accounts
   * Zone
+* Oracle Cloud Infrastructure metadata, when running in OCI:
+  * Display name
 
 The agent requests the following metadata information from Azure:
 
@@ -224,9 +261,15 @@ The agent requests the following metadata information from Azure:
 
 ## Deployment options and requirements
 
-Agent deployment and machine connection requires certain [prerequisites](prerequisites.md). There are also [networking requirements](network-requirements.md) to be aware of.
+Agent deployment and machine connection require certain [prerequisites](prerequisites.md). There are also [networking requirements](network-requirements.md) to be aware of.
 
 We provide several options for deploying the agent. For more information, see [Plan for deployment](plan-at-scale-deployment.md) and [Deployment options](deployment-options.md).
+
+## Disaster Recovery
+
+There are no customer-enabled disaster recovery options for Arc-enabled servers. In the event of an outage in an Azure region, the system will failover to another region in the same [Azure geography](https://azure.microsoft.com/explore/global-infrastructure/geographies/) (if one exists). While this failover procedure is automatic, it does take some time. The Connected Machine agent will be disconnected during this period and will show a status of **Disconnected** until the failover is complete. The system will failback to its original region once the outage has been restored.
+
+An outage of Azure Arc won't affect the customer workload itself; only management of the applicable servers via Arc will be impaired.
 
 ## Next steps
 

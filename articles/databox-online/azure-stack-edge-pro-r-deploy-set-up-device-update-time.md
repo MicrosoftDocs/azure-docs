@@ -72,7 +72,7 @@ Follow these steps to configure device related settings:
 
         ![Local web UI "Update Server" page](./media/azure-stack-edge-pro-r-deploy-set-up-device-update-time/device-7.png)
 
-        You can also choose to deploy updates from the **Windows Server Update services** (WSUS). Provide the path to the WSUS server.
+        You can also choose to deploy updates from the **Windows Server Update services (WSUS)**. Provide the path to the WSUS server.
         
         ![Local web UI "Update Server" page 2](./media/azure-stack-edge-pro-r-deploy-set-up-device-update-time/update-3.png)
 

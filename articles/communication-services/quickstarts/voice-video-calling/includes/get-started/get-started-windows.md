@@ -38,7 +38,7 @@ In Visual Studio, create a new project with the **Blank App (Universal Windows)*
 
 #### Install the package
 
-Right select your project and go to `Manage Nuget Packages` to install `Azure.Communication.Calling.WindowsClient` [1.2.0-beta.1](https://www.nuget.org/packages/Azure.Communication.Calling.WindowsClient/1.2.0-beta.1) or superior. Make sure Include Preleased is checked.
+Right select your project and go to `Manage Nuget Packages` to install `Azure.Communication.Calling.WindowsClient` [1.4.0](https://www.nuget.org/packages/Azure.Communication.Calling.WindowsClient/1.4.0) or superior. Make sure `Include Prerelease` is checked if you want to see the versions for public preview.
 
 #### Request access
 
@@ -63,6 +63,9 @@ Open the `MainPage.xaml` of your project and add the `Grid` node to your `Page`:
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" Width="800" Height="600">
+
+        <!-- Don't forget to replace ‘CallingQuickstart’ with your project’s name -->
+
 
     <Grid>
         <Grid.RowDefinitions>
@@ -132,7 +135,6 @@ namespace CallingQuickstart
         private CommunicationCall call;
 
         private LocalOutgoingAudioStream micStream;
-        private LocalOutgoingVideoStream cameraStream;
 
         #region Page initialization
         public MainPage()
@@ -143,6 +145,8 @@ namespace CallingQuickstart
 
         protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
+            await InitCallAgentAndDeviceManagerAsync();
+
             base.OnNavigatedTo(e);
         }
         #endregion
@@ -175,6 +179,21 @@ namespace CallingQuickstart
             // Handle connected and disconnected state change of a call
         }
         #endregion
+
+        #region Helper methods
+
+        private async Task InitCallAgentAndDeviceManagerAsync()
+        {
+            //Initialize the call agent and search for devices
+        }
+
+
+        private async Task<CommunicationCall> StartCallAsync(string acsCallee)
+        {
+            // Start a call to an Azure Communication Services user using the CallAgent and the callee id
+        }
+
+        #endregion
     }
 }
 ```
@@ -204,16 +223,21 @@ Add `InitCallAgentAndDeviceManagerAsync` function, which bootstraps the SDK. Thi
         {
             this.callClient = new CallClient(new CallClientOptions() {
                 Diagnostics = new CallDiagnosticsOptions() { 
+                    
+                    // make sure to put your project AppName
                     AppName = "CallingQuickstart",
+
                     AppVersion="1.0",
+
                     Tags = new[] { "Calling", "ACS", "Windows" }
                     }
+
                 });
 
-            // Set up local video stream using the first camera enumerated
+            // Set up local audio stream using the first mic enumerated
             var deviceManager = await this.callClient.GetDeviceManagerAsync();
-            var camera = deviceManager?.Cameras?.FirstOrDefault();
             var mic = deviceManager?.Microphones?.FirstOrDefault();
+
             micStream = new LocalOutgoingAudioStream();
 
             var tokenCredential = new CallTokenCredential(authToken, callTokenRefreshOptions);
@@ -224,6 +248,7 @@ Add `InitCallAgentAndDeviceManagerAsync` function, which bootstraps the SDK. Thi
             };
 
             this.callAgent = await this.callClient.CreateCallAgentAsync(tokenCredential, callAgentOptions);
+
             this.callAgent.IncomingCallReceived += OnIncomingCallAsync;
         }
 ```
@@ -233,7 +258,7 @@ Add `InitCallAgentAndDeviceManagerAsync` function, which bootstraps the SDK. Thi
 Once a `StartCallOptions` object is obtained, `CallAgent` can be used to initiate the Azure Communication Services call:
 
 ```C#
-        private async Task<CommunicationCall> StartAcsCallAsync(string acsCallee)
+        private async Task<CommunicationCall> StartCallAsync(string acsCallee)
         {
             var options = new StartCallOptions();
             var call = await this.callAgent.StartCallAsync( new [] { new UserCallIdentifier(acsCallee) }, options);
@@ -268,6 +293,7 @@ Mute the outgoing audio when the `Mute` button is clicked. Add the implementatio
             if (muteCheckbox != null)
             {
                 var call = this.callAgent?.Calls?.FirstOrDefault();
+
                 if (call != null)
                 {
                     if ((bool)muteCheckbox.IsChecked)
@@ -343,9 +369,33 @@ Application has an opportunity to configure how the incoming call should be acce
         }
 ```
 
+### Make call button work
+
+Once the `Callee ID` isn't null or empty, you can start a call.
+
+The call state must be changed using the `OnStateChangedAsync` action.
+
+```C#
+
+    private async void CallButton_Click(object sender, RoutedEventArgs e)
+    {
+        var callString = CalleeTextBox.Text.Trim();
+
+        if (!string.IsNullOrEmpty(callString))
+        {
+            call = await StartCallAsync(callString);
+
+            call.StateChanged += OnStateChangedAsync;
+        }
+    
+        
+    }
+
+```
+
 ### Run the code
 
-You can build and run the code on Visual Studio. For solution platforms, we support `ARM64`, `x64` and `x86`. 
+You can build and run the code on Visual Studio. For solution platforms, we support `ARM64`, `x64`, and `x86`. 
 
 You can make an outbound call by providing a user ID in the text field and clicking the `Start Call/Join` button. Calling `8:echo123` connects you with an echo bot, this feature is great for getting started and verifying your audio devices are working.
 
@@ -572,7 +622,7 @@ Add the implementation to the `CallButton_Click` to start various kinds of calls
         {
             var callString = CalleeTextBox.Text.Trim();
 
-            call = await StartAcsCallAsync(callString);
+            call = await StartCallAsync(callString);
             if (call != null)
             {
                 call.StateChanged += OnStateChangedAsync;
@@ -657,7 +707,7 @@ In the meeting join scenario, `JoinCallOptions` is made available to customize t
 Once a `StartCallOptions` object is obtained, `CallAgent` can be used to initiate the Azure Communication Services call:
 
 ```C#
-        private async Task<CommunicationCall> StartAcsCallAsync(string acsCallee)
+        private async Task<CommunicationCall> StartCallAsync(string acsCallee)
         {
             var options = new StartCallOptions();
             var call = await this.callAgent.StartCallAsync( new [] { new UserCallIdentifier(acsCallee) }, options);

@@ -4,8 +4,9 @@ description: This article tells how to manage inventory collection from VMs.
 services: automation
 ms.subservice: change-inventory-management
 keywords: inventory, automation, change, tracking
-ms.date: 10/14/2020
-ms.topic: conceptual
+ms.date: 09/09/2024
+ms.topic: how-to
+ms.service: azure-automation
 ---
 # Manage inventory collection from VMs
 
@@ -20,7 +21,7 @@ Azure Automation Change Tracking and Inventory provides a browser-based user int
 
 If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/).
 
-This article assumes that you have a VM to enable with Change Tracking and Inventory. If you don't have an Azure VM, you can [create a VM](../../virtual-machines/windows/quick-create-portal.md).
+This article assumes that you have a VM to enable with Change Tracking and Inventory. If you don't have an Azure VM, you can [create a VM](/azure/virtual-machines/windows/quick-create-portal).
 
 ## Sign in to the Azure portal
 
@@ -88,7 +89,7 @@ The following sections provide information about each property that can be confi
 
 Inventory allows you to create and view machine groups in Azure Monitor logs. Machine groups are collections of machines defined by a query in Azure Monitor logs.
 
-[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
+[!INCLUDE [azure-monitor-log-analytics-rebrand](~/reusable-content/ce-skilling/azure/includes/azure-monitor-log-analytics-rebrand.md)]
 
 To view your machine groups select the **Machine groups** tab on the Inventory page.
 

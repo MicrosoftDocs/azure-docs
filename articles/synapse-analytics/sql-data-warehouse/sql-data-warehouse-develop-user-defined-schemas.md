@@ -4,11 +4,10 @@ description: Tips for using T-SQL user-defined schemas to develop solutions for 
 author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.date: 04/17/2018
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.subservice: sql-dw
 ms.topic: conceptual
 ms.custom:
-  - seo-lt-2019
   - azure-synapse
 ---
 
@@ -119,4 +118,3 @@ FROM    [edw].customer
 
 ## Next steps
 For more development tips, see [development overview](sql-data-warehouse-overview-develop.md).
-

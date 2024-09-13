@@ -1,14 +1,16 @@
 ---
-title: Frequently asked questions (FAQ) for Azure Files
-description: Get answers to Azure Files frequently asked questions. You can mount Azure file shares concurrently on cloud or on-premises Windows, Linux, or macOS deployments.
+title: Azure Files frequently asked questions (FAQ)
+description: Get answers to frequently asked questions (FAQ) about Azure Files and Azure File Sync. You can mount Azure file shares concurrently on cloud or on-premises Windows, Linux, or macOS deployments.
 author: khdownie
 ms.service: azure-file-storage
-ms.date: 11/28/2023
+ms.custom: linux-related-content
+ms.date: 06/24/2024
 ms.author: kendownie
 ms.topic: conceptual
 ---
 
-# Frequently asked questions (FAQ) about Azure Files
+# Frequently asked questions (FAQ) about Azure Files and Azure File Sync
+
 [Azure Files](storage-files-introduction.md) offers fully managed file shares in the cloud that are accessible via the industry-standard [Server Message Block (SMB) protocol](/windows/win32/fileio/microsoft-smb-protocol-and-cifs-protocol-overview) and the [Network File System (NFS) protocol](https://en.wikipedia.org/wiki/Network_File_System). You can mount Azure file shares concurrently on cloud or on-premises deployments of Windows, Linux, and macOS. You also can cache Azure file shares on Windows Server machines by using Azure File Sync for fast access close to where the data is used.
 
 ## Azure File Sync
@@ -31,7 +33,7 @@ ms.topic: conceptual
     - The file existed in the Azure file share and server endpoint location prior to the server endpoint creation. If the file size and/or last modified time is different between the file on the server and Azure file share when the server endpoint is created, a conflict file is created.  
     - Sync database was recreated due to corruption or knowledge limit reached. Once the database is recreated, sync enters a mode called reconciliation. If the file size and/or last modified time is different between the file on the server and Azure file share when reconciliation occurs, a conflict file is created. 
   
-    Azure File Sync uses a simple conflict-resolution strategy: we keep both changes to files that are changed in two endpoints at the same time. The most recently written change keeps the original file name. The older file (determined by LastWriteTime) has the endpoint name and the conflict number appended to the file name. For server endpoints, the endpoint name is the name of the server. For cloud endpoints, the endpoint name is **Cloud**. The name follows this taxonomy:
+    Once the initial upload to the Azure file share is complete, Azure File Sync doesn't overwrite any files in your sync group. Instead, it uses a simple conflict-resolution strategy: it keeps both changes to files that are changed in two endpoints at the same time. The most recently written change keeps the original file name. The older file (determined by LastWriteTime) has the endpoint name and the conflict number appended to the file name. For server endpoints, the endpoint name is the name of the server. For cloud endpoints, the endpoint name is **Cloud**. The name follows this taxonomy:
    
     \<FileNameWithoutExtension\>-\<endpointName\>\[-#\].\<ext\>  
 
@@ -65,7 +67,7 @@ ms.topic: conceptual
   **Can I move the storage sync service and/or storage account to a different resource group, subscription, or Microsoft Entra tenant?**  
    Yes, you can move the storage sync service and/or storage account to a different resource group, subscription, or Microsoft Entra tenant. After you move the storage sync service or storage account, you need to give the Microsoft.StorageSync application access to the storage account. Follow these steps:
    
-   1. Sign in to the Azure portal and select **Access control (IAM)** from the left-hand navigation.
+   1. Sign in to the Azure portal and select **Access control (IAM)** from the service menu.
    1. Select the **Role assignments** tab to list the users and applications (*service principals*) that have access to your storage account.
    1. Verify **Microsoft.StorageSync** or **Hybrid File Sync Service** (old application name) appears in the list with the **Reader and Data Access** role.
 
@@ -91,6 +93,20 @@ ms.topic: conceptual
   **Does Azure File Sync sync the LastWriteTime for directories? Why isn't the *date modified* timestamp on a directory updated when files within it are changed?**  
     No, Azure File Sync doesn't sync the LastWriteTime for directories. Furthermore, Azure Files doesn't update the **date modified** timestamp (LastWriteTime) for directories when files within the directory are changed. This is expected behavior.
     
+* <a id="afs-avrecalls"></a>
+  **Why is the anti virus software on the AFS server recalling tiered files?**  
+   When users access tiered files, some anti-virus (AV) software may cause unintended file recalls. This occurs if the AV software is not configured to ignore tiered files (those with the RECALL_ON_DATA_ACCESS attribute).
+   Here's what happens:
+   1. A user attempts to access a tiered file.
+   2. The AV software blocks the read handle.
+   3. The AV application then performs its own read to scan the file for viruses.
+     
+  This process may appear as if the AV software is recalling the tiered files, but it's actually triggered by the user's access attempt. To prevent this issue, ensure that your AV vendor configures their software to ignore scanning tiered files with the RECALL_ON_DATA_ACCESS attribute.
+
+* <a id="afs-networkconnect"></a>
+  **Can SSL inspection software block access to AFS Servers?**
+  Make sure your SSL inspection software (such as Zscaler or FortiGate) allows Azure File Sync (AFS) server endpoints to access Azure. These SSL inspection tools can override firewall settings and selectively allow traffic. Contact your network administrator to resolve this issue. Use the "testnet" command to determine if your AFS server is experiencing this problem.
+  
 ## Security, authentication, and access control
 
 * <a id="file-auditing"></a>
@@ -106,6 +122,7 @@ ms.topic: conceptual
   Using ABE with Azure Files isn't currently supported, but you can [use DFS-N with SMB Azure file shares](files-manage-namespaces.md#access-based-enumeration-abe).
    
 ### Identity-based authentication
+
 * <a id="ad-support-devices"></a>
 **Does Microsoft Entra Domain Services support SMB access using Microsoft Entra credentials from devices joined to or registered with Microsoft Entra ID?**
 
@@ -138,7 +155,7 @@ ms.topic: conceptual
 * <a id="ad-aad-smb-files"></a>
 **Is there any difference in creating a computer account or service logon account to represent my storage account in AD?**
 
-    Creating either a [computer account](/windows/security/identity-protection/access-control/active-directory-accounts#manage-default-local-accounts-in-active-directory) (default) or a [service logon account](/windows/win32/ad/about-service-logon-accounts) has no difference on how authentication works with Azure Files. You can make your own choice on how to represent a storage account as an identity in your AD environment. The default DomainAccountType set in `Join-AzStorageAccountForAuth` cmdlet is computer account. However, the password expiration age configured in your AD environment can be different for computer or service logon account and you need to take that into consideration for [Update the password of your storage account identity in AD](./storage-files-identity-ad-ds-update-password.md).
+    Creating either a [computer account](/windows/security/identity-protection/access-control/active-directory-accounts#manage-default-local-accounts-in-active-directory) (default) or a [service logon account](/windows/win32/ad/about-service-logon-accounts) has no difference on how authentication works with Azure Files. You can make your own choice on how to represent a storage account as an identity in your AD environment. The default DomainAccountType set in `Join-AzStorageAccountForAuth` cmdlet is computer account. However, the password expiration age configured in your AD environment can be different for computer or service logon accounts, and you need to take that into consideration to [Update the password of your storage account identity in AD](./storage-files-identity-ad-ds-update-password.md).
 
 * <a id="ad-support-rest-apis"></a>
 **How to remove cached credentials with storage account key and delete existing SMB connections before initializing new connection with Microsoft Entra ID or AD credentials?**
@@ -156,7 +173,7 @@ ms.topic: conceptual
 * <a id="ad-sid-to-upn"></a>
 **Is it possible to view the userPrincipalName (UPN) of a file/directory owner in File Explorer instead of the security identifier (SID)?**
 
-    File Explorer calls an RPC API directly to the server (Azure Files) to translate the SID to a UPN. Azure Files doesn't support this API, so in File Explorer, the SID of a file/directory owner is displayed instead of the UPN for files and directories hosted on Azure Files. However, you can use the following PowerShell command to view all items in a directory and their owner, including UPN:
+    File Explorer calls an RPC API directly to the server (Azure Files) to translate the SID to a UPN. Azure Files doesn't support this API, so in File Explorer, the SID of a file/directory owner is displayed instead of the UPN for files and directories hosted on Azure Files. However, from a domain joined client, you can use the following PowerShell command to view all items in a directory and their owner, including UPN: 
 
     ```PowerShell
     Get-ChildItem <Path> | Get-ACL | Select Path, Owner
@@ -172,12 +189,12 @@ ms.topic: conceptual
 * <a id="backup-nfs-data"></a>
 **How do I backup data stored in NFS shares?**
 
-    Backing up your data on NFS shares can either be orchestrated using familiar tooling like rsync or products from one of our third-party backup partners. Multiple backup partners including [Commvault](https://documentation.commvault.com/commvault/v11/article?p=92634.htm), [Veeam](https://www.veeam.com/blog/?p=123438), and [Veritas](https://players.brightcove.net/4396107486001/default_default/index.html?videoId=6189967101001) and have extended their solutions to work with both SMB 3.x and NFS 4.1 for Azure Files.
+    Backing up your data on NFS shares can either be orchestrated using familiar tooling like rsync or products from one of our third-party backup partners. Multiple backup partners including [Commvault](https://documentation.commvault.com/index.html), [Veeam](https://www.veeam.com/blog/?p=123438), and [Veritas](https://players.brightcove.net/4396107486001/default_default/index.html?videoId=6189967101001) have extended their solutions to work with both SMB 3.x and NFS 4.1 for Azure Files. You can also use [NFS Azure file share snapshots](storage-files-how-to-mount-nfs-shares.md#nfs-file-share-snapshots).
 
 * <a id="migrate-nfs-data"></a>
 **Can I migrate existing data to an NFS share?**
 
-    Within a region, you can use standard tools like scp, rsync, or SSHFS to move data. Because NFS Azure file shares can be accessed from multiple compute instances concurrently, you can improve copying speeds with parallel uploads. If you want to bring data from outside of a region, use a VPN or a ExpressRoute to mount to your file system from your on-premises data center.
+    Within a region, you can use standard tools like scp, rsync, or SSHFS to move data. Because NFS Azure file shares can be accessed from multiple compute instances concurrently, you can improve copying speeds with parallel uploads. To learn more, see [Migrate to NFS Azure file shares](storage-files-migration-nfs.md). If you want to bring data from outside of a region, use a VPN or ExpressRoute to mount to your file system from your on-premises data center.
     
 * <a id=nfs-ibm-mq-support></a>
 **Can you run IBM MQ (including multi-instance) on NFS Azure file shares?**
@@ -202,7 +219,7 @@ ms.topic: conceptual
 ### Clean up share snapshots
 * <a id="delete-share-keep-snapshots"></a>
 **Can I delete my share but not delete my share snapshots?**  
-    If you have active share snapshots on your share, you can't delete your share. You can use an API to delete share snapshots, along with the share. You also can delete both the share snapshots and the share in the Azure portal.
+    No. The delete file share workflow will automatically delete the snapshots when you delete the share.
 
 ## Billing and pricing
 
@@ -215,10 +232,12 @@ ms.topic: conceptual
     Share snapshots are incremental in nature. The base share snapshot is the share itself. All subsequent share snapshots are incremental and store only the difference from the preceding share snapshot. You're billed only for the changed content. If you have a share with 100 GiB of data but only 5 GiB has changed since your last share snapshot, the share snapshot consumes only 5 additional GiB, and you're billed for 105 GiB. For more information about transaction and standard egress charges, see the [Pricing page](https://azure.microsoft.com/pricing/details/storage/files/).
 
 ## Interoperability with other services
+
 * <a id="cluster-witness"></a>
 **Can I use my Azure file share as a *File Share Witness* for my Windows Server Failover Cluster?**  
     This configuration isn't currently supported for Azure Files. To learn how to set this up using Azure Blob storage, see [Deploy a Cloud Witness for a Failover Cluster](/windows-server/failover-clustering/deploy-cloud-witness).
 
 ## See also
+
 * [Troubleshoot Azure Files](/troubleshoot/azure/azure-storage/files-troubleshoot?toc=/azure/storage/files/toc.json)
 * [Troubleshoot Azure File Sync](/troubleshoot/azure/azure-storage/file-sync-troubleshoot?toc=/azure/storage/file-sync/toc.json)

@@ -7,8 +7,6 @@ ms.author: msangapu
 ms.assetid: 10da5b8a-1823-41a3-a2ff-a0717c2b5c2d
 ms.topic: article
 ms.date: 01/31/2023
-ms.custom: seodec18
-
 ---
 # Migrate an active DNS name to Azure App Service
 

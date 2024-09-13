@@ -1,14 +1,13 @@
 ---
 title: Tutorial - Provision devices using a symmetric key enrollment group in DPS
-titleSuffix: Azure IoT Hub Device Provisioning Service
-description: This tutorial shows how to use symmetric keys to provision devices through an enrollment group in your Device Provisioning Service (DPS) instance
+description: This tutorial shows how to use symmetric keys to provision devices through an enrollment group in your Device Provisioning Service (DPS) instance.
 author: kgremban
 
 ms.author: kgremban
-ms.date: 03/09/2023
+ms.date: 03/12/2024
 ms.topic: tutorial
 ms.service: iot-dps
-ms.custom: devx-track-extended-java, devx-track-python
+ms.custom: devx-track-extended-java, devx-track-python, devx-track-js
 zone_pivot_groups: iot-dps-set1
 ---
 
@@ -16,11 +15,27 @@ zone_pivot_groups: iot-dps-set1
 
 This tutorial shows how to securely provision multiple simulated symmetric key devices to a single IoT Hub using an enrollment group.
 
-Some devices may not have a certificate, TPM, or any other security feature that can be used to securely identify the device. For such devices, the Azure IoT Hub Device Provisioning Service (DPS) includes [symmetric key attestation](concepts-symmetric-key-attestation.md). Symmetric key attestation can be used to identify a device based on unique information like the MAC address or a serial number.
+The Azure IoT Hub Device Provisioning Service supports two types of enrollments for provisioning devices:
 
-If you can easily install a [hardware security module (HSM)](concepts-service.md#hardware-security-module) and a certificate, then that may be a better approach for identifying and provisioning your devices. Using an HSM will allow you to bypass updating the code deployed to all your devices, and you wouldn't have a secret key embedded in your device images. This tutorial assumes that neither an HSM nor a certificate is a viable option. However, it's assumed that you do have some method of updating device code to use the Device Provisioning Service to provision these devices.
+* *Enrollment groups*: Used to enroll multiple related devices. **This tutorial demonstrates provisioning with enrollment groups.**
+* *Individual enrollments*: Used to enroll a single device.
 
-This tutorial also assumes that the device update takes place in a secure environment to prevent unauthorized access to the master group key or the derived device key.
+The Azure IoT Hub Device Provisioning Service supports three forms of authentication for provisioning devices:
+
+* X.509 certificates
+* Trusted platform module (TPM)
+* Symmetric keys - **This tutorial demonstrates symmetric key attestation**
+
+Some devices might not have a certificate, TPM, or any other security feature that can be used to securely identify the device. For such devices, the Azure IoT Hub Device Provisioning Service (DPS) includes [symmetric key attestation](concepts-symmetric-key-attestation.md). Symmetric key attestation can be used to identify a device based on unique information like the MAC address or a serial number.
+
+In this tutorial, you complete the following objectives:
+
+> [!div class="checklist"]
+>
+> * Define a unique registration ID for each device.
+> * Create an enrollment group that uses symmetric key attestation.
+> * Produce a device key for each device using its unique registration ID and shared enrollment group key.
+> * Provision devices using the device key and sample code in the Azure IoT device SDKs.
 
 This tutorial is oriented toward a Windows-based workstation. However, you can perform the procedures on Linux. For a Linux example, see [Tutorial: Provision for geo latency](how-to-provision-multitenant.md).
 
@@ -34,7 +49,7 @@ This tutorial is oriented toward a Windows-based workstation. However, you can p
 * Complete the steps in [Set up IoT Hub Device Provisioning Service with the Azure portal](./quick-setup-auto-provision.md).
 ::: zone pivot="programming-language-ansi-c"
 
-* If you're using a Windows development environment, install [Visual Studio](https://visualstudio.microsoft.com/vs/) 2022 with the ['Desktop development with C++'](/cpp/ide/using-the-visual-studio-ide-for-cpp-desktop-development) workload enabled. Visual Studio 2019, Visual Studio 2017, and Visual Studio 2015 are also supported. For Linux or macOS, see the appropriate section in [Prepare your development environment](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md) in the SDK documentation.
+* If you're using a Windows development environment, install [Visual Studio](https://visualstudio.microsoft.com/vs/) 2022 with the ['Desktop development with C++'](/cpp/ide/using-the-visual-studio-ide-for-cpp-desktop-development) workload enabled. Visual Studio 2019, Visual Studio 2017, and Visual Studio 2015 are also supported. For Linux or macOS, see the appropriate section in [Prepare your development environment](https://github.com/Azure/azure-iot-sdk-c/blob/main/doc/devbox_setup.md) in the SDK documentation.
 
 * Install the latest [CMake build system](https://cmake.org/download/). Make sure you check the option that adds the CMake executable to your path.
 
@@ -75,25 +90,17 @@ This tutorial is oriented toward a Windows-based workstation. However, you can p
 
 * Install the latest version of [Git](https://git-scm.com/download/). Make sure that Git is added to the environment variables accessible to the command window. See [Software Freedom Conservancy's Git client tools](https://git-scm.com/download/) for the latest version of `git` tools to install, which includes *Git Bash*, the command-line app that you can use to interact with your local Git repository.
 
-## Overview
-
-A unique registration ID will be defined for each device based on information that identifies that device. For example, the MAC address or a serial number.
-
-An enrollment group that uses [symmetric key attestation](concepts-symmetric-key-attestation.md) will be created with the Device Provisioning Service. The enrollment group will include a group master key. The group master key will be used to hash each unique registration ID to produce a unique device key for each device. The device will use the derived device key with its unique registration ID to attest with the Device Provisioning Service to be assigned to an IoT hub.
-
 ## Prepare your development environment
 
 ::: zone pivot="programming-language-ansi-c"
 
-In this section, you'll prepare a development environment that's used to build the [Azure IoT Device SDK for C](https://github.com/Azure/azure-iot-sdk-c). The sample code attempts to provision the device during the device's boot sequence.
+In this section, you prepare a development environment to build the [Azure IoT Device SDK for C](https://github.com/Azure/azure-iot-sdk-c). The sample code provisions the device during the device's boot sequence.
 
-1. Open a web browser, and go to the [Release page of the Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c/releases/latest).
+1. In a web browser, go to the [Release page of the Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c/releases/latest).
 
-1. Select the **Tags** tab at the top of the page.
+1. Copy the tag name for the latest release of the Azure IoT C SDK, for example: `lts_03_2024`.
 
-1. Copy the tag name for the latest release of the Azure IoT C SDK.
-
-1. In a Windows command prompt, run the following commands to clone the latest release of the [Azure IoT Device SDK for C](https://github.com/Azure/azure-iot-sdk-c) GitHub repository. Replace `<release-tag>` with the tag you copied in the previous step, for example: `lts_01_2023`.
+1. Open a Windows command prompt and run the following commands to clone the latest release of the [Azure IoT Device SDK for C](https://github.com/Azure/azure-iot-sdk-c) GitHub repository. Replace `<release-tag>` with the tag you copied in the previous step.
 
     ```cmd
     git clone -b <release-tag> https://github.com/Azure/azure-iot-sdk-c.git
@@ -119,7 +126,7 @@ In this section, you'll prepare a development environment that's used to build t
     >[!TIP]
     >If `cmake` does not find your C++ compiler, you may get build errors while running the above command. If that happens, try running the command in the [Visual Studio command prompt](/dotnet/framework/tools/developer-command-prompt-for-vs).
 
-1. When the build completes successfully, the last few output lines will look similar to the following output:
+1. When the build completes successfully, the last few output lines look similar to the following output:
 
     ```output
     $ cmake -Dhsm_type_symm_key:BOOL=ON -Duse_prov_client:BOOL=ON  ..
@@ -139,7 +146,7 @@ In this section, you'll prepare a development environment that's used to build t
 
 ::: zone pivot="programming-language-csharp"
 
-1. Open a Git CMD or Git Bash command-line environment.
+1. Open a command prompt or Git Bash terminal.
 
 2. Clone the [Azure IoT SDK for C#](https://github.com/Azure/azure-iot-sdk-csharp) GitHub repository using the following command:
 
@@ -151,7 +158,7 @@ In this section, you'll prepare a development environment that's used to build t
 
 ::: zone pivot="programming-language-nodejs"
 
-1. Open a Git CMD or Git Bash command-line environment.
+1. Open a command prompt or Git Bash terminal.
 
 2. Clone the [Azure IoT SDK for Node.js](https://github.com/Azure/azure-iot-sdk-node) GitHub repository using the following command:
 
@@ -163,7 +170,7 @@ In this section, you'll prepare a development environment that's used to build t
 
 ::: zone pivot="programming-language-python"
 
-1. Open a Git CMD or Git Bash command-line environment.
+1. Open a command prompt or Git Bash terminal.
 
 2. Clone the [Azure IoT Device SDK for Python](https://github.com/Azure/azure-iot-sdk-python/tree/v2) GitHub repository using the following command:
 
@@ -178,7 +185,7 @@ In this section, you'll prepare a development environment that's used to build t
 
 ::: zone pivot="programming-language-java"
 
-1. Open a Git CMD or Git Bash command-line environment.
+1. Open a command prompt or Git Bash terminal.
 
 2. Clone the [Azure IoT SDK for Java](https://github.com/Azure/azure-iot-sdk-java) GitHub repository using the following command:
 
@@ -199,9 +206,9 @@ In this section, you'll prepare a development environment that's used to build t
 
 [!INCLUDE [iot-dps-enrollment-group-key.md](../../includes/iot-dps-enrollment-group-key.md)]
 
-When you create the enrollment group, DPS generates a **primary key** and **secondary key**, then adds them to the enrollment entry. Your symmetric key enrollment group appears  under the **Group name** column in the **Enrollment Groups** tab.
+When you create the enrollment group, DPS generates a **primary key** and **secondary key**, then adds them to the enrollment entry. Your symmetric key enrollment group appears under the **Group name** column in the **Enrollment Groups** tab.
 
-Open the enrollment and copy the value of the **Primary Key**. This key is your master group key.
+Open the enrollment and copy the value of the **Primary Key**. This key is your group key.
 
 ## Choose a unique registration ID for the device
 
@@ -213,15 +220,15 @@ In this example, we use a combination of a MAC address and serial number forming
 sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6
 ```
 
-Create unique registration IDs for each device. The registration ID is a case-insensitive string (up to 128 characters long) of alphanumeric characters plus the special characters: `'-'`, `'.'`, `'_'`, `':'`. The last character must be alphanumeric or dash (`'-'`).
+Create unique registration IDs for each device. The registration ID is a case-insensitive string (up to 128 characters long) of alphanumeric characters plus the following special characters: `- . _ :`. The last character must be alphanumeric or dash (`-`).
 
 ## Derive a device key
 
-To generate device keys, use the enrollment group master key to compute an [HMAC-SHA256](https://wikipedia.org/wiki/HMAC) of the registration ID for each device. The result is then converted into Base64 format for each device.
+To generate device keys, use the enrollment group primary key to compute an [HMAC-SHA256](https://wikipedia.org/wiki/HMAC) hash of the registration ID for each device. The result is then converted into Base 64 format for each device.
 
 > [!WARNING]
-> Your device code for each device should only include the corresponding derived device key for that device. Do not include your group master key in your device code. 
-> A compromised master key has the potential to compromise the security of all devices being authenticated with it.
+> Your device code for each device should only include the derived device key for that device. Do not include your group primary key in your device code. 
+> A compromised group key has the potential to compromise the security of all devices being authenticated with it.
 
 # [Azure CLI](#tab/azure-cli)
 
@@ -232,7 +239,7 @@ Replace the value of the `--key` parameter with the **Primary Key** from your en
 Replace the value of the `--registration-id` parameter with your registration ID.
 
 ```azurecli
-az iot dps enrollment-group compute-device-key --key 8isrFI1sGsIlvvFSSFRiMfCNzv21fjbE/+ah/lSh3lF8e2YG1Te7w1KpZhJFFXJrqYKi9yegxkqIChbqOS9Egw== --registration-id sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6
+az iot dps enrollment-group compute-device-key --key <group_primary_key> --registration-id <device_registration_id>
 ```
 
 Example result:
@@ -242,15 +249,15 @@ Example result:
 ```
 # [Windows](#tab/windows)
 
-If you're using a Windows-based workstation, you can use PowerShell to generate your derived device key as shown in the following example.
+On Windows, you can use PowerShell to generate your derived device key as shown in the following example.
 
-Replace the value of **KEY** with the **Primary Key** from your enrollment group.
+Replace the value of `KEY` with the **Primary Key** from your enrollment group.
 
-Replace the value of **REG_ID** with your registration ID.
+Replace the value of `REG_ID` with your registration ID.
 
 ```powershell
-$KEY='8isrFI1sGsIlvvFSSFRiMfCNzv21fjbE/+ah/lSh3lF8e2YG1Te7w1KpZhJFFXJrqYKi9yegxkqIChbqOS9Egw=='
-$REG_ID='sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6'
+$KEY='<group_primary_key>'
+$REG_ID='<device_registration_id>'
 
 $hmacsha256 = New-Object System.Security.Cryptography.HMACSHA256
 $hmacsha256.key = [Convert]::FromBase64String($KEY)
@@ -267,15 +274,15 @@ Jsm0lyGpjaVYVP2g3FnmnmG9dI/9qU24wNoykUmermc=
 
 # [Linux](#tab/linux)
 
-If you're using a Linux workstation, you can use openssl to generate your derived device key as shown in the following example.
+On Linux, you can use openssl to generate your derived device key as shown in the following example.
 
-Replace the value of **KEY** with the **Primary Key** from your enrollment group.
+Replace the value of `KEY` with the **Primary Key** from your enrollment group.
 
-Replace the value of **REG_ID** with your registration ID.
+Replace the value of `REG_ID` with your registration ID.
 
 ```bash
-KEY=8isrFI1sGsIlvvFSSFRiMfCNzv21fjbE/+ah/lSh3lF8e2YG1Te7w1KpZhJFFXJrqYKi9yegxkqIChbqOS9Egw==
-REG_ID=sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6
+KEY=<group_primary_key>
+REG_ID=<device_registration_id>
 
 keybytes=$(echo $KEY | base64 --decode | xxd -p -u -c 1000)
 echo -n $REG_ID | openssl sha256 -mac HMAC -macopt hexkey:$keybytes -binary | base64
@@ -295,7 +302,7 @@ Each device uses its derived device key and unique registration ID to perform sy
 
 ::: zone pivot="programming-language-ansi-c"
 
-In this section, you'll update the device sample code to send the device's boot sequence to your Device Provisioning Service instance. This boot sequence will cause the device to be recognized, authenticated, and assigned to an IoT hub linked to the Device Provisioning Service instance.
+In this section, you update the device sample code to send the device's boot sequence to your Device Provisioning Service instance. This boot sequence causes the device to be recognized, authenticated, and assigned to an IoT hub linked to the Device Provisioning Service instance.
 
 The sample provisioning code accomplishes the following tasks, in order:
 
@@ -328,7 +335,7 @@ To update and run the provisioning sample with your device information:
 
 4. In Visual Studio's *Solution Explorer* window, go to the **Provision\_Samples** folder. Expand the sample project named **prov\_dev\_client\_sample**. Expand **Source Files**, and open **prov\_dev\_client\_sample.c**.
 
-5. Find the `id_scope` constant, and replace the value with the **ID Scope** value that you copied in step 2.
+5. Find the `id_scope` constant, and replace the value with the **ID Scope** value that you copied from the Azure portal.
 
     ```c
     static const char* id_scope = "0ne00002193";
@@ -394,7 +401,7 @@ The sample provisioning code accomplishes the following tasks:
 
 2. Assigns the device to the IoT hub already linked to your Device Provisioning Service instance.
 
-3. Sends a test telemetry message to the IoT hub.
+3. Sends a test message to the IoT hub.
 
 To update and run the provisioning sample with your device information:
 
@@ -404,13 +411,13 @@ To update and run the provisioning sample with your device information:
 
     :::image type="content" source="./media/how-to-legacy-device-symm-key/copy-id-scope.png" alt-text="Screenshot that shows copying the ID scope from the DPS overview pane.":::
 
-3. Open a command prompt and go to the *SymmetricKeySample* in the cloned sdk repository:
+3. Open a command prompt and go to the *SymmetricKeySample* in the cloned SDK repository:
 
     ```cmd
     cd .\azure-iot-sdk-csharp\provisioning\device\samples\how to guides\SymmetricKeySample
     ```
 
-4. In the *SymmetricKeySample* folder, open *Parameters.cs* in a text editor. This file shows the parameters that are supported by the sample. Only the first three required parameters will be used in this article when running the sample. Review the code in this file. No changes are needed.
+4. In the *SymmetricKeySample* folder, open *Parameters.cs* in a text editor. This file shows the parameters referenced by the sample. Only the first three required parameters are used in this article when running the sample. Review the code in this file. No changes are needed.
 
     | Parameter                         | Required | Description     |
     | :-------------------------------- | :------- | :-------------- |
@@ -420,11 +427,11 @@ To update and run the provisioning sample with your device information:
     | `--g` or `--GlobalDeviceEndpoint` | False    | The global endpoint for devices to connect to. Defaults to `global.azure-devices-provisioning.net` |
     | `--t` or `--TransportType`        | False    | The transport to use to communicate with the device provisioning instance. Defaults to `Mqtt`. Possible values include `Mqtt`, `Mqtt_WebSocket_Only`, `Mqtt_Tcp_Only`, `Amqp`, `Amqp_WebSocket_Only`, `Amqp_Tcp_only`, and `Http1`.|
 
-5. In the *SymmetricKeySample* folder, open *ProvisioningDeviceClientSample.cs* in a text editor. This file shows how the [SecurityProviderSymmetricKey](/dotnet/api/microsoft.azure.devices.shared.securityprovidersymmetrickey?view=azure-dotnet&preserve-view=true) class is used along with the [ProvisioningDeviceClient](/dotnet/api/microsoft.azure.devices.provisioning.client.provisioningdeviceclient?view=azure-dotnet&preserve-view=true) class to provision your simulated symmetric key device. Review the code in this file.  No changes are needed.
+5. In the *SymmetricKeySample* folder, open *ProvisioningDeviceClientSample.cs* in a text editor. This file shows how the [SecurityProviderSymmetricKey](/dotnet/api/microsoft.azure.devices.shared.securityprovidersymmetrickey?view=azure-dotnet&preserve-view=true) class works with the [ProvisioningDeviceClient](/dotnet/api/microsoft.azure.devices.provisioning.client.provisioningdeviceclient?view=azure-dotnet&preserve-view=true) class to provision your simulated symmetric key device. Review the code in this file. No changes are needed.
 
 6. Build and run the sample code using the following command:
 
-    * Replace `<id-scope>` with the **ID Scope** that you copied in step 2.
+    * Replace `<id-scope>` with the **ID Scope** that you copied from the Azure portal.
     * Replace `<registration-id>` with the registration ID that you chose in [Choose a unique registration ID for the device](#choose-a-unique-registration-id-for-the-device).
     * Replace `<primarykey>` with the derived device key that you generated.
 
@@ -493,16 +500,16 @@ To update and run the provisioning sample with your device information:
     provisioningClient.setProvisioningPayload({a: 'b'});
     ```
 
-    You may comment out this code, as it's not needed with for this tutorial. A custom payload can be used when you use a custom allocation webhook to assign your device to an IoT Hub. For more information, see [Tutorial: Use custom allocation policies](tutorial-custom-allocation-policies.md).
+    You may comment out this code, as it's not needed with for this tutorial. You can use a custom payload when you use a custom allocation webhook to assign your device to an IoT Hub. For more information, see [Tutorial: Use custom allocation policies](tutorial-custom-allocation-policies.md).
 
     The `provisioningClient.register()` method attempts the registration of your device.
 
 5. In the command prompt, run the following commands to set environment variables used by the sample:
 
     * The first command sets the `PROVISIONING_HOST` environment variable to the **Global device endpoint**. This endpoint is the same for all DPS instances.
-    * Replace `<id-scope>` with the **ID Scope** that you copied in step 2.
+    * Replace `<id-scope>` with the **ID Scope** that you copied from the Azure portal.
     * Replace `<registration-id>` with the registration ID that you chose in [Choose a unique registration ID for the device](#choose-a-unique-registration-id-for-the-device).
-    * Replace `<defived-device-key>` with the derived device key that you generated in [Derive a device key](#derive-a-device-key).
+    * Replace `<derived-device-key>` with the derived device key that you generated in [Derive a device key](#derive-a-device-key).
 
     ```cmd
     set PROVISIONING_HOST=global.azure-devices-provisioning.net
@@ -556,7 +563,7 @@ The sample provisioning code accomplishes the following tasks, in order:
 
 2. Assigns the device to the IoT hub already linked to your Device Provisioning Service instance.
 
-3. Sends a test telemetry message to the IoT hub.
+3. Sends a test message to the IoT hub.
 
 To update and run the provisioning sample with your device information:
 
@@ -575,9 +582,9 @@ To update and run the provisioning sample with your device information:
 4. In the command prompt, run the following commands to set environment variables used by the sample:
 
     * The first command sets the `PROVISIONING_HOST` environment variable to the **Global device endpoint**. This endpoint is the same for all DPS instances.
-    * Replace `<id-scope>` with the **ID Scope** that you copied in step 2.
+    * Replace `<id-scope>` with the **ID Scope** that you copied from the Azure portal.
     * Replace `<registration-id>` with the registration ID that you chose in [Choose a unique registration ID for the device](#choose-a-unique-registration-id-for-the-device).
-    * Replace `<defived-device-key>` with the derived device key that you generated in [Derive a device key](#derive-a-device-key).
+    * Replace `<derived-device-key>` with the derived device key that you generated in [Derive a device key](#derive-a-device-key).
 
     ```cmd
     set PROVISIONING_HOST=global.azure-devices-provisioning.net
@@ -654,7 +661,7 @@ The sample provisioning code accomplishes the following tasks, in order:
 
 2. Assigns the device to the IoT hub already linked to your Device Provisioning Service instance.
 
-3. Sends a test telemetry message to the IoT hub.
+3. Sends a test message to the IoT hub.
 
 To update and run the provisioning sample with your device information:
 
@@ -670,7 +677,7 @@ To update and run the provisioning sample with your device information:
 
 4. Set the value of the following variables for your DPS and device enrollment:
 
-    * Replace `[Your scope ID here]` with the **ID Scope** that you copied in step 2.
+    * Replace `[Your scope ID here]` with the **ID Scope** that you copied from the Azure portal.
     * Replace `[Your Provisioning Service Global Endpoint here]` with the **Global device endpoint**: global.azure-devices-provisioning.net. This endpoint is the same for all DPS instances.
     * Replace `[Enter your Symmetric Key here]` with the derived device key that you generated in [Derive a device key](#derive-a-device-key).
     * Replace `[Enter your Registration ID here]` with the registration ID that you chose in [Choose a unique registration ID for the device](#choose-a-unique-registration-id-for-the-device).
@@ -737,11 +744,11 @@ To update and run the provisioning sample with your device information:
     2022-10-07 18:14:59,395 DEBUG (main) [com.microsoft.azure.sdk.iot.device.transport.IotHubTransport] - Client connection opened successfully
     2022-10-07 18:14:59,404 INFO (main) [com.microsoft.azure.sdk.iot.device.DeviceClient] - Device client opened successfully
     Sending message from device to IoT Hub...
-    2022-10-07 18:14:59,408 DEBUG (main) [com.microsoft.azure.sdk.iot.device.transport.IotHubTransport] - Message was queued to be sent later ( Message details: Correlation Id [32cf12c4-4db1-4562-9d8c-267c0506636f] Message Id [2e1717be-cfcf-41a7-b1c0-59edeb8ea865] )
+    2022-10-07 18:14:59,408 DEBUG (main) [com.microsoft.azure.sdk.iot.device.transport.IotHubTransport] - Message was queued to be sent later ( Message details: Correlation Id [aaaa0000-bb11-2222-33cc-444444dddddd] Message Id [2e1717be-cfcf-41a7-b1c0-59edeb8ea865] )
     Press any key to exit...
-    2022-10-07 18:14:59,409 DEBUG (contoso-hub-2.azure-devices.net-sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6-c32c76d0-Cxn0e70bbf7-8476-441d-8626-c17250585ee6-azure-iot-sdk-IotHubSendTask) [com.microsoft.azure.sdk.iot.device.transport.IotHubTransport] - Sending message ( Message details: Correlation Id [32cf12c4-4db1-4562-9d8c-267c0506636f] Message Id [2e1717be-cfcf-41a7-b1c0-59edeb8ea865] )
-    2022-10-07 18:14:59,777 DEBUG (MQTT Call: sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6) [com.microsoft.azure.sdk.iot.device.transport.IotHubTransport] - IotHub message was acknowledged. Checking if there is record of sending this message ( Message details: Correlation Id [32cf12c4-4db1-4562-9d8c-267c0506636f] Message Id [2e1717be-cfcf-41a7-b1c0-59edeb8ea865] )
-    2022-10-07 18:14:59,779 DEBUG (contoso-hub-2.azure-devices.net-sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6-c32c76d0-Cxn0e70bbf7-8476-441d-8626-c17250585ee6-azure-iot-sdk-IotHubSendTask) [com.microsoft.azure.sdk.iot.device.transport.IotHubTransport] - Invoking the callback function for sent message, IoT Hub responded to message ( Message details: Correlation Id [32cf12c4-4db1-4562-9d8c-267c0506636f] Message Id [2e1717be-cfcf-41a7-b1c0-59edeb8ea865] ) with status OK
+    2022-10-07 18:14:59,409 DEBUG (contoso-hub-2.azure-devices.net-sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6-c32c76d0-Cxn0e70bbf7-8476-441d-8626-c17250585ee6-azure-iot-sdk-IotHubSendTask) [com.microsoft.azure.sdk.iot.device.transport.IotHubTransport] - Sending message ( Message details: Correlation Id [aaaa0000-bb11-2222-33cc-444444dddddd] Message Id [2e1717be-cfcf-41a7-b1c0-59edeb8ea865] )
+    2022-10-07 18:14:59,777 DEBUG (MQTT Call: sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6) [com.microsoft.azure.sdk.iot.device.transport.IotHubTransport] - IotHub message was acknowledged. Checking if there is record of sending this message ( Message details: Correlation Id [aaaa0000-bb11-2222-33cc-444444dddddd] Message Id [2e1717be-cfcf-41a7-b1c0-59edeb8ea865] )
+    2022-10-07 18:14:59,779 DEBUG (contoso-hub-2.azure-devices.net-sn-007-888-abc-mac-a1-b2-c3-d4-e5-f6-c32c76d0-Cxn0e70bbf7-8476-441d-8626-c17250585ee6-azure-iot-sdk-IotHubSendTask) [com.microsoft.azure.sdk.iot.device.transport.IotHubTransport] - Invoking the callback function for sent message, IoT Hub responded to message ( Message details: Correlation Id [aaaa0000-bb11-2222-33cc-444444dddddd] Message Id [2e1717be-cfcf-41a7-b1c0-59edeb8ea865] ) with status OK
     Message received! Response status: OK
     ```
 
@@ -778,13 +785,13 @@ To verify the device on your IoT hub:
 > [!NOTE]
 > If you changed the *initial device twin state* from the default value in the enrollment group, a device can pull the desired twin state from the hub and act accordingly. For more information, see [Understand and use device twins in IoT Hub](../iot-hub/iot-hub-devguide-device-twins.md).
 
-## Provision more devices (optional)
+## Provision more devices
 
 To provision more devices through the enrollment group, follow the steps in the preceding sections to:
 
 1. [Choose a unique registration ID for the device](#choose-a-unique-registration-id-for-the-device).
 
-1. [Derive a device key](#derive-a-device-key). As you did previously, use the primary key for the enrollment group as the group master key.
+1. [Derive a device key](#derive-a-device-key). As you did previously, use the primary key for the enrollment group as the group key.
 
 1. [Run the device provisioning code](#prepare-and-run-the-device-provisioning-code). Replace the necessary artifacts with your new derived device key and registration ID.
 
@@ -794,7 +801,7 @@ If you plan to continue working on and exploring the device client sample, don't
 
 ### Delete your enrollment group
 
-Deleting an enrollment group doesn't delete the registration records associated with it. These orphaned records will count against the [registrations quota](about-iot-dps.md#quotas-and-limits) for the DPS instance. For this reason, it's a best practice to delete all registration records associated with an enrollment group before you delete the enrollment group itself.
+Deleting an enrollment group doesn't delete the registration records associated with it. These orphaned records count against the [registrations quota](about-iot-dps.md#quotas-and-limits) for the DPS instance. For this reason, it's a best practice to delete all registration records associated with an enrollment group before you delete the enrollment group itself.
 
 1. In the Azure portal, go to your DPS instance.
 
@@ -804,7 +811,7 @@ Deleting an enrollment group doesn't delete the registration records associated 
 
 1. Select the name of the enrollment group you used for this tutorial to open its details page.
 
-1. On the **Enrollment details** page, select **Registration status**. Then select the check box next to the **Device Id** column header to select all of the registration records for the enrollment group. Select **Delete ** at the top of the page to delete the registration records.
+1. On the **Enrollment details** page, select **Registration status**. Then select the check box next to the **Device Id** column header to select all of the registration records for the enrollment group. Select **Delete** at the top of the page to delete the registration records.
 
 1. Go back to the **Manage enrollments** page.
 
@@ -812,13 +819,13 @@ Deleting an enrollment group doesn't delete the registration records associated 
 
 1. At the top of the page, select  **Delete**.
 
-### Delete device registration(s) from IoT Hub
+### Delete device registrations from IoT Hub
 
 1. In the Azure portal, go to the IoT hub that your device was assigned to.
 
 1. Select **Devices** from the **Device management** section of the navigation menu.
 
-1. Select the check box next to the device Id of the device(s) you registered in this tutorial.
+1. Select the check box next to the device ID of the devices you registered in this tutorial.
 
 1. At the top of the page, select  **Delete**.
 
@@ -827,4 +834,4 @@ Deleting an enrollment group doesn't delete the registration records associated 
 In this tutorial, you provisioned multiple devices to a single IoT hub using an enrollment group. Next, learn how to provision IoT devices across multiple hubs.
 
 > [!div class="nextstepaction"]
-> [Use custom allocation policies](tutorial-custom-allocation-policies.md)
+> [Tutorial: Manage IoT hub assignment with custom allocation policies](tutorial-custom-allocation-policies.md)

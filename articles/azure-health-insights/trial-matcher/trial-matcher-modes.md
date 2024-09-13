@@ -7,7 +7,7 @@ author: iBoonZ
 manager: urieinav
 ms.service: azure-health-insights
 ms.topic: overview
-ms.date: 01/27/2023
+ms.date: 05/05/2024
 ms.author: behoorne
 ---
 
@@ -17,7 +17,7 @@ Trial Matcher provides two main modes of operation to users of the service: a **
 
 On the diagram, you can see how patients' or clinical trials can be found through the two different modes.
 ![Diagram that shows the Trial Matcher operation modes.](../media/trial-matcher/overview.png) 
-
+[ ![Diagram that shows the Trial Matcher operation modes.](../media/trial-matcher/overview.png)](../media/trial-matcher/overview.png#lightbox)
 
 ## Patient centric
 

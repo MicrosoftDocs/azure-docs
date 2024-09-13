@@ -3,11 +3,11 @@ title: Outbound-only load balancer configuration
 titleSuffix: Azure Load Balancer
 description: This article provides a step-by-step guide on how to configure an "egress only" setup using Azure Load Balancer with outbound NAT and Azure Bastion. Deploy public and internal load balancers to create outbound connectivity for VMs behind an internal load balancer.
 author: mbender-ms
-ms.service: load-balancer
+ms.service: azure-load-balancer
 ms.topic: how-to
-ms.date: 10/24/2023
+ms.date: 09/06/2024
 ms.author: mbender
-ms.custom: template-how-to, seodec18
+ms.custom: template-how-to
 ---
 
 # Outbound-only load balancer configuration
@@ -17,9 +17,9 @@ Use a combination of internal and external standard load balancers to create out
 This configuration provides outbound NAT for an internal load balancer scenario, producing an "egress only" setup for your backend pool.
 
 > [!NOTE]
-> **Azure Virtual Network NAT** is the recommended configuration for outbound connectivity in production deployments. For more information about **Virtual Network NAT** and the **NAT gateway** resource, see **[What is Azure Virtual Network NAT?](../virtual-network/nat-gateway/nat-overview.md)**.
+> **Azure NAT Gateway** is the recommended configuration for outbound connectivity in production deployments. For more information about **NAT Gateway**, see **[What is Azure NAT Gateway?](../virtual-network/nat-gateway/nat-overview.md)**.
 >
-> To deploy an outbound only load balancer configuration with Azure Virtual Network NAT and a NAT gateway, see [Tutorial: Integrate NAT gateway with an internal load balancer - Azure portal](../virtual-network/nat-gateway/tutorial-nat-gateway-load-balancer-internal-portal.md).
+> To deploy an outbound only load balancer configuration with Azure NAT Gateway, see [Tutorial: Integrate NAT gateway with an internal load balancer - Azure portal](../virtual-network/nat-gateway/tutorial-nat-gateway-load-balancer-internal-portal.md).
 >
 > For more information about outbound connections in Azure and default outbound access, see [Source Network Address Translation (SNAT) for outbound connections](load-balancer-outbound-connections.md) and [Default outbound access](../virtual-network/ip-services/default-outbound-access.md).
 
@@ -31,7 +31,7 @@ This configuration provides outbound NAT for an internal load balancer scenario,
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-[!INCLUDE [load-balancer-create-bastion](../../includes/load-balancer-create-bastion.md)]
+[!INCLUDE [load-balancer-create-bastion-no-natgateway](../../includes/load-balancer-create-bastion-no-natgateway.md)]
 
 ## Create internal load balancer
 
@@ -57,9 +57,11 @@ In this section, you'll create the internal load balancer.
 
 1. Select **Next: Frontend IP configuration** at the bottom of the page.
 
-1. In **Frontend IP configuration**, select **+ Add a frontend IP**.
+1. In **Frontend IP configuration**, select **+ Add a frontend IP configuration**.
 
 1. Enter **lb-int-frontend** in **Name**.
+
+1. Select **lb-vnet** in **Virtual Network**.
 
 1. Select **backend-subnet** in **Subnet**.
 
@@ -244,7 +246,7 @@ In this section, you'll add the virtual machine you created previously to the ba
 
 1. Select **Connect**.
 
-1. Open Internet Explorer.
+1. Open Microsoft Edge browser.
 
 1.  Enter **https://whatsmyip.org** in the address bar.
 
@@ -290,7 +292,7 @@ In this section, you'll add the virtual machine you created previously to the ba
 
 1. Select **Connect**.
 
-1. Open Internet Explorer.
+1. Open Microsoft Edge browser.
 
 1. Enter **https://whatsmyip.org** in the address bar.
 

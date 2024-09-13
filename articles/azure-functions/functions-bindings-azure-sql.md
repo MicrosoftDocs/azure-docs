@@ -4,13 +4,12 @@ description: Understand how to use Azure SQL bindings in Azure Functions.
 author: JetterMcTedder
 ms.topic: reference
 ms.custom:
-  - event-tier1-build-2022
   - build-2023
   - devx-track-extended-java
   - devx-track-js
   - devx-track-python
   - ignite-2023
-ms.date: 11/14/2023
+ms.date: 03/12/2023
 ms.author: bspendolini
 ms.reviewer: glenga
 zone_pivot_groups: programming-languages-set-functions-lang-workers
@@ -42,7 +41,7 @@ Add the extension to your project by installing this [NuGet package](https://www
 dotnet add package Microsoft.Azure.Functions.Worker.Extensions.Sql
 ```
 
-To use a preview version of the Microsoft.Azure.Functions.Worker.Extensions.Sql package, add the `--prerelease` flag to the command. You can view preview functionality on the [Extensions Bundles Preview release page](https://github.com/Azure/azure-functions-extension-bundles/releases).
+To use a preview version of the Microsoft.Azure.Functions.Worker.Extensions.Sql package, add the `--prerelease` flag to the command. You can view preview functionality on the [Azure Functions SQL Extensions release page](https://github.com/Azure/azure-functions-sql-extension/releases).
 
 ```bash
 dotnet add package Microsoft.Azure.Functions.Worker.Extensions.Sql --prerelease
@@ -53,6 +52,8 @@ dotnet add package Microsoft.Azure.Functions.Worker.Extensions.Sql --prerelease
 
 # [In-process model](#tab/in-process)
 
+[!INCLUDE [functions-in-process-model-retirement-note](../../includes/functions-in-process-model-retirement-note.md)]
+
 Functions execute in the same process as the Functions host. To learn more, see [Develop C# class library functions using Azure Functions](functions-dotnet-class-library.md).
 
 Add the extension to your project by installing this [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Sql).
@@ -61,7 +62,7 @@ Add the extension to your project by installing this [NuGet package](https://www
 dotnet add package Microsoft.Azure.WebJobs.Extensions.Sql
 ```
 
-To use a preview version of the Microsoft.Azure.WebJobs.Extensions.Sql package, add the `--prerelease` flag to the command. You can view preview functionality on the [Extensions Bundles Preview release page](https://github.com/Azure/azure-functions-extension-bundles/releases).
+To use a preview version of the Microsoft.Azure.WebJobs.Extensions.Sql package, add the `--prerelease` flag to the command. You can view preview functionality on the [Azure Functions SQL Extensions release page](https://github.com/Azure/azure-functions-sql-extension/releases).
 
 ```bash
 dotnet add package Microsoft.Azure.WebJobs.Extensions.Sql --prerelease
@@ -111,7 +112,7 @@ You can use the preview extension bundle by adding or replacing the following co
 }
 ```
 
-You can view preview functionality on the [Extensions Bundles Preview release page](https://github.com/Azure/azure-functions-extension-bundles/releases).
+You can view preview functionality on the [Azure Functions SQL Extensions release page](https://github.com/Azure/azure-functions-sql-extension/releases).
 
 > [!NOTE]
 > Breaking changes between preview releases of the Azure SQL bindings for Azure Functions requires that all Functions targeting the same database use the same version of the SQL extension package.
@@ -162,7 +163,7 @@ You can use the preview extension bundle by adding or replacing the following co
 }
 ```
 
-You can view preview functionality on the [Extensions Bundles Preview release page](https://github.com/Azure/azure-functions-extension-bundles/releases).
+You can view preview functionality on the [Azure Functions SQL Extensions release page](https://github.com/Azure/azure-functions-sql-extension/releases).
 
 > [!NOTE]
 > Breaking changes between preview releases of the Azure SQL bindings for Azure Functions requires that all Functions targeting the same database use the same version of the SQL extension package.
@@ -207,7 +208,7 @@ You can use the preview extension bundle by adding or replacing the following co
 }
 ```
 
-You can view preview functionality on the [Extensions Bundles Preview release page](https://github.com/Azure/azure-functions-extension-bundles/releases).
+You can view preview functionality on the [Azure Functions SQL Extensions release page](https://github.com/Azure/azure-functions-sql-extension/releases).
 
 > [!NOTE]
 > Breaking changes between preview releases of the Azure SQL bindings for Azure Functions requires that all Functions targeting the same database use the same version of the SQL extension package.

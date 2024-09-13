@@ -3,8 +3,8 @@ title: 'Azure ExpressRoute: Designing for high availability'
 description: This page provides architectural recommendations for high availability while using Azure ExpressRoute.
 services: expressroute
 author: duongau
-ms.service: expressroute
-ms.topic: article
+ms.service: azure-expressroute
+ms.topic: concept-article
 ms.date: 06/15/2023
 ms.author: duau
 ---
@@ -77,7 +77,7 @@ In this section, let us review optional (depending on your Azure deployment and 
 
 ### Availability Zone aware ExpressRoute virtual network gateways
 
-An Availability Zone in an Azure region is a combination of a fault domain and an update domain. If you opt for zone-redundant Azure IaaS deployment, you may also want to configure zone-redundant virtual network gateways that terminate ExpressRoute private peering. To learn further, see [About zone-redundant virtual network gateways in Azure Availability Zones][zone redundant vgw]. To configure zone-redundant virtual network gateway, see [Create a zone-redundant virtual network gateway in Azure Availability Zones][conf zone redundant vgw].
+An Availability Zone in an Azure region is a combination of a fault domain and an update domain. To achieve the highest resiliency and availability, you should configure a zone-redundant ExpressRoute virtual network gateway. To learn more, see [About zone-redundant virtual network gateways in Azure Availability Zones][zone redundant vgw]. To configure a zone-redundant virtual network gateway, see [Create a zone-redundant virtual network gateway in Azure Availability Zones][conf zone redundant vgw].
 
 ### Improving failure detection time
 

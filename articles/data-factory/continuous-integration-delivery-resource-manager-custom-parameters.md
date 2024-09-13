@@ -1,7 +1,6 @@
 ---
 title: Custom parameters in a Resource Manager template 
 description: Learn how to use custom parameters in a Resource Manager template with continuous integration and delivery in Azure Data Factory.
-ms.service: data-factory
 ms.subservice: ci-cd
 author: nabhishek
 ms.author: abnarain
@@ -452,7 +451,7 @@ The following example shows how to add a single value to the default parameteriz
 }
 ```
 
-## Next steps
+## Related content
 
 - [Continuous integration and delivery overview](continuous-integration-delivery.md)
 - [Automate continuous integration using Azure Pipelines releases](continuous-integration-delivery-automate-azure-pipelines.md)

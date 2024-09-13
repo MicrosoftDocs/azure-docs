@@ -35,7 +35,7 @@ The Open Enclave SDK and Azure Attestation don't look at the `nextUpdate` date, 
 
 The Azure Data Center Attestation Primitives (DCAP) library, a replacement for Intel Quote Provider Library (QPL), fetches quote generation collateral and quote validation collateral directly from the Trusted Hardware Identity Management service. Fetching collateral directly from the Trusted Hardware Identity Management service ensures that all Azure hosts have collateral readily available within the Azure cloud to reduce external dependencies. The current recommended version of the DCAP library is 1.11.2.
 
-### Where can I download the latest DCAP packages?
+### Where can I download the latest Azure DCAP library?
 
 Use the following links to download the packages:
 
@@ -43,17 +43,21 @@ Use the following links to download the packages:
 - [Ubuntu 18.04](https://packages.microsoft.com/ubuntu/18.04/prod/pool/main/a/az-dcap-client/az-dcap-client_1.12.0_amd64.deb)
 - [Windows](https://www.nuget.org/packages/Microsoft.Azure.DCAP/1.12.0)
 
+For newer versions of Ubuntu (for example, Ubuntu 22.04), you have to use the [Intel QPL](#how-do-i-use-intel-qpl-with-trusted-hardware-identity-management).
+
 ### Why do Trusted Hardware Identity Management and Intel have different baselines?
 
 Trusted Hardware Identity Management and Intel provide different baseline levels of the trusted computing base. When customers assume that Intel has the latest baselines, they must ensure that all the requirements are satisfied. This approach can lead to a breakage if customers haven't updated to the specified requirements.
 
 Trusted Hardware Identity Management takes a slower approach to updating the TCB baseline, so customers can make the necessary changes at their own pace. Although this approach provides an older TCB baseline, customers won't experience a breakage if they haven't met the requirements of the new TCB baseline. This is why the TCB baseline from Trusted Hardware Identity Management is a different version from Intel's baseline. We want to empower customers to meet the requirements of the new TCB baseline at their pace, instead of forcing them to update and causing a disruption that would require reprioritization of workstreams.
 
-### With Coffee Lake, I could get my certificates directly from the Intel PCK. Why, with Ice Lake, do I need to get the certificates from Trusted Hardware Identity Management? And how can I fetch those certificates?
+### With Intel Xeon E Processors, I could get my certificates directly from the Intel PCS. Why, with Intel Xeon Scalable processors starting from the 4th generation, do I need to get the certificates from Trusted Hardware Identity Management? And how can I fetch those certificates?
 
-The certificates are fetched and cached in the Trusted Hardware Identity Management service through a platform manifest and indirect registration. As a result, the key caching policy is set to never store root keys for a platform. Expect direct calls to the Intel service from inside the VM to fail.
-
-To retrieve the certificate, you must install the [Azure DCAP library](#what-is-the-azure-dcap-library) that replaces Intel QPL. This library directs the fetch requests to the Trusted Hardware Identity Management service running in the Azure cloud. For download links, see [Where can I download the latest DCAP packages?](#where-can-i-download-the-latest-dcap-packages).
+Starting with the 4th Generation of Intel® Xeon® Scalable Processors, Azure performs indirect registration at Intel's Registration Service using the Platform Manifest and stores the resulting PCK certificate in the Trusted Hardware Identity Management (THIM) service
+Azure uses indirect registration, because Intel's registration service will not store root keys for a platform in this case and this is reflected by `false` in the `CachedKeys` flag in PCK Certificates.
+As indirect registration is used, all following communication to Intel PCS would require the Platform Manifest, which Azure does not provide to virtual machines (VMs).
+Instead, VMs have to reach out to THIM to receive PCK certificates.
+To retrieve a PCK certificate, you can either use the [Intel QPL](#how-do-i-use-intel-qpl-with-trusted-hardware-identity-management) or the [Azure DCAP library](#what-is-the-azure-dcap-library).
 
 ### How do I use Intel QPL with Trusted Hardware Identity Management?
 
@@ -92,7 +96,7 @@ The following code snippet is from an example of an Intel QPL configuration file
                     "metadata": "true" 
                 }, 
                 "params": { 
-                    "api-version  ": "2021-07-22-preview" 
+                    "api-version": "2021-07-22-preview" 
                 } 
             } 
         } 
@@ -267,5 +271,5 @@ Follow these steps to request AMD collateral in a confidential container:
 
 ## Next steps
 
-- Learn more about [Azure Attestation documentation](../../attestation/overview.md).
+- Learn more about [Azure Attestation documentation](/azure/attestation/overview).
 - Learn more about [Azure confidential computing](https://azure.microsoft.com/blog/introducing-azure-confidential-computing).

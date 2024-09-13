@@ -35,6 +35,8 @@
       href: tutorial-petrel-ddms.md
 - name: Concepts
   items:
+    - name: OSDU® services available on Azure Data Manager for Energy
+      href: osdu-services-on-adme.md
     - name: CSV parser ingestion
       href: concepts-csv-parser-ingestion.md
     - name: Manifest ingestion
@@ -54,16 +56,28 @@
           displayName: availability zones, high-availability, zone redundancy
     - name: Tier details
       href: concepts-tier-details.md
+    - name: Syncing Reference data values
+      href: concepts-reference-data-values.md
 - name: How-to guides
   items:
     - name: Administration
       items:
         - name: Manage users
           href: how-to-manage-users.md
+        - name: Manage ACLs
+          href: how-to-manage-acls.md
         - name: Manage legal tags
           href: how-to-manage-legal-tags.md
         - name: Manage data partitions
           href: how-to-add-more-data-partitions.md
+        - name: Deploy Geospatial Consumption Zone (GCZ)
+          href: how-to-deploy-gcz.md
+        - name: Deploy OSDU Admin UI
+          href: how-to-deploy-osdu-admin-ui.md
+        - name: How to enable External Data Sources (EDS)
+          href: how-to-enable-external-data-sources.md
+        - name: How to register External Data Sources (EDS)
+          href: how-to-register-external-data-sources.md
     - name: Monitoring
       items:
         - name: Airflow task logs integration with Azure Monitor
@@ -86,14 +100,16 @@
           href: how-to-enable-cors.md
         - name: Set up audit logs
           href: how-to-manage-audit-logs.md
+        - name: Publish Microsoft Azure Data Manager for Energy APIs to a secured API gateway
+          href: how-to-secure-apis.md
     - name: Load datasets
       href: https://github.com/Azure/osdu-data-load-tno
     - name: Convert SEG-Y to ZGY
       href: how-to-convert-segy-to-zgy.md
     - name: Convert SEG-Y to oVDS
       href: how-to-convert-segy-to-ovds.md
-    - name: Generate a refresh token
-      href: how-to-generate-refresh-token.md
+    - name: Generate auth token
+      href: how-to-generate-auth-token.md
     - name: Upload large files using file service
       href: how-to-upload-large-files-using-file-service.md
 - name: References

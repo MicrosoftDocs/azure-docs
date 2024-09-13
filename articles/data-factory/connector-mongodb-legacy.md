@@ -4,7 +4,6 @@ description: Learn how to copy data from Mongo DB to supported sink data stores 
 titleSuffix: Azure Data Factory & Azure Synapse
 author: jianleishen
 ms.author: jianleishen
-ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
@@ -18,7 +17,7 @@ ms.date: 10/20/2023
 This article outlines how to use the Copy Activity in an Azure Data Factory or Synapse Analytics pipeline to copy data from a MongoDB database. It builds on the [copy activity overview](copy-activity-overview.md) article that presents a general overview of copy activity.
 
 >[!IMPORTANT]
->The service has released a new MongoDB connector which provides better native MongoDB support comparing to this ODBC-based implementation, refer to [MongoDB connector](connector-mongodb.md) article on details. This legacy MongoDB connector is kept supported as-is for backward compatibility, while for any new workload, please use the new connector.
+>The service has released a new MongoDB connector which provides better native MongoDB support comparing to this ODBC-based implementation, refer to [MongoDB connector](connector-mongodb.md) article on details.
 
 ## Supported capabilities
 
@@ -258,5 +257,5 @@ The following tables show the virtual tables that represent the original arrays 
 | 2222 |0 |1 |
 | 2222 |1 |2 |
 
-## Next steps
+## Related content
 For a list of data stores supported as sources and sinks by the copy activity, see [supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).

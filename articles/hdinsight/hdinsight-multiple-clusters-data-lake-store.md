@@ -1,10 +1,10 @@
 ---
 title: Multiple HDInsight clusters & one Azure Data Lake Storage account
 description: Learn how to use more than one HDInsight cluster with a single Data Lake Storage account
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 09/15/2023
+ms.date: 09/06/2024
 ---
 
 # Use multiple HDInsight clusters with an Azure Data Lake Storage account
@@ -69,7 +69,7 @@ This section lists the known issues for using HDInsight with Data Lake Storage, 
 
 When a new Azure Data Lake Storage account is created, the root directory is automatically provisioned with Access-ACL permission bits set to 770. The root folder’s owning user is set to the user that created the account (the Data Lake Storage admin) and the owning group is set to the primary group of the user that created the account. No access is provided for "others."
 
-These settings are known to affect one specific HDInsight use-case captured in [YARN 247](https://hwxmonarch.atlassian.net/browse/YARN-247). Job submissions could fail with an error message:
+These settings are known to affect one specific HDInsight use-case captured in YARN 247. Job submissions could fail with an error message:
 
 ```output
 Resource XXXX is not publicly accessible and as such cannot be part of the public cache.

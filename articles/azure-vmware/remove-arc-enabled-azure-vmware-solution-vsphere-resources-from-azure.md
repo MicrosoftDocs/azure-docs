@@ -3,11 +3,14 @@ title: Remove Arc-enabled Azure VMware Solution vSphere resources from Azure
 description: Learn how to remove Arc-enabled Azure VMware Solution vSphere resources from Azure.
 ms.topic: how-to 
 ms.service: azure-vmware
-ms.date: 11/01/2023
-ms.custom: references_regions
+ms.date: 12/18/2023
+ms.custom: references_regions, engagement-fy23
 ---
 
 # Remove Arc-enabled Azure VMware Solution vSphere resources from Azure
+
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](/azure/virtual-machines/workloads/centos/centos-end-of-life).
 
 In this article, learn how to cleanly remove your VMware vCenter environment from Azure Arc-enabled VMware vSphere. For VMware vSphere environments that you no longer want to manage with Azure Arc-enabled VMware vSphere, use the information in this article to perform the following actions: 
 
@@ -105,6 +108,10 @@ During onboarding, to create a connection between your VMware vCenter and Azure,
 
 As a last step, run the following command: 
 
-[`az rest --method delete`](https://management.azure.com/subscriptions/f%7BsubId%7D/resourcegroups/%7Brg)
+
+```
+az rest --method delete --"https://management.azure.com/subscriptions/%3Csubscrption-id%3E/resourcegroups/%3Cresource-group-name%3E/providers/Microsoft.AVS/privateClouds/%3Cprivate-cloud-name%3E/addons/arc?api-version=2022-05-01%22"
+```
+
 
 Once that step is done, Arc no longer works on the Azure VMware Solution private cloud. When you delete Arc resources from vCenter Server, it doesn't affect the Azure VMware Solution private cloud for the customer. 

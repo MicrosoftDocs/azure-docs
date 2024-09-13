@@ -1,7 +1,6 @@
 ---
 title: Using linked Resource Manager templates
 description: Learn how to use linked Resource Manager templates with continuous integration and delivery in Azure Data Factory pipelines.
-ms.service: data-factory
 ms.subservice: ci-cd
 author: nabhishek
 ms.author: abnarain
@@ -36,7 +35,7 @@ If you don't have Git configured, you can access the linked templates via **Expo
 
 When deploying your resources, you specify that the deployment is either an incremental update or a complete update. The difference between these two modes is how Resource Manager handles existing resources in the resource group that aren't in the template. Review [Deployment Modes](../azure-resource-manager/templates/deployment-modes.md).
 
-## Next steps
+## Related content
 
 - [Continuous integration and delivery overview](continuous-integration-delivery.md)
 - [Automate continuous integration using Azure Pipelines releases](continuous-integration-delivery-automate-azure-pipelines.md)

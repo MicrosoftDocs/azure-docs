@@ -3,9 +3,9 @@ title: 'Configure user groups and IP address pools for point-to-site User VPNs'
 titleSuffix: Azure Virtual WAN
 description: Learn how to configure user groups and assign IP addresses from specific address pools based on identity or authentication credentials.
 author: cherylmc
-ms.service: virtual-wan
+ms.service: azure-virtual-wan
 ms.topic: how-to
-ms.date: 07/31/2023
+ms.date: 01/22/2024
 ms.author: cherylmc
 
 ---
@@ -38,6 +38,8 @@ This section lists configuration requirements and limitations for user groups an
 * Address pools can't overlap with address pools used in other connection configurations (same or different gateways) in the same virtual WAN.
 
 * Address pools also can't overlap with virtual network address spaces, virtual hub address spaces, or on-premises addresses.
+
+* Address pools can't be smaller than /24. For example, you can't assign a range of /25 or /26.
 
 ## Step 2: Choosing authentication mechanism
 
@@ -119,7 +121,7 @@ Use the following steps to create a user group.
 
    :::image type="content" source="./media/user-groups-create/select-groups.png" alt-text="Screenshot of Edit User VPN gateway page with groups selected." lightbox="./media/user-groups-create/select-groups.png":::
 
-1. For **Address Pools**, select **Configure** to open the **Specify Address Pools** page. On this page, associate new address pools with this configuration. Users who are members of groups associated to this configuration will be assigned IP addresses from the specified pools. Based on the number of **Gateway Scale Units** associated to the gateway, you may need to specify more than one address pool. Select **Add** and **Okay** to save your address pools.
+1. For **Address Pools**, select **Configure** to open the **Specify Address Pools** page. On this page, associate new address pools with this configuration. Users who are members of groups associated to this configuration will be assigned IP addresses from the specified pools. Based on the number of **Gateway Scale Units** associated to the gateway, you might need to specify more than one address pool. Address pools can't be smaller than /24. For example you can't assign a range of /25 or /26 if you want to have a smaller address pool range for the usergroups. The minimum prefix is /24. Select **Add** and **Okay** to save your address pools.
 
    :::image type="content" source="./media/user-groups-create/address-pools.png" alt-text="Screenshot of Specify Address Pools page." lightbox="./media/user-groups-create/address-pools.png":::
 

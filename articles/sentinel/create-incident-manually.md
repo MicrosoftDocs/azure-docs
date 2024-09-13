@@ -14,16 +14,18 @@ ms.date: 08/17/2022
 > Manual incident creation, using the portal or Logic Apps, is currently in **PREVIEW**. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
 > Manual incident creation is generally available using the API.
+>
+> [!INCLUDE [unified-soc-preview-without-alert](includes/unified-soc-preview-without-alert.md)]
 
-With Microsoft Sentinel as your SIEM, your SOC’s threat detection and response activities are centered on **incidents** that you investigate and remediate. These incidents have two main sources: 
+With Microsoft Sentinel as your security information and event management (SIEM) solution, your security operations' threat detection and response activities are centered on **incidents** that you investigate and remediate. These incidents have two main sources: 
 
-- They are generated automatically by detection mechanisms that operate on the logs and alerts that Sentinel ingests from its connected data sources.
+- They're generated automatically when detection mechanisms operate on the logs and alerts that Microsoft Sentinel ingests from its connected data sources.
 
-- They are ingested directly from other connected Microsoft security services (such as [Microsoft 365 Defender](microsoft-365-defender-sentinel-integration.md)) that created them.
+- They're ingested directly from other connected Microsoft security services (such as [Microsoft Defender XDR](microsoft-365-defender-sentinel-integration.md)) that created them.
 
-There can, however, be data from other sources *not ingested into Microsoft Sentinel*, or events not recorded in any log, that justify opening an investigation. For example, an employee might witness an unrecognized person engaging in suspicious activity related to your organization’s information assets, and this employee might call or email the SOC to report the activity.
+However, threat data can also come from other sources *not ingested into Microsoft Sentinel*, or events not recorded in any log, and yet can justify opening an investigation. For example, an employee might notice an unrecognized person engaging in suspicious activity related to your organization’s information assets. This employee might call or email the security operations center (SOC) to report the activity.
 
-For this reason, Microsoft Sentinel allows your security analysts to manually create incidents for any type of event, regardless of its source or associated data, for the purpose of managing and documenting these investigations.
+Microsoft Sentinel allows your security analysts to manually create incidents for any type of event, regardless of its source or data, so you don't miss out on investigating these unusual types of threats.
 
 ## Common use cases
 
@@ -33,11 +35,11 @@ This is the scenario described in the introduction above.
 
 ### Create incidents out of events from external systems
 
-Create incidents based on events from systems whose logs are not ingested into Microsoft Sentinel. For example, an SMS-based phishing campaign might use your organization's corporate branding and themes to target employees' personal mobile devices. You may want to investigate such an attack, and creating an incident in Microsoft Sentinel gives you a platform to collect and log evidence and record your response and mitigating actions.
+Create incidents based on events from systems whose logs are not ingested into Microsoft Sentinel. For example, an SMS-based phishing campaign might use your organization's corporate branding and themes to target employees' personal mobile devices. You may want to investigate such an attack, and you can create an incident in Microsoft Sentinel so that you have a platform to manage your investigation, to collect and log evidence, and to record your response and mitigation actions.
 
 ### Create incidents based on hunting results
 
-Create incidents based on the observed results of hunting activities. For example, in the course of your threat hunting activities in relation to a particular investigation (or independently), you might come across evidence of a completely unrelated threat that warrants its own separate investigation.
+Create incidents based on the observed results of hunting activities. For example, while threat hunting in the context of a particular investigation (or on your own), you might come across evidence of a completely unrelated threat that warrants its own separate investigation.
 
 ## Manually create an incident
 
@@ -46,6 +48,8 @@ There are three ways to create an incident manually:
 - [Create an incident using the Azure portal](#create-an-incident-using-the-azure-portal)
 - [Create an incident using Azure Logic Apps](#create-an-incident-using-azure-logic-apps), using the Microsoft Sentinel Incident trigger.
 - [Create an incident using the Microsoft Sentinel API](#create-an-incident-using-the-microsoft-sentinel-api), through the [Incidents](/rest/api/securityinsights/preview/incidents) operation group. It allows you to get, create, update, and delete incidents.
+
+After onboarding Microsoft Sentinel to the unified security operations platform in the Microsoft Defender portal, manually created incidents will not be synchronized with the unified platform, though they can still be viewed and managed in Microsoft Sentinel in the Azure portal, and through Logic Apps and  the API.
 
 ### Create an incident using the Azure portal
 

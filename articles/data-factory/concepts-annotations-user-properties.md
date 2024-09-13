@@ -4,7 +4,6 @@ description: Advanced monitoring with annotations and user properties
 author: olmoloce
 ms.author: olmoloce
 ms.reviewer: olmoloce
-ms.service: data-factory
 ms.subservice: monitoring
 ms.topic: conceptual
 ms.date: 10/20/2023
@@ -51,6 +50,6 @@ You can remove some from the view if you select the Bookmark sign:
 
 ![Screenshot showing how to remove User Properties.](./media/concepts-annotations-user-properties/remove-user-properties.png "Remove User Properties")
 
-## Next steps
+## Related content
 
 To learn more about monitoring see [Visually monitor Azure Data Factory.](./monitor-visually.md)

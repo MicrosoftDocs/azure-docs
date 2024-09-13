@@ -1,3 +1,6 @@
+---
+ms.custom: linux-related-content
+---
 [!INCLUDE [php-eol-notice](../php-windows-eol-notice.md)]
 
 [Azure App Service](../../overview.md) provides a highly scalable, self-patching web hosting service.  This quickstart tutorial shows how to deploy a PHP app to Azure App Service on Windows.
@@ -8,7 +11,7 @@ You create the web app using the [Azure CLI](/cli/azure/get-started-with-azure-c
 
 You can follow the steps here using a Mac, Windows, or Linux machine. Once the prerequisites are installed, it takes about five minutes to complete the steps.
 
-[!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 > [!NOTE]
 > [After November 28, 2022, PHP will only be supported on App Service on Linux.](https://github.com/Azure/app-service-linux-docs/blob/master/Runtime_Support/php_support.md#end-of-life-for-php-74)
@@ -54,11 +57,11 @@ To complete this quickstart:
     
 1. In your terminal window, press **Ctrl+C** to exit the web server.
 
-[!INCLUDE [cloud-shell-try-it.md](../../../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [cloud-shell-try-it.md](~/reusable-content/ce-skilling/azure/includes/cloud-shell-try-it.md)]
 
 [!INCLUDE [Configure deployment user](../../../../includes/configure-deployment-user.md)]
 
-[!INCLUDE [Create resource group](../../../../includes/app-service-web-create-resource-group.md)]
+[!INCLUDE [Create resource group](~/reusable-content/ce-skilling/azure/includes/app-service-web-create-resource-group.md)]
 
 [!INCLUDE [Create app service plan](../../../../includes/app-service-web-create-app-service-plan-linux.md)]
 
@@ -182,4 +185,3 @@ The PHP sample code is running in an Azure App Service web app.
     The web app menu provides different options for configuring your app.
 
 [!INCLUDE [cli-samples-clean-up](../../../../includes/cli-samples-clean-up.md)]
-

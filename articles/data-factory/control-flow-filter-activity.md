@@ -2,10 +2,9 @@
 title: Filter activity
 titleSuffix: Azure Data Factory & Azure Synapse
 description: The Filter activity filters the inputs to Azure Data Factory and Synapse Analytics pipelines. 
-author: chez-charlie
-ms.author: chez
+author: kromerm
+ms.author: makromer
 ms.reviewer: jburchel
-ms.service: data-factory
 ms.subservice: orchestration
 ms.custom: synapse
 ms.topic: conceptual
@@ -129,7 +128,7 @@ In this example, the pipeline has two activities: **Filter** and **ForEach**. Th
 }
 ```
 
-## Next steps
+## Related content
 See other supported control flow activities: 
 
 - [If Condition Activity](control-flow-if-condition-activity.md)

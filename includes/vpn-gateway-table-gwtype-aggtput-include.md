@@ -1,8 +1,8 @@
 ---
  author: cherylmc
- ms.service: vpn-gateway
+ ms.service: azure-vpn-gateway
  ms.topic: include
- ms.date: 10/19/2023
+ ms.date: 01/04/2024
  ms.author: cherylmc
 ---
 
@@ -24,5 +24,3 @@
 |**Generation2**|**VpnGw3AZ**| Max. 30   | Max. 128  | Max. 1000      | 2.5 Gbps  | Supported | Yes | 3300 |
 |**Generation2**|**VpnGw4AZ**| Max. 100*   | Max. 128  | Max. 5000      | 5 Gbps    | Supported | Yes | 4400 |
 |**Generation2**|**VpnGw5AZ**| Max. 100*   | Max. 128  | Max. 10000      | 10 Gbps   | Supported | Yes | 9000 |
-
-(*) If you need more than 100 S2S VPN tunnels, use [Virtual WAN](../articles/virtual-wan/virtual-wan-about.md) instead of VPN Gateway.

@@ -135,7 +135,7 @@ Read the license terms prior to using the agent. Your installation and use const
            "runas": "adu",
            "connectionSource": {
               "connectionType": "string",
-              "connectionData": "HostName=example-connection-string.azure-devices.net;DeviceId=example-device;SharedAccessKey=M5oK/rOP12aB5678YMWv5vFWHFGJFwE8YU6u0uTnrmU=" 
+              "connectionData": "HostName=<hub_name>.azure-devices.net;DeviceId=<device_id>;SharedAccessKey=<device_key>" 
            },
            "manufacturer": "contoso",
            "model": "virtual-vacuum-v2"

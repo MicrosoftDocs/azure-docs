@@ -4,7 +4,7 @@ description: Learn about high availability for Azure SQL Edge containers
 author: rwestMSFT
 ms.author: randolphwest
 ms.date: 09/14/2023
-ms.service: sql-edge
+ms.service: azure-sql-edge
 ms.topic: conceptual
 keywords:
   - SQL Edge
@@ -41,7 +41,7 @@ To create a container in Kubernetes, see [Deploy a Azure SQL Edge container in K
 ## Next steps
 
 To deploy Azure SQL Edge containers in Azure Kubernetes Service (AKS), see the following articles:
-- [Deploy a Azure SQL Edge container in Kubernetes](deploy-Kubernetes.md)
+- [Deploy an Azure SQL Edge container in Kubernetes](deploy-Kubernetes.md)
 - [Machine Learning and Artificial Intelligence with ONNX in SQL Edge](onnx-overview.md).
 - [Building an end to end IoT Solution with SQL Edge using IoT Edge](tutorial-deploy-azure-resources.md).
 - [Data Streaming in Azure SQL Edge](stream-data.md)

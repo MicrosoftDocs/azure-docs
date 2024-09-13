@@ -9,9 +9,13 @@ manager: CelesteDG
 ms.service: active-directory
 
 ms.topic: reference
-ms.date: 12/10/2019
+ms.date: 01/11/2024
 ms.author: kengaderdus
 ms.subservice: B2C
+
+
+#Customer intent: As a developer creating a custom policy for Azure Active Directory B2C, I want to understand the structure and elements of the BuildingBlocks section, so that I can properly define the necessary components for my custom policy.
+
 ---
 
 # BuildingBlocks

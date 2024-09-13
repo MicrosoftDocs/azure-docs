@@ -1,7 +1,7 @@
 ---
 title: Azure Lighthouse architecture
 description: Learn about the relationship between tenants in Azure Lighthouse, and the resources created in the customer's tenant that enable that relationship.
-ms.date: 05/10/2023
+ms.date: 07/10/2024
 ms.topic: conceptual
 ---
 
@@ -55,7 +55,7 @@ At a high level, here's how Azure Lighthouse works for the managing tenant:
 2. Specify this access and onboard the customer to Azure Lighthouse either by [publishing a Managed Service offer to Azure Marketplace](../how-to/publish-managed-services-offers.md), or by [deploying an Azure Resource Manager template](../how-to/onboard-customer.md). This onboarding process creates the two resources described above (registration definition and registration assignment) in the customer's tenant.
 3. Once the customer has been onboarded, authorized users sign in to your managing tenant and perform tasks at the specified customer scope (subscription or resource group) per the access that you defined. Customers can review all actions taken, and they can remove access at any time.
 
-While in most cases only one service provider will be managing specific resources for a customer, it’s possible for the customer to create multiple delegations for the same subscription or resource group, allowing multiple service providers to have access. This scenario also enables ISV scenarios that [project resources from the service provider’s tenant to multiple customers](isv-scenarios.md#saas-based-multi-tenant-offerings).
+While in most cases only one service provider will be managing specific resources for a customer, it’s possible for the customer to create multiple delegations for the same subscription or resource group, allowing multiple service providers to have access. This scenario also enables ISV scenarios that [project resources from the service provider’s tenant to multiple customers](isv-scenarios.md#saas-based-multitenant-offerings).
 
 ## Next steps
 

@@ -3,6 +3,8 @@
 - name: Overview
   expanded: true
   items:
+  - name: Azure Lab Services retirement guide
+    href: retirement-guide.md
   - name: What is Azure Lab Services?
     href: lab-services-overview.md
 - name: Migrate to lab plans
@@ -10,7 +12,7 @@
   items:
   - name: Lab accounts versus lab plans
     href: concept-lab-accounts-versus-lab-plans.md
-  - name: Migrate lab acounts to lab plans
+  - name: Migrate lab accounts to lab plans
     href: how-to-migrate-lab-acounts-to-lab-plans.md
   - name: Migrate lab account role assignments
     displayName: RBAC, authorization, security, roles, permissions, admin, lab creator, lab account, migrate, upgrade
@@ -43,8 +45,6 @@
     href: tutorial-create-lab-with-advanced-networking.md
   - name: Track usage of a lab
     href: tutorial-track-usage.md
-  - name: Set up a lab account
-    href: tutorial-setup-lab-account.md
 - name: Concepts
   items:
   - name: Key concepts for Azure Lab Services
@@ -220,8 +220,6 @@
       href: how-to-windows-shutdown.md
     - name: Enable nested virtualization on a template VM
       href: how-to-enable-nested-virtualization-template-vm-using-script.md
-    - name: Use external file storage
-      href: how-to-attach-external-storage.md
     - name: Access student VMs from educator view
       href: instructor-access-virtual-machines.md
     - name: Set and reset passwords 
@@ -264,10 +262,14 @@
       items:
       - name: Create and manage labs
         href: how-to-manage-classroom-labs.md        
-      - name: Create and manage lab accounts
+      - name: Create lab accounts
+        href: how-to-create-lab-accounts.md
+      - name: Manage lab accounts
         href: how-to-manage-lab-accounts.md
       - name: Configure auto-shutdown of VMs for a lab account
         href: how-to-configure-lab-accounts.md
+      - name: Add a lab creator
+        href: how-to-add-lab-creator.md
       - name: Allow lab creator to pick lab location
         href: allow-lab-creator-pick-lab-location.md
       - name: Create a lab with a shared resource
@@ -292,8 +294,10 @@
   items:
     - name: Troubleshoot lab creation
       href: troubleshoot-lab-creation.md
-    - name: Troubleshoot lab VM Access
+    - name: Troubleshoot lab VM access
       href: troubleshoot-access-lab-vm.md
+    - name: Troubleshoot lab VM connection
+      href: troubleshoot-connect-lab-vm.md
 - name: Reference
   items:
   - name: .NET
@@ -311,6 +315,8 @@
     href: https://pypi.org/project/azure-mgmt-labservices/
 - name: Resources
   items:
+  - name: Transition to Azure DevTest Labs
+    href: transition-devtest-labs-guidance.md
   - name: Azure Lab Services Blog
     href: https://aka.ms/azlabs-blog
   - name: Azure updates
@@ -321,5 +327,5 @@
     href: https://azure.microsoft.com/pricing/details/lab-services/
   - name: Q & A
     href: https://aka.ms/azlabs/questions
-  - name: Tech community forum
-    href: https://techcommunity.microsoft.com/t5/azure-lab-services/bd-p/AzureLabServices
+  - name: Code samples
+    href: https://github.com/Azure/LabServices

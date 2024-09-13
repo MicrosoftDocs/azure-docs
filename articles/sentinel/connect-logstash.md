@@ -3,7 +3,7 @@ title: Use Logstash to stream logs with HTTP Data Collection API (legacy)
 description: Learn how to use Logstash to forward logs from external data sources to Microsoft Sentinel using the HTTP Data Collection API.
 author: yelevin
 ms.topic: how-to
-ms.custom: mvc, ignite-fall-2021
+ms.custom: mvc
 ms.date: 11/09/2021
 ms.author: yelevin
 ---
@@ -43,7 +43,7 @@ The Logstash engine is comprised of three components:
 The Microsoft Sentinel output plugin for Logstash sends JSON-formatted data to your Log Analytics workspace, using the Log Analytics HTTP Data Collector REST API. The data is ingested into custom logs.
 
 - Learn more about the [Log Analytics REST API](/rest/api/loganalytics/create-request).
-- Learn more about [custom logs](../azure-monitor/agents/data-sources-custom-logs.md).
+- Learn more about [custom logs](/azure/azure-monitor/agents/data-sources-custom-logs).
 
 ## Deploy the Microsoft Sentinel output plugin in Logstash
 
@@ -93,8 +93,8 @@ Here are some sample configurations that use a few different options.
     }
     output {
         microsoft-logstash-output-azure-loganalytics {
-          workspace_id => "4g5tad2b-a4u4-147v-a4r7-23148a5f2c21" # <your workspace id>
-          workspace_key => "u/saRtY0JGHJ4Ce93g5WQ3Lk50ZnZ8ugfd74nk78RPLPP/KgfnjU5478Ndh64sNfdrsMni975HJP6lp==" # <your workspace key>
+          workspace_id => "<your workspace id>"
+          workspace_key => "<your workspace key>"
           custom_log_table_name => "tableName"
         }
     }
@@ -113,8 +113,8 @@ Here are some sample configurations that use a few different options.
     }
     output {
         microsoft-logstash-output-azure-loganalytics {
-          workspace_id => "4g5tad2b-a4u4-147v-a4r7-23148a5f2c21" # <your workspace id>
-          workspace_key => "u/saRtY0JGHJ4Ce93g5WQ3Lk50ZnZ8ugfd74nk78RPLPP/KgfnjU5478Ndh64sNfdrsMni975HJP6lp==" # <your workspace key>
+          workspace_id => "<your workspace id>"
+          workspace_key =>  "<your workspace key>"
           custom_log_table_name => "tableName"
         }
     }
@@ -224,4 +224,4 @@ If you are not seeing any data in this log file, generate and send some events l
 
 In this document, you learned how to use Logstash to connect external data sources to Microsoft Sentinel. To learn more about Microsoft Sentinel, see the following articles:
 - Learn how to [get visibility into your data and potential threats](get-visibility.md).
-- Get started detecting threats with Microsoft Sentinel, using [built-in](detect-threats-built-in.md) or [custom](detect-threats-custom.md) rules.
+- Get started [detecting threats with Microsoft Sentinel](detect-threats-built-in.md).

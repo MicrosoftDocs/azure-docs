@@ -1,11 +1,12 @@
 ---
 title: Authenticate with service principal
 description: Provide access to images in your private container registry by using a Microsoft Entra service principal.
-ms.topic: article
+ms.topic: conceptual
 ms.custom: devx-track-azurecli
+ms.service: azure-container-registry
 author: tejaswikolli-web
 ms.author: tejaswikolli
-ms.date: 10/11/2022
+ms.date: 10/31/2023
 ---
 
 # Azure Container Registry authentication with service principals
@@ -28,10 +29,10 @@ For example, configure your web application to use a service principal that prov
 
 You should use a service principal to provide registry access in **headless scenarios**. That is, an application, service, or script that must push or pull container images in an automated or otherwise unattended manner. For example:
 
-* *Pull*: Deploy containers from a registry to orchestration systems including Kubernetes, DC/OS, and Docker Swarm. You can also pull from container registries to related Azure services such as [Azure Container Instances](container-registry-auth-aci.md), [App Service](../app-service/index.yml), [Batch](../batch/index.yml), [Service Fabric](../service-fabric/index.yml), and others.
+* *Pull*: Deploy containers from a registry to orchestration systems including Kubernetes, DC/OS, and Docker Swarm. You can also pull from container registries to related Azure services such as [App Service](../app-service/index.yml), [Batch](../batch/index.yml), [Service Fabric](/azure/service-fabric/), and others.
 
     > [!TIP]
-    > A service principal is recommended in several [Kubernetes scenarios](authenticate-kubernetes-options.md) to pull images from an Azure container registry. With Azure Kubernetes Service (AKS), you can also use an automated mechanism to authenticate with a target registry by enabling the cluster's [managed identity](../aks/cluster-container-registry-integration.md).
+    > A service principal is recommended in several [Kubernetes scenarios](authenticate-kubernetes-options.md) to pull images from an Azure container registry. With Azure Kubernetes Service (AKS), you can also use an automated mechanism to authenticate with a target registry by enabling the cluster's [managed identity](/azure/aks/cluster-container-registry-integration).
   * *Push*: Build container images and push them to a registry using continuous integration and deployment solutions like Azure Pipelines or Jenkins.
 
 For individual access to a registry, such as when you manually pull a container image to your development workstation, we recommend using your own [Microsoft Entra identity](container-registry-authentication.md#individual-login-with-azure-ad) instead for registry access (for example, with [az acr login][az-acr-login]).
@@ -61,8 +62,6 @@ The **Username** value has the format `xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx`.
 ### Use credentials with Azure services
 
 You can use service principal credentials from any Azure service that authenticates with an Azure container registry.  Use service principal credentials in place of the registry's admin credentials for a variety of scenarios.
-
-For example, use the credentials to pull an image from an Azure container registry to [Azure Container Instances](container-registry-auth-aci.md).
 
 ### Use with docker login
 

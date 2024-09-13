@@ -3,7 +3,7 @@ title: Manage connections for end users - Azure API Management | Microsoft Docs
 description: Learn how to configure a connection with user-delegated permissions to a backend OAuth 2.0 API using the Azure API Management credential manager. 
 services: api-management
 author: dlepow
-ms.service: api-management
+ms.service: azure-api-management
 ms.custom: devx-track-azurepowershell
 ms.topic: how-to
 ms.date: 11/14/2023
@@ -11,6 +11,8 @@ ms.author: danlep
 ---
 
 # Configure credential manager - user-delegated access to backend API
+
+[!INCLUDE [api-management-availability-all-tiers](../../includes/api-management-availability-all-tiers.md)]
 
 This article guides you through the high level steps to configure and use a managed [connection](credentials-overview.md) that grants Microsoft Entra users or groups delegated permissions to a backend OAuth 2.0 API. Follow these steps for scenarios when a client app (or bot) needs to access backend secured online resources on behalf of an authenticated user (for example, checking emails or placing an order).
 
@@ -39,7 +41,7 @@ In this scenario, you configure a managed [connection](credentials-overview.md) 
 - A running API Management instance. If you need to, [create an Azure API Management instance](get-started-create-service-instance.md).
 - A backend OAuth 2.0 API that you want to access on behalf of the user or group.
 
-[!INCLUDE [azure-powershell-requirements-no-header](../../includes/azure-powershell-requirements-no-header.md)]
+[!INCLUDE [azure-powershell-requirements-no-header](~/reusable-content/ce-skilling/azure/includes/azure-powershell-requirements-no-header.md)]
 
 ## Step 1: Provision Azure API Management Data Plane service principal
 
@@ -181,5 +183,5 @@ In the preceding policy definition, replace:
 
 ## Related content
 
-* Learn more about [access restriction policies](api-management-access-restriction-policies.md)
+* Learn more about [authentication and authorization policies](api-management-policies.md#authentication-and-authorization)
 * Learn more about [scopes and permissions](../active-directory/develop/scopes-oidc.md) in Microsoft Entra ID.

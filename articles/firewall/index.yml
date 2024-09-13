@@ -6,12 +6,11 @@ summary: Learn how to deploy Azure Firewall, a cloud-based network security serv
 metadata:
   title: Azure Firewall documentation
   description: Learn how to deploy Azure Firewall, a cloud-based network security service.
-  services: firewall
-  ms.service: firewall
+  ms.service: azure-firewall
   ms.topic: landing-page
   author: vhorne
   ms.author: victorh
-  ms.date: 11/09/2023
+  ms.date: 05/30/2024
   ms.custom: e2e-hybrid
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
@@ -32,6 +31,10 @@ landingContent:
             url: rule-processing.md
           - text: Frequently asked questions
             url: firewall-faq.yml
+      - linkListType: concept
+        links:
+          - text: Azure Firewall NAT behaviors
+            url: https://techcommunity.microsoft.com/t5/azure-network-security-blog/azure-firewall-nat-behaviors/ba-p/3825834
       - linkListType: learn
         links:
           - text: Introduction to Azure Firewall
@@ -83,6 +86,17 @@ landingContent:
             url: deploy-firewall-basic-portal-policy.md
 
   # Card
+  - title: Learn about Azure Firewall integration in Copilot for Security
+    linkLists:
+      - linkListType: concept
+        links:
+         - text: Azure Firewall integration in Microsoft Copilot for Security (preview)
+           url: firewall-copilot.md
+         - text: Azure Firewall integration in Copilot for Security - protect networks at machine speed with Gen AI
+           url: https://techcommunity.microsoft.com/t5/azure-network-security-blog/azure-firewall-integration-in-copilot-for-security-protect/ba-p/4144614
+
+  
+  # Card
   - title: Integrate with Load Balancer
     linkLists:
       - linkListType: how-to-guide
@@ -101,6 +115,13 @@ landingContent:
         links:
           - text: Monitor Azure Firewall logs and metrics
             url: tutorial-diagnostics.md
+# Card
+  - title: Manage Azure Firewall
+    linkLists:
+      - linkListType: overview
+        links:
+         - text: Azure Firewall Manager
+           url: ../firewall-manager/index.yml
 
 # Card
   - title: Backup Azure Firewall and policy
@@ -131,3 +152,14 @@ landingContent:
         links:
          - text: Azure network security
            url: ../networking/security/index.yml
+# Card
+  - title: Reference
+    linkLists:
+      - linkListType: reference
+        links:
+          - text: Azure CLI
+            url: /cli/azure/network/firewall
+          - text: Azure PowerShell
+            url: /powershell/module/az.network/new-azfirewall
+          - text: REST
+            url: /rest/api/firewall

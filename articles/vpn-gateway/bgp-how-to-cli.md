@@ -3,7 +3,7 @@ title: 'Configure BGP for VPN Gateway: CLI'
 titleSuffix: Azure VPN Gateway
 description: Learn how to configure BGP for VPN gateways using CLI.
 author: cherylmc
-ms.service: vpn-gateway
+ms.service: azure-vpn-gateway
 ms.custom: devx-track-azurecli
 ms.topic: how-to
 ms.date: 01/09/2023
@@ -25,7 +25,7 @@ Each part of this article helps you form a basic building block for enabling BGP
 
 You can combine these sections to build a more complex multihop transit network that meets your needs.
 
-[!INCLUDE [azure-cli-prepare-your-environment.md](~/articles/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
+[!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
 ## <a name ="enablebgp"></a>Enable BGP for the VPN gateway
 
@@ -121,6 +121,7 @@ This exercise continues to build the configuration shown in the diagram. Be sure
 
 * The local network gateway can be in the same location and resource group as the VPN gateway, or it can be in a different location and resource group. This example shows the gateways in different resource groups in different locations.
 * The minimum prefix that you need to declare for the local network gateway is the host address of your BGP peer IP address on your VPN device. In this case, it's a /32 prefix of 10.51.255.254/32.
+* You can also leave the prefix empty if you're using BGP to connect to this network. Azure VPN gateway will internally add a route of your BGP peer IP address to the corresponding IPsec tunnel.
 * As a reminder, you must use different BGP ASNs between your on-premises networks and the Azure virtual network. If they're the same, you need to change your VNet ASN if your on-premises VPN devices already use the ASN to peer with other BGP neighbors.
 
 Before you proceed, make sure that you've completed the [Enable BGP for your VPN gateway](#enablebgp) section of this exercise. Notice that in this example, you create a new resource group. Also, notice the two additional parameters for the local network gateway: `Asn` and `BgpPeerAddress`.

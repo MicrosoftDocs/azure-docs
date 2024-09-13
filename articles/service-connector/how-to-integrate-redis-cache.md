@@ -5,14 +5,16 @@ author: maud-lv
 ms.author: malev
 ms.service: service-connector
 ms.topic: how-to
-ms.date: 10/31/2023
-ms.custom: event-tier1-build-2022
+ms.date: 02/02/2024
 ---
+
 # Integrate Azure Cache for Redis with Service Connector
 
 This page shows supported authentication methods and clients, and shows sample code you can use to connect Azure Cache for Redis to other cloud services using Service Connector. You might still be able to connect to Azure Cache for Redis in other programming languages without using Service Connector. This page also shows default environment variable names and values (or Spring Boot configuration) you get when you create the service connection.
 
 ## Supported compute services
+
+Service Connector can be used to connect the following compute services to Azure Cache for Redis:
 
 - Azure App Service
 - Azure Functions
@@ -21,23 +23,28 @@ This page shows supported authentication methods and clients, and shows sample c
 
 ## Supported Authentication types and client types
 
-Supported authentication and clients for App Service, Azure Functions, Container Apps and Azure Spring Apps:
+The table below shows which combinations of authentication methods and clients are supported for connecting your compute service to Azure Cache for Redis using Service Connector. A “Yes” indicates that the combination is supported, while a “No” indicates that it is not supported.
 
-| Client type        | System-assigned managed identity | User-assigned managed identity | Secret / connection string         | Service principal |
-| ------------------ | -------------------------------- | ------------------------------ | ---------------------------------- | ----------------- |
-| .NET               |                                  |                                | ![yes icon](./media/green-check.png) |                   |
-| Go                 |                                  |                                | ![yes icon](./media/green-check.png) |                   |
-| Java               |                                  |                                | ![yes icon](./media/green-check.png) |                   |
-| Java - Spring Boot |                                  |                                | ![yes icon](./media/green-check.png) |                   |
-| Node.js            |                                  |                                | ![yes icon](./media/green-check.png) |                   |
-| Python             |                                  |                                | ![yes icon](./media/green-check.png) |                   |
-| None               |                                  |                                | ![yes icon](./media/green-check.png) |                   |
+| Client type        | System-assigned managed identity | User-assigned managed identity | Secret / connection string | Service principal |
+|--------------------|----------------------------------|--------------------------------|----------------------------|-------------------|
+| .NET               | No                               | No                             | Yes                        | No                |
+| Go                 | No                               | No                             | Yes                        | No                |
+| Java               | No                               | No                             | Yes                        | No                |
+| Java - Spring Boot | No                               | No                             | Yes                        | No                |
+| Node.js            | No                               | No                             | Yes                        | No                |
+| Python             | No                               | No                             | Yes                        | No                |
+| None               | No                               | No                             | Yes                        | No                |
+
+This table indicates that the only supported authentication method for all client types in the table is the Secret / connection string method. Other authentication methods are not supported for any of the client types to connect to Azure Cache for Redis using Service Connector.
 
 ## Default environment variable names or application properties and sample code
 
 Use the environment variable names and application properties listed below to connect compute services to Redis Server. For each example below, replace the placeholder texts `<redis-server-name>`, and `<redis-key>` with your own Redis server name and key. For more information about naming conventions, check the [Service Connector internals](concept-service-connector-internals.md#configuration-naming-convention) article.
 
 ### Connection String
+
+> [!WARNING]
+> Microsoft recommends that you use the most secure authentication flow available. The authentication flow described in this procedure requires a very high degree of trust in the application, and carries risks that are not present in other flows. You should only use this flow when other more secure flows, such as managed identities, aren't viable.
 
 #### [.NET](#tab/dotnet) 
 

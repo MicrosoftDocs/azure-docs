@@ -2,12 +2,12 @@
 title: Authentication with Microsoft Azure Maps
 titleSuffix: Azure Maps
 description: "Learn about two ways of authenticating requests in Azure Maps: shared key authentication and Microsoft Entra authentication."
-author: eriklindeman
-ms.author: eriklind
+author: pbrasil
+ms.author: peterbr 
 ms.date: 07/05/2023
 ms.topic: conceptual
 ms.service: azure-maps
-services: azure-maps
+ms.subservice: authentication
 ms.custom: mvc
 ---
 
@@ -398,16 +398,7 @@ You can remove CORS:
 
 ## Understand billing transactions
 
-Azure Maps doesn't count billing transactions for:
-
-- 5xx HTTP Status Codes
-- 401 (Unauthorized)
-- 403 (Forbidden)
-- 408 (Timeout)
-- 429 (TooManyRequests)
-- CORS preflight requests
-
-For more information on billing transactions and other Azure Maps pricing information, see [Azure Maps pricing].
+[!INCLUDE [Understand billing transactions](./includes/understand-billing-transactions.md)]
 
 ## Next steps
 
@@ -434,12 +425,12 @@ To learn more about authenticating the Azure Maps Control with Microsoft Entra I
 [Azure services that can use managed identities to access other services]: ../active-directory/managed-identities-azure-resources/managed-identities-status.md
 [Authentication flows and application scenarios]: ../active-directory/develop/authentication-flows-app-scenarios.md
 [Azure role-based access control (Azure RBAC)]: ../role-based-access-control/overview.md
-[Assign Azure roles using the Azure portal]: ../role-based-access-control/role-assignments-portal.md
+[Assign Azure roles using the Azure portal]: ../role-based-access-control/role-assignments-portal.yml
 
 [Data]: /rest/api/maps/data
 [Creator]: /rest/api/maps-creator/
 [Spatial]: /rest/api/maps/spatial
-[Search]: /rest/api/maps/search
+[Search]: /rest/api/maps/search?view=rest-maps-1.0&preserve-view=true
 [Route]: /rest/api/maps/route
 
 [How to configure Azure RBAC for Azure Maps]: how-to-manage-authentication.md

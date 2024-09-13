@@ -5,7 +5,7 @@ author: filippopovic
 ms.author: fipopovi
 ms.reviewer: SQLStijn-MSFT, wiassaf
 ms.date: 07/24/2023
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.subservice: sql
 ms.topic: overview
 ms.custom: devx-track-azurepowershell

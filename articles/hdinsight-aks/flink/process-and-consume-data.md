@@ -1,18 +1,20 @@
 ---
 title: Using Apache Kafka® on HDInsight with Apache Flink® on HDInsight on AKS
 description: Learn how to use Apache Kafka® on HDInsight with Apache Flink® on HDInsight on AKS
-ms.service: hdinsight-aks
+ms.service: azure-hdinsight-on-aks
 ms.topic: how-to
-ms.date: 10/27/2023
+ms.date: 04/03/2024
 ---
  
 # Using Apache Kafka® on HDInsight with Apache Flink® on HDInsight on AKS
 
+[!INCLUDE [retirement-notice](../includes/retirement-notice.md)]
 [!INCLUDE [feature-in-preview](../includes/feature-in-preview.md)]
+
 
 A well known use case for Apache Flink is stream analytics. The popular choice by many users to use the data streams, which are ingested using Apache Kafka. Typical installations of Flink and Kafka start with event streams being pushed to Kafka, which can be consumed by Flink jobs.
 
-This example uses HDInsight on AKS clusters running Flink 1.16.0 to process streaming data consuming and producing Kafka topic. 
+This example uses HDInsight on AKS clusters running Flink 1.17.0 to process streaming data consuming and producing Kafka topic. 
 
 > [!NOTE]
 > FlinkKafkaConsumer is deprecated and will be removed with Flink 1.17, please use KafkaSource instead.
@@ -39,7 +41,7 @@ Flink provides an [Apache Kafka Connector](https://nightlies.apache.org/flink/fl
         <dependency>
             <groupId>org.apache.flink</groupId>
             <artifactId>flink-connector-kafka</artifactId>
-            <version>1.16.0</version>
+            <version>1.17.0</version>
         </dependency>
 ```
 
@@ -141,9 +143,14 @@ public class Event {
 ```
 ## Package the jar and submit the job to Flink
 
-:::image type="content" source="./media/process-consume-data/submit-jar-flink.png" alt-text="Screenshot showing how to submit the Kafka topic packaged jar as a job to Flink.":::
+On Webssh, upload the jar and submit the jar
 
-:::image type="content" source="./media/process-consume-data/running-job-flink.png" alt-text="Screenshot showing job running on Flink.":::
+:::image type="content" source="./media/process-consume-data/running-job-flink.png" alt-text="Screenshot showing job running on Flink." border="true" lightbox="./media/process-consume-data/running-job-flink.png":::
+
+On Flink Dashboard UI
+
+:::image type="content" source="./media/process-consume-data/submit-jar-flink.png" alt-text="Screenshot showing how to submit the Kafka topic packaged jar as a job to Flink." border="true" lightbox="./media/process-consume-data/submit-jar-flink.png":::
+
 
 ## Produce the topic - clicks on Kafka
 

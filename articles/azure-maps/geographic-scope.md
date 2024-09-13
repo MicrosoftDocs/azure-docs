@@ -2,12 +2,12 @@
 title: Azure Maps service geographic scope
 titleSuffix: Microsoft Azure Maps
 description: Learn about Azure Maps service's geographic mappings
-author: eriklindeman
-ms.author: eriklind
+author: faterceros
+ms.author: aterceros
 ms.date: 04/18/2022
 ms.topic: conceptual
 ms.service: azure-maps
-services: azure-maps
+ms.subservice: general
 ms.custom: mvc, references_regions
 ---
 
@@ -55,4 +55,4 @@ For information on limiting what regions a SAS token can use in, see [Authentica
 [Authentication with Azure Maps]: azure-maps-authentication.md#create-sas-tokens
 [Azure geographies]: https://azure.microsoft.com/global-infrastructure/geographies
 [Azure Government cloud support]: how-to-use-map-control.md#azure-government-cloud-support
-[Search - Get Search Address]: /rest/api/maps/search/get-search-address
+[Search - Get Search Address]: /rest/api/maps/search/get-search-address?view=rest-maps-1.0&preserve-view=true

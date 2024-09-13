@@ -6,7 +6,7 @@ ms.suite: integration
 ms.reviewer: estfan, niding, azla
 ms.topic: reference
 ms.custom: engagement-fy23
-ms.date: 04/07/2023
+ms.date: 12/13/2023
 ---
 
 # Reference guide to workflow expression functions in Azure Logic Apps and Power Automate
@@ -102,7 +102,7 @@ To work with strings, you can use these string functions and also some [collecti
 | [formatNumber](../logic-apps/workflow-definition-language-functions-reference.md#formatNumber) | Return a number as a string based on the specified format |
 | [guid](../logic-apps/workflow-definition-language-functions-reference.md#guid) | Generate a globally unique identifier (GUID) as a string. |
 | [indexOf](../logic-apps/workflow-definition-language-functions-reference.md#indexof) | Return the starting position for a substring. |
-| [isFloat](../logic-apps/workflow-definition-language-functions-reference.md#isInt) | Return a boolean that indicates whether a string is a floating-point number. |
+| [isFloat](../logic-apps/workflow-definition-language-functions-reference.md#isFloat) | Return a boolean that indicates whether a string is a floating-point number. |
 | [isInt](../logic-apps/workflow-definition-language-functions-reference.md#isInt) | Return a boolean that indicates whether a string is an integer. |
 | [lastIndexOf](../logic-apps/workflow-definition-language-functions-reference.md#lastindexof) | Return the starting position for the last occurrence of a substring. |
 | [length](../logic-apps/workflow-definition-language-functions-reference.md#length) | Return the number of items in a string or array. |
@@ -157,6 +157,8 @@ To work with conditions, compare values and expression results, or evaluate vari
 | [greater](../logic-apps/workflow-definition-language-functions-reference.md#greater) | Check whether the first value is greater than the second value. |
 | [greaterOrEquals](../logic-apps/workflow-definition-language-functions-reference.md#greaterOrEquals) | Check whether the first value is greater than or equal to the second value. |
 | [if](../logic-apps/workflow-definition-language-functions-reference.md#if) | Check whether an expression is true or false. Based on the result, return a specified value. |
+| [isFloat](../logic-apps/workflow-definition-language-functions-reference.md#isFloat) | Return a boolean that indicates whether a string is a floating-point number. |
+| [isInt](../logic-apps/workflow-definition-language-functions-reference.md#isInt) | Return a boolean that indicates whether a string is an integer. |
 | [less](../logic-apps/workflow-definition-language-functions-reference.md#less) | Check whether the first value is less than the second value. |
 | [lessOrEquals](../logic-apps/workflow-definition-language-functions-reference.md#lessOrEquals) | Check whether the first value is less than or equal to the second value. |
 | [not](../logic-apps/workflow-definition-language-functions-reference.md#not) | Check whether an expression is false. |
@@ -312,10 +314,8 @@ For the full reference about each function, see the
 | Workflow function | Task |
 | ----------------- | ---- |
 | [action](../logic-apps/workflow-definition-language-functions-reference.md#action) | Return the current action's output at runtime, or values from other JSON name-and-value pairs. See also [actions](../logic-apps/workflow-definition-language-functions-reference.md#actions). |
-| [actionBody](../logic-apps/workflow-definition-language-functions-reference.md#actionBody) | Return an action's `body` output at runtime. See also [body](../logic-apps/workflow-definition-language-functions-reference.md#body). |
-| [actionOutputs](../logic-apps/workflow-definition-language-functions-reference.md#actionOutputs) | Return an action's output at runtime. See [outputs](../logic-apps/workflow-definition-language-functions-reference.md#outputs) and [actions](../logic-apps/workflow-definition-language-functions-reference.md#actions). |
 | [actions](../logic-apps/workflow-definition-language-functions-reference.md#actions) | Return an action's output at runtime, or values from other JSON name-and-value pairs. See also [action](../logic-apps/workflow-definition-language-functions-reference.md#action).  |
-| [body](#body) | Return an action's `body` output at runtime. See also [actionBody](../logic-apps/workflow-definition-language-functions-reference.md#actionBody). |
+| [body](#body) | Return an action's `body` output at runtime. |
 | [formDataMultiValues](../logic-apps/workflow-definition-language-functions-reference.md#formDataMultiValues) | Create an array with the values that match a key name in *form-data* or *form-encoded* action outputs. |
 | [formDataValue](../logic-apps/workflow-definition-language-functions-reference.md#formDataValue) | Return a single value that matches a key name in an action's *form-data* or *form-encoded output*. |
 | [item](../logic-apps/workflow-definition-language-functions-reference.md#item) | If this function appears inside a repeating action over an array, return the current item in the array during the action's current iteration. |
@@ -416,116 +416,6 @@ action().outputs.body.<property>
 | <*action-output*> | String | The output from the current action or property |
 ||||
 
-<a name="actionBody"></a>
-
-### actionBody
-
-Return an action's `body` output at runtime.
-Shorthand for `actions('<actionName>').outputs.body`.
-See [body()](#body) and [actions()](#actions).
-
-```
-actionBody('<actionName>')
-```
-
-| Parameter | Required | Type | Description |
-| --------- | -------- | ---- | ----------- |
-| <*actionName*> | Yes | String | The name for the action's `body` output that you want |
-|||||
-
-| Return value | Type | Description |
-| ------------ | -----| ----------- |
-| <*action-body-output*> | String | The `body` output from the specified action |
-||||
-
-*Example*
-
-This example gets the `body` output from the Twitter action `Get user`:
-
-```
-actionBody('Get_user')
-```
-
-And returns this result:
-
-```json
-"body": {
-  "FullName": "Contoso Corporation",
-  "Location": "Generic Town, USA",
-  "Id": 283541717,
-  "UserName": "ContosoInc",
-  "FollowersCount": 172,
-  "Description": "Leading the way in transforming the digital workplace.",
-  "StatusesCount": 93,
-  "FriendsCount": 126,
-  "FavouritesCount": 46,
-  "ProfileImageUrl": "https://pbs.twimg.com/profile_images/908820389907722240/gG9zaHcd_400x400.jpg"
-}
-```
-
-<a name="actionOutputs"></a>
-
-### actionOutputs
-
-Return an action's output at runtime.  and is shorthand for `actions('<actionName>').outputs`. See [actions()](#actions). The `actionOutputs()` function resolves to `outputs()` in the designer, so consider using [outputs()](#outputs), rather than `actionOutputs()`. Although both functions work the same way, `outputs()` is preferred.
-
-```
-actionOutputs('<actionName>')
-```
-
-| Parameter | Required | Type | Description |
-| --------- | -------- | ---- | ----------- |
-| <*actionName*> | Yes | String | The name for the action's output that you want |
-|||||
-
-| Return value | Type | Description |
-| ------------ | -----| ----------- |
-| <*output*> | String | The output from the specified action |
-||||
-
-*Example*
-
-This example gets the output from the Twitter action `Get user`:
-
-```
-actionOutputs('Get_user')
-```
-
-And returns this result:
-
-```json
-{
-  "statusCode": 200,
-  "headers": {
-    "Pragma": "no-cache",
-    "Vary": "Accept-Encoding",
-    "x-ms-request-id": "a916ec8f52211265d98159adde2efe0b",
-    "X-Content-Type-Options": "nosniff",
-    "Timing-Allow-Origin": "*",
-    "Cache-Control": "no-cache",
-    "Date": "Mon, 09 Apr 2018 18:47:12 GMT",
-    "Set-Cookie": "ARRAffinity=b9400932367ab5e3b6802e3d6158afffb12fcde8666715f5a5fbd4142d0f0b7d;Path=/;HttpOnly;Domain=twitter-wus.azconn-wus.p.azurewebsites.net",
-    "X-AspNet-Version": "4.0.30319",
-    "X-Powered-By": "ASP.NET",
-    "Content-Type": "application/json; charset=utf-8",
-    "Expires": "-1",
-    "Content-Length": "339"
-  },
-  "body": {
-    "FullName": "Contoso Corporation",
-    "Location": "Generic Town, USA",
-    "Id": 283541717,
-    "UserName": "ContosoInc",
-    "FollowersCount": 172,
-    "Description": "Leading the way in transforming the digital workplace.",
-    "StatusesCount": 93,
-    "FriendsCount": 126,
-    "FavouritesCount": 46,
-    "ProfileImageUrl": "https://pbs.twimg.com/profile_images/908820389907722240/gG9zaHcd_400x400.jpg"
-  }
-}
-```
-
 <a name="actions"></a>
 
 ### actions
@@ -535,9 +425,7 @@ or values from other JSON name-and-value pairs,
 which you can assign to an expression. By default,
 the function references the entire action object,
 but you can optionally specify a property whose value that you want.
-For shorthand versions, see [actionBody()](#actionBody),
-[actionOutputs()](#actionOutputs), and [body()](#body).
-For the current action, see [action()](#action).
+For shorthand versions, see [body()](#body). For the current action, see [action()](#action).
 
 > [!TIP]
 > The `actions()` function returns output as a string. If you need to work with a returned value as a JSON object, you first need to convert the string value. You can transform the string value into a JSON object using the [Parse JSON action](logic-apps-perform-data-operations.md#parse-json-action).
@@ -570,7 +458,7 @@ actions('<actionName>').outputs.body.<property>
 *Example*
 
 This example gets the `status` property value
-from the Twitter action `Get user` at runtime:
+from the X action `Get user` at runtime:
 
 ```
 actions('Get_user').outputs.body.status
@@ -1144,7 +1032,7 @@ You can use this function expression to send the string bytes with the `applicat
 
 ### body
 
-Return an action's `body` output at runtime. Shorthand for `actions('<actionName>').outputs.body`. See [actionBody()](#actionBody) and [actions()](#actions).
+Return an action's `body` output at runtime. Shorthand for `actions('<actionName>').outputs.body`. See [actions()](#actions).
 
 ```
 body('<actionName>')
@@ -1162,7 +1050,7 @@ body('<actionName>')
 
 *Example*
 
-This example gets the `body` output from the `Get user` Twitter action:
+This example gets the `body` output from the `Get user` X action:
 
 ```
 body('Get_user')
@@ -3548,7 +3436,7 @@ And return these results:
 
 ### outputs
 
-Return an action's outputs at runtime. Use this function, rather than `actionOutputs()`, which resolves to `outputs()` in the designer. Although both functions work the same way, `outputs()` is preferred.
+Return an action's outputs at runtime.
 
 ```
 outputs('<actionName>')
@@ -3566,7 +3454,7 @@ outputs('<actionName>')
 
 *Example*
 
-This example gets the output from the Twitter action `Get user`:
+This example gets the output from the X action `Get user`:
 
 ```
 outputs('Get_user')

@@ -3,10 +3,9 @@ title: Data wrangling functions in Azure Data Factory
 description: An overview of available Data Wrangling functions in Azure Data Factory
 author: kromerm
 ms.author: makromer
-ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
-ms.date: 08/10/2023
+ms.date: 05/15/2024
 ---
 
 # Transformation functions in Power Query for data wrangling
@@ -181,6 +180,6 @@ To set the date/time format when using Power Query ADF, please follow these sets
 
 > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWNdQg]
 
-## Next steps
+## Related content
 
 Learn how to [create a data wrangling Power Query in ADF](wrangling-tutorial.md).

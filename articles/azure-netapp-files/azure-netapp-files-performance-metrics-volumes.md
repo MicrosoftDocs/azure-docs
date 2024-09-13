@@ -4,7 +4,6 @@ description: Learn about benchmark testing recommendations for volume performanc
 author: b-hchen
 ms.author: anfdocs
 ms.service: azure-netapp-files
-ms.workload: storage
 ms.topic: conceptual
 ms.date: 05/08/2023
 ---
@@ -21,7 +20,7 @@ To understand the performance characteristics of an Azure NetApp Files volume, y
  
 ### VM instance sizing
 
-For best results, ensure that you are using a virtual machine (VM) instance that is appropriately sized to perform the tests. The following examples use a Standard_D32s_v3 instance. For more information about VM instance sizes, see [Sizes for Windows virtual machines in Azure](../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) for Windows-based VMs, and [Sizes for Linux virtual machines in Azure](../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) for Linux-based VMs.
+For best results, ensure that you are using a virtual machine (VM) instance that is appropriately sized to perform the tests. The following examples use a Standard_D32s_v3 instance. For more information about VM instance sizes, see [Sizes for Windows virtual machines in Azure](/azure/virtual-machines/sizes?toc=%2fazure%2fvirtual-network%2ftoc.json) for Windows-based VMs, and [Sizes for Linux virtual machines in Azure](/azure/virtual-machines/sizes?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) for Linux-based VMs.
 
 ### Azure NetApp Files volume sizing
 
@@ -31,7 +30,7 @@ Ensure that you choose the correct service level and volume quota size for the e
 
 You should perform the benchmark testing in the same VNet as Azure NetApp Files. The example below demonstrates the recommendation:
 
-![VNet recommendations](../media/azure-netapp-files/azure-netapp-files-benchmark-testing-vnet.png)
+![VNet recommendations](./media/azure-netapp-files-performance-metrics-volumes/azure-netapp-files-benchmark-testing-vnet.png)
 
 ## Performance benchmarking tools
 
@@ -45,7 +44,7 @@ The intent of SSB is to allow organizations and individuals to measure the perfo
 
 #### Installation of SSB 
 
-Follow the [Getting started](https://github.com/NetApp/SQL_Storage_Benchmark/blob/main/README.md#getting-started) section in the SSB README file to install for the platform of your choice.
+Follow the Getting started section in the SSB README file to install for the platform of your choice.
 
 ### FIO 
 
@@ -110,15 +109,15 @@ You can view historical data for the following information:
 
 You can access Azure NetApp Files counters on a per-volume basis from the Metrics page, as shown below:
 
-![Azure Monitor metrics](../media/azure-netapp-files/azure-netapp-files-benchmark-monitor-metrics.png)
+![Azure Monitor metrics](./media/azure-netapp-files-performance-metrics-volumes/azure-netapp-files-benchmark-monitor-metrics.png)
 
 You can also create a dashboard in Azure Monitor for Azure NetApp Files by going to the Metrics page, filtering for NetApp, and specifying the volume counters of interest: 
 
-![Azure Monitor dashboard](../media/azure-netapp-files/azure-netapp-files-benchmark-monitor-dashboard.png)
+![Azure Monitor dashboard](./media/azure-netapp-files-performance-metrics-volumes/azure-netapp-files-benchmark-monitor-dashboard.png)
 
 ### Azure Monitor API access
 
-You can access Azure NetApp Files counters by using REST API calls. See [Supported metrics with Azure Monitor: Microsoft.NetApp/netAppAccounts/capacityPools/Volumes](../azure-monitor/essentials/metrics-supported.md#microsoftnetappnetappaccountscapacitypoolsvolumes) for counters for capacity pools and volumes.
+You can access Azure NetApp Files counters by using REST API calls. See [Supported metrics with Azure Monitor: Microsoft.NetApp/netAppAccounts/capacityPools/Volumes](/azure/azure-monitor/essentials/metrics-supported#microsoftnetappnetappaccountscapacitypoolsvolumes) for counters for capacity pools and volumes.
 
 The following example shows a GET URL for viewing logical volume size:
 

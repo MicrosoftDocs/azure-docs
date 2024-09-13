@@ -1,8 +1,8 @@
 ---
 title: 'Tutorial: Route electric vehicles by using Azure Notebooks (Python) with Microsoft Azure Maps'
 description: Tutorial on how to route electric vehicles by using Microsoft Azure Maps routing APIs and Azure Notebooks
-author: eriklindeman
-ms.author: eriklind
+author: farazgis
+ms.author: fsiddiqui
 ms.date: 04/26/2021
 ms.topic: tutorial
 ms.service: azure-maps
@@ -408,8 +408,8 @@ To learn more about Azure Notebooks, see
 [Azure Maps REST APIs]: /rest/api/maps
 [Azure Notebooks]: https://notebooks.azure.com
 [Azure storage account]: /azure/storage/common/storage-account-create?tabs=azure-portal
-[Get Map Image API]: /rest/api/maps/render-v2/get-map-static-image
-[Get Map Image service]: /rest/api/maps/render-v2/get-map-static-image
+[Get Map Image API]: /rest/api/maps/render/get-map-static-image
+[Get Map Image service]: /rest/api/maps/render/get-map-static-image
 [Get Route Directions API]: /rest/api/maps/route/getroutedirections
 [Get Route Directions]: /rest/api/maps/route/getroutedirections
 [Get Route Range API]: /rest/api/maps/route/getrouterange
@@ -419,10 +419,10 @@ To learn more about Azure Notebooks, see
 [manage authentication in Azure Maps]: how-to-manage-authentication.md
 [Matrix Routing API]: /rest/api/maps/route/postroutematrix
 [Post Route Matrix]: /rest/api/maps/route/postroutematrix
-[Post Search Inside Geometry API]: /rest/api/maps/search/postsearchinsidegeometry
-[Post Search Inside Geometry]: /rest/api/maps/search/postsearchinsidegeometry
+[Post Search Inside Geometry API]: /rest/api/maps/search/postsearchinsidegeometry?view=rest-maps-1.0&preserve-view=true
+[Post Search Inside Geometry]: /rest/api/maps/search/postsearchinsidegeometry?view=rest-maps-1.0&preserve-view=true
 [Quickstart: Sign in and set a user ID]: https://notebooks.azure.com
-[Render - Get Map Image]: /rest/api/maps/render-v2/get-map-static-image
+[Render - Get Map Image]: /rest/api/maps/render/get-map-static-image
 [*requirements.txt*]: https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook/blob/master/AzureMapsJupyterSamples/Tutorials/EV%20Routing%20and%20Reachable%20Range/requirements.txt
 [routing APIs]: /rest/api/maps/route
 [subscription key]: quick-demo-map-app.md#get-the-subscription-key-for-your-account

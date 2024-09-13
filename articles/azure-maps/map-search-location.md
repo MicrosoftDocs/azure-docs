@@ -7,6 +7,7 @@ ms.author: sipa
 ms.date: 07/01/2023
 ms.topic: how-to
 ms.service: azure-maps
+ms.subservice: web-sdk
 ---
 
 # Show search results on the map
@@ -210,7 +211,7 @@ The following image is a screenshot showing the results of the two code samples.
 Learn more about **Fuzzy Search**:
 
 > [!div class="nextstepaction"]
-> [Azure Maps Fuzzy Search API](/rest/api/maps/search/getsearchfuzzy)
+> [Azure Maps Fuzzy Search API](/rest/api/maps/search/getsearchfuzzy?view=rest-maps-1.0&preserve-view=true)
 
 Learn more about the classes and methods used in this article:
 
@@ -225,12 +226,12 @@ See the following articles for full code examples:
 > [!div class="nextstepaction"]
 > [Show directions from A to B](map-route.md)
 
-[Fuzzy search API]: /rest/api/maps/search/getsearchfuzzy
+[Fuzzy search API]: /rest/api/maps/search/getsearchfuzzy?view=rest-maps-1.0&preserve-view=true
 [Fetch API]: https://fetch.spec.whatwg.org/
 [DataSource]: /javascript/api/azure-maps-control/atlas.source.datasource
 [symbol layer]: /javascript/api/azure-maps-control/atlas.layer.symbollayer
 [Create a map]: map-create.md
-[Get Search Fuzzy rest API]: /rest/api/maps/search/getsearchfuzzy
+[Get Search Fuzzy rest API]: /rest/api/maps/search/getsearchfuzzy?view=rest-maps-1.0&preserve-view=true
 [setCamera]: /javascript/api/azure-maps-control/atlas.map#setcamera-cameraoptions---cameraboundsoptions---animationoptions-
 [event listener]: /javascript/api/azure-maps-control/atlas.map#events
 [BoundingBox]: /javascript/api/azure-maps-control/atlas.data.boundingbox

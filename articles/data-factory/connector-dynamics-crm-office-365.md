@@ -2,13 +2,12 @@
 title: Copy and transform data in Dynamics 365 (Microsoft Dataverse) or Dynamics CRM 
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to copy and transform data in Dynamics 365 (Microsoft Dataverse) or Dynamics CRM using Azure Data Factory or Azure Synapse Analytics.
-ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.author: jianleishen
 author: jianleishen
 ms.custom: synapse
-ms.date: 10/20/2023
+ms.date: 08/02/2024
 ---
 # Copy and transform data in Dynamics 365 (Microsoft Dataverse) or Dynamics CRM using Azure Data Factory or Azure Synapse Analytics
 
@@ -115,7 +114,7 @@ The following properties are supported for the Dynamics linked service.
 | serviceUri | The service URL of your Dynamics instance, the same one you access from browser. An example is "https://\<organization-name>.crm[x].dynamics.com". | Yes |
 | authenticationType | The authentication type to connect to a Dynamics server. Valid values are "AADServicePrincipal", "Office365" and "ManagedIdentity". | Yes |
 | servicePrincipalId | The client ID of the Microsoft Entra application. | Yes when authentication is "AADServicePrincipal" |
-| servicePrincipalCredentialType | The credential type to use for service-principal authentication. Valid values are "ServicePrincipalKey" and "ServicePrincipalCert". | Yes when authentication is "AADServicePrincipal" |
+| servicePrincipalCredentialType | The credential type to use for service-principal authentication. Valid values are "ServicePrincipalKey" and "ServicePrincipalCert". <br/><br/>Note: It's recommended to use ServicePrincipalKey. There's known limitation for ServicePrincipalCert credential type where the service may encounter transient issue of failing to retrieve secret from the key vault.| Yes when authentication is "AADServicePrincipal" |
 | servicePrincipalCredential | The service-principal credential. <br/><br/>When you use "ServicePrincipalKey" as the credential type, `servicePrincipalCredential` can be a string that the service encrypts upon linked service deployment. Or it can be a reference to a secret in Azure Key Vault. <br/><br/>When you use "ServicePrincipalCert" as the credential, `servicePrincipalCredential` must be a reference to a certificate in Azure Key Vault, and ensure the certificate content type is **PKCS #12**.| Yes when authentication is "AADServicePrincipal" |
 | username | The username to connect to Dynamics. | Yes when authentication is "Office365" |
 | password | The password for the user account you specified as the username. Mark this field with "SecureString" to store it securely, or [reference a secret stored in Azure Key Vault](store-credentials-in-key-vault.md). | Yes when authentication is "Office365" |
@@ -234,17 +233,21 @@ Additional properties that compare to Dynamics online are **hostName** and **por
 
 | Property | Description | Required |
 |:--- |:--- |:--- |
-| type | The type property must be set to "Dynamics", "DynamicsCrm", or "CommonDataServiceForApps". | Yes. |
-| deploymentType | The deployment type of the Dynamics instance. The value must be "OnPremisesWithIfd" for Dynamics on-premises with IFD.| Yes. |
-| hostName | The host name of the on-premises Dynamics server. | Yes. |
+| type | The type property must be set to "Dynamics", "DynamicsCrm", or "CommonDataServiceForApps". | Yes |
+| deploymentType | The deployment type of the Dynamics instance. The value must be "OnPremisesWithIfd" for Dynamics on-premises with IFD.| Yes |
+| hostName | The host name of the on-premises Dynamics server. | Yes |
 | port | The port of the on-premises Dynamics server. | No. The default value is 443. |
-| organizationName | The organization name of the Dynamics instance. | Yes. |
-| authenticationType | The authentication type to connect to the Dynamics server. Specify "Ifd" for Dynamics on-premises with IFD. | Yes. |
-| username | The username to connect to Dynamics. | Yes. |
-| password | The password for the user account you specified for the username. You can mark this field with "SecureString" to store it securely. Or you can store a password in Key Vault and let the copy activity pull from there when it does data copy. Learn more from [Store credentials in Key Vault](store-credentials-in-key-vault.md). | Yes. |
+| organizationName | The organization name of the Dynamics instance. | Yes |
+| authenticationType | The authentication type to connect to the Dynamics server. Specify "ActiveDirectoryAuthentication" for Dynamics on-premises with IFD. | Yes |
+| domain | The Active Directory domain that will verify user credentials. | Yes  |
+| username | The username to connect to Dynamics. | Yes |
+| password | The password for the user account you specified for the username. You can mark this field with "SecureString" to store it securely. Or you can store a password in Key Vault and let the copy activity pull from there when it does data copy. Learn more from [Store credentials in Key Vault](store-credentials-in-key-vault.md). | Yes |
 | connectVia | The [integration runtime](concepts-integration-runtime.md) to be used to connect to the data store. If no value is specified, the property uses the default Azure integration runtime. | No |
 
-#### Example: Dynamics on-premises with IFD using IFD authentication
+>[!Note]
+>Due to the sunset of Ifd authentication type by **August 31, 2024**, please upgrade to Active Directory Authentication type before the date if you are currently using it.
+ 
+#### Example: Dynamics on-premises with IFD using Active Directory authentication
 
 ```json
 {
@@ -257,7 +260,8 @@ Additional properties that compare to Dynamics online are **hostName** and **por
             "hostName": "contosodynamicsserver.contoso.com",
             "port": 443,
             "organizationName": "admsDynamicsTest",
-            "authenticationType": "Ifd",
+            "authenticationType": "ActiveDirectoryAuthentication",
+            "domain": "< Active Directory domain >", 
             "username": "test@contoso.onmicrosoft.com",
             "password": {
                 "type": "SecureString",
@@ -620,6 +624,6 @@ IncomingStream sink(allowSchemaDrift: true,
 
 To learn details about the properties, see [Lookup activity](control-flow-lookup-activity.md).
 
-## Next steps
+## Related content
 
 For a list of supported data stores the copy activity as sources and sinks, see [Supported data stores](copy-activity-overview.md#supported-data-stores-and-formats).
