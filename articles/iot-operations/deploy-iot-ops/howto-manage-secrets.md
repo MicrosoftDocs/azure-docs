@@ -61,18 +61,50 @@ Create an Azure Key Vault and add a secret:
 1. Use the [az keyvault create](/cli/azure/keyvault#az-keyvault-create) command to create an Azure Key Vault.
 
    ```azurecli
-      az keyvault create --name <KEYVAULT_NAME> --resource-group <RESOURCE_GROUP> --location <LOCATION> --enable-rbac-authorization
+   az keyvault create --name <KEYVAULT_NAME> --resource-group <RESOURCE_GROUP> --location <LOCATION> --enable-rbac-authorization
    ```
 
-1. Use the [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) command to give yourself `Key Vault Secrets Officer` permissions to the key vault.
+1. Use the [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) command to give the currently logged-in user `Key Vault Secrets Officer` permissions to the key vault.
 
-   ```azurecli
-   az role assignment create --role "Key Vault Secrets Officer" --assignee $ 
-   ```
+    # [Bash](#tab/bash)
+    
+    ```azurecli
+    # Variable block
+    SUBSCRIPTION_ID="<SUBSCRIPTION_ID>"
+    RESOURCE_GROUP="<RESOURCE_GROUP>"
+    KEYVAULT_NAME="<KEYVAULT_NAME>"
+
+    # Get the object ID of the currently logged-in user
+    ASSIGNEE_ID=$(az ad signed-in-user show --query id -o tsv)
+    
+    # Assign the "Key Vault Secrets Officer" role to the currently logged-in user
+    az role assignment create --role "Key Vault Secrets Officer" \
+                              --assignee $ASSIGNEE_ID \
+                              --scope /subscriptions/$SUBSCRIPTION_ID/resourcegroups/$RESOURCE_GROUP/providers/Microsoft.KeyVault/vaults/$KEYVAULT_NAME
+    ```
+    
+    # [PowerShell](#tab/powershell)
+    
+    ```azurecli
+    # Variable block
+    $SUBSCRIPTION_ID="<SUBSCRIPTION_ID>"
+    $RESOURCE_GROUP="<RESOURCE_GROUP>"
+    $KEYVAULT_NAME="<KEYVAULT_NAME>"
+
+    # Get the object ID of the currently logged-in user
+    $ASSIGNEE_ID=$(az ad signed-in-user show --query id -o tsv)
+    
+    # Assign the "Key Vault Secrets Officer" role to the currently logged-in user
+    az role assignment create --role "Key Vault Secrets Officer" `
+                              --assignee $ASSIGNEE_ID `
+                              --scope /subscriptions/$SUBSCRIPTION_ID/resourcegroups/$RESOURCE_GROUP/providers/Microsoft.KeyVault/vaults/$KEYVAULT_NAME
+    ```
+    
+    ---
 
 ### Create a user-assigned managed identity
 
-If you already have a user-assigned managed identity with `Key Vault Reader` and `Key Vault Secrets` user permissions to the Azure Key Vault, you can skip this section. For more information, see [create a user-assigned managed identity](/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities) and [using Azure RBAC secret, key, and certificate permissions with Key Vault](/azure/key-vault/general/rbac-guide?tabs=azure-cli).
+If you already have a user-assigned managed identity with `Key Vault Reader` and `Key Vault Secrets User` permissions to the Azure Key Vault, you can skip this section. For more information, see [create a user-assigned managed identity](/entra/identity/managed-identities-azure-resources/how-manage-user-assigned-managed-identities) and [using Azure RBAC secret, key, and certificate permissions with Key Vault](/azure/key-vault/general/rbac-guide?tabs=azure-cli).
 
 Create a user-assigned managed identity and give it permissions to access the Azure Key Vault:
 
@@ -82,19 +114,55 @@ Create a user-assigned managed identity and give it permissions to access the Az
    az identity create --name <IDENTITY_NAME> --resource-group <RESOURCE_GROUP> --location <LOCATION>
    ```
 
-1. Get the client ID of the user-assigned managed identity and save it as an environment variable.
-
-   ```bash
-   USER_ASSIGNED_CLIENT_ID=$(az identity show --resource-group <RESOURCE_GROUP> --name <IDENTITY_NAME> --query 'clientId' -otsv)
-   ```
-
 1. Use the [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) command to give the user-assigned managed identity `Key Vault Reader` and `Key Vault Secrets User` permissions. You may need to wait a moment for replication of the identity creation before these commands succeed.
 
-   ```azurecli
-   az role assignment create --role "Key Vault Reader" --assignee $USER_ASSIGNED_CLIENT_ID --scope /subscriptions/<SUBSCRIPTION_ID>/resourcegroups/<RESOURCE_GROUP>/providers/Microsoft.KeyVault/vaults/<KEYVAULT_NAME>
+    # [Bash](#tab/bash)
+    
+    ```azurecli
+    # Variable block
+    SUBSCRIPTION_ID="<SUBSCRIPTION_ID>"
+    RESOURCE_GROUP="<RESOURCE_GROUP>"
+    KEYVAULT_NAME="<KEYVAULT_NAME>"
+    IDENTITY_NAME="<IDENTITY_NAME>"
 
-   az role assignment create --role "Key Vault Secrets User" --assignee $USER_ASSIGNED_CLIENT_ID --scope /subscriptions/<SUBSCRIPTION_ID>/resourcegroups/<RESOURCE_GROUP>/providers/Microsoft.KeyVault/vaults/<KEYVAULT_NAME>
-   ```
+    # Get the client ID of the user-assigned managed identity and save it as an environment variable.
+    USER_ASSIGNED_CLIENT_ID=$(az identity show --resource-group $RESOURCE_GROUP --name $IDENTITY_NAME --query 'clientId' -o tsv)
+    
+    # Give the user-assigned managed identity `Key Vault Reader` permission
+    az role assignment create --role "Key Vault Reader" \
+                              --assignee $USER_ASSIGNED_CLIENT_ID \
+                              --scope /subscriptions/$SUBSCRIPTION_ID/resourcegroups/$RESOURCE_GROUP/providers/Microsoft.KeyVault/vaults/$KEYVAULT_NAME
+    
+    # Give the user-assigned managed identity `Key Vault Secrets User` permission
+    az role assignment create --role "Key Vault Secrets User" \
+                              --assignee $USER_ASSIGNED_CLIENT_ID \
+                              --scope /subscriptions/$SUBSCRIPTION_ID/resourcegroups/$RESOURCE_GROUP/providers/Microsoft.KeyVault/vaults/$KEYVAULT_NAME
+    ```
+       
+    # [PowerShell](#tab/powershell)
+    
+    ```azurecli
+    # Variable block
+    $SUBSCRIPTION_ID="<SUBSCRIPTION_ID>"
+    $RESOURCE_GROUP="<RESOURCE_GROUP>"
+    $KEYVAULT_NAME="<KEYVAULT_NAME>"
+    $IDENTITY_NAME="<IDENTITY_NAME>"
+
+    # Get the client ID of the user-assigned managed identity and save it as an environment variable.
+    $USER_ASSIGNED_CLIENT_ID=$(az identity show --resource-group $RESOURCE_GROUP --name $IDENTITY_NAME --query 'clientId' -o tsv)
+    
+    # Give the user-assigned managed identity `Key Vault Reader` permission
+    az role assignment create --role "Key Vault Reader" `
+                              --assignee $USER_ASSIGNED_CLIENT_ID `
+                              --scope /subscriptions/$SUBSCRIPTION_ID/resourcegroups/$RESOURCE_GROUP/providers/Microsoft.KeyVault/vaults/$KEYVAULT_NAME
+    
+    # Give the user-assigned managed identity `Key Vault Secrets User` permission
+    az role assignment create --role "Key Vault Secrets User" `
+                              --assignee $USER_ASSIGNED_CLIENT_ID `
+                              --scope /subscriptions/$SUBSCRIPTION_ID/resourcegroups/$RESOURCE_GROUP/providers/Microsoft.KeyVault/vaults/$KEYVAULT_NAME
+    ```
+    
+    ---
 
 ### Create a federated identity credential for secrets 
 
