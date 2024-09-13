@@ -12,7 +12,7 @@ ms.author: v-abhmallick
 
 One of the key responsibilities of a Backup or Compliance Admin in an organization is to ensure that all business-critical machines are backed up with the appropriate retention.
 
-Today, Azure Backup provides various built-in policies (using [Azure Policy](../governance/policy/overview.md)) to help you automatically ensure that your Azure Kubernetes Service clusters are prepped for backup configuration. Depending on how your backup teams and resources are organized, you can use any one of the below policies:
+Azure Backup provides various built-in policies (using [Azure Policy](../governance/policy/overview.md)) to help you automatically ensure that your Azure Kubernetes Service clusters are ready for backup configuration. Depending on how your backup teams and resources are organized, you can use any one of the below policies:
 
 ## Policy 1 - Azure Backup Extension should be installed in AKS clusters
 
