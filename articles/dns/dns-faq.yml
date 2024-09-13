@@ -79,7 +79,9 @@ sections:
       - question: |
           Does Azure DNS support DNSSEC?
         answer: |
-          Yes. DNS zone signing with Domain Name System Security Extensions (DNSSEC) is currently in public preview. For more information, see [What is DNSSEC?](dnssec.md)
+          No. Azure DNS doesn't currently support the Domain Name System Security Extensions (DNSSEC).
+          
+          The DNSSEC feature is tracked in the Azure DNS backlog. Use the feedback site to [register your support for this feature](https://feedback.azure.com/d365community/idea/d403899e-8526-ec11-b6e6-000d3a4f0789).
           
       - question: |
           Does Azure DNS support zone transfers (AXFR/IXFR)?
