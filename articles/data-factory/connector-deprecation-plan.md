@@ -17,6 +17,8 @@ This article describes future deprecations for some connectors of Azure Data Fac
 > [!NOTE]
 > "Deprecated" means we intend to remove the connector from a future release. Unless they are in *Preview*, connectors remain fully supported until they are officially deprecated. This deprecation notification can span a few months or longer. After removal, the connector will no longer work. This notice is to allow you sufficient time to plan and update your code before the connector is deprecated.
 
+## Overview
+
 | Connector|Release stage |End of Support Date  |Disabled Date  | 
 |:-- |:-- |:-- | :-- | 
 | [Google BigQuery (legacy)](connector-google-bigquery-legacy.md)  | End of support announced and new version available | October 31, 2024 | January 10, 2024 | 
