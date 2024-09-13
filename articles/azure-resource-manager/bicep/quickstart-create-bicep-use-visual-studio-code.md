@@ -11,7 +11,7 @@ ms.custom: mode-ui, devx-track-bicep
 
 This quickstart guides you through the steps to create a [Bicep file](overview.md) with Visual Studio Code. You create a storage account and a virtual network. You also learn how the Bicep extension simplifies development by providing type safety, syntax validation, and autocompletion.
 
-Similar authoring experience is also supported in Visual Studio.  See [Quickstart: Create Bicep files with Visual Studio](./quickstart-create-bicep-use-visual-studio.md).
+Similar authoring experience is also supported in Visual Studio. See [Quickstart: Create Bicep files with Visual Studio](./quickstart-create-bicep-use-visual-studio.md).
 
 ## Prerequisites
 
@@ -135,7 +135,7 @@ Your parameters are ready to use.
 
 Instead of using a snippet to define the storage account, you use IntelliSense to set the values. IntelliSense makes this step easier than having to manually type the values.
 
-To define a resource, use the `resource` keyword.  Below your virtual network, type **resource exampleStorage**:
+To define a resource, use the `resource` keyword. Below your virtual network, type **resource exampleStorage**:
 
 ```bicep
 resource exampleStorage
