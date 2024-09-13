@@ -239,7 +239,7 @@ helm delete spin-operator --namespace spin-operator
 # Remove the SpinAppExecutor
 kubectl delete -f https://github.com/spinkube/spin-operator/releases/download/v0.2.0/spin-operator.shim-executor.yaml
 
-# Rmove the RuntimeClass for Spin
+# Remove the RuntimeClass for Spin
 kubectl delete -f https://github.com/spinkube/spin-operator/releases/download/v0.2.0/spin-operator.runtime-class.yaml
 
 # Remove the SpinKube CRDs
