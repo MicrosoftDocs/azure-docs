@@ -1,11 +1,6 @@
 {
   "redirections": [
     {
-      "source_path": "articles/digital-twins/how-to-provision-using-device-provisioning-service.md",
-      "redirect_url": "/previous-versions/azure/digital-twins/how-to-provision-using-device-provisioning-service",
-      "redirect_document_id": false
-    },
-    {
       "source_path": "articles/azure-app-configuration/rest-api-postman.md",
       "redirect_url": "/previous-versions/azure/azure-app-configuration/rest-api-postman",
       "redirect_document_id": false
