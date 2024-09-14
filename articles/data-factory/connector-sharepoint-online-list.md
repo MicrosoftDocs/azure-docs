@@ -6,7 +6,7 @@ author: jianleishen
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 08/29/2024
+ms.date: 09/14/2024
 ms.author: jianleishen
 ---
 # Copy data from SharePoint Online List by using Azure Data Factory or Azure Synapse Analytics
@@ -81,6 +81,9 @@ The following properties are supported for a SharePoint Online List linked servi
 |  |  |  |
 | tenantId            | The tenant ID under which your application resides.          | Yes          |
 | connectVia          | The [Integration Runtime](concepts-integration-runtime.md) to use to connect to the data store. If not specified, the default Azure Integration Runtime is used. | No           |
+
+>[!Note]
+>Due to the sunset of Service principal key authentication type by November 1st, 2024, please upgrade to Service principal certificate authentication type before the date if you are currently using it. For more information, see [article](https://learn.microsoft.com/sharepoint/dev/sp-add-ins/retirement-announcement-for-azure-acs).
 
 **Example 1: Using service principal key authentication**
 
