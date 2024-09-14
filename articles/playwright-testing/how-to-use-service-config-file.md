@@ -56,8 +56,8 @@ export default defineConfig(
 * **`serviceAuthType`**:
     - **Description**: This setting allows you to choose the authentication method you want to use for your test run. 
     - **Available Options**:
-        - `TOKEN` to use access tokens. You need to enable authentication using access tokens if you want to use this option, see [manage authentication](./how-to-manage-authentication.md).
-        - `ENTRA` to use Microsoft Entra ID for authentication. It's the default mode. 
+        - `ACCESS_TOKEN` to use access tokens. You need to enable authentication using access tokens if you want to use this option, see [manage authentication](./how-to-manage-authentication.md).
+        - `ENTRA_ID` to use Microsoft Entra ID for authentication. It's the default mode. 
     - **Default Value**: `ENTRA_ID`
     - **Example**:
       ```typescript
