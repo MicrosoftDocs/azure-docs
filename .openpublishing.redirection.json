@@ -1,6 +1,11 @@
 {
   "redirections": [
     {
+      "source_path": "articles/vpn-gateway/vpn-gateway-about-forced-tunneling.md",
+      "redirect_url": "/previous-versions/azure/vpn-gateway/vpn-gateway-about-forced-tunneling",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/azure-app-configuration/rest-api-postman.md",
       "redirect_url": "/previous-versions/azure/azure-app-configuration/rest-api-postman",
       "redirect_document_id": false
