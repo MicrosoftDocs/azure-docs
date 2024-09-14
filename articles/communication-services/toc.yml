@@ -287,7 +287,7 @@ items:
       href: tutorials/building-app-start.md
     - name: Build an authentication service using Azure Functions
       href: tutorials/trusted-service-tutorial.md
-    - name: Audio quality enhancements
+    - name: Adding audio quality enhancements
       items:
         - name: Enabling audio effects
           href: tutorials/audio-quality-enhancements/add-noise-supression.md
@@ -353,7 +353,7 @@ items:
         href: how-tos/calling-sdk/closed-captions-teams-interop-how-to.md
       - name: Get local capabilities
         href: how-tos/calling-sdk/capabilities.md
-      - name: Pass contextual information
+      - name: Pass User-to-User Information (UUI) data in a header
         href: how-tos/calling-sdk/call-context.md     
     - name: Call recording
       items:
@@ -361,7 +361,7 @@ items:
         href: quickstarts/voice-video-calling/get-started-call-recording.md
       - name: Record every call in the resource
         href: how-tos/call-automation/record-every-call.md
-    - name: Editing media from the client
+    - name: Editing audio and video media from the client
       items:
       - name: Access raw audio and video
         href: quickstarts/voice-video-calling/get-started-raw-media-access.md
