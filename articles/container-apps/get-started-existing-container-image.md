@@ -41,7 +41,7 @@ Now that you have an environment created, you can deploy your first container ap
 
 ::: zone pivot="container-apps-private-registry"
 
-1. Set environment variables
+1. Set the environment variables.
 
 	Replace the \<PLACEHOLDERS\> with your values. Your user principal name will typically be in the format of an email address (for example, `username@domain.com`).
 
@@ -69,9 +69,9 @@ Now that you have an environment created, you can deploy your first container ap
 
 	---
 
-1. Create key vault
+1. Create the key vault.
 
-	It is recommended to store your container registry password using a service such as [Azure Key Vault](/azure/key-vault/general/basic-concepts). The steps in this section explain how to create a key vault, store your container registry password as a secret in the key vault, and then retrieve the password for use in your code.
+	It is recommended to store your container registry password using a service such as [Azure Key Vault](/azure/key-vault/general/basic-concepts). The steps in this section show how to create a key vault, store your container registry password as a secret in the key vault, and then retrieve the password for use in your code.
 
 	# [Bash](#tab/bash)
 
@@ -93,7 +93,7 @@ Now that you have an environment created, you can deploy your first container ap
 
 	---
 
-1. Give your user account permissions to manage secrets in the key vault
+1. Give your user account permissions to manage secrets in the key vault.
 
 	# [Bash](#tab/bash)
 
@@ -111,7 +111,7 @@ Now that you have an environment created, you can deploy your first container ap
 
 	---
 
-1. Store container registry password
+1. Store your container registry password in the key vault.
 
 	Replace the \<PLACEHOLDERS\> with your values.
 
@@ -134,7 +134,7 @@ Now that you have an environment created, you can deploy your first container ap
 
 	---
 
-1. Retrieve container registry password
+1. Retrieve your container registry password from the key vault.
 
 	# [Bash](#tab/bash)
 
@@ -158,9 +158,7 @@ Now that you have an environment created, you can deploy your first container ap
 
 	---
 
-1. Create container app
-
-	With the `containerapp create` command, deploy a container image to Azure Container Apps.
+1. With the `containerapp create` command, deploy a container image to Azure Container Apps.
 
 	The example shown in this article demonstrates how to use a custom container image with common commands. Your container image might need more parameters for the following items:
 
