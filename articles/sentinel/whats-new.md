@@ -66,8 +66,12 @@ Log collection from many appliances and devices is now supported by the Common E
 For more information, see:
 
 - [Find your Microsoft Sentinel data connector](https://learn.microsoft.com/en-us/azure/sentinel/data-connectors-reference)
+- [Migrate to Azure Monitor Agent from Log Analytics agent](/azure-monitor/agents/azure-monitor-agent-migration)
 - [AMA migration for Microsoft Sentinel](ama-migrate.md)
-- [Revolutionizing log collection with Azure Monitor Agent](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/revolutionizing-log-collection-with-azure-monitor-agent/ba-p/4218129)
+- Blogs:
+
+    - [Revolutionizing log collection with Azure Monitor Agent](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/revolutionizing-log-collection-with-azure-monitor-agent/ba-p/4218129)
+    - [The power of Data Collection Rules: Collecting events for advanced use cases in Microsoft USOP](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/the-power-of-data-collection-rules-collecting-events-for/ba-p/4236486)
 
 ### Export and import automation rules (Preview)
 
