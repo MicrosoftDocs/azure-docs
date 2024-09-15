@@ -70,6 +70,12 @@ The following tables list the activities available by CLI and the privileged use
 |Physical interfaces management     | *admin*        | [Locate a physical port by blinking interface lights](cli-ot-sensor.md#locate-a-physical-port-by-blinking-interface-lights)        |
 |Physical interfaces management    | *admin*, *cyberx*        |     [List connected physical interfaces](cli-ot-sensor.md#list-connected-physical-interfaces)    |
 
+### Traffic capture filter commands
+
+|Service area  |Users  |Actions  |
+|---------|---------|---------|
+| Capture filter management    |  *admin*, *cyberx*       | [Create a basic filter for all components](cli-ot-sensor.md#create-a-basic-filter-for-all-components)<br>[Create an advanced filter for specific components](cli-ot-sensor.md#create-an-advanced-filter-for-specific-components)  <br>[List current capture filters for specific components](cli-ot-sensor.md#list-current-capture-filters-for-specific-components)  <br> [Reset all capture filters](cli-ot-sensor.md#reset-all-capture-filters)   |
+
 ## Defender for IoT CLI access
 
 To access the Defender for IoT CLI, sign in to your OT or Enterprise IoT sensor or your on-premises management console using a terminal emulator and SSH.
