@@ -7,7 +7,7 @@ ms.topic: how-to
 ms.date: 05/03/2022
 
 
-#Customer intent: [AI]As a security operations manager, I want to migrate my ArcSight SOAR automation to Microsoft Sentinel so that I can leverage advanced incident handling and response capabilities.
+#Customer intent: [AI]As a security engineer, I want to migrate my ArcSight SOAR automation to Microsoft Sentinel so that I can leverage advanced incident handling and response capabilities.
 
 ---
 
