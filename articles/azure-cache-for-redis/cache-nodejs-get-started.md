@@ -1,6 +1,6 @@
 ---
-title: 'Quickstart: Use Azure Cache for Redis in Node.js'
-description: In this quickstart, learn how to use Azure Cache for Redis with Node.js and node_redis.
+title: 'Quickstart: Use Azure Cache for Redis with Node.js'
+description: Create a Node.js app and connect the app to Azure Cache for Redis by using node_redis.
 
 
 ms.devlang: javascript
@@ -8,24 +8,25 @@ ms.topic: quickstart
 ms.date: 06/04/2024
 
 ms.custom: mvc, devx-track-js, mode-api, engagement-fy23
-#Customer intent: As a Node.js developer, new to Azure Cache for Redis, I want to create a new Node.js app that uses Azure Cache for Redis.
+#Customer intent: As a Node.js developer who is new to Azure Cache for Redis, I want to create a new Node.js app that uses Azure Cache for Redis.
 ---
-# Quickstart: Use Azure Cache for Redis in Node.js
 
-In this quickstart, you incorporate Azure Cache for Redis into a Node.js app to have access to a secure, dedicated cache that is accessible from any application within Azure.
+# Quickstart: Use Azure Cache for Redis with a Node.js app
+
+In this quickstart, you incorporate Azure Cache for Redis into a Node.js app for access to a secure, dedicated cache that is accessible from any application in Azure.
 
 ## Prerequisites
 
-- Azure subscription - [create one for free](https://azure.microsoft.com/free/)
-- Node.js installed, if you haven't done so already. See [Install Node.js on Windows](/windows/dev-environment/javascript/nodejs-on-windows) for instructions on how to install Node and npm on a Windows computer.
+- An Azure subscription. [Create one for free](https://azure.microsoft.com/free/)
+- Node.js installed. For information about how to install Node and npm on a Windows computer, see [Install Node.js on Windows](/windows/dev-environment/javascript/nodejs-on-windows).
 
-## Create a cache instance
+## Create a cache
 
 [!INCLUDE [redis-cache-create](~/reusable-content/ce-skilling/azure/includes/azure-cache-for-redis/includes/redis-cache-create.md)]
 
 ## Install the node-redis client library
 
-The [node-redis](https://github.com/redis/node-redis) library is the primary Node.js client for Redis. You can install the client with [npm](https://docs.npmjs.com/about-npm) by using the following command:
+The [node-redis](https://github.com/redis/node-redis) library is the primary Node.js client for Redis. You can install the client by using [npm](https://docs.npmjs.com/about-npm) and the following command:
 
 ```bash
 npm install redis
@@ -33,32 +34,34 @@ npm install redis
 
 ## Create a Node.js app to access a cache
 
-Create a Node.js app that uses either Microsoft Entra ID or access keys to connect to an Azure Cache for Redis. We recommend you use Microsoft Entra ID.
+Create a Node.js app that uses either Microsoft Entra ID or access keys to connect to Azure Cache for Redis. We recommend that you use Microsoft Entra ID.
 
-## [Microsoft Entra ID Authentication (recommended)](#tab/entraid)
+## [Microsoft Entra ID authentication (recommended)](#tab/entraid)
 
 [!INCLUDE [cache-entra-access](includes/cache-entra-access.md)]
 
-### Install the JavaScript Azure Identity client library
+### Install the Azure Identity client library for JavaScript
 
-The [Microsoft Authentication Library (MSAL)](/entra/identity-platform/msal-overview) allows you to acquire security tokens from Microsoft identity to authenticate users. There's a [JavaScript Azure identity client library](/javascript/api/overview/azure/identity-readme) available that uses MSAL to provide token authentication support. Install this library using `npm`:
+The [Azure Identity client library for JavaScript](/javascript/api/overview/azure/identity-readme) uses the required [Microsoft Authentication Library (MSAL)](/entra/identity-platform/msal-overview) to provide token authentication support. Install the library by using npm:
 
 ```bash
 npm install @azure/identity
 ```
 
-### Create a new Node.js app using Microsoft Entra ID
+### Create a Node.js app by using Microsoft Entra ID
 
-1. Add environment variables for your **Host name** and **Service Principal ID**, which is the object ID of your Microsoft Entra ID service principal or user. In the Azure portal, this is shown as the _Username_.
+1. Add environment variables for your host name and service principal ID.
+
+   The service principal ID is the object ID of your Microsoft Entra ID service principal or user. In the Azure portal, this value appears as **Username**.
 
     ```cmd
     set AZURE_CACHE_FOR_REDIS_HOST_NAME=contosoCache
     set REDIS_SERVICE_PRINCIPAL_ID=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
     ```
 
-1. Create a new script file named _redistest.js_.
+1. Create a script file named *redistest.js*.
 
-1. Add the following example JavaScript to the file. This code shows you how to connect to an Azure Cache for Redis instance using the cache host name and key environment variables. The code also stores and retrieves a string value in the cache. The `PING` and `CLIENT LIST` commands are also executed. For more examples of using Redis with the [node-redis](https://github.com/redis/node-redis) client, see [https://redis.js.org/](https://redis.js.org/).
+1. Add the following example JavaScript to the file. This code shows you how to connect to an Azure Cache for Redis instance by using the cache host name and key environment variables. The code also stores and retrieves a string value in the cache. The `PING` and `CLIENT LIST` commands are also executed. For more examples of using Redis with the [node-redis](https://github.com/redis/node-redis) client, see [Node-Redis](https://redis.js.org/).
 
     ```javascript
     const { createClient } = require("redis");
@@ -113,13 +116,13 @@ npm install @azure/identity
     main().then((result) => console.log(result)).catch(ex => console.log(ex));
     ```
 
-1. Run the script with Node.js.
+1. Run the script by using Node.js:
 
     ```bash
     node redistest.js
     ```
 
-1. The output of your code looks like this.
+1. Verify that the output of your code looks like this example:
 
     ```bash
     Cache command: PING
@@ -140,13 +143,15 @@ npm install @azure/identity
     Done
     ```
 
-### Create a sample JavaScript app with reauthentication
+### Create a sample JavaScript app that has reauthentication
 
-Microsoft Entra ID access tokens have a limited lifespan, [averaging 75 minutes](/entra/identity-platform/configurable-token-lifetimes#token-lifetime-policies-for-access-saml-and-id-tokens). In order to maintain a connection to your cache, you need to refresh the token. This example demonstrates how to do this using JavaScript.
+Microsoft Entra ID access tokens have a limited lifespan of approximately [75 minutes](/entra/identity-platform/configurable-token-lifetimes#token-lifetime-policies-for-access-saml-and-id-tokens). To maintain a connection to your cache, you must refresh the token.
 
-1. Create a new script file named _redistestreauth.js_.
+This example demonstrates how to refresh the token by using JavaScript:
 
-1. Add the following example JavaScript to the file.
+1. Create a script file named *redistestreauth.js*.
+
+1. Add the following example JavaScript to the file:
 
    ```javascript
     const { createClient } = require("redis");
@@ -221,13 +226,13 @@ Microsoft Entra ID access tokens have a limited lifespan, [averaging 75 minutes]
     main().then((result) => console.log(result)).catch(ex => console.log(ex));
    ```
 
-1. Run the script with Node.js.
+1. Run the script by using Node.js:
 
     ```bash
     node redistestreauth.js
     ```
 
-1. The output of your code looks like this.
+1. Check for output that looks similar to this example:
 
    ```bash
     Cache command: PING
@@ -247,15 +252,15 @@ Microsoft Entra ID access tokens have a limited lifespan, [averaging 75 minutes]
 
    ```
 
->[!NOTE]
->For additional examples of using Microsoft Entra ID to authenticate to Redis using the node-redis library, please see [this GitHub repo](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/identity/identity/samples/AzureCacheForRedis/node-redis.md)
+> [!NOTE]
+> For more examples of how to use Microsoft Entra ID to authenticate to Redis via the node-redis library, see the [node-redis GitHub repository](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/identity/identity/samples/AzureCacheForRedis/node-redis.md).
 >
 
-## [Access Key Authentication](#tab/accesskey)
+## [Access key authentication](#tab/accesskey)
 
 [!INCLUDE [redis-cache-access-keys](includes/redis-cache-access-keys.md)]
 
-Add environment variables for your **HOST NAME** and **Primary** access key. Use these variables from your code instead of including the sensitive information directly in your code.
+Add environment variables for your host name and primary access key. Use these variables from your code instead of including the sensitive information directly in your code.
 
 ```cmd
 set AZURE_CACHE_FOR_REDIS_HOST_NAME=contosoCache
@@ -270,9 +275,9 @@ set AZURE_CACHE_FOR_REDIS_ACCESS_KEY=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
 ### Create a new Node.js app
 
-1. Create a new script file named _redistest.js_.
+1. Create a new script file named *redistest.js*.
 
-1. Add the following example JavaScript to the file.
+1. Add the following example JavaScript to the file:
 
     ```javascript
     const redis = require("redis");
@@ -326,15 +331,15 @@ set AZURE_CACHE_FOR_REDIS_ACCESS_KEY=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
     testCache().then((result) => console.log(result)).catch(ex => console.log(ex));
     ```
 
-    This code shows you how to connect to an Azure Cache for Redis instance using the cache host name and key environment variables. The code also stores and retrieves a string value in the cache. The `PING` and `CLIENT LIST` commands are also executed. For more examples of using Redis with the [node_redis](https://github.com/redis/node-redis) client, see [https://redis.js.org/](https://redis.js.org/).
+    This code shows you how to connect to an Azure Cache for Redis instance by using the cache host name and key environment variables. The code also stores and retrieves a string value in the cache. The `PING` and `CLIENT LIST` commands are also executed. For more examples of using Redis with the [node_redis](https://github.com/redis/node-redis) client, see [Node-Redis](https://redis.js.org/).
 
-1. Run the script with Node.js.
+1. Run the script by using Node.js:
 
     ```bash
     node redistest.js
     ```
 
-1. Example the output.
+1. Verify that the output looks similar to this example:
 
     ```bash
     Cache command: PING
@@ -361,10 +366,8 @@ set AZURE_CACHE_FOR_REDIS_ACCESS_KEY=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 
 ## Get the sample code
 
-Get the [Node.js quickstart](https://github.com/Azure-Samples/azure-cache-redis-samples/tree/main/quickstart/nodejs) on GitHub.
+Get the [Node.js quickstart sample](https://github.com/Azure-Samples/azure-cache-redis-samples/tree/main/quickstart/nodejs) on GitHub.
 
 ## Related content
 
-In this quickstart, you learned how to use Azure Cache for Redis from a Node.js application. Continue to the next quickstart to use Azure Cache for Redis with an ASP.NET web app.
-
-- [Create an ASP.NET web app that uses an Azure Cache for Redis.](cache-web-app-howto.md)
+- [Create an ASP.NET web app that uses an Azure Cache for Redis](cache-web-app-howto.md)

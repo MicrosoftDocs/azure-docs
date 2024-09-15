@@ -5,8 +5,11 @@ description: Learn about extra preparations required in your SAP system to insta
 author: batamig
 ms.author: bagol
 ms.topic: how-to
-ms.date: 05/28/2024
-#customerIntent: As an SAP admin, I want to know how to configure SAP authorizations and deploy and SAP change requests (CRs) to prepare the environment for the installation of the SAP agent, so that it can properly connect to my SAP systems.
+ms.date: 09/15/2024
+
+
+#Customer intent: As an SAP BASIS team member, I want to configure SAP authorizations and deploy optional SAP Change Requests so that I can ensure proper connectivity and log retrieval from SAP systems for security monitoring.
+
 ---
 
 # Configure your SAP system for the Microsoft Sentinel solution

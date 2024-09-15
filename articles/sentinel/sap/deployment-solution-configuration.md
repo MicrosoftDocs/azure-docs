@@ -3,8 +3,12 @@ title: Enable SAP detections and threat protection with Microsoft Sentinel
 description: This article shows you how to configure initial security content for the Microsoft Sentinel solution for SAP applications in order to start enabling SAP detections and threat protection.
 author: batamig
 ms.author: bagol
-ms.topic: concept-article
-ms.date: 07/23/2024
+ms.topic: how-to
+ms.date: 09/15/2024
+
+
+#Customer intent: As a security analyst, I want to configure and monitor SAP systems using Microsoft Sentinel so that I can detect and respond to suspicious activities and threats effectively.
+
 ---
 
 # Enable SAP detections and threat protection

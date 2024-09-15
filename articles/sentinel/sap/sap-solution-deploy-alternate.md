@@ -5,7 +5,11 @@ author: batamig
 ms.author: bagol
 ms.topic: how-to
 ms.custom: devx-track-azurecli
-ms.date: 07/01/2024
+ms.date: 09/15/2024
+
+
+#Customer intent: As an SAP BASIS team member, I want to deploy and configure a custom Microsoft Sentinel for SAP applications data connector so that I can securely integrate SAP logs into my cloud-based SIEM for enhanced monitoring and analysis.
+
 ---
 
 # Deploy the Microsoft Sentinel for SAP data connector agent container with expert options

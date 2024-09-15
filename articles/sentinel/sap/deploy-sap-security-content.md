@@ -4,8 +4,12 @@ description: Learn how to install the Microsoft Sentinel solution for SAP applic
 author: batamig
 ms.author: bagol
 ms.topic: how-to
-ms.date: 07/07/2024
-# customer intent: As an security operations (SOC) engineer, I want to know how to deploy the Microsoft Sentinel solution for SAP applications from the content hub so that our organization can start connecting our SAP system to Microsoft Sentinel.
+ms.date: 09/15/2024
+
+
+
+#Customer intent: As a security administrator, I want to deploy and configure security monitoring for SAP applications using Microsoft Sentinel so that I can enhance the security posture and threat detection capabilities of my SAP environment.
+
 ---
 
 # Install the Microsoft Sentinel solution for SAP applications

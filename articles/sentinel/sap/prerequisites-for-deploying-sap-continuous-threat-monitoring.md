@@ -4,8 +4,12 @@ description: This article lists the prerequisites required for deployment of the
 author: batamig
 ms.author: bagol
 ms.topic: reference
-ms.date: 05/26/2024
-#customerIntent: As an organization planning to deploy the Microsoft Sentinel solution for SAP applications, I want to understand the different types of prerequisites required from each of the teams involved in the process.
+ms.date: 09/15/2024
+
+
+
+#Customer intent: As a security administrator, I want to understand the prerequisites for deploying a Microsoft Sentinel solution for SAP applications so that I can ensure a smooth and compliant deployment process.
+
 ---
 
 # Deployment prerequisites for the Microsoft Sentinel solution for SAP applications

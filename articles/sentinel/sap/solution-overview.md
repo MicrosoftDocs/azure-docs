@@ -4,8 +4,11 @@ description: This article provides an overview of the Microsoft Sentinel solutio
 author: batamig
 ms.author: bagol
 ms.topic: conceptual
-ms.date: 05/22/2024
-#customerIntent: As a SOC analyst, I want to learn more about the Microsoft Sentinel solution for SAP applications, which I can use to connect my SAP system to Microsoft Sentinel, and start ingesting and analyzing SAP data in Microsoft Sentinel.
+ms.date: 09/15/2024
+
+
+#Customer intent: As a security operations team member, I want to monitor and protect SAP systems using Microsoft Sentinel so that I can detect, analyze, and respond to threats effectively across all layers of the SAP environment.
+
 ---
 
 # Microsoft Sentinel solution for SAP applications

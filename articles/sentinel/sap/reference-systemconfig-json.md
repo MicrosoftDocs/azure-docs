@@ -5,7 +5,11 @@ author: batamig
 ms.author: bagol
 ms.topic: reference
 ms.custom: devx-track-extended-java
-ms.date: 07/03/2024
+ms.date: 09/15/2024
+
+
+#Customer intent: As an SAP BASIS team member, I want to understand the configuration options in the systemconfig.json file so that I can properly set up and manage the data collector for SAP applications.
+
 ---
 # Microsoft Sentinel solution for SAP applications `systemconfig.json` file reference
 

@@ -6,6 +6,10 @@ ms.author: bagol
 ms.topic: reference
 ms.custom: mvc
 ms.date: 01/15/2024
+
+
+#Customer intent: As a security analyst, I want to understand the functions, logs, and tables available in the Microsoft Sentinel solution for SAP applications so that I can effectively monitor and analyze SAP system security and performance.
+
 ---
 
 # Log and table reference for the Microsoft Sentinel solution for SAP applications

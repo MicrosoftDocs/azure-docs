@@ -4,7 +4,11 @@ description: Description of command line options available with kickstart deploy
 author: batamig
 ms.author: bagol
 ms.topic: reference
-ms.date: 07/03/2024
+ms.date: 09/15/2024
+
+
+#Customer intent: As an SAP BASIS team member, I want to understand the options in the kickstart script used to deploy and configure a container hosting the SAP data connector, so that I can streamline the setup process and manage secrets storage and network configurations efficiently.
+
 ---
 
 # Kickstart deployment script reference for the Microsoft Sentinel for SAP applications data connector agent

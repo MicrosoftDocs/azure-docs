@@ -5,12 +5,14 @@ author: batamig
 ms.author: bagol
 ms.topic: how-to
 ms.custom: devx-track-azurecli
-ms.date: 05/28/2024
+ms.date: 09/15/2024
 appliesto:
     - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
 ms.collection: usx-security
-#customerIntent: As an security, infrastructure, or SAP BASIS team member, I want to deploy the container that hosts the Microsoft Sentinel SAP data connector agent, so that I can ingest SAP data into Microsoft Sentinel.
+
+#Customer intent: As a security, infrastructure, or SAP BASIS team member, I want to deploy and configure a containerized SAP data connector agent so that I can ingest SAP data into Microsoft Sentinel for enhanced monitoring and threat detection.
+
 ---
 
 # Connect your SAP system by deploying your data connector agent container

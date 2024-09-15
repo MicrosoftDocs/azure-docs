@@ -6,6 +6,10 @@ ms.author: bagol
 ms.topic: reference
 ms.date: 07/03/2024
 ms.custom: devx-track-extended-java
+
+
+#Customer intent: As an SAP BASIS team member using the legacy systemconfig.ini file, I want to understand the configuration options so that I can properly configure the data collector for SAP applications.
+
 ---
 
 # Microsoft Sentinel solution for SAP applications `systemconfig.ini` file reference
