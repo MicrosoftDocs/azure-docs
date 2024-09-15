@@ -41,185 +41,183 @@ Now that you have an environment created, you can deploy your first container ap
 
 ::: zone pivot="container-apps-private-registry"
 
-TODO1 Replace these H3s with a numbered list?
+1. Set environment variables
 
-### Set environment variables
+	Replace the \<PLACEHOLDERS\> with your values. Your user principal name will typically be in the format of an email address (for example, `username@domain.com`).
 
-Replace the \<PLACEHOLDERS\> with your values. Your user principal name will typically be in the format of an email address (for example, `username@domain.com`).
+	# [Bash](#tab/bash)
 
-# [Bash](#tab/bash)
+	```bash
+	KEY_VAULT_NAME=<KEY_VAULT_NAME>
+	USER_PRINCIPAL_NAME=<USER_PRINCIPAL_NAME>
+	SECRET_NAME=<SECRET_NAME>
+	CONTAINER_IMAGE_NAME=<CONTAINER_IMAGE_NAME>
+	REGISTRY_SERVER=<REGISTRY_SERVER>
+	REGISTRY_USERNAME=<REGISTRY_USERNAME>
+	```
 
-```bash
-KEY_VAULT_NAME=<KEY_VAULT_NAME>
-USER_PRINCIPAL_NAME=<USER_PRINCIPAL_NAME>
-SECRET_NAME=<SECRET_NAME>
-CONTAINER_IMAGE_NAME=<CONTAINER_IMAGE_NAME>
-REGISTRY_SERVER=<REGISTRY_SERVER>
-REGISTRY_USERNAME=<REGISTRY_USERNAME>
-```
+	# [Azure PowerShell](#tab/azure-powershell)
 
-# [Azure PowerShell](#tab/azure-powershell)
+	```azurepowershell-interactive
+	$KeyVaultName = "<KEY_VAULT_NAME>"
+	$UserPrincipalName = "<USER_PRINCIPAL_NAME>"
+	$SecretName = "<SECRET_NAME>"
+	$ContainerImageName = "<CONTAINER_IMAGE_NAME>"
+	$RegistryServer = "<REGISTRY_SERVER>"
+	$RegistryUsername = "<REGISTRY_USERNAME>"
+	```
 
-```azurepowershell-interactive
-$KeyVaultName = "<KEY_VAULT_NAME>"
-$UserPrincipalName = "<USER_PRINCIPAL_NAME>"
-$SecretName = "<SECRET_NAME>"
-$ContainerImageName = "<CONTAINER_IMAGE_NAME>"
-$RegistryServer = "<REGISTRY_SERVER>"
-$RegistryUsername = "<REGISTRY_USERNAME>"
-```
+	---
 
----
+1. Create key vault
 
-### Create key vault
+	It is recommended to store your container registry password using a service such as [Azure Key Vault](https://learn.microsoft.com/en-us/azure/key-vault/general/basic-concepts). The steps in this section explain how to create a key vault, store your container registry password as a secret in the key vault, and then retrieve the password for use in your code.
 
-TODO1 Explain why you should use a key vault to store your registry password. We could just link to one of the quickstarts below on creating a key vault and storing a secret in it, and only include the command for retrieving the secret here.
+	# [Bash](#tab/bash)
 
-# [Bash](#tab/bash)
+	```bash
+	az keyvault create --name $KEY_VAULT_NAME --resource-group $RESOURCE_GROUP
+	```
 
-```bash
-az keyvault create --name $KEY_VAULT_NAME --resource-group $RESOURCE_GROUP
-```
+	# [Azure PowerShell](#tab/azure-powershell)
 
-# [Azure PowerShell](#tab/azure-powershell)
+	First make sure you have installed the [KeyVault](https://www.powershellgallery.com/packages/Az.KeyVault) module.
 
-First make sure you have installed the [KeyVault](https://www.powershellgallery.com/packages/Az.KeyVault) module.
+	```azurepowershell-interactive
+	Install-Module Az.KeyVault -Repository PSGallery -Force
+	```
 
-```azurepowershell-interactive
-Install-Module Az.KeyVault -Repository PSGallery -Force
-```
+	```azurepowershell-interactive
+	New-AzKeyVault -Name "$KeyVaultName" -ResourceGroupName "$ResourceGroupName" -Location "$Location"
+	```
 
-```azurepowershell-interactive
-New-AzKeyVault -Name "$KeyVaultName" -ResourceGroupName "$ResourceGroupName" -Location "$Location"
-```
+	---
 
----
+1. Give your user account permissions to manage secrets in the key vault
 
-### Give your user account permissions to manage secrets in the key vault
+	# [Bash](#tab/bash)
 
-# [Bash](#tab/bash)
+	```bash
+	KEY_VAULT_ID=$(az keyvault show --name $KEY_VAULT_NAME --query id --output tsv)
+	az role assignment create --role "Key Vault Secrets Officer" --assignee "$USER_PRINCIPAL_NAME" --scope "$KEY_VAULT_ID"
+	```
 
-```bash
-KEY_VAULT_ID=$(az keyvault show --name $KEY_VAULT_NAME --query id --output tsv)
-az role assignment create --role "Key Vault Secrets Officer" --assignee "$USER_PRINCIPAL_NAME" --scope "$KEY_VAULT_ID"
-```
+	# [Azure PowerShell](#tab/azure-powershell)
 
-# [Azure PowerShell](#tab/azure-powershell)
+	```azurepowershell-interactive
+	$KeyVault=Get-AzKeyVault -VaultName $KeyVaultName
+	New-AzRoleAssignment -SignInName "$UserPrincipalName" -RoleDefinitionName "Key Vault Secrets Officer" -Scope $KeyVault.ResourceID
+	```
 
-```azurepowershell-interactive
-$KeyVault=Get-AzKeyVault -VaultName $KeyVaultName
-New-AzRoleAssignment -SignInName "$UserPrincipalName" -RoleDefinitionName "Key Vault Secrets Officer" -Scope $KeyVault.ResourceID
-```
+	---
 
----
+1. Store container registry password
 
-### Store container registry password
+	Replace the \<PLACEHOLDERS\> with your values.
 
-Replace the \<PLACEHOLDERS\> with your values.
+	TODO1 I'm deliberately not using an env var to store the registry password here. You can delete this line with a suggestion.
 
-TODO1 We are deliberately not using an env var to store the registry password here.
+	# [Bash](#tab/bash)
 
-# [Bash](#tab/bash)
+	TODO1 Per Copilot there does not seem to be an Azure CLI equivalent for ConvertTo-SecureString (except using Key Vault itself). You can delete this line with a suggestion.
 
-TODO1 There does not seem to be an Azure CLI equivalent for "convert to secure string."
+	```bash
+	az keyvault secret set --vault-name $KEY_VAULT_NAME --name $SECRET_NAME --value "<REGISTRY_PASSWORD>"
+	```
 
-```bash
-az keyvault secret set --vault-name $KEY_VAULT_NAME --name $SECRET_NAME --value "<REGISTRY_PASSWORD>"
-```
+	# [Azure PowerShell](#tab/azure-powershell)
 
-# [Azure PowerShell](#tab/azure-powershell)
+	```azurepowershell-interactive
+	$Secret = ConvertTo-SecureString -String "<REGISTRY_PASSWORD>" -AsPlainText -Force
+	Set-AzKeyVaultSecret -VaultName "$KeyVaultName" -Name "$SecretName" -SecretValue "$Secret"
+	```
 
-```azurepowershell-interactive
-$Secret = ConvertTo-SecureString -String "<REGISTRY_PASSWORD>" -AsPlainText -Force
-Set-AzKeyVaultSecret -VaultName "$KeyVaultName" -Name "$SecretName" -SecretValue "$Secret"
-```
+	---
 
----
+1. Retrieve container registry password
 
-### Retrieve container registry password
+	# [Bash](#tab/bash)
 
-# [Bash](#tab/bash)
+	```bash
+	REGISTRY_PASSWORD=$(az keyvault secret show --name $SECRET_NAME --vault-name $KEY_VAULT_NAME --query value --output tsv)
+	```
 
-```bash
-REGISTRY_PASSWORD=$(az keyvault secret show --name $SECRET_NAME --vault-name $KEY_VAULT_NAME --query value --output tsv)
-```
+	For more information, see
+	- [Quickstart: Set and retrieve a secret from Azure Key Vault using Azure CLI](../key-vault/secrets/quick-create-cli)
+	- [Manage Key Vault using the Azure CLI](../key-vault/general/manage-with-cli2.md)
 
-For more information, see
-- [Quickstart: Set and retrieve a secret from Azure Key Vault using Azure CLI](../key-vault/secrets/quick-create-cli)
-- [Manage Key Vault using the Azure CLI](../key-vault/general/manage-with-cli2.md)
+	# [Azure PowerShell](#tab/azure-powershell)
 
-# [Azure PowerShell](#tab/azure-powershell)
+	```azurepowershell-interactive
+	$RegistryPassword = Get-AzKeyVaultSecret -VaultName "$KeyVaultName" -Name "$SecretName" -AsPlainText
+	```
 
-```azurepowershell-interactive
-$RegistryPassword = Get-AzKeyVaultSecret -VaultName "$KeyVaultName" -Name "$SecretName" -AsPlainText
-```
+	For more information, see
+	- [Quickstart: Set and retrieve a secret from Azure Key Vault using PowerShell](../key-vault/secrets/quick-create-powershell)
+	- [Use Azure Key Vault in automation](../../powershell/utility-modules/secretmanagement/how-to/using-azure-keyvault?view=ps-modules)
 
-For more information, see
-- [Quickstart: Set and retrieve a secret from Azure Key Vault using PowerShell](../key-vault/secrets/quick-create-powershell)
-- [Use Azure Key Vault in automation](../../powershell/utility-modules/secretmanagement/how-to/using-azure-keyvault?view=ps-modules)
+	---
 
----
+1. Create container app
 
-### Create container app
+	With the `containerapp create` command, deploy a container image to Azure Container Apps.
 
-With the `containerapp create` command, deploy a container image to Azure Container Apps.
+	The example shown in this article demonstrates how to use a custom container image with common commands. Your container image might need more parameters for the following items:
 
-The example shown in this article demonstrates how to use a custom container image with common commands. Your container image might need more parameters for the following items:
+	- Set the revision mode
+	- Define secrets
+	- Define environment variables
+	- Set container CPU or memory requirements
+	- Enable and configure Dapr
+	- Enable external or internal ingress
+	- Provide minimum and maximum replica values or scale rules
 
-- Set the revision mode
-- Define secrets
-- Define environment variables
-- Set container CPU or memory requirements
-- Enable and configure Dapr
-- Enable external or internal ingress
-- Provide minimum and maximum replica values or scale rules
+	# [Bash](#tab/bash)
 
-# [Bash](#tab/bash)
+	For details on how to provide values for any of these parameters to the `create` command, run `az containerapp create --help` or [visit the online reference](/cli/azure/containerapp#az-containerapp-create). To generate credentials for an Azure Container Registry, use [az acr credential show](/cli/azure/acr/credential#az-acr-credential-show).
 
-For details on how to provide values for any of these parameters to the `create` command, run `az containerapp create --help` or [visit the online reference](/cli/azure/containerapp#az-containerapp-create). To generate credentials for an Azure Container Registry, use [az acr credential show](/cli/azure/acr/credential#az-acr-credential-show).
+	```azurecli-interactive
+	az containerapp create \
+	  --name my-container-app \
+	  --resource-group $RESOURCE_GROUP \
+	  --image $CONTAINER_IMAGE_NAME \
+	  --environment $CONTAINERAPPS_ENVIRONMENT \
+	  --registry-server $REGISTRY_SERVER \
+	  --registry-username $REGISTRY_USERNAME \
+	  --registry-password $REGISTRY_PASSWORD
+	```
 
-```azurecli-interactive
-az containerapp create \
-  --name my-container-app \
-  --resource-group $RESOURCE_GROUP \
-  --image $CONTAINER_IMAGE_NAME \
-  --environment $CONTAINERAPPS_ENVIRONMENT \
-  --registry-server $REGISTRY_SERVER \
-  --registry-username $REGISTRY_USERNAME \
-  --registry-password $REGISTRY_PASSWORD
-```
+	# [Azure PowerShell](#tab/azure-powershell)
 
-# [Azure PowerShell](#tab/azure-powershell)
+	```azurepowershell-interactive
+	$EnvId = (Get-AzContainerAppManagedEnv -ResourceGroupName $ResourceGroupName -EnvName $ContainerAppsEnvironment).Id
 
-```azurepowershell-interactive
-$EnvId = (Get-AzContainerAppManagedEnv -ResourceGroupName $ResourceGroupName -EnvName $ContainerAppsEnvironment).Id
+	$TemplateObj = New-AzContainerAppTemplateObject -Name my-container-app -Image $ContainerImageName
 
-$TemplateObj = New-AzContainerAppTemplateObject -Name my-container-app -Image $ContainerImageName
+	$RegistrySecretObj = New-AzContainerAppSecretObject -Name registry-secret -Value $RegistryPassword
 
-$RegistrySecretObj = New-AzContainerAppSecretObject -Name registry-secret -Value $RegistryPassword
+	$RegistryArgs = @{
+		PasswordSecretRef = 'registry-secret'
+		Server = $RegistryServer
+		Username = $RegistryUsername
+	}
 
-$RegistryArgs = @{
-    PasswordSecretRef = 'registry-secret'
-    Server = $RegistryServer
-    Username = $RegistryUsername
-}
+	$RegistryObj = New-AzContainerAppRegistryCredentialObject @RegistryArgs
 
-$RegistryObj = New-AzContainerAppRegistryCredentialObject @RegistryArgs
+	$ContainerAppArgs = @{
+		Name = 'my-container-app'
+		Location = $Location
+		ResourceGroupName = $ResourceGroupName
+		ManagedEnvironmentId = $EnvId
+		TemplateContainer = $TemplateObj
+		ConfigurationRegistry = $RegistryObj
+		ConfigurationSecret = $RegistrySecretObj
+	}
 
-$ContainerAppArgs = @{
-    Name = 'my-container-app'
-    Location = $Location
-    ResourceGroupName = $ResourceGroupName
-    ManagedEnvironmentId = $EnvId
-    TemplateContainer = $TemplateObj
-    ConfigurationRegistry = $RegistryObj
-    ConfigurationSecret = $RegistrySecretObj
-}
+	New-AzContainerApp @ContainerAppArgs
+	```
 
-New-AzContainerApp @ContainerAppArgs
-```
-
----
+	---
 
 ::: zone-end
 
