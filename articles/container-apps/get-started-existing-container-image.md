@@ -144,7 +144,7 @@ Now that you have an environment created, you can deploy your first container ap
 
 	For more information, see
 	- [Quickstart: Set and retrieve a secret from Azure Key Vault using Azure CLI](/azure/key-vault/secrets/quick-create-cli)
-	- [Manage Key Vault using the Azure CLI](/azure/key-vault/general/manage-with-cli2.md)
+	- [Manage Key Vault using the Azure CLI](/azure/key-vault/general/manage-with-cli2)
 
 	# [Azure PowerShell](#tab/azure-powershell)
 
@@ -154,7 +154,7 @@ Now that you have an environment created, you can deploy your first container ap
 
 	For more information, see
 	- [Quickstart: Set and retrieve a secret from Azure Key Vault using PowerShell](/azure/key-vault/secrets/quick-create-powershell)
-	- [Use Azure Key Vault in automation](../../powershell/utility-modules/secretmanagement/how-to/using-azure-keyvault?view=ps-modules)
+	- [Use Azure Key Vault in automation](/azure/powershell/utility-modules/secretmanagement/how-to/using-azure-keyvault)
 
 	---
 
