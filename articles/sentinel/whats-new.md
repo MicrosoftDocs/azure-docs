@@ -65,7 +65,7 @@ Log collection from many appliances and devices is now supported by the Common E
 
 For more information, see:
 
-- [Find your Microsoft Sentinel data connector](https://learn.microsoft.com/en-us/azure/sentinel/data-connectors-reference)
+- [Find your Microsoft Sentinel data connector](data-connectors-reference.md)
 - [Migrate to Azure Monitor Agent from Log Analytics agent](/azure-monitor/agents/azure-monitor-agent-migration)
 - [AMA migration for Microsoft Sentinel](ama-migrate.md)
 - Blogs:
