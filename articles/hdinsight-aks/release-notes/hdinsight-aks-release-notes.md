@@ -3,7 +3,7 @@ title: Release notes for Azure HDInsight on AKS
 description: Latest release notes for Azure HDInsight on AKS. Get development tips and details for Trino, Flink, Spark, and more.
 ms.service: azure-hdinsight-on-aks
 ms.topic: conceptual
-ms.date: 08/05/2024
+ms.date: 09/16/2024
 ---
 
 # Azure HDInsight on AKS release notes
@@ -34,7 +34,7 @@ You can refer to [What's new](../whats-new.md) page for all the details of the f
 
 ## Release Information
 
-### Release date: Aug 05, 2024
+### Release date: Sep 16, 2024
 
 **This release applies to the following**
 
@@ -42,31 +42,9 @@ You can refer to [What's new](../whats-new.md) page for all the details of the f
 - Cluster Version: 1.2.1
 - AKS version: 1.27
 
-### New Features
-
-**MSI based SQL authentication**
-Users can now authenticate external Azure SQL DB Metastore with MSI instead of User ID password authentication. This feature helps to further secure the cluster connection with Metastore.
-
-**Configurable VM SKUs for Head node, SSH node** 
-This functionality allows users to choose specific SKUs for head nodes, worker nodes, and SSH nodes, offering the flexibility to select according to the use case and the potential to lower total cost of ownership (TCO).
-
-**Multiple MSI in cluster**
-Users can configure multiple MSI for cluster admins operations and for job related resource access. This feature allows users to demarcate and control the access to the cluster and data lying in the storage account.
-For example, one MSI for access to data in storage account and dedicated MSI for cluster operations.
-
 ### Updated
 
-**Script action**
-Script Action now can be added with Sudo user permission. Users can now install multiple dependencies including custom jars to customize the clusters as required. 
-
-**Library Management**
-Maven repository shortcut feature added to the Library Management in this release. User can now install Maven dependencies directly from the open-source repositories.
-
-**Spark 3.4**
-Spark 3.4 update brings a range of new features includes 
-* API enhancements
-* Structured streaming improvements
-* Improved usability and developer experience
+* The [latest API version release](https://github.com/Azure/azure-rest-api-specs/blob/main/specification/hdinsight/resource-manager/Microsoft.HDInsight/HDInsightOnAks/preview/2024-05-01-preview/hdinsight.json).
 
 > [!IMPORTANT]
 > To take benefit of all these **latest features**, you are required to create a new cluster pool with 1.2 and cluster version 1.2.1
