@@ -19,10 +19,12 @@ To enable customer-managed keys in the Azure portal, follow these steps:
 
 1. Navigate to your Service Bus Premium namespace.
 2. On the **Settings** page of your Service Bus namespace, select **Encryption**.
-3. Select the **Customer-managed key encryption at rest** as shown in the following image.
+1. Select the **Customer-managed key encryption at rest** as shown in the following image.
 
-    ![Enable customer managed key](./media/configure-customer-managed-key/enable-customer-managed-key.png)
-
+    ![Enable customer managed key.](media/configure-customer-managed-key/enable-customer-managed-key.png)
+   
+   
+   
 > [!NOTE]
 > Currently you can't configure Azure Key Vault Managed HSM through the portal. 
 
@@ -62,25 +64,25 @@ After you enable customer-managed keys, you need to associate the customer manag
     ```
 ---
 
-4. Create keys by following these steps:
-    1. To create a new key, select **Generate/Import** from the **Keys** menu under **Settings**.
-        
-        ![Select Generate/Import button](./media/configure-customer-managed-key/select-generate-import.png)
-
-    1. Set **Options** to **Generate** and give the key a name.
-
-        ![Create a key](./media/configure-customer-managed-key/create-key.png) 
-
-    1. You can now select this key to associate with the Service Bus namespace for encrypting from the drop-down list. 
-
-        ![Select key from key vault](./media/configure-customer-managed-key/select-key-from-key-vault.png)
-        > [!NOTE]
+1. Create keys by following these steps:
+   1. To create a new key, select **Generate/Import** from the **Keys** menu under **Settings**.
+   
+       ![Select Generate/Import button](./media/configure-customer-managed-key/select-generate-import.png)
+      
+   1. Set **Options** to **Generate** and give the key a name.
+   
+       ![Create a key](./media/configure-customer-managed-key/create-key.png) 
+      
+   1. You can now select this key to associate with the Service Bus namespace for encrypting from the drop-down list. 
+   
+       ![Select key from key vault](./media/configure-customer-managed-key/select-key-from-key-vault.png)
+              > [!NOTE]
         > For redundancy, you can add up to 3 keys. In the event that one of the keys has expired, or is not accessible, the other keys will be used for encryption.
         
     1. Fill in the details for the key and click **Select**. This enables the encryption of the Microsoft-managed key with your key (customer-managed key). 
 
 
-    > [!IMPORTANT]
+       > [!IMPORTANT]
     > If you are looking to use Customer managed key along with [Geo-Disaster Recovery](service-bus-geo-dr.md), please review this section. 
     >
     > To enable encryption of Microsoft-managed key with a customer managed key, an [access policy](/azure/key-vault/general/security-features) is set up for the Service Bus' managed identity on the specified Azure KeyVault. This ensures controlled access to the Azure KeyVault from the Azure Service Bus namespace.
@@ -683,4 +685,5 @@ Use the [`resource__versionless_id` or `versionless_id`](https://registry.terraf
 ## Next steps
 See the following articles:
 - [Service Bus overview](service-bus-messaging-overview.md)
+
 - [Key Vault overview](/azure/key-vault/general/overview)
