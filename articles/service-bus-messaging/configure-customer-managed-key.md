@@ -69,15 +69,15 @@ Create keys by following these steps:
 
 1. To create a new key, select **Generate/Import** from the **Keys** menu under **Settings**.
    
-       ![Sreenshot showing the Generate/Import button.](./media/configure-customer-managed-key/select-generate-import.png)
+    ![Screenshot showing the Generate/Import button.](./media/configure-customer-managed-key/select-generate-import.png)
       
 1. Set **Options** to **Generate** and give the key a name.
    
-       ![Screenshot that shows how to name a key.](./media/configure-customer-managed-key/create-key.png) 
+    ![Screenshot that shows how to name a key.](./media/configure-customer-managed-key/create-key.png) 
       
 1. You can now select this key to associate with the Service Bus namespace for encrypting from the drop-down list. 
    
-       ![Screenshowing that shows how to select key from key vault.](./media/configure-customer-managed-key/select-key-from-key-vault.png)
+    ![Screenshot that shows how to select a key from key vault.](./media/configure-customer-managed-key/select-key-from-key-vault.png)
    
    > [!NOTE]
    > For redundancy, you can add up to 3 keys. In the event that one of the keys has expired, or is not accessible, the other keys will be used for encryption.
