@@ -2686,22 +2686,22 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/app-service/quickstart-dotnet-framework.md",
+            "source_path_from_root": "/articles/app-service/quickstart-dotnet-framework.md",
             "redirect_url": "/azure/app-service/quickstart-dotnetcore?tabs=netframework48",
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/app-service/quickstart-arm-template-uiex.md",
+            "source_path_from_root": "/articles/app-service/quickstart-arm-template-uiex.md",
             "redirect_url": "/azure/app-service/quickstart-arm-template",
             "redirect_document_id": true
         },
         {
-            "source_path": "articles/app-service/quickstart-dotnetcore-uiex.md",
+            "source_path_from_root": "/articles/app-service/quickstart-dotnetcore-uiex.md",
             "redirect_url": "/azure/app-service/quickstart-dotnetcore",
             "redirect_document_id": true
         },
         {
-            "source_path": "articles/app-service/quickstart-java-uiex.md",
+            "source_path_from_root": "/articles/app-service/quickstart-java-uiex.md",
             "redirect_url": "/azure/app-service/quickstart-java",
             "redirect_document_id": true
         }
