@@ -5,13 +5,13 @@ services: automation
 author: SnehaSudhirG
 ms.author: sudhirsneha
 ms.topic: conceptual
-ms.date: 08/30/2024
+ms.date: 09/15/2024
 ms.custom: mvc
 ---
 
 # Remove VMs from Update Management
 
-[!INCLUDE [./log-analytics-retirement-announcement.md](../includes/log-analytics-retirement-announcement.md)]
+[!INCLUDE [./automation-update-management-retirement-announcement.md](../includes/automation-update-management-retirement-announcement.md)]
 
 When you're finished managing updates on your Azure or non-Azure machines in your environment, you can stop managing them with the [Update Management](overview.md) feature. To stop managing them, you will edit the saved search query `MicrosoftDefaultComputerGroup` in your Log Analytics workspace that is linked to your Automation account.
 
