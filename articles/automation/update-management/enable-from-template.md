@@ -4,8 +4,8 @@ description: This article tells how to use an Azure Resource Manager template to
 services:  automation
 ms.subservice: update-management
 ms.custom: devx-track-arm-template
-ms.topic: conceptual
-ms.date: 08/30/2024
+ms.topic: how-to
+ms.date: 09/15/2024
 ms.service: azure-automation
 ---
 
