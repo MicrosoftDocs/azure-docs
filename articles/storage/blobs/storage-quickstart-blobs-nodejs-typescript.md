@@ -3,7 +3,7 @@ title: "Quickstart: Azure Blob storage library - TypeScript"
 description: In this quickstart, you learn how to use the Azure Blob Storage for TypeScript to create a container and a blob in Blob (object) storage. Next, you learn how to download the blob to your local computer, and how to list all of the blobs in a container.
 author: pauljewellmsft
 ms.author: pauljewell
-ms.date: 03/18/2024
+ms.date: 09/13/2024
 ms.service: azure-blob-storage
 ms.topic: quickstart
 ms.devlang: typescript
@@ -331,14 +331,7 @@ Step through the code in your debugger and check your [Azure portal](https://por
 1. When you're done with this quickstart, delete the `blob-quickstart` directory.
 1. If you're done using your Azure Storage resource, use the [Azure CLI to remove the Storage resource](storage-quickstart-blobs-cli.md#clean-up-resources). 
 
-## Next steps
-
-In this quickstart, you learned how to upload, download, and list blobs using JavaScript.
-
-To see Blob storage sample apps, continue to:
+## Next step
 
 > [!div class="nextstepaction"]
-> [Azure Blob Storage library for TypeScript samples](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/storage/storage-blob/samples/v12/typescript)
-
-- To learn more, see the [Azure Blob Storage client libraries for JavaScript](/javascript/api/overview/azure/storage-blob-readme).
-- For tutorials, samples, quickstarts, and other documentation, visit [Azure for JavaScript and Node.js developers](/azure/developer/javascript/).
+> [Azure Storage samples and developer guides for JavaScript and TypeScript](../common/storage-samples-javascript.md?toc=/azure/storage/blobs/toc.json)

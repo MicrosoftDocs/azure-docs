@@ -10,7 +10,7 @@ ms.custom: docs_inherited
 
 # What's new in multimedia redirection?
 
-This article has the latest updates for multimedia redirection (MMR) for Azure Virtual Desktop.
+This article has the latest updates for host component of multimedia redirection (MMR) for Azure Virtual Desktop.
 
 ## Latest available version
 
@@ -18,9 +18,9 @@ The following table shows the latest available version of the MMR extension for 
 
 | Release | Latest version | Download |
 |---------|----------------|----------|
-| Public | 1.0.2024.4003 | [MMR extension](https://aka.ms/avdmmr/msi) |
+| Public | 1.0.2404.4003 | [MMR extension](https://aka.ms/avdmmr/msi) |
 
-## Updates for version 1.0.2024.4003
+## Updates for version 1.0.2404.4003
 
 *Published: July 23, 2024*
 
