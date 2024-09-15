@@ -71,7 +71,7 @@ Now that you have an environment created, you can deploy your first container ap
 
 1. Create key vault
 
-	It is recommended to store your container registry password using a service such as [Azure Key Vault](https://learn.microsoft.com/en-us/azure/key-vault/general/basic-concepts). The steps in this section explain how to create a key vault, store your container registry password as a secret in the key vault, and then retrieve the password for use in your code.
+	It is recommended to store your container registry password using a service such as [Azure Key Vault](/azure/key-vault/general/basic-concepts). The steps in this section explain how to create a key vault, store your container registry password as a secret in the key vault, and then retrieve the password for use in your code.
 
 	# [Bash](#tab/bash)
 
@@ -143,8 +143,8 @@ Now that you have an environment created, you can deploy your first container ap
 	```
 
 	For more information, see
-	- [Quickstart: Set and retrieve a secret from Azure Key Vault using Azure CLI](../key-vault/secrets/quick-create-cli)
-	- [Manage Key Vault using the Azure CLI](../key-vault/general/manage-with-cli2.md)
+	- [Quickstart: Set and retrieve a secret from Azure Key Vault using Azure CLI](/azure/key-vault/secrets/quick-create-cli)
+	- [Manage Key Vault using the Azure CLI](/azure/key-vault/general/manage-with-cli2.md)
 
 	# [Azure PowerShell](#tab/azure-powershell)
 
@@ -153,7 +153,7 @@ Now that you have an environment created, you can deploy your first container ap
 	```
 
 	For more information, see
-	- [Quickstart: Set and retrieve a secret from Azure Key Vault using PowerShell](../key-vault/secrets/quick-create-powershell)
+	- [Quickstart: Set and retrieve a secret from Azure Key Vault using PowerShell](/azure/key-vault/secrets/quick-create-powershell)
 	- [Use Azure Key Vault in automation](../../powershell/utility-modules/secretmanagement/how-to/using-azure-keyvault?view=ps-modules)
 
 	---
