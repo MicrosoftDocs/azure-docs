@@ -1236,17 +1236,17 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/azure-resource-manager/managed-applications/scripts/managed-application-cli-sample-create-application.md",
+      "source_path_from_root": "/articles/azure-resource-manager/managed-applications/scripts/managed-application-cli-sample-create-application.md",
       "redirect_url": "/azure/azure-resource-manager/managed-applications/scripts/managed-application-define-create-cli-sample",
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/azure-resource-manager/managed-applications/scripts/managed-application-cli-sample-create-definition.md",
+      "source_path_from_root": "/articles/azure-resource-manager/managed-applications/scripts/managed-application-cli-sample-create-definition.md",
       "redirect_url": "/azure/azure-resource-manager/managed-applications/scripts/managed-application-define-create-cli-sample",
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/azure-resource-manager/managed-applications/scripts/managed-application-cli-sample-get-managed-group-resize-vm.md",
+      "source_path_from_root": "/articles/azure-resource-manager/managed-applications/scripts/managed-application-cli-sample-get-managed-group-resize-vm.md",
       "redirect_url": "/azure/azure-resource-manager/managed-applications/update-managed-resources",
       "redirect_document_id": false
     },
