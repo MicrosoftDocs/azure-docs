@@ -4,7 +4,7 @@ description: This article tells how to configure Windows Update settings to work
 services: automation
 ms.subservice: update-management
 ms.date: 09/15/2024
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: azure-automation
 ---
 # Configure Windows Update settings for Azure Automation Update Management

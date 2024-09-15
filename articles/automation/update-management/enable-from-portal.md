@@ -4,7 +4,7 @@ description: This article tells how to enable Update Management from the Azure p
 services: automation
 ms.subservice: update-management
 ms.date: 09/15/2024
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: mvc
 ms.service: azure-automation
 ---

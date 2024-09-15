@@ -4,7 +4,7 @@ description: This article tells how to remove Azure and non-Azure machines manag
 services: automation
 author: SnehaSudhirG
 ms.author: sudhirsneha
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 09/15/2024
 ms.custom: mvc
 ---

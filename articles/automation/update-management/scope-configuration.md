@@ -3,7 +3,7 @@ title: Limit Azure Automation Update Management deployment scope
 description: This article tells how to use scope configurations to limit the scope of an Update Management deployment.
 services: automation
 ms.date: 09/15/2024
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: mvc
 ---
 

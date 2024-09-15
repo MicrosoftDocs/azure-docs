@@ -53,7 +53,7 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/container-registry/container-registry-customer-managed-keys.md",
+            "source_path_from_root": "/articles/container-registry/container-registry-customer-managed-keys.md",
             "redirect_url": "/azure/container-registry/tutorial-customer-managed-keys",
             "redirect_document_id": false
         },
@@ -63,52 +63,52 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/container-registry/tutorial-artifact-streaming.md",
+            "source_path_from_root": "/articles/container-registry/tutorial-artifact-streaming.md",
             "redirect_url": "/azure/container-registry/container-registry-artifact-streaming",
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/container-registry/tutorial-artifact-streaming-cli.md",
+            "source_path_from_root": "/articles/container-registry/tutorial-artifact-streaming-cli.md",
             "redirect_url": "/azure/container-registry/container-registry-artifact-streaming",
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/container-registry/tutorial-artifact-streaming-portal.md",
+            "source_path_from_root": "/articles/container-registry/tutorial-artifact-streaming-portal.md",
             "redirect_url": "/azure/container-registry/container-registry-artifact-streaming",
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/container-registry/tutorial-artifact-streaming-troubleshoot.md",
+            "source_path_from_root": "/articles/container-registry/tutorial-artifact-streaming-troubleshoot.md",
             "redirect_url": "/azure/container-registry/troubleshoot-artifact-streaming",
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/container-registry/tutorial-enable-artifact-cache.md",
+            "source_path_from_root": "/articles/container-registry/tutorial-enable-artifact-cache.md",
             "redirect_url": "/azure/container-registry/container-registry-artifact-cache",
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/container-registry/tutorial-enable-artifact-cache-cli.md",
+            "source_path_from_root": "/articles/container-registry/tutorial-enable-artifact-cache-cli.md",
             "redirect_url": "/azure/container-registry/container-registry-artifact-cache",
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/container-registry/tutorial-enable-artifact-cache-auth.md",
+            "source_path_from_root": "/articles/container-registry/tutorial-enable-artifact-cache-auth.md",
             "redirect_url": "/azure/container-registry/container-registry-artifact-cache",
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/container-registry/tutorial-enable-artifact-cache-auth-cli.md",
+            "source_path_from_root": "/articles/container-registry/tutorial-enable-artifact-cache-auth-cli.md",
             "redirect_url": "/azure/container-registry/container-registry-artifact-cache",
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/container-registry/tutorial-artifact-cache-troubleshoot.md",
+            "source_path_from_root": "/articles/container-registry/tutorial-artifact-cache-troubleshoot.md",
             "redirect_url": "/azure/container-registry/troubleshoot-artifact-cache",
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/container-registry/container-registry-diagnostics-audit-logs.md",
+            "source_path_from_root": "/articles/container-registry/container-registry-diagnostics-audit-logs.md",
             "redirect_url": "/azure/container-registry/monitor-container-registry"
         },
         {
@@ -157,12 +157,12 @@
             "redirect_document_id": false
         },
         {
-            "source_path": "articles/container-registry/monitor-service.md",
+            "source_path_from_root": "/articles/container-registry/monitor-service.md",
             "redirect_url": "/azure/container-registry/monitor-container-registry",
             "redirect_document_id": true
         },
         {
-            "source_path": "articles/container-registry/monitor-service-reference.md",
+            "source_path_from_root": "/articles/container-registry/monitor-service-reference.md",
             "redirect_url": "/azure/container-registry/monitor-container-registry-reference",
             "redirect_document_id": true
         },
