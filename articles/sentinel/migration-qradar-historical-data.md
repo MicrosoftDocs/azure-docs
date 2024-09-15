@@ -7,7 +7,7 @@ ms.topic: how-to
 ms.date: 05/03/2022
 
 
-#Customer intent: [AI]As a security analyst, I want to export historical data from QRadar using AQL queries and the QRadar REST API so that I can migrate it to a new platform for analysis and compliance purposes.
+#Customer intent: [AI]As a security engineer, I want to export historical data from QRadar using AQL queries and the QRadar REST API so that I can migrate it to a new platform for analysis and compliance purposes.
 
 ---
 

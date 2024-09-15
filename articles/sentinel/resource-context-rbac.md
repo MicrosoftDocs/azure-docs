@@ -7,7 +7,7 @@ ms.date: 01/09/2023
 ms.author: cwatson
 
 
-#Customer intent: [AI]As a security administrator, I want to configure resource-context RBAC so that I can grant specific data access to users without exposing the entire Microsoft Sentinel environment.
+#Customer intent: [AI]As a security administrator, I want to understand when to use Azure RBAC at the resource-context level so that I can grant specific data access to users without exposing the entire Microsoft Sentinel environment.
 ---
 
 # Manage access to Microsoft Sentinel data by resource

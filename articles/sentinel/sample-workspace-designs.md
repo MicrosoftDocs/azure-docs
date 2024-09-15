@@ -6,7 +6,7 @@ ms.author: cwatson
 ms.topic: conceptual
 ms.date: 08/27/2024
 
-#Customer intent: [AI]As a security architect, I want to design and implement an optimal workspace architecture for multi-tenant and multi-region environments so that I can ensure compliance, cost efficiency, and effective data segregation.
+#Customer intent: [AI]As a security architect, I want to design an optimal workspace architecture for multi-tenant and multi-region environments so that I can ensure compliance, cost efficiency, and effective data segregation.
 
 ---
 

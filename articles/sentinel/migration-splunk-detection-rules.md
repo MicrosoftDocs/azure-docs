@@ -9,7 +9,7 @@ ms.date: 03/11/2024
 #customer intent: As a SOC administrator, I want to migrate Splunk detection rules to KQL so I can migrate to Microsoft Sentinel.
 
 
-#Customer intent: [AI]As a security operations analyst, I want to migrate Splunk detection rules to a new SIEM platform so that I can leverage advanced machine learning analytics and improve incident detection and response.
+#Customer intent: [AI]As a security engineer, I want to migrate Splunk detection rules to a new SIEM platform so that I can leverage advanced machine learning analytics and improve incident detection and response.
 
 ---
 

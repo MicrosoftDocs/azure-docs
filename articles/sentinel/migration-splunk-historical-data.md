@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.date: 03/11/2024
 
 
-#Customer intent: [AI]As a security operations admin, I want to export historical data from Splunk so that I can migrate it to Microsoft Sentinel for analysis and storage.
+#Customer intent: [AI]As a security engineer, I want to export historical data from Splunk so that I can migrate it to Microsoft Sentinel for analysis and storage.
 
 ---
 

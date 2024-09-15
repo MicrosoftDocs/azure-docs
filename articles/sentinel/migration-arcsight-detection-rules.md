@@ -7,7 +7,7 @@ ms.topic: how-to
 ms.date: 05/03/2022
 
 
-#Customer intent: [AI]As a security operations center (SOC) analyst, I want to migrate ArcSight detection rules to Microsoft Sentinel so that I can leverage advanced analytics and machine learning for more effective threat detection and response.
+#Customer intent: [AI]As a security engineer, I want to migrate ArcSight detection rules to Microsoft Sentinel so that I can leverage advanced analytics and machine learning for more effective threat detection and response.
 
 ---
 
