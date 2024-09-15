@@ -5,8 +5,10 @@ author: batamig
 ms.author: bagol
 ms.topic: reference
 ms.date: 09/15/2024
-
-
+appliesto:
+    - Microsoft Sentinel in the Azure portal
+    - Microsoft Sentinel in the Microsoft Defender portal
+ms.collection: usx-security
 #Customer intent: As a security administrator, I want to monitor SAP security parameters so that I can detect and respond to suspicious configuration changes effectively.
 
 ---
@@ -20,6 +22,8 @@ The Microsoft Sentinel solution for SAP applications provides updates for this c
 This article doesn't describe the parameters, and isn't a recommendation to configuring the parameters. For configuration considerations, consult your SAP admins. For parameter descriptions, see the SAP documentation.
 
 Content in this article is intended for your **SAP BASIS** teams.
+
+[!INCLUDE [unified-soc-preview](../includes/unified-soc-preview.md)]
 
 ## Prerequisites
 

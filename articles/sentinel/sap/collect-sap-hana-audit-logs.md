@@ -5,8 +5,10 @@ author: batamig
 ms.author: bagol
 ms.topic: how-to
 ms.date: 06/09/2024
-
-
+appliesto:
+    - Microsoft Sentinel in the Azure portal
+    - Microsoft Sentinel in the Microsoft Defender portal
+ms.collection: usx-security
 #Customer intent: As a security analyst, I want to collect and analyze SAP HANA audit logs to Microsoft Sentinel so that I can monitor and respond to security events effectively.
 
 ---
@@ -18,6 +20,8 @@ This article explains how to collect audit logs from your SAP HANA database.
 Content in this article is intended for your **security**, **infrastructure**, and  **SAP BASIS** teams.
 
 > [!IMPORTANT]
+> [!INCLUDE [unified-soc-preview-without-alert](../includes/unified-soc-preview-without-alert.md)]
+>
 > Microsoft Sentinel SAP HANA support is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ## Prerequisites

@@ -4,8 +4,12 @@ description: Learn about the functions available from the Microsoft Sentinel sol
 author: batamig
 ms.author: bagol
 ms.topic: reference
-ms.custom: mvc
-ms.date: 01/15/2024
+ms.date: 09/15/2024
+appliesto:
+    - Microsoft Sentinel in the Azure portal
+    - Microsoft Sentinel in the Microsoft Defender portal
+ms.collection: usx-security
+#customer Intent: As a security analyst, I want to understand the functions available in the Microsoft Sentinel solution for SAP applications, so that I can use them in my Kusto queries.
 ---
 
 # Microsoft Sentinel solution for SAP applications - functions reference
@@ -13,6 +17,8 @@ ms.date: 01/15/2024
 This article describes the functions that are available in your workspace after you install the Microsoft Sentinel solution for SAP applications. Find these functions in the Microsoft Sentinel **Logs** page to use in your KQL queries, listed under **Workspace functions**.
 
 Content in this article is intended for your **security** teams.
+
+[!INCLUDE [unified-soc-preview](../includes/unified-soc-preview.md)]
 
 ## Use functions in your queries instead of underlying logs or tables
 

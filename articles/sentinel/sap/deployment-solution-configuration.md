@@ -5,7 +5,10 @@ author: batamig
 ms.author: bagol
 ms.topic: how-to
 ms.date: 09/15/2024
-
+appliesto:
+    - Microsoft Sentinel in the Azure portal
+    - Microsoft Sentinel in the Microsoft Defender portal
+ms.collection: usx-security
 
 #Customer intent: As a security analyst, I want to configure and monitor SAP systems using Microsoft Sentinel so that I can detect and respond to suspicious activities and threats effectively.
 
@@ -20,6 +23,8 @@ While deploying the Microsoft Sentinel data collector agent and solution for SAP
 Content in this article is relevant for your **security** team.
 
 > [!IMPORTANT]
+> [!INCLUDE [unified-soc-preview-without-alert](../includes/unified-soc-preview-without-alert.md)]
+> 
 > Some components of the Microsoft Sentinel solution for SAP applications are currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
 

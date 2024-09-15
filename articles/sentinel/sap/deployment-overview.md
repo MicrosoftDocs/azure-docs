@@ -5,7 +5,10 @@ author: batamig
 ms.author: bagol
 ms.topic: conceptual
 ms.date: 05/26/2024
-
+appliesto:
+    - Microsoft Sentinel in the Azure portal
+    - Microsoft Sentinel in the Microsoft Defender portal
+ms.collection: usx-security
 #Customer intent: As a security analyst, I want to deploy and configure a monitoring solution for SAP applications so that I can detect and respond to security threats within my SAP environment.
 
 ---
@@ -15,6 +18,8 @@ ms.date: 05/26/2024
 Use the Microsoft Sentinel solution for SAP applications to monitor your SAP systems with Microsoft Sentinel, detecting sophisticated threats throughout the business logic and application layers of your SAP applications.
 
 This article introduces you to the Microsoft Sentinel solution for SAP applications deployment.
+
+[!INCLUDE [unified-soc-preview](../includes/unified-soc-preview.md)]
 
 ## Solution components
 

@@ -5,13 +5,20 @@ author: batamig
 ms.author: bagol
 ms.topic: troubleshooting
 ms.date: 01/09/2023
-
+appliesto:
+    - Microsoft Sentinel in the Azure portal
+    - Microsoft Sentinel in the Microsoft Defender portal
+ms.collection: usx-security
 
 #Customer intent: As an SAP BASIS team member, I want to troubleshoot issues with my Microsoft Sentinel for SAP applications data connector so that I can ensure accurate and timely data ingestion and monitoring.
 
 ---
 
 # Troubleshooting your Microsoft Sentinel solution for SAP applications deployment
+
+This article includes troubleshooting steps to help you ensure accurate and timely data ingestion and monitoring for your SAP environment with Microsoft Sentinel.
+
+[!INCLUDE [unified-soc-preview](../includes/unified-soc-preview.md)]
 
 ## Useful Docker commands
 

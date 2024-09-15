@@ -5,6 +5,10 @@ author: batamig
 ms.author: bagol
 ms.topic: reference
 ms.date: 07/03/2024
+appliesto:
+    - Microsoft Sentinel in the Azure portal
+    - Microsoft Sentinel in the Microsoft Defender portal
+ms.collection: usx-security
 ---
 
 # Microsoft Sentinel solution for SAP applications data connector agent update file reference
@@ -14,6 +18,8 @@ The Microsoft Sentinel SAP data connector agent container users an [update scrip
 This article describes the configurable parameters available in the update script.
 
 Content in this article is intended for your **SAP BASIS** teams.
+
+[!INCLUDE [unified-soc-preview](../includes/unified-soc-preview.md)]
 
 ## Script process overview
 

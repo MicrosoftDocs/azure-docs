@@ -5,8 +5,10 @@ author: batamig
 ms.author: bagol
 ms.topic: reference
 ms.date: 09/15/2024
-
-
+appliesto:
+    - Microsoft Sentinel in the Azure portal
+    - Microsoft Sentinel in the Microsoft Defender portal
+ms.collection: usx-security
 #Customer intent: As an SAP BASIS team member, I want to understand the options in the kickstart script used to deploy and configure a container hosting the SAP data connector, so that I can streamline the setup process and manage secrets storage and network configurations efficiently.
 
 ---
@@ -18,6 +20,8 @@ This article provides a reference of the configurable parameters available in th
 For more information, see [Deploy and configure the container hosting the SAP data connector agent](deploy-data-connector-agent-container.md).
 
 Content in this article is intended for your **SAP BASIS** teams.
+
+[!INCLUDE [unified-soc-preview](../includes/unified-soc-preview.md)]
 
 ## Secret storage location
 

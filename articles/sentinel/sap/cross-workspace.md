@@ -5,8 +5,10 @@ author: batamig
 ms.author: bagol
 ms.topic: conceptual
 ms.date: 09/15/2024
-
-
+appliesto:
+    - Microsoft Sentinel in the Azure portal
+    - Microsoft Sentinel in the Microsoft Defender portal
+ms.collection: usx-security
 
 #Customer intent: As a security manager, I want to use Microsoft Sentinel for SAP applications across multiple workspaces so that I can ensure compliance with data residency requirements and facilitate collaboration between SOC and SAP teams.
 
@@ -26,6 +28,8 @@ This article discusses how to work with the Microsoft Sentinel solution for SAP 
 - Insufficient role-based access control (RBAC) in a single workspace.
 
 > [!IMPORTANT]
+> [!INCLUDE [unified-soc-preview-without-alert](../includes/unified-soc-preview-without-alert.md)]
+> 
 > Working with multiple workspaces is currently in preview. This feature is provided without a service-level agreement. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## SAP and SOC data maintained in separate workspaces

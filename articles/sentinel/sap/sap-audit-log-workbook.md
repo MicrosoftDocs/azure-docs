@@ -5,7 +5,10 @@ author: batamig
 ms.author: bagol
 ms.topic: reference
 ms.date: 09/15/2024
-
+appliesto:
+    - Microsoft Sentinel in the Azure portal
+    - Microsoft Sentinel in the Microsoft Defender portal
+ms.collection: usx-security
 
 #Customer intent: As a security analyst, I want to use the SAP Security Audit log and Initial Access workbook so that I can monitor and investigate user audit activity across SAP systems for enhanced security and quick detection of suspicious actions.
 
@@ -15,15 +18,15 @@ ms.date: 09/15/2024
 
 This article describes the **SAP - Security Audit log and Initial Access** workbook, used for monitoring and tracking user audit activity across your SAP systems. Use the workbook to get a bird's eye view of user audit activity, better secure your SAP systems, and gain quick visibility into suspicious actions. Drill down into suspicious events as needed.
 
-> [!TIP]
-> Use the workbook either for ongoing monitoring of your SAP systems, or to review the systems following a security incident or other suspicious activity.
->
+Use the workbook either for ongoing monitoring of your SAP systems, or to review the systems following a security incident or other suspicious activity.
 
 For example:
 
 :::image type="content" source="media/sap-audit-log-workbook/workbook-overview.png" alt-text="Screenshot of the top of the SAP -Security Audit log and Initial Access workbook." lightbox="media/sap-audit-log-workbook/workbook-overview.png":::
 
 Content in this article is intended for your **security** team.
+
+[!INCLUDE [unified-soc-preview](../includes/unified-soc-preview.md)]
 
 ## Prerequisites
 

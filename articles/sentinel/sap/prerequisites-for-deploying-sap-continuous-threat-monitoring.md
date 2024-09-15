@@ -5,9 +5,10 @@ author: batamig
 ms.author: bagol
 ms.topic: reference
 ms.date: 09/15/2024
-
-
-
+appliesto:
+    - Microsoft Sentinel in the Azure portal
+    - Microsoft Sentinel in the Microsoft Defender portal
+ms.collection: usx-security
 #Customer intent: As a security administrator, I want to understand the prerequisites for deploying a Microsoft Sentinel solution for SAP applications so that I can ensure a smooth and compliant deployment process.
 
 ---
@@ -19,6 +20,8 @@ This article lists the prerequisites required for deployment of the Microsoft Se
 :::image type="content" source="media/deployment-steps/prerequisites.png" alt-text="Diagram of the steps included in deploying the Microsoft Sentinel solution for SAP applications, with the prerequisites step highlighted." border="false":::
 
 Content in this article is relevant for your **security**, **infrastructure**, and **SAP BASIS** teams.
+
+[!INCLUDE [unified-soc-preview](../includes/unified-soc-preview.md)]
 
 ## Azure prerequisites
 

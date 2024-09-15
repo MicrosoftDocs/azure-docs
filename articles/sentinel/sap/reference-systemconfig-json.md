@@ -6,8 +6,10 @@ ms.author: bagol
 ms.topic: reference
 ms.custom: devx-track-extended-java
 ms.date: 09/15/2024
-
-
+appliesto:
+    - Microsoft Sentinel in the Azure portal
+    - Microsoft Sentinel in the Microsoft Defender portal
+ms.collection: usx-security
 #Customer intent: As an SAP BASIS team member, I want to understand the configuration options in the systemconfig.json file so that I can properly set up and manage the data collector for SAP applications.
 
 ---
@@ -18,6 +20,8 @@ The *systemconfig.json* file is used to configure the behavior of the Microsoft 
 Content in this article is intended for your **SAP BASIS** teams.
 
 > [!IMPORTANT]
+> [!INCLUDE [unified-soc-preview-without-alert](../includes/unified-soc-preview-without-alert.md)]
+>
 > Microsoft Sentinel solution for SAP applications uses the *systemconfig.json* file for agent versions released on or after June 22, 2023. For previous agent versions, you must still use the *[systemconfig.ini file](reference-systemconfig.md)*.
 
 ## Overall file structure
