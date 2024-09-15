@@ -4,7 +4,7 @@ description: This article describes the supported Windows and Linux operating sy
 services: automation
 ms.subservice: update-management
 ms.custom: linux-related-content
-ms.date: 09/10/2024
+ms.date: 09/15/2024
 ms.topic: overview
 ms.service: azure-automation
 ---
@@ -16,7 +16,7 @@ ms.service: azure-automation
 
 This article details the Windows and Linux operating systems supported and system requirements for machines or servers managed by Update Management.
 
-[!INCLUDE [./log-analytics-retirement-announcement.md](../includes/log-analytics-retirement-announcement.md)]
+[!INCLUDE [./automation-update-management-retirement-announcement.md](../includes/automation-update-management-retirement-announcement.md)]
 
 ## Supported operating systems
 
