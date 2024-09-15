@@ -48,7 +48,7 @@ For more information, see as [Microsoft Sentinel feature support for Azure comme
 
 ## August 2024
 
-- [Legacy Log Analytics agent](#legacy-log-analytics-agent)
+- [Log Analytics agent retirement](#log-analytics-agent-retirement)
 - [Export and import automation rules (Preview)](#export-and-import-automation-rules-preview)
 - [Microsoft Sentinel support in Microsoft Defender multitenant management (Preview)](#microsoft-sentinel-support-in-microsoft-defender-multitenant-management-preview)
 - [Premium Microsoft Defender Threat Intelligence data connector (Preview)](#premium-microsoft-defender-threat-intelligence-data-connector-preview)
