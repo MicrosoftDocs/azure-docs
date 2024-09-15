@@ -17,7 +17,7 @@ Here's a few scenarios in which we can make use of these capabilities:
 - **Hybrid Cloud**: Your company just acquired a third party that uses RabbitMQ for their messaging needs. They are on a different cloud. While they transition to Azure you can already start sharing data by bridging RabbitMQ with Azure Service Bus.
 - **Third-Party Integration**: A third party uses RabbitMQ as a broker, and wants to send their data to us, but they are outside our organization. We can provide them with SAS Key giving them access to a limited set of Azure Service Bus queues where they can forward their messages to.
 
-The list goes on, but we can solve most of these use cases by bridging RabbitMQ to Azure.
+The list goes on, but we can solve most of these use cases by [bridging](/azure/architecture/patterns/messaging-bridge) RabbitMQ to Azure.
 
 First you need to create a free Azure account by signing up [here](https://azure.microsoft.com/free/)
 
