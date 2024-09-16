@@ -420,10 +420,17 @@ After you've created a dataflow, you can manage it using the Azure IoT Operation
 
 To enable or disable a dataflow, you can use the Azure IoT Operations portal or by updating the Dataflow CR.
 
+# [Portal](#tab/portal)
+
+
+# [Kubernetes](#tab/kubernetes)
+
 ```yaml
 spec:
   mode: Disabled
 ```
+
+---
 
 ### View dataflow health status and metrics
 
@@ -435,14 +442,27 @@ You can view the health status and metrics of the dataflow in the Azure IoT Oper
 
 To delete a dataflow, you can use the Azure IoT Operations portal or by deleting the Dataflow CR.
 
+# [Portal](#tab/portal)
+
+
+# [Kubernetes](#tab/kubernetes)
+
 ```bash
 kubectl delete dataflow my-dataflow
 ```
+
+---
 
 ### Export dataflow configuration
 
 To export the dataflow configuration, you can use the Azure IoT Operations portal or by exporting the Dataflow CR.
 
+# [Portal](#tab/portal)
+
+# [Kubernetes](#tab/kubernetes)
+
 ```bash
 kubectl get dataflow my-dataflow -o yaml > my-dataflow.yaml
 ```
+
+---

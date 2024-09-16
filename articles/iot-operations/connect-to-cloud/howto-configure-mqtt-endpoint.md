@@ -30,6 +30,12 @@ To create a dataflow endpoint for MQTT brokers, you can configure the endpoint, 
 
 Azure IoT Operations provides a built-in MQTT broker that you can use with dataflows.
 
+# [Portal](#tab/portal)
+
+:::image type="content" source="media/default-mqtt-endpoint.png" alt-text="Screenshot using operations portal to view default MQTT endpoint.":::
+
+# [Kubernetes](#tab/kubernetes)
+
 To configure an MQTT broker endpoint with default settings, you can omit the host field along with other optional fields.
 
 ```yaml
@@ -57,11 +63,19 @@ This configuration creates a connection to the default MQTT broker with the foll
 > [!IMPORTANT]
 > If any of these default MQTT broker settings change, the dataflow endpoint must be updated to reflect the new settings. For example, if the default MQTT broker listener changes to use a different service name `my-mqtt-broker` and port 8885, you must update the endpoint to use the new host `host: my-mqtt-broker:8885`. Same applies to other settings like authentication and TLS.
 
+---
+
 ### Azure Event Grid
 
 [Azure Event Grid provides a fully managed MQTT broker](../../event-grid/mqtt-overview.md) that works with Azure IoT Operations dataflows.
 
 To configure an Azure Event Grid MQTT broker endpoint, we recommend that you use managed identity for authentication.
+
+# [Portal](#tab/portal)
+
+:::image type="content" source="media/howto-configure-mqtt-endpoint/event-grid-endpoint.png" alt-text="Screenshot using operations portal to create an Azure Event Grid endpoint.":::
+
+# [Kubernetes](#tab/kubernetes)
 
 1. Create an Event Grid namespace and enable MQTT.
 
@@ -89,6 +103,8 @@ spec:
       mode: Enabled
 ```
 
+---
+
 Once the endpoint is created, you can use it in a dataflow to connect to the Event Grid MQTT broker as a source or destination. The MQTT topics are configured in the dataflow.
 
 #### Use X.509 certificate authentication with Event Grid
@@ -112,6 +128,12 @@ Azure Event Grid MQTT broker doesn't support shared subscriptions, which means t
 
 For other MQTT brokers, you can configure the endpoint, TLS, authentication, and other settings as needed.
 
+# [Portal](#tab/portal)
+
+:::image type="content" source="media/howto-configure-mqtt-endpoint/custom-mqtt-broker.png" alt-text="Screenshot using operations portal to create a custom MQTT broker endpoint.":::
+
+# [Kubernetes](#tab/kubernetes)
+
 ```yaml
 spec:
   endpointType: Mqtt
@@ -124,11 +146,13 @@ spec:
       trustedCaCertificateConfigMapRef: <YOUR CA CERTIFICATE CONFIG MAP>
 ```
 
+---
+
 ### Use the endpoint in a dataflow source or destination
 
-Once you've configured the endpoint, you can use it in a dataflow as both a source or a destination. The MQTT topics are configured in the dataflow source or destination settings, which allows you to reuse the same DataflowEndpoint resource with multiple dataflows and different MQTT topics. To learn more, see [Create a dataflow](howto-create-dataflow.md).
+Once you've configured the endpoint, you can use it in a dataflow as both a source or a destination. The MQTT topics are configured in the dataflow source or destination settings, which allows you to reuse the same *DataflowEndpoint* resource with multiple dataflows and different MQTT topics. To learn more, see [Create a dataflow](howto-create-dataflow.md).
 
-To customize the MQTT endpoint settings, continue reading.
+For information on how to customize the MQTT endpoint settings, see the next sections in the article.
 
 ## Available authentication methods
 
