@@ -57,7 +57,6 @@ The following tables list the activities available by CLI and the privileged use
 |Service area  |Users  |Actions  |
 |---------|---------|---------|
 |Password management     | *cyberx*, *cyberx_host*        | [Change local user passwords](cli-ot-sensor.md#change-local-user-passwords)        |
-|  Sign-in configuration| *admin*, *cyberx*, *cyberx_host* |[Control user session timeouts](manage-users-sensor.md#control-user-session-timeouts) |
 | Sign-in configuration     | *cyberx*        | [Define maximum number of failed sign-ins](manage-users-sensor.md#define-maximum-number-of-failed-sign-ins)       |
 
 ### Network configuration commands
