@@ -345,7 +345,7 @@ If you don't have these tools installed, you need to instead [get a valid access
 ## <a name="project-file-deployment"></a>Deploy project files
 
 ::: zone pivot="programming-language-csharp,programming-language-javascript,programming-language-powershell,programming-language-python,programming-language-typescript"
-To publish your local code to a function app in Azure, use the [`func azure functionapp publish publish`](./functions-core-tools-reference.md#func-azure-functionapp-publish) command, as in the following example:
+To publish your local code to a function app in Azure, use the [`func azure functionapp publish`](./functions-core-tools-reference.md#func-azure-functionapp-publish) command, as in the following example:
 
 ```
 func azure functionapp publish <FunctionAppName>

@@ -1,7 +1,7 @@
 ---
-title: Using the HDFS CLI with Azure Data Lake Storage Gen2
+title: Using the HDFS CLI with Azure Data Lake Storage
 titleSuffix: Azure Storage
-description: Use the Hadoop Distributed File System (HDFS) CLI for Azure Data Lake Storage Gen2. Create a container, get a list of files or directories, and more.
+description: Use the Hadoop Distributed File System (HDFS) CLI for Azure Data Lake Storage. Create a container, get a list of files or directories, and more.
 services: storage
 author: normesta
 
@@ -12,7 +12,7 @@ ms.date: 03/09/2023
 ms.author: normesta
 ---
 
-# Using the HDFS CLI with Data Lake Storage Gen2
+# Using the HDFS CLI with Data Lake Storage
 
 You can access and manage the data in your storage account by using a command line interface just as you would with a [Hadoop Distributed File System (HDFS)](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-hdfs/HdfsDesign.html). This article provides some examples that will help you get started.
 
@@ -39,7 +39,7 @@ hdfs dfs -mkdir /samplefolder
 The connection string can be found at the "SSH + Cluster login" section of the HDInsight cluster blade in Azure portal. SSH credentials were specified at the time of the cluster creation.
 
 > [!IMPORTANT]
-> HDInsight cluster billing starts after a cluster is created and stops when the cluster is deleted. Billing is pro-rated per minute, so you should always delete your cluster when it is no longer in use. To learn how to delete a cluster, see our [article on the topic](../../hdinsight/hdinsight-delete-cluster.md). However, data stored in a storage account with Data Lake Storage Gen2 enabled persists even after an HDInsight cluster is deleted.
+> HDInsight cluster billing starts after a cluster is created and stops when the cluster is deleted. Billing is pro-rated per minute, so you should always delete your cluster when it is no longer in use. To learn how to delete a cluster, see our [article on the topic](../../hdinsight/hdinsight-delete-cluster.md). However, data stored in a storage account with Data Lake Storage enabled persists even after an HDInsight cluster is deleted.
 
 ## Create a container
 
@@ -115,6 +115,6 @@ You can view the complete list of commands on the [Apache Hadoop 2.4.1 File Syst
 
 ## Next steps
 
-- [Use an Azure Data Lake Storage Gen2 capable account in Azure Databricks](./data-lake-storage-use-databricks-spark.md)
+- [Use an Azure Data Lake Storage capable account in Azure Databricks](./data-lake-storage-use-databricks-spark.md)
 
 - [Learn about access control lists on files and directories](./data-lake-storage-access-control.md)

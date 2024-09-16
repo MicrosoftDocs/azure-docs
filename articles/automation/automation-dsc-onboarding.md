@@ -55,7 +55,7 @@ You can use the [Register-AzAutomationDscNode](/powershell/module/az.automation/
 
 ### Register VMs across Azure subscriptions
 
-The best way to register VMs from other Azure subscriptions is to use the DSC extension in an Azure Resource Manager deployment template. Examples are provided in [Desired State Configuration extension with Azure Resource Manager templates](../virtual-machines/extensions/dsc-template.md).
+The best way to register VMs from other Azure subscriptions is to use the DSC extension in an Azure Resource Manager deployment template. Examples are provided in [Desired State Configuration extension with Azure Resource Manager templates](/azure/virtual-machines/extensions/dsc-template).
 
 ## Use DSC metaconfiguration to register hybrid machines
 

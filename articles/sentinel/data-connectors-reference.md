@@ -3,7 +3,7 @@ title: Find your Microsoft Sentinel data connector | Microsoft Docs
 description: Learn about specific configuration steps for Microsoft Sentinel data connectors.
 author: cwatson-cat
 ms.topic: reference
-ms.date: 07/03/2024
+ms.date: 08/26/2024
 ms.custom: linux-related-content
 ms.author: cwatson
 appliesto:
@@ -43,6 +43,13 @@ Log collection from many security appliances and devices are supported by the da
 - [Syslog via AMA data connector - Configure specific appliance or device for Microsoft Sentinel data ingestion](unified-connector-syslog-device.md)
 
 Contact the solution provider for more information or where information is unavailable for the appliance or device.
+
+## Custom Logs via AMA connector
+
+Filter and ingest logs in text-file format from network or security applications installed on Windows or Linux machines by using the **Custom Logs via AMA connector** in Microsoft Sentinel. For more information, see the following articles:
+
+- [Collect logs from text files with the Azure Monitor Agent and ingest to Microsoft Sentinel](/azure/sentinel/connect-custom-logs-ama?tabs=portal)
+- [Custom Logs via AMA data connector - Configure data ingestion to Microsoft Sentinel from specific applications](/azure/sentinel/unified-connector-custom-device)
 
 ## Codeless connector platform connectors
 

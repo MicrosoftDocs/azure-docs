@@ -174,7 +174,7 @@ Next, deploy the NFS shares in the storage account you created. In this example,
    > [!IMPORTANT]
    > The share size above is just an example. Make sure to size your shares appropriately. Size not only based on the size of the of data stored on the share, but also based on the requirements for IOPS and throughput. For details see [Azure file share targets](../../storage/files/storage-files-scale-targets.md#azure-file-share-scale-targets).  
 
-   The SAP file systems that don't need to be mounted via NFS can also be deployed on [Azure disk storage](../../virtual-machines/disks-types.md#premium-ssds). In this example, you can deploy `/usr/sap/NW1/D02` and `/usr/sap/NW1/D03` on Azure disk storage.
+   The SAP file systems that don't need to be mounted via NFS can also be deployed on [Azure disk storage](/azure/virtual-machines/disks-types#premium-ssds). In this example, you can deploy `/usr/sap/NW1/D02` and `/usr/sap/NW1/D03` on Azure disk storage.
 
 ### Important considerations for NFS on Azure Files shares
 

@@ -34,7 +34,7 @@ Service endpoints are available for the following Azure services and regions. Th
 - **[Azure Service Bus](../service-bus-messaging/service-bus-service-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** (*Microsoft.ServiceBus*): Generally available in all Azure regions.
 - **[Azure Event Hubs](../event-hubs/event-hubs-service-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** (*Microsoft.EventHub*): Generally available in all Azure regions.
 - **[Azure App Service](../app-service/app-service-ip-restrictions.md)** (*Microsoft.Web*): Generally available in all Azure regions where App service is available.
-- **[Azure Cognitive Services](../ai-services/cognitive-services-virtual-networks.md?tabs=portal)** (*Microsoft.CognitiveServices*): Generally available in all Azure regions where Azure AI services are available.
+- **[Azure Cognitive Services](/azure/ai-services/cognitive-services-virtual-networks?tabs=portal)** (*Microsoft.CognitiveServices*): Generally available in all Azure regions where Azure AI services are available.
 
 **Public Preview**
 

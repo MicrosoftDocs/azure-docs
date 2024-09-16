@@ -169,6 +169,8 @@
       href: authorize-oauth-rest.md
   - name: Enable threat protection
     href: ../common/azure-defender-storage-configure.md?toc=/azure/storage/files/toc.json
+  - name: Configure root squash (NFS shares)
+    href: nfs-root-squash.md    
 - name: Data protection
   items:
   - name: Data protection overview
@@ -220,7 +222,7 @@
   - name: Geo-redundancy for large file shares
     href: geo-redundant-storage-for-large-file-shares.md
   - name: Change the redundancy configuration
-    href: ../common/redundancy-migration.md?toc=/azure/storage/files/toc.json
+    href: files-change-redundancy-configuration.md
   - name: Initiate storage account failover
     href: ../common/storage-initiate-account-failover.md?toc=/azure/storage/files/toc.json
   - name: Premium file shares ZRS support

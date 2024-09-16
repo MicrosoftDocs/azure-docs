@@ -12,7 +12,7 @@
       href: about-azure-for-students-starter.md
   - name: Azure Classroom
     items:
-    - name: What is the Education Hub?
+    - name: What is Azure Classroom?
       href: about-education-hub.md
   - name: Azure Dev Tools for Teaching
     items:
@@ -24,12 +24,10 @@
     items:
     - name: Access the Education Hub
       href: access-education-hub.md
-    - name: Get started with the Education Hub
+    - name: Get started with Azure Classroom
       href: get-started-education-hub.md
     - name: Set up a lab
       href: set-up-lab.md
-    - name: Allocate credit to an educator
-      href: it-admin-allocate-credit.md
   - name: Azure Dev Tools for Teaching
     items:
     - name: Enroll or renew a subscription
@@ -40,9 +38,9 @@
   items:
   - name: Azure Classroom
     items:
-    - name: Manage your academic grant
+    - name: Manage your academic sponsorship
       href: hub-overview-page.md
-    - name: Create an assignment and allocate credit
+    - name: Create a lab and allocate credit
       href: create-assignment-allocate-credit.md
     - name: Get support
       href: educator-service-desk.md

@@ -6,6 +6,10 @@ ms.author: bagol
 ms.topic: how-to
 ms.custom: devx-track-azurecli
 ms.date: 04/01/2024
+
+
+#Customer intent: As an SAP BASIS team member, I want to deploy and configure a containerized SAP data connector agent so that I can ingest SAP data into Microsoft Sentinel for enhanced monitoring and threat detection.
+
 ---
 
 # Deploy and configure the container hosting the SAP data connector agent
@@ -107,7 +111,7 @@ Select one of the following tabs, depending on how you plan to store and access 
 
     ```
 
-    For more information, see [Quickstart: Create a Linux virtual machine with the Azure CLI](../../virtual-machines/linux/quick-create-cli.md).
+    For more information, see [Quickstart: Create a Linux virtual machine with the Azure CLI](/azure/virtual-machines/linux/quick-create-cli).
 
     > [!IMPORTANT]
     > After the VM is created, be sure to apply any security requirements and hardening procedures applicable in your organization.

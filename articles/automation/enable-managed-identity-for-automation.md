@@ -3,8 +3,8 @@ title: Using a system-assigned managed identity for an Azure Automation account
 description: This article describes how to set up managed identity for Azure Automation accounts.
 services: automation
 ms.subservice: process-automation
-ms.date: 10/26/2021
-ms.topic: conceptual 
+ms.date: 09/09/2024
+ms.topic: how-to 
 ms.custom: devx-track-azurepowershell
 ms.service: azure-automation
 ---

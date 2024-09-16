@@ -124,7 +124,7 @@ The following sample template sets Microsoft Sentinel to the classic pricing tie
 } 
 ```
 
-See [Deploying the sample templates](../azure-monitor/resource-manager-samples.md) to learn more about using Resource Manager templates.
+See [Deploying the sample templates](/azure/azure-monitor/resource-manager-samples) to learn more about using Resource Manager templates.
 
 To reference how to implement this template in Terraform or Bicep start [here](/azure/templates/microsoft.operationalinsights/2020-08-01/workspaces).
 
@@ -133,7 +133,7 @@ To reference how to implement this template in Terraform or Bicep start [here](/
 ## Simplified pricing tiers for dedicated clusters
 In classic pricing tiers, Microsoft Sentinel was always billed as a secondary meter at the workspace level. The meter for Microsoft Sentinel could differ from the overall meter of the workspace. 
 
-With simplified pricing tiers, the same Commitment tier and billing mode used by the cluster is set for the Microsoft Sentinel workspace. Microsoft Sentinel usage is billed at the effective per GB price of that tier meter, and all usage is counted towards the total allocation for the dedicated cluster. This allocation is either at the cluster level or proportionately at the workspace level depending on the billing mode of the cluster. For more information, see [Cost details - Dedicated cluster](../azure-monitor/logs/cost-logs.md#dedicated-clusters).
+With simplified pricing tiers, the same Commitment tier and billing mode used by the cluster is set for the Microsoft Sentinel workspace. Microsoft Sentinel usage is billed at the effective per GB price of that tier meter, and all usage is counted towards the total allocation for the dedicated cluster. This allocation is either at the cluster level or proportionately at the workspace level depending on the billing mode of the cluster. For more information, see [Cost details - Dedicated cluster](/azure/azure-monitor/logs/cost-logs#dedicated-clusters).
 
 ### Dedicated cluster billing examples
 Compare the following cluster scenarios to better understand simplified pricing when adding Microsoft Sentinel enabled workspaces to a dedicated cluster.
@@ -165,7 +165,7 @@ It's possible your Microsoft account team negotiated a discounted price for Log 
 
 ## Learn more
 
-- For more tips on reducing Log Analytics data volume, see [Azure Monitor best practices - Cost management](../azure-monitor/best-practices-cost.md).
+- For more tips on reducing Log Analytics data volume, see [Azure Monitor best practices - Cost management](/azure/azure-monitor/best-practices-cost).
 - Learn [how to optimize your cloud investment with Microsoft Cost Management](../cost-management-billing/costs/cost-mgt-best-practices.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
 - Learn more about managing costs with [cost analysis](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).
 - Learn about how to [prevent unexpected costs](../cost-management-billing/understand/analyze-unexpected-charges.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn).

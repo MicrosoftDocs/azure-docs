@@ -238,7 +238,7 @@
       - name: Manage microservices deployed in AKS
         href: api-management-kubernetes.md
       - name: Integrate with Service Fabric
-        href: ../service-fabric/service-fabric-api-management-overview.md?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=/azure/api-management/breadcrumb/toc.json
+        href: /azure/service-fabric/service-fabric-api-management-overview?toc=%2Fazure%2Fapi-management%2Ftoc.json&bc=/azure/api-management/breadcrumb/toc.json
   - name: Modify APIs
     items:
     - name: Edit an API

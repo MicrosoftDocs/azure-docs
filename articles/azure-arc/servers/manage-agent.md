@@ -8,7 +8,7 @@ ms.topic: conceptual
 # Managing and maintaining the Connected Machine agent
 
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
+> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](/azure/virtual-machines/workloads/centos/centos-end-of-life).
 
 After initial deployment of the Azure Connected Machine agent, you may need to reconfigure the agent, upgrade it, or remove it from the computer. These routine maintenance tasks can be done manually or through automation (which reduces both operational error and expenses). This article describes the operational aspects of the agent. See the [azcmagent CLI documentation](azcmagent.md) for command line reference information.
 
@@ -88,7 +88,7 @@ Links to the current and previous releases of the Windows agents are available b
 
 ## Upgrade the agent
 
-The Azure Connected Machine agent is updated regularly to address bug fixes, stability enhancements, and new functionality. [Azure Advisor](../../advisor/advisor-overview.md) identifies resources that aren't using the latest version of the machine agent and recommends that you upgrade to the latest version. It notifies you when you select the Azure Arc-enabled server by presenting a banner on the **Overview** page or when you access Advisor through the Azure portal.
+The Azure Connected Machine agent is updated regularly to address bug fixes, stability enhancements, and new functionality. [Azure Advisor](/azure/advisor/advisor-overview) identifies resources that aren't using the latest version of the machine agent and recommends that you upgrade to the latest version. It notifies you when you select the Azure Arc-enabled server by presenting a banner on the **Overview** page or when you access Advisor through the Azure portal.
 
 The Azure Connected Machine agent for Windows and Linux can be upgraded to the latest release manually or automatically depending on your requirements. Installing, upgrading, or uninstalling the Azure Connected Machine Agent doesn't require you to restart your server.
 
@@ -351,7 +351,7 @@ To configure the agent to communicate to the service through a proxy server or t
 As of agent version 1.13, proxy settings can be configured using the `azcmagent config` command or system environment variables. If a proxy server is specified in both the agent configuration and system environment variables, the agent configuration will take precedence and become the effective setting. Use `azcmagent show` to view the effective proxy configuration for the agent.
 
 > [!NOTE]
-> Azure Arc-enabled servers doesn't support using proxy servers that require authentication, TLS (HTTPS) connections, or a [Log Analytics gateway](../../azure-monitor/agents/gateway.md) as a proxy for the Connected Machine agent.
+> Azure Arc-enabled servers doesn't support using proxy servers that require authentication, TLS (HTTPS) connections, or a [Log Analytics gateway](/azure/azure-monitor/agents/gateway) as a proxy for the Connected Machine agent.
 
 ### Agent-specific proxy configuration
 
@@ -474,7 +474,7 @@ If you're already using environment variables to configure the proxy server for 
 
 ## Alerting for Azure Arc-enabled server disconnection
 
-The Connected Machine agent [sends a regular heartbeat message](overview.md#agent-status) to the service every five minutes. If an Arc-enabled server stops sending heartbeats to Azure for longer than 15 minutes, it can mean that it's offline, the network connection has been blocked, or the agent isn't running. Develop a plan for how you’ll respond and investigate these incidents, including setting  up [Resource Health alerts](../..//service-health/resource-health-alert-monitor-guide.md) to get notified when such incidents occur.
+The Connected Machine agent [sends a regular heartbeat message](overview.md#agent-status) to the service every five minutes. If an Arc-enabled server stops sending heartbeats to Azure for longer than 15 minutes, it can mean that it's offline, the network connection has been blocked, or the agent isn't running. Develop a plan for how you’ll respond and investigate these incidents, including setting  up [Resource Health alerts](/azure/service-health/resource-health-alert-monitor-guide) to get notified when such incidents occur.
 
 
 ## Next steps
@@ -483,4 +483,4 @@ The Connected Machine agent [sends a regular heartbeat message](overview.md#agen
 
 * Review the [Planning and deployment guide](plan-at-scale-deployment.md) to plan for deploying Azure Arc-enabled servers at any scale and implement centralized management and monitoring.
 
-* Learn how to manage your machine using [Azure Policy](../../governance/policy/overview.md), for such things as VM [guest configuration](../../governance/machine-configuration/overview.md), verifying the machine is reporting to the expected Log Analytics workspace, enable monitoring with [VM insights](../../azure-monitor/vm/vminsights-enable-policy.md), and much more.
+* Learn how to manage your machine using [Azure Policy](../../governance/policy/overview.md), for such things as VM [guest configuration](../../governance/machine-configuration/overview.md), verifying the machine is reporting to the expected Log Analytics workspace, enable monitoring with [VM insights](/azure/azure-monitor/vm/vminsights-enable-policy), and much more.

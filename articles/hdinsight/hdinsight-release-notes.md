@@ -4,7 +4,7 @@ description: Latest release notes for Azure HDInsight. Get development tips and 
 ms.custom: references_regions
 ms.service: azure-hdinsight
 ms.topic: conceptual
-ms.date: 08/09/2024
+ms.date: 09/06/2024
 ---
 
 # Azure HDInsight release notes
@@ -20,7 +20,12 @@ To subscribe, click the **watch** button in the banner and watch out for [HDInsi
 
 ## Release Information
 
-### Release date: Aug 09, 2024
+### Release date: Aug 30, 2024
+
+> [!NOTE]
+> This is a Hotfix / maintenance release for Resource Provider. For more information see, [Resource Provider](.//hdinsight-overview-versioning.md#hdinsight-resource-provider).
+
+Azure HDInsight periodically releases maintenance updates for delivering bug fixes, performance enhancements, and security patches ensuring you stay up to date with these updates guarantees optimal performance and reliability.
 
 This release note applies to 
 
@@ -46,11 +51,9 @@ HDInsight uses safe deployment practices, which involve gradual region deploymen
 
 For workload specific versions, see [HDInsight 5.x component versions](./hdinsight-5x-component-versioning.md).
 
-## Updates
+## Issue fixed
 
-**[Addition of Azure Monitor Agent](./azure-monitor-agent.md) for Log Analytics in HDInsight**
-
-Addition of `SystemMSI` and Automated DCR for Log analytics, given the deprecation of [New Azure Monitor experience (preview)](./hdinsight-hadoop-oms-log-analytics-tutorial.md) .
+* Default DB bug fix.
 
 ## :::image type="icon" border="false" source="./media/hdinsight-release-notes/clock.svg"::: Coming soon
 
@@ -71,4 +74,4 @@ We're listening: You’re welcome to add more ideas and other topics here and vo
 ### Next steps
 * [Azure HDInsight: Frequently asked questions](./hdinsight-faq.yml)
 * [Configure the OS patching schedule for Linux-based HDInsight clusters](./hdinsight-os-patching.md)
-* Previous [release note](/azure/hdinsight/hdinsight-release-notes-archive#release-date--january-10-2024)
+* Previous [release note](/azure/hdinsight/hdinsight-release-notes-archive)
