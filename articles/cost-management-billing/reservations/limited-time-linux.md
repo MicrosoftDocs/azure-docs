@@ -6,7 +6,7 @@ ms.reviewer: shreyabaheti
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: how-to
-ms.date: 09/12/2024
+ms.date: 09/16/2024
 ms.author: banders
 ms.custom: references_regions
 #customer intent: I want to learn how to save money with reservations and buy one.
@@ -33,10 +33,6 @@ To take advantage of this promotional offer, [purchase](https://portal.azure.com
 9. Select **Buy now**.
 
 You can view the reservation in the [Reservations](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade/Reservations) page in the Azure portal.
-
-## Charge back promotional offer costs
-
-Enterprise Agreement and Microsoft Customer Agreement billing readers can view amortized cost data for reservations. They can use the cost data to charge back the monetary value for a subscription, resource group, resource, or a tag to their partners. In amortized data, the effective price is the prorated hourly reservation cost. The cost is the total cost of reservation usage by the resource on that day. Users with an individual subscription can get the amortized cost data from their usage file. For more information, see [Charge back Azure Reservation costs](charge-back-usage.md).
 
 ## Terms and conditions of the offer
 
@@ -101,6 +97,10 @@ Upon successful purchase and payment for the one-year Azure Reserved VM Instance
 - Payment is processed using the payment method on file for the selected subscriptions.
 - Estimated savings are calculated based on your current on-demand rate.
 
+### Charge back promotional offer costs
+
+Enterprise Agreement and Microsoft Customer Agreement billing readers can view amortized cost data for reservations. They can use the cost data to charge back the monetary value for a subscription, resource group, resource, or a tag to their partners. In amortized data, the effective price is the prorated hourly reservation cost. The cost is the total cost of reservation usage by the resource on that day. Users with an individual subscription can get the amortized cost data from their usage file. For more information, see [Charge back Azure Reservation costs](charge-back-usage.md).
+
 ### Discount limitations
 
 - The discount automatically applies to the number of running virtual machines in qualified regions that match the reservation scope and attributes.
@@ -109,7 +109,7 @@ Upon successful purchase and payment for the one-year Azure Reserved VM Instance
 - A reservation discount is "use-it-or-lose-it." So, if you don't have matching resources for any hour, then you lose a reservation quantity for that hour. You can't carry forward unused reserved hours.
 - When you deallocate, delete, or scale the number of VMs, the reservation discount automatically applies to another matching resource in the specified scope. If no matching resources are found in the specified scope, then the reserved hours are lost.
 - Stopped VMs are billed and continue to use reservation hours. To use your available reservation hours with other workloads, deallocate or delete VM resources or scale-in other VMs.
-- For more information about how Azure Reserved VM Instance discounts are applied, see [Understand Azure Reserved VM Instances discount](understand-reservation-charges.md?source=azlto4).
+- For more information about how Azure Reserved VM Instance discounts are applied, see [How the Azure reservation discount is applied to virtual machines](understand-reservation-charges.md).
 
 ### Exchanges and refunds
 
@@ -130,5 +130,5 @@ By participating in the offer, customers agree to be bound by these terms and th
 
 ## Related Content
 
-- [Understand Azure Reserved VM Instances discount](understand-reservation-charges.md?source=azlto4)
+- [How the Azure reservation discount is applied to virtual machines](understand-reservation-charges.md)
 - [Purchase Azure Reserved VM instances in the Azure portal](https://portal.azure.com/#view/Microsoft_Azure_Reservations/CreateBlade)

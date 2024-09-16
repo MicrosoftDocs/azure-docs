@@ -74,6 +74,10 @@
     items:
     - name: Choose reservation to purchase
       href: determine-reservation-purchase.md
+  - name: Promotional offers
+    items:
+    - name: Linux VMs
+      href: limited-time-linux.md
   - name: Limited-time offers
     items:
     - name: US West Dv3 VMs
@@ -84,8 +88,6 @@
       href: limited-time-central-poland.md
     - name: Poland Central SQL services
       href: poland-limited-time-sql-services-reservations.md
-    - name: Linux VMs
-      href: limited-time-linux.md
   - name: Buy reservations
     items:
     - name: Buy an Azure reservation
