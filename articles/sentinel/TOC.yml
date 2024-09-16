@@ -261,7 +261,7 @@
   - name: AMA migration for Microsoft Sentinel
     href: ama-migrate.md
   - name: Ingest data to an auxiliary logs table
-    href: ../azure-monitor/logs/create-custom-table-auxiliary.md?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
+    href: /azure/azure-monitor/logs/create-custom-table-auxiliary?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
   - name: Find data connector
     href: data-connectors-reference.md
   - name: All connectors
@@ -464,8 +464,8 @@
       href: data-connectors/crowdstrike-falcon-data-replicator.md
     - name: Crowdstrike Falcon Data Replicator V2 (using Azure Functions)
       href: data-connectors/crowdstrike-falcon-data-replicator-v2.md
-    - name: Cyber Blind Spot Intergration (using Azure Functions)
-      href: data-connectors/cyber-blind-spot-intergration.md
+    - name: Cyber Blind Spot Integration (using Azure Functions)
+      href: data-connectors/cyber-blind-spot-integration.md
     - name: CyberArkAudit (using Azure Functions)
       href: data-connectors/cyberarkaudit.md
     - name: CyberArkEPM (using Azure Functions)
@@ -498,8 +498,17 @@
       href: data-connectors/dynatrace-runtime-vulnerabilities.md
     - name: Elastic Agent (Standalone)
       href: data-connectors/elastic-agent-standalone.md
+<<<<<<< HEAD
     - name: Exchange Security Insights On-Premise Collector
       href: data-connectors/exchange-security-insights-on-premise-collector.md
+=======
+    - name: ESET PROTECT
+      href: data-connectors/eset-protect.md
+    - name: Exabeam Advanced Analytics
+      href: data-connectors/exabeam-advanced-analytics.md
+    - name: Exchange Security Insights On-Premises Collector
+      href: data-connectors/exchange-security-insights-on-premises-collector.md
+>>>>>>> 94c8e6e9d5f2373dd2bd0ffc54eabdfa29468628
     - name: Exchange Security Insights Online Collector (using Azure Functions)
       href: data-connectors/exchange-security-insights-online-collector.md
     - name: F5 BIG-IP
@@ -592,7 +601,7 @@
       href: data-connectors/microsoft-entra-id-protection.md
     - name: Microsoft Exchange Logs and Events
       href: data-connectors/microsoft-exchange-logs-and-events.md
-    - name: Microsoft PowerBI
+    - name: Microsoft Power BI
       href: data-connectors/microsoft-powerbi.md
     - name: Microsoft Project
       href: data-connectors/microsoft-project.md
@@ -1151,6 +1160,8 @@
       href: billing-reduce-costs.md
     - name: Switch to simplified pricing tiers
       href: enroll-simplified-pricing-tier.md
+    - name: Optimize costs with pre-purchase plan
+      href: billing-pre-purchase-plan.md
     - name: Tutorial - Configure data retention policy
       href: configure-data-retention.md
     - name: Auxiliary logs use cases
@@ -1269,6 +1280,8 @@
     items:
     - name: SOAR content catalog
       href: sentinel-soar-content.md
+    - name: Automation rules reference
+      href: automation-rule-reference.md
   - name: Data collection references
     items:
     - name: Data source schema reference

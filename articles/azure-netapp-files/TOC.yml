@@ -87,6 +87,8 @@
       href: azure-netapp-files-cost-model.md
     - name: Azure NetApp Files storage with cool access
       href: cool-access-introduction.md
+    - name: Azure NetApp Files reserved capacity
+      href: reserved-capacity.md
   - name: Quotas 
     items:
     - name: Understand volume quota
@@ -111,6 +113,8 @@
       href: performance-large-volumes-linux.md
     - name: Performance impact of Kerberos on NFSv4.1
       href: performance-impact-kerberos.md
+    - name: Performance considerations for cool access 
+      href: performance-considerations-cool-access.md
     - name: Oracle database performance on Azure NetApp Files single volumes
       href: performance-oracle-single-volumes.md
     - name: Oracle database performance on Azure NetApp Files multiple volumes

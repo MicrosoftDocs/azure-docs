@@ -61,8 +61,8 @@ Use a template installed from the content hub to create a workbook.
 
 For more information, see:
 
-- [Create interactive reports with Azure Monitor Workbooks](../azure-monitor/visualize/workbooks-overview.md)
-- [Tutorial: Visual data in Log Analytics](../azure-monitor/visualize/tutorial-logs-dashboards.md)
+- [Create interactive reports with Azure Monitor Workbooks](/azure/azure-monitor/visualize/workbooks-overview)
+- [Tutorial: Visual data in Log Analytics](/azure/azure-monitor/visualize/tutorial-logs-dashboards)
 
 ## Create new workbook
 
@@ -72,7 +72,7 @@ Create a workbook from scratch in Microsoft Sentinel.
 
 1. Select **Add workbook**.
 
-1. To edit the workbook, select **Edit**, and then add text, queries, and parameters as necessary. For more information on how to customize the workbook, see how to [Create interactive reports with Azure Monitor Workbooks](../azure-monitor/visualize/workbooks-overview.md). 
+1. To edit the workbook, select **Edit**, and then add text, queries, and parameters as necessary. For more information on how to customize the workbook, see how to [Create interactive reports with Azure Monitor Workbooks](/azure/azure-monitor/visualize/workbooks-overview). 
 
     [ ![Screenshot that shows a new workbook.](media/monitor-your-data/create-workbook.png) ](media/monitor-your-data/create-workbook.png#lightbox)
 
@@ -92,7 +92,7 @@ Create a workbook from scratch in Microsoft Sentinel.
 
 ## Create new tiles for your workbooks
 
-To add a custom tile to a Microsoft Sentinel workbook, first create the tile in Log Analytics. For more information, see [Visual data in Log Analytics](../azure-monitor/visualize/tutorial-logs-dashboards.md). 
+To add a custom tile to a Microsoft Sentinel workbook, first create the tile in Log Analytics. For more information, see [Visual data in Log Analytics](/azure/azure-monitor/visualize/tutorial-logs-dashboards). 
 
 Once you create a tile, select **Pin** and then select the workbook where you want the tile to appear.
 

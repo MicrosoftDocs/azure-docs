@@ -9,7 +9,7 @@ ms.author: buchvarun
 ms.custom: mode-api
 ---
 
-# Deploy the DICOM service by using the Azure portal
+# Deploy the DICOM service with Blob storage by using the Azure portal
 
 In this quickstart, you learn how to deploy the DICOM&reg; service by using the Azure portal.
 
@@ -29,28 +29,32 @@ To deploy the DICOM service, you need a workspace created in the Azure portal. F
 :::image type="content" source="media/select-workspace-resource-group.png" alt-text="Screenshot showing selecting a workspace resource group." lightbox="media/select-workspace-resource-group.png":::
 
 
-1. Select **Deploy DICOM service**.
+2. Select **Deploy DICOM service**.
 
 :::image type="content" source="media/workspace-deploy-dicom-services.png" alt-text="Screenshot showing deployment of the DICOM service." lightbox="media/workspace-deploy-dicom-services.png":::
 
 
-1. Select **Add DICOM service**.
+3. Select **Add DICOM service**.
 
 :::image type="content" source="media/add-dicom-service.png" alt-text="Screenshot showing how to add the DICOM service." lightbox="media/add-dicom-service.png":::
 
 
-1. Enter a name for the DICOM service, and then select **Review + create**.
+4. Enter a name for the DICOM service.  
+    - Select Blob Storage (legacy) for the storage location.  
+    - (Optional) Select **Enable data partitions** when you deploy a new DICOM service. After data partitioning is turned on, it can't be turned off. In addition, data partitions can't be turned on for any DICOM service that is already deployed. For more information, see [Enable data partitioning](data-partitions.md).
 
-:::image type="content" source="media/enter-dicom-service-name.png" alt-text="Screenshot showing the DICOM service name." lightbox="media/enter-dicom-service-name.png":::
+    - After the data partitions setting is turned on, the capability modifies the API surface of the DICOM server and makes any previous data accessible under the `Microsoft.Default` partition. Select **Review + create**.
+
+![Screenshot showing the DICOM service name and storage location option.](media/deploy-dicom-services-in-azure/enter-dicom-service-name.png)
 
 
-1. (Optional) Select **Next: Tags**.
+5. (Optional) Select **Next: Tags**.
 
     Tags are name/value pairs used for categorizing resources. For more information about tags, see [Use tags to organize your Azure resources and management hierarchy](../../azure-resource-manager/management/tag-resources.md).
 
-1. When you notice the green validation check mark, select **Create** to deploy the DICOM service.
+6. When you notice the green validation check mark, select **Create** to deploy the DICOM service.
 
-1. After the deployment process is finished, select **Go to resource**.
+7. After the deployment process is finished, select **Go to resource**.
 
 :::image type="content" source="media/go-to-resource.png" alt-text="Screenshot showing Go to resource." lightbox="media/go-to-resource.png":::
 
