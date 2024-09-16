@@ -107,11 +107,11 @@ Before creating an SMB volume, you need to create an Active Directory connection
 
     * <a name="access-based-enumeration"></a> If you want to enable access-based enumeration, select **Enable Access Based Enumeration**.
 
-        This feature hides directories and files created under a share from users who do not have access permissions to the files or folders under the share. Users are still able to view the share.
+        Hide directories and files created under a share from users who don't have access permissions to the files or folders under the share. Users are still able to view the share.
 
     * <a name="non-browsable-share"></a> You can enable the **non-browsable-share feature.**
 
-        This feature prevents the Windows client from browsing the share. The share does not show up in the Windows File Browser or in the list of shares when you run the `net view \\server /all` command.
+        Prevent the Windows client from browsing the share. The share doesn't show up in the Windows File Browser or in the list of shares when you run the `net view \\server /all` command.
 
     * <a name="continuous-availability"></a>If you want to enable Continuous Availability for the SMB volume, select **Enable Continuous Availability**.    
       
