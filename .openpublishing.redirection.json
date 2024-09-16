@@ -4749,6 +4749,41 @@
       "source_path_from_root": "/articles/modeling-simulation-workbench/how-to-guide-manage-storage.md",
       "redirect_url": "/azure/modeling-simulation-workbench/concept-storage",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/load-balancer/upgrade-basic-standard.md",
+      "redirect_url": "/azure/load-balancer/upgrade-basic-standard-with-powershell",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/load-balancer/upgrade-basicinternal-standard.md",
+      "redirect_url": "/azure/load-balancer/upgrade-basic-standard-with-powershell",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/load-balancer/load-balancer-ipv6-overview.md",
+      "redirect_url": "/azure/virtual-network/ip-services/ipv6-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-glossary-cloud-terminology.md",
+      "redirect_url": "/azure/cloud-adoption-framework/ready/considerations/fundamental-concepts",
+      "redirect_document_id": false
+    },
+    {
+           "source_path_from_root": "/articles/load-balancer/load-balancer-ipv6-internet-ps.md",
+      "redirect_url": "/azure/load-balancer/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/load-balancer/load-balancer-ipv6-internet-template.md",
+      "redirect_url": "/azure/load-balancer/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/load-balancer/load-balancer-ipv6-internet-cli.md",
+      "redirect_url": "/azure/load-balancer/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell",
+      "redirect_document_id": false
     }
   ]
 }
