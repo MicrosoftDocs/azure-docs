@@ -6,7 +6,7 @@ ms.reviewer: bshy
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: overview
-ms.date: 08/28/2023
+ms.date: 09/16/2024
 ms.author: banders
 ---
 
@@ -100,6 +100,7 @@ For more information, see [Self-service exchanges and refunds for Azure Reservat
 - **Azure Dedicated Host** - Only the compute costs are included with the Dedicated host.
 - **Azure Disk Storage reservations** - A reservation only covers premium SSDs of P30 size or greater. It doesn't cover any other disk types or sizes smaller than P30.
 - **Azure Backup Storage reserved capacity** - A capacity reservation lowers storage costs of backup data in a Recovery Services Vault.
+- **Azure NetApp Files** - A capacity reservation covers matching capacity pools in the selected service level and region. When using capacity pools configured with [Standard storage with cool access](../../azure-netapp-files/manage-cool-access.md), only "hot" tier consumption is covered by the reserved capacity benefit. 
 
 Software plans:
 
@@ -111,7 +112,7 @@ For Windows virtual machines and SQL Database, the reservation discount doesn't 
 
 ## Need help? Contact us.
 
-If you have questions or need help,  [create a support request](https://go.microsoft.com/fwlink/?linkid=2083458).
+If you have questions or need help, [create a support request](https://go.microsoft.com/fwlink/?linkid=2083458).
 
 ## Next steps
 
