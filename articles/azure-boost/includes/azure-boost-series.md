@@ -24,8 +24,8 @@ ms.custom:
 | [Mv3 Medium Memory](../../virtual-machines/msv3-mdsv3-medium-series.md)| High Memory to CPU Optimized | Production  |
 | [Falsv6/Famsv6](../../virtual-machines/fasv6-falsv6-series.md) | Compute Optimized              | Preview    |
 | [Dlsv5/Dldsv5](../../virtual-machines/dlsv5-dldsv5-series.md)         | General Purpose         | Production |
-| [Ddsv5](../../virtual-machines/sizes/general-purpose/ddsv5-series.md)| General Purpose          |Production|
-| [Ddv5](../../virtual-machines/sizes/general-purpose/ddv5-series.md)| General Purpose            |Production|
+| [Ddsv5](../../virtual-machines/sizes/general-purpose/ddsv5-series.md)| General Purpose          | Production |
+| [Ddv5](../../virtual-machines/sizes/general-purpose/ddv5-series.md)| General Purpose            | Production |
 | [Dv5/Dsv5](../../virtual-machines/dv5-dsv5-series.md)          | General Purpose                | Production |
 | [Ev5/Esv5](../../virtual-machines/ev5-esv5-series.md)          | Memory Optimized               | Production |
 | [Ebsv5](../../virtual-machines/ebdsv5-ebsv5-series.md)         | Managed disks optimized        | Production |
