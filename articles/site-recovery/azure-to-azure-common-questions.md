@@ -4,7 +4,7 @@ description: This article answers common questions about Azure virtual machine d
 ms.author: ankitadutta
 author: ankitaduttaMSFT
 manager: rochakm
-ms.date: 08/30/2024
+ms.date: 09/16/2024
 ms.topic: conceptual
 ms.service: azure-site-recovery
 
@@ -268,7 +268,7 @@ Yes. By default, when you enable disaster recovery for Azure virtual machines, S
 
 Site Recovery tries to provide the IP address at the time of failover. If another virtual machine uses that address, Site Recovery sets the next available IP address as the target.
 
-[Learn more about](azure-to-azure-network-mapping.md#set-up-ip-addressing-for-target-vms) setting up network mapping and IP addressing for virtual networks.
+[Learn more about](azure-to-azure-network-mapping.md#set-up-ip-addressing-for-target-virtualmachines) setting up network mapping and IP addressing for virtual networks.
 
 ### What's the *Latest* recovery point?
 
