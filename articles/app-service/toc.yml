@@ -447,6 +447,8 @@
       href: https://azure.microsoft.com/updates/?product=app-service
     - name: Routine maintenance
       href: routine-maintenance.md
+    - name: Routine maintenance, Restarts, and Downtime
+      href: routine-maintenance-downtime.md
     - name: Language support policy
       href: language-support-policy.md
     - name: OS functionality
