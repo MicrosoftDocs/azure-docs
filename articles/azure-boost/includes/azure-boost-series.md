@@ -27,9 +27,9 @@ ms.custom:
 | [ECesv5](/azure/virtual-machines/ecesv5-ecedsv5-series)      | Memory Optimized             | Preview    |
 | [Mv3 Medium Memory](/azure/virtual-machines/msv3-mdsv3-medium-series)| High Memory to CPU Optimized | Production  |
 | [Falsv6/Famsv6](/azure/virtual-machines/fasv6-falsv6-series) | Compute Optimized              | Preview    |
-| [Dlsv5/Dldsv5](../../virtual-machines/dlsv5-dldsv5-series.md)         | General Purpose         | Production |
-| [Ddsv5](../../virtual-machines/sizes/general-purpose/ddsv5-series.md)| General Purpose          | Production |
-| [Ddv5](../../virtual-machines/sizes/general-purpose/ddv5-series.md)| General Purpose            | Production |
+| [Dlsv5/Dldsv5](../../virtual-machines/dlsv5-dldsv5-series)         | General Purpose         | Production |
+| [Ddsv5](../../virtual-machines/sizes/general-purpose/ddsv5-series)| General Purpose          | Production |
+| [Ddv5](../../virtual-machines/sizes/general-purpose/ddv5-series)| General Purpose            | Production |
 | [Dv5/Dsv5](/azure/virtual-machines/dv5-dsv5-series)          | General Purpose                | Production |
 | [Ev5/Esv5](/azure/virtual-machines/ev5-esv5-series)          | Memory Optimized               | Production |
 | [Ebsv5](/azure/virtual-machines/ebdsv5-ebsv5-series)         | Managed disks optimized        | Production |
