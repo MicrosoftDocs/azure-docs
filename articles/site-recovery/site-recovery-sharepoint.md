@@ -21,7 +21,7 @@ Today, Microsoft SharePoint  does not provide any out-of-the-box disaster recove
 
 A good disaster recovery solution should allow modeling of recovery plans around the  complex application architectures such as SharePoint. It should also have the ability to add customized steps to handle application mappings between various tiers and hence providing a single-click failover with a lower RTO in the event of a disaster.
 
-This article describes in detail how to protect a SharePoint application using [Azure Site Recovery](site-recovery-overview.md). This article covers the best practices for replicating a three tier SharePoint application to Azure, how you can do a disaster recovery drill, and how you can failover the application to Azure.
+This article describes in detail how to protect a SharePoint application using [Azure Site Recovery](site-recovery-overview.md). This article covers the best practices for replicating a three tier SharePoint application to Azure, how you can do a disaster recovery drill, and how you can fail over the application to Azure.
 
 
 ## Prerequisites
@@ -60,7 +60,7 @@ Site Recovery is application-agnostic and should work with any version of ShareP
 
 ### Things to keep in mind
 
-If you're using a shared disk-based cluster as any tier in your application, then you wn't be able to use Site Recovery replication to replicate those virtual machines. You can use native replication provided by the application and then use a [recovery plan](site-recovery-create-recovery-plans.md) to failover all tiers.
+If you're using a shared disk-based cluster as any tier in your application, then you wn't be able to use Site Recovery replication to replicate those virtual machines. You can use native replication provided by the application and then use a [recovery plan](site-recovery-create-recovery-plans.md) to fail over all tiers.
 
 ## Replicating virtual machines
 

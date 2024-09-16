@@ -8,9 +8,9 @@ ms.topic: include
 ms.date: 06/11/2024
 ---
 
-<!---
 At this time, a test or preview build is not available for the next release.
--->
+
+<!---
 
 Sept, 2024 preview release is now available.
 
@@ -43,3 +43,4 @@ Pre-release Notes:
 - Arc SQL Server | Allow the AG inventory feature for all license types | GA
   - Always On availability groups inventory feature is available for all license type
 - Arc SQL Server | Allow applying physical core license to physical machines | GA
+-->
