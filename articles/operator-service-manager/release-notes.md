@@ -193,17 +193,17 @@ Azure Operator Service Manager is a cloud orchestration service that enables aut
 * Release Version: Version 2.0.2804-137
 * Release Date: August 30, 2024
 * Is NFO update required: YES, Update only
-* Dependency Versions: Go/1.22.4  Helm/3.15.2
+* Dependency Versions: Go/1.22.4 - Helm/3.15.2
 
 ### Release Installation
 This release can be installed with as an update on top of release 2.0.2788-135.  
 
 ### Release Highlights
-#### High availability and resiliency support for cluster registry and webhook.
+#### High availability for cluster registry and webhook.
 This version restores the high availability features first introduced with release 2.0.2783-134. When enabled, the singleton pod, used in earlier releases, is replaced with a replica set and optionally allows for horizontal auto scaling.
 
-#### Support internal certificate management and rotation.
-This version restores internal certificate management using a new method which does not take dependency on cert-manager service. Instead, a private internal service is used to handle requirements for certificate management and rotation within the AOSM namespace. 
+#### Enhanced internal certificate management and rotation.
+This version implements internal certificate management using a new method which does not take dependency on cert-manager. Instead, a private internal service is used to handle requirements for certificate management and rotation within the AOSM namespace. 
 
 #### Safe Upgrades NF Level Rollback
 This version introduces new user options to control behavior when a failure occurs during an upgrade. While pause on failure remains the default, a user can now optionally enable rollback on failure. If a failure occure, with rollback on failure any prior completed NfApps will be reverted to prior state using helm rollback command. See [learn documentation](safe-upgrades-nf-level-rollback.md) for more details on usage.
@@ -213,7 +213,7 @@ This version introduces new user options to control behavior when a failure occu
 #### Bugfix Related Updates
 The following bug fixes, or other defect resolutions, are delivered with this release, for either Network Function Operator (NFO) or resource provider (RP) components.
 
-* NFO	- Enhance cluster registry resilience by preventing unnecessary repeated image downloads.
+* NFO	- Enhance cluster registry performance by preventing unnecessary or repeated image downloads.
    
 #### Security Related Updates
 
