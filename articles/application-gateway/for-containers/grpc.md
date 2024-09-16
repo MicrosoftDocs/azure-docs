@@ -16,7 +16,7 @@ ms.author: greglin
 
 [gRPC](https://grpc.io/docs/what-is-grpc/introduction/) is a modern, high-performance framework that evolves the age-old [remote procedure call (RPC)](https://en.wikipedia.org/wiki/Remote_procedure_call) protocol. At the application level, gRPC streamlines messaging between clients and back-end services. Originating from Google, gRPC is open source and part of the [Cloud Native Computing Foundation (CNCF)](https://www.cncf.io/) ecosystem of cloud-native offerings. CNCF considers gRPC an [incubating project](https://github.com/cncf/toc/blob/main/process/graduation_criteria.md). Incubating means end users are using the technology in production applications, and the project has a healthy number of contributors.
 
-A typical gRPC client app will expose a local, in-process function that implements a business operation. Under the covers, that local function invokes another function on a remote machine. What appears to be a local call essentially becomes a transparent out-of-process call to a remote service. The RPC plumbing abstracts the point-to-point networking communication, serialization, and execution between computers.
+A typical gRPC client app exposes a local, in-process function that implements a business operation. Under the covers, that local function invokes another function on a remote machine. What appears to be a local call essentially becomes a transparent out-of-process call to a remote service. The RPC plumbing abstracts the point-to-point networking communication, serialization, and execution between computers.
 
 In cloud-native applications, developers often work across programming languages, frameworks, and technologies. This *interoperability* complicates message contracts and the plumbing required for cross-platform communication.  gRPC provides a "uniform horizontal layer" that abstracts these concerns. Developers code in their native platform focused on business functionality, while gRPC handles communication plumbing.
 
@@ -70,7 +70,7 @@ In the server streaming life cycle, a request is made to the gRPC server, and th
 
 ### Bidirectional streaming RPC
 
-In the bidirectional streaming life cycle, a request is made to the gRPC server, and both the client and server send a squence of messages, operating independently from eachother.
+In the bidirectional streaming life cycle, a request is made to the gRPC server, and both the client and server send a sequence of messages, operating independently from each other.
 
 ![Diagram depicting bidirectional streaming gRPC life cycle.](./media/grpc/agc-grpc-bidrectional-streaming.png)
 
@@ -80,7 +80,7 @@ Application Gateway for Containers is able to proxy requests following each of t
 
 ### gRPC definition
 
-Configuration is implemented through Kubernetes Kubernetes Gateway API by definition of a [GRPCRoute](https://gateway-api.sigs.k8s.io/api-types/grpcroute/) resource (no support is offered for gRPC in Ingress API for Application Gateway for Containers). Each GRPCRoute resource must reference a Gateway resource. More than one GRPCRoute resource may reference the same gateway provided the rules to handle the request are unique.
+Configuration is implemented through Kubernetes Gateway API by definition of a [GRPCRoute](https://gateway-api.sigs.k8s.io/api-types/grpcroute/) resource (no support is offered for gRPC in Ingress API for Application Gateway for Containers). Each GRPCRoute resource must reference a Gateway resource. More than one GRPCRoute resource may reference the same gateway provided the rules to handle the request are unique.
 
 For example, the following GRPCRoute would be attached to a gateway called `Gateway-01`.
 
@@ -109,11 +109,11 @@ spec:
 
 ### Health probes
 
-By default, Application Gateway for Containers will attempt to initiate a TCP handshake to the backend port running the gRPC service. If the handshake completes, the backend will be considered healthy.
+By default, Application Gateway for Containers attempts to initiate a TCP handshake to the backend port running the gRPC service. If the handshake completes, the backend is considered healthy.
 
-If using a HealthCheckPolicy for as a custom health probe, the defined policy will continue to probe.
+If using a HealthCheckPolicy as a custom health probe, the defined policy determines probe behavior.
 
-Here is an example of a HealthCheckPolicy for a gRPC backend.
+Here's an example of a HealthCheckPolicy for a gRPC backend.
 
 ```yaml
 apiVersion: alb.networking.azure.io/v1

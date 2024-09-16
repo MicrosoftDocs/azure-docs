@@ -36,7 +36,7 @@ The following properties make up custom health probes:
 | (http) host | The hostname specified in the request to the backend target. |
 | (http) path | The specific path of the request. If a single file should be loaded, the path might be /index.html. |
 | (http -> match) statusCodes | Contains two properties, `start` and `end`, that define the range of valid HTTP status codes returned from the backend. |
-| UseTLS | UseTLS indicates whether health check should enforce TLS. If not specified, health check will use the same protocol as the service if the same port is used for health check. If the port is different, health check will be cleartext. |
+| UseTLS | UseTLS indicates whether health check should enforce TLS. If not specified, health check uses the same protocol as the service if the same port is used for health check. If the port is different, health check is cleartext. |
 
 [![A diagram showing the Application Gateway for Containers using custom health probes to determine backend health.](./media/custom-health-probe/custom-health-probe.png)](./media/custom-health-probe/custom-health-probe.png#lightbox)
 
@@ -59,7 +59,7 @@ When the default health probe is used, the following values for each health prob
 | (http) path | / |
 | UseTLS | HTTP for HTTP and HTTPS when TLS is specified. |
 
-<sup>1</sup> HTTPS will be used when a backendTLSPolicy references a target backend service (for Gateway API implementation) or IngressExtension with a backendSetting protocol of HTTPS (for Ingress API implementation) is specified.
+<sup>1</sup> HTTPS is used when a backendTLSPolicy references a target backend service (for Gateway API implementation) or IngressExtension with a backendSetting protocol of HTTPS (for Ingress API implementation) is specified.
 
 >[!Note]
 >Health probes are initiated with the `User-Agent` value of `Microsoft-Azure-Application-LB/AGC`.
