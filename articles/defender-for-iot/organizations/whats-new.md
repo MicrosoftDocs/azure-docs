@@ -24,7 +24,7 @@ Features released earlier than nine months ago are described in the [What's new 
 |---------|---------|
 | **OT networks** | - [Add wildcards to allowlist domain names](#use-wildcards-allowlist-domain-names) |
 
-### Use wildcards allowlist domain names
+### Add wildcards allowlist domain names
 
 When adding domain names to the FQDN allowlist use the `*` wildcard to include all sub-domains. For more information, see [allow internet connections on an OT network](how-to-accelerate-alert-incident-response.md#allow-internet-connections-on-an-ot-network).
 
