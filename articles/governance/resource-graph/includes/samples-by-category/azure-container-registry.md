@@ -8,7 +8,7 @@ ms.author: jaspkaur
 
 ### List Container Registry vulnerability assessment results
 
-Returns all the all the vulnerabilities found on container images. Microsoft Defender for Containers has to be enabled in order to view these security findings.
+Returns all vulnerabilities found on container images. Microsoft Defender for Containers has to be enabled in order to view these security findings.
 
 ```kusto
 SecurityResources

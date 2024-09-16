@@ -2,8 +2,8 @@
 ms.service: resource-graph
 ms.topic: include
 ms.date: 07/10/2023
-author: davidsmatlak
-ms.author: davidsmatlak
+author: jaspkaur28
+ms.author: jaspkaur
 ---
 
 ### Get role definitions with actions

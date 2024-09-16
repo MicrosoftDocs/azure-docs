@@ -7,7 +7,7 @@ ms.author: jaspkaur
 ---
 ### Count all sensors by type
 
-This query summarize all sensors by their type (OT, EIoT).
+This query summarizes all sensors by their type (OT, EIoT).
 
 ```kusto
 iotsecurityresources
@@ -39,7 +39,7 @@ Search-AzGraph -Query "iotsecurityresources | where type == 'microsoft.iotsecuri
 
 ### Count how many IoT Devices there are in your network, by operation system
 
-This query summarize all IoT Devices by their operation system's platform.
+This query summarizes all IoT Devices by their operation system's platform.
 
 ```kusto
 iotsecurityresources
@@ -103,7 +103,7 @@ Search-AzGraph -Query "iotsecurityresources | where type == 'microsoft.iotsecuri
 
 ### List sites with a specific tag value
 
-This query provide a list of all sites with specific tag value.
+This query provides a list of all sites with specific tag value.
 
 ```kusto
 iotsecurityresources

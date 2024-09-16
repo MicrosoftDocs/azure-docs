@@ -1,9 +1,9 @@
 ---
 ms.service: resource-graph
 ms.topic: include
-ms.date: 10/27/2023
-author: davidsmatlak
-ms.author: davidsmatlak
+ms.date: 05/30/2023
+author: jaspkaur28
+ms.author: jaspkaur
 ---
 
 ### Count Azure Monitor data collection rules by subscription and resource group

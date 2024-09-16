@@ -2,8 +2,8 @@
 ms.service: resource-graph
 ms.topic: include
 ms.date: 12/13/2023
-author: davidsmatlak
-ms.author: davidsmatlak
+author: jaspkaur28
+ms.author: jaspkaur
 ---
 
 ### List Azure App Service TLS version

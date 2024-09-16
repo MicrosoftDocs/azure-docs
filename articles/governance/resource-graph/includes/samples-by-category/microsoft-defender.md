@@ -228,7 +228,7 @@ Search-AzGraph -Query "SecurityResources | where type =~ 'microsoft.security/iot
 
 ### List Container Registry vulnerability assessment results
 
-Returns all the all the vulnerabilities found on container images. Microsoft Defender for Containers has to be enabled in order to view these security findings.
+Returns all vulnerabilities found on container images. Microsoft Defender for Containers has to be enabled in order to view these security findings.
 
 ```kusto
 SecurityResources
@@ -534,7 +534,7 @@ Search-AzGraph -Query "SecurityResources | where type == 'microsoft.security/sec
 
 ### Show Defender for Cloud plan pricing tier per subscription
 
-Returns Defender for Cloud plan pricing tier plan per subscription.
+Returns Defender for Cloud pricing tier plan per subscription.
 
 ```kusto
 SecurityResources

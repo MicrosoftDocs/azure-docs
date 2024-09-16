@@ -1,9 +1,9 @@
 ---
 ms.service: resource-graph
 ms.topic: include
-ms.date: 01/22/2024
-author: davidsmatlak
-ms.author: davidsmatlak
+ms.date: 05/30/2023
+author: jaspkaur28
+ms.author: jaspkaur
 ---
 
 ### Changes in health of virtual machines and annotations in Virtual Instance for SAP

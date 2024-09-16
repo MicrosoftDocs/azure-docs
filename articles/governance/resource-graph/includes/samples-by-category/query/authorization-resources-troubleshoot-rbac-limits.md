@@ -2,8 +2,8 @@
 ms.service: resource-graph
 ms.topic: include
 ms.date: 08/31/2023
-author: davidsmatlak
-ms.author: davidsmatlak
+author: jaspkaur28
+ms.author: jaspkaur
 ---
 
 ### Troubleshoot Azure RBAC limits

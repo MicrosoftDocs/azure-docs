@@ -1,9 +1,9 @@
 ---
 ms.service: resource-graph
 ms.topic: include
-ms.date: 10/27/2023
-author: davidsmatlak
-ms.author: davidsmatlak
+ms.date: 05/30/2023
+author: jaspkaur28
+ms.author: jaspkaur
 ---
 
 ### List VMs with data collection rule associations

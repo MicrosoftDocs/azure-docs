@@ -1,14 +1,14 @@
 ---
 ms.service: resource-graph
 ms.topic: include
-ms.date: 03/20/2024
-author: davidsmatlak
-ms.author: davidsmatlak
+ms.date: 05/30/2023
+author: jaspkaur28
+ms.author: jaspkaur
 ---
 
 ### Virtual Machine Scale Set Uniform orchestration
 
-Get virtual machines in the Virtual Machine Scale Set Uniform orchestration mode categorized according to their power state. This table contains the model view and `powerState` in the instance view properties for the virtual machines part of Virtual Machine Scale Set Uniform mode.
+Get virtual machines in the Virtual Machine Scale Sets (VMSS) Uniform orchestration mode categorized according to their power state. This table contains the model view and `powerState` in the instance view properties for the virtual machines part of Virtual Machine Scale Set Uniform mode.
 
 The model view and `powerState` in the instance view properties for the virtual machines part of Virtual Machine Scale Set Flexible mode can be queried through `Resources` table.
 
