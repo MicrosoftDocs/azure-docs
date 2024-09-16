@@ -4,7 +4,7 @@ description: Learn how to import an OpenAPI specification to an API Management i
 services: api-management
 author: dlepow
 
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: how-to
 ms.date: 10/26/2022
 ms.author: danlep

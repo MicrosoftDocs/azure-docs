@@ -3,7 +3,7 @@ title: Migration Overview - Move Application Gateway Ingress Controller (AGIC) s
 description: Learn how to migrate services from AGIC to Application Gateway for Containers.
 services: application gateway
 author: greg-lindsay
-ms.service: application-gateway
+ms.service: azure-application-gateway
 ms.subservice: appgw-for-containers
 ms.topic: conceptual
 ms.date: 06/20/2024
@@ -228,7 +228,7 @@ Application Gateway for Containers implementation
 
 Direct certificate upload and reference to a certificate in Azure Key Vault is not available.
 
-Secrets should be stored in [AKS Secret Store](../../aks/concepts-security.md#kubernetes-secrets) and referenced by name.
+Secrets should be stored in [AKS Secret Store](/azure/aks/concepts-security#kubernetes-secrets) and referenced by name.
 
 ### Establishing backend certificate chain trust
 

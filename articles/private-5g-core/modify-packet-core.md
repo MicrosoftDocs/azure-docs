@@ -4,7 +4,7 @@ titleSuffix: Azure Private 5G Core
 description: In this how-to guide, you'll learn how to modify a packet core instance using the Azure portal. 
 author: robswain
 ms.author: robswain
-ms.service: private-5g-core
+ms.service: azure-private-5g-core
 ms.topic: how-to
 ms.date: 03/31/2023
 ms.custom: template-how-to
@@ -86,7 +86,7 @@ In this step, you'll navigate to the **Packet Core Control Plane** resource repr
    - Select **Resource Health** under the **Help** section on the left side.
    - Check that the resource is healthy and there are no unexpected alerts.
    - If there are any unexpected alerts, follow the recommended steps listed to recover the system.
-   - To learn more about health and the status types that may appear, see [Resource Health overview](../service-health/resource-health-overview.md).
+   - To learn more about health and the status types that may appear, see [Resource Health overview](/azure/service-health/resource-health-overview).
 1. Select **Modify packet core**.
 
     :::image type="content" source="media/modify-packet-core/modify-packet-core-configuration.png" alt-text="Screenshot of the Azure portal showing the Modify packet core option.":::
@@ -174,7 +174,7 @@ This change requires a manual packet core reinstall to take effect. See [Next st
 
     - Check that the resource is healthy and there are no unexpected alerts.
     - If there are any unexpected alerts, follow the recommended steps listed to recover the system.
-    - To learn more about health and the status types that may appear, see [Resource Health overview](../service-health/resource-health-overview.md).
+    - To learn more about health and the status types that may appear, see [Resource Health overview](/azure/service-health/resource-health-overview).
 
 ## Remove data network resource
 

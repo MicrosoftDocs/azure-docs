@@ -1,14 +1,14 @@
 ---
-title: Tutorial - Discover shadow APIs using Dev Proxy
-description: In this tutorial, you learn how to discover shadow APIs in your apps using Dev Proxy and onboard them to API Center.
+title: Discover shadow APIs using Dev Proxy
+description: Learn how to discover shadow APIs in your apps using Dev Proxy and onboard them to API Center.
 author: waldekmastykarz
-ms.service: api-center
-ms.topic: tutorial
-ms.date: 07/12/2024
+ms.service: azure-api-center
+ms.topic: how-to
+ms.date: 07/15/2024
 ms.author: wmastyka 
 ---
 
-# Tutorial - Discover shadow APIs using Dev Proxy
+# Discover shadow APIs using Dev Proxy
 
 Using Azure API Center you catalog APIs used in your organization. This allows you to tell which APIs you use, where the API is in its lifecycle, and who to contact if there are issues. In short, having an up-to-date catalog of APIs helps you improve the governance-, compliance-, and security posture.
 
@@ -20,7 +20,7 @@ One way to check for shadow APIs is by using [Dev Proxy](https://aka.ms/devproxy
 
 ## Before you start
 
-To detect shadow APIs, you need to have an [Azure API Center](/azure/api-center/) instance with information about the APIs that you use in your organization.
+To detect shadow APIs, you need to have an Azure API Center instance with information about the APIs that you use in your organization. If you haven't created one already, see [Quickstart: Create your API center](set-up-api-center.md). Additionally, you need to install [Dev Proxy](https://aka.ms/devproxy).
 
 ### Copy API Center information
 

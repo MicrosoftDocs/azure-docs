@@ -4,7 +4,7 @@ description: In this tutorial, you'll learn how to analyze data located in a sto
 author: whhender
 ms.author: whhender
 ms.reviewer: whhender
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.subservice: workspace
 ms.topic: tutorial
 ms.date: 11/18/2022

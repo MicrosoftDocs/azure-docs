@@ -4,7 +4,7 @@ description: This article describes how to set up the on-premises configuration 
 services: site-recovery
 author: ankitaduttaMSFT
 manager: rochakm
-ms.service: site-recovery
+ms.service: azure-site-recovery
 ms.topic: conceptual
 ms.date: 07/03/2019
 ms.author: ankitadutta

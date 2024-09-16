@@ -18,7 +18,6 @@ You can enable the following subset of endpoints:
 |`aka.ms`|Used to resolve the download script during installation|At installation time, only| Public |
 |`download.microsoft.com`|Used to download the Windows installation package|At installation time, only| Public |
 |`login.windows.net`|Microsoft Entra ID|Always| Public |
-|`*blob.core.windows.net`|Download Arc SQL Extension|SQL Server ESUs| Public |
 |`login.microsoftonline.com`|Microsoft Entra ID|Always| Public |
 |`management.azure.com`|Azure Resource Manager - to create or delete the Arc server resource|When connecting or disconnecting a server, only| Public, unless a [resource management private link](../../../azure-resource-manager/management/create-private-link-access-portal.md) is also configured |
 |`*.his.arc.azure.com`|Metadata and hybrid identity services|Always| Private |
@@ -34,7 +33,6 @@ You can enable the following subset of endpoints:
 |`aka.ms`|Used to resolve the download script during installation|At installation time, only| Public |
 |`download.microsoft.com`|Used to download the Windows installation package|At installation time, only| Public |
 |`login.microsoftonline.us`|Microsoft Entra ID|Always| Public |
-|`*blob.core.windows.net`|Download Arc SQL Extension|SQL Server ESUs| Public |
 |`management.usgovcloudapi.net`|Azure Resource Manager - to create or delete the Arc server resource|When connecting or disconnecting a server, only| Public, unless a [resource management private link](../../../azure-resource-manager/management/create-private-link-access-portal.md) is also configured |
 |`*.his.arc.azure.us`|Metadata and hybrid identity services|Always| Private |
 |`*.guestconfiguration.azure.us`| Extension management and guest configuration services |Always| Private |

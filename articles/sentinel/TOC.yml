@@ -19,10 +19,8 @@
     href: prerequisites.md
   - name: Workspace architecture
     items:
-    - name: Review best practices
-      href: best-practices-workspace-architecture.md 
     - name: Design workspace architecture
-      href: design-your-workspace-architecture.md      
+      href: /azure/azure-monitor/logs/workspace-design?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json        
     - name: Review sample workspace designs
       href: sample-workspace-designs.md
     - name: Prepare for multiple workspaces
@@ -31,6 +29,8 @@
     href: prioritize-data-connectors.md 
   - name: Plan roles and permissions
     href: roles.md
+  - name: Plan interactive and long-term data retention
+    href: log-plans.md
   - name: Plan costs
     href: billing.md
   - name: Availability and support
@@ -57,7 +57,7 @@
     href: use-multiple-workspaces.md
   - name: Enable User and Entity Behavior Analytics (UEBA)
     href: enable-entity-behavior-analytics.md
-  - name: Configure data retention and archive 
+  - name: Configure interactive and long-term data retention 
     href: configure-data-retention-archive.md
   - name: Deploy side-by-side
     href: deploy-side-by-side.md
@@ -260,6 +260,8 @@
     href: data-transformation.md
   - name: AMA migration for Microsoft Sentinel
     href: ama-migrate.md
+  - name: Ingest data to an auxiliary logs table
+    href: /azure/azure-monitor/logs/create-custom-table-auxiliary?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
   - name: Find data connector
     href: data-connectors-reference.md
   - name: All connectors
@@ -344,6 +346,8 @@
       href: data-connectors/recommended-pingfederate-via-ama.md
     - name: '[Recommended] Trend Micro Apex One via AMA'
       href: data-connectors/recommended-trend-micro-apex-one-via-ama.md
+    - name: 1Password (using Azure Functions)
+      href: data-connectors/1password.md
     - name: AbnormalSecurity (using Azure Functions)
       href: data-connectors/abnormalsecurity.md
     - name: AI Vectra Stream
@@ -760,8 +764,10 @@
       href: data-connectors/syslog-via-ama.md
     - name: Talon Insights
       href: data-connectors/talon-insights.md
-    - name: Tenable.io Vulnerability Management (using Azure Function)
-      href: data-connectors/tenable-io-vulnerability-management.md
+    - name: Tenable Identity Exposure
+      href: data-connectors/tenable-identity-exposure.md
+    - name: Tenable Vulnerability Management (using Azure Function)
+      href: data-connectors/tenable-vulnerability-management.md
     - name: Tenant-based Microsoft Defender for Cloud (Preview)
       href: data-connectors/tenant-based-microsoft-defender-for-cloud.md
     - name: TheHive Project - TheHive (using Azure Functions)
@@ -774,6 +780,8 @@
       href: data-connectors/threat-intelligence-platforms.md
     - name: Threat Intelligence Upload Indicators API (Preview)
       href: data-connectors/threat-intelligence-upload-indicators-api.md
+    - name: Transmit Security Connector (using Azure Functions)
+      href: data-connectors/transmit-security-connector.md
     - name: Trend Micro Deep Security
       href: data-connectors/trend-micro-deep-security.md
     - name: Trend Micro TippingPoint
@@ -850,10 +858,16 @@
         href: connect-log-forwarder.md
       - name: Syslog (raw) sources (legacy)
         href: connect-syslog.md
+    - name: Custom log sources (text files)
+      items:
+      - name: Collect logs from text files via AMA
+        href: connect-custom-logs-ama.md
+      - name: Custom logs - configure security device
+        href: unified-connector-custom-device.md
+      - name: Custom log sources (legacy)
+        href: connect-custom-logs.md
     - name: DNS via AMA
-      href: connect-dns-ama.md   
-    - name: Custom log sources
-      href: connect-custom-logs.md
+      href: connect-dns-ama.md
     - name: Logstash plugin with Data Collection Rules
       href: connect-logstash-data-connection-rules.md
     - name: Logstash plugin (legacy)
@@ -868,7 +882,7 @@
       href: cloudwatch-lambda-function.yml
     - name: Google Cloud Platform connectors 
       href: connect-google-cloud-platform.md
-    - name: Azure Active Directory
+    - name: Microsoft Entra
       href: connect-azure-active-directory.md
     - name: Azure Stack VMs
       href: connect-azure-stack.md
@@ -912,6 +926,8 @@
       href: normalization-manage-parsers.md
     - name: Modify content to use ASIM
       href: normalization-modify-content.md
+  - name: Aggregate data with summary rules
+    href: summary-rules.md
 - name: Integrate threat intelligence
   items:
   - name: Overview
@@ -952,6 +968,8 @@
       href: threat-detection.md
     - name: Scheduled analytics rules
       items:
+      - name: Overview
+        href: scheduled-rules-overview.md
       - name: Create a scheduled rule from a template
         href: create-analytics-rule-from-template.md
       - name: Create a scheduled rule from scratch
@@ -1118,6 +1136,8 @@
       href: add-advanced-conditions-to-automation-rules.md
     - name: Create incident tasks using automation rules
       href: create-tasks-automation-rule.md
+    - name: Export and import automation rules
+      href: import-export-automation-rules.md
   - name: Playbooks
     items:
     - name: Overview
@@ -1165,10 +1185,10 @@
       href: enroll-simplified-pricing-tier.md
     - name: Tutorial - Configure data retention policy
       href: configure-data-retention.md
-    - name: Basic logs best practices
+    - name: Auxiliary logs use cases
       href: basic-logs-use-cases.md
   - name: Connect Microsoft Sentinel to Microsoft Defender XDR
-    href: /microsoft-365/security/defender/microsoft-sentinel-onboard??toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
+    href: /defender-xdr/microsoft-sentinel-onboard??toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
   - name: Manage multiple workspaces 
     items:
     - name: Workspace manager
@@ -1215,8 +1235,6 @@
     href: troubleshooting-cef-syslog.md
   - name: Troubleshoot AWS S3 connector issues
     href: aws-s3-troubleshoot.md
-  - name: Troubleshoot Jupyter notebooks
-    href: notebooks-troubleshoot.md
   - name: Troubleshoot SAP solution deployment
     href: sap/sap-deploy-troubleshoot.md    
 - name: Reference
@@ -1283,6 +1301,8 @@
     items:
     - name: SOAR content catalog
       href: sentinel-soar-content.md
+    - name: Automation rules reference
+      href: automation-rule-reference.md
   - name: Data collection references
     items:
     - name: Data source schema reference

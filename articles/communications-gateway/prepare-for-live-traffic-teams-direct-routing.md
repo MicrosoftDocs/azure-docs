@@ -3,7 +3,7 @@ title: Prepare for Microsoft Teams Direct Routing live traffic with Azure Commun
 description: After deploying Azure Communications Gateway, you and your onboarding team must carry out further integration work before you can launch your Microsoft Teams Direct Routing service.
 author: rcdun
 ms.author: rdunstan
-ms.service: communications-gateway
+ms.service: azure-communications-gateway
 ms.topic: how-to
 ms.date: 04/24/2024
 ---

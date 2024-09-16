@@ -8,8 +8,8 @@ metadata:
   description: Learn about Azure Linux Container Host to use the container-optimized OS in your AKS clusters.
   ms.service: microsoft-linux
   ms.topic: landing-page
-  author: htaubenfeld
-  ms.author: htaubenfeld
+  author: suhuruli
+  ms.author: suhuruli
   ms.date: 05/10/2023
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | tutorial | overview | quickstart | reference | sample | tutorial | video | whats-new
@@ -85,7 +85,7 @@ landingContent:
       - linkListType: reference
         links:
           - text: Support
-            url: ../../articles/aks/support-policies.md
+            url: /azure/aks/support-policies
           - text: Release notes
             url: https://github.com/microsoft/CBL-Mariner/releases
           - text: FAQ

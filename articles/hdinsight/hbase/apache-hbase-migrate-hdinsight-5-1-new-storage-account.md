@@ -1,7 +1,7 @@
 ---
 title: Migrate an HBase cluster to an HDInsight 5.1 and new storage account - Azure HDInsight
 description: Learn how to migrate an Apache HBase cluster in Azure HDInsight to an HDInsight 5.1 with a different Azure Storage account.
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 06/14/2024

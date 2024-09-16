@@ -3,11 +3,14 @@ title: Manage Change Tracking and Inventory in Azure Automation
 description: This article tells how to use Change Tracking and Inventory to track software and Microsoft service changes in your environment.
 services: automation
 ms.subservice: change-inventory-management
-ms.date: 12/10/2020
-ms.topic: conceptual
+ms.date: 09/15/2024
+ms.topic: how-to
+ms.service: azure-automation
 ---
 
 # Manage Change Tracking and Inventory
+
+[!INCLUDE [./log-analytics-retirement-announcement.md](../includes/log-analytics-retirement-announcement.md)]
 
 When you add a new file or registry key to track, Azure Automation enables it for [Change Tracking and Inventory](overview.md). This article describes how to configure tracking, review tracking results, and handle alerts when changes are detected.
 
@@ -165,7 +168,7 @@ You can do various searches against the Azure Monitor logs for change records. W
 ## Next steps
 
 * For information about scope configurations, see [Limit Change Tracking and Inventory deployment scope](manage-scope-configurations.md).
-* If you need to search logs stored in Azure Monitor Logs, see [Log searches in Azure Monitor Logs](../../azure-monitor/logs/log-query-overview.md).
+* If you need to search logs stored in Azure Monitor Logs, see [Log searches in Azure Monitor Logs](/azure/azure-monitor/logs/log-query-overview).
 * If finished with deployments, see [Remove Change Tracking and Inventory](remove-feature.md).
 * To delete your VMs from Change Tracking and Inventory, see [Remove VMs from Change Tracking and Inventory](remove-vms-from-change-tracking.md).
 * To troubleshoot feature errors, see [Troubleshoot Change Tracking and Inventory issues](../troubleshoot/change-tracking.md).

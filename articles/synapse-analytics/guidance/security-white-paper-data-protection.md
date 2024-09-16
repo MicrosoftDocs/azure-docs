@@ -1,10 +1,10 @@
 ---
 title: "Azure Synapse Analytics security white paper: Data protection"
 description: Protect data to comply with federal, local, and company guidelines with Azure Synapse Analytics.
-author: SnehaGunda
+author: whhender
 ms.author: whhender
 ms.reviewer: whhender
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.topic: conceptual
 ms.date: 01/14/2022
 ---
@@ -39,14 +39,14 @@ By default, Azure Storage [automatically encrypts all data](../../storage/common
 
 Enabling [Transparent Data Encryption (TDE)](/azure/azure-sql/database/transparent-data-encryption-tde-overview) can add a *second layer* of data encryption for dedicated SQL pools. It performs real-time I/O encryption and decryption of database files, transaction logs files, and backups at rest without requiring any changes to the application. By default, it uses AES 256.
 
-By default, TDE protects the database encryption key (DEK) with a built-in server certificate (service managed). There's an option to bring your own key (BYOK) that can be securely stored in [Azure Key Vault](../../key-vault/general/basic-concepts.md).
+By default, TDE protects the database encryption key (DEK) with a built-in server certificate (service managed). There's an option to bring your own key (BYOK) that can be securely stored in [Azure Key Vault](/azure/key-vault/general/basic-concepts).
 
 Azure Synapse SQL serverless pool and Apache Spark pool are analytic engines that work directly on [Azure Data Lake Gen2](../../storage/blobs/data-lake-storage-introduction.md) (ALDS Gen2) or [Azure Blob Storage](../../storage/blobs/storage-blobs-introduction.md). These analytic runtimes don't have any permanent storage and rely on Azure Storage encryption technologies for data protection. By default, Azure Storage encrypts all data using [server-side encryption](../../storage/common/storage-service-encryption.md) (SSE). It's enabled for all storage types (including ADLS Gen2) and cannot be disabled. SSE encrypts and decrypts data transparently using AES 256.
 
 There are two SSE encryption options:
 
 - **Microsoft-managed keys:** Microsoft manages every aspect of the encryption key, including key storage, ownership, and rotations. It's entirely transparent to customers.
-- **Customer-managed keys:** In this case, the symmetric key used to encrypt data in Azure Storage is encrypted using a customer-provided key. It supports RSA and RSA-HSM (Hardware Security Modules) keys of sizes 2048, 3072, and 4096. Keys can be securely stored in [Azure Key Vault](../../key-vault/general/overview.md) or [Azure Key Vault Managed HSM](../../key-vault/managed-hsm/overview.md). It provides fine grain access control of the key and its management, including storage, backup, and rotations. For more information, see [Customer-managed keys for Azure Storage encryption](../../storage/common/customer-managed-keys-overview.md).
+- **Customer-managed keys:** In this case, the symmetric key used to encrypt data in Azure Storage is encrypted using a customer-provided key. It supports RSA and RSA-HSM (Hardware Security Modules) keys of sizes 2048, 3072, and 4096. Keys can be securely stored in [Azure Key Vault](/azure/key-vault/general/overview) or [Azure Key Vault Managed HSM](/azure/key-vault/managed-hsm/overview). It provides fine grain access control of the key and its management, including storage, backup, and rotations. For more information, see [Customer-managed keys for Azure Storage encryption](../../storage/common/customer-managed-keys-overview.md).
 
 While SSE forms the first layer of encryption, cautious customers can double encrypt by enabling a second layer of [256-bit AES encryption at the Azure Storage infrastructure layer](../../storage/common/storage-service-encryption.md#doubly-encrypt-data-with-infrastructure-encryption). Known as *infrastructure encryption*, it uses a platform-managed key together with a separate key from SSE. So, data in the storage account is encrypted twice; once at the service level and once at the infrastructure level with two different encryption algorithms and different keys.
 

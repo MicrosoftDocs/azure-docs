@@ -1,28 +1,32 @@
 ---
-ms.service: cache
+
+
+
 ms.topic: include
-ms.date: 07/08/2024
-ms.author: franlanglois
-author: flang-msft
+ms.date: 08/16/2024
+
+ms.topic: include
 ---
 
 ### Enable Microsoft Entra ID authentication on your cache
 
-If you have a cache already, you first want to check to see if Microsoft Entra Authentication has been enabled. If not, then enable it. We recommend using Microsoft Entra ID for your applications.
+For an existing cache, first check to see if Microsoft Entra authentication is enabled. If it's not, complete the following steps to enable Microsoft Entra authentication. We recommend that you use Microsoft Entra ID for authentication in your applications.
 
 1. In the Azure portal, select the Azure Cache for Redis instance where you'd like to use Microsoft Entra token-based authentication.
 
-1. Select **Authentication** from the Resource menu.
+1. On the service menu, under **Settings**, select **Authentication**.
 
-1. Check in the working pane to see if **Enable Microsoft Entra Authentication** is checked. If so, you can move on.
+1. On the **Authentication** pane, check to see whether the **Enable Microsoft Entra Authentication** checkbox is selected. If it is, you can move on to the next section.
 
-1. Select **Enable Microsoft Entra Authentication**, and enter the name of a valid user. The user you enter is automatically assigned _Data Owner Access Policy_ by default when you select **Save**. You can also enter a managed identity or service principal to connect to your cache instance.
+1. Otherwise, select the **Enable Microsoft Entra Authentication** checkbox. Then, enter the name of a valid user. Select **Save**. The user name that you enter is automatically assigned the Data Owner Access Policy.
 
-    :::image type="content" source="media/cache-entra-access/cache-enable-microsoft-entra.png" alt-text="Screenshot showing authentication selected in the resource menu and the enable Microsoft Entra authentication checked.":::
+   You also can enter a managed identity or a service principal to connect to your cache.
 
-1. A popup dialog box displays asking if you want to update your configuration, and informing you that it takes several minutes. Select **Yes.**
+   :::image type="content" source="media/cache-entra-access/cache-enable-microsoft-entra.png" alt-text="Screenshot that shows Authentication selected in the service menu and the Enable Microsoft Entra Authentication checkbox selected.":::
+
+1. In a dialog box, you're asked if you want to update your configuration, and you're informed that making the update takes several minutes to finish. Select **Yes.**
 
    > [!IMPORTANT]
-   > Once the enable operation is complete, the nodes in your cache instance reboots to load the new configuration. We recommend performing this operation during your maintenance window or outside your peak business hours. The operation can take up to 30 minutes.
+   > When the enable operation is finished, the nodes in your cache reboot to load the new configuration. We recommend that you complete this operation during your standard maintenance window or outside your peak business hours. The process can take up to 30 minutes.
 
-For information on using Microsoft Entra ID with Azure CLI, see the [references pages for identity](/cli/azure/redis/identity).
+For information about using Microsoft Entra ID with the Azure CLI, see the [identity reference pages](/cli/azure/redis/identity).

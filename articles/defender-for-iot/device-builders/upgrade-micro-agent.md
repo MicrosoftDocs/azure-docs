@@ -11,6 +11,8 @@ This article describes how to upgrade a Microsoft Defender for IoT micro agent w
 
 For more information, see our [release notes for device builders](release-notes.md).
 
+[!INCLUDE [device-agents-note](../includes/device-agents-note.md)]
+
 ## Upgrade a micro agent from version 4.2.* to 4.6.2
 
 When upgrading the micro agent from version 4.2.* to 4.6.2, you would first need to remove the package and then reinstall it.

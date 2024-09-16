@@ -2,7 +2,7 @@
 title: Azure HPC Cache overview
 description: Describes Azure HPC Cache, a file access accelerator solution for high-performance computing 
 author: ronhogue
-ms.service: hpc-cache
+ms.service: azure-hpc-cache
 ms.topic: overview
 ms.date: 03/15/2024
 ms.author: rohogue

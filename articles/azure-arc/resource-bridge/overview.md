@@ -1,7 +1,7 @@
 ---
 title: Azure Arc resource bridge overview
 description: Learn how to use Azure Arc resource bridge to support VM self-servicing on Azure Stack HCI, VMware, and System Center Virtual Machine Manager.
-ms.date: 02/09/2024
+ms.date: 08/26/2024
 ms.topic: overview
 ms.custom: references_regions
 ---
@@ -46,7 +46,7 @@ To summarize, the Azure resources are projections of the resources running in yo
 
 ## Benefits of Azure Arc resource bridge
 
-Through Azure Arc resource bridge, you can accomplish the following for each private cloud infrastructure from Azure:
+Through Azure Arc resource bridge, you can accomplish the following tasks for each private cloud infrastructure from Azure:
 
 ### Azure Stack HCI
 
@@ -107,6 +107,8 @@ Arc resource bridge supports the following Azure regions:
 * South Central US
 * Canada Central
 * Australia East
+* Australia SouthEast
+
 * West Europe
 * North Europe
 * UK South
@@ -119,7 +121,7 @@ Arc resource bridge supports the following Azure regions:
 
 ### Regional resiliency
 
-While Azure has a number of redundancy features at every level of failure, if a service impacting event occurs, Azure Arc resource bridge currently does not support cross-region failover or other resiliency capabilities. In the event of the service becoming unavailable, the on-premises VMs continue to operate unaffected. Management from Azure is unavailable during that service outage.
+While Azure has redundancy features at every level of failure, if a service impacting event occurs, Azure Arc resource bridge currently does not support cross-region failover or other resiliency capabilities. In the event of the service becoming unavailable, the on-premises VMs continue to operate unaffected. Management from Azure is unavailable during that service outage.
 
 ### Private cloud environments
 
@@ -131,8 +133,6 @@ The following private cloud environments and their versions are officially suppo
 
 ### Supported versions
 
-The minimum supported version of Arc resource bridge is 1.0.15.
-
 Generally, the latest released version and the previous three versions (n-3) of Arc resource bridge are supported. For example, if the current version is 1.0.18, then the typical n-3 supported versions are:
 
 * Current version: 1.0.18
@@ -142,12 +142,11 @@ Generally, the latest released version and the previous three versions (n-3) of 
 
 There could be instances where supported versions are not sequential. For example, version 1.0.18 is released and later found to contain a bug; a hot fix is released in version 1.0.19 and version 1.0.18 is removed. In this scenario, n-3 supported versions become 1.0.19, 1.0.17, 1.0.16, 1.0.15.
 
-Arc resource bridge typically releases a new version on a monthly cadence, at the end of the month. Delays might occur that could push the release date further out. Regardless of when a new release comes out, if you are within n-3 supported versions (starting with 1.0.15), then your Arc resource bridge version is supported. To stay updated on releases, visit the [Arc resource bridge release notes](https://github.com/Azure/ArcResourceBridge/releases) on GitHub. To learn more about upgrade options, visit [Upgrade Arc resource bridge](upgrade.md).
+Arc resource bridge typically releases a new version on a monthly cadence, at the end of the month. Delays might occur that could push the release date further out. Regardless of when a new release comes out, if you are within n-3 supported versions, then your Arc resource bridge version is supported. To stay updated on releases, visit the [Arc resource bridge release notes](release-notes.md). To learn more about upgrade options, visit [Upgrade Arc resource bridge](upgrade.md).
 
 ### Private Link Support
 
-Arc resource bridge does not currently support private link. 
-
+Arc resource bridge does not currently support private link.
 
 ## Next steps
 

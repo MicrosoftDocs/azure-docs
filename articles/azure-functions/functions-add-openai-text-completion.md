@@ -5,13 +5,15 @@ ms.date: 07/11/2024
 ms.topic: tutorial
 author: dbandaru
 ms.author: dbandaru
+ms.collection: 
+  - ce-skilling-ai-copilot
 zone_pivot_groups: programming-languages-set-functions
 #customer intent: As an Azure developer, I want learn how to integrate Azure OpenAI capabilities in my function code to leverage AI benefits in my colud-based code executions. 
 ---
 
 # Tutorial: Add Azure OpenAI text completion hints to your functions in Visual Studio Code
 
-This article shows you how to use Visual Studio Code to add an HTTP endpoint to the function app you created in the previous quickstart article. When triggered, this new HTTP endpoint uses an [Azure Open AI text completion input binding](functions-bindings-openai-textcompletion-input.md) to get text completion hints from your data model.
+This article shows you how to use Visual Studio Code to add an HTTP endpoint to the function app you created in the previous quickstart article. When triggered, this new HTTP endpoint uses an [Azure OpenAI text completion input binding](functions-bindings-openai-textcompletion-input.md) to get text completion hints from your data model.
 
 During this tutorial, you learn how to accomplish these tasks:  
 
@@ -65,7 +67,7 @@ The following steps show how to create an Azure OpenAI data model in the Azure p
    | **Name** | A descriptive name for your Azure OpenAI Service resource, such as _mySampleOpenAI_. |
    | **Pricing Tier** | The pricing tier for the resource. Currently, only the Standard tier is available for the Azure OpenAI Service. For more info on pricing visit the [Azure OpenAI pricing page](https://azure.microsoft.com/pricing/details/cognitive-services/openai-service/) |
 
-   :::image type="content" source="../ai-services/openai/media/create-resource/create-resource-basic-settings.png" alt-text="Screenshot that shows how to configure an Azure OpenAI resource in the Azure portal.":::
+   :::image type="content" source="/azure/ai-services/openai/media/create-resource/create-resource-basic-settings.png" alt-text="Screenshot that shows how to configure an Azure OpenAI resource in the Azure portal.":::
 
 1. Select **Next** twice to accept the default values for both the **Network** and **Tags** tabs. The service you create doesn't have any network restrictions, including from the internet.
 
@@ -96,7 +98,7 @@ To deploy a model, follow these steps:
     | Field | Description |
     |---|---|
     | **Deployment name** | Choose a name carefully. The deployment name is used in your code to call the model by using the client libraries and the REST APIs, so you must save for use later on.  |
-    | **Select a model** | Model availability varies by region. For a list of available models per region, see [Model summary table and region availability](../ai-services/openai/concepts/models.md#model-summary-table-and-region-availability). |
+    | **Select a model** | Model availability varies by region. For a list of available models per region, see [Model summary table and region availability](/azure/ai-services/openai/concepts/models#model-summary-table-and-region-availability). |
 
     > [!IMPORTANT]
     > When you access the model via the API, you need to refer to the deployment name rather than the underlying model name in API calls, which is one of the key differences between OpenAI and Azure OpenAI. OpenAI only requires the model name. Azure OpenAI always requires deployment name, even when using the model parameter. In our docs, we often have examples where deployment names are represented as identical to model names to help indicate which model works with a particular API endpoint. Ultimately your deployment names can follow whatever naming convention is best for your use case.

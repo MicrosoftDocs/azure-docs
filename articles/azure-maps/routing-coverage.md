@@ -2,12 +2,12 @@
 title: Routing coverage
 titleSuffix: Microsoft Azure Maps
 description: Learn what level of coverage Azure Maps provides in various regions for routing, routing with traffic, and truck routing. 
-author: eriklindeman
-ms.author: eriklind
+author: farazgis
+ms.author: fsiddiqui
 ms.date: 10/21/2022
 ms.topic: conceptual
 ms.service: azure-maps
-services: azure-maps
+ms.subservice: routing
 zone_pivot_groups: azure-maps-coverage
 ---
 
@@ -632,7 +632,7 @@ For more coverage tables, see:
 
 [Azure Maps routing coverage tables]: #azure-maps-routing-coverage-tables
 <!----- TODO: Update with link to route v2 docs when available ----------->
-[Azure Maps Route Service]: https://github.com/Azure/azure-rest-api-specs/blob/koyasu221b-maps-Route-2023-10-01-preview/specification/maps/data-plane/Route/preview/2023-10-01-preview/route.json
+[Azure Maps Route Service]: /rest/api/maps/route/
 [Geocoding]: geocoding-coverage.md
 [Get Route Directions]: /rest/api/maps/route/get-route-directions
 [Get Route Range]: /rest/api/maps/route/get-route-range

@@ -2,7 +2,7 @@
 title: Connect hybrid machines to Azure using a deployment script
 description: In this article, you learn how to install the agent and connect machines to Azure by using Azure Arc-enabled servers using the deployment script you create in the Azure portal.
 ms.date: 10/23/2023
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: linux-related-content
 ---
 
@@ -152,7 +152,7 @@ bash ~/Install_linux_azcmagent.sh
 
 1. Change to the folder or share that you copied the script to, and execute it on the server by running the `./OnboardingScript.sh` script.
 
-If the agent fails to start after setup is finished, check the logs for detailed error information. The log directory is *var/opt/azcmagent/log*.
+If the agent fails to start after setup is finished, check the logs for detailed error information. The log directory is `/var/opt/azcmagent/log`.
 
 ## Verify the connection with Azure Arc
 
@@ -166,4 +166,4 @@ After you install the agent and configure it to connect to Azure Arc-enabled ser
 
 - Review the [Planning and deployment guide](plan-at-scale-deployment.md) to plan for deploying Azure Arc-enabled servers at any scale and implement centralized management and monitoring.
 
-- Learn how to manage your machine using [Azure Policy](../../governance/policy/overview.md), for such things as VM [guest configuration](../../governance/machine-configuration/overview.md), verify the machine is reporting to the expected Log Analytics workspace, enable monitoring with [VM insights](../../azure-monitor/vm/vminsights-enable-policy.md), and much more.
+- Learn how to manage your machine using [Azure Policy](../../governance/policy/overview.md), for such things as VM [guest configuration](../../governance/machine-configuration/overview.md), verify the machine is reporting to the expected Log Analytics workspace, enable monitoring with [VM insights](/azure/azure-monitor/vm/vminsights-enable-policy), and much more.

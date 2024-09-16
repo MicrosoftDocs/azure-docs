@@ -5,7 +5,7 @@ ms.date: 02/06/2024
 ms.topic: reference
 author: KarlErickson
 ms.author: karler
-ms.service: spring-apps
+ms.service: azure-spring-apps
 ms.custom: subject-policy-reference, devx-track-java
 ---
 

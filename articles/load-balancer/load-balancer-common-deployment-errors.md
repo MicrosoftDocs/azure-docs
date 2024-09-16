@@ -4,7 +4,7 @@ titleSuffix: Azure Load Balancer
 description: Describes how to resolve common errors when you deploy Azure Load Balancers.
 services: load-balancer
 author: mbender-ms
-ms.service: load-balancer
+ms.service: azure-load-balancer
 ms.topic: troubleshooting
 ms.date: 06/26/2024
 ms.author: mbender

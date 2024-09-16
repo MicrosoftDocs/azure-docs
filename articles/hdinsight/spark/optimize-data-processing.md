@@ -1,7 +1,7 @@
 ---
 title: Optimize data processing for Apache Spark - Azure HDInsight
 description: Learn how to choose the most efficient operations to process your data on Apache Spark with Azure HDInsight.
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: conceptual
 ms.date: 01/04/2024
 ---

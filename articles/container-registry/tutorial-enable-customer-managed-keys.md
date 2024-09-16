@@ -5,7 +5,7 @@ ms.topic: tutorial
 ms.custom: devx-track-azurecli
 ms.date: 10/31/2023
 ms.author: tejaswikolli
-ms.service: container-registry
+ms.service: azure-container-registry
 ---
 
 # Enable a customer-managed key
@@ -84,7 +84,7 @@ Configure a user-assigned [managed identity](../active-directory/managed-identit
 
 #### Enable trusted services to access the key vault
 
-If the key vault is in protection with a firewall or virtual network (private endpoint), you must enable the network settings to allow access by [trusted Azure services](../key-vault/general/overview-vnet-service-endpoints.md#trusted-services). For more information, see [Configure Azure Key Vault networking settings](../key-vault/general/how-to-azure-key-vault-network-security.md?tabs=azure-cli).
+If the key vault is in protection with a firewall or virtual network (private endpoint), you must enable the network settings to allow access by [trusted Azure services](/azure/key-vault/general/overview-vnet-service-endpoints#trusted-services). For more information, see [Configure Azure Key Vault networking settings](/azure/key-vault/general/how-to-azure-key-vault-network-security?tabs=azure-cli).
 
 #### Enable managed identities to access the key vault
 
@@ -105,7 +105,7 @@ The first option is to configure the access policy for the key vault and set key
 
    ```
 
-The second option is to use [Azure role-based access control (RBAC)](../key-vault/general/rbac-guide.md) to assign permissions to the user-assigned managed identity and access the key vault. Run the [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) command and assign the `Key Vault Crypto Service Encryption User` role to a user-assigned managed identity:
+The second option is to use [Azure role-based access control (RBAC)](/azure/key-vault/general/rbac-guide) to assign permissions to the user-assigned managed identity and access the key vault. Run the [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) command and assign the `Key Vault Crypto Service Encryption User` role to a user-assigned managed identity:
 
 ```azurecli
 az role assignment create --assignee $identityPrincipalID \
@@ -225,7 +225,7 @@ To create a user-assigned [managed identity for Azure resources](../active-direc
 
 ### Create a key vault
 
-1. Follow the steps in [Quickstart: Create a key vault using the Azure portal](../key-vault/general/quick-create-portal.md).
+1. Follow the steps in [Quickstart: Create a key vault using the Azure portal](/azure/key-vault/general/quick-create-portal).
 
 2. When you're creating a key vault for a customer-managed key, on the **Basics** tab, enable the **Purge protection** setting. This setting helps prevent data loss from accidental deletion of keys or key vaults.
 
@@ -233,7 +233,7 @@ To create a user-assigned [managed identity for Azure resources](../active-direc
 
 #### Enable trusted services to access the key vault
 
-If the key vault is in protection with a firewall or virtual network (private endpoint), enable the network setting to allow access by [trusted Azure services](../key-vault/general/overview-vnet-service-endpoints.md#trusted-services). For more information, see [Configure Azure Key Vault networking settings](../key-vault/general/how-to-azure-key-vault-network-security.md?tabs=azure-portal).
+If the key vault is in protection with a firewall or virtual network (private endpoint), enable the network setting to allow access by [trusted Azure services](/azure/key-vault/general/overview-vnet-service-endpoints#trusted-services). For more information, see [Configure Azure Key Vault networking settings](/azure/key-vault/general/how-to-azure-key-vault-network-security?tabs=azure-portal).
 
 #### Enable managed identities to access the key vault
 

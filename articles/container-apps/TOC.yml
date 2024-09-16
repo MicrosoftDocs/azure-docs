@@ -213,7 +213,7 @@
           href: authentication-github.md
         - name: Google
           href: authentication-google.yml
-        - name: Twitter
+        - name: X
           href: authentication-twitter.md
         - name: Custom OpenID Connect
           href: authentication-openid.md
@@ -325,8 +325,6 @@
           href: user-defined-routes.md
         - name: Securing a custom VNET with an NSG
           href: firewall-integration.md
-    - name: Network proxying
-      href: network-proxy.md
     - name: Use a custom VNET
       href: vnet-custom.md
 - name: Languages and runtimes
@@ -335,6 +333,7 @@
       items:
       - name: Overview
         href: dotnet-overview.md
+        displayName: .NET overview
       - name: Deploy a .NET Aspire app
         href: /dotnet/aspire/deployment/azure/aca-deployment
       - name: Deploy and scale an ASP.NET Core app
@@ -348,7 +347,7 @@
         href: java-get-started.md
         displayName: java
       - name: Get started using IntelliJ
-        href: /azure/developer/java/toolkit-for-intellij/create-container-apps-intellij
+        href: /azure/developer/java/toolkit-for-intellij/create-container-apps-intellij?toc=/azure/container-apps/toc.json&bc=/azure/container-apps/breadcrumb/toc.json
         displayName: java
       - name: Automatic memory fitting
         href: java-memory-fit.md
@@ -361,6 +360,8 @@
         displayName: java
       - name: Use Eureka Server for Spring
         href: java-eureka-server-usage.md
+      - name: Use Admin for Spring
+        href: java-admin-for-spring-usage.md
       - name: Use Config Server for Spring
         href: java-config-server-usage.md
         displayName: java
@@ -371,11 +372,19 @@
         items:
           - name: Connect to Eureka Server for Spring
             href: java-eureka-server.md
+          - name: Connect to Admin for Spring
+            href: java-admin.md
           - name: Connect to Config Server for Spring
             href: java-config-server.md
             displayName: java
+          - name: Integrate Eureka Server with Admin for Spring
+            href: java-admin-eureka-integration.md
+            displayName: java
           - name: Query managed component logs
             href: java-component-logs.md
+            displayName: java
+          - name: Create a highly available Eureka server component cluster
+            href: java-eureka-server-highly-available.md
             displayName: java
 - name: Billing & quotas
   items:

@@ -1,11 +1,11 @@
 ---
 title: Troubleshoot registry performance
 description: Symptoms, causes, and resolution of common problems with the performance of a registry
-ms.topic: article
+ms.topic: troubleshooting
 author: tejaswikolli-web
 ms.author: tejaswikolli
 ms.date: 10/31/2023
-ms.service: container-registry
+ms.service: azure-container-registry
 ---
 
 # Troubleshoot registry performance

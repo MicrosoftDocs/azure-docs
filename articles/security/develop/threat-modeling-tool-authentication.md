@@ -180,7 +180,7 @@ ms.custom: devx-track-csharp
 | **SDL Phase**               | Deployment |
 | **Applicable Technologies** | Generic |
 | **Attributes**              | Environment - Azure  |
-| **References**              | [Service Fabric cluster security scenarios](../../service-fabric/service-fabric-cluster-security.md) |
+| **References**              | [Service Fabric cluster security scenarios](/azure/service-fabric/service-fabric-cluster-security) |
 | **Steps** | <p>Clusters should always be secured to prevent unauthorized users from connecting to your cluster, especially when it has production workloads running on it.</p><p>While creating a service fabric cluster, ensure that the security mode is set to "secure" and configure the required X.509 server certificate. Creating an "insecure" cluster will allow any anonymous user to connect to it if it exposes management endpoints to the public Internet.</p>|
 
 ## <a id="fabric-cn-nn"></a>Ensure that Service Fabric client-to-node certificate is different from node-to-node certificate
@@ -191,7 +191,7 @@ ms.custom: devx-track-csharp
 | **SDL Phase**               | Deployment |
 | **Applicable Technologies** | Generic |
 | **Attributes**              | Environment - Azure, Environment - Stand alone |
-| **References**              | [Service Fabric Client-to-node certificate security](../../service-fabric/service-fabric-cluster-security.md#client-to-node-certificate-security), [Connect to a secure cluster using client certificate](../../service-fabric/service-fabric-connect-to-secure-cluster.md) |
+| **References**              | [Service Fabric Client-to-node certificate security](/azure/service-fabric/service-fabric-cluster-security#client-to-node-certificate-security), [Connect to a secure cluster using client certificate](/azure/service-fabric/service-fabric-connect-to-secure-cluster) |
 | **Steps** | <p>Client-to-node certificate security is configured while creating the cluster either through the Azure portal, Resource Manager templates or a standalone JSON template by specifying an admin client certificate and/or a user client certificate.</p><p>The admin client and user client certificates you specify should be different than the primary and secondary certificates you specify for Node-to-node security.</p>|
 
 ## <a id="aad-client-fabric"></a>Use Microsoft Entra ID to authenticate clients to service fabric clusters
@@ -202,7 +202,7 @@ ms.custom: devx-track-csharp
 | **SDL Phase**               | Deployment |
 | **Applicable Technologies** | Generic |
 | **Attributes**              | Environment - Azure |
-| **References**              | [Cluster security scenarios - Security Recommendations](../../service-fabric/service-fabric-cluster-security.md#security-recommendations) |
+| **References**              | [Cluster security scenarios - Security Recommendations](/azure/service-fabric/service-fabric-cluster-security#security-recommendations) |
 | **Steps** | Clusters running on Azure can also secure access to the management endpoints using Microsoft Entra ID, apart from client certificates. For Azure clusters, it is recommended that you use Microsoft Entra security to authenticate clients and certificates for node-to-node security.|
 
 ## <a id="fabric-cert-ca"></a>Ensure that service fabric certificates are obtained from an approved Certificate Authority (CA)
@@ -213,7 +213,7 @@ ms.custom: devx-track-csharp
 | **SDL Phase**               | Deployment |
 | **Applicable Technologies** | Generic |
 | **Attributes**              | Environment - Azure |
-| **References**              | [X.509 certificates and Service Fabric](../../service-fabric/service-fabric-cluster-security.md#x509-certificates-and-service-fabric) |
+| **References**              | [X.509 certificates and Service Fabric](/azure/service-fabric/service-fabric-cluster-security#x509-certificates-and-service-fabric) |
 | **Steps** | <p>Service Fabric uses X.509 server certificates for authenticating nodes and clients.</p><p>Some important things to consider while using certificates in service fabrics:</p><ul><li>Certificates used in clusters running production workloads should be created by using a correctly configured Windows Server certificate service or obtained from an approved Certificate Authority (CA). The CA can be an approved external CA or a properly managed internal Public Key Infrastructure (PKI)</li><li>Never use any temporary or test certificates in production that are created with tools such as MakeCert.exe</li><li>You can use a self-signed certificate, but should only do so for test clusters and not in production</li></ul>|
 
 ## <a id="standard-authn-id"></a>Use standard authentication scenarios supported by Identity Server

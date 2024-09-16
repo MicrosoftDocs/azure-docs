@@ -5,7 +5,7 @@ description: Learn about how to connect to Microsoft 365 through Virtual WAN usi
 services: virtual-wan
 author: floklaffenbach
 
-ms.service: virtual-wan
+ms.service: azure-virtual-wan
 ms.topic: conceptual
 ms.date: 08/24/2023
 ms.author: flofox

@@ -30,7 +30,7 @@ For more information, see  [Key Benefits of Private Link](../../private-link/pri
 
 Azure Arc Private Link Scope connects private endpoints (and the virtual networks they're contained in) to an Azure resource, in this case Azure Arc-enabled servers. When you enable any one of the Azure Arc-enabled servers supported VM extensions, such as Azure Monitor, those resources connect other Azure resources. Such as:
 
-- Log Analytics workspace, required for Azure Automation Change Tracking and Inventory, Azure Monitor VM insights, and Azure Monitor log collection with Log Analytics agent.
+- Log Analytics workspace, required for Azure Automation Change Tracking and Inventory, Azure Monitor VM insights, and Azure Monitor log collection with Azure Monitor agent.
 - Azure Automation account, required for Update Management and Change Tracking and Inventory.
 - Azure Key Vault
 - Azure Blob storage, required for Custom Script Extension.
@@ -39,7 +39,7 @@ Azure Arc Private Link Scope connects private endpoints (and the virtual network
 
 Connectivity to any other Azure resource from an Azure Arc-enabled server requires configuring Private Link for each service, which is optional, but recommended. Azure Private Link requires separate configuration per service.
 
-For more information about configuring Private Link for the Azure services listed earlier, see the [Azure Automation](../../automation/how-to/private-link-security.md), [Azure Monitor](../../azure-monitor/logs/private-link-security.md), [Azure Key Vault](../../key-vault/general/private-link-service.md), or [Azure Blob storage](../../private-link/tutorial-private-endpoint-storage-portal.md) articles.
+For more information about configuring Private Link for the Azure services listed earlier, see the [Azure Automation](../../automation/how-to/private-link-security.md), [Azure Monitor](/azure/azure-monitor/logs/private-link-security), [Azure Key Vault](/azure/key-vault/general/private-link-service), or [Azure Blob storage](../../private-link/tutorial-private-endpoint-storage-portal.md) articles.
 
 > [!IMPORTANT]
 > Azure Private Link is now generally available. Both Private Endpoint and Private Link service (service behind standard load balancer) are generally available. Different Azure PaaS onboard to Azure Private Link following different schedules. See [Private Link availability](../../private-link/availability.md) for an updated status of Azure PaaS on Private Link. For known limitations, see [Private Endpoint](../../private-link/private-endpoint-overview.md#limitations) and [Private Link Service](../../private-link/private-link-service-overview.md#limitations).
@@ -303,4 +303,4 @@ It might take up to 15 minutes for the Private Link Scope to accept connections 
 
 * If you are experiencing issues with your Azure Private Endpoint connectivity setup, see [Troubleshoot Azure Private Endpoint connectivity problems](../../private-link/troubleshoot-private-endpoint-connectivity.md).
 
-* See the following to configure Private Link for [Azure Automation](../../automation/how-to/private-link-security.md), [Azure Monitor](../../azure-monitor/logs/private-link-security.md), [Azure Key Vault](../../key-vault/general/private-link-service.md), or [Azure Blob storage](../../private-link/tutorial-private-endpoint-storage-portal.md).
+* See the following to configure Private Link for [Azure Automation](../../automation/how-to/private-link-security.md), [Azure Monitor](/azure/azure-monitor/logs/private-link-security), [Azure Key Vault](/azure/key-vault/general/private-link-service), or [Azure Blob storage](../../private-link/tutorial-private-endpoint-storage-portal.md).

@@ -5,7 +5,7 @@ author: meenalsri
 ms.author: mesrivas
 ms.reviewer: whhender
 ms.date: 09/01/2022
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.subservice: security
 ms.topic: how-to
 ms.custom: subject-rbac-steps
@@ -79,7 +79,7 @@ Select that same container or file system to grant the *Storage Blob Data Contri
     > [!NOTE]  
     > The managed identity name is also the workspace name.
 
-    :::image type="content" source="../../../includes/role-based-access-control/media/add-role-assignment-page.png" alt-text="Screenshot of the add role assignment page in the Azure portal.":::
+    :::image type="content" source="~/reusable-content/ce-skilling/azure/media/role-based-access-control/add-role-assignment-page.png" alt-text="Screenshot of the add role assignment page in the Azure portal.":::
 
 1. Select **Save** to add the role assignment.
 

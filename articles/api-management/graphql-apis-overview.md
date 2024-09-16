@@ -4,7 +4,7 @@ description: Learn about GraphQL and how Azure API Management helps you manage G
 services: api-management
 author: dlepow
 
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: conceptual
 ms.date: 05/05/2024
 ms.author: danlep

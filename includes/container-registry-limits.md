@@ -2,7 +2,7 @@
 title: include file
 description: include file
 services: container-registry
-ms.service: container-registry
+ms.service: azure-container-registry
 ms.topic: include
 author: tejaswikolli-web
 ms.author: tejaswikolli

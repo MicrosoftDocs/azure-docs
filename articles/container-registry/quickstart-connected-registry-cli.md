@@ -7,10 +7,11 @@ ms.author: memladen
 author: toddysm
 ms.custom: mode-api, devx-track-azurecli
 ms.devlang: azurecli
-ms.service: container-registry
+ms.service: azure-container-registry
+# customer intent: To create a connected registry resource in Azure using the Azure CLI.
 ---
 
-# Quickstart: Create a connected registry using the Azure CLI
+# Quickstart: Create a connected registry using the Azure CLI (To be deprecated)
 
 In this quickstart, you use the Azure CLI to create a [connected registry](intro-connected-registry.md) resource in Azure. The connected registry feature of Azure Container Registry allows you to deploy a registry remotely or on your premises and synchronize images and other artifacts with the cloud registry. 
 

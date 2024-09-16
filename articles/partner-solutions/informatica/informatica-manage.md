@@ -8,7 +8,7 @@ ms.date: 04/02/2024
 
 # Manage your Informatica organization through the portal
 
-In this article about Intelligent Data Management Cloud (Preview) - Azure Native ISV Service, you learn how to manage single sign-on for your organization, and how to delete an Informatica deployment.
+In this article about Intelligent Data Management Cloud - Azure Native ISV Service, you learn how to manage single sign-on for your organization, and how to delete an Informatica deployment.
 
 ## Single sign-on
 

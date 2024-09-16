@@ -1,5 +1,5 @@
 ---
-title: 'Use PowerShell to manage data: Azure Data Lake Storage Gen2'
+title: 'Use PowerShell to manage data: Azure Data Lake Storage'
 titleSuffix: Azure Storage
 description: Use PowerShell cmdlets to manage directories and files in storage accounts that have a hierarchical namespace enabled.
 author: normesta
@@ -13,11 +13,11 @@ ms.devlang: powershell
 ms.custom: devx-track-azurepowershell
 ---
 
-# Use PowerShell to manage directories and files in Azure Data Lake Storage Gen2
+# Use PowerShell to manage directories and files in Azure Data Lake Storage
 
 This article shows you how to use PowerShell to create and manage directories and files in storage accounts that have a hierarchical namespace.
 
-To learn about how to get, set, and update the access control lists (ACL) of directories and files, see [Use PowerShell to manage ACLs in Azure Data Lake Storage Gen2](data-lake-storage-acl-powershell.md).
+To learn about how to get, set, and update the access control lists (ACL) of directories and files, see [Use PowerShell to manage ACLs in Azure Data Lake Storage](data-lake-storage-acl-powershell.md).
 
 [Reference](/powershell/module/Az.Storage/) | [Gen1 to Gen2 mapping](#gen1-gen2-map) | [Give feedback](https://github.com/Azure/azure-powershell/issues)
 
@@ -274,12 +274,12 @@ You can use the `-Force` parameter to remove the file without a prompt.
 
 ## Gen1 to Gen2 Mapping
 
-The following table shows how the cmdlets used for Data Lake Storage Gen1 map to the cmdlets for Data Lake Storage Gen2.
+The following table shows how the cmdlets used for Data Lake Storage Gen1 map to the cmdlets for Data Lake Storage.
 
 > [!NOTE]
 > Azure Data Lake Storage Gen1 is now retired. See the retirement announcement [here](https://aka.ms/data-lake-storage-gen1-retirement-announcement). Data Lake Storage Gen1 resources are no longer accessible. If you require special assistance, please [contact us](https://portal.azure.com/#view/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
 
-|Data Lake Storage Gen1 cmdlet| Data Lake Storage Gen2 cmdlet| Notes |
+|Data Lake Storage Gen1 cmdlet| Data Lake Storage cmdlet| Notes |
 |--------|---------|-----|
 |Get-AzDataLakeStoreChildItem|Get-AzDataLakeGen2ChildItem|By default, the Get-AzDataLakeGen2ChildItem cmdlet only lists the first level child items. The -Recurse parameter lists child items recursively. |
 |Get-AzDataLakeStoreItem<br>Get-AzDataLakeStoreItemAclEntry<br>Get-AzDataLakeStoreItemOwner<br>Get-AzDataLakeStoreItemPermission|Get-AzDataLakeGen2Item|The output items of the Get-AzDataLakeGen2Item cmdlet have these properties: Acl, Owner, Group, Permission.|

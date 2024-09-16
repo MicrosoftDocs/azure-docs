@@ -5,7 +5,7 @@ ms.topic: sample
 author: tejaswikolli-web
 ms.author: tejaswikolli
 ms.date: 02/06/2024
-ms.service: container-registry
+ms.service: azure-container-registry
 ms.custom: subject-policy-compliancecontrols
 ---
 # Azure Policy Regulatory Compliance controls for Azure Container Registry

@@ -3,8 +3,8 @@ title: What is the MedTech service? - Azure Health Data Services
 description: Learn about the MedTech service, its features, functions, integrations, and next steps.
 services: healthcare-apis
 author: chachachachami
-ms.service: healthcare-apis
-ms.subservice: iomt
+ms.service: azure-health-data-services
+ms.subservice: medtech-service
 ms.topic: overview
 ms.date: 10/19/2023
 ms.author: chrupa

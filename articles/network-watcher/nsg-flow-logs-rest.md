@@ -4,7 +4,7 @@ titleSuffix: Azure Network Watcher
 description: Learn how to create, change, or disable Azure Network Watcher NSG flow logs using REST API.
 author: halkazwini
 ms.author: halkazwini
-ms.service: network-watcher
+ms.service: azure-network-watcher
 ms.topic: how-to
 ms.date: 06/01/2023
 ---
