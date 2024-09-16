@@ -1,6 +1,6 @@
 ---
-title: Install network function operation extension
-description: Safely install the Azure Operator Service Manager network function operator extension.
+title: Manage the Azure Operator Service Manager cluster extension
+description: Command reference syntax and examples guiding management of the Azure Operator Service Manager network function operator extension.
 author: msftadam
 ms.author: adamdor
 ms.date: 09/16/2024
@@ -8,12 +8,14 @@ ms.topic: how-to
 ms.service: azure-operator-service-manager
 ---
 
-# Install network function operator extension
+# Manage network function operator extension
+This article guides user management of the Azure Operator Service Manager (AOSM) network function operator (NFO) extension. This kubernetes cluster extension is used as part of the AOSM service offering and used to manage container based workloads, hosted by the Azure Operator Nexus platform.
 
 ## Overview 
-This article guides user installation of the Azure Operator Service Manager (AOSM) network function operator (NFO) extension. This kubernetes cluster extension is used as part of the AOSM service offering to manage container based workloads hosted by the Azure Operator Nexus platform.
+These commands are executed after making the NAKS cluster ready for the add-on extension and presume prior installation of the Azure CLI and authentication into the target subscription.
 
 ## Create network function extension
+The Azure CLI command 'az k8s-extension create' is executed to install the NFO extension.
 
 ### Command
 ```bash
@@ -151,11 +153,21 @@ The referenced matchCondition implies that the pods getting accepted in kube-sys
 
 The default NFO config configures HA on NAKS but none of the disk drives on AKS support ReadWriteX access mode. Where HA needs to be disabled, use the following config options;
 
-` --config global.networkfunctionextension.clusterRegistry.highAvailability.enabled=false`
-` --config global.networkfunctionextension.webhook.highAvailability.enabled=false` (optional)
-` --config global.networkfunctionextension.clusterRegistry.storageClassName=managed-csi`
+``` --config global.networkfunctionextension.clusterRegistry.highAvailability.enabled=false```
 
-### Examples
+``` --config global.networkfunctionextension.webhook.highAvailability.enabled=false``` 
+
+(optional)
+
+``` --config global.networkfunctionextension.clusterRegistry.storageClassName=managed-csi```
+
+## Update network function extension
+The Azure CLI command 'az k8s-extension update' is executed to update the NFO extension.
+
+## Delete network function extension
+The Azure CLI command 'az k8s-extension delete' is executed to delete  the NFO extension.
+
+## Examples
 Create a network function extension with auto upgrade.
 ```bash
 az k8s-extension create --resource-group myresourcegroup --cluster-name mycluster --name myextension --cluster-type connectedClusters --extension-type Microsoft.Azure.HybridNetwork --scope cluster --config Microsoft.CustomLocation.ServiceAccount=azurehybridnetwork-networkfunction-operator --release-namespace azurehybridnetwork
