@@ -136,7 +136,7 @@ If you have connection problems between the cloud-based sensor and the Azure por
 
 Even without solving the problem you're able to continue to the next stage, by selecting **Next: Certificates**.
 
-The only problem that must be fixed before the connectivity problem is solved, is when a time drift is detected and the sensor is not synchronized to the cloud. In this case the sensor must be correctly synchronized, as described in the recommendations before moving to the next stage.
+The only connection problem that must be fixed before the connectivity problem is solved, is when a time drift is detected and the sensor is not synchronized to the cloud. In this case the sensor must be correctly synchronized, as described in the recommendations before moving to the next stage.
 
 ### Define SSL/TLS certificate settings
 
