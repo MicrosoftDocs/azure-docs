@@ -107,7 +107,11 @@ When you apply storage task assignments to storage accounts that have IP or netw
 
 ## Storage Tasks won't be trigger on regional account migrated in GRS / GZRS accounts
 
-If you migrate your storage account from a GRS or GZRS primary region to a secondary region or vice versa, then any storage tasks that target the storage account won't be triggered and any existing task executions might fail. 
+If you migrate your storage account from a GRS or GZRS primary region to a secondary region or vice versa, then any storage tasks that target the storage account won't be triggered and any existing task executions might fail.
+
+## Storage Task condition nested depth will not accept more than 10 levels.
+
+If you attempt to create nested task conditions deeper than 10 levels, those Task condition will be validated as input errors. To avoid this, refactor the task conditions to ensure the nesting depth does not exceed 10 levels.
 
 ## See Also
 
