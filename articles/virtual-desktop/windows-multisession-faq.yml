@@ -58,7 +58,7 @@ sections:
             -  Windows 365 gallery images include the latest Monthly Enterprise Channel release with the latest security updates.  
           - [Microsoft Teams updates](https://support.microsoft.com/en-us/office/what-s-new-in-microsoft-teams-d7092a6d-c896-424c-b362-a472d5f105de)
 
-          Additionally, FSLogix comes pre-installed on all available Windows Enterprise multi-session images. To configure FSLogix, see (Configuration options - FSLogix | Microsoft Learn)[/fslogix/concepts-configuration-options].
+          Additionally, FSLogix comes pre-installed on all available Windows Enterprise multi-session images. To configure FSLogix, see [Configuration options - FSLogix | Microsoft Learn](https://learn.microsoft.com/fslogix/concepts-configuration-options).
           
           > [!IMPORTANT]
           > All named applications that come pre-installed are the latest version that is available the 2nd Tuesday of that month. Any app updates after that day can only be considered in the image update in the upcoming month.
