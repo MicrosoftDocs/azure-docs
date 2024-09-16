@@ -136,9 +136,9 @@ Otherwise, use <kbd>Ctrl</kbd>-<kbd>F</kbd> to use your browser's search feature
 
 ## Virtual Machine Scale Sets
 
-[!INCLUDE [vmss-computeresources-uniform-orchestration](../includes/samples-by-category/query/vmss-computeresources-uniform-orchestration.md)]
+[!INCLUDE [virtual-machine-scale-sets-computeresources-uniform-orchestration](../includes/samples-by-category/query/virtual-machine-scale-sets-computeresources-uniform-orchestration.md)]
 
-[!INCLUDE [vmss-resources-flexible-orchestration](../includes/samples-by-category/query/vmss-resources-flexible-orchestration.md)]
+[!INCLUDE [virtual-machine-scale-sets-resources-flexible-orchestration](../includes/samples-by-category/query/virtual-machine-scale-sets-resources-flexible-orchestration.md)]
 
 ## Next steps
 
