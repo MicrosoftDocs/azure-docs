@@ -37,11 +37,11 @@ For more information, see [Azure Firewall Explicit proxy (preview)](explicit-pro
 
 With the Azure Firewall Resource Health check, you can now diagnose and get support for service problems that affect your Azure Firewall resource. Resource Health allows IT teams to receive proactive notifications on potential health degradations, and recommended mitigation actions per each health event type.  The resource health is also available in a dedicated page in the Azure portal resource page.
 Starting in August 2023, this preview is automatically enabled on all firewalls and no action is required to enable this functionality.
-For more information, see [Resource Health overview](../service-health/resource-health-overview.md).
+For more information, see [Resource Health overview](/azure/service-health/resource-health-overview).
 
-### Auto-learn SNAT routes (preview)
+### Autolearn SNAT routes (preview)
 
-You can configure Azure Firewall to auto-learn both registered and private ranges every 30 minutes. For information, see [Azure Firewall SNAT private IP address ranges](snat-private-range.md#auto-learn-snat-routes-preview).
+You can configure Azure Firewall to autolearn both registered and private ranges every 30 minutes. For information, see [Azure Firewall SNAT private IP address ranges](snat-private-range.md#auto-learn-snat-routes-preview).
 
 ### Parallel IP Group updates (preview)
 
@@ -51,9 +51,11 @@ For more information, see [IP Groups in Azure Firewall](ip-groups.md#parallel-ip
 
 ### Private IP address DNAT rules (preview)
 
-You can now configure a firewall policy DNAT rule with the private IP address of the firewall. Previously, DNAT rules only worked with Azure Firewall public IP addresses.
-This feature enables connectivity between overlapped IP networks, which is a common scenario for organizations when onboarding new partners to their network or integrating new acquisitions.
-Another scenario where the private IP address DNAT rule can be configured is for hybrid scenarios connecting on-premises networks with the Azure cloud to enable communication between private resources with no direct routing.
+You can now configure a DNAT rule on Azure Firewall Policy with the private IP address of the Azure Firewall as the destination. Previously, DNAT rules only worked with Azure Firewall Public IP addresses.
+This capability helps with connectivity between overlapped IP networks, which is a common scenario for enterprises when onboarding new partners to their network or merging with new acquisitions.
+This is also relevant for hybrid scenarios, connecting on-premises datacenters to Azure, where DNAT bridges the gap, enabling communication between private resources over nonroutable IP addresses.
+
+For more information, see [Filter inbound Internet or intranet traffic with Azure Firewall DNAT using the Azure portal](tutorial-firewall-dnat.md).
 
 
 ## Next steps

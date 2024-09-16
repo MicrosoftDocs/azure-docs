@@ -13,9 +13,12 @@ ms.author: mbender
 
 An [inbound NAT rule](inbound-nat-rules.md) is used to forward traffic from a load balancer’s frontend to one or more instances in the backend pool. These rules provide a 1:1 mapping between the load balancer’s frontend IP address and backend instances. There are currently two versions of Inbound NAT rules, version 1 and version 2.
 
+>[!Important]
+> On September 30, 2027, Inbound NAT rules v1 will be retired. If you are currently using Inbound NAT rules v1, make sure to upgrade to  Inbound NAT rules v2 prior to the retirement date.
+
 ## NAT rule version 1 
 
-[Version 1](inbound-nat-rules.md) is the legacy approach for assigning an Azure Load Balancer’s frontend port to each backend instance. Rules are applied to the backend instance’s network interface card (NIC). For Azure Virtual Machine Scale Sets instances, inbound NAT rules are automatically created/deleted as new instances are scaled up/down.  
+[Version 1](inbound-nat-rules.md) is the legacy approach for assigning an Azure Load Balancer’s frontend port to each backend instance. Rules are applied to the backend instance’s network interface card (NIC). For Azure Virtual Machine Scale Sets (VMSS) instances, inbound NAT rules are automatically created/deleted as new instances are scaled up/down. For VMSS instanes use the `Inbound NAT Pool` property to manage Inbound NAT rules version 1. 
 
 ## NAT rule version 2 
 

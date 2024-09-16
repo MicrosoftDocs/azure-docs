@@ -1,12 +1,12 @@
 ---
 title: Register a client application for the DICOM service in Microsoft Entra ID
 description: Learn how to register a client application for the DICOM service in Microsoft Entra ID.
-author: mmitrik
+author: varunbms
 ms.service: azure-health-data-services
 ms.subservice: dicom-service
 ms.topic: tutorial
 ms.date: 09/02/2022
-ms.author: mmitrik
+ms.author: buchvarun
 ---
 
 # Register a client application for the DICOM service

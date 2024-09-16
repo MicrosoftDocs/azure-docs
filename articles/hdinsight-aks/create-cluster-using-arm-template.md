@@ -9,7 +9,10 @@ ms.date: 02/12/2024
 
 # Export cluster ARM template - Azure CLI
 
+[!INCLUDE [retirement-notice](includes/retirement-notice.md)]
 [!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
+
+
 
 This article describes how to generate an ARM template using Azure CLI. 
 

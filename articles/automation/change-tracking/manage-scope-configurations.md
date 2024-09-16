@@ -3,8 +3,8 @@ title: Limit Azure Automation Change Tracking and Inventory deployment scope
 description: This article tells how to work with scope configurations to limit the scope of a Change Tracking and Inventory deployment.
 services: automation
 ms.subservice: change-inventory-management
-ms.date: 08/31/2024
-ms.topic: conceptual
+ms.date: 09/09/2024
+ms.topic: how-to
 ms.service: azure-automation
 ---
 

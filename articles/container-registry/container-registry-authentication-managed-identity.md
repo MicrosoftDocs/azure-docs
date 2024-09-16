@@ -1,7 +1,7 @@
 ---
 title: Authenticate with managed identity
 description: Provide access to images in your private container registry by using a user-assigned or system-assigned managed Azure identity.
-ms.topic: article
+ms.topic: how-to
 ms.custom: devx-track-azurecli, devx-track-azurepowershell, linux-related-content
 author: tejaswikolli-web
 ms.service: azure-container-registry
