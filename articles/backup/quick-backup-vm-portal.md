@@ -1,7 +1,7 @@
 ---
 title: Quickstart - Back up a VM with the Azure portal by using Azure Backup
 description: In this Quickstart, learn how to create a Recovery Services vault, enable protection on an Azure VM, and back up the VM,  with the Azure portal.
-ms.date: 02/26/2024
+ms.date: 09/02/2024
 ms.topic: quickstart
 ms.devlang: azurecli
 ms.custom: mvc, mode-ui, engagement-fy24
@@ -23,6 +23,9 @@ Sign in to the [Azure portal](https://portal.azure.com).
 [!INCLUDE [backup-center.md](../../includes/backup-center.md)]
 
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
+
+>[!Important]
+>If you have [Azure Files for protection](azure-file-share-backup-overview.md), after vault creation, [configure backup for Azure Files, and then initiate an on-demand backup](backup-azure-files.md). Learn more [about the best practices for Azure Files backp](backup-azure-files.md?tabs=backup-center#best-practices).
 
 ## Apply a backup policy
 

@@ -3,8 +3,8 @@ title: Create a lab from a Windows Azure VM
 description: Learn how to create a lab in Azure Lab Services from an existing Windows-based Azure virtual machine.
 services: lab-services
 ms.service: azure-lab-services
-author: ntrogh
-ms.author: nicktrog
+author: RoseHJM
+ms.author: rosemalcolm
 ms.date: 05/17/2023
 ms.topic: how-to
 ---

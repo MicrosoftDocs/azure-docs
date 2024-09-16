@@ -15,12 +15,12 @@
     items:
       - name: Onboard and deploy a Network Function
         href: best-practices-onboard-deploy.md
-  - name: Roles and Interfaces
-    href: roles-interfaces.md
-  - name: Helm Package Requirements
-    href: helm-requirements.md
-  - name: Publisher Tenants, subscriptions, regions and preview management
-    href: publisher-resource-preview-management.md
+      - name: Roles and Interfaces
+        href: roles-interfaces.md
+      - name: Helm Package Requirements
+        href: helm-requirements.md
+      - name: Publisher Tenants, subscriptions, regions and preview management
+        href: publisher-resource-preview-management.md
   - name: Azure Operator Service Manager CLI Extension
     expanded: false
     items:
@@ -30,6 +30,20 @@
         href: concepts-cli-containerized-network-function-image-upload.md
       - name: Exposing parameters in a configuration group schema
         href: concepts-expose-parameters-configuration-group-schema.md
+  - name: Safe Upgrade Practices
+    expanded: false
+    items:
+      - name: Get Started with Safe Upgrade Practices
+        href: safe-upgrade-practices.md
+      - name: Control Upgrade Failure Behavior
+        href: safe-upgrades-nf-level-rollback.md
+  - name: Edge Registry and Private Link
+    expanded: false
+    items:
+      - name: Get Started with Cluster Registry
+        href: get-started-with-cluster-registry.md     
+      - name: Get Started with Private Link
+        href: get-started-with-private-link.md             
 - name: Quickstarts
   expanded: false
   items:

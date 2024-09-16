@@ -76,6 +76,9 @@ Refer to the steps and code below to connect to Azure Cosmos DB for Gremlin usin
 
 ### Connection string
 
+> [!WARNING]
+> Microsoft recommends that you use the most secure authentication flow available. The authentication flow described in this procedure requires a very high degree of trust in the application, and carries risks that are not present in other flows. You should only use this flow when other more secure flows, such as managed identities, aren't viable.
+
 | Default environment variable name | Description                                   | Example value                                  |
 |-----------------------------------|-----------------------------------------------|------------------------------------------------|
 | AZURE_COSMOS_HOSTNAME             | Your Gremlin Unique Resource Identifier (UFI) | `<Azure-Cosmos-DB-account>.gremlin.cosmos.azure.com`   |

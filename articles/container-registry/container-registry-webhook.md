@@ -1,7 +1,7 @@
 ---
 title: Webhooks to respond to registry actions
 description: Learn how to use webhooks to trigger events when push or pull actions occur in your registry repositories.
-ms.topic: article
+ms.topic: how-to
 ms.custom: devx-track-azurecli
 author: tejaswikolli-web
 ms.author: tejaswikolli

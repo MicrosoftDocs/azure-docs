@@ -42,7 +42,7 @@ productDirectory:
       # imageSrc should be square in ratio with no white space
       imageSrc: ./media/monitor.svg
       summary: Aggregate and analyze metrics, logs, and traces.
-      url: ../../azure-monitor/index.yml
+      url: /azure/azure-monitor/
     # Card 3
     - title: Azure Virtual Network Manager
       # imageSrc should be square in ratio with no white space
