@@ -31,7 +31,7 @@ Device client applications written in C# require the **Microsoft.Azure.Devices.C
 
 ### Using statements
 
-Add these using statements to use the device library.
+Add these `using` statements to use the device library.
 
 ```csharp
 using Microsoft.Azure.Devices;
@@ -59,7 +59,7 @@ _moduleClient = ModuleClient.CreateFromConnectionString(ModuleConnectionString,
 
 ### Retrieve a module twin and examine properties
 
-Call [GetTwinAsync](/dotnet/api/microsoft.azure.devices.client.moduleclient.gettwinasync?#microsoft-azure-devices-client-moduleclient-gettwinasync) to retrieve the current module twin properties a [Twin](/dotnet/api/microsoft.azure.devices.shared.twin?) object.
+Call [GetTwinAsync](/dotnet/api/microsoft.azure.devices.client.moduleclient.gettwinasync?#microsoft-azure-devices-client-moduleclient-gettwinasync) to retrieve the current module twin properties into a [Twin](/dotnet/api/microsoft.azure.devices.shared.twin?) object.
 
  This example retrieves and displays module twin properties.
 
@@ -162,7 +162,7 @@ registryManager = RegistryManager.CreateFromConnectionString(connectionString);
 
 Call [AddModuleAsync](/dotnet/api/microsoft.azure.devices.registrymanager.addmoduleasync) to add a module to a device.
 
-In this example, the code calls `AddModuleAsync` to add a module named **myFirstModule** to a device named **myFirstDevice**. if the module already exists, the code calls [GetModuleAsync](/dotnet/api/microsoft.azure.devices.registrymanager.getmoduleasync) to fetch the module data into a [Module](/dotnet/api/microsoft.azure.devices.shared.module) object.
+In this example, the code calls `AddModuleAsync` to add a module named **myFirstModule** to a device named **myFirstDevice**. if the module already exists, the code calls [GetModuleAsync](/dotnet/api/microsoft.azure.devices.registrymanager.getmoduleasync) to fetch the module data into a [Module](/dotnet/api/microsoft.azure.devices.module) object.
 
 ```csharp
 const string deviceID = "myFirstDevice";
@@ -186,7 +186,7 @@ Console.WriteLine("Generated module key: {0}", module.Authentication.SymmetricKe
 
 ### Read and update module fields
 
- Call [GetModuleAsync](/dotnet/api/microsoft.azure.devices.registrymanager.getmoduleasync) to retrieve current module twin fields into a [Module](/dotnet/api/microsoft.azure.devices.shared.module) object.
+ Call [GetModuleAsync](/dotnet/api/microsoft.azure.devices.registrymanager.getmoduleasync) to retrieve current module twin fields into a [Module](/dotnet/api/microsoft.azure.devices.module) object.
 
 The `Module` class includes [properties](/dotnet/api/microsoft.azure.devices.shared.twin?&#properties) that correspond to each section of a module. Use the `Module` class properties to view and update module twin fields. You can use the `Module` object properties to update multiple fields before writing the updates to the device using `UpdateModuleAsync`.
 
