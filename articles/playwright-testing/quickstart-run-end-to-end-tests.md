@@ -113,7 +113,10 @@ You've now prepared the configuration for running your Playwright tests in the c
 
 ### Run a single test at scale
 
-With Microsoft Playwright Testing, you get charged based on the number of total test minutes and number of test results published. If you're a first-time user or [getting started with a free trial](./how-to-try-playwright-testing-free.md), you might start with running a single test at scale instead of your full test suite to avoid exhausting your free test minutes.
+With Microsoft Playwright Testing, you get charged based on the number of total test minutes and number of test results published. If you're a first-time user or [getting started with a free trial](./how-to-try-playwright-testing-free.md), you might start with running a single test at scale instead of your full test suite to avoid exhausting your free trial limits.
+
+> [!NOTE]
+> Reporting feature will be enabled by default for existing workspaces. This is being rolled out in stages and will take a few days. To avoid failures, confirm that `Rich diagnostics using reporting` setting is ON for your workspace before proceeding. See, [Enable reporting for workspace](./how-to-use-service-features.md#manage-feature-for-the-workspace).
 
 After you validate that the test runs successfully, you can gradually increase the test load by running more tests with the service.
 
@@ -249,6 +252,8 @@ The test run contains the CI information, test run status, workers used, duratio
 > [!TIP]
 > You can use Microsoft Playwright Testing service features independently. You can publish test results to the portal without using the cloud-hosted browsers feature and you can also use only cloud-hosted browsers to expedite your test suite without publishing test results. 
 
+> [!NOTE]
+> The test results and artifacts that you publish are retained on the service for 90 days. After that, they are automatically deleted.  
 
 ## Optimize parallel worker configuration
 
