@@ -8,8 +8,6 @@ ai-usage: ai-assisted
 ---
 
 > [!NOTE]
-> While Azure DevTest Labs is a powerful tool for managing development and testing environments, organizations might prefer Azure Deployment Environments over Azure DevTest Labs due to it's ability to ensure consistency and compliance with organizational policies. Deployment environments offer built-in scalability, enhanced security features, and streamlined resource management, making it easier to configure and provision resources automatically. This minimizes manual setup time and errors, allowing developers to focus on innovation and coding.
->
-> Azure Deployment Environments supports collaborative workflows, facilitating seamless teamwork across development, testing, and operations teams. It's flexibility and customization options enable organizations to tailor environments to specific needs, providing a more personalized and efficient experience compared to DevTest Labs. Overall, these advantages help accelerate development processes and enhance productivity, making Azure Deployment Environments a robust choice for modern cloud infrastructure.
+> Use Azure Deployment Environments (ADE) instead of Azure DevTest Labs to ensure consistency and compliance with your organization's policies. ADE offers built-in scalability and enhanced security features. ADE environments make resource management easier, reducing manual setup time and errors, so developers can focus on innovation. They also support teamwork across development, testing, and operations teams. With more flexibility and customization options, ADE provides a more efficient and personalized experience, speeding up development and boosting productivity.
 > 
 > To learn more about Azure Deployment Environments, see [Azure Deployment Environments documentation](../../deployment-environments/index.yml).
