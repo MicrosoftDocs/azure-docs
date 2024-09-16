@@ -1,6 +1,6 @@
 ---
-title: Manage network function operation extension
-description: Safely install or update the Azure Operator Service Manager network function operator extension.
+title: Install network function operation extension
+description: Safely install the Azure Operator Service Manager network function operator extension.
 author: msftadam
 ms.author: adamdor
 ms.date: 09/16/2024
@@ -8,7 +8,7 @@ ms.topic: how-to
 ms.service: azure-operator-service-manager
 ---
 
-# Manage network function operator extension
+# Install network function operator extension
 
 ## Overview 
 This article guides user installation of the Azure Operator Service Manager (AOSM) network function operator (NFO) extension. This kubernetes cluster extension is used as part of the AOSM service offering to manage container based workloads hosted by the Azure Operator Nexus platform.
