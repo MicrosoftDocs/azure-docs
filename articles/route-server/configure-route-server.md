@@ -81,6 +81,8 @@ In this section, you learn how to add a BGP peering to your route server to peer
 
     :::image type="content" source="./media/configure-route-server/route-server-overview.png" alt-text="Screenshot that shows the Overview page of a route server. " lightbox="./media/configure-route-server/route-server-overview.png":::
 
+    [!INCLUDE [NVA peering note](../../includes/route-server-note-nva-peering.md)]
+
 # [**PowerShell**](#tab/powershell)
 
 Use [Add-AzRouteServerPeer](/powershell/module/az.network/add-azrouteserverpeer) cmdlet to add a new peer to the route server.
@@ -108,6 +110,8 @@ Get-AzRouteServer -ResourceGroupName 'myResourceGroup' -RouteServerName 'myRoute
 | `-ResourceGroupName` | The resource group name of your route server. |
 | `-RouteServerName` | The route server name. You need this parameter when there are more than one route server in the same resource group. |
 
+[!INCLUDE [NVA peering note](../../includes/route-server-note-nva-peering.md)]
+
 # [**Azure CLI**](#tab/cli)
 
 Use [az network routeserver peering create](/cli/azure/network/routeserver/peering#az-network-routeserver-peering-create) command to add a new peer to the route server.
@@ -134,6 +138,8 @@ az network routeserver show --name 'myRouteServer' --resource-group 'myResourceG
 | ----- | ----- |
 | `--name` | The route server name. |
 | `--resource-group` | The resource group name of your route server. |
+
+[!INCLUDE [NVA peering note](../../includes/route-server-note-nva-peering.md)]
 
 ---
 
