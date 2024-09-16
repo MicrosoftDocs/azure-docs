@@ -1,6 +1,6 @@
 ---
-title: Azure API Management - available regions
-description: Regional availability of API Management features and tiers. 
+title: Azure API Management - Availability of v2 tiers and workspace gateways
+description: Availability of API Management v2 tiers and workspace gateways in Azure regions. This information supplements product availability by region. 
 services: api-management
 author: dlepow
  
@@ -11,49 +11,49 @@ ms.author: danlep
 ms.custom: references_regions
 ---
 
-# Azure API Management - region availability and v2 tiers
+# Azure API Management - Availability of v2 tiers and workspace gateways
 
-[!INCLUDE [api-management-availability-basicv2-standardv2-premiumv2](../../includes/api-management-availability-basicv2-standardv2-premiumv2.md)]
+[!INCLUDE [api-management-availability-basicv2-standardv2-premium-premiumv2](../../includes/api-management-availability-basicv2-standardv2-premium-premiumv2.md)]
 
-For classic tiers see [Azure regional availability](https://azure.microsoft.com/global-infrastructure/services/).
-
-
-## Supported regions
-
-Here's a list
+API Management [v2 tiers](v2-service-tiers-overview.md) and API Management [workspace gateways](workspaces-overview.md#workspace-gateway) are available in a subset of the regions where the classic tiers are available. For information about the classic tiers, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/).
 
 
-| Region | Basic v2 | Standard v2 | Premium v2 | Workspace gateways | 
+## Supported regions for v2 tiers and workspace gateways
+
+This following table shows the regions where the API Management v2 tiers and API Management workspace gateways are available. This information is updated regularly. 
+
+
+| Region | Basic v2 | Standard v2 | Premium v2 (preview) | Workspace gateways | 
 |-----|:---:|:---:|:---:|:---:|
 | Australia Central | ✅ | ✅ | | |
-| Australia East | ✅ | ✅ | ✅ | |
+| Australia East | ✅ | ✅ | ✅ | ✅ |
 | Australia Southeast | ✅ | ✅ | | |
 | Brazil South | ✅ | ✅ | ✅ |  |
 | Central India  | ✅ | ✅ | |  |
 | Central US  | |  | ✅ |  |
-| East US 2 | ✅ | ✅ | ✅ |  |
-| East Asia | ✅ | ✅ | ✅ |  |
-| France Central  | ✅ | ✅ | ✅ |  |
+| East US 2 | ✅ | ✅ | ✅ | ✅ |
+| East Asia | ✅ | ✅ | ✅ | ✅ |
+| France Central  | ✅ | ✅ | ✅ | ✅ |
 | Germany West Central  | ✅ | ✅ | ✅ |  |
 | Korea Central | ✅ | ✅ | ✅ | |
-| Japan East | ✅ | ✅ | ✅ | |
-| North Central US | ✅ | ✅ |  |  |
-| North Europe | ✅ | ✅ | | |
+| Japan East | ✅ | ✅ | ✅ | ✅ |
+| North Central US | ✅ | ✅ |  | ✅ |
+| North Europe | ✅ | ✅ | | ✅ |
 | Norway East | ✅ | ✅ | | |
 | South Africa North | ✅ | ✅ |  |  |
 | South Central US | ✅ | ✅ |  |  |
 | South India | ✅ | ✅ |  |  |
-| Southeast Asia | ✅ | ✅ | ✅ |  |
+| Southeast Asia | ✅ | ✅ | ✅ | ✅ |
 | Switzerland North | ✅ |✅ | | |
-| UK South | ✅  | ✅ | ✅ | |
+| UK South | ✅  | ✅ | ✅ | ✅ |
 | UK West | ✅  | ✅ | | |
 | West Europe  | ✅ | ✅ | ✅ |  |
-| West US | ✅ | ✅ | | |
+| West US | ✅ | ✅ | | ✅ |
 | West US 2 | ✅ | ✅ | | |
 
 
 ## Related content
 
-* [Azure regional availability](https://azure.microsoft.com/global-infrastructure/services/)
-* Learn more about the [v2 tiers](v2-service-tiers-overview.md)
-* Learn about [API Management pricing](https://aka.ms/apimpricing).
+Learn more about:
+
+* [API Management pricing](https://aka.ms/apimpricing)
