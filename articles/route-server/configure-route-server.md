@@ -77,7 +77,7 @@ In this section, you learn how to add a BGP peering to your route server to peer
 
     :::image type="content" source="./media/configure-route-server/peer-list.png" alt-text="Screenshot that shows the route server's peers." lightbox="./media/configure-route-server/peer-list.png":::
 
-    To complete the peering setup, you must configure the NVA using the route server's peer IPs and ASN to establish a BGP session. You can obtain this information from the Overview page of your route server:
+    To complete the peering setup, you must configure the NVA to establish a BGP session with the route server's peer IPs and ASN. You can find the route server's Peer IPs and ASN in the **Overview** page:
 
     :::image type="content" source="./media/configure-route-server/route-server-overview.png" alt-text="Screenshot that shows the Overview page of a route server. " lightbox="./media/configure-route-server/route-server-overview.png":::
 
@@ -97,7 +97,7 @@ Add-AzRouteServerPeer -PeerName 'myNVA' -PeerAsn '65001' -PeerIp '10.0.0.4' -Res
 | `-ResourceGroupName` | The resource group name of your route server. |
 | `-RouteServerName` | The route server name. This parameter is required when there are more than one route server in the same resource group. |
 
-After you successfully add the peer NVA, you must configure the NVA using the route server's private IPs and ASN to establish a BGP session. Use [Get-AzRouteServer](/powershell/module/az.network/get-azrouteserver) cmdlet to obtain this information:
+After you successfully add the peer NVA, you must configure the NVA to establish a BGP session with the route server's peer IPs and ASN. Use [Get-AzRouteServer](/powershell/module/az.network/get-azrouteserver) cmdlet to find the route server's peer IPs and ASN:
 
 ```azurepowershell-interactive
 Get-AzRouteServer -ResourceGroupName 'myResourceGroup' -RouteServerName 'myRouteServer'
@@ -124,7 +124,7 @@ az network routeserver peering create --name 'myNVA' --peer-asn '65001' --peer-i
 | `--resource-group` | The resource group name of your route server. |
 | `--routeserver` | The route server name. |
 
-After you successfully add the peer NVA, you must configure the NVA using the route server's private IPs and ASN to establish a BGP session. Use [az network routeserver show](/cli/azure/network/routeserver#az-network-routeserver-show) command to obtain this information:
+After you successfully add the peer NVA, you must configure the NVA to establish a BGP session with the route server's peer IPs and ASN. Use [az network routeserver show](/cli/azure/network/routeserver#az-network-routeserver-show) command to find the route server's peer IPs and ASN:
 
 ```azurecli-interactive
 az network routeserver show --name 'myRouteServer' --resource-group 'myResourceGroup' 
