@@ -16,6 +16,8 @@ Features released earlier than nine months ago are described in the [What's new 
 > Noted features listed below are in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include other legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
 
+[!INCLUDE [defender-iot-defender-reference](../includes/defender-for-iot-defender-reference.md)]
+
 ## September 2024
 
 |Service area  |Updates  |
@@ -25,8 +27,6 @@ Features released earlier than nine months ago are described in the [What's new 
 ### Use wildcards allowlist domain names
 
 When adding domain names to the FQDN allowlist use the `*` wildcard to include all sub-domains. For more information, see [allow internet connections on an OT network](how-to-accelerate-alert-incident-response.md#allow-internet-connections-on-an-ot-network).
-
-[!INCLUDE [defender-iot-defender-reference](../includes/defender-for-iot-defender-reference.md)]
 
 ## July 2024
 
