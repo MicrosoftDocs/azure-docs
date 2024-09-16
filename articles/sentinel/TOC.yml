@@ -476,8 +476,8 @@
       href: data-connectors/crowdstrike-falcon-data-replicator.md
     - name: Crowdstrike Falcon Data Replicator V2 (using Azure Functions)
       href: data-connectors/crowdstrike-falcon-data-replicator-v2.md
-    - name: Cyber Blind Spot Integration (using Azure Functions)
-      href: data-connectors/cyber-blind-spot-integration.md
+    - name: Cyber Blind Spot Intergration (using Azure Functions)
+      href: data-connectors/cyber-blind-spot-intergration.md
     - name: CyberArkAudit (using Azure Functions)
       href: data-connectors/cyberarkaudit.md
     - name: CyberArkEPM (using Azure Functions)
@@ -516,8 +516,8 @@
       href: data-connectors/eset-protect.md
     - name: Exabeam Advanced Analytics
       href: data-connectors/exabeam-advanced-analytics.md
-    - name: Exchange Security Insights On-Premises Collector
-      href: data-connectors/exchange-security-insights-on-premises-collector.md
+    - name: Exchange Security Insights On-Premise Collector
+      href: data-connectors/exchange-security-insights-on-premise-collector.md
     - name: Exchange Security Insights Online Collector (using Azure Functions)
       href: data-connectors/exchange-security-insights-online-collector.md
     - name: F5 BIG-IP
@@ -624,7 +624,7 @@
       href: data-connectors/microsoft-entra-id-protection.md
     - name: Microsoft Exchange Logs and Events
       href: data-connectors/microsoft-exchange-logs-and-events.md
-    - name: Microsoft Power BI
+    - name: Microsoft PowerBI
       href: data-connectors/microsoft-powerbi.md
     - name: Microsoft Project
       href: data-connectors/microsoft-project.md
@@ -1179,7 +1179,7 @@
     - name: Create incident tasks using automation rules
       href: create-tasks-automation-rule.md
     - name: Export and import automation rules
-      href: import-export-automation-rules.md 
+      href: import-export-automation-rules.md
   - name: Playbooks
     items:
     - name: Overview
