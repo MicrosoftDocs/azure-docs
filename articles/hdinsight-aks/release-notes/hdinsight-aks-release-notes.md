@@ -40,14 +40,13 @@ You can refer to [What's new](../whats-new.md) page for all the details of the f
 - Cluster Version: 1.2.1
 - AKS version: 1.27
 
-### Announcement 
 
-We’re announcing retirement for HDInsight on AKS. For more information, see [Retirement: Azure HDInsight on AKS will retire on January 31, 2025](https://azure.microsoft.com/updates/v2/Azure-HDInsight-on-AKS-Retirement)
 
 ### Updated
 
-The latest API version release is as follows. 
-(https://github.com/Azure/azure-rest-api-specs/blob/main/specification/hdinsight/resource-manager/Microsoft.HDInsight/HDInsightOnAks/preview/2024-05-01-preview/hdinsight.json).
+The latest API version release is as follows.
+
+https://github.com/Azure/azure-rest-api-specs/blob/main/specification/hdinsight/resource-manager/Microsoft.HDInsight/HDInsightOnAks/preview/2024-05-01-preview/hdinsight.json.
 
 > [!IMPORTANT]
 > To take benefit of all these **latest features**, you are required to create a new cluster pool with 1.2 and cluster version 1.2.1
