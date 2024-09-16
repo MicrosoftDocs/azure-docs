@@ -56,7 +56,7 @@ az k8s-extension create --cluster-name
 * Name of the extension instance.
 
 `--resource-group -g`
-* Name of resource group. You can configure the default group using 'az configure --defaults group=<name>'.
+* Name of resource group. You can configure the default group using 'az configure --defaults group=groupname'.
   
 `--config Microsoft.CustomLocation.ServiceAccount=azurehybridnetwork-networkfunction-operator`
 * This configuration must be provided.
