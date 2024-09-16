@@ -101,6 +101,12 @@ The `facilityId`, a property of the routeset, is a required parameter when searc
 
 ## Get a wayfinding path
 
+> [!NOTE]
+>
+> **Azure Maps Creator retirement**
+>
+> The Azure Maps Creator indoor map service is now deprecated and will be retired on 9/30/25.
+
 Use the [wayfinding API] to generate a path from the routeset you created in the previous section. The wayfinding API requires a query that contains start and end points in an indoor map, along with floor level ordinal numbers. For more information about Creator wayfinding, see [wayfinding] in the concepts article.
 
 To create a wayfinding query:

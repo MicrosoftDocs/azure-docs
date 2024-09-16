@@ -4,7 +4,7 @@ titleSuffix: Azure Maps Creator
 description: This article introduces concepts that apply to Azure Maps Creator services
 author: faterceros
 ms.author: aterceros
-ms.date: 04/01/2022
+ms.date: 09/16/2024
 ms.topic: conceptual
 ms.service: azure-maps
 ms.subservice: creator
@@ -17,7 +17,7 @@ ms.subservice: creator
 >
 > **Azure Maps Creator retirement**
 >
-> The Azure Maps Creator is now deprecated and will be retired on 9/30/25.
+> The Azure Maps Creator indoor map service is now deprecated and will be retired on 9/30/25.
 
 This article introduces concepts and tools that apply to Azure Maps Creator. We recommend that you read this article before you begin to use the Azure Maps Creator API and SDK.
 
