@@ -13,20 +13,11 @@ ms.service: nat-gateway
 
 [!INCLUDE [horz-monitor-intro](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-intro.md)]
 
-You can use metrics and alerts to monitor, manage, and [troubleshoot](troubleshoot-nat.md) your NAT gateway resource. Azure NAT Gateway provides the following diagnostic capabilities:  
-
-- Multi-dimensional metrics and alerts through Azure Monitor: You can use these metrics to monitor and manage your NAT gateway and to assist you in troubleshooting issues.
-- Network Insights: Azure Monitor Insights provides you with visual tools to view, monitor, and assist you in diagnosing issues with your NAT gateway resource. Insights provide you with a topological map of your Azure setup and metrics dashboards.
-
-This diagram shows Azure NAT Gateway for outbound to the internet.
-
-:::image type="content" source="./media/nat-gateway-resource/nat-gateway-deployment.png" alt-text="Diagram of a NAT gateway resource with virtual machines.":::
-
 [!INCLUDE [horz-monitor-insights](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-insights.md)]
 
 [Azure Monitor Network Insights](../network-watcher/network-insights-overview.md) allows you to visualize your Azure infrastructure setup and to review all metrics for your NAT gateway resource from a preconfigured metrics dashboard. These visual tools help you diagnose and troubleshoot any issues with your NAT gateway resource.
 
-For more information on NAT Gateway Insights, see [Insights](nat-metrics.md#insights).
+For more information on NAT Gateway Insights, see [Network Insights](nat-metrics.md#network-insights).
 
 [!INCLUDE [horz-monitor-resource-types](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-resource-types.md)]
 For more information about the resource types for Azure NAT Gateway, see [Azure NAT Gateway monitoring data reference](monitor-nat-gateway-reference.md).
