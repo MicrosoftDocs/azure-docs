@@ -5,7 +5,7 @@ author: mbender-ms
 ms.author: mbender
 ms.service: private-link
 ms.topic: conceptual
-ms.date: 06/04/2024
+ms.date: 09/16/2024
 #CustomerIntent: As a network administrator, I want to enable diagnostic logging for Azure Network Security Perimeter, so that I can monitor and analyze the network traffic to and from my resources.
 ---
 
