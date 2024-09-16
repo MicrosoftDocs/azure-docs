@@ -135,7 +135,6 @@ This section reviews common scenarios for creating summary rules in Microsoft Se
     ```kusto
     let csl_columnmatch=(column_name: string) {
     CommonSecurityLog
-    | where TimeGenerated > startofday(ago(1d))
     | where isnotempty(column_name)
     | extend
         Date = format_datetime(TimeGenerated, "yyyy-MM-dd"),
@@ -253,7 +252,7 @@ Most of the data sources are raw logs that are noisy and have high volume, but h
 
 ## Use summary rules with auxiliary logs (sample process)
 
-This procedure describes a sample process for using summary rules with [auxiliary logs](basic-logs-use-cases.md), using a custom connection created via an AMR template to ingest CEF data from Logstash.
+This procedure describes a sample process for using summary rules with [auxiliary logs](basic-logs-use-cases.md), using a custom connection created via an ARM template to ingest CEF data from Logstash.
 
 1. Set up your custom CEF connector from Logstash:
 
@@ -287,7 +286,6 @@ This procedure describes a sample process for using summary rules with [auxiliar
         // Daily Network traffic trend Per Destination IP along with Data transfer stats 
         // Frequency - Daily - Maintain 30 day or 60 Day History. 
           Custom_CommonSecurityLog 
-          | where TimeGenerated > ago(1d) 
           | extend Day = format_datetime(TimeGenerated, "yyyy-MM-dd") 
           | summarize Count= count(), DistinctSourceIps = dcount(SourceIP), NoofByesTransferred = sum(SentBytes), NoofBytesReceived = sum(ReceivedBytes)  
           by Day,DestinationIp, DeviceVendor 
