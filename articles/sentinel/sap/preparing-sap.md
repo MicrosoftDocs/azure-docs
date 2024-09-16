@@ -5,7 +5,7 @@ description: Learn about extra preparations required in your SAP system to insta
 author: batamig
 ms.author: bagol
 ms.topic: how-to
-ms.date: 09/15/2024
+ms.date: 09/16/2024
 appliesto:
     - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
@@ -16,7 +16,8 @@ ms.collection: usx-security
 
 # Configure your SAP system for the Microsoft Sentinel solution
 
-This article describes how to prepare your environment for the installation of the SAP agent so that it can properly connect to your SAP systems. Preparation includes configuring required SAP authorizations and, optionally, deploying extra SAP change requests (CRs).
+<!--doublecheck all sap links before merging-->
+This article describes how to prepare your SAP environment for connecting to the SAP data connector agent. Preparation includes configuring required SAP authorizations and, optionally, deploying extra SAP change requests (CRs).
 
 This article is part of the second step in deploying the Microsoft Sentinel solution for SAP applications.
 
@@ -32,256 +33,58 @@ The procedures in this article are typically performed by your **SAP BASIS** tea
 
 ## Configure the Microsoft Sentinel role
 
-To allow the SAP data connector to connect to your SAP system, you must create an SAP system role specifically for this purpose. We recommend creating the role by loading the role authorizations from the [**/MSFTSEN/SENTINEL_RESPONDER**](https://aka.ms/SAP_Sentinel_Responder_Role) file.
+To allow the SAP data connector to connect to your SAP system, you must create an SAP system role specifically for this purpose. 
 
-The **/MSFTSEN/SENTINEL_RESPONDER** role includes both log retrieval and [attack disruption response actions](https://aka.ms/attack-disrupt-defender). To enable only log retrieval, without attack disruption response actions, either deploy the SAP *NPLK900271* change request (CR) on the SAP system, or load the role authorizations from the [**MSFTSEN_SENTINEL_CONNECTOR**](https://aka.ms/SAP_Sentinel_Connector_Role) file. The **/MSFTSEN/SENTINEL_CONNECTOR** role that has all the basic permissions for the data connector to operate.
+- **To include both log retrieval and [attack disruption response actions](https://aka.ms/attack-disrupt-defender)**, we recommend creating this role loading role authorizations from the [**/MSFTSEN/SENTINEL_RESPONDER**](https://aka.ms/SAP_Sentinel_Responder_Role) file.
 
-| SAP BASIS versions | Sample CR |
-| --- | --- |
-| Any version  | *NPLK900271*: [K900271.NPL](https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/CR/K900271.NPL), [R900271.NPL](https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/CR/R900271.NPL) |
+- **To include log retrieval only**, we recommend creating this role by deploying the *NPLK900271* SAP change request (CR), depending your SAP BASIS version:
 
-> [!TIP]
-> Experienced SAP administrators might choose to create the role manually and assign it the appropriate permissions. In such cases, create a role manually with the relevant authorizations required for the logs you want to ingest. For more information, see [Required ABAP authorizations](#required-abap-authorizations). The examples in this procedure use the **/MSFTSEN/SENTINEL_RESPONDER** name.
->
+    - [K900271.NPL](https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/CR/K900271.NPL)
+    - [R900271.NPL](https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/CR/R900271.NPL)
+
+    Deploy the CRs on your SAP system as needed just as you'd deploy other CRs. We strongly recommend that deploying SAP CRs is done by an experienced SAP system administrator. For more information, see the [SAP documentation](https://help.sap.com/docs/ABAP_PLATFORM_NEW/4a368c163b08418890a406d413933ba7/e15d9acae75c11d2b451006094b9ea64.html?locale=en-US&version=LATEST).
+
+    Alternately, load the role authorizations from the [**MSFTSEN_SENTINEL_CONNECTOR**](https://aka.ms/SAP_Sentinel_Connector_Role) file, which incudes all the basic permissions for the data connector to operate.
+
+    Experienced SAP administrators might choose to create the role manually and assign it the appropriate permissions. In such cases, create a role manually with the relevant authorizations required for the logs you want to ingest. For more information, see [Required ABAP authorizations](required-abap-authorizations.md). Examples in our documentation use the **/MSFTSEN/SENTINEL_RESPONDER** name.
 
 When configuring the role, we recommend that you:
 
 - Generate an active role profile for Microsoft Sentinel by running the **PFCG** transaction.
 - Use `/MSFTSEN/SENTINEL_RESPONDER` as the role name.
 
-For more information, see the [SAP documentation](https://help.sap.com/doc/saphelp_nw73ehp1/7.31.19/en-US/48/e8eb38f94cb138e10000000a114084/frameset.htm).
+ For more information, see the [SAP documentation](https://help.sap.com/doc/saphelp_nw73ehp1/7.31.19/en-US/48/e8eb38f94cb138e10000000a114084/frameset.htm) on creating roles.
 
 ### Create a user
 
-The Microsoft Sentinel solution for SAP applications requires a user account to connect to your SAP system. Use the following instructions to create a user account and assign it to the role that you created in the previous step.
-
-When creating your user:
+The Microsoft Sentinel solution for SAP applications requires a user account to connect to your SAP system. When creating your user:
 
 - Make sure to create a system user.
-- Assign the **/MSFTSEN/SENTINEL_RESPONDER** role to the user.
+- Assign the **/MSFTSEN/SENTINEL_RESPONDER** role to the user, which you'd created in the [previous step](#configure-the-microsoft-sentinel-role).
 
 For more information, see the [SAP documentation](https://help.sap.com/docs/ABAP_PLATFORM_NEW/ad77b44570314f6d8c3a8a807273084c/4cb5f7ac9cb33c94e10000000a42189c.html?version=LATEST).
-
-### Required ABAP authorizations
-
-This section lists the ABAP authorizations required to ensure that the SAP user account used by Microsoft Sentinel's SAP data connector can correctly retrieve logs from the SAP systems and run [attack disruption response actions](https://aka.ms/attack-disrupt-defender).
-
-The required authorizations are listed here by their purpose. You only need the authorizations that are listed for the kinds of logs you want to bring into Microsoft Sentinel and the attack disruption response actions you want to apply.
-
-> [!TIP]
-> To create a role with all the required authorizations, load the role authorizations from the [**/MSFTSEN/SENTINEL_RESPONDER**](https://aka.ms/SAP_Sentinel_Responder_Role) file.
->
-> Alternately, to enable only log retrieval, without attack disruption response actions, deploy the SAP *NPLK900271* CR on the SAP system to create the **/MSFTSEN/SENTINEL_CONNECTOR** role, or load the role authorizations from the [**/MSFTSEN/SENTINEL_CONNECTOR**](https://aka.ms/SAP_Sentinel_Connector_Role) file.
-
-If needed, you can [Remove the user role and any optional CR installed on your ABAP system](#remove-the-user-role-and-any-optional-cr-installed-on-your-abap-system).
-
-:::row:::
-    :::column:::
-        - [ABAP application log](#abap-application-log)
-        - [ABAP change documents log](#abap-change-documents-log)
-        - [ABAP CR log](#abap-cr-log)
-        - [ABAP DB table data log](#abap-db-table-data-log)
-        - [ABAP job log](#abap-job-log)
-        - [ABAP security audit log](#abap-security-audit-log)
-        - [ABAP spool logs](#abap-spool-logs)
-        - [ABAP workflow log](#abap-workflow-log)
-        - [All logs](#all-logs)
-    :::column-end:::
-    :::column:::
-        - [Attack disruption response actions](#attack-disruption-response-actions)
-        - [Configuration history](#configuration-history)
-        - [Optional logs, if the Microsoft Sentinel solution CR is implemented](#optional-logs-if-the-microsoft-sentinel-solution-cr-is-implemented)
-        - [SNC data](#snc-data)
-        - [User data](#user-data)
-    :::column-end:::
-:::row-end:::
-
-#### ABAP application log
-
-| Authorization object | Field | Value |
-| -------------------- | ----- | ----- |
-| S_RFC | RFC_NAME | BAPI_XBP_APPL_LOG_CONTENT_GET |
-| S_RFC | RFC_NAME | BAPI_XMI_LOGOFF |
-| S_RFC | RFC_NAME | BAPI_XMI_LOGON |
-| S_RFC | RFC_NAME | BAPI_XMI_SET_AUDITLEVEL |
-| S_TABU_NAM | TABLE | BALHDR |
-| S_XMI_PROD | EXTCOMPANY | Microsoft |
-| S_XMI_PROD | EXTPRODUCT | Azure Sentinel |
-| S_XMI_PROD | INTERFACE | XBP |
-| S_APPL_LOG | ALG_OBJECT | * |
-| S_APPL_LOG | ALG_SUBOBJ | * |
-| S_APPL_LOG | ACTVT | Display |
-
-#### ABAP change documents log
-
-| Authorization object | Field | Value |
-| -------------------- | ----- | ----- |
-| S_TABU_NAM | TABLE | CDHDR |
-| S_TABU_NAM | TABLE | CDPOS |
-
-#### ABAP CR log
-
-| Authorization object | Field | Value |
-| -------------------- | ----- | ----- |
-| S_RFC | RFC_NAME | CTS_API_READ_CHANGE_REQUEST |
-| S_TABU_NAM | TABLE | E070 |
-| S_TRANSPRT | TTYPE | * |
-| S_TRANSPRT | ACTVT | Display |
-
-#### ABAP DB table data log
-
-| Authorization object | Field | Value |
-| -------------------- | ----- | ----- |
-| S_TABU_NAM | TABLE | DBTABLOG |
-| S_TABU_NAM | TABLE | SACF_ALERT |
-| S_TABU_NAM | TABLE | SOUD |
-| S_TABU_NAM | TABLE | USR41 |
-| S_TABU_NAM | TABLE | TMSQAFILTER |
-
-#### ABAP job log
-
-| Authorization object | Field | Value |
-| -------------------- | ----- | ----- |
-| S_RFC | RFC_NAME | BAPI_XBP_JOB_JOBLOG_READ |
-| S_RFC | RFC_NAME | BAPI_XMI_LOGOFF |
-| S_RFC | RFC_NAME | BAPI_XMI_LOGON |
-| S_RFC | RFC_NAME | BAPI_XMI_SET_AUDITLEVEL |
-| S_TABU_NAM | TABLE | TBTCO |
-| S_XMI_PROD | EXTCOMPANY | Microsoft |
-| S_XMI_PROD | EXTPRODUCT | Azure Sentinel |
-| S_XMI_PROD | INTERFACE | XBP |
-
-#### ABAP security audit log
-
-| Authorization object | Field | Value |
-| -------------------- | ----- | ----- |
-| S_RFC | RFC_NAME | BAPI_USER_GET_DETAIL |
-| S_RFC | RFC_NAME | BAPI_XMI_LOGOFF |
-| S_RFC | RFC_NAME | BAPI_XMI_LOGON |
-| S_RFC | RFC_NAME | BAPI_XMI_SET_AUDITLEVEL |
-| S_RFC | RFC_NAME | BAPI_SYSTEM_MTE_GETMLHIS |
-| S_RFC | RFC_NAME | BAPI_SYSTEM_MTE_GETTREE |
-| S_RFC | RFC_NAME | BAPI_SYSTEM_MTE_GETTIDBYNAME |
-| S_RFC | RFC_NAME | BAPI_SYSTEM_MS_GETLIST |
-| S_RFC | RFC_NAME | BAPI_SYSTEM_MON_GETLIST |
-| S_RFC | RFC_NAME | BAPI_SYSTEM_MON_GETTREE |
-| S_RFC | RFC_NAME | BAPI_SYSTEM_MTE_GETPERFCURVAL |
-| S_RFC | RFC_NAME | BAPI_SYSTEM_MT_GETALERTDATA |
-| S_RFC | RFC_NAME | BAPI_SYSTEM_ALERT_ACKNOWLEDGE |
-| S_ADMI_FCD | S_ADMI_FCD | AUDD (Basis audit display auth.) |
-| S_SAL | SAL_ACTVT | SHOW_LOG (Evaluate the file-based log) |
-| S_USER_GRP | CLASS | SUPER |
-| S_USER_GRP | ACTVT | Display |
-| S_USER_GRP | CLASS | SUPER |
-| S_USER_GRP | ACTVT | Lock |
-| S_XMI_PROD | EXTCOMPANY | Microsoft |
-| S_XMI_PROD | EXTPRODUCT | Azure Sentinel |
-| S_XMI_PROD | INTERFACE | XAL |
-
-#### ABAP spool logs
-
-| Authorization object | Field | Value |
-| -------------------- | ----- | ----- |
-| S_TABU_NAM | TABLE | TSP01 |
-| S_ADMI_FCD | S_ADMI_FCD | SPOS (Use of Transaction SP01 (all systems)) |
-
-#### ABAP workflow log
-
-| Authorization object | Field | Value |
-| -------------------- | ----- | ----- |
-| S_TABU_NAM | TABLE | SWWLOGHIST |
-| S_TABU_NAM | TABLE | SWWWIHEAD |
-
-#### All logs
-
-| Authorization object | Field | Value |
-| -------------------- | ----- | ----- |
-| S_RFC | RFC_TYPE | Function Module |
-| S_RFC | RFC_NAME | /OSP/SYSTEM_TIMEZONE |
-| S_RFC | RFC_NAME | DDIF_FIELDINFO_GET |
-| S_RFC | RFC_NAME | RFCPING |
-| S_RFC | RFC_NAME | RFC_GET_FUNCTION_INTERFACE |
-| S_RFC | RFC_NAME | RFC_READ_TABLE |
-| S_RFC | RFC_NAME | RFC_SYSTEM_INFO |
-| S_RFC | RFC_NAME | SUSR_USER_AUTH_FOR_OBJ_GET |
-| S_RFC | RFC_NAME | TH_SERVER_LIST |
-| S_RFC | ACTVT | Execute |
-| S_TCODE | TCD | SM51 |
-| S_TABU_NAM | ACTVT | Display |
-| S_TABU_NAM | TABLE | T000 |
-
-#### Attack disruption response actions
-
-<a name=attack-disrupt></a>
-
-| Authorization object | Field | Value |
-| -------------------- | ----- | ----- |
-|S_RFC |RFC_TYPE |Function Module |
-|S_RFC |RFC_NAME |BAPI_USER_LOCK |
-|S_RFC |RFC_NAME |BAPI_USER_UNLOCK |
-|S_RFC |RFC_NAME |TH_DELETE_USER <br>In contrast to its name, this function doesn't delete users, but ends the active user session. |
-|S_USER_GRP |CLASS |* <br>We recommend replacing S_USER_GRP CLASS with the relevant classes in your organization that represent dialog users. |
-|S_USER_GRP |ACTVT |03 |
-|S_USER_GRP |ACTVT |05 |
-
-#### Configuration history
-
-| Authorization object | Field | Value |
-| -------------------- | ----- | ----- |
-| S_TABU_NAM | TABLE | PAHI |
-
-#### Optional logs, if the Microsoft Sentinel solution CR is implemented
-
-| Authorization object | Field | Value |
-| -------------------- | ----- | ----- |
-| S_RFC | RFC_NAME | /MSFTSEN/* |
-
-#### SNC data
-
-| Authorization object | Field | Value |
-| -------------------- | ----- | ----- |
-| S_TABU_NAM | TABLE | SNCSYSACL |
-| S_TABU_NAM | TABLE | USRACL |
-
-#### User data
-
-| Authorization object | Field | Value |
-| -------------------- | ----- | ----- |
-| S_TABU_NAM | TABLE | ADCP |
-| S_TABU_NAM | TABLE | ADR6 |
-| S_TABU_NAM | TABLE | AGR_1251 |
-| S_TABU_NAM | TABLE | AGR_AGRS |
-| S_TABU_NAM | TABLE | AGR_DEFINE |
-| S_TABU_NAM | TABLE | AGR_FLAGS |
-| S_TABU_NAM | TABLE | AGR_PROF |
-| S_TABU_NAM | TABLE | AGR_TCODES |
-| S_TABU_NAM | TABLE | AGR_USERS |
-| S_TABU_NAM | TABLE | DEVACCESS |
-| S_TABU_NAM | TABLE | USER_ADDR |
-| S_TABU_NAM | TABLE | USGRP_USER |
-| S_TABU_NAM | TABLE | USR01 |
-| S_TABU_NAM | TABLE | USR02 |
-| S_TABU_NAM | TABLE | USR05 |
-| S_TABU_NAM | TABLE | USR21 |
-| S_TABU_NAM | TABLE | USRSTAMP |
-| S_TABU_NAM | TABLE | UST04 |
 
 ## Configure SAP auditing
 
 Some installations of SAP systems might not have audit logging enabled by default. For best results in evaluating the performance and efficacy of the Microsoft Sentinel solution for SAP applications, enable auditing of your SAP system and configure the audit parameters. If you want to ingest SAP HANA DB logs, make sure to also enable auditing for SAP HANA DB.
 
-For more information, see the [SAP documentation](https://community.sap.com/t5/application-development-blog-posts/analysis-and-recommended-settings-of-the-security-audit-log-sm19-rsau/ba-p/13297094).
+For more information, see the [SAP documentation](https://community.sap.com/t5/application-development-blog-posts/analysis-and-recommended-settings-of-the-security-audit-log-sm19-rsau/ba-p/13297094) and [Collect SAP HANA audit logs in Microsoft Sentinel](collect-sap-hana-audit-logs.md).
 
-## Deploy optional CRs
+## Configure support for extra data retrieval (recommended)
 
-This section lists extra, optional SAP change requests (CRs) available for you to deploy. Deploy the CRs on your SAP system as needed just as you'd deploy other CRs. We strongly recommend that deploying SAP CRs is done by an experienced SAP system administrator.
+While this step is optional, we recommend that you deploy extra CRs from the [Microsoft Sentinel GitHub repository](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/SAP/CR) to enable the SAP data connector to retrieve the following content information from your SAP system:
 
-The following table describes the optional CRs available to deploy:
+- **DB Table** and **Spool Output** logs
+- **Client IP address information** from the security audit logs (SAP BASIS version 7.5 SP12 and higher only)
 
-|CR |Description |
-|---------|---------|
-|**NPLK900271**  |Creates and configures a sample role with the basic authorizations required to allow the SAP data connector to connect to your SAP system. Alternatively, you can load authorizations directly from a file or manually define the role according to the logs you want to ingest. <br><br>For more information, see [Required ABAP authorizations](#required-abap-authorizations). |
-|**NPLK900201** or **NPLK900202**  |[Requirements for retrieving additional information from SAP (optional)](prerequisites-for-deploying-sap-continuous-threat-monitoring.md#requirements-for-retrieving-additional-information-from-sap-optional). Select one of these CRs according to your SAP version. |
+Deploy the relevant CRs according to your SAP version:
+
+| SAP BASIS versions | Recommended CR |
+| --- | --- | --- |
+| **750 and higher** | *NPLK900202*: [K900202.NPL](https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/CR/K900202.NPL), [R900202.NPL](https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/CR/R900202.NPL) <br><br>When deploying this CR any of the following SAP versions, also deploy [2641084 - Standardized read access to data of Security Audit Log](https://launchpad.support.sap.com/#/notes/2641084): <br>- 750 SP04 to SP12<br>- 751 SP00 to SP06<br>- 752 SP00 to SP02  | 
+| **740**  | *NPLK900201*: [K900201.NPL](https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/CR/K900201.NPL), [R900201.NPL](https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/CR/R900201.NPL) |
+
+Deploy the CRs on your SAP system as needed just as you'd deploy other CRs. We strongly recommend that deploying SAP CRs is done by an experienced SAP system administrator. For more information, see the [SAP documentation](https://help.sap.com/docs/ABAP_PLATFORM_NEW/4a368c163b08418890a406d413933ba7/e15d9acae75c11d2b451006094b9ea64.html?locale=en-US&version=LATEST).
 
 For more information, see the [SAP Community](https://community.sap.com/t5/application-development-blog-posts/analysis-and-recommended-settings-of-the-security-audit-log-sm19-rsau/ba-p/13297094) and the [SAP documentation](https://help.sap.com/docs/ABAP_PLATFORM_NEW/4a368c163b08418890a406d413933ba7/e15d9acae75c11d2b451006094b9ea64.html?locale=en-US&version=LATEST).
 
@@ -293,7 +96,7 @@ The SAP PAHI table includes data on the history of the SAP system, the database,
 - [Monitoring the configuration of static SAP security parameters (Preview)](sap-solution-security-content.md#monitor-the-configuration-of-static-sap-security-parameters-preview)
 
 > [!TIP]
-> For optimal results, in your machine's *systemconfig.json* file, under the `[ABAP Table Selector]` section, enable both the `PAHI_FULL` and the `PAHI_INCREMENTAL` parameters. For more information, see [Systemconfig.json file reference](reference-systemconfig-json.md#abap-table-selector).
+> For optimal results, in your machine's *systemconfig.json* file, under the `[ABAP Table Selector]` section, enable both the `PAHI_FULL` and the `PAHI_INCREMENTAL` parameters. For more information, see [Systemconfig.json file reference](reference-systemconfig-json.md#abap-table-selector). <!--added PAHI_INCREMENTAL to reference file. is this correct? for dvir-->
 
 If the PAHI table is updated regularly, the `SAP_COLLECTOR_FOR_PERFMONITOR` job is scheduled and runs hourly. If the `SAP_COLLECTOR_FOR_PERFMONITOR` job doesn't exist, make sure to configure it as needed. For more information, see the SAP documentation: [Database Collector in Background Processing](https://help.sap.com/doc/saphelp_nw75/7.5.5/en-US/c4/3a735b505211d189550000e829fbbd/frameset.htm) and [Configuring the Data Collector](https://help.sap.com/docs/SAP_NETWEAVER_AS_ABAP_752/3364beced9d145a5ad185c89a1e04658/c43a818c505211d189550000e829fbbd.html)
 

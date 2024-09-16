@@ -26,9 +26,7 @@ Content in this article is intended for your **security**, **infrastructure**, a
 
 ## Prerequisites
 
-SAP HANA logs are sent over Syslog. Make sure that your AMA agent or your Log Analytics agent (legacy) is configured to collect Syslog files. For more information, see:
-
-For more information, see [Ingest syslog and CEF messages to Microsoft Sentinel with the Azure Monitor Agent](../connect-cef-syslog-ama.md).
+SAP HANA logs are sent over Syslog. Make sure that your AMA agent is configured to collect Syslog files. For more information, see [Ingest syslog and CEF messages to Microsoft Sentinel with the Azure Monitor Agent](../connect-cef-syslog-ama.md).
 
 ## Collect SAP HANA audit logs
 

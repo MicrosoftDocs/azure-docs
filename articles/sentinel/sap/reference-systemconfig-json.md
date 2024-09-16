@@ -294,6 +294,7 @@ The following table describes each overall section in the `systemconfig.json` fi
       "AGR_DEFINE_FULL": "<True/False>",
       "AGR_DEFINE_INCREMENTAL": "<True/False>",
       "PAHI_FULL": "<True/False>",
+      "PAHI_INCREMENTAL": "<True/False>",
       "AGR_AGRS_FULL": "<True/False>",
       "USRSTAMP_FULL": "<True/False>",
       "USRSTAMP_INCREMENTAL": "<True/False>",

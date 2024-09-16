@@ -4,7 +4,7 @@ description: Learn how to install the Microsoft Sentinel solution for SAP applic
 author: batamig
 ms.author: bagol
 ms.topic: how-to
-ms.date: 09/15/2024
+ms.date: 09/16/2024
 appliesto:
     - Microsoft Sentinel in the Azure portal
     - Microsoft Sentinel in the Microsoft Defender portal
@@ -30,23 +30,26 @@ To deploy the Microsoft Sentinel solution for SAP applications from the content 
 
 - A Microsoft Sentinel instance.
 - A defined Microsoft Sentinel workspace, and read and write permissions to the workspace. For more information, see [Roles and permissions in Microsoft Sentinel](../roles.md).
-- [A Microsoft Sentinel for SAP data connector agent set up.](deploy-data-connector-agent-container.md)
 
 Make sure that you also review the [prerequisites for deploying Microsoft Sentinel solution for SAP applications](prerequisites-for-deploying-sap-continuous-threat-monitoring.md), especially [Azure prerequisites](prerequisites-for-deploying-sap-continuous-threat-monitoring.md#azure-prerequisites).
 
-## Deploy the solution from the content hub
+## Install the solution from the content hub
 
-In the Microsoft Sentinel **Content hub**, search for the **SAP applications** solution and install it on your Microsoft Sentinel workspace. 
+Installing the Microsoft Sentinel solution for SAP applications makes the Microsoft Sentinel for SAP data connector available for you in as a Microsoft Sentinel data connector. The solution also deploys security content, such as the **SAP - System Applications and Products** workbook and SAP-related analytics rules.
 
-Installing the Microsoft Sentinel solution for SAP applications causes the Microsoft Sentinel for SAP data connector to be displayed in the Microsoft Sentinel **Data connectors** area. The solution also deploys security content, such as the **SAP - System Applications and Products** workbook and SAP-related analytics rules. You configure the data connector agent on your SAP system before starting to configure the solution components.
+This procedure describes how to configure the data connector agent on your virtual machine before starting to configure the solution components.
 
-1. In the **Content hub** solution page, select **Install** to open the **Microsoft Sentinel solution for SAP applications** page, and then select **Create**. For example:
+1. In the Microsoft Sentinel **Content hub**, search for the **SAP applications** solution and install it on your Microsoft Sentinel workspace. 
 
+1. On the **Microsoft Sentinel solution for SAP applications** page, select **Create** to define deployment settings. For example:
+1. 
     :::image type="content" source="./media/deploy-sap-security-content/sap-solution.png" alt-text="Screenshot that shows the Microsoft Sentinel solution for SAP applications solution pane." lightbox="./media/deploy-sap-security-content/sap-solution.png":::
 
-1. After you install the solution, on the **Basics** tab, under **Project details**, select the **Subscription** and **Resource group** where you want to install the solution.
+1. On the **Basics** tab, under **Project details**, select the **Subscription** and **Resource group** where you want to install the solution.
 
-    If you're working with [the Microsoft Sentinel solution for SAP applications in multiple workspaces](cross-workspace.md) (preview), under **Instance details**, select **Some of the data is on a different workspace**, and then define your target workspace, your SOC workspace, and SAP workspace. For example:
+1. Under **Instance details**, select the **Microsoft Sentinel workspace** where you want to install the solution.
+
+    If you're working with [the Microsoft Sentinel solution for SAP applications in multiple workspaces](cross-workspace.md), select **Some of the data is on a different workspace**, and then define your target workspace, your SOC workspace, and SAP workspace. For example:
 
     For example:
 
@@ -63,7 +66,7 @@ For more information, see [Discover and manage Microsoft Sentinel out-of-the-box
 
 ## View deployed content
 
-When the deployment is finished, display your new content by browsing again to the Microsoft Sentinel for SAP applications solution. Alternatively:
+When the deployment is finished, display your new content by browsing again to the Microsoft Sentinel for SAP applications solution from the **Content hub**. Alternatively:
 
 - For the [built-in SAP workbooks](sap-solution-security-content.md#built-in-workbooks), in Microsoft Sentinel, go to **Threat Management** > **Workbooks** > **Templates**.
 

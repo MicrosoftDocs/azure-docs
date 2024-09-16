@@ -59,45 +59,8 @@ We recommend that your **SAP BASIS** team verify and ensure SAP system prerequis
 | **Required software** | SAP NetWeaver RFC SDK 7.50 ([Download here](https://aka.ms/sentinel4sapsdk))<br>Make sure that you also have an SAP user account in order to access the SAP software download page. |
 | **SAP system details** | Make a note of the following SAP system details: <br>- SAP system IP address and FQDN hostname<br>- SAP system number, such as `00`<br>- SAP System ID, from the SAP NetWeaver system (for example, `NPL`) <br>- SAP client ID, such as `001` |
 | **SAP NetWeaver instance access** | The SAP data connector agent uses one of the following mechanisms to authenticate to the SAP system: <br>- SAP ABAP user/password<br>- A user with an X.509 certificate. This option requires extra configuration steps. |
-| **SAP role requirements** | To allow the SAP data connector to connect to your SAP system, you must create an SAP system role.  For more information, see [SAP role requirements](#sap-role-requirements).|
-
-### SAP role requirements
-
-We recommend creating the required system role by loading role authorizations from the [**/MSFTSEN/SENTINEL_RESPONDER**](https://aka.ms/SAP_Sentinel_Responder_Role) file, as described in the next step, [Configure SAP authorizations and deploy optional SAP change requests](preparing-sap.md).
-
-The **/MSFTSEN/SENTINEL_RESPONDER** role includes both log retrieval and [attack disruption response actions](https://aka.ms/attack-disrupt-defender). To enable only log retrieval, without attack disruption response actions, use one of the following methods:
-
-- Deploy the SAP *NPLK900271* CR on the SAP system:
-
-    - [K900271.NPL](https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/CR/K900271.NPL)
-    - [R900271.NPL](https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/CR/R900271.NPL)
-
-- Load the role authorizations from the [**MSFTSEN_SENTINEL_CONNECTOR**](https://aka.ms/SAP_Sentinel_Connector_Role) file. The **/MSFTSEN/SENTINEL_CONNECTOR** role that has all the basic permissions for the data connector to operate.
-
-Experienced SAP administrators might choose to create the role manually and assign it the appropriate permissions. In such cases, make sure to follow the recommended authorizations for each log. For more information, see:
-
-- [Required ABAP authorizations](preparing-sap.md#required-abap-authorizations)
-- [SAP documentation](https://help.sap.com/doc/saphelp_nw73ehp1/7.31.19/en-US/48/e8eb38f94cb138e10000000a114084/frameset.htm)
-
-### Requirements for retrieving additional information from SAP (optional)
-
-Deploy extra CRs from the [Microsoft Sentinel GitHub repository](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions/SAP/CR) to enable the SAP data connector to retrieve the following content information from your SAP system:
-
-- **SAP BASIS 7.5 SP12 and higher**: Client IP Address information from security audit log
-- **ANY SAP BASIS version**: DB Table logs, Spool Output log
-
-| SAP BASIS versions | Recommended CR |Notes |
-| --- | --- | --- |
-| - 750 and later | *NPLK900202*: [K900202.NPL](https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/CR/K900202.NPL), [R900202.NPL](https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/CR/R900202.NPL) | Deploy the relevant [SAP note](preparing-sap.md#deploy-optional-crs). |
-| - 740  | *NPLK900201*: [K900201.NPL](https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/CR/K900201.NPL), [R900201.NPL](https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/CR/R900201.NPL) | |
-
-If you choose to retrieve additional information with the [NPLK900202 optional CR](), ensure that the following SAP note is deployed in your SAP system, according to its version:
-
-| SAP BASIS versions | Notes |
-| --- | --- |
-| - 750 SP04 to SP12<br>- 751 SP00 to SP06<br>- 752 SP00 to SP02 | [2641084 - Standardized read access to data of Security Audit Log](https://launchpad.support.sap.com/#/notes/2641084)* |
-
-For more information, see the [SAP documentation](https://help.sap.com/docs/ABAP_PLATFORM_NEW/4a368c163b08418890a406d413933ba7/e15d9acae75c11d2b451006094b9ea64.html?locale=en-US&version=LATEST).
+| **SAP role requirements** | To allow the SAP data connector to connect to your SAP system, you must create an SAP system role. We recommend creating the required system role by deploying the SAP *NPLK900271* change request (CR). For more information, see [Configure the Microsoft Sentinel role](preparing-sap.md#configure-the-microsoft-sentinel-role).|
+| **Recommended CRs for extra support** | Deploy recommended CRs on your SAP system to retrieve extra details, such as client IP address and extra logs. For more information, see <xref>. |
 
 ## Plan your ingestion
 

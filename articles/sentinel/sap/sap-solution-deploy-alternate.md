@@ -16,11 +16,9 @@ ms.collection: usx-security
 
 # Deploy the Microsoft Sentinel for SAP data connector agent container with expert options
 
-This article provides procedures for deploying and configuring the Microsoft Sentinel for SAP data connector agent container using expert, custom, or manual configuration options.
+This article provides procedures for deploying and configuring the Microsoft Sentinel for SAP data connector agent container using expert, custom, or manual configuration options. For typical deployments we recommend that you use the [portal](deploy-data-connector-agent-container.md#deploy-the-data-connector-agent-from-the-portal-preview) instead.
 
-We typically recommend using the default process, as described in [Deploy and configure the container hosting the SAP data connector agent](deploy-data-connector-agent-container.md). 
-
-Content in this article is intended for your **SAP BASIS** teams.
+Content in this article is intended for your **SAP BASIS** teams. For more information, see [Deploy a SAP data connector agent from the command line](deploy-command-line.md).
 
 [!INCLUDE [unified-soc-preview](../includes/unified-soc-preview.md)]
 
@@ -402,89 +400,6 @@ PAHI_FULL = True
 ```
 
 For more information, see [Tables retrieved directly from SAP systems](sap-solution-log-reference.md#tables-retrieved-directly-from-sap-systems).
-
-## Deploy a data connector agent container using a configuration file
-
-Azure Key Vault is the recommended method to store your authentication credentials and configuration data. If you are prevented from using Azure Key Vault, this procedure describes how you can deploy the data connector agent container using a configuration file instead.
-
-1. Create a virtual machine on which to deploy the agent.
-
-1. Transfer the [SAP NetWeaver SDK](https://aka.ms/sap-sdk-download) to the machine on which you want to install the agent.
-
-1. Run the following commands to **download the deployment Kickstart script** from the Microsoft Sentinel GitHub repository and **mark it executable**:
-
-    ```bash
-    wget https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/sapcon-sentinel-kickstart.sh
-    chmod +x ./sapcon-sentinel-kickstart.sh
-    ```
-    
-1. **Run the script**:
-
-    ```bash
-    ./sapcon-sentinel-kickstart.sh --keymode cfgf
-    ```
-
-    The script updates the OS components, installs the Azure CLI and Docker software and other required utilities (jq, netcat, curl), and prompts you for configuration parameter values. Supply additional parameters to the script as needed to minimize the number of prompts or to customize the container deployment. For more information, see the [Kickstart script reference](reference-kickstart.md).
-
-1. **Follow the on-screen instructions** to enter the requested details and complete the deployment. When the deployment is complete, a confirmation message is displayed:
-
-    ```bash
-    The process has been successfully completed, thank you!
-    ```
-
-   Note the Docker container name in the script output. To see the list of docker containers on your VM, run:
-
-    ```bash
-    docker ps -a
-    ```
-
-    You'll use the name of the docker container in the next step.
-
-1. Deploying the SAP data connector agent requires that you grant your agent's VM identity with specific permissions to the Microsoft Sentinel workspace, using the **Microsoft Sentinel Business Applications Agent Operator** and **Reader** roles.
-
-    To run the commands in this step, you must be a resource group owner on your Microsoft Sentinel workspace. If you aren't a resource group owner on your workspace, this step can also be performed later on.
-
-    Assign the **Microsoft Sentinel Business Applications Agent Operator** and **Reader** roles to the VM's identity:
-
-    1. <a name=agent-id-file></a>Get the agent ID by running the following command, replacing the `<container_name>` placeholder with the name of the docker container that you'd created with the Kickstart script:
-
-        ```bash
-        docker inspect <container_name> | grep -oP '"SENTINEL_AGENT_GUID=\K[^"]+'
-        ```
-
-        For example, an agent ID returned might be `234fba02-3b34-4c55-8c0e-e6423ceb405b`.
-
-
-    1. Assign the **Microsoft Sentinel Business Applications Agent Operator** and **Reader** roles by running the following commands:
-
-        ```bash
-        az role assignment create --assignee-object-id <Object_ID> --role --assignee-principal-type ServicePrincipal "Microsoft Sentinel Business Applications Agent Operator" --scope /subscriptions/<SUB_ID>/resourcegroups/<RESOURCE_GROUP_NAME>/providers/microsoft.operationalinsights/workspaces/<WS_NAME>/providers/Microsoft.SecurityInsights/BusinessApplicationAgents/<AGENT_IDENTIFIER>
-
-        az role assignment create --assignee-object-id <Object_ID> --role --assignee-principal-type ServicePrincipal "Reader" --scope /subscriptions/<SUB_ID>/resourcegroups/<RESOURCE_GROUP_NAME>/providers/microsoft.operationalinsights/workspaces/<WS_NAME>/providers/Microsoft.SecurityInsights/BusinessApplicationAgents/<AGENT_IDENTIFIER>
-        ```
-
-        Replace placeholder values as follows:
-
-        |Placeholder  |Value  |
-        |---------|---------|
-        |`<OBJ_ID>`     | Your VM identity object ID. <br><br>    To find your VM identity object ID in Azure, go to **Enterprise application** > **All applications**, and select your VM or application name, depending on whether you're using a managed identity or a registered application. <br><br>Copy the value of the **Object ID** field to use with your copied command.      |
-        |`<SUB_ID>`     |    Your Microsoft Sentinel workspace subscription ID     |
-        |`<RESOURCE_GROUP_NAME>`     |  Your Microsoft Sentinel workspace resource group name       |
-        |`<WS_NAME>`     |    Your Microsoft Sentinel workspace name     |
-        |`<AGENT_IDENTIFIER>`     |   The agent ID displayed after running the command in the [previous step](#agent-id-file).      |
-
-1. Run the following command to configure the Docker container to start automatically.
-
-    ```bash
-    docker update --restart unless-stopped <container-name>
-    ```
-
-The deployment procedure generates a **systemconfig.json** file that contains the configuration details for the SAP data connector agent. The file is located in the `/sapcon-app/sapcon/config/system` directory on your VM. You can use this file to update the configuration of your SAP data connector agent.
-
-Earlier versions of the deployment script, released before June 2023, generated a **systemconfig.ini** file instead. For more information, see:
-
-- [Systemconfig.json file reference](reference-systemconfig-json.md)
-- [Systemconfig.ini file reference](reference-systemconfig.md) (legacy)
 
 ## Related content
 
