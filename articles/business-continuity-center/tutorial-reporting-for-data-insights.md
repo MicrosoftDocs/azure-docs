@@ -2,7 +2,7 @@
 title: Tutorial - Set up and view reports in Azure Business Continuity Center
 description: This tutorial describes how to set up and view reports in Azure Business Continuity Center.
 ms.topic: tutorial
-ms.date: 11/15/2023
+ms.date: 09/30/2024
 ms.service: azure-business-continuity-center
 ms.custom:
   - ignite-2023
@@ -21,23 +21,24 @@ Azure Business Continuity Center provides a reporting solution for backup and di
 - Auditing backups and restores.
 - Identifying key trends at different levels of detail.
 
-The Reporting solution in Azure Business Continuity Center uses [Azure Monitor logs and Azure workbooks](../azure-monitor/logs/log-analytics-tutorial.md). These resources enable you to gain insights into your estate that is protected with either Azure Backup or Azure Site Recovery.
+The Reporting solution in Azure Business Continuity Center uses [Azure Monitor logs and Azure workbooks](/azure/azure-monitor/logs/log-analytics-tutorial). These resources enable you to gain insights into your estate that is protected with either Azure Backup or Azure Site Recovery.
 
 ## Configure reports
 
-To set up reporting for backup and site recovery, see the following sections.
+To set up reporting for backup and site recovery, follow these steps:
 
-### Create a Log Analytics workspace or use an existing workspace
+1. Sign in to the [Azure portal](https://portal.azure.com/).
+2. [Set up a Log Analytics workspace](/azure/azure-monitor/logs/quick-create-workspace).
 
-Set up one or more Log Analytics workspaces to store your backup reporting data. The location and subscription of this Log Analytics workspace can be different from where your vaults are located or subscribed. To set up a Log Analytics workspace, see [this article](../azure-monitor/logs/quick-create-workspace.md).
+   Set up one or more Log Analytics workspaces to store your backup reporting data. The location and subscription of this Log Analytics workspace can be different from where your vaults are located or subscribed. 
 
-The data in a Log Analytics workspace is kept for *30 days* by default. If you want to see data for a longer time span, change the retention period of the Log Analytics workspace. To change the retention period, see [Configure data retention and archive policies in Azure Monitor Logs](../azure-monitor/logs/data-retention-configure.md?tabs=portal-3%2Cportal-1%2Cportal-2).
+3. To view data for a longer time span, [modify the retention period of the Log Analytics workspace](/azure/azure-monitor/logs/data-retention-configure?tabs=portal-3%2Cportal-1%2Cportal-2). The data in a Log Analytics workspace is kept for *30 days* by default.
 
-### Configure diagnostics settings for your vaults
+4. [Configure diagnostics settings for your vault](/azure/azure-monitor/essentials/diagnostic-settings).
 
-Azure Resource Manager resources, like Recovery Services vaults, record information about backup and site recovery jobs as diagnostics data.
+   Azure Resource Manager resources, like Recovery Services vaults, record information about backup and site recovery jobs as diagnostics data.
 
-To learn how to configure diagnostics settings, see [this article](../azure-monitor/essentials/diagnostic-settings.md). You can also configure diagnostics settings for your BCDR estate using the steps for [Azure Backup](../backup/backup-azure-diagnostic-events.md?tabs=recovery-services-vaults) and [Azure Site Recovery](../site-recovery/report-site-recovery.md?branch=release-abcc#configure-diagnostics-settings-for-your-vaults).
+    You can also configure diagnostics settings for your BCDR estate using the steps for [Azure Backup](../backup/backup-azure-diagnostic-events.md?tabs=recovery-services-vaults) and [Azure Site Recovery](../site-recovery/report-site-recovery.md?branch=release-abcc#configure-diagnostics-settings-for-your-vaults).
 
 >[!Note]
 >After diagnostics configuration, it takes up to *24 hours* for the initial data push to complete. Once the data migrates to the Log Analytics workspace, the data in the reports might take some time to appear because the data for the current day isn't available in the reports.
@@ -48,9 +49,12 @@ To learn how to configure diagnostics settings, see [this article](../azure-moni
 
 We recommend that you start viewing the reports two days after you configure your vaults to send data to Log Analytics.
 
-To view your reports after setting up your vault (to transfer data to Log Analytics workspace), go to **Business Continuity Center** > **Monitoring+Reporting** > **Reports**.
+To view your reports after setting up your vault (to transfer data to Log Analytics workspace), follow these steps:
 
-:::image type="content" source="./media/tutorial-reporting-for-data-insights/view-report-dashboard.png" alt-text="Screenshot shows the Reports dashboard in Azure Business Continuity Center." lightbox="./media/tutorial-reporting-for-data-insights/view-report-dashboard.png":::
+1. Sign in to the [Azure portal](https://portal.azure.com/).
+2. Go to **Business Continuity Center** > **Monitoring+Reporting** > **Reports**.
+
+     :::image type="content" source="./media/tutorial-reporting-for-data-insights/view-report-dashboard.png" alt-text="Screenshot shows the Reports dashboard in Azure Business Continuity Center." lightbox="./media/tutorial-reporting-for-data-insights/view-report-dashboard.png":::
 
 Azure Business Continuity Center provides various reports for Azure Backup and Azure Site Recovery to help fetch historical data for audit and executive purposes. 
 
@@ -61,7 +65,7 @@ Choose the required report type for [Azure Backup](../backup/configure-reports.m
 
 The reporting solution that Azure Business Continuity Center provides also includes the following capabilities:
 
-- [Customize report](../backup/configure-reports.md?tabs=recovery-services-vaults#customize-azure-backup-reports)
+- [Report customization](../backup/configure-reports.md?tabs=recovery-services-vaults#customize-azure-backup-reports)
 
 - [Export to Excel](../backup/configure-reports.md?tabs=recovery-services-vaults#export-to-excel)
 

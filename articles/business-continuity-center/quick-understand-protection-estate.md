@@ -3,14 +3,14 @@ title: Quickstart - Understand the protection estate in Azure Business Continuit
 description: Learn how to identify the resources with no protection and the ones which are protected in Azure Business Continuity Center.
 ms.topic: quickstart
 ms.service: azure-business-continuity-center
-ms.date: 05/15/2024
+ms.date: 09/30/2024
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
 
 # Quickstart: Understand the protection estate
 
-This quickstart describes how to identify the protected and unprotected resources in Azure Business Continuity Center.
+This quickstart describes how to identify the protected and unprotected resources/items in Azure Business Continuity Center.
 
 As a Business Continuity and Disaster Recovery (BCDR) administrator, safeguarding your critical resources is a crucial step in your business continuity journey. In the event of an outage, malicious attack, or operational failure, it's essential that these resources can be recovered in either the primary or secondary region to prevent data loss.
 
