@@ -438,7 +438,7 @@ You incur charges for:
 
 - **Snapshot fee**: Azure Backup for AKS protects a disk-based persistent volume by taking snapshots that are stored in the resource group in your Azure subscription. These snapshots incur snapshot storage charges. Because the snapshots aren't copied to the Backup vault, backup storage cost doesn't apply. For more information on the snapshot pricing, see [Managed Disk pricing](https://azure.microsoft.com/pricing/details/managed-disks/).
 
-- **Backup Storage fee**: Azure Backup for AKS also supports storing backups in Vault Tier. This can be achieved by defining retention rules for **vault-standard** in the backup policy, with one restore point per day elligible to be moved into the Vault. Restore points stored in the Vault Tier are charged a separate fees called Backup Storage fee as per the total data stored (in GBs) and redundancy type enable on the Backup Vault. 
+- **Backup Storage fee**: Azure Backup for AKS also supports storing backups in Vault Tier. This can be achieved by defining retention rules for **vault-standard** in the backup policy, with one restore point per day eligible to be moved into the Vault. Restore points stored in the Vault Tier are charged a separate fee called Backup Storage fee as per the total data stored (in GBs) and redundancy type enable on the Backup Vault. 
 
 
 ## Next step
