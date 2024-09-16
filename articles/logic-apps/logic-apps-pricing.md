@@ -84,7 +84,7 @@ When you create or deploy logic apps with the **Logic App (Standard)** resource 
 > [!IMPORTANT]
 > The following plans and resources are no longer available or supported with the public release of Standard 
 > logic app workflows in single-tenant Azure Logic Apps: Functions Premium plan, App Service Environment v1, 
-> Functions Premium plan, App Service Environment v1, and App Service Environment v2. The App Service Plan is only available and supported with App Service Environment v3 (ASEv3)
+> and App Service Environment v2. The App Service Plan is available and supported only with App Service Environment v3 (ASE v3).
 
 The following table summarizes how the Standard model handles metering and billing for the following components when used with a logic app and a workflow in single-tenant Azure Logic Apps:
 
