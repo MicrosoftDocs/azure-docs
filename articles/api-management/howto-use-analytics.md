@@ -21,7 +21,7 @@ Azure API Management provides analytics for your APIs so that you can analyze th
 
 ## About API analytics
 
-* API Management provides analytics using an [Azure Monitor-based dashboard](../azure-monitor/visualize/workbooks-overview.md). The dashboard aggregates data in an Azure Log Analytics workspace. 
+* API Management provides analytics using an [Azure Monitor-based dashboard](/azure/azure-monitor/visualize/workbooks-overview). The dashboard aggregates data in an Azure Log Analytics workspace. 
 
 * In the classic API Management service tiers, your API Management instance also includes *legacy built-in analytics* in the Azure portal, and analytics data can be accessed using the API Management REST API. Closely similar data is shown in the Azure Monitor-based dashboard and built-in analytics.
 
@@ -55,8 +55,9 @@ If you need to configure one, the following are brief steps to send gateway logs
 1. In the left-hand menu, under **Monitoring**, select **Diagnostic settings** > **+ Add diagnostic setting**.
 1. Enter a descriptive name for the diagnostic setting.
 1. In **Logs**, select **Logs related to ApiManagement Gateway**.
-1. In **Destination details**, select **Send to Log Analytics** and select a Log Analytics workspace in the same or a different subscription. If you need to create a workspace, see [Create a Log Analytics workspace](../azure-monitor/logs/quick-create-workspace.md).
-1. Accept defaults for other settings, or customize as needed. Select **Save**.
+1. In **Destination details**, select **Send to Log Analytics** and select a Log Analytics workspace in the same or a different subscription. If you need to create a workspace, see [Create a Log Analytics workspace](/azure/azure-monitor/logs/quick-create-workspace).
+1. Make sure **Resource specific** is selected as the destination table.
+1. Select **Save**.
 
 ### Access the dashboard
 

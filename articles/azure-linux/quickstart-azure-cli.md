@@ -1,8 +1,8 @@
 ---
 title: 'Quickstart: Deploy an Azure Linux Container Host for AKS cluster by using the Azure CLI'
 description: Learn how to quickly create an Azure Linux Container Host for AKS cluster using the Azure CLI.
-author: htaubenfeld
-ms.author: htaubenfeld
+author: suhuruli
+ms.author: suhuruli
 ms.service: microsoft-linux
 ms.custom: references_regions, devx-track-azurecli, linux-related-content
 ms.topic: quickstart
@@ -38,7 +38,7 @@ To create a resource group named *testAzureLinuxResourceGroup* in the *eastus* r
 Create a resource group using the `az group create` command.
 
 ```azurecli-interactive
-az group create --name testAzureLinuxReourceGroup --location eastus
+az group create --name testAzureLinuxResourceGroup --location eastus
 ```
 The following output resembles that your resource group was successfully created: 
 

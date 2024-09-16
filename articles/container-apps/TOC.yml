@@ -347,7 +347,7 @@
         href: java-get-started.md
         displayName: java
       - name: Get started using IntelliJ
-        href: /azure/developer/java/toolkit-for-intellij/create-container-apps-intellij
+        href: /azure/developer/java/toolkit-for-intellij/create-container-apps-intellij?toc=/azure/container-apps/toc.json&bc=/azure/container-apps/breadcrumb/toc.json
         displayName: java
       - name: Automatic memory fitting
         href: java-memory-fit.md
@@ -382,6 +382,9 @@
             displayName: java
           - name: Query managed component logs
             href: java-component-logs.md
+            displayName: java
+          - name: Create a highly available Eureka server component cluster
+            href: java-eureka-server-highly-available.md
             displayName: java
 - name: Billing & quotas
   items:

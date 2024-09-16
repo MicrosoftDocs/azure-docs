@@ -204,8 +204,8 @@ Now you can define the tags associated with the asset. To add OPC UA tags:
 
     | Node ID | Tag name | Observability mode |
     | ------- | -------- | ------------------ |
-    | ns=3;s=FastUInt10 | temperature | none |
-    | ns=3;s=FastUInt100 | Tag 10 | none |
+    | ns=3;s=FastUInt10 | temperature | None |
+    | ns=3;s=FastUInt100 | Tag 10 | None |
 
 1. Select **Manage default settings** to configure default telemetry settings for the asset. These settings apply to all the OPC UA tags that belong to the asset. You can override these settings for each tag that you add. Default telemetry settings include:
 
@@ -219,11 +219,11 @@ You can import up to 1000 OPC UA tags at a time from a CSV file:
 
 1. Create a CSV file that looks like the following example:
 
-    | NodeID              | TagName  | Sampling Interval Milliseconds | QueueSize | ObservabilityMode |
-    |---------------------|----------|--------------------------------|-----------|-------------------|
-    | ns=3;s=FastUInt1000 | Tag 1000 | 1000                           | 5         | none              |
-    | ns=3;s=FastUInt1001 | Tag 1001 | 1000                           | 5         | none              |
-    | ns=3;s=FastUInt1002 | Tag 1002 | 5000                           | 10        | none              |
+    | NodeID              | TagName  | QueueSize | ObservabilityMode | Sampling Interval Milliseconds |
+    |---------------------|----------|-----------|-------------------|--------------------------------|
+    | ns=3;s=FastUInt1000 | Tag 1000 | 5         | None              | 1000                           |
+    | ns=3;s=FastUInt1001 | Tag 1001 | 5         | None              | 1000                           |
+    | ns=3;s=FastUInt1002 | Tag 1002 | 10        | None              | 5000                           |
 
 1. Select **Add tag or CSV > Import CSV (.csv) file**. Select the CSV file you created and select **Open**. The tags defined in the CSV file are imported:
 

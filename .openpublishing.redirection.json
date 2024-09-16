@@ -1,8 +1,248 @@
 {
   "redirections": [
     {
-      "source_path": "articles/ai-studio/how-to/commitment-tier.md",
-      "redirect_url": "/azure/ai-services/commitment-tier.md",
+      "source_path": "articles/azure-app-configuration/rest-api-postman.md",
+      "redirect_url": "/previous-versions/azure/azure-app-configuration/rest-api-postman",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/azure-app-configuration/rest-api-fiddler.md",
+      "redirect_url": "/previous-versions/azure/azure-app-configuration/rest-api-fiddler",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/kinect-dk/index.yml",
+      "redirect_url": "/previous-versions/azure/kinect-dk/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/kinect-dk/about-azure-kinect-dk.md",
+      "redirect_url": "/previous-versions/azure/kinect-dk/about-azure-kinect-dk",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/kinect-dk/about-sensor-sdk.md",
+      "redirect_url": "/previous-versions/azure/kinect-dk/about-sensor-sdk",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/kinect-dk/access-data-body-frame.md",
+      "redirect_url": "/previous-versions/azure/kinect-dk/access-data-body-frame",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/kinect-dk/access-mics.md",
+      "redirect_url": "/previous-versions/azure/kinect-dk/access-mics",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/kinect-dk/add-library-to-project.md",
+      "redirect_url": "/previous-versions/azure/kinect-dk/add-library-to-project",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/kinect-dk/azure-kinect-firmware-tool.md",
+      "redirect_url": "/previous-versions/azure/kinect-dk/azure-kinect-firmware-tool",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/kinect-dk/azure-kinect-recorder.md",
+      "redirect_url": "/previous-versions/azure/kinect-dk/azure-kinect-recorder",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/kinect-dk/azure-kinect-viewer.md",
+      "redirect_url": "/previous-versions/azure/kinect-dk/azure-kinect-viewer",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/kinect-dk/body-index-map.md",
+      "redirect_url": "/previous-versions/azure/kinect-dk/body-index-map",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/kinect-dk/body-joints.md",
+      "redirect_url": "/previous-versions/azure/kinect-dk/body-joints",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/kinect-dk/body-sdk-download.md",
+      "redirect_url": "/previous-versions/azure/kinect-dk/body-sdk-download",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/kinect-dk/body-sdk-setup.md",
+      "redirect_url": "/previous-versions/azure/kinect-dk/body-sdk-setup",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/kinect-dk/build-first-app.md",
+      "redirect_url": "/previous-versions/azure/kinect-dk/build-first-app",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/kinect-dk/build-first-body-app.md",
+      "redirect_url": "/previous-versions/azure/kinect-dk/build-first-body-app",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/kinect-dk/capture-device-synchronization.md",
+      "redirect_url": "/previous-versions/azure/kinect-dk/capture-device-synchronization",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/kinect-dk/coordinate-systems.md",
+      "redirect_url": "/previous-versions/azure/kinect-dk/coordinate-systems",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/kinect-dk/depth-camera.md",
+      "redirect_url": "/previous-versions/azure/kinect-dk/depth-camera",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/kinect-dk/find-then-open-device.md",
+      "redirect_url": "/previous-versions/azure/kinect-dk/find-then-open-device",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/kinect-dk/get-body-tracking-results.md",
+      "redirect_url": "/previous-versions/azure/kinect-dk/get-body-tracking-results",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/kinect-dk/hardware-specification.md",
+      "redirect_url": "/previous-versions/azure/kinect-dk/hardware-specification",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/kinect-dk/multi-camera-sync.md",
+      "redirect_url": "/previous-versions/azure/kinect-dk/multi-camera-sync",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/kinect-dk/record-external-synchronized-units.md",
+      "redirect_url": "/previous-versions/azure/kinect-dk/record-external-synchronized-units",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/kinect-dk/record-file-format.md",
+      "redirect_url": "/previous-versions/azure/kinect-dk/record-file-format",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/kinect-dk/record-playback-api.md",
+      "redirect_url": "/previous-versions/azure/kinect-dk/record-playback-api",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/kinect-dk/record-sensor-streams-file.md",
+      "redirect_url": "/previous-versions/azure/kinect-dk/record-sensor-streams-file",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/kinect-dk/reset-azure-kinect-dk.md",
+      "redirect_url": "/previous-versions/azure/kinect-dk/reset-azure-kinect-dk",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/kinect-dk/retrieve-images.md",
+      "redirect_url": "/previous-versions/azure/kinect-dk/retrieve-images",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/kinect-dk/retrieve-imu-samples.md",
+      "redirect_url": "/previous-versions/azure/kinect-dk/retrieve-imu-samples",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/kinect-dk/sensor-sdk-download.md",
+      "redirect_url": "/previous-versions/azure/kinect-dk/sensor-sdk-download",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/kinect-dk/set-up-azure-kinect-dk.md",
+      "redirect_url": "/previous-versions/azure/kinect-dk/set-up-azure-kinect-dk",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/kinect-dk/support.md",
+      "redirect_url": "/previous-versions/azure/kinect-dk/support",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/kinect-dk/system-requirements.md",
+      "redirect_url": "/previous-versions/azure/kinect-dk/system-requirements",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/kinect-dk/troubleshooting.md",
+      "redirect_url": "/previous-versions/azure/kinect-dk/troubleshooting",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/kinect-dk/update-device-firmware.md",
+      "redirect_url": "/previous-versions/azure/kinect-dk/update-device-firmware",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/kinect-dk/use-calibration-functions.md",
+      "redirect_url": "/previous-versions/azure/kinect-dk/use-calibration-functions",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/kinect-dk/use-image-transformation.md",
+      "redirect_url": "/previous-versions/azure/kinect-dk/use-image-transformation",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/kinect-dk/windows-comparison.md",
+      "redirect_url": "/previous-versions/azure/kinect-dk/windows-comparison",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/public-multi-access-edge-compute-mec/considerations-for-deployment.md",
+      "redirect_url": "/previous-versions/azure/public-multi-access-edge-compute-mec/considerations-for-deployment",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/public-multi-access-edge-compute-mec/index.yml",
+      "redirect_url": "/previous-versions/azure/public-multi-access-edge-compute-mec/index",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/public-multi-access-edge-compute-mec/key-concepts.md",
+      "redirect_url": "/previous-versions/azure/public-multi-access-edge-compute-mec/key-concepts",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/public-multi-access-edge-compute-mec/overview.md",
+      "redirect_url": "/previous-versions/azure/public-multi-access-edge-compute-mec/overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/public-multi-access-edge-compute-mec/partner-solutions.md",
+      "redirect_url": "/previous-versions/azure/public-multi-access-edge-compute-mec/partner-solutions",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/public-multi-access-edge-compute-mec/quickstart-create-vm-azure-resource-manager-template.md",
+      "redirect_url": "/previous-versions/azure/public-multi-access-edge-compute-mec/quickstart-create-vm-azure-resource-manager-template",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/public-multi-access-edge-compute-mec/quickstart-create-vm-cli.md",
+      "redirect_url": "/previous-versions/azure/public-multi-access-edge-compute-mec/quickstart-create-vm-cli",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/public-multi-access-edge-compute-mec/tutorial-create-vm-using-go-sdk.md",
+      "redirect_url": "/previous-versions/azure/public-multi-access-edge-compute-mec/tutorial-create-vm-using-go-sdk",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/public-multi-access-edge-compute-mec/tutorial-create-vm-using-python-sdk.md",
+      "redirect_url": "/previous-versions/azure/public-multi-access-edge-compute-mec/tutorial-create-vm-using-python-sdk",
       "redirect_document_id": false
     },
     {
@@ -48,26 +288,6 @@
     {
       "source_path": "articles/storage/file-sync/file-sync-storsimple-cost-comparison.md",
       "redirect_url": "/previous-versions/azure/storage/file-sync/file-sync-storsimple-cost-comparison",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/advisor/advisor-alerts.md",
-      "redirect_url": "/azure/advisor/advisor-alerts-portal",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/advisor/advisor-high-availability-recommendations.md",
-      "redirect_url": "/azure/advisor/advisor-reference-reliability-recommendations",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/advisor/advisor-operational-excellence-recommendations.md",
-      "redirect_url": "/azure/advisor/advisor-reference-operational-excellence-recommendations",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/advisor/advisor-performance-recommendations.md",
-      "redirect_url": "/azure/advisor/advisor-reference-performance-recommendations",
       "redirect_document_id": false
     },
     {
@@ -349,11 +569,6 @@
       "source_path_from_root": "/articles/azure-maps/tutorial-geofence.md",
       "redirect_url": "/azure/azure-maps/",
       "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/azure-monitor/logs/move-workspace-region.md",
-      "redirect_url": "/azure/operational-excellence/relocation-log-analytics",
-      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/azure-portal-overview.md",
@@ -1071,21 +1286,6 @@
       "redirect_document_id": true
     },
     {
-      "source_path_from_root": "/articles/chaos-studio/chaos-studio-tutorial-agent-based.md",
-      "redirect_url": "/azure/chaos-studio/chaos-studio-tutorial-agent-based-portal",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/chaos-studio/chaos-studio-tutorial-aks.md",
-      "redirect_url": "/azure/chaos-studio/chaos-studio-tutorial-aks-portal",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/chaos-studio/chaos-studio-tutorial-service-direct.md",
-      "redirect_url": "/azure/chaos-studio/chaos-studio-tutorial-service-direct-portal",
-      "redirect_document_id": false
-    },
-    {
       "source_path_from_root": "/articles/chef/chef-automation.md",
       "redirect_url": "/azure/developer/chef/windows-vm-configure",
       "redirect_document_id": false
@@ -1268,46 +1468,6 @@
     {
       "source_path_from_root": "/articles/cloudfoundry/use-osba-pcf-app.md",
       "redirect_url": "/azure/cloudfoundry",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/container-instances/availability-zones.md",
-      "redirect_url": "/azure/reliability/reliability-containers",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/container-instances/container-instances-jenkins.md",
-      "redirect_url": "/azure/jenkins/container-instances-jenkins",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/container-instances/container-instances-monitor.md",
-      "redirect_url": "/azure/container-instances/monitor-azure-container-instances",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/container-instances/container-instances-mounting-azure-files-volume.md",
-      "redirect_url": "/azure/container-instances/container-instances-volume-azure-files",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/container-instances/container-instances-quickstart-docker-cli.md",
-      "redirect_url": "/azure/container-instances/quickstart-docker-cli",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/container-instances/container-instances-quotas.md",
-      "redirect_url": "/azure/container-instances/container-instances-resource-and-quota-limits",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/container-instances/container-instances-region-availability.md",
-      "redirect_url": "/azure/container-instances/container-instances-resource-and-quota-limits",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/container-instances/tutorial-docker-compose.md",
-      "redirect_url": "/azure/container-instances/container-instances-multi-container-group",
       "redirect_document_id": false
     },
     {
@@ -1936,13 +2096,43 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/firewall/diagnostic-logs.md",
+      "redirect_url": "/azure/firewall/monitor-firewall",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/firewall/enable-top-ten-and-flow-trace.md",
+      "redirect_url": "/azure/firewall/monitor-firewall-reference",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/firewall/firewall-diagnostics.md",
+      "redirect_url": "/azure/firewall/monitor-firewall",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/firewall/firewall-network-rule-logging.md",
-      "redirect_url": "/azure/firewall/firewall-diagnostics",
+      "redirect_url": "/azure/firewall/monitor-firewall",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/firewall/firewall-structured-logs.md",
+      "redirect_url": "/azure/firewall/monitor-firewall",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/firewall/log-analytics-samples.md",
       "redirect_url": "/azure/firewall/firewall-workbook",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/firewall/logs-and-metrics.md",
+      "redirect_url": "/azure/firewall/monitor-firewall",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/firewall/metrics.md",
+      "redirect_url": "/azure/firewall/monitor-firewall-reference",
       "redirect_document_id": false
     },
     {
@@ -1967,7 +2157,7 @@
     },
     {
       "source_path_from_root": "/articles/firewall/tutorial-diagnostics.md",
-      "redirect_url": "/azure/firewall/firewall-diagnostics",
+      "redirect_url": "/azure/firewall/monitor-firewall",
       "redirect_document_id": false
     },
     {
@@ -2921,18 +3111,13 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/open-datasets/service/how-to-create-dataset-from-open-dataset.md",
-      "redirect_url": "/azure/open-datasets/how-to-create-azure-machine-learning-dataset-from-open-dataset",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/open-datasets/tutorial-opendatasets-automl.md",
-      "redirect_url": "/azure/machine-learning/tutorial-auto-train-models",
-      "redirect_document_id": false
-    },
-    {
       "source_path_from_root": "/articles/openshift/howto-encrypt-data-disks.md",
       "redirect_url": "/azure/openshift/howto-byok",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/openshift/howto-deploy-java-jboss-enterprise-application-platform-with-auto-redeploy.md",
+      "redirect_url": "/azure/openshift/index",
       "redirect_document_id": false
     },
     {
@@ -3696,46 +3881,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/service-fabric/service-fabric-best-practices-overview.md",
-      "redirect_url": "/azure/service-fabric/service-fabric-best-practices-security",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/service-fabric/service-fabric-diagnostics-event-generation-app.md",
-      "redirect_url": "/azure/service-fabric/monitor-service-fabric#application-monitoring",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/service-fabric/service-fabric-diagnostics-event-generation-perf.md",
-      "redirect_url": "/azure/service-fabric/monitor-service-fabric-reference#performance-metrics",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/service-fabric/service-fabric-diagnostics-overview.md",
-      "redirect_url": "/azure/service-fabric/monitor-service-fabric",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/service-fabric/service-fabric-rest-based-application-lifecycle-sample.md",
-      "redirect_url": "/rest/api/servicefabric/",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/service-fabric/upgrade-managed-disks.md",
-      "redirect_url": "/azure/service-fabric/service-fabric-scale-up-primary-node-type",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/service-health/alerts-activity-log-service-notifications.md",
-      "redirect_url": "/azure/service-health/alerts-activity-log-service-notifications-portal",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/service-health/service-health-rest.md",
-      "redirect_url": "/azure/service-health/index",
-      "redirect_document_id": false
-    },
-    {
       "source_path_from_root": "/articles/site-recovery/move-vaults-across-regions.md",
       "redirect_url": "/azure/operational-excellence/relocation-site-recovery",
       "redirect_document_id": false
@@ -4221,6 +4366,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/virtual-wan/monitoring-best-practices.md",
+      "redirect_url": "/azure/virtual-wan/monitor-virtual-wan",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/virtual-wan/scenario-route-between-hubs-firewall.md",
       "redirect_url": "/azure/virtual-wan/scenario-route-between-vnets-firewall",
       "redirect_document_id": false
@@ -4573,6 +4723,51 @@
     {
       "source_path_from_root": "/articles/virtual-network/how-to-create-encryption-cli.md",
       "redirect_url": "/azure/virtual-network/how-to-create-encryption",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/virtual-network/tutorial-filter-network-traffic-powershell.md",
+      "redirect_url": "/azure/virtual-network/tutorial-filter-network-traffic",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/virtual-network/tutorial-filter-network-traffic-cli.md",
+      "redirect_url": "/azure/virtual-network/tutorial-filter-network-traffic",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/virtual-network/virtual-network-service-endpoint-policies-portal.md",
+      "redirect_url": "/azure/virtual-network/virtual-network-service-endpoint-policies",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/virtual-network/virtual-network-service-endpoint-policies-powershell.md",
+      "redirect_url": "/azure/virtual-network/virtual-network-service-endpoint-policies",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/modeling-simulation-workbench/how-to-guide-manage-storage.md",
+      "redirect_url": "/azure/modeling-simulation-workbench/concept-storage",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/load-balancer/upgrade-basic-standard.md",
+      "redirect_url": "/azure/load-balancer/upgrade-basic-standard-with-powershell",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/load-balancer/upgrade-basicinternal-standard.md",
+      "redirect_url": "/azure/load-balancer/upgrade-basic-standard-with-powershell",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/load-balancer/load-balancer-ipv6-overview.md",
+      "redirect_url": "/azure/virtual-network/ip-services/ipv6-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-glossary-cloud-terminology.md",
+      "redirect_url": "/azure/cloud-adoption-framework/ready/considerations/fundamental-concepts",
       "redirect_document_id": false
     }
   ]

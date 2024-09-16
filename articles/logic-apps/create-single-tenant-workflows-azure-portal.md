@@ -6,7 +6,7 @@ ms.suite: integration
 ms.reviewer: estfan, azla
 ms.collection: ce-skilling-ai-copilot
 ms.topic: how-to
-ms.date: 08/09/2024
+ms.date: 08/13/2024
 # Customer intent: As a developer, I want to create my first example Standard logic app workflow that runs in single-tenant Azure Logic Apps using the Azure portal.
 ---
 
@@ -43,6 +43,8 @@ For more information, see the following documentation:
 - [Single-tenant versus multitenant](single-tenant-overview-compare.md)
 - [Create and deploy to different environments](logic-apps-overview.md#resource-environment-differences)
 
+To create a Standard logic app workflow from a prebuilt template that follows a commonly used pattern, see [Create a Standard logic app workflow from a prebuilt template](create-single-tenant-workflows-templates.md).
+
 To create and manage a Standard logic app workflow using other tools, see [Create Standard workflows with Visual Studio Code](create-single-tenant-workflows-visual-studio-code.md). With Visual Studio Code, you can develop, test, and run workflows in your *local* development environment.
 
 ## Prerequisites
@@ -74,7 +76,7 @@ To create and manage a Standard logic app workflow using other tools, see [Creat
 
 * To deploy your Standard logic app resource to an [App Service Environment v3 (ASEv3) - Windows plan only](../app-service/environment/overview.md), you have to create this environment resource first. You can then select this environment as the deployment location when you create your logic app. For more information, see [Resources types and environments](single-tenant-overview-compare.md#resource-environment-differences) and [Create an App Service Environment](../app-service/environment/creation.md).
 
-* If you enable [Application Insights](../azure-monitor/app/app-insights-overview.md) on your logic app, you can optionally enable diagnostics logging and tracing. You can do so either when you create your logic app or after deployment. You need to have an Application Insights instance, but you can [create this resource in advance](../azure-monitor/app/create-workspace-resource.md), when you create your logic app, or after deployment.
+* If you enable [Application Insights](/azure/azure-monitor/app/app-insights-overview) on your logic app, you can optionally enable diagnostics logging and tracing. You can do so either when you create your logic app or after deployment. You need to have an Application Insights instance, but you can [create this resource in advance](/azure/azure-monitor/app/create-workspace-resource), when you create your logic app, or after deployment.
 
 ## Best practices and recommendations
 
@@ -136,6 +138,13 @@ More workflows in your logic app raise the risk of longer load times, which nega
    > for all new and existing deployed Standard logic apps, even for apps that had a different value. 
    > This change shouldn't affect your workflow's runtime, and everything should work the same way 
    > as before. For more information, see the [**FUNCTIONS_WORKER_RUNTIME** app setting](edit-app-settings-host-settings.md#reference-local-settings-json).
+   >
+   > The **APP_KIND** app setting for your Standard logic app is set to **workflowApp**, but in some 
+   > scenarios, this app setting is missing, for example, due to automation using Azure Resource Manager 
+   > templates or other scenarios where the setting isn't included. If certain actions don't work, 
+   > such as the **Execute JavaScript Code** action or the workflow stops working, check that the 
+   > **APP_KIND** app setting exists and is set to to **workflowApp**. For more information, see the 
+   > [**APP_KIND** app setting](edit-app-settings-host-settings.md#reference-local-settings-json).
 
 1. When you finish, select **Next: Storage**.
 
@@ -162,7 +171,7 @@ More workflows in your logic app raise the risk of longer load times, which nega
    | **On** | Your logic app workflows can privately and securely communicate with endpoints in the virtual network. |
    | **Off** | Your logic app workflows can't communicate with endpoints in the virtual network. |
 
-1. If your creation and deployment settings support using [Application Insights](../azure-monitor/app/app-insights-overview.md), you can optionally enable diagnostics logging and tracing for your logic app workflows by following these steps:
+1. If your creation and deployment settings support using [Application Insights](/azure/azure-monitor/app/app-insights-overview), you can optionally enable diagnostics logging and tracing for your logic app workflows by following these steps:
 
    1. On the **Monitoring** tab, under **Application Insights**, set **Enable Application Insights** to **Yes**.
 
@@ -409,9 +418,9 @@ To debug a stateless workflow more easily, you can enable the run history for th
 
 ## Enable or open Application Insights after deployment
 
-During workflow run, your logic app emits telemetry along with other events. You can use this telemetry to get better visibility into how well your workflow runs and how the Logic Apps runtime works in various ways. You can monitor your workflow by using [Application Insights](../azure-monitor/app/app-insights-overview.md), which provides near real-time telemetry (live metrics). This capability can help you investigate failures and performance problems more easily when you use this data to diagnose issues, set up alerts, and build charts.
+During workflow run, your logic app emits telemetry along with other events. You can use this telemetry to get better visibility into how well your workflow runs and how the Logic Apps runtime works in various ways. You can monitor your workflow by using [Application Insights](/azure/azure-monitor/app/app-insights-overview), which provides near real-time telemetry (live metrics). This capability can help you investigate failures and performance problems more easily when you use this data to diagnose issues, set up alerts, and build charts.
 
-If your logic app's creation and deployment settings support using [Application Insights](../azure-monitor/app/app-insights-overview.md), you can optionally enable diagnostics logging and tracing for your logic app workflow. You can do so either when you create your logic app resource in the Azure portal or after deployment. You need to have an Application Insights instance, but you can create this resource either [in advance](../azure-monitor/app/create-workspace-resource.md), when you create your logic app, or after deployment. You can also optionally [enable enhanced telemetry in Application Insights for Standard workflows](enable-enhanced-telemetry-standard-workflows.md).
+If your logic app's creation and deployment settings support using [Application Insights](/azure/azure-monitor/app/app-insights-overview), you can optionally enable diagnostics logging and tracing for your logic app workflow. You can do so either when you create your logic app resource in the Azure portal or after deployment. You need to have an Application Insights instance, but you can create this resource either [in advance](/azure/azure-monitor/app/create-workspace-resource), when you create your logic app, or after deployment. You can also optionally [enable enhanced telemetry in Application Insights for Standard workflows](enable-enhanced-telemetry-standard-workflows.md).
 
 ### Enable Application Insights on a deployed logic app
 

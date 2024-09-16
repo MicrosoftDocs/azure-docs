@@ -156,10 +156,10 @@ Add two OPC UA tags on the **Add tags** page. To add each tag, select **Add tag 
 
 | Node ID            | Tag name    | Observability mode |
 | ------------------ | ----------- | ------------------ |
-| ns=3;s=FastUInt10  | temperature | none               |
-| ns=3;s=FastUInt100 | Tag 10      | none               |
+| ns=3;s=FastUInt10  | temperature | None               |
+| ns=3;s=FastUInt100 | Tag 10      | None               |
 
-The **Observability mode** is one of the following values: `none`, `gauge`, `counter`, `histogram`, or `log`.
+The **Observability mode** is one of the following values: `None`, `Gauge`, `Counter`, `Histogram`, or `Log`.
 
 You can select **Manage default settings** to change the default sampling interval and queue size for each tag.
 

@@ -156,6 +156,6 @@ Move-AzureVirtualNetwork -Commit -VirtualNetworkName $vnetName
 
 For more information on migrating resources in Azure from classic to Resource Manager, see:
 
-- [Overview of platform-supported migration of IaaS resources from classic to Azure Resource Manager](../virtual-machines/migration-classic-resource-manager-overview.md).
-- [Review the most frequently asked questions about migrating IaaS resources from classic to Azure Resource Manager](../virtual-machines/migration-classic-resource-manager-faq.yml).
-- [Planning for migration of IaaS resources from classic to Azure Resource Manager](../virtual-machines/migration-classic-resource-manager-plan.md).
+- [Overview of platform-supported migration of IaaS resources from classic to Azure Resource Manager](/azure/virtual-machines/migration-classic-resource-manager-overview).
+- [Review the most frequently asked questions about migrating IaaS resources from classic to Azure Resource Manager](/azure/virtual-machines/migration-classic-resource-manager-faq).
+- [Planning for migration of IaaS resources from classic to Azure Resource Manager](/azure/virtual-machines/migration-classic-resource-manager-plan).

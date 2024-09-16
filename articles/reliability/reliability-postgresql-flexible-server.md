@@ -6,7 +6,7 @@ author: sunilagarwal
 ms.author: anaharris
 ms.reviewer: maghan, anaharris
 ms.date: 12/21/2023
-ms.service: postgresql
+ms.service: azure-database-postgresql
 ms.topic: conceptual
 ms.custom:
   - references_regions

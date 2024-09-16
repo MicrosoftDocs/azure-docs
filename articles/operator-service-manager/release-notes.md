@@ -1,6 +1,6 @@
 ---
-title: Azure Operator Service Manager Release Notes
-description: Tracking of major and minor releases of Azure Operator Service Manager.
+title: Release notes for Azure Operator Service Manager
+description: Official documentation and tracking for major and minor releases.
 author: msftadam
 ms.author: adamdor
 ms.date: 08/14/2024
@@ -18,6 +18,8 @@ The following release notes are generally available (GA):
 
 * Release Notes for Version 2.0.2763-119
 * Release Notes for Version 2.0.2777-132
+* Release Notes for Version 2.0.2783-134
+* Release Notes for Version 2.0.2788-135
 
 ### Release Attestation
 These releases are produced compliant with Microsoft’s Secure Development Lifecycle. This lifecycle includes processes for authorizing software changes, antimalware scanning, and scanning and mitigating security bugs and vulnerabilities.
@@ -32,6 +34,7 @@ Azure Operator Service Manager is a cloud orchestration service that enables aut
 ### Release Details
 * Release Version: 2.0.2763-119
 * Release Date: July 31st, 2024
+* Is NFO update required: YES, DELETE & REINSTALL
 
 ### Release Installation
 **[BREAKING CHANGE INSTALLATION]** This is a major version release, which includes a breaking change. To safely install this version, follow the below steps:
@@ -71,7 +74,7 @@ Through Microsoft’s Secure Future Initiative (SFI), this release delivers the 
 * NFO	- Use of Cert-manager for service certificate management and rotation. This change can result in failed SNS deployments if not properly reconciled. For guidance on the impact of this change, see our [best practice recommendations](best-practices-onboard-deploy.md#considerations-if-your-nf-runs-cert-manager).
 * NFO	- Automated refresh of AOSM certificates during extension installation.
 * NFO	- A dedicated service account for the preupgrade job to safeguard against modifications to the existing network function extension service account.
-* RP - The service principles (SPs) used for deploying site & Network Function (NF) now require “Microsoft.ExtendedLocation/customLocations/read” permission. The SP's that deploy day N scenario now require "Microsoft.Kubernetes/connectedClusters/listClusterUserCredentials/action" permission. This change can result in failed SNS deployments if not properly reconciled
+* RP - The service principles (SPs) used for deploying site & Network Function (NF) now require “Microsoft.ExtendedLocation/customLocations/read” permission. The SPs that deploy day N scenario now require "Microsoft.Kubernetes/connectedClusters/listClusterUserCredentials/action" permission. This change can result in failed SNS deployments if not properly reconciled
 * CVE	- A total of five CVEs are addressed in this release.
 
 
@@ -85,7 +88,7 @@ Azure Operator Service Manager is a cloud orchestration service that enables aut
 ### Release Details
 * Release Version: 2.0.2777-132
 * Release Date: August 7, 2024
-* Is NFO update required: YES
+* Is NFO update required: YES, UPDATE ONLY
 
 ### Release Installation
 This release can be installed with as an update on top of release 2.0.2763-119.  
@@ -100,4 +103,80 @@ The following bug fixes, or other defect resolutions, are delivered with this re
 #### Security Related Updates
 
 * CVE	- A total of five CVEs are addressed in this release.
-  
+
+## Release 2.0.2783-134
+
+Document Revision 1.1
+
+### Release Summary
+Azure Operator Service Manager is a cloud orchestration service that enables automation of operator network-intensive workloads, and mission critical applications hosted on Azure Operator Nexus. Azure Operator Service Manager unifies infrastructure, software, and configuration management with a common model into a single interface, both based on trusted Azure industry standards. This August 15, 2024 Azure Operator Service Manager release includes updating the NFO version to 2.0.2783-134, the details of which are further outlined in the remainder of this document.
+
+### Release Details
+* Release Version: 2.0.2783-134
+* Release Date: August 15, 2024
+* Is NFO update required: YES, DELETE & REINSTALL
+
+### Release Installation
+**[BREAKING CHANGE INSTALLATION]** This is a mitigation version release, which includes a breaking change. To safely install this version, follow the below steps:
+* Delete all site network services and network functions from the custom location.
+* Delete custom location
+* Uninstall the network function extension.
+* Delete cert-manager CRDs using commands:
+```
+kubectl delete crd certificaterequests.cert-manager.io
+kubectl delete crd certificates.cert-manager.io
+kubectl delete crd challenges.acme.cert-manager.io
+kubectl delete crd clusterissuers.cert-manager.io
+kubectl delete crd issuers.cert-manager.io
+kubectl delete crd orders.acme.cert-manager.io
+```
+* Install the network function extension
+* Create custom location
+* Redeploy site network services and network functions to the custom location.
+
+### Release Highlights
+#### Cluster Registry & Webhook – High Availability 
+This mitigation release disables cluster registry and webhook high availability functionality, to restore ownership of cert-manager services to workload. Instead, NFO will use custom methods of certificate management. High availability, along with changes to rotate certs will be restored in a future release.
+
+### Issues Resolved in This Release 
+
+#### Bugfix Related Updates
+The following bug fixes, or other defect resolutions, are delivered with this release, for either Network Function Operator (NFO) or resource provider (RP) components.
+
+* NFO	- Cert-manager service is removed from NFO installation and operational use.
+   
+#### Security Related Updates
+
+None
+
+## Release 2.0.2788-135
+
+Document Revision 1.1
+
+### Release Summary
+Azure Operator Service Manager is a cloud orchestration service that enables automation of operator network-intensive workloads, and mission critical applications hosted on Azure Operator Nexus. Azure Operator Service Manager unifies infrastructure, software, and configuration management with a common model into a single interface, both based on trusted Azure industry standards. This August 21, 2024 Azure Operator Service Manager release includes updating the NFO version to  2.0.2788-135, the details of which are further outlined in the remainder of this document.
+
+### Release Details
+* Release Version: Version 2.0.2788-135
+* Release Date: August 21, 2024
+* Is NFO update required: YES, Update only
+* Dependency Versions: Go/1.22.4  Helm/3.15.2
+
+### Release Installation
+This release can be installed with as an update on top of release 2.0.2783-134.  
+
+### Release Highlights
+#### Cluster Registry – Garbage Collection 
+This release extends cluster registry functionality enabling a manual trigger to identify and purging of unused images in the repository. For proper operation, the user must install both this latest version and an additional helper script, which is provided by request only.
+
+### Issues Resolved in This Release 
+
+#### Bugfix Related Updates
+The following bug fixes, or other defect resolutions, are delivered with this release, for either Network Function Operator (NFO) or resource provider (RP) components.
+
+* NFO	- Adjusts AOSM pod tolerations to ensure scheduling on the appropriate nodes.
+* NFO - Adds a retry mechanism to handle concurrent updates of artifact custom resources.
+   
+#### Security Related Updates
+
+None

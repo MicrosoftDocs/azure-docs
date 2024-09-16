@@ -44,7 +44,7 @@ For instructions on how to create a lab, see [Tutorial: Set up a lab](tutorial-s
 
 ### Install desktop and RDP
 
-The Ubuntu Server 18.04 LTS image doesn't have the RDP remote desktop server installed by default. To install the packages that are needed on the template machine to connect via remote desktop protocol (RDP), follow instructions in the [Install and configure Remote Desktop to connect to a Linux VM in Azure](../virtual-machines/linux/use-remote-desktop.md) article.
+The Ubuntu Server 18.04 LTS image doesn't have the RDP remote desktop server installed by default. To install the packages that are needed on the template machine to connect via remote desktop protocol (RDP), follow instructions in the [Install and configure Remote Desktop to connect to a Linux VM in Azure](/azure/virtual-machines/linux/use-remote-desktop) article.
 
 ### Install Ruby
 
