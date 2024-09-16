@@ -476,8 +476,8 @@
       href: data-connectors/crowdstrike-falcon-data-replicator.md
     - name: Crowdstrike Falcon Data Replicator V2 (using Azure Functions)
       href: data-connectors/crowdstrike-falcon-data-replicator-v2.md
-    - name: Cyber Blind Spot Intergration (using Azure Functions)
-      href: data-connectors/cyber-blind-spot-intergration.md
+    - name: Cyber Blind Spot Integration (using Azure Functions)
+      href: data-connectors/cyber-blind-spot-integration.md
     - name: CyberArkAudit (using Azure Functions)
       href: data-connectors/cyberarkaudit.md
     - name: CyberArkEPM (using Azure Functions)
@@ -516,8 +516,8 @@
       href: data-connectors/eset-protect.md
     - name: Exabeam Advanced Analytics
       href: data-connectors/exabeam-advanced-analytics.md
-    - name: Exchange Security Insights On-Premise Collector
-      href: data-connectors/exchange-security-insights-on-premise-collector.md
+    - name: Exchange Security Insights On-Premises Collector
+      href: data-connectors/exchange-security-insights-on-premises-collector.md
     - name: Exchange Security Insights Online Collector (using Azure Functions)
       href: data-connectors/exchange-security-insights-online-collector.md
     - name: F5 BIG-IP
@@ -624,7 +624,7 @@
       href: data-connectors/microsoft-entra-id-protection.md
     - name: Microsoft Exchange Logs and Events
       href: data-connectors/microsoft-exchange-logs-and-events.md
-    - name: Microsoft PowerBI
+    - name: Microsoft Power BI
       href: data-connectors/microsoft-powerbi.md
     - name: Microsoft Project
       href: data-connectors/microsoft-project.md
@@ -1038,18 +1038,30 @@
     href: hunting.md
   - name: Conduct end-to-end hunts
     href: hunts.md
+  - name: Use advanced hunting in the Defender portal
+    items:
+    - name: Overview
+      href: /defender-xdr/advanced-hunting-microsoft-defender?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
+    - name: Build hunting queries in guided mode
+      href: /defender-xdr/advanced-hunting-query-builder?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
+    - name: Generate queries with Security Copilot
+      href: /defender-xdr/advanced-hunting-security-copilot?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
+    - name: Use shared queries
+      href: /defender-xdr/advanced-hunting-shared-queries?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
+    - name: Work with query results
+      href: /defender-xdr/advanced-hunting-query-results?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
   - name: Hunt with Kusto Query Language
     items:
     - name: Overview
       href: kusto-overview.md
     - name: Query best practices
-      href: /azure/data-explorer/kusto/query/best-practices?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
+      href: /kusto/query/best-practices?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
     - name: SQL to KQL cheat sheet
-      href: /azure/data-explorer/kusto/query/sqlcheatsheet?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
+      href: /kusto/query/sqlcheatsheet?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
     - name: Splunk to KQL cheat sheet
-      href: /azure/data-explorer/kusto/query/splunk-cheat-sheet?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
+      href: /kusto/query/splunk-cheat-sheet?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
     - name: KQL quick reference
-      href: /azure/data-explorer/kql-quick-reference?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
+      href: /kusto/query/kql-quick-reference?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
     - name: Other KQL resources
       href: kusto-resources.md 
   - name: Create custom query
@@ -1074,12 +1086,34 @@
   items:
   - name: Overview
     href: incident-investigation.md 
-  - name: Investigate incidents (New)
+  - name: Investigate incidents
     href: investigate-incidents.md
-  - name: Investigate incidents (Legacy)
-    href: investigate-cases.md
-  - name: Investigate incidents in Copilot for Security
-    href: sentinel-security-copilot.md
+  - name: Investigate in the Defender portal
+    items:
+    - name: Overview 
+      href: /defender-xdr/incidents-overview?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
+    - name: Alerts, incidents, and correlation
+      href: /defender-xdr/alerts-incidents-correlation?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
+  - name: Investigate incidents with Security Copilot
+    items: 
+    - name: Integrate Microsoft Sentinel
+      href: sentinel-security-copilot.md
+    - name: Microsoft Copilot in Microsoft Defender ## Need to verify all these feature work for Sentinel only
+      items:
+      - name: Overview
+        href: /defender-xdr/security-copilot-in-microsoft-365-defender?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
+      - name: Summarize incidents
+        href: /defender-xdr/security-copilot-m365d-incident-summary?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
+      - name: Run script analysis
+        href: /defender-xdr/security-copilot-m365d-script-analysis?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
+      - name: Analyze files
+        href: /defender-xdr/copilot-in-defender-file-analysis?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
+      - name: Generate device summaries
+        href: /defender-xdr/copilot-in-defender-device-summary?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
+      - name: Use guided responses
+        href: /defender-xdr/security-copilot-m365d-guided-response?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
+      - name: Create incident reports
+        href: /defender-xdr/security-copilot-m365d-create-incident-report?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
   - name: Tutorial - Investigate with UEBA
     href: investigate-with-ueba.md
   - name: Relate alerts to incidents
@@ -1106,6 +1140,14 @@
       href: enable-enrichment-widgets.md
     - name: Create custom entity activities
       href: customize-entity-activities.md
+    - name: Entities in the Defender portal
+      items:
+      - name: User
+        href: /defender-xdr/investigate-users?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
+      - name: Device
+        href: /defender-xdr/entity-page-device?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
+      - name: IP
+        href: /defender-xdr/entity-page-ip?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
   - name: Investigate large datasets
     items:
     - name: Overview
@@ -1137,7 +1179,7 @@
     - name: Create incident tasks using automation rules
       href: create-tasks-automation-rule.md
     - name: Export and import automation rules
-      href: import-export-automation-rules.md
+      href: import-export-automation-rules.md 
   - name: Playbooks
     items:
     - name: Overview
@@ -1165,6 +1207,8 @@
         href: automation/define-playbook-access-restrictions.md
       - name: Create and perform advanced incident tasks using playbooks
         href: automation/create-tasks-playbook.md
+  - name: Attack disruption in the Defender portal
+    href: /defender-xdr/automatic-attack-disruption?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json 
 - name: SOC optimizations
   items:
   - name: Optimize your security operations
@@ -1183,12 +1227,14 @@
       href: billing-reduce-costs.md
     - name: Switch to simplified pricing tiers
       href: enroll-simplified-pricing-tier.md
+    - name: Optimize costs with pre-purchase plan
+      href: billing-pre-purchase-plan.md
     - name: Tutorial - Configure data retention policy
       href: configure-data-retention.md
     - name: Auxiliary logs use cases
       href: basic-logs-use-cases.md
   - name: Connect Microsoft Sentinel to Microsoft Defender XDR
-    href: /defender-xdr/microsoft-sentinel-onboard??toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
+    href: /defender-xdr/microsoft-sentinel-onboard?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
   - name: Manage multiple workspaces 
     items:
     - name: Workspace manager
