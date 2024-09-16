@@ -116,7 +116,7 @@ You've now prepared the configuration for running your Playwright tests in the c
 With Microsoft Playwright Testing, you get charged based on the number of total test minutes and number of test results published. If you're a first-time user or [getting started with a free trial](./how-to-try-playwright-testing-free.md), you might start with running a single test at scale instead of your full test suite to avoid exhausting your free trial limits.
 
 > [!NOTE]
-> Reporting feature will be enabled by default for existing workspaces. This is being rolled out in stages and will take a few days. To avoid failures, confirm that `Rich diagnostics using reporting` setting is ON for your workspace before proceeding. See, [Enable reporting for workspace](./how-to-use-service-features.md#manage-feature-for-the-workspace).
+> Reporting feature is enabled by default for existing workspaces. This is being rolled out in stages and will take a few days. To avoid failures, confirm that `Rich diagnostics using reporting` setting is ON for your workspace before proceeding. See, [Enable reporting for workspace](./how-to-use-service-features.md#manage-feature-for-the-workspace).
 
 After you validate that the test runs successfully, you can gradually increase the test load by running more tests with the service.
 
