@@ -235,7 +235,7 @@ This article provides troubleshooting information to address issues you encounte
 
 **Error message**: The operation failed due to required storage feature(s) being disabled on the storage account.
 
-**Recommended action**: Enable required features for azure backup on source Storage account.
+**Recommended action**: Enable required features for Azure backup on source Storage account.
 
 ### UserErrorSelectedContainerPartOfAnotherORPolicy
 
