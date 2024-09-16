@@ -1,8 +1,8 @@
 ---
 title: Azure Linux Container Host for AKS tutorial - Migrating to Azure Linux
 description: In this Azure Linux Container Host for AKS tutorial, you learn how to migrate your nodes to Azure Linux nodes.
-author: htaubenfeld
-ms.author: htaubenfeld
+author: suhuruli
+ms.author: suhuruli
 ms.reviewer: schaffererin
 ms.service: microsoft-linux
 ms.custom: devx-track-azurecli, linux-related-content

@@ -8,6 +8,7 @@ ms.date: 03/24/2024
 
 # What's new in HDInsight on AKS? (Preview)
 
+[!INCLUDE [retirement-notice](includes/retirement-notice.md)]
 [!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
 
 In HDInsight on AKS, all cluster management and operations have native support for [service management](./service-configuration.md) on Azure portal for individual clusters. 

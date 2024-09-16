@@ -121,10 +121,10 @@ match communication_identifier.kind:
         print(f"Communication user: {communication_identifier.properties['id']}")
     case CommunicationIdentifierKind.MICROSOFT_TEAMS_USER:
         print(f"Teams user: {communication_identifier.properties['user_id']}")
+    case CommunicationIdentifierKind.MICROSOFT_TEAMS_APP:
+        print(f"Teams app: {communication_identifier.properties['app_id']}")
     case CommunicationIdentifierKind.PHONE_NUMBER:
         print(f"Phone number: {communication_identifier.properties['value']}")
-    case CommunicationIdentifierKind.MICROSOFT_BOT:
-        print(f"Microsoft bot: {communication_identifier.properties['bot_id']}")
     case CommunicationIdentifierKind.UNKNOWN:
         print(f"Unknown: {communication_identifier.raw_id}")
     case _:
