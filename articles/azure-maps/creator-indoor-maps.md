@@ -17,7 +17,7 @@ ms.subservice: creator
 >
 > **Azure Maps Creator retirement**
 >
-> The Azure Maps Creator indoor map service is now deprecated and will be retired on 9/30/25.
+> The Azure Maps Creator indoor map service is now deprecated and will be retired on 9/30/25. For more information, see [End of Life Announcement of Azure Maps Creator](https://aka.ms/AzureMapsCreatorDeprecation).
 
 This article introduces concepts and tools that apply to Azure Maps Creator. We recommend that you read this article before you begin to use the Azure Maps Creator API and SDK.
 

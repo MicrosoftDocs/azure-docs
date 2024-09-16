@@ -16,7 +16,7 @@ ms.subservice: web-sdk
 >
 > **Azure Maps Spatial service retirement**
 >
-> The Azure Maps Spatial service is now deprecated and will be retired on 9/30/25.
+> The Azure Maps Spatial service is now deprecated and will be retired on 9/30/25. For more information, see [End of Life Announcement of Azure Maps Spatial](https://aka.ms/AzureMapsSpatialDeprecation).
 
 This document contains information about new features and other changes to the Azure Maps Spatial IO Module.
 

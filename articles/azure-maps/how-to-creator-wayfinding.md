@@ -105,7 +105,7 @@ The `facilityId`, a property of the routeset, is a required parameter when searc
 >
 > **Azure Maps Creator retirement**
 >
-> The Azure Maps Creator indoor map service is now deprecated and will be retired on 9/30/25.
+> The Azure Maps Creator indoor map service is now deprecated and will be retired on 9/30/25. For more information, see [End of Life Announcement of Azure Maps Creator](https://aka.ms/AzureMapsCreatorDeprecation).
 
 Use the [wayfinding API] to generate a path from the routeset you created in the previous section. The wayfinding API requires a query that contains start and end points in an indoor map, along with floor level ordinal numbers. For more information about Creator wayfinding, see [wayfinding] in the concepts article.
 

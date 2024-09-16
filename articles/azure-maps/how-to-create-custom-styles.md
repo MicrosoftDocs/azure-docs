@@ -16,7 +16,7 @@ ms.subservice: creator
 >
 > **Azure Maps Creator retirement**
 >
-> The Azure Maps Creator indoor map service is now deprecated and will be retired on 9/30/25.
+> The Azure Maps Creator indoor map service is now deprecated and will be retired on 9/30/25. For more information, see [End of Life Announcement of Azure Maps Creator](https://aka.ms/AzureMapsCreatorDeprecation).
 
 When you create an indoor map using Azure Maps Creator, default styles are applied. This article discusses how to customize these styling elements.
 

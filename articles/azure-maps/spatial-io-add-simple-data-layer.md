@@ -17,7 +17,7 @@ ms.subservice: web-sdk
 >
 > **Azure Maps Spatial service retirement**
 >
-> The Azure Maps Spatial service is now deprecated and will be retired on 9/30/25.
+> The Azure Maps Spatial service is now deprecated and will be retired on 9/30/25. For more information, see [End of Life Announcement of Azure Maps Spatial](https://aka.ms/AzureMapsSpatialDeprecation).
 
 The spatial IO module provides a `SimpleDataLayer` class. This class makes it easy to render styled features on the map. It can even render data sets that have style properties and data sets that contain mixed geometry types. The simple data layer achieves this functionality by wrapping multiple rendering layers and using style expressions. The style expressions search for common style properties of the features inside these wrapped layers. The `atlas.io.read` function and the `atlas.io.write` function use these properties to read and write styles into a supported file format. After adding the properties to a supported file format, the file can be used for various purposes. For example, the file can be used to display the styled features on the map.
 

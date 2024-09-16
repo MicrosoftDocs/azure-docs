@@ -4,7 +4,7 @@ titleSuffix: Azure Maps
 description: Learn how to create Data Registry.
 author: faterceros
 ms.author: aterceros
-ms.date: 6/14/2023
+ms.date: 09/16/2024
 ms.topic: how-to
 ms.service: azure-maps
 ms.subservice: data-registry
@@ -16,7 +16,7 @@ ms.subservice: data-registry
 >
 > **Azure Maps Data registry service retirement**
 >
-> The Azure Maps Data registry service is now deprecated and will be retired on 9/30/25.
+> The Azure Maps Data registry service is now deprecated and will be retired on 9/30/25. For more information, see [End of Life Announcement of Azure Maps Data Registry](https://aka.ms/AzureMapsDataRegistryDeprecation).
 
 The [data registry] service enables you to register data content in an Azure Storage Account with your Azure Maps account. An example of data might include a collection of Geofences used in the Azure Maps Geofencing service. Another example is ZIP files containing drawing packages (DWG) or GeoJSON files that Azure Maps Creator uses to create or update indoor maps.
 

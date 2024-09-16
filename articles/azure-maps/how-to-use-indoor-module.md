@@ -17,7 +17,7 @@ ms.custom: devx-track-js
 >
 > **Azure Maps Creator retirement**
 >
-> The Azure Maps Creator indoor map service is now deprecated and will be retired on 9/30/25.
+> The Azure Maps Creator indoor map service is now deprecated and will be retired on 9/30/25. For more information, see [End of Life Announcement of Azure Maps Creator](https://aka.ms/AzureMapsCreatorDeprecation).
 
 The Azure Maps Web SDK includes an [Indoor Maps] module, enabling you to render indoor maps created in Azure Maps Creator services.
 

@@ -15,7 +15,7 @@ ms.subservice: web-sdk
 >
 > **Azure Maps Spatial service retirement**
 >
-> The Azure Maps Spatial service is now deprecated and will be retired on 9/30/25.
+> The Azure Maps Spatial service is now deprecated and will be retired on 9/30/25. For more information, see [End of Life Announcement of Azure Maps Spatial](https://aka.ms/AzureMapsSpatialDeprecation).
 
 This article provides specifics on the read and write support for all XML tags and Well-Known Text geometry types. It also details how the delimited spatial data is parsed in the spatial IO module.
 
