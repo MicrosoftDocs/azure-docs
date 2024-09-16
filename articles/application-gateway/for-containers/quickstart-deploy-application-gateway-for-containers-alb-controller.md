@@ -5,7 +5,7 @@ description: In this quickstart, you learn how to provision the Application Gate
 services: application-gateway
 author: greglin
 ms.service: azure-application-gateway
-ms.subservice: azure-application-gateway
+ms.subservice: appgw-for-containers
 ms.custom: devx-track-azurecli
 ms.topic: quickstart
 ms.date: 9/16/2024
