@@ -20,7 +20,7 @@ These environment variables are loaded onto your Container App during runtime.
 You can configure the Environment Variables upon the creation of the Container App or later by creating a new revision.
 
 > [!NOTE]
-> To avoid confusion, it is not recommended to duplicate environment variables. When multiple environment variables have the same name, the last one of the list takes effect.
+> To avoid confusion, it is not recommended to duplicate environment variables. When multiple environment variables have the same name, the last one in the list takes effect.
 
 ### [Azure portal](#tab/portal)
 
