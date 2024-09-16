@@ -63,50 +63,7 @@ The Premium v2 tier offers enterprise capabilities including the following:
 
 ### Supported regions
 
-#### Basic v2 and Standard v2
-
-The Basic v2 and Standard v2 tiers are available in the following regions:
-* East US 2
-* South Central US
-* North Central US
-* West US
-* West US 2
-* France Central
-* Germany West Central
-* North Europe
-* Norway East
-* West Europe
-* Switzerland North
-* UK South
-* UK West
-* South Africa North
-* Central India
-* South India
-* Brazil South
-* Australia Central
-* Australia East
-* Australia Southeast
-* East Asia
-* Japan East
-* Southeast Asia
-* Korea Central
-
-#### Premium v2
-
-The Premium v2 tier (preview) is available in the following regions:
-
-* East US 2
-* Central US
-* UK South
-* France Central
-* Germany West Central
-* West Europe
-* Brazil South
-* Korea Central
-* East Asia
-* Japan East
-* Australia East
-* Southeast Asia
+For a current list of regions where the v2 tiers are available, see [Availability of v2 tiers and workspace gateways](api-management-region-availability.md).
 
 ### Classic feature availability
 

@@ -88,21 +88,7 @@ Manage gateway capacity by manually adding or removing scale units, similar to t
 
 ### Regional availability
 
-Workspace gateways are currently available in the following regions:
-
-> [!NOTE]
-> These regions are a subset of those where API Management is available.
-
-* West US
-* North Central US
-* East US 2
-* UK South
-* France Central 
-* North Europe
-* East Asia
-* Southeast Asia
-* Australia East
-* Japan East
+For a current list of regions where workspace gateways are available, see [Availability of v2 tiers and workspace gateways](api-management-region-availability.md).
 
 ### Gateway constraints
 The following constraints currently apply to workspace gateways:
