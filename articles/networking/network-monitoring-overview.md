@@ -44,8 +44,6 @@ Performance Monitor is part of Network Performance Monitor and is network monito
 
 * Monitor the health of the network, without the need for SNMP
 
-:::image type="content" source="./media/network-monitoring-overview/npm-topology-map.png" alt-text="Diagram Network Performance Monitor topology map.":::
-
 For more information, view the following articles:
 
 * [Configure a Network Performance Monitor Solution in Azure Monitor logs](/previous-versions/azure/azure-monitor/insights/network-performance-monitor) 
