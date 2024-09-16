@@ -6,6 +6,7 @@ ms.author: johnmarc
 ms.service: azure-redhat-openshift
 ms.topic: how-to
 ms.date: 09/11/2024
+
 #Customer intent: As an ARO SRE, I need to configure multiple outbound IP addresses per ARO cluster load balancers
 ---
 # Configure multiple IP addresses per Azure Red Hat OpenShift cluster load balancer

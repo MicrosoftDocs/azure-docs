@@ -10,6 +10,10 @@ appliesto:
     - Microsoft Sentinel in the Microsoft Defender portal
 ms.collection: usx-security
 
+
+
+#Customer intent: As a SOC analyst, I want to automate incident response tasks using automation rules so that I can streamline threat management and improve operational efficiency.
+
 ---
 
 # Automate threat response in Microsoft Sentinel with automation rules

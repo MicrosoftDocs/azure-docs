@@ -3,7 +3,7 @@ title: Introduction
 description: Learn the features and benefits of Azure VMware Solution to deploy and manage VMware-based workloads in Azure.
 ms.topic: overview
 ms.service: azure-vmware
-ms.date: 6/3/2024
+ms.date: 9/16/2024
 ms.custom: engagement-fy23
 ---
 
@@ -154,7 +154,7 @@ Azure VMware Solution implements a shared responsibility model that defines dist
 
 The shared responsibility matrix table outlines the main tasks that customers and Microsoft each handle in deploying and managing both the private cloud and customer application workloads.
 
-:::image type="content" source="media/introduction/azure-introduction-shared-responsibility-matrix.png" alt-text="Screenshot of the high-level shared responsibility matrix for Azure VMware Solution." border="false" lightbox="media/introduction/azure-introduction-shared-responsibility-matrix.png":::
+:::image type="content" source="media/introduction/azure-introduction-shared-responsibility-matrix.png" alt-text="Diagram of the high-level shared responsibility matrix for Azure VMware Solution." border="false" lightbox="media/introduction/azure-introduction-shared-responsibility-matrix.png":::
 
 The following table provides a detailed list of roles and responsibilities between the customer and Microsoft, which encompasses the most frequent tasks and definitions. For further questions, contact Microsoft.
 
