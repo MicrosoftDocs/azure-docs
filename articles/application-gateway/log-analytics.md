@@ -12,7 +12,7 @@ ms.author: greglin
 
 # Use Log Analytics to examine Application Gateway Logs
 
-Once your Application Gateway is operational, you can enable logs to inspect the events that occur for your resource or with each request. For example, the Firewall logs give insight to what the Web Application Firewall (WAF) is evaluating, matching, and blocking. With Log Analytics, you can examine the data inside the firewall logs to give even more insights. For more information about log queries, see [Overview of log queries in Azure Monitor](/azure/azure-monitor/logs/log-query-overview).
+Once your Application Gateway is operational, you can enable logs to inspect the events that occur for your resource. For example, the Application Gateway Firewall logs give insight to what the Web Application Firewall (WAF) is evaluating, matching, and blocking. With Log Analytics, you can examine the data inside the firewall logs to give even more insights. For more information about log queries, see [Overview of log queries in Azure Monitor](/azure/azure-monitor/logs/log-query-overview).
 
 In this article, we will look at the Web Application Firewall (WAF) logs. You can set up [other Application Gateway logs](application-gateway-diagnostics.md) in a similar way.
 
@@ -28,18 +28,26 @@ To export your firewall logs into Log Analytics, see [Diagnostic logs for Applic
 
 ## Explore data with examples
 
-To view the raw data in the firewall log, you can run the following query:
+When using **AzureDiagnostics** table, you can view the raw data in the firewall log by running the following query:
 
 ```
 AzureDiagnostics 
 | where ResourceProvider == "MICROSOFT.NETWORK" and Category == "ApplicationGatewayFirewallLog"
+| limit 10
 ```
 
 This looks similar to the following query:
 
 :::image type="content" source="media/log-analytics/log-query.png" alt-text="Screenshot of Log Analytics query." lightbox="media/log-analytics/log-query.png":::
 
-You can drill down into the data, and plot graphs or create visualizations from here. See the following queries as a starting point:
+When using **Resource-specific** table, you can view the raw data in the firewall log by running the following query. To know about the resource-specific tables, visit [Monitoring data reference](monitor-application-gateway-reference.md#supported-resource-log-categories-for-microsoftnetworkapplicationgateways).
+
+```
+AGWFirewallLogs
+| limit 10
+```
+
+You can drill down into the data, and plot graphs or create visualizations from here. Here are some more examples of AzureDiagnostics queries that you can use.
 
 ### Matched/Blocked requests by IP
 
