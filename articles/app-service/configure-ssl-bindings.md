@@ -4,8 +4,8 @@ description: Help secure HTTPS access to your custom domain by creating a TLS/SS
 tags: buy-ssl-certificates
 ms.custom: devx-track-azurepowershell
 
-ms.topic: article
-ms.date: 08/27/2024
+ms.topic: how-to
+ms.date: 09/16/2024
 ms.reviewer: yutlin
 ms.author: msangapu
 author: msangapu-msft
