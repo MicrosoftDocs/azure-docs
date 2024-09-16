@@ -37,7 +37,7 @@ Use the `npm install` command to install the Azure Communication Services Audio 
 ```console
 @azure/communication-calling-effects@1.1.1-beta
 ```
-
+### Loading the Noise Suppression effects library
 To use `noise suppression` audio effects within the Azure Communication Calling SDK, you need the `LocalAudioStream` that is currently in the call. You need access to the `AudioEffects` API of the `LocalAudioStream` to start and stop audio effects.
 ```js
 import * as AzureCommunicationCallingSDK from '@azure/communication-calling'; 
@@ -65,7 +65,7 @@ audioEffectsFeatureApi.on('effectsError', (error: AudioEffectErrorPayload) => {
     console.log(`Error with audio effects: ${error.message}`);
 });
 ```
-
+### Checking what noise suppression effects are currently active
 At anytime if you want to check what **noise suppression** effects are currently active, you can use the `activeEffects` property.
 The `activeEffects` property returns an object with the names of the current active effects.
 ```js
@@ -74,7 +74,9 @@ const currentActiveEffects = audioEffectsFeatureApi.activeEffects;
 
 // Create the noise supression instance 
 const deepNoiseSuppression = new DeepNoiseSuppressionEffect();
-// Its recommened to check support for the effect in the current environment using the isSupported method on the feature API. Remember that Noise Supression is only supported on Desktop Browsers for Chrome and Edge
+// Its recommened to check support for the effect in the current environment using the isSupported API 
+// method. Remember that Noise Supression is only supported on Desktop Browsers for Chrome and Edge
+
 const isDeepNoiseSuppressionSupported = await audioEffectsFeatureApi.isSupported(deepNoiseSuppression);
 if (isDeepNoiseSuppressionSupported) {
     console.log('Noise supression is supported in browser environment');
@@ -92,7 +94,7 @@ await audioEffectsFeatureApi.stopEffects({
 
 ```
 
-### Start a call with Noise Suppression enabled
+### Start a call with Noise Suppression automatically enabled
 To start a call with **noise suppression** turned on, you can create a new `LocalAudioStream` with a `AudioDeviceInfo` (the LocalAudioStream source <u>shouldn't</u> be a raw `MediaStream` to use audio effects), and pass it in the `CallStartOptions.audioOptions`:
 ```js
 // As an example, here we are simply creating a LocalAudioStream using the current selected mic on the DeviceManager
@@ -114,7 +116,7 @@ await call.startCall({
 });
 ```
 
-### How to turn on Noise Suppression during an ongoing call
+### Turn on Noise Suppression during an ongoing call
 There are situations where a user might start a call and not have **noise suppression** turned on, but their current environment might get noisy resulting in them needing to turn on **noise suppression**. To turn on **noise suppression**, you can use the `audioEffectsFeatureApi.startEffects` API.
 ```js
 // Create the noise supression instance 
