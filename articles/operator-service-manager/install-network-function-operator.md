@@ -78,7 +78,6 @@ az k8s-extension create --cluster-name
 ### Optional feature specific configurations
 
 #### Pod Mutating Webhook
-
 `--config global.networkfunctionextension.webhook.pod.mutation.matchConditionExpression=`
 * This configuration is an optional parameter. It comes into play only when container network functions (CNFs) are installed in the corresponding release namespace.  
 * This configuration configures more granular control on top of rules and namespaceSelectors.
@@ -86,19 +85,12 @@ az k8s-extension create --cluster-name
   ```bash
   "((object.metadata.namespace != \"kube-system\") ||  (object.metadata.namespace == \"kube-system\" && has(object.metadata.labels) && (has(object.metadata.labels.app) && (object.metadata.labels.app == \"commissioning\") || (has(object.metadata.labels.name) && object.metadata.labels.name == \"cert-exporter\") || (has(object.metadata.labels.app) && object.metadata.labels.app == \"descheduler\"))))"
   ```  
-  The referenced matchCondition implies that the pods getting accepted in kube-system namespace are mutated only if they have at least one of the following labels:  
-  - app == "commissioning"  
-  - name == "cert-exporter"  
-  - app == "descheduler"  
-
-  else they aren't mutated and continue to be pulled from the original source as per the helm chart of CNF/Component/Application.  
-* Accepted value:  
-  Any valid CEL expression.
+The referenced matchCondition implies that the pods getting accepted in kube-system namespace are mutated only if they have at least one of the following labels: app == "commissioning", app == "descheduler", or name == "cert-exporter." Otherwise, they aren't mutated and continue to be pulled from the original source as per the helm chart of CNF/Component/Application.  
+* Accepted value: Any valid CEL expression.
 * This parameter can be set or updated during either network function (NF) extension installation or update.  
 * This condition comes into play only when the CNF/Component/Application are getting installed into the namespace as per the rules and namespaceSelectors. If there are more pods getting spin up in that namespace, this condition is applied.   
 
 #### Cluster registry
-
 `--config global.networkfunctionextension.enableClusterRegistry=`
 * This configuration provisions a registry in the cluster to locally cache artifacts.
 * Default values enable lazy loading mode unless global.networkfunctionextension.enableEarlyLoading=true.
