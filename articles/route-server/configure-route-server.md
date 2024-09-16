@@ -300,6 +300,8 @@ az network routeserver peering show --name 'myNVA' --resource-group 'myResourceG
 
 ## View advertised and learned routes
 
+In this section, you learn how to view the route server's advertised and learned routes.
+
 # [**Portal**](#tab/portal)
 
 Use [PowerShell](?tabs=powershell#view-advertised-and-learned-routes) or [Azure CLI](?tabs=cli#view-advertised-and-learned-routes) to view the advertised and learned routes.
@@ -389,6 +391,48 @@ az network routeserver peering delete --name 'myNVA' --resource-group 'myResourc
 | `--name` | The peer name. |
 | `--resource-group` | The resource group name of your route server. |
 | `--routeserver` | The route server name. |
+
+---
+
+## Delete a route server
+
+In this section, you learn how to delete an existing route server.
+
+# [**Portal**](#tab/portal)
+
+1. Go to the route server that you want to delete.
+
+1. Select **Delete** from the **Overview** page.
+
+1. Select **Confirm** to delete the route server.
+
+    :::image type="content" source="./media/configure-route-server/delete-route-server.png" alt-text="Screenshot that shows how to delete a route server." lightbox="./media/configure-route-server/delete-route-server.png":::
+
+# [**PowerShell**](#tab/powershell)
+
+Use [Remove-AzRouteServer](/powershell/module/az.network/remove-azrouteserver) cmdlet to delete a route server.
+
+```azurepowershell-interactive
+Remove-AzRouteServer -RouteServerName 'myRouteServer' -ResourceGroupName 'myResourceGroup'
+```
+
+| Parameter | Value |
+| ----- | ----- |
+| `-RouteServerName` | The route server name. |
+| `-ResourceGroupName` | The resource group name of your route server. |
+
+# [**Azure CLI**](#tab/cli)
+
+Use [az network routeserver delete](/cli/azure/network/routeserver#az-network-routeserver-delete) command to delete a route server.
+
+```azurecli-interactive
+az network routeserver delete --name 'myRouteServer' --resource-group 'myResourceGroup'
+```
+
+| Parameter | Value |
+| ----- | ----- |
+| `--name` | The route server name. |
+| `--resource-group` | The resource group name of your route server. |
 
 ---
 
