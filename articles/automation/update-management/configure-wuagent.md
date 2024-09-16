@@ -9,6 +9,8 @@ ms.service: azure-automation
 ---
 # Configure Windows Update settings for Azure Automation Update Management
 
+[!INCLUDE [./automation-update-management-retirement-announcement.md](../includes/automation-update-management-retirement-announcement.md)]
+
 Azure Automation Update Management relies on the [Windows Update client](/windows/deployment/update/windows-update-overview) to download and install Windows updates. There are specific settings that are used by the Windows Update client when connecting to Windows Server Update Services (WSUS) or Windows Update. Many of these settings can be managed with:
 
 - Local Group Policy Editor
