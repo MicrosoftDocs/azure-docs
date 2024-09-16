@@ -7,7 +7,7 @@ ms.custom: references_regions
 ms.service: azure-application-gateway
 ms.subservice: appgw-for-containers
 ms.topic: overview
-ms.date: 5/9/2024
+ms.date: 9/16/2024
 ms.author: greglin
 ---
 
