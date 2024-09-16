@@ -43,6 +43,8 @@ To complete this tutorial, make sure you have:
     - [**Microsoft Sentinel Contributor**](../role-based-access-control/built-in-roles.md#microsoft-sentinel-contributor) on the Log Analytics workspace where Microsoft Sentinel is deployed. 
     - [**Logic App Contributor**](../role-based-access-control/built-in-roles.md#logic-app-contributor), and **Owner** or equivalent, on whichever resource group will contain the playbook created in this tutorial.
 
+- Installed [VirusTotal Solution from the Content Hub](https://azuremarketplace.microsoft.com/en-gb/marketplace/apps/azuresentinel.azure-sentinel-solution-virustotal?tab=Overview)
+
 - A (free) [VirusTotal account](https://www.virustotal.com/gui/my-apikey) will suffice for this tutorial. A production implementation requires a VirusTotal Premium account.
 
 ## Create a playbook from a template

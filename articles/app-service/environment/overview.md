@@ -126,7 +126,6 @@ App Service Environment v3 is available in the following regions:
 
 | Region               | Single zone support          | Availability zone support   |
 | -------------------- | :--------------------------: | :-------------------------: |
-|                      | App Service Environment v3   | App Service Environment v3  |
 | Australia Central    | ✅                           |                             |
 | Australia Central 2  | ✅*                          |                             |
 | Australia East       | ✅                           | ✅                          |
@@ -186,7 +185,6 @@ App Service Environment v3 is available in the following regions:
 
 | Region               | Single zone support          | Availability zone support   |
 | -------------------- | :--------------------------: | :-------------------------: |
-|                      | App Service Environment v3   | App Service Environment v3  |
 | US DoD Central       | ✅                           |                             |
 | US DoD East          | ✅                           |                             |
 | US Gov Arizona       | ✅                           |                             |
@@ -198,7 +196,6 @@ App Service Environment v3 is available in the following regions:
 
 | Region               | Single zone support          | Availability zone support   |
 | -------------------- | :--------------------------: | :-------------------------: |
-|                      | App Service Environment v3   | App Service Environment v3  |
 | China East 2         |                              |                             |
 | China East 3         | ✅                          |                              |
 | China North 2        |                              |                             |
