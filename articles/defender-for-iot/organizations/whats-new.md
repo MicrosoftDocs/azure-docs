@@ -15,19 +15,26 @@ Features released earlier than nine months ago are described in the [What's new 
 > [!NOTE]
 > Noted features listed below are in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include other legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 >
-## July 2024
+
+## September 2024
 
 |Service area  |Updates  |
 |---------|---------|
-| **OT networks** | - [Security update](#security-update) <br> - [Add wildcards to allowlist domain names](#use-wildcards-allowlist-domain-names) |
-
-### Security update
-
-This update resolves a CVE, which is listed in [software version 24.1.4 feature documentation](release-notes.md#version-2414).
+| **OT networks** | - [Add wildcards to allowlist domain names](#use-wildcards-allowlist-domain-names) |
 
 ### Use wildcards allowlist domain names
 
 When adding domain names to the FQDN allowlist use the `*` wildcard to include all sub-domains. For more information, see [allow internet connections on an OT network](how-to-accelerate-alert-incident-response.md#allow-internet-connections-on-an-ot-network).
+
+## July 2024
+
+|Service area  |Updates  |
+|---------|---------|
+| **OT networks** | - [Security update](#security-update) |
+
+### Security update
+
+This update resolves a CVE, which is listed in [software version 24.1.4 feature documentation](release-notes.md#version-2414).
 
 ## June 2024
 
