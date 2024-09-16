@@ -12,4 +12,4 @@ ai-usage: ai-assisted
 >
 > Azure Deployment Environments supports collaborative workflows, facilitating seamless teamwork across development, testing, and operations teams. It's flexibility and customization options enable organizations to tailor environments to specific needs, providing a more personalized and efficient experience compared to DevTest Labs. Overall, these advantages help accelerate development processes and enhance productivity, making Azure Deployment Environments a robust choice for modern cloud infrastructure.
 > 
-> To learn more about Azure Deployment Environments, see [Azure Deployment Environments](/azure/deployment-environments/index.yaml).
+> To learn more about Azure Deployment Environments, see [Azure Deployment Environments](/azure/deployment-environments/index.yml).
