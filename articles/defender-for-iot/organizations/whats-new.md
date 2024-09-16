@@ -17,6 +17,16 @@ Features released earlier than nine months ago are described in the [What's new 
 
 [!INCLUDE [defender-iot-defender-reference](../includes/defender-for-iot-defender-reference.md)]
 
+## September 2024
+
+|Service area  |Updates  |
+|---------|---------|
+| **OT networks** | - [Added protocol](#added-protocol)  |
+
+### Added protocol
+
+The OCPI protocol from the EVRoaming Foundation is included in the release of sensor version 24.1.5. For more information, see [supported protocols for OT device discovery](concept-supported-protocols.md#supported-protocols-for-ot-device-discovery).
+
 ## July 2024
 
 |Service area  |Updates  |
