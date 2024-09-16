@@ -73,16 +73,15 @@ az k8s-extension create --cluster-name
 * Default value: stable.
 
 `--version` 
-* Specify the version to install for the extension instance if '--auto-upgrade-minor-version' isn't enabled.
-* Availabe version can be found on [Network Function Extension Release notes]
+* Specify the explicit version to install for the extension instance if '--auto-upgrade-minor-version' isn't enabled.
 
 ### Optional feature specific configurations
 
 #### Pod Mutating Webhook
 
 `--config global.networkfunctionextension.webhook.pod.mutation.matchConditionExpression=`
-* This configuration is an optional parameter. It comes into play when container network function (CNF) is getting installed and as a part of its installation corresponding pods are spin up in the CNF's release namespace.  
-* This configuration configures more granular control on top of rules and namespaceSelectors defined in [Pod Mutating Webhook Configuration](https://dev.azure.com/msazuredev/AzureForOperatorsIndustry/_git/aosm-networkfunctionextension?version=GBmain&path=/src/NetworkFunctionExtension/config/default/networkfunction-operator/templates/webhook_pod/webhook_mutating_config.yaml).  
+* This configuration is an optional parameter. It comes into play only when container network functions (CNFs) are installed in the corresponding release namespace.  
+* This configuration configures more granular control on top of rules and namespaceSelectors.
 * Default value:  
   ```bash
   "((object.metadata.namespace != \"kube-system\") ||  (object.metadata.namespace == \"kube-system\" && has(object.metadata.labels) && (has(object.metadata.labels.app) && (object.metadata.labels.app == \"commissioning\") || (has(object.metadata.labels.name) && object.metadata.labels.name == \"cert-exporter\") || (has(object.metadata.labels.app) && object.metadata.labels.app == \"descheduler\"))))"
@@ -92,11 +91,11 @@ az k8s-extension create --cluster-name
   - name == "cert-exporter"  
   - app == "descheduler"  
 
-  else they are not mutated and continue to be pulled from the original source as per the helm chart of CNF/Component/Application.  
+  else they aren't mutated and continue to be pulled from the original source as per the helm chart of CNF/Component/Application.  
 * Accepted value:  
-  Any valid [CEL expressions](https://kubernetes.io/docs/reference/using-api/cel/)    
+  Any valid CEL expression.
 * This parameter can be set or updated during either network function (NF) extension installation or update.  
-* This condition comes into play only when the CNF/Component/Application is getting installed into the namespace as per the rules and namespaceSelectors defined in [Pod Mutating Webhook Configuration](https://dev.azure.com/msazuredev/AzureForOperatorsIndustry/_git/aosm-networkfunctionextension?version=GBmain&path=/src/NetworkFunctionExtension/config/default/networkfunction-operator/templates/webhook_pod/webhook_mutating_config.yaml). If there are more pods getting spin up in that namespace, this condition is applied.   
+* This condition comes into play only when the CNF/Component/Application are getting installed into the namespace as per the rules and namespaceSelectors. If there are more pods getting spin up in that namespace, this condition is applied.   
 
 #### Cluster registry
 
@@ -140,7 +139,7 @@ az k8s-extension create --cluster-name
   * AKS: managed-csi
   * NAKS(Default): nexus-shared
   * NAKS(Non-HA): nexus-volume
-  * Azure stack edge (ASE): managed-premium
+  * Azure Stack Edge (ASE): managed-premium
 * Default value: nexus-shared.
 
 `--config global.networkfunctionextension.clusterRegistry.storageSize=`
@@ -158,7 +157,7 @@ az k8s-extension create --cluster-name
 
 ### Recommended NFO config for AKS
 
-The default NFO config configures HA on NAKS but none of the disk drives on AKS support ReadWriteX access mode. In this case, whhere HA needs to be disabled, use the following config options;
+The default NFO config configures HA on NAKS but none of the disk drives on AKS support ReadWriteX access mode. Where HA needs to be disabled, use the following config options;
 
 ` --config global.networkfunctionextension.clusterRegistry.highAvailability.enabled=false`
 ` --config global.networkfunctionextension.webhook.highAvailability.enabled=false` (optional)
