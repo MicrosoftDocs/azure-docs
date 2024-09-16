@@ -109,7 +109,7 @@ Enterprise Agreement and Microsoft Customer Agreement billing readers can view a
 - A reservation discount is "use-it-or-lose-it." So, if you don't have matching resources for any hour, then you lose a reservation quantity for that hour. You can't carry forward unused reserved hours.
 - When you deallocate, delete, or scale the number of VMs, the reservation discount automatically applies to another matching resource in the specified scope. If no matching resources are found in the specified scope, then the reserved hours are lost.
 - Stopped VMs are billed and continue to use reservation hours. To use your available reservation hours with other workloads, deallocate or delete VM resources or scale-in other VMs.
-- For more information about how Azure Reserved VM Instance discounts are applied, see [How the Azure reservation discount is applied to virtual machines](understand-reservation-charges.md).
+- For more information about how Azure Reserved VM Instance discounts are applied, see [How the Azure reservation discount is applied to virtual machines](understand-vm-reservation-charges.md).
 
 ### Exchanges and refunds
 
@@ -130,5 +130,5 @@ By participating in the offer, customers agree to be bound by these terms and th
 
 ## Related Content
 
-- [How the Azure reservation discount is applied to virtual machines](understand-reservation-charges.md)
+- [How the Azure reservation discount is applied to virtual machines](understand-vm-reservation-charges.md)
 - [Purchase Azure Reserved VM instances in the Azure portal](https://portal.azure.com/#view/Microsoft_Azure_Reservations/CreateBlade)
