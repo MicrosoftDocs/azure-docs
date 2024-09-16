@@ -6,7 +6,7 @@ ms.reviewer: bshy
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: overview
-ms.date: 08/28/2023
+ms.date: 09/16/2024
 ms.author: banders
 ---
 
