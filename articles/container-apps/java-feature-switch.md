@@ -11,55 +11,58 @@ ms.author: hangwan
 zone_pivot_groups: container-apps-portal-or-cli
 ---
 
-# Turn on Java Features in Azure Container Apps
+# Turn on Java features in Azure Container Apps
 
-This guide provides step-by-step instructions for enabling key Java features in Azure Container Apps. By activating these features, you can optimize your Java applications for performance, monitoring and ease of development. 
+This guide provides step-by-step instructions for enabling key Java features in Azure Container Apps. By activating these features, you can optimize your Java applications for performance, monitoring, and ease of development. 
 
-## Java Virtual Machine (JVM) metrics
-Java Virtual Machine (JVM) metrics are essential for tracking the performance and health of your Java applications. These metrics offer insights into memory consumption, garbage collection, and thread activity within the JVM. By enabling Java Metrics in Azure Container Apps, you can access these detailed metrics in Azure Monitor to optimize application performance and address potential issues proactively.
+## Java virtual machine (JVM) metrics
+
+Java virtual machine (JVM) metrics are essential for tracking the performance and health of your Java applications. These metrics offer insights into memory consumption, garbage collection, and thread activity within the JVM. By enabling Java metrics in Azure Container Apps, you can access these detailed metrics in Azure Monitor to proactively optimize application performance and address potential issues.
 
 ::: zone pivot="azure-portal"
-To turn on Java Virtual Machine (JVM) metrics on portal, refer to [Metrics Configuration on Portal](java-metrics.md?tabs=create&pivots=azure-portal#configuration).
+To turn on Java virtual machine (JVM) metrics in the portal, refer to [Java metrics for Java apps in Azure Container Apps](java-metrics.md?tabs=create&pivots=azure-portal#configuration).
 
 ::: zone-end
 
 ::: zone pivot="azure-cli"
-To turn on Java Virtual Machine (JVM) metrics on CLI, refer to [Metrics Configuration on CLI](java-metrics.md?tabs=create&pivots=azure-cli#configuration).  
+To turn on Java virtual machine (JVM) metrics on CLI, refer to [Java metrics for Java apps in Azure Container Apps](java-metrics.md?tabs=create&pivots=azure-cli#configuration).  
 
 ::: zone-end
 
 ## Automatic memory fitting
-The JVM conservatively manages memory, but with Java automatic memory fitting, your container app can optimize usage by making more memory available, boosting performance by 10-20% without requiring code changes.
+By default, the JVM manages memory conservatively, but Java automatic memory fitting fine-tunes how memory is managed for your Java application. Automatic memory fitting makes more memory available to you Java app, which may potentially boost performance by 10-20% without requiring code changes.
 
 Automatic memory fitting is **enabled by default**, but you can disable manually.
 
 ::: zone pivot="azure-portal"
-Disabling Automatic memory fitting is currently only available on CLI, please refer to [Disable memory fitting](java-memory-fit.md?tabs=create#disable-memory-fitting).
+Disabling automatic memory fitting is currently only available on CLI, please refer to [Disable memory fitting](java-memory-fit.md?tabs=create#disable-memory-fitting).
 
 ::: zone-end
 
 ::: zone pivot="azure-cli"
-To turn off Automatic memory fitting on CLI, refer to [Disable memory fitting](java-memory-fit.md?tabs=create#disable-memory-fitting).  
+To turn off automatic memory fitting on CLI, refer to [Disable memory fitting](java-memory-fit.md?tabs=create#disable-memory-fitting).  
 
 ::: zone-end
 
 ## Diagnostics
-Azure Container Apps provides a built-in diagnostics tool designed specifically for Java developers, enabling easier and more efficient debugging and troubleshooting of Java applications deployed on the platform.
+Azure Container Apps provides a built-in diagnostics tool designed specifically for Java developers, which makes debugging and troubleshooting easier and more efficient.
 
 ### Dynamic logger level
 
 ::: zone pivot="azure-portal"
-Enabling Dynamic logger level is currently only available on CLI, please refer to [Enable JVM diagnostics for your Java applications](java-dynamic-log-level.md?enable-jvm-diagnostics-for-your-java-applications).  
+Enabling dynamic logger level is currently only available on CLI, refer to [Enable JVM diagnostics for your Java applications](java-dynamic-log-level.md?enable-jvm-diagnostics-for-your-java-applications) for details.  
 ::: zone-end
 
 ::: zone pivot="azure-cli"
-To turn on Dynamic logger level on CLI, refer to [Enable JVM diagnostics for your Java applications](java-dynamic-log-level.md?enable-jvm-diagnostics-for-your-java-applications).  
+To turn on dynamic logger level on CLI, refer to [Enable JVM diagnostics for your Java applications](java-dynamic-log-level.md?enable-jvm-diagnostics-for-your-java-applications) for details.
 ::: zone-end
 
-## Java Components
-Azure Container Apps supports various Java Components as managed services, allowing you to leverage these components without deploying additional code.
+## Java components
+
+Azure Container Apps supports Java components as managed services, which allows you to extend the capability of your applications without having to deploy additional code.
 
 ### Eureka Server for Spring
+
 Eureka Server for Spring is a service registry that allows microservices to register themselves and discover other services. Available as an Azure Container Apps component, you can bind your container app to a Eureka Server for Spring for automatic registration with the Eureka server.
 
 ::: zone pivot="azure-portal"
@@ -73,6 +76,7 @@ To use Eureka Server for Spring on CLI, refer to [Create the Eureka Server for S
 ::: zone-end
 
 ### Config Server for Spring
+
 Config Server for Spring provides a centralized location to make configuration data available to multiple applications. 
 
 ::: zone pivot="azure-portal"
@@ -99,7 +103,7 @@ To use Admin for Spring on CLI, refer to [Use the componentt on CLI](java-admin.
 ::: zone-end
 
 > [!TIP]
-> With Eureka Server for Spring, you can bind Admin for Spring to Eureka Server for Spring, so that it can get application information through Eureka, instead of having to bind individual applications to Admin for Spring.[Learn More](java-admin-eureka-integration.md).
+> With Eureka Server for Spring, you can bind Admin for Spring to Eureka Server for Spring, so that it can get application information through Eureka, instead of having to bind individual applications to Admin for Spring. For more information, see [Integrate Admin for Spring with Eureka Server for Spring in Azure Container Apps](java-admin-eureka-integration.md).
 
 
 ## Next steps
