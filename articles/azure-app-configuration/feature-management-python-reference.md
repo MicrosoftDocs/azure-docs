@@ -361,7 +361,7 @@ The variant returned is dependent on the user currently being evaluated, and tha
 
 ### Variant Feature Flag Declaration
 
-Compared to normal feature flags, variant feature flags have two additional properties: `variants` and `allocation`. The `variants` property is an array that contains the variants defined for this feature. The `allocation` property defines how these variants should be allocated for the feature. Just like declaring normal feature flags, you can set up variant feature flags in a json file. Here is an example of a variant feature flag.
+Compared to normal feature flags, variant feature flags have two additional properties: `variants` and `allocation`. The `variants` property is an array that contains the variants defined for this feature. The `allocation` property defines how these variants should be allocated for the feature. Just like declaring normal feature flags, you can set up variant feature flags in a json file. Here's an example of a variant feature flag.
 
 ```json
 {
@@ -397,7 +397,7 @@ Compared to normal feature flags, variant feature flags have two additional prop
 
 #### Defining Variants
 
-Each variant has two properties: a name and a configuration. The name is used to refer to a specific variant, and the configuration is the value of that variant. The configuration can be set using `configuration_value` property. `configuration_value` is an inline configuration that can be a string, number, boolean, or configuration object. If `configuration_value` is not specified, the returned variant's `Configuration` property will be null.
+Each variant has two properties: a name and a configuration. The name is used to refer to a specific variant, and the configuration is the value of that variant. The configuration can be set using `configuration_value` property. `configuration_value` is an inline configuration that can be a string, number, boolean, or configuration object. If `configuration_value` isn't specified, the returned variant's `Configuration` property will be null.
 
 A list of all possible variants is defined for each feature under the `variants` property.
 
@@ -483,7 +483,7 @@ The `allocation` setting of a feature has the following properties:
 | `percentile` | Specifies a variant and a percentage range the user's calculated percentage has to fit into for that variant to be assigned. |
 | `seed` | The value which percentage calculations for `percentile` are based on. The percentage calculation for a specific user will be the same across all features if the same `seed` value is used. If no `seed` is specified, then a default seed is created based on the feature name. |
 
-In the above example, if the feature is not enabled, the feature manager will assign the variant marked as `default_when_disabled` to the current user, which is `Small` in this case.
+In the above example, if the feature isn't enabled, the feature manager will assign the variant marked as `default_when_disabled` to the current user, which is `Small` in this case.
 
 If the feature is enabled, the feature manager will check the `user`, `group`, and `percentile` allocations in that order to assign a variant. For this particular example, if the user being evaluated is named `Marsha`, in the group named `Ring1`, or the user happens to fall between the 0 and 10th percentile, then the specified variant is assigned to the user. In this case, all of these would return the `Big` variant. If none of these allocations match, the user is assigned the `default_when_enabled` variant, which is `Small`.
 
@@ -538,11 +538,11 @@ These types of questions can be answered through the emission and analysis of fe
 
 ### Enabling Telemetry
 
-By default, feature flags don't have telemetry emitted. To publish telemetry for a given feature flag, the flag _MUST_ declare that it is enabled for telemetry emission.
+By default, feature flags don't have telemetry emitted. To publish telemetry for a given feature flag, the flag _MUST_ declare that it's enabled for telemetry emission.
 
 For feature flags defined in json, this is done by using the `telemetry` property.
 
-``` javascript
+```json
 {
     "feature_management": {
         "feature_flags": [
@@ -558,7 +558,7 @@ For feature flags defined in json, this is done by using the `telemetry` propert
 }
 ```
 
-The appsettings snippet above defines a feature flag named `MyFeatureFlag` that is enabled for telemetry. This is indicated by the `telemetry` object that sets `enabled` to true. The value of the `enabled` property must be `true` to publish telemetry for the flag.
+The snippet above defines a feature flag named `MyFeatureFlag` that is enabled for telemetry. The `telemetry` object's `enabled` property is set to `true`. The value of the `enabled` property must be `true` to publish telemetry for the flag.
 
 The `telemetry` section of a feature flag has the following properties:
 
@@ -573,11 +573,11 @@ In addition, when creating `FeatureManager`, a callback must be registered to ha
 feature_manager = FeatureManager(feature_flags, on_feature_evaluated=publish_telemetry)
 ```
 
-### Applicaiton Insights Telemetry
+### Application Insights Telemetry
 
-The feature management library provides a built-in telemetry publisher that sends feature flag evaluation data to [Application Insights](/azure/azure-monitor/app/app-insights-overview). To enable this, the feature management library can be installed with Azure Monitor, `pip install FeatureManagement[AzureMonitor]`. This will additionally install the `azure-monitor-events-extension` package, which is used to style telemetry to Application Insights using OpenTelemetry.
+The feature management library provides a built-in telemetry publisher that sends feature flag evaluation data to [Application Insights](/azure/azure-monitor/app/app-insights-overview). To enable Application Insights, the feature management library can be installed with Azure Monitor, `pip install FeatureManagement[AzureMonitor]`. Pip will additionally install the `azure-monitor-events-extension` package, which is used to style telemetry to Application Insights using OpenTelemetry.
 
-NOTE: This only adds the telemetry to the Open Telemetry pipeline. Registering Applicaiton Insights is still required.
+NOTE: This extra only adds the telemetry to the Open Telemetry pipeline. Registering Application Insights is still required.
 
 ```python
 from azure.monitor.opentelemetry import configure_azure_monitor
@@ -591,12 +591,12 @@ configure_azure_monitor(
 
 Because the telemetry callback is a function, it can be customized to publish telemetry to any desired destination. For example, telemetry could be published to a logging service, a database, or a custom telemetry service.
 
-When a feature flag is evaluated and telemetry is enabled, the feature manager will call the telemetry callback with an `EvaluationEvent` parameter. `EvaluationEvent` contains the following properties:
+When a feature flag is evaluated and telemetry is enabled, the feature manager calls the telemetry callback with an `EvaluationEvent` parameter. `EvaluationEvent` contains the following properties:
 
 | Tag | Description |
 | ---------------- | ---------------- |
 | `feature` | The feature flag used. |
-| `user` | The user id used for targeting. |
+| `user` | The user ID used for targeting. |
 | `enabled` | Whether the feature flag is evaluated as enabled. |
 | `Variant` | The assigned variant. |
 | `VariantAssignmentReason` | The reason why the variant is assigned. |
