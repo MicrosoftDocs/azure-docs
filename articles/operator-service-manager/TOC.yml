@@ -110,8 +110,8 @@
     href: how-to-manage-artifacts-nexus.md
   - name: Push and pull artifacts for virtualized network functions (VNF) on Azure
     href: how-to-manage-artifacts-virtualized-network-function-cloud.md
-  - name: Install network function operator extension
-    href: install-network-function-operator.md
+  - name: Manage the network function operator extension
+    href: manage-network-function-operator.md
 - name: Troubleshooting
   expanded: false
   items:
