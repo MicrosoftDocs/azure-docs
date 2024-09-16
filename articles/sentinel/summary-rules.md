@@ -253,7 +253,7 @@ Most of the data sources are raw logs that are noisy and have high volume, but h
 
 ## Use summary rules with auxiliary logs (sample process)
 
-This procedure describes a sample process for using summary rules with [auxiliary logs](basic-logs-use-cases.md), using a custom connection created via an AMR template to ingest CEF data from Logstash.
+This procedure describes a sample process for using summary rules with [auxiliary logs](basic-logs-use-cases.md), using a custom connection created via an ARM template to ingest CEF data from Logstash.
 
 1. Set up your custom CEF connector from Logstash:
 
