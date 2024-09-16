@@ -3,8 +3,8 @@ title: Deploy an agent-based Windows Hybrid Runbook Worker in Automation
 description: This article tells how to deploy an agent-based Hybrid Runbook Worker that you can use to run runbooks on Windows-based machines in your local datacenter or cloud environment.
 services: automation
 ms.subservice: process-automation
-ms.date: 09/04/2024
-ms.topic: conceptual 
+ms.date: 09/09/2024
+ms.topic: how-to
 ms.service: azure-automation
 ---
 
@@ -29,13 +29,13 @@ Before you start, make sure that you have the following.
 
 ### A Log Analytics workspace
 
-The Hybrid Runbook Worker role depends on an Azure Monitor Log Analytics workspace to install and configure the role. You can create it through [Azure Resource Manager](../azure-monitor/logs/resource-manager-workspace.md#create-a-log-analytics-workspace), through [PowerShell](../azure-monitor/logs/powershell-workspace-configuration.md?toc=%2fpowershell%2fmodule%2ftoc.json), or in the [Azure portal](../azure-monitor/logs/quick-create-workspace.md).
+The Hybrid Runbook Worker role depends on an Azure Monitor Log Analytics workspace to install and configure the role. You can create it through [Azure Resource Manager](/azure/azure-monitor/logs/resource-manager-workspace#create-a-log-analytics-workspace), through [PowerShell](/azure/azure-monitor/logs/powershell-workspace-configuration?toc=%2fpowershell%2fmodule%2ftoc.json), or in the [Azure portal](/azure/azure-monitor/logs/quick-create-workspace).
 
-If you don't have an Azure Monitor Log Analytics workspace, review the [Azure Monitor Log design guidance](../azure-monitor/logs/workspace-design.md) before you create the workspace.
+If you don't have an Azure Monitor Log Analytics workspace, review the [Azure Monitor Log design guidance](/azure/azure-monitor/logs/workspace-design) before you create the workspace.
 
 ### Log Analytics agent
 
-The Hybrid Runbook Worker role requires the [Log Analytics agent](../azure-monitor/agents/log-analytics-agent.md) for the supported Windows operating system. For servers or machines hosted outside of Azure, you can install the Log Analytics agent using [Azure Arc-enabled servers](../azure-arc/servers/overview.md).
+The Hybrid Runbook Worker role requires the [Log Analytics agent](/azure/azure-monitor/agents/log-analytics-agent) for the supported Windows operating system. For servers or machines hosted outside of Azure, you can install the Log Analytics agent using [Azure Arc-enabled servers](../azure-arc/servers/overview.md).
 
 ### Supported Windows operating system
 
@@ -303,14 +303,14 @@ The *Azure Automation* folder has a sub-folder with the version number as the na
 
 ## Update Log Analytics agent to latest version
 
-Azure Automation [Agent-based User Hybrid Runbook Worker](automation-hybrid-runbook-worker.md) (V1) requires the [Log Analytics agent](../azure-monitor/agents/log-analytics-agent.md) (also known as MMA agent) during the installation of the Hybrid Worker. We recommend you to update the Log Analytics agent to the latest version to reduce security vulnerabilities and benefit from bug fixes. 
+Azure Automation [Agent-based User Hybrid Runbook Worker](automation-hybrid-runbook-worker.md) (V1) requires the [Log Analytics agent](/azure/azure-monitor/agents/log-analytics-agent) (also known as MMA agent) during the installation of the Hybrid Worker. We recommend you to update the Log Analytics agent to the latest version to reduce security vulnerabilities and benefit from bug fixes. 
 
 Log Analytics agent versions prior to [10.20.18053 (bundle) and 1.0.18053.0 (extension)](/azure/virtual-machines/extensions/oms-windows#agent-and-vm-extension-version) use an older method of certificate handling, and hence it is **not recommended**. Hybrid Workers on the outdated agents will not be able to connect to Azure, and Azure Automation jobs executed by these Hybrid Workers will stop. 
 
 You must update the Log Analytics agent to the latest version by following the below steps:
 
 1.	Check the current version of the Log Analytics agent for your Windows Hybrid Worker:  Go to the installation path - *C:\ProgramFiles\Microsoft Monitoring Agent\Agent* and right-click *HealthService.exe* to check **Properties**. The field **Product version** provides the version number of the Log Analytics agent.
-2.	If your Log Analytics agent version is prior to [10.20.18053 (bundle) and 1.0.18053.0 (extension)](/azure/virtual-machines/extensions/oms-windows#agent-and-vm-extension-version), upgrade to the latest version of the Windows Log Analytics agent, following these [guidelines](../azure-monitor/agents/agent-manage.md).
+2.	If your Log Analytics agent version is prior to [10.20.18053 (bundle) and 1.0.18053.0 (extension)](/azure/virtual-machines/extensions/oms-windows#agent-and-vm-extension-version), upgrade to the latest version of the Windows Log Analytics agent, following these [guidelines](/azure/azure-monitor/agents/agent-manage).
 
 > [!NOTE]
 > Any Azure Automation jobs running on the Hybrid Worker during the upgrade process might stop. Ensure that there aren’t any jobs running or scheduled during the Log Analytics agent upgrade.

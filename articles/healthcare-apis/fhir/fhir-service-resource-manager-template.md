@@ -11,7 +11,7 @@ ms.date: 06/06/2022
 
 # Deploy a FHIR service within Azure Health Data Services - using ARM template
 
-In this article, you'll learn how to deploy FHIR service within the Azure Health Data Services (hereby called FHIR service) using the Azure Resource Manager template (ARM template). We provide you two options using PowerShell or using CLI.
+In this article, you'll learn how to deploy FHIR&reg; service within the Azure Health Data Services using the Azure Resource Manager template (ARM template). We provide two options: using PowerShell or using CLI.
 
 An [ARM template](../../azure-resource-manager/templates/overview.md) is a JSON file that defines the infrastructure and configuration for your project. The template uses declarative syntax. In declarative syntax, you describe your intended deployment without writing the sequence of programming commands to create the deployment.
 
@@ -38,11 +38,11 @@ The template used in this article is from [Azure Quickstart Templates](https://a
 
 The template defines three Azure resources:
 - Microsoft.HealthcareApis/workspaces
-- Microsoft.HealthcareApis/workspaces/fhirservices      
+- Microsoft.HealthcareApis/workspaces/fhirservices     
 - Microsoft.Storage/storageAccounts
 
 > [!NOTE]
-> Local RBAC is deprecated. Access Policies configuration associated with Local RBAC in ARM template are deprecated. Existing customers using Local RBAC need to migrate to Azure RBAC by November 2024. For questions, please [contact us](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
+> Local RBAC is deprecated. Access Policies configuration associated with Local RBAC in ARM templates are deprecated. Existing customers using Local RBAC need to migrate to Azure RBAC by November 2024. For questions, please [contact us](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
 
 You can deploy the FHIR service resource by **removing** the workspaces resource, the storage resource, and the `dependsOn` property in the “Microsoft.HealthcareApis/workspaces/fhirservices” resource.
 
@@ -186,19 +186,19 @@ You can deploy the FHIR service resource by **removing** the workspaces resource
 
 You can deploy the ARM template using two options: PowerShell or CLI.
 
-The sample code provided below uses the template in the “templates” subfolder of the subfolder “src”. You may want to change the location path to reference the template file properly.
+The following sample code uses the template in the “templates” subfolder of the subfolder “src”. You may want to change the location path to reference the template file properly.
 
-The deployment process takes a few minutes to complete. Take a note of the names for the FHIR service and the resource group, which you'll use later.
+The deployment process takes a few minutes to complete. Take a note of the names for the FHIR service and the resource group, which you use later.
 
 # [PowerShell](#tab/PowerShell)
 
 ### Deploy the template: using PowerShell
 
-Run the code in PowerShell locally, in Visual Studio Code, or in Azure Cloud Shell, to deploy the FHIR service. 
+To deploy the FHIR service, run the code in PowerShell locally, in Visual Studio Code, or in Azure Cloud Shell. 
 
 If you haven't logged in to Azure, use "Connect-AzAccount" to log in. Once you've logged in, use "Get-AzContext" to verify the subscription and tenant you want to use. You can change the subscription and tenant if needed.
 
-You can create a new resource group, or use an existing one by skipping the step or commenting out the line starting with “New-AzResourceGroup”.
+You can create a new resource group, or use an existing one by skipping the step, or commenting out the line starting with “New-AzResourceGroup”.
 
 ```powershell-interactive
 ### variables
@@ -228,11 +228,11 @@ New-AzResourceGroupDeployment -ResourceGroupName $resourcegroupname -TemplateFil
 
 ### Deploy the template: using CLI
 
-Run the code locally, in Visual Studio Code or in Azure Cloud Shell, to deploy the FHIR service. 
+To deploy the FHIR service, run the code in PowerShell locally, in Visual Studio Code, or in Azure Cloud Shell. 
 
 If you haven’t logged in to Azure, use "az login" to log in. Once you've logged in, use "az account show --output table" to verify the subscription and tenant you want to use. You can change the subscription and tenant if needed.
 
-You can create a new resource group, or use an existing one by skipping the step or commenting out the line starting with "az group create".
+You can create a new resource group, or use an existing one by skipping the step, or commenting out the line starting with "az group create".
 
 ```azurecli-interactive
 ### variables
@@ -261,11 +261,11 @@ az deployment group create --resource-group $resourcegroupname --template-file '
 
 ## Review the deployed resources
 
-You can verify that the FHIR service is up and running by opening the browser and navigating to `https://<yourfhir servic>.azurehealthcareapis.com/metadata`. If the capability statement is displayed or downloaded automatically, your deployment is successful. 
+You can verify that the FHIR service is up and running by opening a browser and navigating to `https://<yourfhir servic>.azurehealthcareapis.com/metadata`. If the capability statement is displayed or downloaded automatically, your deployment is successful. 
 
 ## Clean up the resources
 
-When the resource is no longer needed, run the code below to delete the resource group.
+When the resource is no longer needed, run the following code to delete the resource group.
 
 # [PowerShell](#tab/PowerShell)
 ```powershell-interactive
@@ -286,4 +286,4 @@ In this quickstart guide, you've deployed the FHIR service within Azure Health D
 >[!div class="nextstepaction"]
 >[Supported FHIR Features](fhir-features-supported.md)
 
-FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.
+[!INCLUDE [FHIR trademark statement](../includes/healthcare-apis-fhir-trademark.md)]

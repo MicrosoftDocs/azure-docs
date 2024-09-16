@@ -3,8 +3,8 @@ title: Azure Automation migration to managed identities FAQ
 description: This article gives answers to frequently asked questions when you're migrating from a Run As account to a managed identity.
 services: automation
 ms.subservice: process-automation
-ms.topic: conceptual
-ms.date: 07/25/2021
+ms.topic: faq
+ms.date: 09/09/2024
 ms.custom:
 #Customer intent: As an implementer, I want answers to various questions.
 ms.service: azure-automation

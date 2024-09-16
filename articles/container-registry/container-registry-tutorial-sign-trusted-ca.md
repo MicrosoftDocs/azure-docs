@@ -6,7 +6,7 @@ ms.author: yizha1
 ms.service: azure-container-registry
 ms.custom: devx-track-azurecli
 ms.topic: how-to
-ms.date: 10/31/2023
+ms.date: 9/5/2024
 ---
 
 # Sign container images with Notation and Azure Key Vault using a CA-issued certificate
@@ -30,6 +30,7 @@ In this article:
 > * Build and push a container image with ACR task
 > * Sign a container image with Notation CLI and AKV plugin 
 > * Verify a container image signature with Notation CLI
+> * Timestamping
 
 ## Prerequisites
 
@@ -391,6 +392,10 @@ To learn more about assigning policy to a principal, see [Assign Access Policy](
 - What should I do if the certificate is revoked?
 
   If the certificate is revoked, it invalidates the signature. The most common reason for revoking a certificate is when the certificate’s private key has been compromised. To resolve this issue, you should obtain a new certificate from a trusted CA vendor and sign container images again.
+
+## Timestamping
+
+Since Notation v1.2.0 release, Notation supports [RFC 3161](https://www.rfc-editor.org/rfc/rfc3161) compliant timestamping. This enhancement extends the trust of signatures created within certificates validity, enabling successful signature verification even after certificates have expired. Timestamping reduces costs by eliminating the need to periodically re-sign images due to certificate expiry, which is especially critical when using short-lived certificates. For detailed instructions on how to sign and verify using timestamping, please refer to the [Notary Project timestamping guide](https://v1-2.notaryproject.dev/docs/user-guides/how-to/timestamping/).
 
 ## Next steps
 
