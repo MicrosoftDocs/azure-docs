@@ -55,7 +55,8 @@ The following network resources present are automatically created inside the vir
 |Network Interfaces | nine | This value is based on a normal cluster, where each node has its own network interface. The nine interfaces are for: two head nodes, three zookeeper nodes, two worker nodes, and two gateway nodes mentioned in the previous table. |
 |Public IP Addresses | two | Two public IP addresses are bonded to the load balancers.    |
 
-There are several outbound connectivity methods could be used with the custom virtual network illustrated in [Source Network Address Translation (SNAT) for outbound connections - Azure Load Balancer](/azure/load-balancer/load-balancer-outbound-connections). The most recommended way is to associate the subnet with a NAT gateway. It requires a NAT gateway, and a network security group created in the subnet before you create the HDInsight cluster. You could bond a public IP or a public IP prefix with the NAT gateway. For the NSG rules to create, see [Control network traffic in Azure HDInsight](./control-network-traffic.md#hdinsight-with-network-security-groups)
+> [NOTE]
+> There are several outbound connectivity methods could be used with the custom virtual network illustrated in [Source Network Address Translation (SNAT) for outbound connections - Azure Load Balancer](/azure/load-balancer/load-balancer-outbound-connections). The most recommended way is to associate the subnet with a NAT gateway. It requires a NAT gateway, and a network security group created in the subnet before you create the HDInsight cluster. You could bond a public IP or a public IP prefix with the NAT gateway. For the NSG rules to create, see [Control network traffic in Azure HDInsight](./control-network-traffic.md#hdinsight-with-network-security-groups)
 
 ## Endpoints for connecting to HDInsight
 
