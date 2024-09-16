@@ -48,7 +48,7 @@ az k8s-extension update --cluster-type managedClusters --cluster-name <cluster-n
 
 Remember to replace `<cluster-name>` and `<resource-group>` with your own values and `<version>` with the desired supported version. 
 
-Please note that preview versions are no longer supported, and customers should promptly upgrade to the GA versions to ensure continued stability and access to the latest features and fixes. If you're installing Azure Container Storage for the first time on the cluster, proceed instead to [Install Azure Container Storage and create a storage pool](#install-azure-container-storage-and-create-a-storage-pool). You can also [Install Azure Container Storage on specific node pools](#install-azure-container-storage-on-specific-node-pools).
+Please note that preview versions are no longer supported, and customers should promptly upgrade to the GA versions to ensure continued stability and access to the latest features and fixes. If you're installing Azure Container Storage for the first time on the cluster, proceed instead to [Install Azure Container Storage and create a storage pool](container-storage-aks-quickstart.md#install-azure-container-storage-and-create-a-storage-pool). You can also [Install Azure Container Storage on specific node pools](container-storage-aks-quickstart.md#install-azure-container-storage-on-specific-node-pools).
 
 ## Auto-upgrade policy
 
