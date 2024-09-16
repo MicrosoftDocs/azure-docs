@@ -122,7 +122,7 @@ In the **Interface configurations** tab, do the following to configure settings 
 
 ### Activate your OT sensor
 
-This procedure describes how to activate your new OT sensor. 
+This procedure describes how to activate your new OT sensor.
 
 If you've configured the initial settings [via the CLI](#configure-setup-via-the-cli) until now, you'll start the browser-based configuration at this step. After the sensor reboots, you're redirected to the same **Defender for IoT | Overview** page, to the **Activation** tab.
 
@@ -132,11 +132,11 @@ If you've configured the initial settings [via the CLI](#configure-setup-via-the
 
 1. Select the terms and conditions option and then select **Next: Certificates**.
 
-If you have connection problems between the cloud-based sensor and the Azure portal during the activation process that causes the activation to fail, a message appears below the Activate button. To solve the connectivity problem select **Learn more** and the **Cloud connectivity** pane opens. The pane lists the causes for the problem and recommendations to solve it.
+If you have a connection problem between the cloud-based sensor and the Azure portal during the activation process that causes the activation to fail, a message appears below the Activate button. To solve the connectivity problem select **Learn more** and the **Cloud connectivity** pane opens. The pane lists the causes for the problem and recommendations to solve it.
 
 Even without solving the problem you're able to continue to the next stage, by selecting **Next: Certificates**.
 
-The only connection problem that must be fixed before the connectivity problem is solved, is when a time drift is detected and the sensor is not synchronized to the cloud. In this case the sensor must be correctly synchronized, as described in the recommendations before moving to the next stage.
+The only connection problem that must be fixed before moving to the next stage, is when a time drift is detected and the sensor isn't synchronized to the cloud. In this case the sensor must be correctly synchronized, as described in the recommendations, before moving to the next stage.
 
 ### Define SSL/TLS certificate settings
 
