@@ -87,7 +87,7 @@ The Kubernetes cluster on your Azure Stack Edge device  allows Kubernetes role-b
 
 You can also monitor the health of your cluster and resources via the Kubernetes dashboard. Container logs are also available. For more information, see [Use the Kubernetes dashboard to monitor the Kubernetes cluster health on your Azure Stack Edge device](azure-stack-edge-gpu-monitor-kubernetes-dashboard.md).
 
-Azure Monitor is also available as an add-on to collect health data from containers, nodes, and controllers. For more information, see [Azure Monitor overview](../azure-monitor/overview.md)
+Azure Monitor is also available as an add-on to collect health data from containers, nodes, and controllers. For more information, see [Azure Monitor overview](/azure/azure-monitor/overview)
 
 ## Edge container registry
 

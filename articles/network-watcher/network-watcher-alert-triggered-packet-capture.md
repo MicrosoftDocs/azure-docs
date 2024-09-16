@@ -318,7 +318,7 @@ You can configure alerts to notify individuals when a specific metric crosses a 
 
 ### Create the alert rule
 
-Go to an existing virtual machine and [add an alert rule](../azure-monitor/alerts/alerts-classic-portal.md). On the **Create an Alert rule** page, take the following steps:
+Go to an existing virtual machine and [add an alert rule](/azure/azure-monitor/alerts/alerts-classic-portal). On the **Create an Alert rule** page, take the following steps:
 
 1. On the **Select a signal** pane, search for the name of the signal and select it. In this example, **Network Out Total** is the selected signal. It denotes the number of bytes out on all network interfaces by the virtual machine.
 

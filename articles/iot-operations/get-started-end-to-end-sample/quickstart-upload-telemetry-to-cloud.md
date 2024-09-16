@@ -37,10 +37,10 @@ If you're using the Codespaces environment, the required environment variables a
 
 ```bash
 # The name of the resource group where your Kubernetes cluster is deployed
-export RESOURCE_GROUP=<resource-group-name>
+RESOURCE_GROUP=<resource-group-name>
 
 # The name of your Kubernetes cluster
-export CLUSTER_NAME=<kubernetes-cluster-name>
+CLUSTER_NAME=<kubernetes-cluster-name>
 ```
 
 # [PowerShell](#tab/powershell)

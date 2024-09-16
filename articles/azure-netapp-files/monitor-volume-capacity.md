@@ -45,7 +45,7 @@ The *available space* is accurate using the `df` command. However, the *consumed
 > The `du` command doesn’t account for the space used by snapshots generated in the volume. As such, it’s not recommended for determining the available capacity in a volume.
 
 ## Using Azure portal
-Azure NetApp Files leverages the standard [Azure Monitor](../azure-monitor/overview.md) functionality. As such, you can use Azure Monitor to monitor Azure NetApp Files volumes.  
+Azure NetApp Files leverages the standard [Azure Monitor](/azure/azure-monitor/overview) functionality. As such, you can use Azure Monitor to monitor Azure NetApp Files volumes.  
 
 ## Using Azure CLI  
 
