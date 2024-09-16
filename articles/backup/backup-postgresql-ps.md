@@ -4,14 +4,14 @@ description: Learn how to back up Azure Database for PostgreSQL using Azure Powe
 ms.topic: how-to
 ms.date: 07/30/2024
 ms.custom: devx-track-azurepowershell
-ms.service: backup
+ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
 
 # Back up Azure PostgreSQL databases using Azure PowerShell
 
-This article explains how to back up [Azure PostgreSQL database](../postgresql/overview.md#azure-database-for-postgresql---single-server) using Azure PowerShell.
+This article explains how to back up [Azure PostgreSQL database](/azure/postgresql/overview#azure-database-for-postgresql---single-server) using Azure PowerShell.
 
 In this article, you'll learn how to:
 

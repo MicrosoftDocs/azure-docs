@@ -4,7 +4,6 @@ titleSuffix: Azure Data Factory
 description: Learn more about the change data capture resource in Azure Data Factory.
 author: n0elleli
 ms.author: noelleli
-ms.service: azure-data-factory
 ms.subservice: data-movement
 ms.custom:
 ms.topic: conceptual

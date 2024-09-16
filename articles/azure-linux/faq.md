@@ -1,8 +1,8 @@
 ---
   title: Frequently asked questions about the Azure Linux Container Host for AKS
   description: Find answers to some of the common questions about the Azure Linux Container Host for AKS.
-  author: htaubenfeld
-  ms.author: htaubenfeld
+  author: suhuruli
+  ms.author: suhuruli
   ms.service: microsoft-linux
   ms.custom: linux-related-content
   ms.topic: faq
@@ -12,7 +12,7 @@
 # Frequently asked questions about the Azure Linux Container Host for AKS
 
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
+> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](/azure/virtual-machines/workloads/centos/centos-end-of-life).
 
 This article answers common questions about the Azure Linux Container Host.
 
@@ -20,7 +20,7 @@ This article answers common questions about the Azure Linux Container Host.
 
 ### What is Azure Linux?
 
-The Azure Linux Container Host is an operating system image that's optimized for running container workloads on [Azure Kubernetes Service (AKS)](../aks/intro-kubernetes.md). Microsoft maintains the Azure Linux Container Host and based it on Azure Linux (also known as *Mariner*), an open-source Linux distribution created by Microsoft.
+The Azure Linux Container Host is an operating system image that's optimized for running container workloads on [Azure Kubernetes Service (AKS)](/azure/aks/intro-kubernetes). Microsoft maintains the Azure Linux Container Host and based it on Azure Linux (also known as *Mariner*), an open-source Linux distribution created by Microsoft.
 
 ### What are the benefits of using Azure Linux?
 
@@ -49,10 +49,6 @@ Azure Linux passes all CIS level 1 benchmarks and offers a FIPS image. For more 
 ### Is the Microsoft Azure Linux source code released?
 
 Yes. Azure Linux is an open-source project with a thriving community of contributors. You can find the global Azure Linux source code at https://github.com/microsoft/CBL-Mariner.
-  
-### Does the deprecation of CentOS affect the use of Azure Linux as a container host?
-
-No. Azure Linux isn't a downstream of CentOS, so the deprecation doesn't affect the use of Azure Linux as a container host. Azure Linux is RPM based, so much of the tooling like `dnf` that works on CentOS works for Azure Linux. Additionally, several package names are similar, which simplifies the migration process from CentOS to Azure Linux.
 
 ### What is the Service Level Agreement (SLA) for CVEs?
 
@@ -62,7 +58,7 @@ For more information on CVEs, see [Azure Linux Container Host for AKS core conce
 
 ### How does Microsoft notify users of new Azure Linux versions?
 
-Azure Linux releases can be tracked alongside AKS releases on the [AKS release tracker](../../articles/aks/release-tracker.md).
+Azure Linux releases can be tracked alongside AKS releases on the [AKS release tracker](/azure/aks/release-tracker).
 
 ### Does the Azure Linux Container Host support AppArmor?
 
@@ -70,7 +66,7 @@ No, the Azure Linux Container Host doesn't support AppArmor. Instead, it support
 
 ### How does Azure Linux read time for time synchronization on Azure?
 
-For time synchronization, Azure Linux reads the time from the Azure VM host using [chronyd](../../articles/virtual-machines/linux/time-sync.md#chrony) and the /dev/ptp device.
+For time synchronization, Azure Linux reads the time from the Azure VM host using [chronyd](/azure/virtual-machines/linux/time-sync#chrony) and the /dev/ptp device.
 
 ### How can I get help with Azure Linux?
 
@@ -82,11 +78,11 @@ We're hosting public community calls for Azure Linux users to get together and d
 
 | Date | Time | Meeting link |
 | --- | --- | --- |
-| 1/25/2024 | 8-9 AM PST | [Click to join](https://teams.microsoft.com/l/meetup-join/19%3ameeting_NGM1YWZiMDMtYWZkZi00NzBmLWExNjgtM2RkMjFmYTNiYmU2%40thread.v2/0?context=%7b%22Tid%22%3a%2272f988bf-86f1-41af-91ab-2d7cd011db47%22%2c%22Oid%22%3a%2230697089-15b8-4c68-b67e-7db9cd4f02ea%22%7d). |
-| 3/28/2024 | 8-9 AM PST | [Click to join](https://teams.microsoft.com/l/meetup-join/19%3ameeting_NGM1YWZiMDMtYWZkZi00NzBmLWExNjgtM2RkMjFmYTNiYmU2%40thread.v2/0?context=%7b%22Tid%22%3a%2272f988bf-86f1-41af-91ab-2d7cd011db47%22%2c%22Oid%22%3a%2230697089-15b8-4c68-b67e-7db9cd4f02ea%22%7d). |
-| 5/23/2024 | 8-9 AM PST | [Click to join](https://teams.microsoft.com/l/meetup-join/19%3ameeting_NGM1YWZiMDMtYWZkZi00NzBmLWExNjgtM2RkMjFmYTNiYmU2%40thread.v2/0?context=%7b%22Tid%22%3a%2272f988bf-86f1-41af-91ab-2d7cd011db47%22%2c%22Oid%22%3a%2230697089-15b8-4c68-b67e-7db9cd4f02ea%22%7d). |
-| 7/25/2024 | 8-9 AM PST | [Click to join](https://teams.microsoft.com/l/meetup-join/19%3ameeting_NGM1YWZiMDMtYWZkZi00NzBmLWExNjgtM2RkMjFmYTNiYmU2%40thread.v2/0?context=%7b%22Tid%22%3a%2272f988bf-86f1-41af-91ab-2d7cd011db47%22%2c%22Oid%22%3a%2230697089-15b8-4c68-b67e-7db9cd4f02ea%22%7d). |
-| 9/26/2024 | 8-9 AM PST | [Click to join](https://teams.microsoft.com/l/meetup-join/19%3ameeting_NGM1YWZiMDMtYWZkZi00NzBmLWExNjgtM2RkMjFmYTNiYmU2%40thread.v2/0?context=%7b%22Tid%22%3a%2272f988bf-86f1-41af-91ab-2d7cd011db47%22%2c%22Oid%22%3a%2230697089-15b8-4c68-b67e-7db9cd4f02ea%22%7d). |
+| 9/26/2024 | 8-9 AM PST | [Click to join](https://teams.microsoft.com/l/meetup-join/19%3ameeting_ZDcyZjRkYWMtOWQxYS00OTk3LWFhNmMtMTMwY2VhMTA4OTZi%40thread.v2/0?context=%7b%22Tid%22%3a%2272f988bf-86f1-41af-91ab-2d7cd011db47%22%2c%22Oid%22%3a%2271a6ce92-58a5-4ea0-96f4-bd4a0401370a%22%7d). |
+| 11/21/2024 | 8-9 AM PST | [Click to join](https://teams.microsoft.com/l/meetup-join/19%3ameeting_ZDcyZjRkYWMtOWQxYS00OTk3LWFhNmMtMTMwY2VhMTA4OTZi%40thread.v2/0?context=%7b%22Tid%22%3a%2272f988bf-86f1-41af-91ab-2d7cd011db47%22%2c%22Oid%22%3a%2271a6ce92-58a5-4ea0-96f4-bd4a0401370a%22%7d). |
+| 1/23/2025 | 8-9 AM PST | [Click to join](https://teams.microsoft.com/l/meetup-join/19%3ameeting_ZDcyZjRkYWMtOWQxYS00OTk3LWFhNmMtMTMwY2VhMTA4OTZi%40thread.v2/0?context=%7b%22Tid%22%3a%2272f988bf-86f1-41af-91ab-2d7cd011db47%22%2c%22Oid%22%3a%2271a6ce92-58a5-4ea0-96f4-bd4a0401370a%22%7d). |
+| 3/27/2025 | 8-9 AM PST | [Click to join](https://teams.microsoft.com/l/meetup-join/19%3ameeting_ZDcyZjRkYWMtOWQxYS00OTk3LWFhNmMtMTMwY2VhMTA4OTZi%40thread.v2/0?context=%7b%22Tid%22%3a%2272f988bf-86f1-41af-91ab-2d7cd011db47%22%2c%22Oid%22%3a%2271a6ce92-58a5-4ea0-96f4-bd4a0401370a%22%7d). |
+| 5/22/2025 | 8-9 AM PST | [Click to join](https://teams.microsoft.com/l/meetup-join/19%3ameeting_ZDcyZjRkYWMtOWQxYS00OTk3LWFhNmMtMTMwY2VhMTA4OTZi%40thread.v2/0?context=%7b%22Tid%22%3a%2272f988bf-86f1-41af-91ab-2d7cd011db47%22%2c%22Oid%22%3a%2271a6ce92-58a5-4ea0-96f4-bd4a0401370a%22%7d). |
 
 ## Cluster FAQs
 

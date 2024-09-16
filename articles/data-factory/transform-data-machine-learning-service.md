@@ -2,7 +2,6 @@
 title: Execute Azure Machine Learning pipelines 
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how to run your Azure Machine Learning pipelines in your Azure Data Factory and Synapse Analytics pipelines. 
-ms.service: azure-data-factory
 ms.custom: synapse
 ms.topic: conceptual
 ms.author: abnarain

@@ -3,7 +3,7 @@
  description: include file
  services: firewall
  author: vhorne
- ms.service: firewall
+ ms.service: azure-firewall
  ms.topic: include
  ms.date: 07/10/2024
  ms.author: victorh

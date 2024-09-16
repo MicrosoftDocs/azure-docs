@@ -7,7 +7,6 @@ ms.custom:
   - ignite-2023
 ms.date: 11/15/2023
 ms.subservice: mqtt
-ms.service: azure-event-grid
 ---
 
 # Monitor data reference for Azure Event Grid’s MQTT broker feature (Preview)

@@ -11,7 +11,7 @@ Azure Monitor Agent (AMA) replaces the Log Analytics agent (also known as Micros
 
 Azure Arc is a bridge, extending not only Azure Monitor but the breadth of Azure management capabilities across Microsoft Defender, Azure Policy, and Azure Update Manager to non-Azure environments. Through the lightweight Connected Machine agent, Azure Arc projects non-Azure servers into the Azure control plane, providing a consistent management experience across Azure VMs and non-Azure servers.   
 
-This article focuses on considerations when migrating from legacy Log Analytics agents in non-Azure environments. For core migration guidance, see [Migrate to Azure Monitor Agent from Log Analytics agent](../../azure-monitor/agents/azure-monitor-agent-migration.md).
+This article focuses on considerations when migrating from legacy Log Analytics agents in non-Azure environments. For core migration guidance, see [Migrate to Azure Monitor Agent from Log Analytics agent](/azure/azure-monitor/agents/azure-monitor-agent-migration).
 
 ## Advantages of Azure Arc  
 
@@ -21,7 +21,7 @@ Deploying Azure Monitor Agent as an extension with Azure Arc-enabled servers pro
 
 - Azure Arc offers extension management capabilities including auto-extension upgrade, reducing typical maintenance overhead.   
 
-- Azure Arc enables access to the breadth of server management capabilities beyond monitoring, such as Cloud Security Posture Management with [Microsoft Defender](../../defender-for-cloud/defender-for-cloud-introduction.md) or scripting with [Run Command](run-command.md). As you centralize operations in Azure, Azure Arc provides a robust foundation for these other capabilities.  
+- Azure Arc enables access to the breadth of server management capabilities beyond monitoring, such as Cloud Security Posture Management with [Microsoft Defender](/azure/defender-for-cloud/defender-for-cloud-introduction) or scripting with [Run Command](run-command.md). As you centralize operations in Azure, Azure Arc provides a robust foundation for these other capabilities.  
 
 Azure Arc is the foundation for a cloud-based inventory bringing together Azure and on-premises, multicloud, and edge infrastructure that can be queried and organized through Azure Resource Manager (ARM). 
 

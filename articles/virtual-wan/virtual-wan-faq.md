@@ -2,7 +2,7 @@
 title: 'Azure Virtual WAN FAQ'
 description: See answers to frequently asked questions about Azure Virtual WAN networks, clients, gateways, devices, partners, and connections.
 author: cherylmc
-ms.service: virtual-wan
+ms.service: azure-virtual-wan
 ms.custom: devx-track-azurepowershell
 ms.topic: faq
 ms.date: 03/27/2024
@@ -46,7 +46,7 @@ No, each Azure Virtual Hub must have their own Firewall. The deployment of custo
 
 ### What client does the Azure Virtual WAN User VPN (point-to-site) support?
 
-Virtual WAN supports [Azure VPN client](https://go.microsoft.com/fwlink/?linkid=2117554), OpenVPN Client, or any IKEv2 client. Microsoft Entra authentication is supported with Azure VPN Client.A minimum of Windows 10 client OS version 17763.0 or higher is required. OpenVPN client(s) can support certificate-based authentication. Once cert-based auth is selected on the gateway, you'll see the.ovpn* file to download to your device. IKEv2 supports both certificate and RADIUS authentication.
+Virtual WAN supports [Azure VPN client](https://go.microsoft.com/fwlink/?linkid=2117554), OpenVPN Client, or any IKEv2 client. Microsoft Entra authentication is supported with Azure VPN Client. A minimum of Windows 10 client OS version 17763.0 or higher is required. OpenVPN client(s) can support certificate-based authentication. Once cert-based auth is selected on the gateway, you'll see the.ovpn* file to download to your device. IKEv2 supports both certificate and RADIUS authentication.
 
 ### For User VPN (point-to-site)- why is the P2S client pool split into two routes?
 
@@ -140,6 +140,10 @@ For example, let's say the user chooses 1 scale unit. Each scale unit would impl
 For gateways with scale units greater than 20, additional highly available pairs of gateway instances are deployed to provide additional capacity for connecting users. Each pair of instances supports up to 10,000 additional users. For example, if you deploy a Gateway with 100 scale units, 5 gateway pairs (10 total instances) are deployed, and up to 50,000 (10,000 users x 5 gateway pairs) concurrent users can connect.
 
 Also, be sure to plan for downtime in case you decide to scale up or down on the scale unit, or change the point-to-site configuration on the VPN gateway.
+
+### For User VPN (point-to-site) is Microsoft registered app in Entra Id Authentication supported?
+
+Yes, [Microsoft-registered app](/azure/vpn-gateway/point-to-site-entra-gateway) is supported on Virtual WAN. You can [migrate your User VPN from manually registered app](/azure/vpn-gateway/point-to-site-entra-gateway-update) to Microsoft-registered app for a more secure connectivity.
 
 ### What are Virtual WAN gateway scale units?
 
@@ -480,7 +484,11 @@ Yes, this can be done automatically with no update or reset required on the peer
 
 You can find more information on how to change the VNet address space [here](../virtual-network/manage-virtual-network.yml).
 
+### What is the maximum number of spoke Virtual Network addresses supported for hubs configured with Routing Intent?
 
+The maximum number of address spaces across all Virtual Networks directly connected to a single Virtual WAN hub is 400. This limit is applied individually to each Virtual WAN hub in a Virtual WAN deployment. Virtual Network address spaces connected to remote (other Virtual WAN hubs in the same Virtual WAN) hubs are not counted towards this limit.
+
+This limit is adjustable. For more information on the limit, the procedure to request a limit increase and sample scripts to determine the number of address spaces across Virtual Networks connected to a Virtual WAN hub, see [routing intent virtual network address space limits](how-to-routing-policies.md#virtual-network-address-space-limits).
 
 ## <a name="vwan-customer-controlled-maintenance"></a>Virtual WAN customer-controlled gateway maintenance
 
@@ -525,6 +533,27 @@ When working with VPN and ExpressRoute in a coexistence scenario or whenever you
 ### I've scheduled a maintenance window for a future date for one of my resources. Will maintenance activities be paused on this resource until then?
 
 No, maintenance activities won't be paused on your resource during the period before the scheduled maintenance window. For the days not covered in your maintenance schedule, maintenance continues as usual on the resource.
+
+### Are there limits on the number of routes I can advertise?
+
+Yes, there are limits. ExpressRoute supports up to 4,000 prefixes for private peering and 200 prefixes for Microsoft peering. With ExpressRoute Premium, you can increase the limit to 10,000 routes for private peering. The maximum number of routes advertised from Azure private peering via an ExpressRoute Gateway over an ExpressRoute circuit is 1,000, which is the same for both standard and premium ExpressRoute circuits. For more details, you can review [the ExpressRoute circuits Route Limits on the Azure subscription limits and quotas page](../azure-resource-manager/management/azure-subscription-service-limits.md#route-advertisement-limits) Please note that IPv6 route advertisements are currently not supported with Virtual WAN.
+
+### Are there restrictions on IP ranges I can advertise over the BGP session?
+
+Yes, there are restrictions. Private prefixes (RFC1918) are not accepted for the Microsoft peering BGP session. However, any prefix size up to a /32 prefix is accepted on both the Microsoft and private peering.
+
+### What happens if the BGP route limit gets exceeded?
+If the BGP route limit is exceeded, BGP sessions will disconnect. The sessions will be restored once the prefix count is reduced below the limit. For more information, see [the ExpressRoute circuits Route limits on the Azure subscription limits and quotas page](../azure-resource-manager/management/azure-subscription-service-limits.md#route-advertisement-limits).
+
+### Can I monitor the number of routes advertised or received over an ExpressRoute circuit?
+
+Yes, you can. For the best practices and configuration for metric-based alert monitoring, [refer to the Azure monitoring best practices](../virtual-wan/monitoring-best-practices.md#expressroute-gateway).
+
+### What is the recommendation to reduce the number of IP prefixes?
+
+We recommend aggregating the prefixes before advertising them over ExpressRoute or VPN gateway. Additionally, you can use
+[Route-Maps](../virtual-wan/route-maps-about.md) to summarize routes advertised from/to Virtual WAN.
+
 
 ## Next steps
 

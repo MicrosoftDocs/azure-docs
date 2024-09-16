@@ -67,7 +67,7 @@ For geo-replication in non-paired regions, use the [concierge pattern](/azure/io
 
 ## Azure Key Vault
 
-[!INCLUDE [Key Vault in non-paired regions guidance](../key-vault/includes/key-vault-non-paired-regions.md)]
+[!INCLUDE [Key Vault in non-paired regions guidance](~/reusable-content/ce-skilling/azure/includes/key-vault/includes/key-vault-non-paired-regions.md)]
 
 
 

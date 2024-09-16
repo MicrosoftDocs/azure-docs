@@ -5,7 +5,6 @@ description: The For Each Activity defines a repeating control flow in an Azure 
 author: kromerm
 ms.author: makromer
 ms.reviewer: jburchel
-ms.service: azure-data-factory
 ms.subservice: orchestration
 ms.custom: synapse
 ms.topic: conceptual

@@ -7,7 +7,7 @@ manager: femila
 services: notification-hubs
 editor: sethmanheim
 
-ms.service: notification-hubs
+ms.service: azure-notification-hubs
 ms.topic: article
 ms.date: 01/14/2020
 ms.author: femila

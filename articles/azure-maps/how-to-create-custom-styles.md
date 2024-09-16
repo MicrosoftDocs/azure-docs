@@ -7,7 +7,7 @@ ms.author: aterceros
 ms.date: 9/23/2022
 ms.topic: how-to
 ms.service: azure-maps
-services: azure-maps
+ms.subservice: creator
 ---
 
 # Create custom styles for indoor maps (preview)

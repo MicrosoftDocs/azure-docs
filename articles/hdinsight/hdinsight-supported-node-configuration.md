@@ -2,7 +2,7 @@
 title: Azure HDInsight supported node configurations
 description: Learn the minimum and recommended configurations for HDInsight cluster nodes.
 keywords: vm sizes, cluster sizes, cluster configuration
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 07/12/2024
@@ -36,9 +36,9 @@ The specifications of all minimum recommended VM types used in this document are
 
 For more information on the specifications of each VM type, see the following documents:
 
-* [General purpose virtual machine sizes: `Dv2` series 1-5](../virtual-machines/dv2-dsv2-series.md)
-* [Memory optimized virtual machine sizes: `Dv2` series 11-15](../virtual-machines/dv2-dsv2-series-memory.md)
-* [General purpose virtual machine sizes: `Av2` series 1-8](../virtual-machines/av2-series.md)
+* [General purpose virtual machine sizes: `Dv2` series 1-5](/azure/virtual-machines/dv2-dsv2-series)
+* [Memory optimized virtual machine sizes: `Dv2` series 11-15](/azure/virtual-machines/dv2-dsv2-series-memory)
+* [General purpose virtual machine sizes: `Av2` series 1-8](/azure/virtual-machines/av2-series)
 
 ### All supported regions
 

@@ -5,7 +5,6 @@ description: Learn how to create a trigger in Azure Data Factory or Azure Synaps
 author: kromerm
 ms.author: makromer
 ms.reviewer: jburchel
-ms.service: azure-data-factory
 ms.subservice: orchestration
 ms.topic: conceptual
 ms.date: 01/05/2024

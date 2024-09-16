@@ -284,7 +284,7 @@ Before you move on to the next section, take note of the following properties:
 Currently, the Secrets Store CSI Driver on Arc-enabled clusters can be accessed through a service principal. Follow these steps to provide an identity that can access your Key Vault.
 
 1. Follow the steps [to create a service principal in Azure](/entra/identity-platform/howto-create-service-principal-portal). Take note of the Client ID and Client Secret generated in this step.
-1. Next, [ensure Azure Key Vault has GET permission to the created service principal](../../key-vault/general/assign-access-policy.md#assign-an-access-policy).
+1. Next, [ensure Azure Key Vault has GET permission to the created service principal](/azure/key-vault/general/assign-access-policy#assign-an-access-policy).
 1. Use the client ID and Client Secret from the first step to create a Kubernetes secret on the connected cluster:
 
    ```bash
@@ -440,4 +440,4 @@ For more information about resolving common issues, see the open source troubles
 ## Next steps
 
 - Want to try things out? Get started quickly with an [Azure Arc Jumpstart scenario](https://aka.ms/arc-jumpstart-akv-secrets-provider) using Cluster API.
-- Learn more about [Azure Key Vault](../../key-vault/general/overview.md).
+- Learn more about [Azure Key Vault](/azure/key-vault/general/overview).

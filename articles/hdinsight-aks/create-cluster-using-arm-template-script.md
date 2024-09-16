@@ -1,7 +1,7 @@
 ---
 title: Export ARM template in Azure HDInsight on AKS
 description: How to create an ARM template of a cluster in Azure HDInsight on AKS
-ms.service: hdinsight-aks
+ms.service: azure-hdinsight-on-aks
 ms.custom: devx-track-arm-template
 ms.topic: how-to 
 ms.date: 02/12/2024
@@ -9,7 +9,10 @@ ms.date: 02/12/2024
 
 # Export cluster ARM template - Azure portal
 
+[!INCLUDE [retirement-notice](includes/retirement-notice.md)]
 [!INCLUDE [feature-in-preview](includes/feature-in-preview.md)]
+
+
 
 This article describes how to generate an ARM template for your cluster automatically. You can use the ARM template to modify, clone, or recreate a cluster starting from the existing cluster's configurations.
 

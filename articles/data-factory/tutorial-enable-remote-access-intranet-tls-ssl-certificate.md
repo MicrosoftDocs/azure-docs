@@ -3,7 +3,6 @@ title: Enable remote access from intranet with TLS/SSL certificate (Advanced)
 description: This tutorial provides steps for setting up a self-hosted integration runtime with multiple on-premises machines and enabling remote access from intranet with TLS/SSL certificate (Advanced) to secure communication between integration runtime nodes.
 author: lrtoyou1223
 ms.author: lle
-ms.service: azure-data-factory
 ms.topic: tutorial
 ms.date: 05/15/2024
 ---

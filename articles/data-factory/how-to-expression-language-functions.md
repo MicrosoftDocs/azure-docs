@@ -4,7 +4,6 @@ description: This How To article provides information about expressions and func
 author: ssabat
 ms.author: susabat
 ms.reviewer: jburchel
-ms.service: azure-data-factory
 ms.subservice: orchestration
 ms.topic: conceptual
 ms.date: 05/15/2024

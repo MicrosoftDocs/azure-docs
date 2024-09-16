@@ -3,7 +3,7 @@ title: Publish revisions with Azure Pipelines in Azure Container Apps
 description: Learn to automatically create new revisions in Azure Container Apps using an Azure DevOps pipeline
 services: container-apps
 author: craigshoemaker
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.custom:
   - devx-track-azurecli
   - ignite-2023

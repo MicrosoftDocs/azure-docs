@@ -14,7 +14,7 @@ ms.author: yelevin
 
 Many networking and security devices and appliances send their system logs over the Syslog protocol in a specialized format known as Common Event Format (CEF). This format includes more information than the standard Syslog format, and it presents the information in a parsed key-value arrangement. The Log Analytics Agent accepts CEF logs and formats them especially for use with Microsoft Sentinel, before forwarding them on to your Microsoft Sentinel workspace.
 
-Learn how to [collect Syslog with the AMA](../azure-monitor/agents/data-collection-syslog.md), including how to configure Syslog and create a DCR.
+Learn how to [collect Syslog with the AMA](/azure/azure-monitor/agents/data-collection-syslog), including how to configure Syslog and create a DCR.
 
 > [!IMPORTANT]
 >
@@ -51,7 +51,7 @@ A Microsoft Sentinel workspace is required in order to ingest CEF data into Log 
 
 - You must have read and write permissions on this workspace.
 
-- You must have read permissions to the shared keys for the workspace. [Learn more about workspace keys](../azure-monitor/agents/agent-windows.md).
+- You must have read permissions to the shared keys for the workspace. [Learn more about workspace keys](/azure/azure-monitor/agents/agent-windows).
 
 ## Designate a log forwarder and install the Log Analytics agent
 
@@ -75,7 +75,7 @@ For more information, see [Deploy a log forwarder to ingest Syslog and CEF logs 
 
 Make sure to configure the machine's security according to your organization's security policy. For example, you can configure your network to align with your corporate network security policy and change the ports and protocols in the daemon to align with your requirements.
 
-For more information, see [Secure VM in Azure](../virtual-machines/security-policy.md) and [Best practices for Network security](../security/fundamentals/network-best-practices.md).
+For more information, see [Secure VM in Azure](/azure/virtual-machines/security-policy) and [Best practices for Network security](../security/fundamentals/network-best-practices.md).
 
 If your devices are sending Syslog and CEF logs over TLS, such as when your log forwarder is in the cloud, you will need to configure the Syslog daemon (rsyslog or syslog-ng) to communicate in TLS. 
 
@@ -119,10 +119,10 @@ If you're not seeing any data, see the [CEF troubleshooting](./troubleshooting-c
 
 By default, the Log Analytics agent populates the *TimeGenerated* field in the schema with the time the agent received the event from the Syslog daemon. As a result, the time at which the event was generated on the source system is not recorded in Microsoft Sentinel.
 
-You can, however, run the following command, which will download and run the `TimeGenerated.py` script. This script configures the Log Analytics agent to populate the *TimeGenerated* field with the event's original time on its source system, instead of the time it was received by the agent.
+You can, however, run the following command, which will download and run the `TimeGenerated.py` script. This script configures the Log Analytics agent to populate the *TimeGenerated* field with the event's original time on its source system, instead of the time it was received by the agent. In the following command, replace `{WORKSPACE_ID}` with your own workspace ID.
 
 ```bash
-wget -O TimeGenerated.py https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/CEF/TimeGenerated.py && python TimeGenerated.py {ws_id}
+wget -O TimeGenerated.py https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/DataConnectors/CEF/TimeGenerated.py && python TimeGenerated.py {WORKSPACE_ID}
 ```
 
 ## Next steps

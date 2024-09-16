@@ -4,7 +4,7 @@ description: Reference for the azure-openai-emit-token-metric policy available f
 services: api-management
 author: dlepow
 
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: article
 ms.date: 07/09/2024
 ms.author: danlep
@@ -76,7 +76,7 @@ The `azure-openai-emit-token-metric` policy sends metrics to Application Insight
 
 - [**Policy sections:**](./api-management-howto-policies.md#sections) inbound
 - [**Policy scopes:**](./api-management-howto-policies.md#scopes) global, workspace, product, API, operation
--  [**Gateways:**](api-management-gateways-overview.md) classic, v2, consumption, self-hosted
+-  [**Gateways:**](api-management-gateways-overview.md) classic, v2, consumption, self-hosted, workspace
 
 ### Usage notes
 

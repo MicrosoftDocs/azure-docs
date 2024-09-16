@@ -7,7 +7,7 @@ brand: azure ## Used for color theming of icons and hero area
 metadata: 
   title: Azure networking documentation
   description: Azure networking services provide connectivity to your resources in Azure, deliver and protect applications, and help secure your network. 
-  ms.service: virtual-network
+  ms.service: azure-virtual-network
   ms.topic: hub-page
   author: duongau
   ms.author: duau
@@ -171,7 +171,7 @@ additionalContent:
           - text: What is Azure Monitor Network Insights?
             url: ../network-watcher/network-insights-overview.md
           - text: See more
-            url: ../azure-monitor/index.yml
+            url: /azure/azure-monitor/
 
     - title: Load balancing and content delivery # < 60 chars (optional)
       items:

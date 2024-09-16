@@ -1,7 +1,7 @@
 ---
 title: Add and run C# scripts in Standard workflows
 description: Write and run C# scripts inline from Standard workflows to perform custom integration tasks using Inline Code operations in Azure Logic Apps.
-ms.service: logic-apps
+ms.service: azure-logic-apps
 ms.suite: integration
 ms.reviewer: estfan, shahparth, azla
 ms.topic: how-to

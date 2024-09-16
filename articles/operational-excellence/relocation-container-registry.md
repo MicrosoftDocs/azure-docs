@@ -6,7 +6,7 @@ ms.custom: devx-track-azurecli
 author: anaharris-ms
 ms.author: anaharris
 ms.date: 07/29/2024
-ms.service: container-registry
+ms.service: azure-container-registry
 ---
 
 # Relocate an Azure Container Registry to another region

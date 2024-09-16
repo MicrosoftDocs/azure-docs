@@ -1,6 +1,6 @@
 ---
 author: AbhishekMallick-MS
-ms.service: backup
+ms.service: azure-backup
 ms.custom: devx-track-azurepowershell
 ms.topic: include
 ms.date: 07/01/2024

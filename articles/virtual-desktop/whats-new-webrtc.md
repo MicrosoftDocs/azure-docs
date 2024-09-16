@@ -3,7 +3,7 @@ title: What's new in the Remote Desktop WebRTC Redirector Service?
 description: New features and product updates the Remote Desktop WebRTC Redirector Service for Azure Virtual Desktop.
 author: sipastak
 ms.topic: release-notes
-ms.date: 07/29/2024
+ms.date: 08/21/2024
 ms.author: sipastak
 ms.custom: references_regions
 ---
@@ -18,8 +18,18 @@ The following table shows the latest available version of the Remote Desktop Web
 
 | Release | Latest version | Download |
 |---------|----------------|----------|
-| Public | 1.54.2407.26001 | [MSI Installer](https://aka.ms/msrdcwebrtcsvc/msi) |
+| Public | 1.54.2408.19001 | [MSI Installer](https://aka.ms/msrdcwebrtcsvc/msi) |
 
+
+## Updates for version 1.54.2408.19001 
+
+*Published: August 21, 2024*
+
+Download: [MSI Installer](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RW1o9wm)
+
+In this release, we made the following changes: 
+
+- Fixed an issue where video streams may sometimes not appear.
 
 ## Updates for version 1.54.2407.26001
 

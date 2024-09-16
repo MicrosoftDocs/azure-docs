@@ -4,7 +4,7 @@ titleSuffix: Azure Network Watcher
 description: Learn how to use Azure Monitor agent to monitor network connectivity with Network Watcher connection monitor.
 author: halkazwini
 ms.author: halkazwini
-ms.service: network-watcher
+ms.service: azure-network-watcher
 ms.topic: how-to
 ms.date: 03/12/2024
 
@@ -22,7 +22,7 @@ Azure Monitor agent provides the following benefits:
 * Effective cost savings with efficient data collection
 * Ease of troubleshooting, with simpler data collection management for the Log Analytics agent 
 
-For more information, see [Azure Monitor agent](../azure-monitor/agents/agents-overview.md).
+For more information, see [Azure Monitor agent](/azure/azure-monitor/agents/agents-overview).
 
 To start using connection monitor for monitoring, follow these steps:
 
@@ -51,7 +51,7 @@ To make connection monitor recognize your on-premises machines as sources for mo
 
   This agent doesn't deliver any other functionality, and it doesn't replace Azure Monitor agent. The Azure Connected Machine agent simply enables you to manage the Windows and Linux machines that are hosted outside of Azure on your corporate network or other cloud providers. 
 
-* [Install Azure Monitor agent](../azure-monitor/agents/agents-overview.md) to enable the Network Watcher extension.
+* [Install Azure Monitor agent](/azure/azure-monitor/agents/agents-overview) to enable the Network Watcher extension.
 
   The agent collects monitoring logs and data from the hybrid sources and delivers them to Azure Monitor.
 

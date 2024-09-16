@@ -3,7 +3,6 @@ title: What's new archive
 description: This page archives older months' highlights of new features and recent improvements for Azure Data Factory. Data Factory is a managed cloud service that's built for complex hybrid extract-transform-and-load (ETL), extract-load-and-transform (ELT), and data integration projects.
 author: pennyzhou-msft
 ms.author: xupzhou
-ms.service: azure-data-factory
 ms.topic: overview
 ms.custom: references_regions
 ms.date: 08/11/2023
@@ -21,6 +20,12 @@ Azure Data Factory is improved on an ongoing basis. To stay up to date with the 
 This archive page retains updates from older months.
 
 Check out our [What's New video archive](https://www.youtube.com/playlist?list=PLt4mCx89QIGS1rQlNt2-7iuHHAKSomVLv) for all of our monthly updates.
+
+## September 2023
+
+### Pipelines
+
+Added support for metadata driven pipelines for dynamic full and incremental processing in Azure SQL [Learn more](https://techcommunity.microsoft.com/t5/azure-data-factory-blog/metadata-driven-pipelines-for-dynamic-full-and-incremental/ba-p/3925362)
 
 ## August 2023
 

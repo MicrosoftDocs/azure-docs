@@ -1,9 +1,9 @@
 ---
 title: Open-source components and versions - Azure HDInsight 
 description: Learn about the open-source components and versions in Azure HDInsight.
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: conceptual
-ms.date: 10/25/2023
+ms.date: 09/10/2024
 ---
 
 # Azure HDInsight versions
@@ -40,7 +40,7 @@ Support defined as a time period that an HDInsight version supported by Microsof
 - **Standard support**
 - **Basic support**
 
-### For EOL versions (Spark 2.4 clusters):
+### For EOL versions:
 
 | Action | Till Jul 2024 | After Jul 2024 | After Sep 2024|
 | -- | -- |--|--|

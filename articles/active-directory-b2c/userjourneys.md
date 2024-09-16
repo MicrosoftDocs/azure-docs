@@ -261,7 +261,7 @@ The **ClaimsProviderSelection** element contains the following attributes:
 
 ### Claims provider selection example
 
-In the following orchestration step, the user can choose to sign in with Facebook, LinkedIn, Twitter, Google, or a local account. If the user selects one of the social identity providers, the second orchestration step executes with the selected claim exchange specified in the `TargetClaimsExchangeId` attribute. The second orchestration step redirects the user to the social identity provider to complete the sign-in process. If the user chooses to sign in with the local account, Azure AD B2C stays on the same orchestration step (the same sign-up page or sign-in page) and skips the second orchestration step.
+In the following orchestration step, the user can choose to sign in with Facebook, LinkedIn, X, Google, or a local account. If the user selects one of the social identity providers, the second orchestration step executes with the selected claim exchange specified in the `TargetClaimsExchangeId` attribute. The second orchestration step redirects the user to the social identity provider to complete the sign-in process. If the user chooses to sign in with the local account, Azure AD B2C stays on the same orchestration step (the same sign-up page or sign-in page) and skips the second orchestration step.
 
 ```xml
 <OrchestrationStep Order="1" Type="CombinedSignInAndSignUp" ContentDefinitionReferenceId="api.signuporsignin">

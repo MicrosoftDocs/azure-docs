@@ -4,7 +4,7 @@ titleSuffix: Azure Virtual Network
 description: Learn how to add a dual stack network to an existing virtual machine using the Azure portal, Azure CLI, or Azure PowerShell.
 author: mbender-ms
 ms.author: mbender
-ms.service: virtual-network
+ms.service: azure-virtual-network
 ms.subservice: ip-services
 ms.topic: how-to 
 ms.date: 07/24/2024
@@ -21,7 +21,7 @@ In this article, you add IPv6 support to an existing virtual network. You config
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-- An existing virtual network, public IP address, and virtual machine in your subscription that is configured for IPv4 support only. For more information about creating a virtual network, public IP address, and a virtual machine, see [Quickstart: Create a Linux virtual machine in the Azure portal](../../virtual-machines/linux/quick-create-portal.md).
+- An existing virtual network, public IP address, and virtual machine in your subscription that is configured for IPv4 support only. For more information about creating a virtual network, public IP address, and a virtual machine, see [Quickstart: Create a Linux virtual machine in the Azure portal](/azure/virtual-machines/linux/quick-create-portal).
 
     - The example virtual network used in this article is named **myVNet**. Replace this value with the name of your virtual network.
     
@@ -37,7 +37,7 @@ In this article, you add IPv6 support to an existing virtual network. You config
 
 - This tutorial requires version 2.0.28 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 
-- An existing virtual network, public IP address, and virtual machine in your subscription that is configured for IPv4 support only. For more information about creating a virtual network, public IP address, and a virtual machine, see [Quickstart: Create a Linux virtual machine with the Azure CLI](../../virtual-machines/linux/quick-create-cli.md).
+- An existing virtual network, public IP address, and virtual machine in your subscription that is configured for IPv4 support only. For more information about creating a virtual network, public IP address, and a virtual machine, see [Quickstart: Create a Linux virtual machine with the Azure CLI](/azure/virtual-machines/linux/quick-create-cli).
 
     - The example virtual network used in this article is named **myVNet**. Replace this value with the name of your virtual network.
     
@@ -53,7 +53,7 @@ In this article, you add IPv6 support to an existing virtual network. You config
 
 If you choose to install and use PowerShell locally, this article requires the Azure PowerShell module version 5.4.1 or later. Run `Get-Module -ListAvailable Az` to find the installed version. If you need to upgrade, see [Install Azure PowerShell module](/powershell/azure/install-azure-powershell). If you're running PowerShell locally, you also need to run `Connect-AzAccount` to create a connection with Azure.
 
-- An existing virtual network, public IP address, and virtual machine in your subscription that is configured for IPv4 support only. For more information about creating a virtual network, public IP address, and a virtual machine, see [Quickstart: Create a Linux virtual machine in Azure with PowerShell](../../virtual-machines/linux/quick-create-powershell.md).
+- An existing virtual network, public IP address, and virtual machine in your subscription that is configured for IPv4 support only. For more information about creating a virtual network, public IP address, and a virtual machine, see [Quickstart: Create a Linux virtual machine in Azure with PowerShell](/azure/virtual-machines/linux/quick-create-powershell).
 
     - The example virtual network used in this article is named **myVNet**. Replace this value with the name of your virtual network.
     
@@ -229,23 +229,21 @@ New-AzPublicIpAddress @ip6
 
 # [Azure portal](#tab/azureportal)
 
-The virtual machine must be stopped to add the IPv6 configuration to the existing virtual machine. You stop the virtual machine and add the IPv6 configuration to the existing virtual machine's network interface.
+In this section, you will configure your virtual machine’s network interface to include both a private and a public IPv6 address.
 
 1. In the search box at the top of the portal, enter **Virtual machine**. Select **Virtual machines** in the search results.
 
 2. Select **myVM** or your existing virtual machine name.
 
-3. Stop **myVM**.
+3. Select **Networking** in **Settings**.
 
-4. Select **Networking** in **Settings**.
+4. Select your network interface name next to **Network Interface:**. In this example, the network interface is named **myvm404**.
 
-5. Select your network interface name next to **Network Interface:**. In this example, the network interface is named **myvm404**.
+5. Select **IP configurations** in **Settings** of the network interface.
 
-6. Select **IP configurations** in **Settings** of the network interface.
+6. In **IP configurations**, select **+ Add**.
 
-7. In **IP configurations**, select **+ Add**.
-
-8. Enter or select the following information in **Add IP configuration**.
+7. Enter or select the following information in **Add IP configuration**.
 
     | Setting | Value |
     | ------- | ----- |
@@ -257,8 +255,6 @@ The virtual machine must be stopped to add the IPv6 configuration to the existin
     | Public IP address | Select **myPublic-IPv6**. |
 
 9. Select **OK**.
-
-10. Start **myVM**.
 
 # [Azure CLI](#tab/azurecli/)
 

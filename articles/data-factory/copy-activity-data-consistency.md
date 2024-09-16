@@ -3,7 +3,6 @@ title: Data consistency verification in copy activity
 titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn about how to enable data consistency verification in a copy activity in Azure Data Factory and Synapse Analytics pipelines.
 author: dearandyxu
-ms.service: azure-data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual

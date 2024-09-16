@@ -19,10 +19,8 @@
     href: prerequisites.md
   - name: Workspace architecture
     items:
-    - name: Review best practices
-      href: best-practices-workspace-architecture.md 
     - name: Design workspace architecture
-      href: design-your-workspace-architecture.md      
+      href: /azure/azure-monitor/logs/workspace-design?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json        
     - name: Review sample workspace designs
       href: sample-workspace-designs.md
     - name: Prepare for multiple workspaces
@@ -263,7 +261,7 @@
   - name: AMA migration for Microsoft Sentinel
     href: ama-migrate.md
   - name: Ingest data to an auxiliary logs table
-    href: ../azure-monitor/logs/create-custom-table-auxiliary.md?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
+    href: /azure/azure-monitor/logs/create-custom-table-auxiliary?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
   - name: Find data connector
     href: data-connectors-reference.md
   - name: All connectors
@@ -478,8 +476,8 @@
       href: data-connectors/crowdstrike-falcon-data-replicator.md
     - name: Crowdstrike Falcon Data Replicator V2 (using Azure Functions)
       href: data-connectors/crowdstrike-falcon-data-replicator-v2.md
-    - name: Cyber Blind Spot Intergration (using Azure Functions)
-      href: data-connectors/cyber-blind-spot-intergration.md
+    - name: Cyber Blind Spot Integration (using Azure Functions)
+      href: data-connectors/cyber-blind-spot-integration.md
     - name: CyberArkAudit (using Azure Functions)
       href: data-connectors/cyberarkaudit.md
     - name: CyberArkEPM (using Azure Functions)
@@ -518,8 +516,8 @@
       href: data-connectors/eset-protect.md
     - name: Exabeam Advanced Analytics
       href: data-connectors/exabeam-advanced-analytics.md
-    - name: Exchange Security Insights On-Premise Collector
-      href: data-connectors/exchange-security-insights-on-premise-collector.md
+    - name: Exchange Security Insights On-Premises Collector
+      href: data-connectors/exchange-security-insights-on-premises-collector.md
     - name: Exchange Security Insights Online Collector (using Azure Functions)
       href: data-connectors/exchange-security-insights-online-collector.md
     - name: F5 BIG-IP
@@ -626,7 +624,7 @@
       href: data-connectors/microsoft-entra-id-protection.md
     - name: Microsoft Exchange Logs and Events
       href: data-connectors/microsoft-exchange-logs-and-events.md
-    - name: Microsoft PowerBI
+    - name: Microsoft Power BI
       href: data-connectors/microsoft-powerbi.md
     - name: Microsoft Project
       href: data-connectors/microsoft-project.md
@@ -860,10 +858,16 @@
         href: connect-log-forwarder.md
       - name: Syslog (raw) sources (legacy)
         href: connect-syslog.md
+    - name: Custom log sources (text files)
+      items:
+      - name: Collect logs from text files via AMA
+        href: connect-custom-logs-ama.md
+      - name: Custom logs - configure security device
+        href: unified-connector-custom-device.md
+      - name: Custom log sources (legacy)
+        href: connect-custom-logs.md
     - name: DNS via AMA
-      href: connect-dns-ama.md   
-    - name: Custom log sources
-      href: connect-custom-logs.md
+      href: connect-dns-ama.md
     - name: Logstash plugin with Data Collection Rules
       href: connect-logstash-data-connection-rules.md
     - name: Logstash plugin (legacy)
@@ -1132,6 +1136,8 @@
       href: add-advanced-conditions-to-automation-rules.md
     - name: Create incident tasks using automation rules
       href: create-tasks-automation-rule.md
+    - name: Export and import automation rules
+      href: import-export-automation-rules.md
   - name: Playbooks
     items:
     - name: Overview
@@ -1177,12 +1183,14 @@
       href: billing-reduce-costs.md
     - name: Switch to simplified pricing tiers
       href: enroll-simplified-pricing-tier.md
+    - name: Optimize costs with pre-purchase plan
+      href: billing-pre-purchase-plan.md
     - name: Tutorial - Configure data retention policy
       href: configure-data-retention.md
     - name: Auxiliary logs use cases
       href: basic-logs-use-cases.md
   - name: Connect Microsoft Sentinel to Microsoft Defender XDR
-    href: /microsoft-365/security/defender/microsoft-sentinel-onboard??toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
+    href: /defender-xdr/microsoft-sentinel-onboard??toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
   - name: Manage multiple workspaces 
     items:
     - name: Workspace manager
@@ -1229,8 +1237,6 @@
     href: troubleshooting-cef-syslog.md
   - name: Troubleshoot AWS S3 connector issues
     href: aws-s3-troubleshoot.md
-  - name: Troubleshoot Jupyter notebooks
-    href: notebooks-troubleshoot.md
   - name: Troubleshoot SAP solution deployment
     href: sap/sap-deploy-troubleshoot.md    
 - name: Reference
@@ -1297,6 +1303,8 @@
     items:
     - name: SOAR content catalog
       href: sentinel-soar-content.md
+    - name: Automation rules reference
+      href: automation-rule-reference.md
   - name: Data collection references
     items:
     - name: Data source schema reference

@@ -87,7 +87,7 @@ Many regions have a paired region to support cross-region replication based on p
 | **US Department of Defense** |US DoD East\* |US DoD Central\* |
 | **US Government** |US Gov Arizona\* |US Gov Texas\* |
 | |US Gov Virginia\* |US Gov Texas\* |
-|US Gov Texas\* |US Gov Virginia\* |
+| |US Gov Texas\* |US Gov Virginia\* |
 
 (\*) Certain regions are access restricted to support specific customer scenarios, such as in-country/region disaster recovery. These regions are available only upon request by [creating a new support request](/troubleshoot/azure/general/region-access-request-process#reserved-access-regions).
 
@@ -107,12 +107,13 @@ The table below lists Azure regions without a region pair:
 
 | Geography | Region |
 |-----|----|
-| Qatar | Qatar Central |
-| Mexico | Mexico Central |
-| Poland | Poland Central |
+| Austria | Austria East (coming soon) |
 | Israel | Israel Central|
 | Italy | Italy North|
-| Austria | Austria East (Coming soon) |
+| Mexico | Mexico Central |
+| New Zealand | New Zealand North (coming soon) |
+| Poland | Poland Central |
+| Qatar | Qatar Central |
 | Spain | Spain Central|
 
 ## Next steps

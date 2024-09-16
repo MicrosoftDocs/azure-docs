@@ -3,7 +3,7 @@ title: Web application firewall request size limits in Azure Application Gateway
 description: This article provides information on Web Application Firewall request size limits in Application Gateway with the Azure portal.
 services: web-application-firewall
 author: vhorne
-ms.service: web-application-firewall
+ms.service: azure-web-application-firewall
 ms.date: 07/16/2024
 ms.author: victorh
 ms.topic: concept-article

@@ -75,7 +75,7 @@ You can also choose to use your own TLS certificate. Your TLS certificate must m
 
 #### Prepare your key vault and certificate
 
-Create a separate Azure Key Vault instance in which you store your Azure Front Door TLS certificates. For more information, see [Create a Key Vault instance](../../key-vault/general/quick-create-portal.md). If you already have a certificate, you can upload it to your new Key Vault instance. Otherwise, you can create a new certificate through Key Vault from one of the certificate authority (CA) partners.
+Create a separate Azure Key Vault instance in which you store your Azure Front Door TLS certificates. For more information, see [Create a Key Vault instance](/azure/key-vault/general/quick-create-portal). If you already have a certificate, you can upload it to your new Key Vault instance. Otherwise, you can create a new certificate through Key Vault from one of the certificate authority (CA) partners.
 
 There are currently two ways to authenticate Azure Front Door to access your Key Vault:
 

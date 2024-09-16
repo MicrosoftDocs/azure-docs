@@ -2,7 +2,6 @@
 title: Store credentials in Azure Key Vault 
 description: Learn how to store credentials for data stores used in an Azure key vault that Azure Data Factory can automatically retrieve at runtime. 
 author: nabhishek
-ms.service: azure-data-factory
 ms.subservice: security
 ms.topic: conceptual
 ms.date: 05/15/2024
@@ -13,7 +12,7 @@ ms.author: abnarain
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-You can store credentials for data stores and computes in an [Azure Key Vault](../key-vault/general/overview.md). Azure Data Factory retrieves the credentials when executing an activity that uses the data store/compute.
+You can store credentials for data stores and computes in an [Azure Key Vault](/azure/key-vault/general/overview). Azure Data Factory retrieves the credentials when executing an activity that uses the data store/compute.
 
 Currently, all activity types except custom activity support this feature. For connector configuration specifically, check the "linked service properties" section in [each connector topic](copy-activity-overview.md#supported-data-stores-and-formats) for details.
 

@@ -2,7 +2,7 @@
 ms.topic: include
 author: sipastak
 ms.author: sipastak
-ms.date: 07/23/2024 
+ms.date: 09/09/2024 
 ---
 
 ## Supported client versions
@@ -11,10 +11,62 @@ The following table lists the current versions available for the public and Insi
 
 | Release | Latest version | Download |
 |--|--|--|
-| Public | 1.2.5559 | [Microsoft Store](https://aka.ms/AVDStoreClient) |
-| Insider | 1.2.5617 | Download the public release, then [Enable Insider releases](../users/client-features-windows.md#enable-insider-releases) and check for updates. |
+| Public | 1.2.5623 | [Microsoft Store](https://aka.ms/AVDStoreClient) |
+| Insider | 1.2.5702 | Download the public release, then [Enable Insider releases](../users/client-features-windows.md#enable-insider-releases) and check for updates. |
 
-## Updates for version 1.2.5617 (Insider)
+## Updates for version 1.2.5702 (Insider) 
+
+*Date published: September 10, 2024*   
+
+- Fixed an issue where initiating a screen capture while Teams is open as a RemoteApp caused the client to crash. 
+
+> [!NOTE]
+> This version replaced the Insider version 1.2.5701 and has the same release notes with the changes in 1.2.5701 and 1.2.5699. 
+
+## Updates for version 1.2.5701 
+
+*Date published: September 6, 2024*   
+
+- Fixed an issue where the client crashed for users who have Windows N SKUs without the media framework.
+- Addressed an issue that reduces the chance of encountering a “low virtual memory” error on reconnect attempts. 
+
+> [!NOTE]
+> This version replaced the Insider version 1.2.5699 and has the same release notes with the addition of the notes above. 
+
+## Updates for version 1.2.5623 
+
+*Date published: September 4, 2024*   
+
+- Fixed an issue where the client crashed for users who have Windows N SKUs without the media framework.
+- Addressed an issue that reduces the chance of encountering a “low virtual memory” error on reconnect attempts.
+
+> [!NOTE]
+> This hotfix version replaced the public version 1.2.5620 and has the same release notes with the addition of the the above fixes. 
+
+## Updates for version 1.2.5699 
+
+*Date published: August 27, 2024*   
+
+- Made an improvement where new session windows will not become the focused windows.
+- Fixed a bug to ensure that the screen mode id setting in the RDP file is honored.
+- Fixed an issue where Teams rendered into the wrong window when multiple Remote Desktop session windows were open. 
+
+## Updates for version 1.2.5620
+
+*Date published: August 13, 2024* 
+
+- Fixed an issue for [CVE-2024-38131 ](https://msrc.microsoft.com/update-guide/en-US/vulnerability/CVE-2024-38131).
+
+> [!NOTE]
+> This version replaced the Insider version 1.2.5617 and has the same release notes with the addition of the security release. 
+
+## Updates for version 1.2.5560
+
+*Date published: August 13, 2024* 
+
+- Fixed an issue for [CVE-2024-38131 ](https://msrc.microsoft.com/update-guide/en-US/vulnerability/CVE-2024-38131). 
+
+## Updates for version 1.2.5617 
 
 *Date published: July 23, 2024* 
 

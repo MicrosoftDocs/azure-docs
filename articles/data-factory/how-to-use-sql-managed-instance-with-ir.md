@@ -3,7 +3,6 @@ title: Use Azure SQL Managed Instance with Azure-SQL Server Integration Services
 description: Learn how to use Azure SQL Managed Instance with SQL Server Integration Services (SSIS) in Azure Data Factory. 
 author: chugugrace
 ms.author: chugu
-ms.service: azure-data-factory
 ms.topic: conceptual
 ms.date: 05/15/2024
 ---

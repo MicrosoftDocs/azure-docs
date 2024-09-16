@@ -1,16 +1,16 @@
 ---
-title: hbase hbck returns inconsistencies in Azure HDInsight
-description: hbase hbck returns inconsistencies in Azure HDInsight
-ms.service: hdinsight
+title: HBase hbck returns inconsistencies in Azure HDInsight
+description: Base hbck returns inconsistencies in Azure HDInsight
+ms.service: azure-hdinsight
 ms.topic: troubleshooting
-ms.date: 09/19/2023
+ms.date: 09/06/2024
 ---
 
 # Scenario: `hbase hbck` command returns inconsistencies in Azure HDInsight
 
-This article describes troubleshooting steps and possible resolutions for issues when interacting with Azure HDInsight clusters. If you are using hbase-2.x, see [How to use Apache HBase HBCK2 tool](./how-to-use-hbck2-tool.md)
+This article describes troubleshooting steps and possible resolutions for issues when interacting with Azure HDInsight clusters. If you're using hbase-2.x, see [How to use Apache HBase HBCK2 tool](./how-to-use-hbck2-tool.md)
 
-## Issue: Region is not in `hbase:meta`
+## Issue: Region isn't in `hbase:meta`
 
 Region xxx on HDFS, but not listed in `hbase:meta` or deployed on any region server.
 
@@ -71,7 +71,7 @@ RegionB, startkey:001, endkey:080,
 RegionC, startkey:010, endkey:080.
 ```
 
-In this scenario, you need to merge RegionA and RegionC and get RegionD with the same key range as RegionB, then merge RegionB and RegionD. xxxxxxx and yyyyyy are the hash string at the end of each region name. Be careful here not to merge two discontinuous regions. After each merge, like merge A and C, HBase will start a compaction on RegionD. Wait for the compaction to finish before doing another merge with RegionD. You can find the compaction status on that region server page in HBase HMaster UI.
+In this scenario, you need to merge RegionA and RegionC and get RegionD with the same key range as RegionB, then merge RegionB and RegionD. `xxxxxxx` and `yyyyyy` are the hash string at the end of each region name. Be careful here not to merge two discontinuous regions. After each merge, like merge A and C, HBase will start a compaction on RegionD. Wait for the compaction to finish before doing another merge with RegionD. You can find the compaction status on that region server page in HBase HMaster UI.
 
 ---
 
@@ -81,7 +81,7 @@ Can't load `.regioninfo` for region `/hbase/data/default/tablex/regiony`.
 
 ### Cause
 
-It is most likely due to region partial deletion when RegionServer crashes or VM reboots. Currently, the Azure Storage is a flat blob file system and some file operations are not atomic.
+It's most likely due to region partial deletion when RegionServer crashes or VM reboots. Currently, the Azure Storage is a flat blob file system and some file operations aren't atomic.
 
 ### Resolution
 

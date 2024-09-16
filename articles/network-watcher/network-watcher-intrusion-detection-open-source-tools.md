@@ -4,7 +4,7 @@ titleSuffix: Azure Network Watcher
 description: Learn how to use Azure Network Watcher and open-source tools to perform network intrusion detection.
 ms.author: halkazwini
 author: halkazwini
-ms.service: network-watcher
+ms.service: azure-network-watcher
 ms.topic: how-to
 ms.date: 07/30/2024
 ---

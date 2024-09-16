@@ -3,7 +3,7 @@ title: Networking in Azure Container Apps environment
 description: Learn how to configure virtual networks in Azure Container Apps.
 services: container-apps
 author: cachai
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.topic:  conceptual
 ms.date: 08/29/2023
 ms.author: cachai
@@ -204,7 +204,7 @@ As a Container Apps environment is created, you provide resource IDs for a singl
 
 If you're using the CLI, the parameter to define the subnet resource ID is `infrastructure-subnet-resource-id`. The subnet hosts infrastructure components and user app containers.
 
-If you're using the Azure CLI with a Consumption only environment and the [platformReservedCidr](vnet-custom-internal.md#networking-parameters) range is defined, both subnets must not overlap with the IP range defined in `platformReservedCidr`.
+If you're using the Azure CLI with a Consumption only environment and the [platformReservedCidr](vnet-custom-internal.md?pivots=azure-cli&tabs=bash#networking-parameters) range is defined, the subnet must not overlap with the IP range defined in `platformReservedCidr`.
 
 ## Routes
 

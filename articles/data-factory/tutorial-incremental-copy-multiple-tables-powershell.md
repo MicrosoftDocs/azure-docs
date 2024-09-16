@@ -4,7 +4,6 @@ description: In this tutorial, you create an Azure Data Factory with a pipeline 
 ms.author: yexu
 author: dearandyxu
 ms.reviewer: douglasl, jburchel
-ms.service: azure-data-factory
 ms.topic: tutorial
 ms.custom: devx-track-azurepowershell
 ms.date: 05/15/2024

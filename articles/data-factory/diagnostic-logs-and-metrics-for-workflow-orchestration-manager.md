@@ -2,7 +2,6 @@
 title: Diagnostics logs and metrics for Workflow Orchestration Manager
 titleSuffix: Azure Data Factory
 description: This article explains how to use diagnostic logs and metrics to monitor the Workflow Orchestration Manager integration runtime.
-ms.service: data-factory
 ms.topic: how-to
 author: nabhishek
 ms.author: abnarain
@@ -88,7 +87,7 @@ Similarly, you can create custom queries according to your needs by using any ta
 
 For more information, see:
 
-- [Log Analytics tutorial](../azure-monitor/logs/log-analytics-tutorial.md)
+- [Log Analytics tutorial](/azure/azure-monitor/logs/log-analytics-tutorial)
 - [Kusto Query Language (KQL) overview - Azure Data Explorer | Microsoft Learn](/azure/data-explorer/kusto/query/)
 
 ## Monitor metrics

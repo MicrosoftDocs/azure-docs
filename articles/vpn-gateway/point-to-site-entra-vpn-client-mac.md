@@ -2,7 +2,7 @@
 title: 'Configure P2S Azure VPN Client - Microsoft Entra ID authentication - macOS'
 description: Learn how to configure macOS client computers to connect to Azure using the Azure VPN Client. These steps are for gateways configured to use Microsoft Entra ID authentication.
 author: cherylmc
-ms.service: vpn-gateway
+ms.service: azure-vpn-gateway
 ms.topic: how-to
 ms.date: 07/24/2024
 ms.author: cherylmc
@@ -36,11 +36,11 @@ This article continues on from the [Configure a P2S VPN gateway for Microsoft En
 
 ## <a name="generate"></a>Extract client profile configuration files
 
-To configure your Azure VPN Client profile, you download a VPN client profile configuration package from the Azure P2S gateway. This package contains the necessary settings to configure the VPN client.
-
 If you used the P2S server configuration steps as mentioned in the [Prerequisites](#prerequisites) section, you've already generated and downloaded the VPN client profile configuration package that contains the VPN profile configuration files. If you need to generate configuration files, see [Download the VPN client profile configuration package](point-to-site-entra-gateway.md#download).
 
-After you obtain the VPN client profile configuration package, extract the files.
+When you generate and download a VPN client profile configuration package, all the necessary configuration settings for VPN clients are contained in a VPN client profile configuration zip file. The VPN client profile configuration files are specific to the P2S VPN gateway configuration for the virtual network. If there are any changes to the P2S VPN configuration after you generate the files, such as changes to the VPN protocol type or authentication type, you need to generate new VPN client profile configuration files and apply the new configuration to all of the VPN clients that you want to connect.
+
+Locate and unzip the VPN client profile configuration package you generated and downloaded (listed in the [Prequisites](#prerequisites)). Open the **AzureVPN** folder. In this folder, you'll see either the **azurevpnconfig_aad.xml** file or the **azurevpnconfig.xml** file, depending on whether your P2S configuration includes multiple authentication types. The .xml file contains the settings you use to configure the VPN client profile.
 
 ## Import VPN client profile configuration files
 

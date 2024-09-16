@@ -6,7 +6,7 @@ summary: Learn how to set up messaging that connects applications and services a
 metadata:
   title: Azure Service Bus Messaging documentation
   description: Learn how to set up messaging that connects applications and services across on-premises and cloud environments.
-  ms.service: service-bus-messaging
+  ms.service: azure-service-bus
   ms.topic: landing-page
   author: spelluru
   ms.author: spelluru

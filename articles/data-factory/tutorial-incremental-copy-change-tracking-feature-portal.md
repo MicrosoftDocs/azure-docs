@@ -3,7 +3,6 @@ title: Incrementally copy data by using change tracking in the Azure portal
 description: Learn how to create a data factory with a pipeline that loads delta data based on change tracking information from Azure SQL Database and moves it to Azure Blob Storage.
 ms.author: yexu
 author: dearandyxu
-ms.service: azure-data-factory
 ms.topic: tutorial
 ms.date: 01/05/2024
 ---

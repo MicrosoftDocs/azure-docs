@@ -4,7 +4,6 @@ description: Learn how to set up diagnostic logs for Azure Data Factory by using
 author: nabhishek
 ms.author: abnarain
 ms.reviewer: jburchel
-ms.service: azure-data-factory
 ms.subservice: monitoring
 ms.topic: conceptual
 ms.date: 10/20/2023

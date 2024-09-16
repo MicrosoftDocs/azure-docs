@@ -5,7 +5,7 @@ metadata:
   author: sajayantony
   ms.topic: faq
   ms.custom: devx-track-azurecli
-  ms.service: container-registry
+  ms.service: azure-container-registry
   ms.date: 10/31/2023
   ms.author: sajaya
 title: Frequently asked questions - Azure Container Registry
@@ -34,7 +34,7 @@ sections:
       - question: |
           How do I configure Kubernetes with Azure Container Registry?
         answer: |
-          See the documentation for [Kubernetes](https://kubernetes.io/docs/concepts/containers/images/) and steps for [Azure Kubernetes Service](../aks/cluster-container-registry-integration.md).
+          See the documentation for [Kubernetes](https://kubernetes.io/docs/concepts/containers/images/) and steps for [Azure Kubernetes Service](/azure/aks/cluster-container-registry-integration).
           
       - question: |
           How do I get admin credentials for a container registry?

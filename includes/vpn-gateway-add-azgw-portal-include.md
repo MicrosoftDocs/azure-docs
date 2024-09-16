@@ -1,8 +1,8 @@
 ---
  author: cherylmc
- ms.service: vpn-gateway
+ ms.service: azure-vpn-gateway
  ms.topic: include
- ms.date: 06/17/2024
+ ms.date: 07/31/2024
  ms.author: cherylmc
 ---
 
@@ -18,7 +18,7 @@
    * **Name**: This is the name of the gateway object you're creating. This is different than the gateway subnet to which gateway resources will be deployed.
    * **Region**: Select the region in which you want to create this resource. The region for the gateway must be the same as the virtual network.
    * **Gateway type**: Select **VPN**. VPN gateways use the virtual network gateway type **VPN**.
-   * **SKU**: From the dropdown list, select the gateway SKU that supports the features you want to use. We suggest selecting an **AZ** SKU such as VpnGw2AZ. At this time, The Basic SKU can only be configured using Azure CLI or PowerShell. For more information about SKUs, see [Gateway SKUs](../articles/vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md#gwsku).
+   * **SKU**: From the dropdown list, select the gateway SKU that supports the features you want to use. For more information about SKUs, see [Gateway SKUs](../articles/vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md#gwsku). To configure a Basic SKU gateway instead, see the [PowerShell](../articles/vpn-gateway/create-gateway-basic-sku-powershell.md) steps.
    * **Generation**: Select **Generation2** from the dropdown.
    * **Virtual network**: From the dropdown list, select the virtual network to which you want to add this gateway. If you can't see the virtual network you want to use, make sure you selected the correct subscription and region in the previous settings.
    * **Gateway subnet address range** or **Subnet**: The gateway subnet is required to create a VPN gateway.

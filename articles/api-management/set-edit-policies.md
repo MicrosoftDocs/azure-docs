@@ -4,7 +4,7 @@ description: Configure policies at different scopes in an Azure API Management i
 services: api-management
 author: dlepow
 
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: how-to
 ms.date: 10/18/2023
 ms.author: danlep

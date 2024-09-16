@@ -3,7 +3,7 @@ title: Restore Azure PostgreSQL databases via Azure PowerShell
 description: Learn how to restore Azure PostgreSQL databases using Azure PowerShell.
 ms.topic: how-to
 ms.date: 07/30/2024
-ms.service: backup
+ms.service: azure-backup
 ms.custom: devx-track-azurepowershell
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
@@ -11,7 +11,7 @@ ms.author: v-abhmallick
 
 # Restore Azure PostgreSQL databases using Azure PowerShell
 
-This article explains how to restore [Azure PostgreSQL databases](../postgresql/overview.md#azure-database-for-postgresql---single-server) to an Azure PostgreSQL server backed-up by Azure Backup.
+This article explains how to restore [Azure PostgreSQL databases](/azure/postgresql/overview#azure-database-for-postgresql---single-server) to an Azure PostgreSQL server backed-up by Azure Backup.
 
 Being a PaaS database, the Original-Location Recovery (OLR) option to restore by replacing the existing database (from where the backups were taken) isn't supported. You can restore from a recovery point to create a new database in the same Azure PostgreSQL server or in other PostgreSQL server. This is called Alternate-Location Recovery (ALR) that helps to keep both - the source database and the restored (new) database.
 

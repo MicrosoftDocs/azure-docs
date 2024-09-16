@@ -1026,5 +1026,5 @@ Follow these steps to install an SAP application server.
 * See [Azure Virtual Machines planning and implementation for SAP][planning-guide].
 * See [Azure Virtual Machines deployment for SAP][deployment-guide].
 * See [Azure Virtual Machines DBMS deployment for SAP][dbms-guide].
-* To learn how to establish HA and plan for disaster recovery of SAP HANA on Azure (large instances), see [SAP HANA (large instances) high availability and disaster recovery on Azure](../../virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery.md).
+* To learn how to establish HA and plan for disaster recovery of SAP HANA on Azure (large instances), see [SAP HANA (large instances) high availability and disaster recovery on Azure](/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery).
 * To learn how to establish HA and plan for disaster recovery of SAP HANA on Azure VMs, see [High availability of SAP HANA on Azure Virtual Machines][sap-hana-ha].

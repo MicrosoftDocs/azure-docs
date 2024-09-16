@@ -2,7 +2,7 @@
 author: cherylmc
 ms.author: cherylmc
 ms.date: 07/30/2024
-ms.service: vpn-gateway
+ms.service: azure-vpn-gateway
 ms.topic: include
 
 ## This article pertains to ExpressRoute, VPN Gateway, and Virtual WAN FAQs. If you need to add something that **doesn't** apply to all 3 of these services, go to the FAQ and update the FAQ section of the specific service that your additional information applies to, using the exact format below. Add your information after the include in that section.

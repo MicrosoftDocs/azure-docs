@@ -45,6 +45,8 @@
     href: anycast.md
 - name: How-to guides
   items:
+  - name: Configure and manage Route Server
+    href: configure-route-server.md
   - name: Troubleshoot Route Server issues
     href: troubleshoot-route-server.md
   - name: Monitor Route Server
