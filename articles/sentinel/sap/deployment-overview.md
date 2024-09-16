@@ -6,7 +6,8 @@ ms.author: bagol
 ms.topic: conceptual
 ms.date: 06/19/2023
 
-# customer intent: As a business user or decision maker, I want to get an overview of how to deploy the Microsoft Sentinel solution for SAP applications so that I know the scope of the information I need and how to access it.
+#Customer intent: As a security analyst, I want to deploy and configure a monitoring solution for SAP applications so that I can detect and respond to security threats within my SAP environment.
+
 ---
 
 # Deploy Microsoft Sentinel solution for SAP applications

@@ -362,7 +362,7 @@ To learn how to use this property, see [Configure Media Transfer Protocol and Pi
   - *Empty*: Don't redirect any drives.
   - `*`: Redirect all drives, including drives that are connected later.
   - `DynamicDrives`: Redirect any drives that are connected later.
-  - `drivestoredirect:s:C\:;E\:;`: Redirect the specified drive letters for one or more drives, such as this example.
+  - `drivestoredirect:s:C:\;E:\;`: Redirect the specified drive letters for one or more drives, such as this example.
 - **Default value**: `*`
 - **Applies to**:
    - Azure Virtual Desktop

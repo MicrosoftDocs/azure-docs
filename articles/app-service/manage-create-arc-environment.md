@@ -141,7 +141,7 @@ az extension add --upgrade --yes --name appservice-kube
     
 ## Create a Log Analytics workspace
 
-While a [Log Analytic workspace](../azure-monitor/logs/quick-create-workspace.md) is not required to run App Service in Azure Arc, it's how developers can get application logs for their apps that are running in the Azure Arc-enabled Kubernetes cluster. 
+While a [Log Analytic workspace](/azure/azure-monitor/logs/quick-create-workspace) is not required to run App Service in Azure Arc, it's how developers can get application logs for their apps that are running in the Azure Arc-enabled Kubernetes cluster. 
 
 1. For simplicity, create the workspace now.
 

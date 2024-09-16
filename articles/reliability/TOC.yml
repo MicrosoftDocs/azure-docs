@@ -113,13 +113,9 @@
       - name: Azure Key Vault
         href: /azure/key-vault/general/disaster-recovery-guidance?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
       - name: Azure Load Balancer
-        items:
-        - name: Availability zones
-          href: ../load-balancer/load-balancer-standard-availability-zones.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
-        - name: Disaster recovery
-          href: ../load-balancer/tutorial-cross-region-portal.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+        href: reliability-load-balancer.md
       - name: Azure Storage-Disk Storage
-        href: /azure/virtual-machines/disks-incremental-snapshots?tabs=azure-resource-manage.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+        href: /azure/virtual-machines/disks-high-availability?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
       - name: Azure Public IP
         href: ../virtual-network/ip-services/public-ip-addresses.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#availability-zone
       - name: Azure Service Bus
@@ -209,7 +205,7 @@
       - name: Disaster recovery
         href: ../container-registry/container-registry-geo-replication.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
     - name: Azure Data Explorer
-      href: /azure/data-explorer/create-cluster-database-portal?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+      href: /azure/data-explorer/business-continuity-overview?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
     - name: Azure Data Factory
       href: ../data-factory/concepts-data-redundancy.md?bc=%2fazure%2freliability%2fbreadcrumb%2ftoc.json&toc=%2fazure%2freliability%2ftoc.json
     - name: Azure Database for MySQL
@@ -222,8 +218,6 @@
         href: /azure/mysql/flexible-server/how-to-restore-server-portal?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#geo-restore-to-latest-restore-point
     - name: Azure Database for PostgreSQL - Flexible Server
       href: reliability-postgresql-flexible-server.md
-    - name: Azure Data Explorer
-      href: /azure/data-explorer/business-continuity-overview?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
     - name: Azure DDoS Protection
       href: reliability-ddos.md
     - name: Azure Disk Encryption 
@@ -234,8 +228,6 @@
       href: ./reliability-event-grid.md
     - name: Azure Firewall
       href: ../firewall/deploy-availability-zone-powershell.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
-    - name: Azure Firewall Manager
-      href: ../firewall-manager/quick-firewall-policy.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
     - name: Azure Functions 
       href: reliability-functions.md
     - name: Azure Guest Configuration
@@ -246,8 +238,6 @@
       href: reliability-image-builder.md
     - name: Azure Kubernetes Service (AKS)
       href: /azure/aks/availability-zones?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
-    - name: Azure Load Balancer
-      href: reliability-load-balancer.md
     - name: Azure Logic Apps
       items:
       - name: Availability zones
@@ -258,14 +248,12 @@
       href: /azure/media-services/latest/architecture-high-availability-encoding-concept?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
     - name: Azure Migrate
       href: ../migrate/resources-faq.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#does-azure-migrate-offer-backup-and-disaster-recovery
-    - name: Azure Monitor - Application Insights
-      href: ../azure-monitor/app/export-telemetry.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#continuous-export-advanced-storage-configuration
     - name: Azure Monitor - Log Analytics
       items:
       - name: Availability zones
-        href: ../azure-monitor/logs/availability-zones.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+        href: /azure/azure-monitor/logs/availability-zones?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
       - name: Azure Monitor - Log Analytics
-        href: ../azure-monitor/logs/logs-data-export.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json&tabs=portal#enable-data-export
+        href: /azure/azure-monitor/logs/logs-data-export?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json&tabs=portal#enable-data-export
     - name: Azure Network Watcher
       href: ../network-watcher/frequently-asked-questions.yml?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#service-availability-and-redundancy
     - name: Azure Notification Hubs
@@ -276,8 +264,6 @@
       href: ../private-link/availability.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
     - name: Azure Route Server
       href: ../route-server/route-server-faq.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
-    - name: Azure SQL Server Registry
-      href: /sql/sql-server/end-of-support/sql-server-extended-security-updates?preserve-view=true&view=sql-server-ver15?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#configure-regional-redundancy
     - name: Azure Stream Analytics
       href: ../stream-analytics/geo-redundancy.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json 
     - name: Azure Storage - Blob Storage
@@ -294,8 +280,6 @@
         href: ../firewall/deploy-availability-zone-powershell.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
       - name: Azure Web Application Firewall
         href: ../application-gateway/application-gateway-faq.yml?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json#how-do-i-achieve-a-disaster-recovery-scenario-across-datacenters-by-using-application-gateway
-    - name: Microsoft Entra Domain Services
-      href: ../active-directory-domain-services/tutorial-create-replica-set.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
   - name: Strategic services
     items:
     - name: Azure API Center
