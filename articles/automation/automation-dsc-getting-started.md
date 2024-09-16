@@ -24,7 +24,7 @@ article, you can use the [Azure Automation Managed Node template](https://github
 To complete the examples in this article, the following are required:
 
 - An Azure Automation account. To learn more about an Automation account and its requirements, see [Automation Account authentication overview](./automation-security-overview.md).
-- An Azure Resource Manager VM (not Classic) running a [supported operating system](automation-dsc-overview.md#operating-system-requirements). For instructions on creating a VM, see [Create your first Windows virtual machine in the Azure portal](../virtual-machines/windows/quick-create-portal.md)
+- An Azure Resource Manager VM (not Classic) running a [supported operating system](automation-dsc-overview.md#operating-system-requirements). For instructions on creating a VM, see [Create your first Windows virtual machine in the Azure portal](/azure/virtual-machines/windows/quick-create-portal)
 
 ## Create a DSC configuration
 

@@ -1,8 +1,8 @@
 ---
   title: Frequently asked questions about the Azure Linux Container Host for AKS
   description: Find answers to some of the common questions about the Azure Linux Container Host for AKS.
-  author: htaubenfeld
-  ms.author: htaubenfeld
+  author: suhuruli
+  ms.author: suhuruli
   ms.service: microsoft-linux
   ms.custom: linux-related-content
   ms.topic: faq
@@ -10,6 +10,9 @@
 ---
 
 # Frequently asked questions about the Azure Linux Container Host for AKS
+
+> [!CAUTION]
+> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](/azure/virtual-machines/workloads/centos/centos-end-of-life).
 
 This article answers common questions about the Azure Linux Container Host.
 
@@ -63,7 +66,7 @@ No, the Azure Linux Container Host doesn't support AppArmor. Instead, it support
 
 ### How does Azure Linux read time for time synchronization on Azure?
 
-For time synchronization, Azure Linux reads the time from the Azure VM host using [chronyd](../../articles/virtual-machines/linux/time-sync.md#chrony) and the /dev/ptp device.
+For time synchronization, Azure Linux reads the time from the Azure VM host using [chronyd](/azure/virtual-machines/linux/time-sync#chrony) and the /dev/ptp device.
 
 ### How can I get help with Azure Linux?
 

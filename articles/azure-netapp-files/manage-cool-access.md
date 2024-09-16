@@ -28,7 +28,8 @@ The storage with cool access feature provides options for the “coolness period
 * You can't use [large volume](large-volumes-requirements-considerations.md) with cool access.
 * See [Resource limits for Azure NetApp Files](azure-netapp-files-resource-limits.md#resource-limits) for maximum number of volumes supported for cool access per subscription per region.
 * Considerations for using cool access with [cross-region replication](cross-region-replication-requirements-considerations.md) and [cross-zone replication](cross-zone-replication-introduction.md): 
-    * The cool access setting on the destination is updated automatically to match the source volume whenever the setting is changed on the source volume or during authorizing or performing a reverse resync of the replication. Changes to the cool access setting on the destination volume don't affect the setting on the source volume.
+    * The cool access setting on the destination volume is updated automatically to match the source volume whenever the setting is changed on the source volume or during authorizing or performing a reverse resync of the replication  only if the destination volume is in a cool access-enabled capacity pool. Changes to the cool access setting on the destination volume don't affect the setting on the source volume.
+    * In cross-region or cross-zone replication configuration, you can enable cool access exclusively for destination volumes to enhance data protection and create cost savings without affecting latency in source volumes.
 * Considerations for using cool access with [snapshot restore](snapshots-restore-new-volume.md):
     * When restoring a snapshot of a cool access enabled volume to a new volume, the new volume inherits the cool access configuration from the parent volume. Once the new volume is created, the cool access settings can be modified.  
     * You can't restore from a snapshot of a non-cool-access volume to a cool access volume.  Likewise, you can't restore from a snapshot of a cool access volume to a non-cool-access volume.
@@ -125,13 +126,13 @@ Azure NetApp Files storage with cool access can be enabled during the creation o
 
         * *Cool access is **enabled***:  
             * If no value is set for cool access retrieval policy:  
-                The retrieval policy will be set to `Default`, and cold data will be retrieved to the hot tier only when performing random reads. Sequential reads will be served directly from the cool tier.
+                The retrieval policy  set to `Default`. Cool data is only retrieved to the hot tier only when performing random reads. Sequential reads are served directly from the cool tier.
             * If cool access retrieval policy is set to `Default`:   
-                Cold data will be retrieved only by performing random reads.
+                Cold data is retrieved only by performing random reads.
             * If cool access retrieval policy is set to `On-Read`:   
-                Cold data will be retrieved by performing both sequential and random reads.
+                Cold data is retrieved by performing both sequential and random reads.
             * If cool access retrieval policy is set to `Never`:   
-                Cold data is served directly from the cool tier and not be retrieved to the hot tier.
+                Cold data is served directly from the cool tier and not retrieved to the hot tier.
         * *Cool access is **disabled**:*     
             * You can set a cool access retrieval policy if cool access is disabled only if there's existing data on the cool tier. 
             * Once you disable the cool access setting on the volume, the cool access retrieval policy remains the same.    
@@ -150,7 +151,7 @@ In a cool-access enabled capacity pool, you can enable an existing volume to sup
 1. Right-click the volume for which you want to enable the cool access. 
 1. In the **Edit** window that appears, set the following options for the volume: 
     * **Enable Cool Access**  
-        This option specifies whether the volume will support cool access. 
+        This option specifies whether the volume supports cool access. 
     * **Coolness Period**  
         This option specifies the period (in days) after which infrequently accessed data blocks (cold data blocks) are moved to the Azure storage account. The default value is 31 days. The supported values are between 2 and 183 days. 
     * **Cool Access Retrieval Policy**   
@@ -184,3 +185,4 @@ Based on the client read/write patterns, you can modify the cool access configur
 
 ## Next steps
 * [Azure NetApp Files storage with cool access](cool-access-introduction.md)
+* [Performance considerations for Azure NetApp Files storage with cool access](performance-considerations-cool-access.md)

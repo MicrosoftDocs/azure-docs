@@ -79,16 +79,16 @@ You can configure the SBD device by using either of two options:
   
   * An Azure shared disk with Premium SSD is supported as an SBD device.
   * SBD devices that use an Azure shared disk are supported on RHEL 8.8 and later.
-  * SBD devices that use an Azure premium share disk are supported on [locally redundant storage (LRS)](../../virtual-machines/disks-redundancy.md#locally-redundant-storage-for-managed-disks) and [zone-redundant storage (ZRS)](../../virtual-machines/disks-redundancy.md#zone-redundant-storage-for-managed-disks).
+  * SBD devices that use an Azure premium share disk are supported on [locally redundant storage (LRS)](/azure/virtual-machines/disks-redundancy#locally-redundant-storage-for-managed-disks) and [zone-redundant storage (ZRS)](/azure/virtual-machines/disks-redundancy#zone-redundant-storage-for-managed-disks).
   * Depending on the [type of your deployment](./sap-high-availability-architecture-scenarios.md#comparison-of-different-deployment-types-for-sap-workload), choose the appropriate redundant storage for an Azure shared disk as your SBD device.
   * An SBD device using LRS for an Azure premium shared disk (skuName - Premium_LRS) is only supported with regional deployment like availability set.
   * An SBD device using ZRS for an Azure premium shared disk (skuName - Premium_ZRS) is recommended with zonal deployment like availability zone, or scale set with FD=1.
-  * A ZRS for managed disk is currently available in the regions listed in [regional availability](../../virtual-machines/disks-redundancy.md#regional-availability) document.
-  * The Azure shared disk that you use for SBD devices doesn't need to be large. The [maxShares](../../virtual-machines/disks-shared-enable.md?tabs=azure-portal#disk-sizes) value determines how many cluster nodes can use the shared disk. For example, you can use P1 or P2 disk sizes for your SBD device on two-node cluster such as SAP ASCS/ERS or SAP HANA scale-up.
-  * For HANA scale-out with HANA system replication (HSR) and pacemaker, you can use an Azure shared disk for SBD devices in clusters with up to five nodes per replication site because of the current limit of [maxShares](../../virtual-machines/disks-shared-enable.md#disk-sizes).
+  * A ZRS for managed disk is currently available in the regions listed in [regional availability](/azure/virtual-machines/disks-redundancy#regional-availability) document.
+  * The Azure shared disk that you use for SBD devices doesn't need to be large. The [maxShares](/azure/virtual-machines/disks-shared-enable?tabs=azure-portal#disk-sizes) value determines how many cluster nodes can use the shared disk. For example, you can use P1 or P2 disk sizes for your SBD device on two-node cluster such as SAP ASCS/ERS or SAP HANA scale-up.
+  * For HANA scale-out with HANA system replication (HSR) and pacemaker, you can use an Azure shared disk for SBD devices in clusters with up to five nodes per replication site because of the current limit of [maxShares](/azure/virtual-machines/disks-shared-enable#disk-sizes).
   * We don't recommend attaching an Azure shared disk SBD device across pacemaker clusters.
   * If you use multiple Azure shared disk SBD devices, check on the limit for a maximum number of data disks that can be attached to a VM.
-  * For more information about limitations for Azure shared disks, carefully review the "Limitations" section of [Azure shared disk documentation](../../virtual-machines/disks-shared.md#limitations).
+  * For more information about limitations for Azure shared disks, carefully review the "Limitations" section of [Azure shared disk documentation](/azure/virtual-machines/disks-shared#limitations).
 
 ### Use an Azure fence agent
 
@@ -410,7 +410,7 @@ This section applies only if you want to use an SBD Device with an Azure shared 
 
 ### Configure Azure shared disk with PowerShell
 
-To create and attach an Azure shared disk with PowerShell, execute following instruction. If you want to deploy resources by using the Azure CLI or the Azure portal, you can also refer to [Deploy a ZRS disk](../../virtual-machines/disks-deploy-zrs.md).
+To create and attach an Azure shared disk with PowerShell, execute following instruction. If you want to deploy resources by using the Azure CLI or the Azure portal, you can also refer to [Deploy a ZRS disk](/azure/virtual-machines/disks-deploy-zrs).
 
 ```powershell
 $ResourceGroup = "MyResourceGroup"
@@ -714,7 +714,7 @@ Differences in the commands or the configuration between RHEL 7 and RHEL 8/RHEL 
 
 8. **[1]** Create a Pacemaker cluster.
 
-   Run the following commands to authenticate the nodes and create the cluster. Set the token to 30000 to allow memory preserving maintenance. For more information, see [this article for Linux](../../virtual-machines/maintenance-and-updates.md#maintenance-that-doesnt-require-a-reboot).
+   Run the following commands to authenticate the nodes and create the cluster. Set the token to 30000 to allow memory preserving maintenance. For more information, see [this article for Linux](/azure/virtual-machines/maintenance-and-updates#maintenance-that-doesnt-require-a-reboot).
 
    If you're building a cluster on **RHEL 7.x**, use the following commands:  
 
@@ -906,7 +906,7 @@ The monitoring and fencing operations are deserialized. As a result, if there's 
 
 ## Configure Pacemaker for Azure scheduled events
 
-Azure offers [scheduled events](../../virtual-machines/linux/scheduled-events.md). Scheduled events are sent via the metadata service and allow time for the application to prepare for such events.
+Azure offers [scheduled events](/azure/virtual-machines/linux/scheduled-events). Scheduled events are sent via the metadata service and allow time for the application to prepare for such events.
 
 The Pacemaker resource agent `azure-events-az` monitors for scheduled Azure events. If events are detected and the resource agent determines that another cluster node is available, it sets a cluster health attribute.
 
@@ -977,7 +977,7 @@ When the cluster health attribute is set for a node, the location constraint tri
    sudo pcs resource cleanup
    ```
 
-   First-time query execution for scheduled events [can take up to two minutes](../../virtual-machines/linux/scheduled-events.md#enabling-and-disabling-scheduled-events). Pacemaker testing with scheduled events can use reboot or redeploy actions for the cluster VMs. For more information, see [Scheduled events](../../virtual-machines/linux/scheduled-events.md).
+   First-time query execution for scheduled events [can take up to two minutes](/azure/virtual-machines/linux/scheduled-events#enabling-and-disabling-scheduled-events). Pacemaker testing with scheduled events can use reboot or redeploy actions for the cluster VMs. For more information, see [Scheduled events](/azure/virtual-machines/linux/scheduled-events).
 
 ## Optional fencing configuration  
 

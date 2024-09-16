@@ -8,7 +8,9 @@ ms.date: 10/19/2023
 
 # Read Delta Lake tables (Synapse or external location)
 
+[!INCLUDE [retirement-notice](../includes/retirement-notice.md)]
 [!INCLUDE [feature-in-preview](../includes/feature-in-preview.md)]
+
 
 This article provides an overview of how to read a Delta Lake table without having any access to the metastore (Synapse or other metastores without public access).
 

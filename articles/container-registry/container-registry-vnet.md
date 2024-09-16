@@ -1,7 +1,7 @@
 ---
 title: Restrict access using a service endpoint
 description: Restrict access to an Azure container registry using a service endpoint in an Azure virtual network. Service endpoint access is a feature of the Premium service tier.
-ms.topic: article
+ms.topic: how-to
 ms.custom: devx-track-azurecli
 author: tejaswikolli-web
 ms.author: tejaswikolli
@@ -27,7 +27,7 @@ Configuring a registry service endpoint is available in the **Premium** containe
 
 * Future development of service endpoints for Azure Container Registry isn't currently planned. We recommend using [private endpoints](container-registry-private-link.md) instead.
 * You can't use the Azure portal to configure service endpoints on a registry.
-* Only an [Azure Kubernetes Service](/azure/aks/intro-kubernetes) cluster or Azure [virtual machine](../virtual-machines/linux/overview.md) can be used as a host to access a container registry using a service endpoint. *Other Azure services including Azure Container Instances aren't supported.*
+* Only an [Azure Kubernetes Service](/azure/aks/intro-kubernetes) cluster or Azure [virtual machine](/azure/virtual-machines/linux/overview) can be used as a host to access a container registry using a service endpoint. *Other Azure services including Azure Container Instances aren't supported.*
 * Service endpoints for Azure Container Registry aren't supported in the Azure US Government cloud or Microsoft Azure operated by 21Vianet cloud.
 
 [!INCLUDE [container-registry-scanning-limitation](../../includes/container-registry-scanning-limitation.md)]

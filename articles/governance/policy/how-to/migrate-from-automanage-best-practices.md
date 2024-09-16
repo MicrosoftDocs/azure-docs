@@ -234,12 +234,10 @@ next steps:
 <!-- Reference link definitions -->
 [01]: ../overview.md
 [02]: ../../../backup/backup-azure-arm-userestapi-createorupdatepolicy.md
-[03]: ../../../virtual-machines/extensions/iaas-antimalware-windows.md
-[04]: https://learn.microsoft.com/windows-server/manage/windows-admin-center/azure/manage-vm
+[03]: /azure/virtual-machines/extensions/iaas-antimalware-windows
+[04]: /windows-server/manage/windows-admin-center/azure/manage-vm
 [05]: ../../../update-manager/migration-overview.md
 [06]: https://ms.portal.azure.com/
 [07]: ../concepts/definition-structure-basics.md
 [08]: ../assign-policy-portal.md
 [09]: https://azure.microsoft.com/pricing/details/azure-automanage/
-
-

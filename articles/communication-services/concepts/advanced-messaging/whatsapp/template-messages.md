@@ -9,6 +9,7 @@ ms.author: memontic
 ms.date: 02/29/2024
 ms.topic: conceptual
 ms.service: azure-communication-services
+ms.subservice: advanced-messaging
 ---
 
 # Send WhatsApp template messages
