@@ -61,7 +61,7 @@ When you purchase an Azure NetApp Files reservation, you must choose the region 
 
 Reservations are available for 100-TiB or 1-PiB increments, with higher discounts for 1-PiB increments. When you purchase a reservation in the Azure portal, Microsoft might provide you with recommendations based on your previous usage to help determine which reservation you should purchase.
 
-Purchasing an Azure NetApp Files reserved capacity does not automatically increase your regional capacity. Azure reservations for Azure NetApp Files are not an on-demand capacity guarantee. If you're capacity reservation requires a quota increase, it's recommended you complete that before making the reservation. For more information, see [Regional capacity in Azure NetApp Files](regional-capacity-quota.md).
+Purchasing an Azure NetApp Files reserved capacity does not automatically increase your regional capacity. Azure reservations for Azure NetApp Files are not an on-demand capacity guarantee. If your capacity reservation requires a quota increase, it's recommended you complete that before making the reservation. For more information, see [Regional capacity in Azure NetApp Files](regional-capacity-quota.md).
 
 ## Purchase Azure NetApp Files reserved capacity 
 
