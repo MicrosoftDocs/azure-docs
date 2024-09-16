@@ -48,7 +48,7 @@ ms.author: danlep
 ### Usage notes
 
 - We recommend configuring [key vault certificates](api-management-howto-mutual-certificates.md) to manage certificates used to secure access to backend services.
-- If you configure certificates or passwords not stored in the built-in certificate store, we recommend using [named values](api-management-howto-properties.md) to provide credentials.
+- If you configure a certificate password in this policy, we recommend using a [named value](api-management-howto-properties.md).
 
 
 ## Examples
