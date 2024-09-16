@@ -37,7 +37,7 @@ Here are some of the benefits of using Python feature management library:
 * Low barrier-to-entry
   * Supports JSON feature flag setup
 * Feature Flag lifetime management
-  * Configuration values can change in real-time; feature flags can be consistent across the entire request
+  * Configuration values can change in real-time; feature flags can be consistent across the entire requestf
 * Simple to Complex Scenarios Covered
   * Toggle on/off features through declarative configuration file
   * Dynamically evaluate state of feature based on call to server
@@ -48,17 +48,15 @@ Here are some of the benefits of using Python feature management library:
 Feature flags are composed of two parts, a name and a list of feature-filters that are used to turn on the feature.
 
 ### Feature Filters
-Feature filters define a scenario for when a feature should be enabled. When a feature is evaluated for whether it is on or off, its list of feature filters is traversed until one of the filters decides the feature should be enabled. At this point, the feature is considered enabled and traversal through the feature filters stops. If no feature filter indicates that the feature should be enabled, it's considered disabled.
+Feature filters define a scenario for when a feature should be enabled. When a feature is evaluated for whether it is on or off, its list of feature filters is traversed until one of the filters decides the feature should be enabled. At this point, the feature is considered enabled and traversal through the feature filters stops. If no feature filter indicates that the feature should be enabled, it will be considered disabled.
 
-As an example, a Microsoft Edge browser feature filter could be designed. This feature filter would activate any features it's attached to as long as an HTTP request is coming from Microsoft Edge.
+As an example, a Microsoft Edge browser feature filter could be designed. This feature filter would activate any features attached to it, as long as an HTTP request is coming from Microsoft Edge.
 
 ### Feature Flag Configuration
 
 A Python dictionary is used to define feature flags. The dictionary is composed of feature names as keys and feature flag objects as values. The feature flag object is a dictionary that contains an `EnabledFor` key. The `EnabledFor` key is a list of feature filters that are used to determine if the feature should be enabled
 
 ### Feature Flag Declaration
-
-:::zone target="docs" pivot="stable-version"
 
 The feature management library supports json as a feature flag source. Below we have an example of the format used to set up feature flags in a json file.
 
@@ -162,10 +160,6 @@ A `requirement_type` of `All` changes the traversal. First, if there are no filt
 
 In the above example, `FeatureW` specifies a `requirement_type` of `All`, meaning all of its filters must evaluate to true for the feature to be enabled. In this case, the feature is enabled for 50% of users during the specified time window.
 
-### Python Feature Management schema
-
-In previous versions, the primary schema for the feature management library was the [`.NET feature management schema`](https://github.com/microsoft/FeatureManagement/blob/main/Schema/FeatureManagement.v2.0.0.schema.json). Starting from v2.0.0b1, new features including variants and telemetry won't be supported for the .NET feature management schema.
-
 ## Consumption
 
 The basic form of feature management is checking if a feature flag is enabled and then performing actions based on the result. This is done through `FeatureManager`'s `is_enabled` method.
@@ -214,7 +208,6 @@ Each of the built-in feature filters has its own parameters. Here's the list of 
 This filter provides the capability to enable a feature based on a time window. If only `End` is specified, the feature is considered on until that time. If only `Start` is specified, the feature is considered on at all points after that time.
 
 ```json
-
 "client_filters": [
     {
         "name": "Microsoft.TimeWindow",
@@ -223,8 +216,7 @@ This filter provides the capability to enable a feature based on a time window. 
             "End": "Mon, 01 Jul 2019 00:00:00 GMT"
         }
     }
-]
-                
+]     
 ```
 
 ### Microsoft.Targeting
@@ -608,6 +600,8 @@ When a feature flag is evaluated and telemetry is enabled, the feature manager w
 | `enabled` | Whether the feature flag is evaluated as enabled. |
 | `Variant` | The assigned variant. |
 | `VariantAssignmentReason` | The reason why the variant is assigned. |
+
+:::zone-end
 
 ## Next steps
 
