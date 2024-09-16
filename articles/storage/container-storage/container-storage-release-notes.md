@@ -36,7 +36,7 @@ Minor versions introduce small improvements, performance enhancements, or minor 
 
 ### Improvements and issues that are fixed
 - **Security Enhancements**: This update addresses vulnerabilities in container environments, enhancing security enforcement to better protect workloads. 
-- **Data plane stability**: We have also improved the stability of data-plane components, ensuring more reliable access to Azure Container Storage volumes and storage pools. It also enhances the management of data replication between storage nodes.
+- **Data plane stability**: We've also improved the stability of data-plane components, ensuring more reliable access to Azure Container Storage volumes and storage pools. This also enhances the management of data replication between storage nodes.
 - **Volume management improvements**: The update resolves issues with volume detachment during node drain scenarios, ensuring that volumes are safely and correctly detached and allowing workloads to migrate smoothly without interruptions or data access issues.
 
 ## Upgrade a preview installation to GA
