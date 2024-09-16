@@ -115,7 +115,7 @@ await call.startCall({
 });
 ```
 
-### Turn on Noise Suppression during an ongoing call
+## Turn on Noise Suppression during an ongoing call
 There are situations where a user might start a call and not have **noise suppression** turned on, but their current environment might get noisy resulting in them needing to turn on **noise suppression**. To turn on **noise suppression**, you can use the `audioEffectsFeatureApi.startEffects` API.
 ```js
 // Create the noise supression instance 
