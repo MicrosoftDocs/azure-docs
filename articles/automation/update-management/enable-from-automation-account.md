@@ -3,7 +3,7 @@ title: Enable Azure Automation Update Management from Automation account
 description: This article tells how to enable Update Management from an Automation account.
 services: automation
 ms.subservice: update-management
-ms.date: 09/10/2024
+ms.date: 09/15/2024
 ms.topic: how-to
 ms.custom: mvc
 ms.service: azure-automation
@@ -11,7 +11,7 @@ ms.service: azure-automation
 
 # Enable Update Management from an Automation account
 
-[!INCLUDE [./log-analytics-retirement-announcement.md](../includes/log-analytics-retirement-announcement.md)]
+[!INCLUDE [./automation-update-management-retirement-announcement.md](../includes/automation-update-management-retirement-announcement.md)]
 
 This article describes how you can use your Automation account to enable the [Update Management](overview.md) feature for VMs in your environment, including machines or servers registered with [Azure Arc-enabled servers](../../azure-arc/servers/overview.md). To enable Azure VMs at scale, you must enable an existing Azure VM using Update Management.
 

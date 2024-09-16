@@ -34,9 +34,9 @@ Next, create the cache to use with the app.
 
 ### Edit the CacheSecrets.config file
 
-1. On your computer, create a file named *CacheSecrets.config*. Put the file in a location where it isn't checked in with the source code of your sample application. For this quickstart, the *CacheSecrets.config* file is located at *C:\AppSecrets\CacheSecrets.config*.
+1. On your computer, create a file named *CacheSecrets.config*. Put the file in a location where it isn't checked in with the source code of your sample application. For this quickstart, the *CacheSecrets.config* file is in the *C:\AppSecrets\\* folder.
 
-1. Edit the *CacheSecrets.config* file to add the following content:
+1. Edit the *CacheSecrets.config* file to add the following content.
 
    In the code:
 
@@ -128,7 +128,7 @@ The home page layout for this sample is stored in the *_Layout.cshtml* file. Fro
     @Html.ActionLink("Azure Cache for Redis Test", "RedisCache", "Home", new { area = "" }, new { @class = "navbar-brand" })
     ```
 
-    :::image type="content" source="media/cache-web-app-howto/cache-welcome-page.png" alt-text="Screenshot that shows the welcome page of a webpage.":::
+    :::image type="content" source="media/cache-web-app-howto/cache-welcome-page.png" alt-text="Screenshot that shows welcome and navigation options on a webpage.":::
 
 ### Show data from the cache
 
