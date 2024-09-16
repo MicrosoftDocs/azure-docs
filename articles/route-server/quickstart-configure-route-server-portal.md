@@ -11,7 +11,7 @@ ms.custom: mode-ui
 
 # Quickstart: Create Azure Route Server using the Azure portal
 
-In this quickstart, you learn how to create an Azure Route Server to peer with a Network Virtual Appliance (NVA) in your virtual network using the Azure portal. Azure Route Server will learn routes from the NVA and program them on the virtual machines in the virtual network. Azure Route Server will also advertise the virtual network routes to the NVA. For more information, read [Azure Route Server](overview.md).
+In this quickstart, you learn how to create an Azure Route Server to peer with a Network Virtual Appliance (NVA) in your virtual network using the Azure portal.
 
 :::image type="content" source="media/quickstart-configure-route-server-portal/environment-diagram.png" alt-text="Diagram of Route Server deployment environment using the Azure portal." lightbox="media/quickstart-configure-route-server-portal/environment-diagram.png":::
 
@@ -91,22 +91,6 @@ To complete the peering setup, you must configure the NVA to establish a BGP ses
 
 [!INCLUDE [NVA peering note](../../includes/route-server-note-nva-peering.md)]
 
-## Configure route exchange
-
-If you have a virtual network gateway (ExpressRoute or VPN) in the same virtual network, you can enable *branch-to-branch* traffic to exchange routes between the gateway and the Route Server.
-
-[!INCLUDE [VPN gateway note](../../includes/route-server-note-vpn-gateway.md)]
-
-[!INCLUDE [Downtime note](../../includes/route-server-note-vng-downtime.md)]
-
-1. Go to the Route Server that you want to configure.
-
-1. Select **Configuration** under **Settings** in the left navigation panel.
-
-1. Select **Enable** for the **Branch-to-Branch** setting and then select **Save**.
-
-    :::image type="content" source="./media/quickstart-configure-route-server-portal/enable-route-exchange.png" alt-text="Screenshot of how to enable route exchange.":::
-
 ## Clean up resources
 
 When no longer needed, you can delete all resources created in this quickstart by deleting **RouteServerRG** resource group:
@@ -121,7 +105,5 @@ When no longer needed, you can delete all resources created in this quickstart b
 
 ## Next step
 
-Continue to learn how to configure and manage Azure Route Server: 
-
 > [!div class="nextstepaction"]
-> [Azure ExpressRoute and Azure VPN support](configure-route-server.md)
+> [Configure and manage Azure Route Server](configure-route-server.md)
