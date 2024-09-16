@@ -69,7 +69,7 @@ For example, for the *admin* user:
 shell> system reboot
 ```
 
-### Shutdown an appliance
+### Shut down an appliance
 
 Use the following commands to shut down the OT sensor appliance.
 
