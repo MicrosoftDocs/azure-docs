@@ -446,7 +446,7 @@ For more information about the codeless connector platform, see [Create a codele
 - [[Recommended] Forcepoint CSG via AMA](data-connectors/recommended-forcepoint-csg-via-ama.md)
 - [[Recommended] Forcepoint NGFW via AMA](data-connectors/recommended-forcepoint-ngfw-via-ama.md)
 - [Exchange Security Insights Online Collector (using Azure Functions)](data-connectors/exchange-security-insights-online-collector.md)
-- [Exchange Security Insights On-Premise Collector](data-connectors/exchange-security-insights-on-premise-collector.md)
+- [Exchange Security Insights On-Premises Collector](data-connectors/exchange-security-insights-on-premises-collector.md)
 - [Microsoft Exchange Logs and Events](data-connectors/microsoft-exchange-logs-and-events.md)
 - [Forcepoint DLP](data-connectors/forcepoint-dlp.md)
 - [MISP2Sentinel](data-connectors/misp2sentinel.md)
