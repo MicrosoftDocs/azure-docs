@@ -132,10 +132,11 @@ If you've configured the initial settings [via the CLI](#configure-setup-via-the
 
 1. Select the terms and conditions option and then select **Next: Certificates**.
 
-If you have connection problems from the cloud-based sensor to the Azure portal, and the activation fails a message appears below the Activate button. To solve the connectivity problem select **Learn more** and the Cloud connectivity pane opens. The pane lists the causes for the problem and recommendations to solve it.
-Even without solving the problem you're still able to continue to the next stage, by selecting **Next: Certificates**.
+If you have connection problems between the cloud-based sensor and the Azure portal during the activation process that causes the activation to fail, a message appears below the Activate button. To solve the connectivity problem select **Learn more** and the **Cloud connectivity** pane opens. The pane lists the causes for the problem and recommendations to solve it.
 
-The only problem that must be fixed before the connectivity problem is solved is when a time drift is detected and the sensor is not synchronized to the cloud. In this case the sensor must be correctly synchronized, as described in the recommendations before moving to the next stage.
+Even without solving the problem you're able to continue to the next stage, by selecting **Next: Certificates**.
+
+The only problem that must be fixed before the connectivity problem is solved, is when a time drift is detected and the sensor is not synchronized to the cloud. In this case the sensor must be correctly synchronized, as described in the recommendations before moving to the next stage.
 
 ### Define SSL/TLS certificate settings
 
