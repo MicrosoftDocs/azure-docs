@@ -153,6 +153,15 @@ Azure VMware Solution monitors the following conditions on the host:
 - Hardware power status
 - Storage status
 - Connection failure
+  
+## Alert Codes and Remediation Table
+Follwoing table contains the list of pre-check error codes and the follow-up action that customer is required to take to resolve these errors.
+| Error Code        |        Error Details            | Recommended Action |
+|-------------------|---------------------------------|--------------------|
+|EPC_SCSIDEVICE_SHARINGMODE |  A Virtual Machine is configured to use a device that prevents the operation: A device that is a SCSI controller engaged in bus-sharing  | Removal of any SCSI controller engaged in bus-sharing attached to VMs  https://knowledge.broadcom.com/external/article?legacyId=79910  |
+| EPC_CDROM_EMULATEMODE |CD-ROM on the Virtual Machine uses emulate mode, whose ISO image is not accessible | Removal of any CDs mounted on customer's workload Virtual Machines in emulate mode or detach ISO. It is recommended to use Passthrough mode for mounting any CD-ROM. https://knowledge.broadcom.com/external/article?legacyId=79306  |
+| EPC_DATASTORE_INACCESSIBLE | The mentioned Datastore is not accessible | Removal of any stale Datastore attached to cluster https://learn.microsoft.com/en-us/azure/azure-vmware/attach-azure-netapp-files-to-azure-vmware-solution-hosts?tabs=azure-portal#performance-best-practices  |
+| EPC_NWADAPTER_STALE | Connected Network interface on the Vitual Machine uses network adapter which is not accessible | Removal of any stale N/W adapters attached to Virtual Machines https://knowledge.broadcom.com/external/article/318738/troubleshooting-the-migration-compatibil.html  |
 
 > [!NOTE]
 > Azure VMware Solution tenant admins must not edit or delete the previously defined VMware vCenter Server alarms because they are managed by the Azure VMware Solution control plane on vCenter Server. These alarms are used by Azure VMware Solution monitoring to trigger the Azure VMware Solution host remediation process.
