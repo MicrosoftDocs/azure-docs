@@ -66,36 +66,36 @@ AV64 SKUs are available per Availability Zone, the table below lists the Azure r
 | Australia East | AZ03 | AV36P, AV64 | Yes |7|
 | Australia Southeast | AZ01 | AV36 | No | N/A |
 | Brazil South | AZ02 | **AV36** | No | N/A |
-| Canada Central | AZ02 | AV36, **AV36P,** AV64| No |7|
+| Canada Central | AZ02 | AV36 **AV36P,** AV64| No |7|
 | Canada East | N/A | AV36| No | N/A |
-| Central India | AZ03 | AV36P, (AV64 Planned H2 2024) | No |N/A (7 Planned H2 2024) |
-| Central US | AZ01 | AV36P, (AV64 Planned H2 2024) | No |N/A (7 Planned H2 2024) |
-| Central US | AZ02 | **AV36**, (AV64 Planned H2 2024)| No |N/A (7 Planned H2 2024) |
+| Central India | AZ03 | AV36P (AV64 Planned H2 2024) | No |N/A (7 Planned H2 2024) |
+| Central US | AZ01 | AV36P (AV64 Planned H2 2024) | No |N/A (7 Planned H2 2024) |
+| Central US | AZ02 | **AV36** (AV64 Planned H2 2024)| No |N/A (7 Planned H2 2024) |
 | Central US | AZ03 | AV36P, AV64| No |7|
-| East Asia | AZ01 | AV36, (AV64 Planned H2 2024)| No |N/A (7 Planned H2 2024) |
+| East Asia | AZ01 | AV36 (AV64 Planned H2 2024)| No |N/A (7 Planned H2 2024) |
 | East US | AZ01 | **AV36P**, AV64| Yes |7|
 | East US | AZ02 | **AV36P**, AV64 | Yes | 7 |
 | East US | AZ03 | **AV36**, **AV36P**, AV64 | Yes | 7 |
 | East US 2 | AZ01 | **AV36**, AV64 | No |7|
 | East US 2 | AZ02 | AV36P, **AV52**, AV64 | No | 7|
-| France Central | AZ01 | **AV36**, (AV64 Planned H2 2024)| No |N/A (7 Planned H2 2024) |
-| Germany West Central | AZ01 | AV36P, (AV64 Planned H2 2024)| Yes |N/A (7 Planned H2 2024) |
-| Germany West Central | AZ02 | **AV36**, (AV64 Planned H2 2024)| Yes |N/A (7 Planned H2 2024) |
+| France Central | AZ01 | **AV36** (AV64 Planned H2 2024)| No |N/A (7 Planned H2 2024) |
+| Germany West Central | AZ01 | AV36P (AV64 Planned H2 2024)| Yes |N/A (7 Planned H2 2024) |
+| Germany West Central | AZ02 | **AV36** (AV64 Planned H2 2024)| Yes |N/A (7 Planned H2 2024) |
 | Germany West Central | AZ03 | AV36, **AV36P**, AV64 | Yes |7|
-| Italy North | AZ03 | AV36P, (AV64 Planned H2 2024)| No |N/A (7 Planned H2 2024) |
-| Japan East | AZ02 | **AV36**, (AV64 Planned H2 2024)| No |N/A (7 Planned H2 2024) |
-| Japan West | AZ01 | **AV36**, (AV64 Planned H2 2024) | No |N/A (7 Planned H2 2024) |
+| Italy North | AZ03 | AV36P (AV64 Planned H2 2024)| No |N/A (7 Planned H2 2024) |
+| Japan East | AZ02 | **AV36** (AV64 Planned H2 2024)| No |N/A (7 Planned H2 2024) |
+| Japan West | AZ01 | **AV36** (AV64 Planned H2 2024) | No |N/A (7 Planned H2 2024) |
 | North Central US | AZ01 | **AV36**, AV64 | No |7|
 | North Central US | AZ02 | AV36P, AV64 | No |7|
 | North Europe | AZ02 | AV36, AV64 | No |7|
-| Qatar Central | AZ03 | AV36P, (AV64 Planned H2 2024)| No |N/A (7 Planned H2 2024) |
-| South Africa North | AZ03 | AV36, (AV64 Planned H2 2024) | No |N/A (7 Planned H2 2024) |
+| Qatar Central | AZ03 | AV36P (AV64 Planned H2 2024)| No |N/A (7 Planned H2 2024) |
+| South Africa North | AZ03 | AV36 (AV64 Planned H2 2024) | No |N/A (7 Planned H2 2024) |
 | South Central US | AZ01 | AV36, AV64 | No | 7 |
 | South Central US | AZ02 | **AV36P**, AV52, AV64 | No | 7 |
 | Southeast Asia | AZ02 | **AV36** | No | N/A |
-| Sweden Central | AZ01 | AV36, (AV64 Planned H2 2024)| No | N/A (7 Planned H2 2024)|
+| Sweden Central | AZ01 | AV36 (AV64 Planned H2 2024)| No | N/A (7 Planned H2 2024)|
 | Switzerland North | AZ01 | **AV36**, AV64 | No | 7 |
-| Switzerland North | AZ03 | AV36P, (AV64 Planned H2 2024)| No |N/A (7 Planned H2 2024) |
+| Switzerland North | AZ03 | AV36P (AV64 Planned H2 2024)| No |N/A (7 Planned H2 2024) |
 | Switzerland West | AZ01 | **AV36**, AV64 | No | 7 |
 | UAE North | AZ03 | AV36P | No | N/A |
 | UK South | AZ01 | AV36, AV36P, AV52, AV64 | Yes | 7 |
