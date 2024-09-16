@@ -45,7 +45,7 @@ If you choose to install and use PowerShell locally, this article requires the A
 
 ### [PowerShell](#tab/powershell)
 
-Create a resource group with [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) named **test-rg** in the **eastus2** location.
+Create a resource group with [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) named `test-rg` in the `eastus2` location.
 
 ```azurepowershell-interactive
 $rg =@{
@@ -80,7 +80,7 @@ New-AzVirtualNetwork @net
 
 ### [CLI](#tab/cli)
 
-Create a resource group with [az group create](/cli/azure/group#az-group-create) named **test-rg** in the **eastus2** location.
+Create a resource group with [az group create](/cli/azure/group#az-group-create) named `test-rg` in the `eastus2` location.
 
 ```azurecli-interactive
   az group create \
@@ -105,7 +105,7 @@ Use [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create) to 
 ---
 
 > [!IMPORTANT]
-> To encrypt traffic, Virtual Network encryption requires supported virtual machine SKUs in the virtual network. The setting **dropUnencrypted** drops traffic between unsupported virtual machine SKUs if they're deployed in the virtual network. For more information, see [Azure Virtual Network encryption requirements](virtual-network-encryption-overview.md#requirements).
+> To encrypt traffic, Virtual Network encryption requires supported virtual machine SKUs in the virtual network. The setting `dropUnencrypted` drops traffic between unsupported virtual machine SKUs if they're deployed in the virtual network. For more information, see [Azure Virtual Network encryption requirements](virtual-network-encryption-overview.md#requirements).
 
 ## Enable encryption on a virtual network
 
@@ -113,13 +113,13 @@ Use [az network vnet create](/cli/azure/network/vnet#az-network-vnet-create) to 
 
 Use the following steps to enable encryption for a virtual network.
 
-1. In the search box at the top of the portal, begin typing **Virtual networks**. When **Virtual networks** appears in the search results, select it.
+1. In the search box at the top of the portal, begin to enter *Virtual networks*. When **Virtual networks** appears in the search results, select it.
 
-1. Select **vnet-1**.
+1. Select **vnet-1** to open the **vnet-1** pane.
 
-1. In the **Overview** of **vnet-1**, select the **Properties** tab.
+1. On the service menu, select **Overview**, and then select the **Properties** tab.
 
-1. Select **Disabled** next to **Encryption**:
+1. Under **Encryption**, select **Disabled**.
 
     :::image type="content" source="./media/how-to-create-encryption-portal/virtual-network-properties.png" alt-text="Screenshot that shows properties of the virtual network.":::
 
@@ -165,11 +165,11 @@ You can also enable encryption on an existing virtual network by using [az netwo
 
 ### [Portal](#tab/portal)
 
-1. In the search box at the top of the portal, begin typing **Virtual networks**. When **Virtual networks** appears in the search results, select it.
+1. In the search box at the top of the portal, begin to enter *Virtual networks*. When **Virtual networks** appears in the search results, select it.
 
-1. Select **vnet-1**.
+1. Select **vnet-1** to open the **vnet-1** pane.
 
-1. In the **Overview** of **vnet-1**, select the **Properties** tab.
+1. On the service menu, select **Overview**, and then select the **Properties** tab.
 
 1. Verify that **Encryption** is set to **Enabled**.
 
@@ -229,7 +229,7 @@ True   AllowUnencrypted
 
 ### [PowerShell](#tab/powershell)
 
-When you no longer need this resource group, use [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) to remove the resource group and all of the resources it contains.
+When you no longer need this resource group, use [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) to remove the resource group and all the resources it contains.
 
 ```azurepowershell-interactive 
 $cleanup = @{
@@ -240,7 +240,7 @@ Remove-AzResourceGroup @cleanup -Force
 
 ### [CLI](#tab/cli)
 
-When you're finished with the virtual network, use [az group delete](/cli/azure/group#az-group-delete) to remove the resource group and all of its resources.
+When you're finished with the virtual network, use [az group delete](/cli/azure/group#az-group-delete) to remove the resource group and all its resources.
 
 ```azurecli-interactive
 az group delete \
