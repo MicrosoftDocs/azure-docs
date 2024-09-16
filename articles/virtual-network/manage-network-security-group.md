@@ -160,12 +160,12 @@ To learn more about the common Azure settings that are listed, see the following
 
 The most common changes to an NSG are:
 
-- [Associate or dissociate an NSG to or from a network interface](#associate-or-dissociate-a-network-security-group-to-or-from-a-network-interface)
-- [Associate or dissociate an NSG to or from a subnet](#associate-or-dissociate-a-network-security-group-to-or-from-a-subnet)
+- [Associate or dissociate a network security group to or from a network interface](#associate-or-dissociate-a-network-security-group-to-or-from-a-network-interface)
+- [Associate or dissociate a network security group to or from a subnet](#associate-or-dissociate-a-network-security-group-to-or-from-a-subnet)
 - [Create a security rule](#create-a-security-rule)
 - [Delete a security rule](#delete-a-security-rule)
 
-### Associate or dissociate an NSG to or from a network interface
+### Associate or dissociate a network security group to or from a network interface
 
 For more information about the association and dissociation of an NSG, see [Associate or dissociate a network security group](virtual-network-network-interface.md#associate-or-dissociate-a-network-security-group).
 
@@ -242,7 +242,7 @@ az network nsg delete --resource-group myResourceGroup --name myNSG
 ---
 ## Work with security rules
 
-An NSG contains zero or more security rules. You can [create](#create-a-security-rule), [view all](#view-all-security-rules), [view details of](#view-details-of-a-security-rule), [change](#change-a-security-rule), and [delete](#delete-a-security-rule) a security rule.
+An NSG contains zero or more security rules. You can [create](#create-a-security-rule), [view all](#view-all-security-rules), [view details of](#view-the-details-of-a-security-rule), [change](#change-a-security-rule), and [delete](#delete-a-security-rule) a security rule.
 
 ### Create a security rule
 
@@ -497,12 +497,12 @@ An application security group contains zero or more network interfaces. To learn
 
     | Setting | Action |
     | --- | --- |
-    | Project details | |
-    | **Subscription** | Select your Azure subscription. |
-    | **Resource group** | Select an existing resource group, or create a new one by selecting **Create new**. This example uses the `myResourceGroup` resource group. |
-    | Instance details | |
-    | **Name** | Enter a name for the application security group that you're creating. |
-    | **Region** | Select the region in which you want to create the application security group. |
+    | **Project details** | |
+    | Subscription | Select your Azure subscription. |
+    | Resource group | Select an existing resource group, or create a new one by selecting **Create new**. This example uses the `myResourceGroup` resource group. |
+    | **Instance details** | |
+    | Name | Enter a name for the application security group that you're creating. |
+    | Region | Select the region in which you want to create the application security group. |
 
     :::image type="content" source="./media/manage-network-security-group/create-application-security-group.png" alt-text="Screenshot that shows creating an application security group in the Azure portal.":::
 
