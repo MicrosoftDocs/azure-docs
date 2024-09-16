@@ -6,7 +6,7 @@ author: hangwang
 ms.service: azure-container-apps
 ms.custom: ignite-2024, devx-track-azurecli, devx-track-extended-java
 ms.topic: how-to
-ms.date: 02/27/2024
+ms.date: 09/16/2024
 ms.author: hangwan
 zone_pivot_groups: container-apps-portal-or-cli
 ---
