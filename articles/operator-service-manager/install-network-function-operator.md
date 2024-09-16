@@ -45,7 +45,7 @@ az k8s-extension create --cluster-name
 * Name of the Kubernetes cluster.
 
 `--cluster-type -t`
-* Specify Arc clusters or AKS managed clusters or Arc appliances or provisionedClusters.
+* Specify Arc clusters or Azure kubernetes service (AKS) managed clusters or Arc appliances or provisionedClusters.
 * Accepted values: connectedClusters.
 
 `--extension-type`
@@ -56,7 +56,7 @@ az k8s-extension create --cluster-name
 * Name of the extension instance.
 
 `--resource-group -g`
-* Name of resource group. You can configure the default group using az configure --defaults group=<name>.
+* Name of resource group. You can configure the default group using 'az configure --defaults group=<name>'.
   
 `--config Microsoft.CustomLocation.ServiceAccount=azurehybridnetwork-networkfunction-operator`
 * This configuration must be provided.
@@ -73,7 +73,7 @@ az k8s-extension create --cluster-name
 * Default value: stable.
 
 `--version` 
-* Specify the version to install for the extension instance if --auto-upgrade-minor-version is not enabled.
+* Specify the version to install for the extension instance if '--auto-upgrade-minor-version' isn't enabled.
 * Availabe version can be found on [Network Function Extension Release notes]
 
 ### Optional feature specific configurations
@@ -81,87 +81,84 @@ az k8s-extension create --cluster-name
 #### Pod Mutating Webhook
 
 `--config global.networkfunctionextension.webhook.pod.mutation.matchConditionExpression=`
-* This configuration is an optional parameter. It comes into play when CNF is getting installed and as a part of its installation corresponding pods are spin up in the CNF's release namespace.  
+* This configuration is an optional parameter. It comes into play when container network function (CNF) is getting installed and as a part of its installation corresponding pods are spin up in the CNF's release namespace.  
 * This configuration configures more granular control on top of rules and namespaceSelectors defined in [Pod Mutating Webhook Configuration](https://dev.azure.com/msazuredev/AzureForOperatorsIndustry/_git/aosm-networkfunctionextension?version=GBmain&path=/src/NetworkFunctionExtension/config/default/networkfunction-operator/templates/webhook_pod/webhook_mutating_config.yaml).  
 * Default value:  
   ```bash
   "((object.metadata.namespace != \"kube-system\") ||  (object.metadata.namespace == \"kube-system\" && has(object.metadata.labels) && (has(object.metadata.labels.app) && (object.metadata.labels.app == \"commissioning\") || (has(object.metadata.labels.name) && object.metadata.labels.name == \"cert-exporter\") || (has(object.metadata.labels.app) && object.metadata.labels.app == \"descheduler\"))))"
   ```  
-  The above matchCondition implies that the pods getting admitted in kube-system namespace will be mutated only if they have atleast one of the following labels:  
+  The referenced matchCondition implies that the pods getting accepted in kube-system namespace are mutated only if they have at least one of the following labels:  
   - app == "commissioning"  
   - name == "cert-exporter"  
   - app == "descheduler"  
 
-  else they will not be mutated and continue to be pulled from the original source as per the helm chart of CNF/Component/Application.  
+  else they are not mutated and continue to be pulled from the original source as per the helm chart of CNF/Component/Application.  
 * Accepted value:  
-  Any valid [CEL expressions](https://kubernetes.io/docs/reference/using-api/cel/)  
-* To learn more about matchConditions [reference Kubernetes doc link](https://kubernetes.io/docs/reference/access-authn-authz/extensible-admission-controllers/#matching-requests-matchconditions).  
-* This is configurable parameter that can be set or updated during NF Extension's installation or update.  
-* Also, this condition comes into play only when the CNF/Component/Application is getting installed into the namespace as per the rules and namespaceSelectors defined in [Pod Mutating Webhook Configuration](https://dev.azure.com/msazuredev/AzureForOperatorsIndustry/_git/aosm-networkfunctionextension?version=GBmain&path=/src/NetworkFunctionExtension/config/default/networkfunction-operator/templates/webhook_pod/webhook_mutating_config.yaml). If there are more pods getting spin up in that namespace, this condition will still be applied to them.   
+  Any valid [CEL expressions](https://kubernetes.io/docs/reference/using-api/cel/)    
+* This parameter can be set or updated during either network function (NF) extension installation or update.  
+* This condition comes into play only when the CNF/Component/Application is getting installed into the namespace as per the rules and namespaceSelectors defined in [Pod Mutating Webhook Configuration](https://dev.azure.com/msazuredev/AzureForOperatorsIndustry/_git/aosm-networkfunctionextension?version=GBmain&path=/src/NetworkFunctionExtension/config/default/networkfunction-operator/templates/webhook_pod/webhook_mutating_config.yaml). If there are more pods getting spin up in that namespace, this condition is applied.   
 
 #### Cluster registry
 
 `--config global.networkfunctionextension.enableClusterRegistry=`
-* This configuration will provision a regsitry in the cluster to locally cache artifacts.
-* By default this will enable lazy loading mode unless global.networkfunctionextension.enableEarlyLoading=true.
+* This configuration provisions a registry in the cluster to locally cache artifacts.
+* Default values enable lazy loading mode unless global.networkfunctionextension.enableEarlyLoading=true.
 * Accepted values: false, true.
 * Default value: false.
 
 `--config global.networkfunctionextension.clusterRegistry.highAvailability.enabled=`
-* This configuration will provision the cluster regsitry in high availability mode if cluster registry is enabled.
-* By default is true and uses NAKS nexus-shared volume on AKS recommendation is to set this as false.
+* This configuration provisions the cluster registry in high availability mode if cluster registry is enabled.
+* Default value is true and uses Nexus Azure kubernetes service (NAKS) nexus-shared volume on AKS recommendation is set false.
 * Accepted values: true, false.
 * Default value: true.
 
 `--config global.networkfunctionextension.clusterRegistry.autoScaling.enabled=`
-* This configuration will provision the cluster registry pods with horizontal auto scaling.
+* This configuration provisions the cluster registry pods with horizontal auto scaling.
 * Accepted values: true, false.
 * Default value: true.
 
 `--config global.networkfunctionextension.webhook.highAvailability.enabled=`
-* This configuration will provision multiple replicas of webhook for high availability.
+* This configuration provisions multiple replicas of webhook for high availability.
 * Accepted values: true, false.
 * Default value: true.
 
 `--config global.networkfunctionextension.webhook.autoScaling.enabled=`
-* This configuration will provision the webhook pods with horizontal auto scaling.
+* This configuration provisions the webhook pods with horizontal auto scaling.
 * Accepted values: true, false.
 * Default value: true.
 
 `--config global.networkfunctionextension.enableEarlyLoading=`
-* This configuration will enable artifacts early loading into cluster regsitry before helm installation or upgrade.
+* This configuration enables artifacts early loading into cluster registry before helm installation or upgrade.
 * This configuration can only be enabled when global.networkfunctionextension.enableClusterRegistry=true.
-* Accetped values: false, true.
+* Accepted values: false, true.
 * Default value: false.
 
 `--config global.networkfunctionextension.clusterRegistry.storageClassName=`
 * This configuration must be provided when global.networkfunctionextension.enableClusterRegistry=true. 
-* NetworkFunctionExtension will provision a PVC to local cache artifacts from this storage class.
+* NetworkFunctionExtension provisions a PVC to local cache artifacts from this storage class.
 * Platform specific values
   * AKS: managed-csi
   * NAKS(Default): nexus-shared
   * NAKS(Non-HA): nexus-volume
-  * ASE: managed-premium
+  * Azure stack edge (ASE): managed-premium
 * Default value: nexus-shared.
 
 `--config global.networkfunctionextension.clusterRegistry.storageSize=`
 * This configuration must be provided when global.networkfunctionextension.enableClusterRegistry=true.
 * This configuration configures the size we reserve for cluster registry.
-* Recommend carefully choose a value that needed to cache artifacts.
-* Please notes to use unit as Gi and Ti for sizing. International system of unites: https://physics.nist.gov/cuu/Units/binary.html
+* This configuration uses unit as Gi and Ti for sizing.
 * Default value: 100Gi
 
 #### Side loading
 
 `--config global.networkfunctionextension.enableLocalRegistry=`
-* This configuration will allow artifacts to be delivered to edge via hardware drive.
-* It is only used for Tempnet with AP5GC.
+* This configuration allows artifacts to be delivered to edge via hardware drive.
 * Accepted values: false, true.
 * Default value: false.
 
 ### Recommended NFO config for AKS
 
-The default NFO config is configured for HA on NAKS as none of the csi disk drives on AKS support ReadWriteX access mode, HA needs to be disabled on AKS.Use the following config options on AKS
+The default NFO config configures HA on NAKS but none of the disk drives on AKS support ReadWriteX access mode. In this case, whhere HA needs to be disabled, use the following config options;
 
 ` --config global.networkfunctionextension.clusterRegistry.highAvailability.enabled=false`
 ` --config global.networkfunctionextension.webhook.highAvailability.enabled=false` (optional)
