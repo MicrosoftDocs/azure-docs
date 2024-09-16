@@ -11,8 +11,6 @@ ms.date: 09/16/2024
 [!INCLUDE [retirement-notice](../includes/retirement-notice.md)]
 [!INCLUDE [feature-in-preview](../includes/feature-in-preview.md)]
 
-
-
 This article provides information about the **most recent** Azure HDInsight on AKS release updates. For information on earlier releases, see [Azure HDInsight on AKS archived release notes](./hdinsight-aks-release-notes-archive.md). If you would like to subscribe on release notes, watch releases on this [GitHub repository](https://github.com/Azure/HDInsight-on-aks/releases).
 
 ## Summary
@@ -34,13 +32,17 @@ You can refer to [What's new](../whats-new.md) page for all the details of the f
 
 ## Release Information
 
-### Release date: Sep 16, 2024
+### Release date: Sep 05, 2024
 
 **This release applies to the following**
 
 - Cluster Pool Version: 1.2
 - Cluster Version: 1.2.1
 - AKS version: 1.27
+
+### Announcement 
+
+We’re announcing retirement for HDInsight on AKS. For more information, see [Retirement: Azure HDInsight on AKS will retire on January 31, 2025](https://azure.microsoft.com/updates/v2/Azure-HDInsight-on-AKS-Retirement)
 
 ### Updated
 
