@@ -135,7 +135,6 @@ This section reviews common scenarios for creating summary rules in Microsoft Se
     ```kusto
     let csl_columnmatch=(column_name: string) {
     CommonSecurityLog
-    | where TimeGenerated > startofday(ago(1d))
     | where isnotempty(column_name)
     | extend
         Date = format_datetime(TimeGenerated, "yyyy-MM-dd"),
@@ -287,7 +286,6 @@ This procedure describes a sample process for using summary rules with [auxiliar
         // Daily Network traffic trend Per Destination IP along with Data transfer stats 
         // Frequency - Daily - Maintain 30 day or 60 Day History. 
           Custom_CommonSecurityLog 
-          | where TimeGenerated > ago(1d) 
           | extend Day = format_datetime(TimeGenerated, "yyyy-MM-dd") 
           | summarize Count= count(), DistinctSourceIps = dcount(SourceIP), NoofByesTransferred = sum(SentBytes), NoofBytesReceived = sum(ReceivedBytes)  
           by Day,DestinationIp, DeviceVendor 
