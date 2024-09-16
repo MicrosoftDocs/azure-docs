@@ -3,7 +3,7 @@ title: Getting started with Azure Functions
 description: Take the first steps toward working with Azure Functions.
 ms.topic: overview
 ms.custom: devx-track-extended-java, devx-track-js, devx-track-python, devx-track-ts
-ms.date: 12/13/2022
+ms.date: 09/16/2024
 zone_pivot_groups: programming-languages-set-functions-full
 ---
 
@@ -20,14 +20,17 @@ Complete one of our quickstart articles to create and deploy your first function
 ::: zone pivot="programming-language-csharp"  
 You can create C# functions by using one of the following tools:
 
++ [Azure Developer CLI (azd)](create-first-function-azure-developer-cli.md?pivots=programming-language-csharp)
++ [Command line](./create-first-function-cli-csharp.md)
 + [Visual Studio](./functions-create-your-first-function-visual-studio.md)
 + [Visual Studio Code](./create-first-function-vs-code-csharp.md)
-+ [Command line](./create-first-function-cli-csharp.md)
+
 
 ::: zone-end
 ::: zone pivot="programming-language-java"  
 You can create Java functions by using one of the following tools:
 
++ [Azure Developer CLI (azd)](create-first-function-azure-developer-cli.md?pivots=programming-language-java)
 + [Eclipse](functions-create-maven-eclipse.md)
 + [Gradle](functions-create-first-java-gradle.md)
 + [IntelliJ IDEA](functions-create-maven-intellij.md) 
@@ -40,32 +43,36 @@ You can create Java functions by using one of the following tools:
 ::: zone pivot="programming-language-javascript"  
 You can create JavaScript functions by using one of the following tools:
 
-+ [Visual Studio Code](./create-first-function-vs-code-node.md)
-+ [Command line](./create-first-function-cli-node.md)
++ [Azure Developer CLI (azd)](create-first-function-azure-developer-cli.md?pivots=programming-language-javascript)
 + [Azure portal](./functions-create-function-app-portal.md#create-a-function-app)
++ [Command line](./create-first-function-cli-node.md)
++ [Visual Studio Code](./create-first-function-vs-code-node.md)
 
 ::: zone-end
 ::: zone pivot="programming-language-powershell"  
 You can create PowerShell functions by using one of the following tools:
 
-+ [Visual Studio Code](./create-first-function-vs-code-powershell.md)
-+ [Command line](./create-first-function-cli-powershell.md)
++ [Azure Developer CLI (azd)](create-first-function-azure-developer-cli.md?pivots=programming-language-powershell)
 + [Azure portal](./functions-create-function-app-portal.md#create-a-function-app)
++ [Command line](./create-first-function-cli-powershell.md)
++ [Visual Studio Code](./create-first-function-vs-code-powershell.md)
 
 ::: zone-end
 ::: zone pivot="programming-language-python"  
 You can create Python functions by using one of the following tools:
 
-+ [Visual Studio Code](./create-first-function-vs-code-python.md)
++ [Azure Developer CLI (azd)](create-first-function-azure-developer-cli.md?pivots=programming-language-python)
++ [Azure portal](./functions-create-function-app-portal.md#create-a-function-app)
 + [Command line](./create-first-function-cli-python.md)
-+ [Azure portal](./functions-create-function-app-portal.md#create-a-function-app) 
++ [Visual Studio Code](./create-first-function-vs-code-python.md)
 
 ::: zone-end
 ::: zone pivot="programming-language-typescript"  
 You can create TypeScript functions by using one of the following tools:
 
-+ [Visual Studio Code](./create-first-function-vs-code-typescript.md)
++ [Azure Developer CLI (azd)](create-first-function-azure-developer-cli.md?pivots=programming-language-typescript)
 + [Command line](./create-first-function-cli-typescript.md)
++ [Visual Studio Code](./create-first-function-vs-code-typescript.md)
 
 ::: zone-end
 ::: zone pivot="programming-language-other"  
@@ -74,41 +81,38 @@ Besides the natively supported programming languages, you can use [custom handle
 ::: zone pivot="programming-language-csharp,programming-language-java,programming-language-javascript,programming-language-powershell,programming-language-python,programming-language-typescript" 
 ## Review end-to-end samples
 
+These sites let you browse existing functions reference projects and samples in your desired language:
 ::: zone-end
 ::: zone pivot="programming-language-csharp"  
-The following sites let you browse existing C# functions reference projects and samples:  
-
-+ [Azure Samples Browser](/samples/browse/?expanded=azure&languages=csharp&products=azure-functions)  
++ [Awesome azd template library](https://azure.github.io/awesome-azd/?tags=functions&tags=dotnetCsharp)
 + [Azure Community Library](https://www.serverlesslibrary.net/?technology=Functions%202.x&language=C%23)
-
++ [Azure Samples Browser](/samples/browse/?expanded=azure&languages=csharp&products=azure-functions) 
 ::: zone-end
 ::: zone pivot="programming-language-java"  
-The following sites let you browse existing Java functions reference projects and samples: 
-
-+ [Azure Samples Browser](/samples/browse/?expanded=azure&languages=java&products=azure-functions)
++ [Awesome azd template library](https://azure.github.io/awesome-azd/?tags=functions&tags=java)
 + [Azure Community Library](https://www.serverlesslibrary.net/?technology=Functions%202.x&language=Java)
-
++ [Azure Samples Browser](/samples/browse/?expanded=azure&languages=java&products=azure-functions)
 ::: zone-end
-::: zone pivot="programming-language-javascript,programming-language-typescript"  
-The following sites let you browse existing Node.js functions reference projects and samples: 
-
-+ [Azure Samples Browser](/samples/browse/?expanded=azure&languages=javascript%2ctypescript&products=azure-functions)
-+ [Azure Community Library](https://www.serverlesslibrary.net/?technology=Functions%202.x&language=JavaScript%2CTypeScript)
- 
+::: zone pivot="programming-language-javascript"  
++ [Awesome azd template library](https://azure.github.io/awesome-azd/?tags=functions&tags=javascript)
++ [Azure Community Library](https://www.serverlesslibrary.net/?technology=Functions%202.x&language=JavaScript)
++ [Azure Samples Browser](/samples/browse/?expanded=azure&languages=javascript&products=azure-functions)
 ::: zone-end
+::: zone pivot="programming-language-typescript"  
++ [Awesome azd template library](https://azure.github.io/awesome-azd/?tags=functions&tags=typescript)
++ [Azure Community Library](https://www.serverlesslibrary.net/?technology=Functions%202.x&language=TypeScript)
++ [Azure Samples Browser](/samples/browse/?expanded=azure&languages=typescript&products=azure-functions)
+::: zone-end  
 ::: zone pivot="programming-language-powershell"  
-The following sites let you browse existing PowerShell functions reference projects and samples: 
-
-+ [Azure Samples Browser](/samples/browse/?expanded=azure&languages=powershell&products=azure-functions)
++ [Awesome azd template library](https://azure.github.io/awesome-azd/?tags=functions&tags=powershell)
 + [Azure Community Library](https://www.serverlesslibrary.net/?technology=Functions%202.x&language=PowerShell) 
-
-::: zone-end
-::: zone pivot="programming-language-python"
-The following sites let you browse existing Python functions reference projects and samples:
-
-+ [Azure Samples Browser](/samples/browse/?expanded=azure&languages=python&products=azure-functions)
++ [Azure Samples Browser](/samples/browse/?expanded=azure&languages=powershell&products=azure-functions)
+::: zone-end  
+::: zone pivot="programming-language-python"  
++ [Awesome azd template library](https://azure.github.io/awesome-azd/?tags=functions&tags=python)
 + [Azure Community Library](https://www.serverlesslibrary.net/?technology=Functions%202.x&language=Python) 
-::: zone-end
++ [Azure Samples Browser](/samples/browse/?expanded=azure&languages=python&products=azure-functions)
+::: zone-end  
 
 ## Explore an interactive tutorial
 
@@ -120,7 +124,7 @@ Complete one of the following interactive training modules to learn more about F
 
 To learn even more, see the [full listing of interactive tutorials](/training/browse/?expanded=azure&products=azure-functions).
  
-## Next steps
+## Related content
 
 ::: zone pivot="programming-language-csharp"  
 If you're already familiar with developing C# functions, consider reviewing one of the following language reference articles:
