@@ -498,17 +498,12 @@
       href: data-connectors/dynatrace-runtime-vulnerabilities.md
     - name: Elastic Agent (Standalone)
       href: data-connectors/elastic-agent-standalone.md
-<<<<<<< HEAD
-    - name: Exchange Security Insights On-Premise Collector
-      href: data-connectors/exchange-security-insights-on-premise-collector.md
-=======
     - name: ESET PROTECT
       href: data-connectors/eset-protect.md
     - name: Exabeam Advanced Analytics
       href: data-connectors/exabeam-advanced-analytics.md
     - name: Exchange Security Insights On-Premises Collector
       href: data-connectors/exchange-security-insights-on-premises-collector.md
->>>>>>> 94c8e6e9d5f2373dd2bd0ffc54eabdfa29468628
     - name: Exchange Security Insights Online Collector (using Azure Functions)
       href: data-connectors/exchange-security-insights-online-collector.md
     - name: F5 BIG-IP
