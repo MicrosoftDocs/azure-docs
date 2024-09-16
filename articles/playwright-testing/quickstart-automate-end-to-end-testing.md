@@ -164,6 +164,9 @@ Update the CI workflow definition to run your Playwright tests with the Playwrig
 
     When the CI workflow is triggered, your Playwright tests run in your Microsoft Playwright Testing workspace on cloud-hosted browsers, across 20 parallel workers.
 
+> [!NOTE]
+> Reporting feature will be enabled by default for existing workspaces. This is being rolled out in stages and will take a few days. To avoid failures, confirm that `Rich diagnostics using reporting` setting is ON for your workspace before proceeding. See, [Enable reporting for workspace](./how-to-use-service-features.md#manage-feature-for-the-workspace).
+
 > [!CAUTION]
 > With Microsoft Playwright Testing, you get charged based on the number of total test minutes and test result published. If you're a first-time user or [getting started with a free trial](./how-to-try-playwright-testing-free.md), you might start with running a single test at scale instead of your full test suite to avoid exhausting your free test minutes and test results.
 >
