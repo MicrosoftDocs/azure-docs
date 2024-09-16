@@ -2,7 +2,7 @@
 author: sipastak
 ms.author: sipastak
 ms.topic: include
-ms.date: 08/02/2024
+ms.date: 09/09/2024
 ---
 
 ## Latest client versions
@@ -11,8 +11,16 @@ The following table lists the current versions available for the public and beta
 
 | Release | Latest version | Download |
 |---------|----------------|----------|
-| Public  | 10.9.9         | [Mac App Store](https://apps.apple.com/app/microsoft-remote-desktop/id1295203466?mt=12) |
-| Beta    | 10.9.9         | [Microsoft AppCenter](https://aka.ms/rdmacbeta) |
+| Public  | 10.9.10         | [Mac App Store](https://apps.apple.com/app/microsoft-remote-desktop/id1295203466?mt=12) |
+| Beta    | 10.9.10         | [Microsoft AppCenter](https://aka.ms/rdmacbeta) |
+
+## Updates for version 10.9.10 
+
+*Published: August 28, 2024*
+
+In this release, we made the following changes: 
+
+- Resolved some bugs and added a banner notifying users that the Remote Desktop client will have a new name in an upcoming update, Windows App (you can learn more about the Windows App update at https://aka.ms/WindowsAppUpdate). 
 
 ## Updates for version 10.9.9
 

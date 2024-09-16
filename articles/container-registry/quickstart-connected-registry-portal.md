@@ -9,7 +9,7 @@ ms.custom: mode-ui, devx-track-azurecli
 ms.service: azure-container-registry
 ---
 
-# Quickstart: Create a connected registry using the Azure portal
+# Quickstart: Create a connected registry using the Azure portal (To be deprecated)
 
 In this quickstart, you use the Azure portal to create a [connected registry](intro-connected-registry.md) resource in Azure. The connected registry feature of Azure Container Registry allows you to deploy a registry remotely or on your premises and synchronize images and other artifacts with the cloud registry. 
 

@@ -118,9 +118,6 @@ items:
   - name: Static Web Apps
     tocHref: /azure/static-web-apps/
     topicHref: /azure/static-web-apps/
-  - name: Advisor
-    tocHref: /azure/advisor/
-    topicHref: /azure/advisor/
   - name: Application Gateway
     tocHref: /azure/application-gateway/
     topicHref: /azure/application-gateway/
@@ -143,9 +140,9 @@ items:
     - name: Arc-enabled servers
       tocHref: /azure/azure-arc/servers/
       topicHref: /azure/azure-arc/servers/
-    - name: Edge Storage Accelerator
-      tocHref: /azure/azure-arc/edge-storage-accelerator/
-      topicHref: /azure/azure-arc/edge-storage-accelerator/index
+    - name: Azure Container Storage enabled by Azure Arc
+      tocHref: /azure/azure-arc/container-storage/
+      topicHref: /azure/azure-arc/container-storage/index
   - name: Automation
     tocHref: /azure/automation/
     topicHref: /azure/automation/
@@ -803,9 +800,6 @@ items:
   - name: Role-based access control
     tocHref: /azure/role-based-access-control/
     topicHref: /azure/role-based-access-control/
-  - name: Service Health
-    tocHref: /azure/service-health/
-    topicHref: /azure/service-health/
   - name: Scheduler
     tocHref: /azure/scheduler/
     topicHref: /azure/scheduler/

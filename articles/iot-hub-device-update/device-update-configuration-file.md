@@ -51,7 +51,7 @@ When installing Debian agent on an IoT Device with a Linux OS, modify the `/etc/
     "do"
   ],
   "iotHubProtocol": "mqtt",
-  "compatPropertyNames":"manufacturer,model,location,language" <The property values must be in lower case only>,
+  "compatPropertyNames":"manufacturer,model,location,environment" <The property values must be in lower case only>,
   "manufacturer": <Place your device info manufacturer here>,
   "model": <Place your device info model here>,
   "agents": [

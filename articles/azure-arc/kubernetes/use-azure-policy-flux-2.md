@@ -92,5 +92,5 @@ If you have a scenario that differs from the built-in policies, you can overcome
 
 ## Next steps
 
-* [Set up Azure Monitor for Containers with Azure Arc-enabled Kubernetes clusters](../../azure-monitor/containers/container-insights-enable-arc-enabled-clusters.md).
+* [Set up Azure Monitor for Containers with Azure Arc-enabled Kubernetes clusters](/azure/azure-monitor/containers/container-insights-enable-arc-enabled-clusters).
 * Learn more about [deploying applications using GitOps with Flux v2](tutorial-use-gitops-flux2.md).

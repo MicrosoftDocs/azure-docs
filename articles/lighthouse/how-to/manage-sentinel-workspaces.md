@@ -76,7 +76,7 @@ You can also deploy workbooks directly in an individual managed tenant for scena
 
 ## Run Log Analytics and hunting queries across Microsoft Sentinel workspaces
 
-Create and save Log Analytics queries for threat detection centrally in the managing tenant, including [hunting queries](../../sentinel/extend-sentinel-across-workspaces-tenants.md#hunt-across-multiple-workspaces). These queries can be run across all of your customers' Microsoft Sentinel workspaces by using the Union operator and the [workspace() expression](../../azure-monitor/logs/workspace-expression.md).
+Create and save Log Analytics queries for threat detection centrally in the managing tenant, including [hunting queries](../../sentinel/extend-sentinel-across-workspaces-tenants.md#hunt-across-multiple-workspaces). These queries can be run across all of your customers' Microsoft Sentinel workspaces by using the Union operator and the [workspace() expression](/azure/azure-monitor/logs/workspace-expression).
 
 For more information, see [Query multiple workspace](../../sentinel/extend-sentinel-across-workspaces-tenants.md#query-multiple-workspaces).
 

@@ -31,7 +31,7 @@ The following table describes the types of storage accounts recommended by Micro
 | Premium file shares<sup>3</sup> | Azure Files | LRS<br /><br />ZRS<sup>2</sup> | Premium storage account type for file shares only. Recommended for enterprise or high-performance scale applications. Use this account type if you want a storage account that supports both Server Message Block (SMB) and NFS file shares. |
 | Premium page blobs<sup>3</sup> | Page blobs only | LRS<br /><br />ZRS<sup>2</sup> | Premium storage account type for page blobs only. [Learn more about page blobs and sample use cases.](../blobs/storage-blob-pageblob-overview.md) |
 
-<sup>1</sup> Data Lake Storage is a set of capabilities dedicated to big data analytics, built on Azure Blob Storage. For more information, see [Introduction to Data Lake Storage Gen2](../blobs/data-lake-storage-introduction.md) and [Create a storage account to use with Data Lake Storage Gen2](../blobs/create-data-lake-storage-account.md).
+<sup>1</sup> Data Lake Storage is a set of capabilities dedicated to big data analytics, built on Azure Blob Storage. For more information, see [Introduction to Data Lake Storage](../blobs/data-lake-storage-introduction.md) and [Create a storage account to use with Data Lake Storage](../blobs/create-data-lake-storage-account.md).
 
 <sup>2</sup> ZRS, GZRS, and RA-GZRS are available only for standard general-purpose v2, premium block blobs, premium file shares, and premium page blobs accounts in certain regions. For more information, see [Azure Storage redundancy](storage-redundancy.md).
 
@@ -79,7 +79,7 @@ The following table lists the format for the standard endpoints for each of the 
 |--|--|
 | Blob Storage | `https://<storage-account>.blob.core.windows.net` |
 | Static website (Blob Storage) | `https://<storage-account>.web.core.windows.net` |
-| Data Lake Storage Gen2 | `https://<storage-account>.dfs.core.windows.net` |
+| Data Lake Storage | `https://<storage-account>.dfs.core.windows.net` |
 | Azure Files | `https://<storage-account>.file.core.windows.net` |
 | Queue Storage | `https://<storage-account>.queue.core.windows.net` |
 | Table Storage | `https://<storage-account>.table.core.windows.net` |
@@ -104,7 +104,7 @@ The following table lists the format for Azure DNS Zone endpoints for each of th
 |--|--|
 | Blob Storage | `https://<storage-account>.z[00-50].blob.storage.azure.net` |
 | Static website (Blob Storage) | `https://<storage-account>.z[00-50].web.storage.azure.net` |
-| Data Lake Storage Gen2 | `https://<storage-account>.z[00-50].dfs.storage.azure.net` |
+| Data Lake Storage | `https://<storage-account>.z[00-50].dfs.storage.azure.net` |
 | Azure Files | `https://<storage-account>.z[00-50].file.storage.azure.net` |
 | Queue Storage | `https://<storage-account>.z[00-50].queue.storage.azure.net` |
 | Table Storage | `https://<storage-account>.z[00-50].table.storage.azure.net` |

@@ -87,7 +87,7 @@ Create a flow log for your virtual network, subnet, or network interface. This f
     :::image type="content" source="./media/vnet-flow-logs-portal/create-vnet-flow-log-analytics.png" alt-text="Screenshot that shows how to enable traffic analytics for a new flow log in the Azure portal.":::
 
     > [!NOTE]
-    > To create and select a Log Analytics workspace other than the default one, see [Create a Log Analytics workspace](../azure-monitor/logs/quick-create-workspace.md?toc=/azure/network-watcher/toc.json)
+    > To create and select a Log Analytics workspace other than the default one, see [Create a Log Analytics workspace](/azure/azure-monitor/logs/quick-create-workspace?toc=/azure/network-watcher/toc.json)
 
 1. Select **Review + create**.
 

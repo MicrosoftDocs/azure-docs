@@ -8,7 +8,9 @@ ms.date: 08/29/2023
 
 # How to use Azure Machine Learning Notebook on Spark
 
+[!INCLUDE [retirement-notice](../includes/retirement-notice.md)]
 [!INCLUDE [feature-in-preview](../includes/feature-in-preview.md)]
+
 
 Machine learning is a growing technology, which enables computers to learn automatically from past data. Machine learning uses various algorithms for building mathematical models and making predictions use historical data or information. We have a model defined up to some parameters, and learning is the execution of a computer program to optimize the parameters of the model using the training data or experience. The model may be predictive to make predictions in the future, or descriptive to gain knowledge from data.
 
