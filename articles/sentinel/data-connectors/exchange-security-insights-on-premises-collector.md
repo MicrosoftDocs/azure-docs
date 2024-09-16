@@ -67,8 +67,8 @@ In 'Run as Administrator' mode, launch the 'setup.ps1' script to configure the c
 3. Schedule the ESI Collector Script (If not done by the Install Script due to lack of permission or ignored during installation)
 
 The script needs to be scheduled to send Exchange configuration to Microsoft Sentinel.
- We recommend to schedule the script once a day.
- The account used to launch the Script needs to be member of the group Organization Management
+ We recommend scheduling the script once a day.
+ The account used to launch the Script needs to be a member of the group Organization Management
 
 
 
