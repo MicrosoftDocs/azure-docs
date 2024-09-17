@@ -16,7 +16,7 @@ Azure NetApp Files is updated regularly. This article provides a summary about t
 
 ## September 2024 
 
-* [Reserved capacity](reserved-capacity.md) is now generally available (GA)
+* [Reserved capacity](reservations.md) is now generally available (GA)
 
     Pay-as-you-go pricing is the most convenient way to purchase cloud storage when your workloads are dynamic or changing over time. However, some workloads are more predictable with stable capacity usage over an extended period. These workloads can benefit from savings in exchange for a longer-term commitment. With a one-year or three-year commitment of an Azure NetApp Files reservation, you can save up to 34% on sustained usage of Azure NetApp Files. Reservations are available in stackable increments of 100 TiB and 1 PiB on Standard, Premium and Ultra service levels in a given region. Azure NetApp Files reservations benefits are automatically applied to existing Azure NetApp Files capacity pools in the matching region and service level. Azure NetApp Files reservations provide cost savings and financial predictability and stability, allowing for more effective budgeting. Additional usage is conveniently billed at the regular pay-as-you-go rate.
 

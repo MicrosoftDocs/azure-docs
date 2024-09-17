@@ -79,11 +79,17 @@ To purchase a reservation:
 
 1. Log in to the Azure portal.
 1. To buy a new reservation, select **All services** > **Reservations** then **Azure NetApp Files**.
+
+:::image type="content" source="./media/reservations/reservations-services.png" alt-text="Screenshot of the reservations services menu." lightbox="./media/reservations/reservations-services.png":::
+
 1. Select a subscription. Use the subscription list to choose the subscription used to pay for the reservation. The payment method of the subscription is charged the cost of the reservation. The subscription type must be an enterprise agreement (offer numbers MS-AZR-0017P or MS-AZR-0148P), Microsoft Customer Agreement, or pay-as-you-go (offer numbers MS-AZR-0003P or MS-AZR-0023P).
     1. For an enterprise subscription, the charges are deducted from the enrollment's Azure Prepayment (previously known as monetary commitment) balance or charged as overage. 
     1. For a pay-as-you-go subscription, the charges are billed to the credit card or invoice payment method on the subscription. 
 1. Select a scope.
 1. Select the Azure region to be covered by the reservation. 
+
+    :::image type="content" source="./media/reservations/subscription-scope.png" alt-text="Screenshot of the subscription choices." lightbox="./media/reservations/subscription-scope.png::::
+
 1. Select **Add to cart**. 
 1. In the cart, choose the quantity of provisioned throughput units you want to purchase. For example, choosing 64 covers up to 64 deployed provisioned throughput units every hour. 
 1. Select **Next: Review + Buy** to review your purchase choices and their prices. 
