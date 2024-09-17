@@ -15,7 +15,7 @@ ai-usage: ai-assisted
 
 In this quickstart, you learn how to deploy the Connected registry Arc extension using the CLI UX with secure-by-default settings to ensure robust security and operational integrity. 
  
-The connected registry is a pivotal tool for edge customers, enabling efficient management and access to containerized workloads, whether on-premises or at remote sites. By integrating with Azure Arc, the service ensures a seamless and unified lifecycle management experience for Kubernetes-based containerized workloads. Deploying the connected registry Arc extension on Arc-enabled Kubernetes clusters simplifies the management and access of these workloads. 
+The connected registry is a pivotal tool for Azure IoT Edge customers, enabling efficient management and access to containerized workloads, whether on-premises or at remote sites. By integrating with Azure Arc, the service ensures a seamless and unified lifecycle management experience for Kubernetes-based containerized workloads. Deploying the connected registry Arc extension on Arc-enabled Kubernetes clusters simplifies the management and access of these workloads. 
 
 ## Prerequisites
 
