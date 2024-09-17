@@ -47,7 +47,7 @@ Current capabilities:
 - Map Splunk detections to OOTB Microsoft Sentinel analytics rules
 - Translate simple queries with a single data source
 - Automatic translations of SPL to KQL for the mappings listed in the article, [Splunk to Kusto cheat sheet](/azure/data-explorer/kusto/query/splunk-cheat-sheet)
-- **Schema Mapping (Preview)** connects Splunk data sources and lookups to Microsoft Sentinel tables and watchlists
+- **Schema Mapping (Preview)** creates logical links by mapping Splunk data sources to Microsoft Sentinel tables and Splunk lookups to watchlists.
 - Translated query review provides error feedback with edit capability to save time in the detection rule translation process
 - **Translation State** indicating how completely SPL syntax is translated to KQL at the grammatical level
 - Support for Splunk macros translation using inline replacement macro definition within SPL queries
