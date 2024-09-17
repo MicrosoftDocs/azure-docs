@@ -5,7 +5,7 @@ author: PatAltimore
 ms.author: patricka
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 09/11/2024
+ms.date: 09/17/2024
 
 #CustomerIntent: As an operator, I want to understand how to configure source and destination endpoints so that I can create a dataflow.
 ---
@@ -34,31 +34,7 @@ Think of each dataflow endpoint as a bundle of configuration settings that conta
 
 To make it easier to reuse endpoints, the MQTT or Kafka topic filter is not part of the endpoint configuration. Instead, you specify the topic filter in the dataflow configuration. This means you can use the same endpoint for multiple dataflows that use different topic filters. 
 
-For example, you only need to create a dataflow endpoint for the built-in MQTT broker once:
-
-# [Portal](#tab/portal)
-
-:::image type="content" source="media/howto-configure-dataflow-endpoint/create-dataflow-endpoint.png" alt-text="Screenshot using operations portal to create a new dataflow endpoint for MQTT broker.":::
-
-# [Kubernetes](#tab/kubernetes)
-
-```yaml
-apiVersion: connectivity.iotoperations.azure.com/v1beta1
-kind: DataflowEndpoint
-metadata:
-  name: mq
-  namespace: azure-iot-operations
-spec:
-  endpointType: Mqtt
-  mqttSettings:
-    authentication:
-      method: ServiceAccountToken
-      serviceAccountTokenSettings: {}
-```
-
----
-
-Then, in a dataflow configuration, you can use it for both the source and destination, with different topic filters:
+For example, you can use the default MQTT broker dataflow endpoint. it for both the source and destination, with different topic filters:
 
 # [Portal](#tab/portal)
 

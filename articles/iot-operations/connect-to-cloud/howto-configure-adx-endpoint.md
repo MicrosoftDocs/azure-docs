@@ -61,21 +61,21 @@ Create the dataflow endpoint resource with your cluster and database information
 # [Kubernetes](#tab/kubernetes)
 
 
-    ```yaml
-    apiVersion: connectivity.iotoperations.azure.com/v1beta1
-    kind: DataflowEndpoint
-    metadata:
-      name: adx
-      namespace: azure-iot-operations
-    spec:
-      endpointType: DataExplorer
-      dataExplorerSettings:
-        host: <cluster>.<region>.kusto.windows.net
-        database: <database-name>
-        authentication:
-          method: SystemAssignedManagedIdentity
-          systemAssignedManagedIdentitySettings: {}
-    ```
+```yaml
+apiVersion: connectivity.iotoperations.azure.com/v1beta1
+kind: DataflowEndpoint
+metadata:
+  name: adx
+  namespace: azure-iot-operations
+spec:
+  endpointType: DataExplorer
+  dataExplorerSettings:
+    host: <cluster>.<region>.kusto.windows.net
+    database: <database-name>
+    authentication:
+      method: SystemAssignedManagedIdentity
+      systemAssignedManagedIdentitySettings: {}
+```
 
 ---
 
@@ -85,7 +85,7 @@ Once the endpoint is created, you can use it in a dataflow by specifying the end
 
 # [Portal](#tab/portal)
 
-:::image type="content" source="media/how-to-configure-adx-endpoint/dataflow-mq-adx.png" alt-text="Screenshot using operations portal to create a dataflow with a MQTT source and Azure Data Explorer destination.":::
+:::image type="content" source="media/howto-configure-adx-endpoint/dataflow-mq-adx.png" alt-text="Screenshot using operations portal to create a dataflow with a MQTT source and Azure Data Explorer destination.":::
 
 # [Kubernetes](#tab/kubernetes)
 
@@ -168,7 +168,7 @@ You can set advanced settings for the Azure Data Lake Storage Gen2 endpoint, suc
 
 # [Portal](#tab/portal)
 
-:::image type="content" source="media/how-to-configure-adx-endpoint/adx-batching.png" alt-text="Screenshot using operations portal to set Azure Data Explorer batching setttings.":::
+:::image type="content" source="media/howto-configure-adx-endpoint/adx-batching.png" alt-text="Screenshot using operations portal to set Azure Data Explorer batching setttings.":::
 
 # [Kubernetes](#tab/kubernetes)
 

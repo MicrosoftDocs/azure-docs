@@ -5,7 +5,7 @@ author: PatAltimore
 ms.author: patricka
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 09/09/2024
+ms.date: 09/17/2024
 ai-usage: ai-assisted
 
 #CustomerIntent: As an operator, I want to understand how to understand how to configure dataflow endpoints for MQTT sources and destinations in Azure IoT Operations so that I can send data to and from MQTT brokers.
@@ -15,24 +15,21 @@ ai-usage: ai-assisted
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-MQTT endpoints are used for MQTT sources and destinations. You can configure the endpoint, Transport Layer Security (TLS), authentication, and other settings.
+MQTT dataflow endpoints are used for MQTT sources and destinations. You can configure the endpoint settings, Transport Layer Security (TLS), authentication, and other settings.
 
 ## Prerequisites
 
 - An instance of [Azure IoT Operations Preview](../deploy-iot-ops/howto-deploy-iot-operations.md)
 - A [configured dataflow profile](howto-configure-dataflow-profile.md)
 
-## How to configure a dataflow endpoint for MQTT brokers
 
-To create a dataflow endpoint for MQTT brokers, you can configure the endpoint, authentication, TLS, and other settings. The endpoint is used as a connection point for dataflow sources and destinations.
-
-### Azure IoT Operations built-in MQTT broker
+## Azure IoT Operations built-in MQTT broker
 
 Azure IoT Operations provides a built-in MQTT broker that you can use with dataflows.
 
 # [Portal](#tab/portal)
 
-:::image type="content" source="media/default-mqtt-endpoint.png" alt-text="Screenshot using operations portal to view default MQTT endpoint.":::
+:::image type="content" source="media/default-mqtt-endpoint.png" alt-text="Screenshot using operations portal to view default MQTT dataflow endpoint.":::
 
 # [Kubernetes](#tab/kubernetes)
 
@@ -64,6 +61,10 @@ This configuration creates a connection to the default MQTT broker with the foll
 > If any of these default MQTT broker settings change, the dataflow endpoint must be updated to reflect the new settings. For example, if the default MQTT broker listener changes to use a different service name `my-mqtt-broker` and port 8885, you must update the endpoint to use the new host `host: my-mqtt-broker:8885`. Same applies to other settings like authentication and TLS.
 
 ---
+
+## How to configure a dataflow endpoint for MQTT brokers
+
+You can use an MQTT broker dataflow endpoint for dataflow sources and destinations.
 
 ### Azure Event Grid
 
