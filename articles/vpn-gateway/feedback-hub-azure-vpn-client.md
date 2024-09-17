@@ -54,7 +54,7 @@ In this section, you add diagnostic and other details.
 * If your feedback is a **Suggestion**, the app takes you directly to the **Attachments (optional)** section.
 * If your feedback is a **Problem** and you feel the problem merits more urgent attention, you can specify this problem as a high priority or blocking issue.
 
-In the **Attachments (optional)** section, you should supply as much comprehensive information as possible. If a screen doesn't look right, [attach a screenshot](#attach-a-screenshot). If you're reporting a problem other than a screen issue, it's best to follow the steps in [Recreate my problem](#recreate-my-problem) and then use the steps in [Attach a file](#attach-a-file) to attach the log files.
+In the **Attachments (optional)** section, you should supply as much comprehensive information as possible. If a screen doesn't look right, [attach a screenshot](#attach-a-screenshot). If you're reporting a problem other than a screen issue, it's best to follow the steps in [Recreate my problem](#recreate-my-problem).
 
 ### Attach a screenshot
 
