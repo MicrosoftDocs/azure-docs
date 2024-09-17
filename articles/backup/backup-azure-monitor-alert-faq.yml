@@ -5,7 +5,7 @@ metadata:
   ms.reviewer: srinathv
   ms.topic: faq
   ms.service: azure-backup
-  ms.date: 02/14/2022
+  ms.date: 09/30/2024
   author: AbhishekMallick-MS
   ms.author: v-abhmallick
 title: Azure Backup Monitoring Alert - FAQ
@@ -18,12 +18,17 @@ sections:
       - question: |
           What're the different alerting solutions that Azure Backup provides?
         answer: |
-          Azure Backup supports multiple alerting options - built-in Azure Monitor alerts, Azure Monitor metric alerts, custom-log alerts, and classic alerts. If you're currently using classic alerts, we recommend you to start using Azure Monitor based alerts as they provide multiple benefits. [Learn more about the different alerting options provided by Azure Backup](monitoring-and-alerts-overview.md).
+          Azure Backup supports multiple alerting options - built-in Azure Monitor alerts, metric alerts, custom log analytics based alerts, custom ARG based alerts, activity log alerts, and classic alerts. If you're currently using classic alerts, we recommend you to start using Azure Monitor based alerts as they provide multiple benefits. [Classic alerts will be deprecated and won't be supported in the coming years](https://azure.microsoft.com/updates/transition-to-builtin-azure-monitor-alerts-for-recovery-services-vaults-in-azure-backup-by-31-march-2026/). Learn more [about the different alerting options provided by Azure Backup](monitoring-and-alerts-overview.md).
 
       - question: |
           Are there any costs to use built-in Azure Monitor alerts for Azure Backup?
         answer: |
           With [built-in Azure Monitor alerts](backup-azure-monitoring-built-in-monitor.md#azure-monitor-alerts-for-azure-backup), *alerts* for critical operations/failures generate by default (that you can view in the portal or via non-portal interfaces) at no additional cost. However, to route these alerts to a notification channel (such as email), it incurs a minor cost for notifications beyond the free tier (of 1000 emails per month). [Learn more about Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/).
+
+      - question: |
+          Are there any costs for using custom alerts (log analytics/ ARG/ activity logs/metrics) for Azure Backup?
+        answer: |
+          For [custom alerts](move-to-azure-monitor-alerts.md#supported-alerting-solutions), in addition to the notification costs described above, there is also a cost per alert rule. The cost of the alert rule varies in proportion to the number of dimensions selected as part of the alert rule. [Learn more about Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/).  
 
       - question: |
           Are there any costs for using metric alerts for Azure Backup?
@@ -52,6 +57,12 @@ sections:
           Can I configure notifications programmatically?
         answer: |
           If you're using Azure Monitor based alerts, you can configure notifications ([Alert processing rules](/azure/azure-monitor/alerts/alerts-action-rules?tabs=azure-cli) and [Action Groups](/cli/azure/monitor/action-group)) programmatically. If you're using classic alerts, programmatic creation of notifications isn't supported.      
+
+      - question: |
+          Can Log Analytics based alerts be delayed?
+        answer: |
+          After an event occurs, it might take *20 to 30 mins* for data to reach the Log Analytics workspace. As a result, the Log Analytics-based alerts might be slightly delayed. For instant alerts, use built-in [Azure Monitor based alerts](backup-azure-monitoring-built-in-monitor.md) or [metrics based alerts](metrics-overview.md).  
+
 
 
   - name: Configure Azure Backup reports
