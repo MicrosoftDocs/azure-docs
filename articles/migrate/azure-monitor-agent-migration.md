@@ -10,7 +10,7 @@ ms.date: 08/07/2024
 
 ---
 
-# Agent based dependency analysis using Azure monitor agent (AMA)
+# Agent-based dependency analysis using Azure monitor agent (AMA)
 
 Dependency analysis helps you to identify and understand dependencies across servers that you want to assess and migrate to Azure. We currently perform agent-based dependency analysis by downloading the  [MMA agent and associating a Log Analytics workspace](concepts-dependency-visualization.md) with the Azure Migrate project.
 
