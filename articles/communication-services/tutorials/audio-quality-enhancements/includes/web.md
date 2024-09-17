@@ -38,7 +38,7 @@ Use the `npm install` command to install the Azure Communication Services Audio 
 ```
 ## Loading the Noise Suppression effects library
 
-For details on the API interface concerning audio effects properties and methods, please consult the [Audio Effects Feature interface](/javascript/api/azure-communication-services/@azure/communication-calling/audioeffectsfeature?view=azure-communication-services-js) API interface documentation page.
+For details on the interface detailing audio effects properties and methods, consult the [Audio Effects Feature interface](/javascript/api/azure-communication-services/@azure/communication-calling/audioeffectsfeature?view=azure-communication-services-js&preserve-view=true) API documentation page.
 
 To use `noise suppression` audio effects within the Azure Communication Calling SDK, you need the `LocalAudioStream` that is currently in the call. You need access to the `AudioEffects` API of the `LocalAudioStream` to start and stop audio effects.
 ```js
@@ -148,4 +148,4 @@ await audioEffectsFeatureApi.stopEffects({
 });
 ```
 ## More Details
-Please see [Audio Effects Feature interface](/javascript/api/azure-communication-services/@azure/communication-calling/audioeffectsfeature?view=azure-communication-services-js) documentation page for extended API feature details.
+See [Audio Effects Feature interface](/javascript/api/azure-communication-services/@azure/communication-calling/audioeffectsfeature?view=azure-communication-services-js&preserve-view=true) documentation page for extended API feature details.
