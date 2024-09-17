@@ -86,10 +86,10 @@ For a conceptual overview of this feature, see [Azure RBAC on Azure Arc-enabled 
     1. Add the following specification under `volumes`:
 
        ```yml
-       - name: azure-rbac
-           hostPath:
+       - hostPath
            path: /etc/guard
            type: Directory
+       name: azure-rbac
        ```
 
     1. Add the following specification under `volumeMounts`:
