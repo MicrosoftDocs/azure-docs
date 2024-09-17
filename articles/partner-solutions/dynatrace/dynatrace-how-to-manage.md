@@ -74,7 +74,7 @@ To manage multiple subscriptions that you want to monitor, select **Monitored S
 
 :::image type="content" source="media/dynatrace-how-to-manage/dynatrace-monitored-subscriptions.png" alt-text="Screenshot showing Monitored Subscriptions selected in the Resource menu.":::
 
-From **Monitored Subscriptions** in the Resource menu, select the **Add Subscriptions**. The **Add Subscriptions** experience that opens and shows the subscriptions you have *Owner* role assigned to and any Dynatrace resource created in those subscriptions that is already linked to the same Dynatrace environment as the current resource.
+From **Monitored Subscriptions** in the Resource menu, select **Add Subscriptions**. The **Add Subscriptions** experience that opens and shows the subscriptions you have *Owner* role assigned to and any Dynatrace resource created in those subscriptions that is already linked to the same Dynatrace environment as the current resource.
 
 If the subscription you want to monitor has a resource already linked to the same Dynatrace org, we recommend that you delete the Dynatrace resources to avoid shipping duplicate data and incurring double the charges.
 
