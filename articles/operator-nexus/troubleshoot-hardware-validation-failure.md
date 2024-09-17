@@ -197,7 +197,7 @@ Expanding `result_detail` for a given category shows detailed results.
 
 ### Drive info category
 
-* Disk Check Failure
+* Disk Checks Failure
     * Drive specs are defined in the SKU. Mismatched capacity values indicate incorrect drives or drives inserted in to incorrect slots. Missing capacity and type fetched values indicate drives that are failed, missing, or inserted in to incorrect slots.
 
     ```json
@@ -427,7 +427,7 @@ Expanding `result_detail` for a given category shows detailed results.
     * To troubleshoot a server health failure engage vendor.
 
 * Health Check LifeCycle (LC) Log Failures
-    * Dell server health checks fail for recent Critical LC Log Alarms. The hardware validation plugin logs the alarm ID, name, and timestamp. Recent LC Log critical alarms indicate need for further investigation. The following example shows a failure for a critical backplane voltage alarm.
+    * Dell server health checks fail for recent Critical LC Log Alarms. The hardware validation plugin logs the alarm ID, name, and timestamp. Recent LC Log's critical alarms indicate need for further investigation. The following example shows a failure for a critical backplane voltage alarm.
 
     ```json
         {
@@ -439,6 +439,7 @@ Expanding `result_detail` for a given category shows detailed results.
     ```
 
     * Virtual disk errors typically indicate a RAID cleanup false positive condition and are logged due to the timing of raid cleanup and system power off pre HWV. The following example shows an LC log critical error on virtual disk 238. If multiple errors are encountered blocking deployment, delete cluster, wait two hours, then reattempt cluster deployment. If the failures aren't deployment blocking, wait two hours then run BMM replace.
+    * Virtual disk errors are allowlisted starting with release 3.13 and don't trigger a health check failure.
 
     ```json
         {
@@ -461,7 +462,7 @@ Expanding `result_detail` for a given category shows detailed results.
 
     * If `Backplane Comm` critical errors are logged, perform flea drain. Engage vendor to troubleshoot any other LC log critical failures.
 
-* Health Check Server Power Action Failures
+* Health Check Server Power Control Action Failures
     * Dell server health checks fail for failed server power-up or failed iDRAC reset. A failed server control action indicates an underlying hardware issue. The following example shows failed power on attempt.
 
     ```json
@@ -490,6 +491,38 @@ Expanding `result_detail` for a given category shows detailed results.
     ```
 
     * To troubleshoot server power-on failure attempt a flea drain. If problem persists engage vendor.
+
+* RAID Cleanup Failures
+    * RAID cleanup was added to HWV in release 3.13. As part of RAID cleanup the RAID controller configuration is reset. Dell server health check fails for RAID controller reset failure. A failed RAID cleanup action indicates an underlying hardware issue. The following example shows a failed RAID controller reset.
+
+    ```json
+        {
+            "field_name": "Server Control Actions",
+            "comparison_result": "Fail",
+            "expected": "Success",
+            "fetched": "Failed"
+        }
+    ```
+
+    ```json
+        "result_log": [
+          "RAID cleanup failed with: raid deletion failed after 2 attempts",
+        ]
+    ```
+
+    * To clear RAID in BMC webui:
+
+        `BMC` -> `Dashboard` -> `Storage` -> `Controllers` -> `Actions` -> `Reset Configuration`
+
+    * To clear RAID with racadm check for RAID controllers then clear config:
+
+    ```bash
+        racadm --nocertwarn -r $IP -u $BMC_USR -p $BMC_PWD storage get controllers | grep "RAID"
+        racadm --nocertwarn -r $IP -u $BMC_USR -p $BC_PWD storage resetconfig:RAID.SL.3-1         #substitute with RAID controller from get command
+        racadm --nocertwarn -r $IP -u $BMC_USR -p $BC_PWD jobqueue create RAID.SL.3-1 --realtime  #substitute with RAID controller from get command
+    ```
+
+    * To troubleshoot RAID cleanup failure check for any errors logged. For Dell R650/660, ensure that only slots 0 and 1 contain physical drives. For Dell R750/760, ensure that only slots 0 through 3 contain physical drives. For any other models, confirm there are no extra drives inserted based on SKU definition. All extra drives should be removed to align with the SKU. If the problem persists engage vendor.
 
 * Health Check Power Supply Failure and Redundancy Considerations
     * Dell server health checks warn when one power supply is missing or failed. Power supply "field_name" might be displayed as 0/PS0/Power Supply 0 and 1/PS1/Power Supply 1 for the first and second power supplies respectively. A failure of one power supply doesn't trigger an HWV device failure.
@@ -539,8 +572,9 @@ Expanding `result_detail` for a given category shows detailed results.
         }
     ```
 
-* PXE Device Check Considerations
+* PXE Device Checks Considerations
     * This check validates the PXE device settings.
+    * Starting with release 3.13 HWV attempts to auto fix the BIOS boot configuration.
     * Failed `pxe_device_1_name` or `pxe_device_1_state` checks indicate a problem with the PXE configuration.
     * Failed settings need to be fixed to enable system boot during deployment.
 
@@ -598,24 +632,6 @@ Expanding `result_detail` for a given category shows detailed results.
     ```
 
     * To troubleshoot, ping the iDRAC from a jumpbox with access to the BMC network. If iDRAC pings check that passwords match.
-
-### Special considerations
-
-* Servers Failing Multiple Health and Network Checks
-    * Raid deletion is performed during cluster deploy and cluster delete actions for all releases inclusive of 3.12.
-    * If we observe servers getting powered off during hardware validation with multiple failed health and network checks, we need to reattempt cluster deployment.
-    * If issues persist, raid deletion needs to be performed manually on `control` nodes in the cluster.
-
-    * To clear raid in BMC webui:
-
-        `BMC` -> `Storage` -> `Virtual Disks` -> `Action` -> `Delete` -> `Apply Now`
-
-    * To clear raid with racadm:
-
-        ```bash
-        racadm --nocertwarn -r $IP -u $BMC_USR -p $BMC_PWD raid deletevd:Disk.Virtual.239:RAID.SL.3-1
-        racadm --nocertwarn -r $IP -u $BMC_USR -p $BMC_PWD jobqueue create RAID.SL.3-1 --realtime
-        ```
 
 ## Adding servers back into the Cluster after a repair
 
