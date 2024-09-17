@@ -50,19 +50,19 @@ The **Impact** category, along with the **Potential yearly savings**, are design
 
 High impact recommendations include:
 - [Buy an Azure savings plan to save money on a variety of compute services](../savings-plan/buy-savings-plan.md)
-- [Buy reserved virtual machine instances to save money over pay-as-you-go costs](../../advisor/advisor-reference-cost-recommendations.md#buy-virtual-machine-reserved-instances-to-save-money-over-pay-as-you-go-costs)
-- [Optimize virtual machine spend by resizing or shutting down underutilized instances](../../advisor/advisor-cost-recommendations.md#optimize-virtual-machine-vm-or-virtual-machine-scale-set-vmss-spend-by-resizing-or-shutting-down-underutilized-instances)
-- [Use Standard Storage to store Managed Disks snapshots](../../advisor/advisor-reference-cost-recommendations.md#use-standard-storage-to-store-managed-disks-snapshots)
+- [Buy reserved virtual machine instances to save money over pay-as-you-go costs](/azure/advisor/advisor-reference-cost-recommendations#buy-virtual-machine-reserved-instances-to-save-money-over-pay-as-you-go-costs)
+- [Optimize virtual machine spend by resizing or shutting down underutilized instances](/azure/advisor/advisor-cost-recommendations#optimize-virtual-machine-vm-or-virtual-machine-scale-set-vmss-spend-by-resizing-or-shutting-down-underutilized-instances)
+- [Use Standard Storage to store Managed Disks snapshots](/azure/advisor/advisor-reference-cost-recommendations#use-standard-storage-to-store-managed-disks-snapshots)
 
 Medium impact recommendations include:
-- [Reduce costs by eliminating un-provisioned ExpressRoute circuits](../../advisor/advisor-reference-cost-recommendations.md#delete-expressroute-circuits-in-the-provider-status-of-not-provisioned)
-- [Reduce costs by deleting or reconfiguring idle virtual network gateways](../../advisor/advisor-reference-cost-recommendations.md#repurpose-or-delete-idle-virtual-network-gateways)
+- [Reduce costs by eliminating un-provisioned ExpressRoute circuits](/azure/advisor/advisor-reference-cost-recommendations#delete-expressroute-circuits-in-the-provider-status-of-not-provisioned)
+- [Reduce costs by deleting or reconfiguring idle virtual network gateways](/azure/advisor/advisor-reference-cost-recommendations#repurpose-or-delete-idle-virtual-network-gateways)
 
 ## Act on a recommendation
 
 Azure Advisor monitors your virtual machine usage for seven days and then identifies underutilized virtual machines. Virtual machines whose CPU utilization is five percent or less and network usage is seven MB or less for four or more days are considered low-utilization virtual machines.
 
-The 5% or less CPU utilization setting is the default, but you can adjust the settings. For more information about adjusting the setting, see the [Configure the average CPU utilization rule or the low usage virtual machine recommendation](../../advisor/advisor-get-started.md#configure-recommendations).
+The 5% or less CPU utilization setting is the default, but you can adjust the settings. For more information about adjusting the setting, see the [Configure the average CPU utilization rule or the low usage virtual machine recommendation](/azure/advisor/advisor-get-started#configure-recommendations).
 
 Although some scenarios can result in low utilization by design, you can often save money by changing the size of your virtual machines to less expensive sizes. Your actual savings might vary if you choose a resize action. Let's walk through an example of resizing a virtual machine.
 

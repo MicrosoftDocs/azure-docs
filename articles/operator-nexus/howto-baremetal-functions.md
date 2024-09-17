@@ -26,7 +26,7 @@ This article describes how to perform lifecycle management operations on bare me
 - **Replace the BMM**
 
 > [!IMPORTANT]
-> Disruptive command requests against a Kubernetes Control Plane (KCP) node are rejected if there is another disruptive action command already running against another KCP node or if the full KCP is not available. This check is done to maintain the integrity of the Nexus instance and ensure multiple KCP nodes don't go down at once due to simultaneous disruptive actions. If multiple nodes go down, it will break the healthy quorum threshold of the Kubernetes Control Plane.
+> Disruptive command requests against a Kubernetes Control Plane (KCP) node are rejected if there is another disruptive action command already running against another KCP node or if the full KCP is not available. This check is done to maintain the integrity of the Nexus instance and ensure multiple KCP nodes don't become non-operational at once due to simultaneous disruptive actions. If multiple nodes become non-operational, it will break the healthy quorum threshold of the Kubernetes Control Plane.
 >
 > The bolded actions in the above list are considered disruptive (Power off, Restart, Reimage, Replace). Cordon without evacuate is not considered disruptive. Cordon with evacuate is considered disruptive.
 >

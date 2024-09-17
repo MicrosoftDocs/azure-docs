@@ -21,11 +21,11 @@ The resource providers for AI and machine learning services are:
 | --------------------------- | ------------- |
 | Microsoft.AutonomousSystems | [Autonomous Systems](https://www.microsoft.com/ai/autonomous-systems) |
 | Microsoft.BotService | [Azure Bot Service](/azure/bot-service/) |
-| Microsoft.CognitiveServices | [Cognitive Services](../../ai-services/index.yml) |
+| Microsoft.CognitiveServices | [Cognitive Services](/azure/ai-services/) |
 | Microsoft.EnterpriseKnowledgeGraph | Enterprise Knowledge Graph |
-| Microsoft.MachineLearning | [Machine Learning Studio](../../machine-learning/classic/index.yml) |
-| Microsoft.MachineLearningServices | [Azure Machine Learning](../../machine-learning/index.yml) |
-| Microsoft.Search | [Azure AI Search](../../search/index.yml) |
+| Microsoft.MachineLearning | [Machine Learning Studio](/azure/machine-learning/classic/) |
+| Microsoft.MachineLearningServices | [Azure Machine Learning](/azure/machine-learning/) |
+| Microsoft.Search | [Azure AI Search](/azure/search/) |
 
 ## Analytics resource providers
 
@@ -147,6 +147,7 @@ The resource providers for DevOps services are:
 | --------------------------- | ------------- |
 | microsoft.visualstudio | [Azure DevOps](/azure/devops/) |
 | Microsoft.VSOnline | [Azure DevOps](/azure/devops/) |
+| Microsoft.DevOpsInfrastructure | [Managed DevOps Pools](/azure/devops/managed-devops-pools/) |
 
 ## Hybrid resource providers
 
@@ -211,7 +212,7 @@ The resource providers for management services are:
 
 | Resource provider namespace | Azure service |
 | --------------------------- | ------------- |
-| Microsoft.Advisor | [Azure Advisor](../../advisor/index.yml) |
+| Microsoft.Advisor | [Azure Advisor](/azure/advisor/) |
 | Microsoft.Authorization - [registered by default](#registration) | [Azure Resource Manager](../index.yml) |
 | Microsoft.Automation | [Automation](../../automation/index.yml) |
 | Microsoft.Billing - [registered by default](#registration) | [Cost Management and Billing](/azure/billing/) |
@@ -230,7 +231,7 @@ The resource providers for management services are:
 | Microsoft.Portal - [registered by default](#registration) | [Azure portal](../../azure-portal/index.yml) |
 | Microsoft.RecoveryServices | [Azure Site Recovery](../../site-recovery/index.yml) |
 | Microsoft.ResourceGraph - [registered by default](#registration) | [Azure Resource Graph](../../governance/resource-graph/index.yml) |
-| Microsoft.ResourceHealth | [Azure Service Health](../../service-health/index.yml) |
+| Microsoft.ResourceHealth | [Azure Service Health](/azure/service-health/) |
 | Microsoft.Resources - [registered by default](#registration) | [Azure Resource Manager](../index.yml) |
 | Microsoft.Scheduler | [Scheduler](../../scheduler/index.yml) |
 | Microsoft.SoftwarePlan | License |
@@ -263,13 +264,13 @@ The resource providers for monitoring services are:
 
 | Resource provider namespace | Azure service |
 | --------------------------- | ------------- |
-| Microsoft.AlertsManagement | [Azure Monitor](../../azure-monitor/index.yml) |
-| Microsoft.ChangeAnalysis | [Azure Monitor](../../azure-monitor/index.yml) |
-| Microsoft.Insights | [Azure Monitor](../../azure-monitor/index.yml) |
-| Microsoft.Intune | [Azure Monitor](../../azure-monitor/index.yml) |
-| Microsoft.OperationalInsights | [Azure Monitor](../../azure-monitor/index.yml) |
-| Microsoft.OperationsManagement | [Azure Monitor](../../azure-monitor/index.yml) |
-| Microsoft.WorkloadMonitor | [Azure Monitor](../../azure-monitor/index.yml) |
+| Microsoft.AlertsManagement | [Azure Monitor](/azure/azure-monitor/) |
+| Microsoft.ChangeAnalysis | [Azure Monitor](/azure/azure-monitor/) |
+| Microsoft.Insights | [Azure Monitor](/azure/azure-monitor/) |
+| Microsoft.Intune | [Azure Monitor](/azure/azure-monitor/) |
+| Microsoft.OperationalInsights | [Azure Monitor](/azure/azure-monitor/) |
+| Microsoft.OperationsManagement | [Azure Monitor](/azure/azure-monitor/) |
+| Microsoft.WorkloadMonitor | [Azure Monitor](/azure/azure-monitor/) |
 
 ## Network resource providers
 

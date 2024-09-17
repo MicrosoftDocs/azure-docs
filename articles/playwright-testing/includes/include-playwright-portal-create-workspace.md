@@ -12,7 +12,7 @@ ms.date: 10/04/2023
     
     > [!TIP]
     > If you have multiple workspaces, you can switch to another workspace by selecting the workspace name at the top of the page, and then select **Manage all workspaces**.
-
+    
 1. If you don't have a workspace yet, select **+ New workspace**, and then provide the following information:
 
     |Field  |Description  |

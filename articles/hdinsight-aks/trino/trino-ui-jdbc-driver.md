@@ -9,7 +9,9 @@ ms.date: 10/19/2023
 
 # Trino JDBC driver
 
+[!INCLUDE [retirement-notice](../includes/retirement-notice.md)]
 [!INCLUDE [feature-in-preview](../includes/feature-in-preview.md)]
+
 
 Trino with HDInsight on AKS provides JDBC driver, which supports Microsoft Entra authentication and adds few parameters for it. 
 
