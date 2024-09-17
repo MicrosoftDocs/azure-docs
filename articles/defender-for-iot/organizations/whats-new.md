@@ -25,7 +25,7 @@ Features released earlier than nine months ago are described in the [What's new 
 
 ### Added protocol
 
-The OCPI protocol from the EVRoaming Foundation is included in the release of sensor version 24.1.5. For more information, see [supported protocols for OT device discovery](concept-supported-protocols.md#supported-protocols-for-ot-device-discovery).
+We now support the OCPI protocol. See [the updated protocol list](concept-supported-protocols.md#supported-protocols-for-ot-device-discovery).
 
 ## July 2024
 
