@@ -187,7 +187,7 @@ sections:
       - question: |
          If I use Azure Blob storage for only a few days a month, is the cost prorated?
         answer: |
-         Storage capacity for Blob storage is billed in units of the average daily amount of data stored, in gigabytes (GB), over a monthly period. For example, if you consistently used 10 GB of storage for the first half of the month, and none for the second half of the month, you would be billed for your average usage of 5 GB of storage.
+         Storage capacity for Blob Storage is billed in units of the average daily amount of data stored, in gigabytes (GB), over a monthly period. For example, if you consistently used 10 GB of storage for the first half of the month, and none for the second half of the month, you would be billed for your average usage of 5 GB of storage.
 additionalContent: |
 
   ## Next steps
