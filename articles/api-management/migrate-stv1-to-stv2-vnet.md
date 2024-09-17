@@ -164,7 +164,7 @@ The following image shows a high level overview of what happens during migration
 1. Under **Select a migration option**, select **Change to a new subnet**.
 1. Under **Choose the scenario that aligns with your requirements**, chose one of the two options, depending on whether you want to maintain the original `stv1` compute for a period after migration.
 
-      :::image type="content" source="media/migrate-stv1-to-stv2-vnet/enable-retain-gateway.png" alt-text="Screenshot of options to retain stv1 compute in the portal." lightbox="media/migrate-stv1-to-stv2-vnet/enable-retain-gateway.png":::
+      :::image type="content" source="media/migrate-stv1-to-stv2-vnet/enable-retain-gateway.png" alt-text="Screenshot of options to retain stv1 compute in the portal.":::
 1. Under **Define migration settings for each location**:
     1. Select a location to migrate. 
     1. Select the **Virtual network**, **Subnet**, and optional **Public IP address** you want to migrate to. 
