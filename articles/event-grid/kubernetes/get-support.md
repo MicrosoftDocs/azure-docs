@@ -25,7 +25,7 @@ If you run into an issue, [create an Azure support request](https://portal.azure
     1. If you're experiencing problems in any other step of the installation steps, type **Event Grid on Kubernetes with Azure Arc** and select that option. 
 1. For **Resource**, select a suitable Azure resource or select **General question** if there's no resource available.
 1. In the **Summary** field, provide a succinct description of your problem.
-1. For Problem type, select **Cluster connect** if you're having problems with [connecting your cluster to Azure Arc](../../azure-arc/kubernetes/quickstart-connect-cluster.md). For other issues, select a suitable option. For example, select **Management issues** if you're experiencing problems while deploying Event Grid or creating a topic or event subscription.
+1. For Problem type, select **Cluster connect** if you're having problems with [connecting your cluster to Azure Arc](/azure/azure-arc/kubernetes/quickstart-connect-cluster). For other issues, select a suitable option. For example, select **Management issues** if you're experiencing problems while deploying Event Grid or creating a topic or event subscription.
 1. For Problem subtype, select a suitable option.
 1. Select **Next: Solutions**. The Solutions tab is shown.
 1. Read through the suggested solutions. If you do not find a suitable solution or the solution did not solve the issue, select **Next: Details** at the bottom of the page.

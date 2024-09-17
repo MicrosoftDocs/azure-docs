@@ -47,7 +47,7 @@ In this image:
 
     This allows MSSPs to hide Microsoft Sentinel components as needed, like Analytics Rules and Hunting Queries.
 
-For more information, also see the [Azure Lighthouse documentation](../lighthouse/concepts/cloud-solution-provider.md).
+For more information, also see the [Azure Lighthouse documentation](/azure/lighthouse/concepts/cloud-solution-provider).
 
 ## Enterprise Agreements (EA) / Pay-as-you-go (PAYG)
 

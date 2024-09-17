@@ -18,9 +18,9 @@ This article shows you how to relocate Azure Container Registry resources to ano
 ## Prerequisites
 
 
-- You can only relocate a registry within the same Active Directory tenant. This limitation applies to registries that are encrypted and unencrypted with a [customer-managed key](../container-registry/tutorial-enable-customer-managed-keys.md). 
+- You can only relocate a registry within the same Active Directory tenant. This limitation applies to registries that are encrypted and unencrypted with a [customer-managed key](/azure/container-registry/tutorial-enable-customer-managed-keys). 
 
-- If the source registry has [availability zones](../reliability/availability-zones-overview.md) enabled, then the target region must also support availability zones. For more information on availability zone support for Azure Container Registry, see [Enable zone redundancy in Azure Container Registry](../container-registry/zone-redundancy.md).
+- If the source registry has [availability zones](../reliability/availability-zones-overview.md) enabled, then the target region must also support availability zones. For more information on availability zone support for Azure Container Registry, see [Enable zone redundancy in Azure Container Registry](/azure/container-registry/zone-redundancy).
 
     
 
@@ -71,7 +71,7 @@ To understand the possible downtimes involved, see [Cloud Adoption Framework for
     
     ```
 
-1. Use [ACR Tasks](../container-registry/container-registry-tasks-overview.md) to retrieve automation configurations of the source registry for import into the target registry. 
+1. Use [ACR Tasks](/azure/container-registry/container-registry-tasks-overview) to retrieve automation configurations of the source registry for import into the target registry. 
 
 
 ### Export template
@@ -121,7 +121,7 @@ Inspect the registry properties in the template JSON file you downloaded, and ma
 
 - Validate all the associated resources detail in the downloaded template such as Registry scopeMaps, replications configuration, Diagnostic settings like log analytics.
 
-- If the source registry is encrypted, then [encrypt the target registry using a customer-managed key](../container-registry/tutorial-enable-customer-managed-keys.md#enable-a-customer-managed-key-by-using-a-resource-manager-template) and update the template with settings for the required managed identity, key vault, and key.  You can only enable the customer-managed key when you deploy the registry.
+- If the source registry is encrypted, then [encrypt the target registry using a customer-managed key](/azure/container-registry/tutorial-enable-customer-managed-keys#enable-a-customer-managed-key-by-using-a-resource-manager-template) and update the template with settings for the required managed identity, key vault, and key.  You can only enable the customer-managed key when you deploy the registry.
 
 
 
@@ -149,13 +149,13 @@ az deployment group create --resource-group myResourceGroup \
 
 After creating the registry in the target region:
 
-1. Use the [az acr import](/cli/azure/acr#az-acr-import) command, or the equivalent PowerShell command `Import-AzContainerImage`, to import images and other artifacts you want to preserve from the source registry to the target registry. For command examples, see [Import container images to a container registry](../container-registry/container-registry-import-images.md).
+1. Use the [az acr import](/cli/azure/acr#az-acr-import) command, or the equivalent PowerShell command `Import-AzContainerImage`, to import images and other artifacts you want to preserve from the source registry to the target registry. For command examples, see [Import container images to a container registry](/azure/container-registry/container-registry-import-images).
 
 1. Use the Azure CLI commands [az acr repository list](/cli/azure/acr/repository#az-acr-repository-list) and [az acr repository show-tags](/cli/azure/acr/repository#az-acr-repository-show-tags), or Azure PowerShell equivalents, to help enumerate the contents of your source registry.
 
 1. Run the import command for individual artifacts, or script it to run over a list of artifacts.
 
-The following sample Azure CLI script enumerates the source repositories and tags and then imports the artifacts to a target registry in the same Azure subscription. Modify as needed to import specific repositories or tags. To import from a registry in a different subscription or tenant, see examples in [Import container images to a container registry](../container-registry/container-registry-import-images.md).
+The following sample Azure CLI script enumerates the source repositories and tags and then imports the artifacts to a target registry in the same Azure subscription. Modify as needed to import specific repositories or tags. To import from a registry in a different subscription or tenant, see examples in [Import container images to a container registry](/azure/container-registry/container-registry-import-images).
 
 ```azurecli
 #!/bin/bash
@@ -211,6 +211,6 @@ After you have successfully deployed the target registry, migrated content, and 
 - To move registry resources to a new resource group either in the same subscription or a [new subscription], see [Move Azure resources to a new resource group or subscription](../azure-resource-manager/management/move-resource-group-and-subscription.md).
 
 
-* Learn more about [importing container images](../container-registry/container-registry-import-images.md) to an Azure container registry from a public registry or another private registry. 
+* Learn more about [importing container images](/azure/container-registry/container-registry-import-images) to an Azure container registry from a public registry or another private registry. 
 
 * See the [Resource Manager template reference](/azure/templates/microsoft.containerregistry/registries) for Azure Container Registry.
