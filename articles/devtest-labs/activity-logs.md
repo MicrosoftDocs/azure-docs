@@ -36,9 +36,9 @@ This article explains how to view  activity logs for a lab in Azure DevTest Labs
     :::image type="content" source="./media/activity-logs/change-history.png" alt-text="Stop VM event - Change history":::             
 1. Select the change in the change history list to see more details about the change.           
 
-For more information about activity logs, see [Azure Activity Log](../azure-monitor/essentials/activity-log.md).
+For more information about activity logs, see [Azure Activity Log](/azure/azure-monitor/essentials/activity-log).
 
 ## Next steps
 
 - To learn about setting **alerts** on activity logs, see [Create alerts](create-alerts.md).
-- To learn more about activity logs, see  [Azure Activity Log](../azure-monitor/essentials/activity-log.md).
+- To learn more about activity logs, see  [Azure Activity Log](/azure/azure-monitor/essentials/activity-log).

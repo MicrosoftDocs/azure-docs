@@ -1,8 +1,8 @@
 ---
 title: 'Quickstart: Deploy an Azure Linux Container Host for AKS cluster by using an ARM template'
 description: Learn how to quickly create an Azure Linux Container Host for AKS cluster using an Azure Resource Manager template.
-author: htaubenfeld
-ms.author: htaubenfeld
+author: suhuruli
+ms.author: suhuruli
 ms.service: microsoft-linux
 ms.custom: devx-track-arm-template, linux-related-content
 ms.topic: quickstart
