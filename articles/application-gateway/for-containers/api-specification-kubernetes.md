@@ -1926,8 +1926,7 @@ against the target resource.</p>
 </tr>
 </tbody>
 </table>
-<h3 id="alb.networking.azure.io/v1.HealthCheckPolicySpec">HealthCheckPolicySpec
-</h3>
+### HealthCheckPolicySpec {#alb.networking.azure.io/v1.HealthCheckPolicySpec}
 <p>
 (<em>Appears on:</em><a href="#alb.networking.azure.io/v1.HealthCheckPolicy">HealthCheckPolicy</a>)
 </p>
