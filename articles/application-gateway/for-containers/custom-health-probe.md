@@ -68,7 +68,7 @@ When the default health probe is used, the following values for each health prob
 
 In both Gateway API and Ingress API, a custom health probe can be defined by defining a [_HealthCheckPolicyPolicy_ resource](api-specification-kubernetes.md#alb.networking.azure.io/v1.HealthCheckPolicy) and referencing a service the health probes should check against.  As the service is referenced by an HTTPRoute or Ingress resource with a class reference to Application Gateway for Containers, the custom health probe is used for each reference.
 
-In this example, the health probe emitted by Application Gateway for Containers sends the hostname contoso.com to the pods that make up _test-service_.  The requested protocol is `http` with a path of `/`. A probe is emitted every 5 seconds and wait 3 seconds before determining the connection has timed out. If a response is received, an HTTP response code between 200 and 299 (inclusive of 200 and 299) is considered healthy, all other responses are considered unhealthy.
+In this example, the health probe emitted by Application Gateway for Containers sends the hostname contoso.com to the pods that make up _test-service_.  The requested protocol is `http` with a path of `/`. A probe is emitted every 5 seconds and waits 3 seconds before determining the connection has timed out. If a response is received, an HTTP response code between 200 and 299 (inclusive of 200 and 299) is considered healthy, all other responses are considered unhealthy.
 
 ```bash
 kubectl apply -f - <<EOF

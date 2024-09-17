@@ -24,11 +24,11 @@ Mutual Transport Layer Security (MTLS) is a process that relies on certificates 
 
 See the following figure:
 
-![A diagram showing the Application Gateway for Containers frontend MTLS process.](./media/how-to-frontend-mtls-gateway-api/frontend-mtls.png)](./media/how-to-frontend-mtls-gateway-api/frontend-mtls.png)
+[![A diagram showing the Application Gateway for Containers frontend MTLS process.](./media/how-to-frontend-mtls-gateway-api/frontend-mtls.png)](./media/how-to-frontend-mtls-gateway-api/frontend-mtls.png#lightbox)
 
 The valid client certificate flow shows a client presenting a certificate to the frontend of Application Gateway for Containers. Application Gateway for Containers determines the certificate is valid and proxies the request to the backend target. The response is ultimately returned to the client.
 
-The revoked client certificate flow shows a client presenting a revoked certificate to the frontend of Application Gateway for Containers. Application Gateway for Containers determins the certificate is not valid and prevents the request from being proxied to the client. The client will receive an HTTP 400 bad request and corresponding reason.
+The revoked client certificate flow shows a client presenting a revoked certificate to the frontend of Application Gateway for Containers. Application Gateway for Containers determines the certificate is not valid and prevents the request from being proxied to the client. The client will receive an HTTP 400 bad request and corresponding reason.
 
 ## Prerequisites
 

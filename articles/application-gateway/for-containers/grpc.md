@@ -54,25 +54,25 @@ gRPC has four [rpc life cycles](https://grpc.io/docs/what-is-grpc/core-concepts/
 
 In the unary life cycle, a request is made to the gRPC server and a response is returned.
 
-![Diagram depicting unary gRPC life cycle.](./media/grpc/agc-grpc-unary.png)
+![Diagram depicting unary gRPC life cycle.](./media/grpc/grpc-unary.png)
 
 ### Client streaming RPC
 
 In the client streaming life cycle, a request is made to the gRPC server, and then the client streams a sequence of additional messages to the server without the need for the server to return additional responses.
 
-![Diagram depicting client streaming gRPC life cycle.](./media/grpc/agc-grpc-client-streaming.png)
+![Diagram depicting client streaming gRPC life cycle.](./media/grpc/grpc-client-streaming.png)
 
 ### Server streaming RPC
 
 In the server streaming life cycle, a request is made to the gRPC server, and then the server streams a sequence of messages back to the client without the need for the client to return additional responses.
 
-![Diagram depicting server streaming gRPC life cycle.](./media/grpc/agc-grpc-server-streaming.png)
+![Diagram depicting server streaming gRPC life cycle.](./media/grpc/grpc-server-streaming.png)
 
 ### Bidirectional streaming RPC
 
 In the bidirectional streaming life cycle, a request is made to the gRPC server, and both the client and server send a sequence of messages, operating independently from each other.
 
-![Diagram depicting bidirectional streaming gRPC life cycle.](./media/grpc/agc-grpc-bidrectional-streaming.png)
+![Diagram depicting bidirectional streaming gRPC life cycle.](./media/grpc/grpc-bidrectional-streaming.png)
 
 ## gRPC implementation in Application Gateway for Containers
 
