@@ -62,7 +62,7 @@ Both EC and RSA keys are supported, but all certificates in the chain must use t
 1. Create a full server certificate chain, where the order of the certificates matters: the server certificate is the first one in the file, the intermediate is the second.
 
     ```bash
-    cat  mqtts-endpoint.crt intermediate_ca.crt  > server_chain.pem
+    cat  mqtts-endpoint.crt intermediate_ca.crt  > server_chain.crt
     ```
 
 1. Create a Kubernetes secret with the server certificate chain and server key using kubectl.
