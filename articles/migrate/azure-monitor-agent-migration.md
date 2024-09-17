@@ -12,9 +12,11 @@ ms.date: 08/07/2024
 
 # Agent based dependency analysis using Azure monitor agent (AMA)
 
-[Azure Monitor Agent (AMA)](/azure/azure-monitor/agents/azure-monitor-agent-overview) replaces the Log Analytics agent, also known as Microsoft Monitor Agent (MMA) and OMS, for Windows and Linux machines, in Azure and non-Azure environments, on-premises and other clouds. 
+Dependency analysis helps you to identify and understand dependencies across servers that you want to assess and migrate to Azure. We currently perform agent-based dependency analysis by downloading the  [MMA agent and associating a Log Analytics workspace](concepts-dependency-visualization.md) with the Azure Migrate project.
 
-This article describes the impact on agent-based dependency analysis in lieu of Azure Monitor Agent (AMA) replacing the Log Analytics agent (also known as Microsoft Monitor agent (MMA)) and provides guidance to migrate from the Log Analytics agent to Azure Monitor Agent.
+[Azure Monitor Agent (AMA)](/azure/azure-monitor/agents/azure-monitor-agent-overview) replaces the Log Analytics agent, also known as Microsoft Monitor Agent (MMA) and OMS, for Windows and Linux machines, in Azure and non-Azure environments, on-premises, and other clouds. 
+
+This article describes the impact on agent-based dependency analysis because of Azure Monitor Agent (AMA) replacing the Log Analytics agent (also known as Microsoft Monitor agent (MMA)) and provides guidance to migrate from the Log Analytics agent to Azure Monitor Agent.
 
 > [!IMPORTANT]
 > The Log Analytics agent will be [retired on **August 31, 2024**](https://azure.microsoft.com/updates/were-retiring-the-log-analytics-agent-in-azure-monitor-on-31-august-2024/). You can expect the following when you use the MMA or OMS agent after this date.
@@ -26,21 +28,25 @@ This article describes the impact on agent-based dependency analysis in lieu of 
 > [!Note]
 >  Starting July 1, 2024, [Standard Log Analytics charges](https://go.microsoft.com/fwlink/?linkid=2278207) are applicable for Agent-based dependency visualization. We suggest moving to [agentless dependency analysis](how-to-create-group-machine-dependencies-agentless.md) for a seamless experience.
 
+> [!Note]
+> The pricing estimation has been covered in [Estimate the price change](#estimate-the-price-change) section.
+
 ## Migrate from Log analytics agent (MMA) to Azure Monitor agent (AMA)
 
-To migrate from Log analytics agent to Azure Monitor agent, follow these steps:
+If you already set up MMA and the associated Log Analytics workspace with your Azure Migrate project, you can migrate from the existing Log analytics agent to Azure Monitor agent without breaking/changing the association of the Log Analytics workspace with the Azure Migrate project by following these steps.
 
-1. To deploy the AMA agent, it's recommended to first clean up the existing Service Map to avoid duplicates. [Learn more](/azure/azure-monitor/vm/vminsights-migrate-from-service-map#remove-the-service-map-solution-from-the-workspace).
+1. To deploy the Azure Monitor agent, it's recommended to first clean up the existing Service Map to avoid duplicates. [Learn more](/azure/azure-monitor/vm/vminsights-migrate-from-service-map#remove-the-service-map-solution-from-the-workspace).
 
 1. Review the [prerequisites](/azure/azure-monitor/agents/azure-monitor-agent-manage#prerequisites) to install the Azure Monitor Agent. 
 
-1. Download and run the script on the host machine as detailed in [Installation options](/azure/azure-monitor/agents/azure-monitor-agent-manage?tabs=azure-portal#installation-options). To get the AMA and the Dependency Agent deployed on the guest machine, create the [Data collection rule (DCR)](/azure/azure-monitor/agents/azure-monitor-agent-data-collection) that maps to the Log analytics workspace ID. 
+1. Download and run the script on the host machine as detailed in [Installation options](/azure/azure-monitor/agents/azure-monitor-agent-manage?tabs=azure-portal#installation-options). To get the Azure Monitor agent and the Dependency agent deployed on the guest machine, create the [Data collection rule (DCR)](/azure/azure-monitor/agents/azure-monitor-agent-data-collection) that maps to the Log analytics workspace ID. 
 
 In the transition scenario, the Log analytics workspace would be the same as the one that was configured for Service Map agent. DCR allows you to enable the collection of Processes and Dependencies. By default, it's disabled. 
 
 ## Estimate the price change
 
-You will be billed against the data volume per workspace. To know the volume of your workspace, follow these steps.
+You'll now be charged for associating a Log Analytics workspace with Azure Migrate project. This was earlier free for the first 180 days.
+As per the pricing change, you'll be billed against the volume of data gathered by the AMA agent and transmitted to the workspace. To review the volume of data you're gathering, follow these steps:
 
 1. Sign in to the Log analytics workspace. 
 1. Navigate to the **Logs** section and run the following query: 
@@ -55,9 +61,9 @@ You will be billed against the data volume per workspace. To know the volume of 
     | summarize AzureMigateGBperMonth=sum(Quantity)/1000 
     ```
 
-## Support for AMA in Azure Migrate 
+## Support for Azure Monitor agent in Azure Migrate 
 
-Currently, you can download the MMA agent through the Azure Migrate portal. Support for downloading the AMA agent will be added shortly.
+Install and manage Azure Monitor agent as mentioned [here](/azure/azure-monitor/agents/azure-monitor-agent-manage?tabs=azure-portal). Currently, you can download the Log Analytics agent through the Azure Migrate portal. Support for downloading the Azure Monitor agent through the Azure portal will be added shortly. 
 
 ## Next steps
 [Learn](how-to-create-group-machine-dependencies.md) how to create dependencies for a group.
