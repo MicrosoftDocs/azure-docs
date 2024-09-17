@@ -43,8 +43,8 @@ Define a new setting whenever you want to define a specific configuration for on
 
     |Tab name  |Description  |
     |---------|---------|
-    |**Basics**     | Select the subscription where you want to apply your setting, and your [setting type](#sensor-setting-reference). <br><br>Enter a meaningful name and an optional description for your setting.        |
-    |**Setting**     | Define the values for your selected setting type.<br>For details about the options available for each setting type, find your selected setting type in the [Sensor setting reference](#sensor-setting-reference) below.     |
+    |**Basics**     | Select the subscription where you want to apply your setting, and your [setting type](#add-sensor-settings). <br><br>Enter a meaningful name and an optional description for your setting.        |
+    |**Setting**     | Define the values for your selected setting type.<br>For details about the options available for each setting type, find your selected setting type in the [Sensor setting reference](#add-sensor-settings) below.     |
     |**Apply**     | Use the **Select sites**, **Select zones**, and **Select sensors** dropdown menus to define where you want to apply your setting.   <br><br>**Important**:  Selecting a site or zone applies the setting to all connected OT sensors, including any OT sensors added to the site or zone later on. <br>If you select to apply your settings to an entire site, you don't also need to select its zones or sensors. |
     |**Review and create**     | Check the selections made for your setting. <br><br>If your new setting replaces an existing setting, a :::image type="icon" source="media/how-to-manage-individual-sensors/warning-icon.png" border="false"::: warning is shown to indicate the existing setting.<br><br>When you're satisfied with the setting's configuration, select **Create**.     |
 
@@ -108,7 +108,7 @@ If you're in a situation where the OT sensor is disconnected from Azure, and you
 
 Continue by updating the relevant setting directly on the OT network sensor. For more information, see [Manage individual sensors](how-to-manage-individual-sensors.md).
 
-## Add Sensor settings
+## Add sensor settings
 
 Use the following sections to learn more about the individual OT sensor settings available from the Azure portal.
 
