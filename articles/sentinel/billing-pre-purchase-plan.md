@@ -66,7 +66,6 @@ Purchase Microsoft Sentinel pre-purchase plans in the [Azure portal reservations
    - **Management group** - Applies the reservation discount to the matching resource in the list of subscriptions that are a part of both the management group and billing scope.
 1. Select how many Microsoft Sentinel commit units you want to purchase.
 
-   `Need Sentinel screenshot here`
    :::image type="content" source="media/sentinel-pre-purchase-plan.png" alt-text="Screenshot showing Microsoft Sentinel pre-purchase plan discount tiers and their term lengths." lightbox="media/sentinel-pre-purchase-plan.png":::
 
 1. Choose to automatically renew the pre-purchase reservation. *The setting is configured to renew automatically by default*. For more information, see [Renew a reservation](../cost-management-billing/reservations/reservation-renew.md).
