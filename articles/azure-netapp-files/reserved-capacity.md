@@ -48,7 +48,7 @@ When you purchase the reservation, you choose the subscription scope. You can ch
     - If you're a pay-as-you-go customer, the shared scope is all pay-as-you-go subscriptions created by the account administrator. 
 - **Management group:** the reservation discount applies to the matching resource in the list of subscriptions that are a part of both the management group and billing scope. The management group scope applies to all subscriptions throughout the entire management group hierarchy. To buy a reservation for a management group, you must have read permission on the management group and be a reservation owner or reservation purchaser on the billing subscription. 
 
-Any reservation for Azure NetApp Files covers only the capacity pools within the service level selected. Add-on features such as cross-region replication and backup are not included in the reservation. As soon as you buy a reservation, the capacity charges that match the reservation attributes are charged at the discount rates instead of the pay-as-you go rates. 
+Any reservation for Azure NetApp Files covers only the capacity pools within the service level selected. Add-on features such as cross-region replication and backup aren't included in the reservation. As soon as you buy a reservation, the capacity charges that match the reservation attributes are charged at the discount rates instead of the pay-as-you go rates. 
 
 For more information on Azure reservations, see [What are Azure Reservations](../cost-management-billing/reservations/save-compute-costs-reservations.md).
 
@@ -77,7 +77,7 @@ You can purchase Azure NetApp Files reservation through the [Azure portal](https
 
 To purchase a reservation:
 
-1. Log into the Azure portal.
+1. Log in to the Azure portal.
 1. To buy a new reservation, select **All services** > **Reservations** then **Azure NetApp Files**.
 1. Select a subscription. Use the subscription list to choose the subscription used to pay for the reservation. The payment method of the subscription is charged the cost of the reservation. The subscription type must be an enterprise agreement (offer numbers MS-AZR-0017P or MS-AZR-0148P), Microsoft Customer Agreement, or pay-as-you-go (offer numbers MS-AZR-0003P or MS-AZR-0023P).
     1. For an enterprise subscription, the charges are deducted from the enrollment's Azure Prepayment (previously known as monetary commitment) balance or charged as overage. 
