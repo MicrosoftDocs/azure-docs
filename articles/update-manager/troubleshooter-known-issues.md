@@ -61,7 +61,7 @@ Post performing the checks, the troubleshooter suggests possible mitigations to 
 
 - Managed RUN commands are generally available for Azure while it is in preview for Arc.
 
-- Learn more about [Managed RUN command for Azure](https://learn.microsoft.com/azure/virtual-machines/run-command-overview) and [Managed RUN command for Arc](../azure-arc/servers/run-command.md).
+- Learn more about [Managed RUN command for Azure](/azure/virtual-machines/run-command-overview) and [Managed RUN command for Arc](../azure-arc/servers/run-command.md).
 
 
 ## Next steps
