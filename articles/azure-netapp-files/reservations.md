@@ -88,7 +88,7 @@ To purchase a reservation:
 1. Select a scope.
 1. Select the Azure region to be covered by the reservation. 
 
-    :::image type="content" source="./media/reservations/subscription-scope.png" alt-text="Screenshot of the subscription choices." lightbox="./media/reservations/subscription-scope.png::::
+    :::image type="content" source="./media/reservations/subscription-scope.png" alt-text="Screenshot of the subscription choices." lightbox="./media/reservations/subscription-scope.png":::
 
 1. Select **Add to cart**. 
 1. In the cart, choose the quantity of provisioned throughput units you want to purchase. For example, choosing 64 covers up to 64 deployed provisioned throughput units every hour. 
