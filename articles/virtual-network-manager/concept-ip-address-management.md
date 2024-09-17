@@ -68,4 +68,4 @@ You need to have the Network Contributor role for the scope of the network manag
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn how to managed IP addresses in Azure Virtual Network Manager](./how-to-manage-ip-addresses.md)
+> [Learn how to managed IP addresses in Azure Virtual Network Manager](./how-to-manage-ip-addresses-network-manager.md)
