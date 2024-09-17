@@ -1,9 +1,9 @@
 ---
 title: Reserved capacity for Azure NetApp Files
-description: Learn how to optimize total cost of ownership (TCO) with capacity reservations in Azure NetApp Files. 
+description: Learn how to optimize total cost of ownership (TCO) with Azure NetApp Files reservations. 
 services: azure-netapp-files
 documentationcenter: ''
-author: b-hchen
+author: b-ahibbard
 manager: ''
 editor: ''
 
@@ -17,90 +17,88 @@ ms.author: anfdocs
 ---
 # Reserved capacity for Azure NetApp Files
 
-You can save money on the storage costs for Azure NetApp Files with capacity reservations. Azure NetApp Files reserved capacity offers you a discount on capacity for storage costs when you commit to a reservation for one or three years, optimizing your total cost of ownership (TCO). A reservation provides a fixed amount of storage capacity for the term of the reservation.
+You can save money on the storage costs for Azure NetApp Files with reservations. Azure NetApp Files reservations offer a discount on capacity for storage costs when you commit to a reservation for one or three years, optimizing your total cost of ownership (TCO). A reservation provides a fixed amount of storage capacity for the term of the reservation.
 
-Azure NetApp Files reserved capacity can significantly reduce your capacity costs for storing data in your Azure NetApp Files volumes. How much you save depends on the total capacity you choose to reserve, and the [service level](azure-netapp-files-service-levels.md) chosen. 
+Azure NetApp Files reservations can significantly reduce your capacity costs for storing data in your Azure NetApp Files volumes. How much you save depends on the total capacity you choose to reserve, and the [service level](azure-netapp-files-service-levels.md) chosen. 
 
-For pricing information about reservation capacity for Azure NetApp Files, see [Azure NetApp Files pricing](https://azure.microsoft.com/pricing/details/netapp/).
+For pricing information about reservations in Azure NetApp Files, see [Azure NetApp Files pricing](https://azure.microsoft.com/pricing/details/netapp/).
 
 ## Reservation terms for Azure NetApp Files  
 
-This section describes the terms of an Azure NetApp Files capacity reservation.
+This section describes the terms of an Azure NetApp Files reservation.
 
 >[!NOTE]
->Azure NetApp Files reserved capacity covers matching capacity pools in the selected service level and region. When using capacity pools configured with [cool access](manage-cool-access.md), only "hot" tier consumption is covered by the reserved capacity benefit.
+>Azure NetApp Files reservations cover matching capacity pools in the selected service level and region. When using capacity pools configured with [cool access](manage-cool-access.md), only "hot" tier consumption is covered by the reservation benefit.
 
-### Reservation capacity
+### Reservation quantity
 
-You can purchase Azure NetApp Files reserved capacity in units of 100 TiB and 1 PiB per month for a one- or three-year term for a particular service level within a region.
+You can purchase a reservation in 100-TiB and 1-PiB units per month for a one- or three-year term for a particular service level within a region.
 
 ### Reservation scope
 
-Azure NetApp Files reserved capacity is available for a single subscription and multiple subscriptions (shared scope). When scoped to a single subscription, the reservation discount is applied to the selected subscription only. When scoped to multiple subscriptions, the reservation discount is shared across those subscriptions within the customer's billing context.
+A reservation applies to your usage within the purchased scope. It can't be limited to a specific NetApp account, capacity pool, container, or object within the subscription.
 
-A reservation applies to your usage within the purchased scope and cannot be limited to a specific NetApp account, capacity pools, container, or object within the subscription.
+When you purchase the reservation, you choose the subscription scope. You can change the scope after the purchase. The scope options are:
 
-Any capacity reservation for Azure NetApp Files covers only the capacity pools within the service level selected. Add-on features such as cross-region replication and backup are not included in the reservation. As soon as you buy a reservation, the capacity charges that match the reservation attributes are charged at the discount rates instead of the pay-as-you go rates. 
+- **Single resource group scope:** The reservation discount applies to the selected resource group only. 
+- **Single subscription scope:** The reservation discount applies to the matching resources in the selected subscription. 
+- **Shared scope:** The reservation discount applies to matching resources in eligible subscriptions in the billing context. If a subscription moves to a different billing context, the benefit no longer applies to the subscription. The benefit continues to apply to other subscription in the billing context. 
+    - If you're an enterprise customer, the billing context is the EA enrollment. The reservation shared scope includes multiple Microsoft Entra tenants in an enrollment. 
+    - If you're a Microsoft Customer Agreement customer, the billing scope is the billing profile.
+    - If you're a pay-as-you-go customer, the shared scope is all pay-as-you-go subscriptions created by the account administrator. 
+- **Management group:** the reservation discount applies to the matching resource in the list of subscriptions that are a part of both the management group and billing scope. The management group scope applies to all subscriptions throughout the entire management group hierarchy. To buy a reservation for a management group, you must have read permission on the management group and be a reservation owner or reservation purchaser on the billing subscription. 
+
+Any reservation for Azure NetApp Files covers only the capacity pools within the service level selected. Add-on features such as cross-region replication and backup are not included in the reservation. As soon as you buy a reservation, the capacity charges that match the reservation attributes are charged at the discount rates instead of the pay-as-you go rates. 
 
 For more information on Azure reservations, see [What are Azure Reservations](../cost-management-billing/reservations/save-compute-costs-reservations.md).
 
 ### Supported service level options
 
-Azure NetApp Files reserved capacity is available for Standard, Premium, and Ultra service levels in units of 100 TiB and 1 PiB.
+Azure NetApp Files reservations are available for Standard, Premium, and Ultra service levels in units of 100 TiB and 1 PiB.
 
 ### Requirements for purchase
 
-To purchase reserved capacity:
+To purchase a reservation:
 * You must be in the **Owner** role for at least one Enterprise or individual subscription with pay-as-you-go rates.
 * For Enterprise subscriptions, **Add Reserved Instances** must be enabled in the EA portal. Or, if that setting is disabled, you must be an EA Admin on the subscription.
-* For the Cloud Solution Provider (CSP) program, only admin agents or sales agents can buy Azure NetApp Files reserved capacity.
+* For the Cloud Solution Provider (CSP) program, only admin agents or sales agents can buy Azure NetApp Files reservations.
 
 ## Determine required capacity before purchase
 
 When you purchase an Azure NetApp Files reservation, you must choose the region and tier for the reservation. Your reservation is valid only for data stored in that region and tier. For example, suppose you purchase a reservation for Azure NetApp Files *Premium* service level in US East. That reservation applies to neither *Premium* capacity pools for that subscription in US West nor capacity pools for other service levels (for example, *Ultra* service level in US East). Additional reservations can be purchased. 
 
-Reservations are available for 100-TiB or 1-PiB increments, with higher discounts for 1-PiB increments. When you purchase a reservation in the Azure portal, Microsoft might provide you with recommendations based on your previous usage to help determine which reservation you should purchase.
+Reservations are available in 100-TiB or 1-PiB increments; higher discounts are available for 1-PiB increments. When you purchase a reservation in the Azure portal, Microsoft might provide you with recommendations based on your previous usage to help determine which reservation you should purchase.
 
-Purchasing an Azure NetApp Files reserved capacity does not automatically increase your regional capacity. Azure reservations for Azure NetApp Files are not an on-demand capacity guarantee. If your capacity reservation requires a quota increase, it's recommended you complete that before making the reservation. For more information, see [Regional capacity in Azure NetApp Files](regional-capacity-quota.md).
+Purchasing an Azure NetApp Files reservation doesn't automatically increase your regional capacity. Azure NetApp Files reservations aren't an on-demand capacity guarantee. If your reservation requires a quota increase, it's recommended you complete that before making the reservation. For more information, see [Regional capacity in Azure NetApp Files](regional-capacity-quota.md).
 
-## Purchase Azure NetApp Files reserved capacity 
+## Purchase an Azure NetApp Files reservation
 
-You can purchase Azure NetApp Files reserved capacity through the [Azure portal](https://portal.azure.com/). You can pay for the reservation up front or with monthly payments. For more information about purchasing with monthly payments, see [Purchase Azure reservations with up front or monthly payments](../cost-management-billing/reservations/prepare-buy-reservation.md).
+You can purchase Azure NetApp Files reservation through the [Azure portal](https://portal.azure.com/). You can pay for the reservation up front or with monthly payments. For more information about purchasing with monthly payments, see [Purchase Azure reservations with up front or monthly payments](../cost-management-billing/reservations/prepare-buy-reservation.md).
 
-To purchase reserved capacity:
+To purchase a reservation:
 
-1. Navigate to the [**Purchase reservations**](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/Browse_AddCommand) blade in the Azure portal.
-
-2. Select **Azure NetApp Files** to buy a new reservation.
-
-3. Fill in the required fields as described in the table that appears.
-
-4. After you select the parameters for your reservation, the Azure portal displays the cost. The portal also shows the discount percentage over pay-as-you-go billing.
-
-5. In the **Purchase reservations** blade, review the total cost of the reservation. You can also provide a name for the reservation.
-
-After you purchase a reservation, it is automatically applied to any existing [Azure NetApp Files capacity pools](azure-netapp-files-set-up-capacity-pool.md) that match the terms of the reservation. If you haven't created any Azure NetApp Files capacity pools, the reservation applies when you create a resource that matches the terms of the reservation. In either case, the term of the reservation begins immediately after a successful purchase.
+1. Log into the Azure portal.
+1. To buy a new reservation, select **All services** > **Reservations** then **Azure NetApp Files**.
+1. Select a subscription. Use the subscription list to choose the subscription used to pay for the reservation. The payment method of the subscription is charged the cost of the reservation. The subscription type must be an enterprise agreement (offer numbers MS-AZR-0017P or MS-AZR-0148P), Microsoft Customer Agreement, or pay-as-you-go (offer numbers MS-AZR-0003P or MS-AZR-0023P).
+    1. For an enterprise subscription, the charges are deducted from the enrollment's Azure Prepayment (previously known as monetary commitment) balance or charged as overage. 
+    1. For a pay-as-you-go subscription, the charges are billed to the credit card or invoice payment method on the subscription. 
+1. Select a scope.
+1. Select the Azure region to be covered by the reservation. 
+1. Select **Add to cart**. 
+1. In the cart, choose the quantity of provisioned throughput units you want to purchase. For example, choosing 64 covers up to 64 deployed provisioned throughput units every hour. 
+1. Select **Next: Review + Buy** to review your purchase choices and their prices. 
+1. Select **Buy now**. 
+1. After purchase, you can select **View this reservation** to review your purchase status. 
+1. 
+After you purchase a reservation, it's automatically applied to any existing [Azure NetApp Files capacity pools](azure-netapp-files-set-up-capacity-pool.md) that match the terms of the reservation. If you haven't created any Azure NetApp Files capacity pools, the reservation applies when you create a resource that matches the terms of the reservation. In either case, the term of the reservation begins immediately after a successful purchase.
 
 ## Exchange or refund a reservation 
 
 You can exchange or refund a reservation, with certain limitations. For more information about Azure Reservations policies, see [Self-service exchanges and refunds for Azure Reservations](../cost-management-billing/reservations/exchange-and-refund-azure-reservations.md).
 
-<!-- 
-### Exchange a reservation  
-
-Exchanging a reservation enables you to receive a prorated refund based on the unused portion of the reservation. You can then apply the refund to the purchase price of a new Azure NetApp Files reservation.
-
-There's no limit on the number of exchanges you can make. Also, there's no fee associated with an exchange. The new reservation that you purchase must be of equal or greater value than the prorated credit from the original reservation. An Azure NetApp Files reservation can be exchanged only for another Azure NetApp Files reservation, and not for a reservation for any other Azure service.
-
-### Refund a reservation
-
-You can cancel an Azure NetApp Files reservation at any time. When you cancel, you'll receive a prorated refund based on the remaining term of the reservation, minus a 12% early termination fee. The maximum refund per year is $50,000.
-
-Cancelling a reservation immediately terminates the reservation and returns the remaining months to Microsoft. The remaining prorated balance, minus the fee, will be refunded to your original form of purchase. -->
-
 ## Expiration of a reservation 
 
-When a reservation expires, any Azure NetApp Files capacity that you are using under that reservation is billed at the pay-as-you go rate. Reservations don't renew automatically.
+When a reservation expires, any Azure NetApp Files capacity you're using under that reservation is billed at the pay-as-you go rate. By default, reservations are set to renew automatically at time of purchase. You can modify the renewal option at the time or purchase or after. 
 
 An email notification is sent 30 days prior to the expiration of the reservation, and again on the expiration date. To continue taking advantage of the cost savings that a reservation provides, renew it no later than the expiration date.
 
