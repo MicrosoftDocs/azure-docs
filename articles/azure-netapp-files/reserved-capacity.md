@@ -1,6 +1,6 @@
 ---
 title: Reserved capacity for Azure NetApp Files
-description: Learn how to optimize TCO with capacity reservations in Azure NetApp Files. 
+description: Learn how to optimize total cost of ownership (TCO) with capacity reservations in Azure NetApp Files. 
 services: azure-netapp-files
 documentationcenter: ''
 author: b-hchen
@@ -12,12 +12,12 @@ ms.service: azure-netapp-files
 ms.workload: storage
 ms.tgt_pltfrm: na
 ms.topic: conceptual
-ms.date: 09/16/2024
+ms.date: 09/17/2024
 ms.author: anfdocs
 ---
 # Reserved capacity for Azure NetApp Files
 
-You can save money on the storage costs for Azure NetApp Files with capacity reservations. Azure NetApp Files reserved capacity offers you a discount on capacity for storage costs when you commit to a reservation for one or three years, optimizing your TCO. A reservation provides a fixed amount of storage capacity for the term of the reservation.
+You can save money on the storage costs for Azure NetApp Files with capacity reservations. Azure NetApp Files reserved capacity offers you a discount on capacity for storage costs when you commit to a reservation for one or three years, optimizing your total cost of ownership (TCO). A reservation provides a fixed amount of storage capacity for the term of the reservation.
 
 Azure NetApp Files reserved capacity can significantly reduce your capacity costs for storing data in your Azure NetApp Files volumes. How much you save depends on the total capacity you choose to reserve, and the [service level](azure-netapp-files-service-levels.md) chosen. 
 
@@ -28,7 +28,7 @@ For pricing information about reservation capacity for Azure NetApp Files, see [
 This section describes the terms of an Azure NetApp Files capacity reservation.
 
 >[!NOTE]
->Azure NetApp Files reserved capacity covers matching capacity pools in the selected service level and region. When using capacity pools configured with [Standard storage with cool access](manage-cool-access.md), only "hot" tier consumption is covered by the reserved capacity benefit.
+>Azure NetApp Files reserved capacity covers matching capacity pools in the selected service level and region. When using capacity pools configured with [cool access](manage-cool-access.md), only "hot" tier consumption is covered by the reserved capacity benefit.
 
 ### Reservation capacity
 
