@@ -6,7 +6,7 @@ author: greg-lindsay
 ms.service: azure-application-gateway
 ms.custom:
 ms.topic: how-to
-ms.date: 07/28/2023
+ms.date: 9/17/2024
 ms.author: greglin
 ---
 
@@ -155,7 +155,7 @@ To install Microsoft Entra Pod Identity to your cluster:
 > [!NOTE]
 > If you use [Cloud Shell](https://shell.azure.com/), you don't need to install Helm.  Azure Cloud Shell comes with Helm version 3. Skip the first step and just add the AGIC Helm repository.
 
-1. Install [Helm](/azure/aks/kubernetes-helm) and run the following to add `application-gateway-kubernetes-ingress` helm package:
+1. Install [Helm](/azure/aks/kubernetes-helm) and run the following:
 
     - *Kubernetes RBAC enabled* AKS cluster
 
@@ -170,12 +170,6 @@ To install Microsoft Entra Pod Identity to your cluster:
         ```bash
         helm init
         ```
-
-2. Add the AGIC Helm repository:
-    ```bash
-    helm repo add application-gateway-kubernetes-ingress https://appgwingress.blob.core.windows.net/ingress-azure-helm-package/
-    helm repo update
-    ```
 
 ### Install Ingress Controller Helm Chart
 
@@ -285,7 +279,7 @@ To install Microsoft Entra Pod Identity to your cluster:
 1. Install the Application Gateway ingress controller package:
 
     ```bash
-    helm install -f helm-config.yaml --generate-name application-gateway-kubernetes-ingress/ingress-azure
+    helm install agic-controller oci://mcr.microsoft.com/azure-application-gateway/charts/ingress-azure --version 1.7.5 -f helm-config.yaml
     ```
 
 ## Install a Sample App

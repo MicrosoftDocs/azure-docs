@@ -6,7 +6,7 @@ author: greg-lindsay
 ms.service: azure-application-gateway
 ms.custom: devx-track-arm-template, devx-track-azurecli
 ms.topic: how-to
-ms.date: 02/07/2024
+ms.date: 9/17/2024
 ms.author: greglin
 ---
 
@@ -51,23 +51,17 @@ Gateway should that become necessary
 [Helm](/azure/aks/kubernetes-helm) is a package manager for Kubernetes, used to install the `application-gateway-kubernetes-ingress` package.
 
 > [!NOTE]
-> If you use [Cloud Shell](https://shell.azure.com/), you don't need to install Helm.  Azure Cloud Shell comes with Helm version 3. Skip the first step and just add the AGIC Helm repository.
+> If you use [Cloud Shell](https://shell.azure.com/), you don't need to install Helm.  Azure Cloud Shell comes with Helm version 3.
 
-1. Install [Helm](/azure/aks/kubernetes-helm) and run the following to add `application-gateway-kubernetes-ingress` helm package:
+Install [Helm](/azure/aks/kubernetes-helm) and run the following:
 
-    - *Kubernetes RBAC enabled* AKS cluster
+  - *Kubernetes RBAC enabled* AKS cluster
 
-    ```bash
-    kubectl create serviceaccount --namespace kube-system tiller-sa
-    kubectl create clusterrolebinding tiller-cluster-rule --clusterrole=cluster-admin --serviceaccount=kube-system:tiller-sa
-    helm init --tiller-namespace kube-system --service-account tiller-sa
-    ```
-
-2. Add the AGIC Helm repository:
-    ```bash
-    helm repo add application-gateway-kubernetes-ingress https://appgwingress.blob.core.windows.net/ingress-azure-helm-package/
-    helm repo update
-    ```
+  ```bash
+  kubectl create serviceaccount --namespace kube-system tiller-sa
+  kubectl create clusterrolebinding tiller-cluster-rule --clusterrole=cluster-admin --serviceaccount=kube-system:tiller-sa
+  helm init --tiller-namespace kube-system --service-account tiller-sa
+  ```
 
 ## Azure Resource Manager Authentication
 
@@ -206,12 +200,11 @@ kubectl apply -f $file -n $namespace
 
 ## Install Ingress Controller as a Helm Chart
 
-In the first few steps, we install Helm's Tiller on your Kubernetes cluster. Use [Cloud Shell](https://shell.azure.com/) to install the AGIC Helm package:
+In the first few steps, we installed Helm's Tiller on your Kubernetes cluster. Use [Cloud Shell](https://shell.azure.com/) to install the AGIC Helm package:
 
-1. Add the `application-gateway-kubernetes-ingress` helm repo and perform a helm update
+1. Perform a helm update
 
     ```bash
-    helm repo add application-gateway-kubernetes-ingress https://appgwingress.blob.core.windows.net/ingress-azure-helm-package/
     helm repo update
     ```
 
@@ -280,17 +273,18 @@ In the first few steps, we install Helm's Tiller on your Kubernetes cluster. Use
     > [!NOTE]
     > The `<identity-client-id>` is a property of the Microsoft Entra Workload ID you setup in the previous section. You can retrieve this information by running the following command: `az identity show -g <resourcegroup> -n <identity-name>`, where `<resourcegroup>` is the resource group hosting the infrastructure resources related to the AKS cluster, Application Gateway and managed identity.
 
-1. Install Helm chart `application-gateway-kubernetes-ingress` with the `helm-config.yaml` configuration from the previous step
+1. Install Helm chart with the `helm-config.yaml` configuration from the previous step
 
     ```bash
-    helm install -f <helm-config.yaml> application-gateway-kubernetes-ingress/ingress-azure
+    helm install agic-controller oci://mcr.microsoft.com/azure-application-gateway/charts/ingress-azure --version 1.7.5 -f helm-config.yaml
     ```
 
     Alternatively you can combine the `helm-config.yaml` and the Helm command in one step:
 
     ```bash
-    helm install ./helm/ingress-azure \
-         --name ingress-azure \
+    helm install oci://mcr.microsoft.com/azure-application-gateway/charts/ingress-azure \
+         --name agic-controller \
+         --version 1.7.5 \
          --namespace default \
          --debug \
          --set appgw.name=applicationgatewayABCD \
@@ -379,7 +373,8 @@ Apply the Helm changes:
       helm upgrade \
           --recreate-pods \
           -f helm-config.yaml \
-          ingress-azure application-gateway-kubernetes-ingress/ingress-azure
+          agic-controller
+          oci://mcr.microsoft.com/azure-application-gateway/charts/ingress-azure
       ```
 
 As a result, your AKS cluster has a new instance of `AzureIngressProhibitedTarget` called `prohibit-all-targets`:

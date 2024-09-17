@@ -5,12 +5,15 @@ services: application-gateway
 author: greg-lindsay
 ms.service: azure-application-gateway
 ms.topic: how-to
-ms.date: 06/10/2020
+ms.date: 9/17/2024
 ms.author: greglin
 ---
 
 # Disable and re-enable AGIC add-on for your AKS cluster
 Application Gateway Ingress Controller (AGIC) deployed as an AKS add-on allows you to enable and disable the add-on with one line in Azure CLI. The life cycle of the Application Gateway will differ when you disable the AGIC add-on, depending on if the Application Gateway was created by the AGIC add-on, or if it was deployed separately from the AGIC add-on. You can run the same command to re-enable the AGIC add-on if you ever disable it, or to enable the AGIC add-on using an existing AKS cluster and Application Gateway.
+
+> [!TIP]
+> Also see [What is Application Gateway for Containers](for-containers/overview.md).
 
 ## Disabling AGIC add-on with associated Application Gateway 
 If the AGIC add-on automatically deployed the Application Gateway for you when you first set everything up, then disabling the AGIC add-on will by default delete the Application Gateway based on a couple criteria. There are two criteria that the AGIC add-on looks for to determine if it should delete the associated Application Gateway when you disable it:
