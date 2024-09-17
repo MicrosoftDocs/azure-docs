@@ -73,7 +73,7 @@ sections:
           Navigate to the Log Analytics Workspace you've configured. Navigate to the **Logs** menu item, and run the query `CoreAzureBackup | take 1`. If you see a record being returned, it means data has started flowing into the workspace. The initial data push may take up to 24 hours.
 
       - question: |
-          What is the frequency of data push to an Log Analytics Workspace?
+          What is the frequency of data push to a Log Analytics Workspace?
         answer: |
           The diagnostic data from the vault is pumped to the Log Analytics workspace with some lag. Every event arrives at the Log Analytics workspace 20 to 30 minutes after it's pushed from the Recovery Services vault. Here are further details about the lag:
           
@@ -87,7 +87,7 @@ sections:
       - question: |
           How long can I retain reporting data?
         answer: |
-          After you create an Log Analytics Workspace, you can choose to retain data for a maximum of 2 years. By default, an Log Analytics Workspace retains data for 31 days. [Learn more](/azure/azure-monitor/logs/data-retention-configure?tabs=portal-3%2Cportal-1%2Cportal-2).
+          After you create a Log Analytics Workspace, you can choose to retain data for a maximum of 2 years. By default, a Log Analytics Workspace retains data for 31 days. [Learn more](/azure/azure-monitor/logs/data-retention-configure?tabs=portal-3%2Cportal-1%2Cportal-2).
 
       - question: |
           Will I see all my data in reports after I configure the Log Analytics Workspace?
