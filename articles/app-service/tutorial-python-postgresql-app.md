@@ -261,14 +261,6 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps 
 -----
 
 ## 2. Verify connection settings
-   **Flask**:
-
-   4. Back in the Configuration page, select New application setting. Name the setting `SECRET_KEY`. Paste the value from the previous value. Select OK.
-
-   5. Select Save.
-
-   ![Image](https://github.com/user-attachments/assets/3390e529-49bf-4c42-801a-9f4f6470fa37)
-
 
 The creation wizard generated the connectivity variables for you already as [app settings](configure-common.md#configure-app-settings). App settings are one way to keep connection secrets out of your code repository. When you're ready to move your secrets to a more secure location, here's an [article on storing in Azure Key Vault](/azure/key-vault/certificates/quick-create-python).
 
