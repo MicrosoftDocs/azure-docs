@@ -169,6 +169,8 @@
               href: howto-monitor-interface-packet-rate.md
             - name: How to Delete L3 Isolation Domains in Azure Nexus Network Fabric
               href: howto-delete-layer-3-isolation-domains.md
+            - name: Cross-subscription deployments and required RBAC for Network Fabric
+              href: concepts-cross-subscription-deployments-required-rbac-for-network-fabric.md
     - name: Nexus Kubernetes cluster
       expanded: false
       items:
