@@ -33,6 +33,8 @@
     href: vpn-gateway-about-vpn-gateway-settings.md
   - name: About gateway SKUs
     href: about-gateway-skus.md
+  - name: About gateway SKU consolidation
+    href: gateway-sku-consolidation.md
   - name: About active-active mode gateways
     href: about-active-active-gateways.md
   - name: About VPN devices
