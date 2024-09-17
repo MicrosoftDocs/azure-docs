@@ -110,7 +110,8 @@ Express entities were created for high throughput and reduced latency scenarios.
  
 In regular entities, any runtime operation (like Send, Complete, Abandon, Deadletter) is persisted to the store first, and only after this is acknowledged to the client as successful. In express entities, a runtime operation is acknowledged to the client as successful first, and only later lazily persisted to the store. As a result, in case of a machine reboot or when a hardware issue occurs, some acknowledged runtime operations may not be persisted at all. This means the client gets lower latency and higher throughput with express entities, at the expense of potential data loss and/or redelivery of messages.
  
-Additionally, over time many optimizations have been done within Service Bus, meaning that the throughput and latency advantages of express entities are currently minimal. Moreover, the Premium tier of Service Bus does not support [Express entities](service-bus-premium-messaging.md#express-entities). Due to this, it is currently not recommended to use this feature.
+> [!IMPORTANT]
+> Over time many optimizations have been done within Service Bus, meaning that the throughput and latency advantages of express entities are currently minimal. Moreover, the Premium tier of Service Bus does not support [Express entities](service-bus-premium-messaging.md#express-entities). Due to this, it is currently not recommended to use this feature.
 
 ## Next steps
 
