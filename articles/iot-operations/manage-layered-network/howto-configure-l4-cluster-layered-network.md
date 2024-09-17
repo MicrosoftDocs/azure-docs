@@ -163,7 +163,7 @@ The following steps for setting up [AKS Edge Essentials](/azure/aks/hybrid/aks-e
     ```
 1. Use the [az connectedk8s connect](/cli/azure/connectedk8s#az-connectedk8s-connect) command to Arc-enable your Kubernetes cluster and manage it in the resource group you created in the previous step:
     ```powershell
-    az connectedk8s connect -n $CLUSTER_NAME -l $LOCATION -g $RESOURCE_GROUP --subscription $SUBSCRIPTION_ID
+    az connectedk8s connect -n $CLUSTER_NAME -l $LOCATION -g $RESOURCE_GROUP --subscription $SUBSCRIPTION_ID --disable-auto-upgrade
     ```
     > [!TIP]
     > If the `connectedk8s` commands fail, try using the cmdlets in [Connect your AKS Edge Essentials cluster to Arc](/azure/aks/hybrid/aks-edge-howto-connect-to-arc).

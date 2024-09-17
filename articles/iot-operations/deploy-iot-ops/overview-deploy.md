@@ -18,21 +18,21 @@ ms.date: 09/10/2024
 
 Azure IoT Operations offers two deployment modes. You can choose to deploy with *test settings*, a basic subset of features that are simpler to get started with for evaluation scenarios. Or, you can choose to deploy with *secure settings*, the full feature set.
 
-### Test settings
+### Test settings deployment
 
 A deployment with only test settings enabled:
 
 * Does not configure secrets or user-assigned managed identity capabilities.
 * Is meant to enable the end-to-end quickstart sample for evaluation purposes, so does support the OPC PLC simulator and connect to cloud resources using system-assigned managed identity.
-* Can be upgraded to use secure settings. For the steps to enable secrets and user-assigned managed identity, see [Manage secrets on your cluster](./howto-manage-secrets.md)
+* Can be upgraded to use secure settings.
 
 If you want to deploy Azure IoT Operations with test settings, follow these articles:
 
 1. Start with [Quickstart: Run Azure IoT Operations Preview in GitHub Codespaces with K3s](../get-started-end-to-end-sample/quickstart-deploy.md).
 1. Follow the rest of the articles in the end-to-end sample to test and evaluate Azure IoT Operations.
-1. If you want to upgrade your Azure IoT Operations instance to use secure settings, follow the steps in [Manage secrets on your cluster](./howto-manage-secrets.md).
+1. To upgrade your Azure IoT Operations instance to use secure settings, follow the steps in [Enable secure settings](./howto-enable-secure-settings.md).
 
-### Secure settings
+### Secure settings deployment
 
 A deployment with secure settings enabled:
 
@@ -56,14 +56,11 @@ Azure IoT Operations is a suite of data services that run on Azure Arc-enabled e
   * [Azure Device Registry](../discover-manage-assets/overview-manage-assets.md#store-assets-as-azure-resources-in-a-centralized-registry)
   * [Azure Container Storage enabled by Azure Arc](../../azure-arc/container-storage/overview.md)
 
-Using the installed dependencies might incur additional charges. Always refer to [Azure pricing](https://azure.microsoft.com/pricing/) for the latest information.
-
 ## Organize instances by using sites
 
 Azure IoT Operations supports Azure Arc sites for organizing instances. A _site_ is a cluster resource in Azure like a resource group, but sites typically group instances by physical location and make it easier for OT users to locate and manage assets. An IT administrator creates sites and scopes them to a subscription or resource group. Then, any Azure IoT Operations deployed to an Arc-enabled cluster is automatically collected in the site associated with its subscription or resource group
 
 For more information, see [What is Azure Arc site manager (preview)?](../../azure-arc/site-manager/overview.md)
-
 
 ## Next steps
 

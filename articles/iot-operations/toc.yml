@@ -23,6 +23,8 @@ items:
         href: deploy-iot-ops/howto-prepare-cluster.md
       - name: Deploy to a cluster
         href: deploy-iot-ops/howto-deploy-iot-operations.md
+      - name: Enable secure settings
+        href: deploy-iot-ops/howto-enable-secure-settings.md
       - name: Manage secrets
         href: deploy-iot-ops/howto-manage-secrets.md
     - name: Discover and manage assets
