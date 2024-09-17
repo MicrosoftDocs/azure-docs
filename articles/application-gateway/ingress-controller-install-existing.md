@@ -413,8 +413,7 @@ Since Helm with `appgw.shared=true` and the default `prohibit-all-targets` block
 
 Let's assume that we already have a working AKS cluster, Application Gateway, and configured AGIC in our cluster. We have an Ingress for
 `prod.contoso.com` and are successfully serving traffic for it from the cluster. We want to add `staging.contoso.com` to our
-existing Application Gateway, but need to host it on a [VM](https://azure.microsoft.com/services/virtual-machines/). We
-are going to reuse the existing Application Gateway and manually configure a listener and backend pools for
+existing Application Gateway, but need to host it on a [VM](https://azure.microsoft.com/services/virtual-machines/). We're going to reuse the existing Application Gateway and manually configure a listener and backend pools for
 `staging.contoso.com`. But manually tweaking Application Gateway config (using
 [portal](https://portal.azure.com), [ARM APIs](/rest/api/resources/) or
 [Terraform](https://www.terraform.io/)) would conflict with AGIC's assumptions of full ownership. Shortly after we apply

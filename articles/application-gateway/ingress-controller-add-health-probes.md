@@ -10,7 +10,7 @@ ms.author: greglin
 ---
 
 # Add Health Probes to your service
-By default, Ingress controller will provision an HTTP GET probe for the exposed pods.
+By default, Ingress controller provisions an HTTP GET probe for the exposed pods.
 The probe properties can be customized by adding a [Readiness or Liveness Probe](https://kubernetes.io/docs/tasks/configure-pod-container/configure-liveness-readiness-probes/) to your `deployment`/`pod` spec.
 
 > [!TIP]

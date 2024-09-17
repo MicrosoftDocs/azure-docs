@@ -287,7 +287,7 @@ spec:
 
 ## Request Timeout
 
-Use the following annotation to specify the request timeout in seconds. After the timeout, Application Gateway fails a request if the response is not received.
+Use the following annotation to specify the request timeout in seconds. After the timeout, Application Gateway fails a request if the response isn't received.
 
 ### Usage
 
