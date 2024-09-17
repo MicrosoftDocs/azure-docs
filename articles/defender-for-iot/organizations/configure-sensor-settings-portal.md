@@ -108,13 +108,22 @@ If you're in a situation where the OT sensor is disconnected from Azure, and you
 
 Continue by updating the relevant setting directly on the OT network sensor. For more information, see [Manage individual sensors](how-to-manage-individual-sensors.md).
 
-## Sensor setting reference
+## Add Sensor settings
 
 Use the following sections to learn more about the individual OT sensor settings available from the Azure portal.
-<!-- Should we add the general instructions here that apply to all of the items below. and change local subnets or take from the and add here. then each section below is rewritten if needed to add the instructions for that particular option? - Limor-->
-To add each of the settings <!-- In the Azure portal, Do we need this or is it clear on the page that this is in the portal?-->go to **Sites and sensors** > **Sensor settings**. Select the type, for example:
 
-:::image type="content" source="media/configure-sensor-settings-portal/sensor-settings-type.png" alt-text="The screenshot shows the sensor settings page with the type dropdoan list options.":::
+The **Type** settings are:
+
+- [Active Direcetory](#active-directory)
+- [Bandwidth cap](#bandwidth-cap)
+- [NTP](#ntp)
+- [Local subnets](#local-subnets)
+- [VLAN naming](#vlan-naming)
+- [Public addresses](#public-addresses)
+
+To add a new setting **Type**, select **Sites and sensors** > **Sensor settings**. Select the setting from the **Type** drop down, for example:
+
+:::image type="content" source="media/configure-sensor-settings-portal/sensor-settings-type.png" alt-text="The screenshot shows the sensor settings page with the type dropdown list options.":::
 
 ### Active Directory
 
