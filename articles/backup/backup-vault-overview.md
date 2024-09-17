@@ -2,7 +2,7 @@
 title: Overview of the Backup vaults
 description: An overview of Backup vaults.
 ms.topic: overview
-ms.date: 07/30/2024
+ms.date: 09/30/2024
 ms.custom: references_regions
 ms.service: azure-backup
 author: AbhishekMallick-MS
@@ -17,6 +17,8 @@ This article describes the features of a Backup vault. A Backup vault is a stora
 - **Azure role-based access control (Azure RBAC)**: Azure RBAC provides fine-grained access management control in Azure. [Azure provides various built-in roles](../role-based-access-control/built-in-roles.md), and Azure Backup has three [built-in roles to manage recovery points](backup-rbac-rs-vault.md). Backup vaults are compatible with Azure RBAC, which restricts backup and restore access to the defined set of user roles. [Learn more](backup-rbac-rs-vault.md)
 
 - **Data isolation**: With Azure Backup, the vaulted backup data is stored in Microsoft-managed Azure subscription and tenant. External users or guests have no direct access to this backup storage or its contents, which ensures the isolation of backup data from the production environment where the data source resides. This robust approach ensures that even in a compromised environment, existing backups can't be tampered or deleted by unauthorized users.
+
+- **Central monitoring of the V2 workloads**: With Backup Vault you can monitor all your V2 workloads from Backup jobs to alerts. Reporting capabilities for the same is available in the Azure Business Continuity Center.
 
 ## Storage settings in the Backup vault
 
