@@ -95,7 +95,7 @@ To purchase a reservation:
 1. Select **Next: Review + Buy** to review your purchase choices and their prices. 
 1. Select **Buy now**. 
 1. After purchase, you can select **View this reservation** to review your purchase status. 
-1. 
+
 After you purchase a reservation, it's automatically applied to any existing [Azure NetApp Files capacity pools](azure-netapp-files-set-up-capacity-pool.md) that match the terms of the reservation. If you haven't created any Azure NetApp Files capacity pools, the reservation applies when you create a resource that matches the terms of the reservation. In either case, the term of the reservation begins immediately after a successful purchase.
 
 ## Exchange or refund a reservation 
