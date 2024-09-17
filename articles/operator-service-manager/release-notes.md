@@ -20,6 +20,7 @@ The following release notes are generally available (GA):
 * Release Notes for Version 2.0.2777-132
 * Release Notes for Version 2.0.2783-134
 * Release Notes for Version 2.0.2788-135
+* Release Notes for Version 2.0.2804-137
 
 ### Release Attestation
 These releases are produced compliant with Microsoft’s Secure Development Lifecycle. This lifecycle includes processes for authorizing software changes, antimalware scanning, and scanning and mitigating security bugs and vulnerabilities.
@@ -180,3 +181,40 @@ The following bug fixes, or other defect resolutions, are delivered with this re
 #### Security Related Updates
 
 None
+
+## Release 2.0.2804-137
+
+Document Revision 1.1
+
+### Release Summary
+Azure Operator Service Manager is a cloud orchestration service that enables automation of operator network-intensive workloads, and mission critical applications hosted on Azure Operator Nexus. Azure Operator Service Manager unifies infrastructure, software, and configuration management with a common model into a single interface, both based on trusted Azure industry standards. This August 30, 2024 Azure Operator Service Manager release includes updating the NFO version to 2.0.2804-137, the details of which are further outlined in the remainder of this document.
+
+### Release Details
+* Release Version: Version 2.0.2804-137
+* Release Date: August 30, 2024
+* Is NFO update required: YES, Update only
+* Dependency Versions: Go/1.22.4 - Helm/3.15.2
+
+### Release Installation
+This release can be installed with as an update on top of release 2.0.2788-135.  
+
+### Release Highlights
+#### High availability for cluster registry and webhook.
+This version restores the high availability features first introduced with release 2.0.2783-134. When enabled, the singleton pod, used in earlier releases, is replaced with a replica set and optionally allows for horizontal auto scaling.
+
+#### Enhanced internal certificate management and rotation.
+This version implements internal certificate management using a new method which does not take dependency on cert-manager. Instead, a private internal service is used to handle requirements for certificate management and rotation within the AOSM namespace. 
+
+#### Safe Upgrades NF Level Rollback
+This version introduces new user options to control behavior when a failure occurs during an upgrade. While pause on failure remains the default, a user can now optionally enable rollback on failure. If a failure occure, with rollback on failure any prior completed NfApps will be reverted to prior state using helm rollback command. See [learn documentation](safe-upgrades-nf-level-rollback.md) for more details on usage.
+
+### Issues Resolved in This Release 
+
+#### Bugfix Related Updates
+The following bug fixes, or other defect resolutions, are delivered with this release, for either Network Function Operator (NFO) or resource provider (RP) components.
+
+* NFO	- Enhance cluster registry performance by preventing unnecessary or repeated image downloads.
+   
+#### Security Related Updates
+
+* CVE	- A total of one CVE is addressed in this release.
