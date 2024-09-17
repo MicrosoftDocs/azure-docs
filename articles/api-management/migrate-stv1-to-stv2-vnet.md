@@ -42,7 +42,6 @@ API Management platform migration from `stv1` to `stv2` involves updating the un
 * The upgrade process involves creating a new compute in parallel to the old compute, which can take up to 45 minutes. Plan longer times for multi-region deployments and in scenarios that involve changing the subnet more than once.
 * The API Management status in the Azure portal will be **Updating**.
 * For certain migration options, you can choose to preserve the VIP address or a new public VIP will be generated. 
-    [!INCLUDE [api-management-migration-no-preserve-ip](../../includes/api-management-migration-no-preserve-ip.md)]
 * For migration scenarios when a new VIP address is generated:
     * Azure manages the migration. 
     * The gateway DNS still points to the old compute if a custom domain is in use. 
@@ -82,8 +81,6 @@ You can migrate your API Management instance to the `stv2` platform keeping the 
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment-no-header.md)]
 
 ### Public IP address options - same-subnet migration
-
-[!INCLUDE [api-management-migration-no-preserve-ip](../../includes/api-management-migration-no-preserve-ip.md)]
 
 You can choose whether the API Management instance's original VIP address is preserved (recommended) or whether a new VIP address will be generated. 
 
@@ -137,8 +134,6 @@ When migrating a VNet-injected instance and keeping the same subnet configuratio
 
 ### Migration script
 
-[!INCLUDE [api-management-migration-no-preserve-ip](../../includes/api-management-migration-no-preserve-ip.md)]
-
 [!INCLUDE [api-management-migration-cli-steps](../../includes/api-management-migration-cli-steps.md)]
 
 > [!NOTE]
@@ -168,12 +163,13 @@ The following image shows a high level overview of what happens during migration
 1. In the left menu, under **Settings**, select **Platform migration**.
 1. Under **Select a migration option**, select **Change to a new subnet**.
 1. Under **Choose the scenario that aligns with your requirements**, chose one of the two options, depending on whether you want to maintain the original `stv1` compute for a period after migration.
+
       :::image type="content" source="media/migrate-stv1-to-stv2-vnet/enable-retain-gateway.png" alt-text="Screenshot of options to retain stv1 compute in the portal." lightbox="media/migrate-stv1-to-stv2-vnet/enable-retain-gateway.png":::
 1. Under **Define migration settings for each location**:
     1. Select a location to migrate. 
     1. Select the **Virtual network**, **Subnet**, and optional **Public IP address** you want to migrate to. 
     
-        :::image type="content" source="media/migrate-stv1-to-stv2-vnet/select-location.png" alt-text="Screenshot of selecting network migration settings in the portal." lightbox="media/migrate-stv1-to-stv2-vnet/select-location.png":::
+      :::image type="content" source="media/migrate-stv1-to-stv2-vnet/select-location.png" alt-text="Screenshot of selecting network migration settings in the portal." lightbox="media/migrate-stv1-to-stv2-vnet/select-location.png":::
 1. Under **Verify that your subnet meets migration requirements**, select **Verify** to run automated checks on the subnet. If problems are detected, adjust your subnet configuration and run checks again. For other network dependencies, such as DNS and firewall rules, check manually.
 1. Confirm that you want to migrate, and select **Migrate**. 
     The status of your API Management instance changes to **Updating**. The migration process takes approximately 45 minutes to complete. When the status changes to **Online**, migration is complete.
@@ -271,8 +267,7 @@ After you update the VNet configuration, the status of your API Management insta
 
    Yes, the **Platform migration** blade in the portal and the REST API have options to preserve the IP address. 
 
-   [!INCLUDE [api-management-migration-no-preserve-ip](../../includes/api-management-migration-no-preserve-ip.md)]
-   
+     
 - **Is there a migration path without modifying the existing instance?**
  
    Yes, you need a [side-by-side migration](migrate-stv1-to-stv2.md#alternative-side-by-side-deployment). That means you create a new API Management instance in parallel with your current instance and copy the configuration over to the new instance. 
