@@ -18,7 +18,7 @@ The two types of scaling supported by Stream Analytics are _manual scale_ and _c
 
 _Manual scale_ allows you to maintain and adjust a fixed number of streaming units for your job.
 
-_Custom autoscale_ allows you to specify the minimum and maximum number of streaming units for your job to dynamically adjust based on your rule definitions. Custom autoscale examines the preconfigured set of rules. Then it determines to add SUs to handle increases in load or to reduce the number of SUs when computing resources are sitting idle. For more information about autoscale in Azure Monitor, see [Overview of autoscale in Microsoft Azure](../azure-monitor/autoscale/autoscale-overview.md).
+_Custom autoscale_ allows you to specify the minimum and maximum number of streaming units for your job to dynamically adjust based on your rule definitions. Custom autoscale examines the preconfigured set of rules. Then it determines to add SUs to handle increases in load or to reduce the number of SUs when computing resources are sitting idle. For more information about autoscale in Azure Monitor, see [Overview of autoscale in Microsoft Azure](/azure/azure-monitor/autoscale/autoscale-overview).
 
 > [!NOTE]
 > Although you can use manual scale regardless of the job's state, custom autoscale can only be enabled when the job is in the `running` state.
@@ -135,7 +135,7 @@ The previous section shows you how to add a default condition for the autoscale 
     1. If you select **Specify start/end dates**, select the **Timezone**, **Start date and time**, and **End date and time** for the condition to be in effect.
     2. If you select **Repeat specific days**, select the days of the week, timezone, start time, and end time when the condition should apply.
 
-To learn more about how autoscale settings work, especially how it picks a profile or condition and evaluates multiple rules, see [Understand Autoscale settings](../azure-monitor/autoscale/autoscale-understanding-settings.md).
+To learn more about how autoscale settings work, especially how it picks a profile or condition and evaluates multiple rules, see [Understand Autoscale settings](/azure/azure-monitor/autoscale/autoscale-understanding-settings).
 
 ## Next steps
 

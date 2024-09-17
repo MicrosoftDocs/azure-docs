@@ -307,10 +307,10 @@ The following table shows which app configurations are restored when you choose 
 |[Managed identities](overview-managed-identity.md)| No |
 |[Custom domains](app-service-web-tutorial-custom-domain.md)| No |
 |[TLS/SSL](configure-ssl-bindings.md)| No |
-|[Scale out](../azure-monitor/autoscale/autoscale-get-started.md?toc=/azure/app-service/toc.json)| No |
+|[Scale out](/azure/azure-monitor/autoscale/autoscale-get-started?toc=/azure/app-service/toc.json)| No |
 |[Diagnostics with Azure Monitor](troubleshoot-diagnostic-logs.md#send-logs-to-azure-monitor)| No |
-|[Alerts and metrics](../azure-monitor/alerts/alerts-classic-portal.md)| No |
-|Backup| No |
+|[Alerts and Metrics](/azure/azure-monitor/alerts/alerts-classic-portal)| No |
+|[Backup](manage-backup.md)| No |
 |Associated [deployment slots](deploy-staging-slots.md)| No |
 |Any linked database that [custom backup](#whats-included-in-a-custom-backup) supports| No |
 

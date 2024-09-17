@@ -17,7 +17,7 @@ The following extensions are currently available for use with Arc-enabled Kubern
 
 Azure Monitor Container Insights provides visibility into the performance of workloads deployed on the Kubernetes cluster. Use this extension to collect memory and CPU utilization metrics from controllers, nodes, and containers.
 
-For more information, see [Azure Monitor Container Insights for Azure Arc-enabled Kubernetes clusters](../../azure-monitor/containers/container-insights-enable-arc-enabled-clusters.md?toc=/azure/azure-arc/kubernetes/toc.json&bc=/azure/azure-arc/kubernetes/breadcrumb/toc.json).
+For more information, see [Azure Monitor Container Insights for Azure Arc-enabled Kubernetes clusters](/azure/azure-monitor/containers/container-insights-enable-arc-enabled-clusters?toc=/azure/azure-arc/kubernetes/toc.json&bc=/azure/azure-arc/kubernetes/breadcrumb/toc.json).
 
 ## Azure Policy
 
@@ -215,10 +215,9 @@ For more information, see [What is Edge Storage Accelerator?](../edge-storage-ac
 
 ## Connected registry on Arc-enabled Kubernetes
  
-- **Supported distributions**: Connected registry for Arc-enabled Kubernetes clusters.
-- **Supported Azure regions**: All regions where Azure Arc-enabled Kubernetes is available.
+- **Supported distributions**: AKS enabled by Azure Arc, Kubernetes using kind.
  
-The connected registry extension for Azure Arc enables you to sync container images between your Azure Container Registry (ACR) and your local on-prem Azure Arc-enabled Kubernetes cluster. The extension is deployed to the local or remote cluster and uses a synchronization schedule and window to sync images between the on-prem connected registry and the cloud ACR registry.
+The connected registry extension for Azure Arc allows you to synchronize container images between your Azure Container Registry (ACR) and your on-premises Azure Arc-enabled Kubernetes cluster. This extension can be deployed to either a local or remote cluster and utilizes a synchronization schedule and window to ensure seamless syncing of images between the on-premises connected registry and the cloud-based ACR.
  
 For more information, see [Connected Registry for Arc-enabled Kubernetes clusters](../../container-registry/quickstart-connected-registry-arc-cli.md).
 

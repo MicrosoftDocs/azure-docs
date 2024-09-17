@@ -239,7 +239,7 @@
     - name: Scale out automatically
       href: manage-automatic-scaling.md      
     - name: Scale out with rules
-      href: ../azure-monitor/autoscale/autoscale-get-started.md?toc=/azure/app-service/toc.json
+      href: /azure/azure-monitor/autoscale/autoscale-get-started?toc=/azure/app-service/toc.json
     - name: Add CDN
       href: ../cdn/cdn-add-to-web-app.md?toc=/azure/cdn/toc.json
     - name: About high density hosting
