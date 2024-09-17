@@ -47,7 +47,7 @@ To access Resource Health for Azure Communications Gateway:
 
 You can also [configure Resource Health alerts in the Azure portal](/azure/service-health/resource-health-alert-monitor-guide). These alerts can notify you in near real-time when these resources have a change in their health status.
 
-Azure Communications Gateway supports the following [resource health checks](../service-health/resource-health-checks-resource-types.md#microsoftvoiceservicescommunicationsgateway).
+Azure Communications Gateway supports the following [resource health checks](/azure/service-health/resource-health-checks-resource-types#microsoftvoiceservicescommunicationsgateway).
 
 [!INCLUDE [horz-monitor-resource-types](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-resource-types.md)]
 For more information about the resource types for Azure Communications Gateway, see [Azure Communications Gateway monitoring data reference](monitoring-azure-communications-gateway-data-reference.md).
@@ -60,13 +60,13 @@ For a list of available metrics for Azure Communications Gateway, see [Azure Com
 
 ## Analyzing, filtering and splitting metrics in Azure Monitor
 
-You can analyze metrics for Azure Communications Gateway, along with metrics from other Azure services, by opening **Metrics** from the **Azure Monitor** menu. See [Analyze metrics with Azure Monitor metrics explorer](../azure-monitor/essentials/analyze-metrics.md) for details on using this tool.
+You can analyze metrics for Azure Communications Gateway, along with metrics from other Azure services, by opening **Metrics** from the **Azure Monitor** menu. See [Analyze metrics with Azure Monitor metrics explorer](/azure/azure-monitor/essentials/analyze-metrics) for details on using this tool.
 
 Azure Communications Gateway metrics support the **Region** dimension, allowing you to filter any metric by the Service Locations defined in your Azure Communications Gateway resource. Connectivity metrics also support the **OPTIONS** or **INVITE** dimension.
 
 You can also split a metric by these dimensions to visualize how different segments of the metric compare with each other.
 
-For more information on filtering and splitting, see [Advanced features of Azure Monitor](../azure-monitor/essentials/metrics-charts.md).
+For more information on filtering and splitting, see [Advanced features of Azure Monitor](/azure/azure-monitor/essentials/metrics-charts).
 
 [!INCLUDE [horz-monitor-no-resource-logs](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-no-resource-logs.md)]
 
