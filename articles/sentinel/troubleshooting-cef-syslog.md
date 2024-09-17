@@ -10,7 +10,7 @@ ms.date: 09/17/2024
 
 # [Deprecated] Troubleshoot your CEF or Syslog data connector 
 
-[!INCLUDE [data-connector-deprecation](../includes/data-connector-deprecation.md)]
+[!INCLUDE [data-connector-deprecation](/includes/data-connector-deprecation.md)]
 
 > [!CAUTION]
 > This article references CentOS, a Linux distribution that has reached End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](/azure/virtual-machines/workloads/centos/centos-end-of-life).
