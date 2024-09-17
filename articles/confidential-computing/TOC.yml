@@ -139,7 +139,7 @@
     href: /sql/relational-databases/security/encryption/configure-always-encrypted-enclaves
   - name: SQL on Confidential Virtual Machines #done
     href: /azure/azure-sql/virtual-machines/windows/sql-vm-create-confidential-vm-how-to
-  - name: Confidential Databricks (PREVIEW) #done
+  - name: Confidential Databricks
     href: https://techcommunity.microsoft.com/t5/azure-confidential-computing/confidential-vm-option-for-azure-databricks-preview/ba-p/3827982#:~:text=Azure%20Databricks%20now%20supports%20using%20Confidential%20computing%20VM,Azure%20Databricks%20workload%20securely%20%26%20confidentially%20on%20Azure
   - name: Confidential Azure Data Explorer (PREVIEW) #done
     href: https://techcommunity.microsoft.com/t5/azure-data-explorer-blog/confidential-vm-option-for-azure-data-explorer-public-preview/ba-p/3827343
