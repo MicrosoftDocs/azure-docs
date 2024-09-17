@@ -68,16 +68,16 @@ The following table lists Synapse actions and the built-in roles that permit the
 
 |Action|Role|
 |--|--|
-|workspaces/read|Synapse Administrator</br>Synapse Apache Spark Administrator</br>Synapse SQL Administrator</br>Synapse Contributor</br>Synapse Artifact Publisher</br>Synapse Artifact |User</br>Synapse Compute Operator </br>Synapse Monitoring Operator </br>Synapse Credential User</br>Synapse Linked Data Manager</br>Synapse User| 
+|workspaces/read|Synapse Administrator</br>Synapse Apache Spark Administrator</br>Synapse SQL Administrator</br>Synapse Contributor</br>Synapse Artifact Publisher</br>Synapse Artifact User</br>Synapse Compute Operator </br>Synapse Monitoring Operator </br>Synapse Credential User</br>Synapse Linked Data Manager</br>Synapse User|
 |workspaces/roleAssignments/write, delete|Synapse Administrator|
 |workspaces/managedPrivateEndpoint/write, delete|Synapse Administrator</br>Synapse Linked Data Manager|
-|workspaces/bigDataPools/useCompute/action|Synapse Administrator</br>Synapse Apache Spark Administrator</br>Synapse Contributor</br>Synapse Compute Operator </br>Synapse Monitoring |Operator|
+|workspaces/bigDataPools/useCompute/action|Synapse Administrator</br>Synapse Apache Spark Administrator</br>Synapse Contributor</br>Synapse Compute Operator </br>Synapse Monitoring Operator|
 |workspaces/bigDataPools/viewLogs/action|Synapse Administrator</br>Synapse Apache Spark Administrator</br>Synapse Contributor</br>Synapse Compute Operator|
 |workspaces/integrationRuntimes/useCompute/action|Synapse Administrator</br>Synapse Contributor</br>Synapse Compute Operator</br>Synapse Monitoring Operator|
 |workspaces/integrationRuntimes/viewLogs/action|Synapse Administrator</br>Synapse Contributor</br>Synapse Compute Operator</br>Synapse Monitoring Operator|
-|workspaces/linkConnections/read|Synapse Administrator</br>Synapse Contributor</br>Synapse Compute Operator||
-|workspaces/linkConnections/useCompute/action|Synapse Administrator</br>Synapse Contributor</br>Synapse Compute Operator
-|workspaces/artifacts/read|Synapse Administrator</br>Synapse Apache Spark Administrator</br>Synapse SQL Administrator</br>Synapse Contributor</br>Synapse Artifact Publisher</br>Synapse |Artifact User|
+|workspaces/linkConnections/read|Synapse Administrator</br>Synapse Contributor</br>Synapse Compute Operator|
+|workspaces/linkConnections/useCompute/action|Synapse Administrator</br>Synapse Contributor</br>Synapse Compute Operator|
+|workspaces/artifacts/read|Synapse Administrator</br>Synapse Apache Spark Administrator</br>Synapse SQL Administrator</br>Synapse Contributor</br>Synapse Artifact Publisher</br>Synapse Artifact User|
 |workspaces/notebooks/write, delete|Synapse Administrator</br>Synapse Apache Spark Administrator</br>Synapse Contributor</br>Synapse Artifact Publisher|
 |workspaces/sparkJobDefinitions/write, delete|Synapse Administrator</br>Synapse Apache Spark Administrator</br>Synapse Contributor</br>Synapse Artifact Publisher|
 |workspaces/sqlScripts/write, delete|Synapse Administrator</br>Synapse SQL Administrator</br>Synapse Contributor</br>Synapse Artifact Publisher|
@@ -88,8 +88,8 @@ The following table lists Synapse actions and the built-in roles that permit the
 |workspaces/triggers/write, delete|Synapse Administrator</br>Synapse Contributor</br>Synapse Artifact Publisher|
 |workspaces/datasets/write, delete|Synapse Administrator</br>Synapse Contributor</br>Synapse Artifact Publisher|
 |workspaces/libraries/write, delete|Synapse Administrator</br>Synapse Apache Spark Administrator</br>Synapse Contributor</br>Synapse Artifact Publisher|
-|workspaces/linkedServices/write, delete|Synapse Administrator</br>Synapse Apache Spark Administrator</br>Synapse SQL Administrator</br>Synapse Contributor</br>Synapse Artifact Publisher</|br>Synapse Linked Data Manager|
-|workspaces/credentials/write, delete|Synapse Administrator</br>Synapse Apache Spark Administrator</br>Synapse SQL Administrator</br>Synapse Contributor</br>Synapse Artifact Publisher</|br>Synapse Linked Data Manager|
+|workspaces/linkedServices/write, delete|Synapse Administrator</br>Synapse Apache Spark Administrator</br>Synapse SQL Administrator</br>Synapse Contributor</br>Synapse Artifact Publisher</br>Synapse Linked Data Manager|
+|workspaces/credentials/write, delete|Synapse Administrator</br>Synapse Apache Spark Administrator</br>Synapse SQL Administrator</br>Synapse Contributor</br>Synapse Artifact Publisher</br>Synapse Linked Data Manager|
 |workspaces/notebooks/viewOutputs/action|Synapse Administrator</br>Synapse Apache Spark Administrator</br>Synapse Contributor</br>Synapse Artifact Publisher</br>Synapse Artifact User|
 |workspaces/pipelines/viewOutputs/action|Synapse Administrator</br>Synapse Contributor</br>Synapse Artifact Publisher</br>Synapse Artifact User|
 |workspaces/linkedServices/useSecret/action|Synapse Administrator</br>Synapse Credential User|
