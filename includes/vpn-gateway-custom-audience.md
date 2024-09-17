@@ -10,7 +10,7 @@ ms.topic: include
 
 ## Register an application
 
-There are a couple of different ways to get to the **App registrations** page. One way is through the [Microsoft Entra admin center](https://entra.microsoft.com). You can also use the Azure portal and **Microsoft Entra ID**. Sign in with an account that has the [Cloud Application Administrator](https://learn.microsoft.com/entra/identity/role-based-access-control/permissions-reference#cloud-application-administrator) role or higher.
+There are a couple of different ways to get to the **App registrations** page. One way is through the [Microsoft Entra admin center](https://entra.microsoft.com). You can also use the Azure portal and **Microsoft Entra ID**. Sign in with an account that has the [Cloud Application Administrator](/entra/identity/role-based-access-control/permissions-reference#cloud-application-administrator) role or higher.
 
 1. If you have access to multiple tenants, use the **Settings** icon in the top menu to switch to the tenant in which you want to register the application from the **Directories + subscriptions** menu.
 1. Go to **App registrations** and select **New registration**.

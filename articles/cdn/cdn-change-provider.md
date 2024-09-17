@@ -25,12 +25,6 @@ The purpose of this article is to share best practices when migrating from one c
 
 **Azure CDN Standard/Premium from Edgio:** is an alternative to Azure Front Door for your general content delivery network and media solutions. Azure Content Delivery Network from Edgio is optimized for large media streaming workloads. It has unique content delivery network features such as cache warmup, log delivery services, and reporting features.
 
-**Azure CDN Standard from Akamai (Retiring October 31, 2023)**: In May 2016, Azure partnered with Akamai Technologies Inc to offer Azure Content Delivery Network Standard from Akamai. Recently, Azure and Akamai Technologies Inc have decided not to renew this partnership. As a result, starting October 31, 2023, Azure Content Delivery Network Standard from Akamai will no longer be supported.
-
-You'll still be able to manage your existing profiles until October 31. After October 31, you'll no longer be able to create a new Azure Content Delivery Network Standard from Akamai profiles or modify previously created profiles.
-
-If you don't migrate your workloads by October 31, we'll migrate your Azure Content Delivery Network Standard from Akamai profile to another Azure Content Delivery Network service with similar features and pricing starting November 1, 2023.
-
 ## Pricing comparison
 
 Switching between content delivery network profiles might introduce changes to your content delivery overall cost. For more information about service pricing, see [Azure Front Door pricing](https://azure.microsoft.com/pricing/details/frontdoor/) and [Azure content delivery network pricing](https://azure.microsoft.com/pricing/details/cdn/).

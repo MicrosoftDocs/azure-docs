@@ -246,9 +246,9 @@ The following information can be helpful when you work with [resources](./syntax
      For more information about connecting to virtual machines, see:
 
    * [What is Azure Bastion?](../../bastion/bastion-overview.md)
-   * [How to connect and sign on to an Azure virtual machine running Windows](../../virtual-machines/windows/connect-rdp.yml)
-   * [Setting up WinRM access for Virtual Machines in Azure Resource Manager](../../virtual-machines/windows/connect-winrm.md)
-   * [Connect to a Linux VM](../../virtual-machines/linux-vm-connect.md)
+   * [How to connect and sign on to an Azure virtual machine running Windows](/azure/virtual-machines/windows/connect-rdp)
+   * [Setting up WinRM access for Virtual Machines in Azure Resource Manager](/azure/virtual-machines/windows/connect-winrm)
+   * [Connect to a Linux VM](/azure/virtual-machines/linux-vm-connect)
 
 * The `domainNameLabel` property for public IP addresses must be unique. The `domainNameLabel` value must be between 3 and 63 characters long, and follow the rules specified by this regular expression: `^[a-z][a-z0-9-]{1,61}[a-z0-9]$`. Because the `uniqueString` function generates a string that is 13 characters long, the `dnsPrefixString` parameter is limited to 50 characters.
 

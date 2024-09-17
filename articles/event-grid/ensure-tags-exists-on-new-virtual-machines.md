@@ -4,7 +4,7 @@ description: Learn how to automatically add a tag when a new VM is created and s
 keywords: automation, runbook, teams, event grid, virtual machine, VM
 author: eamonoreilly
 
-ms.service: automation
+ms.service: azure-automation
 ms.topic: tutorial
 ms.date: 07/07/2020
 ms.author: eamono

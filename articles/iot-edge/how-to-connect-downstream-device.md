@@ -4,7 +4,7 @@ description: How to configure downstream devices to connect to Azure IoT Edge ga
 author: PatAltimore
 
 ms.author: patricka
-ms.date: 06/10/2024
+ms.date: 08/07/2024
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -47,7 +47,7 @@ Acquire the following to prepare your downstream device:
 
 * A root CA certificate file.
 
-  This file was used to generate the device CA certificate in [Configure an IoT Edge device to act as a transparent gateway](how-to-create-transparent-gateway.md), which is available on your downstream device. 
+  This file was used to generate the Edge CA certificate in [Configure an IoT Edge device to act as a transparent gateway](how-to-create-transparent-gateway.md), which is available on your downstream device. 
 
   Your downstream device uses this certificate to validate the identity of the gateway device. This trusted certificate validates the transport layer security (TLS) connections to the gateway device. See usage details in the [Provide the root CA certificate](#provide-the-root-ca-certificate) section.
 

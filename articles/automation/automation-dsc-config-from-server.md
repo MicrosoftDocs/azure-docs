@@ -4,9 +4,9 @@ description: This article tells how to create configurations from existing serve
 keywords: dsc,powershell,configuration,setup
 services: automation
 ms.subservice: desired-state-config
-ms.date: 10/25/2022
+ms.date: 08/20/2024
 ms.custom: engagement-fy23
-ms.topic: conceptual
+ms.topic: how-to
 ms.service: azure-automation
 ---
 

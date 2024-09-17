@@ -34,7 +34,7 @@ The following diagram illustrates the flow of event data through a larger IoT so
 
 :::image type="content" source="media/concepts-route-events/routing-workflow.png" alt-text="Diagram of Azure Digital Twins routing data through endpoints to several downstream services." border="false":::
 
-For egress of data outside Azure Digital Twins, typical downstream targets for event routes are Time Series Insights, Azure Maps, storage, and analytics solutions. Azure Digital Twins implements *at least once* delivery for data emitted to egress services. 
+For egress of data outside Azure Digital Twins, typical downstream targets for event routes are Azure Maps, storage, and analytics solutions. Azure Digital Twins implements *at least once* delivery for data emitted to egress services. 
 
 For routing of internal digital twin events within the same Azure Digital Twins solution, continue to the next section.
 

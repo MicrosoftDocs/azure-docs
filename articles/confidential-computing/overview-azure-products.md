@@ -15,11 +15,11 @@ ms.author: jushiman
 
 Azure provides the broadest support for hardened technologies such as [AMD SEV-SNP](https://www.amd.com/en/developer/sev.html), [Intel TDX](https://www.intel.com/content/www/us/en/developer/tools/trust-domain-extensions/overview.html) and [Intel SGX](https://www.intel.com.au/content/www/au/en/architecture-and-technology/software-guard-extensions-enhanced-data-protection.html). All technologies meet our definition of confidential computing, helping organizations prevent unauthorized access or modification of code and data while in use.
 
-- Confidential VMs using AMD SEV-SNP. [DCasv5](../virtual-machines/dcasv5-dcadsv5-series.md) and [ECasv5](../virtual-machines/ecasv5-ecadsv5-series.md) enable lift-and-shift of existing workloads and helps protect data from the cloud operator with VM-level confidentiality. 
+- Confidential VMs using AMD SEV-SNP. [DCasv5](/azure/virtual-machines/dcasv5-dcadsv5-series) and [ECasv5](/azure/virtual-machines/ecasv5-ecadsv5-series) enable lift-and-shift of existing workloads and helps protect data from the cloud operator with VM-level confidentiality. 
 
-- Confidential VMs using Intel TDX. [DCesv5](../virtual-machines/dcasv5-dcadsv5-series.md) and [ECesv5](../virtual-machines/ecasv5-ecadsv5-series.md) enable lift-and-shift of existing workloads and helps protect data from the cloud operator with VM-level confidentiality.
+- Confidential VMs using Intel TDX. [DCesv5](/azure/virtual-machines/dcasv5-dcadsv5-series) and [ECesv5](/azure/virtual-machines/ecasv5-ecadsv5-series) enable lift-and-shift of existing workloads and helps protect data from the cloud operator with VM-level confidentiality.
 
-- VMs with Application Enclaves using Intel SGX. [DCsv2](../virtual-machines/dcv2-series.md), [DCsv3, and DCdsv3](../virtual-machines/dcv3-series.md) enable organizations to create hardware enclaves. These secure enclaves help protect from cloud operators, and your own VM admins.
+- VMs with Application Enclaves using Intel SGX. [DCsv2](/azure/virtual-machines/dcv2-series), [DCsv3, and DCdsv3](/azure/virtual-machines/dcv3-series) enable organizations to create hardware enclaves. These secure enclaves help protect from cloud operators, and your own VM admins.
 
 - [App-enclave aware containers](enclave-aware-containers.md) running on Azure Kubernetes Service (AKS). Confidential computing nodes on AKS use Intel SGX to create isolated enclave environments in the nodes between each container application.
 
@@ -49,7 +49,7 @@ Azure offers various PaaS, SaaS and VM capabilities supporting or built upon con
 
 - [Confidential Inference ONNX Runtime](https://github.com/microsoft/onnx-server-openenclave), a Machine Learning (ML) inference server that restricts the ML hosting party from accessing both the inferencing request and its corresponding response.
 
-- [Trusted Launch](../virtual-machines/trusted-launch.md) is available across all Generation 2 VMs bringing hardened security features – secure boot, virtual trusted platform module, and boot integrity monitoring – that protect against boot kits, rootkits, and kernel-level malware.
+- [Trusted Launch](/azure/virtual-machines/trusted-launch) is available across all Generation 2 VMs bringing hardened security features – secure boot, virtual trusted platform module, and boot integrity monitoring – that protect against boot kits, rootkits, and kernel-level malware.
 
 ## What's new in Azure confidential computing
 

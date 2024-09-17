@@ -7,7 +7,7 @@ ms.author: aterceros
 ms.date: 01/20/2022
 ms.topic: how-to
 ms.service: azure-maps
-services: azure-maps
+ms.subservice: creator
 ---
 
 # Manage Azure Maps Creator

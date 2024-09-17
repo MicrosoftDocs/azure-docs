@@ -18,7 +18,7 @@ This article also describes how to use Azure Resource Health to monitor your Azu
 The following sections describe the specific data gathered for Azure Communications Gateway. These sections also discuss how to configure data collection and analyze this data with Azure tools.
 
 > [!TIP]
-> To understand costs associated with Azure Monitor, see [Azure Monitor cost and usage](../azure-monitor/cost-usage.md).
+> To understand costs associated with Azure Monitor, see [Azure Monitor cost and usage](/azure/azure-monitor/cost-usage).
 
 ## What is Azure Resource Health?
 
@@ -34,7 +34,7 @@ Resource Health reports one of the following statuses for each resource.
 - *Unavailable*: there's a significant problem with your resource or with the Azure platform. For Azure Communications Gateway, this status usually means that calls can't be handled.
 - *Unknown*: Resource Health doesn't receive information about the resource for more than 10 minutes.
 
-For more information, see [Resource Health overview](../service-health/resource-health-overview.md).
+For more information, see [Resource Health overview](/azure/service-health/resource-health-overview).
 
 ## Using Azure Resource Health
 
@@ -45,7 +45,7 @@ To access Resource Health for Azure Communications Gateway:
 1. Select your Communications Gateway resource.
 1. In the menu in the left pane, select **Resource health**.
 
-You can also [configure Resource Health alerts in the Azure portal](../service-health/resource-health-alert-monitor-guide.md). These alerts can notify you in near real-time when these resources have a change in their health status.
+You can also [configure Resource Health alerts in the Azure portal](/azure/service-health/resource-health-alert-monitor-guide). These alerts can notify you in near real-time when these resources have a change in their health status.
 
 Azure Communications Gateway supports the following [resource health checks](../service-health/resource-health-checks-resource-types.md#microsoftvoiceservicescommunicationsgateway).
 
@@ -84,4 +84,4 @@ For more information on filtering and splitting, see [Advanced features of Azure
 
 - See [Azure Communications Gateway monitoring data reference](monitoring-azure-communications-gateway-data-reference.md) for a reference of the metrics, logs, and other important values created for Azure Communications Gateway.
 - See [Monitoring Azure resources with Azure Monitor](/azure/azure-monitor/essentials/monitor-azure-resource) for general details on monitoring Azure resources.
-- See [Resource Health overview](../service-health/resource-health-overview.md) for an overview of Resource Health.
+- See [Resource Health overview](/azure/service-health/resource-health-overview) for an overview of Resource Health.

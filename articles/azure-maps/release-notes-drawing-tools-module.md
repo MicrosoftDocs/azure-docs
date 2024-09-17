@@ -7,7 +7,7 @@ ms.author: sipa
 ms.date: 10/25/2023
 ms.topic: reference
 ms.service: azure-maps
-services: azure-maps
+ms.subservice: web-sdk
 ---
 
 # Drawing Tools Module release notes

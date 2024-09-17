@@ -118,9 +118,6 @@ items:
   - name: Static Web Apps
     tocHref: /azure/static-web-apps/
     topicHref: /azure/static-web-apps/
-  - name: Advisor
-    tocHref: /azure/advisor/
-    topicHref: /azure/advisor/
   - name: Application Gateway
     tocHref: /azure/application-gateway/
     topicHref: /azure/application-gateway/
@@ -143,9 +140,9 @@ items:
     - name: Arc-enabled servers
       tocHref: /azure/azure-arc/servers/
       topicHref: /azure/azure-arc/servers/
-    - name: Edge Storage Accelerator
-      tocHref: /azure/azure-arc/edge-storage-accelerator/
-      topicHref: /azure/azure-arc/edge-storage-accelerator/index
+    - name: Azure Container Storage enabled by Azure Arc
+      tocHref: /azure/azure-arc/container-storage/
+      topicHref: /azure/azure-arc/container-storage/index
   - name: Automation
     tocHref: /azure/automation/
     topicHref: /azure/automation/
@@ -233,9 +230,6 @@ items:
   - name: Azure portal documentation
     tocHref: /azure/azure-portal/
     topicHref: /azure/azure-portal/
-  - name: Azure portal documentation
-    tocHref: /azure/virtual-machines/
-    topicHref: /azure/azure-portal/index
   - name: Azure portal documentation
     tocHref: /power-bi
     topicHref: /azure/azure-portal/index
@@ -372,22 +366,13 @@ items:
   - name: Cloud Services
     tocHref: /azure/cloud-services/
     topicHref: /azure/cloud-services/
-  - name: AI Studio
-    tocHref: /azure/ai-studio/
-    topicHref: /azure/ai-studio/
   - name: AI Services
     tocHref: /azure/ai-services/
     topicHref: /azure/ai-services/
     items:
-    - name: Azure AI Search
-      tocHref: /azure/search/
-      topicHref: /azure/search/
     - name: Academic Knowledge
       tocHref: /azure/cognitive-services/academic-knowledge/
       topicHref: https://www.microsoft.com/research/project/academic-knowledge/
-    - name: Anomaly Detector
-      tocHref: /azure/ai-services/anomaly-detector/
-      topicHref: /azure/ai-services/anomaly-detector/
     - name: Bing Search APIs
       tocHref: /azure/cognitive-services/bing-web-search
       topicHref: /azure/cognitive-services/bing-web-search
@@ -422,21 +407,9 @@ items:
       - name: Bing Local Business Search
         tocHref: /azure/cognitive-services/bing-local-business-search
         topicHref: /azure/cognitive-services/bing-local-business-search/overview
-    - name: Vision
-      tocHref: /azure/ai-services/computer-vision/
-      topicHref: /azure/ai-services/computer-vision/
-    - name: Content Moderator
-      tocHref: /azure/ai-services/content-moderator/
-      topicHref: /azure/ai-services/content-moderator/
-    - name: Content Safety
-      tocHref: /azure/ai-services/content-safety/
-      topicHref: /azure/ai-services/content-safety/
     - name: Custom Decision Service
       tocHref: /azure/cognitive-services/custom-decision-service/
       topicHref: /azure/cognitive-services/custom-decision-service/custom-decision-service-overview
-    - name: Custom Vision Service
-      tocHref: /azure/ai-services/custom-vision-service/
-      topicHref: /azure/ai-services/custom-vision-service/
     - name: Anomaly Finder
       tocHref: /azure/cognitive-services/labs/anomaly-finder/
       topicHref: /azure/cognitive-services/anomaly-detector/overview
@@ -452,21 +425,6 @@ items:
     - name: Knowledge Exploration
       tocHref: /azure/cognitive-services/kes/
       topicHref: /azure/cognitive-services/kes/overview
-    - name: Language Understanding (LUIS)
-      tocHref: /azure/ai-services/LUIS/
-      topicHref: /azure/ai-services/LUIS/
-    - name: QnA Maker
-      tocHref: /azure/ai-services/qnamaker/
-      topicHref: /azure/ai-services/qnamaker/
-    - name: Speech Service
-      tocHref: /azure/ai-services/speech-service/
-      topicHref: /azure/ai-services/speech-service/
-    - name: Language Service
-      tocHref: /azure/ai-services/language-service/
-      topicHref: /azure/ai-services/language-service/
-    - name: Translator
-      tocHref: /azure/ai-services/translator/
-      topicHref: /azure/ai-services/translator/
     - name: Video Indexer
       tocHref: /azure/ai-services/video-indexer/
       topicHref: /azure/azure-video-indexer/video-indexer-overview
@@ -479,18 +437,6 @@ items:
     - name: Ink Recognizer
       tocHref: /azure/cognitive-services/Ink-Recognizer/
       topicHref: /azure/cognitive-services/Ink-Recognizer/
-    - name: Personalizer
-      tocHref: /azure/ai-services/personalizer/
-      topicHref: /azure/ai-services/personalizer/
-    - name: Immersive Reader
-      tocHref: /azure/ai-services/immersive-reader/
-      topicHref: /azure/ai-services/immersive-reader/
-    - name: Metrics Advisor
-      tocHref: /azure/ai-services/metrics-advisor/
-      topicHref: /azure/ai-services/metrics-advisor/
-    - name: Document Intelligence
-      tocHref: /azure/ai-services/document-intelligence/
-      topicHref: /azure/ai-services/document-intelligence/
     - name: Azure AI Video Indexer
       tocHref: /azure/azure-video-indexer/
       topicHref: /azure/azure-video-indexer/
@@ -503,9 +449,6 @@ items:
   - name: Connectors
     tocHref: /azure/connectors/
     topicHref: /azure/connectors/
-  - name: Container Instances
-    tocHref: /azure/container-instances/
-    topicHref: /azure/container-instances/
   - name: Kubernetes Fleet Manager
     tocHref: /azure/kubernetes-fleet/
     topicHref: /azure/kubernetes-fleet/
@@ -522,62 +465,6 @@ items:
     - name: Kubernetes
       tocHref: /azure/container-service/kubernetes/
       topicHref: /azure/container-service/kubernetes/
-  - name: Azure Cosmos DB
-    tocHref: /azure/cosmos-db/
-    topicHref: /azure/cosmos-db/
-    items:
-    - name: MongoDB
-      tocHref: /azure/cosmos-db/mongodb/
-      topicHref: /azure/cosmos-db/mongodb/
-      items:
-      - name: vCore
-        tocHref: /azure/cosmos-db/mongodb/vcore/
-        topicHref: /azure/cosmos-db/mongodb/vcore/
-    - name: MongoDB
-      tocHref: /azure/cosmos-db/mongodb/cli-samples
-      topicHref: /azure/cosmos-db/mongodb/cli-samples
-    - name: MongoDB
-      tocHref: /azure/cosmos-db/mongodb/powershell-samples
-      topicHref: /azure/cosmos-db/mongodb/powershell-samples
-    - name: Table
-      tocHref: /azure/cosmos-db/table/
-      topicHref: /azure/cosmos-db/table/
-    - name: Table
-      tocHref: /azure/cosmos-db/table/cli-samples
-      topicHref: /azure/cosmos-db/table/cli-samples
-    - name: Table
-      tocHref: /azure/cosmos-db/table/powershell-samples
-      topicHref: /azure/cosmos-db/table/powershell-samples
-    - name: Apache Cassandra
-      tocHref: /azure/cosmos-db/cassandra/
-      topicHref: /azure/cosmos-db/cassandra/
-    - name: Apache Cassandra
-      tocHref: /azure/cosmos-db/cassandra/cli-samples
-      topicHref: /azure/cosmos-db/cassandra/cli-samples
-    - name: Apache Cassandra
-      tocHref: /azure/cosmos-db/cassandra/powershell-samples
-      topicHref: /azure/cosmos-db/cassandra/powershell-samples
-    - name: Apache Gremlin
-      tocHref: /azure/cosmos-db/gremlin/
-      topicHref: /azure/cosmos-db/gremlin/
-    - name: Apache Gremlin
-      tocHref: /azure/cosmos-db/gremlin/cli-samples
-      topicHref: /azure/cosmos-db/gremlin/cli-samples
-    - name: Apache Gremlin
-      tocHref: /azure/cosmos-db/gremlin/powershell-samples
-      topicHref: /azure/cosmos-db/gremlin/powershell-samples
-    - name: NoSQL
-      tocHref: /azure/cosmos-db/nosql/
-      topicHref: /azure/cosmos-db/nosql/
-    - name: NoSQL
-      tocHref: /azure/cosmos-db/nosql/cli-samples
-      topicHref: /azure/cosmos-db/nosql/cli-samples
-    - name: NoSQL
-      tocHref: /azure/cosmos-db/nosql/powershell-samples
-      topicHref: /azure/cosmos-db/nosql/powershell-samples
-  - name: Managed Instance for Apache Cassandra
-    tocHref: /azure/managed-instance-apache-cassandra/
-    topicHref: /azure/managed-instance-apache-cassandra/
   - name: Storage
     tocHref: /azure/storage/
     topicHref: /azure/storage/
@@ -612,9 +499,6 @@ items:
   - name: FXT Edge Filer
     tocHref: /azure/fxt-edge-filer/
     topicHref: /azure/fxt-edge-filer/
-  - name: Genomics
-    tocHref: /azure/genomics/
-    topicHref: /azure/genomics/
   - name: Global Secure Access
     tocHref: /azure/global-secure-access
     topicHref: /azure/global-secure-access
@@ -747,9 +631,6 @@ items:
     - name: Studio (classic)
       tocHref: /azure/machine-learning/studio
       topicHref: /azure/machine-learning/studio/
-    - name: Data Science Virtual Machine
-      tocHref: /azure/machine-learning/data-science-virtual-machine
-      topicHref: /azure/machine-learning/data-science-virtual-machine/
   - name: Media Services
     tocHref: /azure/media-services/
     topicHref: /azure/media-services/
@@ -798,9 +679,6 @@ items:
     - name: User Guide
       tocHref: /azure/multi-factor-authentication/end-user/
       topicHref: /azure/multi-factor-authentication/end-user/
-  - name: MySQL
-    tocHref: /azure/mysql/
-    topicHref: /azure/mysql/
   - name: Networking
     tocHref: /azure/networking/
     topicHref: /azure/networking/
@@ -892,15 +770,9 @@ items:
   - name: Notification Hubs
     tocHref: /azure/notification-hubs/
     topicHref: /azure/notification-hubs/
-  - name: Open Datasets
-    tocHref: /azure/open-datasets/
-    topicHref: /azure/open-datasets/
   - name: Operations Management Suite
     tocHref: /azure/operations-management-suite/
     topicHref: /azure/operations-management-suite/
-  - name: PostgreSQL
-    tocHref: /azure/postgresql/
-    topicHref: /azure/postgresql/
   - name: Power BI Embedded
     tocHref: /azure/power-bi-embedded/
     topicHref: /azure/power-bi-embedded/
@@ -928,9 +800,6 @@ items:
   - name: Role-based access control
     tocHref: /azure/role-based-access-control/
     topicHref: /azure/role-based-access-control/
-  - name: Service Health
-    tocHref: /azure/service-health/
-    topicHref: /azure/service-health/
   - name: Scheduler
     tocHref: /azure/scheduler/
     topicHref: /azure/scheduler/
@@ -959,9 +828,6 @@ items:
     - name: Microsoft Defender External Attack Surface Management
       tocHref: /azure/external-attack-surface-management/
       topicHref: /azure/external-attack-surface-management/
-  - name: Service Fabric
-    tocHref: /azure/service-fabric/
-    topicHref: /azure/service-fabric/
   - name: Service Fabric Mesh
     tocHref: /azure/service-fabric-mesh/
     topicHref: /azure/service-fabric-mesh/
@@ -1034,9 +900,6 @@ items:
   - name: Stream Analytics
     tocHref: /azure/stream-analytics/
     topicHref: /azure/stream-analytics/
-  - name: Virtual Machine Scale Sets
-    tocHref: /azure/virtual-machine-scale-sets/
-    topicHref: /azure/virtual-machine-scale-sets/
   - name: Virtual Machines
     tocHref: /azure/virtual-machines/
     topicHref: /azure/virtual-machines/
@@ -1051,12 +914,6 @@ items:
       - name: High Performance Computing
         tocHref: /azure/virtual-machines/workloads/hpc/
         topicHref: /azure/virtual-machines/linux/high-performance-computing?toc=%2fazure%2fvirtual-machines%2fworkloads%2fhpc%2ftoc.json
-      - name: Oracle
-        tocHref: /azure/virtual-machines/workloads/oracle/
-        topicHref: /azure/virtual-machines/workloads/oracle/index
-      - name: Mainframe rehosting
-        tocHref: /azure/virtual-machines/workloads/mainframe-rehosting/
-        topicHref: /azure/virtual-machines/workloads/mainframe-rehosting/overview
     - name: Linux
       tocHref: /azure/virtual-machines/linux/
       topicHref: /azure/virtual-machines/linux/

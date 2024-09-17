@@ -18,7 +18,7 @@ The tool discovers application technology usage through static code analysis, pr
 
 This tool is open source and is based on [WindUp](https://github.com/windup), a project created by Red Hat and published under the [Eclipse Public License](https://github.com/windup/windup/blob/master/LICENSE).
 
-## When should I use Azure Migrate application and code assessment?
+## Overview
 
 The tool is designed to help organizations modernize their Java applications in a way that reduces costs and enables faster innovation. The tool uses advanced analysis techniques to understand the structure and dependencies of any Java application, and provides guidance on how to refactor and migrate the applications to Azure.
 
@@ -56,11 +56,9 @@ When the tool assesses for Cloud Readiness and related Azure services, it can al
 * Azure Key Vault
 * Azure Front Door
 
-## How to use Azure Migrate application and code assessment for Java
+## Download
 
 To use the `appcat` CLI, you must download the ZIP file described in the next section, and have a compatible JDK 11 or JDK 17 installation on your computer. The `appcat` CLI runs on any Java-compatible environment such as Windows, Linux, or Mac, both for Intel, Arm, and Apple Silicon hardware. We recommend you use the [Microsoft Build of OpenJDK](/java/openjdk). 
-
-### Download
 
 > [!div class="nextstepaction"]
 > [Download Azure Migrate application and code assessment for Java 6.3.0.9](https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-6.3.0.9-preview.zip). Updated on 2024-08-06.
@@ -80,9 +78,18 @@ The following previous releases are also available for download:
  - [Azure Migrate application and code assessment for Java 6.3.0.8](https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-6.3.0.8-preview.zip). Released on March, 2024.
  - [Azure Migrate application and code assessment for Java 6.3.0.7](https://aka.ms/appcat/azure-migrate-appcat-for-java-cli-6.3.0.7-preview.zip). Released on November, 2023.
 
-### Get started with appcat
+## Get started
 
-Unzip the zip file in a folder of your choice. You then get the following directory structure:
+To run `appcat`, make sure you have a supported JDK installed. The tool supports the following JDKs:
+
+* Microsoft Build of OpenJDK 11
+* Microsoft Build of OpenJDK 17
+* Eclipse Temurin™ JDK 11
+* Eclipse Temurin™ JDK 17
+
+After you have a valid JDK installed, make sure its installation directory is properly configured in the `JAVA_HOME` environment variable.
+
+To continue, download and unzip the package in a folder of your choice. You then get the following directory structure:
 
 ```
 appcat-cli-<version>    # APPCAT_HOME
@@ -122,7 +129,7 @@ The following guides provide the main documentation for `appcat` for Java:
 * [CLI Usage Guide](https://azure.github.io/appcat-docs/cli/)
 * [Rules Development Guide](https://azure.github.io/appcat-docs/rules-development-guide/)
 
-## Discover technology usage and Cloud readiness without an Azure service in mind
+### Discover technology usage and Cloud readiness without an Azure service in mind
 
 Discovery of technologies and Cloud readiness targets provide great insight into application replatform and modernization to the Cloud. The tool scans the application and its components to gain a comprehensive understanding of its structure, architecture, and dependencies. It also finds potential issues that might be challenging in a Cloud environment. The `discovery` target in particular is used to create a detailed inventory of the application and its components. This inventory serves as the basis for further analysis and planning. For more information, see the [Discovery report](#discovery-report) section.
 
@@ -138,7 +145,7 @@ This type of report is useful when you don't have a specific Azure service in mi
 
 The tool always performs the `discovery` whether or not you include that value in the `--target` parameter.
 
-## Assess a Java application
+### Assess a Java application
 
 The *assessment* phase is where the `appcat` CLI analyzes the application and its components to determine its suitability for replatorming and to identify any potential challenges or limitations. This phase involves analyzing the application code and checking its compliance with the selected targets.
 
@@ -319,7 +326,7 @@ The complete guide for Rules Development is available at [azure.github.io/appcat
 
 ### 6.3.0.9
 
-This release contains the following fixes to the known issues previously on 6.3.0.8, and includes a set of new rules. For more information, see below.
+This release contains the following fixes and includes a set of new rules. For more information, see below.
 
 - Resolved an issue with the `localhost-java-00001` rule.
 - Introduced new rules for identifying technologies such as AWS S3, AWS SQS, Alibaba Cloud OSS, Alibaba Cloud SMS, Alibaba Scheduler X, Alibaba Cloud Seata, and Alibaba Rocket MQ.

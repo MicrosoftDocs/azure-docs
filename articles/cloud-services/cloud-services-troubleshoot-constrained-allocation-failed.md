@@ -4,7 +4,7 @@ description: This article shows how to resolve a ConstrainedAllocationFailed exc
 services: cloud-services
 author: hirenshah1
 ms.author: hirshah
-ms.service: cloud-services
+ms.service: azure-cloud-services-classic
 ms.topic: troubleshooting
 ms.date: 07/24/2024
 ms.custom: compute-evergreen

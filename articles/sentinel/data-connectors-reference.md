@@ -3,7 +3,7 @@ title: Find your Microsoft Sentinel data connector | Microsoft Docs
 description: Learn about specific configuration steps for Microsoft Sentinel data connectors.
 author: cwatson-cat
 ms.topic: reference
-ms.date: 07/03/2024
+ms.date: 08/26/2024
 ms.custom: linux-related-content
 ms.author: cwatson
 appliesto:
@@ -43,6 +43,13 @@ Log collection from many security appliances and devices are supported by the da
 - [Syslog via AMA data connector - Configure specific appliance or device for Microsoft Sentinel data ingestion](unified-connector-syslog-device.md)
 
 Contact the solution provider for more information or where information is unavailable for the appliance or device.
+
+## Custom Logs via AMA connector
+
+Filter and ingest logs in text-file format from network or security applications installed on Windows or Linux machines by using the **Custom Logs via AMA connector** in Microsoft Sentinel. For more information, see the following articles:
+
+- [Collect logs from text files with the Azure Monitor Agent and ingest to Microsoft Sentinel](/azure/sentinel/connect-custom-logs-ama?tabs=portal)
+- [Custom Logs via AMA data connector - Configure data ingestion to Microsoft Sentinel from specific applications](/azure/sentinel/unified-connector-custom-device)
 
 ## Codeless connector platform connectors
 
@@ -477,7 +484,7 @@ For more information about the codeless connector platform, see [Create a codele
 - [[Recommended] Forcepoint NGFW via AMA](data-connectors/recommended-forcepoint-ngfw-via-ama.md)
 - [Barracuda CloudGen Firewall](data-connectors/barracuda-cloudgen-firewall.md)
 - [Exchange Security Insights Online Collector (using Azure Functions)](data-connectors/exchange-security-insights-online-collector.md)
-- [Exchange Security Insights On-Premise Collector](data-connectors/exchange-security-insights-on-premise-collector.md)
+- [Exchange Security Insights On-Premises Collector](data-connectors/exchange-security-insights-on-premises-collector.md)
 - [Microsoft Exchange Logs and Events](data-connectors/microsoft-exchange-logs-and-events.md)
 - [Forcepoint DLP](data-connectors/forcepoint-dlp.md)
 - [MISP2Sentinel](data-connectors/misp2sentinel.md)

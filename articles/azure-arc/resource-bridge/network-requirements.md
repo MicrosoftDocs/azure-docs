@@ -19,16 +19,7 @@ Arc resource bridge communicates outbound securely to Azure Arc over TCP port 44
 
 > [!NOTE]
 > The URLs listed here are required for Arc resource bridge only. Other Arc products (such as Arc-enabled VMware vSphere) may have additional required URLs. For details, see [Azure Arc network requirements](../network-requirements-consolidated.md#azure-arc-enabled-vmware-vsphere).
-
-## Designated IPs used by Arc resource bridge
-
-When Arc resource bridge is deployed, there are designated IPs used exclusively by the appliance VM for the Kubernetes pods and services. These IPs can only be used for Arc resource bridge and can’t be used by any other service. If another service already uses an IP address within these ranges, please submit a support ticket.
-
-
-| Service|Designated Arc resource bridge IPs|
-| -------- | -------- |
-|Arc resource bridge Kubernetes pods   |10.244.0.0/16 |
-| Arc resource bridge Kubernetes services| 10.96.0.0/12  |
+> 
 
 ## SSL proxy configuration
 

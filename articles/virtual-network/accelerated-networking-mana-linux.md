@@ -102,5 +102,5 @@ $ ethtool -S eth0 | grep -E "^[ \t]+vf"
 ## Next steps
 
 - [TCP/IP performance tuning for Azure VMs](./virtual-network-tcpip-performance-tuning.md)
-- [Proximity placement groups](../virtual-machines/co-location.md)
+- [Proximity placement groups](/azure/virtual-machines/co-location)
 - [Monitoring Azure virtual networks](./monitor-virtual-network.md)

@@ -34,8 +34,8 @@ Use the following steps to create all the Azure resources that the app depends o
    | **Subscription**               | Your subscription name.           | The Azure subscription that you want to use for your server. If you have multiple subscriptions, choose the subscription in which you'd like to be billed for the resource. |
    | **Resource group**             | *myresourcegroup*                 | A new resource group name or an existing one from your subscription.                                                                                                        |
    | **Region**                     | The region closest to your users. | The region is used to create the resource group.                                                                                                                            |
-   | **Postgre SQL Admin Password** | N/A                               | The password for the PostgreSQL Server administrator.                                                                                                                       |
-   | **Postgre SQL User Password**  | N/A                               | The password for the PostgreSQL application user, which is used in the application.                                                                                         |
+   | **PostgreSQL Admin Password**  | N/A                               | The password for the PostgreSQL Server administrator.                                                                                                                       |
+   | **PostgreSQL User Password**   | N/A                               | The password for the PostgreSQL application user, which is used in the application.                                                                                         |
 
    :::image type="content" source="../../media/quickstart-deploy-web-app/custom-deployment.png" alt-text="Screenshot of the Azure portal that shows the custom deployment." lightbox="../../media/quickstart-deploy-web-app/custom-deployment.png":::
 

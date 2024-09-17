@@ -3,11 +3,14 @@ title: Limit Azure Automation Change Tracking and Inventory deployment scope
 description: This article tells how to work with scope configurations to limit the scope of a Change Tracking and Inventory deployment.
 services: automation
 ms.subservice: change-inventory-management
-ms.date: 07/22/2024
-ms.topic: conceptual
+ms.date: 09/09/2024
+ms.topic: how-to
+ms.service: azure-automation
 ---
 
 # Limit Change Tracking and Inventory deployment scope
+
+[!INCLUDE [./log-analytics-retirement-announcement.md](../includes/log-analytics-retirement-announcement.md)]
 
 This article describes how to work with scope configurations when using the [Change Tracking and Inventory](overview.md) feature to deploy changes to your VMs. For more information, see [Targeting monitoring solutions in Azure Monitor (Preview)](/previous-versions/azure/azure-monitor/insights/solution-targeting).
 

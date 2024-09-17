@@ -59,7 +59,7 @@ In this tutorial, you learn how to:
 
 1. Navigate to the VM you created in the preceding step and connect to the virtual machine.
 
-   If you need help with connecting to the VM, see [connect to a virtual machine](../virtual-machines/windows/connect-logon.md#connect-to-the-virtual-machine) for details.
+   If you need help with connecting to the VM, see [connect to a virtual machine](/azure/virtual-machines/windows/connect-logon#connect-to-the-virtual-machine) for details.
 
 1. In the Windows VM, open a browser and navigate to the vCenter Server and NSX Manager URLs in two tabs.
 

@@ -23,7 +23,7 @@ sections:
           How can I deploy DCsv2 series VMs on Azure?
         answer: |
           Here are some ways you can deploy a DCsv2 VM:
-             - Using an [Azure Resource Manager Template](../virtual-machines/windows/template-description.md)
+             - Using an [Azure Resource Manager Template](/azure/virtual-machines/windows/template-description)
              - From the [Azure portal](https://portal.azure.com/#create/hub)
              - In the [Azure Confidential Computing (Virtual Machine)](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-azure-compute.acc-virtual-machine-v2?tab=overview) marketplace solution template. The marketplace solution template will help constrain a customer to the supported scenarios (regions, images, availability, disk encryption).
 
@@ -31,14 +31,14 @@ sections:
           How can I deploy DCsv3 or DCdsv3 series VMs on Azure?
         answer: |
           The v3 Intel SGX VMs currently in preview. You can deploy them the same way you can deploy a v2 Intel SGX VM:
-             - Using an [Azure Resource Manager Template](../virtual-machines/windows/template-description.md)
+             - Using an [Azure Resource Manager Template](/azure/virtual-machines/windows/template-description)
              - From the [Azure portal](https://portal.azure.com/#create/hub)
              - In the [Azure Confidential Computing (Virtual Machine)](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-azure-compute.acc-virtual-machine-v2?tab=overview) marketplace solution template. The marketplace solution template will help constrain a customer to the supported scenarios (regions, images, availability, disk encryption).
 
       - question: |
           Will all OS images work with Intel SGX virtual machines?
         answer: |
-          No. The virtual machines can only be deployed on Generation 2 operating machines with Ubuntu Server 18.04, Ubuntu Server 20.04, and Windows Server 2019 Datacenter. Read more about Gen 2 VMs on [Linux](../virtual-machines/generation-2.md) and [Windows](../virtual-machines/generation-2.md)
+          No. The virtual machines can only be deployed on Generation 2 operating machines with Ubuntu Server 18.04, Ubuntu Server 20.04, and Windows Server 2019 Datacenter. Read more about Gen 2 VMs on [Linux](/azure/virtual-machines/generation-2) and [Windows](/azure/virtual-machines/generation-2)
 
       - question: |
           Intel SGX virtual machines are grayed out in the portal and I can't select one

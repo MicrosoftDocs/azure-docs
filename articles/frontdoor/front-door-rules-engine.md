@@ -7,7 +7,7 @@ author: duongau
 ms.service: azure-frontdoor
 ms.topic: conceptual
 ms.custom: devx-track-arm-template
-ms.date: 05/15/2023
+ms.date: 08/12/2024
 ms.author: duau
 zone_pivot_groups: front-door-tiers
 ---
@@ -32,11 +32,11 @@ A rule set is a customized rules engine that groups a combination of rules into 
 
 * Add, modify, or remove request/response header to hide sensitive information or capture important information through headers.
 
-* Support server variables to dynamically change the request header, response headers or URL rewrite paths/query strings. For example, when a new page load or when a form gets posted. Server variable is currently supported in **[rule set actions](front-door-rules-engine-actions.md)** only.
+* Support server variables to dynamically change the request header, response headers, or URL rewrite paths/query strings. For example, when a new page load or when a form gets posted. Server variable is currently supported in **[rule set actions](front-door-rules-engine-actions.md)** only.
 
 ## Architecture
 
-Rule sets handle requests at the Front Door edge. When a request arrives at your Front Door endpoint, WAF is processed first, followed by the settings configured in route. Those settings include the rule set associated to the route. Rule sets are processed in the order they appear under the routing configuration. Rules in a rule set also get processed in the order they appear. In order for all the actions in each rule to run, all the match conditions within a rule have to be met. If a request doesn't match any of the conditions in your rule set configuration, then only the default route settings get applied.
+Rule sets handle requests at the Front Door edge. When a request arrives at your Front Door endpoint, WAF (Web Application Firewall) is processed first, followed by the settings configured in route. Those settings include the rule set associated to the route. Rule sets are processed in the order they appear under the routing configuration. Rules in a rule set also get processed in the order they appear. In order for all the actions in each rule to run, all the match conditions within a rule have to be met. If a request doesn't match any of the conditions in your rule set configuration, then only the default route settings get applied.
 
 If the **Stop evaluating remaining rules** is selected, then any remaining rule sets associated with the route don't get ran.  
 
@@ -56,7 +56,7 @@ With a Front Door rule set, you can create any combination of configurations, ea
 
 * *Match condition*: There are many match conditions that you can configure to parse an incoming request. A rule can contain up to 10 match conditions. Match conditions are evaluated with an **AND** operator. *Regular expression is supported in conditions*. A full list of match conditions can be found in [Rule set match conditions](rules-match-conditions.md).
 
-* *Action*: An action dictates how Front Door handles the incoming requests based on the matching conditions. You can modify caching behaviors, modify request headers, response headers, set URL rewrite and URL redirection. *Server variables are supported with Action*. A rule can contain up to five actions. A full list of actions can be found in [Rule set actions](front-door-rules-engine-actions.md).
+* *Action*: An action dictates how Front Door handles the incoming requests based on the matching conditions. You can modify caching behaviors, modify request headers, response headers, set URL rewrite, and URL redirection. *Server variables are supported with Action*. A rule can contain up to five actions. A full list of actions can be found in [Rule set actions](front-door-rules-engine-actions.md).
 
 ## ARM template support
 
@@ -64,7 +64,7 @@ Rule sets can be configured using Azure Resource Manager templates. For an examp
 
 ## Limitations
 
-For information about quota limits, refer to [Front Door limits, quotas and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-front-door-standard-and-premium-service-limits).
+For information about quota limits, refer to [Front Door limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md#azure-front-door-standard-and-premium-service-limits).
 
 ## Next steps
 
@@ -88,7 +88,7 @@ A Rules engine configuration allows you to customize how HTTP requests get handl
 
 ## Architecture 
 
-Rules engine handles requests at the edge. When a request enters your Azure Front Door (classic) endpoint, WAF is processed first, followed by the Rules engine configuration associated with your frontend domain. If a Rules engine configuration gets processed, that means a match condition has been met. In order for all actions in each rule to be processed, all the match conditions within a rule has to be met. If a request doesn't match any of the conditions in your Rules engine configuration, then the default routing configuration is processed. 
+Rules engine handles requests at the edge. When a request enters your Azure Front Door (classic) endpoint, WAF is processed first, followed by the Rules engine configuration associated with your frontend domain. If a Rules engine configuration gets processed, that means a match condition was found. In order for all actions in each rule to be processed, all the match conditions within a rule has to be met. If a request doesn't match any of the conditions in your Rules engine configuration, then the default routing configuration is processed. 
 
 For example, in the following diagram, a Rules engine is configured to append a response header. The header changes the max-age of the cache control if the request file has an extension of *.jpg*. 
 
@@ -107,7 +107,7 @@ In Azure Front Door (classic) you can create Rules engine configurations of many
 - *Rules engine configuration*: A set of rules that are applied to single route. Each configuration is limited to 25 rules. You can create up to 10 configurations. 
 - *Rules engine rule*: A rule composed of up to 10 match conditions and 5 actions.
 - *Match condition*: There are many match conditions that can be utilized to parse your incoming requests. A rule can contain up to 10 match conditions. Match conditions are evaluated with an **AND** operator. For a full list of match conditions, see [Rules match conditions](rules-match-conditions.md). 
-- *Action*: Actions dictate what happens to your incoming requests - request/response header actions, forwarding, redirects, and rewrites are all available today. A rule can contain up to five actions; however, a rule may only contain one route configuration override. For a full list of actions, see [Rules actions](front-door-rules-engine-actions.md).
+- *Action*: Actions dictate what happens to your incoming requests - request/response header actions, forwarding, redirects, and rewrites are all available today. A rule can contain up to five actions; however, a rule might only contain one route configuration override. For a full list of actions, see [Rules actions](front-door-rules-engine-actions.md).
 
 ## Next steps
 

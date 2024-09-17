@@ -1,14 +1,16 @@
 ---
 title: Using miscellaneous files
 description: Using miscellaneous files with Trino clusters in HDInsight on AKS
-ms.service: hdinsight-aks
+ms.service: azure-hdinsight-on-aks
 ms.topic: how-to 
 ms.date: 10/19/2023
 ---
 
 # Using miscellaneous files
 
+[!INCLUDE [retirement-notice](../includes/retirement-notice.md)]
 [!INCLUDE [feature-in-preview](../includes/feature-in-preview.md)]
+
 
 This article provides details on how to specify and use miscellaneous files configuration.
 

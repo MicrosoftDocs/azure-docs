@@ -14,6 +14,14 @@ items:
       href: how-to-set-up-appliance-vmware.md
   - name: Import using RVTools XLSX (preview)
     href: tutorial-import-vmware-using-rvtools-xlsx.md
+- name: Analyze dependencies  
+  items:
+  - name: Dependency analysis
+    href: ../concepts-dependency-visualization.md?context=/azure/migrate/context/vmware-context
+  - name: Analyze server dependencies (agentless) - Azure Migrate product documentation
+    href: ../how-to-create-group-machine-dependencies-agentless.md?context=/azure/migrate/context/vmware-context
+  - name: Analyze server dependencies (agent-based) - Azure Migrate product documentation
+    href: ../how-to-create-group-machine-dependencies.md?context=/azure/migrate/context/vmware-context
 - name: Decide
   items:
   - name: Build a business case (preview)
@@ -64,9 +72,9 @@ items:
   - name: Azure VMware Solutions (AVS)
     href: /azure/azure-vmware/
   - name: Security baseline
-    href: /security/benchmark/azure/baselines/azure-migrate-security-baseline?context=/azure/migrate/context/migrate-context
+    href: /security/benchmark/azure/baselines/azure-migrate-security-baseline?context=/azure/migrate/context/vmware-context
   - name: Example architecture
-    href: /azure/cloud-adoption-framework/scenarios/azure-vmware/example-architectures?context=/azure/migrate/context/migrate-context
+    href: /azure/cloud-adoption-framework/scenarios/azure-vmware/example-architectures?context=/azure/migrate/context/vmware-context
   - name: Azure Migrate product documentation
     href: ../index.yml
   - name: Pricing
@@ -74,27 +82,27 @@ items:
   - name: Well Architected Framework (WAF)
     items:
     - name: Get started
-      href: /azure/well-architected/azure-vmware/overview?context=/azure/migrate/context/migrate-context
+      href: /azure/well-architected/azure-vmware/overview?context=/azure/migrate/context/vmware-context
     - name: Design principles
-      href: /azure/well-architected/azure-vmware/design-principles?context=/azure/migrate/context/migrate-context
+      href: /azure/well-architected/azure-vmware/design-principles?context=/azure/migrate/context/vmware-context
     - name: Design areas
       items:
       - name: Infrastructure
-        href: /azure/well-architected/azure-vmware/infrastructure?context=/azure/migrate/context/migrate-context
+        href: /azure/well-architected/azure-vmware/infrastructure?context=/azure/migrate/context/vmware-context
       - name: Applications
-        href: /azure/well-architected/azure-vmware/application-platform?context=/azure/migrate/context/migrate-context
+        href: /azure/well-architected/azure-vmware/application-platform?context=/azure/migrate/context/vmware-context
       - name: Networking
-        href: /azure/well-architected/azure-vmware/networking?context=/azure/migrate/context/migrate-context
+        href: /azure/well-architected/azure-vmware/networking?context=/azure/migrate/context/vmware-context
       - name: Monitoring
-        href: /azure/well-architected/azure-vmware/monitoring?context=/azure/migrate/context/migrate-context
+        href: /azure/well-architected/azure-vmware/monitoring?context=/azure/migrate/context/vmware-context
       - name: Security
-        href: /azure/well-architected/azure-vmware/security?context=/azure/migrate/context/migrate-context
+        href: /azure/well-architected/azure-vmware/security?context=/azure/migrate/context/vmware-context
       - name: Operations
-        href: /azure/well-architected/azure-vmware/operations?context=/azure/migrate/context/migrate-context
+        href: /azure/well-architected/azure-vmware/operations?context=/azure/migrate/context/vmware-context
     - name: Azure landing zone integration
-      href: /azure/well-architected/azure-vmware/landing-zone-integration?context=/azure/migrate/context/migrate-context
+      href: /azure/well-architected/azure-vmware/landing-zone-integration?context=/azure/migrate/context/vmware-context
     - name: Assessment
-      href: /azure/well-architected/azure-vmware/assessment?context=/azure/migrate/context/migrate-context
+      href: /azure/well-architected/azure-vmware/assessment?context=/azure/migrate/context/vmware-context
   - name: UserVoice
     href: https://aka.ms/AzureMigrateUservoice
   - name: Microsoft Q&A question page
