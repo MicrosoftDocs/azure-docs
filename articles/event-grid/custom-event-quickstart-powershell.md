@@ -8,15 +8,18 @@ ms.custom: devx-track-azurepowershell, mode-api
 
 # Quickstart: Route custom events to web endpoint with PowerShell and Event Grid
 
-Azure Event Grid is an eventing service for the cloud. In this article, you use the Azure PowerShell to create a custom topic, subscribe to the topic, and trigger the event to view the result. Typically, you send events to an endpoint that processes the event data and takes actions. However, to simplify this article, you send the events to a web app that collects and displays the messages.
+In this article, you use the Azure PowerShell to create a custom topic, subscribe to the topic, and trigger the event to view the result. Typically, you send events to an endpoint that processes the event data and takes actions. However, to simplify this article, you send the events to a web app that collects and displays the messages.
+
+> [!NOTE]
+> If you are new to Azure Event Grid, see [What's Azure Event Grid](overview.md) to get an overview of the service before going through this tutorial. 
 
 When you're finished, you see that the event data has been sent to the web app.
 
 ![View results](./media/custom-event-quickstart-powershell/view-result.png)
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
-[!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note.md](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 This article requires that you're running the latest version of Azure PowerShell. If you need to install or upgrade, see [Install and configure Azure PowerShell](/powershell/azure/install-azure-powershell).
 
@@ -36,7 +39,7 @@ New-AzResourceGroup -Name gridResourceGroup -Location westus2
 
 ## Create a custom topic
 
-An Event Grid topic provides a user-defined endpoint that you post your events to. The following example creates the custom topic in your resource group. Replace `<your-topic-name>` with a unique name for your topic. The topic name must be unique because it's part of the DNS entry. Additionally, it must be between 3-50 characters and contain only values a-z, A-Z, 0-9, and "-"
+An Event Grid topic provides a user-defined endpoint that you post your events to. The following example creates the custom topic in your resource group. Replace `<your-topic-name>` with a unique name for your topic. The topic name must be unique because it's part of the Domain Name System (DNS) entry. Additionally, it must be between 3-50 characters and contain only values a-z, A-Z, 0-9, and "-"
 
 ```powershell-interactive
 $topicname="<your-topic-name>"

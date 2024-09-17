@@ -2,7 +2,7 @@
 title: Enable VM extension using Azure Resource Manager template
 description: This article describes how to deploy virtual machine extensions to Azure Arc-enabled servers running in hybrid cloud environments using an Azure Resource Manager template.
 ms.date: 06/02/2022
-ms.topic: conceptual
+ms.topic: how-to
 ms.custom: devx-track-arm-template
 ---
 
@@ -16,7 +16,7 @@ VM extensions can be added to an Azure Resource Manager template and executed wi
 >While multiple extensions can be batched together and processed, they are installed serially. Once the first extension installation is complete, installation of the next extension is attempted.
 
 > [!NOTE]
-> Azure Arc-enabled servers does not support deploying and managing VM extensions to Azure virtual machines. For Azure VMs, see the following [VM extension overview](../../virtual-machines/extensions/overview.md) article.
+> Azure Arc-enabled servers does not support deploying and managing VM extensions to Azure virtual machines. For Azure VMs, see the following [VM extension overview](/azure/virtual-machines/extensions/overview) article.
 
 ## Deploy the Log Analytics VM extension
 
@@ -138,7 +138,7 @@ New-AzResourceGroupDeployment -ResourceGroupName "ContosoEngineering" -TemplateF
 
 ## Deploy the Custom Script extension
 
-To use the Custom Script extension, the following sample is provided to run on Windows and Linux. If you are unfamiliar with the Custom Script extension, see [Custom Script extension for Windows](../../virtual-machines/extensions/custom-script-windows.md) or [Custom Script extension for Linux](../../virtual-machines/extensions/custom-script-linux.md). There are a couple of differing characteristics that you should understand when using this extension with hybrid machines:
+To use the Custom Script extension, the following sample is provided to run on Windows and Linux. If you are unfamiliar with the Custom Script extension, see [Custom Script extension for Windows](/azure/virtual-machines/extensions/custom-script-windows) or [Custom Script extension for Linux](/azure/virtual-machines/extensions/custom-script-linux). There are a couple of differing characteristics that you should understand when using this extension with hybrid machines:
 
 * The list of supported operating systems with the Azure VM Custom Script extension is not applicable to Azure Arc-enabled servers. The list of supported OSs for Azure Arc-enabled servers can be found [here](prerequisites.md#supported-operating-systems).
 
@@ -294,7 +294,7 @@ The Custom Script extension configuration specifies things like script location 
 
 ## Deploy the Dependency agent extension
 
-To use the Azure Monitor Dependency agent extension, the following sample is provided to run on Windows and Linux. If you are unfamiliar with the Dependency agent, see [Overview of Azure Monitor agents](../../azure-monitor/vm/vminsights-dependency-agent-maintenance.md).
+To use the Azure Monitor Dependency agent extension, the following sample is provided to run on Windows and Linux. If you are unfamiliar with the Dependency agent, see [Overview of Azure Monitor agents](/azure/azure-monitor/vm/vminsights-dependency-agent-maintenance).
 
 ### Template file for Linux
 
@@ -511,7 +511,7 @@ The following JSON shows the schema for the Key Vault VM extension (preview). Th
 > [!NOTE]
 > Your observed certificates URLs should be of the form `https://myVaultName.vault.azure.net/secrets/myCertName`.
 >
-> This is because the `/secrets` path returns the full certificate, including the private key, while the `/certificates` path does not. More information about certificates can be found here: [Key Vault Certificates](../../key-vault/general/about-keys-secrets-certificates.md)
+> This is because the `/secrets` path returns the full certificate, including the private key, while the `/certificates` path does not. More information about certificates can be found here: [Key Vault Certificates](/azure/key-vault/general/about-keys-secrets-certificates)
 
 ### Template deployment
 

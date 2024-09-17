@@ -1,8 +1,8 @@
 ---
 title: 'Quickstart: Deploy an Azure Linux Container Host for AKS cluster by using Terraform'
 description: Learn how to quickly create an Azure Linux Container Host for AKS cluster using Terraform.
-author: htaubenfeld
-ms.author: htaubenfeld
+author: suhuruli
+ms.author: suhuruli
 ms.service: microsoft-linux
 ms.custom: devx-track-terraform, linux-related-content
 ms.editor: schaffererin
@@ -21,7 +21,7 @@ Get started with the Azure Linux Container Host using Terraform to deploy an Azu
 
 ## Prerequisites
 
-- [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+- [!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 - If you haven't already configured Terraform, you can do so using one of the following options:
   - [Azure Cloud Shell with Bash](/azure/developer/terraform/get-started-cloud-shell-bash?tabs=bash)
@@ -42,7 +42,7 @@ To access AKS nodes, you connect using an SSH key pair (public and private), whi
     ssh-keygen -t rsa -b 4096
     ```
 
-For more information about creating SSH keys, see [Create and manage SSH keys for authentication in Azure](../../articles/virtual-machines/linux/create-ssh-keys-detailed.md).
+For more information about creating SSH keys, see [Create and manage SSH keys for authentication in Azure](/azure/virtual-machines/linux/create-ssh-keys-detailed).
 
 ## Implement the Terraform code
 

@@ -4,7 +4,7 @@ titleSuffix: Azure Private 5G Core
 description: This how-to guide shows how to configure a service and SIM policy using an Azure Resource Manager (ARM) template. 
 author: robswain
 ms.author: robswain
-ms.service: private-5g-core
+ms.service: azure-private-5g-core
 ms.topic: how-to
 ms.date: 03/21/2022
 ms.custom: template-how-to, devx-track-arm-template
@@ -14,7 +14,7 @@ ms.custom: template-how-to, devx-track-arm-template
 
 *Services* and *SIM policies* are the key components of Azure Private 5G Core's customizable policy control, which allows you to provide flexible traffic handling. You can determine exactly how your packet core instance applies quality of service (QoS) characteristics to service data flows (SDFs) to meet your deployment's needs. For more information, see [Policy control](policy-control.md). In this how-to guide, you'll learn how to use an Azure Resource Manager template (ARM template) to create a simple service and SIM policy.
 
-[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
+[!INCLUDE [About Azure Resource Manager](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-introduction.md)]
 
 If your environment meets the prerequisites and you're familiar with using ARM templates, select the **Deploy to Azure** button. The template will open in the Azure portal.
 

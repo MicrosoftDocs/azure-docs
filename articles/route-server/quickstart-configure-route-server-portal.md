@@ -1,117 +1,109 @@
 ---
-title: 'Quickstart: Create and configure Route Server - Azure portal'
-description: In this quickstart, you learn how to create and configure an Azure Route Server using the Azure portal.
+title: 'Quickstart: Create Azure Route Server - Azure portal'
+description: In this quickstart, you learn how to create an Azure Route Server using the Azure portal.
 author: halkazwini
 ms.author: halkazwini
-ms.service: route-server
+ms.service: azure-route-server
 ms.topic: quickstart
-ms.date: 08/11/2023
-ms.custom: mode-ui, template-quickstart
+ms.date: 09/17/2024
+ms.custom: mode-ui
 ---
 
-# Quickstart: Create and configure Route Server using the Azure portal
+# Quickstart: Create Azure Route Server using the Azure portal
 
-This article helps you configure Azure Route Server to peer with a Network Virtual Appliance (NVA) in your virtual network using the Azure portal. Azure Route Server will learn routes from the NVA and program them on the virtual machines in the virtual network. Azure Route Server will also advertise the virtual network routes to the NVA. For more information, read [Azure Route Server](overview.md).
+In this quickstart, you learn how to create an Azure Route Server to peer with a Network Virtual Appliance (NVA) in your virtual network using the Azure portal.
 
-:::image type="content" source="media/quickstart-configure-route-server-portal/environment-diagram.png" alt-text="Diagram of Route Server deployment environment using the Azure portal." border="false":::
+:::image type="content" source="media/quickstart-configure-route-server-portal/environment-diagram.png" alt-text="Diagram of Route Server deployment environment using the Azure portal." lightbox="media/quickstart-configure-route-server-portal/environment-diagram.png":::
+
+If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
 [!INCLUDE [route server preview note](../../includes/route-server-note-preview-date.md)]
 
 ## Prerequisites
 
-* An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* Review the [service limits for Azure Route Server](route-server-faq.md#limitations).
+- An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- Review the [service limits for Azure Route Server](route-server-faq.md#limitations).
 
 ## Create a Route Server
 
-### Sign in to your Azure account and select your subscription
-
-From a browser, navigate to the [Azure portal](https://portal.azure.com) and sign in with your Azure account.
-
-### Create a Route Server
+In this section, you create a route server.
 
 1. Sign in to [Azure portal](https://portal.azure.com), search and select **Route Server**.
 
-1. Select **+ Create new route server**.
+1. In the search box at the top of the portal, enter ***route server***, and select **Route Server** from the search results. 
 
-    :::image type="content" source="./media/quickstart-configure-route-server-portal/route-server-landing-page.png" alt-text="Screenshot of Route Server landing page."::: 
+    :::image type="content" source="./media/quickstart-configure-route-server-portal/portal-search.png" alt-text="Screenshot of searching for Route Server in the Azure portal." lightbox="./media/quickstart-configure-route-server-portal/portal-search.png":::
 
-1. On the **Create a Route Server** page, enter, or select the required information.
+1. On the **Route Servers** page, select **+ Create**. 
 
-    :::image type="content" source="./media/quickstart-configure-route-server-portal/create-route-server-page.png" alt-text="Screenshot of create Route Server page.":::     
+1. On the **Basics** tab of **Create a Route Server**, enter, or select the following information:
+
 
     | Settings | Value |
     |----------|-------|
-    | Subscription | Select the Azure subscription you want to use to deploy the Route Server. |
-    | Resource group | Select a resource group to create the Route Server in. If you don't have an existing resource group, you can create a new one. |
-    | Name | Enter a name for the Route Server. |
-    | Region | Select the region the Route Server will be created in. Select the same region as the virtual network you created previously to see the virtual network in the drop-down. |
-    | Virtual Network | Select the virtual network in which the Route Server will be created. You can create a new virtual network or use an existing virtual network. If you're using an existing virtual network, make sure the existing virtual network has enough space for a minimum of a /27 subnet to accommodate the Route Server subnet requirement. If you don't see your virtual network from the dropdown, make sure you've selected the correct Resource Group or region. |
-    | Subnet | Once you've created or select a virtual network, the subnet field will appear. This subnet is dedicated to Route Server only. Select **Manage subnet configuration** and create the Azure Route Server subnet. Select **+ Subnet** and create a subnet using the following guidelines:</br><br>- The subnet must be named *RouteServerSubnet*.</br><br>- The subnet must be a minimum of /27 or larger.</br> |
-    | Public IP address | Create a new or select an existing Standard public IP resource to assign to the Route Server. To ensure connectivity to the backend service that manages the Route Server configuration, a public IP address is required. |
+    | **Project details** |  |
+    | Subscription | Select the Azure subscription that you want to use to deploy the route server. |
+    | Resource group | Select **Create new**. <br>In **Name**, enter ***RouteServerRG***. <br>Select **OK**. |
+    | **Instance details** |  |
+    | Name | Enter ***myRouteServer***. |
+    | Region | Select **West US** or any region you prefer to create the route server in. |
+    | Routing Preference | Select **ExpressRoute**. Other available options: **VPN** and **ASPath**. |
+    | **Configure virtual networks** |  |
+    | Virtual network | Select **Create new**. <br>In **Name**, enter ***myRouteServerVNet***. <br>In **Address range**, enter ***10.0.0.0/16***. <br>In **Subnet name** and **Address range**, enter ***RouteServerSubnet*** and ***10.0.1.0/27*** respectively. <br>Select **OK**. |
+    | Subnet | Once you created the virtual network and subnet, the **RouteServerSubnet** will populate. <br>- The subnet must be named *RouteServerSubnet*.<br>- The subnet must be a minimum of /27 or larger. |
+    | **Public IP address** |  |
+    | Public IP address | Select **Create new**. or select an existing Standard public IP resource to assign to the Route Server. To ensure connectivity to the backend service that manages the Route Server configuration, a public IP address is required. |
+    | Public IP address name | Enter ***myRouteServerVNet-ip***. A Standard public IP address is required to ensure connectivity to the backend service that manages the route server. |
 
-1. Select **Review + create**, review the summary, and then select **Create**. 
+    :::image type="content" source="./media/quickstart-configure-route-server-portal/create-route-server.png" alt-text="Screenshot that shows the Basics tab or creating a route server." lightbox="./media/quickstart-configure-route-server-portal/create-route-server.png":::     
 
-    > [!NOTE]
-    > The deployment of the Route Server will take about 20 minutes.
+1. Select **Review + create** and then select **Create** after the validation passes.
+
+    [!INCLUDE [Deployment note](../../includes/route-server-note-creation-time.md)]
 
 ## Set up peering with NVA
 
-The section will help you configure BGP peering with your NVA.
+In this section, you learn how to configure BGP peering with a network virtual appliance (NVA).
 
-1. Go to [Route Server](./overview.md) in the Azure portal and select the Route Server you want to configure.
+1. Once the deployment is complete, select **Go to resource** to go to the **myRouteServer**.
 
-    :::image type="content" source="./media/quickstart-configure-route-server-portal/select-route-server.png" alt-text="Screenshot of Route Server list."::: 
+1. Under **Settings**, select **Peers**. 
 
-1. Select **Peers** under *Settings* in the left navigation panel. Then select **+ Add** to add a new peer.
+1. Select **+ Add** to add a peer.
 
-    :::image type="content" source="./media/quickstart-configure-route-server-portal/peers-landing-page.png" alt-text="Screenshot of peers landing page."::: 
+1. On the **Add Peer** page, enter the following information:
 
-1. Enter the following information about your NVA peer.
+    | Setting | Value |
+    | ------- | ----- |
+    | Name | A name to identify the peer. This example uses **myNVA**. |
+    | ASN | The Autonomous System Number (ASN) of the NVA. For more information, see [What Autonomous System Numbers (ASNs) can I use?](route-server-faq.md#what-autonomous-system-numbers-asns-can-i-use) |
+    | IPv4 Address | The private IP address of the NVA that **myRouteServer** will communicate with to establish BGP. |
 
-    :::image type="content" source="./media/quickstart-configure-route-server-portal/add-peer-page.png" alt-text="Screenshot of add peer page.":::
+1. Select **Add** to add the peer.
 
-    | Settings | Value |
-    |----------|-------|
-    | Name | Give a name for the peering between your Route Server and the NVA. |
-    | ASN |  Enter the Autonomous Systems Number (ASN) of your NVA. |
-    | IPv4 Address | Enter the IP address of the NVA the Route Server will communicate with to establish BGP. |
-
-1. Select **Add** to add this peer.
+    :::image type="content" source="./media/quickstart-configure-route-server-portal/add-peer.png" alt-text="Screenshot that shows how to add the NVA to the route server as a peer." lightbox="./media/quickstart-configure-route-server-portal/add-peer.png":::
 
 ## Complete the configuration on the NVA
 
-You'll need the Azure Route Server's peer IPs and ASN to complete the configuration on your NVA to establish a BGP session. You can obtain this information from the overview page your Route Server.
+To complete the peering setup, you must configure the NVA to establish a BGP session with the route server's peer IPs and ASN. You can find the peer IPs and ASN of **myRouteServer** in the **Overview** page:
 
-:::image type="content" source="./media/quickstart-configure-route-server-portal/route-server-overview.png" alt-text="Screenshot of Route Server overview page.":::
+:::image type="content" source="./media/quickstart-configure-route-server-portal/route-server-overview.png" alt-text="Screenshot that shows the Overview page of Route Server." lightbox="./media/quickstart-configure-route-server-portal/route-server-overview.png":::
 
 [!INCLUDE [NVA peering note](../../includes/route-server-note-nva-peering.md)]
 
-## Configure route exchange
-
-If you have a virtual network gateway (ExpressRoute or VPN) in the same virtual network, you can enable *branch-to-branch* traffic to exchange routes between the gateway and the Route Server.
-
-[!INCLUDE [VPN gateway note](../../includes/route-server-note-vpn-gateway.md)]
-
-[!INCLUDE [downtime note](../../includes/route-server-note-vng-downtime.md)]
-
-1. Go to the Route Server that you want to configure.
-
-1. Select **Configuration** under **Settings** in the left navigation panel.
-
-1. Select **Enable** for the **Branch-to-Branch** setting and then select **Save**.
-
-    :::image type="content" source="./media/quickstart-configure-route-server-portal/enable-route-exchange.png" alt-text="Screenshot of how to enable route exchange.":::
-
 ## Clean up resources
 
-If you no longer need the Azure Route Server, select **Delete** from the overview page to deprovision the Route Server.
+When no longer needed, you can delete all resources created in this quickstart by deleting **RouteServerRG** resource group:
 
-:::image type="content" source="./media/quickstart-configure-route-server-portal/delete-route-server.png" alt-text="Screenshot of how to delete Route Server.":::
+1. In the search box at the top of the portal, enter ***RouteServerRG***. Select **RouteServerRG** from the search results.
 
-## Next steps
+1. Select **Delete resource group**.
 
-After you create the Azure Route Server, continue to learn about how Azure Route Server interacts with ExpressRoute and VPN Gateways: 
+1. In **Delete a resource group**, enter ***RouteServerRG***, and then select **Delete**.
+
+1. Select **Delete** to confirm the deletion of the resource group and all its resources.
+
+## Next step
 
 > [!div class="nextstepaction"]
-> [Azure ExpressRoute and Azure VPN support](expressroute-vpn-support.md)
+> [Configure and manage Azure Route Server](configure-route-server.md)

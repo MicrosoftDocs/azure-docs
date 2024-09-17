@@ -136,8 +136,78 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/physical-server-azure-architecture-preview.md",
-            "redirect_url": "/azure/site-recovery/physical-server-azure-architecture-modernized",
+            "source_path_from_root": "/articles/azure-arc/edge-storage-accelerator/how-to-single-node-k3s.md",
+            "redirect_url": "/azure/azure-arc/container-storage/install-cache-volumes",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-arc/edge-storage-accelerator/install-edge-storage-accelerator.md",
+            "redirect_url": "/azure/azure-arc/container-storage/install-edge-volumes",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-arc/edge-storage-accelerator/attach-app.md",
+            "redirect_url": "/azure/azure-arc/container-storage/attach-app",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/azure-arc/edge-storage-accelerator/azure-monitor-kubernetes.md",
+            "redirect_url": "/azure/azure-arc/container-storage/azure-monitor-kubernetes",
+            "redirect_document_id": false
+        },        
+        {
+            "source_path_from_root": "/articles/azure-arc/edge-storage-accelerator/create-pv.md",
+            "redirect_url": "/azure/azure-arc/container-storage/create-persistent-volume",
+            "redirect_document_id": false
+        },        
+        {
+            "source_path_from_root": "/articles/azure-arc/edge-storage-accelerator/create-pvc.md",
+            "redirect_url": "/azure/azure-arc/container-storage/create-persistent-volume-claim",
+            "redirect_document_id": false
+        },        
+        {
+            "source_path_from_root": "/articles/azure-arc/edge-storage-accelerator/index.yml",
+            "redirect_url": "/azure/azure-arc/container-storage/index",
+            "redirect_document_id": false
+        },        
+        {
+            "source_path_from_root": "/articles/azure-arc/edge-storage-accelerator/jumpstart.md",
+            "redirect_url": "/azure/azure-arc/container-storage/jumpstart",
+            "redirect_document_id": false
+        },        
+        {
+            "source_path_from_root": "/articles/azure-arc/edge-storage-accelerator/multi-node-cluster.md",
+            "redirect_url": "/azure/azure-arc/container-storage/multi-node-cluster",
+            "redirect_document_id": false
+        },        
+        {
+            "source_path_from_root": "/articles/azure-arc/edge-storage-accelerator/overview.md",
+            "redirect_url": "/azure/azure-arc/container-storage/overview",
+            "redirect_document_id": false
+        },        
+        {
+            "source_path_from_root": "/articles/azure-arc/edge-storage-accelerator/prepare-linux.md",
+            "redirect_url": "/azure/azure-arc/container-storage/prepare-linux",
+            "redirect_document_id": false
+        },        
+        {
+            "source_path_from_root": "/articles/azure-arc/edge-storage-accelerator/release-notes.md",
+            "redirect_url": "/azure/azure-arc/container-storage/release-notes",
+            "redirect_document_id": false
+        },        
+        {
+            "source_path_from_root": "/articles/azure-arc/edge-storage-accelerator/single-node-cluster.md",
+            "redirect_url": "/azure/azure-arc/container-storage/single-node-cluster",
+            "redirect_document_id": false
+        },        
+        {
+            "source_path_from_root": "/articles/azure-arc/edge-storage-accelerator/support-feedback.md",
+            "redirect_url": "/azure/azure-arc/container-storage/support-feedback",
+            "redirect_document_id": false
+        },        
+        {
+            "source_path_from_root": "/articles/azure-arc/edge-storage-accelerator/third-party-monitoring.md",
+            "redirect_url": "/azure/azure-arc/container-storage/third-party-monitoring",
             "redirect_document_id": false
         }
     ]

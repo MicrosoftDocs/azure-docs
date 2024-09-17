@@ -4,7 +4,7 @@ titleSuffix: Azure DNS
 description: In this tutorial, you learn how to create and configure an Azure DNS alias record to support using your apex domain name with Traffic Manager.
 services: dns
 author: greg-lindsay
-ms.service: dns
+ms.service: azure-dns
 ms.topic: tutorial
 ms.date: 03/08/2024
 ms.author: greglin

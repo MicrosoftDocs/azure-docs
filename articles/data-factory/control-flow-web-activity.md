@@ -4,7 +4,6 @@ titleSuffix: Azure Data Factory & Azure Synapse
 description: Learn how you can use Web Activity, one of the control flow activities supported by Azure Data Factory and Azure Synapse Analytics, to invoke a REST endpoint from a pipeline.
 author: nabhishek
 ms.author: abnarain
-ms.service: data-factory
 ms.subservice: orchestration
 ms.custom: synapse
 ms.topic: conceptual
@@ -159,6 +158,23 @@ Specify the resource uri for which the access token will be requested using the 
 
 > [!NOTE]
 > If your data factory or Synapse workspace is configured with a git repository, you must store your credentials in Azure Key Vault to use basic or client certificate authentication. The service does not store passwords in git.
+
+### Service principal
+
+Specify the tenant ID, service principal ID, and service principal key, using a secure string for the client secret.
+
+```json
+"authentication": {
+            "type": "ServicePrincipal",
+            "tenant": "your_tenant_id",
+            "servicePrincipalId": "your_client_id",
+            "servicePrincipalKey": {
+                "type": "SecureString",
+                "value": "your_client_secret"
+            },
+            "resource": "https://management.azure.com/"
+}
+```
 
 ## Request payload schema
 When you use the POST/PUT method, the body property represents the payload that is sent to the endpoint. You can pass linked services and datasets as part of the payload. Here is the schema for the payload:

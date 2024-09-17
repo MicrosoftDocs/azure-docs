@@ -3,7 +3,7 @@ title: Add device templates in Azure IoT Central with the REST API
 description: How to use the IoT Central REST API to add, update, delete, and manage device templates in an application
 author: dominicbetts
 ms.author: dobett
-ms.date: 06/14/2023
+ms.date: 07/12/2024
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
@@ -18,15 +18,13 @@ Every IoT Central REST API call requires an authorization header. To learn more,
 
 For the reference documentation for the IoT Central REST API, see [Azure IoT Central REST API reference](/rest/api/iotcentral/).
 
-[!INCLUDE [iot-central-postman-collection](../../../includes/iot-central-postman-collection.md)]
-
 To learn how to manage device templates by using the IoT Central UI, see [How to set up device templates](../core/howto-set-up-template.md) and [How to edit device templates](../core/howto-edit-device-template.md)
 
 ## Device templates
 
 A device template contains a device model and view definitions. The REST API lets you manage the device model including cloud property definitions. You must use the UI to create and manage views.
 
-The device model section of a device template specifies the capabilities of a device you want to connect to your application. Capabilities include telemetry, properties, and commands. The model is defined using [DTDL V2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/DTDL.v2.md).
+The device model section of a device template specifies the capabilities of a device you want to connect to your application. Capabilities include telemetry, properties, and commands. The model is defined using [DTDL v2](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/DTDL.v2.md).
 
 > [!NOTE]
 > IoT Central defines some extensions to the DTDL language. To learn more, see [IoT Central extension](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/DTDL.iotcentral.v2.md).
@@ -180,7 +178,7 @@ The request body has some required fields:
 * `@id`: a unique ID in the form of a simple Uniform Resource Name.
 * `@type`: declares that the top-level object is a `"ModelDefinition","DeviceModel"`.
 * `@context`: specifies the DTDL version used for the interface.
-* `contents`: lists the properties, telemetry, and commands that make up your device. The capabilities may be defined in multiple interfaces.
+* `contents`: lists the properties, telemetry, and commands that make up your device. The capabilities can be defined in multiple interfaces.
 * `capabilityModel` : Every device template has a capability model. A relationship is established between each module capability model and a device model. A capability model implements one or more module interfaces.
 
 > [!TIP]
@@ -1308,7 +1306,3 @@ The response to this request looks like the following example:
     ]
 }
 ```
-
-## Next steps
-
-Now that you've learned how to manage device templates with the REST API, a suggested next step is to [How to create device templates from IoT Central GUI](howto-set-up-template.md#create-a-device-template).

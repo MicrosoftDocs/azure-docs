@@ -8,7 +8,7 @@ ms.service: sap-on-azure
 ms.subservice: sap-vm-workloads
 ms.topic: article
 ms.custom: devx-track-azurepowershell, linux-related-content
-ms.date: 04/08/2024
+ms.date: 08/26/2024
 ms.author: radeltch
 ---
 
@@ -22,8 +22,8 @@ This article discusses how to set up Pacemaker on SUSE Linux Enterprise Server (
 [deployment-guide]:deployment-guide.md
 [dbms-guide]:dbms-guide-general.md
 [sap-hana-ha]:sap-hana-high-availability.md
-[virtual-machines-linux-maintenance]:../../virtual-machines/maintenance-and-updates.md#maintenance-that-doesnt-require-a-reboot
-[virtual-machines-windows-maintenance]:../../virtual-machines/maintenance-and-updates.md#maintenance-that-doesnt-require-a-reboot
+[virtual-machines-linux-maintenance]:/azure/virtual-machines/maintenance-and-updates#maintenance-that-doesnt-require-a-reboot
+[virtual-machines-windows-maintenance]:/azure/virtual-machines/maintenance-and-updates#maintenance-that-doesnt-require-a-reboot
 [sles-nfs-guide]:high-availability-guide-suse-nfs.md
 [sles-guide]:high-availability-guide-suse.md
 
@@ -48,7 +48,7 @@ You can configure the SBD device by using either of two options:
 
 - SBD with an Azure shared disk:
   
-  To configure an SBD device, you need to attach at least one [Azure shared disk](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/virtual-machines/disks-shared.md) to all virtual machines that are part of Pacemaker cluster. The advantage of SBD device using an Azure shared disk is that you don't need to deploy additional virtual machines.
+  To configure an SBD device, you need to attach at least one Azure shared disk to all virtual machines that are part of Pacemaker cluster. The advantage of SBD device using an Azure shared disk is that you don't need to deploy additional virtual machines.
   
   ![Diagram of the Azure shared disk SBD device for SLES Pacemaker cluster.](./media/high-availability-guide-suse-pacemaker/azure-shared-disk-sbd-device.png)
   
@@ -56,16 +56,16 @@ You can configure the SBD device by using either of two options:
 
   - An Azure shared disk with Premium SSD is supported as an SBD device.
   - SBD devices that use an Azure shared disk are supported on SLES High Availability 15 SP01 and later.
-  - SBD devices that use an Azure premium shared disk are supported on [locally redundant storage (LRS)](../../virtual-machines/disks-redundancy.md#locally-redundant-storage-for-managed-disks) and [zone-redundant storage (ZRS)](../../virtual-machines/disks-redundancy.md#zone-redundant-storage-for-managed-disks).
+  - SBD devices that use an Azure premium shared disk are supported on [locally redundant storage (LRS)](/azure/virtual-machines/disks-redundancy#locally-redundant-storage-for-managed-disks) and [zone-redundant storage (ZRS)](/azure/virtual-machines/disks-redundancy#zone-redundant-storage-for-managed-disks).
   - Depending on the [type of your deployment](./sap-high-availability-architecture-scenarios.md#comparison-of-different-deployment-types-for-sap-workload), choose the appropriate redundant storage for an Azure shared disk as your SBD device.
   - An SBD device using LRS for Azure premium shared disk (skuName - Premium_LRS) is only supported with deployment in availability set.
   - An SBD device using ZRS for an Azure premium shared disk (skuName - Premium_ZRS) is recommended with deployment in availability zones.
-  - A ZRS for managed disk is currently unavailable in all regions with availability zones. For more information, review the ZRS "Limitations" section in [Redundancy options for managed disks](../../virtual-machines/disks-redundancy.md#limitations).
-  - The Azure shared disk that you use for SBD devices doesn't need to be large. The [maxShares](../../virtual-machines/disks-shared-enable.md#disk-sizes) value determines how many cluster nodes can use the shared disk. For example, you can use P1 or P2 disk sizes for your SBD device on two-node cluster such as SAP ASCS/ERS or SAP HANA scale-up.
-  - For [HANA scale-out with HANA system replication (HSR) and Pacemaker](sap-hana-high-availability-scale-out-hsr-suse.md), you can use an Azure shared disk for SBD devices in clusters with up to four nodes per replication site because of the current limit of [maxShares](../../virtual-machines/disks-shared-enable.md#disk-sizes).
+  - A ZRS for managed disk is currently unavailable in all regions with availability zones. For more information, review the ZRS "Limitations" section in [Redundancy options for managed disks](/azure/virtual-machines/disks-redundancy#limitations).
+  - The Azure shared disk that you use for SBD devices doesn't need to be large. The [maxShares](/azure/virtual-machines/disks-shared-enable#disk-sizes) value determines how many cluster nodes can use the shared disk. For example, you can use P1 or P2 disk sizes for your SBD device on two-node cluster such as SAP ASCS/ERS or SAP HANA scale-up.
+  - For [HANA scale-out with HANA system replication (HSR) and Pacemaker](sap-hana-high-availability-scale-out-hsr-suse.md), you can use an Azure shared disk for SBD devices in clusters with up to four nodes per replication site because of the current limit of [maxShares](/azure/virtual-machines/disks-shared-enable#disk-sizes).
   - We do *not* recommend attaching an Azure shared disk SBD device across Pacemaker clusters.
   - If you use multiple Azure shared disk SBD devices, check on the limit for a maximum number of data disks that can be attached to a VM.
-  - For more information about limitations for Azure shared disks, carefully review the "Limitations" section of [Azure shared disk documentation](../../virtual-machines/disks-shared.md#limitations).
+  - For more information about limitations for Azure shared disks, carefully review the "Limitations" section of [Azure shared disk documentation](/azure/virtual-machines/disks-shared#limitations).
 
 ### Use an Azure fence agent
 
@@ -466,7 +466,7 @@ This section applies only if you want to use an SBD device with an Azure shared 
    Update-AzVm -VM $vm -ResourceGroupName $ResourceGroup -Verbose
    ```
 
-If you want to deploy resources by using the Azure CLI or the Azure portal, you can also refer to [Deploy a ZRS disk](../../virtual-machines/disks-deploy-zrs.md).
+If you want to deploy resources by using the Azure CLI or the Azure portal, you can also refer to [Deploy a ZRS disk](/azure/virtual-machines/disks-deploy-zrs).
 
 ### Set up an Azure shared disk SBD device
 
@@ -640,10 +640,16 @@ Make sure to assign the custom role to the service principal at all VM (cluster 
    ```
 
    > [!NOTE]
-   > On SLES 15 SP4 check the version of *crmsh* and *pacemaker* package, and make sure that the miniumum version requirements are met:
    >
-   > - crmsh-4.4.0+20221028.3e41444-150400.3.9.1 or later
-   > - pacemaker-2.1.2+20211124.ada5c3b36-150400.4.6.1 or later
+   > For **SLES 15 SP4**, verify the versions of the `crmsh` and `pacemaker` packages to ensure they meet the minimum version requirements:
+   >
+   > - `crmsh-4.4.0+20221028.3e41444-150400.3.9.1` or later
+   > - `pacemaker-2.1.2+20211124.ada5c3b36-150400.4.6.1` or later
+
+   > [!IMPORTANT]
+   >
+   > - **SLES 12 SP5:** If python-azure-core-1.23.1-**2.12.8** is installed, the Azure fence agent may fail to start in a Pacemaker cluster, displaying the error message “Azure Resource Manager Python SDK not found or not accessible” in /var/log/messages. Follow the instructions in [SUSE KBA 21532](https://www.suse.com/support/kb/doc/?id=000021532) for more details.
+   > - **SLES 15 SP4+:** After updating the OS, the Azure libraries for Python might use the Python 3.11 interpreter, causing the Azure fence agent to fail to start in a Pacemaker cluster. The error message “Azure Resource Manager Python SDK not found or not accessible” will appear in /var/log/messages. Follow the instructions in [SUSE KBA 21504](https://www.suse.com/support/kb/doc/?id=000021504) for more details.
 
 2. **[A]** Install the component, which you need for the cluster resources.
 
@@ -770,20 +776,30 @@ Make sure to assign the custom role to the service principal at all VM (cluster 
    >
    > Earlier versions will not work correctly with a managed identity configuration.  
 
-10. **[A]** Install the Azure Python SDK and Azure Identity Python module.  
+10. **[A]** Install fence-agents-azure-arm package.
 
-    Install the Azure Python SDK on SLES 12 SP4 or SLES 12 SP5:
+    For **SLES 12 SP5**, if you are using `fence-agents` version `4.9.0+git.1624456340.8d746be9-3.41.3` or later, and for **SLES 15 SP4 and newer**, you need to install the `fence-agents-azure-arm` package. This package will include all required dependencies.
+
+    ```bash
+    # On SLES 12 SP5 with fence-agents version 4.9.0+git.1624456340.8d746be9-3.41.3 or higher. You might need to activate the public cloud extension first
+    SUSEConnect -p sle-module-public-cloud/12/x86_64
+    sudo zypper install fence-agents-azure-arm
+    
+    # On SLES 15 SP4 and later. You might need to activate the public cloud extension first. In this example, the SUSEConnect 
+    SUSEConnect -p sle-module-public-cloud/15.4/x86_64
+    sudo zypper install fence-agents-azure-arm
+    ```
+
+11. **[A]** Install the Azure Python SDK and Azure Identity Python module.
+
+    For **SLES 12 SP5**, if your `fence-agents` version is lower then `4.9.0+git.1624456340.8d746be9-3.41.3`, and for **SLES 15 SP3 and below**, you need to install below additional packages.
 
     ```bash
     # You might need to activate the public cloud extension first
     SUSEConnect -p sle-module-public-cloud/12/x86_64
     sudo zypper install python-azure-mgmt-compute
     sudo zypper install python-azure-identity
-    ```
-
-    Install the Azure Python SDK on SLES 15 or later:
-
-    ```bash
+    
     # You might need to activate the public cloud extension first. In this example, the SUSEConnect command is for SLES 15 SP1
     SUSEConnect -p sle-module-public-cloud/15.1/x86_64
     sudo zypper install python3-azure-mgmt-compute
@@ -795,10 +811,10 @@ Make sure to assign the custom role to the service principal at all VM (cluster 
     > You can check the extension by running `SUSEConnect ---list-extensions`.
     > To achieve the faster failover times with the Azure fence agent:
     >
-    > - On SLES 12 SP4 or SLES 12 SP5, install version 4.6.2 or later of the *python-azure-mgmt-compute* package.
+    > - On SLES 12 SP5, install version 4.6.2 or later of the *python-azure-mgmt-compute* package.
     > - If your *python-azure-mgmt-compute or python**3**-azure-mgmt-compute* package version is 17.0.0-6.7.1, follow the instructions in [SUSE KBA](https://www.suse.com/support/kb/doc/?id=000020377) to update the fence-agents version and install the Azure Identity client library for Python module if it is missing.
 
-11. **[A]** Set up the hostname resolution.
+12. **[A]** Set up the hostname resolution.
 
     You can either use a DNS server or modify the */etc/hosts* file on all nodes. This example shows how to use the */etc/hosts* file.
 
@@ -822,7 +838,7 @@ Make sure to assign the custom role to the service principal at all VM (cluster 
     10.0.0.7 prod-cl1-1
     ```
 
-12. **[1]** Install the cluster.
+13. **[1]** Install the cluster.
 
     - If you're using SBD devices for fencing (for either the iSCSI target server or Azure shared disk):
 
@@ -851,7 +867,7 @@ Make sure to assign the custom role to the service principal at all VM (cluster 
       # Do you wish to configure an administration IP (y/n)? n
       ```
 
-13. **[2]** Add the node to the cluster.
+14. **[2]** Add the node to the cluster.
 
     ```bash
     sudo crm cluster join
@@ -861,13 +877,13 @@ Make sure to assign the custom role to the service principal at all VM (cluster 
     # /root/.ssh/id_rsa already exists - overwrite (y/n)? n
     ```
 
-14. **[A]** Change the hacluster password to the same password.
+15. **[A]** Change the hacluster password to the same password.
 
     ```bash
     sudo passwd hacluster
     ```
 
-15. **[A]** Adjust the corosync settings.  
+16. **[A]** Adjust the corosync settings.  
 
     ```bash
     sudo vi /etc/corosync/corosync.conf
@@ -949,14 +965,14 @@ Make sure to assign the custom role to the service principal at all VM (cluster 
 #### [Managed identity](#tab/msi)
 
    ```bash
-   # Adjust the command with your subscription ID and resource group of the VM
+# Adjust the command with your subscription ID and resource group of the VM
 
-   sudo crm configure primitive rsc_st_azure stonith:fence_azure_arm \
-   params msi=true subscriptionId="subscription ID" resourceGroup="resource group" \
-   pcmk_monitor_retries=4 pcmk_action_limit=3 power_timeout=240 pcmk_reboot_timeout=900 pcmk_delay_max=15 pcmk_host_map="prod-cl1-0:prod-cl1-0-vm-name;prod-cl1-1:prod-cl1-1-vm-name" \
-   op monitor interval=3600 timeout=120
+sudo crm configure primitive rsc_st_azure stonith:fence_azure_arm \
+params msi=true subscriptionId="subscription ID" resourceGroup="resource group" \
+pcmk_monitor_retries=4 pcmk_action_limit=3 power_timeout=240 pcmk_reboot_timeout=900 pcmk_delay_max=15 pcmk_host_map="prod-cl1-0:prod-cl1-0-vm-name;prod-cl1-1:prod-cl1-1-vm-name" \
+op monitor interval=3600 timeout=120
    
-   sudo crm configure property stonith-timeout=900
+sudo crm configure property stonith-timeout=900
    ```
 
 #### [Service principal](#tab/spn)
@@ -972,7 +988,7 @@ Make sure to assign the custom role to the service principal at all VM (cluster 
    sudo crm configure property stonith-timeout=900
    ```
 
-   ---
+---
 
    If you're using fencing device, based on service principal configuration, read [Change from SPN to MSI for Pacemaker clusters using Azure fencing](https://techcommunity.microsoft.com/t5/running-sap-applications-on-the/sap-on-azure-high-availability-change-from-spn-to-msi-for/ba-p/3609278) and learn how to convert to managed identity configuration.
 
@@ -984,7 +1000,7 @@ Make sure to assign the custom role to the service principal at all VM (cluster 
 
 ## Configure Pacemaker for Azure scheduled events
 
-Azure offers [scheduled events](../../virtual-machines/linux/scheduled-events.md). Scheduled events are provided via the metadata service and allow time for the application to prepare for such events. Resource agent [azure-events-az](https://github.com/ClusterLabs/resource-agents/pull/1161) monitors for scheduled Azure events. If events are detected and the resource agent determines that another cluster node is available, it sets a cluster health attribute. When the cluster health attribute is set for a node, the location constraint triggers and all resources, whose name doesn't start with "health-" are migrated away from the node with scheduled event. Once the affected cluster node is free of running cluster resources, scheduled event is acknowledged and can execute its action, such as restart.
+Azure offers [scheduled events](/azure/virtual-machines/linux/scheduled-events). Scheduled events are provided via the metadata service and allow time for the application to prepare for such events. Resource agent [azure-events-az](https://github.com/ClusterLabs/resource-agents/pull/1161) monitors for scheduled Azure events. If events are detected and the resource agent determines that another cluster node is available, it sets a cluster health attribute. When the cluster health attribute is set for a node, the location constraint triggers and all resources, whose name doesn't start with "health-" are migrated away from the node with scheduled event. Once the affected cluster node is free of running cluster resources, scheduled event is acknowledged and can execute its action, such as restart.
 
 > [!IMPORTANT]
 > Previously, this document described the use of resource agent [azure-events](https://github.com/ClusterLabs/resource-agents/blob/main/heartbeat/azure-events.in). New resource agent [azure-events-az](https://github.com/ClusterLabs/resource-agents/blob/main/heartbeat/azure-events-az.in) fully supports Azure environments deployed in different availability zones.
@@ -1035,11 +1051,11 @@ Azure offers [scheduled events](../../virtual-machines/linux/scheduled-events.md
    Important: The resources must start with 'health-azure'.
 
    ```bash
-   sudo crm configure primitive health-azure-events ocf:heartbeat:azure-events-az \ 
-   meta allow-unhealthy-nodes=true failure-timeout=120s \ 
-   op start start-delay=90s \ 
+   sudo crm configure primitive health-azure-events ocf:heartbeat:azure-events-az \
+   meta allow-unhealthy-nodes=true failure-timeout=120s \
+   op start start-delay=60s \
    op monitor interval=10s
-
+   
    sudo crm configure clone health-azure-events-cln health-azure-events
    ```
 
@@ -1060,7 +1076,7 @@ Azure offers [scheduled events](../../virtual-machines/linux/scheduled-events.md
    sudo crm resource cleanup
    ```
 
-   First time query execution for scheduled events [can take up to 2 minutes](../../virtual-machines/linux/scheduled-events.md#enabling-and-disabling-scheduled-events). Pacemaker testing with scheduled events can use reboot or redeploy actions for the cluster VMs. For more information, see [scheduled events](../../virtual-machines/linux/scheduled-events.md) documentation.
+   First time query execution for scheduled events [can take up to 2 minutes](/azure/virtual-machines/linux/scheduled-events#enabling-and-disabling-scheduled-events). Pacemaker testing with scheduled events can use reboot or redeploy actions for the cluster VMs. For more information, see [scheduled events](/azure/virtual-machines/linux/scheduled-events) documentation.
 
    > [!NOTE]
    > After you've configured the Pacemaker resources for the azure-events agent, if you place the cluster in or out of maintenance mode, you might get warning messages such as:

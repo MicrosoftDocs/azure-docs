@@ -1,6 +1,6 @@
 ---
 title: "Azure Arc-enabled Kubernetes identity and access overview"
-ms.date: 07/21/2023
+ms.date: 05/22/2024
 ms.topic: conceptual
 description: "Understand identity and access options for Arc-enabled Kubernetes clusters."
 ---
@@ -33,13 +33,13 @@ For more information, see [Use cluster connect to securely connect to Azure Arc-
 
 ### Microsoft Entra ID and Azure RBAC without cluster connect
 
-If you don't want to use cluster connect, you can authenticate and authorize users so they can access the connected cluster by using [Microsoft Entra ID](/azure/active-directory/fundamentals/active-directory-whatis) and [Azure role-based access control (Azure RBAC)](/azure/role-based-access-control/overview). Using [Azure RBAC on Azure Arc-enabled Kubernetes (preview)](conceptual-azure-rbac.md) lets you control the access that's granted to users in your tenant, managing access directly from Azure using familiar Azure identity and access features. You can also configure roles at the subscription or resource group scope, letting them roll out to all connected clusters within that scope.
+If you don't want to use cluster connect, you can authenticate and authorize users so they can access the connected cluster by using [Microsoft Entra ID](/azure/active-directory/fundamentals/active-directory-whatis) and [Azure role-based access control (Azure RBAC)](/azure/role-based-access-control/overview). Using [Azure RBAC on Azure Arc-enabled Kubernetes](conceptual-azure-rbac.md) lets you control the access that's granted to users in your tenant, managing access directly from Azure using familiar Azure identity and access features. You can also configure roles at the subscription or resource group scope, letting them roll out to all connected clusters within that scope.
 
 Azure RBAC supports [conditional access](azure-rbac.md#use-conditional-access-with-azure-ad), allowing you to enable [just-in-time cluster access](azure-rbac.md#configure-just-in-time-cluster-access-with-azure-ad) or limit access to approved clients or devices.
 
 Azure RBAC also supports a [direct mode of communication](azure-rbac.md#use-a-shared-kubeconfig-file), using Microsoft Entra identities to access connected clusters directly from within the datacenter, rather than requiring all connections to go through Azure.
 
-Azure RBAC on Arc-enabled Kubernetes is currently in public preview. For more information, see  [Use Azure RBAC on Azure Arc-enabled Kubernetes clusters (preview)](azure-rbac.md).
+Azure RBAC on Arc-enabled Kubernetes is currently in public preview. For more information, see  [Use Azure RBAC on Azure Arc-enabled Kubernetes clusters](azure-rbac.md).
 
 ## Authentication options
 
@@ -49,7 +49,7 @@ Authentication is the process of verifying a user's identity. There are two opti
 
 ### Microsoft Entra authentication
 
-The [Azure RBAC on Arc-enabled Kubernetes](conceptual-azure-rbac.md) feature (currently in public preview) lets you use [Microsoft Entra ID](/azure/active-directory/fundamentals/active-directory-whatis) to allow users in your Azure tenant to access your connected Kubernetes clusters.
+The [Azure RBAC on Arc-enabled Kubernetes](conceptual-azure-rbac.md) feature lets you use [Microsoft Entra ID](/azure/active-directory/fundamentals/active-directory-whatis) to allow users in your Azure tenant to access your connected Kubernetes clusters.
 
 You can also use Microsoft Entra authentication with cluster connect. For more information, see [Microsoft Entra authentication option](cluster-connect.md#microsoft-entra-authentication-option).
 
@@ -88,5 +88,5 @@ If you're using [cluster connect with Microsoft Entra authentication](cluster-co
 
 - Learn more about [Azure Microsoft Entra ID](/azure/active-directory/fundamentals/active-directory-whatis) and [Azure role-based access control (Azure RBAC)](/azure/role-based-access-control/overview).
 - Learn about [cluster connect access to Azure Arc-enabled Kubernetes clusters](conceptual-cluster-connect.md).
-- Learn about [Azure RBAC on Azure Arc-enabled Kubernetes (preview)](conceptual-azure-rbac.md)
-- Learn about [access and identity options for Azure Kubernetes Service (AKS) clusters](../../aks/concepts-identity.md).
+- Learn about [Azure RBAC on Azure Arc-enabled Kubernetes](conceptual-azure-rbac.md)
+- Learn about [access and identity options for Azure Kubernetes Service (AKS) clusters](/azure/aks/concepts-identity).

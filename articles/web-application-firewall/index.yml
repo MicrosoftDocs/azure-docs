@@ -6,7 +6,7 @@ summary: Web Application Firewall (WAF) provides centralized protection of your 
 metadata:
   title: Web Application Firewall documentation
   description: Learn about Web Application Firewall that can be deployed with Application Gateway and Front Door
-  ms.service: web-application-firewall
+  ms.service: azure-web-application-firewall
   ms.topic: landing-page
   author: vhorne
   ms.author: victorh
@@ -79,6 +79,17 @@ landingContent:
             url: ./afds/waf-front-door-policy-configure-bot-protection.md
           - text: Configure a custom response
             url: ./afds/waf-front-door-configure-custom-response-code.md
+
+  # Card
+  - title: Learn about Azure Web Application Firewall integration in Copilot for Security
+    linkLists:
+      - linkListType: concept
+        links:
+         - text: Azure Web Application Firewall integration in Copilot for Security (preview)
+           url: waf-copilot.md
+         - text: Azure WAF integration in Copilot for Security - Protect web applications using Gen AI
+           url: https://techcommunity.microsoft.com/t5/azure-network-security-blog/azure-waf-integration-in-copilot-for-security-protect-web/ba-p/4145547
+
 
 # Card
   - title: Learn about Azure Web Application Firewall architecture

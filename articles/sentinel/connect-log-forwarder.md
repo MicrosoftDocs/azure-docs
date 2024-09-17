@@ -1,16 +1,16 @@
 ---
 title: Deploy a log forwarder to ingest Syslog and CEF logs to Microsoft Sentinel | Microsoft Docs
 description: Learn how to deploy a log forwarder, consisting of a Syslog daemon and the Log Analytics agent, as part of the process of ingesting Syslog and CEF logs to Microsoft Sentinel.
-author: limwainstein
+author: yelevin
+ms.author: yelevin
 ms.topic: how-to
-ms.date: 01/09/2023
-ms.author: lwainstein
+ms.date: 06/18/2024
 ---
 
 # Deploy a log forwarder to ingest Syslog and CEF logs to Microsoft Sentinel
 
 > [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
+> This article references CentOS, a Linux distribution that has reached End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](/azure/virtual-machines/workloads/centos/centos-end-of-life).
 
 To ingest Syslog and CEF logs into Microsoft Sentinel, particularly from devices and appliances onto which you can't install the Log Analytics agent directly, you'll need to designate and configure a Linux machine that will collect the logs from your devices and forward them to your Microsoft Sentinel workspace. This machine can be a physical or virtual machine in your on-premises environment, an Azure VM, or a VM in another cloud. 
 
@@ -54,13 +54,13 @@ Your machine must meet the following requirements:
 
 - **Operating system**
 
-    - CentOS 7 and 8 (not 6), including minor versions (64-bit/32-bit)
     - Amazon Linux 2 (64-bit only)
     - Oracle Linux 7, 8 (64-bit/32-bit)
     - Red Hat Enterprise Linux (RHEL) Server 7 and 8 (not 6), including minor versions (64-bit/32-bit)
     - Debian GNU/Linux 8 and 9 (64-bit/32-bit)
     - Ubuntu Linux 20.04 LTS (64-bit only)
     - SUSE Linux Enterprise Server 12, 15 (64-bit only)
+    - CentOS distributions **are no longer supported**, as they have reached End Of Life (EOL) status. See note at the beginning of this article.
 
 - **Daemon versions**
 
@@ -84,7 +84,7 @@ Your machine must meet the following requirements:
 
 ### Security considerations
 
-Make sure to configure the machine's security according to your organization's security policy. For example, you can configure your network to align with your corporate network security policy and change the ports and protocols in the daemon to align with your requirements. You can use the following instructions to improve your machine security configuration:  [Secure VM in Azure](../virtual-machines/security-policy.md), [Best practices for Network security](../security/fundamentals/network-best-practices.md).
+Make sure to configure the machine's security according to your organization's security policy. For example, you can configure your network to align with your corporate network security policy and change the ports and protocols in the daemon to align with your requirements. You can use the following instructions to improve your machine security configuration:  [Secure VM in Azure](/azure/virtual-machines/security-policy), [Best practices for Network security](../security/fundamentals/network-best-practices.md).
 
 If your devices are sending Syslog and CEF logs over TLS (because, for example, your log forwarder is in the cloud), you will need to configure the Syslog daemon (rsyslog or syslog-ng) to communicate in TLS. See the following documentation for details:  
 - [Encrypting Syslog traffic with TLS – rsyslog](https://www.rsyslog.com/doc/v8-stable/tutorials/tls_cert_summary.html)
@@ -113,7 +113,7 @@ If you don't have access to that page, copy the link from the text below (copyin
     >
     > If you plan to use this log forwarder machine to forward [Syslog messages](connect-syslog.md) as well as CEF, then in order to avoid the duplication of events to the Syslog and CommonSecurityLog tables:
     >
-    > 1. On each source machine that sends logs to the forwarder in CEF format, you must edit the Syslog configuration file to remove the facilities that are being used to send CEF messages. This way, the facilities that are sent in CEF won't also be sent in Syslog. See [Configure Syslog on Linux agent](../azure-monitor/agents/data-sources-syslog.md#configure-syslog-on-linux-agent) for detailed instructions on how to do this.
+    > 1. On each source machine that sends logs to the forwarder in CEF format, you must edit the Syslog configuration file to remove the facilities that are being used to send CEF messages. This way, the facilities that are sent in CEF won't also be sent in Syslog. See [Configure Syslog on Linux agent](/azure/azure-monitor/agents/data-sources-syslog#configure-syslog-on-linux-agent) for detailed instructions on how to do this.
     >
     > 1. You must run the following command on those machines to disable the synchronization of the agent with the Syslog configuration in Microsoft Sentinel. This ensures that the configuration change you made in the previous step does not get overwritten.<br>
     > `sudo su omsagent -c 'python /opt/microsoft/omsconfig/Scripts/OMS_MetaConfigHelper.py --disable'`

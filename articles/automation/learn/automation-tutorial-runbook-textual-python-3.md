@@ -6,6 +6,7 @@ ms.subservice: process-automation
 ms.date: 05/17/2023
 ms.topic: tutorial
 ms.custom: has-adal-ref, devx-track-python, py-fresh-zinc
+ms.service: azure-automation
 ---
 
 # Tutorial: Create a Python 3.8 runbook

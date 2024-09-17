@@ -4,10 +4,10 @@ description: Tutorial - Containerize & migrate ASP.NET applications to Azure Kub
 author: vijain
 ms.author: vijain
 ms.manager: kmadnani
-ms.custom: subject-rbac-steps
+ms.custom: subject-rbac-steps, engagement-fy24
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 07/14/2023
+ms.date: 03/06/2024
 ---
 # ASP.NET app containerization and migration to Azure Kubernetes Service
 
@@ -88,7 +88,7 @@ If you just created a free Azure account, you're the owner of your subscription.
     | Assign access to | User |
     | Members | azmigrateuser (in this example) |
 
-    ![Screenshot of add role assignment page in Azure portal.](../../includes/role-based-access-control/media/add-role-assignment-page.png)
+    ![Screenshot of add role assignment page in Azure portal.](~/reusable-content/ce-skilling/azure/media/role-based-access-control/add-role-assignment-page.png)
 
 1. Your Azure account also needs **permissions to register Microsoft Entra apps.**
 
@@ -184,7 +184,7 @@ Parameterizing the configuration makes it available as a deployment time paramet
 
 ### Externalize file system dependencies
 
- You can add other folders that your application uses. Specify if they should be part of the container image or are to be externalized through persistent volumes on Azure file share. Using persistent volumes works great for stateful applications that store state outside the container or have other static content stored on the file system. [Learn more](../aks/concepts-storage.md).
+ You can add other folders that your application uses. Specify if they should be part of the container image or are to be externalized through persistent volumes on Azure file share. Using persistent volumes works great for stateful applications that store state outside the container or have other static content stored on the file system. [Learn more](/azure/aks/concepts-storage).
 
 1. Select **Edit** under App Folders to review the detected application folders. The detected application folders have been identified as mandatory artifacts needed by the application and will be copied into the container image.
 2. Select **Add folders** and specify the folder paths to be added.

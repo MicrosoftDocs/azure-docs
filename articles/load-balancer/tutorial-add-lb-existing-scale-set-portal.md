@@ -3,7 +3,7 @@ title: 'Tutorial: Add Azure Load Balancer to an existing Virtual Machine Scale S
 description: In this tutorial, learn how to add a load balancer to existing Virtual Machine Scale Set using the Azure portal. 
 author: mbender-ms
 ms.author: mbender
-ms.service: load-balancer
+ms.service: azure-load-balancer
 ms.topic: tutorial
 ms.date: 01/23/2024
 ms.custom: template-tutorial, engagement-fy23

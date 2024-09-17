@@ -6,7 +6,7 @@ author: normesta
 ms.service: azure-storage
 ms.subservice: storage-common-concepts
 ms.topic: how-to
-ms.date: 08/15/2023
+ms.date: 05/09/2024
 ms.author: normesta
 ms.reviewer: santoshc
 ms.custom: devx-track-azurepowershell, devx-track-azurecli, build-2023, engagement
@@ -28,7 +28,7 @@ Turning on firewall rules for your storage account blocks incoming requests for 
 
 You can grant access to Azure services that operate from within a virtual network by allowing traffic from the subnet that hosts the service instance. You can also enable a limited number of scenarios through the exceptions mechanism that this article describes. To access data from the storage account through the Azure portal, you need to be on a machine within the trusted boundary (either IP or virtual network) that you set up.
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 ## Scenarios
 
@@ -115,7 +115,7 @@ By default, storage accounts accept connections from clients on any network. You
 
 You must set the default rule to **deny**, or network rules have no effect. However, changing this setting can affect your application's ability to connect to Azure Storage. Be sure to grant access to any allowed networks or set up access through a private endpoint before you change this setting.
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 ### [Portal](#tab/azure-portal)
 
@@ -343,9 +343,9 @@ The following restrictions apply to IP address ranges:
 
 To grant access from your on-premises networks to your storage account by using an IP network rule, you must identify the internet-facing IP addresses that your network uses. Contact your network administrator for help.
 
-If you're using [Azure ExpressRoute](../../expressroute/expressroute-introduction.md) from your premises, for public peering or Microsoft peering, you need to identify the NAT IP addresses that are used. For public peering, each ExpressRoute circuit (by default) uses two NAT IP addresses applied to Azure service traffic when the traffic enters the Microsoft Azure network backbone. For Microsoft peering, either the service provider or the customer provides the NAT IP addresses.
+If you're using [Azure ExpressRoute](../../expressroute/expressroute-introduction.md) from your premises, you need to identify the NAT IP addresses used for Microsoft peering. Either the service provider or the customer provides the NAT IP addresses.
 
-To allow access to your service resources, you must allow these public IP addresses in the firewall setting for resource IPs. To find your IP addresses for public-peering ExpressRoute circuits, [open a support ticket with ExpressRoute](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview) via the Azure portal. [Learn more about NAT for ExpressRoute public peering and Microsoft peering](../../expressroute/expressroute-nat.md#nat-requirements-for-azure-public-peering).
+To allow access to your service resources, you must allow these public IP addresses in the firewall setting for resource IPs.
 
 ### Managing IP network rules
 
@@ -578,9 +578,9 @@ You can grant access to trusted Azure services by creating a network rule except
 
 <a id="trusted-access-resources-in-subscription"></a>
 
-### Trusted access for resources registered in your subscription
+### Trusted access for resources registered in your Microsoft Entra tenant
 
-Resources of some services that are registered in your subscription can access your storage account *in the same subscription* for selected operations, such as writing logs or running backups.  The following table describes each service and the allowed operations.
+Resources of some services can access your storage account for selected operations, such as writing logs or running backups. Those services must be registered in a subscription that is located in the same Microsoft Entra tenant as your storage account. The following table describes each service and the allowed operations.
 
 | Service                  | Resource provider name     | Allowed operations                 |
 |:------------------------ |:-------------------------- |:---------------------------------- |
@@ -592,7 +592,7 @@ Resources of some services that are registered in your subscription can access y
 | Azure File Sync          | `Microsoft.StorageSync`      | Transform your on-premises file server to a cache for Azure file shares. This capability allows multiple-site sync, fast disaster recovery, and cloud-side backup. [Learn more](../file-sync/file-sync-planning.md). |
 | Azure HDInsight          | `Microsoft.HDInsight`        | Provision the initial contents of the default file system for a new HDInsight cluster. [Learn more](../../hdinsight/hdinsight-hadoop-use-blob-storage.md). |
 | Azure Import/Export      | `Microsoft.ImportExport`     | Import data to Azure Storage or export data from Azure Storage. [Learn more](../../import-export/storage-import-export-service.md).  |
-| Azure Monitor            | `Microsoft.Insights`         | Write monitoring data to a secured storage account, including resource logs, Microsoft Entra sign-in and audit logs, and Microsoft Intune logs. [Learn more](../../azure-monitor/roles-permissions-security.md). |
+| Azure Monitor            | `Microsoft.Insights`         | Write monitoring data to a secured storage account, including resource logs, Microsoft Entra sign-in and audit logs, and Microsoft Intune logs. [Learn more](/azure/azure-monitor/roles-permissions-security). |
 | Azure networking services         | `Microsoft.Network`          | Store and analyze network traffic logs, including through the Azure Network Watcher and Azure Traffic Manager services. [Learn more](../../network-watcher/network-watcher-nsg-flow-logging-overview.md). |
 | Azure Site Recovery      | `Microsoft.SiteRecovery`     | Enable replication for disaster recovery of Azure IaaS virtual machines when you're using firewall-enabled cache, source, or target storage accounts.  [Learn more](../../site-recovery/azure-to-azure-tutorial-enable-replication.md). |
 
@@ -631,9 +631,9 @@ The following table lists services that can access your storage account data if 
 | Azure Key Vault Managed HSM     | `Microsoft.keyvault/managedHSMs`        | Enables access to storage accounts. |
 | Azure Logic Apps                | `Microsoft.Logic/integrationAccounts`   | Enables logic apps to access storage accounts. [Learn more](../../logic-apps/create-managed-service-identity.md#authenticate-access-with-managed-identity). |
 | Azure Logic Apps                | `Microsoft.Logic/workflows`             | Enables logic apps to access storage accounts. [Learn more](../../logic-apps/create-managed-service-identity.md#authenticate-access-with-managed-identity). |
-| Azure Machine Learning studio   | `Microsoft.MachineLearning/registries`  | Enables authorized Azure Machine Learning workspaces to write experiment output, models, and logs to Blob Storage and read the data. [Learn more](../../machine-learning/how-to-network-security-overview.md#secure-the-workspace-and-associated-resources). |
-| Azure Machine Learning          | `Microsoft.MachineLearningServices`     | Enables authorized Azure Machine Learning workspaces to write experiment output, models, and logs to Blob Storage and read the data. [Learn more](../../machine-learning/how-to-network-security-overview.md#secure-the-workspace-and-associated-resources). |
-| Azure Machine Learning          | `Microsoft.MachineLearningServices/workspaces` | Enables authorized Azure Machine Learning workspaces to write experiment output, models, and logs to Blob Storage and read the data. [Learn more](../../machine-learning/how-to-network-security-overview.md#secure-the-workspace-and-associated-resources). |
+| Azure Machine Learning studio   | `Microsoft.MachineLearning/registries`  | Enables authorized Azure Machine Learning workspaces to write experiment output, models, and logs to Blob Storage and read the data. [Learn more](/azure/machine-learning/how-to-network-security-overview#secure-the-workspace-and-associated-resources). |
+| Azure Machine Learning          | `Microsoft.MachineLearningServices`     | Enables authorized Azure Machine Learning workspaces to write experiment output, models, and logs to Blob Storage and read the data. [Learn more](/azure/machine-learning/how-to-network-security-overview#secure-the-workspace-and-associated-resources). |
+| Azure Machine Learning          | `Microsoft.MachineLearningServices/workspaces` | Enables authorized Azure Machine Learning workspaces to write experiment output, models, and logs to Blob Storage and read the data. [Learn more](/azure/machine-learning/how-to-network-security-overview#secure-the-workspace-and-associated-resources). |
 | Azure Media Services            | `Microsoft.Media/mediaservices`         | Enables access to storage accounts. |
 | Azure Migrate                   | `Microsoft.Migrate/migrateprojects`     | Enables access to storage accounts. |
 | Azure Spatial Anchors           | `Microsoft.MixedReality/remoteRenderingAccounts` | Enables access to storage accounts. |
@@ -657,7 +657,7 @@ If your account doesn't have the hierarchical namespace feature enabled on it, y
 
 You can use the same technique for an account that has the hierarchical namespace feature enabled on it. However, you don't have to assign an Azure role if you add the managed identity to the access control list (ACL) of any directory or blob that the storage account contains. In that case, the scope of access for the instance corresponds to the directory or file to which the managed identity has access.
 
-You can also combine Azure roles and ACLs together to grant access. To learn more, see [Access control model in Azure Data Lake Storage Gen2](../blobs/data-lake-storage-access-control-model.md).
+You can also combine Azure roles and ACLs together to grant access. To learn more, see [Access control model in Azure Data Lake Storage](../blobs/data-lake-storage-access-control-model.md).
 
 We recommend that you [use resource instance rules to grant access to specific resources](#grant-access-from-azure-resource-instances).
 

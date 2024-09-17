@@ -2,7 +2,7 @@
 title: Tutorial - Add environments and deployments for APIs
 description: In this tutorial, augment the API inventory in your API center by adding information about API environments and deployments.
 author: dlepow
-ms.service: api-center
+ms.service: azure-api-center
 ms.topic: tutorial
 ms.date: 04/22/2024
 ms.author: danlep 
@@ -86,7 +86,7 @@ Here you add a deployment by associating one of your APIs with the environment y
     | **Description** | Optionally enter a description. | Description of the deployment. |
     | **Environment** | Make a selection from the dropdown, such as *My Testing*, or optionally select **Create new**.| New or existing environment where the API version is deployed. |
     | **Definition** | Select or add a definition file for a version of the Demo Conference API. | API definition file. |
-    | **Runtime URL** | Enter a base URL, for example, `https://api.contoso.com/conference`. | Base runtime URL for the API in the environment.  |
+    | **Runtime URL** | Enter a base URL, for example, `https://api.contoso.com`. | Base runtime URL for the API in the environment.  |
     | **Line of business** | If you added this custom metadata, optionally make a selection from the dropdown, such as **IT**. | Custom metadata that identifies the business unit that manages APIs in the environment. |
 
     :::image type="content" source="media/configure-environments-deployments/add-deployment.png" alt-text="Screenshot of adding an API deployment in the portal.":::

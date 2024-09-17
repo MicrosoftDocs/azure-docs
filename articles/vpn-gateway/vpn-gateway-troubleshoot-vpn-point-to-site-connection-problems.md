@@ -1,11 +1,11 @@
 ---
-title: 'Troubleshoot Azure point-to-site connection problems'
+title: Troubleshoot Azure point-to-site connection problems
 titleSuffix: Azure VPN Gateway
 description: Learn to troubleshoot and solve common point-to-site connection problems and other virtual private network errors and issues.
 author: chadmath
-ms.service: vpn-gateway
+ms.service: azure-vpn-gateway
 ms.topic: troubleshooting
-ms.date: 04/03/2024
+ms.date: 09/04/2024
 ms.author: genli
 ---
 # Troubleshooting: Azure point-to-site connection problems
@@ -178,28 +178,9 @@ This problem might occur if the root certificate public key that you uploaded co
 
 ### Solution
 
-Make sure that the data in the certificate doesn't contain invalid characters, such as line breaks (carriage returns). The entire value should be one long line. The following text is a sample of the certificate:
+Make sure that the data in the certificate doesn't contain invalid characters, such as line breaks (carriage returns). The entire value should be one long line. The following example shows the area to copy within the certificate:
 
-```text
------BEGIN CERTIFICATE-----
-MIIC5zCCAc+gAwIBAgIQFSwsLuUrCIdHwI3hzJbdBjANBgkqhkiG9w0BAQsFADAW
-MRQwEgYDVQQDDAtQMlNSb290Q2VydDAeFw0xNzA2MTUwMjU4NDZaFw0xODA2MTUw
-MzE4NDZaMBYxFDASBgNVBAMMC1AyU1Jvb3RDZXJ0MIIBIjANBgkqhkiG9w0BAQEF
-AAOCAQ8AMIIBCgKCAQEAz8QUCWCxxxTrxF5yc5uUpL/bzwC5zZ804ltB1NpPa/PI
-sa5uwLw/YFb8XG/JCWxUJpUzS/kHUKFluqkY80U+fAmRmTEMq5wcaMhp3wRfeq+1
-G9OPBNTyqpnHe+i54QAnj1DjsHXXNL4AL1N8/TSzYTm7dkiq+EAIyRRMrZlYwije
-407ChxIp0stB84MtMShhyoSm2hgl+3zfwuaGXoJQwWiXh715kMHVTSj9zFechYd7
-5OLltoRRDyyxsf0qweTFKIgFj13Hn/bq/UJG3AcyQNvlCv1HwQnXO+hckVBB29wE
-sF8QSYk2MMGimPDYYt4ZM5tmYLxxxvGmrGhc+HWXzMeQIDAQABozEwLzAOBgNVHQ8B
-Af8EBAMCAgQwHQYDVR0OBBYEFBE9zZWhQftVLBQNATC/LHLvMb0OMA0GCSqGSIb3
-DQEBCwUAA4IBAQB7k0ySFUQu72sfj3BdNxrXSyOT4L2rADLhxxxiK0U6gHUF6eWz
-/0h6y4mNkg3NgLT3j/WclqzHXZruhWAXSF+VbAGkwcKA99xGWOcUJ+vKVYL/kDja
-gaZrxHlhTYVVmwn4F7DWhteFqhzZ89/W9Mv6p180AimF96qDU8Ez8t860HQaFkU6
-2Nw9ZMsGkvLePZZi78yVBDCWMogBMhrRVXG/xQkBajgvL5syLwFBo2kWGdC+wyWY
-U/Z+EK9UuHnn3Hkq/vXEzRVsYuaxchta0X2UNRzRq+o706l+iyLTpe6fnvW6ilOi
-e8Jcej7mzunzyjz4chN0/WVF94MtxbUkLkqP
------END CERTIFICATE-----
-```
+   :::image type="content" source="./media/vpn-gateway-howto-point-to-site-resource-manager-portal/certificate.png" alt-text="Screenshot of data in the certificate." lightbox="./media/vpn-gateway-howto-point-to-site-resource-manager-portal/certificate-expand.png":::
 
 ## Azure portal error: Failed to save the VPN gateway, and the resource name is invalid
 
@@ -301,7 +282,7 @@ This error message occurs if the client can't access http://crl3.digicert.com/ss
 
 Check the proxy server settings, make sure that the client can access http://crl3.digicert.com/ssca-sha2-g1.crl and http://crl4.digicert.com/ssca-sha2-g1.crl.
 
-## VPN Client Error: The connection was prevented because of a policy configured on your RAS/VPN server. (Error 812)
+## VPN client error: The connection was prevented because of a policy configured on your RAS/VPN server. (Error 812)
 
 ### Cause
 
@@ -317,7 +298,7 @@ Make sure that RADIUS server is configured correctly. For More information, see 
 
 Root certificate hasn't been installed. The root certificate is installed in the client's **Trusted certificates** store.
 
-## VPN Client Error: The remote connection was not made because the attempted VPN tunnels failed. (Error 800) 
+## VPN client error: The remote connection was not made because the attempted VPN tunnels failed. (Error 800) 
 
 ### Cause
 
@@ -333,7 +314,42 @@ Update the NIC driver:
 1. If Windows doesn't find a new driver, you can try looking for one on the device manufacturer's website and follow their instructions.
 1. Restart the computer and try the connection again.
 
-## VPN Client Error: Dialing VPN connection \<VPN Connection Name\>, Status = VPN Platform did not trigger connection
+## <a name="entra-expired"></a>VPN client error: Your authentication with Microsoft Entra expired
+
+If you're using Microsoft Entra ID authentication, you might encounter one of the following errors:
+
+**Your authentication with Microsoft Entra is expired. You need to re-authenticate in Entra to acquire a new token. Authentication timeout can be tuned by your administrator.**
+
+or
+
+**Your authentication with Microsoft Entra has expired so you need to re-authenticate to acquire a new token. Please try connecting again. Authentication policies and timeout are configured by your administrator in Entra tenant.**
+
+### Cause
+
+The point-to-site connection is disconnected because the current refresh token has expired or becomes invalid. New access tokens can’t be fetched for authenticating the user.
+
+When an Azure VPN Client tries to establish connection with an Azure VPN gateway using Microsoft Entra ID authentication, an access token is required to authenticate the user. This token gets renewed approximately every hour. A valid access token can only be issued when the user has a valid refresh token. If the user doesn’t have a valid refresh token, the connection gets disconnected.
+
+The refresh token can show as expired/invalid due to several reasons. You can check User Entra sign-in logs for debugging. See [Microsoft Entra sign-in logs](/entra/identity/monitoring-health/concept-sign-ins).
+
+* **Refresh token has expired**
+
+  * The default lifetime for the refresh tokens is 90 days. After 90 days, users need to reconnect to get a new refresh token.
+  * Entra tenant admins can add conditional access policies for sign-in frequency that trigger periodic reauthentication every 'X' hrs. (Refresh token will expire in 'X' hrs). By using custom conditional access policies, users are forced use an interactive sign-in every 'X' hrs. For more information, see [Refresh tokens in the Microsoft identity platform](/entra/identity-platform/refresh-tokens) and [Configure adaptive session lifetime policies](/entra/identity/conditional-access/howto-conditional-access-session-lifetime).
+
+* **Refresh token is invalid**
+
+  * The user has been removed from tenant.
+  * The user's credentials have changed.
+  * Sessions have been revoked by the Entra tenant Admin.
+  * The device has become noncompliant (if it’s a managed device).
+  * Other Entra policies configured by Entra Admins that require users to periodically use interactive sign-in.
+
+### Solution
+
+In these scenarios, users need to reconnect. This triggers an interactive sign-in process in Microsoft Entra that issues a new refresh token and access token.
+
+## VPN client error: Dialing VPN connection \<VPN Connection Name\>, Status = VPN Platform did not trigger connection
 
 You might also see the following error in Event Viewer from RasClient: "The user \<User\> dialed a connection named \<VPN Connection Name\> which has failed. The error code returned on failure is 1460."
 
@@ -388,7 +404,7 @@ Azure DNS server IP address (168.63.129.16) is resolvable only from Azure platfo
 
 The following steps help you resolve records from Private DNS zone:
 
-Configuring [Private resolver](https://github.com/MicrosoftDocs/azure-docs-pr/blob/ef411d08c2f3ba57c8b5495e5ad39067921ef4b9/azure/dns/dns-private-resolver-overview"https://github.com/microsoftdocs/azure-docs-pr/blob/ef411d08c2f3ba57c8b5495e5ad39067921ef4b9/azure/dns/dns-private-resolver-overview")'s inbound IP address as custom DNS servers on virtual network help you resolve records in private DNS zone (including those created from Private Endpoints). Note the Private DNS zones must be associated with the virtual network that has the Private Resolver.
+Configuring Private resolver's inbound IP address as custom DNS servers on virtual network help you resolve records in private DNS zone (including those created from Private Endpoints). Note the Private DNS zones must be associated with the virtual network that has the Private Resolver.
 
 :::image type="content" source="./media/vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems/private-dns-zone.png" alt-text="Screenshot shows the Azure VPN Client, an open PowerShell window, and the Azure portal open to DNS servers page." lightbox="./media/vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems/private-dns-zone.png":::
 

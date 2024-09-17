@@ -78,7 +78,7 @@ The IsLengthRange method checks whether the length of a string claim value is wi
 | Maximum | Yes | The maximum number of characters that can be entered. |
 | Minimum | Yes | The minimum number of characters that must be entered. |
 
-The following example shows a IsLengthRange method with the parameters `Minimum` and `Maximum` that specify the length range of the string:
+The following example shows an IsLengthRange method with the parameters `Minimum` and `Maximum` that specify the length range of the string:
 
 ```xml
 <Predicate Id="IsLengthBetween8And64" Method="IsLengthRange" HelpText="The password must be between 8 and 64 characters.">

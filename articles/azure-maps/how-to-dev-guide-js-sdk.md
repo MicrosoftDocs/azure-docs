@@ -7,8 +7,8 @@ ms.author: sipa
 ms.date: 11/15/2021
 ms.topic: how-to
 ms.service: azure-maps
-ms.custom: devx-track-js
-services: azure-maps
+ms.subservice: rest-sdk
+ms.custom: devx-track-js, devx-track-ts
 ---
 
 # JavaScript/TypeScript REST SDK Developers Guide (preview)

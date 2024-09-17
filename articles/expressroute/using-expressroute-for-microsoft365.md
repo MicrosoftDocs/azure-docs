@@ -4,13 +4,16 @@ description: This document discusses objectively on using ExpressRoute circuit f
 services: expressroute
 author: rambk
 manager: tracsman
-ms.service: expressroute
+ms.service: azure-expressroute
 ms.topic: article
-ms.date: 6/30/2023
+ms.date: 6/11/2024
 ms.author: rambala
 ---
 
 # Using ExpressRoute for routing Microsoft 365 traffic
+
+> [!NOTE]
+> We **don't recommend** ExpressRoute for Microsoft 365 because it doesn't provide the best connectivity model for the service in most circumstances. As such, Microsoft authorization is required to use this connectivity model. We review every customer request and authorize ExpressRoute for Microsoft 365 only in the rare scenarios where it is necessary. For more information, see the [ExpressRoute for Microsoft 365 guide](https://aka.ms/erguide) and review the document with your productivity, network, and security teams before working with your Microsoft account team to submit an exception as required. If you try to create a route filter for Microsoft 365 without an authorized subscription you will receive an [error message](https://support.microsoft.com/kb/3181709).
 
 An ExpressRoute circuit provides private connectivity to the Microsoft backbone network.
 
@@ -53,15 +56,7 @@ Therefore, in scenarios where you have widely distributed SaaS clients or client
 
 ## When to use ExpressRoute for Microsoft 365?
 
-The following are some of the reasons why you may want to use ExpressRoute for routing Microsoft 365 traffic:
-
-* Your SaaS clients are concentrated in a geo-location and the most optimal way to connect to Microsoft global network is using ExpressRoute.
-* Your SaaS clients are concentrated in multiple global locations and each location has its own ExpressRoute connection that provides optimal connectivity to Microsoft's global network.
-* You're required by law to route cloud-bound traffic with a private connection.
-* You're required to route all the SaaS traffic to a geo-pinned centralized location whether it be a private or a public datacenter. The only optimal way to connect the centralized location to the Microsoft global network is by using ExpressRoute.
-* For some of your static SaaS clients only ExpressRoute can provide optimal connectivity, while for the other clients they can use the Internet.
-
-When you're using ExpressRoute, you can apply a route filter to Microsoft peering to only advertise a subset of Microsoft 365 services and/or Azure PaaS services prefixes over the ExpressRoute circuit. For more information, see [Tutorial: Configure route filters for Microsoft peering][ExRRF].
+We no longer recommend the use of ExpressRoute for Microsoft 365 traffic. For more information, see [Azure ExpressRoute for Microsoft 365](/microsoft-365/enterprise/azure-expressroute?view=o365-worldwide).
 
 ## Next steps
 

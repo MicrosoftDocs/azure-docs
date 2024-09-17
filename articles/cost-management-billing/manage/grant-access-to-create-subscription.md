@@ -6,7 +6,7 @@ ms.service: cost-management-billing
 ms.subservice: billing
 ms.reviewer: andalmia
 ms.topic: conceptual
-ms.date: 03/21/2024
+ms.date: 09/11/2024
 ms.author: banders
 ---
 
@@ -19,7 +19,7 @@ As an Azure customer with an [Enterprise Agreement (EA)](https://azure.microsoft
 > - Unless you have a specific need to use the legacy APIs, you should use the information for the [latest GA version](programmatically-create-subscription-enterprise-agreement.md) about the latest API version. **See [Enrollment Account Role Assignments - Put](/rest/api/billing/2019-10-01-preview/enrollment-account-role-assignments/put) to grant permission to create EA subscriptions with the latest API**. 
 > - If you're migrating to use the newer APIs, you must grant owner permissions again using [2019-10-01-preview](/rest/api/billing/2019-10-01-preview/enrollment-account-role-assignments/put). Your previous configuration that uses the following APIs doesn't automatically convert for use with newer APIs.
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 ## Grant access
 
@@ -174,7 +174,7 @@ To [create subscriptions under an enrollment account](programmatically-create-su
     az role assignment create --role Owner --assignee-object-id <userObjectId> --scope /providers/Microsoft.Billing/enrollmentAccounts/<enrollmentAccountObjectId>
     ```
 
-    Once a user becomes an Azure RBAC Owner for your enrollment account, they can [programmatically create subscriptions](programmatically-create-subscription-enterprise-agreement.md) under it. A subscription created by a delegated user still has the original Account Owner as Service Admin, but it also has the delegated user as an Azure RBAC Owner by default.
+    Once a user becomes an Azure RBAC Owner for your enrollment account, they can [programmatically create subscriptions](programmatically-create-subscription-enterprise-agreement.md) under it. When a delegated user creates a subscription, they get the Azure RBAC [Owner](../../role-based-access-control/built-in-roles.md#owner) role for the subscription.
 
     ---
 

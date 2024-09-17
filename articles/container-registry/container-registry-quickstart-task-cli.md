@@ -5,7 +5,7 @@ ms.topic: quickstart
 author: tejaswikolli-web
 ms.author: tejaswikolli
 ms.date: 10/31/2023
-ms.service: container-registry
+ms.service: azure-container-registry
 ms.custom: devx-track-azurecli, mode-other
 ---
 
@@ -15,7 +15,7 @@ In this quickstart, you use [Azure Container Registry Tasks][container-registry-
 
 After this quickstart, explore more advanced features of ACR Tasks using the [tutorials](container-registry-tutorial-quick-task.md). ACR Tasks can automate image builds based on code commits or base image updates, or test multiple containers, in parallel, among other scenarios. 
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
     

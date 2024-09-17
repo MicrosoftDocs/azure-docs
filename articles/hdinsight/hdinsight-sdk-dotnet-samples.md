@@ -1,7 +1,7 @@
 ---
 title: 'Azure HDInsight: .NET samples'
 description: Find C# .NET examples on GitHub for common tasks using the HDInsight SDK for .NET.
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.custom: devx-track-dotnet
 ms.topic: sample
 ms.date: 10/16/2023
@@ -22,7 +22,7 @@ This article provides:
 
 You can [activate Visual Studio subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio): Your Visual Studio subscription gives you credits every month that you can use for paid Azure services.
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 ## Prerequisite
 

@@ -13,7 +13,8 @@ zone_pivot_groups: acs-plat-web-ios-android-windows
 ---
 
 # Spotlight states
-In this article, you learn how to implement Microsoft Teams spotlight capability with Azure Communication Services Calling SDKs. This capability allows users in the call or meeting to pin and unpin videos for everyone.
+In this article, you learn how to implement Microsoft Teams spotlight capability with Azure Communication Services Calling SDKs. This capability allows users in the call or meeting to pin and unpin videos for everyone. The maximum limit of pinned videos is seven.
+
 Since the video stream resolution of a participant is increased when spotlighted, it should be noted that the settings done on [Video Constraints](../../concepts/voice-video-calling/video-constraints.md) also apply to spotlight.
 
 ## Prerequisites
@@ -23,6 +24,36 @@ Since the video stream resolution of a participant is increased when spotlighted
 - A user access token to enable the calling client. For more information, see [Create and manage access tokens](../../quickstarts/identity/access-tokens.md).
 - Optional: Complete the quickstart to [add voice calling to your application](../../quickstarts/voice-video-calling/getting-started-with-calling.md)
 
+
+## Support
+The following tables define support for Spotlight in Azure Communication Services.
+
+### Identities & call types
+The following table shows support for call and identity types. 
+
+|Identities                                         | Teams meeting | Room | 1:1 call | Group call | 1:1 Teams interop call | Group Teams interop call |
+|--------------------------------------|---------------|------|----------|------------|------------------------|--------------------------|
+|Communication Services user	| ✔️	          |   ✔️   |          |        ✔️    |	                      |	    ✔️                     |
+|Microsoft 365 user	                        | ✔️	          |    ✔️  |          |        ✔️    |                        |        ✔️                  |
+
+### Operations
+The following table shows support for individual APIs in Calling SDK to individual identity types. 
+
+|Operations                   | Communication Services user | Microsoft 365 user |
+|-----------------------------|------------------------------|-------------------|
+| startSpotlight | ✔️ [1] | ✔️ [1] |
+| stopSpotlight | ✔️ | ✔️ |
+| stopAllSpotlight |  ✔️ [1] | ✔️ [1] | 
+| getSpotlightedParticipants |  ✔️ | ✔️ | 
+
+[1] In Teams meeting scenarios, these APIs are only available to users with role organizer, co-organizer, or presenter.
+
+### SDKs
+The following table shows support for Spotlight feature in individual Azure Communication Services SDKs.
+
+|  Platforms     | Web | Web UI | iOS | iOS UI | Android | Android UI | Windows |
+|---------------|-----|--------|--------|--------|----------|--------|---------|
+|Is Supported | ✔️  |  ✔️      |  ✔️      |        |  ✔️        |        |  ✔️       |
 
 ::: zone pivot="platform-web"
 [!INCLUDE [Spotlight Client-side JavaScript](./includes/spotlight/spotlight-web.md)]

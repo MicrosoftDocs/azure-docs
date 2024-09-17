@@ -5,7 +5,7 @@ author: anaharris-ms
 ms.service: reliability
 ms.subservice: availability-zones
 ms.topic: conceptual
-ms.date: 08/18/2022
+ms.date: 06/13/2024
 ms.author: anaharris
 ms.custom: references_regions
 ---
@@ -82,7 +82,6 @@ As mentioned previously, Azure classifies services into three categories: founda
 > | Azure Analysis Services                              |
 > | Azure AI services                            |
 > | Azure Automation                                     |
-> | Azure AI services                             |
 > | Azure Container Apps                                 |
 > | Azure Data Share                                     |
 > | Azure Databricks                                     |
@@ -93,6 +92,7 @@ As mentioned previously, Azure classifies services into three categories: founda
 > | Azure HPC Cache                                      |
 > | Azure Lab Services                                   |
 > | Azure Machine Learning                               |
+> | Azure Managed HSM                                    |
 > | Azure Managed Instance for Apache Cassandra          |
 > | Azure NetApp Files                                   |
 > | Microsoft Purview                                        |
@@ -133,7 +133,7 @@ As mentioned previously, Azure classifies services into three categories: founda
 > | Virtual Machines: SAP HANA on Azure Large Instances  |
 
 
-Older generations of services or virtual machines aren't listed. For more information, see [Previous generations of virtual machine sizes](../virtual-machines/sizes-previous-gen.md).
+Older generations of services or virtual machines aren't listed. For more information, see [Previous generations of virtual machine sizes](/azure/virtual-machines/sizes-previous-gen).
 
 To learn more about preview services that aren't yet in general availability and to see a listing of these services, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/). For a complete listing of services that support availability zones, see [Azure services that support availability zones](availability-zones-service-support.md).
 

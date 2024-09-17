@@ -31,9 +31,6 @@ sections:
 
       - question: How are backup, high-availability, and disaster recovery implemented in Microsoft Dev Box? 
         answer: |
-          Microsoft Intune provides backup functionality for dev boxes. It automatically sets regular restore points, and enables you to create a manual restore point, just as you would for a [Cloud PC](/windows-365/enterprise/create-manual-restore-point).
-          Restore functionality for dev boxes is provided by sharing Cloud PC restore points to a storage account. For more information, see: [Share Cloud PC restore points to an Azure Storage Account](/windows-365/enterprise/share-restore-points-storage) 
-
           Dev Box doesn't provide high-availability and disaster recovery functions. If there's an Azure regional outage, customers lose access to Dev Box in that region. They must implement manual disaster recovery and re-create new Dev Boxes.
           Customers should design and implement high-availability and disaster recovery solutions that suit their requirements. 
 
@@ -44,7 +41,7 @@ sections:
     
       - question: Can I use a smart card, or other physical device with Dev Box?
         answer: Yes. Dev Box users can use smart card and other devices that are connected to the physical machine. Since Dev Box uses same RDP client as Azure Virtual Desktop, you can review following documentation to learn about all the different capabilities supported by RDP client. You can also review RDP client capabilities on different operating systems.
-                [Compare the features of remote desktop clients - Redirections comparison](../virtual-desktop/compare-remote-desktop-clients.md#redirections-comparison)
+                [Compare the features of remote desktop clients - Redirection comparison](../virtual-desktop/compare-remote-desktop-clients.md#redirection)
 
       - question: Can I use Linux as my development environment?
         answer: Microsoft Dev Box supports Windows Subsystem for Linux (WSL) for Linux scenarios. This support enables users to use Linux environment alongside Windows tools. GitHub users who use VS Code for development can use GitHub Codespaces.  

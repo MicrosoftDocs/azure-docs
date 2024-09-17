@@ -1,6 +1,7 @@
 ---
 author: anthonychu
-ms.service: container-apps
+ms.service: azure-container-apps
+ms.custom: devx-track-azurecli
 ms.topic:  include
 ms.date: 05/08/2024
 ms.author: antchu
@@ -64,14 +65,13 @@ You then need to configure managed identity for the app and assign it the proper
             --output tsv
         ```
 
-    1. Assign the managed identity the `Azure ContainerApps Session Creator` and `Contributor` roles on the session pool:
+    1. Assign the managed identity the `Azure ContainerApps Session Executor` and `Contributor` roles on the session pool:
 
         Before you run the following command, replace `<PRINCIPAL_ID>` and `<SESSION_POOL_RESOURCE_ID>` with the values you retrieved in the previous steps.
 
         ```bash
-        # Assign the Azure ContainerApps Session Creator role using its ID
         az role assignment create \
-            --role "0fb8eba5-a2bb-4abe-b1c1-49dfad359bb0" \
+            --role "Azure ContainerApps Session Executor" \
             --assignee <PRINCIPAL_ID> \
             --scope <SESSION_POOL_RESOURCE_ID>
 

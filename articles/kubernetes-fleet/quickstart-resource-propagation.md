@@ -5,6 +5,8 @@ ms.date: 03/28/2024
 author: schaffererin
 ms.author: schaffererin
 ms.service: kubernetes-fleet
+ms.custom:
+  - build-2024
 ms.topic: quickstart
 ---
 
@@ -14,7 +16,7 @@ In this quickstart, you learn how to propagate resources from an Azure Kubernete
 
 ## Prerequisites
 
-[!INCLUDE [free trial note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [free trial note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 * Read the [resource propagation conceptual overview](./concepts-resource-propagation.md) to understand the concepts and terminology used in this quickstart.
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
@@ -27,6 +29,8 @@ In this quickstart, you learn how to propagate resources from an Azure Kubernete
 The `ClusterResourcePlacement` API object is used to propagate resources from a hub cluster to member clusters. The `ClusterResourcePlacement` API object specifies the resources to propagate and the placement policy to use when selecting member clusters. The `ClusterResourcePlacement` API object is created in the hub cluster and is used to propagate resources to member clusters. This example demonstrates how to propagate a namespace to member clusters using the `ClusterResourcePlacement` API object with a `PickAll` placement policy.
 
 For more information, see [Kubernetes resource propagation from hub cluster to member clusters (Preview)](./concepts-resource-propagation.md) and the [upstream Fleet documentation](https://github.com/Azure/fleet/blob/main/docs/concepts/ClusterResourcePlacement/README.md).
+
+### [Azure CLI](#tab/azure-cli)
 
 1. Create a namespace to place onto the member clusters using the `kubectl create namespace` command. The following example creates a namespace named `my-namespace`:
 
@@ -194,7 +198,51 @@ For more information, see [Kubernetes resource propagation from hub cluster to m
       Normal  PlacementRolloutCompleted  103s  cluster-resource-placement-controller  Resources have been applied to the selected clusters
     ````
 
+### [Portal](#tab/azure-portal)
+
+1. Sign in to the Azure portal.
+
+1. On the Azure portal overview page for your Fleet resource, in the **Fleet Resources** section, select **Resource placements**.
+
+1. Select **Create**.
+
+1. Replace the placeholder values with the following YAML, and select **Add**.
+
+    :::image type="content" source="./media/quickstart-resource-propagation/create-crp-inline.png" lightbox="./media/quickstart-resource-propagation/create-crp.png" alt-text="A screenshot of the Azure portal page for creating a resource placement, showing the YAML template with placeholder values.":::
+
+    ```yml
+    apiVersion: placement.kubernetes-fleet.io/v1beta1
+    kind: ClusterResourcePlacement
+    metadata:
+      name: crp
+    spec:
+      resourceSelectors:
+        - group: ""
+          kind: Namespace
+          version: v1          
+          name: my-namespace
+      policy:
+        placementType: PickAll
+    ```
+    
+
+1. Verify that the cluster resource placement is created successfully.
+
+    :::image type="content" source="./media/quickstart-resource-propagation/crp-success-inline.png" lightbox="./media/quickstart-resource-propagation/crp-success.png" alt-text="A screenshot of the Azure portal page for cluster resource placements, showing a successfully created cluster resource placement.":::
+
+1. To see more details on an individual cluster resource placement, select it from the list.
+
+    :::image type="content" source="./media/quickstart-resource-propagation/crp-details-inline.png" lightbox="./media/quickstart-resource-propagation/crp-details.png" alt-text="A screenshot of the Azure portal overview page for an individual cluster resource placement, showing events and details.":::
+
+1. You can view additional details on the cluster resource placement's snapshots, bindings, works, and scheduling policy snapshots using the individual tabs. For example, select the **Cluster Resources Snapshots** tab.
+
+    :::image type="content" source="./media/quickstart-resource-propagation/crp-snapshot-inline.png" lightbox="./media/quickstart-resource-propagation/crp-snapshot.png" alt-text="A screenshot of the Azure portal page for a cluster resource placement, with the cluster resources snapshots tab selected.":::
+
+---
+
 ## Clean up resources
+
+### [Azure CLI](#tab/azure-cli)
 
 If you no longer wish to use the `ClusterResourcePlacement` object, you can delete it using the `kubectl delete` command. The following example deletes the `ClusterResourcePlacement` object named `crp`:
 
@@ -202,9 +250,21 @@ If you no longer wish to use the `ClusterResourcePlacement` object, you can dele
 kubectl delete clusterresourceplacement crp
 ```
 
+### [Portal](#tab/azure-portal)
+
+If you no longer wish to use your cluster resource placement, you can delete it from the Azure portal:
+
+1. On the Azure portal overview page for your Fleet resource, in the **Fleet Resources** section, select **Resource placements**.
+
+1. Select the cluster resource placement objects you want to delete, then select **Delete**.
+
+1. In the **Delete** tab, verify the correct objects are chosen. Once you're ready, select **Confirm delete** and **Delete**.
+
+---
+
 ## Next steps
 
 To learn more about resource propagation, see the following resources:
 
-* [Kubernetes resource propagation from hub cluster to member clusters (Preview)](./concepts-resource-propagation.md)
+* [Intelligent cross-cluster Kubernetes resource placement based on member clusters properties](./intelligent-resource-placement.md)
 * [Upstream Fleet documentation](https://github.com/Azure/fleet/blob/main/docs/concepts/ClusterResourcePlacement/README.md)

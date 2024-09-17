@@ -1,19 +1,15 @@
 ---
 title: Analyze Azure network security group flow logs - Graylog
 description: Learn how to manage and analyze network security group flow logs in Azure using Network Watcher and Graylog.
-services: network-watcher
 author: halkazwini
-ms.service: network-watcher
+ms.service: azure-network-watcher
 ms.topic: how-to
-ms.date: 05/03/2023
+ms.date: 05/31/2024
 ms.author: halkazwini
-ms.custom: engagement-fy23, linux-related-content
+ms.custom: linux-related-content
 ---
 
 # Manage and analyze network security group flow logs in Azure using Network Watcher and Graylog
-
-> [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
 
 [Network security group flow logs](nsg-flow-logs-overview.md) provide information that you can use to understand ingress and egress IP traffic for Azure network interfaces. Flow logs show outbound and inbound flows on a per network security group rule basis, the network interface the flow applies to, 5-tuple information (Source/Destination IP, Source/Destination Port, Protocol) about the flow, and if the traffic was allowed or denied.
 
@@ -55,7 +51,7 @@ prerequisites:
 ### Install Logstash
 
 Logstash is used to flatten the JSON formatted flow logs to a flow tuple level. Flattening the flow logs makes the logs easier to organize and search in Graylog.
-The following instructions are used to install Logstash in Ubuntu. For instructions about how to install this package in RHEL/CentOS, refer to the [Installing from Package Repositories - yum](https://www.elastic.co/guide/en/logstash/8.7/installing-logstash.html#_yum) article.
+The following instructions are used to install Logstash in Ubuntu. For instructions about how to install this package in Red Hat Enterprise Linux, see [Installing from Package Repositories - yum](https://www.elastic.co/guide/en/logstash/8.7/installing-logstash.html#_yum).
 
 1. To install Logstash, run the following commands:
 

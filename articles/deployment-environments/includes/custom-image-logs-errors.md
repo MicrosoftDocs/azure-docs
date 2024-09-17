@@ -1,16 +1,16 @@
 ---
-ms.service: deployment-environments
+ms.service: azure-deployment-environments
 ms.topic: include
 author: RoseHJM
 ms.author: rosemalcolm
-ms.date: 05/03/2024
+ms.date: 05/23/2024
 ---
 
 ADE stores error details for a failed deployment in the *$ADE_ERROR_LOG* file within the container. 
 
 To troubleshoot a failed deployment:
 
-1. Sign in to the [Developer Portal](https://devportal.microsoft.com/).
+1. Sign in to the [Developer Portal](https://aka.ms/devbox-portal).
 1. Identify the environment that failed to deploy, and select **See details**.
 
     :::image type="content" source="../media/custom-image-logs-errors-include/failed-deployment-card.png" alt-text="Screenshot showing failed deployment error details, specifically an invalid name for a storage account." lightbox="../media/custom-image-logs-errors-include/failed-deployment-card-big.png":::

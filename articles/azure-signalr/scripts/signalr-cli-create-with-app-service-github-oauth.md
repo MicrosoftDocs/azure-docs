@@ -2,7 +2,7 @@
 title: Create web app using SignalR Service and GitHub authentication
 description: Azure CLI Script Sample - Create a web app that uses SignalR Service and GitHub authentication
 author: vicancy
-ms.service: signalr
+ms.service: azure-signalr-service
 ms.devlang: azurecli
 ms.topic: sample
 ms.date: 03/30/2022
@@ -14,13 +14,13 @@ ms.custom: mvc, devx-track-azurecli
 
 This sample script creates a new Azure SignalR Service resource, which is used to push real-time content updates to clients. This script also adds a new Web App and App Service plan to host your ASP.NET Core Web App that uses the SignalR Service. The web app is configured with app settings to connect to the new SignalR service resource, and authenticate with [GitHub authentication](https://developer.github.com/v3/guides/basics-of-authentication/). The web app is also configured to use a local git repository deployment source.
 
-[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [cloud-shell-try-it.md](~/reusable-content/ce-skilling/azure/includes/cloud-shell-try-it.md)]
 
 ## Sample scripts
 
-[!INCLUDE [cli-launch-cloud-shell-sign-in.md](../../../includes/cli-launch-cloud-shell-sign-in.md)]
+[!INCLUDE [cli-launch-cloud-shell-sign-in.md](~/reusable-content/ce-skilling/azure/includes/cli-launch-cloud-shell-sign-in.md)]
 
 ### Create the SignalR service with an App service
 
@@ -62,7 +62,7 @@ This sample script creates a new Azure SignalR Service resource, which is used t
 
 ## Clean up resources
 
-[!INCLUDE [cli-clean-up-resources.md](../../../includes/cli-clean-up-resources.md)]
+[!INCLUDE [cli-clean-up-resources.md](~/reusable-content/ce-skilling/azure/includes/cli-clean-up-resources.md)]
 
 ```azurecli
 az group delete --name $resourceGroup

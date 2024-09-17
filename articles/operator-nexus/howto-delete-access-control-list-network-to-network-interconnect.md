@@ -6,7 +6,7 @@ ms.author: sushrao
 ms.service: azure-operator-nexus
 ms.topic: how-to
 ms.date: 04/18/2024
-ms.custom: template-how-to
+ms.custom: template-how-to, devx-track-azurecli
 ---
 
 # Deleting ACLs associated with Network-to-Network Interconnects (NNI)

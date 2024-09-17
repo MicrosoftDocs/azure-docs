@@ -3,7 +3,7 @@
  description: include file
  services: notification-hubs
  author: spelluru
- ms.service: notification-hubs
+ ms.service: azure-notification-hubs
  ms.topic: include
  ms.date: 08/01/2019
  ms.author: spelluru

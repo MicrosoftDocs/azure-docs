@@ -161,7 +161,7 @@ See [High-availability configuration](configure-system.md#high-availability-conf
 > | `database_vm_authentication_type`  | Defines the authentication type (key/password)                                     | Optional     |        |
 > | `database_use_avset`               | Controls if the database servers are placed in availability sets                   | Optional     |        |
 > | `database_use_ppg`                 | Controls if the database servers are placed in proximity placement groups          | Optional     |        |
-> | `database_vm_avset_arm_ids`        | Defines the existing availability sets Azure resource IDs                          | Optional     | Primarily used with ANF pinning. |
+> | `database_vm_avset_arm_ids`        | Defines the existing availability sets Azure resource IDs                          | Optional     | Primarily used with Azure NetApp Files pinning. |
 > | `database_use_premium_v2_storage`  | Controls if the database tier will use premium storage v2 (HANA)                   | Optional     |        |
 > | `database_dual_nics`               | Controls if the HANA database servers will have dual network interfaces            | Optional     |        |
 > | `database_tags`	                   | Defines a list of tags to be applied to the database servers                       | Optional  |         |
@@ -525,7 +525,7 @@ If you set the variable `use_msi_for_clusters` to `true`, the fencing agent uses
 
 If you want to use a service principal for the fencing agent, set that variable to false.
 
-The fencing agents should be configured to use a unique service principal with permissions to stop and start virtual machines. For more information, see [Create a fencing agent](../../virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker.md#create-an-azure-fence-agent-device).
+The fencing agents should be configured to use a unique service principal with permissions to stop and start virtual machines. For more information, see [Create a fencing agent](/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker#create-an-azure-fence-agent-device).
 
 ```azurecli-interactive
 az ad sp create-for-rbac --role="Linux Fence Agent Role" --scopes="/subscriptions/<subscriptionID>" --name="<prefix>-Fencing-Agent"

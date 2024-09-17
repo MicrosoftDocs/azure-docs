@@ -1,16 +1,16 @@
 ---
 title: Interact with API inventory using VS Code extension
-description: Build, discover, try, and consume APIs from your Azure API center using the Azure API Center extension for Visual Studio Code (preview)
+description: Build, discover, try, and consume APIs from your Azure API center using the Azure API Center extension for Visual Studio Code.
 author: dlepow
-ms.service: api-center
+ms.service: azure-api-center
 ms.topic: how-to
-ms.date: 04/23/2024
+ms.date: 08/01/2024
 ms.author: danlep 
 ms.custom: 
 # Customer intent: As a developer, I want to use my Visual Studio Code environment to build, discover, try, and consume APIs in my organization's API center.
 ---
 
-# Get started with the Azure API Center extension for Visual Studio Code (preview)
+# Get started with the Azure API Center extension for Visual Studio Code
 
 To build, discover, try, and consume APIs in your [API center](overview.md), you can use the Azure API Center extension in your Visual Studio Code development environment:
 
@@ -24,9 +24,6 @@ To build, discover, try, and consume APIs in your [API center](overview.md), you
 
 > [!VIDEO https://www.youtube.com/embed/62X0NALedCc]
 
-> [!NOTE]
-> The Azure API Center extension for Visual Studio Code is in preview. Learn more about the [extension preview](https://marketplace.visualstudio.com/items?itemName=apidev.azure-api-center).
-
 ## Prerequisites
 
 * One or more API centers in your Azure subscription. If you haven't created one already, see [Quickstart: Create your API center](set-up-api-center.md).
@@ -36,6 +33,9 @@ To build, discover, try, and consume APIs in your [API center](overview.md), you
 * [Visual Studio Code](https://code.visualstudio.com/)
     
 * [Azure API Center extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=apidev.azure-api-center)
+
+    > [!NOTE]
+    > Where noted, certain features are available only in the extension's pre-release version. When installing the extension from the [Visual Studio Code Marketplace](https://marketplace.visualstudio.com/items?itemName=apidev.azure-api-center&ssr=false#overview), you can choose to install the release version or a pre-release version. Switch between the two versions at any time by using the extension's **Manage** button context menu in the Extensions view. 
     
 The following Visual Studio Code extensions are optional and needed only for certain scenarios as indicated:
 
@@ -43,6 +43,7 @@ The following Visual Studio Code extensions are optional and needed only for cer
 * [Microsoft Kiota extension](https://marketplace.visualstudio.com/items?itemName=ms-graph.kiota) - to generate API clients
 * [Spectral extension](https://marketplace.visualstudio.com/items?itemName=stoplight.spectral) - to run shift-left API design conformance checks in Visual Studio Code
 * [Optic CLI](https://github.com/opticdev/optic) - to detect breaking changes between API specification documents
+* [GitHub Copilot](https://marketplace.visualstudio.com/items?itemName=GitHub.copilot) - to generate OpenAPI specification files from API code
     
 ## Setup
 
@@ -86,6 +87,17 @@ Visual Studio Code will open a diff view between the two API specifications. Any
 
 :::image type="content" source="media/use-vscode-extension/breaking-changes.png" alt-text="Screenshot of breaking changes detected in Visual Studio Code." lightbox="media/use-vscode-extension/breaking-changes.png":::
 
+## Generate OpenAPI specification file from API code 
+ 
+Use the power of GitHub Copilot with the Azure API Center extension for Visual Studio Code to create an OpenAPI specification file from your API code. Right-click on the API code, select **Copilot** from the options, and select **Generate API documentation**. This will create an OpenAPI specification file.
+
+> [!NOTE]
+> This feature is available in the pre-release version of the API Center extension.
+
+:::image type="content" source="media/use-vscode-extension/generate-api-documentation.gif" alt-text="Animation showing how to use GitHub Copilot to generate an OpenAPI spec from code." lightbox="media/use-vscode-extension/generate-api-documentation.gif":::
+
+After generating the OpenAPI specification file and checking for accuracy, you can register the API with your API center using the **Azure API Center: Register API** command.
+
 ## Discover APIs
 
 Your API center resources appear in the tree view on the left-hand side. Expand an API center resource to see APIs, versions, definitions, environments, and deployments.
@@ -107,6 +119,9 @@ You can view the documentation for an API definition in your API center and try 
 
     > [!NOTE]
     > Depending on the API, you might need to provide authorization credentials or an API key to try the API.
+
+    > [!TIP]
+    > Using the pre-release version of the extension, you can generate API documentation in Markdown, a format that's easy to maintain and share with end users. Right-click on the definition, and select **Generate Markdown**.
 
 ## Generate HTTP file
 
@@ -139,7 +154,24 @@ The client is generated.
 
 For details on using the Kiota extension, see [Microsoft Kiota extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-graph.kiota).
 
-  ## Related content
+## Export API specification
+
+You can export an API specification from a definition and then download it as a file.
+
+To export a specification in the extension's tree view:
+
+1. Expand the API Center tree view to show an API definition.    
+1. Right-click on the definition, and select **Export API Specification Document**. A new tab appears that renders an API specification document.
+
+    :::image type="content" source="media/use-vscode-extension/export-specification.png" alt-text="Screenshot of exporting API specification in Visual Studio Code." lightbox="media/use-vscode-extension/export-specification.png":::
+
+You can also export a specification using the Command Palette:
+
+1. Type the **Ctrl+Shift+P** keyboard shortcut to open the Command Palette. 
+1. Select **Azure API Center: Export API Specification Document**.
+1. Make selections to navigate to an API definition. A new tab appears that renders an API specification document.
+
+## Related content
 
 * [Azure API Center - key concepts](key-concepts.md)
-* [Discover APIs with GitHub Copilot Chat and Azure API Center extension for Visual Studio Code](use-vscode-extension-copilot.md)
+

@@ -3,9 +3,9 @@ title: Deploy Azure API Management instance to multiple Azure regions
 titleSuffix: Azure API Management
 description: Learn how to deploy a Premium tier Azure API Management instance to multiple Azure regions to improve API gateway availability.
 author: dlepow
-ms.service: api-management
+ms.service: azure-api-management
 ms.topic: how-to
-ms.date: 01/26/2024
+ms.date: 07/29/2024
 ms.author: danlep
 ---
 
@@ -33,7 +33,7 @@ When adding a region, you configure:
 ## Prerequisites
 
 * If you haven't created an API Management service instance, see [Create an API Management service instance](get-started-create-service-instance.md). Select the Premium service tier.
-* If your API Management instance is deployed in a virtual network, ensure that you set up a virtual network, subnet, and public IP address in the location that you plan to add, and within the same subscription. See [virtual network prerequisites](api-management-using-with-vnet.md#prerequisites).
+* If your API Management instance is deployed in a virtual network, ensure that you set up a virtual network and subnet in the location that you plan to add, and within the same subscription. To enable zone redundancy, also set up a new public IP. See [virtual network prerequisites](api-management-using-with-vnet.md#prerequisites).
 
 ## <a name="add-region"> </a>Deploy API Management service to an additional region
 
@@ -42,7 +42,7 @@ When adding a region, you configure:
 1. Select the added location from the dropdown list.
 1. Select the number of scale **[Units](upgrade-and-scale.md)** in the location.
 1. Optionally select one or more [**Availability zones**](../reliability/migrate-api-mgt.md). 
-1. If the API Management instance is deployed in a [virtual network](api-management-using-with-vnet.md), configure virtual network settings in the location. Select an existing virtual network, subnet, and public IP address that are available in the location.
+1. If the API Management instance is deployed in a [virtual network](api-management-using-with-vnet.md), configure virtual network settings in the location, including virtual network, subnet, and public IP address (if enabling availability zones).
 1. Select **Add** to confirm.
 1. Repeat this process until you configure all locations.
 1. Select **Save** in the top bar to start the deployment process.
@@ -164,11 +164,11 @@ This section provides considerations for multi-region deployments when the API M
 * Configure each regional network independently. The [connectivity requirements](virtual-network-reference.md) such as required network security group rules for a virtual network in an added region are generally the same as those for a network in the primary region.
 * Virtual networks in the different regions don't need to be peered.
 > [!IMPORTANT]
-> When configured in internal VNet mode, each regional gateway must also have outbound connectivity on port 1443 to the Azure SQL database configured for your API Management instance, which is only in the *primary* region. Ensure that you allow connectivity to the FQDN or IP address of this Azure SQL database in any routes or firewall rules you configure for networks in your secondary regions; the Azure SQL service tag can't be used in this scenario. To find the Azure SQL database name in the primary region, go to the **Network** > **Network status** page of your API Management instance in the portal. 
+> When configured in internal VNet mode, each regional gateway must also have outbound connectivity on port 1433 to the Azure SQL database configured for your API Management instance, which is only in the *primary* region. Ensure that you allow connectivity to the FQDN or IP address of this Azure SQL database in any routes or firewall rules you configure for networks in your secondary regions; the Azure SQL service tag can't be used in this scenario. To find the Azure SQL database name in the primary region, go to the **Network** > **Network status** page of your API Management instance in the portal. 
 
 ### IP addresses
 
-* A public virtual IP address is created in every region added with a virtual network. For virtual networks in either [external mode](api-management-using-with-vnet.md) or [internal mode](api-management-using-with-internal-vnet.md), this public IP address is required for management traffic on port `3443`.
+* A public virtual IP address is created in every region added with a virtual network. For virtual networks in either [external mode](api-management-using-with-vnet.md) or [internal mode](api-management-using-with-internal-vnet.md), this public IP address is used for management traffic on port `3443`.
 
     * **External VNet mode** - The public IP addresses are also required to route public HTTP traffic to the API gateways.
 
@@ -178,7 +178,7 @@ This section provides considerations for multi-region deployments when the API M
 
 * **External VNet mode** - Routing of public HTTP traffic to the regional gateways is handled automatically, in the same way it is for a non-networked API Management instance.
 
-* **Internal VNet mode** - Private HTTP traffic isn't routed or load-balanced to the regional gateways by default. Users own the routing and are responsible for bringing their own solution to manage routing and private load balancing across multiple regions. Example solutions include Azure Application Gateway and Azure Traffic Manager.
+* **Internal VNet mode** - Private HTTP traffic isn't routed or load-balanced to the regional gateways by default. Users own the routing and are responsible for bringing their own solution to manage routing and private load balancing across multiple regions. 
 
 ## Next steps
 

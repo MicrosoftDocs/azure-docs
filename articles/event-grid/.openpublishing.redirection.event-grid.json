@@ -1,5 +1,20 @@
 {
-  "redirections": [
+  "redirections": [    
+    {
+      "source_path": "storage-upload-process-images.md",
+      "redirect_url": "/azure/event-grid/blob-event-quickstart-portal",
+      "redirect_document_id": false
+    },    
+    {
+      "source_path": "resize-images-on-storage-blob-upload-event.md",
+      "redirect_url": "/azure/event-grid/blob-event-quickstart-portal",
+      "redirect_document_id": false
+    },    
+    {
+      "source_path": "subscribe-to-microsoft-entra-id-events.md",
+      "redirect_url": "/azure/event-grid/subscribe-to-graph-api-events",
+      "redirect_document_id": false
+    },    
     {
       "source_path": "configure-firewall-mqtt.md",
       "redirect_url": "/azure/event-grid/mqtt-configure-firewall",

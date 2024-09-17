@@ -1,10 +1,9 @@
 ---
-title: dTPM access for Azure IoT Edge for Linux on Windows | Microsoft Docs
+title: dTPM access for Azure IoT Edge for Linux on Windows
 description: Learn about how to configure access the dTPM on your  Azure IoT Edge for Linux on Windows virtual machine.
-author: fcabrera
-manager: patricka
+author: PatAltimore
 ms.author: patricka
-ms.date: 8/1/2022
+ms.date: 05/29/2024
 ms.topic: conceptual
 ms.service: iot-edge
 ms.custom: linux-related-content
@@ -88,13 +87,13 @@ Once the executable file and dependency files are created, you need to copy the 
     ```
 
 1. Create a *tar* file with all the files created in previous steps.
-    For example, if you have all your files under the folder _TPM_, you can use the following command to create the _TPM.tar_ file.
+    For example, if you have all your files under the folder *TPM*, you can use the following command to create the *TPM.tar* file.
     ```powershell
      tar -cvzf TPM.tar ".\TPM"
     ```
 
 1. Once the *TPM.tar* file is created successfully, use the `Copy-EflowVmFile` cmdlet to copy the *tar* file created to the EFLOW VM.
-    For example, if you have the _tar_ file name _TPM.tar_ in the directory `C:\Users\User`. you can use the following command to copy to the EFLOW VM.
+    For example, if you have the *tar* file name *TPM.tar* in the directory `C:\Users\User`. you can use the following command to copy to the EFLOW VM.
     ```powershell
     Copy-EflowVmFile -fromFile "C:\Users\User\TPM.tar" -toFile "/home/iotedge-user/" -pushFile
     ```
@@ -106,7 +105,7 @@ Once the executable file and dependency files are created, you need to copy the 
 
 1. Change directory to the folder where you copied the *tar* file and check the file is available. If you used the example above, when connected to the EFLOW VM, you'll already be at the *iotedge-user* root folder. Run the `ls` command to list the files and folders.
 
-1. Run the following command to extract all the content from the _tar_ file.
+1. Run the following command to extract all the content from the *tar* file.
     ```bash
     tar -xvzf TPM.tar
     ```

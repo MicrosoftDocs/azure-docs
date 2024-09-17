@@ -7,6 +7,7 @@ ms.subservice: process-automation
 ms.date: 10/16/2023
 ms.topic: conceptual
 ms.custom: references_regions 
+ms.service: azure-automation
 ---
 
 # Availability zones support for Azure Automation

@@ -3,7 +3,7 @@ title: Azure Application Gateway listener configuration
 description: This article describes how to configure Azure Application Gateway listeners.
 services: application-gateway
 author: greg-lindsay
-ms.service: application-gateway
+ms.service: azure-application-gateway
 ms.topic: conceptual
 ms.date: 07/19/2023
 ms.author: greglin 
@@ -11,7 +11,7 @@ ms.author: greglin
 
 # Application Gateway listener configuration
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 A listener is a logical entity that checks for incoming connection requests by using the port, protocol, host, and IP address. When you configure the listener, you must enter values for these that match the corresponding values in the incoming request on the gateway.
 

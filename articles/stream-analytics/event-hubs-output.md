@@ -3,7 +3,7 @@ title: Event Hubs output from Azure Stream Analytics
 description: This article describes how to output data from Azure Stream Analytics to Azure Event Hubs.
 author: an-emma
 ms.author: raan
-ms.service: stream-analytics
+ms.service: azure-stream-analytics
 ms.custom: build-2023
 ms.topic: conceptual
 ms.date: 02/27/2023

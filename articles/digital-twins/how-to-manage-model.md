@@ -5,9 +5,9 @@ titleSuffix: Azure Digital Twins
 description: Learn how to manage DTDL models within Azure Digital Twins, including how to create, edit, and delete them.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 10/3/2023
+ms.date: 06/11/2024
 ms.topic: how-to
-ms.service: digital-twins
+ms.service: azure-digital-twins
 
 # Optional fields. Don't forget to remove # if you need a field.
 # ms.custom: can-be-multiple-comma-separated
@@ -24,6 +24,8 @@ This article describes how to manage the [models](concepts-models.md) in your Az
 [!INCLUDE [digital-twins-prereq-instance.md](../../includes/digital-twins-prereq-instance.md)]
 
 [!INCLUDE [digital-twins-developer-interfaces.md](../../includes/digital-twins-developer-interfaces.md)]
+
+[!INCLUDE [digital-twins-explorer-dtdl](../../includes/digital-twins-explorer-dtdl.md)]
 
 [!INCLUDE [visualizing with Azure Digital Twins explorer](../../includes/digital-twins-visualization.md)]
 
@@ -259,7 +261,7 @@ To decommission a model, you can use the [DecommissionModel](/dotnet/api/azure.d
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/model_operations.cs" id="DecommissionModel":::
 
-You can also decommission a model using the REST API call [DigitalTwinModels Update](/rest/api/digital-twins/dataplane/models/digitaltwinmodels_update). The `decommissioned` property is the only property that can be replaced with this API call. The JSON Patch document will look something like this:
+You can also decommission a model using the REST API call [DigitalTwinModels Update](/rest/api/digital-twins/dataplane/models/digital-twin-models-update). The `decommissioned` property is the only property that can be replaced with this API call. The JSON Patch document will look something like this:
 
 :::code language="json" source="~/digital-twins-docs-samples/models/patch-decommission-model.json":::
 
@@ -295,7 +297,7 @@ To delete a model, you can use the [DeleteModel](/dotnet/api/azure.digitaltwins.
 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/model_operations.cs" id="DeleteModel":::
 
-You can also delete a model with the [DigitalTwinModels Delete](/rest/api/digital-twins/dataplane/models/digitaltwinmodels_delete) REST API call.
+You can also delete a model with the [DigitalTwinModels Delete](/rest/api/digital-twins/dataplane/models/digital-twin-models-delete) REST API call.
 
 #### After deletion: Twins without models
 
@@ -339,6 +341,8 @@ Azure Digital Twins supports [DTDL versions 2 and 3](concepts-models.md#supporte
 After these changes, a former DTDL v2 model has been converted to a DTDL v3 model.
 
 You might also want to consider [new capabilities of DTDL v3](concepts-models.md#supported-dtdl-versions), such as array-type properties, version relaxation, and additional feature extensions, to see if any of them would be beneficial additions. For a complete list of differences between DTDL v2 and v3, see [Changes from Version 2 in the DTDL v3 Language Description](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v3/DTDL.v3.md#changes-from-version-2).
+
+[!INCLUDE [digital-twins-explorer-dtdl](../../includes/digital-twins-explorer-dtdl.md)]
 
 ## Next steps
 

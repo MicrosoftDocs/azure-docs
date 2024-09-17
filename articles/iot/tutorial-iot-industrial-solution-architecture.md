@@ -45,7 +45,7 @@ Here are the components involved in this solution:
 
 | Component | Description |
 | --- | --- |
-| Industrial Assets | A set of simulated OPC-UA enabled production lines hosted in Docker containers |
+| Industrial Assets | A set of simulated OPC UA enabled production lines hosted in Docker containers |
 | [Azure IoT Operations](/azure/iot-operations/get-started/overview-iot-operations) | Azure IoT Operations is a unified data plane for the edge. It includes a set of modular, scalable, and highly available data services that run on Azure Arc-enabled edge Kubernetes clusters. |
 | [Data Gateway](/azure/logic-apps/logic-apps-gateway-install#how-the-gateway-works) | This gateway connects your on-premises data sources (like SAP) to Azure Logic Apps in the cloud. |
 | [Azure Kubernetes Services Edge Essentials](/azure/aks/hybrid/aks-edge-overview) | This Kubernetes implementation runs at the Edge. It provides single- and multi-node Kubernetes clusters for a fault-tolerant Edge configuration. Both K3S and K8S are supported. It runs on embedded or PC-class hardware, like an industrial gateway. |
@@ -522,4 +522,4 @@ This workflow creates alerts in Dynamics 365 Field Service, specifically when a 
 ## Related content
 
 - [Connect on-premises SAP systems to Azure](howto-connect-on-premises-sap-to-azure.md)
-- [Connecting Azure IoT Operations to Microsoft Fabric](../iot-operations/connect-to-cloud/howto-configure-destination-fabric.md)
+- [Connecting Azure IoT Operations to Microsoft Fabric](../iot-operations/process-data/howto-configure-destination-fabric.md)

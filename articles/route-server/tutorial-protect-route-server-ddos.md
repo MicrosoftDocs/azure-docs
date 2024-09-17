@@ -3,9 +3,9 @@ title: 'Tutorial: Protect your Route Server with Azure DDoS protection'
 description: Learn how to set up a route server and protect it with Azure DDoS protection using the Azure portal.
 author: halkazwini
 ms.author: halkazwini
-ms.service: route-server
+ms.service: azure-route-server
 ms.topic: tutorial
-ms.date: 04/18/2024
+ms.date: 06/12/2024
 
 #CustomerIntent: As an Azure administrator, I want to deploy Azure Route Server in my environment with DDoS protection so that the Route Server dynamically updates virtual machines (VMs) routing tables with any changes in the topology while it's protected by Azure DDoS protection.
 ---
@@ -15,7 +15,7 @@ ms.date: 04/18/2024
 This article helps you create an Azure Route Server with a DDoS protected virtual network. Azure DDoS protection protects your publicly accessible route server from Distributed Denial of Service attacks.
 
 > [!IMPORTANT]
-> Azure DDoS Protection incurs a cost when you use the Standard SKU. Overages charges only apply if more than 100 public IPs are protected in the tenant. Ensure you delete the resources in this tutorial if you aren't using the resources in the future. For information about pricing, see [Azure DDoS Protection Pricing]( https://azure.microsoft.com/pricing/details/ddos-protection/). For more information about Azure DDoS protection, see [What is Azure DDoS Protection?](../ddos-protection/ddos-protection-overview.md).
+> Azure DDoS Protection incurs a cost when you use the Network Protection SKU. Overages charges only apply if more than 100 public IPs are protected in the tenant. Ensure you delete the resources in this tutorial if you aren't using the resources in the future. For information about pricing, see [Azure DDoS Protection Pricing]( https://azure.microsoft.com/pricing/details/ddos-protection/). For more information about Azure DDoS protection, see [What is Azure DDoS Protection?](../ddos-protection/ddos-protection-overview.md)
 
 In this tutorial, you learn how to:
 
@@ -35,11 +35,11 @@ In this section, you create an Azure DDoS protection plan to associate with the 
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-2. In the search box at the top of the portal, enter **DDoS protection**. Select **DDoS protection plans** in the search results.
+2. In the search box at the top of the portal, enter **DDoS protection**. Select **DDoS protection plans** from the search results.
 
 3. Select **+ Create**.
 
-4. In the **Basics** tab of **Create a DDoS protection plan**, enter or select the following information:
+4. On the **Basics** tab of **Create a DDoS protection plan**, enter or select the following information:
 
     | Setting | Value |
     | ------- | ----- |
@@ -58,11 +58,11 @@ In this section, you create an Azure DDoS protection plan to associate with the 
 
 In this section, you create an Azure Route Server. The virtual network and public IP address used for the route server are created during the deployment of the route server.
 
-1. In the search box at the top of the portal, enter **Route Server**. Select **Route Servers** in the search results.
+1. In the search box at the top of the portal, enter **Route Server**. Select **Route Servers** from the search results.
 
 2. Select **+ Create**.
 
-3. In the **Basics** tab of **Create a Route Server**, enter or select the following information:
+3. On the **Basics** tab of **Create a Route Server**, enter or select the following information:
 
     | Setting | Value |
     | ------- | ----- |
@@ -92,7 +92,7 @@ In this section, you create an Azure Route Server. The virtual network and publi
 
 Azure DDoS Network is enabled at the virtual network where the resource you want to protect reside. 
 
-1. In the search box at the top of the portal, enter **Virtual network**. Select **Virtual networks** in the search results.
+1. In the search box at the top of the portal, enter **Virtual network**. Select **Virtual networks** from the search results.
 
 2. Select **myVNet**.
 
@@ -108,7 +108,7 @@ Azure DDoS Network is enabled at the virtual network where the resource you want
 
 In this section, you set up the BGP peering with your NVA.
 
-1. In the search box at the top of the portal, enter **Route Server**. Select **Route Servers** in the search results.
+1. In the search box at the top of the portal, enter **Route Server**. Select **Route Servers** from the search results.
 
 2. Select **myRouteServer**.
 
@@ -130,11 +130,11 @@ In this section, you set up the BGP peering with your NVA.
 
 You need the Azure Route Server's peer IPs and ASN to complete the configuration on your NVA to establish a BGP session. You can obtain this information from the overview page your Route Server.
 
-1. In the search box at the top of the portal, enter **Route Server**. Select **Route Servers** in the search results.
+1. In the search box at the top of the portal, enter **Route Server**. Select **Route Servers** from the search results.
 
 2. Select **myRouteServer**.
 
-3. In the **Overview** page of **myRouteServer**, make note of the **ASN** and **Peer IPs**.
+3. On the **Overview** page of **myRouteServer**, make note of the **ASN** and **Peer IPs**.
 
     :::image type="content" source="./media/quickstart-configure-route-server-portal/route-server-overview.png" alt-text="Screenshot of Route Server overview page.":::
 

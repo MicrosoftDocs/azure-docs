@@ -8,7 +8,7 @@ ms.date: 4/15/2024
 ms.topic: conceptual
 ms.service: azure-communication-services
 ms.subservice: teams-interop
-ms.custom: mode-other, devx-track-js
+ms.custom: mode-other
 ---
 
 # Capabilities for Microsoft Teams users in Azure Communication Services group calls
@@ -84,5 +84,3 @@ M365/Teams user can take calls with Communication Services users via Teams clien
 |	                          | Manage Teams transcription	                                                 | ❌                                 | ✔️  |
 |                         |	Receive information of call being transcribed	                                | ✔️                                   | ✔️ |
 |                          | Manage Teams closed captions	                                                  | ✔️                                   | ✔️ |
-
-

@@ -3,7 +3,7 @@ title: 'How to configure Virtual WAN Hub routing policies'
 titleSuffix: Azure Virtual WAN
 description: Learn how to configure Virtual WAN routing policies
 author: wtnlee
-ms.service: virtual-wan
+ms.service: azure-virtual-wan
 ms.custom: devx-track-bicep
 ms.topic: how-to
 ms.date: 09/21/2023
@@ -96,6 +96,55 @@ Consider the following configuration where Hub 1 (Normal) and Hub 2 (Secured) ar
   * Network Virtual Appliances (NVAs) can only be specified as the next hop resource for routing intent if they're Next-Generation Firewall or dual-role Next-Generation Firewall and SD-WAN NVAs. Currently, **checkpoint**, **fortinet-ngfw** and **fortinet-ngfw-and-sdwan** are the only NVAs eligible to be configured to be the next hop for routing intent. If you attempt to specify another NVA, Routing Intent creation fails. You can check the type of the NVA by navigating to your Virtual Hub -> Network Virtual Appliances and then looking at the **Vendor** field. [**Palo Alto Networks Cloud NGFW**](how-to-palo-alto-cloud-ngfw.md) is also supported as the next hop for Routing Intent, but is considered a next hop of type **SaaS solution**. 
   * Routing Intent users who want to connect multiple ExpressRoute circuits to Virtual WAN and want to send traffic between them via a security solution deployed in the hub can enable open up a support case to enable this use case. Reference [enabling connectivity across ExpressRoute circuits](#expressroute) for more information.
 
+### Virtual Network Address Space Limits
+
+> [!NOTE]
+> The maximum number of Virtual Network address spaces that you can connect to a single Virtual WAN hub is adjustable. Open an Azure support case to request a limit increase. The limits are applicable at the Virtual WAN hub level. If you have multiple Virtual WAN hubs that require a limit increase, request a limit increase for all Virtual WAN hubs in your Virtual WAN deployment.
+
+For customers using routing intent, the maximum number of address spaces across all Virtual Networks **directly connected** to a single Virtual WAN hub is 400. This limit is applied individually to each Virtual WAN hub in a Virtual WAN deployment. Virtual Network address spaces connected to **remote** (other Virtual WAN hubs in the same Virtual WAN) hubs are **not** counted towards this limit.
+
+If the number of directly connected Virtual Network address spaces connected to a hub exceeds the limit, enabling or updating routing intent on the Virtual Hub will fail. For hubs already configured with routing intent where Virtual Network address spaces exceeds the limit as a result of an operation such as a Virtual Network address space update, the newly connected address space may not be routable.
+
+Proactively request a limit increase if the total number of address spaces across all locally connected Virtual Networks exceeds 90% of the documented limit or if you have any planned network expansion or deployment operations that will increase the number of Virtual Network address spaces past the limit.
+ 
+The following table provides example Virtual Network address space calculations.
+
+|Virtual Hub| Virtual Network Count| Address spaces per Virtual Network | Total number of Virtual Network address spaces connected to Virtual Hub| Suggested Action|
+|--|--|--|--|--|
+| Hub #1| 200| 1 | 200|  No action required, monitor address space count.| 
+| Hub #2| 150 | 3 | 450| Request limit increase to use routing intent.|
+| Hub #3 |370 | 1| 370| Request limit increase.|
+
+You can use the following Powershell script to approximate the number of address spaces in Virtual Networks connected to a single Virtual WAN hub. Run this script for all Virtual WAN hubs in your Virtual WAN. An Azure Monitor metric to allow you to track and configure alerts on connected Virtual Network address spaces is on the roadmap. 
+
+Make sure to modify the resource ID of the Virtual WAN Hub in the script to match your environment. If you have cross-tenant Virtual Network connections, make sure you have sufficient permissions to read the Virtual WAN Virtual Network connection object as well as the connected Virtual Network resource. 
+
+```powershell-interactive
+$hubVNETconnections = Get-AzVirtualHubVnetConnection -ParentResourceId "/subscriptions/<subscription id>/resourceGroups/<resource group name>/providers/Microsoft.Network/virtualHubs/<virtual hub name>"
+$addressSpaceCount = 0
+  
+foreach($connection in $hubVNETconnections) {
+  try{
+    $resourceURI = $connection.RemoteVirtualNetwork.Id
+    $RG = ($resourceURI -split "/")[4]
+    $name = ($resourceURI -split "/")[8]
+    $VNET = Get-AzVirtualNetwork -Name $name -ResourceGroupName $RG -ErrorAction "Stop"
+    $addressSpaceCount += $VNET.AddressSpace.AddressPrefixes.Count
+  }
+  catch{
+    Write-Host "An error ocurred  while processing VNET connected to Virtual WAN hub with resource URI:  " -NoNewline
+    Write-Host $resourceURI 
+    Write-Host "Error Message: " -ForegroundColor Red
+    Write-Host $_.Exception.Message -ForegroundColor Red 
+  }
+  finally{
+  }
+}
+Write-Host "Total Address Spaces in VNETs connected to this Virtual WAN Hub: " -ForegroundColor Green -NoNewline
+Write-Host $addressSpaceCount -ForegroundColor Green
+```
+
+
 ## Considerations
 
 Customers who are currently using Azure Firewall in the Virtual WAN hub without Routing Intent may enable routing intent using Azure Firewall Manager, Virtual WAN hub routing portal or through other Azure management tools (PowerShell, CLI, REST API).
@@ -106,7 +155,8 @@ Before enabling routing intent, consider the following:
 * Routing intent changes the static routes in the defaultRouteTable. Due to Azure portal optimizations, the state of the defaultRouteTable after routing intent is configured may be different if you configure routing intent using REST, CLI or PowerShell. For more information, see [static routes](#staticroute).
 * Enabling routing intent affects the advertisement of prefixes to on-premises. See [prefix advertisements](#prefixadvertisments) for more information.
 * You may open a support case to enable connectivity across ExpressRoute  circuits via a Firewall appliance in the hub. Enabling this connectivity pattern modifies the prefixes advertised to ExpressRoute circuits. See [About ExpressRoute](#expressroute) for more information.
-* Routing intent is the only mechanism in Virtual WAN to enable inter-hub traffic inspection via security appliances deployed in the hub. Inter-hub traffic inspection also requires routing intent to be enabled on all hubs to ensure traffic is routed symmetrically between security appliances deployed in Virtual WAN hubs. 
+* Routing intent is the only mechanism in Virtual WAN to enable inter-hub traffic inspection via security appliances deployed in the hub. Inter-hub traffic inspection also requires routing intent to be enabled on all hubs to ensure traffic is routed symmetrically between security appliances deployed in Virtual WAN hubs.
+* Routing intent sends Virtual Network and on-premises traffic to the next hop resource specified in the routing policy. Virtual WAN programs the underlying Azure platform  to route your on-premises and Virtual Network traffic in accordance with the configured routing policy and does not process the traffic through the Virtual Hub router. Because packets routed via routing intent are not processed by the router, you do not need to allocate additional [routing infrastructure units](hub-settings.md#capacity) for data-plane packet forwarding on hubs configured with routing intent. However, you may need to allocate additional routing infastructure units based on the number of Virtual Machines in Virtual Networks connected to the Virtual WAN Hub.  
 
 ### <a name="prereq"></a> Prerequisites
 
@@ -379,6 +429,9 @@ The following section describes common ways to troubleshoot when you configure r
 
 ### Effective Routes
 
+> [!NOTE]
+> Getting the effective routes applied on Virtual WAN routing intent next hop resources is only supported for the next hop resource specified in private routing policy. If you are using both private and internet routing policies, check the effective routes on the next hop resource specified in the private routing policy for the effective routes Virtual WAN programs on the internet routing policy next hop resource. If you are only using internet routing policies, check the effective routes on the defaultRouteTable to view the routes programmed on the internet routing policy next hop resource.
+  
 When private routing policies are configured on the Virtual Hub, all traffic between on-premises and Virtual Networks are inspected by Azure Firewall, Network Virtual Appliance, or SaaS solution in the Virtual hub.
 
 Therefore, the effective routes of the defaultRouteTable show the RFC1918 aggregate prefixes (10.0.0.0/8, 192.168.0.0/16, 172.16.0.0/12) with next hop Azure Firewall or Network Virtual Appliance. This reflects that all traffic between Virtual Networks and branches is routed to  Azure Firewall, NVA or SaaS solution in the hub for inspection.

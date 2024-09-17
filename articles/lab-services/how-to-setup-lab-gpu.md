@@ -3,14 +3,16 @@ title: Set up a lab with GPUs
 titleSuffix: Azure Lab Services
 description: Learn how to set up a lab in Azure Lab Services with graphics processing unit (GPU) virtual machines.
 services: lab-services
-ms.service: lab-services
-author: ntrogh
-ms.author: nicktrog
+ms.service: azure-lab-services
+author: RoseHJM
+ms.author: rosemalcolm
 ms.topic: how-to
 ms.date: 04/24/2023
 ---
 
 # Set up a lab with GPU virtual machines in Azure Lab Services
+
+[!INCLUDE [Retirement guide](./includes/retirement-banner.md)]
 
 [!INCLUDE [preview note](./includes/lab-services-new-update-focused-article.md)]
 
@@ -36,7 +38,7 @@ The *compute* GPU size is intended for compute-intensive applications.  For exam
 
 | Size | vCPUs | RAM | Description |
 | ---- | ----- | --- | ----------- |
-| Small GPU (Compute) | 6  vCPUs | 112 GB RAM  | [Standard_NC6s_v3](../virtual-machines/ncv3-series.md). This size supports both Windows and Linux and is best suited for compute-intensive applications such as artificial intelligence (AI) and deep learning. |
+| Small GPU (Compute) | 6  vCPUs | 112 GB RAM  | [Standard_NC6s_v3](/azure/virtual-machines/ncv3-series). This size supports both Windows and Linux and is best suited for compute-intensive applications such as artificial intelligence (AI) and deep learning. |
 
 ### Visualization GPU sizes
 
@@ -44,8 +46,8 @@ The *visualization* GPU sizes are intended for graphics-intensive applications. 
 
 | Size | vCPUs | RAM | Description |
 | ---- | ----- | --- | ----------- |
-| Small GPU (Visualization) | 8 vCPUs | 28 GB RAM  | [Standard_NV8as_v4](../virtual-machines/nvv4-series.md).  This size is best suited for remote visualization, streaming, gaming, and encoding that use frameworks such as OpenGL and DirectX. Currently, this size supports Windows only. |
-| Medium GPU (Visualization) | 12 vCPUs  | 112 GB RAM  | [Standard_NV12s_v3](../virtual-machines/nvv3-series.md).  This size supports both Windows and Linux.  It's best suited for remote visualization, streaming, gaming, and encoding that use frameworks such as OpenGL and DirectX. |
+| Small GPU (Visualization) | 8 vCPUs | 28 GB RAM  | [Standard_NV8as_v4](/azure/virtual-machines/nvv4-series).  This size is best suited for remote visualization, streaming, gaming, and encoding that use frameworks such as OpenGL and DirectX. Currently, this size supports Windows only. |
+| Medium GPU (Visualization) | 12 vCPUs  | 112 GB RAM  | [Standard_NV12s_v3](/azure/virtual-machines/nvv3-series).  This size supports both Windows and Linux.  It's best suited for remote visualization, streaming, gaming, and encoding that use frameworks such as OpenGL and DirectX. |
 
 ## Ensure that the appropriate GPU drivers are installed
 
@@ -60,7 +62,7 @@ When you select **Install GPU drivers**, it ensures that recently released drive
 - When you select the Medium GPU *(Visualization)* size, your lab VMs are powered by the [NVIDIA Tesla M60](https://images.nvidia.com/content/tesla/pdf/188417-Tesla-M60-DS-A4-fnl-Web.pdf) GPU and [GRID technology](https://www.nvidia.com/content/dam/en-zz/Solutions/design-visualization/solutions/resources/documents1/NVIDIA_GRID_vPC_Solution_Overview.pdf).  In this case, recent GRID drivers are installed, which enables the use of graphics-intensive applications.
 
 > [!IMPORTANT]
-> The **Install GPU drivers** option only installs the drivers when they aren't present on your lab's image.  For example, NVIDIA GPU drivers are already installed on the Azure marketplace's [Data Science Virtual Machine image](../machine-learning/data-science-virtual-machine/overview.md#what-does-the-dsvm-include).  If you create a Small GPU (Compute) lab using the Data Science image and choose to **Install GPU drivers**, the drivers won't be updated to a more recent version. To update the drivers, you will need to manually install the drivers.
+> The **Install GPU drivers** option only installs the drivers when they aren't present on your lab's image.  For example, NVIDIA GPU drivers are already installed on the Azure marketplace's [Data Science Virtual Machine image](/azure/machine-learning/data-science-virtual-machine/overview#what-does-the-dsvm-include).  If you create a Small GPU (Compute) lab using the Data Science image and choose to **Install GPU drivers**, the drivers won't be updated to a more recent version. To update the drivers, you will need to manually install the drivers.
 
 ### Install GPU drivers manually
 
@@ -74,7 +76,7 @@ To manually install drivers for the Small GPU *(Compute)* size, follow these ste
 
 1. After your lab is created, connect to the template VM to install the appropriate drivers. 
 
-    - Follow the detailed installation steps in [NVIDIA Tesla (CUDA) drivers](../virtual-machines/windows/n-series-driver-setup.md#nvidia-tesla-cuda-drivers) for more information about specific driver versions that are recommended depending on the Windows OS version being used.
+    - Follow the detailed installation steps in [NVIDIA Tesla (CUDA) drivers](/azure/virtual-machines/windows/n-series-driver-setup#nvidia-tesla-cuda-drivers) for more information about specific driver versions that are recommended depending on the Windows OS version being used.
 
        :::image type="content" source="./media/how-to-setup-gpu/nvidia-driver-download.png" alt-text="Screenshot of the NVIDIA Driver Downloads page.":::
 
@@ -93,7 +95,7 @@ To manually install drivers for the Small GPU *(Compute)* size, follow these ste
 1. After you've installed the drivers and other software that is required for your class, select **Publish** to create the lab virtual machines.
 
 > [!NOTE]
-> If you're using a Linux image, after you've downloaded the installer, install the drivers by following the instructions in [Install CUDA drivers on Linux](../virtual-machines/linux/n-series-driver-setup.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#install-cuda-drivers-on-n-series-vms).
+> If you're using a Linux image, after you've downloaded the installer, install the drivers by following the instructions in [Install CUDA drivers on Linux](/azure/virtual-machines/linux/n-series-driver-setup?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#install-cuda-drivers-on-n-series-vms).
 
 #### Install the Small GPU (Visualization) drivers
 
@@ -103,7 +105,7 @@ To manually install drivers for the Small GPU *(visualization)* size, follow the
 
 1. After your lab is created, connect to the template VM to install the appropriate drivers.
 
-1. Install the AMD drivers template VM by following the instructions in [Install AMD GPU drivers on N-series VMs running Windows](../virtual-machines/windows/n-series-amd-driver-setup.md).
+1. Install the AMD drivers template VM by following the instructions in [Install AMD GPU drivers on N-series VMs running Windows](/azure/virtual-machines/windows/n-series-amd-driver-setup).
 
 1. Restart the template VM.
 
@@ -121,8 +123,8 @@ To manually install drivers for the Medium GPU *(visualization)* size, follow th
 
 1. Install the GRID drivers that are provided by Microsoft on the template VM by following the instructions for your operating system:
 
-   - [Windows NVIDIA GRID drivers](../virtual-machines/windows/n-series-driver-setup.md#nvidia-grid-drivers)
-   - [Linux NVIDIA GRID drivers](../virtual-machines/linux/n-series-driver-setup.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#nvidia-grid-drivers)
+   - [Windows NVIDIA GRID drivers](/azure/virtual-machines/windows/n-series-driver-setup#nvidia-gridvgpu-drivers)
+   - [Linux NVIDIA GRID drivers](/azure/virtual-machines/linux/n-series-driver-setup?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#nvidia-grid-drivers)
   
 1. Restart the template VM.
 
@@ -136,11 +138,11 @@ This section describes how to validate that your GPU drivers are properly instal
 
 #### Small GPU (Visualization) Windows images
 
-To verify driver installation for **Small GPU (Visualization)** size, see [validate the AMD GPU drivers on N-series VMs running Windows](../virtual-machines/windows/n-series-driver-setup.md#verify-driver-installation).
+To verify driver installation for **Small GPU (Visualization)** size, see [validate the AMD GPU drivers on N-series VMs running Windows](/azure/virtual-machines/windows/n-series-driver-setup#verify-driver-installation).
 
 #### Small GPU (Compute) and Medium GPU (Visualization) Windows images
 
-To verify driver installation for **Small GPU (Visualization)** size, see [validate the NVIDIA GPU drivers on N-series VMs running Windows](../virtual-machines/windows/n-series-driver-setup.md#verify-driver-installation).
+To verify driver installation for **Small GPU (Visualization)** size, see [validate the NVIDIA GPU drivers on N-series VMs running Windows](/azure/virtual-machines/windows/n-series-driver-setup#verify-driver-installation).
 
 You can also validate the NVIDIA control panel settings, which only apply to the **Medium GPU (visualization)** VM size:
 
@@ -159,7 +161,7 @@ Depending on your scenario, you may also need to do more validation to ensure th
 
 #### Small GPU (Compute) and Medium GPU (Visualization) Linux images
 
-To verify driver installation for Linux images, see [verify driver installation for NVIDIA GPU drivers on N-series VMs running Linux](../virtual-machines/linux/n-series-driver-setup.md#verify-driver-installation).
+To verify driver installation for Linux images, see [verify driver installation for NVIDIA GPU drivers on N-series VMs running Linux](/azure/virtual-machines/linux/n-series-driver-setup#verify-driver-installation).
 
 ## Next steps
 

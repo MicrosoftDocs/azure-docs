@@ -16,7 +16,7 @@ This article describes how to configure Microsoft Sentinel for using Azure Funct
 > [!NOTE]
 > - Once ingested in to Microsoft Sentinel, data is stored in the geographic location of the workspace in which you're running Microsoft Sentinel.
 >
->     For long term retention, you may also want to store data in Azure Data Explorer. For more information, see [Integrate Azure Data Explorer](store-logs-in-azure-data-explorer.md).
+>     For long-term retention, you may also want to store data in log types such as *Auxiliary logs* or *Basic logs*. For more information, see [Log retention plans in Microsoft Sentinel](log-plans.md).
 >
 > - Using Azure Functions to ingest data into Microsoft Sentinel may result in additional data ingestion costs. For more information, see the [Azure Functions pricing](https://azure.microsoft.com/pricing/details/functions/) page.
 
@@ -26,7 +26,7 @@ Make sure that you have the following permissions and credentials before using A
 
 - You must have read and write permissions on the Microsoft Sentinel workspace.
 
-- You must have read permissions to shared keys for the workspace. [Learn more about workspace keys](../azure-monitor/agents/agent-windows.md#workspace-id-and-key).
+- You must have read permissions to shared keys for the workspace. [Learn more about workspace keys](/azure/azure-monitor/agents/agent-windows#workspace-id-and-key).
 
 - You must have read and write permissions on Azure Functions to create a Function App. [Learn more about Azure Functions](../azure-functions/index.yml).
 

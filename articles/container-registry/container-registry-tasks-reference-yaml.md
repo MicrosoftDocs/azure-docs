@@ -6,7 +6,7 @@ ms.custom: devx-track-azurecli
 author: tejaswikolli-web
 ms.author: tejaswikolli
 ms.date: 10/31/2023
-ms.service: container-registry
+ms.service: azure-container-registry
 ---
 
 # ACR Tasks reference: YAML
@@ -76,7 +76,7 @@ Task properties typically appear at the top of an `acr-task.yaml` file, and are 
 
 | Property | Type | Optional | Description | Override supported | Default value |
 | -------- | ---- | -------- | ----------- | ------------------ | ------------- |
-| `version` | string | Yes | The version of the `acr-task.yaml` file as parsed by the ACR Tasks service. While ACR Tasks strives to maintain backward compatibility, this value allows ACR Tasks to maintain compatibility within a defined version. If unspecified, defaults to the latest version. | No | None |
+| `version` | string | Yes | The version of the `acr-task.yaml` file as parsed by the ACR Tasks service. While ACR Tasks strives to maintain backward compatibility, this value allows ACR Tasks to maintain compatibility within a defined version. If unspecified, defaults to `v1.0.0`. | N/A | `v1.0.0` |
 | `stepTimeout` | int (seconds) | Yes | The maximum number of seconds a step can run. If the `stepTimeout` property is specified on a task, it sets the default `timeout` property of all the steps. If the `timeout` property is specified on a step, it overrides the `stepTimeout` property provided by the task.<br/><br/>The sum of the step timeout values for a task should equal the value of the task's run `timeout` property (for example, set by passing `--timeout` to the `az acr task create` command). If the tasks's run `timeout` value is smaller, it takes priority.  | Yes | 600 (10 minutes) |
 | `workingDirectory` | string | Yes | The working directory of the container during runtime. If the property is specified on a task, it sets the default `workingDirectory` property of all the steps. If specified on a step, it overrides the property provided by the task. | Yes | `c:\workspace` in Windows or `/workspace` in Linux |
 | `env` | [string, string, ...] | Yes |  Array of strings in `key=value` format that define the environment variables for the task. If the property is specified on a task, it sets the default `env` property of all the steps. If specified on a step, it overrides any environment variables inherited from the task. | Yes | None |
@@ -201,6 +201,29 @@ version: v1.1.0
 steps:
   - build: -t $Registry/hello-world -f hello-world.dockerfile ./subDirectory
 ```
+
+### Dynamic variable passing in ACR Tasks
+
+When working with Azure container registry (ACR) tasks, you may find yourself needing to pass different values to your build process without changing the task definition by using the `--set` flag with the `az acr task run` command. 
+
+#### Example: Setting image tag at runtime
+
+Suppose you have an ACR task defined in a `acr-task.yml` file with a placeholder for the image tag:
+
+```yaml
+steps:
+  - build: -t $Registry/hello-world:{{.Values.tag}}
+```
+
+You can trigger the task and set the `tag` variable to `v2` at runtime using the following Azure CLI command:
+
+```azurecli
+az acr task run --registry myregistry --name mytask --set tag=v2
+```
+
+This command will start the ACR task named `mytask` and build the image using the `v2` tag, overriding the placeholder in the `acr-task.yml` file.
+
+This approach allows for customization in your CI/CD pipelines, enabling you to dynamically adjust parameters based on your current needs without altering the task definitions.
 
 ## push
 
@@ -384,6 +407,7 @@ az acr run -f mounts-secrets.yaml --set-secret mysecret=abcdefg123456 https://gi
 
 <!-- SOURCE: https://github.com/Azure-Samples/acr-tasks/blob/master/mounts-secrets.yaml -->
 [!code-yml[task](~/acr-tasks/mounts-secrets.yaml)]
+
 
 ## Task step properties
 

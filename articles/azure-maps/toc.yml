@@ -5,8 +5,6 @@ items:
   items:
   - name: What is Azure Maps?
     href: about-azure-maps.md
-  - name: What is Azure Maps Creator?
-    href: about-creator.md
 - name: Quickstarts
   expanded: true
   items:
@@ -34,34 +32,12 @@ items:
       href: tutorial-load-geojson-file-android.md
   - name: REST API Tutorials
     items:
-    - name: Create indoor maps
-      href: tutorial-creator-indoor-maps.md
-    - name: Set up a geofence
-      href: tutorial-geofence.md
     - name: Spatial analytics
       href: tutorial-iot-hub-maps.md
     - name: EV routing using Azure Notebooks (Python)
       href: tutorial-ev-routing.md
     - name: Analyze weather data using Azure Notebooks (Python)
       href: weather-service-tutorial.md
-  - name: Migrate from Bing Maps
-    items:
-    - name: Migrate from Bing Maps
-      href: migrate-from-bing-maps.md
-    - name: Migrate a web app
-      href: migrate-from-bing-maps-web-app.md
-    - name: Migrate a web service
-      href: migrate-from-bing-maps-web-services.md
-  - name: Migrate from Google Maps
-    items:
-    - name: Migrate from Google Maps
-      href: migrate-from-google-maps.md
-    - name: Migrate a web app
-      href: migrate-from-google-maps-web-app.md
-    - name: Migrate an Android app
-      href: migrate-from-google-maps-android-app.md
-    - name: Migrate a web service
-      href: migrate-from-google-maps-web-services.md
 - name: Concepts
   items:
   - name: Authentication with Azure Maps
@@ -110,6 +86,64 @@ items:
     href: weather-services-faq.yml
 - name: How-to guides
   items:
+  - name: Migrate from Bing Maps
+    items:
+    - name: Bing Maps migration overview
+      href: migrate-bing-maps-overview.md
+    - name: Migrate Web SDK
+      items:
+      - name: Migrate Web SDK
+        href: migrate-from-bing-maps-web-app.md
+      - name: Use Copilot to help migrate
+        href: migrate-help-using-copilot.md
+    - name: Migrate REST API
+      items:
+      - name: Bing Maps Imagery Services
+        items:
+        - name: Get Imagery Metadata
+          href: migrate-get-imagery-metadata.md
+        - name: Get a Static Map
+          href: migrate-get-static-map.md
+      - name: Bing Maps Locations Services
+        items:
+        - name: Find a Location by Address
+          href: migrate-find-location-address.md
+        - name: Find a Location by Point
+          href: migrate-find-location-by-point.md
+        - name: Find a Location by Query
+          href: migrate-find-location-query.md
+      - name: Bing Maps Routes Services
+        items:
+        - name: Calculate a Route
+          href: migrate-calculate-route.md
+        - name: Calculate a Truck Route
+          href: migrate-calculate-truck-route.md
+      - name: Bing Maps Spatial Data Services (SDS)
+        items:
+        - name: Data Source Management
+          href: migrate-sds-data-source-management.md 
+        - name: Geocode Dataflow
+          href: migrate-geocode-dataflow.md
+        - name: Geodata
+          href: migrate-geodata.md
+      - name: Bing Maps Time Zone Services
+        items:
+        - name: Find Time Zone
+          href: migrate-find-time-zone.md
+      - name: Bing Maps Traffic Services
+        items:
+        - name: Get Traffic Incidents
+          href: migrate-get-traffic-incidents.md
+  - name: Migrate from Google Maps
+    items:
+    - name: Migrate from Google Maps
+      href: migrate-from-google-maps.md
+    - name: Migrate a web app
+      href: migrate-from-google-maps-web-app.md
+    - name: Migrate an Android app
+      href: migrate-from-google-maps-android-app.md
+    - name: Migrate a web service
+      href: migrate-from-google-maps-web-services.md          
   - name: Manage Maps accounts
     items:
     - name: Create account with ARM template
@@ -153,8 +187,6 @@ items:
       href: creator-qgis-plugin.md
     - name: Create dataset using GeoJson package
       href: how-to-dataset-geojson.md
-    - name: Create a feature stateset
-      href: how-to-creator-feature-stateset.md
   - name: Get map data from REST APIs
     items:
     - name: Search for an address
@@ -163,6 +195,8 @@ items:
       href: how-to-use-best-practices-for-search.md
     - name: Best Practices using Route Service
       href: how-to-use-best-practices-for-routing.md
+    - name: Create multi-itinerary optimization service
+      href: itinerary-optimization-service.md
     - name: Render custom data on static map
       href: how-to-render-custom-data.md
     - name: Request real-time and forecasted weather data
@@ -259,8 +293,6 @@ items:
       items:
       - name: Indoor Maps module with custom styles
         href: how-to-use-indoor-module.md
-      - name: Dynamic styling for indoor maps
-        href: indoor-map-dynamic-styling.md
     - name: Spatial IO module 
       items:
       - name: Use the spatial IO module
@@ -409,8 +441,6 @@ items:
       href: drawing-requirements.md
     - name: Facility Ontology
       href: creator-facility-ontology.md
-    - name: Dynamic maps StylesObject
-      href: schema-stateset-stylesobject.md
     - name: Drawing error visualizer
       href: drawing-error-visualizer.md
     - name: Drawing conversion errors and warnings

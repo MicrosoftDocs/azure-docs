@@ -131,9 +131,7 @@ You can use Cost analysis to view the costs grouped by tags.
 
 Here's an example showing costs for the *org* tag.
 
-:::image type="content" source="./media/enable-tag-inheritance/cost-analysis-view-tag.png" alt-text="Screenshot showing costs for the org example tag." lightbox="./media/enable-tag-inheritance/cost-analysis-view-tag.png" :::
-
-You can also view the inherited tags by downloading your Azure usage. For more information, see [View and download your Azure usage and charges](../understand/download-azure-daily-usage.md).
+:::image type="content" source="./media/enable-tag-inheritance/cost-analysis-view-tag.png" alt-text="Screenshot showing costs for the org example tag." lightbox="./media/enable-tag-inheritance/cost-analysis-view-tag.png" :::You can create Budgets with filters on the inherited tags, 24 hours after enabling tag inheritance. You can also view the inherited tags by downloading your Azure usage. For more information, see [View and download your Azure usage and charges](../understand/download-azure-daily-usage.md).
 
 ## Next steps
 

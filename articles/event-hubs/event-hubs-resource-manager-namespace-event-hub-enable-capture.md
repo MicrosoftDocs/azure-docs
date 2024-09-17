@@ -329,7 +329,7 @@ Creates a namespace of type `Microsoft.EventHub/Namespaces`, with one event hub,
 
 ## PowerShell
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 Deploy your template to enable Event Hubs Capture into Azure Storage:
 

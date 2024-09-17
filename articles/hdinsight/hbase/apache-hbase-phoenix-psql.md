@@ -1,10 +1,10 @@
 ---
 title: Bulk loading into Apache Phoenix using psql - Azure HDInsight 
 description: Use the psql tool to load bulk load data into Apache Phoenix tables in Azure HDInsight
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
-ms.date: 06/09/2023
+ms.date: 06/13/2024
 ---
 
 # Bulk load data into Apache Phoenix using psql
@@ -106,7 +106,7 @@ Before you start loading data, verify that Phoenix is enabled and that query tim
 
 ## Use MapReduce to bulk load tables
 
-For higher-throughput loading distributed over the cluster, use the MapReduce load tool. This loader first converts all data into HFiles, and then provides the created HFiles to HBase.
+For higher-throughput loading distributed over the cluster, use the MapReduce load tool. This loader first converts all data into `HFiles`, and then provides the created `HFiles` to HBase.
 
 1. This section continues with the ssh session, and objects created earlier. Create the **Customers** table and **customers.csv** file as needed using the steps, above. If necessary, re-establish your ssh connection.
 

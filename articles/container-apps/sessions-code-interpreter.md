@@ -3,19 +3,20 @@ title: Serverless code interpreter sessions in Azure Container Apps (preview)
 description: Learn to run a serverless code interpreter session in Azure Container Apps.
 services: container-apps
 author: anthonychu
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.topic: how-to
 ms.date: 05/06/2024
 ms.author: antchu
 ms.custom: references_regions
+ms.collection: ce-skilling-ai-copilot
 ---
 
 # Serverless code interpreter sessions in Azure Container Apps (preview)
 
-Azure Container Apps dynamic sessions provides fast and scalable access to a code interpreter. Each code interpreter session is fully isolated by a Hyper-V boundary and is designed to run untrusted code.
+Azure Container Apps [dynamic sessions](sessions.md) provides fast and scalable access to a code interpreter. Each code interpreter session is fully isolated by a Hyper-V boundary and is designed to run untrusted code.
 
 > [!NOTE]
-> Azure Container Apps dynamic sessions is currently in preview. See [preview limitations](#preview-limitations) for more information.
+> The Azure Container Apps dynamic sessions feature is currently in preview. See [preview limitations](sessions.md#preview-limitations) for more information.
 
 ## Uses for code interpreter sessions
 
@@ -27,6 +28,8 @@ Code interpreter sessions are ideal for scenarios where you need to run code tha
 For popular LLM frameworks such as LangChain, LlamaIndex, or Semantic Kernel, you can use [tools and plugins](#llm-framework-integrations) to integrate AI apps with code interpreter sessions.
 
 Your applications can also integrate with code interpreter session using a [REST API](#management-api-endpoints). The API allows you to execute code in a session and retrieve results. You can also upload and download files to and from the session. You can upload and download executable code files, or data files that your code can process.
+
+The built-in code interpreter sessions support the most common code execution scenarios without the need to manage infrastructure or containers. If you need full control over the code execution environment or have a different scenario that requires isolated sandboxes, you can use [custom code interpreter sessions](sessions-custom-container.md).
 
 ## Code interpreter session pool
 
@@ -42,12 +45,8 @@ To create a code interpreter session pool using the Azure CLI, ensure you have t
 # Upgrade the Azure CLI
 az upgrade
 
-# Remove the existing containerapp extension (if installed) and add the preview version
-# that supports code interpreter sessions
-az extension remove --name containerapp
-az extension add \
-    --source https://acacli.blob.core.windows.net/sessionspreview/containerapp-0.3.50-py2.py3-none-any.whl \
-    --allow-preview true -y
+# Install or upgrade the Azure Container Apps extension
+az extension add --name containerapp --upgrade --allow-preview true -y
 ```
 
 Use the `az containerapps sessionpool create` command to create the pool. The following example creates a Python code interpreter session pool named `my-session-pool`. Make sure to replace `<RESOURCE_GROUP>` with your resource group name before you run the command.
@@ -68,7 +67,7 @@ You can define the following settings when you create a session pool:
 | Setting | Description |
 |---------|-------------|
 | `--container-type` | The type of code interpreter to use. The only supported value is `PythonLTS`. |
-| `--max-concurrent-sessions` | The maximum number of allocated sessions allowed concurrently. The maximum value is `600`. |
+| `--max-sessions` | The maximum number of allocated sessions allowed concurrently. The maximum value is `600`. |
 | `--cooldown-period` | The number of allowed idle seconds before termination. The idle period is reset each time the session's API is called. The allowed range is between `300` and `3600`. |
 | `--network-status` | Designates whether outbound network traffic is allowed from the session. Valid values are `EgressDisabled` (default) and `EgressEnabled`. |
 
@@ -94,102 +93,25 @@ After you create a session pool, your application can interact with sessions in 
 
 ### Session identifiers
 
+> [!IMPORTANT]
+> The session identifier is sensitive information which requires you to use a secure process to manage its value. Part of this process requires that your application ensures each user or tenant only has access to their own sessions.
+> Failure to secure access to sessions may result in misuse or unauthorized access to data stored in your users' sessions. For more information, see [Session identifiers](sessions.md#session-identifiers)
+
 When you interact with sessions in a pool, you use a session identifier to reference each session A session identifier is a string that you define that is unique within the session pool. If you're building a web application, you can use the user's ID. If you're building a chatbot, you can use the conversation ID.
 
 If there's a running session with the identifier, the session is reused. If there's no running session with the identifier, a new session is automatically created.
 
-The identifier must be a string that is 4 to 128 characters long and can contain only alphanumeric characters and special characters from this list: `|`, `-`, `&`, `^`, `%`, `$`, `#`, `(`, `)`, `{`, `}`, `[`, `]`, `;`, `<`, and `>`.
+To learn more about session identifiers, see [Sessions overview](./sessions.md#session-identifiers).
 
 ### Authentication
 
-Authentication is handled using Microsoft Entra (formerly Azure Active Directory) tokens. Valid Microsoft Entra tokens are generated by an identity belonging to the *Azure ContainerApps Session Creator* and *Contributor* roles on the session pool.
-
-To assign the roles to an identity, use the following Azure CLI commands:
-
-```bash
-# Assign the Azure ContainerApps Session Creator role using its ID
-az role assignment create \
-    --role "0fb8eba5-a2bb-4abe-b1c1-49dfad359bb0" \
-    --assignee <PRINCIPAL_ID> \
-    --scope <SESSION_POOL_RESOURCE_ID>
-
-az role assignment create \
-    --role "Contributor" \
-    --assignee <PRINCIPAL_ID> \
-    --scope <SESSION_POOL_RESOURCE_ID>
-```
+Authentication is handled using Microsoft Entra (formerly Azure Active Directory) tokens. Valid Microsoft Entra tokens are generated by an identity belonging to the *Azure ContainerApps Session Executor* and *Contributor* roles on the session pool.
 
 If you're using an LLM framework integration, the framework handles the token generation and management for you. Ensure that the application is configured with a managed identity with the necessary role assignments on the session pool.
 
 If you're using the pool's management API endpoints directly, you must generate a token and include it in the `Authorization` header of your HTTP requests. In addition to the role assignments previously mentioned, token needs to contain an audience (`aud`) claim with the value `https://dynamicsessions.io`.
 
-##### [Azure CLI](#tab/azure-cli)
-
-To generate a token using the Azure CLI, run the following command:
-
-```bash
-az account get-access-token --resource https://dynamicsessions.io
-```
-
-##### [C#](#tab/csharp)
-
-In C#, you can use the `Azure.Identity` library to generate a token. First, install the library:
-
-```bash
-dotnet add package Azure.Identity
-```
-
-Then, use the following code to generate a token:
-
-```csharp
-using Azure.Identity;
-
-var credential = new DefaultAzureCredential();
-var token = credential.GetToken(new TokenRequestContext(new[] { "https://dynamicsessions.io/.default" }));
-var accessToken = token.Token;
-```
-
-##### [JavaScript](#tab/javascript)
-
-In JavaScript, you can use the `@azure/identity` library to generate a token. First, install the library:
-
-```bash
-npm install @azure/identity
-```
-
-Then, use the following code to generate a token:
-
-```javascript
-const { DefaultAzureCredential } = require("@azure/identity");
-const { TokenCredential } = require("@azure/core-auth");
-
-const credential = new DefaultAzureCredential();
-const token = await credential.getToken("https://dynamicsessions.io/.default");
-const accessToken = token.token;
-```
-
-##### [Python](#tab/python)
-
-In Python, you can use the `azure-identity` library to generate a token. First, install the library:
-
-```bash
-pip install azure-identity
-```
-
-Then, use the following code to generate a token:
-
-```python
-from azure.identity import DefaultAzureCredential
-
-credential = DefaultAzureCredential()
-token = credential.get_token("https://dynamicsessions.io/.default")
-access_token = token.token
-```
-
----
-
-> [!IMPORTANT]
-> A valid token can be used to create and access any session in the pool. Keep your tokens secure and don't share them with untrusted parties. End users should access sessions through your application, not directly.
+To learn more, see [Authentication](sessions.md#authentication).
 
 ### LLM framework integrations
 
@@ -334,18 +256,6 @@ Authorization: Bearer <TOKEN>
     }
 }
 ```
-
-## Preview limitations
-
-Azure Container Apps dynamic sessions is currently in preview. The following limitations apply:
-
-* It's only available in the following regions:
-    * East US
-    * West US 2
-    * North Central US
-    * East Asia
-    * North Europe
-* Logging is not supported. Your application can log requests to the session pool management API and its responses.
 
 ## Next steps
 

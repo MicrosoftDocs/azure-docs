@@ -1,9 +1,9 @@
 ---
 ms.topic: include
-ms.date: 03/19/2024
+ms.date: 05/22/2024
 ---
 
-### Outbound connectivity
+### Outbound connectivity requirements
 
 The firewall and proxy URLs below must be allowlisted in order to enable communication from the management machine, Appliance VM, and Control Plane IP to the required Arc resource bridge URLs.
 
@@ -32,16 +32,26 @@ The firewall and proxy URLs below must be allowlisted in order to enable communi
 |Microsoft open source packages manager| 443 | `packages.microsoft.com`| Appliance VM IPs need outbound connection. | Download Linux installation package.|
 |Custom Location| 443 | `sts.windows.net`| Appliance VM IPs need outbound connection. | Required for Custom Location.|
 |Azure Arc| 443 | `guestnotificationservice.azure.com` | Appliance VM IPs need outbound connection. | Required for Azure Arc.|
-|Custom Location | 443 | `k8sconnectcsp.azureedge.net`	|	Appliance VM IPs need outbound connection. | Required for Custom Location. |
-|Diagnostic data | 443 | `gcs.prod.monitoring.core.windows.net`	|	Appliance VM IPs need outbound connection. | Periodically sends Microsoft required diagnostic data. |
-|Diagnostic data | 443 | `*.prod.microsoftmetrics.com`	|	Appliance VM IPs need outbound connection. | Periodically sends Microsoft required diagnostic data. |
-|Diagnostic data | 443 | `*.prod.hot.ingest.monitor.core.windows.net`	|	Appliance VM IPs need outbound connection. | Periodically sends Microsoft required diagnostic data. |
-|Diagnostic data | 443 | `*.prod.warm.ingest.monitor.core.windows.net`	|	Appliance VM IPs need outbound connection. | Periodically sends Microsoft required diagnostic data. |
+|Custom Location | 443 | `k8sconnectcsp.azureedge.net` | Appliance VM IPs need outbound connection. | Required for Custom Location. |
+|Diagnostic data | 443 | `gcs.prod.monitoring.core.windows.net` | Appliance VM IPs need outbound connection. | Periodically sends Microsoft required diagnostic data. |
+|Diagnostic data | 443 | `*.prod.microsoftmetrics.com` | Appliance VM IPs need outbound connection. | Periodically sends Microsoft required diagnostic data. |
+|Diagnostic data | 443 | `*.prod.hot.ingest.monitor.core.windows.net` | Appliance VM IPs need outbound connection. | Periodically sends Microsoft required diagnostic data. |
+|Diagnostic data | 443 | `*.prod.warm.ingest.monitor.core.windows.net` | Appliance VM IPs need outbound connection. | Periodically sends Microsoft required diagnostic data. |
 |Azure portal | 443 | `*.arc.azure.net`| Appliance VM IPs need outbound connection. | Manage cluster from Azure portal.|
 |Azure CLI & Extension | 443 | `*.blob.core.windows.net`| Management machine needs outbound connection. | Download Azure CLI Installer and extension. |
 |Azure Arc Agent| 443 | `*.dp.kubernetesconfiguration.azure.com`| Management machine needs outbound connection. | Dataplane used for Arc agent.|
 |Python package| 443 | `pypi.org`, `*.pypi.org`| Management machine needs outbound connection. | Validate Kubernetes and Python versions.|
 |Azure CLI| 443 | `pythonhosted.org`, `*.pythonhosted.org`| Management machine needs outbound connection. | Python packages for Azure CLI installation.|
-|SSH| 22 | `Arc resource bridge appliance VM IPs` | Management machine needs outbound connection. | Used for troubleshooting the appliance VM.|
-|Kubernetes API server| 6443 | `Arc resource bridge appliance VM IPs` | Management machine needs outbound connection. | Management of appliance VM.|
+
+## Inbound connectivity requirements
+
+Communication between the following ports must be allowed from the management machine, Appliance VM IPs, and Control Plane IPs. Ensure these ports are open and that traffic is not being routed through a proxy to facilitate the deployment and maintenance of Arc resource bridge. 
+
+|**Service**|**Port**|**IP/machine**|**Direction**|**Notes**|
+|--|--|--|--|--|
+|SSH| 22 | `appliance VM IPs` and `Management machine` | Bidirectional | Used for deploying and maintaining the appliance VM.|
+|Kubernetes API server| 6443 | `appliance VM IPs` and `Management machine` | Bidirectional | Management of the appliance VM.|
+|SSH| 22 | `control plane IP` and `Management machine` | Bidirectional | Used for deploying and maintaining the appliance VM.|
+|Kubernetes API server| 6443 | `control plane IP` and `Management machine` | Bidirectional | Management of the appliance VM.|
+|HTTPS | 443 | `private cloud control plane address` and `Management machine` | Management machine needs outbound connection. | Communication with control plane (ex: VMware vCenter address).|
 

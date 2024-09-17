@@ -1,41 +1,33 @@
 ---
-title: Deploy Resources with Azure for Students
-description: Learn how to deploy resource with your Azure for Students subscription
+title: Deploy resources with Azure for Students
+description: Get links to documentation that can help you deploy resources by using your Azure for Students subscription.
 author: vinnieangel
 ms.author: vangellotti
 ms.service: azure-education
-ms.topic: tutorial
+ms.topic: how-to
 ms.date: 11/1/2023
-ms.custom: template-tutorial
+ms.custom: template-how-to
 ---
 
-# Tutorial: Deploy Resources with Azure for Students
+# Deploy resources with Azure for Students
 
-With Azure for Students, you have access to the entire Azure platform and all its services. These tutorials will show you everything you need to know about some popular services that can be deployed using your Azure for Students subscription. 
-
-In this tutorial, you learn how to:
-
-> [!div class="checklist"]
-> * Deploy an App on Azure
-> * Deploy a Virtual Machine
-> * Deploy a SQL Database
-> * Deploy Azure AI Speech-to-Test
-> * Deploy Azure AI Custom Vision Service
+Azure for Students gives you access to all the services on the Azure platform. This article links to documentation for some popular services, so you can learn about them and deploy resources.
 
 ## Prerequisites
 
 You must have an Azure for Students account.
 
-## Follow the tutorials to deploy resources
+## Get documentation about Azure services
 
-[Deploy an App on Azure](/azure/app-service/)
-[Deploy a Virtual Machine](/azure/virtual-machines/)
-[Deploy a SQL Database](/azure/azure-sql/)
-[Deploy Azure AI Speech-to-Test](/azure/ai-services/speech-service/index-speech-to-text)
-[Deploy Azure AI Custom Vision Service](/azure/ai-services/custom-vision-service/)
+With your Azure for Students subscription, you can:
 
-## Next steps
+- Deploy an app by using [Azure App Service](/azure/app-service/).
+- Deploy a virtual machine by using [Azure Virtual Machines](/azure/virtual-machines/).
+- Deploy a SQL database by using [Azure SQL](/azure/azure-sql/).
+- Convert speech to text by using [Azure AI Speech](/azure/ai-services/speech-service/index-speech-to-text).
+- Customize image recognition by using [Azure AI Custom Vision](/azure/ai-services/custom-vision-service/).
 
-- [Learn about the education hub](about-education-hub.md)
+## Related content
 
-- [Support options](educator-service-desk.md)
+- [Learn about the Azure Education Hub](about-education-hub.md)
+- [Learn about support options](educator-service-desk.md)

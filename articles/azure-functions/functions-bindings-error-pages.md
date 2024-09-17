@@ -2,7 +2,7 @@
 title: Azure Functions error handling and retry guidance
 description: Learn how to handle errors and retry events in Azure Functions, with links to specific binding errors, including information on retry policies.
 ms.topic: conceptual
-ms.custom: devx-track-extended-java, devx-track-js, devx-track-python
+ms.custom: devx-track-extended-java, devx-track-js, devx-track-python, devx-track-ts
 ms.date: 04/24/2024
 zone_pivot_groups: programming-languages-set-functions
 ---

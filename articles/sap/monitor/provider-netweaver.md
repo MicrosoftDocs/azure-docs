@@ -5,7 +5,7 @@ author: MightySuz
 ms.service: sap-on-azure
 ms.subservice: sap-monitor
 ms.topic: article
-ms.date: 11/02/2022
+ms.date: 08/22/2024
 ms.author: sujaj
 #Customer intent: As a developer, I want to configure a SAP NetWeaver provider so that I can use Azure Monitor for SAP solutions.
 ---
@@ -13,14 +13,14 @@ ms.author: sujaj
 
 # Configure SAP NetWeaver for Azure Monitor for SAP solutions 
 
-In this how-to guide, you'll learn to configure the SAP NetWeaver provider for use with *Azure Monitor for SAP solutions*.
+In this how-to guide, learn how to configure the SAP NetWeaver provider for use with *Azure Monitor for SAP solutions*.
 
 User can select between the two connection types when configuring SAP Netweaver provider to collect information from SAP system. Metrics are collected by using
 
 - **SAP Control** - The SAP start service provides multiple services, including monitoring the SAP system. Both versions of Azure Monitor for SAP solutions use **SAP Control**, which is a SOAP web service interface that exposes these capabilities. The **SAP Control** interface [differentiates between protected and unprotected web service methods](https://wiki.scn.sap.com/wiki/display/SI/Protected+web+methods+of+sapstartsrv). It's necessary to unprotect some methods to use Azure Monitor for SAP solutions with NetWeaver.
 - **SAP RFC** - Azure Monitor for SAP solutions also provides ability to collect additional information from the SAP system using Standard SAP RFC. It's available only as part of Azure Monitor for SAP solution.
 
-You can collect the below metric using SAP NetWeaver Provider
+You can collect the following metric using SAP NetWeaver Provider:
 
 - SAP system and application server availability (for example Instance process availability of dispatcher,ICM,Gateway,Message server,Enqueue Server,IGS Watchdog) (SAP Control)
 - Work process usage statistics and trends (SAP Control)
@@ -46,7 +46,7 @@ You can collect the below metric using SAP NetWeaver Provider
 
 ## Configure NetWeaver for Azure Monitor for SAP solutions
 
-To configure the NetWeaver provider for the current Azure Monitor for SAP solutions version, you'll need to:
+To configure the NetWeaver provider for the current Azure Monitor for SAP solutions version, you need to do the following:
 
 1. [Prerequisite - Unprotect methods for metrics](#prerequisite-unprotect-methods-for-metrics)
 1. [Prerequisite to enable RFC metrics](#prerequisite-to-enable-rfc-metrics)
@@ -90,8 +90,8 @@ to unprotect the web-methods in the SAP Windows virtual machine.
 
 ### Prerequisite to enable RFC metrics
 
-RFC metrics are only supported for **AS ABAP applications** and do not apply to SAP JAVA systems. This step is **mandatory** when the connection type selected is **SOAP+RFC**. 
-Below steps need to be performed as a pre-requisite to enable RFC
+RFC metrics are only supported for **AS ABAP applications** and don't apply to SAP JAVA systems. This step is **mandatory** when the connection type selected is **SOAP+RFC**. 
+Below steps need to be performed as a prerequisite to enable RFC
 
 1. **Create or upload role** in the SAP NW ABAP system. Azure Monitor for SAP solutions requires this role to connect to SAP. The role uses the least privileged access. Download and unzip [Z_AMS_NETWEAVER_MONITORING.zip](https://github.com/MicrosoftDocs/azure-docs-pr/files/12528831/Z_AMS_NETWEAVER_MONITORING.zip)
 
@@ -112,29 +112,29 @@ Below steps need to be performed as a pre-requisite to enable RFC
 4. **Enable SICF Services** to access the RFC via the SAP Internet Communication Framework (ICF)
     1. Go to transaction code **SICF**.
     1. Go to the service path `/default_host/sap/bc/soap/`.
-    1. Activate the services **wsdl**, **wsdl11** and **RFC**.
+    1. Activate the services **wsdl**, **wsdl11, and **RFC**.
 
-It's also recommended to check that you enabled the ICF ports.
+It's recommended to check that you enabled the ICF ports.
 
-4. **SMON** - Enable **SMON** to monitor the system performance.Make sure the version of **ST-PI** is **SAPK-74005INSTPI**.   
-   You'll see empty visualization as part of the workbook when it isn't configured.
+4. **SMON** - Enable **SMON** to monitor the system performance. Make sure the version of **ST-PI** is **SAPK-74005INSTPI**.   
+   You see empty visualization as part of the workbook when it isn't configured.
 
     1. Enable the **SDF/SMON** snapshot service for your system. Turn on daily monitoring. For instructions, see [SAP Note 2651881](https://userapps.support.sap.com/sap/support/knowledge/2651881).
     2. Configure **SDF/SMON** metrics to be aggregated every minute.
     3. Recommended scheduling **SDF/SMON** as a background job in your target SAP client each minute.
-    4. If you notice empty visualization as part of the workbook tab "System Performance - CPU and Memory (/SDF/SMON)", please apply the below SAP note:     
-        1. Release 740 SAPKB74006-SAPKB74025 - Release 755 Until SAPK-75502INSAPBASIS. For specific support package versions please refer to the SAP NOTE.- [SAP Note 2246160](https://launchpad.support.sap.com/#/notes/2246160).
-        2. If the metric collection does not work with the above note then please try - [SAP Note 3268727](https://launchpad.support.sap.com/#/notes/3268727)       
+    4. If you notice empty visualization as part of the workbook tab "System Performance - CPU and Memory (/SDF/SMON)", apply the following SAP note:     
+        1. Release 740 SAPKB74006-SAPKB74025 - Release 755 Until SAPK-75502INSAPBASIS. For specific support package versions, refer to the SAP NOTE.- [SAP Note 2246160](https://launchpad.support.sap.com/#/notes/2246160).
+        2. If the metric collection doesn't work with the previous note, try - [SAP Note 3268727](https://launchpad.support.sap.com/#/notes/3268727)       
 
 6. **To enable secure communication**
 
-   To [enable TLS 1.2 or higher](enable-tls-azure-monitor-sap-solutions.md) with SAP NetWeaver provider please execute steps mentioned on this [SAP document](https://help.sap.com/docs/ABAP_PLATFORM_NEW/e73bba71770e4c0ca5fb2a3c17e8e229/4923501ebf5a1902e10000000a42189c.html?version=201909.002)
+   To [enable TLS 1.2 or higher](enable-tls-azure-monitor-sap-solutions.md) with SAP NetWeaver provider, execute the steps mentioned in the [SAP document](https://help.sap.com/docs/ABAP_PLATFORM_NEW/e73bba71770e4c0ca5fb2a3c17e8e229/4923501ebf5a1902e10000000a42189c.html?version=201909.002)
 
     **Check if SAP systems are configured for secure communication using TLS 1.2 or higher**
 
     1.	Go to transaction RZ10.
-    2.	Open DEFAULT profile, select Extended Maintenance and click change.
-    3.	Below configuration is for TLS1.2 the bit mask will be 544: PFS. If TLS version is higher, then bit mask will be greater than 544.
+    2.	Open DEFAULT profile, select Extended Maintenance and select change.
+    3.	The following configuration is for TLS1.2, the bit mask will be 544: PFS. If the TLS version is higher, the bit mask will be greater than 544.
 
     ![tlsimage1](https://user-images.githubusercontent.com/74435183/219510020-0b26dacd-be34-4441-bf44-f3198338d416.png)
 
@@ -160,14 +160,14 @@ Ensure all the prerequisites are successfully completed. To add the NetWeaver pr
     3. For **System ID (SID)**, enter the three-character SAP system identifier.
     4. For **Application Server**, enter the IP address or the fully qualified domain name (FQDN) of the SAP NetWeaver system to monitor. For example, `sapservername.contoso.com` where `sapservername` is the hostname and  `contoso.com` is the domain. If you're using a hostname, make sure there's connectivity from the virtual network that you used to create the Azure Monitor for SAP solutions resource.
     5. For **Instance number**, specify the instance number of SAP NetWeaver (00-99)
-    6. For **Connection type** - select either [SOAP](#prerequisite-unprotect-methods-for-metrics) + [RFC](#prerequisite-to-enable-rfc-metrics) or [SOAP](#prerequisite-unprotect-methods-for-metrics) based on the metric collected (refer above section for details)
+    6. For **Connection type** - select either [SOAP](#prerequisite-unprotect-methods-for-metrics) + [RFC](#prerequisite-to-enable-rfc-metrics) or [SOAP](#prerequisite-unprotect-methods-for-metrics) based on the metric collected (refer to the previous section for details)
     7. For **SAP client ID**, provide the SAP client identifier.
     8. For **SAP ICM HTTP Port**, enter the port that the ICM is using, for example, 80(NN) where (NN) is the instance number.
     9. For **SAP username**, enter the name of the user that you created to connect to the SAP system.
     10. For **SAP password**, enter the password for the user.
     11. For **Host file entries**, provide the DNS mappings for all SAP VMs associated with the SID
         Enter **all SAP application servers and ASCS** host file entries in **Host file entries**. Enter host file mappings in comma-separated format. The expected format for each entry is IP address, FQDN, hostname. For example: **192.X.X.X sapservername.contoso.com sapservername,192.X.X.X sapservername2.contoso.com sapservername2**.
-       To determine all SAP hostnames associated with the SID, Sign in to the SAP system using the `sidadm` user. Then, run the following command (or) you can leverage the script below to generate the hostfile entries.
+       To determine all SAP hostnames associated with the SID, Sign in to the SAP system using the `sidadm` user. Then, run the following command (or) you can use the following script to generate the host file entries.
 
         Command to find a list of instances associated with a given SID
 
@@ -175,9 +175,9 @@ Ensure all the prerequisites are successfully completed. To add the NetWeaver pr
              /usr/sap/hostctrl/exe/sapcontrol -nr <instancenumber>  -function GetSystemInstanceList
          ```
              
-     **Scripts to generate hostfile entries** 
+     **Scripts to generate host file entries** 
     
-    We highly recommend following the detailed instructions in the [link](https://github.com/Azure/Azure-Monitor-for-SAP-solutions-preview/tree/main/Provider_Pre_Requisites/SAP_NetWeaver_Pre_Requisites/GenerateHostfileMappings) for generating hostfile entries. These entries are crucial for the successful creation of the Netweaver provider for your SAP system.
+    We highly recommend following the detailed instructions in the [link](https://github.com/Azure/Azure-Monitor-for-SAP-solutions-preview/tree/main/Provider_Pre_Requisites/SAP_NetWeaver_Pre_Requisites/GenerateHostfileMappings) for generating host file entries. These entries are crucial for the successful creation of the Netweaver provider for your SAP system.
 
 ## Troubleshooting for SAP Netweaver Provider
 
@@ -186,8 +186,8 @@ Ensure all the prerequisites are successfully completed. To add the NetWeaver pr
 1. **Unable to reach the SAP hostname. ErrorCode: SOAPApiConnectionError**
 
     1. Check the input hostname, instance number, and host file mappings for the hostname provided.
-    2. Follow the instruction for determining the [hostfile entries](#adding-netweaver-provider) Host file entries section.
-    3. Ensure the NSG/firewall is not blocking the port – 5XX13 or 5XX14. (XX - SAP Instance Number)
+    2. Follow the instruction for determining the [host file entries](#adding-netweaver-provider) Host file entries section.
+    3. Ensure the NSG/firewall isn't blocking the port – 5XX13 or 5XX14. (XX - SAP Instance Number)
     4. Check if AMS and SAP VMs are in the same vNet or are attached using vNet peering.
 
        If not attached, see the following [link](/azure/virtual-network/tutorial-connect-virtual-networks-portal) to connect vNets:  
@@ -252,10 +252,10 @@ Ensure all the prerequisites are successfully completed. To add the NetWeaver pr
 
 2. Batch job metrics
    
-    If you notice empty visualization as part of the workbook tab "Application Performance -Batch Jobs (SM37)", please apply the below SAP note
+    If you notice empty visualization as part of the workbook tab "Application Performance -Batch Jobs (SM37)", apply the following SAP note
     [SAP Note 2469926](https://launchpad.support.sap.com/#/notes/2469926) in your SAP System.
     
-    After you apply this OSS note you need to execute the RFC function module - BAPI_XMI_LOGON_WS with the following parameters:
+    Once you apply the OSS note, you need to execute the RFC function module - BAPI_XMI_LOGON_WS with the following parameters:
     
     This function module has the same parameters as BAPI_XMI_LOGON but stores them in the table BTCOPTIONS.
     
@@ -266,7 +266,7 @@ Ensure all the prerequisites are successfully completed. To add the NetWeaver pr
 
 4. SWNC metrics
 
-   To ensure a successful retrieval of the SWNC metrics, it is essential to confirm that both the SAP system and the operating system (OS) have synchronized times.
+   To ensure a successful retrieval of the SWNC metrics, you must confirm that the SAP system and the operating system (OS) have synchronized times.
 
 ## Next steps
 

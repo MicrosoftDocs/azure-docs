@@ -3,7 +3,7 @@ title: "Tutorial: Create an Azure Files volume mount in Azure Container Apps"
 description: Learn to create an Azure Files storage mount in Azure Container Apps
 services: container-apps
 author: craigshoemaker
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.custom: devx-track-azurecli
 ms.topic: tutorial
 ms.date: 07/19/2022

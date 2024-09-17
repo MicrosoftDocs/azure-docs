@@ -2,18 +2,15 @@
 title: Manage NSG Flow Logs using Grafana
 titleSuffix: Azure Network Watcher
 description: Manage and analyze Network Security Group Flow Logs in Azure using Network Watcher and Grafana.
-services: network-watcher
 author: halkazwini
-ms.service: network-watcher
+ms.service: azure-network-watcher
 ms.topic: how-to
-ms.date: 05/03/2023
+ms.date: 05/31/2024
 ms.author: halkazwini
-ms.custom: engagement-fy23, linux-related-content
+ms.custom: linux-related-content
 ---
-# Manage and analyze network security group flow logs using Network Watcher and Grafana
 
-> [!CAUTION]
-> This article references CentOS, a Linux distribution that is nearing End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](~/articles/virtual-machines/workloads/centos/centos-end-of-life.md).
+# Manage and analyze network security group flow logs using Network Watcher and Grafana
 
 [Network Security Group (NSG) flow logs](nsg-flow-logs-overview.md) provide information that can be used to understand ingress and egress IP traffic on network interfaces. These flow logs show outbound and inbound flows on a per NSG rule basis, the NIC the flow applies to, 5-tuple information about the flow (Source/Destination IP, Source/Destination Port, Protocol), and if the traffic was allowed or denied.
 
@@ -39,7 +36,7 @@ In this example Grafana, ElasticSearch, and Logstash are configured on an Ubuntu
 
 You use Logstash to flatten the JSON formatted flow logs to a flow tuple level.
 
-The following instructions are used to install Logstash in Ubuntu. For instructions about how to install this package in RHEL/CentOS, refer to the [Installing from Package Repositories - yum](https://www.elastic.co/guide/en/logstash/8.7/installing-logstash.html#_yum) article.
+The following instructions are used to install Logstash in Ubuntu. For instructions about how to install this package in Red Hat Enterprise Linux, see [Installing from Package Repositories - yum](https://www.elastic.co/guide/en/logstash/8.7/installing-logstash.html#_yum).
 
 1. To install Logstash, run the following commands:
 
@@ -198,6 +195,6 @@ The following screenshot depicts a graph and chart showing the top flows and the
 
 By integrating Network Watcher with ElasticSearch and Grafana, you now have a convenient and centralized way to manage and visualize NSG flow logs as well as other data. Grafana has a number of other powerful graphing features that can also be used to further manage flow logs and better understand your network traffic. Now that you have a Grafana instance set up and connected to Azure, feel free to continue to explore the other functionality that it offers.
 
-## Next steps
+## Next step
 
 - Learn more about using [Network Watcher](network-watcher-monitoring-overview.md).

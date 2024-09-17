@@ -1,9 +1,9 @@
 ---
 title: Architecture - Design considerations for vSAN stretched clusters
 description: Learn about how to use stretched clusters for Azure VMware Solution.
-ms.topic: concepts
+ms.topic: concept-article
 ms.service: azure-vmware
-ms.date: 4/10/2024
+ms.date: 6/4/2024
 ms.custom: references_regions, engagement-fy24
 ---
 
@@ -82,7 +82,7 @@ The following SPBM policies are supported with a PFTT of "Dual Site Mirroring" a
 
 ### Are any other regions planned?
 
-Currently, there are [four regions supported](#stretched-clusters-region-availability) for stretched clusters.
+Currently, there are [five regions supported](#stretched-clusters-region-availability) for stretched clusters.
 
 ### What kind of SLA does Azure VMware Solution provide with the stretched clusters?
 

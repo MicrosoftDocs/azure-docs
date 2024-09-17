@@ -6,12 +6,13 @@ ms.author: anaharris
 ms.reviewer: anaharris
 ms.date: 01/25/2024
 ms.service: azure-storage
-ms.topic: concept
+ms.topic: concept-article
 ms.custom: subject-relocation, devx-track-azurepowershell
 ---
 
 
 # Relocate Azure Storage Account to another region
+
 
 This article shows you how to relocate an Azure Storage Account to a new region by creating a copy of your storage account into another region. You also learn how to relocate your data to that account by using AzCopy, or another tool of your choice.
 
@@ -224,7 +225,7 @@ The following table lists these features along with guidance for adding them to 
 | **Lifecycle management policies** | [Manage the Azure Blob storage lifecycle](../storage/blobs/storage-lifecycle-management-concepts.md) |
 | **Static websites** | [Host a static website in Azure Storage](../storage/blobs/storage-blob-static-website-how-to.md) |
 | **Event subscriptions** | [Reacting to Blob storage events](../storage/blobs/storage-blob-event-overview.md) |
-| **Alerts** | [Create, view, and manage activity log alerts by using Azure Monitor](../azure-monitor/alerts/alerts-activity-log.md) |
+| **Alerts** | [Create, view, and manage activity log alerts by using Azure Monitor](/azure/azure-monitor/alerts/alerts-activity-log) |
 | **Content Delivery Network (CDN)** | [Use Azure CDN to access blobs with custom domains over HTTPS](../storage/blobs/storage-https-custom-domain-cdn.md) |
 
 > [!NOTE]

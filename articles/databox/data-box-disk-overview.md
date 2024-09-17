@@ -9,6 +9,7 @@ ms.subservice: disk
 ms.topic: overview
 ms.date: 09/09/2022
 ms.author: shaas
+ms.custom: references_regions
 # Customer intent: As an IT admin, I need to understand what Data Box Disk is and how it works so I can use it to import on-premises data into Azure.
 ---
 
@@ -42,7 +43,7 @@ Azure providers and non-Azure providers can ingest data from Azure Data Box. The
 
 You can use your Data Box data with many non-Azure service providers. For instance:
 
-- **[Veeam](https://helpcenter.veeam.com/docs/backup/hyperv/osr_adding_data_box.html?ver=100)** - allows you to backup and replicated large amounts of data from your Hyper-V machine to your Data Box.
+- **[Veeam](https://helpcenter.veeam.com/docs/backup/hyperv/osr_adding_data_box.html?ver=100)** - allows you to back up and replicate large amounts of data from your Hyper-V machine to your Data Box.
 
 ## The workflow
 
@@ -89,6 +90,10 @@ For more information, go to [Azure Data Box Disk security and data protection](d
 
 ## Features and specifications
 
+[!INCLUDE [data-box-cross-region](../../includes/data-box-cross-region.md)]
+
+The Data Box Heavy device has the following features in this release.
+
 | Specifications                                          | Description              |
 |---------------------------------------------------------|--------------------------|
 | Weight                                                  | < 2 lbs. per box. Up to 5 disks in the box                |
@@ -104,6 +109,8 @@ For more information, go to [Azure Data Box Disk security and data protection](d
 ## Region availability
 
 For information on region availability, go to [Azure products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=databox&regions=all). Data Box Disk can also be deployed in the Azure Government Cloud. For more information, see [What is Azure Government?](../azure-government/documentation-government-welcome.md).
+
+Data Box Disk self-encrypting drives are generally available in the US, EU, and Japan. 
 
 ## Pricing
 

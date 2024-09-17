@@ -4,7 +4,7 @@ titleSuffix: Azure Load Balancer
 description: This quickstart shows how to create a load balancer using a Bicep file.
 services: load-balancer
 author: mbender-ms
-ms.service: load-balancer
+ms.service: azure-load-balancer
 ms.topic: quickstart
 ms.date: 10/25/2023
 ms.author: mbender
@@ -20,7 +20,7 @@ In this quickstart, you learn to use a BICEP file to create a public Azure load 
 
 Using a Bicep file takes fewer steps comparing to other deployment methods.
 
-[!INCLUDE [About Bicep](../../includes/resource-manager-quickstart-bicep-introduction.md)]
+[!INCLUDE [About Bicep](~/reusable-content/ce-skilling/azure/includes/resource-manager-quickstart-bicep-introduction.md)]
 
 ## Prerequisites
 
@@ -47,7 +47,7 @@ Multiple Azure resources have been defined in the bicep file:
 - [**Microsoft.Network/natGateways**](/azure/templates/microsoft.network/natgateways): for the NAT gateway.
 
 > [!IMPORTANT]
-> [!INCLUDE [Pricing](../../includes/bastion-pricing.md)]
+> [!INCLUDE [Pricing](~/reusable-content/ce-skilling/azure/includes/bastion-pricing.md)]
 
 To find more Bicep files or ARM templates that are related to Azure Load Balancer, see [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Network&pageNumber=1&sort=Popular).
 

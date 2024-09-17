@@ -2,7 +2,7 @@
 title: Azure Blob Storage as Event Grid source
 description: Describes the properties that are provided for blob storage events with Azure Event Grid
 ms.topic: conceptual
-ms.date: 01/10/2024
+ms.date: 05/31/2024
 ---
 
 # Azure Blob Storage as an Event Grid source
@@ -621,7 +621,7 @@ These events are triggered if you enable a hierarchical namespace on the storage
 
 |Event name|Description|
 |----------|-----------|
-| [Microsoft.Storage.BlobCreated](#microsoftstorageblobcreated-event-sftp) |Triggered when a blob is created or overwritten. <br>Specifically, this event is triggered when clients use the `put` operation, which corresponds to the `SftpCreate` and `SftpCommit` APIs. An empty blob is created when the file is opened and the uploaded contents are committed when the file is closed.|
+| [Microsoft.Storage.BlobCreated](#microsoftstorageblobcreated-event-sftp) |Triggered when a blob is created or overwritten. <br>Specifically, this event is triggered when clients use the `put` operation, which corresponds to the `SftpCreate` and `SftpCommit` APIs. An empty blob is created when the file is opened and the uploaded contents are committed when the file is closed. If the `SFTP Resumable Uploads` preview feature is enabled then some `SftpWrite` events will also be triggered during the upload.|
 | [Microsoft.Storage.BlobDeleted](#microsoftstorageblobdeleted-event-sftp) |Triggered when a blob is deleted. <br>Specifically, this event is also triggered when clients call the `rm` operation, which corresponds to the `SftpRemove` API.|
 | [Microsoft.Storage.BlobRenamed](#microsoftstorageblobrenamed-event-sftp) |Triggered when a blob is renamed. <br>Specifically, this event is triggered when clients use the `rename` operation on files, which corresponds to the `SftpRename` API.|
 | [Microsoft.Storage.DirectoryCreated](#microsoftstoragedirectorycreated-event-sftp) |Triggered when a directory is created. <br>Specifically, this event is triggered when clients use the `mkdir` operation, which corresponds to the `SftpMakeDir` API.|
@@ -640,7 +640,7 @@ If the blob storage account uses SFTP to create or overwrite a blob, then the da
 
 * The `dataVersion` key is set to a value of `3`.
 
-* The `data.api` key is set to the string `SftpCreate` or `SftpCommit`.
+* The `data.api` key is set to the string `SftpCreate`, `SftpWrite`, or `SftpCommit`.
 
 * The `clientRequestId` key isn't included.
 
@@ -651,7 +651,7 @@ If the blob storage account uses SFTP to create or overwrite a blob, then the da
 * The `identity` key is included in the data set. This corresponds to the local user used for SFTP authentication.
 
 > [!NOTE]
-> SFTP uploads will generate 2 events. One `SftpCreate` for an initial empty blob created when opening the file and one `SftpCommit` when the file contents are written.
+> SFTP uploads will generate 2 events. One `SftpCreate` for an initial empty blob created when opening the file and one `SftpCommit` when the file contents are committed at the end of the upload. If the `SFTP Resumable Uploads` preview feature is enabled then some `SftpWrite` events will also be triggered during the upload.
 
 ```json
 [{

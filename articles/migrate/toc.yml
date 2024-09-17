@@ -186,7 +186,7 @@ items:
           href: prepare-for-agentless-migration.md
     - name: Hyper-V migration architecture
       href: hyper-v-migration-architecture.md
-    - name: VMware agent-based migration architecture
+    - name: VMware/Physical agent-based migration architecture
       href: agent-based-migration-architecture.md
     - name: Web apps migration support
       href: concepts-migration-webapps.md
@@ -204,8 +204,6 @@ items:
         href: migrate-servers-to-azure-using-private-link.md
       - name: Troubleshoot network connectivity
         href: troubleshoot-network-connectivity.md
-  - name: Prepare to work with ISV tools/Movere
-    href: prepare-isv-movere.md
   - name: Discover
     items:
     - name: Deploy the Azure Migrate appliance
@@ -244,8 +242,6 @@ items:
     items:
     - name: Azure Migrate application and code assessment
       href: appcat/index.yml
-    - name: Add assessment tools
-      href: how-to-assess.md
     - name: Group machines for assessment
       href: how-to-create-a-group.md
     - name: Create an Azure VM assessment

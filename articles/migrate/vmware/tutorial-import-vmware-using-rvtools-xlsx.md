@@ -36,7 +36,7 @@ Before you begin this tutorial, ensure that you have the following prerequisites
 - Less than 20,000 servers in a single RVTools XLSX file.
 - The file format should be XLSX.
 - File sensitivity is set to **General** or file protection is set to **Any user**.
-- [Operating system names](../migrate-support-matrix.md) specified in the RVTools XLSX (preview) file contains and matches the supported names.
+- [Operating system names](../tutorial-discover-import.md#supported-operating-system-names) specified in the RVTools XLSX (preview) file contains and matches the supported names.
 - The XLSX file should contain the vInfo & vDisk sheets and the VM, Powerstate, Disks, CPUs, Memory, Provisioned MiB, In use MiB, OS according to the configuration file, VM UUID columns from the vInfo sheet and the VM, Capacity MiB columns from the vDisk sheet should be present.
 
 > [!NOTE]

@@ -79,7 +79,7 @@ Communication Services SDKs use connection strings to authorize requests made to
 
 * An application running on the desktop or on a device can store the connection string in an **app.config** or **web.config** file. Add the connection string to the **AppSettings** section in these files.
 * An application running in an Azure App Service can store the connection string in the [App Service application settings](../../app-service/configure-common.md). Add the connection string to the **Connection Strings** section of the Application Settings tab within the portal.
-* You can store your connection string in [Azure Key Vault](../../data-factory/store-credentials-in-key-vault.md).
+* You can store your connection string in [Azure Key Vault](../../data-factory/store-credentials-in-key-vault.md). You can further securely [manage your connection string](../../storage/common/storage-account-keys-manage.md).
 * If you're running your application locally, you may want to store your connection string in an environment variable.
 
 ### Store your connection string in an environment variable

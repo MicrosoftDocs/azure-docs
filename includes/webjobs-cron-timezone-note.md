@@ -1,6 +1,6 @@
 ---
 author: ggailey777
-ms.service: app-service
+ms.service: azure-app-service
 ms.topic: include
 ms.date: 10/13/2019
 ms.author: glenga

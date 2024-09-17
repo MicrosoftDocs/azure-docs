@@ -13,7 +13,7 @@ appliesto:
 
 # Map data fields to entities in Microsoft Sentinel 
 
-Entity mapping is an integral part of the configuration of [scheduled query analytics rules](detect-threats-custom.md). It enriches the rules' output (alerts and incidents) with essential information that serves as the building blocks of any investigative processes and remedial actions that follow.
+Entity mapping is an integral part of the configuration of [scheduled analytics rules](scheduled-rules-overview.md). It enriches the rules' output (alerts and incidents) with essential information that serves as the building blocks of any investigative processes and remedial actions that follow.
 
 The procedure detailed below is part of the analytics rule creation wizard. It's treated here independently to address the scenario of adding or changing entity mappings in an existing analytics rule.
 

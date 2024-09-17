@@ -3,7 +3,7 @@ title: Use storage mounts in Azure Container Apps
 description: Learn to use temporary and permanent storage mounts in Azure Container Apps
 services: container-apps
 author: craigshoemaker
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.custom: devx-track-azurecli
 ms.topic: conceptual
 ms.date: 04/10/2024
@@ -248,7 +248,7 @@ To enable Azure Files storage in your container, you need to set up your environ
 | Requirement | Instructions |
 |--|--|
 | Azure account | If you don't have one, [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). |
-| Azure Storage account | [Create a storage account](../storage/common/storage-account-create.md?tabs=azure-cli#create-a-storage-account-1). |
+| Azure Storage account | [Create a storage account](../storage/common/storage-account-create.md?tabs=azure-cli#create-a-storage-account). |
 | Azure Container Apps environment | [Create a container apps environment](environment.md). |
 
 ### Configuration

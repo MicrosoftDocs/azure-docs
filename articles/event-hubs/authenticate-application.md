@@ -1,13 +1,14 @@
 ---
-title: Authenticate an application to access Azure Event Hubs resources
+title: Authenticate an application to access resources
 description: This article provides information about authenticating an application with Microsoft Entra ID to access Azure Event Hubs resources
-ms.topic: conceptual
-ms.date: 02/08/2023
+ms.topic: concept-article
+ms.date: 06/26/2024
 ms.custom: subject-rbac-steps
+#customer intent: As a developer, I want to know how to authenticate an application with Azure Event Hubs using Microsoft Entra ID. 
 ---
 
 # Authenticate an application with Microsoft Entra ID to access Event Hubs resources
-Microsoft Azure provides integrated access control management for resources and applications based on Microsoft Entra ID. A key advantage of using Microsoft Entra ID with Azure Event Hubs is that you don't need to store your credentials in the code anymore. Instead, you can request an OAuth 2.0 access token from the Microsoft identity platform. The resource name to request a token is `https://eventhubs.azure.net/`, and it's the same for all clouds/tenants (For Kafka clients, the resource to request a token is `https://<namespace>.servicebus.windows.net`). Microsoft Entra authenticates the security principal (a user, group, or service principal) running the application. If the authentication succeeds, Microsoft Entra ID returns an access token to the application, and the application can then use the access token to authorize request to Azure Event Hubs resources.
+Microsoft Azure provides integrated access control management for resources and applications based on Microsoft Entra ID. A key advantage of using Microsoft Entra ID with Azure Event Hubs is that you don't need to store your credentials in the code anymore. Instead, you can request an OAuth 2.0 access token from the Microsoft identity platform. The resource name to request a token is `https://eventhubs.azure.net/`, and it's the same for all clouds/tenants (For Kafka clients, the resource to request a token is `https://<namespace>.servicebus.windows.net`). Microsoft Entra authenticates the security principal (a user, group, service principal, or managed identity) running the application. If the authentication succeeds, Microsoft Entra ID returns an access token to the application, and the application can then use the access token to authorize request to Azure Event Hubs resources.
 
 When a role is assigned to a Microsoft Entra security principal, Azure grants access to those resources for that security principal. Access can be scoped to the level of subscription, the resource group, the Event Hubs namespace, or any resource under it. A Microsoft Entra security can assign roles to a user, a group, an application service principal, or a [managed identity for Azure resources](../active-directory/managed-identities-azure-resources/overview.md). 
 
@@ -18,8 +19,8 @@ When a role is assigned to a Microsoft Entra security principal, Azure grants ac
 Azure provides the following Azure built-in roles for authorizing access to Event Hubs data using Microsoft Entra ID and OAuth:
 
 - [Azure Event Hubs Data Owner](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-owner): Use this role to give complete access to Event Hubs resources.
-- [Azure Event Hubs Data Sender](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-sender): Use this role to give access to Event Hubs resources.
-- [Azure Event Hubs Data Receiver](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-receiver): Use this role to give receiving access to Event Hubs resources.   
+- [Azure Event Hubs Data Sender](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-sender): A security principal assigned to this role can send events to a specific event hub or all event hubs in a namespace. 
+- [Azure Event Hubs Data Receiver](../role-based-access-control/built-in-roles.md#azure-event-hubs-data-receiver): A security principal assigned to this role can receive events from a specific event hub or all event hubs in a namespace.
 
 For Schema Registry built-in roles, see [Schema Registry roles](schema-registry-concepts.md#azure-role-based-access-control).
 
@@ -34,20 +35,19 @@ The following sections show you how to configure your native application or web 
 
 For an overview of the OAuth 2.0 code grant flow, see [Authorize access to Microsoft Entra web applications using the OAuth 2.0 code grant flow](../active-directory/develop/v2-oauth2-auth-code-flow.md).
 
-<a name='register-your-application-with-an-azure-ad-tenant'></a>
 
 ### Register your application with a Microsoft Entra tenant
 The first step in using Microsoft Entra ID to authorize Event Hubs resources is registering your client application with a Microsoft Entra tenant from the [Azure portal](https://portal.azure.com/). Follow steps in the [Quickstart: Register an application with the Microsoft identity platform](../active-directory/develop/quickstart-register-app.md) to register an application in Microsoft Entra ID that represents your application trying to access Event Hubs resources. 
 
-When you register your client application, you supply information about the application to AD. Microsoft Entra ID then provides a client ID (also called an application ID) that you can use to associate your application with Microsoft Entra runtime. To learn more about the client ID, see [Application and service principal objects in Microsoft Entra ID](../active-directory/develop/app-objects-and-service-principals.md). 
+When you register your client application, you supply information about the application. Microsoft Entra ID then provides a client ID (also called an application ID) that you can use to associate your application with Microsoft Entra runtime. To learn more about the client ID, see [Application and service principal objects in Microsoft Entra ID](../active-directory/develop/app-objects-and-service-principals.md). 
 
 
 > [!Note]
 > If you register your application as a native application, you can specify any valid URI for the Redirect URI. For native applications, this value does not have to be a real URL. For web applications, the redirect URI must be a valid URI, because it specifies the URL to which tokens are provided.
 
-After you've registered your application, you'll see the **Application (client) ID** under **Settings**:
+After you register your application, you see the **Application (client) ID** under **Settings**:
 
-:::image type="content" source="./media/authenticate-application/application-id.png" alt-text="Screenshot showing the app registration page with application ID highlighted.":::
+:::image type="content" source="./media/authenticate-application/application-id.png" alt-text="Screenshot showing the app registration page with application ID highlighted." lightbox="./media/authenticate-application/application-id.png":::
 
 
 ### Create a client secret   
@@ -57,11 +57,11 @@ The application needs a client secret to prove its identity when requesting a to
 ## Assign Azure roles using the Azure portal  
 Assign one of the [Event Hubs roles](#built-in-roles-for-azure-event-hubs) to the application's service principal at the desired scope (Event Hubs namespace, resource group, subscription). For detailed steps, see [Assign Azure roles using the Azure portal](../role-based-access-control/role-assignments-portal.yml).
 
-Once you define the role and its scope, you can test this behavior with samples [in this GitHub location](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/Rbac). To learn more on managing access to Azure resources using Azure RBAC and the Azure portal, see [this article](..//role-based-access-control/role-assignments-portal.yml). 
+Once you define the role and its scope, you can test this behavior with samples [in this GitHub location](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/Rbac). To learn more on managing access to Azure resources using Azure role-based access control (RBAC) and the Azure portal, see [this article](..//role-based-access-control/role-assignments-portal.yml). 
 
 
 ### Client libraries for token acquisition  
-Once you've registered your application and granted it permissions to send/receive data in Azure Event Hubs, you can add code to your application to authenticate a security principal and acquire OAuth 2.0 token. To authenticate and acquire the token, you can use either one of the [Microsoft identity platform authentication libraries](../active-directory/develop/reference-v2-libraries.md) or another open-source library that supports OpenID or Connect 1.0. Your application can then use the access token to authorize a request against Azure Event Hubs.
+Once you registered your application and granted it permissions to send/receive data in Azure Event Hubs, you can add code to your application to authenticate a security principal and acquire OAuth 2.0 token. To authenticate and acquire the token, you can use either one of the [Microsoft identity platform authentication libraries](../active-directory/develop/reference-v2-libraries.md) or another open-source library that supports OpenID or Connect 1.0. Your application can then use the access token to authorize a request against Azure Event Hubs.
 
 For scenarios where acquiring tokens is supported, see the [Scenarios](https://aka.ms/msal-net-scenarios) section of the [Microsoft Authentication Library (MSAL) for .NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) GitHub repository.
 
@@ -70,7 +70,7 @@ For scenarios where acquiring tokens is supported, see the [Scenarios](https://a
 - [RBAC sample using the legacy Java com.microsoft.azure.eventhubs package](https://github.com/Azure/azure-event-hubs/tree/master/samples/Java/Rbac). You can use the [migration guide](https://github.com/Azure/azure-sdk-for-java/blob/main/sdk/eventhubs/azure-messaging-eventhubs/migration-guide.md) to migrate this sample to use the new package (`com.azure.messaging.eventhubs`). To learn more about using the new package in general, see samples [here](https://github.com/Azure/azure-sdk-for-java/tree/main/sdk/eventhubs/azure-messaging-eventhubs/src/samples/java/com/azure/messaging/eventhubs).  
     
 
-## Next steps
+## Related content
 - To learn more about Azure RBAC, see [What is Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md)?
 - To learn how to assign and manage Azure role assignments with Azure PowerShell, Azure CLI, or the REST API, see these articles:
     - [Add or remove Azure role assignments using Azure PowerShell](../role-based-access-control/role-assignments-powershell.md)  

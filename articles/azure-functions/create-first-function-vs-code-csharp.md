@@ -2,7 +2,7 @@
 title: "Create a C# function using Visual Studio Code - Azure Functions"
 description: "Learn how to create a C# function, then publish the local project to serverless hosting in Azure Functions using the Azure Functions extension in Visual Studio Code. "
 ms.topic: quickstart
-ms.date: 01/05/2023
+ms.date: 06/03/2024
 ms.devlang: csharp
 ms.custom: devx-track-csharp, mode-ui, vscode-azure-extension-update-complete, ai-video-demo
 ai-usage: ai-assisted
@@ -33,9 +33,7 @@ Before you get started, make sure you have the following requirements in place:
 
 In this section, you use Visual Studio Code to create a local Azure Functions project in C#. Later in this article, you'll publish your function code to Azure.
 
-1. Choose the Azure icon in the Activity bar, then in the **Workspace (local)** area, select the **+** button, choose **Create Function** in the dropdown. When prompted, choose **Create new project**.
-
-    :::image type="content" source="./media/functions-create-first-function-vs-code/create-new-project.png" alt-text="Screenshot of create a new project window.":::
+1. In Visual Studio Code, press <kbd>F1</kbd> to open the command palette and search for and run the command `Azure Functions: Create New Project...`.
 
 1. Select the directory location for your project workspace and choose **Select**. You should either create a new folder or choose an empty folder for the project workspace. Don't choose a project folder that is already part of a workspace.
  
@@ -48,7 +46,7 @@ In this section, you use Visual Studio Code to create a local Azure Functions pr
     |**Select a template for your project's first function**|Choose `HTTP trigger`.<sup>1</sup>|
     |**Provide a function name**|Type `HttpExample`.|
     |**Provide a namespace** | Type `My.Functions`. |
-    |**Authorization level**|Choose `Anonymous`, which enables anyone to call your function endpoint. To learn about authorization level, see [Authorization keys](functions-bindings-http-webhook-trigger.md#authorization-keys).|
+    |**Authorization level**|Choose `Anonymous`, which enables anyone to call your function endpoint. For more information, see [Authorization level](functions-bindings-http-webhook-trigger.md#http-auth).|
     |**Select how you would like to open your project**|Select `Open in current window`.|
 
     <sup>1</sup> Depending on your VS Code settings, you may need to use the `Change template filter` option to see the full list of templates.

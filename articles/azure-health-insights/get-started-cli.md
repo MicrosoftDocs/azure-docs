@@ -4,6 +4,7 @@ description: "This document explains how to create and deploy an Azure HealthIns
 author: hvanhoe
 ms.author: henkvanhoe
 ms.service: azure-health-insights
+ms.custom: devx-track-azurecli
 ms.topic: quickstart  #Don't change
 ms.date: 04/09/2024
 ---

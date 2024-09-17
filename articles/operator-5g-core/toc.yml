@@ -23,6 +23,8 @@ items:
     href: quickstart-subscription.md
   - name: Complete the prerequisites to deploy Azure Operator 5G Core on Nexus Azure Kubernetes Service
     href: quickstart-complete-prerequisites-deploy-nexus-azure-kubernetes-service.md
+  - name: Complete the prerequisites to deploy Azure Operator 5G Core on Azure Kubernetes Service
+    href: quickstart-complete-prerequisites-deploy-azure-kubernetes-service.md
   - name: Deploy Azure Operator 5G Core
     href: quickstart-deploy-5g-core.md
   - name: Monitor the status of your Azure Operator 5G Core deployment

@@ -34,7 +34,7 @@ You can use one of the [built-in roles](/azure/role-based-access-control/built-i
 
 ## Blocking run commands locally
 
-The Connected Machine agent supports local configurations that allow you to set an allowlist or a blocklist. See [Extension allowlists and blocklists](security-overview.md#extension-allowlists-and-blocklists) to learn more.
+The Connected Machine agent supports local configurations that allow you to set an allowlist or a blocklist. See [Extension allowlists and blocklists](security-extensions.md#allowlists-and-blocklists) to learn more.
 
 For Windows:
 
@@ -211,11 +211,11 @@ Run Command on Azure Arc-enabled servers supports the following operations:
 
 |Operation  |Description  |
 |---------|---------|
-|[Create](/rest/api/hybridcompute/machine-run-commands/create-or-update?tabs=HTTP) |The operation to create a run command. This runs the run command. |
-|[Delete](/rest/api/hybridcompute/machine-run-commands/delete?tabs=HTTP) |The operation to delete a run command. If it's running, delete will also stop the run command. |
-|[Get](/rest/api/hybridcompute/machine-run-commands/get?tabs=HTTP) |The operation to get a run command. |
-|[List](/rest/api/hybridcompute/machine-run-commands/list?tabs=HTTP) |The operation to get all the run commands of an Azure Arc-enabled server. |
-|[Update](/rest/api/hybridcompute/machine-run-commands/update?tabs=HTTP) |The operation to update the run command. This stops the previous run command. |
+|Create |The operation to create a run command. This runs the run command. |
+|Delete |The operation to delete a run command. If it's running, delete will also stop the run command. |
+|Get |The operation to get a run command. |
+|List |The operation to get all the run commands of an Azure Arc-enabled server. |
+|Update |The operation to update the run command. This stops the previous run command. |
  
 > [!NOTE]
 > Output and error blobs are overwritten each time the run command script executes.

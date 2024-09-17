@@ -5,7 +5,7 @@ ms.service: azure-functions
 ms.date: 03/15/2023
 ms.devlang: javascript
 # ms.devlang: javascript, typescript
-ms.custom: devx-track-js, devx-track-extended-java
+ms.custom: devx-track-js, devx-track-extended-java, devx-track-ts
 ms.topic: how-to
 zone_pivot_groups: programming-languages-set-functions-nodejs
 ---

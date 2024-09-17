@@ -1,7 +1,7 @@
 ---
 author: karlerickson
 ms.author: v-shilichen
-ms.service: spring-apps
+ms.service: azure-spring-apps
 ms.custom: devx-track-azurecli
 ms.topic: include
 ms.date: 08/09/2023
@@ -161,7 +161,7 @@ az spring app create \
 
 ### 3.1. Sign in to the Azure portal
 
-Open your web browser and go to the [Azure portal](https://portal.azure.com/). Enter your credentials to sign in to the portal. The default view is your service dashboard.
+Open your web browser and go to the [Azure portal](https://portal.azure.com/), enter your credentials, and sign in to the portal. The default view is your service dashboard.
 
 ### 3.2. Create an Azure Spring Apps instance
 
@@ -212,7 +212,7 @@ Use the following command to deploy the *.jar* file for the app:
 az spring app deploy \
     --service ${SERVICE_NAME} \
     --name ${APP_NAME} \
-    --artifact-path target/demo-0.0.2-SNAPSHOT.jar
+    --artifact-path target/demo-0.0.1-SNAPSHOT.jar
 ```
 
 Deploying the application can take a few minutes.

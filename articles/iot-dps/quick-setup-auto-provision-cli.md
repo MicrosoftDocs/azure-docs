@@ -14,7 +14,7 @@ ms.custom: mvc, devx-track-azurecli, mode-api
 
 The Azure CLI is used to create and manage Azure resources from the command line or in scripts. This quickstart details using the Azure CLI to create an IoT hub and an IoT Hub Device Provisioning Service instance, and to link the two services together. 
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 > [!IMPORTANT]
 > Both the IoT hub and the provisioning service you create in this quickstart will be publicly discoverable as DNS endpoints. Make sure to avoid any sensitive information if you decide to change the names used for these resources.

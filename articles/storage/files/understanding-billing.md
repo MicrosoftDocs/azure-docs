@@ -204,11 +204,12 @@ Because standard file shares only show transaction information at the storage ac
 
 To see previous transactions:
 
-1. Go to your storage account and select **Metrics** in the left navigation bar.
-2. Select **Scope** as your storage account name, **Metric Namespace** as "File", **Metric** as "Transactions", and **Aggregation** as "Sum".
-3. Select **Apply Splitting**.
-4. Select **Values** as "API Name". Select your desired **Limit** and **Sort**.
-5. Select your desired time period.
+1. Navigate to your storage account in the Azure portal.
+1. In the service menu, under **Monitoring**, select **Metrics**.
+1. Select **Scope** as your storage account name, **Metric Namespace** as "File", **Metric** as "Transactions", and **Aggregation** as "Sum".
+1. Select **Apply Splitting**.
+1. Select **Values** as "API Name". Select your desired **Limit** and **Sort**.
+1. Select your desired time period.
 
 > [!NOTE]
 > Make sure you view transactions over a period of time to get a better idea of average number of transactions. Ensure that the chosen time period doesn't overlap with initial provisioning. Multiply the average number of transactions during this time period to get the estimated transactions for an entire month.
@@ -217,7 +218,7 @@ To see previous transactions:
 
 Azure Files tracks three distinct quantities with respect to share capacity:
 
-- **Provisioned size or quota**: With both premium and standard file shares, you specify the maximum size that the file share is allowed to grow to. In premium file shares, this value is called the provisioned size. Whatever amount you provision is what you pay for, regardless of how much you actually use. In standard file shares, this value is called quota and doesn't directly affect your bill. Provisioned size is a required field for premium file shares. For standard file shares, if provisioned size isn't directly specified, the share will default to the maximum value supported by the storage account.
+- **Provisioned size or quota**: With both premium and standard file shares, you specify the maximum size that the file share is allowed to grow to. In premium file shares, this value is called the provisioned size. Whatever amount you provision is what you pay for, regardless of how much you actually use. In standard file shares, this value is called quota and doesn't directly affect your bill. Provisioned size is a required field for premium file shares. For standard file shares, if provisioned size isn't directly specified, the share will default to the maximum value supported by the storage account (100 TiB).
 
 - **Logical size**: The logical size of a file share or file relates to how big it is without considering how it's actually stored, where additional optimizations might be applied. The logical size of the file is how many KiB/MiB/GiB would be transferred over the wire if you copied it to a different location. In both premium and standard file shares, the total logical size of the file share is used for enforcement against provisioned size/quota. In standard file shares, the logical size is the quantity used for the data at-rest usage billing. Logical size is referred to as "size" in the Windows properties dialog for a file/folder and as "content length" by Azure Files metrics.
 
@@ -286,7 +287,7 @@ Microsoft Defender for Storage doesn't support antivirus capabilities for Azure 
 
 The main cost from Microsoft Defender for Storage is an additional set of transaction costs that the product levies on top of the transactions that are done against the Azure file share. Although these costs are based on the transactions incurred in Azure Files, they aren't part of the billing for Azure Files, but rather are part of the Microsoft Defender pricing. Microsoft Defender for Storage charges a transaction rate even on premium file shares, where Azure Files includes transactions as part of IOPS provisioning. The current transaction rate can be found on [Microsoft Defender for Cloud pricing page](https://azure.microsoft.com/pricing/details/defender-for-cloud/) under the *Microsoft Defender for Storage* table row.
 
-Transaction heavy file shares will incur significant costs using Microsoft Defender for Storage. Based on these costs, you might want to opt-out of Microsoft Defender for Storage for specific storage accounts. For more information, see [Exclude a storage account from Microsoft Defender for Storage protections](../../defender-for-cloud/defender-for-storage-exclude.md).
+Transaction heavy file shares will incur significant costs using Microsoft Defender for Storage. Based on these costs, you might want to opt-out of Microsoft Defender for Storage for specific storage accounts. For more information, see [Exclude a storage account from Microsoft Defender for Storage protections](/azure/defender-for-cloud/defender-for-storage-exclude).
 
 ## See also
 

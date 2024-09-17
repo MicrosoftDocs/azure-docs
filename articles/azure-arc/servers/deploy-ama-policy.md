@@ -2,7 +2,7 @@
 title: How to deploy and configure Azure Monitor Agent using Azure Policy
 description: Learn how to deploy and configure Azure Monitor Agent using Azure Policy.
 ms.date: 05/17/2023
-ms.topic: conceptual
+ms.topic: how-to
 ---
 
 # Deploy and configure Azure Monitor Agent using Azure Policy
@@ -26,7 +26,7 @@ Data Collection Rules define the data collection process in Azure Monitor. They 
 1. From your browser, go to the [Azure portal](https://portal.azure.com).
 
 1. Navigate to the **Monitor | Overview** page. Under **Settings**, select **Data Collection Rules**.
-    A list of existing DCRs displays. You can filter this at the top of the window. If you need to create a new DCR, see [Data collection rules in Azure Monitor](../../azure-monitor/essentials/data-collection-rule-overview.md) for more information.
+    A list of existing DCRs displays. You can filter this at the top of the window. If you need to create a new DCR, see [Data collection rules in Azure Monitor](/azure/azure-monitor/essentials/data-collection-rule-overview) for more information.
 
 1. Select the DCR to apply to your ARM template to view its overview.
 
@@ -62,6 +62,6 @@ In order for Azure Policy to check if AMA is installed on your Arc-enabled, you'
 
 ## Additional resources
 
-* [Azure Monitor overview](../../azure-monitor/overview.md)
+* [Azure Monitor overview](/azure/azure-monitor/overview)
 
 * [Tutorial: Monitor a hybrid machine with VM insights](learn/tutorial-enable-vm-insights.md)

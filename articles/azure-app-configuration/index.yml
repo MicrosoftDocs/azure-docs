@@ -7,9 +7,10 @@ metadata:
   author: maud-lv
   ms.author: malev
   ms.service: azure-app-configuration
+  ms.custom:
+    - build-2024
   ms.topic: landing-page
-  ms.date: 04/11/2023
-
+  ms.date: 05/10/2024
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
 landingContent:
@@ -50,6 +51,8 @@ landingContent:
           url: concept-point-time-snapshot.md
         - text: Feature Management
           url: concept-feature-management.md
+        - text: Experimentation
+          url: concept-experimentation.md
         - text: Configuration files
           url: concept-config-file.md
         - text: Azure App Configuration Events 
@@ -58,8 +61,7 @@ landingContent:
           url: concept-soft-delete.md
         - text: Geo-replication 
           url: concept-geo-replication.md
-          
-        
+
   - title: Create and code with Azure App Configuration
     linkLists:
       - linkListType: quickstart
@@ -79,9 +81,9 @@ landingContent:
         - text: Code a Java Spring app
           url: quickstart-java-spring-app.md
         - text: Code a Python app
-          url: quickstart-python.md
-        - text: Azure Resource Manager deployment
-          url: quickstart-deployment-overview.md       
+          url: quickstart-python-provider.md
+        - text: Code a JavaScript app
+          url: quickstart-javascript-provider.md
         - text: Azure Container Apps
           url: quickstart-container-apps.md
       - linkListType: tutorial
@@ -111,7 +113,7 @@ landingContent:
         - text: Pull data using Azure Pipelines
           url: pull-key-value-devops-pipeline.md
         - text: Push data using GitHub Actions
-          url: concept-github-action.md
+          url: push-kv-github-action.md
         - text: Export to project configuration file
           url: integrate-ci-cd-pipeline.md
         - text: Deploy to Kubernetes using Helm
@@ -132,6 +134,8 @@ landingContent:
         links:
           - text: What are feature flags?
             url: concept-feature-management.md
+          - text: What is experimentation?
+            url: concept-experimentation.md
       - linkListType: quickstart
         links:
         - text: Manage feature flags
@@ -142,20 +146,32 @@ landingContent:
           url: quickstart-feature-flag-dotnet.md
         - text: Spring Boot app
           url: quickstart-feature-flag-spring-boot.md
+        - text: Python app
+          url: quickstart-feature-flag-python.md
       - linkListType: tutorial
         links: 
         - text: Use feature flags in ASP.NET Core
           url: use-feature-flags-dotnet-core.md
         - text: Use feature flags in Spring Boot
           url: use-feature-flags-spring-boot.md
-        - text: Enable a feature for specified users/groups
-          url: howto-targetingfilter-aspnet-core.md
+        - text: Enable conditional features with feature filters
+          url: howto-feature-filters.md
+        - text: Enable features on a schedule
+          url: howto-timewindow-filter.md
+        - text: Roll out features to targeted audience
+          url: howto-targetingfilter.md
+        - text: Run experiments with variant feature flags
+          url: run-experiments-aspnet-core.md
       - linkListType: reference
         links:
-        - text: .NET library
+        - text: .NET feature management
+          url: feature-management-dotnet-reference.md
+        - text: .NET feature management API reference
           url: /dotnet/api/overview/azure/appconfiguration/featuremanagement
-        - text: Java Spring Library
+        - text: Java Spring feature management API reference
           url: https://azure.github.io/azure-sdk-for-java/springboot.html
+        - text: Python feature management API reference
+          url: https://microsoft.github.io/FeatureManagement-Python/html/index.html
 
   - title: Client libraries and tools
     linkLists:

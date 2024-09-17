@@ -18,7 +18,7 @@ In this article, you use the Azure portal to do the following tasks:
 
 
 ## Prerequisites
-[!INCLUDE [quickstarts-free-trial-note.md](../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [quickstarts-free-trial-note.md](~/reusable-content/ce-skilling/azure/includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [register-provider.md](./includes/register-provider.md)]
 

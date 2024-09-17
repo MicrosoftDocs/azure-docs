@@ -6,7 +6,7 @@ summary: Azure API Center helps you develop and maintain a structured inventory 
 metadata: 
   title: Azure API Center documentation | Microsoft Docs
   description: Azure API Center helps you develop and maintain a structured inventory of your organization's APIs. API Center enables API discovery, reuse, and governance at scale.
-  ms.service: api-center
+  ms.service: azure-api-center
   ms.topic: landing-page
   author: dlepow
   ms.author: danlep
@@ -28,7 +28,11 @@ landingContent:
             url: key-concepts.md
           - text: Frequently asked questions
             url: frequently-asked-questions.yml
-  # Card
+      - linkListType: learn
+        links:
+          - text: Introduction to Azure API Center
+            url: /training/modules/introduction-to-azure-api-center/
+ # Card
   - title: Manage your API inventory
     linkLists:
       - linkListType: quickstart
@@ -51,7 +55,7 @@ landingContent:
             url: import-api-management-apis.md
           - text: Build and register APIs - VS Code extension
             url: use-vscode-extension.md
-# Card
+ # Card
   - title: Govern APIs
     linkLists:
       - linkListType: how-to-guide
@@ -69,5 +73,10 @@ landingContent:
         links:
           - text: Self-host Azure API Center portal
             url: enable-api-center-portal.md
-          - text: Discover APIs with GitHub Copilot Chat
-            url: use-vscode-extension-copilot.md
+  # Card
+  - title: Related service
+    linkLists:
+      - linkListType: concept
+        links:
+          - text: Azure API Management
+            url: ../api-management/api-management-key-concepts.md

@@ -4,7 +4,7 @@ description: Learn how to connect to an Azure storage account using workload ide
 author: houk-ms
 ms.author: honc
 ms.service: service-connector
-ms.custom: devx-track-python
+ms.custom: devx-track-python, devx-track-azurecli
 ms.topic: tutorial
 ms.date: 03/01/2024
 ---
@@ -29,7 +29,7 @@ Learn how to create a pod in an AKS cluster, which talks to an Azure storage acc
 * An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/).
 * [Install](/cli/azure/install-azure-cli) the Azure CLI, and sign in to Azure CLI by using the [az login](/cli/azure/reference-index#az-login) command.
 * Install [Docker](https://docs.docker.com/get-docker/)and [kubectl](https://kubernetes.io/docs/tasks/tools/), to manage container image and Kubernetes resources.
-* A basic understanding of container and AKS. Get started from [preparing an application for AKS](../aks/tutorial-kubernetes-prepare-app.md).
+* A basic understanding of container and AKS. Get started from [preparing an application for AKS](/azure/aks/tutorial-kubernetes-prepare-app).
 * A basic understanding of [workload identity](/entra/workload-id/workload-identities-overview).
 
 ## Create Azure resources
@@ -42,7 +42,7 @@ Learn how to create a pod in an AKS cluster, which talks to an Azure storage acc
         --location eastus
     ```
 
-1. Create an AKS cluster with the following command, or referring to the [tutorial](../aks/learn/quick-kubernetes-deploy-cli.md). We create the service connection, pod definition and deploy the sample application to this cluster.
+1. Create an AKS cluster with the following command, or referring to the [tutorial](/azure/aks/learn/quick-kubernetes-deploy-cli). We create the service connection, pod definition and deploy the sample application to this cluster.
 
     ```azurecli
     az aks create \
@@ -124,7 +124,7 @@ Create a service connection between an AKS cluster and an Azure storage account 
     | **User assigned managed identity** | `<MyIdentity>`      | A user assigned managed identity is needed to enable workload identity. |
 
 1. Once the connection has been created, the Service Connector page displays information about the new connection.
-    :::image type="content" source="./media/aks-tutorial/kubernetes-resources.png" alt-text="Screenshot of the Azure portal, viewing kubernetes resources created by Service Connector.":::
+    :::image type="content" source="./media/aks-tutorial/aks-storage.png" alt-text="Screenshot of the Azure portal, viewing kubernetes resources created by Service Connector.":::
 
 
 ### [Azure CLI](#tab/azure-cli)

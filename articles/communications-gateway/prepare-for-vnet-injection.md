@@ -3,26 +3,27 @@ title: Prepare to connect Azure Communications Gateway to your own virtual netwo
 description: Learn how to complete the prerequisite tasks required to deploy Azure Communications Gateway with VNet injection. 
 author: rcdun
 ms.author: rdunstan
-ms.service: communications-gateway
+ms.service: azure-communications-gateway
 ms.topic: how-to
 ms.date: 04/26/2024
 ---
 
 # Prepare to connect Azure Communications Gateway to your own virtual network (preview)
 
-This article describes the steps required to connect an Azure Communications Gateway to your own virtual network using VNet injection for Azure Communications Gateway (preview). This procedure is required to deploy Azure Communications Gateway into a subnet that you control and is used when connecting your on premises network with ExpressRoute Private Peering or though an Azure VPN Gateway. Azure Communications Gateway has two service regions with their own connectivity, which means that you need to provide virtual networks and subnets in each of these regions.
+This article describes the steps required to connect an Azure Communications Gateway to your own virtual network using VNet injection for Azure Communications Gateway (preview). This procedure is required to deploy Azure Communications Gateway into a subnet that you control and is used when connecting your on premises network with ExpressRoute Private Peering or through an Azure VPN Gateway. Azure Communications Gateway has two service regions with their own connectivity, which means that you need to provide virtual networks and subnets in each of these regions.
 
 The following diagram shows an overview of Azure Communications Gateway deployed with VNet injection. The network interfaces on Azure Communications Gateway facing your network are deployed into your subnet, while the network interfaces facing backend communications services remain managed by Microsoft.
 
 :::image type="content" source="media/azure-communications-gateway-vnet-injection.svg" alt-text="Network diagram showing Azure Communications Gateway deployed into two Azure regions. The Azure Communications Gateway resource in each region connects to an Operator virtual network with Operator controlled IPs." lightbox="media/azure-communications-gateway-vnet-injection.svg":::
 
 ## Prerequisites
-- Your Azure subscription is [enabled for Azure Communications Gateway](prepare-to-deploy.md#get-access-to-azure-communications-gateway-for-your-azure-subscription).
-- Your onboarding team is aware that you intend to use your own virtual networks.
-- You  have an Azure virtual network in each of the Azure regions to be used as the Azure Communications Gateway [service regions](reliability-communications-gateway.md#service-regions). Learn how to create a [virtual network](/azure/virtual-network/manage-virtual-network).
-- You have a subnet to be dedicated to Azure Communications Gateway in each Azure virtual network. These subnets must each have at least 16 IP addresses (a /28 IPv4 range or larger). Learn how to create a [subnet](/azure/virtual-network/virtual-network-manage-subnet).
-- Your Azure account has the Network Contributor role, or a parent of this role, on the virtual networks.
-- Your chosen connectivity solution (for example ExpressRoute) is deployed into your Azure subscription and ready to use.
+
+- Get your Azure subscription [enabled for Azure Communications Gateway](prepare-to-deploy.md#get-access-to-azure-communications-gateway-for-your-azure-subscription).
+- Inform your onboarding team that you intend to use your own virtual networks.
+- Create an Azure virtual network in each of the Azure regions to be used as the Azure Communications Gateway [service regions](reliability-communications-gateway.md#service-regions). Learn how to create a [virtual network](/azure/virtual-network/manage-virtual-network).
+- Create a subnet in each Azure virtual network for Azure Communications Gateway's exclusive use. These subnets must each have at least 16 IP addresses (a /28 IPv4 range or larger). Nothing else must use this subnet. Learn how to create a [subnet](/azure/virtual-network/virtual-network-manage-subnet).
+- Ensure that your Azure account has the Network Contributor role, or a parent of this role, on the virtual networks.
+- Deploy your chosen connectivity solution (for example ExpressRoute) into your Azure subscription and ensure it's ready for use.
 
 > [!TIP]
 > Lab deployments only have one service region, so you only need to set up a single region during this procedure.

@@ -1,10 +1,10 @@
 ---
-title: Authenticate downstream devices - Azure IoT Edge | Microsoft Docs
+title: Authenticate downstream devices - Azure IoT Edge
 description: How to authenticate downstream devices to IoT Hub, and route their connection through Azure IoT Edge gateway devices. 
 author: PatAltimore
 
 ms.author: patricka
-ms.date: 04/29/2022
+ms.date: 05/29/2024
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -122,7 +122,7 @@ For X.509 self-signed authentication, sometimes referred to as thumbprint authen
 
 4. Copy both the primary and secondary device certificates and their keys to any location on the downstream device. Also move a copy of the shared root CA certificate that generated both the gateway device certificate and the downstream device certificates.
 
-   You'll reference these certificate files in any applications on the downstream device that connect to IoT Hub. You can use a service like [Azure Key Vault](../key-vault/index.yml) or a function like [Secure copy protocol](https://www.ssh.com/ssh/scp/) to move the certificate files.
+   You'll reference these certificate files in any applications on the downstream device that connect to IoT Hub. You can use a service like [Azure Key Vault](/azure/key-vault/) or a function like [Secure copy protocol](https://www.ssh.com/ssh/scp/) to move the certificate files.
 
 5. Depending on your preferred language, review samples of how X.509 certificates can be referenced in IoT applications:
 
@@ -169,7 +169,7 @@ This section is based on the IoT Hub X.509 certificate tutorial series. See [Und
 
 5. Copy the device certificate and keys to any location on the downstream device. Also move a copy of the shared root CA certificate that generated both the gateway device certificate and the downstream device certificates.
 
-   You'll reference these files in any applications on the downstream device that connect to IoT Hub. You can use a service like [Azure Key Vault](../key-vault/index.yml) or a function like [Secure copy protocol](https://www.ssh.com/ssh/scp/) to move the certificate files.
+   You'll reference these files in any applications on the downstream device that connect to IoT Hub. You can use a service like [Azure Key Vault](/azure/key-vault/) or a function like [Secure copy protocol](https://www.ssh.com/ssh/scp/) to move the certificate files.
 
 6. Depending on your preferred language, review samples of how X.509 certificates can be referenced in IoT applications:
 

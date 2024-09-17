@@ -1,10 +1,10 @@
 ---
 title: Configure networking for Azure Elastic SAN
-description: Learn how to configure access to an Azure Elastic SAN.
+description: Learn how to secure Azure Elastic SAN volumes through access configuration.
 author: roygara
 ms.service: azure-elastic-san-storage
 ms.topic: conceptual
-ms.date: 02/13/2024
+ms.date: 05/29/2024
 ms.author: rogarana
 ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell
 ---
@@ -171,11 +171,17 @@ To create a private endpoint for an Elastic SAN volume group, you must have the 
 
 If you create the endpoint from a user account that has all of the necessary roles and permissions required for creation and approval, the process can be completed in one step. If not, it requires two separate steps by two different users.
 
-The Elastic SAN and the virtual network could be in different resource groups, regions and subscriptions, including subscriptions that belong to different Microsoft Entra tenants. In these examples, we're creating the private endpoint in the same resource group as the virtual network.
+The Elastic SAN and the virtual network could be in different resource groups, regions, and subscriptions, including subscriptions that belong to different Microsoft Entra tenants. In these examples, we're creating the private endpoint in the same resource group as the virtual network.
 
 # [Portal](#tab/azure-portal)
 
-Currently, you can only configure a private endpoint using PowerShell or the Azure CLI.
+You can create a private endpoint connection to your volume group in the Azure portal either when you create a volume group or when modifying an existing volume group. You need an existing virtual network to create a private endpoint.
+
+When creating or modifying a volume group, select **Networking**, then select **+ Create a private endpoint** under **Private endpoint connections**.
+
+Fill out the values in the menu that pops up, select the virtual network and the subnet that your applications will use to connect. When you're done, select **Add**, and **Save**. 
+
+:::image type="content" source="media/elastic-san-create/elastic-san-private-endpoint.png" alt-text="Screenshot of the volume group private endpoint creation experience." lightbox="media/elastic-san-create/elastic-san-private-endpoint.png":::
 
 # [PowerShell](#tab/azure-powershell)
 

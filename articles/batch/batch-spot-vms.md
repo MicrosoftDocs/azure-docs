@@ -20,7 +20,7 @@ Spot VMs are offered at a reduced price compared with dedicated VMs. To learn mo
 
 Batch offers two types of low-cost preemptible VMs:
 
-- [Spot VMs](../virtual-machines/spot-vms.md), a modern Azure-wide offering also available as single-instance VMs or Virtual Machine Scale Sets.
+- [Spot VMs](/azure/virtual-machines/spot-vms), a modern Azure-wide offering also available as single-instance VMs or Virtual Machine Scale Sets.
 - Low-priority VMs, a legacy offering only available through Azure Batch.
 
 The type of node you get depends on your Batch account's pool allocation mode, which can be set during account creation. Batch accounts that use the **user subscription** pool allocation mode always get Spot VMs. Batch accounts that use the **Batch managed** pool allocation mode always get low-priority VMs.
@@ -34,8 +34,8 @@ Azure Spot VMs and Batch low-priority VMs are similar but have a few differences
 |-|-|-|
 | **Supported Batch accounts** | User-subscription Batch accounts | Batch-managed Batch accounts |
 | **Supported Batch pool configurations** | Virtual Machine Configuration | Virtual Machine Configuration and Cloud Service Configuration (deprecated) |
-| **Available regions** | All regions that support [Spot VMs](../virtual-machines/spot-vms.md) | All regions except Microsoft Azure operated by 21Vianet |
-| **Customer eligibility** | Not available for some subscription offer types. See more about [Spot limitations](../virtual-machines/spot-vms.md#limitations). | Available for all Batch customers |
+| **Available regions** | All regions that support [Spot VMs](/azure/virtual-machines/spot-vms) | All regions except Microsoft Azure operated by 21Vianet |
+| **Customer eligibility** | Not available for some subscription offer types. See more about [Spot limitations](/azure/virtual-machines/spot-vms#limitations). | Available for all Batch customers |
 | **Possible reasons for eviction** | Capacity | Capacity |
 | **Pricing Model** | Variable discounts relative to standard VM prices | Fixed discounts relative to standard VM prices |
 | **Quota model** | Subject to core quotas on your subscription | Subject to core quotas on your Batch account |
@@ -163,7 +163,7 @@ To view these metrics in the Azure portal:
 
 - Spot VMs in Batch don't support setting a max price and don't support price-based evictions. They can only be evicted for capacity reasons.
 - Spot VMs are only available for Virtual Machine Configuration pools and not for Cloud Service Configuration pools, which are [deprecated](https://azure.microsoft.com/updates/azure-batch-cloudserviceconfiguration-pools-will-be-retired-on-29-february-2024/).
-- Spot VMs aren't available for some clouds, VM sizes, and subscription offer types. See more about [Spot VM limitations](../virtual-machines/spot-vms.md#limitations).
+- Spot VMs aren't available for some clouds, VM sizes, and subscription offer types. See more about [Spot VM limitations](/azure/virtual-machines/spot-vms#limitations).
 - Currently, [ephemeral OS disks](create-pool-ephemeral-os-disk.md) aren't supported with Spot VMs due to the service-managed eviction policy of *Stop-Deallocate*.
 
 ## Next steps

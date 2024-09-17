@@ -1,8 +1,8 @@
 ---
 title: host.json reference for Azure Functions 2.x
-description: Reference documentation for the Azure Functions host.json file with the v2 runtime.
-ms.topic: conceptual
-ms.date: 07/10/2023
+description: Describes the various available settings for the Azure Functions host that can be set in the host.json file for the Functions v4 runtime.
+ms.topic: reference
+ms.date: 05/16/2024
 ---
 
 # host.json reference for Azure Functions 2.x and later 
@@ -130,6 +130,7 @@ The following sample *host.json* file for version 2.x+ has all possible options 
       "lockAcquisitionTimeout": "00:01:00",
       "lockAcquisitionPollingInterval": "00:00:03"
     },
+    "telemetryMode": "OpenTelemetry",
     "watchDirectories": [ "Shared", "Test" ],
     "watchFiles": [ "myFile.txt" ]
 }
@@ -165,7 +166,7 @@ For the complete JSON structure, see the earlier [example host.json file](#sampl
 
 ### applicationInsights.samplingSettings
 
-For more information about these settings, see [Sampling in Application Insights](../azure-monitor/app/sampling.md). 
+For more information about these settings, see [Sampling in Application Insights](/azure/azure-monitor/app/sampling). 
 
 |Property | Default | Description |
 | --------- | --------- | --------- | 
@@ -193,11 +194,11 @@ For more information about these settings, see [Sampling in Application Insights
 
 |Property | Default | Description |
 | --------- | --------- | --------- | 
-| enableSqlCommandTextInstrumentation | false | Enables collection of the full text of SQL queries, which is disabled by default. For more information on collecting SQL query text, see [Advanced SQL tracking to get full SQL query](../azure-monitor/app/asp-net-dependencies.md#advanced-sql-tracking-to-get-full-sql-query). |
+| enableSqlCommandTextInstrumentation | false | Enables collection of the full text of SQL queries, which is disabled by default. For more information on collecting SQL query text, see [Advanced SQL tracking to get full SQL query](/azure/azure-monitor/app/asp-net-dependencies#advanced-sql-tracking-to-get-full-sql-query). |
 
 ### applicationInsights.snapshotConfiguration
 
-For more information on snapshots, see [Debug snapshots on exceptions in .NET apps](../azure-monitor/app/snapshot-debugger.md) and [Troubleshoot problems enabling Application Insights Snapshot Debugger or viewing snapshots](/troubleshoot/azure/azure-monitor/app-insights/snapshot-debugger-troubleshoot).
+For more information on snapshots, see [Debug snapshots on exceptions in .NET apps](/azure/azure-monitor/app/snapshot-debugger) and [Troubleshoot problems enabling Application Insights Snapshot Debugger or viewing snapshots](/troubleshoot/azure/azure-monitor/app-insights/snapshot-debugger-troubleshoot).
 
 |Property | Default | Description |
 | --------- | --------- | --------- | 
@@ -345,7 +346,7 @@ Indicates the timeout duration for all function executions. It follows the times
 
 Configuration settings for [Host health monitor](https://github.com/Azure/azure-webjobs-sdk-script/wiki/Host-Health-Monitor).
 
-```
+```json
 {
     "healthMonitor": {
         "enabled": true,
@@ -443,6 +444,12 @@ Configuration settings for Singleton lock behavior. For more information, see [G
 |listenerLockRecoveryPollingInterval|00:01:00|The time interval used for listener lock recovery if a listener lock couldn't be acquired on startup.| 
 |lockAcquisitionTimeout|00:01:00|The maximum amount of time the runtime will try to acquire a lock.| 
 |lockAcquisitionPollingInterval|n/a|The interval between lock acquisition attempts.| 
+
+## telemetryMode
+
+ _This feature is currently in preview._
+
+Used to enable output of logs and traces in an OpenTelemetry output format to one or more endpoints that support OpenTelemetry. When this setting is set to `OpenTelemetry`, OpenTelemetry output is used. By default without this setting, all logs, traces, and events are sent to Application Insights using the standard outputs. For more information, see [Use OpenTelemetry with Azure Functions](opentelemetry-howto.md).
 
 ## version
 

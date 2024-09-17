@@ -45,7 +45,7 @@ After you deploy infrastructure and [install SAP software](install-software.md) 
     - A single or cluster of Database VMs, which make up a single Database instance in the VIS.
     - A single Application Server VM, which makes up a single Application instance in the VIS. Depending on the number of Application Servers being deployed or registered, there can be multiple application instances.
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+[!INCLUDE [cloud-shell-try-it.md](~/reusable-content/ce-skilling/azure/includes/cloud-shell-try-it.md)]
 
 ## Right Size the SAP system you want to deploy
 

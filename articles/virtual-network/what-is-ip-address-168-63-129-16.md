@@ -2,7 +2,7 @@
 title: What is IP address 168.63.129.16?
 description: Learn about IP address 168.63.129.16, specifically that it's used to facilitate a communication channel to Azure platform resources.
 author: asudbring
-ms.service: virtual-network
+ms.service: azure-virtual-network
 ms.topic: conceptual
 ms.date: 03/30/2023
 ms.author: allensu
@@ -34,6 +34,8 @@ The public IP address 168.63.129.16 is used in all regions and all national clou
 - 168.63.129.16 can provide DNS services to the VM. If DNS services provided by 168.63.129.16 isn't desired, outbound traffic to 168.63.129.16 ports 53/udp and 53/tcp can be blocked in the local firewall on the VM.
 
   By default DNS communication isn't subject to the configured network security groups unless targeted using the [AzurePlatformDNS](../virtual-network/service-tags-overview.md#available-service-tags) service tag. To block DNS traffic to Azure DNS through NSG, create an outbound rule to deny traffic to [AzurePlatformDNS](../virtual-network/service-tags-overview.md#available-service-tags). Specify **"Any"** as **"Source"**, **"*"** as **"Destination port ranges"**, **"Any"** as protocol and **"Deny"** as action.
+
+  Additionally, the IP address 168.63.129.16 does not support reverse DNS lookup. This means if you try to retrieve the Fully Qualified Domain Name (FQDN) using reverse lookup commands like `host`, `nslookup`, or `dig -x` on 168.63.129.16, you won't receive any FQDN.
 
 - When the VM is part of a load balancer backend pool, [health probe](../load-balancer/load-balancer-custom-probe-overview.md) communication should be allowed to originate from 168.63.129.16. The default network security group configuration has a rule that allows this communication. This rule uses the [AzureLoadBalancer](../virtual-network/service-tags-overview.md#available-service-tags) service tag. If desired, this traffic can be blocked by configuring the network security group. The configuration of the block result in probes that fail.
 

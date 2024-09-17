@@ -186,6 +186,7 @@ Click the resource provider name in the following list to see the list of permis
 > | [Microsoft.EventGrid](./permissions/integration.md#microsofteventgrid) | Get reliable event delivery at massive scale. | [Event Grid](/azure/event-grid/) |
 > | [Microsoft.EventHub](./permissions/integration.md#microsofteventhub) | Receive telemetry from millions of devices. | [Event Hubs](/azure/event-hubs/) |
 > | [Microsoft.HealthcareApis](./permissions/integration.md#microsofthealthcareapis) |  | [Azure API for FHIR](/azure/healthcare-apis/azure-api-for-fhir/) |
+> | [Microsoft.HealthDataAIServices](./permissions/integration.md#microsofthealthdataaiservices) |  | [Azure Health Data Services](/azure/healthcare-apis/healthcare-apis-overview) |
 > | [Microsoft.Logic](./permissions/integration.md#microsoftlogic) | Automate the access and use of data across clouds without writing code. | [Logic Apps](/azure/logic-apps/) |
 > | [Microsoft.NotificationHubs](./permissions/integration.md#microsoftnotificationhubs) | Send push notifications to any platform from any back end. | [Notification Hubs](/azure/notification-hubs/) |
 > | [Microsoft.Relay](./permissions/integration.md#microsoftrelay) | Expose services that run in your corporate network to the public cloud. | [Azure Relay](/azure/azure-relay/relay-what-is-it) |

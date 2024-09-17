@@ -3,9 +3,9 @@
  description: include file
  services: virtual-network
  author: asudbring
- ms.service: virtual-network
+ ms.service: azure-virtual-network
  ms.topic: include
- ms.date: 06/20/2023
+ ms.date: 07/29/2024
  ms.author: allensu
  ms.custom: include file
 ---
@@ -64,25 +64,25 @@ The following procedure creates a virtual network with a resource subnet, an Azu
     | Resource group | Select **test-rg**. |
     | **Instance details** |  |
     | Name | Enter **vnet-1**. |
-    | Region | Select **East US 2**. |
+    | Region | Select **(US) East US 2**. |
 
     :::image type="content" source="./media/virtual-network-create-with-nat-bastion/create-virtual-network-basics.png" alt-text="Screenshot of Basics tab of Create virtual network in the Azure portal.":::
 
 1. Select **Next** to proceed to the **Security** tab.
 
-1. Select **Enable Bastion** in the **Azure Bastion** section of the **Security** tab.
+1. Select **Enable Azure Bastion** in the **Azure Bastion** section of the **Security** tab.
 
     Azure Bastion uses your browser to connect to VMs in your virtual network over secure shell (SSH) or remote desktop protocol (RDP) by using their private IP addresses. The VMs don't need public IP addresses, client software, or special configuration. For more information about Azure Bastion, see [Azure Bastion](../articles/bastion/bastion-overview.md)
 
     >[!NOTE]
-    >[!INCLUDE [Pricing](bastion-pricing.md)]
+    >[!INCLUDE [Pricing](~/reusable-content/ce-skilling/azure/includes/bastion-pricing.md)]
 
 1. Enter or select the following information in **Azure Bastion**:
 
     | Setting | Value |
     |---|---|
     | Azure Bastion host name | Enter **bastion**. |
-    | Azure Bastion public IP address | Select **Create a public IP address**. </br> Enter **public-ip** in Name. </br> Select **OK**. |
+    | Azure Bastion public IP address | Select **Create a public IP address**. </br> Enter **public-ip-bastion** in Name. </br> Select **OK**. |
 
     :::image type="content" source="./media/virtual-network-create-with-nat-bastion/enable-bastion.png" alt-text="Screenshot of enable bastion host in Create virtual network in the Azure portal.":::
 
@@ -94,11 +94,12 @@ The following procedure creates a virtual network with a resource subnet, an Azu
 
     | Setting | Value |
     |---|---|
-    | **Subnet details** |  |
-    | Subnet template | Leave the default **Default**. |
+    | Subnet purpose | Leave the default **Default**. |
     | Name | Enter **subnet-1**. |
+    | **IPv4** |  |
+    | IPv4 address range | Leave the default of **10.0.0.0/16**. |
     | Starting address | Leave the default of **10.0.0.0**. |
-    | Subnet size | Leave the default of **/24(256 addresses)**. |
+    | Size | Leave the default of **/24(256 addresses)**. |
     | **Security** |  |
     | NAT gateway | Select **nat-gateway**. |
 

@@ -6,7 +6,7 @@ ms.reviewer: sapnakeshari
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.topic: conceptual
-ms.date: 03/07/2024
+ms.date: 05/23/2024
 ms.author: banders
 ---
 
@@ -68,9 +68,10 @@ Enterprise administrators can create subscriptions. They can also enable account
 ## Credit process
 
 - EA customers are eligible to receive service credit when they experience an SLA breach or a system issue that affects their Azure services.
-- Service credit isn’t a refund issued as cash. Instead, service credit is issued in the form of a credit that can be applied to future Azure usage.
+- Service credit isn’t a refund issued as cash. Instead, service credit is issued in the form of a credit that can be applied to future Azure usage.  
+    > [!NOTE]
+    > Any service credit issued expires when the current enrollment anniversary term ends.
 - To request a service credit, indirect EA customers must contact their partner administrator, who is the authorized representative of the EA enrollment.
-
 
 ## Related content
 

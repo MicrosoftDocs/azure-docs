@@ -6,7 +6,7 @@ ms.author: timlt
 ms.service: iot
 ms.devlang: c
 ms.topic: tutorial
-ms.date: 04/08/2024
+ms.date: 06/11/2024
 
 #Customer intent: As a device builder, I want to see a working IoT device sample connecting to IoT Hub and sending properties and telemetry, and responding to commands. As a solution builder, I want to use a tool to view the properties, commands, and telemetry an IoT Plug and Play device reports to the IoT hub it connects to. 
 ---
@@ -64,11 +64,11 @@ The cloned repo contains a setup script that installs and configures the require
 
 To install the tools:
 
-1. From File Explorer, navigate to the following path in the repo and run the setup script named *get-toolchain.bat*:
+1. Navigate to the following path in the repo and run the setup script named *get-toolchain.bat*:
 
     *getting-started\tools\get-toolchain.bat*
 
-1. After the installation, open a new console window to recognize the configuration changes made by the setup script. Use this console to complete the remaining programming tasks in the tutorial. You can use Windows CMD, PowerShell, or Git Bash for Windows.
+1. Open a new console window to recognize the configuration changes made by the setup script. Use this console to complete the remaining programming tasks in the tutorial. You can use Windows CMD, PowerShell, or Git Bash for Windows.
 1. Run the following code to confirm that CMake version 3.14 or later is installed.
 
     ```shell
@@ -136,7 +136,7 @@ To connect the STM DevKit to Azure, you modify a configuration file for Wi-Fi an
 
 1. Copy the binary file named *stm32l475_azure_iot.bin*.
 
-1. In File Explorer, find the STM Devkit that's connected to your computer. The device appears as a drive on your system with the drive label **DIS_L4IOT**.
+1. In File Explorer, find the STM Devkit connected to your computer. The device appears as a drive on your system with the drive label **DIS_L4IOT**.
 
 1. Paste the binary file into the root folder of the STM Devkit. Flashing starts automatically and completes in a few seconds.
 
@@ -300,7 +300,7 @@ To use Azure CLI to view device telemetry:
 
 ## Call a direct method on the device
 
-You can also use Azure IoT Explorer to call a direct method that you've implemented on your device. Direct methods have a name, and can optionally have a JSON payload, configurable connection, and method timeout. In this section, you call a method that turns an LED on or off. Optionally, you can do the same task using Azure CLI.
+You can also use Azure IoT Explorer to call a direct method that you implemented on your device. Direct methods have a name, and can optionally have a JSON payload, configurable connection, and method timeout. In this section, you call a method that turns an LED on or off. Optionally, you can do the same task using Azure CLI.
 
 To call a method in Azure IoT Explorer:
 

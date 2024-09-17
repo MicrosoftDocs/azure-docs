@@ -3,7 +3,7 @@ title: 'Configure a VNet-to-VNet VPN gateway connection: Azure portal'
 titleSuffix: Azure VPN Gateway
 description: Learn how to create a VPN gateway connection between VNets.
 author: cherylmc
-ms.service: vpn-gateway
+ms.service: azure-vpn-gateway
 ms.topic: how-to
 ms.date: 12/11/2023
 ms.author: cherylmc
@@ -13,7 +13,7 @@ ms.author: cherylmc
 
 This article helps you connect virtual networks (VNets) by using the VNet-to-VNet connection type using the Azure portal. The virtual networks can be in different regions and from different subscriptions. When you connect VNets from different subscriptions, the subscriptions don't need to be associated with the same tenant. This type of configuration creates a connection between two virtual network gateways. This article doesn't apply to VNet peering. For VNet peering, see the [Virtual Network peering](../virtual-network/virtual-network-peering-overview.md) article.
 
-:::image type="content" source="./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/vnet-vnet-diagram.png" alt-text="VNet to VNet diagram.":::
+:::image type="content" source="./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/vnet-vnet-diagram.png" alt-text="VNet to VNet diagram." lightbox="./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/vnet-vnet-diagram.png":::
 
 You can create this configuration using various tools, depending on the deployment model of your VNet. The steps in this article apply to the Azure [Resource Manager deployment model](../azure-resource-manager/management/deployment-models.md) and the Azure portal. To switch to a different deployment model or deployment method article, use the dropdown.
 

@@ -4,11 +4,11 @@ titlesuffix: Azure Application Load Balancer
 description: In this quickstart, you learn how to provision the Application Gateway for Containers ALB Controller in an AKS cluster.
 services: application-gateway
 author: greglin
-ms.service: application-gateway
+ms.service: azure-application-gateway
 ms.subservice: appgw-for-containers
 ms.custom: devx-track-azurecli
 ms.topic: quickstart
-ms.date: 5/9/2024
+ms.date: 5/17/2024
 ms.author: greglin
 ---
 
@@ -42,13 +42,13 @@ You need to complete the following tasks before deploying Application Gateway fo
 
     > [!NOTE]
     > The AKS cluster needs to be in a [region where Application Gateway for Containers is available](overview.md#supported-regions)
-    > AKS cluster should use [Azure CNI](../../aks/configure-azure-cni.md).
-    > AKS cluster should have the workload identity feature enabled. [Learn how](../../aks/workload-identity-deploy-cluster.md#update-an-existing-aks-cluster) to enable workload identity on an existing AKS cluster.
+    > AKS cluster should use [Azure CNI](/azure/aks/configure-azure-cni).
+    > AKS cluster should have the workload identity feature enabled. [Learn how](/azure/aks/workload-identity-deploy-cluster#update-an-existing-aks-cluster) to enable workload identity on an existing AKS cluster.
 
     If using an existing cluster, ensure you enable Workload Identity support on your AKS cluster. Workload identities can be enabled via the following:
 
     ```azurecli-interactive
-     AKS_NAME='<your cluster name>'
+    AKS_NAME='<your cluster name>'
     RESOURCE_GROUP='<your resource group name>'
     az aks update -g $RESOURCE_GROUP -n $AKS_NAME --enable-oidc-issuer --enable-workload-identity --no-wait
     ```
@@ -142,11 +142,13 @@ You need to complete the following tasks before deploying Application Gateway fo
     ALB Controller can be installed by running the following commands:
 
     ```azurecli-interactive
+    HELM_NAMESPACE='<your cluster name>'
+    CONTROLLER_NAMESPACE='azure-alb-system'
     az aks get-credentials --resource-group $RESOURCE_GROUP --name $AKS_NAME
     helm install alb-controller oci://mcr.microsoft.com/application-lb/charts/alb-controller \
-         --namespace <helm-resource-namespace> \
+         --namespace $HELM_NAMESPACE \
          --version 1.0.2 \
-         --set albController.namespace=<alb-controller-namespace> \
+         --set albController.namespace=$CONTROLLER_NAMESPACE \
          --set albController.podIdentity.clientID=$(az identity show -g $RESOURCE_GROUP -n azure-alb-identity --query clientId -o tsv)
     ```
 
@@ -158,11 +160,13 @@ You need to complete the following tasks before deploying Application Gateway fo
     > During upgrade, please ensure you specify the `--namespace` or `--set albController.namespace` parameters if the namespaces were overridden in the previously installed installation. To determine the previous namespaces used, you may run the `helm list` command for the helm namespace and `kubectl get pod -A -l app=alb-controller` for the ALB controller.
 
     ```azurecli-interactive
+    HELM_NAMESPACE='<your cluster name>'
+    CONTROLLER_NAMESPACE='azure-alb-system'
     az aks get-credentials --resource-group $RESOURCE_GROUP --name $AKS_NAME
     helm upgrade alb-controller oci://mcr.microsoft.com/application-lb/charts/alb-controller \
-        --namespace <helm-resource-namespace> \
+        --namespace $HELM_NAMESPACE \
         --version 1.0.2 \
-        --set albController.namespace=<alb-controller-namespace> \
+        --set albController.namespace=$CONTROLLER_NAMESPACE \
         --set albController.podIdentity.clientID=$(az identity show -g $RESOURCE_GROUP -n azure-alb-identity --query clientId -o tsv)
     ```
 

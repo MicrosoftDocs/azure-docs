@@ -4,10 +4,10 @@ titleSuffix: Azure Network Watcher
 description: Learn how to migrate your Azure Network Watcher network security group flow logs to virtual network flow logs using the Azure portal and a PowerShell script.
 author: halkazwini
 ms.author: halkazwini
-ms.service: network-watcher
+ms.service: azure-network-watcher
 ms.topic: how-to
 ms.date: 05/10/2024
-ms.custom: devx-track-azurepowershell
+ms.custom:
 
 #CustomerIntent: As an Azure administrator, I want to migrate my network security group flow logs to the new virtual network flow logs so that I can use all the benefits of virtual network flow logs, which overcome some of the network security group flow logs limitations.
 ---
@@ -42,7 +42,7 @@ In this article, you learn how to migrate your existing network security group f
 
 In this section, you learn how to generate and download the migration files for the network security group flow logs that you want to migrate. 
 
-1. In the search box at the top of the portal, enter *network watcher*. Select **Network Watcher** in the search results.
+1. In the search box at the top of the portal, enter *network watcher*. Select **Network Watcher** from the search results.
 
     :::image type="content" source="./media/nsg-flow-logs-migrate/portal-search.png" alt-text="Screenshot that shows how to search for Network Watcher in the Azure portal." lightbox="./media/nsg-flow-logs-migrate/portal-search.png":::
 

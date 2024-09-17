@@ -6,7 +6,7 @@ author: kgremban
 ms.author: kgremban
 ms.service: iot-hub
 ms.topic: concept-article
-ms.date: 12/11/2023
+ms.date: 06/28/2024
 ms.custom: [amqp, 'Role: Cloud Development']
 ---
 
@@ -16,14 +16,14 @@ By default, messages are routed to the built-in service-facing endpoint (**messa
 
 If you're using message routing and the [fallback route](iot-hub-devguide-messages-d2c.md#fallback-route) is enabled, a message that doesn't match a query on any route goes to the built-in endpoint. If you disable this fallback route, a message that doesn't match any query is dropped.
 
-This endpoint is currently only exposed using the [AMQP](https://www.amqp.org/) protocol on port 5671 and [AMQP over WebSockets](http://docs.oasis-open.org/amqp-bindmap/amqp-wsb/v1.0/cs01/amqp-wsb-v1.0-cs01.html) on port 443. An IoT hub exposes the following properties to enable you to control the built-in Event Hub-compatible messaging endpoint **messages/events**.
+This endpoint is currently only exposed using the [AMQP](https://www.amqp.org/) protocol on port 5671 and [AMQP over WebSockets](http://docs.oasis-open.org/amqp-bindmap/amqp-wsb/v1.0/cs01/amqp-wsb-v1.0-cs01.html) on port 443. An IoT hub exposes the following properties to enable you to control the built-in Event Hubs-compatible messaging endpoint **messages/events**.
 
 | Property            | Description |
 | ------------------- | ----------- |
 | **Partition count** | Set this property at creation to define the number of [partitions](../event-hubs/event-hubs-features.md#partitions) for device-to-cloud event ingestion. |
-| **Retention time**  | This property specifies how long in days messages are retained by IoT Hub. The default is one day, but it can be increased to seven days. |
+| **Retention time**  | This property specifies how long in days IoT Hub retains messages. The default is one day, but it can be increased to seven days. |
 
-IoT Hub allows data retention in the built-in endpoint for a maximum of seven days. You can set the retention time during creation of your IoT hub. Data retention time in IoT Hub depends on your IoT hub tier and unit type. In terms of size, the built-in endpoint can retain messages of the maximum message size up to at least 24 hours of quota. For example, one S1 unit IoT hub provides enough storage to retain at least 400,000 messages, at 4 KB per message. If your devices are sending smaller messages, they may be retained for longer (up to seven days) depending on how much storage is consumed. We guarantee to retain the data for the specified retention time as a minimum. After the retention time has passed, messages expire and become inaccessible. You can modify the retention time, either programmatically using the [IoT Hub resource provider REST APIs](/rest/api/iothub/iothubresource), or with the [Azure portal](https://portal.azure.com).
+IoT Hub allows data retention in the built-in endpoint for a maximum of seven days. You can set the retention time during creation of your IoT hub. Data retention time in IoT Hub depends on your IoT hub tier and unit type. In terms of size, the built-in endpoint can retain messages of the maximum message size up to at least 24 hours of quota. For example, one S1 unit IoT hub provides enough storage to retain at least 400,000 messages, at 4 KB per message. If your devices are sending smaller messages, they might be retained for longer (up to seven days) depending on how much storage is consumed. We guarantee to retain the data for the specified retention time as a minimum. After the retention time, messages expire and become inaccessible. You can modify the retention time, either programmatically using the [IoT Hub resource provider REST APIs](/rest/api/iothub/iothubresource), or with the Azure portal.
 
 IoT Hub also enables you to manage consumer groups on the built-in endpoint. You can have up to 20 consumer groups for each IoT hub.
 
@@ -31,7 +31,7 @@ IoT Hub also enables you to manage consumer groups on the built-in endpoint. You
 
 Some product integrations and Event Hubs SDKs are aware of IoT Hub and let you use your IoT hub service connection string to connect to the built-in endpoint.
 
-When you use Event Hubs SDKs or product integrations that are unaware of IoT Hub, you need an Event Hub-compatible endpoint and Event Hub-compatible name. You can retrieve these values from the portal as follows:
+When you use Event Hubs SDKs or product integrations that are unaware of IoT Hub, you need an Event Hubs-compatible endpoint and Event Hubs-compatible name. You can retrieve these values from the portal as follows:
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to your IoT hub.
 
@@ -61,16 +61,18 @@ You can then choose any shared access policy from the **Shared access policy** d
 
 ## SDK samples
 
-The SDKs you can use to connect to the built-in Event Hub-compatible endpoint that IoT Hub exposes include:
+The SDKs you can use to connect to the built-in Event Hubs-compatible endpoint that IoT Hub exposes include:
 
 | Language | SDK | Example |
 | -------- | --- | ------- |
 | .NET | https://www.nuget.org/packages/Azure.Messaging.EventHubs | [ReadD2cMessages .NET](https://github.com/Azure/azure-iot-sdk-csharp/tree/main/iothub/service/samples/getting%20started/ReadD2cMessages) |
-| Java | https://mvnrepository.com/artifact/com.azure/azure-messaging-eventhubs |  |
+| Java | https://mvnrepository.com/artifact/com.azure/azure-messaging-eventhubs | [read-d2c-messages Java](https://github.com/Azure/azure-iot-service-sdk-java/tree/main/service/iot-service-samples/read-d2c-messages) |
 | Node.js | https://www.npmjs.com/package/@azure/event-hubs | [read-d2c-messages Node.js](https://github.com/Azure-Samples/azure-iot-samples-node/tree/master/iot-hub/Quickstarts/read-d2c-messages) |
-| Python | https://pypi.org/project/azure-eventhub/ | [read-dec-messages Python](https://github.com/Azure-Samples/azure-iot-samples-python/tree/master/iot-hub/Quickstarts/read-d2c-messages) |
+| Python | https://pypi.org/project/azure-eventhub/ | [read-d2c-messages Python](https://github.com/Azure-Samples/azure-iot-samples-python/tree/master/iot-hub/Quickstarts/read-d2c-messages) |
 
-The product integrations you can use with the built-in Event Hub-compatible endpoint that IoT Hub exposes include:
+## Connect to other service and products
+
+The product integrations you can use with the built-in Event Hubs-compatible endpoint that IoT Hub exposes include:
 
 * [Azure Functions](../azure-functions/index.yml)
 

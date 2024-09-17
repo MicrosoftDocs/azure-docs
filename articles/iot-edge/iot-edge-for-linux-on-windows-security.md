@@ -1,9 +1,9 @@
 ---
-title: Azure IoT Edge for Linux on Windows security | Microsoft Docs 
-description: Security framework - Azure IoT Edge for Linux on Windows 
+title: Azure IoT Edge for Linux on Windows security
+description: Overview of the Azure IoT Edge for Linux on Windows security framework and the different security premises that are enabled by default or optional. 
 author: PatAltimore
-ms.author: fcabrera
-ms.date: 08/03/2022
+ms.author: patricka
+ms.date: 06/04/2024
 ms.topic: conceptual
 ms.service: iot-edge
 ms.custom: linux-related-content
@@ -34,7 +34,7 @@ The EFLOW virtual machine is made up of two main partitions *rootfs*, and *data*
 
 Because you may need write access to `/etc`, `/home`, `/root`, `/var` for specific use cases, write access for these directories is done by overlaying them onto our data partition specifically to the directory `/var/.eflow/overlays`. The end result of this is that users can write anything to the previous mentioned directories. For more information about overlays, see [*overlayfs*](https://docs.kernel.org/filesystems/overlayfs.html).
 
-[ ![EFLOW CR partition layout](./media/iot-edge-for-linux-on-windows-security/eflow-cr-partition-layout.png) ](./media/iot-edge-for-linux-on-windows-security/eflow-cr-partition-layout.png#lightbox)
+[![EFLOW CR partition layout](./media/iot-edge-for-linux-on-windows-security/eflow-cr-partition-layout.png)](./media/iot-edge-for-linux-on-windows-security/eflow-cr-partition-layout.png#lightbox)
 
 | Partition | Size | Description | 
 | --------- |---------- |------------ |
@@ -48,7 +48,7 @@ Because you may need write access to `/etc`, `/home`, `/root`, `/var` for specif
 | Data | 2 GB to 2 TB | Stateful partition for storing persistent data across updates. Expandable according to the deployment configuration |
 
 >[!NOTE]
->The partition layout represents the logical disk size and does not indicate the physical space the virtual machine will occupy on the host OS disk.​
+>The partition layout represents the logical disk size and does not indicate the physical space the virtual machine will occupy on the host OS disk.
 
 ### Firewall
 
@@ -75,7 +75,7 @@ By default, this feature is disabled in the virtual machine, and can be turned o
 ## Trusted platform module (TPM)
 [Trusted platform module (TPM)](/windows/security/information-protection/tpm/trusted-platform-module-top-node) technology is designed to provide hardware-based, security-related functions. A TPM chip is a secure crypto-processor that is designed to carry out cryptographic operations. The chip includes multiple physical security mechanisms to make it tamper resistant, and malicious software is unable to tamper with the security functions of the TPM.
 
-The EFLOW virtual machine doesn't support vTPM. However the user can enable/disable the TPM passthrough feature, that allows the EFLOW virtual machine to use the Windows host OS TPM. This enables two main scenarios:
+The EFLOW virtual machine doesn't support vTPM. However, the user can enable/disable the TPM passthrough feature that allows the EFLOW virtual machine to use the Windows host OS TPM. This enables two main scenarios:
 * Use TPM technology for IoT Edge device provisioning using Device Provision Service (DPS). For more information, see [Create and provision an IoT Edge for Linux on Windows device at scale by using a TPM](./how-to-provision-devices-at-scale-linux-on-windows-tpm.md).
 * Read-only access to cryptographic keys stored inside the TPM. For more information, see [Set-EflowVmFeature to enable TPM passthrough](./reference-iot-edge-for-linux-on-windows-functions.md#set-eflowvmfeature).
 
@@ -83,7 +83,7 @@ The EFLOW virtual machine doesn't support vTPM. However the user can enable/disa
 ## Secure host & virtual machine communication
 EFLOW provides multiple ways to interact with the virtual machine by exposing a rich PowerShell module implementation. For more information, see [PowerShell functions for IoT Edge for Linux on Windows](./reference-iot-edge-for-linux-on-windows-functions.md#set-eflowvmfeature). This module requires an elevated session to run, and it's signed using a Microsoft Corporation certificate.
 
-All communications between the Windows host operating system and the EFLOW virtual machine required by the PowerShell cmdlets are done using an SSH channel. By default, the virtual machine SSH service won't allow authentication via username and password, and it's limited to certificate authentication. The certificate is created during EFLOW deployment process, and is unique for each EFLOW installation. Furthermore, to prevent SSH brute force attacks, the virtual machine will block an IP address if it attempts more than three connections per minute to SSH service. 
+All communications between the Windows host operating system and the EFLOW virtual machine required by the PowerShell cmdlets are done using an SSH channel. By default, the virtual machine SSH service won't allow authentication via username and password, and it's limited to certificate authentication. The certificate is created during EFLOW deployment process, and is unique for each EFLOW installation. Furthermore, to prevent SSH brute force attacks, the virtual machine blocks an IP address if it attempts more than three connections per minute to SSH service. 
 
 In the EFLOW Continuous Release (CR) version, we introduced a change in the transport channel used to establish the SSH connection. Originally, SSH service runs on TCP port 22, which can be accessed by all external devices in the same network using a TCP socket to that specific port. For security reasons, EFLOW CR runs the SSH service over Hyper-V sockets instead of normal TCP sockets. All communication over Hyper-V sockets runs between the Windows host OS and the EFLOW virtual machine, without using networking. This limits the access of the SSH service, restricting connections to only the Windows host OS. For more information, see [Hyper-V sockets](/virtualization/hyper-v-on-windows/user-guide/make-integration-service).
 

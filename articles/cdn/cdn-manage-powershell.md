@@ -17,7 +17,7 @@ PowerShell provides one of the most flexible methods to manage your Azure Conten
 
 ## Prerequisites
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+[!INCLUDE [updated-for-az](~/reusable-content/ce-skilling/azure/includes/updated-for-az.md)]
 
 To use PowerShell to manage your Azure Content Delivery Network profiles and endpoints, you must have the Azure PowerShell module installed. To learn how to install Azure PowerShell and connect to Azure using the `Connect-AzAccount` cmdlet, see [How to install and configure Azure PowerShell](/powershell/azure/).
 

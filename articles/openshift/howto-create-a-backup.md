@@ -2,7 +2,7 @@
 title: Create an Azure Red Hat OpenShift 4 cluster application backup using Velero
 description: Learn how to create a backup of your Azure Red Hat OpenShift cluster applications using Velero
 ms.service: azure-redhat-openshift
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/22/2020
 author: johnmarco
 ms.author: johnmarc

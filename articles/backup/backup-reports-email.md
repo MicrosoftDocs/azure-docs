@@ -1,9 +1,9 @@
 ---
 title: Email Azure Backup Reports
 description: Create automated tasks to receive periodic reports via email
-ms.topic: conceptual
-ms.date: 04/29/2024
-ms.service: backup
+ms.topic: how-to
+ms.date: 09/11/2024
+ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ms.custom: engagement-fy24

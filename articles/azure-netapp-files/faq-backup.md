@@ -5,7 +5,7 @@ ms.service: azure-netapp-files
 ms.topic: conceptual
 author: b-hchen
 ms.author: anfdocs
-ms.date: 09/10/2022
+ms.date: 04/24/2024
 ---
 # Azure NetApp Files backup FAQs
 

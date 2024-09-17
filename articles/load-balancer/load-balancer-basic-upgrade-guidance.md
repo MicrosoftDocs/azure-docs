@@ -2,7 +2,7 @@
 title: Upgrading from Basic Load Balancer - Guidance
 description: Upgrade guidance for migrating basic Load Balancer to standard Load Balancer.
 author: mbender-ms
-ms.service: load-balancer
+ms.service: azure-load-balancer
 ms.author: mbender
 ms.topic: conceptual
 ms.date: 09/27/2023
@@ -86,10 +86,10 @@ Suggested order of operations for manually upgrading a Basic Load Balancer in co
     1. Load balancing rules - use the temporary frontend configuration
     1. NAT rules - use the temporary frontend configuration
 1. For public load balancers, if you do not have one already, [create a new Network Security Group](../virtual-network/tutorial-filter-network-traffic.md) with allow rules for the traffic coming through the Load Balancer rules
-1. For Virtual Machine Scale Set backends, remove the Load Balancer association in the Networking settings and [update the instances](../virtual-machine-scale-sets/virtual-machine-scale-sets-perform-manual-upgrades.md) 
+1. For Virtual Machine Scale Set backends, remove the Load Balancer association in the Networking settings and [update the instances](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-perform-manual-upgrades) 
 1. Delete the Basic Load Balancer 
    > [!NOTE]
-   > For Virtual Machine Scale Set backends, you will need to remove the load balancer association in the Networking settings. Once removed, you will also need to [**update the instances**](../virtual-machine-scale-sets/virtual-machine-scale-sets-perform-manual-upgrades.md) 
+   > For Virtual Machine Scale Set backends, you will need to remove the load balancer association in the Networking settings. Once removed, you will also need to [**update the instances**](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-perform-manual-upgrades) 
 1. [Upgrade all Public IPs](../virtual-network/ip-services/public-ip-upgrade-portal.md) previously associated with the Basic Load Balancer and backend Virtual Machines to Standard SKU. For Virtual Machine Scale Sets, remove any instance-level public IP configuration, update the instances, then add a new one with Standard SKU and update the instances again. 
 1. Recreate the frontend configurations from the Basic Load Balancer on the newly created Standard Load Balancer, using the same public or private IP addresses as on the Basic Load Balancer
 1. Update the load balancing and NAT rules to use the appropriate frontend configurations

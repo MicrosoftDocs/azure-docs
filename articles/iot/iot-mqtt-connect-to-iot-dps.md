@@ -67,8 +67,8 @@ To use the MQTT protocol directly, your client *must* connect over TLS 1.2. Atte
 
 To register a device through DPS, a device should subscribe using `$dps/registrations/res/#` as a **Topic Filter**. The multi-level wildcard `#` in the Topic Filter is used only to allow the device to receive more properties in the topic name. DPS doesn't allow the usage of the `#` or `?` wildcards for filtering of subtopics. Since DPS isn't a general-purpose pub-sub messaging broker, it only supports the documented topic names and topic filters.
 
-The device should publish a register message to DPS using `$dps/registrations/PUT/iotdps-register/?$rid={request_id}` as a **Topic Name**. The payload should contain the [Device Registration](/rest/api/iot-dps/device/runtime-registration/register-device) object in JSON format.
-In a successful scenario, the device receives a response on the `$dps/registrations/res/202/?$rid={request_id}&retry-after=x` topic name where x is the retry-after value in seconds. The payload of the response contains the [RegistrationOperationStatus](/rest/api/iot-dps/device/runtime-registration/register-device#registrationoperationstatus) object in JSON format.
+The device should publish a register message to DPS using `$dps/registrations/PUT/iotdps-register/?$rid={request_id}` as a **Topic Name**. The payload should contain the [Device Registration](/azure/notification-hubs/notification-hubs-push-notification-registration-management) object in JSON format.
+In a successful scenario, the device receives a response on the `$dps/registrations/res/202/?$rid={request_id}&retry-after=x` topic name where x is the retry-after value in seconds.
 
 ## Polling for registration operation status
 

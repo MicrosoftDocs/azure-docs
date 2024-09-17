@@ -6,7 +6,7 @@ author: tejaswikolli-web
 ms.author: tejaswikolli
 ms.date: 10/31/2023
 ms.custom: mvc, devx-track-azurecli
-ms.service: container-registry
+ms.service: azure-container-registry
 # Customer intent: As a developer or devops engineer, I want container images to be built automatically when the base image of a container is updated in the registry.
 ---
 
@@ -88,7 +88,7 @@ az acr task create \
     --name baseexample1 \
     --image helloworld:{{.Run.ID}} \
     --arg REGISTRY_NAME=$ACR_NAME.azurecr.io \
-    --context https://github.com/$GIT_USER/acr-build-helloworld-node.git#main \
+    --context https://github.com/$GIT_USER/acr-build-helloworld-node.git#master \
     --file Dockerfile-app \
     --git-access-token $GIT_PAT
 ```

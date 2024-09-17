@@ -1,12 +1,14 @@
 ---
 title: Use the REST API to manage IoT Central applications
-description: This article describes how to create and manage your IoT Central applications with the REST API, add a system assigned managed identity, and manage dashboards.
+description: This article describes how to create and manage your IoT Central applications with the REST API. Includes managing dashboards and file uploads.
 services: iot-central
 ms.service: iot-central
 author: dominicbetts
 ms.author: dobett
-ms.date: 03/04/2024
+ms.date: 06/18/2024
 ms.topic: how-to
+
+#customer intent: As a developer, I want to learn how to use the REST API to manage IoT Central applications so that I can automate application management tasks.
 ---
 
 # Use the REST API to create and manage IoT Central applications
@@ -139,7 +141,7 @@ The request body has some required fields:
 * `@displayName`: Display name of the dashboard.
 * `@favorite`: Is the dashboard in the favorites list?
 * `group`: Device group ID.
-* `Tile` : Configuration specifying tile object, including the layout, display name, and configuration.
+* `Tile` : Configuration specifying a tile object, including the layout, display name, and configuration.
 
 Tile has some required fields:
 
@@ -322,6 +324,102 @@ The response to this request looks like the following example:
     ],
     "favorite": false
 }
+```
+
+## Add a file upload storage account configuration
+
+Use the following request to create a file upload blob storage account configuration in your IoT Central application:
+
+```http
+PUT https://{your-app-subdomain}.azureiotcentral.com/api/fileUploads?api-version=2022-07-31
+```
+
+The request body has the following fields:
+
+* `account`: The storage account name where to upload the file to.
+* `connectionString`: The connection string to connect to the storage account.
+* `container`: The name of the container inside the storage account. The following example uses the name `fileuploads`.
+* `etag`: ETag to prevent conflict with multiple uploads
+* `sasTtl`: ISO 8601 duration standard, The amount of time the device’s request to upload a file is valid before it expires.
+
+```json
+{
+  "account": "yourAccountName",
+  "connectionString": "DefaultEndpointsProtocol=https;AccountName=yourAccountName;AccountKey=*****;BlobEndpoint=https://yourAccountName.blob.core.windows.net/",
+  "container": "fileuploads",
+  "sasTtl": "PT1H"
+}
+```
+
+The response to this request looks like the following example:
+
+```json
+{
+  "account": "yourAccountName",
+  "connectionString": "DefaultEndpointsProtocol=https;AccountName=yourAccountName;AccountKey=*****;BlobEndpoint=https://yourAccountName.blob.core.windows.net/",
+  "container": "fileuploads",
+  "sasTtl": "PT1H",
+  "state": "pending",
+  "etag": "\"7502ac89-0000-0300-0000-627eaf100000\""
+
+}
+```
+
+## Get the file upload storage account configuration
+
+Use the following request to retrieve details of a file upload blob storage account configuration in your IoT Central application:
+
+```http
+GET https://{your-app-subdomain}.azureiotcentral.com/api/fileUploads?api-version=2022-07-31
+```
+
+The response to this request looks like the following example:
+
+```json
+{
+  "account": "yourAccountName",
+  "connectionString": "DefaultEndpointsProtocol=https;AccountName=yourAccountName;AccountKey=*****;BlobEndpoint=https://yourAccountName.blob.core.windows.net/",
+  "container": "yourContainerName",
+  "state": "succeeded",
+  "etag": "\"7502ac89-0000-0300-0000-627eaf100000\""
+
+}
+```
+
+## Update the file upload storage account configuration
+
+Use the following request to update a file upload blob storage account connection string in your IoT Central application:
+
+```http
+PATCH https://{your-app-subdomain}.azureiotcentral.com/api/fileUploads?api-version=2022-07-31
+```
+
+```json
+{
+  "connectionString": "DefaultEndpointsProtocol=https;AccountName=yourAccountName;AccountKey=*****;BlobEndpoint=https://yourAccountName.blob.core.windows.net/"
+}
+```
+
+The response to this request looks like the following example:
+
+```json
+
+{
+  "account": "yourAccountName",
+  "connectionString": "DefaultEndpointsProtocol=https;AccountName=yourAccountName;AccountKey=*****;BlobEndpoint=https://yourAccountName.blob.core.windows.net/",
+  "container": "yourContainerName",
+  "sasTtl": "PT1H",
+  "state": "succeeded",
+  "etag": "\"7502ac89-0000-0300-0000-627eaf100000\""
+}
+```
+
+## Remove the file upload storage account configuration
+
+Use the following request to delete a storage account configuration:
+
+```http
+DELETE https://{your-app-subdomain}.azureiotcentral.com/api/fileUploads?api-version=2022-07-31
 ```
 
 ## Get a dashboard
