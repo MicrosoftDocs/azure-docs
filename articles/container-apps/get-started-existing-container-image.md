@@ -43,14 +43,15 @@ Now that you have an environment created, you can deploy your first container ap
 
 1. Set the environment variables.
 
-	Replace the \<PLACEHOLDERS\> with your values. Your user principal name will typically be in the format of an email address (for example, `username@domain.com`).
+	Replace the `<PLACEHOLDERS>` with your values. Your user principal name will typically be in the format of an email address (for example, `username@domain.com`).
 
 	# [Bash](#tab/bash)
 
 	```bash
-	KEY_VAULT_NAME=<KEY_VAULT_NAME>
+	CONTAINER_APP_NAME=my-container-app
+	KEY_VAULT_NAME=my-key-vault
 	USER_PRINCIPAL_NAME=<USER_PRINCIPAL_NAME>
-	SECRET_NAME=<SECRET_NAME>
+	SECRET_NAME=my-secret-name
 	CONTAINER_IMAGE_NAME=<CONTAINER_IMAGE_NAME>
 	REGISTRY_SERVER=<REGISTRY_SERVER>
 	REGISTRY_USERNAME=<REGISTRY_USERNAME>
@@ -59,9 +60,10 @@ Now that you have an environment created, you can deploy your first container ap
 	# [Azure PowerShell](#tab/azure-powershell)
 
 	```azurepowershell-interactive
-	$KeyVaultName = "<KEY_VAULT_NAME>"
+	$ContainerAppName = "my-container-app"
+	$KeyVaultName = "my-key-vault"
 	$UserPrincipalName = "<USER_PRINCIPAL_NAME>"
-	$SecretName = "<SECRET_NAME>"
+	$SecretName = "my-secret-name"
 	$ContainerImageName = "<CONTAINER_IMAGE_NAME>"
 	$RegistryServer = "<REGISTRY_SERVER>"
 	$RegistryUsername = "<REGISTRY_USERNAME>"
@@ -113,13 +115,9 @@ Now that you have an environment created, you can deploy your first container ap
 
 1. Store your container registry password in the key vault.
 
-	Replace the \<PLACEHOLDERS\> with your values.
-
-	TODO1 I'm deliberately not using an env var to store the registry password here. You can delete this line with a suggestion.
+	Replace `<REGISTRY_PASSWORD>` with your value.
 
 	# [Bash](#tab/bash)
-
-	TODO1 Per Copilot there does not seem to be an Azure CLI equivalent for ConvertTo-SecureString (except using Key Vault itself). You can delete this line with a suggestion.
 
 	```bash
 	az keyvault secret set --vault-name $KEY_VAULT_NAME --name $SECRET_NAME --value "<REGISTRY_PASSWORD>"
@@ -142,41 +140,22 @@ Now that you have an environment created, you can deploy your first container ap
 	REGISTRY_PASSWORD=$(az keyvault secret show --name $SECRET_NAME --vault-name $KEY_VAULT_NAME --query value --output tsv)
 	```
 
-	For more information, see
-	- [Quickstart: Set and retrieve a secret from Azure Key Vault using Azure CLI](/azure/key-vault/secrets/quick-create-cli)
-	- [Manage Key Vault using the Azure CLI](/azure/key-vault/general/manage-with-cli2)
-
 	# [Azure PowerShell](#tab/azure-powershell)
 
 	```azurepowershell-interactive
 	$RegistryPassword = Get-AzKeyVaultSecret -VaultName "$KeyVaultName" -Name "$SecretName" -AsPlainText
 	```
 
-	For more information, see
-	- [Quickstart: Set and retrieve a secret from Azure Key Vault using PowerShell](/azure/key-vault/secrets/quick-create-powershell)
-	- [Use Azure Key Vault in automation](/powershell/utility-modules/secretmanagement/how-to/using-azure-keyvault)
-
 	---
 
-1. With the `containerapp create` command, deploy a container image to Azure Container Apps.
-
-	The example shown in this article demonstrates how to use a custom container image with common commands. Your container image might need more parameters for the following items:
-
-	- Set the revision mode
-	- Define secrets
-	- Define environment variables
-	- Set container CPU or memory requirements
-	- Enable and configure Dapr
-	- Enable external or internal ingress
-	- Provide minimum and maximum replica values or scale rules
+1. Deploy a container image to Azure Container Apps.
 
 	# [Bash](#tab/bash)
 
-	For details on how to provide values for any of these parameters to the `create` command, run `az containerapp create --help` or [visit the online reference](/cli/azure/containerapp#az-containerapp-create). To generate credentials for an Azure Container Registry, use [az acr credential show](/cli/azure/acr/credential#az-acr-credential-show).
-
 	```azurecli-interactive
 	az containerapp create \
-	  --name my-container-app \
+	  --name $CONTAINER_APP_NAME \
+	  --location $LOCATION \
 	  --resource-group $RESOURCE_GROUP \
 	  --image $CONTAINER_IMAGE_NAME \
 	  --environment $CONTAINERAPPS_ENVIRONMENT \
@@ -185,25 +164,37 @@ Now that you have an environment created, you can deploy your first container ap
 	  --registry-password $REGISTRY_PASSWORD
 	```
 
+	If you have enabled ingress on your container app, you can add `--query properties.configuration.ingress.fqdn` to the `create` command to return the public URL for the application.
+
 	# [Azure PowerShell](#tab/azure-powershell)
 
 	```azurepowershell-interactive
 	$EnvId = (Get-AzContainerAppManagedEnv -ResourceGroupName $ResourceGroupName -EnvName $ContainerAppsEnvironment).Id
+	```
 
-	$TemplateObj = New-AzContainerAppTemplateObject -Name my-container-app -Image $ContainerImageName
+	```azurepowershell-interactive
+	$TemplateObj = New-AzContainerAppTemplateObject -Name $ContainerAppName -Image $ContainerImageName
+	```
 
-	$RegistrySecretObj = New-AzContainerAppSecretObject -Name registry-secret -Value $RegistryPassword
+	```azurepowershell-interactive
+	$RegistrySecretObj = New-AzContainerAppSecretObject -Name $SecretName -Value $RegistryPassword
+	```
 
+	```azurepowershell-interactive
 	$RegistryArgs = @{
-		PasswordSecretRef = 'registry-secret'
+		PasswordSecretRef = $SecretName
 		Server = $RegistryServer
 		Username = $RegistryUsername
 	}
+	```
 
+	```azurepowershell-interactive
 	$RegistryObj = New-AzContainerAppRegistryCredentialObject @RegistryArgs
+	```
 
+	```azurepowershell-interactive
 	$ContainerAppArgs = @{
-		Name = 'my-container-app'
+		Name = $ContainerAppName
 		Location = $Location
 		ResourceGroupName = $ResourceGroupName
 		ManagedEnvironmentId = $EnvId
@@ -211,7 +202,9 @@ Now that you have an environment created, you can deploy your first container ap
 		ConfigurationRegistry = $RegistryObj
 		ConfigurationSecret = $RegistrySecretObj
 	}
+	```
 
+	```azurepowershell-interactive
 	New-AzContainerApp @ContainerAppArgs
 	```
 
@@ -221,43 +214,61 @@ Now that you have an environment created, you can deploy your first container ap
 
 ::: zone pivot="container-apps-public-registry"
 
-# [Bash](#tab/bash)
+1. Set the environment variables.
 
-```azurecli-interactive
-az containerapp create \
-  --image <REGISTRY_CONTAINER_NAME> \
-  --name my-container-app \
-  --resource-group $RESOURCE_GROUP \
-  --environment $CONTAINERAPPS_ENVIRONMENT
+	# [Bash](#tab/bash)
 
-If you have enabled ingress on your container app, you can add `--query properties.configuration.ingress.fqdn` to the `create` command to return the public URL for the application.
+	```bash
+	CONTAINER_APP_NAME=my-container-app
+	CONTAINER_IMAGE_NAME=mcr.microsoft.com/k8se/quickstart:latest
+	```
 
-```
+	# [Azure PowerShell](#tab/azure-powershell)
 
-# [Azure PowerShell](#tab/azure-powershell)
+	```azurepowershell-interactive
+	$ContainerAppName = "my-container-app"
+	$ContainerImageName = "mcr.microsoft.com/k8se/quickstart:latest"
+	```
 
-```azurepowershell-interactive
-$TemplateObj = New-AzContainerAppTemplateObject -Name my-container-app  -Image "<REGISTRY_CONTAINER_NAME>"
-```
+1. Deploy a container image to Azure Container Apps.
 
-(Replace the \<REGISTRY_CONTAINER_NAME\> with your value.)
+	# [Bash](#tab/bash)
 
-```azurepowershell-interactive
-$EnvId = (Get-AzContainerAppManagedEnv -ResourceGroupName $ResourceGroupName -EnvName $ContainerAppsEnvironment).Id
+	```azurecli-interactive
+	az containerapp create \
+	  --image $CONTAINER_IMAGE_NAME \
+	  --name $CONTAINER_APP_NAME \
+	  --resource-group $RESOURCE_GROUP \
+	  --environment $CONTAINERAPPS_ENVIRONMENT
+	```
 
-$ContainerAppArgs = @{
-    Name = "my-container-app"
-    Location = $Location
-    ResourceGroupName = $ResourceGroupName
-    ManagedEnvironmentId = $EnvId
-    TemplateContainer = $TemplateObj
-}
-New-AzContainerApp @ContainerAppArgs
-```
+	If you have enabled ingress on your container app, you can add `--query properties.configuration.ingress.fqdn` to the `create` command to return the public URL for the application.
+
+	# [Azure PowerShell](#tab/azure-powershell)
+
+	```azurepowershell-interactive
+	$TemplateObj = New-AzContainerAppTemplateObject -Name $ContainerAppName  -Image $ContainerImageName
+	```
+
+	```azurepowershell-interactive
+	$EnvId = (Get-AzContainerAppManagedEnv -ResourceGroupName $ResourceGroupName -EnvName $ContainerAppsEnvironment).Id
+	```
+
+	```azurepowershell-interactive
+	$ContainerAppArgs = @{
+		Name = $ContainerAppName
+		Location = $Location
+		ResourceGroupName = $ResourceGroupName
+		ManagedEnvironmentId = $EnvId
+		TemplateContainer = $TemplateObj
+	}
+	```
+
+	```azurepowershell-interactive
+	New-AzContainerApp @ContainerAppArgs
+	```
 
 ---
-
-Before you run this command, replace `<REGISTRY_CONTAINER_NAME>` with the full name the public container registry location, including the registry path and tag. For example, a valid container name is `mcr.microsoft.com/k8se/quickstart:latest`.
 
 ::: zone-end
 
@@ -274,14 +285,14 @@ LOG_ANALYTICS_WORKSPACE_CLIENT_ID=`az containerapp env show --name $CONTAINERAPP
 
 az monitor log-analytics query \
   --workspace $LOG_ANALYTICS_WORKSPACE_CLIENT_ID \
-  --analytics-query "ContainerAppConsoleLogs_CL | where ContainerAppName_s == 'my-container-app' | project ContainerAppName_s, Log_s, TimeGenerated" \
+  --analytics-query "ContainerAppConsoleLogs_CL | where ContainerAppName_s == $CONTAINER_APP_NAME | project ContainerAppName_s, Log_s, TimeGenerated" \
   --out table
 ```
 
 # [Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
-$queryResults = Invoke-AzOperationalInsightsQuery -WorkspaceId $WorkspaceId -Query "ContainerAppConsoleLogs_CL | where ContainerAppName_s == 'my-container-app' | project ContainerAppName_s, Log_s, TimeGenerated"
+$queryResults = Invoke-AzOperationalInsightsQuery -WorkspaceId $WorkspaceId -Query "ContainerAppConsoleLogs_CL | where ContainerAppName_s == $ContainerAppName | project ContainerAppName_s, Log_s, TimeGenerated"
 $queryResults.Results
 ```
 
