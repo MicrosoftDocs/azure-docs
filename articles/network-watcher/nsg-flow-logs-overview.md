@@ -509,7 +509,7 @@ NSG flow logs aren't supported on the following virtual machine sizes:
 We recommend that you use [Virtual network flow logs](vnet-flow-logs-overview.md) for these virtual machine sizes.
 
 > [!NOTE]
-> Virtual machines that run heavy networking traffic might encounter flow logging failures. We recommend that you migrate NSG flow logs to virtual network flow logs [Virtual network flow logs](vnet-flow-logs-overview.md) for this type of workloads.
+> Virtual machines that run heavy networking traffic might encounter flow logging failures. We recommend that you [migrate NSG flow logs](nsg-flow-logs-migrate.md) to [Virtual network flow logs](vnet-flow-logs-overview.md) for this type of workloads.
  
 ## Best practices
 
