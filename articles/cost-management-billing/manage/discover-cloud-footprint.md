@@ -3,7 +3,7 @@ title: Discover your Microsoft cloud footprint FAQ
 description: This article helps to answer frequently asked questions that customers have about their Microsoft cloud footprint.
 author: bandersmsft
 ms.author: banders
-ms.date: 09/06/2024
+ms.date: 09/17/2024
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -99,7 +99,7 @@ The article provides details about all types of Azure accounts.
 
 ## How do I manage purchases that I made myself?
 
-Administrators can manage trials and purchases that they made, and purchases made by non-administrators including viral, low friction trials, and departmental purchases. For more information, see [Manage self-service purchases and trials (for admins)](/microsoft-365/commerce/subscriptions/manage-self-service-purchases-admins).
+Administrators can manage trials and purchases that they made, and self-service purchases and trials made by non-administrators. For more information, see [Manage self-service purchases and trials (for admins)](/microsoft-365/commerce/subscriptions/manage-self-service-purchases-admins).
 
 ## How can I programmatically get a list of subscriptions and tenants for a billing account?
 
@@ -152,7 +152,7 @@ For Azure:
 
 For Microsoft 365:
 
-1. Sign in to [Microsoft 365 admin center](https://go.microsoft.com/fwlink/p/?linkid=2024339).
+1. Sign in to the [Microsoft 365 admin center](https://go.microsoft.com/fwlink/p/?linkid=2024339).
 2. Under **Billing** > **Billing Accounts**, select a billing account.
 3. Select the **Associated billing tenants** tab.
 
@@ -167,7 +167,7 @@ You can view tenants with B2B relationships in the [Cross-tenant access activity
 
 ## How can I take over unmanaged directories owned by my organization?
 
-Review the domains in your registrar that aren’t verified to your tenant. If you can’t register a domain that you reserved in your registrar, it might be associated with an unmanaged directory. Customers can claim or take over unmanaged directories (also called _unmanaged tenants_) that were created by members of their organization through free sign-up offers. If your registrar shows you pay for a domain that isn’t part of your home tenant, it might be used in an unmanaged directory. For more information, see [Admin takeover of an unmanaged directory](/entra/identity/users/domains-admin-takeover).
+Review the domains in your registrar that aren’t verified to your tenant. If you can’t register a domain that you reserved in your registrar, it might be associated with an unmanaged directory. Global administrators can claim or take over unmanaged directories (also called _unmanaged tenants_) that were created by members of their organization through free sign-up offers. If your registrar shows you pay for a domain that isn’t part of your home tenant, it might be used in an unmanaged directory. For more information, see [Admin takeover of an unmanaged directory](/entra/identity/users/domains-admin-takeover).
 
 ## How can I regain access to a tenant owned by my organization?
 
