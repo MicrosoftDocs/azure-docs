@@ -115,7 +115,7 @@ When migrating a VNet-injected instance and keeping the same subnet configuratio
 |External     |   Preserve VIP      |   No downtime; traffic is served on a temporary IP address for up to 20 minutes during migration to the new `stv2` deployment     | No retention |
 |External     |  New VIP       |  No downtime | Retained by default for 15 minutes to allow you to update network dependencies      |
 |Internal     |    Preserve VIP     |  Downtime for approximately 20 minutes during migration while the existing IP address is assigned to the new `stv2` deployment.       | No retention |
-|Internal     |  New VIP       |   No downtime | Retained by default for 15 minute to allow you to update network dependencies; can be extended to 48 hours when using the portal   |
+|Internal     |  New VIP       |   No downtime | Retained by default for 15 minutes to allow you to update network dependencies; can be extended to 48 hours when using the portal   |
 
 
 ### Migration steps - keep the same subnet
