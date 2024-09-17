@@ -21,11 +21,15 @@ Features released earlier than nine months ago are described in the [What's new 
 
 |Service area  |Updates  |
 |---------|---------|
-| **OT networks** | - [Added protocol](#added-protocol)  |
+| **OT networks** | - [Added protocol](#added-protocol)<br> - [New sensor setting type Public addresses](#new-sensor-setting-type-public-addresses)  |
 
 ### Added protocol
 
 We now support the OCPI protocol. See [the updated protocol list](concept-supported-protocols.md#supported-protocols-for-ot-device-discovery).
+
+### New sensor setting type Public addresses
+
+We're adding the **Public addresses** type to the sensor settings, that allows you to exclude public IP addresses that might have been used for internal use and shouldn't be tracked. For more information, see [add sensor settings](/configure-sensor-settings-portal.md#add-sensor-settings).
 
 ## July 2024
 
