@@ -52,7 +52,7 @@ Connect-AzAccount
 Then, connect to your subscription:
 
 ```azurepowershell
-Set-AzContext -Subscription <subscription name or id>
+Set-AzContext -Subscription 6a5f35e9-6951-499d-a36b-83c6c6eed44a
 ```
 
 ## Create a resource group and key vault
