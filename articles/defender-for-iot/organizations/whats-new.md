@@ -29,7 +29,7 @@ We now support the OCPI protocol. See [the updated protocol list](concept-suppor
 
 ### New sensor setting type Public addresses
 
-We're adding the **Public addresses** type to the sensor settings, that allows you to exclude public IP addresses that might have been used for internal use and shouldn't be tracked. For more information, see [add sensor settings](/configure-sensor-settings-portal#add-sensor-settings).
+We're adding the **Public addresses** type to the sensor settings, that allows you to exclude public IP addresses that might have been used for internal use and shouldn't be tracked. For more information, see [add sensor settings](configure-sensor-settings-portal.md#add-sensor-settings).
 
 ## July 2024
 
