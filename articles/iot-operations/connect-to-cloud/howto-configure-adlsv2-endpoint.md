@@ -200,7 +200,7 @@ You can set advanced settings for the Azure Data Lake Storage Gen2 endpoint, suc
 
 # [Portal](#tab/portal)
 
-:::image type="content" source="media/how-to-configure-adlsv2-endpoint/adls-batching.png" alt-text="Screenshot using operations portal to set ADLS V2 batching setttings.":::
+:::image type="content" source="media/how-to-configure-adlsv2-endpoint/adls-batching.png" alt-text="Screenshot using operations portal to set ADLS V2 batching settings.":::
 
 # [Kubernetes](#tab/kubernetes)
 

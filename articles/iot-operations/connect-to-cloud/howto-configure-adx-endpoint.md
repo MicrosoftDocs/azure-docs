@@ -60,7 +60,6 @@ Create the dataflow endpoint resource with your cluster and database information
 
 # [Kubernetes](#tab/kubernetes)
 
-
 ```yaml
 apiVersion: connectivity.iotoperations.azure.com/v1beta1
 kind: DataflowEndpoint
@@ -164,11 +163,11 @@ dataExplorerSettings:
 
 ## Advanced settings
 
-You can set advanced settings for the Azure Data Lake Storage Gen2 endpoint, such as the batching latency and message count.
+You can set advanced settings for the Azure Data Explorer endpoint, such as the batching latency and message count.
 
 # [Portal](#tab/portal)
 
-:::image type="content" source="media/howto-configure-adx-endpoint/adx-batching.png" alt-text="Screenshot using operations portal to set Azure Data Explorer batching setttings.":::
+:::image type="content" source="media/howto-configure-adx-endpoint/adx-batching.png" alt-text="Screenshot using operations portal to set Azure Data Explorer batching settings.":::
 
 # [Kubernetes](#tab/kubernetes)
 

@@ -5,7 +5,7 @@ author: PatAltimore
 ms.author: patricka
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 09/05/2024
+ms.date: 09/17/2024
 ai-usage: ai-assisted
 
 #CustomerIntent: As an operator, I want to understand how to configure dataflow endpoints for Microsoft Fabric OneLake in Azure IoT Operations so that I can send data to Microsoft Fabric OneLake.
@@ -27,7 +27,11 @@ To send data to Microsoft Fabric OneLake in Azure IoT Operations Preview, you ca
 
 To configure a dataflow endpoint for Microsoft Fabric OneLake, we suggest using the managed identity of the Azure Arc-enabled Kubernetes cluster. This approach is secure and eliminates the need for secret management.
 
-### Use managed identity authentication 
+# [Portal](#tab/portal)
+
+:::image type="content" source="media/howto-configure-fabric-endpoint/create-fabric-endpoint.png" alt-text="Screenshot using operations portal to create a Microsoft Fabric OneLake dataflow endpoint.":::
+
+# [Kubernetes](#tab/kubernetes)
 
 1. Get the managed identity of the Azure IoT Operations Preview Arc extension.
 
@@ -58,12 +62,44 @@ To configure a dataflow endpoint for Microsoft Fabric OneLake, we suggest using 
           lakehouseName: <EXAMPLE-LAKEHOUSE-NAME>
     ```
 
+---
+
 ## Configure dataflow destination
 
-Once the endpoint is created, you can use it in a dataflow by specifying the endpoint name in the dataflow's destination settings. To learn more, see [Create a dataflow](howto-create-dataflow.md).
+Once the endpoint is created, you can use it in a dataflow by specifying the endpoint name in the dataflow's destination settings. 
+
+# [Portal](#tab/portal)
+
+:::image type="content" source="media/howto-configure-fabric-endpoint/dataflow-mq-fabric.png" alt-text="Screenshot using operations portal to create a dataflow with a MQTT source and Azure Data Explorer destination.":::
+
+# [Kubernetes](#tab/kubernetes)
+
+```yaml
+apiVersion: connectivity.iotoperations.azure.com/v1beta1
+kind: Dataflow
+metadata:
+  name: my-dataflow
+  namespace: azure-iot-operations
+spec:
+  profileRef: default
+  mode: Enabled
+  operations:
+    - operationType: Source
+      sourceSettings:
+        endpointRef: mq
+        dataSources:
+          *
+    - operationType: Destination
+      destinationSettings:
+        endpointRef: fabric
+```
+
+---
+
+For more information about dataflow destination settings, see [Create a dataflow](howto-create-dataflow.md).
 
 > [!NOTE]
-> Using the Fabric endpoint as a source in a dataflow isn't supported. You can use the endpoint as a destination only.
+> Using the Fabric OneLake dataflow endpoint as a source in a dataflow isn't supported. You can use the endpoint as a destination only.
 
 To customize the endpoint settings, see the following sections for more information.
 
@@ -78,7 +114,7 @@ fabricOneLakeSettings:
 
 However, if this host value doesn't work and you're not getting data, try checking for the URL from the Properties of one of the precreated lakehouse folders.
 
-![Screenshot of properties shortcut menu to get lakehouse URL.](media/howto-fabric-endpoint/lakehouse-name.png)
+![Screenshot of properties shortcut menu to get lakehouse URL.](media/howto-configure-fabric-endpoint/lakehouse-name.png)
 
 The host value should look like `https://xyz.dfs.fabric.microsoft.com`.
 
@@ -102,13 +138,15 @@ fabricOneLakeSettings:
 
 ### Available authentication methods
 
-The following authentication methods are available.
+The following authentication methods are available for Microsoft Fabric OneLake dataflow endpoints.
 
 #### System-assigned managed identity
 
+Using the system-assigned managed identity is the recommended authentication method for Azure IoT Operations. Azure IoT Operations creates the managed identity automatically and assigns it to the Azure Arc-enabled Kubernetes cluster. It eliminates the need for secret management and allows for seamless authentication with Azure Data Explorer.
+
 Before you create the dataflow endpoint, assign a role to the managed identity that grants permission to write to the Fabric lakehouse. To learn more, see [Give access to a workspace](/fabric/get-started/give-access-workspaces).
 
-Then, create the *DataflowEndpoint* resource and specify the managed identity authentication method. In most cases, you don't need to specify other settings. This configuration creates a managed identity with the default audience.
+In the *DataflowEndpoint* resource, specify the managed identity authentication method. In most cases, you don't need to specify other settings. This configuration creates a managed identity with the default audience.
 
 ```yaml
 fabricOneLakeSettings:
@@ -141,7 +179,15 @@ fabricOneLakeSettings:
       tenantId: <ID>
 ```
 
-### Batching
+## Advanced settings
+
+You can set advanced settings for the Fabric OneLake endpoint, such as the batching latency and message count.
+
+# [Portal](#tab/portal)
+
+:::image type="content" source="media/howto-configure-fabric-endpoint/fabric-batching.png" alt-text="Screenshot using operations portal to set Azure Data Explorer batching settings.":::
+
+# [Kubernetes](#tab/kubernetes)
 
 Use the `batching` settings to configure the maximum number of messages and the maximum latency before the messages are sent to the destination. This setting is useful when you want to optimize for network bandwidth and reduce the number of requests to the destination.
 
