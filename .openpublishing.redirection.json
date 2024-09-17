@@ -578,7 +578,7 @@
     {
       "source_path_from_root": "/articles/azure-preview-portal-supported-browsers-devices.md",
       "redirect_url": "/azure/azure-portal/azure-portal-supported-browsers-devices",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/azure-resource-manager/management/control-plane-metrics.md",
@@ -693,12 +693,12 @@
     {
       "source_path_from_root": "/articles/azure-supportability/how-to-create-azure-support-request.md",
       "redirect_url": "/azure/azure-portal/supportability/how-to-create-azure-support-request",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/azure-supportability/how-to-use-file-uploader.md",
       "redirect_url": "/azure/azure-portal/supportability/how-to-use-file-uploader",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/azure-supportability/index.yml",
