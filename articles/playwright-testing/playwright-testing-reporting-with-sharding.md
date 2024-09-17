@@ -19,7 +19,13 @@ Playwright's sharding enables you to split your test suite to run across multipl
 You can use Playwright Testing's reporting feature to get a consolidated report of a test run with sharding. You need to make sure you set the variable `PLAYWRIGHT_SERVICE_RUN_ID` so that it remains same across all shards. 
 
 > [!IMPORTANT]
-> Microsoft Playwright Testing's reporting feature is currently in invite-only preview. If you want to try it out, [submit a request for access to the preview](https://aka.ms/mpt/reporting-signup).
+> Microsoft Playwright Testing is currently in preview. For legal terms that apply to Azure features that are in beta, in preview, or otherwise not yet released into general availability, see the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+## Prerequisites
+
+* An Azure account with an active subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+
+* Set up continuous end-to-end testing. Complete the [Quickstart: Set up continuous end-to-end testing with Microsoft Playwright Testing Preview](./quickstart-automate-end-to-end-testing.md) to set up continuous integration (CI) pipeline.
 
 
 ## Set up variables
@@ -63,7 +69,7 @@ jobs:
         node-version: 18
       # This step is to sign-in to Azure to run tests from GitHub Action workflow.
       # You can choose how set up Authentication to Azure from GitHub Actions, this is one example. 
-     - name: OIDC Login to Azure Public Cloud with AzPowershell (enableAzPSSession true) 
+     - name: Login to Azure with AzPowershell (enableAzPSSession true) 
       uses: azure/login@v2 
       with: 
         client-id: ${{ secrets.AZURE_CLIENT_ID }} 
