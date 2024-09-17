@@ -64,7 +64,7 @@ While you can create assessments for multiple regions in an Azure Migrate projec
 Yes, you can migrate to multiple subscriptions (same Azure tenant) in the same target region for an Azure Migrate project. You can select the target subscription while enabling replication for a machine or a set of machines. The target region is locked post first replication for agentless VMware migrations and during the replication appliance and Hyper-V provider installation for agent-based migrations and agentless Hyper-V migrations respectively.
 
 ### Does Azure Migrate support Azure Resource Graph?
-Currently, Azure Migrate is not integrated with Azure Resource Graph. It is support to perform ARG related queries.
+Currently, Azure Migrate isn't integrated with Azure Resource Graph. It does support performing ARG-related queries.
 
 ### How is the data transmitted from on-premises environment to Azure? Is it encrypted before transmission?
 
