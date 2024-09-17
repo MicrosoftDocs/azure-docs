@@ -110,6 +110,8 @@ spec:
         dataDestination: telemetryTable
 ```
 
+---
+
 For more information about dataflow destination settings, see [Create a dataflow](howto-create-dataflow.md).
 
 > [!NOTE]
@@ -217,3 +219,5 @@ datalakeStorageSettings:
     latencySeconds: 100
     maxMessages: 1000
 ```
+
+---
