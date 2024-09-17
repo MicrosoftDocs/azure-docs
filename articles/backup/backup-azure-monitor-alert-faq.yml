@@ -70,10 +70,10 @@ sections:
       - question: |
           How do I check if reporting data has started flowing into a Log Analytics (LA) Workspace?
         answer: |
-          Navigate to the LA Workspace you've configured. Navigate to the **Logs** menu item, and run the query `CoreAzureBackup | take 1`. If you see a record being returned, it means data has started flowing into the workspace. The initial data push may take up to 24 hours.
+          Navigate to the Log Analytics Workspace you've configured. Navigate to the **Logs** menu item, and run the query `CoreAzureBackup | take 1`. If you see a record being returned, it means data has started flowing into the workspace. The initial data push may take up to 24 hours.
 
       - question: |
-          What is the frequency of data push to an LA Workspace?
+          What is the frequency of data push to a Log Analytics Workspace?
         answer: |
           The diagnostic data from the vault is pumped to the Log Analytics workspace with some lag. Every event arrives at the Log Analytics workspace 20 to 30 minutes after it's pushed from the Recovery Services vault. Here are further details about the lag:
           
@@ -87,21 +87,21 @@ sections:
       - question: |
           How long can I retain reporting data?
         answer: |
-          After you create an LA Workspace, you can choose to retain data for a maximum of 2 years. By default, an LA Workspace retains data for 31 days.
+          After you create a Log Analytics Workspace, you can choose to retain data for a maximum of 2 years. By default, a Log Analytics Workspace retains data for 31 days. [Learn more](/azure/azure-monitor/logs/data-retention-configure?tabs=portal-3%2Cportal-1%2Cportal-2).
 
       - question: |
-          Will I see all my data in reports after I configure the LA Workspace?
-        answer:  All the data generated after you configure diagnostics settings is pushed to the LA Workspace and is available in reports. In-progress jobs aren't pushed for reporting. After the job finishes or fails, it's sent to reports.
+          Will I see all my data in reports after I configure the Log Analytics Workspace?
+        answer:  Data starts flowing in the Log Analytics workspace after you configure diagnostic settings. Data is retained in the workspace from the day of configuration, for the retention period set. The in-progress jobs aren't pushed to the workspace. Events are pushed into the workspace on completion (success/ failure). All the data that is available in the Log Analytics workspace will be available in the [reports](https://ms.portal.azure.com/#view/Microsoft_Azure_BCDRCenter/AbcCenterMenuBlade/~/reports).
 
       - question: |
           Can I view reports across vaults and subscriptions?
         answer: |
-          Yes, you can view reports across vaults and subscriptions as well as regions. Your data may reside in a single LA Workspace or a group of LA Workspaces.
+          Yes, you can view reports across vaults and subscriptions as well as regions. Your data may reside in a single Log Analytics Workspace or a group of Log Analytics Workspaces.
 
       - question: |
           Can I view reports across tenants?
         answer: |
-          If you're an [Azure Lighthouse](https://azure.microsoft.com/services/azure-lighthouse/) user with delegated access to your customers' subscriptions or LA Workspaces, you can use Backup Reports to view data across all your tenants.
+          If you're an [Azure Lighthouse](https://azure.microsoft.com/services/azure-lighthouse/) user with delegated access to your customers' subscriptions or Log Analytics Workspaces, you can use Backup Reports to view data across all your tenants.
           
   - name: Recovery Services vault
     questions:
