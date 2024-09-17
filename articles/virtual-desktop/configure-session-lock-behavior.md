@@ -23,7 +23,7 @@ When used with single sign-on using Microsoft Entra ID, disconnecting the sessio
 
 - You can require multifactor authentication to return to the session and prevent users from unlocking with a simple username and password.
 
-For scenarios that rely on legacy authentication, including NTLM, CredSSP, RDSTLS, TLS, and RDP basic authentication protocols, users are prompted to re-enter their credentials when they select Reconnect or initiate a new connection.
+For scenarios that rely on legacy authentication, including NTLM, CredSSP, RDSTLS, TLS, and RDP basic authentication protocols, users are prompted to re-enter their credentials when they reconnect or start a new connection.
 
 The default session lock behavior is different depending on whether you're using single sign-on with Microsoft Entra ID or legacy authentication. The following table shows the default configuration for each scenario:
 
