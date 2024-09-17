@@ -128,6 +128,7 @@ If you have questions or need help, [create a support request](https://go.micros
     - [Azure Cosmos DB resources with Azure Cosmos DB reserved capacity](/azure/cosmos-db/cosmos-db-reserved-capacity)
     - [SQL Database compute resources with Azure SQL Database reserved capacity](/azure/azure-sql/database/reserved-capacity-overview)
     - [Azure Cache for Redis resources with Azure Cache for Redis reserved capacity](../../azure-cache-for-redis/cache-reserved-pricing.md)
-Learn more about reservations for software plans:
+
+- Learn more about reservations for software plans:
     - [Red Hat software plans from Azure Reservations](/azure/virtual-machines/linux/prepay-suse-software-charges)
     - [SUSE software plans from Azure Reservations](/azure/virtual-machines/linux/prepay-suse-software-charges)
