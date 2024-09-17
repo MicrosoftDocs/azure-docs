@@ -38,7 +38,6 @@ Typically, Azure prerequisites are managed by your **security** teams.
 
 Typically, system prerequisites are managed by your **infrastructure** teams. The following system prerequisites are required for deploying the SAP data connector agent container:
 
-<!--double check w PG about support tickets-->
 | Prerequisite | Description |
 | ---- | ----------- |
 | **System architecture** | The data connector component of the SAP solution is deployed as a Docker container.<br>The container host can be either a physical machine or a virtual machine, can be located either on-premises or in any cloud. <br>The VM hosting the container ***does not*** have to be located in the same Azure subscription as your Microsoft Sentinel workspace, or even in the same Microsoft Entra tenant. |
@@ -60,7 +59,7 @@ We recommend that your **SAP BASIS** team verify and ensure SAP system prerequis
 | **SAP system details** | Make a note of the following SAP system details: <br>- SAP system IP address and FQDN hostname<br>- SAP system number, such as `00`<br>- SAP System ID, from the SAP NetWeaver system (for example, `NPL`) <br>- SAP client ID, such as `001` |
 | **SAP NetWeaver instance access** | The SAP data connector agent uses one of the following mechanisms to authenticate to the SAP system: <br>- SAP ABAP user/password<br>- A user with an X.509 certificate. This option requires extra configuration steps. |
 | **SAP role requirements** | To allow the SAP data connector to connect to your SAP system, you must create an SAP system role. We recommend creating the required system role by deploying the SAP *NPLK900271* change request (CR). For more information, see [Configure the Microsoft Sentinel role](preparing-sap.md#configure-the-microsoft-sentinel-role).|
-| **Recommended CRs for extra support** | Deploy recommended CRs on your SAP system to retrieve extra details, such as client IP address and extra logs. For more information, see <xref>. |
+| **Recommended CRs for extra support** | Deploy recommended CRs on your SAP system to retrieve extra details, such as client IP address and extra logs. For more information, see [Configure support for extra data retrieval (recommended)](preparing-sap.md#configure-support-for-extra-data-retrieval-recommended). |
 
 ## Plan your ingestion
 

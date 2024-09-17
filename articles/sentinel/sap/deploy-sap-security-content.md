@@ -60,7 +60,7 @@ This procedure describes how to configure the data connector agent on your virtu
     The deployment process can take a few minutes. After the deployment is finished, you can view the deployed content in your Microsoft Sentinel workspace.
 
 > [!TIP]
-> If you want the SAP and SOC data to be kept on the same workspace with no additional access controls, do not select **Some of the data is on a different workspace**. In such cases, for more information, see [Store SAP data only in the SOC workspace](cross-workspace.md#store-sap-data-only-in-the-soc-workspace).
+> If you want the SAP and SOC data to be kept on the same workspace with no additional access controls, do not select **Some of the data is on a different workspace**. In such cases, for more information, see [SAP and SOC data maintained in the same workspace](cross-workspace.md#sap-and-soc-data-maintained-in-the-same-workspace).
 
 For more information, see [Discover and manage Microsoft Sentinel out-of-the-box content](../sentinel-solutions-deploy.md).
 

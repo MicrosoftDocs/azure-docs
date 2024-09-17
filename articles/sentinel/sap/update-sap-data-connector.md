@@ -199,7 +199,7 @@ To apply and assign the **/MSFTSEN/SENTINEL_RESPONDER** SAP role:
   |S_USER_GRP |ACTVT |03 |
   |S_USER_GRP |ACTVT |05 |
 
-  For more information, see [Required ABAP authorizations](preparing-sap.md#required-abap-authorizations).
+    For more information, see [Required ABAP authorizations](required-abap-authorizations.md).
 
 ## Related content
 

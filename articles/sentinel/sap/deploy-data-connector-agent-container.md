@@ -60,7 +60,7 @@ We recommend that you store your SAP and authentication secrets in an [Azure key
 |**Container on an Azure VM**     |  We recommend using an Azure system-assigned managed identity to access Azure Key Vault. <br><br>If a system-assigned managed identity can't be used, the container can also authenticate to Azure Key Vault using a Microsoft Entra ID registered-application service principal, or, as a last resort, a configuration file.  |
 |**A container on an on-premises VM**, or **a VM in a third-party cloud environment**     |   Authenticate to Azure Key Vault using a Microsoft Entra ID registered-application service principal.    |
 
-If you can't use a registered application or a service principal, use a configuration file to manage your credentials, though this method isn't preferred. For more information, see [Deploy a data connector agent container using a configuration file](sap-solution-deploy-alternate.md#deploy-a-data-connector-agent-container-using-a-configuration-file).
+If you can't use a registered application or a service principal, use a configuration file to manage your credentials, though this method isn't preferred. For more information, see [Deploy the data connector using a configuration file](deploy-command-line.md#deploy-the-data-connector-using-a-configuration-file).
 
 For more information, see:
 
@@ -336,7 +336,7 @@ If you don't have these prerequisites, [deploy the SAP data connector agent from
 1. On the **Authentication** tab, enter the following details:
 
     - For basic authentication, enter the user and password.
-    - If you selected an SNC connection when you [set up the agent](#deploy-the-data-connector-agent), select **SNC** and enter the certificate details.
+    - If you selected an SNC connection [when you set up the agent](#deploy-the-data-connector-agent-from-the-portal-preview), select **SNC** and enter the certificate details.
 
 1. Select **Next: Logs**.
 

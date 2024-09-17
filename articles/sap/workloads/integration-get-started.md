@@ -236,16 +236,12 @@ Discover partner offerings for SAP security on the [Azure marketplace](https://a
 
 #### Microsoft Sentinel for SAP
 
-Sentinel integrates natively with Defender XDR. See the integration in action with [Automatic attack disruption for SAP](../../sentinel/sap/deployment-attack-disrupt.md).
+Microsoft Sentinel integrates natively with Microsoft Defender XDR. See the integration in action with [Automatic attack disruption for SAP](../../sentinel/sap/deployment-attack-disrupt.md).
 
 For more information about [SAP certified](https://www.sap.com/dmc/exp/2013_09_adpd/enEN/#/solutions?id=s:33db1376-91ae-4f36-a435-aafa892a88d8) threat monitoring with Microsoft Sentinel for SAP, see the following Microsoft resources:
 
-- [Microsoft Sentinel incident response playbooks for SAP](../../sentinel/sap/sap-incident-response-playbooks.md)
-- [SAP security content reference](../../sentinel/sap/sap-solution-security-content.md)
-- [Deploy the Microsoft Sentinel solution for SAP](../../sentinel/sap/deploy-sap-security-content.md)
-- [Deploy Microsoft Sentinel Solution for SAP BTP](../../sentinel/sap/deploy-sap-btp-solution.md)
-- [Microsoft Sentinel SAP solution data reference](../../sentinel/sap/sap-solution-log-reference.md)
-- [Deploying Microsoft Sentinel SAP agent into an AKS/Kubernetes cluster](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/deploying-microsoft-sentinel-threat-monitoring-for-sap-agent/ba-p/3528040)
+- [Microsoft Sentinel solution for SAP applications](/azure/sentinel/sap/solution-overview)
+- [Microsoft Sentinel solution for SAP BTP](/azure/sentinel/sap/sap-btp-solution-overview)
 
 Also see the following SAP resources:
 

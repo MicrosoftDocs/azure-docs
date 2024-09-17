@@ -22,16 +22,17 @@ After you [deploy the SAP solution](sap/deployment-overview.md), you want to ens
 
 ## Prerequisites
 
-Before you can perform the procedures in this article, you need to have a SAP data connector agent deployed and connected to your SAP system. For more information, see [Deploy and configure the container hosting the SAP data connector agent](sap/deploy-data-connector-agent-container.md).
+- Before you can perform the procedures in this article, you need to have a SAP data connector agent deployed and connected to your SAP system. For more information, see [Deploy and configure the container hosting the SAP data connector agent](sap/deploy-data-connector-agent-container.md).
 
 ## Check health and connectivity
 
 We recommend periodically checking on your data connector agent's health and connectivity.
 
 For a video demonstration of this procedure, watch the following video:
-<br>
+<br><br>
 > [!VIDEO https://www.youtube.com/embed/FasuyBSIaQM?si=apdesRR29Lvq6aQM]
 
+**To check your SAP data connector's health and connectivity**:
 
 1. To confirm your data connector agent's connection, go to the **Microsoft Sentinel for SAP** data connector page and check the connection status:
 
@@ -41,20 +42,35 @@ For a video demonstration of this procedure, watch the following video:
 
     For example:
 
-    :::image type="content" source="media/monitor-sap-system-health/health-status.png" alt-text="Screenshot of the health status table." lightbox="media/monitor-sap-system-health/health-status.png":::
+    :::image type="content" source="media/monitor-sap-system-health/health-status.png" alt-text="Screenshot of the Microsoft Sentinel for SAP applications health status table." lightbox="media/monitor-sap-system-health/health-status.png":::
 
-    The following table describes the different fields in the **Configure an SAP system and assign it to a collector agent** area.
+    The fields in the **Configure an SAP system and assign it to a collector agent** area are described as follows:
 
-    |Field  |Description  |Values  |Notes  |
-    |---------|---------|---------|---------|
-    |**SID**     |The name of the connected SAP system ID (SID).  |         |         |
-    |**System role**     |Indicates whether the system is productive or not. The data connector agent retrieves the value by reading the SAP T000 table. This value also impacts billing. To change the role, an SAP admin needs to change the configuration in the SAP system.   |• **Production**. The system is defined by the SAP admin as a production system.<br>• **Unknown (Production)**. Microsoft Sentinel couldn't retrieve the system status. Microsoft Sentinel regards this type of system as a production system for both security and billing purposes.<br>• **Non production**. Indicates roles like developing, testing, and customizing.<br>• **Agent update available**. Displayed in addition to the health status to indicate that a newer SAP connector version exists. In this case, we recommended that you [update the connector](sap/update-sap-data-connector.md).  | If the system role is **Production (unknown)**, check the Microsoft Sentinel role definitions and permissions on the SAP system, and validate that the system allows Microsoft Sentinel to read the content of the T000 table. Next, consider [updating the SAP connector](sap/update-sap-data-connector.md) to the latest version. |
-    |**Agent name** |Unique ID of the installed data connector agent. |         |         |
-    |**Health**  |Indicates whether the SID is healthy. To troubleshoot health issues, [review the container execution logs](sap/sap-deploy-troubleshoot.md#view-all-container-execution-logs) and review other [troubleshooting steps](sap/sap-deploy-troubleshoot.md). |• **System healthy** (green icon): Indicates that Microsoft Sentinel identified both logs and a heartbeat from the system.<br>• **System Connected – unauthorized to collect role, production assumed** (yellow icon): Microsoft Sentinel doesn't have sufficient permissions to define whether the system is a production system. In this case, Microsoft Sentinel defines the system as a production system. To allow Microsoft Sentinel to receive the system status, review the Notes column.<br>• **Connected with errors** (yellow icon): Microsoft Sentinel detected errors when fetching the system role. In this case, Microsoft Sentinel received data regarding whether the system is or isn't a production system.<br>• **System not connected**: Microsoft Sentinel was unable to connect to the SAP system, and cannot fetch the system role. In this case, Microsoft Sentinel received data regarding whether the system is or isn't a production system.<br><br>Other statuses, like **System unreachable for over 1 day**, indicate the connectivity status.          |If the system health status is **System Connected – unauthorized to collect role, production assumed**, check the Microsoft Sentinel role definitions and permissions on the SAP system, and validate that the system allows Microsoft Sentinel to read the content of the T000 table. Next, consider [updating the SAP connector](sap/update-sap-data-connector.md) to the latest version.         |
+    - **SID**. The name of the connected SAP system ID (SID).
+
+    - **System role**. Indicates whether the system is productive or not, which also affects billing. To change the role, an SAP admin needs to change the configuration in the SAP system. For more information, see [Solution pricing](sap/solution-overview.md#solution-pricing). Values include:
+        
+        |Value  |Description  |
+        |---------|---------|
+        |**Production**     |  The system is defined by the SAP admin as a production system.       |
+        |**Unknown (Production)**     | Microsoft Sentinel couldn't retrieve the system status. Microsoft Sentinel regards this type of system as a production system for both security and billing purposes.  <br><br>In such cases, we recommend that you check the Microsoft Sentinel role definitions and permissions on the SAP system, and validate that the system allows Microsoft Sentinel to read the content of the T000 table. Next, consider [updating the SAP connector](sap/update-sap-data-connector.md) to the latest version.       |
+        |**Non production**     | Indicates roles like developing, testing, and customizing.        |
+        |**Agent update available**     | Displayed in addition to the health status to indicate that a newer SAP connector version exists. In this case, we recommended that you [update the connector](sap/update-sap-data-connector.md).        |
+
+    - **Agent name**. Unique ID of the installed data connector agent.
+
+    - **Health**. Indicates whether the SID is healthy. To troubleshoot health issues, [review the container execution logs](sap/sap-deploy-troubleshoot.md#view-all-container-execution-logs) and review other [troubleshooting steps](sap/sap-deploy-troubleshoot.md). Values include:
+
+        |Value  |Description  |
+        |---------|---------|
+        | **System healthy** (green icon)| Indicates that Microsoft Sentinel identified both logs and a heartbeat from the system.|
+        | **System Connected – unauthorized to collect role, production assumed** (yellow icon) | Microsoft Sentinel doesn't have sufficient permissions to define whether the system is a production system. In this case, Microsoft Sentinel defines the system as a production system. <br><br>In such cases, check the Microsoft Sentinel role definitions and permissions on the SAP system, and validate that the system allows Microsoft Sentinel to read the content of the T000 table. Next, consider [updating the SAP connector](sap/update-sap-data-connector.md) to the latest version.    |
+        | **Connected with errors** (yellow icon) | Microsoft Sentinel detected errors when fetching the system role. In this case, Microsoft Sentinel received data regarding whether the system is or isn't a production system. |
+        | **System not connected** | Microsoft Sentinel was unable to connect to the SAP system, and cannot fetch the system role. In this case, Microsoft Sentinel received data regarding whether the system is or isn't a production system.<br><br>Other statuses, like **System unreachable for over 1 day**, indicate the connectivity status.         |
 
 1. Select **Logs > Custom logs** to view the logs streaming in from the SAP system. For example:
 
-    :::image type="content" source="sap/media/deploy-sap-security-content/sap-logs-in-sentinel.png" alt-text="Screenshot that shows the SAP ABAP logs in the Custom Logs area in Microsoft Sentinel." lightbox="media/deploy-sap-security-content/sap-logs-in-sentinel.png":::
+    :::image type="content" source="sap/media/deploy-sap-security-content/sap-logs-in-sentinel.png" alt-text="Screenshot that shows the SAP ABAP logs in the Custom Logs area in Microsoft Sentinel." lightbox="sap/media/deploy-sap-security-content/sap-logs-in-sentinel.png":::
 
     SAP logs aren't displayed in the Microsoft Sentinel **Logs** page until your SAP system is connected and data starts streaming into Microsoft Sentinel.
 

@@ -93,10 +93,9 @@ Earlier versions of the deployment script, released before June 2023, generated 
 
 ## Stop SAP data collection
 
-If you need to stop Microsoft Sentinel from collecting your SAP data, use the following procedures:
+If you need to stop Microsoft Sentinel from collecting your SAP data, stop log ingestion and disable the connector. Then remove the extra user role and any optional CRs installed on your SAP system.
 
-- [Stop log ingestion and disable the connector](deploy-data-connector-agent-container.md#stop-log-ingestion-and-disable-the-connector)
-- [Remove the user role and the optional CR installed on your ABAP system](preparing-sap.md#remove-the-user-role-and-any-optional-cr-installed-on-your-abap-system)
+For more information, see [Stop SAP data collection](stop-collection.md).
 
 ## Related content
 

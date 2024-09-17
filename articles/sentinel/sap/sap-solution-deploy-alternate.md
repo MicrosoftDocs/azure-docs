@@ -191,9 +191,13 @@ The default **systemconfig** file is configured to cover built-in analytics, the
 
 However you might want to customize your configuration over time, especially as business processes tend to be seasonal.
 
-Use the following code to the Microsoft Sentinel solution for SAP applications **systemconfig.json** file to define the logs that are sent to Microsoft Sentinel.
+Use the following sets of code to configure the **systemconfig.json** file to define the logs that are sent to Microsoft Sentinel.
 
 For more information, see [Microsoft Sentinel solution for SAP applications solution logs reference (public preview)](sap-solution-log-reference.md).
+
+#### Configure a default profile
+
+The following code configures a default configuration:
 
 ```python
 ##############################################################
@@ -218,6 +222,8 @@ GW = False
 JAVAFilesLogs = False
 ##############################################################
 ```
+
+#### Configure a detection-focused profile
 
 Use the following code to configure a detection-focused profile, which includes the core security logs of the SAP landscape required for the most of the analytics rules to perform well. Post-breach investigations and hunting capabilities are limited.
 
