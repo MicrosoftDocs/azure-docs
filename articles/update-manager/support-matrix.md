@@ -175,6 +175,8 @@ Following is the list of supported images and no other marketplace images releas
 |esri |pro-byol| pro-byol-29||
 |esri|arcgis-enterprise | byol-108 </br> byol-109 </br> byol-111 </br> byol-1081 </br> byol-1091|
 |esri|arcgis-enterprise-106| byol-1061||
+|erockyenterprisesoftwarefoundationinc1653071250513 | rockylinux | free |
+|erockyenterprisesoftwarefoundationinc1653071250513 | rockylinux-9 | rockylinux-9 |
 |microsoft-aks |aks |aks-engine-ubuntu-1804-202112 | |
 |microsoft-dsvm |aml-workstation |  ubuntu-20, ubuntu-20-gen2 | |
 |microsoft-dsvm |aml-workstation | ubuntu |
@@ -250,15 +252,17 @@ The following table lists the operating systems supported on [Azure Arc-enabled 
 
    |**Operating system**|
    |-------------|
-   | Amazon Linux 2023 |
-   | Windows Server 2012 R2 and higher (including Server Core) |
-   | Ubuntu 16.04, 18.04, 20.04, and 22.04 LTS |
-   | SUSE Linux Enterprise Server (SLES) 12 and 15 (x64) |
-   | Red Hat Enterprise Linux (RHEL) 7, 8, 9 (x64) |
+   | Alma Linux 9 |
    | Amazon Linux 2 (x64)   |
-   | Oracle 7.x, 8.x|
+   | Amazon Linux 2023 |
    | Debian 10 and 11|
-   | Rocky Linux 8|
+   | Oracle 7.x, 8.x|
+   | Oracle Linux 9 |
+   | Red Hat Enterprise Linux (RHEL) 7, 8, 9 (x64) |
+   | Rocky Linux 8, 9|
+   | SUSE Linux Enterprise Server (SLES) 12 and 15 (x64) |
+   | Ubuntu 16.04, 18.04, 20.04, and 22.04 LTS |
+   | Windows Server 2012 R2 and higher (including Server Core) |
 
 # [Windows IoT Enterprise on Arc enabled servers (preview)](#tab/winio-arc)
 
