@@ -1621,8 +1621,7 @@ my-header2: bar</p>
 <div>
 <p>HeaderName is the name of a header or query parameter.</p>
 </div>
-<h3 id="alb.networking.azure.io/v1.HealthCheckPolicy">HealthCheckPolicy
-</h3>
+# HealthCheckPolicy {alb.networking.azure.io/v1.HealthCheckPolicy}
 <div>
 <p>HealthCheckPolicy is the schema for the HealthCheckPolicy API.</p>
 </div>
