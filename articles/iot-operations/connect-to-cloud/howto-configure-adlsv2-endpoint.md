@@ -5,7 +5,7 @@ author: PatAltimore
 ms.author: patricka
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 08/27/2024
+ms.date: 09/17/2024
 ai-usage: ai-assisted
 
 #CustomerIntent: As an operator, I want to understand how to configure dataflow endpoints for Azure Data Lake Storage Gen2 in Azure IoT Operations so that I can send data to Azure Data Lake Storage Gen2.
@@ -24,6 +24,12 @@ To send data to Azure Data Lake Storage Gen2 in Azure IoT Operations Preview, yo
 ## Create an Azure Data Lake Storage Gen2 dataflow endpoint
 
 To configure a dataflow endpoint for Azure Data Lake Storage Gen2, we suggest using the managed identity of the Azure Arc-enabled Kubernetes cluster. This approach is secure and eliminates the need for secret management. Alternatively, you can authenticate with the storage account using an access token. When using an access token, you would need to create a Kubernetes secret containing the SAS token.
+
+# [Portal](#tab/portal)
+
+:::image type="content" source="media/how-to-configure-adlsv2-endpoint/create-adls-endpoint.png" alt-text="Screenshot using operations portal to create a new ADLS V2 dataflow endpoint.":::
+
+# [Kubernetes](#tab/kubernetes)
 
 ### Use managed identity authentication
 
@@ -70,9 +76,17 @@ If you need to override the system-assigned managed identity audience, see the [
             secretRef: my-sas
     ```
 
+---
+
 ## Configure dataflow destination
 
 Once the endpoint is created, you can use it in a dataflow by specifying the endpoint name in the dataflow's destination settings. The following example is a dataflow configuration that uses the MQTT endpoint for the source and Azure Data Lake Storage Gen2 as the destination. The source data is from the MQTT topics `thermostats/+/telemetry/temperature/#` and `humidifiers/+/telemetry/humidity/#`. The destination sends the data to Azure Data Lake Storage table `telemetryTable`.
+
+# [Portal](#tab/portal)
+
+:::image type="content" source="media/how-to-configure-adlsv2-endpoint/dataflow-mq-adls.png" alt-text="Screenshot using operations portal to create a dataflow with a MQTT source and ADLS V2 destination.":::
+
+# [Kubernetes](#tab/kubernetes)
 
 ```yaml
 apiVersion: connectivity.iotoperations.azure.com/v1beta1
@@ -178,7 +192,15 @@ datalakeStorageSettings:
       tenantId: <ID>
 ```
 
-### Batching
+## Advanced settings
+
+You can set advanced settings for the Azure Data Lake Storage Gen2 endpoint, such as the batching latency and message count.
+
+# [Portal](#tab/portal)
+
+:::image type="content" source="media/how-to-configure-adlsv2-endpoint/adls-batching.png" alt-text="Screenshot using operations portal to set ADLS V2 batching setttings.":::
+
+# [Kubernetes](#tab/kubernetes)
 
 Use the `batching` settings to configure the maximum number of messages and the maximum latency before the messages are sent to the destination. This setting is useful when you want to optimize for network bandwidth and reduce the number of requests to the destination.
 
