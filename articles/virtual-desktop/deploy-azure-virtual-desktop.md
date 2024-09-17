@@ -198,7 +198,7 @@ Here's how to create a host pool by using the Azure portal:
       | **Network and security** |  |
       | **Network dropdown** | Select an existing network to connect each session to. |
       | **Domain to join** |  |
-      | **Select which directory you would like to join** | **Active Directory** is the only available option. |
+      | **Select which directory you would like to join** | **Active Directory** is the only available option.  |
       | **AD domain join UPN** | Enter the user principal name (UPN) of an Active Directory user who has permission to join the session hosts to your domain. |
       | **Password** | Enter the password for the Active Directory user. |
       | **Specify domain or unit** | Select **yes** if you want to join session hosts to a specific domain or be placed in a specific organizational unit (OU). If you select **no**, the suffix of the UPN is used as the domain. |

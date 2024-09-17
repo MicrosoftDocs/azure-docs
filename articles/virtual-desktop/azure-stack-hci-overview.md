@@ -10,7 +10,8 @@ ms.date: 04/11/2024
 # Azure Virtual Desktop on Azure Stack HCI
 
 > [!IMPORTANT]
-> Azure Virtual Desktop on Azure Stack HCI is currently in preview for Azure Government and Azure China. See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+>- Azure Virtual Desktop on Azure Stack HCI is currently in preview with HCI version 22H2. Portal provisioning is not available. 
+>- See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 Using Azure Virtual Desktop on Azure Stack HCI, you can deploy session hosts for Azure Virtual Desktop where you need them. If you already have an existing on-premises virtual desktop infrastructure (VDI) deployment, Azure Virtual Desktop on Azure Stack HCI can improve your experience. If you're already using Azure Virtual Desktop with your session hosts in Azure, you can extend your deployment to your on-premises infrastructure to better meet your performance or data locality needs.
 
