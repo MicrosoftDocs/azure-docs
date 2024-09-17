@@ -30,7 +30,7 @@ While the service is in preview, the following limits apply on a per-subscriptio
 
 ## Test code limitations
 
-- Only tests Playwright version 1.37 and higher is supported.
+- Only tests Playwright version 1.47 and higher is supported with the Microsoft Playwright Testing service package.
 - Only the Playwright runner and test code written in JavaScript or TypeScript are supported.
 
 ## Supported operating systems and browsers

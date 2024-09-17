@@ -169,12 +169,8 @@ items:
         href: https://github.com/Azure/azure-iot-operations/releases
       - name: Azure IoT Operations CLI
         href: /cli/azure/iot/ops
-      - name: REST API
-        items:
-        - name: Azure IoT Data Processor
-          href: /rest/api/iotdataprocessor 
-        - name: MQTT broker
-          href: /rest/api/iotmq
+      - name: Azure IoT Operations REST API
+        href: /rest/api/iotoperations
       - name: Available metrics for observability
         items:
         - name: MQTT broker
