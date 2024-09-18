@@ -4,7 +4,7 @@ description: Procedure to migrate to Azure Monitor Agent from MMA
 author: v-sreedevank
 ms.author: prijaisw
 ms.topic: how-to
-ms.date: 08/07/2024
+ms.date: 09/18/2024
 
 # Customer intent: As an azure administrator, I want to understand the process of migrating from the MMA agent to the AMA agent.
 
@@ -21,7 +21,7 @@ This article describes the impact on agent-based dependency analysis because of 
 > [!IMPORTANT]
 > The Log Analytics agent will be [retired on **August 31, 2024**](https://azure.microsoft.com/updates/were-retiring-the-log-analytics-agent-in-azure-monitor-on-31-august-2024/). You can expect the following when you use the MMA or OMS agent after this date.
 > - **Data upload:** Cloud ingestion services will gradually reduce support for MMA agents, which may result in decreased support and potential compatibility issues for MMA agents over time.  Ingestion for MMA will be unchanged until February 1 2025.
-> - **Installation:** The ability to install the legacy agents will be removed from the Azure Portal and installation policies for legacy agents will be removed. You can still install the MMA agents extension as well as perform offline installations.
+> - **Installation:** The ability to install the legacy agents will be removed from the Azure portal and installation policies for legacy agents will be removed. You can still install the MMA agents extension as well as perform offline installations.
 > - **Customer Support:** You will not be able to get support for legacy agent issues.
 > - **OS Support:** Support for new Linux or Windows distros, including service packs, won't be added after the deprecation of the legacy agents.
 
@@ -63,7 +63,7 @@ As per the pricing change, you'll be billed against the volume of data gathered 
 
 ## Support for Azure Monitor agent in Azure Migrate 
 
-Install and manage Azure Monitor agent as mentioned [here](/azure/azure-monitor/agents/azure-monitor-agent-manage?tabs=azure-portal). Currently, you can download the Log Analytics agent through the Azure Migrate portal. Support for downloading the Azure Monitor agent through the Azure portal will be added shortly. 
+Install and manage Azure Monitor agent as mentioned [here](/azure/azure-monitor/agents/azure-monitor-agent-manage?tabs=azure-portal). Currently, you can download the Log Analytics agent through the Azure Migrate portal. 
 
 ## Next steps
 [Learn](how-to-create-group-machine-dependencies.md) how to create dependencies for a group.
