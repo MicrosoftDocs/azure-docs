@@ -83,7 +83,7 @@ To use Azure CLI for this article, you need:
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-- An existing Azure Virtual Network and subnet. For more information, see [Quickstart: Create a virtual network using the Azure portal](../virtual-network/quick-create-portal.md).
+- An existing Azure Virtual Network a subnet. For more information, see [Quickstart: Create a virtual network using the Azure portal](../virtual-network/quick-create-portal.md).
 
   - The example virtual network that is used in this article is named *vnet-1*.
 
