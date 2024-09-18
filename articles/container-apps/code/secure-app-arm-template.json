@@ -8,7 +8,7 @@
         "environment_id": {
             "type": "String"
         },
-        "queue-connection-string": {
+        "key_vault_secret_uri": {
             "type": "String"
         }
     },
