@@ -3,7 +3,7 @@ title: Getting started with Azure Functions
 description: Take the first steps toward working with Azure Functions.
 ms.topic: overview
 ms.custom: devx-track-extended-java, devx-track-js, devx-track-python, devx-track-ts
-ms.date: 09/16/2024
+ms.date: 09/18/2024
 zone_pivot_groups: programming-languages-set-functions-full
 ---
 
@@ -127,32 +127,31 @@ To learn even more, see the [full listing of interactive tutorials](/training/br
 ## Related content
 
 ::: zone pivot="programming-language-csharp"  
-If you're already familiar with developing C# functions, consider reviewing one of the following language reference articles:
+Learn more about developing functions by reviewing one of these C# reference articles:
 
 + [In-process C# class library functions](./functions-dotnet-class-library.md)
 + [Isolated worker process C# class library functions](./dotnet-isolated-process-guide.md)
-+ [C# Script functions](./functions-reference-csharp.md)
-
 ::: zone-end
 ::: zone pivot="programming-language-java"  
-If you're already familiar with developing Java functions, consider reviewing the [language reference](./functions-reference-java.md) article. 
+Learn more about developing functions by reviewing the [Java language reference](./functions-reference-java.md) article. 
 ::: zone-end
 ::: zone pivot="programming-language-javascript,programming-language-typescript"  
-If you're already familiar with developing Node.js functions, consider reviewing the [language reference](./functions-reference-node.md) article. 
+Learn more about developing functions by reviewing the [Node.js language reference](./functions-reference-node.md) article. 
 ::: zone-end
 ::: zone pivot="programming-language-powershell"  
-If you're already familiar with developing PowerShell functions, consider reviewing the [language reference](./functions-reference-powershell.md) article. 
+Learn more about developing functions by reviewing the [PowerShell language reference](./functions-reference-powershell.md) article. 
 ::: zone-end
 ::: zone pivot="programming-language-python"  
-If you're already familiar with developing Python functions, consider reviewing the [language reference](./functions-reference-python.md) article. 
+Learn more about developing functions by reviewing the [Python language reference](./functions-reference-python.md) article. 
 ::: zone-end
 ::: zone pivot="programming-language-other"  
-Consider reviewing the [custom handlers](functions-custom-handlers.md) documentation. 
+Learn more about developing functions using Rust, Go, and other languages by reviewing the [custom handlers](functions-custom-handlers.md) documentation. 
 ::: zone-end
 
-You might also be interested in one of these more advanced articles:
+You might also be interested in these articles:
 
 + [Deploying Azure Functions](./functions-deployment-technologies.md)
 + [Monitoring Azure Functions](./functions-monitoring.md) 
 + [Performance and reliability](./functions-best-practices.md)
 + [Securing Azure Functions](./security-concepts.md)
++ [Durable Functions](./durable/durable-functions-overview.md)
