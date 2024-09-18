@@ -60,10 +60,12 @@ If a DNS resolver is DNSSEC-aware, it can set the DNSSEC OK (DO) flag in the DNS
 
 ## Chain of trust
 
-DNSSEC requires a chain of trust. 
+ A chain of trust occurs when all the DNS servers involved in sending a response for a DNS query are able to validate that the response was not modified during transit. 
 
-A chain of trust occurs when all the DNS servers involved in sending a response for a DNS query are able to validate that the response was not modified during transit. 
-- Authoritative DNS servers maintain a chain of trust by verifying the authenticiy of the DNS zone in the DNS hierarchy. For example, if a parent zone doesn't have a DS record for a child zone, it can't verify the DNSSEC status of the child zone and the chain of trust is broken.
+ Authoritative servers:
+- Authoritative DNS servers maintain a chain of trust by verifying the authenticiy of the DNS zone in the DNS hierarchy. For example, if a parent zone doesn't have a delegation signer (DS) record for a child zone, it can't verify the DNSSEC status of the child zone and the chain of trust is broken.
+
+Recursive servers:
 - Recursive DNS servers, also called resolving or caching DNS servers, maintain a chain of trust through the use of trust anchors. A trust anchor is a public cryptographic key for a signed zone. 
     - If a recursive DNS server does not have a DNSSEC trust anchor, it will not perform DNSSEC validation.
     - If a recursive DNS server has a DNSSEC trust anchor for either a child zone or its parent zone the recursive DNS server verifies that a DS record for the child zone is present in the parent zone and then performs DNSSEC validation. If the recursive DNS server determines that the parent zone does not have a DS record for the child zone, it assumes the child zone is insecure and does not perform DNSSEC validation.
@@ -76,6 +78,10 @@ A recursive DNS server uses the DNSKEY resource record to validate responses fro
   ![A diagram showing how DNSSEC validation works.](media/dnssec/dnssec-validation.png)
 
 If hash values are not the same, it replies with a SERVFAIL message. In this way, a DNSSEC-capable, resolving DNS server with a valid trust anchor installed protects against DNS spoofing attacks whether or not DNS clients are DNSSEC-aware.
+
+## DNSSEC-related resource records
+
+Table here
 
 ## Next steps
 
