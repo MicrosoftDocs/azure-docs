@@ -177,7 +177,7 @@ $publicIP = Get-AzPublicIPAddress @pip
 $nat = @{
     ResourceGroupName = 'test-rg'
     Name = 'nat-gateway'
-    IdleTimeoutInMinutes = '10'
+    IdleTimeoutInMinutes = '4'
     Sku = 'Standard'
     Location = 'eastus2'
     PublicIpAddress = $publicIP
@@ -206,7 +206,7 @@ Use the [New-AzPublicIpPrefix](/powershell/module/az.network/new-azpublicipprefi
 ```azurepowershell
 ## Create public IP prefix for NAT gateway ##
 $ip = @{
-    Name = 'myPublicIPPrefix-NAT'
+    Name = 'public-ip-prefix-nat'
     ResourceGroupName = 'test-rg'
     Location = 'eastus2'
     Sku = 'Standard'
@@ -227,7 +227,7 @@ $vnet = Get-AzVirtualNetwork @net
 
 ## Place the public IP prefix you created previously into a variable. ##
 $pip = @{
-    Name = 'myPublicIPPrefix-NAT'
+    Name = 'public-ip-prefix-nat'
     ResourceGroupName = 'test-rg'
 }
 $publicIPprefix = Get-AzPublicIPPrefix @pip
@@ -236,7 +236,7 @@ $publicIPprefix = Get-AzPublicIPPrefix @pip
 $nat = @{
     ResourceGroupName = 'test-rgNAT'
     Name = 'nat-gateway'
-    IdleTimeoutInMinutes = '10'
+    IdleTimeoutInMinutes = '4'
     Sku = 'Standard'
     Location = 'eastus2'
     PublicIpPrefix = $publicIPprefix
@@ -279,8 +279,7 @@ az network nat gateway create \
     --resource-group test-rg \
     --name nat-gateway \
     --public-ip-addresses public-ip-nat \
-    --idle-timeout 10
-
+    --idle-timeout 4
 ```
 
 Use [az network vnet subnet update](/cli/azure/network/vnet/subnet#az-network-vnet-subnet-update) to associate the NAT gateway with your virtual network subnet.
@@ -304,7 +303,7 @@ az network public-ip prefix create \
     --length 29 \
     --resource-group test-rg \
     --location eastus2 \
-    --name myPublicIPprefix-NAT
+    --name public-ip-prefix-nat
 ```
 
 Use [az network nat gateway create](/cli/azure/network/nat/gateway#az-network-nat-gateway-create) to create a NAT gateway resource and associate the public IP prefix that you created.
@@ -313,7 +312,7 @@ Use [az network nat gateway create](/cli/azure/network/nat/gateway#az-network-na
 az network nat gateway create \
     --resource-group test-rg \
     --name nat-gateway \
-    --public-ip-prefixes myPublicIPprefix-NAT \
+    --public-ip-prefixes public-ip-prefix-nat \
     --idle-timeout 10
 
 ```
@@ -422,6 +421,9 @@ You can now associate the NAT gateway with a different subnet or virtual network
 
 # [**Azure PowerShell**](#tab/manage-nat-powershell)
 
+Use [Set-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/set-azvirtualnetworksubnetconfig) to remove the NAT gateway association from the subnet by setting the value to $null. Use [Set-AzVirtualNetwork](/powershell/module/az.network/set-azvirtualnetwork) to update the virtual network configuration.
+
+
 ```azurepowershell
 # Specify the resource group and NAT gateway name
 $resourceGroupName = "test-rg"
@@ -454,6 +456,20 @@ Set-AzVirtualNetworkSubnetConfig @subConfig
 # Update the virtual network
 Set-AzVirtualNetwork -VirtualNetwork $virtualNetwork
 
+```
+
+Use [Remove-AzNatGateway](/powershell/module/az.network/remove-aznatgateway) to delete the NAT gateway resource.
+
+```azurepowershell
+# Specify the resource group and NAT gateway name
+$resourceGroupName = "test-rg"
+$natGatewayName = "nat-gateway"
+
+$nat = @{
+    Name = $natGatewayName
+    ResourceGroupName = $resourceGroupName
+}
+Remove-AzNatGateway @nat
 ```
 
 # [**Azure CLI**](#tab/manage-nat-cli)
@@ -704,7 +720,7 @@ Complete the following steps to add or remove a public IP prefix from a NAT gate
    | Subscription | Select your subscription. |
    | Resource group | Select your resource group. This example uses **test-rg**. |
    | **Instance details** |   |
-   | Name | Enter *myPublicIPPrefix-NAT*. |
+   | Name | Enter *public-ip-prefix-nat*. |
    | Region | Select your region. This example uses **East US 2**. |
    | IP version | Select **IPv4**. |
    | Prefix ownership | Select **Microsoft owned**. |
@@ -732,14 +748,14 @@ Complete the following steps to add or remove a public IP prefix from a NAT gate
 
 To add a public IP prefix to the NAT gateway, add it to an array object along with the current IP prefixes. The PowerShell cmdlets replace all the IP prefixes.
 
-In this example, the existing public IP prefix associated with the NAT gateway is named *myPublicIPprefix-NAT*. Replace this value with an array that contains both myPublicIPprefix-NAT and a new IP address prefix. If you have multiple IP prefixes already configured, you must also add them to the array.
+In this example, the existing public IP prefix associated with the NAT gateway is named *public-ip-prefix-nat*. Replace this value with an array that contains both public-ip-prefix-nat and a new IP address prefix. If you have multiple IP prefixes already configured, you must also add them to the array.
 
 Use [New-AzPublicIpPrefix](/powershell/module/az.network/new-azpublicipprefix) to create a new public IP prefix for the NAT gateway.
 
 ```azurepowershell
 ## Create public IP prefix for NAT gateway ##
 $ip = @{
-    Name = 'myPublicIPPrefix-NAT2'
+    Name = 'public-ip-prefix-nat2'
     ResourceGroupName = 'test-rg'
     Location = 'eastus2'
     Sku = 'Standard'
@@ -760,14 +776,14 @@ $nat = Get-AzNatGateway @ng
 
 ## Place the existing public IP prefix associated with the NAT gateway into a variable. ##
 $ip = @{
-    Name = 'myPublicIPprefix-NAT'
+    Name = 'public-ip-prefix-nat'
     ResourceGroupName = 'test-rg'
 }
 $prefixIP1 = Get-AzPublicIPPrefix @ip
 
 ## Place the public IP prefix you created previously into a variable. ##
 $ip = @{
-    Name = 'myPublicIPprefix-NAT2'
+    Name = 'public-ip-prefix-nat2'
     ResourceGroupName = 'test-rg'
 }
 $prefixIP2 = Get-AzPublicIPprefix @ip
@@ -785,7 +801,7 @@ Set-AzNatGateway @nt
 
 ### Remove public IP prefix
 
-To remove a public IP prefix from a NAT gateway, create an array object that *doesn't* contain the IP address prefix that you want to remove. For example, you have a NAT gateway configured with two public IP prefixes. You want to remove one of the IP prefixes. The IP prefixes associated with the NAT gateway are named myPublicIPprefix-NAT and myPublicIPprefix-NAT2. To remove myPublicIPprefix-NAT2, create an array object for the PowerShell command that contains *only* myPublicIPprefix-NAT. When you apply the command, the array is reapplied to the NAT gateway, and myPublicIPprefix-NAT is the only prefix associated.
+To remove a public IP prefix from a NAT gateway, create an array object that *doesn't* contain the IP address prefix that you want to remove. For example, you have a NAT gateway configured with two public IP prefixes. You want to remove one of the IP prefixes. The IP prefixes associated with the NAT gateway are named public-ip-prefix-nat and public-ip-prefix-nat2. To remove public-ip-prefix-nat2, create an array object for the PowerShell command that contains *only* public-ip-prefix-nat. When you apply the command, the array is reapplied to the NAT gateway, and public-ip-prefix-nat is the only prefix associated.
 
 Use the [Set-AzNatGateway](/powershell/module/az.network/set-aznatgateway) cmdlet to remove a public IP prefix from the NAT gateway.
 
@@ -799,14 +815,14 @@ $nat = Get-AzNatGateway @ng
 
 ## Place the existing public IP prefix associated with the NAT gateway into a variable. ##
 $ip = @{
-    Name = 'myPublicIPprefix-NAT'
+    Name = 'public-ip-prefix-nat'
     ResourceGroupName = 'test-rg'
 }
 $prefixIP1 = Get-AzPublicIPPrefix @ip
 
 ## Place the secondary public IP prefix into a variable. ##
 $ip = @{
-    Name = 'myPublicIPprefix-NAT2'
+    Name = 'public-ip-prefix-nat2'
     ResourceGroupName = 'test-rg'
 }
 $prefixIP2 = Get-AzPublicIPprefix @ip
@@ -826,7 +842,7 @@ Set-AzNatGateway @nt
 
 ### Add public IP prefix
 
-In this example, the existing public IP prefix associated with the NAT gateway is named *myPublicIPprefix-NAT*.
+In this example, the existing public IP prefix associated with the NAT gateway is named *public-ip-prefix-nat*.
 
 Use [az network public-ip prefix create](/cli/azure/network/public-ip/prefix#az-network-public-ip-prefix-create) to create a public IP prefix for the NAT gateway.
 
@@ -835,7 +851,7 @@ az network public-ip prefix create \
     --length 29 \
     --resource-group test-rg \
     --location eastus2 \
-    --name myPublicIPprefix-NAT2
+    --name public-ip-prefix-nat2
 ```
 
 Use [az network nat gateway update](/cli/azure/network/nat/gateway#az-network-nat-gateway-update) to add the public IP prefix that you created to the NAT gateway. The Azure CLI command replaces values. It doesn't add a value. To add the new IP address prefix to the NAT gateway, you must also include any other IP prefixes associated to the NAT gateway.
@@ -844,18 +860,18 @@ Use [az network nat gateway update](/cli/azure/network/nat/gateway#az-network-na
 az network nat gateway update \
     --name nat-gateway \
     --resource-group test-rg \
-    --public-ip-prefixes myPublicIPprefix-NAT myPublicIPprefix-NAT2
+    --public-ip-prefixes public-ip-prefix-nat public-ip-prefix-nat2
 ```
 
 ### Remove public IP prefix
 
-Use [az network nat gateway update](/cli/azure/network/nat/gateway#az-network-nat-gateway-update) to remove a public IP prefix from the NAT gateway. The Azure CLI command replaces the values. It doesn't remove a value. To remove a public IP prefix, include any prefix in the command that you wish to keep. Omit the one you want to remove. For example, you have a NAT gateway configured with two public IP prefixes. You want to remove one of the prefixes. The IP prefixes associated with the NAT gateway are named myPublicIPprefix-NAT and myPublicIPprefix-NAT2. To remove myPublicIPprefix-NAT2, omit the name of the IP prefix from the command. The command reapplies the IP prefixes listed in the command to the NAT gateway. It removes any IP address not listed.
+Use [az network nat gateway update](/cli/azure/network/nat/gateway#az-network-nat-gateway-update) to remove a public IP prefix from the NAT gateway. The Azure CLI command replaces the values. It doesn't remove a value. To remove a public IP prefix, include any prefix in the command that you wish to keep. Omit the one you want to remove. For example, you have a NAT gateway configured with two public IP prefixes. You want to remove one of the prefixes. The IP prefixes associated with the NAT gateway are named public-ip-prefix-nat and public-ip-prefix-nat2. To remove public-ip-prefix-nat2, omit the name of the IP prefix from the command. The command reapplies the IP prefixes listed in the command to the NAT gateway. It removes any IP address not listed.
 
 ```azurecli
 az network nat gateway update \
     --name nat-gateway \
     --resource-group test-rg \
-    --public-ip-prefixes myPublicIPprefix-NAT
+    --public-ip-prefixes public-ip-prefix-nat
 ```
 
 # [**Bicep**](#tab/manage-nat-bicep)
