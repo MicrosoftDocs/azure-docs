@@ -173,7 +173,7 @@ You can also enable encryption on an existing virtual network by using [az netwo
 
 1. Verify that **Encryption** is set to **Enabled**.
 
-    :::image type="content" source="./media/how-to-create-encryption-portal/virtual-network-properties-encryption-enabled.png" alt-text="Screenshot that shows properties of the virtual network with encryption enabled.":::
+    :::image type="content" source="./media/how-to-create-encryption-portal/virtual-network-properties-encryption-enabled.png" alt-text="Screenshot that shows properties of the virtual network with Encryption st as Enabled.":::
 
 ### [PowerShell](#tab/powershell)
 
