@@ -14,7 +14,7 @@ ms.subservice: calling
 ---
 
 
-# Troubleshooting VoIP call quality 
+# Troubleshoot VoIP call quality 
 
 This article describes how to troubleshoot and improve web Voice over Internet Protocol (VoIP) call quality in Azure Communication Services.
 
@@ -28,7 +28,7 @@ The following conditions can happen with audio during a call.
 
 ### Choppy or robotic-sounding audio
 
-When call audio has robotic sounds or choppy cuts in and out, the reason might be by packet loss due to excessive jitter on the line. *Jitter* means that packets are received out of order. Several factors can cause it, including network traffic or the technologies used in the call.
+When call audio sounds choppy, sounds robotic, or cuts in and out, the reason might be by packet loss due to excessive jitter on the line. *Jitter* means that packets are received out of order. Several factors can cause it, including network traffic or the technologies used in the call.
 
 ### One-way or missing audio
 
@@ -44,7 +44,7 @@ When a caller or callee reports that they hear their own delayed audio being tra
 
 ### Audio volume problem
 
-When a caller or callee reports that the volume of a call is either too loud or too quiet, we typically classify this condition as an audio volume problem. The cause is often the hardware, including the positioning and volume levels of the speaker and/or microphone at one end of the line. If the input and output indicator show that the user's volume is low, you can prompt the user to speak louder.
+When a caller or callee reports that the volume of a call is either too loud or too quiet, we typically classify this condition as an audio volume problem. The cause is often the hardware, including the positioning and volume levels of the speaker and/or microphone at one end of the line. If the input and output indicator shows that the user's volume is low, you can prompt the user to speak louder.
 
 For more information, see [Access call volume level in your calling app](../../quickstarts/voice-video-calling/get-started-volume-indicator.md).
 

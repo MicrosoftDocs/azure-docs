@@ -59,7 +59,7 @@ After you select a call, its details appear on the **Overview** tab. This tab sh
 
 The **Issues** tab gives you a high-level analysis of any media quality and reliability problems that Call Diagnostics detected during the call.
 
-This tab highlights detected problems commonly known to affect user's call quality, such as poor network conditions, speaking while muted, or device failures during a call. If you want to explore a detected problem, select the highlighted item. A prepopulated view of the related events appears on the **Timeline** tab.
+This tab highlights detected problems commonly known to affect a user's call quality, such as poor network conditions, speaking while muted, or device failures. If you want to explore a detected problem, select the highlighted item. A prepopulated view of the related events appears on the **Timeline** tab.
 
 ![Screenshot of the Call Diagnostics Issues tab that shows the top problems detected in a selected call.](media/call-diagnostics-call-issues-2.png)
 
@@ -69,7 +69,7 @@ When call problems are difficult to troubleshoot, you can explore the **Timeline
 
 The timeline view is complex. It's designed for developers who need to explore details of a call and interpret detailed debugging data. In large calls, the timeline view can present an overwhelming amount of information. We recommend that you use filtering to narrow your search results and reduce complexity.
 
-You can view detailed call logs for each participant within a call. Call information might not be present for various reasons, such as privacy constraints between different calling resources.
+You can view detailed call logs for each participant within a call. Call information might not be present for various reasons, such as privacy constraints between calling resources.
 
 ![Screenshot of the Call Diagnostics Timeline tab that shows detailed events in a timeline view for a selected call.](media/call-diagnostics-call-timeline-2.png)
 
@@ -79,7 +79,7 @@ AI can help app developers across every step of the development lifecycle: desig
 
 - How do I run network diagnostics in Azure Communication Services VoIP calls?
 - How can I optimize my calls for poor network conditions?
-- What are the common causes of poor media streams in Azure Communication calls?
+- What are the common causes of poor media streams in Azure Communication Services calls?
 - The video on my call didn't work. How do I fix the subcode 41048?
 
 ![Screenshot of a Call Diagnostics search that shows recent calls for an Azure Communications Services resource and a response from Copilot in Azure.](media/call-diagnostics-all-calls-copilot.png)
@@ -90,7 +90,7 @@ AI can help app developers across every step of the development lifecycle: desig
 
 Follow instructions to add diagnostic settings for your resource in [Enable logs via Diagnostic Settings in Azure Monitor](../analytics/enable-logging.md). We recommend that you initially collect all logs. After you understand the capabilities in Azure Monitor, determine which logs you want to retain and for how long. When you add your diagnostic setting, you're prompted to [select logs](../analytics/enable-logging.md#adding-a-diagnostic-setting). To collect all logs, select **allLogs**.
 
-Your data volume, retention, and Call Diagnostics query usage in Log Analytics within Azure Monitor is billed through existing Azure data meters. We recommend you monitor your data usage and retention policies for cost considerations as needed. For more information, see [Controlling costs](/azure/azure-monitor/essentials/diagnostic-settings#controlling-costs).
+Your data volume, retention, and Call Diagnostics query usage in Log Analytics within Azure Monitor is billed through existing Azure data meters. We recommend that you monitor your data usage and retention policies for cost considerations as needed. For more information, see [Controlling costs](/azure/azure-monitor/essentials/diagnostic-settings#controlling-costs).
 
 If you have multiple Azure Communications Services resource IDs, you must enable these settings for each resource ID and query call details for participants within their respective resource IDs.
 
@@ -102,7 +102,7 @@ Here are resources for common call problems:
 
 - For an overview of troubleshooting strategies and for more information on isolating call problems, see [Overview of general troubleshooting strategies](../../resources/troubleshooting/voice-video-calling/general-troubleshooting-strategies/overview.md).
 
-- If you see common error messages or descriptions, see [Understanding error messages and codes](../../resources/troubleshooting/voice-video-calling/general-troubleshooting-strategies/understanding-error-codes.md).
+- For descriptions of common error messages, see [Understanding error messages and codes](../../resources/troubleshooting/voice-video-calling/general-troubleshooting-strategies/understanding-error-codes.md).
 
 - If users can't join calls, see [Overview of call setup issues](../../resources/troubleshooting/voice-video-calling/call-setup-issues/overview.md).
 
@@ -122,7 +122,7 @@ Use Copilot in Azure for Call Diagnostics to improve call quality by detailing p
 
 - Learn how to manage call quality: [Improve and manage call quality](manage-call-quality.md).
 - Explore troubleshooting guidance: [Overview of audio issues](../../resources/troubleshooting/voice-video-calling/audio-issues/overview.md).
-- Continue to learn other quality best practices: [Best practices: Azure Communication Services calling SDKs](../best-practices.md).
+- Learn about other quality best practices: [Best practices: Azure Communication Services calling SDKs](../best-practices.md).
 - Learn how to use the Log Analytics workspace: [Log Analytics tutorial](/azure/azure-monitor/logs/log-analytics-tutorial).
 - Create your own queries in Log Analytics: [Get started with log queries in Azure Monitor](/azure/azure-monitor/logs/get-started-queries).
 - Explore known call issues: [Known issues in the SDKs and APIs](../known-issues.md).

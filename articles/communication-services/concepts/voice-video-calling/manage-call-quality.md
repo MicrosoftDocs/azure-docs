@@ -24,8 +24,7 @@ Before you read this article, become familiar with overview information about ca
 
 ## Prepare your network and prioritize important network traffic by using QoS
 
-As your users start using Azure Communication Services for calls and meetings, they might experience a caller's voice breaking up or cutting in and out of a call or meeting. Shared video might freeze, or pixelate, or fail altogether. This problem is due to the IP packets that represent voice and video traffic encountering network congestion and arriving out of sequence or not at all. If it happens (or to prevent it from happening in the first place), use Quality of Service (QoS) by following the
-[network recommendations](network-requirements.md).
+As your users start using Azure Communication Services for calls and meetings, they might experience a caller's voice breaking up or cutting in and out of a call or meeting. Shared video might freeze, or pixelate, or fail altogether. This problem is due to the IP packets that represent voice and video traffic encountering network congestion and arriving out of sequence or not at all. If it happens (or to prevent it from happening in the first place), use Quality of Service (QoS) by following the [network recommendations](network-requirements.md).
 
 With QoS, you prioritize delay-sensitive network traffic (for example, voice or video streams). You allow that traffic to "cut in line" in front of traffic that's less sensitive. An example of lower-priority traffic is downloading a new app. In that case, an extra second to download isn't a significant problem.
 
@@ -71,7 +70,7 @@ For more information, see [Network Diagnostic tool](../developer-tools/network-d
 
 ##### Pre-Call API for diagnostics
 
-Maybe you want to build your own diagnostic tool or to perform a deeper integration of the Network Diagnostic tool into your application. If so, you can use the Pre-Call API to run the diagnostic tool for the Calling SDK.
+Maybe you want to build your own diagnostic tool or perform a deeper integration of the Network Diagnostic tool into your application. If so, you can use the Pre-Call API to run the diagnostic tool for the Calling SDK.
 
 The Pre-Call API lets you customize the experience in your user interface. You can then run the same series of tests that the Network Diagnostic tool uses to ensure compatibility, connectivity, and device permissions with a test call. You can decide the best way to tell users how to correct problems before calls begin. You can also perform specific checks when troubleshooting quality and reliability problems.
 
@@ -86,7 +85,7 @@ Because Azure Communication Services voice and video calls run on web and mobile
 - The user forgot to close a previous tab.
 - The user couldn't join a call without a meeting organizer present. The user reattempts to select the link for joining the meeting, which opens a separate mobile browser tab.
 
-Having multiple call browser tabs at the same time causes disruptions to audio and video behavior on the call that the user is trying to join (referred to as the *target call*). You should make sure that multiple browser tabs aren't open before a call starts and (through monitoring) during the whole call lifecycle. You can proactively notify customers to close their excess tabs, or help them join a call correctly with useful messaging if they're unable to join a call initially.
+Having multiple call browser tabs at the same time causes disruptions to audio and video behavior on the call that the user is trying to join (that is, the *target call*). You should make sure that multiple browser tabs aren't open before a call starts and (through monitoring) during the whole life cycle of the call. You can proactively notify customers to close their excess tabs, or help them join a call correctly with useful messaging if they initially can't join a call.
 
 To check if user has multiple instances of Azure Communication Services running in a browser, see [How to detect if an application using the Azure Communication Services SDK is active in multiple tabs of a browser](../../how-tos/calling-sdk/is-sdk-active-in-multiple-tabs.md).
 
@@ -134,7 +133,7 @@ To learn more, see [Media quality statistics](media-quality-sdk.md).
 
 #### Optimal Video Count API
 
-During a group call with two or more participants, a user's video quality can fluctuate due to changes in network conditions and their specific hardware limitations. By using the Optimal Video Count API, you can improve user call quality by understanding how many video streams their local endpoint can render at a time without worsening quality.
+During a group call with two or more participants, a user's video quality can fluctuate due to changes in network conditions and their specific hardware limitations. By using the Optimal Video Count API, you can improve a user's call quality by understanding how many video streams their local endpoint can render at a time without worsening quality.
 
 By implementing this feature, you can preserve the call quality and bandwidth of local endpoints that would otherwise attempt to render video poorly. The API exposes the property `optimalVideoCount`, which dynamically changes in response to the network and hardware capabilities of a local endpoint. This information is available at runtime and gets updates throughout the call, so you can adjust a user's visual experience as network and hardware conditions change.
 
@@ -142,7 +141,7 @@ To implement this feature, see the web platform guidance [Manage video during ca
 
 ### After a call
 
-Before you release and scale your Azure Communication Services calling solution, implement the following quality and reliability monitoring capabilities to ensure you're collecting available logs and metrics. The call data isn't stored until you implement the capabilities, so you can't monitor and debug your call quality and reliability without them.
+Before you release and scale your Azure Communication Services calling solution, implement the following monitoring capabilities for quality and reliability to ensure that you're collecting available logs and metrics. The call data isn't stored until you implement the capabilities, so you can't monitor and debug your call quality and reliability without them.
 
 For more information, see [Azure Communication Services Voice Calling and Video Calling logs](../analytics/logs/voice-and-video-logs.md).
 
@@ -156,7 +155,7 @@ We recommend that you monitor your data usage and retention policies for cost co
 
 #### Diagnose calls by using Call Diagnostics
 
-Call Diagnostics is an Azure Monitor experience that delivers tailored insight through specialized telemetry and diagnostic pages in the Azure portal.
+Call Diagnostics is an Azure Monitor experience that delivers tailored insights through specialized telemetry and diagnostic pages in the Azure portal.
 
 After you begin storing log data in your Log Analytics workspace, you can visualize your search for individual calls and visualize the data in Call Diagnostics. In your Azure Monitor account, go to your Azure Communication Services resource and locate **Call Diagnostics** on the service menu. To learn how to best use this capability, see [Call Diagnostics](call-diagnostics.md).
 
@@ -184,7 +183,7 @@ By collecting call data such as media statistics, User Facing Diagnostics, and P
 
 For example, a user might have an hour-long call and report poor audio at one point in the call. The call might have fired a User Facing Diagnostic flag that indicated a severe problem with the quality of an incoming or outgoing media stream.
 
-By storing the [detailed media statistics](media-quality-sdk.md) from the call, you can review when the User Facing Diagnostics flag occurred to see if high levels of packet loss, jitter, or latency around this time indicate a poor network condition. You can explore whether the network was affected by an external client's unmanaged network, unnecessary network traffic due to improper QoS network prioritization policies, or an unnecessary virtual private network (VPN), for example.
+By storing the [detailed media statistics](media-quality-sdk.md) from the call, you can review when the User Facing Diagnostics flag occurred to see if high levels of packet loss, jitter, or latency around this time indicate a poor network condition. For example, you can explore whether the network was affected by an external client's unmanaged network, unnecessary network traffic due to improper QoS network prioritization policies, or an unnecessary virtual private network (VPN).
 
 > [!NOTE]
 > As a rule, we recommend prioritizing the bandwidth of a user's audio connection before their video connection. We recommend prioritizing both audio and video before other network traffic. When a network can't support both audio and video, you can proactively disable a user's video or nudge a user to disable their video.
@@ -207,4 +206,4 @@ If you don't have access to your customer's Azure portal to view data tied to th
 - Explore known issues: [Known issues in the SDKs and APIs](../known-issues.md).
 - Learn how to debug calls: [Call Diagnostics](call-diagnostics.md).
 - Learn how to use the Log Analytics workspace: [Log Analytics tutorial](/azure/azure-monitor/logs/log-analytics-tutorial).
-- Create your own queries: [Get started with log queries in Azure Monitor](/azure/azure-monitor/logs/get-started-queries)
+- Create your own queries: [Get started with log queries in Azure Monitor](/azure/azure-monitor/logs/get-started-queries).

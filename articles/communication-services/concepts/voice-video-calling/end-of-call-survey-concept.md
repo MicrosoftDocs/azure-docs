@@ -51,7 +51,7 @@ The API allows applications to gather data points that describe user-perceived r
 | Screen sharing | 2 | 1 - 5 | A response of 1 indicates an imperfect screen-sharing experience. A response of 5 indicates that the customer experienced no screen-sharing problems. |
 
 > [!NOTE]
-> A question's indicated cutoff value in the API is the threshold that Microsoft uses when analyzing your survey data. When you customize the cutoff value or input range, Microsoft analyzes your survey data according to your customization.
+> A question's indicated cutoff value in the API is the threshold that Microsoft uses when analyzing your survey data. When you customize the cutoff value or input range, Microsoft analyzes your survey data according to your customizations.
 
 ### More survey tags
 

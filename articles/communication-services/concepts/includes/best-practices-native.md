@@ -86,7 +86,7 @@ You should track the `CallID` value in the telemetry that you configure in your 
 
 ### Subscribe to User Facing Diagnostics and media quality statistics
 
-You can use these features of Azure Communication Services help improve the user experience:
+You can use these features of Azure Communication Services to help improve the user experience:
 
 - [User Facing Diagnostics](../voice-video-calling/user-facing-diagnostics.md): Examine various properties of a call to determine the cause of problems that affect your customers.
 - [Media quality statistics](../voice-video-calling/media-quality-sdk.md): Examine the low-level audio, video, and screen-sharing quality metrics for incoming and outgoing call metrics. We recommend that you collect the data and send it to your pipeline ingestion after a call ends.

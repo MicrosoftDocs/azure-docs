@@ -12,7 +12,7 @@ ms.topic: troubleshooting
 ---
 # Troubleshoot Azure Communication Services PSTN call failures
 
-When you're troubleshooting Azure Communication Services PSTN call failures, we recommended that you [enable logging](../analytics/enable-logging.md). Then you can use `ResultCategories`, `ParticipantEndReason`, and `ParticipantEndSubCode` values to determine why an individual call ended and whether the system detected any failures.
+When you're troubleshooting Azure Communication Services PSTN call failures, we recommend that you [enable logging](../analytics/enable-logging.md). Then you can use `ResultCategories`, `ParticipantEndReason`, and `ParticipantEndSubCode` values to determine why an individual call ended and whether the system detected any failures.
 
 ## Use ResultCategories to troubleshoot failures
 
@@ -41,7 +41,7 @@ This code is based on Session Initiation Protocol (SIP) response codes. For more
   
 A key factor in troubleshooting Azure Communication Services PSTN calls is determining whether the final SIP response code for the call came from a Microsoft process or the user's/operator's session border controller (SBC). An easy way to determine where the code originated is to look at the `ParticipantEndSubCode` response.
 
-If the `ParticipantEndSubCode` value starts with `560`, it indicates that the user's/operator's SBC generated the response code. In that case, you should check your SBC configuration.
+If the `ParticipantEndSubCode` value starts with `560`, it indicates that the user's/operator's SBC generated the response code. In that case, you should check the SBC configuration.
 
 For example, if the `ParticipantEndSubCode` value is `560403`, it means that the SBC generated the final response code, and the code is `403`. In that case, you should start troubleshooting the calls by using the SBC logs.
 
