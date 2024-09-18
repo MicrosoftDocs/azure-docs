@@ -89,9 +89,9 @@ Use the steps in this section to discover how to add a new HDInsight to an exist
         az network route-table list --resource-group RESOURCEGROUP
         ```
 
-        For more information, see the [Troubleshoot routes](../virtual-network/diagnose-network-routing-problem.md) document.
+        For more information, see the [Diagnose a virtual machine routing problem](../virtual-network/diagnose-network-routing-problem.md) document.
 
-3. Create an HDInsight cluster and select the Azure Virtual Network during configuration. Use the steps in the following documents to understand the cluster creation process:
+3. Create a HDInsight cluster and select the Azure Virtual Network during configuration. Use the steps in the following documents to understand the cluster creation process:
 
     * [Create HDInsight using the Azure portal](hdinsight-hadoop-create-linux-clusters-portal.md)
     * [Create HDInsight using Azure PowerShell](hdinsight-hadoop-create-linux-clusters-azure-powershell.md)
@@ -194,7 +194,7 @@ To connect to Apache Ambari and other web pages through the virtual network, use
 
 ## Load balancing
 
-When you create an HDInsight cluster, several load balancers are created as well. Due to the [retirement of the basic load balancer](https://azure.microsoft.com/updates/azure-basic-load-balancer-will-be-retired-on-30-september-2025-upgrade-to-standard-load-balancer/), the type of load balancers is at the [standard SKU level](/azure/load-balancer/skus), which has certain constraints. Inbound flows to the standard load balancers are closed unless allowed  by a network security group. You may need to bond a network security to your subnet and configure the network security rules.  
+When you create a HDInsight cluster, several load balancers are created as well. Due to the [retirement of the basic load balancer](https://azure.microsoft.com/updates/azure-basic-load-balancer-will-be-retired-on-30-september-2025-upgrade-to-standard-load-balancer/), the type of load balancers is at the [standard SKU level](/azure/load-balancer/skus), which has certain constraints. Inbound flows to the standard load balancers are closed unless allowed  by a network security group. You may need to bond a network security to your subnet and configure the network security rules.  
 
 There are [several outbound connectivity methods](/azure/load-balancer/load-balancer-outbound-connections) enabled for the standard load balancer. It’s worth noting that the default outbound access will be retired soon. If a NAT gateway is adopted to provide outbound network access, the subnet is not capable with the basic load balancer. If you intend to bond a NAT gateway to a subnet, there should be no basic load balancer existed in this subnet. With the NAT gateway as the outbound access method, a newly created HDInsight cluster can't share the same subnet with previously created HDInsight clusters with basic load balancers.
 
