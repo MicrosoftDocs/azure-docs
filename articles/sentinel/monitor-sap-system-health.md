@@ -20,25 +20,26 @@ After you [deploy the SAP solution](sap/deployment-overview.md), you want to ens
 > [!IMPORTANT]
 > Monitoring the health of your SAP systems is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-## Prerequisites
-
-- Before you can perform the procedures in this article, you need to have a SAP data connector agent deployed and connected to your SAP system. For more information, see [Deploy and configure the container hosting the SAP data connector agent](sap/deploy-data-connector-agent-container.md).
-
-## Check health and connectivity
-
-We recommend periodically checking on your data connector agent's health and connectivity.
-
-For a video demonstration of this procedure, watch the following video:
+For a video demonstration of the procedures in this article, watch the following video:
 <br><br>
 > [!VIDEO https://www.youtube.com/embed/FasuyBSIaQM?si=apdesRR29Lvq6aQM]
 
-**To check your SAP data connector's health and connectivity**:
+## Prerequisites
 
-1. To confirm your data connector agent's connection, go to the **Microsoft Sentinel for SAP** data connector page and check the connection status:
+- Before you can perform the procedures in this article, you need to have a SAP data connector agent deployed and connected to your SAP system. SAP logs aren't displayed in the Microsoft Sentinel **Logs** page until your SAP system is connected and data starts streaming into Microsoft Sentinel.
 
-    1. In Microsoft Sentinel, select **Data connectors** and search for *Microsoft Sentinel for SAP*.
-    1. Select the **Microsoft Sentinel for SAP** connector and select **Open connector page**.
-    1. In the **Configuration > Configure an SAP system and assign it to a collector agent** area, view details about the health of your SAP systems
+For more information, see [Deploy and configure the container hosting the SAP data connector agent](sap/deploy-data-connector-agent-container.md).
+
+## Check your data connector's health and connectivity
+
+This procedure describes how to check your data connector's connection status from the **Microsoft Sentinel for SAP** data connector page.
+
+
+1. In Microsoft Sentinel, select **Data connectors** and search for *Microsoft Sentinel for SAP*.
+
+1. Select the **Microsoft Sentinel for SAP** connector and select **Open connector page**.
+
+1. In the **Configuration > 2. Configure an SAP system and assign it to a collector agent** area, view details about the health of your SAP systems.
 
     For example:
 
@@ -46,16 +47,15 @@ For a video demonstration of this procedure, watch the following video:
 
     The fields in the **Configure an SAP system and assign it to a collector agent** area are described as follows:
 
-    - **SID**. The name of the connected SAP system ID (SID).
+    - **System display name**. The system's display name in the SAP environment.
 
-    - **System role**. Indicates whether the system is productive or not, which also affects billing. To change the role, an SAP admin needs to change the configuration in the SAP system. For more information, see [Solution pricing](sap/solution-overview.md#solution-pricing). Values include:
+    - **System role**. Indicates whether the system is production state or not, which also affects billing. For more information, see [Solution pricing](sap/solution-overview.md#solution-pricing). Values include:
 
         |Value  |Description  |
         |---------|---------|
         |**Production**     |  The system is defined by the SAP admin as a production system.       |
         |**Unknown (Production)**     | Microsoft Sentinel couldn't retrieve the system status. Microsoft Sentinel regards this type of system as a production system for both security and billing purposes.  <br><br>In such cases, we recommend that you check the Microsoft Sentinel role definitions and permissions on the SAP system, and validate that the system allows Microsoft Sentinel to read the content of the T000 table. Next, consider [updating the SAP connector](sap/update-sap-data-connector.md) to the latest version.       |
         |**Non production**     | Indicates roles like developing, testing, and customizing.        |
-        |**Agent update available**     | Displayed in addition to the health status to indicate that a newer SAP connector version exists. In this case, we recommended that you [update the connector](sap/update-sap-data-connector.md).        |
 
     - **Agent name**. Unique ID of the installed data connector agent.
 
@@ -68,13 +68,13 @@ For a video demonstration of this procedure, watch the following video:
         | **Connected with errors** (yellow icon) | Microsoft Sentinel detected errors when fetching the system role. In this case, Microsoft Sentinel received data regarding whether the system is or isn't a production system. |
         | **System not connected** | Microsoft Sentinel was unable to connect to the SAP system, and cannot fetch the system role. In this case, Microsoft Sentinel received data regarding whether the system is or isn't a production system.<br><br>Other statuses, like **System unreachable for over 1 day**, indicate the connectivity status.         |
 
-1. Select **Logs > Custom logs** to view the logs streaming in from the SAP system. For example:
+## View SAP logs streaming into Microsoft Sentinel
 
-    :::image type="content" source="sap/media/deploy-sap-security-content/sap-logs-in-sentinel.png" alt-text="Screenshot that shows the SAP ABAP logs in the Custom Logs area in Microsoft Sentinel." lightbox="sap/media/deploy-sap-security-content/sap-logs-in-sentinel.png":::
+In Microsoft Sentinel, select **General** > **Logs > Custom logs** to view the logs streaming in from the SAP system. For example:
 
-    SAP logs aren't displayed in the Microsoft Sentinel **Logs** page until your SAP system is connected and data starts streaming into Microsoft Sentinel.
+:::image type="content" source="sap/media/deploy-sap-security-content/sap-logs-in-sentinel.png" alt-text="Screenshot that shows the SAP ABAP logs in the Custom Logs area in Microsoft Sentinel." lightbox="sap/media/deploy-sap-security-content/sap-logs-in-sentinel.png":::
 
-    For more information, see [Microsoft Sentinel solution for SAP applications solution logs reference](sap-solution-log-reference.md).
+For more information, see [Microsoft Sentinel solution for SAP applications solution logs reference](sap-solution-log-reference.md).
 
 ## Use an alert rule template to monitor the health of your SAP systems
 
