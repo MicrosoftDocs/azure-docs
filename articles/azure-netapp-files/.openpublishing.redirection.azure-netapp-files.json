@@ -32,8 +32,8 @@
         },
         {
             "source_path_from_root": "/articles/azure-netapp-files/reserved-capacity.md",
-            "redirect_url": "/azure/azure-netapp-files/whats-new",
+            "redirect_url": "/azure/azure-netapp-files/reservations",
             "redirect_document_id": false
-        }
+        },
     ]
 }
