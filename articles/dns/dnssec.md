@@ -73,7 +73,7 @@ Recursive servers:
     - In some cases, a recursive server can have DNSSEC validation disabled or servers are not DNSSEC-aware.
 
 > [!NOTE]
-> Trust anchors can also be DS records. The DS record contains a hash of a DNSKEY record.
+> Trust anchors can also be DS records. The DS record contains a [hash](/dotnet/standard/security/ensuring-data-integrity-with-hash-codes) of a DNSKEY record.
 
 ## DNSSEC validation
 
