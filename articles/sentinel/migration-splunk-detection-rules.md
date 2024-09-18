@@ -15,7 +15,7 @@ The best way to migrate Splunk detection rules to Microsoft Sentinel is to start
 
 If you want to migrate your Splunk Observability deployment, learn more about how to [migrate from Splunk to Azure Monitor Logs](/azure/azure-monitor/logs/migrate-splunk-to-azure-monitor-logs).
 
-## Identify rules
+## Audit rules
 
 Microsoft Sentinel uses machine learning analytics to create high-fidelity and actionable incidents. Some of your existing detections may be redundant in Microsoft Sentinel. Therefore, don't migrate all of your detection and analytics rules blindly. Review these considerations as you identify your existing detection rules.
 
@@ -24,20 +24,20 @@ Microsoft Sentinel uses machine learning analytics to create high-fidelity and a
 - Check that you understand the [rule terminology](#compare-rule-terminology).
 - Review any rules that haven't triggered any alerts in the past 6-12 months, and determine whether they're still relevant.
 - Eliminate low-level threats or alerts that you routinely ignore.
+- Confirm connected data sources and review your data connection methods. Microsoft Sentinel Analytics require that the data type be present in the Log Analytics Workspace before a rule is enabled. Revisit data collection conversations to ensure data depth and breadth across the use cases you plan to detect. Then use the [SIEM migration experience](siem-migration.md) to ensure the data sources are mapped appropriately.
 
 ## Migrate rules
 
 After the Splunk detections you want to migrate are identified, review these considerations for migrating them to Microsoft Sentinel analytics rules.
 
-- Test the capabilities of the [SIEM migration experience](siem-migration.md) to determine if the automated translation is suitable.
-- Compare the existing functionality of Microsoft Sentinel's built-in analytics rules to your current use cases. The best way to translate Splunk detections to Microsoft Sentinel built-in analytics rules is to use the [SIEM migration experience](siem-migration.md).
-- Confirm connected data sources and review your data connection methods. Revisit data collection conversations to ensure data depth and breadth across the use cases you plan to detect.
+- Compare the existing functionality of Microsoft Sentinel's OOTB analytics rules to your current use cases. Use the [SIEM migration experience](siem-migration.md) to see which Splunk detections are automatically converted to the OOTB templates.
+- Detections that don't align to OOTB analytics rules need to be translated. The best way to translate Splunk detections is with the [SIEM migration experience](siem-migration.md).
 - Explore community resources such as the [SOC Prime Threat Detection Marketplace](https://my.socprime.com/platform-overview/) to discover additional algorithms for your use cases.
 - If built-in rules aren't available or can't be completely translated, they need to be created manually using a KQL query. Review the [rules mapping](#map-and-compare-rule-samples) to create new queries. 
 
 For more information, see [best practices for migrating detection rules](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/best-practices-for-migrating-detection-rules-from-arcsight/ba-p/2216417).
 
-### Migration rule steps
+### Rule migration steps
 
 1. Verify that you have a testing system in place for each rule you want to migrate.
 
@@ -47,9 +47,9 @@ For more information, see [best practices for migrating detection rules](https:/
 
     1. **Confirm that you have the required data sources connected,** and review your data connection methods.
 
-1. Verify whether your detections are available as built-in templates in Microsoft Sentinel:
+1. Verify whether your detections are available as OOTB templates in Microsoft Sentinel:
     
-    - **Use the SIEM migration experience** to automate translation and migration and installation of the built-in templates.
+    - **Use the SIEM migration experience** to automate translation and migration and installation of the OOTB templates.
 
         For more information, see [Use the SIEM migration experience](siem-migration.md).
 
@@ -59,13 +59,13 @@ For more information, see [best practices for migrating detection rules](https:/
 
         Filter **Content type** for **Analytics rule** templates.
 
-        Find and **Install/Update** each relevant analytics rule.
+        Find and **Install/Update** each corresponding Content hub solution or standalone analytics rule template.
 
         For more information, see [Detect threats out-of-the-box](detect-threats-built-in.md).
 
-    - **If you have detections that aren't covered by Microsoft Sentinel's built-in rules**, first try the [SIEM migration experience](siem-migration.md) for automatic translation.
+    - **If you have detections that aren't covered by Microsoft Sentinel's OOTB rules**, first try the [SIEM migration experience](siem-migration.md) for automatic translation.
 
-    - **If neither the built-in rules nor the SIEM migration completely translate the detection**, create the rule manually. In such cases, use the following steps to create your rule:
+    - **If neither the OOTB rules nor the SIEM migration completely translate the detection**, create the rule manually. In such cases, use the following steps to create your rule:
 
         1. **Identify the data sources you want to use in your rule**. Create a mapping table between data sources and data tables in Microsoft Sentinel to identify the tables you want to query.
 
@@ -76,10 +76,8 @@ For more information, see [best practices for migrating detection rules](https:/
             Consider filters, correlation rules, active lists, reference sets, watchlists, detection anomalies, aggregations, and so on. You might use references provided by your legacy SIEM to understand [how to best map your query syntax](#map-and-compare-rule-samples).            
 
         1. **Identify the trigger condition and rule action, and then construct and review your KQL query**. When reviewing your query, consider KQL optimization guidance resources.
-        
-        1. **Use Splunk Search Processing Language (SPL) to KQL libraries to assist with the translation research**. Resources like [SPL2KQL](https://azure.github.io/spl2kql) and [Uncoder.io](https://uncoder.io/) compliment the [rules mapping](#map-and-compare-rule-samples) and may help bridge the gap in figuring out how to complete the translation of complex rules. 
 
-1. Test the rule with each of your relevant use cases. If it doesn't provide expected results, you may want to review the KQL and test it again.
+1. Test the rule with each of your relevant use cases. If it doesn't provide expected results, review and edit the KQL and test it again.
 
 1. When you're satisfied, consider the rule migrated. Create a playbook for your rule action as needed. For more information, see [Automate threat response with playbooks in Microsoft Sentinel](automate-responses-with-playbooks.md).
 
