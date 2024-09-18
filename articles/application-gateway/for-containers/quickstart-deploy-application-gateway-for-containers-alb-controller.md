@@ -8,7 +8,7 @@ ms.service: azure-application-gateway
 ms.subservice: appgw-for-containers
 ms.custom: devx-track-azurecli
 ms.topic: quickstart
-ms.date: 5/17/2024
+ms.date: 9/16/2024
 ms.author: greglin
 ---
 
@@ -147,7 +147,7 @@ You need to complete the following tasks before deploying Application Gateway fo
     az aks get-credentials --resource-group $RESOURCE_GROUP --name $AKS_NAME
     helm install alb-controller oci://mcr.microsoft.com/application-lb/charts/alb-controller \
          --namespace $HELM_NAMESPACE \
-         --version 1.0.2 \
+         --version 1.2.3 \
          --set albController.namespace=$CONTROLLER_NAMESPACE \
          --set albController.podIdentity.clientID=$(az identity show -g $RESOURCE_GROUP -n azure-alb-identity --query clientId -o tsv)
     ```
@@ -165,7 +165,7 @@ You need to complete the following tasks before deploying Application Gateway fo
     az aks get-credentials --resource-group $RESOURCE_GROUP --name $AKS_NAME
     helm upgrade alb-controller oci://mcr.microsoft.com/application-lb/charts/alb-controller \
         --namespace $HELM_NAMESPACE \
-        --version 1.0.2 \
+        --version 1.2.3 \
         --set albController.namespace=$CONTROLLER_NAMESPACE \
         --set albController.podIdentity.clientID=$(az identity show -g $RESOURCE_GROUP -n azure-alb-identity --query clientId -o tsv)
     ```

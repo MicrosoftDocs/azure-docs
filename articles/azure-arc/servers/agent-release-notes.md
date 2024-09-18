@@ -2,7 +2,7 @@
 title: What's new with Azure Connected Machine agent
 description: This article has release notes for Azure Connected Machine agent. For many of the summarized issues, there are links to more details.
 ms.topic: overview
-ms.date: 08/12/2024
+ms.date: 09/13/2024
 ms.custom: references_regions
 ---
 
@@ -20,9 +20,27 @@ This page is updated monthly, so revisit it regularly. If you're looking for ite
 > Only Connected Machine agent versions within the last 1 year are officially supported by the product group. Customers should update to an agent version within this window.
 > 
 
-## Version 1.45 - August 2024
+## Version 1.46 - September 2024
 
 Download for [Windows](https://aka.ms/AzureConnectedMachineAgent) or [Linux](manage-agent.md#installing-a-specific-version-of-the-agent)
+
+### Fixed
+
+- Fixed a bug causing the Guest Config agent to hang in extension creating state when the download of an extension package failed.
+- Fixed a bug where onboarding treated conflicting errors as success.
+
+### New features and enhancements
+
+- Improved error messaging for scenarios with extension installation and enablement blockage in the presence of a sideloaded extension.
+- Increased checks for recovery of sequence number if the previous request failed.
+- Removed casing requirements when reading the proxy from the configuration file.
+- Added supported for Azure Linux 3 (Mariner).
+- Added initial Linux ARM64 architecture support.
+- Added Gateway URL to the output of the show command.
+
+## Version 1.45 - August 2024
+
+Download for [Windows](https://download.microsoft.com/download/0/6/1/061e3c68-5603-4c0e-bb78-2e3fd10fef30/AzureConnectedMachineAgent.msi) or [Linux](manage-agent.md#installing-a-specific-version-of-the-agent)
 
 ### Fixed
 

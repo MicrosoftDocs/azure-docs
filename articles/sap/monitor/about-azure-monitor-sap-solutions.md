@@ -6,7 +6,7 @@ ms.service: sap-on-azure
 ms.subservice: sap-monitor
 ms.topic: overview
 ms.custom: subject-monitoring
-ms.date: 10/27/2022
+ms.date: 08/21/2024
 ms.author: jushiman
 #Customer intent: As a developer, I want to learn how to monitor my SAP resources on Azure so that I can better understand their availability, performance, and operation.
 ---
