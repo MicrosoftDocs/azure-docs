@@ -42,7 +42,7 @@ using Microsoft.Azure.Devices.Common.Exceptions;
 
 The [ModuleClient](/dotnet/api/microsoft.azure.devices.client.moduleclient) class exposes all the methods required to interact with module twins from the device.
 
-Connect to the device using the [CreateFromConnectionString](/dotnet/api/microsoft.azure.devices.client.moduleclient.createfromconnectionstring) method with the module connection string. The method will connect using the default AMQP transport.
+Connect to the device using the [CreateFromConnectionString](/dotnet/api/microsoft.azure.devices.client.moduleclient.createfromconnectionstring) method with the module connection string. The method connects using the default AMQP transport.
 
 ```csharp
 using Microsoft.Azure.Devices.Client;

@@ -22,7 +22,7 @@ ms.custom: mqtt, devx-track-csharp, devx-track-dotnet
 This article shows you how to develop two types of applications:
 
 * Device apps can handle requests to update module desired properties and respond with changes to reported properties.
-* Service apps can that can set new desired properties.
+* Service apps that can set new desired properties.
 
 > [!NOTE]
 > This article is meant to complement [Azure IoT SDKs](iot-hub-devguide-sdks.md) samples that are referenced from within this article. You can use SDK tools to build both device and back-end applications.
