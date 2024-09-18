@@ -13,6 +13,8 @@ ai-usage: ai-assisted
 
 # Configure dataflow endpoints for Azure Data Explorer
 
+[!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
+
 To send data to Azure Data Explorer in Azure IoT Operations Preview, you can configure a dataflow endpoint. This configuration allows you to specify the destination endpoint, authentication method, table, and other settings.
 
 ## Prerequisites
@@ -167,7 +169,7 @@ You can set advanced settings for the Azure Data Explorer endpoint, such as the 
 
 # [Portal](#tab/portal)
 
-:::image type="content" source="media/howto-configure-adx-endpoint/adx-batching.png" alt-text="Screenshot using operations portal to set Azure Data Explorer batching settings.":::
+:::image type="content" source="media/howto-configure-adx-endpoint/adx-advanced.png" alt-text="Screenshot using operations portal to set Azure Data Explorer advanced settings.":::
 
 # [Kubernetes](#tab/kubernetes)
 

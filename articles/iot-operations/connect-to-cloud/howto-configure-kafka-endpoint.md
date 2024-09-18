@@ -5,7 +5,7 @@ author: PatAltimore
 ms.author: patricka
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 09/05/2024
+ms.date: 09/18/2024
 ai-usage: ai-assisted
 
 #CustomerIntent: As an operator, I want to understand how to configure dataflow endpoints for Kafka in Azure IoT Operations so that I can send data to Kafka endpoints.
@@ -34,11 +34,22 @@ To configure an Azure Event Hubs, we suggest using the managed identity of the A
 
 1. Create an Azure Event Hubs namespace and a Kafka-enabled event hub. One for each Kafka topic.
 
+
+## Create a Kafka dataflow endpoint
+
+To configure a dataflow endpoint for a Kafka endpoint, we suggest using the managed identity of the Azure Arc-enabled Kubernetes cluster. This approach is secure and eliminates the need for secret management.
+
+# [Portal](#tab/portal)
+
+:::image type="content" source="media/howto-configure-kafka-endpoint/create-kafka-endpoint.png" alt-text="Screenshot using operations portal to create a Kafka dataflow endpoint.":::
+
+# [Kubernetes](#tab/kubernetes)
+
 1. Get the managed identity of the Azure IoT Operations Arc extension.
 
 1. Assign the managed identity to the Event Hubs namespace with the `Azure Event Hubs Data Sender` or `Azure Event Hubs Data Receiver` role.
 
-1. Create the DataflowEndpoint resource. For example:
+1. Create the *DataflowEndpoint* resource and specify the managed identity authentication method.
 
     ```yaml
     apiVersion: connectivity.iotoperations.azure.com/v1beta1
@@ -58,6 +69,8 @@ To configure an Azure Event Hubs, we suggest using the managed identity of the A
         consumerGroupId: mqConnector
     ```
 
+---
+
 The Kafka topic, or individual event hub, is configured later when you create the dataflow. The Kafka topic is the destination for the dataflow messages.
 
 #### Use connection string for authentication to Event Hubs
@@ -71,7 +84,7 @@ spec:
       method: Sasl
       saslSettings:
         saslType: Plain
-        secretRef: <YOUR TOKEN SECRET NAME>
+        secretRef: <YOUR-TOKEN-SECRET-NAME>
     tls:
       mode: Enabled
 ```
@@ -103,7 +116,7 @@ metadata:
 spec:
   endpointType: Kafka
   kafkaSettings:
-    host: <KAFKA HOST>:9093
+    host: <KAFKA-HOST>:9093
     authentication:
       method: Sasl
       saslSettings:
@@ -114,11 +127,41 @@ spec:
     consumerGroupId: mqConnector
 ```
 
-## Configure dataflow source or destination
+## Configure dataflow source or destination endpoint
 
-Once the endpoint is created, you can use it in a dataflow by specifying the endpoint name in the dataflow's source or destination settings. To learn more, see [Create a dataflow](howto-create-dataflow.md).
+Once the endpoint is created, you can use it in a dataflow by specifying the endpoint name in the dataflow's source or destination settings.
 
-To customize the Kafka endpoint, you can configure other settings such as TLS, authentication, and Kafka messaging settings. The following sections describe the available settings.
+# [Portal](#tab/portal)
+
+:::image type="content" source="media/howto-configure-fabric-endpoint/dataflow-mq-fabric.png" alt-text="Screenshot using operations portal to create a dataflow with a MQTT source and Azure Data Explorer destination.":::
+
+# [Kubernetes](#tab/kubernetes)
+
+```yaml
+apiVersion: connectivity.iotoperations.azure.com/v1beta1
+kind: Dataflow
+metadata:
+  name: my-dataflow
+  namespace: azure-iot-operations
+spec:
+  profileRef: default
+  mode: Enabled
+  operations:
+    - operationType: Source
+      sourceSettings:
+        endpointRef: mq
+        dataSources:
+          *
+    - operationType: Destination
+      destinationSettings:
+        endpointRef: kafka
+```
+
+---
+
+For more information about dataflow destination settings, see [Create a dataflow](howto-create-dataflow.md).
+
+To customize the endpoint settings, see the following sections for more information.
 
 ### Available authentication methods
 
@@ -252,6 +295,16 @@ kafkaSettings:
       {}
 ```
 
+## Advanced settings
+
+You can set advanced settings for the Kafka dataflow endpoint such as TLS, trusted CA certificate, Kafka messaging settings, batching, and CloudEvents.
+
+# [Portal](#tab/portal)
+
+:::image type="content" source="media/howto-configure-kafka-endpoint/kafka-advanced.png" alt-text="Screenshot using operations portal to set Kafka dataflow endpoint advanced settings.":::
+
+# [Kubernetes](#tab/kubernetes)
+
 ### TLS settings
 
 Under `kafkaSettings.tls`, you can configure additional settings for the TLS connection to the Kafka broker.
@@ -275,7 +328,7 @@ To configure the trusted CA certificate for the Kafka endpoint, update the `trus
 ```yaml
 kafkaSettings:
   tls:
-    trustedCaCertificateConfigMapRef: <YOUR-CA-CERTIFICATe>
+    trustedCaCertificateConfigMapRef: <YOUR-CA-CERTIFICATE>
 ```
 
 This ConfigMap should contain the CA certificate in PEM format. The ConfigMap must be in the same namespace as the Kafka dataflow resource. For example:
@@ -524,3 +577,5 @@ CloudEvent properties are passed through for messages that contain the required 
 | `time`            | No       | `ce-time`            | Generated as RFC 3339 in the target client                                    |
 | `datacontenttype` | No       | `ce-datacontenttype` | Changed to the output data content type after the optional transform stage    |
 | `dataschema`      | No       | `ce-dataschema`      | Schema defined in the schema registry                                         |
+
+---

@@ -246,13 +246,19 @@ mqttSettings:
       {}
 ```
 
-## TLS settings
+## Advanced settings
 
-Under `mqttSettings.tls`, you can configure the TLS settings for the MQTT broker.
+You can set advanced settings for the MQTT broker dataflow endpoint such as TLS, trusted CA certificate, MQTT messaging settings, and CloudEvents.
 
-### TLS mode
+# [Portal](#tab/portal)
 
-To enable or disable TLS, set the `mode` field to `Enabled` or `Disabled`.
+:::image type="content" source="media/howto-configure-mqtt-endpoint/mqtt-advanced.png" alt-text="Screenshot using operations portal to set Kafka dataflow endpoint advanced settings.":::
+
+# [Kubernetes](#tab/kubernetes)
+
+### TLS
+
+Under `mqttSettings.tls`, you can configure the TLS settings for the MQTT broker. To enable or disable TLS, set the `mode` field to `Enabled` or `Disabled`.
 
 ```yaml
 mqttSettings:

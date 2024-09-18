@@ -13,6 +13,8 @@ ai-usage: ai-assisted
 
 # Configure dataflow endpoints for Azure Data Lake Storage Gen2
 
+[!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
+
 To send data to Azure Data Lake Storage Gen2 in Azure IoT Operations Preview, you can configure a dataflow endpoint. This configuration allows you to specify the destination endpoint, authentication method, table, and other settings.
 
 ## Prerequisites
@@ -27,7 +29,7 @@ To configure a dataflow endpoint for Azure Data Lake Storage Gen2, we suggest us
 
 # [Portal](#tab/portal)
 
-:::image type="content" source="media/how-to-configure-adlsv2-endpoint/create-adls-endpoint.png" alt-text="Screenshot using operations portal to create a new ADLS V2 dataflow endpoint.":::
+:::image type="content" source="media/howto-configure-adlsv2-endpoint/create-adls-endpoint.png" alt-text="Screenshot using operations portal to create a new ADLS V2 dataflow endpoint.":::
 
 # [Kubernetes](#tab/kubernetes)
 
@@ -84,7 +86,7 @@ Once the endpoint is created, you can use it in a dataflow by specifying the end
 
 # [Portal](#tab/portal)
 
-:::image type="content" source="media/how-to-configure-adlsv2-endpoint/dataflow-mq-adls.png" alt-text="Screenshot using operations portal to create a dataflow with a MQTT source and ADLS V2 destination.":::
+:::image type="content" source="media/howto-configure-adlsv2-endpoint/dataflow-mq-adls.png" alt-text="Screenshot using operations portal to create a dataflow with a MQTT source and ADLS V2 destination.":::
 
 # [Kubernetes](#tab/kubernetes)
 
@@ -200,7 +202,7 @@ You can set advanced settings for the Azure Data Lake Storage Gen2 endpoint, suc
 
 # [Portal](#tab/portal)
 
-:::image type="content" source="media/how-to-configure-adlsv2-endpoint/adls-batching.png" alt-text="Screenshot using operations portal to set ADLS V2 batching settings.":::
+:::image type="content" source="media/howto-configure-adlsv2-endpoint/adls-advanced.png" alt-text="Screenshot using operations portal to set ADLS V2 advanced settings.":::
 
 # [Kubernetes](#tab/kubernetes)
 

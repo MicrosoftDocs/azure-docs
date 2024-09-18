@@ -161,7 +161,7 @@ To specify the schema, create the file and store it in the schema registry.
 
 <!-- TODO: may not be final -->
 
-To use shared subscriptions with MQTT sources, you can specify the shared subscription topic in the form of `$shared/<subscription-group>/<topic>` .
+To use shared subscriptions with MQTT sources, you can specify the shared subscription topic in the form of `$shared/<subscription-group>/<topic>`.
 
 ```yaml
 sourceSettings:
@@ -418,10 +418,11 @@ After you've created a dataflow, you can manage it using the Azure IoT Operation
 
 ### Enable/disable dataflow
 
-To enable or disable a dataflow, you can use the Azure IoT Operations portal or by updating the Dataflow CR.
+To enable or disable a dataflow, you can use the Azure IoT Operations portal or by updating the Dataflow custom resource.
 
 # [Portal](#tab/portal)
 
+:::image type="content" source="media/howto-create-dataflow/dataflow-enable.png" alt-text="Screenshot using operations portal to disable a dataflow.":::
 
 # [Kubernetes](#tab/kubernetes)
 
@@ -440,10 +441,11 @@ You can view the health status and metrics of the dataflow in the Azure IoT Oper
 
 ### Delete dataflow
 
-To delete a dataflow, you can use the Azure IoT Operations portal or by deleting the Dataflow CR.
+To delete a dataflow, you can use the Azure IoT Operations portal or by deleting the Dataflow custom resource.
 
 # [Portal](#tab/portal)
 
+:::image type="content" source="media/howto-create-dataflow/delete-dataflow.png" alt-text="Screenshot using operations portal to delete a dataflow.":::
 
 # [Kubernetes](#tab/kubernetes)
 
