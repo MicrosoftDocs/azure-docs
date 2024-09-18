@@ -19,18 +19,11 @@ The following table lists the current versions available for the public and Insi
 *Date published: September 18, 2024*   
 
 - Fixed an issue where initiating a screen capture while Teams is open as a RemoteApp caused the client to crash.  
-
-- Fixed an issue where initiating a screen capture while Teams is open as a RemoteApp caused the client to crash. 
-
-- Fixed an issue where the client crashed for users who have Windows N SKUs without the media framework 
-
-- Addressed an issue that reduces the chance of encountering a “low virtual memory” error on reconnect attempts 
-
-- Made improvement where new session windows will not become the focused windows 
-
-- Fixed bug to ensure that ‘screen mode id’ setting in RDP file is honored 
-
-- Fixed issue where Teams rendered into wrong window when multiple Remote Desktop session windows were open. 
+- Fixed an issue where the client crashed for users who have Windows N SKUs without the media framework. 
+- Addressed an issue that reduces the chance of encountering a “low virtual memory” error on reconnect attempts. 
+- Made improvement where new session windows will not become the focused windows. 
+- Fixed a bug to ensure that the **screen mode id** setting in RDP file is honored. 
+- Fixed an issue where Teams rendered into the wrong window when multiple Remote Desktop session windows were open. 
 
 > [!NOTE]
 > This version replaced the Insider version 1.2.5702, 1.2.5701, and 1.2.5699. It contains all changes made in noted versions and was promoted to public on September 18, 2024. 
