@@ -94,7 +94,7 @@ The following steps describe how to assign a role to a user. For detailed steps,
 
 1. On the **Review + assign** tab, select **Review + assign** to assign the role.
 
-## multitenant environments
+## Multitenant environments
 
 There are three major multitenant models:
 
