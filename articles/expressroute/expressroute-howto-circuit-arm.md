@@ -61,7 +61,7 @@ git clone https://github.com/Azure-Samples/azure-docs-powershell-samples/
 CD azure-docs-powershell-samples/expressroute/
 ```
 
-#### Run the script
+#### Run resilient locations script
 
 Run the **Get-AzExpressRouteResilientLocations.ps1** script to get the list of resilient locations. The following example shows how to get the resilient locations for a specific subscription sorted by distance from Silicon Valley:
 
