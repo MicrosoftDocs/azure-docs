@@ -35,7 +35,7 @@ Add a feature flag called *Beta* to the App Configuration store (created in the 
 
 ## Use a feature flag
 
-1. Navigate into the project's directory (created in the [Prerequisites](/.quickstart-feature-flag-aspnet-core#prerequisites.md) steps), and run the following command to add a reference to the [Microsoft.FeatureManagement.AspNetCore](https://www.nuget.org/packages/Microsoft.FeatureManagement.AspNetCore) NuGet package.
+1. Navigate into the project's directory (created in the [Prerequisites](/.quickstart-feature-flag-aspnet-core.md#prerequisites) steps), and run the following command to add a reference to the [Microsoft.FeatureManagement.AspNetCore](https://www.nuget.org/packages/Microsoft.FeatureManagement.AspNetCore) NuGet package.
 
     ```dotnetcli
     dotnet add package Microsoft.FeatureManagement.AspNetCore
