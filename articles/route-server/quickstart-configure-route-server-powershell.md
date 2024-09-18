@@ -5,7 +5,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-route-server
 ms.topic: quickstart
-ms.date: 09/18/2024
+ms.date: 09/19/2024
 ms.custom: devx-track-azurepowershell, mode-api
 ---
 
@@ -31,7 +31,7 @@ In this quickstart, you learn how to create an Azure Route Server to peer with a
 
 ## Create a Route Server
 
-In this section, you create the route server. Before creating it, you create a resource group to host the route server and the other resources. You'll also create a virtual network with a dedicated subnet for the route server.
+In this section, you create a route server. Prior to creating the route server, you create a resource group to host all resources including the route server. You'll also create a virtual network with a dedicated subnet for the route server.
 
 1. Create a a resource group using [New-AzResourceGroup](/powershell/module/az.Resources/New-azResourceGroup). The following example creates a resource group named **myRouteServerRG** in the **WestUS** region:
 
@@ -108,8 +108,6 @@ Remove-AzResourceGroup -Name 'RouteServerRG' -Force
 ```
 
 ## Next step
-
-After you've created the Azure Route Server, continue on to learn more about how Azure Route Server interacts with ExpressRoute and VPN Gateways: 
 
 > [!div class="nextstepaction"]
 > [Configure peering between a route server and NVA](peer-route-server-with-virtual-appliance.md)
