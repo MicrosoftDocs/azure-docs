@@ -15,7 +15,7 @@ If you want public connectivity between your HDInsight cluster and dependent res
 
 The following diagram shows what a potential HDInsight virtual network architecture might look like when `resourceProviderConnection` is set to *outbound*:
 
-:::image type="content" source="media/hdinsight-private-link/outbound-resource-provider-connection-only.png" alt-text="Diagram of the HDInsight architecture using an outbound resource provider connection.":::
+:::image type="content" source="media/hdinsight-restrict-public-connectivity/outbound-resource-provider-connection-only.png" alt-text="Diagram of the HDInsight architecture using an outbound resource provider connection.":::
 
 > [!NOTE]
 > Restricting public connectivity is a prerequisite for enabling Private Link and shouldn't be considered the same capability.
