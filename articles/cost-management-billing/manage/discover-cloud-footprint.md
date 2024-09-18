@@ -36,13 +36,13 @@ The following table shows some common identifiers that Microsoft customers have.
 
 No. The ability to view accounts depends on your agreement and who manages it.
 
-**Customer managed or Microsoft managed**
+### Customer managed or Microsoft managed
 
 Both types of Microsoft Customer Agreement accounts are visible in the Billing account list views in the Microsoft 365 admin center and Azure portal.
 
 With these accounts, customers purchase directly from Microsoft or through a field seller. The customer owns the billing accounts and pays Microsoft directly for the service.
 
-**Partner managed**
+### Partner managed
 
 Billing accounts for the end customer that purchases through a Cloud Solution Provider (CSP) partner aren’t in the list views of Microsoft 365 admin center or Azure portal.
 
@@ -62,7 +62,7 @@ Microsoft 365 customers can use the following information to view their billing 
 
 Global Administrators can view all direct billing accounts at the organization level and can elevate their billing account permissions. Purchases made for individual use by non-administrators are only visible to and managed by the original purchaser.
 
-For more information, see [Elevate access to manage billing accounts](elevate-access-global-admin.md) .
+For more information, see [Elevate access to manage billing accounts](elevate-access-global-admin.md).
 
 ## How can I view employees participating in other tenants?
 
@@ -70,7 +70,7 @@ Global Administrators can view log data showing employee activity in other tenan
 
 ## How do I view my partner billing information?
 
-As a partner, you can see your partner billing account, billing group, and associated customer information in Azure**.** This information isn’t currently available in the Microsoft 365 admin center.
+As a partner, you can see your partner billing account, billing group, and associated customer information in Azure. This information isn’t currently available in the Microsoft 365 admin center.
 
 - [View your billing accounts in Azure portal](view-all-accounts.md#microsoft-partner-agreement)
 - [Get started with your Microsoft Partner Agreement billing account](../understand/mpa-overview.md)
@@ -163,7 +163,7 @@ If you’re locked out of a tenant, you must open a [support ticket](https://sup
 
 ## How can I restrict users in my organization from creating new tenants?
 
-You can enable a tenant-level policy to restrict users from creating new tenants in their organization. For more information, see [Restrict new organization creation, Microsoft Entra tenant policy](/azure/devops/organizations/accounts/azure-ad-tenant-policy-restrict-org-creation) .
+You can enable a tenant-level policy to restrict users from creating new tenants in their organization. For more information, see [Restrict new organization creation, Microsoft Entra tenant policy](/azure/devops/organizations/accounts/azure-ad-tenant-policy-restrict-org-creation).
 
 You can also restrict subscriptions from moving from one tenant to another. It’s a common pattern an employee might take when they create a tenant. For more information, see [Manage Azure subscription policies](manage-azure-subscription-policy.md).
 
