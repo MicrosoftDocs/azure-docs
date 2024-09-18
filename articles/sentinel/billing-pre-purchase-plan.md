@@ -57,7 +57,8 @@ Purchase Microsoft Sentinel pre-purchase plans in the [Azure portal reservations
 
 1. Go to the [Azure portal](https://portal.azure.com)
 1. Navigate to the **Reservations** service.
-1. On the **Purchase reservations page**, select **Microsoft Sentinel Pre-Purchase Plan**.
+1. On the **Purchase reservations page**, select **Microsoft Sentinel Pre-Purchase Plan**.  
+   :::image type="content" source="media/sentinel-plan.png" alt-text="Screenshot showing Microsoft Sentinel pre-purchase plan." lightbox="media/sentinel-plan.png":::
 1. On the **Select the product you want to purchase** page, select a subscription. Use the **Subscription** list to select the subscription used to pay for the reserved capacity. The payment method of the subscription is charged the upfront costs for the reserved capacity. Charges are deducted from the enrollment's Azure Prepayment (previously called monetary commitment) balance or charged as overage.
 1. Select a scope.
    - **Single resource group scope** - Applies the reservation discount to the matching resources in the selected resource group only.
