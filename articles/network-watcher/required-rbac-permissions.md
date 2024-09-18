@@ -48,6 +48,7 @@ Azure role-based access control (Azure RBAC) enables you to assign only the spec
 > | ---------                                                           | -------------------------------------------------------------- |
 > | Microsoft.Network/networkWatchers/configureFlowLog/action           | Configure a flow Log                                           |
 > | Microsoft.Network/networkWatchers/queryFlowLogStatus/action         | Query status for a flow log                                    |
+> | Microsoft.Network/networkSecurityGroups/write                       | Creates a network security group or updates an existing network security group |
 Microsoft.Storage/storageAccounts/listServiceSas/Action, </br> Microsoft.Storage/storageAccounts/listAccountSas/Action, <br> Microsoft.Storage/storageAccounts/listKeys/Action | Fetch shared access signatures (SAS) enabling [secure access to storage account](../storage/common/storage-sas-overview.md?toc=/azure/network-watcher/toc.json) and write to the storage account |
 
 ## Traffic analytics
