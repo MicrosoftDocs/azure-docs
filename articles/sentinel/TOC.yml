@@ -173,7 +173,7 @@
             - name: Monitored SAP security parameters
               href: sap/sap-suspicious-configuration-security-parameters.md
             - name: Required ABAP permissions
-              href: required-abap-permissions.md
+              href: sap/required-abap-authorizations.md
             - name: Kickstart script reference
               href: sap/reference-kickstart.md
             - name: Container update script reference 

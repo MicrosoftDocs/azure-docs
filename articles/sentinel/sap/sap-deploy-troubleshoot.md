@@ -229,7 +229,7 @@ Use the **RSAU_CONFIG_LOG** transaction for this step.
 
 ### Missing SAP change request
 
-If you see errors that you're missing a required SAP change request, make sure you've imported the correct SAP change request for your system. For more information, see [SAP prerequisites](prerequisites-for-deploying-sap-continuous-threat-monitoring.md#sap-prerequisites) and [Deploy optional CRs](preparing-sap.md#deploy-optional-crs).
+If you see errors that you're missing a required SAP change request, make sure you've imported the correct SAP change request for your system. For more information, see [SAP prerequisites](prerequisites-for-deploying-sap-continuous-threat-monitoring.md#sap-prerequisites) and [Configure your SAP system for the Microsoft Sentinel solution](preparing-sap.md).
 
 ### No records / late records
 
@@ -299,7 +299,9 @@ For example, use `javatz = GMT+12` or `abaptz = GMT-3**`.
 
 ### Unable to import the change request transports to SAP
 
-If you're unable to import [SAP log change requests](preparing-sap.md#deploy-optional-crs) and are getting an error about an invalid component version, add `ignore invalid component version` when you import the change request.
+If you're unable to import SAP log change requests and are getting an error about an invalid component version, add `ignore invalid component version` when you import the change request.
+
+For more information, see [Deployment prerequisites for the Microsoft Sentinel solution for SAP applications](prerequisites-for-deploying-sap-continuous-threat-monitoring.md) and [Configure your SAP system for the Microsoft Sentinel solution](preparing-sap.md).
 
 ### Audit log data not ingested past initial load
 

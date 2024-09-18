@@ -405,7 +405,7 @@ AGR_PROF_FULL = True
 PAHI_FULL = True
 ```
 
-For more information, see [Tables retrieved directly from SAP systems](sap-solution-log-reference.md#tables-retrieved-directly-from-sap-systems).
+For more information, see [Reference of tables retrieved directly from SAP systems](sap-solution-log-reference.md#reference-of-tables-retrieved-directly-from-sap-systems).
 
 ## Related content
 

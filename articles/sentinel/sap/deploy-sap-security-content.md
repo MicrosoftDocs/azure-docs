@@ -42,7 +42,7 @@ This procedure describes how to configure the data connector agent on your virtu
 1. In the Microsoft Sentinel **Content hub**, search for the **SAP applications** solution and install it on your Microsoft Sentinel workspace. 
 
 1. On the **Microsoft Sentinel solution for SAP applications** page, select **Create** to define deployment settings. For example:
-1. 
+
     :::image type="content" source="./media/deploy-sap-security-content/sap-solution.png" alt-text="Screenshot that shows the Microsoft Sentinel solution for SAP applications solution pane." lightbox="./media/deploy-sap-security-content/sap-solution.png":::
 
 1. On the **Basics** tab, under **Project details**, select the **Subscription** and **Resource group** where you want to install the solution.

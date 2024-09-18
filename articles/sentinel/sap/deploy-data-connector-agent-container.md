@@ -42,11 +42,11 @@ Before you deploy the data connector agent:
 Watch one of the following video demonstrations of the deployment process described in this article.
 <!--can we recommend 1 only?-->
 A deep dive on the portal options:
-<br>
+<br><br>
 > [!VIDEO https://www.youtube.com/embed/bg0vmUvcQ5Q?si=hugWYn1wjlq4seCR]
 
 Includes more details about using Azure KeyVault. No audio, demonstration only with captions:
-<br>
+<br><br>
 > [!VIDEO https://www.youtube.com/embed/TXANRi88mqI?si=D_5TlOlswKW9OSee]
 
 ## Create a virtual machine and configure access to your credentials
@@ -130,7 +130,7 @@ Your virtual machine is typically created by your **infrastructure** team. Confi
     }
     ```
 
-    For more information, see the [Azure CLI reference documenation](/cli/azure/ad/sp?view=azure-cli-latest##az-ad-sp-create-for-rbac).
+    For more information, see the [Azure CLI reference documenation](/cli/azure/ad/sp#az-ad-sp-create-for-rbac).
 
 1. Copy the **appId**, **tenant**, and **password** from the output. You need these for assigning the key vault access policy and running the deployment script in the coming steps.
 
@@ -357,5 +357,6 @@ After you deploy the SAP data connector agent, check your agent's health and con
 ## Next step
 
 Once the connector is deployed, proceed to deploy Microsoft Sentinel solution for SAP applications content:
+
 > [!div class="nextstepaction"]
 > [Enable SAP detections and threat protection](deployment-solution-configuration.md)

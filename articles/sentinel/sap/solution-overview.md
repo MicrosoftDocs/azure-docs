@@ -85,6 +85,6 @@ Microsoft Sentinel ingestion costs may vary and are influenced by the volume of 
 
 For more information, see:
 
-- [Enable SAP detections and threat protection](deployment-solution-configuration.md)
-- [Microsoft Sentinel incident response playbooks for SAP](sap-incident-response-playbooks.md)
 - [Deploy Microsoft Sentinel solution for SAP applications](deployment-overview.md)
+- [Enable SAP detections and threat protection](deployment-solution-configuration.md)
+- [Microsoft Sentinel solution for SAP applications: security content reference](sap-solution-security-content.md)
