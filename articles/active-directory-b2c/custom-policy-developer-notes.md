@@ -30,7 +30,20 @@ Azure Active Directory B2C [user flows and custom policies](user-flow-overview.m
 
 - Support requests for public preview features can be submitted through regular support channels.
 
-## User flows
+## Feature availability
+| Feature | User flow | Custom policy | User flow in China | Custom policy in China | Notes |
+|---|:---:|:---:|---|---|---|
+| [Sign-up and sign-in](add-sign-up-and-sign-in-policy.md) with email and password. | GA | GA |  |  |  |
+| [Sign-up and sign-in](add-sign-up-and-sign-in-policy.md) with username and password. | GA | GA |  |  |  |
+| [Profile editing flow](add-profile-editing-policy.md) | GA | GA |  |  |  |
+| [Self-Service password reset](add-password-reset-policy.md) | GA | GA |  | GA |  |
+| [Force password reset](force-password-reset.md) | GA | GA |  | GA |  |
+| [Phone sign-up and sign-in](phone-authentication-user-flows.md) | GA | GA |  | GA |  |
+| [Smart lockout](threat-management.md) | GA | GA |  |  |  |
+| [Conditional Access and Identity Protection](conditional-access-user-flow.md) | GA | GA |  | Limited availability | Not available for SAML applications.  |
+| [Identity Protection](conditional-access-identity-protection-overview.md) | GA | GA |  |  |  |
+| [CAPTCHA](add-captcha.md) | Preview | Preview |  |  | You can enable it during sign-up or sign-in for Local accounts. |
+
 |Feature  |User flow  |Custom policy  |Notes  |
 |---------|:---------:|:---------:|---------|
 | [Sign-up and sign-in](add-sign-up-and-sign-in-policy.md) with email and password. | GA | GA| |
