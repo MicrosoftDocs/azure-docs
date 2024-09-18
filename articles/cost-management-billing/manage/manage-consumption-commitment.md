@@ -1,6 +1,6 @@
 ---
 title: Manage a Microsoft Azure Consumption Commitment resource
-description: This article describes how to update your Azure billing account tax details.
+description: Learn how to manage your Microsoft Azure Consumption Commitment (MACC) resource, including moving it across resource groups or subscriptions.
 author: bandersmsft
 ms.reviewer: sornaks
 ms.service: cost-management-billing
@@ -19,10 +19,13 @@ When you accept a Microsoft Azure Consumption Commitment (MACC) in Microsoft Cus
 
 ## Prerequisites
 
+Move a MACC: 
 - To move a MACC, you must have Owner or Contributor permissions on the MACC resource.
 - You must also have the necessary permissions to move resources.
   - To move to another resource group, you must have write permissions to the source and destination resource groups.
   - To move to another subscription, you must have write permissions to the source subscription and Owner permissions on the destination subscription.
+
+Delete a MACC:
 - To delete a MACC, you must have Owner or Contributor permissions on the MACC resource.
 
 ## Move MACC across resource groups or subscriptions
