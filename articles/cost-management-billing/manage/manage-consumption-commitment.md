@@ -17,17 +17,6 @@ When you accept a Microsoft Azure Consumption Commitment (MACC) in a Microsoft C
 
 :::image type="content" source="./media/manage-consumption-commitment/consumption-commitment-overview.png" border="true" alt-text="Screenshot showing the MACC overview page." lightbox="./media/manage-consumption-commitment/consumption-commitment-overview.png" :::
 
-## Prerequisites
-
-Move a MACC: 
-- To move a MACC, you must have Owner or Contributor permissions on the MACC resource.
-- You must also have the necessary permissions to move resources.
-  - To move to another resource group, you must have write permissions to the source and destination resource groups.
-  - To move to another subscription, you must have write permissions to the source subscription and Owner permissions on the destination subscription.
-
-Delete a MACC:
-- To delete a MACC, you must have Owner or Contributor permissions on the MACC resource.
-
 ## Move MACC across resource groups or subscriptions
 
 You can move the MACC resource to another resource group or subscription. Moving it works the same way as moving other Azure resources.
