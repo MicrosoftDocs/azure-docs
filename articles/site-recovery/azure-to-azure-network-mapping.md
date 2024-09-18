@@ -67,7 +67,7 @@ The subnet of the target virtual machine is selected based on the name of the su
 The IP address for each NIC on a target virtual machine is configured as follows:
 
 - **DHCP**: If the NIC of the source virtual machine uses DHCP, the NIC of the target virtual machine is also set to use DHCP.
-- **Static IP address**: If the NIC of the source virtual machine uses static IP addressing, the target virtual machine NIC is also use a static IP address.
+- **Static IP address**: If the NIC of the source virtual machine uses static IP addressing, the target virtual machine NIC also uses a static IP address.
 
 The same holds for the Secondary IP Configurations as well.
 
