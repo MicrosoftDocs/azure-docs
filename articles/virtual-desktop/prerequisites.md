@@ -93,7 +93,7 @@ To access desktops and applications from your session hosts, your users need to 
 You need to join session hosts that provide desktops and applications to the same Microsoft Entra tenant as your users, or an Active Directory domain (either AD DS or Microsoft Entra Domain Services).
 
 > [!NOTE]
-> For Azure Stack HCI, you can only join session hosts to an Active Directory Domain Services domain. 
+> For Azure Stack HCI, you can only join session hosts to an Active Directory Domain Services domain. Microsoft Entra hybrid join is also available.
 
 To join session hosts to Microsoft Entra ID or an Active Directory domain, you need the following permissions:
 
