@@ -101,24 +101,9 @@ The article provides details about all types of Azure accounts.
 
 Administrators can manage trials and purchases that they made, and self-service purchases and trials made by non-administrators. For more information, see [Manage self-service purchases and trials (for admins)](/microsoft-365/commerce/subscriptions/manage-self-service-purchases-admins).
 
-## How can I programmatically get a list of subscriptions and tenants for a billing account?
+## How can I get a list of subscriptions and tenants for a billing account?
 
-You can view the tenants associated with a subscription in the Azure portal on the Subscriptions page under Cost Management + Billing.
-
-There’s also a publicly available API for customers to get billing accounts that returns all associated billing subscriptions. The API also supports an optional header that returns all tenant IDs associated with the billing account. For more information, see [Billing Subscriptions - List By Billing Account](/rest/api/billing/billing-subscriptions/list-by-billing-account).
-
-CLI snippet
-
-```azurecli
-# login
-az login
-# Get BillingAccounts
-az rest --method get --url 	https://management.azure.com/providers/Microsoft.Billing/billingAccounts?api-	version=2022-10-01-privatepreview
-
-
-# Get BillingSubscriptions with provisioning tenant
-az rest --method get --url 	https://management.azure.com/providers/Microsoft.Billing/billingAccounts/<BillingAcc	ountId>/billingSubscriptions?api-version=2020-12-15-privatepreview --headers x-ms-	service-tenant-info=true
-```
+You can view the tenants associated with a subscription in the Azure portal on the **Subscriptions** page under **Cost Management + Billing**.
 
 ## How can I view the Azure tenant that I am currently signed in to?
 
