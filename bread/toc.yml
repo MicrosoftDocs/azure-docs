@@ -449,9 +449,6 @@ items:
   - name: Connectors
     tocHref: /azure/connectors/
     topicHref: /azure/connectors/
-  - name: Kubernetes Fleet Manager
-    tocHref: /azure/kubernetes-fleet/
-    topicHref: /azure/kubernetes-fleet/
   - name: OpenShift
     tocHref: /azure/openshift/
     topicHref: /azure/openshift/
