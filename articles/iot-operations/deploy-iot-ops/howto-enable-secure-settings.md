@@ -5,7 +5,7 @@ author: kgremban
 ms.author: kgremban
 ms.topic: how-to
 ms.custom: 
-ms.date: 08/26/2024
+ms.date: 09/17/2024
 
 #CustomerIntent: I deployed Azure IoT Operations with test settings for the quickstart scenario, now I want to enable secure settings to use the full feature set.
 ---
@@ -16,7 +16,7 @@ ms.date: 08/26/2024
 
 The secure settings for Azure IoT Operations include secret management and user-assigned managed identity. These settings are recommended for production use.
 
-The end-to-end sample articles skip the secure settings configuration and instead deploy Azure IoT Operations with only test settings. The test settings are easier and quicker to get you started with a deployment, but after your initial deployment you may want to start using the secure settings. This article provides instructions for enabling secure settings on an existing deployment.
+The end-to-end sample articles skip the secure settings configuration and instead deploy Azure IoT Operations with only test settings. The test settings are easier and quicker to get you started with a deployment, but after your initial deployment you might want to start using the secure settings. This article provides instructions for enabling secure settings on an existing deployment.
 
 ## Prerequisites
 
@@ -32,7 +32,7 @@ The end-to-end sample articles skip the secure settings configuration and instea
 
 ## Configure cluster for workload identity
 
-This step only applies to Ubuntu + K3s clusters. The quickstart script for AKS Edge Essentials used in [Prepare your Azure Arc-enabled Kubernetes cluster](./howto-prepare-cluster.md) enables workload identity by default. If you have an AKS Edge Essentials cluster, continue to the next section.
+This step only applies to Ubuntu + K3s clusters. The quickstart script for Azure Kuberenetes Service (AKS) Edge Essentials used in [Prepare your Azure Arc-enabled Kubernetes cluster](./howto-prepare-cluster.md) enables workload identity by default. If you have an AKS Edge Essentials cluster, continue to the next section.
 
 If you aren't sure whether your K3s cluster already has workload identity enabled or not, run the following command to check:
 
@@ -105,13 +105,13 @@ Use the following steps to enable workload identity on an existing connected K3s
 
 ## Set up secret management
 
-Secret Mmnagement for AIO leverages Azure Secret Store to sync the secrets from an Azure Key Vault and store them on the edge as Kubernetes secrets.  
+Secret Management for Azure IoT Operations uses Azure Secret Store to sync the secrets from an Azure Key Vault and store them on the edge as Kubernetes secrets.  
 
 Azure secret requires a user-assigned managed identity with access to the Azure Key Vault where secrets are stored.
 
 ### Create an Azure Key Vault
 
-If you already have a Azure Key Vault, you can skip this section.
+If you already have an Azure Key Vault, you can skip this section.
 
 1. Create an Azure Key Vault.
 
@@ -135,16 +135,17 @@ az identity create --name "<USER_ASSIGNED_IDENTITY_NAME>" --resource-group "<RES
 
 ### Enable secret synchronization
 
-The following command sets up the AIO instance for secret synchronization. It includes:
+The following command sets up the Azure IoT Operations instance for secret synchronization. This command:
 
-* Creating a federated identity credential using the user-assigned managed identity.
-* Role assignment of the user-assigned managed identity to the Azure Key Vault.
+* Creates a federated identity credential using the user-assigned managed identity.
+* Adds a role assignment to the user-assigned managed identity for access to the Azure Key Vault.
+* Adds a minimum secret provider class associated with the Azure IoT Operations instance.
 
 ```azurecli
-az iot ops secretsync enable -n myinstance -g mygroup --mi-user-assigned $USER_ASSIGNED_MI_RESOURCE_ID --kv-resource-id $KEYVAULT_RESOURCE_ID 
+az iot ops secretsync enable -n <CLUSTER_NAME> -g <RESOURCE_GROUP> --mi-user-assigned <USER_ASSIGNED_MI_RESOURCE_ID> --kv-resource-id <KEYVAULT_RESOURCE_ID>
 ```
 
-Now that secret synchronization set up is complete, you can refer to [Manage Secrets](./howto-manage-secrets.md) to learn how to use secrets with Azure IoT Operations.
+Now that secret synchronization setup is complete, you can refer to [Manage Secrets](./howto-manage-secrets.md) to learn how to use secrets with Azure IoT Operations.
 
 ## Set up managed identity for cloud connections
 
@@ -157,10 +158,10 @@ Some Azure IoT Operations components like dataflow endpoints use user-assigned m
 
    You will need to grant the identity permission to whichever cloud resource this will be used for. 
 
-1. Run the following command to assign the identity to the Azure IoT Operations instance.
+1. Run the following command to assign the identity to the Azure IoT Operations instance. This command also created a federated identity credential using the OIDC issuer of the indicated connected cluster and the Azure IoT Operations service account.
 
    ```azurecli
-   az iot ops identity assign -n myinstance -g mygroup --mi-user-assigned $USER_ASSIGNED_MI_RESOURCE_ID 
+   az iot ops identity assign -n <CLUSTER_NAME> -g <RESOURCE_GROUP> --mi-user-assigned <USER_ASSIGNED_MI_RESOURCE_ID>
    ```
 
 Now, you can use this managed identity in dataflow endpoints for cloud connections.
