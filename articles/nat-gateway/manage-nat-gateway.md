@@ -434,8 +434,8 @@ $subnetName = "subnet-1"
 
 # Get the virtual network
 $vnet = @{
-        Name = $virtualNetworkName
-        ResourceGroupName = $resourceGroupName
+    Name = $virtualNetworkName
+    ResourceGroupName = $resourceGroupName
 }
 $virtualNetwork = Get-AzVirtualNetwork @vnet
 
@@ -447,9 +447,9 @@ $subnet.NatGateway = $null
 
 # Update the subnet configuration
 $subConfig = @{
-            Name = $subnetName
-            VirtualNetwork = $virtualNetwork
-            AddressPrefix = $subnet.AddressPrefix         
+    Name = $subnetName
+    VirtualNetwork = $virtualNetwork
+    AddressPrefix = $subnet.AddressPrefix         
 }
 Set-AzVirtualNetworkSubnetConfig @subConfig
 
