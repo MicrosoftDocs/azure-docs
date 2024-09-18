@@ -22,7 +22,6 @@ The most recent stable release of the Azure Maps services.
 
 | API | API version | Description |
 |-----|-------------|-------------|
-| [Data] |  2.0  | The Azure Maps Data v2 service is deprecated and will be retired on 9/16/24. To avoid service disruptions, all calls to the Data service need to be updated to use the Azure Maps [Data registry] service by 9/16/24. For more information, see [How to create data registry]. |
 | [Data Registry] |  2023-06-01  | Programmatically store and update geospatial data to use in spatial operations. |
 | [Geolocation] |  1.0  | Convert IP addresses to country/region ISO codes. |
 | [Render] |  2024-04-01  | Get road, satellite/aerial, weather, traffic map tiles, and static map images. |
@@ -47,7 +46,6 @@ There are previous stable releases of an Azure Maps services that are still in u
 
 | API | API version | Description |
 |-----|-------------|-------------|
-| [Data][Data-v1] |  1.0  | The Azure Maps Data v1 service is deprecated and will be retired on 9/16/24. To avoid service disruptions, all calls to the Data service need to be updated to use the Azure Maps [Data registry] service by 9/16/24. For more information, see [How to create data registry]. |
 | [Render][Render v1] |  1.0  | Get road, satellite/aerial, weather, traffic map tiles and static map images.<BR>The Azure Maps [Render v1] service is now deprecated and will be retired on 9/17/26. To avoid service disruptions, all calls to Render v1 API needs to be updated to use the latest version of the [Render] API by 9/17/26. |
 | [Search][Search-v1] |  1.0  | Geocode addresses and coordinates, search for business listings and places by name or category and get administrative boundary polygons. This is version 1.0 of the Search service. For the latest version, see [Search]. |
 
