@@ -7,7 +7,7 @@ ms.author: mbender
 ms.topic: conceptual
 ms.date: 09/27/2023
 ms.custom: template-concept
-# Customer intent: As an cloud engineer with Casic Load Balancer services, I need guidance and direction on migrating my workloads off Basic to Standard SKUs
+# Customer intent: As an cloud engineer with Basic Load Balancer services, I need guidance and direction on migrating my workloads off Basic to Standard SKUs
 ---
 
 # Upgrading from Casic Load Balancer - Guidance
