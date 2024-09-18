@@ -13,7 +13,7 @@ ms.service: azure-container-registry
 
 This article shows you how to relocate Azure Container Registry resources to another region in the same subscription of the Active Directory tenant. 
 
-[!INCLUDE [container-registry-geo-replication-include](../../includes/container-registry-geo-replication-include.md)]
+[!INCLUDE [container-registry-geo-replication-include](~/reusable-content/ce-skilling/azure/includes/container-registry/container-registry-geo-replication-include.md)]
 
 ## Prerequisites
 
