@@ -28,7 +28,7 @@ See the following figure:
 
 The valid client certificate flow shows a client presenting a certificate to the frontend of Application Gateway for Containers. Application Gateway for Containers determines the certificate is valid and proxies the request to the backend target. The response is ultimately returned to the client.
 
-The revoked client certificate flow shows a client presenting a revoked certificate to the frontend of Application Gateway for Containers. Application Gateway for Containers determines the certificate is not valid and prevents the request from being proxied to the client. The client will receive an HTTP 400 bad request and corresponding reason.
+The revoked client certificate flow shows a client presenting a revoked certificate to the frontend of Application Gateway for Containers. Application Gateway for Containers determines the certificate isn't valid and prevents the request from being proxied to the client. The client will receive an HTTP 400 bad request and corresponding reason.
 
 ## Prerequisites
 
@@ -51,7 +51,7 @@ The revoked client certificate flow shows a client presenting a revoked certific
 
 ### Generate certificate(s)
 
-For this example, we will create a root certificate and issue a client certificate from the root. If you already have a root certificate and client certificate, you may skip these steps.
+For this example, we'll create a root certificate and issue a client certificate from the root. If you already have a root certificate and client certificate, you may skip these steps.
 
 #### Generate a private key for the root certificate
 
@@ -345,4 +345,4 @@ curl --cert client.crt --key client.key --insecure https://$fqdn/
 
 Note the response is from the backend service behind Application Gateway for Containers.
 
-Congratulations, you have installed ALB Controller, deployed a backend application, authenticated via client certificate, and returned traffic from your backend service via Application Gateway for Containers.
+Congratulations, you installed ALB Controller, deployed a backend application, authenticated via client certificate, and returned traffic from your backend service via Application Gateway for Containers.
