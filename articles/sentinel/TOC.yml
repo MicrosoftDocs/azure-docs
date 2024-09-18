@@ -156,8 +156,8 @@
           - name: Connect your SAP system
             displayName: disable, stop ingestion, stop 
             href: sap/deploy-data-connector-agent-container.md
-          - name: Monitor SAP system health and role
-            href: monitor-sap-system-health.md 
+          - name: Troubleshoot SAP solution deployment
+            href: sap/sap-deploy-troubleshoot.md    
           - name: Extra deployment steps
             items:
             - name: Collect SAP HANA audit logs
@@ -190,6 +190,8 @@
           href: sap/cross-workspace.md
         - name: Monitor SAP systems
           items:
+          - name: Monitor SAP system health and role
+            href: monitor-sap-system-health.md
           - name: Monitor SAP audit logs
             href: sap/sap-audit-log-workbook.md
           - name: Monitor SAP audit controls
@@ -1236,8 +1238,6 @@
     href: troubleshooting-cef-syslog.md
   - name: Troubleshoot AWS S3 connector issues
     href: aws-s3-troubleshoot.md
-  - name: Troubleshoot SAP solution deployment
-    href: sap/sap-deploy-troubleshoot.md    
 - name: Reference
   items:
   - name: Service limits

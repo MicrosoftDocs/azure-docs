@@ -47,7 +47,7 @@ This procedure describes how to check your data connector's connection status fr
 
     The fields in the **Configure an SAP system and assign it to a collector agent** area are described as follows:
 
-    - **System display name**. The system's display name in the SAP environment.
+    - **System display name**. The system's display name in the SAP environment. <!--need to check this value-->
 
     - **System role**. Indicates whether the system is production state or not, which also affects billing. For more information, see [Solution pricing](sap/solution-overview.md#solution-pricing). Values include:
 
