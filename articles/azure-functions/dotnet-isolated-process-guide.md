@@ -860,9 +860,11 @@ Azure Functions currently can be used with the following "Preview" or "Go-live" 
 
 | Operating system | .NET preview version |
 | - | - |
-| Linux | .NET 9 Preview 7<sup>1</sup> |
+| Linux | .NET 9 Preview 7<sup>1, 2</sup> |
 
 <sup>1</sup> To successfully target .NET 9, your project needs to reference the [2.x versions of the core packages](#version-2x-preview). If using Visual Studio, .NET 9 requires version 17.12 or later.
+
+<sup>2</sup> .NET 9 is not yet supported on the Flex Consumption SKU.
 
 See [Supported versions][supported-versions] for a list of generally available releases that you can use.
 

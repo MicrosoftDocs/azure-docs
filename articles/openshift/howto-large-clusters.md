@@ -52,7 +52,7 @@ When deploying a large cluster, you must start with at most 50 worker nodes at c
 > While you can define up to 50 worker nodes at creation time, it's best to start with a small cluster (e.g, three (3) worker nodes) and then scale out to the desired number of worker nodes after the cluster is installed.
 >
 
-Follow the steps provided in [Create an Azure Red Hat OpenShift cluster](https://learn.microsoft.com/azure/openshift/create-cluster?tabs=azure-cli) until the "Create the cluster" steps, then continue as instructed:
+Follow the steps provided in [Create an Azure Red Hat OpenShift cluster](create-cluster.md?tabs=azure-cli) until the "Create the cluster" steps, then continue as instructed:
 
 The sample command below using the Azure CLI can be used to deploy a cluster with Standard_D32s_v5 as the control plane nodes, requesting three public IP addresses, and defining nine worker nodes:
 
