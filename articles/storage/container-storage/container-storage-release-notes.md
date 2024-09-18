@@ -23,7 +23,7 @@ The following Azure Container Storage versions are supported:
 ## Unsupported versions
 The following Azure Container Storage versions are no longer supported: 1.0.6-preview, 1.0.3-preview, 1.0.2-preview, 1.0.1-preview, 1.0.0-preview. Please refer to the section “Upgrade a preview installation to GA” for upgrading guidance.
 
-## Minor vs. Patch versions
+## Minor vs. patch versions
 Minor versions introduce small improvements, performance enhancements, or minor new features without breaking existing functionality. For example, version 1.1.0 would move to 1.2.0. Patch versions are released more frequently than minor versions. They focus solely on bug fixes and security updates. For example, version 1.1.1 would be updated to 1.1.2.
 
 ## Version 1.1.1
