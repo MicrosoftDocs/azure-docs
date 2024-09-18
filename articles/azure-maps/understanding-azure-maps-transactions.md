@@ -54,7 +54,7 @@ The following table summarizes the Azure Maps services that generate transaction
 >
 > **Azure Maps Creator retirement**
 >
-> The Azure Maps Creator is now deprecated and will be retired on 9/30/25.
+> The Azure Maps Creator is now deprecated and will be retired on 9/30/25. For more information, see [End of Life Announcement of Azure Maps Creator](https://aka.ms/AzureMapsCreatorDeprecation).
 
 | Azure Maps Creator      | Billable | Transaction Calculation   | Meter |
 |-------------------------|----------|---------------------------|-------|
