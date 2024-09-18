@@ -62,7 +62,7 @@ To create an Event Hubs namespace and an event hub, run the following Azure CLI 
 # [Bash](#tab/bash)
 
 ```bash
-az eventhubs namespace create --name ${CLUSTER_NAME:0:24} --resource-group $RESOURCE_GROUP
+az eventhubs namespace create --name ${CLUSTER_NAME:0:24} --resource-group $RESOURCE_GROUP --disable-local-auth true
 
 az eventhubs eventhub create --name destinationeh --resource-group $RESOURCE_GROUP --namespace-name ${CLUSTER_NAME:0:24} --retention-time 1 --partition-count 1 --cleanup-policy Delete
 ```
@@ -70,7 +70,7 @@ az eventhubs eventhub create --name destinationeh --resource-group $RESOURCE_GRO
 # [PowerShell](#tab/powershell)
 
 ```powershell
-az eventhubs namespace create --name $CLUSTER_NAME.Substring(0, 24) --resource-group $RESOURCE_GROUP
+az eventhubs namespace create --name $CLUSTER_NAME.Substring(0, 24) --resource-group $RESOURCE_GROUP --disable-local-auth true
 
 az eventhubs eventhub create --name destinationeh --resource-group $RESOURCE_GROUP --namespace-name $CLUSTER_NAME.Substring(0, 24) --retention-time 1 --partition-count 1 --cleanup-policy Delete
 ```
@@ -105,10 +105,12 @@ az role assignment create --role "Azure Event Hubs Data Sender" --assignee $PRIN
 
 To create and configure a dataflow in your cluster, run the following commands in your shell. This dataflow forwards messages from the MQTT topic to the event hub you created without making any changes:
 
+<!-- TODO: Change branch to main before merging the release branch -->
+
 # [Bash](#tab/bash)
 
 ```bash
-wget https://raw.githubusercontent.com/Azure-Samples/explore-iot-operations/main/samples/quickstarts/dataflow.yaml
+wget https://raw.githubusercontent.com/Azure-Samples/explore-iot-operations/release-m2/samples/quickstarts/dataflow.yaml
 sed -i 's/<NAMESPACE>/'"${CLUSTER_NAME:0:24}"'/' dataflow.yaml
 
 kubectl apply -f dataflow.yaml
@@ -117,7 +119,7 @@ kubectl apply -f dataflow.yaml
 # [PowerShell](#tab/powershell)
 
 ```powershell
-Invoke-WebRequest -Uri https://raw.githubusercontent.com/Azure-Samples/explore-iot-operations/main/samples/quickstarts/dataflow.yaml -OutFile dataflow.yaml
+Invoke-WebRequest -Uri https://raw.githubusercontent.com/Azure-Samples/explore-iot-operations/release-m2/samples/quickstarts/dataflow.yaml -OutFile dataflow.yaml
 
 (Get-Content dataflow.yaml) | ForEach-Object { $_ -replace '<NAMESPACE>', $CLUSTER_NAME.Substring(0, 24) } | Set-Content dataflow.yaml
 
