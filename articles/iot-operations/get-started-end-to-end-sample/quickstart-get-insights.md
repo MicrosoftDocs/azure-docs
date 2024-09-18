@@ -87,7 +87,7 @@ In this section, you create a KQL database in your Microsoft Fabric workspace to
     | Column name | Data type |
     | --- | --- |
     | Temperature | decimal | 
-    | Pressure | decimal | 
+    | Humidity | decimal | 
     | Timestamp | datetime |
 
 1. After the *OPCUA* table has been created, select it and use the **Explore your data** button to open a query window for the table.
@@ -97,7 +97,7 @@ In this section, you create a KQL database in your Microsoft Fabric workspace to
 1. Run the following KQL query to create a data mapping for your table. The data mapping will be called *opcua_mapping*.
 
     ```kql
-    .create table ['OPCUA'] ingestion json mapping 'opcua_mapping' '[{"column":"Temperature", "Properties":{"Path":"$.temperature.Value"}},{"column":"Pressure", "Properties":{"Path":"$.[\'Tag 10\'].Value"}},{"column":"Timestamp", "Properties":{"Path":"$[\'EventProcessedUtcTime\']"}}]'
+    .create table ['OPCUA'] ingestion json mapping 'opcua_mapping' '[{"column":"Temperature", "Properties":{"Path":"$.Temperature.Value"}},{"column":"Humidity", "Properties":{"Path":"$.Humidity.Value"}},{"column":"Timestamp", "Properties":{"Path":"$[\'EventProcessedUtcTime\']"}}]'
     ``` 
 
 ### Add data table as a destination
@@ -126,7 +126,7 @@ If you want, you can also view and query this data in your KQL database directly
 
 ## Create a Real-Time Dashboard
 
-In this section, you'll create a new [Real-Time Dashboard](/fabric/real-time-intelligence/dashboard-real-time-create) to visualize your quickstart data. The dashboard will automatically allow filtering by timestamp, and will display visual summaries of temperature and pressure data.
+In this section, you'll create a new [Real-Time Dashboard](/fabric/real-time-intelligence/dashboard-real-time-create) to visualize your quickstart data. The dashboard will automatically allow filtering by timestamp, and will display visual summaries of temperature and humidity data.
 
 >[!NOTE]
 >You can only create Real-Time Dashboards if your tenant admin has enabled the creation of Real-Time Dashboards in your Fabric tenant. For more information, see [Enable tenant settings in the admin portal](/fabric/real-time-intelligence/dashboard-real-time-create#enable-tenant-settings-in-the-admin-portal).
@@ -140,18 +140,18 @@ Then, follow the steps in the [Add data source](/fabric/real-time-intelligence/d
 
 ### Create line chart tile
 
-Next, add a tile to your dashboard to show a line chart of temperature and pressure over time for the selected time range.
+Next, add a tile to your dashboard to show a line chart of temperature and humidity over time for the selected time range.
 
 1. Select either **+ Add tile** or **New tile** to add a new tile.
 
     :::image type="content" source="media/quickstart-get-insights/add-tile.png" alt-text="Screenshot of adding a tile to a dashboard.":::
 
-1. Enter the following KQL query for the tile. This query applies a built-in filter parameter from the dashboard selector for time range, and pulls the resulting records with their timestamp, temperature, and pressure.
+1. Enter the following KQL query for the tile. This query applies a built-in filter parameter from the dashboard selector for time range, and pulls the resulting records with their timestamp, temperature, and humidity.
 
     ```kql
     OPCUA 
     | where Timestamp between (_startTime.._endTime)
-    | project Timestamp, Temperature, Pressure
+    | project Timestamp, Temperature, Humidity
     ```
 
     **Run** the query to verify that data can be found.
@@ -159,10 +159,10 @@ Next, add a tile to your dashboard to show a line chart of temperature and press
     :::image type="content" source="media/quickstart-get-insights/chart-query.png" alt-text="Screenshot of adding a tile query.":::
 
 1. Select **+ Add visual** next to the query results to add a visual for this data. Create a visual with the following characteristics:
-    * **Tile name**: *Temperature and pressure over time*
+    * **Tile name**: *Temperature and humidity over time*
     * **Visual type**: *Line chart*
     * **Data**:
-        * **Y columns**: *Temperature (decimal)* and *Pressure (decimal)* (already inferred by default)
+        * **Y columns**: *Temperature (decimal)* and *Humidity (decimal)* (already inferred by default)
         * **X columns**: *Timestamp (datetime)* (already inferred by default)
     * **Y Axis**:
         * **Label**: *Units*
@@ -179,7 +179,7 @@ View the finished tile on your dashboard.
 
 ### Create max value tiles
 
-Next, create some tiles to display the maximum values of temperature and pressure.
+Next, create some tiles to display the maximum values of temperature and humidity.
 
 1. Select **New tile** to create a new tile.
 
@@ -215,21 +215,21 @@ Next, create some tiles to display the maximum values of temperature and pressur
     This creates a duplicate tile on the dashboard.
 
 1. On the new tile, select the pencil icon to edit it.
-1. Replace *Temperature* in the KQL query with *Pressure*, so that it matches the query below.
+1. Replace *Temperature* in the KQL query with *Humidity*, so that it matches the query below.
 
     ```kql
     OPCUA
     | where Timestamp between (_startTime.._endTime)
-    | top 1 by Pressure desc
-    | summarize by Pressure
+    | top 1 by Humidity desc
+    | summarize by Humidity
     ```
 
-    **Run** the query to verify that a maximum pressure can be found.
+    **Run** the query to verify that a maximum humidity can be found.
 
 1. In the **Visual formatting** pane, update the following characteristics:
-    * **Tile name**: *Max pressure*
+    * **Tile name**: *Max humidity*
     * **Data**:
-        * **Value column**: *Pressure (decimal)* (already inferred by default)
+        * **Value column**: *Humidity (decimal)* (already inferred by default)
 
     Select **Apply changes**.
 

@@ -207,7 +207,7 @@ With the following steps, you Arc-enable the level 3 cluster using the Layered N
     az login
     az account set --subscription <your Azure subscription ID>
     
-    az connectedk8s connect -g <your resource group name> -n <your connected cluster name>
+    az connectedk8s connect -g <your resource group name> -n <your connected cluster name> --disable-auto-upgrade
     ```
 
     For more information about *connectedk8s*, see [Quickstart: Connect an existing Kubernetes cluster to Azure Arc ](/azure/azure-arc/kubernetes/quickstart-connect-cluster).
