@@ -18,7 +18,7 @@ In the following steps, you download a public [Nginx image](https://store.docker
 ## Prerequisites
 
 * **Azure container registry** - Create a container registry in your Azure subscription. For example, use the [Azure portal](container-registry-get-started-portal.md), the [Azure CLI](container-registry-get-started-azure-cli.md), or [Azure PowerShell](container-registry-get-started-powershell.md).
-* **Docker CLI** - You must also have Docker installed locally. Docker provides packages that easily configure Docker on any [macOS][docker-mac], [Windows][docker-windows], or [Linux][docker-linux] system.
+* **Docker CLI** - You must also have Docker installed locally. Docker provides packages that easily configure Docker on any [macOS](https://docs.docker.com/desktop/install/mac-install/), [Windows](https://docs.docker.com/desktop/install/windows-install/), or [Linux](https://docs.docker.com/desktop/install/linux-install/) system.
 
 ## Log in to a registry
 
