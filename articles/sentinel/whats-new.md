@@ -20,9 +20,17 @@ The listed features were released in the last three months. For information abou
 
 ## September 2024 
 
+
+- [Azure reservations now have pre-purchase plans available for Microsoft Sentinel](#pre-purchase-plans-now-available-for-microsoft-sentinel)
 - [Import/export of automation rules now generally available (GA)](#importexport-of-automation-rules-now-generally-available-ga)
 - [Google Cloud Platform data connectors are now generally available (GA)](#google-cloud-platform-data-connectors-are-now-generally-available-ga)
 - [Microsoft Sentinel now generally available (GA) in Azure Israel Central](#microsoft-sentinel-now-generally-available-ga-in-azure-israel-central)
+
+### Pre-purchase plans now available for Microsoft Sentinel
+
+Pre-purchase plans are a type of Azure reservation. When you buy a pre-purchase plan, you get commit units (CUs) at discounted tiers for a specific product. Microsoft Sentinel commit units (SCUs) apply towards eligible costs in your workspace. When you have predictable costs, choosing the right pre-purchase plan saves you money! 
+
+For more information, see [Optimize costs with a pre-purchase plan](billing-pre-purchase-plan.md).
 
 ### Import/export of automation rules now generally available (GA)
 
