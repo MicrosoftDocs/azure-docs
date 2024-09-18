@@ -58,7 +58,7 @@ To sign in to the operations experience, go to the [operations experience](https
 
 ## Select your site
 
-After you sign in, the web UI displays a list of sites. Each site is a collection of Azure IoT Operations instances where you can configure and manage your assets. A site typically represents a physical location where a you have physcial assets deployed. Sites make it easier for you to locate and manage assets. Your [IT administrator is responsible for grouping instances in to sites](../../azure-arc/site-manager/overview.md). Any Azure IoT Operations instances that aren't assigned to a site appear in the **Unassigned instances** node. Select the site that you want to use:
+After you sign in, the web UI displays a list of sites. Each site is a collection of Azure IoT Operations instances where you can configure and manage your assets. A site typically represents a physical location where you have physical assets deployed. Sites make it easier for you to locate and manage assets. Your [IT administrator is responsible for grouping instances in to sites](../../azure-arc/site-manager/overview.md). Any Azure IoT Operations instances that aren't assigned to a site appear in the **Unassigned instances** node. Select the site that you want to use:
 
 :::image type="content" source="media/howto-manage-assets-remotely/site-list.png" alt-text="Screenshot that shows a list of sites in the operations experience.":::
 
