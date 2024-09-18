@@ -169,6 +169,8 @@
       href: log-streaming.md
     - name: Container console
       href: container-console.md
+    - name: Container debug console
+      href: container-debug-console.md
     - name: Metrics
       href: metrics.md
     - name: Log monitoring
