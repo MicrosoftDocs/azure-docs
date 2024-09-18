@@ -13,7 +13,7 @@ ms.author: banders
 
 # Manage a Microsoft Azure Consumption Commitment resource under a subscription
 
-When you accept a Microsoft Azure Consumption Commitment (MACC) in Microsoft Customer agreement for a subscription and resource group, the MACC resource is created in that subscription and resource group. The resource contains the metadata related to the MACC. Including: status of the MACC, commitment amount, start date, end date, and System ID. You can view the metadata in the Azure portal.
+When you accept a Microsoft Azure Consumption Commitment (MACC) in a Microsoft Customer agreement for a subscription and resource group, the MACC resource is created in that subscription and resource group. The resource contains the metadata related to the MACC. Including: status of the MACC, commitment amount, start date, end date, and System ID. You can view the metadata in the Azure portal.
 
 :::image type="content" source="./media/manage-consumption-commitment/consumption-commitment-overview.png" border="true" alt-text="Screenshot showing the MACC overview page." lightbox="./media/manage-consumption-commitment/consumption-commitment-overview.png" :::
 
