@@ -64,7 +64,7 @@ az network lb inbound-nat-rule delete -g MyResourceGroup --lb-name MyLoadBalance
 
 az network nic ip-config inbound-nat-rule remove -g MyResourceGroup --nic-name MyNic -n MyIpConfig --inbound-nat-rule MyNatRule 
 
-az network lb inbound-nat-rule create -g MyResourceGroup --lb-name MyLoadBalancer -n MyNatRule --protocol Tcp --frontend-port-range-start 201 --frontend-port-range-end 500 --backend-port 22 
+az network lb inbound-nat-rule create -g MyResourceGroup --lb-name MyLoadBalancer -n MyNatRule --protocol Tcp --frontend-port-range-start 201 --frontend-port-range-end 500 --backend-port 22 --backend-address-pool MybackendPool
 
 ```
 
@@ -108,7 +108,7 @@ az vmss update -g MyResourceGroup -n MyVMScaleSet --remove virtualMachineProfile
 
 az vmss update-instances --instance-ids '*' --resource-group MyResourceGroup --name MyVMScaleSet 
 
-az network lb inbound-nat-rule create -g MyResourceGroup --lb-name MyLoadBalancer -n MyNatRule --protocol Tcp --frontend-port-range-start 201 --frontend-port-range-end 500 --backend-port 22 
+az network lb inbound-nat-rule create -g MyResourceGroup --lb-name MyLoadBalancer -n MyNatRule --protocol Tcp --frontend-port-range-start 201 --frontend-port-range-end 500 --backend-port 22 --backend-address-pool MybackendPool
 
 ```
 
