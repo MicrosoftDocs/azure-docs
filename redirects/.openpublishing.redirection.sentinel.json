@@ -33,7 +33,7 @@
         {
             "source_path_from_root": "/articles/sentinel/best-practices-workspace-architecture.md",
             "redirect_url": "/azure/azure-monitor/logs/workspace-design",
-            "redirect_document_id": true
+            "redirect_document_id": false
         },
         {
             "source_path_from_root": "/articles/sentinel/design-your-workspace-architecture.md",

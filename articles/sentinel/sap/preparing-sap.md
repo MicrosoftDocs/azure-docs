@@ -37,11 +37,7 @@ To allow the SAP data connector to connect to your SAP system, you must create a
 
 - **To include both log retrieval and [attack disruption response actions](https://aka.ms/attack-disrupt-defender)**, we recommend creating this role loading role authorizations from the [**/MSFTSEN/SENTINEL_RESPONDER**](https://aka.ms/SAP_Sentinel_Responder_Role) file.
 
-- **To include log retrieval only**, we recommend creating this role by deploying the *NPLK900271* SAP change request (CR), depending your SAP BASIS version:
-
-    - [K900271.NPL](https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/CR/K900271.NPL)
-
-    - [R900271.NPL](https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/CR/R900271.NPL)
+- **To include log retrieval only**, we recommend creating this role by deploying the *NPLK900271* SAP change request (CR): [K900271.NPL](https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/CR/K900271.NPL) | [R900271.NPL](https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/CR/R900271.NPL)
 
     Deploy the CRs on your SAP system as needed just as you'd deploy other CRs. We strongly recommend that deploying SAP CRs is done by an experienced SAP system administrator. For more information, see the [SAP documentation](https://help.sap.com/docs/ABAP_PLATFORM_NEW/4a368c163b08418890a406d413933ba7/e15d9acae75c11d2b451006094b9ea64.html?locale=en-US&version=LATEST).
 
