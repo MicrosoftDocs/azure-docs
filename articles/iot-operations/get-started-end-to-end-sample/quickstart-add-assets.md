@@ -6,7 +6,7 @@ ms.author: dobett
 ms.topic: quickstart
 ms.custom:
   - ignite-2023
-ms.date: 07/23/2024
+ms.date: 09/17/2024
 
 #CustomerIntent: As an OT user, I want to create assets in Azure IoT Operations so that I can subscribe to asset data points, and then process the data before I send it to the cloud.
 ---
@@ -27,13 +27,30 @@ In this quickstart, you use the operations experience web UI to create your asse
 
 In instance of Azure IoT Operations Preview deployed in a Kubernetes cluster. The [Quickstart: Run Azure IoT Operations Preview in GitHub Codespaces with K3s](quickstart-deploy.md) provides simple instructions to deploy an Azure IoT Operations instance that you can use for the quickstarts.
 
-To sign in to the operations experience, you need a work or school account in the tenant where you deployed Azure IoT Operations. If you're currently using a Microsoft account (MSA), you need to create a Microsoft Entra ID with at least contributor permissions for the resource group that contains your **Kubernetes - Azure Arc** instance. To learn more, see [Known Issues > Create Entra account](../troubleshoot/known-issues.md#known-issues-azure-iot-operations-preview).
+To sign in to the operations experience web UI, you need a Microsoft Entra ID account with at least contributor permissions for the resource group that contains your **Kubernetes - Azure Arc** instance. To learn more, see [Operations experience web UI](../discover-manage-assets/howto-manage-assets-remotely.md#operations-experience-web-ui).
 
-Unless otherwise noted, you can run the console commands in this quickstart at either Bash or PowerShell command prompts.
+Unless otherwise noted, you can run the console commands in this quickstart in either a Bash or PowerShell environment.
 
 ## What problem will we solve?
 
 The data that OPC UA servers expose can have a complex structure and can be difficult to understand. Azure IoT Operations provides a way to model OPC UA assets as tags, events, and properties. This modeling makes it easier to understand the data and to use it in downstream processes such as the MQTT broker and data processor pipelines.
+
+## Deploy the OPC PLC simulator
+
+This quickstart uses the OPC PLC simulator to generate sample data. To deploy the OPC PLC simulator, run the following command:
+
+<!-- TODO: Change branch to main before merging the release branch -->
+
+```console
+kubectl apply -f https://raw.githubusercontent.com/Azure-Samples/explore-iot-operations/release-m2/samples/quickstarts/opc-plc-deployment.yaml
+```
+
+The following snippet shows the YAML file that you applied:
+
+:::code language="yaml" source="~/azure-iot-operations-samples-m2/samples/quickstarts/opc-plc-deployment.yaml":::
+
+> [!CAUTION]
+> This configuration isn't secure. Don't use this configuration in a production environment.
 
 ## Sign into the operations experience
 
@@ -42,9 +59,6 @@ To create asset endpoints, assets and subscribe to OPC UA tags and events, use t
 Browse to the [operations experience](https://iotoperations.azure.com) in your browser and sign in with your Microsoft Entra ID credentials.
 
 :::image type="content" source="media/quickstart-add-assets/site-list.png" alt-text="Screenshot that shows the unassigned instances node in the operations experience.":::
-
-> [!IMPORTANT]
-> You must use a work or school account to sign in to the operations experience. To learn more, see [Known Issues > Create Entra account](../troubleshoot/known-issues.md#known-issues-azure-iot-operations-preview).
 
 ## Select your site
 
@@ -85,42 +99,11 @@ To add an asset endpoint:
     kubectl get assetendpointprofile -n azure-iot-operations
     ```
 
-## Configure the simulator
-
-These quickstarts use the **OPC PLC simulator** to generate sample data. To enable the quickstart scenario, you need to configure your asset endpoint to connect without mutual trust established. This configuration is not recommended for production or preproduction environments:
-
-1. To configure the asset endpoint for the quickstart scenario, run the following command:
+1. In the current release, you need to patch the asset endpoint by using the following command:
 
     ```console
-    kubectl patch AssetEndpointProfile opc-ua-connector-0 -n azure-iot-operations --type=merge -p '{"spec":{"additionalConfiguration":"{\"applicationName\":\"opc-ua-connector-0\",\"security\":{\"autoAcceptUntrustedServerCertificates\":true}}"}}'
+    kubectl patch AssetEndpointProfile opc-ua-connector-0 -n azure-iot-operations --type=merge -p '{"spec":{"additionalConfiguration":"{}"}}'
     ```
-
-    > [!CAUTION]
-    > Don't use this configuration in production or preproduction environments. Exposing your cluster to the internet without proper authentication might lead to unauthorized access and even DDOS attacks.
-
-    To learn more, see [Deploy the OPC PLC simulator](../discover-manage-assets/howto-configure-opc-plc-simulator.md) section.
-
-1. To enable the configuration changes to take effect immediately, first find the name of your `aio-opc-supervisor` pod by using the following command:
-
-    ```console
-    kubectl get pods -n azure-iot-operations
-    ```
-
-    The name of your pod looks like `aio-opc-supervisor-956fbb649-k9ppr`.
-
-1. Restart the `aio-opc-supervisor` pod by using a command that looks like the following example. Use the `aio-opc-supervisor` pod name from the previous step:
-
-    ```console
-    kubectl delete pod aio-opc-supervisor-956fbb649-k9ppr -n azure-iot-operations
-    ```
-
-After you define an asset, a connector for OPC UA pod discovers it. The pod uses the asset endpoint that you specify in the asset definition to connect to an OPC UA server. You can use `kubectl` to view the discovery pod that was created when you added the asset endpoint. The pod name looks like `aio-opc-opc.tcp-1-8f96f76-kvdbt`:
-
-```console
-kubectl get pods -n azure-iot-operations
-```
-
-When the OPC PLC simulator is running, data flows from the simulator, to the connector for OPC UA, and finally to the MQTT broker.
 
 ## Manage your assets
 
@@ -193,9 +176,6 @@ Client $server-generated/05a22b94-c5a2-4666-9c62-837431ca6f7e received PUBLISH (
 Client $server-generated/05a22b94-c5a2-4666-9c62-837431ca6f7e received PUBLISH (d0, q0, r0, m0, 'azure-iot-operations/data/thermostat', ... (152 bytes))
 {"temperature":{"SourceTimestamp":"2024-07-29T15:02:21.1856798Z","Value":4562},"Tag 10":{"SourceTimestamp":"2024-07-29T15:02:21.1857211Z","Value":4562}}
 ```
-
-> [!TIP]
-> Data from an asset with a name that starts with _boiler-_ is from an asset that was automatically discovered. This is not the same asset as the thermostat asset you created.
 
 If there's no data flowing, restart the `aio-opc-opc.tcp-1` pod:
 
