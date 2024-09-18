@@ -427,7 +427,7 @@ Expanding `result_detail` for a given category shows detailed results.
     * To troubleshoot a server health failure engage vendor.
 
 * Health Check LifeCycle (LC) Log Failures
-    * Dell server health checks fail for recent Critical LC Log Alarms. The hardware validation plugin logs the alarm ID, name, and timestamp. Recent LC Log's critical alarms indicate need for further investigation. The following example shows a failure for a critical backplane voltage alarm.
+    * Dell server health checks fail for recent Critical LC Log Alarms. The hardware validation plugin logs the alarm ID, name, and timestamp. Recent critical alarms indicate need for further investigation. The following example shows a failure for a critical backplane voltage alarm.
 
     ```yaml
         {
@@ -523,6 +523,7 @@ Expanding `result_detail` for a given category shows detailed results.
     ```
 
     * To troubleshoot RAID cleanup failure check for any errors logged. For Dell R650/660, ensure that only slots 0 and 1 contain physical drives. For Dell R750/760, ensure that only slots 0 through 3 contain physical drives. For any other models, confirm there are no extra drives inserted based on SKU definition. All extra drives should be removed to align with the SKU. If the problem persists engage vendor.
+    * BMC virtual disk critical alerts triggered during HWV can be ignored.
 
 * Health Check Power Supply Failure and Redundancy Considerations
     * Dell server health checks warn when one power supply is missing or failed. Power supply "field_name" might be displayed as 0/PS0/Power Supply 0 and 1/PS1/Power Supply 1 for the first and second power supplies respectively. A failure of one power supply doesn't trigger an HWV device failure.
