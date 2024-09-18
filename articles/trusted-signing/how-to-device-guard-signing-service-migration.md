@@ -197,6 +197,6 @@ If isolation is desired, deploy a new CI policy by following steps outlined in S
 - [Example Windows Defender Application Control (WDAC) base policies (Windows 10) - Windows security | Microsoft Docs](/windows/security/threat-protection/windows-defender-application-control/example-wdac-base-policies)
 - [Use multiple Windows Defender Application Control Policies (Windows 10)](/windows/security/threat-protection/windows-defender-application-control/deploy-multiple-windows-defender-application-control-policies#deploying-multiple-policies-locally)
 - Need help with the migration: Contact us via:
-    - Support + troubleshotting (on Azure portal)
+    - Support + troubleshooting (on Azure portal)
     - [Microsoft Q&A](https://learn.microsoft.com/answers/tags/509/trusted-signing) (use the tag **Azure Trusted Signing**) 
     - [Stack Overflow](https://stackoverflow.com/questions/tagged/trusted-signing) (use the tag **trusted-signing**).
