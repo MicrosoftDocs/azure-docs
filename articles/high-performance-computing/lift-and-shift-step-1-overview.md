@@ -1,5 +1,5 @@
 ---
-title: "Deployment step 1: Landing zone - Overview"
+title: "Deployment step 1: Basic infrastructure - Overview"
 description: Learn about production-level environment migration deployment step one.
 author: tomvcassidy
 ms.author: tomcassidy
@@ -9,7 +9,11 @@ ms.service:
 services: 
 ---
 
-# Deployment step 1: Landing zone - Overview
+# Deployment step 1: Basic infrastructure - Overview
+
+The critical foundational components required to establish a landing zone in the cloud for an HPC environment are outlined here. The focus is on setting up resource groups, networking, and basic storage, which serve as the backbone of a successful HPC lift-and-shift deployment.
+
+This section provides a clear understanding of the purpose and requirements of these components, along with available tools and best practices tailored to HPC workloads. A quick start guide is also included to help users efficiently deploy and manage these core components, with the expectation that more advanced automation will be implemented as the HPC environment evolves.
 
 ## Resource group
 

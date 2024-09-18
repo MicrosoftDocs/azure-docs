@@ -11,6 +11,10 @@ services:
 
 # Deployment step 5: End-user entry point - Overview
 
+Providing a consistent end-user entry point is crucial for ensuring a smooth transition from on-premises to the cloud in an HPC environment. Whether users access resources through an SSH sign-in node or a web portal, maintaining a familiar experience helps minimize disruptions.
+
+This section explores the options for user interaction, emphasizing the importance of addressing potential latency issues that may arise when moving to the cloud. It also provides guidance on tools, services, and best practices to optimize the user entry point for HPC lift-and-shift deployments. A quick start setup is included to help establish this component efficiently, with the goal of automating it as the cloud infrastructure matures.
+
 ## Options for user interaction
 
 End-users may benefit from having similar experience accessing resources on-premises and in the cloud. Whether users go to a sign-in node via ssh or a web portal to submit jobs, we recommend you keep the same user experience and access if there are any latency issues that users may face compared to on-premises environment.

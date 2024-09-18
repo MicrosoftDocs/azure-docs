@@ -11,6 +11,10 @@ services:
 
 # Deployment step 3: Storage - Overview
 
+With the cloud offering a broader range of storage solutions compared to on-premises systems, it's essential to define where different types of data—such as user home directories, project data, and scratch disks—should be stored. The section also discusses data migration strategies, whether it involves a one-time transfer or continuous synchronization between on-premises systems and the cloud. Organizations can optimize costs and performance by carefully selecting storage options and utilizing tools for efficient data movement.
+
+This section highlights the critical considerations for managing storage in an HPC cloud environment, focusing on the variety of cloud storage options and the processes for migrating data. Also, it offers practical guidance for setting up storage and managing data migration, with an emphasis on scalability and automation as the HPC environment evolves.
+
 ## Storage options in the cloud
 
 Compared to on-premises environment, the variety and capacity for storage options in the cloud increase. A good practice is to define the major places to put data, such as user home directories, project data, scratch disks, and long term storage. As one of the key benefits of cloud is to obtain resources on demand, it's more important at the beginning to define the storage options. As environment evolves, the amount of data required for storage options becomes clearer.
