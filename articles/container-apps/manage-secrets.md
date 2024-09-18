@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic: how-to
-ms.date: 03/23/2023
+ms.date: 09/18/2024
 ms.author: cshoe
 ms.custom: devx-track-azurecli, devx-track-azurepowershell, build-2023
 ---
@@ -29,6 +29,9 @@ Before you delete a secret, deploy a new revision that no longer references the 
 ## Defining secrets
 
 Secrets are defined as a set of name/value pairs. The value of each secret is specified directly or as a reference to a secret stored in Azure Key Vault.
+
+> [!NOTE]
+> You should not specify the value of a secret directly in a production environment. Instead, use a reference to a secret stored in Azure Key Vault, as described in the [next section](#reference-secret-from-key-vault).
 
 ### Store secret value in Container Apps
 
@@ -252,7 +255,7 @@ After you've [defined a secret](#defining-secrets) in your container app, you ca
 
 In this example, the application connection string is declared as `queue-connection-string` and becomes available elsewhere in the configuration sections.
 
-:::code language="json" source="code/secure-app-arm-template.json" highlight="11,12,13,27,28,29,30,31,44,45,61,62":::
+:::code language="json" source="code/secure-app-arm-template.json" highlight="11-13,27-32,45-46,62-63":::
 
 Here, the environment variable named `connection-string` gets its value from the application-level `queue-connection-string` secret. Also, the Azure Queue Storage scale rule's authentication configuration uses the `queue-connection-string` secret as to define its connection.
 
@@ -268,13 +271,16 @@ az containerapp create \
   --name myQueueApp \
   --environment "my-environment-name" \
   --image demos/myQueueApp:v1 \
-  --secrets "queue-connection-string=$CONNECTIONSTRING" \
+  --user-assigned "<USER_ASSIGNED_IDENTITY_ID>" \
+  --secrets "queue-connection-string=keyvaultref:<KEY_VAULT_SECRET_URI>,identityref:<USER_ASSIGNED_IDENTITY_ID>" \
   --env-vars "QueueName=myqueue" "ConnectionString=secretref:queue-connection-string"
 ```
 
 Here, the environment variable named `connection-string` gets its value from the application-level `queue-connection-string` secret.
 
 # [PowerShell](#tab/powershell)
+
+Secrets Key Vault references aren't supported in PowerShell.
 
 In this example, you create a container using Azure PowerShell with a secret that's referenced in an environment variable. To reference the secret in an environment variable in PowerShell, set its value to `secretref:`, followed by the name of the secret.
 

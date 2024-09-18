@@ -27,7 +27,8 @@
                 "secrets": [
                 {
                     "name": "queue-connection-string",
-                    "value": "[parameters('queue-connection-string')]"
+                    "keyVaultUrl": "[parameters('key_vault_secret_uri')",
+                    "identity": "system"
                 }]
             },
             "template": {
