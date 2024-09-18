@@ -15,6 +15,15 @@ ms.custom: references_regions
 
 This article describes features, enhancements, and bug fixes released in 2024 for the FHIR&reg; service, DICOM&reg; service, and MedTech service in Azure Health Data Services.
 
+## September 2024
+
+### Azure Health Data Services
+
+### FHIR service
+
+#### Enhanced Export Efficiency
+The export functionality has been improved to optimize memory usage. With this change the  export process now pushes data to blob storage one resource at a time, reducing memory consumption. 
+
 ## August 2024
 
 ### Azure Health Data Services
