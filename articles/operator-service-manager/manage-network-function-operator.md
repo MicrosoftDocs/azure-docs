@@ -1,6 +1,6 @@
 ---
 title: Manage the Azure Operator Service Manager cluster extension
-description: Command reference syntax and examples guiding management of the Azure Operator Service Manager network function operator extension.
+description: AOSM NFO extension command reference and examples.
 author: msftadam
 ms.author: adamdor
 ms.date: 09/16/2024
@@ -79,6 +79,13 @@ az k8s-extension create --cluster-name
 
 ### Optional feature specific configurations
 
+#### Side Loading
+
+`--config global.networkfunctionextension.enableLocalRegistry=`
+* This configuration allows artifacts to be delivered to edge via hardware drive.
+* Accepted values: false, true.
+* Default value: false.
+
 #### Pod Mutating Webhook
 `--config global.networkfunctionextension.webhook.pod.mutation.matchConditionExpression=`
 * This configuration is an optional parameter. It comes into play only when container network functions (CNFs) are installed in the corresponding release namespace.  
@@ -92,7 +99,7 @@ The referenced matchCondition implies that the pods getting accepted in kube-sys
 * This parameter can be set or updated during either network function (NF) extension installation or update.  
 * This condition comes into play only when the CNF/Component/Application are getting installed into the namespace as per the rules and namespaceSelectors. If there are more pods getting spin up in that namespace, this condition is applied.   
 
-#### Cluster registry
+#### Cluster Registry
 `--config global.networkfunctionextension.enableClusterRegistry=`
 * This configuration provisions a registry in the cluster to locally cache artifacts.
 * Default values enable lazy loading mode unless global.networkfunctionextension.enableEarlyLoading=true.
@@ -142,24 +149,15 @@ The referenced matchCondition implies that the pods getting accepted in kube-sys
 * This configuration uses unit as Gi and Ti for sizing.
 * Default value: 100Gi
 
-#### Side loading
-
-`--config global.networkfunctionextension.enableLocalRegistry=`
-* This configuration allows artifacts to be delivered to edge via hardware drive.
-* Accepted values: false, true.
-* Default value: false.
-
-### Recommended NFO config for AKS
-
-The default NFO config configures HA on NAKS but none of the disk drives on AKS support ReadWriteX access mode. Where HA needs to be disabled, use the following config options;
-
-``` --config global.networkfunctionextension.clusterRegistry.highAvailability.enabled=false```
-
-``` --config global.networkfunctionextension.webhook.highAvailability.enabled=false``` 
-
-(optional)
-
-``` --config global.networkfunctionextension.clusterRegistry.storageClassName=managed-csi```
+> [!NOTE]
+> * When managing a NAKS cluster with AOSM, the default parameter values enable HA as the recommended configuration.
+> * When managing a AKS cluster with AOSM, HA must be disabled using the following configuration options:
+>
+>```
+>    --config global.networkfunctionextension.clusterRegistry.highAvailability.enabled=false
+>    --config global.networkfunctionextension.webhook.highAvailability.enabled=false
+>    --config global.networkfunctionextension.clusterRegistry.storageClassName=managed-csi
+>```
 
 ## Update network function extension
 The Azure CLI command 'az k8s-extension update' is executed to update the NFO extension.
