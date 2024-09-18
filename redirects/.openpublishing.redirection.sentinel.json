@@ -1731,6 +1731,51 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/sentinel/data-connectors/deprecated-akamai-security-events-via-legacy-agent.md",
+            "redirect_url": "/previous-versions/azure/sentinel/data-connectors/akamai-security-events-via-legacy-agent",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/data-connectors/deprecated-aruba-clearpass-via-legacy-agent.md",
+            "redirect_url": "/previous-versions/azure/sentinel/data-connectors/aruba-clearpass-via-legacy-agent",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/data-connectors/blackberry-cylanceprotect.md",
+            "redirect_url": "/previous-versions/azure/sentinel/data-connectors/blackberry-cylanceprotect",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/data-connectors/deprecated-broadcom-symantec-dlp-via-legacy-agent.md",
+            "redirect_url": "/previous-versions/azure/sentinel/data-connectors/broadcom-symantec-dlp-via-legacy-agent",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/data-connectors/cisco-application-centric-infrastructure.md",
+            "redirect_url": "/previous-versions/azure/sentinel/data-connectors/cisco-application-centric-infrastructure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/data-connectors/deprecated-cisco-secure-email-gateway-via-legacy-agent.md",
+            "redirect_url": "/previous-versions/azure/sentinel/data-connectors/cisco-secure-email-gateway-via-legacy-agent",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/data-connectors/deprecated-claroty-via-legacy-agent.md",
+            "redirect_url": "/previous-versions/azure/sentinel/data-connectors/claroty-via-legacy-agent",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/data-connectors/deprecated-crowdstrike-falcon-endpoint-protection-via-legacy-agent.md",
+            "redirect_url": "/previous-versions/azure/sentinel/data-connectors/crowdstrike-falcon-endpoint-protection-via-legacy-agent",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/data-connectors/deprecated-fireeye-network-security-nx-via-legacy-agent.md",
+            "redirect_url": "/previous-versions/azure/sentinel/data-connectors/fireeye-network-security-nx-via-legacy-agent",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/sentinel/data-connectors/tenable-io-vulnerability-management.md",
             "redirect_url": "/azure/sentinel/data-connectors/tenable-vulnerability-management",
             "redirect_document_id": false

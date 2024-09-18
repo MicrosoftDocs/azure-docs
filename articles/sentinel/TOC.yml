@@ -280,6 +280,20 @@
       href: data-connectors/deprecated-crowdstrike-falcon-endpoint-protection-via-legacy-agent.md
     - name: '[Deprecated] FireEye Network Security (NX) via Legacy Agent'
       href: data-connectors/deprecated-fireeye-network-security-nx-via-legacy-agent.md
+    - name: '[Deprecated] Forcepoint CASB via Legacy Agent'
+      href: data-connectors/deprecated-forcepoint-casb-via-legacy-agent.md
+    - name: '[Deprecated] Forcepoint CSG via Legacy Agent'
+      href: data-connectors/deprecated-forcepoint-csg-via-legacy-agent.md
+    - name: '[Deprecated] Forcepoint NGFW via Legacy Agent'
+      href: data-connectors/deprecated-forcepoint-ngfw-via-legacy-agent.md
+    - name: '[Deprecated] Fortinet FortiWeb Web Application Firewall via Legacy Agent'
+      href: data-connectors/deprecated-fortinet-fortiweb-web-application-firewall-via-legacy-agent.md
+    - name: '[Deprecated] Fortinet via Legacy Agent'
+      href: data-connectors/deprecated-fortinet-via-legacy-agent.md
+    - name: '[Deprecated] Illumio Core via Legacy Agent'
+      href: data-connectors/deprecated-illumio-core-via-legacy-agent.md
+    - name: '[Deprecated] Kaspersky Security Center via Legacy Agent'
+      href: data-connectors/deprecated-kaspersky-security-center-via-legacy-agent.md
     - name: '[Deprecated] Morphisec UTPP'
       href: data-connectors/morphisec-utpp.md
     - name: '[Deprecated] vArmour Application Controller'
@@ -356,8 +370,6 @@
       href: data-connectors/auth0-access-management.md
     - name: Automated Logic WebCTRL
       href: data-connectors/automated-logic-webctrl.md
-    - name: Awake Security
-      href: data-connectors/awake-security.md
     - name: Azure Activity
       href: data-connectors/azure-activity.md
     - name: Azure Batch Account
@@ -394,12 +406,8 @@
       href: data-connectors/bitglass.md
     - name: Bitsight data connector (using Azure Functions)
       href: data-connectors/bitsight-data-connector.md
-    - name: Blackberry CylancePROTECT
-      href: data-connectors/blackberry-cylanceprotect.md
     - name: Box (using Azure Functions)
       href: data-connectors/box.md
-    - name: Cisco Application Centric Infrastructure
-      href: data-connectors/cisco-application-centric-infrastructure.md
     - name: Cisco ASA/FTD via AMA (Preview)
       href: data-connectors/cisco-asa-ftd-via-ama.md
     - name: Cisco Duo Security (using Azure Functions)
@@ -1158,7 +1166,7 @@
     - name: Auxiliary logs use cases
       href: basic-logs-use-cases.md
   - name: Connect Microsoft Sentinel to Microsoft Defender XDR
-    href: /defender-xdr/microsoft-sentinel-onboard??toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
+    href: /defender-xdr/microsoft-sentinel-onboard?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
   - name: Manage multiple workspaces 
     items:
     - name: Workspace manager
