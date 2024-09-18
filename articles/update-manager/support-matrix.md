@@ -50,14 +50,14 @@ Following is the list of supported images and no other marketplace images releas
 
 | **Publisher**| **Offer** | **Plan**|**Unsupported image(s)** |
 |----------|-------------|-----| --- |
-| | cis-windows-server-2012-r2-v2-2-1-l2 | cis-ws2012-r2-l2 ||
-| | cis-windows-server-2016-v1-0-0-l1 | cis--l1 ||
-| | cis-windows-server-2016-v1-0-0-l2 | cis-ws2016-l2 ||
-| | cis-windows-server-2019-v1-0-0-l1 | cis-ws2019-l1 ||
-| | cis-windows-server-2019-v1-0-0-l2 | cis-ws2019-l2 ||
-| | cis-windows-server-2022-l1| cis-windows-server-2022-l1 </br> cis-windows-server-2022-l1-gen2 | |
-| | cis-windows-server-2022-l2 | cis-windows-server-2022-l2 </br> cis-windows-server-2022-l2-gen2 | |
-| | cis-windows-server| cis-windows-server2016-l1-gen1 </br> cis-windows-server2019-l1-gen1 </br> cis-windows-server2019-l1-gen2 </br> cis-windows-server2019-l2-gen1 </br> cis-windows-server2022-l1-gen2 </br> cis-windows-server2022-l2-gen2 </br> cis-windows-server2022-l1-gen1 | |
+|center-for-internet-security-inc | cis-windows-server-2012-r2-v2-2-1-l2 | cis-ws2012-r2-l2 ||
+|center-for-internet-security-inc | cis-windows-server-2016-v1-0-0-l1 | cis--l1 ||
+| center-for-internet-security-inc| cis-windows-server-2016-v1-0-0-l2 | cis-ws2016-l2 ||
+|center-for-internet-security-inc | cis-windows-server-2019-v1-0-0-l1 | cis-ws2019-l1 ||
+|center-for-internet-security-inc | cis-windows-server-2019-v1-0-0-l2 | cis-ws2019-l2 ||
+|center-for-internet-security-inc| cis-windows-server-2022-l1| cis-windows-server-2022-l1 </br> cis-windows-server-2022-l1-gen2 | |
+|center-for-internet-security-inc | cis-windows-server-2022-l2 | cis-windows-server-2022-l2 </br> cis-windows-server-2022-l2-gen2 | |
+|center-for-internet-security-inc | cis-windows-server| cis-windows-server2016-l1-gen1 </br> cis-windows-server2019-l1-gen1 </br> cis-windows-server2019-l1-gen2 </br> cis-windows-server2019-l2-gen1 </br> cis-windows-server2022-l1-gen2 </br> cis-windows-server2022-l2-gen2 </br> cis-windows-server2022-l1-gen1 | |
 | | hpc2019-windows-server-2019| hpc2019-windows-server-2019||
 | | sql2016sp2-ws2016 | standard|
 | | sql2017-ws2016 | enterprise |
@@ -108,17 +108,22 @@ Following is the list of supported images and no other marketplace images releas
 | |centos-hpc | 7.1, 7.3, 7.4 |
 | |centos-lvm | 7-lvm-gen2 |
 | |centos-lvm | 7-lvm, 8-lvm |
-| |cis-oracle-linux-8-l1 | cis-oracle8-l1||
-| |cis-rhel | cis-redhat7-l1-gen1 </br> cis-redhat8-l1-gen1 </br> cis-redhat8-l2-gen1 </br>  cis-redhat9-l1-gen1 </br> cis-redhat9-l1-gen2| |
-| |cis-rhel-7-l2 | cis-rhel7-l2 | |
-| |cis-rhel-8-l1 | | |
-| |cis-rhel-8-l2 | cis-rhel8-l2 | |
-| |cis-rhel9-l1 | cis-rhel9-l1 </br> cis-rhel9-l1-gen2 ||
-| |cis-ubuntu | cis-ubuntu1804-l1 </br> cis-ubuntulinux2004-l1-gen1 </br> cis-ubuntulinux2204-l1-gen1 </br> cis-ubuntulinux2204-l1-gen2 ||
+|center-for-internet-security-inc |cis-oracle-linux-8-l1 | cis-oracle8-l1||
+| center-for-internet-security-inc
+|cis-rhel | cis-redhat7-l1-gen1 </br> cis-redhat8-l1-gen1 </br> cis-redhat8-l2-gen1 </br>  cis-redhat9-l1-gen1 </br> cis-redhat9-l1-gen2| |
+|center-for-internet-security-inc
+ |cis-rhel-7-l2 | cis-rhel7-l2 | |
+|center-for-internet-security-inc
+ |cis-rhel-8-l1 | | |
+|center-for-internet-security-inc
+ |cis-rhel-8-l2 | cis-rhel8-l2 | |
+| center-for-internet-security-inc
+|cis-rhel9-l1 | cis-rhel9-l1 </br> cis-rhel9-l1-gen2 ||
+|center-for-internet-security-inc |cis-ubuntu | cis-ubuntu1804-l1 </br> cis-ubuntulinux2004-l1-gen1 </br> cis-ubuntulinux2204-l1-gen1 </br> cis-ubuntulinux2204-l1-gen2 ||
 | |cis-ubuntu-linux-1804-l1| cis-ubuntu1804-l1||
 | |cis-ubuntu-linux-2004-l1 | cis-ubuntu2004-l1 </br> cis-ubuntu-linux-2204-l1-gen2||
-| |cis-ubuntu-linux-2004-l1| cis-ubuntu2004-l1||
-| |cis-ubuntu-linux-2204-l1 | cis-ubuntu-linux-2204-l1 </br> cis-ubuntu-linux-2204-l1-gen2 | |
+|center-for-internet-security-inc |cis-ubuntu-linux-2004-l1| cis-ubuntu2004-l1||
+| center-for-internet-security-inc|cis-ubuntu-linux-2204-l1 | cis-ubuntu-linux-2204-l1 </br> cis-ubuntu-linux-2204-l1-gen2 | |
 | |debian-10-daily | 10, 10-gen2,</br> 10-backports,</br> 10-backports-gen2|
 | |debian-11 | 11, 11-gen2,</br> 11-backports, </br> 11-backports-gen2 |
 | |debian-11-daily | 11, 11-gen2,</br>  11-backports, </br> 11-backports-gen2 |
