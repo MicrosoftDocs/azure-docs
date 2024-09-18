@@ -27,24 +27,6 @@ Learn how to deploy Azure IoT Operations Preview to a Kubernetes cluster and the
 
 In this article, when we talk about deploying Azure IoT Operations we mean the full set of components that make up a *deployment*. Once the deployment exists, you can view, manage, and update the *instance*.
 
-## Choose your features
-
-Azure IoT Operations offers two deployment modes. You can choose to deploy a basic subset of features that are simpler to get started with for evaluation scenarios, or you can choose to deploy the full feature set.
-
-* Basic feature deployment:
-
-  * Does not configure secrets or user-assigned managed identity capabilities.
-  * Is meant to enable the end-to-end quickstart sample for evaluation purposes, so does support the OPC PLC simulator and connect to cloud resources using system-assigned managed identity.
-  * Can be upgraded to include the full set of features. For the steps to enable secrets and user-assigned managed identity, see [Configure secrets on your cluster](./howto-manage-secrets.md)
-
-* Full feature deployment:
-
-  * Includes the steps to enable secrets and user-assignment managed identity, which are important capabilities for developing a production-ready scenario. Secrets are used whenever Azure IoT Operations components connect to a resource outside of the cluster; for example, an OPC UA server or a dataflow source or destination endpoint.
-
-If you want to deploy the basic subset, see [Quickstart: Run Azure IoT Operations Preview in GitHub Codespaces with K3s](../get-started-end-to-end-sample/quickstart-deploy.md).
-
-This article provides steps to deploy the full feature set for Azure IoT Operations.
-
 ## Prerequisites
 
 Cloud resources:
