@@ -47,8 +47,6 @@
 - name: Quickstarts
   expanded: false
   items:
-  - name: Onboard Subscription to Azure Operator Service Manager
-    href: quickstart-onboard-subscription-azure-operator-service-manager.md
   - name: Containerized Network Function (CNF)
     expanded: false
     items:
@@ -79,10 +77,22 @@
         href: quickstart-virtualized-network-function-create-site.md
       - name: Create a Site Network Service
         href: quickstart-virtualized-network-function-create-site-network-service.md
-
 - name: How-to guides
   expanded: false
   items:
+  - name: Manage the network function operator extension
+    href: manage-network-function-operator.md
+  - name: Create required subscription, roles and identities
+    expanded: false
+    items:
+      - name: Onboard Subscription to Azure Operator Service Manager
+        href: quickstart-onboard-subscription-azure-operator-service-manager.md
+      - name: Create a custom role
+        href: how-to-create-custom-role.md
+      - name: Assign a custom role
+        href: how-to-assign-custom-role.md
+      - name: Create a user assigned managed identity
+        href: how-to-create-user-assigned-managed-identity.md
   - name: Onboard network functions and Azure resources
     expanded: false
     items:
@@ -92,24 +102,21 @@
         href: how-to-onboard-virtualized-network-function-cli.md
       - name: Use Helm option parameters to prevent containerized network function (CNF) deletion on install failure
         href: how-to-use-helm-option-parameters.md
-      - name: Onboard Azure resources - CLI
+      - name: Onboard generic Azure resources - CLI
         href: how-to-onboard-azure-resource-manager-resources-cli.md
-  - name: Create a custom role
-    href: how-to-create-custom-role.md
-  - name: Assign a custom role
-    href: how-to-assign-custom-role.md
-  - name: Create a user assigned managed identity
-    href: how-to-create-user-assigned-managed-identity.md
-  - name: Create a site
-    href: how-to-create-site.md
-  - name: Delete operator resources
-    href: how-to-delete-operator-resources.md
-  - name: Create site network service
-    href: how-to-create-site-network-service.md
-  - name: Push and pull artifacts for network functions on Azure Operator Nexus
-    href: how-to-manage-artifacts-nexus.md
-  - name: Push and pull artifacts for virtualized network functions (VNF) on Azure
-    href: how-to-manage-artifacts-virtualized-network-function-cloud.md
+      - name: Push and pull artifacts for network functions on Azure Operator Nexus
+        href: how-to-manage-artifacts-nexus.md
+      - name: Push and pull artifacts for virtualized network functions (VNF) on Azure
+        href: how-to-manage-artifacts-virtualized-network-function-cloud.md
+  - name: Operate network functions and Azure resources
+    expanded: false
+    items:
+      - name: Create a site
+        href: how-to-create-site.md
+      - name: Create site network service
+        href: how-to-create-site-network-service.md 
+      - name: Delete operator resources
+        href: how-to-delete-operator-resources.md
 - name: Troubleshooting
   expanded: false
   items:

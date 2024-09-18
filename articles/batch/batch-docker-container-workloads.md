@@ -245,8 +245,7 @@ ImageReference imageReference = new ImageReference(
 
 ContainerRegistry containerRegistry = new ContainerRegistry(
     registryServer: "https://hub.docker.com",
-    userName: "UserName",
-    password: "YourPassword"
+    identityReference: new ComputeNodeIdentityReference() { ResourceId = "/subscriptions/SUB/resourceGroups/RG/providers/Microsoft.ManagedIdentity/userAssignedIdentities/identity-name" }
 );
 
 // Specify container configuration, prefetching Docker images
@@ -286,10 +285,14 @@ image_ref_to_use = batch.models.ImageReference(
     version='latest')
 
 # Specify a container registry
+subscription_id = "yyyy-yyy-yyy-yyy-yyy"
+resource_group_name = "TestRG"
+user_assigned_identity_name = "testUMI"
+resource_id = f"/subscriptions/{subscription_id}/resourceGroups/{resource_group_name}/providers/Microsoft.ManagedIdentity/userAssignedIdentities/{user_assigned_identity_name}"
+
 container_registry = batch.models.ContainerRegistry(
         registry_server="myRegistry.azurecr.io",
-        user_name="myUsername",
-        password="myPassword")
+        identity_reference = ComputeNodeIdentityReference(resource_id = resource_id))
 
 # Create container configuration, prefetching Docker images from the container registry
 container_conf = batch.models.ContainerConfiguration(
@@ -310,8 +313,8 @@ new_pool = batch.models.PoolAddParameter(
 // Specify a container registry
 ContainerRegistry containerRegistry = new ContainerRegistry(
     registryServer: "myContainerRegistry.azurecr.io",
-    userName: "myUserName",
-    password: "myPassword");
+    identityReference: new ComputeNodeIdentityReference() { ResourceId = "/subscriptions/SUB/resourceGroups/RG/providers/Microsoft.ManagedIdentity/userAssignedIdentities/identity-name" }
+);
 
 // Create container configuration, prefetching Docker images from the container registry
 ContainerConfiguration containerConfig = new ContainerConfiguration();
@@ -337,7 +340,7 @@ CloudPool pool = batchClient.PoolOperations.CreatePool(
 ### Managed identity support for ACR
 
 When you access containers stored in [Azure Container Registry](https://azure.microsoft.com/services/container-registry),
-either a username/password or a managed identity can be used to authenticate with the service. To use a managed identity,
+a managed identity can be used to authenticate with the service. To use a managed identity,
 first ensure that the identity has been [assigned to the pool](managed-identity-pools.md) and that the identity has the
 `AcrPull` role assigned for the container registry you wish to access. Then, instruct Batch with which identity to use
 when authenticating with ACR.
