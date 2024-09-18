@@ -54,17 +54,12 @@ If you're creating an ExpressRoute circuit with a resiliency type of  **Maximum 
 
 #### Clone the script
 
-1. Clone the setup script from GitHub. 
-
-   ```azurepowershell-interactive
-   git clone https://github.com/Azure-Samples/azure-docs-powershell-samples/ 
-   ```
-
-1. Change to the directory where the script is located.
-
-   ```azurepowershell-interactive
-   CD azure-docs-powershell-samples/expressroute/
-   ```
+```azurepowershell-interactive
+# Clone the setup script from GitHub.
+git clone https://github.com/Azure-Samples/azure-docs-powershell-samples/ 
+# Change to the directory where the script is located.
+CD azure-docs-powershell-samples/expressroute/
+```
 
 #### Run the script
 
@@ -95,8 +90,7 @@ $resourceGroupName = (Get-AzResourceGroup -Name "<ResourceGroupName>").ResourceG
 The following example shows how to create two ExpressRoute circuits through Equinix with local redundancy in Silicon Valley and Washington DC. If you're using a different provider and different settings, replace that information when you make your request.
 
 > [!NOTE]
-> This example uses the **New-AzHighAvailabilityExpressRouteCircuits.ps1** script. You need to clone the script from GitHub and run it to create the circuits. For more information, see [Clone the script](#clone-the-script).
-
+> This example uses the **New-AzHighAvailabilityExpressRouteCircuits.ps1** script. You must clone the script from GitHub to create the circuits. For more information, see [Clone the script](#clone-the-script).
 
 ```azurepowershell-interactive
 $SubscriptionId = Get-AzureSubscription -SubscriptionName "<SubscriptionName>"
