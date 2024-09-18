@@ -68,3 +68,9 @@ This article shows you how to develop two types of applications:
 [!INCLUDE [iot-hub-howto-module-twins-python](../../includes/iot-hub-howto-module-twins-python.md)]
 
 :::zone-end
+
+:::zone pivot="programming-language-node"
+
+[!INCLUDE [iot-hub-howto-module-twins-node](../../includes/iot-hub-howto-module-twins-node.md)]
+
+:::zone-end
