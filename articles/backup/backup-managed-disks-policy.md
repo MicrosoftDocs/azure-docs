@@ -1,5 +1,5 @@
 ---
-title: Audit and Enforce Backup for Managed Disks using Azure Policy 
+title: Audit and enforce backup for Managed Disks using Azure Policy 
 description: 'An article describing how to use Azure Policy to audit and enforce backup for all Disks created in a given scope'
 ms.topic: how-to
 ms.date: 08/26/2024
@@ -8,7 +8,7 @@ author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
 
-# Audit and Enforce Backup for Managed Disks using Azure Policy 
+# Audit and enforce backup for Managed Disks using Azure Policy 
 
 One of the key responsibilities of a Backup or Compliance Admin in an organization is to ensure that all business-critical machines are backed up with the appropriate retention.
 
