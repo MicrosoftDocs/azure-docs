@@ -105,12 +105,14 @@ To secure communication between devices and the cloud through isolated network e
 
 In the 0.6.x public preview release, Azure IoT Operations supports clusters that are Arc-enabled in the following regions:
 
-* East US
-* East US 2
-* West US
-* West US 2
-* West Europe
-* North Europe
+| Region       | CLI value   |
+|--------------|-------------|
+| East US      | eastus      |
+| East US 2    | eastus2     |
+| West US      | westus      |
+| West US 2    | westus2     |
+| West Europe  | westeurope  |
+| North Europe | northeurope |
 
 >[!NOTE]
 >West US 3 was supported in previous versions of Azure IoT Operations, but isn't supported in version 0.6.x.
