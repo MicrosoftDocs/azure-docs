@@ -365,7 +365,7 @@ In this example, two secrets are declared at the application level. These secret
         "environment_id": {
             "type": "String"
         },
-        "queue-connection-string": {
+        "key_vault_secret_uri": {
             "type": "Securestring"
         },
         "api-key": {
@@ -387,7 +387,8 @@ In this example, two secrets are declared at the application level. These secret
                 "secrets": [
                     {
                         "name": "queue-connection-string",
-                        "value": "[parameters('queue-connection-string')]"
+                        "keyVaultUrl": "[parameters('key_vault_secret_uri')",
+                        "identity": "system"
                     },
                     {
                         "name": "api-key",
@@ -431,7 +432,8 @@ To load specific secrets and specify their paths within the mounted volume, you 
             "secrets": [
                 {
                     "name": "queue-connection-string",
-                    "value": "[parameters('queue-connection-string')]"
+                    "keyVaultUrl": "[parameters('key_vault_secret_uri')",
+                    "identity": "system"
                 },
                 {
                     "name": "api-key",
@@ -483,7 +485,8 @@ az containerapp create \
   --name myQueueApp \
   --environment "my-environment-name" \
   --image demos/myQueueApp:v1 \
-  --secrets "queue-connection-string=$CONNECTIONSTRING" "api-key=$API_KEY" \
+  --user-assigned "<USER_ASSIGNED_IDENTITY_ID>" \
+  --secrets "queue-connection-string=keyvaultref:<KEY_VAULT_SECRET_URI>,identityref:<USER_ASSIGNED_IDENTITY_ID>" "api-key=$API_KEY" \
   --secret-volume-mount "/mnt/secrets"
 ```
 
