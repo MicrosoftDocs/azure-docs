@@ -76,8 +76,7 @@ To understand the possible downtimes involved, see [Cloud Adoption Framework for
 
 ### Export template
 
-To get started, export a Resource Manager template. This template contains settings that describe your Container Registry. For more information on how to use exported templates, see [Use exported template from the Azure portal](../azure-resource-manager/templates/template-tutorial-Azure portale.md) and the [template reference](/azure/templates/microsoft.containerregistry/registries).
-
+To get started, export a Resource Manager template. This template contains settings that describe your Container Registry. For more information on how to use exported templates, see [Use exported template from the Azure portal](../azure-resource-manager/templates/template-tutorial-export-template.md) and the [template reference](/azure/templates/microsoft.containerregistry/registries).
 
 1. In the [Azure portal](https://portal.azure.com), navigate to your source registry.
 1. In the menu, under **Automation**, select **Export template** > **Download**.
