@@ -21,7 +21,8 @@ The following release notes are generally available (GA):
 * Release Notes for Version 2.0.2783-134
 * Release Notes for Version 2.0.2788-135
 * Release Notes for Version 2.0.2804-137
-
+* Release Notes for Version 2.0.2810-144
+  
 ### Release Attestation
 These releases are produced compliant with Microsoft’s Secure Development Lifecycle. This lifecycle includes processes for authorizing software changes, antimalware scanning, and scanning and mitigating security bugs and vulnerabilities.
 
@@ -218,3 +219,30 @@ The following bug fixes, or other defect resolutions, are delivered with this re
 #### Security Related Updates
 
 * CVE	- A total of one CVE is addressed in this release.
+
+* ## Release 2.0.2810-144
+
+Document Revision 1.1
+
+### Release Summary
+Azure Operator Service Manager is a cloud orchestration service that enables automation of operator network-intensive workloads, and mission critical applications hosted on Azure Operator Nexus. Azure Operator Service Manager unifies infrastructure, software, and configuration management with a common model into a single interface, both based on trusted Azure industry standards. This Septemer 13, 2024 Azure Operator Service Manager release includes updating the NFO version to 2.0.2810-144, the details of which are further outlined in the remainder of this document.
+
+### Release Details
+* Release Version: Version 2.0.2810-144
+* Release Date: September 13, 2024
+* Is NFO update required: YES, Update only
+* Dependency Versions: Go/1.22.4 - Helm/3.15.2
+
+### Release Installation
+This release can be installed with as an update on top of release 2.0.2788-144.  Please see the following [learn documentation](manage-network-function-operator.md) for additional installation guidance. 
+
+### Issues Resolved in This Release 
+
+#### Bugfix Related Updates
+The following bug fixes, or other defect resolutions, are delivered with this release, for either Network Function Operator (NFO) or resource provider (RP) components.
+
+* NFO	- Prevent the cluster registry certificate from being invalidated during Arc extension controller reconciliation.
+
+#### Security Related Updates
+
+None
