@@ -1,6 +1,11 @@
 {
   "redirections": [
     {
+      "source_path": "articles/vpn-gateway/vpn-gateway-about-forced-tunneling.md",
+      "redirect_url": "/previous-versions/azure/vpn-gateway/vpn-gateway-about-forced-tunneling",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/azure-app-configuration/rest-api-postman.md",
       "redirect_url": "/previous-versions/azure/azure-app-configuration/rest-api-postman",
       "redirect_document_id": false
@@ -2536,21 +2541,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/kubernetes-fleet/access-fleet-kubernetes-api.md",
-      "redirect_url": "/azure/kubernetes-fleet/quickstart-access-fleet-kubernetes-api",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/kubernetes-fleet/configuration-propagation.md",
-      "redirect_url": "/azure/kubernetes-fleet/resource-propagation",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/kubernetes-fleet/resource-propagation.md",
-      "redirect_url": "/azure/kubernetes-fleet/concepts-resource-propagation",
-      "redirect_document_id": false
-    },
-    {
       "source_path_from_root": "/articles/labs/anomaly-finder/apiref.md",
       "redirect_url": "/azure/ai-services/anomaly-detector/",
       "redirect_document_id": false
@@ -4771,7 +4761,7 @@
       "redirect_document_id": false
     },
     {
-           "source_path_from_root": "/articles/load-balancer/load-balancer-ipv6-internet-ps.md",
+      "source_path_from_root": "/articles/load-balancer/load-balancer-ipv6-internet-ps.md",
       "redirect_url": "/azure/load-balancer/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell",
       "redirect_document_id": false
     },
