@@ -44,7 +44,7 @@ When a caller or callee reports that they hear their own delayed audio being tra
 
 ### Audio volume problem
 
-When a caller or callee reports that the volume of a call is either too loud or too quiet, we typically classify this as an audio volume problem. These cause is often the hardware, including the positioning and volume levels of the speaker and/or microphone at one end of the line. If the input and output indicator show that the user's volume is low, you can prompt the user to speak louder.
+When a caller or callee reports that the volume of a call is either too loud or too quiet, we typically classify this condition as an audio volume problem. The cause is often the hardware, including the positioning and volume levels of the speaker and/or microphone at one end of the line. If the input and output indicator show that the user's volume is low, you can prompt the user to speak louder.
 
 For more information, see [Access call volume level in your calling app](../../quickstarts/voice-video-calling/get-started-volume-indicator.md).
 

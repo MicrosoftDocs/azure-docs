@@ -15,8 +15,7 @@ ms.subservice: calling
 
 # Improve and manage call quality
 
-This article introduces key tools that you can use to monitor, troubleshoot,
-and improve call quality in Azure Communication Services. The following materials help you plan for the best user experience.
+This article introduces key tools that you can use to monitor, troubleshoot, and improve call quality in Azure Communication Services. The following materials help you plan for the best user experience.
 
 Before you read this article, become familiar with overview information about calling:
 
@@ -28,18 +27,17 @@ Before you read this article, become familiar with overview information about ca
 As your users start using Azure Communication Services for calls and meetings, they might experience a caller's voice breaking up or cutting in and out of a call or meeting. Shared video might freeze, or pixelate, or fail altogether. This problem is due to the IP packets that represent voice and video traffic encountering network congestion and arriving out of sequence or not at all. If it happens (or to prevent it from happening in the first place), use Quality of Service (QoS) by following the
 [network recommendations](network-requirements.md).
 
-With QoS, you prioritize delay-sensitive network traffic (for example, voice or video streams). You allow that traffic to "cut in line" in front of
-traffic that's less sensitive. An example of lower-priority traffic is downloading a new app. In that case, an extra second to download isn't a significant problem.
+With QoS, you prioritize delay-sensitive network traffic (for example, voice or video streams). You allow that traffic to "cut in line" in front of traffic that's less sensitive. An example of lower-priority traffic is downloading a new app. In that case, an extra second to download isn't a significant problem.
 
 QoS identifies and marks all packets in real-time streams by using Windows Group Policy objects and a routing feature called Port-based Access Control Lists. That feature instructs your network to give voice, video, and screen sharing their own dedicated network bandwidth.
 
-Ideally, you implement QoS on your internal network while getting ready to roll out your Azure Communication Services solution. But you can do it anytime. If you network is small enough, you might not need QoS.
+Ideally, you implement QoS on your internal network while getting ready to roll out your Azure Communication Services solution. But you can do it anytime. If your network is small enough, you might not need QoS.
 
 For detailed guidance, see [Network optimization](network-requirements.md#network-optimization).
 
 ## Prepare your deployment for quality and reliability investigations
 
-Quality has different definitions, depending on the real-time communication use case and the perspective of the users. Many variables affect the perceived quality of a real-time calling experience. An improvement in one variable might cause a negative changes in another variable. For example, increasing the frame rate and resolution of a video call increases network bandwidth utilization and processing power.
+Quality has different definitions, depending on the real-time communication use case and the perspective of the users. Many variables affect the perceived quality of a real-time calling experience. An improvement in one variable might cause a negative change in another variable. For example, increasing the frame rate and resolution of a video call increases network bandwidth utilization and processing power.
 
 Determine your customer's use cases and requirements before you start your development. For example, a customer who needs to monitor dozens of security camera feeds simultaneously might not need the maximum resolution and frame rate that each video stream can provide. In this scenario, you could use the [Video Constraints API](video-constraints.md) capability to limit the amount of bandwidth that each video stream uses.
 
@@ -130,13 +128,13 @@ Because network conditions can change during a call, users can report poor audio
 
 The metrics in this feature help indicate problems on the Azure Communication Services Client SDK media streams for sending and receiving. As an example, you can actively monitor the outgoing video stream's `availableBitrate` value, notice a persistent drop below the recommended 1.5 Mbps, and notify the user that the video quality is degraded.
 
-Server log data gives you only an general summary of the call after it ends. The detailed media statistics provide low-level metrics throughout the call duration and afterward for deeper analysis.  
+Server log data gives you only a general summary of the call after it ends. The detailed media statistics provide low-level metrics throughout the call duration and afterward for deeper analysis.  
 
 To learn more, see [Media quality statistics](media-quality-sdk.md).
 
 #### Optimal Video Count API
 
-During a group call with two or more participants, a user's video quality can fluctuate due to changes in network conditions and their specific hardware limitations. By using the Optimal Video Count API, you can improve user call quality by understanding how many videos streams their local endpoint can render at a time without worsening quality.
+During a group call with two or more participants, a user's video quality can fluctuate due to changes in network conditions and their specific hardware limitations. By using the Optimal Video Count API, you can improve user call quality by understanding how many video streams their local endpoint can render at a time without worsening quality.
 
 By implementing this feature, you can preserve the call quality and bandwidth of local endpoints that would otherwise attempt to render video poorly. The API exposes the property `optimalVideoCount`, which dynamically changes in response to the network and hardware capabilities of a local endpoint. This information is available at runtime and gets updates throughout the call, so you can adjust a user's visual experience as network and hardware conditions change.
 
