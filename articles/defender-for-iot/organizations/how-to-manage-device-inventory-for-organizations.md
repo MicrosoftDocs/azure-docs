@@ -12,6 +12,12 @@ Use the **Device inventory** page in [Defender for IoT](https://portal.azure.com
 
 For more information, see [Devices monitored by Defender for IoT](architecture.md#devices-monitored-by-defender-for-iot).
 
+>[!Note]
+>
+>Currently, devices discovered in the Azure and the Defender XDR portals aren't synchronized yet and therefore the list of devices discovered could be different. It is important to note these differences, especially when associating devices to a site.
+>This issue will be resolved in upcoming versions.
+>
+
 ## View the device inventory
 
 To view detected devices in the **Device inventory** page in the Azure portal, go to **Defender for IoT** > **Device inventory**.
