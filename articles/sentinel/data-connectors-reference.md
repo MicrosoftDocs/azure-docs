@@ -154,7 +154,6 @@ For more information about the codeless connector platform, see [Create a codele
 
 ## Claroty
 
-- [[Deprecated] Claroty via Legacy Agent](data-connectors/deprecated-claroty-via-legacy-agent.md)
 - [[Recommended] Claroty via AMA](data-connectors/recommended-claroty-via-ama.md)
 - [Claroty xDome](data-connectors/claroty-xdome.md)
 
@@ -180,7 +179,6 @@ For more information about the codeless connector platform, see [Create a codele
 
 ## Crowdstrike
 
-- [[Deprecated] CrowdStrike Falcon Endpoint Protection via Legacy Agent](data-connectors/deprecated-crowdstrike-falcon-endpoint-protection-via-legacy-agent.md)
 - [CrowdStrike Falcon Adversary Intelligence (using Azure Functions)](data-connectors/crowdstrike-falcon-adversary-intelligence.md)
 - [Crowdstrike Falcon Data Replicator (using Azure Functions)](data-connectors/crowdstrike-falcon-data-replicator.md)
 - [Crowdstrike Falcon Data Replicator V2 (using Azure Functions)](data-connectors/crowdstrike-falcon-data-replicator-v2.md)
@@ -267,7 +265,6 @@ For more information about the codeless connector platform, see [Create a codele
 
 ## Fireeye
 
-- [[Deprecated] FireEye Network Security (NX) via Legacy Agent](data-connectors/deprecated-fireeye-network-security-nx-via-legacy-agent.md)
 - [[Recommended] FireEye Network Security (NX) via AMA](data-connectors/recommended-fireeye-network-security-nx-via-ama.md)
 
 ## Flare Systems
@@ -281,9 +278,7 @@ For more information about the codeless connector platform, see [Create a codele
 
 ## Fortinet
 
-- [[Deprecated] Fortinet via Legacy Agent](data-connectors/deprecated-fortinet-via-legacy-agent.md)
 - [Fortinet FortiNDR Cloud (using Azure Functions)](data-connectors/fortinet-fortindr-cloud.md)
-- [[Deprecated] Fortinet FortiWeb Web Application Firewall via Legacy Agent](data-connectors/deprecated-fortinet-fortiweb-web-application-firewall-via-legacy-agent.md)
 
 ## Gigamon, Inc
 
@@ -311,16 +306,11 @@ For more information about the codeless connector platform, see [Create a codele
 
 ## Illumio
 
-- [[Deprecated] Illumio Core via Legacy Agent](data-connectors/deprecated-illumio-core-via-legacy-agent.md)
 - [[Recommended] Illumio Core via AMA](data-connectors/recommended-illumio-core-via-ama.md)
 
 ## Imperva
 
 - [Imperva Cloud WAF (using Azure Functions)](data-connectors/imperva-cloud-waf.md)
-
-## Infoblox
-
-- [Infoblox NIOS](data-connectors/infoblox-nios.md)
 
 ## Infosec Global
 
@@ -351,11 +341,6 @@ For more information about the codeless connector platform, see [Create a codele
 
 - [Juniper IDP](data-connectors/juniper-idp.md)
 - [Juniper SRX](data-connectors/juniper-srx.md)
-
-## Kaspersky
-
-- [[Deprecated] Kaspersky Security Center via Legacy Agent](data-connectors/deprecated-kaspersky-security-center-via-legacy-agent.md)
-- [[Recommended] Kaspersky Security Center via AMA](data-connectors/recommended-kaspersky-security-center-via-ama.md)
 
 ## Linux
 
@@ -439,9 +424,6 @@ For more information about the codeless connector platform, see [Create a codele
 
 ## Microsoft Sentinel Community, Microsoft Corporation
 
-- [[Deprecated] Forcepoint CASB via Legacy Agent](data-connectors/deprecated-forcepoint-casb-via-legacy-agent.md)
-- [[Deprecated] Forcepoint CSG via Legacy Agent](data-connectors/deprecated-forcepoint-csg-via-legacy-agent.md)
-- [[Deprecated] Forcepoint NGFW via Legacy Agent](data-connectors/deprecated-forcepoint-ngfw-via-legacy-agent.md)
 - [[Recommended] Forcepoint CASB via AMA](data-connectors/recommended-forcepoint-casb-via-ama.md)
 - [[Recommended] Forcepoint CSG via AMA](data-connectors/recommended-forcepoint-csg-via-ama.md)
 - [[Recommended] Forcepoint NGFW via AMA](data-connectors/recommended-forcepoint-ngfw-via-ama.md)
@@ -482,7 +464,6 @@ For more information about the codeless connector platform, see [Create a codele
 
 ## Netwrix
 
-- [[Deprecated] Netwrix Auditor via Legacy Agent](data-connectors/deprecated-netwrix-auditor-via-legacy-agent.md)
 - [[Recommended] Netwrix Auditor via AMA](data-connectors/recommended-netwrix-auditor-via-ama.md)
 
 ## Nginx
@@ -495,7 +476,6 @@ For more information about the codeless connector platform, see [Create a codele
 
 ## Nozomi Networks
 
-- [[Deprecated] Nozomi Networks N2OS via Legacy Agent](data-connectors/deprecated-nozomi-networks-n2os-via-legacy-agent.md)
 - [[Recommended] Nozomi Networks N2OS via AMA](data-connectors/recommended-nozomi-networks-n2os-via-ama.md)
 
 ## NXLog Ltd.
@@ -530,12 +510,10 @@ For more information about the codeless connector platform, see [Create a codele
 
 ## OSSEC
 
-- [[Deprecated] OSSEC via Legacy Agent](data-connectors/deprecated-ossec-via-legacy-agent.md)
 - [[Recommended] OSSEC via AMA](data-connectors/recommended-ossec-via-ama.md)
 
 ## Palo Alto Networks
 
-- [[Deprecated] Palo Alto Networks Cortex Data Lake (CDL) via Legacy Agent](data-connectors/deprecated-palo-alto-networks-cortex-data-lake-cdl-via-legacy-agent.md)
 - [[Recommended] Palo Alto Networks Cortex Data Lake (CDL) via AMA](data-connectors/recommended-palo-alto-networks-cortex-data-lake-cdl-via-ama.md)
 - [Palo Alto Prisma Cloud CSPM (using Azure Functions)](data-connectors/palo-alto-prisma-cloud-cspm.md)
 
@@ -545,7 +523,6 @@ For more information about the codeless connector platform, see [Create a codele
 
 ## Ping Identity
 
-- [[Deprecated] PingFederate via Legacy Agent](data-connectors/deprecated-pingfederate-via-legacy-agent.md)
 - [[Recommended] PingFederate via AMA](data-connectors/recommended-pingfederate-via-ama.md)
 
 ## PostgreSQL
@@ -680,7 +657,6 @@ For more information about the codeless connector platform, see [Create a codele
 
 ## TrendMicro
 
-- [[Deprecated] Trend Micro Apex One via Legacy Agent](data-connectors/deprecated-trend-micro-apex-one-via-legacy-agent.md)
 - [[Recommended] Trend Micro Apex One via AMA](data-connectors/recommended-trend-micro-apex-one-via-ama.md)
 
 ## Ubiquiti

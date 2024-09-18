@@ -296,18 +296,6 @@
       href: data-connectors/deprecated-kaspersky-security-center-via-legacy-agent.md
     - name: '[Deprecated] Morphisec UTPP'
       href: data-connectors/morphisec-utpp.md
-    - name: '[Deprecated] Netwrix Auditor via Legacy Agent'
-      href: data-connectors/deprecated-netwrix-auditor-via-legacy-agent.md
-    - name: '[Deprecated] Nozomi Networks N2OS via Legacy Agent'
-      href: data-connectors/deprecated-nozomi-networks-n2os-via-legacy-agent.md
-    - name: '[Deprecated] OSSEC via Legacy Agent'
-      href: data-connectors/deprecated-ossec-via-legacy-agent.md
-    - name: '[Deprecated] Palo Alto Networks Cortex Data Lake (CDL) via Legacy Agent'
-      href: data-connectors/deprecated-palo-alto-networks-cortex-data-lake-cdl-via-legacy-agent.md
-    - name: '[Deprecated] PingFederate via Legacy Agent'
-      href: data-connectors/deprecated-pingfederate-via-legacy-agent.md
-    - name: '[Deprecated] Trend Micro Apex One via Legacy Agent'
-      href: data-connectors/deprecated-trend-micro-apex-one-via-legacy-agent.md
     - name: '[Deprecated] vArmour Application Controller'
       href: data-connectors/varmour-application-controller.md
     - name: 'WireX Network Forensics Platform'
@@ -324,8 +312,6 @@
       href: data-connectors/recommended-forcepoint-ngfw-via-ama.md
     - name: '[Recommended] Illumio Core via AMA'
       href: data-connectors/recommended-illumio-core-via-ama.md
-    - name: '[Recommended] Kaspersky Security Center via AMA'
-      href: data-connectors/recommended-kaspersky-security-center-via-ama.md
     - name: '[Recommended] Netwrix Auditor via AMA'
       href: data-connectors/recommended-netwrix-auditor-via-ama.md
     - name: '[Recommended] Nozomi Networks N2OS via AMA'
@@ -530,8 +516,6 @@
       href: data-connectors/holm-security-asset-data.md
     - name: Imperva Cloud WAF (using Azure Functions)
       href: data-connectors/imperva-cloud-waf.md
-    - name: Infoblox NIOS
-      href: data-connectors/infoblox-nios.md
     - name: InfoSecGlobal Data Connector
       href: data-connectors/infosecglobal-data-connector.md
     - name: IONIX Security Logs
@@ -1160,7 +1144,7 @@
     - name: Auxiliary logs use cases
       href: basic-logs-use-cases.md
   - name: Connect Microsoft Sentinel to Microsoft Defender XDR
-    href: /defender-xdr/microsoft-sentinel-onboard??toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
+    href: /defender-xdr/microsoft-sentinel-onboard?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
   - name: Manage multiple workspaces 
     items:
     - name: Workspace manager
