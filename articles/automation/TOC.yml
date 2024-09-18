@@ -281,7 +281,7 @@
             - name: Support regions for linked Log Analytics workspace
               href: how-to/region-mappings.md
             - name: Discover the software installed on your VMs
-              href: automation-tutorial-installed-software
+              href: automation-tutorial-installed-software.md
             - name: Enable
               items:
                 - name: Enable from the Azure portal
