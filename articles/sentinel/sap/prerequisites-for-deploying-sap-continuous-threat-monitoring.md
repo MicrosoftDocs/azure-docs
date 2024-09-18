@@ -76,4 +76,3 @@ For more information, see:
 
 > [!div class="nextstepaction"]
 > [Install the Microsoft Sentinel solution for SAP applications](deploy-sap-security-content.md)
-

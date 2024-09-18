@@ -97,7 +97,6 @@ x509cert=<server certificate>
 # Base64 encoded server certificate value in a single line (with leading ----BEGIN-CERTIFICATE--- and trailing ----END-CERTIFICATE---- removed)
 ```
 
-
 ## ABAP table selector
 
 ```ini
@@ -139,7 +138,6 @@ loganalyticswsid=<workspace ID>
 publickey=<publickey>
 # Log Analytics workspace primary or secondary key. Used only when secrets setting in Secrets Source section is set to DOCKER_FIXED
 ```
-
 
 ## Connector configuration
 

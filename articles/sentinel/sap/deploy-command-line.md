@@ -22,44 +22,11 @@ While you can run multiple data connector agents on a single machine, we recomme
 
 ## Prerequisites
 
-- Before deploying your data connector, make sure to [create a virtual machine and configure access to your credentials](deploy-data-connector-agent-container.md#create-a-virtual-machine-and-configure-access-to-your-credentials). 
+- Before deploying your data connector, make sure to [create a virtual machine and configure access to your credentials](deploy-data-connector-agent-container.md#create-a-virtual-machine-and-configure-access-to-your-credentials).
 
-- If you're using SNC for secure connections, make sure that your SAP system is configured properly. For more information, see [SAP documentation](https://help.sap.com/docs/ABAP_PLATFORM_NEW/e73bba71770e4c0ca5fb2a3c17e8e229/e656f466e99a11d1a5b00000e835363f.html). 
+- If you're using SNC for secure connections, make sure that your SAP system is configured properly, and then [prepare the kickstart script for secure communication with SNC](#prepare-the-kickstart-script-for-secure-communication-with-snc) before deploying the data connector agent.
 
-## Prepare the kickstart script for secure communication with SNC
-
-This procedure describes how to prepare the deployment script to configure settings for secure communications with your SAP system using SNC. If you aren't using SNC, skip directly to one of the following procedures:
-
-- [Deploy the data connector agent using a managed identity or registered application](#deploy-the-data-connector-agent-using-a-managed-identity-or-registered-application)
-- [Deploy the data connector using a configuration file](#deploy-the-data-connector-using-a-configuration-file)
-
-**To configure the container for secure communication with SNC**:
-
-1. Transfer the *libsapcrypto.so* and *sapgenpse* files to the system where you're creating the container.
-
-1. Transfer the client certificate, including both private and public keys to the system where you're creating the container.
-
-    The client certificate and key can be in *.p12*, *.pfx*, or Base64 *.crt* and *.key* format.
-
-1. Transfer the server certificate (public key only) to the system where you're creating the container.
-
-    The server certificate must be in Base64 *.crt* format.
-
-1. If the client certificate was issued by an enterprise certification authority, transfer the issuing CA and root CA certificates to the system where you're creating the container.
-
-1. Get the kickstart script from the Microsoft Sentinel GitHub repository:
-
-    ```bash
-    wget https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/sapcon-sentinel-kickstart.sh
-    ```
-
-1. Change the script's permissions to make it executable:
-
-    ```bash
-    chmod +x ./sapcon-sentinel-kickstart.sh
-    ```
-
-For more information, see [Kickstart deployment script reference for the Microsoft Sentinel for SAP applications data connector agent](reference-kickstart.md).
+    For more information, see [SAP documentation](https://help.sap.com/docs/ABAP_PLATFORM_NEW/e73bba71770e4c0ca5fb2a3c17e8e229/e656f466e99a11d1a5b00000e835363f.html).
 
 ## Deploy the data connector agent using a managed identity or registered application
 
@@ -67,7 +34,7 @@ This procedure describes how to create a new agent and connect it to your SAP sy
 
 - If you're using SNC, make sure that you've completed [Prepare the kickstart script for secure communication with SNC](#prepare-the-kickstart-script-for-secure-communication-with-snc) first.
 
-- If you're using a configuration file to store your credentials, see [Deploy a data connector agent container using a configuration file](sap-solution-deploy-alternate.md#deploy-a-data-connector-agent-container-using-a-configuration-file) instead.
+- If you're using a configuration file to store your credentials, see [Deploy the data connector using a configuration file](#deploy-the-data-connector-using-a-configuration-file) instead.
 
 **To deploy your data connector agent**:
 
@@ -186,6 +153,12 @@ The deployment procedure generates a **systemconfig.json** file that contains th
 
 Azure Key Vault is the recommended method to store your authentication credentials and configuration data. If you are prevented from using Azure Key Vault, this procedure describes how you can deploy the data connector agent container using a configuration file instead.
 
+- If you're using SNC, make sure that you've completed [Prepare the kickstart script for secure communication with SNC](#prepare-the-kickstart-script-for-secure-communication-with-snc) first.
+
+- If you're using a managed identity or registered application, see [Deploy the data connector agent using a managed identity or registered application](#deploy-the-data-connector-agent-using-a-managed-identity-or-registered-application) instead.
+
+**To deploy your data connector agent**:
+
 1. Create a virtual machine on which to deploy the agent.
 
 1. Transfer the [SAP NetWeaver SDK](https://aka.ms/sap-sdk-download) to the machine on which you want to install the agent.
@@ -196,7 +169,7 @@ Azure Key Vault is the recommended method to store your authentication credentia
     wget https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/sapcon-sentinel-kickstart.sh
     chmod +x ./sapcon-sentinel-kickstart.sh
     ```
-    
+
 1. **Run the script**:
 
     ```bash
@@ -233,7 +206,6 @@ Azure Key Vault is the recommended method to store your authentication credentia
 
         For example, an agent ID returned might be `234fba02-3b34-4c55-8c0e-e6423ceb405b`.
 
-
     1. Assign the **Microsoft Sentinel Business Applications Agent Operator** and **Reader** roles by running the following commands:
 
         ```bash
@@ -259,6 +231,38 @@ Azure Key Vault is the recommended method to store your authentication credentia
     ```
 
 The deployment procedure generates a **systemconfig.json** file that contains the configuration details for the SAP data connector agent. For more information, see [SAP data connector agent configuration file](deployment-overview.md#sap-data-connector-agent-configuration-file).
+
+## Prepare the kickstart script for secure communication with SNC
+
+This procedure describes how to prepare the deployment script to configure settings for secure communications with your SAP system using SNC. If you're using SNC, you must perform this procedure before deploying the data connector agent.
+
+**To configure the container for secure communication with SNC**:
+
+1. Transfer the *libsapcrypto.so* and *sapgenpse* files to the system where you're creating the container.
+
+1. Transfer the client certificate, including both private and public keys to the system where you're creating the container.
+
+    The client certificate and key can be in *.p12*, *.pfx*, or Base64 *.crt* and *.key* format.
+
+1. Transfer the server certificate (public key only) to the system where you're creating the container.
+
+    The server certificate must be in Base64 *.crt* format.
+
+1. If the client certificate was issued by an enterprise certification authority, transfer the issuing CA and root CA certificates to the system where you're creating the container.
+
+1. Get the kickstart script from the Microsoft Sentinel GitHub repository:
+
+    ```bash
+    wget https://raw.githubusercontent.com/Azure/Azure-Sentinel/master/Solutions/SAP/sapcon-sentinel-kickstart.sh
+    ```
+
+1. Change the script's permissions to make it executable:
+
+    ```bash
+    chmod +x ./sapcon-sentinel-kickstart.sh
+    ```
+
+For more information, see [Kickstart deployment script reference for the Microsoft Sentinel for SAP applications data connector agent](reference-kickstart.md).
 
 ## Check connectivity and health
 

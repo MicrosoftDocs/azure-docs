@@ -24,7 +24,7 @@ Content in this article is intended for your **SAP BASIS** teams. For more infor
 
 ## Prerequisites
 
-Make sure that your system complies with the prerequisites documented in the main [SAP data connector prerequisites document](prerequisites-for-deploying-sap-continuous-threat-monitoring.md) before you start.
+- Make sure that your system complies with the prerequisites documented in the main [SAP data connector prerequisites document](prerequisites-for-deploying-sap-continuous-threat-monitoring.md) before you start.
 
 ## Manually add SAP data connector agent Azure Key Vault secrets
 
@@ -328,7 +328,6 @@ SNCSYSACL_FULL = False
 USRACL_FULL = False
 ```
 
-
 ### SAL logs connector settings
 
 Add the following code to the Microsoft Sentinel for SAP data connector **systemconfig.json** file to define other settings for SAP logs ingested into Microsoft Sentinel.
@@ -356,7 +355,6 @@ This section enables you to configure the following parameters:
 |**auditlogforcelegacyfiles**     |  Determines whether the system forces the use of audit logs with legacy system capabilities, such as from SAP BASIS version 7.4 with lower patch levels.|
 |**timechunk**     |   Determines that the system waits a specific number of minutes as an interval between data extractions. Use this parameter if you have a large amount of data expected. <br><br>For example, during the initial data load during your first 24 hours, you might want to have the data extraction running only every 30 minutes to give each data extraction enough time. In such cases, set this value to **30**.  |
 
-
 ### Configuring an ABAP SAP Control instance
 
 To ingest all ABAP logs into Microsoft Sentinel, including both NW RFC and SAP Control Web Service-based logs, configure the following ABAP SAP Control details:
@@ -379,10 +377,9 @@ To ingest SAP Control Web Service logs into Microsoft Sentinel, configure the fo
 |**javatz**     |Enter the time zone configured on your SAP Control Java server, in GMT format. <br>For example: `GMT+3`         |
 |**javaseverity**     |Enter the lowest, inclusive, severity level for which you want to ingest Web Service logs into Microsoft Sentinel.  Values include: <br><br>- **0** = All logs <br>- **1** = Warning <br>- **2** = Error     |
 
-
 ### Configuring User Master data collection
 
-To ingest tables directly from your SAP system with details about your users and role authorizations, configure your **systemconfig.json** file with a `True`/`False` statement for each table. 
+To ingest tables directly from your SAP system with details about your users and role authorizations, configure your **systemconfig.json** file with a `True`/`False` statement for each table.
 
 For example:
 

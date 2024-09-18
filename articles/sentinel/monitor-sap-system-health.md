@@ -65,8 +65,9 @@ This procedure describes how to check your data connector's connection status fr
         |---------|---------|
         | **System healthy** (green icon)| Indicates that Microsoft Sentinel identified both logs and a heartbeat from the system.|
         | **System Connected – unauthorized to collect role, production assumed** (yellow icon) | Microsoft Sentinel doesn't have sufficient permissions to define whether the system is a production system. In this case, Microsoft Sentinel defines the system as a production system. <br><br>In such cases, check the Microsoft Sentinel role definitions and permissions on the SAP system, and validate that the system allows Microsoft Sentinel to read the content of the T000 table. Next, consider [updating the SAP connector](sap/update-sap-data-connector.md) to the latest version.    |
-        | **Connected with errors** (yellow icon) | Microsoft Sentinel detected errors when fetching the system role. In this case, Microsoft Sentinel received data regarding whether the system is or isn't a production system. |
-        | **System not connected** | Microsoft Sentinel was unable to connect to the SAP system, and cannot fetch the system role. In this case, Microsoft Sentinel received data regarding whether the system is or isn't a production system.<br><br>Other statuses, like **System unreachable for over 1 day**, indicate the connectivity status.         |
+        | **Connected with errors** (yellow icon) | Connection was successful but Microsoft Sentinel detected errors when fetching the system role and doesn't have the details of whether the system is or isn't a production system. |
+        | **System not connected** | Microsoft Sentinel was unable to connect to the SAP system, and cannot fetch the system role. In this case, Microsoft Sentinel doesn't have the details of whether the system is or isn't a production system.        |
+        | Other statuses that reflect more details about connectivity issues | For example, **System unreachable for over 1 day**. |
 
 ## View SAP logs streaming into Microsoft Sentinel
 

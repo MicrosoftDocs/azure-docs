@@ -17,7 +17,7 @@ ms.collection: usx-security
 
 This article shows you how to update an already existing Microsoft Sentinel for SAP data connector to its latest version so that you can use the latest features and improvements.
 
-During the data connector agent update process, there's a brief downtime of approximately 10 seconds. To ensure data integrity, a database entry stores the timestamp of the last fetched log. After the update is complete, the data fetching process resumes from the last log fetched, preventing duplicates and ensuring a seameless data flow.
+During the data connector agent update process, there might be a brief downtime of approximately 10 seconds. To ensure data integrity, a database entry stores the timestamp of the last fetched log. After the update is complete, the data fetching process resumes from the last log fetched, preventing duplicates and ensuring a seameless data flow.
 
 The automatic or manual updates described in this article are relevant to the SAP connector agent only, and not to the Microsoft Sentinel solution for SAP applications. To successfully update the solution, your agent needs to be up to date. The solution is updated separately, as you would any other [Microsoft Sentinel solution](../sentinel-solutions-deploy.md#install-or-update-content).
 
@@ -187,19 +187,19 @@ To apply and assign the **/MSFTSEN/SENTINEL_RESPONDER** SAP role:
 
 1. Assign the **/MSFTSEN/SENTINEL_RESPONDER** role to the SAP user account used by Microsoft Sentinel's SAP data connector agent. For more information, see [Configure your SAP system for the Microsoft Sentinel solution](preparing-sap.md).
 
-  Alternately, manually assign the following authorizations to the current role already assigned to the SAP user account used by Microsoft Sentinel's SAP data connector. These authorizations are included in the **/MSFTSEN/SENTINEL_RESPONDER** SAP role specifically for attack disruption response actions.
+    Alternately, manually assign the following authorizations to the current role already assigned to the SAP user account used by Microsoft Sentinel's SAP data connector. These authorizations are included in the **/MSFTSEN/SENTINEL_RESPONDER** SAP role specifically for attack disruption response actions.
 
-  | Authorization object | Field | Value |
-  | -------------------- | ----- | ----- |
-  |S_RFC |RFC_TYPE |Function Module |
-  |S_RFC |RFC_NAME |BAPI_USER_LOCK |
-  |S_RFC |RFC_NAME |BAPI_USER_UNLOCK |
-  |S_RFC |RFC_NAME |TH_DELETE_USER <br>In contrast to its name, this function doesn't delete users, but ends the active user session. |
-  |S_USER_GRP |CLASS |* <br>We recommend replacing S_USER_GRP CLASS with the relevant classes in your organization that represent dialog users. |
-  |S_USER_GRP |ACTVT |03 |
-  |S_USER_GRP |ACTVT |05 |
+    | Authorization object | Field | Value |
+    | -------------------- | ----- | ----- |
+    |S_RFC |RFC_TYPE |Function Module |
+    |S_RFC |RFC_NAME |BAPI_USER_LOCK |
+    |S_RFC |RFC_NAME |BAPI_USER_UNLOCK |
+    |S_RFC |RFC_NAME |TH_DELETE_USER <br>In contrast to its name, this function doesn't delete users, but ends the active user session. |
+    |S_USER_GRP |CLASS |* <br>We recommend replacing S_USER_GRP CLASS with the relevant classes in your organization that represent dialog users. |
+    |S_USER_GRP |ACTVT |03 |
+    |S_USER_GRP |ACTVT |05 |
 
-    For more information, see [Required ABAP authorizations](required-abap-authorizations.md).
+  For more information, see [Required ABAP authorizations](required-abap-authorizations.md).
 
 ## Related content
 
