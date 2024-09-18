@@ -32,6 +32,8 @@ To access the Grafana user interface, users must possess one of these roles.
 
 These permissions are included within the broader roles of resource group Contributor and resource group Owner roles. If you're not a resource group Contributor or a resource group Owner, you will need to ask a subscription Owner or resource group Owner to grant you one of the Grafana roles on the resource you want to access.
 
+You can find more information about the Grafana roles from the [Grafana documentation](https://grafana.com/docs/grafana/latest/administration/roles-and-permissions/#organization-roles). The Grafana Limited Viewer role in Azure maps to the "No Basic Role" in the Grafana docs.
+
 ## Adding a role assignment to an Azure Managed Grafana resource
 
 To add a role assignment to an Azure Managed Grafana instance, in your Azure Managed Grafana workspace, open the **Access control (IAM)** menu and select **Add** > **Add role assignment**.

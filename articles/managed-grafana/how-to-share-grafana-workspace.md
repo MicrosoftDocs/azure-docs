@@ -31,13 +31,11 @@ Azure Managed Grafana supports the following Grafana roles:
 - Grafana Limited Viewer: provides read-only access to the Grafana home page. This role contains no permissions assigned by default and it is not available for Grafana v9 workspaces.
 - Grafana Viewer: provides read-only access to dashboards in the instance.
 
-More details on Grafana roles can be found in the [Grafana documentation](https://grafana.com/docs/grafana/latest/administration/roles-and-permissions/#organization-roles). The Grafana Limited Viewer role in Azure maps to the "No Basic Role" in the Grafana documentation.
-
-Grafana user roles and assignments are fully [integrated within Microsoft Entra ID](../role-based-access-control/built-in-roles.md#grafana-admin). You can assign a Grafana role to any Microsoft Entra user, group, service principal or managed identity, and grant them access permissions associated with that role. You can manage these permissions from the Azure portal or the command line. This section explains how to assign Grafana roles to users in the Azure portal.
+Go to [Azure role-based access control within Azure Managed Grafana](./concept-role-based-access-control) for more information about these roles in Azure, and to [Organization roles](https://grafana.com/docs/grafana/latest/administration/roles-and-permissions/#organization-roles) to learn about Grafana roles from the Grafana website. The Grafana Limited Viewer role in Azure maps to the "No Basic Role" in the Grafana documentation.
 
 ## Add a Grafana role assignment
 
-In this section, learn how to assign a Grafana role to a user, group, service principal, or to managed identity.
+Grafana user roles and assignments are fully [integrated within Microsoft Entra ID](../role-based-access-control/built-in-roles.md#grafana-admin). You can assign a Grafana role to any Microsoft Entra user, group, service principal or managed identity, and grant them access permissions associated with that role. You can manage these permissions from the Azure portal or the command line. This section explains how to assign Grafana roles to users in the Azure portal.
 
 ### [Portal](#tab/azure-portal)
 
