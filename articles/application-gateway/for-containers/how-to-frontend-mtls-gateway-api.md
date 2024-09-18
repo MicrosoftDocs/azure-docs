@@ -6,7 +6,7 @@ author: greglin
 ms.service: azure-application-gateway
 ms.subservice: appgw-for-containers
 ms.topic: how-to
-ms.date: 9/16/2024
+ms.date: 9/18/2024
 ms.author: greglin
 ---
 
@@ -28,7 +28,7 @@ See the following figure:
 
 The valid client certificate flow shows a client presenting a certificate to the frontend of Application Gateway for Containers. Application Gateway for Containers determines the certificate is valid and proxies the request to the backend target. The response is ultimately returned to the client.
 
-The revoked client certificate flow shows a client presenting a revoked certificate to the frontend of Application Gateway for Containers. Application Gateway for Containers determines the certificate is not valid and prevents the request from being proxied to the client. The client will receive an HTTP 400 bad request and corresponding reason.
+The revoked client certificate flow shows a client presenting a revoked certificate to the frontend of Application Gateway for Containers. Application Gateway for Containers determines the certificate isn't valid and prevents the request from being proxied to the client. The client will receive an HTTP 400 bad request and corresponding reason.
 
 ## Prerequisites
 
@@ -51,7 +51,7 @@ The revoked client certificate flow shows a client presenting a revoked certific
 
 ### Generate certificate(s)
 
-For this example, we will create a root certificate and issue a client certificate from the root. If you already have a root certificate and client certificate, you may skip these steps.
+For this example, we'll create a root certificate and issue a client certificate from the root. If you already have a root certificate and client certificate, you may skip these steps.
 
 #### Generate a private key for the root certificate
 
@@ -103,7 +103,7 @@ spec:
       certificateRefs:
       - kind : Secret
         group: ""
-        name: contoso.com
+        name: listener-tls-secret
 EOF
 ```
 
@@ -147,7 +147,7 @@ EOF
           certificateRefs:
           - kind : Secret
             group: ""
-            name: contoso.com
+            name: listener-tls-secret
       addresses:
       - type: alb.networking.azure.io/alb-frontend
         value: $FRONTEND_NAME
@@ -223,8 +223,8 @@ spec:
   - name: gateway-01
   rules:
   - backendRefs:
-    - name: mtls-app
-      port: 443
+    - name: echo
+      port: 80
 EOF
 ```
 
@@ -266,6 +266,12 @@ status:
       namespace: test-infra
   ```
 
+Create a Kubernetes secret using kubectl that contains the certificate chain to the client certificate.
+
+```bash
+kubectl create secret generic ca.bundle -n test-infra --from-file=ca.crt=root.crt
+```
+
 Create a FrontendTLSPolicy
 
 ```bash
@@ -290,7 +296,6 @@ spec:
         group: ""
         kind: Secret
         namespace: test-infra
-      subjectAltName: "contoso-client"
 EOF
 ```
 
@@ -321,10 +326,24 @@ Now we're ready to send some traffic to our sample application, via the FQDN ass
 fqdn=$(kubectl get gateway gateway-01 -n test-infra -o jsonpath='{.status.addresses[0].value}')
 ```
 
-Curling this FQDN should return responses from the backend as configured on the HTTPRoute.
+Curling the FQDN of your frontend without the client certificate.
+
+```bash
+curl --insecure https://$fqdn/
+```
+
+Note the response alerts a certificate is required.
+
+```
+curl: (56) OpenSSL SSL_read: OpenSSL/1.1.1k: error:1409445C:SSL routines:ssl3_read_bytes:tlsv13 alert certificate required, errno 0
+```
+
+Curl the FQDN presenting the client certificate generated.
 
 ```bash
 curl --cert client.crt --key client.key --insecure https://$fqdn/
 ```
 
-Congratulations, you have installed ALB Controller, deployed a backend application, authenticated via client certificate, and routed traffic to the application via the gateway on Application Gateway for Containers.
+Note the response is from the backend service behind Application Gateway for Containers.
+
+Congratulations, you installed ALB Controller, deployed a backend application, authenticated via client certificate, and returned traffic from your backend service via Application Gateway for Containers.
