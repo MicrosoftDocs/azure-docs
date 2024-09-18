@@ -1639,6 +1639,17 @@ groups:
     title: Python
   - id: programming-language-node
     title: Node
+# Owner: kgremban
+- id: iot-hub-howto-c2d-2
+  title: Programming languages
+  prompt: Choose a programming language
+  pivots:
+  - id: programming-language-csharp
+    title: .NET/C#
+  - id: programming-language-python
+    title: Python
+  - id: programming-language-node
+    title: Node
 # Owner: craigshoemaker
 - id: swa-web-framework
   title: Web Framework
