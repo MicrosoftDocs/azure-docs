@@ -1355,15 +1355,7 @@ The `telemetry` section of a feature flag has the following properties:
 
 ### Custom Telemetry Publishing
 
-The feature manager has its own `ActivitySource` named "Microsoft.FeatureManagement". If `telemetry` is enabled for a feature flag, whenever the evaluation of the feature flag is started, the feature manager will start an `Activity`. When the feature flag evaluation is finished, the feature manager will add an `ActivityEvent` named `"FeatureFlag"` to the current activity. The `"FeatureFlag"` event will have tags which include the information about the feature flag evaluation. Specifically, the tags will include the following fields:
-
-| Tag | Description |
-| ---------------- | ---------------- |
-| `FeatureName` | The feature flag name. |
-| `Enabled` | Whether the feature flag is evaluated as enabled. |
-| `Variant` | The assigned variant. |
-| `VariantAssignmentReason` | The reason why the variant is assigned. |
-| `TargetingId` | The user id used for targeting. |
+The feature manager has its own `ActivitySource` named "Microsoft.FeatureManagement". If `telemetry` is enabled for a feature flag, whenever the evaluation of the feature flag is started, the feature manager will start an `Activity`. When the feature flag evaluation is finished, the feature manager will add an `ActivityEvent` named `"FeatureFlag"` to the current activity. The `"FeatureFlag"` event will have tags which include the information about the feature flag evaluation, following the fields defined in the [FeatureEvaluationEvent](https://github.com/microsoft/FeatureManagement/blob/main/Schema/FeatureEvaluationEvent.v1.0.0.schema.json) schema.
 
 > [!NOTE]
 > All key value pairs specified in `telemetry.metadata` of the feature flag will also be included in the tags.
