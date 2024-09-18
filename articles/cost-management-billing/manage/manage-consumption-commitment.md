@@ -13,7 +13,7 @@ ms.author: banders
 
 # Manage a Microsoft Azure Consumption Commitment resource under a subscription
 
-When you accept a Microsoft Azure Consumption Commitment (MACC) in a Microsoft Customer agreement for a subscription and resource group, the MACC resource is created in that subscription and resource group. The resource contains the metadata related to the MACC. Including: status of the MACC, commitment amount, start date, end date, and System ID. You can view the metadata in the Azure portal.
+When you accept a Microsoft Azure Consumption Commitment (MACC) in a Microsoft Customer Agreement, the MACC resource gets placed in a subscription and resource group. The resource contains the metadata related to the MACC. Including: status of the MACC, commitment amount, start date, end date, and System ID. You can view the metadata in the Azure portal.
 
 :::image type="content" source="./media/manage-consumption-commitment/consumption-commitment-overview.png" border="true" alt-text="Screenshot showing the MACC overview page." lightbox="./media/manage-consumption-commitment/consumption-commitment-overview.png" :::
 
@@ -21,7 +21,7 @@ When you accept a Microsoft Azure Consumption Commitment (MACC) in a Microsoft C
 
 You can move the MACC resource to another resource group or subscription. Moving it works the same way as moving other Azure resources.
 
-Moving a MACC resource to another subscription or resource group is a metadata change. The move doesn't affect previous MACC usage or how MACC is used to pay for new usage. The destination resource group or subscription must be within the same billing profile where the MACC is currently located.
+Moving a MACC resource to another subscription or resource group is a metadata change. The move doesn't affect the commitment. The destination resource group or subscription must be within the same billing profile where the MACC is currently located.
 
 ### To move a MACC
 
@@ -51,8 +51,6 @@ Here's an example image:
 ## Delete MACC 
 
 You can't delete an active MACC resource. The MACC must be **Expired** or **Canceled** before you can delete it.
-
-If you need to delete a MACC, you can cancel it. After the MACC is canceled, it expires after its end date.
 
 ## Related content
 
