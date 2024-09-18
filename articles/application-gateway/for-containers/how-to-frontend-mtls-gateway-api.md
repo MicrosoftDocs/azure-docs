@@ -6,7 +6,7 @@ author: greglin
 ms.service: azure-application-gateway
 ms.subservice: appgw-for-containers
 ms.topic: how-to
-ms.date: 9/17/2024
+ms.date: 9/18/2024
 ms.author: greglin
 ---
 
@@ -329,7 +329,8 @@ fqdn=$(kubectl get gateway gateway-01 -n test-infra -o jsonpath='{.status.addres
 Curling the FQDN of your frontend without the client certificate.
 
 ```bash
-curl --insecure https://$fqdn/```
+curl --insecure https://$fqdn/
+```
 
 Note the response alerts a certificate is required.
 
