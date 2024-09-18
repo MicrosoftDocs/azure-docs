@@ -12,7 +12,7 @@ ms.custom: subject-rbac-steps
 
 > [!NOTE]
 > Please note that Azure Remote Rendering (ARR) will be retired on **September 30, 2025**. It is no longer possible to create new accounts if your subscription did not have an active ARR account previously.
-> More details [here](https://azure.microsoft.com/en-us/updates/v2/azure-remote-rendering-retirement).
+> More details [here](https://azure.microsoft.com/updates/v2/azure-remote-rendering-retirement).
 
 This chapter guides you through the steps to create an account for the **Azure Remote Rendering** service. A valid account is mandatory for completing any of the quickstarts or tutorials.
 

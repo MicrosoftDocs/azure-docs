@@ -10,7 +10,7 @@ ms.topic: overview
 # About Azure Remote Rendering
 
 > [!NOTE]
-> Please note that Azure Remote Rendering (ARR) will be retired on **September 30, 2025**. More details [here](https://azure.microsoft.com/en-us/updates/v2/azure-remote-rendering-retirement).
+> Please note that Azure Remote Rendering (ARR) will be retired on **September 30, 2025**. More details [here](https://azure.microsoft.com/updates/v2/azure-remote-rendering-retirement).
 
 *Azure Remote Rendering (ARR)* is a service that enables you to render high-quality, interactive 3D content in the cloud and stream it in real time to devices, such as the HoloLens 2.
 
