@@ -31,7 +31,7 @@ Azure Managed Grafana supports the following Grafana roles:
 - Grafana Limited Viewer: provides read-only access to the Grafana home page. This role contains no permissions assigned by default and it is not available for Grafana v9 workspaces.
 - Grafana Viewer: provides read-only access to dashboards in the instance.
 
-Go to [Azure role-based access control within Azure Managed Grafana](./concept-role-based-access-control) for more information about these roles in Azure, and to [Organization roles](https://grafana.com/docs/grafana/latest/administration/roles-and-permissions/#organization-roles) to learn about Grafana roles from the Grafana website. The Grafana Limited Viewer role in Azure maps to the "No Basic Role" in the Grafana documentation.
+Go to [Azure role-based access control within Azure Managed Grafana](./concept-role-based-access-control.md) for more information about these roles in Azure, and to [Organization roles](https://grafana.com/docs/grafana/latest/administration/roles-and-permissions/#organization-roles) to learn about Grafana roles from the Grafana website. The Grafana Limited Viewer role in Azure maps to the "No Basic Role" in the Grafana documentation.
 
 ## Add a Grafana role assignment
 
