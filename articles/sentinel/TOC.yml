@@ -1096,7 +1096,7 @@
       href: /defender-xdr/alerts-incidents-correlation?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
   - name: Investigate incidents with Security Copilot
     items: 
-    - name: Integrate Microsoft Sentinel
+    - name: Overview
       href: sentinel-security-copilot.md
     - name: Microsoft Copilot in Microsoft Defender ## Need to verify all these feature work for Sentinel only
       items:
