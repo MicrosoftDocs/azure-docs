@@ -30,12 +30,9 @@ To create a dataflow endpoint for Kafka, you need to specify the Kafka broker ho
 
 [Azure Event Hubs is compatible with the Kafka protocol](../../event-hubs/azure-event-hubs-kafka-overview.md) and can be used with dataflows with some limitations.
 
-To configure an Azure Event Hubs, we suggest using the managed identity of the Azure Arc-enabled Kubernetes cluster. This approach is secure and eliminates the need for secret management.
+If you are using Azure Event Hubs, create an Azure Event Hubs namespace and a Kafka-enabled event hub for each Kafka topic. 
 
-1. Create an Azure Event Hubs namespace and a Kafka-enabled event hub. One for each Kafka topic.
-
-
-## Create a Kafka dataflow endpoint
+### Configure a Kafka dataflow endpoint
 
 To configure a dataflow endpoint for a Kafka endpoint, we suggest using the managed identity of the Azure Arc-enabled Kubernetes cluster. This approach is secure and eliminates the need for secret management.
 
@@ -133,7 +130,7 @@ Once the endpoint is created, you can use it in a dataflow by specifying the end
 
 # [Portal](#tab/portal)
 
-:::image type="content" source="media/howto-configure-fabric-endpoint/dataflow-mq-fabric.png" alt-text="Screenshot using operations portal to create a dataflow with a MQTT source and Azure Data Explorer destination.":::
+:::image type="content" source="media/howto-configure-fabric-endpoint/dataflow-mq-fabric.png" alt-text="Screenshot using operations portal to create a dataflow with an MQTT source and Azure Data Explorer destination.":::
 
 # [Kubernetes](#tab/kubernetes)
 
@@ -537,6 +534,55 @@ MQTT v5 properties must be smaller than 64 KB. If dataflow receives a Kafka mess
 * Remove the offending property or properties.
 * Forward the rest of the message on, following the previous rules.
 
+##### Property translation when using Event Hubs and producers that use AMQP
+
+If you have a client forwarding messages a Kafka dataflow source endpoint doing any of the following actions:
+
+- Sending messages to Event Hubs using client libraries such as *Azure.Messaging.EventHubs*
+- Using AMQP directly
+
+There are property translation nuances to be aware of.
+
+You should do one of the following:
+
+- Avoid sending properties
+- If you must send properties, send values encoded as UTF-8.
+
+When Event Hubs translates properties from AMQP to Kafka, it includes the underlying AMQP encoded types in its message. For more information on the behavior, see [Exchanging Events Between Consumers and Producers Using Different Protocols](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/interop).
+
+In the following code example when the dataflow endpoint receives the value `"foo":"bar"`, it receives the property as `<0xA1 0x03 "bar">`.
+
+```csharp
+using global::Azure.Messaging.EventHubs;
+using global::Azure.Messaging.EventHubs.Producer;
+
+var propertyEventBody = new BinaryData("payload");
+
+var propertyEventData = new EventData(propertyEventBody)
+{
+  Properties =
+  {
+    {"foo", "bar"},
+  }
+};
+
+var propertyEventAdded = eventBatch.TryAdd(propertyEventData);
+await producerClient.SendAsync(eventBatch);
+```
+
+The dataflow endpoint can't forward the payload property `<0xA1 0x03 "bar">` to an MQTT message because the data isn't UTF-8. However if you specify a UTF-8 string, the dataflow endpoint translates the string before sending onto MQTT. If you use a UTF-8 string, the MQTT message would have `"foo":"bar"` as user properties. 
+
+Only UTF-8 headers are translated. For example, given the following scenario where the property is set as a float:
+
+```csharp
+Properties = 
+{
+  {"float-value", 11.9 },
+}
+```
+
+The dataflow endpoint discards packets that contain the `"float-value"` field.
+
 ### CloudEvents
 
 [CloudEvents](https://cloudevents.io/) are a way to describe event data in a common way. The CloudEvents settings are used to send or receive messages in the CloudEvents format. You can use CloudEvents for event-driven architectures where different services need to communicate with each other in the same or different cloud providers.
@@ -550,7 +596,7 @@ mqttSettings:
 
 #### Propagate setting
 
-CloudEvent properties are passed through for messages that contain the required properties. If the message does not contain the required properties, the message is passed through as is. If the required properties are present, a `ce_` prefix is added to the CloudEvent property name.
+CloudEvent properties are passed through for messages that contain the required properties. If the message doesn't contain the required properties, the message is passed through as is. If the required properties are present, a `ce_` prefix is added to the CloudEvent property name.
 
 | Name              | Required | Sample value                                           | Output name          | Output value                                                                |
 | ----------------- | -------- | ------------------------------------------------------ | -------------------- |---------------------------------------------------------------------------- |
@@ -565,7 +611,7 @@ CloudEvent properties are passed through for messages that contain the required 
 
 #### CreateOrRemap setting
 
-CloudEvent properties are passed through for messages that contain the required properties. If the message does not contain the required properties, the properties are generated.
+CloudEvent properties are passed through for messages that contain the required properties. If the message doesn't contain the required properties, the properties are generated.
 
 | Name              | Required | Output name          | Generated value if missing                                                    |
 | ----------------- | -------- | -------------------- | ------------------------------------------------------------------------------|
