@@ -14,26 +14,24 @@ ms.date: 08/26/2024
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-An Azure Arc-enabled Kubernetes cluster is a prerequisite for deploying Azure IoT Operations Preview. This article describes how to prepare an Azure Arc-enabled Kubernetes cluster before you [Deploy Azure IoT Operations Preview to an Arc-enabled Kubernetes cluster](howto-deploy-iot-operations.md) to run your own workloads. This article includes guidance for both Ubuntu, Windows, and cloud environments.
+An Azure Arc-enabled Kubernetes cluster is a prerequisite for deploying Azure IoT Operations Preview. This article describes how to prepare a cluster before you [Deploy Azure IoT Operations Preview to an Arc-enabled Kubernetes cluster](howto-deploy-iot-operations.md). This article includes guidance for both Ubuntu, Windows, and cloud environments.
 
 > [!TIP]
-> If you want to deploy Azure IoT Operations and run a sample workload, see the [Quickstart: Run Azure IoT Operations Preview in Github Codespaces with K3s](../get-started-end-to-end-sample/quickstart-deploy.md).
-
-[!INCLUDE [validated-environments](../includes/validated-environments.md)]
+> The steps in this article prepare your cluster for a secure settings deployment, which is a longer but production-ready process. If you want to deploy Azure IoT Operations quickly and run a sample workload with only test settings, see the [Quickstart: Run Azure IoT Operations Preview in Github Codespaces with K3s](../get-started-end-to-end-sample/quickstart-deploy.md) instead.
+>
+> For more information about test settings and secure settings, see [Deployment details > Choose your features](./overview-deploy.md#choose-your-features).
 
 ## Prerequisites
 
 To prepare your Azure Arc-enabled Kubernetes cluster, you need:
 
-* Hardware that meets the [system requirements](../../azure-arc/kubernetes/system-requirements.md).
-
 ### [AKS Edge Essentials](#tab/aks-edge-essentials)
 
 * An Azure subscription. If you don't have an Azure subscription, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-* Azure CLI version 2.46.0 or newer installed on your development machine. Use `az --version` to check your version and `az upgrade` to update if necessary. For more information, see [How to install the Azure CLI](/cli/azure/install-azure-cli).
+* Azure CLI version 2.64.0 or newer installed on your development machine. Use `az --version` to check your version and `az upgrade` to update if necessary. For more information, see [How to install the Azure CLI](/cli/azure/install-azure-cli).
 
-* The Azure IoT Operations extension for Azure CLI. Use the following command to add the extension or update it to the latest version:
+* The latest version of the Azure IoT Operations extension for Azure CLI. Use the following command to add the extension or update it to the latest version:
 
   ```bash
   az extension add --upgrade --name azure-iot-ops
@@ -42,50 +40,26 @@ To prepare your Azure Arc-enabled Kubernetes cluster, you need:
 * Hardware that meets the system requirements:
 
   * Ensure that your machine has a minimum of 10-GB RAM, 4 vCPUs, and 40-GB free disk space.
-  * Review the [AKS Edge Essentials requirements and support matrix](/azure/aks/hybrid/aks-edge-system-requirements).
-  * Review the [AKS Edge Essentials networking guidance](/azure/aks/hybrid/aks-edge-concept-networking).
+  * [Azure Arc-enabled Kubernetes system requirements](../../azure-arc/kubernetes/system-requirements.md).
+  * [AKS Edge Essentials requirements and support matrix](/azure/aks/hybrid/aks-edge-system-requirements).
+  * [AKS Edge Essentials networking guidance](/azure/aks/hybrid/aks-edge-concept-networking).
 
 ### [Ubuntu](#tab/ubuntu)
 
 * An Azure subscription. If you don't have an Azure subscription, [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-* Azure CLI version 2.46.0 or newer installed on your development machine. Use `az --version` to check your version and `az upgrade` to update if necessary. For more information, see [How to install the Azure CLI](/cli/azure/install-azure-cli).
+* Azure CLI version 2.64.0 or newer installed on your development machine. Use `az --version` to check your version and `az upgrade` to update if necessary. For more information, see [How to install the Azure CLI](/cli/azure/install-azure-cli).
 
-* The Azure IoT Operations extension for Azure CLI. Use the following command to add the extension or update it to the latest version:
+* The latest version of the Azure IoT Operations extension for Azure CLI. Use the following command to add the extension or update it to the latest version:
 
   ```bash
   az extension add --upgrade --name azure-iot-ops
   ```
 
-* Review the [K3s requirements](https://docs.k3s.io/installation/requirements).
+* Hardware that meets the system requirements:
 
-Azure IoT Operations also works on Ubuntu in Windows Subsystem for Linux (WSL) on your Windows machine. Use WSL for testing and development purposes only.
-
-To set up your WSL Ubuntu environment:
-
-1. [Install Linux on Windows with WSL](/windows/wsl/install).
-
-1. Enable `systemd`:
-
-    ```bash
-    sudo -e /etc/wsl.conf
-    ```
-
-    Add the following to _wsl.conf_ and then save the file:
-
-    ```text
-    [boot]
-    systemd=true
-    ```
-
-1. After you enable `systemd`, [re-enable running windows executables from WSL](https://github.com/microsoft/WSL/issues/8843):
-
-    ```bash
-    sudo sh -c 'echo :WSLInterop:M::MZ::/init:PF > /usr/lib/binfmt.d/WSLInterop.conf'
-    sudo systemctl unmask systemd-binfmt.service
-    sudo systemctl restart systemd-binfmt
-    sudo systemctl mask systemd-binfmt.service
-    ```
+  * [Azure Arc-enabled Kubernetes system requirements](../../azure-arc/kubernetes/system-requirements.md).
+  * [K3s requirements](https://docs.k3s.io/installation/requirements).
 
 ### [Codespaces](#tab/codespaces)
 
@@ -99,11 +73,11 @@ To set up your WSL Ubuntu environment:
 
 ## Create a cluster
 
-This section provides steps to prepare and Arc-enable clusters in validated environments on Linux and Windows as well as GitHub Codespaces in the cloud.
+This section provides steps to create clusters in validated environments on Linux and Windows as well as GitHub Codespaces in the cloud.
 
 ### [AKS Edge Essentials](#tab/aks-edge-essentials)
 
-[Azure Kubernetes Service Edge Essentials](/azure/aks/hybrid/aks-edge-overview) is an on-premises Kubernetes implementation of Azure Kubernetes Service (AKS) that automates running containerized applications at scale. AKS Edge Essentials includes a Microsoft-supported Kubernetes platform that includes a lightweight Kubernetes distribution with a small footprint and simple installation experience, making it easy for you to deploy Kubernetes on PC-class or "light" edge hardware.
+[Azure Kubernetes Service Edge Essentials](/azure/aks/hybrid/aks-edge-overview) is an on-premises Kubernetes implementation of Azure Kubernetes Service (AKS) that automates running containerized applications at scale. AKS Edge Essentials includes a Microsoft-supported Kubernetes platform that includes a lightweight Kubernetes distribution with a small footprint and simple installation experience that supports PC-class or "light" edge hardware.
 
 The [AksEdgeQuickStartForAio.ps1](https://github.com/Azure/AKS-Edge/blob/main/tools/scripts/AksEdgeQuickStart/AksEdgeQuickStartForAio.ps1) script automates the process of creating and connecting a cluster, and is the recommended path for deploying Azure IoT Operations on AKS Edge Essentials.
 
