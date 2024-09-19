@@ -107,9 +107,8 @@ After the Microsoft Entra provider is enabled:
     > [!IMPORTANT]
     > Update the **Client secret** before the key expires. 
 
-1. In the **Add identity provider** pane's **Allowed tenants** field, specify the Microsoft Entra instance's domains to which you want to grant access to the API Management service instance APIs. 
-    * You can separate multiple domains with newlines, spaces, or commas.
-
+!. In **Signin tenant**, specify a tenant name or ID to use for sign-in to Microsoft Entra. If no value is specified, the Common endpoint is used.
+1. In **Allowed tenants**, you can add Microsoft Entra tenant names or IDs for sign-in to Microsoft Entra. 
 1. After you specify the desired configuration, select **Add**.
 1. Republish the developer portal for the Microsoft Entra configuration to take effect. In the left menu, under **Developer portal**, select **Portal overview** > **Publish**. 
 
