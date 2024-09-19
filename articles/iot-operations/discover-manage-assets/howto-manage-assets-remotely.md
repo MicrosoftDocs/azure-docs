@@ -39,7 +39,7 @@ To configure an assets endpoint, you need a running instance of Azure IoT Operat
 
 ### Operations experience web UI
 
-To sign in to the operations experience web UI, you need a Microsoft Entra ID account with at least contributor permissions for the resource group that contains your **Kubernetes - Azure Arc** instance. You can't sign in with a Microsoft account (MSA). To create a suitable Entra ID account in your Azure tenant:
+To sign in to the operations experience web UI, you need a Microsoft Entra ID account with at least contributor permissions for the resource group that contains your **Kubernetes - Azure Arc** instance. You can't sign in with a Microsoft account (MSA). To create a suitable Microsoft Entra ID account in your Azure tenant:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) with the same tenant and user name that you used to deploy Azure IoT Operations.
 1. In the Azure portal, go to the **Microsoft Entra ID** section, select **Users > +New user > Create new user**. Create a new user and make a note of the password, you need it to sign in later.
@@ -126,7 +126,7 @@ To learn more, see [az iot ops asset endpoint](/cli/azure/iot/ops/asset/endpoint
 
 This configuration deploys a new `assetendpointprofile` resource called `opc-ua-connector-0` to the cluster. After you define an asset, a connector for OPC UA pod discovers it. The pod uses the asset endpoint that you specify in the asset definition to connect to an OPC UA server.
 
-When the OPC PLC simulator is running, dataflows from the simulator, to the connector for OPC UA, and then to the MQTT broker.
+When the OPC PLC simulator is running, data flows from the simulator, to the connector for OPC UA, and then to the MQTT broker.
 
 ### Configure an asset endpoint to use a username and password
 

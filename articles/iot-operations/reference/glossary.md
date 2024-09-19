@@ -29,7 +29,7 @@ On first mention in an article, use _Azure IoT Operations Preview - enabled by A
 
 ### Dataflows
 
-This component lets you aggregate, enrich, normalize, and filter the data from your devices and assets. The dataflows is a data processing engine that lets you process data at the edge before you send it to the other services either at the edge or in the cloud
+This component lets you aggregate, enrich, normalize, and filter the data from your devices and assets. Dataflows is a data processing engine that lets you process data at the edge before you send it to the other services either at the edge or in the cloud.
 
 ### Azure IoT Layered Network Management Preview
 

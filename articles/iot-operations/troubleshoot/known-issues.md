@@ -56,13 +56,9 @@ This article lists the known issues for Azure IoT Operations Preview.
 
 ## Connector for OPC UA
 
-- Azure Device Registry asset definitions let you use numbers in the attribute section while OPC supervisor expect only strings.
+- Azure Device Registry asset definitions let you use numbers in the attribute section while OPC supervisor expects only strings.
 
-- When you add a new asset with a new asset endpoint profile to the OPC UA broker and trigger a reconfiguration, the deployment of the `opc.tcp` pods is changes to accommodate the new secret mounts for username and password. If the new mount fails for some reason, the pod does not restart and therefore the old flow for the correctly configured assets stops as well.
-
-ver-manage-assets/howto-configure-opcua-certificates-infrastructure.md#configure-the-trusted-certificates-list).
-
-  Or, you can [Optionally configure your AssetEndpointProfile without mutual trust established](../discover-manage-assets/howto-configure-opc-plc-simulator.md#optionally-configure-your-assetendpointprofile-without-mutual-trust-established). This workaround should not be used in production environments. -->
+- When you add a new asset with a new asset endpoint profile to the OPC UA broker and trigger a reconfiguration, the deployment of the `opc.tcp` pods changes to accommodate the new secret mounts for username and password. If the new mount fails for some reason, the pod does not restart and therefore the old flow for the correctly configured assets stops as well.
 
 ## OPC PLC simulator
 
