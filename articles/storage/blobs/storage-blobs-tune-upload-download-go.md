@@ -6,7 +6,7 @@ services: storage
 author: pauljewellmsft
 ms.author: pauljewell
 ms.service: azure-blob-storage
-ms.topic: concept
+ms.topic: conceptual
 ms.date: 09/20/2024
 ms.devlang: golang
 ms.custom: devx-track-go, devguide-go, devx-track-go
