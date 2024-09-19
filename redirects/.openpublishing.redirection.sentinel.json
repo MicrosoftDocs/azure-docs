@@ -1651,6 +1651,66 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/sentinel/data-connectors/apache-http-server.md",
+            "redirect_url": "/previous-versions/azure/sentinel/data-connectors/apache-http-server",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/data-connectors/barracuda-cloudgen-firewall.md",
+            "redirect_url": "/previous-versions/azure/sentinel/data-connectors/barracuda-cloudgen-firewall",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/data-connectors/cisco-identity-services-engine.md",
+            "redirect_url": "/previous-versions/azure/sentinel/data-connectors/cisco-identity-services-engine",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/data-connectors/cisco-meraki.md",
+            "redirect_url": "/previous-versions/azure/sentinel/data-connectors/cisco-meraki",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/data-connectors/cisco-secure-cloud-analytics.md",
+            "redirect_url": "/previous-versions/azure/sentinel/data-connectors/cisco-secure-cloud-analytics",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/data-connectors/cisco-ucs.md",
+            "redirect_url": "/previous-versions/azure/sentinel/data-connectors/cisco-ucs",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/data-connectors/cisco-web-security-appliance.md",
+            "redirect_url": "/previous-versions/azure/sentinel/data-connectors/cisco-web-security-appliance",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/data-connectors/citrix-adc-former-netscaler.md",
+            "redirect_url": "/previous-versions/azure/sentinel/data-connectors/citrix-adc-former-netscaler",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/data-connectors/recommended-akamai-security-events-via-ama.md",
+            "redirect_url": "/previous-versions/azure/sentinel/data-connectors/akamai-security-events-via-ama",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/data-connectors/recommended-aruba-clearpass-via-ama.md",
+            "redirect_url": "/previous-versions/azure/sentinel/data-connectors/aruba-clearpass-via-ama",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/data-connectors/recommended-broadcom-symantec-dlp-via-ama.md",
+            "redirect_url": "/previous-versions/azure/sentinel/data-connectors/broadcom-symantec-dlp-via-ama",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/data-connectors/recommended-cisco-secure-email-gateway-via-ama.md",
+            "redirect_url": "/previous-versions/azure/sentinel/data-connectors/cisco-secure-email-gateway-via-ama",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/sentinel/data-connectors/apache-tomcat.md",
             "redirect_url": "/previous-versions/azure/sentinel/data-connectors/apache-tomcat",
             "redirect_document_id": false
