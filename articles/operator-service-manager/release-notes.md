@@ -220,7 +220,7 @@ The following bug fixes, or other defect resolutions, are delivered with this re
 
 * CVE	- A total of one CVE is addressed in this release.
 
-* ## Release 2.0.2810-144
+## Release 2.0.2810-144
 
 Document Revision 1.1
 
