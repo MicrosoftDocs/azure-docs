@@ -1,7 +1,7 @@
 ---
 title: JavaScript user-defined aggregates in Azure Stream Analytics
 description: This article describes how to perform advanced query mechanics with JavaScript user-defined aggregates in Azure Stream Analytics.
-ms.service: stream-analytics
+ms.service: azure-stream-analytics
 ms.topic: conceptual
 ms.date: 10/28/2017
 ms.custom: devx-track-js

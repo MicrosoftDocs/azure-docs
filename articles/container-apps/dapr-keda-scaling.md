@@ -4,10 +4,10 @@ titleSuffix: "Azure Container Apps"
 description: Learn how to use KEDA scalers to scale an Azure Container App and its Dapr sidecar. 
 author: hhunter-ms
 ms.author: hannahhunter
-ms.service: container-apps
+ms.service: azure-container-apps
 ms.custom: devx-track-bicep
 ms.topic: conceptual 
-ms.date: 04/17/2023
+ms.date: 09/12/2024
 ---
 
 # Scale Dapr applications with KEDA scalers
@@ -95,17 +95,12 @@ resource orders 'Microsoft.App/containerApps@2022-03-01' = {
             name: 'topic-based-scaling'
             custom: {
               type: 'azure-servicebus'
+              identity: 'system'
               metadata: {
                 topicName: 'orders'
                 subscriptionName: 'membership-orders'
                 messageCount: '30'
               }
-              auth: [
-                {
-                  secretRef: 'sb-root-connectionstring'
-                  triggerParameter: 'connection'
-                }
-              ]
             }
           }
         ]
@@ -146,7 +141,7 @@ Notice the `messageCount` property on the scaler's configuration in the subscrib
 
 This property tells the scaler how many messages each instance of the application can process at the same time. In this example, the value is set to `30`, indicating that there should be one instance of the application created for each group of 30 messages waiting in the topic.
 
-For example, if 150 messages are waiting, KEDA scales the app out to five instances. The `maxReplicas` property is set to `10`, meaning even with a large number of messages in the topic, the scaler never creates more than `10` instances of this application. This setting ensures you don't scale up too much and accrue too much cost.
+For example, if 150 messages are waiting, KEDA scales the app out to five instances. The `maxReplicas` property is set to `10`. Even with a large number of messages in the topic, the scaler never creates more than `10` instances of this application. This setting ensures you don't scale up too much and accrue too much cost.
 
 ## Next steps
 

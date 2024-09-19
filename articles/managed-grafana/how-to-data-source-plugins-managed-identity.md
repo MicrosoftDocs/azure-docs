@@ -3,7 +3,7 @@ title: How to manage data sources for Azure Managed Grafana
 description: In this how-to guide, discover how you can add, configure and remove data sources for Azure Managed Grafana.
 author: maud-lv 
 ms.author: malev 
-ms.service: managed-grafana 
+ms.service: azure-managed-grafana
 ms.topic: how-to
 ms.date: 12/08/2023
 ---

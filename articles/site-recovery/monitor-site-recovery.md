@@ -6,7 +6,7 @@ ms.custom: horz-monitor
 ms.topic: conceptual
 ms.author: ankitadutta
 author: ankitaduttaMSFT
-ms.service: site-recovery
+ms.service: azure-site-recovery
 ---
 
 # Monitor Azure Site Recovery

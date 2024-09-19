@@ -4,14 +4,14 @@ description: Learn how to use Azure Backup to encrypt your backup data by using 
 ms.topic: how-to
 ms.date: 06/24/2024
 ms.custom: references_regions, devx-track-azurepowershell-azurecli
-ms.service: backup
+ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---
 
 # Encrypt backup data in a Backup vault by using customer-managed keys
 
-You can use Azure Backup to encrypt your backup data via customer-managed keys (CMKs) instead of platform-managed keys (PMKs), which are enabled by default. Your keys to encrypt the backup data must be stored in [Azure Key Vault](../key-vault/index.yml).
+You can use Azure Backup to encrypt your backup data via customer-managed keys (CMKs) instead of platform-managed keys (PMKs), which are enabled by default. Your keys to encrypt the backup data must be stored in [Azure Key Vault](/azure/key-vault/).
 
 The encryption key that you use for encrypting backups might be different from the one that you use for the source. An AES 256-based data encryption key (DEK) helps protect the data. Your key encryption keys (KEKs), in turn, help protect the DEK. You have full control over the data and the keys.
 
@@ -31,13 +31,13 @@ CMKs for Backup vaults are currently available in all Azure public regions.
 
   - A built-in [Crypto Service Encryption User role](/azure/role-based-access-control/built-in-roles#key-vault-crypto-service-encryption-user) assigned, if your key vault is using a role-based access control (RBAC) configuration that's based on identity and access management (IAM).
   - **Get**, **Wrap**, and **Unwrap** permissions if your key vault is using a configuration that's based on access policies.
-  - **Get**, **Wrap**, and **Unwrap** permissions granted via local RBAC on the key if you're using a managed HSM. [Learn more](../key-vault/managed-hsm/overview.md).
+  - **Get**, **Wrap**, and **Unwrap** permissions granted via local RBAC on the key if you're using a managed HSM. [Learn more](/azure/key-vault/managed-hsm/overview).
 
 - Ensure that you have a valid, enabled Key Vault key. Don't use an expired or disabled key, because it can't be used for encryption at rest and will lead to failures of backup and restore operations. The Key Vault term also indicates a managed HSM if you didn't note it earlier.
 
 - Key Vault must have soft delete and purge protection enabled.
 
-- Encryption settings support Azure Key Vault RSA and RSA-HSM keys only of sizes 2,048, 3,072, and 4,096. [Learn more about keys](../key-vault/keys/about-keys.md). Before you consider Key Vault regions for encryption settings, see [Key Vault disaster recovery scenarios](../key-vault/general/disaster-recovery-guidance.md) for regional failover support.
+- Encryption settings support Azure Key Vault RSA and RSA-HSM keys only of sizes 2,048, 3,072, and 4,096. [Learn more about keys](/azure/key-vault/keys/about-keys). Before you consider Key Vault regions for encryption settings, see [Key Vault disaster recovery scenarios](/azure/key-vault/general/disaster-recovery-guidance) for regional failover support.
 
 ## Considerations
 
@@ -274,7 +274,7 @@ Follow these steps:
 
 If you're using a user-assigned identity, you must assign the same permissions to it.
 
-You can also assign an RBAC role to the Backup vault that contains the previously mentioned permissions, such as the [Key Vault Crypto Officer](../key-vault/general/rbac-guide.md#azure-built-in-roles-for-key-vault-data-plane-operations) role. This role might contain additional permissions.
+You can also assign an RBAC role to the Backup vault that contains the previously mentioned permissions, such as the [Key Vault Crypto Officer](/azure/key-vault/general/rbac-guide#azure-built-in-roles-for-key-vault-data-plane-operations) role. This role might contain additional permissions.
 
 # [PowerShell](#tab/powershell)
 
@@ -318,7 +318,7 @@ You need to enable soft delete and purge protection on the key vault that stores
 
 # [Azure portal](#tab/azure-portal)
 
-You can set these properties from the Azure Key Vault interface, as shown in the following screenshot. Alternatively, you can set these properties while creating the key vault. [Learn more about these Key Vault properties](../key-vault/general/soft-delete-overview.md).
+You can set these properties from the Azure Key Vault interface, as shown in the following screenshot. Alternatively, you can set these properties while creating the key vault. [Learn more about these Key Vault properties](/azure/key-vault/general/soft-delete-overview).
 
 :::image type="content" source="./media/encryption-at-rest-with-cmk-for-backup-vault/soft-delete-purge-protection.png" alt-text="Screenshot of options for enabling soft delete and purge protection." lightbox="./media/encryption-at-rest-with-cmk-for-backup-vault/soft-delete-purge-protection.png":::
 

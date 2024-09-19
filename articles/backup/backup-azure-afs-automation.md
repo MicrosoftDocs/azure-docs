@@ -4,7 +4,7 @@ description: In this article, learn how to back up an Azure Files file share by 
 ms.topic: how-to
 ms.date: 07/18/2024
 ms.custom: devx-track-azurepowershell
-ms.service: backup
+ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---

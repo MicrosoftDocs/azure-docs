@@ -6,7 +6,7 @@ keywords: ios push notifications,push messages,push notifications,push message
 author: sethmanheim
 manager: femila
 
-ms.service: notification-hubs
+ms.service: azure-notification-hubs
 ms.tgt_pltfrm: mobile-xamarin-ios
 ms.devlang: csharp
 ms.topic: tutorial

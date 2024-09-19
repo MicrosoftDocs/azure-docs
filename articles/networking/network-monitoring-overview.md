@@ -2,8 +2,8 @@
 title: Network Monitoring in Azure Monitor logs
 description: Overview of network monitoring solutions, including network performance monitor, to manage networks across cloud, on-premises, and hybrid environments.
 author: asudbring
-ms.service: virtual-network
-ms.topic: article
+ms.service: azure-virtual-network
+ms.topic: conceptual
 ms.date: 10/30/2023
 ms.author: allensu
 ---
@@ -43,8 +43,6 @@ Performance Monitor is part of Network Performance Monitor and is network monito
 * Determine the specific segment on the network that is responsible for degraded performance
 
 * Monitor the health of the network, without the need for SNMP
-
-:::image type="content" source="./media/network-monitoring-overview/npm-topology-map.png" alt-text="Diagram Network Performance Monitor topology map.":::
 
 For more information, view the following articles:
 

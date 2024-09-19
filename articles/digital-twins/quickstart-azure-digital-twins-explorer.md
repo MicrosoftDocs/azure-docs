@@ -6,7 +6,7 @@ author: baanders
 ms.author: baanders
 ms.date: 1/3/2024
 ms.topic: quickstart
-ms.service: digital-twins
+ms.service: azure-digital-twins
 ms.custom: mode-other
 ---
 

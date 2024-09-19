@@ -6,7 +6,7 @@ ms.reviewer: sapnakeshari
 ms.service: cost-management-billing
 ms.subservice: enterprise
 ms.topic: article
-ms.date: 03/21/2024
+ms.date: 08/14/2024
 ms.author: banders
 
 #Customer intent: As an administrator or developer, I want to use REST APIs to review billing data for all subscriptions and departments in the enterprise enrollment.
@@ -57,7 +57,7 @@ Status code 200 (OK) is returned for a successful response, which contains a lis
         "usageStart": "2017-02-13T00:00:00Z",
         "usageEnd": "2017-02-13T23:59:59Z",
         "instanceName": "shared1",
-        "instanceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/Default-Web-eastasia/providers/Microsoft.Web/sites/shared1",
+        "instanceId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/Default-Web-eastasia/providers/Microsoft.Web/sites/shared1",
         "currency": "USD",
         "usageQuantity": 0.00328,
         "billableQuantity": 0.00328,
@@ -113,7 +113,7 @@ The following example shows the output of the REST API for department `1234`.
         "usageStart": "2017-02-13T00:00:00Z",
         "usageEnd": "2017-02-13T23:59:59Z",
         "instanceName": "shared1",
-        "instanceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/Default-Web-eastasia/providers/Microsoft.Web/sites/shared1",
+        "instanceId": "/subscriptions/aaaa0a0a-bb1b-cc2c-dd3d-eeeeee4e4e4e/resourceGroups/Default-Web-eastasia/providers/Microsoft.Web/sites/shared1",
         "instanceLocation": "eastasia",
         "currency": "USD",
         "usageQuantity": 0.00328,

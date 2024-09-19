@@ -1,11 +1,11 @@
 ---
 title: Azure Linux Container Host for AKS packages
 description: Learn about the packages supported by the Azure Linux Container Host for AKS.
-author: htaubenfeld
-ms.author: htaubenfeld
+author: suhuruli
+ms.author: suhuruli
 ms.service: microsoft-linux
 ms.topic: conceptual
-ms.date: 05/10/2023
+ms.date: 08/18/2024
 ms.custom: template-concept, linux-related-content
 ---
 
@@ -17,7 +17,7 @@ The Azure Linux Container Host for AKS is based on the Microsoft Azure Linux dis
 
 The Azure Linux Container Host package list includes all the needed dependencies to run an Azure Linux VM and also pulls in any necessary Azure Kubernetes Service dependencies. A list of all the packages in the Azure Linux Container Host can be viewed [here](https://github.com/Azure/AgentBaker/blob/master/vhdbuilder/release-notes/AKSCBLMariner/gen2/latest.txt).
 
-Whenever a new image is released by AKS, the [AKSCBLMariner release notes folder](https://github.com/Azure/AgentBaker/tree/master/vhdbuilder/release-notes/AKSCBLMariner/gen2) is updated with a new `latest.txt` file, which details the most up-to-date package list. You can also view previous image package lists and the historical versions of each package in the most recent image release in the GitHub repository. For each prior image release, you can find a corresponding `.txt` file with the naming convention `YYYY.MM.DD.txt`, where `YYYY.MM.DD` is the date of each previous image release. 
+Whenever a new image is released by AKS, the [AKS Azure Linux release notes folder](https://github.com/Azure/AgentBaker/blob/master/vhdbuilder/release-notes/AKSAzureLinux/gen2/latest.txt) is updated with a new `latest.txt` file, which details the most up-to-date package list. You can also view previous image package lists and the historical versions of each package in the most recent image release in the GitHub repository. For each prior image release, you can find a corresponding `.txt` file with the naming convention `YYYY.MM.DD.txt`, where `YYYY.MM.DD` is the date of each previous image release. 
 
 
 > [!NOTE]
@@ -49,7 +49,7 @@ To determine the `nodeImageVersion`, run the following command:
 az aks show -g <groupname> -n <clustername> | grep nodeImageVersion
 ```
 
-Then, as described above, check the [AKSCBLMariner release notes folder](https://github.com/Azure/AgentBaker/tree/master/vhdbuilder/release-notes/AKSCBLMariner/gen2) for the file that corresponds with the previously determined node image version date. In the file, the *Installed Packages Begin* section lists all the package versions in your cluster.
+Then, as described above, check the [AKS Azure Linux release notes folder](https://github.com/Azure/AgentBaker/blob/master/vhdbuilder/release-notes/AKSAzureLinux/gen2) for the file that corresponds with the previously determined node image version date. In the file, the *Installed Packages Begin* section lists all the package versions in your cluster.
 
 
 ## Next steps

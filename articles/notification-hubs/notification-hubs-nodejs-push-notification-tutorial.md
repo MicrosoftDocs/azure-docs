@@ -6,7 +6,7 @@ services: notification-hubs
 author: sethmanheim
 manager: femila
 
-ms.service: notification-hubs
+ms.service: azure-notification-hubs
 ms.devlang: javascript
 ms.topic: article
 ms.date: 08/23/2021

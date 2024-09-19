@@ -4,7 +4,7 @@ description: Troubleshoot Azure Managed Grafana issues related to fetching data,
 author: maud-lv
 ms.author: malev
 ms.topic: troubleshooting
-ms.service: managed-grafana
+ms.service: azure-managed-grafana
 ms.date: 04/12/2024
 ---
 

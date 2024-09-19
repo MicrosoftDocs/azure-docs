@@ -1,11 +1,11 @@
 ---
 title: Azure Route Server frequently asked questions (FAQ)
-description: Find answers to frequently asked questions about Azure Route Server.
+description: In this article, you find answers to the most frequently asked questions about Azure Route Server.
 author: halkazwini
 ms.author: halkazwini
-ms.service: route-server
+ms.service: azure-route-server
 ms.topic: faq
-ms.date: 08/18/2023
+ms.date: 09/11/2024
 ---
 
 # Azure Route Server frequently asked questions (FAQ)
@@ -53,9 +53,13 @@ No. Azure Route Server only exchanges BGP routes with your network virtual appli
 
 Azure Route Server supports only Border Gateway (BGP) Protocol. Your network virtual appliance (NVA) must support multi-hop external BGP because you need to deploy the Route Server in a dedicated subnet in your virtual network. When you configure the BGP on your NVA, the ASN you choose must be different from the Route Server ASN.
 
-### Does Azure Route Server preserve the BGP AS Path of the route it receives?
+### Does Azure Route Server preserve the BGP AS path of the route it receives?
 
-Yes, Azure Route Server propagates the route with the BGP AS Path intact.
+Yes, Azure Route Server propagates the route with the BGP AS path intact.
+
+### If AS path prepend is configured on an NVA towards the route server, will the ExpressRoute circuit pass the AS path prepend information to on-premises?
+
+When ExpressRoute advertises routes to on-premises, it removes the private BGP ASN information. On-premises receives the prefix with [AS 12076](../expressroute/expressroute-routing.md#autonomous-system-numbers-asn).
 
 ### Does Azure Route Server preserve the BGP communities of the route it receives?
 
@@ -75,7 +79,7 @@ Yes. If a VNet peering is created between your hub VNet and spoke VNet, Azure Ro
 
 ### How is the 1000 route limit calculated on a BGP peering session between an NVA and Azure Route Server?
 
-Today, Route Server can accept a maximum of 1000 routes from a single BGP peer. When processing BGP route updates, this limit is calculated as the number of current routes learnt from a BGP peer plus the number of routes coming in the BGP route update. For example, if an NVA initially advertises 501 routes to Route Server and later re-advertises these 501 routes in a BGP route update, Route Server will calculate this as 1002 routes and tear down the BGP session. 
+Currently, Route Server can accept a maximum of 1000 routes from a single BGP peer. When processing BGP route updates, this limit is calculated as the number of current routes learnt from a BGP peer plus the number of routes coming in the BGP route update. For example, if an NVA initially advertises 501 routes to Route Server and later re-advertises these 501 routes in a BGP route update, the route server calculates this as 1002 routes and tear down the BGP session. 
 
 ### What Autonomous System Numbers (ASNs) can I use?
 
@@ -105,7 +109,7 @@ No. By default, Azure Route Server doesn't propagate routes it receives from an 
 
 ### When the same route is learned over ExpressRoute, VPN or SDWAN, which network is preferred?
 
-By default, the route that's learned over ExpressRoute is preferred over the ones learned over VPN or SDWAN. You can configure routing preference to influence Route Server route selection. For more information, see [Routing preference (preview)](hub-routing-preference.md)
+By default, the route that's learned over ExpressRoute is preferred over the ones learned over VPN or SDWAN. You can configure routing preference to influence Route Server route selection. For more information, see [Routing preference](hub-routing-preference.md).
 
 ### What are the requirements for an Azure VPN gateway to work with Azure Route Server?
 

@@ -3,7 +3,7 @@ title: Expose applications on Azure Spring Apps to the internet from a public ne
 description: Describes how to expose applications on Azure Spring Apps to the internet from a public network.
 author: KarlErickson
 ms.author: karler
-ms.service: spring-apps
+ms.service: azure-spring-apps
 ms.topic: how-to
 ms.date: 06/27/2024
 ms.custom: devx-track-java

@@ -1,7 +1,7 @@
 ---
 title: 'Tutorial: Machine learning model scoring wizard for dedicated SQL pools'
 description: Tutorial for how to use the machine learning model scoring wizard to enrich data in dedicated SQL pools.
-ms.service: synapse-analytics 
+ms.service: azure-synapse-analytics
 ms.subservice: machine-learning
 ms.topic: tutorial
 ms.reviewer: whhender, garye

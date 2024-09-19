@@ -83,7 +83,7 @@ If you still have an issue with your duplicated and customized built-in policy d
 
 #### Issue
 
-A resource that you expect Azure Policy to act on isn't being acted on, and there's no entry in the [Azure Activity log](../../../azure-monitor/data-sources.md#azure-resources).
+A resource that you expect Azure Policy to act on isn't being acted on, and there's no entry in the [Azure Activity log](/azure/azure-monitor/data-sources#azure-resources).
 
 #### Cause
 
@@ -117,7 +117,7 @@ A policy assignment to the scope of your new or updated resource meets the crite
 
 #### Resolution
 
-The error message from a deny policy assignment includes the policy definition and policy assignment IDs. If the error information in the message is missed, it's also available in the [Activity log](../../../azure-monitor/essentials/activity-log-insights.md#view-the-activity-log). Use this information to get more details to understand the resource restrictions and adjust the resource properties in your request to match allowed values.
+The error message from a deny policy assignment includes the policy definition and policy assignment IDs. If the error information in the message is missed, it's also available in the [Activity log](/azure/azure-monitor/essentials/activity-log-insights#view-the-activity-log). Use this information to get more details to understand the resource restrictions and adjust the resource properties in your request to match allowed values.
 
 ### Scenario: Definition targets multiple resource types
 
@@ -237,7 +237,7 @@ This issue occurs when a cluster egress is locked down.
 
 Ensure that the domains and ports mentioned in the following article are open:
 
-- [Required outbound network rules and fully qualified domain names (FQDNs) for AKS clusters](../../../aks/outbound-rules-control-egress.md#required-outbound-network-rules-and-fqdns-for-aks-clusters)
+- [Required outbound network rules and fully qualified domain names (FQDNs) for AKS clusters](/azure/aks/outbound-rules-control-egress#required-outbound-network-rules-and-fqdns-for-aks-clusters)
 
 ### Scenario: The add-on is unable to reach the Azure Policy service endpoint because of the aad-pod-identity configuration
 

@@ -4,7 +4,7 @@ metadata:
   description: "Answers to frequently asked questions about Azure API Center."
   author: dlepow
   ms.author: danlep
-  ms.service: api-center
+  ms.service: azure-api-center
   ms.topic: faq 
   ms.date: 04/15/2024
 

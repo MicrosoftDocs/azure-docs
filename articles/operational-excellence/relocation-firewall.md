@@ -5,7 +5,7 @@ author: anaharris-ms
 ms.author: anaharris
 ms.reviewer: anaharris
 ms.date: 07/23/2024
-ms.service: firewall
+ms.service: azure-firewall
 ms.topic: how-to
 ms.custom:
   - subject-relocation
@@ -108,7 +108,7 @@ Export-AzResourceGroup `
 
 In this section, you learn how to modify the template that you generated in the previous section. 
 
-If you're running classic firewall rules without Firewall policy, migrate to Firewall policy before preceding with the steps in this section. To learn how to migrate from classic firewall rules to Firewall policy, see [Migrate Azure Firewall configuration to Azure Firewall policy using PowerShell](/azure/firewall-manager/migrate-to-policy).
+If you're running classic firewall rules without Firewall policy, migrate to Firewall policy before proceeding with the steps in this section. To learn how to migrate from classic firewall rules to Firewall policy, see [Migrate Azure Firewall configuration to Azure Firewall policy using PowerShell](/azure/firewall-manager/migrate-to-policy).
 
 
 # [Azure portal](#tab/azure-portal)

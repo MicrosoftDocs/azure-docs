@@ -4,7 +4,7 @@ titleSuffix: Azure Network Watcher
 description: Learn how to create, change, disable, or delete Azure Network Watcher NSG flow logs using the Azure portal.
 author: halkazwini
 ms.author: halkazwini
-ms.service: network-watcher
+ms.service: azure-network-watcher
 ms.topic: how-to
 ms.date: 07/25/2024
 
@@ -88,7 +88,7 @@ Create a flow log for your network security group. This NSG flow log is saved in
     :::image type="content" source="./media/nsg-flow-logs-portal/create-nsg-flow-log-analytics.png" alt-text="Screenshot that shows how to enable traffic analytics for a new flow log in the Azure portal.":::
 
     > [!NOTE]
-    > To create and select a Log Analytics workspace other than the default one, see [Create a Log Analytics workspace](../azure-monitor/logs/quick-create-workspace.md?toc=/azure/network-watcher/toc.json)
+    > To create and select a Log Analytics workspace other than the default one, see [Create a Log Analytics workspace](/azure/azure-monitor/logs/quick-create-workspace?toc=/azure/network-watcher/toc.json)
 
 1. Select **Review + create**.
 

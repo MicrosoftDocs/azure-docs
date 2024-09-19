@@ -3,9 +3,10 @@ title: Use source control integration in Azure Automation
 description: This article tells you how to synchronize Azure Automation source control with other repositories.
 services: automation
 ms.subservice: process-automation
-ms.date: 05/15/2024
-ms.topic: conceptual 
+ms.date: 09/10/2024
+ms.topic: how-to 
 ms.custom: devx-track-azurepowershell
+ms.service: azure-automation
 ---
 
 # Use source control integration
