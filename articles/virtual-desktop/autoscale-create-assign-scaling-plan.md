@@ -328,14 +328,11 @@ You can configure a time limit policy that will sign out all disconnected users 
 To configure the policy using Intune, follow these steps: 
 
 1. Sign in to the [Microsoft Intune admin center](https://intune.microsoft.com/).
-2. Select **Devices** and **Configuration**. Then, select **Create** and **New policy**. 
-3. In **Profile type**, select **Settings catalog** and then **Create**. This will take you to the **Create profile** page.
-4. On the **Basics** tab, enter a name for your policy. Select **Next**.
-5. On the **Configuration settings** tab, select **Add settings**. 
-6. In the **Settings picker** pane, select **Administrative Templates** > **Windows Components** > **Remote Desktop Services** > **Remote Desktop Session Host** > **Session Time Limits**. Then select the checkbox for **Set time limit for disconnected sessions**.
-7. The settings to enable the time limit will appear in the **Configuration settings** tab. Select your desired time limit in the drop-down menu for **End a disconnected session (Device)** and change the toggle to **Enabled** for **Set time limit for disconnected sessions**.
-8. On the **Assignments** tab, select the group containing the computers providing a remote session you want to configure, then select Next.
-9. On the **Review + create** tab, review the settings, then select **Create**.
+2. [Create or edit a configuration profile](/mem/intune/configuration/administrative-templates-windows) for **Windows 10 and later** devices, with the **Settings catalog** profile type. 
+3. In the **Settings picker** pane, select **Administrative Templates** > **Windows Components** > **Remote Desktop Services** > **Remote Desktop Session Host** > **Session Time Limits**. Then select the checkbox for **Set time limit for disconnected sessions**.
+4. The settings to enable the time limit will appear in the **Configuration settings** tab. Select your desired time limit in the drop-down menu for **End a disconnected session (Device)** and change the toggle to **Enabled** for **Set time limit for disconnected sessions**.
+5. On the **Assignments** tab, select the group containing the computers providing a remote session you want to configure, then select Next.
+6. On the **Review + create** tab, review the settings, then select **Create**.
 
 
 ## Edit an existing scaling plan
