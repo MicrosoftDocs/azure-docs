@@ -371,6 +371,16 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/sentinel/data-connectors/claroty.md",
+            "redirect_url": "/azure/sentinel/data-connectors/recommended-claroty-via-ama",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/data-connectors/fireeye-network-security-nx.md",
+            "redirect_url": "/azure/sentinel/data-connectors/recommended-fireeye-network-security-nx-via-ama",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/sentinel/data-connectors/forcepoint-casb.md",
             "redirect_url": "/azure/sentinel/data-connectors/recommended-forcepoint-casb-via-ama",
             "redirect_document_id": false
@@ -378,6 +388,16 @@
         {
             "source_path_from_root": "/articles/sentinel/data-connectors/forcepoint-csg.md",
             "redirect_url": "/azure/sentinel/data-connectors/recommended-forcepoint-csg-via-ama",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/data-connectors/forcepoint-ngfw.md",
+            "redirect_url": "/azure/sentinel/data-connectors/recommended-forcepoint-ngfw-via-ama",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/data-connectors/illumio-core.md",
+            "redirect_url": "/azure/sentinel/data-connectors/recommended-illumio-core-via-ama",
             "redirect_document_id": false
         },
         {
