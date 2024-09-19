@@ -52,8 +52,6 @@
         href: reliability-functions.md#availability-zone-migration
       - name: Azure HDInsight
         href: reliability-hdinsight.md#availability-zone-migration
-      - name: Azure Key Vault
-        href: /azure/key-vault/general/disaster-recovery-guidance?toc=/azure/reliability
       - name: Azure Kubernetes Service
         href: /azure/aks/availability-zones?toc=/azure/reliability
       - name: Azure Load Balancer 

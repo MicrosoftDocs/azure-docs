@@ -517,7 +517,7 @@ For more information, see [VM Applications](/azure/virtual-machines/vm-applicati
 
 #### Disk encryption sets
 
-There's a limitation of 1000 disk encryption sets per region, per subscription. For more
+There's a limitation of 5000 disk encryption sets per region, per subscription. For more
 information, see the encryption documentation for
 [Linux](/azure/virtual-machines/disk-encryption#restrictions) or
 [Windows](/azure/virtual-machines/disk-encryption#restrictions) virtual machines. If you

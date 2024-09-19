@@ -228,6 +228,8 @@ items:
       href: how-to-discover-applications.md
     - name: Discover SQL instances and web apps in an existing project
       href: how-to-discover-sql-existing-project.md
+    - name: Migrate to Azure Monitor agent
+      href: azure-monitor-agent-migration.md
     - name: Analyze machine dependencies (agent-based)
       href: how-to-create-group-machine-dependencies.md
     - name: Analyze machine dependencies (agentless)
