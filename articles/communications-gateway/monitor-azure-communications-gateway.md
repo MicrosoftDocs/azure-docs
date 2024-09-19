@@ -1,7 +1,7 @@
 ---
 title: Monitor Azure Communications Gateway
 description: Start here to learn how to monitor Azure Communications Gateway. Use Azure Monitor and Azure Resource Health to monitor your Azure Communications Gateway.
-ms.date: 08/21/2024
+ms.date: 09/19/2024
 ms.custom: horz-monitor
 ms.topic: conceptual
 author: rcdun
@@ -10,6 +10,8 @@ ms.service: azure-communications-gateway
 ---
 
 # Monitor Azure Communications Gateway
+
+You can use Azure Resource Health and Azure Monitor to monitor the health and performance of Azure Communications Gateway. Azure Monitor allows you to collect, analyze, and act on telemetry from cloud and on-premises environments to ensure optimal application and service performance.
 
 [!INCLUDE [horz-monitor-intro](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-intro.md)]
 
@@ -49,10 +51,27 @@ You can also [configure Resource Health alerts in the Azure portal](/azure/servi
 
 Azure Communications Gateway supports the following [resource health checks](/azure/service-health/resource-health-checks-resource-types#microsoftvoiceservicescommunicationsgateway).
 
-[!INCLUDE [horz-monitor-resource-types](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-resource-types.md)]
+## Azure Monitor resource types
+
+Azure uses the concept of resource types and IDs to identify everything in a subscription. Azure Monitor similarly organizes core monitoring data into metrics and logs based on resource types, also called *namespaces*. Different metrics and logs are available for different resource types. Your service might be associated with more than one resource type.
+
+Resource types are also part of the resource IDs for every resource running in Azure. For example, one resource type for a virtual machine is `Microsoft.Compute/virtualMachines`. For a list of services and their associated resource types, see [Resource providers](/azure/azure-resource-manager/management/azure-services-resource-providers).
+
 For more information about the resource types for Azure Communications Gateway, see [Azure Communications Gateway monitoring data reference](monitoring-azure-communications-gateway-data-reference.md).
 
-[!INCLUDE [horz-monitor-data-storage](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-data-storage.md)]
+## Azure Monitor data storage
+
+For Azure Monitor:
+
+- Metrics data is stored in the Azure Monitor metrics database.
+- Log data is stored in the Azure Monitor logs store. Log Analytics is a tool in the Azure portal that can query this store.
+- The Azure activity log is a separate store with its own interface in the Azure portal.
+
+You can optionally route metric and activity log data to the Azure Monitor logs store. You can then use Log Analytics to query the data and correlate it with other log data.
+
+Many services can use diagnostic settings to send metric and log data to other storage locations outside Azure Monitor. Examples include Azure Storage, [hosted partner systems](/azure/partner-solutions/overview), and [non-Azure partner systems, by using Event Hubs](/azure/azure-monitor/essentials/stream-monitoring-data-event-hubs).
+
+For detailed information on how Azure Monitor stores data, see [Azure Monitor data platform](/azure/azure-monitor/platform/data-platform).
 
 [!INCLUDE [horz-monitor-platform-metrics](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-platform-metrics.md)]
 
