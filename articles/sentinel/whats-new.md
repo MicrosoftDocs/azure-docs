@@ -18,7 +18,7 @@ The listed features were released in the last three months. For information abou
 
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
-## September 2024 
+## September 2024
 
 
 - [Azure reservations now have pre-purchase plans available for Microsoft Sentinel](#pre-purchase-plans-now-available-for-microsoft-sentinel)
@@ -56,6 +56,7 @@ For more information, see as [Microsoft Sentinel feature support for Azure comme
 
 ## August 2024
 
+- [Log Analytics agent retirement](#log-analytics-agent-retirement)
 - [Export and import automation rules (Preview)](#export-and-import-automation-rules-preview)
 - [Microsoft Sentinel support in Microsoft Defender multitenant management (Preview)](#microsoft-sentinel-support-in-microsoft-defender-multitenant-management-preview)
 - [Premium Microsoft Defender Threat Intelligence data connector (Preview)](#premium-microsoft-defender-threat-intelligence-data-connector-preview)
@@ -63,6 +64,21 @@ For more information, see as [Microsoft Sentinel feature support for Azure comme
 - [Better visibility for Windows security events](#better-visibility-for-windows-security-events)
 - [New Auxiliary logs retention plan (Preview)](#new-auxiliary-logs-retention-plan-preview)
 - [Create summary rules for large sets of data (Preview)](#create-summary-rules-in-microsoft-sentinel-for-large-sets-of-data-preview)
+
+### Log Analytics agent retirement
+
+As of August 31, 2024, the [Log Analytics Agent (MMA/OMS) is retired](https://azure.microsoft.com/updates/were-retiring-the-log-analytics-agent-in-azure-monitor-on-31-august-2024/). 
+
+Log collection from many appliances and devices is now supported by the Common Event Format (CEF) via AMA, Syslog via AMA, or Custom Logs via AMA data connector in Microsoft Sentinel. If you've been using the Log Analytics agent in your Microsoft Sentinel deployment, we recommend that you migrate to the Azure Monitor Agent (AMA). 
+
+For more information, see:
+
+- [Find your Microsoft Sentinel data connector](data-connectors-reference.md)
+- [Migrate to Azure Monitor Agent from Log Analytics agent](/azure/azure-monitor/agents/azure-monitor-agent-migration)
+- [AMA migration for Microsoft Sentinel](ama-migrate.md)
+- Blogs:
+    - [Revolutionizing log collection with Azure Monitor Agent](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/revolutionizing-log-collection-with-azure-monitor-agent/ba-p/4218129)
+    - [The power of Data Collection Rules: Collecting events for advanced use cases in Microsoft USOP](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/the-power-of-data-collection-rules-collecting-events-for/ba-p/4236486)
 
 ### Export and import automation rules (Preview)
 

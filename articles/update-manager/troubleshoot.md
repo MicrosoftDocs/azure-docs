@@ -264,7 +264,7 @@ If the extension is already present on the machine but the extension status is n
 
 #### Issue
 
-The property [AllowExtensionOperations](https://learn.microsoft.com/dotnet/api/microsoft.azure.management.compute.models.osprofile.allowextensionoperations?view=azure-dotnet-legacy) is set to false in the machine OSProfile.
+The property [AllowExtensionOperations](/dotnet/api/microsoft.azure.management.compute.models.osprofile.allowextensionoperations) is set to false in the machine OSProfile.
 
 #### Resolution
 The property should be set to true to allow extensions to work properly. 
@@ -286,7 +286,7 @@ Proxy is configured on Windows or Linux machines that may block access to endpoi
 
 #### Resolution
 
-For Windows, see [issues related to proxy](https://learn.microsoft.com/troubleshoot/windows-client/installing-updates-features-roles/windows-update-issues-troubleshooting?toc=%2Fwindows%2Fdeployment%2Ftoc.json&bc=%2Fwindows%2Fdeployment%2Fbreadcrumb%2Ftoc.json#issues-related-to-httpproxy). 
+For Windows, see [issues related to proxy](/troubleshoot/windows-client/installing-updates-features-roles/windows-update-issues-troubleshooting#issues-related-to-httpproxy). 
 
 For Linux, ensure proxy setup doesn't block access to repositories that are required for downloading and installing updates.
 
@@ -300,7 +300,7 @@ TLS 1.0 and TLS 1.1 are deprecated.
 
 Use TLS 1.2 or higher.
  
-For Windows, see [Protocols in TLS/SSL Schannel SSP](https://learn.microsoft.com/windows/win32/secauthn/protocols-in-tls-ssl--schannel-ssp-).
+For Windows, see [Protocols in TLS/SSL Schannel SSP](/windows/win32/secauthn/protocols-in-tls-ssl--schannel-ssp-).
 
 For Linux, execute the following command to see the supported versions of TLS for your distro.
 `nmap --script ssl-enum-ciphers -p 443 www.azure.com`
