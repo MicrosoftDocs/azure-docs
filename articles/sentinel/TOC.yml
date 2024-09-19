@@ -272,43 +272,6 @@
       href: data-connectors/varmour-application-controller.md
     - name: 'WireX Network Forensics Platform'
       href: data-connectors/wirex-network-forensics-platform.md
-<<<<<<< HEAD
-    - name: '[Recommended] Akamai Security Events via AMA'
-      href: data-connectors/recommended-akamai-security-events-via-ama.md
-    - name: '[Recommended] Aruba ClearPass via AMA'
-      href: data-connectors/recommended-aruba-clearpass-via-ama.md
-    - name: '[Recommended] Broadcom Symantec DLP via AMA'
-      href: data-connectors/recommended-broadcom-symantec-dlp-via-ama.md
-    - name: '[Recommended] Cisco Secure Email Gateway via AMA'
-      href: data-connectors/recommended-cisco-secure-email-gateway-via-ama.md
-    - name: '[Recommended] Claroty via AMA'
-      href: data-connectors/recommended-claroty-via-ama.md
-    - name: '[Recommended] FireEye Network Security (NX) via AMA'
-      href: data-connectors/recommended-fireeye-network-security-nx-via-ama.md
-    - name: '[Recommended] Forcepoint CASB via AMA'
-      href: data-connectors/recommended-forcepoint-casb-via-ama.md
-    - name: '[Recommended] Forcepoint CSG via AMA'
-      href: data-connectors/recommended-forcepoint-csg-via-ama.md
-    - name: '[Recommended] Forcepoint NGFW via AMA'
-      href: data-connectors/recommended-forcepoint-ngfw-via-ama.md
-    - name: '[Recommended] Illumio Core via AMA'
-      href: data-connectors/recommended-illumio-core-via-ama.md
-    - name: '[Recommended] Kaspersky Security Center via AMA'
-      href: data-connectors/recommended-kaspersky-security-center-via-ama.md
-    - name: '[Recommended] Netwrix Auditor via AMA'
-      href: data-connectors/recommended-netwrix-auditor-via-ama.md
-    - name: '[Recommended] Nozomi Networks N2OS via AMA'
-      href: data-connectors/recommended-nozomi-networks-n2os-via-ama.md
-    - name: '[Recommended] OSSEC via AMA'
-      href: data-connectors/recommended-ossec-via-ama.md
-    - name: '[Recommended] Palo Alto Networks Cortex Data Lake (CDL) via AMA'
-      href: data-connectors/recommended-palo-alto-networks-cortex-data-lake-cdl-via-ama.md
-    - name: '[Recommended] PingFederate via AMA'
-      href: data-connectors/recommended-pingfederate-via-ama.md
-=======
-    - name: '[Recommended] Trend Micro Apex One via AMA'
-      href: data-connectors/recommended-trend-micro-apex-one-via-ama.md
->>>>>>> 3563775c83c01e562a74586b7973b259cb24dcb9
     - name: 1Password (using Azure Functions)
       href: data-connectors/1password.md
     - name: AbnormalSecurity (using Azure Functions)
@@ -603,13 +566,6 @@
       href: data-connectors/qualys-vulnerability-management.md
     - name: Rapid7 Insight Platform Vulnerability Management Reports (using Azure Functions)
       href: data-connectors/rapid7-insight-platform-vulnerability-management-reports.md
-<<<<<<< HEAD
-    - name: RIDGEBOT - data connector for Microsoft Sentinel
-      href: data-connectors/ridgebot-data-connector-for-microsoft-sentinel.md
-=======
-    - name: RSA® SecurID (Authentication Manager)
-      href: data-connectors/rsa-securid-authentication-manager.md
->>>>>>> 3563775c83c01e562a74586b7973b259cb24dcb9
     - name: Rubrik Security Cloud data connector (using Azure Functions)
       href: data-connectors/rubrik-security-cloud-data-connector.md
     - name: SaaS Security
