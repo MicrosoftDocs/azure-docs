@@ -37,7 +37,7 @@ For more information, see [What is Windows App?](/windows-app/overview) and [W
 
 High Efficiency Video Coding (H.265) hardware acceleration is currently in preview. Azure Virtual Desktop supports graphics processing unit (GPU) acceleration for frame encoding which will result in improved graphical experience when using the Remote Desktop Protocol (RDP) with a GPU-enabled Virtual Machine. GPU acceleration is crucial for delivering high-fidelity graphical experiences in graphics-intensive applications, such as those used by graphic designers, video editors, and 3D modelers. 
 
-For more information, see [Enable GPU acceleration for Azure Virtual Desktop](/azure/virtual-desktop/graphics-enable-gpu-acceleration). 
+For more information, see Enable GPU acceleration for [Azure Virtual Desktop](graphics-enable-gpu-acceleration.md).
 
  
 ### Configuring client device redirection for Windows App and the Remote Desktop app on iOS using Microsoft Intune MAM is now available 
