@@ -79,29 +79,35 @@ This helper command checks connectivity to Azure Resource Manager and Microsoft 
 
 ## Create a storage account and schema registry
 
-One of the components that Azure IoT Operations deploys, schema registry, requires a storage account with hierarchical namespace enabled.
-
-The storage account must be created in a *different* Azure region than the schema registry. This requirement is so that you can set up secure connection rules between the storage account and the schema registry. When the two resources are in different regions, you can disable public access to the storage account and create a network rule to allow connections from only the schema registry IP addresses. If the two were in the same region, IP network rules wouldn't apply.
+Azure IoT Operations requires a schema registry on your cluster. Schema registry requires an Azure storage account so that it can synchronize schema information between cloud and edge.
 
 Run the following CLI commands in your Codespaces terminal.
 
-1. Create a storage account with hierarchical namespace enabled and public access disabled. This command uses the `westcentralus` region for example. If you want to change to a different region closer to you, make sure it's a different region than the one you used in your codespace.
+1. Set environment variables for the resources you create in this section.
+
+   | Placeholder | Value |
+   | ----------- | ----- |
+   | <STORAGE_ACCOUNT_NAME> | A name for your storage account. Storage account names must be between 3 and 24 characters in length and only contain numbers and lowercase letters. |
+   | <SCHEMA_REGISTRY_NAME> | A name for your schema registry. |
+   | <SCHEMA_REGISTRY_NAMESPACE> | A name for your schema registry namespace. The namespace uniquely identifies a schema registry within a tenant. |
 
    ```azurecli
-   export STORAGE_ACCOUNT=${CLUSTER_NAME:0:16}-storage
-   az storage account create --name $STORAGE_ACCOUNT --location <REGION> -g $RESOURCE_GROUP --enable-hierarchical-namespace --allow-shared-key-access false --default-action Deny --allow-blob-public-access false 
+   export STORAGE_ACCOUNT=<STORAGE_ACCOUNT_NAME>
+   export SCHEMA_REGISTRY=<SCHEMA_REGISTRY_NAME>
+   export SCHEMA_REGISTRY_NAMESPACE=<SCHEMA_REGISTRY_NAMESPACE>
+   ```
 
-1. Allow schema registry IP addresses to access the storage account.
+1. Create a storage account with hierarchical namespace enabled.
 
    ```azurecli
-   az storage account network-rule add -g $RESOURCE_GROUP --account-name $STORAGE_ACCOUNT --ip-address 20.1.75.142 20.252.196.43 20.51.24.43 20.51.28.95 4.157.157.214 20.253.64.236 20.85.106.152 20.96.85.51 20.82.208.202 20.105.106.242 20.195.58.86 40.119.231.144 20.101.219.97 51.124.23.193 20.245.227.204 40.112.138.48 20.99.136.137 20.252.49.47 20.106.114.138 20.125.89.107
+   az storage account create --name $STORAGE_ACCOUNT --location $LOCATION --resource-group $RESOURCE_GROUP --enable-hierarchical-namespace
    ```
 
 1. Create a schema registry that connects to your storage account.
 
    ```azurecli
-   export SCHEMA_REGISTRY=${CLUSTER_NAME:0:16}-schema
-   az iot ops schema registry create -n myschemaregistry -g mygroup --registry-namespace mynamespace --sa-resource-id $(az storage account show --name $STORAGE_ACCOUNT -o tsv --query id)
+   az iot ops schema registry create --name $SCHEMA_REGISTRY --resource-group $RESOURCE_GROUP --registry-namespace $SCHEMA_REGISTRY_NAMESPACE --sa-resource-id $(az storage account show --name $STORAGE_ACCOUNT -o tsv --query id)
+   ```
 
 ## Deploy Azure IoT Operations Preview
 
@@ -121,7 +127,7 @@ Run the following CLI commands in your Codespaces terminal.
 1. Deploy Azure IoT Operations. This command takes several minutes to complete:
 
    ```azurecli
-   az iot ops create --cluster $CLUSTER_NAME --resource-group $RESOURCE_GROUP --name $CLUSTER_NAME
+   az iot ops create --cluster $CLUSTER_NAME --resource-group $RESOURCE_GROUP --name ${CLUSTER_NAME}-instance
    ```
 
    If you get an error that says *Your device is required to be managed to access your resource*, run `az login` again and make sure that you sign in interactively with a browser.
@@ -144,7 +150,7 @@ To view your resources on the Azure portal, use the following steps:
 
 1. Select the name of your Azure IoT Operations instance.
 
-1. On the **Overview** page of your instance, the **Arc extensions** table displays the resources that were deployed to your cluster.
+1. On the **Overview** page of your instance, the **Arc extensions** tab displays the resources that were deployed to your cluster.
 
    :::image type="content" source="../get-started-end-to-end-sample/media/quickstart-deploy/view-instance.png" alt-text="Screenshot that shows the Azure IoT Operations instance on your Arc-enabled cluster." lightbox="../get-started-end-to-end-sample/media/quickstart-deploy/view-instance.png":::
 

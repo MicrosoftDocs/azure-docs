@@ -81,10 +81,10 @@ The northbound cloud connectors let you connect the MQTT broker directly to clou
 
 ## Process data
 
-In Azure IoT operations v0.6.0, the data processor is replaced by [data flows](./connect-to-cloud/overview-dataflow.md). Data flows provide enhanced data transformation and data contextualization capabilities within Azure IoT Operations. Data flows can use schemas stored in the schema registry to deserialize and serialize messages.
+In Azure IoT operations v0.6.0, the data processor was replaced by [data flows](./connect-to-cloud/overview-dataflow.md). Data flows provide enhanced data transformation and data contextualization capabilities within Azure IoT Operations. Data flows can use schemas stored in the schema registry to deserialize and serialize messages.
 
 > [!NOTE]
-> If you want to continue using the data processor, you must deploy Azure IoT Operations v0.5.1 with the additional flag to include data processor component. It's not possible to deploy the data processor with Azure IoT Operations v0.6.0. The Azure IoT operations CLI extension that includes the flag for deploying the data processor is version 0.5.1b1. This version requires Azure CLI v2.46.0 or greater. The data processor documentation is currently available on the previous versions site: [Azure IoT Operations data processor](/previous-versions/azure/iot-operations/process-data/overview-data-processor).
+> If you want to continue using the data processor, you must deploy Azure IoT Operations v0.5.1 with the additional flag to include data processor component. It's not possible to deploy the data processor with Azure IoT Operations v0.6.0 or newer. The Azure IoT operations CLI extension that includes the flag for deploying the data processor is version 0.5.1b1. This version requires Azure CLI v2.46.0 or greater. The data processor documentation is currently available on the previous versions site: [Azure IoT Operations data processor](/previous-versions/azure/iot-operations/process-data/overview-data-processor).
 
 ## Visualize and analyze telemetry
 
@@ -103,7 +103,7 @@ To secure communication between devices and the cloud through isolated network e
 
 ## Supported regions
 
-In the 0.6.x public preview release, Azure IoT Operations supports clusters that are Arc-enabled in the following regions:
+In the 0.7.x public preview release, Azure IoT Operations supports clusters that are Arc-enabled in the following regions:
 
 | Region       | CLI value   |
 |--------------|-------------|
@@ -111,11 +111,9 @@ In the 0.6.x public preview release, Azure IoT Operations supports clusters that
 | East US 2    | eastus2     |
 | West US      | westus      |
 | West US 2    | westus2     |
+| West US 3    | westus3     |
 | West Europe  | westeurope  |
 | North Europe | northeurope |
-
->[!NOTE]
->West US 3 was supported in previous versions of Azure IoT Operations, but isn't supported in version 0.6.x.
 
 This list of supported regions only applies to the region that you use when connecting your cluster to Azure Arc. This list doesn't restrict you from using your preferred Azure region for your cloud resources. Azure IoT Operations components and other resources deployed to your cluster in these supported regions can still connect to cloud resources in different regions.
 
