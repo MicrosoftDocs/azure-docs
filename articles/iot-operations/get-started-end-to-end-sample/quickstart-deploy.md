@@ -103,7 +103,7 @@ Run the following CLI commands in your Codespaces terminal.
    az storage account create --name $STORAGE_ACCOUNT --location $LOCATION --resource-group $RESOURCE_GROUP --enable-hierarchical-namespace
    ```
 
-1. Create a schema registry that connects to your storage account.
+1. Create a schema registry that connects to your storage account. This command also creates a blob container called **schemas** in the storage account if one doesn't exist already.
 
    ```azurecli
    az iot ops schema registry create --name $SCHEMA_REGISTRY --resource-group $RESOURCE_GROUP --registry-namespace $SCHEMA_REGISTRY_NAMESPACE --sa-resource-id $(az storage account show --name $STORAGE_ACCOUNT -o tsv --query id)
@@ -118,7 +118,7 @@ Run the following CLI commands in your Codespaces terminal.
 1. Initialize your cluster for Azure IoT Operations.
 
    >[!TIP]
-   >This command only needs to be run once per cluster. If you're reusing a cluster that already had Azure IoT Operations deployed on it, you can skip this step.
+   >This command only needs to be run once per cluster. If you're reusing a cluster that already had Azure IoT Operations version 0.7.0 deployed on it, you can skip this step.
 
    ```azurecli
    az iot ops init --cluster $CLUSTER_NAME --resource-group $RESOURCE_GROUP --sr-resource-id $(az iot ops schema registry show --name $SCHEMA_REGISTRY -o tsv --query id)
