@@ -19,11 +19,11 @@ In this quickstart, you deploy a suite of IoT services to an Azure Arc-enabled K
 The services deployed in this quickstart include:
 
 * [MQTT broker](../manage-mqtt-broker/overview-iot-mq.md)
-* [Connector for OPC UA](../discover-manage-assets/overview-opcua-broker.md) with simulated thermostat asset to start generating data
-* [Azure Device Registry Preview](../discover-manage-assets/overview-manage-assets.md#store-assets-as-azure-resources-in-a-centralized-registry)
+* [Connector for OPC UA](../discover-manage-assets/overview-opcua-broker.md)
+* [Azure Device Registry Preview](../discover-manage-assets/overview-manage-assets.md#store-assets-as-azure-resources-in-a-centralized-registry) including a schema registry
 * [Observability](../configure-observability-monitoring/howto-configure-observability.md)
 
-The following quickstarts in this series build on this one to define sample assets, data processing pipelines, and visualizations. If you want to deploy Azure IoT Operations to a cluster such as AKS Edge Essentials in order to run your own workloads, see [Prepare your Azure Arc-enabled Kubernetes cluster](../deploy-iot-ops/howto-prepare-cluster.md?tabs=aks-edge-essentials) and [Deploy Azure IoT Operations Preview to an Arc-enabled Kubernetes cluster](../deploy-iot-ops/howto-deploy-iot-operations.md).
+The rest of the quickstarts in this end-to-end series build on this one to define sample assets, data processing pipelines, and visualizations. If you want to deploy Azure IoT Operations to a cluster such as AKS Edge Essentials in order to run your own workloads, see [Prepare your Azure Arc-enabled Kubernetes cluster](../deploy-iot-ops/howto-prepare-cluster.md?tabs=aks-edge-essentials) and [Deploy Azure IoT Operations Preview to an Arc-enabled Kubernetes cluster](../deploy-iot-ops/howto-deploy-iot-operations.md).
 
 ## Before you begin
 
@@ -35,7 +35,7 @@ For the best new user experience, we recommend using an [Azure free account](htt
 
 For this quickstart, you create a Kubernetes cluster to receive the Azure IoT Operations deployment.
 
-If you want to rerun this quickstart with a cluster that already has Azure IoT Operations deployed to it, refer to the steps in [Clean up resources](#clean-up-resources) to uninstall Azure IoT Operations before continuing.
+If you want to reuse a cluster that already has Azure IoT Operations deployed to it, refer to the steps in [Clean up resources](#clean-up-resources) to uninstall Azure IoT Operations before continuing.
 
 Before you begin, prepare the following prerequisites:
 
@@ -77,35 +77,64 @@ az iot ops verify-host
 
 This helper command checks connectivity to Azure Resource Manager and Microsoft Container Registry endpoints.
 
+## Create a storage account and schema registry
+
+Azure IoT Operations requires a schema registry on your cluster. Schema registry requires an Azure storage account so that it can synchronize schema information between cloud and edge.
+
+Run the following CLI commands in your Codespaces terminal.
+
+1. Set environment variables for the resources you create in this section.
+
+   | Placeholder | Value |
+   | ----------- | ----- |
+   | <STORAGE_ACCOUNT_NAME> | A name for your storage account. Storage account names must be between 3 and 24 characters in length and only contain numbers and lowercase letters. |
+   | <SCHEMA_REGISTRY_NAME> | A name for your schema registry. |
+   | <SCHEMA_REGISTRY_NAMESPACE> | A name for your schema registry namespace. The namespace uniquely identifies a schema registry within a tenant. |
+
+   ```azurecli
+   export STORAGE_ACCOUNT=<STORAGE_ACCOUNT_NAME>
+   export SCHEMA_REGISTRY=<SCHEMA_REGISTRY_NAME>
+   export SCHEMA_REGISTRY_NAMESPACE=<SCHEMA_REGISTRY_NAMESPACE>
+   ```
+
+1. Create a storage account with hierarchical namespace enabled.
+
+   ```azurecli
+   az storage account create --name $STORAGE_ACCOUNT --location $LOCATION --resource-group $RESOURCE_GROUP --enable-hierarchical-namespace
+   ```
+
+1. Create a schema registry that connects to your storage account. This command also creates a blob container called **schemas** in the storage account if one doesn't exist already.
+
+   ```azurecli
+   az iot ops schema registry create --name $SCHEMA_REGISTRY --resource-group $RESOURCE_GROUP --registry-namespace $SCHEMA_REGISTRY_NAMESPACE --sa-resource-id $(az storage account show --name $STORAGE_ACCOUNT -o tsv --query id)
+   ```
+
 ## Deploy Azure IoT Operations Preview
 
 In this section, you use the [az iot ops init](/cli/azure/iot/ops#az-iot-ops-init) command to configure your cluster so that it can communicate securely with your Azure IoT Operations components and key vault, then deploy Azure IoT Operations.
 
 Run the following CLI commands in your Codespaces terminal.
 
-1. Create a key vault. For this scenario, use the same name and resource group as your cluster. Keyvault names have a maximum length of 24 characters, so the following command truncates the `CLUSTER_NAME`environment variable if necessary.
-
-   ```azurecli
-   az keyvault create --enable-rbac-authorization false --name ${CLUSTER_NAME:0:24} --resource-group $RESOURCE_GROUP
-   ```
+1. Initialize your cluster for Azure IoT Operations.
 
    >[!TIP]
-   > You can use an existing key vault for your secrets, but verify that the **Permission model** is set to **Vault access policy**. You can check this setting in the Azure portal in the **Access configuration** section of an existing key vault. Or use the [az keyvault show](/cli/azure/keyvault#az-keyvault-show) command to check that `enableRbacAuthorization` is false.
+   >This command only needs to be run once per cluster. If you're reusing a cluster that already had Azure IoT Operations version 0.7.0 deployed on it, you can skip this step.
+
+   ```azurecli
+   az iot ops init --cluster $CLUSTER_NAME --resource-group $RESOURCE_GROUP --sr-resource-id $(az iot ops schema registry show --name $SCHEMA_REGISTRY -o tsv --query id)
+   ```
 
 1. Deploy Azure IoT Operations. This command takes several minutes to complete:
 
    ```azurecli
-   az iot ops init --simulate-plc --cluster $CLUSTER_NAME --resource-group $RESOURCE_GROUP --kv-id $(az keyvault show --name ${CLUSTER_NAME:0:24} -o tsv --query id)
+   az iot ops create --cluster $CLUSTER_NAME --resource-group $RESOURCE_GROUP --name ${CLUSTER_NAME}-instance
    ```
 
    If you get an error that says *Your device is required to be managed to access your resource*, run `az login` again and make sure that you sign in interactively with a browser.
 
-   >[!TIP]
-   >If you've run `az iot ops init` before, it automatically created an app registration in Microsoft Entra ID for you. You can reuse that registration rather than creating a new one each time. To use an existing app registration, add the optional parameter `--sp-app-id <APPLICATION_CLIENT_ID>`.
-
 ## View resources in your cluster
 
-While the deployment is in progress, you can watch the resources being applied to your cluster. You can use kubectl commands to observe changes on the cluster or, since the cluster is Arc-enabled, you can use the Azure portal.
+While the deployment is in progress, the CLI progress interface shows you the deployment stage that you're in. Once the deployment is complete, you can use kubectl commands to observe changes on the cluster or, since the cluster is Arc-enabled, you can use the Azure portal.
 
 To view the pods on your cluster, run the following command:
 
@@ -113,15 +142,13 @@ To view the pods on your cluster, run the following command:
 kubectl get pods -n azure-iot-operations
 ```
 
-It can take several minutes for the deployment to complete. Continue running the `get pods` command to refresh your view.
-
 To view your resources on the Azure portal, use the following steps:
 
 1. In the [Azure portal](https://portal.azure.com), go to the resource group that contains your Azure IoT Operations instance, or search for and select **Azure IoT Operations**.
 
 1. Select the name of your Azure IoT Operations instance.
 
-1. On the **Overview** page of your instance, the **Arc extensions** table displays the resources that were deployed to your cluster.
+1. On the **Overview** page of your instance, the **Arc extensions** tab displays the resources that were deployed to your cluster.
 
    :::image type="content" source="../get-started-end-to-end-sample/media/quickstart-deploy/view-instance.png" alt-text="Screenshot that shows the Azure IoT Operations instance on your Arc-enabled cluster." lightbox="../get-started-end-to-end-sample/media/quickstart-deploy/view-instance.png":::
 
