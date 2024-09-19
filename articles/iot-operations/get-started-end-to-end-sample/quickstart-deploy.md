@@ -23,7 +23,7 @@ The services deployed in this quickstart include:
 * [Azure Device Registry Preview](../discover-manage-assets/overview-manage-assets.md#store-assets-as-azure-resources-in-a-centralized-registry) including a schema registry
 * [Observability](../configure-observability-monitoring/howto-configure-observability.md)
 
-The rest of the quickstarts in this series build on this one to define sample assets, data processing pipelines, and visualizations. If you want to deploy Azure IoT Operations to a cluster such as AKS Edge Essentials in order to run your own workloads, see [Prepare your Azure Arc-enabled Kubernetes cluster](../deploy-iot-ops/howto-prepare-cluster.md?tabs=aks-edge-essentials) and [Deploy Azure IoT Operations Preview to an Arc-enabled Kubernetes cluster](../deploy-iot-ops/howto-deploy-iot-operations.md).
+The rest of the quickstarts in this end-to-end series build on this one to define sample assets, data processing pipelines, and visualizations. If you want to deploy Azure IoT Operations to a cluster such as AKS Edge Essentials in order to run your own workloads, see [Prepare your Azure Arc-enabled Kubernetes cluster](../deploy-iot-ops/howto-prepare-cluster.md?tabs=aks-edge-essentials) and [Deploy Azure IoT Operations Preview to an Arc-enabled Kubernetes cluster](../deploy-iot-ops/howto-deploy-iot-operations.md).
 
 ## Before you begin
 
@@ -121,7 +121,7 @@ Run the following CLI commands in your Codespaces terminal.
    >This command only needs to be run once per cluster. If you're reusing a cluster that already had Azure IoT Operations deployed on it, you can skip this step.
 
    ```azurecli
-   az iot ops init --cluster $CLUSTER_NAME --resource-group $RESOURCE_GROUP --sr-resource-id ${az iot ops schema registry show --name $SCHEMA_REGISTRY -o tsv --query id}
+   az iot ops init --cluster $CLUSTER_NAME --resource-group $RESOURCE_GROUP --sr-resource-id $(az iot ops schema registry show --name $SCHEMA_REGISTRY -o tsv --query id)
    ```
 
 1. Deploy Azure IoT Operations. This command takes several minutes to complete:
@@ -134,15 +134,13 @@ Run the following CLI commands in your Codespaces terminal.
 
 ## View resources in your cluster
 
-While the deployment is in progress, you can watch the resources being applied to your cluster. You can use kubectl commands to observe changes on the cluster or, since the cluster is Arc-enabled, you can use the Azure portal.
+While the deployment is in progress, the CLI progress interface shows you the deployment stage that you're in. Once the deployment is complete, you can use kubectl commands to observe changes on the cluster or, since the cluster is Arc-enabled, you can use the Azure portal.
 
 To view the pods on your cluster, run the following command:
 
 ```console
 kubectl get pods -n azure-iot-operations
 ```
-
-It can take several minutes for the deployment to complete. Continue running the `get pods` command to refresh your view.
 
 To view your resources on the Azure portal, use the following steps:
 
