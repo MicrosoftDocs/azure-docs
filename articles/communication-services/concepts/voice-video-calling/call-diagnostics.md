@@ -130,7 +130,7 @@ You can view detailed call logs for each participant within a call. Call informa
 
 ## Copilot in Azure for Call Diagnostics
 
-Artificial Intelligence can help app developers across every step of the development lifecycle: designing, building, and operating. Developers with [Microsoft Copilot in Azure (preview)](../../../copilot/overview.md) can use Copilot in Azure within Call Diagnostics to understand and resolve a variety of calling issues. For example, developers can ask Copilot in Azure questions, such as:
+Artificial Intelligence can help app developers across every step of the development lifecycle: designing, building, and operating. Developers with [Microsoft Copilot in Azure (preview)](/azure/copilot/overview) can use Copilot in Azure within Call Diagnostics to understand and resolve a variety of calling issues. For example, developers can ask Copilot in Azure questions, such as:
 
 - How do I run network diagnostics in Azure Communication Services VoIP calls?
 - How can I optimize my calls for poor network conditions?
@@ -224,7 +224,7 @@ quality](https://learn.microsoft.com/azure/communication-services/concepts/voice
 
 - **How do I use Copilot in Azure (preview) in Call Diagnostics?**
 
-  - Your organization needs to manage access to [Microsoft Copilot in Azure (preview)](../../../copilot/overview.md). Once your organization has access to Copilot in Azure (preview), the Call Diagnostics interface will include the option to 'Diagnose with Copilot' in the Search, Overview, and Issues tabs. 
+  - Your organization needs to manage access to [Microsoft Copilot in Azure (preview)](/azure/copilot/overview). Once your organization has access to Copilot in Azure (preview), the Call Diagnostics interface will include the option to 'Diagnose with Copilot' in the Search, Overview, and Issues tabs. 
   - Leverage Copilot in Azure for Call Diagnostics to improve call quality by detailing problems faced during Azure Communication Services calls. Giving Copilot in Azure detailed information from Call Diagnostics will help it enhance analysis, identify issues, and identify fixes. Be aware that Copilot in Azure currently lacks programmatic access to your call details.
 
 <!-- 1. If Teams participants join a call, how will they display in Call
