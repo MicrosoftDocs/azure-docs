@@ -4,7 +4,7 @@ description: Learn how to plan an Azure Virtual Network deployment to connect HD
 ms.service: azure-hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 09/15/2023
+ms.date: 09/19/2024
 ---
 
 # Plan a virtual network for Azure HDInsight
@@ -197,8 +197,6 @@ To connect to Apache Ambari and other web pages through the virtual network, use
 When you create a HDInsight cluster, several load balancers are created as well. Due to the [retirement of the basic load balancer](https://azure.microsoft.com/updates/azure-basic-load-balancer-will-be-retired-on-30-september-2025-upgrade-to-standard-load-balancer/), the type of load balancers is at the [standard SKU level](/azure/load-balancer/skus), which has certain constraints. Inbound flows to the standard load balancers are closed unless allowed  by a network security group. You may need to bond a network security to your subnet and configure the network security rules.  
 
 There are [several outbound connectivity methods](/azure/load-balancer/load-balancer-outbound-connections) enabled for the standard load balancer. It’s worth noting that the default outbound access will be retired soon. If a NAT gateway is adopted to provide outbound network access, the subnet is not capable with the basic load balancer. If you intend to bond a NAT gateway to a subnet, there should be no basic load balancer existed in this subnet. With the NAT gateway as the outbound access method, a newly created HDInsight cluster can't share the same subnet with previously created HDInsight clusters with basic load balancers.
-
-There are [several outbound connectivity methods](/azure/load-balancer/load-balancer-outbound-connections) enabled for the standard load balancer. It’s worth noting that the default outbound access will retire soon. If a NAT gateway is adopted to provide outbound network access, the subnet isn't capable with the basic load balancer. If you intend to bond a NAT gateway to a subnet, there should be no basic load balancer existed in this subnet. With the NAT gateway as the outbound access method, a newly created HDInsight cluster can't share the same subnet with previously created HDInsight clusters with basic load balancers.
 
 Another constraint is that the HDInsight load balancers shouldn't be deleted or modified. **Any changes to the load balancer rules will get overwritten during certain maintenance events such as certificate renewals.** If the load balancers are modified and it affects the cluster functionality, you may need to recreate the cluster.
 
