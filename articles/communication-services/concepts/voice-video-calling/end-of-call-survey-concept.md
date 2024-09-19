@@ -19,7 +19,7 @@ The End of Call Survey is a tool that helps you understand how your users percei
 
 ## Purpose of the End of Call Survey
 
-It's difficult to determine a customer's perceived calling experience and determine how well your calling solution is performing unless you gather feedback. You can use the End of Call Survey to collect and analyze customers' *subjective* opinions on their calling experience. Relying only on *objective* measurements, such as audio and video bitrate, jitter, and latency, might not indicate if a customer had a poor calling experience.
+It's difficult to determine a customer's perceived calling experience and understand how well your calling solution is performing unless you gather feedback. You can use the End of Call Survey to collect and analyze customers' *subjective* opinions on their calling experience. Relying only on *objective* measurements, such as audio and video bitrate, jitter, and latency, might not indicate if a customer had a poor calling experience.
 
 After you publish survey data, you can view the survey results through Azure for analysis and improvements. Azure Communication Services uses these survey results to monitor and improve quality and reliability.
 
@@ -30,7 +30,7 @@ The survey is designed to answer two questions:
 - How did the user perceive the overall experience of call quality?
 - Did the user perceive any problems with audio, video, or screen sharing in the call?
 
-The API allows applications to gather data points that describe user-perceived ratings of their overall call, audio, video, and screen-sharing experiences. Microsoft analyzes survey API results according to the following goals.
+The API enables applications to gather data points that describe user-perceived ratings of their overall call, audio, video, and screen-sharing experiences. Microsoft analyzes survey API results according to the following goals.
 
 | API rating category | Question goal |
 | ----------- | ----------- |

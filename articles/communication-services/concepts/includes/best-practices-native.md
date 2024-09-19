@@ -42,7 +42,7 @@ We highly recommend that you identify and validate your scenario by using the in
 
 ### Verify device permissions for app requests
 
-To use the Calling Native SDK for making or receiving calls, it's necessary to authorize each platform to access device resources. As a developer, you should prompt the user for access and ensure that permissions are enabled. The consumer authorizes these access rights, so verify that they were granted permission previously.
+To use the Calling Native SDK for making or receiving calls, consumers need to authorize each platform to access device resources. As a developer, you must prompt the user for access and ensure that permissions are enabled. The consumer authorizes these access rights, so verify that they currently have the required permissions.
 
 #### [iOS](#tab/ios)
 
@@ -86,9 +86,9 @@ You should track the `CallID` value in the telemetry that you configure in your 
 
 ### Subscribe to User Facing Diagnostics and media quality statistics
 
-You can use these features of Azure Communication Services to help improve the user experience:
+You can use these Azure Communication Services features to help improve the user experience:
 
-- [User Facing Diagnostics](../voice-video-calling/user-facing-diagnostics.md): Examine various properties of a call to determine the cause of problems that affect your customers.
+- [User Facing Diagnostics](../voice-video-calling/user-facing-diagnostics.md): Examine properties of a call to determine the cause of problems that affect your customers.
 - [Media quality statistics](../voice-video-calling/media-quality-sdk.md): Examine the low-level audio, video, and screen-sharing quality metrics for incoming and outgoing call metrics. We recommend that you collect the data and send it to your pipeline ingestion after a call ends.
 
 ### Manage error handling

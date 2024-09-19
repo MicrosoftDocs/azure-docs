@@ -17,7 +17,7 @@ This section provides information about best practices associated with the Azure
 
 ### Plug in a microphone or enable a microphone from the device manager when a call is in progress
 
-When no microphone is available at the beginning of an Azure Communication Services call, and then a microphone becomes available, the change raises a `noMicrophoneDevicesEnumerated` diagnostic event. When that event happens,  your application should invoke `askDevicePermission` to obtain user consent to enumerate devices. The user can then mute or unmute the microphone.
+When no microphone is available at the beginning of an Azure Communication Services call, and then a microphone becomes available, the change raises a `noMicrophoneDevicesEnumerated` diagnostic event. When that event happens, your application needs to invoke `askDevicePermission` to obtain user consent to enumerate devices. The user can then mute or unmute the microphone.
 
 ### Dispose of VideoStreamRendererView
 
@@ -84,7 +84,7 @@ To stop the application from being screen shared, you have to take one of these 
 
 - Right-click the application's icon on the desktop taskbar, and then select **Quit**.
 - Select the **Stop sharing** button on the browser.
-- Call the SDK's `Call.stopScreenSharing()` API.
+- Call the SDK's `Call.stopScreenSharing()` API operation.
 
 #### Safari can do only full-screen sharing
 
@@ -92,4 +92,4 @@ Safari allows screen sharing only for the entire screen. That behavior is unlike
 
 #### You can grant screen-sharing permissions on macOS
 
-To do screen sharing in macOS Safari or macOS Chrome, grant the necessary permissions to the browsers on the OS menu: **System Preferences** > **Security & Privacy** > **Screen Recording**.
+To screen share in macOS Safari or macOS Chrome, grant the necessary permissions to the browsers on the OS menu: **System Preferences** > **Security & Privacy** > **Screen Recording**.
