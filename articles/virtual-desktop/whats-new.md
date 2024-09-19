@@ -39,13 +39,6 @@ High Efficiency Video Coding (H.265) hardware acceleration is currently in previ
 
 For more information, see [Enable GPU acceleration for Azure Virtual Desktop](graphics-enable-gpu-acceleration.md).
 
- 
-### Configuring client device redirection for Windows App and the Remote Desktop app on iOS using Microsoft Intune MAM is now available 
-
-Redirection of resources and peripherals from a user's local device to a remote session from Azure Virtual Desktop over the Remote Desktop Protocol (RDP), such as the clipboard, camera, and audio, is normally governed by central configuration of a host pool and its session hosts. Client device redirection is configured for Windows App and the Remote Desktop app using a combination of Microsoft Intune Mobile Application Management (MAM) and Microsoft Entra Conditional Access on a user's local device. Existing Intune MAM capabilities such as the ability to require minimum OS version, client application version, and a Mobile Threat Defense (MTD) reporting no threats detected are also supported. 
-
-For more information, see [Configure client device redirection settings for Windows App and the Remote Desktop app using Microsoft Intune](client-device-redirection-intune.md). 
-
 
 ## August 2024
 

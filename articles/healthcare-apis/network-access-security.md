@@ -28,7 +28,7 @@ Here's a list of features that can make outbound connections from Azure Health D
 
 - **Export**: [Allow FHIR service export as a Microsoft Trusted Service](fhir/configure-export-data.md)
 - **Import**: [Allow FHIR service import as a Microsoft Trusted Service](fhir/configure-import-data.md)
-- **Convert**: [Allow trusted services access to Azure Container Registry](../container-registry/allow-access-trusted-services.md)
+- **Convert**: [Allow trusted services access to Azure Container Registry](/azure/container-registry/allow-access-trusted-services)
 - **Events**: [Allow trusted services access to Azure Event Hubs](../event-hubs/event-hubs-service-endpoints.md)
 - **Customer-managed keys**: [Allow trusted services access to Azure Key Vault](/azure/key-vault/general/overview-vnet-service-endpoints)
 
