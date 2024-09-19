@@ -6,8 +6,8 @@ services: storage
 author: pauljewellmsft
 ms.author: pauljewell
 ms.service: azure-blob-storage
-ms.topic: how-to
-ms.date: 09/10/2024
+ms.topic: concept
+ms.date: 09/20/2024
 ms.devlang: golang
 ms.custom: devx-track-go, devguide-go, devx-track-go
 ---
@@ -24,7 +24,7 @@ Properly tuning data transfer options is key to reliable performance for uploads
 
 ### Set transfer options for uploads
 
-If the total blob size is less than or equal to 256 MB, the data is uploaded with a single `Put Blob` request. If the blob size is greater than 256 MB, or if the blob size is unknown, the blob is uploaded in chunks using a series of [Put Block](/rest/api/storageservices/put-block) calls followed by [Put Block List](/rest/api/storageservices/put-block-list).
+If the total blob size is less than or equal to 256 MB, the data is uploaded with a single [Put Blob](/rest/api/storageservices/put-blob) request. If the blob size is greater than 256 MB, or if the blob size is unknown, the blob is uploaded in chunks using a series of [Put Block](/rest/api/storageservices/put-block) calls followed by [Put Block List](/rest/api/storageservices/put-block-list).
 
 The following properties can be configured and tuned based on the needs of your app:
 
@@ -70,12 +70,12 @@ In this example, we set the number of parallel transfer workers to 2, using the 
 
 ### Performance considerations for uploads
 
-During an upload, the Storage client libraries split a given upload stream into multiple subuploads based on the configuration options defined during client construction. Each subupload has its own dedicated call to the REST operation. For a `BlobClient` object, this operation is [Put Block](/rest/api/storageservices/put-block). The Storage client library manages these REST operations in parallel (depending on transfer options) to complete the full upload.
+During an upload, the Storage client libraries split a given upload stream into multiple subuploads based on the configuration options defined during client construction. Each subupload has its own dedicated call to the REST operation. The Storage client library manages these REST operations in parallel (depending on transfer options) to complete the full upload.
 
 You can learn how the client library handles buffering in the following sections.
 
 > [!NOTE]
-> Block blobs have a maximum block count of 50,000 blocks. The maximum size of your block blob, then, is 50,000 times `max_block_size`.
+> Block blobs have a maximum block count of 50,000 blocks. The maximum size of your block blob, then, is 50,000 times `Block_Size`.
 
 #### Buffering during uploads
 
@@ -95,6 +95,10 @@ The following properties can be tuned based on the needs of your app:
 These options are available when downloading using the following methods: [DownloadBuffer](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob#Client.DownloadBuffer) and [DownloadFile](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob#Client.DownloadFile). The [DownloadStream](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob#Client.DownloadStream) method doesn't support these options, and downloads data in a single request.
 
 #### Code example
+
+The following code example shows how to define values for an [DownloadFileOptions](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob#DownloadFileOptions) instance and pass these configuration options as a parameter to [DownloadFile](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob#Client.DownloadFile).
+
+The values provided in this sample aren't intended to be a recommendation. To properly tune these values, you need to consider the specific needs of your app.
 
 ```go
 func downloadBlobTransferOptions(client *azblob.Client, containerName string, blobName string) {
