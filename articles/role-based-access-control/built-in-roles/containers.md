@@ -1522,7 +1522,7 @@ Grants access to read and write Azure Kubernetes Service clusters
 > | Actions | Description |
 > | --- | --- |
 > | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
-> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/locations/* | Create and manage a managed cluster |
+> | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/locations/* | Read locations available to ContainerService resources |
 > | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/managedClusters/* | Create and manage a managed cluster |
 > | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/managedclustersnapshots/* | Create and manage a managed cluster snapshot |
 > | [Microsoft.ContainerService](../permissions/containers.md#microsoftcontainerservice)/snapshots/* | Create and manage a snapshot |
