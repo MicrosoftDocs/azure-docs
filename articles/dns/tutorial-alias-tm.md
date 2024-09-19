@@ -217,8 +217,8 @@ Public IP addresses need DNS labels to work with Traffic Manager.
 Create an alias record that points to the Traffic Manager profile.
 
 1. In the Azure portal, enter *contoso.com* in the search box at the top of the portal, and then select **contoso.com** DNS zone from the search results.
-2. In the **Overview** page of **contoso.com** DNS zone, select the **+ Record set** button.
-3. In the **Add record set**, leave the **Name** box empty to represent the apex domain name. An example is `contoso.com`.
+2. On the **Overview** page of **contoso.com** DNS zone, select the **+ Record set** button.
+3. In **Add record set**, leave the **Name** box empty to represent the apex domain name. An example is `contoso.com`.
 4. Select **A** for the **Type**.
 5. Select **Yes** for the **Alias record set**, and then select the **Azure Resource** for the **Alias type**.
 6. Select the **TM-alias-test** Traffic Manager profile for the **Azure resource**.
