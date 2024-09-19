@@ -56,7 +56,7 @@ To publish the containerized function app image you create to a container regist
 
 ### [Azure Container Registry](#tab/acr)
 
-You also need to complete the [Create a container registry](../articles/container-registry/container-registry-get-started-portal.md#create-a-container-registry) section of the Container Registry quickstart to create a registry instance. Make a note of your fully qualified login server name.
+You also need to complete the [Create a container registry](/azure/container-registry/container-registry-get-started-portal#create-a-container-registry) section of the Container Registry quickstart to create a registry instance. Make a note of your fully qualified login server name.
 
 ### [Docker Hub](#tab/docker)
 
