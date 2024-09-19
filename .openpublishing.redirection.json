@@ -1,6 +1,11 @@
 {
   "redirections": [
     {
+      "source_path": "articles/governance/machine-configuration/whats-new/migrating-from-dsc-extension.md ",
+      "redirect_url": " https://azure.microsoft.com/updates/migrate-from-linux-dsc-extension-to-the-guest-configuration-feature-of-azure-policy-by-may-1-2025/",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/vpn-gateway/vpn-gateway-about-forced-tunneling.md",
       "redirect_url": "/previous-versions/azure/vpn-gateway/vpn-gateway-about-forced-tunneling",
       "redirect_document_id": false
