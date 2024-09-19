@@ -54,6 +54,8 @@ items:
       href: tutorials/events-playbook.md
     - name: Contact center
       href: tutorials/contact-center.md
+    - name: Embed chat in Teams custom app
+      href: tutorials/chat-app-teams-embed.md
   - name: Privacy and compliance
     items:
     - name: Data residency and user privacy
