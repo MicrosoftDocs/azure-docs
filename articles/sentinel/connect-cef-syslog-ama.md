@@ -57,7 +57,7 @@ If you're collecting messages from a log forwarder, the following prerequisites 
     - [Create a Linux VM in the Azure portal](/azure/virtual-machines/linux/quick-create-portal).
     - [Supported Linux operating systems for Azure Monitor Agent](/azure/azure-monitor/agents/agents-overview#linux).
 
-- If your log forwarder *isn't* an Azure virtual machine, it must have the Azure Arc [Connected Machine agent](../azure-arc/servers/overview.md) installed on it.
+- If your log forwarder *isn't* an Azure virtual machine, it must have the Azure Arc [Connected Machine agent](/azure/azure-arc/servers/overview) installed on it.
 
 - The Linux log forwarder VM must have Python 2.7 or 3 installed. Use the ``python --version`` or ``python3 --version`` command to check. If you're using Python 3, make sure it's set as the default command on the machine, or run scripts with the 'python3' command instead of 'python'.
 

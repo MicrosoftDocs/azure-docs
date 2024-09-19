@@ -91,7 +91,7 @@ In this tutorial, you learn how to create a pod in an Azure Kubernetes (AKS) clu
         --capacity 1
     ```
 
-1. Create an Azure Container Registry (ACR) resource with the [az acr create](/cli/azure/acr#az-acr-create) command, or referring to [this tutorial](../container-registry/container-registry-get-started-portal.md). The registry hosts the container image of the sample application, which the AKS pod definition consumes.
+1. Create an Azure Container Registry (ACR) resource with the [az acr create](/cli/azure/acr#az-acr-create) command, or referring to [this tutorial](/azure/container-registry/container-registry-get-started-portal). The registry hosts the container image of the sample application, which the AKS pod definition consumes.
 
     ```azurecli-interactive
     az acr create \

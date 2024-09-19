@@ -36,7 +36,7 @@ Your query might fail with the error message `Websocket connection was closed un
 - To resolve this issue, rerun your query. 
 - Try [Azure Data Studio](/azure-data-studio/download-azure-data-studio) or [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) for the same queries instead of Synapse Studio for further investigation.
 - If this message occurs often in your environment, get help from your network administrator. You can also check firewall settings, and check the [Troubleshooting guide](../troubleshoot/troubleshoot-synapse-studio.md).
-- If the issue continues, create a [support ticket](../../azure-portal/supportability/how-to-create-azure-support-request.md) through the Azure portal. 
+- If the issue continues, create a [support ticket](/azure/azure-portal/supportability/how-to-create-azure-support-request) through the Azure portal. 
 
 ### Serverless databases aren't shown in Synapse Studio
 
@@ -917,7 +917,7 @@ Make sure that your Delta Lake dataset isn't corrupted. Verify that you can read
 
 Try to create a checkpoint on the Delta Lake dataset by using Apache Spark pool and rerun the query. The checkpoint aggregates transactional JSON log files and might solve the issue.
 
-If the dataset is valid, [create a support ticket](../../azure-portal/supportability/how-to-create-azure-support-request.md#create-a-support-request) and provide more information:
+If the dataset is valid, [create a support ticket](/azure/azure-portal/supportability/how-to-create-azure-support-request#create-a-support-request) and provide more information:
 
 - Don't make any changes like adding or removing the columns or optimizing the table because this operation might change the state of the Delta Lake transaction log files.
 - Copy the content of the `_delta_log` folder into a new empty folder. *Do not* copy the `.parquet data` files.
