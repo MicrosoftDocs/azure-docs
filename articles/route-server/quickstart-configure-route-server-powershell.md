@@ -70,7 +70,6 @@ In this section, you create a route server. Prior to creating the route server, 
     ```
 
     [!INCLUDE [Deployment note](../../includes/route-server-note-creation-time.md)]
-    ```
 
 ## Set up peering with NVA
 
