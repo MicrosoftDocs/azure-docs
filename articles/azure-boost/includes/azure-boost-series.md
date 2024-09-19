@@ -66,6 +66,6 @@ ms.custom:
 | [Mdsv3](/azure/virtual-machines/msv3-mdsv3-high-memory-series) | High Memory Optimized | Production |
 | [Msv3](/azure/virtual-machines/msv3-mdsv3-high-memory-series)  | High Memory Optimized | Production |
 | [Msv3](/azure/virtual-machines/msv3-mdsv3-medium-series)      | Memory Optimized | Production   |
-| [Mdsv3](/azure/virtual-machines/msv3-mdsv3-medium-series)     | Memory Optimized | Production   |
+| [Mdsv3](/azure/virtual-machines/msv3-mdsv3-medium-series)     | Memory Optimized | Production  |
 | [Msv2](/azure/virtual-machines/msv2-series)        | Memory Optimized | Production   |
 | [Nvadsv5](/azure/virtual-machines/nva10v5-series)  | GPU/AI workload optimized | Production |
