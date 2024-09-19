@@ -6,7 +6,7 @@ description: Learn how to enable user sign-in to the API Management developer po
 author: dlepow
 ms.service: azure-api-management
 ms.topic: article
-ms.date: 09/18/2024
+ms.date: 09/19/2024
 ms.author: danlep
 ms.custom: engagement-fy23, devx-track-azurecli
 ---
@@ -110,18 +110,12 @@ After the Microsoft Entra provider is enabled:
 1. In the **Add identity provider** pane's **Allowed tenants** field, specify the Microsoft Entra instance's domains to which you want to grant access to the API Management service instance APIs. 
     * You can separate multiple domains with newlines, spaces, or commas.
 
-    > [!NOTE]
-    > You can specify multiple domains in the **Allowed Tenants** section. A global administrator must grant the application access to directory data before users can sign in from a different domain than the original app registration domain. To grant permission, the global administrator should:
-    > 1. Go to `https://<URL of your developer portal>/aadadminconsent` (for example, `https://contoso.developer.azure-api.net/aadadminconsent`).
-    > 1. Enter the domain name of the Microsoft Entra tenant to which they want to grant access.
-    > 1. Select **Submit**. 
-
 1. After you specify the desired configuration, select **Add**.
 1. Republish the developer portal for the Microsoft Entra configuration to take effect. In the left menu, under **Developer portal**, select **Portal overview** > **Publish**. 
 
 After the Microsoft Entra provider is enabled:
 
-* Users in the specified Microsoft Entra instance can [sign into the developer portal by using a Microsoft Entra account](#log_in_to_dev_portal).
+* Users in the specified Microsoft Entra tenant(s) can [sign into the developer portal by using a Microsoft Entra account](#log_in_to_dev_portal).
 * You can manage the Microsoft Entra configuration on the **Developer portal** > **Identities** page in the portal.
 * Optionally configure other sign-in settings by selecting **Identities** > **Settings**. For example, you might want to redirect anonymous users to the sign-in page.
 * Republish the developer portal after any configuration change.
