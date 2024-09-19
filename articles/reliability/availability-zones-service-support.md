@@ -31,12 +31,12 @@ The following regions currently support availability zones:
 | Brazil South | France Central | Qatar Central | South Africa North | Australia East |
 | Canada Central | Italy North | UAE North | | Central India |
 | Central US |  Germany West Central | Israel Central | | Japan East |
-| East US | Norway East | | | Korea Central |
+| East US | Norway East | | | *Japan West |
 | East US 2 | North Europe  | | | Southeast Asia |
 | South Central US | UK South | | | East Asia |
 | US Gov Virginia | West Europe  | | | China North 3 |
-| West US 2 | Sweden Central | | | |
-| West US 3 | Switzerland North | | | |
+| West US 2 | Sweden Central | | |Korea Central  | 
+| West US 3 | Switzerland North | | | *New Zealand North |
 | Mexico Central | Poland Central ||||
 ||Spain Central ||||
 
@@ -134,7 +134,7 @@ Azure offerings are grouped into three categories that reflect their _regional_ 
 | [Azure Bastion](../bastion/bastion-overview.md) | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) |
 | [Azure Batch](./reliability-batch.md) | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) |
 | [Azure Cache for Redis](./migrate-cache-redis.md) | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) ![An icon that signifies this service is zonal](media/icon-zonal.svg) |
-| [Azure AI Search](../search/search-reliability.md#availability-zones) | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) |
+| [Azure AI Search](/azure/search/search-reliability#availability-zones) | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) |
 | [Azure Container Apps](reliability-azure-container-apps.md#availability-zone-support) | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) |
 | [Azure Container Instances](migrate-container-instances.md) | ![An icon that signifies this service is zonal](media/icon-zonal.svg) |
 | [Azure Container Registry](../container-registry/zone-redundancy.md) | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) |
@@ -152,8 +152,8 @@ Azure offerings are grouped into three categories that reflect their _regional_ 
 | [Azure IoT Hub](../iot-hub/iot-hub-ha-dr.md) | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) |
 | [Azure Kubernetes Service (AKS)](/azure/aks/availability-zones) | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) ![An icon that signifies this service is zonal](media/icon-zonal.svg) |
 | [Azure Logic Apps](../logic-apps/logic-apps-overview.md) | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) |
-| [Azure Monitor](../azure-monitor/logs/availability-zones.md)  | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) |
-| [Azure Monitor: Application Insights](../azure-monitor/logs/availability-zones.md)  | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) |
+| [Azure Monitor](/azure/azure-monitor/logs/availability-zones)  | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) |
+| [Azure Monitor: Application Insights](/azure/azure-monitor/logs/availability-zones)  | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) |
 | [Azure Monitor: Log Analytics](./migrate-monitor-log-analytics.md) | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) |
 | [Azure NAT Gateway](../nat-gateway/nat-availability-zones.md) | ![An icon that signifies this service is zonal](media/icon-zonal.svg) |
 | [Azure Network Watcher](../network-watcher/frequently-asked-questions.yml) | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) |

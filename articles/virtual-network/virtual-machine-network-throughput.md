@@ -51,13 +51,13 @@ Today, the Azure networking stack supports 1M total flows (500k inbound and 500k
 
 - VMs that belong to a virtual network can handle 500k ***active connections*** for all VM sizes with 500k ***active flows in each direction***.  
 
-- VMs with network virtual appliances (NVAs) such as gateway, proxy, firewall can handle 250k ***active connections*** with 500k ***active flows in each direction*** due to the forwarding and more new flow creation on new connection setup to the next hop as shown in the above diagram. 
+- VMs with NVAs such as gateway, proxy, firewall can handle 250k ***active connections*** with 500k ***active flows in each direction*** due to the forwarding and more new flow creation on new connection setup to the next hop as shown in the above diagram. 
 
 Once this limit is hit, other connections are dropped. Connection establishment and termination rates can also affect network performance as connection establishment and termination shares CPU with packet processing routines. We recommend that you benchmark workloads against expected traffic patterns and scale out workloads appropriately to match your performance needs.
 
-Metrics are available in [Azure Monitor](../azure-monitor/essentials/metrics-supported.md#microsoftcomputevirtualmachines) to track the number of network flows and the flow creation rate on your VM or Virtual Machine Scale Sets instances.
+Metrics are available in [Azure Monitor](/azure/azure-monitor/essentials/metrics-supported#microsoftcomputevirtualmachines) to track the number of network flows and the flow creation rate on your VM or Virtual Machine Scale Sets instances.
 
-:::image type="content" source="./media/virtual-machine-network-throughput/azure-monitor-flow-metrics.png" alt-text="AScreenshot shows the Metrics page of Azure Monitor with a line chart and totals for inbound and outbound flows.":::
+:::image type="content" source="./media/virtual-machine-network-throughput/azure-monitor-flow-metrics.png" alt-text="A screenshot shows the Metrics page of Azure Monitor with a line chart and totals for inbound and outbound flows.":::
 
 ## Next steps
 

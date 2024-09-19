@@ -1,7 +1,7 @@
 ---
 title: Lock images
 description: Set attributes for a container image or repository so it can't be deleted or overwritten in an Azure container registry.
-ms.topic: article
+ms.topic: how-to
 ms.custom: devx-track-azurecli
 author: tejaswikolli-web
 ms.author: tejaswikolli

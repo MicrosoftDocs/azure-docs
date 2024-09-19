@@ -289,7 +289,7 @@ Use ARMClient or a similar tool to handle authentication to Azure for the REST A
 
 With the REST API, summarization can be performed by container, definition, or assignment. Here's
 an example of summarization at the subscription level using Azure Policy Insight's [Summarize For
-Subscription](/rest/api/policyinsights/policy-states/summarize-for-subscription):
+Subscription](/rest/api/policy/policy-states/summarize-for-subscription):
 
 ```http
 POST https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.PolicyInsights/policyStates/latest/summarize?api-version=2019-10-01
@@ -417,7 +417,7 @@ Your results resemble the following example:
 ```
 
 For more information about querying policy events, see the
-[Azure Policy Events](/rest/api/policyinsights/policy-events) reference article.
+[Azure Policy Events](/rest/api/policy/policy-events) reference article.
 
 ### Azure CLI
 
@@ -760,9 +760,9 @@ Trent Baker
 
 ## Azure Monitor logs
 
-If you have a [Log Analytics workspace](../../../azure-monitor/logs/log-query-overview.md) with
+If you have a [Log Analytics workspace](/azure/azure-monitor/logs/log-query-overview) with
 `AzureActivity` from the
-[Activity Log Analytics solution](../../../azure-monitor/essentials/activity-log.md) tied to your
+[Activity Log Analytics solution](/azure/azure-monitor/essentials/activity-log) tied to your
 subscription, you can also view non-compliance results from the evaluation of new and updated
 resources using simple Kusto queries and the `AzureActivity` table. With details in Azure Monitor
 logs, alerts can be configured to watch for non-compliance.

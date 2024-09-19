@@ -476,7 +476,7 @@ The possible values are:
 
 For any other value, the connection isn't using UDP and is connected using TCP instead.
 
-The following query lets you review connection information. You can run this query in the [Log Analytics query editor](../azure-monitor/logs/log-analytics-tutorial.md#write-a-query). When you run this query, replace `user@contoso.com` with the UPN of the user you want to look up:
+The following query lets you review connection information. You can run this query in the [Log Analytics query editor](/azure/azure-monitor/logs/log-analytics-tutorial#write-a-query). When you run this query, replace `user@contoso.com` with the UPN of the user you want to look up:
 
 ```kusto
 let Events = WVDConnections | where UserName == "user@contoso.com" ;

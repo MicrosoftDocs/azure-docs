@@ -65,16 +65,13 @@ Feature support depends on which backing storage option you select. The followin
 
 ## What's new in Azure Container Storage
 
-Based on feedback from customers, we've included the following capabilities with the latest updates:
+Our latest updates enhance the resiliency and performance of stateful containers. We now offer multi-zone storage pools and volume replication for local NVMe storage pools, ensuring availability during single node failures. Snapshot support is available across all storage options for backup and disaster recovery. Additionally, the Ephemeral Disk portfolio now includes temp SSD support, providing cost-efficient solutions for use cases leveraging directly attached local storage: 
 
-- Improve stateful application availability by using [multi-zone storage pools and ZRS disks](enable-multi-zone-redundancy.md).
-- Enable server-side encryption with [customer-managed keys](use-container-storage-with-managed-disks.md#create-a-dynamic-storage-pool-using-your-own-encryption-key-optional) (Azure Disks only).
-- Scale up by dynamically expanding [volumes](resize-volume.md) and storage pools backed by Azure Disks and Ephemeral Disk without downtime.
-- [Clone persistent volumes](clone-volume.md) within a storage pool.
-- Optimize applications with Azure Linux Container Host.
-- Increase resiliency for applications using [local NVMe volumes with replication](use-container-storage-with-local-nvme-replication.md).
+- Enhance the resiliency of your persistent volumes hosted on local NVMe storage (L-series ephemeral disks) with replication support.
+- Improved persistent volume recovery after a restart of an Azure Kubernetes Service (AKS) cluster.
+- Customize the performance of your local NVMe storage with new performance tier options.
 
-For more information on these features, email the Azure Container Storage team at azcontainerstorage@microsoft.com.
+For more information on these features, email the Azure Container Storage team at containerstoragepm@microsoft.com.
 
 ## Why Azure Container Storage is useful
 

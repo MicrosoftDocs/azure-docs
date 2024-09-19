@@ -196,7 +196,7 @@ In the following tables, the term alphanumeric refers to:
 > [!div class="mx-tableFixed"]
 > | Entity | Scope | Length | Valid Characters |
 > | --- | --- | --- | --- |
-> | certificateOrders | resource group | 3-30 | Alphanumerics. |
+> | certificateOrders | resource group | 3-50 | Alphanumerics. |
 
 ## Microsoft.CognitiveServices
 

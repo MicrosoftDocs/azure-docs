@@ -181,7 +181,7 @@ This query first uses the shared query, and then uses `limit` to further restric
 Resource Graph supports a subset of KQL [data types](/azure/data-explorer/kusto/query/scalar-data-types/),
 [scalar functions](/azure/data-explorer/kusto/query/scalarfunctions),
 [scalar operators](/azure/data-explorer/kusto/query/binoperators), and
-[aggregation functions](/azure/data-explorer/kusto/query/any-aggfunction). Specific
+[aggregation functions](/kusto/query/aggregation-functions). Specific
 [tabular operators](/azure/data-explorer/kusto/query/queries) are supported by Resource Graph, some of which have different behaviors.
 
 ### Supported tabular/top level operators

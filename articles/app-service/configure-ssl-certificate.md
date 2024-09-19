@@ -82,13 +82,14 @@ The free certificate comes with the following limitations:
 
 ### [Apex domain](#tab/apex)
 - Must have an A record pointing to your web app's IP address.
-- Isn't supported on apps that aren't publicly accessible.
+- Must be on apps that are publicly accessible.
 - Isn't supported with root domains that are integrated with Traffic Manager.
 - Must meet all of the above for successful certificate issuances and renewals.
 
 ### [Subdomain](#tab/subdomain)
 - Must have CNAME mapped _directly_ to `<app-name>.azurewebsites.net` or [trafficmanager.net](configure-domain-traffic-manager.md#enable-custom-domain). Mapping to an intermediate CNAME value blocks certificate issuance and renewal.
-- Must meet all of the above for successful certificate issuance and renewals.
+- Must be on apps that are publicly accessible.
+- Must meet all the above for successful certificate issuance and renewals.
 
 ---
 
@@ -133,17 +134,33 @@ If you use Azure Key Vault to manage your certificates, you can import a PKCS12 
 
 ### Authorize App Service to read from the vault
 
-By default, the App Service resource provider doesn't have access to your key vault. To use a key vault for a certificate deployment, you must [authorize read access for the resource provider to the key vault](/azure/key-vault/general/assign-access-policy-cli). 
+By default, the App Service resource provider doesn't have access to your key vault. To use a key vault for a certificate deployment, you must authorize read access for the resource provider (App Service) to the key vault. You can grant access either with access policy or RBAC. 
 
 > [!NOTE]
-> Currently, the Azure portal does not allow you to configure an App Service certificate in Key Vault to use the RBAC model. You can, however, use Azure CLI, Azure PowerShell, or an ARM template deployment to perform this configuration.  For more information, see [Provide access to Key Vault keys, certificates, and secrets with an Azure role-based access control](/azure/key-vault/general/rbac-guide?tabs=azure-cli).
+> Currently, the Azure portal does not allow you to configure an App Service certificate in Key Vault to use the RBAC model. You can, however, use Azure CLI, Azure PowerShell, or an ARM template deployment to perform this configuration.
 
-You can use the following settings when you create the policy:
+### [RBAC permissions](#tab/RBAC)
+| Resource provider | Service principal app ID / assignee | Key vault RBAC role |
+|--|--|--|
+| **Microsoft Azure App Service** or **Microsoft.Azure.WebSites** | - `abfa0a7c-a6b6-4736-8310-5855508787cd` for public Azure cloud environment <br><br>- `6a02c803-dafd-4136-b4c3-5a6f318b4714` for Azure Government cloud environment | Certificate User |
 
-| Resource provider | Service principal AppId | Key vault secret permissions | Key vault certificate permissions | Key vault RBAC permissions |
-|--|--|--|--|--|
-| **Microsoft Azure App Service** or **Microsoft.Azure.WebSites** | - `abfa0a7c-a6b6-4736-8310-5855508787cd`, which is the same for all Azure subscriptions <br><br>- For Azure Government cloud environment, use `6a02c803-dafd-4136-b4c3-5a6f318b4714`. | Get | Get | Certificate User |
-| **Microsoft.Azure.CertificateRegistration** |  | Get<br/>List<br/>Set<br/>Delete | Get<br/>List | |
+The service principal app ID or assignee value is the ID for App Service resource provider. To learn how to authorize key vault permissions for App Service resource provider using access policy refer to the [provide access to Key Vault keys, certificates, and secrets with an Azure role-based access control documentation](/azure/key-vault/general/rbac-guide?tabs=azure-portal#key-vault-scope-role-assignment).
+
+> [!NOTE]
+> Do not delete these RBAC permissions from key vault, otherwise App Service will not be able to sync your web app with the latest key vault certificate version.
+
+### [Access policy permissions](#tab/accesspolicy)
+
+| Resource provider | Service principal app ID | Key vault secret permissions | Key vault certificate permissions |
+|--|--|--|--|
+| **Microsoft Azure App Service** or **Microsoft.Azure.WebSites** | - `abfa0a7c-a6b6-4736-8310-5855508787cd` for public Azure cloud environment <br><br>- `6a02c803-dafd-4136-b4c3-5a6f318b4714` for Azure Government cloud environment | Get | Get |
+
+The service principal app ID or assignee value is the ID for App Service resource provider. To learn how to authorize key vault permissions for App Service resource provider using access policy refer to the [assign a Key Vault access policy documentation](/azure/key-vault/general/assign-access-policy?tabs=azure-portal).
+
+> [!NOTE]
+> Do not delete these access policy permissions from key vault, otherwise App Service will not be able to sync your web app with the latest key vault certificate version.
+
+---
 
 ### Import a certificate from your vault to your app
 

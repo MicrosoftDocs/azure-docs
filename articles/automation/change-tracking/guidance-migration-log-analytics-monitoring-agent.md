@@ -4,8 +4,8 @@ description: An overview on how to migrate from Change Tracking and inventory us
 author: snehasudhirG
 services: automation
 ms.subservice: change-inventory-management
-ms.topic: conceptual
-ms.date: 05/01/2024
+ms.topic: how-to
+ms.date: 09/09/2024
 ms.author: sudhirsneha
 ms.custom:
 ms.service: azure-automation
