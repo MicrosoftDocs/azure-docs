@@ -1,21 +1,21 @@
 ---
-title: Configure default chroma value for Azure Virtual Desktop
-description: Learn how to configure the default chroma value from 4:2:0 to 4:4:4.
+title: Increase the chroma value to 4:4:4 for Azure Virtual Desktop
+description: Learn how to increase the chroma value from 4:2:0 to 4:4:4.
 ms.topic: how-to
 author: dknappettmsft
 ms.author: daknappe
 ms.date: 05/21/2024
 ---
 
-# Configure the default chroma value for Azure Virtual Desktop
+# Increase the chroma value to 4:4:4 for Azure Virtual Desktop using the Advanced Video Coding (AVC) video codec 
 
-The chroma value determines the color space used for encoding. By default, the chroma value is set to 4:2:0, which provides a good balance between image quality and network bandwidth. You can increase the default chroma value to 4:4:4 to improve image quality. You don't need to use GPU acceleration to change the default chroma value.
+The chroma value determines the color space used for encoding. By default, the chroma value is set to 4:2:0, which provides a good balance between image quality and network bandwidth. When you use the Advanced Video Coding (AVC) video codec, you can increase the chroma value to 4:4:4 to improve image quality. You don't need to use GPU acceleration to change the chroma value.
 
-This article shows you how to set the default chroma value. You can use Microsoft Intune or Group Policy to configure your session hosts.
+This article shows you how to set the chroma value. You can use Microsoft Intune or Group Policy to configure your session hosts.
 
 ## Prerequisites
 
-Before you can configure the default chroma value, you need:
+Before you can configure the chroma value, you need:
 
 - An existing host pool with session hosts.
 
@@ -31,15 +31,15 @@ Before you can configure the default chroma value, you need:
 
    - A security group or organizational unit (OU) containing the devices you want to configure.
 
-## Increase the default chroma value to 4:4:4
+## Increase the chroma value to 4:4:4
 
-By default, the chroma value is set to 4:2:0. You can increase the default chroma value to 4:4:4 using Microsoft Intune or Group Policy.
+By default, the chroma value is set to 4:2:0. You can increase the chroma value to 4:4:4 using Microsoft Intune or Group Policy.
 
 Select the relevant tab for your scenario.
 
 # [Microsoft Intune](#tab/intune)
 
-To increase the default chroma value to 4:4:4 using Microsoft Intune:
+To increase the chroma value to 4:4:4 using Microsoft Intune:
 
 1. Sign in to the [Microsoft Intune admin center](https://endpoint.microsoft.com/).
 
@@ -73,7 +73,7 @@ To increase the default chroma value to 4:4:4 using Microsoft Intune:
 
 # [Group Policy](#tab/group-policy)
 
-To increase the default chroma value to 4:4:4 using Group Policy:
+To increase the chroma value to 4:4:4 using Group Policy:
 
 1. Open the **Group Policy Management** console on device you use to manage the Active Directory domain.
 
