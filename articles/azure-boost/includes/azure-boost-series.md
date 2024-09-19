@@ -1,7 +1,4 @@
 ---
-You have a total of 79 size series in the provided markdown content.
-
-```markdown
 title: include file
 description: include file
 author: mattmcinnes
