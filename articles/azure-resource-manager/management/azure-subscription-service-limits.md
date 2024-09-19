@@ -326,7 +326,7 @@ If you use classic deployment model instead of the Azure Resource Manager deploy
 
 The following table details the features and limits of the Basic, Standard, and Premium [service tiers](/azure/container-registry/container-registry-skus).
 
-[!INCLUDE [container-registry-limits](../../../includes/container-registry-limits.md)]
+[!INCLUDE [container-registry-limits](~/reusable-content/ce-skilling/azure/includes/container-registry/container-registry-limits.md)]
 
 ## Content Delivery Network limits
 
