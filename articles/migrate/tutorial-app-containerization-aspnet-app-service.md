@@ -1,12 +1,12 @@
 ---
 title: ASP.NET app containerization and migration to App Service
 description: This tutorial demonstrates how to containerize ASP.NET applications and migrate them to Azure App Service.
-author: vijain
-ms.author: vijain
+author: anraghun
+ms.author: anraghun
 ms.manager: kmadnani
 ms.service: azure-migrate
 ms.topic: tutorial
-ms.date: 03/06/2024
+ms.date: 09/19/2024
 ms.custom: engagement-fy24
 ---
 # ASP.NET app containerization and migration to Azure App Service
@@ -90,6 +90,8 @@ If you just created a free Azure account, you're the owner of your subscription.
 9. In **User settings**, verify that Microsoft Entra users can register applications. (This option is set to **Yes** by default.)
 
       ![Screenshot that shows the User settings page.](./media/tutorial-discover-vmware/register-apps.png)
+
+   [!INCLUDE [global-admin-usage.md](includes/global-admin-usage.md)]
 
 10. If the **App registrations** option is set to **No**, ask the tenant/global admin to assign the required permission. Alternatively, the tenant/global admin can assign the Application developer role to an account to allow the registration of Microsoft Entra apps. For more information, see [Assign roles to users](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md).
 
