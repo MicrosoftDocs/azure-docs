@@ -13,10 +13,10 @@ ms.custom:
 
 | Size Series | Series Type | Deployment Status |
 |:-:|:-:|:-:|
-|[Msv3/Mdsv3](/azure/virtual-machines/msv3-mdsv3-medium-series)| Medium Memory | GA|
-|[Mbsv3/Mbdsv3](/azure/virtual-machines/sizes/memory-optimized/mbsv3-mbdsv3-series)| Medium Memory| Preview|
-|Msv3/Mdsv3| High Memory | Preview|
-|Msv3/Mdsv3| Very High Memory | Preview|
+| [Msv3/Mdsv3](/azure/virtual-machines/msv3-mdsv3-medium-series)| Medium Memory | Production |
+| [Mbsv3/Mbdsv3](/azure/virtual-machines/sizes/memory-optimized/mbsv3-mbdsv3-series)| Medium Memory| Preview|
+| Msv3/Mdsv3| High Memory | Preview|
+| Msv3/Mdsv3| Very High Memory | Preview|
 | [Dlsv6/Dldsv6](/azure/virtual-machines/dlsv6-dldsv6-series)  | General Purpose              | Preview    |
 | [Dsv6/Ddsv6](/azure/virtual-machines/dsv6-ddsv6-series)      | General Purpose              | Preview    |
 | [Esv6/Edsv6](/azure/virtual-machines/esv6-edsv6-series)      | Memory Optimized             | Preview    |
@@ -27,7 +27,9 @@ ms.custom:
 | [ECesv5](/azure/virtual-machines/ecesv5-ecedsv5-series)      | Memory Optimized             | Preview    |
 | [Mv3 Medium Memory](/azure/virtual-machines/msv3-mdsv3-medium-series)| High Memory to CPU Optimized | Production  |
 | [Falsv6/Famsv6](/azure/virtual-machines/fasv6-falsv6-series) | Compute Optimized              | Preview    |
-| [Dlsv5](/azure/virtual-machines/dlsv5-dldsv5-series)         | General Purpose                | Production |
+| [Dlsv5/Dldsv5](/azure/virtual-machines/dlsv5-dldsv5-series)         | General Purpose         | Production |
+| [Ddsv5](/azure/virtual-machines/sizes/general-purpose/ddsv5-series)| General Purpose          | Production |
+| [Ddv5](/azure/virtual-machines/sizes/general-purpose/ddv5-series)| General Purpose            | Production |
 | [Dv5/Dsv5](/azure/virtual-machines/dv5-dsv5-series)          | General Purpose                | Production |
 | [Ev5/Esv5](/azure/virtual-machines/ev5-esv5-series)          | Memory Optimized               | Production |
 | [Ebsv5](/azure/virtual-machines/ebdsv5-ebsv5-series)         | Managed disks optimized        | Production |

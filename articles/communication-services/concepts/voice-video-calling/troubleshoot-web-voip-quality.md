@@ -80,7 +80,7 @@ Sometimes users have multiple browsers tabs with instances of Azure Communicatio
 
 You can check the log insights from the Azure portal for calling to determine the exact issue during the call. For more information, see [Query call logs](../analytics/query-call-logs.md). 
 
-If you tried all the previous steps and still face quality issues, [Create an Azure support request](../../../azure-portal/supportability/how-to-create-azure-support-request.md). If necessary, Microsoft can run a network check for your tenant to ensure call quality.
+If you tried all the previous steps and still face quality issues, [Create an Azure support request](/azure/azure-portal/supportability/how-to-create-azure-support-request). If necessary, Microsoft can run a network check for your tenant to ensure call quality.
 
 ## End of call survey 
 

@@ -49,7 +49,7 @@ Start by creating your Azure resources.
 
     Follow these steps to create an App Service and deploy the sample app. Make sure you have the Subscription Contributor or Owner role.
 
-    ### [SMI](#tab/smi)
+    ### [System-assigned managed identity (Recommended)](#tab/smi)
 
     Create an app service and deploy the sample app that uses system-assigned managed identity to interact with App Config.
 
@@ -72,7 +72,7 @@ Start by creating your Azure resources.
     | Resource group name    | You'll use this resource group to organize all the Azure resources needed to complete this tutorial.              | *service-connector-tutorial-rg*     |
     | App service name   | The app service name is used as the name of the resource in Azure and to form the fully qualified domain name for your app, in the form of the server endpoint `https://<app-service-name>.azurewebsites.com`. This name must be unique across all Azure and the only allowed characters are `A`-`Z`, `0`-`9`, and `-`.      | *webapp-appconfig-smi*   |
 
-    ### [UMI](#tab/umi)
+    ### [User-assigned managed identity](#tab/umi)
 
     Create an app service and deploy the sample app that uses user-assigned managed identity to interact with App Config. 
 
@@ -131,6 +131,9 @@ Start by creating your Azure resources.
 
     ### [Connection string](#tab/connectionstring)
 
+    > [!WARNING]
+    > Microsoft recommends that you use the most secure authentication flow available. The authentication flow described in this procedure requires a very high degree of trust in the application, and carries risks that are not present in other flows. You should only use this flow when other more secure flows, such as managed identities, aren't viable.
+    
     Create an app service and deploy the sample app that uses connection string to interact with App Config.
 
     ```azurecli
@@ -198,6 +201,9 @@ Start by creating your Azure resources.
         ```
 
     ### [Connection string](#tab/connectionstring)
+
+    > [!WARNING]
+    > Microsoft recommends that you use the most secure authentication flow available. The authentication flow described in this procedure requires a very high degree of trust in the application, and carries risks that are not present in other flows. You should only use this flow when other more secure flows, such as managed identities, aren't viable.
 
     Import the test configuration file to Azure App Configuration using a connection string.
 

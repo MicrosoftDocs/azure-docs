@@ -3,8 +3,8 @@ title: Patching guidance overview for Microsoft Configuration Manager to Azure
 description: Patching guidance overview for Microsoft Configuration Manager to Azure. View on how to get started with Azure Update Manager, mapping capabilities of MCM software and FAQs.
 author: snehasudhirG
 ms.service: azure-update-manager
-ms.topic: conceptual
-ms.date: 07/31/2024
+ms.topic: overview
+ms.date: 09/06/2024
 ms.author: sudhirsneha
 ---
 
@@ -139,5 +139,5 @@ Azure Update Manager can be used on-premises by using Azure Arc. Azure Arc is a 
 - [Check update compliance](view-updates.md) 
 - [Deploy updates now (on-demand) for single machine](deploy-updates.md) 
 - [Schedule recurring updates](scheduled-patching.md)
-- [An overview of Azure Arc-enabled servers](../azure-arc/servers/overview.md)
+- [An overview of Azure Arc-enabled servers](/azure/azure-arc/servers/overview)
 
