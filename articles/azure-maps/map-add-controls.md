@@ -111,7 +111,16 @@ Learn more about the classes and methods used in this article:
 > [PitchControl]
 
 > [!div class="nextstepaction"]
+> [ScaleControl]
+
+> [!div class="nextstepaction"]
 > [StyleControl]
+
+> [!div class="nextstepaction"]
+> [TrafficControl]
+
+> [!div class="nextstepaction"]
+> [TrafficLegendControl]
 
 > [!div class="nextstepaction"]
 > [ZoomControl]
@@ -137,7 +146,10 @@ See the following articles for full code:
 [ZoomControl]: /javascript/api/azure-maps-control/atlas.control.zoomcontrol
 [PitchControl]: /javascript/api/azure-maps-control/atlas.control.pitchcontrol
 [CompassControl]: /javascript/api/azure-maps-control/atlas.control.compasscontrol
+[ScaleControl]: /javascript/api/azure-maps-control/atlas.control.scalecontrol
 [StyleControl]: /javascript/api/azure-maps-control/atlas.control.stylecontrol
+[TrafficControl]: /javascript/api/azure-maps-control/atlas.control.trafficcontrol
+[TrafficLegendControl]: /javascript/api/azure-maps-control/atlas.control.trafficlegendcontrol
 [Navigation Control Options]: https://samples.azuremaps.com/controls/map-navigation-control-options
 [Navigation Control Options source code]: https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/main/Samples/Controls/Map%20Navigation%20Control%20Options/Map%20Navigation%20Control%20Options.html
 [choose a map style]: choose-map-style.md
