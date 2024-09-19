@@ -90,7 +90,7 @@ To complete the peering setup, you must configure the NVA to establish a BGP ses
 Get-AzRouteServer -ResourceGroupName 'RouteServerRG' -RouteServerName 'myRouteServer'
 ```
 
-The output looks like the following:
+The output looks like the following example:
 
 ```output
 ResourceGroupName Name          Location RouteServerAsn RouteServerIps       ProvisioningState HubRoutingPreference AllowBranchToBranchTraffic
