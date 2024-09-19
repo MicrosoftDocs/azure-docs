@@ -14,7 +14,7 @@ zone_pivot_groups: feature-management
 #Customer intent: I want to control feature availability in my app by using the Feature Management library.
 ---
 
-# Python Feature Management
+# Python feature management
 
 :::zone target="docs" pivot="stable-version"
 
@@ -34,31 +34,31 @@ Feature flags provide a way for Python applications to turn features on or off d
 Here are some of the benefits of using Python feature management library:
 
 * A common convention for feature management
-* Low barrier-to-entry
+* Low barrier to entry
   * Supports JSON feature flag setup
-* Feature Flag lifetime management
+* Feature flag lifetime management
   * Configuration values can change in real-time; feature flags can be consistent across the entire request
-* Simple to Complex Scenarios Covered
+* Simple to complex scenarios covered
   * Toggle on/off features through declarative configuration file
   * Dynamically evaluate state of feature based on call to server
 
   The Python feature management library is open source. For more information, visit the [GitHub repo](https://github.com/microsoft/FeatureManagement-Python).
 
-## Feature Flags
+## Feature flags
 Feature flags are composed of two parts, a name and a list of feature-filters that are used to turn on the feature.
 
-### Feature Filters
-Feature filters define a scenario for when a feature should be enabled. When a feature is evaluated for whether it is on or off, its list of feature filters is traversed until one of the filters decides the feature should be enabled. At this point, the feature is considered enabled and traversal through the feature filters stops. If no feature filter indicates that the feature should be enabled, it considered disabled.
+### Feature filters
+Feature filters define a scenario for when a feature should be enabled. When a feature is evaluated for whether it is on or off, its list of feature filters is traversed until one of the filters decides the feature should be enabled. At this point, the feature is considered enabled and traversal through the feature filters stops. If no feature filter indicates that the feature should be enabled, it's considered disabled.
 
 As an example, a Microsoft Edge browser feature filter could be designed. This feature filter would activate any features attached to it, as long as an HTTP request is coming from Microsoft Edge.
 
-### Feature Flag Configuration
+### Feature flag configuration
 
-A Python dictionary is used to define feature flags. The dictionary is composed of feature names as keys and feature flag objects as values. The feature flag object is a dictionary that contains an `EnabledFor` key. The `EnabledFor` key is a list of feature filters that are used to determine if the feature should be enabled
+A Python dictionary is used to define feature flags. The dictionary is composed of feature names as keys and feature flag objects as values. The feature flag object is a dictionary that contains an `EnabledFor` key. The `EnabledFor` key is a list of feature filters that are used to determine if the feature should be enabled.
 
-### Feature Flag Declaration
+### Feature flag declaration
 
-The feature management library supports json as a feature flag source. Below we have an example of the format used to set up feature flags in a json file.
+The feature management library supports json as a feature flag source. Below we have an example of the format used to set up feature flags in a JSON file.
 
 ```json
 {
@@ -98,7 +98,7 @@ The detailed schema of the `feature_management` section can be found [here](http
 
 **Advanced:** The usage of colon ':' is forbidden in feature flag names.
 
-#### On/Off Declaration
+#### On/off declaration
  
 The following snippet demonstrates an alternative way to define a feature that can be used for on/off features. 
 ``` json
@@ -118,7 +118,7 @@ The following snippet demonstrates an alternative way to define a feature that c
 }
 ```
 
-#### RequirementType
+#### Requirement_type
 
 The `requirement_type` property of a feature flag is used to determine if the filters should use `Any` or `All` logic when evaluating the state of a feature. If `requirement_type` isn't specified, the default value is `Any`.
 
@@ -174,7 +174,7 @@ if feature_manager.is_enabled("FeatureX"):
 
 The `feature_flags` provided to `FeatureManager` can either be the `AzureAppConfigurationProvider` or a dictionary of feature flags.
 
-## Implementing a Feature Filter
+## Implementing a feature filter
 
 Creating a feature filter provides a way to enable features based on criteria that you define. To implement a feature filter, the `FeatureFilter` interface must be implemented. `FeatureFilter` has a single method named `evaluate`. When a feature specifies that it can be enabled for a feature filter, the `evaluate` method is called. If `evaluate` returns `true`, it means the feature should be enabled.
 
@@ -186,17 +186,17 @@ feature_manager = FeatureManager(feature_flags, feature_filters=[MyCustomFilter(
 
 Feature filters are registered by providing when creating `FeatureManager` with `feature_filters`. If a custom feature filter needs any context, they can be passed in when calling `is_enabled` using `kwargs`.
 
-### Filter Alias Attribute
+### Filter alias attribute
 
 When a feature filter is registered for a feature flag, the name of the filter is used as the alias by default.
 
 The identifier for the feature filter can be overridden by using the `@FeatureFilter.alias("MyFilter")`. A feature filter can be decorated with this attribute to declare the name that should be used in configuration to reference this feature filter within a feature flag.
 
-### Missing Feature Filters
+### Missing feature filters
 
-If a feature, configured to be enabled, for a specific feature filter and that feature filter isn't registered, an `ValueError` exception is raised when the feature is evaluated.
+If a feature is configured to be enabled for a specific feature filter and that feature filter isn't registered, a `ValueError` exception is raised when the feature is evaluated.
 
-## Built-In Feature Filters
+## Built-in feature filters
 
 There are a two feature filters that come with the `FeatureManagement` package: `TimeWindowFilter`, and `TargetingFilter`.
 
@@ -256,7 +256,6 @@ This filter provides the capability to enable a feature for a target audience. A
         }
     }
 ]
-
 ```
 
 ## Targeting
@@ -286,9 +285,9 @@ feature_manager = FeatureManager(feature_flags, "test_user")
 feature_manager = FeatureManager(feature_flags, TargetingContext(user_id="test_user", groups=["Ring1"]))
 ```
 
-### Targeting Exclusion
+### Targeting exclusion
 
-When defining an Audience, users and groups can be excluded from the audience. Exclusions are useful for when a feature is being rolled out to a group of users, but a few users or groups need to be excluded from the rollout. Exclusion is defined by adding a list of users and groups to the `Exclusion` property of the audience.
+When defining an audience, users and groups can be excluded from the audience. Exclusions are useful for when a feature is being rolled out to a group of users, but a few users or groups need to be excluded from the rollout. Exclusion is defined by adding a list of users and groups to the `Exclusion` property of the audience.
 
 ```json
 "Audience": {
@@ -319,7 +318,7 @@ In the above example, the feature is enabled for users named `Jeff` and `Alicia`
 
 When new features are added to an application, there may come a time when a feature has multiple different proposed design options. A common solution for deciding on a design is some form of A/B testing. A/B testing involves providing a different version of the feature to different segments of the user base and choosing a version based on user interaction. In this library, this functionality is enabled by representing different configurations of a feature with variants.
 
-Variants enable a feature flag to become more than a simple on/off flag. A variant represents a value of a feature flag that can be a string, a number, a boolean, or even a configuration object. A feature flag that declares variants should define under what circumstances each variant should be used, which is covered in greater detail in the [Allocating Variants](#allocating-variants) section.
+Variants enable a feature flag to become more than a simple on/off flag. A variant represents a value of a feature flag that can be a string, a number, a boolean, or even a configuration object. A feature flag that declares variants should define under what circumstances each variant should be used, which is covered in greater detail in the [Allocating variants](#allocating-variants) section.
 
 ```python
 class Variant:
@@ -344,7 +343,7 @@ class Variant:
         return self._configuration
 ```
 
-### Getting Variants
+### Getting variants
 
 For each feature, a variant can be retrieved using the `FeatureManager`'s `get_variant` method.
 
@@ -359,9 +358,9 @@ variantConfiguration = variant.configuration;
 
 The variant returned is dependent on the user currently being evaluated, and that information is obtained from an instance of `TargetingContext`. 
 
-### Variant Feature Flag Declaration
+### Variant feature flag declaration
 
-Compared to normal feature flags, variant feature flags have two more properties: `variants` and `allocation`. The `variants` property is an array that contains the variants defined for this feature. The `allocation` property defines how these variants should be allocated for the feature. Just like declaring normal feature flags, you can set up variant feature flags in a json file. Here's an example of a variant feature flag.
+Compared to normal feature flags, variant feature flags have two more properties: `variants` and `allocation`. The `variants` property is an array that contains the variants defined for this feature. The `allocation` property defines how these variants should be allocated for the feature. Just like declaring normal feature flags, you can set up variant feature flags in a JSON file. Here's an example of a variant feature flag.
 
 ```json
 {
@@ -395,7 +394,7 @@ Compared to normal feature flags, variant feature flags have two more properties
 }
 ```
 
-#### Defining Variants
+#### Defining variants
 
 Each variant has two properties: a name and a configuration. The name is used to refer to a specific variant, and the configuration is the value of that variant. The configuration can be set using `configuration_value` property. `configuration_value` is an inline configuration that can be a string, number, boolean, or configuration object. If `configuration_value` isn't specified, the returned variant's `Configuration` property is `None`.
 
@@ -427,7 +426,7 @@ A list of all possible variants is defined for each feature under the `variants`
 }
 ```
 
-#### Allocating Variants
+#### Allocating variants
 
 The process of allocating a feature's variants is determined by the `allocation` property of the feature.
 
@@ -490,9 +489,9 @@ If the feature is enabled, the feature manager checks the `user`, `group`, and `
 Allocation logic is similar to the [Microsoft.Targeting](#microsofttargeting) feature filter, but there are some parameters that are present in targeting that aren't in allocation, and vice versa. The outcomes of targeting and allocation aren't related.
 
 
-### Overriding Enabled State with a Variant
+### Overriding enabled state with a variant
 
-You can use variants to override the enabled state of a feature flag. Overriding gives variants an opportunity to extend the evaluation of a feature flag. When calling `is_enabled` on a flag with variants, the Feature Manager will check if the variant assigned to the current user is configured to override the result. Overriding is done using the optional variant property `status_override`. By default, this property is set to `None`, which means the variant doesn't affect whether the flag is considered enabled or disabled. Setting `status_override` to `Enabled` allows the variant, when chosen, to override a flag to be enabled. Setting `status_override` to `Disabled` provides the opposite functionality, therefore disabling the flag when the variant is chosen. A feature with an `enabled` state of `false` can't be overridden.
+You can use variants to override the enabled state of a feature flag. Overriding gives variants an opportunity to extend the evaluation of a feature flag. When calling `is_enabled` on a flag with variants, the feature manager will check if the variant assigned to the current user is configured to override the result. Overriding is done using the optional variant property `status_override`. By default, this property is set to `None`, which means the variant doesn't affect whether the flag is considered enabled or disabled. Setting `status_override` to `Enabled` allows the variant, when chosen, to override a flag to be enabled. Setting `status_override` to `Disabled` provides the opposite functionality, therefore disabling the flag when the variant is chosen. A feature with an `enabled` state of `false` can't be overridden.
 
 If you're using a feature flag with binary variants, the `status_override` property can be helpful. It allows you to continue using APIs like `is_enabled` in your application, all while benefiting from the new features that come with variants, such as percentile allocation and seed.
 
@@ -536,7 +535,7 @@ When a feature flag change is deployed, it's often important to analyze its effe
 
 These types of questions can be answered through the emission and analysis of feature flag evaluation events. This library optionally enables `AzureMonitor` produce tracing telemetry during feature flag evaluation via `OpenTelemetry`.
 
-### Enabling Telemetry
+### Enabling telemetry
 
 By default, feature flags don't have telemetry emitted. To publish telemetry for a given feature flag, the flag _MUST_ declare that it's enabled for telemetry emission.
 
@@ -573,11 +572,12 @@ In addition, when creating `FeatureManager`, a callback must be registered to ha
 feature_manager = FeatureManager(feature_flags, on_feature_evaluated=publish_telemetry)
 ```
 
-### Application Insights Telemetry
+### Application Insights telemetry
 
-The feature management library provides a built-in telemetry publisher that sends feature flag evaluation data to [Application Insights](/azure/azure-monitor/app/app-insights-overview). To enable Application Insights, the feature management library can be installed with Azure Monitor, `pip install FeatureManagement[AzureMonitor]`. Which installs the package `azure-monitor-events-extension` package, which is used to style telemetry to Application Insights using OpenTelemetry.
+The feature management library provides a built-in telemetry publisher that sends feature flag evaluation data to [Application Insights](/azure/azure-monitor/app/app-insights-overview). To enable Application Insights, the feature management library can be installed with Azure Monitor via `pip install FeatureManagement[AzureMonitor]`. This command installs the `azure-monitor-events-extension` package, which is used to style telemetry to Application Insights using OpenTelemetry.
 
-NOTE: The extra only adds the telemetry to the Open Telemetry pipeline. Registering Application Insights is still required.
+> [!NOTE]
+> The `azure-monitor-events-extension` package only adds the telemetry to the Open Telemetry pipeline. Registering Application Insights is still required.
 
 ```python
 from azure.monitor.opentelemetry import configure_azure_monitor
@@ -587,7 +587,7 @@ configure_azure_monitor(
     )
 ```
 
-### Custom Telemetry Publishing
+### Custom telemetry publishing
 
 Because the telemetry callback is a function, it can be customized to publish telemetry to any desired destination. For example, telemetry could be published to a logging service, a database, or a custom telemetry service.
 
