@@ -75,7 +75,7 @@ The first step to identifying the root cause of the error is to collect the supp
 
 1. Connect to the agent using the administrative credentials. The default password for agents `admin`, though you need to supply the updated password if it was changed. In the example provided, the agent maintains the default password.
 
-1. From the root menu, choose option `6`, the **Collect support bundle** command, to generate the bundle with a unique filename. The support bundle is created in a share, locally on the agent. A confirmation message containing the name of the support bundle is displayed. The commands necessary to retrieve the bundle are also displayed as shown in the example provided. These commands should be copied and are utilized in the [Retrieve the agent support bundle](#retrieve-the-agent-support-bundle) section.
+1. From the root menu, choose option `5`, the **Collect support bundle** command, to generate the bundle with a unique filename. The support bundle is created in a share, locally on the agent. A confirmation message containing the name of the support bundle is displayed. The commands necessary to retrieve the bundle are also displayed as shown in the example provided. These commands should be copied and are utilized in the [Retrieve the agent support bundle](#retrieve-the-agent-support-bundle) section.
 
      :::image type="content" source="media/troubleshooting/bundle-collect-sml.png" alt-text="Screen capture of the agent menu showing the results of the Collect Support Bundle command." lightbox="media/troubleshooting/bundle-collect-lrg.png":::
 
