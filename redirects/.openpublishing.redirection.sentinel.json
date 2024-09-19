@@ -361,7 +361,7 @@
             "redirect_document_id": false
         },
         {
-            "source_path_from_root": "/articles/sentinel/data-connectors/broadcom-symantec-dlp.md",
+            "source_path_from_root": "/articles/sentinel/data-connectors/braodcom-symantec-dlp.md",
             "redirect_url": "/azure/sentinel/data-connectors/recommended-broadcom-symantec-dlp-via-ama",
             "redirect_document_id": false
         },
