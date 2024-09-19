@@ -140,7 +140,7 @@ The [AksEdgeQuickStartForAio.ps1](https://github.com/Azure/AKS-Edge/blob/main/to
 
 ### Configure multi-node clusters for Azure Container Storage
 
-On multi-node clusters with at least three nodes, you have the option of enabling fault tolerance for storage with [Azure Container Storage enabled by Azure Arc](../../azure-arc/container-storage/overview.md) when you deploy Azure IoT Operations.
+On multi-node clusters with at least three nodes, you have the option of enabling fault tolerance for storage with [Azure Container Storage enabled by Azure Arc](/azure/azure-arc/container-storage/overview) when you deploy Azure IoT Operations.
 
 By default, Azure Kubernetes Service Edge Essentials clusters support Azure Container Storage. There are no additional steps to configure AKS Edge Essential clusters for fault tolerance.
 
@@ -192,7 +192,7 @@ To prepare a K3s Kubernetes cluster on Ubuntu:
 
 ### Configure multi-node clusters for Azure Container Storage
 
-On multi-node clusters with at least three nodes, you have the option of enabling fault tolerance for storage with [Azure Container Storage enabled by Azure Arc](../../azure-arc/container-storage/overview.md) when you deploy Azure IoT Operations. If you want to enable that option, prepare your multi-node cluster with the following steps:
+On multi-node clusters with at least three nodes, you have the option of enabling fault tolerance for storage with [Azure Container Storage enabled by Azure Arc](/azure/azure-arc/container-storage/overview) when you deploy Azure IoT Operations. If you want to enable that option, prepare your multi-node cluster with the following steps:
 
 1. Install the required NVME over TCP module for your kernel using the following command:
 
@@ -201,7 +201,7 @@ On multi-node clusters with at least three nodes, you have the option of enablin
    ```
 
    > [!NOTE]
-   > The minimum supported Linux kernel version is 5.1. At this time, there are known issues with 6.4 and 6.2. For the latest information, refer to [Azure Container Storage release notes](../../azure-arc/edge-storage-accelerator/release-notes.md)
+   > The minimum supported Linux kernel version is 5.1. At this time, there are known issues with 6.4 and 6.2. For the latest information, refer to [Azure Container Storage release notes](/azure/azure-arc/edge-storage-accelerator/release-notes)
 
 1. On each node in your cluster, set the number of **HugePages** to 512 using the following command:
 
@@ -220,7 +220,7 @@ On multi-node clusters with at least three nodes, you have the option of enablin
 
 ### Configure multi-node clusters for Azure Container Storage
 
-On multi-node clusters with at least three nodes, you have the option of enabling fault tolerance for storage with [Azure Container Storage (preview)](../../azure-arc/edge-storage-accelerator/overview.md) when you deploy Azure IoT Operations.
+On multi-node clusters with at least three nodes, you have the option of enabling fault tolerance for storage with [Azure Container Storage (preview)](/azure/azure-arc/edge-storage-accelerator/overview) when you deploy Azure IoT Operations.
 
 This feature isn't recommended for Codespaces because Codespaces aren't persistent. If you want to enable fault tolerance anyways, prepare your multi-node cluster with the following steps:
 
@@ -231,7 +231,7 @@ This feature isn't recommended for Codespaces because Codespaces aren't persiste
    ```
 
    > [!NOTE]
-   > The minimum supported Linux kernel version is 5.1. At this time, there are known issues with 6.4 and 6.2. For the latest information, refer to [Azure Container Storage release notes](../../azure-arc/edge-storage-accelerator/release-notes.md)
+   > The minimum supported Linux kernel version is 5.1. At this time, there are known issues with 6.4 and 6.2. For the latest information, refer to [Azure Container Storage release notes](/azure/azure-arc/edge-storage-accelerator/release-notes)
 
 1. On each node in your cluster, set the number of **HugePages** to 512 using the following command:
 
