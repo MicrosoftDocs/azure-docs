@@ -4,7 +4,7 @@ description: Audit, protect, and monitor Azure Synapse Analytics.
 author: whhender
 ms.author: whhender
 ms.reviewer: whhender
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.topic: conceptual
 ms.date: 01/14/2022
 ---
@@ -25,7 +25,7 @@ Used with [Data discovery and classification](/azure/azure-sql/database/data-dis
 
 ## Threat detection
 
-[Microsoft Defender for Cloud](../../defender-for-cloud/defender-for-cloud-introduction.md) is a tool for security posture management and threat detection. It protects workloads running in Azure, including (but not exclusively) servers, app service, key vaults, Kubernetes services, storage accounts, and Azure SQL Databases.
+[Microsoft Defender for Cloud](/azure/defender-for-cloud/defender-for-cloud-introduction) is a tool for security posture management and threat detection. It protects workloads running in Azure, including (but not exclusively) servers, app service, key vaults, Kubernetes services, storage accounts, and Azure SQL Databases.
 
 As one of the options available with Microsoft Defender for Cloud, [Microsoft Defender for SQL](/azure/azure-sql/database/azure-defender-for-sql) extends Defender for Cloud's data security package to secure databases. It can discover and mitigate potential database vulnerabilities by detecting anomalous activities that could be a potential threat to the database. Specifically, it continually monitors your database for:
 

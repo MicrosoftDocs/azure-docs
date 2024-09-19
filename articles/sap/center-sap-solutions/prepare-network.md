@@ -67,13 +67,13 @@ If it's not possible to allow the resources within the virtual network to connec
 
 If you're using SUSE for the VMs, [allowlist the SUSE endpoints](https://www.suse.com/c/azure-public-cloud-update-infrastructure-101/). For example:
 
-1. Create a VM with any OS [using the Azure portal](../../virtual-machines/linux/quick-create-portal.md) or [using Azure Cloud Shell](../../cloud-shell/overview.md). Or, install *openSUSE Leap* from the Microsoft Store and enable WSL.
+1. Create a VM with any OS [using the Azure portal](/azure/virtual-machines/linux/quick-create-portal) or [using Azure Cloud Shell](../../cloud-shell/overview.md). Or, install *openSUSE Leap* from the Microsoft Store and enable WSL.
 1. Install *pip3* by running `zypper install python3-pip`.
 1. Install the *pip* package *susepubliccloudinfo* by running `pip3 install susepubliccloudinfo`.
 1. Get a list of IP addresses to configure in the network and firewall by running `pint microsoft servers --json --region` with the appropriate Azure region parameter.
 1. Allowlist all these IP addresses on the firewall or network security group where you're planning to attach the subnets.
 
-If you're using Red Hat for the VMs, [allowlist the Red Hat endpoints](../../virtual-machines/workloads/redhat/redhat-rhui.md#the-ips-for-the-rhui-content-delivery-servers) as needed. The default allowlist is the Azure Global IP addresses. Depending on your use case, you might also need to allowlist Azure US Government or Azure Germany IP addresses. Configure all IP addresses from your list on the firewall or the network security group where you want to attach the subnets.
+If you're using Red Hat for the VMs, [allowlist the Red Hat endpoints](/azure/virtual-machines/workloads/redhat/redhat-rhui#the-ips-for-the-rhui-content-delivery-servers) as needed. The default allowlist is the Azure Global IP addresses. Depending on your use case, you might also need to allowlist Azure US Government or Azure Germany IP addresses. Configure all IP addresses from your list on the firewall or the network security group where you want to attach the subnets.
 
 ### Allowlist storage accounts
 

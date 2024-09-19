@@ -2,9 +2,9 @@
 title: Azure Lab Services within Microsoft Teams
 description: Learn about the benefits of using Azure Lab Services in Microsoft Teams.
 services: lab-services
-ms.service: lab-services
-ms.author: nicktrog
-author: ntrogh
+ms.service: azure-lab-services
+ms.author: rosemalcolm
+author: RoseHJM
 ms.topic: conceptual
 ms.date: 06/02/2023
 ---

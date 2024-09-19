@@ -7,7 +7,7 @@ author: greg-lindsay
 ms.author: greglin
 ms.date: 06/07/2024
 ms.topic: quickstart
-ms.service: dns
+ms.service: azure-dns
 ms.custom: mode-ui
 #Customer intent: As an administrator or developer, I want to learn how to configure Azure DNS using the Azure portal so I can use Azure DNS for my public zone.
 ---

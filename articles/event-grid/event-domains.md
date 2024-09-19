@@ -13,7 +13,7 @@ An event domain provides an endpoint for thousands of individual topics related 
 
 Domains also give you authentication and authorization control over each topic so you can partition your tenants. This article describes how to use event domains to manage the flow of custom events to your various business organizations, customers, or applications. Use event domains to:
 
-* Manage multitenant eventing architectures at scale.
+* Manage multitenant event-driven architectures at scale.
 * Manage your authentication and authorization.
 * Partition your topics without managing each individually.
 * Avoid individually publishing to each of your topic endpoints.

@@ -1,8 +1,7 @@
 ---
 title:  Request a quota limit increase for Azure Deployment Environments resources
 description: Learn how to request a quota increase to extend the number of Deployment Environments resources you can use in your subscription. 
-services: dev-box
-ms.service: dev-box
+ms.service: azure-deployment-environments
 author: RoseHJM
 ms.author: rosemalcolm
 ms.topic: how-to

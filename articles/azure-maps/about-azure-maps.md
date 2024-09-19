@@ -1,12 +1,12 @@
 ---
 title: Overview for Microsoft Azure Maps
 description: Learn about services and capabilities in Microsoft Azure Maps and how to use them in your applications.
-author: eriklindeman
-ms.author: eriklind
+author: faterceros
+ms.author: aterceros
 ms.date: 10/21/2022
 ms.topic: overview
 ms.service: azure-maps
-services: azure-maps
+ms.subservice: general
 ms.custom: mvc, references_regions
 ---
 
@@ -59,12 +59,6 @@ Azure Maps consists of the following services that can provide geographic contex
 ### Data registry service
 
 Data is imperative for maps. Use the Data registry service to access geospatial data, used with spatial operations or image composition, previously uploaded to your [Azure Storage].  By bringing customer data closer to the Azure Maps service, you reduce latency and increase productivity. For more information, see [Data registry] in the Azure Maps REST API documentation.
-
-> [!NOTE]
->
-> **Azure Maps Data service retirement**
->
-> The Azure Maps Data service (both [v1] and [v2]) is now deprecated and will be retired on 9/16/24. To avoid service disruptions, all calls to the Data service will need to be updated to use the Azure Maps [Data registry] service by 9/16/24. For more information, see [How to create data registry].
 
 ### Geolocation service
 

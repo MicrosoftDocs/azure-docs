@@ -5,7 +5,7 @@ author: WilliamDAssafMSFT
 ms.author: wiassaf
 ms.reviewer: whhender
 ms.date: 09/13/2022
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.subservice: sql-dw
 ms.topic: conceptual
 ---
@@ -27,7 +27,7 @@ In the Azure portal, navigate to the page for Log Analytics workspaces, or use t
 
 :::image type="content" source="./media/sql-data-warehouse-monitor-workload-portal/add_analytics_workspace_2.png" alt-text="Screenshot shows the Log Analytics workspace where you can enter values.":::
 
-For more information on workspaces, see [Create a Log Analytics workspace](../../azure-monitor/logs/quick-create-workspace.md).
+For more information on workspaces, see [Create a Log Analytics workspace](/azure/azure-monitor/logs/quick-create-workspace).
 
 ## Turn on Resource logs
 
@@ -60,7 +60,7 @@ For details on the capabilities of log queries using Kusto, see [Kusto Query Lan
 
 ## Sample log queries
 
-Set the [scope of your queries](../../azure-monitor/logs/scope.md) to the Log Analytics workspace resource.
+Set the [scope of your queries](/azure/azure-monitor/logs/scope) to the Log Analytics workspace resource.
 
 ```Kusto
 //List all queries

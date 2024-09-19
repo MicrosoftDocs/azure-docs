@@ -35,6 +35,9 @@ Verify you have access to the Cluster Manager's storage account
 
 The run data extract command executes one or more predefined scripts to extract data from a bare metal machine.
 
+> [!WARNING]
+> Microsoft does not provide or support any Operator Nexus API calls that expect plaintext username and/or password to be supplied. Please note any values sent will be logged and are considered exposed secrets, which should be rotated and revoked. The Microsoft documented method for securely using secrets is to store them in an Azure Key Vault, if you have specific questions or concerns please submit a request via the Azure Portal.
+
 The current list of supported commands are
 
 - [SupportAssist/TSR collection for Dell troubleshooting](#hardware-support-data-collection)\

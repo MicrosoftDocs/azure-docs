@@ -3,7 +3,7 @@ title: Quickstart - Enable enhanced soft delete for Azure Backup
 description: This quickstart describes how to enable enhanced soft delete for Azure Backup.
 ms.topic: quickstart
 ms.date: 09/11/2023
-ms.service: backup
+ms.service: azure-backup
 author: AbhishekMallick-MS
 ms.author: v-abhmallick
 ---

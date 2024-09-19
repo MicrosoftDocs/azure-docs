@@ -52,6 +52,7 @@ This article describes which capabilities Azure Communication Services SDKs supp
 |                   | [Customer managed keys](/microsoft-365/compliance/customer-key-overview)                                      | ✔️ |
 | Mid-call control  | Turn your video on/off                                                                                              | ✔️        |
 |                   | Mute/unmute mic                                                                                                     | ✔️        |
+|                   | Mute remote participants                                                                                            | ✔️        |
 |                   | Switch between cameras                                                                                              | ✔️        |
 |                   | Local hold/unhold                                                                                                  | ✔️        |
 |                   | Indicator of dominant speakers in the call                                                                          | ✔️        |
@@ -109,7 +110,7 @@ This article describes which capabilities Azure Communication Services SDKs supp
 | Video rendering   | Render single video in many places (local camera or remote stream)                                                  | ✔️        |
 |                   | Set/update scaling mode                                                                                           | ✔️        |
 |                   | Render remote video stream                                                                                          | ✔️        |
-|                   | See **Together** mode video stream                                                                                      | ❌ |
+|                   | See **Together** mode video stream                                                                                      | ✔️ |
 |                   | See **Large gallery** view                                                                                              | ❌ |
 |                   | Receive video stream from Teams media bot                                                                           | ❌ |
 |                   | Receive adjusted stream for **Content from camera**                                                                   | ❌ |

@@ -2,7 +2,6 @@
 title: Troubleshoot Azure Data Factory Studio
 description: Learn how to troubleshoot Azure Data Factory Studio issues.
 author: ssabat
-ms.service: data-factory
 ms.subservice: authoring
 ms.topic: troubleshooting
 ms.date: 01/05/2024

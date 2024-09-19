@@ -6,7 +6,7 @@ author: sethmanheim
 ms.author: sethm
 ms.date: 06/19/2020
 ms.topic: tutorial
-ms.service: notification-hubs
+ms.service: azure-notification-hubs
 ms.reviewer: thsomasu
 ms.lastreviewed: 06/01/2020
 ---

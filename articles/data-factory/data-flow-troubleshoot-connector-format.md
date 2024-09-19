@@ -4,7 +4,6 @@ description: Learn how to troubleshoot data flow problems related to connector a
 author: jianleishen
 ms.author: jianleishen
 ms.reviewer: wiassaf
-ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: troubleshooting
 ms.date: 03/19/2024

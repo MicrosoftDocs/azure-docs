@@ -3,10 +3,10 @@ title: Sign container images with Notation and Azure Key Vault using a self-sign
 description: In this tutorial you'll learn to create a self-signed certificate in Azure Key Vault (AKV), build and sign a container image stored in Azure Container Registry (ACR) with notation and AKV, and then verify the container image with notation.
 author: yizha1
 ms.author: yizha1
-ms.service: container-registry
+ms.service: azure-container-registry
 ms.custom: devx-track-azurecli
 ms.topic: how-to
-ms.date: 4/23/2023
+ms.date: 9/3/2024
 ---
 
 # Sign container images with Notation and Azure Key Vault using a self-signed certificate
@@ -21,20 +21,21 @@ In this tutorial:
 > * Build and push a container image with [ACR Tasks](container-registry-tasks-overview.md)
 > * Sign a container image with Notation CLI and AKV plugin
 > * Validate a container image against the signature with Notation CLI
+> * Timestamping
 
 ## Prerequisites
 
 * Create or use an [Azure Container Registry](../container-registry/container-registry-get-started-azure-cli.md) for storing container images and signatures
-* Create or use an [Azure Key Vault](../key-vault/general/quick-create-cli.md) for managing certificates
+* Create or use an [Azure Key Vault](/azure/key-vault/general/quick-create-cli) for managing certificates
 * Install and configure the latest [Azure CLI](/cli/azure/install-azure-cli), or Run commands in the [Azure Cloud Shell](https://portal.azure.com/#cloudshell/)
 
 ## Install Notation CLI and AKV plugin
 
-1. Install Notation v1.1.0 on a Linux amd64 environment. Follow the [Notation installation guide](https://notaryproject.dev/docs/user-guides/installation/cli/) to download the package for other environments.
+1. Install Notation v1.2.0 on a Linux amd64 environment. Follow the [Notation installation guide](https://notaryproject.dev/docs/user-guides/installation/cli/) to download the package for other environments.
 
     ```bash
     # Download, extract and install
-    curl -Lo notation.tar.gz https://github.com/notaryproject/notation/releases/download/v1.1.0/notation_1.1.0_linux_amd64.tar.gz
+    curl -Lo notation.tar.gz https://github.com/notaryproject/notation/releases/download/v1.2.0/notation_1.2.0_linux_amd64.tar.gz
     tar xvzf notation.tar.gz
             
     # Copy the Notation binary to the desired bin directory in your $PATH, for example
@@ -342,6 +343,10 @@ To verify the container image, add the root certificate that signs the leaf cert
     ```
 
    Upon successful verification of the image using the trust policy, the sha256 digest of the verified image is returned in a successful output message.
+
+## Timestamping
+
+Since Notation v1.2.0 release, Notation supports [RFC 3161](https://www.rfc-editor.org/rfc/rfc3161) compliant timestamping. This enhancement extends the trust of signatures created within certificates validity, enabling successful signature verification even after certificates have expired. Timestamping reduces costs by eliminating the need to periodically re-sign images due to certificate expiry, which is especially critical when using short-lived certificates. For detailed instructions on how to sign and verify using timestamping, please refer to the [Notary Project timestamping guide](https://v1-2.notaryproject.dev/docs/user-guides/how-to/timestamping/).
 
 ## Next steps
 

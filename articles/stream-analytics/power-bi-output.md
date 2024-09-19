@@ -3,7 +3,7 @@ title: Power BI output from Azure Stream Analytics
 description: This article describes how to output data from Azure Stream Analytics to Power BI.
 author: AliciaLiMicrosoft 
 ms.author: ali 
-ms.service: stream-analytics
+ms.service: azure-stream-analytics
 ms.topic: conceptual
 ms.date: 07/20/2023
 ---

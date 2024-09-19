@@ -4,7 +4,7 @@ description: Learn about deploying Azure SQL Edge with Docker
 author: rwestMSFT
 ms.author: randolphwest
 ms.date: 09/14/2023
-ms.service: sql-edge
+ms.service: azure-sql-edge
 ms.topic: quickstart
 ms.custom: mode-other
 keywords:

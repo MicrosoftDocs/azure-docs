@@ -1,7 +1,7 @@
 ---
 title: Azure Data Lake Storage Gen2 overview in HDInsight
 description: Overview of Data Lake Storage Gen2 in HDInsight.
-ms.service: hdinsight
+ms.service: azure-hdinsight
 ms.topic: conceptual
 ms.date: 06/13/2024
 ---

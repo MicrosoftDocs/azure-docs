@@ -1,5 +1,5 @@
 ---
-title:  Get resource information using Microsoft Copilot in Azure (preview)
+title: Get resource information using Microsoft Copilot in Azure (preview)
 description: Learn about scenarios where Microsoft Copilot in Azure (preview) can help with Azure Resource Graph.
 ms.date: 05/28/2024
 ms.topic: how-to
@@ -42,7 +42,7 @@ Here are a few examples of the kinds of prompts you can use to generate Azure Re
 
 ## Examples
 
-You can Ask Microsoft Copilot in Azure (preview) to write queries with prompts like "**Write a query to list my virtual machines with their public interface and public IP.**"
+You can ask Microsoft Copilot in Azure (preview) to write queries with prompts like "**Write a query to list my virtual machines with their public interface and public IP.**"
 
 :::image type="content" source="media/get-information-resource-graph/azure-resource-graph-explorer-list-vms.png" alt-text="Screenshot of Microsoft Copilot in Azure responding to a request to list VMs.":::
 

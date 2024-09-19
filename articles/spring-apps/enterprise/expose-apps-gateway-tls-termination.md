@@ -4,7 +4,7 @@ titleSuffix: Azure Spring Apps
 description: How to expose applications to internet using Application Gateway with TLS termination
 author: KarlErickson
 ms.author: karler
-ms.service: spring-apps
+ms.service: azure-spring-apps
 ms.topic: how-to
 ms.date: 06/27/2024
 ms.custom: devx-track-java, devx-track-extended-java, devx-track-azurecli
@@ -24,7 +24,7 @@ When an Azure Spring Apps service instance is deployed in your virtual network (
 - [Azure CLI version 2.0.4 or later](/cli/azure/install-azure-cli).
 - An Azure Spring Apps service instance deployed in a virtual network with an application accessible over the private network using the default `.private.azuremicroservices.io` domain suffix. For more information, see [Deploy Azure Spring Apps in a virtual network](how-to-deploy-in-azure-virtual-network.md)
 - A custom domain to be used to access the application.
-- A certificate, stored in Key Vault, which matches the custom domain to be used to establish the HTTPS listener. For more information, see [Tutorial: Import a certificate in Azure Key Vault](../../key-vault/certificates/tutorial-import-certificate.md).
+- A certificate, stored in Key Vault, which matches the custom domain to be used to establish the HTTPS listener. For more information, see [Tutorial: Import a certificate in Azure Key Vault](/azure/key-vault/certificates/tutorial-import-certificate).
 
 ## Configure Application Gateway for Azure Spring Apps
 
@@ -34,7 +34,7 @@ To configure Application Gateway in front of Azure Spring Apps in a private VNET
 
 1. Follow the instructions in [Deploy Azure Spring Apps in a virtual network](how-to-deploy-in-azure-virtual-network.md).
 1. Follow the instructions in [Access your application in a private network](access-app-virtual-network.md).
-1. Acquire a certificate for your domain of choice and store that in Key Vault. For more information, see [Tutorial: Import a certificate in Azure Key Vault](../../key-vault/certificates/tutorial-import-certificate.md).
+1. Acquire a certificate for your domain of choice and store that in Key Vault. For more information, see [Tutorial: Import a certificate in Azure Key Vault](/azure/key-vault/certificates/tutorial-import-certificate).
 1. Configure a custom domain and corresponding certificate from Key Vault on an app deployed onto Azure Spring Apps. For more information, see [Tutorial: Map an existing custom domain to Azure Spring Apps](how-to-custom-domain.md).
 1. Deploy Application Gateway in a virtual network configured according to the following list:
    - Use Azure Spring Apps in the backend pool, referenced by the domain suffixed with `private.azuremicroservices.io`.

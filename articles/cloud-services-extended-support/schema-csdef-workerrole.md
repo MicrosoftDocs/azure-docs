@@ -2,7 +2,7 @@
 title: Azure Cloud Services (extended support) Def. WorkerRole Schema | Microsoft Docs
 description: Information related to the worker role schema for Cloud Services (extended support)
 ms.topic: article
-ms.service: cloud-services-extended-support
+ms.service: azure-cloud-services-extended-support
 ms.date: 07/24/2024
 author: gachandw
 ms.author: gachandw

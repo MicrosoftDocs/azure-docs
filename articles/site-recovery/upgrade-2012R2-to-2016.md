@@ -5,7 +5,7 @@ services: site-recovery
 author: ankitaduttaMSFT
 manager: gaggupta
 ms.topic: conceptual
-ms.service: site-recovery
+ms.service: azure-site-recovery
 ms.date: 03/02/2023
 ms.author: ankitadutta
 ms.custom: engagement-fy23

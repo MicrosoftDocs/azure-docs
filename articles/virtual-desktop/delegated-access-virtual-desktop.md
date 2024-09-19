@@ -1,11 +1,11 @@
 ---
 title: Delegated access in Azure Virtual Desktop - Azure
 description: How to delegate administrative capabilities on an Azure Virtual Desktop deployment, including examples.
-author: Heidilohr
+author: dknappettmsft
 ms.topic: conceptual
 ms.date: 04/30/2020
-ms.author: helohr 
-ms.custom: devx-track-azurepowershell
+ms.author: daknappe
+ms.custom: devx-track-azurepowershell, docs_inherited
 ---
 # Delegated access in Azure Virtual Desktop
 

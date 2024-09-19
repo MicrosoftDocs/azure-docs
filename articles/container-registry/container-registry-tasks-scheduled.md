@@ -1,12 +1,12 @@
 ---
 title: Tutorial - Schedule an ACR task
 description: In this tutorial, learn how to run an Azure Container Registry Task on a defined schedule by setting one or more timer triggers
-ms.topic: article
+ms.topic: tutorial
 ms.custom: devx-track-azurecli
 author: tejaswikolli-web
 ms.author: tejaswikolli
 ms.date: 10/31/2023
-ms.service: container-registry
+ms.service: azure-container-registry
 ---
 # Tutorial: Run an ACR task on a defined schedule
 

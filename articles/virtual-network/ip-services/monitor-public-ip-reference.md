@@ -6,7 +6,7 @@ ms.custom: horz-monitor
 ms.topic: reference
 author: mbender-ms
 ms.author: mbender
-ms.service: virtual-network
+ms.service: azure-virtual-network
 ms.subservice: ip-services
 ---
 

@@ -35,7 +35,7 @@ For a 1:1 call to a PSTN number, use the following code:
 ```js
 const pstnCallee = { phoneNumber: '<ACS_USER_ID>' }
 const alternateCallerId = {phoneNumber: '<ALTERNATE_CALLER_ID>'};
-const oneToOneCall = callAgent.startCall([pstnCallee], {alternateCallerId});
+const oneToOneCall = callAgent.startCall([pstnCallee], { alternateCallerId });
 ```
 
 For a 1:n call to a user and a PSTN number, use the following code:
@@ -44,7 +44,7 @@ For a 1:n call to a user and a PSTN number, use the following code:
 const userCallee = { communicationUserId: '<ACS_USER_ID>' }
 const pstnCallee = { phoneNumber: '<PHONE_NUMBER>'};
 const alternateCallerId = {phoneNumber: '<ALTERNATE_CALLER_ID>'};
-const groupCall = callAgent.startCall([userCallee, pstnCallee], {alternateCallerId});
+const groupCall = callAgent.startCall([userCallee, pstnCallee], { alternateCallerId });
 ```
 
 ### Join a room call
@@ -196,7 +196,8 @@ To add a participant (either a user or a phone number) to a call, you can use th
 const userIdentifier = { communicationUserId: '<ACS_USER_ID>' };
 const pstnIdentifier = { phoneNumber: '<PHONE_NUMBER>' }
 const remoteParticipant = call.addParticipant(userIdentifier);
-const remoteParticipant = call.addParticipant(pstnIdentifier, {alternateCallerId: '<ALTERNATE_CALLER_ID>'});
+const alternateCallerId = {  phoneNumber: '<ALTERNATE_CALLER_ID>' };
+const remoteParticipant = call.addParticipant(pstnIdentifier, { alternateCallerId });
 ```
 
 ### Remove a participant from a call
@@ -335,6 +336,7 @@ Find out why a call ended by inspecting the `callEndReason` property:
 
 ```js
 const callEndReason = call.callEndReason;
+const callEndReasonMessage = callEndReason.message // (string) user friendly message
 const callEndReasonCode = callEndReason.code // (number) code associated with the reason
 const callEndReasonSubCode = callEndReason.subCode // (number) subCode associated with the reason
 ```

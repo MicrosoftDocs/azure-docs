@@ -7,7 +7,7 @@ metadata:
   title: Azure Static Web Apps documentation
   description: Azure Static Web Apps allows you to build modern web applications that automatically publish to the web as your code changes.
   ms.topic: landing-page
-  ms.service: static-web-apps
+  ms.service: azure-static-web-apps
   author: craigshoemaker
   ms.author: cshoe
   ms.date: 06/25/2024
@@ -47,6 +47,8 @@ landingContent:
         links:
           - text: Build and deploy a static web app
             url: /Shows/Docs-Azure/Building-and-Deploying-a-Static-Web-App/
+          - text: Watch how to deploy a website Static Web Apps using your favorite front end framework
+            url: https://aka.ms/azure/beginnervideos/learn/swa
   - title: Build and deploy
     linkLists:
       - linkListType: tutorial

@@ -7,15 +7,17 @@ ms.custom:
 ms.topic: include
 ms.date: 06/11/2024
 ---
+
 At this time, a test or preview build is not available for the next release.
 
 <!---
-July, 2024 preview release is now available.
+
+Sept, 2024 preview release is now available.
 
 |Component|Value|
 |-----------|-----------|
 |Container images registry/repository |`mcr.microsoft.com/arcdata/preview`|
-|Container images tag |`v1.31.0_2024-07-09`|
+|Container images tag |`v1.33.0_2024-09-10`|
 |**CRD names and version:**| |
 |`activedirectoryconnectors.arcdata.microsoft.com`| v1beta1, v1beta2, v1, v2|
 |`datacontrollers.arcdata.microsoft.com`| v1beta1, v1 through v5|
@@ -32,11 +34,13 @@ July, 2024 preview release is now available.
 |`telemetrycollectors.arcdata.microsoft.com`| v1beta1 through v1beta5|
 |`telemetryrouters.arcdata.microsoft.com`| v1beta1 through v1beta5|
 |Azure Resource Manager (ARM) API version|2023-11-01-preview|
-|`arcdata` Azure CLI extension version|1.5.16 ([Download](https://aka.ms/az-cli-arcdata-ext))|
-|Arc-enabled Kubernetes helm chart extension version|1.31.0|
+|`arcdata` Azure CLI extension version|1.5.18 ([Download](https://aka.ms/az-cli-arcdata-ext))|
+|Arc-enabled Kubernetes helm chart extension version|1.33.0|
 |Azure Arc Extension for Azure Data Studio<br/>`arc`<br/>`azcli`|<br/>1.8.0 ([Download](https://aka.ms/ads-arcdata-ext))</br>1.8.0 ([Download](https://aka.ms/ads-azcli-ext))|
-|SQL Database version | 970 |
+|SQL Database version | 972 |
 
-Release Notes:
-- Arc SQL Server | Automatically start billing for ESU on servers that are enabled for ESU and host SQL Server 2014 instances when SQL Server 2014 ESU program starts
+Pre-release Notes:
+- Arc SQL Server | Allow the AG inventory feature for all license types | GA
+  - Always On availability groups inventory feature is available for all license type
+- Arc SQL Server | Allow applying physical core license to physical machines | GA
 -->

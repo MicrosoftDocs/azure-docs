@@ -2,7 +2,7 @@
 title: Migrate from Azure Scheduler to Azure Logic Apps
 description: Replace Azure Scheduler jobs with Azure Logic Apps.
 services: scheduler
-ms.service: scheduler
+ms.service: azure-scheduler
 ms.suite: infrastructure-services
 author: ecfan
 ms.author: estfan

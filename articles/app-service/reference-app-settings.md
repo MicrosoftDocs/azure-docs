@@ -282,7 +282,7 @@ APACHE_RUN_GROUP | RUN sed -i 's!User ${APACHE_RUN_GROUP}!Group www-data!g' /etc
 > |`DATABASE_HOST`|Database|-|-|Database host used to connect to WordPress.|
 > |`DATABASE_NAME`|Database|-|-|Database name used to connect to WordPress.|
 > |`DATABASE_USERNAME`|Database|-|-|Database username used to connect to WordPress.|
-> |`DATABASE_PASSWORD`|Database|-|-|Database password used to connect to the MySQL database. To change the MySQL database password, see [update admin password](../mysql/single-server/how-to-create-manage-server-portal.md#update-admin-password). Whenever the MySQL database password is changed, the Application Settings also need to be updated. |
+> |`DATABASE_PASSWORD`|Database|-|-|Database password used to connect to the MySQL database. To change the MySQL database password, see [update admin password](/azure/mysql/single-server/how-to-create-manage-server-portal#update-admin-password). Whenever the MySQL database password is changed, the Application Settings also need to be updated. |
 > |`WORDPRESS_ADMIN_EMAIL`|Deployment only|-|-|WordPress admin email.|
 > |`WORDPRESS_ADMIN_PASSWORD`|Deployment only|-|-|WordPress admin password. This is only for deployment purposes. Modifying this value has no effect on the WordPress installation. To change the WordPress admin password, see [resetting your password](https://wordpress.org/support/article/resetting-your-password/#to-change-your-password).|
 > |`WORDPRESS_ADMIN_USER`|Deployment only|-|-|WordPress admin username|
@@ -485,7 +485,7 @@ The following environment variables are related to [key vault references](app-se
 | Setting name | Description |
 |-|-|
 | `WEBSITE_KEYVAULT_REFERENCES` | Read-only. Contains information (including statuses) for all Key Vault references that are currently configured in the app. |
-| `WEBSITE_SKIP_CONTENTSHARE_VALIDATION` | If you set the shared storage connection of your app (using `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`) to a Key Vault reference, the app can't resolve the key vault reference at app creation or update if one of the following conditions is true: <br/>- The app accesses the key vault with a system-assigned identity.<br/>- The app accesses the key vault with a user-assigned identity, and the key vault is [locked with a VNet](../key-vault/general/overview-vnet-service-endpoints.md).<br/>To avoid errors at create or update time, set this variable to `1`. |
+| `WEBSITE_SKIP_CONTENTSHARE_VALIDATION` | If you set the shared storage connection of your app (using `WEBSITE_CONTENTAZUREFILECONNECTIONSTRING`) to a Key Vault reference, the app can't resolve the key vault reference at app creation or update if one of the following conditions is true: <br/>- The app accesses the key vault with a system-assigned identity.<br/>- The app accesses the key vault with a user-assigned identity, and the key vault is [locked with a VNet](/azure/key-vault/general/overview-vnet-service-endpoints).<br/>To avoid errors at create or update time, set this variable to `1`. |
 | `WEBSITE_DELAY_CERT_DELETION` | This env var can be set to 1 by users in order to ensure that a certificate that a worker process is dependent upon isn't deleted until it exits. |
 <!-- | `WEBSITE_ALLOW_DOUBLE_ESCAPING_URL` | TODO | -->
 

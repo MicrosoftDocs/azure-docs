@@ -2,7 +2,7 @@
 title: Plan your Avere vFXT system - Azure
 description: Plan an Avere vFXT for Azure cluster that is right for your needs. Learn questions to ask before going to the Azure Marketplace or creating virtual machines.
 author: ekpgh
-ms.service: avere-vfxt
+ms.service: azure-avere-vfxt
 ms.topic: conceptual
 ms.date: 01/21/2020
 ms.author: rohogue
@@ -104,7 +104,7 @@ Each vFXT node will be identical. That is, if you create a three-node cluster yo
 
 Disk cache per node is configurable and can rage from 1000 GB to 8000 GB. 4 TB per node is the recommended cache size for Standard_E32s_v3 nodes.
 
-For additional information about these VMs, read the Microsoft Azure documentation: [Memory optimized virtual machine sizes](../virtual-machines/sizes-memory.md)
+For additional information about these VMs, read the Microsoft Azure documentation: [Memory optimized virtual machine sizes](/azure/virtual-machines/sizes-memory)
 
 ## Account quota
 

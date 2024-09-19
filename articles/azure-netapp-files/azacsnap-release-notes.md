@@ -5,7 +5,7 @@ services: azure-netapp-files
 author: Phil-Jensen
 ms.service: azure-netapp-files
 ms.topic: conceptual
-ms.date: 07/02/2024
+ms.date: 08/15/2024
 ms.author: phjensen
 ---
 
@@ -13,7 +13,7 @@ ms.author: phjensen
 
 This page lists major changes made to AzAcSnap to provide new functionality or resolve defects.
 
-Download the [latest release](https://aka.ms/azacsnapinstaller) of the installer and review how to [get started](azacsnap-get-started.md).  
+Download the latest release of the binary for [Linux](https://aka.ms/azacsnap-linux) or [Windows](https://aka.ms/azacsnap-windows) and review how to [get started](azacsnap-get-started.md).  
 
 For specific information on Preview features, refer to the [AzAcSnap Preview](azacsnap-preview.md) page.
 

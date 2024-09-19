@@ -1,11 +1,11 @@
 ---
 title: Delete image resources
 description: Details on how to effectively manage registry size by deleting container image data using Azure CLI commands.
-ms.topic: article
+ms.topic: how-to
 ms.custom: devx-track-azurecli
 author: tejaswikolli-web
 ms.author: tejaswikolli
-ms.service: container-registry
+ms.service: azure-container-registry
 ms.date: 10/31/2023
 ---
 

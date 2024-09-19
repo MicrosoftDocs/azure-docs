@@ -2,7 +2,7 @@
 title: Configure Azure Synapse Link for Azure SQL Database with network security
 description: Learn how to configure Azure Synapse Link for Azure SQL Database with network security.
 author: yexu
-ms.service: synapse-analytics
+ms.service: azure-synapse-analytics
 ms.topic: how-to
 ms.subservice: synapse-link
 ms.date: 11/16/2022
@@ -94,6 +94,6 @@ In this section, you create an Azure Synapse workspace with managed virtual netw
 
 If you're using a database other than an Azure SQL database, see:
 
-* [Configure Azure Synapse Link for Azure Cosmos DB](../../cosmos-db/configure-synapse-link.md?context=/azure/synapse-analytics/context/context)
+* [Configure Azure Synapse Link for Azure Cosmos DB](/azure/cosmos-db/configure-synapse-link?context=/azure/synapse-analytics/context/context)
 * [Configure Azure Synapse Link for Dataverse](/powerapps/maker/data-platform/azure-synapse-link-synapse?context=/azure/synapse-analytics/context/context)
 * [Get started with Azure Synapse Link for SQL Server 2022](connect-synapse-link-sql-server-2022.md)
