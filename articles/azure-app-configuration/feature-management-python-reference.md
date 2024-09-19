@@ -101,6 +101,7 @@ The detailed schema of the `feature_management` section can be found [here](http
 #### On/off declaration
  
 The following snippet demonstrates an alternative way to define a feature that can be used for on/off features. 
+
 ``` json
 {
     "feature_management": {
