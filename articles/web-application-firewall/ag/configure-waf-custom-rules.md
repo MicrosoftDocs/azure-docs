@@ -5,7 +5,7 @@ description: Learn how to configure Web Application Firewall (WAF) v2 custom rul
 services: web-application-firewall
 author: vhorne
 ms.service: azure-web-application-firewall
-ms.topic: article
+ms.topic: how-to
 ms.date: 05/21/2020
 ms.author: victorh 
 ms.custom: devx-track-azurepowershell

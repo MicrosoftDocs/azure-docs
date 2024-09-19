@@ -14,7 +14,7 @@
           "**/_themes/**",
           "**/includes/**",
           "**/obj/**",
-          "**/*.graffle",
+          "**/*.graffle"
         ]
       },
       {
@@ -59,7 +59,7 @@
         "exclude": [
           "iot-edge/**",
           "**/_themes/**",
-          "**/obj/**",
+          "**/obj/**"
         ]
       },
       {
@@ -181,7 +181,8 @@
         "v-stsavell",
         "v-thepet",
         "v-thpra"
-      ]
+      ],
+      "zone_pivot_group_filename": "zone-pivot-groups.json"
     },
     "fileMetadata": {
       "adobe-target": {
@@ -191,7 +192,6 @@
         "articles/azure-functions/*": true,
         "articles/azure-monitor/*": true,
         "articles/container-apps/*": true,
-        "articles/kubernetes-fleet/*": true,
         "articles/messaging-services/*": true,
         "articles/network-watcher/*": true,
         "articles/static-web-apps/*": true
@@ -577,7 +577,6 @@
         "articles/iot-operations/**/*": "https://learn.microsoft.com/answers/tags/464/azure-iot-operations/",
         "articles/iot/**/*": "https://learn.microsoft.com/answers/tags/35/azure-iot/",
         "articles/kinect-dk/**/*": "https://learn.microsoft.com/answers/tags/190/azure-kinect-dk/",
-        "articles/kubernetes-fleet/**/*": "https://learn.microsoft.com/answers/tags/200/azure-kubernetes-service/",
         "articles/lab-services/**/*": "https://learn.microsoft.com/answers/tags/186/azure-lab-services/",
         "articles/lighthouse/**/*": "https://learn.microsoft.com/answers/tags/95/azure-lighthouse/",
         "articles/load-balancer/**/*": "https://learn.microsoft.com/answers/tags/230/azure-load-balancer/",
@@ -1003,7 +1002,7 @@
         "articles/partner-solutions/split-experimentation/**/*.yml": "split-experimentation"
       },
       "monikerRange": {
-        "articles/iot-edge/**/*.md": ">=iotedge-1.4",
+        "articles/iot-edge/**/*.md": ">=iotedge-1.4"
       },
       "recommendations": {
       },

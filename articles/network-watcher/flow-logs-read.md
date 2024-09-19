@@ -382,5 +382,5 @@ The results of this value are shown in the following example:
 ## Related content
 
 - [Traffic analytics overview](./traffic-analytics.md)
-- [Log Analytics tutorial](../azure-monitor/logs/log-analytics-tutorial.md?toc=/azure/network-watcher/toc.json&bc=/azure/network-watcher/breadcrumb/toc.json)
+- [Log Analytics tutorial](/azure/azure-monitor/logs/log-analytics-tutorial?toc=/azure/network-watcher/toc.json&bc=/azure/network-watcher/breadcrumb/toc.json)
 - [Azure Blob storage bindings for Azure Functions overview](../azure-functions/functions-bindings-storage-blob.md?toc=/azure/network-watcher/toc.json&bc=/azure/network-watcher/breadcrumb/toc.json)

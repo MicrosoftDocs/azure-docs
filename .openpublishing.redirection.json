@@ -1,6 +1,16 @@
 {
   "redirections": [
     {
+      "source_path": "articles/governance/machine-configuration/whats-new/migrating-from-dsc-extension.md ",
+      "redirect_url": " https://azure.microsoft.com/updates/migrate-from-linux-dsc-extension-to-the-guest-configuration-feature-of-azure-policy-by-may-1-2025/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/vpn-gateway/vpn-gateway-about-forced-tunneling.md",
+      "redirect_url": "/previous-versions/azure/vpn-gateway/vpn-gateway-about-forced-tunneling",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/azure-app-configuration/rest-api-postman.md",
       "redirect_url": "/previous-versions/azure/azure-app-configuration/rest-api-postman",
       "redirect_document_id": false
@@ -10,7 +20,7 @@
       "redirect_url": "/previous-versions/azure/azure-app-configuration/rest-api-fiddler",
       "redirect_document_id": false
     },
-    { 
+    {
       "source_path": "articles/kinect-dk/index.yml",
       "redirect_url": "/previous-versions/azure/kinect-dk/index",
       "redirect_document_id": false
@@ -288,26 +298,6 @@
     {
       "source_path": "articles/storage/file-sync/file-sync-storsimple-cost-comparison.md",
       "redirect_url": "/previous-versions/azure/storage/file-sync/file-sync-storsimple-cost-comparison",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/advisor/advisor-alerts.md",
-      "redirect_url": "/azure/advisor/advisor-alerts-portal",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/advisor/advisor-high-availability-recommendations.md",
-      "redirect_url": "/azure/advisor/advisor-reference-reliability-recommendations",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/advisor/advisor-operational-excellence-recommendations.md",
-      "redirect_url": "/azure/advisor/advisor-reference-operational-excellence-recommendations",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/advisor/advisor-performance-recommendations.md",
-      "redirect_url": "/azure/advisor/advisor-reference-performance-recommendations",
       "redirect_document_id": false
     },
     {
@@ -589,11 +579,6 @@
       "source_path_from_root": "/articles/azure-maps/tutorial-geofence.md",
       "redirect_url": "/azure/azure-maps/",
       "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/azure-monitor/logs/move-workspace-region.md",
-      "redirect_url": "/azure/operational-excellence/relocation-log-analytics",
-      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/azure-portal-overview.md",
@@ -1309,21 +1294,6 @@
       "source_path_from_root": "/articles/cdn/enable-raw-logs.md",
       "redirect_url": "/azure/cdn/monitoring-and-access-log",
       "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/chaos-studio/chaos-studio-tutorial-agent-based.md",
-      "redirect_url": "/azure/chaos-studio/chaos-studio-tutorial-agent-based-portal",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/chaos-studio/chaos-studio-tutorial-aks.md",
-      "redirect_url": "/azure/chaos-studio/chaos-studio-tutorial-aks-portal",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/chaos-studio/chaos-studio-tutorial-service-direct.md",
-      "redirect_url": "/azure/chaos-studio/chaos-studio-tutorial-service-direct-portal",
-      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/chef/chef-automation.md",
@@ -2136,13 +2106,43 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/firewall/diagnostic-logs.md",
+      "redirect_url": "/azure/firewall/monitor-firewall",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/firewall/enable-top-ten-and-flow-trace.md",
+      "redirect_url": "/azure/firewall/monitor-firewall-reference",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/firewall/firewall-diagnostics.md",
+      "redirect_url": "/azure/firewall/monitor-firewall",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/firewall/firewall-network-rule-logging.md",
-      "redirect_url": "/azure/firewall/firewall-diagnostics",
+      "redirect_url": "/azure/firewall/monitor-firewall",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/firewall/firewall-structured-logs.md",
+      "redirect_url": "/azure/firewall/monitor-firewall",
       "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/firewall/log-analytics-samples.md",
       "redirect_url": "/azure/firewall/firewall-workbook",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/firewall/logs-and-metrics.md",
+      "redirect_url": "/azure/firewall/monitor-firewall",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/firewall/metrics.md",
+      "redirect_url": "/azure/firewall/monitor-firewall-reference",
       "redirect_document_id": false
     },
     {
@@ -2167,7 +2167,7 @@
     },
     {
       "source_path_from_root": "/articles/firewall/tutorial-diagnostics.md",
-      "redirect_url": "/azure/firewall/firewall-diagnostics",
+      "redirect_url": "/azure/firewall/monitor-firewall",
       "redirect_document_id": false
     },
     {
@@ -2543,21 +2543,6 @@
     {
       "source_path_from_root": "/articles/jenkins/tutorial-jenkins-github-docker-cicd.md",
       "redirect_url": "/azure/developer/jenkins/pipeline-with-github-and-docker",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/kubernetes-fleet/access-fleet-kubernetes-api.md",
-      "redirect_url": "/azure/kubernetes-fleet/quickstart-access-fleet-kubernetes-api",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/kubernetes-fleet/configuration-propagation.md",
-      "redirect_url": "/azure/kubernetes-fleet/resource-propagation",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/kubernetes-fleet/resource-propagation.md",
-      "redirect_url": "/azure/kubernetes-fleet/concepts-resource-propagation",
       "redirect_document_id": false
     },
     {
@@ -3123,6 +3108,11 @@
     {
       "source_path_from_root": "/articles/openshift/howto-encrypt-data-disks.md",
       "redirect_url": "/azure/openshift/howto-byok",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/openshift/howto-deploy-java-jboss-enterprise-application-platform-with-auto-redeploy.md",
+      "redirect_url": "/azure/openshift/index",
       "redirect_document_id": false
     },
     {
@@ -3886,16 +3876,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/service-health/alerts-activity-log-service-notifications.md",
-      "redirect_url": "/azure/service-health/alerts-activity-log-service-notifications-portal",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/service-health/service-health-rest.md",
-      "redirect_url": "/azure/service-health/index",
-      "redirect_document_id": false
-    },
-    {
       "source_path_from_root": "/articles/site-recovery/move-vaults-across-regions.md",
       "redirect_url": "/azure/operational-excellence/relocation-site-recovery",
       "redirect_document_id": false
@@ -4381,6 +4361,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/virtual-wan/monitoring-best-practices.md",
+      "redirect_url": "/azure/virtual-wan/monitor-virtual-wan",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/virtual-wan/scenario-route-between-hubs-firewall.md",
       "redirect_url": "/azure/virtual-wan/scenario-route-between-vnets-firewall",
       "redirect_document_id": false
@@ -4753,6 +4738,46 @@
     {
       "source_path_from_root": "/articles/virtual-network/virtual-network-service-endpoint-policies-powershell.md",
       "redirect_url": "/azure/virtual-network/virtual-network-service-endpoint-policies",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/modeling-simulation-workbench/how-to-guide-manage-storage.md",
+      "redirect_url": "/azure/modeling-simulation-workbench/concept-storage",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/load-balancer/upgrade-basic-standard.md",
+      "redirect_url": "/azure/load-balancer/upgrade-basic-standard-with-powershell",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/load-balancer/upgrade-basicinternal-standard.md",
+      "redirect_url": "/azure/load-balancer/upgrade-basic-standard-with-powershell",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/load-balancer/load-balancer-ipv6-overview.md",
+      "redirect_url": "/azure/virtual-network/ip-services/ipv6-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-glossary-cloud-terminology.md",
+      "redirect_url": "/azure/cloud-adoption-framework/ready/considerations/fundamental-concepts",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/load-balancer/load-balancer-ipv6-internet-ps.md",
+      "redirect_url": "/azure/load-balancer/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/load-balancer/load-balancer-ipv6-internet-template.md",
+      "redirect_url": "/azure/load-balancer/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/load-balancer/load-balancer-ipv6-internet-cli.md",
+      "redirect_url": "/azure/load-balancer/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell",
       "redirect_document_id": false
     }
   ]

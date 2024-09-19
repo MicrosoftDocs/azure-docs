@@ -4,7 +4,7 @@ description: This article provides instructions on how to configure BFD (Bidirec
 services: expressroute
 author: duongau
 ms.service: azure-expressroute
-ms.topic: article
+ms.topic: concept-article
 ms.date: 06/03/2024
 ms.author: duau
 ---

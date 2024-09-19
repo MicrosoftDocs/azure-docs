@@ -5,10 +5,12 @@ author: yelevin
 ms.author: yelevin
 ms.topic: how-to
 ms.custom: linux-related-content
-ms.date: 06/18/2024
+ms.date: 09/17/2024
 ---
 
-# Troubleshoot your CEF or Syslog data connector
+# [Deprecated] Troubleshoot your CEF or Syslog data connector 
+
+[!INCLUDE [data-connector-deprecation](./includes/data-connector-deprecation.md)]
 
 > [!CAUTION]
 > This article references CentOS, a Linux distribution that has reached End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](/azure/virtual-machines/workloads/centos/centos-end-of-life).
@@ -343,7 +345,7 @@ The Syslog server, either rsyslog or syslog-ng, forwards any data defined in the
 
 Make sure to add details about the facilities and severity log levels that you want to be ingested into Microsoft Sentinel. The configuration process may take about 20 minutes.
 
-For more information, see [Deployment script explained](./connect-log-forwarder.md#deployment-script-explained). and [Configure Syslog in the Azure portal](../azure-monitor/agents/data-sources-syslog.md).
+For more information, see [Deployment script explained](./connect-log-forwarder.md#deployment-script-explained). and [Configure Syslog in the Azure portal](/azure/azure-monitor/agents/data-sources-syslog).
 
 **For example, for an rsyslog server**, run the following command to display the current settings for your Syslog forwarding, and review any changes to the configuration file:
 
@@ -587,9 +589,9 @@ In such cases, continue troubleshooting by verifying the following:
 
 - Make sure that you can see data packets flowing on port 25226
 
-- Make sure that your virtual machine has an outbound connection to port 443 via TCP, or can connect to the [Log Analytics endpoints](../azure-monitor/agents/log-analytics-agent.md#network-requirements)
+- Make sure that your virtual machine has an outbound connection to port 443 via TCP, or can connect to the [Log Analytics endpoints](/azure/azure-monitor/agents/log-analytics-agent#network-requirements)
 
-- Make sure that you have access to required URLs from your CEF collector through your firewall policy. For more information, see [Log Analytics agent firewall requirements](../azure-monitor/agents/log-analytics-agent.md#firewall-requirements).
+- Make sure that you have access to required URLs from your CEF collector through your firewall policy. For more information, see [Log Analytics agent firewall requirements](/azure/azure-monitor/agents/log-analytics-agent#firewall-requirements).
 
 Run the following command to determine if the agent is communicating successfully with Azure, or if the OMS agent is blocked from connecting to the Log Analytics workspace.
 
@@ -614,9 +616,9 @@ In such cases, continue troubleshooting by verifying the following:
 
 - Make sure that you can see data packets flowing on port 25224
 
-- Make sure that your virtual machine has an outbound connection to port 443 via TCP, or can connect to the [Log Analytics endpoints](../azure-monitor/agents/log-analytics-agent.md#network-requirements)
+- Make sure that your virtual machine has an outbound connection to port 443 via TCP, or can connect to the [Log Analytics endpoints](/azure/azure-monitor/agents/log-analytics-agent#network-requirements)
 
-- Make sure that you have access to required URLs from your Syslog or CEF collector through your firewall policy. For more information, see [Log Analytics agent firewall requirements](../azure-monitor/agents/log-analytics-agent.md#firewall-requirements).
+- Make sure that you have access to required URLs from your Syslog or CEF collector through your firewall policy. For more information, see [Log Analytics agent firewall requirements](/azure/azure-monitor/agents/log-analytics-agent#firewall-requirements).
 
 - Make sure that your Azure Virtual Machine is shown as connected in your workspace's list of virtual machines.
 

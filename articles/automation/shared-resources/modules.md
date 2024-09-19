@@ -3,13 +3,16 @@ title: Manage modules in Azure Automation
 description: This article tells how to use PowerShell modules to enable cmdlets in runbooks and DSC resources in DSC configurations.
 services: automation
 ms.subservice: shared-capabilities
-ms.date: 08/09/2024
-ms.topic: conceptual 
+ms.date: 09/10/2024
+ms.topic: how-to 
 ms.custom: devx-track-azurepowershell, devx-track-python
 ms.service: azure-automation
 ---
 
 # Manage modules in Azure Automation
+
+>[!NOTE]
+> The AzureRM PowerShell module has been officially deprecated as of **February 29, 2024**. We recommend that you migrate from AzureRM module to the Az PowerShell module to ensure continued support and updates. While the AzureRM module may still work, it is no longer maintained or supported and continued use of AzureRM is at the user's own risk. For more information, see [migration resources](https://aka.ms/azpsmigrate) for guidance on transitioning to the Az module.
 
 Azure Automation uses a number of PowerShell modules to enable cmdlets in runbooks and DSC resources in DSC configurations. Supported modules include:
 
