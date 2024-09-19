@@ -99,7 +99,7 @@ When you deploy multiple resources in a single Bicep file or ARM template, the o
 + This article assumes that you have already created a [managed environment](../container-apps/environment.md) in Azure Container Apps. You need both the name and the ID of the managed environment to create a function app hosted on Container Apps.  
 ::: zone-end  
 ::: zone pivot="azure-arc" 
-+ This article assumes that you have already created an [App Service-enabled custom location](../app-service/overview-arc-integration.md) on an [Azure Arc-enabled Kubernetes cluster](../azure-arc/kubernetes/overview.md). You need both the custom location ID and the Kubernetes environment ID to create a function app hosted in an Azure Arc custom location.  
++ This article assumes that you have already created an [App Service-enabled custom location](../app-service/overview-arc-integration.md) on an [Azure Arc-enabled Kubernetes cluster](/azure/azure-arc/kubernetes/overview). You need both the custom location ID and the Kubernetes environment ID to create a function app hosted in an Azure Arc custom location.  
 ::: zone-end  
 <a name="storage"></a>
 ## Create storage account

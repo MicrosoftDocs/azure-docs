@@ -138,7 +138,11 @@ Upon successful execution of the command, the updateStrategy values specified wi
 
 ## Upgrade with Pause Rack Strategy
 
+<<<<<<< HEAD
 Starting with API version 2024-06-01-preview, runtime upgrades can be triggered using a "PauseRack" strategy. When you execute a cluster runtime upgrade with the "PauseRack" strategy, it will update one rack at a time in the cluster and then pause, awaiting confirmation before proceeding to the next rack. All existing thresholds will continue to be respected with the "PauseRack" strategy. To carry out a cluster runtime upgrade using the "PauseRack" strategy follow the steps outlined in [Upgrading cluster runtime with a PauseRack strategy](howto-cluster-runtime-upgrade-with-pauserack-strategy.md)
+=======
+Starting with API version 2024-06-01-preview, runtime upgrades can be triggered using a "PauseRack" strategy. When you execute a Cluster runtime upgrade with the PauseRack" strategy, it will update one rack at a time in the Cluster and then pause, awaiting confirmation before proceeding to the next rack. All existing thresholds will continue to be respected with the "PauseRack" strategy. To carry out a Cluster runtime upgrade using the "PauseRack" strategy follow the steps outlined in [Upgrading cluster runtime with a pause rack strategy](howto-cluster-runtime-upgrade-with-pauserack-strategy.md)
+>>>>>>> 19d53f93b8e3ceec4cef28c9b1de974ee130f99b
 
 ## Frequently Asked Questions
 
@@ -162,7 +166,7 @@ During a runtime upgrade, the cluster enters a state of `Upgrading`. In the even
 
 ### Impact on Nexus Kubernetes tenant workloads during cluster runtime upgrade
 
-During a runtime upgrade, impacted Nexus Kubernetes cluster nodes are cordoned and drained before the Bare Metal Hosts (BMH) are upgraded. Cordoning the cluster node prevents new pods from being scheduled on it and draining the cluster node allows pods that are running tenant workloads a chance to shift to another available cluster node, which helps to reduce the impact on services. The draining mechanism's effectiveness is contingent on the available capacity within the Nexus Kubernetes cluster. If the cluster is nearing full capacity and lacks space for the pods to relocate, they transition into a Pending state following the draining process.
+During a runtime upgrade, impacted Nexus Kubernetes Cluster nodes are cordoned and drained before the Bare Metal Hosts (BMH) are upgraded. Cordoning the Kubernetes Cluster node prevents new pods from being scheduled on it and draining the Kubernetes Cluster node allows pods that are running tenant workloads a chance to shift to another available Kubernetes Cluster node, which helps to reduce the impact on services. The draining mechanism's effectiveness is contingent on the available capacity within the Nexus Kubernetes Cluster. If the Kubernetes Cluster is nearing full capacity and lacks space for the pods to relocate, they transition into a Pending state following the draining process.
 
 Once the cordon and drain process of the tenant cluster node is completed, the upgrade of the BMH proceeds. Each tenant cluster node is allowed up to 10 minutes for the draining process to complete, after which the BMH upgrade will begin. This guarantees the BMH upgrade will make progress. BMHs are upgraded one rack at a time, and upgrades are performed in parallel within the same rack. The BMH upgrade does not wait for tenant resources to come online before continuing with the runtime upgrade of BMHs in the rack being upgraded. The benefit of this is that the maximum overall wait time for a rack upgrade is kept at 10 minutes regardless of how many nodes are available. This maximum wait time is specific to the cordon and drain procedure and is not applied to the overall upgrade procedure. Upon completion of each BMH upgrade, the Nexus Kubernetes cluster node starts, rejoins the cluster, and is uncordoned, allowing pods to be scheduled on the node once again.
 

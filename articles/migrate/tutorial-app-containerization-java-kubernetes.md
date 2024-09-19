@@ -1,13 +1,12 @@
 ---
 title: Azure App Containerization Java; Containerization and migration of Java web applications to Azure Kubernetes.
 description: Tutorial:Containerize & migrate Java web applications to Azure Kubernetes Service.
-author: vijain
-ms.author: vijain
-ms.manager: kmadnani
+author: anraghun
+ms.author: anraghun
 ms.custom: devx-track-java, devx-track-javaee, migration-java, subject-rbac-steps, devx-track-extended-java
 ms.topic: tutorial
 ms.service: azure-migrate
-ms.date: 07/05/2024
+ms.date: 09/19/2024
 ---
 # Java web app containerization and migration to Azure Kubernetes Service
 
@@ -102,6 +101,8 @@ If you just created a free Azure account, you're the owner of your subscription.
 1. In **User settings**, verify that Microsoft Entra users can register applications (set to **Yes** by default).
 
       ![Verify in User Settings that users can register Active Directory apps.](./media/tutorial-discover-vmware/register-apps.png)
+
+   [!INCLUDE [global-admin-usage.md](includes/global-admin-usage.md)]
 
 1. In case the 'App registrations' settings is set to 'No', request the tenant/global admin to assign the required permission. Alternately, the tenant/global admin can assign the **Application Developer** role to an account to allow the registration of Microsoft Entra App. [Learn more](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md).
 
@@ -203,7 +204,7 @@ Parameterizing the configuration makes it available as a deployment time paramet
 ## Build container image
 
 
-1. **Select Azure Container Registry**: Use the dropdown to select an [Azure Container Registry](../container-registry/index.yml) that will be used to build and store the container images for the apps. You can use an existing Azure Container Registry or choose to create a new one using the Create new registry option.
+1. **Select Azure Container Registry**: Use the dropdown to select an [Azure Container Registry](/azure/container-registry/) that will be used to build and store the container images for the apps. You can use an existing Azure Container Registry or choose to create a new one using the Create new registry option.
 
     ![Screenshot for app ACR selection.](./media/tutorial-containerize-apps-aks/build-java-app.png)
 

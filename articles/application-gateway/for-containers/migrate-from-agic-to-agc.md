@@ -6,7 +6,7 @@ author: greg-lindsay
 ms.service: azure-application-gateway
 ms.subservice: appgw-for-containers
 ms.topic: conceptual
-ms.date: 06/20/2024
+ms.date: 9/16/2024
 ms.author: greglin
 ---
 
@@ -44,7 +44,6 @@ Prior to migration, it is important to identify any dependencies on Application 
 Such dependencies include:
 
 - Web Application Firewall (WAF)
-- Frontend Mutual Authentication
 - Private IP
 - Ports other than 80 and 443
 - Configurable request timeout values
