@@ -327,7 +327,7 @@ Smart detection alerts warn you of potential performance problems and failure an
 
 In Bicep, you can create portal dashboards by using the resource type [Microsoft.Portal/dashboards](/azure/templates/microsoft.portal/dashboards?tabs=bicep).
 
-For more information about creating dashboards with code, see [Programmatically create an Azure Dashboard](../../azure-portal/azure-portal-dashboards-create-programmatically.md).
+For more information about creating dashboards with code, see [Programmatically create an Azure Dashboard](/azure/azure-portal/azure-portal-dashboards-create-programmatically).
 
 ## Autoscale rules
 

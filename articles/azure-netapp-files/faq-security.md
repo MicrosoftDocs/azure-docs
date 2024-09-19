@@ -68,7 +68,7 @@ The AD Connector credentials are stored in the Azure NetApp Files control plane 
 
 ## Next steps  
 
-- [How to create an Azure support request](../azure-portal/supportability/how-to-create-azure-support-request.md)
+- [How to create an Azure support request](/azure/azure-portal/supportability/how-to-create-azure-support-request)
 - [Networking FAQs](faq-networking.md)
 - [Performance FAQs](faq-performance.md)
 - [NFS FAQs](faq-nfs.md)
