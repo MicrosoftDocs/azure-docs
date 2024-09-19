@@ -173,6 +173,8 @@ The first piece of information you see for each connector is its *data ingestion
 | Syslog | [Ingest Syslog and CEF messages to Microsoft Sentinel with the Azure Monitor Agent](connect-cef-syslog-ama.md) |
 | Custom logs | [Collect data in custom log formats to Microsoft Sentinel with the Log Analytics agent](connect-custom-logs.md) |
 
+<!--do we add ama in here?-->
+
 If your source isn't available, you can [create a custom connector](create-custom-connector.md). Custom connectors use the ingestion API and therefore are similar to direct sources. You most often implement custom connectors by using Azure Logic Apps, which offers a codeless option, or Azure Functions.
 
 ### Module 5: Log management

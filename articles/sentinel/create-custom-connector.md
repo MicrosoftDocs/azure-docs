@@ -1,6 +1,6 @@
 ---
 title: Resources for creating Microsoft Sentinel custom connectors | Microsoft Docs
-description: Learn about available resources for creating custom connectors for Microsoft Sentinel. Methods include the Log Analytics agent and API, Logstash, Logic Apps, PowerShell, and Azure Functions.
+description: Learn about available resources for creating custom connectors for Microsoft Sentinel. Methods include the API, Logstash, Logic Apps, PowerShell, and Azure Functions.
 author: limwainstein
 ms.topic: conceptual
 ms.date: 01/09/2023
@@ -19,10 +19,10 @@ For a full list of supported connectors, see the [Microsoft Sentinel: The connec
 
 The following table compares essential details about each method for creating custom connectors described in this article. Select the links in the table for more details about each method.
 
+<!--how to replace for AMA?-->
 |Method description  |Capability | Serverless    |Complexity  |
 |---------|---------|---------|---------|
 | **[Codeless Connector Platform (CCP)](#connect-with-the-codeless-connector-platform)** <br>Best for less technical audiences to create SaaS connectors using a configuration file instead of advanced development. | Supports all capabilities available with the code. | Yes | Low; simple, codeless development
-|**[Log Analytics Agent](#connect-with-the-log-analytics-agent)** <br>Best for collecting files from on-premises and IaaS sources   | File collection only  |   No      |Low         |
 |**[Logstash](#connect-with-logstash)** <br>Best for on-premises and IaaS sources, any source for which a plugin is available, and organizations already familiar with Logstash  | Available plugins, plus custom plugin, capabilities provide significant flexibility.   |   No; requires a VM or VM cluster to run           |   Low; supports many scenarios with plugins      |
 |**[Logic Apps](#connect-with-logic-apps)** <br>High cost; avoid for high-volume data <br>Best for low-volume cloud sources  | Codeless programming allows for limited flexibility, without support for implementing algorithms.<br><br> If no available action already supports your requirements, creating a custom action may add complexity.    |    Yes         |   Low; simple, codeless development      |
 |**[PowerShell](#connect-with-powershell)** <br>Best for prototyping and periodic file uploads | Direct support for file collection. <br><br>PowerShell can be used to collect more sources, but will require coding and configuring the script as a service.      |No               |  Low       |
@@ -44,14 +44,6 @@ The Codeless Connector Platform (CCP) provides a configuration file that can be 
 Connectors created using the CCP are fully SaaS, without any requirements for service installations, and also include health monitoring and full support from Microsoft Sentinel.
 
 For more information, see [Create a codeless connector for Microsoft Sentinel](create-codeless-connector.md).
-
-## Connect with the Log Analytics agent
-
-If your data source delivers events in files, we recommend that you use the Azure Monitor Log Analytics agent to create your custom connector.
-
-- For more information, see [Collecting custom logs in Azure Monitor](/azure/azure-monitor/agents/data-sources-custom-logs).
-
-- For an example of this method, see [Collecting custom JSON data sources with the Log Analytics agent for Linux in Azure Monitor](/azure/azure-monitor/agents/data-sources-json).
 
 ## Connect with Logstash
 

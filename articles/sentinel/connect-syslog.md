@@ -15,6 +15,7 @@ ms.date: 06/18/2024
 
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 
+<!--we should be archiving this-->
 **Syslog** is an event logging protocol that is common to Linux. You can use the Syslog daemon built into Linux devices and appliances to collect local events of the types you specify, and have it send those events to Microsoft Sentinel using the **Log Analytics agent for Linux** (formerly known as the OMS agent).
 
 This article describes how to connect your data sources to Microsoft Sentinel using Syslog. For more information about supported connectors for this method, see [Data connectors reference](data-connectors-reference.md).

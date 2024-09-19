@@ -55,7 +55,7 @@ There are three tabbed sections in this workbook:
 
         :::image type="content" source="media/monitor-data-connector-health/data-health-workbook-2.png" alt-text="data connector health monitoring workbook anomalies page" lightbox="media/monitor-data-connector-health/data-health-workbook-2.png":::
 
-- The **Agent info** tab shows you information about the health of the Log Analytics agents installed on your various machines, whether Azure VM, other cloud VM, on-premises VM, or physical. You can monitor the following:
+- The **Agent info** tab shows you information about the health of the Azure Monitor Agents installed on your various machines, whether Azure VM, other cloud VM, on-premises VM, or physical. You can monitor the following: <!--is this correct?-->
 
    - System location
 
@@ -65,7 +65,8 @@ There are three tabbed sections in this workbook:
 
    - Agent operations
 
-    In this section you must select the tab that describes your machines’ environment: choose the **Azure-managed machines** tab if you want to view only the Azure Arc-managed machines; choose the **All machines** tab to view both managed and non-Azure machines with the Log Analytics agent installed.
+    In this section you must select the tab that describes your machines’ environment: choose the **Azure-managed machines** tab if you want to view only the Azure Arc-managed machines; choose the **All machines** tab to view both managed and non-Azure machines with the Azure Monitor agent installed. <!--is this correct?-->
+
 
     :::image type="content" source="media/monitor-data-connector-health/data-health-workbook-3.png" alt-text="data connector health monitoring workbook agent info page" lightbox="media/monitor-data-connector-health/data-health-workbook-3.png":::
 

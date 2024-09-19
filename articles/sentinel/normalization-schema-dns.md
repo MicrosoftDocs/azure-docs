@@ -333,7 +333,7 @@ The changes in version 0.1.7 of the schema are:
 The goal of normalizing is to ensure that all sources provide consistent telemetry. A source that doesn't provide the required telemetry, such as mandatory schema fields, cannot be normalized. However, sources that typically provide all required telemetry, even if there are some discrepancies, can be normalized. Discrepancies may affect the completeness of query results.
 
 The following table lists known discrepancies:
-
+<!--do we add ama in here?-->
 | Source | Discrepancies |
 | ------ | ------------- |
 | Microsoft DNS Server Collected using the DNS connector and the Log Analytics Agent | The connector doesn't provide the mandatory DnsQuery field for original event ID 264 (Response to a dynamic update). The data is available at the source, but not forwarded by the connector. |

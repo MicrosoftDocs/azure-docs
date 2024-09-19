@@ -141,10 +141,6 @@ PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/m
 
 See this [complete description of data collection rules](/azure/azure-monitor/essentials/data-collection-rule-overview) from the Azure Monitor documentation.
 
-## Log Analytics Agent (Legacy)
-
-The Log Analytics agent will be [retired on **31 August, 2024**](https://azure.microsoft.com/updates/were-retiring-the-log-analytics-agent-in-azure-monitor-on-31-august-2024/). If you are using the Log Analytics agent in your Microsoft Sentinel deployment, we recommend that you start planning your migration to the AMA. For more information, see [AMA migration for Microsoft Sentinel](ama-migrate.md).
-
 ### Prerequisites
 
 - You must have read and write permissions on the Log Analytics workspace, and any workspace that contains machines you want to collect logs from.
@@ -163,11 +159,10 @@ The Log Analytics agent will be [retired on **31 August, 2024**](https://azure.m
     | **For an Azure Windows VM** | 1. Under **Choose where to install the agent**, expand **Install agent on Azure Windows virtual machine**. <br><br>2. Select the **Download & install agent for Azure Windows Virtual machines >** link. <br><br>3. In the **Virtual machines** blade, select a virtual machine to install the agent on, and then select **Connect**. Repeat this step for each VM you wish to connect. |
     | **For any other Windows machine** | 1. Under **Choose where to install the agent**, expand **Install agent on non-Azure Windows Machine** <br><br>2. Select the **Download & install agent for non-Azure Windows machines >** link.  <br><br>3. In the **Agents management** blade, on the **Windows servers** tab, select the **Download Windows Agent** link for either 32-bit or 64-bit systems, as appropriate.  <br><br>4. Using the downloaded executable file, install the agent on the Windows systems of your choice, and configure it using the **Workspace ID and Keys** that appear below the download links in the previous step. |
 
-To allow Windows systems without the necessary internet connectivity to still stream events to Microsoft Sentinel, download and install the **Log Analytics Gateway** on a separate machine, using the **Download Log Analytics Gateway** link on the **Agents Management** page, to act as a proxy.  You still need to install the Log Analytics agent on each Windows system whose events you want to collect.
+To allow Windows systems without the necessary internet connectivity to still stream events to Microsoft Sentinel, download and install the **Log Analytics Gateway** on a separate machine, using the **Download Log Analytics Gateway** link on the **Agents Management** page, to act as a proxy.  You still need to install the Log Analytics agent on each Windows system whose events you want to collect. <!--how to update for AMA-->
+
 
 For more information on this scenario, see the [**Log Analytics gateway** documentation](/azure/azure-monitor/agents/gateway).
-
-For additional installation options and further details, see the [**Log Analytics agent** documentation](/azure/azure-monitor/agents/agent-windows).
 
 ### Determine the logs to send
 

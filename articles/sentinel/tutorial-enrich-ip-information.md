@@ -160,7 +160,7 @@ But as you'll see, we have more invalid connections we need to authorize.
 
 1. Enter "*Log Analytics*" as the **Connection name**. 
 
-1. For **Workspace Key** and **Workspace ID**, copy and paste the key and ID from your Log Analytics workspace settings. They can be found in the **Agents management** page, inside the **Log Analytics agent instructions** expander.
+1. For **Workspace Key** and **Workspace ID**, copy and paste the key and ID from your Log Analytics workspace settings. They can be found in the **Agents management** page, inside the **Log Analytics agent instructions** expander. <!--how to replace for ama?-->
 
 1. Select **Update**.
 

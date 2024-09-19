@@ -17,6 +17,7 @@ For example, monitoring your Azure Virtual Desktop environments can enable you t
 
 Azure Virtual Desktop data in Microsoft Sentinel includes the following types:
 
+<!--how to update for AMA-->
 |Data  |Description  |
 |---------|---------|
 |**Windows event logs**     |  Windows event logs from the Azure Virtual Desktop environment are streamed into a Microsoft Sentinel-enabled Log Analytics workspace in the same manner as Windows event logs from other Windows machines, outside of the Azure Virtual Desktop environment. <br><br>Install the Log Analytics agent onto your Windows machine and configure the Windows event logs to be sent to the Log Analytics workspace.<br><br>For more information, see:<br>- [Install Log Analytics agent on Windows computers](/azure/azure-monitor/agents/agent-windows)<br>- [Collect Windows event log data sources with Log Analytics agent](/azure/azure-monitor/agents/data-sources-windows-events)<br>- [Connect Windows security events](connect-windows-security-events.md)       |

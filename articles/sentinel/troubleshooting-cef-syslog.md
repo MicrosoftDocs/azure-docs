@@ -10,6 +10,7 @@ ms.date: 09/17/2024
 
 # [Deprecated] Troubleshoot your CEF or Syslog data connector 
 
+<!--we should be archiving this-->
 [!INCLUDE [data-connector-deprecation](./includes/data-connector-deprecation.md)]
 
 > [!CAUTION]

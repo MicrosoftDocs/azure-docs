@@ -9,6 +9,8 @@ ms.author: yelevin
 
 # Collect data in custom log formats to Microsoft Sentinel with the Log Analytics agent
 
+<!--is this getting archived?-->
+
 This article describes how to collect data from devices that use custom log formats to Microsoft Sentinel using the **Log Analytics agent**. To learn how to ingest custom logs **using the Azure Monitor Agent (AMA)**, see [Collect logs from text files with the Azure Monitor Agent and ingest to Microsoft Sentinel](connect-custom-logs-ama.md).
 
 Many applications log data to text files instead of standard logging services like Windows Event log or Syslog. You can use the Log Analytics agent to collect data in text files of nonstandard formats from both Windows and Linux computers. Once collected, you can either parse the data into individual fields in your queries or extract the data during collection to individual fields.
