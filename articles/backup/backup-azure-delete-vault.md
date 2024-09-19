@@ -31,8 +31,8 @@ If you try to delete the vault without removing the dependencies, you'll encount
 
 > [!NOTE]  
 > Before deleting a Backup protection policy from a vault, you must ensure that
-> - the policy doesn't not have any associated Backup items
-> - each associated item is associated with some other policy
+> - the policy doesn't have any associated Backup items.
+> - each associated item is associated with some other policy.
 
 
 ## Delete a Recovery Services vault
