@@ -2,7 +2,7 @@
 title: Connect to a container debug console in Azure Container Apps
 description: Connect to a container debug console in your container app.
 services: container-apps
-author: fangjimmy
+author: fangjian0423
 ms.service: azure-container-apps
 ms.custom: devx-track-azurecli
 ms.topic: how-to
@@ -23,7 +23,7 @@ You can connect to debug console using the Azure portal or Azure CLI.
 
 
 > [!NOTE]
-> Debug Console will create a separate container, which will share underlying resource with connected container. If you do not need to use a existing debug console any more, please make sure to enter **exit** or use **Ctrl-D** to explicitly exit.
+> Debug Console will create a separate container, which will share underlying resource with connected container(If the debug console container already exists when you try to connect to, we will reuse the existing one instead of creating a new one. At most 1 debug console container will be created per replicae). If you do not need to use a existing debug console container any more, please make sure to enter **exit** or use **Ctrl-D** to explicitly exit.
 
 ## Azure portal
 
@@ -31,7 +31,7 @@ To connect to a container's debug console in the Azure portal, follow these step
 
 1. In the Azure portal, select **Console** in the **Monitoring** menu group from your container app page.
 1. Select the revision, replica, and container you want to connect to.
-1. Selecrt **Debug** tab, then click the Connect button.
+1. Select **Debug** tab, then click the Connect button.
 
 :::image type="content" source="media/observability/debug-console.png" alt-text="Screenshot of Azure Container Apps Debug Console page.":::
 
