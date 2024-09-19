@@ -18,8 +18,6 @@ This article describes the functions that are available in your workspace after 
 
 Content in this article is intended for your **security** teams.
 
-[!INCLUDE [unified-soc-preview](../includes/unified-soc-preview.md)]
-
 ## Use functions in your queries instead of underlying logs or tables
 
 We *strongly recommend* that you use the functions listed in this article as the subjects of their analysis whenever possible, instead of the underlying [logs or tables](sap-solution-log-reference.md).

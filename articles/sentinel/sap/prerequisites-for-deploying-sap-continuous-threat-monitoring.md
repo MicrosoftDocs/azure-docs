@@ -21,8 +21,6 @@ This article lists the prerequisites required for deployment of the Microsoft Se
 
 Content in this article is relevant for your **security**, **infrastructure**, and **SAP BASIS** teams.
 
-[!INCLUDE [unified-soc-preview](../includes/unified-soc-preview.md)]
-
 ## Azure prerequisites
 
 Typically, Azure prerequisites are managed by your **security** teams.

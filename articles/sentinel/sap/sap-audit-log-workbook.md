@@ -26,8 +26,6 @@ For example:
 
 Content in this article is intended for your **security** team.
 
-[!INCLUDE [unified-soc-preview](../includes/unified-soc-preview.md)]
-
 ## Prerequisites
 
 Before you can start using the **SAP - Security Audit log and Initial Access** workbook, you must have:

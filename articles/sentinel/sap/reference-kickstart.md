@@ -21,8 +21,6 @@ For more information, see [Deploy and configure the container hosting the SAP da
 
 Content in this article is intended for your **SAP BASIS** teams.
 
-[!INCLUDE [unified-soc-preview](../includes/unified-soc-preview.md)]
-
 ## Secret storage location
 
 **Parameter name:** `--keymode`

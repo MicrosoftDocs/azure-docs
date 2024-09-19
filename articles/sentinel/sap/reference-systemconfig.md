@@ -21,8 +21,6 @@ The *systemconfig.ini* file is used to configure the behavior of the Microsoft S
 Content in this article is intended for your **SAP BASIS** teams.
 
 > [!IMPORTANT]
-> [!INCLUDE [unified-soc-preview-without-alert](../includes/unified-soc-preview-without-alert.md)]
->
 > Microsoft Sentinel solution for SAP applications uses the *[systemconfig.json file](reference-systemconfig-json.md)* for agent versions released on or after June 22, 2023. For previous agent versions, you must still use the *systemconfig.ini* file.
 >
 > If you update the agent version, the configuration file is automatically migrated.

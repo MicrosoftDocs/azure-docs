@@ -25,8 +25,6 @@ This article describes how to deploy the container that hosts the SAP data conne
 
 Content in this article is relevant for your **security**, **infrastructure**, and  **SAP BASIS** teams.
 
-[!INCLUDE [unified-soc-preview](../includes/unified-soc-preview.md)]
-
 ## Prerequisites
 
 Before you deploy the data connector agent:

@@ -22,8 +22,6 @@ The Microsoft Sentinel solution for SAP applications includes the SAP data conne
 
 Content in this article is relevant for your **security** team.
 
-[!INCLUDE [unified-soc-preview](../includes/unified-soc-preview.md)]
-
 ## Prerequisites
 
 To deploy the Microsoft Sentinel solution for SAP applications from the content hub, you need:

@@ -21,8 +21,6 @@ When you add a new SAP system to Microsoft Sentinel, your default configuration 
 
 Content in this article is intended for your **security**, **infrastructure**, and  **SAP BASIS** teams.
 
-[!INCLUDE [unified-soc-preview](../includes/unified-soc-preview.md)]
-
 ## Attack disruption for SAP and the unified security operations platform
 
 Attack disruption for SAP is configured by updating your data connector agent version and ensuring that the relevant roles are applied in Azure and your SAP system. However, automatic attack disruption itself surfaces only in the unified security operations platform in the Microsoft Defender portal.

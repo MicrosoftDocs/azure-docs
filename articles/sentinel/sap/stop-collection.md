@@ -20,8 +20,6 @@ There may be instances where you need to halt the data collection from your SAP 
 
 This article provides step-by-step instructions on how to stop the ingestion of SAP logs into your Microsoft Sentinel workspace and disable the data connector. 
 
-[!INCLUDE [unified-soc-preview](../includes/unified-soc-preview.md)]
-
 ## Prerequisites
 
 Before you stop the data collection from your SAP applications, ensure you have administrative access to:

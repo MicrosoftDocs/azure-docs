@@ -19,8 +19,6 @@ Use the Microsoft Sentinel solution for SAP applications to monitor your SAP sys
 
 This article introduces you to the Microsoft Sentinel solution for SAP applications deployment.
 
-[!INCLUDE [unified-soc-preview](../includes/unified-soc-preview.md)]
-
 ## Solution components
 
 The Microsoft Sentinel solution for SAP applications includes a data connector, which collects logs from your SAP systems and sends them to your Microsoft Sentinel workspace, and out-of-the-box security content, which helps you gain insight into your organization's SAP environment and detect and respond to security threats.

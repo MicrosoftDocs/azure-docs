@@ -23,8 +23,6 @@ The automatic or manual updates described in this article are relevant to the SA
 
 Content in this article is relevant for your **security**, **infrastructure**, and  **SAP BASIS** teams.
 
-[!INCLUDE [unified-soc-preview](../includes/unified-soc-preview.md)]
-
 ## Prerequisites
 
 Before you start:

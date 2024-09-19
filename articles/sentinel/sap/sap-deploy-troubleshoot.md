@@ -18,7 +18,7 @@ ms.collection: usx-security
 
 This article includes troubleshooting steps to help you ensure accurate and timely data ingestion and monitoring for your SAP environment with Microsoft Sentinel.
 
-[!INCLUDE [unified-soc-preview](../includes/unified-soc-preview.md)]
+In this article, we refer to the **systemconfig.json** file, which is used for agent versions released on or after June 22, 2023. If you're using the an earlier version of the agent, refer to the **systemconfig.ini** file instead.
 
 ## Useful Docker commands
 
@@ -48,7 +48,7 @@ docker logs -f sapcon-[SID]
 
 **Enable debug mode printing**:
 
-1. On your VM, edit the **/opt/sapcon/[SID]/systemconfig.ini** file.
+1. On your VM, edit the **/opt/sapcon/[SID]/systemconfig.josn** file.
 
 1. Define the **General** section if it wasn't previously defined. In this section, define `logging_debug = True`.
 
@@ -65,7 +65,7 @@ The change takes effect two minutes after you save the file. You don't need to r
 
 **Disable debug mode printing**:
 
-1. On your VM, edit the **/opt/sapcon/[SID]/systemconfig.ini** file.
+1. On your VM, edit the **/opt/sapcon/[SID]/systemconfig.json** file.
 
 1. In the **General** section, define `logging_debug = False`.
 
@@ -88,10 +88,7 @@ Connector execution logs for your Microsoft Sentinel solution for SAP applicatio
 
 If you want to check the Microsoft Sentinel for SAP data connector configuration file and make manual updates, perform the following steps:
 
-1. On your VM, open the configuration file:
-
-    - **sapcon/[SID]/systemconfig.json** for agent versions released on or after June 22, 2023.
-    - **sapcon/[SID]/systemconfig.ini** for agent versions released before June 22, 2023.
+1. On your VM, open the configuration file: **sapcon/[SID]/systemconfig.json**
 
 1. Update the configuration if needed, and save the file.
 
@@ -160,7 +157,7 @@ Docker cp SDK by running docker cp nwrfc750P_8-70002752.zip /sapcon-app/inst/
 
 If ABAP runtime errors appear on large systems, try setting a smaller chunk size:
 
-1. Edit the **/opt/sapcon/[SID]/systemconfig.ini** file and in the **Connector Configuration** section define `timechunk = 5`.
+1. Edit the **/opt/sapcon/[SID]/systemconfig.json** file and in the **Connector Configuration** section define `timechunk = 5`.
 
     For example:
 
@@ -196,7 +193,7 @@ docker restart sapcon-[SID]
 
 ### Incorrect SAP ABAP user credentials in a fixed configuration
 
-A fixed configuration is when the password is stored directly in the **systemconfig.ini** configuration file.
+A fixed configuration is when the password is stored directly in the **systemconfig.json** configuration file.
 
 If your credentials there are incorrect, verify your credentials.
 
@@ -267,7 +264,7 @@ If you attempt to retrieve an audit log without the [required configurations](pr
 
 While your system should automatically switch to compatibility mode if needed, you may need to switch it manually. To switch to compatibility mode manually:
 
-1. Edit the **/opt/sapcon/[SID]/systemconfig.ini** file
+1. Edit the **/opt/sapcon/[SID]/systemconfig.json** file
 
 1. In the **Connector Configuration** section defineefine: `auditlogforcexal = True`
 
@@ -359,7 +356,7 @@ Reference files:
 - [Microsoft Sentinel solution for SAP applications solution: security content reference](sap-solution-security-content.md)
 - [Kickstart script reference](reference-kickstart.md)
 - [Update script reference](reference-update.md)
-- [Systemconfig.ini file reference](reference-systemconfig.md)
+- [Microsoft Sentinel solution for SAP applications `systemconfig.json` file reference](reference-systemconfig-json.md)
 
 For more information, see [Microsoft Sentinel solutions](../sentinel-solutions.md).
 

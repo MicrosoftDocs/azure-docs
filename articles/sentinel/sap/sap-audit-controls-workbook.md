@@ -27,8 +27,6 @@ For example:
 Content in this article is intended for your **security** team.
 
 > [!IMPORTANT]
-> [!INCLUDE [unified-soc-preview-without-alert](../includes/unified-soc-preview-without-alert.md)]
->
 > The Microsoft Sentinel SAP Audit Controls workbook is currently in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ## Prerequisites

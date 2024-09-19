@@ -19,8 +19,6 @@ This article describes the configurable parameters available in the update scrip
 
 Content in this article is intended for your **SAP BASIS** teams.
 
-[!INCLUDE [unified-soc-preview](../includes/unified-soc-preview.md)]
-
 ## Script process overview
 
 During a Microsoft Sentinel solution for SAP applications data connector agent update process, the update script takes the following actions:

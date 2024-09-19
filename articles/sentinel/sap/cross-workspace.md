@@ -28,8 +28,6 @@ This article discusses how to work with the Microsoft Sentinel solution for SAP 
 - Insufficient role-based access control (RBAC) in a single workspace.
 
 > [!IMPORTANT]
-> [!INCLUDE [unified-soc-preview-without-alert](../includes/unified-soc-preview-without-alert.md)]
-> 
 > Working with multiple workspaces is currently in preview. This feature is provided without a service-level agreement. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## SAP and SOC data maintained in separate workspaces

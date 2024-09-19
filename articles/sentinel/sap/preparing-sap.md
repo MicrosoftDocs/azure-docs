@@ -25,8 +25,6 @@ This article is part of the second step in deploying the Microsoft Sentinel solu
 
 The procedures in this article are typically performed by your **SAP BASIS** team.
 
-[!INCLUDE [unified-soc-preview](../includes/unified-soc-preview.md)]
-
 ## Prerequisites
 
 - Before you start, make sure to review the [prerequisites for deploying the Microsoft Sentinel solution for SAP applications](prerequisites-for-deploying-sap-continuous-threat-monitoring.md).

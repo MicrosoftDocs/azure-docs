@@ -20,8 +20,6 @@ This article provides procedures for deploying and configuring the Microsoft Sen
 
 Content in this article is intended for your **SAP BASIS** teams. For more information, see [Deploy a SAP data connector agent from the command line](deploy-command-line.md).
 
-[!INCLUDE [unified-soc-preview](../includes/unified-soc-preview.md)]
-
 ## Prerequisites
 
 - Make sure that your system complies with the prerequisites documented in the main [SAP data connector prerequisites document](prerequisites-for-deploying-sap-continuous-threat-monitoring.md) before you start.
