@@ -1,6 +1,16 @@
 {
   "redirections": [
     {
+      "source_path": "articles/governance/machine-configuration/whats-new/migrating-from-dsc-extension.md ",
+      "redirect_url": " https://azure.microsoft.com/updates/migrate-from-linux-dsc-extension-to-the-guest-configuration-feature-of-azure-policy-by-may-1-2025/",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/vpn-gateway/vpn-gateway-about-forced-tunneling.md",
+      "redirect_url": "/previous-versions/azure/vpn-gateway/vpn-gateway-about-forced-tunneling",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/azure-app-configuration/rest-api-postman.md",
       "redirect_url": "/previous-versions/azure/azure-app-configuration/rest-api-postman",
       "redirect_document_id": false
@@ -2536,21 +2546,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/kubernetes-fleet/access-fleet-kubernetes-api.md",
-      "redirect_url": "/azure/kubernetes-fleet/quickstart-access-fleet-kubernetes-api",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/kubernetes-fleet/configuration-propagation.md",
-      "redirect_url": "/azure/kubernetes-fleet/resource-propagation",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/kubernetes-fleet/resource-propagation.md",
-      "redirect_url": "/azure/kubernetes-fleet/concepts-resource-propagation",
-      "redirect_document_id": false
-    },
-    {
       "source_path_from_root": "/articles/labs/anomaly-finder/apiref.md",
       "redirect_url": "/azure/ai-services/anomaly-detector/",
       "redirect_document_id": false
@@ -4748,6 +4743,41 @@
     {
       "source_path_from_root": "/articles/modeling-simulation-workbench/how-to-guide-manage-storage.md",
       "redirect_url": "/azure/modeling-simulation-workbench/concept-storage",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/load-balancer/upgrade-basic-standard.md",
+      "redirect_url": "/azure/load-balancer/upgrade-basic-standard-with-powershell",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/load-balancer/upgrade-basicinternal-standard.md",
+      "redirect_url": "/azure/load-balancer/upgrade-basic-standard-with-powershell",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/load-balancer/load-balancer-ipv6-overview.md",
+      "redirect_url": "/azure/virtual-network/ip-services/ipv6-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-glossary-cloud-terminology.md",
+      "redirect_url": "/azure/cloud-adoption-framework/ready/considerations/fundamental-concepts",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/load-balancer/load-balancer-ipv6-internet-ps.md",
+      "redirect_url": "/azure/load-balancer/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/load-balancer/load-balancer-ipv6-internet-template.md",
+      "redirect_url": "/azure/load-balancer/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/load-balancer/load-balancer-ipv6-internet-cli.md",
+      "redirect_url": "/azure/load-balancer/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell",
       "redirect_document_id": false
     }
   ]

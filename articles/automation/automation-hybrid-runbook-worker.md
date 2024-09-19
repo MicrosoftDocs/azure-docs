@@ -166,9 +166,9 @@ After the Update Management feature is enabled on Windows or Linux machines, you
 If you have more than 2,000 hybrid workers, to get a list of all of them, you can run the following PowerShell script:
 
 ```powershell
-"Get-AzSubscription -SubscriptionName "<subscriptionName>" | Set-AzContext
+Get-AzSubscription -SubscriptionName "<subscriptionName>" | Set-AzContext
 $workersList = (Get-AzAutomationHybridWorkerGroup -ResourceGroupName "<resourceGroupName>" -AutomationAccountName "<automationAccountName>").Runbookworker
-$workersList | export-csv -Path "<Path>\output.csv" -NoClobber -NoTypeInformation"
+$workersList | export-csv -Path "<Path>\output.csv" -NoClobber -NoTypeInformation
 ```
 
 ## Next steps

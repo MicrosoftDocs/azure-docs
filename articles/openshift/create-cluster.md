@@ -6,7 +6,7 @@ ms.author: johnmarc
 ms.topic: article
 ms.service: azure-redhat-openshift
 ms.custom: devx-track-azurecli
-ms.date: 06/12/2024
+ms.date: 09/13/2024
 #Customer intent: As a developer, I want learn how to create an Azure Red Hat OpenShift cluster, scale it, and then clean up resources so that I am not charged for what I'm not using.
 ---
 
@@ -105,7 +105,7 @@ If you provide a custom domain for your cluster, note the following points:
 
 * The OpenShift console will be available at a URL such as `https://console-openshift-console.apps.example.com`, instead of the built-in domain `https://console-openshift-console.apps.<random>.<location>.aroapp.io`.
 
-* By default, OpenShift uses self-signed certificates for all of the routes created on custom domains `*.apps.example.com`.  If you choose to use custom DNS after connecting to the cluster, you will need to follow the OpenShift documentation to [configure a custom CA for your ingress controller](https://docs.openshift.com/container-platform/4.6/security/certificates/replacing-default-ingress-certificate.html) and a [custom CA for your API server](https://docs.openshift.com/container-platform/4.6/security/certificates/api-server.html).
+* By default, OpenShift uses self-signed certificates for all of the routes created on custom domains `*.apps.example.com`.  If you choose to use custom DNS after connecting to the cluster, you will need to follow the OpenShift documentation to [configure a custom CA for your ingress controller](https://docs.openshift.com/container-platform/latest/security/certificates/replacing-default-ingress-certificate.html) and a [custom CA for your API server](https://docs.openshift.com/container-platform/latest/security/certificates/api-server.html).
 
 ### Create a virtual network containing two empty subnets
 
@@ -208,8 +208,14 @@ Run the following command to create a cluster. If you choose to use either of th
 * Optionally, you can [pass your Red Hat pull secret](#get-a-red-hat-pull-secret-optional), which enables your cluster to access Red Hat container registries along with other content. Add the `--pull-secret @pull-secret.txt` argument to your command.
 * Optionally, you can [use a custom domain](#prepare-a-custom-domain-for-your-cluster-optional). Add the `--domain foo.example.com` argument to your command, replacing `foo.example.com` with your own custom domain.
 
+
+<!--
 > [!NOTE]
 > If you're adding any optional arguments to your command, be sure to close the argument on the preceding line of the command with a trailing backslash.
+-->
+
+> [!NOTE]
+> The maximum number of worker nodes definable at creation time is 50. You can scale out up to 250 nodes after the cluster is created.
 
 ```azurecli-interactive
 az aro create \
@@ -220,7 +226,11 @@ az aro create \
   --worker-subnet worker-subnet
 ```
 
-After executing the `az aro create` command, it normally takes about 35 minutes to create a cluster.
+After executing the `az aro create` command, it normally takes about 45 minutes to create a cluster.
+
+#### Large scale ARO clusters
+
+If you are looking to deploy an Azure Red Hat OpenShift cluster with more than 100 worker nodes please see the [Deploy a large Azure Red Hat OpenShift cluster](howto-large-clusters.md)
 
 #### Selecting a different ARO version
 
