@@ -695,7 +695,7 @@
     - name: Built-in analytics dashboard retirement (March 2027)
       href: breaking-changes/analytics-dashboard-retirement-march-2027.md
   - name: Regional availability
-    href: https://azure.microsoft.com/global-infrastructure/services/
+    href: api-management-region-availability.md
   - name: Microsoft Q&A question page
     href: /answers/tags/29/azure-api-management
   - name: Stack Overflow
