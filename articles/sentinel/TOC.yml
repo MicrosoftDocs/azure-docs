@@ -170,8 +170,6 @@
               href: sap/sap-solution-deploy-alternate.md
           - name: SAP deployment reference (advanced)
             items:
-            - name: Monitored SAP security parameters
-              href: sap/sap-suspicious-configuration-security-parameters.md
             - name: Required ABAP permissions
               href: sap/required-abap-authorizations.md
             - name: Kickstart script reference
@@ -195,13 +193,17 @@
           - name: Monitor SAP audit logs
             href: sap/sap-audit-log-workbook.md
           - name: Monitor SAP audit controls
-            href: sap/sap-audit-controls-workbook.md   
-        - name: SAP security content reference
-          href: sap/sap-solution-security-content.md
-        - name: SAP solution function reference
-          href: sap/sap-solution-function-reference.md
-        - name: SAP solution log and table reference
-          href: sap/sap-solution-log-reference.md
+            href: sap/sap-audit-controls-workbook.md
+        - name: SAP solution content reference
+          items:
+          - name: Monitored SAP security parameters
+            href: sap/sap-suspicious-configuration-security-parameters.md
+          - name: SAP security content reference
+            href: sap/sap-solution-security-content.md
+          - name: SAP solution function reference
+            href: sap/sap-solution-function-reference.md
+          - name: SAP solution log and table reference
+            href: sap/sap-solution-log-reference.md
         - name: Stop SAP data collection
           href: sap/stop-collection.md
       - name: SAP BTP
