@@ -152,7 +152,7 @@ sections:
         answer: |
           Yes, you can deploy more virtual machine within the same subnet as a HDInsight cluster. The following configurations are possible:
           
-          - Microsoft Edge nodes: You can add another edge node to the cluster, as described in [Use empty edge nodes on Apache Hadoop clusters in HDInsight](hdinsight-apps-use-edge-node.md).
+          - Edge nodes: You can add another edge node to the cluster, as described in [Use empty edge nodes on Apache Hadoop clusters in HDInsight](hdinsight-apps-use-edge-node.md).
           
           - Standalone nodes:  You can add a standalone virtual machine to the same subnet and access the cluster from that virtual machine by using the private end point `https://<CLUSTERNAME>-int.azurehdinsight.net`. For more information, see [Control network traffic](./control-network-traffic.md).
           
