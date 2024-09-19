@@ -1707,7 +1707,7 @@
         },
         {
             "source_path_from_root": "/articles/sentinel/data-connectors/recommended-fireeye-network-security-nx-via-ama.md",
-            "redirect_url": "/previous-versions/azure/sentinel/data-connectors/recommended-fireeye-network-security-nx-via-ama",
+            "redirect_url": "/previous-versions/azure/sentinel/data-connectors/fireeye-network-security-nx-via-ama",
             "redirect_document_id": false
         },
         {
