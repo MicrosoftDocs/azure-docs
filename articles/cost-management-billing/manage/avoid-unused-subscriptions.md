@@ -34,4 +34,4 @@ When your subscription gets blocked, you receive another notification. The notif
 
 ## Related content
 
-- [Create a support request in the Azure portal](../../azure-portal/supportability/how-to-create-azure-support-request.md)
+- [Create a support request in the Azure portal](/azure/azure-portal/supportability/how-to-create-azure-support-request)
