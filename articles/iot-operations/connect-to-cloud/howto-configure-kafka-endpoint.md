@@ -294,13 +294,9 @@ kafkaSettings:
 
 ## Advanced settings
 
-You can set advanced settings for the Kafka dataflow endpoint such as TLS, trusted CA certificate, Kafka messaging settings, batching, and CloudEvents.
-
-# [Portal](#tab/portal)
+You can set advanced settings for the Kafka dataflow endpoint such as TLS, trusted CA certificate, Kafka messaging settings, batching, and CloudEvents. You can set these settings in the dataflow endpoint **Advanced** portal tab or within the dataflow endpoint custom resource.
 
 :::image type="content" source="media/howto-configure-kafka-endpoint/kafka-advanced.png" alt-text="Screenshot using operations portal to set Kafka dataflow endpoint advanced settings.":::
-
-# [Kubernetes](#tab/kubernetes)
 
 ### TLS settings
 
@@ -623,5 +619,3 @@ CloudEvent properties are passed through for messages that contain the required 
 | `time`            | No       | `ce-time`            | Generated as RFC 3339 in the target client                                    |
 | `datacontenttype` | No       | `ce-datacontenttype` | Changed to the output data content type after the optional transform stage    |
 | `dataschema`      | No       | `ce-dataschema`      | Schema defined in the schema registry                                         |
-
----

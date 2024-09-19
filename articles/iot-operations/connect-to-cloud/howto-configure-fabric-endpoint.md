@@ -183,13 +183,9 @@ fabricOneLakeSettings:
 
 ## Advanced settings
 
-You can set advanced settings for the Fabric OneLake endpoint, such as the batching latency and message count.
-
-# [Portal](#tab/portal)
+You can set advanced settings for the Fabric OneLake endpoint, such as the batching latency and message count. You can set these settings in the dataflow endpoint **Advanced** portal tab or within the dataflow endpoint custom resource.
 
 :::image type="content" source="media/howto-configure-fabric-endpoint/fabric-advanced.png" alt-text="Screenshot using operations portal to set Azure Data Explorer advanced settings.":::
-
-# [Kubernetes](#tab/kubernetes)
 
 Use the `batching` settings to configure the maximum number of messages and the maximum latency before the messages are sent to the destination. This setting is useful when you want to optimize for network bandwidth and reduce the number of requests to the destination.
 

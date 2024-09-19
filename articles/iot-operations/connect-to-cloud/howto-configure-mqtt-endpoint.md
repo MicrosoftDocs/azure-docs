@@ -248,13 +248,9 @@ mqttSettings:
 
 ## Advanced settings
 
-You can set advanced settings for the MQTT broker dataflow endpoint such as TLS, trusted CA certificate, MQTT messaging settings, and CloudEvents.
-
-# [Portal](#tab/portal)
+You can set advanced settings for the MQTT broker dataflow endpoint such as TLS, trusted CA certificate, MQTT messaging settings, and CloudEvents. You can set these settings in the dataflow endpoint **Advanced** portal tab or within the dataflow endpoint custom resource.
 
 :::image type="content" source="media/howto-configure-mqtt-endpoint/mqtt-advanced.png" alt-text="Screenshot using operations portal to set Kafka dataflow endpoint advanced settings.":::
-
-# [Kubernetes](#tab/kubernetes)
 
 ### TLS
 
