@@ -9,7 +9,7 @@ ms.date: 06/18/2024
 
 # Deploy a log forwarder to ingest Syslog and CEF logs to Microsoft Sentinel
 
-<!--is this getting archived? if not, we should.-->
+<!--confirmed this is getting archived-->
 > [!CAUTION]
 > This article references CentOS, a Linux distribution that has reached End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](/azure/virtual-machines/workloads/centos/centos-end-of-life).
 
