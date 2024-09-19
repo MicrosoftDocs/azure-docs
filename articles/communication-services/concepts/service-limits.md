@@ -35,7 +35,7 @@ You can find more general guidance on how to set up your service architecture to
 8. Add **Additional details** as needed, then click **Next**.
 9. At **Review + create** check the information, make changes as needed, then click **Create**.
   
-You can follow the documentation for [creating request to Azure Support](../../azure-portal/supportability/how-to-create-azure-support-request.md).
+You can follow the documentation for [creating request to Azure Support](/azure/azure-portal/supportability/how-to-create-azure-support-request).
 
 ## Acquiring phone numbers
 Before acquiring a phone number, make sure your subscription meets the [geographic and subscription](./telephony/plan-solution.md) requirements. Otherwise, you can't purchase a phone number. The following limitations apply to purchasing numbers through the [Phone Numbers SDK](./reference.md) and the [Azure portal](https://portal.azure.com/).
@@ -79,7 +79,7 @@ Rate Limits for SMS:
 |Send Message|Alphanumeric Sender ID |Per resource|60|600|600|
 
 ### Action to take
-If you have requirements that exceed the rate-limits, submit [a request to Azure Support](../../azure-portal/supportability/how-to-create-azure-support-request.md) to enable higher throughput.
+If you have requirements that exceed the rate-limits, submit [a request to Azure Support](/azure/azure-portal/supportability/how-to-create-azure-support-request) to enable higher throughput.
 
 
 For more information on the SMS SDK and service, see the [SMS SDK overview](./sms/sdk-features.md) page or the [SMS FAQ](./sms/sms-faq.md) page.
@@ -199,7 +199,7 @@ If you have strict compliance needs, we recommend that you delete chat threads u
 | Default number of outbound* concurrent calls | per Number | 2 |
 
 > [!NOTE] 
-> \* No limits on inbound concurrent calls. You can also [submit a request to Azure Support](../../azure-portal/supportability/how-to-create-azure-support-request.md) to increase the outbound concurrent calls limit, which is reviewed by our vetting team.
+> \* No limits on inbound concurrent calls. You can also [submit a request to Azure Support](/azure/azure-portal/supportability/how-to-create-azure-support-request) to increase the outbound concurrent calls limit, which is reviewed by our vetting team.
 
 ### Call maximum limitations
 
@@ -234,7 +234,7 @@ The following timeouts apply to the Communication Services Calling SDKs:
 
 ### Action to take
 
-For more information about the voice and video calling SDK and service, see the [calling SDK overview](./voice-video-calling/calling-sdk-features.md) page or [known issues](./known-issues.md). You can also [submit a request to Azure Support](../../azure-portal/supportability/how-to-create-azure-support-request.md) to increase some of the limits, pending review by our vetting team.
+For more information about the voice and video calling SDK and service, see the [calling SDK overview](./voice-video-calling/calling-sdk-features.md) page or [known issues](./known-issues.md). You can also [submit a request to Azure Support](/azure/azure-portal/supportability/how-to-create-azure-support-request) to increase some of the limits, pending review by our vetting team.
 
 ## Job Router
 When sending or receiving a high volume of requests, you might receive a ```ThrottleLimitExceededException``` error. This error indicates you're hitting the service limitations, and your requests fail until the token of bucket to handle requests is replenished after a certain time.

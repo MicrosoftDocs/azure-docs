@@ -5,7 +5,7 @@ author: halkazwini
 ms.author: halkazwini
 ms.service: azure-route-server
 ms.topic: quickstart
-ms.date: 09/20/2024
+ms.date: 09/19/2024
 ms.custom: devx-track-azurepowershell, mode-api
 ---
 
@@ -60,12 +60,13 @@ In this section, you create a route server. Prior to creating the route server, 
 
     ```azurepowershell-interactive
     # Create a Standard public IP and place it into a variable.
-    $publicIp = New-AzPublicIpAddress -ResourceGroupName 'RouteServerRG' -Name 'myRouteServerIP' -Location 'WestUS' -AllocationMethod 'Static' -Sku 'Standard' IpAddressVersion = 'Ipv4'
+    $publicIp = New-AzPublicIpAddress -ResourceGroupName 'RouteServerRG' -Name 'myRouteServerIP' -Location 'WestUS' -AllocationMethod 'Static' -Sku 'Standard' -IpAddressVersion 'Ipv4'
     ```
 
 1. Create the route server using [New-AzRouteServer](/powershell/module/az.network/new-azrouteserver). The following example creates a route server named **myRouteServer** in the **WestUS** region. The *HostedSubnet* is the resource ID of the RouteServerSubnet created in the previous section.
 
     ```azurepowershell-interactive
+    # Create a route server.
     New-AzRouteServer -RouteServerName 'myRouteServer' -ResourceGroupName 'RouteServerRG' -Location 'WestUS' -HostedSubnet $subnetId -PublicIP $publicIp
     ```
 
@@ -76,6 +77,7 @@ In this section, you create a route server. Prior to creating the route server, 
 In this section, you learn how to configure BGP peering with a network virtual appliance (NVA). Use [Add-AzRouteServerPeer](/powershell/module/az.network/add-azrouteserverpeer) to establish BGP peering from the route server to your NVA. The following example adds a peer named **myNVA** that has an IP address of **10.0.0.4** and an ASN of **65001**. For more information, see [What Autonomous System Numbers (ASNs) can I use?](route-server-faq.md#what-autonomous-system-numbers-asns-can-i-use)
 
 ```azurepowershell-interactive
+# Add a peer.
 Add-AzRouteServerPeer -ResourceGroupName 'RouteServerRG' -RouteServerName 'myRouteServer' -PeerName 'myNVA' -PeerAsn '65001' -PeerIp '10.0.0.4'
 ```
 
@@ -84,10 +86,11 @@ Add-AzRouteServerPeer -ResourceGroupName 'RouteServerRG' -RouteServerName 'myRou
 To complete the peering setup, you must configure the NVA to establish a BGP session with the route server's peer IPs and ASN. Use [Get-AzRouteServer](/powershell/module/az.network/get-azrouteserver) to get the IP and ASN of the route server.
 
 ```azurepowershell-interactive
+# Get the route server details.
 Get-AzRouteServer -ResourceGroupName 'RouteServerRG' -RouteServerName 'myRouteServer'
 ```
 
-The output looks like the following:
+The output looks like the following example:
 
 ```output
 ResourceGroupName Name          Location RouteServerAsn RouteServerIps       ProvisioningState HubRoutingPreference AllowBranchToBranchTraffic

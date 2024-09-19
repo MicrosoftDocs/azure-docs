@@ -89,10 +89,6 @@ For more information about the codeless connector platform, see [Create a codele
 - [Amazon Web Services](data-connectors/amazon-web-services.md)
 - [Amazon Web Services S3](data-connectors/amazon-web-services-s3.md)
 
-## Apache
-
-- [Apache Tomcat](data-connectors/apache-tomcat.md)
-
 ## archTIS
 
 - [NC Protect](data-connectors/nc-protect.md)
@@ -154,7 +150,6 @@ For more information about the codeless connector platform, see [Create a codele
 
 ## Claroty
 
-- [[Recommended] Claroty via AMA](data-connectors/recommended-claroty-via-ama.md)
 - [Claroty xDome](data-connectors/claroty-xdome.md)
 
 ## Cloudflare
@@ -182,10 +177,6 @@ For more information about the codeless connector platform, see [Create a codele
 - [CrowdStrike Falcon Adversary Intelligence (using Azure Functions)](data-connectors/crowdstrike-falcon-adversary-intelligence.md)
 - [Crowdstrike Falcon Data Replicator (using Azure Functions)](data-connectors/crowdstrike-falcon-data-replicator.md)
 - [Crowdstrike Falcon Data Replicator V2 (using Azure Functions)](data-connectors/crowdstrike-falcon-data-replicator-v2.md)
-
-## Cyber Defense Group B.V.
-
-- [ESET PROTECT](data-connectors/eset-protect.md)
 
 ## CyberArk
 
@@ -228,10 +219,6 @@ For more information about the codeless connector platform, see [Create a codele
 
 - [Derdack SIGNL4](data-connectors/derdack-signl4.md)
 
-## Digital Guardian
-
-- [Digital Guardian Data Loss Prevention](data-connectors/digital-guardian-data-loss-prevention.md)
-
 ## Digital Shadows
 
 - [Digital Shadows Searchlight (using Azure Functions)](data-connectors/digital-shadows-searchlight.md)
@@ -247,10 +234,6 @@ For more information about the codeless connector platform, see [Create a codele
 
 - [Elastic Agent (Standalone)](data-connectors/elastic-agent-standalone.md)
 
-## Exabeam
-
-- [Exabeam Advanced Analytics](data-connectors/exabeam-advanced-analytics.md)
-
 ## F5, Inc.
 
 - [F5 BIG-IP](data-connectors/f5-big-ip.md)
@@ -262,10 +245,6 @@ For more information about the codeless connector platform, see [Create a codele
 ## Feedly, Inc.
 
 - [Feedly](data-connectors/feedly.md)
-
-## Fireeye
-
-- [[Recommended] FireEye Network Security (NX) via AMA](data-connectors/recommended-fireeye-network-security-nx-via-ama.md)
 
 ## Flare Systems
 
@@ -284,10 +263,6 @@ For more information about the codeless connector platform, see [Create a codele
 
 - [Gigamon AMX Data Connector](data-connectors/gigamon-amx-data-connector.md)
 
-## GitLab
-
-- [GitLab](data-connectors/gitlab.md)
-
 ## Google
 
 - [Google Cloud Platform DNS (using Azure Functions)](data-connectors/google-cloud-platform-dns.md)
@@ -304,10 +279,6 @@ For more information about the codeless connector platform, see [Create a codele
 
 - [Holm Security Asset Data (using Azure Functions)](data-connectors/holm-security-asset-data.md)
 
-## Illumio
-
-- [[Recommended] Illumio Core via AMA](data-connectors/recommended-illumio-core-via-ama.md)
-
 ## Imperva
 
 - [Imperva Cloud WAF (using Azure Functions)](data-connectors/imperva-cloud-waf.md)
@@ -320,27 +291,14 @@ For more information about the codeless connector platform, see [Create a codele
 
 - [Rapid7 Insight Platform Vulnerability Management Reports (using Azure Functions)](data-connectors/rapid7-insight-platform-vulnerability-management-reports.md)
 
-## ISC
-
-- [ISC Bind](data-connectors/isc-bind.md)
-
 ## Island Technology Inc.
 
 - [Island Enterprise Browser Admin Audit (Polling CCP)](data-connectors/island-enterprise-browser-admin-audit-polling-ccp.md)
 - [Island Enterprise Browser User Activity (Polling CCP)](data-connectors/island-enterprise-browser-user-activity-polling-ccp.md)
 
-## Ivanti
-
-- [Ivanti Unified Endpoint Management](data-connectors/ivanti-unified-endpoint-management.md)
-
 ## Jamf Software, LLC
 
 - [Jamf Protect](data-connectors/jamf-protect.md)
-
-## Juniper
-
-- [Juniper IDP](data-connectors/juniper-idp.md)
-- [Juniper SRX](data-connectors/juniper-srx.md)
 
 ## Linux
 
@@ -354,10 +312,6 @@ For more information about the codeless connector platform, see [Create a codele
 ## MailGuard Pty Limited
 
 - [MailGuard 365](data-connectors/mailguard-365.md)
-
-## MarkLogic
-
-- [MarkLogic Audit](data-connectors/marklogic-audit.md)
 
 ## McAfee
 
@@ -424,9 +378,6 @@ For more information about the codeless connector platform, see [Create a codele
 
 ## Microsoft Sentinel Community, Microsoft Corporation
 
-- [[Recommended] Forcepoint CASB via AMA](data-connectors/recommended-forcepoint-casb-via-ama.md)
-- [[Recommended] Forcepoint CSG via AMA](data-connectors/recommended-forcepoint-csg-via-ama.md)
-- [[Recommended] Forcepoint NGFW via AMA](data-connectors/recommended-forcepoint-ngfw-via-ama.md)
 - [Exchange Security Insights Online Collector (using Azure Functions)](data-connectors/exchange-security-insights-online-collector.md)
 - [Exchange Security Insights On-Premises Collector](data-connectors/exchange-security-insights-on-premises-collector.md)
 - [Microsoft Exchange Logs and Events](data-connectors/microsoft-exchange-logs-and-events.md)
@@ -546,10 +497,6 @@ For more information about the codeless connector platform, see [Create a codele
 
 - [Qualys Vulnerability Management (using Azure Functions)](data-connectors/qualys-vulnerability-management.md)
 - [Qualys VM KnowledgeBase (using Azure Functions)](data-connectors/qualys-vm-knowledgebase.md)
-
-## RedHat
-
-- [JBoss Enterprise Application Platform](data-connectors/jboss-enterprise-application-platform.md)
 
 ## Ridge Security Technology Inc.
 
