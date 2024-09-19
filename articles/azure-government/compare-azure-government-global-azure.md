@@ -288,7 +288,7 @@ The following Automation **features aren't currently available** in Azure Govern
 
 For feature variations and limitations, see [Azure Advisor in sovereign clouds](/azure/advisor/advisor-sovereign-clouds).
 
-### [Azure Lighthouse](../lighthouse/index.yml)
+### [Azure Lighthouse](/azure/lighthouse/)
 
 The following Azure Lighthouse **features aren't currently available** in Azure Government:
 

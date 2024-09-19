@@ -326,10 +326,10 @@
     items:
     - name: Deploy a policy at scale
       displayName: lighthouse, scale, deploy
-      href: ../../lighthouse/how-to/policy-at-scale.md?toc=/azure/governance/policy/toc.json&bc=/azure/governance/policy/breadcrumb/toc.json
+      href: /azure/lighthouse/how-to/policy-at-scale?toc=/azure/governance/policy/toc.json&bc=/azure/governance/policy/breadcrumb/toc.json
     - name: Deploy a policy that can be remediated
       displayName: lighthouse, scale, remediate
-      href: ../../lighthouse/how-to/deploy-policy-remediation.md?toc=/azure/governance/policy/toc.json&bc=/azure/governance/policy/breadcrumb/toc.json
+      href: /azure/lighthouse/how-to/deploy-policy-remediation?toc=/azure/governance/policy/toc.json&bc=/azure/governance/policy/breadcrumb/toc.json
   - name: Azure Monitor integration
     items:
     - name: Enable VM insights
