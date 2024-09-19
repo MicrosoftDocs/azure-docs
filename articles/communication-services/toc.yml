@@ -953,8 +953,8 @@ items:
         href: concepts/telephony/certified-session-border-controllers.md
       - name: Inbound telephony calling capabilities
         href: concepts/telephony/inbound-calling-capabilities.md
-      - name: Outbound calling with Toll-Free numbers
-        href: concepts/telephony/outbound-calling.md
+      - name: Calling with Toll-Free numbers
+        href: concepts/telephony/tollfree-calling.md
       - name: Known limitations
         href: concepts/telephony/known-limitations-acs-telephony.md
       - name: Troubleshooting
