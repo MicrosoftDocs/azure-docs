@@ -29,11 +29,11 @@ In this quickstart, you learn how to create an Azure Route Server to peer with a
 
     You can also [install Azure PowerShell locally](/powershell/azure/install-azure-powershell) to run the cmdlets. If you run PowerShell locally, sign in to Azure using the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet.
 
-## Create a Route Server
+## Create a route server
 
 In this section, you create a route server. Prior to creating the route server, you create a resource group to host all resources including the route server. You'll also create a virtual network with a dedicated subnet for the route server.
 
-1. Create a a resource group using [New-AzResourceGroup](/powershell/module/az.Resources/New-azResourceGroup). The following example creates a resource group named **RouteServerRG** in the **WestUS** region:
+1. Create a resource group using [New-AzResourceGroup](/powershell/module/az.Resources/New-azResourceGroup). The following example creates a resource group named **RouteServerRG** in the **WestUS** region:
 
     ```azurepowershell-interactive
     # Create a resource group.
