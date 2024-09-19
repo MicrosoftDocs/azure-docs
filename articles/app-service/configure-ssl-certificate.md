@@ -4,7 +4,7 @@ description: Create a free certificate, import an App Service certificate, impor
 tags: buy-ssl-certificates
 
 ms.topic: tutorial
-ms.date: 08/22/2024
+ms.date: 09/19/2024
 ms.reviewer: yutlin
 ms.author: msangapu
 author: msangapu-msft
@@ -144,10 +144,10 @@ By default, the App Service resource provider doesn't have access to your key va
 |--|--|--|
 | **Microsoft Azure App Service** or **Microsoft.Azure.WebSites** | - `abfa0a7c-a6b6-4736-8310-5855508787cd` for public Azure cloud environment <br><br>- `6a02c803-dafd-4136-b4c3-5a6f318b4714` for Azure Government cloud environment | Certificate User |
 
-The service principal app ID or assignee value is the ID for App Service resource provider. To learn how to authorize key vault permissions for App Service resource provider using access policy refer to the [provide access to Key Vault keys, certificates, and secrets with an Azure role-based access control documentation](/azure/key-vault/general/rbac-guide?tabs=azure-portal#key-vault-scope-role-assignment).
+The service principal app ID or assignee value is the ID for App Service resource provider. To learn how to authorize key vault permissions for the App Service resource provider using access policy, see the [provide access to Key Vault keys, certificates, and secrets with an Azure role-based access control documentation](/azure/key-vault/general/rbac-guide?tabs=azure-portal#key-vault-scope-role-assignment).
 
 > [!NOTE]
-> Do not delete these RBAC permissions from key vault, otherwise App Service will not be able to sync your web app with the latest key vault certificate version.
+> Do not delete these RBAC permissions from key vault. If you do, App Service will not be able to sync your web app with the latest key vault certificate version.
 
 ### [Access policy permissions](#tab/accesspolicy)
 
@@ -155,10 +155,10 @@ The service principal app ID or assignee value is the ID for App Service resourc
 |--|--|--|--|
 | **Microsoft Azure App Service** or **Microsoft.Azure.WebSites** | - `abfa0a7c-a6b6-4736-8310-5855508787cd` for public Azure cloud environment <br><br>- `6a02c803-dafd-4136-b4c3-5a6f318b4714` for Azure Government cloud environment | Get | Get |
 
-The service principal app ID or assignee value is the ID for App Service resource provider. To learn how to authorize key vault permissions for App Service resource provider using access policy refer to the [assign a Key Vault access policy documentation](/azure/key-vault/general/assign-access-policy?tabs=azure-portal).
+The service principal app ID or assignee value is the ID for App Service resource provider. To learn how to authorize key vault permissions for the App Service resource provider using access policy, see the [assign a Key Vault access policy documentation](/azure/key-vault/general/assign-access-policy?tabs=azure-portal).
 
 > [!NOTE]
-> Do not delete these access policy permissions from key vault, otherwise App Service will not be able to sync your web app with the latest key vault certificate version.
+> Do not delete these access policy permissions from key vault. If you do, App Service will not be able to sync your web app with the latest key vault certificate version.
 
 ---
 
