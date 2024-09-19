@@ -93,7 +93,7 @@ Azure Operator Service Manager is a cloud orchestration service that enables aut
 * Is NFO update required: YES, UPDATE ONLY
 
 ### Release Installation
-This release can be installed with as an update on top of release 2.0.2763-119.  
+This release can be installed with as an update on top of release 2.0.2763-119. Please see the following [learn documentation](manage-network-function-operator.md) for additional installation guidance.
 
 ### Issues Resolved in This Release 
 
@@ -165,7 +165,7 @@ Azure Operator Service Manager is a cloud orchestration service that enables aut
 * Dependency Versions: Go/1.22.4  Helm/3.15.2
 
 ### Release Installation
-This release can be installed with as an update on top of release 2.0.2783-134.  
+This release can be installed with as an update on top of release 2.0.2783-134. Please see the following [learn documentation](manage-network-function-operator.md) for additional installation guidance.
 
 ### Release Highlights
 #### Cluster Registry – Garbage Collection 
@@ -197,7 +197,7 @@ Azure Operator Service Manager is a cloud orchestration service that enables aut
 * Dependency Versions: Go/1.22.4 - Helm/3.15.2
 
 ### Release Installation
-This release can be installed with as an update on top of release 2.0.2788-135.  
+This release can be installed with as an update on top of release 2.0.2788-135. Please see the following [learn documentation](manage-network-function-operator.md) for additional installation guidance.
 
 ### Release Highlights
 #### High availability for cluster registry and webhook.
@@ -220,7 +220,7 @@ The following bug fixes, or other defect resolutions, are delivered with this re
 
 * CVE	- A total of one CVE is addressed in this release.
 
-* ## Release 2.0.2810-144
+## Release 2.0.2810-144
 
 Document Revision 1.1
 
@@ -234,7 +234,7 @@ Azure Operator Service Manager is a cloud orchestration service that enables aut
 * Dependency Versions: Go/1.22.4 - Helm/3.15.2
 
 ### Release Installation
-This release can be installed with as an update on top of release 2.0.2788-144.  Please see the following [learn documentation](manage-network-function-operator.md) for additional installation guidance. 
+This release can be installed with as an update on top of release 2.0.2804-137. Please see the following [learn documentation](manage-network-function-operator.md) for additional installation guidance.
 
 ### Issues Resolved in This Release 
 

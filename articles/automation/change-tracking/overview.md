@@ -53,7 +53,7 @@ Machines connected to the Log Analytics workspace use the [Log Analytics agent](
 > [!NOTE]
 > Change Tracking and Inventory requires linking a Log Analytics workspace to your Automation account. For a definitive list of supported regions, see [Azure Workspace mappings](../how-to/region-mappings.md). The region mappings don't affect the ability to manage VMs in a separate region from your Automation account.
 
-As a service provider, you may have onboarded multiple customer tenants to [Azure Lighthouse](../../lighthouse/overview.md). Azure Lighthouse allows you to perform operations at scale across several Microsoft Entra tenants at once, making management tasks like Change Tracking and Inventory more efficient across those tenants you're responsible for. Change Tracking and Inventory can manage machines in multiple subscriptions in the same tenant, or across tenants using [Azure delegated resource management](../../lighthouse/concepts/architecture.md).
+As a service provider, you may have onboarded multiple customer tenants to [Azure Lighthouse](/azure/lighthouse/overview). Azure Lighthouse allows you to perform operations at scale across several Microsoft Entra tenants at once, making management tasks like Change Tracking and Inventory more efficient across those tenants you're responsible for. Change Tracking and Inventory can manage machines in multiple subscriptions in the same tenant, or across tenants using [Azure delegated resource management](/azure/lighthouse/concepts/architecture).
 
 ## Current limitations
 
@@ -140,7 +140,7 @@ You can enable Change Tracking and Inventory in the following ways:
 
 - From your [Automation account](enable-from-automation-account.md) for one or more Azure and non-Azure machines.
 
-- Manually for non-Azure machines, including machines or servers registered with [Azure Arc-enabled servers](../../azure-arc/servers/overview.md). For hybrid machines, we recommend installing the Log Analytics agent for Windows by first connecting your machine to [Azure Arc-enabled servers](../../azure-arc/servers/overview.md), and then using Azure Policy to assign the [Deploy Log Analytics agent to *Linux* or *Windows* Azure Arc machines](../../governance/policy/samples/built-in-policies.md#monitoring) built-in policy. If you plan to also monitor the machines with Azure Monitor for VMs, instead use the [Enable Azure Monitor for VMs](../../governance/policy/samples/built-in-initiatives.md#monitoring) initiative.
+- Manually for non-Azure machines, including machines or servers registered with [Azure Arc-enabled servers](/azure/azure-arc/servers/overview). For hybrid machines, we recommend installing the Log Analytics agent for Windows by first connecting your machine to [Azure Arc-enabled servers](/azure/azure-arc/servers/overview), and then using Azure Policy to assign the [Deploy Log Analytics agent to *Linux* or *Windows* Azure Arc machines](../../governance/policy/samples/built-in-policies.md#monitoring) built-in policy. If you plan to also monitor the machines with Azure Monitor for VMs, instead use the [Enable Azure Monitor for VMs](../../governance/policy/samples/built-in-initiatives.md#monitoring) initiative.
 
 - For a single Azure VM from the [Virtual machine page](enable-from-vm.md) in the Azure portal. This scenario is available for Linux and Windows VMs.
 
