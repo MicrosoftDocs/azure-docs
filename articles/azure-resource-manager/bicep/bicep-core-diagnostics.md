@@ -143,7 +143,7 @@ If you need more information about a particular diagnostic code, select the **Fe
 | <a id='BCP136' />BCP136 | Error | Expected a loop item variable identifier at this location. |
 | <a id='BCP137' />BCP137 | Error | Loop expected an expression of type "{LanguageConstants.Array}" but the provided value is of type "{actualType}". |
 | <a id='BCP138' />BCP138 | Error | For-expressions aren't supported in this context. For-expressions may be used as values of resource, module, variable, and output declarations, or values of resource and module properties. |
-| <a id='BCP139' />BCP139 | Warning | A resource's scope must match the scope of the Bicep file for it to be deployable. You must use modules to deploy resources to a different scope. |
+| <a id='BCP083' />[BCP139](./diagnostics/bcp139.md) | Error | A resource's scope must match the scope of the Bicep file for it to be deployable. You must use modules to deploy resources to a different scope. |
 | <a id='BCP140' />BCP140 | Error | The multi-line string at this location isn't terminated. Terminate it with "'''. |
 | <a id='BCP141' />BCP141 | Error | The expression can't be used as a decorator as it isn't callable. |
 | <a id='BCP142' />BCP142 | Error | Property value for-expressions can't be nested. |
