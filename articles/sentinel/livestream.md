@@ -41,7 +41,7 @@ You can create a livestream session from an existing hunting query, or create yo
     - If you started livestream from a query, review the query and make any changes you want to make.
     - If you started livestream from scratch, create your query.
 
-    Livestream supports **cross-resource queries** of data in Azure Data Explorer. [**Learn more about cross-resource queries**](../azure-monitor/logs/azure-monitor-data-explorer-proxy.md).
+    Livestream supports **cross-resource queries** of data in Azure Data Explorer. [**Learn more about cross-resource queries**](/azure/azure-monitor/logs/azure-monitor-data-explorer-proxy).
 
 1. Select **Play** from the command bar.
     

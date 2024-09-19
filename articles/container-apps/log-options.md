@@ -72,7 +72,7 @@ To create a new *diagnostic setting*:
     - **Send to a partner solution**: Select from Azure partner solutions.  
 1. Select **Save**.
 
-For more information about Diagnostic settings, see [Diagnostic settings in Azure Monitor](../azure-monitor/essentials/diagnostic-settings.md).
+For more information about Diagnostic settings, see [Diagnostic settings in Azure Monitor](/azure/azure-monitor/essentials/diagnostic-settings).
 
 ## Configure options using the Azure CLI
 

@@ -8,9 +8,10 @@ author: toddysm
 ms.custom: mode-other, devx-track-azurecli
 ms.devlang: azurecli
 ms.service: azure-container-registry
+#customer intent: To deploy a connected registry resource to an Azure IoT Edge device using the Azure CLI.
 ---
 
-# Quickstart: Deploy a connected registry to an IoT Edge device
+# Quickstart: Deploy a connected registry to an IoT Edge device (To be deprecated)
 
 In this quickstart, you use the Azure CLI to deploy a [connected registry](intro-connected-registry.md) as a module on an Azure IoT Edge device. The IoT Edge device can access the parent Azure container registry in the cloud.
 
