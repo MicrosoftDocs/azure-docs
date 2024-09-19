@@ -1,5 +1,5 @@
 ---
-title: 'Connect Azure Front Door Premium to an application gateway origin with Private Link'
+title: 'Connect Azure Front Door Premium to an application gateway origin with Private Link (preview)'
 titleSuffix: Azure Private Link
 description: Learn how to connect your Azure Front Door Premium to an application gateway privately.
 services: frontdoor
@@ -25,7 +25,7 @@ This article will guide you through how to configure Azure Front Door Premium ti
 - Have a functioning Azure Application Gateway. For more information on how to create an Application Gateway, see [Direct web traffic with Azure Application Gateway - Azure CLI](/articles/application-gateway/quick-create-cli.md)
 
 ## Enable Private Link on Application Gateway
-1. Follow the steps in [Configure Azure Application Gateway Private Link](/articles/application-gateway/private-link-configure?tabs=cli). Skip the last step of creating a private endpoint.
+1. Follow the steps in [Configure Azure Application Gateway Private Link](/articles/application-gateway/private-link-configure.md). Skip the last step of creating a private endpoint.
 
 ## Create origin group and origin on Azure Front Door
 
@@ -114,7 +114,7 @@ Your Front Door profile has become fully functional with the last step.
 - Have a functioning Azure Application Gateway. For more information on how to create an Application Gateway, see [Direct web traffic with Azure Application Gateway using Azure PowerShell](/articles/application-gateway/quick-create-powershell.md)
 
 ## Enable Private Link on Application Gateway
-1. Follow the steps in [Configure Azure Application Gateway Private Link](/articles/application-gateway/private-link-configure?tabs=powershell). Skip the last step of creating a private endpoint.
+1. Follow the steps in [Configure Azure Application Gateway Private Link](/articles/application-gateway/private-link-configure.md). Skip the last step of creating a private endpoint.
 
 ## Create origin group and origin on Azure Front Door
 1. Use [New-AzFrontDoorCdnOriginGroupHealthProbeSettingObject](/powershell/module/az.cdn/new-azfrontdoorcdnorigingrouphealthprobesettingobject) and [New-AzFrontDoorCdnOriginGroupLoadBalancingSettingObject](/powershell/module/az.cdn/new-azfrontdoorcdnorigingrouploadbalancingsettingobject) to create  in-memory objects for storing health probe and load balancing settings. Run [New-AzFrontDoorCdnOriginGroup](/powershell/module/az.cdn/new-azfrontdoorcdnorigingroup) to create an origin group that will contain your application gateway.
