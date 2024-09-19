@@ -1,15 +1,15 @@
 ---
-title: 'Quickstart: Create an Azure Route Server - Azure PowerShell'
+title: 'Quickstart: Create an Azure Route Server - PowerShell'
 description: In this quickstart, you learn how to create an Azure Route Server using Azure PowerShell.
 author: halkazwini
 ms.author: halkazwini
 ms.service: azure-route-server
 ms.topic: quickstart
-ms.date: 09/19/2024
+ms.date: 09/20/2024
 ms.custom: devx-track-azurepowershell, mode-api
 ---
 
-# Quickstart: Create an Azure Route Server using Azure PowerShell
+# Quickstart: Create an Azure Route Server using PowerShell
 
 In this quickstart, you learn how to create an Azure Route Server to peer with a Network Virtual Appliance (NVA) in your virtual network using Azure PowerShell.
 
@@ -33,11 +33,11 @@ In this quickstart, you learn how to create an Azure Route Server to peer with a
 
 In this section, you create a route server. Prior to creating the route server, you create a resource group to host all resources including the route server. You'll also create a virtual network with a dedicated subnet for the route server.
 
-1. Create a a resource group using [New-AzResourceGroup](/powershell/module/az.Resources/New-azResourceGroup). The following example creates a resource group named **myRouteServerRG** in the **WestUS** region:
+1. Create a a resource group using [New-AzResourceGroup](/powershell/module/az.Resources/New-azResourceGroup). The following example creates a resource group named **RouteServerRG** in the **WestUS** region:
 
     ```azurepowershell-interactive
     # Create a resource group.
-    New-AzResourceGroup = -Name 'myRouteServerRG' -Location 'WestUS'
+    New-AzResourceGroup = -Name 'RouteServerRG' -Location 'WestUS'
     ```
 
 1. The route server requires a dedicated subnet named *RouteServerSubnet*. The subnet size has to be at least /27 or shorter prefix (such as /26 or /25) or you'll receive an error message when deploying the route server. Create a subnet configuration for **RouteServerSubnet** using [New-AzVirtualNetworkSubnetConfig](/powershell/module/az.network/new-azvirtualnetworksubnetconfig).
