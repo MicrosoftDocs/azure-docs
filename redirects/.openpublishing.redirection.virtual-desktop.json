@@ -444,6 +444,16 @@
             "source_path_from_root": "/articles/virtual-desktop/configure-device-redirections.md",
             "redirect_url": "/azure/virtual-desktop/redirection-remote-desktop-protocol",
             "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/enable-gpu-acceleration.md",
+            "redirect_url": "/azure/virtual-desktop/graphics-enable-gpu-acceleration",
+            "redirect_document_id": true
+        },
+        {
+            "source_path_from_root": "/articles/virtual-desktop/configure-default-chroma-value.md",
+            "redirect_url": "/azure/virtual-desktop/graphics-chroma-value-increase-4-4-4",
+            "redirect_document_id": true
         }
     ]
 }
