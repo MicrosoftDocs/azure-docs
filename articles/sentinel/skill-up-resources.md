@@ -171,9 +171,7 @@ The first piece of information you see for each connector is its *data ingestion
 | Microsoft Sentinel Data Collector API | [Connect your data source to the Microsoft Sentinel Data Collector API to ingest data](connect-rest-api-template.md) |
 | Azure Functions and the REST API | [Use Azure Functions to connect Microsoft Sentinel to your data source](connect-azure-functions-template.md) |
 | Syslog | [Ingest Syslog and CEF messages to Microsoft Sentinel with the Azure Monitor Agent](connect-cef-syslog-ama.md) |
-| Custom logs | [Collect data in custom log formats to Microsoft Sentinel with the Log Analytics agent](connect-custom-logs.md) |
-
-<!--do we add ama in here?-->
+| Custom logs | [Custom Logs via AMA data connector - Configure data ingestion to Microsoft Sentinel from specific applications](unified-connector-custom-device.md) |
 
 If your source isn't available, you can [create a custom connector](create-custom-connector.md). Custom connectors use the ingestion API and therefore are similar to direct sources. You most often implement custom connectors by using Azure Logic Apps, which offers a codeless option, or Azure Functions.
 

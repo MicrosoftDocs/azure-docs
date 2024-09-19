@@ -99,9 +99,7 @@ For some data sources, you can collect logs as files on Windows or Linux compute
 
 To connect using the Log Analytics custom log collection agent, follow the steps in each Microsoft Sentinel data connector page. After successful configuration, the data appears in custom tables.
 
-For more information, see [Collect data in custom log formats to Microsoft Sentinel with the Log Analytics agent](connect-custom-logs.md).
-
-<!--how to update for AMA-->
+For more information, see [Custom Logs via AMA data connector - Configure data ingestion to Microsoft Sentinel from specific applications](unified-connector-custom-device.md).
 
 ## Service-to-service integration for data connectors
 
