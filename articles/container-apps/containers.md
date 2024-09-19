@@ -243,7 +243,7 @@ The following example shows how to configure Azure Container Registry credential
 ```
 
 > [!NOTE]
-> Docker Hub [limits](https://docs.docker.com/docker-hub/download-rate-limit/) the number of Docker image downloads. When the limit is reached, containers in your app will fail to start. Use a registry with sufficient limits, such as [Azure Container Registry](../container-registry/container-registry-intro.md) to avoid this problem.
+> Docker Hub [limits](https://docs.docker.com/docker-hub/download-rate-limit/) the number of Docker image downloads. When the limit is reached, containers in your app will fail to start. Use a registry with sufficient limits, such as [Azure Container Registry](/azure/container-registry/container-registry-intro) to avoid this problem.
 
 ### Managed identity with Azure Container Registry
 

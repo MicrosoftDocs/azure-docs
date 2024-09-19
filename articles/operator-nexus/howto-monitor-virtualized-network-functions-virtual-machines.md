@@ -29,7 +29,7 @@ Azure Arc-enabled servers let you manage Linux physical servers and Virtual Mach
 
 ### Prerequisites
 
-Before you start, be sure to review the [prerequisites](../azure-arc/servers/prerequisites.md) and verify that your subscription, and resources meet the requirements.
+Before you start, be sure to review the [prerequisites](/azure/azure-arc/servers/prerequisites) and verify that your subscription, and resources meet the requirements.
 Some of the prerequisites are:
 
 - Your VNF VM is connected to CloudServicesNetwork (the network that the VM uses to communicate with Operator Nexus services).
@@ -43,7 +43,7 @@ echo "http\_proxy=http://169.254.0.11:3128" \>\> /etc/environment
 echo "https\_proxy=http://169.254.0.11:3128" \>\> /etc/environment
 ```
 
-- You have appropriate permissions on VNF VM to be able to run scripts, install package dependencies etc. For more information visit [link](../azure-arc/servers/prerequisites.md#required-permissions) for more details.
+- You have appropriate permissions on VNF VM to be able to run scripts, install package dependencies etc. For more information visit [link](/azure/azure-arc/servers/prerequisites#required-permissions) for more details.
 - To use Azure Arc-enabled servers, the following Azure resource providers must be registered in your subscription:
   - Microsoft.HybridCompute
   - Microsoft.GuestConfiguration

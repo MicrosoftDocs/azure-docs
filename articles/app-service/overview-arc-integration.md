@@ -17,9 +17,9 @@ You can run App Service, Functions, and Logic Apps on an Azure Arc-enabled Kuber
 
 In most cases, app developers need to know nothing more than how to deploy to the correct Azure region that represents the deployed Kubernetes environment. For operators who provide the environment and maintain the underlying Kubernetes infrastructure, you must be aware of the following Azure resources:
 
-- The connected cluster, which is an Azure projection of your Kubernetes infrastructure. For more information, see [What is Azure Arc-enabled Kubernetes?](../azure-arc/kubernetes/overview.md).
-- A cluster extension, which is a subresource of the connected cluster resource. The App Service extension [installs the required pods into your connected cluster](#pods-created-by-the-app-service-extension). For more information about cluster extensions, see [Cluster extensions on Azure Arc-enabled Kubernetes](../azure-arc/kubernetes/conceptual-extensions.md).
-- A custom location, which bundles together a group of extensions and maps them to a namespace for created resources. For more information, see [Custom locations on top of Azure Arc-enabled Kubernetes](../azure-arc/kubernetes/conceptual-custom-locations.md).
+- The connected cluster, which is an Azure projection of your Kubernetes infrastructure. For more information, see [What is Azure Arc-enabled Kubernetes?](/azure/azure-arc/kubernetes/overview).
+- A cluster extension, which is a subresource of the connected cluster resource. The App Service extension [installs the required pods into your connected cluster](#pods-created-by-the-app-service-extension). For more information about cluster extensions, see [Cluster extensions on Azure Arc-enabled Kubernetes](/azure/azure-arc/kubernetes/conceptual-extensions).
+- A custom location, which bundles together a group of extensions and maps them to a namespace for created resources. For more information, see [Custom locations on top of Azure Arc-enabled Kubernetes](/azure/azure-arc/kubernetes/conceptual-custom-locations).
 - An App Service Kubernetes environment, which enables configuration common across apps but not related to cluster operations. Conceptually, it's deployed into the custom location resource, and app developers create apps into this environment. This resource is described in greater detail in [App Service Kubernetes environment](#app-service-kubernetes-environment).
 
 ## Public preview limitations

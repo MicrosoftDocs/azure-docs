@@ -25,7 +25,7 @@ An Azure Arc-enabled Kubernetes cluster is a prerequisite for deploying Azure Io
 
 To prepare your Azure Arc-enabled Kubernetes cluster, you need:
 
-* Hardware that meets the [system requirements](../../azure-arc/kubernetes/system-requirements.md).
+* Hardware that meets the [system requirements](/azure/azure-arc/kubernetes/system-requirements).
 
 ### [AKS Edge Essentials](#tab/aks-edge-essentials)
 
@@ -113,8 +113,8 @@ The [AksEdgeQuickStartForAio.ps1](https://github.com/Azure/AKS-Edge/blob/main/to
 
    | Placeholder | Value |
    | ----------- | ----- |
-   | SUBSCRIPTION_ID | The ID of your Azure subscription. If you don't know your subscription ID, see [Find your Azure subscription](../../azure-portal/get-subscription-tenant-id.md#find-your-azure-subscription). |
-   | TENANT_ID | The ID of your Microsoft Entra tenant. If you don't know your tenant ID, see [Find your Microsoft Entra tenant](../../azure-portal/get-subscription-tenant-id.md#find-your-microsoft-entra-tenant). |
+   | SUBSCRIPTION_ID | The ID of your Azure subscription. If you don't know your subscription ID, see [Find your Azure subscription](/azure/azure-portal/get-subscription-tenant-id#find-your-azure-subscription). |
+   | TENANT_ID | The ID of your Microsoft Entra tenant. If you don't know your tenant ID, see [Find your Microsoft Entra tenant](/azure/azure-portal/get-subscription-tenant-id#find-your-microsoft-entra-tenant). |
    | RESOURCE_GROUP_NAME | The name of an existing resource group or a name for a new resource group to be created. |
    | LOCATION | An Azure region close to you. For the list of currently supported Azure regions, see [Supported regions](../overview-iot-operations.md#supported-regions). |
    | CLUSTER_NAME | A name for the new cluster to be created. |
@@ -375,7 +375,7 @@ pod/metrics-agent-6588f97dc-455j8                 2/2     Running   0           
 
 ## Create sites
 
-A _site_ is a collection of Azure IoT Operations instances. Sites typically group instances by physical location and make it easier for OT users to locate and manage assets. An IT administrator creates sites and assigns Azure IoT Operations instances to them. To learn more, see [What is Azure Arc site manager (preview)?](../../azure-arc/site-manager/overview.md).
+A _site_ is a collection of Azure IoT Operations instances. Sites typically group instances by physical location and make it easier for OT users to locate and manage assets. An IT administrator creates sites and assigns Azure IoT Operations instances to them. To learn more, see [What is Azure Arc site manager (preview)?](/azure/azure-arc/site-manager/overview).
 
 ## Next steps
 
