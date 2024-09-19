@@ -26,7 +26,7 @@ when manually correcting configuration drift.
 
 ## Correct drift of Windows virtual machines using PowerShell
 
-You can correct drift of Windows virtual machines using the `Run` command feature. See [Run PowerShell scripts in your Windows VM with Run command](../virtual-machines/windows/run-command.md).
+You can correct drift of Windows virtual machines using the `Run` command feature. See [Run PowerShell scripts in your Windows VM with Run command](/azure/virtual-machines/windows/run-command).
 
 To force an Azure Automation State Configuration node to download the latest configuration and apply it, use the [Update-DscConfiguration](/powershell/module/psdesiredstateconfiguration/update-dscconfiguration) cmdlet.
 

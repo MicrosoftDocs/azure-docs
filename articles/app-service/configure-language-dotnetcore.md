@@ -225,6 +225,10 @@ For more information, see [Configure ASP.NET Core to work with proxy servers and
 
 ::: zone pivot="platform-linux"
 
+## Rewrite or redirect URL
+
+To rewrite or redirect URL, use the [URL rewriting middleware in ASP.NET Core](/aspnet/core/fundamentals/url-rewriting).
+
 ## Open SSH session in browser
 
 [!INCLUDE [Open SSH session in browser](../../includes/app-service-web-ssh-connect-builtin-no-h.md)]

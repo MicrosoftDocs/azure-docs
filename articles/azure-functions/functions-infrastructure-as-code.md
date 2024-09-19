@@ -3,7 +3,7 @@ title: Automate function app resource deployment to Azure
 description: Learn how to build, validate, and use a Bicep file or an Azure Resource Manager template to deploy your function app and related Azure resources.
 ms.assetid: d20743e3-aab6-442c-a836-9bcea09bfd32
 ms.topic: conceptual
-ms.date: 07/16/2024
+ms.date: 08/22/2024
 ms.custom: fasttrack-edit, devx-track-bicep, devx-track-arm-template, linux-related-content
 zone_pivot_groups: functions-hosting-plan
 ---
@@ -94,7 +94,7 @@ When you deploy multiple resources in a single Bicep file or ARM template, the o
 ## Prerequisites  
 
 + The examples are designed to execute in the context of an existing resource group.
-+ Both Application Insights and storage logs require you to have an existing [Azure Log Analytics workspace](../azure-monitor/logs/log-analytics-overview.md). Workspaces can be shared between services, and as a rule of thumb you should create a workspace in each geographic region to improve performance. For an example of how to create a Log Analytics workspace, see [Create a Log Analytics workspace](../azure-monitor/logs/quick-create-workspace.md?tabs=azure-resource-manager#create-a-workspace). You can find the fully qualified workspace resource ID in a workspace page in the [Azure portal](https://portal.azure.com) under **Settings** > **Properties** > **Resource ID**. 
++ Both Application Insights and storage logs require you to have an existing [Azure Log Analytics workspace](/azure/azure-monitor/logs/log-analytics-overview). Workspaces can be shared between services, and as a rule of thumb you should create a workspace in each geographic region to improve performance. For an example of how to create a Log Analytics workspace, see [Create a Log Analytics workspace](/azure/azure-monitor/logs/quick-create-workspace?tabs=azure-resource-manager#create-a-workspace). You can find the fully qualified workspace resource ID in a workspace page in the [Azure portal](https://portal.azure.com) under **Settings** > **Properties** > **Resource ID**. 
 ::: zone pivot="container-apps" 
 + This article assumes that you have already created a [managed environment](../container-apps/environment.md) in Azure Container Apps. You need both the name and the ID of the managed environment to create a function app hosted on Container Apps.  
 ::: zone-end  
@@ -257,7 +257,7 @@ This same workspace can be used for the Application Insights resource defined la
 
 ## Create Application Insights
 
-You should be using Application Insights for monitoring your function app executions. Application Insights now requires an Azure Log Analytics workspace, which can be shared. These examples assume you're using an existing workspace and have the fully qualified resource ID for the workspace. For more information, see [Azure Log Analytics workspace](../azure-monitor/logs/log-analytics-overview.md). 
+You should be using Application Insights for monitoring your function app executions. Application Insights now requires an Azure Log Analytics workspace, which can be shared. These examples assume you're using an existing workspace and have the fully qualified resource ID for the workspace. For more information, see [Azure Log Analytics workspace](/azure/azure-monitor/logs/log-analytics-overview). 
 
 In this example section, the Application Insights resource is defined with the type `Microsoft.Insights/components` and the kind `web`:
 
@@ -1682,15 +1682,17 @@ In a Flex Consumption plan, you configure your function app in Azure with two ty
 | Application configuration | `functionAppConfig` |
 | Application settings | `siteConfig.appSettings` collection |
 
-These configurations are maintained in `functionAppConfig`:
+These application configurations are maintained in `functionAppConfig`:
 
 | Behavior | Setting in `functionAppConfig`| 
 | --- | --- |
+| [Always ready instances](flex-consumption-plan.md#always-ready-instances) |  `scaleAndConcurrency.alwaysReady`  |
+| [Deployment source](#deployment-sources) | `deployment` |
+| [Instance memory size](flex-consumption-plan.md#instance-memory) | `scaleAndConcurrency.instanceMemoryMB` |
+| [HTTP trigger concurrency](functions-concurrency.md#http-trigger-concurrency) | `scaleAndConcurrency.triggers.http.perInstanceConcurrency` |
 | [Language runtime](functions-app-settings.md#functions_worker_runtime) | `runtime.name` |
 | [Language version](supported-languages.md) | `runtime.version` |
 | [Maximum instance count](event-driven-scaling.md#flex-consumption-plan) | `scaleAndConcurrency.maximumInstanceCount` |
-| [Instance memory size](flex-consumption-plan.md#instance-memory) | `scaleAndConcurrency.instanceMemoryMB` |
-| [Deployment source](#deployment-sources) | `deployment` |
 
 The Flex Consumption plan also supports these application settings:
 
@@ -1831,7 +1833,36 @@ These application settings are required for container deployments:
 ::: zone-end 
 
 Keep these considerations in mind when working with site and application settings using Bicep files or ARM templates:
- ::: zone pivot="consumption-plan,premium-plan,dedicated-plan" 
+::: zone pivot="flex-consumption-plan"   
++ The optional `alwaysReady` setting contains an array of one or more `{name,instanceCount}` objects, with one for each [per-function scale group](flex-consumption-plan.md#per-function-scaling). These are the scale groups being used to make always-ready scale decisions. This example sets always-ready counts for both the `http` group and a single function named `helloworld`, which is of a non-grouped trigger type:
+	### [Bicep](#tab/bicep)
+	```bicep
+	alwaysReady: [
+	  {
+	    name: 'http'
+	    instanceCount: 2
+	  }
+	  {
+	    name: 'function:helloworld'
+	    instanceCount: 1
+	  }
+	]
+ 	```
+	### [ARM template](#tab/json)
+	```json
+	  "alwaysReady": [
+	    {
+	      "name": "http",
+	      "instanceCount": 2
+	    },
+	    {
+	      "name": "function:helloworld",
+	      "instanceCount": 1
+	    }
+	  ]
+ 	```
+::: zone-end
+::: zone pivot="consumption-plan,premium-plan,dedicated-plan" 
 + There are important considerations for when you should set `WEBSITE_CONTENTSHARE` in an automated deployment. For detailed guidance, see the [`WEBSITE_CONTENTSHARE`](functions-app-settings.md#website_contentshare) reference. 
 ::: zone-end
 ::: zone pivot="container-apps,azure-arc,premium-plan,dedicated-plan"  

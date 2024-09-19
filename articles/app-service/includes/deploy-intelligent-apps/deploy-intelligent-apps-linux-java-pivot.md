@@ -1,6 +1,6 @@
 ---
 author: jefmarti
-ms.service: app-service
+ms.service: azure-app-service
 ms.devlang: java
 ms.custom: linux-related-content
 ms.topic: article
@@ -8,11 +8,11 @@ ms.date: 04/10/2024
 ms.author: jefmarti
 ---
 
-You can use Azure App Service to create applications using Azure OpenAI and OpenAI. In the following tutorial, we're adding an Azure OpenAI service to a Java 17 Spring Boot application using the Azure SDK.
+You can use Azure App Service to create applications using Azure OpenAI and OpenAI. In the following tutorial, we're adding Azure OpenAI Service to a Java 17 Spring Boot application using the Azure SDK.
 
 #### Prerequisites
 
-- An [Azure OpenAI resource](../../../ai-services/openai/quickstart.md?pivots=programming-language-csharp&tabs=command-line%2Cpython#set-up) or an [OpenAI account](https://platform.openai.com/overview).
+- An [Azure OpenAI resource](/azure/ai-services/openai/quickstart?pivots=programming-language-csharp&tabs=command-line%2Cpython#set-up) or an [OpenAI account](https://platform.openai.com/overview).
 - A Java spring boot application. Create the application using this [quickstart](../../quickstart-java.md?tabs=springboot&pivots=java-maven-javase).
 
 ### Set up web app
@@ -33,7 +33,7 @@ For this Spring Boot application, we're building off the [quickstart](../../quic
 
 First, you need to grab the keys and endpoint values from Azure OpenAI, or OpenAI and add them as secrets for use in your application. Retrieve and save the values for later use to build the client.
 
-For Azure OpenAI, see [this documentation](../../../ai-services/openai/quickstart.md?pivots=programming-language-csharp&tabs=command-line%2Cpython#retrieve-key-and-endpoint) to retrieve the key and endpoint values. If you're planning to use [managed identity](../../overview-managed-identity.md) to secure your app you'll only need the `endpoint` value. Otherwise, you need each of the following:
+For Azure OpenAI, see [this documentation](/azure/ai-services/openai/quickstart?pivots=programming-language-csharp&tabs=command-line%2Cpython#retrieve-key-and-endpoint) to retrieve the key and endpoint values. If you're planning to use [managed identity](../../overview-managed-identity.md) to secure your app you'll only need the `endpoint` value. Otherwise, you need each of the following:
 
 - `endpoint`
 - `apiKey`

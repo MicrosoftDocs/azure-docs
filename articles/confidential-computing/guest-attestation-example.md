@@ -21,7 +21,7 @@ Depending on your [type of scenario](guest-attestation-confidential-vms.md#scena
 ## Prerequisites
 
 - An Azure subscription.
-- An Azure [confidential VM](quick-create-confidential-vm-portal.md) or a [VM with trusted launch enabled](../virtual-machines/trusted-launch-portal.md). You can use a Ubuntu Linux VM or Windows VM.
+- An Azure [confidential VM](quick-create-confidential-vm-portal.md) or a [VM with trusted launch enabled](/azure/virtual-machines/trusted-launch-portal). You can use a Ubuntu Linux VM or Windows VM.
 
 ## Use sample application
 

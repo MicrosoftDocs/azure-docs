@@ -1,7 +1,7 @@
 ---
 title: Monitoring data reference for Azure Blob Storage
 description: This article contains important reference material you need when you monitor Azure Blob Storage.
-ms.date: 08/08/2024
+ms.date: 08/27/2024
 ms.custom: horz-monitor
 ms.topic: reference
 author: normesta
@@ -21,12 +21,15 @@ See [Monitor Azure Blob Storage](monitor-blob-storage.md) for details on the dat
 ### Supported metrics for Microsoft.Storage/storageAccounts
 The following table lists the metrics available for the Microsoft.Storage/storageAccounts resource type.
 [!INCLUDE [horz-monitor-ref-metrics-tableheader](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-tableheader.md)]
-[!INCLUDE [Microsoft.Storage/storageAccounts](~/azure-reference-other-repo/azure-monitor-ref/supported-metrics/includes/microsoft-storage-storageaccounts-metrics-include.md)]
+[!INCLUDE [Microsoft.Storage/storageAccounts](~/reusable-content/ce-skilling/azure/includes/azure-monitor/reference/metrics/microsoft-storage-storageaccounts-metrics-include.md)]
 
 ### Supported metrics for Microsoft.Storage/storageAccounts/blobServices
 The following table lists the metrics available for the Microsoft.Storage/storageAccounts/blobServices resource type.
 [!INCLUDE [horz-monitor-ref-metrics-tableheader](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-tableheader.md)]
-[!INCLUDE [Microsoft.Storage/storageAccounts/blobServices](~/azure-reference-other-repo/azure-monitor-ref/supported-metrics/includes/microsoft-storage-storageaccounts-blobservices-metrics-include.md)]
+[!INCLUDE [Microsoft.Storage/storageAccounts/blobServices](~/reusable-content/ce-skilling/azure/includes/azure-monitor/reference/metrics/microsoft-storage-storageaccounts-blobservices-metrics-include.md)]
+
+> [!NOTE]
+> The Blob Capacity and Blob Count metric are emitted hourly. A background process computes these metrics and updates them multiple times a day.
 
 [!INCLUDE [horz-monitor-ref-metrics-dimensions-intro](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-metrics-dimensions-intro.md)]
 
@@ -49,7 +52,7 @@ For the metrics supporting dimensions, you need to specify the dimension value t
 [!INCLUDE [horz-monitor-ref-resource-logs](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-resource-logs.md)]
 
 ### Supported resource logs for Microsoft.Storage/storageAccounts/blobServices
-[!INCLUDE [Microsoft.Storage/storageAccounts/blobServices](~/azure-reference-other-repo/azure-monitor-ref/supported-logs/includes/microsoft-storage-storageaccounts-blobservices-logs-include.md)]
+[!INCLUDE [Microsoft.Storage/storageAccounts/blobServices](~/reusable-content/ce-skilling/azure/includes/azure-monitor/reference/logs/microsoft-storage-storageaccounts-blobservices-logs-include.md)]
 
 [!INCLUDE [horz-monitor-ref-logs-tables](~/reusable-content/ce-skilling/azure/includes/azure-monitor/horizontals/horz-monitor-ref-logs-tables.md)]
 
@@ -168,3 +171,4 @@ The following sections describe the properties for Azure Storage resource logs w
 
 - See [Monitor Azure Blob Storage](monitor-blob-storage.md) for a description of monitoring Azure Blob Storage.
 - See [Monitor Azure resources with Azure Monitor](/azure/azure-monitor/essentials/monitor-azure-resource) for details on monitoring Azure resources.
+- See [Metrics and logs FAQ](storage-blob-faq.yml#metrics-and-logs) for frequently asked questions and answers.

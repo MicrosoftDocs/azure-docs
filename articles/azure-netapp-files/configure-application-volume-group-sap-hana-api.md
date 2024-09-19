@@ -55,7 +55,7 @@ The following list describes all the possible volume types for application volum
     > A capacity pool can be resized at any time. For more information about changing a capacity pool, refer to [Manage a manual QoS capacity pool](manage-manual-qos-capacity-pool.md).
     1.	Create a NetApp storage account.
     2.	Create a manual QoS capacity pool.
-1. **Create AvSet and proximity placement group (PPG):** For production landscapes, you should create an AvSet that is manually pinned to a data center where Azure NetApp Files resources are available in proximity. The AvSet pinning ensures that VMs won't be moved on restart. The proximity placement group (PPG) needs to be assigned to the AvSet. With the help of application volume groups, the PPG can find the closest Azure NetApp Files hardware. For more information, see [Best practices about proximity placement groups](application-volume-group-considerations.md#best-practices-about-proximity-placement-groups).
+1. **Create AvSet and proximity placement group (PPG):** For production landscapes, you should create an AvSet that is manually pinned to a data center where Azure NetApp Files resources are available in proximity. The AvSet pinning ensures that VMs won't be moved on restart. The proximity placement group (PPG) needs to be assigned to the AvSet. With the help of application volume groups, the PPG can find the closest Azure NetApp Files hardware. For more information, see [Best practices about proximity placement groups](application-volume-group-considerations.md#best-practices-about-proximity-placement).
     1. Create AvSet.
     2. Create PPG.
     3. Assign PPG to AvSet.

@@ -17,7 +17,7 @@ The following extensions are currently available for use with Arc-enabled Kubern
 
 Azure Monitor Container Insights provides visibility into the performance of workloads deployed on the Kubernetes cluster. Use this extension to collect memory and CPU utilization metrics from controllers, nodes, and containers.
 
-For more information, see [Azure Monitor Container Insights for Azure Arc-enabled Kubernetes clusters](../../azure-monitor/containers/container-insights-enable-arc-enabled-clusters.md?toc=/azure/azure-arc/kubernetes/toc.json&bc=/azure/azure-arc/kubernetes/breadcrumb/toc.json).
+For more information, see [Azure Monitor Container Insights for Azure Arc-enabled Kubernetes clusters](/azure/azure-monitor/containers/container-insights-enable-arc-enabled-clusters?toc=/azure/azure-arc/kubernetes/toc.json&bc=/azure/azure-arc/kubernetes/breadcrumb/toc.json).
 
 ## Azure Policy
 
@@ -103,7 +103,7 @@ For more information, see [Deploy an Azure API Management gateway on Azure Arc (
 
 The Azure Machine Learning extension lets you deploy and run Azure Machine Learning on Azure Arc-enabled Kubernetes clusters.
 
-For more information, see [Introduction to Kubernetes compute target in Azure Machine Learning](../../machine-learning/how-to-attach-kubernetes-anywhere.md) and [Deploy Azure Machine Learning extension on AKS or Arc Kubernetes cluster](../../machine-learning/how-to-deploy-kubernetes-extension.md).
+For more information, see [Introduction to Kubernetes compute target in Azure Machine Learning](/azure/machine-learning/how-to-attach-kubernetes-anywhere) and [Deploy Azure Machine Learning extension on AKS or Arc Kubernetes cluster](/azure/machine-learning/how-to-deploy-kubernetes-extension).
 
 ## Flux (GitOps)
 
@@ -149,8 +149,8 @@ Flux version: [Release v2.3.0](https://github.com/fluxcd/flux2/releases/tag/v2.3
 - kustomize-controller: v1.3.0
 - helm-controller: v1.0.1
 - notification-controller: v1.3.0
-- image-automation-controller: v0.32.1
-- image-reflector-controller: v0.38.0
+- image-automation-controller: v0.38.0
+- image-reflector-controller: v0.32.0
 
 Changes made for this version:
 
@@ -212,6 +212,14 @@ For more information, see [Try Azure AI Video Indexer enabled by Arc](/azure/azu
 [Edge Storage Accelerator (ESA)](../edge-storage-accelerator/index.yml) is a first-party storage system designed for Arc-connected Kubernetes clusters. ESA can be deployed to write files to a "ReadWriteMany" persistent volume claim (PVC) where they are then transferred to Azure Blob Storage. ESA offers a range of features to support Azure IoT Operations and other Azure Arc Services.
 
 For more information, see [What is Edge Storage Accelerator?](../edge-storage-accelerator/overview.md).
+
+## Connected registry on Arc-enabled Kubernetes
+ 
+- **Supported distributions**: AKS enabled by Azure Arc, Kubernetes using kind.
+ 
+The connected registry extension for Azure Arc allows you to synchronize container images between your Azure Container Registry (ACR) and your on-premises Azure Arc-enabled Kubernetes cluster. This extension can be deployed to either a local or remote cluster and utilizes a synchronization schedule and window to ensure seamless syncing of images between the on-premises connected registry and the cloud-based ACR.
+ 
+For more information, see [Connected Registry for Arc-enabled Kubernetes clusters](../../container-registry/quickstart-connected-registry-arc-cli.md).
 
 ## Next steps
 

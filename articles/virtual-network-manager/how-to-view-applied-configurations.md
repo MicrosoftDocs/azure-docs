@@ -10,14 +10,14 @@ ms.custom: template-how-to
 ---
 # View configurations applied by Azure Virtual Network Manager
 
-Azure Virtual Network Manager provides a few different ways for you to verify if configurations are being applied correctly. In this article, we'll look at how you can verify configurations applied both at virtual network and virtual machine level. We'll also go over operations you'll see in the activity log.
+Azure Virtual Network Manager provides a few different ways for you to verify if configurations are being applied correctly. In this article, we look at how you can verify configurations applied both at virtual network and virtual machine level. We'll also go over operations you'll see in the activity log.
 
 
 ## Virtual network visibility
 Effective network group membership and applied configurations can be viewed on the per virtual network level.
 
 ### Network group membership
-All network group memberships are recorded and available for query inside [Azure Resource Graph](../governance/resource-graph/overview.md). You'll be using the `networkResources` table for the extension resource type of `Microsoft.Network/networkGroupMemberships` in your query.
+All network group memberships are recorded and available for query inside [Azure Resource Graph](../governance/resource-graph/overview.md). You are using the `networkResources` table for the extension resource type of `Microsoft.Network/networkGroupMemberships` in your query.
 
 Open the [Azure portal](https://portal.azure.com) to find and use the Resource Graph Explorer with the following steps:
 
@@ -51,7 +51,7 @@ Learn more about [Azure Resource Graph queries using Resource Graph Explorer](..
 
 Once your configuration has been deployed by Virtual Network Manager, you can view the applied configuration from the virtual network resource. 
 
-1. Go to your virtual network resource and select **Network Manager** under *Settings*. On the Connectivity tab, you'll see all the connectivity configurations the virtual network is associated with. 
+1. Go to your virtual network resource and select **Network Manager** under *Settings*. On the Connectivity tab, you see all the connectivity configurations the virtual network is associated with. 
 
     :::image type="content" source="./media/how-to-view-applied-configurations/vnet-connectivity.png" alt-text="Screenshot of connectivity configuration associated to a virtual network.":::
 
@@ -68,13 +68,11 @@ At the virtual machine level, you can view security rules applied by Virtual Net
 
 1. Go to a virtual machine in a virtual network that has a configuration applied by Virtual Network Manager. Then select **Networking** under *Settings* on the left menu pane.
 
-    :::image type="content" source="./media/how-to-view-applied-configurations/virtual-machine.png" alt-text="Screenshot of virtual machine overview page.":::
-
-1. You'll see a list of inbound network security groups and also a section for inbound security rules applied by Virtual Network Manager.
+2. You see a list of inbound network security groups and also a section for inbound security rules applied by Virtual Network Manager.
 
     :::image type="content" source="./media/how-to-view-applied-configurations/vm-inbound-rules.png" alt-text="Screenshot of virtual machine outbound security rules.":::
 
-1. Select the **Outbound port rules** tab to see the outbound security rules for the virtual machine.
+3. Select the **Outbound port rules** tab to see the outbound security rules for the virtual machine.
 
     :::image type="content" source="./media/how-to-view-applied-configurations/vm-outbound-rules.png" alt-text="Screenshot of virtual machine inbound security rules.":::
 
@@ -86,9 +84,7 @@ At the virtual machine level, you can view security rules applied by Virtual Net
 
 1. Then select **Effective routes** under *Support + troubleshooting*.
 
-    :::image type="content" source="./media/how-to-view-applied-configurations/network-interface.png" alt-text="Screenshot of effective routes button from a VM network interface card.":::
-
-1. Routes with the next hop type of *ConnectedGroup* are either part of mesh configuration or when [*Direct connectivity*](concept-connectivity-configuration.md#direct-connectivity) is enabled for a network group. Routes between the hub and spoke virtual networks will appear as next hop type *VNetPeering* or *GlobalVNetPeering*.
+2. Routes with the next hop type of *ConnectedGroup* are either part of mesh configuration or when [*Direct connectivity*](concept-connectivity-configuration.md#direct-connectivity) is enabled for a network group. Routes between the hub and spoke virtual networks will appear as next hop type *VNetPeering* or *GlobalVNetPeering*.
 
     :::image type="content" source="./media/how-to-view-applied-configurations/effective-routes.png" alt-text="Screenshot of effective routes that shows connected groups and hub routes." lightbox="./media/how-to-view-applied-configurations/effective-routes-expanded.png":::
 
@@ -104,8 +100,6 @@ At the virtual machine level, you can view security rules applied by Virtual Net
 
 1. Then select **Effective security rules** under *Support + troubleshooting*.
 
-    :::image type="content" source="./media/how-to-view-applied-configurations/network-interface-security-rules.png" alt-text="Screenshot of effective security rules button for a VM network interface card.":::
-
 1. Select the name of the Azure Virtual Network Manager to see the security admin rules associated to the virtual machine.
 
     :::image type="content" source="./media/how-to-view-applied-configurations/effective-security-rules.png" alt-text="Screenshot of effective security rules associated to the virtual machine.":::
@@ -118,11 +112,11 @@ You can view the activity log for your Azure Virtual Network Manager resource to
 
 ### List of operations
 
-The following list contains operations you'll see in the activity log:
+The following list contains operations you see in the activity log:
 
 | Name | Description |
 | ---- | ----------- |
-| Commit | Deployment of a configuration has been committed to a region(s). |
+| Commit | Deployment of a configuration has been committed to a region or regions. |
 | Delete ConnectivityConfiguration | Deleting a connectivity configuration from Network Manager. |
 | Delete NetworkGroups | Deleting a network group from Network Manager.|
 | Delete StaticMembers | Deleting a member from a network group.|

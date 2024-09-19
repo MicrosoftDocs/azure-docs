@@ -18,7 +18,7 @@ This tutorial shows how to build an example workflow that integrates Azure Funct
 
 When you finish, your workflow looks like the following high level example:
 
-:::image type="content" source="media/tutorial-process-email-attachments-workflow/overview.png" alt-text="Screenshot shows example Consumption workflow that runs using the Office 365 Outlook trigger." lightbox="media/tutorial-process-email-attachments-workflow/overview.png":::
+:::image type="content" source="media/tutorial-process-email-attachments-workflow/overview.png" alt-text="Screenshot shows example Consumption high-level workflow." lightbox="media/tutorial-process-email-attachments-workflow/overview.png":::
 
 > [!TIP]
 >
@@ -39,7 +39,7 @@ You can create a similar workflow with a Standard logic app resource where some 
 
 * An email account from an email provider supported by Azure Logic Apps, such as Office 365 Outlook, Outlook.com, or Gmail. For other supported email providers, see [Connectors for Azure Logic Apps](/connectors/connector-reference/connector-reference-logicapps-connectors).
 
-  This tutorial uses Office 365 Outlook with a work or school account. If you use a different email account, the general steps stay the same, but the user experience might slightly differ.
+  This example uses Office 365 Outlook with a work or school account. If you use a different email account, the general steps stay the same, but the user experience might slightly differ. If you use Outlook.com, use your personal Microsoft account instead to sign in.
 
   > [!NOTE]
   >
@@ -248,11 +248,9 @@ After you confirm that your function works, create your logic app resource and w
 
 ## Create a Consumption logic app resource
 
-The following steps create the logic app resource and workflow that integrates various services, apps, data, and systems.
-
 1. In the Azure portal search box, enter **logic app**, and select **Logic apps**.
 
-1. On the **Logic apps** page, select **Add**.
+1. On the **Logic apps** page toolbar, select **Add**.
 
    The **Create Logic App** page appears and shows the following options:
 
@@ -283,13 +281,13 @@ The following steps create the logic app resource and workflow that integrates v
 
 ## Add a trigger to monitor incoming email
 
-The following steps add a trigger that monitors for incoming emails that have attachments.
+The following steps add a trigger that waits for incoming emails that have attachments.
 
 1. On the logic app menu, under **Development Tools**, select **Logic app designer**.
 
 1. On the workflow designer, [follow these general steps to add the **Office 365 Outlook** trigger named **When a new email arrives**](create-workflow-with-trigger-or-action.md?tabs=consumption#add-trigger).
 
-   This example uses the Office 365 Outlook connector, which requires that you sign in with a Microsoft work or school account. If you're using a personal Microsoft account, use the Outlook.com connector.
+   The Office 365 Outlook connector requires that you sign in with a Microsoft work or school account. If you're using a personal Microsoft account, use the Outlook.com connector.
 
 1. Sign in to your email account, which creates a connection between your workflow and your email account.
 
@@ -319,9 +317,9 @@ The following steps add a condition that selects only emails that have attachmen
 
 1. In the **Condition** action information pane, rename the action with **If email has attachments and key subject phrase**.
 
-1. Build the condition that checks for emails that have attachments.
+1. Build a condition that checks for emails that have attachments.
 
-   1. On the **Parameters** tab, in the first row under the **AND** list, select inside the leftmost box, and then select the dynamic content list (lightning icon). From this list, in the trigger section, select **Has Attachment** output.
+   1. On the **Parameters** tab, in the first row under the **AND** list, select inside the left box, and then select the dynamic content list (lightning icon). From this list, in the trigger section, select the **Has Attachment** output.
 
       > [!TIP]
       >
@@ -329,9 +327,9 @@ The following steps add a condition that selects only emails that have attachmen
 
       :::image type="content" source="media/tutorial-process-email-attachments-workflow/has-attachment.png" alt-text="Screenshot shows condition action, second row with cursor in leftmost box, open dynamic content list, and Has Attachment selected." lightbox="media/tutorial-process-email-attachments-workflow/has-attachment.png":::
 
-   1. In the middle box, keep the operator **is equal to**.
+   1. In the middle box, keep the operator named **is equal to**.
 
-   1. In the rightmost box, enter **true**, which is the value to compare with the **Has Attachment** output value from the trigger. If both values are equal, the email has at least one attachment, the condition passes, and the workflow continues.
+   1. In the right box, enter **true**, which is the value to compare with the **Has Attachment** output value from the trigger. If both values are equal, the email has at least one attachment, the condition passes, and the workflow continues.
 
       :::image type="content" source="media/tutorial-process-email-attachments-workflow/finished-condition.png" alt-text="Screenshot shows complete condition." lightbox="media/tutorial-process-email-attachments-workflow/finished-condition.png":::
 
@@ -682,17 +680,19 @@ Your finished workflow now looks like the following example:
 
    If you don't get any emails, check your email's junk folder. Otherwise, if you're unsure that your workflow ran correctly, see [Troubleshoot your logic app workflow](logic-apps-diagnosing-failures.md).
 
-Congratulations, you created and ran a workflow that automates tasks across different Azure services and calls some custom code.
+Congratulations, you created and ran a workflow that automates tasks across different Azure services and calls some custom code!
 
 ## Clean up resources
 
-When you no longer need this sample, delete the resource group that contains your logic app workflow and related resources.
+Your workflow continues running until you disable or delete the logic app resource. When you no longer need this sample, delete the resource group that contains your logic app and related resources.
 
 1. In the Azure portal search box, enter **resource groups**, and select **Resource groups**.
 
-1. From the **Resource groups** list, select the resource group for this tutorial. 
+1. From the **Resource groups** list, select the resource group for this tutorial.
 
-1. On the resource group's **Overview** page toolbar, select **Delete resource group**.
+1. On the resource group menu, select **Overview**.
+
+1. On the **Overview** page toolbar, select **Delete resource group**.
 
 1. When the confirmation pane appears, enter the resource group name, and select **Delete**.
 

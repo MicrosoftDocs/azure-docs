@@ -22,7 +22,7 @@ This article covers relocation guidance for Azure Database for PostgreSQL, Singl
 
 To learn how to relocate Azure Cosmos DB for PostgreSQL (formerly called Azure Database for PostgreSQL - Hyperscale (Citus)), see [Read replicas in Azure Cosmos DB for PostgreSQL](/azure/cosmos-db/postgresql/concepts-read-replicas).
 
-For an overview of the region pairs supported by native replication, see [cross-region replication](../postgresql/concepts-read-replicas.md#cross-region-replication).
+For an overview of the region pairs supported by native replication, see [cross-region replication](/azure/postgresql/concepts-read-replicas#cross-region-replication).
 
 ## Prerequisites
 

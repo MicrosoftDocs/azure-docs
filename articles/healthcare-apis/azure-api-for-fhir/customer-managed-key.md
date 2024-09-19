@@ -22,10 +22,10 @@ In Azure, this is typically accomplished using an encryption key in the customer
 
 To get started, refer to the following links:
 
-- [Register the Azure Cosmos DB resource provider for your Azure subscription](../../cosmos-db/how-to-setup-cmk.md#register-resource-provider) 
-- [Configure your Azure Key Vault instance](../../cosmos-db/how-to-setup-cmk.md#configure-your-azure-key-vault-instance)
-- [Add an access policy to your Azure Key Vault instance](../../cosmos-db/how-to-setup-cmk.md#add-access-policy)
-- [Generate a key in Azure Key Vault](../../cosmos-db/how-to-setup-cmk.md#generate-a-key-in-azure-key-vault)
+- [Register the Azure Cosmos DB resource provider for your Azure subscription](/azure/cosmos-db/how-to-setup-cmk#register-resource-provider) 
+- [Configure your Azure Key Vault instance](/azure/cosmos-db/how-to-setup-cmk#configure-your-azure-key-vault-instance)
+- [Add an access policy to your Azure Key Vault instance](/azure/cosmos-db/how-to-setup-cmk#add-access-policy)
+- [Generate a key in Azure Key Vault](/azure/cosmos-db/how-to-setup-cmk#generate-a-key-in-azure-key-vault)
 
 ## Using Azure portal
 
@@ -46,7 +46,7 @@ You can also enter the key URI here:
 :::image type="content" source="media/bring-your-own-key/bring-your-own-key-create.png" alt-text="Create Azure API for FHIR":::
 
 > [!Important]
-> Ensure all permissions for Azure Key Vault are set appropriately. For more information, see [Add an access policy to your Azure Key Vault instance](../../cosmos-db/how-to-setup-cmk.md#add-access-policy). 
+> Ensure all permissions for Azure Key Vault are set appropriately. For more information, see [Add an access policy to your Azure Key Vault instance](/azure/cosmos-db/how-to-setup-cmk#add-access-policy). 
 Additionally, ensure that the soft delete is enabled in the properties of the Key Vault. Not completing these steps will result in a deployment error. For more information, see [Verify if soft delete is enabled on a key vault and enable soft delete](/azure/key-vault/general/key-vault-recovery?tabs=azure-portal#verify-if-soft-delete-is-enabled-on-a-key-vault-and-enable-soft-delete).
 
 > [!NOTE]
@@ -152,6 +152,6 @@ New-AzResourceGroupDeployment `
 In this article, you learned how to configure customer-managed keys at rest using the Azure portal, PowerShell, CLI, and Resource Manager Template. You can refer to the Azure Cosmos DB FAQ section for more information. 
  
 >[!div class="nextstepaction"]
->[Azure Cosmos DB: how to setup CMK](../../cosmos-db/how-to-setup-cmk.md#frequently-asked-questions)
+>[Azure Cosmos DB: how to setup CMK](/azure/cosmos-db/how-to-setup-cmk#frequently-asked-questions)
 
 FHIR&#174; is a registered trademark of [HL7](https://hl7.org/fhir/) and is used with the permission of HL7.

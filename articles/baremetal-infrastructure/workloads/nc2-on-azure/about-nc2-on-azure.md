@@ -6,7 +6,7 @@ description: Learn about Nutanix Cloud Clusters on Azure and the benefits it off
 ms.topic: overview
 ms.subservice: baremetal-nutanix
 ms.custom: engagement-fy23
-ms.date: 7/19/2024
+ms.date: 9/16/2024
 ms.service: azure-baremetal-infrastructure
 ---
 
@@ -142,7 +142,7 @@ NC2 on Azure implements a shared responsibility model that defines distinct role
 
 On-premises Nutanix environments require the Nutanix customer to support all the hardware and software for running the platform. For NC2 on Azure, Microsoft maintains the hardware for the customer.
 
-:::image type="content" source="media/nc2-on-azure-responsibility-matrix.png" alt-text="A diagram showing the support responsibilities for Microsoft and partners." border="false" lightbox="media/nc2-on-azure-responsibility-matrix.png":::
+:::image type="content" source="media/nc2-on-azure-responsibility-matrix.png" alt-text="Diagram showing the support responsibilities for Microsoft and partners." border="false" lightbox="media/nc2-on-azure-responsibility-matrix.png":::
 
 Microsoft manages the Azure BareMetal specialized compute hardware and its data and control plane platform for underlay network. Microsoft supports if the customers plan to bring their existing Azure Subscription, VNet, vWAN, etc.
 

@@ -1,10 +1,11 @@
 ---
 title: Set up service alerts for Azure Virtual Desktop (classic) - Azure
 description: How to set up Azure Service Health to receive service notifications for Azure Virtual Desktop (classic).
-author: Heidilohr
+author: dknappettmsft
 ms.topic: tutorial
 ms.date: 05/27/2020
-ms.author: helohr
+ms.author: daknappe
+ms.custom: docs_inherited
 ---
 # Tutorial: Set up service alerts for Azure Virtual Desktop (classic)
 
@@ -18,7 +19,7 @@ In this tutorial, you'll learn how to:
 > [!div class="checklist"]
 > * Create and configure service alerts.
 
-To learn more about Azure Service Health, see the [Azure Health Documentation](../../service-health/index.yml).
+To learn more about Azure Service Health, see the [Azure Health Documentation](/azure/service-health/).
 
 ## Prerequisites
 
@@ -45,7 +46,7 @@ To configure service alerts:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 2. Select **Service Health.**
-3. Use the instructions in [Create activity log alerts on service notifications](../../service-health/alerts-activity-log-service-notifications-portal.md?toc=%2fazure%2fservice-health%2ftoc.json) to set up your alerts and notifications.
+3. Use the instructions in [Create activity log alerts on service notifications](/azure/service-health/alerts-activity-log-service-notifications-portal?toc=%2fazure%2fservice-health%2ftoc.json) to set up your alerts and notifications.
 
 ## Next steps
 

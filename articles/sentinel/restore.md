@@ -15,7 +15,7 @@ ms.collection: usx-security
 
 Restore data from an archived log to use in high performing queries and analytics.
 
-Before you restore data in an archived log, see [Start an investigation by searching large datasets (preview)](investigate-large-datasets.md) and [Restore in Azure Monitor](../azure-monitor/logs/restore.md).
+Before you restore data in an archived log, see [Start an investigation by searching large datasets (preview)](investigate-large-datasets.md) and [Restore in Azure Monitor](/azure/azure-monitor/logs/restore).
 
 [!INCLUDE [unified-soc-preview](includes/unified-soc-preview.md)]
 

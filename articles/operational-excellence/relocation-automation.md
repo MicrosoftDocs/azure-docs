@@ -13,7 +13,7 @@ ms.custom:
 
 # Relocate Azure Automation to another region
 
-This article covers relocation guidance for [Azure Automation](../automation/overview.md) across regions.
+This article covers relocation guidance for relocating [Azure Automation](../automation/overview.md) across regions.
 
 [!INCLUDE [relocate-reasons](./includes/service-relocation-reason-include.md)]
 
