@@ -13,7 +13,7 @@ ms.service: azure-automation
 [!INCLUDE [./log-analytics-retirement-announcement.md](../includes/log-analytics-retirement-announcement.md)]
 
 > [!NOTE]
-> CT&I (V1) onboarding via Azure portal will not be allowed since the service has retired on **31st August 2024**. We recommend that you configure new version of Change Tracking & Inventory with AMA. Your existing VMs on CT&I with legacy agent will continue to work till **1st February, 2025**. For more information, see [Enable Change Tracking and Inventory using Azure Monitoring Agent](enable-vms-monitoring-agent.md).
+> Change Tracking & Inventory with Log Analytics onboarding via Azure portal will not be allowed since the service has retired on **31st August 2024**. We recommend that you configure new version of Change Tracking & Inventory with AMA. Your existing VMs on Change Tracking & Inventory with legacy agent will continue to work till **1st February, 2025**. For more information, see [Enable Change Tracking and Inventory using Azure Monitoring Agent](enable-vms-monitoring-agent.md).
 
 When you add a new file or registry key to track, Azure Automation enables it for [Change Tracking and Inventory](overview.md). This article describes how to configure tracking, review tracking results, and handle alerts when changes are detected.
 
