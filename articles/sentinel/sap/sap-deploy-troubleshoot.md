@@ -308,7 +308,7 @@ If you have unexpected issues not listed in this article, try the following step
 > [!TIP]
 > Resetting your connector and ensuring that you have the latest upgrades are also recommended after any major configuration changes.
 
-## Next steps
+## Related content
 
 Learn more about the Microsoft Sentinel solution for SAP applications:
 
