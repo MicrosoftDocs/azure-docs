@@ -53,7 +53,7 @@ The following are some reasons why you might want to transfer a subscription:
 Transferring a subscription requires downtime to complete the process. Depending on your scenario, you can consider the following alternate approaches:
 
 - Re-create the resources and copy data to the target directory and subscription.
-- Adopt a multi-directory architecture and leave the subscription in the source directory. Use Azure Lighthouse to delegate resources so that users in the target directory can access the subscription in the source directory. For more information, see [Azure Lighthouse in enterprise scenarios](../lighthouse/concepts/enterprise.md).
+- Adopt a multi-directory architecture and leave the subscription in the source directory. Use Azure Lighthouse to delegate resources so that users in the target directory can access the subscription in the source directory. For more information, see [Azure Lighthouse in enterprise scenarios](/azure/lighthouse/concepts/enterprise).
 
 ### Understand the impact of transferring a subscription
 
@@ -397,4 +397,4 @@ If your intent is to remove access from users in the source directory so that th
 - [Transfer billing ownership of an Azure subscription to another account](../cost-management-billing/manage/billing-subscription-transfer.md)
 - [Transfer Azure subscriptions between subscribers and CSPs](../cost-management-billing/manage/transfer-subscriptions-subscribers-csp.yml)
 - [Associate or add an Azure subscription to your Microsoft Entra tenant](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)
-- [Azure Lighthouse in enterprise scenarios](../lighthouse/concepts/enterprise.md)
+- [Azure Lighthouse in enterprise scenarios](/azure/lighthouse/concepts/enterprise)
