@@ -12,7 +12,7 @@ zone_pivot_groups: front-door-dev-exp-ps-cli
 ---
 
 # Connect Azure Front Door Premium to an application gateway with Private Link
-This article will guide you through how to configure Azure Front Door Premium tier to connect to your application gateway privately using the Azure Private Link service
+This article will guide you through how to configure Azure Front Door Premium tier to connect to your application gateway privately using the Azure Private Link service.
 
 ::: zone pivot="front-door-cli"
 
@@ -22,10 +22,10 @@ This article will guide you through how to configure Azure Front Door Premium ti
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Have a functioning Azure Front Door Premium profile and an endpoint. For more information on how to create an Azure Front Door profile, see [Create a Front Door - CLI](create-front-door-cli.md).
-- Have a functioning Azure Application Gateway. For more information on how to create an Application Gateway, see [Direct web traffic with Azure Application Gateway - Azure CLI](/articles/application-gateway/quick-create-cli.md)
+- Have a functioning Azure Application Gateway. For more information on how to create an Application Gateway, see [Direct web traffic with Azure Application Gateway - Azure CLI](/articles/application-gateway/quick-create-cli.md).
 
 ## Enable Private Link on Application Gateway
-1. Follow the steps in [Configure Azure Application Gateway Private Link](/articles/application-gateway/private-link-configure.md). Skip the last step of creating a private endpoint.
+Follow the steps in [Configure Azure Application Gateway Private Link](/articles/application-gateway/private-link-configure.md). Skip the last step of creating a private endpoint.
 
 ## Create origin group and origin on Azure Front Door
 
@@ -66,7 +66,7 @@ az afd origin create \
     --private-link-sub-resource-type appGwPublicFrontendIp 
 ```
 > [!NOTE]
-> 'SharedPrivateLinkResourceGroupId' is the same as the Application Gateway frontend IP configuration. This value may be different for different frontend IP configurations.
+> `SharedPrivateLinkResourceGroupId` is the same as the Application Gateway frontend IP configuration. This value may be different for different frontend IP configurations.
 
 ## Approve Private Endpoint Connection
 
@@ -84,7 +84,7 @@ az afd origin create \
 
 ```
 ## Complete Azure Front Door setup
-1. Add a route to map the endpoint that you created earlier to the origin group. This route forwards requests from the endpoint to your origin group. Run [az afd route create](/cli/azure/afd/route#az-afd-route-create) to map your endpoint to the origin group. 
+Add a route to map the endpoint that you created earlier to the origin group. This route forwards requests from the endpoint to your origin group. Run [az afd route create](/cli/azure/afd/route#az-afd-route-create) to map your endpoint to the origin group. 
 
 ```azurecli-interactive
 az afd route create \
