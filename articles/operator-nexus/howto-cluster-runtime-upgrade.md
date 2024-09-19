@@ -98,15 +98,20 @@ For more detailed insights on the upgrade progress, the individual BMM in each R
 The following Azure CLI command is used to configure the compute threshold parameters for a runtime upgrade:
 
 ```azurecli
-az networkcloud cluster update --name "<clusterName>" --resource-group "<resourceGroup>" --update-strategy strategy-type="Rack" threshold-type="PercentSuccess" threshold-value="<thresholdValue>" max-unavailable=<maxNodesOffline> wait-time-minutes=<waitTimeBetweenRacks>
+az networkcloud cluster update /
+--name "<clusterName>" /
+--resource-group "<resourceGroup>" /
+--update-strategy strategy-type="Rack" threshold-type="PercentSuccess" /
+threshold-value="<thresholdValue>" max-unavailable=<maxNodesOffline> /
+wait-time-minutes=<waitTimeBetweenRacks>
 ```
 
-Required arguments:
-- strategy-type: Defines the update strategy. In this case, "Rack" means updates occur rack-by-rack. The default value is "Rack"
+Required parameters:
+- strategy-type: Defines the update strategy. In this case, "Rack" means updates occur rack-by-rack. The default value is "Rack".
 - threshold-type: Determines how the threshold should be evaluated, applied in the units defined by the strategy. The default value is "PercentSuccess".
 - threshold-value: The numeric threshold value used to evaluate an update. The default value is 80.
 
-Optional arguments:
+Optional parameters:
 - max-unavailable: The maximum number of worker nodes that can be offline, that is, upgraded rack at a time. The default value is 32767.
 - wait-time-minutes: The delay or waiting period before updating a rack. The default value is 15.
 
@@ -118,21 +123,22 @@ az networkcloud cluster update --name "cluster01" --resource-group "cluster01-rg
 
 Upon successful execution of the command, the updateStrategy values specified will be applied to the cluster:
 
-```  "updateStrategy": {
+```  
+    "updateStrategy": {
       "maxUnavailable": 16,
       "strategyType": "Rack",
       "thresholdType": "PercentSuccess",
       "thresholdValue": 70,
       "waitTimeMinutes": 15,
-    },
+    }
 ```
 
 > [!NOTE]
-> When a threshold value below 100% is set, it’s possible that any unhealthy nodes might not be upgraded, yet the “Cluster” status could still indicate that upgrade was sucessfull. For troubleshooting issues with bare metal machines, please refer to [Troubleshoot Azure Operator Nexus server problems](troubleshoot-reboot-reimage-replace.md)
+> When a threshold value below 100% is set, it’s possible that any unhealthy nodes might not be upgraded, yet the “Cluster” status could still indicate that upgrade was successful. For troubleshooting issues with bare metal machines, please refer to [Troubleshoot Azure Operator Nexus server problems](troubleshoot-reboot-reimage-replace.md)
 
-## Upgrade with PauseRack Strategy
+## Upgrade with Pause Rack Strategy
 
-Starting with API version 2024-06-01-preview, runtime upgrades can be triggered using a "PauseRack" strategy. When you execute a cluster runtime upgrade with the PauseRack" strategy, it will update one rack at a time in the cluster and then pause, awaiting confirmation before proceeding to the next rack. All existing thresholds will continue to be respected with the "PauseRack" strategy. To carry out a cluster runtime upgrade using the "PauseRack" strategy follow the steps outlined in [Upgrading cluster runtime with a pause rack strategy](howto-cluster-runtime-upgrade-with-pauserack-strategy.md)
+Starting with API version 2024-06-01-preview, runtime upgrades can be triggered using a "PauseRack" strategy. When you execute a cluster runtime upgrade with the "PauseRack" strategy, it will update one rack at a time in the cluster and then pause, awaiting confirmation before proceeding to the next rack. All existing thresholds will continue to be respected with the "PauseRack" strategy. To carry out a cluster runtime upgrade using the "PauseRack" strategy follow the steps outlined in [Upgrading cluster runtime with a PauseRack strategy](howto-cluster-runtime-upgrade-with-pauserack-strategy.md)
 
 ## Frequently Asked Questions
 
@@ -162,15 +168,12 @@ Once the cordon and drain process of the tenant cluster node is completed, the u
 
 It's important to note that the Nexus Kubernetes cluster node won't be shut down after the cordon and drain process. The BMH is rebooted with the new image as soon as all the Nexus Kubernetes cluster nodes are cordoned and drained, after 10 minutes if the drain process isn't completed. Additionally, the cordon and drain is not initiated for power-off or restart actions of the BMH; it's exclusively activated only during a runtime upgrade.
 
-It is important to note that following the runtime upgrade, there could be instance where a Nexus Kubernetes Cluster node remains cordoned. For such scenario, you can manually uncordon the node by executing the following commands via(./includes/kubernetes-cluster/cluster-connect.md)
+It is important to note that following the runtime upgrade, there could be instance where a Nexus Kubernetes Cluster node remains cordoned. For such scenario, you can manually uncordon the node by executing the following command
 
-```kubectl get nodes  | grep SchedulingDisabled > /dev/null
-if [ $? -eq 0 ]; then
-for node in $(kubectl get nodes | grep SchedulingDisabled | awk '{print $1}'); do
-    kubectl uncordon $node
-done
-fi
+```azurecli
+az networkcloud baremetalmachine list -g $mrg --subscription $sub --query "sort_by([].{name:name,kubernetesNodeName:kubernetesNodeName,location:location,readyState:readyState,provisioningState:provisioningState,detailedStatus:detailedStatus,detailedStatusMessage:detailedStatusMessage,powerState:powerState,tags:tags.Status,machineRoles:join(', ', machineRoles),cordonStatus:cordonStatus,createdAt:systemData.createdAt}, &name)" 
+--output table
+
 ```
-
 <!-- LINKS - External -->
 [installation-instruction]: https://aka.ms/azcli
