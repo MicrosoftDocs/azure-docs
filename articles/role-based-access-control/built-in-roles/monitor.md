@@ -136,7 +136,7 @@ Gives user permission to view and download debug snapshots collected with the Ap
 
 Perform all Grafana operations, including the ability to manage data sources, create dashboards, and manage role assignments within Grafana.
 
-[Learn more](/azure/managed-grafana/how-to-share-grafana-workspace)
+[Learn more](/azure/managed-grafana/concept-role-based-access-control)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -177,7 +177,7 @@ Perform all Grafana operations, including the ability to manage data sources, cr
 
 View and edit a Grafana instance, including its dashboards and alerts.
 
-[Learn more](/azure/managed-grafana/how-to-share-grafana-workspace)
+[Learn more](/azure/managed-grafana/concept-role-based-access-control)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -214,11 +214,51 @@ View and edit a Grafana instance, including its dashboards and alerts.
 }
 ```
 
+## Grafana Limited Viewer
+
+View a Grafana home page.
+
+[Learn more](/azure/managed-grafana/concept-role-based-access-control)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | *none* |  |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | [Microsoft.Dashboard](../permissions/monitor.md#microsoftdashboard)/grafana/ActAsGrafanaLimitedViewer/action | Act as Grafana Limited Viewer role |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+    "id": "/providers/Microsoft.Authorization/roleDefinitions/41e04612-9dac-4699-a02b-c82ff2cc3fb5",
+    "properties": {
+        "roleName": "Grafana Limited Viewer",
+        "description": "View home page.",
+        "assignableScopes": [
+            "/"
+        ],
+        "permissions": [
+            {
+                "actions": [],
+                "notActions": [],
+                "dataActions": [
+                    "Microsoft.Dashboard/grafana/ActAsGrafanaLimitedViewer/action"
+                ],
+                "notDataActions": []
+            }
+        ]
+    }
+}
+```
+
 ## Grafana Viewer
 
 View a Grafana instance, including its dashboards and alerts.
 
-[Learn more](/azure/managed-grafana/how-to-share-grafana-workspace)
+[Learn more](/azure/managed-grafana/concept-role-based-access-control)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |

@@ -300,14 +300,6 @@
       href: data-connectors/varmour-application-controller.md
     - name: 'WireX Network Forensics Platform'
       href: data-connectors/wirex-network-forensics-platform.md
-    - name: '[Recommended] Akamai Security Events via AMA'
-      href: data-connectors/recommended-akamai-security-events-via-ama.md
-    - name: '[Recommended] Aruba ClearPass via AMA'
-      href: data-connectors/recommended-aruba-clearpass-via-ama.md
-    - name: '[Recommended] Broadcom Symantec DLP via AMA'
-      href: data-connectors/recommended-broadcom-symantec-dlp-via-ama.md
-    - name: '[Recommended] Cisco Secure Email Gateway via AMA'
-      href: data-connectors/recommended-cisco-secure-email-gateway-via-ama.md
     - name: '[Recommended] Claroty via AMA'
       href: data-connectors/recommended-claroty-via-ama.md
     - name: '[Recommended] FireEye Network Security (NX) via AMA'
@@ -346,8 +338,8 @@
       href: data-connectors/amazon-web-services.md
     - name: Amazon Web Services S3
       href: data-connectors/amazon-web-services-s3.md
-    - name: Apache HTTP Server
-      href: data-connectors/apache-http-server.md
+    - name: Apache Tomcat
+      href: data-connectors/apache-tomcat.md
     - name: API Protection
       href: data-connectors/api-protection.md
     - name: ARGOS Cloud Security
@@ -398,8 +390,6 @@
       href: data-connectors/azure-stream-analytics.md
     - name: Azure Web Application Firewall (WAF)
       href: data-connectors/azure-web-application-firewall-waf.md
-    - name: Barracuda CloudGen Firewall
-      href: data-connectors/barracuda-cloudgen-firewall.md
     - name: BETTER Mobile Threat Defense (MTD)
       href: data-connectors/better-mobile-threat-defense-mtd.md
     - name: Bitglass (using Azure Functions)
@@ -414,24 +404,12 @@
       href: data-connectors/cisco-duo-security.md
     - name: Cisco ETD (using Azure Functions)
       href: data-connectors/cisco-etd.md
-    - name: Cisco Identity Services Engine
-      href: data-connectors/cisco-identity-services-engine.md
-    - name: Cisco Meraki
-      href: data-connectors/cisco-meraki.md
-    - name: Cisco Secure Cloud Analytics
-      href: data-connectors/cisco-secure-cloud-analytics.md
     - name: Cisco Secure Endpoint (AMP) (using Azure Functions)
       href: data-connectors/cisco-secure-endpoint-amp.md
     - name: Cisco Software Defined WAN
       href: data-connectors/cisco-software-defined-wan.md
-    - name: Cisco UCS
-      href: data-connectors/cisco-ucs.md
     - name: Cisco Umbrella (using Azure Functions)
       href: data-connectors/cisco-umbrella.md
-    - name: Cisco Web Security Appliance
-      href: data-connectors/cisco-web-security-appliance.md
-    - name: Citrix ADC (former NetScaler)
-      href: data-connectors/citrix-adc-former-netscaler.md
     - name: Claroty xDome
       href: data-connectors/claroty-xdome.md
     - name: Cloudflare (Preview) (using Azure Functions)
