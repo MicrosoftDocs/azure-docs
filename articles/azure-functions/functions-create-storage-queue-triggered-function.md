@@ -39,7 +39,7 @@ Next, you create a function in the new function app.
     | **Queue name**   | myqueue-items    | Name of the queue to connect to in your Storage account. |
     | **Storage account connection** | AzureWebJobsStorage | You can use the storage account connection already being used by your function app, or create a new one.  |    
 
-    Azure creates the Queue Storage triggered function based on the provided values.Next, you connect to your Azure storage account and create the **myqueue-items** storage queue.
+    Azure creates the Queue Storage triggered function based on the provided values. Next, you connect to your Azure storage account and create the **myqueue-items** storage queue.
 
 ## Create the queue
 
