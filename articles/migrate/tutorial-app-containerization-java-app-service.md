@@ -1,13 +1,12 @@
 ---
 title: Containerization and migration of Java web applications to Azure App Service.
 description: Tutorial:Containerize & migrate Java web applications to Azure App Service.
-author: vijain
-ms.author: vijain
-ms.manager: kmadnani
+author: anraghun
+ms.author: anraghun
 ms.topic: tutorial
 ms.service: azure-migrate
 ms.custom: devx-track-extended-java
-ms.date: 07/05/2024
+ms.date: 09/19/2024
 ---
 # Java web app containerization and migration to Azure App Service
 
@@ -95,6 +94,8 @@ If you just created a free Azure account, you're the owner of your subscription.
 9. In **User settings**, verify if Microsoft Entra users can register applications (set to **Yes** by default).
 
   ![Verify in User Settings that users can register Active Directory apps.](./media/tutorial-discover-vmware/register-apps.png)
+
+   [!INCLUDE [global-admin-usage.md](includes/global-admin-usage.md)]
 
 10. In case the 'App registrations' setting is set to 'No', request the tenant/global admin to assign the required permission. Alternately, the tenant/global admin can assign the **Application Developer** role to an account to allow the registration of Microsoft Entra App. [Learn more](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md).
 
