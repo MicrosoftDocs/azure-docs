@@ -5,7 +5,7 @@ ms.service: azure-api-management
 author: dlepow
 ms.author: danlep
 ms.topic: how-to
-ms.date: 09/18/2024
+ms.date: 09/19/2024
 ---
 
 # Connect privately to API Management using an inbound private endpoint
@@ -113,16 +113,16 @@ When you use the Azure portal to create a private endpoint, as shown in the next
     | Network Interface Name | Enter a name for the network interface, such as *myInterface* |
     | Region | Select a location for the private endpoint. It must be in the same region as your virtual network. It may differ from the region where your API Management instance is hosted. |
 
-1. Select the **Resource** tab or the **Next: Resource** button at the bottom of the page. The following information about your API Management instance is already populated:
+1. Select the **Next: Resource** button at the bottom of the screen. The following information about your API Management instance is already populated:
     * Subscription
-    * Resource group
+    * Resource type
     * Resource name
     
 1. In **Resource**, in **Target sub-resource**, select **Gateway**.
 
     :::image type="content" source="media/private-endpoint/create-private-endpoint.png" alt-text="Screenshot showing settings to create a private endpoint in the Azure portal.":::
 
-1. Select the **Virtual Network** tab or the **Next: Virtual Network** button at the bottom of the screen.
+1. Select the **Next: Virtual Network** button at the bottom of the screen.
 
 1. In **Networking**, enter or select this information:
 
@@ -133,7 +133,7 @@ When you use the Azure portal to create a private endpoint, as shown in the next
     | Private IP configuration | In most cases, select **Dynamically allocate IP address.** |
     | Application security group | Optionally select an [application security group](../virtual-network/application-security-groups.md). |
 
-1. Select the **DNS** tab or the **Next: DNS** button at the bottom of the screen.
+1. Select the **Next: DNS** button at the bottom of the screen.
 
 1. In **Private DNS integration**, enter or select this information:
 
@@ -144,9 +144,9 @@ When you use the Azure portal to create a private endpoint, as shown in the next
     | Resource group | Select your resource group. |
     | Private DNS zones | The default value is displayed: **(new) privatelink.azure-api.net**.
 
-1. Select the **Tags** tab or the **Next: Tabs** button at the bottom of the screen. If you desire, enter tags to organize your Azure resources.
+1. Select the **Next: Tabs** button at the bottom of the screen. If you desire, enter tags to organize your Azure resources.
 
-1.  Select **Review + create**.
+    1. Select the **Next: Review + create** button at the bottom of the screen.
 
 1. Select **Create**.
 
@@ -166,7 +166,7 @@ If a private endpoint connection is in pending status, an owner of the API Manag
 
 If you have sufficient permissions, approve a private endpoint connection on the API Management instance's **Private endpoint connections** page in the portal. In the connection's context (...) menu, select **Approve**.
 
-You can also use the API Management [Private Endpoint Connection - Create Or Update](/rest/api/apimanagement/private-endpoint-connection/create-or-update) REST API.
+You can also use the API Management [Private Endpoint Connection - Create Or Update](/rest/api/apimanagement/private-endpoint-connection/create-or-update) REST API to approve pending private endpoint connectionis.
 
 ### Optionally disable public network access
 
@@ -181,7 +181,7 @@ To disable public network access using the Azure CLI, run the following [az apim
 az apim update --name my-apim-service --resource-group my-resource-group --public-network-access false
 ```
 
-You can also use the [API Management Service - Update](/rest/api/apimanagement/api-management-service/update) REST API to set the `publicNetworkAccess` property to `Disabled`.
+You can also use the [API Management Service - Update](/rest/api/apimanagement/api-management-service/update) REST API to disable public network access, by setting the `publicNetworkAccess` property to `Disabled`.
 
 ## Validate private endpoint connection
 
