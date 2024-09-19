@@ -328,7 +328,7 @@ The following metric alert properties in the request body support customization:
 - AutoStop_TimeAggregationOperator
 - AutoStop_TimeWindow
 
-To learn more about how Azure Monitor metric alerts work and how to configure them see [Metric alerts in Azure Monitor](../../azure-monitor/alerts/alerts-metric-overview.md).
+To learn more about how Azure Monitor metric alerts work and how to configure them see [Metric alerts in Azure Monitor](/azure/azure-monitor/alerts/alerts-metric-overview).
 
 1. From the list of Logic apps, to configure auto stop, select **ststv2_vms_AutoStop**.
 

@@ -253,7 +253,7 @@ login.microsoftonline.com. 0    IN      A       100.104.0.165
     ```
 1. Use the [az connectedk8s connect](/cli/azure/connectedk8s#az-connectedk8s-connect) command to Arc-enable your Kubernetes cluster and manage it in the resource group you created in the previous step:
     ```powershell
-    az connectedk8s connect -n $CLUSTER_NAME -l $LOCATION -g $RESOURCE_GROUP --subscription $SUBSCRIPTION_ID
+    az connectedk8s connect -n $CLUSTER_NAME -l $LOCATION -g $RESOURCE_GROUP --subscription $SUBSCRIPTION_ID --disable-auto-upgrade
     ```
     > [!TIP]
     > If the `connectedk8s` commands fail, try using the cmdlets in [Connect your AKS Edge Essentials cluster to Arc](/azure/aks/hybrid/aks-edge-howto-connect-to-arc).
@@ -277,17 +277,17 @@ login.microsoftonline.com. 0    IN      A       100.104.0.165
 > These steps are for AKS Edge Essentials only.
 
 After you've deployed Azure IoT Operations to your cluster, enable inbound connections to MQTT broker and configure port forwarding:
-1. Enable a firewall rule for port 8883:
+1. Enable a firewall rule for port 18883:
     ```powershell
-    New-NetFirewallRule -DisplayName "MQTT broker" -Direction Inbound -Protocol TCP -LocalPort 8883 -Action Allow
+    New-NetFirewallRule -DisplayName "MQTT broker" -Direction Inbound -Protocol TCP -LocalPort 18883 -Action Allow
     ```
-1. Run the following command and make a note of the IP address for the service called `aio-mq-dmqtt-frontend`:
+1. Run the following command and make a note of the IP address for the service called `aio-broker`:
     ```cmd
-    kubectl get svc aio-mq-dmqtt-frontend -n azure-iot-operations -o jsonpath='{.status.loadBalancer.ingress[0].ip}'
+    kubectl get svc aio-broker -n azure-iot-operations -o jsonpath='{.status.loadBalancer.ingress[0].ip}'
     ```
-1. Enable port forwarding for port 8883. Replace `<aio-mq-dmqtt-frontend IP address>` with the IP address you noted in the previous step:
+1. Enable port forwarding for port 18883. Replace `<aio-broker IP address>` with the IP address you noted in the previous step:
     ```cmd
-    netsh interface portproxy add v4tov4 listenport=8883 listenaddress=0.0.0.0 connectport=8883 connectaddress=<aio-mq-dmqtt-frontend IP address>
+    netsh interface portproxy add v4tov4 listenport=18883 listenaddress=0.0.0.0 connectport=18883 connectaddress=<aio-broker IP address>
     ```
 
 ## Related content

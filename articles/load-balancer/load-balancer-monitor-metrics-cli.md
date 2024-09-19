@@ -140,4 +140,4 @@ az monitor metrics list --resource <resource_id> --metric DipAvailability --filt
 ## Next steps
 * [Review the metric definitions to better understand how each is generated](./load-balancer-standard-diagnostics.md#multi-dimensional-metrics)
 * [Create Connection Monitors for your Load Balancer](./load-balancer-standard-diagnostics.md)
-* [Create your own workbooks](../azure-monitor/visualize/workbooks-overview.md), you can take inspiration by clicking on the edit button in your detailed metrics dashboard
+* [Create your own workbooks](/azure/azure-monitor/visualize/workbooks-overview), you can take inspiration by clicking on the edit button in your detailed metrics dashboard

@@ -17,16 +17,22 @@ items:
         href: get-started-end-to-end-sample/quickstart-get-insights.md
     - name: Deploy Azure IoT Operations to your cluster
       items:
+      - name: Deployment overview
+        href: deploy-iot-ops/overview-deploy.md
       - name: Prepare a cluster
         href: deploy-iot-ops/howto-prepare-cluster.md
       - name: Deploy to a cluster
         href: deploy-iot-ops/howto-deploy-iot-operations.md
+      - name: Enable secure settings
+        href: deploy-iot-ops/howto-enable-secure-settings.md
       - name: Manage secrets
         href: deploy-iot-ops/howto-manage-secrets.md
     - name: Discover and manage assets
       items:
       - name: Asset management overview
         href: discover-manage-assets/overview-manage-assets.md
+      - name: Understand assets and asset endpoints
+        href: discover-manage-assets/concept-assets-asset-endpoints.md
       - name: Manage your assets
         href: discover-manage-assets/howto-manage-assets-remotely.md
       - name: Secure access to your assets
@@ -67,10 +73,24 @@ items:
       items:
       - name: Overview
         href: connect-to-cloud/overview-dataflow.md
-      - name: Configure endpoints
-        href: connect-to-cloud/howto-configure-dataflow-endpoint.md
       - name: Create a dataflow
         href: connect-to-cloud/howto-create-dataflow.md
+      - name: Endpoints
+        items:
+        - name: Overview
+          href: connect-to-cloud/howto-configure-dataflow-endpoint.md
+        - name: MQTT and Event Grid
+          href: connect-to-cloud/howto-configure-mqtt-endpoint.md
+        - name: Kafka and Event Hub
+          href: connect-to-cloud/howto-configure-kafka-endpoint.md
+        - name: ADLSv2 Blob Storage
+          href: connect-to-cloud/howto-configure-adlsv2-endpoint.md
+        - name: Microsoft Fabric
+          href: connect-to-cloud/howto-configure-fabric-endpoint.md
+        - name: Azure Data Explorer
+          href: connect-to-cloud/howto-configure-adx-endpoint.md
+        - name: Local storage
+          href: connect-to-cloud/howto-configure-local-storage-endpoint.md  
       - name: Transform data
         items:
         - name: Map data
@@ -79,7 +99,7 @@ items:
           href: connect-to-cloud/concept-dataflow-conversions.md
         - name: Enrich data
           href: connect-to-cloud/concept-dataflow-enrich.md
-      - name: Configure a dataflow profile
+      - name: Manage dataflow profile
         href: connect-to-cloud/howto-configure-dataflow-profile.md
     - name: Manage layered network
       items:
@@ -133,6 +153,10 @@ items:
         href: create-edge-apps/concept-about-state-store-protocol.md
       - name: Develop MQTTnet apps
         href: create-edge-apps/howto-develop-mqttnet-apps.md
+    - name: Tutorials
+      items:
+      - name: MQTT bridge
+        href: connect-to-cloud\tutorial-mqtt-bridge.md
     - name: Troubleshoot
       items:
       - name: Troubleshoot
@@ -149,12 +173,8 @@ items:
         href: https://github.com/Azure/azure-iot-operations/releases
       - name: Azure IoT Operations CLI
         href: /cli/azure/iot/ops
-      - name: REST API
-        items:
-        - name: Azure IoT Data Processor
-          href: /rest/api/iotdataprocessor 
-        - name: MQTT broker
-          href: /rest/api/iotmq
+      - name: Azure IoT Operations REST API
+        href: /rest/api/iotoperations
       - name: Available metrics for observability
         items:
         - name: MQTT broker

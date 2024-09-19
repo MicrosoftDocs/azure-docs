@@ -6,7 +6,7 @@ ms.author: dobett
 ms.topic: troubleshooting-known-issue
 ms.custom:
   - ignite-2023
-ms.date: 07/11/2024
+ms.date: 08/22/2024
 ---
 
 # Known issues: Azure IoT Operations Preview
@@ -41,6 +41,8 @@ This article lists the known issues for Azure IoT Operations Preview.
 - Even though the MQTT broker's [diagnostics](../manage-mqtt-broker/howto-configure-availability-scale.md#configure-mqtt-broker-diagnostic-settings) produces telemetry on its own topic, you might still get messages from the self-test when you subscribe to `#` topic.
 
 - Some clusters that have slow Kubernetes API calls may result in selftest ping failures: `Status {Failed}. Probe failed: Ping: 1/2` from running `az iot ops check` command.
+
+- Probe operations fail with `Not Authorized` error when the deployment doesn't have a custom authorization policy with rules defined. To resolve this issue, create a [broker authorization policy with rules](../manage-mqtt-broker/howto-configure-authorization.md#authorization-rules).
 
 - You might encounter an error in the KafkaConnector StatefulSet event logs such as `Invalid value: "mq-to-eventhub-connector-<token>--connectionstring": must be no more than 63 characters`. Ensure your KafkaConnector name is of maximum 5 characters.
 
@@ -142,6 +144,8 @@ kubectl delete pod aio-opc-opc.tcp-1-f95d76c54-w9v9c -n azure-iot-operations
 - Dataflows profile scaling with `instanceCount` is limited to `1` for Azure IoT Operations version 0.6.x.
 
 - Configuration using Azure Resource Manager isn't supported. Instead, configure dataflows using `kubectl` and YAML files as documented.
+
+- When using Event Hubs endpoint as a dataflow source, Kafka headers gets corrupted as its translated to MQTT. To learn more, see [Configure Kafka dataflow endpoints](../connect-to-cloud/howto-configure-kafka-endpoint.md#kafka-endpoint-is-a-dataflow-source).
 
 ## Akri services
 
