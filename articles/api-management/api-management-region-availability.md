@@ -20,7 +20,7 @@ API Management [v2 tiers](v2-service-tiers-overview.md) and API Management [work
 
 ## Supported regions for v2 tiers and workspace gateways
 
-This following table shows the regions where the API Management v2 tiers and API Management workspace gateways are available. This information is updated regularly. 
+Information in the following table is updated regularly. 
 
 
 | Region | Basic v2 | Standard v2 | Premium v2 (preview) | Workspace gateway (Premium) | 
