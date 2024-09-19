@@ -86,7 +86,7 @@ Sometimes users have instances of Azure Communication Services running on multip
 
 You can check the log insights from the Azure portal to determine the exact problem during the call. For more information, see [Query call logs](../analytics/query-call-logs.md).
 
-If you tried all the previous actions and still face quality problems, [create an Azure support request](../../../azure-portal/supportability/how-to-create-azure-support-request.md). If necessary, Microsoft can run a network check for your tenant to help ensure call quality.
+If you tried all the previous actions and still face quality problems, [create an Azure support request](/azure/azure-portal/supportability/how-to-create-azure-support-request). If necessary, Microsoft can run a network check for your tenant to help ensure call quality.
 
 ## End of Call Survey
 

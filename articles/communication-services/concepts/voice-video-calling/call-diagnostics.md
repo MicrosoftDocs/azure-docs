@@ -75,7 +75,7 @@ You can view detailed call logs for each participant within a call. Call informa
 
 ## Copilot in Azure for Call Diagnostics
 
-AI can help app developers across every step of the development lifecycle: designing, building, and operating. Developers can use [Microsoft Copilot in Azure (preview)](../../../copilot/overview.md) within Call Diagnostics to understand and resolve a variety of calling problems. For example, developers can ask Copilot in Azure these questions:
+AI can help app developers across every step of the development lifecycle: designing, building, and operating. Developers can use [Microsoft Copilot in Azure (preview)](/azure/copilot/overview) within Call Diagnostics to understand and resolve a variety of calling problems. For example, developers can ask Copilot in Azure these questions:
 
 - How do I run network diagnostics in Azure Communication Services VoIP calls?
 - How can I optimize my calls for poor network conditions?
@@ -114,7 +114,7 @@ Here are resources for common call problems:
 
 ### How do I use Copilot in Azure (preview) in Call Diagnostics?
 
-Your organization manages access to [Microsoft Copilot in Azure (preview)](../../../copilot/overview.md). After your organization has access to Copilot in Azure, the Call Diagnostics interface includes the **Diagnose with Copilot** option in the search area, on the **Overview** tab, and on the **Issues** tab.
+Your organization manages access to [Microsoft Copilot in Azure (preview)](/azure/copilot/overview). After your organization has access to Copilot in Azure, the Call Diagnostics interface includes the **Diagnose with Copilot** option in the search area, on the **Overview** tab, and on the **Issues** tab.
 
 Use Copilot in Azure for Call Diagnostics to improve call quality by detailing problems faced during Azure Communication Services calls. Giving Copilot in Azure detailed information from Call Diagnostics will help it enhance analysis, identify problems, and identify fixes. Be aware that Copilot in Azure currently lacks programmatic access to your call details.
 
