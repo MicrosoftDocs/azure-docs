@@ -272,16 +272,6 @@
       href: data-connectors/varmour-application-controller.md
     - name: 'WireX Network Forensics Platform'
       href: data-connectors/wirex-network-forensics-platform.md
-    - name: '[Recommended] Netwrix Auditor via AMA'
-      href: data-connectors/recommended-netwrix-auditor-via-ama.md
-    - name: '[Recommended] Nozomi Networks N2OS via AMA'
-      href: data-connectors/recommended-nozomi-networks-n2os-via-ama.md
-    - name: '[Recommended] OSSEC via AMA'
-      href: data-connectors/recommended-ossec-via-ama.md
-    - name: '[Recommended] Palo Alto Networks Cortex Data Lake (CDL) via AMA'
-      href: data-connectors/recommended-palo-alto-networks-cortex-data-lake-cdl-via-ama.md
-    - name: '[Recommended] PingFederate via AMA'
-      href: data-connectors/recommended-pingfederate-via-ama.md
     - name: '[Recommended] Trend Micro Apex One via AMA'
       href: data-connectors/recommended-trend-micro-apex-one-via-ama.md
     - name: 1Password (using Azure Functions)
@@ -486,10 +476,6 @@
       href: data-connectors/mailguard-365.md
     - name: MailRisk by Secure Practice (using Azure Functions)
       href: data-connectors/mailrisk-by-secure-practice.md
-    - name: McAfee ePolicy Orchestrator (ePO)
-      href: data-connectors/mcafee-epolicy-orchestrator-epo.md
-    - name: McAfee Network Security Platform
-      href: data-connectors/mcafee-network-security-platform.md
     - name: Microsoft 365
       href: data-connectors/microsoft-365.md
     - name: Microsoft 365 Defender
@@ -524,8 +510,6 @@
       href: data-connectors/microsoft-purview.md
     - name: Microsoft Purview Information Protection
       href: data-connectors/microsoft-purview-information-protection.md
-    - name: Microsoft Sysmon For Linux
-      href: data-connectors/microsoft-sysmon-for-linux.md
     - name: Mimecast Audit & Authentication (using Azure Functions)
       href: data-connectors/mimecast-audit-authentication.md
     - name: Mimecast Intelligence for Microsoft - Microsoft Sentinel (using Azure Functions)
@@ -536,12 +520,8 @@
       href: data-connectors/mimecast-targeted-threat-protection.md
     - name: MISP2Sentinel
       href: data-connectors/misp2sentinel.md
-    - name: MongoDB Audit
-      href: data-connectors/mongodb-audit.md
     - name: MuleSoft Cloudhub (using Azure Functions)
       href: data-connectors/mulesoft-cloudhub.md
-    - name: Nasuni Edge Appliance
-      href: data-connectors/nasuni-edge-appliance.md
     - name: NC Protect
       href: data-connectors/nc-protect.md
     - name: Netclean ProActive Incidents
@@ -554,8 +534,6 @@
       href: data-connectors/netskope-web-transactions-data-connector.md
     - name: Network Security Groups
       href: data-connectors/network-security-groups.md
-    - name: NGINX HTTP Server
-      href: data-connectors/nginx-http-server.md
     - name: Noname Security for Microsoft Sentinel
       href: data-connectors/noname-security-for-microsoft-sentinel.md
     - name: NXLog AIX Audit
@@ -572,38 +550,26 @@
       href: data-connectors/okta-single-sign-on.md
     - name: OneLogin IAM Platform(using Azure Functions)
       href: data-connectors/onelogin-iam-platform.md
-    - name: OpenVPN Server
-      href: data-connectors/openvpn-server.md
     - name: Oracle Cloud Infrastructure (using Azure Functions)
       href: data-connectors/oracle-cloud-infrastructure.md
-    - name: Oracle Database Audit
-      href: data-connectors/oracle-database-audit.md
-    - name: Oracle WebLogic Server (using Azure Functions)
-      href: data-connectors/oracle-weblogic-server.md
     - name: Orca Security Alerts
       href: data-connectors/orca-security-alerts.md
     - name: Palo Alto Prisma Cloud CSPM (using Azure Functions)
       href: data-connectors/palo-alto-prisma-cloud-cspm.md
     - name: Perimeter 81 Activity Logs
       href: data-connectors/perimeter-81-activity-logs.md
-    - name: PostgreSQL Events
-      href: data-connectors/postgresql-events.md
     - name: Prancer Data Connector
       href: data-connectors/prancer-data-connector.md
     - name: Proofpoint On Demand Email Security (using Azure Functions)
       href: data-connectors/proofpoint-on-demand-email-security.md
     - name: Proofpoint TAP (using Azure Functions)
       href: data-connectors/proofpoint-tap.md
-    - name: Pulse Connect Secure
-      href: data-connectors/pulse-connect-secure.md
     - name: Qualys VM KnowledgeBase (using Azure Functions)
       href: data-connectors/qualys-vm-knowledgebase.md
     - name: Qualys Vulnerability Management (using Azure Functions)
       href: data-connectors/qualys-vulnerability-management.md
     - name: Rapid7 Insight Platform Vulnerability Management Reports (using Azure Functions)
       href: data-connectors/rapid7-insight-platform-vulnerability-management-reports.md
-    - name: RIDGEBOT - data connector for Microsoft Sentinel
-      href: data-connectors/ridgebot-data-connector-for-microsoft-sentinel.md
     - name: RSA® SecurID (Authentication Manager)
       href: data-connectors/rsa-securid-authentication-manager.md
     - name: Rubrik Security Cloud data connector (using Azure Functions)
