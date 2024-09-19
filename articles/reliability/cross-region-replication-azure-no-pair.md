@@ -28,7 +28,7 @@ For App Service, custom backups are stored on a selected storage account. As a r
 
 
 ## Azure Cache for Redis
-Azure Cache for Redis provide two distinct cross-region replication options that is [active geo-replication](/azure/azure-cache-for-redis/cache-how-to-active-geo-replication) and [passive geo-replication](/azure/azure-cache-for-redis/cache-how-to-geo-replication). In both cases, there's no explicit dependency on region pairs.
+Azure Cache for Redis provide two distinct cross-region replication options that are [active geo-replication](/azure/azure-cache-for-redis/cache-how-to-active-geo-replication) and [passive geo-replication](/azure/azure-cache-for-redis/cache-how-to-geo-replication). In both cases, there's no explicit dependency on region pairs.
 
 
 ## Azure Container Registry
@@ -74,7 +74,7 @@ Azure Backup can provide protection for AKS clusters, including a [cross-regio
 
 ## Azure Monitor Logs
 Log Analytics workspaces in Azure Monitor Logs don't use paired regions. To ensure business continuity and protect against data loss, enable cross-region workspace replication.
-For more information, see [Enhance resilience by replicating your Log Analytics workspace across regions](/azure/azure-monitor/logs/workspace-replication)
+For more information, see [Enhance resilience by replicating your Log Analytics workspace across regions](/azure/azure-monitor/logs/workspace-replication).
 
 
 ## Azure Service Bus 
