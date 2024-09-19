@@ -4,7 +4,7 @@ description: Learn how to remove access to all outbound public IP addresses.
 ms.service: azure-hdinsight
 ms.custom: devx-track-azurepowershell
 ms.topic: conceptual
-ms.date: 19/09/2024
+ms.date: 09/19/2024
 ---
 
 # Restrict public connectivity in Azure HDInsight
