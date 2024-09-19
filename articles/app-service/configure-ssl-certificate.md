@@ -46,7 +46,7 @@ The [free App Service managed certificate](#create-a-free-managed-certificate) a
 * Contains private key at least 2048 bits long
 * Contains all intermediate certificates and the root certificate in the certificate chain
 
-To improve security for a custom domain in a TLS binding, the certificate has more requirements:
+To help secure a custom domain in a TLS binding, the certificate has more requirements:
 
 * Contains an [Extended Key Usage](https://en.wikipedia.org/w/index.php?title=X.509&section=4#Extensions_informing_a_specific_usage_of_a_certificate) for server authentication (OID = 1.3.6.1.5.5.7.3.1)
 * Signed by a trusted certificate authority
@@ -126,7 +126,7 @@ To import an App Service certificate, first [buy and configure an App Service ce
 
     :::image type="content" source="media/configure-ssl-certificate/import-app-service-cert-finished.png" alt-text="Screenshot of 'Bring your own certificates (.pfx)' pane with purchased certificate listed.":::
 
-1. To provide security for a custom domain with this certificate, you still have to create a certificate binding. Follow the steps in [Secure a custom DNS name with a TLS/SSL binding in Azure App Service](configure-ssl-bindings.md).
+1. To help secure a custom domain with this certificate, you still have to create a certificate binding. Follow the steps in [Secure a custom DNS name with a TLS/SSL binding in Azure App Service](configure-ssl-bindings.md).
 
 ## Import a certificate from Key Vault
 
@@ -191,7 +191,7 @@ The service principal app ID or assignee value is the ID for the App Service res
    > [!NOTE]
    > If you update your certificate in Key Vault with a new certificate, App Service automatically syncs your certificate within 24 hours.
 
-1. To provide security for a custom domain with this certificate, you still have to create a certificate binding. Follow the steps in [Secure a custom DNS name with a TLS/SSL binding in Azure App Service](configure-ssl-bindings.md).
+1. To helps secure custom domain with this certificate, you still have to create a certificate binding. Follow the steps in [Secure a custom DNS name with a TLS/SSL binding in Azure App Service](configure-ssl-bindings.md).
 
 ## Upload a private certificate
 
