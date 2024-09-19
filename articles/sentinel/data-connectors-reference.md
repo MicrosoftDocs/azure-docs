@@ -53,7 +53,7 @@ Filter and ingest logs in text-file format from network or security applications
 
 ## Codeless connector platform connectors
 
-The following connectors use the current codeless connector platform but don't have a specific documentation page generated. They're available from the content hub in Microsoft Sentinel as part of a solution. For instructions on how to configure these data connectors, review the instructions available with each data connectors within Microsoft Sentinel.
+The following connectors use the current codeless connector platform but don't have a specific documentation page generated. They're available from the content hub in Microsoft Sentinel as part of a solution. For instructions on how to configure these data connectors, review the instructions available with each data connector within Microsoft Sentinel.
 
 |Codeless connector name  |Azure Marketplace solution  |
 |---------|---------|
@@ -80,10 +80,6 @@ For more information about the codeless connector platform, see [Create a codele
 
 - [AbnormalSecurity (using Azure Functions)](data-connectors/abnormalsecurity.md)
 
-## Akamai
-
-- [[Recommended] Akamai Security Events via AMA](data-connectors/recommended-akamai-security-events-via-ama.md)
-
 ## AliCloud
 
 - [AliCloud (using Azure Functions)](data-connectors/alicloud.md)
@@ -93,9 +89,9 @@ For more information about the codeless connector platform, see [Create a codele
 - [Amazon Web Services](data-connectors/amazon-web-services.md)
 - [Amazon Web Services S3](data-connectors/amazon-web-services-s3.md)
 
-## Apache Software Foundation
+## Apache
 
-- [Apache HTTP Server](data-connectors/apache-http-server.md)
+- [Apache Tomcat](data-connectors/apache-tomcat.md)
 
 ## archTIS
 
@@ -114,10 +110,6 @@ For more information about the codeless connector platform, see [Create a codele
 ## Armorblox
 
 - [Armorblox (using Azure Functions)](data-connectors/armorblox.md)
-
-## Aruba
-
-- [[Recommended] Aruba ClearPass via AMA](data-connectors/recommended-aruba-clearpass-via-ama.md)
 
 ## Atlassian
 
@@ -148,30 +140,17 @@ For more information about the codeless connector platform, see [Create a codele
 
 - [Box (using Azure Functions)](data-connectors/box.md)
 
-## Broadcom
-
-- [[Recommended] Broadcom Symantec DLP via AMA](data-connectors/recommended-broadcom-symantec-dlp-via-ama.md)
-
 ## Cisco
 
 - [Cisco ASA/FTD via AMA (Preview)](data-connectors/cisco-asa-ftd-via-ama.md)
 - [Cisco Duo Security (using Azure Functions)](data-connectors/cisco-duo-security.md)
-- [Cisco Identity Services Engine](data-connectors/cisco-identity-services-engine.md)
-- [Cisco Meraki](data-connectors/cisco-meraki.md)
 - [Cisco Secure Endpoint (AMP) (using Azure Functions)](data-connectors/cisco-secure-endpoint-amp.md)
-- [Cisco Secure Cloud Analytics](data-connectors/cisco-secure-cloud-analytics.md)
-- [Cisco UCS](data-connectors/cisco-ucs.md)
 - [Cisco Umbrella (using Azure Functions)](data-connectors/cisco-umbrella.md)
-- [Cisco Web Security Appliance](data-connectors/cisco-web-security-appliance.md)
 
 ## Cisco Systems, Inc.
 
 - [Cisco Software Defined WAN](data-connectors/cisco-software-defined-wan.md)
 - [Cisco ETD (using Azure Functions)](data-connectors/cisco-etd.md)
-
-## Citrix
-
-- [Citrix ADC (former NetScaler)](data-connectors/citrix-adc-former-netscaler.md)
 
 ## Claroty
 
@@ -448,7 +427,6 @@ For more information about the codeless connector platform, see [Create a codele
 - [[Recommended] Forcepoint CASB via AMA](data-connectors/recommended-forcepoint-casb-via-ama.md)
 - [[Recommended] Forcepoint CSG via AMA](data-connectors/recommended-forcepoint-csg-via-ama.md)
 - [[Recommended] Forcepoint NGFW via AMA](data-connectors/recommended-forcepoint-ngfw-via-ama.md)
-- [Barracuda CloudGen Firewall](data-connectors/barracuda-cloudgen-firewall.md)
 - [Exchange Security Insights Online Collector (using Azure Functions)](data-connectors/exchange-security-insights-online-collector.md)
 - [Exchange Security Insights On-Premises Collector](data-connectors/exchange-security-insights-on-premises-collector.md)
 - [Microsoft Exchange Logs and Events](data-connectors/microsoft-exchange-logs-and-events.md)

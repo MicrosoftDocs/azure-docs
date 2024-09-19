@@ -103,7 +103,12 @@ az role assignment create --role "Azure Event Hubs Data Sender" --assignee $PRIN
 
 ## Create a dataflow to send telemetry to an event hub
 
-To create and configure a dataflow in your cluster, run the following commands in your shell. This dataflow forwards messages from the MQTT topic to the event hub you created without making any changes:
+To create and configure a dataflow in your cluster, run the following commands in your shell. This dataflow:
+
+- Renames the `Tag 10` field in the incoming message to `Humidity`.
+- Renames the `temperature` field in the incoming message to `Temperature`.
+- Adds a field called `AssetId` that contains the value of the `externalAssetId` message property.
+- Forwards the transformed messages from the MQTT topic to the event hub you created.
 
 <!-- TODO: Change branch to main before merging the release branch -->
 
