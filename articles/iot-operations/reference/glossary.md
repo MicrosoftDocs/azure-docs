@@ -27,9 +27,9 @@ A unified data plane for the edge. It's a collection of modular, scalable, and h
 
 On first mention in an article, use _Azure IoT Operations Preview - enabled by Azure Arc_. On subsequent mentions, you can use _Azure IoT Operations_. Never use an acronym.
 
-### Data processor
+### Dataflows
 
-This component lets you aggregate, enrich, normalize, and filter the data from your devices and assets. The data processor is a pipeline-based data processing engine that lets you process data at the edge before you send it to the other services either at the edge or in the cloud
+This component lets you aggregate, enrich, normalize, and filter the data from your devices and assets. The dataflows is a data processing engine that lets you process data at the edge before you send it to the other services either at the edge or in the cloud
 
 ### Azure IoT Layered Network Management Preview
 
@@ -47,7 +47,7 @@ This component manages the connection to OPC UA servers and other leaf devices. 
 
 ### Operations experience
 
-This web UI provides a unified experience for operational technologists to manage assets and data processor pipelines in an Azure IoT Operations deployment.
+This web UI provides a unified experience for operational technologists to manage assets and dataflows in an Azure IoT Operations deployment.
 
 ### Azure Device Registry Preview
 

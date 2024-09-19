@@ -31,7 +31,7 @@ This article describes how to use the operations experience web UI and the Azure
 - Define the asset endpoints that connect assets to your Azure IoT Operations instance.
 - Add assets, and define their tags and events to enable dataflow from OPC UA servers to the MQTT broker.
 
-These assets, tags, and events map inbound data from OPC UA servers to friendly names that you can use in the MQTT broker and data processor pipelines.
+These assets, tags, and events map inbound data from OPC UA servers to friendly names that you can use in the MQTT broker and dataflows.
 
 ## Prerequisites
 
@@ -126,7 +126,7 @@ To learn more, see [az iot ops asset endpoint](/cli/azure/iot/ops/asset/endpoint
 
 This configuration deploys a new `assetendpointprofile` resource called `opc-ua-connector-0` to the cluster. After you define an asset, a connector for OPC UA pod discovers it. The pod uses the asset endpoint that you specify in the asset definition to connect to an OPC UA server.
 
-When the OPC PLC simulator is running, data flows from the simulator, to the connector for OPC UA, and then to the MQTT broker.
+When the OPC PLC simulator is running, dataflows from the simulator, to the connector for OPC UA, and then to the MQTT broker.
 
 ### Configure an asset endpoint to use a username and password
 

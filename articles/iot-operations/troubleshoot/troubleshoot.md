@@ -19,58 +19,11 @@ This article contains troubleshooting tips for Azure IoT Operations Preview.
 
 For general deployment and configuration troubleshooting, you can use the Azure CLI IoT Operations *check* and *support* commands.
 
-[Azure CLI version 2.46.0 or higher](/cli/azure/install-azure-cli) is required and the [Azure IoT Operations extension](/cli/azure/iot/ops) installed.
+[Azure CLI version 2.52.0 or higher](/cli/azure/install-azure-cli) is required and the [Azure IoT Operations extension](/cli/azure/iot/ops) installed.
 
 - Use [az iot ops check](/cli/azure/iot/ops#az-iot-ops-check) to evaluate Azure IoT Operations service deployment for health, configuration, and usability. The *check* command can help you find problems in your deployment and configuration.
 
 - Use [az iot ops support create-bundle](/cli/azure/iot/ops/support#az-iot-ops-support-create-bundle) to collect logs and traces to help you diagnose problems. The *support create-bundle* command creates a standard support bundle zip archive you can review or provide to Microsoft Support.
-
-## Data processor pipeline deployment troubleshooting
-
-If your data processor pipeline deployment status is showing as **Failed**, use the following commands to find the pipeline error codes.
-
-To list the data processor pipeline deployments, run the following command:
-
-```bash
-kubectl get pipelines -A
-```
-
-The output from the pervious command looks like the following example:
-
-```text
-NAMESPACE                NAME                           AGE
-azure-iot-operations     passthrough-data-pipeline      2d20h
-azure-iot-operations     reference-data-pipeline        2d20h
-azure-iot-operations     contextualized-data-pipeline   2d20h
-```
-
-To view detailed information for a pipeline, run the following command:
-
-```bash
-kubectl describe pipelines passthrough-data-pipeline -n azure-iot-operations
-```
-
-The output from the previous command looks like the following example:
-
-```text
-...
-Status:
-  Provisioning Status:
-    Error
-      Code:  <ErrorCode>
-      Message: <ErrorMessage>
-    Status:        Failed
-Events:            <none>
-```
-
-If you see the following message when you try to access the **Pipelines** tab in the Azure IoT Operations (preview) portal:
-
-_Data Processor not found in the current deployment. Please re-deploy with the additional argument to include the data processor._
-
-You need to deploy Azure IoT Operations with the optional data processor component included. To do this, you need to add the `--include-dp` argument when you run the [az iot ops init](/cli/azure/iot/ops#az-iot-ops-init) command. You must use the `--include-dp` argument to include the data processor component when you first deploy Azure IoT Operations. You can't add this optional component to an existing deployment.
-
-> [!TIP]
-> If you want to delete the Azure IoT Operations deployment but plan on reinstalling it on your cluster, use the [az iot ops delete](/cli/azure/iot/ops?az-iot-ops-delete) command.
 
 ## Azure IoT Layered Network Management Preview troubleshooting
 
