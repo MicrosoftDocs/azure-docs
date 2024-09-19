@@ -13,7 +13,7 @@ ms.custom:
 
 | Size Series | Series Type | Deployment Status |
 |:-:|:-:|:-:|
-| [Dadsv6](/azure/virtual-machines/dadsv6-series)      | General Purpose | Preview    |
+| [Dadsv6](/azure/virtual-machines/sizes/general-purpose/dadsv6-series)      | General Purpose | Preview    |
 | [Daldsv6](/azure/virtual-machines/daldsv6-series)    | General Purpose | Preview    |
 | [Dalsv6](/azure/virtual-machines/dalsv6-series)      | General Purpose | Preview    |
 | [Dasv6](/azure/virtual-machines/dasv6-series)        | General Purpose | Preview    |
@@ -63,9 +63,9 @@ ms.custom:
 | [HX](/azure/virtual-machines/hx-series)     | High Performance Compute | Production |
 | [Lsv3](/azure/virtual-machines/lsv3-series)        | Storage Optimized | Production  |
 | [Mbsv3](/azure/virtual-machines/sizes/memory-optimized/mbsv3-mbdsv3-series)     | Memory Optimized | Production   |
-| [Mdsv3](/azure/virtual-machines/msv3-mdsv3-medium-series) | High Memory Optimized | Production |
-| [Msv3](/azure/virtual-machines/msv3-mdsv3-medium-series)  | High Memory Optimized | Production |
+| [Mdsv3](/azure/virtual-machines/msv3-mdsv3-high-memory-series) | High Memory Optimized | Production |
+| [Msv3](/azure/virtual-machines/msv3-mdsv3-high-memory-series)  | High Memory Optimized | Production |
+| [Msv3](/azure/virtual-machines/msv3-mdsv3-medium-series)      | Memory Optimized | Production   |
 | [Mdsv3](/azure/virtual-machines/msv3-mdsv3-medium-series)     | Memory Optimized | Production   |
 | [Msv2](/azure/virtual-machines/msv2-series)        | Memory Optimized | Production   |
-| [Msv3](/azure/virtual-machines/msv3-mdsv3-medium-series)      | Memory Optimized | Production   |
 | [Nvadsv5](/azure/virtual-machines/nva10v5-series)  | GPU/AI workload optimized | Production |
