@@ -1,13 +1,13 @@
 ---
 title: Planned connector deprecations for Azure Data Factory
 description: This page describes future deprecations for some connectors of Azure Data Factory.
-author: pennyzhou-msft
-ms.author: xupzhou
+author: jianleishen
+ms.author: jianleishen
 ms.service: azure-data-factory
 ms.subservice: data-movement
 ms.topic: concept-article
 ms.custom: references_regions
-ms.date: 09/13/2024
+ms.date: 09/19/2024
 ---
 
 # Planned connector deprecations for Azure Data Factory
@@ -21,13 +21,13 @@ This article describes future deprecations for some connectors of Azure Data Fac
 
 | Connector|Release stage |End of Support Date  |Disabled Date  | 
 |:-- |:-- |:-- | :-- | 
-| [Google BigQuery (legacy)](connector-google-bigquery-legacy.md)  | End of support announced and new version available | October 31, 2024 | January 10, 2024 | 
-| [MariaDB (legacy driver version)](connector-mariadb.md)  | End of support announced and new version available | October 31, 2024 | January 10, 2024 | 
-| [MySQL (legacy driver version)](connector-mysql.md)  | End of support announced and new version available | October 31, 2024| January 10, 2024| 
-| [Salesforce (legacy)](connector-salesforce-legacy.md)   | End of support announced and new version available | October 11, 2024 | January 10, 2024 | 
-| [Salesforce Service Cloud (legacy)](connector-salesforce-service-cloud-legacy.md)   | End of support announced and new version available | October 11, 2024 |January 10, 2024 | 
-| [PostgreSQL (legacy)](connector-postgresql-legacy.md)   | End of support announced and new version available |October 31, 2024 | January 10, 2024 | 
-| [Snowflake (legacy)](connector-snowflake-legacy.md)   | End of support announced and new version available | October 31, 2024 | January 10, 2024 | 
+| [Google BigQuery (legacy)](connector-google-bigquery-legacy.md)  | End of support announced and new version available | October 31, 2024 | January 10, 2025 | 
+| [MariaDB (legacy driver version)](connector-mariadb.md)  | End of support announced and new version available | October 31, 2024 | January 10, 2025 | 
+| [MySQL (legacy driver version)](connector-mysql.md)  | End of support announced and new version available | October 31, 2024| January 10, 2025| 
+| [Salesforce (legacy)](connector-salesforce-legacy.md)   | End of support announced and new version available | October 11, 2024 | January 10, 2025| 
+| [Salesforce Service Cloud (legacy)](connector-salesforce-service-cloud-legacy.md)   | End of support announced and new version available | October 11, 2024 |January 10, 2025 | 
+| [PostgreSQL (legacy)](connector-postgresql-legacy.md)   | End of support announced and new version available |October 31, 2024 | January 10, 2025  | 
+| [Snowflake (legacy)](connector-snowflake-legacy.md)   | End of support announced and new version available | October 31, 2024 | January 10, 2025  | 
 | [Azure Database for MariaDB](connector-azure-database-for-mariadb.md) | End of support announced |December 31, 2024 | December 31, 2024 | 
 | [Concur (Preview)](connector-concur.md) | End of support announced | December 31, 2024 | December 31, 2024 | 
 | [Drill](connector-drill.md) | End of support announced  | December 31, 2024 | December 31, 2024 | 
