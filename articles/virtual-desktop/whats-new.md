@@ -5,7 +5,7 @@ ms.topic: release-notes
 ms.custom: references_regions
 author: sipastak
 ms.author: sipastak
-ms.date: 09/09/2024
+ms.date: 09/19/2024
 ---
 
 # What's new in Azure Virtual Desktop?
@@ -21,6 +21,31 @@ Make sure to check back here often to keep up with new updates.
 
 > [!TIP]
 > See [What's new in documentation](whats-new-documentation.md), where we highlight new and updated articles for Azure Virtual Desktop.
+
+## September 2024
+
+Here's what changed in September 2024:
+
+### Windows App is now available
+
+Windows App is now generally available on Windows, macOS, iOS, iPadOS, and web browsers, and in preview on Android. You can use it to connect to Azure Virtual Desktop, Windows 365, Microsoft Dev Box, Remote Desktop Services, and remote PCs, securely connecting you to Windows devices and apps. To learn more about what each platform supports, see [Compare Windows App features across platforms and devices](/windows-app/compare-platforms-features?toc=admins%2Ftoc.json&pivots=azure-virtual-desktop). Windows App is now available through the appropriate store for each client platform, ensuring a smooth update process.  
+
+For more information, see [What is Windows App?](/windows-app/overview) and [Windows App get started](/windows-app/get-started-connect-devices-desktops-apps?tabs=windows-avd%2Cwindows-w365%2Cwindows-devbox%2Cmacos-rds%2Cmacos-pc&pivots=azure-virtual-desktop).  
+
+
+### Enabling HEVC GPU acceleration for Azure Virtual Desktop is now in preview 
+
+High Efficiency Video Coding (H.265) hardware acceleration is currently in preview. Azure Virtual Desktop supports graphics processing unit (GPU) acceleration for frame encoding which will result in improved graphical experience when using the Remote Desktop Protocol (RDP) with a GPU-enabled Virtual Machine. GPU acceleration is crucial for delivering high-fidelity graphical experiences in graphics-intensive applications, such as those used by graphic designers, video editors, and 3D modelers. 
+
+For more information, see [Enable GPU acceleration for Azure Virtual Desktop](/azure/virtual-desktop/graphics-enable-gpu-acceleration). 
+
+ 
+### Configuring client device redirection for Windows App and the Remote Desktop app on iOS using Microsoft Intune MAM is now available 
+
+Redirection of resources and peripherals from a user's local device to a remote session from Azure Virtual Desktop over the Remote Desktop Protocol (RDP), such as the clipboard, camera, and audio, is normally governed by central configuration of a host pool and its session hosts. Client device redirection is configured for Windows App and the Remote Desktop app using a combination of Microsoft Intune Mobile Application Management (MAM) and Microsoft Entra Conditional Access on a user's local device. Existing Intune MAM capabilities such as the ability to require minimum OS version, client application version, and a Mobile Threat Defense (MTD) reporting no threats detected are also supported. 
+
+For more information, see [Configure client device redirection settings for Windows App and the Remote Desktop app using Microsoft Intune](client-device-redirection-intune.md). 
+
 
 ## August 2024
 
