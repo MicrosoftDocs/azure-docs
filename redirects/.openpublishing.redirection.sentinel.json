@@ -1912,7 +1912,7 @@
         },
         {
             "source_path_from_root": "/articles/sentinel/data-connectors/recommended-ossec-via-ama.md",
-            "redirect_url": "/previous-versions/azure/sentinel/data-connectors/recommended-ossec-via-ama",
+            "redirect_url": "/previous-versions/azure/sentinel/data-connectors/ossec-via-ama",
             "redirect_document_id": false
         },
         {
