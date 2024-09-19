@@ -92,7 +92,7 @@ The feature management library supports json as a feature flag source. Below we 
 }
 ```
 
-The `feature_management` section of the json document is used by convention to load feature flag settings. The `feature_flags` section is a list of the feature flags that are loaded into the library. In the section above, we see three different features. Features define their feature filters using the `client_filters` property, inside of `conditions`. In the feature filters for `FeatureT`, we see `enabled` is on with no filters defined, resulting in `FeatureT` always returning `true` . `FeatureU` is the same as `FeatureU` but with `enabled` is `false` resulting in the feature always returning `false`. `FeatureV` specifies a feature filter named `Microsoft.TimeWindow`. `FeatureV` is an example of a configurable feature filter. We can see in the example that the filter has a `parameters` property. The `parameters` property is used to configure the filter. In this case, the start and end times for the feature to be active are configured.
+The `feature_management` section of the json document is used by convention to load feature flag settings. The `feature_flags` section is a list of the feature flags that are loaded into the library. In the section above, we see three different features. Features define their feature filters using the `client_filters` property, inside of `conditions`. In the feature filters for `FeatureT`, we see `enabled` is on with no filters defined, resulting in `FeatureT` always returning `true` . `FeatureU` is the same as `FeatureT` but with `enabled` is `false` resulting in the feature always returning `false`. `FeatureV` specifies a feature filter named `Microsoft.TimeWindow`. `FeatureV` is an example of a configurable feature filter. We can see in the example that the filter has a `parameters` property. The `parameters` property is used to configure the filter. In this case, the start and end times for the feature to be active are configured.
 
 The detailed schema of the `feature_management` section can be found [here](https://github.com/microsoft/FeatureManagement/blob/main/Schema/FeatureManagement.v2.0.0.schema.json).
 
@@ -185,7 +185,7 @@ The following snippet demonstrates how to add a customized feature filter `MyCri
 feature_manager = FeatureManager(feature_flags, feature_filters=[MyCustomFilter()])
 ```
 
-Feature filters are registered by providing when creating `FeatureManager` with `feature_filters`. If a custom feature filter needs any context, they can be passed in when calling `is_enabled` using `kwargs`.
+Feature filters are registered by providing them to the property `feature_filters` when creating `FeatureManager`. If a custom feature filter needs any context, they can be passed in when calling `is_enabled` using `kwargs`.
 
 ### Filter alias attribute
 
