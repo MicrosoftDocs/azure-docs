@@ -132,9 +132,9 @@ async def handle_client(websocket, path):
     except Exception as e:
         print("Unexpected error: %s", e)
 
-start_server = websockets.serve(handle_client, "localhost", 5001)
+start_server = websockets.serve(handle_client, "localhost", 8081)
 
-print('WebSocket server running on port 5001')
+print('WebSocket server running on port 8081')
 
 asyncio.get_event_loop().run_until_complete(start_server)
 asyncio.get_event_loop().run_forever()
