@@ -98,7 +98,8 @@ The following information provides more detail.
 
 **Permissions needed to view reservations** - For partners to review reservations in the customer tenant, partners require foreign principal access to the customer subscription. The default permissions required for managing reservations are explained at [Who can manage a reservation by default](../reservations/view-reservations.md#who-can-manage-a-reservation-by-default).
 
-**Note:** Please be aware that filtering options to monitor specific reservation categories or individual reservations are not supported within this scope. As a result, the alert rule evaluates the utilization of all available reservations by default.
+> [!NOTE]
+> Filtering options to monitor specific reservation categories or individual reservations aren't supported within this scope. As a result, the alert rule evaluates the utilization of all available reservations by default.
 
 ## Next steps
 
