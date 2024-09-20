@@ -21,4 +21,6 @@ APIM_RESOURCE_ID=$(az apim show --name $APIM_NAME --resource-group $RG_NAME --qu
 az rest --method post --uri "$APIM_RESOURCE_ID/migrateToStv2?api-version=2023-03-01-preview" --body '{"mode": "PreserveIp"}'
 # Alternate call to migrate to stv2 and change VIP address
 # az rest --method post --uri "$APIM_RESOURCE_ID/migrateToStv2?api-version=2023-03-01-preview" --body '{"mode": "NewIp"}'
-```  
+``` 
+
+The status of your API Management instance changes to **Updating**. The migration process takes approximately 45 minutes to complete. When the status changes to **Online**, migration is complete. 
