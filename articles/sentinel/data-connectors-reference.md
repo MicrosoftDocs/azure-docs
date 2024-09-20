@@ -300,10 +300,6 @@ For more information about the codeless connector platform, see [Create a codele
 
 - [Jamf Protect](data-connectors/jamf-protect.md)
 
-## Linux
-
-- [Microsoft Sysmon For Linux](data-connectors/microsoft-sysmon-for-linux.md)
-
 ## Lookout, Inc.
 
 - [Lookout (using Azure Function)](data-connectors/lookout.md)
@@ -312,11 +308,6 @@ For more information about the codeless connector platform, see [Create a codele
 ## MailGuard Pty Limited
 
 - [MailGuard 365](data-connectors/mailguard-365.md)
-
-## McAfee
-
-- [McAfee ePolicy Orchestrator (ePO)](data-connectors/mcafee-epolicy-orchestrator-epo.md)
-- [McAfee Network Security Platform](data-connectors/mcafee-network-security-platform.md)
 
 ## Microsoft
 
@@ -332,7 +323,6 @@ For more information about the codeless connector platform, see [Create a codele
 - [Azure Storage Account](data-connectors/azure-storage-account.md)
 - [Azure Web Application Firewall (WAF)](data-connectors/azure-web-application-firewall-waf.md)
 - [Azure Batch Account](data-connectors/azure-batch-account.md)
-- [Common Event Format (CEF)](data-connectors/common-event-format-cef.md)
 - [Common Event Format (CEF) via AMA](data-connectors/common-event-format-cef-via-ama.md)
 - [Windows DNS Events via AMA](data-connectors/windows-dns-events-via-ama.md)
 - [Azure Event Hubs](data-connectors/azure-event-hub.md)
@@ -354,7 +344,6 @@ For more information about the codeless connector platform, see [Create a codele
 - [Windows Security Events via AMA](data-connectors/windows-security-events-via-ama.md)
 - [Azure Service Bus](data-connectors/azure-service-bus.md)
 - [Azure Stream Analytics](data-connectors/azure-stream-analytics.md)
-- [Syslog](data-connectors/syslog.md)
 - [Syslog via AMA](data-connectors/syslog-via-ama.md)
 - [Microsoft Defender Threat Intelligence (Preview)](data-connectors/microsoft-defender-threat-intelligence.md)
 - [Threat intelligence - TAXII](data-connectors/threat-intelligence-taxii.md)
@@ -391,17 +380,9 @@ For more information about the codeless connector platform, see [Create a codele
 - [Mimecast Intelligence for Microsoft - Microsoft Sentinel (using Azure Functions)](data-connectors/mimecast-intelligence-for-microsoft-microsoft-sentinel.md)
 - [Mimecast Targeted Threat Protection (using Azure Functions)](data-connectors/mimecast-targeted-threat-protection.md)
 
-## MongoDB
-
-- [MongoDB Audit](data-connectors/mongodb-audit.md)
-
 ## MuleSoft
 
 - [MuleSoft Cloudhub (using Azure Functions)](data-connectors/mulesoft-cloudhub.md)
-
-## Nasuni Corporation
-
-- [Nasuni Edge Appliance](data-connectors/nasuni-edge-appliance.md)
 
 ## NetClean Technologies AB
 
@@ -413,21 +394,9 @@ For more information about the codeless connector platform, see [Create a codele
 - [Netskope Data Connector (using Azure Functions)](data-connectors/netskope-data-connector.md)
 - [Netskope Web Transactions Data Connector (using Azure Functions)](data-connectors/netskope-web-transactions-data-connector.md)
 
-## Netwrix
-
-- [[Recommended] Netwrix Auditor via AMA](data-connectors/recommended-netwrix-auditor-via-ama.md)
-
-## Nginx
-
-- [NGINX HTTP Server](data-connectors/nginx-http-server.md)
-
 ## Noname Gate, Inc.
 
 - [Noname Security for Microsoft Sentinel](data-connectors/noname-security-for-microsoft-sentinel.md)
-
-## Nozomi Networks
-
-- [[Recommended] Nozomi Networks N2OS via AMA](data-connectors/recommended-nozomi-networks-n2os-via-ama.md)
 
 ## NXLog Ltd.
 
@@ -445,40 +414,17 @@ For more information about the codeless connector platform, see [Create a codele
 
 - [OneLogin IAM Platform(using Azure Functions)](data-connectors/onelogin-iam-platform.md)
 
-## OpenVPN
-
-- [OpenVPN Server](data-connectors/openvpn-server.md)
-
-## Oracle
-
-- [Oracle Cloud Infrastructure (using Azure Functions)](data-connectors/oracle-cloud-infrastructure.md)
-- [Oracle Database Audit](data-connectors/oracle-database-audit.md)
-- [Oracle WebLogic Server (using Azure Functions)](data-connectors/oracle-weblogic-server.md)
-
 ## Orca Security, Inc.
 
 - [Orca Security Alerts](data-connectors/orca-security-alerts.md)
 
-## OSSEC
-
-- [[Recommended] OSSEC via AMA](data-connectors/recommended-ossec-via-ama.md)
-
 ## Palo Alto Networks
 
-- [[Recommended] Palo Alto Networks Cortex Data Lake (CDL) via AMA](data-connectors/recommended-palo-alto-networks-cortex-data-lake-cdl-via-ama.md)
 - [Palo Alto Prisma Cloud CSPM (using Azure Functions)](data-connectors/palo-alto-prisma-cloud-cspm.md)
 
 ## Perimeter 81
 
 - [Perimeter 81 Activity Logs](data-connectors/perimeter-81-activity-logs.md)
-
-## Ping Identity
-
-- [[Recommended] PingFederate via AMA](data-connectors/recommended-pingfederate-via-ama.md)
-
-## PostgreSQL
-
-- [PostgreSQL Events](data-connectors/postgresql-events.md)
 
 ## Prancer Enterprise
 
@@ -489,22 +435,10 @@ For more information about the codeless connector platform, see [Create a codele
 - [Proofpoint TAP (using Azure Functions)](data-connectors/proofpoint-tap.md)
 - [Proofpoint On Demand Email Security (using Azure Functions)](data-connectors/proofpoint-on-demand-email-security.md)
 
-## Pulse Secure
-
-- [Pulse Connect Secure](data-connectors/pulse-connect-secure.md)
-
 ## Qualys
 
 - [Qualys Vulnerability Management (using Azure Functions)](data-connectors/qualys-vulnerability-management.md)
 - [Qualys VM KnowledgeBase (using Azure Functions)](data-connectors/qualys-vm-knowledgebase.md)
-
-## Ridge Security Technology Inc.
-
-- [RIDGEBOT - data connector for Microsoft Sentinel](data-connectors/ridgebot-data-connector-for-microsoft-sentinel.md)
-
-## RSA
-
-- [RSA® SecurID (Authentication Manager)](data-connectors/rsa-securid-authentication-manager.md)
 
 ## Rubrik, Inc.
 
@@ -546,10 +480,6 @@ For more information about the codeless connector platform, see [Create a codele
 
 - [Snowflake (using Azure Functions)](data-connectors/snowflake.md)
 
-## SonicWall Inc
-
-- [SonicWall Firewall](data-connectors/sonicwall-firewall.md)
-
 ## Sonrai Security
 
 - [Sonrai Data Connector](data-connectors/sonrai-data-connector.md)
@@ -557,18 +487,10 @@ For more information about the codeless connector platform, see [Create a codele
 ## Sophos
 
 - [Sophos Endpoint Protection (using Azure Functions)](data-connectors/sophos-endpoint-protection.md)
-- [Sophos XG Firewall](data-connectors/sophos-xg-firewall.md)
 - [Sophos Cloud Optix](data-connectors/sophos-cloud-optix.md)
-
-## Squid
-
-- [Squid Proxy](data-connectors/squid-proxy.md)
 
 ## Symantec
 
-- [Symantec Endpoint Protection](data-connectors/symantec-endpoint-protection.md)
-- [Symantec VIP](data-connectors/symantec-vip.md)
-- [Symantec ProxySG](data-connectors/symantec-proxysg.md)
 - [Symantec Integrated Cyber Defense Exchange](data-connectors/symantec-integrated-cyber-defense-exchange.md)
 
 ## TALON CYBER SECURITY LTD
@@ -598,17 +520,7 @@ For more information about the codeless connector platform, see [Create a codele
 
 ## Trend Micro
 
-- [Trend Micro Deep Security](data-connectors/trend-micro-deep-security.md)
-- [Trend Micro TippingPoint](data-connectors/trend-micro-tippingpoint.md)
 - [Trend Vision One (using Azure Functions)](data-connectors/trend-vision-one.md)
-
-## TrendMicro
-
-- [[Recommended] Trend Micro Apex One via AMA](data-connectors/recommended-trend-micro-apex-one-via-ama.md)
-
-## Ubiquiti
-
-- [Ubiquiti UniFi (using Azure Functions)](data-connectors/ubiquiti-unifi.md)
 
 ## Valence Security Inc.
 
@@ -621,18 +533,11 @@ For more information about the codeless connector platform, see [Create a codele
 
 ## VMware
 
-- [VMware vCenter](data-connectors/vmware-vcenter.md)
 - [VMware Carbon Black Cloud (using Azure Functions)](data-connectors/vmware-carbon-black-cloud.md)
-- [VMware ESXi](data-connectors/vmware-esxi.md)
-
-## WatchGuard Technologies
-
-- [WatchGuard Firebox](data-connectors/watchguard-firebox.md)
 
 ## WithSecure
 
 - [WithSecure Elements API (Azure Function) (using Azure Functions)](data-connectors/withsecure-elements-api-azure.md)
-- [WithSecure Elements via Connector](data-connectors/withsecure-elements-via-connector.md)
 
 ## Wiz, Inc.
 
@@ -650,10 +555,6 @@ For more information about the codeless connector platform, see [Create a codele
 ## Zoom
 
 - [Zoom Reports (using Azure Functions)](data-connectors/zoom-reports.md)
-
-## Zscaler
-
-- [Zscaler Private Access](data-connectors/zscaler-private-access.md)
 
 [comment]: <> (DataConnector includes end)
 

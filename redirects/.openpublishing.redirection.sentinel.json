@@ -1651,6 +1651,96 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/sentinel/data-connectors/common-event-format-cef.md",
+            "redirect_url": "/previous-versions/azure/sentinel/data-connectors/common-event-format-cef",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/data-connectors/recommended-trend-micro-apex-one-via-ama.md",
+            "redirect_url": "/previous-versions/azure/sentinel/data-connectors/trend-micro-apex-one-via-ama",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/data-connectors/rsa-securid-authentication-manager.md",
+            "redirect_url": "/previous-versions/azure/sentinel/data-connectors/rsa-securid-authentication-manager",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/data-connectors/sonicwall-firewall.md",
+            "redirect_url": "/previous-versions/azure/sentinel/data-connectors/sonicwall-firewall",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/data-connectors/sophos-xg-firewall.md",
+            "redirect_url": "/previous-versions/azure/sentinel/data-connectors/sophos-xg-firewall",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/data-connectors/squid-proxy.md",
+            "redirect_url": "/previous-versions/azure/sentinel/data-connectors/squid-proxy",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/data-connectors/symantec-endpoint-protection.md",
+            "redirect_url": "/previous-versions/azure/sentinel/data-connectors/symantec-endpoint-protection",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/data-connectors/symantec-proxysg.md",
+            "redirect_url": "/previous-versions/azure/sentinel/data-connectors/symantec-proxysg",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/data-connectors/symantec-vip.md",
+            "redirect_url": "/previous-versions/azure/sentinel/data-connectors/symantec-vip",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/data-connectors/syslog.md",
+            "redirect_url": "/previous-versions/azure/sentinel/data-connectors/syslog",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/data-connectors/trend-micro-deep-security.md",
+            "redirect_url": "/previous-versions/azure/sentinel/data-connectors/trend-micro-deep-security",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/data-connectors/trend-micro-tippingpoint.md",
+            "redirect_url": "/previous-versions/azure/sentinel/data-connectors/trend-micro-tippingpoint",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/data-connectors/ubiquiti-unifi.md",
+            "redirect_url": "/previous-versions/azure/sentinel/data-connectors/ubiquiti-unifi",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/data-connectors/vmware-esxi.md",
+            "redirect_url": "/previous-versions/azure/sentinel/data-connectors/vmware-esxi",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/data-connectors/vmware-vcenter.md",
+            "redirect_url": "/previous-versions/azure/sentinel/data-connectors/vmware-vcenter",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/data-connectors/watchguard-firebox.md",
+            "redirect_url": "/previous-versions/azure/sentinel/data-connectors/watchguard-firebox",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/data-connectors/withsecure-elements-via-connector.md",
+            "redirect_url": "/previous-versions/azure/sentinel/data-connectors/withsecure-elements-via-connector",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/data-connectors/zscaler-private-access.md",
+            "redirect_url": "/previous-versions/azure/sentinel/data-connectors/zscaler-private-access",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/sentinel/data-connectors/digital-guardian-data-loss-prevention.md",
             "redirect_url": "/previous-versions/azure/sentinel/data-connectors/digital-guardian-data-loss-prevention",
             "redirect_document_id": false
@@ -1843,6 +1933,91 @@
         {
             "source_path_from_root": "/articles/sentinel/data-connectors/deprecated-nozomi-networks-n2os-via-legacy-agent.md",
             "redirect_url": "/previous-versions/azure/sentinel/data-connectors/nozomi-networks-n2os-via-legacy-agent",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/data-connectors/mcafee-epolicy-orchestrator-epo.md",
+            "redirect_url": "/previous-versions/azure/sentinel/data-connectors/mcafee-epolicy-orchestrator-epo",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/data-connectors/mcafee-network-security-platform.md",
+            "redirect_url": "/previous-versions/azure/sentinel/data-connectors/mcafee-network-security-platform",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/data-connectors/microsoft-sysmon-for-linux.md",
+            "redirect_url": "/previous-versions/azure/sentinel/data-connectors/microsoft-sysmon-for-linux",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/data-connectors/mongodb-audit.md",
+            "redirect_url": "/previous-versions/azure/sentinel/data-connectors/mongodb-audit",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/data-connectors/nasuni-edge-appliance.md",
+            "redirect_url": "/previous-versions/azure/sentinel/data-connectors/nasuni-edge-appliance",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/data-connectors/nginx-http-server.md",
+            "redirect_url": "/previous-versions/azure/sentinel/data-connectors/nginx-http-server",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/data-connectors/openvpn-server.md",
+            "redirect_url": "/previous-versions/azure/sentinel/data-connectors/openvpn-server",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/data-connectors/oracle-database-audit.md",
+            "redirect_url": "/previous-versions/azure/sentinel/data-connectors/oracle-database-audit",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/data-connectors/oracle-weblogic-server.md",
+            "redirect_url": "/previous-versions/azure/sentinel/data-connectors/oracle-weblogic-server",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/data-connectors/postgresql-events.md",
+            "redirect_url": "/previous-versions/azure/sentinel/data-connectors/postgresql-events",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/data-connectors/pulse-connect-secure.md",
+            "redirect_url": "/previous-versions/azure/sentinel/data-connectors/pulse-connect-secure",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/data-connectors/recommended-netwrix-auditor-via-ama.md",
+            "redirect_url": "/previous-versions/azure/sentinel/data-connectors/netwrix-auditor-via-ama",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/data-connectors/recommended-nozomi-networks-n2os-via-ama.md",
+            "redirect_url": "/previous-versions/azure/sentinel/data-connectors/nozomi-networks-n2os-via-ama",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/data-connectors/recommended-ossec-via-ama.md",
+            "redirect_url": "/previous-versions/azure/sentinel/data-connectors/ossec-via-ama",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/data-connectors/recommended-palo-alto-networks-cortex-data-lake-cdl-via-ama.md",
+            "redirect_url": "/previous-versions/azure/sentinel/data-connectors/palo-alto-networks-cortex-data-lake-cdl-via-ama",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/data-connectors/recommended-pingfederate-via-ama.md",
+            "redirect_url": "/previous-versions/azure/sentinel/data-connectors/pingfederate-via-ama",
+            "redirect_document_id": false
+        },
+        {
+            "source_path_from_root": "/articles/sentinel/data-connectors/ridgebot-data-connector-for-microsoft-sentinel.md",
+            "redirect_url": "/previous-versions/azure/sentinel/data-connectors/ridgebot-data-connector-for-microsoft-sentinel",
             "redirect_document_id": false
         },
         {
