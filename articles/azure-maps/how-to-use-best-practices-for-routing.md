@@ -183,7 +183,7 @@ With the Azure Maps Route Direction APIs, developers can request details for eac
 The following query sets the `sectionType` to `traffic`. It requests the sections that contain traffic information from Seattle to San Diego.
 
 ```http
-https://atlas.microsoft.com/map/tile?subscription-key={Your-Azure-Maps-Subscription-key}&api-version=2024-04-01&tilesetId=microsoft.base.road&zoom=15&x=5236&y=12665&tileSize=256
+https://atlas.microsoft.com/route/directions/json?subscription-key={Your-Azure-Maps-Subscription-key}&api-version=1.0&sectionType=traffic&query=47.6062,-122.3321:32.7157,-117.1611
 ```
 
 The response contains the sections that are suitable for traffic along the given coordinates.
