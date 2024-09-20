@@ -12,6 +12,12 @@ ms.subservice: creator
 
 # Indoor maps wayfinding service (preview)
 
+> [!NOTE]
+>
+> **Azure Maps Creator retirement**
+>
+> The Azure Maps Creator indoor map service is now deprecated and will be retired on 9/30/25. For more information, see [End of Life Announcement of Azure Maps Creator](https://aka.ms/AzureMapsCreatorDeprecation).
+
 The Azure Maps Creator [wayfinding service] allows you to navigate from place to place anywhere within your indoor map. The service utilizes stairs and elevators to navigate between floors and provides guidance to help you navigate around physical obstructions. This article describes how to generate a path from a starting point to a destination point in a sample indoor map.
 
 ## Prerequisites
@@ -100,12 +106,6 @@ The `facilityId`, a property of the routeset, is a required parameter when searc
 ```
 
 ## Get a wayfinding path
-
-> [!NOTE]
->
-> **Azure Maps Creator retirement**
->
-> The Azure Maps Creator indoor map service is now deprecated and will be retired on 9/30/25. For more information, see [End of Life Announcement of Azure Maps Creator](https://aka.ms/AzureMapsCreatorDeprecation).
 
 Use the [wayfinding API] to generate a path from the routeset you created in the previous section. The wayfinding API requires a query that contains start and end points in an indoor map, along with floor level ordinal numbers. For more information about Creator wayfinding, see [wayfinding] in the concepts article.
 
