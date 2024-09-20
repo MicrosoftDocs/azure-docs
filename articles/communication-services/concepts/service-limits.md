@@ -61,7 +61,7 @@ Number purchase limits can be increased through a request to Azure Support.
 8. Add **Additional details** as needed, then click **Next**.
 9. At **Review + create** check the information, make changes as needed, then click **Create**.
   
-You can follow the documentation for [creating request to Azure Support](../../azure-portal/supportability/how-to-create-azure-support-request.md).
+You can follow the documentation for [creating request to Azure Support](../../azure-portal/supportability/how-to-create-azure-support-request).
 
 
 ## Identity
