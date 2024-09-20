@@ -515,7 +515,7 @@ items:
         items: 
         - name: Connect to Azure SQL Database
           href: ./spark/apache-spark-connect-to-sql-database.md
-        - name: Run Azure Machine Learningworkloads with AutoML
+        - name: Run Azure Machine Learning workloads with AutoML
           href: ./spark/apache-spark-run-machine-learning-automl.md
     - name: Troubleshoot
       items:
