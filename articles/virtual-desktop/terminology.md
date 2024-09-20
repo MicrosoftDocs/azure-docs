@@ -53,7 +53,7 @@ When you create an application group, it can be one of two types:
 
 With pooled host pools, you can assign both application group types to the same host pool at the same time. You can only assign a single desktop application group per host pool, but you can also assign multiple RemoteApp application groups to the same host pool.
 
-Host pools have a preferred application group type setting. If an end user has both a desktop and RemoteApp application groups assigned to them on the same host pool, they will only see the resources from the preferred application group type. Users assigned to multiple RemoteApp application groups assigned to the same host pool have access to an aggregate of all the applications in the application groups they're assigned to.
+Host pools have a preferred application group type setting. If an end user has both a desktop and RemoteApp application groups assigned to them on the same host pool, they only see the resources from the preferred application group type. Users assigned to multiple RemoteApp application groups assigned to the same host pool have access to an aggregate of all the applications in the application groups they're assigned to.
 
 To learn more about application groups, see [Preferred application group type behavior for pooled host pools](preferred-application-group-type.md).
 
