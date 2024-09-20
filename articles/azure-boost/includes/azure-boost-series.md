@@ -46,7 +46,7 @@ ms.custom:
 | [HBv4](https://learn.microsoft.com/en-us/azure/virtual-machines/sizes/high-performance-compute/hbv4-series)       | High Performance Compute | Production |
 | [Fasv6](https://learn.microsoft.com/azure/virtual-machines/sizes/compute-optimized/fasv6-series)           | Compute Optimized | Production  |
 | [Falsv6](https://learn.microsoft.com/azure/virtual-machines/sizes/compute-optimized/falsv6-series)         | Compute Optimized | Production  |
-| [Famsv6](https://learn.microsoft.com/azure/virtual-machines/sizes/compute-optimized/famsv6-series)         | Compute Optimized | Proudtion |
+| [Famsv6](https://learn.microsoft.com/azure/virtual-machines/sizes/compute-optimized/famsv6-series)         | Compute Optimized | Production |
 | [Ev5](https://learn.microsoft.com/azure/virtual-machines/sizes/memory-optimized/ev5-series)                | Memory Optimized | Production   |
 | [Esv6](https://learn.microsoft.com/azure/virtual-machines/sizes/memory-optimized/esv6-series)              | Memory Optimized | Production   |
 | [Esv5](https://learn.microsoft.com/azure/virtual-machines/sizes/memory-optimized/esv5-series)              | Memory Optimized | Production   |
