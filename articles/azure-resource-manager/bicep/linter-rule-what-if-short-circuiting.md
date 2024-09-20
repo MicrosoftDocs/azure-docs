@@ -21,9 +21,7 @@ Use the following value in the [Bicep configuration file](bicep-config-linter.md
 
 ## Solution
 
-This rule checks for runtime values that are used to determine resource IDs from within modules. It lets you know if your Bicep file will cuase what-if short circuiting. In the following example, **appServiceOutputs** and **appServiceTests** would both be flagged for what-if short circuiting becasue they pass runtime values as a parameter to the module which uses that when naming the resource:
-
-This rule checks for runtime values used to determine resource IDs within modules. It alerts you if your Bicep file could cause what-if short-circuiting. In the example below, **appServiceOutputs** and **appServiceTests** would be flagged for what-if short-circuiting because they pass runtime values as parameters to the module, which uses them when naming the resource:
+This rule checks for runtime values used to determine resource IDs within modules. It alerts you if your Bicep code could cause what-if short-circuiting. In the example below, **appServiceOutputs** and **appServiceTests** would be flagged for what-if short-circuiting because they pass runtime values as parameters to the module, which uses them when naming the resource:
 
 **main.bicep**
 
