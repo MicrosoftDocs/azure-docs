@@ -3,7 +3,8 @@ title: Use NSG to restrict traffic on HDInsight on AKS
 description: Learn how to secure traffic by NSGs on HDInsight on AKS 
 ms.service: azure-hdinsight-on-aks
 ms.topic: how-to
-ms.date: 08/3/2023
+ms.date: 09/20/2024
+ROBOTS: NOINDEX
 ---
 
 # Use NSG to restrict traffic to HDInsight on AKS

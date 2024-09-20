@@ -118,7 +118,7 @@ The following sections break down the sample application into the steps that it 
 
 ### Authenticate Blob and Batch clients
 
-To interact with the linked storage account, the app uses the Azure.Storage.Blobs Library for .NET. Using the [BlobServiceClient](/dotnet/api/azure.storage.blobs.blobserviceclient) class which takes a reference to the account Uri and authenticating [Token](/dotnet/api/azure.core.tokencredentia) such as [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential).
+To interact with the linked storage account, the app uses the Azure.Storage.Blobs Library for .NET. Using the [BlobServiceClient](/dotnet/api/azure.storage.blobs.blobserviceclient) class which takes a reference to the account Uri and authenticating [Token](/dotnet/api/azure.core.tokencredential) such as [DefaultAzureCredential](/dotnet/api/azure.identity.defaultazurecredential).
 
 ```csharp
 // TODO: Replace <storage-account-name> with your actual storage account name
