@@ -323,7 +323,6 @@ For more information about the codeless connector platform, see [Create a codele
 - [Azure Storage Account](data-connectors/azure-storage-account.md)
 - [Azure Web Application Firewall (WAF)](data-connectors/azure-web-application-firewall-waf.md)
 - [Azure Batch Account](data-connectors/azure-batch-account.md)
-- [Common Event Format (CEF)](data-connectors/common-event-format-cef.md)
 - [Common Event Format (CEF) via AMA](data-connectors/common-event-format-cef-via-ama.md)
 - [Windows DNS Events via AMA](data-connectors/windows-dns-events-via-ama.md)
 - [Azure Event Hubs](data-connectors/azure-event-hub.md)
@@ -345,7 +344,6 @@ For more information about the codeless connector platform, see [Create a codele
 - [Windows Security Events via AMA](data-connectors/windows-security-events-via-ama.md)
 - [Azure Service Bus](data-connectors/azure-service-bus.md)
 - [Azure Stream Analytics](data-connectors/azure-stream-analytics.md)
-- [Syslog](data-connectors/syslog.md)
 - [Syslog via AMA](data-connectors/syslog-via-ama.md)
 - [Microsoft Defender Threat Intelligence (Preview)](data-connectors/microsoft-defender-threat-intelligence.md)
 - [Threat intelligence - TAXII](data-connectors/threat-intelligence-taxii.md)
@@ -442,10 +440,6 @@ For more information about the codeless connector platform, see [Create a codele
 - [Qualys Vulnerability Management (using Azure Functions)](data-connectors/qualys-vulnerability-management.md)
 - [Qualys VM KnowledgeBase (using Azure Functions)](data-connectors/qualys-vm-knowledgebase.md)
 
-## RSA
-
-- [RSA® SecurID (Authentication Manager)](data-connectors/rsa-securid-authentication-manager.md)
-
 ## Rubrik, Inc.
 
 - [Rubrik Security Cloud data connector (using Azure Functions)](data-connectors/rubrik-security-cloud-data-connector.md)
@@ -486,10 +480,6 @@ For more information about the codeless connector platform, see [Create a codele
 
 - [Snowflake (using Azure Functions)](data-connectors/snowflake.md)
 
-## SonicWall Inc
-
-- [SonicWall Firewall](data-connectors/sonicwall-firewall.md)
-
 ## Sonrai Security
 
 - [Sonrai Data Connector](data-connectors/sonrai-data-connector.md)
@@ -497,18 +487,10 @@ For more information about the codeless connector platform, see [Create a codele
 ## Sophos
 
 - [Sophos Endpoint Protection (using Azure Functions)](data-connectors/sophos-endpoint-protection.md)
-- [Sophos XG Firewall](data-connectors/sophos-xg-firewall.md)
 - [Sophos Cloud Optix](data-connectors/sophos-cloud-optix.md)
-
-## Squid
-
-- [Squid Proxy](data-connectors/squid-proxy.md)
 
 ## Symantec
 
-- [Symantec Endpoint Protection](data-connectors/symantec-endpoint-protection.md)
-- [Symantec VIP](data-connectors/symantec-vip.md)
-- [Symantec ProxySG](data-connectors/symantec-proxysg.md)
 - [Symantec Integrated Cyber Defense Exchange](data-connectors/symantec-integrated-cyber-defense-exchange.md)
 
 ## TALON CYBER SECURITY LTD
@@ -538,17 +520,7 @@ For more information about the codeless connector platform, see [Create a codele
 
 ## Trend Micro
 
-- [Trend Micro Deep Security](data-connectors/trend-micro-deep-security.md)
-- [Trend Micro TippingPoint](data-connectors/trend-micro-tippingpoint.md)
 - [Trend Vision One (using Azure Functions)](data-connectors/trend-vision-one.md)
-
-## TrendMicro
-
-- [[Recommended] Trend Micro Apex One via AMA](data-connectors/recommended-trend-micro-apex-one-via-ama.md)
-
-## Ubiquiti
-
-- [Ubiquiti UniFi (using Azure Functions)](data-connectors/ubiquiti-unifi.md)
 
 ## Valence Security Inc.
 
@@ -561,18 +533,11 @@ For more information about the codeless connector platform, see [Create a codele
 
 ## VMware
 
-- [VMware vCenter](data-connectors/vmware-vcenter.md)
 - [VMware Carbon Black Cloud (using Azure Functions)](data-connectors/vmware-carbon-black-cloud.md)
-- [VMware ESXi](data-connectors/vmware-esxi.md)
-
-## WatchGuard Technologies
-
-- [WatchGuard Firebox](data-connectors/watchguard-firebox.md)
 
 ## WithSecure
 
 - [WithSecure Elements API (Azure Function) (using Azure Functions)](data-connectors/withsecure-elements-api-azure.md)
-- [WithSecure Elements via Connector](data-connectors/withsecure-elements-via-connector.md)
 
 ## Wiz, Inc.
 
@@ -590,10 +555,6 @@ For more information about the codeless connector platform, see [Create a codele
 ## Zoom
 
 - [Zoom Reports (using Azure Functions)](data-connectors/zoom-reports.md)
-
-## Zscaler
-
-- [Zscaler Private Access](data-connectors/zscaler-private-access.md)
 
 [comment]: <> (DataConnector includes end)
 
