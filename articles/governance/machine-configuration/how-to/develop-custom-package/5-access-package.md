@@ -15,42 +15,10 @@ This page provides a guide on how to provide access to Machine Configuration pac
 ## Steps to provide access to the package
 ### Using a User Assigned Identity 
 
-**1. Obtain a User-Assigned Managed Identity:**
 > [!IMPORTANT]
-> Please note that, unlike Azure VMs, Arc-connected machines currently do not support User Assigned Managed Identities.
+> Please note that, unlike Azure VMs, Arc-connected machines currently do not support User-Assigned Managed Identities.
 
-To start, you need to obtain the existing resourceId a user-assigned managed identity or create a new. This identity will be used by your VMs to access the Azure storage blob. The following PowerShell command creates a new user-assigned managed identity in the specified resource group:
-```powershell
-$identity = New-AzUserAssignedIdentity -ResourceGroupName "YourResourceGroup" -Name "YourIdentityName"
-```
-You can also retrieve the resource ID of the user-assigned managed identity that has access to the storage account.
-```powershell
-$managedIdentityResourceId = (Get-AzUserAssignedIdentity -ResourceGroupName "YourResourceGroup" -Name "YourManagedIdentityName").Id
-```
-
-**2. Assign the Managed Identity to Your Azure VMs:**
-Next, you need to assign the created managed identity to your VMs. This allows the VMs to use the identity for accessing resources. The following command retrieves the VM and assigns the user-assigned identity to it:
-```powershell
-$vm = Get-AzVM -ResourceGroupName "YourResourceGroup" -Name "YourVMName"
-Set-AzVM -ResourceGroupName "YourResourceGroup" -VMName "YourVMName" -IdentityType UserAssigned -UserAssignedIdentityId $identity.Id
-```
-
-**3. Grant the Managed Identity Access to the Blob Storage:**
-Now, you need to grant the managed identity read access to the Azure storage blob. This involves assigning the “Storage Blob Data Reader” role to the identity at the scope of the blob container. The following commands retrieve the storage account and create the role assignment:
-```powershell
-$storageAccount = Get-AzStorageAccount -ResourceGroupName "YourResourceGroup" -Name "YourStorageAccountName"
-$scope = $storageAccount.Id + "/blobServices/default/containers/YourContainerName"
-New-AzRoleAssignment -ObjectId $identity.PrincipalId -RoleDefinitionName "Storage Blob Data Reader" -Scope $scope
-```
-
-**4. Access the Blob Storage from the VMs:**
-Finally, from within your VM, you can use the managed identity to access the blob storage. The following commands create a storage context using the connected account and retrieve the blob from the specified container:
-```powershell
-$context = New-AzStorageContext -StorageAccountName "YourStorageAccountName" -UseConnectedAccount
-$blob = Get-AzStorageBlob -Container "YourContainerName" -Blob "YourBlobName" -Context $context
-```
-
-This setup ensures that your Azure VMs can securely read from the specified blob container using the user-assigned managed identity. 
+You can grant private access to a machine configuration package in an Azure Storage blob by assigning a User-Assigned Identity to a scope of Azure VMs that you wish to apply the package to.  For this to work, you need to grant the managed identity read access to the Azure storage blob. This involves assigning the “Storage Blob Data Reader” role to the identity at the scope of the blob container. This setup ensures that your Azure VMs can securely read from the specified blob container using the user-assigned managed identity. 
 
 ### Using a SAS Token 
 While this next step is optional, you should add a shared access signature (SAS) token in the URL to ensure secure access to the package. The below example generates a blob SAS token with read access and returns the full blob URI with the shared access signature token. In this example, the token has a time limit of three years.
