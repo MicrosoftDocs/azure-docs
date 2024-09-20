@@ -40,10 +40,13 @@ The following table summarizes the Azure Maps services that generate transaction
 | [Traffic] | Yes | One request = 1 transaction (except tiles)<br>15 tiles = 1 transaction | <ul><li>Location Insights Traffic (Gen2 pricing)</li><li>Standard S1 Traffic Transactions (Gen1 S1 pricing)</li><li>Standard Traffic Transactions (Gen1 S0 pricing)</li><li>Maps Traffic Tiles (Gen2 pricing)</li><li>Standard S1 Tile Transactions (Gen1 S1 pricing)</li><li>Standard Tile Transactions (Gen1 S0 pricing)</li></ul> |
 | [Weather] | Yes | One request = 1 transaction | <ul><li>Location Insights Weather (Gen2 pricing)</li><li>Standard S1 Weather Transactions (Gen1 S1 pricing)</li><li>Standard Weather Transactions (Gen1 S0 pricing)</li></ul> |
 
+> [!NOTE]
+>
+> There is no charge to use [Azure Maps Power BI visual](power-bi-visual-get-started.md) as long as you have a [Power BI subscription](/power-bi/fundamentals/service-self-service-signup-for-power-bi).
+
 > [!TIP]
 >
 > Unlike Bing Maps, Azure Maps doesn’t use [session IDs]. Instead, Azure Maps offers a number of free transactions each month as shown in [Azure Maps pricing]. For example, you get 5,000 free *Base Map Tile* transactions per month. Each transaction can include up to 15 tiles for a total of 75,000 tiles rendered for free each month.
-
 <!-- In Bing Maps, any time a synchronous Truck Routing request is made, three transactions are counted. Does this apply also to Azure Maps?-->
 
 ## Azure Maps Creator
