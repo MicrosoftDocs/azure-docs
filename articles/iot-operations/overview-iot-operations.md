@@ -35,7 +35,7 @@ There are two core elements in the Azure IoT Operations Preview architecture:
 * **Azure IoT Operations Preview**. The set of data services that run on Azure Arc-enabled edge Kubernetes clusters. It includes the following services:
   * The _MQTT broker_ is an edge-native MQTT broker that powers event-driven architectures.
   * The _connector for OPC UA_ handles the complexities of OPC UA communication with OPC UA servers and other leaf devices.
-* The _operations experience_ is a web UI that provides a unified experience for operational technologists to manage assets and dataflows in an Azure IoT Operations deployment. An IT administrator can use [Azure Arc site manager (preview)](../azure-arc/site-manager/overview.md) to group Azure IoT Operations instances by physical location and make it easier for OT users to find instances.
+* The _operations experience_ is a web UI that provides a unified experience for operational technologists to manage assets and dataflows in an Azure IoT Operations deployment. An IT administrator can use [Azure Arc site manager (preview)](/azure/azure-arc/site-manager/overview) to group Azure IoT Operations instances by physical location and make it easier for OT users to find instances.
 
 ## Deploy
 
@@ -99,15 +99,7 @@ To secure communication between devices and the cloud through isolated network e
 
 ## Validated environments
 
-Azure IoT Operations ships as a set of Azure Arc-enabled Kubernetes services and is intended for use with [CNCF](https://www.cncf.io/) conformant [Arc validated partner products](../azure-arc/kubernetes/validation-program.md). Currently, Microsoft has validated Azure IoT Operations against the following fixed-set of infrastructures and environments:
-
-| Environment | Version |
-| ----------- | ------- |
-| AKS-EE on Windows 11 IoT Enterprise <br> on a single-node AMD Ryzen-7 (8 core, 3.3 GHz), 16-GB RAM | AksEdge-K3s-1.28.3-1.7.639.0 |
-| K3s on Ubuntu 22.04.2 <br> on a single-node AMD Ryzen-7 (8 core, 3.3 GHz), 16-GB RAM | K3s version 1.28.5 |
-
-> [!IMPORTANT]
-> The environments listed previously are production-like environments that Microsoft has validated. They're not the only environments that Azure IoT Operations can run on. Azure IoT Operations can run on any Arc-enabled Kubernetes cluster that meets the [Azure Arc-enabled Kubernetes system requirements](../azure-arc/kubernetes/system-requirements.md). Currently Azure IoT Operations doesn't support ARM64 architectures.
+[!INCLUDE [validated-environments](includes/validated-environments.md)]
 
 ## Supported regions
 

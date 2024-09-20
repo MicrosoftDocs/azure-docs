@@ -13,7 +13,7 @@ ms.devlang: azurecli
 
 # Quickstart: Building your first static site using the Azure CLI
 
-[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://go.microsoft.com/fwlink/?linkid=2262845)
+[![Deploy to Azure](https://aka.ms/deploytoazurebutton)](https://go.microsoft.com/fwlink/?linkid=2286315)
 
 Azure Static Web Apps publishes websites to production by building apps from a code repository.
 
