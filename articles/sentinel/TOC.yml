@@ -296,18 +296,6 @@
       href: data-connectors/deprecated-kaspersky-security-center-via-legacy-agent.md
     - name: '[Deprecated] Morphisec UTPP'
       href: data-connectors/morphisec-utpp.md
-    - name: '[Deprecated] Netwrix Auditor via Legacy Agent'
-      href: data-connectors/deprecated-netwrix-auditor-via-legacy-agent.md
-    - name: '[Deprecated] Nozomi Networks N2OS via Legacy Agent'
-      href: data-connectors/deprecated-nozomi-networks-n2os-via-legacy-agent.md
-    - name: '[Deprecated] OSSEC via Legacy Agent'
-      href: data-connectors/deprecated-ossec-via-legacy-agent.md
-    - name: '[Deprecated] Palo Alto Networks Cortex Data Lake (CDL) via Legacy Agent'
-      href: data-connectors/deprecated-palo-alto-networks-cortex-data-lake-cdl-via-legacy-agent.md
-    - name: '[Deprecated] PingFederate via Legacy Agent'
-      href: data-connectors/deprecated-pingfederate-via-legacy-agent.md
-    - name: '[Deprecated] Trend Micro Apex One via Legacy Agent'
-      href: data-connectors/deprecated-trend-micro-apex-one-via-legacy-agent.md
     - name: '[Deprecated] vArmour Application Controller'
       href: data-connectors/varmour-application-controller.md
     - name: 'WireX Network Forensics Platform'
@@ -332,8 +320,6 @@
       href: data-connectors/recommended-forcepoint-ngfw-via-ama.md
     - name: '[Recommended] Illumio Core via AMA'
       href: data-connectors/recommended-illumio-core-via-ama.md
-    - name: '[Recommended] Kaspersky Security Center via AMA'
-      href: data-connectors/recommended-kaspersky-security-center-via-ama.md
     - name: '[Recommended] Netwrix Auditor via AMA'
       href: data-connectors/recommended-netwrix-auditor-via-ama.md
     - name: '[Recommended] Nozomi Networks N2OS via AMA'
@@ -362,8 +348,6 @@
       href: data-connectors/amazon-web-services-s3.md
     - name: Apache HTTP Server
       href: data-connectors/apache-http-server.md
-    - name: Apache Tomcat
-      href: data-connectors/apache-tomcat.md
     - name: API Protection
       href: data-connectors/api-protection.md
     - name: ARGOS Cloud Security
@@ -386,8 +370,6 @@
       href: data-connectors/auth0-access-management.md
     - name: Automated Logic WebCTRL
       href: data-connectors/automated-logic-webctrl.md
-    - name: Awake Security
-      href: data-connectors/awake-security.md
     - name: Azure Activity
       href: data-connectors/azure-activity.md
     - name: Azure Batch Account
@@ -424,12 +406,8 @@
       href: data-connectors/bitglass.md
     - name: Bitsight data connector (using Azure Functions)
       href: data-connectors/bitsight-data-connector.md
-    - name: Blackberry CylancePROTECT
-      href: data-connectors/blackberry-cylanceprotect.md
     - name: Box (using Azure Functions)
       href: data-connectors/box.md
-    - name: Cisco Application Centric Infrastructure
-      href: data-connectors/cisco-application-centric-infrastructure.md
     - name: Cisco ASA/FTD via AMA (Preview)
       href: data-connectors/cisco-asa-ftd-via-ama.md
     - name: Cisco Duo Security (using Azure Functions)
@@ -476,8 +454,8 @@
       href: data-connectors/crowdstrike-falcon-data-replicator.md
     - name: Crowdstrike Falcon Data Replicator V2 (using Azure Functions)
       href: data-connectors/crowdstrike-falcon-data-replicator-v2.md
-    - name: Cyber Blind Spot Intergration (using Azure Functions)
-      href: data-connectors/cyber-blind-spot-intergration.md
+    - name: Cyber Blind Spot Integration (using Azure Functions)
+      href: data-connectors/cyber-blind-spot-integration.md
     - name: CyberArkAudit (using Azure Functions)
       href: data-connectors/cyberarkaudit.md
     - name: CyberArkEPM (using Azure Functions)
@@ -516,8 +494,8 @@
       href: data-connectors/eset-protect.md
     - name: Exabeam Advanced Analytics
       href: data-connectors/exabeam-advanced-analytics.md
-    - name: Exchange Security Insights On-Premise Collector
-      href: data-connectors/exchange-security-insights-on-premise-collector.md
+    - name: Exchange Security Insights On-Premises Collector
+      href: data-connectors/exchange-security-insights-on-premises-collector.md
     - name: Exchange Security Insights Online Collector (using Azure Functions)
       href: data-connectors/exchange-security-insights-online-collector.md
     - name: F5 BIG-IP
@@ -560,8 +538,6 @@
       href: data-connectors/holm-security-asset-data.md
     - name: Imperva Cloud WAF (using Azure Functions)
       href: data-connectors/imperva-cloud-waf.md
-    - name: Infoblox NIOS
-      href: data-connectors/infoblox-nios.md
     - name: InfoSecGlobal Data Connector
       href: data-connectors/infosecglobal-data-connector.md
     - name: IONIX Security Logs
@@ -624,7 +600,7 @@
       href: data-connectors/microsoft-entra-id-protection.md
     - name: Microsoft Exchange Logs and Events
       href: data-connectors/microsoft-exchange-logs-and-events.md
-    - name: Microsoft PowerBI
+    - name: Microsoft Power BI
       href: data-connectors/microsoft-powerbi.md
     - name: Microsoft Project
       href: data-connectors/microsoft-project.md
@@ -1183,12 +1159,14 @@
       href: billing-reduce-costs.md
     - name: Switch to simplified pricing tiers
       href: enroll-simplified-pricing-tier.md
+    - name: Optimize costs with pre-purchase plan
+      href: billing-pre-purchase-plan.md
     - name: Tutorial - Configure data retention policy
       href: configure-data-retention.md
     - name: Auxiliary logs use cases
       href: basic-logs-use-cases.md
   - name: Connect Microsoft Sentinel to Microsoft Defender XDR
-    href: /defender-xdr/microsoft-sentinel-onboard??toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
+    href: /defender-xdr/microsoft-sentinel-onboard?toc=/azure/sentinel/TOC.json&bc=/azure/sentinel/breadcrumb/toc.json
   - name: Manage multiple workspaces 
     items:
     - name: Workspace manager
