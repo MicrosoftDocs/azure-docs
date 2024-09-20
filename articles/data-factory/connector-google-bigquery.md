@@ -36,7 +36,7 @@ The service provides a built-in driver to enable connectivity. Therefore, you do
 
 The connector supports the Windows versions in this [article](create-self-hosted-integration-runtime.md#prerequisites).
 
-The connector no longer supports P12 keyfiles. If you rely on service accounts, you are recommended to use JSON keyfiles instead. The P12CustomPwd property used for supporting the P12 keyfile has also been deprecated.
+The connector no longer supports P12 keyfiles. If you rely on service accounts, you are recommended to use JSON keyfiles instead. The P12CustomPwd property used for supporting the P12 keyfile has also been deprecated. For more information, see this [article](https://cloud.google.com/sdk/docs/release-notes#bigquery_6).
 
 >[!NOTE]
 >This Google BigQuery connector is built on top of the BigQuery APIs. Be aware that BigQuery limits the maximum rate of incoming requests and enforces appropriate quotas on a per-project basis, refer to [Quotas & Limits - API requests](https://cloud.google.com/bigquery/quotas#api_requests). Make sure you do not trigger too many concurrent requests to the account.
