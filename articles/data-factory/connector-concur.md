@@ -7,7 +7,6 @@ ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
 ms.date: 09/12/2024
-ms.date: 09/04/2024
 ms.author: jianleishen
 ---
 # Copy data from Concur using Azure Data Factory or Synapse Analytics(Preview)
