@@ -280,9 +280,9 @@ items:
       - name: Tools for Visual Studio
         href: ./hadoop/apache-hadoop-visual-studio-tools-get-started.md
       - name: Spark and Hive Tools for VS Code
-        href: ./hdinsight-for-VS Code.md
+        href: ./hdinsight-for-VSCode.md
       - name: HDInsight Configuration Settings Reference
-        href: ./hdinsight-config-for-VS Code.md
+        href: ./hdinsight-config-for-VSCode.md
     - name: Monitoring
       items:
       - name: Monitor Azure HDInsight
