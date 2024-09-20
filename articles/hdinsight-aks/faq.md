@@ -3,7 +3,8 @@ title: HDInsight on AKS FAQ
 description: HDInsight on AKS frequently asked questions.
 ms.service: azure-hdinsight-on-aks
 ms.topic: faq
-ms.date: 08/29/2023
+ms.date: 09/20/2024
+ROBOTS: NOINDEX
 ---
 
 # HDInsight on AKS - Frequently asked questions
