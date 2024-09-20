@@ -276,8 +276,6 @@
       href: data-connectors/1password.md
     - name: AbnormalSecurity (using Azure Functions)
       href: data-connectors/abnormalsecurity.md
-    - name: AI Vectra Stream
-      href: data-connectors/ai-vectra-stream.md
     - name: AIShield
       href: data-connectors/aishield.md
     - name: AliCloud (using Azure Functions)
@@ -674,26 +672,16 @@
         href: unified-connector-cef-device.md 
       - name: Syslog - configure security device       
         href: unified-connector-syslog-device.md    
-      - name: CEF over Syslog sources (legacy)
-        href: connect-common-event-format.md
-      - name: Deploy a log forwarder (legacy)
-        href: connect-log-forwarder.md
-      - name: Syslog (raw) sources (legacy)
-        href: connect-syslog.md
     - name: Custom log sources (text files)
       items:
       - name: Collect logs from text files via AMA
         href: connect-custom-logs-ama.md
       - name: Custom logs - configure security device
         href: unified-connector-custom-device.md
-      - name: Custom log sources (legacy)
-        href: connect-custom-logs.md
     - name: DNS via AMA
       href: connect-dns-ama.md
     - name: Logstash plugin with Data Collection Rules
       href: connect-logstash-data-connection-rules.md
-    - name: Logstash plugin (legacy)
-      href: connect-logstash.md
     - name: Microsoft Sentinel Data Collector API
       href: connect-rest-api-template.md      
   - name: Connection instructions for service
@@ -728,8 +716,6 @@
     href: create-custom-connector.md
   - name: Create a codeless connector
     href: create-codeless-connector.md
-  - name: Legacy codeless connector
-    href: create-codeless-connector-legacy.md
   - name: Normalize data
     items:
     - name: ASIM overview
