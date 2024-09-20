@@ -73,7 +73,6 @@ In this step, create a new Microsoft Entra app. In later steps, you configure th
     
     `https://<apim-instance-name>.developer.azure-api.net/`
 
-1. Under **Implicit grant and hybrid flows**, select **ID tokens** and select **Save**.
 1. In the left menu, under **Manage**, select **Token configuration** > **+ Add optional claim**.
 1. On the **Add optional claim** page, select **ID** and then select the following claims: **email, family_name, given_name, onprem_sid, preferred_username, upn**. Select **Add**. 
 1. When prompted, select **Turn on the Microsoft Graph email, profile permission**. Select **Add**.

@@ -93,6 +93,8 @@
         href: manage/spending-limit.md
       - name: Track credits for Microsoft Customer Agreement
         href: manage/mca-check-azure-credits-balance.md
+      - name: Manage a Microsoft Azure Consumption Commitment
+        href: manage/manage-consumption-commitment.md
       - name: Track your Microsoft Azure Consumption Commitment
         href: manage/track-consumption-commitment.md
       - name: Markup - China
