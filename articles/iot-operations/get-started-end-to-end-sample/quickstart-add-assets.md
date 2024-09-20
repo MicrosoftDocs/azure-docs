@@ -27,7 +27,7 @@ In this quickstart, you use the operations experience web UI to create your asse
 
 In instance of Azure IoT Operations Preview deployed in a Kubernetes cluster. The [Quickstart: Run Azure IoT Operations Preview in GitHub Codespaces with K3s](quickstart-deploy.md) provides simple instructions to deploy an Azure IoT Operations instance that you can use for the quickstarts.
 
-To sign in to the operations experience web UI, you need a Microsoft Entra ID account with at least contributor permissions for the resource group that contains your **Kubernetes - Azure Arc** instance. To learn more, see [Operations experience web UI](../discover-manage-assets/howto-manage-assets-remotely.md#operations-experience-web-ui).
+To sign in to the operations experience web UI, you need a Microsoft Entra ID account with at least contributor permissions for the resource group that contains your **Kubernetes - Azure Arc** instance. To learn more, see [Operations experience web UI](../discover-manage-assets/howto-manage-assets-remotely.md#prerequisites).
 
 Unless otherwise noted, you can run the console commands in this quickstart in either a Bash or PowerShell environment.
 
@@ -62,7 +62,7 @@ Browse to the [operations experience](https://iotoperations.azure.com) in your b
 
 ## Select your site
 
-A _site_ is a collection of Azure IoT Operations instances. Sites typically group instances by physical location and make it easier for OT users to locate and manage assets. Your IT administrator creates [sites and assigns Azure IoT Operations instances to them](../../azure-arc/site-manager/overview.md). Because you're working with a new deployment, there are no sites yet. You can find the cluster you created in the previous quickstart by selecting **Unassigned instances**. In the operations experience, an instance represents a cluster where you deployed Azure IoT Operations.
+A _site_ is a collection of Azure IoT Operations instances. Sites typically group instances by physical location and make it easier for OT users to locate and manage assets. Your IT administrator creates [sites and assigns Azure IoT Operations instances to them](/azure/azure-arc/site-manager/overview). Because you're working with a new deployment, there are no sites yet. You can find the cluster you created in the previous quickstart by selecting **Unassigned instances**. In the operations experience, an instance represents a cluster where you deployed Azure IoT Operations.
 
 ## Select your instance
 
@@ -157,6 +157,12 @@ Select **Next** to go to the **Add events** page and then **Next** to go to the 
 Review your asset and tag details and make any adjustments you need before you select **Create**:
 
 :::image type="content" source="media/quickstart-add-assets/review-asset.png" alt-text="Screenshot of Azure IoT Operations create asset review page.":::
+
+This configuration deploys a new asset called `thermostat` to the cluster. You can use `kubectl` to view the assets:
+
+```console
+kubectl get assets -n azure-iot-operations
+```
 
 ## Verify data is flowing
 
