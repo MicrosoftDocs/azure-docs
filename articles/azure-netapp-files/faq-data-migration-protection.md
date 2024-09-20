@@ -5,7 +5,7 @@ ms.service: azure-netapp-files
 ms.topic: conceptual
 author: b-hchen
 ms.author: anfdocs
-ms.date: 08/31/2023
+ms.date: 09/20/2024
 ---
 # Data migration and protection FAQs for Azure NetApp Files
 
@@ -38,7 +38,7 @@ By default, your data stays within the region where you deploy your Azure NetApp
 
 ## How do I create a copy of an Azure NetApp Files volume in another Azure region?
 	
-Azure NetApp Files provides NFS and SMB volumes.  Any file based-copy tool can be used to replicate data between Azure regions. 
+Azure NetApp Files provides NFS and SMB volumes. Any file based-copy tool can be used to replicate data between Azure regions. 
 
 The [cross-region replication](cross-region-replication-introduction.md) functionality enables you to asynchronously replicate data from an Azure NetApp Files volume (source) in one region to another Azure NetApp Files volume (destination) in another region.  Additionally, you can [create a new volume by using a snapshot of an existing volume](snapshots-restore-new-volume.md).
 
@@ -48,7 +48,7 @@ You can also use a wide array of free tools to copy data. For NFS, you can use w
 
 The requirements for replicating an Azure NetApp Files volume to another Azure region are as follows: 
 - Ensure Azure NetApp Files is available in the target Azure region.
-- Validate network connectivity between the source and the Azure NetApp Files target volume IP address. Data transfer between on premises and Azure NetApp Files volumes, or across Azure regions, is supported via [site-to-site VPN and ExpressRoute](azure-netapp-files-network-topologies.md#hybrid-environments), [Global VNet peering](azure-netapp-files-network-topologies.md#global-or-cross-region-vnet-peering), or [Azure Virtual WAN connections](configure-virtual-wan.md).
+- Validate network connectivity between the source and the Azure NetApp Files target volume IP address. Data transfer between on premises and Azure NetApp Files volumes, or across Azure regions, is supported via [site-to-site VPN and ExpressRoute](azure-netapp-files-network-topologies.md#hybrid-environments), [Global VNet peering](azure-netapp-files-network-topologies.md#global-or-cross-region-vnet-peering), or [Azure Virtual WAN connections](configure-virtual-wan.md). The virtual machine running that the data transfer tool runs on should have access to both the source and destination volumes. 
 - Create the target Azure NetApp Files volume.
 - Transfer the source data to the target volume by using your preferred file copy tool.
 
