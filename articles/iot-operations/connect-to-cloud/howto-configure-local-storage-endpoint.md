@@ -55,7 +55,7 @@ Once the endpoint is created, you can use it in a dataflow by specifying the end
 
 # [Portal](#tab/portal)
 
-:::image type="content" source="media/howto-configure-local-storage-endpoint/dataflow-mq-local-storage.png" alt-text="Screenshot using operations portal to create a dataflow with a MQTT source and local storage.":::
+:::image type="content" source="media/howto-configure-local-storage-endpoint/dataflow-mq-local-storage.png" alt-text="Screenshot using operations portal to create a dataflow with an MQTT source and local storage.":::
 
 # [Kubernetes](#tab/kubernetes)
 

@@ -110,7 +110,7 @@ Once the endpoint is created, you can use it in a dataflow to connect to the Eve
 
 #### Use X.509 certificate authentication with Event Grid
 
-We recommended to use managed identity for authentication. You can also use X.509 certificate authentication with the Event Grid MQTT broker.
+We recommended using managed identity for authentication. You can also use X.509 certificate authentication with the Event Grid MQTT broker.
 
 When you use X.509 authentication with an Event Grid MQTT broker, go to the Event Grid namespace > **Configuration** and check these settings:
 
@@ -187,7 +187,7 @@ To use system-assigned managed identity for authentication, you don't need to cr
 
 Before you configure the endpoint, make sure that the Azure IoT Operations managed identity has the necessary permissions to connect to the MQTT broker. For example, with Azure Event Grid MQTT broker, assign the managed identity to the Event Grid namespace or topic space with [an appropriate role](../../event-grid/mqtt-client-microsoft-entra-token-and-rbac.md#authorization-to-grant-access-permissions).
 
-Then, configure the endpoint with system-assigned managed identity settings. In most cases when using with Event Grid, you can leave the settings empty as shown below. This sets the managed identity audience to the Event Grid common audience `https://eventgrid.azure.net`.
+Then, configure the endpoint with system-assigned managed identity settings. In most cases when using with Event Grid, you can leave the settings empty as shown in the following example. This sets the managed identity audience to the Event Grid common audience `https://eventgrid.azure.net`.
 
 ```yaml
 mqttSettings:
@@ -232,7 +232,7 @@ mqttSettings:
       audience: <YOUR-SERVICE-ACCOUNT-AUDIENCE>
 ```
 
-If the audience is not specified, the default audience for the Azure IoT Operations MQTT broker is used.
+If the audience isn't specified, the default audience for the Azure IoT Operations MQTT broker is used.
 
 ### Anonymous
 
@@ -310,7 +310,7 @@ This setting is useful to ensure that the remote broker has the same message as 
 
 If set to `Never`, the retain flag is removed from the MQTT messages. This can be useful when you don't want the remote broker to retain any messages or if the remote broker doesn't support retain.
 
-The retain setting only takes effect if the dataflow uses MQTT endpoint as both source and destination. For example, in an MQTT bridge scenario.
+The *retain* setting only takes effect if the dataflow uses MQTT endpoint as both source and destination. For example, in an MQTT bridge scenario.
 
 ### Session expiry
 
@@ -339,7 +339,7 @@ mqttSettings:
   maxInflightMessages: 100
 ```
 
-For subscribe - when the MQTT endpoint is used a source - this is the receive maximum. For publish - when the MQTT endpoint is used as a destination -  this is the maximum number of messages to send before waiting for an ack.
+For subscribe when the MQTT endpoint is used as a source, this is the receive maximum. For publish when the MQTT endpoint is used as a destination, this is the maximum number of messages to send before waiting for an acknowledgment.
 
 ### Keep alive
 
@@ -363,7 +363,7 @@ mqttSettings:
 
 #### Propagate setting
 
-CloudEvent properties are passed through for messages that contain the required properties. If the message does not contain the required properties, the message is passed through as is. 
+CloudEvent properties are passed through for messages that contain the required properties. If the message doesn't contain the required properties, the message is passed through as is. 
 
 | Name              | Required | Sample value                                           | Output value                                                                                            |
 | ----------------- | -------- | ------------------------------------------------------ |-------------------------------------------------------------------------------------------------------- |
@@ -378,7 +378,7 @@ CloudEvent properties are passed through for messages that contain the required 
 
 #### CreateOrRemap setting
 
-CloudEvent properties are passed through for messages that contain the required properties. If the message does not contain the required properties, the properties are generated.
+CloudEvent properties are passed through for messages that contain the required properties. If the message doesn't contain the required properties, the properties are generated.
 
 | Name              | Required | Generated value if missing                                                    |
 | ----------------- | -------- | ------------------------------------------------------------------------------|

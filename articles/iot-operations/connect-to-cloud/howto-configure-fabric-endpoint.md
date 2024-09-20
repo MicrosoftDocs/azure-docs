@@ -72,7 +72,7 @@ Once the endpoint is created, you can use it in a dataflow by specifying the end
 
 # [Portal](#tab/portal)
 
-:::image type="content" source="media/howto-configure-fabric-endpoint/dataflow-mq-fabric.png" alt-text="Screenshot using operations portal to create a dataflow with a MQTT source and Azure Data Explorer destination.":::
+:::image type="content" source="media/howto-configure-fabric-endpoint/dataflow-mq-fabric.png" alt-text="Screenshot using operations portal to create a dataflow with an MQTT source and Azure Data Explorer destination.":::
 
 # [Kubernetes](#tab/kubernetes)
 

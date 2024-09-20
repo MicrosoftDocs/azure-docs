@@ -5,7 +5,7 @@ author: PatAltimore
 ms.author: patricka
 ms.subservice: azure-data-flows
 ms.topic: how-to
-ms.date: 09/17/2024
+ms.date: 09/20/2024
 ai-usage: ai-assisted
 
 #CustomerIntent: As an operator, I want to understand how to configure dataflow endpoints for Azure Data Explorer in Azure IoT Operations so that I can send data to Azure Data Explorer.
@@ -86,7 +86,7 @@ Once the endpoint is created, you can use it in a dataflow by specifying the end
 
 # [Portal](#tab/portal)
 
-:::image type="content" source="media/howto-configure-adx-endpoint/dataflow-mq-adx.png" alt-text="Screenshot using operations portal to create a dataflow with a MQTT source and Azure Data Explorer destination.":::
+:::image type="content" source="media/howto-configure-adx-endpoint/dataflow-mq-adx.png" alt-text="Screenshot using operations portal to create a dataflow with an MQTT source and Azure Data Explorer destination.":::
 
 # [Kubernetes](#tab/kubernetes)
 

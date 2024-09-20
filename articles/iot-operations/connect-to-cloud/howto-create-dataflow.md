@@ -102,7 +102,7 @@ You can use an [asset](../discover-manage-assets/overview-manage-assets.md) as t
 
 # [Kubernetes](#tab/kubernetes)
 
-For example, to configure a source using a MQTT endpoint and two MQTT topic filters, use the following configuration:
+For example, to configure a source using an MQTT endpoint and two MQTT topic filters, use the following configuration:
 
 ```yaml
 sourceSettings:
@@ -120,7 +120,7 @@ Because `dataSources` allows you to specify MQTT or Kafka topics without modifyi
 
 ### Specify schema to deserialize data
 
-If the source data has optional fields or fields with different types, specify a deserialization schema to ensure consistency. For example, the data might have fields that are not present in all messages. Without the schema, the transformation can't handle these fields as they would have empty values. With the schema, you can specify default values or ignore the fields.
+If the source data has optional fields or fields with different types, specify a deserialization schema to ensure consistency. For example, the data might have fields that aren't present in all messages. Without the schema, the transformation can't handle these fields as they would have empty values. With the schema, you can specify default values or ignore the fields.
 
 # [Portal](#tab/portal)
 
@@ -300,7 +300,7 @@ To learn more, see [Map data by using dataflows](concept-dataflow-mapping.md) an
 
 ### Serialize data according to a schema
 
-If you want to serialize the data before sending it to the destination, you need to specify a schema and serialization format. Otherwise, the data will be serialized in JSON with the types inferred. Remember that storage endpoints like Microsoft Fabric or Azure Data Lake require a schema to ensure data consistency.
+If you want to serialize the data before sending it to the destination, you need to specify a schema and serialization format. Otherwise, the data is serialized in JSON with the types inferred. Remember that storage endpoints like Microsoft Fabric or Azure Data Lake require a schema to ensure data consistency.
 
 # [Portal](#tab/portal)
 

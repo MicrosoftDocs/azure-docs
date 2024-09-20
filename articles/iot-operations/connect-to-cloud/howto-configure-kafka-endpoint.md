@@ -30,7 +30,7 @@ To create a dataflow endpoint for Kafka, you need to specify the Kafka broker ho
 
 [Azure Event Hubs is compatible with the Kafka protocol](../../event-hubs/azure-event-hubs-kafka-overview.md) and can be used with dataflows with some limitations.
 
-If you are using Azure Event Hubs, create an Azure Event Hubs namespace and a Kafka-enabled event hub for each Kafka topic. 
+If you're using Azure Event Hubs, create an Azure Event Hubs namespace and a Kafka-enabled event hub for each Kafka topic. 
 
 ### Configure a Kafka dataflow endpoint
 
@@ -512,7 +512,7 @@ When a Kafka endpoint is a dataflow source, Kafka user headers are translated to
 | Key | Key: "Key" <BR> Value: Copy of the Key from original message. |
 | Timestamp | Key: "Timestamp" <BR> Value: UTF-8 encoding of Kafka Timestamp, which is number of milliseconds since Unix epoch.
 
-Kafka user header key/value pairs - provided they are all encoded in UTF-8 - are directly translated into MQTT user key/value properties.
+Kafka user header key/value pairs - provided they're all encoded in UTF-8 - are directly translated into MQTT user key/value properties.
 
 ##### UTF-8 / Binary Mismatches
 

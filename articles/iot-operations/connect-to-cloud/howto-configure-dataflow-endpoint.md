@@ -32,9 +32,9 @@ To get started, use the following table to choose the endpoint type to configure
 
 Think of each dataflow endpoint as a bundle of configuration settings that contains where the data should come from or go to (the `host` value), how to authenticate with the endpoint, and other settings like TLS configuration or batching preference. So you just need to create it once and then you can reuse it in multiple dataflows where these settings would be the same.
 
-To make it easier to reuse endpoints, the MQTT or Kafka topic filter is not part of the endpoint configuration. Instead, you specify the topic filter in the dataflow configuration. This means you can use the same endpoint for multiple dataflows that use different topic filters. 
+To make it easier to reuse endpoints, the MQTT or Kafka topic filter isn't part of the endpoint configuration. Instead, you specify the topic filter in the dataflow configuration. This means you can use the same endpoint for multiple dataflows that use different topic filters. 
 
-For example, you can use the default MQTT broker dataflow endpoint. it for both the source and destination, with different topic filters:
+For example, you can use the default MQTT broker dataflow endpoint. You can use it for both the source and destination with different topic filters:
 
 # [Portal](#tab/portal)
 
