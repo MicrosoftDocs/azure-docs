@@ -218,7 +218,9 @@ echo "{\"outputs\": $deploymentOutput}" > $ADE_OUTPUTS
 :::zone-end
 
 :::zone pivot="terraform"
-Terraform content goes here
+
+[!INCLUDE [how-to-configure-extensibility-terraform-container-image](includes/how-to-configure-extensibility-terraform-container-image.md)]
+
 :::zone-end
 
 :::zone pivot="pulumi"
