@@ -11,11 +11,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path_from_root": "/articles/azure-portal/resource-group-portal.md",
-      "redirect_url": "/azure/azure-resource-manager/management/manage-resources-portal",
-      "redirect_document_id": false
-    },
-    {
       "source_path_from_root": "/articles/azure-resource-manager/azure-resource-manager-security-attributes.md",
       "redirect_url": "/azure/azure-resource-manager/management/azure-resource-manager-security-controls",
       "redirect_document_id": false
@@ -2014,6 +2009,6 @@
       "source_path_from_root": "/articles/azure-resource-manager/bicep/tutorial-use-deployment-stacks.md",
       "redirect_url": "/training/modules/manage-resource-lifecycles-deployment-stacks",
       "redirect_document_id": false
-    }        
+    }
   ]
 }

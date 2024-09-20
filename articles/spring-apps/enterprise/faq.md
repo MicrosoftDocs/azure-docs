@@ -71,7 +71,7 @@ We're not actively developing more capabilities for Service Binding. Instead, th
 
 ### How can I provide feedback and report issues?
 
-If you encounter any issues with Azure Spring Apps, create an [Azure Support Request](../../azure-portal/supportability/how-to-create-azure-support-request.md). To submit a feature request or provide feedback, go to [Azure Feedback](https://feedback.azure.com/d365community/forum/79b1327d-d925-ec11-b6e6-000d3a4f06a4).
+If you encounter any issues with Azure Spring Apps, create an [Azure Support Request](/azure/azure-portal/supportability/how-to-create-azure-support-request). To submit a feature request or provide feedback, go to [Azure Feedback](https://feedback.azure.com/d365community/forum/79b1327d-d925-ec11-b6e6-000d3a4f06a4).
 
 ### How do I get VMware Spring Runtime support (Enterprise plan only)
 

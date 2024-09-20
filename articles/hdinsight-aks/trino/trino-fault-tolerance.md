@@ -3,7 +3,8 @@ title: Configure fault-tolerance
 description: Learn how to configure fault-tolerance in Trino with HDInsight on AKS.
 ms.service: azure-hdinsight-on-aks
 ms.topic: how-to 
-ms.date: 10/19/2023
+ms.date: 09/20/2024
+ROBOTS: NOINDEX
 ---
 
 # Fault-tolerant execution
