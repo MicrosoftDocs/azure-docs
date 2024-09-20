@@ -8,7 +8,7 @@ ms.date: 09/19/2024
 
 # Linter rule - what-if short circuiting
 
-This rule detects runtime values used to determine resource IDs within modules and flags potential what-if short-circuiting.
+This rule detects runtime values (such as name, subscriptionId, resourceGroup, condition, scope, or apiVersion) used to determine resource IDs within modules, and flags potential what-if short-circuiting.
 
 > [!NOTE]
 > This rule is off by default, change the level in [bicepconfig.json](./bicep-config-linter.md) to enable it.
