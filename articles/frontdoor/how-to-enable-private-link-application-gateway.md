@@ -17,11 +17,12 @@ This article guides you through the steps to configure an Azure Front Door Premi
 
 ::: zone pivot="front-door-cli"
 
-[!INCLUDE [azure-cli-prepare-your-environment](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
+[!INCLUDE[azure-cli-prepare-your-environment](~/reusable-content/azure-cli/azure-cli-prepare-your-environment.md)]
 
-Prerequisites:
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+
 - A functioning Azure Front Door Premium profile and endpoint. See [Create a Front Door - CLI](create-front-door-cli.md).
+
 - A functioning Azure Application Gateway. See [Direct web traffic with Azure Application Gateway - Azure CLI](../application-gateway/quick-create-cli.md).
 
 ## Enable private connectivity to Azure Application Gateway
@@ -107,6 +108,8 @@ Your Azure Front Door profile is now fully functional after completing the final
 ::: zone-end
 
 ::: zone pivot="front-door-ps"
+
+## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - Azure PowerShell installed locally or Azure Cloud Shell.
