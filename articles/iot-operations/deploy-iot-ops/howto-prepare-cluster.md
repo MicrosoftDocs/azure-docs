@@ -23,6 +23,10 @@ An Azure Arc-enabled Kubernetes cluster is a prerequisite for deploying Azure Io
 
 ## Prerequisites
 
+Azure IoT Operations should work on any Arc-enabled Kubernetes cluster that meets the [Azure Arc-enabled Kubernetes system requirements](../azure-arc/kubernetes/system-requirements.md). Currently Azure IoT Operations doesn't support ARM64 architectures.
+
+Microsoft supports AKS Edge Essentials for deployments on Windows and K3s for deployments on Ubuntu. For a list of specific hardware and software combinations that are tested and validated, see [Validated environments](../overview-iot-operations.md#validated-environments).
+
 To prepare your Azure Arc-enabled Kubernetes cluster, you need:
 
 ### [AKS Edge Essentials](#tab/aks-edge-essentials)
@@ -120,11 +124,6 @@ By default, Azure Kubernetes Service Edge Essentials clusters support Azure Cont
 
 ### [Ubuntu](#tab/ubuntu)
 
-Azure IoT Operations should work on any CNCF-conformant kubernetes cluster. For Ubuntu Linux, Microsoft currently supports K3s clusters.
-
-> [!IMPORTANT]
-> If you're using Ubuntu in Windows Subsystem for Linux (WSL), run all of these steps in your WSL environment, including the Azure CLI steps for configuring your cluster.
-
 To prepare a K3s Kubernetes cluster on Ubuntu:
 
 1. Run the K3s installation script:
@@ -175,7 +174,7 @@ On multi-node clusters with at least three nodes, you have the option of enablin
    ```
 
    > [!NOTE]
-   > The minimum supported Linux kernel version is 5.1. At this time, there are known issues with 6.4 and 6.2. For the latest information, refer to [Azure Container Storage release notes](../../azure-arc/edge-storage-accelerator/release-notes.md)
+   > The minimum supported Linux kernel version is 5.1. At this time, there are known issues with 6.4 and 6.2. For the latest information, refer to [Azure Container Storage release notes](../../azure-arc/edge-storage-accelerator/release-notes.md).
 
 1. On each node in your cluster, set the number of **HugePages** to 512 using the following command:
 
@@ -196,7 +195,7 @@ On multi-node clusters with at least three nodes, you have the option of enablin
 
 On multi-node clusters with at least three nodes, you have the option of enabling fault tolerance for storage with [Azure Container Storage (preview)](../../azure-arc/edge-storage-accelerator/overview.md) when you deploy Azure IoT Operations.
 
-This feature isn't recommended for Codespaces because Codespaces aren't persistent. If you want to enable fault tolerance anyways, prepare your multi-node cluster with the following steps:
+*This feature isn't recommended for Codespaces because Codespaces aren't persistent.* If you want to enable fault tolerance anyways, prepare your multi-node cluster with the following steps:
 
 1. Install the required NVME over TCP module for your kernel using the following command:
 
@@ -229,7 +228,7 @@ The **AksEdgeQuickStartForAio.ps1** script that you ran in the previous section 
 
 To connect your cluster to Azure Arc:
 
-1. On the machine where you deployed the Kubernetes cluster, or in your WSL environment, sign in with Azure CLI:
+1. On the machine where you deployed the Kubernetes cluster, sign in with Azure CLI:
 
    ```azurecli
    az login
@@ -273,6 +272,14 @@ To connect your cluster to Azure Arc:
    az provider register -n "Microsoft.DeviceRegistry"
    ```
 
+1. Download and install a preview version of the `connectedk8s` extension for Azure CLI.
+
+   ```azurecli
+   az storage blob download --auth-mode login --blob-url https://github.com/AzureArcForKubernetes/azure-cli-extensions/blob/connectedk8s/public/cli-extensions/connectedk8s-1.10.0-py2.py3-none-any.whl -f ./connectedk8s-1.10.0-py2.py3-none-any.whl
+   
+   az extension add --upgrade --source ./connectedk8s-1.10.0-py2.py3-none-any.whl
+   ```
+
 1. Use the [az group create](/cli/azure/group#az-group-create) command to create a resource group in your Azure subscription to store all the resources:
 
    ```azurecli
@@ -284,6 +291,10 @@ To connect your cluster to Azure Arc:
    ```azurecli
    az connectedk8s connect -n $CLUSTER_NAME -l $LOCATION -g $RESOURCE_GROUP --subscription $SUBSCRIPTION_ID --disable-auto-upgrade
    ```
+
+1. Upgrade the Azure Arc agent to use a preview build that supports the workload identity feature that Azure IoT Operations uses for user-assigned managed identities.
+
+
 
 1. Get the `objectId` of the Microsoft Entra ID application that the Azure Arc service uses and save it as an environment variable.
 

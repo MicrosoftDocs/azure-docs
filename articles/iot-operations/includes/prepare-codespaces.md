@@ -32,9 +32,9 @@ To create your codespace and cluster, use the following steps:
    | LOCATION | An Azure region close to you. For the list of currently supported regions, see [Supported regions](../overview-iot-operations.md#supported-regions). |
 
    >[!TIP]
-   >The values you provide as secrets in this step get saved on your GitHub account to be used in this and future codespaces. They're also automatically added as environment variables in the codespace terminal, and you can use those environment variables in the CLI commands in the next section.
+   >The values you provide as secrets in this step get saved on your GitHub account to be used in this and future codespaces. They're added as environment variables in the codespace terminal, and you can use those environment variables in the CLI commands in the next section.
    >
-   >Additionally, this codespace automatically creates a `CLUSTER_NAME` environment variable which is set with the codespace name.
+   >Additionally, this codespace creates a `CLUSTER_NAME` environment variable which is set with the codespace name.
 
 1. Select **Create new codespace**.
 
@@ -46,4 +46,4 @@ To create your codespace and cluster, use the following steps:
 
 1. In Visual Studio Code, select **View** > **Terminal**.
 
-   Use this terminal to run all of the command line and CLI commands for managing your cluster.
+   Use this terminal to run all of the CLI commands for managing your cluster.
