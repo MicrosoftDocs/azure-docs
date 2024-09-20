@@ -18,6 +18,16 @@ This article describes how to implement Microsoft Teams spotlight capability wit
 
 Since the video stream resolution of a participant is increased when spotlighted, it should be noted that the settings done on [Video Constraints](../../concepts/voice-video-calling/video-constraints.md) also apply to spotlight.
 
+## Overview
+
+Spotlighting a video is like pinning it for everyone in the meeting. The organizer, co-organizer, or presenter can choose up to seven people's video feeds (including their own) to highlight for everyone else.
+
+The two different ways to spotlight are your own video and someone else's video (up to seven people).
+
+When a user spotlights or pins someone in the meeting, this increases the height or width of the participant grid depending on the orientation.
+
+Remind participants that they can't spotlight a video if their view is set to Large gallery or Together mode.
+
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
@@ -30,7 +40,7 @@ Since the video stream resolution of a participant is increased when spotlighted
 
 The following tables define support for spotlight in Azure Communication Services.
 
-## Identities & call types
+## Identities and call types
 
 The following table shows support for call and identity types. 
 
