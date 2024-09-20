@@ -8,6 +8,7 @@ ms.custom: devx-track-azurepowershell
 
 # How to provide secure access to custom machine configuration packages
 This page provides a guide on how to provide access to Machine Configuration packages stored in Azure storage by using the resource ID of a user-assigned managed identity or a Shared Access Signature (SAS) token. 
+
 ## Prerequisites
 - Azure subscription
 - Azure Storage account with the Machine Configuration package
@@ -18,7 +19,7 @@ This page provides a guide on how to provide access to Machine Configuration pac
 > [!IMPORTANT]
 > Please note that, unlike Azure VMs, Arc-connected machines currently do not support User-Assigned Managed Identities.
 
-You can grant private access to a machine configuration package in an Azure Storage blob by assigning a User-Assigned Identity to a scope of Azure VMs that you wish to apply the package to.  For this to work, you need to grant the managed identity read access to the Azure storage blob. This involves assigning the “Storage Blob Data Reader” role to the identity at the scope of the blob container. This setup ensures that your Azure VMs can securely read from the specified blob container using the user-assigned managed identity. 
+You can grant private access to a machine configuration package in an Azure Storage blob by assigning a [User-Assigned Identity][01] to a scope of Azure VMs that you wish to apply the package to.  For this to work, you need to grant the managed identity read access to the Azure storage blob. This involves assigning the “Storage Blob Data Reader” role to the identity at the scope of the blob container. This setup ensures that your Azure VMs can securely read from the specified blob container using the user-assigned managed identity. You can assign a User Assigned Identity at scale in your server fleet using Azure Policy, learn more [here][02].
 
 ### Using a SAS Token 
 While this next step is optional, you should add a shared access signature (SAS) token in the URL to ensure secure access to the package. The below example generates a blob SAS token with read access and returns the full blob URI with the shared access signature token. In this example, the token has a time limit of three years.
@@ -46,5 +47,7 @@ By using the resource ID of a user-assigned managed identity or SAS token, you c
 - After creating the policy definition, you can assign it to the appropriate scope (e.g., management group, subscription, resource group) within your Azure environment.
 - Remember to monitor the policy compliance status and make any necessary adjustments to your Machine Configuration package or policy assignment to meet your organizational requirements.
 
-
+<!-- Reference link definitions -->
+[01]: https://learn.microsoft.com/en-us/entra/identity/managed-identities-azure-resources/managed-identity-best-practice-recommendations#using-user-assigned-identities-to-reduce-administration
+[02]: https://learn.microsoft.com/en-us/entra/identity/managed-identities-azure-resources/how-to-assign-managed-identity-via-azure-policy
 
