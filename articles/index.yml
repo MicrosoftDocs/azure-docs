@@ -229,7 +229,7 @@ productDirectory:
       azureCategories:
         - analytics
         - management-and-governance
-      url: chaos-studio/index.yml
+      url: /azure/chaos-studio/
     # Card
     - title: Azure Data Explorer
       summary: Fast and highly scalable data exploration service
@@ -318,7 +318,7 @@ productDirectory:
       azureCategories:
         - analytics
         - management-and-governance
-      url: azure-monitor/index.yml
+      url: /azure/azure-monitor/
     # Card
     - title: Power BI Embedded
       summary: Embed fully interactive, stunning data visualizations in your applications
@@ -410,7 +410,7 @@ productDirectory:
       azureCategories:
         - compute
         - containers
-      url: kubernetes-fleet/index.yml
+      url: /azure/kubernetes-fleet/
     # Card
     - title: Azure Quantum (Preview)
       summary: Experience quantum impact today on Azure
@@ -546,7 +546,7 @@ productDirectory:
       imageSrc: ./media/index/container-registry.svg
       azureCategories:
         - containers
-      url: container-registry/index.yml
+      url: /azure/container-registry/
     # Card
     - title: Web App for Containers
       summary: Easily deploy and run containerized web apps that scale with your business
@@ -715,7 +715,7 @@ productDirectory:
       azureCategories:
         - devops
         - management-and-governance
-      url: azure-monitor/index.yml
+      url: /azure/azure-monitor/
     # Card
     - title: Azure Artifacts
       summary: Create, host, and share packages with your team
@@ -744,7 +744,7 @@ productDirectory:
       azureCategories:
         - devops
         - management-and-governance
-      url: azure-monitor/index.yml
+      url: /azure/azure-monitor/
     # Card
     - title: Azure Repos
       summary: Get unlimited, cloud-hosted private Git repos for your project
@@ -816,7 +816,7 @@ productDirectory:
       azureCategories:
         - hybrid
         - featured
-      url: azure-arc/index.yml
+      url: /azure/azure-arc/
     # Card
     - title: Azure ExpressRoute
       summary: Dedicated private network fiber connections to Azure
@@ -998,7 +998,7 @@ productDirectory:
       imageSrc: ./media/index/advisor.svg
       azureCategories:
         - management-and-governance
-      url: advisor/index.yml
+      url: /azure/advisor/
     # Card
     - title: Azure Backup
       summary: Simplify data protection and protect against ransomware
@@ -1020,7 +1020,7 @@ productDirectory:
       imageSrc: ./media/index/lighthouse.svg
       azureCategories:
         - management-and-governance
-      url: lighthouse/index.yml
+      url: /azure/lighthouse/
     # Card
     - title: Azure Managed Applications
       summary: Simplify management of cloud offerings
@@ -1070,7 +1070,7 @@ productDirectory:
       imageSrc: ./media/index/service-health.svg
       azureCategories:
         - management-and-governance
-      url: service-health/index.yml
+      url: /azure/service-health/
     # Card
     - title: Azure Site Recovery
       summary: Keep your business running with built-in disaster recovery service
@@ -1100,7 +1100,7 @@ productDirectory:
       imageSrc: ./media/index/azure.svg
       azureCategories:
         - management-and-governance
-      url: azure-portal/index.yml
+      url: /azure/azure-portal/
     # Card
     - title: Azure Update Manager
       summary: Centrally manage updates and compliance at scale
