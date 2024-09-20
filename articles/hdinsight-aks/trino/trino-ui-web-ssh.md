@@ -3,7 +3,8 @@ title: Trino Web SSH
 description: Using Trino in Web SSH
 ms.service: azure-hdinsight-on-aks
 ms.topic: how-to
-ms.date: 08/29/2023
+ms.date: 09/20/2024
+ROBOTS: NOINDEX
 ---
 
 # Web SSH
