@@ -11,7 +11,7 @@ recommendations: false
 
 # Configure a cloud trust between on premises AD DS and Microsoft Entra ID for accessing Azure Files
 
-Many organizations want to use identity-based authentication for SMB Azure file shares in environments that span both on-premises Active Directory Domain Services (AD DS) and Microsoft Entra ID([formerly Azure Active Directory](/entra/fundamentals/new-name)), but don't meet the necessary [prerequisites to use Microsoft Entra Kerberos](storage-files-identity-auth-hybrid-identities-enable.md#prerequisites). 
+Many organizations want to use identity-based authentication for SMB Azure file shares in environments that span both on-premises Active Directory Domain Services (AD DS) and Microsoft Entra ID ([formerly Azure Active Directory](/entra/fundamentals/new-name)), but don't meet the necessary [prerequisites to use Microsoft Entra Kerberos](storage-files-identity-auth-hybrid-identities-enable.md#prerequisites).
 
 In such scenarios, customers can establish a cloud trust between their on-premises AD DS and Microsoft Entra ID to access SMB file shares using their on-premises credentials. This article explains how a cloud trust works, and provides instructions for setup and validation. It also includes steps to rotate a Kerberos key for your service account in Microsoft Entra ID and Trusted Domain Object, and steps to remove a Trusted Domain Object and all Kerberos settings, if desired.
 
