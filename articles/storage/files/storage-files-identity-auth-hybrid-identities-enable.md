@@ -30,7 +30,7 @@ For more information on supported options and considerations, see [Overview of A
 
 ## Prerequisites
 
-Before you enable Microsoft Entra Kerberos authentication over SMB for Azure file shares, make sure you've completed the following prerequisites.
+Before you enable Microsoft Entra Kerberos authentication over SMB for Azure file shares, make sure you've completed the following prerequisites. If some of your client machines don't meet the requirements described in this section, we recommend that you complete the steps in this article and then [Configure a cloud trust](storage-files-identity-auth-hybrid-cloud-trust.md) between on premises AD DS and Microsoft Entra ID to allow those machines to access file shares.
 
 > [!NOTE]
 > Your Azure storage account can't authenticate with both Microsoft Entra ID and a second method like AD DS or Microsoft Entra Domain Services. If you've already chosen another AD method for your storage account, you must disable it before enabling Microsoft Entra Kerberos.

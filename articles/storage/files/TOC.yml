@@ -159,8 +159,12 @@
       href: storage-files-identity-multiple-forests.md
     - name: Enable Microsoft Entra Domain Services authentication
       href: storage-files-identity-auth-domain-services-enable.md
-    - name: Enable Microsoft Entra Kerberos authentication for hybrid identities
-      href: storage-files-identity-auth-hybrid-identities-enable.md
+    - name: Authenticate hybrid identities
+      items:
+        - name: Enable Microsoft Entra Kerberos authentication
+          href: storage-files-identity-auth-hybrid-identities-enable.md
+        - name: Configure a cloud trust 
+          href: storage-files-identity-auth-hybrid-cloud-trust.md
     - name: Enable AD Kerberos authentication for Linux clients (SMB)
       href: storage-files-identity-auth-linux-kerberos-enable.md
     - name: Choose how to authorize access to file data

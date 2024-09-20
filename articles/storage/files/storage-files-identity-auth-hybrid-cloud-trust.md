@@ -11,7 +11,9 @@ recommendations: false
 
 # Configure a cloud trust between on premises AD DS and Microsoft Entra ID for accessing Azure Files
 
-Many organizations want to use identity-based authentication for SMB Azure file shares in environments that span both on-premises Active Directory Domain Services (AD DS) and Microsoft Entra, but don't meet the necessary [prerequisites to use Microsoft Entra Kerberos](storage-files-identity-auth-hybrid-identities-enable.md#prerequisites). In such scenarios, customers can establish a cloud trust between their on-premises AD DS and Microsoft Entra ID ([formerly Azure Active Directory](/entra/fundamentals/new-name)) to access SMB file shares using their on-premises credentials. This article explains how a cloud trust works, and provides instructions for setup and validation. It also includes steps to rotate a Kerberos key for your service account in Microsoft Entra ID and Trusted Domain Object, and steps to remove a Trusted Domain Object and all Kerberos settings, if desired.
+Many organizations want to use identity-based authentication for SMB Azure file shares in environments that span both on-premises Active Directory Domain Services (AD DS) and Microsoft Entra ID([formerly Azure Active Directory](/entra/fundamentals/new-name)), but don't meet the necessary [prerequisites to use Microsoft Entra Kerberos](storage-files-identity-auth-hybrid-identities-enable.md#prerequisites). 
+
+In such scenarios, customers can establish a cloud trust between their on-premises AD DS and Microsoft Entra ID to access SMB file shares using their on-premises credentials. This article explains how a cloud trust works, and provides instructions for setup and validation. It also includes steps to rotate a Kerberos key for your service account in Microsoft Entra ID and Trusted Domain Object, and steps to remove a Trusted Domain Object and all Kerberos settings, if desired.
 
 This article focuses on authenticating [hybrid user identities](../../active-directory/hybrid/whatis-hybrid-identity.md), which are on-premises AD DS identities that are synced to Microsoft Entra ID. **Cloud-only identities aren't currently supported for Azure Files**.
 
@@ -31,7 +33,7 @@ The following are examples of scenarios in which you might want to configure a c
 
 - You've started migrating to the cloud but currently have applications still running on traditional on-premises AD DS.
 
-- Some or all of your client machines don't meet the operating system requirements for Microsoft Entra Kerberos authentication.
+- Some or all of your client machines don't meet the [operating system requirements](storage-files-identity-auth-hybrid-identities-enable.md#prerequisites) for Microsoft Entra Kerberos authentication.
 
 ## Permissions
 
@@ -50,12 +52,13 @@ Before implementing the incoming trust-based authentication flow, ensure that th
 | Clients must be joined to Active Directory (AD). The domain must have a functional level of Windows Server 2012 or higher. | You can determine if the client is joined to AD by running the [dsregcmd command](/azure/active-directory/devices/troubleshoot-device-dsregcmd): `dsregcmd.exe /status` |
 | A Microsoft Entra tenant. | A Microsoft Entra Tenant is an identity security boundary that's under the control of your organization’s IT department. It's an instance of Microsoft Entra ID in which information about a single organization resides. |
 | An Azure subscription under the same Microsoft Entra tenant you plan to use for authentication. | |
-| [Microsoft Entra Connect](/azure/active-directory/hybrid/whatis-azure-ad-connect) must be installed. | [Hybrid environments](../../active-directory/hybrid/whatis-hybrid-identity.md) where identities exist both in Microsoft Entra ID and AD. |
+| An Azure storage account. | An Azure storage account is a resource that acts as a container for grouping all the data services from Azure Storage, including files. |
+| [Microsoft Entra Connect](/azure/active-directory/hybrid/whatis-azure-ad-connect) must be installed. | Microsoft Entra Connect is used in [hybrid environments](../../active-directory/hybrid/whatis-hybrid-identity.md) where identities exist both in Microsoft Entra ID and on-premises AD DS. |
 | [Enable Microsoft Entra Kerberos authentication](storage-files-identity-auth-hybrid-identities-enable.md) on the storage account | This will enable any client machines that meet the Microsoft Entra Kerberos prerequisites to mount the file share. |
 
 ## Create and configure the Microsoft Entra Kerberos Trusted Domain Object
 
-To create and configure the Microsoft Entra Kerberos Trusted Domain Object, you'll use the [Azure AD Hybrid Authentication Management](https://www.powershellgallery.com/packages/AzureADHybridAuthenticationManagement/) PowerShell module. This module enables hybrid identity organizations (those with Active Directory on-premises) to use modern credentials for their applications and enables Azure AD to become the trusted source for both cloud and on-premises authentication.
+To create and configure the Microsoft Entra Kerberos Trusted Domain Object, you'll use the [Azure AD Hybrid Authentication Management](https://www.powershellgallery.com/packages/AzureADHybridAuthenticationManagement/) PowerShell module. This module enables hybrid identity organizations to use modern credentials for their applications and enables Microsoft Entra ID to become the trusted source for both cloud and on-premises authentication.
 
 ### Set up the Trusted Domain Object
 
@@ -146,17 +149,17 @@ Install-Module -Name AzureADHybridAuthenticationManagement -AllowClobber
     If your domain already supports FIDO authentication, the `Get-AzureAdKerberosServer` cmdlet displays Microsoft Entra service account information, as in the following sample output. The `CloudTrustDisplay` field returns an empty value.
 
     ```output
-    ID                  : 25614
+    ID                  : XXXXX
     UserAccount         : CN=krbtgt-AzureAD, CN=Users, DC=aadsqlmi, DC=net
     ComputerAccount     : CN=AzureADKerberos, OU=Domain Controllers, DC=aadsqlmi, DC=net
-    DisplayName         : krbtgt_25614
+    DisplayName         : XXXXXX_XXXXX
     DomainDnsName       : aadsqlmi.net
     KeyVersion          : 53325
     KeyUpdatedOn        : 2/24/2022 9:03:15 AM
     KeyUpdatedFrom      : ds-aad-auth-dem.aadsqlmi.net
-    CloudDisplayName    : krbtgt_25614
+    CloudDisplayName    : XXXXXX_XXXXX
     CloudDomainDnsName  : aadsqlmi.net
-    CloudId             : 25614
+    CloudId             : XXXXX
     CloudKeyVersion     : 53325
     CloudKeyUpdatedOn   : 2/24/2022 9:03:15 AM
     CloudTrustDisplay   :
