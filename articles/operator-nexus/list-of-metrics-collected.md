@@ -1,6 +1,6 @@
 ---
 title: List of Metrics Collected in Azure Operator Nexus.
-description: List of metrics collected in Azure Operator Nexus.
+description: List of metrics emitted by the resource types in Azure Operator Nexus and observed in Azure Monitor.
 author: mukesh-dua
 ms.author: mukeshdua
 ms.service: azure-operator-nexus
@@ -225,13 +225,13 @@ All these metrics for Nexus Cluster are collected and delivered to Azure Monitor
 |KubevirtVmiMemorySwapInTrafficBytesTotal|VMOrchestrator|Kubevirt VMI Mem Swp In Traffic Bytes|Bytes|The total amount of data read from swap space of the guest. In the absence of data, this metric will retain the most recent value emitted|Name, Node|
 |KubevirtVmiMemoryDomainBytesTotal|VMOrchestrator|Kubevirt VMI Mem Dom Bytes (Preview)|Bytes|The amount of memory allocated to the domain. The memory value in the domain XML file. In the absence of data, this metric will retain the most recent value emitted|Node|
 |KubevirtVmiMemorySwapOutTrafficBytesTotal|VMOrchestrator|Kubevirt VMI Mem Swp Out Traffic Bytes|Bytes|The total amount of memory written out to swap space of the guest. In the absence of data, this metric will retain the most recent value emitted|Name, Node|
-|KubevirtVmiMemoryUnusedBytes|VMOrchestrator|Kubevirt VMI Memory Unused Bytes|Bytes|The amount of memory left completely unused by the system. Memory that is available but used for reclaimable caches should NOT be reported as free. In the absence of data, this metric will default to 0|Name, Node|
+|KubevirtVmiMemoryUnusedBytes|VMOrchestrator|Kubevirt VMI Memory Unused Bytes|Bytes|The amount of memory left unused by the system. Memory that is available but used for reclaimable caches should NOT be reported as free. In the absence of data, this metric will default to 0|Name, Node|
 |KubevirtVmiMemoryUsage|VMOrchestrator|Kubevirt VMI Memory Usage|Percent|The amount of memory used as a percentage. In the absence of data, this metric will default to 0|Name, Node|
 |KubevirtVmiNetworkReceivePacketsTotal|VMOrchestrator|Kubevirt VMI Net Rx Packets|Bytes|Total network traffic received packets. In the absence of data, this metric will retain the most recent value emitted|Interface, Name, Node|
 |KubevirtVmiNetworkTransmitPacketsDroppedTotal|VMOrchestrator|Kubevirt VMI Net Tx Packets Drop|Bytes|The total number of transmit packets dropped on virtual NIC (vNIC) interfaces. In the absence of data, this metric will retain the most recent value emitted|Interface, Name, Node|
 |KubevirtVmiNetworkTransmitPacketsTotal|VMOrchestrator|Kubevirt VMI Net Tx Packets Total|Bytes|Total network traffic transmitted packets. In the absence of data, this metric will retain the most recent value emitted|Interface, Name, Node|
 |KubevirtVmiOutdatedInstances|VMOrchestrator|Kubevirt VMI Outdated Count|Count|Indication for the total number of VirtualMachineInstance (VMI) workloads that are not running within the most up-to-date version of the virt-launcher environment. In the absence of data, this metric will default to 0||
-|KubevirtVmiPhaseCount|VMOrchestrator|Kubevirt VMI Phase Count|Count|Sum of Virtual Machine Instances (VMIs) per phase and node. Phase can be one of the following: Pending, Scheduling, Scheduled, Running, Succeeded, Failed, Unknown. In the absence of data, this metric will retain the most recent value emitted|Node, Phase, Workload|
+|KubevirtVmiPhaseCount|VMOrchestrator|Kubevirt VMI Phase Count|Count|Sum of Virtual Machine Instances (VMIs) per phase and node. Phase can be one of the following values: Pending, Scheduling, Scheduled, Running, Succeeded, Failed, Unknown. In the absence of data, this metric will retain the most recent value emitted|Node, Phase, Workload|
 |KubevirtVmiStorageIopsReadTotal|VMOrchestrator|Kubevirt VMI Storage IOPS Read Total|Count|Total number of Input/Output (I/O) read operations. In the absence of data, this metric will retain the most recent value emitted|Drive, Name, Node|
 |KubevirtVmiStorageIopsWriteTotal|VMOrchestrator|Kubevirt VMI Storage IOPS Write Total|Count|Total number of Input/Output (I/O) write operations. In the absence of data, this metric will retain the most recent value emitted|Drive, Name, Node|
 |KubevirtVmiStorageReadTimesMsTotal|VMOrchestrator|Kubevirt VMI Storage Read Times Total (Preview)|Milliseconds|Total time spent on read operations from storage. In the absence of data, this metric will retain the most recent value emitted|Drive, Name, Node|
@@ -277,9 +277,9 @@ Baremetal server metrics are collected and delivered to Azure Monitor per minute
 |HostHwmonTempCelsius|HardwareMonitor|Host Hardware Monitor Temp|Count|Temperature (in Celsius) of different hardware components. In the absence of data, this metric will retain the most recent value emitted|Chip, Host, Sensor|
 |HostHwmonTempMax|HardwareMonitor|Host Hardware Monitor Temp Max|Count|Maximum temperature (in Celsius) of different hardware components. In the absence of data, this metric will retain the most recent value emitted|Chip, Host, Sensor|
 |HostInletTemp|HardwareMonitor|Host Hardware Inlet Temp|Count|Inlet temperature for hardware nodes (in Celsius). In the absence of data, this metric will retain the most recent value emitted|Host|
-|HostLoad1|Memory|Average Load In 1 Minute (Preview)|Count|1-minute load average of the system, as a measure of the system activity over the last minute, expressed as a fractional number (i.e. values >1.0 may indicate overload). In the absence of data, this metric will retain the most recent value emitted|Host|
-|HostLoad15|Memory|Average Load In 15 Minutes (Preview)|Count|15-minute load average of the system, as a measure of the system activity over the last 15 minutes, expressed as a fractional number (i.e. values >1.0 may indicate overload). In the absence of data, this metric will retain the most recent value emitted|Host|
-|HostLoad5|Memory|Average load in 5 minutes (Preview)|Count|5-minute load average of the system, as a measure of the system activity over the last 5 minutes, expressed as a fractional number (i.e. values >1.0 may indicate overload). In the absence of data, this metric will retain the most recent value emitted|Host|
+|HostLoad1|Memory|Average Load In 1 Minute (Preview)|Count|1-minute load average of the system, as a measure of the system activity over the last minute, expressed as a fractional number (values >1.0 may indicate overload). In the absence of data, this metric will retain the most recent value emitted|Host|
+|HostLoad15|Memory|Average Load In 15 Minutes (Preview)|Count|15-minute load average of the system, as a measure of the system activity over the last 15 minutes, expressed as a fractional number (values >1.0 may indicate overload). In the absence of data, this metric will retain the most recent value emitted|Host|
+|HostLoad5|Memory|Average load in 5 minutes (Preview)|Count|5-minute load average of the system, as a measure of the system activity over the last 5 minutes, expressed as a fractional number (values >1.0 may indicate overload). In the absence of data, this metric will retain the most recent value emitted|Host|
 |HostMemAvailBytes|Memory|Host Memory Available Bytes|Count|Memory available, in bytes. In the absence of data, this metric will retain the most recent value emitted|Host|
 |HostMemHWCorruptedBytes|Memory|Total Memory In Corrupted Pages|Count|Memory corrupted due to hardware issues, in bytes. In the absence of data, this metric will retain the most recent value emitted|Host|
 |HostMemHugePagesFree|Memory|Memory Free Huge Pages|Bytes|Total memory in huge pages that is free. In the absence of data, this metric will retain the most recent value emitted|Host|
@@ -412,7 +412,7 @@ All the metrics from Cluster Management are collected and delivered to Azure Mon
 ## Network Fabric Metrics
 ### Network Devices Metrics
 
-The collection interval for Network Fabric device metrics varies and you can find more information per metric (please refer to column "Collection Interval").
+The collection interval for Network Fabric device metrics varies and you can find more information per metric (refer to column "Collection Interval").
 
 | Metric Name     | Metric Display Name| Category | Unit | Aggregation Type | Description     | Dimensions     | Exportable via <br/>Diagnostic Settings? | Collection Interval |
 |-------------|:-------------:|:-------------:|:-----:|:----------:|-------------------------------------|:---------------------:|:-------:|:-------:|
