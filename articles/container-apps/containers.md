@@ -287,8 +287,8 @@ Azure Container Apps has the following limitations:
 - **Operating system**: Linux-based (`linux/amd64`) container images are required.
 
 - **Maximum image size**:
-    - Consumption workload profile supports container images totalling up to 8GB for each app or job replica.
-    - Dedicated workload profiles support larger container images. Because a Dedicated workload profile can run multiple apps and jobs, the actual supported image size depends on disk resources consumed by other replicas running on each workload profile instance. To maximize container image size, run the app or job on its own workload profile.
+    - Consumption workload profile supports container images totaling up to 8GB for each app or job replica.
+    - Dedicated workload profiles support larger container images. Because a Dedicated workload profile can run multiple apps or jobs, multiple container images share the available disk space. The actual supported image size varies based on resources consumed by other apps and jobs.
 
 ## Next steps
 
