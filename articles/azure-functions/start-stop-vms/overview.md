@@ -75,7 +75,7 @@ An Azure Storage account, which is required by Functions, is also used by Start/
 
    - Uses Azure Queue Storage to support the Azure Functions queue-based triggers.
 
-All trace logging data from the function app execution is sent to your connected Application Insights instance. You can view the telemetry data stored in Application Insights from a set of pre-defined visualizations presented in a shared [Azure dashboard](../../azure-portal/azure-portal-dashboards.md).
+All trace logging data from the function app execution is sent to your connected Application Insights instance. You can view the telemetry data stored in Application Insights from a set of pre-defined visualizations presented in a shared [Azure dashboard](/azure/azure-portal/azure-portal-dashboards).
 
 Email notifications are also sent as a result of the actions performed on the VMs.
 
