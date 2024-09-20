@@ -563,6 +563,9 @@
       - name: Use stable VM image
         displayName: linter
         href: linter-rule-use-stable-vm-image.md
+      - name: What-if short-circuiting
+        displayName: linter
+        href: linter-rule-what-if-short-circuiting.md
   - name: Deploy
     items:
     - name: What-if check
