@@ -1,20 +1,21 @@
 ---
-title: ADE extensibility model for custom ARM and Bicep images
+title: ADE extensibility model for custom container images
 titleSuffix: Azure Deployment Environments
-description: Learn how to use the ADE extensibility model to build and utilize custom ARM and Bicep images within your environment definitions for deployment environments.
+description: Learn how to use the ADE extensibility model to build and utilize custom container images within your environment definitions for deployment environments.
 ms.service: azure-deployment-environments
 ms.custom: devx-track-azurecli, devx-track-bicep
 author: RoseHJM
 ms.author: rosemalcolm
-ms.date: 05/28/2024
+ms.date: 09/20/2024
 ms.topic: how-to
+zone_pivot_groups: ade-extensibility-iac-framework
 
 #customer intent: As a developer, I want to learn how to build and utilize custom images within my environment definitions for deployment environments.
 ---
 
-# Configure container image to execute deployments with ARM and Bicep
+# Configure container image to execute deployments
 
-In this article, you learn how to build custom Azure Resource Manager (ARM) and Bicep container images to deploy your [environment definitions](configure-environment-definition.md) in Azure Deployment Environments (ADE).
+In this article, you learn how to build custom container images to deploy your [environment definitions](configure-environment-definition.md) in Azure Deployment Environments (ADE).
 
 An environment definition comprises at least two files: a template file, like *azuredeploy.json* or *main.bicep*, and a manifest file named *environment.yaml*. ADE uses containers to deploy environment definitions, and natively supports the ARM and Bicep IaC frameworks. 
 
@@ -55,7 +56,9 @@ You can see the standard Bicep container image in the ADE sample repository unde
 
 For more information about how to create environment definitions that use the ADE container images to deploy your Azure resources, see [Add and configure an environment definition](configure-environment-definition.md).
 
-## Create a custom Bicep container image
+:::zone pivot="arm-bicep"
+
+## Create a custom container image
 
 Creating a custom container image allows you to customize your deployments to fit your requirements. You can create custom images based on the ADE standard container images.
 
@@ -212,6 +215,15 @@ if [ -z "$deploymentOutput" ]; then
 fi
 echo "{\"outputs\": $deploymentOutput}" > $ADE_OUTPUTS
 ```
+:::zone-end
+
+:::zone pivot="terraform"
+Terraform content goes here
+:::zone-end
+
+:::zone pivot="pulumi"
+Pulumi content goes here
+:::zone-end
 
 ## Make the custom image accessible to ADE
 

@@ -71,6 +71,8 @@ items:
     - name: Configure Pulumi container image to execute deployments
       href: how-to-configure-extensibility-pulumi-container-image.md
       displayName: custom image, custom runner, extensibility  
+    - name: Troubleshoot custom image Errors and Warnings
+      href: troubleshoot-custom-image-logs-errors.md
 - name: Create and manage environments
   expanded: false
   items: 

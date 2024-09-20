@@ -228,10 +228,6 @@ When authoring environment definitions to use your custom image in their deploym
 runner: "{YOUR_REGISTRY}.azurecr.io/{YOUR_REPOSITORY}:{YOUR_TAG}"
 ```
 
-## Access operation logs and error details
-
-[!INCLUDE [custom-image-logs-errors](includes/custom-image-logs-errors.md)]
-
 ## Related content
 
 - [ADE CLI Custom Runner Image reference](https://aka.ms/deployment-environments/ade-cli-reference)

@@ -1676,3 +1676,14 @@ groups:
     title: Service Connector
   - id: manual
     title: Manual
+# Owner: rosemalcolm
+- id: ade-extensibility-iac-framework
+  title: IaC frameworks
+  prompt: Choose an IaC framework
+  pivots:
+  - id: arm-bicep
+    title: ARM Bicep
+  - id: terraform
+    title: Terraform
+  - id: pulumi
+    title: Pulumi   
