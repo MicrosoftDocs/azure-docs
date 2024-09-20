@@ -4,7 +4,8 @@ description: Using the Trino JDBC driver.
 ms.service: azure-hdinsight-on-aks
 ms.custom: devx-track-extended-java
 ms.topic: how-to
-ms.date: 10/19/2023
+ms.date: 09/20/2024
+ROBOTS: NOINDEX
 ---
 
 # Trino JDBC driver
