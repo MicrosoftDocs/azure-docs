@@ -138,11 +138,7 @@ Upon successful execution of the command, the updateStrategy values specified wi
 
 ## Upgrade with Pause Rack Strategy
 
-<<<<<<< HEAD
-Starting with API version 2024-06-01-preview, runtime upgrades can be triggered using a "PauseRack" strategy. When you execute a cluster runtime upgrade with the "PauseRack" strategy, it will update one rack at a time in the cluster and then pause, awaiting confirmation before proceeding to the next rack. All existing thresholds will continue to be respected with the "PauseRack" strategy. To carry out a cluster runtime upgrade using the "PauseRack" strategy follow the steps outlined in [Upgrading cluster runtime with a PauseRack strategy](howto-cluster-runtime-upgrade-with-pauserack-strategy.md)
-=======
-Starting with API version 2024-06-01-preview, runtime upgrades can be triggered using a "PauseRack" strategy. When you execute a Cluster runtime upgrade with the PauseRack" strategy, it will update one rack at a time in the Cluster and then pause, awaiting confirmation before proceeding to the next rack. All existing thresholds will continue to be respected with the "PauseRack" strategy. To carry out a Cluster runtime upgrade using the "PauseRack" strategy follow the steps outlined in [Upgrading cluster runtime with a pause rack strategy](howto-cluster-runtime-upgrade-with-pauserack-strategy.md)
->>>>>>> 19d53f93b8e3ceec4cef28c9b1de974ee130f99b
+Starting with API version 2024-06-01-preview, runtime upgrades can be triggered using a "PauseRack" strategy. When you execute a Cluster runtime upgrade with the PauseRack" strategy, it will update one rack at a time in the Cluster and then stop, awaiting confirmation before proceeding to the next rack. All existing thresholds will continue to be respected with the "PauseRack" strategy. To carry out a Cluster runtime upgrade using the "PauseRack" strategy follow the steps outlined in [Upgrading cluster runtime with a pause rack strategy](howto-cluster-runtime-upgrade-with-pauserack-strategy.md)
 
 ## Frequently Asked Questions
 
