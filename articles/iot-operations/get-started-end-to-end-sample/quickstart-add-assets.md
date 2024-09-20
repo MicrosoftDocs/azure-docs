@@ -158,6 +158,12 @@ Review your asset and tag details and make any adjustments you need before you s
 
 :::image type="content" source="media/quickstart-add-assets/review-asset.png" alt-text="Screenshot of Azure IoT Operations create asset review page.":::
 
+This configuration deploys a new asset called `thermostat` to the cluster. You can use `kubectl` to view the assets:
+
+```console
+kubectl get assets -n azure-iot-operations
+```
+
 ## Verify data is flowing
 
 [!INCLUDE [deploy-mqttui](../includes/deploy-mqttui.md)]
