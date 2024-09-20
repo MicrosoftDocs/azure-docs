@@ -38,7 +38,9 @@ You need:
 
    Alternatively if you already have the [Contributor](../role-based-access-control/built-in-roles.md#contributor) or [Owner](../role-based-access-control/built-in-roles.md#owner) RBAC role, you're already able to create all of these resource types.
 
-- A [virtual network](../virtual-network/quick-create-portal.md) in the same Azure region you want to deploy your session hosts to.
+- A [virtual network](../virtual-network/quick-create-portal.md) in the same Azure region you want to deploy your session hosts to. NOTE: The vNet and subnet will need connectivity to Azure services. Ensure the subnet is not set to private access only.
+
+- [EntraId must be configured for single sign-on for Azure Virtual Desktop](configure-single-sign-on.md).
 
 - A user account in Microsoft Entra ID you can use for connecting to the desktop. This account must be assigned the *Virtual Machine User Login* or *Virtual Machine Administrator Login* RBAC role on the subscription. Alternatively you can assign the role to the account on the session host VM or the resource group containing the VM after deployment.
 
