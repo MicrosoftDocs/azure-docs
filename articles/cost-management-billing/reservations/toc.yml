@@ -106,6 +106,8 @@
       href: /azure/storage/blobs/storage-blob-reserved-capacity?toc=/azure/cost-management-billing/reservations/toc.json
     - name: Azure Files
       href: /azure/storage/files/files-reserve-capacity?toc=/azure/cost-management-billing/reservations/toc.json
+    - name: Azure NetApp Files
+      href: /azure/azure-netapp-files/reservations?toc=/azure/cost-management-billing/reservations/toc.json
     - name: Azure OpenAI
       href: azure-openai.md#buy-a-microsoft-azure-openai-reservation
     - name: Azure VMware Solution

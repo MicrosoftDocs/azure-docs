@@ -16,7 +16,7 @@ Azure Policy makes it possible to manage and report on the compliance state of y
 Azure Policy for Kubernetes supports the following cluster environments:
 
 - [Azure Kubernetes Service (AKS)](/azure/aks/what-is-aks), through **Azure Policy's **Add-on** for AKS**
-- [Azure Arc enabled Kubernetes](../../../azure-arc/kubernetes/overview.md), through **Azure Policy's **Extension** for Arc**
+- [Azure Arc enabled Kubernetes](/azure/azure-arc/kubernetes/overview), through **Azure Policy's **Extension** for Arc**
 
 > [!IMPORTANT]
 > The Azure Policy Add-on Helm model and the add-on for AKS Engine have been _deprecated_. Follow the instructions to [remove the add-ons](#remove-the-add-on).
@@ -153,7 +153,7 @@ And the following output for clusters using managed identity:
 
 This article describes how to [create](#create-azure-policy-extension), [show extension status](#show-azure-policy-extension), and [delete](#delete-azure-policy-extension) the Azure Policy for Kubernetes extension.
 
-For an overview of the extensions platform, see [Azure Arc cluster extensions](../../../azure-arc/kubernetes/conceptual-extensions.md).
+For an overview of the extensions platform, see [Azure Arc cluster extensions](/azure/azure-arc/kubernetes/conceptual-extensions).
 
 ### Prerequisites
 
@@ -162,9 +162,9 @@ If you already deployed Azure Policy for Kubernetes on an Azure Arc cluster usin
 1. Ensure your Kubernetes cluster is a supported distribution.
 
    > [!NOTE]
-   > Azure Policy for Arc extension is supported on [the following Kubernetes distributions](../../../azure-arc/kubernetes/validation-program.md).
+   > Azure Policy for Arc extension is supported on [the following Kubernetes distributions](/azure/azure-arc/kubernetes/validation-program).
 
-1. Ensure you met all the common prerequisites for Kubernetes extensions listed [here](../../../azure-arc/kubernetes/extensions.md) including [connecting your cluster to Azure Arc](../../../azure-arc/kubernetes/quickstart-connect-cluster.md?tabs=azure-cli).
+1. Ensure you met all the common prerequisites for Kubernetes extensions listed [here](/azure/azure-arc/kubernetes/extensions) including [connecting your cluster to Azure Arc](/azure/azure-arc/kubernetes/quickstart-connect-cluster?tabs=azure-cli).
 
    > [!NOTE]
    > Azure Policy extension is supported for Arc enabled Kubernetes clusters [in these regions](https://azure.microsoft.com/global-infrastructure/services/?products=azure-arc).
@@ -582,7 +582,7 @@ For more information about troubleshooting the Add-on for Kubernetes, see the
 of the Azure Policy troubleshooting article.
 
 For Azure Policy extension for Arc extension related issues, go to:
-- [Azure Arc enabled Kubernetes troubleshooting](../../../azure-arc/kubernetes/troubleshooting.md)
+- [Azure Arc enabled Kubernetes troubleshooting](/azure/azure-arc/kubernetes/troubleshooting)
 
 For Azure Policy related issues, go to:
 - [Inspect Azure Policy logs](#logging)
