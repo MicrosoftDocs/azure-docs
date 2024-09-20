@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: azure-container-apps
 ms.topic: conceptual
-ms.date: 08/29/2023
+ms.date: 09/19/2024
 ms.author: cshoe
 ---
 
@@ -19,11 +19,11 @@ Azure Container Apps supports:
 
 - Any Linux-based x86-64 (`linux/amd64`) container image
 - Containers from any public or private container registry
-- [Sidecar](#sidecar-containers) and [init](#init-containers) containers
+- Optional [sidecar](#sidecar-containers) and [init](#init-containers) containers
 
 Features also include:
 
-- Changes to the `template` configuration section trigger a new [container app revision](application-lifecycle-management.md).
+- Apps use the `template` configuration section to define the container image and other settings. Changes to the `template` configuration section trigger a new [container app revision](application-lifecycle-management.md).
 - If a container crashes, it automatically restarts.
 
 Jobs features include:
@@ -285,6 +285,10 @@ Azure Container Apps has the following limitations:
 - **Privileged containers**: Azure Container Apps doesn't allow privileged containers mode with host-level access.
 
 - **Operating system**: Linux-based (`linux/amd64`) container images are required.
+
+- **Maximum image size**:
+    - Consumption workload profile supports container images totalling up to 8GB for each app or job replica.
+    - Dedicated workload profiles support larger container images. Because Dedicated workload profiles can run multiple apps and jobs, the actual supported image size depends on resources consumed by other replicas running on each workload profile instance. To maximize container image size, run the app or job on its own workload profile.
 
 ## Next steps
 
