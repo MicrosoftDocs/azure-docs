@@ -3,7 +3,8 @@ title: Configure caching
 description: Learn how to configure caching in Trino
 ms.service: azure-hdinsight-on-aks
 ms.topic: how-to 
-ms.date: 11/03/2023
+ms.date: 09/20/2024
+ROBOTS: NOINDEX
 ---
 
 # Configure caching
