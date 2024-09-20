@@ -36,7 +36,7 @@ This article guides you through the steps to configure an Azure Front Door Premi
 
 ## Enable private connectivity to Azure Application Gateway
 
-1. Follow the instructions in [Configure Azure Application Gateway Private Link](../application-gateway/private-link-configure.md), but don't complete the final step of creating a private endpoint.
+Follow the instructions in [Configure Azure Application Gateway Private Link](../application-gateway/private-link-configure.md), but don't complete the final step of creating a private endpoint.
 
 ## Create an origin group and add the application gateway as an origin
 
@@ -115,7 +115,7 @@ This article guides you through the steps to configure an Azure Front Door Premi
 
 ## Complete Azure Front Door setup
 
-1. Use the [New-AzFrontDoorCdnRoute](/powershell/module/az.cdn/new-azfrontdoorcdnroute) command to create a route that maps your endpoint to the origin group. This route forwards requests from the endpoint to your origin group.
+Use the [New-AzFrontDoorCdnRoute](/powershell/module/az.cdn/new-azfrontdoorcdnroute) command to create a route that maps your endpoint to the origin group. This route forwards requests from the endpoint to your origin group.
 
     ```azurepowershell-interactive
     # Create a route to map the endpoint to the origin group
