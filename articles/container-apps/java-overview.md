@@ -14,6 +14,10 @@ ms.author: cshoe
 
 Azure Container Apps can run any containerized Java application in the cloud while giving flexible options for how you deploy your applications.
 
+<br>
+
+> [!VIDEO [https://www.youtube.com/watch?v=-T90dC2CCPA]
+
 When you use Container Apps for your containerized Java applications, you get:
 
 - **Cost effective scaling**: When you use the [Consumption plan](plans.md#consumption), your Java apps can scale to zero. Scaling in when there's little demand for your app automatically drives costs down for your projects.
