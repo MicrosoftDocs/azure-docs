@@ -3,7 +3,8 @@ title: How to use Apache Flink® on HDInsight on AKS with Flink/Delta connector
 description: Learn how to use Flink/Delta Connector.
 ms.service: azure-hdinsight-on-aks
 ms.topic: how-to
-ms.date: 04/25/2024
+ms.date: 09/20/2024
+ROBOTS: NOINDEX
 ---
 
 # How to use Flink/Delta Connector
