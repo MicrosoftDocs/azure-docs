@@ -110,10 +110,12 @@ You can send a limited number of email messages. If you exceed the following lim
 
 ### Size Limits
 
-| **Name**         | Limit  |
-|--|--|
-|Number of recipients in Email|50 |
-|Total email request size (including attachments) |10 MB |
+| **Name** | Limit |
+| --- | --- |
+| Number of recipients in Email | 50 |
+| Total email request size (including attachments) | 10 MB |
+
+For all message size limits, you need to consider that that base64 encoding increases the size of the message. You need to increase the size value to account for the message size increase that occurs after the message attachments and any other binary data are Base64 encoded. Base64 encoding increases the size of the message by about 33%, so the message size is about 33% larger than the message sizes before encoding. For example, if you specify a maximum message size value of ~10 MB, you can expect a realistic maximum message size value of approximately ~7.5 MB.
 
 ### Send attachments larger than 10 MB
 
