@@ -18,7 +18,7 @@ Azure HDInsight on AKS provides a configuration method calledâ€¯ Script Actionsâ
 
 ## Understand script actions
 
-A script action is Bash script that runs on the service components in an HDInsight on AKS cluster. 
+A script action is Bash script that runs on the service components in a HDInsight on AKS cluster. 
 
 The characteristics and features of script actions are as follows: 
 

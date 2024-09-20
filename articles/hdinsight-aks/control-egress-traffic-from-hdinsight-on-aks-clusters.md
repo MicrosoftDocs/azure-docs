@@ -44,7 +44,7 @@ In the following sections, we describe each method in detail.
 
 ### Outbound with load balancer
 
-The load balancer is used for egress through an HDInsight on AKS assigned public IP. When you configure the outbound type of load balancer on your cluster pool, you can expect egress out of the load balancer created by the HDInsight on AKS.  
+The load balancer is used for egress through a HDInsight on AKS assigned public IP. When you configure the outbound type of load balancer on your cluster pool, you can expect egress out of the load balancer created by the HDInsight on AKS.  
 
 You can configure the outbound with load balancer configuration using the Azure portal.
 
