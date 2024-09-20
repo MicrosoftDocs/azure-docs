@@ -123,7 +123,7 @@ Parameters of the `New-GuestConfigurationPolicy` cmdlet:
 For more information about the **Mode** parameter, see the page
 [How to configure remediation options for machine configuration][02].
 
-Create a policy definition that audits using a custom configuration package, in a specified path:
+Create a policy definition that **audits** using a custom configuration package, in a specified path:
 
 ```powershell
 $PolicyConfig      = @{
@@ -139,7 +139,7 @@ $PolicyConfig      = @{
 New-GuestConfigurationPolicy @PolicyConfig
 ```
 
-Create a policy definition that deploys a configuration using a custom configuration package with a User Assigned Managed Identity:
+Create a policy definition that **enforces** a custom configuration package, in a specified path:
 
 ```powershell
 $PolicyConfig2      = @{
@@ -156,7 +156,7 @@ $PolicyConfig2      = @{
 New-GuestConfigurationPolicy @PolicyConfig2
 ```
 
-Create a policy definition that deploys a custom configuration package using a User Assigned Managed Identity:
+Create a policy definition that **enforces** a custom configuration package using a User-Assigned Managed Identity:
 
 ```powershell
 $PolicyConfig3      = @{
@@ -168,8 +168,8 @@ $PolicyConfig3      = @{
   Platform      = 'Windows'
   PolicyVersion = 1.0.0
   Mode          = 'ApplyAndAutoCorrect'
-  contentLocalPath = "C:\Local\Path\To\Package"
-  managedIdentityResourceId = "YourManagedIdentityResourceId"
+  contentLocalPath = "C:\Local\Path\To\Package" # Required parameter for managed identity
+  managedIdentityResourceId = "YourManagedIdentityResourceId" # Required parameter for managed identity
 }
 
 New-GuestConfigurationPolicy @PolicyConfig3 -ExcludeArcMachines
