@@ -51,8 +51,6 @@ items:
           href: ./hdinsight-component-versioning.md
         - name: HDInsight version 5.x
           href: ./hdinsight-5x-component-versioning.md
-        - name: HDInsight version 4.0
-          href: ./hdinsight-40-component-versioning.md
         - name: Retired HDInsight versions
           href: ./hdinsight-retired-versions.md
     - name: Enterprise Security Package
@@ -207,14 +205,8 @@ items:
         items:
         - name: Migrate default Hive metastore to external metastore on Azure HDInsight
           href: ./interactive-query/hive-default-metastore-export-import.md
-        - name: Migrate Hive workloads to HDInsight 4.0
-          href: ./interactive-query/apache-hive-migrate-workloads.md
         - name: Copy Hive tables across Storage Accounts
           href: ./interactive-query/hive-migration-across-storage-accounts.md 
-        - name: HDInsight 3.6 to 4.0 troubleshoot guide - Hive
-          href: ./interactive-query/interactive-query-troubleshoot-migrate-36-to-40.md
-        - name: Significant version changes in HDInsight 4.0 and advantages
-          href: ./benefits-of-migrating-to-hdinsight-40.md    
     - name: Manage
       items:
       - name: Manage clusters using the Apache Ambari web UI
