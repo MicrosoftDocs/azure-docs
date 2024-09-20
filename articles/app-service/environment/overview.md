@@ -126,7 +126,6 @@ App Service Environment v3 is available in the following regions:
 
 | Region               | Single zone support          | Availability zone support   |
 | -------------------- | :--------------------------: | :-------------------------: |
-|                      | App Service Environment v3   | App Service Environment v3  |
 | Australia Central    | ✅                           |                             |
 | Australia Central 2  | ✅*                          |                             |
 | Australia East       | ✅                           | ✅                          |
@@ -186,7 +185,6 @@ App Service Environment v3 is available in the following regions:
 
 | Region               | Single zone support          | Availability zone support   |
 | -------------------- | :--------------------------: | :-------------------------: |
-|                      | App Service Environment v3   | App Service Environment v3  |
 | US DoD Central       | ✅                           |                             |
 | US DoD East          | ✅                           |                             |
 | US Gov Arizona       | ✅                           |                             |
@@ -198,7 +196,6 @@ App Service Environment v3 is available in the following regions:
 
 | Region               | Single zone support          | Availability zone support   |
 | -------------------- | :--------------------------: | :-------------------------: |
-|                      | App Service Environment v3   | App Service Environment v3  |
 | China East 2         |                              |                             |
 | China East 3         | ✅                          |                              |
 | China North 2        |                              |                             |
@@ -207,10 +204,6 @@ App Service Environment v3 is available in the following regions:
 ### In-region data residency
 
 An App Service Environment will only store customer data including app content, settings and secrets within the region where it's deployed. All data is guaranteed to remain in the region. For more information, see [Data residency in Azure](https://azure.microsoft.com/explore/global-infrastructure/data-residency/#overview).
-
-## App Service Environment v2
-
-App Service Environment has three versions: App Service Environment v1, App Service Environment v2, and App Service Environment v3. The information in this article is based on App Service Environment v3. To learn more about App Service Environment v2, see [App Service Environment v2 introduction](./intro.md).
 
 ## Next steps
 

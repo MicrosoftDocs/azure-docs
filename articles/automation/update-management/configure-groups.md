@@ -3,12 +3,14 @@ title: Use dynamic groups with Azure Automation Update Management
 description: This article tells how to use dynamic groups with Azure Automation Update Management.
 services: automation
 ms.subservice: update-management
-ms.date: 09/10/2024
+ms.date: 09/15/2024
 ms.topic: how-to
 ms.service: azure-automation
 ---
 
 # Use dynamic groups with Update Management
+
+[!INCLUDE [./automation-update-management-retirement-announcement.md](../includes/automation-update-management-retirement-announcement.md)]
 
 Update Management allows you to target a dynamic group of Azure or non-Azure VMs for update deployments. Using a dynamic group keeps you from having to edit your deployment to update machines.
 
