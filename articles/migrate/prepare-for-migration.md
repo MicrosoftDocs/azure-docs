@@ -12,9 +12,6 @@ ms.custom: engagement-fy25
 
 # Prepare on-premises machines for migration to Azure
 
-> [!CAUTION]
-> This article references CentOS, a Linux distribution that is End Of Life (EOL) status. Please consider your use and planning accordingly. For more information, see the [CentOS End Of Life guidance](/azure/virtual-machines/workloads/centos/centos-end-of-life).
-
 This article describes how to prepare on-premises machines before you migrate them to Azure using the [Migration and modernization](migrate-services-overview.md#migration-and-modernization-tool) tool.
 
 In this article, you:
@@ -112,12 +109,11 @@ Configure this setting manually as follows:
 
 Azure Migrate completes these actions automatically for these versions
 
-- Red Hat Enterprise Linux  8.x, 7.9, 7.8, 7.7, 7.6, 7.5, 7.4, 7.3, 7.2, 7.1, 7.0, 6.x (Azure Linux VM agent is also installed automatically during migration)
-- CentOS Stream (Azure Linux VM agent is also installed automatically during migration)
-- SUSE Linux Enterprise Server 15 SP0, 15 SP1, 12, 11 SP4, 11 SP3
-- Ubuntu 20.04, 19.04, 19.10, 18.04LTS, 16.04LTS, 14.04LTS (Azure Linux VM agent is also installed automatically during migration)
-- Debian 10, 9, 8, 7
-- Oracle Linux 8, 7.7-CI, 7.7, 6
+- Red Hat Enterprise Linux  9.x, 8.x, 7.9 with Extended Lifecycle Support (ELS)
+- SUSE Linux Enterprise Server 15
+- Ubuntu 24.04, 22.04 and these versions with Expanded Security Maintenance (ESM) 20.04, 18.04 and 16.04
+- Debian LTS 12 and 11
+- Oracle Linux 9.x, 7.9
 
 For other versions, prepare machines as summarized in the table. 
 > [!Note]
@@ -153,14 +149,13 @@ The following table summarizes the steps performed automatically for the operati
 
 Learn more about steps for [running a Linux VM on Azure](/azure/virtual-machines/linux/create-upload-generic), and get instructions for some of the popular Linux distributions.
 
-Review the list of [required packages](/azure/virtual-machines/extensions/agent-linux#requirements) to install Linux VM agent. Azure Migrate installs the Linux VM agent automatically for  RHEL 8.x/7.x/6.x, Ubuntu 14.04/16.04/18.04/19.04/19.10/20.04, SUSE 15 SP0/15 SP1/12/11 SP4/11 SP3, Debian 9/8/7, and Oracle 7 when using the agentless method of VMware migration.
+Review the list of [required packages](/azure/virtual-machines/extensions/agent-linux#requirements) to install Linux VM agent. Azure Migrate installs the Linux VM agent automatically for  RHEL 8.x, Ubuntu 20.04, SUSE 15 and Oracle 7 when using the agentless method of VMware migration.
 
 ## Check Azure VM requirements
 
 On-premises machines that you replicate to Azure must comply with Azure VM requirements for the operating system and architecture, the disks, network settings, and VM naming.
 
 Before migrating, review the Azure VMs requirements for [VMware](migrate-support-matrix-vmware-migration.md#azure-vm-requirements), [Hyper-V](migrate-support-matrix-hyper-v-migration.md#azure-vm-requirements), and [physical server](migrate-support-matrix-physical-migration.md#azure-vm-requirements) migration.
-
 
 
 ## Prepare to connect after migration
