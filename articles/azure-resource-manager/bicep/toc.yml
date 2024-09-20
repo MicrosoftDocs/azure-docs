@@ -106,7 +106,7 @@
     - name: Container Instances
       href: /azure/container-instances/container-instances-quickstart-bicep?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: Container Registry
-      href: ../../container-registry/container-registry-get-started-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
+      href: /azure/container-registry/container-registry-get-started-bicep?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: Service Fabric
       href: /azure/service-fabric/quickstart-cluster-bicep?toc=/azure/azure-resource-manager/bicep/toc.json
   - name: Databases
@@ -563,6 +563,9 @@
       - name: Use stable VM image
         displayName: linter
         href: linter-rule-use-stable-vm-image.md
+      - name: What-if short-circuiting
+        displayName: linter
+        href: linter-rule-what-if-short-circuiting.md
   - name: Deploy
     items:
     - name: What-if check

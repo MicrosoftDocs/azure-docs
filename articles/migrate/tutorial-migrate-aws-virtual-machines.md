@@ -177,7 +177,7 @@ A Mobility service agent must be preinstalled on the source AWS VMs to be migrat
 
 - [AWS System Manager](https://docs.aws.amazon.com/systems-manager/latest/userguide/what-is-systems-manager.html)
 - [System Center Configuration Manager](../site-recovery/vmware-azure-mobility-install-configuration-mgr.md)
-- [Azure Arc for servers and custom script extensions](../azure-arc/servers/overview.md)
+- [Azure Arc for servers and custom script extensions](/azure/azure-arc/servers/overview)
 - [Install Mobility agent for Windows](../site-recovery/vmware-physical-mobility-service-overview.md#install-the-mobility-service-using-command-prompt-classic)
 - [Install Mobility agent for Linux](../site-recovery/vmware-physical-mobility-service-overview.md#linux-machine-1)
 
