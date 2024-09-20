@@ -43,7 +43,7 @@ To ensure your apps work with the latest updates, the validation environment sho
 
 ## Application groups
 
-An application group is a logical grouping of applications that are available on session hosts in a host pool. Application groups control whether a full desktop or which applications from a host pool are available to users to connect to. An application group can only be assigned to a single host pool, but you can assign multiple application groups with to the same host pool. Users can be assigned to multiple application groups across multiple host pools, which enable you to vary the applications and desktops that users can access.
+An application group controls access to a full desktop or a logical grouping of applications that are available on session hosts in a single host pool. Users can be assigned to multiple application groups across multiple host pools, which enable you to vary the applications and desktops that users can access.
 
 When you create an application group, it can be one of two types:
 
@@ -51,15 +51,15 @@ When you create an application group, it can be one of two types:
 
 - **RemoteApp**: users access individual applications you select and publish to the application group. Available with pooled host pools only.
 
-With pooled host pools, you can assign both application group types to the same host pool at the same time. You can only assign a single desktop application group with a host pool, but you can also assign multiple RemoteApp application groups to the same host pool.
+With pooled host pools, you can assign both application group types to the same host pool at the same time. You can only assign a single desktop application group per host pool, but you can also assign multiple RemoteApp application groups to the same host pool.
 
-Users assigned to multiple RemoteApp application groups assigned to the same host pool have access to an aggregate of all the applications in the application groups they're assigned to.
+Host pools have a preferred application group type setting. If an end user has both a desktop and RemoteApp application groups assigned to them on the same host pool, they only see the resources from the preferred application group type. Users assigned to multiple RemoteApp application groups assigned to the same host pool have access to an aggregate of all the applications in the application groups they're assigned to.
 
 To learn more about application groups, see [Preferred application group type behavior for pooled host pools](preferred-application-group-type.md).
 
 ## Workspaces
 
-A workspace is a logical grouping of application groups. Each application group must be associated with a workspace for users to see the desktops and applications published to them.
+A workspace is a logical grouping of application groups. Each application group must be associated with a workspace for users to see the desktops and applications published to them. An application group can only be assigned to a single workspace.
 
 ## End users
 
