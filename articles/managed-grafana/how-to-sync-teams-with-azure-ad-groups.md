@@ -1,5 +1,5 @@
 ---
-title: Configure Grafana team sync with Microsoft Entra groups
+title: Configure Grafana Team Sync with Microsoft Entra groups
 description: Learn how to configure Grafana Teams and allow access to Grafana folders and dashboards using Microsoft Entra groups in Azure Managed Grafana.
 #customer intent: As a Grafana administrator, I want to use Microsoft Entra groups to set up Grafana teams and control access to specific folders and dashboards.
 ms.service: azure-managed-grafana
@@ -9,7 +9,7 @@ ms.author: malev
 ms.date: 06/7/2024
 --- 
 
-# Configure Grafana teams with Microsoft Entra groups and Grafana team sync
+# Configure Grafana teams with Microsoft Entra groups and Grafana Team Sync
 
 In this guide, you learn how to use Microsoft Entra groups with [Grafana Team Sync](https://grafana.com/docs/grafana/latest/setup-grafana/configure-security/configure-team-sync/) to manage dashboard permissions in Azure Managed Grafana.
 
@@ -27,6 +27,7 @@ Before you start, make sure you have:
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
 - An Azure Managed Grafana instance. If needed, [create a new instance](quickstart-managed-grafana-portal.md).
 - A Microsoft Entra group. If needed, [create a basic group and add members](/entra/fundamentals/how-to-manage-groups#create-a-basic-group-and-add-members).
+- To Grafana Admin role is required to use Grafana Team Sync.
 
 ## Assign a permission to a Microsoft Entra group
 
@@ -46,7 +47,7 @@ Set up a Microsoft Entra ID-backed Grafana team.
 1. Select the **Microsoft Entra Team Sync Settings** tab.
 1. Select **Create new Grafana team**.
 
-    :::image type="content" source="media/azure-ad-group-sync/team-sync-settings.png" alt-text="Screenshot of the Azure portal. Configuring Microsoft Entra team sync.":::
+    :::image type="content" source="media/azure-ad-group-sync/team-sync-settings.png" alt-text="Screenshot of the Azure portal. Configuring Microsoft Entra Team Sync.":::
 
 1. Enter a name for the Grafana team and select **Add**.
 
@@ -92,7 +93,7 @@ For example, to disable access to a user who has the Grafana Viewer role on a Gr
 
 <a name='remove-azure-ad-group-sync'></a>
 
-## Remove Microsoft Entra group sync
+## Remove a Grafana team
 
 If you no longer need a Grafana team, follow these steps to delete it. Deleting a Grafana team also removes the link to the Microsoft Entra group.
 
