@@ -31,7 +31,7 @@ This article describes how to use the operations experience web UI and the Azure
 - Define the asset endpoints that connect assets to your Azure IoT Operations instance.
 - Add assets, and define their tags and events to enable dataflow from OPC UA servers to the MQTT broker.
 
-These assets, tags, and events map inbound data from OPC UA servers to friendly names that you can use in the MQTT broker and data processor pipelines.
+These assets, tags, and events map inbound data from OPC UA servers to friendly names that you can use in the MQTT broker and dataflows.
 
 ## Prerequisites
 
@@ -39,7 +39,7 @@ To configure an assets endpoint, you need a running instance of Azure IoT Operat
 
 ### Operations experience web UI
 
-To sign in to the operations experience web UI, you need a Microsoft Entra ID account with at least contributor permissions for the resource group that contains your **Kubernetes - Azure Arc** instance. You can't sign in with a Microsoft account (MSA). To create a suitable Entra ID account in your Azure tenant:
+To sign in to the operations experience web UI, you need a Microsoft Entra ID account with at least contributor permissions for the resource group that contains your **Kubernetes - Azure Arc** instance. You can't sign in with a Microsoft account (MSA). To create a suitable Microsoft Entra ID account in your Azure tenant:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) with the same tenant and user name that you used to deploy Azure IoT Operations.
 1. In the Azure portal, go to the **Microsoft Entra ID** section, select **Users > +New user > Create new user**. Create a new user and make a note of the password, you need it to sign in later.
