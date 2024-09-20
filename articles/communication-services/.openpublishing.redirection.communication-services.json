@@ -463,7 +463,7 @@
         },
         {
             "source_path_from_root": "/articles/communication-services/concepts/telephony/outbound-calling.md",
-            "redirect_url": "/articles/communication-services/concepts/telephony/tollfree-calling.md",
+            "redirect_url": "/articles/communication-services/concepts/telephony/toll-free-calling",
             "redirect_document_id": false
         }
     ]
