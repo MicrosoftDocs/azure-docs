@@ -27,7 +27,7 @@ In this quickstart, you use the operations experience web UI to create your asse
 
 In instance of Azure IoT Operations Preview deployed in a Kubernetes cluster. The [Quickstart: Run Azure IoT Operations Preview in GitHub Codespaces with K3s](quickstart-deploy.md) provides simple instructions to deploy an Azure IoT Operations instance that you can use for the quickstarts.
 
-To sign in to the operations experience web UI, you need a Microsoft Entra ID account with at least contributor permissions for the resource group that contains your **Kubernetes - Azure Arc** instance. To learn more, see [Operations experience web UI](../discover-manage-assets/howto-manage-assets-remotely.md#operations-experience-web-ui).
+To sign in to the operations experience web UI, you need a Microsoft Entra ID account with at least contributor permissions for the resource group that contains your **Kubernetes - Azure Arc** instance. To learn more, see [Operations experience web UI](../discover-manage-assets/howto-manage-assets-remotely.md#prerequisites).
 
 Unless otherwise noted, you can run the console commands in this quickstart in either a Bash or PowerShell environment.
 
