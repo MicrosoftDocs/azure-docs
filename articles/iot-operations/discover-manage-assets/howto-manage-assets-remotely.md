@@ -37,8 +37,6 @@ These assets, tags, and events map inbound data from OPC UA servers to friendly 
 
 To configure an assets endpoint, you need a running instance of Azure IoT Operations.
 
-### Operations experience web UI
-
 To sign in to the operations experience web UI, you need a Microsoft Entra ID account with at least contributor permissions for the resource group that contains your **Kubernetes - Azure Arc** instance. You can't sign in with a Microsoft account (MSA). To create a suitable Microsoft Entra ID account in your Azure tenant:
 
 1. Sign in to the [Azure portal](https://portal.azure.com/) with the same tenant and user name that you used to deploy Azure IoT Operations.
@@ -75,6 +73,10 @@ After you select a site, the operations experience displays a list of the Azure 
 
 > [!TIP]
 > You can use the filter box to search for instances.
+
+After you select your instance, the operations experience displays the **Overview** page for the instance. The **Overview** page shows the status of the instance and the resources, such as assets, that are associated with it:
+
+:::image type="content" source="media/howto-manage-assets-remotely/instance-overview.png" alt-text="Screenshot that shows the instance overview in the operations experience.":::
 
 # [Azure CLI](#tab/cli)
 
@@ -217,8 +219,8 @@ Now you can define the tags associated with the asset. To add OPC UA tags:
 
     | Node ID | Tag name | Observability mode |
     | ------- | -------- | ------------------ |
-    | ns=3;s=FastUInt10 | temperature | None |
-    | ns=3;s=FastUInt100 | Tag 10 | None |
+    | ns=3;s=FastUInt10 | Temperature | None |
+    | ns=3;s=FastUInt100 | Humidity | None |
 
 1. Select **Manage default settings** to configure default telemetry settings for the asset. These settings apply to all the OPC UA tags that belong to the asset. You can override these settings for each tag that you add. Default telemetry settings include:
 
