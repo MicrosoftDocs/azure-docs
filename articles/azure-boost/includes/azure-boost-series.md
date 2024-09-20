@@ -26,7 +26,7 @@ ms.custom:
 | [DCesv5](/azure/virtual-machines/sizes/general-purpose/dcesv5-series)          | General Purpose  | Preview   |
 | [DCedsv5](/azure/virtual-machines/sizes/general-purpose/dcedsv5-series)         | General Purpose  | Preview   |
 | [Dasv6](/azure/virtual-machines/sizes/general-purpose/dasv6-series)             | General Purpose  | Preview   |
-| [Dalsv6](/azure/virtual-machines/sizes/general-purpose/dalsv6-seriesc)          | General Purpose  | Preview   |
+| [Dalsv6](/azure/virtual-machines/sizes/general-purpose/dalsv6-series)          | General Purpose  | Preview   |
 | [Daldsv6](/azure/virtual-machines/sizes/general-purpose/daldsv6-series)         | General Purpose  | Preview   |
 | [Dadsv6](/azure/virtual-machines/sizes/general-purpose/dadsv6-series)           | General Purpose  | Preview   |
 | [Dpsv6](/azure/virtual-machines/sizes/general-purpose/dpsv6-series)             | General Purpose  | Preview   |
