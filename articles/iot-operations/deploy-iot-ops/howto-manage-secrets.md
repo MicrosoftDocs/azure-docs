@@ -77,7 +77,7 @@ Create an Azure Key Vault and add a secret:
     # Get the object ID of the currently logged-in user
     ASSIGNEE_ID=$(az ad signed-in-user show --query id -o tsv)
     
-    # Assign the "Key Vault Secrets Officer" role to the currently logged-in user
+    # Assign the "Key Vault Secrets Officer" role
     az role assignment create --role "Key Vault Secrets Officer" \
                               --assignee $ASSIGNEE_ID \
                               --scope /subscriptions/$SUBSCRIPTION_ID/resourcegroups/$RESOURCE_GROUP/providers/Microsoft.KeyVault/vaults/$KEYVAULT_NAME
@@ -94,7 +94,7 @@ Create an Azure Key Vault and add a secret:
     # Get the object ID of the currently logged-in user
     $ASSIGNEE_ID=$(az ad signed-in-user show --query id -o tsv)
     
-    # Assign the "Key Vault Secrets Officer" role to the currently logged-in user
+    # Assign the "Key Vault Secrets Officer" role
     az role assignment create --role "Key Vault Secrets Officer" `
                               --assignee $ASSIGNEE_ID `
                               --scope /subscriptions/$SUBSCRIPTION_ID/resourcegroups/$RESOURCE_GROUP/providers/Microsoft.KeyVault/vaults/$KEYVAULT_NAME
@@ -128,12 +128,12 @@ Create a user-assigned managed identity and give it permissions to access the Az
     # Get the client ID of the user-assigned managed identity and save it as an environment variable.
     USER_ASSIGNED_CLIENT_ID=$(az identity show --resource-group $RESOURCE_GROUP --name $IDENTITY_NAME --query 'clientId' -o tsv)
     
-    # Give the user-assigned managed identity `Key Vault Reader` permission
+    # Assign the `Key Vault Reader` role
     az role assignment create --role "Key Vault Reader" \
                               --assignee $USER_ASSIGNED_CLIENT_ID \
                               --scope /subscriptions/$SUBSCRIPTION_ID/resourcegroups/$RESOURCE_GROUP/providers/Microsoft.KeyVault/vaults/$KEYVAULT_NAME
     
-    # Give the user-assigned managed identity `Key Vault Secrets User` permission
+    # Assign the `Key Vault Secrets User` role
     az role assignment create --role "Key Vault Secrets User" \
                               --assignee $USER_ASSIGNED_CLIENT_ID \
                               --scope /subscriptions/$SUBSCRIPTION_ID/resourcegroups/$RESOURCE_GROUP/providers/Microsoft.KeyVault/vaults/$KEYVAULT_NAME

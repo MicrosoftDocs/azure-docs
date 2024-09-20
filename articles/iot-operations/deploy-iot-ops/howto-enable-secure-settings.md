@@ -14,13 +14,13 @@ ms.date: 09/17/2024
 
 [!INCLUDE [public-preview-note](../includes/public-preview-note.md)]
 
-The secure settings for Azure IoT Operations include secret management and user-assigned managed identity. These settings are recommended for production use.
+The secure settings for Azure IoT Operations includes the setup of secrets management and a user-assigned managed identity for components that connect to a resource outside of the cluster, for example, an OPC UA server, or a dataflow source or destination endpoint. 
 
-The end-to-end sample articles skip the secure settings configuration and instead deploy Azure IoT Operations with only test settings. The test settings are easier and quicker to get you started with a deployment, but after your initial deployment you might want to start using the secure settings. This article provides instructions for enabling secure settings on an existing deployment.
+The test settings are easier and quicker to get you started with a deployment, but after your initial deployment you might want to start using the secure settings. This article provides instructions for enabling secure settings on an existing deployment.
 
 ## Prerequisites
 
-* An Azure IoT Operations instance deployed with test settings, as in [Quickstart: Run Azure IoT Operations Preview in GitHub Codespaces](../get-started-end-to-end-sample/quickstart-deploy.md).
+* An Azure IoT Operations instance deployed with test settings.
 
 * Azure CLI installed on your development machine. For more information, see [How to install the Azure CLI](/cli/azure/install-azure-cli). This scenario requires Azure CLI version 2.53.0 or higher. Use `az --version` to check your version and `az upgrade` to update if necessary.
 
@@ -53,7 +53,7 @@ Use the following steps to enable workload identity on an existing connected K3s
 1. Add the new connectedk8s cli source.
 
    ```azurecli
-   az extension add --source PATH_TO_WHL_FILE
+   az extension add --source <PATH_TO_WHL_FILE>
    ```
 
 1. Export environment variables and set the release tag to 0.1.15392-private.
