@@ -17,7 +17,7 @@ To set up Dynatrace for Azure, you must have **Owner** or **Contributor** access
 
 ## Add enterprise application
 
-To use the Security Assertion Markup Language (SAML) based single sign-on (SSO) feature within the Dynatrace resource, you must set up an enterprise application. To add an enterprise application, you need one of these roles: Global administrator, Cloud Application Administrator, or Application Administrator.
+To use the Security Assertion Markup Language (SAML) based single sign-on (SSO) feature within the Dynatrace resource, you must set up an enterprise application. To add an enterprise application, you need one of these roles: Cloud Application Administrator, or Application Administrator.
 
 1. Go to Azure portal. Select **Microsoft Entra ID,** then **Enterprise App** and then **New Application**.
 

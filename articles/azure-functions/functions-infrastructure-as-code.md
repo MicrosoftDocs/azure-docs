@@ -94,12 +94,12 @@ When you deploy multiple resources in a single Bicep file or ARM template, the o
 ## Prerequisites  
 
 + The examples are designed to execute in the context of an existing resource group.
-+ Both Application Insights and storage logs require you to have an existing [Azure Log Analytics workspace](../azure-monitor/logs/log-analytics-overview.md). Workspaces can be shared between services, and as a rule of thumb you should create a workspace in each geographic region to improve performance. For an example of how to create a Log Analytics workspace, see [Create a Log Analytics workspace](../azure-monitor/logs/quick-create-workspace.md?tabs=azure-resource-manager#create-a-workspace). You can find the fully qualified workspace resource ID in a workspace page in the [Azure portal](https://portal.azure.com) under **Settings** > **Properties** > **Resource ID**. 
++ Both Application Insights and storage logs require you to have an existing [Azure Log Analytics workspace](/azure/azure-monitor/logs/log-analytics-overview). Workspaces can be shared between services, and as a rule of thumb you should create a workspace in each geographic region to improve performance. For an example of how to create a Log Analytics workspace, see [Create a Log Analytics workspace](/azure/azure-monitor/logs/quick-create-workspace?tabs=azure-resource-manager#create-a-workspace). You can find the fully qualified workspace resource ID in a workspace page in the [Azure portal](https://portal.azure.com) under **Settings** > **Properties** > **Resource ID**. 
 ::: zone pivot="container-apps" 
 + This article assumes that you have already created a [managed environment](../container-apps/environment.md) in Azure Container Apps. You need both the name and the ID of the managed environment to create a function app hosted on Container Apps.  
 ::: zone-end  
 ::: zone pivot="azure-arc" 
-+ This article assumes that you have already created an [App Service-enabled custom location](../app-service/overview-arc-integration.md) on an [Azure Arc-enabled Kubernetes cluster](../azure-arc/kubernetes/overview.md). You need both the custom location ID and the Kubernetes environment ID to create a function app hosted in an Azure Arc custom location.  
++ This article assumes that you have already created an [App Service-enabled custom location](../app-service/overview-arc-integration.md) on an [Azure Arc-enabled Kubernetes cluster](/azure/azure-arc/kubernetes/overview). You need both the custom location ID and the Kubernetes environment ID to create a function app hosted in an Azure Arc custom location.  
 ::: zone-end  
 <a name="storage"></a>
 ## Create storage account
@@ -257,7 +257,7 @@ This same workspace can be used for the Application Insights resource defined la
 
 ## Create Application Insights
 
-You should be using Application Insights for monitoring your function app executions. Application Insights now requires an Azure Log Analytics workspace, which can be shared. These examples assume you're using an existing workspace and have the fully qualified resource ID for the workspace. For more information, see [Azure Log Analytics workspace](../azure-monitor/logs/log-analytics-overview.md). 
+You should be using Application Insights for monitoring your function app executions. Application Insights now requires an Azure Log Analytics workspace, which can be shared. These examples assume you're using an existing workspace and have the fully qualified resource ID for the workspace. For more information, see [Azure Log Analytics workspace](/azure/azure-monitor/logs/log-analytics-overview). 
 
 In this example section, the Application Insights resource is defined with the type `Microsoft.Insights/components` and the kind `web`:
 

@@ -24,7 +24,7 @@ You can create Log Analytics workspaces with the resource type [Microsoft.Operat
 
 Diagnostic settings enable you to configure Azure Monitor to export your logs and metrics to a number of destinations, including Log Analytics and Azure Storage.
 
-When creating [diagnostic settings](../../azure-monitor/essentials/diagnostic-settings.md) in Bicep, remember that this resource is an [extension resource](scope-extension-resources.md), which means it's applied to another resource. You can create diagnostic settings in Bicep by using the resource type [Microsoft.Insights/diagnosticSettings](/azure/templates/microsoft.insights/diagnosticsettings?tabs=bicep).
+When creating [diagnostic settings](/azure/azure-monitor/essentials/diagnostic-settings) in Bicep, remember that this resource is an [extension resource](scope-extension-resources.md), which means it's applied to another resource. You can create diagnostic settings in Bicep by using the resource type [Microsoft.Insights/diagnosticSettings](/azure/templates/microsoft.insights/diagnosticsettings?tabs=bicep).
 
 When creating diagnostic settings in Bicep, you need to apply the scope of the diagnostic setting. The diagnostic setting can be applied at the management, subscription, or resource group level. [Use the scope property on this resource to set the scope for this resource](../../azure-resource-manager/bicep/scope-extension-resources.md).
 
@@ -132,7 +132,7 @@ resource subscriptionActivityLog 'Microsoft.Insights/diagnosticSettings@2021-05-
 
 Alerts proactively notify you when issues are found within your Azure infrastructure and applications by monitoring data within Azure Monitor. By configuring your monitoring and alerting configuration within your Bicep code, you can automate the creation of these alerts alongside the infrastructure that you are provisioning in Azure.
 
-For more information about how alerts work in Azure see [Overview of alerts in Microsoft Azure](../../azure-monitor/alerts/alerts-overview.md).
+For more information about how alerts work in Azure see [Overview of alerts in Microsoft Azure](/azure/azure-monitor/alerts/alerts-overview).
 
 The following sections demonstrate how you can configure different types of alerts using Bicep code.
 
@@ -225,7 +225,7 @@ Metric alerts notify you when one of your metrics crosses a defined threshold. Y
 
 ### Activity log alerts
 
-The [Azure activity log](../../azure-monitor/essentials/activity-log.md) is a platform log in Azure that provides insights into events at the subscription level. This includes information such as when a resource in Azure is modified.
+The [Azure activity log](/azure/azure-monitor/essentials/activity-log) is a platform log in Azure that provides insights into events at the subscription level. This includes information such as when a resource in Azure is modified.
 
 Activity log alerts are alerts that are activated when a new activity log event occurs that matches the conditions that are specified in the alert.
 
@@ -327,7 +327,7 @@ Smart detection alerts warn you of potential performance problems and failure an
 
 In Bicep, you can create portal dashboards by using the resource type [Microsoft.Portal/dashboards](/azure/templates/microsoft.portal/dashboards?tabs=bicep).
 
-For more information about creating dashboards with code, see [Programmatically create an Azure Dashboard](../../azure-portal/azure-portal-dashboards-create-programmatically.md).
+For more information about creating dashboards with code, see [Programmatically create an Azure Dashboard](/azure/azure-portal/azure-portal-dashboards-create-programmatically).
 
 ## Autoscale rules
 
@@ -394,7 +394,7 @@ resource scaleOutRule 'Microsoft.Insights/autoscalesettings@2022-10-01' = {
 ```
 
 > [!NOTE]
-> When defining autoscaling rules, keep best practices in mind to avoid issues when attempting to autoscale, such as flapping. For more information, see the following documentation on [best practices for Autoscale](../../azure-monitor/autoscale/autoscale-best-practices.md).
+> When defining autoscaling rules, keep best practices in mind to avoid issues when attempting to autoscale, such as flapping. For more information, see the following documentation on [best practices for Autoscale](/azure/azure-monitor/autoscale/autoscale-best-practices).
 
 ## Related resources
 

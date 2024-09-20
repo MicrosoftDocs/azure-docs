@@ -117,8 +117,6 @@
     items:
     - name: Ingest telemetry from IoT Hub
       href: how-to-ingest-iot-hub-data.md
-    - name: Automanage devices with DPS
-      href: how-to-provision-using-device-provisioning-service.md
     - name: Integrate with Power Platform and Logic Apps
       href: how-to-use-power-platform-logic-apps-connector.md
   - name: Connect output
