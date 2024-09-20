@@ -106,7 +106,7 @@
     - name: Container Instances
       href: /azure/container-instances/container-instances-quickstart-bicep?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: Container Registry
-      href: ../../container-registry/container-registry-get-started-bicep.md?toc=/azure/azure-resource-manager/bicep/toc.json
+      href: /azure/container-registry/container-registry-get-started-bicep?toc=/azure/azure-resource-manager/bicep/toc.json
     - name: Service Fabric
       href: /azure/service-fabric/quickstart-cluster-bicep?toc=/azure/azure-resource-manager/bicep/toc.json
   - name: Databases

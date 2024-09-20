@@ -2,7 +2,7 @@
 ms.topic: include
 author: sipastak
 ms.author: sipastak
-ms.date: 09/09/2024
+ms.date: 09/17/2024
 ---
 
 ## Supported client versions
@@ -11,31 +11,24 @@ The following table lists the current versions available for the public and Insi
 
 | Release | Latest version | Download |
 |--|--|--|
-| Public | 1.2.5623 | [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139369) *(most common)*<br />[Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139456)<br />[Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139370) |
-| Insider | 1.2.5702  | [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139233) *(most common)*<br />[Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139144)<br />[Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139368) |
+| Public | 1.2.5704 | [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139369) *(most common)*<br />[Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139456)<br />[Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139370) |
+| Insider | 1.2.5704  | [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139233) *(most common)*<br />[Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139144)<br />[Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139368) |
 
+## Updates for version 1.2.5704 
 
-## Updates for version 1.2.5702 (Insider) 
+*Date published: September 18, 2024*   
 
-*Date published: September 10, 2024*   
+Download: [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139369), [Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139456), [Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139370) 
 
-Download: [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139233), [Windows 32-bit](https://go.microsoft.com/fwlink/?linkid=2139144), [Windows ARM64](https://go.microsoft.com/fwlink/?linkid=2139368) 
-
-- Fixed an issue where initiating a screen capture while Teams is open as a RemoteApp caused the client to crash. 
-
-> [!NOTE]
-> This version replaced the Insider version 1.2.5701 and has the same release notes with the changes in 1.2.5701 and 1.2.5699. 
-
-
-## Updates for version 1.2.5701 
-
-*Date published: September 6, 2024*   
-
-- Fixed an issue where the client crashed for users who have Windows N SKUs without the media framework.
-- Addressed an issue that reduces the chance of encountering a “low virtual memory” error on reconnect attempts. 
+- Fixed an issue where initiating a screen capture while Teams is open as a RemoteApp caused the client to crash.  
+- Fixed an issue where the client crashed for users who have Windows N SKUs without the media framework. 
+- Addressed an issue that reduces the chance of encountering a “low virtual memory” error on reconnect attempts.
+- Made improvement where new session windows will not become the focused windows. 
+- Fixed a bug to ensure that  the **screen mode id** setting in RDP file is honored.
+- Fixed issue where Teams rendered into the wrong window when multiple Remote Desktop session windows were open. 
 
 > [!NOTE]
-> This version replaced the Insider version 1.2.5699 and has the same release notes with the addition of the notes above.  
+> This version replaced the Insider version 1.2.5702, 1.2.5701, and 1.2.5699. It contains all changes made in noted versions and was promoted to public on September 18, 2024. 
 
 ## Updates for version 1.2.5623 
 
@@ -49,14 +42,6 @@ Download: [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139369), [Wi
 > [!NOTE]
 > This hotfix version replaced the public version 1.2.5620 and has the same release notes with the addition of the the above fixes. 
 
-## Updates for version 1.2.5699
-
-*Date published: August 27, 2024*     
-
-- Made an improvement where new session windows will not become the focused windows.
-- Fixed a bug to ensure that the screen mode id setting in the RDP file is honored.
-- Fixed an issue where Teams rendered into the wrong window when multiple Remote Desktop session windows were open. 
-
 ## Updates for version 1.2.5620
 
 *Date published: August 13, 2024* 
@@ -69,8 +54,6 @@ Download: [Windows 64-bit](https://go.microsoft.com/fwlink/?linkid=2139369), [Wi
 ## Updates for version 1.2.5560
 
 *Date published: August 13, 2024* 
-
-Download: [Windows 64-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RW1nWz4), [Windows 32-bit](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RW1nWz3), [Windows ARM64](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RW1nOOi) 
 
 - Fixed an issue for [CVE-2024-38131 ](https://msrc.microsoft.com/update-guide/en-US/vulnerability/CVE-2024-38131).
 
