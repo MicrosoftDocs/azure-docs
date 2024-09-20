@@ -39,6 +39,8 @@ MQTT broker focuses on the unique edge-native, data-plane value it can provide t
 
 MQTT broker builds on top of battle-tested Azure and Kubernetes-native security and identity concepts making it both highly secure and usable. It supports multiple authentication mechanisms for flexibility along with granular access control mechanisms all the way down to individual MQTT topic level. 
 
+> [!TIP]
+> You can only access the default MQTT broker deployment by using the cluster IP, TLS, and a service account token. Clients connecting from outside the cluster need extra configuration before they can connect.
 
 ## Azure Arc integration
 
