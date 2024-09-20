@@ -3,7 +3,8 @@ title: How to create Spark cluster in HDInsight on AKS
 description: Learn how to create Spark cluster in HDInsight on AKS
 ms.service: azure-hdinsight-on-aks
 ms.topic: how-to
-ms.date: 12/28/2023
+ms.date: 09/20/2024
+ROBOTS: NOINDEX
 ---
 
 # Create Spark cluster in HDInsight on AKS (Preview)

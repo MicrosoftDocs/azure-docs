@@ -49,7 +49,19 @@ Before acquiring a phone number, make sure your subscription meets the [geograph
 
 For more information, see the [phone number types](./telephony/plan-solution.md) concept page and the [telephony concept](./telephony/telephony-concept.md) overview page.
 
-If you want to purchase more phone numbers or place a special order, follow the [instructions here](https://github.com/Azure/Communication/blob/master/special-order-numbers.md). If you would like to port toll-free phone numbers from external accounts to their Azure Communication Services account, follow the [instructions here](https://github.com/Azure/Communication/blob/master/port-numbers.md).
+Number purchase limits can be increased through a request to Azure Support.
+
+1. Open the [Azure portal](https://ms.portal.azure.com/) and sign in.
+2. Select [Help+Support](https://ms.portal.azure.com/#view/Microsoft_Azure_Support/HelpAndSupportBlade/~/overview).
+3. Click **Create new support request**.
+4. In the **Describe your issue** text box, enter `Technical` then click **Go**. 
+5. From the **Select a service** dropdown menu, select **Service and Subscription Limits (Quotas)** then click **Next**.
+6. At the Problem description, choose the **Issue type**, **Subscription**, and **Quota type** then click **Next**.
+7. Review any **Recommended solution** if available, then click **Next**.
+8. Add **Additional details** as needed, then click **Next**.
+9. At **Review + create** check the information, make changes as needed, then click **Create**.
+
+
 
 ## Identity
 
@@ -110,10 +122,12 @@ You can send a limited number of email messages. If you exceed the following lim
 
 ### Size Limits
 
-| **Name**         | Limit  |
-|--|--|
-|Number of recipients in Email|50 |
-|Total email request size (including attachments) |10 MB |
+| **Name** | Limit |
+| --- | --- |
+| Number of recipients in Email | 50 |
+| Total email request size (including attachments) | 10 MB |
+
+For all message size limits, you need to consider that that base64 encoding increases the size of the message. You need to increase the size value to account for the message size increase that occurs after the message attachments and any other binary data are Base64 encoded. Base64 encoding increases the size of the message by about 33%, so the message size is about 33% larger than the message sizes before encoding. For example, if you specify a maximum message size value of ~10 MB, you can expect a realistic maximum message size value of approximately ~7.5 MB.
 
 ### Send attachments larger than 10 MB
 
