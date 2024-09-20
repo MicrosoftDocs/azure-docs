@@ -2,7 +2,7 @@
   href: index.yml
 - name: Get started
   items:
-    name: Overview
+  - name: Overview
     href: lift-and-shift-overview.md
 - name: Migration guide
   items:
