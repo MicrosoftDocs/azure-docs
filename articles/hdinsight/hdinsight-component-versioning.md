@@ -22,7 +22,7 @@ This table lists the versions of HDInsight that are available in the Azure porta
 
 **Support expiration** means that Microsoft no longer provides support for the specific HDInsight version. You might not be able to create clusters from the Azure portal.
 
-**Retirement** means that existing clusters of an HDInsight version continue to run as is. You can't create new clusters of this version through any means, which includes the CLI and SDKs. Other control plane features, such as manual scaling and autoscaling, not guaranteed to work after retirement date. Support isn't available for retired versions.
+**Retirement** means that existing clusters of a HDInsight version continue to run as is. You can't create new clusters of this version through any means, which includes the CLI and SDKs. Other control plane features, such as manual scaling and autoscaling, not guaranteed to work after retirement date. Support isn't available for retired versions.
 
 ### Spark versions supported in Azure HDInsight
 
@@ -36,7 +36,7 @@ Azure HDInsight supports the following Apache Spark versions.
 
 ## Support options for HDInsight versions
 
-Support defined as a time period that an HDInsight version supported by Microsoft Customer Service and Support. HDInsight offers two types of support: 
+Support defined as a time period that a HDInsight version supported by Microsoft Customer Service and Support. HDInsight offers two types of support: 
 - **Standard support**
 - **Basic support**
 
