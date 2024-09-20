@@ -213,23 +213,23 @@ The following sections list the regional pricing tiers (SKUs) availability for A
 | Region               | Standard     | Large       | Memory intensive  |
 | -------------------- | :----------: | :---------: | :---------------: |
 |                      | I1v2-I3v2    | I4v2-I6v2   | I1mv2-I5mv2       |
-| Australia Central    | ✅          | ✅ *        |                   | 
+| Australia Central    | ✅          | ✅          | ✅               | 
 | Australia Central 2  | ✅          | ✅          | ✅               | 
-| Australia East       | ✅          | ✅ *        | ✅ **            | 
+| Australia East       | ✅          | ✅          | ✅               | 
 | Australia Southeast  | ✅          | ✅          | ✅               | 
-| Brazil South         | ✅          | ✅ *        |                   | 
+| Brazil South         | ✅          | ✅          |                   | 
 | Brazil Southeast     | ✅          | ✅          | ✅               |
 | Canada Central       | ✅          | ✅          | ✅               |
 | Canada East          | ✅          | ✅          | ✅               | 
 | Central India        | ✅          | ✅          | ✅               | 
 | Central US           | ✅          | ✅ *        |                   | 
-| East Asia            | ✅          | ✅ *        | ✅ **            |
-| East US              | ✅          | ✅ *        |                   | 
-| East US 2            | ✅          | ✅ *        | ✅ **            |
+| East Asia            | ✅          | ✅          | ✅               |
+| East US              | ✅          | ✅          |                   | 
+| East US 2            | ✅          | ✅          | ✅               |
 | France Central       | ✅          | ✅          | ✅               | 
 | France South         | ✅          | ✅          | ✅               | 
 | Germany North        | ✅          | ✅          | ✅               | 
-| Germany West Central | ✅          | ✅ *        | ✅ **            | 
+| Germany West Central | ✅          | ✅          | ✅               | 
 | Israel Central       | ✅          | ✅          |                   | 
 | Italy North          | ✅          | ✅          |                   | 
 | Japan East           | ✅          | ✅          | ✅               | 
@@ -239,10 +239,10 @@ The following sections list the regional pricing tiers (SKUs) availability for A
 | Korea Central        | ✅          | ✅          |                   | 
 | Korea South          | ✅          | ✅          | ✅               |
 | Mexico Central       | ✅          | ✅          |                   | 
-| North Central US     | ✅          | ✅ *        | ✅ **            | 
+| North Central US     | ✅          | ✅          | ✅               | 
 | North Europe         | ✅          | ✅          | ✅               |
 | Norway East          | ✅          | ✅          | ✅               | 
-| Norway West          | ✅          | ✅          |                   |
+| Norway West          | ✅          | ✅          | ✅               |
 | Poland Central       | ✅          | ✅          |                   |
 | Qatar Central        | ✅          | ✅          |                   |
 | South Africa North   | ✅          | ✅          | ✅               |
@@ -256,17 +256,17 @@ The following sections list the regional pricing tiers (SKUs) availability for A
 | Switzerland North    | ✅          | ✅          | ✅               |
 | Switzerland West     | ✅          | ✅          | ✅               | 
 | UAE Central          | ✅          | ✅          |                   | 
-| UAE North            | ✅          | ✅          | ✅ **            | 
+| UAE North            | ✅          | ✅          | ✅               | 
 | UK South             | ✅          | ✅          | ✅               | 
 | UK West              | ✅          | ✅          | ✅               | 
 | West Central US      | ✅          | ✅ *        |                   | 
 | West Europe          | ✅          | ✅ *        |                   | 
 | West India           | ✅          | ✅          | ✅               | 
 | West US              | ✅          | ✅          |                   | 
-| West US 2            | ✅          | ✅ *        | ✅ **            | 
+| West US 2            | ✅          | ✅          | ✅               | 
 | West US 3            | ✅          | ✅          | ✅               | 
 
-\* Windows Container does not support Large skus in this region.  
+\* Windows Container does not support Large skus in this region.
 \** Linux does not support Memory intensive skus in this region.
 
 ### Azure Government:
@@ -274,19 +274,19 @@ The following sections list the regional pricing tiers (SKUs) availability for A
 | Region               | Standard     | Large       | Memory intensive  |
 | -------------------- | :----------: | :---------: | :---------------: |
 |                      | I1v2-I3v2    | I4v2-I6v2   | I1mv2-I5mv2       |
-| US DoD Central       | ✅          |✅           |                   |
-| US DoD East          | ✅          |✅           |                   |
-| US Gov Arizona       | ✅          |✅           |                   |
-| US Gov Texas         | ✅          |✅           |                   |
-| US Gov Virginia      | ✅          |✅           |                   |
+| US DoD Central       | ✅          |✅ *         |                   |
+| US DoD East          | ✅          |✅ *         |                   |
+| US Gov Arizona       | ✅          |✅ *         |                   |
+| US Gov Texas         | ✅          |✅ *         |                   |
+| US Gov Virginia      | ✅          |✅ *         |                   |
 
 ### Microsoft Azure operated by 21Vianet:
 
 | Region               | Standard     | Large       | Memory intensive  |
 | -------------------- | :----------: | :---------: | :---------------: |
 |                      | I1v2-I3v2    | I4v2-I6v2   | I1mv2-I5mv2       |
-| China East 3         | ✅          | ✅          |                   |
-| China North 3        | ✅          | ✅          |                   |
+| China East 3         | ✅          | ✅ *        |                   |
+| China North 3        | ✅          | ✅ *        |                   |
 
 
 ## App Service Environment v2
