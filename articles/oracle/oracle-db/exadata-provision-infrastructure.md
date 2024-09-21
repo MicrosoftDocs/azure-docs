@@ -1,6 +1,6 @@
 ---
 title: Provision Exadata infrastructure
-description: Learn about provisioning Exadata infrastructure.
+description: Learn about provisioning an Exadata infrastructure.
 author: jjaygbay1
 ms.author: jacobjaygbay
 ms.topic: concept-article
