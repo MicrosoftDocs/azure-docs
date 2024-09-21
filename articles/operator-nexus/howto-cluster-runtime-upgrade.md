@@ -136,7 +136,7 @@ Upon successful execution of the command, the updateStrategy values specified wi
 > [!NOTE]
 > When a threshold value below 100% is set, it’s possible that any unhealthy nodes might not be upgraded, yet the “Cluster” status could still indicate that upgrade was successful. For troubleshooting issues with bare metal machines, please refer to [Troubleshoot Azure Operator Nexus server problems](troubleshoot-reboot-reimage-replace.md)
 
-## Upgrade with Pause Rack Strategy
+## Upgrade with PauseRack strategy
 
 Starting with API version 2024-06-01-preview, runtime upgrades can be triggered using a "PauseRack" strategy. When you execute a Cluster runtime upgrade with the PauseRack" strategy, it will update one rack at a time in the Cluster and then stop, awaiting confirmation before proceeding to the next rack. All existing thresholds will continue to be respected with the "PauseRack" strategy. To carry out a Cluster runtime upgrade using the "PauseRack" strategy follow the steps outlined in [Upgrading cluster runtime with a pause rack strategy](howto-cluster-runtime-upgrade-with-pauserack-strategy.md)
 
