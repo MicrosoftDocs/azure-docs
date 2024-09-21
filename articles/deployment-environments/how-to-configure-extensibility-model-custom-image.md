@@ -37,7 +37,7 @@ You can take one of the following approaches to use container images with ADE:
  
 Regardless of which approach you choose, you must specify the container image in your environment definition to deploy your Azure resources.
 
-## Use the standard Bicep container image
+## Use a standard container image
 
 ADE supports Bicep natively, so you can configure an environment definition that deploys Azure resources for a deployment environment by adding the template files (azuredeploy.json and environment.yaml) to your catalog. ADE then uses the standard Bicep container image to create the deployment environment.
 
@@ -64,15 +64,17 @@ For more information about how to create environment definitions that use the AD
 
 :::zone pivot="terraform"
 
-[!INCLUDE [configure-extensibility-terraform-container-image](includes/how-to-configure-extensibility-terraform-container-image.md)]
+[!INCLUDE [configure-extensibility-terraform-container-image](includes/configure-extensibility-terraform-container-image.md)]
 
 :::zone-end
 
+<!-- 
 :::zone pivot="pulumi"
 
 [!INCLUDE [configure-extensibility-pulumi-container-image](includes/configure-extensibility-pulumi-container-image.md)]
 
 :::zone-end
+-->
 
 ## Make the custom image accessible to ADE
 
