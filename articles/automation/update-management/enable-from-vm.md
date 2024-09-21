@@ -13,9 +13,6 @@ ms.service: azure-automation
 
 [!INCLUDE [./automation-update-management-retirement-announcement.md](../includes/automation-update-management-retirement-announcement.md)]
 
-> [!NOTE]
->  Azure Update Management onboarding via the portal is no longer available, as the service was retired on **August 31, 2024**. Existing VMs using Azure Update Management with the legacy agent will remain operational until **February 1, 2025**. We recommend that you configure [periodic assessments](../../update-manager/tutorial-assessment-deployment-using-policy.md) or [patch schedules](../../update-manager/scheduled-patching.md) for patch deployment via [Azure Update Manager](../../update-manager/overview.md).
-
 This article describes how you can enable the [Update Management](overview.md) feature on one or more Azure virtual machines (VM). To enable Azure VMs at scale, you must enable an existing Azure VM using Update Management.
 
 > [!NOTE]
