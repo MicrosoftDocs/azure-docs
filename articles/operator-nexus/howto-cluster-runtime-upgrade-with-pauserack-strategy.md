@@ -54,7 +54,7 @@ This how-to guide explains the steps to execute a cluster runtime upgrade with P
 
 4. Once Rack 1 completes, the runtime upgrade will be paused, awaiting user action to resume the upgrade for Rack 2.
 
-:::image type="content" source="media/runtime-upgrade-cluster-paused.png" alt-text="Paused Runtime Upgrade":::
+:::image type="content" source="media/runtime-upgrade-cluster-paused.png" alt-text="Paused Runtime Upgrade.":::
 
 > [!NOTE]
 > This message will be available in logs for programtic access, for more details follow [List of logs available for streaming in Azure Operator Nexus](list-logs-available.md)
