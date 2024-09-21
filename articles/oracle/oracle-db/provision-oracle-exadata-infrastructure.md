@@ -1,6 +1,6 @@
 ---
 title: Provision an Exadata infrastructure for Oracle Database@Azure
-description: Provision Exadata infrastructure for Oracle Database@Azure
+description: Provision an Exadata infrastructure for Oracle Database@Azure
 author: jjaygbay1
 ms.service: oracle-on-azure
 ms.collection: linux
