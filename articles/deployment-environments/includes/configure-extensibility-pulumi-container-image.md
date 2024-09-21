@@ -7,7 +7,7 @@ ms.custom: build-2024, devx-track-azurecli
 author: MikhailShilkov
 ms.author: rosemalcolm
 ms.date: 08/02/2024
-ms.topic: how-to
+ms.topic: includes
 #customer intent: As a developer, I want to learn how to build and utilize custom images with my environment definitions for deployment environments.
 ---
 
