@@ -203,14 +203,6 @@ If your session hosts meet the following criteria, you must [Create a Kerberos S
 
 - Your session host is Microsoft Entra joined and your environment contains Active Directory domain controllers. You must have a Kerberos Server object for users to access on-premises resources, such as SMB shares, and Windows-integrated authentication to websites.
 
-> [!IMPORTANT]
-> If you enable single sign-on on Microsoft Entra hybrid joined session hosts before you create a Kerberos server object, one of the following things can happen: 
->
-> - You receive an error message saying the specific session doesn't exist.
-> - Single sign-on will be skipped and you see a standard authentication dialog for the session host. 
->
-> To resolve these issues, create the Kerberos Server object, then connect again.
-
 ## Review your conditional access policies
 
 When single sign-on is enabled, a new Microsoft Entra ID app is introduced to authenticate users to the session host. If you have conditional access policies that apply when accessing Azure Virtual Desktop, review the recommendations on setting up [multifactor authentication](set-up-mfa.md) to ensure users have the desired experience.
