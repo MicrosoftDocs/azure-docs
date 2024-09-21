@@ -10,18 +10,18 @@ ms.date: 09/20/2024
 ms.topic: how-to
 zone_pivot_groups: ade-extensibility-iac-framework
 
-#customer intent: As a developer, I want to learn how to build and utilize custom images within my environment definitions for deployment environments.
+#customer intent: As a platform engineer, I want to learn how to build and utilize custom images within my environment definitions for deployment environments.
 ---
 
 # Configure container image to execute deployments
 
 In this article, you learn how to build custom container images to deploy your [environment definitions](configure-environment-definition.md) in Azure Deployment Environments (ADE).
 
-An environment definition comprises at least two files: a template file, like *azuredeploy.json* or *main.bicep*, and a manifest file named *environment.yaml*. ADE uses containers to deploy environment definitions, and natively supports the ARM and Bicep IaC frameworks. 
+An environment definition comprises at least two files: a template file, like *azuredeploy.json* or *main.bicep*, and a manifest file named *environment.yaml*. ADE uses containers to deploy environment definitions. 
 
-The ADE extensibility model enables you to create custom container images to use with your environment definitions. By using the extensibility model, you can create your own custom container images, and store them in a container registry like Azure Container Registry (ACR) or  Docker Hub. You can then reference these images in your environment definitions to deploy your environments.
+The ADE extensibility model enables you to create custom container images to use with your environment definitions. By using the extensibility model, you can create your own custom container images, and store them in a container registry like Azure Container Registry (ACR) or  Docker Hub. You can then reference these images in your environment definitions to deploy your environments. ADE supports multiple Infrastructure-as-Code (IaC) frameworks. 
 
-The ADE team provides a selection of images to get you started, including a core image, and an Azure Resource Manager (ARM)/Bicep image. You can access these sample images in the [Runner-Images](https://aka.ms/deployment-environments/runner-images) folder.
+The ADE team provides a selection of images to get you started, including a core image, and an Azure Resource Manager (ARM)-Bicep image. You can access these sample images in the [Runner-Images](https://aka.ms/deployment-environments/runner-images) folder.
 
 ## Prerequisites
 
@@ -32,18 +32,18 @@ The ADE team provides a selection of images to get you started, including a core
 ## Use container images with ADE
 
 You can take one of the following approaches to use container images with ADE:
-- **Use the standard container image:** For simple scenarios, use the standard Bicep container image provided by ADE.
+- **Use the standard container image:** For simple scenarios, use the standard ARM-Bicep container image provided by ADE.
 - **Create a custom container image:** For more complex scenarios, create a custom container image that meets your specific requirements.
  
 Regardless of which approach you choose, you must specify the container image in your environment definition to deploy your Azure resources.
 
 ## Use a standard container image
 
-ADE supports Bicep natively, so you can configure an environment definition that deploys Azure resources for a deployment environment by adding the template files (azuredeploy.json and environment.yaml) to your catalog. ADE then uses the standard Bicep container image to create the deployment environment.
+ADE supports ARM and Bicep without any extra configuration. You can create an environment definition that deploys Azure resources for a deployment environment by adding the template files (*azuredeploy.json* and *environment.yaml*) to your catalog. ADE then uses the standard ARM-Bicep container image to create the deployment environment.
 
-In the environment.yaml file, the runner property specifies the location of the container image you want to use. To use the sample image published on the Microsoft Artifact Registry, use the respective identifiers runner, as listed in the following table.
+In the *environment.yaml* file, the runner property specifies the location of the container image you want to use. To use the sample image published on the Microsoft Artifact Registry, use the respective identifiers runner.
 
-The following example shows a runner that references the sample Bicep container image:
+The following example shows a runner that references the sample ARM-Bicep container image:
 ```yaml
     name: WebApp
     version: 1.0.0
