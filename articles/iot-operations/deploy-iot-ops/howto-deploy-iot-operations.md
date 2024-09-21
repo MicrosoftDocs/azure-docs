@@ -21,9 +21,9 @@ Learn how to deploy Azure IoT Operations Preview to a Kubernetes cluster and the
   * Arc extensions
   * Custom locations
   * Resource sync rules
-  * Resources that you can configure in your Azure IoT Operations solution, like assets, MQTT broker, and dataflows.
+  * Resources that you can configure in your Azure IoT Operations solution, like assets and asset endpoints.
 
-* An Azure IoT Operations *instance* is one part of a deployment. It's the parent resource that bundles the suite of services that are defined in [What is Azure IoT Operations Preview?](../overview-iot-operations.md), like MQ and OPC UA connector.
+* An Azure IoT Operations *instance* is one part of a deployment. It's the parent resource that bundles the suite of services that are defined in [What is Azure IoT Operations Preview?](../overview-iot-operations.md) like MQTT broker, dataflows, and OPC UA connector.
 
 In this article, when we talk about deploying Azure IoT Operations we mean the full set of components that make up a *deployment*. Once the deployment exists, you can view, manage, and update the *instance*.
 
@@ -33,21 +33,31 @@ Cloud resources:
 
 * An Azure subscription.
 
-* Azure access permissions. At a minimum, have **Contributor** permissions in your Azure subscription. Depending on the deployment feature flag status you select, you might also need **Microsoft/Authorization/roleAssignments/write** permissions for the resource group that contains your Arc-enabled Kubernetes cluster. You can make a custom role in Azure role-based access control or assign a built-in role that grants this permission. For more information, see [Azure built-in roles for General](../../role-based-access-control/built-in-roles/general.md).
-
-  If you *don't* have role assignment write permissions, you can still deploy Azure IoT Operations by disabling some features. This approach is discussed in more detail in the [Deploy](#deploy) section of this article.
-
-  * In the Azure CLI, use the [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) command to give permissions. For example, `az role assignment create --assignee sp_name --role "Role Based Access Control Administrator" --scope subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/MyResourceGroup`
-
-  * In the Azure portal, when you assign privileged admin roles to a user or principal, you can restrict access using conditions. For this scenario, select the **Allow user to assign all roles** condition in the **Add role assignment** page.
-
-    :::image type="content" source="./media/howto-deploy-iot-operations/add-role-assignment-conditions.png" alt-text="Screenshot that shows assigning users highly privileged role access in the Azure portal.":::
-
-* An Azure key vault that has the **Permission model** set to **Vault access policy**. You can check this setting in the **Access configuration** section of an existing key vault. To create a new key vault, use the [az keyvault create](/cli/azure/keyvault#az-keyvault-create) command:
+* An Azure key vault. To create a new key vault, use the [az keyvault create](/cli/azure/keyvault#az-keyvault-create) command:
 
   ```azurecli
-  az keyvault create --enable-rbac-authorization false --name "<KEYVAULT_NAME>" --resource-group "<RESOURCE_GROUP>"
+  az keyvault create --enable-rbac-authorization --name "<KEYVAULT_NAME>" --resource-group "<RESOURCE_GROUP>"
   ```
+
+* Azure access permissions:
+
+  * At a minimum, have **Contributor** permissions in your Azure subscription.
+
+  * Creating secrets in Key Vault require s**Key Vault Secrets Officer** permissions.
+
+  * The following tasks require **Microsoft/Authorization/roleAssignments/write** permissions. You can make a custom role in Azure role-based access control or assign a [built-in role](../../role-based-access-control/built-in-roles/general.md) that grants this permission.
+
+    * Enabling resource sync rules on the Azure IoT Operations instance. If you don't have role assignment write permissions, you can disable this feature during deployment. This approach is discussed in more detail in the [Deploy](#deploy) section of this article.
+
+    * Creating a schema registry. If you don't have role assignment write permissions, you can request them or ask that someone with the correct permissions create a schema registry that you can refer to.
+
+  > [!TIP]
+  >
+  > * If you use the Azure CLI, use the [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) command to give permissions. For example, `az role assignment create --assignee sp_name --role "Role Based Access Control Administrator" --scope subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/MyResourceGroup`
+  >
+  > * If you use the Azure portal to assign privileged admin roles to a user or principal, you're prompted to restrict access using conditions. For this scenario, select the **Allow user to assign all roles** condition in the **Add role assignment** page.
+  >
+  >   :::image type="content" source="./media/howto-deploy-iot-operations/add-role-assignment-conditions.png" alt-text="Screenshot that shows assigning users highly privileged role access in the Azure portal.":::
 
 Development resources:
 
@@ -61,7 +71,7 @@ Development resources:
 
 A cluster host:
 
-* An Azure Arc-enabled Kubernetes cluster. If you don't have one, follow the steps in [Prepare your Azure Arc-enabled Kubernetes cluster](./howto-prepare-cluster.md?tabs=wsl-ubuntu).
+* An Azure Arc-enabled Kubernetes cluster with the custom location and workload identity features enabled. If you don't have one, follow the steps in [Prepare your Azure Arc-enabled Kubernetes cluster](./howto-prepare-cluster.md?tabs=wsl-ubuntu).
 
   If you deployed Azure IoT Operations to your cluster previously, uninstall those resources before continuing. For more information, see [Update Azure IoT Operations](#update-azure-iot-operations).
 
@@ -142,33 +152,70 @@ The Azure portal deployment experience is a helper tool that generates a deploym
    | Parameter | Value |
    | --------- | ----- |
    | **Azure IoT Operations name** | *Optional*: Replace the default name for the Azure IoT Operations instance. |
-   | **MQTT broker configuration** | *Optional*: Replace the default settings for the MQTT broker. For more information, see [Configure core MQTT broker settings](../manage-mqtt-broker/howto-configure-availability-scale.md). |
+   | **MQTT broker configuration** | *Optional*: Edit the default settings for the MQTT broker. For more information, see [Configure core MQTT broker settings](../manage-mqtt-broker/howto-configure-availability-scale.md). |
+   | **Dataflow profile configuration** | *Optional*: Edit the default settings for dataflows. For more information, see [Configure dataflow profile](../connect-to-cloud/howto-configure-dataflow-profile.md). |
 
-1. Select **Next: Automation**.
+   :::image type="content" source="./media/howto-deploy-iot-operations/deploy-configuration.png" alt-text="A screenshot that shows the second tab for deploying Azure IoT Operations from the portal.":::
 
-1. On the **Automation** tab, provide the following information:
+1. Select **Next: Dependency management**.
+
+1. On the **Dependency management** tab, select an existing schema registry or use these steps to create one:
+
+   1. Select **Create new**.
+
+   1. Provide a **Schema registry name** and **Schema registry namespace**.
+
+   1. Select **Select Azure Storage container**.
+
+   1. Schema registry requires an Azure Storage account with hierarchical namespace and public network access enabled. Choose a storage account from the list of hierarchical namespace-enabled accounts, or select **Create** to create one.
+
+   1. Select a container in your storage account or select **Container** to create one.
+
+   1. Select **Apply** to confirm the schema registry configurations.
+
+1. On the **Dependency management** tab, select the **Secure settings** deployment option.
+
+   :::image type="content" source="./media/howto-deploy-iot-operations/deploy-dependency-management-1.png" alt-text="A screenshot that shows selecting secure settings on the third tab for deploying Azure IoT Operations from the portal.":::
+
+1. In the **Deployment options** section, provide the following information:
 
    | Parameter | Value |
    | --------- | ----- |
    | **Subscription** | Select the subscription that contains your Azure key vault. |
-   | **Azure Key Vault** | Select your Azure key vault. Or, select **Create new**.<br><br>Ensure that your key vault has **Vault access policy** as its permission model. To check this setting, select **Manage selected vault** > **Settings** > **Access configuration**. |
+   | **Azure Key Vault** | Select an Azure key vault select **Create new**.<br><br>Ensure that your key vault has **Vault access policy** as its permission model. To check this setting, select **Manage selected vault** > **Settings** > **Access configuration**. |
+   | **User assigned managed identity for secrets** | Select an identity or select **Create new**. |
+   | **User assigned managed identity for AIO components** | Select an identity or select **Create new**. Don't use the same managed identity as the one you selected for secrets. |
 
-   :::image type="content" source="./media/howto-deploy-iot-operations/deploy-automation.png" alt-text="A screenshot that shows the third tab for deploying Azure IoT Operations from the portal.":::
+   :::image type="content" source="./media/howto-deploy-iot-operations/deploy-dependency-management-2.png" alt-text="A screenshot that shows configuring secure settings on the third tab for deploying Azure IoT Operations from the portal.":::
 
-1. If you didn't prepare your Azure CLI environment as described in the prerequisites, do so now in a terminal of your choice:
+1. Select **Next: Automation**.
 
-   ```azurecli
-   az upgrade
-   az extension add --upgrade --name azure-iot-ops
-   ```
+1. One at a time, run each Azure CLI command on the **Automation** tab in a terminal:
 
-1. Sign in to Azure CLI interactively with a browser even if you already signed in before. If you don't sign in interactively, you might get an error that says *Your device is required to be managed to access your resource* when you continue to the next step to deploy Azure IoT Operations.
+   1. Sign in to Azure CLI interactively with a browser even if you already signed in before. If you don't sign in interactively, you might get an error that says *Your device is required to be managed to access your resource* when you continue to the next step to deploy Azure IoT Operations.
 
-   ```azurecli
-   az login
-   ```
+      ```azurecli
+      az login
+      ```
 
-1. Copy the [az iot ops init](/cli/azure/iot/ops#az-iot-ops-init) command from the **Automation** tab in the Azure portal and run it in your terminal.
+   1. If you didn't prepare your Azure CLI environment as described in the prerequisites, do so now in a terminal of your choice:
+
+      ```azurecli
+      az upgrade
+      az extension add --upgrade --name azure-iot-ops
+      ```
+
+   1. Copy and run the `az iot ops schema registry create` command.
+
+   1. Copy and run the `az iot ops init` command.
+
+   1. Copy and run the `az iot ops create` command.
+
+   1. Copy and run the `az iot ops secretsync enable` command.
+
+   1. Copy and run the `az iot ops identity assign` command.
+
+1. Once all of the Azure CLI commands have completed successfully, you can close the **Install Azure IoT Operations** wizard.
 
 ---
 

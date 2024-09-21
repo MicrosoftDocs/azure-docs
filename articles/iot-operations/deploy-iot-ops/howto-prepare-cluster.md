@@ -23,13 +23,13 @@ An Azure Arc-enabled Kubernetes cluster is a prerequisite for deploying Azure Io
 
 ## Prerequisites
 
-Azure IoT Operations should work on any Arc-enabled Kubernetes cluster that meets the [Azure Arc-enabled Kubernetes system requirements](/azure/azure-arckubernetes/system-requirements). Currently Azure IoT Operations doesn't support ARM64 architectures.
+Azure IoT Operations should work on any Arc-enabled Kubernetes cluster that meets the [Azure Arc-enabled Kubernetes system requirements](/azure/azure-arc/kubernetes/system-requirements). Currently Azure IoT Operations doesn't support ARM64 architectures.
 
 Microsoft supports AKS Edge Essentials for deployments on Windows and K3s for deployments on Ubuntu. For a list of specific hardware and software combinations that are tested and validated, see [Validated environments](../overview-iot-operations.md#validated-environments).
 
 To prepare your Azure Arc-enabled Kubernetes cluster, you need:
 
-* Hardware that meets the [system requirements](/azure/azure-arckubernetes/system-requirements).
+* Hardware that meets the [system requirements](/azure/azure-arc/kubernetes/system-requirements).
 
 ### [AKS Edge Essentials](#tab/aks-edge-essentials)
 
@@ -254,65 +254,25 @@ To connect your cluster to Azure Arc:
    export CLUSTER_NAME=<NEW_CLUSTER_NAME>
    ```
 
-1. Set the Azure subscription context for all commands:
-
-   ```azurecli
-   az account set -s $SUBSCRIPTION_ID
-   ```
-
-1. Register the required resource providers in your subscription:
-
-   >[!NOTE]
-   >This step only needs to be run once per subscription. To register resource providers, you need permission to do the `/register/action` operation, which is included in subscription Contributor and Owner roles. For more information, see [Azure resource providers and types](../../azure-resource-manager/management/resource-providers-and-types.md).
-
-   ```azurecli
-   az provider register -n "Microsoft.ExtendedLocation"
-   az provider register -n "Microsoft.Kubernetes"
-   az provider register -n "Microsoft.KubernetesConfiguration"
-   az provider register -n "Microsoft.IoTOperationsOrchestrator"
-   az provider register -n "Microsoft.IoTOperations"
-   az provider register -n "Microsoft.DeviceRegistry"
-   ```
-
-1. Download and install a preview version of the `connectedk8s` extension for Azure CLI.
-
-   ```azurecli
-   az storage blob download --auth-mode login --blob-url https://github.com/AzureArcForKubernetes/azure-cli-extensions/blob/connectedk8s/public/cli-extensions/connectedk8s-1.10.0-py2.py3-none-any.whl -f ./connectedk8s-1.10.0-py2.py3-none-any.whl
-   
-   az extension add --upgrade --source ./connectedk8s-1.10.0-py2.py3-none-any.whl
-   ```
-
-1. Use the [az group create](/cli/azure/group#az-group-create) command to create a resource group in your Azure subscription to store all the resources:
-
-   ```azurecli
-   az group create --location $LOCATION --resource-group $RESOURCE_GROUP --subscription $SUBSCRIPTION_ID
-   ```
-
-1. Use the [az connectedk8s connect](/cli/azure/connectedk8s#az-connectedk8s-connect) command to Arc-enable your Kubernetes cluster and manage it as part of your Azure resource group:
-
-   ```azurecli
-   az connectedk8s connect -n $CLUSTER_NAME -l $LOCATION -g $RESOURCE_GROUP --subscription $SUBSCRIPTION_ID --disable-auto-upgrade
-   ```
-
-1. Upgrade the Azure Arc agent to use a preview build that supports the workload identity feature that Azure IoT Operations uses for user-assigned managed identities.
-
-
-
-1. Get the `objectId` of the Microsoft Entra ID application that the Azure Arc service uses and save it as an environment variable.
-
-   ```azurecli
-   export OBJECT_ID=$(az ad sp show --id bc313c14-388c-4e7d-a58e-70017303ee3b --query id -o tsv)
-   ```
-
-1. Use the [az connectedk8s enable-features](/cli/azure/connectedk8s#az-connectedk8s-enable-features) command to enable custom location support on your cluster. This command uses the `objectId` of the Microsoft Entra ID application that the Azure Arc service uses. Run this command on the machine where you deployed the Kubernetes cluster:
-
-    ```azurecli
-    az connectedk8s enable-features -n $CLUSTER_NAME -g $RESOURCE_GROUP --custom-locations-oid $OBJECT_ID --features cluster-connect custom-locations
-    ```
+[!INCLUDE [connect-cluster-k3s](../includes/connect-cluster-k3s.md)]
 
 ### [Codespaces](#tab/codespaces)
 
-[!INCLUDE [connect-cluster-codespaces](../includes/connect-cluster-codespaces.md)]
+To connect your cluster to Azure Arc:
+
+1. In your codespace terminal, sign in to Azure CLI:
+
+   ```azurecli
+   az login
+   ```
+
+   > [!TIP]
+   > If you're using the GitHub codespace environment in a browser rather than VS Code desktop, running `az login` returns a localhost error. To fix the error, either:
+   >
+   > * Open the codespace in VS Code desktop, and then return to the browser terminal and rerun `az login`.
+   > * Or, after you get the localhost error on the browser, copy the URL from the browser and run `curl "<URL>"` in a new terminal tab. You should see a JSON response with the message "You have logged into Microsoft Azure!."
+
+[!INCLUDE [connect-cluster-k3s](../includes/connect-cluster-k3s.md)]
 
 ---
 
@@ -324,7 +284,7 @@ To verify that your cluster is ready for Azure IoT Operations deployment, you ca
 az iot ops verify-host
 ```
 
-To verify that your Kubernetes cluster is now Azure Arc-enabled, run the following command:
+To verify that your Kubernetes cluster is Azure Arc-enabled, run the following command:
 
 ```console
 kubectl get deployments,pods -n azure-arc
@@ -359,10 +319,6 @@ pod/kube-aad-proxy-56d9f754d8-9gthm               2/2     Running   0           
 pod/resource-sync-agent-769bb66b79-z9n46          2/2     Running   0               10m
 pod/metrics-agent-6588f97dc-455j8                 2/2     Running   0               10m
 ```
-
-## Create sites
-
-A _site_ is a collection of Azure IoT Operations instances. Sites typically group instances by physical location and make it easier for OT users to locate and manage assets. An IT administrator creates sites and assigns Azure IoT Operations instances to them. To learn more, see [What is Azure Arc site manager (preview)?](/azure/azure-arc/site-manager/overview).
 
 ## Next steps
 
