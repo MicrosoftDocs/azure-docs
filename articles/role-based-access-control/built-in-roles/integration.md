@@ -7,7 +7,7 @@ ms.workload: identity
 author: rolyon
 manager: amycolannino
 ms.author: rolyon
-ms.date: 04/25/2024
+ms.date: 09/20/2024
 ms.custom: generated
 ---
 
@@ -213,6 +213,7 @@ Has read access to tags and products and write access to allow: assigning APIs t
 > | [Microsoft.ApiManagement](../permissions/integration.md#microsoftapimanagement)/service/products/read | Lists a collection of products in the specified service instance. or Gets the details of the product specified by its identifier. |
 > | [Microsoft.ApiManagement](../permissions/integration.md#microsoftapimanagement)/service/products/apiLinks/* |  |
 > | [Microsoft.ApiManagement](../permissions/integration.md#microsoftapimanagement)/service/read | Read metadata for an API Management Service instance |
+> | [Microsoft.ApiManagement](../permissions/integration.md#microsoftapimanagement)/service/authorizationServers/read | Lists a collection of authorization servers defined within a service instance. or Gets the details of the authorization server without secrets. |
 > | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
 > | **NotActions** |  |
 > | *none* |  |
@@ -239,6 +240,7 @@ Has read access to tags and products and write access to allow: assigning APIs t
         "Microsoft.ApiManagement/service/products/read",
         "Microsoft.ApiManagement/service/products/apiLinks/*",
         "Microsoft.ApiManagement/service/read",
+        "Microsoft.ApiManagement/service/authorizationServers/read",
         "Microsoft.Authorization/*/read"
       ],
       "notActions": [],
@@ -271,6 +273,7 @@ Has the same access as API Management Service Workspace API Developer as well as
 > | [Microsoft.ApiManagement](../permissions/integration.md#microsoftapimanagement)/service/groups/read | Lists a collection of groups defined within a service instance. or Gets the details of the group specified by its identifier. |
 > | [Microsoft.ApiManagement](../permissions/integration.md#microsoftapimanagement)/service/groups/users/* |  |
 > | [Microsoft.ApiManagement](../permissions/integration.md#microsoftapimanagement)/service/read | Read metadata for an API Management Service instance |
+> | [Microsoft.ApiManagement](../permissions/integration.md#microsoftapimanagement)/service/authorizationServers/read | Lists a collection of authorization servers defined within a service instance. or Gets the details of the authorization server without secrets. |
 > | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
 > | **NotActions** |  |
 > | *none* |  |
@@ -300,6 +303,7 @@ Has the same access as API Management Service Workspace API Developer as well as
         "Microsoft.ApiManagement/service/groups/read",
         "Microsoft.ApiManagement/service/groups/users/*",
         "Microsoft.ApiManagement/service/read",
+        "Microsoft.ApiManagement/service/authorizationServers/read",
         "Microsoft.Authorization/*/read"
       ],
       "notActions": [],
@@ -331,6 +335,10 @@ Has read access to entities in the workspace and read and write access to entiti
 > | [Microsoft.ApiManagement](../permissions/integration.md#microsoftapimanagement)/service/workspaces/policyFragments/* |  |
 > | [Microsoft.ApiManagement](../permissions/integration.md#microsoftapimanagement)/service/workspaces/namedValues/* |  |
 > | [Microsoft.ApiManagement](../permissions/integration.md#microsoftapimanagement)/service/workspaces/tags/* |  |
+> | [Microsoft.ApiManagement](../permissions/integration.md#microsoftapimanagement)/service/workspaces/backends/* |  |
+> | [Microsoft.ApiManagement](../permissions/integration.md#microsoftapimanagement)/service/workspaces/certificates/* |  |
+> | [Microsoft.ApiManagement](../permissions/integration.md#microsoftapimanagement)/service/workspaces/diagnostics/* |  |
+> | [Microsoft.ApiManagement](../permissions/integration.md#microsoftapimanagement)/service/workspaces/loggers/* |  |
 > | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
 > | **NotActions** |  |
 > | *none* |  |
@@ -359,6 +367,10 @@ Has read access to entities in the workspace and read and write access to entiti
         "Microsoft.ApiManagement/service/workspaces/policyFragments/*",
         "Microsoft.ApiManagement/service/workspaces/namedValues/*",
         "Microsoft.ApiManagement/service/workspaces/tags/*",
+        "Microsoft.ApiManagement/service/workspaces/backends/*",
+        "Microsoft.ApiManagement/service/workspaces/certificates/*",
+        "Microsoft.ApiManagement/service/workspaces/diagnostics/*",
+        "Microsoft.ApiManagement/service/workspaces/loggers/*",
         "Microsoft.Authorization/*/read"
       ],
       "notActions": [],
@@ -658,6 +670,7 @@ Allows for access to Azure API Center data plane read operations.
 > | *none* |  |
 > | **DataActions** |  |
 > | [Microsoft.ApiCenter](../permissions/integration.md#microsoftapicenter)/services/*/read |  |
+> | [Microsoft.ApiCenter](../permissions/integration.md#microsoftapicenter)/services/workspaces/apis/versions/definitions/exportSpecification/action | Exports API definition file. |
 > | **NotDataActions** |  |
 > | *none* |  |
 
@@ -674,7 +687,8 @@ Allows for access to Azure API Center data plane read operations.
       "actions": [],
       "notActions": [],
       "dataActions": [
-        "Microsoft.ApiCenter/services/*/read"
+        "Microsoft.ApiCenter/services/*/read",
+        "Microsoft.ApiCenter/services/workspaces/apis/versions/definitions/exportSpecification/action"
       ],
       "notDataActions": []
     }

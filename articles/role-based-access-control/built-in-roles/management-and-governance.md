@@ -7,7 +7,7 @@ ms.workload: identity
 author: rolyon
 manager: amycolannino
 ms.author: rolyon
-ms.date: 04/25/2024
+ms.date: 09/20/2024
 ms.custom: generated
 ---
 
@@ -330,24 +330,16 @@ Can read, write, delete and re-onboard Azure Connected Machines.
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
-> | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/machines/read | Read any Azure Arc machines |
-> | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/machines/write | Writes an Azure Arc machines |
-> | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/machines/delete | Deletes an Azure Arc machines |
+> | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/machines/* |  |
+> | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/machines/extensions/* |  |
+> | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/machines/licenseProfiles/* |  |
+> | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/machines/runCommands/* |  |
 > | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/machines/UpgradeExtensions/action | Upgrades Extensions on Azure Arc machines |
-> | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/machines/extensions/read | Reads any Azure Arc extensions |
-> | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/machines/extensions/write | Installs or Updates an Azure Arc extensions |
-> | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/machines/extensions/delete | Deletes an Azure Arc extensions |
 > | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/privateLinkScopes/* |  |
+> | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/licenses/* |  |
+> | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/locations/* |  |
 > | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/*/read |  |
 > | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/* | Create and manage a deployment |
-> | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/licenses/write | Installs or Updates an Azure Arc licenses |
-> | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/licenses/delete | Deletes an Azure Arc licenses |
-> | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/machines/licenseProfiles/read | Reads any Azure Arc licenseProfiles |
-> | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/machines/licenseProfiles/write | Installs or Updates an Azure Arc licenseProfiles |
-> | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/machines/licenseProfiles/delete | Deletes an Azure Arc licenseProfiles |
-> | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/machines/runCommands/read | Reads any Azure Arc runcommands |
-> | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/machines/runCommands/write | Installs or Updates an Azure Arc runcommands |
-> | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/machines/runCommands/delete | Deletes an Azure Arc runcommands |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -366,24 +358,16 @@ Can read, write, delete and re-onboard Azure Connected Machines.
   "permissions": [
     {
       "actions": [
-        "Microsoft.HybridCompute/machines/read",
-        "Microsoft.HybridCompute/machines/write",
-        "Microsoft.HybridCompute/machines/delete",
+        "Microsoft.HybridCompute/machines/*",
+        "Microsoft.HybridCompute/machines/extensions/*",
+        "Microsoft.HybridCompute/machines/licenseProfiles/*",
+        "Microsoft.HybridCompute/machines/runCommands/*",
         "Microsoft.HybridCompute/machines/UpgradeExtensions/action",
-        "Microsoft.HybridCompute/machines/extensions/read",
-        "Microsoft.HybridCompute/machines/extensions/write",
-        "Microsoft.HybridCompute/machines/extensions/delete",
         "Microsoft.HybridCompute/privateLinkScopes/*",
+        "Microsoft.HybridCompute/licenses/*",
+        "Microsoft.HybridCompute/locations/*",
         "Microsoft.HybridCompute/*/read",
-        "Microsoft.Resources/deployments/*",
-        "Microsoft.HybridCompute/licenses/write",
-        "Microsoft.HybridCompute/licenses/delete",
-        "Microsoft.HybridCompute/machines/licenseProfiles/read",
-        "Microsoft.HybridCompute/machines/licenseProfiles/write",
-        "Microsoft.HybridCompute/machines/licenseProfiles/delete",
-        "Microsoft.HybridCompute/machines/runCommands/read",
-        "Microsoft.HybridCompute/machines/runCommands/write",
-        "Microsoft.HybridCompute/machines/runCommands/delete"
+        "Microsoft.Resources/deployments/*"
       ],
       "notActions": [],
       "dataActions": [],
@@ -405,24 +389,38 @@ Custom Role for AzureStackHCI RP to manage hybrid compute machines and hybrid co
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
-> | [Microsoft.HybridConnectivity](../permissions/hybrid-multicloud.md#microsofthybridconnectivity)/endpoints/read | Gets the endpoint to the resource. |
-> | [Microsoft.HybridConnectivity](../permissions/hybrid-multicloud.md#microsofthybridconnectivity)/endpoints/write | Update the endpoint to the target resource. |
-> | [Microsoft.HybridConnectivity](../permissions/hybrid-multicloud.md#microsofthybridconnectivity)/endpoints/serviceConfigurations/read | Gets the details about the service to the resource. |
-> | [Microsoft.HybridConnectivity](../permissions/hybrid-multicloud.md#microsofthybridconnectivity)/endpoints/serviceConfigurations/write | Update the service details in the service configurations of the target resource. |
+> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
+> | [Microsoft.GuestConfiguration](../permissions/management-and-governance.md#microsoftguestconfiguration)/guestConfigurationAssignments/*/read |  |
+> | [Microsoft.GuestConfiguration](../permissions/management-and-governance.md#microsoftguestconfiguration)/guestConfigurationAssignments/read | Get guest configuration assignment. |
+> | [Microsoft.GuestConfiguration](../permissions/management-and-governance.md#microsoftguestconfiguration)/guestConfigurationAssignments/write | Create new guest configuration assignment. |
 > | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/machines/read | Read any Azure Arc machines |
-> | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/machines/write | Writes an Azure Arc machines |
-> | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/machines/delete | Deletes an Azure Arc machines |
 > | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/machines/extensions/read | Reads any Azure Arc extensions |
-> | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/machines/extensions/write | Installs or Updates an Azure Arc extensions |
-> | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/machines/extensions/delete | Deletes an Azure Arc extensions |
 > | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/*/read |  |
-> | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/machines/UpgradeExtensions/action | Upgrades Extensions on Azure Arc machines |
+> | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/machines/delete | Deletes an Azure Arc machines |
+> | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/machines/extensions/delete | Deletes an Azure Arc extensions |
+> | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/machines/extensions/write | Installs or Updates an Azure Arc extensions |
+> | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/machines/licenseProfiles/delete | Deletes an Azure Arc licenseProfiles |
 > | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/machines/licenseProfiles/read | Reads any Azure Arc licenseProfiles |
 > | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/machines/licenseProfiles/write | Installs or Updates an Azure Arc licenseProfiles |
-> | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/machines/licenseProfiles/delete | Deletes an Azure Arc licenseProfiles |
-> | [Microsoft.GuestConfiguration](../permissions/management-and-governance.md#microsoftguestconfiguration)/guestConfigurationAssignments/read | Get guest configuration assignment. |
-> | [Microsoft.GuestConfiguration](../permissions/management-and-governance.md#microsoftguestconfiguration)/guestConfigurationAssignments/*/read |  |
-> | [Microsoft.GuestConfiguration](../permissions/management-and-governance.md#microsoftguestconfiguration)/guestConfigurationAssignments/write | Create new guest configuration assignment. |
+> | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/machines/UpgradeExtensions/action | Upgrades Extensions on Azure Arc machines |
+> | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/machines/write | Writes an Azure Arc machines |
+> | [Microsoft.HybridConnectivity](../permissions/hybrid-multicloud.md#microsofthybridconnectivity)/endpoints/read | Get or list of endpoints to the target resource. |
+> | [Microsoft.HybridConnectivity](../permissions/hybrid-multicloud.md#microsofthybridconnectivity)/endpoints/serviceConfigurations/read | Get or list of serviceConfigurations to the endpoints resource. |
+> | [Microsoft.HybridConnectivity](../permissions/hybrid-multicloud.md#microsofthybridconnectivity)/endpoints/serviceConfigurations/write | Create or update the serviceConfigurations to the endpoints resource. |
+> | [Microsoft.HybridConnectivity](../permissions/hybrid-multicloud.md#microsofthybridconnectivity)/endpoints/write | Create or update the endpoint to the target resource. |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
+> | Microsoft.EdgeMarketplace/locations/operationStatuses/read | read operationStatuses |
+> | Microsoft.EdgeMarketPlace/offers/getAccessToken/action | get access token. |
+> | Microsoft.EdgeMarketPlace/offers/generateAccessToken/action | A long-running resource action. |
+> | Microsoft.EdgeMarketplace/publishers/read | Get a Publisher |
+> | Microsoft.EdgeMarketplace/offers/read | Get a Offer |
+> | [Microsoft.ExtendedLocation](../permissions/hybrid-multicloud.md#microsoftextendedlocation)/customLocations/read | Gets an Custom Location resource |
+> | Microsoft.Attestation/attestationProviders/write | Adds attestation service. |
+> | Microsoft.Attestation/attestationProviders/read | Gets the attestation service status. |
+> | Microsoft.Attestation/attestationProviders/delete | Removes attestation service. |
+> | Microsoft.Attestation/attestationProviders/attestation/read | Gets the attestation service status. |
+> | Microsoft.Attestation/attestationProviders/attestation/write | Adds attestation service. |
+> | Microsoft.Attestation/attestationProviders/attestation/delete | Removes attestation service. |
 > | **NotActions** |  |
 > | *none* |  |
 > | **DataActions** |  |
@@ -441,24 +439,38 @@ Custom Role for AzureStackHCI RP to manage hybrid compute machines and hybrid co
   "permissions": [
     {
       "actions": [
-        "Microsoft.HybridConnectivity/endpoints/read",
-        "Microsoft.HybridConnectivity/endpoints/write",
-        "Microsoft.HybridConnectivity/endpoints/serviceConfigurations/read",
-        "Microsoft.HybridConnectivity/endpoints/serviceConfigurations/write",
+        "Microsoft.Authorization/*/read",
+        "Microsoft.GuestConfiguration/guestConfigurationAssignments/*/read",
+        "Microsoft.GuestConfiguration/guestConfigurationAssignments/read",
+        "Microsoft.GuestConfiguration/guestConfigurationAssignments/write",
         "Microsoft.HybridCompute/machines/read",
-        "Microsoft.HybridCompute/machines/write",
-        "Microsoft.HybridCompute/machines/delete",
         "Microsoft.HybridCompute/machines/extensions/read",
-        "Microsoft.HybridCompute/machines/extensions/write",
-        "Microsoft.HybridCompute/machines/extensions/delete",
         "Microsoft.HybridCompute/*/read",
-        "Microsoft.HybridCompute/machines/UpgradeExtensions/action",
+        "Microsoft.HybridCompute/machines/delete",
+        "Microsoft.HybridCompute/machines/extensions/delete",
+        "Microsoft.HybridCompute/machines/extensions/write",
+        "Microsoft.HybridCompute/machines/licenseProfiles/delete",
         "Microsoft.HybridCompute/machines/licenseProfiles/read",
         "Microsoft.HybridCompute/machines/licenseProfiles/write",
-        "Microsoft.HybridCompute/machines/licenseProfiles/delete",
-        "Microsoft.GuestConfiguration/guestConfigurationAssignments/read",
-        "Microsoft.GuestConfiguration/guestConfigurationAssignments/*/read",
-        "Microsoft.GuestConfiguration/guestConfigurationAssignments/write"
+        "Microsoft.HybridCompute/machines/UpgradeExtensions/action",
+        "Microsoft.HybridCompute/machines/write",
+        "Microsoft.HybridConnectivity/endpoints/read",
+        "Microsoft.HybridConnectivity/endpoints/serviceConfigurations/read",
+        "Microsoft.HybridConnectivity/endpoints/serviceConfigurations/write",
+        "Microsoft.HybridConnectivity/endpoints/write",
+        "Microsoft.Resources/subscriptions/resourceGroups/read",
+        "Microsoft.EdgeMarketplace/locations/operationStatuses/read",
+        "Microsoft.EdgeMarketPlace/offers/getAccessToken/action",
+        "Microsoft.EdgeMarketPlace/offers/generateAccessToken/action",
+        "Microsoft.EdgeMarketplace/publishers/read",
+        "Microsoft.EdgeMarketplace/offers/read",
+        "Microsoft.ExtendedLocation/customLocations/read",
+        "Microsoft.Attestation/attestationProviders/write",
+        "Microsoft.Attestation/attestationProviders/read",
+        "Microsoft.Attestation/attestationProviders/delete",
+        "Microsoft.Attestation/attestationProviders/attestation/read",
+        "Microsoft.Attestation/attestationProviders/attestation/write",
+        "Microsoft.Attestation/attestationProviders/attestation/delete"
       ],
       "notActions": [],
       "dataActions": [],
