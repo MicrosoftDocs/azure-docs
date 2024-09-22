@@ -95,14 +95,14 @@ If you're an existing customer using an on-premises management console to manage
 
 1. After your transition is complete, decommission the on-premises management console.
 
-
-### Retirement timeline
+### Retirement timeline of the Central Manager
 
 The on-premises management console retirement includes the following details:
 
 - Sensor versions released after **January 1, 2025** won't be able to be managed by an on-premises management console.
 - Sensor software versions released between **January 1st, 2024 – January 1st, 2025** will continue to support an on-premises management console release.
 - Air-gapped sensors that cannot connect to the cloud can be managed directly via the sensor console, CLI, or API.
+- Air-gapped sensor support will continue.
 
 For more information, see [OT monitoring software versions](../release-notes.md).
 
