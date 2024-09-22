@@ -3,7 +3,8 @@ title: How to use Azure Machine Learning Notebook on Spark
 description: Learn how to Azure Machine Learning notebook on Spark
 ms.service: azure-hdinsight-on-aks
 ms.topic: how-to
-ms.date: 08/29/2023
+ms.date: 09/20/2024
+ROBOTS: NOINDEX
 ---
 
 # How to use Azure Machine Learning Notebook on Spark

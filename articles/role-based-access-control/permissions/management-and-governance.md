@@ -6,7 +6,7 @@ ms.topic: reference
 author: rolyon
 manager: amycolannino
 ms.author: rolyon
-ms.date: 04/25/2024
+ms.date: 09/20/2024
 ms.custom: generated
 ---
 
@@ -138,7 +138,6 @@ Azure service: [Automation](/azure/automation/)
 > | --- | --- |
 > | Microsoft.Automation/register/action | Registers the subscription to Azure Automation |
 > | Microsoft.Automation/automationAccounts/convertGraphRunbookContent/action | Convert Graph Runbook Content to its raw serialized format and vice-versa |
-> | Microsoft.Automation/automationAccounts/webhooks/action | Generates a URI for an Azure Automation webhook |
 > | Microsoft.Automation/automationAccounts/read | Gets an Azure Automation account |
 > | Microsoft.Automation/automationAccounts/write | Creates or updates an Azure Automation account |
 > | Microsoft.Automation/automationAccounts/listKeys/action | Reads the Keys for the automation account |
@@ -263,9 +262,6 @@ Azure service: [Automation](/azure/automation/)
 > | Microsoft.Automation/automationAccounts/watchers/watcherActions/write | Create an Azure Automation watcher job actions |
 > | Microsoft.Automation/automationAccounts/watchers/watcherActions/read | Gets an Azure Automation watcher job actions |
 > | Microsoft.Automation/automationAccounts/watchers/watcherActions/delete | Delete an Azure Automation watcher job actions |
-> | Microsoft.Automation/automationAccounts/webhooks/read | Reads an Azure Automation webhook |
-> | Microsoft.Automation/automationAccounts/webhooks/write | Creates or updates an Azure Automation webhook |
-> | Microsoft.Automation/automationAccounts/webhooks/delete | Deletes an Azure Automation webhook  |
 > | Microsoft.Automation/deletedAutomationAccounts/read | Gets an Azure Automation deleted account  |
 > | Microsoft.Automation/operations/read | Gets Available Operations for Azure Automation resources |
 
@@ -299,6 +295,7 @@ Azure service: [Cost Management + Billing](/azure/cost-management-billing/)
 > | Microsoft.Billing/billingAccounts/associatedTenants/read | Lists the associated tenants that can collaborate with the billing account on commerce activities like viewing and downloading invoices, managing payments, making purchases, and managing or provisioning licenses. |
 > | Microsoft.Billing/billingAccounts/associatedTenants/write | Create or update an associated tenant for the billing account. |
 > | Microsoft.Billing/billingAccounts/availableBalance/read | The Available Credit or Payment on Account Balance for a billing account.<br>The credit balance can be used to settle due or past due invoices and is supported for billing accounts with agreement type Microsoft Customer Agreement.<br>The payment on account balance is supported for billing accounts with agreement type Microsoft Customer Agreement or Microsoft Online Services Program. |
+> | Microsoft.Billing/billingAccounts/billingPeriods/read | Lists the valid Billing Periods for a Billing Account. The operation is supported only for billing accounts with agreement type Enterprise Agreement. |
 > | Microsoft.Billing/billingAccounts/billingPermissions/read | Lists the billing permissions the caller has on a billing account. |
 > | Microsoft.Billing/billingAccounts/billingProfiles/read | Lists the billing profiles that a user has access to. The operation is supported for billing accounts with agreement of type Microsoft Customer Agreement and Microsoft Partner Agreement. |
 > | Microsoft.Billing/billingAccounts/billingProfiles/write | Creates or updates a billing profile.<br>The operation is supported for billing accounts with agreement type Microsoft Customer Agreement, Microsoft Partner Agreement and Enterprise Agreement.<br>If you are a MCA Individual (Pay-as-you-go) customer, then please use the Azure portal experience to create the billing profile. |
@@ -307,6 +304,7 @@ Azure service: [Cost Management + Billing](/azure/cost-management-billing/)
 > | Microsoft.Billing/billingAccounts/billingProfiles/invoiceSections/action |  |
 > | Microsoft.Billing/billingAccounts/billingProfiles/alerts/read | Lists the alerts for a billing profile. The operation is supported for billing accounts with agreement type Microsoft Customer Agreement and Microsoft Partner Agreement. |
 > | Microsoft.Billing/billingAccounts/billingProfiles/availableBalance/read | The Available Credit or Payment on Account Balance for a billing profile.<br>The credit balance can be used to settle due or past due invoices and is supported for billing accounts with agreement type Microsoft Customer Agreement.<br>The payment on account balance is supported for billing accounts with agreement type Microsoft Customer Agreement. |
+> | Microsoft.Billing/billingAccounts/billingProfiles/billingPeriods/read | Lists the valid Billing Periods for a Billing Profile. The operation is supported only for billing accounts with agreement type Enterprise Agreement. |
 > | Microsoft.Billing/billingAccounts/billingProfiles/billingPermissions/read | Lists the billing permissions the caller has on a billing profile. |
 > | Microsoft.Billing/billingAccounts/billingProfiles/billingProviders/register/write | Registers a resource provider with Microsoft.Billing at billing profile scope. |
 > | Microsoft.Billing/billingAccounts/billingProfiles/billingProviders/unregister/write | Unregisters a resource provider with Microsoft.Billing at billing profile scope. |
@@ -331,11 +329,14 @@ Azure service: [Cost Management + Billing](/azure/cost-management-billing/)
 > | Microsoft.Billing/billingAccounts/billingProfiles/customers/resolveBillingRoleAssignments/write | Lists the role assignments for the caller on a customer while fetching user info for each role assignment. The operation is supported for billing accounts with agreement type Microsoft Partner Agreement. |
 > | Microsoft.Billing/billingAccounts/billingProfiles/customers/transactions/read | Lists the billed or unbilled transactions by customer id for given start date and end date.<br>Transactions include purchases, refunds and Azure usage charges.<br>Unbilled transactions are listed under pending invoice Id and do not include tax.<br>Tax is added to the amount once an invoice is generated. |
 > | Microsoft.Billing/billingAccounts/billingProfiles/departments/read | Lists the departments that a user has access to. The operation is supported only for billing accounts with agreement type Enterprise Agreement. |
+> | Microsoft.Billing/billingAccounts/billingProfiles/departments/billingPeriods/read | Lists the valid Billing Periods  by billing profile ID and department name. The operation is supported only for Departments under billing profiles with agreement type Enterprise Agreement. |
 > | Microsoft.Billing/billingAccounts/billingProfiles/departments/billingPermissions/read |  |
 > | Microsoft.Billing/billingAccounts/billingProfiles/departments/billingRoleDefinitions/read | Gets the definition for a role on a department. The operation is supported for billing profiles with agreement type Enterprise Agreement. |
 > | Microsoft.Billing/billingAccounts/billingProfiles/departments/billingSubscriptions/read | List billing subscriptions by billing profile ID and department name. This operation is supported only for billing accounts of type Enterprise Agreement. |
-> | Microsoft.Billing/billingAccounts/billingProfiles/departments/enrollmentAccounts/read | Get list of enrollment accounts using billing profile ID and department ID |
+> | Microsoft.Billing/billingAccounts/billingProfiles/departments/enrollmentAccounts/read | Get list of enrollment accounts using billing |
+> | Microsoft.Billing/billingAccounts/billingProfiles/departments/enrollmentAccounts/billingPeriods/read | Lists the valid Billing Periods for an Enrollment Account under Department under Billing Profile. The operation is supported only for enrollment profiles under billing accounts with agreement type Enterprise Agreement. |
 > | Microsoft.Billing/billingAccounts/billingProfiles/enrollmentAccounts/read | Lists the enrollment accounts for a specific billing account and a billing profile belonging to it. |
+> | Microsoft.Billing/billingAccounts/billingProfiles/enrollmentAccounts/billingPeriods/read | Lists the valid Billing Periods for an Enrollment Account under Billing Profile. The operation is supported only for billing profiles under billing accounts with agreement type Enterprise Agreement. |
 > | Microsoft.Billing/billingAccounts/billingProfiles/enrollmentAccounts/billingPermissions/read |  |
 > | Microsoft.Billing/billingAccounts/billingProfiles/enrollmentAccounts/billingSubscriptions/read | List billing subscriptions by billing profile ID and enrollment account name. This operation is supported only for billing accounts of type Enterprise Agreement. |
 > | Microsoft.Billing/billingAccounts/billingProfiles/invoices/download/action |  |
@@ -417,6 +418,7 @@ Azure service: [Cost Management + Billing](/azure/cost-management-billing/)
 > | Microsoft.Billing/billingAccounts/departments/read | Lists the departments that a user has access to. The operation is supported only for billing accounts with agreement type Enterprise Agreement. |
 > | Microsoft.Billing/billingAccounts/departments/write |  |
 > | Microsoft.Billing/billingAccounts/departments/addEnrollmentAccount/write |  |
+> | Microsoft.Billing/billingAccounts/departments/billingPeriods/read | Lists the valid Billing Periods for a Department. The operation is supported only for Departments under billing accounts with agreement type Enterprise Agreement. |
 > | Microsoft.Billing/billingAccounts/departments/billingPermissions/read | Lists the billing permissions the caller has for a department. |
 > | Microsoft.Billing/billingAccounts/departments/billingRoleAssignments/write | Create or update a billing role assignment. The operation is supported only for billing accounts with agreement type Enterprise Agreement. |
 > | Microsoft.Billing/billingAccounts/departments/billingRoleAssignments/read | Gets a role assignment for the caller on a department. The operation is supported only for billing accounts with agreement type Enterprise Agreement. |
@@ -425,12 +427,14 @@ Azure service: [Cost Management + Billing](/azure/cost-management-billing/)
 > | Microsoft.Billing/billingAccounts/departments/checkAccess/write | Provides a list of check access response objects for a department. |
 > | Microsoft.Billing/billingAccounts/departments/enrollmentAccounts/read | Lists the enrollment accounts for a department. The operation is supported only for billing accounts with agreement type Enterprise Agreement. |
 > | Microsoft.Billing/billingAccounts/departments/enrollmentAccounts/write |  |
+> | Microsoft.Billing/billingAccounts/departments/enrollmentAccounts/billingPeriods/read | Lists the valid Billing Periods for an Enrollment Account under Department. The operation is supported only for enrollment accounts under billing accounts with agreement type Enterprise Agreement. |
 > | Microsoft.Billing/billingAccounts/departments/enrollmentAccounts/remove/write |  |
 > | Microsoft.Billing/billingAccounts/downloadDocuments/write | Gets a URL to download multiple invoice documents (invoice pdf, tax receipts, credit notes) as a zip file. The operation is supported for billing accounts with agreement type Microsoft Partner Agreement or Microsoft Customer Agreement. |
 > | Microsoft.Billing/billingAccounts/enrollmentAccounts/read | Lists the enrollment accounts for a billing account. The operation is supported only for billing accounts with agreement type Enterprise Agreement. |
 > | Microsoft.Billing/billingAccounts/enrollmentAccounts/write |  |
 > | Microsoft.Billing/billingAccounts/enrollmentAccounts/activate/write |  |
 > | Microsoft.Billing/billingAccounts/enrollmentAccounts/activationStatus/read |  |
+> | Microsoft.Billing/billingAccounts/enrollmentAccounts/billingPeriods/read | Lists the valid Billing Periods for an Enrollment Account. The operation is supported only for enrollment accounts under billing accounts with agreement type Enterprise Agreement. |
 > | Microsoft.Billing/billingAccounts/enrollmentAccounts/billingPermissions/read | Lists the billing permissions the caller has for an enrollment account. |
 > | Microsoft.Billing/billingAccounts/enrollmentAccounts/billingRoleAssignments/write | Create or update a billing role assignment. The operation is supported only for billing accounts with agreement type Enterprise Agreement. |
 > | Microsoft.Billing/billingAccounts/enrollmentAccounts/billingRoleAssignments/read | Gets a role assignment for the caller on a enrollment Account. The operation is supported only for billing accounts with agreement type Enterprise Agreement. |
@@ -443,8 +447,8 @@ Azure service: [Cost Management + Billing](/azure/cost-management-billing/)
 > | Microsoft.Billing/billingAccounts/invoices/read | Lists the invoices for a billing account for a given start date and end date. The operation is supported for billing accounts with agreement type Microsoft Partner Agreement, Microsoft Customer Agreement, or Microsoft Online Services Program. |
 > | Microsoft.Billing/billingAccounts/invoices/amend/write | Regenerate an invoice by billing account name and invoice name. The operation is supported for billing accounts with agreement type Microsoft Customer Agreement. |
 > | Microsoft.Billing/billingAccounts/invoices/download/write | Gets a URL to download an invoice document. The operation is supported for billing accounts with agreement type Microsoft Partner Agreement, Microsoft Customer Agreement or Enterprise Agreement. |
+> | Microsoft.Billing/billingAccounts/invoices/downloadSummary/write | Gets a URL to download the summary document for an invoice. The operation is supported for billing accounts with agreement type Enterprise Agreement. |
 > | Microsoft.Billing/billingAccounts/invoices/pricesheet/download/action |  |
-> | Microsoft.Billing/billingAccounts/invoices/summaryDownload/write | Gets a URL to download the summary document for an invoice. The operation is supported for billing accounts with agreement type Enterprise Agreement. |
 > | Microsoft.Billing/billingAccounts/invoices/transactions/read | Lists the transactions for an invoice. Transactions include purchases, refunds and Azure usage charges. |
 > | Microsoft.Billing/billingAccounts/invoices/transactionsDownload/write | Gets a URL to download the transactions document for an invoice. The operation is supported for billing accounts with agreement type Enterprise Agreement. |
 > | Microsoft.Billing/billingAccounts/invoices/transactionSummary/read | Gets the transaction summary for an invoice. Transactions include purchases, refunds and Azure usage charges. |
@@ -476,6 +480,8 @@ Azure service: [Cost Management + Billing](/azure/cost-management-billing/)
 > | Microsoft.Billing/invoices/read |  |
 > | Microsoft.Billing/invoices/download/action | Download invoice using download link from list |
 > | Microsoft.Billing/operations/read | List of operations supported by provider. |
+> | Microsoft.Billing/paymentMethods/read | Lists the payment methods owned by the caller. |
+> | Microsoft.Billing/paymentMethods/write | Deletes a payment method owned by the caller. |
 > | Microsoft.Billing/policies/read | Lists the policies that are managed by the Billing Admin for the defined subscriptions. This is supported for Microsoft Online Services Program, Microsoft Customer Agreement and Microsoft Partner Agreement. |
 > | Microsoft.Billing/promotions/read | List or get promotions |
 > | Microsoft.Billing/validateAddress/write |  |
@@ -816,6 +822,7 @@ Azure service: [Site Recovery](/azure/site-recovery/)
 > | Microsoft.RecoveryServices/Locations/backupValidateFeatures/action | Validate Features |
 > | Microsoft.RecoveryServices/locations/allocateStamp/action | AllocateStamp is internal operation used by service |
 > | Microsoft.RecoveryServices/locations/checkNameAvailability/action | Check Resource Name Availability is an API to check if resource name is available |
+> | Microsoft.RecoveryServices/locations/capabilities/action | List capabilities at a given location. |
 > | Microsoft.RecoveryServices/locations/allocatedStamp/read | GetAllocatedStamp is internal operation used by service |
 > | Microsoft.RecoveryServices/Locations/backupAadProperties/read | Get AAD Properties for authentication in the third region for Cross Region Restore. |
 > | Microsoft.RecoveryServices/Locations/backupCrrOperationResults/read | Returns CRR Operation Result for Recovery Services Vault. |
@@ -831,6 +838,7 @@ Azure service: [Site Recovery](/azure/site-recovery/)
 > | Microsoft.RecoveryServices/Vaults/write | Create Vault operation creates an Azure resource of type 'vault' |
 > | Microsoft.RecoveryServices/Vaults/read | The Get Vault operation gets an object representing the Azure resource of type 'vault' |
 > | Microsoft.RecoveryServices/Vaults/delete | The Delete Vault operation deletes the specified Azure resource of type 'vault' |
+> | Microsoft.RecoveryServices/Vaults/PrivateEndpointConnectionsApproval/action | Approve the Private Endpoint Connection. |
 > | Microsoft.RecoveryServices/Vaults/backupconfig/read | Returns Configuration for Recovery Services Vault. |
 > | Microsoft.RecoveryServices/Vaults/backupconfig/write | Updates Configuration for Recovery Services Vault. |
 > | Microsoft.RecoveryServices/Vaults/backupDeletedProtectionContainers/read | Returns all containers belonging to the subscription |
@@ -864,6 +872,7 @@ Azure service: [Site Recovery](/azure/site-recovery/)
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/recoveryPoints/read | Get Recovery Points for Protected Items. |
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/recoveryPoints/restore/action | Restore Recovery Points for Protected Items. |
 > | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/recoveryPoints/revokeInstantItemRecovery/action | Revoke Instant Item Recovery for Protected Item |
+> | Microsoft.RecoveryServices/Vaults/backupFabrics/protectionContainers/protectedItems/recoveryPoints/write | Update Recovery Point for Protected Item. |
 > | Microsoft.RecoveryServices/Vaults/backupJobs/cancel/action | Cancel the Job |
 > | Microsoft.RecoveryServices/Vaults/backupJobs/read | Returns all Job Objects |
 > | Microsoft.RecoveryServices/Vaults/backupJobs/retry/action | Retry the Job |
@@ -898,7 +907,6 @@ Azure service: [Site Recovery](/azure/site-recovery/)
 > | Microsoft.RecoveryServices/Vaults/extendedInformation/read | The Get Extended Info operation gets an object's Extended Info representing the Azure resource of type ?vault? |
 > | Microsoft.RecoveryServices/Vaults/extendedInformation/write | The Get Extended Info operation gets an object's Extended Info representing the Azure resource of type ?vault? |
 > | Microsoft.RecoveryServices/Vaults/extendedInformation/delete | The Get Extended Info operation gets an object's Extended Info representing the Azure resource of type ?vault? |
-> | Microsoft.RecoveryServices/Vaults/locations/capabilities/action | List capabilities at a given location. |
 > | Microsoft.RecoveryServices/Vaults/monitoringAlerts/read | Gets the alerts for the Recovery services vault. |
 > | Microsoft.RecoveryServices/Vaults/monitoringAlerts/write | Resolves the alert. |
 > | Microsoft.RecoveryServices/Vaults/monitoringConfigurations/read | Gets the Recovery services vault notification configuration. |
@@ -948,6 +956,7 @@ Azure service: [Site Recovery](/azure/site-recovery/)
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/write | Create or Update any Protection Containers |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/remove/action | Remove Protection Container |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/switchprotection/action | Switch Protection Container |
+> | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/switchClusterProtection/action |  |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/operationresults/read | Track the results of an asynchronous operation on the resource Protection Containers |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationMigrationItems/read | Read any Migration Items |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationMigrationItems/write | Create or Update any Migration Items |
@@ -983,6 +992,15 @@ Azure service: [Site Recovery](/azure/site-recovery/)
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/operationresults/read | Track the results of an asynchronous operation on the resource Protected Items |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/recoveryPoints/read | Read any Replication Recovery Points |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectedItems/targetComputeSizes/read | Read any Target Compute Sizes |
+> | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectionClusters/read | Read any  |
+> | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectionClusters/delete | Delete any  |
+> | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectionClusters/unplannedFailover/action |  |
+> | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectionClusters/testFailover/action |  |
+> | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectionClusters/testFailoverCleanup/action |  |
+> | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectionClusters/applyRecoveryPoint/action |  |
+> | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectionClusters/failoverCommit/action |  |
+> | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectionClusters/repairReplication/action |  |
+> | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectionClusters/operationresults/read | Track the results of an asynchronous operation on the resource  |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectionContainerMappings/read | Read any Protection Container Mappings |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectionContainerMappings/write | Create or Update any Protection Container Mappings |
 > | Microsoft.RecoveryServices/vaults/replicationFabrics/replicationProtectionContainers/replicationProtectionContainerMappings/remove/action | Remove Protection Container Mapping |
