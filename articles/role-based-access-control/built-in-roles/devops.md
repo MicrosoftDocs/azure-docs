@@ -7,7 +7,7 @@ ms.workload: identity
 author: rolyon
 manager: amycolannino
 ms.author: rolyon
-ms.date: 04/25/2024
+ms.date: 09/20/2024
 ms.custom: generated
 ---
 
@@ -569,6 +569,8 @@ View, create, update, delete and execute load tests. View and list load test res
 > | *none* |  |
 > | **DataActions** |  |
 > | [Microsoft.LoadTestService](../permissions/devops.md#microsoftloadtestservice)/loadtests/* | Create and manage load tests |
+> | [Microsoft.LoadTestService](../permissions/devops.md#microsoftloadtestservice)/testProfiles/* |  |
+> | [Microsoft.LoadTestService](../permissions/devops.md#microsoftloadtestservice)/testProfileRuns/* |  |
 > | **NotDataActions** |  |
 > | *none* |  |
 
@@ -591,7 +593,9 @@ View, create, update, delete and execute load tests. View and list load test res
       ],
       "notActions": [],
       "dataActions": [
-        "Microsoft.LoadTestService/loadtests/*"
+        "Microsoft.LoadTestService/loadtests/*",
+        "Microsoft.LoadTestService/testProfiles/*",
+        "Microsoft.LoadTestService/testProfileRuns/*"
       ],
       "notDataActions": []
     }
@@ -671,6 +675,8 @@ View and list all load tests and load test resources but can not make any change
 > | *none* |  |
 > | **DataActions** |  |
 > | [Microsoft.LoadTestService](../permissions/devops.md#microsoftloadtestservice)/loadtests/readTest/action | Read Load Tests |
+> | [Microsoft.LoadTestService](../permissions/devops.md#microsoftloadtestservice)/testProfiles/read | Read Test Profiles |
+> | [Microsoft.LoadTestService](../permissions/devops.md#microsoftloadtestservice)/testProfileRuns/read | Read Test Profile Runs |
 > | **NotDataActions** |  |
 > | *none* |  |
 
@@ -693,7 +699,9 @@ View and list all load tests and load test resources but can not make any change
       ],
       "notActions": [],
       "dataActions": [
-        "Microsoft.LoadTestService/loadtests/readTest/action"
+        "Microsoft.LoadTestService/loadtests/readTest/action",
+        "Microsoft.LoadTestService/testProfiles/read",
+        "Microsoft.LoadTestService/testProfileRuns/read"
       ],
       "notDataActions": []
     }

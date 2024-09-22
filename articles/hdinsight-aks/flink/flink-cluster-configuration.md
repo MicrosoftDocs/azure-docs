@@ -3,7 +3,8 @@ title: Troubleshoot Apache Flink® on HDInsight on AKS
 description: Learn to troubleshoot Apache Flink® cluster configurations on HDInsight on AKS
 ms.service: azure-hdinsight-on-aks
 ms.topic: troubleshooting
-ms.date: 09/26/2023
+ms.date: 09/20/2024
+ROBOTS: NOINDEX
 ---
 
 # Troubleshoot Apache Flink® cluster configurations on HDInsight on AKS

@@ -7,7 +7,7 @@ ms.workload: identity
 author: rolyon
 manager: amycolannino
 ms.author: rolyon
-ms.date: 04/25/2024
+ms.date: 09/20/2024
 ms.custom: generated
 ---
 
@@ -975,6 +975,7 @@ Manage websites, but not web plans. Does not allow you to assign roles in Azure 
 > | [Microsoft.Support](../permissions/general.md#microsoftsupport)/* | Create and update a support ticket |
 > | [Microsoft.Web](../permissions/web-and-mobile.md#microsoftweb)/certificates/* | Create and manage website certificates |
 > | [Microsoft.Web](../permissions/web-and-mobile.md#microsoftweb)/listSitesAssignedToHostName/read | Get names of sites assigned to hostname. |
+> | [Microsoft.Web](../permissions/web-and-mobile.md#microsoftweb)/register/action | Register Microsoft.Web resource provider for the subscription. |
 > | [Microsoft.Web](../permissions/web-and-mobile.md#microsoftweb)/serverFarms/join/action | Joins an App Service Plan |
 > | [Microsoft.Web](../permissions/web-and-mobile.md#microsoftweb)/serverFarms/read | Get the properties on an App Service Plan |
 > | [Microsoft.Web](../permissions/web-and-mobile.md#microsoftweb)/sites/* | Create and manage websites (site creation also requires write permissions to the associated App Service Plan) |
@@ -1005,6 +1006,7 @@ Manage websites, but not web plans. Does not allow you to assign roles in Azure 
         "Microsoft.Support/*",
         "Microsoft.Web/certificates/*",
         "Microsoft.Web/listSitesAssignedToHostName/read",
+        "Microsoft.Web/register/action",
         "Microsoft.Web/serverFarms/join/action",
         "Microsoft.Web/serverFarms/read",
         "Microsoft.Web/sites/*"
