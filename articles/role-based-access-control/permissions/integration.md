@@ -1290,6 +1290,67 @@ Azure service: [Logic Apps](/azure/logic-apps/)
 > | Microsoft.Logic/workflows/versions/read | Reads the workflow version. |
 > | Microsoft.Logic/workflows/versions/triggers/listCallbackUrl/action | Gets the callback URL for trigger. |
 
+## Microsoft.ModSimWorkbench
+
+Azure service: [Azure Modeling and Simulation Workbench](/azure/modeling-simulation-workbench/modeling-simulation-workbench-overview)
+
+> [!div class="mx-tableFixed"]
+> | Action | Description |
+> | --- | --- |
+> | Microsoft.ModSimWorkbench/register/action | Register the subscription for Microsoft.ModSimWorkbench |
+> | Microsoft.ModSimWorkbench/unregister/action | Unregister the subscription for Microsoft.ModSimWorkbench |
+> | Microsoft.ModSimWorkbench/Locations/operationStatuses/read | read operationStatuses |
+> | Microsoft.ModSimWorkbench/Locations/operationStatuses/write | write operationStatuses |
+> | Microsoft.ModSimWorkbench/Operations/read | read Operations |
+> | Microsoft.ModSimWorkbench/workbenches/read | read workbenches |
+> | Microsoft.ModSimWorkbench/workbenches/read | read workbenches |
+> | Microsoft.ModSimWorkbench/workbenches/read | read workbenches |
+> | Microsoft.ModSimWorkbench/workbenches/write | write workbenches |
+> | Microsoft.ModSimWorkbench/workbenches/delete | delete workbenches |
+> | Microsoft.ModSimWorkbench/workbenches/write | write workbenches |
+> | Microsoft.ModSimWorkbench/workbenches/chambers/getUploadUri/action | getUploadUri chambers |
+> | Microsoft.ModSimWorkbench/workbenches/chambers/start/action | start chambers |
+> | Microsoft.ModSimWorkbench/workbenches/chambers/stop/action | stop chambers |
+> | Microsoft.ModSimWorkbench/workbenches/chambers/restart/action | restart chambers |
+> | Microsoft.ModSimWorkbench/workbenches/chambers/licenseUpdate/action | licenseUpdate chambers |
+> | Microsoft.ModSimWorkbench/workbenches/chambers/licenseRestart/action | licenseRestart chambers |
+> | Microsoft.ModSimWorkbench/workbenches/chambers/read | Gets information about the specified Chamber. |
+> | Microsoft.ModSimWorkbench/workbenches/chambers/write | Creates or updates the specified Chamber. |
+> | Microsoft.ModSimWorkbench/workbenches/chambers/delete | Deletes the specified Chamber. |
+> | Microsoft.ModSimWorkbench/workbenches/chambers/write | Updates the specified Chamber. |
+> | Microsoft.ModSimWorkbench/workbenches/chambers/read | Lists all Chambers. |
+> | Microsoft.ModSimWorkbench/workbenches/chambers/connectors/start/action | start connectors |
+> | Microsoft.ModSimWorkbench/workbenches/chambers/connectors/stop/action | stop connectors |
+> | Microsoft.ModSimWorkbench/workbenches/chambers/connectors/restart/action | restart connectors |
+> | Microsoft.ModSimWorkbench/workbenches/chambers/connectors/read | Gets information about the specified connector. |
+> | Microsoft.ModSimWorkbench/workbenches/chambers/connectors/write | Creates or updates the specified connector. |
+> | Microsoft.ModSimWorkbench/workbenches/chambers/connectors/delete | Deletes the specified connector. |
+> | Microsoft.ModSimWorkbench/workbenches/chambers/connectors/write | Updates the specified connector. |
+> | Microsoft.ModSimWorkbench/workbenches/chambers/connectors/read | Lists all connectors. |
+> | Microsoft.ModSimWorkbench/workbenches/chambers/connectors/licenseAdd/action | Add license to an ModSim Workbench connector. |
+> | Microsoft.ModSimWorkbench/workbenches/chambers/fileRequests/read | read fileRequests |
+> | Microsoft.ModSimWorkbench/workbenches/chambers/fileRequests/manage/action | manage fileRequests |
+> | Microsoft.ModSimWorkbench/workbenches/chambers/fileRequests/getDownloadUri/action | getDownloadUri fileRequests |
+> | Microsoft.ModSimWorkbench/workbenches/chambers/fileRequests/read | Get ModSim Workbench chamber data pipeline file request resource collection. |
+> | Microsoft.ModSimWorkbench/workbenches/chambers/files/read | read files |
+> | Microsoft.ModSimWorkbench/workbenches/chambers/files/read | Lists all files. |
+> | Microsoft.ModSimWorkbench/workbenches/chambers/storages/read | Gets information about the specified storage. |
+> | Microsoft.ModSimWorkbench/workbenches/chambers/storages/write | Creates or updates the specified storage. |
+> | Microsoft.ModSimWorkbench/workbenches/chambers/storages/delete | Deletes the specified storage. |
+> | Microsoft.ModSimWorkbench/workbenches/chambers/storages/write | Updates the specified storage. |
+> | Microsoft.ModSimWorkbench/workbenches/chambers/storages/read | Lists all storages. |
+> | Microsoft.ModSimWorkbench/workbenches/chambers/workloads/start/action | start workloads |
+> | Microsoft.ModSimWorkbench/workbenches/chambers/workloads/stop/action | stop workloads |
+> | Microsoft.ModSimWorkbench/workbenches/chambers/workloads/restart/action | restart workloads |
+> | Microsoft.ModSimWorkbench/workbenches/chambers/workloads/read | Gets information about the specified workload. |
+> | Microsoft.ModSimWorkbench/workbenches/chambers/workloads/write | Creates or updates the specified workload. |
+> | Microsoft.ModSimWorkbench/workbenches/chambers/workloads/delete | Deletes the specified workload. |
+> | Microsoft.ModSimWorkbench/workbenches/chambers/workloads/write | Updates the specified workload. |
+> | Microsoft.ModSimWorkbench/workbenches/chambers/workloads/read | Lists all workloads. |
+> | **DataAction** | **Description** |
+> | Microsoft.ModSimWorkbench/workbenches/chambers/files/manage/action | manage files |
+> | Microsoft.ModSimWorkbench/workbenches/chambers/files/downloadRequest/action | downloadRequest files |
+
 ## Microsoft.NotificationHubs
 
 Send push notifications to any platform from any back end.
@@ -1418,6 +1479,24 @@ Azure service: [Azure Relay](/azure/azure-relay/relay-what-is-it)
 > | **DataAction** | **Description** |
 > | Microsoft.Relay/namespaces/messages/send/action | Send messages |
 > | Microsoft.Relay/namespaces/messages/listen/action | Receive messages |
+
+## Microsoft.ResourceNotifications
+
+Azure service: [Azure Event Grid](/azure/event-grid/overview)
+
+> [!div class="mx-tableFixed"]
+> | Action | Description |
+> | --- | --- |
+> | Microsoft.ResourceNotifications/eventGridFilters/read | Creates/Updates the specified event grid filters |
+> | Microsoft.ResourceNotifications/eventGridFilters/write | Creates/Updates the specified event grid filters |
+> | Microsoft.ResourceNotifications/eventGridFilters/delete | Deletes the specified event grid filters |
+> | Microsoft.ResourceNotifications/operations/read | Gets the list of supported operations |
+> | Microsoft.ResourceNotifications/systemTopics/subscribeToResources/action | Permission to perform creation and event subscription creation on a Resources system topic |
+> | Microsoft.ResourceNotifications/systemTopics/subscribeToHealthResources/action | Permission to perform creation and event subscription creation on a HealthResources system topic |
+> | Microsoft.ResourceNotifications/systemTopics/subscribeToMaintenanceResources/action | Permission to perform creation and event subscription creation on a MaintenanceResources system topic |
+> | Microsoft.ResourceNotifications/systemTopics/subscribeToComputeResources/action | Permission to perform creation and event subscription creation on a ComputeResources system topic |
+> | Microsoft.ResourceNotifications/systemTopics/subscribeToComputeScheduleResources/action | Permission to perform creation and event subscription creation on a ComputeScheduleResources system topic |
+> | Microsoft.ResourceNotifications/systemTopics/subscribeToContainerServiceEventResources/action | Permission to perform creation and event subscription creation on a ContainerServiceEventResources system topic |
 
 ## Microsoft.ServiceBus
 

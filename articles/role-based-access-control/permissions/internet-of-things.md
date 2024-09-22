@@ -15,6 +15,63 @@ ms.custom: generated
 This article lists the permissions for the Azure resource providers in the Internet of Things category. You can use these permissions in your own [Azure custom roles](/azure/role-based-access-control/custom-roles) to provide granular access control to resources in Azure. Permission strings have the following format: `{Company}.{ProviderName}/{resourceType}/{action}`
 
 
+## Microsoft.AzureSphere
+
+Azure service: [Azure Sphere](/azure-sphere/product-overview/what-is-azure-sphere?view=azure-sphere-integrated)
+
+> [!div class="mx-tableFixed"]
+> | Action | Description |
+> | --- | --- |
+> | Microsoft.AzureSphere/register/action | Register the subscription for Microsoft.AzureSphere |
+> | Microsoft.AzureSphere/unregister/action | Unregister the subscription for Microsoft.AzureSphere |
+> | Microsoft.AzureSphere/catalogs/countDevices/action | Counts devices in catalog. |
+> | Microsoft.AzureSphere/catalogs/listDeployments/action | Lists deployments for catalog. |
+> | Microsoft.AzureSphere/catalogs/listDeviceGroups/action | List the device groups for the catalog. |
+> | Microsoft.AzureSphere/catalogs/listDeviceInsights/action | Lists device insights for catalog. |
+> | Microsoft.AzureSphere/catalogs/listDevices/action | Lists devices for catalog. |
+> | Microsoft.AzureSphere/catalogs/read | List Catalog resources by subscription ID |
+> | Microsoft.AzureSphere/catalogs/read | List Catalog resources by resource group |
+> | Microsoft.AzureSphere/catalogs/read | Get a Catalog |
+> | Microsoft.AzureSphere/catalogs/write | Create a Catalog |
+> | Microsoft.AzureSphere/catalogs/delete | Delete a Catalog |
+> | Microsoft.AzureSphere/catalogs/write | Update a Catalog |
+> | Microsoft.AzureSphere/catalogs/uploadImage/action | Creates an image. Use this action when the image ID is unknown. |
+> | Microsoft.AzureSphere/catalogs/certificates/read | List Certificate resources by Catalog |
+> | Microsoft.AzureSphere/catalogs/certificates/read | Get a Certificate |
+> | Microsoft.AzureSphere/catalogs/certificates/retrieveCertChain/action | Retrieves cert chain. |
+> | Microsoft.AzureSphere/catalogs/certificates/retrieveProofOfPossessionNonce/action | Gets the proof of possession nonce. |
+> | Microsoft.AzureSphere/catalogs/images/read | List Image resources by Catalog |
+> | Microsoft.AzureSphere/catalogs/images/read | Get a Image |
+> | Microsoft.AzureSphere/catalogs/images/write | Create a Image |
+> | Microsoft.AzureSphere/catalogs/images/delete | Delete a Image |
+> | Microsoft.AzureSphere/catalogs/products/read | List Product resources by Catalog |
+> | Microsoft.AzureSphere/catalogs/products/read | Get a Product. '.default' and '.unassigned' are system defined values and cannot be used for product name. |
+> | Microsoft.AzureSphere/catalogs/products/write | Create a Product. '.default' and '.unassigned' are system defined values and cannot be used for product name. |
+> | Microsoft.AzureSphere/catalogs/products/delete | Delete a Product. '.default' and '.unassigned' are system defined values and cannot be used for product name' |
+> | Microsoft.AzureSphere/catalogs/products/write | Update a Product. '.default' and '.unassigned' are system defined values and cannot be used for product name. |
+> | Microsoft.AzureSphere/catalogs/products/countDevices/action | Counts devices in product. '.default' and '.unassigned' are system defined values and cannot be used for product name. |
+> | Microsoft.AzureSphere/catalogs/products/generateDefaultDeviceGroups/action | Generates default device groups for the product. '.default' and '.unassigned' are system defined values and cannot be used for product name. |
+> | Microsoft.AzureSphere/catalogs/products/deviceGroups/read | List DeviceGroup resources by Product. '.default' and '.unassigned' are system defined values and cannot be used for product name. |
+> | Microsoft.AzureSphere/catalogs/products/deviceGroups/read | Get a DeviceGroup. '.default' and '.unassigned' are system defined values and cannot be used for product or device group name. |
+> | Microsoft.AzureSphere/catalogs/products/deviceGroups/write | Create a DeviceGroup. '.default' and '.unassigned' are system defined values and cannot be used for product or device group name. |
+> | Microsoft.AzureSphere/catalogs/products/deviceGroups/delete | Delete a DeviceGroup. '.default' and '.unassigned' are system defined values and cannot be used for product or device group name. |
+> | Microsoft.AzureSphere/catalogs/products/deviceGroups/write | Update a DeviceGroup. '.default' and '.unassigned' are system defined values and cannot be used for product or device group name. |
+> | Microsoft.AzureSphere/catalogs/products/deviceGroups/claimDevices/action | Bulk claims the devices. Use '.unassigned' or '.default' for the device group and product names when bulk claiming devices to a catalog only. |
+> | Microsoft.AzureSphere/catalogs/products/deviceGroups/countDevices/action | Counts devices in device group. '.default' and '.unassigned' are system defined values and cannot be used for product or device group name. |
+> | Microsoft.AzureSphere/catalogs/products/deviceGroups/deployments/read | List Deployment resources by DeviceGroup. '.default' and '.unassigned' are system defined values and cannot be used for product or device group name. |
+> | Microsoft.AzureSphere/catalogs/products/deviceGroups/deployments/read | Get a Deployment. '.default' and '.unassigned' are system defined values and cannot be used for product or device group name. |
+> | Microsoft.AzureSphere/catalogs/products/deviceGroups/deployments/write | Create a Deployment. '.default' and '.unassigned' are system defined values and cannot be used for product or device group name. |
+> | Microsoft.AzureSphere/catalogs/products/deviceGroups/deployments/delete | Delete a Deployment. '.default' and '.unassigned' are system defined values and cannot be used for product or device group name. |
+> | Microsoft.AzureSphere/catalogs/products/deviceGroups/devices/read | List Device resources by DeviceGroup. '.default' and '.unassigned' are system defined values and cannot be used for product or device group name. |
+> | Microsoft.AzureSphere/catalogs/products/deviceGroups/devices/read | Get a Device. Use '.unassigned' or '.default' for the device group and product names when a device does not belong to a device group and product. |
+> | Microsoft.AzureSphere/catalogs/products/deviceGroups/devices/write | Create a Device. Use '.unassigned' or '.default' for the device group and product names to claim a device to the catalog only. |
+> | Microsoft.AzureSphere/catalogs/products/deviceGroups/devices/delete | Delete a Device |
+> | Microsoft.AzureSphere/catalogs/products/deviceGroups/devices/write | Update a Device. Use '.unassigned' or '.default' for the device group and product names to move a device to the catalog level. |
+> | Microsoft.AzureSphere/catalogs/products/deviceGroups/devices/generateCapabilityImage/action | Generates the capability image for the device. Use '.unassigned' or '.default' for the device group and product names to generate the image for a device that does not belong to a specific device group and product. |
+> | Microsoft.AzureSphere/locations/operationStatuses/read | read operationStatuses |
+> | Microsoft.AzureSphere/locations/operationStatuses/write | write operationStatuses |
+> | Microsoft.AzureSphere/operations/read | read operations |
+
 ## Microsoft.Devices
 
 Ensure that your users are accessing your resources from devices that meet your standards for security and compliance.
@@ -270,6 +327,79 @@ Azure service: [IoT Central](/azure/iot-central/)
 > | Microsoft.IoTCentral/locations/operationResults/read | Get async operation results for IoT Central |
 > | Microsoft.IoTCentral/locations/operationStatuses/read | Get async operation status for IoT Central |
 > | Microsoft.IoTCentral/operations/read | Get/List all the available operations for IoT Central |
+
+## Microsoft.IoTFirmwareDefense
+
+Azure service: [Microsoft Defender for IoT](/azure/defender-for-iot/device-builders/overview)
+
+> [!div class="mx-tableFixed"]
+> | Action | Description |
+> | --- | --- |
+> | Microsoft.IoTFirmwareDefense/register/action | Register the subscription for Microsoft.IoTFirmwareDefense |
+> | Microsoft.IoTFirmwareDefense/unregister/action | Unregister the subscription for Microsoft.IoTFirmwareDefense |
+> | Microsoft.IoTFirmwareDefense/firmwareGroups/read | Get firmware group. |
+> | Microsoft.IoTFirmwareDefense/firmwareGroups/write | The operation to create or update a firmwareGroups resource. |
+> | Microsoft.IoTFirmwareDefense/firmwareGroups/delete | The operation to delete a firmware group. |
+> | Microsoft.IoTFirmwareDefense/firmwareGroups/write | The operation to update a firmware groups. |
+> | Microsoft.IoTFirmwareDefense/firmwareGroups/generateUploadUrl/action | The operation to get a url for file upload. |
+> | Microsoft.IoTFirmwareDefense/firmwareGroups/read | Lists all of firmwareGroups in the specified subscription. |
+> | Microsoft.IoTFirmwareDefense/firmwareGroups/firmwares/read | Get firmware. |
+> | Microsoft.IoTFirmwareDefense/firmwareGroups/firmwares/write | The operation to create a firmware. |
+> | Microsoft.IoTFirmwareDefense/firmwareGroups/firmwares/delete | The operation to delete a firmware. |
+> | Microsoft.IoTFirmwareDefense/firmwareGroups/firmwares/write | The operation to update firmware. |
+> | Microsoft.IoTFirmwareDefense/firmwareGroups/firmwares/read | Lists all of firmwares inside firmware group. |
+> | Microsoft.IoTFirmwareDefense/firmwareGroups/firmwares/getUploadUrl/action | The operation to a url for file upload. |
+> | Microsoft.IoTFirmwareDefense/firmwareGroups/firmwares/generateDownloadUrl/action | The operation to a url for file download. |
+> | Microsoft.IoTFirmwareDefense/firmwareGroups/firmwares/generateFilesystemDownloadUrl/action | The operation to a url for tar file download. |
+> | Microsoft.IoTFirmwareDefense/firmwareGroups/firmwares/generateSummary/action | The operation to get a scan summary. |
+> | Microsoft.IoTFirmwareDefense/firmwareGroups/firmwares/generateComponentList/action | The operation to list all components result for a firmware. |
+> | Microsoft.IoTFirmwareDefense/firmwareGroups/firmwares/generateComponentDetails/action | The operation to get component details for a firmware. |
+> | Microsoft.IoTFirmwareDefense/firmwareGroups/firmwares/generateBinaryHardeningList/action | The operation to list all binary hardening result for a firmware. |
+> | Microsoft.IoTFirmwareDefense/firmwareGroups/firmwares/generateBinaryHardeningSummary/action | The operation to list the binary hardening summary percentages for a firmware. |
+> | Microsoft.IoTFirmwareDefense/firmwareGroups/firmwares/generateBinaryHardeningDetails/action | The operation to get binary hardening details for a firmware. |
+> | Microsoft.IoTFirmwareDefense/firmwareGroups/firmwares/generatePasswordHashList/action | The operation to list all password hashes for a firmware. |
+> | Microsoft.IoTFirmwareDefense/firmwareGroups/firmwares/generateCveList/action | The operation to list all cve results for a firmware. |
+> | Microsoft.IoTFirmwareDefense/firmwareGroups/firmwares/generateCveSummary/action | The operation to provide a high level summary of the CVEs reported for the firmware image. |
+> | Microsoft.IoTFirmwareDefense/locations/operationStatuses/read | read operationStatuses |
+> | Microsoft.IoTFirmwareDefense/locations/operationStatuses/write | write operationStatuses |
+> | Microsoft.IoTFirmwareDefense/operations/read | read operations |
+> | Microsoft.IoTFirmwareDefense/workspaces/read | Lists all of the firmware analysis workspaces in the specified subscription. |
+> | Microsoft.IoTFirmwareDefense/workspaces/read | Lists all of the firmware analysis workspaces in the specified resource group. |
+> | Microsoft.IoTFirmwareDefense/workspaces/read | Get firmware analysis workspace. |
+> | Microsoft.IoTFirmwareDefense/workspaces/write | The operation to create or update a firmware analysis workspace. |
+> | Microsoft.IoTFirmwareDefense/workspaces/delete | The operation to delete a firmware analysis workspace. |
+> | Microsoft.IoTFirmwareDefense/workspaces/write | The operation to update a firmware analysis workspaces. |
+> | Microsoft.IoTFirmwareDefense/workspaces/generateUploadUrl/action | The operation to get a url for file upload. |
+> | Microsoft.IoTFirmwareDefense/workspaces/firmwares/generateDownloadUrl/action | The operation to a url for file download. |
+> | Microsoft.IoTFirmwareDefense/workspaces/firmwares/generateFilesystemDownloadUrl/action | The operation to a url for tar file download. |
+> | Microsoft.IoTFirmwareDefense/workspaces/firmwares/generateSummary/action | The operation to get a scan summary. |
+> | Microsoft.IoTFirmwareDefense/workspaces/firmwares/generateComponentList/action | The operation to list all components result for a firmware. |
+> | Microsoft.IoTFirmwareDefense/workspaces/firmwares/generateComponentDetails/action | The operation to get component details for a firmware. |
+> | Microsoft.IoTFirmwareDefense/workspaces/firmwares/generateBinaryHardeningList/action | The operation to list all binary hardening result for a firmware. |
+> | Microsoft.IoTFirmwareDefense/workspaces/firmwares/generateBinaryHardeningSummary/action | The operation to list the binary hardening summary percentages for a firmware. |
+> | Microsoft.IoTFirmwareDefense/workspaces/firmwares/generateBinaryHardeningDetails/action | The operation to get binary hardening details for a firmware. |
+> | Microsoft.IoTFirmwareDefense/workspaces/firmwares/generatePasswordHashList/action | The operation to list all password hashes for a firmware. |
+> | Microsoft.IoTFirmwareDefense/workspaces/firmwares/generateCveList/action | The operation to list all cve results for a firmware. |
+> | Microsoft.IoTFirmwareDefense/workspaces/firmwares/generateCveSummary/action | The operation to provide a high level summary of the CVEs reported for the firmware image. |
+> | Microsoft.IoTFirmwareDefense/workspaces/firmwares/generateCryptoCertificateSummary/action | The operation to provide a high level summary of the discovered cryptographic certificates reported for the firmware image. |
+> | Microsoft.IoTFirmwareDefense/workspaces/firmwares/generateCryptoKeySummary/action | The operation to provide a high level summary of the discovered cryptographic keys reported for the firmware image. |
+> | Microsoft.IoTFirmwareDefense/workspaces/firmwares/generateCryptoCertificateList/action | The operation to list all crypto certificates for a firmware. |
+> | Microsoft.IoTFirmwareDefense/workspaces/firmwares/generateCryptoKeyList/action | The operation to list all crypto keys for a firmware. |
+> | Microsoft.IoTFirmwareDefense/workspaces/firmwares/read | Lists all of firmwares inside a workspace. |
+> | Microsoft.IoTFirmwareDefense/workspaces/firmwares/read | Get firmware. |
+> | Microsoft.IoTFirmwareDefense/workspaces/firmwares/write | The operation to create a firmware. |
+> | Microsoft.IoTFirmwareDefense/workspaces/firmwares/delete | The operation to delete a firmware. |
+> | Microsoft.IoTFirmwareDefense/workspaces/firmwares/write | The operation to update firmware. |
+> | Microsoft.IoTFirmwareDefense/workspaces/firmwares/generateDownloadUrl/action | The operation to a url for file download. |
+> | Microsoft.IoTFirmwareDefense/workspaces/firmwares/generateFilesystemDownloadUrl/action | The operation to a url for tar file download. |
+> | Microsoft.IoTFirmwareDefense/workspaces/firmwares/binaryHardeningResults/read | Lists binary hardening analysis results of a firmware. |
+> | Microsoft.IoTFirmwareDefense/workspaces/firmwares/cryptoCertificates/read | Lists cryptographic certificate analysis results found in a firmware. |
+> | Microsoft.IoTFirmwareDefense/workspaces/firmwares/cryptoKeys/read | Lists cryptographic key analysis results found in a firmware. |
+> | Microsoft.IoTFirmwareDefense/workspaces/firmwares/cves/read | Lists CVE analysis results of a firmware. |
+> | Microsoft.IoTFirmwareDefense/workspaces/firmwares/passwordHashes/read | Lists password hash analysis results of a firmware. |
+> | Microsoft.IoTFirmwareDefense/workspaces/firmwares/sbomComponents/read | Lists SBOM analysis results of a firmware. |
+> | Microsoft.IoTFirmwareDefense/workspaces/firmwares/summaries/read | Lists analysis result summary names of a firmware. To fetch the full summary data, get that summary by name. |
+> | Microsoft.IoTFirmwareDefense/workspaces/firmwares/summaries/read | Get an analysis result summary of a firmware by name. |
 
 ## Microsoft.IoTSecurity
 

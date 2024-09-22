@@ -16,6 +16,61 @@ ms.custom: generated
 This article lists the Azure built-in roles in the Integration category.
 
 
+## API Management Developer Portal Content Editor
+
+Can customize the developer portal, edit its content, and publish it.
+
+[Learn more](/azure/api-management/api-management-role-based-access-control)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.ApiManagement](../permissions/integration.md#microsoftapimanagement)/service/portalRevisions/read | Lists a collection of developer portal revision entities. or Gets developer portal revision specified by its identifier. |
+> | [Microsoft.ApiManagement](../permissions/integration.md#microsoftapimanagement)/service/portalRevisions/write | Creates a new developer portal revision. or Updates the description of specified portal revision or makes it current. |
+> | [Microsoft.ApiManagement](../permissions/integration.md#microsoftapimanagement)/service/contentTypes/read | Returns list of content types or Returns content type |
+> | [Microsoft.ApiManagement](../permissions/integration.md#microsoftapimanagement)/service/contentTypes/delete | Removes content type. |
+> | [Microsoft.ApiManagement](../permissions/integration.md#microsoftapimanagement)/service/contentTypes/write | Creates new content type |
+> | [Microsoft.ApiManagement](../permissions/integration.md#microsoftapimanagement)/service/contentTypes/contentItems/read | Returns list of content items or Returns content item details |
+> | [Microsoft.ApiManagement](../permissions/integration.md#microsoftapimanagement)/service/contentTypes/contentItems/write | Creates new content item or Updates specified content item |
+> | [Microsoft.ApiManagement](../permissions/integration.md#microsoftapimanagement)/service/contentTypes/contentItems/delete | Removes specified content item. |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Can customize the developer portal, edit its content, and publish it.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/c031e6a8-4391-4de0-8d69-4706a7ed3729",
+  "name": "c031e6a8-4391-4de0-8d69-4706a7ed3729",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.ApiManagement/service/portalRevisions/read",
+        "Microsoft.ApiManagement/service/portalRevisions/write",
+        "Microsoft.ApiManagement/service/contentTypes/read",
+        "Microsoft.ApiManagement/service/contentTypes/delete",
+        "Microsoft.ApiManagement/service/contentTypes/write",
+        "Microsoft.ApiManagement/service/contentTypes/contentItems/read",
+        "Microsoft.ApiManagement/service/contentTypes/contentItems/write",
+        "Microsoft.ApiManagement/service/contentTypes/contentItems/delete"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "API Management Developer Portal Content Editor",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
 ## API Management Service Contributor
 
 Can manage service and the APIs
@@ -928,6 +983,59 @@ Allows for send access to Azure Relay resources.
 }
 ```
 
+## Azure Resource Notifications System Topics Subscriber
+
+Lets you create system topics and event subscriptions on all system topics exposed currently and in the future by Azure Resource Notifications
+
+[Learn more](/azure/event-grid/event-schema-resource-notifications)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.ResourceNotifications](../permissions/integration.md#microsoftresourcenotifications)/systemTopics/subscribeToResources/action | Permission to perform creation and event subscription creation on a Resources system topic |
+> | [Microsoft.ResourceNotifications](../permissions/integration.md#microsoftresourcenotifications)/systemTopics/subscribeToHealthResources/action | Permission to perform creation and event subscription creation on a HealthResources system topic |
+> | [Microsoft.ResourceNotifications](../permissions/integration.md#microsoftresourcenotifications)/systemTopics/subscribeToMaintenanceResources/action | Permission to perform creation and event subscription creation on a MaintenanceResources system topic |
+> | [Microsoft.ResourceNotifications](../permissions/integration.md#microsoftresourcenotifications)/systemTopics/subscribeToComputeResources/action | Permission to perform creation and event subscription creation on a ComputeResources system topic |
+> | [Microsoft.ResourceNotifications](../permissions/integration.md#microsoftresourcenotifications)/systemTopics/subscribeToComputeScheduleResources/action | Permission to perform creation and event subscription creation on a ComputeScheduleResources system topic |
+> | [Microsoft.EventGrid](../permissions/integration.md#microsofteventgrid)/eventSubscriptions/write | Create or update an eventSubscription |
+> | [Microsoft.EventGrid](../permissions/integration.md#microsofteventgrid)/systemTopics/eventSubscriptions/write | Create or update a SystemTopic eventSubscription |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Lets you create system topics and event subscriptions on all system topics exposed currently and in the future by Azure Resource Notifications",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/0b962ed2-6d56-471c-bd5f-3477d83a7ba4",
+  "name": "0b962ed2-6d56-471c-bd5f-3477d83a7ba4",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.ResourceNotifications/systemTopics/subscribeToResources/action",
+        "Microsoft.ResourceNotifications/systemTopics/subscribeToHealthResources/action",
+        "Microsoft.ResourceNotifications/systemTopics/subscribeToMaintenanceResources/action",
+        "Microsoft.ResourceNotifications/systemTopics/subscribeToComputeResources/action",
+        "Microsoft.ResourceNotifications/systemTopics/subscribeToComputeScheduleResources/action",
+        "Microsoft.EventGrid/eventSubscriptions/write",
+        "Microsoft.EventGrid/systemTopics/eventSubscriptions/write"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Azure Resource Notifications System Topics Subscriber",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
 ## Azure Service Bus Data Owner
 
 Allows for full access to Azure Service Bus resources.
@@ -1116,6 +1224,118 @@ Lets you manage BizTalk services, but not access to them.
 }
 ```
 
+## Chamber Admin
+
+Lets you manage everything under your Modeling and Simulation Workbench chamber.
+
+[Learn more](/azure/modeling-simulation-workbench/how-to-guide-manage-users)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.ModSimWorkbench](../permissions/integration.md#microsoftmodsimworkbench)/*/read |  |
+> | [Microsoft.ModSimWorkbench](../permissions/integration.md#microsoftmodsimworkbench)/workbenches/chambers/* |  |
+> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/* | Create and manage a deployment |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
+> | **NotActions** |  |
+> | [Microsoft.ModSimWorkbench](../permissions/integration.md#microsoftmodsimworkbench)/workbenches/chambers/fileRequests/manage/action | manage fileRequests |
+> | [Microsoft.ModSimWorkbench](../permissions/integration.md#microsoftmodsimworkbench)/workbenches/chambers/connector/setCopyPaste/action |  |
+> | **DataActions** |  |
+> | [Microsoft.ModSimWorkbench](../permissions/integration.md#microsoftmodsimworkbench)/workbenches/chambers/upload/action |  |
+> | [Microsoft.ModSimWorkbench](../permissions/integration.md#microsoftmodsimworkbench)/workbenches/chambers/files/* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Lets you manage everything under your Modeling and Simulation Workbench chamber.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/4e9b8407-af2e-495b-ae54-bb60a55b1b5a",
+  "name": "4e9b8407-af2e-495b-ae54-bb60a55b1b5a",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.ModSimWorkbench/*/read",
+        "Microsoft.ModSimWorkbench/workbenches/chambers/*",
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Resources/deployments/*",
+        "Microsoft.Resources/subscriptions/resourceGroups/read"
+      ],
+      "notActions": [
+        "Microsoft.ModSimWorkbench/workbenches/chambers/fileRequests/manage/action",
+        "Microsoft.ModSimWorkbench/workbenches/chambers/connector/setCopyPaste/action"
+      ],
+      "dataActions": [
+        "Microsoft.ModSimWorkbench/workbenches/chambers/upload/action",
+        "Microsoft.ModSimWorkbench/workbenches/chambers/files/*"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Chamber Admin",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## Chamber User
+
+Lets you view everything under your Modeling and Simulation Workbench chamber, but not make any changes.
+
+[Learn more](/azure/modeling-simulation-workbench/how-to-guide-manage-users)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.ModSimWorkbench](../permissions/integration.md#microsoftmodsimworkbench)/workbenches/chambers/*/read |  |
+> | [Microsoft.ModSimWorkbench](../permissions/integration.md#microsoftmodsimworkbench)/workbenches/chambers/workloads/* |  |
+> | [Microsoft.ModSimWorkbench](../permissions/integration.md#microsoftmodsimworkbench)/workbenches/chambers/getUploadUri/action | getUploadUri chambers |
+> | [Microsoft.ModSimWorkbench](../permissions/integration.md#microsoftmodsimworkbench)/workbenches/chambers/fileRequests/getDownloadUri/action | getDownloadUri fileRequests |
+> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/* | Create and manage a deployment |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | [Microsoft.ModSimWorkbench](../permissions/integration.md#microsoftmodsimworkbench)/workbenches/chambers/upload/action |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Lets you view everything under your Modeling and Simulation Workbench chamber, but not make any changes.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/4447db05-44ed-4da3-ae60-6cbece780e32",
+  "name": "4447db05-44ed-4da3-ae60-6cbece780e32",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.ModSimWorkbench/workbenches/chambers/*/read",
+        "Microsoft.ModSimWorkbench/workbenches/chambers/workloads/*",
+        "Microsoft.ModSimWorkbench/workbenches/chambers/getUploadUri/action",
+        "Microsoft.ModSimWorkbench/workbenches/chambers/fileRequests/getDownloadUri/action",
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Resources/deployments/*",
+        "Microsoft.Resources/subscriptions/resourceGroups/read"
+      ],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.ModSimWorkbench/workbenches/chambers/upload/action"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Chamber User",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
 ## DeID Batch Data Owner
 
 Create and manage DeID batch jobs. This role is in preview and subject to change.
@@ -1283,6 +1503,88 @@ Execute requests against DeID realtime endpoint. This role is in preview and sub
     }
   ],
   "roleName": "DeID Realtime Data User",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## DICOM Data Owner
+
+Full access to DICOM data.
+
+[Learn more](/azure/healthcare-apis/configure-azure-rbac)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | *none* |  |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | [Microsoft.HealthcareApis](../permissions/integration.md#microsofthealthcareapis)/workspaces/dicomservices/resources/* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Full access to DICOM data.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/58a3b984-7adf-4c20-983a-32417c86fbc8",
+  "name": "58a3b984-7adf-4c20-983a-32417c86fbc8",
+  "permissions": [
+    {
+      "actions": [],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.HealthcareApis/workspaces/dicomservices/resources/*"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "DICOM Data Owner",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## DICOM Data Reader
+
+Read and search DICOM data.
+
+[Learn more](/azure/healthcare-apis/configure-azure-rbac)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | *none* |  |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | [Microsoft.HealthcareApis](../permissions/integration.md#microsofthealthcareapis)/workspaces/dicomservices/resources/read | Read DICOM resources (includes searching and change feed).  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Read and search DICOM data.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/e89c7a3c-2f64-4fa1-a847-3e4c9ba4283a",
+  "name": "e89c7a3c-2f64-4fa1-a847-3e4c9ba4283a",
+  "permissions": [
+    {
+      "actions": [],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.HealthcareApis/workspaces/dicomservices/resources/read"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "DICOM Data Reader",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }
@@ -1496,11 +1798,113 @@ Lets you read EventGrid event subscriptions.
 }
 ```
 
+## EventGrid TopicSpaces Publisher
+
+Lets you publish messages on topicspaces.
+
+[Learn more](/azure/event-grid/mqtt-client-microsoft-entra-token-and-rbac)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
+> | [Microsoft.EventGrid](../permissions/integration.md#microsofteventgrid)/*/read |  |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/* | Create and manage a deployment |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | [Microsoft.EventGrid](../permissions/integration.md#microsofteventgrid)/topicSpaces/publish/action | Publish to a topic space |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Lets you publish messages on topicspaces.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/a12b0b94-b317-4dcd-84a8-502ce99884c6",
+  "name": "a12b0b94-b317-4dcd-84a8-502ce99884c6",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Authorization/*/read",
+        "Microsoft.EventGrid/*/read",
+        "Microsoft.Insights/alertRules/*",
+        "Microsoft.Resources/deployments/*",
+        "Microsoft.Resources/subscriptions/resourceGroups/read"
+      ],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.EventGrid/topicSpaces/publish/action"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "EventGrid TopicSpaces Publisher",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## EventGrid TopicSpaces Subscriber
+
+Lets you subscribe messages on topicspaces.
+
+[Learn more](/azure/event-grid/mqtt-client-microsoft-entra-token-and-rbac)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
+> | [Microsoft.EventGrid](../permissions/integration.md#microsofteventgrid)/*/read |  |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/* | Create and manage a deployment |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | [Microsoft.EventGrid](../permissions/integration.md#microsofteventgrid)/topicSpaces/subscribe/action | Subscribe to a topic space |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Lets you subscribe messages on topicspaces.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/4b0f2fd7-60b4-4eca-896f-4435034f8bf5",
+  "name": "4b0f2fd7-60b4-4eca-896f-4435034f8bf5",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.Authorization/*/read",
+        "Microsoft.EventGrid/*/read",
+        "Microsoft.Insights/alertRules/*",
+        "Microsoft.Resources/deployments/*",
+        "Microsoft.Resources/subscriptions/resourceGroups/read"
+      ],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.EventGrid/topicSpaces/subscribe/action"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "EventGrid TopicSpaces Subscriber",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
 ## FHIR Data Contributor
 
 Role allows user or principal full access to FHIR Data
 
-[Learn more](/azure/healthcare-apis/azure-api-for-fhir/configure-azure-rbac)
+[Learn more](/azure/healthcare-apis/configure-azure-rbac)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -1543,11 +1947,54 @@ Role allows user or principal full access to FHIR Data
 }
 ```
 
+## FHIR Data Converter
+
+Role allows user or principal to convert data from legacy format to FHIR
+
+[Learn more](/azure/healthcare-apis/configure-azure-rbac)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | *none* |  |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | [Microsoft.HealthcareApis](../permissions/integration.md#microsofthealthcareapis)/services/fhir/resources/convertData/action | Data convert operation ($convert-data) |
+> | [Microsoft.HealthcareApis](../permissions/integration.md#microsofthealthcareapis)/workspaces/fhirservices/resources/convertData/action | Data convert operation ($convert-data) |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Role allows user or principal to convert data from legacy format to FHIR",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/a1705bd2-3a8f-45a5-8683-466fcfd5cc24",
+  "name": "a1705bd2-3a8f-45a5-8683-466fcfd5cc24",
+  "permissions": [
+    {
+      "actions": [],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.HealthcareApis/services/fhir/resources/convertData/action",
+        "Microsoft.HealthcareApis/workspaces/fhirservices/resources/convertData/action"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "FHIR Data Converter",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
 ## FHIR Data Exporter
 
 Role allows user or principal to read and export FHIR Data
 
-[Learn more](/azure/healthcare-apis/azure-api-for-fhir/configure-azure-rbac)
+[Learn more](/azure/healthcare-apis/configure-azure-rbac)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -1594,7 +2041,7 @@ Role allows user or principal to read and export FHIR Data
 
 Role allows user or principal to read and import FHIR Data
 
-[Learn more](/azure/healthcare-apis/azure-api-for-fhir/configure-azure-rbac)
+[Learn more](/azure/healthcare-apis/fhir/import-data)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -1637,7 +2084,7 @@ Role allows user or principal to read and import FHIR Data
 
 Role allows user or principal to read FHIR Data
 
-[Learn more](/azure/healthcare-apis/azure-api-for-fhir/configure-azure-rbac)
+[Learn more](/azure/healthcare-apis/configure-azure-rbac)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -1680,7 +2127,7 @@ Role allows user or principal to read FHIR Data
 
 Role allows user or principal to read and write FHIR Data
 
-[Learn more](/azure/healthcare-apis/azure-api-for-fhir/configure-azure-rbac)
+[Learn more](/azure/healthcare-apis/configure-azure-rbac)
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -1746,6 +2193,53 @@ Role allows user or principal to read and write FHIR Data
     }
   ],
   "roleName": "FHIR Data Writer",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## FHIR SMART User
+
+Role allows user to access FHIR Service according to SMART on FHIR specification
+
+[Learn more](/azure/healthcare-apis/configure-azure-rbac)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | *none* |  |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | [Microsoft.HealthcareApis](../permissions/integration.md#microsofthealthcareapis)/services/fhir/resources/read | Read FHIR resources (includes searching and versioned history).  |
+> | [Microsoft.HealthcareApis](../permissions/integration.md#microsofthealthcareapis)/workspaces/fhirservices/resources/read | Read FHIR resources (includes searching and versioned history).  |
+> | [Microsoft.HealthcareApis](../permissions/integration.md#microsofthealthcareapis)/services/fhir/resources/smart/action | Allows user to access FHIR Service according to SMART on FHIR specification. |
+> | [Microsoft.HealthcareApis](../permissions/integration.md#microsofthealthcareapis)/workspaces/fhirservices/resources/smart/action | Allows user to access FHIR Service according to SMART on FHIR specification. |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Role allows user to access FHIR Service according to SMART on FHIR specification",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/4ba50f17-9666-485c-a643-ff00808643f0",
+  "name": "4ba50f17-9666-485c-a643-ff00808643f0",
+  "permissions": [
+    {
+      "actions": [],
+      "notActions": [],
+      "dataActions": [
+        "Microsoft.HealthcareApis/services/fhir/resources/read",
+        "Microsoft.HealthcareApis/workspaces/fhirservices/resources/read",
+        "Microsoft.HealthcareApis/services/fhir/resources/smart/action",
+        "Microsoft.HealthcareApis/workspaces/fhirservices/resources/smart/action"
+      ],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "FHIR SMART User",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }
