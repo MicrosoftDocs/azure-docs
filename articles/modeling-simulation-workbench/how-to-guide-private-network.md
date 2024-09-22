@@ -38,7 +38,7 @@ Before you create a [connector](./concept-connector.md) for private IP networkin
 
 ## Create the private network connector
 
-Each chamber can have only one connector. If you have a public IP connector or other type already associated with the target chamber, you must first [delete it](). In the chamber where you want to create a private network connector:
+Each chamber can have only one connector. If you have a public IP connector or other type already associated with the target chamber, you must first [delete the connector](#cleaning-up-resources). In the chamber where you want to create a private network connector:
 
 1. Select the **Connector** option in the **Settings** at the left.
     :::image type="content" source="media/howtoguide-private-network/chamber-select-connector.png" alt-text="Screenshot of chamber overview with Connector option outlined in red rectangle.":::
