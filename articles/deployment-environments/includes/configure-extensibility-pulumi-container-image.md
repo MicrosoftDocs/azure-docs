@@ -6,7 +6,7 @@ ms.service: azure-deployment-environments
 ms.custom: build-2024, devx-track-azurecli
 author: MikhailShilkov
 ms.author: rosemalcolm
-ms.date: 08/02/2024
+ms.date: 09/22/2024
 ms.topic: includes
 #customer intent: As a developer, I want to learn how to build and utilize custom images with my environment definitions for deployment environments.
 ---
@@ -15,7 +15,7 @@ ms.topic: includes
 
 In this article, you learn how to utilize [Pulumi](https://pulumi.com) for deployments in Azure Deployment Environments (ADE). You learn how to use a standard image provided by Pulumi or how to configure a custom image to provision infrastructure using the Pulumi Infrastructure-as-Code (IaC) framework.
 
-ADE supports an extensibility model that enables you to create custom images that you can use in your environment definitions. To use this extensibility model, you can create your own custom images, and store them in a container registry like Azure Container Registry (ACR) or Docker Hub. You can then reference these images in your environment definitions to deploy your environments.
+ADE supports an extensibility model that enables you to create custom images that you can use in your environment definitions. To use this extensibility model, create your own custom images and store them in a container registry like Azure Container Registry (ACR) or Docker Hub. You can then reference these images in your environment definitions to deploy your environments.
 
 An [environment definition](configure-environment-definition.md) comprises at least two files: a Pulumi project file, *Pulumi.yaml*, and a manifest file named *environment.yaml*. It may also contain a user program written in your preferred programming language: C#, TypeScript, Python, etc. ADE uses containers to deploy environment definitions.
 

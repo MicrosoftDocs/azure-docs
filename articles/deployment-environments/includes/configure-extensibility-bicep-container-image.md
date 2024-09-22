@@ -12,26 +12,27 @@ ms.topic: includes
 #customer intent: As a developer, I want to learn how to build and utilize custom images within my environment definitions for deployment environments.
 ---
 
-## Create a custom Bicep container image
+## Create a custom container image
 
 Creating a custom container image allows you to customize your deployments to fit your requirements. You can create custom images based on the ADE standard container images.
 
 After you complete the image customization, you must build the image and push it to your container registry. 
 
-### Create and customize a container image with Docker
+### Create and customize a container image
 
 In this example, you learn how to build a Docker image to utilize ADE deployments and access the ADE CLI, basing your image off of one of the ADE authored images.
 
 The ADE CLI is a tool that allows you to build custom images by using ADE base images. You can use the ADE CLI to customize your deployments and deletions to fit your workflow. The ADE CLI is preinstalled on the sample images. To learn more about the ADE CLI, see the [CLI Custom Runner Image reference](https://aka.ms/deployment-environments/ade-cli-reference).
 
 To create an image configured for ADE, follow these steps:
-1. Base your image on an ADE-authored sample image or the image of your choice by using the FROM statement.
-1. Install any necessary packages for your image by using the RUN statement.
-1. Create a *scripts* folder at the same level as your Dockerfile, store your *deploy.sh* and *delete.sh* files within it, and ensure those scripts are discoverable and executable inside your created container. This step is necessary for your deployment to work using the ADE core image.
+1. Create a custom image based on a standard image.
+1. Install desired packages.
+1. Configure operation shell scripts. 
+1. Create operation shell scripts to deploy ARM or Bicep templates. 
 
-### Select a sample container image by using the FROM statement
+**1. Create a custom image based on a standard image**
 
-Include a FROM statement within a created DockerFile for your new image pointing to a sample image hosted on Microsoft Artifact Registry.
+Create a DockerFile that includes a FROM statement pointing to a sample image hosted on Microsoft Artifact Registry. 
 
 Here's an example FROM statement, referencing the sample core image:
 
@@ -39,11 +40,11 @@ Here's an example FROM statement, referencing the sample core image:
 FROM mcr.microsoft.com/deployment-environments/runners/core:latest
 ```
 
-This statement pulls the most recently published core image, and makes it a basis for your custom image.
+This statement pulls the most recently published core image, and makes it the basis for your custom image.
 
-### Install Bicep in a Dockerfile
+**2. Install desired packages**
 
-You can install the Bicep package with the Azure CLI by using the RUN statement, as shown in the following example:
+In this step, you inatall any packages you require in your image, including Bicep. You can install the Bicep package with the Azure CLI by using the RUN statement, as shown in the following example:
 
 ```azure cli
 RUN az bicep install
@@ -53,11 +54,13 @@ The ADE sample images are based on the Azure CLI image, and have the ADE CLI and
 
 To install any more packages you need within your image, use the RUN statement.
 
-### Execute operation shell scripts
+**3. Configure operation shell scripts**
 
 Within the sample images, operations are determined and executed based on the operation name. Currently, the two operation names supported are *deploy* and *delete*.
 
-To set up your custom image to utilize this structure, specify a folder at the level of your Dockerfile named *scripts*, and specify two files, *deploy.sh*, and *delete.sh*. The deploy shell script runs when your environment is created or redeployed, and the delete shell script runs when your environment is deleted. You can see examples of shell scripts in the repository under the [Runner-Images folder for the ARM-Bicep](https://github.com/Azure/deployment-environments/tree/main/Runner-Images/ARM-Bicep) image.
+You must ensure the scripts are discoverable and executable inside your  container. This step is required for your deployment to work using the ADE core image.
+
+To set up your custom image to utilize this structure, create a folder at the level of your Dockerfile named *scripts*, and add two files, *deploy.sh*, and *delete.sh*. The deploy shell script runs when your environment is created or redeployed, and the delete shell script runs when your environment is deleted. You can use the sample shell scripts in the repository under the [Runner-Images folder for the ARM-Bicep](https://github.com/Azure/deployment-environments/tree/main/Runner-Images/ARM-Bicep) image.
 
 To ensure these shell scripts are executable, add the following lines to your Dockerfile:
 
@@ -67,11 +70,12 @@ RUN find /scripts/ -type f -iname "*.sh" -exec dos2unix '{}' '+'
 RUN find /scripts/ -type f -iname "*.sh" -exec chmod +x {} \;
 ```
 
-### Author operation shell scripts to deploy ARM or Bicep templates
+**4. Create operation shell scripts to deploy ARM or Bicep templates**
+
 To ensure you can successfully deploy ARM or Bicep infrastructure through ADE, you must:
-- Convert ADE parameters to ARM-acceptable parameters
-- Resolve linked templates if they're used in the deployment
-- Use privileged managed identity to perform the deployment
+1. Convert ADE parameters to ARM-acceptable parameters
+1. Resolve linked templates if they're used in the deployment
+1. Use privileged managed identity to perform the deployment
 
 During the core image's entrypoint, any parameters set for the current environment are stored under the variable `$ADE_OPERATION_PARAMETERS`. In order to convert them to ARM-acceptable parameters, you can run the following command using JQ:
 ```bash

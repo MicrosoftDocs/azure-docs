@@ -6,7 +6,7 @@ ms.service: azure-deployment-environments
 ms.custom: devx-track-azurecli, devx-track-terraform
 author: RoseHJM
 ms.author: rosemalcolm
-ms.date: 09/20/2024
+ms.date: 09/22/2024
 ms.topic: includes
 #customer intent: As a developer, I want to learn how to build and utilize custom images within my environment definitions for deployment environments.
 ---
@@ -17,20 +17,21 @@ Creating a custom container image allows you to customize your deployments to fi
 
 After you complete the image customization, you must build the image and push it to your container registry.
 
-## Create and customize a container image with Docker
+## Create and customize a container image
 
 In this example, you learn how to build a Docker image to utilize ADE deployments and access the ADE CLI, basing your image on one of the ADE authored images.
 
 The ADE CLI is a tool that allows you to build custom images by using ADE base images. You can use the ADE CLI to customize your deployments and deletions to fit your workflow. The ADE CLI is preinstalled on the sample images. To learn more about the ADE CLI, see the [CLI Custom Runner Image reference](https://aka.ms/deployment-environments/ade-cli-reference).
 
 To create an image configured for ADE, follow these steps:
-1. Base your image on an ADE-authored sample image or the image of your choice by using the FROM statement.
-1. Install any necessary packages for your image by using the RUN statement.
-1. Create a *scripts* folder at the same level as your Dockerfile, store your *deploy.sh* and *delete.sh* files within it, and ensure those scripts are discoverable and executable inside your created container. This step is necessary for your deployment to work using the ADE core image.
+1. Create a custom image based on a standard image.
+1. Install desired packages.
+1. Configure operation shell scripts. 
+1. Create operation shell scripts that use the Terraform CLI.
 
-### Select a sample container image by using the FROM statement
+**1. Create a custom image based on a standard image**
 
-Include a FROM statement within a created DockerFile for your new image pointing to a sample image hosted on Microsoft Artifact Registry.
+Create a DockerFile that includes a FROM statement pointing to a sample image hosted on Microsoft Artifact Registry. 
 
 Here's an example FROM statement, referencing the sample core image:
 
@@ -40,9 +41,9 @@ FROM mcr.microsoft.com/deployment-environments/runners/core:latest
 
 This statement pulls the most recently published core image, and makes it a basis for your custom image.
 
-### Install Terraform in a Dockerfile
+**2. Install desired packages**
 
-You can install the Terraform CLI to an executable location so that it can be used in your deployment and deletion scripts. 
+In this step, you install any packages you require in your image, including Terraform. You can install the Terraform CLI to an executable location so that it can be used in your deployment and deletion scripts. 
 
 Here's an example of that process, installing version 1.7.5 of the Terraform CLI:
 
@@ -59,7 +60,7 @@ The ADE sample images are based on the Azure CLI image, and have the ADE CLI and
 
 To install any more packages you need within your image, use the RUN statement.
 
-### Execute operation shell scripts
+**3. Configure operation shell scripts**
 
 Within the sample images, operations are determined and executed based on the operation name. Currently, the two operation names supported are *deploy* and *delete*.
 
@@ -73,7 +74,8 @@ RUN find /scripts/ -type f -iname "*.sh" -exec dos2unix '{}' '+'
 RUN find /scripts/ -type f -iname "*.sh" -exec chmod +x {} \;
 ```
 
-### Author operation shell scripts to use the Terraform CLI
+**4. Create operation shell scripts that use the Terraform CLI**
+
 There are three steps to deploy infrastructure via Terraform: 
 1. `terraform init` - initializes the Terraform CLI to perform actions within the working directory
 1. `terraform plan` - develops a plan based on the incoming Terraform infrastructure files and variables, and any existing state files, and develops steps needed to create or update infrastructure specified in the *.tf* files
