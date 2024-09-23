@@ -45,10 +45,20 @@ This generates `playwright.service.config.ts` file which serves to:
 
 If you already have this file, the package asks you to override it. 
 
-Once you have the `playwright.service.config.ts` file, disable cloud-hosted browsers. 
+To use only reporting feature for the test run, disable cloud-hosted browsers by setting `useCloudHostedBrowsers` as false. 
 
 ```typescript
-useCloudHostedBrowsers: false
+export default defineConfig(
+  config,
+  getServiceConfig(config, {
+    timeout: 30000,
+    os: ServiceOS.LINUX,
+	useCloudHostedBrowsers: false // Do not use cloud hosted browsers
+  }),
+  {
+    reporter: [['list'], ['@azure/microsoft-playwright-testing/reporter']], // Reporter for Microsoft Playwright Testing service
+  }
+);
 ```
 Setting this as `false` ensures that cloud-hosted browsers are not used to run the tests. The tests run on your local machine but the results and artifacts are published on the service. 
 
@@ -144,7 +154,7 @@ Test report: https://playwright.microsoft.com/workspaces/<workspace-id>/runs/<ru
 ```
 
 > [!CAUTION]
-> Depending on the size of your test suite, you might incur additional charges for the test minutes beyond your allotted free test minutes and free test results.
+> Depending on the size of your test suite, you might incur additional charges for the test results beyond your allotted free test results.
 
 ## View test runs and results in the Playwright portal
 

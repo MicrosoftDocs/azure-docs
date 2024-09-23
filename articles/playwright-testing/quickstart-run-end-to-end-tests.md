@@ -194,7 +194,7 @@ To run a single Playwright test in Visual Studio Code with Microsoft Playwright 
 You can now run multiple tests with the service, or run your entire test suite on remote browsers.
 
 > [!CAUTION]
-> Depending on the size of your test suite, you might incur additional charges for the test minutes beyond your allotted free test minutes and free test results.
+> Depending on the size of your test suite, you might incur additional charges for the test minutes and test results beyond your allotted free test minutes and free test results.
 
 ### Run a full test suite at scale
 
