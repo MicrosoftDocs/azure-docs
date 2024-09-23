@@ -54,15 +54,15 @@ ms.author: greglin
 
 ##### Private DNS zone operations
 
-| Operation | Limit |
+| Operation | Limit (per subscription) |
 | --- | --- |
 | Create |40/min|
 | Delete |40/min|
-| Get |200/min|
-| List by subscription |60|
-| List by resource group |100|
-| Update |20|
-| Move |20|
+| Get |200/min<sup> (per zone)|
+| List by subscription |60/min|
+| List by resource group |100/min (per resource group)|
+| Update |20/min|
+| Move |20/min|
 
 ##### Private DNS resource record operations
 
