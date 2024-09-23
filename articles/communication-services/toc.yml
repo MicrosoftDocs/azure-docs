@@ -54,6 +54,8 @@ items:
       href: tutorials/events-playbook.md
     - name: Contact center
       href: tutorials/contact-center.md
+    - name: Embed chat in Teams custom app
+      href: tutorials/chat-app-teams-embed.md
   - name: Privacy and compliance
     items:
     - name: Data residency and user privacy
@@ -953,8 +955,8 @@ items:
         href: concepts/telephony/certified-session-border-controllers.md
       - name: Inbound telephony calling capabilities
         href: concepts/telephony/inbound-calling-capabilities.md
-      - name: Outbound calling with Toll-Free numbers
-        href: concepts/telephony/outbound-calling.md
+      - name: Calling with toll-free numbers
+        href: concepts/telephony/toll-free-calling.md
       - name: Known limitations
         href: concepts/telephony/known-limitations-acs-telephony.md
       - name: Troubleshooting

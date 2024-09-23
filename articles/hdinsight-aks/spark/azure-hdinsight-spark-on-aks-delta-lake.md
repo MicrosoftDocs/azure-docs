@@ -3,7 +3,8 @@ title: How to use Delta Lake in Azure HDInsight on AKS with Apache Spark™ clus
 description: Learn how to use Delta Lake scenario in Azure HDInsight on AKS with Apache Spark™ cluster. 
 ms.service: azure-hdinsight-on-aks
 ms.topic: how-to
-ms.date: 10/27/2023
+ms.date: 09/20/2024
+ROBOTS: NOINDEX
 ---
 
 # Use Delta Lake in Azure HDInsight on AKS with Apache Spark™ cluster (Preview)

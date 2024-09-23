@@ -52,8 +52,6 @@
         href: reliability-functions.md#availability-zone-migration
       - name: Azure HDInsight
         href: reliability-hdinsight.md#availability-zone-migration
-      - name: Azure Key Vault
-        href: /azure/key-vault/general/disaster-recovery-guidance?toc=/azure/reliability
       - name: Azure Kubernetes Service
         href: /azure/aks/availability-zones?toc=/azure/reliability
       - name: Azure Load Balancer 
@@ -201,9 +199,9 @@
     - name: Azure Container Registry
       items:
       - name: Availability zones
-        href: ../container-registry/zone-redundancy.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+        href: /azure/container-registry/zone-redundancy?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
       - name: Disaster recovery
-        href: ../container-registry/container-registry-geo-replication.md?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
+        href: /azure/container-registry/container-registry-geo-replication?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
     - name: Azure Data Explorer
       href: /azure/data-explorer/business-continuity-overview?toc=/azure/reliability/toc.json&bc=/azure/reliability/breadcrumb/toc.json
     - name: Azure Data Factory
