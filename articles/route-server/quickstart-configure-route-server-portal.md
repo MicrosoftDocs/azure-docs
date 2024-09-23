@@ -1,15 +1,15 @@
 ---
-title: 'Quickstart: Create Azure Route Server - Azure portal'
+title: 'Quickstart: Create an Azure Route Server - Azure portal'
 description: In this quickstart, you learn how to create an Azure Route Server using the Azure portal.
 author: halkazwini
 ms.author: halkazwini
 ms.service: azure-route-server
 ms.topic: quickstart
-ms.date: 09/17/2024
+ms.date: 09/23/2024
 ms.custom: mode-ui
 ---
 
-# Quickstart: Create Azure Route Server using the Azure portal
+# Quickstart: Create an Azure Route Server using the Azure portal
 
 In this quickstart, you learn how to create an Azure Route Server to peer with a Network Virtual Appliance (NVA) in your virtual network using the Azure portal.
 
@@ -22,13 +22,14 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+
 - Review the [service limits for Azure Route Server](route-server-faq.md#limitations).
 
-## Create a Route Server
+## Create a route server
 
 In this section, you create a route server.
 
-1. Sign in to [Azure portal](https://portal.azure.com), search and select **Route Server**.
+1. Sign in to [Azure portal](https://portal.azure.com).
 
 1. In the search box at the top of the portal, enter ***route server***, and select **Route Server** from the search results. 
 
@@ -37,7 +38,6 @@ In this section, you create a route server.
 1. On the **Route Servers** page, select **+ Create**. 
 
 1. On the **Basics** tab of **Create a Route Server**, enter, or select the following information:
-
 
     | Settings | Value |
     |----------|-------|
@@ -106,4 +106,4 @@ When no longer needed, you can delete all resources created in this quickstart b
 ## Next step
 
 > [!div class="nextstepaction"]
-> [Configure and manage Azure Route Server](configure-route-server.md)
+> [Configure peering between a route server and NVA](peer-route-server-with-virtual-appliance.md)
