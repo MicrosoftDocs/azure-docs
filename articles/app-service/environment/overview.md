@@ -288,11 +288,6 @@ The following sections list the regional pricing tiers (SKUs) availability for A
 | China East 3         | ✅          | ✅ *        |                   |
 | China North 3        | ✅          | ✅ *        |                   |
 
-
-## App Service Environment v2
-
-App Service Environment has three versions: App Service Environment v1, App Service Environment v2, and App Service Environment v3. The information in this article is based on App Service Environment v3. To learn more about App Service Environment v2, see [App Service Environment v2 introduction](./intro.md).
-
 ## Next steps
 
 > [!div class="nextstepaction"]
