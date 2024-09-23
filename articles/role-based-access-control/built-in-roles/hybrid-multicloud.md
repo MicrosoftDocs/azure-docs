@@ -764,6 +764,49 @@ Lets you manage Azure Stack registrations.
 }
 ```
 
+## Hybrid Server Resource Administrator
+
+Can read, write, delete, and re-onboard Hybrid servers to the Hybrid Resource Provider.
+
+[Learn more](/azure/cloud-adoption-framework/scenarios/hybrid/arc-enabled-servers/eslz-identity-and-access-management)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/machines/* |  |
+> | [Microsoft.HybridCompute](../permissions/hybrid-multicloud.md#microsofthybridcompute)/*/read |  |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Can read, write, delete, and re-onboard Hybrid servers to the Hybrid Resource Provider.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/48b40c6e-82e0-4eb3-90d5-19e40f49b624",
+  "name": "48b40c6e-82e0-4eb3-90d5-19e40f49b624",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.HybridCompute/machines/*",
+        "Microsoft.HybridCompute/*/read"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "Hybrid Server Resource Administrator",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
 ## Next steps
 
 - [Assign Azure roles using the Azure portal](/azure/role-based-access-control/role-assignments-portal)
