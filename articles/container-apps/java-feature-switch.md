@@ -4,9 +4,9 @@ description: How to turn on Java Stack feature to use Java-optimized support in 
 services: container-apps
 author: hangwang
 ms.service: azure-container-apps
-ms.custom: ignite-2024, devx-track-azurecli, devx-track-extended-java
+ms.custom: devx-track-azurecli, devx-track-extended-java
 ms.topic: how-to
-ms.date: 09/16/2024
+ms.date: 09/23/2024
 ms.author: hangwan
 zone_pivot_groups: container-apps-portal-or-cli
 ---
