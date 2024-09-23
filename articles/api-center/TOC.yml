@@ -38,7 +38,7 @@
         href: manage-apis-azure-cli.md
       - name: Import APIs from API Management
         href: import-api-management-apis.md
-      - name: Register APIs - VS Code extension
+      - name: Build and register APIs - VS Code extension
         href: use-vscode-extension.md
       - name: Register APIs - GitHub Actions
         href: register-apis-github-actions.md
@@ -56,7 +56,7 @@
         href: find-nonproduction-api-requests-dev-proxy.md
 - name: API discovery and consumption
   items:
-      - name: Discover APIs in data view - VS Code extension
+      - name: Enable platform API catalog - VS Code extension
         href: enable-data-view-vscode-extension.md
       - name: Self-host Azure API Center portal
         href: enable-api-center-portal.md

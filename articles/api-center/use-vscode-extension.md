@@ -1,24 +1,24 @@
 ---
-title: Interact with API inventory using VS Code extension
-description: Build, discover, try, and consume APIs from your Azure API center using the Azure API Center extension for Visual Studio Code.
+title: Build and register APIs - Azure API Center - VS Code extension
+description: API developers can use the Azure API Center extension for Visual Studio Code to build and register APIs in their organization's API center.
 author: dlepow
 ms.service: azure-api-center
 ms.topic: how-to
-ms.date: 08/01/2024
+ms.date: 09/23/2024
 ms.author: danlep 
 ms.custom: 
-# Customer intent: As a developer, I want to use my Visual Studio Code environment to build, discover, try, and consume APIs in my organization's API center.
+# Customer intent: As an API developer, I want to use my Visual Studio Code environment to build, discover, explore, and consume APIs in my organization's API center.
 ---
 
-# Get started with the Azure API Center extension for Visual Studio Code
+# Build and register APIs in your API center with the Azure API Center extension for Visual Studio Code
 
-To build, discover, try, and consume APIs in your [API center](overview.md), you can use the Azure API Center extension in your Visual Studio Code development environment:
+To build, discover, explore, and consume APIs in your [API center](overview.md), you can use the Azure API Center extension in your Visual Studio Code development environment. The extension provides the following features for API developers:
 
-* **Build APIs** - Make APIs you're building discoverable to others by registering them in your API center. Shift-left API design conformance checks into Visual Studio Code with integrated linting support. Ensure that new API versions don't break API consumers with breaking change detection.
+* **Build APIs** - Make APIs you're building discoverable to others by registering them in your API center directly or using CI/CD pipelines in GitHub or Azure DevOps. Shift-left API design conformance checks into Visual Studio Code with integrated linting support. Ensure that new API versions don't break API consumers with breaking change detection.
 
 * **Discover APIs** - Browse the APIs in your API center, and view their details and documentation.
 
-* **Try APIs** - Use Swagger UI or REST client to explore API requests and responses. 
+* **Explore APIs** - Use Swagger UI or REST client to explore API requests and responses. 
 
 * **Consume APIs** - Generate API SDK clients for your favorite language including JavaScript, TypeScript, .NET, Python, and Java, using the Microsoft Kiota engine that generates SDKs for Microsoft Graph, GitHub, and more. 
 
@@ -28,14 +28,14 @@ To build, discover, try, and consume APIs in your [API center](overview.md), you
 
 * One or more API centers in your Azure subscription. If you haven't created one already, see [Quickstart: Create your API center](set-up-api-center.md).
 
-    Currently, you need to be assigned the Contributor role or higher permissions to access API centers with the extension.
+    Currently, you need to be assigned the Contributor role or higher permissions to manage API centers with the extension.
 
 * [Visual Studio Code](https://code.visualstudio.com/)
     
 * [Azure API Center extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=apidev.azure-api-center)
 
     > [!NOTE]
-    > Where noted, certain features are available only in the extension's pre-release version. When installing the extension from the [Visual Studio Code Marketplace](https://marketplace.visualstudio.com/items?itemName=apidev.azure-api-center&ssr=false#overview), you can choose to install the release version or a pre-release version. Switch between the two versions at any time by using the extension's **Manage** button context menu in the Extensions view. 
+    > Where noted, certain features are available only in the extension's pre-release version.[!INCLUDE [vscode-extension-prerelease-features](includes/vscode-extension-prerelease-features.md)]
     
 The following Visual Studio Code extensions are optional and needed only for certain scenarios as indicated:
 
@@ -63,6 +63,8 @@ Register an API in your API center directly from Visual Studio Code, either by r
 1. Complete registration steps:
     * For **Step-by-step**, select the API center to register APIs with, and answer prompts with information including API title, type, lifecycle stage, version, and specification to complete API registration.
     * For **CI/CD**, select either **GitHub** or **Azure DevOps**, depending on your preferred source control mechanism. A Visual Studio Code workspace must be open for the Azure API Center extension to add a pipeline to your workspace. After the file is added, complete steps documented in the CI/CD pipeline file itself to configure Azure Pipeline/GitHub Action environment variables and identity. On push to source control, the API will be registered in your API center.
+
+
 
 ## API design conformance
 
@@ -174,4 +176,5 @@ You can also export a specification using the Command Palette:
 ## Related content
 
 * [Azure API Center - key concepts](key-concepts.md)
+* [Enable platform API catalog in Visual Studio Code](enable-platform-api-catalog-vscode-extension.md)
 
