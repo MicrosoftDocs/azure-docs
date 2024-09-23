@@ -130,7 +130,7 @@ For more information, see [custom DNS validation](./app-service-web-tutorial-cus
 
 ### Azure Private DNS Zones
 
-If you [integrate your private endpoint](https://learn.microsoft.com/en-us/azure/private-link/private-endpoint-dns-integration#private-dns-zone-group) with an Azure Private DNS Zone the following records will be added to the zone automatically. Note that the name of the zone should be ```privatelink.azurewebsites.net``` for all web apps regardless of whether they use Unique Default Hostnames or not.
+If you [integrate your private endpoint](/azure/private-link/private-endpoint-dns-integration#private-dns-zone-group) with an Azure Private DNS Zone the following records will be added to the zone automatically. Note that the name of the zone should be `privatelink.azurewebsites.net` for all web apps regardless of whether they use Unique Default Hostnames or not.
 
 #### [Without unique default hostnames](#tab/without-unique-default-hostnames)
 
@@ -145,6 +145,8 @@ If you [integrate your private endpoint](https://learn.microsoft.com/en-us/azure
 |-----|-----|------|-------|
 |mywebapp-&lt;hash&gt;.&lt;region&gt; | A | PrivateEndpointIP |
 |mywebapp-&lt;hash&gt;.scm.&lt;region&gt;| A | PrivateEndpointIP |
+
+---
 
 ### Kudu Console and REST API
 
@@ -163,6 +165,9 @@ For the Kudu console, or Kudu REST API (deployment with Azure DevOps self-hosted
 |-----|-----|-----|
 | mywebapp-&lt;hash&gt;.&lt;region&gt;.privatelink.azurewebsites.net | A | PrivateEndpointIP |
 | mywebapp-&lt;hash&gt;.scm.&lt;region&gt;.privatelink.azurewebsites.net | A | PrivateEndpointIP |
+
+---
+
 
 ## App Service Environment v3 special consideration
 
