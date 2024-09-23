@@ -242,7 +242,7 @@ The generated Microsoft Excel report contains the following information:
 
 * [On-premises Summary](site-recovery-vmware-deployment-planner-analyze-report.md#on-premises-summary)
 * [Recommendations](site-recovery-vmware-deployment-planner-analyze-report.md#recommendations)
-* [Virtual machine<->Storage Placement](site-recovery-vmware-deployment-planner-analyze-report.md#virtual-machines-storage-placement)
+* [Virtual machine<->Storage Placement](site-recovery-vmware-deployment-planner-analyze-report.md#virtual-machine-storage-placement)
 * [Compatible VMs](site-recovery-vmware-deployment-planner-analyze-report.md#compatible-virtual-machines)
 * [Incompatible VMs](site-recovery-vmware-deployment-planner-analyze-report.md#incompatible-virtual-machines)
 * [Cost Estimation](site-recovery-vmware-deployment-planner-cost-estimation.md)
