@@ -4,7 +4,7 @@ description: Learn how to create a codeless connector in Microsoft Sentinel usin
 author: austinmccollum
 ms.author: austinmc
 ms.topic: how-to
-ms.date: 06/26/2024
+ms.date: 09/26/2024
 ---
 # Create a codeless connector for Microsoft Sentinel
 
@@ -901,7 +901,7 @@ There are 5 ARM deployment resources in this template guide which house the 4 CC
 }
 ```
 
-## Next steps
+## Related content
 
 For more information, see 
 - [About Microsoft Sentinel solutions](sentinel-solutions.md).
