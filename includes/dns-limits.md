@@ -5,7 +5,7 @@ ms.topic: include
 ms.date: 09/23/2024
 ms.author: greglin
 ---
-**Public DNS zones**
+### Public DNS zones
 
 | Resource | Limit |
 | --- | --- |
@@ -68,6 +68,7 @@ ms.author: greglin
 <sup>1</sup>These limits are applied to every individual virtual machine and not at the virtual network level. DNS queries exceeding these limits are dropped. These limits apply to the default Azure resolver, not the DNS private resolver.
 
 <br>**DNS Private Resolver**<sup>1</sup>
+
 | Resource | Limit |
 | --- | --- |
 | DNS private resolvers per subscription |15|
