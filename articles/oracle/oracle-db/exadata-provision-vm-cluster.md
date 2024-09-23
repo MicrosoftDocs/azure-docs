@@ -8,7 +8,6 @@ ms.service: oracle-on-azure
 ms.date: 08/01/2024
 ---
 
-
 # Provision Exadata virtual machine clusters
 
 Provisioning an Oracle Exadata VM Cluster requires the existence of an Oracle Exadata Infrastructure, and is a prerequisite for Oracle Exadata Databases that runs on the cluster.
@@ -17,23 +16,27 @@ Provisioning an Oracle Exadata VM Cluster requires the existence of an Oracle Ex
 
 There are prerequisites that must be completed before you can provision Exadata Services. You need to complete the following:
 
-1. An existing Azure subscription
-1. An Azure virtual network with a subnet delegated to the Oracle Database@Azure service (`Oracle.Database/networkAttachments`)
-1. Permissions in Azure to create resources in the region, with the following conditions:
+- An existing Azure subscription
+- An Azure virtual network with a subnet delegated to the Oracle Database@Azure service (`Oracle.Database/networkAttachments`)
+- Permissions in Azure to create resources in the region, with the following conditions:
    * No policies prohibiting the creation of resources without tags, because the OracleSubscription resource is created automatically without tags during onboarding.
    * No policies enforcing naming conventions, because the OracleSubscription resource is created automatically with a default resource name.
-1. Purchase OracleDB@Azure in the Azure portal.
-1. Select your Oracle Cloud Infrastructure (OCI) account.
+- Purchase OracleDB@Azure in the Azure portal.
+- Select your Oracle Cloud Infrastructure (OCI) account.
 For more detailed documentation, including optional steps, see [Onboarding with Oracle Database@Azure](onboard-oracle-database.md).
 
 >[!NOTE]
 >Review the [Troubleshoot Exadata services](exadata-troubleshoot-services.md), specifically the IP Address Requirement Differences, to ensure you have all the information needed for a successful provisioning flow.
 
-1. You provision Oracle Exadata Infrastructure and Oracle Exadata VM Cluster resources from the OracleDB@Azure blade. By default, the Oracle Exadata Infrastructure tab is selected. To create an Oracle Exadata VM Cluster resource, select that tab first.
+1. You provision Oracle Exadata Infrastructure and Oracle Exadata VM Cluster resources from the OracleDB@Azure blade. By default, the Oracle Exadata Infrastructure tab is selected.
+To create an Oracle Exadata VM Cluster resource, select that tab first and follow these instructions.
+
 1. Select the **+ Create** icon at the top of the blade to begin the provisioning flow.
 1. Check that you're using the **Create** Oracle Exadata VM Cluster flow. If not, exit the flow.
-1. From the **Basics** tab of the Create Oracle Exadata VM Cluster flow, enter the following information. NOTE: Before you can provision an Oracle Exadata VM Cluster, you must have a provisioned Oracle Exadata Infrastructure which you'll assign for your Oracle Exadata VM Cluster.
-    1. Select the Microsoft Azure subscription to which the Oracle Exadata VM Cluster will be provisioned.
+1. From the **Basics** tab of the Create Oracle Exadata VM Cluster flow, enter the following information. 
+     > [!NOTE] 
+     > Before you can provision an Oracle Exadata VM Cluster, you must have a provisioned Oracle Exadata Infrastructure which you'll assign for your Oracle Exadata VM Cluster.
+1. Select the Microsoft Azure subscription to which the Oracle Exadata VM Cluster will be provisioned.
     1. Select an existing **Resource group** or select the **Create new** link to create and use a new Resource group for this resource.
     1. Enter a unique **Name** for the Oracle Exadata VM Cluster on this subscription.
     1. Select the **Region** where this Oracle Exadata Infrastructure is provisioned. NOTE: The regions where the OracleDB@Azure service is available are limited, and you should assign the Oracle Exadata VM Cluster to the same region as the parent Oracle Exadata Infrastructure.
@@ -59,7 +62,9 @@ For more detailed documentation, including optional steps, see [Onboarding with 
     1. The **Virtual network** is limited based on the **Subscription** and **Resource group** that you selected earlier in the provisioning flow.
     1. The **Client subnet** is selectable based on the selected **Virtual network**.
     1. To use a custom DNS domain, select the **Custom DNS** checkbox. If unchecked, the Oracle Exadata VM Cluster uses the default domain, oraclevcn.com.
-    1. If checked, a list of existing DNS private views from OCI is presented. Select the view to use. To create a new private view and zones, see [Configure Private DNS](https://docs.oracle.com/iaas/exadatacloud/exacs/ecs-network-setup.html#ECSCM-GUID-69CF2720-31BE-455B-93E3-D2E39B2DA44B). **NOTE:** In order for the list of DNS private views to be populated correctly, the network link's compartment in OCI must match the Microsoft Azure subscription.
+    1. If checked, a list of existing DNS private views from OCI is presented. Select the view to use. To create a new private view and zones, see [Configure Private DNS](https://docs.oracle.com/iaas/exadatacloud/exacs/ecs-network-setup.html#ECSCM-GUID-69CF2720-31BE-455B-93E3-D2E39B2DA44B). 
+      > [!NOTE]
+      > In order for the list of DNS private views to be populated correctly, the network link's compartment in OCI must match the Microsoft Azure subscription.
     1. Enter the **Host name prefix**. The prefix forms the first portion of the Oracle Exadata VM Cluster host name.
     1. The **Host domain name** and **Host and domain URL** for your Oracle Exadata VM Cluster are read-only and populated with derived naming.
     1. Within the **Network ingress rules** section, the **Add additional network ingress rules** checkbox allows you to define addition ingress CIDR rules. Additional network CIDR ranges (such as application or hub subnet ranges) can be added, during provisioning, to the network security group (NSG) ingress rules for the VM cluster. The selected virtual network's CIDR is added by default. CIDR ranges are specified. The port can be a single port, port range (for example, 80-8080), a comma-delimited list of ports (for example, 80,8080), or any combination of these. This only updates the OCI network security group ingress rules. Microsoft Azure virtual network network security rules must be updated in the specific virtual network in Microsoft Azure.
@@ -70,3 +75,13 @@ For more detailed documentation, including optional steps, see [Onboarding with 
 1. From the **Review _+ create** tab of the Create Oracle Exadata VM Cluster flow, a short validation process is run to check the values that you entered from the previous steps. If the validation fails, you must correct any errors before you can start the provisioning process.
 1. Select the **Create** button to start the provisioning flow.
 1. Return to the Oracle Exadata VM Cluster blade to monitor and manage the state of your Oracle Exadata VM Cluster environments.
+
+## Next steps
+- [Onboard with Oracle Database@Azure](onboard-oracle-database.md)
+- [Provision and manage Oracle Database@Azure](provision-oracle-database.md)
+- [Oracle Database@Azure support information](oracle-database-support.md)
+- [Network planning for Oracle Database@Azure](oracle-database-network-plan.md)
+- [Groups and roles for Oracle Database@Azure](oracle-database-groups-roles.md)[Provision and manage Oracle Database@Azure](provision-oracle-database.md)
+- [Oracle Database@Azure support information](oracle-database-support.md)
+- [Network planning for Oracle Database@Azure](oracle-database-network-plan.md)
+- [Groups and roles for Oracle Database@Azure](oracle-database-groups-roles.md) 

@@ -52,12 +52,12 @@ For module details, see [Oracle Multicloud Landing Zone for Azure](https://githu
 | [az-oci-rbac-n-sso-fed](https://github.com/oracle-quickstart/terraform-oci-multicloud-azure/tree/main/templates/az-oci-rbac-n-sso-fed) | Set up both identity federation and RBAC roles/groups | All the following |
 | [az-oci-sso-federation](https://github.com/oracle-quickstart/terraform-oci-multicloud-azure/tree/main/templates/az-oci-sso-federation) | Set up [SSO Between OCI and Microsoft Entra ID](https://docs.oracle.com/iaas/Content/Identity/tutorials/azure_ad/sso_azure/azure_sso.htm) | [hashicorp/azuread](https://registry.terraform.io/providers/hashicorp/azuread/) |
 |   | 1. Get service provider metadata from OCI IAM. | [hashicorp/azurerm](https://registry.terraform.io/providers/hashicorp/azurerm) |
-|   | 2. Create an Entra ID application. | [hashicorp/oci](https://registry.terraform.io/providers/hashicorp/oci) |
-|   | 3. Set up SAML SSO for the Entra ID application. |  |
-|   | 4. Set up attributes and claims in the Entra ID application. |  |
-|   | 5. Assign a test user to the Entra ID application. |  |
-|   | 6. Enable the Entra ID application as the Identity Provider (IdP) for OCI IAM. |  |
-|   | 7. Set up [Identity Lifecycle Management Between OCI IAM and Entra ID](https://docs.oracle.com/iaas/Content/Identity/tutorials/azure_ad/lifecycle_azure/azure_lifecycle.htm#azure-lifecycle). |  |
+|   | 2. Create an Microsoft Entra ID application. | [hashicorp/oci](https://registry.terraform.io/providers/hashicorp/oci) |
+|   | 3. Set up SAML SSO for the Microsoft Entra ID application. |  |
+|   | 4. Set up attributes and claims in the Microsoft Entra ID application. |  |
+|   | 5. Assign a test user to the Microsoft Entra ID application. |  |
+|   | 6. Enable the Microsoft Entra ID application as the Identity Provider (IdP) for OCI IAM. |  |
+|   | 7. Set up [Identity Lifecycle Management Between OCI IAM and Microsoft Entra ID](https://docs.oracle.com/iaas/Content/Identity/tutorials/azure_ad/lifecycle_azure/azure_lifecycle.htm#azure-lifecycle). |  |
 | [az-odb-rbac](https://github.com/oracle-quickstart/terraform-oci-multicloud-azure/tree/main/templates/az-odb-rbac) | Create [roles and groups in Azure](https://docs.oracle.com/iaas/Content/multicloud/oaagroupsroles.htm) for Exadata and Autonomous Database services. | [hashicorp/azuread](https://registry.terraform.io/providers/hashicorp/azuread/) |
 |   | 1. Create Azure role definition for ADBS Administrator role.| [hashicorp/azurerm](https://registry.terraform.io/providers/hashicorp/azurerm) |
 |  | 2. Create Azure group. |  |
