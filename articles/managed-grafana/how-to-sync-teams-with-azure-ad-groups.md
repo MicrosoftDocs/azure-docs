@@ -27,7 +27,7 @@ Before you start, make sure you have:
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free).
 - An Azure Managed Grafana instance. If needed, [create a new instance](quickstart-managed-grafana-portal.md).
 - A Microsoft Entra group. If needed, [create a basic group and add members](/entra/fundamentals/how-to-manage-groups#create-a-basic-group-and-add-members).
-- To Grafana Admin role is required to use Grafana Team Sync.
+- The Grafana Admin role is required to use Grafana Team Sync.
 
 ## Assign a permission to a Microsoft Entra group
 
