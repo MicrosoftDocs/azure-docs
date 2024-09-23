@@ -2,9 +2,8 @@
 title: Common questions about Azure Site Recovery monitoring 
 description: Get answers to common questions about Azure Site Recovery monitoring, using inbuilt monitoring and Azure Monitor (Log Analytics)
 ms.service: azure-site-recovery
-services: site-recovery
-ms.date: 10/13/2023
-ms.topic: conceptual
+ms.date: 09/18/2024
+ms.topic: overview
 ms.author: ankitadutta
 author: ankitaduttaMSFT
 ---
