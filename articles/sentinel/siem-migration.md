@@ -100,7 +100,7 @@ Once you match Splunk data source ingestion in Microsoft Sentinel, use **Schema 
 
 ### Data sources
 
-Known sources such as Splunk CIM schemas and data models are automatically mapped to ASIM schemas when applicable. Other sources used in the Splunk detection must be manually mapped to Microsoft Sentinel or Log Analytics tables.
+Known sources such as Splunk CIM schemas and data models are automatically mapped to ASIM schemas when applicable. Other sources used in the Splunk detection must be manually mapped to Microsoft Sentinel or Log Analytics tables. Mapping schemas are hierarchical so Splunk sources map 1:1 with Microsoft Sentinel tables and the fields within those sources.
 
 :::image type="content" source="media/siem-migration/schema-mapping-data-sources.png" alt-text="Screenshot showing the Schema mapping (preview) options for data sources.":::
 
@@ -108,11 +108,15 @@ Once the schema mapping is complete, any manual updates are reflected in the **M
 
 ### Lookups
 
-Schema mapping takes lookups automatically identified from the uploaded Splunk queries and maps them to Sentinel Watchlists (created as a pre-requisite).
+Splunk lookups compare to Microsoft Sentinel watchlists, which are lists of curated field-value combinations to correlate with the events in your Microsoft Sentinel environment. Since Splunk lookups are defined and available outside the boundaries of SPL queries the equivalent Microsoft Sentinel watchlist must be created as a pre-requisite. Schema mapping then takes lookups automatically identified from the uploaded Splunk queries and maps them to Sentinel Watchlists.
 
 For more information, see [Create watchlist](watchlists-create.md).
 
 :::image type="content" source="media/siem-migration/schema-mapping-lookups.png" alt-text="Screenshot showing manual mapping of Splunk lookup to Microsoft Sentinel watchlist.":::
+
+SPL queries reference lookups with the `lookup`, `inputlookup` and `outputlookup` keywords. The `outputlookup` operation writes data to a lookup and isn't supported in translation. The SIEM migration translation engine uses the `_GetWatchlist()` KQL function to map to the correct Sentinel watchlist along with other KQL functions to complete the rule logic.
+
+When a Splunk lookup does not have a corresponding watchlist mapped, the translation engine keeps the same name for both the watchlist and its fields as the Splunk lookup and fields.
 
 ## Configure rules
 
