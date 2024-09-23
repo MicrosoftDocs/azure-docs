@@ -96,7 +96,7 @@ The Microsoft.Network resource provider applies the following throttle limits:
 | write / delete (PUT) | 1000 per 5 minutes |
 | read (GET) | 10000 per 5 minutes |
 
-In addition to those general limits, see [the usage limits for Azure DNS](/azure/dns/dns-faq#what-are-the-usage-limits-for-azure-dns-).
+In addition to those general limits, see the [usage limits for Azure DNS](/azure/dns/dns-faq#what-are-the-usage-limits-for-azure-dns-).
 
 ### Compute throttling
 

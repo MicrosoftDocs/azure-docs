@@ -22,7 +22,7 @@ ms.author: greglin
 
 | Operation | Limit (per zone) |
 | --------- | ----- |
-| Create or Update | 40/min |
+| Create | 40/min |
 | Delete | 40/min |
 | Get | 1000/min |
 | List | 60/min |
@@ -33,7 +33,7 @@ ms.author: greglin
 
 | Operation | Limit (per zone) |
 | --------- | ----- |
-| Create or Update | 200/min |
+| Create | 200/min |
 | Delete | 200/min |
 | Get | 2000/min |
 | List By DNS Zone | 60/min |
