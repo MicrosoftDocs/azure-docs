@@ -145,12 +145,29 @@ spin registry push ttl.sh/hello-spinkube:0.0.1
 
 > Both `spin` CLI and SpinKube integrate seamlessly with private container registries such as Azure Container Registry (ACR). To authenticate the `spin` CLI use `spin registry login` and supply corresponding credentials. SpinKube can pull OCI artifacts from ACR using underlying Azure identities with `AcrPull` permissions for the desired ACR instance(s).
 
-By using the `spin kube scaffold` command, you can create necessary Kubernetes deployment manifests. You can deploy those to Kubernetes using your preferred tooling:
+By using the `spin kube scaffold` command, you can create necessary Kubernetes deployment manifests:
 
 ```azurecli-interactive
 # Create Kubernetes Deployment Manifests
 spin kube scaffold --from ttl.sh/hello-spinkube:0.0.1 > spinapp.yaml
+```
 
+The `spinapp.yaml` file contains a pre-configured instance of the `SpinApp` CRD, which should look like this:
+
+```yaml
+apiVersion: core.spinoperator.dev/v1alpha1
+kind: SpinApp
+metadata:
+  name: hello-spinkube
+spec:
+  image: "ttl.sh/hello-spinkube:0.0.1"
+  executor: containerd-shim-spin
+  replicas: 2
+```
+
+Finally, use `kubectl apply` to deploy the Spin App to the AKS cluster:
+
+```azurecli-interactive
 # Deploy the Spin App to AKS
 kubectl apply -f spinapp.yaml
 ```
