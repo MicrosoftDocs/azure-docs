@@ -10,7 +10,7 @@ ms.topic: how-to
 
 # Asset modification overview
 
-This article outlines how to modify inventory assets. You can change the state of an asset, assign an external ID or apply labels to help provide context and use inventory data. Users can also remove assets from their inventory in bulk based on the method with which they were discovered; for instance, users can remove a seed from a discovery group and elect to remove any assets that were discovered through a connection to this seed. This article describes all modification options available in Defender EASM, and outlines how to update assets and track any updates with the Task Manager.
+This article outlines how to modify inventory assets. You can change the state of an asset, assign an external ID or apply labels to help provide context and use inventory data. You can also mark CVEs and other observations as non-applicable to remove them from your reported counts. You can also remove assets from their inventory in bulk based on the method with which they were discovered; for instance, users can remove a seed from a discovery group and elect to remove any assets that were discovered through a connection to this seed. This article describes all modification options available in Defender EASM, and outlines how to update assets and track any updates with the Task Manager.
 
 ### Label assets
 
@@ -44,6 +44,16 @@ Users can also change the state of an asset. States help categorize your invento
 Users can also apply an external ID to an asset. This is useful in situations when you employ multiple solutions for asset tracking, remediation activities or ownership monitoring; seeing any external IDs within Defender EASM helps you align this disparate asset information. External ID values can be numeric or alphanumeric and must be entered in text format. External IDs are also displayed within the Asset Details section. 
 
 
+### Mark observation as non-applicable 
+
+Many Defender EASM dashboards feature CVE data, bringing your attention to potential vulnerabilities based on the web component infrastructure that powers your attack surface. For instance, CVEs are listed on the Attack Surface summary dashboard, categorized by their potential severity. Upon investigating these CVEs, you might determine that some are not relevant to your organization. This may be because you are running an unimpacted version of the web component, or your organization has different technical solutions in place to protect you from that specific vulnerability. 
+
+From the drilldown view of any CVE-related chart, next to the "Download CSV report" button, you now have the option to set an observation as non-applicable. Clicking this value will route you to an inventory list of all assets associated to that observation, and you can then elect to mark all observations as non-applicable from this page. The actual change is either performed from the Inventory list view or from the Asset details page for a particular asset. 
+
+![Screenshot of dashboard drilldown view with "mark observation as nonapplicable" button highlighted.](media/cves-1.png)
+
+
+
 ## How to modify assets 
 
 You can modify assets from both the inventory list and asset details pages. You can make changes to a single asset from the asset details page. You can make changes to a single asset or multiple assets from the inventory list page. The following sections describe how to apply changes from the two inventory views depending on your use case.
@@ -54,7 +64,7 @@ You should modify assets from the inventory list page if you want to update nume
 
 1. On the leftmost pane of your Microsoft Defender External Attack Surface Management (Defender EASM) resource, select **Inventory**.
 
-2. Apply filters to produce your intended results. In this example, we're looking for domains that expire within 30 days that require renewal. The applied label helps you more quickly access any expiring domains to simplify the remediation process. You can apply as many filters as necessary to obtain the specific results that are needed. For more information on filters, see [Inventory filters overview](inventory-filters.md).
+2. Apply filters to produce your intended results. In this example, we're looking for domains that expire within 30 days that require renewal. The applied label helps you more quickly access any expiring domains to simplify the remediation process. You can apply as many filters as necessary to obtain the specific results that are needed. For more information on filters, see [Inventory filters overview](inventory-filters.md). For instances where you'd like to mark CVEs as non-applicable, the relevant dashbaord chart drilldown provides a link that directly routes you to this Inventory page with the correct filters applied. 
 
    ![Screenshot that shows the inventory list view with the Add filter dropdown opened to display the query editor.](media/labels-2.png)
 
@@ -64,7 +74,10 @@ You should modify assets from the inventory list page if you want to update nume
 
 4. Select **Modify assets**.
 
-5. On the **Modify Assets** pane that opens on the right side of your screen, you can quickly change the state of the selected assets. For this example, you create a new label. Select **Create a new label**.
+   ![Screenshot that shows the available modification options.](media/cves-2.png)
+
+
+5. On the **Modify Assets** pane that opens on the right side of your screen, you can quickly change various fields for the selected assets. For this example, you create a new label. Select **Create a new label**.
 
 6. Determine the label name and display text values. The label name can't be changed after you initially create the label, but the display text can be edited at a later time. The label name is used to query for the label in the product interface or via API, so edits are disabled to ensure these queries work properly. To edit a label name, you need to delete the original label and create a new one.
 
@@ -98,6 +111,7 @@ You can also modify a single asset from the asset details page. This option is i
 5. The asset details page refreshes and displays the newly applied label or state change. A banner indicates that the asset was successfully updated.
 
 
+
 ## Modify, remove, or delete labels
 
 Users can remove a label from an asset by accessing the same **Modify asset** pane from either the inventory list or asset details view. From the inventory list view, you can select multiple assets at once and then add or remove the desired label in one action.
@@ -117,6 +131,14 @@ To modify the label itself or delete a label from the system:
    ![Screenshot that shows the Confirm Remove option on the Labels management page.](media/labels-9a.png)
 
 The **Labels** page automatically refreshes. The label is removed from the list and also removed from any assets that had the label applied. A banner confirms the removal.
+
+
+
+## Mark observations as non-applicable 
+
+While observations can be marked as non-applicable from the same "Modify asset(s)" screens for other manual changes, you can also make these updates from the Observations tab in Asset details. The Observations tab features two tables: Observations and Non-appliable observations. All active observations determined to be "recent" within your attack surface will be in te Observations table, whereas the Non-applicable observations table lists any observations that have either been manually marked as non-applicable or were determined by the system to no longer be applicable. To mark observations as non-applicable and therefore exclude that particular observation from dashboard counts, simply select the desired observations and click "Set as non-applicable."  The observation(s) will immediately disappear from the active Observations table and will instead appear on the "Non-applicable observations" table. You can revert this change at any time by selection the relevant observation(s) from this table and selecting "Set as applicable." 
+
+   ![Screenshot that shows the Observations tab with multiple CVEs selected to be marked as non-applicable.](media/cves-3.png)
 
 
 ## Task Manager and notifications
