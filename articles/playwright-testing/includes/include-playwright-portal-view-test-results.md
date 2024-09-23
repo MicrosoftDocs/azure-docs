@@ -7,11 +7,11 @@ ms.date: 09/23/2024
 ---
  
 
-1. Open the link generated at the end of test run in the console to see the results on Playwright portal. The portal contains the CI information, test run status, and commit id associated with the test run.
+1. To see the test results and artifacts on Playwright portal, open the link generated at the end of test run in the console. The portal contains the CI information, test run status, and commit ID associated with the test run.
     
     :::image type="content" source="./media/include-playwright-portal-view-test-results/playwright-testing-open-test-run.png" alt-text="Screenshot that shows list of tests in the test run." lightbox="./media/include-playwright-portal-view-test-results/playwright-testing-open-test-run.png":::
 
-3. Open any failed test to see all the required information to troubleshoot. Switch between retries, see error logs, test steps and attachments such as screenshots and video. Navigate to the trace viewer from here. 
+3. Open any failed test to see all the required information to troubleshoot. Switch between retries, see error logs, test steps, and attachments such as screenshots and video. Navigate to the trace viewer from here. 
 
     :::image type="content" source="./media/include-playwright-portal-view-test-results/playwright-testing-open-test.png" alt-text="Screenshot that shows the preview of a test" lightbox="./media/include-playwright-portal-view-test-results/playwright-testing-open-test.png":::
 

@@ -1,6 +1,6 @@
 ---
 title: 'Quickstart: Generate rich reports for Playwright tests'
-description: 'This quickstart shows how to troubleshoot your test runs using Microsoft Playwright Testing Preview.
+description: 'This quickstart shows how to troubleshoot your test runs using Microsoft Playwright Testing Preview.'
 ms.topic: quickstart
 ms.date: 09/23/2024
 ms.custom: playwright-testing-preview
