@@ -72,9 +72,15 @@ In this example, you learn how to build a Docker image to utilize ADE deployment
 The ADE CLI is a tool that allows you to build custom images by using ADE base images. You can use the ADE CLI to customize your deployments and deletions to fit your workflow. The ADE CLI is preinstalled on the sample images. To learn more about the ADE CLI, see the [CLI Custom Runner Image reference](https://aka.ms/deployment-environments/ade-cli-reference).
 ::: zone-end
 
-::: zone-pivot="terraform"
+::: zone pivot="terraform"
 
-[!INCLUDE [configure-extensibility-terraform-container-image](includes/configure-extensibility-terraform-container-image.md)]
+### Create and customize a Terraform container image
+
+::: zone-end
+
+::: zone pivot="pulumi"
+
+### Create and customize a Pulumi container image
 
 ::: zone-end
 
