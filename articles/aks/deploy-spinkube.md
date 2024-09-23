@@ -46,7 +46,11 @@ You must have the following tools installed on your machine to follow this tutor
 Configure `kubectl` to connect to your Kubernetes cluster using the [az aks get-credentials][az-aks-get-credentials] command. The following command:
 
 ```azurecli-interactive
-az aks get-credentials -n <your cluster name> -g <your resource group name>
+EXISTING_AKS_NAME=<your existing aks name>
+RG_NAME=<your resource group name>
+
+# Load AKS credentials into kubectl
+az aks get-credentials -n $EXISTING_AKS_NAME -g RG_NAME
 ```
 
 ### Deploy `cert-manager`
@@ -142,23 +146,58 @@ cd hello-spinkube
 npm install
 ```
 
-The `spin` CLI create a basic *Hello, World* application, package and push the Spin App without further modifications to a OCI compliant container registry:
+Use the `spin` CLI create a basic *Hello, World* application:
 
 ```azurecli-interactive
 # Compile the app to Wasm
 spin build
-
-# Package and Distribute the Spin App
-spin registry push ttl.sh/hello-spinkube:0.0.1
 ```
 
-> Both `spin` CLI and SpinKube integrate seamlessly with private container registries such as Azure Container Registry (ACR). To authenticate the `spin` CLI use `spin registry login` and supply corresponding credentials. SpinKube can pull OCI artifacts from ACR using underlying Azure identities with `AcrPull` permissions for the desired ACR instance(s).
+Spin Apps are packaged as OCI artifacts and distributed via OCI compliant artifacts such as Azure Container Registry (ACR). Create a new ACR instance and grab necessary credentials for authenticating the `spin` CLI:
+
+```azurecli-interactive
+ACR_NAME=<your acr name>
+RG_NAME=<your resource group name>
+LOCATION=<your azure region>
+
+# Create a new ACR instance
+az acr create -n $ACR_NAME -g $RG_NAME -l $LOCATION --sku Basic --admin-enabled true
+
+# Grab the ACR Login Server Endpoint
+ACR_LOGIN_SERVER=$(az acr show -n $ACR_NAME -g $RG_NAME --query 'loginServer' -otsv)
+
+# Grab the Admin Password
+ACR_PASSWORD=$(az acr credential show -n $ACR_NAME -g $RG_NAME --query 'passwords[0].value' -otsv)
+```
+
+Before distributing the Spin App, you must authenticate your `spin` CLI. Use `spin registry login` to do so:
+
+```azurecli-interactive
+spin registry login -u $ACR_NAME -p $ACR_PASSWORD $ACR_LOGIN_SERVER
+```
+
+Now that the `spin` CLI is authenticated against the ACR instance, you can package and distribute the Spin App by executing `spin registry push` followed by an OCI artifact reference (which follows the `<your acr login server>/<repository-name>:<tag>` naming scheme):
+
+```
+# Package and Distribute the Spin App
+spin registry push $ACR_LOGIN_SERVER/hello-spinkube:0.0.1
+```
+
+Before actually deploying the Spin App, you must create a Kubernetes Secret of type `docker-registry` (called `spinkube-on-aks` here) which will be referenced when deploying the Spin App to your AKS cluster:
+
+```azurecli-interactive
+# Create a Kubernetes Secret of type docker-registry called spinkube-on-aks
+kubectl create secret docker-registry spinkube-on-aks \
+  --docker-server=$ACR_LOGIN_SERVER \
+  --docker-username=$ACR_NAME\
+  --docker-password $ACR_PASSWORD
+```
 
 By using the `spin kube scaffold` command, you can create necessary Kubernetes deployment manifests:
 
 ```azurecli-interactive
 # Create Kubernetes Deployment Manifests
-spin kube scaffold --from ttl.sh/hello-spinkube:0.0.1 > spinapp.yaml
+spin kube scaffold --from $ACR_LOGIN_SERVER/hello-spinkube:0.0.1 -s spinkube-on-aks > spinapp.yaml
 ```
 
 The `spinapp.yaml` file contains a pre-configured instance of the `SpinApp` CRD, which should look like this:
@@ -169,9 +208,11 @@ kind: SpinApp
 metadata:
   name: hello-spinkube
 spec:
-  image: "ttl.sh/hello-spinkube:0.0.1"
+  image: "<your acr name>.azurecr.io/hello-spinkube:0.0.1"
   executor: containerd-shim-spin
   replicas: 2
+  imagePullSecrets:
+    - name: spinkube-on-aks
 ```
 
 Finally, use `kubectl apply` to deploy the Spin App to the AKS cluster:
@@ -263,6 +304,16 @@ To remove the Spin App from the AKS cluster use `kubectl delete spinapp` as show
 ```azurecli-interactive
 # Remove the hello-spinkube Spin App
 kubectl delete spinapp hello-spinkube
+
+# Remove the docker-registry Secret (spinkube-on-aks)
+kubectl delete secret spinkube-on-aks
+```
+
+To remove the ACR instance created as part of this tutorial, use this `az` command:
+
+```azurecli-interactive
+# Remove the ACR instance
+az acr delete -n $ACR_NAME -g $RG_NAME --yes
 ```
 
 To uninstall SpinKube from the AKS cluster, use the following commands:
