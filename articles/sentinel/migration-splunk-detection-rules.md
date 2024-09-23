@@ -5,7 +5,7 @@ description: Learn how to identify, compare, and migrate your Splunk detection r
 author: austinmccollum
 ms.author: austinmc
 ms.topic: conceptual
-ms.date: 09/01/2024
+ms.date: 09/23/2024
 #customer intent: As a SOC administrator, I want to migrate Splunk detection rules to KQL so I can migrate to Microsoft Sentinel.
 ---
 

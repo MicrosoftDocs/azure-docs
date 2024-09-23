@@ -4,7 +4,7 @@ titleSuffix: Microsoft Sentinel
 description: Migrate security monitoring use cases from other Security Information and Event Management (SIEM) systems to Microsoft Sentinel. 
 author: austinmccollum
 ms.topic: how-to
-ms.date: 9/11/2024
+ms.date: 9/23/2024
 ms.author: austinmc
 appliesto: 
 - Microsoft Sentinel in the Azure portal
@@ -103,7 +103,7 @@ Once you match Splunk data source ingestion in Microsoft Sentinel, use **Schema 
 
 Known sources such as Splunk CIM schemas and data models are automatically mapped to ASIM schemas when applicable. Other sources used in the Splunk detection must be manually mapped to Microsoft Sentinel or Log Analytics tables. Mapping schemas are hierarchical so Splunk sources map 1:1 with Microsoft Sentinel tables and the fields within those sources.
 
-:::image type="content" source="media/siem-migration/schema-mapping-data-sources.png" alt-text="Screenshot showing the Schema mapping (preview) options for data sources.":::
+:::image type="content" source="media/siem-migration/schema-mapping-data-sources.png" alt-text="Screenshot showing the Schema mapping (preview) options for data sources." lightbox="media/siem-migration/schema-mapping-data-sources.png":::
 
 Once the schema mapping is complete, any manual updates are reflected in the **Mapping Status** as "Manually mapped". The changes are taken into account in the next step when the rules are translated. 
 
