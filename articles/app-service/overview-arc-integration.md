@@ -3,8 +3,8 @@ title: 'App Service on Azure Arc'
 description: An introduction to App Service integration with Azure Arc for Azure operators.
 ms.topic: article
 ms.custom: devx-track-azurecli
-ms.date: 12/05/2023
-author: msangapu-msft
+ms.date: 09/23/2024
+author: anwestg
 ms.author: msangapu
 ---
 
@@ -30,6 +30,7 @@ The following public preview limitations apply to App Service Kubernetes environ
 |---------------------------------------------------------|---------------------------------------------------------------------------------------|
 | Supported Azure regions                                 | East US, West Europe                                                                  |
 | Cluster networking requirement                          | Must support `LoadBalancer` service type |
+| Node OS requirement                                     | **Linux** only.                                                                       | 
 | Cluster storage requirement                             | Must have cluster attached storage class available for use by the extension to support deployment and build of code-based apps where applicable                      |
 | Feature: Networking                                     | [Not available (rely on cluster networking)](#are-all-networking-features-supported)      |
 | Feature: Managed identities                             | [Not available](#are-managed-identities-supported)                                    |
@@ -68,6 +69,7 @@ Only one Kubernetes environment resource can be created in a custom location. In
 
 - [How much does it cost?](#how-much-does-it-cost)
 - [Are both Windows and Linux apps supported?](#are-both-windows-and-linux-apps-supported)
+- [Can the extension be installed on Windows nodes?](#can-the-extension-be-installed-on-windows-nodes)
 - [Which built-in application stacks are supported?](#which-built-in-application-stacks-are-supported)
 - [Are all app deployment types supported?](#are-all-app-deployment-types-supported)
 - [Which App Service features are supported?](#which-app-service-features-are-supported)
@@ -86,6 +88,10 @@ App Service on Azure Arc is free during the public preview.
 ### Are both Windows and Linux apps supported?
 
 Only Linux-based apps are supported, both code and custom containers. Windows apps aren't supported.
+
+### Can the extension be installed on Windows nodes?
+
+No, the extension cannot be installed on Windows nodes.  The extension supports installation on **Linux** nodes **only**.
 
 ### Which built-in application stacks are supported?
 
