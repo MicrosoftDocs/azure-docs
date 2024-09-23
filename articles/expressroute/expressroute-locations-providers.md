@@ -128,7 +128,7 @@ The following table shows connectivity locations and the service providers for e
 | **Portland** | [EdgeConnex POR01](https://www.edgeconnex.com/locations/north-america/portland-or/) | 1 | West US 2 | &check; |  |
 | **Pune** | [STT GDC Pune DC1](https://www.sttelemediagdc.in/our-data-centres-in-india) | 2 | Central India | &check; | Airtel<br/>Lightstorm<br/>Tata Communications |
 | **Quebec City** | [Vantage](https://vantage-dc.com/data_centers/quebec-city-data-center-campus/) | 1 | Canada East | &check; | Bell Canada<br/>Equinix<br/>Megaport<br/>RISQ<br/>Telus |
-| **Queretaro (Mexico)** | [KIO Networks QR01](https://www.kionetworks.com/es-mx/) | 4 | &cross; | &check; | Cirion Technologies<br/>Equinix<br/>MCM Telecom<br/>Megaport<br/>Transtelco |
+| **Queretaro (Mexico)** | [KIO Networks QR01](https://www.kionetworks.com/es-mx/) | 4 | &cross; | &check; | Cirion Technologies<br/>Equinix<br/>KIO<br/>MCM Telecom<br/>Megaport<br/>Transtelco |
 | **Quincy** | Sabey Datacenter - Building A | 1 | West US 2 | &check; |  |
 
 
