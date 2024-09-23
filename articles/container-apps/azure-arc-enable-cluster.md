@@ -253,6 +253,9 @@ A [Log Analytics workspace](/azure/azure-monitor/logs/quick-create-workspace) pr
 
 ## Install the Container Apps extension
 
+> [!IMPORTANT]
+> If deploying onto **AKS-HCI** ensure that you have [setup HAProxy as your load balancer](/azure/aks/hybrid/configure-load-balancer)  before attempting to install the extension.
+
 1. Set the following environment variables to the desired name of the [Container Apps extension](azure-arc-create-container-app.md), the cluster namespace in which resources should be provisioned, and the name for the Azure Container Apps connected environment. Choose a unique name for `<connected-environment-name>`.  The connected environment name will be part of the domain name for app you'll create in the Azure Container Apps connected environment.
 
     # [Azure CLI](#tab/azure-cli)
