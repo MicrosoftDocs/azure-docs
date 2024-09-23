@@ -206,8 +206,12 @@ An App Service Environment will only store customer data including app content, 
 
 ## Pricing tiers
 
-The following sections list the regional pricing tiers (SKUs) availability for App Service Environment v3. Please note that Windows Container currently do not support memory intensive SKUs.
+The following sections list the regional pricing tiers (SKUs) availability for App Service Environment v3.
 
+> [!NOTE]
+> Windows Container plans currently do not support memory intensive SKUs.
+>
+ 
 ### Azure Public:
 
 | Region               | Standard     | Large       | Memory intensive  |
