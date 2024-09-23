@@ -35,10 +35,9 @@ To use scaling plans, make sure you follow these guidelines:
 
 - If you are using PowerShell to create and assign your scaling plan, you will need module [Az.DesktopVirtualization](https://www.powershellgallery.com/packages/Az.DesktopVirtualization/) version 4.2.0 or later. 
 
-- If you are [configuring a time limit policy using Microsoft Intune](#configure-a-time-limit-policy-using-microsoft-intune), you will need: 
-    - A Microsoft Entra ID account that is assigned the Policy and Profile manager built-in RBAC role.
-    - A group containing the devices you want to configure.
-
+- If you are [configuring a time limit policy](#configure-a-time-limit-policy), you will need: 
+    - For Intune: a Microsoft Entra ID account that is assigned the Policy and Profile manager built-in RBAC role and a group containing the devices you want to configure.
+    - For Group Policy: a domain account that has permission to create or edit Group Policy objects and a security group or organizational unit (OU) containing the devices you want to configure.
 
 ## Assign the Desktop Virtualization Power On Off Contributor role with the Azure portal
 
@@ -129,8 +128,7 @@ Now that you've assigned the *Desktop Virtualization Power On Off Contributor* r
         >
         > - Whether you’ve enabled autoscale to force users to sign out during ramp-down or not, the [capacity threshold](autoscale-glossary.md#capacity-threshold) and the [minimum percentage of hosts](autoscale-glossary.md#minimum-percentage-of-hosts) are still respected, autoscale will only shut down VMs if all existing user sessions (active and disconnected) in the host pool can be consolidated to fewer VMs without exceeding the capacity threshold.
         >
-        > - You can also configure a time limit policy that will apply to all phases to sign out all disconnected users to reduce the [used host pool capacity](autoscale-glossary.md#used-host-pool-capacity). For more information, see [Configure a time limit policy using Microsoft Intune](#configure-a-time-limit-policy-using-microsoft-intune).
-        
+        > - You can also configure a time limit policy that will apply to all phases to sign out all disconnected users to reduce the [used host pool capacity](autoscale-glossary.md#used-host-pool-capacity). For more information, see [Configure a time limit policy](#configure-a-time-limit-policy).
     
         - Likewise, **Off-peak hours** works the same way as **Peak hours**:
     
