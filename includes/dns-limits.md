@@ -46,7 +46,7 @@ ms.author: greglin
 | Delete |60/min|
 | Get |200/min|
 | List |100/min|
-| Update |60|
+| Update |60/min|
 
 **Virtual network links**
 
@@ -56,7 +56,7 @@ ms.author: greglin
 | Delete |40/min|
 | Get |100/min|
 | List by virtual network |20/min|
-| Update |60|
+| Update |60/min|
 
 **Azure-provided DNS resolver VM limits**
 
