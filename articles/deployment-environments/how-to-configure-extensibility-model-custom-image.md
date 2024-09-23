@@ -16,7 +16,7 @@ zone_pivot_groups: ade-extensibility-iac-framework
 # Configure container image to execute deployments
 
 ::: zone pivot="arm-bicep"
-In this article, you learn how to build custom container images to deploy your environment definitions in Azure Deployment Environments (ADE).
+In this article, you learn how to build custom Bicep container images to deploy your environment definitions in Azure Deployment Environments (ADE).
 ::: zone-end
 
 ::: zone pivot="terraform"
@@ -24,7 +24,7 @@ In this article, you learn how to build custom Terraform container images to dep
 ::: zone-end
 
 ::: zone pivot="pulumi"
-In this article, you learn how to utilize [Pulumi](https://pulumi.com) for deployments in Azure Deployment Environments (ADE). You learn how to use a standard image provided by Pulumi or how to configure a custom image to provision infrastructure using the Pulumi Infrastructure-as-Code (IaC) framework.
+In this article, you learn how to utilize [Pulumi](https://pulumi.com) for deployments in Azure Deployment Environments (ADE). You learn how to use a sample image provided by Pulumi or how to configure a custom image to provision infrastructure using the Pulumi Infrastructure-as-Code (IaC) framework.
 ::: zone-end
 
 ADE supports an extensibility model that enables you to create custom images that you can use in your environment definitions. To use this extensibility model, create your own custom images and store them in a container registry like Azure Container Registry (ACR) or Docker Hub. You can then reference these images in your environment definitions to deploy your environments. 
@@ -52,15 +52,15 @@ An [environment definition](configure-environment-definition.md) comprises at le
 ## Use container images with ADE
 
 You can take one of the following approaches to use container images with ADE:
-- **Use the standard container image:** For simple scenarios, use the standard ARM-Bicep container image provided by ADE.
+- **Use a sample container image:** For simple scenarios, use the sample ARM-Bicep container image provided by ADE.
 - **Create a custom container image:** For more complex scenarios, create a custom container image that meets your specific requirements.
  
 Regardless of which approach you choose, you must specify the container image in your environment definition to deploy your Azure resources.
 
 ::: zone pivot="arm-bicep"
-## Use a standard container image
+## Use a sample container image
 
-ADE supports ARM and Bicep without requiring any extra configuration. You can create an environment definition that deploys Azure resources for a deployment environment by adding the template files (like *azuredeploy.json* and *environment.yaml*) to your catalog. ADE then uses the standard ARM-Bicep container image to create the deployment environment.
+ADE supports ARM and Bicep without requiring any extra configuration. You can create an environment definition that deploys Azure resources for a deployment environment by adding the template files (like *azuredeploy.json* and *environment.yaml*) to your catalog. ADE then uses the sample ARM-Bicep container image to create the deployment environment.
 
 In the *environment.yaml* file, the runner property specifies the location of the container image you want to use. To use the sample image published on the Microsoft Artifact Registry, use the respective identifiers runner.
 
@@ -73,13 +73,13 @@ The following example shows a runner that references the sample ARM-Bicep contai
     runner: Bicep
     templatePath: azuredeploy.json
 ```
-You can see the standard Bicep container image in the ADE sample repository under the [Runner-Images folder for the ARM-Bicep](https://github.com/Azure/deployment-environments/tree/main/Runner-Images/ARM-Bicep) image.
+You can see the sample Bicep container image in the ADE sample repository under the [Runner-Images folder for the ARM-Bicep](https://github.com/Azure/deployment-environments/tree/main/Runner-Images/ARM-Bicep) image.
 
 For more information about how to create environment definitions that use the ADE container images to deploy your Azure resources, see [Add and configure an environment definition](configure-environment-definition.md).
 ::: zone-end
 
 ::: zone pivot="pulumi"
-## Use a standard Docker image provided by Pulumi
+## Use a sample Docker image provided by Pulumi
 
 The Pulumi team provides a prebuilt image to get you started, which you can see in the [Runner-Image](https://github.com/pulumi/azure-deployment-environments/tree/main/Runner-Image) folder. This image is publicly available at Pulumi's Docker Hub as [`pulumi/azure-deployment-environments`](https://hub.docker.com/repository/docker/pulumi/azure-deployment-environments), so you can use it directly from your ADE environment definitions.
 
@@ -99,7 +99,7 @@ You can find a few sample environment definitions in the [Environments folder](h
 
 ## Create a custom container image
 
-Creating a custom container image allows you to customize your deployments to fit your requirements. You can create custom images based on the ADE standard container images.
+Creating a custom container image allows you to customize your deployments to fit your requirements. You can create custom images based on the ADE sample container images.
 
 After you complete the image customization, you must build the image and push it to your container registry. 
 
@@ -111,7 +111,7 @@ In this example, you learn how to build a Docker image to utilize ADE deployment
 
 ::: zone pivot="arm-bicep"
 To create an image configured for ADE, follow these steps:
-1. Create a custom image based on a standard image.
+1. Create a custom image based on a sample image.
 1. Install desired packages.
 1. Configure operation shell scripts.
 1. Create operation shell scripts to deploy ARM or Bicep templates.
@@ -119,7 +119,7 @@ To create an image configured for ADE, follow these steps:
 
 ::: zone pivot="terraform"
 To create an image configured for ADE, follow these steps:
-1. Create a custom image based on a standard image.
+1. Create a custom image based on a sample image.
 1. Install desired packages.
 1. Configure operation shell scripts.
 1. Create operation shell scripts that use the Terraform CLI. 
@@ -127,13 +127,13 @@ To create an image configured for ADE, follow these steps:
 
 ::: zone pivot="pulumi"
 To create an image configured for ADE, follow these steps:
-1. Create a custom image based on a standard image.
+1. Create a custom image based on a sample image.
 1. Install desired packages.
 1. Configure operation shell scripts.
 1. Create operation shell scripts that use the Pulumi CLI.
 ::: zone-end
 
-**1. Create a custom image based on a standard image**
+#### 1. Create a custom image based on a sample image
 
 Create a DockerFile that includes a FROM statement pointing to a sample image hosted on Microsoft Artifact Registry. 
 
@@ -145,7 +145,7 @@ FROM mcr.microsoft.com/deployment-environments/runners/core:latest
 
 This statement pulls the most recently published core image, and makes it a basis for your custom image.
 
-**2. Install required packages**
+#### 2. Install required packages
 ::: zone pivot="arm-bicep"
 In this step, you install any packages you require in your image, including Bicep. You can install the Bicep package with the Azure CLI by using the RUN statement, as shown in the following example:
 
@@ -195,7 +195,7 @@ The ADE sample images are based on the Azure CLI image, and have the ADE CLI and
 
 To install any more packages you need within your image, use the RUN statement.
 
-**3. Configure operation shell scripts**
+#### 3. Configure operation shell scripts
 
 Within the sample images, operations are determined and executed based on the operation name. Currently, the two operation names supported are *deploy* and *delete*.
 
@@ -211,7 +211,7 @@ RUN find /scripts/ -type f -iname "*.sh" -exec chmod +x {} \;
 
 ::: zone pivot="arm-bicep"
 
-**4. Create operation shell scripts to deploy ARM or Bicep templates**
+#### 4. Create operation shell scripts to deploy ARM or Bicep templates
 
 To ensure you can successfully deploy ARM or Bicep infrastructure through ADE, you must:
 1. Convert ADE parameters to ARM-acceptable parameters
@@ -319,7 +319,7 @@ echo "{\"outputs\": $deploymentOutput}" > $ADE_OUTPUTS
 
 ::: zone pivot="terraform"
 
-**4. Create operation shell scripts that use the Terraform CLI**
+#### 4. Create operation shell scripts that use the Terraform CLI
 
 There are three steps to deploy infrastructure via Terraform: 
 1. `terraform init` - initializes the Terraform CLI to perform actions within the working directory
