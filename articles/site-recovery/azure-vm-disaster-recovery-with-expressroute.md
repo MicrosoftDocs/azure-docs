@@ -1,6 +1,6 @@
 ---
 title: Integrate Azure ExpressRoute Azure VM disaster recovery with Azure Site Recovery
-description: Describes how to set up disaster recovery for Azure VMs using Azure Site Recovery and Azure ExpressRoute
+description: Describes how to set up disaster recovery for Azure virtual machines using Azure Site Recovery and Azure ExpressRoute
 author: ankitaduttaMSFT
 ms.service: azure-site-recovery
 ms.topic: concept-article
@@ -42,12 +42,12 @@ Before you begin, make sure you understand the following concepts:
 For best practice, and to ensure efficient Recovery Time Objectives (RTOs) for disaster recovery, we recommend you do the following when you set up Site Recovery to integrate with ExpressRoute:
 
 - Provision networking components before failover to a secondary region:
-    - When you enable replication for Azure virtual machines, Site Recovery can automatically deploy networking resources such as networks, subnets, and gateways in the target Azure region, based on source network settings.
+    - When you enable replication for Azure virtual machines, Site Recovery can automatically deploy networking resources like networks, subnets, and gateways in the target Azure region, using the source network settings.
     - Site Recovery can't automatically set up networking resources such as VNet gateways.
     - We recommend you provision these extra networking resources before failover. A small downtime is associated with this deployment, and it can impact the overall recovery time, if you didn't account for it during deployment planning.
 - Run regular disaster recovery drills:
     - A drill validates your replication strategy without data loss or downtime, and doesn't affect your production environment. It helps avoid last-minute configuration issues that can adversely impact RTO.
-    - When you run a test failover for the drill, we recommend that you use a separate Azure virtual machine network, instead of the default network that's set up when you enable replication.
+    - When you run a test failover for the drill, we recommend using a separate Azure virtual machine network instead of the default network set up during replication.
 - Use different IP address spaces if you have a single ExpressRoute circuit.
     - We recommend that you use a different IP address space for the target virtual network. This avoids issues when establishing connections during regional outages.
     - If you can't use a separate address space, be sure to run the disaster recovery drill test failover on a separate test network with different IP addresses. You can’t connect two VNets with overlapping IP address space to the same ExpressRoute circuit.
@@ -59,7 +59,7 @@ If you want to set up replication for Azure virtual machines in a primary site, 
 
 1. [Enable replication](azure-to-azure-tutorial-enable-replication.md) for each Azure virtual machine.
 2. Optionally let Site Recovery set up networking:
-    - When you configure and enable replication, Site Recovery sets up networks, subnets, and gateway subnets in the target Azure region, to match those in the source region. Site Recovery also maps between the source and target virtual networks.
+    - When you configure and enable replication, Site Recovery sets up networks, subnets, and gateway subnets in the target Azure region to match those in the source region. Site Recovery also maps between the source and target virtual networks.
     - If you don't want Site Recovery to do this automatically, create the target-side network resources before you enable replication.
 3. Create other networking elements:
     - Site Recovery doesn't create route tables, VNet gateways, VNet gateway connections, VNet peering, or other networking resources and connections in the secondary region.
