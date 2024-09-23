@@ -143,9 +143,7 @@ Azure Secret Store requires a user-assigned managed identity with access to the 
 
 ### Create an Azure Key Vault
 
-Azure IoT Operations has the option to use multiple key vaults. For each key vault, a federated credential using a user-assigned managed identity needs to be created. If you already have an Azure Key Vault and secret, you can skip this section.
-
-Create an Azure Key Vault and add a secret:
+If you already have an Azure Key Vault with `Key Vault Secrets Officer` permissions, you can skip this section.
 
 1. Use the [az keyvault create](/cli/azure/keyvault#az-keyvault-create) command to create an Azure Key Vault.
 
