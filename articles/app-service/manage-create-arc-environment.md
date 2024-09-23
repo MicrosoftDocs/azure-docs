@@ -5,7 +5,7 @@ author: msangapu-msft
 ms.author: msangapu
 ms.topic: article
 ms.custom: devx-track-azurecli
-ms.date: 03/24/2023
+ms.date: 09/23/2024
 ---
 # Set up an Azure Arc-enabled Kubernetes cluster to run App Service, Functions, and Logic Apps (Preview)
 

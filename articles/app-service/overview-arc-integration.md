@@ -4,7 +4,7 @@ description: An introduction to App Service integration with Azure Arc for Azure
 ms.topic: article
 ms.custom: devx-track-azurecli
 ms.date: 09/23/2024
-author: anwestg
+author: apwestgarth
 ms.author: msangapu
 ---
 
