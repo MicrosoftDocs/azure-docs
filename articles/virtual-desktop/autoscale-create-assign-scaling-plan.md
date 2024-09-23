@@ -321,13 +321,13 @@ Here's how to create a scaling plan using the Az.DesktopVirtualization PowerShel
 
 ---
 
-## Configure a time limit policy using Microsoft Intune
+## Configure a time limit policy
 
-You can configure a time limit policy that will sign out all disconnected users once a set time is reached to reduce the [used host pool capacity](autoscale-glossary.md#used-host-pool-capacity). Select the relevant tab for your scenario.
+You can configure a time limit policy that will sign out all disconnected users once a set time is reached to reduce the [used host pool capacity](autoscale-glossary.md#used-host-pool-capacity) using Microsoft Intune or Group Policy. Select the relevant tab for your scenario.
 
 # [Microsoft Intune](#tab/intune)
 
-To configure a time limit policy using Microsoft Intune: 
+To configure a time limit policy using Intune: 
 
 1. Sign in to the [Microsoft Intune admin center](https://endpoint.microsoft.com/).
 
