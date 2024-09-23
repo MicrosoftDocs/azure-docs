@@ -1,11 +1,9 @@
 ---
 title: Integrate Azure ExpressRoute Azure VM disaster recovery with Azure Site Recovery
 description: Describes how to set up disaster recovery for Azure VMs using Azure Site Recovery and Azure ExpressRoute
-services: site-recovery
 author: ankitaduttaMSFT
-manager: rochakm
 ms.service: azure-site-recovery
-ms.topic: conceptual
+ms.topic: concept-article
 ms.date: 12/14/2023
 ms.author: ankitadutta
 
