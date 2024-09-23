@@ -11,7 +11,16 @@ ms.author: ThorstenHans
 
 [WebAssembly (Wasm)][wasm] is a binary format that is optimized for fast download and near-native execution speed. It runs in a sandbox, isolated from the host computer, provided by a Wasm runtime. By default, WebAssembly modules can't access resources on the host outside of the sandbox unless they are explicitly allowed, including sockets and environment variables. The [WebAssembly System Interface (WASI)][wasi] standard defines a set of interfaces for Wasm runtimes to provide access to WebAssembly modules to the environment and resources outside the host using a capability-based security model.
 
-[SpinKube][spinkube] is a open-source project that runs serverless Wasm workloads (Spin Apps) built with open-source [Spin][spin] in Kubernetes. In contrast to earlier Wasm runtimes for Kubernetes, Spin Apps are executed natively on the underlying Kubernetes nodes and do not rely on containers. SpinKube consists of two top-level components: 
+[SpinKube][spinkube] is a open-source project that runs serverless Wasm workloads (Spin Apps) built with open-source [Spin][spin] in Kubernetes. In contrast to earlier Wasm runtimes for Kubernetes, SpinKube executes Spin Apps natively on the underlying Kubernetes nodes and does not rely on containers. Spin Apps are regular Wasm modules, that align with the [WebAssembly Component Model](wasm-component-model) specification.
+
+By running Spin Apps on Kubernetes with SpinKube, you can achieve the following: 
+
+* Run Wasm workloads next to existing containerized applications
+* Run similar workloads while consuming less resources
+* Run more workloads on a given set of resources
+* Run workloads on different architectures (e.g. `amd64` and `arm64`) without cross-compiling them
+
+SpinKube consists of two top-level components: 
 
 * `spin-operator`: A Kubernetes operator allowing the deployment and management of Spin Apps by using custom resources
 * `kube` plugin for `spin`: A `spin` CLI plugin allowing users to scaffold Kubernetes deployment manifests for Spin Apps.
@@ -286,6 +295,7 @@ kubectl delete -f https://github.com/cert-manager/cert-manager/releases/download
 [wasi]: https://wasi.dev/
 [spinkube]: https://spinkube.dev/
 [spin]: https://spin.fermyon.dev/
+[wasm-component-model]: https://github.com/WebAssembly/component-model
 [kubectl]: https://kubernetes.io/docs/tasks/tools/
 [helm]: https://helm.sh
 [spin-cli]: https://developer.fermyon.com/spin/v2/install
