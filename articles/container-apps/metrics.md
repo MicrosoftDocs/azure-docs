@@ -21,7 +21,7 @@ Container Apps provides these basic metrics.
 
 | Title | Dimensions | Description | Metric ID | Unit |
 |--|--|--|--|--|
-| CPU Usage | Replica, Revision | CPU consumed by the container app, in nano cores (1,000,000,000 nanocores = 1 core) | UsageNanoCores | `nanocores` |
+| CPU Usage | Replica, Revision | CPU consumed by the container app, in nano cores (1,000,000,000 nanocores = 1 core) | `UsageNanoCores` | nanocores |
 | Memory Working Set Bytes | Replica, Revision | Container app working set memory used in bytes | `WorkingSetBytes` | bytes |
 | Network In Bytes | Replica, Revision | Network received bytes | `RxBytes` | bytes |
 | Network Out Bytes | Replica, Revision | Network transmitted bytes | `TxBytes` | bytes |
