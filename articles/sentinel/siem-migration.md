@@ -40,7 +40,7 @@ You need the following on the target, Microsoft Sentinel:
 
 ## Translate Splunk detection rules
 
-At the core of Splunk detection rules is the Search Processing Language (SPL). The SIEM migration experience systematically translates SPL to Kusto query language (KQL) for each Splunk rule. Carefully review translations and make adjustments to ensure migrated rules function as intended in your Microsoft Sentinel workspace. For more information on the concepts important in translating detection rules, see [migrate Splunk detection rules](migration-splunk-detection-rules.md).
+At the core of Splunk detection rules, is the Search Processing Language (SPL). The SIEM migration experience systematically translates SPL to Kusto query language (KQL) for each Splunk rule. Carefully review translations and make adjustments to ensure migrated rules function as intended in your Microsoft Sentinel workspace. For more information on the concepts important in translating detection rules, see [migrate Splunk detection rules](migration-splunk-detection-rules.md).
 
 Current capabilities:
 
@@ -93,7 +93,7 @@ Current capabilities:
 
 ## Schema mapping
 
-Precisely define how Splunk sources map to Microsoft Sentinel tables with the **Schema mapping** section of the SIEM migration experience. Microsoft Sentinel Analytics require that the data type be present in the Log Analytics Workspace before a rule is enabled. So, once you match the data sources from Splunk to Microsoft Sentinel, use Schema mapping to ensure the data types and fields used in the analytics rule logic are mapped accurately.
+Precisely define how Splunk sources map to Microsoft Sentinel tables with the **Schema mapping** section of the SIEM migration experience. Microsoft Sentinel Analytics require that the data type is present in the Log Analytics Workspace before a rule is enabled. So, once you match the data sources from Splunk to Microsoft Sentinel, use Schema mapping to ensure the data types and fields used in the analytics rule logic are mapped accurately.
 
 Known sources such as Splunk CIM schemas and data models are automatically mapped to ASIM schemas when applicable. Other sources used in the Splunk detection need to be manually mapped to Microsoft Sentinel or Log Analytics tables.
 
@@ -105,15 +105,15 @@ Known sources such as Splunk CIM schemas and data models are automatically mappe
 
     - **Name** is the original Splunk detection rule name.
     - **Translation Type** indicates if a Sentinel OOTB analytics rule matches the Splunk detection logic.
-    - **Translation State** gives feedback about how completely the syntax of a Splunk detection has been translated to KQL. The translation state doesn't test the rule or verify the data source.
-        - **Fully Translated** - Queries in this rule were fully translated to KQL but haven't tested the rule logic or data source.
+    - **Translation State** gives feedback about how completely the syntax of a Splunk detection was translated to KQL. The translation state doesn't test the rule or verify the data source.
+        - **Fully Translated** - Queries in this rule were fully translated to KQL but the rule logic and data source weren't validated.
         - **Partially Translated** - Queries in this rule weren't fully translated to KQL.
         - **Not Translated** - Indicates an error in translation.
         - **Manually Translated** - This status is set when any rule is edited and saved.
 
     :::image type="content" source="media/siem-migration/configure-rules.png" alt-text="Screenshot showing the results of the automatic rule mapping." lightbox="media/siem-migration/configure-rules.png":::
 
-1. Highlight a rule to resolve translation and select **Edit**. When you are satisfied with the results, select **Save Changes**. 
+1. Highlight a rule to resolve translation and select **Edit**. When you're satisfied with the results, select **Save Changes**. 
 
 1. Switch on the **Deploy** toggle for analytics rules you want to deploy.
 
