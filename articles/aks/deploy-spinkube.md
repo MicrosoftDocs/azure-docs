@@ -37,7 +37,7 @@ You must have the following tools installed on your machine to follow this tutor
 Configure `kubectl` to connect to your Kubernetes cluster using the [az aks get-credentials][az-aks-get-credentials] command. The following command:
 
 ```azurecli-interactive
-az aks get-credentials -n myakscluster -g myresourcegroup
+az aks get-credentials -n <your cluster name> -g <your resource group name>
 ```
 
 ### Deploy `cert-manager`
