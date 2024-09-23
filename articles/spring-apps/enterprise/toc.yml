@@ -10,6 +10,8 @@ items:
     href: overview.md
   - name: What's new
     href: whats-new.md
+  - name: Sunset announcement
+    href: sunset-announcement.md    
   - name: Compare available plans
     href: plan-comparison.md
   - name: Manage costs
