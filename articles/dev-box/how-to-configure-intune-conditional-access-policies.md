@@ -1,5 +1,5 @@
 ---
-title: Microsoft Intune conditional access policies for dev boxes
+title: Microsoft Intune Conditional Access policies for dev boxes
 titleSuffix: Microsoft Dev Box
 description: Learn how to configure Microsoft Intune conditional access policies to manage access to dev boxes, ensuring your organization's devices remain secure.
 services: dev-box
@@ -13,7 +13,7 @@ ms.topic: how-to
 
 ---
 
-# "Configure Conditional Access Policies for Microsoft Dev Box"
+# Configure Conditional Access policies for Microsoft Dev Box
 
 Conditional access is the protection of regulated content in a system by requiring certain criteria to be met before granting access to the
 content. Conditional access policies at their simplest are if-then statements. If a user wants to access a resource, then they must
@@ -26,20 +26,17 @@ boxes.
 
 -   **Device-based Conditional Access**
     -   Microsoft Intune and Microsoft Entra ID work together to make sure only managed and compliant devices can Dev Box. Policies include Conditional Access based on network access control.
-
     -   Learn more about [device-based Conditional Access with Intune](/mem/intune/protect/create-conditional-access-intune)
 
 -   **App-based Conditional Access**
 
     -   Intune and Microsoft Entra ID work together to make sure only dev box users can access managed apps like the developer portal.
-
     -   Learn more about [app-based Conditional Access with Intune](/mem/intune/protect/app-based-conditional-access-intune).
 
 ## Prerequisites
 
--   [Microsoft Intune licenses](/mem/intune/fundamentals/licenses).
-
--   [Microsoft Entra ID P1 licenses](/entra/identity/conditional-access/overview#license-requirements).
+-   [Microsoft Intune licenses](/mem/intune/fundamentals/licenses)
+-   [Microsoft Entra ID P1 licenses](/entra/identity/conditional-access/overview#license-requirements)
 
 ## Provide access to Dev Box
 
@@ -115,8 +112,7 @@ Follow these steps:
 
 Confirm that your policy works as expected by using Report-only mode. Confirm that the policy is working correctly, and then enable it.
 
-For information on configuring conditional access policy to block access, see: [Conditional Access - Block access by location - Microsoft
-Entra ID | Microsoft Learn](/entra/identity/conditional-access/howto-conditional-access-policy-location).
+For information on configuring conditional access policy to block access, see [Conditional Access: Block access by location](/entra/identity/conditional-access/howto-conditional-access-policy-location).
 
 ## Scenario 2: Allow access to the developer portal
 
@@ -126,8 +122,7 @@ You want to allow developer access to the developer portal only. Developers shou
 
 Follow these steps:
 
-1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com/) as at least a [Conditional Access
-    Administrator](/entra/identity/role-based-access-control/permissions-reference#conditional-access-administrator).
+1. Sign in to the [Microsoft Entra admin center](https://entra.microsoft.com/) as at least a [Conditional Access Administrator](/entra/identity/role-based-access-control/permissions-reference#conditional-access-administrator).
 
 2. Browse to **Protection** > **Conditional Access** > **Policies**.
 
@@ -151,9 +146,8 @@ Follow these steps:
 
 Confirm that your policy works as expected by using Report-only mode. Confirm that the policy is working correctly, and then enable it.
 
-**Caution**
-
-Misconfiguration of a block policy can lead to organizations being locked out. You can configure [accounts for emergency access](/entra/identity/role-based-access-control/security-emergency-access) to prevent tenant-wide account lockout. In the unlikely scenario all administrators are locked out of your tenant, your emergency-access administrative account can be used to log into the tenant to take steps
+> [!Caution]
+> Misconfiguration of a block policy can lead to organizations being locked out. You can configure [accounts for emergency access](/entra/identity/role-based-access-control/security-emergency-access) to prevent tenant-wide account lockout. In the unlikely scenario all administrators are locked out of your tenant, your emergency-access administrative account can be used to log into the tenant to take steps
 to recover access.
 
 ## Apps required for Dev Box
@@ -186,8 +180,6 @@ For more information on configuring conditional access policies, see: [Condition
 
 ## Related content
 
-- [Users and groups in Conditional Access policy - Microsoft Entra ID | Microsoft Learn](/entra/identity/conditional-access/concept-conditional-access-users-groups)
-
-- [Cloud apps, actions, and authentication context in Conditional Access policy - Microsoft Entra ID | Microsoft Learn](/entra/identity/conditional-access/concept-conditional-access-cloud-apps)
-
-- [Network in Conditional Access policy - Microsoft Entra ID | Microsoft Learn](/entra/identity/conditional-access/concept-assignment-network)
+- [Users and groups in Conditional Access policy](/entra/identity/conditional-access/concept-conditional-access-users-groups)
+- [Cloud apps, actions, and authentication context in Conditional Access policy](/entra/identity/conditional-access/concept-conditional-access-cloud-apps)
+- [Network in Conditional Access policy](/entra/identity/conditional-access/concept-assignment-network)
