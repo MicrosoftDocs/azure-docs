@@ -5,10 +5,9 @@ description: Use Azure Blob Storage lifecycle management policies to create auto
 author: normesta
 
 ms.author: normesta
-ms.date: 05/01/2024
+ms.date: 09/23/2024
 ms.service: azure-blob-storage
 ms.topic: conceptual
-ms.reviewer: yzheng
 ms.custom: references_regions, engagement-fy23
 ---
 
@@ -186,9 +185,11 @@ The run conditions are based on age. Current versions use the last modified time
 
 ## Lifecycle policy runs
 
-When you configure or edit a lifecycle policy., it can take up to 24 hours for changes to go into effect and for the first execution to start. The time taken for policy actions to complete depends on the number of blobs evaluated and operated on.
+When you add or edit the rules of a lifecycle policy, it can take up to 24 hours for changes to go into effect and for the first execution to start. 
 
-If you disable a policy, then no new policy runs will be scheduled, but if a run is already in progress, that run will continue until it completes and you're billed for any actions that are required to complete the run. See [Regional availability and pricing](#regional-availability-and-pricing).  
+Policy runs are scheduled to run one time per day (_24 hours_). The time taken for policy actions to complete depends on the number of blobs evaluated and operated on. Therefore, if the run takes longer than 24 hours to complete, then that run continues without interruption. After the run completes, it is scheduled to run again within 24 hours of the completion time.
+
+If you edit, delete, or disable a rule while a policy run is already in progress, then that run terminates within 15 minutes, and runs again within 24 hours. If you disable or delete all rules in a policy, then the policy becomes inactive, and no new policy runs will be scheduled. 
 
 ### Lifecycle policy completed event
 
