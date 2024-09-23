@@ -12,9 +12,9 @@ ms.devlang: azurecli
 
 # Quickstart: Create an Azure Route Server using the Azure CLI 
 
-In this quickstart, you learn how to create an Azure Route Server to peer with a Network Virtual Appliance (NVA) in your virtual network using the Azure CLI.
+In this quickstart, you learn how to create an Azure Route Server to peer with a network virtual appliance (NVA) in your virtual network using the Azure CLI.
 
-:::image type="content" source="media/quickstart-configure-route-server-portal/environment-diagram.png" alt-text="Diagram of Route Server deployment environment using the Azure CLI." lightbox="media/quickstart-configure-route-server-portal/environment-diagram.png":::
+:::image type="content" source="media/quickstart-create-route-server-portal/environment-diagram.png" alt-text="Diagram of Route Server deployment environment using the Azure CLI." lightbox="media/quickstart-create-route-server-portal/environment-diagram.png":::
 
 [!INCLUDE [route server preview note](../../includes/route-server-note-preview-date.md)]
 

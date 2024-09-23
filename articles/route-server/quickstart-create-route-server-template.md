@@ -74,7 +74,7 @@ To find more templates, see [Azure Quickstart Templates](https://azure.microsoft
 
     It takes about 20 minutes to deploy the template. When completed, the output is similar to:
 
-    :::image type="content" source="./media/quickstart-configure-template/powershell-output.png" alt-text="Route Server Resource Manager template PowerShell deployment output.":::
+    :::image type="content" source="./media/quickstart-create-route-server-template/powershell-output.png" alt-text="Route Server Resource Manager template PowerShell deployment output.":::
 
 Azure PowerShell is used to deploy the template. In addition to Azure PowerShell, you can also use the Azure portal, Azure CLI, and REST API. To learn other deployment methods, see [Deploy templates](../azure-resource-manager/templates/deploy-portal.md).
 
@@ -88,13 +88,13 @@ Azure PowerShell is used to deploy the template. In addition to Azure PowerShell
 
 1. The resource group should contain only the virtual network:
 
-     :::image type="content" source="./media/quickstart-configure-template/resource-group.png" alt-text="Route Server deployment resource group with virtual network.":::
+     :::image type="content" source="./media/quickstart-create-route-server-template/resource-group.png" alt-text="Route Server deployment resource group with virtual network.":::
 
 1. Go to https://aka.ms/routeserver.
 
 1. Select the Route Server named **routeserver** to verify that the deployment was successful.
 
-    :::image type="content" source="./media/quickstart-configure-template/deployment.png" alt-text="Screenshot of Route Server overview page.":::
+    :::image type="content" source="./media/quickstart-create-route-server-template/deployment.png" alt-text="Screenshot of Route Server overview page.":::
 
 ## Clean up resources
 
@@ -108,13 +108,5 @@ Remove-AzResourceGroup -Name <your resource group name>
 
 ## Next step
 
-In this quickstart, you created a:
-
-- Virtual Network
-- Subnet
-- Route Server
-
-After you create the Azure Route Server, continue to learn about how Azure Route Server interacts with ExpressRoute and VPN Gateways: 
-
 > [!div class="nextstepaction"]
-> [Azure ExpressRoute and Azure VPN support](expressroute-vpn-support.md)
+> [Configure peering between a route server and NVA](peer-route-server-with-virtual-appliance.md)

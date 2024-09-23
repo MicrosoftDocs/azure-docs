@@ -11,9 +11,9 @@ ms.custom: mode-ui
 
 # Quickstart: Create an Azure Route Server using the Azure portal
 
-In this quickstart, you learn how to create an Azure Route Server to peer with a Network Virtual Appliance (NVA) in your virtual network using the Azure portal.
+In this quickstart, you learn how to create an Azure Route Server to peer with a network virtual appliance (NVA) in your virtual network using the Azure portal.
 
-:::image type="content" source="media/quickstart-configure-route-server-portal/environment-diagram.png" alt-text="Diagram of Route Server deployment environment using the Azure portal." lightbox="media/quickstart-configure-route-server-portal/environment-diagram.png":::
+:::image type="content" source="media/quickstart-create-route-server-portal/environment-diagram.png" alt-text="Diagram of Route Server deployment environment using the Azure portal." lightbox="media/quickstart-create-route-server-portal/environment-diagram.png":::
 
 If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
@@ -33,7 +33,7 @@ In this section, you create a route server.
 
 1. In the search box at the top of the portal, enter ***route server***, and select **Route Server** from the search results. 
 
-    :::image type="content" source="./media/quickstart-configure-route-server-portal/portal-search.png" alt-text="Screenshot of searching for Route Server in the Azure portal." lightbox="./media/quickstart-configure-route-server-portal/portal-search.png":::
+    :::image type="content" source="./media/quickstart-create-route-server-portal/portal-search.png" alt-text="Screenshot of searching for Route Server in the Azure portal." lightbox="./media/quickstart-create-route-server-portal/portal-search.png":::
 
 1. On the **Route Servers** page, select **+ Create**. 
 
@@ -55,7 +55,7 @@ In this section, you create a route server.
     | Public IP address | Select **Create new**. or select an existing Standard public IP resource to assign to the Route Server. To ensure connectivity to the backend service that manages the Route Server configuration, a public IP address is required. |
     | Public IP address name | Enter ***myRouteServerVNet-ip***. A Standard public IP address is required to ensure connectivity to the backend service that manages the route server. |
 
-    :::image type="content" source="./media/quickstart-configure-route-server-portal/create-route-server.png" alt-text="Screenshot that shows the Basics tab or creating a route server." lightbox="./media/quickstart-configure-route-server-portal/create-route-server.png":::     
+    :::image type="content" source="./media/quickstart-create-route-server-portal/create-route-server.png" alt-text="Screenshot that shows the Basics tab or creating a route server." lightbox="./media/quickstart-create-route-server-portal/create-route-server.png":::     
 
 1. Select **Review + create** and then select **Create** after the validation passes.
 
@@ -81,13 +81,13 @@ In this section, you learn how to configure BGP peering with a network virtual a
 
 1. Select **Add** to add the peer.
 
-    :::image type="content" source="./media/quickstart-configure-route-server-portal/add-peer.png" alt-text="Screenshot that shows how to add the NVA to the route server as a peer." lightbox="./media/quickstart-configure-route-server-portal/add-peer.png":::
+    :::image type="content" source="./media/quickstart-create-route-server-portal/add-peer.png" alt-text="Screenshot that shows how to add the NVA to the route server as a peer." lightbox="./media/quickstart-create-route-server-portal/add-peer.png":::
 
 ## Complete the configuration on the NVA
 
 To complete the peering setup, you must configure the NVA to establish a BGP session with the route server's peer IPs and ASN. You can find the peer IPs and ASN of **myRouteServer** in the **Overview** page:
 
-:::image type="content" source="./media/quickstart-configure-route-server-portal/route-server-overview.png" alt-text="Screenshot that shows the Overview page of Route Server." lightbox="./media/quickstart-configure-route-server-portal/route-server-overview.png":::
+:::image type="content" source="./media/quickstart-create-route-server-portal/route-server-overview.png" alt-text="Screenshot that shows the Overview page of Route Server." lightbox="./media/quickstart-create-route-server-portal/route-server-overview.png":::
 
 [!INCLUDE [NVA peering note](../../includes/route-server-note-nva-peering.md)]
 
