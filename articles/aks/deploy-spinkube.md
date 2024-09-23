@@ -82,7 +82,12 @@ Once `runtime-class-manager` is installed on your AKS cluster, you must annotate
 kubectl annotate node --all kwasm.sh/kwasm-node=true
 ```
 
-After annotating the Kubernetes node(s), `runtime-class-manager` will use a Kubernetes *Job* to modify the desired node(s). After successful deployment of `containerd-shim-spin`, the node(s) will be labeled with a `kwasm.sh/kwasm-provisioned` label. 
+After annotating the Kubernetes node(s), `runtime-class-manager` will use a Kubernetes *Job* to modify the desired node(s). After successful deployment of `containerd-shim-spin`, the node(s) will be labeled with a `kwasm.sh/kwasm-provisioned` label. You can check if the desired node(s) have the `kwasm.sh/kwasm-provisioned` label assigned using the `kubectl get nodes --show-labels` command:
+
+```azurecli-interactive
+# Verify kwasm.sh/kwasm-provisioned is set on desired node(s)
+kubectl get nodes --show-labels
+```
 
 ### Deploy the `spin-operator`
 
