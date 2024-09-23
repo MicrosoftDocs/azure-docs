@@ -4,7 +4,7 @@ description: Learn how to sign your Azure public DNS zone with DNSSEC.
 author: greg-lindsay
 ms.service: azure-dns
 ms.topic: how-to
-ms.date: 09/04/2024
+ms.date: 09/23/2024
 ms.author: greglin
 ---
 
@@ -65,7 +65,17 @@ To sign your zone with DNSSEC using the Azure portal:
 Sign a zone using the Azure CLI:
 
 ```azurepowershell-interactive
-commands here
+# Ensure you are logged in to your Azure account
+az login
+
+# Select the appropriate subscription
+az account set --subscription "your-subscription-id"
+
+# Enable DNSSEC for the DNS zone
+az network dns dnssec-config create --resource-group "your-resource-group" --zone-name "adatum.com"
+
+# Verify the DNSSEC configuration
+az network dns dnssec-config show --resource-group "your-resource-group" --zone-name "adatum.com"
 ```
 
 # [PowerShell](#tab/sign-powershell)
@@ -73,7 +83,17 @@ commands here
 Sign a zone using PowerShell:
 
 ```PowerShell
-commands here
+# Ensure you are logged in to your Azure account
+az login
+
+# Select the appropriate subscription
+az account set --subscription "your-subscription-id"
+
+# Enable DNSSEC for the DNS zone
+az network dns dnssec-config create --resource-group "your-resource-group" --zone-name "adatum.com"
+
+# Verify the DNSSEC configuration
+az network dns dnssec-config show --resource-group "your-resource-group" --zone-name "adatum.com"
 ```
 
 ## Next steps
