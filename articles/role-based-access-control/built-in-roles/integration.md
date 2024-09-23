@@ -578,6 +578,55 @@ Has read-only access to entities in the workspace. This role should be assigned 
 }
 ```
 
+## App Configuration Contributor
+
+Grants permission for all management operations, except purge, for App Configuration resources.
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.AppConfiguration](../permissions/integration.md#microsoftappconfiguration)/* |  |
+> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/alertRules/* | Create and manage a classic metric alert |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/* | Create and manage a deployment |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
+> | **NotActions** |  |
+> | [Microsoft.AppConfiguration](../permissions/integration.md#microsoftappconfiguration)/locations/deletedConfigurationStores/purge/action | Purge the specified deleted configuration store. |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Grants permission for all management operations, except purge, for App Configuration resources.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/fe86443c-f201-4fc4-9d2a-ac61149fbda0",
+  "name": "fe86443c-f201-4fc4-9d2a-ac61149fbda0",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.AppConfiguration/*",
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Insights/alertRules/*",
+        "Microsoft.Resources/deployments/*",
+        "Microsoft.Resources/subscriptions/resourceGroups/read"
+      ],
+      "notActions": [
+        "Microsoft.AppConfiguration/locations/deletedConfigurationStores/purge/action"
+      ],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "App Configuration Contributor",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
 ## App Configuration Data Owner
 
 Allows full access to App Configuration data.
@@ -661,6 +710,53 @@ Allows read access to App Configuration data.
     }
   ],
   "roleName": "App Configuration Data Reader",
+  "roleType": "BuiltInRole",
+  "type": "Microsoft.Authorization/roleDefinitions"
+}
+```
+
+## App Configuration Reader
+
+Grants permission for read operations for App Configuration resources.
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | [Microsoft.AppConfiguration](../permissions/integration.md#microsoftappconfiguration)/*/read |  |
+> | [Microsoft.Authorization](../permissions/management-and-governance.md#microsoftauthorization)/*/read | Read roles and role assignments |
+> | [Microsoft.Insights](../permissions/monitor.md#microsoftinsights)/alertRules/read | Read a classic metric alert |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/deployments/read | Gets or lists deployments. |
+> | [Microsoft.Resources](../permissions/management-and-governance.md#microsoftresources)/subscriptions/resourceGroups/read | Gets or lists resource groups. |
+> | **NotActions** |  |
+> | *none* |  |
+> | **DataActions** |  |
+> | *none* |  |
+> | **NotDataActions** |  |
+> | *none* |  |
+
+```json
+{
+  "assignableScopes": [
+    "/"
+  ],
+  "description": "Grants permission for read operations for App Configuration resources.",
+  "id": "/providers/Microsoft.Authorization/roleDefinitions/175b81b9-6e0d-490a-85e4-0d422273c10c",
+  "name": "175b81b9-6e0d-490a-85e4-0d422273c10c",
+  "permissions": [
+    {
+      "actions": [
+        "Microsoft.AppConfiguration/*/read",
+        "Microsoft.Authorization/*/read",
+        "Microsoft.Insights/alertRules/read",
+        "Microsoft.Resources/deployments/read",
+        "Microsoft.Resources/subscriptions/resourceGroups/read"
+      ],
+      "notActions": [],
+      "dataActions": [],
+      "notDataActions": []
+    }
+  ],
+  "roleName": "App Configuration Reader",
   "roleType": "BuiltInRole",
   "type": "Microsoft.Authorization/roleDefinitions"
 }
