@@ -17,23 +17,23 @@ If you want to migrate your Splunk Observability deployment, learn more about ho
 
 ## Audit rules
 
-Microsoft Sentinel uses machine learning analytics to create high-fidelity and actionable incidents. Some of your existing detections may be redundant in Microsoft Sentinel. Therefore, don't migrate all of your detection and analytics rules blindly. Review these considerations as you identify your existing detection rules.
+Microsoft Sentinel uses machine learning analytics to create high-fidelity and actionable incidents. Some of your existing Splunk detections may be redundant in Microsoft Sentinel, so don't migrate them all blindly. Review these considerations as you identify your existing detection rules.
 
 - Make sure to select use cases that justify rule migration, considering business priority and efficiency.
 - Check that you [understand Microsoft Sentinel rule types](detect-threats-built-in.md). 
 - Check that you understand the [rule terminology](#compare-rule-terminology).
 - Review outdated rules that don't have alerts for the past 6-12 months, and determine whether they're still relevant.
 - Eliminate low-level threats or alerts that you routinely ignore.
-- Confirm connected data sources and review your data connection methods. Microsoft Sentinel Analytics require that the data type is present in the Log Analytics Workspace before a rule is enabled. Revisit data collection conversations to ensure data depth and breadth across the use cases you plan to detect. Then use the [SIEM migration experience](siem-migration.md) to ensure the data sources are mapped appropriately.
+- Confirm connected data sources and review your data connection methods. Microsoft Sentinel Analytics require that the data type is present in the Log Analytics workspace before a rule is enabled. Revisit data collection conversations to ensure data depth and breadth across the use cases you plan to detect. Then use the [SIEM migration experience](siem-migration.md) to ensure the data sources are mapped appropriately.
 
 ## Migrate rules
 
-After the Splunk detections you want to migrate are identified, review these considerations for migrating them to Microsoft Sentinel analytics rules.
+After you identify the Splunk detections to migrate, review these considerations for the migration process:
 
-- Compare the existing functionality of Microsoft Sentinel's OOTB analytics rules with your current use cases. Use the [SIEM migration experience](siem-migration.md) to see which Splunk detections are automatically converted to the OOTB templates.
-- Translate detections that don't align to OOTB analytics rules. The best way to translate Splunk detections is with the [SIEM migration experience](siem-migration.md).
-- Discover more algorithms for your use case by exploring community resources such as the [SOC Prime Threat Detection Marketplace](https://my.socprime.com/platform-overview/).
-- Manually translate detections if built-in rules aren't available or aren't automatically translated. Create new KQL queries and review the [rules mapping](#map-and-compare-rule-samples). 
+- Compare the existing functionality of Microsoft Sentinel's OOTB analytics rules with your current use cases. Use the [SIEM migration experience](siem-migration.md) to see which Splunk detections are automatically converted to OOTB templates.
+- Translate detections that don't align to OOTB analytics rules. The best way to translate Splunk detections automatically is with the [SIEM migration experience](siem-migration.md).
+- Discover more algorithms for your use cases by exploring community resources such as the [SOC Prime Threat Detection Marketplace](https://my.socprime.com/platform-overview/).
+- Manually translate detections if built-in rules aren't available or aren't automatically translated. Create the new KQL queries and review the [rules mapping](#map-and-compare-rule-samples). 
 
 For more information, see [best practices for migrating detection rules](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/best-practices-for-migrating-detection-rules-from-arcsight/ba-p/2216417).
 
@@ -49,11 +49,11 @@ For more information, see [best practices for migrating detection rules](https:/
 
 1. Verify whether your detections are available as OOTB templates in Microsoft Sentinel:
     
-    - **Use the SIEM migration experience** to automate translation and migration and installation of the OOTB templates.
+    - **Use the SIEM migration experience** to automate translation and installation of the OOTB templates.
 
         For more information, see [Use the SIEM migration experience](siem-migration.md).
 
-    - **If the built-in rules are sufficient**, create rules for your own workspace with OOTB rule templates.
+    - **If you have use cases not reflected in the detections**, create rules for your own workspace with OOTB rule templates.
 
         In Microsoft Sentinel, go to the **Content hub**.
 
