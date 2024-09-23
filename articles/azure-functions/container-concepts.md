@@ -37,26 +37,25 @@ The degree to which various features and behaviors of Azure Functions are suppor
 | Product support | Yes | No | Yes |Yes | No  |
 | Functions portal integration | Yes | No | Yes | Yes | No |
 | [Event-driven scaling](./event-driven-scaling.md) | Yes<sup>5</sup> | Yes ([scale rules](../container-apps/scale-app.md#scale-rules)) | Yes | No | No |
-| Maximum scale (instances) | 1000<sup>1</sup> | 1000<sup>1</sup> | 100sup>2</sup> | 10-30<sup>3</sup> | varies by cluster |
+| Maximum scale (instances) | 1000<sup>1</sup> | 1000<sup>1</sup> | 100<sup>2</sup> | 10-30<sup>3</sup> | Varies by cluster |
 | [Scale-to-zero instances](./event-driven-scaling.md#scale-in-behaviors) | Yes | Yes | No | No | KEDA |
-| Deployment: Core Tools | [`func azurecontainerapps`](./functions-core-tools-reference.md#func-azurecontainerapps-deploy) | No | No | No | [`func kubernetes`](./functions-core-tools-reference.md#func-kubernetes-deploy) |
-| Multiple [revisions](../container-apps/revisions.md) | No | Yes |No |No |No |
+| Execution time limit | Unbounded<sup>6</sup>| Unbounded<sup>6</sup> | Unbounded<sup>7</sup> | Unbounded<sup>8</sup> | None |
+| [Core Tools deployment](./functions-run-local.md#deploy-containers) | [`func azurecontainerapps`](./functions-core-tools-reference.md#func-azurecontainerapps-deploy) | No | No | No | [`func kubernetes`](./functions-core-tools-reference.md#func-kubernetes-deploy) |
+| [Revisions](../container-apps/revisions.md) | No | Yes |No |No |No |
 | [Deployment slots](./functions-deployment-slots.md) |No |No |Yes |Yes |No |
-| [Advanced tools (Kudu)](./functions-how-to-use-azure-function-app-settings.md#advanced-tools-kudu) | No | No | Yes | Yes | No |
 | [Streaming logs](./streaming-logs.md) | Not currently available<sup>4</sup> | [Yes](../container-apps/log-streaming.md) | Yes | Yes | No |
-| Console access | Not currently available<sup>4</sup> | [Yes](../container-apps/container-console.md) | Yes([Kudu](./functions-how-to-custom-container.md#enable-ssh-connections)) | Yes ([Kudu](./functions-how-to-custom-container.md#enable-ssh-connections)) | Yes ([`kubctl`](https://kubernetes.io/docs/reference/kubectl/)) |
-| Cold start mitigation | Minimum replicas | DIY mode | Can configure min instances to avoid cold start issues | Can configure min instances to avoid cold start issues | DIY mode |
-| [Built-in authentication](../app-service/overview-authentication-authorization.md) | Not currently available<sup>4</sup> | Yes | Yes | Yes | No |
+| [Console access](../container-apps/container-console.md) | Not currently available<sup>4</sup> | Yes | Yes (using [Kudu](./functions-how-to-custom-container.md#enable-ssh-connections)) | Yes (using [Kudu](./functions-how-to-custom-container.md#enable-ssh-connections)) | Yes (in pods [using `kubctl`](https://kubernetes.io/docs/reference/kubectl/)) |
+| Cold start mitigation | Minimum replicas | [Scale rules](../container-apps/scale-app.md#scale-rules) | [Always-ready/pre-warmed instances](functions-premium-plan.md#eliminate-cold-starts) | n/a | n/a |
+| [App Service authentication](../app-service/overview-authentication-authorization.md) | Not currently available<sup>4</sup> | Yes | Yes | Yes | No |
 | [Custom domain names](../app-service/app-service-web-tutorial-custom-domain.md) | Not currently available<sup>4</sup> | Yes | Yes | Yes | No |
 | [Private key certificates](../app-service/overview-tls.md) | Not currently available<sup>4</sup> | Yes | Yes | Yes | No |
-| Diagnostics | Not currently available<sup>4</sup> | [Yes](../container-apps/troubleshooting.md#use-the-diagnose-and-solve-problems-tool) | Yes | Yes | No |
+| Virtual networks | Yes | Yes | Yes | Yes | Yes |
+| Availability zones | Yes | Yes | Yes | Yes | Yes |
+| Diagnostics | Not currently available<sup>4</sup> | [Yes](../container-apps/troubleshooting.md#use-the-diagnose-and-solve-problems-tool) | [Yes](./functions-diagnostics.md) | [Yes](./functions-diagnostics.md) | No |
 | Dedicated hardware | Yes ([workload profiles](../container-apps/workload-profiles-overview.md)) | Yes ([workload profiles](../container-apps/workload-profiles-overview.md)) | No | Yes | Yes | 
 | Dedicated GPUs | Yes ([workload profiles](../container-apps/workload-profiles-overview.md)) | Yes ([workload profiles](../container-apps/workload-profiles-overview.md)) | No | No | Yes | 
 | [Configurable memory/CPU count](../container-apps) | Yes | Yes | No | No | Yes |
-| Virtual networks | Yes | Yes | Yes | Yes | Yes |
-| Availability zones | Yes | Yes | Yes | Yes | Yes |
-| Execution time limit | Unbounded<sup>6</sup>| Unbounded<sup>6</sup> | Unbounded<sup>7</sup> | Unbounded<sup>8</sup> | None |
-| "Free grant" option | [Yes](../container-apps/billing#consumption-plan.md) | [Yes](../container-apps/billing#consumption-plan.md) | No | No | No |
+| "Free grant" option | [Yes](../container-apps/billing.md#consumption-plan.md) | [Yes](../container-apps/billing.md#consumption-plan.md) | No | No | No |
 | Pricing details | [Container Apps billing](../container-apps/billing.md) | [Container Apps billing](../container-apps/billing.md) | [Premium plan billing](./functions-premium-plan.md#billing) | [Dedicated plan billing](./dedicated-plan.md#billing) | [AKS pricing](/azure/aks/free-standard-pricing-tiers) | 
 
 1. On Container Apps, the default is 10 instances, but you can set the [maximum number of replicas](../container-apps/scale-app.md#scale-definition), which has an overall maximum of 1000. This setting is honored as long as there's enough cores quota available. When you create your function app from the Azure portal, you're limited to 300 instances.
