@@ -31,10 +31,10 @@ Before you create a [connector](./concept-connector.md) for private IP networkin
 | Setting              | Value                                       |
 |:---------------------|:--------------------------------------------|
 | **Role**             | **Network Contributor**                     |
-| **Assign access to** | **User, group, or service principal**       |
+| **Assign access to** | **Resource group**       |
 | **Members**          | **Azure Modeling and Simulation Workbench** |
 
-    [!INCLUDE [azure-hpc-workbench-alert](includes/azure-hpc-workbench-alert.md)]
+[!INCLUDE [azure-hpc-workbench-alert](includes/azure-hpc-workbench-alert.md)]
 
 ## Create the private network connector
 
@@ -48,7 +48,7 @@ Each chamber can have only one connector. If you have a public IP connector or o
 1. Choose whether the copy/paste permission should be enabled for the chamber. You can learn about security boundary implications copy and paste in the [Enable copy/paste in Azure Modeling and Simulation Workbench](how-to-guide-enable-copy-paste.md) article.
 1. Under **Network Access**, select **VPN** in **Connect on-premises network**.
 1. In **Virtual Network**, select the virtual network you designated or created in [Create or designate a virtual network](#create-or-designate-a-virtual-network) earlier.
-1. Select the *default* **Subnet.
+1. Select the *default* **Subnet**.
     :::image type="content" source="media/howtoguide-private-network/create-private-network.png" alt-text="Screenshot of chamber connector with VPN and Review+Create button highlighted in red.":::
 1. Select **Review + create**.
 1. If validation passes, select **Create**. Private networking connectors take approximately 30 minutes to deploy.
