@@ -83,13 +83,14 @@ For detailed prerequisites and steps to assign a role to users and groups, see [
 > [!NOTE]
 > To streamline access configuration for new users, we recommend that you assign the role to a Microsoft Entra group and configure a dynamic group membership rule. To learn more, see [Create or update a dynamic group in Microsoft Entra ID](/entra/identity/users/groups-create-rule).
 
-## Steps for developers to connect to an API center 
+## Steps to access the platform API catalog in Visual Studio Code 
 
-Developers in the enterprise can follow these steps to connect and sign in to an API center from the Visual Studio code extension.
+Developers in the enterprise can follow these steps to connect and sign in to view a platform API catalog using the Visual Studio code extension.
 
 1. Install the pre-release version of the [Azure API Center extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=apidev.azure-api-center) for Visual Studio Code. 
 
 1. In Visual Studio Code, in the Activity Bar on the left, select API Center.
+
     :::image type="content" source="media/enable-platform-api-catalog-vscode-extension/api-center-activity-bar.png" alt-text="Screenshot of the API Center icon in the Activity Bar.":::
 
 1. Use the **Ctrl+Shift+P** keyboard shortcut to open the Command Palette. Type **Azure API Center: Connect to an API Center** and hit **Enter**.
@@ -114,9 +115,9 @@ Developers in the enterprise can follow these steps to connect and sign in to an
 
 1. Repeat the preceding steps to connect to more API centers, if access is configured.
 
-## Discover and consume APIs
+## Discover and consume APIs in the catalog
 
-The Azure API Center platform API catalog helps enterprise developers discover API details and start API client development. Developers can access the following features by right-clicking on an API definition in the platform API catalog:
+The platform API catalog helps enterprise developers discover API details and start API client development. Developers can access the following features by right-clicking on an API definition in the platform API catalog:
 
 * **Export API specification document** - Export an API specification from a definition and then download it as a file
 * **Generate API client** - Use the Microsoft Kiota extension to generate an API client for their favorite language
@@ -156,6 +157,6 @@ After re-registering the resource provider, try again to request API permissions
 
 ## Related content
 
-* [Get started with the Azure API Center extension for Visual Studio Code](use-vscode-extension.md)
+* [Build and register APIs with the Azure API Center extension for Visual Studio Code](build-register-apis-vscode-extension.md)
 * [Best practices for Azure RBAC](../role-based-access-control/best-practices.md)
 * [Register a resource provider](../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider)

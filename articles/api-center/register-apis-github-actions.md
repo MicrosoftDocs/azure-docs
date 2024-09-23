@@ -138,7 +138,7 @@ To configure the workflow file:
 1. Add this workflow file in the  `/.github/workflows/` path in your GitHub repository.
 
 > [!TIP]
-> Using the [Visual Studio Code extension](use-vscode-extension.md) for Azure API Center, you can generate a starting workflow file by running an extension command. In the Command Palette, select **Azure API Center: Register APIs**. Select **CI/CD** > **GitHub**. You can then modify the file for your scenario.
+> Using the [Visual Studio Code extension](build-register-apis-vscode-extension.md) for Azure API Center, you can generate a starting workflow file by running an extension command. In the Command Palette, select **Azure API Center: Register APIs**. Select **CI/CD** > **GitHub**. You can then modify the file for your scenario.
 
 ```yml
 name: Register API Definition to Azure API Center

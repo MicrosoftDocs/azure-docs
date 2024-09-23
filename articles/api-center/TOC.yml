@@ -39,7 +39,7 @@
       - name: Import APIs from API Management
         href: import-api-management-apis.md
       - name: Build and register APIs - VS Code extension
-        href: use-vscode-extension.md
+        href: build-register-apis-vscode-extension.md
       - name: Register APIs - GitHub Actions
         href: register-apis-github-actions.md
 - name: API governance
@@ -57,7 +57,7 @@
 - name: API discovery and consumption
   items:
       - name: Enable platform API catalog - VS Code extension
-        href: enable-data-view-vscode-extension.md
+        href: enable-platform-api-catalog-vscode-extension.md
       - name: Self-host Azure API Center portal
         href: enable-api-center-portal.md
       - name: Check API calls use minimal permissions with Dev Proxy

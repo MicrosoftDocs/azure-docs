@@ -35,7 +35,7 @@ To build, discover, explore, and consume APIs in your [API center](overview.md),
 * [Azure API Center extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=apidev.azure-api-center)
 
     > [!NOTE]
-    > Where noted, certain features are available only in the extension's pre-release version.[!INCLUDE [vscode-extension-prerelease-features](includes/vscode-extension-prerelease-features.md)]
+    > Where noted, certain features are available only in the extension's pre-release version. [!INCLUDE [vscode-extension-prerelease-features](includes/vscode-extension-prerelease-features.md)]
     
 The following Visual Studio Code extensions are optional and needed only for certain scenarios as indicated:
 
