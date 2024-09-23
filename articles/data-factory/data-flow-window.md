@@ -7,7 +7,7 @@ ms.author: makromer
 ms.subservice: data-flows
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 05/15/2024
+ms.date: 09/23/2024
 ---
 
 # Window transformation in mapping data flow
