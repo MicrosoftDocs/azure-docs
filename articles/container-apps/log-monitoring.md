@@ -99,7 +99,7 @@ ContainerAppSystemLogs_CL
 | take 100
 ```
 
-For more information regarding Log Analytics and log queries, see the [Log Analytics tutorial](../azure-monitor/logs/log-analytics-tutorial.md).
+For more information regarding Log Analytics and log queries, see the [Log Analytics tutorial](/azure/azure-monitor/logs/log-analytics-tutorial).
 
 ### Azure CLI/PowerShell
 

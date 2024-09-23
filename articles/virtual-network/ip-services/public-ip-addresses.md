@@ -107,8 +107,8 @@ A public IP's availability zone can't be changed after the public IP's creation.
 In regions without availability zones, all public IP addresses are created as nonzonal. Public IP addresses created in a region that is later upgraded to have availability zones remain non-zonal.  
 
 > [!IMPORTANT]
-> We are updating Standard non-zonal IPs to be zone-redundant by default on a region by region basis. This means that in the following 12 regions, all IPs created (except zonal) are zone-redundant.
-> Region availability: Central Canada, Central Poland, Central Israel, Central France, Central Qatar, East Norway, Italy North, Sweden Central, South Africa North, South Brazil, West Central Germany, West US 2.
+> We are updating Standard non-zonal IPs to be zone-redundant by default on a region by region basis. This means that in the following regions, all IPs created (except zonal) are zone-redundant.
+> Region availability: Central Canada, Central Poland, Central Israel, Central France, Central Qatar, East Asia, East US 2, East Norway, Italy North, Sweden Central, South Africa North, South Brazil, West Central Germany, West US 2.
 
 ## Domain Name Label
 
